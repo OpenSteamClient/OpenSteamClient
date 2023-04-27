@@ -23,6 +23,9 @@ A partially open-source Steam client for Linux.
 - Lots of debug and placeholder things in UI
 - Download queue 
 - Missing "critical" features like Friends and game artwork
+- Steam cloud not supported yet
+- Shader management not supported yet
+
 
 # Screenshots
 ![image](https://user-images.githubusercontent.com/32398752/234956475-9cfbeaf1-e271-45e0-bd25-5e83d9e9d779.png)
