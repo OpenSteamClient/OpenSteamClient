@@ -59,7 +59,7 @@ install=
 # Changelog, too much work to include
 changelog=
 
-source=("git+ssh://git@github.com/20PercentRendered/steamclient_testing.git")
+source=("git+https://github.com/20PercentRendered/opensteamclient.git")
 sha256sums=('SKIP')
 
 noextract=()
@@ -67,20 +67,20 @@ md5sums=()
 validpgpkeys=()
 
 pkgver() {
-        cd "steamclient_testing"
+        cd "opensteamclient"
         git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
 prepare() {
         pwd
-        cd "steamclient_testing"
+        cd "opensteamclient"
         pwd
         git submodule init
         git submodule update
 }
 
 build() {
-        cd "steamclient_testing"
+        cd "opensteamclient"
         pwd
         mkdir -p build
         cd build
@@ -91,14 +91,14 @@ build() {
 
 check() {
         pwd
-        cd "steamclient_testing/build"
+        cd "opensteamclient/build"
         pwd
         # We don't have a testing solution yet
 }
 
 package() {
         pwd
-        cd "steamclient_testing/build"
+        cd "opensteamclient/build"
         pwd
         DESTDIR="${pkgdir}" cmake --install .
 }
