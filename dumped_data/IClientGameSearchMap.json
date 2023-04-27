@@ -1,0 +1,76 @@
+{
+    "name": "IClientGameSearchMap",
+    "found_at": "0x22c5104",
+    "functions": [ 
+        {
+            "name": "AddGameSearchParams",
+            "argc": "3",
+            "addr": "0x55bfd0"
+        },
+        {
+            "name": "SearchForGameWithLobby",
+            "argc": "5",
+            "addr": "0x55c140"
+        },
+        {
+            "name": "SearchForGameSolo",
+            "argc": "3",
+            "addr": "0x55c2d0"
+        },
+        {
+            "name": "AcceptGame",
+            "argc": "1",
+            "addr": "0x55c460"
+        },
+        {
+            "name": "DeclineGame",
+            "argc": "1",
+            "addr": "0x55c5c0"
+        },
+        {
+            "name": "RetrieveConnectionDetails",
+            "argc": "5",
+            "addr": "0x55c720"
+        },
+        {
+            "name": "EndGameSearch",
+            "argc": "1",
+            "addr": "0x55c8c0"
+        },
+        {
+            "name": "SetGameHostParams",
+            "argc": "3",
+            "addr": "0x55ca20"
+        },
+        {
+            "name": "SetConnectionDetails",
+            "argc": "3",
+            "addr": "0x55cb90"
+        },
+        {
+            "name": "RequestPlayersForGame",
+            "argc": "4",
+            "addr": "0x55cd10"
+        },
+        {
+            "name": "HostConfirmGameStart",
+            "argc": "3",
+            "addr": "0x55ceb0"
+        },
+        {
+            "name": "CancelRequestPlayersForGame",
+            "argc": "1",
+            "addr": "0x55d030"
+        },
+        {
+            "name": "SubmitPlayerResult",
+            "argc": "6",
+            "addr": "0x55d310"
+        },
+        {
+            "name": "EndGame",
+            "argc": "3",
+            "addr": "0x55d190"
+        }
+    ]
+}

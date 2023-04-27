@@ -1,0 +1,106 @@
+{
+    "name": "IClientSystemManagerMap",
+    "found_at": "0x22c54e0",
+    "functions": [ 
+        {
+            "name": "GetSettings",
+            "argc": "2",
+            "addr": "0x571d00"
+        },
+        {
+            "name": "UpdateSettings",
+            "argc": "2",
+            "addr": "0x571e80"
+        },
+        {
+            "name": "ShutdownSystem",
+            "argc": "1",
+            "addr": "0x572010"
+        },
+        {
+            "name": "SuspendSystem",
+            "argc": "1",
+            "addr": "0x572140"
+        },
+        {
+            "name": "RestartSystem",
+            "argc": "1",
+            "addr": "0x572270"
+        },
+        {
+            "name": "FactoryReset",
+            "argc": "1",
+            "addr": "0x5723a0"
+        },
+        {
+            "name": "RebootToFactoryTestImage",
+            "argc": "2",
+            "addr": "0x572500"
+        },
+        {
+            "name": "GetDisplayBrightness",
+            "argc": "2",
+            "addr": "0x5735e0"
+        },
+        {
+            "name": "SetDisplayBrightness",
+            "argc": "2",
+            "addr": "0x573760"
+        },
+        {
+            "name": "FormatRemovableStorage",
+            "argc": "2",
+            "addr": "0x5726a0"
+        },
+        {
+            "name": "GetOSBranchList",
+            "argc": "1",
+            "addr": "0x572840"
+        },
+        {
+            "name": "GetCurrentOSBranch",
+            "argc": "1",
+            "addr": "0x5729c0"
+        },
+        {
+            "name": "SelectOSBranch",
+            "argc": "2",
+            "addr": "0x572b40"
+        },
+        {
+            "name": "GetUpdateState",
+            "argc": "2",
+            "addr": "0x572cd0"
+        },
+        {
+            "name": "CheckForUpdate",
+            "argc": "1",
+            "addr": "0x572e50"
+        },
+        {
+            "name": "ApplyUpdate",
+            "argc": "2",
+            "addr": "0x572fd0"
+        },
+        {
+            "name": "SetBackgroundUpdateCheckInterval",
+            "argc": "2",
+            "addr": "0x573160"
+        },
+        {
+            "name": "ClearAudioDefaults",
+            "argc": "2",
+            "addr": "0x5738e0"
+        },
+        {
+            "name": "RunDeckMicEnableHack",
+            "argc": "1",
+            "addr": "0x5732e0"
+        },
+        {
+            "name": "RunDeckEchoCancellationHack",
+            "argc": "1",
+            "addr": "0x573460"
+        }
+    ]
+}

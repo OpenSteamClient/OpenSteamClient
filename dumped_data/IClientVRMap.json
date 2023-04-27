@@ -1,0 +1,106 @@
+{
+    "name": "IClientVRMap",
+    "found_at": "0x22c6268",
+    "functions": [ 
+        {
+            "name": "GetCurrentHmd",
+            "argc": "1",
+            "addr": "0x5c20e0"
+        },
+        {
+            "name": "GetCompositor",
+            "argc": "1",
+            "addr": "0x5c3410"
+        },
+        {
+            "name": "GetOverlay",
+            "argc": "1",
+            "addr": "0x5c3590"
+        },
+        {
+            "name": "GetChaperone",
+            "argc": "1",
+            "addr": "0x5c3710"
+        },
+        {
+            "name": "GetSettings",
+            "argc": "1",
+            "addr": "0x5c3890"
+        },
+        {
+            "name": "GetExternalEventSource",
+            "argc": "1",
+            "addr": "0x5c3a10"
+        },
+        {
+            "name": "GetOverlayHandle",
+            "argc": "1",
+            "addr": "0x5c2260"
+        },
+        {
+            "name": "IsHmdPresent",
+            "argc": "1",
+            "addr": "0x5c23e0"
+        },
+        {
+            "name": "UpdateHmdStatus",
+            "argc": "1",
+            "addr": "0x5c2540"
+        },
+        {
+            "name": "IsVRModeActive",
+            "argc": "1",
+            "addr": "0x5c2670"
+        },
+        {
+            "name": "InitVR",
+            "argc": "5",
+            "addr": "0x5c3b90"
+        },
+        {
+            "name": "StartSteamVR",
+            "argc": "2",
+            "addr": "0x5c27d0"
+        },
+        {
+            "name": "CleanupVR",
+            "argc": "1",
+            "addr": "0x5c2940"
+        },
+        {
+            "name": "QuitAllVR",
+            "argc": "1",
+            "addr": "0x5c2a70"
+        },
+        {
+            "name": "QuitApplication",
+            "argc": "2",
+            "addr": "0x5c2ba0"
+        },
+        {
+            "name": "GetStringForHmdError",
+            "argc": "2",
+            "addr": "0x5c2cf0"
+        },
+        {
+            "name": "LaunchApplication",
+            "argc": "2",
+            "addr": "0x5c2e60"
+        },
+        {
+            "name": "GetSteamVRAppId",
+            "argc": "1",
+            "addr": "0x5c2fd0"
+        },
+        {
+            "name": "GetSteamVRPid",
+            "argc": "1",
+            "addr": "0x5c3130"
+        },
+        {
+            "name": "GetWebSecret",
+            "argc": "1",
+            "addr": "0x5c3290"
+        }
+    ]
+}

@@ -1,0 +1,309 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{A0C16874-A8AD-48C4-AE6E-DECF5C70D7FB}</ProjectGuid>
+    <RootNamespace>SteamclientAPI</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <PlatformToolset>v110</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <PlatformToolset>v110</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>11.0.60610.1</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Library Include="..\Resources\Libs\Win32\Steam.lib" />
+    <Library Include="..\Resources\Libs\Win32\steamclient.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="IClientInventory.h" />
+    <ClInclude Include="IClientShortcuts.h" />
+    <ClInclude Include="IClientProductBuilder.h" />
+    <ClInclude Include="IClientStreamClient.h" />
+    <ClInclude Include="IClientUGC.h" />
+    <ClInclude Include="InventoryCommon.h" />
+    <ClInclude Include="ISteamAppList001.h" />
+    <ClInclude Include="ISteamApps006.h" />
+    <ClInclude Include="ISteamClient013.h" />
+    <ClInclude Include="ISteamClient014.h" />
+    <ClInclude Include="ISteamClient015.h" />
+    <ClInclude Include="ISteamClient016.h" />
+    <ClInclude Include="ISteamClient017.h" />
+    <ClInclude Include="ISteamFriends014.h" />
+    <ClInclude Include="ISteamFriends015.h" />
+    <ClInclude Include="ISteamGameServer012.h" />
+    <ClInclude Include="ISteamInventory001.h" />
+    <ClInclude Include="ISteamMusic001.h" />
+    <ClInclude Include="ISteamScreenshots002.h" />
+    <ClInclude Include="ISteamUGC001.h" />
+    <ClInclude Include="ISteamUGC002.h" />
+    <ClInclude Include="ISteamUGC003.h" />
+    <ClInclude Include="ISteamUtils007.h" />
+    <ClInclude Include="MusicCommon.h" />
+    <ClInclude Include="Steamclient.h" />
+    <ClInclude Include="SteamclientAPI.h" />
+    <ClInclude Include="CCallback.h" />
+    <ClInclude Include="CGameID.h" />
+    <ClInclude Include="CSteamAPIContext.h" />
+    <ClInclude Include="CSteamID.h" />
+    <ClInclude Include="ECurrencyCode.h" />
+    <ClInclude Include="EResult.h" />
+    <ClInclude Include="EVoiceResult.h" />
+    <ClInclude Include="FriendGameInfo.h" />
+    <ClInclude Include="gameserveritem.h" />
+    <ClInclude Include="MatchMakingKeyValuePair.h" />
+    <ClInclude Include="servernetadr.h" />
+    <ClInclude Include="IClientAppManager.h" />
+    <ClInclude Include="IClientApps.h" />
+    <ClInclude Include="IClientAudio.h" />
+    <ClInclude Include="IClientBilling.h" />
+    <ClInclude Include="IClientConfigStore.h" />
+    <ClInclude Include="IClientContentServer.h" />
+    <ClInclude Include="IClientDepotBuilder.h" />
+    <ClInclude Include="IClientDeviceAuth.h" />
+    <ClInclude Include="IClientEngine.h" />
+    <ClInclude Include="IClientFriends.h" />
+    <ClInclude Include="IClientGameCoordinator.h" />
+    <ClInclude Include="IClientGameServer.h" />
+    <ClInclude Include="IClientGameServerStats.h" />
+    <ClInclude Include="IClientGameStats.h" />
+    <ClInclude Include="IClientHTTP.h" />
+    <ClInclude Include="IClientMasterServerUpdater.h" />
+    <ClInclude Include="IClientMatchmaking.h" />
+    <ClInclude Include="IClientMusic.h" />
+    <ClInclude Include="IClientMatchmakingServers.h" />
+    <ClInclude Include="IClientNetworkDeviceManager.h" />
+    <ClInclude Include="IClientNetworking.h" />
+    <ClInclude Include="IClientRemoteStorage.h" />
+    <ClInclude Include="IClientScreenshots.h" />
+    <ClInclude Include="IClientStreamLauncher.h" />
+    <ClInclude Include="IClientUnifiedMessages.h" />
+    <ClInclude Include="IClientUser.h" />
+    <ClInclude Include="IClientUserStats.h" />
+    <ClInclude Include="IClientUtils.h" />
+    <ClInclude Include="BridgeCommon.h" />
+    <ClInclude Include="ISteam2Bridge001.h" />
+    <ClInclude Include="ISteam2Bridge002.h" />
+    <ClInclude Include="AppsCommon.h" />
+    <ClInclude Include="ISteamApps001.h" />
+    <ClInclude Include="ISteamApps002.h" />
+    <ClInclude Include="ISteamApps003.h" />
+    <ClInclude Include="ISteamApps004.h" />
+    <ClInclude Include="ISteamApps005.h" />
+    <ClInclude Include="BillingCommon.h" />
+    <ClInclude Include="ISteamBilling001.h" />
+    <ClInclude Include="ISteamBilling002.h" />
+    <ClInclude Include="ClientCommon.h" />
+    <ClInclude Include="ISteamClient006.h" />
+    <ClInclude Include="ISteamClient007.h" />
+    <ClInclude Include="ISteamClient008.h" />
+    <ClInclude Include="ISteamClient009.h" />
+    <ClInclude Include="ISteamClient010.h" />
+    <ClInclude Include="ISteamClient011.h" />
+    <ClInclude Include="ISteamClient012.h" />
+    <ClInclude Include="ContentServerCommon.h" />
+    <ClInclude Include="ISteamContentServer001.h" />
+    <ClInclude Include="ISteamContentServer002.h" />
+    <ClInclude Include="ControllerCommon.h" />
+    <ClInclude Include="ISteamController001.h" />
+    <ClInclude Include="FriendsCommon.h" />
+    <ClInclude Include="ISteamFriends001.h" />
+    <ClInclude Include="ISteamFriends002.h" />
+    <ClInclude Include="ISteamFriends003.h" />
+    <ClInclude Include="ISteamFriends004.h" />
+    <ClInclude Include="ISteamFriends005.h" />
+    <ClInclude Include="ISteamFriends006.h" />
+    <ClInclude Include="ISteamFriends007.h" />
+    <ClInclude Include="ISteamFriends008.h" />
+    <ClInclude Include="ISteamFriends009.h" />
+    <ClInclude Include="ISteamFriends010.h" />
+    <ClInclude Include="ISteamFriends011.h" />
+    <ClInclude Include="ISteamFriends012.h" />
+    <ClInclude Include="ISteamFriends013.h" />
+    <ClInclude Include="GameServerCommon.h" />
+    <ClInclude Include="ISteamGameServer002.h" />
+    <ClInclude Include="ISteamGameServer003.h" />
+    <ClInclude Include="ISteamGameServer004.h" />
+    <ClInclude Include="ISteamGameServer005.h" />
+    <ClInclude Include="ISteamGameServer006.h" />
+    <ClInclude Include="ISteamGameServer007.h" />
+    <ClInclude Include="ISteamGameServer008.h" />
+    <ClInclude Include="ISteamGameServer009.h" />
+    <ClInclude Include="ISteamGameServer010.h" />
+    <ClInclude Include="ISteamGameServer011.h" />
+    <ClInclude Include="ISteamMasterServerUpdater001.h" />
+    <ClInclude Include="MasterServerUpdaterCommon.h" />
+    <ClInclude Include="ISteamMatchmaking001.h" />
+    <ClInclude Include="ISteamMatchmaking002.h" />
+    <ClInclude Include="ISteamMatchmaking003.h" />
+    <ClInclude Include="ISteamMatchmaking004.h" />
+    <ClInclude Include="ISteamMatchmaking005.h" />
+    <ClInclude Include="ISteamMatchmaking006.h" />
+    <ClInclude Include="ISteamMatchmaking007.h" />
+    <ClInclude Include="ISteamMatchmaking008.h" />
+    <ClInclude Include="ISteamMatchmaking009.h" />
+    <ClInclude Include="MatchmakingCommon.h" />
+    <ClInclude Include="ISteamMatchmakingServers001.h" />
+    <ClInclude Include="ISteamMatchmakingServers002.h" />
+    <ClInclude Include="MatchmakingServersCommon.h" />
+    <ClInclude Include="ISteamNetworking001.h" />
+    <ClInclude Include="ISteamNetworking002.h" />
+    <ClInclude Include="ISteamNetworking003.h" />
+    <ClInclude Include="ISteamNetworking004.h" />
+    <ClInclude Include="ISteamNetworking005.h" />
+    <ClInclude Include="NetworkingCommon.h" />
+    <ClInclude Include="ISteamRemoteStorage001.h" />
+    <ClInclude Include="ISteamRemoteStorage002.h" />
+    <ClInclude Include="ISteamRemoteStorage003.h" />
+    <ClInclude Include="ISteamRemoteStorage004.h" />
+    <ClInclude Include="ISteamRemoteStorage005.h" />
+    <ClInclude Include="ISteamRemoteStorage006.h" />
+    <ClInclude Include="ISteamRemoteStorage007.h" />
+    <ClInclude Include="ISteamRemoteStorage008.h" />
+    <ClInclude Include="ISteamRemoteStorage009.h" />
+    <ClInclude Include="ISteamRemoteStorage010.h" />
+    <ClInclude Include="ISteamRemoteStorage011.h" />
+    <ClInclude Include="ISteamRemoteStorage012.h" />
+    <ClInclude Include="RemoteStorageCommon.h" />
+    <ClInclude Include="ISteamUser004.h" />
+    <ClInclude Include="ISteamUser005.h" />
+    <ClInclude Include="ISteamUser006.h" />
+    <ClInclude Include="ISteamUser007.h" />
+    <ClInclude Include="ISteamUser008.h" />
+    <ClInclude Include="ISteamUser009.h" />
+    <ClInclude Include="ISteamUser010.h" />
+    <ClInclude Include="ISteamUser011.h" />
+    <ClInclude Include="ISteamUser012.h" />
+    <ClInclude Include="ISteamUser013.h" />
+    <ClInclude Include="ISteamUser014.h" />
+    <ClInclude Include="ISteamUser015.h" />
+    <ClInclude Include="ISteamUser016.h" />
+    <ClInclude Include="ISteamUser017.h" />
+    <ClInclude Include="UGCCommon.h" />
+    <ClInclude Include="UserCommon.h" />
+    <ClInclude Include="ISteamUserStats001.h" />
+    <ClInclude Include="ISteamUserStats002.h" />
+    <ClInclude Include="ISteamUserStats003.h" />
+    <ClInclude Include="ISteamUserStats004.h" />
+    <ClInclude Include="ISteamUserStats005.h" />
+    <ClInclude Include="ISteamUserStats006.h" />
+    <ClInclude Include="ISteamUserStats007.h" />
+    <ClInclude Include="ISteamUserStats008.h" />
+    <ClInclude Include="ISteamUserStats009.h" />
+    <ClInclude Include="ISteamUserStats010.h" />
+    <ClInclude Include="ISteamUserStats011.h" />
+    <ClInclude Include="UserStatsCommon.h" />
+    <ClInclude Include="ISteamUtils001.h" />
+    <ClInclude Include="ISteamUtils002.h" />
+    <ClInclude Include="ISteamUtils003.h" />
+    <ClInclude Include="ISteamUtils004.h" />
+    <ClInclude Include="ISteamUtils005.h" />
+    <ClInclude Include="ISteamUtils006.h" />
+    <ClInclude Include="UtilsCommon.h" />
+    <ClInclude Include="GameCoordinatorCommon.h" />
+    <ClInclude Include="ISteamGameCoordinator001.h" />
+    <ClInclude Include="GameServerStatsCommon.h" />
+    <ClInclude Include="ISteamGameServerStats001.h" />
+    <ClInclude Include="GameStatsCommon.h" />
+    <ClInclude Include="ISteamGameStats001.h" />
+    <ClInclude Include="AppTicketCommon.h" />
+    <ClInclude Include="ISteamAppTicket001.h" />
+    <ClInclude Include="HTTPCommon.h" />
+    <ClInclude Include="ISteamHTTP001.h" />
+    <ClInclude Include="ISteamHTTP002.h" />
+    <ClInclude Include="ISteamScreenshots001.h" />
+    <ClInclude Include="ScreenshotsCommon.h" />
+    <ClInclude Include="ISteamOAuth001.h" />
+    <ClInclude Include="OAuthCommon.h" />
+    <ClInclude Include="ISteamUnifiedMessages001.h" />
+    <ClInclude Include="UnifiedMessagesCommon.h" />
+    <ClInclude Include="ISteamStreamLauncher001.h" />
+    <ClInclude Include="StreamLauncherCommon.h" />
+    <ClInclude Include="Steam.h" />
+    <ClInclude Include="SteamAPI.h" />
+    <ClInclude Include="SteamSalt.h" />
+    <ClInclude Include="TSteamApp.h" />
+    <ClInclude Include="TSteamAppDependencyInfo.h" />
+    <ClInclude Include="TSteamAppLaunchOption.h" />
+    <ClInclude Include="TSteamAppStats.h" />
+    <ClInclude Include="TSteamAppVersion.h" />
+    <ClInclude Include="TSteamDiscountQualifier.h" />
+    <ClInclude Include="TSteamElemInfo.h" />
+    <ClInclude Include="TSteamError.h" />
+    <ClInclude Include="TSteamExternalBillingInfo.h" />
+    <ClInclude Include="TSteamGlobalUserID.h" />
+    <ClInclude Include="TSteamOfflineStatus.h" />
+    <ClInclude Include="TSteamPaymentCardInfo.h" />
+    <ClInclude Include="TSteamPaymentCardReceiptInfo.h" />
+    <ClInclude Include="TSteamPrepurchaseInfo.h" />
+    <ClInclude Include="TSteamPrepurchaseReceiptInfo.h" />
+    <ClInclude Include="TSteamProgress.h" />
+    <ClInclude Include="TSteamSplitLocalUserID.h" />
+    <ClInclude Include="TSteamSubscription.h" />
+    <ClInclude Include="TSteamSubscriptionBillingInfo.h" />
+    <ClInclude Include="TSteamSubscriptionDiscount.h" />
+    <ClInclude Include="TSteamSubscriptionReceipt.h" />
+    <ClInclude Include="TSteamSubscriptionStats.h" />
+    <ClInclude Include="TSteamUpdateStats.h" />
+    <ClInclude Include="ESteamAppUpdateStatsQueryType.h" />
+    <ClInclude Include="ESteamBufferMethod.h" />
+    <ClInclude Include="ESteamError.h" />
+    <ClInclude Include="ESteamFindFilter.h" />
+    <ClInclude Include="ESteamNotify.h" />
+    <ClInclude Include="ESteamPaymentCardType.h" />
+    <ClInclude Include="ESteamSeekMethod.h" />
+    <ClInclude Include="ESteamServerType.h" />
+    <ClInclude Include="ESteamSubscriptionBillingInfoType.h" />
+    <ClInclude Include="ESteamSubscriptionStatus.h" />
+    <ClInclude Include="ISteam003.h" />
+    <ClInclude Include="ISteam004.h" />
+    <ClInclude Include="ISteam005.h" />
+    <ClInclude Include="ISteam006.h" />
+    <ClInclude Include="Interface_OSW.h" />
+    <ClInclude Include="POSIXLibrary.h" />
+    <ClInclude Include="Win32Library.h" />
+    <ClInclude Include="SteamTypes.h" />
+    <ClInclude Include="Steamworks.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,71 @@
+{
+    "name": "IClientNetworkingSocketsSerializedMap",
+    "found_at": "0x22c6708",
+    "functions": [ 
+        {
+            "name": "SendP2PRendezvous",
+            "argc": "6",
+            "addr": "0x5dd920"
+        },
+        {
+            "name": "SendP2PConnectionFailureLegacy",
+            "argc": "6",
+            "addr": "0x5ddaa0"
+        },
+        {
+            "name": "GetCertAsync",
+            "argc": "1",
+            "addr": "0x5ddc20"
+        },
+        {
+            "name": "CacheRelayTicket",
+            "argc": "3",
+            "addr": "0x5ddda0"
+        },
+        {
+            "name": "GetCachedRelayTicketCount",
+            "argc": "1",
+            "addr": "0x5ddf00"
+        },
+        {
+            "name": "GetCachedRelayTicket",
+            "argc": "4",
+            "addr": "0x5de060"
+        },
+        {
+            "name": "GetSTUNServer",
+            "argc": "4",
+            "addr": "0x5de210"
+        },
+        {
+            "name": "AllowDirectConnectToPeerString",
+            "argc": "2",
+            "addr": "0x5de3c0"
+        },
+        {
+            "name": "BeginAsyncRequestFakeIP",
+            "argc": "2",
+            "addr": "0x5de530"
+        },
+        {
+            "name": "AllowDirectConnectToPeerString",
+            "argc": "2",
+            "addr": "0x5e8000"
+        },
+        {
+            "name": "SetAllowShareIPUserSetting",
+            "argc": "2",
+            "addr": "0x5de6c0"
+        },
+        {
+            "name": "GetAllowShareIPUserSetting",
+            "argc": "1",
+            "addr": "0x5de810"
+        },
+        {
+            "name": "TEST_ClearInMemoryCachedCredentials",
+            "argc": "1",
+            "addr": "0x5de970"
+        }
+    ]
+}

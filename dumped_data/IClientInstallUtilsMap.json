@@ -1,0 +1,66 @@
+{
+    "name": "IClientInstallUtilsMap",
+    "found_at": "0x22cdd30",
+    "functions": [ 
+        {
+            "name": "SetUniverse",
+            "argc": "2",
+            "addr": "0xed3c90"
+        },
+        {
+            "name": "AddShortcut",
+            "argc": "6",
+            "addr": "0xed4580"
+        },
+        {
+            "name": "RemoveShortcut",
+            "argc": "2",
+            "addr": "0xed4410"
+        },
+        {
+            "name": "AddUninstallEntry",
+            "argc": "8",
+            "addr": "0xed4250"
+        },
+        {
+            "name": "RemoveUninstallEntry",
+            "argc": "2",
+            "addr": "0xed40d0"
+        },
+        {
+            "name": "AddToFirewall",
+            "argc": "3",
+            "addr": "0xed3f50"
+        },
+        {
+            "name": "RemoveFromFirewall",
+            "argc": "2",
+            "addr": "0xed3de0"
+        },
+        {
+            "name": "RegisterSteamProtocolHandler",
+            "argc": "3",
+            "addr": "0xed4720"
+        },
+        {
+            "name": "AddInstallScriptToWhiteList",
+            "argc": "3",
+            "addr": "0xed4a20"
+        },
+        {
+            "name": "RunInstallScript",
+            "argc": "4",
+            "addr": "0xed4da0"
+        },
+        {
+            "name": "GetInstallScriptExitCode",
+            "argc": "1",
+            "addr": "0xed48b0"
+        },
+        {
+            "name": "ConfigureNetworDeviceIPAddresses",
+            "argc": "8",
+            "addr": "0xed4ba0"
+        }
+    ]
+}

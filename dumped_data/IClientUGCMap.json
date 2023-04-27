@@ -1,0 +1,466 @@
+{
+    "name": "IClientUGCMap",
+    "found_at": "0x22c5e74",
+    "functions": [ 
+        {
+            "name": "CreateQueryUserUGCRequest",
+            "argc": "8",
+            "addr": "0x5aa6c0"
+        },
+        {
+            "name": "CreateQueryAllUGCRequest",
+            "argc": "6",
+            "addr": "0x5b3b10"
+        },
+        {
+            "name": "CreateQueryAllUGCRequest",
+            "argc": "6",
+            "addr": "0x5b3d00"
+        },
+        {
+            "name": "CreateQueryUGCDetailsRequest",
+            "argc": "3",
+            "addr": "0x5aa910"
+        },
+        {
+            "name": "SendQueryUGCRequest",
+            "argc": "3",
+            "addr": "0x5aaab0"
+        },
+        {
+            "name": "GetQueryUGCResult",
+            "argc": "5",
+            "addr": "0x5b3ee0"
+        },
+        {
+            "name": "GetQueryUGCNumTags",
+            "argc": "4",
+            "addr": "0x5aac50"
+        },
+        {
+            "name": "GetQueryUGCTag",
+            "argc": "7",
+            "addr": "0x5aadf0"
+        },
+        {
+            "name": "GetQueryUGCTagDisplayName",
+            "argc": "7",
+            "addr": "0x5aaff0"
+        },
+        {
+            "name": "GetQueryUGCPreviewURL",
+            "argc": "6",
+            "addr": "0x5ab1f0"
+        },
+        {
+            "name": "GetQueryUGCImageURL",
+            "argc": "8",
+            "addr": "0x5ab3c0"
+        },
+        {
+            "name": "GetQueryUGCMetadata",
+            "argc": "6",
+            "addr": "0x5ab5b0"
+        },
+        {
+            "name": "GetQueryUGCChildren",
+            "argc": "6",
+            "addr": "0x5ab780"
+        },
+        {
+            "name": "GetQueryUGCStatistic",
+            "argc": "6",
+            "addr": "0x5b40a0"
+        },
+        {
+            "name": "GetQueryUGCNumAdditionalPreviews",
+            "argc": "4",
+            "addr": "0x5ab950"
+        },
+        {
+            "name": "GetQueryUGCAdditionalPreview",
+            "argc": "10",
+            "addr": "0x5abaf0"
+        },
+        {
+            "name": "GetQueryUGCNumKeyValueTags",
+            "argc": "4",
+            "addr": "0x5abd40"
+        },
+        {
+            "name": "GetQueryUGCKeyValueTag",
+            "argc": "9",
+            "addr": "0x5abee0"
+        },
+        {
+            "name": "GetQueryUGCKeyValueTag",
+            "argc": "7",
+            "addr": "0x5ac110"
+        },
+        {
+            "name": "GetQueryUGCIsDepotBuild",
+            "argc": "5",
+            "addr": "0x5ac2f0"
+        },
+        {
+            "name": "ReleaseQueryUGCRequest",
+            "argc": "3",
+            "addr": "0x5ac4b0"
+        },
+        {
+            "name": "AddRequiredTag",
+            "argc": "4",
+            "addr": "0x5ac640"
+        },
+        {
+            "name": "AddRequiredTagGroup",
+            "argc": "4",
+            "addr": "0x5ac7d0"
+        },
+        {
+            "name": "AddExcludedTag",
+            "argc": "4",
+            "addr": "0x5ac960"
+        },
+        {
+            "name": "SetReturnOnlyIDs",
+            "argc": "4",
+            "addr": "0x5acaf0"
+        },
+        {
+            "name": "SetReturnKeyValueTags",
+            "argc": "4",
+            "addr": "0x5acca0"
+        },
+        {
+            "name": "SetReturnLongDescription",
+            "argc": "4",
+            "addr": "0x5ace50"
+        },
+        {
+            "name": "SetReturnMetadata",
+            "argc": "4",
+            "addr": "0x5ad000"
+        },
+        {
+            "name": "SetReturnChildren",
+            "argc": "4",
+            "addr": "0x5ad1b0"
+        },
+        {
+            "name": "SetReturnAdditionalPreviews",
+            "argc": "4",
+            "addr": "0x5ad360"
+        },
+        {
+            "name": "SetReturnTotalOnly",
+            "argc": "4",
+            "addr": "0x5ad510"
+        },
+        {
+            "name": "SetReturnPlaytimeStats",
+            "argc": "4",
+            "addr": "0x5ad6c0"
+        },
+        {
+            "name": "SetLanguage",
+            "argc": "4",
+            "addr": "0x5ad860"
+        },
+        {
+            "name": "SetAllowCachedResponse",
+            "argc": "4",
+            "addr": "0x5ad9f0"
+        },
+        {
+            "name": "SetCloudFileNameFilter",
+            "argc": "4",
+            "addr": "0x5adb90"
+        },
+        {
+            "name": "SetMatchAnyTag",
+            "argc": "4",
+            "addr": "0x5add20"
+        },
+        {
+            "name": "SetSearchText",
+            "argc": "4",
+            "addr": "0x5aded0"
+        },
+        {
+            "name": "SetRankedByTrendDays",
+            "argc": "4",
+            "addr": "0x5ae060"
+        },
+        {
+            "name": "SetTimeCreatedDateRange",
+            "argc": "5",
+            "addr": "0x5ae200"
+        },
+        {
+            "name": "SetTimeUpdatedDateRange",
+            "argc": "5",
+            "addr": "0x5ae3b0"
+        },
+        {
+            "name": "AddRequiredKeyValueTag",
+            "argc": "5",
+            "addr": "0x5ae560"
+        },
+        {
+            "name": "RequestUGCDetails",
+            "argc": "4",
+            "addr": "0x5ae700"
+        },
+        {
+            "name": "CreateItem",
+            "argc": "3",
+            "addr": "0x5ae8e0"
+        },
+        {
+            "name": "StartItemUpdate",
+            "argc": "4",
+            "addr": "0x5aea90"
+        },
+        {
+            "name": "SetItemTitle",
+            "argc": "4",
+            "addr": "0x5aec70"
+        },
+        {
+            "name": "SetItemDescription",
+            "argc": "4",
+            "addr": "0x5aee00"
+        },
+        {
+            "name": "SetItemUpdateLanguage",
+            "argc": "4",
+            "addr": "0x5aef90"
+        },
+        {
+            "name": "SetItemMetadata",
+            "argc": "4",
+            "addr": "0x5af120"
+        },
+        {
+            "name": "SetItemVisibility",
+            "argc": "4",
+            "addr": "0x5af2b0"
+        },
+        {
+            "name": "SetItemTags",
+            "argc": "4",
+            "addr": "0x5af450"
+        },
+        {
+            "name": "SetItemContent",
+            "argc": "4",
+            "addr": "0x5af5e0"
+        },
+        {
+            "name": "SetItemPreview",
+            "argc": "4",
+            "addr": "0x5af770"
+        },
+        {
+            "name": "SetAllowLegacyUpload",
+            "argc": "4",
+            "addr": "0x5af900"
+        },
+        {
+            "name": "RemoveAllItemKeyValueTags",
+            "argc": "3",
+            "addr": "0x5afab0"
+        },
+        {
+            "name": "RemoveItemKeyValueTags",
+            "argc": "4",
+            "addr": "0x5afc40"
+        },
+        {
+            "name": "AddItemKeyValueTag",
+            "argc": "5",
+            "addr": "0x5afdd0"
+        },
+        {
+            "name": "AddItemPreviewFile",
+            "argc": "5",
+            "addr": "0x5aff70"
+        },
+        {
+            "name": "AddItemPreviewVideo",
+            "argc": "4",
+            "addr": "0x5b0120"
+        },
+        {
+            "name": "UpdateItemPreviewFile",
+            "argc": "5",
+            "addr": "0x5b02b0"
+        },
+        {
+            "name": "UpdateItemPreviewVideo",
+            "argc": "5",
+            "addr": "0x5b0460"
+        },
+        {
+            "name": "RemoveItemPreview",
+            "argc": "4",
+            "addr": "0x5b0610"
+        },
+        {
+            "name": "SubmitItemUpdate",
+            "argc": "4",
+            "addr": "0x5b07b0"
+        },
+        {
+            "name": "GetItemUpdateProgress",
+            "argc": "5",
+            "addr": "0x5b4270"
+        },
+        {
+            "name": "SetUserItemVote",
+            "argc": "4",
+            "addr": "0x5b0960"
+        },
+        {
+            "name": "GetUserItemVote",
+            "argc": "3",
+            "addr": "0x5b0b20"
+        },
+        {
+            "name": "AddItemToFavorites",
+            "argc": "4",
+            "addr": "0x5b0cc0"
+        },
+        {
+            "name": "RemoveItemFromFavorites",
+            "argc": "4",
+            "addr": "0x5b0ea0"
+        },
+        {
+            "name": "SubscribeItem",
+            "argc": "5",
+            "addr": "0x5b1080"
+        },
+        {
+            "name": "UnsubscribeItem",
+            "argc": "4",
+            "addr": "0x5b1280"
+        },
+        {
+            "name": "GetNumSubscribedItems",
+            "argc": "2",
+            "addr": "0x5b1460"
+        },
+        {
+            "name": "GetSubscribedItems",
+            "argc": "4",
+            "addr": "0x5b15d0"
+        },
+        {
+            "name": "GetItemState",
+            "argc": "4",
+            "addr": "0x5b1aa0"
+        },
+        {
+            "name": "GetItemInstallInfo",
+            "argc": "8",
+            "addr": "0x5b1c40"
+        },
+        {
+            "name": "GetItemDownloadInfo",
+            "argc": "6",
+            "addr": "0x5b1e30"
+        },
+        {
+            "name": "DownloadItem",
+            "argc": "5",
+            "addr": "0x5b2000"
+        },
+        {
+            "name": "GetAppItemsStatus",
+            "argc": "4",
+            "addr": "0x5b21c0"
+        },
+        {
+            "name": "BInitWorkshopForGameServer",
+            "argc": "4",
+            "addr": "0x5b2370"
+        },
+        {
+            "name": "SuspendDownloads",
+            "argc": "3",
+            "addr": "0x5b2510"
+        },
+        {
+            "name": "GetAllItemsSizeOnDisk",
+            "argc": "2",
+            "addr": "0x5b2670"
+        },
+        {
+            "name": "StartPlaytimeTracking",
+            "argc": "4",
+            "addr": "0x5b2800"
+        },
+        {
+            "name": "StopPlaytimeTracking",
+            "argc": "4",
+            "addr": "0x5b29c0"
+        },
+        {
+            "name": "StopPlaytimeTrackingForAllItems",
+            "argc": "2",
+            "addr": "0x5b2b80"
+        },
+        {
+            "name": "AddDependency",
+            "argc": "5",
+            "addr": "0x5b2d10"
+        },
+        {
+            "name": "RemoveDependency",
+            "argc": "5",
+            "addr": "0x5b2f20"
+        },
+        {
+            "name": "AddAppDependency",
+            "argc": "4",
+            "addr": "0x5b3130"
+        },
+        {
+            "name": "RemoveAppDependency",
+            "argc": "4",
+            "addr": "0x5b3310"
+        },
+        {
+            "name": "GetAppDependencies",
+            "argc": "3",
+            "addr": "0x5b34f0"
+        },
+        {
+            "name": "DeleteItem",
+            "argc": "3",
+            "addr": "0x5b3690"
+        },
+        {
+            "name": "ShowWorkshopEULA",
+            "argc": "1",
+            "addr": "0x5b3830"
+        },
+        {
+            "name": "GetWorkshopEULAStatus",
+            "argc": "1",
+            "addr": "0x5b3990"
+        },
+        {
+            "name": "GetNumDownloadedItems",
+            "argc": "2",
+            "addr": "0x5b1780"
+        },
+        {
+            "name": "GetDownloadedItems",
+            "argc": "4",
+            "addr": "0x5b18f0"
+        }
+    ]
+}

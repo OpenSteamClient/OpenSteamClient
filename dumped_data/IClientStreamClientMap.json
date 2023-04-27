@@ -1,0 +1,81 @@
+{
+    "name": "IClientStreamClientMap",
+    "found_at": "0x22c6084",
+    "functions": [ 
+        {
+            "name": "Launched",
+            "argc": "2",
+            "addr": "0x5b8160"
+        },
+        {
+            "name": "FocusGained",
+            "argc": "3",
+            "addr": "0x5b82b0"
+        },
+        {
+            "name": "FocusLost",
+            "argc": "2",
+            "addr": "0x5b8420"
+        },
+        {
+            "name": "Finished",
+            "argc": "3",
+            "addr": "0x5b8570"
+        },
+        {
+            "name": "BGetStreamingClientConfig",
+            "argc": "2",
+            "addr": "0x5b86d0"
+        },
+        {
+            "name": "BSaveStreamingClientConfig",
+            "argc": "2",
+            "addr": "0x5b8850"
+        },
+        {
+            "name": "SetQualityOverride",
+            "argc": "2",
+            "addr": "0x5b89c0"
+        },
+        {
+            "name": "SetBitrateOverride",
+            "argc": "2",
+            "addr": "0x5b8b10"
+        },
+        {
+            "name": "ShowOnScreenKeyboard",
+            "argc": "1",
+            "addr": "0x5b8c60"
+        },
+        {
+            "name": "BQueueControllerConfigMessageForLocal",
+            "argc": "2",
+            "addr": "0x5b8d90"
+        },
+        {
+            "name": "BGetControllerConfigMessageForRemote",
+            "argc": "2",
+            "addr": "0x5b8f00"
+        },
+        {
+            "name": "GetSystemInfo",
+            "argc": "1",
+            "addr": "0x5b9080"
+        },
+        {
+            "name": "StartStreamingSession",
+            "argc": "2",
+            "addr": "0x5b91e0"
+        },
+        {
+            "name": "ReportStreamingSessionEvent",
+            "argc": "3",
+            "addr": "0x5b9330"
+        },
+        {
+            "name": "FinishStreamingSession",
+            "argc": "4",
+            "addr": "0x5b9490"
+        }
+    ]
+}

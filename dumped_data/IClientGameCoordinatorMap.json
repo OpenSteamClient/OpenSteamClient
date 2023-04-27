@@ -1,0 +1,21 @@
+{
+    "name": "IClientGameCoordinatorMap",
+    "found_at": "0x22c58ec",
+    "functions": [ 
+        {
+            "name": "SendMessage",
+            "argc": "5",
+            "addr": "0x58af30"
+        },
+        {
+            "name": "IsMessageAvailable",
+            "argc": "3",
+            "addr": "0x58b0e0"
+        },
+        {
+            "name": "RetrieveMessage",
+            "argc": "6",
+            "addr": "0x58b270"
+        }
+    ]
+}

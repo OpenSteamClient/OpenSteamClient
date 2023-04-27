@@ -1,0 +1,181 @@
+{
+    "name": "IClientScreenshotsMap",
+    "found_at": "0x22c5858",
+    "functions": [ 
+        {
+            "name": "GetShortcutDisplayName",
+            "argc": "2",
+            "addr": "0x587610"
+        },
+        {
+            "name": "SetShortcutDisplayName",
+            "argc": "3",
+            "addr": "0x587790"
+        },
+        {
+            "name": "WriteScreenshot",
+            "argc": "6",
+            "addr": "0x5878f0"
+        },
+        {
+            "name": "AddScreenshotToLibrary",
+            "argc": "8",
+            "addr": "0x587ac0"
+        },
+        {
+            "name": "TriggerScreenshot",
+            "argc": "2",
+            "addr": "0x587cb0"
+        },
+        {
+            "name": "RequestScreenshotFromGame",
+            "argc": "2",
+            "addr": "0x587e00"
+        },
+        {
+            "name": "SetLocation",
+            "argc": "4",
+            "addr": "0x587f50"
+        },
+        {
+            "name": "TagUser",
+            "argc": "5",
+            "addr": "0x5880f0"
+        },
+        {
+            "name": "TagPublishedFile",
+            "argc": "5",
+            "addr": "0x5882a0"
+        },
+        {
+            "name": "ResolvePath",
+            "argc": "6",
+            "addr": "0x58aaf0"
+        },
+        {
+            "name": "GetSizeOnDisk",
+            "argc": "3",
+            "addr": "0x588460"
+        },
+        {
+            "name": "GetSizeInCloud",
+            "argc": "3",
+            "addr": "0x5885f0"
+        },
+        {
+            "name": "IsPersisted",
+            "argc": "3",
+            "addr": "0x588780"
+        },
+        {
+            "name": "GetNumGamesWithLocalScreenshots",
+            "argc": "1",
+            "addr": "0x588920"
+        },
+        {
+            "name": "GetGameWithLocalScreenshots",
+            "argc": "3",
+            "addr": "0x588a80"
+        },
+        {
+            "name": "GetLocalScreenshotCount",
+            "argc": "2",
+            "addr": "0x588c20"
+        },
+        {
+            "name": "GetLocalScreenshot",
+            "argc": "12",
+            "addr": "0x588da0"
+        },
+        {
+            "name": "GetLocalScreenshotByHandle",
+            "argc": "11",
+            "addr": "0x58acd0"
+        },
+        {
+            "name": "SetLocalScreenshotCaption",
+            "argc": "4",
+            "addr": "0x589000"
+        },
+        {
+            "name": "SetLocalScreenshotPrivacy",
+            "argc": "4",
+            "addr": "0x5891a0"
+        },
+        {
+            "name": "SetLocalScreenshotSpoiler",
+            "argc": "4",
+            "addr": "0x589350"
+        },
+        {
+            "name": "GetLocalLastScreenshot",
+            "argc": "3",
+            "addr": "0x589500"
+        },
+        {
+            "name": "StartBatch",
+            "argc": "2",
+            "addr": "0x5896a0"
+        },
+        {
+            "name": "AddToBatch",
+            "argc": "2",
+            "addr": "0x589820"
+        },
+        {
+            "name": "UploadBatch",
+            "argc": "2",
+            "addr": "0x5899a0"
+        },
+        {
+            "name": "DeleteBatch",
+            "argc": "2",
+            "addr": "0x589b30"
+        },
+        {
+            "name": "CancelBatch",
+            "argc": "1",
+            "addr": "0x589cd0"
+        },
+        {
+            "name": "RecoverOldScreenshots",
+            "argc": "1",
+            "addr": "0x589e30"
+        },
+        {
+            "name": "GetTaggedUserCount",
+            "argc": "3",
+            "addr": "0x589f60"
+        },
+        {
+            "name": "GetTaggedUser",
+            "argc": "5",
+            "addr": "0x58a0f0"
+        },
+        {
+            "name": "GetLocation",
+            "argc": "5",
+            "addr": "0x58a610"
+        },
+        {
+            "name": "GetTaggedPublishedFileCount",
+            "argc": "3",
+            "addr": "0x58a2c0"
+        },
+        {
+            "name": "GetTaggedPublishedFile",
+            "argc": "4",
+            "addr": "0x58a450"
+        },
+        {
+            "name": "GetScreenshotVRType",
+            "argc": "3",
+            "addr": "0x58a960"
+        },
+        {
+            "name": "BGetUserScreenshotDirectory",
+            "argc": "3",
+            "addr": "0x58a7d0"
+        }
+    ]
+}

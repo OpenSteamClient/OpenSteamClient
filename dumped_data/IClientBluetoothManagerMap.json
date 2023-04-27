@@ -1,0 +1,51 @@
+{
+    "name": "IClientBluetoothManagerMap",
+    "found_at": "0x22c6624",
+    "functions": [ 
+        {
+            "name": "IsInterfaceValid",
+            "argc": "1",
+            "addr": "0x5d8bb0"
+        },
+        {
+            "name": "GetBluetoothDevicesData",
+            "argc": "2",
+            "addr": "0x5d8d10"
+        },
+        {
+            "name": "SetEnabled",
+            "argc": "2",
+            "addr": "0x5d8e90"
+        },
+        {
+            "name": "SetDiscovering",
+            "argc": "3",
+            "addr": "0x5d9030"
+        },
+        {
+            "name": "Pair",
+            "argc": "3",
+            "addr": "0x5d91e0"
+        },
+        {
+            "name": "CancelPairing",
+            "argc": "3",
+            "addr": "0x5d9390"
+        },
+        {
+            "name": "UnPair",
+            "argc": "3",
+            "addr": "0x5d9540"
+        },
+        {
+            "name": "Connect",
+            "argc": "3",
+            "addr": "0x5d96f0"
+        },
+        {
+            "name": "Disconnect",
+            "argc": "3",
+            "addr": "0x5d98a0"
+        }
+    ]
+}

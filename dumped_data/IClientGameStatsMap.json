@@ -1,0 +1,71 @@
+{
+    "name": "IClientGameStatsMap",
+    "found_at": "0x22c5900",
+    "functions": [ 
+        {
+            "name": "GetNewSession",
+            "argc": "6",
+            "addr": "0x58b450"
+        },
+        {
+            "name": "EndSession",
+            "argc": "5",
+            "addr": "0x58b660"
+        },
+        {
+            "name": "AddSessionAttributeInt",
+            "argc": "5",
+            "addr": "0x58b860"
+        },
+        {
+            "name": "AddSessionAttributeString",
+            "argc": "5",
+            "addr": "0x58ba00"
+        },
+        {
+            "name": "AddSessionAttributeFloat",
+            "argc": "5",
+            "addr": "0x58bba0"
+        },
+        {
+            "name": "AddNewRow",
+            "argc": "5",
+            "addr": "0x58c220"
+        },
+        {
+            "name": "CommitRow",
+            "argc": "3",
+            "addr": "0x58c3d0"
+        },
+        {
+            "name": "CommitOutstandingRows",
+            "argc": "3",
+            "addr": "0x58c550"
+        },
+        {
+            "name": "AddRowAttributeInt",
+            "argc": "5",
+            "addr": "0x58bd40"
+        },
+        {
+            "name": "AddRowAttributeString",
+            "argc": "5",
+            "addr": "0x58bee0"
+        },
+        {
+            "name": "AddRowAttributeFloat",
+            "argc": "5",
+            "addr": "0x58c080"
+        },
+        {
+            "name": "AddSessionAttributeInt64",
+            "argc": "6",
+            "addr": "0x58c8c0"
+        },
+        {
+            "name": "AddRowAttributeInt64",
+            "argc": "6",
+            "addr": "0x58c6d0"
+        }
+    ]
+}

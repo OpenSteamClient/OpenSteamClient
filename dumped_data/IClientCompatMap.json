@@ -1,0 +1,96 @@
+{
+    "name": "IClientCompatMap",
+    "found_at": "0x22c66b8",
+    "functions": [ 
+        {
+            "name": "BIsCompatLayerEnabled",
+            "argc": "1",
+            "addr": "0x5dbf00"
+        },
+        {
+            "name": "EnableCompat",
+            "argc": "2",
+            "addr": "0x5dc060"
+        },
+        {
+            "name": "GetAvailableCompatTools",
+            "argc": "2",
+            "addr": "0x5dc1b0"
+        },
+        {
+            "name": "GetAvailableCompatToolsFiltered",
+            "argc": "3",
+            "addr": "0x5dc320"
+        },
+        {
+            "name": "GetAvailableCompatToolsForApp",
+            "argc": "3",
+            "addr": "0x5dc4a0"
+        },
+        {
+            "name": "SpecifyCompatTool",
+            "argc": "5",
+            "addr": "0x5dc620"
+        },
+        {
+            "name": "BIsCompatibilityToolEnabled",
+            "argc": "2",
+            "addr": "0x5dc790"
+        },
+        {
+            "name": "GetCompatToolName",
+            "argc": "2",
+            "addr": "0x5dc910"
+        },
+        {
+            "name": "GetCompatToolMappingPriority",
+            "argc": "2",
+            "addr": "0x5dca80"
+        },
+        {
+            "name": "GetCompatToolDisplayName",
+            "argc": "2",
+            "addr": "0x5dcbf0"
+        },
+        {
+            "name": "GetWhitelistedGameList",
+            "argc": "2",
+            "addr": "0x5dd640"
+        },
+        {
+            "name": "GetControllerConfigOverrides",
+            "argc": "2",
+            "addr": "0x5dd7b0"
+        },
+        {
+            "name": "StartSession",
+            "argc": "2",
+            "addr": "0x5dcd60"
+        },
+        {
+            "name": "ReleaseSession",
+            "argc": "4",
+            "addr": "0x5dcef0"
+        },
+        {
+            "name": "BIsLauncherServiceEnabled",
+            "argc": "2",
+            "addr": "0x5dd060"
+        },
+        {
+            "name": "DeleteCompatData",
+            "argc": "2",
+            "addr": "0x5dd1e0"
+        },
+        {
+            "name": "GetCompatibilityDataDiskSize",
+            "argc": "2",
+            "addr": "0x5dd330"
+        },
+        {
+            "name": "BNeedsUnlockH264",
+            "argc": "2",
+            "addr": "0x5dd4c0"
+        }
+    ]
+}

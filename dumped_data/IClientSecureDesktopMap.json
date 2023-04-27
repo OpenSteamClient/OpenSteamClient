@@ -1,0 +1,21 @@
+{
+    "name": "IClientSecureDesktopMap",
+    "found_at": "0x22cdde0",
+    "functions": [ 
+        {
+            "name": "BStartStreaming",
+            "argc": "1",
+            "addr": "0xed74c0"
+        },
+        {
+            "name": "StopStreaming",
+            "argc": "1",
+            "addr": "0xed7380"
+        },
+        {
+            "name": "SendSAS",
+            "argc": "1",
+            "addr": "0xed7240"
+        }
+    ]
+}

@@ -1,0 +1,61 @@
+{
+    "name": "IClientAudioMap",
+    "found_at": "0x22c59b4",
+    "functions": [ 
+        {
+            "name": "StartVoiceRecording",
+            "argc": "1",
+            "addr": "0x58f6e0"
+        },
+        {
+            "name": "StopVoiceRecording",
+            "argc": "1",
+            "addr": "0x58f810"
+        },
+        {
+            "name": "ResetVoiceRecording",
+            "argc": "1",
+            "addr": "0x58f940"
+        },
+        {
+            "name": "GetAvailableVoice",
+            "argc": "4",
+            "addr": "0x590050"
+        },
+        {
+            "name": "GetVoice",
+            "argc": "10",
+            "addr": "0x590200"
+        },
+        {
+            "name": "GetCompressedVoice",
+            "argc": "4",
+            "addr": "0x58fea0"
+        },
+        {
+            "name": "DecompressVoice",
+            "argc": "7",
+            "addr": "0x590460"
+        },
+        {
+            "name": "GetVoiceOptimalSampleRate",
+            "argc": "1",
+            "addr": "0x5e1290"
+        },
+        {
+            "name": "BAppUsesVoice",
+            "argc": "2",
+            "addr": "0x58fa70"
+        },
+        {
+            "name": "GetGameSystemVolume",
+            "argc": "1",
+            "addr": "0x58fbf0"
+        },
+        {
+            "name": "SetGameSystemVolume",
+            "argc": "2",
+            "addr": "0x58fd50"
+        }
+    ]
+}

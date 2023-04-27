@@ -1,0 +1,61 @@
+{
+    "name": "IClientGameServerStatsMap",
+    "found_at": "0x22c4a4c",
+    "functions": [ 
+        {
+            "name": "RequestUserStats",
+            "argc": "4",
+            "addr": "0x535850"
+        },
+        {
+            "name": "GetUserStat",
+            "argc": "6",
+            "addr": "0x535a00"
+        },
+        {
+            "name": "GetUserStat",
+            "argc": "6",
+            "addr": "0x535bb0"
+        },
+        {
+            "name": "GetUserAchievement",
+            "argc": "7",
+            "addr": "0x535d60"
+        },
+        {
+            "name": "SetUserStat",
+            "argc": "6",
+            "addr": "0x535f30"
+        },
+        {
+            "name": "SetUserStat",
+            "argc": "6",
+            "addr": "0x5360e0"
+        },
+        {
+            "name": "UpdateUserAvgRateStat",
+            "argc": "7",
+            "addr": "0x536290"
+        },
+        {
+            "name": "SetUserAchievement",
+            "argc": "5",
+            "addr": "0x536460"
+        },
+        {
+            "name": "ClearUserAchievement",
+            "argc": "5",
+            "addr": "0x536600"
+        },
+        {
+            "name": "StoreUserStats",
+            "argc": "4",
+            "addr": "0x5367a0"
+        },
+        {
+            "name": "SetMaxStatsLoaded",
+            "argc": "2",
+            "addr": "0x536950"
+        }
+    ]
+}

@@ -1,0 +1,151 @@
+{
+    "name": "IClientShortcutsMap",
+    "found_at": "0x22c60f0",
+    "functions": [ 
+        {
+            "name": "GetUniqueLocalAppId",
+            "argc": "1",
+            "addr": "0x5ba180"
+        },
+        {
+            "name": "GetGameIDForAppID",
+            "argc": "3",
+            "addr": "0x5ba2e0"
+        },
+        {
+            "name": "GetAppIDForGameID",
+            "argc": "2",
+            "addr": "0x5ba480"
+        },
+        {
+            "name": "GetDevkitAppIDByDevkitGameID",
+            "argc": "2",
+            "addr": "0x5bc490"
+        },
+        {
+            "name": "GetShortcutAppIds",
+            "argc": "2",
+            "addr": "0x5ba600"
+        },
+        {
+            "name": "GetShortcutInfoByIndex",
+            "argc": "3",
+            "addr": "0x5ba780"
+        },
+        {
+            "name": "GetShortcutInfoByAppID",
+            "argc": "3",
+            "addr": "0x5ba910"
+        },
+        {
+            "name": "AddShortcut",
+            "argc": "6",
+            "addr": "0x5baaa0"
+        },
+        {
+            "name": "AddTemporaryShortcut",
+            "argc": "4",
+            "addr": "0x5bac30"
+        },
+        {
+            "name": "AddOpenVRShortcut",
+            "argc": "4",
+            "addr": "0x5badb0"
+        },
+        {
+            "name": "SetShortcutFromFullpath",
+            "argc": "3",
+            "addr": "0x5baf30"
+        },
+        {
+            "name": "SetShortcutAppName",
+            "argc": "3",
+            "addr": "0x5bb080"
+        },
+        {
+            "name": "SetShortcutExe",
+            "argc": "4",
+            "addr": "0x5bc780"
+        },
+        {
+            "name": "SetShortcutStartDir",
+            "argc": "3",
+            "addr": "0x5bb320"
+        },
+        {
+            "name": "SetShortcutIcon",
+            "argc": "3",
+            "addr": "0x5bb470"
+        },
+        {
+            "name": "SetShortcutCommandLine",
+            "argc": "3",
+            "addr": "0x5bb1d0"
+        },
+        {
+            "name": "ClearShortcutUserTags",
+            "argc": "2",
+            "addr": "0x5bb5c0"
+        },
+        {
+            "name": "AddShortcutUserTag",
+            "argc": "3",
+            "addr": "0x5bb710"
+        },
+        {
+            "name": "RemoveShortcutUserTag",
+            "argc": "3",
+            "addr": "0x5bb860"
+        },
+        {
+            "name": "ClearAndSetShortcutUserTags",
+            "argc": "3",
+            "addr": "0x5bb9b0"
+        },
+        {
+            "name": "SetShortcutHidden",
+            "argc": "3",
+            "addr": "0x5bbb00"
+        },
+        {
+            "name": "SetAllowDesktopConfig",
+            "argc": "3",
+            "addr": "0x5bbc60"
+        },
+        {
+            "name": "SetAllowOverlay",
+            "argc": "3",
+            "addr": "0x5bbdc0"
+        },
+        {
+            "name": "SetOpenVRShortcut",
+            "argc": "3",
+            "addr": "0x5bbf20"
+        },
+        {
+            "name": "SetDevkitShortcut",
+            "argc": "4",
+            "addr": "0x5bc940"
+        },
+        {
+            "name": "SetFlatpakAppID",
+            "argc": "3",
+            "addr": "0x5bc600"
+        },
+        {
+            "name": "RemoveShortcut",
+            "argc": "2",
+            "addr": "0x5bc080"
+        },
+        {
+            "name": "RemoveAllTemporaryShortcuts",
+            "argc": "1",
+            "addr": "0x5bc1d0"
+        },
+        {
+            "name": "LaunchShortcut",
+            "argc": "3",
+            "addr": "0x5bc300"
+        }
+    ]
+}

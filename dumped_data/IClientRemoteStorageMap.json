@@ -1,0 +1,496 @@
+{
+    "name": "IClientRemoteStorageMap",
+    "found_at": "0x22c5674",
+    "functions": [ 
+        {
+            "name": "FileWrite",
+            "argc": "6",
+            "addr": "0x57b860"
+        },
+        {
+            "name": "GetFileSize",
+            "argc": "4",
+            "addr": "0x57c150"
+        },
+        {
+            "name": "FileWriteAsync",
+            "argc": "5",
+            "addr": "0x57bbe0"
+        },
+        {
+            "name": "FileReadAsync",
+            "argc": "6",
+            "addr": "0x57bda0"
+        },
+        {
+            "name": "FileReadAsyncComplete",
+            "argc": "6",
+            "addr": "0x57bf80"
+        },
+        {
+            "name": "FileRead",
+            "argc": "6",
+            "addr": "0x57ba10"
+        },
+        {
+            "name": "FileForget",
+            "argc": "4",
+            "addr": "0x57d6d0"
+        },
+        {
+            "name": "FileDelete",
+            "argc": "4",
+            "addr": "0x57d870"
+        },
+        {
+            "name": "FileShare",
+            "argc": "4",
+            "addr": "0x57da10"
+        },
+        {
+            "name": "FileExists",
+            "argc": "4",
+            "addr": "0x57c630"
+        },
+        {
+            "name": "FilePersisted",
+            "argc": "4",
+            "addr": "0x57c7d0"
+        },
+        {
+            "name": "GetFileTimestamp",
+            "argc": "4",
+            "addr": "0x57c2e0"
+        },
+        {
+            "name": "SetSyncPlatforms",
+            "argc": "5",
+            "addr": "0x57fd40"
+        },
+        {
+            "name": "GetSyncPlatforms",
+            "argc": "4",
+            "addr": "0x57fef0"
+        },
+        {
+            "name": "FileWriteStreamOpen",
+            "argc": "4",
+            "addr": "0x580200"
+        },
+        {
+            "name": "FileWriteStreamClose",
+            "argc": "3",
+            "addr": "0x5803b0"
+        },
+        {
+            "name": "FileWriteStreamCancel",
+            "argc": "3",
+            "addr": "0x580530"
+        },
+        {
+            "name": "FileWriteStreamWriteChunk",
+            "argc": "5",
+            "addr": "0x5806b0"
+        },
+        {
+            "name": "GetFileCount",
+            "argc": "3",
+            "addr": "0x57c970"
+        },
+        {
+            "name": "GetFileNameAndSize",
+            "argc": "6",
+            "addr": "0x57cb00"
+        },
+        {
+            "name": "GetQuota",
+            "argc": "4",
+            "addr": "0x57cce0"
+        },
+        {
+            "name": "GetUGCQuotaUsage",
+            "argc": "6",
+            "addr": "0x57ce90"
+        },
+        {
+            "name": "InitializeUGCQuotaUsage",
+            "argc": "2",
+            "addr": "0x57d070"
+        },
+        {
+            "name": "IsCloudEnabledForAccount",
+            "argc": "1",
+            "addr": "0x57dd90"
+        },
+        {
+            "name": "IsCloudEnabledForApp",
+            "argc": "2",
+            "addr": "0x57e040"
+        },
+        {
+            "name": "SetCloudEnabledForApp",
+            "argc": "3",
+            "addr": "0x57eeb0"
+        },
+        {
+            "name": "IsCloudSyncOnSuspendAvailableForApp",
+            "argc": "2",
+            "addr": "0x57e1c0"
+        },
+        {
+            "name": "IsCloudSyncOnSuspendEnabledForApp",
+            "argc": "2",
+            "addr": "0x57e340"
+        },
+        {
+            "name": "SetCloudSyncOnSuspendEnabledForApp",
+            "argc": "3",
+            "addr": "0x57e4c0"
+        },
+        {
+            "name": "UGCDownload",
+            "argc": "5",
+            "addr": "0x57e620"
+        },
+        {
+            "name": "UGCDownloadToLocation",
+            "argc": "5",
+            "addr": "0x57e820"
+        },
+        {
+            "name": "GetUGCDownloadProgress",
+            "argc": "5",
+            "addr": "0x57ea00"
+        },
+        {
+            "name": "GetUGCDetails",
+            "argc": "7",
+            "addr": "0x5e1620"
+        },
+        {
+            "name": "UGCRead",
+            "argc": "7",
+            "addr": "0x583990"
+        },
+        {
+            "name": "GetCachedUGCCount",
+            "argc": "1",
+            "addr": "0x57ebc0"
+        },
+        {
+            "name": "GetCachedUGCHandle",
+            "argc": "2",
+            "addr": "0x57ed20"
+        },
+        {
+            "name": "PublishFile",
+            "argc": "11",
+            "addr": "0x5843d0"
+        },
+        {
+            "name": "PublishVideo",
+            "argc": "12",
+            "addr": "0x5845f0"
+        },
+        {
+            "name": "PublishVideoFromURL",
+            "argc": "10",
+            "addr": "0x584020"
+        },
+        {
+            "name": "CreatePublishedFileUpdateRequest",
+            "argc": "4",
+            "addr": "0x580850"
+        },
+        {
+            "name": "UpdatePublishedFileFile",
+            "argc": "4",
+            "addr": "0x580a30"
+        },
+        {
+            "name": "UpdatePublishedFilePreviewFile",
+            "argc": "4",
+            "addr": "0x580bc0"
+        },
+        {
+            "name": "UpdatePublishedFileTitle",
+            "argc": "4",
+            "addr": "0x580d50"
+        },
+        {
+            "name": "UpdatePublishedFileDescription",
+            "argc": "4",
+            "addr": "0x580ee0"
+        },
+        {
+            "name": "UpdatePublishedFileSetChangeDescription",
+            "argc": "4",
+            "addr": "0x581200"
+        },
+        {
+            "name": "UpdatePublishedFileVisibility",
+            "argc": "4",
+            "addr": "0x584230"
+        },
+        {
+            "name": "UpdatePublishedFileTags",
+            "argc": "4",
+            "addr": "0x581070"
+        },
+        {
+            "name": "UpdatePublishedFileURL",
+            "argc": "4",
+            "addr": "0x581390"
+        },
+        {
+            "name": "CommitPublishedFileUpdate",
+            "argc": "5",
+            "addr": "0x581520"
+        },
+        {
+            "name": "GetPublishedFileDetails",
+            "argc": "5",
+            "addr": "0x581710"
+        },
+        {
+            "name": "DeletePublishedFile",
+            "argc": "3",
+            "addr": "0x581910"
+        },
+        {
+            "name": "EnumerateUserPublishedFiles",
+            "argc": "4",
+            "addr": "0x584820"
+        },
+        {
+            "name": "SubscribePublishedFile",
+            "argc": "4",
+            "addr": "0x581ab0"
+        },
+        {
+            "name": "EnumerateUserSubscribedFiles",
+            "argc": "5",
+            "addr": "0x5849e0"
+        },
+        {
+            "name": "UnsubscribePublishedFile",
+            "argc": "4",
+            "addr": "0x581c90"
+        },
+        {
+            "name": "SetUserPublishedFileAction",
+            "argc": "5",
+            "addr": "0x584bc0"
+        },
+        {
+            "name": "EnumeratePublishedFilesByUserAction",
+            "argc": "4",
+            "addr": "0x584db0"
+        },
+        {
+            "name": "EnumerateUserSubscribedFilesWithUpdates",
+            "argc": "4",
+            "addr": "0x582690"
+        },
+        {
+            "name": "GetCREItemVoteSummary",
+            "argc": "3",
+            "addr": "0x581e70"
+        },
+        {
+            "name": "UpdateUserPublishedItemVote",
+            "argc": "4",
+            "addr": "0x582010"
+        },
+        {
+            "name": "GetUserPublishedItemVoteDetails",
+            "argc": "3",
+            "addr": "0x5821d0"
+        },
+        {
+            "name": "EnumerateUserSharedWorkshopFiles",
+            "argc": "7",
+            "addr": "0x582370"
+        },
+        {
+            "name": "EnumeratePublishedWorkshopFiles",
+            "argc": "9",
+            "addr": "0x584f70"
+        },
+        {
+            "name": "EGetFileSyncState",
+            "argc": "4",
+            "addr": "0x583800"
+        },
+        {
+            "name": "BIsFileSyncing",
+            "argc": "4",
+            "addr": "0x57c490"
+        },
+        {
+            "name": "FilePersist",
+            "argc": "4",
+            "addr": "0x57d1f0"
+        },
+        {
+            "name": "FileFetch",
+            "argc": "4",
+            "addr": "0x57d530"
+        },
+        {
+            "name": "ResolvePath",
+            "argc": "6",
+            "addr": "0x57dbc0"
+        },
+        {
+            "name": "FileTouch",
+            "argc": "5",
+            "addr": "0x57d380"
+        },
+        {
+            "name": "SetCloudEnabledForAccount",
+            "argc": "2",
+            "addr": "0x57def0"
+        },
+        {
+            "name": "LoadLocalFileInfoCache",
+            "argc": "2",
+            "addr": "0x57f010"
+        },
+        {
+            "name": "EvaluateRemoteStorageSyncState",
+            "argc": "3",
+            "addr": "0x57f160"
+        },
+        {
+            "name": "GetLastKnownSyncState",
+            "argc": "2",
+            "addr": "0x583d40"
+        },
+        {
+            "name": "GetRemoteStorageSyncState",
+            "argc": "2",
+            "addr": "0x583eb0"
+        },
+        {
+            "name": "HaveLatestFilesLocally",
+            "argc": "2",
+            "addr": "0x57f700"
+        },
+        {
+            "name": "GetConflictingFileTimestamps",
+            "argc": "4",
+            "addr": "0x57f880"
+        },
+        {
+            "name": "GetPendingRemoteOperationInfo",
+            "argc": "3",
+            "addr": "0x57fa30"
+        },
+        {
+            "name": "ResolveSyncConflict",
+            "argc": "3",
+            "addr": "0x57f2c0"
+        },
+        {
+            "name": "SynchronizeApp",
+            "argc": "5",
+            "addr": "0x583b90"
+        },
+        {
+            "name": "IsAppSyncInProgress",
+            "argc": "2",
+            "addr": "0x57fbc0"
+        },
+        {
+            "name": "RunAutoCloudOnAppLaunch",
+            "argc": "2",
+            "addr": "0x57f460"
+        },
+        {
+            "name": "RunAutoCloudOnAppExit",
+            "argc": "2",
+            "addr": "0x57f5b0"
+        },
+        {
+            "name": "ResetFileRequestState",
+            "argc": "2",
+            "addr": "0x580080"
+        },
+        {
+            "name": "ClearPublishFileUpdateRequests",
+            "argc": "2",
+            "addr": "0x582540"
+        },
+        {
+            "name": "GetSubscribedFileDownloadCount",
+            "argc": "1",
+            "addr": "0x582850"
+        },
+        {
+            "name": "BGetSubscribedFileDownloadInfo",
+            "argc": "6",
+            "addr": "0x5829b0"
+        },
+        {
+            "name": "BGetSubscribedFileDownloadInfo",
+            "argc": "6",
+            "addr": "0x582b90"
+        },
+        {
+            "name": "PauseSubscribedFileDownloadsForApp",
+            "argc": "2",
+            "addr": "0x582d60"
+        },
+        {
+            "name": "ResumeSubscribedFileDownloadsForApp",
+            "argc": "2",
+            "addr": "0x582eb0"
+        },
+        {
+            "name": "PauseAllSubscribedFileDownloads",
+            "argc": "1",
+            "addr": "0x583000"
+        },
+        {
+            "name": "ResumeAllSubscribedFileDownloads",
+            "argc": "1",
+            "addr": "0x583130"
+        },
+        {
+            "name": "CancelCurrentAndPendingOperations",
+            "argc": "1",
+            "addr": "0x583260"
+        },
+        {
+            "name": "GetLocalFileChangeCount",
+            "argc": "2",
+            "addr": "0x583390"
+        },
+        {
+            "name": "GetLocalFileChange",
+            "argc": "5",
+            "addr": "0x585180"
+        },
+        {
+            "name": "BeginFileWriteBatch",
+            "argc": "2",
+            "addr": "0x583500"
+        },
+        {
+            "name": "EndFileWriteBatch",
+            "argc": "2",
+            "addr": "0x583680"
+        },
+        {
+            "name": "GetCloudEnabledForAppMap",
+            "argc": "2",
+            "addr": "0x585340"
+        },
+        {
+            "name": "GetLastKnownSyncStateMap",
+            "argc": "3",
+            "addr": "0x5854b0"
+        }
+    ]
+}

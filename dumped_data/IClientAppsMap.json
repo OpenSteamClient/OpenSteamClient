@@ -1,0 +1,81 @@
+{
+    "name": "IClientAppsMap",
+    "found_at": "0x22c5180",
+    "functions": [ 
+        {
+            "name": "GetAppData",
+            "argc": "5",
+            "addr": "0x55ea20"
+        },
+        {
+            "name": "SetLocalAppConfig",
+            "argc": "4",
+            "addr": "0x55ebf0"
+        },
+        {
+            "name": "GetInternalAppIDFromGameID",
+            "argc": "2",
+            "addr": "0x55f510"
+        },
+        {
+            "name": "GetAllOwnedMultiplayerApps",
+            "argc": "3",
+            "addr": "0x55f370"
+        },
+        {
+            "name": "GetAvailableLaunchOptions",
+            "argc": "4",
+            "addr": "0x55ed90"
+        },
+        {
+            "name": "GetAppDataSection",
+            "argc": "6",
+            "addr": "0x55ef50"
+        },
+        {
+            "name": "GetMultipleAppDataSections",
+            "argc": "8",
+            "addr": "0x55f150"
+        },
+        {
+            "name": "RequestAppInfoUpdate",
+            "argc": "3",
+            "addr": "0x55f690"
+        },
+        {
+            "name": "GetDLCCount",
+            "argc": "2",
+            "addr": "0x55f820"
+        },
+        {
+            "name": "BGetDLCDataByIndex",
+            "argc": "7",
+            "addr": "0x55f990"
+        },
+        {
+            "name": "GetAppType",
+            "argc": "2",
+            "addr": "0x560000"
+        },
+        {
+            "name": "GetStoreTagLocalization",
+            "argc": "6",
+            "addr": "0x55fb80"
+        },
+        {
+            "name": "TakeUpdateLock",
+            "argc": "1",
+            "addr": "0x55fd70"
+        },
+        {
+            "name": "GetAppKVRaw",
+            "argc": "4",
+            "addr": "0x560170"
+        },
+        {
+            "name": "ReleaseUpdateLock",
+            "argc": "1",
+            "addr": "0x55fed0"
+        }
+    ]
+}

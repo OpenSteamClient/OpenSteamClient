@@ -1,0 +1,16 @@
+{
+    "name": "IClientStreamLauncherMap",
+    "found_at": "0x22c5c90",
+    "functions": [ 
+        {
+            "name": "StartStreaming",
+            "argc": "2",
+            "addr": "0x59f950"
+        },
+        {
+            "name": "StopStreaming",
+            "argc": "1",
+            "addr": "0x59fac0"
+        }
+    ]
+}

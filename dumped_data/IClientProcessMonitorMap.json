@@ -1,0 +1,31 @@
+{
+    "name": "IClientProcessMonitorMap",
+    "found_at": "0x22cddc4",
+    "functions": [ 
+        {
+            "name": "RegisterProcess",
+            "argc": "2",
+            "addr": "0xed70f0"
+        },
+        {
+            "name": "UnregisterProcess",
+            "argc": "2",
+            "addr": "0xed6fa0"
+        },
+        {
+            "name": "TerminateProcess",
+            "argc": "3",
+            "addr": "0xed6e10"
+        },
+        {
+            "name": "SuspendProcess",
+            "argc": "2",
+            "addr": "0xed6cc0"
+        },
+        {
+            "name": "ResumeProcess",
+            "argc": "2",
+            "addr": "0xed6b70"
+        }
+    ]
+}

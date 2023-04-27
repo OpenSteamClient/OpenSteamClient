@@ -1,0 +1,71 @@
+{
+    "name": "IClientPartiesMap",
+    "found_at": "0x22c5144",
+    "functions": [ 
+        {
+            "name": "GetNumActiveBeacons",
+            "argc": "1",
+            "addr": "0x55d4b0"
+        },
+        {
+            "name": "GetBeaconByIndex",
+            "argc": "2",
+            "addr": "0x55d610"
+        },
+        {
+            "name": "GetBeaconDetails",
+            "argc": "7",
+            "addr": "0x55d7a0"
+        },
+        {
+            "name": "JoinParty",
+            "argc": "3",
+            "addr": "0x55d980"
+        },
+        {
+            "name": "GetNumAvailableBeaconLocations",
+            "argc": "2",
+            "addr": "0x55db20"
+        },
+        {
+            "name": "GetAvailableBeaconLocations",
+            "argc": "3",
+            "addr": "0x55dca0"
+        },
+        {
+            "name": "CreateBeacon",
+            "argc": "6",
+            "addr": "0x55de40"
+        },
+        {
+            "name": "OnReservationCompleted",
+            "argc": "5",
+            "addr": "0x55e010"
+        },
+        {
+            "name": "CancelReservation",
+            "argc": "5",
+            "addr": "0x55e180"
+        },
+        {
+            "name": "ChangeNumOpenSlots",
+            "argc": "4",
+            "addr": "0x55e2f0"
+        },
+        {
+            "name": "DestroyBeacon",
+            "argc": "3",
+            "addr": "0x55e4d0"
+        },
+        {
+            "name": "GetBeaconLocationData",
+            "argc": "7",
+            "addr": "0x55e840"
+        },
+        {
+            "name": "ReservePartySlot",
+            "argc": "4",
+            "addr": "0x55e660"
+        }
+    ]
+}

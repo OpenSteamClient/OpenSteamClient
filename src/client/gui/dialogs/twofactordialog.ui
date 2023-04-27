@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>TwoFactorDialog</class>
+ <widget class="QDialog" name="TwoFactorDialog">
+  <property name="windowModality">
+   <enum>Qt::WindowModal</enum>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>399</width>
+    <height>294</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Second Factor Needed</string>
+  </property>
+  <widget class="QLabel" name="confirmText">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>371</width>
+     <height>101</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;
+&lt;body&gt;
+&lt;p  style=&quot;line-height:50%; padding-botton: 0px&quot; align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Confirm login&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;Use the Steam mobile app and press &quot;Approve&quot;&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;You can also enter a Steam Guard code below&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="steamGuardCodeField">
+   <property name="geometry">
+    <rect>
+     <x>140</x>
+     <y>150</y>
+     <width>113</width>
+     <height>26</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="acceptButton">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>240</y>
+     <width>80</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Accept</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="cancelButton">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>240</y>
+     <width>80</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Cancel</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
