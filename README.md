@@ -11,6 +11,14 @@ A partially open-source Steam client for Linux.
 - Wayland supported without need for XWayland
 - Uses Qt (6)
 
+# Todo
+- Everything marked `//TODO` in the code
+- A better logo (I'm not a graphic designer)
+- Login is a bit janky
+- User switcher
+- Global settings
+- Update steamclient binaries
+
 # System requirements
 ## Distro requirements
 - Arch Linux 
