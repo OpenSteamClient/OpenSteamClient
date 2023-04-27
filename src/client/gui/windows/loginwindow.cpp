@@ -133,6 +133,8 @@ void LoginWindow::loginFailed(std::string msg, EResult eResult) {
         return;
     }
 
+    Application::GetApplication()->progDialog->hide();
+
     QMessageBox msgBox;
     msgBox.setText(QString("Failed to log on %1").arg(ui->usernameField->currentText()));
     msgBox.setInformativeText(QString("Error: %1, eResult: %2").arg(QString::fromStdString(msg), QString::fromStdString(std::to_string(eResult))));
@@ -152,5 +154,6 @@ void LoginWindow::loginSucceeded() {
     this->twofactordialog->hide();
     isLoginInProgress = false;
     UpdateUIState();
-    Application::GetApplication()->mainWindow->show();
+    Application::GetApplication()->progDialog->show();
+    Application::GetApplication()->progDialog->UpdateProgressText("Waiting for steamclient...");
 }

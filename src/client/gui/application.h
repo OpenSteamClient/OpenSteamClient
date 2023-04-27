@@ -23,7 +23,6 @@ private:
     void Shutdown();
     void loginFailed(SteamServerConnectFailure_t);
     void loginSucceeded(SteamServersConnected_t);
-    StartupProgressDialog *progDialog;
     bool hasLogonCompleted = false;
 
 public:
@@ -32,7 +31,9 @@ public:
     CommandLine *commandLine;
     QSettings *settings;
     LoginWindow *loginWindow;
+    StartupProgressDialog *progDialog;
     AppManager *appManager;
+
     uint64_t currentUserSteamID = 0;
     static Application *GetApplication();
     int StartApplication();
