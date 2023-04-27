@@ -1,6 +1,5 @@
 #include <string>
 #include "globals.h"
-#include "backwardscompatibility.h"
 #include "interop/appmanager.h"
 #include "urlprotocol.h"
 #include <sstream>
@@ -81,7 +80,6 @@ std::vector<std::string> URLProtocolHandler::SplitToParts(std::string url)
 
 URLProtocolHandler::URLProtocolHandler() {
     protocolPrefix = "steam://";
-    BackwardsCompatibilityMgr::AddBackwardCompatibility("protocolhandler:allowexitsteam", "Allow steam://ExitSteam protocol", "If this feature is enabled, running steam://ExitSteam will quit the running instance of OpenSteam.");
 }
 
 URLProtocolHandler::~URLProtocolHandler() {
