@@ -64,7 +64,7 @@ build() {
         cd "opensteamclient"
         mkdir -p build
         cd build
-        cmake .. -DREL_BUILD=1 -DCMAKE_INSTALL_PREFIX="/usr" -DCMAKE_BUILD_TYPE=
+        cmake .. -DREL_BUILD=1 -DCMAKE_INSTALL_PREFIX="/usr" -DCMAKE_BUILD_TYPE=None
         cmake --build .
 }
 
