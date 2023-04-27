@@ -19,6 +19,14 @@ A partially open-source Steam client for Linux.
 - Global settings
 - Update steamclient binaries
 
+# Screenshots
+![image](https://user-images.githubusercontent.com/32398752/234956475-9cfbeaf1-e271-45e0-bd25-5e83d9e9d779.png)
+![image](https://user-images.githubusercontent.com/32398752/234956535-66e07ccc-7321-40d5-816f-2f4c93711903.png)
+![image](https://user-images.githubusercontent.com/32398752/234956616-606ff144-e4c6-4684-a9ce-cc6640070422.png)
+![image](https://user-images.githubusercontent.com/32398752/234956744-dff86c34-321c-4170-bf9f-8edc8e42ecc7.png)
+Please note that the downloads tab doesn't currently list games.
+
+
 # System requirements
 ## Distro requirements
 - Arch Linux 
