@@ -1,4 +1,4 @@
-# OpenSteamClient
+# OpenSteamClient (Alpha)
 A partially open-source Steam client for Linux. 
 
 # Features
@@ -18,6 +18,11 @@ A partially open-source Steam client for Linux.
 - User switcher
 - Global settings
 - Update steamclient binaries
+- UI is pretty crude
+- UI is unstyled 
+- Lots of debug and placeholder things in UI
+- Download queue 
+- Missing "critical" features like Friends and game artwork
 
 # Screenshots
 ![image](https://user-images.githubusercontent.com/32398752/234956475-9cfbeaf1-e271-45e0-bd25-5e83d9e9d779.png)
@@ -72,7 +77,7 @@ Read [Restoring ValveSteam](#restoring-valvesteam) below if you want to use the 
 
 5. Make sure steam is not running.
 
-6. `./opensteamclient`
+6. `./opensteam`
 
 7. OpenSteamClient will be installed and launched.
 
@@ -80,7 +85,7 @@ Read [Restoring ValveSteam](#restoring-valvesteam) below if you want to use the 
 # Restoring ValveSteam
 If you wish to revert back to the official client, first:
 1. Close OpenSteamClient
-2. Launch `opensteamclient` with the `--bootstrapper-restore-valvesteam` option.
+2. Launch `opensteam` with the `--bootstrapper-restore-valvesteam` option.
 
 # Q&A
 ## pls windows suprort
