@@ -1,0 +1,4 @@
+build
+generated
+.cache
+CMakeLists.txt.user
