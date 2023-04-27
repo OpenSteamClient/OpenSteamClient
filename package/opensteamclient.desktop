@@ -1,5 +1,5 @@
 [Desktop Entry]
-Categories=Network;FileTransfer;Game;
+Categories=Network;Game;
 Comment=Partially open-source alternative to the Steam Client application
 Comment[fi]=Vaihtoehtoinen osittain avoimen lähdekoodin Steam-asiakassovellus
 Exec=/usr/bin/opensteam %U
@@ -7,8 +7,5 @@ GenericName=Game Launcher
 Icon=opensteam
 MimeType=
 Name=OpenSteam
-Path=
 StartupNotify=true
-Terminal=false
-TerminalOptions=
 Type=Application

@@ -4,6 +4,12 @@ project(opensteamclient LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+# Optimization should be limited to O2 to avoid bugs and to be Arch-friendly
+set(CMAKE_CXX_FLAGS_RELEASE "-O2")
+
+# Arch linux wants "FULL RELRO"
+set(LINK_OPTIONS "-Wl,-z,relro,-z,now")
+
 # Build dir
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR})
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR})
