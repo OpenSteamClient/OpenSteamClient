@@ -38,10 +38,10 @@ Warning: These releases (currently) are only meant for developers. There is an u
 After installation, read [After Install](#after-install-important)
 
 ## Arch Linux
-We provide a couple AUR packages:
-`opensteam-git` and `opensteam-bin`
+We provide an AUR package:
+`opensteam-git`
 
-Choose which one you want and install it through makepkg or your AUR helper. Use your application launcher to start it, or run `opensteam` in a terminal.
+Install it through makepkg or your AUR helper. Use your application launcher to start it, or run `opensteam` in a terminal.
 
 Then read [After Install](#after-install-important)
 
@@ -60,7 +60,7 @@ Read [Restoring ValveSteam](#restoring-valvesteam) below if you want to use the 
 
 3. `cmake ..`
 
-4. `make -j8`
+4. `make`
 
 5. Make sure steam is not running.
 

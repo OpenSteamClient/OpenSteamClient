@@ -1,5 +1,7 @@
+# Maintainer: Onni Kukkonen <onni.kukkonen77@gmail.com>
+
 # Package name
-pkgname=opensteamclient-git
+pkgname=opensteam-git
 
 # //TODO: auto updating this version
 pkgver=0.0.1
@@ -10,7 +12,7 @@ pkgrel=1
 # Description
 pkgdesc="Partially open-source alternative to the Steam Client application"
 
-# We only support x86_64, since steamclient.so doesn't exist for ARM or otherwise
+# We only support x86_64, since steamclient.so doesn't exist for ARM or other platforms
 arch=('x86_64')
 
 # Our github page
@@ -26,6 +28,9 @@ depends=(
     'qrencode>=4.1'
     'openssl'
     'protobuf'
+    'hicolor-icon-theme'
+    'gcc-libs'
+    'curl'
 )
 
 # Dependencies needed to build the package
@@ -38,7 +43,7 @@ makedepends=(
 
 checkdepends=()
 optdepends=(
-    'lib32-glibc: Steam Client Service (VAC) support'
+    'lib32-gcc-libs: Steam Client Service (VAC) support'
 )
 
 provides=()
@@ -72,33 +77,30 @@ pkgver() {
 }
 
 prepare() {
-        pwd
         cd "opensteamclient"
-        pwd
         git submodule init
         git submodule update
 }
 
 build() {
         cd "opensteamclient"
-        pwd
         mkdir -p build
         cd build
-        pwd
         cmake .. -DREL_BUILD=1 -DCMAKE_INSTALL_PREFIX="/usr" -DCMAKE_BUILD_TYPE=
         cmake --build .
 }
 
 check() {
-        pwd
         cd "opensteamclient/build"
-        pwd
         # We don't have a testing solution yet
 }
 
 package() {
-        pwd
-        cd "opensteamclient/build"
-        pwd
+        cd "opensteamclient"
+
+        # MIT license
+        install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+        
+        cd "build"
         DESTDIR="${pkgdir}" cmake --install .
 }
