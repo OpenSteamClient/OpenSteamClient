@@ -26,8 +26,8 @@ depends=(
     'qt6-base>=6.5'
     'libarchive>=3.6'
     'qrencode>=4.1'
-    'openssl'
-    'protobuf'
+    'openssl>=3.0.8'
+    'protobuf>=21.12'
     'hicolor-icon-theme'
     'gcc-libs'
     'curl'
@@ -41,35 +41,13 @@ makedepends=(
     'extra-cmake-modules'
 )
 
-checkdepends=()
 optdepends=(
     'lib32-gcc-libs: Steam Client Service (VAC) support'
 )
 
-provides=()
-
-# We can exist side-by-side with the official app
-conflicts=()
-replaces=()
-
-# Put global config files here that pacman should backup
-backup=()
-
-# Override default makepkg options
-options=()
-
-# Install script
-install=
-
-# Changelog, too much work to include
-changelog=
 
 source=("git+https://github.com/20PercentRendered/opensteamclient.git")
 sha256sums=('SKIP')
-
-noextract=()
-md5sums=()
-validpgpkeys=()
 
 pkgver() {
         cd "opensteamclient"
@@ -100,7 +78,7 @@ package() {
 
         # MIT license
         install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
-        
+
         cd "build"
         DESTDIR="${pkgdir}" cmake --install .
 }
