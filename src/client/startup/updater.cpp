@@ -151,12 +151,14 @@ void Updater::Verify(bool forceRedownload) {
 }
 
 void Updater::CopyOpensteamFiles() {
+
     for (std::tuple<std::string, std::string> file : filesToCopy) {
         auto sourceFile = fs::path(getenv("UPDATER_FILES_DIR")) / std::get<0>(file);
         auto destFile = installDir / std::get<1>(file);
         std::cout << "[Updater] Copying " << sourceFile << " to " << destFile << std::endl;
         try
         {
+            fs::create_directory(destFile.parent_path());
             fs::copy_file(sourceFile, destFile, fs::copy_options::update_existing);
         }
         catch(const std::exception& e)

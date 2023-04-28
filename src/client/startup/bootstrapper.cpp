@@ -112,10 +112,12 @@ void Bootstrapper::SetupOpenSteam() {
     CreateDirectory(OSInstallDir / "logs");
 
     CopyOpensteamMainBin();
+    Global_Updater->CopyOpensteamFiles();
+
     CreateDatalinkForOpenSteam();
     SetOpenSteamAsActiveInstall();
-    //TODO: copy starter shell script here (if we need one)
-    Relaunch();
+
+    Restart(false);
 }
 
 void Bootstrapper::CreateDirectory(fs::path path) {
@@ -370,18 +372,22 @@ void Bootstrapper::RunBootstrap() {
         exit(EXIT_FAILURE);
     }
 }
+
 std::string Bootstrapper::GetInstallDir() {
     return OSInstallDir;
 }
+
 void Bootstrapper::Restart(bool bNoSecondVerify) {
     if (bNoSecondVerify == true) {
         setenv("UPDATER_RAN_ONCE", "1", 0);
     }
     Relaunch(true);
 }
+
 void Bootstrapper::CopyOpensteamMainBin() {
     auto thisexe = fs::read_symlink("/proc/self/exe");
     auto newbin = (OSInstallDir / "linux64" / "steam");
+    CreateDirectory(OSInstallDir / "linux64");
     if (dryRun) {
         std::cout << "[Bootstrapper] Would have copied " << thisexe << " to " << newbin << std::endl;
     } else {
