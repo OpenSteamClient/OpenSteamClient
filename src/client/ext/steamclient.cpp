@@ -5,7 +5,7 @@ SteamClientMgr::SteamClientMgr()
     failedLoad = false;
     dl_handle = dlopen("steamclient.so", RTLD_NOW | RTLD_LOCAL);
     if (dl_handle == 0x0) {
-        std::cout << "Failed to dlopen " << dlerror() << std::endl;
+        std::cout << "[SteamClientMgr] Failed to dlopen " << dlerror() << std::endl;
         failedLoad = true;
         return;
     }
@@ -24,7 +24,7 @@ void* SteamClientMgr::TryLoadFunc(void* dlHandle, const char* funName) {
     auto handle = dlsym(dlHandle, funName);
     if (handle == nullptr) {
         failedLoad = true;
-        std::cerr << "Failed to dlsym " << funName << " from steamclient.so" << std::endl;
+        std::cerr << "[SteamClientMgr] Failed to dlsym " << funName << " from steamclient.so" << std::endl;
     }
     return handle;
 }
@@ -40,9 +40,9 @@ void SteamClientMgr::CreateClientEngine() {
     auto enginePtr = CreateInterface(CLIENTENGINE_VERSION, &retcode);
     ClientEngine = static_cast<IClientEngine*>(enginePtr);
     if (ClientEngine != 0x0) {
-        std::cout << "steamclient.so Found " << CLIENTENGINE_VERSION << " at " << ClientEngine << std::endl;
+        std::cout << "[SteamClientMgr] steamclient.so Found " << CLIENTENGINE_VERSION << " at " << ClientEngine << std::endl;
     } else {
-        std::cerr << "steamclient_CreateInterface didn't understand " << CLIENTENGINE_VERSION << std::endl;
+        std::cerr << "[SteamClientMgr] steamclient_CreateInterface didn't understand " << CLIENTENGINE_VERSION << std::endl;
     }
 }
 void SteamClientMgr::InitHSteamPipeAndHSteamUser()
@@ -51,10 +51,10 @@ void SteamClientMgr::InitHSteamPipeAndHSteamUser()
     user = ClientEngine->ConnectToGlobalUser(pipe);
     if (user == 0x0)
     {
-      std::cout << "Creating new GlobalUser" << std::endl;
+      std::cout << "[SteamClientMgr] Creating new GlobalUser" << std::endl;
       user = ClientEngine->CreateGlobalUser(&pipe);
     } else {
-      std::cout << "Connecting to existing GlobalUser (warning: strange behaviour may occur)" << std::endl;
+      std::cout << "[SteamClientMgr] Connecting to existing GlobalUser (warning: strange behaviour may occur)" << std::endl;
     }
 }
 

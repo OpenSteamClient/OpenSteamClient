@@ -38,19 +38,19 @@ void URLProtocolHandler::ProcessLink(std::string url)
             }
             catch(const std::exception& e)
             {
-                std::cerr << "Failed to convert " << commandv[1] << " to an AppId_t; " << e.what() << std::endl;
+                std::cerr << "[UrlProtocol] Failed to convert " << commandv[1] << " to an AppId_t; " << e.what() << std::endl;
                 return;
             }
             if (appid) {
                 
             } else {
-                std::cerr << "appid was empty" << std::endl;
+                std::cerr << "[UrlProtocol] appid was empty" << std::endl;
             }
             
         break;
 
         default:
-            std::cerr << "unknown command " << url << std::endl;
+            std::cerr << "[UrlProtocol] unknown command " << url << std::endl;
         break;
     }
 }

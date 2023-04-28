@@ -4,7 +4,6 @@
 #pragma once
 
 // A job is a thread that runs temporarily, until a result/error is received. 
-// These are meant to be instantiated inline, and return values retrieved with Qt's signals and slots.
 class Job : public Thread {
     Q_OBJECT
 public:

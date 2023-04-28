@@ -24,6 +24,7 @@ AppManager         *Global_AppManager;
 
 CommandLine        *Global_CommandLine;
 
+Bootstrapper       *Global_Bootstrapper;
 Updater            *Global_Updater;
 
 void Startup::InitQT() {
@@ -52,7 +53,7 @@ void Startup::MaxOpenDescriptorsCheck() {
         setrlimit(RLIMIT_NOFILE, &limit);
     }
     if (Global_debugCbLogging) {
-        std::cout << "RLIMIT_NOFILE set to " << limit.rlim_cur << ", was " << was << std::endl;
+        std::cout << "[Startup] RLIMIT_NOFILE set to " << limit.rlim_cur << ", was " << was << std::endl;
     }
 }
 
@@ -63,46 +64,52 @@ void Startup::SetUpdaterFilesDir() {
     if (getenv("UPDATER_FILES_DIR") == NULL)
     {
         auto newpath = std::filesystem::canonical(std::filesystem::read_symlink("/proc/self/exe")).parent_path();
-        DEBUG_MSG << "Setting UPDATER_FILES_DIR to " << newpath << std::endl;
-        setenv("UPDATER_FILES_DIR", newpath.string().c_str(), 0);
+
+// Our packaged files are in updater_files on release builds
+#ifndef DEV_BUILD
+    newpath = newpath / "updater_files";
+#endif
+
+    setenv("UPDATER_FILES_DIR", newpath.string().c_str(), 0);
+    DEBUG_MSG << "[Startup] Setting UPDATER_FILES_DIR to " << newpath << std::endl;
     }
 
 }
 void Startup::SingleInstanceChecks() {
     auto thispid = PIDUtils::GetPid();
-    DEBUG_MSG << "Our PID is " << thispid << std::endl;
+    DEBUG_MSG << "[Startup] Our PID is " << thispid << std::endl;
 
     //TODO: implement signals and make global
     auto singleinstancemgr = new SingleInstanceMgr(thispid);
     if (singleinstancemgr->BCheckForInstance()) {
-        std::cout << "OpenSteamClient is already running; sending args to instance [PID:" << singleinstancemgr->GetInstancePid() << "]" << std::endl;
+        std::cout << "[Startup] OpenSteamClient is already running; sending args to instance [PID:" << singleinstancemgr->GetInstancePid() << "]" << std::endl;
         singleinstancemgr->SendArgvToInstance(Global_CommandLine->argc, Global_CommandLine->argv);
         exit(EXIT_SUCCESS);
     } else {
         singleinstancemgr->SetThisProcessAsInstance();
-        DEBUG_MSG << "Registered this process as the instance." << std::endl;
+        DEBUG_MSG << "[Startup] Registered this process as the instance." << std::endl;
     }
 }
 void Startup::RunBootstrapper() {
-    DEBUG_MSG << "RunBootstrapper" << std::endl;
-    auto bootstrapper = new Bootstrapper();
+    DEBUG_MSG << "[Startup] RunBootstrapper" << std::endl;
+    Global_Bootstrapper = new Bootstrapper();
     if (Global_CommandLine->HasOption("--bootstrapper-restore-valvesteam")) {
         try
         {
-            bootstrapper->SetValveSteamActive();
+            Global_Bootstrapper->SetValveSteamActive();
         }
         catch(const std::exception& e)
         {
-            std::cerr << "Failed to restore ValveSteam: " << e.what() << std::endl;
+            std::cerr << "[Startup] Failed to restore ValveSteam: " << e.what() << std::endl;
             exit(EXIT_FAILURE);
         }
 
-        std::cout << "ValveSteam has been restored, you can now safely start it. " << std::endl;
+        std::cout << "[Startup] ValveSteam has been restored, you can now safely start it. " << std::endl;
         exit(EXIT_SUCCESS);
     }
 
-    DEBUG_MSG << "RunBootstrap" << std::endl;
-    bootstrapper->RunBootstrap();
+    DEBUG_MSG << "[Startup] RunBootstrap" << std::endl;
+    Global_Bootstrapper->RunBootstrap();
 
     Global_SteamClientMgr = new SteamClientMgr();
     Global_SteamServiceMgr = new SteamServiceMgr();
@@ -110,11 +117,11 @@ void Startup::RunBootstrapper() {
     if (Global_SteamClientMgr->BFailedLoad()) {
         if (getenv("UPDATER_RAN_ONCE") == NULL)
         {
-            std::cerr << "Failed to load steamclient.so; verifying and restarting. " << std::endl;
+            std::cerr << "[Startup] Failed to load steamclient.so; verifying and restarting. " << std::endl;
             Global_Updater->Verify(true);
-            bootstrapper->Restart(true);
+            Global_Bootstrapper->Restart(true);
         } else {
-            std::cerr << "Failed to load steamclient.so after verification. " << std::endl;
+            std::cerr << "[Startup] Failed to load steamclient.so after verification. " << std::endl;
             exit(EXIT_FAILURE);
         }
     }

@@ -39,7 +39,7 @@ bool SingleInstanceMgr::BCheckForInstance() {
     } 
     catch(const std::exception& e)
     {
-        std::cerr << "Failed to read PID file " << pidfile_path << "; " << e.what() << std::endl;
+        std::cerr << "[SingleInstance] Failed to read PID file " << pidfile_path << "; " << e.what() << std::endl;
         return false;
     }
 
@@ -49,7 +49,7 @@ bool SingleInstanceMgr::BCheckForInstance() {
     }
     catch(const std::exception& e)
     {
-        std::cerr << "Failed to convert PID " << instancepid_s << " to int; " << e.what() << std::endl;
+        std::cerr << "[SingleInstance] Failed to convert PID " << instancepid_s << " to int; " << e.what() << std::endl;
         return false;
     }
 
@@ -59,7 +59,7 @@ bool SingleInstanceMgr::BCheckForInstance() {
         if (0 == kill(instancepid, 0))
         {
             fs::path otherProcessPath = fs::read_symlink(std::string("/proc/").append(std::to_string(instancepid)).append("/exe"));
-            DEBUG_MSG << "Other process filename " << otherProcessPath.filename() << std::endl;
+            DEBUG_MSG << "[SingleInstance] Other process filename " << otherProcessPath.filename() << std::endl;
             if (otherProcessPath.filename() == "steam") {
                 return true;
             } else {
@@ -86,7 +86,7 @@ void SingleInstanceMgr::SendArgvToInstance(int argc, char *argv[]) {
     argsAsString += "\n";
 
     if (Global_debugCbLogging) {
-        DEBUG_MSG << "full C string " << argsAsString << std::endl;
+        DEBUG_MSG << "[SingleInstance] full C string " << argsAsString << std::endl;
     }
     
     // Open the named pipe
@@ -94,7 +94,7 @@ void SingleInstanceMgr::SendArgvToInstance(int argc, char *argv[]) {
     auto fd = open(pipefile_path.c_str(), O_WRONLY); 
 
     if (Global_debugCbLogging) {
-        DEBUG_MSG << "fd for pipe is " << fd << std::endl;
+        DEBUG_MSG << "[SingleInstance] fd for pipe is " << fd << std::endl;
     }
 
     if (fd == -1) {
@@ -103,7 +103,7 @@ void SingleInstanceMgr::SendArgvToInstance(int argc, char *argv[]) {
     }
 
     if (Global_debugCbLogging) {
-        DEBUG_MSG << "Data to write: " << argsAsString.length() << std::endl;
+        DEBUG_MSG << "[SingleInstance] Data to write: " << argsAsString.length() << std::endl;
     }
     
     // set this explicitly here just incase
@@ -119,7 +119,7 @@ void SingleInstanceMgr::SendArgvToInstance(int argc, char *argv[]) {
     }
 
     if (Global_debugCbLogging) {
-        DEBUG_MSG << "Result: " << wresult << std::endl;
+        DEBUG_MSG << "[SingleInstance] Result: " << wresult << std::endl;
     }
     
     // We should close it (why _exactly_?)

@@ -30,13 +30,13 @@ int SteamServiceMgr::StartRemoteService() {
         }
         case -1:
         {
-            std::cerr << "An error occurred forking" << std::endl;
+            std::cerr << "[SteamServiceMgr] An error occurred forking" << std::endl;
             return 1;
             break;
         }
     }
 
-    std::cout << "Steam client service's PID is " << forkresult << std::endl;
+    std::cout << "[SteamServiceMgr] Steam client service's PID is " << forkresult << std::endl;
     externalServicePid = forkresult;
 
     //TODO: find out a better way (maybe in IClientNetworkingUtils) to set bIsServiceLocal to true instead of doing this

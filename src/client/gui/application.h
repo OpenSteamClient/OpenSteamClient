@@ -20,7 +20,7 @@ private:
     static Application *instance;
     Application();
     // Called from quitApp
-    void Shutdown();
+    void Shutdown(bool bRestoreValveSteam = false);
     void loginFailed(SteamServerConnectFailure_t);
     void loginSucceeded(SteamServersConnected_t);
     bool hasLogonCompleted = false;
@@ -44,6 +44,7 @@ private slots:
     void postLogonState(PostLogonState_t state);
 public slots:
     void quitApp();
+    void quitAppAndRestoreValveSteam();
 signals:
     void quitRequested();
 };

@@ -37,10 +37,6 @@ void ClickableQWidget::ReplaceExistingQWidget(QWidget *existingWidget)
         i->setParent(this);
         this->layout()->addWidget(i);
     }
-    for (auto &&i : this->findChildren<QWidget*>())
-    {
-        DEBUG_MSG << "our child " << i->objectName().toStdString() << std::endl;
-    }
     
     existingWidget->setVisible(false);
 }

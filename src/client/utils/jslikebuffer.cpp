@@ -5,17 +5,17 @@
 // pos: current cursor position, advances by the length of an uint32 if the read is possible
 uint32_t BufferHelpers::ReadUint32(const char* buffer, size_t bufLen, size_t *pos) {
     if (pos == nullptr) {
-        std::cerr << "Current cursor position is nullptr" << std::endl;
+        std::cerr << "[BufferHelpers] Current cursor position is nullptr" << std::endl;
         return -1;
     }
 
     if (*pos >= bufLen) {
-        std::cerr << "Current cursor position is at or over the end of the buffer" << std::endl;
+        std::cerr << "[BufferHelpers] Current cursor position is at or over the end of the buffer" << std::endl;
         return -1;
     }
 
     if ((*pos + sizeof(uint32_t)) > bufLen) {
-        std::cerr << "Read would have exceeded bufLen" << std::endl;
+        std::cerr << "[BufferHelpers] Read would have exceeded bufLen" << std::endl;
         return -1;
     }
 
@@ -30,17 +30,17 @@ uint32_t BufferHelpers::ReadUint32(const char* buffer, size_t bufLen, size_t *po
 // pos: current cursor position, advances by the length of an uint32 if the read is possible
 uint8_t BufferHelpers::ReadUint8(const char* buffer, size_t bufLen, size_t *pos) {
     if (pos == nullptr) {
-        std::cerr << "Current cursor position is nullptr" << std::endl;
+        std::cerr << "[BufferHelpers] Current cursor position is nullptr" << std::endl;
         return -1;
     }
 
     if (*pos >= bufLen) {
-        std::cerr << "Current cursor position is at or over the end of the buffer" << std::endl;
+        std::cerr << "[BufferHelpers] Current cursor position is at or over the end of the buffer" << std::endl;
         return -1;
     }
 
     if ((*pos + sizeof(uint8_t)) > bufLen) {
-        std::cerr << "Read would have exceeded bufLen" << std::endl;
+        std::cerr << "[BufferHelpers] Read would have exceeded bufLen" << std::endl;
         return -1;
     }
 
@@ -57,18 +57,18 @@ uint8_t BufferHelpers::ReadUint8(const char* buffer, size_t bufLen, size_t *pos)
 // Returns: char* with the data
 char* BufferHelpers::ReadLength(const char* buffer, size_t bufLen, size_t *pos, size_t length) {
     if (pos == nullptr) {
-        std::cerr << "Current cursor position is nullptr" << std::endl;
+        std::cerr << "[BufferHelpers] Current cursor position is nullptr" << std::endl;
         return nullptr;
     }
 
     if (*pos >= bufLen) {
-        std::cerr << "Current cursor position is at or over the end of the buffer" << std::endl;
+        std::cerr << "[BufferHelpers] Current cursor position is at or over the end of the buffer" << std::endl;
         return nullptr;
     }
 
     if ((*pos + length) > bufLen)
     {
-        std::cerr << "Read would have exceeded bufLen" << std::endl;
+        std::cerr << "[BufferHelpers] Read would have exceeded bufLen" << std::endl;
         return nullptr;
     }
 

@@ -63,8 +63,8 @@ public:
     void TellHex() {
         #ifndef DEV_BUILD
             #ifdef PRINT_PROTOMSG
-                std::cout << "buffer length: " << bufferByteArray.length() << std::endl;
-                std::cout << "buffer data: (on next line)" << std::endl;
+                std::cout << "[ProtoMsg] buffer length: " << bufferByteArray.length() << std::endl;
+                std::cout << "[ProtoMsg] buffer data: (on next line)" << std::endl;
 
                 // save formatting
                 std::ios init(NULL);
@@ -95,12 +95,12 @@ public:
         ProtoMsg<T> msg = new ProtoMsg<T>(false);
         size_t cursorPos = 0;
 #ifdef PRINT_PROTOMSG
-        DEBUG_MSG << "msg_length " << length << std::endl;
+        DEBUG_MSG << "[ProtoMsg] msg_length " << length << std::endl;
 #endif
         // The first part of a message is it's eMsg. This is defined as a LittleEndian uint32
         uint32_t eMsg = BufferHelpers::ReadUint32(binary, length, &cursorPos);
         if (eMsg == -1) {
-            std::cerr << "Read a negative uint!" << std::endl;
+            std::cerr << "[ProtoMsg] Read a negative uint!" << std::endl;
             msg.success = false;
             return msg;
         }
@@ -110,14 +110,14 @@ public:
         msg.SetEMsg(eMsgReal);
 
 #ifdef PRINT_PROTOMSG
-        DEBUG_MSG << "eMsg is " << eMsgReal << std::endl;
+        DEBUG_MSG << "[ProtoMsg] eMsg is " << eMsgReal << std::endl;
 #endif
 
         // The size of the header is defined in the message. 
         // The size of the body isn't defined, as we can just read the rest of the message.
         uint32_t header_size = BufferHelpers::ReadUint32(binary, length, &cursorPos);
         if (header_size == -1) {
-            std::cerr << "Read a negative uint!" << std::endl;
+            std::cerr << "[ProtoMsg] Read a negative uint!" << std::endl;
             msg.success = false;
             return msg;
         }
@@ -125,7 +125,7 @@ public:
         // Read header_size length portion of the message
         // This gets us the header and leaves the cursor where the body begins.
 #ifdef PRINT_PROTOMSG
-        DEBUG_MSG << "header_size " << header_size << std::endl;
+        DEBUG_MSG << "[ProtoMsg] header_size " << header_size << std::endl;
 #endif
         char *serializedHeader = BufferHelpers::ReadLength(binary, length, &cursorPos, header_size);
         if (serializedHeader == nullptr) {
@@ -136,7 +136,7 @@ public:
         // Calculate the remaining bytes and read the body out of them. This is the last part of a message.
         size_t body_size = length - cursorPos;
 #ifdef PRINT_PROTOMSG
-        DEBUG_MSG << "body_size " << body_size << std::endl;
+        DEBUG_MSG << "[ProtoMsg] body_size " << body_size << std::endl;
 #endif
         char *serializedBody = BufferHelpers::ReadLength(binary, length, &cursorPos, body_size);
         if (serializedBody == nullptr) {
@@ -149,15 +149,15 @@ public:
         // (if there are this many eMsg:s in the future, just bump this number up)
         // This isn't really fatal, but means that something is off. 
         if (eMsgReal > 1147483647) {
-            std::cerr << "WARNING: eMsg " << eMsgReal << " is ridiculously large (most likely invalid)" << std::endl;
+            std::cerr << "[ProtoMsg] WARNING: eMsg " << eMsgReal << " is ridiculously large (most likely invalid)" << std::endl;
         }
 
         try {
-            DEBUG_MSG << "Parsing header" << std::endl;
+            DEBUG_MSG << "[ProtoMsg] Parsing header" << std::endl;
 
             // Second, check with protobuf that the header is valid by parsing it
             if (!msg.header.ParseFromString(std::string(serializedHeader, header_size))) {
-                DEBUG_MSG << "Failed to parse header: " << msg.header.InitializationErrorString() << std::endl;
+                DEBUG_MSG << "[ProtoMsg] Failed to parse header: " << msg.header.InitializationErrorString() << std::endl;
                 succeeded_parsing_header = false;
             }
         } 
@@ -169,11 +169,11 @@ public:
 
         try
         {
-            DEBUG_MSG << "Parsing body" << std::endl;
+            DEBUG_MSG << "[ProtoMsg] Parsing body" << std::endl;
 
             // Third, check with protobuf that the body is valid by parsing it
             if (!msg.body.ParseFromString(std::string(serializedBody, body_size))) {
-                DEBUG_MSG << "Failed to parse body: " << msg.body.InitializationErrorString() << std::endl;
+                DEBUG_MSG << "[ProtoMsg] Failed to parse body: " << msg.body.InitializationErrorString() << std::endl;
                 succeeded_parsing_body = false;
             }
         }
@@ -185,12 +185,12 @@ public:
 
 
         if (!succeeded_parsing_header) {
-            std::cerr << "Header failed to parse. Cannot continue." << std::endl;
+            std::cerr << "[ProtoMsg] Header failed to parse. Cannot continue." << std::endl;
             return NULL;
         }
         if (!succeeded_parsing_body) {
-            std::cerr << "Body failed to parse but header parsed successfully. Is the proper protobuf message specified?" << std::endl;
-            std::cerr << "This may also be indicative of user error, like leaving out some required fields." << std::endl;
+            std::cerr << "[ProtoMsg] Body failed to parse but header parsed successfully. Is the proper protobuf message specified?" << std::endl;
+            std::cerr << "[ProtoMsg] This may also be indicative of user error, like leaving out some required fields." << std::endl;
             msg.success = false;
         } else {
             msg.success = true;
@@ -198,12 +198,12 @@ public:
         
 #ifdef PRINT_PROTOMSG
         if (succeeded_parsing_header) {
-            DEBUG_MSG << "Header: " << std::endl;
+            DEBUG_MSG << "[ProtoMsg] Header: " << std::endl;
             DEBUG_MSG << msg.header.DebugString() << std::endl;
         }
 
         if (succeeded_parsing_body) {
-            DEBUG_MSG << "Body: " << std::endl;
+            DEBUG_MSG << "[ProtoMsg] Body: " << std::endl;
             DEBUG_MSG << msg.body.DebugString() << std::endl;
         }
 #endif
@@ -222,8 +222,8 @@ public:
         size_t header_size = header.ByteSizeLong();
         size_t body_size = body.ByteSizeLong();
 
-        DEBUG_MSG << "serialize:header_size " << header_size << std::endl;
-        DEBUG_MSG << "serialize:body_size " << body_size << std::endl;
+        DEBUG_MSG << "[ProtoMsg] serialize:header_size " << header_size << std::endl;
+        DEBUG_MSG << "[ProtoMsg] serialize:body_size " << body_size << std::endl;
 
         bufferByteArray = QByteArray();
         buffer = new QBuffer(&bufferByteArray);
@@ -268,9 +268,9 @@ public:
 #if PROTOMSG_REPARSE
     void ReparseMsg() {
         // Parse our own message and see if it's still valid
-        DEBUG_MSG << "Deserializing our own packet; PROTOMSG_REPARSE is set" << std::endl;
+        DEBUG_MSG << "[ProtoMsg] Deserializing our own packet; PROTOMSG_REPARSE is set" << std::endl;
         ProtoMsg<T> protoMsg_req_reparsed = ProtoMsg<T>::FromBinary(bufferByteArray.constData(), this->SerializedLength());
-        DEBUG_MSG << "reParsed eMsg: " << protoMsg_req_reparsed.GetEMsg() << std::endl;
+        DEBUG_MSG << "[ProtoMsg] reParsed eMsg: " << protoMsg_req_reparsed.GetEMsg() << std::endl;
     }
 #endif
 
@@ -320,9 +320,9 @@ public:
         {    
             std::this_thread::sleep_for(std::chrono::milliseconds(50));
         }
-        DEBUG_MSG << "Received response, try parsing it " << rcvdCall << std::endl;
+        DEBUG_MSG << "[ProtoMsg] Received response, try parsing it " << rcvdCall << std::endl;
 
-        DEBUG_MSG << "Deserializing response as " << responseReflect.GetTypeName() << " response length " << responseBuf->TellPut() << std::endl;
+        DEBUG_MSG << "[ProtoMsg] Deserializing response as " << responseReflect.GetTypeName() << " response length " << responseBuf->TellPut() << std::endl;
 
         //TODO: Is conversion from unsigned char* to char* safe?
         ProtoMsg<ResponseType> response = ProtoMsg<ResponseType>::FromBinary((char *)responseBuf->m_Memory.Base(), responseBuf->TellPut());
@@ -346,7 +346,7 @@ public:
         } else {
             //TODO: set correct sessionid
 #ifdef PRINT_PROTOMSG
-            DEBUG_MSG << "Current steamid is " << Application::GetApplication()->currentUserSteamID << std::endl;
+            DEBUG_MSG << "[ProtoMsg] Current steamid is " << Application::GetApplication()->currentUserSteamID << std::endl;
 #endif
             header.set_steamid(Application::GetApplication()->currentUserSteamID);
         }

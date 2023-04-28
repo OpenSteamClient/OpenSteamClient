@@ -22,12 +22,12 @@ enum BinaryKVType {
 // This function is used exclusively for BinaryKV
 static std::string ReadCString(const uint8_t *buffer, size_t bufLen, size_t *pos) {
     if (pos == nullptr) {
-        std::cerr << "Current cursor position is nullptr" << std::endl;
+        std::cerr << "[BinaryKV] Current cursor position is nullptr" << std::endl;
         return "";
     }
 
     if (*pos >= bufLen) {
-        std::cerr << "Current cursor position is at or over the end of the buffer" << std::endl;
+        std::cerr << "[BinaryKV] Current cursor position is at or over the end of the buffer" << std::endl;
         return "";
     }
 
@@ -36,7 +36,7 @@ static std::string ReadCString(const uint8_t *buffer, size_t bufLen, size_t *pos
 
     if ((*pos + len) > bufLen)
     {
-        std::cerr << "Read would have exceeded bufLen" << std::endl;
+        std::cerr << "[BinaryKV] Read would have exceeded bufLen" << std::endl;
         return "";
     }
 
@@ -138,7 +138,7 @@ nlohmann::json ParseBinary(std::vector<uint8_t> data, size_t *offset) {
             break;
 
         default:
-            std::cerr << "Unhandled BinaryKVType " << (BinaryKVType)type << std::endl;
+            std::cerr << "[BinaryKV] Unhandled BinaryKVType " << (BinaryKVType)type << std::endl;
             break;
         }
     }

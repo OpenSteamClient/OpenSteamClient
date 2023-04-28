@@ -27,8 +27,6 @@ TwoFactorDialog::~TwoFactorDialog()
 // Clicking this button means the user has entered a Steam Guard code and wants to send it
 //TODO: we should communicate it more clearly
 void TwoFactorDialog::acceptButton_clicked() {
-    DEBUG_MSG << "clicked" << std::endl;
-
     if (ui->steamGuardCodeField->text().isEmpty())
     {
         //TODO: convey this to the user

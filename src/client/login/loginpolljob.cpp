@@ -37,7 +37,7 @@ void JobLoginPolling::JobMain() {
                 if (pollResp.body.has_refresh_token()) {
                     emit OnTokenAvailable(pollResp.body.account_name(), pollResp.body.refresh_token());
                     pollingInterval = 0;
-                    std::cout << "Token received, shutting down polling" << std::endl;
+                    std::cout << "[LoginPollJob] Token received, shutting down polling" << std::endl;
                     return;
                 }
               

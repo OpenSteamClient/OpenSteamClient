@@ -33,7 +33,7 @@ void AppManager::LoadApps() {
     {
         if (Global_SteamClientMgr->ClientApps->GetAppData(i, "common/type", type, 128) == 0)
         {
-            DEBUG_MSG << "Skipping " << i << " no type returned" << std::endl;
+            DEBUG_MSG << "[AppManager] Skipping " << i << " no type returned" << std::endl;
             continue;
         }
 
@@ -55,7 +55,6 @@ void AppManager::LoadApps() {
             std::string keyName = std::string("Software/Valve/Steam/Apps/").append(std::to_string(i)).append("/Tags/").append(std::to_string(i2));
             const char* returned = Global_SteamClientMgr->ClientConfigStore->GetString(k_EConfigStoreUserRoaming, keyName.c_str(), "");
             if (std::string(returned) == "") {
-                DEBUG_MSG << "key not found..." << std::endl;
                 break;
             }
             else
@@ -126,7 +125,6 @@ void AppManager::RequestLibraryAsset(App* app, ArtworkType type)
         {
             // If the file exists, don't redownload
             app->libraryAssets.iconCachedFilename = cachedFilename;
-            DEBUG_MSG << "this one is cached" << std::endl;
             break;
         }
 
@@ -180,9 +178,9 @@ void AppManager::replyReceived() {
     if (reply->error() == QNetworkReply::NoError)
     {
         QString artworkHash = QString::fromStdString(forApp->libraryAssets.iconHash);
-        DEBUG_MSG << "len is " << std::to_string(pendingHashToTypeMap.size()) << "hash is " << artworkHash.toStdString() << std::endl;
+        DEBUG_MSG << "[AppManager] len is " << pendingHashToTypeMap.size() << "hash is " << artworkHash.toStdString() << std::endl;
         if (!pendingHashToTypeMap.contains(artworkHash)) {
-            DEBUG_MSG << "not contained :(" << std::endl;
+            DEBUG_MSG << "[AppManager] not contained :(" << std::endl;
             {
                 std::lock_guard<std::mutex> guard(mutex_pendingReplyToAppMap);
                 pendingReplyToAppMap.erase(reply);
@@ -210,14 +208,14 @@ void AppManager::replyReceived() {
 
                 if (currentImage.size() == QSize(32, 32))
                 {
-                    DEBUG_MSG << "icon is 32x32" << std::endl;
+                    DEBUG_MSG << "[AppManager] icon is 32x32" << std::endl;
                     bestImage = currentImage;
                     // This is the best size for an icon, more is overkill, less is blurry
                     break;
                 }
                 else if ( currentImage.size().width() > 32 && currentImage.size().height() > 32) 
                 {
-                    DEBUG_MSG << "icon is good enough " << currentImage.size().width() << "x" << currentImage.size().height() << std::endl;
+                    DEBUG_MSG << "[AppManager] icon is good enough " << currentImage.size().width() << "x" << currentImage.size().height() << std::endl;
                     if (!bestImage.isNull()) {
                         if (bestImage.size().width() > currentImage.size().width() && bestImage.size().height() > currentImage.size().width()) {
                             // Set the image (outside of these if's)
@@ -232,13 +230,13 @@ void AppManager::replyReceived() {
                 {
                     // This is not the ideal image, skip and go to the next one, unless it's the last image
                     if (isLastImage) {
-                        DEBUG_MSG << "not an ideal image, but we need one " << currentImage.size().width() << "x" << currentImage.size().height() << std::endl;
+                        DEBUG_MSG << "[AppManager] not an ideal image, but we need one " << currentImage.size().width() << "x" << currentImage.size().height() << std::endl;
                         bestImage = currentImage;
                     }
                 }
             }
         } else {
-            DEBUG_MSG << "We have only one image" << std::endl;
+            DEBUG_MSG << "[AppManager] We have only one image" << std::endl;
             bestImage = imageReader.read();
         }
 
@@ -270,14 +268,14 @@ void AppManager::replyReceived() {
 // A few games and software titles have no icon or the url is invalid. We don't cache these results.
 void AppManager::replyErrored(QNetworkReply::NetworkError err) {
     QNetworkReply *reply = qobject_cast<QNetworkReply*>(sender());
-    DEBUG_MSG << "Error occurred while fetching resource " << reply->url().toString().toStdString() << std::endl;
+    DEBUG_MSG << "[AppManager] Error occurred while fetching resource " << reply->url().toString().toStdString() << std::endl;
 
     {
         std::lock_guard<std::mutex> guard(mutex_pendingReplyToAppMap);
         if (pendingReplyToAppMap.contains(reply)) {
             pendingReplyToAppMap.erase(reply);
         } else {
-            DEBUG_MSG << "pendingReplyToAppMap doesn't contain " << reply->url().toString().toStdString() << std::endl;
+            DEBUG_MSG << "[AppManager] pendingReplyToAppMap doesn't contain " << reply->url().toString().toStdString() << std::endl;
         }
     }
     PendingReplyToAppMapChange();

@@ -50,7 +50,7 @@ void SettingsWindow::PopulateBetas() {
 
     char currentBeta[256];
     Global_SteamClientMgr->ClientAppManager->GetActiveBeta(app->appid, currentBeta, sizeof(currentBeta));
-    DEBUG_MSG << "beta is " << currentBeta << std::endl;
+    DEBUG_MSG << "[SettingsWindow] beta is " << currentBeta << std::endl;
     for (auto &&i : bkv->outputJSON["depots"]["branches"].items())
     {
         Beta beta;
@@ -121,7 +121,7 @@ void SettingsWindow::PopulateCompatTools()
     for (size_t i = 0; i < vec->Count(); i++)
     {
         if (vec->Element(i).str == nullptr || vec->Element(i).str == NULL) {
-            DEBUG_MSG << "Name is nullptr" << std::endl;
+            DEBUG_MSG << "[SettingsWindow] Name is nullptr" << std::endl;
         }
         else
         {
@@ -188,10 +188,10 @@ void SettingsWindow::betaPasswordResponseReceived(CheckAppBetaPasswordResponse_t
 
 void SettingsWindow::on_betasDropdown_activated(int index)
 {
-    DEBUG_MSG << "Requested index " << index << std::endl;
+    DEBUG_MSG << "[SettingsWindow] Requested index " << index << std::endl;
     // User selected "No beta"
     if (index == 0) {
-        DEBUG_MSG << "index was 0" << std::endl;
+        DEBUG_MSG << "[SettingsWindow] index was 0" << std::endl;
         Global_SteamClientMgr->ClientAppManager->SetAppConfigValue(app->appid, "betakey", "public");
         return;
     }
@@ -199,7 +199,7 @@ void SettingsWindow::on_betasDropdown_activated(int index)
     Beta beta = betas.at(index);
 
     // This calls ResolveDepotDependencies (internally) and also queues the app for immediate update (if installed)
-    DEBUG_MSG << "Setting beta to " << beta.name.c_str() << std::endl;
+    DEBUG_MSG << "[SettingsWindow] Setting beta to " << beta.name.c_str() << std::endl;
     const char *betaNameReal = beta.name.c_str();
 
     //Global_SteamClientMgr->ClientAppManager->SetAppConfigValue(app->appid, "BetaKey", betaNameReal);
@@ -209,7 +209,7 @@ void SettingsWindow::on_betasDropdown_activated(int index)
 
     char currentBeta[256];
     Global_SteamClientMgr->ClientAppManager->GetActiveBeta(app->appid, currentBeta, sizeof(currentBeta));
-    DEBUG_MSG << "beta is " << currentBeta << std::endl;
+    DEBUG_MSG << "[SettingsWindow] beta is " << currentBeta << std::endl;
 }
 
 void SettingsWindow::on_uninstallBtn_clicked()

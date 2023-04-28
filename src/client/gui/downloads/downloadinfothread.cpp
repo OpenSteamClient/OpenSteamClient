@@ -9,7 +9,6 @@ std::string DownloadInfoThread::ThreadName() {
 
 void DownloadInfoThread::ThreadMain()
 {
-    std::cout << "DownloadInfoThread started" << std::endl;
     uint64 totalDownloadedLast = 0;
     DownloadSpeedInfo speedInfo;
     AppId_t prevDownloadingApp = 0;
@@ -26,7 +25,7 @@ void DownloadInfoThread::ThreadMain()
             speedInfo.topDownloadSpeed = speedInfo.downloadSpeed;
         }
 
-        DEBUG_MSG << "DOWNLOAD STAT DEBUG: step: " << stats.currentStep << " total: " << stats.totalDownloaded << " estimatedSpeed: " << stats.estimatedDownloadSpeed << " speed: " << std::to_string(speedInfo.downloadSpeed) << " topspeed: " << std::to_string(speedInfo.topDownloadSpeed) << std::endl;
+        DEBUG_MSG << "[DownloadInfoThread] DOWNLOAD STAT DEBUG: step: " << stats.currentStep << " total: " << stats.totalDownloaded << " estimatedSpeed: " << stats.estimatedDownloadSpeed << " speed: " << std::to_string(speedInfo.downloadSpeed) << " topspeed: " << std::to_string(speedInfo.topDownloadSpeed) << std::endl;
         emit DownloadSpeedUpdate(speedInfo);
 
         if (prevDownloadingApp != Global_SteamClientMgr->ClientAppManager->GetDownloadingAppID()) {

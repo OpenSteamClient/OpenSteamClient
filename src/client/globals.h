@@ -9,6 +9,7 @@ class SteamServiceMgr;
 class URLProtocolHandler;
 class AppManager;
 class CommandLine;
+class Bootstrapper;
 class Updater;
 class ThreadController;
 
@@ -18,5 +19,6 @@ extern bool Global_debugCbLogging;
 extern URLProtocolHandler *Global_URLProtocolHandler;
 extern AppManager *Global_AppManager;
 extern CommandLine *Global_CommandLine;
+extern Bootstrapper *Global_Bootstrapper;
 extern Updater *Global_Updater;
 extern ThreadController *Global_ThreadController;

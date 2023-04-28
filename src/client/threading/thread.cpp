@@ -3,37 +3,46 @@
 
 Thread::Thread()
 {
-    backingQThread = new QThread();
-    QThread::connect(backingQThread, &QThread::finished, this, &QObject::deleteLater);
-    QThread::connect(backingQThread, &QThread::finished, this, &Thread::stoppedBackingThread);
+    QThread::connect(this, &QThread::finished, this, &Thread::stoppedBackingThread);
     // connect(this, &Worker::resultReady, this, &Controller::handleResults);
 }
 
-
 Thread::~Thread()
 {
-    // It's probably safe to delete at this point
-    delete backingQThread;
+
 }
 
 void Thread::stoppedBackingThread() {
     emit threadExited(0);
 }
+
 void Thread::StopThreadInternal() {
-    backingQThread->exit();
     emit threadExited(0);
+    this->deleteLater();
+}
+
+void Thread::run() {
+    ThreadMain();
 }
 
 void Thread::startThread() {
-    std::cout << "StartThread called" << std::endl;
-    this->moveToThread(backingQThread);
-    backingQThread->setObjectName(this->ThreadName());
-    backingQThread->start();
-    QMetaObject::invokeMethod(this, &Thread::ThreadMain, Qt::ConnectionType::QueuedConnection);
+    std::cout << "[Thread] StartThread called" << std::endl;
+
+    this->setObjectName(this->ThreadName());
+    this->start();
+}
+
+std::string Thread::ThreadName() {
+    std::cout << "[Thread] Programmer error! ThreadName called in Thread class, not your own subclass! Function not overridden!" << std::endl;
+    return "UnnamedThread";
 }
 
 void Thread::ThreadMain() {
-    std::cout << "ThreadMain called in Thread class, not your own subclass! Function not overriden!" << std::endl;
+    std::cout << "[Thread] Programmer error! ThreadMain called in Thread class, not your own subclass! Function not overridden!" << std::endl;
+}
+
+void Thread::StopThread() {
+    std::cout << "[Thread] Programmer error! StopThread called in Thread class, not your own subclass! Function not overridden!" << std::endl;
 }
 
 void Thread::stopThread() {
@@ -42,6 +51,9 @@ void Thread::stopThread() {
 }
 void Thread::killThread() {
     // kill logic here
-    backingQThread->terminate();
+
+    // Note: this signal is not guaranteed to have a valid sender object
     emit threadExited(-1);
+
+    this->terminate();
 }

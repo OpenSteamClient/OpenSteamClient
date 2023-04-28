@@ -110,7 +110,7 @@ void LoginWindow::on_regenerateQRButton_clicked()
 }
 
 void LoginWindow::loginFailed(std::string msg, EResult eResult) {
-    std::cout << "Failed to log on " << msg << std::endl;
+    std::cout << "[LoginWindow] Failed to log on " << msg << std::endl;
     isLoginInProgress = false;
     UpdateUIState();
 

@@ -12,6 +12,8 @@
 
 #include "../interop/appmanager.h"
 
+#include "../startup/bootstrapper.h"
+
 Application *Application::instance;
 
 Application::Application()
@@ -79,7 +81,7 @@ bool RegisterConCommandBase(IConCommandBaseAccessor *acc, ConCommandBase *pVar)
     //TODO: console support, this is an ok starting point for making it work
     //NOTE: some commands aren't listed, like download_depot. Why?
     //NOTE: I don't know if the steam client contains ConVars as well as ConCommands
-    DEBUG_MSG << "ConCommand added: " << pVar->m_pszName << " : " << pVar->m_pszHelpString << ", flags: " << pVar->m_nFlags << std::endl;
+    DEBUG_MSG << "[ConCommands] ConCommand added: " << pVar->m_pszName << " : " << pVar->m_pszHelpString << ", flags: " << pVar->m_nFlags << std::endl;
     pVar->m_bRegistered = true;
     return true;
 }
@@ -89,7 +91,7 @@ void Application::InitApplication()
     if (qobject_cast<QApplication *>(QApp))
     {
       // start GUI version
-      std::cout << "Starting GUI" << std::endl;
+      std::cout << "[Application] Starting GUI" << std::endl;
 
       // Loading settings
       settings = new QSettings("OpenSteamClient", "OpenSteam");
@@ -97,7 +99,7 @@ void Application::InitApplication()
       // First we start the service, as it is used almost immediately
       int serviceStartCode = Global_SteamServiceMgr->StartRemoteService();
       if (serviceStartCode != 0) {
-        std::cout << "Failed to start steamserviced. VAC may not work. " << std::endl;
+        std::cout << "[Application] Failed to start steamserviced. VAC may not work. " << std::endl;
       }
 
       QMetaObject::invokeMethod(Global_ThreadController, &ThreadController::startThreads, Qt::ConnectionType::DirectConnection);
@@ -126,7 +128,7 @@ void Application::InitApplication()
     else
     {
       //TODO: non-gui version (maybe a cli)
-      std::cerr << "No GUIless version yet" << std::endl;
+      std::cerr << "[Application] No GUIless version yet" << std::endl;
       exit(EXIT_FAILURE);
     }
 }
@@ -176,23 +178,33 @@ int Application::StartApplication() {
   return returncode;
 }
 
-void Application::Shutdown() {
-  std::cout << "Stopping OpenSteam" << std::endl;
+void Application::Shutdown(bool bRestoreValveSteam) {
+  std::cout << "[Application] Stopping OpenSteam" << std::endl;
 
   // Kill the service first, these other steps fail often
   Global_SteamServiceMgr->KillRemoteService();
 
   QApp->quit();
+  Global_ThreadController->StopThreadsBlocking();
   Global_SteamClientMgr->ClientAppManager->SetDownloadingEnabled(false);
   Global_SteamClientMgr->ClientUser->LogOff();
   Global_SteamClientMgr->Shutdown();
-  
+
+  if (bRestoreValveSteam) {
+    Global_Bootstrapper->Relaunch(true, {"--bootstrapper-restore-valvesteam"});
+  }
+
   exit(EXIT_SUCCESS);
 }
 
 void Application::quitApp() {
   mainWindow->hide();
   Shutdown();
+}
+
+void Application::quitAppAndRestoreValveSteam() {
+  mainWindow->hide();
+  Shutdown(true);
 }
 
 void Application::loginFailed(SteamServerConnectFailure_t result) {
@@ -213,7 +225,7 @@ void Application::loginSucceeded(SteamServersConnected_t result) {
 void Application::postLogonState(PostLogonState_t state) {
   if (state.logonComplete) {
     if (hasLogonCompleted) {
-      std::cerr << "Received PostLogonState_t with logonComplete true but it had been already sent before?" << std::endl;
+      std::cerr << "[Application] Received PostLogonState_t with logonComplete true but it had been already sent before?" << std::endl;
       return;
     }
     hasLogonCompleted = true;

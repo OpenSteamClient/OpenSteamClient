@@ -38,7 +38,7 @@ bool Updater::BVerifyBinaries() {
 // If the file has a checksum, it is checked to make sure it matches the installed file (not implemented)
 bool Updater::BVerifyFile(std::string path_s) {
     if (!fs::exists(installDir / path_s)) {
-        std::cerr << "File " << (installDir / path_s) << " failed verification: File does not exist." << std::endl;
+        std::cerr << "[Updater] File " << (installDir / path_s) << " failed verification: File does not exist." << std::endl;
         return false;
     }
     //TODO: verify sha of file
@@ -65,7 +65,7 @@ void Updater::Update() {
         }
         catch(const std::exception& e)
         {
-            std::cerr << "Failed to download " << pkgname << "; " << e.what() << std::endl;
+            std::cerr << "[Updater] Failed to download " << pkgname << "; " << e.what() << std::endl;
             continue;
         }
         auto archive = archive_read_new();
@@ -84,7 +84,7 @@ void Updater::Update() {
             {
                 if (fileWhitelist.contains(filename)) {
                     auto fullpath = (installDir / filename);
-                    std::cout << "Installing " << filename << " with size " << size << std::endl;
+                    std::cout << "[Updater] Installing " << filename << " with size " << size << std::endl;
                     char *buf;
                     buf = (char *)malloc(size);
                     archive_read_data(archive, buf, size);
@@ -129,7 +129,7 @@ size_t Updater::write_data(void *contents, size_t size, size_t nmemb, void *user
 }
 
 void Updater::DownloadFromServer(std::string file, MemoryStruct& dataOut) {
-    std::cout << "Downloading " << (baseUrl + file) << " started" << std::endl;
+    std::cout << "[Updater] Downloading " << (baseUrl + file) << " started" << std::endl;
     curl_easy_setopt(curl, CURLOPT_URL, ( baseUrl + file).c_str());
     curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_data);
     curl_easy_setopt(curl, CURLOPT_WRITEDATA, &dataOut);
@@ -137,10 +137,10 @@ void Updater::DownloadFromServer(std::string file, MemoryStruct& dataOut) {
 
     /* check for errors */
     if(result != CURLE_OK) {
-        std::cout << "Curl error occurred: " << curl_easy_strerror(result) << std::endl;
+        std::cout << "[Updater] Curl error occurred: " << curl_easy_strerror(result) << std::endl;
     }
     else {
-        std::cout << "Downloaded successfully" << std::endl;
+        std::cout << "[Updater] Downloaded successfully" << std::endl;
     }
 }
 
@@ -154,7 +154,7 @@ void Updater::CopyOpensteamFiles() {
     for (std::tuple<std::string, std::string> file : filesToCopy) {
         auto sourceFile = fs::path(getenv("UPDATER_FILES_DIR")) / std::get<0>(file);
         auto destFile = installDir / std::get<1>(file);
-        std::cout << "Copying " << sourceFile << " to " << destFile << std::endl;
+        std::cout << "[Updater] Copying " << sourceFile << " to " << destFile << std::endl;
         try
         {
             fs::copy_file(sourceFile, destFile, fs::copy_options::update_existing);
@@ -164,7 +164,7 @@ void Updater::CopyOpensteamFiles() {
             if (std::string(e.what()).contains("File exists")) {
                 std::cout << destFile << " is up-to-date. " << std::endl;
             } else {
-                std::cerr << "Failed to copy " << destFile << ": " << e.what() << std::endl;
+                std::cerr << "[Updater] Failed to copy " << destFile << ": " << e.what() << std::endl;
             }
         }
     }
@@ -173,11 +173,11 @@ void Updater::CopyOpensteamFiles() {
 Updater::Updater() {
     LocateInstallDir();
 
-    DEBUG_MSG << "InstallDir is " << installDir << std::endl;
+    DEBUG_MSG << "[Updater] InstallDir is " << installDir << std::endl;
     if (getenv("UPDATER_FILES_DIR") == NULL) {
-        std::cerr << "Updater files path is NULL" << std::endl;
+        std::cerr << "[Updater] Updater files path is NULL" << std::endl;
     } else {
-        DEBUG_MSG << "Updater files path is " << getenv("UPDATER_FILES_DIR") << std::endl;
+        DEBUG_MSG << "[Updater] Updater files path is " << getenv("UPDATER_FILES_DIR") << std::endl;
     }
     
 }

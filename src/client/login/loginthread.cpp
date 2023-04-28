@@ -42,22 +42,22 @@ static std::string ToBase64(const char *in, int actualLength) {
     const auto pl = 4*((actualLength+2)/3);
     auto output = reinterpret_cast<char *>(calloc(pl+1, 1)); //+1 for the terminating null that EVP_EncodeBlock adds on
     const auto ol = EVP_EncodeBlock(reinterpret_cast<unsigned char *>(output), reinterpret_cast<const unsigned char *>(in), actualLength);
-    if (pl != ol) { std::cerr << "Whoops, encode predicted " << pl << " but we got " << ol << "\n"; }
+    if (pl != ol) { std::cerr << "[LoginThread] Whoops, encode predicted " << pl << " but we got " << ol << "\n"; }
     return std::string(output, ol);
 }
 
 //TODO: this should be moved somewhere else
 void ConnectToCMs() {
     if (Global_SteamClientMgr->ClientUser->BConnected()) {
-        std::cout << "Already connected to CM's" << std::endl;
+        std::cout << "[LoginThread] Already connected to CM's" << std::endl;
         return;
     }
     Global_SteamClientMgr->ClientUser->EConnect();
     while (!Global_SteamClientMgr->ClientUser->BConnected()) {
-        DEBUG_MSG << "Waiting for connection..." << std::endl;
+        DEBUG_MSG << "[LoginThread] Waiting for connection..." << std::endl;
         std::this_thread::sleep_for(std::chrono::milliseconds(50));
     }
-    std::cout << "Connected" << std::endl;
+    std::cout << "[LoginThread] Connected" << std::endl;
 }
 
 void LoginThread::steamServerConnected(SteamServersConnected_t connected) {
@@ -152,7 +152,7 @@ void LoginThread::StartGeneratingQRCodes() {
 
     ProtoMsg<CAuthentication_BeginAuthSessionViaQR_Response> beginAuthSessionViaQRResp = beginAuthSessionViaQRMsg->SendMessageAndAwaitResponse<CAuthentication_BeginAuthSessionViaQR_Response>();
 
-    DEBUG_MSG << "response qr url " << beginAuthSessionViaQRResp.body.challenge_url() << std::endl;
+    DEBUG_MSG << "[LoginThread] response qr url " << beginAuthSessionViaQRResp.body.challenge_url() << std::endl;
     emit QRCodeReady(beginAuthSessionViaQRResp.body.challenge_url());
 
     connect(this->qrCodePoller, &JobLoginPolling::OnTokenAvailable, this, &LoginThread::TokenReceived);
@@ -177,7 +177,7 @@ void LoginThread::LogInWithToken(uint64 steamId, std::string username, std::stri
 
 void LoginThread::StartLogonWithCredentials(std::string username, std::string password, bool rememberPassword) {
     if (bIsLogonStarted) {
-        std::cout << "Can't start a logon twice!" << std::endl;
+        std::cout << "[LoginThread] Can't start a logon twice!" << std::endl;
         return;
     }
     bIsLogonStarted = true;
@@ -195,7 +195,7 @@ void LoginThread::StartLogonWithCredentials(std::string username, std::string pa
     ProtoMsg<CAuthentication_GetPasswordRSAPublicKey_Response> getPasswordRSAKeyResp = getPasswordRSAKeyMsg->SendMessageAndAwaitResponse<CAuthentication_GetPasswordRSAPublicKey_Response>();
 
     if (!getPasswordRSAKeyResp.success) {
-        std::cout << "Failed to get public key, eResult " << getPasswordRSAKeyResp.header.eresult() << std::endl;
+        std::cout << "[LoginThread] Failed to get public key, eResult " << getPasswordRSAKeyResp.header.eresult() << std::endl;
         emit OnLogonFailed("Failed to get public key", (EResult)getPasswordRSAKeyResp.header.eresult());
         return;
     }
@@ -224,12 +224,12 @@ void LoginThread::StartLogonWithCredentials(std::string username, std::string pa
 
     // Is this sensitive info to expose?
     #ifdef DEV_BUILD
-        std::cout << "EXP as string is " << exp_as_str << std::endl;
-        std::cout << "EXP is ";
+        std::cout << "[LoginThread] EXP as string is " << exp_as_str << std::endl;
+        std::cout << "[LoginThread] EXP is ";
         BN_print_fp(stdout, publickey_exp);
         std::cout << std::endl;
 
-        std::cout << "MOD is ";
+        std::cout << "[LoginThread] MOD is ";
         BN_print_fp(stdout, publickey_mod);
         std::cout << std::endl;
     #endif
@@ -255,7 +255,7 @@ void LoginThread::StartLogonWithCredentials(std::string username, std::string pa
     if (err != 0) {
         char error[1024];
         ERR_error_string_n(err, error, 1024);
-        std::cerr << "error is " << error << std::endl;
+        std::cerr << "[LoginThread] error is " << error << std::endl;
     }
 
     RSA_free(rsa);
@@ -293,7 +293,7 @@ void LoginThread::StartLogonWithCredentials(std::string username, std::string pa
         if (beginAuthSessionViaCredentialsResp.body.allowed_confirmations_size() > 0) {
             auto allowedConfirmations = beginAuthSessionViaCredentialsResp.body.allowed_confirmations();
             for (auto confirmation : allowedConfirmations) {
-                DEBUG_MSG << "Confirmation type " << confirmation.confirmation_type() << " is allowed" << std::endl;
+                DEBUG_MSG << "[LoginThread] Confirmation type " << confirmation.confirmation_type() << " is allowed" << std::endl;
                 this->allowedConfirmations.push_back(confirmation.confirmation_type());
             }
             emit OnNeedsSecondFactor();

@@ -5,19 +5,18 @@
 std::string CallbackThread::ThreadName() {
     return "CallbackThread";
 }
-void CallbackThread::ThreadMain() {
 
-    std::cout << "ThreadMain calleddded" << std::endl;
+void CallbackThread::ThreadMain() {
     CallbackMsg_t callBack;
     do
     {
         Global_SteamClientMgr->ClientEngine->RunFrame();
-        if (Global_SteamClientMgr->Steam_BGetCallback( Global_SteamClientMgr->pipe, &callBack )) {               
+        if (Global_SteamClientMgr->Steam_BGetCallback( Global_SteamClientMgr->pipe, &callBack )) {
             if (Global_debugCbLogging) {
                 if (callbacks.contains(callBack.m_iCallback)) {
-                    DEBUG_MSG << "Received callback [ID: " << callBack.m_iCallback << ", name: " << callbacks[callBack.m_iCallback] << " binary params(len: " << callBack.m_cubParam << "): " << callBack.m_pubParam << "]" << std::endl;
+                    DEBUG_MSG << "[CallbackThread] Received callback [ID: " << callBack.m_iCallback << ", name: " << callbacks[callBack.m_iCallback] << " binary params(len: " << callBack.m_cubParam << "): " << callBack.m_pubParam << "]" << std::endl;
                 } else {
-                    DEBUG_MSG << "Received callback [ID: " << callBack.m_iCallback << ", binary params: " << callBack.m_pubParam << "]" << std::endl;
+                    DEBUG_MSG << "[CallbackThread] Received callback [ID: " << callBack.m_iCallback << ", binary params: " << callBack.m_pubParam << "]" << std::endl;
                 }
                 
             }
@@ -50,19 +49,21 @@ void CallbackThread::ThreadMain() {
                 case PostLogonState_t::k_iCallback:
                 {
                     PostLogonState_t *info = (PostLogonState_t *)callBack.m_pubParam;
-                    DEBUG_MSG << "unk1: " << info->unk1 << std::endl;
-                    DEBUG_MSG << "unk2: " << info->unk2 << std::endl;
-                    DEBUG_MSG << "unk3: " << info->unk3 << std::endl;
-                    DEBUG_MSG << "logonComplete: " << info->logonComplete << std::endl;
-                    DEBUG_MSG << "unk5: " << info->unk5 << std::endl;
+                    DEBUG_MSG << "[CallbackThread] PostLogonState_t dump " <<
+                        "unk1: " << info->unk1 << 
+                        ", unk2: " << info->unk2 << 
+                        ", unk3: " << info->unk3 << 
+                        ", logonComplete: " << info->logonComplete << 
+                        ", unk5: " << info->unk5 << std::endl;
                     emit PostLogonState(*info);
                     break;
                 }
                 case CheckAppBetaPasswordResponse_t::k_iCallback:
                 {
                     CheckAppBetaPasswordResponse_t *info = (CheckAppBetaPasswordResponse_t *)callBack.m_pubParam;
-                    DEBUG_MSG << "appid: " << info->appid << std::endl;
-                    DEBUG_MSG << "eresult: " << info->eResult << std::endl;
+                    DEBUG_MSG << "[CallbackThread] CheckAppBetaPasswordResponse_t dump " <<
+                        "appid: " << info->appid <<
+                        ", eresult: " << info->eResult << std::endl;
                     emit CheckAppBetaPasswordResponse(*info);
                     break;
                 }
@@ -76,10 +77,11 @@ void CallbackThread::ThreadMain() {
 
             Global_SteamClientMgr->Steam_FreeLastCallback(Global_SteamClientMgr->pipe);
         } else {
-            std::this_thread::sleep_for(std::chrono::milliseconds(10));
+            std::this_thread::sleep_for(std::chrono::milliseconds(1000));
         }
     } while (!shouldStop);
 }
+
 void CallbackThread::StopThread() {
     this->shouldStop = true;
 }

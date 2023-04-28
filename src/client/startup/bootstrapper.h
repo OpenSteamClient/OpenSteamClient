@@ -1,5 +1,6 @@
 #include <string>
 #include <filesystem>
+#include <vector>
 
 #pragma once
 
@@ -43,7 +44,6 @@ private:
 
     // Sets up OpenSteam for the first time
     void SetupOpenSteam();
-    void Relaunch(bool bUseSelf = false);
     void CreateDatalinkForOpenSteam();
     void SetOpenSteamAsActiveInstall();
     void SetValveSteamAsActiveInstall();
@@ -64,7 +64,12 @@ public:
     // Use this to determine if the bootstrapper will work before running it on your machine
     void RunBootstrap();
     std::string GetInstallDir();
+
+    // Restarts the client
     void Restart(bool bNoSecondVerify);
+
+    // Only call this when you need to relaunch with custom arguments, otherwise use Restart
+    void Relaunch(bool bUseSelf = false, std::vector<std::string> customArgs = std::vector<std::string>());
     void CopyOpensteamMainBin();
     Bootstrapper();
     ~Bootstrapper();

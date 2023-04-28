@@ -42,7 +42,7 @@ MainWindow::MainWindow(QWidget *parent) :
     quitAndRestoreValveSteamAction->setToolTip("Exit OpenSteam and restore the official client");
 
     connect(quitAction, &QAction::triggered, Application::GetApplication(), &Application::quitApp);
-    connect(quitAndRestoreValveSteamAction, &QAction::triggered, Application::GetApplication(), &Application::quitApp);
+    connect(quitAndRestoreValveSteamAction, &QAction::triggered, Application::GetApplication(), &Application::quitAppAndRestoreValveSteam);
     connect(changeAccountAct, &QAction::triggered, this, &MainWindow::changeAccount);
     connect(settingsAction, &QAction::triggered, this, &MainWindow::openSettings);
 
@@ -70,7 +70,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(Global_ThreadController->downloadInfoThread, &DownloadInfoThread::DownloadSpeedUpdate, this, &MainWindow::updateDownloadSpeed);
     connect(Global_ThreadController->downloadInfoThread, &DownloadInfoThread::DownloadingAppChange, this, &MainWindow::currentDownloadingAppChanged);
 
-    // Start and register the thread at this point so we don't miss 
+    // Start and register the thread at this point so we don't miss signals
     Global_ThreadController->initThread(Global_ThreadController->downloadInfoThread);
     Global_ThreadController->StartThread(Global_ThreadController->downloadInfoThread);
 
@@ -145,7 +145,7 @@ void MainWindow::updateDownloadSpeed(DownloadSpeedInfo info)
 
 void MainWindow::currentDownloadingAppChanged(AppId_t appid) 
 {
-    DEBUG_MSG << "current downloading app changed" << std::endl;
+    DEBUG_MSG << "[MainWindow] current downloading app changed" << std::endl;
     if (appid != 0)
     {
         char name[512];
@@ -196,7 +196,7 @@ void MainWindow::UpdateBottomDownloadsBar() {
     if (currentAppId != 0) {
         AppUpdateInfo_s updateInfo;
         Global_SteamClientMgr->ClientAppManager->GetUpdateInfo(currentAppId, &updateInfo);
-        DEBUG_MSG << currentAppId << ": ";
+        DEBUG_MSG << "[MainWindow] " << currentAppId << ": ";
         LogAppUpdateInfo(updateInfo);
 
         // if (downloadQueueItems.contains(currentAppId)) {
@@ -217,7 +217,6 @@ void MainWindow::UpdateBottomDownloadsBar() {
 
         double divideResult = (double)updateInfo.m_unBytesDownloaded / (double)updateInfo.m_unBytesToDownload;
         int percentDownloaded = static_cast<int>(divideResult * 1000);
-        DEBUG_MSG << "d: " << divideResult << ", p: " << percentDownloaded << std::endl;
         ui->bottomDownloadingProgress->setValue(percentDownloaded);
     }
 }
@@ -290,7 +289,7 @@ void MainWindow::currentItemChanged(const QModelIndex &current, const QModelInde
     TreeItem *data = qvariant_cast<TreeItem*>(appModel.data(current, 0));
     if (data->type == TreeItemType::k_ETreeItemTypeApp) {
         this->selectedApp = qvariant_cast<App*>(data->value);
-        DEBUG_MSG << "Item changed to " << this->selectedApp->name << " with appid " << this->selectedApp->appid << std::endl;
+        DEBUG_MSG << "[MainWindow] Selected App changed to " << this->selectedApp->name << " with appid " << this->selectedApp->appid << std::endl;
         ui->currentGameLabel->setText(QString::fromStdString(this->selectedApp->name));
         UpdatePlayButton();
     }
@@ -316,14 +315,14 @@ void MainWindow::playClicked() {
     //Global_SteamClientMgr->ClientAppManager->AddLibraryFolder("/mnt/deathclaw/SteamLibrary");
 
     std::vector<LaunchOption> workingLaunchOptions = this->selectedApp->GetFilteredLaunchOptions();
-    DEBUG_MSG << "Working launch options (" << workingLaunchOptions.size() << "):" << std::endl;
+    DEBUG_MSG << "[MainWindow] Working launch options (" << workingLaunchOptions.size() << "):" << std::endl;
     for (auto &&i : workingLaunchOptions)
     {
         DEBUG_MSG << i.index << " " << i.name << std::endl;
     }
 
     if (workingLaunchOptions.size() <= 0) {
-        DEBUG_MSG << "No launch options available." << std::endl;
+        DEBUG_MSG << "[MainWindow] No launch options available." << std::endl;
         QMessageBox msgBox;
         msgBox.setWindowTitle("Failed to launch");
         msgBox.setText(QString("Game %1 doesn't have valid launch options. Is Proton enabled?").arg(QString::fromStdString(this->selectedApp->name)));
@@ -333,7 +332,7 @@ void MainWindow::playClicked() {
 
     connect(this->selectedApp, &App::AppLaunchOrUpdateError, this, &MainWindow::launchFailed);
     if (workingLaunchOptions.size() == 1) {
-        DEBUG_MSG << "One launch option matches. Launching directly." << std::endl;
+        DEBUG_MSG << "[MainWindow] One launch option matches. Launching directly." << std::endl;
         this->selectedApp->Launch(workingLaunchOptions[0]);
     }
     if (workingLaunchOptions.size() > 1) {
@@ -345,7 +344,7 @@ void MainWindow::playClicked() {
 }
 
 void MainWindow::launchOptionsDialog_cancelled() {
-    DEBUG_MSG << "launch cancelled" << std::endl;
+    DEBUG_MSG << "[MainWindow] launch cancelled" << std::endl;
 }
 
 void MainWindow::launchOptionsDialog_optionSelected(LaunchOption opt) {
@@ -361,7 +360,7 @@ void CommonAppUpdateErrorHandler(App* app, EAppUpdateError err, std::string titl
 }
 
 void MainWindow::launchFailed(EAppUpdateError err) {
-    std::cerr << "err is " << err << std::endl;
+    std::cerr << "[MainWindow] Launch failed, error code " << err << std::endl;
     if (err == 0)
         return;
     CommonAppUpdateErrorHandler(qobject_cast<App*>(sender()), err, "Launch failed", "launching");

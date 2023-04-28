@@ -52,7 +52,7 @@ void App::TypeFromString(const char* str) {
         return;
     }
 
-    // wtf
+    // wtf, game is specified in uppercase and lowercase
     if (strncmp(str, "game", length) == 0) {
         this->type = k_EAppTypeGame;
         return;
@@ -98,8 +98,18 @@ void App::TypeFromString(const char* str) {
         return;
     }
 
+    if (strncmp(str, "media", length) == 0) {
+        type = k_EAppTypeMedia;
+        return;
+    }
+
+    if (strncmp(str, "Video", length) == 0) {
+        type = k_EAppTypeVideo;
+        return;
+    }
+
     type = k_EAppTypeInvalid;
-    DEBUG_MSG << "App::TypeFromString unhandled type " << str << std::endl;
+    DEBUG_MSG << "[App] App::TypeFromString unhandled type " << str << std::endl;
 }
 
 void App::UpdateUpdateInfo() {
@@ -116,8 +126,8 @@ std::vector<LaunchOption> App::GetLaunchOptions() {
     std::vector<LaunchOption> launchOptions;
 
     if (returnedLength != 0) {
-        DEBUG_MSG << "Retval: " << returnedLength << std::endl;
-        DEBUG_MSG << "Buf size: " << buf.size() << std::endl;
+        DEBUG_MSG << "[App] Retval: " << returnedLength << std::endl;
+        DEBUG_MSG << "[App] Buf size: " << buf.size() << std::endl;
 
         BinaryKV *bkv = new BinaryKV(buf);
         DEBUG_MSG << bkv->outputJSON << std::endl;
@@ -213,7 +223,7 @@ std::vector<LaunchOption> App::GetFilteredLaunchOptions() {
         if (!this->compatData.isWindowsOnLinuxTool) {
             if (!opt.oslist.empty() && !opt.oslist.contains("linux"))
             {
-                std::cout << opt.index << ": Didn't match linux filter and proton is disabled" << std::endl;
+                std::cout << "[App] " << opt.index << ": Didn't match linux filter and proton is disabled" << std::endl;
                 continue;
             }
         }   
@@ -231,7 +241,7 @@ std::vector<LaunchOption> App::GetFilteredLaunchOptions() {
 
         if (dlcid != -1) {
             if (!Global_SteamClientMgr->ClientAppManager->IsAppDlcInstalled(this->appid, dlcid)) {
-                std::cout << opt.index << ": Didn't match ownsdlc filter " << opt.ownsdlc << std::endl;
+                std::cout << "[App] " << opt.index << ": Didn't match ownsdlc filter " << opt.ownsdlc << std::endl;
                 continue;
             }
         }
@@ -251,7 +261,7 @@ std::vector<LaunchOption> App::GetFilteredLaunchOptions() {
             delete[] currentBeta;
 
             if (!opt.BetaKey.contains(betaAsStr)) {
-                std::cout << opt.index << ": Didn't match BetaKey filter" << std::endl;
+                std::cout << "[App] " << opt.index << ": Didn't match BetaKey filter" << std::endl;
                 continue;
             }
 
@@ -277,7 +287,7 @@ void App::Kill(bool force) {
 
 void App::Launch(LaunchOption launchOption) {
     EAppUpdateError err = (EAppUpdateError)0;
-    DEBUG_MSG << "Launching " << this->name << " with launch opt " << launchOption.index << std::endl;
+    DEBUG_MSG << "[App] Launching " << this->name << " with launch opt " << launchOption.index << std::endl;
     
     std::string launchOptsPath = std::string("Software/Valve/Steam/Apps/").append(std::to_string(this->appid)).append("/LaunchOptions");
     const char *launchOptsCStr = Global_SteamClientMgr->ClientConfigStore->GetString(k_EConfigStoreUserLocal, launchOptsPath.c_str(), "");

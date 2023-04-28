@@ -6,7 +6,6 @@ std::string ComputerInUseThread::ThreadName() {
 }
 
 void ComputerInUseThread::ThreadMain() {
-    std::cout << "ComputerInUseThread started" << std::endl;
     do
     {
         Global_SteamClientMgr->ClientUser->SetComputerInUse();
