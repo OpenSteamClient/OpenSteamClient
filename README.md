@@ -47,9 +47,18 @@ Please note that the downloads tab doesn't currently list games.
 Warning: These releases (currently) are only meant for developers. There is an uncountable amount of bugs I've yet to fix. 
 
 ## Debian and debian based distros
-1. Download the deb from the Releases
+1. Download the deb from the Releases 
 2. Double click or install through the command line
 3. You're set! Now launch OpenSteamClient through your application launcher, or use the terminal: `opensteam`
+
+After installation, read [After Install](#after-install-important)
+
+## From master branch or some commit
+1. Go to the Actions tab here on Github.
+2. Click the commit you want if the build succeeded
+3. There should be an "Artifacts" section
+4. Download "linux-artifacts", it contains deb and tar.gz files.
+5. Install with the above instructions, but skip downloading from Releases and instead just extract the zip
 
 After installation, read [After Install](#after-install-important)
 
@@ -86,9 +95,24 @@ Read [Restoring ValveSteam](#restoring-valvesteam) below if you want to use the 
 
 
 # Restoring ValveSteam
-If you wish to revert back to the official client, first:
+If you wish to revert back to the official client, you have three options:
+
+## From the UI
+1. Go to the "Steam" dropdown and pick "Quit and restore ValveSteam"
+2. Opensteam will close and the official client will be restored. 
+
+## From the command line
 1. Close OpenSteamClient
 2. Launch `opensteam` with the `--bootstrapper-restore-valvesteam` option.
+
+## Manual
+I won't provide exact instructions, since it's a lot of effort. Instead, I'll give you a quick rundown on how the split install works.
+When opensteam is initially installed, it renames .steam to .valvesteam. It also renames .local/share/Steam to .local/share/ValveSteam. 
+
+Opensteam then installs itself into .opensteam and .local/share/OpenSteam.
+
+It then creates .steam as a symlink pointing to .opensteam, and .local/share/Steam pointing to .local/share/OpenSteam.
+If you want to revert manually, you need to change the symlinks's targets to point to .valvesteam and .local/share/ValveSteam. 
 
 # Q&A
 ## pls windows suprort
