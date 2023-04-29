@@ -111,11 +111,11 @@ void Bootstrapper::SetupOpenSteam() {
     //TODO: move this to a logger class
     CreateDirectory(OSInstallDir / "logs");
 
-    CopyOpensteamMainBin();
-    Global_Updater->CopyOpensteamFiles();
-
     CreateDatalinkForOpenSteam();
     SetOpenSteamAsActiveInstall();
+
+    CopyOpensteamMainBin();
+    Global_Updater->CopyOpensteamFiles();
 
     Restart(false);
 }
