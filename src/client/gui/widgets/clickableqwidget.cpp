@@ -31,6 +31,8 @@ void ClickableQWidget::mouseReleaseEvent(QMouseEvent *event)
 void ClickableQWidget::ReplaceExistingQWidget(QWidget *existingWidget) 
 {
     this->setLayout(new QVBoxLayout());
+    this->layout()->setContentsMargins(existingWidget->layout()->contentsMargins());
+    this->layout()->setSpacing(existingWidget->layout()->spacing());
 
     for (auto &&i : existingWidget->findChildren<QWidget*>())
     {
@@ -39,6 +41,8 @@ void ClickableQWidget::ReplaceExistingQWidget(QWidget *existingWidget)
     }
     
     existingWidget->setVisible(false);
+    delete existingWidget;
+    existingWidget = this;
 }
 
 ClickableQWidget::~ClickableQWidget()

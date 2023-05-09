@@ -58,7 +58,7 @@ void SteamClientMgr::InitHSteamPipeAndHSteamUser()
     }
 }
 
-void SteamClientMgr::CreateUserlessInterfaces() {
+void SteamClientMgr::CreateInterfaces() {
     ClientUser = ClientEngine->GetIClientUser(user, pipe);
     ClientApps = ClientEngine->GetIClientApps(user, pipe);
     ClientAppManager = ClientEngine->GetIClientAppManager(user, pipe);
@@ -67,9 +67,6 @@ void SteamClientMgr::CreateUserlessInterfaces() {
     ClientUtils = ClientEngine->GetIClientUtils(pipe);
     ClientCompat = ClientEngine->GetIClientCompat(user, pipe);
     ClientConfigStore = ClientEngine->GetIClientConfigStore(user, pipe);
-}
-
-void SteamClientMgr::CreateUserfulInterfaces() {
     ClientFriends = ClientEngine->GetIClientFriends(user, pipe);
 }
 

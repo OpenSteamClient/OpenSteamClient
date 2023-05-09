@@ -86,7 +86,7 @@ public:
     virtual void SignalAppsToShutDown() = 0; //args: 0, index: 25
     virtual void SignalServiceAppsToDisconnect() = 0; //args: 0, index: 26
     virtual void TerminateAllApps() = 0; //args: 1, index: 27
-    virtual void GetCellID() = 0; //args: 0, index: 28
+    virtual uint32 GetCellID() = 0; //args: 0, index: 28
     virtual void BIsGlobalInstance() = 0; //args: 0, index: 29
     virtual void CheckFileSignature() = 0; //args: 1, index: 30
     virtual void GetBuildID() = 0; //args: 0, index: 31

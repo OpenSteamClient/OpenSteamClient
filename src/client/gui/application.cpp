@@ -11,8 +11,10 @@
 #include "../ext/steamservice.h"
 
 #include "../interop/appmanager.h"
+#include "../interop/errmsgutils.h"
 
 #include "../startup/bootstrapper.h"
+
 
 Application *Application::instance;
 
@@ -27,7 +29,21 @@ Application::Application()
   }
   else
   {
+#ifndef NOWEBVIEW
+    QCoreApplication::setAttribute(Qt::AA_UseOpenGLES); 
+    QCoreApplication::setAttribute(Qt::AA_ShareOpenGLContexts);
+#endif
+
     QApp = new QApplication(Global_CommandLine->argc, Global_CommandLine->argv);
+    dynamicWebViewLibraryMgr = new DynamicWebViewLibraryMgr();
+
+#ifdef NOWEBVIEW
+    dynamicWebViewLibraryMgr->SetEnabled(false);
+#else
+    if (Global_CommandLine->HasOption("--no-browser")) {
+      dynamicWebViewLibraryMgr->SetEnabled(false);
+    }
+#endif
   }
 }
 
@@ -106,7 +122,7 @@ void Application::InitApplication()
 
       Global_SteamClientMgr->CreateClientEngine();
       Global_SteamClientMgr->InitHSteamPipeAndHSteamUser();
-      Global_SteamClientMgr->CreateUserlessInterfaces();
+      Global_SteamClientMgr->CreateInterfaces();
       Global_SteamClientMgr->ClientUtils->SetLauncherType(k_ELauncherTypeClientUI);
       Global_SteamClientMgr->ClientEngine->SetClientCommandLine(Global_CommandLine->argc, Global_CommandLine->argv);
 
@@ -165,7 +181,10 @@ int Application::StartApplication() {
         
         Global_SteamClientMgr->ClientUser->LogOn(steamid, true);
       } else {
-        loginFailed(*new SteamServerConnectFailure_t {m_eResult: EResult::k_EResultRequirePasswordReEntry});
+        // No point in trying again if the cached creds are invalid
+        Global_ThreadController->loginThread->RemoveCachedCredentials(loginUserStr.c_str());
+
+        loginFailed(*new SteamServerConnectFailure_t{m_eResult : EResult::k_EResultCachedCredentialIsInvalid});
       }
     }
     
@@ -210,7 +229,7 @@ void Application::quitAppAndRestoreValveSteam() {
 void Application::loginFailed(SteamServerConnectFailure_t result) {
   QMessageBox msgBox;
   msgBox.setText("Failed to log on.");
-  msgBox.setInformativeText(QString("Error code is %1").arg(result.m_eResult));
+  msgBox.setInformativeText(QString("Error is %1").arg(QString::fromStdString(ErrMsgUtils::GetErrorMessageFromEResult(result.m_eResult))));
   msgBox.exec();
   progDialog->hide();
   loginWindow->show();

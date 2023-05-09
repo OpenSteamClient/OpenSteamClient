@@ -33,7 +33,7 @@
     <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>4</number>
       </property>
       <widget class="QWidget" name="generalTab">
        <attribute name="title">
@@ -145,6 +145,20 @@
           <width>221</width>
           <height>25</height>
          </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_5">
+        <property name="geometry">
+         <rect>
+          <x>40</x>
+          <y>110</y>
+          <width>531</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Changing the compat tool doesn't immediately unlock Windows launch options.
+Usually this is because of a Proton update, please be patient as the update is downloaded.</string>
         </property>
        </widget>
       </widget>

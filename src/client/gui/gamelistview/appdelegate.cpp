@@ -24,24 +24,26 @@ void AppDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, c
 
             int widthLeft = adjustedRect.size().width();
 
-            QRect statusRect = QRect(adjustedRect.topLeft()+QPoint(4, 2), QSize(21, 20));
+            QRect statusRect = QRect(adjustedRect.topLeft()+QPoint(4, 2), QSize(20, 20));
             widthLeft - statusRect.size().width();
 
-            QRect iconRect = QRect(statusRect.topRight()+QPoint(4, 0), QSize(21, 20));
+            QRect iconRect = QRect(statusRect.topRight()+QPoint(4, 0), QSize(20, 20));
             widthLeft - iconRect.size().width();
 
             QRect titleRect = QRect(iconRect.topRight()+QPoint(4, 0), QSize(widthLeft, adjustedRect.height()));
             //painter->fillRect(statusRect, Qt::gray);
 
-            if (!app->libraryAssets.iconCachedFilename.empty()) {
-                QIcon icon(QString::fromStdString(app->libraryAssets.iconCachedFilename));
-                QPixmap pixmap = icon.pixmap(iconRect.size(), QIcon::Mode::Normal);
-    
-                painter->drawPixmap(iconRect, pixmap.scaled(iconRect.size(), Qt::AspectRatioMode::IgnoreAspectRatio, Qt::TransformationMode::FastTransformation));
-            } else {
+            if (!app->libraryAssets.icon.isNull()) {
+                QPixmap pixmap = QPixmap::fromImage(app->libraryAssets.icon).scaled(iconRect.size(), Qt::AspectRatioMode::IgnoreAspectRatio, Qt::TransformationMode::SmoothTransformation);
+
+                painter->drawPixmap(iconRect, pixmap);
+                pixmap = QPixmap();
+            }
+            else
+            {
                 painter->fillRect(iconRect, Qt::darkGray);
             }
-            
+
             painter->drawText(titleRect, QString::fromStdString(std::string(app->name)));
         } else if (item->type == TreeItemType::k_ETreeItemTypeCategory) 
         {

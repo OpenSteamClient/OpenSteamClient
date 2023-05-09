@@ -93,7 +93,9 @@ private:
         {"reaper", "linux64/reaper"},
         {"steam-launch-wrapper", "linux64/steam-launch-wrapper"},
         {"steamserviced", "ubuntu12_32/steamserviced"},
-        {"libmocksteamservice.so", "linux64/steamservice.so"}};
+        {"libmocksteamservice.so", "linux64/steamservice.so"},
+        {"libdynamicwebview.so", "linux64/libdynamicwebview.so"}
+    };
 
     fs::path installDir;
     CURL *curl;

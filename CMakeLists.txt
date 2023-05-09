@@ -17,19 +17,20 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR})
 # Extra cmake modules
 find_package(ECM REQUIRED NO_MODULE)
 
-# We don't use CMAKE_MODULE_PATH anywhere else so this is fine
-set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
+# Qt modules
 
-# App .desktop and logo
-include(KDEInstallDirs)
-install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/package/opensteamclient.desktop DESTINATION ${KDE_INSTALL_APPDIR})
-install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/package/opensteam.svg DESTINATION ${KDE_INSTALL_ICONDIR}/hicolor/scalable/apps)
+if (NOWEBVIEW)
+find_package(Qt6 REQUIRED COMPONENTS Core Widgets Network)
+else()
+find_package(Qt6 REQUIRED COMPONENTS Core Widgets Network WebEngineWidgets QuickWidgets)
+endif()
+
+# App .desktop and logo (now hardcoded since using extra cmake modules breaks webengine)
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/package/opensteamclient.desktop DESTINATION /usr/share/applications)
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/package/opensteam.svg DESTINATION /usr/share/icons/hicolor/scalable/apps)
 
 cmake_policy(SET CMP0060 NEW)
 cmake_policy(SET CMP0003 NEW)
-
-# Qt modules
-find_package(Qt6 COMPONENTS Core Widgets Network REQUIRED)
 
 # libarchive for the updater (should always be installed atleast as dependency of cmake)
 find_package(LibArchive REQUIRED)
@@ -64,6 +65,10 @@ endif()
 
 
 #set (FIND_LIBRARY_USE_LIB64_PATHS false)
+if (NOWEBVIEW)
+else()
+file(GLOB_RECURSE dynamicwebview_sources CONFIGURE_DEPENDS "src/dynamicwebview/*.cpp")
+endif()
 file(GLOB_RECURSE opensteamclient_sources CONFIGURE_DEPENDS "src/client/*.cpp")
 file(GLOB_RECURSE common_sources CONFIGURE_DEPENDS "src/common/*.cpp")
 file(GLOB_RECURSE steamutl_sources CONFIGURE_DEPENDS "include/opensteamworks/steamutl/*.cpp")
@@ -91,6 +96,13 @@ add_executable(reaper ${PROJECT_SOURCE_DIR}/src/utils/reaper/main.cpp)
 add_executable(steam-launch-wrapper ${PROJECT_SOURCE_DIR}/src/utils/launchwrapper/main.cpp)
 add_executable(steamserviced ${common_sources} ${PROJECT_SOURCE_DIR}/src/service/main.cpp)
 add_library(mocksteamservice SHARED ${PROJECT_SOURCE_DIR}/src/service/fakeservice.cpp)
+
+# Dynamic web view
+# Everyone might not need this, so this is optional
+if (NOWEBVIEW)
+else()
+add_library(dynamicwebview SHARED ${dynamicwebview_sources})
+endif()
 
 # flags
 
@@ -128,16 +140,22 @@ target_compile_definitions(opensteam PRIVATE
 
 endif()
 
+if (NOWEBVIEW) 
+# This isn't ideal, ideally we would use some sort of add_target_compile_definitions
+add_compile_definitions(NOWEBVIEW)
+endif()
 
 target_compile_definitions(steamserviced PRIVATE
-            # flag sets behaviour of shared code
-            STEAMSERVICED=1
+    # flag sets behaviour of shared code
+    STEAMSERVICED=1
 )
 
 # 32-bit components
 set_target_properties(steamserviced PROPERTIES COMPILE_FLAGS "-m32" LINK_FLAGS "-m32")
 
-target_include_directories(opensteam PRIVATE ${PROJECT_SOURCE_DIR}/include)
+# We add Qt6WebEngineWidgets to the include but we don't link to them
+# This is so we can use QtWebEngine without it eating RAM by loading it dynamically only when needed
+target_include_directories(opensteam PRIVATE ${PROJECT_SOURCE_DIR}/include ${Qt6WebEngineWidgets_INCLUDE_DIRS})
 target_include_directories(steamserviced PRIVATE ${PROJECT_SOURCE_DIR}/include)
 
 # Improves build performance
@@ -145,7 +163,19 @@ set_target_properties(Qt6::Core PROPERTIES MAP_IMPORTED_CONFIG_COVERAGE "RELEASE
 set_target_properties(Qt6::Widgets PROPERTIES MAP_IMPORTED_CONFIG_COVERAGE "RELEASE")
 set_target_properties(Qt6::Network PROPERTIES MAP_IMPORTED_CONFIG_COVERAGE "RELEASE")
 
+if (NOWEBVIEW)
+else()
+set_target_properties(Qt6::QuickWidgets PROPERTIES MAP_IMPORTED_CONFIG_COVERAGE "RELEASE")
+set_target_properties(Qt6::WebEngineWidgets PROPERTIES MAP_IMPORTED_CONFIG_COVERAGE "RELEASE")
+endif()
+
 target_link_libraries(opensteam -lqrencode OpenSSL::SSL nlohmann_json::nlohmann_json Qt6::Widgets Qt6::Core Qt6::Network ${LibArchive_LIBRARIES} ${Protobuf_LIBRARIES} ${CURL_LIBRARIES})
+
+if (NOWEBVIEW)
+else()
+target_link_libraries(dynamicwebview PUBLIC Qt6::Widgets Qt6::Core Qt6::WebEngineWidgets Qt6::QuickWidgets)
+endif()
+
 target_link_libraries(reaper)
 target_link_libraries(steam-launch-wrapper)
 target_link_libraries(steamserviced)
@@ -157,6 +187,11 @@ install(TARGETS reaper DESTINATION lib/opensteam/updater_files/)
 install(TARGETS steam-launch-wrapper DESTINATION lib/opensteam/updater_files/)
 install(TARGETS steamserviced DESTINATION lib/opensteam/updater_files/)
 install(TARGETS mocksteamservice DESTINATION lib/opensteam/updater_files/)
+
+if (NOWEBVIEW)
+else()
+install(TARGETS dynamicwebview DESTINATION lib/opensteam/updater_files/)
+endif()
 
 # DEB files
 

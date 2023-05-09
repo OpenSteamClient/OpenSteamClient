@@ -10,7 +10,7 @@
 
 #pragma once
 
-class LoginThread : public Thread
+class LoginThread : public QObject
 {
     Q_OBJECT
 private:
@@ -18,10 +18,11 @@ private:
     JobLoginPolling *qrCodePoller;
     bool bIsLogonStarted = false;
     bool bRememberPassword = false;
+    bool isQRLogin = false;
+    bool isCachedCredentialLogin = false;
     std::string username = "";
     std::string password = "";
     std::string sgCode = "";
-    std::vector<EAuthSessionGuardType> allowedConfirmations;
 
     // Don't trust this, used only for Steam Guard code auth
     uint64_t twofactorSteamId = 0;
@@ -32,7 +33,9 @@ public:
     std::string ThreadName();
     void ThreadMain();
     void StopThread();
+    void RemoveCachedCredentials(std::string username);
     QList<QString> GetRememberedUsers();
+    std::vector<CAuthentication_AllowedConfirmation> allowedConfirmations;
 
 private slots:
     void TokenReceived(std::string username, std::string token);
@@ -44,7 +47,7 @@ public slots:
     void CancelLogin();
     void StartGeneratingQRCodes();
     void StartLogonWithCredentials(std::string username, std::string password, bool rememberPassword);
-    void AddSteamGuardCode(std::string sgCode);
+    void AddSteamGuardCode(std::string sgCode, EAuthSessionGuardType codeType);
     void steamServerConnectFailure(SteamServerConnectFailure_t);
     void steamServerConnected(SteamServersConnected_t);
 

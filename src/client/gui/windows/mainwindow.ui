@@ -6,16 +6,115 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1270</width>
-    <height>837</height>
+    <width>1562</width>
+    <height>1009</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>OpenSteamClient</string>
   </property>
   <widget class="QWidget" name="gridLayoutWidget_2">
-   <layout class="QGridLayout" name="gridLayout_2">
-    <item row="0" column="0">
+   <layout class="QGridLayout" name="gridLayout_2" rowstretch="0,0,0">
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>4</number>
+    </property>
+    <item row="2" column="0">
+     <layout class="QHBoxLayout" name="bottomSection">
+      <item>
+       <spacer name="horizontalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QWidget" name="bottomDownloadSection" native="true">
+        <layout class="QVBoxLayout" name="bottomDownloadSectionPanel">
+         <property name="spacing">
+          <number>4</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="bottomDownloadingLabel">
+           <property name="text">
+            <string>No Download</string>
+           </property>
+           <property name="textFormat">
+            <enum>Qt::PlainText</enum>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QProgressBar" name="bottomDownloadingProgress">
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>10</height>
+            </size>
+           </property>
+           <property name="maximum">
+            <number>1000</number>
+           </property>
+           <property name="value">
+            <number>1000</number>
+           </property>
+           <property name="textVisible">
+            <bool>false</bool>
+           </property>
+           <property name="format">
+            <string>%p%</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="bottomQueuedLabel">
+           <property name="text">
+            <string>Updates: 0 Queued: 0</string>
+           </property>
+           <property name="textFormat">
+            <enum>Qt::PlainText</enum>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </item>
+    <item row="1" column="0">
      <widget class="QTabWidget" name="tabWidget">
       <property name="tabShape">
        <enum>QTabWidget::Rounded</enum>
@@ -25,7 +124,7 @@
       </property>
       <widget class="QWidget" name="gamesTab">
        <attribute name="title">
-        <string>Games</string>
+        <string>Library</string>
        </attribute>
        <layout class="QGridLayout" name="gridLayout_4">
         <item row="0" column="0">
@@ -99,7 +198,7 @@
                   <bool>true</bool>
                  </property>
                  <property name="checked">
-                  <bool>true</bool>
+                  <bool>false</bool>
                  </property>
                  <property name="flat">
                   <bool>false</bool>
@@ -107,6 +206,9 @@
                 </widget>
                </item>
               </layout>
+             </item>
+             <item>
+              <layout class="QGridLayout" name="filtersPopupContainer"/>
              </item>
              <item>
               <widget class="QTreeView" name="appsListView">
@@ -181,7 +283,7 @@
                    <item>
                     <widget class="QPushButton" name="playButton">
                      <property name="text">
-                      <string>INVALID STATE</string>
+                      <string>Play</string>
                      </property>
                      <property name="flat">
                       <bool>false</bool>
@@ -252,7 +354,7 @@
                     </font>
                    </property>
                    <property name="text">
-                    <string notr="true">INVALID STATE</string>
+                    <string notr="true">Game Name</string>
                    </property>
                    <property name="scaledContents">
                     <bool>true</bool>
@@ -285,9 +387,9 @@
                     </widget>
                    </item>
                    <item>
-                    <widget class="QPushButton" name="favouriteButton">
-                     <property name="text">
-                      <string>Favourite</string>
+                    <widget class="QComboBox" name="categoriesCoboBox">
+                     <property name="placeholderText">
+                      <string>Categories</string>
                      </property>
                     </widget>
                    </item>
@@ -311,16 +413,6 @@
                   <widget class="QPushButton" name="communityHubButton">
                    <property name="text">
                     <string>Community Hub</string>
-                   </property>
-                   <property name="flat">
-                    <bool>true</bool>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QPushButton" name="findGroupsButton">
-                   <property name="text">
-                    <string>Find Groups</string>
                    </property>
                    <property name="flat">
                     <bool>true</bool>
@@ -372,9 +464,6 @@
                    <property name="orientation">
                     <enum>Qt::Horizontal</enum>
                    </property>
-                   <property name="sizeType">
-                    <enum>QSizePolicy::Fixed</enum>
-                   </property>
                    <property name="sizeHint" stdset="0">
                     <size>
                      <width>100</width>
@@ -404,13 +493,6 @@
               <widget class="QLabel" name="label_2">
                <property name="text">
                 <string>TODO: community content and updates below</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QCheckBox" name="DEBUGenableProtonChecck">
-               <property name="text">
-                <string>(DEBUG) enable ClientCompat (GLOBAL)</string>
                </property>
               </widget>
              </item>
@@ -617,18 +699,21 @@
              </widget>
             </item>
             <item>
-             <widget class="QCheckBox" name="enableDownloadsBox">
+             <widget class="QLabel" name="label_14">
               <property name="text">
-               <string>Enable downloads</string>
+               <string>Current CellID (editable)</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QCheckBox" name="allowDownloadsWhilePlayingBox">
+             <widget class="QLabel" name="label_15">
               <property name="text">
-               <string>Allow downloads while playing</string>
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Will be moved to settings when it's fully done.&lt;/p&gt;&lt;p&gt;For now, look &lt;a href=&quot;https://steamdb.info/app/7/config/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;here&lt;/span&gt;&lt;/a&gt; to see the list of CellID's. &lt;/p&gt;&lt;p&gt;Pause and resume downloads to finalize change.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
               </property>
              </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="cellIdDebugBox"/>
             </item>
            </layout>
           </item>
@@ -639,71 +724,110 @@
         </item>
        </layout>
       </widget>
+      <widget class="QWidget" name="consoleTab">
+       <attribute name="title">
+        <string>Console</string>
+       </attribute>
+       <layout class="QGridLayout" name="consoleTabLayout">
+        <item row="0" column="0">
+         <layout class="QVBoxLayout" name="verticalLayout_12">
+          <item>
+           <widget class="QPlainTextEdit" name="consoleHistory">
+            <property name="plainText">
+             <string>Console is not yet implemented.
+</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="consoleCommandBox"/>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
      </widget>
     </item>
-    <item row="1" column="0">
-     <layout class="QHBoxLayout" name="bottomSection">
+    <item row="0" column="0">
+     <layout class="QHBoxLayout" name="headerSection" stretch="0,1,0">
       <item>
-       <spacer name="horizontalSpacer_2">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item>
-       <widget class="QWidget" name="bottomDownloadSection" native="true">
-        <layout class="QVBoxLayout" name="bottomDownloadSectionPanel">
+       <widget class="QWidget" name="navButtonsWidget" native="true">
+        <layout class="QHBoxLayout" name="navButtonsLayout">
+         <property name="spacing">
+          <number>16</number>
+         </property>
          <item>
-          <widget class="QLabel" name="bottonDownloadingLabel">
+          <widget class="QPushButton" name="storeButton">
+           <property name="font">
+            <font>
+             <pointsize>13</pointsize>
+            </font>
+           </property>
            <property name="text">
-            <string>No Download</string>
+            <string>Store</string>
            </property>
-           <property name="textFormat">
-            <enum>Qt::PlainText</enum>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
+           <property name="flat">
+            <bool>true</bool>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QProgressBar" name="bottomDownloadingProgress">
-           <property name="maximumSize">
-            <size>
-             <width>16777215</width>
-             <height>10</height>
-            </size>
+          <widget class="QPushButton" name="libraryButton">
+           <property name="font">
+            <font>
+             <pointsize>13</pointsize>
+            </font>
            </property>
-           <property name="maximum">
-            <number>1000</number>
+           <property name="text">
+            <string>Library</string>
            </property>
-           <property name="value">
-            <number>1000</number>
-           </property>
-           <property name="textVisible">
-            <bool>false</bool>
-           </property>
-           <property name="format">
-            <string>%p%</string>
+           <property name="flat">
+            <bool>true</bool>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="bottomQueuedLabel">
+          <widget class="QPushButton" name="communityButton">
+           <property name="font">
+            <font>
+             <pointsize>13</pointsize>
+            </font>
+           </property>
            <property name="text">
-            <string>Updates: 0 Queued: 0</string>
+            <string>Community</string>
            </property>
-           <property name="textFormat">
-            <enum>Qt::PlainText</enum>
+           <property name="flat">
+            <bool>true</bool>
            </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="profileButton">
+           <property name="font">
+            <font>
+             <pointsize>13</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Username</string>
+           </property>
+           <property name="flat">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="consoleButton">
+           <property name="font">
+            <font>
+             <pointsize>13</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Console</string>
+           </property>
+           <property name="flat">
+            <bool>true</bool>
            </property>
           </widget>
          </item>
@@ -711,17 +835,56 @@
        </widget>
       </item>
       <item>
-       <spacer name="horizontalSpacer">
+       <spacer name="horizontalSpacer_9">
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
         </property>
         <property name="sizeHint" stdset="0">
          <size>
           <width>40</width>
-          <height>20</height>
+          <height>0</height>
          </size>
         </property>
        </spacer>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout_11">
+        <property name="spacing">
+         <number>2</number>
+        </property>
+        <item>
+         <widget class="QLabel" name="usernameLabel">
+          <property name="text">
+           <string>Username</string>
+          </property>
+          <property name="textFormat">
+           <enum>Qt::PlainText</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QWidget" name="walletInfoWidget" native="true">
+          <layout class="QHBoxLayout" name="horizontalLayout">
+           <property name="spacing">
+            <number>2</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QLabel" name="walletMoneyLabel">
+             <property name="text">
+              <string>Wallet: 0€ (pending: 0€)</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
       </item>
      </layout>
     </item>
@@ -732,7 +895,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1270</width>
+     <width>1562</width>
      <height>22</height>
     </rect>
    </property>

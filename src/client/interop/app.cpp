@@ -7,6 +7,7 @@ App::App(AppId_t i) {
     // TODO: check if this breaks sourcemods/other mods
     this->gameid = CGameID(this->appid, 0);
     this->state = new AppState(k_EAppStateInvalid);
+    this->debugPrefix = "[App " + std::to_string(this->appid) + "] ";
     UpdateUpdateInfo();
     UpdateCompatInfo();
 }
@@ -16,26 +17,64 @@ App::~App() {
 
 void App::UpdateCompatInfo() {
     this->compatData.isCompatEnabled = Global_SteamClientMgr->ClientCompat->BIsCompatibilityToolEnabled(this->appid);
-    this->compatData.whitelistedCompatTools = std::vector<std::string>();
+    this->compatData.validCompatTools.clear();
+    
+    CUtlVector<CUtlString> *vec = new CUtlVector<CUtlString>(1, 1000000);
+    Global_SteamClientMgr->ClientCompat->GetAvailableCompatToolsForApp(vec, this->appid);
 
-    if (this->compatData.isCompatEnabled) {
-        char* cname = Global_SteamClientMgr->ClientCompat->GetCompatToolName(this->appid);
-        std::string name = std::string(cname);
-        this->compatData.currentCompatTool = name;
+    for (size_t i = 0; i < vec->Count(); i++)
+    {
+        std::string name = std::string(vec->Element(i).str);
+        std::string humanName = std::string(Global_SteamClientMgr->ClientCompat->GetCompatToolDisplayName(name.c_str()));
+        bool windowsOnLinuxTool = false;
 
         // Is this proton or a different kind of compat tool?
         // TODO: improve detection logic
-        if (name.starts_with("proton_")) {
-            this->compatData.isWindowsOnLinuxTool = true;
-        } else {
-            this->compatData.isWindowsOnLinuxTool = false;
+        if (name.starts_with("proton_"))
+        {
+            windowsOnLinuxTool = true;
         }
-    } else {
-        this->compatData.currentCompatTool = "";
-        this->compatData.isWindowsOnLinuxTool = false;
+
+        this->compatData.validCompatTools.push_back(CompatTool{
+            .name = name,
+            .humanName = humanName,
+            .windowsOnLinuxTool = windowsOnLinuxTool
+        });
     }
 
+    if (this->compatData.isCompatEnabled) {
+        std::string name = std::string(Global_SteamClientMgr->ClientCompat->GetCompatToolName(this->appid));
+        for (auto &&i : compatData.validCompatTools)
+        {
+            if (i.name == name) {
+                compatData.currentCompatTool = i;
+                break;
+            }
+        }
+        
+
+        
+    } else {
+        this->compatData.currentCompatTool = CompatTool{
+            .name = "none",
+            .humanName = "None",
+            .windowsOnLinuxTool = false
+        };
+    }
+
+    delete vec;
+
     emit AppDataChanged();
+}
+
+void App::SetCompatTool(std::string toolName) {
+    Global_SteamClientMgr->ClientCompat->SpecifyCompatTool(appid, toolName.c_str(), toolName.c_str(), 250);
+    UpdateCompatInfo();
+}
+
+void App::ClearCompatTool() {
+    Global_SteamClientMgr->ClientCompat->SpecifyCompatTool(appid, "", "", 0);
+    UpdateCompatInfo();
 }
 
 void App::UpdateAppState() {
@@ -109,7 +148,7 @@ void App::TypeFromString(const char* str) {
     }
 
     type = k_EAppTypeInvalid;
-    DEBUG_MSG << "[App] App::TypeFromString unhandled type " << str << std::endl;
+    DEBUG_MSG << debugPrefix << "App::TypeFromString unhandled type " << str << std::endl;
 }
 
 void App::UpdateUpdateInfo() {
@@ -126,8 +165,8 @@ std::vector<LaunchOption> App::GetLaunchOptions() {
     std::vector<LaunchOption> launchOptions;
 
     if (returnedLength != 0) {
-        DEBUG_MSG << "[App] Retval: " << returnedLength << std::endl;
-        DEBUG_MSG << "[App] Buf size: " << buf.size() << std::endl;
+        DEBUG_MSG << debugPrefix << "Retval: " << returnedLength << std::endl;
+        DEBUG_MSG << debugPrefix << "Buf size: " << buf.size() << std::endl;
 
         BinaryKV *bkv = new BinaryKV(buf);
         DEBUG_MSG << bkv->outputJSON << std::endl;
@@ -199,15 +238,93 @@ std::vector<LaunchOption> App::GetLaunchOptions() {
 
             launchOptions.push_back(opt);
         }
+        delete bkv;
     }
 
     return launchOptions;
+}
+
+std::string App::GetLaunchCommandLine() {
+    std::string path = std::string("Software/Valve/Steam/Apps/").append(std::to_string(appid)).append("/LaunchOptions");
+
+    const char *launchOpts = Global_SteamClientMgr->ClientConfigStore->GetString(k_EConfigStoreUserLocal, path.c_str(), "");
+    return std::string(launchOpts);
 }
 
 void App::SetLaunchCommandLine(std::string commandLine) {
     std::string path = std::string("Software/Valve/Steam/Apps/").append(std::to_string(this->appid)).append("/LaunchOptions");
 
     Global_SteamClientMgr->ClientConfigStore->SetString(k_EConfigStoreUserLocal, path.c_str(), commandLine.c_str());
+}
+
+std::vector<Beta> App::GetAllBetas() {
+    std::vector<Beta> betas;
+
+    size_t bufLen = 1000000;
+    std::vector<uint8_t> buf(bufLen);
+
+    int returnedLength = Global_SteamClientMgr->ClientApps->GetAppDataSection(appid, k_EAppInfoSectionDepots, buf.data(), bufLen, false);
+
+    if (returnedLength <= 0) {
+        return std::vector<Beta>();
+    }
+
+    BinaryKV *bkv = new BinaryKV(buf);
+    DEBUG_MSG << bkv->outputJSON << std::endl;
+
+    for (auto &&i : bkv->outputJSON["depots"]["branches"].items())
+    {
+        Beta beta;
+
+        beta.name = i.key();
+        if (beta.name == "public") {
+            continue;
+        }
+
+        beta.buildid = -1;
+        beta.pwdrequired = false;
+        beta.timeupdated = -1;
+
+        if (i.value().contains("description")) {
+            beta.description = i.value()["description"];
+        } else {
+            beta.description = "Missing Description";
+        }
+
+        if (i.value().contains("pwdrequired")) {
+            beta.pwdrequired = (bool)(int)i.value()["pwdrequired"];
+            beta.hasAccess = Global_SteamClientMgr->ClientAppManager->BHasCachedBetaPassword(appid, beta.name.c_str());
+        }
+        else
+        {
+            beta.hasAccess = true;
+        }
+
+        if (i.value().contains("timeupdated")) {
+            beta.timeupdated = i.value()["timeupdated"];
+        }
+        
+        betas.push_back(beta);
+    }
+
+    delete bkv;
+    return betas;
+}
+
+std::string App::GetCurrentBeta() {
+    size_t bufLen = 256;
+    char *currentBetaCStr = new char[256];
+    Global_SteamClientMgr->ClientAppManager->GetActiveBeta(appid, currentBetaCStr, bufLen);
+    std::string currentBeta = std::string(currentBetaCStr);
+    delete[] currentBetaCStr;
+    return currentBeta;
+}
+
+void App::SetCurrentBeta(std::string beta) {
+    Global_SteamClientMgr->ClientAppManager->SetAppConfigValue(appid, "betakey", beta.c_str());
+    if (GetCurrentBeta() != beta) {
+        std::cerr << debugPrefix << "Setting beta failed." << std::endl;
+    }
 }
 
 void App::SetLibraryAssetsAvailable() {
@@ -220,10 +337,10 @@ std::vector<LaunchOption> App::GetFilteredLaunchOptions() {
     for (auto &&opt : launchOptions)
     {
         // Filter by platform
-        if (!this->compatData.isWindowsOnLinuxTool) {
+        if (!this->compatData.currentCompatTool.windowsOnLinuxTool) {
             if (!opt.oslist.empty() && !opt.oslist.contains("linux"))
             {
-                std::cout << "[App] " << opt.index << ": Didn't match linux filter and proton is disabled" << std::endl;
+                std::cout << debugPrefix << opt.index << ": Didn't match linux filter and proton is disabled" << std::endl;
                 continue;
             }
         }   
@@ -241,7 +358,7 @@ std::vector<LaunchOption> App::GetFilteredLaunchOptions() {
 
         if (dlcid != -1) {
             if (!Global_SteamClientMgr->ClientAppManager->IsAppDlcInstalled(this->appid, dlcid)) {
-                std::cout << "[App] " << opt.index << ": Didn't match ownsdlc filter " << opt.ownsdlc << std::endl;
+                std::cout << debugPrefix << opt.index << ": Didn't match ownsdlc filter " << opt.ownsdlc << std::endl;
                 continue;
             }
         }
@@ -261,7 +378,7 @@ std::vector<LaunchOption> App::GetFilteredLaunchOptions() {
             delete[] currentBeta;
 
             if (!opt.BetaKey.contains(betaAsStr)) {
-                std::cout << "[App] " << opt.index << ": Didn't match BetaKey filter" << std::endl;
+                std::cout << debugPrefix << opt.index << ": Didn't match BetaKey filter" << std::endl;
                 continue;
             }
 
@@ -287,7 +404,7 @@ void App::Kill(bool force) {
 
 void App::Launch(LaunchOption launchOption) {
     EAppUpdateError err = (EAppUpdateError)0;
-    DEBUG_MSG << "[App] Launching " << this->name << " with launch opt " << launchOption.index << std::endl;
+    DEBUG_MSG << debugPrefix << "Launching " << this->name << " with launch opt " << launchOption.index << std::endl;
     
     std::string launchOptsPath = std::string("Software/Valve/Steam/Apps/").append(std::to_string(this->appid)).append("/LaunchOptions");
     const char *launchOptsCStr = Global_SteamClientMgr->ClientConfigStore->GetString(k_EConfigStoreUserLocal, launchOptsPath.c_str(), "");

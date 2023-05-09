@@ -6,7 +6,7 @@
 #include "includesteamworks.h"
 #include "appstate.h"
 #include "launchoption.h"
-#include <QIcon>
+#include <QImage>
 
 #pragma once
 
@@ -16,16 +16,23 @@ struct LibraryAssets {
     std::string logoOverlay_url;
     std::string iconHash;
     std::string iconCachedFilename;
+    QImage icon;
+};
+
+struct CompatTool 
+{
+    std::string name;
+    std::string humanName;
+
+    // If the tool allows you to play Windows games on Linux (Proton, Wine)
+    bool windowsOnLinuxTool;
 };
 
 struct CompatData
 {
     bool isCompatEnabled;
-
-    // If the tool allows you to play Windows games on Linux (Proton, Wine)
-    bool isWindowsOnLinuxTool;
-    std::string currentCompatTool;
-    std::vector<std::string> whitelistedCompatTools;
+    CompatTool currentCompatTool;
+    std::vector<CompatTool> validCompatTools;
 };
 
 struct Beta 
@@ -38,6 +45,9 @@ struct Beta
 
     // Does this beta need a Local Content Server
     bool requirelcs;
+
+    // Does the user have access to the beta through a password if it needs one
+    bool hasAccess;
 };
 
 struct DLC
@@ -69,12 +79,18 @@ public:
     std::vector<LaunchOption> GetLaunchOptions();
     std::vector<LaunchOption> GetFilteredLaunchOptions();
 
+    std::string GetLaunchCommandLine();
+    void SetLaunchCommandLine(std::string newCommandLine);
+
+    std::vector<Beta> GetAllBetas();
+    std::string GetCurrentBeta();
+    void SetCurrentBeta(std::string beta);
+
     // App Info
     AppId_t appid;
     CGameID gameid;
     std::string name;
     EAppType type;
-    std::vector<Beta> allBetas;
     std::vector<DLC> allDLC;
 
     // Library data
@@ -82,7 +98,6 @@ public:
     LibraryAssets libraryAssets;
 
     // Install data
-    Beta currentBeta;
     std::vector<DLC> enabledDLC;
     AppState *state;
     LibraryFolder installFolder;
@@ -91,6 +106,9 @@ public:
     // Downloads info
     AppUpdateInfo_s updateInfo;
     bool hasUpdate;
+
+    // Debug stuff
+    std::string debugPrefix;
 
 public slots:
     // Network requests
@@ -107,8 +125,9 @@ public slots:
     // Change fields
     void UpdateAppState();
     void UpdateCompatInfo();
-    void SetLaunchCommandLine(std::string newCommandLine);
     void SetLibraryAssetsAvailable();
+    void SetCompatTool(std::string toolName);
+    void ClearCompatTool();
 
 signals:
     void LibraryAssetsAvailable();

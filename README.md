@@ -3,7 +3,7 @@ A partially open-source Steam client for Linux.
 
 # Features
 - 64-bit (but needs 32-bit only steamservice for some functionality)
-- Lightweight (around 70MB ram use)
+- Lightweight (around 70MB ram use, however this is very leaky currently)
 - No steamwebhelper requirement
 - All games supported (technically)
 - VAC supported (you can play, but you _might_ get banned. We're not responsible if you get banned.)
@@ -12,27 +12,26 @@ A partially open-source Steam client for Linux.
 - Uses Qt (6)
 
 # Todo
+
+## Important
 - Everything marked `//TODO` in the code
 - A better logo (I'm not a graphic designer)
-- Login is a bit janky
-- User switcher
-- Global settings
 - Update steamclient binaries
 - UI is pretty crude
-- UI is unstyled 
 - Lots of debug and placeholder things in UI
-- Download queue 
-- Missing "critical" features like Friends and game artwork
-- Steam cloud not supported yet
-- Shader management not supported yet
+- Download queue (most likely next feature)
+- Friends network support
+- Steam cloud support
+- Shader management support
+- Shutting down shouldn't be fast (we should wait for downloads to stop)
+
+## Nice-to-haves
+- Optional background music while downloading apps and/or browsing the store
+- Styled UI
+- Artwork
 
 
 # Screenshots
-![image](https://user-images.githubusercontent.com/32398752/234956475-9cfbeaf1-e271-45e0-bd25-5e83d9e9d779.png)
-![image](https://user-images.githubusercontent.com/32398752/234956535-66e07ccc-7321-40d5-816f-2f4c93711903.png)
-![image](https://user-images.githubusercontent.com/32398752/234956616-606ff144-e4c6-4684-a9ce-cc6640070422.png)
-![image](https://user-images.githubusercontent.com/32398752/234956744-dff86c34-321c-4170-bf9f-8edc8e42ecc7.png)
-Please note that the downloads tab doesn't currently list games.
 
 
 # System requirements
@@ -126,6 +125,8 @@ Due to this, we cannot fix everything, such as the client not conforming to the 
 
 Additionally, Valve does not provide any headers or code to go along with these binaries, so this project essentially works because of guesswork by lots of community members and projects (Thank you!) (such as [open-steamworks](https://github.com/SteamRE/open-steamworks), [open-steamworks fork by m4dEngi](https://github.com/m4dEngi/open-steamworks), [SteamTracking](https://github.com/SteamDatabase/SteamTracking), [protobufs dumped from the steam client](https://github.com/SteamDatabase/Protobufs) and [MiniUTL](https://github.com/FWGS/MiniUTL)). 
 
+Also, thank you Valve for improving Linux gaming, and making a native Steam Client in the first place.
+
 ## What version of Steam's binaries do you use?
 The repo includes a copy of `steam_client_ubuntu12.vdf`, which shows the version and has download paths for the binaries.
 The urls point to regular zip files, just use `unzip`.
@@ -136,3 +137,9 @@ Also, run OpenSteamClient from the terminal and post the logs in a Github issue 
 
 ## Why such high distro requirements?
 The client was made on Arch Linux, for Arch Linux (primarily), so I used whatever features were available. 
+
+## I don't like the "Web bloats". Can I get rid of them?
+Yes. This app was built to fit as many users needs as possible.
+
+You can disable building the webview component by passing `-DNOWEBVIEW` to `cmake`.
+You can also pass `--no-browser` as a command line argument to `opensteam` to disable it.

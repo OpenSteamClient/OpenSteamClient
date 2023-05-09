@@ -6,6 +6,7 @@
 #include "../../ext/steamclient.h"
 #include "../../ext/steamclient.h"
 #include "../application.h"
+#include "../../interop/errmsgutils.h"
 #include <QMessageBox>
 #include <QPushButton>
 #include <QPainter>
@@ -43,17 +44,12 @@ LoginWindow::LoginWindow(QWidget *parent) :
     connect(Global_ThreadController->loginThread, &LoginThread::QRCodeReady, this, &LoginWindow::qrCodeReady);
     connect(this, &LoginWindow::startLogonWithCredentials, Global_ThreadController->loginThread, &LoginThread::StartLogonWithCredentials, Qt::ConnectionType::QueuedConnection);
 
-    // Load known users
-    for (const auto element : Global_ThreadController->loginThread->GetRememberedUsers())
-    {
-        ui->usernameField->addItem(element);
-    }
+    LoadKnownUsers();
 
-    twofactordialog = new TwoFactorDialog();
+    // Hide remembered credential things
+    ui->removeCachedButton->setVisible(false);
+    ui->accountRemembered->setVisible(false);
 
-    // Connect the twofactordialog
-    // We don't explicitly re-allow input with this, LoginThread will allow it after fail
-    connect(twofactordialog, &TwoFactorDialog::cancelRequested, Global_ThreadController->loginThread, &LoginThread::CancelLogin);
 }
 
 void LoginWindow::showEvent( QShowEvent* event ) {
@@ -69,10 +65,21 @@ void LoginWindow::setUsername(std::string username) {
 
 LoginWindow::~LoginWindow()
 {
+    if (twofactordialog) {
+        delete twofactordialog;
+        twofactordialog = nullptr;
+    }
+    
     delete ui;
 }
 
 void LoginWindow::secondFactorNeeded() {
+    twofactordialog = new TwoFactorDialog(this, Global_ThreadController->loginThread->allowedConfirmations);
+
+    // Connect the twofactordialog
+    // We don't explicitly re-allow input with this, LoginThread will allow it after fail
+    connect(twofactordialog, &TwoFactorDialog::cancelRequested, Global_ThreadController->loginThread, &LoginThread::CancelLogin);
+
     twofactordialog->show();
 }
 
@@ -137,23 +144,72 @@ void LoginWindow::loginFailed(std::string msg, EResult eResult) {
 
     QMessageBox msgBox;
     msgBox.setText(QString("Failed to log on %1").arg(ui->usernameField->currentText()));
-    msgBox.setInformativeText(QString("Error: %1, eResult: %2").arg(QString::fromStdString(msg), QString::fromStdString(std::to_string(eResult))));
+    msgBox.setInformativeText(QString("Error: %1, eResult: %2").arg(QString::fromStdString(msg), QString::fromStdString(ErrMsgUtils::GetErrorMessageFromEResult(eResult))));
     msgBox.exec();
 }
 
-void LoginWindow::logoutAndShowWindow() {
+void LoginWindow::logoutAndShowWindow(bool bForgetCredentials) {
+    size_t bufSize = 256;
+    char *username = new char[bufSize];
+    Global_SteamClientMgr->ClientUser->GetAccountName(username, bufSize);
+
+    Application::GetApplication()->hasLogonCompleted = false;
     Global_SteamClientMgr->ClientUser->LogOff();
     while (Global_SteamClientMgr->ClientUser->BConnected()) {
         std::this_thread::sleep_for(std::chrono::milliseconds(50));
     }
+    if (bForgetCredentials) {
+        Global_ThreadController->loginThread->RemoveCachedCredentials(std::string(username));
+    }
+
+    delete[] username;
+
+    LoadKnownUsers();
+
     show();
 }
 
 void LoginWindow::loginSucceeded() {
     this->hide();
-    this->twofactordialog->hide();
+    if (twofactordialog) {
+        twofactordialog->hide();
+        delete twofactordialog;
+        twofactordialog = nullptr;
+    }
     isLoginInProgress = false;
     UpdateUIState();
     Application::GetApplication()->progDialog->show();
     Application::GetApplication()->progDialog->UpdateProgressText("Waiting for steamclient...");
+}
+
+void LoginWindow::on_usernameField_currentTextChanged(const QString &arg1)
+{
+    bool isRemembered = Global_SteamClientMgr->ClientUser->BHasCachedCredentials(arg1.toStdString().c_str());
+
+    ui->removeCachedButton->setVisible(isRemembered);
+    ui->accountRemembered->setVisible(isRemembered);
+
+    ui->passwordField->setVisible(!isRemembered);
+    ui->rememberPasswordBox->setVisible(!isRemembered);
+    ui->passwordLabel->setVisible(!isRemembered);
+}
+
+void LoginWindow::on_removeCachedButton_clicked()
+{
+    std::string username = ui->usernameField->currentText().toStdString();
+    ui->usernameField->removeItem(ui->usernameField->currentIndex());
+
+    Global_ThreadController->loginThread->RemoveCachedCredentials(username);
+
+    LoadKnownUsers();
+
+    on_usernameField_currentTextChanged(QString::fromStdString(username));
+}
+
+void LoginWindow::LoadKnownUsers() {
+    ui->usernameField->clear();
+    for (const auto element : Global_ThreadController->loginThread->GetRememberedUsers())
+    {
+        ui->usernameField->addItem(element);
+    }
 }

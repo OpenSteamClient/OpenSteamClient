@@ -767,10 +767,10 @@ struct Steam2LoginResponse_t
 
 struct WebAuthRequestCallback_t
 {
-	enum { k_iCallback = k_iClientUserCallbacks + 42 };
+	enum { k_iCallback = 1020042 };
 	
 	bool m_bSuccessful;
-	char m_rgchToken[512];
+	char m_rgchToken[1024];
 };
 
 struct MicroTxnAuthRequestCallback_t

@@ -106,7 +106,10 @@
         "qbytearray": "cpp",
         "__memory": "cpp",
         "qmessagebox": "cpp",
-        "qabstractitemview": "cpp"
+        "qabstractitemview": "cpp",
+        "qwebengineview": "cpp",
+        "qwebengineprofile": "cpp",
+        "qqmlcontext": "cpp"
     },
     "C_Cpp.default.browse.limitSymbolsToIncludedHeaders": true,
     "cmake.generator": "Unix Makefiles",

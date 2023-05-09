@@ -4,7 +4,7 @@
 
 class AppState {
 public:
-    AppState(EAppState state);
+    AppState(EAppState state = k_EAppStateInvalid);
     ~AppState();
     EAppState state;
     bool Uninstalled;

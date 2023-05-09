@@ -22,7 +22,7 @@ std::string LoginThread::ThreadName() {
     return "LoginThread";
 }
 void LoginThread::ThreadMain() {
-
+    
 }
 void LoginThread::StopThread() {
     
@@ -31,7 +31,14 @@ void LoginThread::StopThread() {
 LoginThread::LoginThread(/* args */)
 {
     this->qrCodePoller = new JobLoginPolling();
+    this->qrCodePoller->type = k_EPollerTypeQR;
+
     this->credentialsPoller = new JobLoginPolling();
+    this->credentialsPoller->type = K_EPollerTypeCredentials;
+
+    auto thread = new QThread();
+    this->moveToThread(thread);
+    thread->start();
 }
 
 LoginThread::~LoginThread()
@@ -62,22 +69,40 @@ void ConnectToCMs() {
 
 void LoginThread::steamServerConnected(SteamServersConnected_t connected) {
     // If "Remember password" is checked, we should then remember the username, otherwise not
-    if (bRememberPassword) {
-        Application::GetApplication()->settings->setValue("LoginInfo/LoginUser", QString::fromStdString(username));
+
+    size_t bufSize = 256;
+    char *usernameCStr = new char[bufSize];
+    Global_SteamClientMgr->ClientUser->GetAccountName(usernameCStr, bufSize);
+
+    this->username = std::string(usernameCStr);
+    delete[] usernameCStr;
+
+    if (isCachedCredentialLogin)
+    {
+        Application::GetApplication()->settings->setValue("LoginInfo/LoginUser", QString::fromStdString(this->username));
+    }
+    else if (bRememberPassword || isQRLogin)
+    {
+        Application::GetApplication()->settings->setValue("LoginInfo/LoginUser", QString::fromStdString(this->username));
 
         // Also save the user to all remembered users
         auto rememberedUsers = GetRememberedUsers();
-        rememberedUsers.append(QString::fromStdString(username));
+        rememberedUsers.push_back(QString::fromStdString(this->username));
         Application::GetApplication()->settings->setValue("LoginInfo/RememberedAccounts", rememberedUsers);
     }
 
     // Save settings 
     Application::GetApplication()->settings->sync();
 
+    isCachedCredentialLogin = false;
+    bRememberPassword = false;
+    isQRLogin = false;
+
     emit OnLogonFinished();
 }
 
 void LoginThread::steamServerConnectFailure(SteamServerConnectFailure_t connFailure) {
+    isCachedCredentialLogin = false;
     emit OnLogonFailed("Failed to connect to CM's", connFailure.m_eResult);
 }
 
@@ -113,7 +138,6 @@ CAuthentication_DeviceDetails FigureOutDeviceDetails() {
         } else {
             char* major_cstr = strtok(info.release, ".");
             auto major = std::string(major_cstr);
-            DEBUG_MSG << "major is " << major << std::endl;
 
             if (major == "7") {
                 deviceDetails.set_os_type(k_EOSTypeLinux7x);
@@ -187,6 +211,24 @@ void LoginThread::StartLogonWithCredentials(std::string username, std::string pa
     this->bRememberPassword = rememberPassword;
 
     ConnectToCMs();
+
+    if (Global_SteamClientMgr->ClientUser->BHasCachedCredentials(username.c_str())) {
+        isCachedCredentialLogin = true;
+        
+        connect(Global_ThreadController->callbackThread, &CallbackThread::SteamServerConnectFailure, this, &LoginThread::steamServerConnectFailure);
+        connect(Global_ThreadController->callbackThread, &CallbackThread::SteamServersConnected, this, &LoginThread::steamServerConnected);
+        
+        Global_SteamClientMgr->ClientUser->SetLogonNameForCachedCredentialLogin(username.c_str());
+
+        CSteamID steamid = Global_SteamClientMgr->ClientUser->GetSteamId(username.c_str());
+        Application::GetApplication()->currentUserSteamID = steamid.ConvertToUint64();
+        Global_SteamClientMgr->ClientUser->LogOn(steamid, true);
+
+        bIsLogonStarted = false;
+        this->qrCodePoller->StopPolling();
+        this->credentialsPoller->StopPolling();
+        return;
+    }
 
     ProtoMsg<CAuthentication_GetPasswordRSAPublicKey_Request> *getPasswordRSAKeyMsg = new ProtoMsg<CAuthentication_GetPasswordRSAPublicKey_Request>(true);
     getPasswordRSAKeyMsg->SetJobName("Authentication.GetPasswordRSAPublicKey#1");
@@ -294,7 +336,7 @@ void LoginThread::StartLogonWithCredentials(std::string username, std::string pa
             auto allowedConfirmations = beginAuthSessionViaCredentialsResp.body.allowed_confirmations();
             for (auto confirmation : allowedConfirmations) {
                 DEBUG_MSG << "[LoginThread] Confirmation type " << confirmation.confirmation_type() << " is allowed" << std::endl;
-                this->allowedConfirmations.push_back(confirmation.confirmation_type());
+                this->allowedConfirmations.push_back(confirmation);
             }
             emit OnNeedsSecondFactor();
         }
@@ -325,6 +367,13 @@ std::vector<std::string> SplitString(std::string str, char delim) {
 }
 
 void LoginThread::TokenReceived(std::string username, std::string token) {
+    JobLoginPolling *poller = qobject_cast<JobLoginPolling*>(sender());
+    if (poller->type == k_EPollerTypeQR) {
+        isQRLogin = true;
+    } else {
+        isQRLogin = false;
+    }
+
     int i = 0;
     nlohmann::json tokenInfo;
     
@@ -347,11 +396,14 @@ void LoginThread::PollingError(std::string error, EResult eResult) {
     emit OnLogonFailed("Polling error occurred: " + error, eResult);
 }
 
-//TODO: this assumes the code is a mobile code, doesn't support email codes
-void LoginThread::AddSteamGuardCode(std::string sgCode) {
+void LoginThread::AddSteamGuardCode(std::string sgCode, EAuthSessionGuardType codeType) {
+    if (codeType == k_EAuthSessionGuardType_None) {
+        std::cout << "No EAuthSessionGuardType specified" << std::endl;
+        return;
+    }
     ProtoMsg<CAuthentication_UpdateAuthSessionWithSteamGuardCode_Request> *updateAuthSessionWithSteamGuardCodeMsg = new ProtoMsg<CAuthentication_UpdateAuthSessionWithSteamGuardCode_Request>(true);
     updateAuthSessionWithSteamGuardCodeMsg->SetJobName("Authentication.UpdateAuthSessionWithSteamGuardCode#1");
-    updateAuthSessionWithSteamGuardCodeMsg->body.set_code_type(k_EAuthSessionGuardType_DeviceCode);
+    updateAuthSessionWithSteamGuardCodeMsg->body.set_code_type(codeType);
     updateAuthSessionWithSteamGuardCodeMsg->body.set_code(sgCode);
     updateAuthSessionWithSteamGuardCodeMsg->body.set_client_id(this->credentialsPoller->client_id);
     updateAuthSessionWithSteamGuardCodeMsg->body.set_steamid(this->twofactorSteamId);
@@ -368,9 +420,29 @@ void LoginThread::CancelLogin() {
 
     this->credentialsPoller->StopPolling();
     bIsLogonStarted = false;
-    emit OnLogonFailed("User canceled the login", k_EResultCancelled);
+    emit OnLogonFailed("User canceled the login", k_EResultRequestHasBeenCanceled);
+}
+
+void LoginThread::RemoveCachedCredentials(std::string username) {
+    QList<QString> newList;
+    
+    for (auto &&i : Application::GetApplication()->settings->value("LoginInfo/RememberedAccounts").value<QList<QString>>())
+    {
+        if (i.toStdString() != username) {
+            newList.push_back(i);
+        }
+    }
+
+    Application::GetApplication()->settings->setValue("LoginInfo/RememberedAccounts", newList);
+
+    if (Application::GetApplication()->settings->value("LoginInfo/LoginUser").value<QString>() == QString::fromStdString(username)) {
+        Application::GetApplication()->settings->remove("LoginInfo/LoginUser");
+    }
+
+    Global_SteamClientMgr->ClientUser->DestroyCachedCredentials(username.c_str());
+    Application::GetApplication()->settings->sync();
 }
 
 QList<QString> LoginThread::GetRememberedUsers() {
-    return Application::GetApplication()->settings->value("LoginInfo/LoginUser").value<QList<QString>>();
+    return Application::GetApplication()->settings->value("LoginInfo/RememberedAccounts").value<QList<QString>>();
 }

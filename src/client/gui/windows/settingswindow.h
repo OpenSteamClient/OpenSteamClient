@@ -39,6 +39,7 @@ private slots:
 
 private:
     App *app;
+    std::map<int, Beta> dropdownBetas;
     Ui::SettingsWindow *ui;
 };
 

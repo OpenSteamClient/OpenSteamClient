@@ -8,7 +8,7 @@ private:
     /* data */
 public:
     nlohmann::json outputJSON;
-    // Creates a BinaryKV object from the 
+    // Creates a BinaryKV object from an uint8 vector
     BinaryKV(std::vector<uint8_t> data);
     ~BinaryKV();
 };

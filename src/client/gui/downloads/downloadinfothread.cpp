@@ -5,8 +5,6 @@ std::string DownloadInfoThread::ThreadName() {
     return "DownloadInfoPoller";
 }
 
-#define UPDATE_INTERVAL 1
-
 void DownloadInfoThread::ThreadMain()
 {
     uint64 totalDownloadedLast = 0;
@@ -17,7 +15,7 @@ void DownloadInfoThread::ThreadMain()
         DownloadStats_s stats;
         Global_SteamClientMgr->ClientAppManager->GetDownloadStats(&stats);
 
-        speedInfo.downloadSpeed = (stats.totalDownloaded - totalDownloadedLast) * UPDATE_INTERVAL;
+        speedInfo.downloadSpeed = (stats.totalDownloaded - totalDownloadedLast);
         totalDownloadedLast = stats.totalDownloaded;
         speedInfo.totalDownloaded = stats.totalDownloaded;
 
@@ -25,7 +23,7 @@ void DownloadInfoThread::ThreadMain()
             speedInfo.topDownloadSpeed = speedInfo.downloadSpeed;
         }
 
-        DEBUG_MSG << "[DownloadInfoThread] DOWNLOAD STAT DEBUG: step: " << stats.currentStep << " total: " << stats.totalDownloaded << " estimatedSpeed: " << stats.estimatedDownloadSpeed << " speed: " << std::to_string(speedInfo.downloadSpeed) << " topspeed: " << std::to_string(speedInfo.topDownloadSpeed) << std::endl;
+        DEBUG_MSG << "[DownloadInfoThread] DOWNLOAD STAT DEBUG: connectedServers: " << stats.currentConnectionsCount << " total: " << stats.totalDownloaded << " estimatedSpeed: " << stats.estimatedDownloadSpeed << " speed: " << std::to_string(speedInfo.downloadSpeed) << " topspeed: " << std::to_string(speedInfo.topDownloadSpeed) << std::endl;
         emit DownloadSpeedUpdate(speedInfo);
 
         if (prevDownloadingApp != Global_SteamClientMgr->ClientAppManager->GetDownloadingAppID()) {
@@ -33,7 +31,7 @@ void DownloadInfoThread::ThreadMain()
             emit DownloadingAppChange(prevDownloadingApp);
         }
         
-        std::this_thread::sleep_for(std::chrono::milliseconds(1000 / UPDATE_INTERVAL));
+        std::this_thread::sleep_for(std::chrono::milliseconds(1000));
     } while (!shouldStop);
 }
 void DownloadInfoThread::StopThread() {

@@ -3,6 +3,12 @@
 
 #pragma once
 
+enum PollerType
+{
+    k_EPollerTypeQR,
+    K_EPollerTypeCredentials
+};
+
 class JobLoginPolling : public Job {
     Q_OBJECT
 private:
@@ -11,6 +17,7 @@ private:
 public:
     uint64_t client_id = 0;
     std::string request_id = "";
+    PollerType type;
 
     std::string JobName();
     void JobMain();

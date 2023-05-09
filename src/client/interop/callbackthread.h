@@ -35,4 +35,7 @@ signals:
     void PostLogonState(PostLogonState_t info);
 
     void CheckAppBetaPasswordResponse(CheckAppBetaPasswordResponse_t info);
+
+    // Called as a response to RequestWebAuthToken
+    void WebAuthRequestCallback(WebAuthRequestCallback_t info);
 };

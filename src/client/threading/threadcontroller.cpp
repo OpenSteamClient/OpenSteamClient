@@ -15,7 +15,6 @@ ThreadController::ThreadController() {
     downloadInfoThread = new DownloadInfoThread();
 
     ThreadController::initThread(callbackThread);
-    ThreadController::initThread(loginThread);
     ThreadController::initThread(computerInUseThread);
 }
 

@@ -3,6 +3,7 @@
 #include "../../ext/steamclient.h"
 #include <QAbstractButton>
 #include <QMessageBox>
+#include "../../interop/errmsgutils.h"
 
 #include <filesystem>
 namespace fs = std::filesystem;
@@ -114,7 +115,7 @@ void InstallGameDialog::installFailed(EAppUpdateError err) {
 
     this->setCurrentId(0);
     QMessageBox msgBox;
-    msgBox.setText(QString("Failed to install: %1").arg(err));
+    msgBox.setText(QString("Failed to install: %1").arg(QString::fromStdString(ErrMsgUtils::GetErrorMessageFromEAppUpdateError(err))));
     msgBox.exec();
     disconnect(qobject_cast<App *>(sender()), &App::AppLaunchOrUpdateError, this, &InstallGameDialog::installFailed);
 }

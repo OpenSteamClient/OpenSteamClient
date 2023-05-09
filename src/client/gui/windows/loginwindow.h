@@ -21,8 +21,9 @@ public:
 private:
     bool isLoginInProgress = false;
     void UpdateUIState();
-    QRWidget *qrWidget;
-    TwoFactorDialog *twofactordialog;
+    void LoadKnownUsers();
+    QRWidget *qrWidget = nullptr;
+    TwoFactorDialog *twofactordialog = nullptr;
 
 signals:
     void startLogonWithCredentials(std::string username, std::string password, bool rememberPassword);
@@ -30,7 +31,7 @@ signals:
 public slots:
     void on_regenerateQRButton_clicked();
     void setUsername(std::string username);
-    void logoutAndShowWindow();
+    void logoutAndShowWindow(bool bForgetCredentials = false);
 
 private slots:
     void startLogin();
@@ -38,6 +39,10 @@ private slots:
     void loginSucceeded();
     void secondFactorNeeded();
     void qrCodeReady(std::string url);
+
+    void on_usernameField_currentTextChanged(const QString &arg1);
+
+    void on_removeCachedButton_clicked();
 
 private:
     Ui::LoginWindow *ui;

@@ -9,6 +9,7 @@
 #include "../threading/threadcontroller.h"
 #include "windows/loginwindow.h"
 #include "../login/loginthread.h"
+#include "dynamicwebviewlibrarymanager.h"
 
 #pragma once
 
@@ -23,7 +24,6 @@ private:
     void Shutdown(bool bRestoreValveSteam = false);
     void loginFailed(SteamServerConnectFailure_t);
     void loginSucceeded(SteamServersConnected_t);
-    bool hasLogonCompleted = false;
 
 public:
     QCoreApplication *QApp;
@@ -33,8 +33,13 @@ public:
     LoginWindow *loginWindow;
     StartupProgressDialog *progDialog;
     AppManager *appManager;
+    DynamicWebViewLibraryMgr *dynamicWebViewLibraryMgr;
 
+    bool hasLogonCompleted = false;
+
+    // Misc variables not related to UI directly
     uint64_t currentUserSteamID = 0;
+
     static Application *GetApplication();
     int StartApplication();
     bool IsGUIBoot();

@@ -5,6 +5,7 @@
 #include "../utils/binarykv.h"
 #include <QImageReader>
 #include <QBuffer>
+#include <QImage>
 #include <filesystem>
 namespace fs = std::filesystem;
 
@@ -44,8 +45,6 @@ void AppManager::LoadApps() {
         app->TypeFromString(type);
         app->UpdateAppState();
 
-        size_t bufLen = 1000000;
-        std::vector<uint8_t> buf(bufLen);
         std::vector<std::string> categories;
 
         // Support at most 512 categories
@@ -63,15 +62,12 @@ void AppManager::LoadApps() {
             }
         }
 
-        //ui->gamesListWidget->addItem(new QListWidgetGameItem(i, name, type));
-
-        //TODO: is this logic correct?
-        if (app->updateInfo.m_unBytesToDownload > 0) {
-            // If an update is available, add it to the map (not the queue)
-            //appsWithUpdates.insert(app);
-        }
         this->apps.insert({i, app});
     }
+    delete[] type;
+    delete[] name;
+    delete[] hero_url;
+    delete[] logo_url;
     StartLoadingLibraryAssets();
 }
 
@@ -125,11 +121,11 @@ void AppManager::RequestLibraryAsset(App* app, ArtworkType type)
         {
             // If the file exists, don't redownload
             app->libraryAssets.iconCachedFilename = cachedFilename;
+            app->libraryAssets.icon = QImage(QString::fromStdString(cachedFilename));
             break;
         }
-
         downloadUrl = downloadUrl.append(QString("%1.ico").arg(assetHash));
-        
+
         success = true;
         break;
     }
@@ -244,6 +240,7 @@ void AppManager::replyReceived() {
         bestImage.save(imageFilename);
 
         forApp->libraryAssets.iconCachedFilename = imageFilename.toStdString();
+        forApp->libraryAssets.icon = QImage(imageFilename);
 
         forApp->SetLibraryAssetsAvailable();
 

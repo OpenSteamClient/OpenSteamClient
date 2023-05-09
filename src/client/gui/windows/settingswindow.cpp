@@ -27,74 +27,39 @@ SettingsWindow::~SettingsWindow()
     delete ui;
 }
 
-std::map<int, Beta> betas;
 void SettingsWindow::PopulateBetas() {
     ui->betasDropdown->clear();
-    betas.clear();
+    dropdownBetas.clear();
 
     ui->betasDropdown->addItem("NONE - No beta selected");
 
-    size_t bufLen = 1000000;
-    std::vector<uint8_t> buf(bufLen);
+    std::vector<Beta> betas = app->GetAllBetas();
 
-    //int returnedLength = Global_SteamClientMgr->ClientAppManager->GetAvailableBetas(app->appid, &success, betas, sizeof(betas), 0);
-    int returnedLength = Global_SteamClientMgr->ClientApps->GetAppDataSection(app->appid, k_EAppInfoSectionDepots, buf.data(), bufLen, false);
-
-    if (returnedLength <= 0) {
+    if (betas.size() == 0) {
         ui->betasDropdown->setCurrentIndex(0);
         return;
     }
 
-    BinaryKV *bkv = new BinaryKV(buf);
-    DEBUG_MSG << bkv->outputJSON << std::endl;
-
-    char currentBeta[256];
-    Global_SteamClientMgr->ClientAppManager->GetActiveBeta(app->appid, currentBeta, sizeof(currentBeta));
+    std::string currentBeta = app->GetCurrentBeta();
     DEBUG_MSG << "[SettingsWindow] beta is " << currentBeta << std::endl;
-    for (auto &&i : bkv->outputJSON["depots"]["branches"].items())
+
+    for (auto &&beta : betas)
     {
-        Beta beta;
-
-        beta.name = i.key();
-        if (beta.name == "public") {
-            continue;
-        }
-
-        beta.buildid = -1;
-        beta.pwdrequired = false;
-        beta.timeupdated = -1;
-
         std::string flags = "";
 
-        if (i.value().contains("description")) {
-            beta.description = i.value()["description"];
+        //TODO: give the user an option to hide betas they don't have access to
+        if (beta.hasAccess) {
+            flags.append("Private");
         } else {
-            beta.description = "Missing Description";
-        }
-
-        if (i.value().contains("pwdrequired")) {
-            beta.pwdrequired = (bool)(int)i.value()["pwdrequired"];
-
-            //TODO: give the user an option to hide betas they don't have access to
-            if (Global_SteamClientMgr->ClientAppManager->BHasCachedBetaPassword(app->appid, beta.name.c_str())) {
-                flags.append("Private");
-            }
-            else
-            {
-                flags.append("Password Required");
-            }
-        }
-
-        if (i.value().contains("timeupdated")) {
-            beta.timeupdated = i.value()["timeupdated"];
+            flags.append("Password Required");
         }
 
         if (!flags.empty()) {
             flags = "[" + flags + "]";
         }
-
         ui->betasDropdown->addItem(QString("%1 - %2 %3").arg(QString::fromStdString(beta.name), QString::fromStdString(beta.description), QString::fromStdString(flags)));
-        betas.insert({ui->betasDropdown->count()-1, beta});
+        dropdownBetas.insert({ui->betasDropdown->count()-1, beta});
+
         if (beta.name == std::string(currentBeta)) {
             ui->betasDropdown->setCurrentIndex(ui->betasDropdown->count()-1);
         }
@@ -102,39 +67,25 @@ void SettingsWindow::PopulateBetas() {
 }
 
 void SettingsWindow::ReadLaunchOptions() {
-    std::string path = std::string("Software/Valve/Steam/Apps/").append(std::to_string(app->appid)).append("/LaunchOptions");
-
-    const char *launchOpts = Global_SteamClientMgr->ClientConfigStore->GetString(k_EConfigStoreUserLocal, path.c_str(), "");
-    //Global_SteamClientMgr->ClientAppManager->GetAppConfigValue(app->appid, "launchoptions", launchOpts, sizeof(launchOpts));
-    ui->launchOptionsField->setText(QString::fromStdString(std::string(launchOpts)));
+    ui->launchOptionsField->setText(QString::fromStdString(std::string(app->GetLaunchCommandLine())));
 }
 
 void SettingsWindow::PopulateCompatTools()
 {
     ui->compatToolBox->clear();
 
-    CUtlVector<CUtlString> *vec = new CUtlVector<CUtlString>(1, 1000000);
-
-    Global_SteamClientMgr->ClientCompat->GetAvailableCompatToolsForApp(vec, app->appid);
-
     int selectedIndex = -1;
-    for (size_t i = 0; i < vec->Count(); i++)
+    for (auto &&i : app->compatData.validCompatTools)
     {
-        if (vec->Element(i).str == nullptr || vec->Element(i).str == NULL) {
-            DEBUG_MSG << "[SettingsWindow] Name is nullptr" << std::endl;
-        }
-        else
-        {
-            char *name = reinterpret_cast<char*>(vec->Element(i).str);
-            char *humanName = Global_SteamClientMgr->ClientCompat->GetCompatToolDisplayName(name);
-            ui->compatToolBox->addItem(QString::fromStdString(std::string(humanName)), QVariant(QString::fromStdString(std::string(name))));
-            if (selectedIndex == -1 && Global_SteamClientMgr->ClientCompat->BIsCompatibilityToolEnabled(app->appid)) {
-                if (std::string(name) == std::string(Global_SteamClientMgr->ClientCompat->GetCompatToolName(app->appid))) {
-                    selectedIndex = ui->compatToolBox->count()-1;
-                }
+        ui->compatToolBox->addItem(QString::fromStdString(i.humanName), QVariant(QString::fromStdString(i.name)));
+        if (selectedIndex == -1 && app->compatData.isCompatEnabled) {
+            if (i.name == app->compatData.currentCompatTool.name) {
+                std::cout << "selected compat tool " << i.name << std::endl;
+                selectedIndex = ui->compatToolBox->count() - 1;
             }
         }
     }
+   
     if (selectedIndex != -1) {
         ui->compatToolBox->setCurrentIndex(selectedIndex);
     }
@@ -146,7 +97,7 @@ void SettingsWindow::on_enableProtonBox_stateChanged(int arg1)
     if ((bool)arg1) {
         PopulateCompatTools();
     } else {
-        Global_SteamClientMgr->ClientCompat->SpecifyCompatTool(app->appid, "", "", 0);
+        app->ClearCompatTool();
     }
 }
 
@@ -155,9 +106,8 @@ void SettingsWindow::on_enableProtonBox_stateChanged(int arg1)
 void SettingsWindow::on_compatToolBox_currentIndexChanged(int index)
 {
     QString compatToolName = ui->compatToolBox->itemData(index).toString();
-    QString compatToolHumanName = ui->compatToolBox->itemText(index);
 
-    Global_SteamClientMgr->ClientCompat->SpecifyCompatTool(app->appid, compatToolName.toStdString().c_str(), compatToolHumanName.toStdString().c_str(), 0);
+    app->SetCompatTool(compatToolName.toStdString());
 }
 
 void SettingsWindow::on_testBetaKeyButton_clicked()
@@ -175,7 +125,7 @@ void SettingsWindow::on_testBetaKeyButton_clicked()
 void SettingsWindow::betaPasswordResponseReceived(CheckAppBetaPasswordResponse_t resp) {
     QMessageBox msgBox;
 
-    if (resp.eResult == k_EResultFail) {
+    if (resp.eResult == k_EResultFailure) {
         msgBox.setText("Beta password invalid. ");
     } else if (resp.eResult == k_EResultOK) {
         PopulateBetas();
@@ -196,20 +146,11 @@ void SettingsWindow::on_betasDropdown_activated(int index)
         return;
     }
 
-    Beta beta = betas.at(index);
+    Beta beta = dropdownBetas.at(index);
 
     // This calls ResolveDepotDependencies (internally) and also queues the app for immediate update (if installed)
     DEBUG_MSG << "[SettingsWindow] Setting beta to " << beta.name.c_str() << std::endl;
-    const char *betaNameReal = beta.name.c_str();
-
-    //Global_SteamClientMgr->ClientAppManager->SetAppConfigValue(app->appid, "BetaKey", betaNameReal);
-    //Global_SteamClientMgr->ClientAppManager->SetAppConfigValue(app->appid, "branch", betaNameReal);
-    Global_SteamClientMgr->ClientAppManager->SetAppConfigValue(app->appid, "betakey", betaNameReal);
-
-
-    char currentBeta[256];
-    Global_SteamClientMgr->ClientAppManager->GetActiveBeta(app->appid, currentBeta, sizeof(currentBeta));
-    DEBUG_MSG << "[SettingsWindow] beta is " << currentBeta << std::endl;
+    app->SetCurrentBeta(beta.name);
 }
 
 void SettingsWindow::on_uninstallBtn_clicked()

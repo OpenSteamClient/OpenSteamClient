@@ -96,12 +96,6 @@ public:
     uint32_t unk1;
 };
 
-// TODO: implement this fully
-//  Some big POIs are:
-//  - GetCellList(list of cells out somehow) : Does download regions
-//  - SetCellID(cellid) : Sets the download region
-//  - GetCellId is defined in clientutils
-
 abstract_class UNSAFE_INTERFACE IClientUser
 {
 public:
@@ -120,7 +114,7 @@ public:
     // WARNING: unknown arguments
     virtual CSteamID GetConsoleSteamID(const char* pszUsername) = 0;
     // WARNING: retval is pulled from a hat
-    virtual uint64 GetClientInstanceID() = 0;
+    virtual char* GetClientInstanceID() = 0;
     // WARNING: untested
     virtual bool IsVACBanned(CSteamID steamid) = 0;
     virtual void SetEmail() = 0; //args: 1
@@ -156,18 +150,17 @@ public:
     virtual void GetNumAppsInGuestPassesToRedeem() = 0; //args: 0
     virtual void GetAppsInGuestPassesToRedeem() = 0; //args: 2
     virtual void GetCountUserNotifications() = 0;
-    virtual void GetCountUserNotification(const char* pszUsername) = 0;
-    virtual void RequestStoreAuthURL(const char* pszUsername) = 0;
+    virtual void GetCountUserNotification() = 0;
+    virtual void RequestStoreAuthURL() = 0;
     virtual void SetLanguage(const char* language) = 0;
-    virtual void TrackAppUsageEvent(const char* pszUsername) = 0;
-    virtual void RaiseConnectionPriority(const char* pszUsername) = 0;
-    virtual void ResetConnectionPriority(const char* pszUsername) = 0;
+    virtual void TrackAppUsageEvent() = 0;
+    virtual void RaiseConnectionPriority() = 0;
+    virtual void ResetConnectionPriority() = 0;
     // Reads config/config.vdf (Software/Valve/Steam/ConnectCache)
     virtual bool BHasCachedCredentials(const char* pszUsername) = 0;
     virtual void SetLogonNameForCachedCredentialLogin(const char* pszUsername) = 0;
-    virtual void DestroyCachedCredentials() = 0;
-    // WARNING: unknown arguments 
-    virtual void GetCurrentWebAuthToken() = 0;
+    virtual void DestroyCachedCredentials(const char* pszUsername) = 0;
+    virtual bool GetCurrentWebAuthToken(char *pchBuffer, int32 cubBuffer) = 0;
     virtual void RequestWebAuthToken() = 0;
     virtual void SetLoginInformation(const char* pszUsername, const char* pszPassword, bool bRememberPassword) = 0;
     virtual void SetTwoFactorCode(const char* steamGuardCode) = 0;
@@ -192,12 +185,12 @@ public:
     virtual void BUpdateAppOwnershipTicket() = 0; //args: 2
     virtual void GetCustomBinariesState() = 0; //args: 3
     virtual void RequestCustomBinaries() = 0; //args: 4
-    virtual void SetCellID() = 0; //args: 1
-    virtual void GetCellList() = 0; //args: 1
+    virtual void SetCellID(uint32) = 0; //args: 1
+    virtual bool GetCellList(CUtlVector<uint32> *map) = 0; //args: 1
     virtual void GetUserBaseFolder() = 0; //args: 0
     virtual void GetUserDataFolder() = 0; //args: 3
     virtual void GetUserConfigFolder() = 0; //args: 2
-    virtual void GetAccountName() = 0; //args: 2
+    virtual void GetAccountName(char*, unsigned int) = 0; //args: 2
     virtual void GetAccountName2() = 0; //args: 4
     virtual void IsPasswordRemembered() = 0; //args: 0
     virtual void CheckoutSiteLicenseSeat() = 0; //args: 1
@@ -274,7 +267,7 @@ public:
     virtual void BIsSandboxMicroTxn() = 0; //args: 3
     virtual void BMicroTxnRequiresCachedPmtMethod() = 0; //args: 3
     virtual void AuthorizeMicroTxn() = 0; //args: 3
-    virtual void BGetWalletBalance() = 0; //args: 3
+    virtual bool BGetWalletBalance(bool *pbHasWallet, CAmount *pamtBalance, CAmount *pamtPending) = 0; //args: 3
     virtual void RequestMicroTxnInfo() = 0; //args: 2
     virtual void BMicroTxnRefundable() = 0; //args: 2
     virtual void BGetAppMinutesPlayed() = 0; //args: 3

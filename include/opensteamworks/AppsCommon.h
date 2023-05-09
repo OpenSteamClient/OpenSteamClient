@@ -61,13 +61,39 @@ enum EAppInfoSection
 	k_EAppInfoSectionCommunity
 };
 
-#pragma pack( push, 1 )
+	// message AppUpdateInfo {
+	// 	optional fixed32 time_update_start = 1;
+	// 	optional uint64 bytes_to_download = 2;
+	// 	optional uint64 bytes_downloaded = 3;
+	// 	optional uint64 bytes_to_process = 4;
+	// 	optional uint64 bytes_processed = 5;
+	// 	optional int32 estimated_seconds_remaining = 6 [default = -1];
+	// 	optional int32 update_result = 7;
+	// 	optional uint32 update_state = 8;
+	// }
+
+enum EAppUpdateState
+{
+    k_EAppUpdateStateNone = 0,
+    k_EAppUpdateStateRunningUpdate = 1,
+    k_EAppUpdateStateReconfiguring = 2,
+    k_EAppUpdateStateValidating = 4,
+    k_EAppUpdateStatePreallocating = 16,
+    k_EAppUpdateStateDownloading = 32,
+    k_EAppUpdateStateStaging = 64,
+    k_EAppUpdateStateVerifying = 128,
+    k_EAppUpdateStateCommitting = 256,
+    k_EAppUpdateStateRunningScript = 512,
+    k_EAppUpdateStateStopping = 1024,
+};
+
+
 struct AppUpdateInfo_s
 {
 	// Unix timestamp when the download will auto start
 	uint32 m_timeUpdateStart;
-	// Some sort of state flags?
-	uint32 m_uUnk0;
+	// Update state flags
+	EAppUpdateState m_eAppUpdateState;
 	uint64 m_unBytesToDownload;
 	uint64 m_unBytesDownloaded;
 	uint64 m_unBytesToProcess;
@@ -79,10 +105,12 @@ struct AppUpdateInfo_s
 	uint64 m_uUnk3;
 	uint64 m_uUnk4;
 	uint64 m_uUnk5;
-	uint64 m_uUnk6;
-	uint64 m_uUnk7;
-	uint64 m_uUn8;
-	uint64 m_uUnk9;
+	EResult m_someError; // Some sort of flag or error var (value is 0 most of the time)
+	uint32 m_uUnk6;
+	uint64 m_uUnk7; // value is 4294967295 most of the time
+	uint64 m_uUn8; // is possibly uint32 (value is 16777216 most of the time)
+	// Begins an array?
+	uint64 m_targetBuildID; // Installing buildid
 	uint64 m_uUnk10;
 	uint64 m_uUnk11;
 	uint64 m_uUnk12;
@@ -91,19 +119,10 @@ struct AppUpdateInfo_s
 	uint64 m_uUnk15;
 	uint64 m_uUnk16;
 };
-#pragma pack( pop )
-
-enum DownloadStep
-{
-	k_EDownloadStepNotDownloading = 0,
-	k_EDownloadStepUnknown1 = 1,
-	k_EDownloadStepUnknown2 = 2,
-	k_EDownloadStepUnknown3 = 3,
-};
 
 struct DownloadStats_s
 {
-	DownloadStep currentStep;
+	uint32 currentConnectionsCount;
 	uint64 totalDownloaded;
 	uint64 estimatedDownloadSpeed;
 	char test1[16];
@@ -253,7 +272,7 @@ struct RequestAppCallbacksComplete_t
 
 struct AppInfoUpdateComplete_t
 {
-	enum { k_iCallback = k_iSteamAppsCallbacks + 3 };
+	enum { k_iCallback = k_iClientAppsCallbacks + 3 };
 
 	EResult m_EResult;
 	uint32 m_cAppsUpdated;
@@ -268,19 +287,32 @@ struct AppEventTriggered_t
 	EAppEvent m_eAppEvent;
 };
 
+//TODO: this is here until we reorganise OSW
+struct SharedLibraryLockChanged_t 
+{
+	enum { k_iCallback = 1080004 };
+
+	uint m_unLibraryOwner;
+	uint m_unLibraryLockedBy;
+	char m_szOwnerName[64];
+};
+
 //-----------------------------------------------------------------------------
 // Purpose: posted after the user gains ownership of DLC & that DLC is installed
 //-----------------------------------------------------------------------------
 struct DlcInstalled_t
 {
-	enum { k_iCallback = k_iSteamAppsCallbacks + 5 };
+	enum
+	{
+		k_iCallback = k_iSteamAppsCallbacks + 5
+	};
 
-	AppId_t m_nAppID;		// AppID of the DLC
+	AppId_t m_nAppID; // AppID of the DLC
 };
 
 struct AppEventStateChange_t
 {
-	enum { k_iCallback = k_iSteamAppsCallbacks + 6 };
+	enum { k_iCallback = k_iClientAppsCallbacks + 6 };
 
 	AppId_t m_nAppID;
 	uint32 m_eOldState;
@@ -290,7 +322,7 @@ struct AppEventStateChange_t
 
 struct AppValidationComplete_t
 {
-	enum { k_iCallback = k_iSteamAppsCallbacks + 7 };
+	enum { k_iCallback = k_iClientAppsCallbacks + 7 };
 
 	AppId_t m_nAppID;
 	bool m_bFinished;
@@ -315,10 +347,12 @@ struct RegisterActivationCodeResponse_t
 
 struct DownloadScheduleChanged_t
 {
-	enum { k_iCallback = k_iSteamAppsCallbacks + 9 };
+	enum { k_iCallback = k_iClientAppsCallbacks + 9 };
 
 	bool m_bDownloadEnabled;
 	uint32 m_nTotalAppsScheduled;
+	uint32 m_unk1;
+	uint32 m_unk2;
 	unsigned int m_rgunAppSchedule[32];
 };
 
@@ -360,6 +394,7 @@ struct RequestAppProofOfPurchaseKeyResponse_t
 	AppId_t m_nAppID;
 	char m_rgchKey[ k_cubAppProofOfPurchaseKeyMax ];	
 };
+
 #pragma pack( pop )
 
 #endif // APPSCOMMON_H

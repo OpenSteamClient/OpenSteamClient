@@ -120,6 +120,7 @@ public:
     virtual LibraryFolder_t GetAppLibraryFolder(AppId_t) = 0; //args: 1
     virtual unknown_ret RefreshLibraryFolders() = 0; //args: 0
     virtual uint32 GetNumAppsInFolder(LibraryFolder_t) = 0; //args: 1
+    // Note: intended to be used with a CUtlVector
     virtual unknown_ret GetAppsInFolder(LibraryFolder_t, AppId_t* apps, uint32 appsLength) = 0; //args: 3
     virtual unknown_ret ForceInstallDirOverride(const char*) = 0; //args: 1
     virtual unknown_ret SetDownloadThrottleRateKbps(int, bool) = 0; //args: 2

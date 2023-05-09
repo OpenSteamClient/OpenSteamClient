@@ -50,11 +50,8 @@ public:
 
     // Interfaces
 
-    // Interfaces that don't need a login in order to work
-    void CreateUserlessInterfaces();
-
-    // Interfaces that need a login to work
-    void CreateUserfulInterfaces();
+    // Create interfaces
+    void CreateInterfaces();
 
     // Shuts down steamclient.so
     void Shutdown();
