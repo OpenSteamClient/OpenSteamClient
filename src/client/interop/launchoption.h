@@ -1,5 +1,5 @@
 #include <string>
-
+#include <cstdint>
 #pragma once
 
 struct LaunchOption
