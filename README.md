@@ -32,6 +32,11 @@ A partially open-source Steam client for Linux.
 
 
 # Screenshots
+![image](https://github.com/20PercentRendered/opensteamclient/assets/32398752/a83319b2-2c94-4cc1-a3ed-52982fddb4ea)
+![image](https://github.com/20PercentRendered/opensteamclient/assets/32398752/d55ac400-7522-4202-84d6-8563ba8d268a)
+![image](https://github.com/20PercentRendered/opensteamclient/assets/32398752/bac196f8-abce-4187-908e-d41aa410fa50)
+![image](https://github.com/20PercentRendered/opensteamclient/assets/32398752/be6d4227-0911-431f-8c52-05fbb4ec112e)
+![image](https://github.com/20PercentRendered/opensteamclient/assets/32398752/b2c695ec-6df6-4d2b-817b-b2a8bca0ac36)
 
 
 # System requirements
