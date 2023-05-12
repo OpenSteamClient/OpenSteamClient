@@ -257,7 +257,7 @@ const int k_cubAppProofOfPurchaseKeyMax = 64;			// max bytes of a legacy cd key 
 //-----------------------------------------------------------------------------
 struct AppDataChanged_t
 {
-	enum { k_iCallback = k_iSteamAppsCallbacks + 1 };
+	enum { k_iCallback = k_iClientAppsCallbacks + 1 };
 
 	AppId_t m_nAppID;
 
@@ -267,7 +267,7 @@ struct AppDataChanged_t
 
 struct RequestAppCallbacksComplete_t
 {
-	enum { k_iCallback = k_iSteamAppsCallbacks + 2 };
+	enum { k_iCallback = k_iClientAppsCallbacks + 2 };
 };
 
 struct AppInfoUpdateComplete_t
@@ -281,7 +281,7 @@ struct AppInfoUpdateComplete_t
 
 struct AppEventTriggered_t
 {
-	enum { k_iCallback = k_iSteamAppsCallbacks + 4 };
+	enum { k_iCallback = k_iClientAppsCallbacks + 4 };
 
 	AppId_t m_nAppID;
 	EAppEvent m_eAppEvent;

@@ -3,6 +3,8 @@
 #include "../../ext/steamclient.h"
 #include <QTabBar>
 #include <QFileDialog>
+#include <opensteamworks/IClientAppManager.h>
+#include <opensteamworks/IClientCompat.h>
 
 AppSettingsWindow::AppSettingsWindow(QWidget *parent) :
     QDialog(parent),

@@ -3,6 +3,7 @@
 #include "../../temporary_logging_solution.h"
 #include "../application.h"
 #include "../../../dynamicwebview/dynamicwebviewinterface.h"
+#include <opensteamworks/IClientUser.h>
 
 
 DynamicWebViewWidget::DynamicWebViewWidget(QWidget *parent) :

@@ -10,6 +10,8 @@
 #include "../ext/steamclient.h"
 #include "../gui/application.h"
 #include "../utils/jslikebuffer.h"
+#include <opensteamworks/IClientUser.h>
+#include <opensteamworks/IClientSharedConnection.h>
 
 #define PROTOBUF_MASK 0x80000000
 

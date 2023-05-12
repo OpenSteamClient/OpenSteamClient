@@ -302,32 +302,12 @@ enum EUniverse
 };
 
 
-
-// these is outside NO_STEAM because external things use it
-#include "ESteamError.h"
-#include "ESteamNotify.h"
-
-#ifndef NO_STEAM
-// steam
-#include "ESteamSeekMethod.h"
-#include "ESteamBufferMethod.h"
-#include "ESteamFindFilter.h"
-#include "ESteamSubscriptionBillingInfoType.h"
-#include "ESteamPaymentCardType.h"
-#include "ESteamAppUpdateStatsQueryType.h"
-#include "ESteamSubscriptionStatus.h"
-#include "ESteamServerType.h"
-#endif // NO_STEAM
-
-
 typedef void* (*CreateInterfaceFn)( const char *pName, int *pReturnCode );
 typedef void* (*FactoryFn)( const char *pName );
 typedef void* (*InstantiateInterfaceFn)( void );
 
 typedef void  (*SteamAPIWarningMessageHook_t)(int hpipe, const char *message);
 typedef void (*KeyValueIteratorCallback_t)(const char* key, const char* value, void* kv);
-
-typedef void (*SteamNotificationCallback_t)(ESteamNotify eEvent, unsigned int nData);
 
 typedef bool (*SteamBGetCallbackFn)( int hpipe, void *pCallbackMsg );
 typedef void (*SteamFreeLastCallbackFn)( int hpipe );
@@ -721,36 +701,6 @@ enum ECallbackType
 	k_iClientAppsCallbacks = 1280000,
 };
 
-
-#ifndef NO_STEAM
-// steam structs, etc
-#include "TSteamElemInfo.h"
-#include "TSteamError.h"
-#include "TSteamProgress.h"
-#include "TSteamAppStats.h"
-#include "TSteamUpdateStats.h"
-#include "TSteamPaymentCardInfo.h"
-#include "TSteamPrepurchaseInfo.h"
-#include "TSteamExternalBillingInfo.h"
-#include "TSteamSubscriptionBillingInfo.h"
-#include "TSteamSubscriptionStats.h"
-#include "TSteamSubscription.h"
-#include "TSteamApp.h"
-#include "TSteamAppLaunchOption.h"
-#include "TSteamAppVersion.h"
-#include "TSteamSplitLocalUserID.h"
-#include "TSteamGlobalUserID.h"
-#include "TSteamAppDependencyInfo.h"
-#include "TSteamOfflineStatus.h"
-#include "TSteamPaymentCardReceiptInfo.h"
-#include "TSteamPrepurchaseReceiptInfo.h"
-#include "TSteamSubscriptionReceipt.h"
-#include "TSteamSubscriptionDiscount.h"
-#include "TSteamDiscountQualifier.h"
-#include "SteamSalt.h"
-#endif // NO_STEAM
-
-
 // steamclient/api
 #include "CSteamID.h"
 
@@ -760,6 +710,10 @@ enum ECallbackType
 #include "FriendGameInfo.h"
 #include "EVoiceResult.h"
 #include "ECurrencyCode.h"
+
+// Common _Common.h's
+#include "AppsCommon.h"
+#include "UserCommon.h"
 
 // structure that contains client callback data
 struct CallbackMsg_t

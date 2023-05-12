@@ -12,7 +12,7 @@ SettingsWindow::SettingsWindow(QWidget *parent, App *app) :
     ui->setupUi(this);
     this->app = app;
     setWindowTitle(QString::fromStdString(app->name).append(" settings"));
-    bool compatEnabled = Global_SteamClientMgr->ClientCompat->BIsCompatibilityToolEnabled(app->appid);
+    bool compatEnabled = app->compatData.isCompatEnabled;
     ui->enableProtonBox->setChecked(compatEnabled);
     ui->compatToolBox->setVisible(compatEnabled);
     if (compatEnabled) {
@@ -48,9 +48,9 @@ void SettingsWindow::PopulateBetas() {
         std::string flags = "";
 
         //TODO: give the user an option to hide betas they don't have access to
-        if (beta.hasAccess) {
+        if (beta.hasAccess && beta.pwdrequired) {
             flags.append("Private");
-        } else {
+        } else if (beta.pwdrequired) {
             flags.append("Password Required");
         }
 

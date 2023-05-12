@@ -27,7 +27,7 @@
 #define STEAMCONTENTSERVER_INTERFACE_VERSION_001 "SteamContentServer001"
 #define STEAMCONTENTSERVER_INTERFACE_VERSION_002 "SteamContentServer002"
 
-
+#include "EDenyReason.h"
 
 typedef enum EConnectionPriority
 {

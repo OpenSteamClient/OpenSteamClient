@@ -16,7 +16,11 @@
 
 SteamClientMgr     *Global_SteamClientMgr;
 SteamServiceMgr    *Global_SteamServiceMgr;
-bool                Global_debugCbLogging = false;
+#ifdef DEV_BUILD
+    bool                Global_debugCbLogging = true;
+#else
+    bool                Global_debugCbLogging = false;
+#endif
 ThreadController   *Global_ThreadController;
 
 URLProtocolHandler *Global_URLProtocolHandler;

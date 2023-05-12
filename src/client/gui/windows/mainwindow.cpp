@@ -18,6 +18,14 @@
 #include "../../interop/errmsgutils.h"
 #include "appsettingswindow.h"
 
+#if DEV_BUILD
+#include "../friends/friendsdebuggui.h"
+#endif
+
+#include <opensteamworks/IClientApps.h>
+#include <opensteamworks/IClientFriends.h>
+#include <opensteamworks/IClientUtils.h>
+
 MainWindow::MainWindow(QWidget *parent) : 
         QMainWindow(parent),
         ui(new Ui::MainWindow)
@@ -26,6 +34,15 @@ MainWindow::MainWindow(QWidget *parent) :
 
     // Steam | View | Friends | Games | Help
     auto steamMenu = menuBar()->addMenu("Steam");
+#if DEV_BUILD
+    auto debugMenu = menuBar()->addMenu("Debug");
+    auto openFriendsDebugUIAction = new QAction("Friends debug UI", this);
+    connect(openFriendsDebugUIAction, &QAction::triggered, this, [this, openFriendsDebugUIAction]()
+    { 
+        FriendsDebugGui *friendsDebugGUI = new FriendsDebugGui(this);
+        friendsDebugGUI->exec();       
+    });
+#endif
 
     auto changeAccountAct = new QAction("Change Account", this);
     auto signOutAct = new QAction("Sign out", this);
@@ -33,6 +50,7 @@ MainWindow::MainWindow(QWidget *parent) :
     auto settingsAction = new QAction("Settings", this);
     auto quitAction = new QAction("Quit", this);
     auto quitAndRestoreValveSteamAction = new QAction("Quit and restore ValveSteam", this);
+    
 
     changeAccountAct->setStatusTip("Log out, remember credentials and bring up account switcher");
     signOutAct->setStatusTip("Log out, forget credentials and bring up login screen");
@@ -58,7 +76,12 @@ MainWindow::MainWindow(QWidget *parent) :
     steamMenu->addAction(quitAndRestoreValveSteamAction);
 
     ui->menubar->addMenu(steamMenu);
-    
+
+#if DEV_BUILD
+    debugMenu->addAction(openFriendsDebugUIAction);
+    ui->menubar->addMenu(debugMenu);
+#endif
+
     //TODO: these should be somewhere else (this enables downloading)
     on_pauseDownloadButton_clicked();
 

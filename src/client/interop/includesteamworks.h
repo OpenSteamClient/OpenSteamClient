@@ -11,5 +11,3 @@
 #include <opensteamworks/IClientAppManager.h>
 #include <opensteamworks/IClientEngine.h>
 #include <opensteamworks/SteamTypes.h>
-
-#include <opensteamworks/SteamclientAPI.h>

@@ -14,6 +14,8 @@
 #include "../interop/errmsgutils.h"
 
 #include "../startup/bootstrapper.h"
+#include <opensteamworks/IClientUser.h>
+#include <opensteamworks/IClientUtils.h>
 
 
 Application *Application::instance;

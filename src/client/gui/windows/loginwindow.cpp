@@ -12,6 +12,7 @@
 #include <QPainter>
 #include <QLayout>
 #include <qrencode.h>
+#include <opensteamworks/IClientUser.h>
 
 LoginWindow::LoginWindow(QWidget *parent) :
     QDialog(parent),

@@ -1,6 +1,7 @@
 #include "callbackthread.h"
 #include "../ext/steamclient.h"
 #include "callbacklist.h"
+#include <opensteamworks/IClientUser.h>
 
 std::string CallbackThread::ThreadName() {
     return "CallbackThread";

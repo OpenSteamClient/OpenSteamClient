@@ -1,6 +1,10 @@
 #include "app.h"
 #include "../ext/steamclient.h"
 #include "../utils/binarykv.h"
+#include <opensteamworks/IClientApps.h>
+#include <opensteamworks/IClientAppManager.h>
+#include <opensteamworks/IClientCompat.h>
+#include <opensteamworks/IClientConfigStore.h>
 
 App::App(AppId_t i) {
     this->appid = i;

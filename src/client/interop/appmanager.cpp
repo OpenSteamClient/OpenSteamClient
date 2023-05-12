@@ -7,6 +7,9 @@
 #include <QBuffer>
 #include <QImage>
 #include <filesystem>
+#include <opensteamworks/IClientConfigStore.h>
+#include <opensteamworks/IClientApps.h>
+
 namespace fs = std::filesystem;
 
 AppManager::AppManager() {

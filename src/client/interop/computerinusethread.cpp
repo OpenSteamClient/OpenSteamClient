@@ -1,5 +1,6 @@
 #include "computerinusethread.h"
 #include "../ext/steamclient.h"
+#include <opensteamworks/IClientUser.h>
 
 std::string ComputerInUseThread::ThreadName() {
     return "ComputerInUse";

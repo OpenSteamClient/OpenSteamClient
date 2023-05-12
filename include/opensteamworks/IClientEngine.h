@@ -177,7 +177,7 @@ public:
 	virtual IClientNetworkingSockets *GetIClientNetworkingSockets( HSteamUser hSteamUser, HSteamPipe hSteamPipe ) = 0;
 	virtual IClientNetworkingUtils *GetIClientNetworkingUtils( HSteamPipe hSteamPipe ) = 0;
 	virtual IClientNetworkingUtilsSerialized *GetIClientNetworkingUtilsSerialized( HSteamPipe hSteamPipe ) = 0;
-	virtual IClientSTARInternal *GetIClientSTARInternal(HSteamUser hSteamUser, HSteamPipe hSteamPipe) = 0; // virtual IClientSTARInternal *GetIClientSTARInternal(int32, int32) = 0;
+	virtual IClientSTARInternal *GetIClientSTARInternal(HSteamUser hSteamUser, HSteamPipe hSteamPipe) = 0;
 	virtual IClientRemotePlay *GetIClientRemotePlay(HSteamUser hSteamUser, HSteamPipe hSteamPipe) = 0;
 };
 
