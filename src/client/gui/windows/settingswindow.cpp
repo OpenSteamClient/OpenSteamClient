@@ -82,7 +82,6 @@ void SettingsWindow::PopulateCompatTools()
         if (selectedIndex == -1 && compatData->isCompatEnabled) {
             if (compatData->currentCompatTool != nullptr) {
                 if (i->name == compatData->currentCompatTool->name) {
-                    std::cout << "selected compat tool " << i->name << std::endl;
                     selectedIndex = ui->compatToolBox->count() - 1;
                 }
             }

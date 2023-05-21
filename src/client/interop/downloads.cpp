@@ -20,12 +20,12 @@ DownloadManager::~DownloadManager()
 }
 
 void DownloadManager::CallbackManager_DownloadScheduleChanged(DownloadScheduleChanged_t info) {
-    std::cout << "DownloadScheduleChanged" << std::endl;
+    DEBUG_MSG << "DownloadScheduleChanged" << std::endl;
 
-    std::cout << "downloadsenabled " << info.m_bDownloadEnabled << std::endl;
-    std::cout << "unk1 " << info.unk1 << std::endl;
-    std::cout << "unk2 " << info.unk2 << std::endl;
-    std::cout << "totalAppsScheduled " << info.m_nTotalAppsScheduled << std::endl;
+    DEBUG_MSG << "downloadsenabled " << info.m_bDownloadEnabled << std::endl;
+    DEBUG_MSG << "unk1 " << info.unk1 << std::endl;
+    DEBUG_MSG << "unk2 " << info.unk2 << std::endl;
+    DEBUG_MSG << "totalAppsScheduled " << info.m_nTotalAppsScheduled << std::endl;
 
     {
         std::lock_guard guard(changeMutex);

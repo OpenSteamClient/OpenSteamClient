@@ -56,8 +56,6 @@ void AppManager::LoadApps() {
                 continue;
             }
 
-            std::cout << "to_oslist " << to_oslist << " from_oslist " << from_oslist << std::endl;
-
             if (std::string(to_oslist) == "windows" && std::string(from_oslist) == "linux")
             {
                 windowsOnLinuxTool = true;

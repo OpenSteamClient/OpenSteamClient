@@ -259,8 +259,7 @@ void Application::loginSucceeded(SteamServersConnected_t result) {
 
 void Application::postLogonState(PostLogonState_t state) {
   if (state.logonComplete) {
-    std::cout << "logoncomplete" << std::endl;
-    
+
     if (hasLogonCompleted)
     {
       std::cerr << "[Application] Received PostLogonState_t with logonComplete true but it had been already sent before?" << std::endl;
@@ -270,9 +269,10 @@ void Application::postLogonState(PostLogonState_t state) {
 
     progDialog->UpdateProgressText("Steamclient initialized");
     progDialog->hide();
+    
     mainWindow = new MainWindow();
-    std::cout << "showing main window" << std::endl;
     mainWindow->show();
+
     if (settings->value("Settings_Friends/AutoLoginToFriendsNetwork").toBool()) {      
       Global_SteamClientMgr->ClientFriends->SetListenForFriendsMessages(true);
       Global_SteamClientMgr->ClientUser->SetSelfAsChatDestination(true);

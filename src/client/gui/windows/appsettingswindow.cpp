@@ -35,8 +35,6 @@ void AppSettingsWindow::LoadLibraryFolders()
         Global_SteamClientMgr->ClientAppManager->GetLibraryFolderPath(i, path, 4096);
         Global_SteamClientMgr->ClientAppManager->GetLibraryFolderLabel(i, label, 256);
 
-        std::cout << std::to_string(i).append(": ").append(path).append("(").append(label).append(")") << std::endl;
-
         item->setText(QString::fromStdString(std::to_string(i).append(": ").append(path).append(" (").append(label).append(")")));
         item->setData(Qt::UserRole, QVariant((int)i));
 

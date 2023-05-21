@@ -164,7 +164,7 @@ void Updater::CopyOpensteamFiles() {
         catch(const std::exception& e)
         {
             if (std::string(e.what()).contains("File exists")) {
-                std::cout << destFile << " is up-to-date. " << std::endl;
+                std::cout << "[Updater] " << destFile << " is up-to-date. " << std::endl;
             } else {
                 std::cerr << "[Updater] Failed to copy " << destFile << " from " << sourceFile << ": " << e.what() << std::endl;
             }

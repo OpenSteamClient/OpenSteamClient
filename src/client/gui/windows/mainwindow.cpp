@@ -216,15 +216,12 @@ MainWindow::MainWindow(QWidget *parent) :
     // This was originally inteded to be an in-window popup that appears right below the filters button but it wasn't possible easily
     ui->filtersPopupContainer->addWidget(filtersPopup);
 
-    std::cout << "jaapo" << std::endl;
-
     // Debug stuff
     ui->cellIdDebugBox->setText(QString::fromStdString(std::to_string(Global_SteamClientMgr->ClientUtils->GetCellID())));
 
     ui->downloadsScrollAreaItemsLayout->setAlignment(Qt::Alignment(Qt::AlignmentFlag::AlignTop));
     for (auto &&i : Application::GetApplication()->appManager->downloadManager->scheduled)
     {
-        std::cout << "adding game" << std::endl;
         auto item = new DownloadQueueItem();
         item->SetItemData(i.second);
         ui->downloadsScrollAreaItemsLayout->addWidget(item);
