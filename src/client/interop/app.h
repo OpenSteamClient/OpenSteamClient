@@ -31,8 +31,8 @@ struct CompatTool
 struct CompatData
 {
     bool isCompatEnabled;
-    CompatTool currentCompatTool;
-    std::vector<CompatTool> validCompatTools;
+    CompatTool *currentCompatTool;
+    std::vector<CompatTool*> validCompatTools;
 };
 
 struct Beta 
@@ -65,74 +65,102 @@ struct LibraryFolder
     bool canFitGame;
 };
 
+class AppManager;
+
 class App : public QObject
 {
     Q_OBJECT
+private:
+    CompatData *compatData = nullptr;
+
+    // This is a hack...
+    AppManager *mgr;
+
 public:
 
     // Initialization
-    App(AppId_t appid);
+    App(AppManager *mgr, AppId_t appid);
     ~App();
     void TypeFromString(const char* str);
+
+    // We should work towards removing these
+
     void UpdateUpdateInfo();
-
-    std::vector<LaunchOption> GetLaunchOptions();
-    std::vector<LaunchOption> GetFilteredLaunchOptions();
-
-    std::string GetLaunchCommandLine();
-    void SetLaunchCommandLine(std::string newCommandLine);
-
-    std::vector<Beta> GetAllBetas();
-    std::string GetCurrentBeta();
-    void SetCurrentBeta(std::string beta);
+    void UpdateAppState();
+    void UpdateCompatInfo();
 
     // App Info
+
     AppId_t appid;
     CGameID gameid;
     std::string name;
     EAppType type;
-    std::vector<DLC> allDLC;
 
     // Library data
+
     std::vector<std::string> inCategories;
     LibraryAssets libraryAssets;
 
     // Install data
-    std::vector<DLC> enabledDLC;
+
     AppState *state;
-    LibraryFolder installFolder;
-    CompatData compatData;
 
     // Downloads info
+
     AppUpdateInfo_s updateInfo;
-    bool hasUpdate;
 
     // Debug stuff
+
     std::string debugPrefix;
 
-public slots:
-    // Network requests
-    void FetchLibraryAssets();
+// Data
+public:
 
-    // Lifecycle management
+    // Actions
+
     void Kill(bool force);
     void Launch(LaunchOption launchOption);
     void Install(LibraryFolder libraryFolder);
     void Update();
     void Uninstall();
     void Move(LibraryFolder newLibraryFolder);
+    void FetchLibraryAssets();
+    void TryRunUpdate();
 
-    // Change fields
-    void UpdateAppState();
-    void UpdateCompatInfo();
+    // Set values
+
     void SetLibraryAssetsAvailable();
     void SetCompatTool(std::string toolName);
+    void SetLaunchCommandLine(std::string newCommandLine);
+    void SetCurrentBeta(std::string beta);
+
+
+    // Clear values to defaults
+    
     void ClearCompatTool();
+
+
+    // Get values
+
+    std::vector<LaunchOption> GetLaunchOptions();
+    std::vector<LaunchOption> GetFilteredLaunchOptions();
+    std::string GetLaunchCommandLine();
+    std::vector<Beta> GetAllBetas();
+    std::string GetCurrentBeta();
+    AppStateInfo_t GetStateInfo();
+    CompatData *GetCompatData();
+
+
+    // UI 
+
+    bool BShouldHighlightInGamesList();
+
 
 signals:
     void LibraryAssetsAvailable();
     void UpdateInfoChanged();
     void UpdateFinished();
+    void StateChanged();
 
     // Emitted when any of this App's fields change 
     // This is not called by updateinfo changes and other high-intensity codepaths.

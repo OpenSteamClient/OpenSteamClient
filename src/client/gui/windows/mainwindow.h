@@ -34,6 +34,7 @@ enum TabType {
     k_ETabTypeInvalid
 };
 
+class DownloadManager;
 
 class MainWindow : public QMainWindow
 {

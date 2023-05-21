@@ -795,13 +795,6 @@ struct ChatRoomInfoChanged_t
 	uint64 m_ulSteamIDMakingChange; // Cannot use CSteamID here due to padding issues.
 };
 
-struct OBSOLETE_CALLBACK SteamRackBouncing_t
-{
-	enum { k_iCallback = k_iClientFriendsCallbacks + 22 };
-
-	// TODO : Reverse this callback
-};
-
 struct ChatRoomSpeakChanged_t
 {
 	enum { k_iCallback = k_iClientFriendsCallbacks + 23 };

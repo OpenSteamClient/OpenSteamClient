@@ -183,27 +183,6 @@ enum ELicenseType
 
 
 #pragma pack( push, 8 )
-//-----------------------------------------------------------------------------
-// Purpose: called when this client has received a finalprice message from a Billing
-//-----------------------------------------------------------------------------
-struct OBSOLETE_CALLBACK FinalPriceMsg_t
-{
-		enum { k_iCallback = k_iSteamBillingCallbacks + 1 };
-
-		uint32 m_bSuccess;
-		uint32 m_nBaseCost;
-		uint32 m_nTotalDiscount;
-		uint32 m_nTax;
-		uint32 m_nShippingCost;
-};
-
-struct OBSOLETE_CALLBACK PurchaseMsg_t
-{
-		enum { k_iCallback = k_iSteamBillingCallbacks + 2 };
-
-		uint32 m_bSuccess;
-		int32 m_EPurchaseResultDetail;			// Detailed result information
-};
 
 // Sent in response to PurchaseWithActivationCode
 struct PurchaseResponse_t

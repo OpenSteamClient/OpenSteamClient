@@ -103,6 +103,17 @@ enum ESpewGroup
 	k_ESpewGroupSvcm = 31,
 	k_ESpewGroupHttpclient = 32,
 	k_ESpewGroupHttpserver = 33,
+	k_ESpewGroupNetworkmgr = 34,
+	k_ESpewGroupMusic = 35,
+	k_ESpewGroupParental = 36,
+	k_ESpewGroupInventory = 37,
+	k_ESpewGroupInput = 38,
+	k_ESpewGroupStreaming = 39,
+	k_ESpewGroupController = 40,
+	k_ESpewGroupControllerUI = 41,
+	k_ESpewGroupMetrics = 42,
+	k_ESpewGroupChina = 43,
+	k_ESpew_ArraySize
 };
 
 enum EUIMode

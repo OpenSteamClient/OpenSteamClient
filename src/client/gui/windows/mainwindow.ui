@@ -120,7 +120,7 @@
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="gamesTab">
        <attribute name="title">
@@ -152,7 +152,7 @@
               <height>0</height>
              </size>
             </property>
-            <layout class="QVBoxLayout" name="verticalLayout_2">
+            <layout class="QVBoxLayout" name="verticalLayout_2" stretch="0,0,0,0,0">
              <item>
               <spacer name="verticalSpacer">
                <property name="orientation">
@@ -228,6 +228,37 @@
                 <bool>false</bool>
                </attribute>
               </widget>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayout_6">
+               <item>
+                <widget class="QPushButton" name="addNonSteamGameBtn">
+                 <property name="text">
+                  <string>Add Non-Steam game</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="browseSteamStoreBtn">
+                 <property name="text">
+                  <string>Browse the Steam Store</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <spacer name="horizontalSpacer_8">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+              </layout>
              </item>
             </layout>
            </widget>
@@ -507,7 +538,7 @@
        <attribute name="title">
         <string>Downloads</string>
        </attribute>
-       <layout class="QVBoxLayout" name="verticalLayout_9" stretch="1,6">
+       <layout class="QVBoxLayout" name="verticalLayout_9" stretch="0,4">
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_4" stretch="0,1,0,0">
           <item>
@@ -528,24 +559,10 @@
                 </property>
                </widget>
               </item>
-              <item row="0" column="1">
-               <widget class="QLabel" name="downloadSpeedLabel">
+              <item row="3" column="1">
+               <widget class="QLabel" name="diskUsageLabel">
                 <property name="text">
-                 <string>TextLabel</string>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="0">
-               <widget class="QLabel" name="label_4">
-                <property name="text">
-                 <string>Download:</string>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="0">
-               <widget class="QLabel" name="label_8">
-                <property name="text">
-                 <string>Total Downloaded:</string>
+                 <string>Unknown</string>
                 </property>
                </widget>
               </item>
@@ -563,6 +580,34 @@
                 </property>
                </widget>
               </item>
+              <item row="3" column="0">
+               <widget class="QLabel" name="label_13">
+                <property name="text">
+                 <string>Disk Usage:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="0">
+               <widget class="QLabel" name="label_4">
+                <property name="text">
+                 <string>Download:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0">
+               <widget class="QLabel" name="label_8">
+                <property name="text">
+                 <string>Total Downloaded:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QLabel" name="downloadSpeedLabel">
+                <property name="text">
+                 <string>TextLabel</string>
+                </property>
+               </widget>
+              </item>
               <item row="4" column="0">
                <spacer name="verticalSpacer_5">
                 <property name="orientation">
@@ -575,20 +620,6 @@
                  </size>
                 </property>
                </spacer>
-              </item>
-              <item row="3" column="0">
-               <widget class="QLabel" name="label_13">
-                <property name="text">
-                 <string>Disk Usage:</string>
-                </property>
-               </widget>
-              </item>
-              <item row="3" column="1">
-               <widget class="QLabel" name="diskUsageLabel">
-                <property name="text">
-                 <string>Unknown</string>
-                </property>
-               </widget>
               </item>
              </layout>
             </item>
@@ -679,36 +710,9 @@
           <item>
            <layout class="QVBoxLayout" name="debugLayout">
             <item>
-             <widget class="QLabel" name="label">
-              <property name="text">
-               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; color:#ff0000;&quot;&gt;DEBUG PANEL; WILL BE REMOVED IN THE FUTURE&lt;/span&gt;&lt;br/&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Queue size&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLCDNumber" name="appsToDownloadCounter">
-              <property name="minimumSize">
-               <size>
-                <width>0</width>
-                <height>50</height>
-               </size>
-              </property>
-              <property name="segmentStyle">
-               <enum>QLCDNumber::Filled</enum>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLabel" name="label_14">
-              <property name="text">
-               <string>Current CellID (editable)</string>
-              </property>
-             </widget>
-            </item>
-            <item>
              <widget class="QLabel" name="label_15">
               <property name="text">
-               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Will be moved to settings when it's fully done.&lt;/p&gt;&lt;p&gt;For now, look &lt;a href=&quot;https://steamdb.info/app/7/config/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;here&lt;/span&gt;&lt;/a&gt; to see the list of CellID's. &lt;/p&gt;&lt;p&gt;Pause and resume downloads to finalize change.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Current CellID&lt;/p&gt;&lt;p&gt;Will be moved to settings when it's fully done.&lt;/p&gt;&lt;p&gt;For now, look &lt;a href=&quot;https://steamdb.info/app/7/config/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;here&lt;/span&gt;&lt;/a&gt; to see the list of CellID's. &lt;/p&gt;&lt;p&gt;Pause and resume downloads to finalize change.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
               </property>
              </widget>
             </item>
@@ -720,7 +724,34 @@
          </layout>
         </item>
         <item>
-         <widget class="QListWidget" name="downloadQueueList"/>
+         <widget class="QScrollArea" name="downloadsScrollArea">
+          <property name="frameShape">
+           <enum>QFrame::NoFrame</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Plain</enum>
+          </property>
+          <property name="lineWidth">
+           <number>0</number>
+          </property>
+          <property name="horizontalScrollBarPolicy">
+           <enum>Qt::ScrollBarAsNeeded</enum>
+          </property>
+          <property name="widgetResizable">
+           <bool>true</bool>
+          </property>
+          <widget class="QWidget" name="downloadsScrollAreaItemsWidget">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>1522</width>
+             <height>623</height>
+            </rect>
+           </property>
+           <layout class="QVBoxLayout" name="downloadsScrollAreaItemsLayout"/>
+          </widget>
+         </widget>
         </item>
        </layout>
       </widget>

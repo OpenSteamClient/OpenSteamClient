@@ -26,7 +26,7 @@
 
 #define CLIENTUGC_INTERFACE_VERSION "CLIENTUGC_INTERFACE_VERSION001"
 
-abstract_class UNSAFE_INTERFACE IClientUGC
+abstract_class IClientUGC
 {
 public:
 	virtual UGCQueryHandle_t CreateQueryUserUGCRequest( AccountID_t unAccountID, EUserUGCList eListType, EUGCMatchingUGCType eMatchingUGCType, EUserUGCListSortOrder eSortOrder, AppId_t nCreatorAppID, AppId_t nConsumerAppID, uint32 unPage ) = 0;

@@ -5,12 +5,7 @@
 #include "../downloads/downloadinfothread.h"
 #include "../../interop/includesteamworks.h"
 
-struct DownloadQueueItemData
-{
-    AppId_t appid;
-    std::string name;
-    AppUpdateInfo_s initialUpdateInfo;
-};
+class DownloadItem;
 
 namespace Ui {
 class DownloadQueueItem;
@@ -22,7 +17,8 @@ class DownloadQueueItem : public QWidget
 
 public:
     explicit DownloadQueueItem(QWidget *parent = nullptr);
-    void SetItemData(DownloadQueueItemData data);
+    void SetItemData(DownloadItem *data);
+    void SetPositionSectionHidden(bool visible);
     ~DownloadQueueItem();
 public slots:
     void UpdateUpdateInfo(AppUpdateInfo_s);
@@ -34,7 +30,8 @@ private slots:
     void on_updateButton_clicked();
 
 private:
-    DownloadQueueItemData data;
+    bool updateButtonState = false;
+    DownloadItem *data;
     Ui::DownloadQueueItem *ui;
 };
 

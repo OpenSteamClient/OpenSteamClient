@@ -23,7 +23,7 @@
 #include "SteamTypes.h"
 #include "HTTPCommon.h"
 
-abstract_class UNSAFE_INTERFACE IClientHTTP
+abstract_class IClientHTTP
 {
 public:
 	// Initializes a new HTTP request, returning a handle to use in further operations on it.  Requires

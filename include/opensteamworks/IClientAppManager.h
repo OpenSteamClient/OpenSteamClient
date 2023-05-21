@@ -24,12 +24,13 @@
 #include "AppsCommon.h"
 
 struct AppStateInfo_t {
+    char allInfo[4096] = { 0 };
 };
 
 typedef int LibraryFolder_t;
 typedef uint ELanguage;
 
-abstract_class UNSAFE_INTERFACE IClientAppManager
+abstract_class IClientAppManager
 {
 public:
 
@@ -58,7 +59,7 @@ public:
     virtual unknown_ret GetUpdateInfo(AppId_t, AppUpdateInfo_s*) = 0; //args: 2
     virtual unknown_ret GetAppConfigValue(AppId_t, char const *key, char *value, int) = 0; //args: 4
     virtual unknown_ret SetAppConfigValue(AppId_t, const char *key, const char *value) = 0; //args: 3
-    virtual unknown_ret BIsAppUpToDate(AppId_t) = 0; //args: 1
+    virtual bool BIsAppUpToDate(AppId_t) = 0; //args: 1
     virtual unknown_ret GetAvailableLanguages(AppId_t, bool, char*, unsigned int) = 0; //args: 4
     virtual ELanguage GetCurrentLanguage(AppId_t, char*, unsigned int) = 0; //args: 3
     virtual ELanguage GetCurrentLanguage(AppId_t) = 0; //args: 1
@@ -93,7 +94,7 @@ public:
     virtual unknown_ret ChangeAppDownloadQueuePlacement(AppId_t, EAppDownloadQueuePlacement) = 0; //args: 2
     virtual unknown_ret SetAppDownloadQueueIndex(AppId_t, int) = 0; //args: 2
     virtual int GetAppDownloadQueueIndex(AppId_t) = 0; //args: 1
-    virtual unknown_ret GetAppAutoUpdateDelayedUntilTime(uint32) = 0; //args: 1
+    virtual RTime32 GetAppAutoUpdateDelayedUntilTime(AppId_t) = 0; //args: 1
     virtual int GetNumAppsInDownloadQueue() = 0; //args: 0
     virtual bool BHasLocalContentServer() = 0; //args: 0
     virtual unknown_ret BuildBackup() = 0; //args: 4

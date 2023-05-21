@@ -31,7 +31,7 @@ struct SharedConnectionMessageReady_t
 	uint32 m_hResult;
 };
 
-abstract_class UNSAFE_INTERFACE IClientSharedConnection
+abstract_class IClientSharedConnection
 {
 public:
     virtual HSharedConnection AllocateSharedConnection() = 0;

@@ -24,7 +24,7 @@
 #include "ScreenshotsCommon.h"
 
 
-abstract_class UNSAFE_INTERFACE IClientScreenshots
+abstract_class IClientScreenshots
 {
 public:
 	virtual const char *GetShortcutDisplayName( CGameID gameID ) = 0;

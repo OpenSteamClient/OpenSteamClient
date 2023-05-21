@@ -17,12 +17,14 @@ void CallbackThread::ThreadMain() {
 
         if (Global_SteamClientMgr->Steam_BGetCallback( Global_SteamClientMgr->pipe, &callBack )) {
             if (Global_debugCbLogging) {
+                std::string name;
                 if (callbacks.contains(callBack.m_iCallback)) {
-                    DEBUG_MSG << "[CallbackThread] Received callback [ID: " << callBack.m_iCallback << ", name: " << callbacks.at(callBack.m_iCallback) << ", binary params(len: " << callBack.m_cubParam << "): " << callBack.m_pubParam << "]" << std::endl;
+                    name = callbacks.at(callBack.m_iCallback);
                 } else {
-                    DEBUG_MSG << "[CallbackThread] Received callback [ID: " << callBack.m_iCallback << ", binary params(len: " << callBack.m_cubParam << "): " << callBack.m_pubParam << "]" << std::endl;
+                    name = "Unknown";
                 }
-                
+
+                DEBUG_MSG << "[CallbackThread] Received callback [ID: " << callBack.m_iCallback << ", name: " << name << ", param length: " << callBack.m_cubParam << "]" << std::endl;
             }
 
             switch (callBack.m_iCallback)
@@ -76,6 +78,12 @@ void CallbackThread::ThreadMain() {
                     WebAuthRequestCallback_t *info = (WebAuthRequestCallback_t *)callBack.m_pubParam;
                     emit WebAuthRequestCallback(*info);
                     break;
+                }   
+                case DownloadScheduleChanged_t::k_iCallback:
+                {
+                    DownloadScheduleChanged_t *info = (DownloadScheduleChanged_t *)callBack.m_pubParam;
+                    emit DownloadScheduleChanged(*info);
+                    break;
                 }
 
                 // Document potentially useful findings here
@@ -92,7 +100,7 @@ void CallbackThread::ThreadMain() {
 
             Global_SteamClientMgr->Steam_FreeLastCallback(Global_SteamClientMgr->pipe);
         } else {
-            std::this_thread::sleep_for(std::chrono::milliseconds(100));
+            std::this_thread::sleep_for(std::chrono::milliseconds(50));
         }
     } while (!shouldStop);
 }

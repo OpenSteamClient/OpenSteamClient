@@ -56,7 +56,7 @@ enum ENetworkDeviceManagerError
 
 #define CLIENTNETWORKDEVICEMANAGER_INTERFACE_VERSION "CLIENTNETWORKDEVICEMANAGER_INTERFACE_VERSION001"
 
-abstract_class UNSAFE_INTERFACE IClientNetworkDeviceManager
+abstract_class IClientNetworkDeviceManager
 {
 public:
 	virtual bool IsInterfaceValid() = 0;

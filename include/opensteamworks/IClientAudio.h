@@ -30,7 +30,7 @@ typedef uint32 HFileSource;
 #define CLIENTAUDIO_INTERFACE_VERSION "CLIENTAUDIO_INTERFACE_VERSION001"
 
 
-abstract_class UNSAFE_INTERFACE IClientAudio
+abstract_class IClientAudio
 {
 public:
 

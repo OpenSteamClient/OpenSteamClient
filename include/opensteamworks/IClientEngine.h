@@ -30,7 +30,6 @@ class IClientGameCoordinator;
 class IClientGameServer;
 class IClientGameServerItems;
 class IClientGameStats;
-class IClientMasterServerUpdater;
 class IClientMatchmaking;
 class IClientMatchmakingServers;
 class IClientNetworking;
@@ -89,9 +88,9 @@ class IClientSystemDockManager;
 class IClientSystemAudioManager;
 class IClientSystemDisplayManager;
 
-struct SteamIPAddress_t;
+class SteamIPAddress_t;
 
-abstract_class UNSAFE_INTERFACE IClientEngine
+abstract_class IClientEngine
 {
 
 public:

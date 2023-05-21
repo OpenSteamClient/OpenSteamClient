@@ -24,7 +24,7 @@
 #include "AppsCommon.h"
 
 
-abstract_class UNSAFE_INTERFACE IClientApps
+abstract_class IClientApps
 {
 public:
 	// returns 0 if the key does not exist

@@ -38,4 +38,7 @@ signals:
 
     // Called as a response to RequestWebAuthToken
     void WebAuthRequestCallback(WebAuthRequestCallback_t info);
+
+    // Sent when the download queue changes
+    void DownloadScheduleChanged(DownloadScheduleChanged_t info);
 };

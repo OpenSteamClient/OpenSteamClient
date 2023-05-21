@@ -23,7 +23,7 @@
 #include "SteamTypes.h"
 #include "StreamLauncherCommon.h"
 
-abstract_class UNSAFE_INTERFACE IClientStreamLauncher
+abstract_class IClientStreamLauncher
 {
 public:
 	virtual EStreamLauncherResult StartStreaming( const char *cszFilePath ) = 0;

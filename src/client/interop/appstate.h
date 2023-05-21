@@ -1,12 +1,28 @@
 #include <opensteamworks/EAppState.h>
+#include <string>
+#include <vector>
 
 #pragma once
 
 class AppState {
+private:
+    bool CheckStateAndAppend(EAppState stateToCheck);
+    std::vector<EAppState> states;
+
 public:
+    EAppState state;
+
     AppState(EAppState state = k_EAppStateInvalid);
     ~AppState();
-    EAppState state;
+
+    
+    bool HasState(EAppState);
+    std::string AsString();
+    std::string DisplayString();
+
+    bool BIsPlayable();
+
+public:
     bool Uninstalled;
     bool UpdateRequired;
     bool FullyInstalled;

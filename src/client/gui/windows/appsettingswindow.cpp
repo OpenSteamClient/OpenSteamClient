@@ -5,6 +5,11 @@
 #include <QFileDialog>
 #include <opensteamworks/IClientAppManager.h>
 #include <opensteamworks/IClientCompat.h>
+#include "../application.h"
+
+//TODO: setting the default compat tool
+// This is done by using appid 0 instead of an actual app's id
+// If this isn't done, some games will download EmptySteamDepot's or otherwise unsupported linux depots.
 
 AppSettingsWindow::AppSettingsWindow(QWidget *parent) :
     QDialog(parent),
@@ -48,6 +53,7 @@ void AppSettingsWindow::LoadLibraryFolders()
 void AppSettingsWindow::LoadCheckboxValues() {
     ui->enableCompatToolsCheck->setChecked(Global_SteamClientMgr->ClientCompat->BIsCompatLayerEnabled());
     ui->allowDownloadsWhilePlayingCheck->setChecked(Global_SteamClientMgr->ClientAppManager->BAllowDownloadsWhileAnyAppRunning());
+    ui->autoLoginFriendsNetwork_box->setChecked(Application::GetApplication()->settings->value("Settings_Friends/AutoLoginToFriendsNetwork").toBool());
 }
 
 AppSettingsWindow::~AppSettingsWindow()
@@ -102,3 +108,8 @@ void AppSettingsWindow::on_allowDownloadsWhilePlayingCheck_stateChanged(int arg1
     Global_SteamClientMgr->ClientAppManager->SetAllowDownloadsWhileAnyAppRunning((bool)arg1);
 }
 
+
+void AppSettingsWindow::on_autoLoginFriendsNetwork_box_stateChanged(int arg1)
+{
+    Application::GetApplication()->settings->setValue("Settings_Friends/AutoLoginToFriendsNetwork", QVariant::fromValue<bool>((bool)arg1));
+}

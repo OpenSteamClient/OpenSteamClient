@@ -16,7 +16,7 @@
 #include "../startup/bootstrapper.h"
 #include <opensteamworks/IClientUser.h>
 #include <opensteamworks/IClientUtils.h>
-
+#include <opensteamworks/IClientFriends.h>
 
 Application *Application::instance;
 
@@ -125,8 +125,22 @@ void Application::InitApplication()
       Global_SteamClientMgr->CreateClientEngine();
       Global_SteamClientMgr->InitHSteamPipeAndHSteamUser();
       Global_SteamClientMgr->CreateInterfaces();
-      Global_SteamClientMgr->ClientUtils->SetLauncherType(k_ELauncherTypeClientUI);
+      Global_SteamClientMgr->ClientUtils->SetLauncherType(k_ELauncherTypeClientui);
+      Global_SteamClientMgr->ClientUtils->SetCurrentUIMode(k_EUIModeNormal);
       Global_SteamClientMgr->ClientEngine->SetClientCommandLine(Global_CommandLine->argc, Global_CommandLine->argv);
+      Global_SteamClientMgr->ClientUtils->SetAppIDForCurrentPipe(7);
+
+#ifdef DEV_BUILD
+      if (Global_CommandLine->HasOption("--allspew")) {
+        std::cout << "Running in development and allspew specified, using max logging for steamclient" << std::endl;
+        for (size_t i = 0; i < k_ESpew_ArraySize; i++)
+        {
+          Global_SteamClientMgr->ClientUtils->SetSpew(i, 9, 9);
+        }
+
+        Global_SteamClientMgr->ClientUtils->SetAPIDebuggingActive(true, true);
+      }
+#endif
 
       // I'm not exactly sure how this works and why it's done like this....
       IConCommandBaseAccessor acc;
@@ -186,7 +200,7 @@ int Application::StartApplication() {
         // No point in trying again if the cached creds are invalid
         Global_ThreadController->loginThread->RemoveCachedCredentials(loginUserStr.c_str());
 
-        loginFailed(*new SteamServerConnectFailure_t{m_eResult : EResult::k_EResultCachedCredentialIsInvalid});
+        loginFailed(*new SteamServerConnectFailure_t{m_eResult : k_EResultCachedCredentialIsInvalid});
       }
     }
     
@@ -245,14 +259,24 @@ void Application::loginSucceeded(SteamServersConnected_t result) {
 
 void Application::postLogonState(PostLogonState_t state) {
   if (state.logonComplete) {
-    if (hasLogonCompleted) {
+    std::cout << "logoncomplete" << std::endl;
+    
+    if (hasLogonCompleted)
+    {
       std::cerr << "[Application] Received PostLogonState_t with logonComplete true but it had been already sent before?" << std::endl;
       return;
     }
     hasLogonCompleted = true;
 
+    progDialog->UpdateProgressText("Steamclient initialized");
     progDialog->hide();
     mainWindow = new MainWindow();
+    std::cout << "showing main window" << std::endl;
     mainWindow->show();
+    if (settings->value("Settings_Friends/AutoLoginToFriendsNetwork").toBool()) {      
+      Global_SteamClientMgr->ClientFriends->SetListenForFriendsMessages(true);
+      Global_SteamClientMgr->ClientUser->SetSelfAsChatDestination(true);
+      Global_SteamClientMgr->ClientFriends->SetPersonaState(k_EPersonaStateOnline);
+    }
   }
 }

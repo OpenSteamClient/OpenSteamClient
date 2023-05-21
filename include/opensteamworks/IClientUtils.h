@@ -55,7 +55,7 @@ typedef enum ETextFilteringContext
 	k_ETextFilteringContextName = 3,
 } ETextFilteringContext;
 
-abstract_class UNSAFE_INTERFACE IClientUtils
+abstract_class IClientUtils
 {
 public:
 	virtual void GetInstallPath() = 0; //args: 0, index: 0
@@ -73,11 +73,11 @@ public:
     virtual void GetNumRunningApps() = 0; //args: 0, index: 12
     virtual void GetCurrentBatteryPower() = 0; //args: 0, index: 13
     virtual void GetBatteryInformation() = 0; //args: 2, index: 14
-    virtual void SetOfflineMode() = 0; //args: 1, index: 15
-    virtual void GetOfflineMode() = 0; //args: 0, index: 16
-    virtual void SetAppIDForCurrentPipe() = 0; //args: 2, index: 17
-    virtual void GetAppID() = 0; //args: 0, index: 18
-    virtual void SetAPIDebuggingActive() = 0; //args: 2, index: 19
+    virtual void SetOfflineMode(bool) = 0; //args: 1, index: 15
+    virtual bool GetOfflineMode() = 0; //args: 0, index: 16
+    virtual void SetAppIDForCurrentPipe(AppId_t) = 0; //args: 2, index: 17
+    virtual AppId_t GetAppID() = 0; //args: 0, index: 18
+    virtual void SetAPIDebuggingActive(bool, bool) = 0; //args: 2, index: 19
     virtual void AllocPendingAPICallHandle() = 0; //args: 0, index: 20
     virtual void IsAPICallCompleted() = 0; //args: 3, index: 21
     virtual void GetAPICallFailureReason() = 0; //args: 2, index: 22
@@ -87,21 +87,21 @@ public:
     virtual void SignalServiceAppsToDisconnect() = 0; //args: 0, index: 26
     virtual void TerminateAllApps() = 0; //args: 1, index: 27
     virtual uint32 GetCellID() = 0; //args: 0, index: 28
-    virtual void BIsGlobalInstance() = 0; //args: 0, index: 29
+    virtual bool BIsGlobalInstance() = 0; //args: 0, index: 29
     virtual void CheckFileSignature() = 0; //args: 1, index: 30
     virtual void GetBuildID() = 0; //args: 0, index: 31
-    virtual void SetCurrentUIMode() = 0; //args: 1, index: 32
-    virtual void GetCurrentUIMode() = 0; //args: 0, index: 33
+    virtual void SetCurrentUIMode(EUIMode) = 0; //args: 1, index: 32
+    virtual EUIMode GetCurrentUIMode() = 0; //args: 0, index: 33
     virtual void BIsWebBasedUIMode() = 0; //args: 0, index: 34
     virtual void ShutdownLauncher() = 0; //args: 2, index: 35
-    virtual void SetLauncherType(int) = 0; //args: 1, index: 36
-    virtual void GetLauncherType() = 0; //args: 0, index: 37
+    virtual void SetLauncherType(ELauncherType) = 0; //args: 1, index: 36
+    virtual ELauncherType GetLauncherType() = 0; //args: 0, index: 37
     virtual void ShowGamepadTextInput() = 0; //args: 5, index: 38
     virtual void GetEnteredGamepadTextLength() = 0; //args: 0, index: 39
     virtual void GetEnteredGamepadTextInput() = 0; //args: 2, index: 40
     virtual void GamepadTextInputClosed() = 0; //args: 3, index: 41
     virtual void ShowControllerLayoutPreview() = 0; //args: 3, index: 42
-    virtual void SetSpew() = 0; //args: 3, index: 43
+    virtual void SetSpew(int, int, int) = 0; //args: 3, index: 43
     virtual bool BDownloadsDisabled() = 0; //args: 0, index: 44
     virtual void SetFocusedWindow() = 0; //args: 4, index: 45
     virtual void GetSteamUILanguage() = 0; //args: 0, index: 46

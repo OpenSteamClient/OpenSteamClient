@@ -17,13 +17,17 @@ enum ArtworkType
     Hero
 };
 
+class DownloadManager;
+
 class AppManager : public QObject
 {
     Q_OBJECT
 
 public:
-    std::map<AppId_t, App*> apps;
+    std::vector<CompatTool *> compatTools;
+    std::map<AppId_t, App *> apps;
     std::vector<AppId_t> licenses;
+    DownloadManager *downloadManager;
     AppManager();
     ~AppManager() {}
 

@@ -5,12 +5,9 @@
 #include <opensteamworks/UserCommon.h>
 
 // functions necessary to be exported so steamclient doesn't crash
-// -singleapp launch mode is 8
-// -steamchina launch mode is 7
-// normal launch (no arguments) is 0
-// returns a byte
-extern "C" uint8_t GetClientLauncherType() { return k_ELauncherTypeClientUI; }
-extern "C" uint8_t GetClientActualLauncherType() { return k_ELauncherTypeClientUI; }
+
+extern "C" uint8_t GetClientLauncherType() { return k_ELauncherTypeClientui; }
+extern "C" uint8_t GetClientActualLauncherType() { return k_ELauncherTypeClientui; }
 
 extern "C" bool StartCheckingForUpdates() {
   return true;
@@ -26,20 +23,8 @@ extern "C" EUniverse SteamBootstrapper_GetEUniverse() {
   return k_EUniversePublic;
 }
 
-extern "C" const char* SteamBootstrapper_GetBaseUserDir() {
-  auto home_env = std::string(getenv("HOME"));
-  auto newstr = home_env.append("/.local/share/Steam/test_dir");
-  return newstr.c_str();
-}
-
-extern "C" const char* SteamBootstrapper_GetLoggingDir() {
-  auto home_env = std::string(getenv("HOME"));
-  auto newstr = home_env.append("/.local/share/Steam/logs2");
-  return newstr.c_str();
-}
-
 extern "C" long long int GetBootstrapperVersion() {
-  return 111111111111;
+  return 0;
 }
 
 extern "C" const char* GetCurrentClientBeta() {

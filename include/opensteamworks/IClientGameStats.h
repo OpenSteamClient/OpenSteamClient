@@ -23,7 +23,7 @@
 #include "SteamTypes.h"
 #include "GameStatsCommon.h"
 
-abstract_class UNSAFE_INTERFACE IClientGameStats
+abstract_class IClientGameStats
 {
 public:
 	virtual SteamAPICall_t GetNewSession( int8 nAccountType, uint64 ullAccountID, AppId_t nAppID, RTime32 rtTimeStarted ) = 0;

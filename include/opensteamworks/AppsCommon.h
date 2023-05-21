@@ -91,7 +91,7 @@ enum EAppUpdateState
 struct AppUpdateInfo_s
 {
 	// Unix timestamp when the download will auto start
-	uint32 m_timeUpdateStart;
+	RTime32 m_timeUpdateStart;
 	// Update state flags
 	EAppUpdateState m_eAppUpdateState;
 	uint64 m_unBytesToDownload;
@@ -109,7 +109,6 @@ struct AppUpdateInfo_s
 	uint32 m_uUnk6;
 	uint64 m_uUnk7; // value is 4294967295 most of the time
 	uint64 m_uUn8; // is possibly uint32 (value is 16777216 most of the time)
-	// Begins an array?
 	uint64 m_targetBuildID; // Installing buildid
 	uint64 m_uUnk10;
 	uint64 m_uUnk11;
@@ -350,9 +349,9 @@ struct DownloadScheduleChanged_t
 	enum { k_iCallback = k_iClientAppsCallbacks + 9 };
 
 	bool m_bDownloadEnabled;
+	uint32 unk1;
+	uint32 unk2;
 	uint32 m_nTotalAppsScheduled;
-	uint32 m_unk1;
-	uint32 m_unk2;
 	unsigned int m_rgunAppSchedule[32];
 };
 

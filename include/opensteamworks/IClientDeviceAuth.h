@@ -24,7 +24,7 @@
 
 #define CLIENTDEVICEAUTH_INTERFACE_VERSION "CLIENTDEVICEAUTH_INTERFACE_VERSION001"
 
-abstract_class UNSAFE_INTERFACE IClientDeviceAuth
+abstract_class IClientDeviceAuth
 {
 public:
 	virtual uint64 AuthorizeLocalDevice( const char * pubUnk, uint32 cubUnk ) = 0;

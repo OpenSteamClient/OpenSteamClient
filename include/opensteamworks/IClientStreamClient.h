@@ -24,7 +24,7 @@
 
 #define CLIENTSTREAMCLIENT_INTERFACE_VERSION "CLIENTSTREAMCLIENT_INTERFACE_VERSION001"
 
-abstract_class UNSAFE_INTERFACE IClientStreamClient
+abstract_class IClientStreamClient
 {
 public:
 	virtual void Launched( CGameID gameID ) = 0;

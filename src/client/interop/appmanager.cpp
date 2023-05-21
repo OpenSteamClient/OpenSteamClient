@@ -9,13 +9,16 @@
 #include <filesystem>
 #include <opensteamworks/IClientConfigStore.h>
 #include <opensteamworks/IClientApps.h>
+#include <opensteamworks/IClientUser.h>
+#include <opensteamworks/IClientCompat.h>
+
+#include "downloads.h"
 
 namespace fs = std::filesystem;
 
 AppManager::AppManager() {
     connect(Global_ThreadController->callbackThread, &CallbackThread::AppLicensesChanged, this, &AppManager::cbLicensesChanged);
     this->manager = new QNetworkAccessManager(this);
-
 }
 
 void AppManager::cbLicensesChanged(AppLicensesChanged_t changeInfo) {
@@ -27,26 +30,79 @@ void AppManager::cbLicensesChanged(AppLicensesChanged_t changeInfo) {
 }
 
 void AppManager::LoadApps() {
+
+    if (Global_SteamClientMgr->ClientCompat->BIsCompatLayerEnabled()) {
+        char *to_oslist = new char[64];
+        char *from_oslist = new char[64];
+
+        CUtlVector<CUtlString> *vec = new CUtlVector<CUtlString>(1, 1000000);
+        Global_SteamClientMgr->ClientCompat->GetAvailableCompatTools(vec);
+
+        for (size_t i = 0; i < vec->Count(); i++)
+        {
+            std::string name = std::string(vec->Element(i).str);
+            std::string humanName = std::string(Global_SteamClientMgr->ClientCompat->GetCompatToolDisplayName(name.c_str()));
+            bool windowsOnLinuxTool = false;
+
+            // Is this proton or a different kind of compat tool?
+            // TODO: how can we know about user-installed compat tools?
+
+            std::string keyNameToOSList = "extended/compat_tools/" + name + "/to_oslist";
+            std::string keyNameFromOSList = "extended/compat_tools/" + name + "/from_oslist";
+            int32 returnedToOSList = Global_SteamClientMgr->ClientApps->GetAppData(891390, keyNameToOSList.c_str(), to_oslist, 64);
+            int32 returnedFromOSList = Global_SteamClientMgr->ClientApps->GetAppData(891390, keyNameFromOSList.c_str(), from_oslist, 64);
+
+            if (returnedToOSList == 0 || returnedFromOSList == 0 || to_oslist == nullptr || from_oslist == nullptr) {
+                continue;
+            }
+
+            std::cout << "to_oslist " << to_oslist << " from_oslist " << from_oslist << std::endl;
+
+            if (std::string(to_oslist) == "windows" && std::string(from_oslist) == "linux")
+            {
+                windowsOnLinuxTool = true;
+            }
+
+            this->compatTools.push_back(new CompatTool{
+                .name = name,
+                .humanName = humanName,
+                .windowsOnLinuxTool = windowsOnLinuxTool
+            });
+        }
+
+        delete[] to_oslist;
+        delete[] from_oslist;
+    }
+
+    
+
     char *type = new char[128];
-    char *name = new char[1024];
     char *hero_url = new char[1024];
     char *logo_url = new char[1024];
 
-    // TODO: use GetAppStateInfo to get info
-    for (auto &&i : this->licenses)
-    {
-        if (Global_SteamClientMgr->ClientApps->GetAppData(i, "common/type", type, 128) == 0)
-        {
-            DEBUG_MSG << "[AppManager] Skipping " << i << " no type returned" << std::endl;
+    // Enable downloading early
+    // This is needed so we can get app update autostart times
+    Global_SteamClientMgr->ClientAppManager->SetDownloadingEnabled(true);
+
+    AppId_t ownedApps[2048] = { 0 };
+    Global_SteamClientMgr->ClientUser->GetSubscribedApps(ownedApps, 2048, false);
+
+    for (size_t i = 0; i < 2048; i++)
+    {   
+        // Ignore the 0 package, it doesn't exist, but is used by the client internally to set defaults, etc.
+        if (ownedApps[i] == 0) {
             continue;
         }
 
-        Global_SteamClientMgr->ClientApps->GetAppData(i, "common/name", name, 1024);
+        auto appid = ownedApps[i];
+        if (Global_SteamClientMgr->ClientApps->GetAppData(appid, "common/type", type, 128) == 0)
+        {
+            DEBUG_MSG << "[AppManager] Skipping " << appid << " no type returned" << std::endl;
+            continue;
+        }
 
-        App *app = new App(i);
-        app->name = std::string(name);
+        App *app = new App(this, appid);
         app->TypeFromString(type);
-        app->UpdateAppState();
 
         std::vector<std::string> categories;
 
@@ -54,7 +110,7 @@ void AppManager::LoadApps() {
         // Why? There's no way to get an array from the config store. 
         for (size_t i2 = 0; i2 < 512; i2++)
         {
-            std::string keyName = std::string("Software/Valve/Steam/Apps/").append(std::to_string(i)).append("/Tags/").append(std::to_string(i2));
+            std::string keyName = std::string("Software/Valve/Steam/Apps/").append(std::to_string(appid)).append("/Tags/").append(std::to_string(i2));
             const char* returned = Global_SteamClientMgr->ClientConfigStore->GetString(k_EConfigStoreUserRoaming, keyName.c_str(), "");
             if (std::string(returned) == "") {
                 break;
@@ -65,13 +121,15 @@ void AppManager::LoadApps() {
             }
         }
 
-        this->apps.insert({i, app});
+        this->apps.insert({appid, app});
     }
+
     delete[] type;
-    delete[] name;
     delete[] hero_url;
     delete[] logo_url;
     StartLoadingLibraryAssets();
+
+    this->downloadManager = new DownloadManager(this);
 }
 
 void AppManager::StartLoadingLibraryAssets() {

@@ -12,7 +12,7 @@
 struct AppWhitelistSetting_t;
 struct AppControllerConfigOverride_t;
 
-abstract_class UNSAFE_INTERFACE IClientCompat
+abstract_class IClientCompat
 {
 public:
      virtual bool BIsCompatLayerEnabled() = 0; //args: 0, index: 0

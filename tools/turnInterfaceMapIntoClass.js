@@ -32,7 +32,7 @@ if (fs.existsSync("../include/opensteamworks/" + interfaceName.substring("IClien
 
 interfaceOut.push("");
 
-interfaceOut.push("abstract_class UNSAFE_INTERFACE " + interfaceName);
+interfaceOut.push("abstract_class " + interfaceName);
 interfaceOut.push("{");
 interfaceOut.push("public:");
 

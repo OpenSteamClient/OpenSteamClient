@@ -14,22 +14,17 @@
 #include <QDialog>
 #include <QProgressDialog>
 
-SteamClientMgr     *Global_SteamClientMgr;
-SteamServiceMgr    *Global_SteamServiceMgr;
-#ifdef DEV_BUILD
-    bool                Global_debugCbLogging = true;
-#else
-    bool                Global_debugCbLogging = false;
-#endif
-ThreadController   *Global_ThreadController;
+SteamClientMgr     *Global_SteamClientMgr = nullptr;
+SteamServiceMgr    *Global_SteamServiceMgr = nullptr;
+bool                Global_debugCbLogging = false;
+ThreadController   *Global_ThreadController = nullptr;
 
-URLProtocolHandler *Global_URLProtocolHandler;
-AppManager         *Global_AppManager;
+URLProtocolHandler *Global_URLProtocolHandler = nullptr;
 
-CommandLine        *Global_CommandLine;
+CommandLine        *Global_CommandLine = nullptr;
 
-Bootstrapper       *Global_Bootstrapper;
-Updater            *Global_Updater;
+Bootstrapper       *Global_Bootstrapper = nullptr;
+Updater            *Global_Updater = nullptr;
 
 void Startup::InitQT() {
     // This creates the Application class if it didn't already exist
@@ -43,8 +38,8 @@ void Startup::SetLaunchArgs(int argc, char *argv[]) {
 
 void Startup::InitGlobals() {
     Global_Updater = new Updater();
-    Global_AppManager = new AppManager();
     Global_URLProtocolHandler = new URLProtocolHandler();
+    Global_debugCbLogging = Global_CommandLine->HasOption("-log-callbacks");
 }
 
 void Startup::MaxOpenDescriptorsCheck() {

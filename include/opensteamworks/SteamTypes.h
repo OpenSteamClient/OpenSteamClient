@@ -141,63 +141,6 @@ typedef uint64_t uint64;
 	#endif
 #endif
 
-
-#ifdef _MSC_VER
-	#define STEAMWORKS_DEPRECATE( Message ) __declspec(deprecated(#Message))
-#elif defined(__GNUC__)
-	#if (__GNUC__ > 4 || (__GNUC__ == 4 && __GNUC_MINOR__ >= 5))
-		#define STEAMWORKS_DEPRECATE( Message ) __attribute__((__deprecated__(#Message)))
-	#else
-		#define STEAMWORKS_DEPRECATE( Message ) __attribute__((__deprecated__))
-	#endif
-#else
-	#define STEAMWORKS_DEPRECATE( Message )
-#endif
-
-#ifndef STEAMWORKS_OBSOLETE_INTERFACES
-	#define OBSOLETE_INTERFACE STEAMWORKS_DEPRECATE("This interface is obsolete and is not available in the latest builds of Steam. #define STEAMWORKS_OBSOLETE_INTERFACES to suppress this warning.")
-#else
-	#define OBSOLETE_INTERFACE
-#endif
-
-#ifndef STEAMWORKS_OBSOLETE_FUNCTIONS
-	#define OBSOLETE_FUNCTION STEAMWORKS_DEPRECATE("This function is obsolete and is not available in the latest builds of Steam. #define STEAMWORKS_OBSOLETE_FUNCTIONS to suppress this warning.")
-#else
-	#define OBSOLETE_FUNCTION
-#endif
-
-#ifndef STEAMWORKS_OBSOLETE_CALLBACKS
-	#define OBSOLETE_CALLBACK STEAMWORKS_DEPRECATE("This callback is obsolete and will not be triggered in the latest builds of Steam. #define STEAMWORKS_OBSOLETE_CALLBACKS to suppress this warning.")
-#else
-	#define OBSOLETE_CALLBACK
-#endif
-
-#ifndef STEAMWORKS_CLIENT_INTERFACES
-	#define UNSAFE_INTERFACE STEAMWORKS_DEPRECATE("IClient interfaces are unversioned and potentially unsafe. Class definition can change between steamclient releases. #define STEAMWORKS_CLIENT_INTERFACES to suppress this warning.")
-#else
-	#define UNSAFE_INTERFACE
-#endif
-
-#ifndef STEAM_API_NON_VERSIONED_INTERFACES
-	#ifdef _MSC_VER
-		#define S_API_UNSAFE extern "C" __declspec( dllexport ) STEAMWORKS_DEPRECATE("Steam*() interface accessing functions are unversioned and potentially unsafe. These are versioned to assume you are using the latest version of the steam_api loader, if this is not the case your code is likely to crash, read the comment above the functions to learn about the version safe accessing method that will account for newer steam_api versions, older versions are always unsupported. #define STEAM_API_NON_VERSIONED_INTERFACES to suppress this warning.")
-	#elif defined(__GNUC__)
-		#if defined(__linux__) || defined(__APPLE_CC__)
-			#define S_API_UNSAFE extern "C" STEAMWORKS_DEPRECATE("Steam*() interface accessing functions are unversioned and potentially unsafe. These are versioned to assume you are using the latest version of the steam_api loader, if this is not the case your code is likely to crash, read the comment above the functions to learn about the version safe accessing method that will account for newer steam_api versions, older versions are always unsupported. #define STEAM_API_NON_VERSIONED_INTERFACES to suppress this warning.")
-		#else
-			#define S_API_UNSAFE extern "C" __declspec( dllexport ) STEAMWORKS_DEPRECATE("Steam*() interface accessing functions are unversioned and potentially unsafe. These are versioned to assume you are using the latest version of the steam_api loader, if this is not the case your code is likely to crash, read the comment above the functions to learn about the version safe accessing method that will account for newer steam_api versions, older versions are always unsupported. #define STEAM_API_NON_VERSIONED_INTERFACES to suppress this warning.")
-		#endif
-	#else
-		#define S_API_UNSAFE extern "C"
-	#endif
-#else
-	#ifdef _WIN32
-		#define S_API_UNSAFE extern "C" __declspec( dllexport )
-	#else
-		#define S_API_UNSAFE extern "C"
-	#endif
-#endif
-
 #if defined(_WIN32) && defined(__GNUC__) && !defined(_S4N_)
 	#define STEAMWORKS_STRUCT_RETURN_0(returnType, functionName)	\
 		virtual void functionName( returnType& ret ) = 0;			\
@@ -389,86 +332,7 @@ typedef uint32 AppId_t;
 typedef uint32 DepotId_t;
 
 const AppId_t k_uAppIdInvalid = 0x0;
-const AppId_t k_nGameIDNotepad = 65535;
-const AppId_t k_nGameIDCSSTestApp = 65534;
-const AppId_t k_nGameIDDRMTestApp_Static = 6710;
-const AppId_t k_nGameIDDRMTestApp_Blob = 6711;
-const AppId_t k_nGameIDDRMTestApp_Dynamic = 6712;
-const AppId_t k_nGameIDDRMTestApp_SDK = 6713;
-const AppId_t k_nGameIDWinUI = 7;
-const AppId_t k_nGameIDWinUI2 = 8;
-const AppId_t k_nGameIDCS = 10;
-const AppId_t k_nGameIDTFC = 20;
-const AppId_t k_nGameIDDOD = 30;
-const AppId_t k_nGameIDDMC = 40;
-const AppId_t k_nGameIDOpFor = 50;
-const AppId_t k_nGameIDRicochet = 60;
-const AppId_t k_nGameIDHL1 = 70;
-const AppId_t k_nGameIDCZero = 80;
-const AppId_t k_nGameIDCSBeta = 150;
-const AppId_t k_nGameIDMacVAC = 160;
-const AppId_t k_nGameIDWinVAC = 202;
-const AppId_t k_nGameIDScreenshots = 760;
-const AppId_t k_nGameDRMTest = 199;
-const AppId_t k_nGameIDBaseSourceSDK = 215;
-const AppId_t k_nGameIDHL2 = 220;
-const AppId_t k_nDepotHL2Buka = 235;
-const AppId_t k_nGameIDCSS = 240;
-const AppId_t k_nGameIDCSSBeta = 260;
-const AppId_t k_nGameHL1SRC = 280;
-const AppId_t k_nGameIDDODSRC = 300;
-const AppId_t k_nGameIDHL2DM = 320;
-const AppId_t k_nGameIDPortal = 400;
-const AppId_t k_nGameIDHL2EP2 = 420;
-const AppId_t k_nGameIDTF2 = 440;
-const AppId_t k_nGameIDL4D = 500;
-const AppId_t k_nGameIDL4DDemo = 530;
-const AppId_t k_nGameIDL4D2 = 550;
-const AppId_t k_nGameIDASW = 630;
-const AppId_t k_nGameIDTF2Staging = 810;
-const AppId_t k_nGameIDPortal2Main = 852;
-const AppId_t k_nGameIDPortal2 = 620;
-const AppId_t k_nGameIDASWMain = 877;
-const AppId_t k_nGameIDDOTA = 882;
-const AppId_t k_nGameIDASWStaging = 886;
-const AppId_t k_nGameIDRedOrchestra = 1200;
-const AppId_t k_nGameIDRedOrchestraBeta = 1210;
-const AppId_t k_nGameIDKillingFloor = 1250;
-const AppId_t k_nGameIDSin1 = 1309;
-const AppId_t k_nGameIDEarth2160 = 1900;
-const AppId_t k_nGameIDTheShip = 2400;
-const AppId_t k_nGameIDTheShipBeta = 2410;
-const AppId_t k_nGameIDDarkMessiahSP = 2100;
-const AppId_t k_nGameIDDarkMessiahMPBeta = 2110;
-const AppId_t k_nGameIDDarkMessiahMP = 2115;
-const AppId_t k_nGameIDDarkMessiahSPDemo = 2120;
-const AppId_t k_nGameIDDarkMessiahFix = 2130;
-const AppId_t k_nGameRaceWTCC = 4230;
-const AppId_t k_nGameIDLostPlanetOld = 6500;
-const AppId_t k_nGameIDLostPlanet = 6510;
-const AppId_t k_nGameIDNBA2K9 = 7740;
-const AppId_t k_nGameIDCallofDuty4 = 7940;
-const AppId_t k_nMLBFrontOfficeManager = 7780;
-const AppId_t k_nGameIDMW2SP = 10180;
-const AppId_t k_nGameIDMW2MP = 10190;
-const AppId_t k_nGameIDIW5SP = 42680;
-const AppId_t k_nGameIDIW5MP = 42690;
-const AppId_t k_nGameIDCODBLOPSSP = 42700;
-const AppId_t k_nGameIDCODBLOPSMP = 42710;
-const AppId_t k_nGameIDEmpireTotalWar = 10500;
-const AppId_t k_nGameCSSOnline = 11600;
-const AppId_t k_nGameIDFirstSource = 200;
-const AppId_t k_nGameIDLastSource = 999;
-const AppId_t k_nGameIDFirstGoldSource = 10;
-const AppId_t k_nGameIDLastGoldSource = 199;
-const AppId_t k_nGameIDFirstNonSource = 1000;
-const AppId_t k_nGameIDMax = 2147483647;
-const AppId_t k_nGameIDStress = 30020;
-const AppId_t k_nGameIDGCTest = 30100;
-const AppId_t k_nAppATIDriver_Vista7_32 = 61800;
-const AppId_t k_nAppATIDriver_Vista7_64 = 61810;
-const AppId_t k_nAppATIDriver_XP_32 = 61820;
-const AppId_t k_nAppATIDriver_XP_64 = 61830;
+const AppId_t k_nGameIDSteamClient = 7;
 
 typedef enum ShareType_t
 {
@@ -482,13 +346,6 @@ const AssetClassId_t k_ulAssetClassIdInvalid = 0x0;
 
 typedef uint32 PhysicalItemId_t;
 const PhysicalItemId_t k_uPhysicalItemIdInvalid = 0x0;
-
-// this is baked into client messages and interfaces as an int, 
-// make sure we never break this.  AppIds and DepotIDs also presently
-// share the same namespace, but since we'd like to change that in the future
-// I've defined it seperately here.
-typedef uint32 DepotId_t;
-const DepotId_t k_uDepotIdInvalid = 0x0;
 
 typedef int HVoiceCall;
 
@@ -650,22 +507,22 @@ typedef char SteamPersonalQuestion_t[ STEAM_QUESTION_MAXLEN + 1 ];
 //-----------------------------------------------------------------------------
 enum ECallbackType
 {
-	k_iSteamUserCallbacks = 100, // possibly 1020000 now
+	k_iSteamUserCallbacks = 100, 
 	k_iSteamGameServerCallbacks = 200,
 	k_iSteamFriendsCallbacks = 300,
 	k_iSteamBillingCallbacks = 400,
 	k_iSteamMatchmakingCallbacks = 500,
 	k_iSteamContentServerCallbacks = 600,
-	k_iSteamUtilsCallbacks = 700, // possibly 1040000 now
+	k_iSteamUtilsCallbacks = 700, 
 	k_iClientFriendsCallbacks = 800, // possibly 1010000 now
-	k_iClientUserCallbacks = 900,
+	k_iClientUserCallbacks = 900, // possibly 1020000 now
 	k_iSteamAppsCallbacks = 1000,
 	k_iSteamUserStatsCallbacks = 1100,
 	k_iSteamNetworkingCallbacks = 1200,
 	k_iClientRemoteStorageCallbacks = 1300, // possibly 1260000 now
 	k_iSteamUserItemsCallbacks = 1400,
 	k_iSteamGameServerItemsCallbacks = 1500,
-	k_iClientUtilsCallbacks = 1600,
+	k_iClientUtilsCallbacks = 1600, // possibly 1040000 now
 	k_iSteamGameCoordinatorCallbacks = 1700,
 	k_iSteamGameServerStatsCallbacks = 1800,
 	k_iSteam2AsyncCallbacks = 1900,

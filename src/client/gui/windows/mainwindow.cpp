@@ -11,6 +11,7 @@
 #include "settingswindow.h"
 #include "../dialogs/installgamedialog.h"
 #include <QMessageBox>
+#include "../../interop/downloads.h"
 #include "../widgets/downloadqueueitem.h"
 #include "../gamelistview/appdelegate.h"
 #include "../gamelistview/appmodel.h"
@@ -18,8 +19,9 @@
 #include "../../interop/errmsgutils.h"
 #include "appsettingswindow.h"
 
-#if DEV_BUILD
+#ifdef DEV_BUILD
 #include "../friends/friendsdebuggui.h"
+#include "../downloads/downloaddebuggui.h"
 #endif
 
 #include <opensteamworks/IClientApps.h>
@@ -34,13 +36,19 @@ MainWindow::MainWindow(QWidget *parent) :
 
     // Steam | View | Friends | Games | Help
     auto steamMenu = menuBar()->addMenu("Steam");
-#if DEV_BUILD
+#ifdef DEV_BUILD
     auto debugMenu = menuBar()->addMenu("Debug");
     auto openFriendsDebugUIAction = new QAction("Friends debug UI", this);
+    auto openDownloadDebugUIAction = new QAction("Download debug UI", this);
     connect(openFriendsDebugUIAction, &QAction::triggered, this, [this, openFriendsDebugUIAction]()
     { 
         FriendsDebugGui *friendsDebugGUI = new FriendsDebugGui(this);
         friendsDebugGUI->exec();       
+    });
+    connect(openDownloadDebugUIAction, &QAction::triggered, this, [this, openDownloadDebugUIAction]()
+    { 
+        DownloadDebugGui *downloadDebugGUI = new DownloadDebugGui(this);
+        downloadDebugGUI->exec(); 
     });
 #endif
 
@@ -77,13 +85,15 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->menubar->addMenu(steamMenu);
 
-#if DEV_BUILD
+#ifdef DEV_BUILD
     debugMenu->addAction(openFriendsDebugUIAction);
+    debugMenu->addAction(openDownloadDebugUIAction);
     ui->menubar->addMenu(debugMenu);
 #endif
 
-    //TODO: these should be somewhere else (this enables downloading)
-    on_pauseDownloadButton_clicked();
+#ifdef NOWEBVIEW
+    ui->browseSteamStoreBtn->setVisible(false);
+#endif
 
     LoadApps();
 
@@ -206,12 +216,19 @@ MainWindow::MainWindow(QWidget *parent) :
     // This was originally inteded to be an in-window popup that appears right below the filters button but it wasn't possible easily
     ui->filtersPopupContainer->addWidget(filtersPopup);
 
+    std::cout << "jaapo" << std::endl;
+
     // Debug stuff
     ui->cellIdDebugBox->setText(QString::fromStdString(std::to_string(Global_SteamClientMgr->ClientUtils->GetCellID())));
 
-    // Global_SteamClientMgr->ClientAppManager->AddLibraryFolder("/home/shared/Games/SteamLibrary");
-    // Global_SteamClientMgr->ClientAppManager->AddLibraryFolder("/mnt/deathclaw/SteamLibrary");
-
+    ui->downloadsScrollAreaItemsLayout->setAlignment(Qt::Alignment(Qt::AlignmentFlag::AlignTop));
+    for (auto &&i : Application::GetApplication()->appManager->downloadManager->scheduled)
+    {
+        std::cout << "adding game" << std::endl;
+        auto item = new DownloadQueueItem();
+        item->SetItemData(i.second);
+        ui->downloadsScrollAreaItemsLayout->addWidget(item);
+    }
 }
 
 void MainWindow::headerButtonCustomMenuRequested(QPoint pos)
@@ -406,9 +423,8 @@ void MainWindow::updateDownloadSpeed(DownloadSpeedInfo info)
 
     ui->topDownloadSpeedLabel->setText(QString("%1 %2").arg(QString::fromStdString(topSpeed), unit));
     ui->downloadSpeedLabel->setText(QString("%1 %2").arg(QString::fromStdString(speed), unit));
-    ui->appsToDownloadCounter->display(Global_SteamClientMgr->ClientAppManager->GetNumAppsInDownloadQueue());
     ui->downloadTotal->setText(QString("%1 %2").arg(QString::fromStdString(totalDownloaded), totalUnit));
-    //ui->bottomQueuedLabel->setText(QString("Updates: %1 Queued: %2").arg(QString::fromStdString(std::to_string(updatesPerAppId.size())), QString::fromStdString(std::to_string(Global_SteamClientMgr->ClientAppManager->GetNumAppsInDownloadQueue()))));
+    ui->bottomQueuedLabel->setText(QString("Updates: %1 Queued: %2").arg(QString::fromStdString(std::to_string(Application::GetApplication()->appManager->downloadManager->updateCount)), QString::fromStdString(std::to_string(Application::GetApplication()->appManager->downloadManager->queue.size()))));
 
     UpdateBottomDownloadsBar();
 }
@@ -564,13 +580,7 @@ void MainWindow::UpdatePlayButton()
         return;
     }
 
-    if (this->selectedApp->state->FullyInstalled) {
-        ui->playButton->setText("Play");
-        currentPlayBtnAction = connect(ui->playButton, &QPushButton::clicked, this, &MainWindow::playClicked);
-        return;
-    }
-
-    if (this->selectedApp->state->UpdateRequired) {
+    if (this->selectedApp->state->UpdateRequired || this->selectedApp->state->UpdatePaused) {
         ui->playButton->setText("Update");
         currentPlayBtnAction = connect(ui->playButton, &QPushButton::clicked, this, &MainWindow::updateClicked);
         return;
@@ -579,6 +589,12 @@ void MainWindow::UpdatePlayButton()
     if (this->selectedApp->state->Uninstalled) {
         ui->playButton->setText("Install");
         currentPlayBtnAction = connect(ui->playButton, &QPushButton::clicked, this, &MainWindow::installClicked);
+        return;
+    }
+
+    if (this->selectedApp->state->FullyInstalled) {
+        ui->playButton->setText("Play");
+        currentPlayBtnAction = connect(ui->playButton, &QPushButton::clicked, this, &MainWindow::playClicked);
         return;
     }
 
@@ -615,7 +631,7 @@ void MainWindow::stopClicked() {
 }
 
 void MainWindow::updateClicked() {
-    
+    this->selectedApp->TryRunUpdate();
 }
 
 void MainWindow::playClicked() {

@@ -30,7 +30,7 @@ enum MediaController_Status
 
 #define CLIENTMUSIC_INTERFACE_VERSION "CLIENTMUSIC_INTERFACE_VERSION001"
 
-abstract_class UNSAFE_INTERFACE IClientMusic
+abstract_class IClientMusic
 {
 public:
 	    virtual unknown_ret BIsEnabled() = 0;

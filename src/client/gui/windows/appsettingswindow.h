@@ -31,6 +31,8 @@ private slots:
 
     void on_allowDownloadsWhilePlayingCheck_stateChanged(int arg1);
 
+    void on_autoLoginFriendsNetwork_box_stateChanged(int arg1);
+
 private:
     Ui::AppSettingsWindow *ui;
 };

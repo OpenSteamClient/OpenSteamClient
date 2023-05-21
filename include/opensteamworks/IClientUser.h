@@ -96,7 +96,7 @@ public:
     uint32_t unk1;
 };
 
-abstract_class UNSAFE_INTERFACE IClientUser
+abstract_class IClientUser
 {
 public:
     virtual HSteamUser GetHSteamUser() = 0;
@@ -296,8 +296,8 @@ public:
     virtual void BSetDurationControlOnlineState() = 0; //args: 1
     virtual void BSetDurationControlOnlineStateForApp() = 0; //args: 2
     virtual void BGetDurationControlExtendedResults() = 0; //args: 3
-    virtual void BIsSubscribedApp() = 0; //args: 1
-    virtual void GetSubscribedApps() = 0; //args: 3
+    virtual void BIsSubscribedApp(AppId_t) = 0; //args: 1
+    virtual void GetSubscribedApps(AppId_t*, uint32, bool) = 0; //args: 3
     virtual void RegisterActivationCode() = 0; //args: 1
     virtual void AckSystemIM() = 0; //args: 2
     virtual void RequestSpecialSurvey() = 0; //args: 1

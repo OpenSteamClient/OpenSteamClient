@@ -23,7 +23,7 @@
 #include "SteamTypes.h"
 #include "RemoteStorageCommon.h"
 
-abstract_class UNSAFE_INTERFACE IClientRemoteStorage
+abstract_class IClientRemoteStorage
 {
 public:
 

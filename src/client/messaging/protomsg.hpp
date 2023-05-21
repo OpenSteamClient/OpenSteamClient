@@ -267,7 +267,7 @@ public:
         return bufferByteArray.length();
     }
 
-#if PROTOMSG_REPARSE
+#ifdef PROTOMSG_REPARSE
     void ReparseMsg() {
         // Parse our own message and see if it's still valid
         DEBUG_MSG << "[ProtoMsg] Deserializing our own packet; PROTOMSG_REPARSE is set" << std::endl;
@@ -282,7 +282,7 @@ public:
         this->Serialize();
         // Don't need to register an eMsg handler as the value is ignored
 
-#if PROTOMSG_REPARSE
+#ifdef PROTOMSG_REPARSE
         ReparseMsg();
 #endif
 
@@ -304,7 +304,7 @@ public:
         Global_SteamClientMgr->ClientSharedConnection->RegisterEMsgHandler(conn, 147);
         Global_SteamClientMgr->ClientSharedConnection->RegisterServiceMethodHandler(conn, jobname.c_str());
         
-        #if PROTOMSG_REPARSE
+        #ifdef PROTOMSG_REPARSE
             ReparseMsg();
         #endif
 

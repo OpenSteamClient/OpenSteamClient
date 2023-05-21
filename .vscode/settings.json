@@ -109,7 +109,10 @@
         "qabstractitemview": "cpp",
         "qwebengineview": "cpp",
         "qwebengineprofile": "cpp",
-        "qqmlcontext": "cpp"
+        "qqmlcontext": "cpp",
+        "charconv": "cpp",
+        "format": "cpp",
+        "stdfloat": "cpp"
     },
     "C_Cpp.default.browse.limitSymbolsToIncludedHeaders": true,
     "cmake.generator": "Unix Makefiles",

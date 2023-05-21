@@ -1,74 +1,97 @@
 #include "app.h"
 #include "../ext/steamclient.h"
 #include "../utils/binarykv.h"
+#include "appmanager.h"
 #include <opensteamworks/IClientApps.h>
 #include <opensteamworks/IClientAppManager.h>
 #include <opensteamworks/IClientCompat.h>
 #include <opensteamworks/IClientConfigStore.h>
 
-App::App(AppId_t i) {
+App::App(AppManager *mgr, AppId_t i) {
+    this->mgr = mgr;
     this->appid = i;
     // TODO: check if this breaks sourcemods/other mods
     this->gameid = CGameID(this->appid, 0);
     this->state = new AppState(k_EAppStateInvalid);
-    this->debugPrefix = "[App " + std::to_string(this->appid) + "] ";
+    this->debugPrefix = std::string("[App ").append(std::to_string(this->appid)).append("] ");
+
+    char *nameCStr = new char[1024];
+    Global_SteamClientMgr->ClientApps->GetAppData(i, "common/name", nameCStr, 1024);
+    this->name = std::string(nameCStr);
+    delete[] nameCStr;
+
     UpdateUpdateInfo();
     UpdateCompatInfo();
+    UpdateAppState();
 }
+
 App::~App() {
     delete this->state;
 }
 
+AppStateInfo_t App::GetStateInfo() {
+    AppStateInfo_t stateInfo;
+    Global_SteamClientMgr->ClientAppManager->GetAppStateInfo(this->appid, &stateInfo);
+    return stateInfo;
+}
+
+CompatData *App::GetCompatData() {
+    return this->compatData;
+}
+
 void App::UpdateCompatInfo() {
-    this->compatData.isCompatEnabled = Global_SteamClientMgr->ClientCompat->BIsCompatibilityToolEnabled(this->appid);
-    this->compatData.validCompatTools.clear();
+
+    // This function is a mess... 
+
+    if (this->compatData != nullptr) {
+        delete this->compatData;
+    }
+
+    this->compatData = new CompatData();
+
+    if (!Global_SteamClientMgr->ClientCompat->BIsCompatLayerEnabled()) {
+        this->compatData->isCompatEnabled = false;
+        this->compatData->currentCompatTool = nullptr;
+        this->compatData->validCompatTools.clear();
+        return;
+    }
+
+    this->compatData->isCompatEnabled = Global_SteamClientMgr->ClientCompat->BIsCompatibilityToolEnabled(this->appid);
+    this->compatData->validCompatTools.clear();
     
     CUtlVector<CUtlString> *vec = new CUtlVector<CUtlString>(1, 1000000);
     Global_SteamClientMgr->ClientCompat->GetAvailableCompatToolsForApp(vec, this->appid);
 
+    const char *currentCompatToolNameCStr = Global_SteamClientMgr->ClientCompat->GetCompatToolName(this->appid);
+
+    std::string currentCompatToolName;
+    if (currentCompatToolNameCStr != nullptr)
+    {
+       currentCompatToolName = std::string(currentCompatToolNameCStr);
+    }
+
     for (size_t i = 0; i < vec->Count(); i++)
     {
         std::string name = std::string(vec->Element(i).str);
-        std::string humanName = std::string(Global_SteamClientMgr->ClientCompat->GetCompatToolDisplayName(name.c_str()));
-        bool windowsOnLinuxTool = false;
-
-        // Is this proton or a different kind of compat tool?
-        // TODO: improve detection logic
-        if (name.starts_with("proton_"))
+        for (auto &&i2 : mgr->compatTools)
         {
-            windowsOnLinuxTool = true;
-        }
+            if (i2->name == name) {
+                this->compatData->validCompatTools.push_back(i2);
+            }
 
-        this->compatData.validCompatTools.push_back(CompatTool{
-            .name = name,
-            .humanName = humanName,
-            .windowsOnLinuxTool = windowsOnLinuxTool
-        });
-    }
-
-    if (this->compatData.isCompatEnabled) {
-        std::string name = std::string(Global_SteamClientMgr->ClientCompat->GetCompatToolName(this->appid));
-        for (auto &&i : compatData.validCompatTools)
-        {
-            if (i.name == name) {
-                compatData.currentCompatTool = i;
-                break;
+            if (currentCompatToolName == name) {
+                this->compatData->currentCompatTool = i2;
             }
         }
-        
-
-        
-    } else {
-        this->compatData.currentCompatTool = CompatTool{
-            .name = "none",
-            .humanName = "None",
-            .windowsOnLinuxTool = false
-        };
     }
-
+   
     delete vec;
 
     emit AppDataChanged();
+}
+
+void App::TryRunUpdate() {
+    Global_SteamClientMgr->ClientAppManager->ChangeAppDownloadQueuePlacement(this->appid, k_EAppDownloadQueuePlacementPriorityUserInitiated);
 }
 
 void App::SetCompatTool(std::string toolName) {
@@ -85,6 +108,7 @@ void App::UpdateAppState() {
     delete this->state;
     this->state = new AppState(Global_SteamClientMgr->ClientAppManager->GetAppInstallState(this->appid));
     emit AppDataChanged();
+    emit StateChanged();
 }
 
 void App::TypeFromString(const char* str) {
@@ -157,7 +181,11 @@ void App::TypeFromString(const char* str) {
 
 void App::UpdateUpdateInfo() {
     Global_SteamClientMgr->ClientAppManager->GetUpdateInfo(this->appid, &this->updateInfo);
-    this->hasUpdate = (this->updateInfo.m_unBytesToDownload > 0);
+
+    // Strange quirk: If this isn't done the auto download dates aren't set
+    if (this->state->UpdateRequired) {
+        Global_SteamClientMgr->ClientAppManager->ChangeAppDownloadQueuePlacement(this->appid, k_EAppDownloadQueuePlacementPriorityPaused);
+    }
 }
 
 std::vector<LaunchOption> App::GetLaunchOptions() {
@@ -261,6 +289,22 @@ void App::SetLaunchCommandLine(std::string commandLine) {
     Global_SteamClientMgr->ClientConfigStore->SetString(k_EConfigStoreUserLocal, path.c_str(), commandLine.c_str());
 }
 
+bool App::BShouldHighlightInGamesList() {
+    if (this->state->UpdateRequired) {
+        return true;
+    }
+    if (this->state->AppRunning) {
+        return true;
+    }
+    if (this->state->Downloading)  {
+        return true;
+    }
+    if (this->state->Uninstalling) {
+        return true;
+    }
+    return false;
+}
+
 std::vector<Beta> App::GetAllBetas() {
     std::vector<Beta> betas;
 
@@ -341,7 +385,7 @@ std::vector<LaunchOption> App::GetFilteredLaunchOptions() {
     for (auto &&opt : launchOptions)
     {
         // Filter by platform
-        if (!this->compatData.currentCompatTool.windowsOnLinuxTool) {
+        if (!this->compatData->currentCompatTool->windowsOnLinuxTool) {
             if (!opt.oslist.empty() && !opt.oslist.contains("linux"))
             {
                 std::cout << debugPrefix << opt.index << ": Didn't match linux filter and proton is disabled" << std::endl;
@@ -427,10 +471,6 @@ void App::Install(LibraryFolder libraryFolder) {
     err = Global_SteamClientMgr->ClientAppManager->InstallApp(this->appid, libraryFolder.folderIndex, false);
     
     emit AppLaunchOrUpdateError(err);
-
-    if (err == 0) {
-        this->installFolder = libraryFolder;
-    }
 
     UpdateAppState();
 }

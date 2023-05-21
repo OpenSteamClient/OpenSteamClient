@@ -85,26 +85,20 @@ void SingleInstanceMgr::SendArgvToInstance(int argc, char *argv[]) {
     }
     argsAsString += "\n";
 
-    if (Global_debugCbLogging) {
-        DEBUG_MSG << "[SingleInstance] full C string " << argsAsString << std::endl;
-    }
+    DEBUG_MSG << "[SingleInstance] full C string " << argsAsString << std::endl;
     
     // Open the named pipe
     // When writing, open with O_WRONLY
     auto fd = open(pipefile_path.c_str(), O_WRONLY); 
 
-    if (Global_debugCbLogging) {
-        DEBUG_MSG << "[SingleInstance] fd for pipe is " << fd << std::endl;
-    }
+    DEBUG_MSG << "[SingleInstance] fd for pipe is " << fd << std::endl;
 
     if (fd == -1) {
         perror("open");
         exit(EXIT_FAILURE);
     }
 
-    if (Global_debugCbLogging) {
-        DEBUG_MSG << "[SingleInstance] Data to write: " << argsAsString.length() << std::endl;
-    }
+    DEBUG_MSG << "[SingleInstance] Data to write: " << argsAsString.length() << std::endl;
     
     // set this explicitly here just incase
     signal(SIGPIPE, SIG_IGN);
@@ -118,9 +112,7 @@ void SingleInstanceMgr::SendArgvToInstance(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    if (Global_debugCbLogging) {
-        DEBUG_MSG << "[SingleInstance] Result: " << wresult << std::endl;
-    }
+    DEBUG_MSG << "[SingleInstance] Result: " << wresult << std::endl;
     
     // We should close it (why _exactly_?)
     if (close(fd) == -1) {

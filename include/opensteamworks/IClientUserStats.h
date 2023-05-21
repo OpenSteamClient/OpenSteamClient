@@ -24,7 +24,7 @@
 #include "UserStatsCommon.h"
 
 
-abstract_class UNSAFE_INTERFACE IClientUserStats
+abstract_class IClientUserStats
 {
 public:
 	// The "schema" of a Game's UserData is really defined elsewhere, and

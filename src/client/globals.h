@@ -17,7 +17,6 @@ extern SteamClientMgr *Global_SteamClientMgr;
 extern SteamServiceMgr *Global_SteamServiceMgr;
 extern bool Global_debugCbLogging;
 extern URLProtocolHandler *Global_URLProtocolHandler;
-extern AppManager *Global_AppManager;
 extern CommandLine *Global_CommandLine;
 extern Bootstrapper *Global_Bootstrapper;
 extern Updater *Global_Updater;

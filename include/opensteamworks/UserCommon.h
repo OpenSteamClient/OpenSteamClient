@@ -100,21 +100,7 @@ typedef enum ELogonState
     k_ELogonStateLoggingOff = 5,
 } ELogonState;
 
-
-typedef enum ELauncherType
-{
-	k_ELauncherTypeDefault = 0,
-	k_ELauncherTypePerfectWorld = 1,
-	k_ELauncherTypeNexon = 2,
-	k_ELauncherTypeCmdLine = 3,
-	k_ELauncherTypeCSGO = 4,
-	k_ELauncherTypeClientUI = 5,
-	k_ELauncherTypeHeadless = 6,
-	k_ELauncherTypeSteamChina = 7,
-	k_ELauncherTypeSingleApp = 8,
-} ELauncherType;
-
-
+#include "ELauncherType.h"
 
 typedef enum EPlatformType
 {
@@ -326,14 +312,6 @@ struct SteamServersDisconnected_t
 };
 
 //-----------------------------------------------------------------------------
-// Purpose: called when the client is trying to retry logon after being unintentionally logged off
-//-----------------------------------------------------------------------------
-struct OBSOLETE_CALLBACK BeginLogonRetry_t
-{
-	enum { k_iCallback = k_iSteamUserCallbacks + 4 };
-};
-
-//-----------------------------------------------------------------------------
 // Purpose: Sent by the Steam server to the client telling it to disconnect from the specified game server,
 //			which it may be in the process of or already connected to.
 //			The game client should immediately disconnect upon receiving this message.
@@ -348,15 +326,6 @@ struct ClientGameServerDeny_t
 	uint16 m_usGameServerPort;
 	uint16 m_bSecure;
 	uint32 m_uReason;
-};
-
-//-----------------------------------------------------------------------------
-// Purpose: notifies the user that they are now the primary access point for chat messages
-//-----------------------------------------------------------------------------
-struct OBSOLETE_CALLBACK PrimaryChatDestinationSetOld_t
-{
-	enum { k_iCallback = k_iSteamUserCallbacks + 14 };
-	uint8 m_bIsPrimary;
 };
 
 // See GSPolicyResponse_t in GameServerCommon.h for callback 115
@@ -389,13 +358,6 @@ struct AppLifetimeNotice_t
 	AppId_t m_nAppID;
 	int32 m_nInstanceID;
 	bool m_bExiting;
-};
-
-struct OBSOLETE_CALLBACK DRMSDKFileTransferResult_t
-{
-	enum { k_iCallback = k_iSteamUserCallbacks + 41 };
-
-	EResult m_EResult;
 };
 
 //-----------------------------------------------------------------------------
@@ -517,14 +479,6 @@ struct UninstallClientApp_t
 
 	uint64 m_ulJobIDToPostResultTo;
 	AppId_t m_nAppID;
-};
-
-//-----------------------------------------------------------------------------
-// Purpose: called when the steam2 ticket has been set
-//-----------------------------------------------------------------------------
-struct OBSOLETE_CALLBACK Steam2TicketChanged_t
-{
-	enum { k_iCallback = k_iClientUserCallbacks + 10 };
 };
 
 //-----------------------------------------------------------------------------

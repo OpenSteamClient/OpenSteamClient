@@ -54,6 +54,9 @@ public:
 signals:
   void sortingFinishedd();
 
+private slots:
+  void appStateChanged();
+
 private:
   std::vector<TreeItem *> tree;
   std::vector<TreeItem *> treeFiltered;

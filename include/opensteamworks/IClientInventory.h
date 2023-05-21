@@ -23,7 +23,7 @@
 #include "SteamTypes.h"
 #include "InventoryCommon.h"
 
-abstract_class UNSAFE_INTERFACE IClientInventory
+abstract_class IClientInventory
 {
 public:					
 	// INVENTORY ASYNC RESULT MANAGEMENT

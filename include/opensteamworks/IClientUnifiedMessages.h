@@ -23,7 +23,7 @@
 #include "SteamTypes.h"
 #include "UnifiedMessagesCommon.h"
 
-abstract_class UNSAFE_INTERFACE IClientUnifiedMessages
+abstract_class IClientUnifiedMessages
 {
 public:
 	virtual ClientUnifiedMessageHandle_t SendMethod(const char * pchServiceMethod, const void * pRequest, uint32 nBuf, uint64 ctx) = 0;

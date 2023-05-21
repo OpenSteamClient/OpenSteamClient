@@ -4,6 +4,9 @@
 #include "appmodel.h"
 #include "treeitem.h"
 
+//TODO: Qt doesn't have a lightblue built in, so use this for now
+const QColor highlightColor = QColor::fromRgb(7, 189, 255);
+
 void AppDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     if (index.data().canConvert<TreeItem*>()) {
@@ -43,9 +46,33 @@ void AppDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, c
             {
                 painter->fillRect(iconRect, Qt::darkGray);
             }
+            QString fullStatus = QString::fromStdString(std::string(app->name));
+            std::string currentBeta = app->GetCurrentBeta();
+            if (!currentBeta.empty()) {
+                fullStatus += " [" + currentBeta + "]";
+            }
 
-            painter->drawText(titleRect, QString::fromStdString(std::string(app->name)));
-        } else if (item->type == TreeItemType::k_ETreeItemTypeCategory) 
+            std::string displayString = app->state->DisplayString();
+            if (!displayString.empty()) {
+                fullStatus += " - " + app->state->DisplayString();
+            }
+            
+
+            QPen origPen = painter->pen();
+
+            if (!(option.state & QStyle::State_Selected)) {
+                if (app->state->Uninstalled) {
+                    painter->setPen(Qt::lightGray);
+                } else if (app->BShouldHighlightInGamesList()) {
+                    painter->setPen(highlightColor);
+                }
+            }
+            
+
+            painter->drawText(titleRect, fullStatus);
+            painter->setPen(origPen);
+        }
+        else if (item->type == TreeItemType::k_ETreeItemTypeCategory)
         {
             QString name = qvariant_cast<QString>(item->value);
             if (option.state & QStyle::State_Selected)

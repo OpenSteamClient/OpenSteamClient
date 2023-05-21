@@ -23,7 +23,7 @@
 #include "SteamTypes.h"
 #include "GameServerStatsCommon.h"
 
-abstract_class UNSAFE_INTERFACE IClientGameServerStats
+abstract_class IClientGameServerStats
 {
 public:
 	virtual SteamAPICall_t RequestUserStats( CSteamID steamIDUser, CGameID gameID ) = 0;

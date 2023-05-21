@@ -175,17 +175,6 @@ struct LobbyChatMsg_t
 };
 
 //-----------------------------------------------------------------------------
-// Purpose: There's a change of Admin in this Lobby
-//-----------------------------------------------------------------------------
-struct OBSOLETE_CALLBACK LobbyAdminChange_t
-{
-	enum { k_iCallback = k_iSteamMatchmakingCallbacks + 8 };
-
-	CSteamID m_ulSteamIDLobby;
-	CSteamID m_ulSteamIDNewAdmin;
-};
-
-//-----------------------------------------------------------------------------
 // Purpose: A game created a game for all the members of the lobby to join,
 //			as triggered by a SetLobbyGameServer()
 //			it's up to the individual clients to take action on this; the usual

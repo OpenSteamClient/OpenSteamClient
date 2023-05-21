@@ -12,7 +12,7 @@ SettingsWindow::SettingsWindow(QWidget *parent, App *app) :
     ui->setupUi(this);
     this->app = app;
     setWindowTitle(QString::fromStdString(app->name).append(" settings"));
-    bool compatEnabled = app->compatData.isCompatEnabled;
+    bool compatEnabled = app->GetCompatData()->isCompatEnabled;
     ui->enableProtonBox->setChecked(compatEnabled);
     ui->compatToolBox->setVisible(compatEnabled);
     if (compatEnabled) {
@@ -75,13 +75,16 @@ void SettingsWindow::PopulateCompatTools()
     ui->compatToolBox->clear();
 
     int selectedIndex = -1;
-    for (auto &&i : app->compatData.validCompatTools)
+    auto compatData = app->GetCompatData();
+    for (auto &&i : compatData->validCompatTools)
     {
-        ui->compatToolBox->addItem(QString::fromStdString(i.humanName), QVariant(QString::fromStdString(i.name)));
-        if (selectedIndex == -1 && app->compatData.isCompatEnabled) {
-            if (i.name == app->compatData.currentCompatTool.name) {
-                std::cout << "selected compat tool " << i.name << std::endl;
-                selectedIndex = ui->compatToolBox->count() - 1;
+        ui->compatToolBox->addItem(QString::fromStdString(i->humanName), QVariant(QString::fromStdString(i->name)));
+        if (selectedIndex == -1 && compatData->isCompatEnabled) {
+            if (compatData->currentCompatTool != nullptr) {
+                if (i->name == compatData->currentCompatTool->name) {
+                    std::cout << "selected compat tool " << i->name << std::endl;
+                    selectedIndex = ui->compatToolBox->count() - 1;
+                }
             }
         }
     }

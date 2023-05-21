@@ -159,7 +159,18 @@ void AppModel::addApp(std::vector<std::string> categories, App *app, bool initia
 
     if (!initial) {
         filter();
-    }   
+    }
+
+    connect(app, &App::StateChanged, this, &AppModel::appStateChanged);
+}
+
+void AppModel::appStateChanged() {
+    // This should never be null, but just in case
+    App *app = qobject_cast<App *>(sender());
+    if (app == nullptr) {
+        return;
+    }
+    
 }
 
 std::set<EAppType> AppModel::getTypeFilter() {
