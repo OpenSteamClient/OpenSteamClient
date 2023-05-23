@@ -19,6 +19,7 @@ public:
 
     void LoadLibraryFolders();
     void LoadCheckboxValues();
+    void LoadCompatData();
 
 private slots:
     void on_libraryFolders_currentItemChanged(QListWidgetItem *current, QListWidgetItem *previous);
@@ -32,6 +33,8 @@ private slots:
     void on_allowDownloadsWhilePlayingCheck_stateChanged(int arg1);
 
     void on_autoLoginFriendsNetwork_box_stateChanged(int arg1);
+
+    void on_defaultWOLCompatTool_currentIndexChanged(int index);
 
 private:
     Ui::AppSettingsWindow *ui;

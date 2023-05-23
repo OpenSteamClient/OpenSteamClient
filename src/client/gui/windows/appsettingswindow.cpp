@@ -6,6 +6,7 @@
 #include <opensteamworks/IClientAppManager.h>
 #include <opensteamworks/IClientCompat.h>
 #include "../application.h"
+#include "../../interop/appmanager.h"
 
 //TODO: setting the default compat tool
 // This is done by using appid 0 instead of an actual app's id
@@ -19,6 +20,7 @@ AppSettingsWindow::AppSettingsWindow(QWidget *parent) :
 
     LoadLibraryFolders();
     LoadCheckboxValues();
+    LoadCompatData();
 }
 
 void AppSettingsWindow::LoadLibraryFolders() 
@@ -49,9 +51,36 @@ void AppSettingsWindow::LoadLibraryFolders()
 }
 
 void AppSettingsWindow::LoadCheckboxValues() {
-    ui->enableCompatToolsCheck->setChecked(Global_SteamClientMgr->ClientCompat->BIsCompatLayerEnabled());
     ui->allowDownloadsWhilePlayingCheck->setChecked(Global_SteamClientMgr->ClientAppManager->BAllowDownloadsWhileAnyAppRunning());
     ui->autoLoginFriendsNetwork_box->setChecked(Application::GetApplication()->settings->value("Settings_Friends/AutoLoginToFriendsNetwork").toBool());
+}
+
+void AppSettingsWindow::LoadCompatData() 
+{
+    ui->enableCompatToolsCheck->setChecked(Global_SteamClientMgr->ClientCompat->BIsCompatLayerEnabled());
+
+    ui->defaultWOLCompatTool->clear();
+
+    std::string currentCompatTool;
+    if (ui->enableCompatToolsCheck->isChecked()) {
+        for (auto &&i : Application::GetApplication()->appManager->compatTools)
+        {
+            if (!i->windowsOnLinuxTool) {
+                std::cout << "nop" << std::endl;
+                continue;
+            }
+
+            std::cout << "tool is " << i->humanName << std::endl;
+            ui->defaultWOLCompatTool->addItem(QString::fromStdString(i->humanName), QString::fromStdString(i->name));
+            if (i->name == Global_SteamClientMgr->ClientCompat->GetCompatToolName(0)) {
+                currentCompatTool = i->name;
+            }
+        }
+    }
+
+    std::cout << "default tool is " << currentCompatTool << std::endl;
+    
+    ui->defaultWOLCompatTool->setCurrentText(QString::fromStdString(currentCompatTool));
 }
 
 AppSettingsWindow::~AppSettingsWindow()
@@ -111,3 +140,17 @@ void AppSettingsWindow::on_autoLoginFriendsNetwork_box_stateChanged(int arg1)
 {
     Application::GetApplication()->settings->setValue("Settings_Friends/AutoLoginToFriendsNetwork", QVariant::fromValue<bool>((bool)arg1));
 }
+
+void AppSettingsWindow::on_defaultWOLCompatTool_currentIndexChanged(int index)
+{
+    QString name;
+    std::string nameStdString;
+    if (index > -1) {
+        name = ui->defaultWOLCompatTool->itemData(index).toString();
+        nameStdString = name.toStdString();
+    }
+
+    Global_SteamClientMgr->ClientCompat->SpecifyCompatTool(0, nameStdString.c_str(), "", 75);
+}
+
+

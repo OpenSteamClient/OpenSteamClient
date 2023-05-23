@@ -385,7 +385,7 @@ std::vector<LaunchOption> App::GetFilteredLaunchOptions() {
     for (auto &&opt : launchOptions)
     {
         // Filter by platform
-        if (!this->compatData->currentCompatTool->windowsOnLinuxTool) {
+        if (this->compatData != nullptr && this->compatData->currentCompatTool != nullptr && !this->compatData->currentCompatTool->windowsOnLinuxTool) {
             if (!opt.oslist.empty() && !opt.oslist.contains("linux"))
             {
                 std::cout << debugPrefix << opt.index << ": Didn't match linux filter and proton is disabled" << std::endl;
