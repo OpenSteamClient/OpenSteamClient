@@ -1,0 +1,84 @@
+name: CMake
+
+on:
+  push:
+    paths:
+      - "src/**.cpp"
+      - "include/**.cpp"
+      - "src/**.h"
+      - "include/**.h"
+      - .github/workflows/cmake_selfhosted.yml
+  workflow_dispatch:
+    inputs:
+      relName:
+        description: 'Release Name'     
+        required: true
+        default: 'Beta v0.0.1'
+      tagName:
+        description: 'Release tag'  
+        required: true
+        default: ""
+
+env:
+  # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
+  BUILD_TYPE: RelWithDebInfo
+
+jobs:
+  build:
+    # The CMake configure and build commands are platform agnostic and should work equally well on Windows or Mac.
+    # You can convert this to a matrix build if you need cross-platform coverage.
+    # See: https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix
+    runs-on: [self-hosted, linux]
+    
+    steps:
+    - uses: actions/checkout@v3
+    - name: Init and update submodules
+      run: | 
+        git submodule init
+        git submodule update
+        
+    - name: Build
+      # Build your program with the given configuration
+      env:
+        IS_GH_WORKFLOW: "true"
+      run: |
+         chmod +x ./cibuild.sh
+         ./cibuild.sh
+      shell: bash
+      
+    - name: Create artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: linux-artifacts
+        path: |
+          ${{github.workspace}}/build/*.deb
+          ${{github.workspace}}/build/*.tar.gz
+    - name: Create Release
+      id: create_release
+      if: ${{ github.event_name == 'workflow_dispatch'}}
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+      with:
+        tag_name: ${{ github.event.inputs.tagName }}
+        release_name: ${{ github.event.inputs.relName }}
+        body: ""
+        draft: false
+        prerelease: false
+
+    - name: Upload Release Assets
+      if: ${{ github.event_name == 'workflow_dispatch'}}
+      id: upload-release-asset 
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
+        asset_path: ./opensteamclient.zip
+        asset_name: opensteamclient.zip
+        asset_content_type: application/zip
+    - name: Test
+      working-directory: ${{github.workspace}}/build
+      # Execute tests defined by the CMake configuration.  
+      # See https://cmake.org/cmake/help/latest/manual/ctest.1.html for more detail
+      run: ctest -C ${{env.BUILD_TYPE}}
