@@ -1,5 +1,5 @@
 # OpenSteamClient (Alpha)
-![example workflow](https://github.com/20PercentRendered/opensteamclient/actions/workflows/cmake/badge.svg)
+![Build Status](https://github.com/20PercentRendered/opensteamclient/actions/workflows/cmake/badge.svg)
 A partially open-source Steam client for Linux. 
 
 # Features
