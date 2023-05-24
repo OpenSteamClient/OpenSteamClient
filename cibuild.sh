@@ -6,7 +6,7 @@ else
   mkdir build
   cd build
   cmake .. -DREL_BUILD=1
-  make -j6
+  make -j8
   # .deb
   cpack -G DEB
   # .tar.gz

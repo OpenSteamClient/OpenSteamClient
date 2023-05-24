@@ -73,6 +73,29 @@ file(GLOB_RECURSE opensteamclient_sources CONFIGURE_DEPENDS "src/client/*.cpp")
 file(GLOB_RECURSE common_sources CONFIGURE_DEPENDS "src/common/*.cpp")
 file(GLOB_RECURSE steamutl_sources CONFIGURE_DEPENDS "include/opensteamworks/steamutl/*.cpp")
 
+# Get the git commit hash
+execute_process(
+    COMMAND git log -1 --format=%h
+    WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}
+    OUTPUT_VARIABLE GIT_COMMIT_HASH
+    OUTPUT_STRIP_TRAILING_WHITESPACE
+)
+
+# Get the git branch
+execute_process(
+    COMMAND git rev-parse --abbrev-ref HEAD
+    WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}
+    OUTPUT_VARIABLE GIT_BRANCH_NAME
+    OUTPUT_STRIP_TRAILING_WHITESPACE
+)
+
+# Save the git commit hash to the generated file
+
+configure_file (
+    ${PROJECT_SOURCE_DIR}/src/generated/gitinfo.h.in
+    ${PROJECT_BINARY_DIR}/gitinfo.h
+)
+
 remove_definitions(linux)
 add_executable(opensteam ${common_sources} ${steamutl_sources} ${opensteamclient_sources})
 
@@ -195,5 +218,32 @@ endif()
 
 # DEB files
 
+# //TODO: this is not the correct naming scheme for debian
+set(CPACK_PACKAGE_NAME "opensteam-git")
+
+# What happens if this is not a git clone?
+SET(CPACK_PACKAGE_VERSION ${GIT_COMMIT_HASH})
+
+# These descriptions are not auto-parsed from the readme. Would like if changing the readme would update this too, otherwise these will most likely be forgotten about.
+set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "Partially open-source Steam client for Linux.")
+set(CPACK_PACKAGE_DESCRIPTION "OpenSteamClient is an open-source alternative frontend to the official steamclient binary.")
+
+set(CPACK_PACKAGE_VENDOR "Onni Kukkonen")
+set(CPACK_PACKAGE_CONTACT "Contact through Github at <20PercentRendered/opensteam>, security issues at <onni.kukkonen77@gmail.com>")	
+set(CPACK_DEBIAN_PACKAGE_DESCRIPTION_SUMMARY ${CPACK_PACKAGE_DESCRIPTION_SUMMARY})
+set(CPACK_DEBIAN_PACKAGE_DESCRIPTION ${CPACK_PACKAGE_DESCRIPTION})
+set(CPACK_DEBIAN_PACKAGE_SECTION "games")
+
 SET(CPACK_DEBIAN_PACKAGE_MAINTAINER "Onni Kukkonen")
+
+
+# TGZ files
+
+# Set by default to 1, which uses 1 core only. Use 0 for all cores. (This should be a default...)
+set(CPACK_ARCHIVE_THREADS 0)
+
+# This needs to be set since otherwise it'll try and install the files into the root folder (why is this not default...)
+SET(CPACK_SET_DESTDIR "ON")
+
+
 include(CPack)

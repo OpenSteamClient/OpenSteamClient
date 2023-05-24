@@ -89,7 +89,7 @@ public:
     virtual uint32 GetCellID() = 0; //args: 0, index: 28
     virtual bool BIsGlobalInstance() = 0; //args: 0, index: 29
     virtual void CheckFileSignature() = 0; //args: 1, index: 30
-    virtual void GetBuildID() = 0; //args: 0, index: 31
+    virtual uint32 GetBuildID() = 0; //args: 0, index: 31
     virtual void SetCurrentUIMode(EUIMode) = 0; //args: 1, index: 32
     virtual EUIMode GetCurrentUIMode() = 0; //args: 0, index: 33
     virtual void BIsWebBasedUIMode() = 0; //args: 0, index: 34

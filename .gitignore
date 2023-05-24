@@ -1,5 +1,4 @@
 build
-generated
 .cache
 CMakeLists.txt.user
 tools/generated_interfaces

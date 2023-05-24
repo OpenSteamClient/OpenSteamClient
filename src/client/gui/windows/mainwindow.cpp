@@ -18,6 +18,7 @@
 #include "../gamelistview/treeitem.h"
 #include "../../interop/errmsgutils.h"
 #include "appsettingswindow.h"
+#include "../dialogs/aboutdialog.h"
 
 #ifdef DEV_BUILD
 #include "../friends/friendsdebuggui.h"
@@ -36,6 +37,10 @@ MainWindow::MainWindow(QWidget *parent) :
 
     // Steam | View | Friends | Games | Help
     auto steamMenu = menuBar()->addMenu("Steam");
+    auto viewMenu = menuBar()->addMenu("View");
+    auto friendsMenu = menuBar()->addMenu("Friends");
+    auto gamesMenu = menuBar()->addMenu("Games");
+    auto helpMenu = menuBar()->addMenu("Help");
 #ifdef DEV_BUILD
     auto debugMenu = menuBar()->addMenu("Debug");
     auto openFriendsDebugUIAction = new QAction("Friends debug UI", this);
@@ -58,7 +63,9 @@ MainWindow::MainWindow(QWidget *parent) :
     auto settingsAction = new QAction("Settings", this);
     auto quitAction = new QAction("Quit", this);
     auto quitAndRestoreValveSteamAction = new QAction("Quit and restore ValveSteam", this);
-    
+
+    auto aboutOpenSteamClientAction = new QAction("About OpenSteamClient", this);
+
 
     changeAccountAct->setStatusTip("Log out, remember credentials and bring up account switcher");
     signOutAct->setStatusTip("Log out, forget credentials and bring up login screen");
@@ -68,11 +75,19 @@ MainWindow::MainWindow(QWidget *parent) :
     quitAction->setStatusTip("Exit OpenSteam and all running games");
     quitAndRestoreValveSteamAction->setToolTip("Exit OpenSteam and restore the official client");
 
+
     connect(quitAction, &QAction::triggered, Application::GetApplication(), &Application::quitApp);
     connect(quitAndRestoreValveSteamAction, &QAction::triggered, Application::GetApplication(), &Application::quitAppAndRestoreValveSteam);
     connect(changeAccountAct, &QAction::triggered, this, &MainWindow::changeAccount);
     connect(signOutAct, &QAction::triggered, this, &MainWindow::signOut);
     connect(settingsAction, &QAction::triggered, this, &MainWindow::openSettings);
+
+    connect(aboutOpenSteamClientAction, &QAction::triggered, this, [this, aboutOpenSteamClientAction]()
+            {
+        AboutDialog *dialog = new AboutDialog(this);
+        dialog->setAttribute(Qt::WA_DeleteOnClose);
+        dialog->exec();
+    });
 
     steamMenu->addAction(changeAccountAct);
     steamMenu->addAction(signOutAct);
@@ -83,7 +98,13 @@ MainWindow::MainWindow(QWidget *parent) :
     steamMenu->addAction(quitAction);
     steamMenu->addAction(quitAndRestoreValveSteamAction);
 
+    helpMenu->addAction(aboutOpenSteamClientAction);
+
     ui->menubar->addMenu(steamMenu);
+    ui->menubar->addMenu(viewMenu);
+    ui->menubar->addMenu(friendsMenu);
+    ui->menubar->addMenu(gamesMenu);
+    ui->menubar->addMenu(helpMenu);
 
 #ifdef DEV_BUILD
     debugMenu->addAction(openFriendsDebugUIAction);
