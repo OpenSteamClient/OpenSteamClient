@@ -36,7 +36,21 @@ cmake_policy(SET CMP0003 NEW)
 find_package(LibArchive REQUIRED)
 
 # Various messages need protobuf, maybe the client will use protobuf only in the future?
+# Static building unfortunately needs you to build protobuf from source
+if (REL_BUILD OR STATICPROTOBUF)
+include("cmake/protobuf_external.cmake")
+else()
 find_package(Protobuf REQUIRED)
+endif()
+
+# qrencode for the login QR code
+# Static building unfortunately needs you to build qrencode from source
+if (REL_BUILD OR STATICQRENCODE)
+include("cmake/qrencode_external.cmake")
+else()
+find_library(qrencode_found NAMES qrencode REQUIRED)
+set(qrencode_LIBRARIES ${qrencode_found})
+endif()
 
 # libcurl for downloading files
 find_package(CURL REQUIRED)
@@ -192,7 +206,7 @@ set_target_properties(Qt6::QuickWidgets PROPERTIES MAP_IMPORTED_CONFIG_COVERAGE 
 set_target_properties(Qt6::WebEngineWidgets PROPERTIES MAP_IMPORTED_CONFIG_COVERAGE "RELEASE")
 endif()
 
-target_link_libraries(opensteam -lqrencode OpenSSL::SSL nlohmann_json::nlohmann_json Qt6::Widgets Qt6::Core Qt6::Network ${LibArchive_LIBRARIES} ${Protobuf_LIBRARIES} ${CURL_LIBRARIES})
+target_link_libraries(opensteam ${qrencode_LIBRARIES} OpenSSL::SSL nlohmann_json::nlohmann_json Qt6::Widgets Qt6::Core Qt6::Network ${LibArchive_LIBRARIES} ${Protobuf_LIBRARIES} ${CURL_LIBRARIES})
 
 if (NOWEBVIEW)
 else()
