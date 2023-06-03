@@ -164,7 +164,7 @@ public:
     virtual void RequestWebAuthToken() = 0;
     virtual void SetLoginInformation(const char* pszUsername, const char* pszPassword, bool bRememberPassword) = 0;
     virtual void SetTwoFactorCode(const char* steamGuardCode) = 0;
-    virtual unknown_ret SetLoginToken(const char* pszToken, void *steamidOut) = 0;
+    virtual unknown_ret SetLoginToken(const char* pszToken, const char *pszUsername) = 0;
     virtual void GetLoginTokenID() = 0; //args: 0
     virtual void ClearAllLoginInformation() = 0; //args: 0
     virtual void BEnableEmbeddedClient() = 0; //args: 1

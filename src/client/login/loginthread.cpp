@@ -189,10 +189,11 @@ void LoginThread::StartGeneratingQRCodes() {
 void LoginThread::LogInWithToken(uint64 steamId, std::string username, std::string token) {
     connect(Global_ThreadController->callbackThread, &CallbackThread::SteamServerConnectFailure, this, &LoginThread::steamServerConnectFailure);
     connect(Global_ThreadController->callbackThread, &CallbackThread::SteamServersConnected, this, &LoginThread::steamServerConnected);
-    Global_SteamClientMgr->ClientUser->SetLoginToken(token.c_str(), username.data());
+    Global_SteamClientMgr->ClientUser->SetLoginToken(token.c_str(), username.c_str());
 
     Application::GetApplication()->currentUserSteamID = steamId;
-    
+
+    std::cout << "Logging in with a JWT" << std::endl;
     Global_SteamClientMgr->ClientUser->LogOn(steamId, true);
     bIsLogonStarted = false;
     this->qrCodePoller->StopPolling();
@@ -222,6 +223,7 @@ void LoginThread::StartLogonWithCredentials(std::string username, std::string pa
 
         CSteamID steamid = Global_SteamClientMgr->ClientUser->GetSteamId(username.c_str());
         Application::GetApplication()->currentUserSteamID = steamid.ConvertToUint64();
+        std::cout << "[LoginThread] Logging on with cached credentials" << std::endl;
         Global_SteamClientMgr->ClientUser->LogOn(steamid, true);
 
         bIsLogonStarted = false;
