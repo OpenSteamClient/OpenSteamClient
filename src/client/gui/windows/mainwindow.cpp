@@ -112,10 +112,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->menubar->addMenu(debugMenu);
 #endif
 
-#ifdef NOWEBVIEW
-    ui->browseSteamStoreBtn->setVisible(false);
-#endif
-
     LoadApps();
 
     connect(&this->appModel, &AppModel::sortingFinishedd, this, &MainWindow::sortingFinished);

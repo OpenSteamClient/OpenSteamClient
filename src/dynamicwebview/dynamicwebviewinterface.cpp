@@ -10,6 +10,8 @@
 #include <QQuickWindow>
 #include <QtWebEngineCore>
 #include <QQuickWidget>
+#include <QWebEngineView>
+#include <QWebEngineCookieStore>
 
 // This exists inside Qt in QOpenGLContext
 extern QOpenGLContext *qt_gl_global_share_context();
@@ -23,7 +25,7 @@ DynamicWebViewInterface::~DynamicWebViewInterface()
 {
 }
 
-QWebEngineView *DynamicWebViewInterface::GetWebViewWidget(QWidget *parent) {
+QWidget *DynamicWebViewInterface::GetWebViewWidget(QWidget *parent) {
     if (webEngineView != nullptr) {
         return webEngineView;
     }

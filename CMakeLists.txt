@@ -19,10 +19,17 @@ find_package(ECM REQUIRED NO_MODULE)
 
 # Qt modules
 
-if (NOWEBVIEW)
-find_package(Qt6 REQUIRED COMPONENTS Core Widgets Network)
+find_package(Qt6 COMPONENTS Core Widgets Network WebEngineWidgets QuickWidgets QUIET)
+
+if (Qt6_FOUND) 
 else()
-find_package(Qt6 REQUIRED COMPONENTS Core Widgets Network WebEngineWidgets QuickWidgets)
+    message(STATUS "Qt6 is missing WebEngineWidgets/QuickWidgets, webview support won't be built!")
+    set(NOWEBVIEW true)
+endif()
+
+
+if (NOWEBVIEW)
+    find_package(Qt6 REQUIRED COMPONENTS Core Widgets Network)
 endif()
 
 # App .desktop and logo (now hardcoded since using extra cmake modules breaks webengine)

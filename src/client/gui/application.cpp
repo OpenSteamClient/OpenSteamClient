@@ -39,13 +39,9 @@ Application::Application()
     QApp = new QApplication(Global_CommandLine->argc, Global_CommandLine->argv);
     dynamicWebViewLibraryMgr = new DynamicWebViewLibraryMgr();
 
-#ifdef NOWEBVIEW
-    dynamicWebViewLibraryMgr->SetEnabled(false);
-#else
     if (Global_CommandLine->HasOption("--no-browser")) {
       dynamicWebViewLibraryMgr->SetEnabled(false);
     }
-#endif
   }
 }
 

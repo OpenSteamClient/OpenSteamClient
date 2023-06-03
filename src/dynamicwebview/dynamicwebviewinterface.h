@@ -1,13 +1,13 @@
 #pragma once
 
 #include <QWidget>
-#include <QWebEngineView>
-#include <QWebEngineProfile>
-#include <QWebEngineCookieStore>
+
+class QWebEngineView;
+#include <QNetworkCookie>
 
 class AbstractDynamicWebViewInterface {
 public:
-    virtual QWebEngineView *GetWebViewWidget(QWidget *parent) = 0;
+    virtual QWidget *GetWebViewWidget(QWidget *parent) = 0;
     virtual void DeleteWebEngine() = 0;
     virtual void load(QUrl url) = 0;
     virtual void setCookie(QNetworkCookie cookie) = 0;
@@ -35,7 +35,7 @@ private:
 
 public:
     // The parent is required, since we're being loaded externally
-    QWebEngineView *GetWebViewWidget(QWidget *parent);
+    QWidget *GetWebViewWidget(QWidget *parent);
     // TODO: doesn't work
     void DeleteWebEngine();
     void load(QUrl url);

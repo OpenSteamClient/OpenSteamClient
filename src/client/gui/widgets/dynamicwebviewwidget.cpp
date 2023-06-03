@@ -4,6 +4,7 @@
 #include "../application.h"
 #include "../../../dynamicwebview/dynamicwebviewinterface.h"
 #include <opensteamworks/IClientUser.h>
+#include <QTime>
 
 
 DynamicWebViewWidget::DynamicWebViewWidget(QWidget *parent) :

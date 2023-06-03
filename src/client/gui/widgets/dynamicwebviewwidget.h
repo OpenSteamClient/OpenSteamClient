@@ -6,7 +6,6 @@
 
 // Forward declare
 class AbstractDynamicWebViewInterface;
-class QWebEngineView;
 
 namespace Ui {
 class DynamicWebViewWidget;
@@ -39,7 +38,7 @@ public:
 public:
     bool isWebViewLoaded = false;
     AbstractDynamicWebViewInterface *interface = nullptr;
-    QWebEngineView *webEngineView = nullptr;
+    QWidget *webEngineView = nullptr;
 
 
 private slots:
