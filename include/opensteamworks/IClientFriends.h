@@ -37,7 +37,7 @@ enum EActivateGameOverlayToWebPageMode
 };
 
 
-class IClientFriends
+abstract_class IClientFriends
 {
 public:
     virtual const char * GetPersonaName() = 0;
