@@ -29,7 +29,7 @@ abstract_class IClientContentServer
 {
 	virtual HSteamUser GetHSteamUser() = 0;
 
-	STEAMWORKS_STRUCT_RETURN_0(CSteamID, GetSteamID) /*virtual CSteamID GetSteamID() = 0;*/
+	virtual CSteamID GetSteamID() = 0;
 
 	virtual void LogOn( uint32 uContentServerID ) = 0;
 	virtual void LogOff() = 0;

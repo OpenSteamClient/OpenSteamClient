@@ -46,7 +46,7 @@ public:
 	virtual bool IsPersisted( CGameID gameID, ScreenshotHandle hScreenshot ) = 0;
 
 	virtual int32 GetNumGamesWithLocalScreenshots() = 0;
-	STEAMWORKS_STRUCT_RETURN_1(CGameID, GetGameWithLocalScreenshots, int32, iGameIndex) /*virtual CGameID GetGameWithLocalScreenshots( int32 iGameIndex ) = 0;*/
+	virtual CGameID GetGameWithLocalScreenshots(int32 iGameIndex) = 0;
 
 	virtual int32 GetLocalScreenshotCount( CGameID gameID ) = 0;
 	virtual bool GetLocalScreenshot( CGameID gameID, int32 iScreenshotIndex, ScreenshotHandle* phScreenshot, int32 *piWidth, int32 *piHeight, uint32 *puTimestamp, EUCMFilePrivacyState *pePrivacy, uint64* pullFileID, char *pchCaption, uint32 cubCaption, bool *pbSpoiler ) = 0;
@@ -62,7 +62,7 @@ public:
 
 	virtual void RecoverOldScreenshots() = 0;
 	virtual uint32 GetTaggedUserCount( CGameID gameID, ScreenshotHandle hScreenshot ) = 0;
-	STEAMWORKS_STRUCT_RETURN_3(CSteamID, GetTaggedUser, CGameID, gameID, ScreenshotHandle, hScreenshot, int32, iUserIndex) /*virtual CSteamID GetTaggedUser( CGameID gameID, ScreenshotHandle hScreenshot, int32 iUserIndex ) = 0;*/
+	virtual CSteamID GetTaggedUser( CGameID gameID, ScreenshotHandle hScreenshot, int32 iUserIndex ) = 0;
 	virtual bool GetLocation( CGameID gameID, ScreenshotHandle hScreenshot, char *pchLocation, uint32 cubLocation ) = 0;
 	
 	virtual uint32 GetTaggedPublishedFileCount( CGameID gameID, ScreenshotHandle hScreenshot ) = 0;
