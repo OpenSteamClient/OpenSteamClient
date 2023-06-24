@@ -109,6 +109,7 @@ void Startup::RunBootstrapper() {
 
     DEBUG_MSG << "[Startup] RunBootstrap" << std::endl;
     Global_Bootstrapper->RunBootstrap();
+    Global_Updater->Verify();
 
     Global_SteamClientMgr = new SteamClientMgr();
     Global_SteamServiceMgr = new SteamServiceMgr();

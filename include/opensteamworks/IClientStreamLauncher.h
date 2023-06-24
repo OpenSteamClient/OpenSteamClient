@@ -26,8 +26,9 @@
 abstract_class IClientStreamLauncher
 {
 public:
-	virtual EStreamLauncherResult StartStreaming( const char *cszFilePath ) = 0;
-	virtual void StopStreaming() = 0;
+    virtual EStreamLauncherResult StartStreaming( const char *cszFilePath ) = 0; //argc: 1, index 1
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual void StopStreaming() = 0; //argc: 0, index 2
 };
 
 #endif // ICLIENTSTREAMLAUNCHER_H

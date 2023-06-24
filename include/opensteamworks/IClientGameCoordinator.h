@@ -27,11 +27,11 @@
 abstract_class IClientGameCoordinator
 {
 public:
-	virtual EGCResults SendMessage( AppId_t unAppID, uint32 unMsgType, const void *pubData, uint32 cubData ) = 0;
-
-	virtual bool IsMessageAvailable( AppId_t unAppID, uint32 *pcubMsgSize ) = 0;
-
-	virtual EGCResults RetrieveMessage( AppId_t unAppID, uint32 *punMsgType, void *pubDest, uint32 cubDest, uint32 *pcubMsgSize ) = 0;
+    virtual EGCResults SendMessage( AppId_t unAppID, uint32 unMsgType, const void *pubData, uint32 cubData ) = 0; //argc: 4, index 1
+    
+    virtual bool IsMessageAvailable( AppId_t unAppID, uint32 *pcubMsgSize ) = 0; //argc: 2, index 2
+    
+    virtual EGCResults RetrieveMessage( AppId_t unAppID, uint32 *punMsgType, void *pubDest, uint32 cubDest, uint32 *pcubMsgSize ) = 0; //argc: 5, index 3
 };
 
 #endif

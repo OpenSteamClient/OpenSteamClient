@@ -26,31 +26,35 @@
 abstract_class IClientGameServerStats
 {
 public:
-	virtual SteamAPICall_t RequestUserStats( CSteamID steamIDUser, CGameID gameID ) = 0;
-	
-#if !(defined(_WIN32) && defined(__GNUC__))
-	virtual bool GetUserStat( CSteamID steamIDUser, CGameID gameID, const char *pchName, int32 *pData ) = 0;
-	virtual bool GetUserStat( CSteamID steamIDUser, CGameID gameID, const char *pchName, float *pData ) = 0;
-#else
-	virtual bool GetUserStat( CSteamID steamIDUser, CGameID gameID, const char *pchName, float *pData ) = 0;
-	virtual bool GetUserStat( CSteamID steamIDUser, CGameID gameID, const char *pchName, int32 *pData ) = 0;
-#endif
-
-	virtual bool GetUserAchievement( CSteamID steamIDUser, CGameID gameID, const char *pchName, bool *pbAchieved, RTime32 *prtTime ) = 0;
-	
-#if !(defined(_WIN32) && defined(__GNUC__))
-	virtual bool SetUserStat( CSteamID steamIDUser, CGameID gameID, const char *pchName, int32 nData ) = 0;
-	virtual bool SetUserStat( CSteamID steamIDUser, CGameID gameID, const char *pchName, float fData ) = 0;
-#else
-	virtual bool SetUserStat( CSteamID steamIDUser, CGameID gameID, const char *pchName, float fData ) = 0;
-	virtual bool SetUserStat( CSteamID steamIDUser, CGameID gameID, const char *pchName, int32 nData ) = 0;
-#endif
-
-	virtual bool UpdateUserAvgRateStat( CSteamID steamIDUser, CGameID gameID, const char *pchName, float flCountThisSession, double dSessionLength ) = 0;
-	virtual bool SetUserAchievement( CSteamID steamIDUser, CGameID gameID, const char *pchName ) = 0;
-	virtual bool ClearUserAchievement( CSteamID steamIDUser, CGameID gameID, const char *pchName ) = 0;
-	virtual SteamAPICall_t StoreUserStats( CSteamID steamIDUser, CGameID gameID ) = 0;
-	virtual void SetMaxStatsLoaded( uint32 uMax ) = 0;
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual SteamAPICall_t RequestUserStats( CSteamID steamIDUser, CGameID gameID ) = 0; //argc: 3, index 1
+    
+    #if !(defined(_WIN32) && defined(__GNUC__))
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual bool GetUserStat( CSteamID steamIDUser, CGameID gameID, const char *pchName, int32 *pData ) = 0; //argc: 5, index 2
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual bool GetUserStat( CSteamID steamIDUser, CGameID gameID, const char *pchName, float *pData ) = 0; //argc: 5, index 3
+    #endif
+    
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual bool GetUserAchievement( CSteamID steamIDUser, CGameID gameID, const char *pchName, bool *pbAchieved, RTime32 *prtTime ) = 0; //argc: 6, index 4
+    
+    #if !(defined(_WIN32) && defined(__GNUC__))
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual bool SetUserStat( CSteamID steamIDUser, CGameID gameID, const char *pchName, int32 nData ) = 0; //argc: 5, index 5
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual bool SetUserStat( CSteamID steamIDUser, CGameID gameID, const char *pchName, float fData ) = 0; //argc: 5, index 6
+    #endif
+    
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual bool UpdateUserAvgRateStat( CSteamID steamIDUser, CGameID gameID, const char *pchName, float flCountThisSession, double dSessionLength ) = 0; //argc: 6, index 7
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual bool SetUserAchievement( CSteamID steamIDUser, CGameID gameID, const char *pchName ) = 0; //argc: 4, index 8
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual bool ClearUserAchievement( CSteamID steamIDUser, CGameID gameID, const char *pchName ) = 0; //argc: 4, index 9
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual SteamAPICall_t StoreUserStats( CSteamID steamIDUser, CGameID gameID ) = 0; //argc: 3, index 10
+    virtual void SetMaxStatsLoaded( uint32 uMax ) = 0; //argc: 1, index 11
 };
 
 #endif // ICLIENTGAMESERVERSTATS_H

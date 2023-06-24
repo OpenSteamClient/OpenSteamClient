@@ -34,15 +34,15 @@ struct SharedConnectionMessageReady_t
 abstract_class IClientSharedConnection
 {
 public:
-    virtual HSharedConnection AllocateSharedConnection() = 0;
-	virtual void ReleaseSharedConnection(HSharedConnection hConn) = 0;
-	virtual int SendMessage(HSharedConnection hConn, void* pBuf, size_t szBuf) = 0;
-	virtual int SendMessageAndAwaitResponse(HSharedConnection hConn, void* pBuf, size_t szBuf) = 0;
-	virtual void RegisterEMsgHandler(HSharedConnection hConn, uint32 eMsg) = 0;
-	virtual void RegisterServiceMethodHandler(HSharedConnection hConn, const char* msgHandler) = 0;
-	virtual bool BPopReceivedMessage(HSharedConnection hConn, CUtlBuffer *bufOut, uint32 *hCall) = 0;
-	virtual unknown_ret InitiateConnection(HSharedConnection hConn) = 0;
-    
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual HSharedConnection AllocateSharedConnection() = 0; //argc: 0, index 1
+    virtual void ReleaseSharedConnection(HSharedConnection hConn) = 0; //argc: 1, index 2
+    virtual int SendMessage(HSharedConnection hConn, void* pBuf, size_t szBuf) = 0; //argc: 3, index 3
+    virtual int SendMessageAndAwaitResponse(HSharedConnection hConn, void* pBuf, size_t szBuf) = 0; //argc: 3, index 4
+    virtual void RegisterEMsgHandler(HSharedConnection hConn, uint32 eMsg) = 0; //argc: 2, index 5
+    virtual void RegisterServiceMethodHandler(HSharedConnection hConn, const char* msgHandler) = 0; //argc: 2, index 6
+    virtual bool BPopReceivedMessage(HSharedConnection hConn, CUtlBuffer *bufOut, uint32 *hCall) = 0; //argc: 3, index 7
+    virtual unknown_ret InitiateConnection(HSharedConnection hConn) = 0; //argc: 1, index 8
 };
 
 #endif // ICLIENTSHAREDCONNECTION_H

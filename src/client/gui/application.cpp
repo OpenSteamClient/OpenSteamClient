@@ -186,8 +186,8 @@ int Application::StartApplication() {
       loginWindow->setUsername(loginUser.toStdString());
 
       if (Global_SteamClientMgr->ClientUser->BHasCachedCredentials(loginUserStr.c_str())) {
-        Global_SteamClientMgr->ClientUser->SetLogonNameForCachedCredentialLogin(loginUserStr.c_str());
-        auto steamid = Global_SteamClientMgr->ClientUser->GetSteamId(loginUserStr.c_str());
+        Global_SteamClientMgr->ClientUser->SetAccountNameForCachedCredentialLogin(loginUserStr.c_str(), false);
+        auto steamid = Global_SteamClientMgr->ClientUser->GetSteamID(loginUserStr.c_str());
 
         this->currentUserSteamID = steamid.ConvertToUint64();
         

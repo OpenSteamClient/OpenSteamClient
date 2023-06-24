@@ -31,9 +31,10 @@
 abstract_class IClientProductBuilder
 {
 public:
-	virtual uint64 SignInstallScript( uint32, const char *, const char * ) = 0;
-	virtual uint64 DRMWrap( uint32, const char *, const char *, const char *, uint32 ) = 0;
-	virtual uint64 CEGWrap( uint32, const char *, const char *, const char * ) = 0;
+    virtual uint64 SignInstallScript( uint32, const char *, const char * ) = 0; //argc: 3, index 1
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual uint64 DRMWrap( uint32, const char *, const char *, const char *, uint32 ) = 0; //argc: 6, index 2
+    virtual uint64 CEGWrap( uint32, const char *, const char *, const char * ) = 0; //argc: 4, index 3
 };
 
 #endif // ICLIENTPRODUCTBUILDER_H

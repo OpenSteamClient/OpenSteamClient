@@ -9,29 +9,45 @@
 abstract_class IClientShader
 {
 public:
-     virtual bool BIsShaderManagementEnabled() = 0; //args: 0, index: 0
-     virtual bool BIsShaderBackgroundProcessingEnabled() = 0; //args: 0, index: 1
-     virtual void EnableShaderManagement(bool) = 0; //args: 1, index: 2
-     virtual void EnableShaderBackgroundProcessing(bool) = 0; //args: 1, index: 3
-     virtual void GetShaderDepotsTotalDiskUsage() = 0; //args: 0, index: 4
-     virtual void GetShaderCacheDiskSize() = 0; //args: 1, index: 5
-     virtual void StartShaderScan() = 0; //args: 2, index: 6
-     virtual void StartPipelineBuild() = 0; //args: 2, index: 7
-     virtual void StartShaderConversion() = 0; //args: 4, index: 8
-     virtual void StartShaderPruning() = 0; //args: 0, index: 9
-     virtual void ProcessShaderCache(AppId_t) = 0; //args: 1, index: 10
-     virtual void GetShaderCacheProcessingCompletion() = 0; //args: 0, index: 11
-     virtual AppId_t GetShaderCacheProcessingAppID() = 0; //args: 0, index: 12
-     virtual void SkipShaderProcessing(AppId_t) = 0; //args: 1, index: 13
-     virtual bool BAppHasPendingShaderContentDownload() = 0; //args: 1, index: 14
-     virtual void GetAppPendingShaderDownloadSize() = 0; //args: 1, index: 15
-     virtual void GetBucketManifest() = 0; //args: 3, index: 16
-     virtual void GetStaleBucket() = 0; //args: 2, index: 17
-     virtual void ReportExternalBuild() = 0; //args: 9, index: 18
-     virtual void PrepopulatePrecompiledCache() = 0; //args: 7, index: 19
-     virtual void WritePrecompiledCache() = 0; //args: 4, index: 20
-     virtual void CompileShaders() = 0; //args: 4, index: 21
-     virtual void GetShaderBucketForGraphicsAPI() = 0; //args: 2, index: 22
-     virtual void EnableShaderManagementSystem() = 0; //args: 1, index: 23
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual bool BIsShaderManagementEnabled() = 0; //argc: 0, index 1
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual bool BIsShaderBackgroundProcessingEnabled() = 0; //argc: 0, index 2
+    virtual void EnableShaderManagement(bool) = 0; //argc: 1, index 3
+    virtual void EnableShaderBackgroundProcessing(bool) = 0; //argc: 1, index 4
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual void GetShaderDepotsTotalDiskUsage() = 0; //argc: 0, index 5
+    virtual void GetShaderCacheDiskSize() = 0; //argc: 1, index 6
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual void StartShaderScan() = 0; //argc: 2, index 7
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual void StartPipelineBuild() = 0; //argc: 2, index 8
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual void StartShaderConversion() = 0; //argc: 4, index 9
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual void StartShaderPruning() = 0; //argc: 0, index 10
+    virtual void ProcessShaderCache(AppId_t) = 0; //argc: 1, index 11
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual void GetShaderCacheProcessingCompletion() = 0; //argc: 0, index 12
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual AppId_t GetShaderCacheProcessingAppID() = 0; //argc: 0, index 13
+    virtual void SkipShaderProcessing(AppId_t) = 0; //argc: 1, index 14
+    virtual bool BAppHasPendingShaderContentDownload() = 0; //argc: 1, index 15
+    virtual void GetAppPendingShaderDownloadSize() = 0; //argc: 1, index 16
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual void GetBucketManifest() = 0; //argc: 3, index 17
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual void GetStaleBucket() = 0; //argc: 2, index 18
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual void ReportExternalBuild() = 0; //argc: 9, index 19
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual void PrepopulatePrecompiledCache() = 0; //argc: 7, index 20
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual void WritePrecompiledCache() = 0; //argc: 4, index 21
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual void CompileShaders() = 0; //argc: 4, index 22
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual void GetShaderBucketForGraphicsAPI() = 0; //argc: 2, index 23
+    virtual void EnableShaderManagementSystem() = 0; //argc: 1, index 24
 };
 #endif // ICLIENTSHADER_H

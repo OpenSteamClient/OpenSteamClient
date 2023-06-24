@@ -1,1341 +1,1336 @@
 {
     "name": "IClientUserMap",
-    "found_at": "0x22c4608",
+    "found_at": "0x23738c8",
     "functions": [ 
         {
-            "name": "Unknown_5360000",
+            "name": "Unknown_0",
             "argc": "0",
-            "addr": "0x51c980"
+            "addr": "0x548a20"
         },
         {
             "name": "LogOn",
             "argc": "3",
-            "addr": "0x51c990"
+            "addr": "0x548a30"
         },
         {
             "name": "InvalidateCredentials",
-            "argc": "1",
-            "addr": "0x51cd90"
+            "argc": "3",
+            "addr": "0x55cf40"
         },
         {
             "name": "LogOff",
             "argc": "1",
-            "addr": "0x51cb00"
+            "addr": "0x548ba0"
         },
         {
             "name": "BLoggedOn",
             "argc": "1",
-            "addr": "0x51cc30"
+            "addr": "0x548cd0"
         },
         {
             "name": "GetLogonState",
             "argc": "1",
-            "addr": "0x5310a0"
+            "addr": "0x55cde0"
         },
         {
             "name": "BConnected",
             "argc": "1",
-            "addr": "0x51cf10"
+            "addr": "0x548e30"
         },
         {
             "name": "BInitiateReconnect",
             "argc": "1",
-            "addr": "0x51d070"
+            "addr": "0x548f90"
         },
         {
             "name": "EConnect",
             "argc": "1",
-            "addr": "0x530f40"
+            "addr": "0x55cc80"
         },
         {
             "name": "BTryingToLogin",
             "argc": "1",
-            "addr": "0x51d1d0"
+            "addr": "0x5490f0"
         },
         {
             "name": "GetSteamID",
             "argc": "2",
-            "addr": "0x51d330"
+            "addr": "0x549250"
         },
         {
             "name": "GetConsoleSteamID",
             "argc": "2",
-            "addr": "0x51d4c0"
+            "addr": "0x5493e0"
         },
         {
             "name": "GetClientInstanceID",
             "argc": "1",
-            "addr": "0x51d650"
+            "addr": "0x549570"
+        },
+        {
+            "name": "GetUserCountry",
+            "argc": "1",
+            "addr": "0x5496f0"
         },
         {
             "name": "IsVACBanned",
             "argc": "2",
-            "addr": "0x51d7d0"
+            "addr": "0x549850"
         },
         {
             "name": "SetEmail",
             "argc": "2",
-            "addr": "0x51d950"
+            "addr": "0x5499d0"
         },
         {
             "name": "SetConfigString",
             "argc": "4",
-            "addr": "0x531200"
+            "addr": "0x55d230"
         },
         {
             "name": "GetConfigString",
             "argc": "5",
-            "addr": "0x531390"
+            "addr": "0x55d3c0"
         },
         {
             "name": "SetConfigInt",
             "argc": "4",
-            "addr": "0x531540"
+            "addr": "0x55d570"
         },
         {
             "name": "GetConfigInt",
             "argc": "4",
-            "addr": "0x5316e0"
+            "addr": "0x55d710"
         },
         {
             "name": "SetConfigBinaryBlob",
             "argc": "4",
-            "addr": "0x531880"
+            "addr": "0x55d8b0"
         },
         {
             "name": "GetConfigBinaryBlob",
             "argc": "4",
-            "addr": "0x531a10"
+            "addr": "0x55da40"
         },
         {
             "name": "DeleteConfigKey",
             "argc": "3",
-            "addr": "0x531bb0"
+            "addr": "0x55dbe0"
         },
         {
             "name": "GetConfigStoreKeyName",
             "argc": "5",
-            "addr": "0x531d30"
+            "addr": "0x55dd60"
         },
         {
             "name": "InitiateGameConnection",
             "argc": "9",
-            "addr": "0x521be0"
+            "addr": "0x54d720"
         },
         {
             "name": "InitiateGameConnectionOld",
             "argc": "11",
-            "addr": "0x51dac0"
+            "addr": "0x549b40"
         },
         {
             "name": "TerminateGameConnection",
             "argc": "3",
-            "addr": "0x51dd20"
+            "addr": "0x549da0"
         },
         {
             "name": "TerminateGame",
             "argc": "3",
-            "addr": "0x51de90"
+            "addr": "0x549f10"
         },
         {
             "name": "SetSelfAsChatDestination",
             "argc": "2",
-            "addr": "0x51e030"
+            "addr": "0x54a0b0"
         },
         {
             "name": "IsPrimaryChatDestination",
             "argc": "1",
-            "addr": "0x51e180"
+            "addr": "0x54a200"
         },
         {
             "name": "RequestLegacyCDKey",
             "argc": "2",
-            "addr": "0x51e2e0"
+            "addr": "0x54a360"
         },
         {
             "name": "AckGuestPass",
             "argc": "2",
-            "addr": "0x51e5a0"
+            "addr": "0x54a620"
         },
         {
             "name": "RedeemGuestPass",
             "argc": "2",
-            "addr": "0x51e710"
+            "addr": "0x54a790"
         },
         {
             "name": "GetGuestPassToGiveCount",
             "argc": "1",
-            "addr": "0x51eba0"
+            "addr": "0x54ac20"
         },
         {
             "name": "GetGuestPassToRedeemCount",
             "argc": "1",
-            "addr": "0x51ed00"
+            "addr": "0x54ad80"
         },
         {
             "name": "GetGuestPassToGiveInfo",
             "argc": "10",
-            "addr": "0x51ee60"
+            "addr": "0x54aee0"
         },
         {
             "name": "GetGuestPassToGiveOut",
             "argc": "2",
-            "addr": "0x51e880"
+            "addr": "0x54a900"
         },
         {
             "name": "GetGuestPassToRedeem",
             "argc": "2",
-            "addr": "0x51ea10"
+            "addr": "0x54aa90"
         },
         {
             "name": "GetGuestPassToRedeemInfo",
             "argc": "8",
-            "addr": "0x51f090"
+            "addr": "0x54b110"
         },
         {
             "name": "GetGuestPassToRedeemSenderName",
             "argc": "4",
-            "addr": "0x51f290"
+            "addr": "0x54b310"
         },
         {
             "name": "GetNumAppsInGuestPassesToRedeem",
             "argc": "1",
-            "addr": "0x51f440"
+            "addr": "0x54b4c0"
         },
         {
             "name": "GetAppsInGuestPassesToRedeem",
             "argc": "3",
-            "addr": "0x51f5a0"
+            "addr": "0x54b620"
         },
         {
             "name": "GetCountUserNotifications",
             "argc": "1",
-            "addr": "0x51f740"
+            "addr": "0x54b7c0"
         },
         {
             "name": "GetCountUserNotification",
             "argc": "2",
-            "addr": "0x531ee0"
+            "addr": "0x55df10"
         },
         {
             "name": "RequestStoreAuthURL",
             "argc": "2",
-            "addr": "0x520f30"
+            "addr": "0x54cfd0"
         },
         {
             "name": "SetLanguage",
             "argc": "2",
-            "addr": "0x51e430"
+            "addr": "0x54a4b0"
         },
         {
             "name": "TrackAppUsageEvent",
             "argc": "4",
-            "addr": "0x51f8a0"
+            "addr": "0x54b920"
         },
         {
             "name": "RaiseConnectionPriority",
             "argc": "3",
-            "addr": "0x532050"
+            "addr": "0x55e080"
         },
         {
             "name": "ResetConnectionPriority",
             "argc": "2",
-            "addr": "0x51fa10"
+            "addr": "0x54ba90"
+        },
+        {
+            "name": "GetDesiredNetQOSLevel",
+            "argc": "1",
+            "addr": "0x54bbe0"
         },
         {
             "name": "BHasCachedCredentials",
             "argc": "2",
-            "addr": "0x51fb60"
+            "addr": "0x54bd40"
         },
         {
             "name": "SetAccountNameForCachedCredentialLogin",
             "argc": "3",
-            "addr": "0x51fe10"
+            "addr": "0x54beb0"
         },
         {
             "name": "DestroyCachedCredentials",
-            "argc": "2",
-            "addr": "0x51fcd0"
+            "argc": "3",
+            "addr": "0x55d0e0"
         },
         {
             "name": "GetCurrentWebAuthToken",
             "argc": "3",
-            "addr": "0x520da0"
+            "addr": "0x54ce40"
         },
         {
             "name": "RequestWebAuthToken",
             "argc": "1",
-            "addr": "0x520c20"
+            "addr": "0x54ccc0"
         },
         {
             "name": "SetLoginInformation",
             "argc": "4",
-            "addr": "0x51ffa0"
+            "addr": "0x54c040"
         },
         {
             "name": "SetTwoFactorCode",
             "argc": "2",
-            "addr": "0x52e0e0"
+            "addr": "0x559e10"
         },
         {
             "name": "SetLoginToken",
             "argc": "3",
-            "addr": "0x520110"
+            "addr": "0x54c1b0"
         },
         {
             "name": "GetLoginTokenID",
             "argc": "1",
-            "addr": "0x520260"
+            "addr": "0x54c300"
         },
         {
             "name": "ClearAllLoginInformation",
             "argc": "1",
-            "addr": "0x5203e0"
+            "addr": "0x54c480"
         },
         {
             "name": "BEnableEmbeddedClient",
             "argc": "2",
-            "addr": "0x520510"
+            "addr": "0x54c5b0"
         },
         {
             "name": "ResetEmbeddedClient",
             "argc": "2",
-            "addr": "0x520690"
+            "addr": "0x54c730"
         },
         {
             "name": "BHasEmbeddedClientToken",
             "argc": "2",
-            "addr": "0x5207e0"
+            "addr": "0x54c880"
         },
         {
             "name": "RequestEmbeddedClientToken",
             "argc": "2",
-            "addr": "0x520960"
+            "addr": "0x54ca00"
         },
         {
             "name": "AuthorizeNewDevice",
             "argc": "4",
-            "addr": "0x520ab0"
+            "addr": "0x54cb50"
         },
         {
             "name": "GetLanguage",
             "argc": "3",
-            "addr": "0x5210c0"
-        },
-        {
-            "name": "BIsCyberCafe",
-            "argc": "1",
-            "addr": "0x521250"
-        },
-        {
-            "name": "BIsAcademicAccount",
-            "argc": "1",
-            "addr": "0x5213b0"
-        },
-        {
-            "name": "BIsPortal2EducationAccount",
-            "argc": "1",
-            "addr": "0x521510"
+            "addr": "0x54d160"
         },
         {
             "name": "TrackNatTraversalStat",
             "argc": "2",
-            "addr": "0x5321e0"
+            "addr": "0x55e210"
         },
         {
             "name": "TrackSteamUsageEvent",
             "argc": "4",
-            "addr": "0x532350"
-        },
-        {
-            "name": "TrackSteamGUIUsage",
-            "argc": "2",
-            "addr": "0x521670"
+            "addr": "0x55e380"
         },
         {
             "name": "SetComputerInUse",
             "argc": "1",
-            "addr": "0x5217b0"
+            "addr": "0x54d2f0"
         },
         {
             "name": "BIsGameRunning",
             "argc": "2",
-            "addr": "0x5218e0"
+            "addr": "0x54d420"
         },
         {
             "name": "BIsGameWindowReady",
             "argc": "2",
-            "addr": "0x521a60"
+            "addr": "0x54d5a0"
         },
         {
             "name": "BUpdateAppOwnershipTicket",
             "argc": "3",
-            "addr": "0x521e00"
+            "addr": "0x54d940"
         },
         {
             "name": "GetCustomBinariesState",
             "argc": "4",
-            "addr": "0x521fa0"
+            "addr": "0x54dae0"
         },
         {
             "name": "RequestCustomBinaries",
             "argc": "5",
-            "addr": "0x5324c0"
+            "addr": "0x55e4f0"
         },
         {
             "name": "SetCellID",
             "argc": "2",
-            "addr": "0x522150"
+            "addr": "0x54dc90"
         },
         {
             "name": "GetCellList",
             "argc": "2",
-            "addr": "0x5222a0"
+            "addr": "0x54dde0"
         },
         {
             "name": "GetUserBaseFolder",
             "argc": "1",
-            "addr": "0x522420"
+            "addr": "0x54df60"
         },
         {
             "name": "GetUserDataFolder",
             "argc": "4",
-            "addr": "0x522580"
+            "addr": "0x54e0c0"
         },
         {
             "name": "GetUserConfigFolder",
             "argc": "3",
-            "addr": "0x522730"
+            "addr": "0x54e270"
         },
         {
             "name": "GetAccountName",
             "argc": "3",
-            "addr": "0x5228c0"
+            "addr": "0x54e400"
         },
         {
             "name": "GetAccountName",
             "argc": "5",
-            "addr": "0x523110"
+            "addr": "0x54ec50"
         },
         {
             "name": "IsPasswordRemembered",
             "argc": "1",
-            "addr": "0x5232b0"
+            "addr": "0x54edf0"
         },
         {
             "name": "CheckoutSiteLicenseSeat",
             "argc": "2",
-            "addr": "0x522a50"
+            "addr": "0x54e590"
         },
         {
             "name": "GetAvailableSeats",
             "argc": "2",
-            "addr": "0x522ba0"
+            "addr": "0x54e6e0"
         },
         {
             "name": "GetAssociatedSiteName",
             "argc": "1",
-            "addr": "0x522cf0"
+            "addr": "0x54e830"
         },
         {
             "name": "BIsRunningInCafe",
             "argc": "1",
-            "addr": "0x522e50"
+            "addr": "0x54e990"
         },
         {
             "name": "BAllowCachedCredentialsInCafe",
             "argc": "1",
-            "addr": "0x522fb0"
+            "addr": "0x54eaf0"
         },
         {
             "name": "RequiresLegacyCDKey",
             "argc": "3",
-            "addr": "0x523740"
+            "addr": "0x54f280"
         },
         {
             "name": "GetLegacyCDKey",
             "argc": "4",
-            "addr": "0x523410"
+            "addr": "0x54ef50"
         },
         {
             "name": "SetLegacyCDKey",
             "argc": "3",
-            "addr": "0x5235c0"
+            "addr": "0x54f100"
         },
         {
             "name": "WriteLegacyCDKey",
             "argc": "2",
-            "addr": "0x5238d0"
+            "addr": "0x54f410"
         },
         {
             "name": "RemoveLegacyCDKey",
             "argc": "2",
-            "addr": "0x523a50"
+            "addr": "0x54f590"
         },
         {
             "name": "RequestLegacyCDKeyFromApp",
             "argc": "4",
-            "addr": "0x523ba0"
+            "addr": "0x54f6e0"
         },
         {
             "name": "BIsAnyGameRunning",
             "argc": "1",
-            "addr": "0x523d10"
+            "addr": "0x54f850"
         },
         {
             "name": "GetSteamGuardDetails",
             "argc": "1",
-            "addr": "0x528e90"
+            "addr": "0x554d00"
         },
         {
             "name": "GetSentryFileData",
             "argc": "2",
-            "addr": "0x528fc0"
+            "addr": "0x554e30"
         },
         {
             "name": "GetTwoFactorDetails",
             "argc": "1",
-            "addr": "0x529140"
+            "addr": "0x554fb0"
         },
         {
             "name": "BHasTwoFactor",
             "argc": "1",
-            "addr": "0x529270"
+            "addr": "0x5550e0"
         },
         {
             "name": "GetEmail",
             "argc": "4",
-            "addr": "0x523e70"
+            "addr": "0x54f9b0"
         },
         {
             "name": "Test_FakeConnectionTimeout",
             "argc": "1",
-            "addr": "0x524020"
+            "addr": "0x54fb60"
         },
         {
             "name": "RunInstallScript",
             "argc": "4",
-            "addr": "0x524150"
+            "addr": "0x54fc90"
         },
         {
             "name": "IsInstallScriptRunning",
             "argc": "1",
-            "addr": "0x5242f0"
+            "addr": "0x54fe30"
         },
         {
             "name": "GetInstallScriptState",
             "argc": "5",
-            "addr": "0x524450"
+            "addr": "0x54ff90"
         },
         {
             "name": "StopInstallScript",
             "argc": "2",
-            "addr": "0x524610"
+            "addr": "0x550150"
         },
         {
             "name": "SpawnProcess",
             "argc": "10",
-            "addr": "0x5326a0"
+            "addr": "0x55e6d0"
         },
         {
             "name": "GetAppOwnershipTicketLength",
             "argc": "2",
-            "addr": "0x524790"
+            "addr": "0x5502d0"
         },
         {
             "name": "GetAppOwnershipTicketData",
             "argc": "4",
-            "addr": "0x524900"
+            "addr": "0x550440"
         },
         {
             "name": "GetAppOwnershipTicketExtendedData",
             "argc": "8",
-            "addr": "0x524ab0"
+            "addr": "0x5505f0"
         },
         {
             "name": "GetMarketingMessageCount",
             "argc": "1",
-            "addr": "0x524cc0"
+            "addr": "0x550800"
         },
         {
             "name": "GetMarketingMessage",
             "argc": "6",
-            "addr": "0x5328b0"
+            "addr": "0x55e8e0"
         },
         {
             "name": "MarkMarketingMessageSeen",
             "argc": "3",
-            "addr": "0x524e20"
+            "addr": "0x550960"
         },
         {
             "name": "CheckForPendingMarketingMessages",
             "argc": "1",
-            "addr": "0x524f80"
+            "addr": "0x550ac0"
         },
         {
             "name": "GetAuthSessionTicket",
             "argc": "4",
-            "addr": "0x525100"
+            "addr": "0x550c40"
         },
         {
             "name": "GetAuthSessionTicketV2",
             "argc": "5",
-            "addr": "0x5252b0"
+            "addr": "0x550fd0"
         },
         {
-            "name": "BeginAuthSession",
+            "name": "GetAuthSessionTicketV3",
             "argc": "5",
-            "addr": "0x532a90"
+            "addr": "0x551190"
         },
         {
-            "name": "EndAuthSession",
-            "argc": "3",
-            "addr": "0x525650"
-        },
-        {
-            "name": "CancelAuthTicket",
+            "name": "GetAuthTicketForWebApi",
             "argc": "2",
-            "addr": "0x525790"
-        },
-        {
-            "name": "IsUserSubscribedAppInTicket",
-            "argc": "4",
-            "addr": "0x532c20"
+            "addr": "0x551350"
         },
         {
             "name": "GetAuthSessionTicketForGameID",
             "argc": "6",
-            "addr": "0x525470"
+            "addr": "0x550df0"
+        },
+        {
+            "name": "BeginAuthSession",
+            "argc": "5",
+            "addr": "0x55eac0"
+        },
+        {
+            "name": "EndAuthSession",
+            "argc": "3",
+            "addr": "0x5514c0"
+        },
+        {
+            "name": "CancelAuthTicket",
+            "argc": "2",
+            "addr": "0x551600"
+        },
+        {
+            "name": "IsUserSubscribedAppInTicket",
+            "argc": "4",
+            "addr": "0x55ec50"
         },
         {
             "name": "AdvertiseGame",
             "argc": "6",
-            "addr": "0x5258e0"
+            "addr": "0x551750"
         },
         {
             "name": "RequestEncryptedAppTicket",
             "argc": "3",
-            "addr": "0x525a70"
+            "addr": "0x5518e0"
         },
         {
             "name": "GetEncryptedAppTicket",
             "argc": "4",
-            "addr": "0x525c10"
+            "addr": "0x551a80"
         },
         {
             "name": "GetGameBadgeLevel",
             "argc": "3",
-            "addr": "0x526b40"
+            "addr": "0x5529b0"
         },
         {
             "name": "GetPlayerSteamLevel",
             "argc": "1",
-            "addr": "0x526cd0"
+            "addr": "0x552b40"
         },
         {
             "name": "SetAccountLimited",
             "argc": "2",
-            "addr": "0x525dd0"
+            "addr": "0x551c40"
         },
         {
             "name": "BIsAccountLimited",
             "argc": "1",
-            "addr": "0x525f20"
+            "addr": "0x551d90"
         },
         {
             "name": "SetAccountCommunityBanned",
             "argc": "2",
-            "addr": "0x526080"
+            "addr": "0x551ef0"
         },
         {
             "name": "BIsAccountCommunityBanned",
             "argc": "1",
-            "addr": "0x5261d0"
+            "addr": "0x552040"
         },
         {
             "name": "SetLimitedAccountCanInviteFriends",
             "argc": "2",
-            "addr": "0x526330"
+            "addr": "0x5521a0"
         },
         {
             "name": "BLimitedAccountCanInviteFriends",
             "argc": "1",
-            "addr": "0x526480"
+            "addr": "0x5522f0"
         },
         {
             "name": "SendValidationEmail",
             "argc": "1",
-            "addr": "0x5265e0"
+            "addr": "0x552450"
         },
         {
             "name": "BGameConnectTokensAvailable",
             "argc": "1",
-            "addr": "0x526710"
+            "addr": "0x552580"
         },
         {
             "name": "NumGamesRunning",
             "argc": "1",
-            "addr": "0x526870"
+            "addr": "0x5526e0"
         },
         {
             "name": "GetRunningGameID",
             "argc": "3",
-            "addr": "0x532da0"
+            "addr": "0x55edd0"
         },
         {
             "name": "GetRunningGamePID",
             "argc": "2",
-            "addr": "0x5269d0"
+            "addr": "0x552840"
         },
         {
             "name": "RaiseWindowForGame",
             "argc": "2",
-            "addr": "0x532f40"
+            "addr": "0x55ef70"
         },
         {
             "name": "GetAccountSecurityPolicyFlags",
             "argc": "1",
-            "addr": "0x526e30"
+            "addr": "0x552ca0"
         },
         {
             "name": "SetClientStat",
             "argc": "7",
-            "addr": "0x5330c0"
+            "addr": "0x55f0f0"
         },
         {
             "name": "VerifyPassword",
             "argc": "2",
-            "addr": "0x526f90"
+            "addr": "0x552e00"
         },
         {
             "name": "BSupportUser",
             "argc": "1",
-            "addr": "0x5270d0"
+            "addr": "0x552f40"
         },
         {
             "name": "BNeedsSSANextSteamLogon",
             "argc": "1",
-            "addr": "0x52de50"
+            "addr": "0x559b80"
         },
         {
             "name": "ClearNeedsSSANextSteamLogon",
             "argc": "1",
-            "addr": "0x52dfb0"
+            "addr": "0x559ce0"
         },
         {
             "name": "BIsAppOverlayEnabled",
             "argc": "2",
-            "addr": "0x527230"
+            "addr": "0x5530a0"
         },
         {
             "name": "BOverlayIgnoreChildProcesses",
             "argc": "2",
-            "addr": "0x5273b0"
+            "addr": "0x553220"
         },
         {
             "name": "SetOverlayState",
             "argc": "3",
-            "addr": "0x533290"
+            "addr": "0x55f2c0"
         },
         {
             "name": "NotifyOverlaySettingsChanged",
             "argc": "1",
-            "addr": "0x527530"
+            "addr": "0x5533a0"
         },
         {
             "name": "BIsBehindNAT",
             "argc": "1",
-            "addr": "0x527660"
+            "addr": "0x5534d0"
         },
         {
             "name": "GetMicroTxnAppID",
             "argc": "3",
-            "addr": "0x5277c0"
+            "addr": "0x553630"
         },
         {
             "name": "GetMicroTxnOrderID",
             "argc": "3",
-            "addr": "0x527940"
+            "addr": "0x5537b0"
         },
         {
             "name": "BGetMicroTxnPrice",
             "argc": "7",
-            "addr": "0x5333f0"
+            "addr": "0x55f420"
         },
         {
             "name": "GetMicroTxnSteamRealm",
             "argc": "3",
-            "addr": "0x5339d0"
+            "addr": "0x55fa00"
         },
         {
             "name": "GetMicroTxnLineItemCount",
             "argc": "3",
-            "addr": "0x527ae0"
+            "addr": "0x553950"
         },
         {
             "name": "BGetMicroTxnLineItem",
             "argc": "12",
-            "addr": "0x5335e0"
+            "addr": "0x55f610"
         },
         {
             "name": "BIsSandboxMicroTxn",
             "argc": "4",
-            "addr": "0x527c60"
+            "addr": "0x553ad0"
         },
         {
             "name": "BMicroTxnRequiresCachedPmtMethod",
             "argc": "4",
-            "addr": "0x527e00"
+            "addr": "0x553c70"
         },
         {
             "name": "AuthorizeMicroTxn",
             "argc": "4",
-            "addr": "0x533b50"
+            "addr": "0x55fb80"
         },
         {
             "name": "BGetWalletBalance",
             "argc": "4",
-            "addr": "0x533820"
+            "addr": "0x55f850"
         },
         {
             "name": "RequestMicroTxnInfo",
             "argc": "3",
-            "addr": "0x527fa0"
+            "addr": "0x553e10"
         },
         {
             "name": "BMicroTxnRefundable",
             "argc": "3",
-            "addr": "0x528140"
+            "addr": "0x553fb0"
         },
         {
             "name": "BGetAppMinutesPlayed",
             "argc": "4",
-            "addr": "0x5282d0"
+            "addr": "0x554140"
         },
         {
             "name": "GetAppLastPlayedTime",
             "argc": "2",
-            "addr": "0x528480"
+            "addr": "0x5542f0"
         },
         {
             "name": "GetAppUpdateDisabledSecondsRemaining",
             "argc": "2",
-            "addr": "0x5285f0"
+            "addr": "0x554460"
         },
         {
             "name": "BGetGuideURL",
             "argc": "4",
-            "addr": "0x528760"
+            "addr": "0x5545d0"
         },
         {
             "name": "BPromptToChangePassword",
             "argc": "1",
-            "addr": "0x528910"
+            "addr": "0x554780"
         },
         {
             "name": "BAccountExtraSecurity",
             "argc": "1",
-            "addr": "0x528a70"
+            "addr": "0x5548e0"
         },
         {
             "name": "BAccountShouldShowLockUI",
             "argc": "1",
-            "addr": "0x528bd0"
+            "addr": "0x554a40"
         },
         {
             "name": "GetCountAuthedComputers",
             "argc": "1",
-            "addr": "0x528d30"
+            "addr": "0x554ba0"
         },
         {
             "name": "GetSteamGuardEnabledTime",
             "argc": "1",
-            "addr": "0x529be0"
+            "addr": "0x555a50"
         },
         {
             "name": "SetPhoneIsVerified",
             "argc": "2",
-            "addr": "0x5293d0"
+            "addr": "0x555240"
         },
         {
             "name": "BIsPhoneVerified",
             "argc": "1",
-            "addr": "0x529520"
+            "addr": "0x555390"
         },
         {
             "name": "SetPhoneIsIdentifying",
             "argc": "2",
-            "addr": "0x529680"
+            "addr": "0x5554f0"
         },
         {
             "name": "BIsPhoneIdentifying",
             "argc": "1",
-            "addr": "0x5297d0"
+            "addr": "0x555640"
         },
         {
             "name": "SetPhoneIsRequiringVerification",
             "argc": "2",
-            "addr": "0x529930"
+            "addr": "0x5557a0"
         },
         {
             "name": "BIsPhoneRequiringVerification",
             "argc": "1",
-            "addr": "0x529a80"
+            "addr": "0x5558f0"
         },
         {
             "name": "ChangeTwoFactorAuthOptions",
             "argc": "2",
-            "addr": "0x529d40"
+            "addr": "0x555bb0"
         },
         {
             "name": "Set2ndFactorAuthCode",
             "argc": "3",
-            "addr": "0x529e90"
+            "addr": "0x555d00"
         },
         {
             "name": "SetUserMachineName",
             "argc": "2",
-            "addr": "0x529ff0"
+            "addr": "0x555e60"
         },
         {
             "name": "GetUserMachineName",
             "argc": "3",
-            "addr": "0x52a130"
+            "addr": "0x555fa0"
         },
         {
             "name": "GetEmailDomainFromLogonFailure",
             "argc": "3",
-            "addr": "0x52a2c0"
+            "addr": "0x556130"
         },
         {
             "name": "GetAgreementSessionUrl",
             "argc": "1",
-            "addr": "0x52a450"
+            "addr": "0x5562c0"
         },
         {
             "name": "GetDurationControl",
             "argc": "1",
-            "addr": "0x52f130"
+            "addr": "0x55ae60"
         },
         {
             "name": "GetDurationControlForApp",
             "argc": "2",
-            "addr": "0x52f2b0"
+            "addr": "0x55afe0"
         },
         {
             "name": "BSetDurationControlOnlineState",
             "argc": "2",
-            "addr": "0x534740"
+            "addr": "0x560770"
         },
         {
             "name": "BSetDurationControlOnlineStateForApp",
             "argc": "3",
-            "addr": "0x5348c0"
+            "addr": "0x5608f0"
         },
         {
             "name": "BGetDurationControlExtendedResults",
             "argc": "4",
-            "addr": "0x52f440"
+            "addr": "0x55b170"
         },
         {
             "name": "BIsSubscribedApp",
             "argc": "2",
-            "addr": "0x52a5b0"
+            "addr": "0x556420"
         },
         {
             "name": "GetSubscribedApps",
             "argc": "4",
-            "addr": "0x52a730"
-        },
-        {
-            "name": "RegisterActivationCode",
-            "argc": "2",
-            "addr": "0x52a8f0"
+            "addr": "0x5565a0"
         },
         {
             "name": "AckSystemIM",
             "argc": "3",
-            "addr": "0x52aa80"
+            "addr": "0x556760"
         },
         {
             "name": "RequestSpecialSurvey",
             "argc": "2",
-            "addr": "0x52abe0"
+            "addr": "0x5568c0"
         },
         {
             "name": "SendSpecialSurveyResponse",
             "argc": "4",
-            "addr": "0x52ad70"
+            "addr": "0x556a50"
         },
         {
             "name": "RequestNotifications",
             "argc": "1",
-            "addr": "0x52af30"
+            "addr": "0x556c10"
         },
         {
             "name": "GetAppOwnershipInfo",
             "argc": "5",
-            "addr": "0x52b060"
+            "addr": "0x556d40"
         },
         {
             "name": "SendGameWebCallback",
             "argc": "3",
-            "addr": "0x52b220"
+            "addr": "0x556f00"
         },
         {
             "name": "BIsStreamingUIToRemoteDevice",
             "argc": "1",
-            "addr": "0x52b370"
+            "addr": "0x557050"
         },
         {
             "name": "BIsCurrentlyNVStreaming",
             "argc": "1",
-            "addr": "0x52b4d0"
+            "addr": "0x5571b0"
         },
         {
             "name": "OnBigPictureForStreamingStartResult",
             "argc": "3",
-            "addr": "0x533d30"
+            "addr": "0x55fd60"
         },
         {
             "name": "OnBigPictureForStreamingDone",
             "argc": "1",
-            "addr": "0x52b630"
+            "addr": "0x557310"
         },
         {
             "name": "OnBigPictureForStreamingRestarting",
             "argc": "1",
-            "addr": "0x52b760"
+            "addr": "0x557440"
         },
         {
             "name": "StopStreaming",
             "argc": "2",
-            "addr": "0x52b890"
+            "addr": "0x557570"
         },
         {
             "name": "LockParentalLock",
             "argc": "1",
-            "addr": "0x52b9e0"
+            "addr": "0x5576c0"
         },
         {
             "name": "UnlockParentalLock",
             "argc": "2",
-            "addr": "0x52bb10"
+            "addr": "0x5577f0"
         },
         {
             "name": "BIsParentalLockEnabled",
             "argc": "1",
-            "addr": "0x52bc80"
+            "addr": "0x557960"
         },
         {
             "name": "BIsParentalLockLocked",
             "argc": "1",
-            "addr": "0x52bde0"
+            "addr": "0x557ac0"
         },
         {
             "name": "BlockApp",
             "argc": "2",
-            "addr": "0x52bf40"
+            "addr": "0x557c20"
         },
         {
             "name": "UnblockApp",
             "argc": "2",
-            "addr": "0x52c090"
+            "addr": "0x557d70"
         },
         {
             "name": "BIsAppBlocked",
             "argc": "2",
-            "addr": "0x52c1e0"
+            "addr": "0x557ec0"
         },
         {
             "name": "BIsAppInBlockList",
             "argc": "2",
-            "addr": "0x52c360"
+            "addr": "0x558040"
         },
         {
             "name": "BlockFeature",
             "argc": "2",
-            "addr": "0x533ec0"
+            "addr": "0x55fef0"
         },
         {
             "name": "UnblockFeature",
             "argc": "2",
-            "addr": "0x534010"
+            "addr": "0x560040"
         },
         {
             "name": "BIsFeatureBlocked",
             "argc": "2",
-            "addr": "0x534160"
+            "addr": "0x560190"
         },
         {
             "name": "BIsFeatureInBlockList",
             "argc": "2",
-            "addr": "0x5342e0"
+            "addr": "0x560310"
         },
         {
             "name": "GetParentalUnlockTime",
             "argc": "1",
-            "addr": "0x52c4e0"
+            "addr": "0x5581c0"
         },
         {
             "name": "BGetRecoveryEmail",
             "argc": "3",
-            "addr": "0x52c640"
+            "addr": "0x558320"
         },
         {
             "name": "RequestParentalRecoveryEmail",
             "argc": "1",
-            "addr": "0x52c7d0"
+            "addr": "0x5584b0"
         },
         {
             "name": "BIsLockFromSiteLicense",
             "argc": "1",
-            "addr": "0x52c900"
+            "addr": "0x5585e0"
         },
         {
             "name": "BGetSerializedParentalSettings",
             "argc": "2",
-            "addr": "0x52ca60"
+            "addr": "0x558740"
         },
         {
             "name": "BSetParentalSettings",
             "argc": "2",
-            "addr": "0x52cbe0"
+            "addr": "0x5588c0"
         },
         {
             "name": "BDisableParentalSettings",
             "argc": "1",
-            "addr": "0x52cd50"
+            "addr": "0x558a30"
         },
         {
             "name": "BGetParentalWebToken",
             "argc": "3",
-            "addr": "0x52ceb0"
+            "addr": "0x558b90"
         },
         {
             "name": "GetCommunityPreference",
             "argc": "2",
-            "addr": "0x534460"
+            "addr": "0x560490"
         },
         {
             "name": "SetCommunityPreference",
             "argc": "3",
-            "addr": "0x5345e0"
+            "addr": "0x560610"
         },
         {
             "name": "GetTextFilterSetting",
             "argc": "1",
-            "addr": "0x52d040"
+            "addr": "0x558d20"
         },
         {
             "name": "BTextFilterIgnoresFriends",
             "argc": "1",
-            "addr": "0x52d1a0"
+            "addr": "0x558e80"
         },
         {
             "name": "CanLogonOffline",
             "argc": "1",
-            "addr": "0x52d300"
+            "addr": "0x558fe0"
         },
         {
             "name": "LogOnOffline",
             "argc": "2",
-            "addr": "0x52d460"
+            "addr": "0x559140"
         },
         {
             "name": "ValidateOfflineLogonTicket",
             "argc": "2",
-            "addr": "0x52d5e0"
+            "addr": "0x5592c0"
         },
         {
             "name": "BGetOfflineLogonTicket",
             "argc": "3",
-            "addr": "0x52d750"
+            "addr": "0x559430"
         },
         {
             "name": "UploadLocalClientLogs",
             "argc": "1",
-            "addr": "0x52d8e0"
+            "addr": "0x5595c0"
         },
         {
             "name": "SetAsyncNotificationEnabled",
             "argc": "3",
-            "addr": "0x52da10"
+            "addr": "0x559740"
         },
         {
             "name": "BIsOtherSessionPlaying",
             "argc": "2",
-            "addr": "0x52db70"
+            "addr": "0x5598a0"
         },
         {
             "name": "BKickOtherPlayingSession",
             "argc": "1",
-            "addr": "0x52dcf0"
+            "addr": "0x559a20"
         },
         {
             "name": "BIsAccountLockedDown",
             "argc": "1",
-            "addr": "0x52e220"
+            "addr": "0x559f50"
         },
         {
             "name": "ClearAndSetAppTags",
             "argc": "3",
-            "addr": "0x52e380"
+            "addr": "0x55a0b0"
         },
         {
             "name": "RemoveAppTag",
             "argc": "3",
-            "addr": "0x52e4e0"
+            "addr": "0x55a210"
         },
         {
             "name": "AddAppTag",
             "argc": "3",
-            "addr": "0x52e640"
+            "addr": "0x55a370"
         },
         {
             "name": "ClearAppTags",
             "argc": "2",
-            "addr": "0x52e7a0"
+            "addr": "0x55a4d0"
         },
         {
             "name": "SetAppHidden",
             "argc": "3",
-            "addr": "0x52e8f0"
+            "addr": "0x55a620"
         },
         {
             "name": "RequestAccountLinkInfo",
             "argc": "1",
-            "addr": "0x52ea60"
+            "addr": "0x55a790"
         },
         {
             "name": "RequestSurveySchedule",
             "argc": "1",
-            "addr": "0x52ebe0"
+            "addr": "0x55a910"
         },
         {
             "name": "RequestNewSteamAnnouncementState",
             "argc": "1",
-            "addr": "0x52ed10"
+            "addr": "0x55aa40"
         },
         {
             "name": "UpdateSteamAnnouncementLastRead",
             "argc": "4",
-            "addr": "0x52ee40"
+            "addr": "0x55ab70"
         },
         {
             "name": "GetMarketEligibility",
             "argc": "1",
-            "addr": "0x52efb0"
+            "addr": "0x55ace0"
         },
         {
             "name": "UpdateGameVrDllState",
             "argc": "4",
-            "addr": "0x52f5f0"
+            "addr": "0x55b320"
         },
         {
             "name": "KillVRTheaterPancakeGame",
             "argc": "2",
-            "addr": "0x52f780"
+            "addr": "0x55b4b0"
         },
         {
             "name": "BIsAnyGameOrServiceAppRunning",
             "argc": "1",
-            "addr": "0x52f8d0"
+            "addr": "0x55b600"
         },
         {
             "name": "BGetAppPlaytimeMap",
             "argc": "2",
-            "addr": "0x534a50"
+            "addr": "0x560a80"
         },
         {
             "name": "BGetAppsLastPlayedMap",
             "argc": "2",
-            "addr": "0x534c40"
+            "addr": "0x560c70"
         },
         {
             "name": "BGetAppTagsMap",
             "argc": "2",
-            "addr": "0x534e30"
+            "addr": "0x560e60"
         },
         {
             "name": "SendSteamServiceStatusUpdate",
             "argc": "3",
-            "addr": "0x535020"
+            "addr": "0x561050"
         },
         {
             "name": "RequestSteamGroupChatMessageNotifications",
             "argc": "6",
-            "addr": "0x535180"
+            "addr": "0x5611b0"
         },
         {
             "name": "RequestSteamGroupChatMessageHistory",
             "argc": "6",
-            "addr": "0x52fa30"
+            "addr": "0x55b760"
         },
         {
             "name": "RequestSendSteamGroupChatMessage",
             "argc": "7",
-            "addr": "0x52fc20"
+            "addr": "0x55b950"
         },
         {
             "name": "OnNewGroupChatMsgAdded",
             "argc": "9",
-            "addr": "0x52fe20"
+            "addr": "0x55bb50"
         },
         {
             "name": "OnGroupChatUserStateChange",
             "argc": "5",
-            "addr": "0x530010"
+            "addr": "0x55bd40"
         },
         {
             "name": "OnReceivedGroupChatSubscriptionResponse",
             "argc": "6",
-            "addr": "0x530190"
+            "addr": "0x55bec0"
         },
         {
             "name": "GetTimedTrialStatus",
-            "argc": "4",
-            "addr": "0x530330"
+            "argc": "5",
+            "addr": "0x55c060"
         },
         {
             "name": "RequestTimedTrialStatus",
             "argc": "2",
-            "addr": "0x5304e0"
+            "addr": "0x55c220"
         },
         {
             "name": "PrepareForSystemSuspend",
             "argc": "1",
-            "addr": "0x530660"
+            "addr": "0x55c3a0"
         },
         {
             "name": "ResumeSuspendedGames",
             "argc": "2",
-            "addr": "0x5307e0"
+            "addr": "0x55c520"
         },
         {
             "name": "GetClientInstallationID",
             "argc": "1",
-            "addr": "0x530980"
+            "addr": "0x55c6c0"
         },
         {
             "name": "Test_SetClientInstallationID",
             "argc": "3",
-            "addr": "0x530b00"
+            "addr": "0x55c840"
         },
         {
             "name": "GetAppIDForGameID",
             "argc": "2",
-            "addr": "0x530c60"
+            "addr": "0x55c9a0"
         },
         {
             "name": "BDoNotDisturb",
             "argc": "1",
-            "addr": "0x530de0"
+            "addr": "0x55cb20"
         },
         {
             "name": "SetAdditionalClientArgData",
             "argc": "2",
-            "addr": "0x535370"
+            "addr": "0x5613a0"
         }
     ]
 }

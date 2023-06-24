@@ -24,9 +24,9 @@ void Updater::LocateInstallDir() {
     installDir = home_env.append("/.local/share/Steam");
 }
 
-// Verifies all known important binaries
+// Verifies all downloaded binaries
 bool Updater::BVerifyBinaries() {
-    for (std::string file : filesToVerify) {
+    for (std::string file : fileWhitelist) {
         if (!BVerifyFile(file)) {
             return false;
         }
@@ -98,6 +98,12 @@ void Updater::Update() {
         }
         free(zipfile.data);
         archive_free(archive);
+
+        // What is success?
+        //TOOD: For now let's just do this...
+        std::ofstream file("installed_manifest");
+        file.write(STEAM_MANIFEST_VERSION, strlen(STEAM_MANIFEST_VERSION));
+        file.close();
     }
     curl_easy_cleanup(curl);
 }
@@ -145,6 +151,16 @@ void Updater::DownloadFromServer(std::string file, MemoryStruct& dataOut) {
 }
 
 void Updater::Verify(bool forceRedownload) {
+    std::ifstream t("installed_manifest");
+    std::stringstream buffer;
+    buffer << t.rdbuf();
+    
+    t.close();
+    if (buffer.str() != STEAM_MANIFEST_VERSION)
+    {
+        Update();
+        return;
+    }
     if (forceRedownload == true || !BVerifyBinaries()) {
         Update();
     }

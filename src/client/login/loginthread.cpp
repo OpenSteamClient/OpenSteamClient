@@ -219,9 +219,9 @@ void LoginThread::StartLogonWithCredentials(std::string username, std::string pa
         connect(Global_ThreadController->callbackThread, &CallbackThread::SteamServerConnectFailure, this, &LoginThread::steamServerConnectFailure);
         connect(Global_ThreadController->callbackThread, &CallbackThread::SteamServersConnected, this, &LoginThread::steamServerConnected);
         
-        Global_SteamClientMgr->ClientUser->SetLogonNameForCachedCredentialLogin(username.c_str());
+        Global_SteamClientMgr->ClientUser->SetAccountNameForCachedCredentialLogin(username.c_str(), false);
 
-        CSteamID steamid = Global_SteamClientMgr->ClientUser->GetSteamId(username.c_str());
+        CSteamID steamid = Global_SteamClientMgr->ClientUser->GetSteamID(username.c_str());
         Application::GetApplication()->currentUserSteamID = steamid.ConvertToUint64();
         std::cout << "[LoginThread] Logging on with cached credentials" << std::endl;
         Global_SteamClientMgr->ClientUser->LogOn(steamid, true);

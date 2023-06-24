@@ -32,13 +32,13 @@ enum EPackageStatus
 abstract_class IClientBilling
 {
 public:
-	virtual bool PurchaseWithActivationCode( const char *pchActivationCode ) = 0;
-	virtual bool HasActiveLicense( AppId_t ) = 0;
-	virtual bool GetLicenseInfo( uint32 nLicenseIndex, RTime32* pRTime32Created, RTime32* pRTime32NextProcess, int32* pnMinuteLimit, int32 * pnMinutesUsed, EPaymentMethod* pePaymentMethod, uint32* punFlags, int32 * pnTerritoryCode, char * prgchPurchaseCountryCode /* Use a 3 bytes buffer */) = 0;
-	virtual void EnableTestLicense( PackageId_t unPackageID ) = 0;
-	virtual void DisableTestLicense( PackageId_t unPackageID ) = 0;
-	virtual uint32 GetAppsInPackage( PackageId_t unPackageID, AppId_t puIds[], uint32 uMaxIds ) = 0;
-	virtual SteamAPICall_t RequestFreeLicenseForApps(AppId_t puIds[], uint32 puIdsLength) = 0;
+    virtual bool PurchaseWithActivationCode( const char *pchActivationCode ) = 0; //argc: 1, index 1
+    virtual bool HasActiveLicense( AppId_t ) = 0; //argc: 1, index 2
+    virtual bool GetLicenseInfo( uint32 nLicenseIndex, RTime32* pRTime32Created, RTime32* pRTime32NextProcess, int32* pnMinuteLimit, int32 * pnMinutesUsed, EPaymentMethod* pePaymentMethod, uint32* punFlags, int32 * pnTerritoryCode, char * prgchPurchaseCountryCode /* Use a 3 bytes buffer */) = 0; //argc: 9, index 3
+    virtual void EnableTestLicense( PackageId_t unPackageID ) = 0; //argc: 1, index 4
+    virtual void DisableTestLicense( PackageId_t unPackageID ) = 0; //argc: 1, index 5
+    virtual uint32 GetAppsInPackage( PackageId_t unPackageID, AppId_t puIds[], uint32 uMaxIds ) = 0; //argc: 3, index 6
+    virtual SteamAPICall_t RequestFreeLicenseForApps(AppId_t puIds[], uint32 puIdsLength) = 0; //argc: 2, index 7
 };
 
 #endif // ICLIENTBILLING_H

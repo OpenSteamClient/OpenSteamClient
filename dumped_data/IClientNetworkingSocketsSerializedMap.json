@@ -1,71 +1,71 @@
 {
     "name": "IClientNetworkingSocketsSerializedMap",
-    "found_at": "0x22c6708",
+    "found_at": "0x2375a08",
     "functions": [ 
         {
             "name": "SendP2PRendezvous",
             "argc": "6",
-            "addr": "0x5dd920"
+            "addr": "0x60af70"
         },
         {
             "name": "SendP2PConnectionFailureLegacy",
             "argc": "6",
-            "addr": "0x5ddaa0"
+            "addr": "0x60b0f0"
         },
         {
             "name": "GetCertAsync",
             "argc": "1",
-            "addr": "0x5ddc20"
+            "addr": "0x60b270"
         },
         {
             "name": "CacheRelayTicket",
             "argc": "3",
-            "addr": "0x5ddda0"
+            "addr": "0x60b3f0"
         },
         {
             "name": "GetCachedRelayTicketCount",
             "argc": "1",
-            "addr": "0x5ddf00"
+            "addr": "0x60b550"
         },
         {
             "name": "GetCachedRelayTicket",
             "argc": "4",
-            "addr": "0x5de060"
+            "addr": "0x60b6b0"
         },
         {
             "name": "GetSTUNServer",
             "argc": "4",
-            "addr": "0x5de210"
+            "addr": "0x60b860"
         },
         {
             "name": "AllowDirectConnectToPeerString",
             "argc": "2",
-            "addr": "0x5de3c0"
+            "addr": "0x60ba10"
         },
         {
             "name": "BeginAsyncRequestFakeIP",
             "argc": "2",
-            "addr": "0x5de530"
+            "addr": "0x60bb80"
         },
         {
             "name": "AllowDirectConnectToPeerString",
             "argc": "2",
-            "addr": "0x5e8000"
+            "addr": "0x6163b0"
         },
         {
             "name": "SetAllowShareIPUserSetting",
             "argc": "2",
-            "addr": "0x5de6c0"
+            "addr": "0x60bd10"
         },
         {
             "name": "GetAllowShareIPUserSetting",
             "argc": "1",
-            "addr": "0x5de810"
+            "addr": "0x60be60"
         },
         {
             "name": "TEST_ClearInMemoryCachedCredentials",
             "argc": "1",
-            "addr": "0x5de970"
+            "addr": "0x60bfc0"
         }
     ]
 }

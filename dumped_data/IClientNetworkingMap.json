@@ -1,116 +1,116 @@
 {
     "name": "IClientNetworkingMap",
-    "found_at": "0x22c5614",
+    "found_at": "0x23748dc",
     "functions": [ 
         {
             "name": "SendP2PPacket",
             "argc": "7",
-            "addr": "0x579360"
+            "addr": "0x5a53c0"
         },
         {
             "name": "IsP2PPacketAvailable",
             "argc": "3",
-            "addr": "0x579520"
+            "addr": "0x5a5580"
         },
         {
             "name": "ReadP2PPacket",
             "argc": "6",
-            "addr": "0x5796b0"
+            "addr": "0x5a5710"
         },
         {
             "name": "AcceptP2PSessionWithUser",
             "argc": "3",
-            "addr": "0x5798a0"
+            "addr": "0x5a5900"
         },
         {
             "name": "CloseP2PSessionWithUser",
             "argc": "3",
-            "addr": "0x579a10"
+            "addr": "0x5a5a70"
         },
         {
             "name": "CloseP2PChannelWithUser",
             "argc": "4",
-            "addr": "0x579b80"
+            "addr": "0x5a5be0"
         },
         {
             "name": "GetP2PSessionState",
             "argc": "4",
-            "addr": "0x57b560"
+            "addr": "0x5a75c0"
         },
         {
             "name": "AllowP2PPacketRelay",
             "argc": "2",
-            "addr": "0x579d10"
+            "addr": "0x5a5d70"
         },
         {
             "name": "CreateListenSocket",
             "argc": "9",
-            "addr": "0x579e90"
+            "addr": "0x5a5ef0"
         },
         {
             "name": "CreateP2PConnectionSocket",
             "argc": "6",
-            "addr": "0x57a0b0"
+            "addr": "0x5a6110"
         },
         {
             "name": "CreateConnectionSocket",
             "argc": "8",
-            "addr": "0x57a260"
+            "addr": "0x5a62c0"
         },
         {
             "name": "DestroySocket",
             "argc": "3",
-            "addr": "0x57a460"
+            "addr": "0x5a64c0"
         },
         {
             "name": "DestroyListenSocket",
             "argc": "3",
-            "addr": "0x57a600"
+            "addr": "0x5a6660"
         },
         {
             "name": "SendDataOnSocket",
             "argc": "5",
-            "addr": "0x57a7a0"
+            "addr": "0x5a6800"
         },
         {
             "name": "IsDataAvailableOnSocket",
             "argc": "3",
-            "addr": "0x57a960"
+            "addr": "0x5a69c0"
         },
         {
             "name": "RetrieveDataFromSocket",
             "argc": "5",
-            "addr": "0x57aaf0"
+            "addr": "0x5a6b50"
         },
         {
             "name": "IsDataAvailable",
             "argc": "4",
-            "addr": "0x57acd0"
+            "addr": "0x5a6d30"
         },
         {
             "name": "RetrieveData",
             "argc": "6",
-            "addr": "0x57ae80"
+            "addr": "0x5a6ee0"
         },
         {
             "name": "GetSocketInfo",
             "argc": "6",
-            "addr": "0x57b070"
+            "addr": "0x5a70d0"
         },
         {
             "name": "GetListenSocketInfo",
             "argc": "4",
-            "addr": "0x57b240"
+            "addr": "0x5a72a0"
         },
         {
             "name": "GetSocketConnectionType",
             "argc": "2",
-            "addr": "0x57b6f0"
+            "addr": "0x5a7750"
         },
         {
             "name": "GetMaxPacketSize",
             "argc": "2",
-            "addr": "0x57b3f0"
+            "addr": "0x5a7450"
         }
     ]
 }

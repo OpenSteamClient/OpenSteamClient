@@ -1,541 +1,541 @@
 {
     "name": "IClientAppManagerMap",
-    "found_at": "0x22c51c4",
+    "found_at": "0x237448c",
     "functions": [ 
         {
             "name": "InstallApp",
             "argc": "4",
-            "addr": "0x560c70"
+            "addr": "0x58cce0"
         },
         {
             "name": "UninstallApp",
             "argc": "2",
-            "addr": "0x5614d0"
+            "addr": "0x58d540"
         },
         {
             "name": "LaunchApp",
             "argc": "5",
-            "addr": "0x560400"
+            "addr": "0x58c470"
         },
         {
             "name": "ShutdownApp",
             "argc": "3",
-            "addr": "0x5605b0"
+            "addr": "0x58c620"
         },
         {
             "name": "GetAppInstallState",
             "argc": "2",
-            "addr": "0x560750"
+            "addr": "0x58c7c0"
         },
         {
             "name": "GetAppInstallDir",
             "argc": "4",
-            "addr": "0x561320"
+            "addr": "0x58d390"
         },
         {
             "name": "GetAppContentInfo",
             "argc": "7",
-            "addr": "0x5608c0"
+            "addr": "0x58c930"
         },
         {
             "name": "GetAppStagingInfo",
             "argc": "4",
-            "addr": "0x560ac0"
+            "addr": "0x58cb30"
         },
         {
             "name": "IsAppDlcInstalled",
             "argc": "3",
-            "addr": "0x561190"
+            "addr": "0x58d200"
         },
         {
             "name": "GetDlcDownloadProgress",
             "argc": "5",
-            "addr": "0x562fb0"
+            "addr": "0x58f020"
         },
         {
             "name": "BIsDlcEnabled",
             "argc": "4",
-            "addr": "0x562af0"
+            "addr": "0x58eb60"
         },
         {
             "name": "SetDlcEnabled",
             "argc": "4",
-            "addr": "0x562ca0"
+            "addr": "0x58ed10"
         },
         {
             "name": "SetDlcContext",
             "argc": "3",
-            "addr": "0x562e20"
+            "addr": "0x58ee90"
         },
         {
             "name": "GetDlcSizes",
             "argc": "5",
-            "addr": "0x563170"
+            "addr": "0x58f1e0"
         },
         {
             "name": "GetNumInstalledApps",
             "argc": "1",
-            "addr": "0x561640"
+            "addr": "0x58d6b0"
         },
         {
             "name": "GetInstalledApps",
             "argc": "3",
-            "addr": "0x5617a0"
+            "addr": "0x58d810"
         },
         {
             "name": "BIsWaitingForInstalledApps",
             "argc": "1",
-            "addr": "0x561940"
+            "addr": "0x58d9b0"
         },
         {
             "name": "GetAppDependencies",
             "argc": "4",
-            "addr": "0x560e10"
+            "addr": "0x58ce80"
         },
         {
             "name": "GetDependentApps",
             "argc": "4",
-            "addr": "0x560fd0"
+            "addr": "0x58d040"
         },
         {
             "name": "GetUpdateInfo",
             "argc": "3",
-            "addr": "0x562600"
+            "addr": "0x58e670"
         },
         {
             "name": "GetAppConfigValue",
             "argc": "5",
-            "addr": "0x562920"
+            "addr": "0x58e990"
         },
         {
             "name": "SetAppConfigValue",
             "argc": "4",
-            "addr": "0x562790"
+            "addr": "0x58e800"
         },
         {
             "name": "BIsAppUpToDate",
             "argc": "2",
-            "addr": "0x563340"
+            "addr": "0x58f3b0"
         },
         {
             "name": "GetAvailableLanguages",
             "argc": "5",
-            "addr": "0x561aa0"
+            "addr": "0x58db10"
         },
         {
             "name": "GetCurrentLanguage",
             "argc": "4",
-            "addr": "0x569130"
+            "addr": "0x594fd0"
         },
         {
             "name": "GetCurrentLanguage",
             "argc": "2",
-            "addr": "0x568e30"
+            "addr": "0x594cd0"
         },
         {
             "name": "GetFallbackLanguage",
             "argc": "3",
-            "addr": "0x568fa0"
+            "addr": "0x594e40"
         },
         {
             "name": "SetCurrentLanguage",
             "argc": "3",
-            "addr": "0x5692e0"
+            "addr": "0x595180"
         },
         {
             "name": "StartValidatingApp",
             "argc": "2",
-            "addr": "0x561c70"
+            "addr": "0x58dce0"
         },
         {
             "name": "CancelValidation",
             "argc": "2",
-            "addr": "0x561df0"
+            "addr": "0x58de60"
         },
         {
             "name": "MarkContentCorrupt",
             "argc": "3",
-            "addr": "0x561f70"
+            "addr": "0x58dfe0"
         },
         {
             "name": "GetInstalledDepots",
             "argc": "4",
-            "addr": "0x562440"
+            "addr": "0x58e4b0"
         },
         {
             "name": "GetFileDetails",
             "argc": "3",
-            "addr": "0x562110"
+            "addr": "0x58e180"
         },
         {
             "name": "VerifySignedFiles",
             "argc": "2",
-            "addr": "0x5622b0"
+            "addr": "0x58e320"
         },
         {
             "name": "GetAvailableBetas",
             "argc": "6",
-            "addr": "0x5637c0"
+            "addr": "0x58f830"
         },
         {
             "name": "CheckBetaPassword",
             "argc": "3",
-            "addr": "0x5634c0"
+            "addr": "0x58f530"
         },
         {
             "name": "BHasCachedBetaPassword",
             "argc": "3",
-            "addr": "0x563640"
+            "addr": "0x58f6b0"
         },
         {
             "name": "GetActiveBeta",
             "argc": "4",
-            "addr": "0x5639a0"
+            "addr": "0x58fa10"
         },
         {
             "name": "BGetActiveBetaForApps",
             "argc": "3",
-            "addr": "0x56a6d0"
+            "addr": "0x596720"
         },
         {
             "name": "SetDownloadingEnabled",
             "argc": "2",
-            "addr": "0x563b50"
+            "addr": "0x58fbc0"
         },
         {
             "name": "BIsDownloadingEnabled",
             "argc": "1",
-            "addr": "0x563cd0"
+            "addr": "0x58fd40"
         },
         {
             "name": "GetDownloadStats",
             "argc": "2",
-            "addr": "0x563e30"
+            "addr": "0x58fea0"
         },
         {
             "name": "GetDownloadingAppID",
             "argc": "1",
-            "addr": "0x563fb0"
+            "addr": "0x590020"
         },
         {
             "name": "GetAutoUpdateTimeRestrictionEnabled",
             "argc": "1",
-            "addr": "0x564110"
+            "addr": "0x590180"
         },
         {
             "name": "SetAutoUpdateTimeRestrictionEnabled",
             "argc": "2",
-            "addr": "0x564270"
+            "addr": "0x5902e0"
         },
         {
             "name": "GetAutoUpdateTimeRestrictionHours",
             "argc": "3",
-            "addr": "0x5643c0"
+            "addr": "0x590430"
         },
         {
             "name": "SetAutoUpdateTimeRestrictionStartHour",
             "argc": "2",
-            "addr": "0x564560"
+            "addr": "0x5905d0"
         },
         {
             "name": "SetAutoUpdateTimeRestrictionEndHour",
             "argc": "2",
-            "addr": "0x5646e0"
+            "addr": "0x590750"
         },
         {
             "name": "GetAppAutoUpdateBehavior",
             "argc": "2",
-            "addr": "0x564860"
+            "addr": "0x5908d0"
         },
         {
             "name": "SetAppAutoUpdateBehavior",
             "argc": "3",
-            "addr": "0x564f80"
+            "addr": "0x590ff0"
         },
         {
             "name": "SetAppAllowDownloadsWhileRunningBehavior",
             "argc": "3",
-            "addr": "0x5649d0"
+            "addr": "0x590a40"
         },
         {
             "name": "GetAppAllowDownloadsWhileRunningBehavior",
             "argc": "2",
-            "addr": "0x564b60"
+            "addr": "0x590bd0"
         },
         {
             "name": "SetAllowDownloadsWhileAnyAppRunning",
             "argc": "2",
-            "addr": "0x564cd0"
+            "addr": "0x590d40"
         },
         {
             "name": "BAllowDownloadsWhileAnyAppRunning",
             "argc": "1",
-            "addr": "0x564e20"
+            "addr": "0x590e90"
         },
         {
             "name": "ChangeAppDownloadQueuePlacement",
             "argc": "3",
-            "addr": "0x56a0a0"
+            "addr": "0x5960f0"
         },
         {
             "name": "SetAppDownloadQueueIndex",
             "argc": "3",
-            "addr": "0x565110"
+            "addr": "0x591180"
         },
         {
             "name": "GetAppDownloadQueueIndex",
             "argc": "2",
-            "addr": "0x5652a0"
+            "addr": "0x591310"
         },
         {
             "name": "GetAppAutoUpdateDelayedUntilTime",
             "argc": "2",
-            "addr": "0x565570"
+            "addr": "0x5915e0"
         },
         {
             "name": "GetNumAppsInDownloadQueue",
             "argc": "1",
-            "addr": "0x565410"
+            "addr": "0x591480"
         },
         {
             "name": "BHasLocalContentServer",
             "argc": "1",
-            "addr": "0x5656e0"
+            "addr": "0x591750"
         },
         {
             "name": "BuildBackup",
             "argc": "5",
-            "addr": "0x565840"
+            "addr": "0x5918b0"
         },
         {
             "name": "BuildInstaller",
             "argc": "5",
-            "addr": "0x5659f0"
+            "addr": "0x591a50"
         },
         {
             "name": "CancelBackup",
             "argc": "1",
-            "addr": "0x565b80"
+            "addr": "0x591be0"
         },
         {
             "name": "RestoreAppFromBackup",
             "argc": "3",
-            "addr": "0x565ce0"
+            "addr": "0x591d40"
         },
         {
             "name": "RecoverAppFromFolder",
             "argc": "3",
-            "addr": "0x565e60"
+            "addr": "0x591ec0"
         },
         {
             "name": "CanMoveApp",
             "argc": "3",
-            "addr": "0x565fe0"
+            "addr": "0x592040"
         },
         {
             "name": "MoveApp",
             "argc": "3",
-            "addr": "0x566170"
+            "addr": "0x5921d0"
         },
         {
             "name": "GetMoveAppProgress",
             "argc": "5",
-            "addr": "0x566300"
+            "addr": "0x592360"
         },
         {
             "name": "CancelMoveApp",
             "argc": "2",
-            "addr": "0x5664c0"
+            "addr": "0x592520"
         },
         {
             "name": "GetAppStateInfo",
             "argc": "3",
-            "addr": "0x566640"
+            "addr": "0x5926a0"
         },
         {
             "name": "BGetAppStateInfoForApps",
             "argc": "3",
-            "addr": "0x56a230"
+            "addr": "0x596280"
         },
         {
             "name": "BIsAvailableOnPlatform",
             "argc": "3",
-            "addr": "0x5667d0"
+            "addr": "0x592830"
         },
         {
             "name": "BCanRemotePlayTogether",
             "argc": "2",
-            "addr": "0x566950"
+            "addr": "0x5929b0"
         },
         {
             "name": "BIsLocalMultiplayerApp",
             "argc": "2",
-            "addr": "0x566ad0"
+            "addr": "0x592b30"
         },
         {
             "name": "GetNumLibraryFolders",
             "argc": "1",
-            "addr": "0x566c50"
+            "addr": "0x592cb0"
         },
         {
             "name": "GetLibraryFolderPath",
             "argc": "4",
-            "addr": "0x566db0"
+            "addr": "0x592e10"
         },
         {
             "name": "AddLibraryFolder",
             "argc": "2",
-            "addr": "0x566f70"
+            "addr": "0x592fd0"
         },
         {
             "name": "SetLibraryFolderLabel",
             "argc": "3",
-            "addr": "0x567290"
+            "addr": "0x5932f0"
         },
         {
             "name": "GetLibraryFolderLabel",
             "argc": "4",
-            "addr": "0x5673e0"
+            "addr": "0x593440"
         },
         {
             "name": "RemoveLibraryFolder",
             "argc": "4",
-            "addr": "0x5670e0"
+            "addr": "0x593140"
         },
         {
             "name": "BGetLibraryFolderInfo",
             "argc": "5",
-            "addr": "0x56a4a0"
+            "addr": "0x5964f0"
         },
         {
             "name": "GetAppLibraryFolder",
             "argc": "2",
-            "addr": "0x5675a0"
+            "addr": "0x593600"
         },
         {
             "name": "RefreshLibraryFolders",
             "argc": "1",
-            "addr": "0x567710"
+            "addr": "0x593770"
         },
         {
             "name": "GetNumAppsInFolder",
             "argc": "2",
-            "addr": "0x567840"
+            "addr": "0x5938a0"
         },
         {
             "name": "GetAppsInFolder",
             "argc": "4",
-            "addr": "0x5679b0"
+            "addr": "0x593a10"
         },
         {
             "name": "ForceInstallDirOverride",
             "argc": "2",
-            "addr": "0x567b70"
+            "addr": "0x593bd0"
         },
         {
             "name": "SetDownloadThrottleRateKbps",
             "argc": "3",
-            "addr": "0x567cb0"
+            "addr": "0x593d10"
         },
         {
             "name": "GetDownloadThrottleRateKbps",
             "argc": "2",
-            "addr": "0x567e50"
+            "addr": "0x593eb0"
         },
         {
             "name": "SuspendDownloadThrottling",
             "argc": "2",
-            "addr": "0x567fd0"
+            "addr": "0x594030"
         },
         {
             "name": "SetThrottleDownloadsWhileStreaming",
             "argc": "2",
-            "addr": "0x568120"
+            "addr": "0x594180"
         },
         {
             "name": "BThrottleDownloadsWhileStreaming",
             "argc": "1",
-            "addr": "0x568270"
+            "addr": "0x5942d0"
         },
         {
             "name": "GetLaunchQueryParam",
             "argc": "3",
-            "addr": "0x5683d0"
+            "addr": "0x594430"
         },
         {
             "name": "BeginLaunchQueryParams",
             "argc": "2",
-            "addr": "0x568550"
+            "addr": "0x5945b0"
         },
         {
             "name": "SetLaunchQueryParam",
             "argc": "4",
-            "addr": "0x5686a0"
+            "addr": "0x594700"
         },
         {
             "name": "CommitLaunchQueryParams",
             "argc": "3",
-            "addr": "0x568800"
+            "addr": "0x594860"
         },
         {
             "name": "GetLaunchCommandLine",
             "argc": "4",
-            "addr": "0x568c80"
+            "addr": "0x594b20"
         },
         {
             "name": "AddContentLogLine",
             "argc": "2",
-            "addr": "0x568980"
-        },
-        {
-            "name": "GetSystemIconFile",
-            "argc": "5",
-            "addr": "0x568ac0"
+            "addr": "0x5949e0"
         },
         {
             "name": "SetUseHTTPSForDownloads",
             "argc": "2",
-            "addr": "0x569470"
+            "addr": "0x595310"
         },
         {
             "name": "GetUseHTTPSForDownloads",
             "argc": "1",
-            "addr": "0x5695c0"
+            "addr": "0x595460"
         },
         {
             "name": "SetPeerContentServerMode",
             "argc": "2",
-            "addr": "0x569720"
+            "addr": "0x5955c0"
         },
         {
             "name": "SetPeerContentClientMode",
             "argc": "2",
-            "addr": "0x569870"
+            "addr": "0x595710"
         },
         {
             "name": "GetPeerContentServerMode",
             "argc": "1",
-            "addr": "0x5699c0"
+            "addr": "0x595860"
         },
         {
             "name": "GetPeerContentClientMode",
             "argc": "1",
-            "addr": "0x569b20"
+            "addr": "0x5959c0"
         },
         {
             "name": "GetPeerContentServerStats",
             "argc": "2",
-            "addr": "0x569c80"
+            "addr": "0x595b20"
         },
         {
             "name": "SuspendPeerContentClient",
             "argc": "2",
-            "addr": "0x569e00"
+            "addr": "0x595ca0"
         },
         {
             "name": "SuspendPeerContentServer",
             "argc": "2",
-            "addr": "0x569f50"
+            "addr": "0x595df0"
+        },
+        {
+            "name": "GetPeerContentServerForApp",
+            "argc": "4",
+            "addr": "0x595f40"
         }
     ]
 }

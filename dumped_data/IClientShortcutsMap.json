@@ -1,151 +1,151 @@
 {
     "name": "IClientShortcutsMap",
-    "found_at": "0x22c60f0",
+    "found_at": "0x23753d4",
     "functions": [ 
         {
             "name": "GetUniqueLocalAppId",
             "argc": "1",
-            "addr": "0x5ba180"
+            "addr": "0x5e6db0"
         },
         {
             "name": "GetGameIDForAppID",
             "argc": "3",
-            "addr": "0x5ba2e0"
+            "addr": "0x5e6f10"
         },
         {
             "name": "GetAppIDForGameID",
             "argc": "2",
-            "addr": "0x5ba480"
+            "addr": "0x5e70b0"
         },
         {
             "name": "GetDevkitAppIDByDevkitGameID",
             "argc": "2",
-            "addr": "0x5bc490"
+            "addr": "0x5e90c0"
         },
         {
             "name": "GetShortcutAppIds",
             "argc": "2",
-            "addr": "0x5ba600"
+            "addr": "0x5e7230"
         },
         {
             "name": "GetShortcutInfoByIndex",
             "argc": "3",
-            "addr": "0x5ba780"
+            "addr": "0x5e73b0"
         },
         {
             "name": "GetShortcutInfoByAppID",
             "argc": "3",
-            "addr": "0x5ba910"
+            "addr": "0x5e7540"
         },
         {
             "name": "AddShortcut",
             "argc": "6",
-            "addr": "0x5baaa0"
+            "addr": "0x5e76d0"
         },
         {
             "name": "AddTemporaryShortcut",
             "argc": "4",
-            "addr": "0x5bac30"
+            "addr": "0x5e7860"
         },
         {
             "name": "AddOpenVRShortcut",
             "argc": "4",
-            "addr": "0x5badb0"
+            "addr": "0x5e79e0"
         },
         {
             "name": "SetShortcutFromFullpath",
             "argc": "3",
-            "addr": "0x5baf30"
+            "addr": "0x5e7b60"
         },
         {
             "name": "SetShortcutAppName",
             "argc": "3",
-            "addr": "0x5bb080"
+            "addr": "0x5e7cb0"
         },
         {
             "name": "SetShortcutExe",
             "argc": "4",
-            "addr": "0x5bc780"
+            "addr": "0x5e93b0"
         },
         {
             "name": "SetShortcutStartDir",
             "argc": "3",
-            "addr": "0x5bb320"
+            "addr": "0x5e7f50"
         },
         {
             "name": "SetShortcutIcon",
             "argc": "3",
-            "addr": "0x5bb470"
+            "addr": "0x5e80a0"
         },
         {
             "name": "SetShortcutCommandLine",
             "argc": "3",
-            "addr": "0x5bb1d0"
+            "addr": "0x5e7e00"
         },
         {
             "name": "ClearShortcutUserTags",
             "argc": "2",
-            "addr": "0x5bb5c0"
+            "addr": "0x5e81f0"
         },
         {
             "name": "AddShortcutUserTag",
             "argc": "3",
-            "addr": "0x5bb710"
+            "addr": "0x5e8340"
         },
         {
             "name": "RemoveShortcutUserTag",
             "argc": "3",
-            "addr": "0x5bb860"
+            "addr": "0x5e8490"
         },
         {
             "name": "ClearAndSetShortcutUserTags",
             "argc": "3",
-            "addr": "0x5bb9b0"
+            "addr": "0x5e85e0"
         },
         {
             "name": "SetShortcutHidden",
             "argc": "3",
-            "addr": "0x5bbb00"
+            "addr": "0x5e8730"
         },
         {
             "name": "SetAllowDesktopConfig",
             "argc": "3",
-            "addr": "0x5bbc60"
+            "addr": "0x5e8890"
         },
         {
             "name": "SetAllowOverlay",
             "argc": "3",
-            "addr": "0x5bbdc0"
+            "addr": "0x5e89f0"
         },
         {
             "name": "SetOpenVRShortcut",
             "argc": "3",
-            "addr": "0x5bbf20"
+            "addr": "0x5e8b50"
         },
         {
             "name": "SetDevkitShortcut",
             "argc": "4",
-            "addr": "0x5bc940"
+            "addr": "0x5e9570"
         },
         {
             "name": "SetFlatpakAppID",
             "argc": "3",
-            "addr": "0x5bc600"
+            "addr": "0x5e9230"
         },
         {
             "name": "RemoveShortcut",
             "argc": "2",
-            "addr": "0x5bc080"
+            "addr": "0x5e8cb0"
         },
         {
             "name": "RemoveAllTemporaryShortcuts",
             "argc": "1",
-            "addr": "0x5bc1d0"
+            "addr": "0x5e8e00"
         },
         {
             "name": "LaunchShortcut",
             "argc": "3",
-            "addr": "0x5bc300"
+            "addr": "0x5e8f30"
         }
     ]
 }

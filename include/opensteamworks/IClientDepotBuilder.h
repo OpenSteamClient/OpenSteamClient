@@ -57,35 +57,16 @@ typedef uint32 HDEPOTBUILD;
 abstract_class IClientDepotBuilder
 {
 public:
-
-	virtual bool BGetDepotBuildStatus(HDEPOTBUILD hDepotBuild, EDepotBuildStatus*, unsigned long long *pPercentDone, unsigned long long *pPercentMax) = 0;
-	virtual unknown_ret VerifyChunkStore(AppId_t, DepotId_t, const char*) = 0;
-	//virtual void Unknown() = 0;
-	virtual HDEPOTBUILD DownloadDepot(AppId_t, DepotId_t, unsigned long long, unsigned long long, unsigned long long, unsigned int, char const*) = 0;
-    virtual unknown_ret DownloadChunk(AppId_t, DepotId_t, unsigned char const (*) [20]) = 0;
-    virtual unknown_ret StartDepotBuild(AppId_t, DepotId_t, uint32, char const*) = 0;
-    virtual unknown_ret CommitAppBuild(uint32 buildId, AppId_t appid, unsigned int *unkOut, unsigned long long *unkOut2, char const *betaKey, char const *unk) = 0;
-
-	// virtual uint32 RegisterAppBuild( AppId_t nAppID, bool bLocalCSBuild, const char *cszDescription ) = 0;
-	// virtual uint32 GetRegisteredBuildID( uint32 ) = 0;
-
-	// virtual HDEPOTBUILD StartDepotBuildFromConfigFile( const char *pchConfigFile, const char *, const char *, uint32, uint32, const char * ) = 0;
-
-	// virtual bool BGetDepotBuildStatus( HDEPOTBUILD hDepotBuild, EDepotBuildStatus* pStatusOut, uint32* pPercentDone ) = 0;
-	// virtual bool CloseDepotBuildHandle( HDEPOTBUILD hDepotBuild ) = 0;
-
-	// virtual HDEPOTBUILD ReconstructDepotFromManifestAndChunks( const char *pchLocalManifestPath, const char *pchLocalChunkPath, const char *pchRestorePath, uint32  ) = 0;
-
-	// virtual bool BGetChunkCounts( HDEPOTBUILD hDepotBuild, uint32 *unTotalChunksInNewBuild, uint32 *unChunksAlsoInOldBuild ) = 0;
-
-	// virtual bool GetManifestGIDs( HDEPOTBUILD hDepotBuild, GID_t* pBaselineGID, GID_t* pNewGID, bool* ) = 0;
-
-	// virtual uint32 FinishAppBuild( uint32 uBuildID, uint32 nAppID, const char *cszBetaKey, bool bOnlyFinish, uint32 cNumSkipDepots ) = 0;
-
-	// virtual uint32 VerifyChunkStore( uint32, uint32, const char * ) = 0;
-	// virtual uint32 StartUploadTest( uint32, uint32 ) = 0;
-	// virtual uint32 DownloadDepot( uint32, uint32 ) = 0;
-   
+    
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual bool BGetDepotBuildStatus(HDEPOTBUILD hDepotBuild, EDepotBuildStatus*, unsigned long long *pPercentDone, unsigned long long *pPercentMax) = 0; //argc: 5, index 1
+    virtual unknown_ret VerifyChunkStore(AppId_t, DepotId_t, const char*) = 0; //argc: 3, index 2
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    // WARNING: Do not use this function! Unknown behaviour will occur!
+    virtual unknown_ret Unknown_2_DONTUSE() = 0; //argc: -1, index 3
+    virtual unknown_ret DownloadChunk(AppId_t, DepotId_t, unsigned char const (*) [20]) = 0; //argc: 3, index 4
+    virtual unknown_ret StartDepotBuild(AppId_t, DepotId_t, uint32, char const*) = 0; //argc: 4, index 5
+    virtual unknown_ret CommitAppBuild(uint32 buildId, AppId_t appid, unsigned int *unkOut, unsigned long long *unkOut2, char const *betaKey, char const *unk) = 0; //argc: 6, index 6
 };
 
 #endif // ICLIENTDEPOTBUILDER_H

@@ -1,41 +1,46 @@
 {
     "name": "IClientRemotePlayMap",
-    "found_at": "0x22c6774",
+    "found_at": "0x2375a78",
     "functions": [ 
         {
             "name": "GetSessionCount",
             "argc": "1",
-            "addr": "0x5df600"
+            "addr": "0x60cd80"
         },
         {
             "name": "GetSessionID",
             "argc": "2",
-            "addr": "0x5df760"
+            "addr": "0x60cee0"
         },
         {
             "name": "GetSessionSteamID",
             "argc": "3",
-            "addr": "0x5df8d0"
+            "addr": "0x60d050"
         },
         {
             "name": "GetSessionClientName",
             "argc": "2",
-            "addr": "0x5dfa70"
+            "addr": "0x60d1f0"
         },
         {
             "name": "GetSessionClientFormFactor",
             "argc": "2",
-            "addr": "0x5dfbe0"
+            "addr": "0x60d360"
         },
         {
             "name": "BGetSessionClientResolution",
             "argc": "4",
-            "addr": "0x5dfd50"
+            "addr": "0x60d4d0"
+        },
+        {
+            "name": "BStartRemotePlayTogether",
+            "argc": "2",
+            "addr": "0x60d680"
         },
         {
             "name": "BSendRemotePlayTogetherInvite",
             "argc": "3",
-            "addr": "0x5dff00"
+            "addr": "0x60d800"
         }
     ]
 }

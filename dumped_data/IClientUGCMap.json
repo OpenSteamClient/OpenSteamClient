@@ -1,466 +1,491 @@
 {
     "name": "IClientUGCMap",
-    "found_at": "0x22c5e74",
+    "found_at": "0x2375144",
     "functions": [ 
         {
             "name": "CreateQueryUserUGCRequest",
             "argc": "8",
-            "addr": "0x5aa6c0"
+            "addr": "0x5d6a70"
         },
         {
             "name": "CreateQueryAllUGCRequest",
             "argc": "6",
-            "addr": "0x5b3b10"
+            "addr": "0x5e0240"
         },
         {
             "name": "CreateQueryAllUGCRequest",
             "argc": "6",
-            "addr": "0x5b3d00"
+            "addr": "0x5e0430"
         },
         {
             "name": "CreateQueryUGCDetailsRequest",
             "argc": "3",
-            "addr": "0x5aa910"
+            "addr": "0x5d6cc0"
         },
         {
             "name": "SendQueryUGCRequest",
             "argc": "3",
-            "addr": "0x5aaab0"
+            "addr": "0x5d6e60"
         },
         {
             "name": "GetQueryUGCResult",
             "argc": "5",
-            "addr": "0x5b3ee0"
+            "addr": "0x5e0610"
         },
         {
             "name": "GetQueryUGCNumTags",
             "argc": "4",
-            "addr": "0x5aac50"
+            "addr": "0x5d7000"
         },
         {
             "name": "GetQueryUGCTag",
             "argc": "7",
-            "addr": "0x5aadf0"
+            "addr": "0x5d71a0"
         },
         {
             "name": "GetQueryUGCTagDisplayName",
             "argc": "7",
-            "addr": "0x5aaff0"
+            "addr": "0x5d73a0"
         },
         {
             "name": "GetQueryUGCPreviewURL",
             "argc": "6",
-            "addr": "0x5ab1f0"
+            "addr": "0x5d75a0"
         },
         {
             "name": "GetQueryUGCImageURL",
             "argc": "8",
-            "addr": "0x5ab3c0"
+            "addr": "0x5d7770"
         },
         {
             "name": "GetQueryUGCMetadata",
             "argc": "6",
-            "addr": "0x5ab5b0"
+            "addr": "0x5d7960"
         },
         {
             "name": "GetQueryUGCChildren",
             "argc": "6",
-            "addr": "0x5ab780"
+            "addr": "0x5d7b30"
         },
         {
             "name": "GetQueryUGCStatistic",
             "argc": "6",
-            "addr": "0x5b40a0"
+            "addr": "0x5e07d0"
         },
         {
             "name": "GetQueryUGCNumAdditionalPreviews",
             "argc": "4",
-            "addr": "0x5ab950"
+            "addr": "0x5d7d00"
         },
         {
             "name": "GetQueryUGCAdditionalPreview",
             "argc": "10",
-            "addr": "0x5abaf0"
+            "addr": "0x5d7ea0"
         },
         {
             "name": "GetQueryUGCNumKeyValueTags",
             "argc": "4",
-            "addr": "0x5abd40"
+            "addr": "0x5d80f0"
         },
         {
             "name": "GetQueryUGCKeyValueTag",
             "argc": "9",
-            "addr": "0x5abee0"
+            "addr": "0x5d8290"
         },
         {
             "name": "GetQueryUGCKeyValueTag",
             "argc": "7",
-            "addr": "0x5ac110"
+            "addr": "0x5d84c0"
+        },
+        {
+            "name": "GetQueryUGCContentDescriptors",
+            "argc": "6",
+            "addr": "0x5d86a0"
         },
         {
             "name": "GetQueryUGCIsDepotBuild",
             "argc": "5",
-            "addr": "0x5ac2f0"
+            "addr": "0x5d8880"
         },
         {
             "name": "ReleaseQueryUGCRequest",
             "argc": "3",
-            "addr": "0x5ac4b0"
+            "addr": "0x5d8a40"
         },
         {
             "name": "AddRequiredTag",
             "argc": "4",
-            "addr": "0x5ac640"
+            "addr": "0x5d8bd0"
         },
         {
             "name": "AddRequiredTagGroup",
             "argc": "4",
-            "addr": "0x5ac7d0"
+            "addr": "0x5d8d60"
         },
         {
             "name": "AddExcludedTag",
             "argc": "4",
-            "addr": "0x5ac960"
+            "addr": "0x5d8ef0"
         },
         {
             "name": "SetReturnOnlyIDs",
             "argc": "4",
-            "addr": "0x5acaf0"
+            "addr": "0x5d9080"
         },
         {
             "name": "SetReturnKeyValueTags",
             "argc": "4",
-            "addr": "0x5acca0"
+            "addr": "0x5d9230"
         },
         {
             "name": "SetReturnLongDescription",
             "argc": "4",
-            "addr": "0x5ace50"
+            "addr": "0x5d93e0"
         },
         {
             "name": "SetReturnMetadata",
             "argc": "4",
-            "addr": "0x5ad000"
+            "addr": "0x5d9590"
         },
         {
             "name": "SetReturnChildren",
             "argc": "4",
-            "addr": "0x5ad1b0"
+            "addr": "0x5d9740"
         },
         {
             "name": "SetReturnAdditionalPreviews",
             "argc": "4",
-            "addr": "0x5ad360"
+            "addr": "0x5d98f0"
         },
         {
             "name": "SetReturnTotalOnly",
             "argc": "4",
-            "addr": "0x5ad510"
+            "addr": "0x5d9aa0"
         },
         {
             "name": "SetReturnPlaytimeStats",
             "argc": "4",
-            "addr": "0x5ad6c0"
+            "addr": "0x5d9c50"
         },
         {
             "name": "SetLanguage",
             "argc": "4",
-            "addr": "0x5ad860"
+            "addr": "0x5d9df0"
         },
         {
             "name": "SetAllowCachedResponse",
             "argc": "4",
-            "addr": "0x5ad9f0"
+            "addr": "0x5d9f80"
         },
         {
             "name": "SetCloudFileNameFilter",
             "argc": "4",
-            "addr": "0x5adb90"
+            "addr": "0x5da120"
         },
         {
             "name": "SetMatchAnyTag",
             "argc": "4",
-            "addr": "0x5add20"
+            "addr": "0x5da2b0"
         },
         {
             "name": "SetSearchText",
             "argc": "4",
-            "addr": "0x5aded0"
+            "addr": "0x5da460"
         },
         {
             "name": "SetRankedByTrendDays",
             "argc": "4",
-            "addr": "0x5ae060"
+            "addr": "0x5da5f0"
         },
         {
             "name": "SetTimeCreatedDateRange",
             "argc": "5",
-            "addr": "0x5ae200"
+            "addr": "0x5da790"
         },
         {
             "name": "SetTimeUpdatedDateRange",
             "argc": "5",
-            "addr": "0x5ae3b0"
+            "addr": "0x5da940"
         },
         {
             "name": "AddRequiredKeyValueTag",
             "argc": "5",
-            "addr": "0x5ae560"
+            "addr": "0x5daaf0"
         },
         {
             "name": "RequestUGCDetails",
             "argc": "4",
-            "addr": "0x5ae700"
+            "addr": "0x5dac90"
         },
         {
             "name": "CreateItem",
             "argc": "3",
-            "addr": "0x5ae8e0"
+            "addr": "0x5dae70"
         },
         {
             "name": "StartItemUpdate",
             "argc": "4",
-            "addr": "0x5aea90"
+            "addr": "0x5db020"
         },
         {
             "name": "SetItemTitle",
             "argc": "4",
-            "addr": "0x5aec70"
+            "addr": "0x5db200"
         },
         {
             "name": "SetItemDescription",
             "argc": "4",
-            "addr": "0x5aee00"
+            "addr": "0x5db390"
         },
         {
             "name": "SetItemUpdateLanguage",
             "argc": "4",
-            "addr": "0x5aef90"
+            "addr": "0x5db520"
         },
         {
             "name": "SetItemMetadata",
             "argc": "4",
-            "addr": "0x5af120"
+            "addr": "0x5db6b0"
         },
         {
             "name": "SetItemVisibility",
             "argc": "4",
-            "addr": "0x5af2b0"
+            "addr": "0x5db840"
         },
         {
             "name": "SetItemTags",
             "argc": "4",
-            "addr": "0x5af450"
+            "addr": "0x5db9e0"
         },
         {
             "name": "SetItemContent",
             "argc": "4",
-            "addr": "0x5af5e0"
+            "addr": "0x5dbb70"
         },
         {
             "name": "SetItemPreview",
             "argc": "4",
-            "addr": "0x5af770"
+            "addr": "0x5dbd00"
         },
         {
             "name": "SetAllowLegacyUpload",
             "argc": "4",
-            "addr": "0x5af900"
+            "addr": "0x5dbe90"
         },
         {
             "name": "RemoveAllItemKeyValueTags",
             "argc": "3",
-            "addr": "0x5afab0"
+            "addr": "0x5dc040"
         },
         {
             "name": "RemoveItemKeyValueTags",
             "argc": "4",
-            "addr": "0x5afc40"
+            "addr": "0x5dc1d0"
         },
         {
             "name": "AddItemKeyValueTag",
             "argc": "5",
-            "addr": "0x5afdd0"
+            "addr": "0x5dc360"
         },
         {
             "name": "AddItemPreviewFile",
             "argc": "5",
-            "addr": "0x5aff70"
+            "addr": "0x5dc500"
         },
         {
             "name": "AddItemPreviewVideo",
             "argc": "4",
-            "addr": "0x5b0120"
+            "addr": "0x5dc6b0"
         },
         {
             "name": "UpdateItemPreviewFile",
             "argc": "5",
-            "addr": "0x5b02b0"
+            "addr": "0x5dc840"
         },
         {
             "name": "UpdateItemPreviewVideo",
             "argc": "5",
-            "addr": "0x5b0460"
+            "addr": "0x5dc9f0"
         },
         {
             "name": "RemoveItemPreview",
             "argc": "4",
-            "addr": "0x5b0610"
+            "addr": "0x5dcba0"
+        },
+        {
+            "name": "AddContentDescriptor",
+            "argc": "4",
+            "addr": "0x5e09a0"
+        },
+        {
+            "name": "RemoveContentDescriptor",
+            "argc": "4",
+            "addr": "0x5e0b40"
         },
         {
             "name": "SubmitItemUpdate",
             "argc": "4",
-            "addr": "0x5b07b0"
+            "addr": "0x5dcd40"
         },
         {
             "name": "GetItemUpdateProgress",
             "argc": "5",
-            "addr": "0x5b4270"
+            "addr": "0x5e0ce0"
         },
         {
             "name": "SetUserItemVote",
             "argc": "4",
-            "addr": "0x5b0960"
+            "addr": "0x5dcef0"
         },
         {
             "name": "GetUserItemVote",
             "argc": "3",
-            "addr": "0x5b0b20"
+            "addr": "0x5dd0b0"
         },
         {
             "name": "AddItemToFavorites",
             "argc": "4",
-            "addr": "0x5b0cc0"
+            "addr": "0x5dd250"
         },
         {
             "name": "RemoveItemFromFavorites",
             "argc": "4",
-            "addr": "0x5b0ea0"
+            "addr": "0x5dd430"
         },
         {
             "name": "SubscribeItem",
             "argc": "5",
-            "addr": "0x5b1080"
+            "addr": "0x5dd610"
         },
         {
             "name": "UnsubscribeItem",
             "argc": "4",
-            "addr": "0x5b1280"
+            "addr": "0x5dd810"
         },
         {
             "name": "GetNumSubscribedItems",
             "argc": "2",
-            "addr": "0x5b1460"
+            "addr": "0x5dd9f0"
         },
         {
             "name": "GetSubscribedItems",
             "argc": "4",
-            "addr": "0x5b15d0"
+            "addr": "0x5ddb60"
         },
         {
             "name": "GetItemState",
             "argc": "4",
-            "addr": "0x5b1aa0"
+            "addr": "0x5de030"
         },
         {
             "name": "GetItemInstallInfo",
             "argc": "8",
-            "addr": "0x5b1c40"
+            "addr": "0x5de1d0"
         },
         {
             "name": "GetItemDownloadInfo",
             "argc": "6",
-            "addr": "0x5b1e30"
+            "addr": "0x5de3c0"
         },
         {
             "name": "DownloadItem",
             "argc": "5",
-            "addr": "0x5b2000"
+            "addr": "0x5de590"
         },
         {
             "name": "GetAppItemsStatus",
             "argc": "4",
-            "addr": "0x5b21c0"
+            "addr": "0x5de750"
         },
         {
             "name": "BInitWorkshopForGameServer",
             "argc": "4",
-            "addr": "0x5b2370"
+            "addr": "0x5de900"
         },
         {
             "name": "SuspendDownloads",
             "argc": "3",
-            "addr": "0x5b2510"
+            "addr": "0x5deaa0"
         },
         {
             "name": "GetAllItemsSizeOnDisk",
             "argc": "2",
-            "addr": "0x5b2670"
+            "addr": "0x5dec00"
         },
         {
             "name": "StartPlaytimeTracking",
             "argc": "4",
-            "addr": "0x5b2800"
+            "addr": "0x5ded90"
         },
         {
             "name": "StopPlaytimeTracking",
             "argc": "4",
-            "addr": "0x5b29c0"
+            "addr": "0x5def50"
         },
         {
             "name": "StopPlaytimeTrackingForAllItems",
             "argc": "2",
-            "addr": "0x5b2b80"
+            "addr": "0x5df110"
         },
         {
             "name": "AddDependency",
             "argc": "5",
-            "addr": "0x5b2d10"
+            "addr": "0x5df2a0"
         },
         {
             "name": "RemoveDependency",
             "argc": "5",
-            "addr": "0x5b2f20"
+            "addr": "0x5df4b0"
         },
         {
             "name": "AddAppDependency",
             "argc": "4",
-            "addr": "0x5b3130"
+            "addr": "0x5df6c0"
         },
         {
             "name": "RemoveAppDependency",
             "argc": "4",
-            "addr": "0x5b3310"
+            "addr": "0x5df8a0"
         },
         {
             "name": "GetAppDependencies",
             "argc": "3",
-            "addr": "0x5b34f0"
+            "addr": "0x5dfa80"
         },
         {
             "name": "DeleteItem",
             "argc": "3",
-            "addr": "0x5b3690"
+            "addr": "0x5dfc20"
         },
         {
             "name": "ShowWorkshopEULA",
             "argc": "1",
-            "addr": "0x5b3830"
+            "addr": "0x5dfdc0"
         },
         {
             "name": "GetWorkshopEULAStatus",
             "argc": "1",
-            "addr": "0x5b3990"
+            "addr": "0x5dff20"
         },
         {
             "name": "GetNumDownloadedItems",
             "argc": "2",
-            "addr": "0x5b1780"
+            "addr": "0x5ddd10"
         },
         {
             "name": "GetDownloadedItems",
             "argc": "4",
-            "addr": "0x5b18f0"
+            "addr": "0x5dde80"
+        },
+        {
+            "name": "GetFullQueryUGCResponse",
+            "argc": "4",
+            "addr": "0x5e0ea0"
+        },
+        {
+            "name": "GetSerializedQueryUGCResponse",
+            "argc": "4",
+            "addr": "0x5e00a0"
         }
     ]
 }

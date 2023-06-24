@@ -59,21 +59,92 @@ enum ENetworkDeviceManagerError
 abstract_class IClientNetworkDeviceManager
 {
 public:
-	virtual bool IsInterfaceValid() = 0;
-	virtual void RefreshDevices() = 0;
-	virtual ENetworkDeviceState GetWirelessDeviceState() = 0;
-	virtual int32 GetWiredDeviceCount() = 0;
-	virtual ENetworkDeviceState GetWiredDeviceState( int32 iDevice ) = 0;
-	virtual bool IsWiredDevicePluggedIn( int32 iDevice ) = 0;
-	virtual bool GetActiveWirelessAccessPoint( WirelessAccessPoint_t * pAccessPoint ) = 0;
-	virtual bool EnumerateWirelessAccessPoints( WirelessAccessPoint_t * pAccessPoint, uint32 uUnk, uint32 * puUnk ) = 0;
-	virtual bool GetCachedCredentialsForSSID( const char * pchUnk, WirelessCredentials_t * pCredentials ) = 0;
-	virtual EWirelessSecurityFlags GetPreferredSecurityMethod( uint32 uUnk ) = 0;
-
-	virtual ENetworkDeviceManagerError ActivateWiredConnection( int32 iConnection ) = 0;
-	virtual void DeactivateWiredConnection( int32 iConnection ) = 0;
-	virtual ENetworkDeviceManagerError ConnectToAccessPoint( const char * pchUnk1, bool bUnk, EWirelessSecurityFlags eSecurityFlags, const char * pchUnk2 ) = 0;
-	virtual void DisconnectFromAccessPoint() = 0;
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual bool IsInterfaceValid() = 0; //argc: 0, index 1
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual void RefreshDevices() = 0; //argc: 0, index 2
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual unknown_ret GetNetworkDevicesData() = 0; //argc: 1, index 3
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual unknown_ret ConnectToDevice() = 0; //argc: 1, index 4
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual unknown_ret DisconnectFromDevice() = 0; //argc: 1, index 5
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual unknown_ret SetWifiEnabled() = 0; //argc: 1, index 6
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual unknown_ret SetWifiScanningEnabled() = 0; //argc: 1, index 7
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual unknown_ret ForgetWirelessEndpoint() = 0; //argc: 2, index 8
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual unknown_ret SetWirelessEndpointAutoconnect() = 0; //argc: 3, index 9
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual unknown_ret SetCustomIPSettings() = 0; //argc: 6, index 10
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual unknown_ret GetCustomIPSettings() = 0; //argc: 6, index 11
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual unknown_ret SetProxyInfo() = 0; //argc: 3, index 12
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual unknown_ret GetProxyInfo() = 0; //argc: 4, index 13
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual unknown_ret GetObviousConnectivityProblem() = 0; //argc: 0, index 14
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual unknown_ret TEST_SetFakeLocalSystemStateSetting() = 0; //argc: 1, index 15
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual unknown_ret TEST_GetFakeLocalSystemStateSetting() = 0; //argc: 0, index 16
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual unknown_ret TEST_GetFakeLocalSystemEffectiveState() = 0; //argc: 0, index 17
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual unknown_ret TEST_SetEmulateSingleWirelessDevice() = 0; //argc: 1, index 18
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual unknown_ret TEST_GetEmulateSingleWirelessDevice() = 0; //argc: 0, index 19
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual unknown_ret LEGACY_EnumerateNetworkDevices() = 0; //argc: 2, index 20
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual unknown_ret LEGACY_GetDeviceType() = 0; //argc: 1, index 21
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual unknown_ret LEGACY_IsCurrentDevice() = 0; //argc: 1, index 22
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual unknown_ret LEGACY_IsCurrentlyConnected() = 0; //argc: 1, index 23
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual unknown_ret LEGACY_GetDeviceIP4() = 0; //argc: 3, index 24
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual unknown_ret LEGACY_GetDeviceBroadcastIP4() = 0; //argc: 3, index 25
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual unknown_ret LEGACY_GetDeviceIPV6InterfaceIndex() = 0; //argc: 1, index 26
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual unknown_ret LEGACY_GetDeviceVendor() = 0; //argc: 1, index 27
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual unknown_ret LEGACY_GetDeviceProduct() = 0; //argc: 1, index 28
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual unknown_ret LEGACY_GetMacAddress() = 0; //argc: 1, index 29
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual unknown_ret LEGACY_GetSubnetMaskBitCount() = 0; //argc: 3, index 30
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual unknown_ret LEGACY_GetRouterAddressIP4() = 0; //argc: 3, index 31
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual unknown_ret LEGACY_GetDNSResolversIP4() = 0; //argc: 3, index 32
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual unknown_ret LEGACY_GetDeviceState() = 0; //argc: 1, index 33
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual unknown_ret LEGACY_GetDevicePluggedState() = 0; //argc: 1, index 34
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual unknown_ret LEGACY_EnumerateWirelessEndpoints() = 0; //argc: 3, index 35
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual unknown_ret LEGACY_GetConnectedWirelessEndpointSSID() = 0; //argc: 1, index 36
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual unknown_ret LEGACY_GetWirelessSecurityCapabilities() = 0; //argc: 1, index 37
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual unknown_ret LEGACY_GetWirelessEndpointSSIDUserDisplayString() = 0; //argc: 2, index 38
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual unknown_ret LEGACY_GetWirelessEndpointStrength() = 0; //argc: 2, index 39
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual unknown_ret LEGACY_IsSecurityRequired() = 0; //argc: 2, index 40
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual unknown_ret LEGACY_GetCachedWirelessCredentials() = 0; //argc: 2, index 41
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual unknown_ret LEGACY_IsWirelessEndpointForgettable() = 0; //argc: 2, index 42
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual unknown_ret LEGACY_IsUsingDHCP() = 0; //argc: 1, index 43
 };
 
 #endif // ICLIENTNETWORKDEVICEMANAGER_H

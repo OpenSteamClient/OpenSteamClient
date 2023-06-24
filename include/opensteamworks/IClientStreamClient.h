@@ -27,14 +27,29 @@
 abstract_class IClientStreamClient
 {
 public:
-	virtual void Launched( CGameID gameID ) = 0;
-	virtual void FocusGained( CGameID gameID, bool ) = 0;
-	virtual void FocusLost( CGameID gameID ) = 0;
-	virtual void Finished( CGameID gameID, EResult eResult ) = 0;
-	virtual const char * GetSystemInfo() = 0;
-	virtual void StartStreamingSession( CGameID gameID ) = 0;
-	virtual void ReportStreamingSessionEvent( CGameID gameID, const char * ) = 0;
-	virtual void FinishStreamingSession( CGameID gameID, const char *, const char * ) = 0;
+    virtual void Launched( CGameID gameID ) = 0; //argc: 1, index 1
+    virtual void FocusGained( CGameID gameID, bool ) = 0; //argc: 2, index 2
+    virtual void FocusLost( CGameID gameID ) = 0; //argc: 1, index 3
+    virtual void Finished( CGameID gameID, EResult eResult ) = 0; //argc: 2, index 4
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual unknown_ret BGetStreamingClientConfig() = 0; //argc: 1, index 5
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual unknown_ret BSaveStreamingClientConfig() = 0; //argc: 1, index 6
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual unknown_ret SetQualityOverride() = 0; //argc: 1, index 7
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual unknown_ret SetBitrateOverride() = 0; //argc: 1, index 8
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual unknown_ret ShowOnScreenKeyboard() = 0; //argc: 0, index 9
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual unknown_ret BQueueControllerConfigMessageForLocal() = 0; //argc: 1, index 10
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual unknown_ret BGetControllerConfigMessageForRemote() = 0; //argc: 1, index 11
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual const char * GetSystemInfo() = 0; //argc: 0, index 12
+    virtual void StartStreamingSession( CGameID gameID ) = 0; //argc: 1, index 13
+    virtual void ReportStreamingSessionEvent( CGameID gameID, const char * ) = 0; //argc: 2, index 14
+    virtual void FinishStreamingSession( CGameID gameID, const char *, const char * ) = 0; //argc: 3, index 15
 };
 
 #endif // ICLIENTSTREAMCLIENT_H

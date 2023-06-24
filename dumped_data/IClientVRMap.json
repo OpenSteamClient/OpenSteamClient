@@ -1,106 +1,131 @@
 {
     "name": "IClientVRMap",
-    "found_at": "0x22c6268",
+    "found_at": "0x237554c",
     "functions": [ 
         {
             "name": "GetCurrentHmd",
             "argc": "1",
-            "addr": "0x5c20e0"
+            "addr": "0x5eed10"
         },
         {
             "name": "GetCompositor",
             "argc": "1",
-            "addr": "0x5c3410"
+            "addr": "0x5f05c0"
         },
         {
             "name": "GetOverlay",
             "argc": "1",
-            "addr": "0x5c3590"
+            "addr": "0x5f0740"
         },
         {
             "name": "GetChaperone",
             "argc": "1",
-            "addr": "0x5c3710"
+            "addr": "0x5f08c0"
         },
         {
             "name": "GetSettings",
             "argc": "1",
-            "addr": "0x5c3890"
+            "addr": "0x5f0a40"
         },
         {
-            "name": "GetExternalEventSource",
+            "name": "GetProperties",
             "argc": "1",
-            "addr": "0x5c3a10"
+            "addr": "0x5f0bc0"
+        },
+        {
+            "name": "GetPaths",
+            "argc": "1",
+            "addr": "0x5f0d40"
         },
         {
             "name": "GetOverlayHandle",
             "argc": "1",
-            "addr": "0x5c2260"
+            "addr": "0x5eee90"
         },
         {
             "name": "IsHmdPresent",
             "argc": "1",
-            "addr": "0x5c23e0"
+            "addr": "0x5ef010"
         },
         {
             "name": "UpdateHmdStatus",
             "argc": "1",
-            "addr": "0x5c2540"
+            "addr": "0x5ef170"
         },
         {
             "name": "IsVRModeActive",
             "argc": "1",
-            "addr": "0x5c2670"
+            "addr": "0x5ef2a0"
         },
         {
             "name": "InitVR",
-            "argc": "5",
-            "addr": "0x5c3b90"
+            "argc": "4",
+            "addr": "0x5f0ec0"
         },
         {
             "name": "StartSteamVR",
             "argc": "2",
-            "addr": "0x5c27d0"
+            "addr": "0x5ef400"
         },
         {
             "name": "CleanupVR",
             "argc": "1",
-            "addr": "0x5c2940"
+            "addr": "0x5ef570"
         },
         {
             "name": "QuitAllVR",
             "argc": "1",
-            "addr": "0x5c2a70"
+            "addr": "0x5ef6a0"
         },
         {
             "name": "QuitApplication",
             "argc": "2",
-            "addr": "0x5c2ba0"
+            "addr": "0x5ef7d0"
         },
         {
             "name": "GetStringForHmdError",
             "argc": "2",
-            "addr": "0x5c2cf0"
+            "addr": "0x5ef920"
         },
         {
             "name": "LaunchApplication",
             "argc": "2",
-            "addr": "0x5c2e60"
+            "addr": "0x5efa90"
         },
         {
             "name": "GetSteamVRAppId",
             "argc": "1",
-            "addr": "0x5c2fd0"
+            "addr": "0x5efc00"
         },
         {
             "name": "GetSteamVRPid",
             "argc": "1",
-            "addr": "0x5c3130"
+            "addr": "0x5efd60"
         },
         {
             "name": "GetWebSecret",
             "argc": "1",
-            "addr": "0x5c3290"
+            "addr": "0x5efec0"
+        },
+        {
+            "name": "BSteamCanMakeVROverlays",
+            "argc": "1",
+            "addr": "0x5f0040"
+        },
+        {
+            "name": "BServeVRGamepadUIOverlay",
+            "argc": "1",
+            "addr": "0x5f01a0"
+        },
+        {
+            "name": "BServeTenfootOverlay",
+            "argc": "1",
+            "addr": "0x5f0300"
+        },
+        {
+            "name": "BSuppressDesktopBPM",
+            "argc": "1",
+            "addr": "0x5f0460"
         }
     ]
 }

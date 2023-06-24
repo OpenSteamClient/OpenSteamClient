@@ -5,6 +5,7 @@
 #include <map>
 #include <unordered_set>
 #include <sys/stat.h>
+#include <opensteamworks/version.h>
 
 #pragma once
 
@@ -28,11 +29,11 @@ private:
     std::vector<std::string> filesToDownload 
     {
         // Contains the 32-bit steamservice among other things
-        "bins_ubuntu12.zip.9151f0a5f3363cd297840f33644ed03638709121",
+        STEAM_BINS_UBUNTU12_NAME,
         // Contains the 64- and 32-bit steamclient.so:s
-        "bins_sdk_ubuntu12.zip.af7a25a5fb81483cccce95b6c6c6ac230d072817",
+        STEAM_BINS_SDK_UBUNTU12_NAME,
         // Contains the various tools like disk-free, gldriverquery, steamclient.dll, steamservice.exe and iscriptevaluator.exe
-        "bins_misc_ubuntu12.zip.851e81bcc68f13ade0314d4ee84e8c0425942cb6"
+        STEAM_BINS_MISC_UBUNTU12_NAME
     };
     std::unordered_set<std::string> foldersToCreate
     {
@@ -42,15 +43,6 @@ private:
         "ubuntu12_64",
         "legacycompat",
         "bin"
-    };
-    std::vector<std::string> filesToVerify
-    {
-        "linux64/steamclient.so",
-        "linux64/crashhandler.so",
-        "linux32/steamclient.so",
-        "linux32/crashhandler.so",
-        "ubuntu12_32/steamclient.so",
-        "ubuntu12_32/steamservice.so",
     };
 
     // What files we actually want from the archives
@@ -71,10 +63,11 @@ private:
         "ubuntu12_32/gameoverlayrenderer.so",
         "ubuntu12_32/gameoverlayui.so",
         "ubuntu12_32/gameoverlayrenderer.so",
-        "ubuntu12_64/gameoverlayrenderer.so"
+        "ubuntu12_64/gameoverlayrenderer.so",
         "ubuntu12_32/gameoverlayui",
         "ubuntu12_32/fossilize_replay", // This can be compiled from source
         "ubuntu12_64/streaming_client",
+        "ubuntu12_64/libSDL3.so.0",
         "linux32/steamerrorreporter",
         "GameOverlayRenderer64.dll",
         "bin/d3ddriverquery64.exe",
