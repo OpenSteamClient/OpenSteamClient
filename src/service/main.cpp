@@ -63,7 +63,8 @@ int main(int argc, char *argv[]) {
   void *initPtr = dlsym(steamservicemgr->dl_handle, "_init");
 
   // 0x45f70 (addr of SteamServiceInternal_StartThread) - 0x10000(base of steamservice.so)
-  uintptr_t offset = 0x35f70;
+  // 0x5ee50
+  uintptr_t offset = 0x37DE0;
   if (initPtr == nullptr) {
     std::cout << "Re-execing" << std::endl;
     // Re-exec, LdLibraryPath was set 
@@ -87,6 +88,7 @@ int main(int argc, char *argv[]) {
   if (launchType == "Internal")
   {
     void *servicePtr = steamservicemgr->SteamService_GetIPCServer();
+    std::cout << "Service ptr " << servicePtr << std::endl;
     *(void **)(&SteamServiceInternal_StartThread) = (void *)internalStartPtr;
 
     // true, false, true is the one used on windows, on linux it is false, false, true by default

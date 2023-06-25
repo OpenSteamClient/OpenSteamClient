@@ -57,11 +57,6 @@ export async function Main(): Promise<number> {
         } 
     }
     
-    console.info("Generating new version.h")
-    var versionFilePath = `${projectDir}/include/opensteamworks/version.h`;
-    fs.rmSync(versionFilePath);
-    VersionInfo.CreateVersionFileFromManifest(versionFilePath, newManifest);
-    
     if (oldManifest.version != newManifest.version) {
         console.info(`Version changed ${oldManifest.version} -> ${newManifest.version}`)
     } else {

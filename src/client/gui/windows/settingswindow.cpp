@@ -4,6 +4,7 @@
 #include "../../utils/binarykv.h"
 #include "../../threading/threadcontroller.h"
 #include <QMessageBox>
+#include <opensteamworks/IClientCompat.h>
 
 SettingsWindow::SettingsWindow(QWidget *parent, App *app) :
     QDialog(parent),
@@ -12,7 +13,7 @@ SettingsWindow::SettingsWindow(QWidget *parent, App *app) :
     ui->setupUi(this);
     this->app = app;
     setWindowTitle(QString::fromStdString(app->name).append(" settings"));
-    bool compatEnabled = app->GetCompatData()->isCompatEnabled;
+    bool compatEnabled = app->GetCompatEnabled();
     ui->enableProtonBox->setChecked(compatEnabled);
     ui->compatToolBox->setVisible(compatEnabled);
     if (compatEnabled) {
@@ -28,6 +29,8 @@ SettingsWindow::~SettingsWindow()
 }
 
 void SettingsWindow::PopulateBetas() {
+    ui->betasDropdown->blockSignals(true);
+
     ui->betasDropdown->clear();
     dropdownBetas.clear();
 
@@ -64,26 +67,36 @@ void SettingsWindow::PopulateBetas() {
             ui->betasDropdown->setCurrentIndex(ui->betasDropdown->count()-1);
         }
     }
+    
+    ui->betasDropdown->blockSignals(false);
 }
 
 void SettingsWindow::ReadLaunchOptions() {
+    ui->launchOptionsField->blockSignals(true);
     ui->launchOptionsField->setText(QString::fromStdString(std::string(app->GetLaunchCommandLine())));
+    ui->launchOptionsField->blockSignals(false);
 }
 
 void SettingsWindow::PopulateCompatTools()
 {
+    ui->compatToolBox->blockSignals(true);
+
     ui->compatToolBox->clear();
 
     int selectedIndex = -1;
-    auto compatData = app->GetCompatData();
-    for (auto &&i : compatData->validCompatTools)
+    for (auto &&i : app->GetAllowedCompatTools())
     {
-        ui->compatToolBox->addItem(QString::fromStdString(i->humanName), QVariant(QString::fromStdString(i->name)));
-        if (selectedIndex == -1 && compatData->isCompatEnabled) {
-            if (compatData->currentCompatTool != nullptr) {
-                if (i->name == compatData->currentCompatTool->name) {
-                    selectedIndex = ui->compatToolBox->count() - 1;
-                }
+        std::string humanName = i;
+        {
+            char *humanNameC = Global_SteamClientMgr->ClientCompat->GetCompatToolDisplayName(i.c_str());
+            if (humanNameC != nullptr) {
+                humanName = std::string(humanNameC);
+            }
+        }
+        ui->compatToolBox->addItem(QString::fromStdString(humanName), QVariant(QString::fromStdString(i)));
+        if (selectedIndex == -1 && app->GetCompatEnabled()) {
+            if (i == app->GetCurrentCompatTool()) {
+                selectedIndex = ui->compatToolBox->count() - 1;
             }
         }
     }
@@ -91,6 +104,8 @@ void SettingsWindow::PopulateCompatTools()
     if (selectedIndex != -1) {
         ui->compatToolBox->setCurrentIndex(selectedIndex);
     }
+
+    ui->compatToolBox->blockSignals(false);
 }
 
 void SettingsWindow::on_enableProtonBox_stateChanged(int arg1)

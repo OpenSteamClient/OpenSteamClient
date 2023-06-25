@@ -43,13 +43,10 @@ public:
     virtual unknown_ret GetAppType(AppId_t unAppID) = 0; //argc: 1, index 11
     // first int was ELanguage
     virtual unknown_ret GetStoreTagLocalization(int, unsigned int const*, int, unsigned char*, int) = 0; //argc: 5, index 12
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     virtual void TakeUpdateLock() = 0; //argc: 0, index 13
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     virtual void GetAppKVRaw() = 0; //argc: 3, index 14
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     virtual void ReleaseUpdateLock() = 0; //argc: 0, index 15
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     virtual unknown_ret GetLastChangeNumberReceived() = 0; //argc: 0, index 16
 };
 

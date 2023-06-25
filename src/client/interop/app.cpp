@@ -2,6 +2,7 @@
 #include "../ext/steamclient.h"
 #include "../utils/binarykv.h"
 #include "appmanager.h"
+#include "cutl.hpp"
 #include <opensteamworks/IClientApps.h>
 #include <opensteamworks/IClientAppManager.h>
 #include <opensteamworks/IClientCompat.h>
@@ -21,7 +22,6 @@ App::App(AppManager *mgr, AppId_t i) {
     delete[] nameCStr;
 
     UpdateUpdateInfo();
-    UpdateCompatInfo();
     UpdateAppState();
 }
 
@@ -35,59 +35,32 @@ AppStateInfo_t App::GetStateInfo() {
     return stateInfo;
 }
 
-CompatData *App::GetCompatData() {
-    return this->compatData;
+std::vector<std::string> App::GetAllowedCompatTools() {
+    CUtlVector<CUtlString> *vec = new CUtlVector<CUtlString>(1, 2048);
+    Global_SteamClientMgr->ClientCompat->GetAvailableCompatToolsForApp(vec, this->appid);
+    return CUtl::CUtlStrVectorToStdVector(vec);
 }
 
-void App::UpdateCompatInfo() {
+std::string App::GetCurrentCompatTool() {
+    return std::string(Global_SteamClientMgr->ClientCompat->GetCompatToolName(this->appid));
+}
 
-    // This function is a mess... 
-
-    if (this->compatData != nullptr) {
-        delete this->compatData;
+bool App::IsProtonTool() {
+    if (!Global_SteamClientMgr->ClientCompat->BIsCompatibilityToolEnabled(this->appid)) {
+        return false;
     }
-
-    this->compatData = new CompatData();
-
-    if (!Global_SteamClientMgr->ClientCompat->BIsCompatLayerEnabled()) {
-        this->compatData->isCompatEnabled = false;
-        this->compatData->currentCompatTool = nullptr;
-        this->compatData->validCompatTools.clear();
-        return;
+    char *name = Global_SteamClientMgr->ClientCompat->GetCompatToolName(this->appid);
+    if (name == nullptr) {
+        return false;
     }
-
-    this->compatData->isCompatEnabled = Global_SteamClientMgr->ClientCompat->BIsCompatibilityToolEnabled(this->appid);
-    this->compatData->validCompatTools.clear();
-    
-    CUtlVector<CUtlString> *vec = new CUtlVector<CUtlString>(1, 1000000);
-    Global_SteamClientMgr->ClientCompat->GetAvailableCompatToolsForApp(vec, this->appid);
-
-    const char *currentCompatToolNameCStr = Global_SteamClientMgr->ClientCompat->GetCompatToolName(this->appid);
-
-    std::string currentCompatToolName;
-    if (currentCompatToolNameCStr != nullptr)
-    {
-       currentCompatToolName = std::string(currentCompatToolNameCStr);
+    if (std::string(name).starts_with("proton_")) {
+        return true;
     }
+    return false;
+}
 
-    for (size_t i = 0; i < vec->Count(); i++)
-    {
-        std::string name = std::string(vec->Element(i).str);
-        for (auto &&i2 : mgr->compatTools)
-        {
-            if (i2->name == name) {
-                this->compatData->validCompatTools.push_back(i2);
-            }
-
-            if (currentCompatToolName == name) {
-                this->compatData->currentCompatTool = i2;
-            }
-        }
-    }
-   
-    delete vec;
-
-    emit AppDataChanged();
+bool App::GetCompatEnabled() {
+    return Global_SteamClientMgr->ClientCompat->BIsCompatibilityToolEnabled(this->appid);
 }
 
 void App::TryRunUpdate() {
@@ -96,12 +69,10 @@ void App::TryRunUpdate() {
 
 void App::SetCompatTool(std::string toolName) {
     Global_SteamClientMgr->ClientCompat->SpecifyCompatTool(appid, toolName.c_str(), toolName.c_str(), 250);
-    UpdateCompatInfo();
 }
 
 void App::ClearCompatTool() {
     Global_SteamClientMgr->ClientCompat->SpecifyCompatTool(appid, "", "", 0);
-    UpdateCompatInfo();
 }
 
 void App::UpdateAppState() {
@@ -385,7 +356,7 @@ std::vector<LaunchOption> App::GetFilteredLaunchOptions() {
     for (auto &&opt : launchOptions)
     {
         // Filter by platform
-        if (this->compatData != nullptr && this->compatData->currentCompatTool != nullptr && !this->compatData->currentCompatTool->windowsOnLinuxTool) {
+        if (!this->IsProtonTool()) {
             if (!opt.oslist.empty() && !opt.oslist.contains("linux"))
             {
                 std::cout << debugPrefix << opt.index << ": Didn't match linux filter and proton is disabled" << std::endl;

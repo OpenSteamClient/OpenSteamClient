@@ -71,7 +71,6 @@ class App : public QObject
 {
     Q_OBJECT
 private:
-    CompatData *compatData = nullptr;
 
     // This is a hack...
     AppManager *mgr;
@@ -87,7 +86,6 @@ public:
 
     void UpdateUpdateInfo();
     void UpdateAppState();
-    void UpdateCompatInfo();
 
     // App Info
 
@@ -124,13 +122,10 @@ public:
     void Update();
     void Uninstall();
     void Move(LibraryFolder newLibraryFolder);
-    void FetchLibraryAssets();
     void TryRunUpdate();
 
     // Set values
 
-    void SetLibraryAssetsAvailable();
-    void SetCompatTool(std::string toolName);
     void SetLaunchCommandLine(std::string newCommandLine);
     void SetCurrentBeta(std::string beta);
 
@@ -148,13 +143,20 @@ public:
     std::vector<Beta> GetAllBetas();
     std::string GetCurrentBeta();
     AppStateInfo_t GetStateInfo();
-    CompatData *GetCompatData();
 
+    // Compat
+    std::vector<std::string> GetAllowedCompatTools();
+    std::string GetCurrentCompatTool();
+    bool GetCompatEnabled();
+    void SetCompatTool(std::string toolName);
+    // Move this into ClientCompat
+    bool IsProtonTool();
 
     // UI 
 
     bool BShouldHighlightInGamesList();
-
+    void SetLibraryAssetsAvailable();
+    void FetchLibraryAssets();
 
 signals:
     void LibraryAssetsAvailable();
