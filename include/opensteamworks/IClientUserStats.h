@@ -177,42 +177,41 @@ public:
     
     // Retrieves the number of players currently playing your game ( online + offline)
     // This call is asynchronous, with the result returned in NumberOfCurrentPlayers_t
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     virtual SteamAPICall_t GetNumberOfCurrentPlayers() = 0; //argc: 0, index 39
     
-    virtual uint32 GetNumAchievedAchievements( CGameID nGameID ) = 0; //argc: 1, index 40
-    virtual const char * GetLastAchievementUnlocked( CGameID nGameID ) = 0; //argc: 1, index 41
+    virtual uint32 GetNumAchievedAchievements( CGameID nGameID ) = 0; //argc: 1, index 4
+    virtual const char * GetLastAchievementUnlocked( CGameID nGameID ) = 0; //argc: 1, index 5
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret GetMostRecentAchievementUnlocked() = 0; //argc: 2, index 42
+    virtual unknown_ret GetMostRecentAchievementUnlocked() = 0; //argc: 2, index 6
     
     // Requests that Steam fetch data on the percentage of players who have received each achievement
     // for the game globally.
     // This call is asynchronous, with the result returned in GlobalAchievementPercentagesReady_t.
-    virtual SteamAPICall_t RequestGlobalAchievementPercentages( CGameID nGameID ) = 0; //argc: 1, index 43
+    virtual SteamAPICall_t RequestGlobalAchievementPercentages( CGameID nGameID ) = 0; //argc: 1, index 7
     
     // Get the info on the most achieved achievement for the game, returns an iterator index you can use to fetch
     // the next most achieved afterwards.  Will return -1 if there is no data on achievement 
     // percentages (ie, you haven't called RequestGlobalAchievementPercentages and waited on the callback).
-    virtual int32 GetMostAchievedAchievementInfo( CGameID nGameID, char *pchName, uint32 unNameBufLen, float *pflPercent, bool *pbAchieved ) = 0; //argc: 5, index 44
+    virtual int32 GetMostAchievedAchievementInfo( CGameID nGameID, char *pchName, uint32 unNameBufLen, float *pflPercent, bool *pbAchieved ) = 0; //argc: 5, index 8
     
     // Get the info on the next most achieved achievement for the game. Call this after GetMostAchievedAchievementInfo or another
     // GetNextMostAchievedAchievementInfo call passing the iterator from the previous call. Returns -1 after the last
     // achievement has been iterated.
-    virtual int32 GetNextMostAchievedAchievementInfo( CGameID nGameID, int32 iIteratorPrevious, char *pchName, uint32 unNameBufLen, float *pflPercent, bool *pbAchieved ) = 0; //argc: 6, index 45
+    virtual int32 GetNextMostAchievedAchievementInfo( CGameID nGameID, int32 iIteratorPrevious, char *pchName, uint32 unNameBufLen, float *pflPercent, bool *pbAchieved ) = 0; //argc: 6, index 9
     
     // Returns the percentage of users who have achieved the specified achievement.
-    virtual bool GetAchievementAchievedPercent( CGameID nGameID, const char *pchName, float *pflPercent ) = 0; //argc: 3, index 46
+    virtual bool GetAchievementAchievedPercent( CGameID nGameID, const char *pchName, float *pflPercent ) = 0; //argc: 3, index 10
     
     // Requests global stats data, which is available for stats marked as "aggregated".
     // This call is asynchronous, with the results returned in GlobalStatsReceived_t.
     // nHistoryDays specifies how many days of day-by-day history to retrieve in addition
     // to the overall totals. The limit is 60.
-    virtual SteamAPICall_t RequestGlobalStats( CGameID nGameID, int32 nHistoryDays ) = 0; //argc: 2, index 47
+    virtual SteamAPICall_t RequestGlobalStats( CGameID nGameID, int32 nHistoryDays ) = 0; //argc: 2, index 11
     
     // Gets the lifetime totals for an aggregated stat
     #if !(defined(_WIN32) && defined(__GNUC__))
-    virtual bool GetGlobalStat( CGameID nGameID, char const* pchName, int64 *pData ) = 0; //argc: 3, index 48
-    virtual bool GetGlobalStat( CGameID nGameID, char const* pchName, double *pData ) = 0; //argc: 3, index 49
+    virtual bool GetGlobalStat( CGameID nGameID, char const* pchName, int64 *pData ) = 0; //argc: 3, index 12
+    virtual bool GetGlobalStat( CGameID nGameID, char const* pchName, double *pData ) = 0; //argc: 3, index 13
     #endif
     
     // Gets history for an aggregated stat. pData will be filled with daily values, starting with today.
@@ -220,12 +219,12 @@ public:
     // etc. cubData is the size in bytes of the pubData buffer. Returns the number of 
     // elements actually set.
     #if !(defined(_WIN32) && defined(__GNUC__))
-    virtual int32 GetGlobalStatHistory( CGameID nGameID, char const* pchName, int64 *pData, uint32 cubData ) = 0; //argc: 4, index 50
-    virtual int32 GetGlobalStatHistory( CGameID nGameID, char const* pchName, double *pData, uint32 cubData ) = 0; //argc: 4, index 51
+    virtual int32 GetGlobalStatHistory( CGameID nGameID, char const* pchName, int64 *pData, uint32 cubData ) = 0; //argc: 4, index 14
+    virtual int32 GetGlobalStatHistory( CGameID nGameID, char const* pchName, double *pData, uint32 cubData ) = 0; //argc: 4, index 15
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret GetAchievementProgressLimits() = 0; //argc: 4, index 52
+    virtual unknown_ret GetAchievementProgressLimits() = 0; //argc: 4, index 16
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret GetAchievementProgressLimits() = 0; //argc: 4, index 53
+    virtual unknown_ret GetAchievementProgressLimits() = 0; //argc: 4, index 17
 };
 
 #endif // ICLIENTUSERSTATS_H

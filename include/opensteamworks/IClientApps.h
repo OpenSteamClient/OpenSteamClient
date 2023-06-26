@@ -45,9 +45,9 @@ public:
     virtual unknown_ret GetStoreTagLocalization(int, unsigned int const*, int, unsigned char*, int) = 0; //argc: 5, index 12
     virtual void TakeUpdateLock() = 0; //argc: 0, index 13
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual void GetAppKVRaw() = 0; //argc: 3, index 14
-    virtual void ReleaseUpdateLock() = 0; //argc: 0, index 15
-    virtual unknown_ret GetLastChangeNumberReceived() = 0; //argc: 0, index 16
+    virtual void GetAppKVRaw() = 0; //argc: 3, index 0
+    virtual void ReleaseUpdateLock() = 0; //argc: 0, index 1
+    virtual unknown_ret GetLastChangeNumberReceived() = 0; //argc: 0, index 0
 };
 
 #endif // ICLIENTAPPS_H

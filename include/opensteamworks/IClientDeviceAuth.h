@@ -30,21 +30,20 @@ public:
     virtual uint64 AuthorizeLocalDevice( const char * pubUnk, uint32 cubUnk ) = 0; //argc: 2, index 1
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     virtual unknown_ret DeauthorizeDevice() = 0; //argc: 2, index 2
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     virtual uint64 RequestAuthorizationInfos() = 0; //argc: 0, index 3
-    virtual uint32 GetDeviceAuthorizations( uint64 *, uint32, bool) = 0; //argc: 3, index 4
+    virtual uint32 GetDeviceAuthorizations( uint64 *, uint32, bool) = 0; //argc: 3, index 1
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual bool GetDeviceAuthorizationInfo( uint64, uint32 *, uint32 *, bool *, char *, int32, char *, int32, char *, int32, uint32 *) = 0; //argc: 13, index 5
+    virtual bool GetDeviceAuthorizationInfo( uint64, uint32 *, uint32 *, bool *, char *, int32, char *, int32, char *, int32, uint32 *) = 0; //argc: 13, index 2
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret GetAuthorizedBorrowers() = 0; //argc: 2, index 6
-    virtual uint32 GetLocalUsers( uint32 *, uint32 ) = 0; //argc: 2, index 7
+    virtual unknown_ret GetAuthorizedBorrowers() = 0; //argc: 2, index 3
+    virtual uint32 GetLocalUsers( uint32 *, uint32 ) = 0; //argc: 2, index 4
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret GetBorrowerInfo() = 0; //argc: 4, index 8
+    virtual unknown_ret GetBorrowerInfo() = 0; //argc: 4, index 5
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret UpdateAuthorizedBorrowers() = 0; //argc: 3, index 9
+    virtual unknown_ret UpdateAuthorizedBorrowers() = 0; //argc: 3, index 6
     
-    virtual uint32 GetSharedLibraryLockedBy( uint32 uUnk ) = 0; //argc: 1, index 10
-    virtual uint32 GetSharedLibraryOwners( uint32 *, uint32 ) = 0; //argc: 2, index 11
+    virtual uint32 GetSharedLibraryLockedBy( uint32 uUnk ) = 0; //argc: 1, index 7
+    virtual uint32 GetSharedLibraryOwners( uint32 *, uint32 ) = 0; //argc: 2, index 8
 };
 
 #endif // ICLIENTDEVICEAUTH_H

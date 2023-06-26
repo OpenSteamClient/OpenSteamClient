@@ -206,18 +206,16 @@ public:
     virtual unknown_ret GetAppDependencies() = 0; //argc: 2, index 90
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     virtual unknown_ret DeleteItem() = 0; //argc: 2, index 91
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     virtual unknown_ret ShowWorkshopEULA() = 0; //argc: 0, index 92
+    virtual unknown_ret GetWorkshopEULAStatus() = 0; //argc: 0, index 1
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret GetWorkshopEULAStatus() = 0; //argc: 0, index 93
+    virtual unknown_ret GetNumDownloadedItems() = 0; //argc: 1, index 1
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret GetNumDownloadedItems() = 0; //argc: 1, index 94
+    virtual unknown_ret GetDownloadedItems() = 0; //argc: 3, index 2
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret GetDownloadedItems() = 0; //argc: 3, index 95
+    virtual unknown_ret GetFullQueryUGCResponse() = 0; //argc: 3, index 3
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret GetFullQueryUGCResponse() = 0; //argc: 3, index 96
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret GetSerializedQueryUGCResponse() = 0; //argc: 3, index 97
+    virtual unknown_ret GetSerializedQueryUGCResponse() = 0; //argc: 3, index 4
 };
 
 #endif // ICLIENTUGC_H

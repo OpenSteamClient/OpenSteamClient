@@ -3,11 +3,17 @@
 #include <string>
 #include <opensteamworks/SteamTypes.h>
 #include <opensteamworks/UserCommon.h>
+#include <opensteamworks/version.h>
 
-// functions necessary to be exported so steamclient doesn't crash
+// fake bootstrapper executable exports
 
-extern "C" uint8_t GetClientLauncherType() { return k_ELauncherTypeClientui; }
-extern "C" uint8_t GetClientActualLauncherType() { return k_ELauncherTypeClientui; }
+extern "C" ELauncherType GetClientLauncherType() { 
+  return k_ELauncherTypeClientui; 
+}
+
+extern "C" ELauncherType GetClientActualLauncherType() { 
+  return k_ELauncherTypeClientui; 
+}
 
 extern "C" bool StartCheckingForUpdates() {
   return true;
@@ -24,7 +30,7 @@ extern "C" EUniverse SteamBootstrapper_GetEUniverse() {
 }
 
 extern "C" long long int GetBootstrapperVersion() {
-  return 0;
+  return STEAM_MANIFEST_VERSION_NUM;
 }
 
 extern "C" const char* GetCurrentClientBeta() {
@@ -43,7 +49,6 @@ extern "C" bool IsClientUpdateAvailable() {
   return false;
 }
 
-// updating is unsupported for now
 extern "C" bool CanSetClientBeta() {
   return false;
 }

@@ -63,6 +63,7 @@ public:
     virtual unknown_ret VerifyChunkStore(AppId_t, DepotId_t, const char*) = 0; //argc: 3, index 2
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     // WARNING: Do not use this function! Unknown behaviour will occur!
+    // WARNING: Do not use this function! Unknown behaviour will occur!
     virtual unknown_ret Unknown_2_DONTUSE() = 0; //argc: -1, index 3
     virtual unknown_ret DownloadChunk(AppId_t, DepotId_t, unsigned char const (*) [20]) = 0; //argc: 3, index 4
     virtual unknown_ret StartDepotBuild(AppId_t, DepotId_t, uint32, char const*) = 0; //argc: 4, index 5

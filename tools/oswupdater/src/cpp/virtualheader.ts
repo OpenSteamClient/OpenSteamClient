@@ -194,11 +194,25 @@ export class VirtualHeader {
                 funcToAdd = { name: dumpfunc.name, args: [], comment: `argc: ${dumpfunc.argc}, index ${index}`, returnType: "unknown_ret", precedingLines: [] };
             }
 
+            const unknownBehaviourWarning = "// WARNING: Do not use this function! Unknown behaviour will occur!";
+            const argcCountNotMatchWarning = "// WARNING: Argument count doesn't match argc! Remove this once this has been corrected!"
             if (funcToAdd.name.endsWith("_DONTUSE")) {
-                funcToAdd.precedingLines.push("// WARNING: Do not use this function! Unknown behaviour will occur!")
+                if (!funcToAdd.precedingLines.includes(unknownBehaviourWarning))
+                funcToAdd.precedingLines.push(unknownBehaviourWarning)
             } else if (addWarning) {
-                if (!funcToAdd.precedingLines.includes("// WARNING: Argument count doesn't match argc! Remove this once this has been corrected!")) {
-                    funcToAdd.precedingLines.push("// WARNING: Argument count doesn't match argc! Remove this once this has been corrected!")
+                // Remove leftover warnings
+                if (Number(dumpfunc.argc) == 0) {
+                    var index = funcToAdd.precedingLines.indexOf(argcCountNotMatchWarning);
+                    if (index !== -1) {
+                        funcToAdd.precedingLines.splice(index, 1);
+                    }
+                    
+                    // Clear the args array just in case
+                    // Func has 0 argc so it should have no args
+                    funcToAdd.args = [];
+                }
+                if ((Number(dumpfunc.argc) != 0) && !funcToAdd.precedingLines.includes(argcCountNotMatchWarning)) {
+                    funcToAdd.precedingLines.push(argcCountNotMatchWarning)
                 }
             }
             

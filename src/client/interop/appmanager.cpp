@@ -25,7 +25,7 @@ void AppManager::cbLicensesChanged(AppLicensesChanged_t changeInfo) {
     std::lock_guard<std::mutex> guard(licensesMutex);
     for (size_t i = 0; i < changeInfo.m_unAppsUpdated; i++)
     {
-        this->licenses.push_back(changeInfo.m_rgAppsUpdated[i]);
+        this->licenses.emplace_back(changeInfo.m_rgAppsUpdated[i]);
     }
 }
 

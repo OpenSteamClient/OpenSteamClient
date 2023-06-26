@@ -191,7 +191,6 @@ public:
     // Playtime credit accumulation can be capped on a daily or weekly basis through your
     // Steamworks configuration.
     //
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     virtual void SendItemDropHeartbeat() = 0; //argc: 0, index 16
     
     // Playtime credit must be consumed and turned into item drops by your game. Only item
@@ -202,9 +201,9 @@ public:
     // hack their clients could modify the value of "dropListDefinition", so do not use it
     // to directly control rarity. It is primarily useful during testing and development,
     // where you may wish to perform experiments with different types of drops.
-    virtual bool TriggerItemDrop(SteamInventoryResult_t *pResultHandle, SteamItemDef_t dropListDefinition) = 0; //argc: 2, index 17
+    virtual bool TriggerItemDrop(SteamInventoryResult_t *pResultHandle, SteamItemDef_t dropListDefinition) = 0; //argc: 2, index 20
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret TradeItems() = 0; //argc: 11, index 18
+    virtual unknown_ret TradeItems() = 0; //argc: 11, index 21
     
     
     // IN-GAME TRADING
@@ -237,43 +236,40 @@ public:
     // Every time new item definitions are available (eg, from the dynamic addition of new
     // item types while players are still in-game), a SteamInventoryDefinitionUpdate_t
     // callback will be fired.
+    virtual bool LoadItemDefinitions() = 0; //argc: 0, index 22
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual bool LoadItemDefinitions() = 0; //argc: 0, index 19
+    virtual unknown_ret GetItemDefinitionIDs() = 0; //argc: 3, index 33
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret GetItemDefinitionIDs() = 0; //argc: 3, index 20
+    virtual unknown_ret GetItemDefinitionProperty() = 0; //argc: 5, index 34
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret GetItemDefinitionProperty() = 0; //argc: 5, index 21
+    virtual unknown_ret RequestEligiblePromoItemDefinitionsIDs() = 0; //argc: 2, index 35
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret RequestEligiblePromoItemDefinitionsIDs() = 0; //argc: 2, index 22
+    virtual unknown_ret GetEligiblePromoItemDefinitionIDs() = 0; //argc: 5, index 36
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret GetEligiblePromoItemDefinitionIDs() = 0; //argc: 5, index 23
+    virtual unknown_ret StartPurchase() = 0; //argc: 4, index 37
+    virtual unknown_ret RequestPrices() = 0; //argc: 0, index 38
+    virtual unknown_ret GetNumItemsWithPrices() = 0; //argc: 0, index 1
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret StartPurchase() = 0; //argc: 4, index 24
+    virtual unknown_ret GetItemsWithPrices() = 0; //argc: 4, index 1
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret RequestPrices() = 0; //argc: 0, index 25
+    virtual unknown_ret GetItemPrice() = 0; //argc: 3, index 2
+    virtual unknown_ret StartUpdateProperties() = 0; //argc: 0, index 3
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret GetNumItemsWithPrices() = 0; //argc: 0, index 26
+    virtual unknown_ret RemoveProperty() = 0; //argc: 5, index 1
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret GetItemsWithPrices() = 0; //argc: 4, index 27
+    virtual unknown_ret SetProperty() = 0; //argc: 6, index 2
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret GetItemPrice() = 0; //argc: 3, index 28
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret StartUpdateProperties() = 0; //argc: 0, index 29
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret RemoveProperty() = 0; //argc: 5, index 30
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret SetProperty() = 0; //argc: 6, index 31
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret SetProperty() = 0; //argc: 6, index 32
+    virtual unknown_ret SetProperty() = 0; //argc: 6, index 3
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     // WARNING: Do not use this function! Unknown behaviour will occur!
-    virtual unknown_ret Unknown_32_DONTUSE() = 0; //argc: -1, index 33
+    // WARNING: Do not use this function! Unknown behaviour will occur!
+    virtual unknown_ret Unknown_32_DONTUSE() = 0; //argc: -1, index 4
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret SetProperty() = 0; //argc: 6, index 34
+    virtual unknown_ret SetProperty() = 0; //argc: 6, index 5
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret SubmitUpdateProperties() = 0; //argc: 3, index 35
+    virtual unknown_ret SubmitUpdateProperties() = 0; //argc: 3, index 6
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret InspectItem() = 0; //argc: 2, index 36
+    virtual unknown_ret InspectItem() = 0; //argc: 2, index 7
 };
 
 #endif // ICLIENTINVENTORY_H

@@ -25,12 +25,11 @@
 abstract_class IClientSystemAudioManager
 {
 public:
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     virtual unknown_ret IsInterfaceValid() = 0; //argc: 0, index 1
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret GetState() = 0; //argc: 2, index 2
+    virtual unknown_ret GetState() = 0; //argc: 2, index 1
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret UpdateSomething() = 0; //argc: 1, index 3
+    virtual unknown_ret UpdateSomething() = 0; //argc: 1, index 2
 };
 
 #endif // ICLIENTSYSTEMAUDIOMANAGER_H

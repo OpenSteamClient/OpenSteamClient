@@ -54,123 +54,108 @@ public:
     virtual unknown_ret SetDlcContext() = 0; //argc: 2, index 13
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     virtual unknown_ret GetDlcSizes() = 0; //argc: 4, index 14
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     virtual uint32 GetNumInstalledApps() = 0; //argc: 0, index 15
-    virtual unknown_ret GetInstalledApps(AppId_t *unAppsIDs, unsigned int maxOut) = 0; //argc: 2, index 16
+    virtual unknown_ret GetInstalledApps(AppId_t *unAppsIDs, unsigned int maxOut) = 0; //argc: 2, index 1
+    virtual bool BIsWaitingForInstalledApps() = 0; //argc: 0, index 2
+    virtual unknown_ret GetAppDependencies(AppId_t unAppID, AppId_t* unAppsIDs, unsigned int maxOut) = 0; //argc: 3, index 1
+    virtual unknown_ret GetDependentApps(AppId_t, AppId_t* unAppsIDs, unsigned int maxOut) = 0; //argc: 3, index 2
+    virtual unknown_ret GetUpdateInfo(AppId_t, AppUpdateInfo_s*) = 0; //argc: 2, index 3
+    virtual unknown_ret GetAppConfigValue(AppId_t, char const *key, char *value, int) = 0; //argc: 4, index 4
+    virtual unknown_ret SetAppConfigValue(AppId_t, const char *key, const char *value) = 0; //argc: 3, index 5
+    virtual bool BIsAppUpToDate(AppId_t) = 0; //argc: 1, index 6
+    virtual unknown_ret GetAvailableLanguages(AppId_t, bool, char*, unsigned int) = 0; //argc: 4, index 7
+    virtual ELanguage GetCurrentLanguage(AppId_t, char*, unsigned int) = 0; //argc: 3, index 8
+    virtual ELanguage GetCurrentLanguage(AppId_t) = 0; //argc: 1, index 9
+    virtual unknown_ret GetFallbackLanguage(AppId_t, ELanguage*) = 0; //argc: 2, index 10
+    virtual unknown_ret SetCurrentLanguage(AppId_t, ELanguage*) = 0; //argc: 2, index 11
+    virtual unknown_ret StartValidatingApp(AppId_t) = 0; //argc: 1, index 12
+    virtual unknown_ret CancelValidation(AppId_t) = 0; //argc: 1, index 13
+    virtual unknown_ret MarkContentCorrupt(DepotId_t, bool) = 0; //argc: 2, index 14
+    virtual unknown_ret GetInstalledDepots(AppId_t, DepotId_t*, uint32) = 0; //argc: 3, index 15
+    virtual unknown_ret GetFileDetails(DepotId_t, char const*) = 0; //argc: 2, index 16
+    virtual unknown_ret VerifySignedFiles(DepotId_t) = 0; //argc: 1, index 17
+    virtual unknown_ret GetAvailableBetas(AppId_t, int*, char*, int, int) = 0; //argc: 5, index 18
+    virtual unknown_ret CheckBetaPassword(AppId_t, char const*) = 0; //argc: 2, index 19
+    virtual unknown_ret BHasCachedBetaPassword(AppId_t, char const*) = 0; //argc: 2, index 20
+    virtual unknown_ret GetActiveBeta(AppId_t, char*, int) = 0; //argc: 3, index 21
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual bool BIsWaitingForInstalledApps() = 0; //argc: 0, index 17
-    virtual unknown_ret GetAppDependencies(AppId_t unAppID, AppId_t* unAppsIDs, unsigned int maxOut) = 0; //argc: 3, index 18
-    virtual unknown_ret GetDependentApps(AppId_t, AppId_t* unAppsIDs, unsigned int maxOut) = 0; //argc: 3, index 19
-    virtual unknown_ret GetUpdateInfo(AppId_t, AppUpdateInfo_s*) = 0; //argc: 2, index 20
-    virtual unknown_ret GetAppConfigValue(AppId_t, char const *key, char *value, int) = 0; //argc: 4, index 21
-    virtual unknown_ret SetAppConfigValue(AppId_t, const char *key, const char *value) = 0; //argc: 3, index 22
-    virtual bool BIsAppUpToDate(AppId_t) = 0; //argc: 1, index 23
-    virtual unknown_ret GetAvailableLanguages(AppId_t, bool, char*, unsigned int) = 0; //argc: 4, index 24
-    virtual ELanguage GetCurrentLanguage(AppId_t, char*, unsigned int) = 0; //argc: 3, index 25
-    virtual ELanguage GetCurrentLanguage(AppId_t) = 0; //argc: 1, index 26
-    virtual unknown_ret GetFallbackLanguage(AppId_t, ELanguage*) = 0; //argc: 2, index 27
-    virtual unknown_ret SetCurrentLanguage(AppId_t, ELanguage*) = 0; //argc: 2, index 28
-    virtual unknown_ret StartValidatingApp(AppId_t) = 0; //argc: 1, index 29
-    virtual unknown_ret CancelValidation(AppId_t) = 0; //argc: 1, index 30
-    virtual unknown_ret MarkContentCorrupt(DepotId_t, bool) = 0; //argc: 2, index 31
-    virtual unknown_ret GetInstalledDepots(AppId_t, DepotId_t*, uint32) = 0; //argc: 3, index 32
-    virtual unknown_ret GetFileDetails(DepotId_t, char const*) = 0; //argc: 2, index 33
-    virtual unknown_ret VerifySignedFiles(DepotId_t) = 0; //argc: 1, index 34
-    virtual unknown_ret GetAvailableBetas(AppId_t, int*, char*, int, int) = 0; //argc: 5, index 35
-    virtual unknown_ret CheckBetaPassword(AppId_t, char const*) = 0; //argc: 2, index 36
-    virtual unknown_ret BHasCachedBetaPassword(AppId_t, char const*) = 0; //argc: 2, index 37
-    virtual unknown_ret GetActiveBeta(AppId_t, char*, int) = 0; //argc: 3, index 38
+    virtual unknown_ret BGetActiveBetaForApps(AppId_t* apps, int numApps, char* betas, int betasLength) = 0; //argc: 2, index 22
+    virtual unknown_ret SetDownloadingEnabled(bool) = 0; //argc: 1, index 23
+    virtual bool BIsDownloadingEnabled() = 0; //argc: 0, index 24
+    virtual unknown_ret GetDownloadStats(DownloadStats_s*) = 0; //argc: 1, index 1
+    virtual AppId_t GetDownloadingAppID() = 0; //argc: 0, index 2
+    virtual bool GetAutoUpdateTimeRestrictionEnabled() = 0; //argc: 0, index 1
+    virtual unknown_ret SetAutoUpdateTimeRestrictionEnabled(bool) = 0; //argc: 1, index 1
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret BGetActiveBetaForApps(AppId_t* apps, int numApps, char* betas, int betasLength) = 0; //argc: 2, index 39
-    virtual unknown_ret SetDownloadingEnabled(bool) = 0; //argc: 1, index 40
+    virtual unknown_ret GetAutoUpdateTimeRestrictionHours() = 0; //argc: 2, index 2
+    virtual unknown_ret SetAutoUpdateTimeRestrictionStartHour() = 0; //argc: 1, index 3
+    virtual unknown_ret SetAutoUpdateTimeRestrictionEndHour() = 0; //argc: 1, index 4
+    virtual EAppAutoUpdateBehavior GetAppAutoUpdateBehavior(AppId_t) = 0; //argc: 1, index 5
+    virtual unknown_ret SetAppAutoUpdateBehavior(AppId_t, EAppAutoUpdateBehavior) = 0; //argc: 2, index 6
+    virtual unknown_ret SetAppAllowDownloadsWhileRunningBehavior(AppId_t, EAppAllowDownloadsWhileRunningBehavior) = 0; //argc: 2, index 7
+    virtual EAppAllowDownloadsWhileRunningBehavior GetAppAllowDownloadsWhileRunningBehavior(AppId_t) = 0; //argc: 1, index 8
+    virtual unknown_ret SetAllowDownloadsWhileAnyAppRunning(bool) = 0; //argc: 1, index 9
+    virtual bool BAllowDownloadsWhileAnyAppRunning() = 0; //argc: 0, index 10
+    virtual unknown_ret ChangeAppDownloadQueuePlacement(AppId_t, EAppDownloadQueuePlacement) = 0; //argc: 2, index 1
+    virtual unknown_ret SetAppDownloadQueueIndex(AppId_t, int) = 0; //argc: 2, index 2
+    virtual int GetAppDownloadQueueIndex(AppId_t) = 0; //argc: 1, index 3
+    virtual RTime32 GetAppAutoUpdateDelayedUntilTime(AppId_t) = 0; //argc: 1, index 4
+    virtual int GetNumAppsInDownloadQueue() = 0; //argc: 0, index 5
+    virtual bool BHasLocalContentServer() = 0; //argc: 0, index 1
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual bool BIsDownloadingEnabled() = 0; //argc: 0, index 41
-    virtual unknown_ret GetDownloadStats(DownloadStats_s*) = 0; //argc: 1, index 42
+    virtual unknown_ret BuildBackup() = 0; //argc: 4, index 1
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual AppId_t GetDownloadingAppID() = 0; //argc: 0, index 43
+    virtual unknown_ret BuildInstaller() = 0; //argc: 4, index 2
+    virtual unknown_ret CancelBackup() = 0; //argc: 0, index 3
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual bool GetAutoUpdateTimeRestrictionEnabled() = 0; //argc: 0, index 44
-    virtual unknown_ret SetAutoUpdateTimeRestrictionEnabled(bool) = 0; //argc: 1, index 45
+    virtual unknown_ret RestoreAppFromBackup() = 0; //argc: 2, index 1
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret GetAutoUpdateTimeRestrictionHours() = 0; //argc: 2, index 46
-    virtual unknown_ret SetAutoUpdateTimeRestrictionStartHour() = 0; //argc: 1, index 47
-    virtual unknown_ret SetAutoUpdateTimeRestrictionEndHour() = 0; //argc: 1, index 48
-    virtual EAppAutoUpdateBehavior GetAppAutoUpdateBehavior(AppId_t) = 0; //argc: 1, index 49
-    virtual unknown_ret SetAppAutoUpdateBehavior(AppId_t, EAppAutoUpdateBehavior) = 0; //argc: 2, index 50
-    virtual unknown_ret SetAppAllowDownloadsWhileRunningBehavior(AppId_t, EAppAllowDownloadsWhileRunningBehavior) = 0; //argc: 2, index 51
-    virtual EAppAllowDownloadsWhileRunningBehavior GetAppAllowDownloadsWhileRunningBehavior(AppId_t) = 0; //argc: 1, index 52
-    virtual unknown_ret SetAllowDownloadsWhileAnyAppRunning(bool) = 0; //argc: 1, index 53
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual bool BAllowDownloadsWhileAnyAppRunning() = 0; //argc: 0, index 54
-    virtual unknown_ret ChangeAppDownloadQueuePlacement(AppId_t, EAppDownloadQueuePlacement) = 0; //argc: 2, index 55
-    virtual unknown_ret SetAppDownloadQueueIndex(AppId_t, int) = 0; //argc: 2, index 56
-    virtual int GetAppDownloadQueueIndex(AppId_t) = 0; //argc: 1, index 57
-    virtual RTime32 GetAppAutoUpdateDelayedUntilTime(AppId_t) = 0; //argc: 1, index 58
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual int GetNumAppsInDownloadQueue() = 0; //argc: 0, index 59
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual bool BHasLocalContentServer() = 0; //argc: 0, index 60
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret BuildBackup() = 0; //argc: 4, index 61
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret BuildInstaller() = 0; //argc: 4, index 62
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret CancelBackup() = 0; //argc: 0, index 63
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret RestoreAppFromBackup() = 0; //argc: 2, index 64
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret RecoverAppFromFolder() = 0; //argc: 2, index 65
-    virtual bool CanMoveApp(AppId_t, LibraryFolder_t libraryFolder) = 0; //argc: 2, index 66
-    virtual EAppUpdateError MoveApp(AppId_t, LibraryFolder_t libraryFolder) = 0; //argc: 2, index 67
-    virtual unknown_ret GetMoveAppProgress(AppId_t, unsigned long long*, unsigned long long*, unsigned int*) = 0; //argc: 4, index 68
-    virtual unknown_ret CancelMoveApp(AppId_t) = 0; //argc: 1, index 69
-    virtual unknown_ret GetAppStateInfo(AppId_t, AppStateInfo_t* unknownStruct) = 0; //argc: 2, index 70
-    virtual unknown_ret BGetAppStateInfoForApps(AppId_t* apps, AppStateInfo_t* unknownStructArray) = 0; //argc: 2, index 71
-    virtual unknown_ret BIsAvailableOnPlatform(AppId_t, char const*) = 0; //argc: 2, index 72
-    virtual unknown_ret BCanRemotePlayTogether(AppId_t) = 0; //argc: 1, index 73
-    virtual unknown_ret BIsLocalMultiplayerApp(AppId_t) = 0; //argc: 1, index 74
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual int GetNumLibraryFolders() = 0; //argc: 0, index 75
-    virtual unknown_ret GetLibraryFolderPath(LibraryFolder_t, char*, int) = 0; //argc: 3, index 76
-    virtual LibraryFolder_t AddLibraryFolder(char const*) = 0; //argc: 1, index 77
-    virtual unknown_ret SetLibraryFolderLabel(LibraryFolder_t, const char* label) = 0; //argc: 2, index 78
-    virtual unknown_ret GetLibraryFolderLabel(LibraryFolder_t, char* label, uint32 labellength) = 0; //argc: 3, index 79
-    virtual unknown_ret RemoveLibraryFolder(LibraryFolder_t, bool, bool) = 0; //argc: 3, index 80
-    virtual bool BGetLibraryFolderInfo(LibraryFolder_t, bool*, unsigned long long*, unsigned long long*) = 0; //argc: 4, index 81
-    virtual LibraryFolder_t GetAppLibraryFolder(AppId_t) = 0; //argc: 1, index 82
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret RefreshLibraryFolders() = 0; //argc: 0, index 83
-    virtual uint32 GetNumAppsInFolder(LibraryFolder_t) = 0; //argc: 1, index 84
+    virtual unknown_ret RecoverAppFromFolder() = 0; //argc: 2, index 2
+    virtual bool CanMoveApp(AppId_t, LibraryFolder_t libraryFolder) = 0; //argc: 2, index 3
+    virtual EAppUpdateError MoveApp(AppId_t, LibraryFolder_t libraryFolder) = 0; //argc: 2, index 4
+    virtual unknown_ret GetMoveAppProgress(AppId_t, unsigned long long*, unsigned long long*, unsigned int*) = 0; //argc: 4, index 5
+    virtual unknown_ret CancelMoveApp(AppId_t) = 0; //argc: 1, index 6
+    virtual unknown_ret GetAppStateInfo(AppId_t, AppStateInfo_t* unknownStruct) = 0; //argc: 2, index 7
+    virtual unknown_ret BGetAppStateInfoForApps(AppId_t* apps, AppStateInfo_t* unknownStructArray) = 0; //argc: 2, index 8
+    virtual unknown_ret BIsAvailableOnPlatform(AppId_t, char const*) = 0; //argc: 2, index 9
+    virtual unknown_ret BCanRemotePlayTogether(AppId_t) = 0; //argc: 1, index 10
+    virtual unknown_ret BIsLocalMultiplayerApp(AppId_t) = 0; //argc: 1, index 11
+    virtual int GetNumLibraryFolders() = 0; //argc: 0, index 12
+    virtual unknown_ret GetLibraryFolderPath(LibraryFolder_t, char*, int) = 0; //argc: 3, index 1
+    virtual LibraryFolder_t AddLibraryFolder(char const*) = 0; //argc: 1, index 2
+    virtual unknown_ret SetLibraryFolderLabel(LibraryFolder_t, const char* label) = 0; //argc: 2, index 3
+    virtual unknown_ret GetLibraryFolderLabel(LibraryFolder_t, char* label, uint32 labellength) = 0; //argc: 3, index 4
+    virtual unknown_ret RemoveLibraryFolder(LibraryFolder_t, bool, bool) = 0; //argc: 3, index 5
+    virtual bool BGetLibraryFolderInfo(LibraryFolder_t, bool*, unsigned long long*, unsigned long long*) = 0; //argc: 4, index 6
+    virtual LibraryFolder_t GetAppLibraryFolder(AppId_t) = 0; //argc: 1, index 7
+    virtual unknown_ret RefreshLibraryFolders() = 0; //argc: 0, index 8
+    virtual uint32 GetNumAppsInFolder(LibraryFolder_t) = 0; //argc: 1, index 1
     // Note: intended to be used with a CUtlVector
-    virtual unknown_ret GetAppsInFolder(LibraryFolder_t, AppId_t* apps, uint32 appsLength) = 0; //argc: 3, index 85
-    virtual unknown_ret ForceInstallDirOverride(const char*) = 0; //argc: 1, index 86
-    virtual unknown_ret SetDownloadThrottleRateKbps(int, bool) = 0; //argc: 2, index 87
-    virtual unknown_ret GetDownloadThrottleRateKbps(bool) = 0; //argc: 1, index 88
-    virtual unknown_ret SuspendDownloadThrottling(bool) = 0; //argc: 1, index 89
-    virtual unknown_ret SetThrottleDownloadsWhileStreaming(bool) = 0; //argc: 1, index 90
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual bool BThrottleDownloadsWhileStreaming() = 0; //argc: 0, index 91
-    virtual char const* GetLaunchQueryParam(AppId_t, char const* pchKey) = 0; //argc: 2, index 92
-    virtual unknown_ret BeginLaunchQueryParams(AppId_t) = 0; //argc: 1, index 93
-    virtual unknown_ret SetLaunchQueryParam(AppId_t, char const* pchKey, char const* pchValue) = 0; //argc: 3, index 94
-    virtual unknown_ret CommitLaunchQueryParams(AppId_t, char const*) = 0; //argc: 2, index 95
-    virtual unknown_ret GetLaunchCommandLine(AppId_t, char*, int) = 0; //argc: 3, index 96
+    virtual unknown_ret GetAppsInFolder(LibraryFolder_t, AppId_t* apps, uint32 appsLength) = 0; //argc: 3, index 2
+    virtual unknown_ret ForceInstallDirOverride(const char*) = 0; //argc: 1, index 3
+    virtual unknown_ret SetDownloadThrottleRateKbps(int, bool) = 0; //argc: 2, index 4
+    virtual unknown_ret GetDownloadThrottleRateKbps(bool) = 0; //argc: 1, index 5
+    virtual unknown_ret SuspendDownloadThrottling(bool) = 0; //argc: 1, index 6
+    virtual unknown_ret SetThrottleDownloadsWhileStreaming(bool) = 0; //argc: 1, index 7
+    virtual bool BThrottleDownloadsWhileStreaming() = 0; //argc: 0, index 8
+    virtual char const* GetLaunchQueryParam(AppId_t, char const* pchKey) = 0; //argc: 2, index 1
+    virtual unknown_ret BeginLaunchQueryParams(AppId_t) = 0; //argc: 1, index 2
+    virtual unknown_ret SetLaunchQueryParam(AppId_t, char const* pchKey, char const* pchValue) = 0; //argc: 3, index 3
+    virtual unknown_ret CommitLaunchQueryParams(AppId_t, char const*) = 0; //argc: 2, index 4
+    virtual unknown_ret GetLaunchCommandLine(AppId_t, char*, int) = 0; //argc: 3, index 5
     // void* was StringView
-    virtual unknown_ret AddContentLogLine(void*) = 0; //argc: 1, index 97
-    virtual unknown_ret SetUseHTTPSForDownloads(bool) = 0; //argc: 1, index 98
+    virtual unknown_ret AddContentLogLine(void*) = 0; //argc: 1, index 6
+    virtual unknown_ret SetUseHTTPSForDownloads(bool) = 0; //argc: 1, index 7
+    virtual bool GetUseHTTPSForDownloads() = 0; //argc: 0, index 8
+    virtual unknown_ret SetPeerContentServerMode() = 0; //argc: 1, index 1
+    virtual unknown_ret SetPeerContentClientMode() = 0; //argc: 1, index 2
+    virtual unknown_ret GetPeerContentServerMode() = 0; //argc: 0, index 3
+    virtual unknown_ret GetPeerContentClientMode() = 0; //argc: 0, index 1
+    virtual unknown_ret GetPeerContentServerStats() = 0; //argc: 1, index 1
+    virtual unknown_ret SuspendPeerContentClient() = 0; //argc: 1, index 2
+    virtual unknown_ret SuspendPeerContentServer() = 0; //argc: 1, index 3
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual bool GetUseHTTPSForDownloads() = 0; //argc: 0, index 99
-    virtual unknown_ret SetPeerContentServerMode() = 0; //argc: 1, index 100
-    virtual unknown_ret SetPeerContentClientMode() = 0; //argc: 1, index 101
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret GetPeerContentServerMode() = 0; //argc: 0, index 102
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret GetPeerContentClientMode() = 0; //argc: 0, index 103
-    virtual unknown_ret GetPeerContentServerStats() = 0; //argc: 1, index 104
-    virtual unknown_ret SuspendPeerContentClient() = 0; //argc: 1, index 105
-    virtual unknown_ret SuspendPeerContentServer() = 0; //argc: 1, index 106
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret GetPeerContentServerForApp() = 0; //argc: 3, index 107
+    virtual unknown_ret GetPeerContentServerForApp() = 0; //argc: 3, index 4
 };
 
 #endif // ICLIENTAPPMANAGER_H

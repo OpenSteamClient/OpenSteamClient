@@ -48,41 +48,38 @@ public:
     virtual uint32 GetSizeInCloud( CGameID gameID, ScreenshotHandle hScreenshot ) = 0; //argc: 2, index 12
     virtual bool IsPersisted( CGameID gameID, ScreenshotHandle hScreenshot ) = 0; //argc: 2, index 13
     
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     virtual int32 GetNumGamesWithLocalScreenshots() = 0; //argc: 0, index 14
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual CGameID GetGameWithLocalScreenshots(int32 iGameIndex) = 0; //argc: 2, index 15
+    virtual CGameID GetGameWithLocalScreenshots(int32 iGameIndex) = 0; //argc: 2, index 2
     
-    virtual int32 GetLocalScreenshotCount( CGameID gameID ) = 0; //argc: 1, index 16
-    virtual bool GetLocalScreenshot( CGameID gameID, int32 iScreenshotIndex, ScreenshotHandle* phScreenshot, int32 *piWidth, int32 *piHeight, uint32 *puTimestamp, EUCMFilePrivacyState *pePrivacy, uint64* pullFileID, char *pchCaption, uint32 cubCaption, bool *pbSpoiler ) = 0; //argc: 11, index 17
+    virtual int32 GetLocalScreenshotCount( CGameID gameID ) = 0; //argc: 1, index 3
+    virtual bool GetLocalScreenshot( CGameID gameID, int32 iScreenshotIndex, ScreenshotHandle* phScreenshot, int32 *piWidth, int32 *piHeight, uint32 *puTimestamp, EUCMFilePrivacyState *pePrivacy, uint64* pullFileID, char *pchCaption, uint32 cubCaption, bool *pbSpoiler ) = 0; //argc: 11, index 4
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret GetLocalScreenshotByHandle() = 0; //argc: 10, index 18
-    virtual bool SetLocalScreenshotCaption( CGameID gameID, ScreenshotHandle hScreenshot, const char *cszCaption ) = 0; //argc: 3, index 19
-    virtual bool SetLocalScreenshotPrivacy( CGameID gameID, ScreenshotHandle hScreenshot, EUCMFilePrivacyState ePrivacy ) = 0; //argc: 3, index 20
-    virtual bool SetLocalScreenshotSpoiler( CGameID, ScreenshotHandle hScreenshot, bool bSpoiler ) = 0; //argc: 3, index 21
+    virtual unknown_ret GetLocalScreenshotByHandle() = 0; //argc: 10, index 5
+    virtual bool SetLocalScreenshotCaption( CGameID gameID, ScreenshotHandle hScreenshot, const char *cszCaption ) = 0; //argc: 3, index 6
+    virtual bool SetLocalScreenshotPrivacy( CGameID gameID, ScreenshotHandle hScreenshot, EUCMFilePrivacyState ePrivacy ) = 0; //argc: 3, index 7
+    virtual bool SetLocalScreenshotSpoiler( CGameID, ScreenshotHandle hScreenshot, bool bSpoiler ) = 0; //argc: 3, index 8
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret GetLocalLastScreenshot() = 0; //argc: 2, index 22
+    virtual unknown_ret GetLocalLastScreenshot() = 0; //argc: 2, index 9
     
-    virtual bool StartBatch( CGameID gameID ) = 0; //argc: 1, index 23
-    virtual bool AddToBatch( ScreenshotHandle hScreenshot ) = 0; //argc: 1, index 24
-    virtual SteamAPICall_t UploadBatch( EUCMFilePrivacyState ePrivacy ) = 0; //argc: 1, index 25
-    virtual SteamAPICall_t DeleteBatch( bool bDeleteFromCloud ) = 0; //argc: 1, index 26
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual bool CancelBatch() = 0; //argc: 0, index 27
+    virtual bool StartBatch( CGameID gameID ) = 0; //argc: 1, index 10
+    virtual bool AddToBatch( ScreenshotHandle hScreenshot ) = 0; //argc: 1, index 11
+    virtual SteamAPICall_t UploadBatch( EUCMFilePrivacyState ePrivacy ) = 0; //argc: 1, index 12
+    virtual SteamAPICall_t DeleteBatch( bool bDeleteFromCloud ) = 0; //argc: 1, index 13
+    virtual bool CancelBatch() = 0; //argc: 0, index 14
     
+    virtual void RecoverOldScreenshots() = 0; //argc: 0, index 1
+    virtual uint32 GetTaggedUserCount( CGameID gameID, ScreenshotHandle hScreenshot ) = 0; //argc: 2, index 2
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual void RecoverOldScreenshots() = 0; //argc: 0, index 28
-    virtual uint32 GetTaggedUserCount( CGameID gameID, ScreenshotHandle hScreenshot ) = 0; //argc: 2, index 29
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual CSteamID GetTaggedUser( CGameID gameID, ScreenshotHandle hScreenshot, int32 iUserIndex ) = 0; //argc: 4, index 30
-    virtual bool GetLocation( CGameID gameID, ScreenshotHandle hScreenshot, char *pchLocation, uint32 cubLocation ) = 0; //argc: 4, index 31
+    virtual CSteamID GetTaggedUser( CGameID gameID, ScreenshotHandle hScreenshot, int32 iUserIndex ) = 0; //argc: 4, index 3
+    virtual bool GetLocation( CGameID gameID, ScreenshotHandle hScreenshot, char *pchLocation, uint32 cubLocation ) = 0; //argc: 4, index 4
     
-    virtual uint32 GetTaggedPublishedFileCount( CGameID gameID, ScreenshotHandle hScreenshot ) = 0; //argc: 2, index 32
-    virtual PublishedFileId_t GetTaggedPublishedFile( CGameID gameID, ScreenshotHandle hScreenshot, int32 iPublishedFileIndex ) = 0; //argc: 3, index 33
+    virtual uint32 GetTaggedPublishedFileCount( CGameID gameID, ScreenshotHandle hScreenshot ) = 0; //argc: 2, index 5
+    virtual PublishedFileId_t GetTaggedPublishedFile( CGameID gameID, ScreenshotHandle hScreenshot, int32 iPublishedFileIndex ) = 0; //argc: 3, index 6
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret GetScreenshotVRType() = 0; //argc: 2, index 34
+    virtual unknown_ret GetScreenshotVRType() = 0; //argc: 2, index 7
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret BGetUserScreenshotDirectory() = 0; //argc: 2, index 35
+    virtual unknown_ret BGetUserScreenshotDirectory() = 0; //argc: 2, index 8
 };
 
 #endif // ICLIENTSCREENSHOTS_H

@@ -28,101 +28,98 @@
 abstract_class IClientMatchmaking
 {
 public:
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     virtual int32 GetFavoriteGameCount() = 0; //argc: 0, index 1
-    virtual bool GetFavoriteGame( int32 iGame, AppId_t *pnAppID, uint32 *pnIP, uint16 *pnConnPort, uint16 *pnQueryPort, uint32 *punFlags, uint32 *pRTime32LastPlayedOnServer ) = 0; //argc: 7, index 2
-    virtual int32 AddFavoriteGame( AppId_t nAppID, uint32 nIP, uint16 nConnPort, uint16 nQueryPort, uint32 unFlags, uint32 rTime32LastPlayedOnServer ) = 0; //argc: 6, index 3
-    virtual bool RemoveFavoriteGame( AppId_t nAppID, uint32 nIP, uint16 nConnPort, uint16 nQueryPort, uint32 unFlags ) = 0; //argc: 5, index 4
+    virtual bool GetFavoriteGame( int32 iGame, AppId_t *pnAppID, uint32 *pnIP, uint16 *pnConnPort, uint16 *pnQueryPort, uint32 *punFlags, uint32 *pRTime32LastPlayedOnServer ) = 0; //argc: 7, index 1
+    virtual int32 AddFavoriteGame( AppId_t nAppID, uint32 nIP, uint16 nConnPort, uint16 nQueryPort, uint32 unFlags, uint32 rTime32LastPlayedOnServer ) = 0; //argc: 6, index 2
+    virtual bool RemoveFavoriteGame( AppId_t nAppID, uint32 nIP, uint16 nConnPort, uint16 nQueryPort, uint32 unFlags ) = 0; //argc: 5, index 3
+    
+    virtual SteamAPICall_t RequestLobbyList() = 0; //argc: 0, index 4
+    
+    virtual void AddRequestLobbyListStringFilter( const char *pchKeyToMatch, const char *pchValueToMatch, ELobbyComparison eComparisonType ) = 0; //argc: 3, index 2
+    virtual void AddRequestLobbyListNumericalFilter( const char *pchKeyToMatch, int32 nValueToMatch, ELobbyComparison eComparisonType ) = 0; //argc: 3, index 3
+    virtual void AddRequestLobbyListNearValueFilter( const char *pchKeyToMatch, int32 nValueToBeCloseTo ) = 0; //argc: 2, index 4
+    virtual void AddRequestLobbyListFilterSlotsAvailable( int32 nSlotsAvailable ) = 0; //argc: 1, index 5
+    virtual void AddRequestLobbyListDistanceFilter( ELobbyDistanceFilter filter ) = 0; //argc: 1, index 6
+    virtual void AddRequestLobbyListResultCountFilter( int32 cMaxResults ) = 0; //argc: 1, index 7
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual void AddRequestLobbyListCompatibleMembersFilter( CSteamID steamID ) = 0; //argc: 2, index 8
     
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual SteamAPICall_t RequestLobbyList() = 0; //argc: 0, index 5
+    virtual CSteamID GetLobbyByIndex( int32 iLobby ) = 0; //argc: 2, index 9
     
-    virtual void AddRequestLobbyListStringFilter( const char *pchKeyToMatch, const char *pchValueToMatch, ELobbyComparison eComparisonType ) = 0; //argc: 3, index 6
-    virtual void AddRequestLobbyListNumericalFilter( const char *pchKeyToMatch, int32 nValueToMatch, ELobbyComparison eComparisonType ) = 0; //argc: 3, index 7
-    virtual void AddRequestLobbyListNearValueFilter( const char *pchKeyToMatch, int32 nValueToBeCloseTo ) = 0; //argc: 2, index 8
-    virtual void AddRequestLobbyListFilterSlotsAvailable( int32 nSlotsAvailable ) = 0; //argc: 1, index 9
-    virtual void AddRequestLobbyListDistanceFilter( ELobbyDistanceFilter filter ) = 0; //argc: 1, index 10
-    virtual void AddRequestLobbyListResultCountFilter( int32 cMaxResults ) = 0; //argc: 1, index 11
+    virtual SteamAPICall_t CreateLobby( ELobbyType eLobbyType, int32 cMaxMembers ) = 0; //argc: 2, index 10
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual void AddRequestLobbyListCompatibleMembersFilter( CSteamID steamID ) = 0; //argc: 2, index 12
-    
+    virtual SteamAPICall_t JoinLobby( CSteamID steamIDLobby ) = 0; //argc: 2, index 11
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual CSteamID GetLobbyByIndex( int32 iLobby ) = 0; //argc: 2, index 13
-    
-    virtual SteamAPICall_t CreateLobby( ELobbyType eLobbyType, int32 cMaxMembers ) = 0; //argc: 2, index 14
+    virtual void LeaveLobby( CSteamID steamIDLobby ) = 0; //argc: 2, index 12
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual SteamAPICall_t JoinLobby( CSteamID steamIDLobby ) = 0; //argc: 2, index 15
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual void LeaveLobby( CSteamID steamIDLobby ) = 0; //argc: 2, index 16
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual bool InviteUserToLobby( CSteamID steamIDLobby, CSteamID steamIDInvitee ) = 0; //argc: 4, index 17
+    virtual bool InviteUserToLobby( CSteamID steamIDLobby, CSteamID steamIDInvitee ) = 0; //argc: 4, index 13
     
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual int32 GetNumLobbyMembers( CSteamID steamIDLobby ) = 0; //argc: 2, index 18
+    virtual int32 GetNumLobbyMembers( CSteamID steamIDLobby ) = 0; //argc: 2, index 14
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual CSteamID GetLobbyMemberByIndex( CSteamID steamIDLobby, int32 iMember ) = 0; //argc: 4, index 19
+    virtual CSteamID GetLobbyMemberByIndex( CSteamID steamIDLobby, int32 iMember ) = 0; //argc: 4, index 15
     
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual const char *GetLobbyData( CSteamID steamIDLobby, const char *pchKey ) = 0; //argc: 3, index 20
+    virtual const char *GetLobbyData( CSteamID steamIDLobby, const char *pchKey ) = 0; //argc: 3, index 16
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual bool SetLobbyData( CSteamID steamIDLobby, const char *pchKey, const char *pchValue ) = 0; //argc: 4, index 21
+    virtual bool SetLobbyData( CSteamID steamIDLobby, const char *pchKey, const char *pchValue ) = 0; //argc: 4, index 17
     
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual int32 GetLobbyDataCount( CSteamID steamIDLobby ) = 0; //argc: 2, index 22
+    virtual int32 GetLobbyDataCount( CSteamID steamIDLobby ) = 0; //argc: 2, index 18
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual bool GetLobbyDataByIndex( CSteamID steamIDLobby, int32 iLobbyData, char *pchKey, int32 cchKeyBufferSize, char *pchValue, int32 cchValueBufferSize ) = 0; //argc: 7, index 23
+    virtual bool GetLobbyDataByIndex( CSteamID steamIDLobby, int32 iLobbyData, char *pchKey, int32 cchKeyBufferSize, char *pchValue, int32 cchValueBufferSize ) = 0; //argc: 7, index 19
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual bool DeleteLobbyData( CSteamID steamIDLobby, const char *pchKey ) = 0; //argc: 3, index 24
+    virtual bool DeleteLobbyData( CSteamID steamIDLobby, const char *pchKey ) = 0; //argc: 3, index 20
     
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual const char *GetLobbyMemberData( CSteamID steamIDLobby, CSteamID steamIDUser, const char *pchKey ) = 0; //argc: 5, index 25
+    virtual const char *GetLobbyMemberData( CSteamID steamIDLobby, CSteamID steamIDUser, const char *pchKey ) = 0; //argc: 5, index 21
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual void SetLobbyMemberData( CSteamID steamIDLobby, const char *pchKey, const char *pchValue ) = 0; //argc: 4, index 26
+    virtual void SetLobbyMemberData( CSteamID steamIDLobby, const char *pchKey, const char *pchValue ) = 0; //argc: 4, index 22
     
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual bool SendLobbyChatMsg( CSteamID steamIDLobby, const void *pvMsgBody, int32 cubMsgBody ) = 0; //argc: 4, index 27
+    virtual bool SendLobbyChatMsg( CSteamID steamIDLobby, const void *pvMsgBody, int32 cubMsgBody ) = 0; //argc: 4, index 23
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual int32 GetLobbyChatEntry( CSteamID steamIDLobby, int32 iChatID, CSteamID *pSteamIDUser, void *pvData, int32 cubData, EChatEntryType *peChatEntryType ) = 0; //argc: 7, index 28
+    virtual int32 GetLobbyChatEntry( CSteamID steamIDLobby, int32 iChatID, CSteamID *pSteamIDUser, void *pvData, int32 cubData, EChatEntryType *peChatEntryType ) = 0; //argc: 7, index 24
     
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual bool RequestLobbyData( CSteamID steamIDLobby ) = 0; //argc: 2, index 29
+    virtual bool RequestLobbyData( CSteamID steamIDLobby ) = 0; //argc: 2, index 25
     
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual void SetLobbyGameServer( CSteamID steamIDLobby, uint32 unGameServerIP, uint16 unGameServerPort, CSteamID steamIDGameServer ) = 0; //argc: 6, index 30
+    virtual void SetLobbyGameServer( CSteamID steamIDLobby, uint32 unGameServerIP, uint16 unGameServerPort, CSteamID steamIDGameServer ) = 0; //argc: 6, index 26
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual bool GetLobbyGameServer( CSteamID steamIDLobby, uint32 *punGameServerIP, uint16 *punGameServerPort, CSteamID *psteamIDGameServer ) = 0; //argc: 5, index 31
+    virtual bool GetLobbyGameServer( CSteamID steamIDLobby, uint32 *punGameServerIP, uint16 *punGameServerPort, CSteamID *psteamIDGameServer ) = 0; //argc: 5, index 27
     
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual bool SetLobbyMemberLimit( CSteamID steamIDLobby, int32 cMaxMembers ) = 0; //argc: 3, index 32
+    virtual bool SetLobbyMemberLimit( CSteamID steamIDLobby, int32 cMaxMembers ) = 0; //argc: 3, index 28
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual int32 GetLobbyMemberLimit( CSteamID steamIDLobby ) = 0; //argc: 2, index 33
+    virtual int32 GetLobbyMemberLimit( CSteamID steamIDLobby ) = 0; //argc: 2, index 29
     
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual void SetLobbyVoiceEnabled( CSteamID steamIDLobby, bool bVoiceEnabled ) = 0; //argc: 3, index 34
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual bool RequestFriendsLobbies() = 0; //argc: 0, index 35
+    virtual void SetLobbyVoiceEnabled( CSteamID steamIDLobby, bool bVoiceEnabled ) = 0; //argc: 3, index 30
+    virtual bool RequestFriendsLobbies() = 0; //argc: 0, index 31
     
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual bool SetLobbyType( CSteamID steamIDLobby, ELobbyType eLobbyType ) = 0; //argc: 3, index 36
+    virtual bool SetLobbyType( CSteamID steamIDLobby, ELobbyType eLobbyType ) = 0; //argc: 3, index 1
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual bool SetLobbyJoinable( CSteamID steamIDLobby, bool bLobbyJoinable ) = 0; //argc: 3, index 37
+    virtual bool SetLobbyJoinable( CSteamID steamIDLobby, bool bLobbyJoinable ) = 0; //argc: 3, index 2
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual CSteamID GetLobbyOwner( CSteamID steamIDLobby ) = 0; //argc: 3, index 38
+    virtual CSteamID GetLobbyOwner( CSteamID steamIDLobby ) = 0; //argc: 3, index 3
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual bool SetLobbyOwner( CSteamID steamIDLobby, CSteamID steamIDNewOwner ) = 0; //argc: 4, index 39
+    virtual bool SetLobbyOwner( CSteamID steamIDLobby, CSteamID steamIDNewOwner ) = 0; //argc: 4, index 4
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual bool SetLinkedLobby( CSteamID steamIDLobby, CSteamID steamIDLobby2 ) = 0; //argc: 4, index 40
+    virtual bool SetLinkedLobby( CSteamID steamIDLobby, CSteamID steamIDLobby2 ) = 0; //argc: 4, index 5
     
-    virtual uint64 BeginGMSQuery( AppId_t nAppId, int32 iRegionCode, const char* szFilterText ) = 0; //argc: 3, index 41
+    virtual uint64 BeginGMSQuery( AppId_t nAppId, int32 iRegionCode, const char* szFilterText ) = 0; //argc: 3, index 6
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual int32 PollGMSQuery( uint64 ullGMSQuery ) = 0; //argc: 2, index 42
-    virtual int32 GetGMSQueryResults( uint64 ullGMSQuery, GMSQueryResult_t *pGMSQueryResults, int32 nResultBufSizeInBytes ) = 0; //argc: 3, index 43
+    virtual int32 PollGMSQuery( uint64 ullGMSQuery ) = 0; //argc: 2, index 7
+    virtual int32 GetGMSQueryResults( uint64 ullGMSQuery, GMSQueryResult_t *pGMSQueryResults, int32 nResultBufSizeInBytes ) = 0; //argc: 3, index 8
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual void ReleaseGMSQuery( uint64 ullGMSQuery ) = 0; //argc: 2, index 44
+    virtual void ReleaseGMSQuery( uint64 ullGMSQuery ) = 0; //argc: 2, index 9
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret QueryServerByFakeIP() = 0; //argc: 4, index 45
+    virtual unknown_ret QueryServerByFakeIP() = 0; //argc: 4, index 10
     
-    virtual uint64 EnsureFavoriteGameAccountsUpdated( bool bUnk ) = 0; //argc: 1, index 46
+    virtual uint64 EnsureFavoriteGameAccountsUpdated( bool bUnk ) = 0; //argc: 1, index 11
 };
 
 

@@ -25,24 +25,23 @@
 abstract_class IClientBluetoothManager
 {
 public:
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     virtual unknown_ret IsInterfaceValid() = 0; //argc: 0, index 1
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret GetBluetoothDevicesData() = 0; //argc: 1, index 2
+    virtual unknown_ret GetBluetoothDevicesData() = 0; //argc: 1, index 1
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret SetEnabled() = 0; //argc: 1, index 3
+    virtual unknown_ret SetEnabled() = 0; //argc: 1, index 2
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret SetDiscovering() = 0; //argc: 2, index 4
+    virtual unknown_ret SetDiscovering() = 0; //argc: 2, index 3
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret Pair() = 0; //argc: 2, index 5
+    virtual unknown_ret Pair() = 0; //argc: 2, index 4
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret CancelPairing() = 0; //argc: 2, index 6
+    virtual unknown_ret CancelPairing() = 0; //argc: 2, index 5
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret UnPair() = 0; //argc: 2, index 7
+    virtual unknown_ret UnPair() = 0; //argc: 2, index 6
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret Connect() = 0; //argc: 2, index 8
+    virtual unknown_ret Connect() = 0; //argc: 2, index 7
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret Disconnect() = 0; //argc: 2, index 9
+    virtual unknown_ret Disconnect() = 0; //argc: 2, index 8
 };
 
 #endif // ICLIENTBLUETOOTHMANAGER_H

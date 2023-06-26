@@ -111,7 +111,6 @@ execute_process(
 )
 
 # Save the git commit hash to the generated file
-
 configure_file (
     ${PROJECT_SOURCE_DIR}/src/generated/gitinfo.h.in
     ${PROJECT_BINARY_DIR}/gitinfo.h
@@ -119,6 +118,11 @@ configure_file (
 
 remove_definitions(linux)
 add_executable(opensteam ${common_sources} ${steamutl_sources} ${opensteamclient_sources})
+
+# Export all symbols from opensteam
+# Used by steamclient.so to get info about the bootstrapper
+# Would export only the needed ones, but it isn't an option...
+set_property(TARGET opensteam PROPERTY ENABLE_EXPORTS ON)
 
 # Force include protobufhack.cpp, which will #undef linux
 target_compile_options(opensteam PUBLIC -include protobufhack.h)

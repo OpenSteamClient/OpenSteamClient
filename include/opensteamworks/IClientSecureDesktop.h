@@ -25,12 +25,9 @@
 abstract_class IClientSecureDesktop
 {
 public:
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     virtual unknown_ret BStartStreaming() = 0; //argc: 0, index 1
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret StopStreaming() = 0; //argc: 0, index 2
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret SendSAS() = 0; //argc: 0, index 3
+    virtual unknown_ret StopStreaming() = 0; //argc: 0, index 1
+    virtual unknown_ret SendSAS() = 0; //argc: 0, index 1
 };
 
 #endif // ICLIENTSECUREDESKTOP_H
