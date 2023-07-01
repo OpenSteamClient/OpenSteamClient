@@ -1,5 +1,5 @@
 # OpenSteamClient (Alpha)
-![Build Status](https://github.com/20PercentRendered/opensteamclient/actions/workflows/cmake.yaml/badge.svg)
+![Build Status](https://github.com/Rosentti/opensteamclient/actions/workflows/cmake.yaml/badge.svg)
 A partially open-source Steam client for Linux. 
 
 # Features
@@ -33,20 +33,16 @@ A partially open-source Steam client for Linux.
 
 
 # Screenshots
-![image](https://github.com/20PercentRendered/opensteamclient/assets/32398752/a83319b2-2c94-4cc1-a3ed-52982fddb4ea)
-![image](https://github.com/20PercentRendered/opensteamclient/assets/32398752/d55ac400-7522-4202-84d6-8563ba8d268a)
-![image](https://github.com/20PercentRendered/opensteamclient/assets/32398752/bac196f8-abce-4187-908e-d41aa410fa50)
-![image](https://github.com/20PercentRendered/opensteamclient/assets/32398752/be6d4227-0911-431f-8c52-05fbb4ec112e)
-![image](https://github.com/20PercentRendered/opensteamclient/assets/32398752/b2c695ec-6df6-4d2b-817b-b2a8bca0ac36)
+![image](https://github.com/Rosentti/opensteamclient/assets/32398752/a83319b2-2c94-4cc1-a3ed-52982fddb4ea)
+![image](https://github.com/Rosentti/opensteamclient/assets/32398752/d55ac400-7522-4202-84d6-8563ba8d268a)
+![image](https://github.com/Rosentti/opensteamclient/assets/32398752/bac196f8-abce-4187-908e-d41aa410fa50)
+![image](https://github.com/Rosentti/opensteamclient/assets/32398752/be6d4227-0911-431f-8c52-05fbb4ec112e)
+![image](https://github.com/Rosentti/opensteamclient/assets/32398752/b2c695ec-6df6-4d2b-817b-b2a8bca0ac36)
 
 
 # System requirements
 ## Distro requirements
-- Arch Linux 
-
-- Ubuntu 23.04 (Lunar Lobster) or newer
-
-- Any other distro with Qt6 6.4.2 or greater
+- ??? (TODO: Fill this)
 
 # Install (Ready-to-go binaries)
 Warning: These releases (currently) are only meant for developers. There is an uncountable amount of bugs I've yet to fix. 
@@ -84,7 +80,7 @@ Read [Restoring ValveSteam](#restoring-valvesteam) below if you want to use the 
 # Install and Launching (Building from source)
 0. Make sure you have the build dependencies installed. 
 
-1. Clone this repo recursively `git clone https://github.com/20PercentRendered/opensteamclient --recursive`
+1. Clone this repo recursively `git clone https://github.com/Rosentti/opensteamclient --recursive`
 
 2. `mkdir build && cd build`
 

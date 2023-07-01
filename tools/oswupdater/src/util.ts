@@ -61,6 +61,10 @@ export interface Difference<T> {
     changes: T[];
 }
 
+export function replaceRange(s: string, start: number, end: number, substitute: string) {
+    return s.substring(0, start) + substitute + s.substring(end);
+}
+
 // If you pass objects to this function, use comparer or it will give false results
 export function compareArrays<T>(_originalArr: T[], _newArr: T[], comparer?: (searchItem: T, currentItem: T) => boolean, changeComparer?: (origItem: T, newItem: T) => boolean): Difference<T> {
     

@@ -5,8 +5,8 @@ import { CLIENT_MAIN_BINARIES_NAME, ClientManifest } from "./manifest"
 import { Project } from "./project";
 import { Difference, execWrap, find32BitELFBinaryRecursive, mkdir } from "./util";
 import { ClientDifference, ClientDump } from './dump';
-import { VirtualHeader } from './cpp/virtualheader';
-import { VersionInfo } from './cpp/versioninfo';
+import { VirtualHeader } from './csharp/virtualheader';
+// import { VersionInfo } from './cpp/versioninfo';
     
 export async function Main(): Promise<number> {
     console.info("Starting OSWUpdater");
@@ -164,9 +164,9 @@ export async function Main(): Promise<number> {
     for (const iface of newDump.interfaces) {
         const index = newDump.interfaces.indexOf(iface);
 
-        if (fs.existsSync(`${projectDir}/include/opensteamworks/${iface.name}.h`)) {
+        if (fs.existsSync(`${projectDir}/OpenSteamworks/Generated/${iface.name}.cs`)) {
             console.info(`${iface.name}: Reading previous header for type information (1/3) (header ${index}/${newDump.interfaces.length})`)
-            var header: VirtualHeader = await VirtualHeader.LoadFromFile(`${projectDir}/include/opensteamworks/${iface.name}.h`, iface.name);
+            var header: VirtualHeader = await VirtualHeader.LoadFromFile(`${projectDir}/OpenSteamworks/Generated/${iface.name}.cs`, iface.name);
 
             console.info(`${iface.name}: Patching header with new info (2/3) (header ${index}/${newDump.interfaces.length})`)
             header.PatchWithDump(iface);
@@ -175,7 +175,7 @@ export async function Main(): Promise<number> {
             await header.OverwriteOldFile();
         } else {
             console.info(`${iface.name}: Creating new header based on dump (1/2) (header ${index}/${newDump.interfaces.length})`)
-            var header: VirtualHeader = await VirtualHeader.CreateFromDump(`${projectDir}/include/opensteamworks/${iface.name}.h`, iface);
+            var header: VirtualHeader = await VirtualHeader.CreateFromDump(`${projectDir}/OpenSteamworks/Generated/${iface.name}.cs`, iface);
 
             console.info(`${iface.name}: Writing new header to disk (2/2) (header ${index}/${newDump.interfaces.length})`)
             await header.OverwriteOldFile();
@@ -190,10 +190,10 @@ export async function Main(): Promise<number> {
     fs.rmSync(oldDumpedDataPath, {recursive: true, force: true});
     fs.cpSync(`${versionedWorkDir}/dumped_data`, oldDumpedDataPath, { recursive: true });
     
-    console.info("Generating new version.h")
-    var versionFilePath = `${projectDir}/include/opensteamworks/version.h`;
-    fs.rmSync(versionFilePath);
-    VersionInfo.CreateVersionFileFromManifest(versionFilePath, newManifest);
+    // console.info("Generating new version.h")
+    // var versionFilePath = `${projectDir}/include/opensteamworks/version.h`;
+    // fs.rmSync(versionFilePath);
+    // VersionInfo.CreateVersionFileFromManifest(versionFilePath, newManifest);
 
     console.info("Done")
     
