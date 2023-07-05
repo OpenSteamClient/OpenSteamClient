@@ -9,18 +9,19 @@
 //=============================================================================
 
 using System;
+using OpenSteamworks.Enums;
 
 namespace OpenSteamworks.Generated;
 
 public interface IClientUtils
 {
-    public unknown_ret GetInstallPath();  // argc: 0, index: 1
-    public unknown_ret GetUserBaseFolderInstallImage();  // argc: 0, index: 2
-    public unknown_ret GetManagedContentRoot();  // argc: 0, index: 3
-    public unknown_ret GetSecondsSinceAppActive();  // argc: 0, index: 4
-    public unknown_ret GetSecondsSinceComputerActive();  // argc: 0, index: 5
-    public unknown_ret SetComputerActive();  // argc: 0, index: 6
-    public unknown_ret GetConnectedUniverse();  // argc: 0, index: 7
+    public string GetInstallPath();  // argc: 0, index: 1
+    public string GetUserBaseFolderInstallImage();  // argc: 0, index: 2
+    public string GetManagedContentRoot();  // argc: 0, index: 3
+    public RTime32 GetSecondsSinceAppActive();  // argc: 0, index: 4
+    public RTime32 GetSecondsSinceComputerActive();  // argc: 0, index: 5
+    public void SetComputerActive();  // argc: 0, index: 6
+    public EUniverse GetConnectedUniverse();  // argc: 0, index: 7
     public unknown_ret GetSteamRealm();  // argc: 0, index: 8
     public unknown_ret GetServerRealTime();  // argc: 0, index: 9
     public unknown_ret GetIPCountry();  // argc: 0, index: 10
@@ -33,11 +34,11 @@ public interface IClientUtils
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret GetBatteryInformation();  // argc: 2, index: 15
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret SetOfflineMode();  // argc: 1, index: 16
-    public unknown_ret GetOfflineMode();  // argc: 0, index: 17
+    public unknown_ret SetOfflineMode(bool offline);  // argc: 1, index: 16
+    public bool GetOfflineMode();  // argc: 0, index: 17
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret SetAppIDForCurrentPipe();  // argc: 2, index: 18
-    public unknown_ret GetAppID();  // argc: 0, index: 19
+    public AppId_t GetAppID();  // argc: 0, index: 19
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret SetAPIDebuggingActive();  // argc: 2, index: 20
     public unknown_ret AllocPendingAPICallHandle();  // argc: 0, index: 21
@@ -78,7 +79,7 @@ public interface IClientUtils
     public unknown_ret ShowControllerLayoutPreview();  // argc: 3, index: 43
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret SetSpew();  // argc: 3, index: 44
-    public unknown_ret BDownloadsDisabled();  // argc: 0, index: 45
+    public bool BDownloadsDisabled();  // argc: 0, index: 45
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret SetFocusedWindow();  // argc: 4, index: 46
     public unknown_ret GetSteamUILanguage();  // argc: 0, index: 47

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace OpenSteamworks.JIT
+namespace OpenSteamworks.Native.JIT
 {
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = false)]
     class NativeTypeAttribute : Attribute

@@ -1,18 +1,33 @@
-﻿using Avalonia;
+﻿using Autofac;
+using Avalonia;
+using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.ReactiveUI;
+using OpenSteamworks;
 using System;
 
 namespace ClientUI;
 
-class Program
+public static class Program
 {
+    
     // Initialization code. Don't use any Avalonia, third-party APIs or any
     // SynchronizationContext-reliant code before AppMain is called: things aren't initialized
     // yet and stuff might break.
     [STAThread]
-    public static void Main(string[] args)  {
-        OpenSteamworks.Client c = new OpenSteamworks.Client();
-        // BuildAvaloniaApp().StartWithClassicDesktopLifetime(args);
+    public static void Main(string[] args)  
+    {
+        var builder = new ContainerBuilder();
+
+        //TODO: this is something that the user should be able to pick
+        builder.Register(c => OpenSteamworks.SteamClient.ConnectionType.ExistingClient | OpenSteamworks.SteamClient.ConnectionType.NewClient).SingleInstance();
+
+        // Registers everything into autofac and basically initializes the whole app
+        ClientUIAutofacRegistrar.Register(ref builder);
+
+        var container = builder.Build();
+        container.Resolve<SteamClient>().LogClientState();
+
+        BuildAvaloniaApp().StartWithClassicDesktopLifetime(args, Avalonia.Controls.ShutdownMode.OnExplicitShutdown);
     }
         
 

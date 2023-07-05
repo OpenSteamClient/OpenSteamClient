@@ -4,7 +4,7 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace OpenSteamworks.JIT
+namespace OpenSteamworks.Native.JIT
 {
     class JITInfoException : Exception
     {

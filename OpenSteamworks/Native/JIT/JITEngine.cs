@@ -5,7 +5,7 @@ using System.Reflection.Emit;
 using System.Runtime.InteropServices;
 using System.Diagnostics;
 
-namespace OpenSteamworks.JIT
+namespace OpenSteamworks.Native.JIT
 {
     class JITEngineException : Exception
     {

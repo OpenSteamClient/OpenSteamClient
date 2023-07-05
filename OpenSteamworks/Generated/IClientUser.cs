@@ -16,8 +16,7 @@ public interface IClientUser
 {
     // WARNING: Do not use this function! Unknown behaviour will occur!
     public unknown_ret Unknown_0_DONTUSE();  // argc: -1, index: 1
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret LogOn();  // argc: 2, index: 2
+    public unknown_ret LogOn(CSteamID steamid, bool interactive);  // argc: 2, index: 2
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret InvalidateCredentials();  // argc: 2, index: 3
     public unknown_ret LogOff();  // argc: 0, index: 4
@@ -100,20 +99,17 @@ public interface IClientUser
     public unknown_ret ResetConnectionPriority();  // argc: 1, index: 49
     public unknown_ret GetDesiredNetQOSLevel();  // argc: 0, index: 50
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret BHasCachedCredentials();  // argc: 1, index: 51
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret SetAccountNameForCachedCredentialLogin();  // argc: 2, index: 52
+    public bool BHasCachedCredentials(string username);  // argc: 1, index: 51
+    public unknown_ret SetAccountNameForCachedCredentialLogin(string username, bool unk1);  // argc: 2, index: 52
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret DestroyCachedCredentials();  // argc: 2, index: 53
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret GetCurrentWebAuthToken();  // argc: 2, index: 54
+    public bool GetCurrentWebAuthToken(StrPtr tokenOut, UInt32 bufSize);  // argc: 2, index: 54
     public unknown_ret RequestWebAuthToken();  // argc: 0, index: 55
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret SetLoginInformation();  // argc: 3, index: 56
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret SetTwoFactorCode();  // argc: 1, index: 57
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret SetLoginToken();  // argc: 2, index: 58
+    public unknown_ret SetLoginToken(string token, string username);  // argc: 2, index: 58
     public unknown_ret GetLoginTokenID();  // argc: 0, index: 59
     public unknown_ret ClearAllLoginInformation();  // argc: 0, index: 60
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
@@ -153,7 +149,7 @@ public interface IClientUser
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret GetUserConfigFolder();  // argc: 2, index: 79
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret GetAccountName(IntPtr usernameOut, uint accountID);  // argc: 2, index: 80
+    public unknown_ret GetAccountName(StrPtr usernameOut, uint strMaxLen);  // argc: 2, index: 80
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret GetAccountName();  // argc: 4, index: 81
     public unknown_ret IsPasswordRemembered();  // argc: 0, index: 82
@@ -429,13 +425,13 @@ public interface IClientUser
     public unknown_ret UpdateGameVrDllState();  // argc: 3, index: 245
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret KillVRTheaterPancakeGame();  // argc: 1, index: 246
-    public unknown_ret BIsAnyGameOrServiceAppRunning();  // argc: 0, index: 247
+    public bool BIsAnyGameOrServiceAppRunning();  // argc: 0, index: 247
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret BGetAppPlaytimeMap();  // argc: 1, index: 248
+    public unknown_ret BGetAppPlaytimeMap(IntPtr vec);  // argc: 1, index: 248
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret BGetAppsLastPlayedMap();  // argc: 1, index: 249
+    public unknown_ret BGetAppsLastPlayedMap(IntPtr vec);  // argc: 1, index: 249
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret BGetAppTagsMap();  // argc: 1, index: 250
+    public unknown_ret BGetAppTagsMap(IntPtr vec);  // argc: 1, index: 250
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret SendSteamServiceStatusUpdate();  // argc: 2, index: 251
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!

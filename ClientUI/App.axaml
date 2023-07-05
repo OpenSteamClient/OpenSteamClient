@@ -12,4 +12,26 @@
     <Application.Styles>
         <FluentTheme />
     </Application.Styles>
+
+   <!-- <TrayIcon.Icons>
+    <TrayIcons>
+      <TrayIcon Icon="/Assets/test_icon.ico" ToolTipText="Avalonia Tray Icon ToolTip">
+        <TrayIcon.Menu>
+          <NativeMenu>
+            <NativeMenuItem Header="Settings">
+              <NativeMenu>
+                <NativeMenuItem Header="Option 1" ToggleType="Radio" IsChecked="True" Command="{Binding ToggleCommand}" />
+                <NativeMenuItem Header="Option 2" ToggleType="Radio" IsChecked="True" Command="{Binding ToggleCommand}" />
+                <NativeMenuItemSeparator />
+                <NativeMenuItem Header="Option 3" ToggleType="CheckBox" IsChecked="True" Command="{Binding ToggleCommand}" />
+                <NativeMenuItem Icon="/Assets/test_icon.ico" Header="Restore Defaults" Command="{Binding ToggleCommand}" />
+                <NativeMenuItem Header="Disabled option" IsEnabled="False" />
+              </NativeMenu>
+            </NativeMenuItem>
+            <NativeMenuItem Header="Exit" Command="{Binding ExitCommand}" />
+          </NativeMenu>
+        </TrayIcon.Menu>
+      </TrayIcon>
+    </TrayIcons>
+  </TrayIcon.Icons> -->
 </Application>

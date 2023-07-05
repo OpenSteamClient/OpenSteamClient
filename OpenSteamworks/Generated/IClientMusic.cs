@@ -14,7 +14,7 @@ namespace OpenSteamworks.Generated;
 
 public interface IClientMusic
 {
-    public unknown_ret BIsEnabled();  // argc: 0, index: 1
+    public bool BIsEnabled();  // argc: 0, index: 1
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret Enable();  // argc: 1, index: 2
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!

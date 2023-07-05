@@ -1,3 +1,5 @@
+namespace OpenSteamworks.Enums;
+
 public enum EConfigStore
 {
 	k_EConfigStoreInvalid = 0,
