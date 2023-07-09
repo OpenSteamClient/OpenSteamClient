@@ -129,7 +129,7 @@ public class Bootstrapper {
         }
 
         // Verify all files and skip bootstrap if files are valid and version matches 
-        bool failedInitialCheck = false;
+        bool failedInitialCheck = bootstrapperState.InstalledVersion != OpenSteamworks.Generated.VersionInfo.STEAM_MANIFEST_VERSION;
         int installedFilesLength = bootstrapperState.InstalledFiles.Count;
         int checkedFiles = 0;
 
@@ -153,6 +153,16 @@ public class Bootstrapper {
             if (failedInitialCheck) {
                 break;
             }
+        }   
+
+        if (bootstrapperState.InstalledVersion != OpenSteamworks.Generated.VersionInfo.STEAM_MANIFEST_VERSION) {
+            Directory.Delete(PackageDir, true);
+            Directory.CreateDirectory(PackageDir);
+
+            if (File.Exists(BootstrapStateFile)) {
+                File.Delete(BootstrapStateFile);
+            }
+            bootstrapperState = new BootstrapperState();
         }
 
         if (installedFilesLength > 0 && !failedInitialCheck) {
@@ -291,7 +301,6 @@ public class Bootstrapper {
                 // Then combine all the parts to one zip file 
                 foreach (var part in parts)
                 {
-                    Console.WriteLine(part);
                     using (var file = new FileStream(part, FileMode.Open, FileAccess.Read, FileShare.Read)) {
                         file.CopyTo(fullFile);
                     }
@@ -306,26 +315,29 @@ public class Bootstrapper {
                 var lines = File.ReadLines(Path.Combine(Ubuntu12_32Dir, "steam-runtime.checksum"));
                 foreach (var line in lines)
                 {
-                    var split = line.Split(' ');
+                    var split = line.Split("  ");
                     checksums.Add(split[1].Trim(), split[0].Trim());
                 }
 
                 // Verify files defined in steam-runtime.checksum
                 foreach (var item in checksums)
                 {
+                    Console.WriteLine(item);
                     var file = Path.Combine(Ubuntu12_32Dir, item.Key);
                     string runtime_md5_calculated = "";
-                    string runtime_md5_expected = item.Value;
+                    string runtime_md5_expected = item.Value.ToUpper();
 
                     // This file is never saved on disk, so do it specially
-                    if (file == "steam-runtime.tar.xz") {
+                    if (file.EndsWith("steam-runtime.tar.xz")) {
                         runtime_md5_calculated = Convert.ToHexString(MD5.HashData(fullFile));
                     } else {
                         runtime_md5_calculated = Convert.ToHexString(MD5.HashData(File.ReadAllBytes(file)));
                     }
 
+                    runtime_md5_calculated = runtime_md5_calculated.ToUpper();
+
                     if (runtime_md5_calculated != runtime_md5_expected) {
-                        if (file == "steam-runtime.tar.xz") {
+                        if (file.EndsWith("steam-runtime.tar.xz")) {
                             file += " (saved in-memory)";
                         }
                         throw new Exception($"MD5 mismatch. File {file} is corrupted. {runtime_md5_expected} expected, got {runtime_md5_calculated}");
@@ -356,6 +368,7 @@ public class Bootstrapper {
                 StreamPiper.StartPiping(proc.StandardError.BaseStream, Console.OpenStandardError());
                 StreamPiper.StartPiping(fullFile, proc.StandardInput.BaseStream);
 
+                //BLOCKER: This never exits...
                 proc.WaitForExit();
                 Console.WriteLine("exited with: " + proc.ExitCode);
                 progressHandler.SetProgress(100);
@@ -367,6 +380,7 @@ public class Bootstrapper {
         // Copy our files over (steamserviced, 64-bit reaper and 64-bit steamlaunchwrapper)
         //BLOCKER: CMake MSBuild integration (tomorrow?)
 
+        bootstrapperState.InstalledVersion = OpenSteamworks.Generated.VersionInfo.STEAM_MANIFEST_VERSION;
         bootstrapperState.SaveToFile(BootstrapStateFile);
     }
     public Bootstrapper() {}

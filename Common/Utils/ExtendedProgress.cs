@@ -19,6 +19,7 @@ public class ExtendedProgress<T> : IExtendedProgress<T>
     /// It is used to inform users that an operation is ongoing, but it's progression is not known.
     /// </summary>
     public bool Throbber { get; private set; }
+    private T initialProgress;
     public T Progress { get; private set; }
     public T MaxProgress { get; private set; }
     public string Operation { get; private set; }
@@ -31,11 +32,13 @@ public class ExtendedProgress<T> : IExtendedProgress<T>
         Operation = "";
         SubOperation = "";
         Throbber = false;
+        this.initialProgress = initialProgress;
         Progress = initialProgress;
         MaxProgress = maxProgress;
     }
 
     void IExtendedProgress<T>.SetThrobber(bool value) {
+        this.Progress = initialProgress;
         this.Throbber = value;
         (this as IProgress<T>).Report(this.Progress);
     }
@@ -49,6 +52,7 @@ public class ExtendedProgress<T> : IExtendedProgress<T>
         (this as IProgress<T>).Report(this.Progress);
     }
     void IExtendedProgress<T>.SetOperation(string value) {
+        this.Progress = initialProgress;
         this.Operation = value;
         this.SubOperation = "";
         (this as IProgress<T>).Report(this.Progress);

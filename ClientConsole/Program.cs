@@ -1,4 +1,5 @@
-﻿using Autofac;
+﻿using System.Runtime.InteropServices;
+using Autofac;
 using Common.Startup;
 using Common.Utils;
 using OpenSteamworks;
@@ -26,6 +27,7 @@ public static class Program
         };
 
         container.Resolve<Bootstrapper>().RunBootstrap(handler);
+
         do
         {
             System.Threading.Thread.Sleep(10);
