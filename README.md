@@ -9,6 +9,9 @@ A partially open-source Steam client for Linux (C# version).
 - Uses Avalonia UI
 - Supports Windows
 
+# Blockers
+Current blockers are marked as BLOCKER. Just search for it in all the files.
+
 # Developing
 See DEVELOPING.md in the root of this repo.
 This will eventually replace the old opensteamclient.

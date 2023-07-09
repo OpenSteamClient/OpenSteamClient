@@ -21,7 +21,7 @@ public interface IClientConfigStore
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public Int32 GetInt( EConfigStore eConfigStore, string pszKeyName, Int32 defaultValue );  // argc: 3, index: 3
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public UInt64 GetUInt64( EConfigStore eConfigStore, string pszKeyName, UInt64 defaultValue );  // argc: 4, index: 4
+    public UInt64 GetUint64( EConfigStore eConfigStore, string pszKeyName, UInt64 defaultValue );  // argc: 4, index: 4
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public float GetFloat(EConfigStore eConfigStore, string pszKeyName, float defaultValue);  // argc: 3, index: 5
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
@@ -37,7 +37,7 @@ public interface IClientConfigStore
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public bool SetInt(EConfigStore eConfigStore, string pszKeyNameIn, Int32 nValue);  // argc: 3, index: 11
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public bool SetUInt64(EConfigStore eConfigStore, string pszKeyNameIn, UInt64 unValue);  // argc: 4, index: 12
+    public bool SetUint64(EConfigStore eConfigStore, string pszKeyNameIn, UInt64 unValue);  // argc: 4, index: 12
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public bool SetFloat(EConfigStore eConfigStore, string pszKeyNameIn, float flValue);  // argc: 3, index: 13
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!

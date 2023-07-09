@@ -105,7 +105,7 @@ namespace OpenSteamworks.Native.JIT
             }
 
             int size = Marshal.SizeOf(Type);
-            return Type != typeof(UInt64) && size > 4; // TODO: investigate
+            return Type != typeof(UInt64) && size > 4; 
         }
     }
 

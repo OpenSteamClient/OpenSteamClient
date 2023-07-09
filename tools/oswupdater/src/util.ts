@@ -8,6 +8,12 @@ export function mkdir(path: string, recursive: boolean = false): void {
     }
 }
 
+export function rm(path: string): void {
+    if (fs.existsSync(path)){
+        fs.rmSync(path);
+    }
+}
+
 export function execWrap(command: string, options: ExecOptions): Promise<string> {
     return new Promise<string>((resolve, reject) => {
         var exechandle = exec(command, options, ((error, stdout, stderr) => {

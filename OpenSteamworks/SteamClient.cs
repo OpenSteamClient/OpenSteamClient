@@ -18,10 +18,9 @@ public class SteamClient
     /// <summary>
     /// Constructs a OpenSteamworks.Client. 
     /// </summary>
-    /// <param name="installPath">The path to where the client is installed.</param>
-    public SteamClient(InstallInfo installInfo, ConnectionType connectionType)
+    public SteamClient(ConnectionType connectionType)
     {
-        this.NativeClient = new ClientNative(installInfo.Steamclient64Path, connectionType);
+        this.NativeClient = new ClientNative("", connectionType);
     }
 
     public void LogClientState() {

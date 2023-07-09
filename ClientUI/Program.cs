@@ -18,7 +18,7 @@ public static class Program
     {
         var builder = new ContainerBuilder();
 
-        //TODO: this is something that the user should be able to pick
+        //TODO: this is something that the user should be able to pick. Needs a config system
         builder.Register(c => OpenSteamworks.SteamClient.ConnectionType.ExistingClient | OpenSteamworks.SteamClient.ConnectionType.NewClient).SingleInstance();
 
         // Registers everything into autofac and basically initializes the whole app

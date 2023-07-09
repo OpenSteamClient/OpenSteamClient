@@ -25,19 +25,21 @@ function VirtualFunction_ToString(func: VirtualFunction, indent: string): string
         func.returnType += " ";
     }
 
-    var prefix = "";
+    var suffix = "";
 
     if (func.postBody) {
-        if (func.postBody.trimStart().startsWith("//")) {
-            prefix = "; " + func.postBody;
+        if (func.postBody.trimStart().startsWith(";")) {
+            suffix = func.postBody;
+        } else if (func.postBody.trimStart().startsWith("//")) {
+            suffix = "; " + func.postBody;
         } else {
-            prefix = func.postBody + ";"
+            suffix = func.postBody + ";"
         }
     } else {
-        prefix = ";"
+        suffix = ";"
     }
-    
-    asStr += indent+`public ${func.returnType}${func.name}(${func.args.join(",")})${prefix}`;
+
+    asStr += indent+`public ${func.returnType}${func.name}(${func.args.join(",")})${suffix}`;
     return asStr;
 }
 
@@ -275,6 +277,7 @@ export class VirtualHeader {
 
             // Find the first line where the interface is
             if (header.firstClassLine == -1 && textTrimmed.startsWith(`public interface ${abstract_class_name}`)) {
+                lastProcessedLine = line+1;
                 header.firstClassLine = line;
                 currentlyInHeader = true;
                 DEBUG_LOG("classdef starts at " + line)
@@ -364,7 +367,7 @@ export class VirtualHeader {
             
             func.args = args;
 
-            realText = realText.substring(realText.lastIndexOf(")"));
+            realText = realText.substring(realText.lastIndexOf(")")+1);
 
             DEBUG_LOG("Realtext " + realText);
             

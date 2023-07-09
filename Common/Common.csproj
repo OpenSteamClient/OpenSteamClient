@@ -8,10 +8,16 @@
 
   <ItemGroup>
     <PackageReference Include="Autofac" Version="7.0.1" />
+    <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="7.0.8" />
+    <PackageReference Include="ValveKeyValue" Version="0.9.0.267" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\OpenSteamworks\OpenSteamworks.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="..\Manifests\*.vdf" />
   </ItemGroup>
 
 </Project>
