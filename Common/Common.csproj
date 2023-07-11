@@ -14,6 +14,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\OpenSteamworks\OpenSteamworks.csproj" />
+    <ProjectReference Include="..\Native\Native.csproj" Targets="Build" />
   </ItemGroup>
 
   <ItemGroup>

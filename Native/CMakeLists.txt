@@ -5,9 +5,9 @@ set(CMAKE_CXX_STANDARD 20)
 
 set(CMAKE_BUILD_TYPE MinSizeRel)
 
-set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/output)
-set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/output)
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/output)
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${NATIVE_OUTPUT_FOLDER})
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${NATIVE_OUTPUT_FOLDER})
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${NATIVE_OUTPUT_FOLDER})
 
 if (BUILD_PLATFORM_TARGET STREQUAL "linux")
     add_executable(reaper ${PROJECT_SOURCE_DIR}/reaper/main.cpp)
@@ -24,3 +24,8 @@ endif()
 if (BUILD_PLATFORM_TARGET STREQUAL "windows")
     
 endif()
+
+# steamutl, a library that allows us to use Valve's CUtl* from C#-land
+file(GLOB_RECURSE steamutl_sources CONFIGURE_DEPENDS "steamutl/*.cpp")
+add_library(steamutl SHARED ${steamutl_sources})
+target_include_directories(steamutl PRIVATE "steamutl/MiniUTL")
