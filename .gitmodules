@@ -1,0 +1,3 @@
+[submodule "Native/steamutl/MiniUTL"]
+	path = Native/steamutl/MiniUTL
+	url = https://github.com/FWGS/MiniUTL.git
