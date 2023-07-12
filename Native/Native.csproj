@@ -85,10 +85,10 @@
 
         <!-- TODO: this switching method is a hack. find out how to append strings to generate the final command. maybe even make a C# based task -->
         <!-- Run CMake to generate toolchain files -->
-        <Exec Condition="'$(IsThisBuildCrossCompile)' != 'true'" Command="cmake $(MSBuildThisFileDirectory) -DBUILD_PLATFORM_TARGET=$(TargetOS) -DNATIVE_OUTPUT_FOLDER=$([System.IO.Path]::GetFullPath('$(NativeBuildOutput)'))" WorkingDirectory="$(BuildDirectory)"/>
+        <Exec Condition="'$(IsThisBuildCrossCompile)' != 'true'" Command='cmake &quot;$(MSBuildThisFileDirectory.TrimEnd("\"))&quot; -DBUILD_PLATFORM_TARGET=$(TargetOS) -DNATIVE_OUTPUT_FOLDER=&quot;$([System.IO.Path]::GetFullPath("$(NativeBuildOutput)"))&quot;' WorkingDirectory="$(BuildDirectory)"/>
 
         <!-- Run CMake to generate cross compile files -->
-        <Exec Condition="'$(IsThisBuildCrossCompile)' == 'true'" Command="cmake $(MSBuildThisFileDirectory) -DCMAKE_TOOLCHAIN_FILE=$(MSBuildThisFileDirectory)/cmake/MingW.cmake -DBUILD_PLATFORM_TARGET=$(TargetOS) -DNATIVE_OUTPUT_FOLDER=$([System.IO.Path]::GetFullPath('$(NativeBuildOutput)'))" WorkingDirectory="$(BuildDirectory)"/>
+        <Exec Condition="'$(IsThisBuildCrossCompile)' == 'true'" Command='cmake &quot;$(MSBuildThisFileDirectory.TrimEnd("\"))&quot; -DCMAKE_TOOLCHAIN_FILE="$(MSBuildThisFileDirectory)/cmake/MingW.cmake" -DBUILD_PLATFORM_TARGET=$(TargetOS) -DNATIVE_OUTPUT_FOLDER=&quot;$([System.IO.Path]::GetFullPath("$(NativeBuildOutput)"))&quot;' WorkingDirectory="$(BuildDirectory)"/>
 
         <!-- Run CMake to build natives -->
         <Exec Command="cmake --build ." WorkingDirectory="$(BuildDirectory)" />

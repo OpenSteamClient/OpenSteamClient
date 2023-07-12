@@ -1,4 +1,5 @@
 {
     "cmake.sourceDirectory": "${workspaceFolder}/Native",
-    "cmake.buildDirectory": "${workspaceFolder}/Native/Build"
+    "cmake.buildDirectory": "${workspaceFolder}/Native/Build/IDE",
+    "cmake.configureOnOpen": false
 }
