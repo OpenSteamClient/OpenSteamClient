@@ -1,6 +1,6 @@
 ﻿namespace ClientUI.ViewModels;
 
-public class MainWindowViewModel : ViewModelBase
+public class MainWindowViewModel : ReactiveViewModel
 {
     public string Greeting => "Welcome to Avalonia!";
 }

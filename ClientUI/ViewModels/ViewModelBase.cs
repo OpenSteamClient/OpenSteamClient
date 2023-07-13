@@ -2,6 +2,7 @@
 
 namespace ClientUI.ViewModels;
 
-public class ViewModelBase : ReactiveObject
+public class ReactiveViewModel : ReactiveObject
 {
+    
 }

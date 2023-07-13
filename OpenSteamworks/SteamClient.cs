@@ -18,9 +18,9 @@ public class SteamClient
     /// <summary>
     /// Constructs a OpenSteamworks.Client. 
     /// </summary>
-    public SteamClient(ConnectionType connectionType)
+    public SteamClient(string steamclientLibPath, ConnectionType connectionType)
     {
-        this.NativeClient = new ClientNative("", connectionType);
+        this.NativeClient = new ClientNative(steamclientLibPath, connectionType);
     }
 
     public void LogClientState() {

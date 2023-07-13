@@ -29,3 +29,7 @@ endif()
 file(GLOB_RECURSE steamutl_sources CONFIGURE_DEPENDS "steamutl/*.cpp")
 add_library(steamutl SHARED ${steamutl_sources})
 target_include_directories(steamutl PRIVATE "steamutl/MiniUTL")
+
+# Save build timestamp to file
+string(TIMESTAMP UNIX_TIMESTAMP "%s") 
+file(WRITE ${NATIVE_OUTPUT_FOLDER}/../build_timestamp ${UNIX_TIMESTAMP})

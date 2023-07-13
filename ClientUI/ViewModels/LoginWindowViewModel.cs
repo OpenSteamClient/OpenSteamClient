@@ -2,7 +2,7 @@ using System.Collections.ObjectModel;
 
 namespace ClientUI.ViewModels;
 
-public class LoginWindowViewModel : ViewModelBase, IAccountPickerViewModel, ICredentialInputViewModel
+public class LoginWindowViewModel : ReactiveViewModel, IAccountPickerViewModel, ICredentialInputViewModel
 {
     public ObservableCollection<AccountViewModel> Accounts { get; set; }
     public string Username { get; set; }

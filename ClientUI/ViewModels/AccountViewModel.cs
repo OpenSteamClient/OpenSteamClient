@@ -1,5 +1,5 @@
 namespace ClientUI.ViewModels;
 
-public class AccountViewModel : ViewModelBase {
+public class AccountViewModel : ReactiveViewModel {
 
 }

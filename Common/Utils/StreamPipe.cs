@@ -1,24 +1,31 @@
 namespace Common.Utils;
 
-public class StreamPiper
+public class StreamPiper {
+    
+}
+public class StreamPiper<TSource, TDest> 
+where TSource : Stream
+where TDest : Stream
 {
-    public Stream Source { get; protected set; }
-    public Stream Destination { get; protected set; }
+    public TSource Source { get; protected set; }
+    public TDest Destination { get; protected set; }
     private Task? worker;
 
     bool shouldRun = true;
     bool stopped = false;
     bool hasWritten = false;
 
-    private StreamPiper(Stream source, Stream destination)
+    public event EventHandler? StreamPositionChanged;
+
+    private StreamPiper(TSource source, TDest destination)
     {
         Source = source;
         Destination = destination;
     }
 
-    public static StreamPiper StartPiping(Stream source, Stream destination)
+    public static StreamPiper<TSource, TDest> StartPiping(TSource source, TDest destination)
     {
-        StreamPiper pipe = new StreamPiper(source, destination);
+        StreamPiper<TSource, TDest> pipe = new StreamPiper<TSource, TDest>(source, destination);
         pipe.worker = Task.Run(async () =>
         {
             byte[] buffer = new byte[4096];
@@ -27,6 +34,8 @@ public class StreamPiper
                 if (pipe.Destination.CanWrite && pipe.Source.CanRead)
                 {
                     var count = await pipe.Source.ReadAsync(buffer, 0, 4096);
+                    pipe.StreamPositionChanged?.Invoke(pipe, EventArgs.Empty);
+
                     if (count > 0)
                     {
                         await pipe.Destination.WriteAsync(buffer, 0, count);

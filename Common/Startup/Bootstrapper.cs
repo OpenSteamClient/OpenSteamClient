@@ -31,6 +31,23 @@ public class Bootstrapper {
             return Path.Combine(localShare, "OpenSteam");
         }
     }
+    public string SteamclientLibPath {
+        get {
+            if (OperatingSystem.IsLinux()) {
+                return Path.Combine(MainBinaryDir, "steamclient.so");
+            }
+
+            if (OperatingSystem.IsWindows()) {
+                return Path.Combine(MainBinaryDir, "steamclient64.dll");
+            }
+
+            if (OperatingSystem.IsMacOS()) {
+                return Path.Combine(MainBinaryDir, "steamclient.dylib");
+            }
+
+            throw new Exception("Unsupported OS in SteamclientLibPath_get");
+        }
+    }
     public string PlatformClientManifest {
         get {
             string prefix = "steam_client_";
@@ -55,6 +72,7 @@ public class Bootstrapper {
             if (OperatingSystem.IsLinux()) {
                 return Path.Combine(InstallDir, "linux64");
             }
+
             return InstallDir;
         }
     }
@@ -100,18 +118,22 @@ public class Bootstrapper {
         return false;
     }
     private int RetryCount = 0;
-    public async void RunBootstrap(IExtendedProgress<int> progressHandler) {
+    private IExtendedProgress<int> progressHandler;
+    private BootstrapperState bootstrapperState;
+    Dictionary<string, string> downloadedPackages = new Dictionary<string, string>();
+
+    public async Task RunBootstrap(IExtendedProgress<int> progressHandler) {
         progressHandler.SetOperation("Bootstrapping");
+        this.progressHandler = progressHandler;
 
         Directory.CreateDirectory(InstallDir);
 
-        // steamclient blindly dumps certain files to the CWD, so set it
+        // steamclient blindly dumps certain files to the CWD, so set it to the install dir
         Directory.SetCurrentDirectory(InstallDir);
 
         Directory.CreateDirectory(PackageDir);
 
         // Load previous state file if exists, create new if not
-        BootstrapperState bootstrapperState;
         if (File.Exists(BootstrapStateFile)) {
             try {
                 bootstrapperState = BootstrapperState.LoadFromFile(BootstrapStateFile);
@@ -122,13 +144,39 @@ public class Bootstrapper {
             bootstrapperState = new BootstrapperState();
         }
 
-        // Skip verification if user requests it
-        if (bootstrapperState.SkipVerification) {
-            progressHandler.SetProgress(100);
-            return;
+        // Skip verification and package processing if user requests it
+        if (!bootstrapperState.SkipVerification) {
+            if (!VerifyFiles()) {
+                await EnsurePackages();
+                await ExtractPackages();
+            }
         }
 
-        // Verify all files and skip bootstrap if files are valid and version matches 
+        // Run platform specific tasks
+
+        if (OperatingSystem.IsLinux()) {
+            // Process the Steam runtime (needed for SteamVR and some tools steam ships with)
+            ExtractSteamRuntime();
+        }
+
+        if (OperatingSystem.IsWindows()) {
+            //TODO: test for steamservice, install if not installed
+        }
+            
+        progressHandler.SetOperation($"Finalizing");
+        progressHandler.SetThrobber(true);
+
+        // Copy/Link our files over (steamserviced, 64-bit reaper and 64-bit steamlaunchwrapper, other platform specific niceties)
+        CopyOpensteamFiles();
+
+        bootstrapperState.InstalledVersion = OpenSteamworks.Generated.VersionInfo.STEAM_MANIFEST_VERSION;
+        bootstrapperState.SaveToFile(BootstrapStateFile);
+
+        progressHandler.FinishOperation("Bootstrapping Completed");
+    }
+    
+    private bool VerifyFiles() {
+        // Verify all files and skip this step if files are valid and version matches 
         bool failedInitialCheck = bootstrapperState.InstalledVersion != OpenSteamworks.Generated.VersionInfo.STEAM_MANIFEST_VERSION;
         int installedFilesLength = bootstrapperState.InstalledFiles.Count;
         int checkedFiles = 0;
@@ -155,7 +203,8 @@ public class Bootstrapper {
             }
         }   
 
-        if (bootstrapperState.InstalledVersion != OpenSteamworks.Generated.VersionInfo.STEAM_MANIFEST_VERSION) {
+        // Remove packages only in case of an upgrade
+        if (bootstrapperState.InstalledVersion != 0 && (bootstrapperState.InstalledVersion != OpenSteamworks.Generated.VersionInfo.STEAM_MANIFEST_VERSION)) {
             Directory.Delete(PackageDir, true);
             Directory.CreateDirectory(PackageDir);
 
@@ -167,10 +216,14 @@ public class Bootstrapper {
 
         if (installedFilesLength > 0 && !failedInitialCheck) {
             progressHandler.SetProgress(100);
-            return;
+            return true;
         }
 
-        Dictionary<string, string> zipPaths = new Dictionary<string, string>();
+        return false;
+    }
+
+    private async Task EnsurePackages() {
+        downloadedPackages.Clear();
 
         // Fetch the manifests from Common.dll
         var embeddedProvider = new EmbeddedFileProvider(Assembly.GetExecutingAssembly());
@@ -246,15 +299,19 @@ public class Bootstrapper {
                     progressHandler.SetSubOperation($"Verifying {package.Name}");
                     using (var file = new FileStream(saveLocation, FileMode.Open, FileAccess.Read, FileShare.Read)) {
                         var sha2_calculated = Convert.ToHexString(SHA256.ComputeHash(file));
+                        Console.WriteLine(sha2_calculated + "==" + sha2_expected);
                         verifySucceeded = sha2_calculated == sha2_expected;
                     }
                 }   
                 
                 // Add to array if successful
                 if (verifySucceeded) {
-                    zipPaths.Add(package.Name, saveLocation);
+                    downloadedPackages.Add(package.Name, saveLocation);
                 } else {
+                    // If not, add to failed array and delete
+                    // Bootstrapper will be rerun if atleast one file is failed
                     verificationFailed.Add(package.Name);
+                    File.Delete(saveLocation);
                 }
             }
         }
@@ -262,16 +319,23 @@ public class Bootstrapper {
         // Redownload if any packages or files fail verification
         if (verificationFailed.Count > 0) {
             if (RetryCount == 5) {
-                throw new Exception($"Some files were still corrupted after attempting to redownload ${RetryCount} times. Check your disk and internet. ");
+                string failed = "";
+                foreach (var corruptedPackage in verificationFailed)
+                {
+                    failed += corruptedPackage + " ";
+                }
+                throw new Exception($"Some files ({failed.TrimEnd()}) were still corrupted after attempting to redownload {RetryCount} times. Check your disk and internet. ");
             }
             RetryCount++;
-            RunBootstrap(progressHandler);
+            await RunBootstrap(progressHandler);
             return;
         }
+    }
 
+    private async Task ExtractPackages() {
         // Extract all the packages
         progressHandler.SetOperation("Extracting packages");
-        foreach (var zip in zipPaths)
+        foreach (var zip in downloadedPackages)
         {
             using (ZipArchive archive = ZipFile.OpenRead(zip.Value))
             {
@@ -280,108 +344,135 @@ public class Bootstrapper {
                 });  
             } 
         }
-
-        // Process the Steam runtime if running on Linux (needed for SteamVR and some tools steam ships with)
-        if (OperatingSystem.IsLinux()) {
-            progressHandler.SetOperation($"Processing Steam Runtime");
-            progressHandler.SetThrobber(true);
-            progressHandler.SetSubOperation($"Combining Steam Runtime parts");
-
-            string fullRuntimeFolder = Path.Combine(Ubuntu12_32Dir, "steam-runtime");
-            Directory.CreateDirectory(fullRuntimeFolder);
-
-            // Create a place in memory to store the runtime for combining and unzipping
-            using (var fullFile = new MemoryStream()) {
-                // First get all the parts
-                List<string> parts = new List<string>(Directory.EnumerateFiles(Ubuntu12_32Dir, "steam-runtime.tar.xz.part*"));
-                
-                // Sort them to get an order like part3, part2, part1, part0
-                parts.Sort();
-
-                // Then combine all the parts to one zip file 
-                foreach (var part in parts)
-                {
-                    using (var file = new FileStream(part, FileMode.Open, FileAccess.Read, FileShare.Read)) {
-                        file.CopyTo(fullFile);
-                    }
-                }
-
-                // Seek to the beginning so we can read
-                fullFile.Seek(0, SeekOrigin.Begin);
-
-                // Get checksums from the checksum file
-                Dictionary<string, string> checksums = new Dictionary<string, string>();
-
-                var lines = File.ReadLines(Path.Combine(Ubuntu12_32Dir, "steam-runtime.checksum"));
-                foreach (var line in lines)
-                {
-                    var split = line.Split("  ");
-                    checksums.Add(split[1].Trim(), split[0].Trim());
-                }
-
-                // Verify files defined in steam-runtime.checksum
-                foreach (var item in checksums)
-                {
-                    Console.WriteLine(item);
-                    var file = Path.Combine(Ubuntu12_32Dir, item.Key);
-                    string runtime_md5_calculated = "";
-                    string runtime_md5_expected = item.Value.ToUpper();
-
-                    // This file is never saved on disk, so do it specially
-                    if (file.EndsWith("steam-runtime.tar.xz")) {
-                        runtime_md5_calculated = Convert.ToHexString(MD5.HashData(fullFile));
-                    } else {
-                        runtime_md5_calculated = Convert.ToHexString(MD5.HashData(File.ReadAllBytes(file)));
-                    }
-
-                    runtime_md5_calculated = runtime_md5_calculated.ToUpper();
-
-                    if (runtime_md5_calculated != runtime_md5_expected) {
-                        if (file.EndsWith("steam-runtime.tar.xz")) {
-                            file += " (saved in-memory)";
-                        }
-                        throw new Exception($"MD5 mismatch. File {file} is corrupted. {runtime_md5_expected} expected, got {runtime_md5_calculated}");
-                    }
-                }
-
-                Process proc = new Process();
-                proc.StartInfo.FileName = "tar";
-                proc.StartInfo.Arguments = "-xJ";
-                proc.StartInfo.WorkingDirectory = Ubuntu12_32Dir;
-                proc.StartInfo.CreateNoWindow = true;
-                proc.StartInfo.UseShellExecute = false;
-                proc.StartInfo.RedirectStandardInput = true;
-                proc.StartInfo.RedirectStandardOutput = true;
-                proc.StartInfo.RedirectStandardError = true;
-
-                progressHandler.SetSubOperation($"Unzipping Steam Runtime");
-                bool result = proc.Start();
-
-                if (!result) {
-                    throw new Exception("Failed to start tar. Is tar installed?");
-                }
-
-                // Seek to the beginning again, just in case
-                fullFile.Seek(0, SeekOrigin.Begin);
-
-                StreamPiper.StartPiping(proc.StandardOutput.BaseStream, Console.OpenStandardOutput());
-                StreamPiper.StartPiping(proc.StandardError.BaseStream, Console.OpenStandardError());
-                StreamPiper.StartPiping(fullFile, proc.StandardInput.BaseStream);
-
-                //BLOCKER: This never exits...
-                proc.WaitForExit();
-                Console.WriteLine("exited with: " + proc.ExitCode);
-                progressHandler.SetProgress(100);
-            }
-        }
-        progressHandler.SetOperation($"Copying OpenSteam files");
-        progressHandler.SetThrobber(false);
-
-        // Copy our files over (steamserviced, 64-bit reaper and 64-bit steamlaunchwrapper)
-        //BLOCKER: CMake MSBuild integration (tomorrow?)
-
-        bootstrapperState.InstalledVersion = OpenSteamworks.Generated.VersionInfo.STEAM_MANIFEST_VERSION;
-        bootstrapperState.SaveToFile(BootstrapStateFile);
     }
+
+    [SupportedOSPlatform("linux")]
+    private void ExtractSteamRuntime() {
+        progressHandler.SetOperation($"Processing Steam Runtime");
+        progressHandler.SetThrobber(true);
+        progressHandler.SetSubOperation($"Combining Steam Runtime parts");
+
+        string fullRuntimeFolder = Path.Combine(Ubuntu12_32Dir, "steam-runtime");
+        Directory.CreateDirectory(fullRuntimeFolder);
+
+        // Create a place in memory to store the runtime for combining and unzipping
+        using (var fullFile = new MemoryStream()) {
+            // First get all the parts
+            List<string> parts = new List<string>(Directory.EnumerateFiles(Ubuntu12_32Dir, "steam-runtime.tar.xz.part*"));
+            
+            // Sort them to get an order like part3, part2, part1, part0
+            parts.Sort();
+
+            // Then combine all the parts to one zip file 
+            foreach (var part in parts)
+            {
+                using (var file = new FileStream(part, FileMode.Open, FileAccess.Read, FileShare.Read)) {
+                    file.CopyTo(fullFile);
+                }
+            }
+
+            // Seek to the beginning so we can read
+            fullFile.Seek(0, SeekOrigin.Begin);
+
+            // Get checksums from the checksum file
+            Dictionary<string, string> checksums = new Dictionary<string, string>();
+
+            var lines = File.ReadLines(Path.Combine(Ubuntu12_32Dir, "steam-runtime.checksum"));
+            foreach (var line in lines)
+            {
+                var split = line.Split("  ");
+                checksums.Add(split[1].Trim(), split[0].Trim());
+            }
+
+            // Verify files defined in steam-runtime.checksum
+            foreach (var item in checksums)
+            {
+                var file = Path.Combine(Ubuntu12_32Dir, item.Key);
+                string runtime_md5_calculated = "";
+                string runtime_md5_expected = item.Value.ToUpper();
+
+                // This file is never saved on disk, so do it specially
+                if (file.EndsWith("steam-runtime.tar.xz")) {
+                    runtime_md5_calculated = Convert.ToHexString(MD5.HashData(fullFile));
+                } else {
+                    runtime_md5_calculated = Convert.ToHexString(MD5.HashData(File.ReadAllBytes(file)));
+                }
+
+                runtime_md5_calculated = runtime_md5_calculated.ToUpper();
+
+                if (runtime_md5_calculated != runtime_md5_expected) {
+                    if (file.EndsWith("steam-runtime.tar.xz")) {
+                        file += " (saved in-memory)";
+                    }
+                    throw new Exception($"MD5 mismatch. Steam Runtime File {file} is corrupted. {runtime_md5_expected} expected, got {runtime_md5_calculated}");
+                }
+            }
+
+            Process proc = new Process();
+            proc.StartInfo.FileName = "tar";
+            proc.StartInfo.Arguments = "-xJ";
+            proc.StartInfo.WorkingDirectory = Ubuntu12_32Dir;
+            proc.StartInfo.CreateNoWindow = true;
+            proc.StartInfo.UseShellExecute = false;
+            proc.StartInfo.RedirectStandardInput = true;
+            proc.StartInfo.RedirectStandardOutput = true;
+            proc.StartInfo.RedirectStandardError = true;
+
+            progressHandler.SetSubOperation($"Unzipping Steam Runtime");
+            progressHandler.SetThrobber(false);
+
+            bool result = proc.Start();
+
+            if (!result) {
+                throw new Exception("Failed to start tar. Is tar installed?");
+            }
+
+            // Seek to the beginning again, just in case
+            fullFile.Seek(0, SeekOrigin.Begin);
+
+            StreamPiper<Stream, Stream>.StartPiping(proc.StandardOutput.BaseStream, Console.OpenStandardOutput());
+            StreamPiper<Stream, Stream>.StartPiping(proc.StandardError.BaseStream, Console.OpenStandardError());
+            var piper = StreamPiper<MemoryStream, Stream>.StartPiping(fullFile, proc.StandardInput.BaseStream);
+
+            // Convert absolute progress (bytes streamed) into relative progress (0% - 100%)
+            var length = piper.Source.Length;
+            var relativeProgress = new Progress<long>(bytesStreamed => progressHandler.Report((int)((bytesStreamed / length)*100)));
+
+            piper.StreamPositionChanged += (object? sender, EventArgs args) => {
+                (relativeProgress as IProgress<long>).Report(piper.Source.Position);
+                if (piper.Source.Length == piper.Source.Position) {
+                    proc.Kill();
+                }
+            };
+
+            //BLOCKER: This never exits...
+            //DEV NOTE: just kill tar manually once disk usage hits 0
+            proc.WaitForExit();
+            Console.WriteLine("exited with: " + proc.ExitCode);
+            progressHandler.SetProgress(100);
+        }
+    }
+
+    private void CopyOpensteamFiles() {
+        var assemblyFolder = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+        if (assemblyFolder == null) {
+            throw new Exception("assemblyFolder is null.");
+        }
+        string platformStr = Utils.Funcs.GetPlatformString();
+        string baseNativesFolder = Path.Combine(assemblyFolder, "Natives");
+        string nativesFolder = Path.Combine(baseNativesFolder, platformStr);
+        if (!Directory.Exists(nativesFolder)) {
+            throw new NotSupportedException($"This build has not been compiled with support for {platformStr}. Please rebuild or try another OS.");
+        }
+
+        var oldTimestamp = bootstrapperState.NativeBuildDate;
+        var newTimestamp = Convert.ToUInt32(File.ReadAllText(Path.Combine(baseNativesFolder, "build_timestamp")));
+        if (newTimestamp > oldTimestamp) {
+            progressHandler.SetSubOperation("Copying OpenSteam files");
+            var di = new DirectoryInfo(nativesFolder);
+            di.CopyFilesRecursively(new DirectoryInfo(InstallDir), true);
+        }
+    }
+
     public Bootstrapper() {}
 }

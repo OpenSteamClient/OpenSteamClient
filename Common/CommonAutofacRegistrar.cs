@@ -8,12 +8,14 @@ using System.Runtime.InteropServices;
 
 namespace Common;
 
-public class CommonAutofacRegistrar : IAutofacRegistrar
+internal class CommonAutofacRegistrar : IAutofacRegistrar
 {
     public static void Register(ref ContainerBuilder builder)
     {
-        builder.RegisterType<Bootstrapper>().SingleInstance();
-        builder.RegisterType<SteamClient>().SingleInstance();
+        //TODO: this is something that the user should be able to pick. Needs a config system
+        builder.Register(c => OpenSteamworks.SteamClient.ConnectionType.ExistingClient | OpenSteamworks.SteamClient.ConnectionType.NewClient).SingleInstance();
+        
+        builder.Register(c => new SteamClient(c.Resolve<Bootstrapper>().SteamclientLibPath, c.Resolve<SteamClient.ConnectionType>())).SingleInstance();
         builder.Register(c => new LoginManager()).SingleInstance();
-    }
+    }   
 }
