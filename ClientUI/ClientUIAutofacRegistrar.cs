@@ -8,6 +8,6 @@ public class ClientUIAutofacRegistrar : IAutofacRegistrar
 {
     public static void Register(ref ContainerBuilder builder)
     {
-        
+
     }
 }

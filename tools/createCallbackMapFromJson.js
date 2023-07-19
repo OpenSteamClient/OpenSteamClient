@@ -2377,13 +2377,15 @@ var callbacks = [
     }
 ];
 
-// std::map<int, std::string> callbacks = {
-//     {1, "name"}
-// };
-
-console.log("std::map<int, std::string> callbacks = {");
+console.log("using System.Collections.Generic;");
+console.log("");
+console.log("namespace OpenSteamworks.Callbacks;");
+console.log("");
+console.log("internal static class KnownCallbackNames {");
+console.log("    public readonly static Dictionary<int, string> CallbackNames = new Dictionary<int, string>");
+console.log("    {");
 callbacks.forEach((cb)=> {
-	console.log(`   {${cb.id}, "${cb.name}"},`);
+	console.log(`       {${cb.id}, "${cb.name}"},`);
 })
-console.log("};")
-
+console.log("    };");
+console.log("}");

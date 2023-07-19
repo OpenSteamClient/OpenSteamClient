@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using System.Runtime.InteropServices;
+using OpenSteamworks.Callbacks;
 using OpenSteamworks.Enums;
 using OpenSteamworks.Generated;
 using OpenSteamworks.Native;
@@ -13,6 +14,9 @@ public class SteamClient
         ExistingClient,
         NewClient
     }
+
+
+    public CallbackManager CallbackManager { get; private set; }
     public Native.ClientNative NativeClient;
 
     /// <summary>
@@ -21,6 +25,11 @@ public class SteamClient
     public SteamClient(string steamclientLibPath, ConnectionType connectionType)
     {
         this.NativeClient = new ClientNative(steamclientLibPath, connectionType);
+        var log = false;
+#if DEBUG
+        log = true;
+#endif
+        this.CallbackManager = new CallbackManager(this, log, log);
     }
 
     public void LogClientState() {
@@ -35,7 +44,7 @@ public class SteamClient
         string username = "";
         using (NativeString str = NativeString.Allocate(1024)) {
             this.NativeClient.IClientUser.GetAccountName(str.c_str, str.size);
-            username = str.str;
+            str.CopyTo(out username);
         }
 
         Console.WriteLine("Username: " + username);
@@ -44,7 +53,7 @@ public class SteamClient
         string token = "";
         using (NativeString str = NativeString.Allocate(1024)) {
             this.NativeClient.IClientUser.GetCurrentWebAuthToken(str.c_str, str.size);
-            token = str.str;
+            str.CopyTo(out token);
         }
 
         

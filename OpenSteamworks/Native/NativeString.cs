@@ -26,9 +26,14 @@ public class NativeString : IDisposable
         }
     }
 
-    public string str {
+    private string str {
         get {
-            return Marshal.PtrToStringAuto(this.allocatedHandle)!;
+            var autoStr = Marshal.PtrToStringAuto(this.allocatedHandle);
+            if (autoStr == null) {
+                return "";
+            }
+
+            return autoStr;
         }
         set {
             unsafe {
@@ -48,6 +53,18 @@ public class NativeString : IDisposable
             str.allocatedHandle = (StrPtr)NativeMemory.AllocZeroed((uint)size);
         }
 
+        return str;
+    }
+
+    public void CopyTo(out string outStr) {
+        outStr = str;
+    }
+
+    /// <summary>
+    /// Makes the current string into a C# string
+    /// </summary>
+    /// <returns>The native string as a C# string</returns>
+    public override string ToString() {
         return str;
     }
 
@@ -81,7 +98,7 @@ public class NativeString : IDisposable
         }
     }
 
-    private string StrPtrToString(StrPtr ptr) {
+    private static string StrPtrToString(StrPtr ptr) {
         unsafe {
             string? str = Marshal.PtrToStringAuto(ptr);
             if (str == null) {

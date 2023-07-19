@@ -3,15 +3,14 @@ using OpenSteamworks;
 
 namespace Common.Managers;
 
-public class AppsManager : IHasStartupTasks
+public class ConfigManager : IHasStartupTasks
 {
     private SteamClient steamClient;
-    public AppsManager(SteamClient client) {
+    public ConfigManager(SteamClient client) {
         steamClient = client;
     }
     public void RunStartup()
     {
-        Console.WriteLine("AppsManager startup");
-        //steamClient.LogClientState();
+        Console.WriteLine("ConfigManager startup");
     }
 }

@@ -38,15 +38,15 @@ struct NativeFuncs {
 
 public class ClientNative {
     private IntPtr nativeLibHandle = IntPtr.Zero;
-    private NativeFuncs.CreateInterface native_CreateInterface;
-    private NativeFuncs.Steam_CreateSteamPipe native_Steam_CreateSteamPipe;
-    private NativeFuncs.Steam_ConnectToGlobalUser native_Steam_ConnectToGlobalUser;
-    private NativeFuncs.Steam_CreateGlobalUser native_Steam_CreateGlobalUser;
-    private NativeFuncs.Steam_CreateLocalUser native_Steam_CreateLocalUser;
-    private NativeFuncs.Steam_ReleaseUser native_Steam_ReleaseUser;
-    private NativeFuncs.Steam_BReleaseSteamPipe native_Steam_BReleaseSteamPipe;
-    private NativeFuncs.Steam_BGetCallback native_Steam_BGetCallback;
-    private NativeFuncs.Steam_FreeLastCallback native_Steam_FreeLastCallback;
+    internal NativeFuncs.CreateInterface native_CreateInterface;
+    internal NativeFuncs.Steam_CreateSteamPipe native_Steam_CreateSteamPipe;
+    internal NativeFuncs.Steam_ConnectToGlobalUser native_Steam_ConnectToGlobalUser;
+    internal NativeFuncs.Steam_CreateGlobalUser native_Steam_CreateGlobalUser;
+    internal NativeFuncs.Steam_CreateLocalUser native_Steam_CreateLocalUser;
+    internal NativeFuncs.Steam_ReleaseUser native_Steam_ReleaseUser;
+    internal NativeFuncs.Steam_BReleaseSteamPipe native_Steam_BReleaseSteamPipe;
+    internal NativeFuncs.Steam_BGetCallback native_Steam_BGetCallback;
+    internal NativeFuncs.Steam_FreeLastCallback native_Steam_FreeLastCallback;
 
     private HSteamPipe _pipe;
     public HSteamPipe pipe { 
@@ -69,7 +69,6 @@ public class ClientNative {
     }
 
     public ConnectionType ConnectedWith { get; private set; }
-
 
     public IClientEngine IClientEngine;
 

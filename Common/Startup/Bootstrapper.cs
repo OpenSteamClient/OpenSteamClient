@@ -84,6 +84,13 @@ public class Bootstrapper {
         }
     }
 
+    [SupportedOSPlatform("linux")]
+    public string SteamRuntimeDir {
+        get {
+            return Path.Combine(Ubuntu12_32Dir, "steam-runtime");
+        }
+    }
+
     public string BootstrapStateFile {
         get {
             return Path.Combine(InstallDir, "bootstrapper_state.json");
@@ -156,7 +163,17 @@ public class Bootstrapper {
 
         if (OperatingSystem.IsLinux()) {
             // Process the Steam runtime (needed for SteamVR and some tools steam ships with)
-            ExtractSteamRuntime();
+            await CheckSteamRuntime();
+
+            if (!bootstrapperState.LinuxPermissionsSet) {
+                progressHandler.SetOperation($"Setting proper permissions (this may freeze)");
+                progressHandler.SetThrobber(true);
+                // Valve doesn't include permission info in the zips, so chmod them all to allow execute
+                await Process.Start("/usr/bin/chmod", "-R +x " + '"' + InstallDir + '"').WaitForExitAsync();
+                
+                progressHandler.SetThrobber(false);
+                bootstrapperState.LinuxPermissionsSet = true;
+            }
         }
 
         if (OperatingSystem.IsWindows()) {
@@ -299,7 +316,6 @@ public class Bootstrapper {
                     progressHandler.SetSubOperation($"Verifying {package.Name}");
                     using (var file = new FileStream(saveLocation, FileMode.Open, FileAccess.Read, FileShare.Read)) {
                         var sha2_calculated = Convert.ToHexString(SHA256.ComputeHash(file));
-                        Console.WriteLine(sha2_calculated + "==" + sha2_expected);
                         verifySucceeded = sha2_calculated == sha2_expected;
                     }
                 }   
@@ -345,22 +361,57 @@ public class Bootstrapper {
             } 
         }
     }
-
-    [SupportedOSPlatform("linux")]
-    private void ExtractSteamRuntime() {
+    [SupportedOSPlatform("linux")] 
+    private async Task CheckSteamRuntime() {
         progressHandler.SetOperation($"Processing Steam Runtime");
         progressHandler.SetThrobber(true);
+
+        progressHandler.SetSubOperation("Checking for runtime version change...");
+
+        var runtimeChecksumBytes = File.ReadAllBytes(Path.Combine(Ubuntu12_32Dir, "steam-runtime.checksum"));
+        var runtime_checksum_md5_new = Convert.ToHexString(MD5.HashData(runtimeChecksumBytes));
+        var runtime_checksum_md5_old = bootstrapperState.LinuxRuntimeChecksum;
+        bool extractRuntime = !(runtime_checksum_md5_new == runtime_checksum_md5_old);
+
+        var setupScriptPath = Path.Combine(SteamRuntimeDir, "setup.sh");
+        if (!File.Exists(setupScriptPath)) {
+            extractRuntime = true;
+        }
+        
+        if (extractRuntime) {
+            await ExtractSteamRuntime();
+
+            // If everything succeeds, record current hash to file
+            bootstrapperState.LinuxRuntimeChecksum = runtime_checksum_md5_new;
+        }
+
+        // Always run setup.sh
+        progressHandler.SetThrobber(true);
+        progressHandler.SetSubOperation("Running runtime setup...");
+
+        Process proc = new Process();
+        proc.StartInfo.FileName = setupScriptPath;
+        proc.StartInfo.Arguments = "";
+        proc.StartInfo.WorkingDirectory = SteamRuntimeDir;
+        proc.StartInfo.CreateNoWindow = true;
+        proc.StartInfo.UseShellExecute = true;
+        proc.Start();
+
+        await proc.WaitForExitAsync();
+    }
+
+    [SupportedOSPlatform("linux")]
+    private async Task ExtractSteamRuntime() {
         progressHandler.SetSubOperation($"Combining Steam Runtime parts");
 
-        string fullRuntimeFolder = Path.Combine(Ubuntu12_32Dir, "steam-runtime");
-        Directory.CreateDirectory(fullRuntimeFolder);
+        Directory.CreateDirectory(SteamRuntimeDir);
 
         // Create a place in memory to store the runtime for combining and unzipping
         using (var fullFile = new MemoryStream()) {
             // First get all the parts
             List<string> parts = new List<string>(Directory.EnumerateFiles(Ubuntu12_32Dir, "steam-runtime.tar.xz.part*"));
             
-            // Sort them to get an order like part3, part2, part1, part0
+            // Sort them to get an order like part0, part1, part2, part3
             parts.Sort();
 
             // Then combine all the parts to one zip file 
@@ -436,19 +487,23 @@ public class Bootstrapper {
 
             // Convert absolute progress (bytes streamed) into relative progress (0% - 100%)
             var length = piper.Source.Length;
-            var relativeProgress = new Progress<long>(bytesStreamed => progressHandler.Report((int)((bytesStreamed / length)*100)));
+            var relativeProgress = new Progress<long>(bytesStreamed => progressHandler.Report((int)((float)((float)bytesStreamed / (float)length)*100)));
 
             piper.StreamPositionChanged += (object? sender, EventArgs args) => {
                 (relativeProgress as IProgress<long>).Report(piper.Source.Position);
-                if (piper.Source.Length == piper.Source.Position) {
+                if (length == piper.Source.Position) {
+                    // No way to send a SIGTERM instead of a SIGKILL
                     proc.Kill();
                 }
             };
 
-            //BLOCKER: This never exits...
-            //DEV NOTE: just kill tar manually once disk usage hits 0
-            proc.WaitForExit();
-            Console.WriteLine("exited with: " + proc.ExitCode);
+            await proc.WaitForExitAsync();
+
+            // The exitcode is 137 when we explicitly kill above
+            if (proc.ExitCode != 137)  {
+                throw new Exception("tar exited with unknown exitcode: " + proc.ExitCode);
+            }
+
             progressHandler.SetProgress(100);
         }
     }

@@ -15,6 +15,9 @@
         <vm:MainWindowViewModel/>
     </Design.DataContext>
 
-    <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-
+    <StackPanel>
+        <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Button Command="{Binding Crash}">Click me to crash!</Button>
+    </StackPanel>
+    
 </Window>

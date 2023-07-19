@@ -8,6 +8,8 @@ internal class BootstrapperState
     public uint InstalledVersion { get; set; }
     public bool SkipVerification { get; set; }
     public Dictionary<string, long> InstalledFiles { get; set; }
+    public string LinuxRuntimeChecksum { get; set; }
+    public bool LinuxPermissionsSet { get; set; }
     public static BootstrapperState LoadFromFile(string file) {
         var result = JsonSerializer.Deserialize<BootstrapperState>(File.ReadAllText(file));
         if (result == null) {
@@ -25,6 +27,8 @@ internal class BootstrapperState
         InstalledFiles = new Dictionary<string, long>();
         SkipVerification = false;
         NativeBuildDate = 0;
+        LinuxRuntimeChecksum = "";
+        LinuxPermissionsSet = false;
     }
 
 }

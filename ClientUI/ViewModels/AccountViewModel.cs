@@ -1,5 +1,6 @@
 namespace ClientUI.ViewModels;
 
-public class AccountViewModel : ReactiveViewModel {
-
+public class AccountViewModel : ViewModelBase {
+    public string LoginName { get; set; } = "";
+    
 }

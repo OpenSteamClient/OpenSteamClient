@@ -83,6 +83,9 @@ public class ExtendedProgress<T> : IExtendedProgress<T>
     }
 
     void IExtendedProgress<T>.FinishOperation(string? message) {
+        lock(PropertyLock) {
+            (this as IExtendedProgress<T>).SetOperation((message != null) ? message : "Operation finished");
+        }
         OperationFinished?.Invoke(this, message);
     }
 
