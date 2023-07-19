@@ -1,46 +1,46 @@
 {
     "name": "IClientSharedConnectionMap",
-    "found_at": "0x23753ac",
+    "found_at": "0x23773b8",
     "functions": [ 
         {
             "name": "AllocateSharedConnection",
             "argc": "1",
-            "addr": "0x5e6220"
+            "addr": "0x5e7ac0"
         },
         {
             "name": "ReleaseSharedConnection",
             "argc": "2",
-            "addr": "0x5e6380"
+            "addr": "0x5e7c20"
         },
         {
             "name": "SendMessage",
             "argc": "4",
-            "addr": "0x5e64d0"
+            "addr": "0x5e7d70"
         },
         {
             "name": "SendMessageAndAwaitResponse",
             "argc": "4",
-            "addr": "0x5e6670"
+            "addr": "0x5e7f10"
         },
         {
             "name": "RegisterEMsgHandler",
             "argc": "3",
-            "addr": "0x5e6800"
+            "addr": "0x5e80a0"
         },
         {
             "name": "RegisterServiceMethodHandler",
             "argc": "3",
-            "addr": "0x5e6960"
+            "addr": "0x5e8200"
         },
         {
             "name": "BPopReceivedMessage",
             "argc": "4",
-            "addr": "0x5e6ab0"
+            "addr": "0x5e8350"
         },
         {
             "name": "InitiateConnection",
             "argc": "2",
-            "addr": "0x5e6c60"
+            "addr": "0x5e8500"
         }
     ]
 }

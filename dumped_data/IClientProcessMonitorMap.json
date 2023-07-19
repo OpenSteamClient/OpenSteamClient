@@ -1,31 +1,31 @@
 {
     "name": "IClientProcessMonitorMap",
-    "found_at": "0x237d204",
+    "found_at": "0x237f204",
     "functions": [ 
         {
             "name": "RegisterProcess",
             "argc": "2",
-            "addr": "0xf293a0"
+            "addr": "0xf2a8b0"
         },
         {
             "name": "UnregisterProcess",
             "argc": "2",
-            "addr": "0xf29250"
+            "addr": "0xf2a760"
         },
         {
             "name": "TerminateProcess",
             "argc": "3",
-            "addr": "0xf290c0"
+            "addr": "0xf2a5d0"
         },
         {
             "name": "SuspendProcess",
             "argc": "2",
-            "addr": "0xf28f70"
+            "addr": "0xf2a480"
         },
         {
             "name": "ResumeProcess",
             "argc": "2",
-            "addr": "0xf28e20"
+            "addr": "0xf2a330"
         }
     ]
 }

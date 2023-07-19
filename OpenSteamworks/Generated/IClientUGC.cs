@@ -199,6 +199,8 @@ public interface IClientUGC
     public unknown_ret ShowWorkshopEULA();  // argc: 0, index: 92
     public unknown_ret GetWorkshopEULAStatus();  // argc: 0, index: 93
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    public unknown_ret GetUserContentDescriptorPreferences();  // argc: 2, index: 0
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret GetNumDownloadedItems();  // argc: 1, index: 94
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret GetDownloadedItems();  // argc: 3, index: 95

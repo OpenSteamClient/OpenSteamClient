@@ -1,36 +1,36 @@
 {
     "name": "IClientStorageDeviceManagerMap",
-    "found_at": "0x2374728",
+    "found_at": "0x2376730",
     "functions": [ 
         {
             "name": "IsInterfaceValid",
             "argc": "1",
-            "addr": "0x59bcc0"
+            "addr": "0x59d3c0"
         },
         {
             "name": "GetStorageDevicesData",
             "argc": "2",
-            "addr": "0x59be20"
+            "addr": "0x59d520"
         },
         {
             "name": "Eject",
             "argc": "2",
-            "addr": "0x59c120"
+            "addr": "0x59d820"
         },
         {
             "name": "Format",
             "argc": "2",
-            "addr": "0x59c2b0"
+            "addr": "0x59d9b0"
         },
         {
             "name": "Unmount",
             "argc": "2",
-            "addr": "0x59c440"
+            "addr": "0x59db40"
         },
         {
             "name": "TrimAll",
             "argc": "1",
-            "addr": "0x59bfa0"
+            "addr": "0x59d6a0"
         }
     ]
 }

@@ -64,6 +64,8 @@ public interface IClientUtils
     public unknown_ret GetCurrentUIMode();  // argc: 0, index: 34
     public unknown_ret BIsWebBasedUIMode();  // argc: 0, index: 35
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    public unknown_ret SetDisableOverlayScaling();  // argc: 1, index: 0
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret ShutdownLauncher();  // argc: 2, index: 36
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret SetLauncherType();  // argc: 1, index: 37

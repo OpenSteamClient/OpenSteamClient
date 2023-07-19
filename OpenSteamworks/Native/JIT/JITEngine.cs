@@ -105,7 +105,6 @@ namespace OpenSteamworks.Native.JIT
             {
                 IntPtr vtableMethod = Marshal.ReadIntPtr(vtable_ptr, IntPtr.Size * classInfo.Methods[i].VTableSlot);
                 MethodJITInfo methodInfo = classInfo.Methods[i];
-                Console.WriteLine($"i: {i} name: {methodInfo.Name}");
                 EmitClassMethod(methodInfo, ptr, vtableMethod, builder, fbuilder);
             }
 

@@ -1,21 +1,21 @@
 {
     "name": "IClientProductBuilderMap",
-    "found_at": "0x2374640",
+    "found_at": "0x2376648",
     "functions": [ 
         {
             "name": "SignInstallScript",
             "argc": "4",
-            "addr": "0x596990"
+            "addr": "0x598090"
         },
         {
             "name": "DRMWrap",
             "argc": "7",
-            "addr": "0x596cf0"
+            "addr": "0x5983f0"
         },
         {
             "name": "CEGWrap",
             "argc": "5",
-            "addr": "0x596b40"
+            "addr": "0x598240"
         }
     ]
 }

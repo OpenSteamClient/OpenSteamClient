@@ -1,106 +1,106 @@
 {
     "name": "IClientSystemManagerMap",
-    "found_at": "0x23747a8",
+    "found_at": "0x23767b0",
     "functions": [ 
         {
             "name": "GetSettings",
             "argc": "2",
-            "addr": "0x59dd60"
+            "addr": "0x59f460"
         },
         {
             "name": "UpdateSettings",
             "argc": "2",
-            "addr": "0x59dee0"
+            "addr": "0x59f5e0"
         },
         {
             "name": "ShutdownSystem",
             "argc": "1",
-            "addr": "0x59e070"
+            "addr": "0x59f770"
         },
         {
             "name": "SuspendSystem",
             "argc": "1",
-            "addr": "0x59e1a0"
+            "addr": "0x59f8a0"
         },
         {
             "name": "RestartSystem",
             "argc": "1",
-            "addr": "0x59e2d0"
+            "addr": "0x59f9d0"
         },
         {
             "name": "FactoryReset",
             "argc": "1",
-            "addr": "0x59e400"
+            "addr": "0x59fb00"
         },
         {
             "name": "RebootToFactoryTestImage",
             "argc": "2",
-            "addr": "0x59e560"
+            "addr": "0x59fc60"
         },
         {
             "name": "GetDisplayBrightness",
             "argc": "2",
-            "addr": "0x59f640"
+            "addr": "0x5a0d40"
         },
         {
             "name": "SetDisplayBrightness",
             "argc": "2",
-            "addr": "0x59f7c0"
+            "addr": "0x5a0ec0"
         },
         {
             "name": "FormatRemovableStorage",
             "argc": "2",
-            "addr": "0x59e700"
+            "addr": "0x59fe00"
         },
         {
             "name": "GetOSBranchList",
             "argc": "1",
-            "addr": "0x59e8a0"
+            "addr": "0x59ffa0"
         },
         {
             "name": "GetCurrentOSBranch",
             "argc": "1",
-            "addr": "0x59ea20"
+            "addr": "0x5a0120"
         },
         {
             "name": "SelectOSBranch",
             "argc": "2",
-            "addr": "0x59eba0"
+            "addr": "0x5a02a0"
         },
         {
             "name": "GetUpdateState",
             "argc": "2",
-            "addr": "0x59ed30"
+            "addr": "0x5a0430"
         },
         {
             "name": "CheckForUpdate",
             "argc": "1",
-            "addr": "0x59eeb0"
+            "addr": "0x5a05b0"
         },
         {
             "name": "ApplyUpdate",
             "argc": "2",
-            "addr": "0x59f030"
+            "addr": "0x5a0730"
         },
         {
             "name": "SetBackgroundUpdateCheckInterval",
             "argc": "2",
-            "addr": "0x59f1c0"
+            "addr": "0x5a08c0"
         },
         {
             "name": "ClearAudioDefaults",
             "argc": "2",
-            "addr": "0x59f940"
+            "addr": "0x5a1040"
         },
         {
             "name": "RunDeckMicEnableHack",
             "argc": "1",
-            "addr": "0x59f340"
+            "addr": "0x5a0a40"
         },
         {
             "name": "RunDeckEchoCancellationHack",
             "argc": "1",
-            "addr": "0x59f4c0"
+            "addr": "0x5a0bc0"
         }
     ]
 }
