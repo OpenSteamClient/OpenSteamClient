@@ -296,6 +296,9 @@ public class Bootstrapper {
                     // Start the download
                     using (var client = new HttpClient())
                     {
+                        client.DefaultRequestHeaders.ConnectionClose = true;
+                        client.DefaultRequestHeaders.Add("User-Agent", $"opensteamclient {GitInfo.GitBranch}/{GitInfo.GitCommit}");
+                        
                         // Create a file stream to store the downloaded data.
                         // This really can be any type of writeable stream.
                         using (var file = new FileStream(saveLocation, FileMode.Create, FileAccess.Write, FileShare.None)) {

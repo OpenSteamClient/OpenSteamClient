@@ -1,3 +1,5 @@
+using System.Timers;
+
 namespace Common.Extensions;
 
 public static class HttpClientExtensions
@@ -16,7 +18,6 @@ public static class HttpClientExtensions
 
             using (var download = await response.Content.ReadAsStreamAsync())
             {
-
                 // Ignore progress reporting when no progress reporter was 
                 // passed or when the content length is unknown
                 if (progress == null || contentLength == 0)
@@ -25,11 +26,48 @@ public static class HttpClientExtensions
                     return;
                 }
 
-                // Convert absolute progress (bytes downloaded) into relative progress (0% - 100%)
-                var relativeProgress = new Progress<long>(totalBytes => progress.Report((int)(((float)totalBytes / contentLength)*100)));
+                bool cancelledDueToTimeout = false;
 
-                // Use extension method to report progress while downloading
-                await download.CopyToAsync(destination, 81920, relativeProgress, cancellationToken);
+                using (CancellationTokenSource source = new CancellationTokenSource())
+                {
+                    System.Timers.Timer timer = new System.Timers.Timer(15000);
+                    timer.AutoReset = false;
+                    timer.Start();
+                    timer.Elapsed += (object? sender, ElapsedEventArgs args) => {
+                        Console.WriteLine("timer elapsed");
+                        cancelledDueToTimeout = true;
+                        source.Cancel();
+                    };
+
+                    // Convert absolute progress (bytes downloaded) into relative progress (0% - 100%)
+                    // Also reset the timer by setting it's interval
+                    var relativeProgress = new Progress<long>((long totalBytes) => {
+                        progress.Report((int)(((float)totalBytes / contentLength)*100));
+                        timer.Interval = 20000;
+                        Console.WriteLine("timer reset");
+                    });
+
+                    CancellationToken token = source.Token;
+                    cancellationToken.Register(() => {
+                        cancelledDueToTimeout = false;
+                        source.Cancel();
+                    });
+
+                    try
+                    {
+                        // Use extension method to report progress while downloading
+                        await download.CopyToAsync(destination, 81920, relativeProgress, token);
+                        // If download finished, stop the timer
+                        timer.Stop();
+                    }
+                    catch (OperationCanceledException e)
+                    {
+                        if (!cancelledDueToTimeout) {
+                            throw;
+                        }
+                        throw new Exception("Lost connection to server");
+                    }
+                }
 
                 progress.Report(100);
             }

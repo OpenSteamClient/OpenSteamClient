@@ -6,6 +6,36 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <Target Name="PreBuild_GitVersionInfo" BeforeTargets="BeforeCompile;CoreCompile">
+    <Exec ConsoleToMSBuild="true" Command="git rev-parse --abbrev-ref HEAD" WorkingDirectory="$(ProjectRootDir)">
+      <Output TaskParameter="ConsoleOutput" PropertyName="GitBranch" />
+    </Exec>
+    <Exec ConsoleToMSBuild="true" Command="git describe --long --always --dirty --exclude=* --abbrev=8" WorkingDirectory="$(ProjectRootDir)">
+      <Output TaskParameter="ConsoleOutput" PropertyName="GitCommit" />
+    </Exec>
+      <PropertyGroup>
+      <GitInfoLines><![CDATA[
+namespace Common%3B
+using System%3B
+public static class GitInfo
+{
+  public static readonly string GitBranch = "$(GitBranch)"%3B
+  public static readonly string GitCommit = "$(GitCommit)"%3B
+}
+  ]]></GitInfoLines>
+    </PropertyGroup>
+    <WriteLinesToFile
+            File="$(OutputPath)/GitInfo.g.cs"
+            Lines="$(GitInfoLines)"
+            Overwrite="true"
+            Encoding="Unicode"/>
+
+    <ItemGroup>
+      <Compile Include="$(OutputPath)/GitInfo.g.cs" />
+      <FileWrites Include="$(OutputPath)/GitInfo.g.cs" />
+    </ItemGroup>
+  </Target> 
+
   <ItemGroup>
     <PackageReference Include="Autofac" Version="7.0.1" />
     <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="7.0.8" />
