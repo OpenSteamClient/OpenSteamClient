@@ -2,45 +2,47 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
 using OpenSteamworks;
+using OpenSteamworks.Callbacks.Structs;
 
 namespace OpenSteamworks.Callbacks;
 
 public class CallbackManager
 {
-    private struct MissedMessage {
-        public Type type;
-        public object obj;
-        public CallbackMsg_t cbMsg;
-        public DateTime timeQueued;
-    }
-
     private SteamClient client;
     private bool logIncomingCallbacks;
     private bool logCallbackContents;
     private bool poll = true;
-    private Thread pollThread;
-    private List<Tuple<int, Action<object>, bool>> handlers = new List<Tuple<int, Action<object>, bool>>();
+    private readonly Thread pollThread;
+    private readonly List<Tuple<int, Action<object>, bool>> handlers = new();
 
     public CallbackManager(SteamClient client, bool logIncomingCallbacks, bool logCallbackContents) {
         this.client = client;
         this.logIncomingCallbacks = logIncomingCallbacks;
         this.logCallbackContents = logCallbackContents;
 
-        // Start the thread here, we do miss some messages as not all listeners are setup yet
-        // Should we have an internal queue for these messages?
-        pollThread = new Thread(this.NativePollThread);
-        pollThread.Start();
+        // Create the thread here, but don't start it immediately
+        pollThread = new(this.NativePollThread)
+        {
+            Name = "CallbackPollThread"
+        };
+    }
+    public void StartThread() {
+        if (!pollThread.IsAlive) {
+            pollThread.Start();
+        }
     }
     public void NativePollThread() {
         bool hasCallback = false;
 
         unsafe {
-            CallbackMsg_t msg = new CallbackMsg_t();
+            CallbackMsg_t msg = new();
             do
             {
                 hasCallback = this.client.NativeClient.native_Steam_BGetCallback(client.NativeClient.pipe, (nint)(&msg));
@@ -84,7 +86,7 @@ public class CallbackManager
             }
 
             unsafe {
-                Console.WriteLine($"Received callback [ID: {msg.m_iCallback}, name: {callbackName}, param length: {msg.m_cubParam}, data ptr: {string.Format("0x{0:X}", (IntPtr)msg.m_pubParam)}]");
+                Console.WriteLine($"Received callback [ID: {msg.m_iCallback}, name: {callbackName}, param length: {msg.m_cubParam}, data ptr: {string.Format("0x{0:x}", (IntPtr)msg.m_pubParam)}]");
             }
         }
     }
@@ -95,7 +97,30 @@ public class CallbackManager
             Console.WriteLine($"Begin Message {type.Name}");
             foreach (var field in fields)
             {
-                Console.WriteLine("    " + field.Name + ": " + field.GetValue(obj));
+                dynamic? value = field.GetValue(obj);
+                string? substituteValue = null;
+                if (value != null) {
+                    var valueType = value.GetType();
+                    if (valueType.IsArray) {
+                        Type elementType = valueType.GetElementType()!;
+                        if (elementType.IsPrimitive || elementType == typeof(decimal) || elementType == typeof(string)) {
+                            List<string> strings = new();
+                            foreach (var item in value)
+                            {
+                                strings.Add(item.ToString());
+                            }
+
+                            substituteValue = $"[{string.Join(",", strings)}]";
+                        }
+                    }
+                }
+                
+                if (substituteValue != null) {
+                    Console.WriteLine("    " + field.Name + ": " + substituteValue);
+                } else {
+                    Console.WriteLine("    " + field.Name + ": " + value);
+                }
+                
             }
 
             Console.WriteLine($"End of Message {type.Name}");
@@ -103,7 +128,7 @@ public class CallbackManager
     }
     private bool GetHandlersForId(int id, [NotNullWhen(true)] out List<Action<object>>? handlersOut) {
         handlersOut = new List<Action<object>>();
-        List<Tuple<int, Action<object>, bool>> handlersToRemove = new List<Tuple<int, Action<object>, bool>>();
+        List<Tuple<int, Action<object>, bool>> handlersToRemove = new();
 
         foreach (var handler in handlers)
         {

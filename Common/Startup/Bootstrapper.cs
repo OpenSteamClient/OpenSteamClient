@@ -436,9 +436,9 @@ public class Bootstrapper {
             // Seek to the beginning again, just in case
             fullFile.Seek(0, SeekOrigin.Begin);
 
-            var outPiper = StreamPiper<Stream, Stream>.StartPiping(proc.StandardOutput.BaseStream, Console.OpenStandardOutput());
-            var errPiper = StreamPiper<Stream, Stream>.StartPiping(proc.StandardError.BaseStream, Console.OpenStandardError());
-            var inPiper = StreamPiper<MemoryStream, Stream>.StartPiping(fullFile, proc.StandardInput.BaseStream);
+            var outPiper = StreamPiper<Stream, Stream>.CreateAndStartPiping(proc.StandardOutput.BaseStream, Console.OpenStandardOutput());
+            var errPiper = StreamPiper<Stream, Stream>.CreateAndStartPiping(proc.StandardError.BaseStream, Console.OpenStandardError());
+            var inPiper = StreamPiper<MemoryStream, Stream>.CreateAndStartPiping(fullFile, proc.StandardInput.BaseStream);
 
             // Convert absolute progress (bytes streamed) into relative progress (0% - 100%)
             var length = inPiper.Source.Length;
@@ -449,10 +449,6 @@ public class Bootstrapper {
                 if (length == inPiper.Source.Position) {
                     // No way to send a SIGTERM instead of a SIGKILL
                     proc.Kill();
-                    // For some reason the streams are still readable after the process terminates, so stop pipers explicitly
-                    outPiper.StopPiping();
-                    errPiper.StopPiping();
-                    inPiper.StopPiping();
                 }
             };
 
@@ -462,6 +458,11 @@ public class Bootstrapper {
             if (proc.ExitCode != 137)  {
                 throw new Exception("tar exited with unknown exitcode: " + proc.ExitCode);
             }
+
+            // For some reason the streams are still readable after the process terminates, so stop pipers explicitly
+            outPiper.StopPiping();
+            errPiper.StopPiping();
+            inPiper.StopPiping();
 
             progressHandler.SetProgress(100);
         }

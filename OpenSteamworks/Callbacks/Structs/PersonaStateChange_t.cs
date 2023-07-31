@@ -1,10 +1,12 @@
 using System;
 using System.Runtime.InteropServices;
+using OpenSteamworks.Enums;
 
 namespace OpenSteamworks.Callbacks.Structs;
 
 [StructLayout(LayoutKind.Sequential)]
-internal unsafe struct SharedConnectionMessageReady_t
+internal unsafe struct PersonaStateChange_t
 {
-	public UInt32 m_hResult;
+	public CSteamID steamid;
+	public EPersonaChange changeFlags;
 };
