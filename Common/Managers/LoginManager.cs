@@ -5,9 +5,10 @@ namespace Common.Managers;
 
 public class LoginManager : IHasStartupTasks
 {
-    private SteamClient steamClient;
-    public LoginManager(SteamClient client) {
-        steamClient = client;
+    public required SteamClient steamClient { protected get; init; }
+    public required ConfigManager configManager { protected get; init; }
+    public LoginManager() {
+        
     }
     public void RunStartup()
     {

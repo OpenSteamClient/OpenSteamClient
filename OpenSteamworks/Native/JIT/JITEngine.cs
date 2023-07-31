@@ -18,7 +18,8 @@ namespace OpenSteamworks.Native.JIT
 
         static JITEngine()
         {
-            AssemblyBuilder assemblyBuilder = AssemblyBuilder.DefineDynamicAssembly(new AssemblyName("JIT"), AssemblyBuilderAccess.Run);
+            //TODO: re-add AssemblyBuilderAccess.RunAndSave when it is implemented
+            AssemblyBuilder assemblyBuilder = AssemblyBuilder.DefineDynamicAssembly(new AssemblyName("OpenSteamworksJIT"), AssemblyBuilderAccess.Run);
 
 #if DEBUG
             Type daType = typeof(DebuggableAttribute);
@@ -31,7 +32,7 @@ namespace OpenSteamworks.Native.JIT
             }
 #endif
 
-            moduleBuilder = assemblyBuilder.DefineDynamicModule("JIT");
+            moduleBuilder = assemblyBuilder.DefineDynamicModule("OpenSteamworksJIT");
         }
 
         private static void EmitPrettyLoad(ILGenerator ilgen, int index)

@@ -59,8 +59,8 @@ public static class HttpClientExtensions
                         await download.CopyToAsync(destination, 81920, relativeProgress, token);
                         // If download finished, stop the timer
                         timer.Stop();
-                    }
-                    catch (OperationCanceledException e)
+                    } 
+                    catch (OperationCanceledException)
                     {
                         if (!cancelledDueToTimeout) {
                             throw;

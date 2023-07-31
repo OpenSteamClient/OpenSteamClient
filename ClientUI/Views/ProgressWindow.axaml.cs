@@ -10,7 +10,4 @@ public partial class ProgressWindow : Window
     {
         InitializeComponent();
     }
-    public void SetViewModel(ExtendedProgress<int> prog) {
-        this.DataContext = new ProgressWindowViewModel(prog);
-    }
 }

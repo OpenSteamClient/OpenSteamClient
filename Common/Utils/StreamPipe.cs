@@ -1,8 +1,5 @@
 namespace Common.Utils;
 
-public class StreamPiper {
-    
-}
 public class StreamPiper<TSource, TDest> 
 where TSource : Stream
 where TDest : Stream

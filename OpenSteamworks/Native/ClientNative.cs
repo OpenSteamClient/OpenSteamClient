@@ -169,7 +169,6 @@ public class ClientNative {
 
     private bool TryConnectToGlobalUser() {
         HSteamUser user = this.IClientEngine.ConnectToGlobalUser(this._pipe);
-        Console.WriteLine(user);
         if (user == 0) {
             return false;
         }

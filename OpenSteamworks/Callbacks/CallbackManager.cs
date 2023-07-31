@@ -24,7 +24,6 @@ public class CallbackManager
     private bool logCallbackContents;
     private bool poll = true;
     private Thread pollThread;
-    private List<MissedMessage> missedMessages = new List<MissedMessage>();
     private List<Tuple<int, Action<object>, bool>> handlers = new List<Tuple<int, Action<object>, bool>>();
 
     public CallbackManager(SteamClient client, bool logIncomingCallbacks, bool logCallbackContents) {
@@ -44,7 +43,6 @@ public class CallbackManager
             CallbackMsg_t msg = new CallbackMsg_t();
             do
             {
-                ProcessMissedMessages();
                 hasCallback = this.client.NativeClient.native_Steam_BGetCallback(client.NativeClient.pipe, (nint)(&msg));
                 if (hasCallback) {
                     var hasType = CallbackConstants.IDToType.TryGetValue(msg.m_iCallback, out Type? type);
@@ -56,19 +54,12 @@ public class CallbackManager
                         if (obj != null) {
                             LogCallbackData(obj, type);
 
-                            // Send to listeners or store if no listeners exist
+                            // Send to listeners if any exist
                             if (GetHandlersForId(msg.m_iCallback, out List<Action<object>>? handlers)) {
                                 foreach (var handler in handlers)
                                 {
                                     handler?.Invoke(obj);
                                 }
-                            } else {
-                                missedMessages.Add(new MissedMessage() {
-                                    type = type,
-                                    obj = obj,
-                                    cbMsg = msg,
-                                    timeQueued = DateTime.Now
-                                });
                             }
                         } else {
                             //TODO: logger
@@ -78,7 +69,7 @@ public class CallbackManager
 
                     this.client.NativeClient.native_Steam_FreeLastCallback(client.NativeClient.pipe);
                 }
-                System.Threading.Thread.Sleep(10);
+                System.Threading.Thread.Sleep(50);
             } while (poll);
         }
     }
@@ -108,34 +99,6 @@ public class CallbackManager
             }
 
             Console.WriteLine($"End of Message {type.Name}");
-        }
-    }
-
-    private void ProcessMissedMessages() {
-        if (missedMessages.Count > 0) {
-            List<MissedMessage> messagesToRemove = new List<MissedMessage>();
-            foreach (var missedMsg in missedMessages)
-            {
-                var type = missedMsg.type;
-                var obj = missedMsg.obj;
-                if (GetHandlersForId(missedMsg.cbMsg.m_iCallback, out List<Action<object>>? handlers)) {
-                    foreach (var handler in handlers)
-                    {
-                        handler?.Invoke(obj);
-                    }
-                    messagesToRemove.Add(missedMsg);
-                } 
-
-                // Remove messages that haven't been got in 60 seconds
-                if (missedMsg.timeQueued.AddSeconds(60) < DateTime.Now) {
-                    Console.WriteLine("Removing " + missedMsg.type.Name + " as it's expired");
-                    messagesToRemove.Add(missedMsg);
-                }
-            }
-            foreach (var msgToRemove in messagesToRemove)
-            {
-                missedMessages.Remove(msgToRemove);
-            }
         }
     }
     private bool GetHandlersForId(int id, [NotNullWhen(true)] out List<Action<object>>? handlersOut) {
@@ -176,7 +139,11 @@ public class CallbackManager
     public void DeregisterHandler(Action<object> handler) {
 
     }
-    public void RequestStop() {
+    public void RequestStopAndWaitForExit() {
         poll = false;
+        do
+        {
+            System.Threading.Thread.Sleep(10);
+        } while (this.pollThread.IsAlive);
     }
 }

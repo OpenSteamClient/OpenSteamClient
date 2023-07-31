@@ -1,7 +1,9 @@
 using System;
 using System.IO;
+using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using OpenSteamworks.Callbacks;
+using OpenSteamworks.ClientInterfaces;
 using OpenSteamworks.Enums;
 using OpenSteamworks.Generated;
 using OpenSteamworks.Native;
@@ -14,6 +16,10 @@ public class SteamClient
         ExistingClient,
         NewClient
     }
+
+    // Non-native interfaces
+    private List<IClientInterface> interfaces = new List<IClientInterface>();
+    public ClientConfigStore ClientConfigStore;
 
 
     public CallbackManager CallbackManager { get; private set; }
@@ -30,6 +36,23 @@ public class SteamClient
         log = true;
 #endif
         this.CallbackManager = new CallbackManager(this, log, log);
+
+        this.ClientConfigStore = new ClientConfigStore(this.NativeClient.IClientConfigStore);
+        this.interfaces.Add(this.ClientConfigStore);
+    }
+
+    public void Shutdown() {
+        // Shutdown non-native interfaces first
+        foreach (var iface in this.interfaces)
+        {
+            iface.RunShutdownTasks();
+        }
+
+        this.CallbackManager.RequestStopAndWaitForExit();
+        this.NativeClient.native_Steam_ReleaseUser(this.NativeClient.pipe, this.NativeClient.user);
+        this.NativeClient.native_Steam_BReleaseSteamPipe(this.NativeClient.pipe);
+        this.NativeClient.IClientEngine.BShutdownIfAllPipesClosed();
+        this.NativeClient.Unload();
     }
 
     public void LogClientState() {

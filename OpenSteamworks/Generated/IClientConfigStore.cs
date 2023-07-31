@@ -27,11 +27,11 @@ public interface IClientConfigStore
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public string GetString(EConfigStore eConfigStore, string pszKeyName, string defaultValue);  // argc: 3, index: 6
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public UInt32 GetBinary(EConfigStore eConfigStore, string pszKeyName, ref UInt8 pubBuf, UInt32 cubBuf);  // argc: 4, index: 7
+    public uint GetBinary(EConfigStore eConfigStore, string pszKeyName, IntPtr pubBuf, UInt32 cubBuf);  // argc: 4, index: 7
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public UInt32 GetBinary(EConfigStore eConfigStore, string pszKeyName, ref CUtlBuffer pUtlBuf);  // argc: 3, index: 8
+    public uint GetBinary(EConfigStore eConfigStore, string pszKeyName, CUtlBuffer pUtlBuf);  // argc: 3, index: 8
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public UInt32 GetBinaryWatermarked(EConfigStore eConfigStore, string pszKeyName, ref UInt8 pubBuf, UInt32 cubBuf);  // argc: 4, index: 9
+    public uint GetBinaryWatermarked(EConfigStore eConfigStore, string pszKeyName, IntPtr pubBuf, UInt32 cubBuf);  // argc: 4, index: 9
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public bool SetBool(EConfigStore eConfigStore, string pszKeyNameIn, bool value);  // argc: 3, index: 10
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
@@ -41,15 +41,15 @@ public interface IClientConfigStore
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public bool SetFloat(EConfigStore eConfigStore, string pszKeyNameIn, float flValue);  // argc: 3, index: 13
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public bool SetString(EConfigStore eConfigStore, string pszKeyNameIn, ref string pszValue);  // argc: 3, index: 14
+    public bool SetString(EConfigStore eConfigStore, string pszKeyNameIn, string pszValue);  // argc: 3, index: 14
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public bool SetBinary(EConfigStore eConfigStore, string pszKeyName, ref UInt8 pubData, UInt32 cubData);  // argc: 4, index: 15
+    public bool SetBinary(EConfigStore eConfigStore, string pszKeyName, IntPtr pubData, UInt32 cubData);  // argc: 4, index: 15
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public bool SetBinaryWatermarked(EConfigStore eConfigStore, string pszKeyName, ref UInt8 pubData, UInt32 cubData);  // argc: 4, index: 16
+    public bool SetBinaryWatermarked(EConfigStore eConfigStore, string pszKeyName, IntPtr pubData, UInt32 cubData);  // argc: 4, index: 16
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public bool RemoveKey(EConfigStore eConfigStore, string pszKeyName);  // argc: 2, index: 17
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public Int32 GetKeySerialized(EConfigStore eConfigStore, string pszKeyNameIn, ref UInt8 pchBuffer, Int32 cbBufferMax);  // argc: 4, index: 18
+    public uint GetKeySerialized(EConfigStore eConfigStore, string pszKeyNameIn, IntPtr pchBuffer, Int32 cbBufferMax);  // argc: 4, index: 18
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public bool FlushToDisk(bool bIsShuttingDown);  // argc: 1, index: 19
 }

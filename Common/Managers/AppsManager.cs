@@ -5,9 +5,10 @@ namespace Common.Managers;
 
 public class AppsManager : IHasStartupTasks
 {
-    private SteamClient steamClient;
-    public AppsManager(SteamClient client) {
-        steamClient = client;
+    public required SteamClient steamClient { protected get; init; }
+    public required ConfigManager configManager { protected get; init; }
+    public AppsManager() {
+        
     }
     public void RunStartup()
     {

@@ -1,25 +1,26 @@
 using Autofac;
+using Autofac.Core;
 using Common.Autofac;
 using Common.Startup;
 using Common.Utils;
 
-namespace Common;
+namespace Common.Startup;
 
 public static class StartupController {
-    // Keeps bootstrapper from being GC'd
-    internal static Bootstrapper? bootstrapper;
     public static async Task<IContainer> Bootstrap<UIAutofacT>(IExtendedProgress<int> bootstrapperProgress) where UIAutofacT : IAutofacRegistrar {
-        bootstrapper = new Bootstrapper();
-
         ContainerBuilder builder = new ContainerBuilder();
-        builder.Register(c => bootstrapper);
-        await bootstrapper.RunBootstrap(bootstrapperProgress);
+
+        CommonAutofacRegistrar.RegisterPreBootstrap(ref builder);
+        builder.RegisterType<Bootstrapper>().PropertiesAutowired().SingleInstance();
 
         CommonAutofacRegistrar.Register(ref builder);
+        
         UIAutofacT.Register(ref builder);
 
-        builder.RegisterType<StartupTasksRunner>().SingleInstance();
+        builder.RegisterType<StartupTasksRunner>().PropertiesAutowired().SingleInstance();
+        
         IContainer container = builder.Build();
+        await container.Resolve<Bootstrapper>().RunBootstrap(bootstrapperProgress);
         container.Resolve<StartupTasksRunner>().RunStartup();
         return container;
     }

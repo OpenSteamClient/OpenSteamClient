@@ -1,10 +1,12 @@
 using Autofac;
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
+using Avalonia.Input.Platform;
 using Avalonia.Markup.Xaml;
 using ClientUI.ViewModels;
 using ClientUI.Views;
 using Common;
+using Common.Startup;
 using Common.Utils;
 using OpenSteamworks;
 
@@ -23,13 +25,14 @@ public partial class App : Application
 
     public override async void OnFrameworkInitializationCompleted()
     {
-        
         ExtendedProgress<int> prog = new ExtendedProgress<int>(0, 100);
         
-        var progressWindow = new ProgressWindow();
+        var progressWindow = new ProgressWindow 
+        {
+            DataContext = new ProgressWindowViewModel(prog, "Bootstrapper progress"),
+        };
+
         ApplicationLifetime.MainWindow = progressWindow;
-        
-        progressWindow.SetViewModel(prog);
         progressWindow.Show();
         
         App.DIContainer = await StartupController.Bootstrap<ClientUIAutofacRegistrar>(prog);
@@ -52,7 +55,7 @@ public partial class App : Application
     }
 
     public void Exit(int exitCode = 0) {
-        DIContainer?.Resolve<SteamClient>().CallbackManager.RequestStop();
+        DIContainer?.Resolve<SteamClient>().Shutdown();
         ApplicationLifetime.Shutdown(exitCode);
     }
 }

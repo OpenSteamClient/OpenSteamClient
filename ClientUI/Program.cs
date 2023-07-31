@@ -17,7 +17,7 @@ public static class Program
         try {
             BuildAvaloniaApp().StartWithClassicDesktopLifetime(args, Avalonia.Controls.ShutdownMode.OnExplicitShutdown); 
         } catch (Exception e) {
-            MessageBox.Error("OpenSteamClient needs to close", "We encountered a fatal exception: " + e.Message, (e.StackTrace != null) ? e.StackTrace : "no stacktrace");
+            MessageBox.Error("OpenSteamClient needs to close", "We encountered a fatal exception: " + e.Message, e.ToString());
             App.Current?.Exit(1);
         }
     }
