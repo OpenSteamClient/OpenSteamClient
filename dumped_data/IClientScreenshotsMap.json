@@ -1,181 +1,181 @@
 {
     "name": "IClientScreenshotsMap",
-    "found_at": "0x2376b28",
+    "found_at": "0x23a9d3c",
     "functions": [ 
         {
             "name": "GetShortcutDisplayName",
             "argc": "2",
-            "addr": "0x5b4d70"
+            "addr": "0x5bb870"
         },
         {
             "name": "SetShortcutDisplayName",
             "argc": "3",
-            "addr": "0x5b4ef0"
+            "addr": "0x5bb9f0"
         },
         {
             "name": "WriteScreenshot",
             "argc": "6",
-            "addr": "0x5b5050"
+            "addr": "0x5bbb50"
         },
         {
             "name": "AddScreenshotToLibrary",
             "argc": "8",
-            "addr": "0x5b5220"
+            "addr": "0x5bbd20"
         },
         {
             "name": "TriggerScreenshot",
             "argc": "2",
-            "addr": "0x5b5410"
+            "addr": "0x5bbf10"
         },
         {
             "name": "RequestScreenshotFromGame",
             "argc": "2",
-            "addr": "0x5b5560"
+            "addr": "0x5bc060"
         },
         {
             "name": "SetLocation",
             "argc": "4",
-            "addr": "0x5b56b0"
+            "addr": "0x5bc1b0"
         },
         {
             "name": "TagUser",
             "argc": "5",
-            "addr": "0x5b5850"
+            "addr": "0x5bc350"
         },
         {
             "name": "TagPublishedFile",
             "argc": "5",
-            "addr": "0x5b5a00"
+            "addr": "0x5bc500"
         },
         {
             "name": "ResolvePath",
             "argc": "6",
-            "addr": "0x5b8250"
+            "addr": "0x5bed50"
         },
         {
             "name": "GetSizeOnDisk",
             "argc": "3",
-            "addr": "0x5b5bc0"
+            "addr": "0x5bc6c0"
         },
         {
             "name": "GetSizeInCloud",
             "argc": "3",
-            "addr": "0x5b5d50"
+            "addr": "0x5bc850"
         },
         {
             "name": "IsPersisted",
             "argc": "3",
-            "addr": "0x5b5ee0"
+            "addr": "0x5bc9e0"
         },
         {
             "name": "GetNumGamesWithLocalScreenshots",
             "argc": "1",
-            "addr": "0x5b6080"
+            "addr": "0x5bcb80"
         },
         {
             "name": "GetGameWithLocalScreenshots",
             "argc": "3",
-            "addr": "0x5b61e0"
+            "addr": "0x5bcce0"
         },
         {
             "name": "GetLocalScreenshotCount",
             "argc": "2",
-            "addr": "0x5b6380"
+            "addr": "0x5bce80"
         },
         {
             "name": "GetLocalScreenshot",
             "argc": "12",
-            "addr": "0x5b6500"
+            "addr": "0x5bd000"
         },
         {
             "name": "GetLocalScreenshotByHandle",
             "argc": "11",
-            "addr": "0x5b8430"
+            "addr": "0x5bef30"
         },
         {
             "name": "SetLocalScreenshotCaption",
             "argc": "4",
-            "addr": "0x5b6760"
+            "addr": "0x5bd260"
         },
         {
             "name": "SetLocalScreenshotPrivacy",
             "argc": "4",
-            "addr": "0x5b6900"
+            "addr": "0x5bd400"
         },
         {
             "name": "SetLocalScreenshotSpoiler",
             "argc": "4",
-            "addr": "0x5b6ab0"
+            "addr": "0x5bd5b0"
         },
         {
             "name": "GetLocalLastScreenshot",
             "argc": "3",
-            "addr": "0x5b6c60"
+            "addr": "0x5bd760"
         },
         {
             "name": "StartBatch",
             "argc": "2",
-            "addr": "0x5b6e00"
+            "addr": "0x5bd900"
         },
         {
             "name": "AddToBatch",
             "argc": "2",
-            "addr": "0x5b6f80"
+            "addr": "0x5bda80"
         },
         {
             "name": "UploadBatch",
             "argc": "2",
-            "addr": "0x5b7100"
+            "addr": "0x5bdc00"
         },
         {
             "name": "DeleteBatch",
             "argc": "2",
-            "addr": "0x5b7290"
+            "addr": "0x5bdd90"
         },
         {
             "name": "CancelBatch",
             "argc": "1",
-            "addr": "0x5b7430"
+            "addr": "0x5bdf30"
         },
         {
             "name": "RecoverOldScreenshots",
             "argc": "1",
-            "addr": "0x5b7590"
+            "addr": "0x5be090"
         },
         {
             "name": "GetTaggedUserCount",
             "argc": "3",
-            "addr": "0x5b76c0"
+            "addr": "0x5be1c0"
         },
         {
             "name": "GetTaggedUser",
             "argc": "5",
-            "addr": "0x5b7850"
+            "addr": "0x5be350"
         },
         {
             "name": "GetLocation",
             "argc": "5",
-            "addr": "0x5b7d70"
+            "addr": "0x5be870"
         },
         {
             "name": "GetTaggedPublishedFileCount",
             "argc": "3",
-            "addr": "0x5b7a20"
+            "addr": "0x5be520"
         },
         {
             "name": "GetTaggedPublishedFile",
             "argc": "4",
-            "addr": "0x5b7bb0"
+            "addr": "0x5be6b0"
         },
         {
             "name": "GetScreenshotVRType",
             "argc": "3",
-            "addr": "0x5b80c0"
+            "addr": "0x5bebc0"
         },
         {
             "name": "BGetUserScreenshotDirectory",
             "argc": "3",
-            "addr": "0x5b7f30"
+            "addr": "0x5bea30"
         }
     ]
 }

@@ -17,6 +17,7 @@ public interface IClientUtils
 {
     public string GetInstallPath();  // argc: 0, index: 1
     public string GetUserBaseFolderInstallImage();  // argc: 0, index: 2
+    public unknown_ret GetUserBaseFolderPersistentStorage();  // argc: 0, index: 0
     public string GetManagedContentRoot();  // argc: 0, index: 3
     public RTime32 GetSecondsSinceAppActive();  // argc: 0, index: 4
     public RTime32 GetSecondsSinceComputerActive();  // argc: 0, index: 5

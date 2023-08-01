@@ -1,16 +1,16 @@
 {
     "name": "IClientSTARInternalMap",
-    "found_at": "0x2377a74",
+    "found_at": "0x23aac98",
     "functions": [ 
         {
             "name": "SendSerializedMessage",
             "argc": "3",
-            "addr": "0x60e2c0"
+            "addr": "0x6152c0"
         },
         {
             "name": "GetMessageResponse",
             "argc": "5",
-            "addr": "0x60e460"
+            "addr": "0x615460"
         }
     ]
 }

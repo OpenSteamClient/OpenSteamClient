@@ -1,61 +1,61 @@
 {
     "name": "IClientGameServerStatsMap",
-    "found_at": "0x2375d0c",
+    "found_at": "0x23a8f18",
     "functions": [ 
         {
             "name": "RequestUserStats",
             "argc": "4",
-            "addr": "0x562350"
+            "addr": "0x568860"
         },
         {
             "name": "GetUserStat",
             "argc": "6",
-            "addr": "0x562500"
+            "addr": "0x568a10"
         },
         {
             "name": "GetUserStat",
             "argc": "6",
-            "addr": "0x5626b0"
+            "addr": "0x568bc0"
         },
         {
             "name": "GetUserAchievement",
             "argc": "7",
-            "addr": "0x562860"
+            "addr": "0x568d70"
         },
         {
             "name": "SetUserStat",
             "argc": "6",
-            "addr": "0x562a30"
+            "addr": "0x568f40"
         },
         {
             "name": "SetUserStat",
             "argc": "6",
-            "addr": "0x562be0"
+            "addr": "0x5690f0"
         },
         {
             "name": "UpdateUserAvgRateStat",
             "argc": "7",
-            "addr": "0x562d90"
+            "addr": "0x5692a0"
         },
         {
             "name": "SetUserAchievement",
             "argc": "5",
-            "addr": "0x562f60"
+            "addr": "0x569470"
         },
         {
             "name": "ClearUserAchievement",
             "argc": "5",
-            "addr": "0x563100"
+            "addr": "0x569610"
         },
         {
             "name": "StoreUserStats",
             "argc": "4",
-            "addr": "0x5632a0"
+            "addr": "0x5697b0"
         },
         {
             "name": "SetMaxStatsLoaded",
             "argc": "2",
-            "addr": "0x563450"
+            "addr": "0x569960"
         }
     ]
 }

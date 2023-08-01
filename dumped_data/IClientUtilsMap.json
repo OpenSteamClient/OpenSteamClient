@@ -1,551 +1,556 @@
 {
     "name": "IClientUtilsMap",
-    "found_at": "0x2376154",
+    "found_at": "0x23a9360",
     "functions": [ 
         {
             "name": "GetInstallPath",
             "argc": "1",
-            "addr": "0x57b050"
+            "addr": "0x581580"
         },
         {
             "name": "GetUserBaseFolderInstallImage",
             "argc": "1",
-            "addr": "0x57b3f0"
+            "addr": "0x581920"
+        },
+        {
+            "name": "GetUserBaseFolderPersistentStorage",
+            "argc": "1",
+            "addr": "0x581cc0"
         },
         {
             "name": "GetManagedContentRoot",
             "argc": "1",
-            "addr": "0x57b790"
+            "addr": "0x582060"
         },
         {
             "name": "GetSecondsSinceAppActive",
             "argc": "1",
-            "addr": "0x57bb30"
+            "addr": "0x582400"
         },
         {
             "name": "GetSecondsSinceComputerActive",
             "argc": "1",
-            "addr": "0x57bc90"
+            "addr": "0x582560"
         },
         {
             "name": "SetComputerActive",
             "argc": "1",
-            "addr": "0x57bdf0"
+            "addr": "0x5826c0"
         },
         {
             "name": "GetConnectedUniverse",
             "argc": "1",
-            "addr": "0x60f210"
+            "addr": "0x616210"
         },
         {
             "name": "GetSteamRealm",
             "argc": "1",
-            "addr": "0x60f5a0"
+            "addr": "0x6165a0"
         },
         {
             "name": "GetServerRealTime",
             "argc": "1",
-            "addr": "0x57bf20"
+            "addr": "0x5827f0"
         },
         {
             "name": "GetIPCountry",
             "argc": "1",
-            "addr": "0x57c080"
+            "addr": "0x582950"
         },
         {
             "name": "GetImageSize",
             "argc": "4",
-            "addr": "0x57c1e0"
+            "addr": "0x582ab0"
         },
         {
             "name": "GetImageRGBA",
             "argc": "4",
-            "addr": "0x57c390"
+            "addr": "0x582c60"
         },
         {
             "name": "GetNumRunningApps",
             "argc": "1",
-            "addr": "0x57c540"
+            "addr": "0x582e10"
         },
         {
             "name": "GetCurrentBatteryPower",
             "argc": "1",
-            "addr": "0x57c6a0"
+            "addr": "0x582f70"
         },
         {
             "name": "GetBatteryInformation",
             "argc": "3",
-            "addr": "0x57c800"
+            "addr": "0x5830d0"
         },
         {
             "name": "SetOfflineMode",
             "argc": "2",
-            "addr": "0x57c9a0"
+            "addr": "0x583270"
         },
         {
             "name": "GetOfflineMode",
             "argc": "1",
-            "addr": "0x57caf0"
+            "addr": "0x5833c0"
         },
         {
             "name": "SetAppIDForCurrentPipe",
             "argc": "3",
-            "addr": "0x57cc50"
+            "addr": "0x583520"
         },
         {
             "name": "GetAppID",
             "argc": "1",
-            "addr": "0x57cde0"
+            "addr": "0x5836b0"
         },
         {
             "name": "SetAPIDebuggingActive",
             "argc": "3",
-            "addr": "0x57cf40"
+            "addr": "0x583810"
         },
         {
             "name": "AllocPendingAPICallHandle",
             "argc": "1",
-            "addr": "0x57d430"
+            "addr": "0x583d00"
         },
         {
             "name": "IsAPICallCompleted",
             "argc": "4",
-            "addr": "0x57d0b0"
+            "addr": "0x583980"
         },
         {
             "name": "GetAPICallFailureReason",
             "argc": "3",
-            "addr": "0x583d40"
+            "addr": "0x58a630"
         },
         {
             "name": "GetAPICallResult",
             "argc": "7",
-            "addr": "0x57d250"
+            "addr": "0x583b20"
         },
         {
             "name": "SetAPICallResultWithoutPostingCallback",
             "argc": "6",
-            "addr": "0x57d5b0"
+            "addr": "0x583e80"
         },
         {
             "name": "SignalAppsToShutDown",
             "argc": "1",
-            "addr": "0x57d740"
+            "addr": "0x584010"
         },
         {
             "name": "SignalServiceAppsToDisconnect",
             "argc": "1",
-            "addr": "0x57d8a0"
+            "addr": "0x584170"
         },
         {
             "name": "TerminateAllApps",
             "argc": "2",
-            "addr": "0x57da00"
+            "addr": "0x5842d0"
         },
         {
             "name": "GetCellID",
             "argc": "1",
-            "addr": "0x57db80"
+            "addr": "0x584450"
         },
         {
             "name": "BIsGlobalInstance",
             "argc": "1",
-            "addr": "0x57dce0"
+            "addr": "0x5845b0"
         },
         {
             "name": "CheckFileSignature",
             "argc": "2",
-            "addr": "0x57de40"
+            "addr": "0x584710"
         },
         {
             "name": "GetBuildID",
             "argc": "1",
-            "addr": "0x57dfd0"
+            "addr": "0x5848a0"
         },
         {
             "name": "SetCurrentUIMode",
             "argc": "2",
-            "addr": "0x57e150"
+            "addr": "0x584a20"
         },
         {
             "name": "GetCurrentUIMode",
             "argc": "1",
-            "addr": "0x57e2a0"
+            "addr": "0x584b70"
         },
         {
             "name": "BIsWebBasedUIMode",
             "argc": "1",
-            "addr": "0x57e400"
+            "addr": "0x584cd0"
         },
         {
             "name": "SetDisableOverlayScaling",
             "argc": "2",
-            "addr": "0x57e560"
+            "addr": "0x584e30"
         },
         {
             "name": "ShutdownLauncher",
             "argc": "3",
-            "addr": "0x57f580"
+            "addr": "0x585e50"
         },
         {
             "name": "SetLauncherType",
             "argc": "2",
-            "addr": "0x57f430"
+            "addr": "0x585d00"
         },
         {
             "name": "GetLauncherType",
             "argc": "1",
-            "addr": "0x60f930"
+            "addr": "0x616930"
         },
         {
             "name": "ShowGamepadTextInput",
             "argc": "6",
-            "addr": "0x583ec0"
+            "addr": "0x58a7b0"
         },
         {
             "name": "GetEnteredGamepadTextLength",
             "argc": "1",
-            "addr": "0x57e6b0"
+            "addr": "0x584f80"
         },
         {
             "name": "GetEnteredGamepadTextInput",
             "argc": "3",
-            "addr": "0x57e810"
+            "addr": "0x5850e0"
         },
         {
             "name": "GamepadTextInputClosed",
             "argc": "4",
-            "addr": "0x57e9a0"
+            "addr": "0x585270"
         },
         {
             "name": "ShowControllerLayoutPreview",
             "argc": "4",
-            "addr": "0x583200"
+            "addr": "0x589af0"
         },
         {
             "name": "SetSpew",
             "argc": "4",
-            "addr": "0x57eb10"
+            "addr": "0x5853e0"
         },
         {
             "name": "BDownloadsDisabled",
             "argc": "1",
-            "addr": "0x57ec80"
+            "addr": "0x585550"
         },
         {
             "name": "SetFocusedWindow",
             "argc": "5",
-            "addr": "0x57ede0"
+            "addr": "0x5856b0"
         },
         {
             "name": "GetSteamUILanguage",
             "argc": "1",
-            "addr": "0x57ef80"
+            "addr": "0x585850"
         },
         {
             "name": "CheckSteamReachable",
             "argc": "1",
-            "addr": "0x57f0e0"
+            "addr": "0x5859b0"
         },
         {
             "name": "SetLastGameLaunchMethod",
             "argc": "2",
-            "addr": "0x584080"
+            "addr": "0x58a970"
         },
         {
             "name": "SetVideoAdapterInfo",
             "argc": "8",
-            "addr": "0x57f260"
+            "addr": "0x585b30"
         },
         {
             "name": "SetOverlayWindowFocusForPipe",
             "argc": "4",
-            "addr": "0x57f6f0"
+            "addr": "0x585fc0"
         },
         {
             "name": "GetGameOverlayUIInstanceFocusGameID",
-            "argc": "3",
-            "addr": "0x57f880"
+            "argc": "4",
+            "addr": "0x586150"
         },
         {
             "name": "GetFocusedGameWindow",
-            "argc": "3",
-            "addr": "0x57fa30"
+            "argc": "4",
+            "addr": "0x586310"
         },
         {
             "name": "SetControllerConfigFileForAppID",
             "argc": "3",
-            "addr": "0x57fbe0"
+            "addr": "0x5864d0"
         },
         {
             "name": "GetControllerConfigFileForAppID",
             "argc": "4",
-            "addr": "0x57fd60"
+            "addr": "0x586650"
         },
         {
             "name": "IsSteamRunningInVR",
             "argc": "1",
-            "addr": "0x57ff10"
+            "addr": "0x586800"
         },
         {
             "name": "BIsRunningOnAlienwareAlpha",
             "argc": "1",
-            "addr": "0x60fcc0"
+            "addr": "0x616cc0"
         },
         {
             "name": "StartVRDashboard",
             "argc": "1",
-            "addr": "0x580070"
+            "addr": "0x586960"
         },
         {
             "name": "IsVRHeadsetStreamingEnabled",
             "argc": "2",
-            "addr": "0x5801a0"
+            "addr": "0x586a90"
         },
         {
             "name": "SetVRHeadsetStreamingEnabled",
             "argc": "3",
-            "addr": "0x580320"
+            "addr": "0x586c10"
         },
         {
             "name": "GenerateSupportSystemReport",
             "argc": "1",
-            "addr": "0x580480"
+            "addr": "0x586d70"
         },
         {
             "name": "GetSupportSystemReport",
             "argc": "5",
-            "addr": "0x580600"
+            "addr": "0x586ef0"
         },
         {
             "name": "GetAppIdForPid",
             "argc": "3",
-            "addr": "0x5807d0"
+            "addr": "0x5870c0"
         },
         {
             "name": "SetClientUIProcess",
             "argc": "1",
-            "addr": "0x580c10"
+            "addr": "0x587500"
         },
         {
             "name": "BIsClientUIInForeground",
             "argc": "1",
-            "addr": "0x580960"
+            "addr": "0x587250"
         },
         {
             "name": "AllowSetForegroundThroughWebhelper",
             "argc": "2",
-            "addr": "0x580ac0"
+            "addr": "0x5873b0"
         },
         {
             "name": "SetOverlayBrowserInfo",
             "argc": "9",
-            "addr": "0x5841d0"
+            "addr": "0x58aac0"
         },
         {
             "name": "ClearOverlayBrowserInfo",
             "argc": "2",
-            "addr": "0x580d40"
+            "addr": "0x587630"
         },
         {
             "name": "GetOverlayBrowserInfo",
             "argc": "4",
-            "addr": "0x580e90"
+            "addr": "0x587780"
         },
         {
             "name": "SetOverlayNotificationPosition",
             "argc": "3",
-            "addr": "0x5843c0"
+            "addr": "0x58acb0"
         },
         {
             "name": "SetOverlayNotificationInset",
             "argc": "4",
-            "addr": "0x581040"
+            "addr": "0x587930"
         },
         {
             "name": "DispatchClientUINotification",
             "argc": "4",
-            "addr": "0x584520"
+            "addr": "0x58ae10"
         },
         {
             "name": "RespondToClientUINotification",
             "argc": "4",
-            "addr": "0x5811b0"
+            "addr": "0x587aa0"
         },
         {
             "name": "DispatchClientUICommand",
             "argc": "3",
-            "addr": "0x581330"
+            "addr": "0x587c20"
         },
         {
             "name": "DispatchComputerActiveStateChange",
             "argc": "1",
-            "addr": "0x581480"
+            "addr": "0x587d70"
         },
         {
             "name": "DispatchOpenURLInClient",
             "argc": "4",
-            "addr": "0x5815b0"
+            "addr": "0x587ea0"
         },
         {
             "name": "UpdateWideVineCDM",
             "argc": "2",
-            "addr": "0x581720"
+            "addr": "0x588010"
         },
         {
             "name": "DispatchClearAllBrowsingData",
             "argc": "1",
-            "addr": "0x5818b0"
+            "addr": "0x5881a0"
         },
         {
             "name": "DispatchClientSettingsChanged",
             "argc": "1",
-            "addr": "0x5819e0"
+            "addr": "0x5882d0"
         },
         {
             "name": "DispatchClientPostMessage",
             "argc": "4",
-            "addr": "0x581b10"
+            "addr": "0x588400"
         },
         {
             "name": "IsSteamChina",
             "argc": "1",
-            "addr": "0x610050"
+            "addr": "0x617050"
         },
         {
             "name": "NeedsSteamChinaWorkshop",
             "argc": "2",
-            "addr": "0x581c90"
+            "addr": "0x588580"
         },
         {
             "name": "InitFilterText",
             "argc": "3",
-            "addr": "0x581e10"
+            "addr": "0x588700"
         },
         {
             "name": "FilterText",
             "argc": "8",
-            "addr": "0x5846c0"
+            "addr": "0x58afb0"
         },
         {
             "name": "GetIPv6ConnectivityState",
             "argc": "2",
-            "addr": "0x5848a0"
+            "addr": "0x58b190"
         },
         {
             "name": "ScheduleConnectivityTest",
             "argc": "3",
-            "addr": "0x582e10"
+            "addr": "0x589700"
         },
         {
             "name": "GetConnectivityTestState",
             "argc": "2",
-            "addr": "0x584d60"
+            "addr": "0x58b650"
         },
         {
             "name": "GetCaptivePortalURL",
             "argc": "1",
-            "addr": "0x582f70"
+            "addr": "0x589860"
         },
         {
             "name": "RecordSteamInterfaceCreation",
             "argc": "3",
-            "addr": "0x581fa0"
+            "addr": "0x588890"
         },
         {
             "name": "GetCloudGamingPlatform",
             "argc": "1",
-            "addr": "0x584a10"
+            "addr": "0x58b300"
         },
         {
             "name": "BGetMacAddresses",
             "argc": "4",
-            "addr": "0x582510"
+            "addr": "0x588e00"
         },
         {
             "name": "BGetDiskSerialNumber",
             "argc": "3",
-            "addr": "0x5826c0"
+            "addr": "0x588fb0"
         },
         {
             "name": "GetSteamEnvironmentForApp",
             "argc": "4",
-            "addr": "0x582850"
+            "addr": "0x589140"
         },
         {
             "name": "TestHTTP",
             "argc": "2",
-            "addr": "0x5820f0"
+            "addr": "0x5889e0"
         },
         {
             "name": "DumpJobs",
             "argc": "2",
-            "addr": "0x582230"
+            "addr": "0x588b20"
         },
         {
             "name": "ShowFloatingGamepadTextInput",
             "argc": "7",
-            "addr": "0x584b70"
+            "addr": "0x58b460"
         },
         {
             "name": "DismissFloatingGamepadTextInput",
             "argc": "2",
-            "addr": "0x582a00"
+            "addr": "0x5892f0"
         },
         {
             "name": "FloatingGamepadTextInputDismissed",
             "argc": "1",
-            "addr": "0x582b80"
+            "addr": "0x589470"
         },
         {
             "name": "SetGameLauncherMode",
             "argc": "3",
-            "addr": "0x582cb0"
+            "addr": "0x5895a0"
         },
         {
             "name": "ClearAllHTTPCaches",
             "argc": "1",
-            "addr": "0x5830d0"
+            "addr": "0x5899c0"
         },
         {
             "name": "GetFocusedGameID",
             "argc": "2",
-            "addr": "0x583370"
+            "addr": "0x589c60"
         },
         {
             "name": "GetFocusedWindowPID",
             "argc": "1",
-            "addr": "0x583500"
+            "addr": "0x589df0"
         },
         {
             "name": "SetWebUITransportWebhelperPID",
             "argc": "2",
-            "addr": "0x5837a0"
+            "addr": "0x58a090"
         },
         {
             "name": "GetWebUITransportInfo",
             "argc": "2",
-            "addr": "0x5838f0"
+            "addr": "0x58a1e0"
         },
         {
             "name": "RecordFakeReactRouteMetric",
             "argc": "2",
-            "addr": "0x583660"
+            "addr": "0x589f50"
         },
         {
             "name": "SteamRuntimeSystemInfo",
             "argc": "2",
-            "addr": "0x582370"
+            "addr": "0x588c60"
         },
         {
             "name": "DumpHTTPClients",
             "argc": "2",
-            "addr": "0x583a70"
+            "addr": "0x58a360"
         },
         {
             "name": "BGetMachineID",
             "argc": "2",
-            "addr": "0x583bc0"
+            "addr": "0x58a4b0"
         }
     ]
 }

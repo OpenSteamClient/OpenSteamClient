@@ -1,71 +1,71 @@
 {
     "name": "IClientPartiesMap",
-    "found_at": "0x2376410",
+    "found_at": "0x23a9620",
     "functions": [ 
         {
             "name": "GetNumActiveBeacons",
             "argc": "1",
-            "addr": "0x58aac0"
+            "addr": "0x5913b0"
         },
         {
             "name": "GetBeaconByIndex",
             "argc": "2",
-            "addr": "0x58ac20"
+            "addr": "0x591510"
         },
         {
             "name": "GetBeaconDetails",
             "argc": "7",
-            "addr": "0x58adb0"
+            "addr": "0x5916a0"
         },
         {
             "name": "JoinParty",
             "argc": "3",
-            "addr": "0x58af90"
+            "addr": "0x591880"
         },
         {
             "name": "GetNumAvailableBeaconLocations",
             "argc": "2",
-            "addr": "0x58b130"
+            "addr": "0x591a20"
         },
         {
             "name": "GetAvailableBeaconLocations",
             "argc": "3",
-            "addr": "0x58b2b0"
+            "addr": "0x591ba0"
         },
         {
             "name": "CreateBeacon",
             "argc": "6",
-            "addr": "0x58b450"
+            "addr": "0x591d40"
         },
         {
             "name": "OnReservationCompleted",
             "argc": "5",
-            "addr": "0x58b620"
+            "addr": "0x591f10"
         },
         {
             "name": "CancelReservation",
             "argc": "5",
-            "addr": "0x58b790"
+            "addr": "0x592080"
         },
         {
             "name": "ChangeNumOpenSlots",
             "argc": "4",
-            "addr": "0x58b900"
+            "addr": "0x5921f0"
         },
         {
             "name": "DestroyBeacon",
             "argc": "3",
-            "addr": "0x58bae0"
+            "addr": "0x5923d0"
         },
         {
             "name": "GetBeaconLocationData",
             "argc": "7",
-            "addr": "0x58be50"
+            "addr": "0x592740"
         },
         {
             "name": "ReservePartySlot",
             "argc": "4",
-            "addr": "0x58bc70"
+            "addr": "0x592560"
         }
     ]
 }

@@ -113,4 +113,6 @@ public interface IClientUserStats
     public unknown_ret GetAchievementProgressLimits(CGameID nGameID, string pchName, ref Int64 pData, UInt32 cubData);  // argc: 4, index: 52
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret GetAchievementProgressLimits(CGameID nGameID, string pchName, ref double pData, UInt32 cubData);  // argc: 4, index: 53
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    public unknown_ret BAchievementIconLoaded();  // argc: 3, index: 14
 }

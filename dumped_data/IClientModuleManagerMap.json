@@ -1,36 +1,36 @@
 {
     "name": "IClientModuleManagerMap",
-    "found_at": "0x237f1a8",
+    "found_at": "0x23b2408",
     "functions": [ 
         {
             "name": "LoadModule",
             "argc": "4",
-            "addr": "0xf289e0"
+            "addr": "0xf470f0"
         },
         {
             "name": "UnloadModule",
             "argc": "2",
-            "addr": "0xf28860"
+            "addr": "0xf46f70"
         },
         {
             "name": "CallFunction",
             "argc": "9",
-            "addr": "0xf28fd0"
+            "addr": "0xf476e0"
         },
         {
             "name": "CallFunctionAsync",
             "argc": "10",
-            "addr": "0xf28d70"
+            "addr": "0xf47480"
         },
         {
             "name": "PollResponseAsync",
             "argc": "6",
-            "addr": "0xf28b80"
+            "addr": "0xf47290"
         },
         {
             "name": "SetProtonEnvironment",
             "argc": "3",
-            "addr": "0xf28700"
+            "addr": "0xf46e10"
         }
     ]
 }

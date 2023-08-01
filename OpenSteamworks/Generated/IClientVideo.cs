@@ -15,8 +15,6 @@ namespace OpenSteamworks.Generated;
 public interface IClientVideo
 {
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret BGetUserVideoFolder();  // argc: 2, index: 1
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret UnlockH264();  // argc: 2, index: 2
     public unknown_ret EGetBroadcastReady();  // argc: 0, index: 3
     public unknown_ret BeginBroadcastSession();  // argc: 0, index: 4
@@ -36,7 +34,7 @@ public interface IClientVideo
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret InitBroadcastAudio();  // argc: 7, index: 13
     // WARNING: Do not use this function! Unknown behaviour will occur!
-    public unknown_ret Unknown_13_DONTUSE();  // argc: -1, index: 14
+    public unknown_ret Unknown_12_DONTUSE();  // argc: -1, index: 5
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret UploadBroadcastThumbnail();  // argc: 4, index: 15
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
@@ -103,4 +101,14 @@ public interface IClientVideo
     public unknown_ret WebRTCAddCandidate();  // argc: 5, index: 53
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret WebRTCGetAnswer();  // argc: 3, index: 54
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    public unknown_ret AddTimelineHighlightMarker();  // argc: 4, index: 9
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    public unknown_ret AddTimelineTimestamp();  // argc: 1, index: 10
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    public unknown_ret AddTimelineRangeStart();  // argc: 2, index: 11
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    public unknown_ret AddTimelineRangeEnd();  // argc: 1, index: 12
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    public unknown_ret SetTimelineGameMode();  // argc: 1, index: 13
 }

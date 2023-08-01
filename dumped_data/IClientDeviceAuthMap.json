@@ -1,61 +1,61 @@
 {
     "name": "IClientDeviceAuthMap",
-    "found_at": "0x2376f74",
+    "found_at": "0x23aa188",
     "functions": [ 
         {
             "name": "AuthorizeLocalDevice",
             "argc": "3",
-            "addr": "0x5cd4b0"
+            "addr": "0x5d3fb0"
         },
         {
             "name": "DeauthorizeDevice",
             "argc": "3",
-            "addr": "0x5cd650"
+            "addr": "0x5d4150"
         },
         {
             "name": "RequestAuthorizationInfos",
             "argc": "1",
-            "addr": "0x5ce140"
+            "addr": "0x5d4c40"
         },
         {
             "name": "GetDeviceAuthorizations",
             "argc": "4",
-            "addr": "0x5cd7f0"
+            "addr": "0x5d42f0"
         },
         {
             "name": "GetDeviceAuthorizationInfo",
             "argc": "14",
-            "addr": "0x5cd9b0"
+            "addr": "0x5d44b0"
         },
         {
             "name": "GetAuthorizedBorrowers",
             "argc": "3",
-            "addr": "0x5cdc40"
+            "addr": "0x5d4740"
         },
         {
             "name": "GetLocalUsers",
             "argc": "3",
-            "addr": "0x5cdde0"
+            "addr": "0x5d48e0"
         },
         {
             "name": "GetBorrowerInfo",
             "argc": "5",
-            "addr": "0x5cdf80"
+            "addr": "0x5d4a80"
         },
         {
             "name": "UpdateAuthorizedBorrowers",
             "argc": "4",
-            "addr": "0x5ce2c0"
+            "addr": "0x5d4dc0"
         },
         {
             "name": "GetSharedLibraryLockedBy",
             "argc": "2",
-            "addr": "0x5ce480"
+            "addr": "0x5d4f80"
         },
         {
             "name": "GetSharedLibraryOwners",
             "argc": "3",
-            "addr": "0x5ce5f0"
+            "addr": "0x5d50f0"
         }
     ]
 }
