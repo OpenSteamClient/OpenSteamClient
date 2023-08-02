@@ -1,6 +1,7 @@
 ﻿using Autofac;
 using Avalonia;
 using System;
+using System.Diagnostics;
 
 namespace ClientUI;
 
@@ -13,10 +14,13 @@ public static class Program
     public static void Main(string[] args)  
     {
         //TODO: single instance and pipe logic
-        
         try {
             BuildAvaloniaApp().StartWithClassicDesktopLifetime(args, Avalonia.Controls.ShutdownMode.OnExplicitShutdown); 
         } catch (Exception e) {
+            if (Debugger.IsAttached) {
+                throw;
+            }
+            
             MessageBox.Error("OpenSteamClient needs to close", "We encountered a fatal exception: " + e.Message, e.ToString());
             App.Current?.Exit(1);
         }
