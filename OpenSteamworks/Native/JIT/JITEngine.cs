@@ -4,6 +4,7 @@ using System.Reflection;
 using System.Reflection.Emit;
 using System.Runtime.InteropServices;
 using System.Diagnostics;
+using System.Linq;
 
 namespace OpenSteamworks.Native.JIT
 {
@@ -83,30 +84,30 @@ namespace OpenSteamworks.Native.JIT
             ilgen.Emit(OpCodes.Conv_I);
         }
 
-        public static TClass GenerateClass<TClass>(IntPtr ptr) where TClass : class
+        public static TClass GenerateClass<TClass>(IntPtr classptr) where TClass : class
         {
-            if (ptr == IntPtr.Zero)
+            if (classptr == IntPtr.Zero)
             {
                 throw new JITEngineException("GenerateClass called with NULL ptr");
             }
 
-            IntPtr vtable_ptr = Marshal.ReadIntPtr(ptr);
+            IntPtr vtable_ptr = Marshal.ReadIntPtr(classptr);
 
             Type targetInterface = typeof(TClass);
 
             TypeBuilder builder = moduleBuilder.DefineType(targetInterface.Name + "_" + (IntPtr.Size * 8).ToString(),
                                                     TypeAttributes.Class, null, new Type[] { targetInterface });
-            builder.AddInterfaceImplementation(targetInterface);
+            
 
             FieldBuilder fbuilder = builder.DefineField("ObjectAddress", typeof(IntPtr), FieldAttributes.Public);
 
-            ClassJITInfo classInfo = new ClassJITInfo(targetInterface);
+            ClassJITInfo classInfo = new(targetInterface);
 
             for (int i = 0; i < classInfo.Methods.Count; i++)
             {
                 IntPtr vtableMethod = Marshal.ReadIntPtr(vtable_ptr, IntPtr.Size * classInfo.Methods[i].VTableSlot);
                 MethodJITInfo methodInfo = classInfo.Methods[i];
-                EmitClassMethod(methodInfo, ptr, vtableMethod, builder, fbuilder);
+                EmitClassMethod(methodInfo, classptr, vtableMethod, builder, fbuilder);
             }
 
             Type implClass = builder.CreateType();
@@ -120,7 +121,7 @@ namespace OpenSteamworks.Native.JIT
                 throw new JITEngineException("ObjectAddress field wasn't defined");
             }
 
-            addressField.SetValue(instClass, ptr);
+            addressField.SetValue(instClass, classptr);
 
             return (TClass)instClass;
         }
@@ -206,15 +207,8 @@ namespace OpenSteamworks.Native.JIT
                     }
                 }
             }
-
-            // add a native version parameter if the return type is detected as a versioned class
-            if (method.ReturnType.IsGeneric)
-            {
-                state.NativeArgs.Add(typeof(string));
-            }
-
+            var paramInfos = method.MethodInfo.GetParameters();
             MethodBuilder mbuilder = builder.DefineMethod(method.Name, MethodAttributes.Public | MethodAttributes.HideBySig | MethodAttributes.NewSlot | MethodAttributes.Virtual, CallingConventions.HasThis);
-
             if (method.ReturnType.IsGeneric)
             {
                 // create generic param
@@ -225,8 +219,7 @@ namespace OpenSteamworks.Native.JIT
                 gtypeParameters[0].SetGenericParameterAttributes(GenericParameterAttributes.ReferenceTypeConstraint);
             }
 
-            mbuilder.SetReturnType(state.MethodReturn);
-            mbuilder.SetParameters(state.MethodArgs.ToArray());
+            mbuilder.SetSignature(state.MethodReturn, method.MethodInfo.ReturnParameter.GetRequiredCustomModifiers(), method.MethodInfo.ReturnParameter.GetOptionalCustomModifiers(), state.MethodArgs.ToArray(), paramInfos.Select(pi => pi.GetRequiredCustomModifiers()).ToArray(), paramInfos.Select(pi => pi.GetOptionalCustomModifiers()).ToArray());
 
             builder.DefineMethodOverride(mbuilder, method.MethodInfo);
 

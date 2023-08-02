@@ -22,7 +22,7 @@ namespace OpenSteamworks.Native.JIT
         public TypeJITInfo(Type type)
         {
             Type = type;
-            PierceType = Type.IsByRef ? Type.GetElementType() : Type;
+            PierceType = Type.IsByRef ? Type.GetElementType()! : Type;
             IsParams = false;
         }
 
@@ -130,7 +130,7 @@ namespace OpenSteamworks.Native.JIT
 
             foreach (ParameterInfo paramInfo in method.GetParameters())
             {
-                TypeJITInfo typeInfo = new TypeJITInfo(paramInfo.ParameterType);
+                TypeJITInfo typeInfo = new(paramInfo.ParameterType);
 
                 if (paramInfo.GetCustomAttributes(typeof(ParamArrayAttribute), false).Length > 0)
                 {
