@@ -9,6 +9,7 @@
 //=============================================================================
 
 using System;
+using OpenSteamworks.Structs;
 
 namespace OpenSteamworks.Generated;
 
@@ -19,7 +20,7 @@ public interface IClientApps
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret SetLocalAppConfig();  // argc: 3, index: 2
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret GetInternalAppIDFromGameID();  // argc: 1, index: 3
+    public AppId_t GetInternalAppIDFromGameID(in CGameID id);  // argc: 1, index: 3
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret GetAllOwnedMultiplayerApps();  // argc: 2, index: 4
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!

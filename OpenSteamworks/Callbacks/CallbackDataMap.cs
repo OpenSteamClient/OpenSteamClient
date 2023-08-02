@@ -9,6 +9,7 @@ internal static partial class CallbackConstants {
     public readonly static Dictionary<Type, int> TypeToID = new()
     {
         {typeof(AppEventStateChange_t), 1280006},
+        {typeof(AppLaunchResult_t), 1280027},
         {typeof(CompatManagerToolRegistered_t), 1200002},
         {typeof(DownloadScheduleChanged_t), 1280009},
         {typeof(FriendRichPresenceUpdate_t), 336},

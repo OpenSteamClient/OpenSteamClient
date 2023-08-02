@@ -17,7 +17,8 @@
 
     <StackPanel>
         <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Button Command="{Binding Crash}">Click me to crash!</Button>
+        <Button Command="{Binding DBG_Crash}">Click me to crash!</Button>
+        <Button Command="{Binding DBG_LaunchFactorio}">Launch Factorio (linux only)</Button>
     </StackPanel>
     
 </Window>

@@ -9,19 +9,17 @@
 //=============================================================================
 
 using System;
+using OpenSteamworks.Enums;
+using OpenSteamworks.Structs;
 
 namespace OpenSteamworks.Generated;
 
 public interface IClientAppManager
 {
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret InstallApp();  // argc: 3, index: 1
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret UninstallApp();  // argc: 1, index: 2
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret LaunchApp();  // argc: 4, index: 3
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret ShutdownApp();  // argc: 2, index: 4
+    public EAppUpdateError InstallApp(AppId_t unAppID, LibraryFolder_t libraryFolder, bool bLegacy);  // argc: 3, index: 1
+    public EAppUpdateError UninstallApp(AppId_t unAppID);  // argc: 1, index: 2
+    public EAppUpdateError LaunchApp(in CGameID gameID, uint uLaunchOption, ELaunchSource eLaunchSource, string pszUserArgs);  // argc: 4, index: 3
+    public unknown_ret ShutdownApp(AppId_t appId, bool force);  // argc: 2, index: 4
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret GetAppInstallState();  // argc: 1, index: 5
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
@@ -63,13 +61,12 @@ public interface IClientAppManager
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret GetCurrentLanguage(AppId_t app, ref string outLang, uint unk1);  // argc: 3, index: 25
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret GetCurrentLanguage(AppId_t app);  // argc: 1, index: 26
+    public ELanguage GetCurrentLanguage(AppId_t app);  // argc: 1, index: 26
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret GetFallbackLanguage();  // argc: 2, index: 27
+    public unknown_ret SetCurrentLanguage(AppId_t app, ELanguage language);  // argc: 2, index: 28
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret SetCurrentLanguage();  // argc: 2, index: 28
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret StartValidatingApp();  // argc: 1, index: 29
+    public unknown_ret StartValidatingApp(AppId_t app);  // argc: 1, index: 29
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret CancelValidation();  // argc: 1, index: 30
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!

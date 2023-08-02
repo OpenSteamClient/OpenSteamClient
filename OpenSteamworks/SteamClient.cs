@@ -31,14 +31,28 @@ public class SteamClient
     public SteamClient(string steamclientLibPath, ConnectionType connectionType)
     {
         this.NativeClient = new ClientNative(steamclientLibPath, connectionType);
+
         var log = false;
 #if DEBUG
         log = true;
 #endif
-        this.CallbackManager = new CallbackManager(this, log, log);
 
+        // Sets this process as the UI process
+        // Doing this with an existing client causes the windows to disappear, and never reappear
+        if (this.NativeClient.ConnectedWith == ConnectionType.NewClient) {
+            this.NativeClient.IClientUtils.SetLauncherType(ELauncherType.k_ELauncherTypeClientui);
+            this.NativeClient.IClientUtils.SetCurrentUIMode(EUIMode.k_EUIModeNormal);
+            this.NativeClient.IClientUtils.SetAppIDForCurrentPipe(7);
+            this.NativeClient.IClientUtils.SetClientUIProcess();
+        }
+
+        this.CallbackManager = new CallbackManager(this, log, log);
+        
         this.ClientConfigStore = new ClientConfigStore(this.NativeClient.IClientConfigStore);
         this.interfaces.Add(this.ClientConfigStore);
+
+        // Before this, most important callbacks should be registered
+        this.CallbackManager.StartThread();
     }
 
     public void Shutdown() {

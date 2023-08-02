@@ -38,7 +38,7 @@ public interface IClientUtils
     public unknown_ret SetOfflineMode(bool offline);  // argc: 1, index: 16
     public bool GetOfflineMode();  // argc: 0, index: 17
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret SetAppIDForCurrentPipe();  // argc: 2, index: 18
+    public unknown_ret SetAppIDForCurrentPipe(AppId_t appid);  // argc: 2, index: 18
     public AppId_t GetAppID();  // argc: 0, index: 19
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret SetAPIDebuggingActive();  // argc: 2, index: 20
@@ -61,16 +61,16 @@ public interface IClientUtils
     public unknown_ret CheckFileSignature();  // argc: 1, index: 31
     public unknown_ret GetBuildID();  // argc: 0, index: 32
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret SetCurrentUIMode();  // argc: 1, index: 33
-    public unknown_ret GetCurrentUIMode();  // argc: 0, index: 34
+    public unknown_ret SetCurrentUIMode(EUIMode mode);  // argc: 1, index: 33
+    public EUIMode GetCurrentUIMode();  // argc: 0, index: 34
     public unknown_ret BIsWebBasedUIMode();  // argc: 0, index: 35
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret SetDisableOverlayScaling();  // argc: 1, index: 0
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret ShutdownLauncher();  // argc: 2, index: 36
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret SetLauncherType();  // argc: 1, index: 37
-    public unknown_ret GetLauncherType();  // argc: 0, index: 38
+    public unknown_ret SetLauncherType(ELauncherType type);  // argc: 1, index: 37
+    public ELauncherType GetLauncherType();  // argc: 0, index: 38
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret ShowGamepadTextInput();  // argc: 5, index: 39
     public unknown_ret GetEnteredGamepadTextLength();  // argc: 0, index: 40

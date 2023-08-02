@@ -9,13 +9,14 @@
 //=============================================================================
 
 using System;
+using OpenSteamworks.Structs;
 
 namespace OpenSteamworks.Generated;
 
 public interface IClientUserStats
 {
-    public UInt32 GetNumStats(CGameID nGameID);  // argc: 1, index: 1
-    public string GetStatName(CGameID nGameID, UInt32 iStat);  // argc: 2, index: 2
+    public UInt32 GetNumStats(in CGameID nGameID);  // argc: 1, index: 1
+    public string GetStatName(in CGameID nGameID, UInt32 iStat);  // argc: 2, index: 2
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret GetStatType();  // argc: 2, index: 3
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
@@ -24,10 +25,10 @@ public interface IClientUserStats
     public unknown_ret GetAchievementName();  // argc: 2, index: 5
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret RequestCurrentStats();  // argc: 1, index: 6
-    public unknown_ret GetStat(CGameID nGameID, string pchName, ref Int32 pData);  // argc: 3, index: 7
-    public unknown_ret GetStat(CGameID nGameID, string pchName, ref float pData);  // argc: 3, index: 8
-    public unknown_ret SetStat(CGameID nGameID, string pchName, Int32 nData);  // argc: 3, index: 9
-    public unknown_ret SetStat(CGameID nGameID, string pchName, float nData);  // argc: 3, index: 10
+    public unknown_ret GetStat(in CGameID nGameID, string pchName, ref Int32 pData);  // argc: 3, index: 7
+    public unknown_ret GetStat(in CGameID nGameID, string pchName, ref float pData);  // argc: 3, index: 8
+    public unknown_ret SetStat(in CGameID nGameID, string pchName, Int32 nData);  // argc: 3, index: 9
+    public unknown_ret SetStat(in CGameID nGameID, string pchName, float nData);  // argc: 3, index: 10
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret UpdateAvgRateStat();  // argc: 4, index: 11
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
@@ -53,9 +54,9 @@ public interface IClientUserStats
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret RequestUserStats();  // argc: 3, index: 22
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret GetUserStat(CSteamID steamIDUser, CGameID nGameID, string pchName, ref Int32 pData);  // argc: 5, index: 23
+    public unknown_ret GetUserStat(in CSteamID steamIDUser, in CGameID nGameID, string pchName, ref Int32 pData);  // argc: 5, index: 23
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret GetUserStat(CSteamID steamIDUser, CGameID nGameID, string pchName, ref float pData);  // argc: 5, index: 24
+    public unknown_ret GetUserStat(in CSteamID steamIDUser, in CGameID nGameID, string pchName, ref float pData);  // argc: 5, index: 24
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret GetUserAchievement();  // argc: 6, index: 25
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
@@ -102,17 +103,17 @@ public interface IClientUserStats
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret RequestGlobalStats();  // argc: 2, index: 47
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret GetGlobalStat(CGameID nGameID, string pchName, ref Int64 pData);  // argc: 3, index: 48
+    public unknown_ret GetGlobalStat(in CGameID nGameID, string pchName, ref Int64 pData);  // argc: 3, index: 48
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret GetGlobalStat(CGameID nGameID, string pchName, ref double pData);  // argc: 3, index: 49
+    public unknown_ret GetGlobalStat(in CGameID nGameID, string pchName, ref double pData);  // argc: 3, index: 49
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret GetGlobalStatHistory(CGameID nGameID, string pchName, ref Int64 pData, UInt32 cubData);  // argc: 4, index: 50
+    public unknown_ret GetGlobalStatHistory(in CGameID nGameID, string pchName, ref Int64 pData, UInt32 cubData);  // argc: 4, index: 50
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret GetGlobalStatHistory(CGameID nGameID, string pchName, ref double pData, UInt32 cubData);  // argc: 4, index: 51
+    public unknown_ret GetGlobalStatHistory(in CGameID nGameID, string pchName, ref double pData, UInt32 cubData);  // argc: 4, index: 51
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret GetAchievementProgressLimits(CGameID nGameID, string pchName, ref Int64 pData, UInt32 cubData);  // argc: 4, index: 52
+    public unknown_ret GetAchievementProgressLimits(in CGameID nGameID, string pchName, ref Int64 pData, UInt32 cubData);  // argc: 4, index: 52
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret GetAchievementProgressLimits(CGameID nGameID, string pchName, ref double pData, UInt32 cubData);  // argc: 4, index: 53
+    public unknown_ret GetAchievementProgressLimits(in CGameID nGameID, string pchName, ref double pData, UInt32 cubData);  // argc: 4, index: 53
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret BAchievementIconLoaded();  // argc: 3, index: 14
 }

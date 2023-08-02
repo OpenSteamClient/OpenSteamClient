@@ -1,3 +1,5 @@
+using System;
+
 namespace OpenSteamworks.Enums;
 
 public enum EAppUpdateError
