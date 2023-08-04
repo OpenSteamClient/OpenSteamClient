@@ -17,7 +17,7 @@ public interface IClientUser
 {
     // WARNING: Do not use this function! Unknown behaviour will occur!
     public unknown_ret Unknown_0_DONTUSE();  // argc: -1, index: 1
-    public unknown_ret LogOn(in CSteamID steamid, bool interactive);  // argc: 2, index: 2
+    public unknown_ret LogOn(CSteamID steamid, bool interactive);  // argc: 2, index: 2
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret InvalidateCredentials();  // argc: 2, index: 3
     public unknown_ret LogOff();  // argc: 0, index: 4

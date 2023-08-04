@@ -14,6 +14,5 @@ namespace OpenSteamworks.Generated;
 
 public interface IClientAppDisableUpdate
 {
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret SetAppUpdateDisabledSecondsRemaining();  // argc: 2, index: 1
+    public unknown_ret SetAppUpdateDisabledSecondsRemaining(AppId_t appId, UInt32 disableLength);  // argc: 2, index: 1
 }

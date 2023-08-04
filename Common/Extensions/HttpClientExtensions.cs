@@ -34,7 +34,6 @@ public static class HttpClientExtensions
                     timer.AutoReset = false;
                     timer.Start();
                     timer.Elapsed += (object? sender, ElapsedEventArgs args) => {
-                        Console.WriteLine("timer elapsed");
                         cancelledDueToTimeout = true;
                         source.Cancel();
                     };
@@ -44,7 +43,6 @@ public static class HttpClientExtensions
                     var relativeProgress = new Progress<long>((long totalBytes) => {
                         progress.Report((int)(((float)totalBytes / contentLength)*100));
                         timer.Interval = 20000;
-                        Console.WriteLine("timer reset");
                     });
 
                     CancellationToken token = source.Token;

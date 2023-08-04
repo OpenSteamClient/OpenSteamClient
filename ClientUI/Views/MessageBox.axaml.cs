@@ -48,6 +48,11 @@ public partial class MessageBox : Window
         return Show(title, "", message);
     }
 
+    public static MessageBoxButton? Error(string title, string message)
+    {
+        return Error(title, "", message);
+    }
+
     public static MessageBoxButton? Error(Exception e)
     {
         return Error(string.IsNullOrEmpty(e.Message) ? "Unknown error" : e.Message, e.Message, e.ToString());

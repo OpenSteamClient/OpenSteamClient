@@ -1,5 +1,6 @@
 ﻿using System;
 using Autofac;
+using ClientUI.Views;
 using OpenSteamworks;
 using OpenSteamworks.Enums;
 using OpenSteamworks.Structs;
@@ -18,5 +19,9 @@ public class MainWindowViewModel : ViewModelBase
         var gameid = new CGameID(427520);
         EAppUpdateError launchresult = client.NativeClient.IClientAppManager.LaunchApp(gameid, 3, 0, "");
         MessageBox.Show("result", launchresult.ToString());
+    }
+    public void DBG_OpenInterfaceList() {
+        var ifacelist = new InterfaceList();
+        ifacelist.Show();
     }
 }

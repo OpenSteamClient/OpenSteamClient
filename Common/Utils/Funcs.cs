@@ -22,8 +22,7 @@ public static class Funcs {
             throw new Exception("Unsupported platform in GetPlatformString");
         }
     }
-    public static bool Assert(bool condition, 
-    bool throwOnFailInReleaseBuilds = false,
+    public static bool Assert([DoesNotReturnIf(false)] bool condition,
     [CallerArgumentExpression(nameof(condition))] string conditionStr = "", 
     [System.Runtime.CompilerServices.CallerFilePath] string sourceFilePath = "",
     [System.Runtime.CompilerServices.CallerLineNumber] int sourceLineNumber = 0)
@@ -32,11 +31,14 @@ public static class Funcs {
         {
             string message = $"{sourceFilePath} ({sourceLineNumber}) : Assertion failed: {conditionStr}";
             Console.WriteLine(message);
-            if (SHOULD_THROW_ON_ASSERT || throwOnFailInReleaseBuilds) {
-                throw new Exception(message);
-            }
+            throw new Exception(message);
         }
 
         return condition;
+    }
+
+    public static T AssertNotNull<T>([NotNull] T? val) {
+        Assert(val != null);
+        return val;
     }
 }

@@ -27,10 +27,9 @@ public abstract class ConfigFile<T> where T : ConfigFile<T>, new() {
         io.Save(serializer.Serialize<T>(GetThis()));
     }
     public void Save() {
-        if (this.io == null || this.serializer == null) {
-            throw new NullReferenceException();
-        }
-
+        Common.Utils.Funcs.AssertNotNull(this.io);
+        Common.Utils.Funcs.AssertNotNull(this.serializer);
+        
         this.SaveWith(this.serializer, this.io);
     }
 }

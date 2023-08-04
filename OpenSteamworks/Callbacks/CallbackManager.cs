@@ -95,32 +95,36 @@ public class CallbackManager
         if (logCallbackContents) {
             FieldInfo[] fields = type.GetFields();
             Console.WriteLine($"Begin Message {type.Name}");
-            foreach (var field in fields)
-            {
-                dynamic? value = field.GetValue(obj);
-                string? substituteValue = null;
-                if (value != null) {
-                    var valueType = value.GetType();
-                    if (valueType.IsArray) {
-                        Type elementType = valueType.GetElementType()!;
-                        if (elementType.IsPrimitive || elementType == typeof(decimal) || elementType == typeof(string)) {
-                            List<string> strings = new();
-                            foreach (var item in value)
-                            {
-                                strings.Add(item.ToString());
-                            }
+            try {
+                foreach (var field in fields)
+                {
+                    dynamic? value = field.GetValue(obj);
+                    string? substituteValue = null;
+                    if (value != null) {
+                        var valueType = value.GetType();
+                        if (valueType.IsArray) {
+                            Type elementType = valueType.GetElementType()!;
+                            if (elementType.IsPrimitive || elementType == typeof(decimal) || elementType == typeof(string)) {
+                                List<string> strings = new();
+                                foreach (var item in value)
+                                {
+                                    strings.Add(item.ToString());
+                                }
 
-                            substituteValue = $"[{string.Join(",", strings)}]";
+                                substituteValue = $"[{string.Join(",", strings)}]";
+                            }
                         }
                     }
+                    
+                    if (substituteValue != null) {
+                        Console.WriteLine("    " + field.Name + ": " + substituteValue);
+                    } else {
+                        Console.WriteLine("    " + field.Name + ": " + value);
+                    }
+                    
                 }
-                
-                if (substituteValue != null) {
-                    Console.WriteLine("    " + field.Name + ": " + substituteValue);
-                } else {
-                    Console.WriteLine("    " + field.Name + ": " + value);
-                }
-                
+            } catch (Exception) {
+                Console.WriteLine("Encountered an error.");
             }
 
             Console.WriteLine($"End of Message {type.Name}");
