@@ -90,6 +90,8 @@ public class ClientNative {
     public IClientUtils IClientUtils;
     public IClientVR IClientVR;
 
+    public ConCommands.ConsoleNative consoleNative;
+
     /// <summary>
     /// Loads a native func. Throws if fails.
     /// </summary>
@@ -209,6 +211,8 @@ public class ClientNative {
         }
         
         LoadInterfaces();
+
+        consoleNative = new ConCommands.ConsoleNative(this);
     }
 
     public void Unload() {

@@ -38,7 +38,7 @@ public partial class InterfaceList : Window
                 IsEnabled = hasField
             });
         }
-
+        
         int i = 0;
         do
         {

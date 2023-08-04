@@ -4,8 +4,6 @@
 // If functions are removed, your changes to that function will be lost.
 // Parameter types and names however are preserved if the function stays unchanged.
 // Feel free to change parameters to be more accurate. 
-// Do not use C#s unsafe features in these files. It breaks JIT.
-//
 //=============================================================================
 
 using System;
@@ -13,7 +11,7 @@ using OpenSteamworks.Enums;
 
 namespace OpenSteamworks.Generated;
 
-public interface IClientUtils
+public unsafe interface IClientUtils
 {
     public string GetInstallPath();  // argc: 0, index: 1
     public string GetUserBaseFolderInstallImage();  // argc: 0, index: 2

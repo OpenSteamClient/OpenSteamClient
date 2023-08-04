@@ -34,13 +34,14 @@ namespace OpenSteamworks.Native.JIT
         public bool IsGeneric { get { return Type.IsGenericParameter; } }
         public bool IsDelegate { get { return Type.IsSubclassOf(typeof(MulticastDelegate)); } }
         public bool IsByRef { get { return Type.IsByRef; } }
+        public bool IsUnsafePtr { get { return Type.IsPointer; } }
 
         // determine whether this type will fit in a register and what the native type should be
         // returns: if param should be passed on stack (return values)
         public bool DetermineProps()
         {
             // strings and arrays.
-            if (IsStringClass || IsArray || IsAutoClass)
+            if (IsStringClass || IsArray || IsAutoClass || IsUnsafePtr)
             {
                 NativeType = Type;
                 return false;

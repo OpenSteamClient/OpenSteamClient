@@ -4,8 +4,6 @@
 // If functions are removed, your changes to that function will be lost.
 // Parameter types and names however are preserved if the function stays unchanged.
 // Feel free to change parameters to be more accurate. 
-// Do not use C#s unsafe features in these files. It breaks JIT.
-//
 //=============================================================================
 
 using System;
@@ -14,7 +12,7 @@ using OpenSteamworks.Structs;
 
 namespace OpenSteamworks.Generated;
 
-public interface IClientAppManager
+public unsafe interface IClientAppManager
 {
     public EAppUpdateError InstallApp(AppId_t unAppID, LibraryFolder_t libraryFolder, bool bLegacy);  // argc: 3, index: 1
     public EAppUpdateError UninstallApp(AppId_t unAppID);  // argc: 1, index: 2

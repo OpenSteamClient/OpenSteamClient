@@ -1,5 +1,5 @@
 namespace OpenSteamworks.ClientInterfaces;
 
-public interface IClientInterface {
+public unsafe interface IClientInterface {
     void RunShutdownTasks();
 }

@@ -98,7 +98,50 @@ namespace OpenSteamworks.Native.JIT
             TypeBuilder builder = moduleBuilder.DefineType(targetInterface.Name + "_" + (IntPtr.Size * 8).ToString(),
                                                     TypeAttributes.Class, null, new Type[] { targetInterface });
             
+            
+            FieldBuilder fbuilder = builder.DefineField("ObjectAddress", typeof(IntPtr), FieldAttributes.Public);
 
+            ClassJITInfo classInfo = new(targetInterface);
+
+            for (int i = 0; i < classInfo.Methods.Count; i++)
+            {
+                IntPtr vtableMethod = Marshal.ReadIntPtr(vtable_ptr, IntPtr.Size * classInfo.Methods[i].VTableSlot);
+                MethodJITInfo methodInfo = classInfo.Methods[i];
+                EmitClassMethod(methodInfo, classptr, vtableMethod, builder, fbuilder);
+            }
+
+            Type implClass = builder.CreateType();
+            Object? instClass = Activator.CreateInstance(implClass);
+            if (instClass == null) {
+                throw new JITEngineException("Failed to CreateInstance of implClass");
+            }
+
+            FieldInfo? addressField = implClass.GetField("ObjectAddress", BindingFlags.Public | BindingFlags.Instance);
+            if (addressField == null) {
+                throw new JITEngineException("ObjectAddress field wasn't defined");
+            }
+
+            addressField.SetValue(instClass, classptr);
+
+            return (TClass)instClass;
+        }
+
+        private static int generatedClasses = 0;
+        public static TClass GenerateUniqueClass<TClass>(IntPtr classptr) where TClass : class 
+        {
+            if (classptr == IntPtr.Zero)
+            {
+                throw new JITEngineException("GenerateClass called with NULL ptr");
+            }
+
+            IntPtr vtable_ptr = Marshal.ReadIntPtr(classptr);
+
+            Type targetInterface = typeof(TClass);
+
+            TypeBuilder builder = moduleBuilder.DefineType(targetInterface.Name + "_" + (IntPtr.Size * 8).ToString() + "_" + generatedClasses.ToString(),
+                                                    TypeAttributes.Class, null, new Type[] { targetInterface });
+            generatedClasses++;
+            
             FieldBuilder fbuilder = builder.DefineField("ObjectAddress", typeof(IntPtr), FieldAttributes.Public);
 
             ClassJITInfo classInfo = new(targetInterface);

@@ -1,13 +1,14 @@
 using System;
 using OpenSteamworks.Enums;
 using OpenSteamworks.Native;
+using OpenSteamworks.ConCommands;
 
 namespace OpenSteamworks.Generated;
 
 public delegate void SteamAPIWarningMessageHook_t(int nSeverity, string pchDebugText);
 public delegate void CPostAPIResultInProcess_t(UInt64 ulUnk, ref byte[] pUnk, UInt32 uUnk, Int32 iUnk);
 
-public interface IClientEngine {
+public unsafe interface IClientEngine {
     public HSteamPipe CreateSteamPipe();
 	public bool BReleaseSteamPipe( HSteamPipe hSteamPipe );
 	public HSteamUser CreateGlobalUser( ref HSteamPipe phSteamPipe );
@@ -78,7 +79,7 @@ public interface IClientEngine {
     /// It's best to leave this untouched for now. It's a mess to do with C++, so I imagine it will be even worse with C#. 
     /// </summary>
     /// <param name="pAccessor">A pointer to a pointer which points to a struct</param>
-	public void ConCommandInit( IntPtr pAccessor );
+	public void ConCommandInit( IConCommandBaseAccessor* pAccessor );
 	public IClientAppManager GetIClientAppManager( HSteamUser hSteamUser, HSteamPipe hSteamPipe );
 	public IClientConfigStore GetIClientConfigStore( HSteamUser hSteamUser, HSteamPipe hSteamPipe );
 	public bool BOverlayNeedsPresent();

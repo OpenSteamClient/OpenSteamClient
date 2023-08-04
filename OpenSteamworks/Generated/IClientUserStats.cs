@@ -4,8 +4,6 @@
 // If functions are removed, your changes to that function will be lost.
 // Parameter types and names however are preserved if the function stays unchanged.
 // Feel free to change parameters to be more accurate. 
-// Do not use C#s unsafe features in these files. It breaks JIT.
-//
 //=============================================================================
 
 using System;
@@ -13,7 +11,7 @@ using OpenSteamworks.Structs;
 
 namespace OpenSteamworks.Generated;
 
-public interface IClientUserStats
+public unsafe interface IClientUserStats
 {
     public UInt32 GetNumStats(in CGameID nGameID);  // argc: 1, index: 1
     public string GetStatName(in CGameID nGameID, UInt32 iStat);  // argc: 2, index: 2

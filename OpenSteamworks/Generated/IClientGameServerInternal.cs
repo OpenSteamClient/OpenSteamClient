@@ -4,15 +4,13 @@
 // If functions are removed, your changes to that function will be lost.
 // Parameter types and names however are preserved if the function stays unchanged.
 // Feel free to change parameters to be more accurate. 
-// Do not use C#s unsafe features in these files. It breaks JIT.
-//
 //=============================================================================
 
 using System;
 
 namespace OpenSteamworks.Generated;
 
-public interface IClientGameServerInternal
+public unsafe interface IClientGameServerInternal
 {
     // WARNING: Do not use this function! Unknown behaviour will occur!
     public unknown_ret Unknown_0_DONTUSE();  // argc: -1, index: 1

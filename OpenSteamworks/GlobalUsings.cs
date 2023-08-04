@@ -14,3 +14,4 @@ global using UInt8 = System.Byte;
 global using Int8 = System.SByte;
 
 global using StrPtr = System.IntPtr;
+global using size_t = System.UIntPtr;
