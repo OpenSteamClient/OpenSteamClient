@@ -1,9 +1,10 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
+using System.Runtime.Versioning;
 
 namespace Common.Utils;
 
-public static class Funcs {
+public static class UtilityFunctions {
 #if DEBUG 
     private const bool IS_DEBUG = true;
 #else 
@@ -40,5 +41,18 @@ public static class Funcs {
     public static T AssertNotNull<T>([NotNull] T? val) {
         Assert(val != null);
         return val;
+    }
+
+    //TODO: architect out a platform specific code section somewhere to do this in
+    [SupportedOSPlatform("linux")]
+    public static string GetXDGSpecPath(string varName, string defaultIfNotDefined, string append = "") {
+        string? path = Environment.GetEnvironmentVariable(varName);
+        if (path == null) {
+            var home = Environment.GetEnvironmentVariable("HOME");
+            Utils.UtilityFunctions.AssertNotNull(home);
+            path = Path.Combine(home, defaultIfNotDefined);
+        }
+        path = Path.Combine(path, append);
+        return path;
     }
 }

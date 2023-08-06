@@ -126,7 +126,7 @@ public unsafe interface IClientEngine {
     /// You should use a string[]
     /// and get a pointer to it then pass it to this function.
     /// </summary>
-	public void SetClientCommandLine( Int32 argc, IntPtr argv ); 
+	public void SetClientCommandLine( Int32 argc, string[] argv ); 
 	public IClientParties GetIClientParties( HSteamUser hSteamUser, HSteamPipe hSteamPipe );
 	public IClientNetworkingMessages GetIClientNetworkingMessages( HSteamUser hSteamUser, HSteamPipe hSteamPipe );
 	public IClientNetworkingSockets GetIClientNetworkingSockets( HSteamUser hSteamUser, HSteamPipe hSteamPipe );

@@ -27,8 +27,8 @@ public abstract class ConfigFile<T> where T : ConfigFile<T>, new() {
         io.Save(serializer.Serialize<T>(GetThis()));
     }
     public void Save() {
-        Common.Utils.Funcs.AssertNotNull(this.io);
-        Common.Utils.Funcs.AssertNotNull(this.serializer);
+        Common.Utils.UtilityFunctions.AssertNotNull(this.io);
+        Common.Utils.UtilityFunctions.AssertNotNull(this.serializer);
         
         this.SaveWith(this.serializer, this.io);
     }

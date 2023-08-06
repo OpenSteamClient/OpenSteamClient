@@ -19,7 +19,7 @@ public partial class InterfaceDebugger : Window
     {
         InitializeComponent();
         var stackpanel = this.FindControl<StackPanel>("StackPanel");
-        Common.Utils.Funcs.AssertNotNull(stackpanel);
+        Common.Utils.UtilityFunctions.AssertNotNull(stackpanel);
 
         this.Title = iface.Name + " Debugger";
         this.ifaceName = iface.Name;
@@ -70,7 +70,7 @@ public partial class InterfaceDebugger : Window
         return columndef;
     }
     public void MethodCalled(Tuple<Type,MethodInfo>? info) {
-        Common.Utils.Funcs.AssertNotNull(info);
+        Common.Utils.UtilityFunctions.AssertNotNull(info);
         string funcidentifier = ifaceName + "_" + info.Item2.Name + info.Item2.GetParameters().Length;
         var implementer = GetInterfaceImpl(info.Item1);
         List<object?> paramArr = new();
@@ -82,7 +82,7 @@ public partial class InterfaceDebugger : Window
             var paramIdentifier = funcidentifier + "_Arg" + i;
             Console.WriteLine("trying to find " + paramIdentifier);
             var paramTextbox = this.FindControlNested<TextBox>(paramIdentifier);
-            Common.Utils.Funcs.AssertNotNull(paramTextbox);
+            Common.Utils.UtilityFunctions.AssertNotNull(paramTextbox);
 
             var paramCurrentText = paramTextbox.Text;
            
@@ -117,7 +117,7 @@ public partial class InterfaceDebugger : Window
                         typeof(string)
                     });
 
-                    Common.Utils.Funcs.AssertNotNull(ci);
+                    Common.Utils.UtilityFunctions.AssertNotNull(ci);
 
                     paramArr.Add(ci.Invoke(new object[1] { paramCurrentText }));
                     continue;
@@ -154,7 +154,7 @@ public partial class InterfaceDebugger : Window
         }
         var implementorField = implementorFields.First();
         
-        return Common.Utils.Funcs.AssertNotNull(implementorField.GetValue(client.NativeClient));
+        return Common.Utils.UtilityFunctions.AssertNotNull(implementorField.GetValue(client.NativeClient));
     }
 
     private Assembly GetJITAssembly()
@@ -162,7 +162,7 @@ public partial class InterfaceDebugger : Window
         var jitAssembly = AppDomain.CurrentDomain.GetAssemblies().
             SingleOrDefault(assembly => assembly.GetName().Name == "OpenSteamworksJIT");
         
-        Common.Utils.Funcs.AssertNotNull(jitAssembly);
+        Common.Utils.UtilityFunctions.AssertNotNull(jitAssembly);
 
         return jitAssembly;
     }

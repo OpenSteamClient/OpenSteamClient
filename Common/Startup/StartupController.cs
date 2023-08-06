@@ -3,6 +3,7 @@ using Autofac.Core;
 using Common.Autofac;
 using Common.Startup;
 using Common.Utils;
+using OpenSteamworks;
 
 namespace Common.Startup;
 
@@ -22,6 +23,8 @@ public static class StartupController {
         IContainer container = builder.Build();
         await container.Resolve<Bootstrapper>().RunBootstrap(bootstrapperProgress);
         container.Resolve<StartupTasksRunner>().RunStartup();
+        var args = Environment.GetCommandLineArgs();
+        container.Resolve<SteamClient>().NativeClient.IClientEngine.SetClientCommandLine(args.Length, args);
         return container;
     }
 }

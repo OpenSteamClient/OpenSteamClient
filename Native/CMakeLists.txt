@@ -39,6 +39,9 @@ if (BUILD_PLATFORM_TARGET STREQUAL "linux")
     # Fake steam service
     add_library(steamservice SHARED ${PROJECT_SOURCE_DIR}/fakeservice/main.cpp)
     set_target_properties(steamservice PROPERTIES PREFIX "")
+
+    add_library(bootstrappershim SHARED ${PROJECT_SOURCE_DIR}/bootstrappershim/main.cpp)
+    set_target_properties(bootstrappershim PROPERTIES COMPILE_FLAGS "-O0")
 endif()
 
 if (BUILD_PLATFORM_TARGET STREQUAL "windows")

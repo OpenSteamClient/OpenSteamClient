@@ -15,14 +15,14 @@ public partial class InterfaceList : Window
     {
         InitializeComponent();
         var stackpanel2 = this.FindControl<StackPanel>("StackPanel");
-        Common.Utils.Funcs.AssertNotNull(stackpanel2);
+        Common.Utils.UtilityFunctions.AssertNotNull(stackpanel2);
         stackpanel = stackpanel2;
 
         var jit = GetAssemblyByName("OpenSteamworksJIT");
         var osw = GetAssemblyByName("OpenSteamworks");
 
-        Common.Utils.Funcs.AssertNotNull(osw);
-        Common.Utils.Funcs.AssertNotNull(jit);
+        Common.Utils.UtilityFunctions.AssertNotNull(osw);
+        Common.Utils.UtilityFunctions.AssertNotNull(jit);
 
         var validInterfaces = osw.GetTypes().Where(type => type.Name.StartsWith("IClient") && type.IsInterface);
         List<Button> buttons = new();
@@ -68,7 +68,7 @@ public partial class InterfaceList : Window
         } while (i < buttons.Count);
     }
     public void ButtonClicked(string? interfacename) {
-        Common.Utils.Funcs.AssertNotNull(interfacename);
+        Common.Utils.UtilityFunctions.AssertNotNull(interfacename);
         Type iface = knownInterfaces[interfacename];
         var debugger = new InterfaceDebugger(iface);
         debugger.Show();

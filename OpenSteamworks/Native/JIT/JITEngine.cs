@@ -83,7 +83,14 @@ namespace OpenSteamworks.Native.JIT
 
             ilgen.Emit(OpCodes.Conv_I);
         }
-
+        /// <summary>
+        /// Generates a class from an interface and a pointer to that class/interface in native memory
+        /// Will crash if ran twice for the same class
+        /// </summary>
+        /// <typeparam name="TClass">The class to generate an instance of</typeparam>
+        /// <param name="classptr">The pointer to the class</param>
+        /// <returns>An instance of the class</returns>
+        /// <exception cref="JITEngineException"></exception>
         public static TClass GenerateClass<TClass>(IntPtr classptr) where TClass : class
         {
             if (classptr == IntPtr.Zero)
@@ -98,7 +105,7 @@ namespace OpenSteamworks.Native.JIT
             TypeBuilder builder = moduleBuilder.DefineType(targetInterface.Name + "_" + (IntPtr.Size * 8).ToString(),
                                                     TypeAttributes.Class, null, new Type[] { targetInterface });
             
-            
+
             FieldBuilder fbuilder = builder.DefineField("ObjectAddress", typeof(IntPtr), FieldAttributes.Public);
 
             ClassJITInfo classInfo = new(targetInterface);
@@ -127,6 +134,10 @@ namespace OpenSteamworks.Native.JIT
         }
 
         private static int generatedClasses = 0;
+        /// <summary>
+        /// Allows you to generate as many instances of a specific class that you want, otherwise same as GenerateClass
+        /// TODO: make this a lot more efficient, we should generate the class once and then just swap the pointers instead of just defining more and more types
+        /// </summary>
         public static TClass GenerateUniqueClass<TClass>(IntPtr classptr) where TClass : class 
         {
             if (classptr == IntPtr.Zero)

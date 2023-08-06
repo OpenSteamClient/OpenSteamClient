@@ -13,6 +13,7 @@ using System.Formats.Tar;
 using System.Diagnostics;
 using System.Runtime.Versioning;
 using Common.Managers;
+using System.Runtime.InteropServices;
 
 namespace Common.Startup;
 
@@ -132,6 +133,16 @@ public class Bootstrapper {
                 progressHandler.SetThrobber(false);
                 configManager.BootstrapperState.LinuxPermissionsSet = true;
             }
+
+            // Create fakehome
+            Directory.CreateDirectory(Path.Combine(configManager.InstallDir, "fakehome"));
+
+            // Create fakehome symlinks
+            var fakehomeSubdir = Path.Combine(configManager.InstallDir, "fakehome", "Steam");
+            if (!Directory.Exists(fakehomeSubdir))
+                Directory.CreateSymbolicLink(fakehomeSubdir, configManager.InstallDir);
+
+            MakeXDGCompliant();
         }
 
         if (OperatingSystem.IsWindows()) {
@@ -147,7 +158,69 @@ public class Bootstrapper {
         configManager.BootstrapperState.InstalledVersion = OpenSteamworks.Generated.VersionInfo.STEAM_MANIFEST_VERSION;
         configManager.FlushToDisk();
 
-        progressHandler.FinishOperation("Bootstrapping Completed");
+        // Currently only linux needs a restart (for LD_PRELOAD and LD_LIBRARY_PATH)
+        Console.WriteLine(GetEnvironmentVariable("OPENSTEAM_RAN_EXECVP"));
+        bool restartRequired = OperatingSystem.IsLinux() && GetEnvironmentVariable("OPENSTEAM_RAN_EXECVP") !=  "1";
+        progressHandler.FinishOperation("Bootstrapping Completed" + (restartRequired ? ", restarting" : ""));
+        if (restartRequired) {
+            if (OperatingSystem.IsLinux()) {
+                this.ReExecWithEnvs();
+            }
+        }
+    }
+
+    [SupportedOSPlatform("linux")]
+    private void MakeXDGCompliant()
+    {
+        var logsSymlink = Path.Combine(configManager.InstallDir, "logs");
+        if (!Directory.Exists(logsSymlink))
+            Directory.CreateSymbolicLink(logsSymlink, configManager.LogsDir);
+
+        var configSymlink = Path.Combine(configManager.InstallDir, "config");
+        if (!Directory.Exists(configSymlink))
+            Directory.CreateSymbolicLink(configSymlink, configManager.ConfigDir);
+
+        var cacheSymlink = Path.Combine(configManager.InstallDir, "appcache");
+        if (!Directory.Exists(cacheSymlink))
+            Directory.CreateSymbolicLink(cacheSymlink, configManager.CacheDir);
+    }
+
+    [SupportedOSPlatform("linux")]
+    private void ReExecWithEnvs() {
+        [DllImport("libc")]
+        static extern int execvp([MarshalAs(UnmanagedType.LPUTF8Str)] string file, [MarshalAs(UnmanagedType.LPArray)] string[] args);
+
+        // C#'s SetEnvironmentVariable doesn't work here, but we might as well use this since we're in linux specific code anyway
+        [DllImport("libc")]
+        static extern int setenv([MarshalAs(UnmanagedType.LPUTF8Str)] string name, [MarshalAs(UnmanagedType.LPUTF8Str)] string value, int overwrite);
+
+        Console.WriteLine("Re-execing");
+
+        // Unfortunately we can't kindly coerce the steamclient to not use $HOME/.steam/Steam, and we can't just set HOME as it'd fuck with games as well
+        // So instead we made a LD_PRELOADable shim that contains a getenv hook and some bootstrapper functions
+        // Now the steamclient always calls SteamBootstrapper_GetEUniverse as one of the first functions, which is when we take the memory map (all loaded modules and their start-end addresses)
+        // And then when something hits getenv we check if it's caller address is in the memory of steamclient.so
+        // If it is, then we fake the HOME dir to be inside .local/share/OpenSteam/fakehome
+        // Where steamclient will then dump all it's files into fakehome/Steam (for some reason, instead of fakehome/.steam/steam)
+        File.Copy(Path.Combine(configManager.InstallDir, "libbootstrappershim.so"), "/tmp/opensteambootstrappershim.so", true);
+        setenv("OPENSTEAM_RAN_EXECVP", "1", 1);
+        setenv("LD_PRELOAD", $"/tmp/opensteambootstrappershim.so:{GetEnvironmentVariable("LD_PRELOAD")}", 1);
+        setenv("LD_LIBRARY_PATH", $"{Path.Combine(configManager.InstallDir, "ubuntu12_64")}:{Path.Combine(configManager.InstallDir, "ubuntu12_32")}:{Path.Combine(configManager.InstallDir)}:{GetEnvironmentVariable("LD_LIBRARY_PATH")}", 1);
+
+        var fullArgs = Environment.GetCommandLineArgs();
+
+        string executable = Directory.ResolveLinkTarget("/proc/self/exe", false)!.FullName;
+        Console.WriteLine("executable: " + executable);
+        fullArgs[0] = executable;
+
+        foreach (var item in fullArgs)
+        {
+            Console.WriteLine("item: " + item);
+        }
+
+        // Program execution ends here, if execvp returns, it means re-execution failed
+        int ret = execvp(executable, fullArgs);
+        throw new Exception($"Execvp failed: {ret}");
     }
     
     private bool VerifyFiles(IExtendedProgress<int> progressHandler) {
@@ -473,7 +546,7 @@ public class Bootstrapper {
         if (assemblyFolder == null) {
             throw new Exception("assemblyFolder is null.");
         }
-        string platformStr = Utils.Funcs.GetPlatformString();
+        string platformStr = Utils.UtilityFunctions.GetPlatformString();
         string baseNativesFolder = Path.Combine(assemblyFolder, "Natives");
         string nativesFolder = Path.Combine(baseNativesFolder, platformStr);
         if (!Directory.Exists(nativesFolder)) {

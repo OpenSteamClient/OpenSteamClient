@@ -1,8 +1,8 @@
-using System.Reflection;
 using Common.Autofac;
 using Common.Config;
 using Common.Config.IO;
 using Common.Config.Serializers;
+using Common.Utils;
 using OpenSteamworks;
 
 namespace Common.Managers;
@@ -25,7 +25,34 @@ public class ConfigManager : IHasStartupTasks
         }
     }
 
-    public string ConfigDir => Path.Combine(InstallDir, "config");
+    public string ConfigDir {
+        get {
+            if (OperatingSystem.IsLinux()) {
+                return UtilityFunctions.GetXDGSpecPath("XDG_CONFIG_HOME", ".config", "OpenSteam/config");
+            } else {
+                return Path.Combine(InstallDir, "config");
+            }
+        }
+    }
+
+    public string LogsDir {
+        get {
+            if (OperatingSystem.IsLinux()) {
+                return UtilityFunctions.GetXDGSpecPath("XDG_STATE_HOME", ".local/state", "OpenSteam/logs");
+            } else {
+                return Path.Combine(InstallDir, "logs");
+            }
+        }
+    }
+    public string CacheDir {
+        get {
+            if (OperatingSystem.IsLinux()) {
+                return UtilityFunctions.GetXDGSpecPath("XDG_CACHE_HOME", ".cache", "OpenSteam");
+            } else {
+                return Path.Combine(InstallDir, "cache");
+            }
+        }
+    }
     private string AdvancedConfigPath => Path.Combine(ConfigDir, "AdvancedConfig.json");
     private string BootstrapperStatePath => Path.Combine(ConfigDir, "BootstrapperState.json");
     private readonly ConfigSerializerJSON jsonSerializer = new();
@@ -36,7 +63,11 @@ public class ConfigManager : IHasStartupTasks
         };
     }
     public ConfigManager() {
+        Directory.CreateDirectory(InstallDir);
         Directory.CreateDirectory(ConfigDir);
+        Directory.CreateDirectory(LogsDir);
+        Directory.CreateDirectory(CacheDir);
+        
         this.AdvancedConfig = AdvancedConfig.LoadWithOrCreate(jsonSerializer, CreateSimpleConfigIOFile(AdvancedConfigPath));
         this.BootstrapperState = BootstrapperState.LoadWithOrCreate(jsonSerializer, CreateSimpleConfigIOFile(BootstrapperStatePath));
     }
