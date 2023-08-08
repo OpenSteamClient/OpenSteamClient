@@ -5,6 +5,7 @@ using System.Reflection.Emit;
 using System.Runtime.InteropServices;
 using System.Diagnostics;
 using System.Linq;
+using System.Diagnostics.CodeAnalysis;
 
 namespace OpenSteamworks.Native.JIT
 {
@@ -189,36 +190,51 @@ namespace OpenSteamworks.Native.JIT
                 public Type paramType;
             }
 
-            public MethodState()
+            public MethodState(MethodJITInfo method)
             {
+                this.Method = method;
                 MethodArgs = new List<Type>();
                 NativeArgs = new List<Type>();
                 unmanagedMemory = new List<LocalBuilder>();
                 refargLocals = new List<RefArgLocal>();
             }
 
+            public MethodJITInfo Method;
             public List<Type> MethodArgs;
             public Type? MethodReturn;
 
             public List<Type> NativeArgs;
             public Type? NativeReturn;
-
-            public bool ReturnTypeByStack;
             public LocalBuilder? localReturn;
 
             public List<LocalBuilder> unmanagedMemory;
             public List<RefArgLocal> refargLocals;
+            [MemberNotNullWhen(true, nameof(localReturn))]
+            public bool AllocLocalReturnIfByStack(ILGenerator ilgen) {
+                if (this.Method.ReturnType.IsReturnByStack)
+                {
+                    // allocate local to hold the return
+                    this.localReturn = ilgen.DeclareLocal(this.Method.ReturnType.NativeType, true);
+
+                    //BLOCKED: Add this when this function is reimplemented in .NET Core
+                    // It's only debugging info, but who needs that anyway? C/C# autogen work flawlessly always, right?
+                    //this.localReturn.SetLocalSymInfo("nativeReturnPlaceholder");
+
+                    ilgen.Emit(OpCodes.Ldloca_S, this.localReturn.LocalIndex);
+                }
+
+                return this.Method.ReturnType.IsReturnByStack;
+            }
+
         }
 
         private static void EmitClassMethod(MethodJITInfo method, IntPtr objectptr, IntPtr methodptr, TypeBuilder builder, FieldBuilder addressAssistant)
         {
-            MethodState state = new MethodState();
+            MethodState state = new MethodState(method);
 
             state.NativeArgs.Add(typeof(IntPtr)); // thisptr
 
-            state.ReturnTypeByStack = method.ReturnType.DetermineProps();
-
-            if (state.ReturnTypeByStack)
+            if (method.ReturnType.IsReturnByStack)
             {
                 // ref to the native return type
                 state.NativeArgs.Add(method.ReturnType.NativeType.MakeByRefType());
@@ -282,17 +298,7 @@ namespace OpenSteamworks.Native.JIT
             // load object pointer
             EmitPlatformLoad(ilgen, objectptr);
 
-            if (state.ReturnTypeByStack)
-            {
-                // allocate local to hold the return
-                state.localReturn = ilgen.DeclareLocal(method.ReturnType.NativeType, true);
-
-                //BLOCKED: Add this when this function is reimplemented in .NET Core
-                // It's only debugging info, but who needs that anyway? C/C# autogen work flawlessly always, right?
-                //state.localReturn.SetLocalSymInfo("nativeReturnPlaceholder");
-
-                ilgen.Emit(OpCodes.Ldloca_S, state.localReturn.LocalIndex);
-            }
+            state.AllocLocalReturnIfByStack(ilgen);
 
             int argindex = 0;
             foreach (TypeJITInfo typeInfo in method.Args)
@@ -310,7 +316,7 @@ namespace OpenSteamworks.Native.JIT
                     helper.builder = localArg;
                     helper.argIndex = argindex;
                     helper.paramType = typeInfo.PierceType;
-
+                    
                     state.refargLocals.Add(helper);
                     ilgen.Emit(OpCodes.Ldloca_S, localArg);
                 }
@@ -329,7 +335,7 @@ namespace OpenSteamworks.Native.JIT
                     if (!typeInfo.IsParams)
                         continue;
 
-                    ilgen.EmitCall(OpCodes.Call, typeof(String).GetMethod("Format", BindingFlags.Public | BindingFlags.Static, null, new Type[] { typeof(string), typeof(object[]) }, null), null);
+                    ilgen.EmitCall(OpCodes.Call, typeof(String).GetMethod(nameof(string.Format), BindingFlags.Public | BindingFlags.Static, null, new Type[] { typeof(string), typeof(object[]) }, null)!, null);
                 }
 
                 if (typeInfo.IsStringClass || typeInfo.IsParams)
@@ -342,7 +348,7 @@ namespace OpenSteamworks.Native.JIT
 
                     // we need to specially marshal strings
                     ilgen.Emit(OpCodes.Ldloca, localString.LocalIndex);
-                    ilgen.EmitCall(OpCodes.Call, typeof(InteropHelp).GetMethod("EncodeUTF8String"), null);
+                    ilgen.EmitCall(OpCodes.Call, typeof(InteropHelp).GetMethod(nameof(InteropHelp.EncodeUTF8String))!, null);
                 }
                 else if (typeInfo.IsCreatableClass)
                 {
@@ -354,7 +360,7 @@ namespace OpenSteamworks.Native.JIT
             if (method.ReturnType.IsGeneric)
             {
                 ilgen.Emit(OpCodes.Ldtoken, method.ReturnType.Type);
-                ilgen.EmitCall(OpCodes.Call, typeof(Type).GetMethod("GetTypeFromHandle", BindingFlags.Static | BindingFlags.Public), null);
+                ilgen.EmitCall(OpCodes.Call, typeof(Type).GetMethod(nameof(Type.GetTypeFromHandle), BindingFlags.Static | BindingFlags.Public)!, null);
             }
 
             // load vtable method pointer
@@ -383,10 +389,10 @@ namespace OpenSteamworks.Native.JIT
             foreach (LocalBuilder localbuilder in state.unmanagedMemory)
             {
                 ilgen.Emit(OpCodes.Ldloca, localbuilder.LocalIndex);
-                ilgen.EmitCall(OpCodes.Call, typeof(InteropHelp).GetMethod("FreeString"), null);
+                ilgen.EmitCall(OpCodes.Call, typeof(InteropHelp).GetMethod(nameof(InteropHelp.FreeString))!, null);
             }
 
-            if (state.ReturnTypeByStack)
+            if (method.ReturnType.IsReturnByStack)
             {
                 EmitPrettyLoadLocal(ilgen, state.localReturn.LocalIndex);
 
@@ -400,24 +406,24 @@ namespace OpenSteamworks.Native.JIT
             {
                 if (method.ReturnType.IsGeneric)
                 {
-                    ilgen.EmitCall(OpCodes.Call, typeof(JITEngine).GetMethod("GenerateClass", BindingFlags.Static | BindingFlags.Public), null);
+                    ilgen.EmitCall(OpCodes.Call, typeof(JITEngine).GetMethod(nameof(JITEngine.GenerateClass), BindingFlags.Static | BindingFlags.Public)!, null);
                 }
                 else if (method.ReturnType.IsDelegate)
                 {
                     ilgen.Emit(OpCodes.Ldtoken, method.ReturnType.Type);
-                    ilgen.EmitCall(OpCodes.Call, typeof(Type).GetMethod("GetTypeFromHandle"), null);
-                    ilgen.EmitCall(OpCodes.Call, typeof(Marshal).GetMethod("GetDelegateForFunctionPointer", BindingFlags.Static | BindingFlags.Public), null);
+                    ilgen.EmitCall(OpCodes.Call, typeof(Type).GetMethod(nameof(Type.GetTypeFromHandle))!, null);
+                    ilgen.EmitCall(OpCodes.Call, typeof(Marshal).GetMethod(nameof(Marshal.GetDelegateForFunctionPointer), BindingFlags.Static | BindingFlags.Public)!, null);
                     ilgen.Emit(OpCodes.Castclass, method.ReturnType.Type);
                 }
                 else
                 {
-                    ilgen.EmitCall(OpCodes.Call, typeof(JITEngine).GetMethod("GenerateClass", BindingFlags.Static | BindingFlags.Public).MakeGenericMethod(method.ReturnType.Type), null);
+                    ilgen.EmitCall(OpCodes.Call, typeof(JITEngine).GetMethod(nameof(JITEngine.GenerateClass), BindingFlags.Static | BindingFlags.Public)!.MakeGenericMethod(method.ReturnType.Type), null);
                 }
             }
             else if (method.ReturnType.IsStringClass)
             {
                 // marshal string return
-                ilgen.EmitCall(OpCodes.Call, typeof(InteropHelp).GetMethod("DecodeUTF8String"), null);
+                ilgen.EmitCall(OpCodes.Call, typeof(InteropHelp).GetMethod(nameof(InteropHelp.DecodeUTF8String))!, null);
             }
 
             ilgen.Emit(OpCodes.Ret);

@@ -6,8 +6,9 @@ namespace ClientUI.Views;
 
 public partial class ProgressWindow : Window
 {
-    public ProgressWindow()
+    public ProgressWindow(ProgressWindowViewModel vm)
     {
+        this.DataContext = vm;
         InitializeComponent();
     }
 }

@@ -26,11 +26,8 @@ public partial class App : Application
     public override async void OnFrameworkInitializationCompleted()
     {
         ExtendedProgress<int> prog = new ExtendedProgress<int>(0, 100);
-        
-        var progressWindow = new ProgressWindow 
-        {
-            DataContext = new ProgressWindowViewModel(prog, "Bootstrapper progress"),
-        };
+
+        var progressWindow = new ProgressWindow(new ProgressWindowViewModel(prog, "Bootstrapper progress"));
 
         ApplicationLifetime.MainWindow = progressWindow;
         progressWindow.Show();

@@ -11,8 +11,10 @@ namespace ClientUI;
 
 public partial class MessageBox : Window
 {
-    public MessageBox()
+    public MessageBox(MessageBoxViewModel vm)
     {
+        vm.SetMessageBox(this);
+        this.DataContext = vm;
         InitializeComponent();
     }
 
@@ -84,14 +86,12 @@ public partial class MessageBox : Window
     }
 
     public static MessageBoxButton? Show(string title, string header, string message, MessageBoxIcon icon = MessageBoxIcon.INFORMATION, MessageBoxButton buttons = MessageBoxButton.Ok) {
-        var messageBox = new MessageBox();
-
-        var messageBoxViewModel = new MessageBoxViewModel(icon, buttons, messageBox);
+        var messageBoxViewModel = new MessageBoxViewModel(icon, buttons);
         messageBoxViewModel.Title = title;
         messageBoxViewModel.Header = header;
         messageBoxViewModel.Content = message;
 
-        messageBox.DataContext = messageBoxViewModel;
+        var messageBox = new MessageBox(messageBoxViewModel);
 
         using (var source = new CancellationTokenSource())
         {

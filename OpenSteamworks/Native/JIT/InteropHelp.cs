@@ -13,7 +13,7 @@ namespace OpenSteamworks.Native.JIT
         /// <summary>
         /// Decodes IntPtr as if it were a UTF-8 string
         /// </summary>
-        public static string DecodeUTF8String(IntPtr ptr)
+        public static string? DecodeUTF8String(IntPtr ptr)
         {
             if (ptr == IntPtr.Zero)
                 return null;

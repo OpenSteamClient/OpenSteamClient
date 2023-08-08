@@ -15,5 +15,9 @@ public struct CGameID {
 		gameid = AppId_t.Parse(appidAsStr);
 	}
 
+	public override readonly string ToString() {
+		return gameid.ToString();
+	}
+
     public UInt64 gameid;
 }

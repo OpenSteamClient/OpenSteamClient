@@ -100,7 +100,7 @@ public class CallbackManager
                 {
                     dynamic? value = field.GetValue(obj);
                     string? substituteValue = null;
-                    if (value != null) {
+                    if ((object?)value != null) {
                         var valueType = value.GetType();
                         if (valueType.IsArray) {
                             Type elementType = valueType.GetElementType()!;

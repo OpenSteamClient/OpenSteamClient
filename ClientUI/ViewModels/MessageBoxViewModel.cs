@@ -1,4 +1,5 @@
 using System;
+using Avalonia.Controls;
 using Avalonia.Media.Imaging;
 using Avalonia.Platform;
 using Avalonia.Threading;
@@ -26,6 +27,9 @@ public partial class MessageBoxViewModel : ViewModelBase
     [ObservableProperty]
     private Bitmap icon;
 
+    [ObservableProperty]
+    private WindowIcon windowIcon;
+
     [NotifyPropertyChangedFor("IsOkShowed")]
     [NotifyPropertyChangedFor("IsYesShowed")]
     [NotifyPropertyChangedFor("IsNoShowed")]
@@ -40,19 +44,26 @@ public partial class MessageBoxViewModel : ViewModelBase
     public bool IsCancelShowed => EnabledButtons.HasFlag(MessageBoxButton.Cancel);
     public double Width { get; set; } = double.NaN;
     public double Height { get; set; } = double.NaN;
-    public Action Copy { get; set; }
-    public Action EnterPressed { get; set; }
-    public Action EscPressed { get; set; }
-    private MessageBox messageBox;
-    public MessageBoxViewModel(MessageBoxIcon icon, MessageBoxButton enabledButtons, MessageBox messageBox) {
-        this.messageBox = messageBox;
-        this.Copy = messageBox.Copy;
+    public Action? Copy { get; set; }
+    public Action? EnterPressed { get; set; }
+    public Action? EscPressed { get; set; }
+    private MessageBox? messageBox;
+    public MessageBoxViewModel(MessageBoxIcon icon, MessageBoxButton enabledButtons) {
+
         this.enabledButtons = enabledButtons;
         this.EnterPressed = PressDefaultIfPossible;
-        this.EscPressed = messageBox.Close;
         this.IconPath = $"avares://ClientUI/Assets/{icon.ToString().ToLowerInvariant()}.ico";
         this.Icon = new Bitmap(AssetLoader.Open(new Uri(this.iconPath)));
+        this.WindowIcon = new WindowIcon(this.Icon);
     }
+
+    // Clipboard isn't accessible from App, instead it's available from every Control, so do this hack which is totally against mvvm principles
+    public void SetMessageBox(MessageBox messageBox) {
+        this.messageBox = messageBox;
+        this.Copy = messageBox.Copy;
+        this.EscPressed = messageBox.Close;
+    }
+
     public void PressDefaultIfPossible() {
         // If there's only one button enabled, then click it
         switch (EnabledButtons)
@@ -77,19 +88,19 @@ public partial class MessageBoxViewModel : ViewModelBase
     }
     public void OkClicked() {
         ButtonClicked = MessageBoxButton.Ok;
-        messageBox.QueueClose();
+        messageBox?.QueueClose();
     }
     public void YesClicked() {
         ButtonClicked = MessageBoxButton.Yes;
-        messageBox.QueueClose();
+        messageBox?.QueueClose();
     }
     public void NoClicked() {
         ButtonClicked = MessageBoxButton.No;
-        messageBox.QueueClose();
+        messageBox?.QueueClose();
     }
     public void CancelClicked() {
         ButtonClicked = MessageBoxButton.Cancel;
-        messageBox.QueueClose();
+        messageBox?.QueueClose();
     }
 
 }

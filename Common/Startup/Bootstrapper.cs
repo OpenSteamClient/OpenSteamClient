@@ -99,6 +99,7 @@ public class Bootstrapper {
     private int RetryCount = 0;
     Dictionary<string, string> downloadedPackages = new Dictionary<string, string>();
     public required ConfigManager configManager { protected get; init; }
+    private bool restartRequired = false;
 
     public async Task RunBootstrap(IExtendedProgress<int> progressHandler) {
         progressHandler.SetOperation("Bootstrapping");
@@ -155,16 +156,61 @@ public class Bootstrapper {
         // Copy/Link our files over (steamserviced, 64-bit reaper and 64-bit steamlaunchwrapper, other platform specific niceties)
         CopyOpensteamFiles(progressHandler);
 
+        configManager.BootstrapperState.CommitHash = GitInfo.GitCommit;
         configManager.BootstrapperState.InstalledVersion = OpenSteamworks.Generated.VersionInfo.STEAM_MANIFEST_VERSION;
         configManager.FlushToDisk();
 
+        await FinishBootstrap(progressHandler);
+    }
+
+    private async Task FinishBootstrap(IExtendedProgress<int> progressHandler) {
         // Currently only linux needs a restart (for LD_PRELOAD and LD_LIBRARY_PATH)
-        Console.WriteLine(GetEnvironmentVariable("OPENSTEAM_RAN_EXECVP"));
-        bool restartRequired = OperatingSystem.IsLinux() && GetEnvironmentVariable("OPENSTEAM_RAN_EXECVP") !=  "1";
-        progressHandler.FinishOperation("Bootstrapping Completed" + (restartRequired ? ", restarting" : ""));
+        var hasReran = GetEnvironmentVariable("OPENSTEAM_RAN_EXECVP") == "1";
+        restartRequired = OperatingSystem.IsLinux() && !hasReran;
+
+        progressHandler.SetOperation("Bootstrapping Completed" + (restartRequired ? ", restarting" : ""));
+        await RestartIfNeeded(progressHandler);
+    }
+
+    private async Task RestartIfNeeded(IExtendedProgress<int> progressHandler) {
+        bool hadDebugger = false;
+        bool debuggerShouldReattach = GetEnvironmentVariable("OPENSTEAM_REATTACH_DEBUGGER") == "1";
+
         if (restartRequired) {
+            // Can't forcibly detach the debugger, which is needed since:
+            // - execvp breaks debugger, but is supposedly not a problem
+            // - child processes also can't be debugged, which is also apparently not a problem
+            // So that leaves us no way to "transfer" the debugger from the old process to the new one, unlike with the old C++ solution where gdb just does it when execvp:ing
+            if (Debugger.IsAttached) {
+                hadDebugger = true;
+                progressHandler.SetOperation("Please detach your debugger. ");
+                progressHandler.SetSubOperation("You should re-attach once the process has restarted.");
+                Debugger.Log(5, "DetachDebugger", "Please detach your debugger. You should re-attach once the process has restarted.");
+                await Task.Run(() =>
+                {
+                    while (Debugger.IsAttached)
+                    {
+                        System.Threading.Thread.Sleep(500);
+                    }
+                });
+            }
+
             if (OperatingSystem.IsLinux()) {
-                this.ReExecWithEnvs();
+                this.ReExecWithEnvs(hadDebugger);
+            }
+        } else {
+            // Can't forcibly attach the debugger either
+            if (debuggerShouldReattach) {
+                progressHandler.SetOperation("Waiting for debugger to re-attach before continuing...");
+                progressHandler.SetSubOperation("PID: " + Environment.ProcessId + ", Name: " + Process.GetCurrentProcess().ProcessName);
+                await Task.Run(() =>
+                {
+                    while (!Debugger.IsAttached)
+                    { 
+                        Console.WriteLine("Waiting for debugger...");
+                        System.Threading.Thread.Sleep(500);
+                    }
+                });
             }
         }
     }
@@ -186,9 +232,9 @@ public class Bootstrapper {
     }
 
     [SupportedOSPlatform("linux")]
-    private void ReExecWithEnvs() {
+    private void ReExecWithEnvs(bool withDebugger) {
         [DllImport("libc")]
-        static extern int execvp([MarshalAs(UnmanagedType.LPUTF8Str)] string file, [MarshalAs(UnmanagedType.LPArray)] string[] args);
+        static extern int execvp([MarshalAs(UnmanagedType.LPUTF8Str)] string file, [MarshalAs(UnmanagedType.LPArray)] string?[] args);
 
         // C#'s SetEnvironmentVariable doesn't work here, but we might as well use this since we're in linux specific code anyway
         [DllImport("libc")]
@@ -203,16 +249,24 @@ public class Bootstrapper {
         // If it is, then we fake the HOME dir to be inside .local/share/OpenSteam/fakehome
         // Where steamclient will then dump all it's files into fakehome/Steam (for some reason, instead of fakehome/.steam/steam)
         File.Copy(Path.Combine(configManager.InstallDir, "libbootstrappershim.so"), "/tmp/opensteambootstrappershim.so", true);
+
+        if (withDebugger) {
+            setenv("OPENSTEAM_REATTACH_DEBUGGER", "1", 1);
+        }
         setenv("OPENSTEAM_RAN_EXECVP", "1", 1);
         setenv("LD_PRELOAD", $"/tmp/opensteambootstrappershim.so:{GetEnvironmentVariable("LD_PRELOAD")}", 1);
         setenv("LD_LIBRARY_PATH", $"{Path.Combine(configManager.InstallDir, "ubuntu12_64")}:{Path.Combine(configManager.InstallDir, "ubuntu12_32")}:{Path.Combine(configManager.InstallDir)}:{GetEnvironmentVariable("LD_LIBRARY_PATH")}", 1);
 
-        var fullArgs = Environment.GetCommandLineArgs();
+        string?[] fullArgs = Environment.GetCommandLineArgs();
 
         string executable = Directory.ResolveLinkTarget("/proc/self/exe", false)!.FullName;
         Console.WriteLine("executable: " + executable);
-        fullArgs[0] = executable;
-
+        if (!executable.EndsWith("dotnet")) {
+            fullArgs[0] = executable;
+        } else {
+            fullArgs = fullArgs.Prepend(executable).Append(null).ToArray();
+        }
+        
         foreach (var item in fullArgs)
         {
             Console.WriteLine("item: " + item);
@@ -225,7 +279,7 @@ public class Bootstrapper {
     
     private bool VerifyFiles(IExtendedProgress<int> progressHandler) {
         // Verify all files and skip this step if files are valid and version matches 
-        bool failedInitialCheck = configManager.BootstrapperState.InstalledVersion != OpenSteamworks.Generated.VersionInfo.STEAM_MANIFEST_VERSION;
+        bool failedInitialCheck = configManager.BootstrapperState.InstalledVersion != OpenSteamworks.Generated.VersionInfo.STEAM_MANIFEST_VERSION || configManager.BootstrapperState.CommitHash != GitInfo.GitCommit;
         int installedFilesLength = configManager.BootstrapperState.InstalledFiles.Count;
         int checkedFiles = 0;
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -17,13 +18,15 @@ namespace OpenSteamworks.Native.JIT
         public Type PierceType { get; private set; }
         public Type NativeType { get; private set; }
 
-        public bool IsParams { get; set; }
+        public bool IsParams { get; internal set; }
+        public bool IsReturnByStack { get; private set; }
 
         public TypeJITInfo(Type type)
         {
             Type = type;
             PierceType = Type.IsByRef ? Type.GetElementType()! : Type;
             IsParams = false;
+            IsReturnByStack = DetermineProps();
         }
 
         public bool IsArray { get { return Type.IsArray; } }
@@ -38,6 +41,7 @@ namespace OpenSteamworks.Native.JIT
 
         // determine whether this type will fit in a register and what the native type should be
         // returns: if param should be passed on stack (return values)
+        [MemberNotNull(nameof(NativeType))]
         public bool DetermineProps()
         {
             // strings and arrays.

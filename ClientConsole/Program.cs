@@ -28,7 +28,7 @@ public static class Program
             Console.WriteLine("Bootstrapper is " + handler.Operation + ", " + handler.SubOperation + endPart);
         };
 
-        container = await StartupController.Startup<ClientConsoleAutofacRegistrar>(handler);
+        container = await StartupController.Bootstrap<ClientConsoleAutofacRegistrar>(handler);
         Console.WriteLine("Started up");
         
         container.Resolve<SteamClient>().LogClientState();
