@@ -10,7 +10,6 @@ on:
       - "**.cpp"
       - "**.h"
       - "**.hpp"
-  pull_request:
 
 jobs:
   build:
