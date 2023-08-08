@@ -1,6 +1,7 @@
 # OpenSteamClient (Alpha)
 ![Build Status](https://github.com/20PercentRendered/opensteamclient/actions/workflows/cmake.yaml/badge.svg)
 A partially open-source Steam client for Linux. 
+# Current status: Being rewritten in C#
 
 # Features
 - 64-bit (but needs 32-bit only steamservice for some functionality)
