@@ -1,0 +1,29 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:ClientUI.ViewModels"
+             x:Class="ClientUI.App"
+             xmlns:local="using:ClientUI"
+             x:DataType="vm:AppViewModel"
+             RequestedThemeVariant="Default">
+             <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
+
+    <Application.DataTemplates>
+        <local:ViewLocator/>
+    </Application.DataTemplates>
+  
+    <Application.Styles>
+        <FluentTheme />
+    </Application.Styles>
+
+   <TrayIcon.Icons>
+    <TrayIcons>
+      <TrayIcon Icon="/Assets/opensteam-logo.ico" ToolTipText="OpenSteamClient is running">
+        <TrayIcon.Menu>
+          <NativeMenu>
+            <NativeMenuItem Header="Exit" Command="{Binding Exit}" />
+          </NativeMenu>
+        </TrayIcon.Menu>
+      </TrayIcon>
+    </TrayIcons>
+  </TrayIcon.Icons>
+</Application>

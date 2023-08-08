@@ -1,41 +1,41 @@
 {
     "name": "IClientNetworkingUtilsSerializedMap",
-    "found_at": "0x2375a44",
+    "found_at": "0x23aac74",
     "functions": [ 
         {
             "name": "GetNetworkConfigJSON_DEPRECATED",
             "argc": "4",
-            "addr": "0x60c0f0"
+            "addr": "0x614990"
         },
         {
             "name": "GetLauncherType",
             "argc": "1",
-            "addr": "0x60c290"
+            "addr": "0x614b30"
         },
         {
             "name": "TEST_ClearCachedNetworkConfig",
             "argc": "1",
-            "addr": "0x60c550"
+            "addr": "0x614df0"
         },
         {
             "name": "PostConnectionStateMsg",
             "argc": "3",
-            "addr": "0x60c3f0"
+            "addr": "0x614c90"
         },
         {
             "name": "PostConnectionStateUpdatesForAllConnections",
             "argc": "1",
-            "addr": "0x60c680"
+            "addr": "0x614f20"
         },
         {
             "name": "PostAppSummaryUpdates",
             "argc": "1",
-            "addr": "0x60c7b0"
+            "addr": "0x615050"
         },
         {
             "name": "GotLocationString",
             "argc": "2",
-            "addr": "0x60c8e0"
+            "addr": "0x615180"
         }
     ]
 }

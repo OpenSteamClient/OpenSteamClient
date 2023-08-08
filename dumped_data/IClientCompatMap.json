@@ -1,96 +1,96 @@
 {
     "name": "IClientCompatMap",
-    "found_at": "0x23759b8",
+    "found_at": "0x23aabe8",
     "functions": [ 
         {
             "name": "BIsCompatLayerEnabled",
             "argc": "1",
-            "addr": "0x609550"
+            "addr": "0x611df0"
         },
         {
             "name": "EnableCompat",
             "argc": "2",
-            "addr": "0x6096b0"
+            "addr": "0x611f50"
         },
         {
             "name": "GetAvailableCompatTools",
             "argc": "2",
-            "addr": "0x609800"
+            "addr": "0x6120a0"
         },
         {
             "name": "GetAvailableCompatToolsFiltered",
             "argc": "3",
-            "addr": "0x609970"
+            "addr": "0x612210"
         },
         {
             "name": "GetAvailableCompatToolsForApp",
             "argc": "3",
-            "addr": "0x609af0"
+            "addr": "0x612390"
         },
         {
             "name": "SpecifyCompatTool",
             "argc": "5",
-            "addr": "0x609c70"
+            "addr": "0x612510"
         },
         {
             "name": "BIsCompatibilityToolEnabled",
             "argc": "2",
-            "addr": "0x609de0"
+            "addr": "0x612680"
         },
         {
             "name": "GetCompatToolName",
             "argc": "2",
-            "addr": "0x609f60"
+            "addr": "0x612800"
         },
         {
             "name": "GetCompatToolMappingPriority",
             "argc": "2",
-            "addr": "0x60a0d0"
+            "addr": "0x612970"
         },
         {
             "name": "GetCompatToolDisplayName",
             "argc": "2",
-            "addr": "0x60a240"
+            "addr": "0x612ae0"
         },
         {
             "name": "GetWhitelistedGameList",
             "argc": "2",
-            "addr": "0x60ac90"
+            "addr": "0x613530"
         },
         {
             "name": "GetControllerConfigOverrides",
             "argc": "2",
-            "addr": "0x60ae00"
+            "addr": "0x6136a0"
         },
         {
             "name": "StartSession",
             "argc": "2",
-            "addr": "0x60a3b0"
+            "addr": "0x612c50"
         },
         {
             "name": "ReleaseSession",
             "argc": "4",
-            "addr": "0x60a540"
+            "addr": "0x612de0"
         },
         {
             "name": "BIsLauncherServiceEnabled",
             "argc": "2",
-            "addr": "0x60a6b0"
+            "addr": "0x612f50"
         },
         {
             "name": "DeleteCompatData",
             "argc": "2",
-            "addr": "0x60a830"
+            "addr": "0x6130d0"
         },
         {
             "name": "GetCompatibilityDataDiskSize",
             "argc": "2",
-            "addr": "0x60a980"
+            "addr": "0x613220"
         },
         {
             "name": "BNeedsUnlockH264",
             "argc": "2",
-            "addr": "0x60ab10"
+            "addr": "0x6133b0"
         }
     ]
 }

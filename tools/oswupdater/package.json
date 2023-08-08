@@ -4,6 +4,7 @@
   "main": "index.js",
   "scripts": {
     "start": "tsc && node dist/index.js",
+    "start_protobufonly": "tsc && node dist/index_protobufonly.js",
     "setup": "tsc && node dist/setup.js"
   },
   "devDependencies": {

@@ -1,41 +1,41 @@
 {
     "name": "IClientBillingMap",
-    "found_at": "0x237412c",
+    "found_at": "0x23a933c",
     "functions": [ 
         {
             "name": "PurchaseWithActivationCode",
             "argc": "2",
-            "addr": "0x579bf0"
+            "addr": "0x580bf0"
         },
         {
             "name": "HasActiveLicense",
             "argc": "2",
-            "addr": "0x579a70"
+            "addr": "0x580a70"
         },
         {
             "name": "GetLicenseInfo",
             "argc": "10",
-            "addr": "0x57a350"
+            "addr": "0x581350"
         },
         {
             "name": "EnableTestLicense",
             "argc": "2",
-            "addr": "0x579d60"
+            "addr": "0x580d60"
         },
         {
             "name": "DisableTestLicense",
             "argc": "2",
-            "addr": "0x579eb0"
+            "addr": "0x580eb0"
         },
         {
             "name": "GetAppsInPackage",
             "argc": "4",
-            "addr": "0x57a000"
+            "addr": "0x581000"
         },
         {
             "name": "RequestFreeLicenseForApps",
             "argc": "3",
-            "addr": "0x57a1b0"
+            "addr": "0x5811b0"
         }
     ]
 }

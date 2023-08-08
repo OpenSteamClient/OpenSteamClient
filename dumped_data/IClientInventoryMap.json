@@ -1,186 +1,186 @@
 {
     "name": "IClientInventoryMap",
-    "found_at": "0x23752d0",
+    "found_at": "0x23aa4f0",
     "functions": [ 
         {
             "name": "GetResultStatus",
             "argc": "2",
-            "addr": "0x5e1060"
+            "addr": "0x5e9400"
         },
         {
             "name": "DestroyResult",
             "argc": "2",
-            "addr": "0x5e18a0"
+            "addr": "0x5e9c40"
         },
         {
             "name": "GetResultItems",
             "argc": "5",
-            "addr": "0x5e14d0"
+            "addr": "0x5e9870"
         },
         {
             "name": "GetResultItemProperty",
             "argc": "7",
-            "addr": "0x5e16a0"
+            "addr": "0x5e9a40"
         },
         {
             "name": "GetResultTimestamp",
             "argc": "2",
-            "addr": "0x5e11d0"
+            "addr": "0x5e9570"
         },
         {
             "name": "CheckResultSteamID",
             "argc": "4",
-            "addr": "0x5e1340"
+            "addr": "0x5e96e0"
         },
         {
             "name": "SerializeResult",
             "argc": "5",
-            "addr": "0x5e19f0"
+            "addr": "0x5e9d90"
         },
         {
             "name": "DeserializeResult",
             "argc": "5",
-            "addr": "0x5e1bb0"
+            "addr": "0x5e9f50"
         },
         {
             "name": "GetAllItems",
             "argc": "2",
-            "addr": "0x5e1d70"
+            "addr": "0x5ea110"
         },
         {
             "name": "GetItemsByID",
             "argc": "4",
-            "addr": "0x5e1ef0"
+            "addr": "0x5ea290"
         },
         {
             "name": "GenerateItems",
             "argc": "6",
-            "addr": "0x5e20a0"
+            "addr": "0x5ea440"
         },
         {
             "name": "AddPromoItems",
             "argc": "4",
-            "addr": "0x5e2270"
+            "addr": "0x5ea610"
         },
         {
             "name": "ConsumeItem",
             "argc": "5",
-            "addr": "0x5e2420"
+            "addr": "0x5ea7c0"
         },
         {
             "name": "ExchangeItems",
             "argc": "10",
-            "addr": "0x5e25e0"
+            "addr": "0x5ea980"
         },
         {
             "name": "TransferItemQuantity",
             "argc": "7",
-            "addr": "0x5e2800"
+            "addr": "0x5eaba0"
         },
         {
             "name": "SendItemDropHeartbeat",
             "argc": "1",
-            "addr": "0x5e2a10"
+            "addr": "0x5eadb0"
         },
         {
             "name": "TriggerItemDrop",
             "argc": "3",
-            "addr": "0x5e2b40"
+            "addr": "0x5eaee0"
         },
         {
             "name": "TradeItems",
             "argc": "12",
-            "addr": "0x5e2cd0"
+            "addr": "0x5eb070"
         },
         {
             "name": "LoadItemDefinitions",
             "argc": "1",
-            "addr": "0x5e2f00"
+            "addr": "0x5eb2a0"
         },
         {
             "name": "GetItemDefinitionIDs",
             "argc": "4",
-            "addr": "0x5e3060"
+            "addr": "0x5eb400"
         },
         {
             "name": "GetItemDefinitionProperty",
             "argc": "6",
-            "addr": "0x5e3210"
+            "addr": "0x5eb5b0"
         },
         {
             "name": "RequestEligiblePromoItemDefinitionsIDs",
             "argc": "3",
-            "addr": "0x5e33e0"
+            "addr": "0x5eb780"
         },
         {
             "name": "GetEligiblePromoItemDefinitionIDs",
             "argc": "6",
-            "addr": "0x5e3570"
+            "addr": "0x5eb910"
         },
         {
             "name": "StartPurchase",
             "argc": "5",
-            "addr": "0x5e3730"
+            "addr": "0x5ebad0"
         },
         {
             "name": "RequestPrices",
             "argc": "1",
-            "addr": "0x5e3900"
+            "addr": "0x5ebca0"
         },
         {
             "name": "GetNumItemsWithPrices",
             "argc": "1",
-            "addr": "0x5e3a80"
+            "addr": "0x5ebe20"
         },
         {
             "name": "GetItemsWithPrices",
             "argc": "5",
-            "addr": "0x5e3be0"
+            "addr": "0x5ebf80"
         },
         {
             "name": "GetItemPrice",
             "argc": "4",
-            "addr": "0x5e3db0"
+            "addr": "0x5ec150"
         },
         {
             "name": "StartUpdateProperties",
             "argc": "1",
-            "addr": "0x5e3f60"
+            "addr": "0x5ec300"
         },
         {
             "name": "RemoveProperty",
             "argc": "6",
-            "addr": "0x5e40e0"
+            "addr": "0x5ec480"
         },
         {
             "name": "SetProperty",
             "argc": "7",
-            "addr": "0x5e42a0"
+            "addr": "0x5ec640"
         },
         {
             "name": "SetProperty",
             "argc": "7",
-            "addr": "0x5e4470"
+            "addr": "0x5ec810"
         },
         {
             "name": "Unknown_32",
             "argc": "0",
-            "addr": "0x5e4650"
+            "addr": "0x5ec9f0"
         },
         {
             "name": "SetProperty",
             "argc": "7",
-            "addr": "0x5e4860"
+            "addr": "0x5ecc00"
         },
         {
             "name": "SubmitUpdateProperties",
             "argc": "4",
-            "addr": "0x5e4a60"
+            "addr": "0x5ece00"
         },
         {
             "name": "InspectItem",
             "argc": "3",
-            "addr": "0x5e4c00"
+            "addr": "0x5ecfa0"
         }
     ]
 }

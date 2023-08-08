@@ -1,146 +1,146 @@
 {
     "name": "IClientHTTPMap",
-    "found_at": "0x2374c04",
+    "found_at": "0x23a9e20",
     "functions": [ 
         {
             "name": "CreateHTTPRequest",
             "argc": "3",
-            "addr": "0x5b8b10"
+            "addr": "0x5c0d10"
         },
         {
             "name": "SetHTTPRequestContextValue",
             "argc": "4",
-            "addr": "0x5b8c90"
+            "addr": "0x5c0e90"
         },
         {
             "name": "SetHTTPRequestNetworkActivityTimeout",
             "argc": "3",
-            "addr": "0x5b8e30"
+            "addr": "0x5c1030"
         },
         {
             "name": "SetHTTPRequestHeaderValue",
             "argc": "4",
-            "addr": "0x5b8fc0"
+            "addr": "0x5c11c0"
         },
         {
             "name": "SetHTTPRequestGetOrPostParameter",
             "argc": "4",
-            "addr": "0x5b9150"
+            "addr": "0x5c1350"
         },
         {
             "name": "SendHTTPRequest",
             "argc": "3",
-            "addr": "0x5b92e0"
+            "addr": "0x5c14e0"
         },
         {
             "name": "SendHTTPRequestAndStreamResponse",
             "argc": "3",
-            "addr": "0x5b9470"
+            "addr": "0x5c1670"
         },
         {
             "name": "DeferHTTPRequest",
             "argc": "2",
-            "addr": "0x5b9600"
+            "addr": "0x5c1800"
         },
         {
             "name": "PrioritizeHTTPRequest",
             "argc": "2",
-            "addr": "0x5b9780"
+            "addr": "0x5c1980"
         },
         {
             "name": "CancelHTTPRequest",
             "argc": "2",
-            "addr": "0x5b9900"
+            "addr": "0x5c1b00"
         },
         {
             "name": "GetHTTPResponseHeaderSize",
             "argc": "4",
-            "addr": "0x5b9a80"
+            "addr": "0x5c1c80"
         },
         {
             "name": "GetHTTPResponseHeaderValue",
             "argc": "5",
-            "addr": "0x5b9c20"
+            "addr": "0x5c1e20"
         },
         {
             "name": "GetHTTPResponseBodySize",
             "argc": "3",
-            "addr": "0x5b9dd0"
+            "addr": "0x5c1fd0"
         },
         {
             "name": "GetHTTPResponseBodyData",
             "argc": "4",
-            "addr": "0x5b9f60"
+            "addr": "0x5c2160"
         },
         {
             "name": "GetHTTPStreamingResponseBodyData",
             "argc": "5",
-            "addr": "0x5ba110"
+            "addr": "0x5c2310"
         },
         {
             "name": "ReleaseHTTPRequest",
             "argc": "2",
-            "addr": "0x5ba2d0"
+            "addr": "0x5c24d0"
         },
         {
             "name": "GetHTTPDownloadProgressPct",
             "argc": "3",
-            "addr": "0x5ba450"
+            "addr": "0x5c2650"
         },
         {
             "name": "SetHTTPRequestRawPostBody",
             "argc": "5",
-            "addr": "0x5ba5e0"
+            "addr": "0x5c27e0"
         },
         {
             "name": "CreateCookieContainer",
             "argc": "2",
-            "addr": "0x5ba790"
+            "addr": "0x5c2990"
         },
         {
             "name": "ReleaseCookieContainer",
             "argc": "2",
-            "addr": "0x5ba910"
+            "addr": "0x5c2b10"
         },
         {
             "name": "SetCookie",
             "argc": "5",
-            "addr": "0x5baa90"
+            "addr": "0x5c2c90"
         },
         {
             "name": "SetHTTPRequestCookieContainer",
             "argc": "3",
-            "addr": "0x5bac30"
+            "addr": "0x5c2e30"
         },
         {
             "name": "SetHTTPRequestUserAgentInfo",
             "argc": "3",
-            "addr": "0x5badc0"
+            "addr": "0x5c2fc0"
         },
         {
             "name": "SetHTTPRequestRequiresVerifiedCertificate",
             "argc": "3",
-            "addr": "0x5baf40"
+            "addr": "0x5c3140"
         },
         {
             "name": "SetHTTPRequestAbsoluteTimeoutMS",
             "argc": "3",
-            "addr": "0x5bb0e0"
+            "addr": "0x5c32e0"
         },
         {
             "name": "GetHTTPRequestWasTimedOut",
             "argc": "3",
-            "addr": "0x5bb270"
+            "addr": "0x5c3470"
         },
         {
             "name": "SetHTTPRequestRedirectsEnabled",
             "argc": "3",
-            "addr": "0x5bb400"
+            "addr": "0x5c3600"
         },
         {
             "name": "SaveHTTPResponseBodyToDisk",
             "argc": "4",
-            "addr": "0x5bb5a0"
+            "addr": "0x5c37a0"
         }
     ]
 }

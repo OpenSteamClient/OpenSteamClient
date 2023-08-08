@@ -1,0 +1,45 @@
+name: .NET Build
+
+# Trigger the workflow on push or pull request
+on:
+  push:
+    paths:
+      - "**.cs"
+      - "**.csproj"
+      - "**.axaml"
+      - "**.cpp"
+      - "**.h"
+      - "**.hpp"
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Download repo and submodules
+      run: | 
+        git submodule init
+        git submodule update
+      
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '7.0.x'
+
+    - name: Install build dependencies
+      run: | 
+        sudo apt-get update
+        sudo apt-get install -y gcc-multilib g++-multilib
+    
+    # No need to set up anything else as ubuntu-latest already contains everything we need for a linux-only build
+    # In .NET 8 they're gonna make publishing less bad by allowing all projects to be built to one folder without hacks, so improve build scripts then
+
+    - name: Build Release ClientUI
+      working-directory: ./ClientUI
+      run: dotnet publish -c Release
+    
+    - name: Build Release ClientConsole
+      working-directory: ./ClientConsole
+      run: dotnet publish -c Release

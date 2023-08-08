@@ -1,236 +1,236 @@
 {
     "name": "IClientMatchmakingMap",
-    "found_at": "0x2374308",
+    "found_at": "0x23a9520",
     "functions": [ 
         {
             "name": "GetFavoriteGameCount",
             "argc": "1",
-            "addr": "0x5837e0"
+            "addr": "0x58b7d0"
         },
         {
             "name": "GetFavoriteGame",
             "argc": "8",
-            "addr": "0x583940"
+            "addr": "0x58b930"
         },
         {
             "name": "AddFavoriteGame",
             "argc": "7",
-            "addr": "0x583b40"
+            "addr": "0x58bb30"
         },
         {
             "name": "RemoveFavoriteGame",
             "argc": "6",
-            "addr": "0x583d40"
+            "addr": "0x58bd30"
         },
         {
             "name": "RequestLobbyList",
             "argc": "1",
-            "addr": "0x583f20"
+            "addr": "0x58bf10"
         },
         {
             "name": "AddRequestLobbyListStringFilter",
             "argc": "4",
-            "addr": "0x5878e0"
+            "addr": "0x58f8d0"
         },
         {
             "name": "AddRequestLobbyListNumericalFilter",
             "argc": "4",
-            "addr": "0x587a40"
+            "addr": "0x58fa30"
         },
         {
             "name": "AddRequestLobbyListNearValueFilter",
             "argc": "3",
-            "addr": "0x5840a0"
+            "addr": "0x58c090"
         },
         {
             "name": "AddRequestLobbyListFilterSlotsAvailable",
             "argc": "2",
-            "addr": "0x5841f0"
+            "addr": "0x58c1e0"
         },
         {
             "name": "AddRequestLobbyListDistanceFilter",
             "argc": "2",
-            "addr": "0x587bb0"
+            "addr": "0x58fba0"
         },
         {
             "name": "AddRequestLobbyListResultCountFilter",
             "argc": "2",
-            "addr": "0x584340"
+            "addr": "0x58c330"
         },
         {
             "name": "AddRequestLobbyListCompatibleMembersFilter",
             "argc": "3",
-            "addr": "0x584490"
+            "addr": "0x58c480"
         },
         {
             "name": "GetLobbyByIndex",
             "argc": "3",
-            "addr": "0x5845d0"
+            "addr": "0x58c5c0"
         },
         {
             "name": "CreateLobby",
             "argc": "3",
-            "addr": "0x584770"
+            "addr": "0x58c760"
         },
         {
             "name": "JoinLobby",
             "argc": "3",
-            "addr": "0x584920"
+            "addr": "0x58c910"
         },
         {
             "name": "LeaveLobby",
             "argc": "3",
-            "addr": "0x584ab0"
+            "addr": "0x58caa0"
         },
         {
             "name": "InviteUserToLobby",
             "argc": "5",
-            "addr": "0x584bf0"
+            "addr": "0x58cbe0"
         },
         {
             "name": "GetNumLobbyMembers",
             "argc": "3",
-            "addr": "0x584d70"
+            "addr": "0x58cd60"
         },
         {
             "name": "GetLobbyMemberByIndex",
             "argc": "5",
-            "addr": "0x584ee0"
+            "addr": "0x58ced0"
         },
         {
             "name": "GetLobbyData",
             "argc": "4",
-            "addr": "0x585090"
+            "addr": "0x58d080"
         },
         {
             "name": "SetLobbyData",
             "argc": "5",
-            "addr": "0x585210"
+            "addr": "0x58d200"
         },
         {
             "name": "GetLobbyDataCount",
             "argc": "3",
-            "addr": "0x585680"
+            "addr": "0x58d670"
         },
         {
             "name": "GetLobbyDataByIndex",
             "argc": "8",
-            "addr": "0x5857f0"
+            "addr": "0x58d7e0"
         },
         {
             "name": "DeleteLobbyData",
             "argc": "4",
-            "addr": "0x5859e0"
+            "addr": "0x58d9d0"
         },
         {
             "name": "GetLobbyMemberData",
             "argc": "6",
-            "addr": "0x5853a0"
+            "addr": "0x58d390"
         },
         {
             "name": "SetLobbyMemberData",
             "argc": "5",
-            "addr": "0x585520"
+            "addr": "0x58d510"
         },
         {
             "name": "SendLobbyChatMsg",
             "argc": "5",
-            "addr": "0x585b60"
+            "addr": "0x58db50"
         },
         {
             "name": "GetLobbyChatEntry",
             "argc": "8",
-            "addr": "0x585d00"
+            "addr": "0x58dcf0"
         },
         {
             "name": "RequestLobbyData",
             "argc": "3",
-            "addr": "0x585ef0"
+            "addr": "0x58dee0"
         },
         {
             "name": "SetLobbyGameServer",
             "argc": "7",
-            "addr": "0x586060"
+            "addr": "0x58e050"
         },
         {
             "name": "GetLobbyGameServer",
             "argc": "6",
-            "addr": "0x5861e0"
+            "addr": "0x58e1d0"
         },
         {
             "name": "SetLobbyMemberLimit",
             "argc": "4",
-            "addr": "0x5863a0"
+            "addr": "0x58e390"
         },
         {
             "name": "GetLobbyMemberLimit",
             "argc": "3",
-            "addr": "0x586530"
+            "addr": "0x58e520"
         },
         {
             "name": "SetLobbyVoiceEnabled",
             "argc": "4",
-            "addr": "0x5866a0"
+            "addr": "0x58e690"
         },
         {
             "name": "RequestFriendsLobbies",
             "argc": "1",
-            "addr": "0x586800"
+            "addr": "0x58e7f0"
         },
         {
             "name": "SetLobbyType",
             "argc": "4",
-            "addr": "0x586960"
+            "addr": "0x58e950"
         },
         {
             "name": "SetLobbyJoinable",
             "argc": "4",
-            "addr": "0x586af0"
+            "addr": "0x58eae0"
         },
         {
             "name": "GetLobbyOwner",
             "argc": "4",
-            "addr": "0x586c80"
+            "addr": "0x58ec70"
         },
         {
             "name": "SetLobbyOwner",
             "argc": "5",
-            "addr": "0x586e10"
+            "addr": "0x58ee00"
         },
         {
             "name": "SetLinkedLobby",
             "argc": "5",
-            "addr": "0x586f90"
+            "addr": "0x58ef80"
         },
         {
             "name": "BeginGMSQuery",
             "argc": "4",
-            "addr": "0x587110"
+            "addr": "0x58f100"
         },
         {
             "name": "PollGMSQuery",
             "argc": "3",
-            "addr": "0x5872c0"
+            "addr": "0x58f2b0"
         },
         {
             "name": "GetGMSQueryResults",
             "argc": "4",
-            "addr": "0x587440"
+            "addr": "0x58f430"
         },
         {
             "name": "ReleaseGMSQuery",
             "argc": "3",
-            "addr": "0x5875e0"
+            "addr": "0x58f5d0"
         },
         {
             "name": "QueryServerByFakeIP",
             "argc": "5",
-            "addr": "0x587d00"
+            "addr": "0x58fcf0"
         },
         {
             "name": "EnsureFavoriteGameAccountsUpdated",
             "argc": "2",
-            "addr": "0x587740"
+            "addr": "0x58f730"
         }
     ]
 }
