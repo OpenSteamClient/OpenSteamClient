@@ -29,6 +29,8 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${NATIVE_OUTPUT_FOLDER})
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${NATIVE_OUTPUT_FOLDER})
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${NATIVE_OUTPUT_FOLDER})
 
+file(GLOB_RECURSE miniutl_sources CONFIGURE_DEPENDS "MiniUTL/*.cpp")
+
 if (BUILD_PLATFORM_TARGET STREQUAL "linux")
     add_executable(reaper ${PROJECT_SOURCE_DIR}/reaper/main.cpp)
     add_executable(steam-launch-wrapper ${PROJECT_SOURCE_DIR}/launchwrapper/main.cpp)
@@ -36,12 +38,21 @@ if (BUILD_PLATFORM_TARGET STREQUAL "linux")
     add_executable(steamserviced ${PROJECT_SOURCE_DIR}/serviced/main.cpp)
     set_target_properties(steamserviced PROPERTIES COMPILE_FLAGS "-m32" LINK_FLAGS "-m32")
 
+    # htmlhost hosts steamwebhelper and chromehtml if the user wants it. Some games use it to display MOTDs
+    file(GLOB_RECURSE htmlhost_sources CONFIGURE_DEPENDS "htmlhost/*.cpp")
+
+    add_executable(htmlhost ${htmlhost_sources} ${miniutl_sources})
+    set_target_properties(htmlhost PROPERTIES COMPILE_FLAGS "-m32" LINK_FLAGS "-m32")
+    target_include_directories(htmlhost PRIVATE "MiniUTL")
+
     # Fake steam service
     add_library(steamservice SHARED ${PROJECT_SOURCE_DIR}/fakeservice/main.cpp)
     set_target_properties(steamservice PROPERTIES PREFIX "")
 
-    add_library(bootstrappershim SHARED ${PROJECT_SOURCE_DIR}/bootstrappershim/main.cpp)
-    set_target_properties(bootstrappershim PROPERTIES COMPILE_FLAGS "-O0")
+    add_library(bootstrappershim32 SHARED ${PROJECT_SOURCE_DIR}/bootstrappershim/main.cpp)
+    set_target_properties(bootstrappershim32 PROPERTIES COMPILE_FLAGS "-m32" LINK_FLAGS "-m32")
+
+    add_library(bootstrappershim64 SHARED ${PROJECT_SOURCE_DIR}/bootstrappershim/main.cpp)
 endif()
 
 if (BUILD_PLATFORM_TARGET STREQUAL "windows")
@@ -50,8 +61,10 @@ endif()
 
 # steamutl, a library that allows us to use Valve's CUtl* from C#-land
 file(GLOB_RECURSE steamutl_sources CONFIGURE_DEPENDS "steamutl/*.cpp")
-add_library(steamutl SHARED ${steamutl_sources})
-target_include_directories(steamutl PRIVATE "steamutl/MiniUTL")
+
+add_library(steamutl SHARED ${steamutl_sources} ${miniutl_sources})
+
+target_include_directories(steamutl PRIVATE "MiniUTL")
 
 if (NOT DEFINED IDE_BUILD)
     # Save build timestamp to file

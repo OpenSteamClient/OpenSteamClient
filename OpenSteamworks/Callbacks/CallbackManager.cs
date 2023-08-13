@@ -15,12 +15,18 @@ namespace OpenSteamworks.Callbacks;
 
 public class CallbackManager
 {
+    public struct CallbackHandler {
+        public int callbackId;
+        public Delegate func;
+        public bool oneShot;
+    }
+
     private SteamClient client;
     private bool logIncomingCallbacks;
     private bool logCallbackContents;
     private bool poll = true;
     private readonly Thread pollThread;
-    private readonly List<Tuple<int, Action<object>, bool>> handlers = new();
+    private readonly List<CallbackHandler> handlers = new();
 
     public CallbackManager(SteamClient client, bool logIncomingCallbacks, bool logCallbackContents) {
         this.client = client;
@@ -57,11 +63,14 @@ public class CallbackManager
                             LogCallbackData(obj, type);
 
                             // Send to listeners if any exist
-                            if (GetHandlersForId(msg.m_iCallback, out List<Action<object>>? handlers)) {
+                            Console.WriteLine("Handler count: " + this.handlers.Count);
+                            if (GetHandlersForId(msg.m_iCallback, out List<Delegate>? handlers)) {
                                 foreach (var handler in handlers)
                                 {
-                                    handler?.Invoke(obj);
+                                    handler?.DynamicInvoke(obj);
                                 }
+                            } else {
+                                Console.WriteLine("No handler for " + msg.m_iCallback);
                             }
                         } else {
                             //TODO: logger
@@ -70,8 +79,10 @@ public class CallbackManager
                     }
 
                     this.client.NativeClient.native_Steam_FreeLastCallback(client.NativeClient.pipe);
+                } else {
+                    System.Threading.Thread.Sleep(50);
                 }
-                System.Threading.Thread.Sleep(50);
+                
             } while (poll);
         }
     }
@@ -130,23 +141,21 @@ public class CallbackManager
             Console.WriteLine($"End of Message {type.Name}");
         }
     }
-    private bool GetHandlersForId(int id, [NotNullWhen(true)] out List<Action<object>>? handlersOut) {
-        handlersOut = new List<Action<object>>();
-        List<Tuple<int, Action<object>, bool>> handlersToRemove = new();
+    private bool GetHandlersForId(int id, [NotNullWhen(true)] out List<Delegate>? handlersOut) {
+        handlersOut = new List<Delegate>();
+        List<CallbackHandler> handlersToRemove = new();
 
-        foreach (var handler in handlers)
+        foreach (var handler in handlers.Where(handler => handler.callbackId == id))
         {
-            if (handler.Item1 == id) {
-                handlersOut.Add(handler.Item2);
-                if (handler.Item3 == true) {
-                    handlersToRemove.Add(handler);
-                }
+            handlersOut.Add(handler.func);
+            if (handler.oneShot == true) {
+                handlersToRemove.Add(handler);
             }
         }
 
         foreach (var handler in handlersToRemove)
         {
-            handlers.Remove(handler);
+            DeregisterHandler(handler);
         }
 
         if (handlersOut.Count > 0) {
@@ -155,18 +164,31 @@ public class CallbackManager
 
         return false;
     }
-    public void RegisterHandler<T>(Action<object> handler, bool oneShot = false) where T : struct {
-        if (!CallbackConstants.TypeToID.TryGetValue(typeof(T), out int id)) {
+    public CallbackHandler RegisterHandler<T>(Action<T> handler, bool oneShot = false) where T : struct {
+        return this.RegisterHandler(handler, typeof(T), oneShot);
+    }
+
+    public CallbackHandler RegisterHandler(Delegate handler, Type type, bool oneShot = false) {
+        if (!CallbackConstants.TypeToID.TryGetValue(type, out int id)) {
             throw new ArgumentException("T was not defined in TypeToID");
         }
 
-        RegisterHandlerForId(id, handler, oneShot);
+        return RegisterHandlerForId(id, handler, oneShot);
     }
-    private void RegisterHandlerForId(int id, Action<object> handler, bool oneShot = false) {
-        handlers.Add(new Tuple<int, Action<object>, bool>(id, handler, oneShot)); 
+    private CallbackHandler RegisterHandlerForId(int id, Delegate func, bool oneShot = false) {
+        CallbackHandler handler = new CallbackHandler
+        {
+            callbackId = id,
+            func = func,
+            oneShot = oneShot
+        };
+        
+        handlers.Add(handler);
+        return handler;
     }
-    public void DeregisterHandler(Action<object> handler) {
 
+    public void DeregisterHandler(CallbackHandler handler) {
+        handlers.Remove(handler);
     }
     public void RequestStopAndWaitForExit() {
         poll = false;

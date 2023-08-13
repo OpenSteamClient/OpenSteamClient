@@ -5,10 +5,10 @@ using OpenSteamworks.Generated;
 
 namespace OpenSteamworks.ClientInterfaces;
 
-public class ClientConfigStore : IClientInterface {
+public class ClientConfigStore : ClientInterface {
     private IClientConfigStore nativeClientConfigStore;
-    public ClientConfigStore(IClientConfigStore nativeClientConfigStore) {
-        this.nativeClientConfigStore = nativeClientConfigStore;
+    public ClientConfigStore(SteamClient client) : base(client) {
+        this.nativeClientConfigStore = client.NativeClient.IClientConfigStore;
     }
     public bool IsSet( EConfigStore configStore, string key ) {
         return this.nativeClientConfigStore.IsSet(configStore, key);
@@ -110,8 +110,9 @@ public class ClientConfigStore : IClientInterface {
         this.nativeClientConfigStore.FlushToDisk(bIsShuttingDown);
     }
 
-    void IClientInterface.RunShutdownTasks()
+    internal override void RunShutdownTasks()
     {
+        base.RunShutdownTasks();
         this.FlushToDisk(true);
     }
 }

@@ -82,10 +82,6 @@ public class Bootstrapper {
             return true;
         }
 
-        if (packageName.StartsWith("webkit_")) {
-            return true;
-        }
-
         if (packageName.StartsWith("public_")) {
             return true;
         }
@@ -135,13 +131,38 @@ public class Bootstrapper {
                 configManager.BootstrapperState.LinuxPermissionsSet = true;
             }
 
-            // Create fakehome
-            Directory.CreateDirectory(Path.Combine(configManager.InstallDir, "fakehome"));
+            // Create a new datalink
+            // Create new .opensteam dir
+            Directory.CreateDirectory(configManager.DatalinkDir);
 
-            // Create fakehome symlinks
-            var fakehomeSubdir = Path.Combine(configManager.InstallDir, "fakehome", "Steam");
-            if (!Directory.Exists(fakehomeSubdir))
-                Directory.CreateSymbolicLink(fakehomeSubdir, configManager.InstallDir);
+            // Create needed directory structure
+            if (!Directory.Exists(Path.Combine(configManager.DatalinkDir, "steam")))
+                Directory.CreateSymbolicLink(Path.Combine(configManager.DatalinkDir, "steam"), configManager.InstallDir);
+
+            if (!Directory.Exists(Path.Combine(configManager.DatalinkDir, "root")))
+                Directory.CreateSymbolicLink(Path.Combine(configManager.DatalinkDir, "root"), configManager.InstallDir);
+
+            if (!Directory.Exists(Path.Combine(configManager.DatalinkDir, "sdk64")))
+                Directory.CreateSymbolicLink(Path.Combine(configManager.DatalinkDir, "sdk64"), Path.Combine(configManager.InstallDir, "linux64"));
+
+            if (!Directory.Exists(Path.Combine(configManager.DatalinkDir, "sdk32")))
+                Directory.CreateSymbolicLink(Path.Combine(configManager.DatalinkDir, "sdk32"), Path.Combine(configManager.InstallDir, "linux32"));
+            
+            if (!Directory.Exists(Path.Combine(configManager.DatalinkDir, "bin64")))
+                Directory.CreateSymbolicLink(Path.Combine(configManager.DatalinkDir, "bin64"), Path.Combine(configManager.InstallDir, "ubuntu12_64"));
+
+            if (!Directory.Exists(Path.Combine(configManager.DatalinkDir, "bin32")))
+            Directory.CreateSymbolicLink(Path.Combine(configManager.DatalinkDir, "bin32"), Path.Combine(configManager.InstallDir, "ubuntu12_32"));
+
+            // bin points to bin32 on valve's install, we're 64-bit so we should point to bin64
+            if (!Directory.Exists(Path.Combine(configManager.DatalinkDir, "bin")))
+                Directory.CreateSymbolicLink(Path.Combine(configManager.DatalinkDir, "bin"), Path.Combine(configManager.DatalinkDir, "bin64"));
+
+            File.WriteAllText(Path.Combine(configManager.DatalinkDir, "steam.pid"), Environment.ProcessId.ToString());
+
+            // If the user has no .steam then we can just link to our datalink immediately
+            if (!Directory.Exists(configManager.DatalinkTargetDir)) 
+                Directory.CreateSymbolicLink(configManager.DatalinkTargetDir, configManager.DatalinkDir);
 
             MakeXDGCompliant();
         }
@@ -242,19 +263,10 @@ public class Bootstrapper {
 
         Console.WriteLine("Re-execing");
 
-        // Unfortunately we can't kindly coerce the steamclient to not use $HOME/.steam/Steam, and we can't just set HOME as it'd fuck with games as well
-        // So instead we made a LD_PRELOADable shim that contains a getenv hook and some bootstrapper functions
-        // Now the steamclient always calls SteamBootstrapper_GetEUniverse as one of the first functions, which is when we take the memory map (all loaded modules and their start-end addresses)
-        // And then when something hits getenv we check if it's caller address is in the memory of steamclient.so
-        // If it is, then we fake the HOME dir to be inside .local/share/OpenSteam/fakehome
-        // Where steamclient will then dump all it's files into fakehome/Steam (for some reason, instead of fakehome/.steam/steam)
-        File.Copy(Path.Combine(configManager.InstallDir, "libbootstrappershim.so"), "/tmp/opensteambootstrappershim.so", true);
-
         if (withDebugger) {
             setenv("OPENSTEAM_REATTACH_DEBUGGER", "1", 1);
         }
         setenv("OPENSTEAM_RAN_EXECVP", "1", 1);
-        setenv("LD_PRELOAD", $"/tmp/opensteambootstrappershim.so:{GetEnvironmentVariable("LD_PRELOAD")}", 1);
         setenv("LD_LIBRARY_PATH", $"{Path.Combine(configManager.InstallDir, "ubuntu12_64")}:{Path.Combine(configManager.InstallDir, "ubuntu12_32")}:{Path.Combine(configManager.InstallDir)}:{GetEnvironmentVariable("LD_LIBRARY_PATH")}", 1);
 
         string?[] fullArgs = Environment.GetCommandLineArgs();
@@ -305,11 +317,10 @@ public class Bootstrapper {
             }
         }   
 
-        // Remove packages only in case of an upgrade
+        // Remove packages only in case of a steam version upgrade
         if (configManager.BootstrapperState.InstalledVersion != 0 && (configManager.BootstrapperState.InstalledVersion != OpenSteamworks.Generated.VersionInfo.STEAM_MANIFEST_VERSION)) {
             Directory.Delete(PackageDir, true);
             Directory.CreateDirectory(PackageDir);
-
         }
 
         if (installedFilesLength > 0 && !failedInitialCheck) {
@@ -433,6 +444,7 @@ public class Bootstrapper {
     private async Task ExtractPackages(IExtendedProgress<int> progressHandler) {
         // Extract all the packages
         progressHandler.SetOperation("Extracting packages");
+        configManager.BootstrapperState.InstalledFiles.Clear();
         foreach (var zip in downloadedPackages)
         {
             using (ZipArchive archive = ZipFile.OpenRead(zip.Value))

@@ -1,5 +1,6 @@
 using Common.Autofac;
 using OpenSteamworks;
+using OpenSteamworks.Enums;
 
 namespace Common.Managers;
 
@@ -16,6 +17,10 @@ public class LoginManager : IHasStartupTasks
     }
     
     public bool ShouldPromptForLogin() {
+        if (steamClient.NativeClient.IClientUser.BLoggedOn()) {
+            return false;
+        }
+
         return true;
     }
 }

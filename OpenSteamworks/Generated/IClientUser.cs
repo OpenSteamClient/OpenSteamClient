@@ -8,6 +8,7 @@
 
 using System;
 using OpenSteamworks.Structs;
+using OpenSteamworks.Enums;
 
 namespace OpenSteamworks.Generated;
 
@@ -19,18 +20,18 @@ public unsafe interface IClientUser
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret InvalidateCredentials();  // argc: 2, index: 3
     public unknown_ret LogOff();  // argc: 0, index: 4
-    public unknown_ret BLoggedOn();  // argc: 0, index: 5
-    public unknown_ret GetLogonState();  // argc: 0, index: 6
+    public bool BLoggedOn();  // argc: 0, index: 5
+    public ELogonState GetLogonState();  // argc: 0, index: 6
     public bool BConnected();  // argc: 0, index: 7
-    public unknown_ret BInitiateReconnect();  // argc: 0, index: 8
+    public bool BInitiateReconnect();  // argc: 0, index: 8
     public unknown_ret EConnect();  // argc: 0, index: 9
     public unknown_ret BTryingToLogin();  // argc: 0, index: 10
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret GetSteamID();  // argc: 1, index: 11
+    public CSteamID GetSteamID();  // argc: 1, index: 11
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret GetConsoleSteamID();  // argc: 1, index: 12
     public unknown_ret GetClientInstanceID();  // argc: 0, index: 13
-    public unknown_ret GetUserCountry();  // argc: 0, index: 14
+    public string GetUserCountry();  // argc: 0, index: 14
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret IsVACBanned();  // argc: 1, index: 15
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
@@ -105,9 +106,9 @@ public unsafe interface IClientUser
     public bool GetCurrentWebAuthToken(StrPtr tokenOut, UInt32 bufSize);  // argc: 2, index: 54
     public unknown_ret RequestWebAuthToken();  // argc: 0, index: 55
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret SetLoginInformation();  // argc: 3, index: 56
+    public unknown_ret SetLoginInformation(string username, string password, bool remember);  // argc: 3, index: 56
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret SetTwoFactorCode();  // argc: 1, index: 57
+    public unknown_ret SetTwoFactorCode(string twoFactorCode);  // argc: 1, index: 57
     public unknown_ret SetLoginToken(string token, string username);  // argc: 2, index: 58
     public unknown_ret GetLoginTokenID();  // argc: 0, index: 59
     public unknown_ret ClearAllLoginInformation();  // argc: 0, index: 60
@@ -129,11 +130,11 @@ public unsafe interface IClientUser
     public unknown_ret TrackSteamUsageEvent();  // argc: 3, index: 68
     public unknown_ret SetComputerInUse();  // argc: 0, index: 69
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret BIsGameRunning();  // argc: 1, index: 70
+    public bool BIsGameRunning();  // argc: 1, index: 70
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret BIsGameWindowReady();  // argc: 1, index: 71
+    public bool BIsGameWindowReady();  // argc: 1, index: 71
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret BUpdateAppOwnershipTicket();  // argc: 2, index: 72
+    public bool BUpdateAppOwnershipTicket();  // argc: 2, index: 72
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret GetCustomBinariesState();  // argc: 3, index: 73
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
@@ -176,21 +177,17 @@ public unsafe interface IClientUser
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret GetSentryFileData();  // argc: 1, index: 96
     public unknown_ret GetTwoFactorDetails();  // argc: 0, index: 97
-    public unknown_ret BHasTwoFactor();  // argc: 0, index: 98
+    public bool BHasTwoFactor();  // argc: 0, index: 98
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret GetEmail();  // argc: 3, index: 99
     public unknown_ret Test_FakeConnectionTimeout();  // argc: 0, index: 100
+    public unknown_ret RunInstallScript(AppId_t appid, string unk, bool uninstall);  // argc: 3, index: 101
+    public AppId_t IsInstallScriptRunning();  // argc: 0, index: 102
+    public bool GetInstallScriptState(ref string pchDescription, UInt32 cchDescription, ref UInt32 punNumSteps, ref UInt32 punCurrStep);  // argc: 4, index: 103
+    public unknown_ret StopInstallScript(AppId_t appid);  // argc: 1, index: 104
+    public unknown_ret SpawnProcess(string lpApplicationName, string lpCommandLine, string lpCurrentDirectory, CGameID gameID, string pchGameName, UInt32 uUnk, UInt32 uUnk2, UInt32 uUnk3);  // argc: 9, index: 105
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret RunInstallScript();  // argc: 3, index: 101
-    public unknown_ret IsInstallScriptRunning();  // argc: 0, index: 102
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret GetInstallScriptState();  // argc: 4, index: 103
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret StopInstallScript();  // argc: 1, index: 104
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret SpawnProcess();  // argc: 9, index: 105
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret GetAppOwnershipTicketLength();  // argc: 1, index: 106
+    public unknown_ret GetAppOwnershipTicketLength(AppId_t app);  // argc: 1, index: 106
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret GetAppOwnershipTicketData();  // argc: 3, index: 107
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
@@ -228,20 +225,29 @@ public unsafe interface IClientUser
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret GetGameBadgeLevel();  // argc: 2, index: 125
     public unknown_ret GetPlayerSteamLevel();  // argc: 0, index: 126
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret SetAccountLimited();  // argc: 1, index: 127
-    public unknown_ret BIsAccountLimited();  // argc: 0, index: 128
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret SetAccountCommunityBanned();  // argc: 1, index: 129
-    public unknown_ret BIsAccountCommunityBanned();  // argc: 0, index: 130
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret SetLimitedAccountCanInviteFriends();  // argc: 1, index: 131
-    public unknown_ret BLimitedAccountCanInviteFriends();  // argc: 0, index: 132
-    public unknown_ret SendValidationEmail();  // argc: 0, index: 133
+    /// <summary>
+    /// Don't use this. It does strange things and will probably get you flagged.
+    /// </summary>
+    public void SetAccountLimited(bool val);  // argc: 1, index: 127
+    public bool BIsAccountLimited();  // argc: 0, index: 128
+    /// <summary>
+    /// Don't use this. It does strange things and will probably get you flagged.
+    /// </summary>
+    public void SetAccountCommunityBanned(bool val);  // argc: 1, index: 129
+    public bool BIsAccountCommunityBanned();  // argc: 0, index: 130
+    /// <summary>
+    /// Don't use this. It does strange things and will probably get you flagged.
+    /// </summary>
+    public void SetLimitedAccountCanInviteFriends(bool val);  // argc: 1, index: 131
+    public bool BLimitedAccountCanInviteFriends();  // argc: 0, index: 132
+    /// <summary>
+    /// This function will always send an email to your account's current email address. 
+    /// Even if it is already verified.
+    /// </summary>
+    public SteamAPICall_t SendValidationEmail();  // argc: 0, index: 133
     public unknown_ret BGameConnectTokensAvailable();  // argc: 0, index: 134
-    public unknown_ret NumGamesRunning();  // argc: 0, index: 135
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret GetRunningGameID();  // argc: 2, index: 136
+    public int NumGamesRunning();  // argc: 0, index: 135
+    public CGameID GetRunningGameID(int index, int unk);  // argc: 2, index: 136
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret GetRunningGamePID();  // argc: 1, index: 137
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
@@ -250,7 +256,7 @@ public unsafe interface IClientUser
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret SetClientStat();  // argc: 6, index: 140
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret VerifyPassword();  // argc: 1, index: 141
+    public SteamAPICall_t VerifyPassword(string password);  // argc: 1, index: 141
     public unknown_ret BSupportUser();  // argc: 0, index: 142
     public unknown_ret BNeedsSSANextSteamLogon();  // argc: 0, index: 143
     public unknown_ret ClearNeedsSSANextSteamLogon();  // argc: 0, index: 144
@@ -311,11 +317,9 @@ public unsafe interface IClientUser
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret ChangeTwoFactorAuthOptions();  // argc: 1, index: 177
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret Set2ndFactorAuthCode();  // argc: 2, index: 178
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret SetUserMachineName();  // argc: 1, index: 179
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret GetUserMachineName();  // argc: 2, index: 180
+    public unknown_ret Set2ndFactorAuthCode(string code, bool remember);  // argc: 2, index: 178
+    public void SetUserMachineName(string name);  // argc: 1, index: 179
+    public void GetUserMachineName(char* name, int len);  // argc: 2, index: 180
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret GetEmailDomainFromLogonFailure();  // argc: 2, index: 181
     public unknown_ret GetAgreementSessionUrl();  // argc: 0, index: 182
@@ -328,14 +332,18 @@ public unsafe interface IClientUser
     public unknown_ret BSetDurationControlOnlineStateForApp();  // argc: 2, index: 186
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret BGetDurationControlExtendedResults();  // argc: 3, index: 187
+    /// <summary>
+    /// Checks if the active user owns a specific app.
+    /// </summary>
+    /// <param name="appid">AppID to check</param>
+    /// <returns>Whether user owns game or not</returns>
+    public bool BIsSubscribedApp(AppId_t appid);  // argc: 1, index: 188
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret BIsSubscribedApp();  // argc: 1, index: 188
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret GetSubscribedApps();  // argc: 3, index: 189
+    public unknown_ret GetSubscribedApps(AppId_t *arr, uint lengthOfArr, bool unk);  // argc: 3, index: 189
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret AckSystemIM();  // argc: 2, index: 190
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret RequestSpecialSurvey();  // argc: 1, index: 191
+    public unknown_ret RequestSpecialSurvey(uint unk);  // argc: 1, index: 191
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret SendSpecialSurveyResponse();  // argc: 3, index: 192
     public unknown_ret RequestNotifications();  // argc: 0, index: 193

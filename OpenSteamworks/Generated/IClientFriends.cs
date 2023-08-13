@@ -7,18 +7,19 @@
 //=============================================================================
 
 using System;
+using OpenSteamworks.Enums;
 
 namespace OpenSteamworks.Generated;
 
 public unsafe interface IClientFriends
 {
-    public unknown_ret GetPersonaName();  // argc: 0, index: 1
+    public string GetPersonaName();  // argc: 0, index: 1
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret SetPersonaName();  // argc: 1, index: 2
+    public unknown_ret SetPersonaName(string name);  // argc: 1, index: 2
     public unknown_ret IsPersonaNameSet();  // argc: 0, index: 3
-    public unknown_ret GetPersonaState();  // argc: 0, index: 4
+    public EPersonaState GetPersonaState();  // argc: 0, index: 4
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret SetPersonaState();  // argc: 1, index: 5
+    public unknown_ret SetPersonaState(EPersonaState state);  // argc: 1, index: 5
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret NotifyUIOfMenuChange();  // argc: 4, index: 6
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!

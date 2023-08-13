@@ -19,5 +19,6 @@ public enum EPersonaChange
     k_EPersonaChangeNameFirstSet = 1 << 10,
     k_EPersonaChangeFacebookInfo = 1 << 11,
     k_EPersonaChangeNickname = 1 << 12,
-    k_EPersonaChangeSteamLevel = 1 << 13
+    k_EPersonaChangeSteamLevel = 1 << 13,
+    k_EPersonaChangeRichPresence = 1 << 14
 };

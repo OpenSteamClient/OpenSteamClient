@@ -1,3 +1,4 @@
+using System.Runtime.Versioning;
 using Common.Autofac;
 using Common.Config;
 using Common.Config.IO;
@@ -35,6 +36,22 @@ public class ConfigManager : IHasStartupTasks
         }
     }
 
+    [SupportedOSPlatform("linux")]
+    public string DatalinkDir {
+        get {
+            return Path.Combine(InstallDir, "datalink");
+        }
+    }
+
+    [SupportedOSPlatform("linux")]
+    public string DatalinkTargetDir {
+        get {
+            return Path.Combine(HomeDir, ".steam");
+        }
+    }
+
+    public string HomeDir => Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+
     public string LogsDir {
         get {
             if (OperatingSystem.IsLinux()) {
@@ -64,6 +81,7 @@ public class ConfigManager : IHasStartupTasks
     }
     public ConfigManager() {
         Directory.CreateDirectory(InstallDir);
+        Directory.CreateDirectory(DatalinkDir);
         Directory.CreateDirectory(ConfigDir);
         Directory.CreateDirectory(LogsDir);
         Directory.CreateDirectory(CacheDir);

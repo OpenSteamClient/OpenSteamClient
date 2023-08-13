@@ -7,44 +7,35 @@
 //=============================================================================
 
 using System;
+using OpenSteamworks.Enums;
+using OpenSteamworks.NativeTypes;
+using OpenSteamworks.Structs;
 
 namespace OpenSteamworks.Generated;
 
 public unsafe interface IClientCompat
 {
-    public unknown_ret BIsCompatLayerEnabled();  // argc: 0, index: 1
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret EnableCompat();  // argc: 1, index: 2
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret GetAvailableCompatTools();  // argc: 1, index: 3
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret GetAvailableCompatToolsFiltered();  // argc: 2, index: 4
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret GetAvailableCompatToolsForApp();  // argc: 2, index: 5
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret SpecifyCompatTool();  // argc: 4, index: 6
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret BIsCompatibilityToolEnabled();  // argc: 1, index: 7
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret GetCompatToolName();  // argc: 1, index: 8
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret GetCompatToolMappingPriority();  // argc: 1, index: 9
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret GetCompatToolDisplayName();  // argc: 1, index: 10
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret GetWhitelistedGameList();  // argc: 1, index: 11
+    public bool BIsCompatLayerEnabled();  // argc: 0, index: 1
+    public void EnableCompat(bool enable);  // argc: 1, index: 2
+    public unknown_ret GetAvailableCompatTools(CUtlVector<CUtlString>* compatTools);  // argc: 1, index: 3
+    public unknown_ret GetAvailableCompatToolsFiltered(CUtlVector<CUtlString>* compatTools, ERemoteStoragePlatform platform);  // argc: 2, index: 4
+    public unknown_ret GetAvailableCompatToolsForApp(CUtlVector<CUtlString>* compatTools, AppId_t appid);  // argc: 2, index: 5
+    public unknown_ret SpecifyCompatTool(AppId_t appid, string toolName, string unk, int priority);  // argc: 4, index: 6
+    public bool BIsCompatibilityToolEnabled(AppId_t appid);  // argc: 1, index: 7
+    public string GetCompatToolName(AppId_t app);  // argc: 1, index: 8
+    public int GetCompatToolMappingPriority(AppId_t appid);  // argc: 1, index: 9
+    public string GetCompatToolDisplayName(string name);  // argc: 1, index: 10
+    public unknown_ret GetWhitelistedGameList(CUtlVector<AppWhitelistSetting_t>* compatTools);  // argc: 1, index: 11
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret GetControllerConfigOverrides();  // argc: 1, index: 12
+    public UInt64 StartSession(AppId_t appid);  // argc: 1, index: 13
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret StartSession();  // argc: 1, index: 13
+    public unknown_ret ReleaseSession(AppId_t appid, UInt64 sessionid);  // argc: 3, index: 14
+    public bool BIsLauncherServiceEnabled(AppId_t appid);  // argc: 1, index: 15
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret ReleaseSession();  // argc: 3, index: 14
+    public unknown_ret DeleteCompatData(AppId_t appid);  // argc: 1, index: 16
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret BIsLauncherServiceEnabled();  // argc: 1, index: 15
+    public unknown_ret GetCompatibilityDataDiskSize(AppId_t appid);  // argc: 1, index: 17
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret DeleteCompatData();  // argc: 1, index: 16
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret GetCompatibilityDataDiskSize();  // argc: 1, index: 17
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret BNeedsUnlockH264();  // argc: 1, index: 18
+    public bool BNeedsUnlockH264(AppId_t appid);  // argc: 1, index: 18
 }

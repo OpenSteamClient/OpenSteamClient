@@ -8,6 +8,7 @@
 
 using System;
 using OpenSteamworks.Enums;
+using OpenSteamworks.NativeTypes;
 
 namespace OpenSteamworks.Generated;
 
@@ -27,7 +28,7 @@ public unsafe interface IClientConfigStore
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public uint GetBinary(EConfigStore eConfigStore, string pszKeyName, IntPtr pubBuf, UInt32 cubBuf);  // argc: 4, index: 7
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public uint GetBinary(EConfigStore eConfigStore, string pszKeyName, CUtlBuffer pUtlBuf);  // argc: 3, index: 8
+    public uint GetBinary(EConfigStore eConfigStore, string pszKeyName, CUtlBuffer* pUtlBuf);  // argc: 3, index: 8
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public uint GetBinaryWatermarked(EConfigStore eConfigStore, string pszKeyName, IntPtr pubBuf, UInt32 cubBuf);  // argc: 4, index: 9
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!

@@ -1,5 +1,5 @@
-#include "MiniUTL/utlvector.h"
-#include "MiniUTL/utlbuffer.h"
+#include <utlvector.h>
+#include <utlbuffer.h>
 
 extern "C" CUtlBuffer *CUtlBuffer_Create(int growSize, int initialSize, int nFlags) {
     return new CUtlBuffer(growSize, initialSize, nFlags);

@@ -28,7 +28,7 @@
             // If you have changed target frameworks, make sure to update the program path.
             "program": "${workspaceFolder}/ClientConsole/bin/Debug/net7.0/ClientConsole.dll",
             "env": {
-                "LD_PRELOAD": "/tmp/libbootstrappershim.so"
+                "LD_PRELOAD": "/tmp/bootstrappershim.so"
             },
             "args": [],
             "cwd": "${workspaceFolder}/ClientConsole",

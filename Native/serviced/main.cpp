@@ -51,7 +51,7 @@ int main(int argc, char *argv[]) {
 
     // 0x45f70 (addr of SteamServiceInternal_StartThread) - 0x10000(base of steamservice.so)
     // 0x5ee50
-    uintptr_t offset = 0x37DE0;
+    uintptr_t offset = 0x37DE0; // new version: 0x37E30;
     if (initPtr == nullptr) {
         std::cerr << "InitPtr == nullptr!!!" << std::endl;
         return 1;

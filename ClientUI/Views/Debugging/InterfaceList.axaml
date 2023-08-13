@@ -8,7 +8,9 @@
         x:Class="ClientUI.Views.InterfaceList"
         Title="Interface List">
     
-    <StackPanel x:Name="StackPanel">
+    <ScrollViewer>
+        <StackPanel x:Name="StackPanel">
         
-    </StackPanel>
+        </StackPanel>
+    </ScrollViewer>
 </Window>

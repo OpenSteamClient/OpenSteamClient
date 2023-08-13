@@ -75,10 +75,6 @@ public unsafe interface IClientEngine {
 	public IClientSystemDockManager GetIClientSystemDockManager( HSteamPipe hSteamPipe );
 	public IClientSystemAudioManager GetIClientSystemAudioManager( HSteamPipe hSteamPipe );
 	public IClientSystemDisplayManager GetIClientSystemDisplayManager( HSteamPipe hSteamPipe );
-	/// <summary>
-    /// It's best to leave this untouched for now. It's a mess to do with C++, so I imagine it will be even worse with C#. 
-    /// </summary>
-    /// <param name="pAccessor">A pointer to a pointer which points to a struct</param>
 	public void ConCommandInit( IConCommandBaseAccessor* pAccessor );
 	public IClientAppManager GetIClientAppManager( HSteamUser hSteamUser, HSteamPipe hSteamPipe );
 	public IClientConfigStore GetIClientConfigStore( HSteamUser hSteamUser, HSteamPipe hSteamPipe );

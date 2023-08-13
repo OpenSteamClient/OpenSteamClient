@@ -79,7 +79,7 @@ public unsafe interface IClientUtils
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret ShowControllerLayoutPreview();  // argc: 3, index: 43
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret SetSpew();  // argc: 3, index: 44
+    public void SetSpew(ESpewGroup group, int spewlevel, int loglevel);  // argc: 3, index: 44
     public bool BDownloadsDisabled();  // argc: 0, index: 45
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret SetFocusedWindow();  // argc: 4, index: 46

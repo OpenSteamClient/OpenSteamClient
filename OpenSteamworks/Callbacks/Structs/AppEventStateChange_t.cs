@@ -8,7 +8,7 @@ namespace OpenSteamworks.Callbacks.Structs;
 internal unsafe struct AppEventStateChange_t
 {
 	public AppId_t m_nAppID;
-	public UInt32 m_eOldState;
-	public UInt32 m_eNewState;
+	public EAppState m_eOldState;
+	public EAppState m_eNewState;
 	public EAppUpdateError m_eAppError;
 };
