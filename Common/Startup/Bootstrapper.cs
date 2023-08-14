@@ -191,6 +191,16 @@ public class Bootstrapper {
         restartRequired = OperatingSystem.IsLinux() && !hasReran;
 
         progressHandler.SetOperation("Bootstrapping Completed" + (restartRequired ? ", restarting" : ""));
+
+        if (!restartRequired) {
+            if (OperatingSystem.IsLinux()) {
+                SteamService.StartServiceAsHost(Path.Combine(configManager.InstallDir, "steamserviced"));
+            }
+
+            if (OperatingSystem.IsWindows()) {
+                SteamService.StartServiceAsWindowsService();
+            }
+        }
         await RestartIfNeeded(progressHandler);
     }
 
