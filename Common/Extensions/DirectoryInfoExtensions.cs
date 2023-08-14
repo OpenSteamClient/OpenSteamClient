@@ -8,4 +8,10 @@ public static class DirectoryInfoExtensions
         foreach (FileInfo file in source.GetFiles())
             file.CopyTo(Path.Combine(target.FullName, file.Name), allowOverwrite);
     }
+    public static IEnumerable<FileInfo> EnumerateFilesRecursively(this DirectoryInfo di, int maxDepth = 10) {
+        return di.EnumerateFiles("*", new EnumerationOptions {
+                RecurseSubdirectories = true,
+                MaxRecursionDepth = maxDepth,
+        });
+    }
 }

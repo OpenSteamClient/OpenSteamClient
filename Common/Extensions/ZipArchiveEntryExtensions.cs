@@ -6,7 +6,6 @@ namespace Common.Extensions;
 public static class ZipArchiveEntryExtensions {
     public static bool IsSymlink(this ZipArchiveEntry entry) {
         var type = GetFileType(entry);
-        Console.WriteLine(entry.FullName + " " + entry.ExternalAttributes + " " + type);
         if (OperatingSystem.IsLinux() || OperatingSystem.IsMacOS()) {
             return type == LinuxHelpers.FileTypes.S_IFLNK;
         }

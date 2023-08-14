@@ -109,7 +109,8 @@ public class Bootstrapper {
 
         // Skip verification and package processing if user requests it
         if (!configManager.BootstrapperState.SkipVerification) {
-            if (!VerifyFiles(progressHandler)) {
+            if (!VerifyFiles(progressHandler, out string failureReason)) {
+                Console.WriteLine("Failed verification: " + failureReason);
                 await EnsurePackages(progressHandler);
                 await ExtractPackages(progressHandler);
             }
@@ -289,9 +290,13 @@ public class Bootstrapper {
         throw new Exception($"Execvp failed: {ret}");
     }
     
-    private bool VerifyFiles(IExtendedProgress<int> progressHandler) {
+    private bool VerifyFiles(IExtendedProgress<int> progressHandler, out string failureReason) {
+        failureReason = "";
         // Verify all files and skip this step if files are valid and version matches 
-        bool failedInitialCheck = configManager.BootstrapperState.InstalledVersion != OpenSteamworks.Generated.VersionInfo.STEAM_MANIFEST_VERSION || configManager.BootstrapperState.CommitHash != GitInfo.GitCommit;
+        bool failed = configManager.BootstrapperState.InstalledVersion != OpenSteamworks.Generated.VersionInfo.STEAM_MANIFEST_VERSION || configManager.BootstrapperState.CommitHash != GitInfo.GitCommit;
+        if (failed) {
+            failureReason += "Failed initial check,";
+        }
         int installedFilesLength = configManager.BootstrapperState.InstalledFiles.Count;
         int checkedFiles = 0;
 
@@ -306,13 +311,15 @@ public class Bootstrapper {
             var info = new FileInfo(Path.Combine(configManager.InstallDir, installedFile.Key));
             if (info.Exists) {
                 if (info.Length != installedFile.Value) {
-                    failedInitialCheck = true;
+                    failureReason += "File " + info.Name + " was wrong length,";
+                    failed = true;
                 }
             } else {
-                failedInitialCheck = true;
+                failureReason += "File " + info.Name + " doesn't exist,";
+                failed = true;
             }
            
-            if (failedInitialCheck) {
+            if (failed) {
                 break;
             }
         }   
@@ -323,11 +330,11 @@ public class Bootstrapper {
             Directory.CreateDirectory(PackageDir);
         }
 
-        if (installedFilesLength > 0 && !failedInitialCheck) {
+        if (installedFilesLength > 0 && !failed) {
             progressHandler.SetProgress(100);
             return true;
         }
-
+        
         return false;
     }
 
@@ -608,6 +615,13 @@ public class Bootstrapper {
     }
 
     private void CopyOpensteamFiles(IExtendedProgress<int> progressHandler) {
+        Dictionary<string, string> pathMappings = new() {
+            {"reaper", "linux64/reaper"},
+            {"steam-launch-wrapper", "linux64/reaper"},
+            {"htmlhost", "ubuntu12_32/htmlhost"},
+            {"steamservice.so", "linux64/steamservice.so"}
+        };
+
         var assemblyFolder = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
         if (assemblyFolder == null) {
             throw new Exception("assemblyFolder is null.");
@@ -624,8 +638,16 @@ public class Bootstrapper {
         if (newTimestamp > oldTimestamp) {
             progressHandler.SetSubOperation("Copying OpenSteam files");
             var di = new DirectoryInfo(nativesFolder);
-            di.CopyFilesRecursively(new DirectoryInfo(configManager.InstallDir), true);
+            foreach (var file in di.EnumerateFilesRecursively())
+            {
+                string name = file.Name;
+                if (pathMappings.ContainsKey(name)) {
+                    name = pathMappings[name];
+                }
+
+                File.Copy(file.FullName, Path.Combine(configManager.InstallDir, name), true);
+            }
             configManager.BootstrapperState.NativeBuildDate = newTimestamp;
-        }
+        }   
     }
 }
