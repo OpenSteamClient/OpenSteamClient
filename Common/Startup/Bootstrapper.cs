@@ -118,58 +118,51 @@ public class Bootstrapper {
 
         // Run platform specific tasks
 
-        if (OperatingSystem.IsLinux()) {
+        if (OperatingSystem.IsLinux())
+        {
             // Process the Steam runtime (needed for SteamVR and some tools steam ships with)
             await CheckSteamRuntime(progressHandler);
 
-            if (!configManager.BootstrapperState.LinuxPermissionsSet) {
+            if (!configManager.BootstrapperState.LinuxPermissionsSet)
+            {
                 progressHandler.SetOperation($"Setting proper permissions (this may freeze)");
                 progressHandler.SetThrobber(true);
                 // Valve doesn't include permission info in the zips, so chmod them all to allow execute
                 await Process.Start("/usr/bin/chmod", "-R +x " + '"' + configManager.InstallDir + '"').WaitForExitAsync();
-                
+
                 progressHandler.SetThrobber(false);
                 configManager.BootstrapperState.LinuxPermissionsSet = true;
             }
 
-            // Create a new datalink
-            // Create new .opensteam dir
-            Directory.CreateDirectory(configManager.DatalinkDir);
+            Process[] runningSteamProcesses = Process.GetProcessesByName("steam");
+            if (runningSteamProcesses.Length == 0) {
+                Directory.CreateDirectory(configManager.DatalinkDir);
 
-            // Create needed directory structure
-            if (!Directory.Exists(Path.Combine(configManager.DatalinkDir, "steam")))
-                Directory.CreateSymbolicLink(Path.Combine(configManager.DatalinkDir, "steam"), configManager.InstallDir);
+                // This is ok, since steam automatically changes the target of these symlinks to it's own install path on start.
+                List<(string name, string targetPath)> datalinkDirs = new()
+                {
+                    ("steam", configManager.InstallDir),
+                    ("root", configManager.InstallDir),
+                    ("sdk64", Path.Combine(configManager.InstallDir, "linux64")),
+                    ("sdk32", Path.Combine(configManager.InstallDir, "linux32")),
+                    ("bin64", Path.Combine(configManager.InstallDir, "ubuntu12_64")),
+                    ("bin32", Path.Combine(configManager.InstallDir, "ubuntu12_32")),
+                    // bin points to bin32 on valve's install, we're 64-bit so we should probably point to bin64
+                    ("bin", Path.Combine(configManager.DatalinkDir, "bin64")),
+                };
 
-            if (!Directory.Exists(Path.Combine(configManager.DatalinkDir, "root")))
-                Directory.CreateSymbolicLink(Path.Combine(configManager.DatalinkDir, "root"), configManager.InstallDir);
+                // Create needed directory structure
+                foreach ((string name, string targetPath) in datalinkDirs)
+                {
+                    // TODO: DANGEROUS: check if target is a symlink and redirect instead
+                    if (!Directory.Exists(targetPath))
+                        Directory.CreateSymbolicLink(Path.Combine(configManager.DatalinkDir, name), targetPath);
+                }
 
-            if (!Directory.Exists(Path.Combine(configManager.DatalinkDir, "sdk64")))
-                Directory.CreateSymbolicLink(Path.Combine(configManager.DatalinkDir, "sdk64"), Path.Combine(configManager.InstallDir, "linux64"));
-
-            if (!Directory.Exists(Path.Combine(configManager.DatalinkDir, "sdk32")))
-                Directory.CreateSymbolicLink(Path.Combine(configManager.DatalinkDir, "sdk32"), Path.Combine(configManager.InstallDir, "linux32"));
-            
-            if (!Directory.Exists(Path.Combine(configManager.DatalinkDir, "bin64")))
-                Directory.CreateSymbolicLink(Path.Combine(configManager.DatalinkDir, "bin64"), Path.Combine(configManager.InstallDir, "ubuntu12_64"));
-
-            if (!Directory.Exists(Path.Combine(configManager.DatalinkDir, "bin32")))
-            Directory.CreateSymbolicLink(Path.Combine(configManager.DatalinkDir, "bin32"), Path.Combine(configManager.InstallDir, "ubuntu12_32"));
-
-            // bin points to bin32 on valve's install, we're 64-bit so we should point to bin64
-            if (!Directory.Exists(Path.Combine(configManager.DatalinkDir, "bin")))
-                Directory.CreateSymbolicLink(Path.Combine(configManager.DatalinkDir, "bin"), Path.Combine(configManager.DatalinkDir, "bin64"));
-
-            File.WriteAllText(Path.Combine(configManager.DatalinkDir, "steam.pid"), Environment.ProcessId.ToString());
-
-            // If the user has no .steam then we can just link to our datalink immediately
-            if (!Directory.Exists(configManager.DatalinkTargetDir)) 
-                Directory.CreateSymbolicLink(configManager.DatalinkTargetDir, configManager.DatalinkDir);
+                File.WriteAllText(Path.Combine(configManager.DatalinkDir, "steam.pid"), Environment.ProcessId.ToString());
+            }
 
             MakeXDGCompliant();
-        }
-
-        if (OperatingSystem.IsWindows()) {
-            //TODO: test for steamservice, install if not installed
         }
             
         progressHandler.SetOperation($"Finalizing");
@@ -195,6 +188,17 @@ public class Bootstrapper {
         if (!restartRequired) {
             if (OperatingSystem.IsLinux()) {
                 SteamService.StartServiceAsHost(Path.Combine(configManager.InstallDir, "steamserviced"));
+                try
+                {
+                    File.Copy(Path.Combine(configManager.InstallDir, "libbootstrappershim32.so"), "/tmp/libbootstrappershim32.so", true);
+                    File.Copy(Path.Combine(configManager.InstallDir, "libhtmlhost_fakepid.so"), "/tmp/libhtmlhost_fakepid.so", true);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Failed to copy " + Path.Combine(configManager.InstallDir, "libbootstrappershim32.so") + " to /tmp/libbootstrappershim32.so: " + e.ToString());
+                }
+                
+                SteamHTML.StartHTMLHost(Path.Combine(configManager.InstallDir, "ubuntu12_32", "htmlhost"), Path.Combine(configManager.InstallDir, "appcache", "htmlcache"));
             }
 
             if (OperatingSystem.IsWindows()) {
@@ -658,6 +662,6 @@ public class Bootstrapper {
                 File.Copy(file.FullName, Path.Combine(configManager.InstallDir, name), true);
             }
             configManager.BootstrapperState.NativeBuildDate = newTimestamp;
-        }   
+        }
     }
 }

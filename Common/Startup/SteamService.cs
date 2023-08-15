@@ -11,6 +11,7 @@ public static class SteamService {
 
     [UnsupportedOSPlatform("windows")]
     public static void StartServiceAsHost(string pathToHost) {
+        IsRunningInHost = true;
         CurrentServiceHost = new Process();
         CurrentServiceHost.StartInfo.WorkingDirectory = Path.GetDirectoryName(pathToHost);
         CurrentServiceHost.StartInfo.FileName = pathToHost;
@@ -35,5 +36,9 @@ public static class SteamService {
     [SupportedOSPlatform("windows")]
     public static void StartServiceAsWindowsService() {
         throw new NotImplementedException();
+    }
+
+    public static void Shutdown() {
+        ShouldStop = true;
     }
 }

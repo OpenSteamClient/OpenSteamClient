@@ -45,6 +45,10 @@ if (BUILD_PLATFORM_TARGET STREQUAL "linux")
     set_target_properties(htmlhost PROPERTIES COMPILE_FLAGS "-m32" LINK_FLAGS "-m32")
     target_include_directories(htmlhost PRIVATE "MiniUTL")
 
+    # We hook getpid for htmlhost so it thinks our steam process is the steam process and not itself (not really meant to be hosted)
+    add_library(htmlhost_fakepid SHARED ${PROJECT_SOURCE_DIR}/htmlhost_fakepid/main.cpp)
+    set_target_properties(htmlhost_fakepid PROPERTIES COMPILE_FLAGS "-m32" LINK_FLAGS "-m32")
+
     # Fake steam service
     add_library(steamservice SHARED ${PROJECT_SOURCE_DIR}/fakeservice/main.cpp)
     set_target_properties(steamservice PROPERTIES PREFIX "")
