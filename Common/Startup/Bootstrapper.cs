@@ -134,6 +134,7 @@ public class Bootstrapper {
                 configManager.BootstrapperState.LinuxPermissionsSet = true;
             }
 
+            //TODO: check for steam some other way (like trying to connect)
             Process[] runningSteamProcesses = Process.GetProcessesByName("steam");
             if (runningSteamProcesses.Length == 0) {
                 Directory.CreateDirectory(configManager.DatalinkDir);
@@ -155,8 +156,16 @@ public class Bootstrapper {
                 foreach ((string name, string targetPath) in datalinkDirs)
                 {
                     // TODO: DANGEROUS: check if target is a symlink and redirect instead
-                    if (!Directory.Exists(targetPath))
-                        Directory.CreateSymbolicLink(Path.Combine(configManager.DatalinkDir, name), targetPath);
+                    var linkPath = Path.Combine(configManager.DatalinkDir, name);
+                    if (Directory.Exists(linkPath)) {
+                        var fsinfo = Directory.ResolveLinkTarget(linkPath, false);
+                        if (fsinfo != null) {
+                            Directory.Delete(linkPath, false);
+                            Directory.CreateSymbolicLink(linkPath, targetPath);
+                        } else {
+                            throw new InvalidOperationException(linkPath + " was not a symlink.");
+                        }
+                    }
                 }
 
                 File.WriteAllText(Path.Combine(configManager.DatalinkDir, "steam.pid"), Environment.ProcessId.ToString());
