@@ -119,7 +119,7 @@ public class SteamClient
         string username;
         {
             StringBuilder sb = new StringBuilder("", 1024);
-            this.NativeClient.IClientUser.GetAccountName(sb, (uint)sb.Length);
+            this.NativeClient.IClientUser.GetAccountName(sb, (uint)sb.Capacity);
             username = sb.ToString();
         }
 
@@ -129,7 +129,7 @@ public class SteamClient
         string token;
         {
             StringBuilder sb = new StringBuilder("", 1024);
-            this.NativeClient.IClientUser.GetCurrentWebAuthToken(sb, (uint)sb.Length);
+            this.NativeClient.IClientUser.GetCurrentWebAuthToken(sb, (uint)sb.Capacity);
             token = sb.ToString();
         }
 
