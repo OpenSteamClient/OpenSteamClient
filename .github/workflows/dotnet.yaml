@@ -42,8 +42,8 @@ jobs:
       run: dotnet publish -c Release
 
     - name: Create ClientUI zip
-      working-directory: ./ClientUI/bin/Release/*/
-      run: zip -r "${GITHUB_WORKSPACE}/ClientUI.zip" .
+      working-directory: ./ClientUI/bin/Release/
+      run: cd "./*/publish" && zip -r "${GITHUB_WORKSPACE}/ClientUI.zip" .
     
     
     - name: Build Release ClientConsole
@@ -51,8 +51,8 @@ jobs:
       run: dotnet publish -c Release
 
     - name: Create ClientConsole zip
-      working-directory: ./ClientConsole/bin/Release/*/
-      run: zip -r "${GITHUB_WORKSPACE}/ClientConsole.zip" .
+      working-directory: ./ClientConsole/bin/Release/
+      run: cd "./*/publish" && zip -r "${GITHUB_WORKSPACE}/ClientConsole.zip" .
 
     - uses: actions/upload-artifact@v3
       with:
