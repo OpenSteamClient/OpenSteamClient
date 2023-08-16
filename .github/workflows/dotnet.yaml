@@ -43,7 +43,7 @@ jobs:
 
     - name: Create ClientUI zip
       working-directory: ./ClientUI/bin/Release/
-      run: cd "./*/publish" && zip -r "${GITHUB_WORKSPACE}/ClientUI.zip" .
+      run: sh -c 'cd ./*/publish && zip -r "${GITHUB_WORKSPACE}/ClientUI.zip" .'
     
     
     - name: Build Release ClientConsole
@@ -52,14 +52,16 @@ jobs:
 
     - name: Create ClientConsole zip
       working-directory: ./ClientConsole/bin/Release/
-      run: cd "./*/publish" && zip -r "${GITHUB_WORKSPACE}/ClientConsole.zip" .
+      run: sh -c 'cd ./*/publish && zip -r "${GITHUB_WORKSPACE}/ClientConsole.zip" .'
 
-    - uses: actions/upload-artifact@v3
+    - name: Add ClientUI artifact
+      uses: actions/upload-artifact@v3
       with:
         name: ClientUI
         path: ${GITHUB_WORKSPACE}/ClientUI.zip
     
-    - uses: actions/upload-artifact@v3
+    - name: Add ClientConsole artifact
+      uses: actions/upload-artifact@v3
       with:
         name: ClientConsole
         path: ${GITHUB_WORKSPACE}/ClientConsole.zip
