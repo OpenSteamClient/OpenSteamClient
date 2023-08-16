@@ -53,6 +53,8 @@ public partial class App : Application
 
     public void Exit(int exitCode = 0) {
         DIContainer?.Resolve<SteamClient>().Shutdown();
+        SteamService.Shutdown();
+        SteamHTML.Shutdown();
         ApplicationLifetime.Shutdown(exitCode);
     }
 }

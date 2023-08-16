@@ -40,13 +40,6 @@ public class ConfigManager : IHasStartupTasks
     [SupportedOSPlatform("linux")]
     public string DatalinkDir {
         get {
-            return Path.Combine(InstallDir, "datalink");
-        }
-    }
-
-    [SupportedOSPlatform("linux")]
-    public string DatalinkTargetDir {
-        get {
             return Path.Combine(HomeDir, ".steam");
         }
     }
@@ -82,7 +75,6 @@ public class ConfigManager : IHasStartupTasks
     }
     public ConfigManager() {
         Directory.CreateDirectory(InstallDir);
-        Directory.CreateDirectory(DatalinkDir);
         Directory.CreateDirectory(ConfigDir);
         Directory.CreateDirectory(LogsDir);
         Directory.CreateDirectory(CacheDir);

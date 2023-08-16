@@ -14,6 +14,7 @@ public static class SteamService {
     [SupportedOSPlatform("linux")]
     [SupportedOSPlatform("osx")]
     public static void StartServiceAsHost(string pathToHost) {
+        IsRunningInHost = true;
         CurrentServiceHost = new Process();
         CurrentServiceHost.StartInfo.WorkingDirectory = Path.GetDirectoryName(pathToHost);
         CurrentServiceHost.StartInfo.FileName = pathToHost;
@@ -42,6 +43,10 @@ public static class SteamService {
     }
 
     public static void StopService() {
+        ShouldStop = true;
+    }
+
+    public static void Shutdown() {
         ShouldStop = true;
     }
 }
