@@ -4,6 +4,7 @@ using Common.Config;
 using Common.Config.IO;
 using Common.Config.Serializers;
 using Common.Utils;
+using Common.Utils.OSSpecific;
 using OpenSteamworks;
 
 namespace Common.Managers;
@@ -29,7 +30,7 @@ public class ConfigManager : IHasStartupTasks
     public string ConfigDir {
         get {
             if (OperatingSystem.IsLinux()) {
-                return UtilityFunctions.GetXDGSpecPath("XDG_CONFIG_HOME", ".config", "OpenSteam/config");
+                return LinuxSpecifics.GetXDGSpecPath("XDG_CONFIG_HOME", ".config", "OpenSteam/config");
             } else {
                 return Path.Combine(InstallDir, "config");
             }
@@ -55,7 +56,7 @@ public class ConfigManager : IHasStartupTasks
     public string LogsDir {
         get {
             if (OperatingSystem.IsLinux()) {
-                return UtilityFunctions.GetXDGSpecPath("XDG_STATE_HOME", ".local/state", "OpenSteam/logs");
+                return LinuxSpecifics.GetXDGSpecPath("XDG_STATE_HOME", ".local/state", "OpenSteam/logs");
             } else {
                 return Path.Combine(InstallDir, "logs");
             }
@@ -64,7 +65,7 @@ public class ConfigManager : IHasStartupTasks
     public string CacheDir {
         get {
             if (OperatingSystem.IsLinux()) {
-                return UtilityFunctions.GetXDGSpecPath("XDG_CACHE_HOME", ".cache", "OpenSteam");
+                return LinuxSpecifics.GetXDGSpecPath("XDG_CACHE_HOME", ".cache", "OpenSteam");
             } else {
                 return Path.Combine(InstallDir, "cache");
             }

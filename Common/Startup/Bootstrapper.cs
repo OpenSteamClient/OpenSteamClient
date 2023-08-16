@@ -23,33 +23,12 @@ public class Bootstrapper {
     public const string BaseURL = "https://client-update.akamai.steamstatic.com/";
     public string SteamclientLibPath {
         get {
-            if (OperatingSystem.IsLinux()) {
-                return Path.Combine(MainBinaryDir, "steamclient.so");
-            }
-
-            if (OperatingSystem.IsWindows()) {
-                return Path.Combine(MainBinaryDir, "steamclient64.dll");
-            }
-
-            if (OperatingSystem.IsMacOS()) {
-                return Path.Combine(MainBinaryDir, "steamclient.dylib");
-            }
-
-            throw new Exception("Unsupported OS in SteamclientLibPath_get");
+            return Path.Combine(MainBinaryDir, OSSpecifics.Instance.SteamClientBinaryName);
         }
     }
     public string PlatformClientManifest {
         get {
-            string prefix = "steam_client_";
-            if (OperatingSystem.IsWindows()) {
-                return prefix + "win32";
-            } else if (OperatingSystem.IsLinux()) {
-                return prefix + "ubuntu12";
-            } else if (OperatingSystem.IsMacOS()) {
-                return prefix + "osx";
-            }
-            
-            throw new Exception("Unsupported platform");
+            return OSSpecifics.Instance.SteamClientManifestName;
         }
     }
     public string PackageDir => Path.Combine(configManager.InstallDir, "package");
@@ -93,7 +72,7 @@ public class Bootstrapper {
         return false;
     }
     private int RetryCount = 0;
-    Dictionary<string, string> downloadedPackages = new Dictionary<string, string>();
+    private Dictionary<string, string> downloadedPackages = new Dictionary<string, string>();
     public required ConfigManager configManager { protected get; init; }
     private bool restartRequired = false;
 
@@ -394,11 +373,28 @@ public class Bootstrapper {
                     continue;
                 }
 
+                string specialVersion = "";
+                dynamic packageToDownload = package;
+                if (OperatingSystem.IsWindowsVersionAtLeast(10)) {
+                    // Some packages have windows 10 versions
+                    if (package["win10-64"] != null) {
+                        specialVersion = "win10-64";
+                        packageToDownload = package["win10-64"];
+                    }
+                } else if (OperatingSystem.IsWindowsVersionAtLeast(7)) {
+                    // Some packages have windows 7 versions
+                    if (package["win7-64"] != null) {
+                        specialVersion = "win7-64";
+                        packageToDownload = package["win7-64"];
+                    }
+                } // There's also Windows 8 versions, but nobody uses W8 so it shouldn't be a problem
+                
 
-                string url = BaseURL + package["file"].ToString();
-                string sha2_expected = package["sha2"].ToString()!.ToUpperInvariant();
-                long size_expected = package["size"].ToInt64(default)!;
-                string saveLocation = Path.Combine(PackageDir, package["file"].ToString()!);
+
+                string url = BaseURL + (string)packageToDownload["file"];
+                string sha2_expected = ((string)packageToDownload["sha2"]).ToUpperInvariant();
+                long size_expected = (Int64)packageToDownload["size"];
+                string saveLocation = Path.Combine(PackageDir, (string)packageToDownload["file"]);
 
                 // Download the file if it doesn't exist
                 if (!File.Exists(saveLocation)) {
@@ -411,7 +407,7 @@ public class Bootstrapper {
                         // Create a file stream to store the downloaded data.
                         // This really can be any type of writeable stream.
                         using (var file = new FileStream(saveLocation, FileMode.Create, FileAccess.Write, FileShare.None)) {
-                            progressHandler.SetSubOperation($"Downloading {package.Name}");
+                            progressHandler.SetSubOperation($"Downloading {package.Name}{(string.IsNullOrEmpty(specialVersion) ? "" : ' ' + specialVersion)}");
                             // Use the custom extension method below to download the data.
                             // The passed progress-instance will receive the download status updates.
                             await client.DownloadAsync(url, file, progressHandler, size_expected, default);

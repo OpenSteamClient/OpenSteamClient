@@ -1,15 +1,18 @@
 using System.Diagnostics;
 using System.Runtime.Versioning;
+using System.ServiceProcess;
 
 namespace Common.Startup;
 
 public static class SteamService {
     public static bool ShouldStop = false;
-    public static bool IsRunningInHost = false;
+    public static bool IsRunningAsHost = false;
     public static Process? CurrentServiceHost;
+    public static ServiceController? CurrentWindowsService;
     public static Thread? WatcherThread;
 
-    [UnsupportedOSPlatform("windows")]
+    [SupportedOSPlatform("linux")]
+    [SupportedOSPlatform("osx")]
     public static void StartServiceAsHost(string pathToHost) {
         CurrentServiceHost = new Process();
         CurrentServiceHost.StartInfo.WorkingDirectory = Path.GetDirectoryName(pathToHost);
@@ -20,7 +23,8 @@ public static class SteamService {
             do
             {
                 if (CurrentServiceHost.HasExited) {
-                    Console.WriteLine("steamserviced crashed! Restarting.");
+                    Console.WriteLine("steamserviced crashed! Restarting in 1s.");
+                    System.Threading.Thread.Sleep(1000);
                     StartServiceAsHost(pathToHost);
                 }
                 System.Threading.Thread.Sleep(50);
@@ -34,6 +38,10 @@ public static class SteamService {
 
     [SupportedOSPlatform("windows")]
     public static void StartServiceAsWindowsService() {
-        throw new NotImplementedException();
+        //CurrentWindowsService = new ServiceController("Steam Client Service");
+    }
+
+    public static void StopService() {
+        ShouldStop = true;
     }
 }

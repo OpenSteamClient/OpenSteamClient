@@ -24,11 +24,7 @@ public static class GitInfo
 }
   ]]></GitInfoLines>
     </PropertyGroup>
-    <WriteLinesToFile
-            File="$(OutputPath)/GitInfo.g.cs"
-            Lines="$(GitInfoLines)"
-            Overwrite="true"
-            Encoding="Unicode"/>
+    <WriteLinesToFile File="$(OutputPath)/GitInfo.g.cs" Lines="$(GitInfoLines)" Overwrite="true" Encoding="Unicode" />
 
     <ItemGroup>
       <Compile Include="$(OutputPath)/GitInfo.g.cs" />
@@ -39,6 +35,7 @@ public static class GitInfo
   <ItemGroup>
     <PackageReference Include="Autofac" Version="7.0.1" />
     <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="7.0.8" />
+    <PackageReference Include="System.ServiceProcess.ServiceController" Version="7.0.1" />
     <PackageReference Include="ValveKeyValue" Version="0.9.0.267" />
   </ItemGroup>
 
