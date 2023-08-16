@@ -10,6 +10,7 @@ on:
       - "**.cpp"
       - "**.h"
       - "**.hpp"
+      - ",github/workflows/dotnet.yaml"
   pull_request:
 
 jobs:
