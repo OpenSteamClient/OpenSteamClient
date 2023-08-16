@@ -11,7 +11,22 @@ typedef unsigned long long    undefined8;
 
 struct HTMLOptions
 {
-	
+	char * cachedir;
+    uint universe;
+    int field2_0x8;
+    undefined4 language;
+    int uimode;
+    undefined field5_0x14;
+    undefined argsFlags;
+    undefined field7_0x16;
+    undefined field8_0x17;
+    undefined **field9_0x18;
+    int field10_0x1c;
+    undefined field11_0x20;
+    undefined field12_0x21;
+    uint field13_0x22;
+    uint field14_0x26;
+    uint field15_0x30;
 };
 
 //-----------------------------------------------------------------------------
@@ -24,7 +39,7 @@ struct HTMLCommandBuffer_t
 	CUtlBuffer m_Buffer;
 
     HTMLCommandBuffer_t() : m_Buffer(1, 256, 0) {
-
+        
     }
 };
 
@@ -45,7 +60,6 @@ struct StructThatHasCallback {
 class IHTMLChromeController
 {
 public:
-    
     virtual void Destructor() = 0;
     virtual void Destructor2() = 0;
 	virtual void SetOptions(HTMLOptions*) = 0;
@@ -68,7 +82,7 @@ public:
 	virtual int CreateVRBrowser() = 0;
 	virtual int CreateBrowser2(char* param_1,char *param_3,char *param_4, undefined4 param_5, undefined4 param_6, undefined4 param_7, undefined4 param_8) = 0;
 	virtual void SerializeFUN_0003e2b0(int handle) = 0;
-	virtual void AssertFUN_0002e680(undefined4 unk1, undefined4 unk2) = 0;
+	virtual HTMLCommandBuffer_t *PackHTMLMessage(EHTMLCommands command, int iBrowser) = 0;
 	virtual void PushCommand(HTMLCommandBuffer_t*) = 0;
 	virtual void FUN_0002e6e0() = 0;
 	virtual int ReadsEnvSTEAMVIDEOTOKEN() = 0;

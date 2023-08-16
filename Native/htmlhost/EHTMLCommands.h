@@ -99,6 +99,6 @@ enum EHTMLCommands
 	eHTMLCommands_SavePageToJPEGResponse,
 	eHTMLCommands_GetFocusedNodeValueResponse,
 
-	eHTMLCommands_None,
+	eHTMLCommands_None = 161,
 
 };
