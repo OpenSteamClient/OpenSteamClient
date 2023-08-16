@@ -14,7 +14,7 @@ public static class SteamService {
     [SupportedOSPlatform("linux")]
     [SupportedOSPlatform("osx")]
     public static void StartServiceAsHost(string pathToHost) {
-        IsRunningInHost = true;
+        IsRunningAsHost = true;
         CurrentServiceHost = new Process();
         CurrentServiceHost.StartInfo.WorkingDirectory = Path.GetDirectoryName(pathToHost);
         CurrentServiceHost.StartInfo.FileName = pathToHost;
