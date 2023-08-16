@@ -58,10 +58,10 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: ClientUI
-        path: ${GITHUB_WORKSPACE}/ClientUI.zip
+        path: ${{ github.workspace }}/ClientUI.zip
     
     - name: Add ClientConsole artifact
       uses: actions/upload-artifact@v3
       with:
         name: ClientConsole
-        path: ${GITHUB_WORKSPACE}/ClientConsole.zip
+        path: ${{ github.workspace }}/ClientConsole.zip
