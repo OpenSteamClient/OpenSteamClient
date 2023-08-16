@@ -7,6 +7,7 @@
 //=============================================================================
 
 using System;
+using System.Text;
 using OpenSteamworks.Enums;
 using OpenSteamworks.Structs;
 
@@ -149,14 +150,10 @@ public unsafe interface IClientAppManager
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret BIsLocalMultiplayerApp();  // argc: 1, index: 74
     public unknown_ret GetNumLibraryFolders();  // argc: 0, index: 75
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret GetLibraryFolderPath();  // argc: 3, index: 76
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret AddLibraryFolder();  // argc: 1, index: 77
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret SetLibraryFolderLabel();  // argc: 2, index: 78
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret GetLibraryFolderLabel();  // argc: 3, index: 79
+    public unknown_ret GetLibraryFolderPath(LibraryFolder_t folder, StringBuilder outPath, int outPathMaxLength);  // argc: 3, index: 76
+    public unknown_ret AddLibraryFolder(string folderPath);  // argc: 1, index: 77
+    public unknown_ret SetLibraryFolderLabel(LibraryFolder_t folder, string label);  // argc: 2, index: 78
+    public unknown_ret GetLibraryFolderLabel(LibraryFolder_t folder, StringBuilder outLabel, int outLabelMaxLength);  // argc: 3, index: 79
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret RemoveLibraryFolder();  // argc: 3, index: 80
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!

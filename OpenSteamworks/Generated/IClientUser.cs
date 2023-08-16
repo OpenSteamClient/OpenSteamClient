@@ -9,6 +9,7 @@
 using System;
 using OpenSteamworks.Structs;
 using OpenSteamworks.Enums;
+using System.Text;
 
 namespace OpenSteamworks.Generated;
 
@@ -103,7 +104,7 @@ public unsafe interface IClientUser
     public unknown_ret SetAccountNameForCachedCredentialLogin(string username, bool unk1);  // argc: 2, index: 52
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret DestroyCachedCredentials();  // argc: 2, index: 53
-    public bool GetCurrentWebAuthToken(StrPtr tokenOut, UInt32 bufSize);  // argc: 2, index: 54
+    public bool GetCurrentWebAuthToken(StringBuilder tokenOut, UInt32 bufSize);  // argc: 2, index: 54
     public unknown_ret RequestWebAuthToken();  // argc: 0, index: 55
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret SetLoginInformation(string username, string password, bool remember);  // argc: 3, index: 56
@@ -149,7 +150,7 @@ public unsafe interface IClientUser
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret GetUserConfigFolder();  // argc: 2, index: 79
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret GetAccountName(StrPtr usernameOut, uint strMaxLen);  // argc: 2, index: 80
+    public unknown_ret GetAccountName(StringBuilder usernameOut, uint strMaxLen);  // argc: 2, index: 80
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret GetAccountName();  // argc: 4, index: 81
     public unknown_ret IsPasswordRemembered();  // argc: 0, index: 82

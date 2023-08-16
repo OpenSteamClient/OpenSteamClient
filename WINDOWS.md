@@ -1,0 +1,2 @@
+# Windows support status
+steamclient currently complains about not being able to load SDL3.dll. It is a 32-bit dll so we'd need to recompile it. It's not critical, but controller support is probably broken.

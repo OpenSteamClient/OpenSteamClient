@@ -1,4 +1,5 @@
 using System;
+using System.Text;
 using System.IO;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -115,19 +116,21 @@ public class SteamClient
 
         Console.WriteLine("Logged on: " + this.NativeClient.IClientUser.BConnected());
 
-        string username = "";
-        using (NativeString str = NativeString.Allocate(1024)) {
-            this.NativeClient.IClientUser.GetAccountName(str.c_str, str.size);
-            str.CopyTo(out username);
+        string username;
+        {
+            StringBuilder sb = new StringBuilder("", 1024);
+            this.NativeClient.IClientUser.GetAccountName(sb, (uint)sb.Length);
+            username = sb.ToString();
         }
 
         Console.WriteLine("Username: " + username);
         Console.WriteLine("HasCachedCredentials: " + this.NativeClient.IClientUser.BHasCachedCredentials(username));
 
-        string token = "";
-        using (NativeString str = NativeString.Allocate(1024)) {
-            this.NativeClient.IClientUser.GetCurrentWebAuthToken(str.c_str, str.size);
-            str.CopyTo(out token);
+        string token;
+        {
+            StringBuilder sb = new StringBuilder("", 1024);
+            this.NativeClient.IClientUser.GetCurrentWebAuthToken(sb, (uint)sb.Length);
+            token = sb.ToString();
         }
 
         
