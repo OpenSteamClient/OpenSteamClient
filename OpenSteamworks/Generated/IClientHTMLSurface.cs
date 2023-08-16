@@ -19,10 +19,10 @@ public unsafe interface IClientHTMLSurface
     public unknown_ret Unknown_1_DONTUSE();
     public unknown_ret Init();
     public unknown_ret Shutdown();
-    public HHTMLBrowser CreateBrowser(string unk1, string unk2);
+    public HHTMLBrowser CreateBrowser(string userAgent, string customCSS);
     public unknown_ret RemoveBrowser(HHTMLBrowser handle);
-    public unknown_ret AllowStartRequest(HHTMLBrowser handle, bool unk2);
-    public unknown_ret LoadURL(HHTMLBrowser handle, string unk2, string unk3);
+    public unknown_ret AllowStartRequest(HHTMLBrowser handle, bool allow);
+    public unknown_ret LoadURL(HHTMLBrowser handle, string url, string postRequest = "");
     public unknown_ret SetSize(HHTMLBrowser handle, UInt32 unk2, UInt32 unk3);
     public unknown_ret StopLoad(HHTMLBrowser handle);
     public unknown_ret Reload(HHTMLBrowser handle);
