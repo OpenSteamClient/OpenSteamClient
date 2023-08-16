@@ -16,6 +16,8 @@ internal class CommonAutofacRegistrar : IAutofacRegistrar
 
         builder.RegisterType<LoginManager>().As<IHasStartupTasks>().AsSelf().PropertiesAutowired().SingleInstance();
         builder.RegisterType<AppsManager>().As<IHasStartupTasks>().AsSelf().PropertiesAutowired().SingleInstance();
+        builder.RegisterType<SteamHTML>().As<IHasStartupTasks>().AsSelf().PropertiesAutowired().SingleInstance();
+        builder.RegisterType<SteamService>().As<IHasStartupTasks>().AsSelf().PropertiesAutowired().SingleInstance();
     }   
     public static void RegisterPreBootstrap(ref ContainerBuilder builder) {
         builder.RegisterType<ConfigManager>().As<IHasStartupTasks>().AsSelf().PropertiesAutowired().SingleInstance();

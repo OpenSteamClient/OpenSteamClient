@@ -1,19 +1,24 @@
 using System.Diagnostics;
 using System.Runtime.Versioning;
 using System.ServiceProcess;
+using Common.Autofac;
+using Common.Managers;
+using OpenSteamworks;
 
 namespace Common.Startup;
 
-public static class SteamService {
-    public static bool ShouldStop = false;
-    public static bool IsRunningAsHost = false;
-    public static Process? CurrentServiceHost;
-    public static ServiceController? CurrentWindowsService;
-    public static Thread? WatcherThread;
+public class SteamService : IHasStartupTasks {
+    public bool ShouldStop = false;
+    public bool IsRunningAsHost = false;
+    public Process? CurrentServiceHost;
+    public ServiceController? CurrentWindowsService;
+    public Thread? WatcherThread;
+    public required SteamClient steamClient { protected get; init; }
+    public required ConfigManager configManager { protected get; init; }
 
     [SupportedOSPlatform("linux")]
     [SupportedOSPlatform("osx")]
-    public static void StartServiceAsHost(string pathToHost) {
+    public void StartServiceAsHost(string pathToHost) {
         IsRunningAsHost = true;
         CurrentServiceHost = new Process();
         CurrentServiceHost.StartInfo.WorkingDirectory = Path.GetDirectoryName(pathToHost);
@@ -38,15 +43,37 @@ public static class SteamService {
     }
 
     [SupportedOSPlatform("windows")]
-    public static void StartServiceAsWindowsService() {
+    public void StartServiceAsWindowsService() {
         //CurrentWindowsService = new ServiceController("Steam Client Service");
     }
 
-    public static void StopService() {
+    public void StopService() {
         ShouldStop = true;
     }
 
-    public static void Shutdown() {
+    public void Shutdown() {
         ShouldStop = true;
+    }
+
+    void IHasStartupTasks.RunStartup()
+    {
+        if (steamClient.NativeClient.ConnectedWith == SteamClient.ConnectionType.NewClient) {
+            if (OperatingSystem.IsLinux()) {
+                try
+                {
+                    File.Copy(Path.Combine(configManager.InstallDir, "libbootstrappershim32.so"), "/tmp/libbootstrappershim32.so", true);
+                    File.Copy(Path.Combine(configManager.InstallDir, "libhtmlhost_fakepid.so"), "/tmp/libhtmlhost_fakepid.so", true);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Failed to copy " + Path.Combine(configManager.InstallDir, "libbootstrappershim32.so") + " to /tmp/libbootstrappershim32.so: " + e.ToString());
+                }
+                
+                this.StartServiceAsHost(Path.Combine(configManager.InstallDir, "steamserviced"));
+            }
+            if (OperatingSystem.IsWindows()) {
+                this.StartServiceAsWindowsService();
+            }
+        }
     }
 }

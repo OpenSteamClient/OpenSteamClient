@@ -30,7 +30,7 @@ public static class StartupController {
 }
 
 internal class StartupTasksRunner {
-    IEnumerable<IHasStartupTasks> tasks;
+    private IEnumerable<IHasStartupTasks> tasks;
     public StartupTasksRunner(IEnumerable<IHasStartupTasks> tasks) {
         this.tasks = tasks;
     }

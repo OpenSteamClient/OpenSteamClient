@@ -99,6 +99,9 @@ public class Bootstrapper {
 
         if (OperatingSystem.IsLinux())
         {
+            // Make ourselves XDG compliant
+            MakeXDGCompliant();
+
             // Process the Steam runtime (needed for SteamVR and some tools steam ships with)
             await CheckSteamRuntime(progressHandler);
 
@@ -148,9 +151,9 @@ public class Bootstrapper {
                 }
 
                 File.WriteAllText(Path.Combine(configManager.DatalinkDir, "steam.pid"), Environment.ProcessId.ToString());
-            }
 
-            MakeXDGCompliant();
+
+            }
         }
             
         progressHandler.SetOperation($"Finalizing");
@@ -173,26 +176,6 @@ public class Bootstrapper {
 
         progressHandler.SetOperation("Bootstrapping Completed" + (restartRequired ? ", restarting" : ""));
 
-        if (!restartRequired) {
-            if (OperatingSystem.IsLinux()) {
-                SteamService.StartServiceAsHost(Path.Combine(configManager.InstallDir, "steamserviced"));
-                try
-                {
-                    File.Copy(Path.Combine(configManager.InstallDir, "libbootstrappershim32.so"), "/tmp/libbootstrappershim32.so", true);
-                    File.Copy(Path.Combine(configManager.InstallDir, "libhtmlhost_fakepid.so"), "/tmp/libhtmlhost_fakepid.so", true);
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine("Failed to copy " + Path.Combine(configManager.InstallDir, "libbootstrappershim32.so") + " to /tmp/libbootstrappershim32.so: " + e.ToString());
-                }
-                
-                SteamHTML.StartHTMLHost(Path.Combine(configManager.InstallDir, "ubuntu12_32", "htmlhost"), Path.Combine(configManager.InstallDir, "appcache", "htmlcache"));
-            }
-
-            if (OperatingSystem.IsWindows()) {
-                SteamService.StartServiceAsWindowsService();
-            }
-        }
         await RestartIfNeeded(progressHandler);
     }
 

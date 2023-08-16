@@ -1,15 +1,20 @@
 using System.Diagnostics;
 using System.Runtime.Versioning;
+using Common.Autofac;
+using Common.Managers;
+using OpenSteamworks;
 
 namespace Common.Startup;
 
-public static class SteamHTML {
-    public static bool ShouldStop = false;
-    public static Process? CurrentHTMLHost;
-    public static Thread? WatcherThread;
+public class SteamHTML : IHasStartupTasks {
+    public bool ShouldStop = false;
+    public Process? CurrentHTMLHost;
+    public Thread? WatcherThread;
+    public required SteamClient steamClient { protected get; init; }
+    public required ConfigManager configManager { protected get; init; }
 
     [SupportedOSPlatform("linux")]
-    public static void StartHTMLHost(string pathToHost, string cacheDir) {
+    public void StartHTMLHost(string pathToHost, string cacheDir) {
         CurrentHTMLHost = new Process();
         CurrentHTMLHost.StartInfo.WorkingDirectory = Path.GetDirectoryName(pathToHost);
         CurrentHTMLHost.StartInfo.FileName = pathToHost;
@@ -41,7 +46,26 @@ public static class SteamHTML {
         
     }
 
-    public static void Shutdown() {
+    public void Shutdown() {
         ShouldStop = true;
+    }
+
+    void IHasStartupTasks.RunStartup()
+    {
+        if (steamClient.NativeClient.ConnectedWith == SteamClient.ConnectionType.NewClient) {
+            if (OperatingSystem.IsLinux()) {
+                try
+                {
+                    File.Copy(Path.Combine(configManager.InstallDir, "libbootstrappershim32.so"), "/tmp/libbootstrappershim32.so", true);
+                    File.Copy(Path.Combine(configManager.InstallDir, "libhtmlhost_fakepid.so"), "/tmp/libhtmlhost_fakepid.so", true);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Failed to copy " + Path.Combine(configManager.InstallDir, "libbootstrappershim32.so") + " to /tmp/libbootstrappershim32.so: " + e.ToString());
+                }
+                
+                this.StartHTMLHost(Path.Combine(configManager.InstallDir, "ubuntu12_32", "htmlhost"), Path.Combine(configManager.InstallDir, "appcache", "htmlcache"));
+            }
+        }
     }
 }
