@@ -31,7 +31,7 @@ jobs:
     - name: Install build dependencies
       run: | 
         sudo apt-get update
-        sudo apt-get install -y gcc-multilib g++-multilib wine mingw-w64
+        sudo apt-get install -y gcc-multilib g++-multilib mingw-w64
     
     # No need to set up anything else as ubuntu-latest already contains everything we need for a linux-only build
     # In .NET 8 they're gonna make publishing less bad by allowing all projects to be built to one folder without hacks, so improve build scripts then
