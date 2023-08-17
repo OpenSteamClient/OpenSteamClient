@@ -1,0 +1,9 @@
+{
+    "Language": 15,
+    "LanguageFriendlyName": "Finnish",
+    "TranslationKeys": [
+        ["#MainWindow_DBG_OpenInterfaceList", "Avaa rajapintalista"],
+        ["#LoginWindow_LoginText", "Kirjaudu Steam-tilillä."],
+        ["#LoginWindow_AccountCreationUnsupported", "Tilin luominen ei ole tällä hetkellä mahdollista. Mene osoitteeseen {0} luodaaksesi tilin."]
+    ]
+}

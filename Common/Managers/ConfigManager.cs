@@ -13,6 +13,7 @@ public class ConfigManager : IHasStartupTasks
 {
     private SteamClient? steamClient;
     public AdvancedConfig AdvancedConfig { get; set; }
+    public GlobalSettings GlobalSettings { get; set; }
     internal BootstrapperState BootstrapperState { get; set; }
 
     public string InstallDir {
@@ -66,6 +67,7 @@ public class ConfigManager : IHasStartupTasks
     }
     private string AdvancedConfigPath => Path.Combine(ConfigDir, "AdvancedConfig.json");
     private string BootstrapperStatePath => Path.Combine(ConfigDir, "BootstrapperState.json");
+    private string GlobalSettingsPath => Path.Combine(ConfigDir, "GlobalSettings.json");
     private readonly ConfigSerializerJSON jsonSerializer = new();
 
     private static ConfigIOFile CreateSimpleConfigIOFile(string path) {
@@ -81,6 +83,7 @@ public class ConfigManager : IHasStartupTasks
         
         this.AdvancedConfig = AdvancedConfig.LoadWithOrCreate(jsonSerializer, CreateSimpleConfigIOFile(AdvancedConfigPath));
         this.BootstrapperState = BootstrapperState.LoadWithOrCreate(jsonSerializer, CreateSimpleConfigIOFile(BootstrapperStatePath));
+        this.GlobalSettings = GlobalSettings.LoadWithOrCreate(jsonSerializer, CreateSimpleConfigIOFile(GlobalSettingsPath));
     }
     public void FlushToDisk() {
         this.AdvancedConfig.Save();

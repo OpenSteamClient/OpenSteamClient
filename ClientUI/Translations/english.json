@@ -1,0 +1,9 @@
+{
+    "Language": 0,
+    "LanguageFriendlyName": "English",
+    "TranslationKeys": [
+        ["#MainWindow_DBG_OpenInterfaceList", "Open interface list"],
+        ["#LoginWindow_LoginText", "Login with a Steam account."],
+        ["#LoginWindow_AccountCreationUnsupported", "Account creation is currently unsupported. Go to {0} to create an account."]
+    ]
+}

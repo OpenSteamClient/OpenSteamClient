@@ -16,5 +16,8 @@
         <vm:LoginWindowViewModel/>
     </Design.DataContext>
 
+    <StackPanel>
+        <!-- <TextBlock TranslationKey="#LoginWindow_LoginText" Text="{Binding GetTranslation}" HorizontalAlignment="Center" VerticalAlignment="Center"/> -->
+    </StackPanel>
     
 </Window>

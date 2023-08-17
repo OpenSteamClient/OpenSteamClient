@@ -91,7 +91,7 @@ public unsafe interface IClientUser
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret RequestStoreAuthURL();  // argc: 1, index: 45
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret SetLanguage();  // argc: 1, index: 46
+    public unknown_ret SetLanguage(string language);  // argc: 1, index: 46
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret TrackAppUsageEvent();  // argc: 3, index: 47
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
