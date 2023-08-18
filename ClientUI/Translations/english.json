@@ -1,9 +1,14 @@
 {
     "Language": 0,
     "LanguageFriendlyName": "English",
-    "TranslationKeys": [
-        ["#MainWindow_DBG_OpenInterfaceList", "Open interface list"],
-        ["#LoginWindow_LoginText", "Login with a Steam account."],
-        ["#LoginWindow_AccountCreationUnsupported", "Account creation is currently unsupported. Go to {0} to create an account."]
-    ]
+    "TranslationKeys": {
+        "#SettingsWindow_YourCurrentLanguage": "Your current language is {0} ({1})",
+        "#LanguageNameTranslated": "English",
+        "#InterfaceList_Title": "Interface list",
+        "#MainWindow_DBG_OpenInterfaceList": "Open interface list",
+        "#LoginWindow_LoginText": "Login with a Steam account.",
+        "#Username": "Username",
+        "#Password": "Password",
+        "#LoginWindow_AccountCreationUnsupported": "Account creation in app is currently unsupported. Go to {0} to create an account."
+    }
 }

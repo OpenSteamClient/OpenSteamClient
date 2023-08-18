@@ -1,6 +1,7 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:vm="using:ClientUI.ViewModels"
+        xmlns:c="using:ClientUI.Controls"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
@@ -16,10 +17,11 @@
     </Design.DataContext>
 
     <StackPanel>
-        <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Button Command="{Binding GetTranslation}">Click me to crash!</Button>
+        <TextBlock c:Translatable.TranslationKey="#LoginWindow_LoginText" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Button Command="{Binding DBG_Crash}">Click me to crash!</Button>
         <Button Command="{Binding DBG_LaunchFactorio}">Launch Factorio (linux only)</Button>
-        <Button Command="{Binding DBG_OpenInterfaceList}">Open InterfaceList</Button>
+        <Button c:Translatable.TranslationKey="#MainWindow_DBG_OpenInterfaceList" Command="{Binding DBG_OpenInterfaceList}"></Button>
+        <Button Command="{Binding DBG_ChangeLanguage}">Change Language</Button>
     </StackPanel>
     
 </Window>

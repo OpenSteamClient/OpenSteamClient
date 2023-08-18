@@ -9,6 +9,6 @@ public class ClientUIAutofacRegistrar : IAutofacRegistrar
 {
     public static void Register(ref ContainerBuilder builder)
     {
-        builder.RegisterType<TranslationManager>().As<IHasStartupTasks>().PropertiesAutowired().SingleInstance();
+        builder.RegisterType<TranslationManager>().As<IHasStartupTasks>().AsSelf().PropertiesAutowired().SingleInstance();
     }
 }

@@ -1,7 +1,13 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Text.Json;
+using Avalonia;
+using Avalonia.Controls;
+using Avalonia.LogicalTree;
+using Avalonia.VisualTree;
+using ClientUI.Extensions;
 using Common.Autofac;
 using Common.Managers;
 using OpenSteamworks;
@@ -10,22 +16,39 @@ using OpenSteamworks.Enums;
 namespace ClientUI.Translation;
 
 public class Translation {
-    public ELanguage Language = ELanguage.None;
-    public string LanguageFriendlyName = "";
-    public Dictionary<string, string> TranslationKeys = new();
+    public ELanguage Language { get; set; } = ELanguage.None;
+    public string LanguageFriendlyName { get; set; } = "";
+    public Dictionary<string, string> TranslationKeys { get; set; } = new();
 }
 
 public class TranslationManager : IHasStartupTasks {
     public required SteamClient steamClient { protected get; init; }
     public required ConfigManager configManager { protected get; init; }
-    public Translation? CurrentTranslation;
+    public Translation CurrentTranslation = new Translation();
+    private List<Visual> RefreshableVisuals = new();
     public void SetLanguage(ELanguage language) {
         var lang = ELanguageToString(language);
         if (lang == null) {
             throw new ArgumentException($"Language {language} was not valid.");
         }
+
         steamClient.NativeClient.IClientUser.SetLanguage(lang);
         CurrentTranslation = GetForLanguage(language);
+        foreach (var visual in RefreshableVisuals)
+        {
+            TranslateVisual(visual);
+        }
+
+        configManager.GlobalSettings.Language = language;
+    }
+
+    public string GetTranslationForKey(string key) {
+        this.CurrentTranslation.TranslationKeys.TryGetValue(key, out string? val);
+        if (val == null) {
+            throw new ArgumentException("Key " + key + " is not valid or not specified in current translation.");
+        }
+        
+        return val;
     }
     
     private Translation GetForLanguage(ELanguage language) {
@@ -34,9 +57,37 @@ public class TranslationManager : IHasStartupTasks {
             throw new ArgumentOutOfRangeException("Invalid ELanguage " + language + " specified.");
         }
 
-        string fullPath = Path.Combine(configManager.InstallDir, "Translations", filename+".json");
-        return Common.Utils.UtilityFunctions.AssertNotNull(JsonSerializer.Deserialize<Translation>(fullPath));
+        string fullPath = Path.Combine(configManager.AssemblyDirectory, "Translations", filename+".json");
+        return Common.Utils.UtilityFunctions.AssertNotNull(JsonSerializer.Deserialize<Translation>(File.ReadAllText(fullPath)));
     } 
+
+    public void TranslateVisual(Visual visual) {
+        if (!RefreshableVisuals.Contains(visual)) {
+            RefreshableVisuals.Add(visual);
+        }
+        
+        foreach (var vis in visual.GetAllVisualChildrenTree())
+        {
+            string? translationKey = (string?)(vis[Controls.Translatable.TranslationKeyProperty]);
+            if (!string.IsNullOrEmpty(translationKey)) {
+                string translatedText = "TRANSLATION FAILED";
+                if (!this.CurrentTranslation.TranslationKeys.ContainsKey(translationKey)) {
+                    Console.WriteLine("Cannot translate " + translationKey + ", no key!");
+                } else {
+                    translatedText = this.CurrentTranslation.TranslationKeys[translationKey];
+                }
+
+                // Window eventually inherits from ContentControl. We don't want to override a window's content...
+                if (vis is Window) {
+                    (vis as Window)!.Title = translatedText;
+                } else if (vis is ContentControl) {
+                    (vis as ContentControl)!.Content = translatedText;
+                } else if (vis is TextBlock) {
+                    (vis as TextBlock)!.Text = translatedText;
+                }
+            }
+        }
+    }
 
     public static string? ELanguageToString(ELanguage lang) {
         switch (lang)

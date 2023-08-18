@@ -1,3 +1,4 @@
+using System.Reflection;
 using System.Runtime.Versioning;
 using Common.Autofac;
 using Common.Config;
@@ -14,6 +15,7 @@ public class ConfigManager : IHasStartupTasks
     private SteamClient? steamClient;
     public AdvancedConfig AdvancedConfig { get; set; }
     public GlobalSettings GlobalSettings { get; set; }
+    public LoginUsers LoginUsers { get; set; }
     internal BootstrapperState BootstrapperState { get; set; }
 
     public string InstallDir {
@@ -65,9 +67,11 @@ public class ConfigManager : IHasStartupTasks
             }
         }
     }
+    public readonly string AssemblyDirectory;
     private string AdvancedConfigPath => Path.Combine(ConfigDir, "AdvancedConfig.json");
     private string BootstrapperStatePath => Path.Combine(ConfigDir, "BootstrapperState.json");
     private string GlobalSettingsPath => Path.Combine(ConfigDir, "GlobalSettings.json");
+    private string LoginUsersPath => Path.Combine(ConfigDir, "LoginUsers.json");
     private readonly ConfigSerializerJSON jsonSerializer = new();
 
     private static ConfigIOFile CreateSimpleConfigIOFile(string path) {
@@ -76,6 +80,8 @@ public class ConfigManager : IHasStartupTasks
         };
     }
     public ConfigManager() {
+        AssemblyDirectory = Common.Utils.UtilityFunctions.AssertNotNull(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location));
+        
         Directory.CreateDirectory(InstallDir);
         Directory.CreateDirectory(ConfigDir);
         Directory.CreateDirectory(LogsDir);
@@ -84,10 +90,13 @@ public class ConfigManager : IHasStartupTasks
         this.AdvancedConfig = AdvancedConfig.LoadWithOrCreate(jsonSerializer, CreateSimpleConfigIOFile(AdvancedConfigPath));
         this.BootstrapperState = BootstrapperState.LoadWithOrCreate(jsonSerializer, CreateSimpleConfigIOFile(BootstrapperStatePath));
         this.GlobalSettings = GlobalSettings.LoadWithOrCreate(jsonSerializer, CreateSimpleConfigIOFile(GlobalSettingsPath));
+        this.LoginUsers = LoginUsers.LoadWithOrCreate(jsonSerializer, CreateSimpleConfigIOFile(LoginUsersPath));
     }
     public void FlushToDisk() {
         this.AdvancedConfig.Save();
         this.BootstrapperState.Save();
+        this.GlobalSettings.Save();
+        this.LoginUsers.Save();
         steamClient?.ClientConfigStore.FlushToDisk();
     }
     public void SetClient(SteamClient client) {

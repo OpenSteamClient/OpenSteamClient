@@ -146,7 +146,8 @@ public partial class InterfaceDebugger : Window
     }
 
     private object GetInterfaceImpl(Type iface) {
-        var client = App.DIContainer!.Resolve<SteamClient>();
+        var client = App.DIContainer?.Resolve<SteamClient>();
+        Common.Utils.UtilityFunctions.AssertNotNull(client);
         var jitAssembly = GetJITAssembly();
         var implementorFields = typeof(OpenSteamworks.Native.ClientNative).GetFields().Where(f => f.FieldType == iface);
         if (implementorFields.Count() == 0) {

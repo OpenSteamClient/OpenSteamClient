@@ -6,6 +6,7 @@ using Avalonia.Markup.Xaml;
 using ClientUI.ViewModels;
 using ClientUI.Views;
 using Common;
+using Common.Managers;
 using Common.Startup;
 using Common.Utils;
 using OpenSteamworks;
@@ -52,6 +53,7 @@ public partial class App : Application
     }
 
     public void Exit(int exitCode = 0) {
+        DIContainer?.Resolve<ConfigManager>().FlushToDisk();
         DIContainer?.Resolve<SteamClient>().Shutdown();
         DIContainer?.Resolve<SteamHTML>().Shutdown();
         DIContainer?.Resolve<SteamService>().Shutdown();

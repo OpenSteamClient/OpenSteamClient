@@ -57,23 +57,30 @@ public class SteamService : IHasStartupTasks {
 
     void IHasStartupTasks.RunStartup()
     {
-        if (steamClient.NativeClient.ConnectedWith == SteamClient.ConnectionType.NewClient) {
-            if (OperatingSystem.IsLinux()) {
-                try
-                {
-                    File.Copy(Path.Combine(configManager.InstallDir, "libbootstrappershim32.so"), "/tmp/libbootstrappershim32.so", true);
-                    File.Copy(Path.Combine(configManager.InstallDir, "libhtmlhost_fakepid.so"), "/tmp/libhtmlhost_fakepid.so", true);
+        if (configManager.AdvancedConfig.EnableSteamService) {
+            if (steamClient.NativeClient.ConnectedWith == SteamClient.ConnectionType.NewClient) {
+                if (OperatingSystem.IsLinux()) {
+                    try
+                    {
+                        File.Copy(Path.Combine(configManager.InstallDir, "libbootstrappershim32.so"), "/tmp/libbootstrappershim32.so", true);
+                        File.Copy(Path.Combine(configManager.InstallDir, "libhtmlhost_fakepid.so"), "/tmp/libhtmlhost_fakepid.so", true);
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine("Failed to copy " + Path.Combine(configManager.InstallDir, "libbootstrappershim32.so") + " to /tmp/libbootstrappershim32.so: " + e.ToString());
+                    }
+                    
+                    this.StartServiceAsHost(Path.Combine(configManager.InstallDir, "steamserviced"));
+                } else if (OperatingSystem.IsWindows()) {
+                    this.StartServiceAsWindowsService();
+                } else {
+                    Console.WriteLine("Not running Steam Service due to unsupported OS");
                 }
-                catch (Exception e)
-                {
-                    Console.WriteLine("Failed to copy " + Path.Combine(configManager.InstallDir, "libbootstrappershim32.so") + " to /tmp/libbootstrappershim32.so: " + e.ToString());
-                }
-                
-                this.StartServiceAsHost(Path.Combine(configManager.InstallDir, "steamserviced"));
+            } else {
+                Console.WriteLine("Not running Steam Service due to existing client");
             }
-            if (OperatingSystem.IsWindows()) {
-                this.StartServiceAsWindowsService();
-            }
+        } else {
+            Console.WriteLine("Not running Steam Service due to user preference");
         }
     }
 }

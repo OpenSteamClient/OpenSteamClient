@@ -1,9 +1,14 @@
 {
     "Language": 15,
     "LanguageFriendlyName": "Finnish",
-    "TranslationKeys": [
-        ["#MainWindow_DBG_OpenInterfaceList", "Avaa rajapintalista"],
-        ["#LoginWindow_LoginText", "Kirjaudu Steam-tilillä."],
-        ["#LoginWindow_AccountCreationUnsupported", "Tilin luominen ei ole tällä hetkellä mahdollista. Mene osoitteeseen {0} luodaaksesi tilin."]
-    ]
+    "TranslationKeys": {
+        "#SettingsWindow_YourCurrentLanguage": "Tämänhetkinen kielesi on {0} ({1})",
+        "#LanguageNameTranslated": "Suomi",
+        "#InterfaceList_Title": "Rajapintalista",
+        "#MainWindow_DBG_OpenInterfaceList": "Avaa rajapintalista",
+        "#LoginWindow_LoginText": "Kirjaudu Steam-tilillä.",
+        "#Username": "Käyttäjätunnus",
+        "#Password": "Salasana",
+        "#LoginWindow_AccountCreationUnsupported": "Tilin luominen ei ole tällä hetkellä mahdollista sovelluksesta. Mene osoitteeseen {0} luodaaksesi tilin."
+    }
 }

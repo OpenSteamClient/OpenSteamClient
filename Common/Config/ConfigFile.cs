@@ -12,10 +12,14 @@ public abstract class ConfigFile<T> where T : ConfigFile<T>, new() {
         deserialized.serializer = serializer;
         return deserialized;
     }
-    public static T LoadWithOrCreate(IConfigSerializer serializer, IConfigIO io) {
+    public static T LoadWithOrCreate(IConfigSerializer serializer, IConfigIO io, bool rethrow = false) {
         try {
             return LoadWith(serializer, io);
-        } catch (Exception) {}
+        } catch (Exception) {
+            if (rethrow) {
+                throw;
+            }
+        }
         var created = new T
         {
             io = io,
@@ -23,6 +27,7 @@ public abstract class ConfigFile<T> where T : ConfigFile<T>, new() {
         };
         return created;
     }
+
     public void SaveWith(IConfigSerializer serializer, IConfigIO io) {
         io.Save(serializer.Serialize<T>(GetThis()));
     }

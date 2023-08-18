@@ -24,7 +24,7 @@ pid_t ReadPidFromPidFile() {
     std::ifstream pidfile(pidfilePath, std::ios::in);
  
     if (!pidfile.is_open()) {
-        std::cout << "[htmlhost_fakepid] couldn't open " << pidfilePath << " for reading" << std::endl;
+        std::cerr << "[htmlhost_fakepid] couldn't open " << pidfilePath << " for reading" << std::endl;
     }
     
     std::string pidStr;
@@ -36,8 +36,8 @@ pid_t ReadPidFromPidFile() {
 extern "C" pid_t getpid() {
     if (pidOfSteam == 0) {
         pidOfSteam = ReadPidFromPidFile();
+        std::cout << "[htmlhost_fakepid] getpid faked with " << pidOfSteam << std::endl;
     }
 
-    std::cout << "[htmlhost_fakepid] getpid faked with " << pidOfSteam << std::endl;
     return pidOfSteam;
 }
