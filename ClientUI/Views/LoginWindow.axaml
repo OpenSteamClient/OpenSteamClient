@@ -9,7 +9,8 @@
         x:Class="ClientUI.Views.LoginWindow"
         x:DataType="vm:LoginWindowViewModel"
         Icon="/Assets/opensteam-logo.ico"
-        Title="Login">
+        Width="500" Height="600"
+        c:Translatable.TranslationKey="#LoginWindow_Title">
 
     <Design.DataContext>
         <!-- This only sets the DataContext for the previewer in an IDE,
@@ -17,8 +18,24 @@
         <vm:LoginWindowViewModel/>
     </Design.DataContext>
 
-    <StackPanel>
-        <TextBlock c:Translatable.TranslationKey="#LoginWindow_LoginText" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-    </StackPanel>
-    
+    <Grid Margin="30">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />   
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Spacing="5">
+            <TextBlock FontSize="20" c:Translatable.TranslationKey="#LoginWindow_LoginText" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBox x:Name="UsernameBox" c:Translatable.TranslationKey="#Username"/>
+            <TextBox x:Name="PasswordBox" c:Translatable.TranslationKey="#Password" PasswordChar="•"/>
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="RegisterButton" Command="{Binding RegisterPressed}" c:Translatable.TranslationKey="#LoginWindow_Register" />
+                <Button x:Name="LoginButton" Command="{Binding LoginPressed}" c:Translatable.TranslationKey="#LoginWindow_Login"/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Spacing="5">
+            <TextBlock FontSize="20" c:Translatable.TranslationKey="#LoginWindow_OrLoginWithMobileApp" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Image MaxWidth="400" MaxHeight="400" x:Name="QRCode"/>
+        </StackPanel>
+    </Grid>
 </Window>

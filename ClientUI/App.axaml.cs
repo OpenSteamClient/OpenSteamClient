@@ -1,21 +1,23 @@
-using Autofac;
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Input.Platform;
 using Avalonia.Markup.Xaml;
+using ClientUI.Translation;
 using ClientUI.ViewModels;
 using ClientUI.Views;
-using Common;
-using Common.Managers;
-using Common.Startup;
-using Common.Utils;
+
+
+
+using OpenSteamworks.Client.Utils;
 using OpenSteamworks;
+using OpenSteamworks.Client;
+using OpenSteamworks.Client.Utils.Interfaces;
 
 namespace ClientUI;
 
 public partial class App : Application
 {
-    public static IContainer? DIContainer;
+    public static Container Container = new Container();
     public new static App? Current;
     public new IClassicDesktopStyleApplicationLifetime ApplicationLifetime => (base.ApplicationLifetime as IClassicDesktopStyleApplicationLifetime)!;
     public override void Initialize()
@@ -32,13 +34,23 @@ public partial class App : Application
 
         ApplicationLifetime.MainWindow = progressWindow;
         progressWindow.Show();
-        
-        App.DIContainer = await StartupController.Bootstrap<ClientUIAutofacRegistrar>(prog);
 
-        ApplicationLifetime.MainWindow = new MainWindow
-        {
-            DataContext = new MainWindowViewModel()
-        };
+        Container.RegisterComponentInstance(new Client(Container, prog));
+        Container.ConstructAndRegisterComponent<TranslationManager>();
+        Container.RegisterComponentInstance(this);
+        await Container.RunStartupForComponents();
+
+        if (true) {
+            ApplicationLifetime.MainWindow = new LoginWindow
+            {
+                DataContext = new LoginWindowViewModel()
+            };
+        } else {
+            ApplicationLifetime.MainWindow = new MainWindow
+            {
+                DataContext = new MainWindowViewModel()
+            };
+        }
 
         progressWindow.Close();
 
@@ -53,10 +65,7 @@ public partial class App : Application
     }
 
     public void Exit(int exitCode = 0) {
-        DIContainer?.Resolve<ConfigManager>().FlushToDisk();
-        DIContainer?.Resolve<SteamClient>().Shutdown();
-        DIContainer?.Resolve<SteamHTML>().Shutdown();
-        DIContainer?.Resolve<SteamService>().Shutdown();
+        Container.RunShutdownForComponents().Wait();
         ApplicationLifetime.Shutdown(exitCode);
     }
 }

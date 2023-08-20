@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="..\Common\Common.csproj" />
+    <ProjectReference Include="..\OpenSteamworks.Client\OpenSteamworks.Client.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

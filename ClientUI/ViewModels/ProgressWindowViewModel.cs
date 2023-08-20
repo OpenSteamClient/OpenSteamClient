@@ -1,4 +1,4 @@
-using Common.Utils;
+using OpenSteamworks.Client.Utils;
 using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace ClientUI.ViewModels;

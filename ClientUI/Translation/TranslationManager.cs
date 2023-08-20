@@ -3,15 +3,19 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Text.Json;
+using System.Threading.Tasks;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.LogicalTree;
 using Avalonia.VisualTree;
 using ClientUI.Extensions;
-using Common.Autofac;
-using Common.Managers;
+
 using OpenSteamworks;
+using OpenSteamworks.Client.Config;
+using OpenSteamworks.Client.Managers;
+using OpenSteamworks.Client.Utils.Interfaces;
 using OpenSteamworks.Enums;
+using OpenSteamworks.Generated;
 
 namespace ClientUI.Translation;
 
@@ -21,25 +25,27 @@ public class Translation {
     public Dictionary<string, string> TranslationKeys { get; set; } = new();
 }
 
-public class TranslationManager : IHasStartupTasks {
-    public required SteamClient steamClient { protected get; init; }
-    public required ConfigManager configManager { protected get; init; }
+public class TranslationManager : Component {
     public Translation CurrentTranslation = new Translation();
     private List<Visual> RefreshableVisuals = new();
+
+    public TranslationManager(IContainer container) : base(container) {
+        
+    }
     public void SetLanguage(ELanguage language) {
         var lang = ELanguageToString(language);
         if (lang == null) {
             throw new ArgumentException($"Language {language} was not valid.");
         }
 
-        steamClient.NativeClient.IClientUser.SetLanguage(lang);
+        this.GetComponent<IClientUser>().SetLanguage(lang);
         CurrentTranslation = GetForLanguage(language);
         foreach (var visual in RefreshableVisuals)
         {
             TranslateVisual(visual);
         }
 
-        configManager.GlobalSettings.Language = language;
+        this.GetComponent<GlobalSettings>().Language = language;
     }
 
     public string GetTranslationForKey(string key) {
@@ -57,8 +63,8 @@ public class TranslationManager : IHasStartupTasks {
             throw new ArgumentOutOfRangeException("Invalid ELanguage " + language + " specified.");
         }
 
-        string fullPath = Path.Combine(configManager.AssemblyDirectory, "Translations", filename+".json");
-        return Common.Utils.UtilityFunctions.AssertNotNull(JsonSerializer.Deserialize<Translation>(File.ReadAllText(fullPath)));
+        string fullPath = Path.Combine(this.GetComponent<ConfigManager>().AssemblyDirectory, "Translations", filename+".json");
+        return OpenSteamworks.Client.Utils.UtilityFunctions.AssertNotNull(JsonSerializer.Deserialize<Translation>(File.ReadAllText(fullPath)));
     } 
 
     public void TranslateVisual(Visual visual) {
@@ -78,8 +84,11 @@ public class TranslationManager : IHasStartupTasks {
                 }
 
                 // Window eventually inherits from ContentControl. We don't want to override a window's content...
-                if (vis is Window) {
+                if (vis is Window)
+                {
                     (vis as Window)!.Title = translatedText;
+                } else if (vis is TextBox) {
+                    (vis as TextBox)!.Watermark = translatedText;
                 } else if (vis is ContentControl) {
                     (vis as ContentControl)!.Content = translatedText;
                 } else if (vis is TextBlock) {
@@ -160,8 +169,14 @@ public class TranslationManager : IHasStartupTasks {
         return null;
     }
 
-    void IHasStartupTasks.RunStartup()
+    public override async Task RunStartup()
     {
-        this.SetLanguage(configManager.GlobalSettings.Language);
+        this.SetLanguage(this.GetComponent<GlobalSettings>().Language);
+        await EmptyAwaitable();
+    }
+
+    public override async Task RunShutdown()
+    {
+        await EmptyAwaitable();
     }
 }

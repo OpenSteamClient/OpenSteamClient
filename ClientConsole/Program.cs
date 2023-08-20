@@ -1,15 +1,11 @@
 ﻿using System.Runtime.InteropServices;
-using Autofac;
-using Common;
-using Common.Startup;
-using Common.Utils;
+using OpenSteamworks.Client.Utils;
 using OpenSteamworks;
 
 namespace ClientConsole;
 
 public static class Program
 {
-    public static IContainer container;
     [STAThread]
     public static void Main(string[] args)
     {
@@ -28,7 +24,7 @@ public static class Program
             Console.WriteLine("Bootstrapper is " + handler.Operation + ", " + handler.SubOperation + endPart);
         };
 
-        container = await StartupController.Bootstrap<ClientConsoleAutofacRegistrar>(handler);
+        container = await Client.Instance.InitializeClient(handler);
         Console.WriteLine("Started up");
         
         container.Resolve<SteamClient>().LogClientState();

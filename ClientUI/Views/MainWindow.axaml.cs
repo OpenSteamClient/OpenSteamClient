@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Autofac;
 using ClientUI.Extensions;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;

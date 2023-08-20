@@ -8,9 +8,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenSteamworks", "OpenSteam
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientConsole", "ClientConsole\ClientConsole.csproj", "{22B16D6D-7F66-4015-ABB8-0DD1CBCA5A72}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{FFA4DBFB-4F66-4EBF-9A84-4F19A7ADAF95}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenSteamworks.Client", "OpenSteamworks.Client\OpenSteamworks.Client.csproj", "{FFA4DBFB-4F66-4EBF-9A84-4F19A7ADAF95}"
 EndProject
-Project("{FD3E9FC9-4DE6-4138-A245-326056A92883}") = "Native", "Native\Native.csproj", "{669D0058-06CA-4E69-8C47-D0AF46CEF8B2}"
+Project("{FD3E9FC9-4DE6-4138-A245-326056A92883}") = "OpenSteamworks.Native", "OpenSteamworks.Native\OpenSteamworks.Native.csproj", "{669D0058-06CA-4E69-8C47-D0AF46CEF8B2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,8 +1,9 @@
 ﻿using System;
-using Autofac;
 using ClientUI.Views;
 using OpenSteamworks;
+using OpenSteamworks.Client;
 using OpenSteamworks.Enums;
+using OpenSteamworks.Generated;
 using OpenSteamworks.Structs;
 
 namespace ClientUI.ViewModels;
@@ -13,9 +14,8 @@ public class MainWindowViewModel : ViewModelBase
         throw new Exception("test");
     }
     public void DBG_LaunchFactorio() {
-        var client = Common.Utils.UtilityFunctions.AssertNotNull(App.DIContainer?.Resolve<SteamClient>());
         var gameid = new CGameID(427520);
-        EAppUpdateError launchresult = client.NativeClient.IClientAppManager.LaunchApp(gameid, 3, 0, "");
+        EAppUpdateError launchresult = App.Container.GetComponent<IClientAppManager>().LaunchApp(gameid, 3, 0, "");
         MessageBox.Show("result", launchresult.ToString());
     }
     public void DBG_OpenInterfaceList() {
@@ -24,10 +24,7 @@ public class MainWindowViewModel : ViewModelBase
     }
     public void DBG_ChangeLanguage() {
         // Very simple logic, just switches between english and finnish. 
-        Translation.TranslationManager? tm = App.DIContainer?.Resolve<Translation.TranslationManager>();
-        if (tm == null) {
-            return;
-        }
+        Translation.TranslationManager tm = App.Container.GetComponent<Translation.TranslationManager>();
 
         ELanguage lang = tm.CurrentTranslation.Language;
         Console.WriteLine(string.Format(tm.GetTranslationForKey("#SettingsWindow_YourCurrentLanguage"), tm.GetTranslationForKey("#LanguageNameTranslated"), tm.CurrentTranslation.LanguageFriendlyName));

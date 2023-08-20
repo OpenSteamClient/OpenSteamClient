@@ -1,5 +1,4 @@
-﻿using Autofac;
-using Avalonia;
+﻿using Avalonia;
 using System;
 using System.Diagnostics;
 

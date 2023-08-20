@@ -8,6 +8,7 @@ using OpenSteamworks.ClientInterfaces;
 using OpenSteamworks.Enums;
 using OpenSteamworks.Generated;
 using OpenSteamworks.Native;
+using System.Diagnostics.CodeAnalysis;
 
 namespace OpenSteamworks;
 public class SteamClient
@@ -28,21 +29,32 @@ public class SteamClient
     public CallbackManager CallbackManager { get; private set; }
     public Native.ClientNative NativeClient;
 
+    private string steamclientLibPath;
+    private ConnectionType connectionType;
+    private bool log = false;
     /// <summary>
     /// Constructs a OpenSteamworks.Client. 
+    /// Does not load any binaries, so most functions will crash. Use LoadClient to load the binaries and start the client up.
     /// </summary>
     public SteamClient(string steamclientLibPath, ConnectionType connectionType)
     {
-        this.NativeClient = new ClientNative(steamclientLibPath, connectionType);
+        this.steamclientLibPath = steamclientLibPath;
+        this.connectionType = connectionType;
 
-        var log = false;
 #if DEBUG
         log = true;
-        for (int i = 0; i < (int)ESpewGroup.k_ESpew_ArraySize; i++)
-        {
-            this.NativeClient.IClientUtils.SetSpew((ESpewGroup)i, 9, 9);
-        }
 #endif
+
+        this.CallbackManager = new CallbackManager(this, log, log);
+
+        this.NativeClient = new ClientNative(steamclientLibPath, connectionType);
+
+        if (log) {
+            for (int i = 0; i < (int)ESpewGroup.k_ESpew_ArraySize; i++)
+            {
+                this.NativeClient.IClientUtils.SetSpew((ESpewGroup)i, 9, 9);
+            }
+        }
 
         // Sets this process as the UI process
         // Doing this with an existing client causes the windows to disappear, and never reappear
@@ -54,12 +66,12 @@ public class SteamClient
             this.NativeClient.IClientUtils.SetClientUIProcess();
         }
 
-        this.CallbackManager = new CallbackManager(this, log, log);
-        
         this.ClientConfigStore = new ClientConfigStore(this);
         this.ClientMessaging = new ClientMessaging(this);
         this.ClientApps = new ClientApps(this);
         this.clientinterfaces.Add(this.ClientConfigStore);
+        this.clientinterfaces.Add(this.ClientMessaging);
+        this.clientinterfaces.Add(this.ClientApps);
 
         // Before this, most important callbacks should be registered
         this.CallbackManager.StartThread();
@@ -108,6 +120,11 @@ public class SteamClient
     }
 
     public void LogClientState() {
+        if (this.NativeClient == null) {
+            Console.WriteLine("NativeClient Unloaded");
+            return;
+        }
+
         Console.WriteLine("ConnectionType: " + this.NativeClient.ConnectedWith);
 
         Console.WriteLine("Pipe: " + this.NativeClient.pipe);

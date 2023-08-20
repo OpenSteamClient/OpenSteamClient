@@ -1,4 +1,3 @@
-using Autofac;
 using Avalonia.Controls;
 using Avalonia.VisualTree;
 
@@ -33,15 +32,7 @@ public static class ControlExtensions {
     }
 
     public static bool TryTranslateSelf(this Control control) {
-        if (App.DIContainer == null) {
-            return false;
-        }
-
-        if (!App.DIContainer.IsRegistered<Translation.TranslationManager>()) {
-            return false;
-        }
-
-        Translation.TranslationManager tm = App.DIContainer.Resolve<Translation.TranslationManager>();
+        Translation.TranslationManager tm = App.Container.GetComponent<Translation.TranslationManager>();
         if (tm.CurrentTranslation.Language == OpenSteamworks.Enums.ELanguage.None) {
             return false;
         }

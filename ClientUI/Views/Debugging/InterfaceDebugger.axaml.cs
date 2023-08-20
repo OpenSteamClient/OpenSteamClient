@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
-using Autofac;
 using Avalonia.Controls;
 using Avalonia.VisualTree;
 using ClientUI.Extensions;
 using CommunityToolkit.Mvvm.Input;
 using OpenSteamworks;
+using OpenSteamworks.Client;
 
 namespace ClientUI.Views;
 
@@ -19,7 +19,7 @@ public partial class InterfaceDebugger : Window
     {
         InitializeComponent();
         var stackpanel = this.FindControl<StackPanel>("StackPanel");
-        Common.Utils.UtilityFunctions.AssertNotNull(stackpanel);
+        OpenSteamworks.Client.Utils.UtilityFunctions.AssertNotNull(stackpanel);
 
         this.Title = iface.Name + " Debugger";
         this.ifaceName = iface.Name;
@@ -70,7 +70,7 @@ public partial class InterfaceDebugger : Window
         return columndef;
     }
     public void MethodCalled(Tuple<Type,MethodInfo>? info) {
-        Common.Utils.UtilityFunctions.AssertNotNull(info);
+        OpenSteamworks.Client.Utils.UtilityFunctions.AssertNotNull(info);
         string funcidentifier = ifaceName + "_" + info.Item2.Name + info.Item2.GetParameters().Length;
         var implementer = GetInterfaceImpl(info.Item1);
         List<object?> paramArr = new();
@@ -82,7 +82,7 @@ public partial class InterfaceDebugger : Window
             var paramIdentifier = funcidentifier + "_Arg" + i;
             Console.WriteLine("trying to find " + paramIdentifier);
             var paramTextbox = this.FindControlNested<TextBox>(paramIdentifier);
-            Common.Utils.UtilityFunctions.AssertNotNull(paramTextbox);
+            OpenSteamworks.Client.Utils.UtilityFunctions.AssertNotNull(paramTextbox);
 
             var paramCurrentText = paramTextbox.Text;
            
@@ -117,7 +117,7 @@ public partial class InterfaceDebugger : Window
                         typeof(string)
                     });
 
-                    Common.Utils.UtilityFunctions.AssertNotNull(ci);
+                    OpenSteamworks.Client.Utils.UtilityFunctions.AssertNotNull(ci);
 
                     paramArr.Add(ci.Invoke(new object[1] { paramCurrentText }));
                     continue;
@@ -146,8 +146,8 @@ public partial class InterfaceDebugger : Window
     }
 
     private object GetInterfaceImpl(Type iface) {
-        var client = App.DIContainer?.Resolve<SteamClient>();
-        Common.Utils.UtilityFunctions.AssertNotNull(client);
+        var client = App.Container.GetComponent<SteamClient>();
+        OpenSteamworks.Client.Utils.UtilityFunctions.AssertNotNull(client);
         var jitAssembly = GetJITAssembly();
         var implementorFields = typeof(OpenSteamworks.Native.ClientNative).GetFields().Where(f => f.FieldType == iface);
         if (implementorFields.Count() == 0) {
@@ -155,7 +155,7 @@ public partial class InterfaceDebugger : Window
         }
         var implementorField = implementorFields.First();
         
-        return Common.Utils.UtilityFunctions.AssertNotNull(implementorField.GetValue(client.NativeClient));
+        return OpenSteamworks.Client.Utils.UtilityFunctions.AssertNotNull(implementorField.GetValue(client.NativeClient));
     }
 
     private Assembly GetJITAssembly()
@@ -163,7 +163,7 @@ public partial class InterfaceDebugger : Window
         var jitAssembly = AppDomain.CurrentDomain.GetAssemblies().
             SingleOrDefault(assembly => assembly.GetName().Name == "OpenSteamworksJIT");
         
-        Common.Utils.UtilityFunctions.AssertNotNull(jitAssembly);
+        OpenSteamworks.Client.Utils.UtilityFunctions.AssertNotNull(jitAssembly);
 
         return jitAssembly;
     }

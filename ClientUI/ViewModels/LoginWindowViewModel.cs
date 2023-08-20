@@ -2,7 +2,7 @@ using System.Collections.ObjectModel;
 
 namespace ClientUI.ViewModels;
 
-public class LoginWindowViewModel : ViewModelBase, IAccountPickerViewModel, ICredentialInputViewModel
+public class LoginWindowViewModel : ViewModelBase
 {
     public ObservableCollection<AccountViewModel> Accounts { get; set; } = new ObservableCollection<AccountViewModel>();
     public string Username { get; set; } = "";
@@ -16,6 +16,13 @@ public class LoginWindowViewModel : ViewModelBase, IAccountPickerViewModel, ICre
     } 
 
     public void OnClosed() {
+        
+    }
+
+    public void RegisterPressed() {
+        
+    }
+    public void LoginPressed() {
         
     }
 }

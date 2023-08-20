@@ -22,6 +22,8 @@ internal static partial class CallbackConstants {
         {typeof(SharedConnectionMessageReady_t), 1170001},
         {typeof(SteamAPICallCompleted_t), 703},
         {typeof(SteamConfigStoreChanged_t), 1040011},
+        {typeof(SteamServerConnectFailure_t), 102},
+        {typeof(SteamServersConnected_t), 101},
         {typeof(VerifyPasswordResponse_t), 1020040}
     };
     public readonly static Dictionary<int, Type> IDToType = TypeToID.ToDictionary(x => x.Value, x => x.Key);

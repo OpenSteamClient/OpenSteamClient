@@ -1,6 +1,6 @@
 using Avalonia.Controls;
 using ClientUI.ViewModels;
-using Common.Utils;
+using OpenSteamworks.Client.Utils;
 
 namespace ClientUI.Views;
 
