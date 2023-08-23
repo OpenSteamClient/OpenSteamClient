@@ -1,11 +1,14 @@
 ﻿using System.Runtime.InteropServices;
 using OpenSteamworks.Client.Utils;
+using OpenSteamworks.Client;
 using OpenSteamworks;
 
 namespace ClientConsole;
 
 public static class Program
 {
+    public static Container Container = new Container();
+
     [STAThread]
     public static void Main(string[] args)
     {
@@ -14,20 +17,21 @@ public static class Program
     [STAThread]
     public static async Task MainAsync(string[] args)
     {
-        ExtendedProgress<int> handler = new ExtendedProgress<int>(0, 100);
-        handler.ProgressChanged += (object? sender, int current) =>
+        ExtendedProgress<int> prog = new ExtendedProgress<int>(0, 100);
+        prog.ProgressChanged += (object? sender, int current) =>
         {
             string endPart = "";
-            if (!handler.Throbber) {
-                endPart = " with progress " + current + " of " + handler.MaxProgress;
+            if (!prog.Throbber) {
+                endPart = " with progress " + current + " of " + prog.MaxProgress;
             }
-            Console.WriteLine("Bootstrapper is " + handler.Operation + ", " + handler.SubOperation + endPart);
+            Console.WriteLine("Bootstrapper is " + prog.Operation + ", " + prog.SubOperation + endPart);
         };
 
-        container = await Client.Instance.InitializeClient(handler);
+        Container.RegisterComponentInstance(new Client(Container, prog));
+        await Container.RunStartupForComponents();
         Console.WriteLine("Started up");
         
-        container.Resolve<SteamClient>().LogClientState();
+        Container.GetComponent<SteamClient>().LogClientState();
 
         do
         {

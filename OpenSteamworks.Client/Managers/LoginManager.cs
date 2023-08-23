@@ -6,6 +6,7 @@ using OpenSteamworks.Callbacks.Structs;
 using OpenSteamworks.Enums;
 using OpenSteamworks.Structs;
 using OpenSteamworks.Client.Utils.Interfaces;
+using OpenSteamworks.Client.Utils;
 
 namespace OpenSteamworks.Client.Managers;
 
@@ -52,6 +53,17 @@ public class LoginManager : Component
         return validUsers.Count > 0;
     }
 
+    public bool TryAutologin(IExtendedProgress<int> loginProgress, [NotNullWhen(true)] out Task? loginTask) {
+        loginTask = null;
+        if (!GetMostRecentAutologinUser(out LoginUser? autologinUser)) {
+            return false;
+        }
+        LoginUser user = autologinUser.Value;
+        user.LoginMethod = LoginMethod.JWT;
+        loginTask = LoginToUser(user, loginProgress);
+        return true;
+    }
+
     private void SetUserAsLastLogin(LoginUser user) {
         for (int i = 0; i < loginUsers.Users.Count; i++)
         {
@@ -62,11 +74,26 @@ public class LoginManager : Component
     }
 
     private bool isLoggingOn = false;
+    private IExtendedProgress<int>? loginProgress;
     private EResult? loginFinishResult;
     [CallbackListener<SteamServerConnectFailure_t>]
     public void OnSteamServerConnectFailure(SteamServerConnectFailure_t failure) {
         if (isLoggingOn) {
             loginFinishResult = failure.m_EResult;
+        }
+    }
+
+
+    [CallbackListener<PostLogonState_t>]
+    // This callback doesn't really mean anything. Just used for cosmetic purposes
+    public void OnPostLogonState(PostLogonState_t stateUpdate) {
+        if (isLoggingOn) {
+            if (loginProgress != null) {
+                if (stateUpdate.logonComplete) {
+                    loginProgress.SetProgress(100);
+                }
+                //TODO: figure out the correct field to use for progress updates (or is it guessed?)
+            }
         }
     }
 
@@ -81,9 +108,10 @@ public class LoginManager : Component
         steamClient.NativeClient.IClientUser.SetUserMachineName(machineName);
     }
 
-    public Task<EResult> LoginToUser(LoginUser user) {
+    public Task<EResult> LoginToUser(LoginUser user, IExtendedProgress<int> loginProgress) {
         return Task.Run(async () =>
         {
+            this.loginProgress = loginProgress;
             if (user.LoginMethod == null)
             {
                 throw new ArgumentException("LoginMethod must be set");
@@ -118,6 +146,7 @@ public class LoginManager : Component
 
             this.loginFinishResult = null;
             this.isLoggingOn = true;
+            loginProgress.SetOperation("Logging on " + user.AccountName);
 
             OpenSteamworks.Client.Utils.UtilityFunctions.Assert(user.SteamID.HasValue);
             
@@ -128,6 +157,8 @@ public class LoginManager : Component
                 this.isLoggingOn = false;
                 return beginLogonResult;
             }
+
+            loginProgress.SetSubOperation("Waiting for steamclient...");
 
             // This cast is stupid as well. 
             EResult result = (EResult)(await Task.Run(() => {

@@ -19,6 +19,7 @@ internal static partial class CallbackConstants {
         {typeof(DownloadScheduleChanged_t), 1280009},
         {typeof(FriendRichPresenceUpdate_t), 336},
         {typeof(PersonaStateChange_t), 304},
+        {typeof(PostLogonState_t), 1020087},
         {typeof(SharedConnectionMessageReady_t), 1170001},
         {typeof(SteamAPICallCompleted_t), 703},
         {typeof(SteamConfigStoreChanged_t), 1040011},

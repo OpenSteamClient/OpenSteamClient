@@ -12,6 +12,8 @@ using OpenSteamworks.Client.Utils;
 using OpenSteamworks;
 using OpenSteamworks.Client;
 using OpenSteamworks.Client.Utils.Interfaces;
+using OpenSteamworks.Client.Managers;
+using System.Threading.Tasks;
 
 namespace ClientUI;
 
@@ -40,16 +42,21 @@ public partial class App : Application
         Container.RegisterComponentInstance(this);
         await Container.RunStartupForComponents();
 
-        if (true) {
+        ExtendedProgress<int> loginProgress = new ExtendedProgress<int>(0, 100);
+        if (!Container.GetComponent<LoginManager>().TryAutologin(loginProgress, out Task? loginTask)) {
             ApplicationLifetime.MainWindow = new LoginWindow
             {
                 DataContext = new LoginWindowViewModel()
             };
         } else {
-            ApplicationLifetime.MainWindow = new MainWindow
-            {
-                DataContext = new MainWindowViewModel()
-            };
+            ApplicationLifetime.MainWindow = new ProgressWindow(new ProgressWindowViewModel(loginProgress, "Login Progress"));
+            await loginTask.ContinueWith(delegate {
+                ApplicationLifetime.MainWindow = new MainWindow
+                {
+                    DataContext = new MainWindowViewModel()
+                };
+                
+            });
         }
 
         progressWindow.Close();
