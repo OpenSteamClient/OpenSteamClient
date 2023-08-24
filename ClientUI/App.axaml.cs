@@ -22,6 +22,7 @@ public partial class App : Application
     public static Container Container = new Container();
     public new static App? Current;
     public new IClassicDesktopStyleApplicationLifetime ApplicationLifetime => (base.ApplicationLifetime as IClassicDesktopStyleApplicationLifetime)!;
+
     public override void Initialize()
     {
         AvaloniaXamlLoader.Load(this);
@@ -38,7 +39,7 @@ public partial class App : Application
         progressWindow.Show();
 
         Container.RegisterComponentInstance(new Client(Container, prog));
-        Container.ConstructAndRegisterComponent<TranslationManager>();
+        Container.ConstructAndRegisterComponentImmediate<TranslationManager>();
         Container.RegisterComponentInstance(this);
         await Container.RunStartupForComponents();
 
@@ -71,8 +72,8 @@ public partial class App : Application
         Current = this;
     }
 
-    public void Exit(int exitCode = 0) {
-        Container.RunShutdownForComponents().Wait();
+    public async Task Exit(int exitCode = 0) {
+        await Container.RunShutdownForComponents();
         ApplicationLifetime.Shutdown(exitCode);
     }
 }

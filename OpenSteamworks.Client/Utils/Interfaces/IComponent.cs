@@ -28,7 +28,7 @@ public abstract class Component : IComponent
 
     public T ConstructAndRegisterSubComponent<T>()
     {
-        return Container.ConstructAndRegisterComponent<T>();
+        return Container.ConstructAndRegisterComponentImmediate<T>();
     }
 
     public object GetComponent(Type type)

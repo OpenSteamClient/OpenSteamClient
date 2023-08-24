@@ -1,6 +1,7 @@
 ﻿using Avalonia;
 using System;
 using System.Diagnostics;
+using System.Threading.Tasks;
 
 namespace ClientUI;
 
@@ -10,7 +11,12 @@ public static class Program
     // SynchronizationContext-reliant code before AppMain is called: things aren't initialized
     // yet and stuff might break.
     [STAThread]
-    public static void Main(string[] args)  
+    public static void Main(string[] args)
+    {
+        MainAsync(args).Wait();
+    }
+    [STAThread]
+    public static async Task MainAsync(string[] args)
     {
         //TODO: single instance and pipe logic
         try {
@@ -21,7 +27,7 @@ public static class Program
             }
             
             MessageBox.Error("OpenSteamClient needs to close", "We encountered a fatal exception: " + e.Message, e.ToString());
-            App.Current?.Exit(1);
+            await App.Current?.Exit(1);
         }
     }
 
