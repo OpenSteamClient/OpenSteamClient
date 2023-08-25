@@ -140,8 +140,8 @@ public class LoginManager : Component
                 case LoginMethod.JWT:
                     OpenSteamworks.Client.Utils.UtilityFunctions.AssertNotNull(user.LoginToken);
                     throw new NotImplementedException();
-                    steamClient.NativeClient.IClientUser.SetLoginToken(user.LoginToken, "");
-                    break;
+                    //steamClient.NativeClient.IClientUser.SetLoginToken(user.LoginToken, "");
+                    //break;
             }
 
             this.loginFinishResult = null;
