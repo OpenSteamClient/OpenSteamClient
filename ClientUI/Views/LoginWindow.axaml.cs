@@ -12,7 +12,6 @@ public partial class LoginWindow : Window
     {
         InitializeComponent();
         this.TryTranslateSelf();
-        this.DataContext = new LoginWindowViewModel();
         var qrGenerator = new QRCodeGenerator();
         var qrCodeData = qrGenerator.CreateQrCode("https://s.team/dfgdfsgdfgdf", QRCodeGenerator.ECCLevel.Q);
         var qrCode = new PngByteQRCode(qrCodeData);

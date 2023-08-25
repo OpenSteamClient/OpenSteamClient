@@ -10,6 +10,10 @@ public interface IContainer {
     public void RegisterComponentInstance(Type type, object component);
     public void RegisterComponentInstance<T>(T component);
     /// <summary>
+    /// Constructs a component, but does not register it. Useful for viewmodels.
+    /// </summary>
+    public T ConstructOnly<T>();
+    /// <summary>
     /// Immediately constructs and registers a component.
     /// </summary>
     public T ConstructAndRegisterComponentImmediate<T>();
@@ -122,15 +126,18 @@ public class Container : IContainer {
         return GetConstructorFor(typeof(T));
     }
 
+    public T ConstructOnly<T>() {
+        ConstructorInfo ctor = GetConstructorFor<T>();
+        return (T)ctor.Invoke(FillArrayWithDependencies(ctor.GetParameters()));
+    }
+    
     public T ConstructAndRegisterComponentImmediate<T>() {
         if (this.components.ContainsKey(typeof(T))) {
             throw new InvalidOperationException("Component '" + typeof(T) + "' already registered.");
         }
 
         Type componentType = typeof(T);
-        ConstructorInfo ctor = GetConstructorFor<T>();
-
-        T component = (T)ctor.Invoke(FillArrayWithDependencies(ctor.GetParameters()));
+        T component = ConstructOnly<T>();
         this.RegisterComponentInstance(component);
         return component;
     }

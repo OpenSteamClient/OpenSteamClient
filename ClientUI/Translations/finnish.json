@@ -9,6 +9,7 @@
         "#LoginWindow_LoginText": "Kirjaudu Steam-tilillä.",
         "#Username": "Käyttäjätunnus",
         "#Password": "Salasana",
+        "#Unsupported": "Ei tuettu",
         "#LoginWindow_AccountCreationUnsupported": "Tilin luominen ei ole tällä hetkellä mahdollista sovelluksesta. Mene osoitteeseen {0} luodaaksesi tilin.",
         "#LoginWindow_Register": "Luo tili",
         "#LoginWindow_Login": "Kirjaudu sisään",

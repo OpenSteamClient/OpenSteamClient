@@ -47,14 +47,14 @@ public partial class App : Application
         if (!Container.GetComponent<LoginManager>().TryAutologin(loginProgress, out Task? loginTask)) {
             ApplicationLifetime.MainWindow = new LoginWindow
             {
-                DataContext = new LoginWindowViewModel()
+                DataContext = App.Container.ConstructOnly<LoginWindowViewModel>()
             };
         } else {
             ApplicationLifetime.MainWindow = new ProgressWindow(new ProgressWindowViewModel(loginProgress, "Login Progress"));
             await loginTask.ContinueWith(delegate {
                 ApplicationLifetime.MainWindow = new MainWindow
                 {
-                    DataContext = new MainWindowViewModel()
+                    DataContext = App.Container.ConstructOnly<MainWindowViewModel>()
                 };
                 
             });
