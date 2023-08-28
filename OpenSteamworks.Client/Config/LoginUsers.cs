@@ -45,7 +45,7 @@ public struct LoginUser {
     /// </summary>
     public bool Remembered { get; set; } = false;
     public CSteamID? SteamID { get; set; }
-    public string? AccountName { get; set; }
+    public string AccountName { get; set; } = "";
     public bool AllowAutoLogin { get; set; } = false;
     public bool MostRecent { get; set; } = false;
     public LoginUser() {}

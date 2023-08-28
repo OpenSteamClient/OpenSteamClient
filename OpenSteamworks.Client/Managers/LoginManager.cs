@@ -53,6 +53,13 @@ public class LoginManager : Component
         return validUsers.Count > 0;
     }
 
+    /// <summary>
+    /// Gets all saved users. Does not need remember password.
+    /// </summary>
+    public IEnumerable<LoginUser> GetSavedUsers() {
+        return loginUsers.Users;
+    }
+
     public bool TryAutologin(IExtendedProgress<int> loginProgress, [NotNullWhen(true)] out Task? loginTask) {
         loginTask = null;
         if (!GetMostRecentAutologinUser(out LoginUser? autologinUser)) {

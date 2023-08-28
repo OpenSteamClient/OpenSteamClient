@@ -1,27 +1,40 @@
 using System.Collections.ObjectModel;
+using System.IO;
+using Avalonia.Media.Imaging;
 using ClientUI.Translation;
+using CommunityToolkit.Mvvm.ComponentModel;
 using OpenSteamworks.Generated;
+using QRCoder;
 
 namespace ClientUI.ViewModels;
 
-public class LoginWindowViewModel : ViewModelBase
+public partial class LoginWindowViewModel : ViewModelBase
 {
-    public ObservableCollection<AccountViewModel> Accounts { get; set; } = new ObservableCollection<AccountViewModel>();
-    public string Username { get; set; } = "";
-    public string Password { get; set; } = "";
-    public bool RememberPassword { get; set; } = true;
+    [ObservableProperty]
+    private string username = "";
+
+    [ObservableProperty]
+    private string password = "";
+
+    [ObservableProperty]
+    private bool rememberPassword = true;
+
+    [ObservableProperty]
+    private Bitmap? qRCode;
+
     private IClientUser iClientUser;
     private TranslationManager tm;
     public LoginWindowViewModel(IClientUser iClientUser, TranslationManager tm) {
         this.iClientUser = iClientUser;
         this.tm = tm;
-    }
-
-    public bool HasSavedAccounts { 
-        get {
-            return this.Accounts.Count > 0;
+        var qrGenerator = new QRCodeGenerator();
+        var qrCodeData = qrGenerator.CreateQrCode("https://s.team/dfgdfsgdfgdf", QRCodeGenerator.ECCLevel.Q);
+        var qrCode = new PngByteQRCode(qrCodeData);
+        byte[] png = qrCode.GetGraphic(20);
+        using (Stream stream = new MemoryStream(png)) {
+            QRCode = new Avalonia.Media.Imaging.Bitmap(stream);
         }
-    } 
+    }
 
     public void OnClosed() {
         

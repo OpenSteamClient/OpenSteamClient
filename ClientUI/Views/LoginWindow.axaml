@@ -35,7 +35,7 @@
         </StackPanel>
         <StackPanel Grid.Row="1" Spacing="5">
             <TextBlock FontSize="20" c:Translatable.TranslationKey="#LoginWindow_OrLoginWithMobileApp" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <Image MaxWidth="400" MaxHeight="400" x:Name="QRCode"/>
+            <Image MaxWidth="400" MaxHeight="400" Source="{Binding QRCode}"/>
         </StackPanel>
     </Grid>
 </Window>

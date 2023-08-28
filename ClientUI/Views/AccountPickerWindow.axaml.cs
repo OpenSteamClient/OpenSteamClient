@@ -6,9 +6,9 @@ using QRCoder;
 
 namespace ClientUI.Views;
 
-public partial class LoginWindow : Window
+public partial class AccountPickerWindow : Window
 {
-    public LoginWindow()
+    public AccountPickerWindow()
     {
         InitializeComponent();
         this.TryTranslateSelf();
