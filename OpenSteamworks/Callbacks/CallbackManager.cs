@@ -9,16 +9,22 @@ using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
 using OpenSteamworks;
+using OpenSteamworks.Attributes;
 using OpenSteamworks.Callbacks.Structs;
 
 namespace OpenSteamworks.Callbacks;
 
 public class CallbackManager
 {
-    public struct CallbackHandler {
+    public class CallbackHandler {
         public int callbackId;
         public Delegate func;
         public bool oneShot;
+        public CallbackHandler(int callbackId, Delegate func, bool oneShot) {
+            this.callbackId = callbackId;
+            this.func = func;
+            this.oneShot = oneShot;
+        }
     }
 
     private SteamClient client;
@@ -175,13 +181,25 @@ public class CallbackManager
 
         return RegisterHandlerForId(id, handler, oneShot);
     }
-    private CallbackHandler RegisterHandlerForId(int id, Delegate func, bool oneShot = false) {
-        CallbackHandler handler = new CallbackHandler
+    public void RegisterHandlersFor(object obj) {
+        foreach (var func in obj.GetType().GetMethods(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.DeclaredOnly))
         {
-            callbackId = id,
-            func = func,
-            oneShot = oneShot
-        };
+            Attribute? attribute = func.GetCustomAttribute(typeof(CallbackListenerAttribute<>));
+            if (attribute == null) {
+                continue;
+            }
+            Type expectedType = attribute.GetType().GetGenericArguments()[0];
+            Type argType = func.GetParameters()[0].ParameterType;
+            if (expectedType != argType) {
+                throw new ArgumentException("Function " + func.Name + " has invalid arguments for CallbackListenerAttribute. Expected " + expectedType.Name + ", had " + argType.Name);
+            }
+            var actType = typeof(Action<>).MakeGenericType(expectedType);
+            Console.WriteLine("Registering");
+            this.RegisterHandler(func.CreateDelegate(actType, obj), expectedType, false);
+        }
+    }
+    private CallbackHandler RegisterHandlerForId(int id, Delegate func, bool oneShot = false) {
+        CallbackHandler handler = new CallbackHandler(id, func, oneShot);
         
         handlers.Add(handler);
         return handler;

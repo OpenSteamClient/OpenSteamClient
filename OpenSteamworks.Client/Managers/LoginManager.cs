@@ -7,50 +7,39 @@ using OpenSteamworks.Enums;
 using OpenSteamworks.Structs;
 using OpenSteamworks.Client.Utils.Interfaces;
 using OpenSteamworks.Client.Utils;
+using OpenSteamworks.Client.CommonEventArgs;
 
 namespace OpenSteamworks.Client.Managers;
 
+public class LoggedOnEventArgs : EventArgs
+{
+    public LoggedOnEventArgs(LoginUser user) { User = user; }
+    public LoginUser User { get; } 
+}
+
 public class LoginManager : Component
 {
+    public delegate void LoggedOnEventHandler(object sender, LoggedOnEventArgs e);
+    public delegate void LoggedOffEventHandler(object sender, LoggedOnEventArgs e);
+    public delegate void LogOnFailedEventHandler(object sender, EResultEventArgs e);
+    public event LoggedOnEventHandler? LoggedOn;
+    public event LoggedOffEventHandler? LoggedOff;
+    public event LogOnFailedEventHandler? LogOnFailed;
+
     private SteamClient steamClient;
     private LoginUsers loginUsers;
 
     public LoginManager(SteamClient steamClient, LoginUsers loginUsers, IContainer container) : base(container)
     {
         this.steamClient = steamClient;
+        this.steamClient.CallbackManager.RegisterHandlersFor(this);
         this.loginUsers = loginUsers;
     }
 
-    public bool GetMostRecentAutologinUser([NotNullWhen(true)] out LoginUser? autologinUser) {
-        autologinUser = null;
-        foreach (var user in loginUsers.Users)
-        {
-            if (!user.AllowAutoLogin) {
-                continue;
-            }
-
-            if (user.MostRecent) {
-                autologinUser = user;
-                break;
-            }
-        }
-
-        return autologinUser != null;
-    }
-
-    public bool GetAllowedAutologinUsers(out IEnumerable<LoginUser> autologinUser) {
-        var validUsers = new List<LoginUser>();
-        foreach (var user in loginUsers.Users)
-        {
-            if (!user.AllowAutoLogin) {
-                continue;
-            }
-
-            validUsers.Add(user);
-        }
-
-        autologinUser = validUsers;
-        return validUsers.Count > 0;
+    public bool RemoveAccount(LoginUser loginUser) {
+        var success = loginUsers.Users.Remove(loginUser);
+        loginUsers.Save();
+        return success;
     }
 
     /// <summary>
@@ -60,24 +49,20 @@ public class LoginManager : Component
         return loginUsers.Users;
     }
 
-    public bool TryAutologin(IExtendedProgress<int> loginProgress, [NotNullWhen(true)] out Task? loginTask) {
-        loginTask = null;
-        if (!GetMostRecentAutologinUser(out LoginUser? autologinUser)) {
+    public bool TryAutologin(IExtendedProgress<int> loginProgress) {
+        var autologinUser = this.loginUsers.GetAutologin();
+        if (autologinUser == null) {
+            Console.WriteLine("Cannot autologin, no autologin user.");
             return false;
         }
-        LoginUser user = autologinUser.Value;
-        user.LoginMethod = LoginMethod.JWT;
-        loginTask = LoginToUser(user, loginProgress);
+
+        autologinUser.LoginMethod = LoginMethod.Cached;
+        BeginLogonToUser(autologinUser, loginProgress);
         return true;
     }
 
     private void SetUserAsLastLogin(LoginUser user) {
-        for (int i = 0; i < loginUsers.Users.Count; i++)
-        {
-            var userToModify = loginUsers.Users[i];
-            userToModify.MostRecent = (userToModify.SteamID == user.SteamID);
-            loginUsers.Users[i] = userToModify;
-        }
+        this.loginUsers.SetUserAsMostRecent(user);
     }
 
     private bool isLoggingOn = false;
@@ -115,14 +100,19 @@ public class LoginManager : Component
         steamClient.NativeClient.IClientUser.SetUserMachineName(machineName);
     }
 
-    public Task<EResult> LoginToUser(LoginUser user, IExtendedProgress<int> loginProgress) {
-        return Task.Run(async () =>
+    public void BeginLogonToUser(LoginUser user, IExtendedProgress<int> loginProgress) {
+        if (this.isLoggingOn) {
+            throw new InvalidOperationException("Logon already in progress");
+        }
+
+        if (user.LoginMethod == null)
+        {
+            throw new ArgumentException("LoginMethod must be set");
+        }
+
+        Task.Run(async () =>
         {
             this.loginProgress = loginProgress;
-            if (user.LoginMethod == null)
-            {
-                throw new ArgumentException("LoginMethod must be set");
-            }
 
             switch (user.LoginMethod)
             {
@@ -139,61 +129,68 @@ public class LoginManager : Component
 
                     if (!steamClient.NativeClient.IClientUser.BHasCachedCredentials(user.AccountName))
                     {
-                        return EResult.k_EResultCachedCredentialIsInvalid;
+                        LogOnFailed?.Invoke(this, new EResultEventArgs(EResult.k_EResultCachedCredentialIsInvalid));
+                        return;
                     }
 
                     steamClient.NativeClient.IClientUser.SetAccountNameForCachedCredentialLogin(user.AccountName, false);
                     break;
                 case LoginMethod.JWT:
                     OpenSteamworks.Client.Utils.UtilityFunctions.AssertNotNull(user.LoginToken);
-                    throw new NotImplementedException();
+                    // For the JWT, we can extract the user's SteamID and username from it.
+                    throw new NotImplementedException("Logging in using JWT is not yet implemented.");
                     //steamClient.NativeClient.IClientUser.SetLoginToken(user.LoginToken, "");
                     //break;
             }
 
             this.loginFinishResult = null;
             this.isLoggingOn = true;
+
             loginProgress.SetOperation("Logging on " + user.AccountName);
 
             OpenSteamworks.Client.Utils.UtilityFunctions.Assert(user.SteamID.HasValue);
             
             // This cast is stupid. 
-            EResult beginLogonResult = steamClient.NativeClient.IClientUser.LogOn((CSteamID)user.SteamID);
+            EResult beginLogonResult = steamClient.NativeClient.IClientUser.LogOn(user.SteamID.Value);
 
             if (beginLogonResult != EResult.k_EResultOK) {
                 this.isLoggingOn = false;
-                return beginLogonResult;
+                LogOnFailed?.Invoke(this, new EResultEventArgs(beginLogonResult));
+                return;
             }
 
             loginProgress.SetSubOperation("Waiting for steamclient...");
 
             // This cast is stupid as well. 
-            EResult result = (EResult)(await Task.Run(() => {
-                do
-                {
-                    System.Threading.Thread.Sleep(30);
-                } while (this.loginFinishResult == null);
-                this.isLoggingOn = false;
-                return this.loginFinishResult;
-            }));
+            EResult result = await WaitForLogonToFinish();
 
             if (result == EResult.k_EResultOK)
             {
                 if (loginUsers.Users.Contains(user))
                 {
-                    SetUserAsLastLogin(user);
+                    loginUsers.SetUserAsMostRecent(user);
                 }
                 else if (user.AllowAutoLogin == true)
                 {
                     loginUsers.Users.Add(user);
-                    SetUserAsLastLogin(user);
+                    loginUsers.SetUserAsAutologin(user);
                 }
+                LoggedOn?.Invoke(this, new LoggedOnEventArgs(user));
             } else {
-                return result;
+                LogOnFailed?.Invoke(this, new EResultEventArgs(result));
             }
+        });
+    }
 
-
-            return EResult.k_EResultOK;
+    private async Task<EResult> WaitForLogonToFinish() {
+        return await Task.Run<EResult>(() =>
+        {
+            do
+            {
+                System.Threading.Thread.Sleep(30);
+            } while (this.loginFinishResult == null);
+            this.isLoggingOn = false;
+            return this.loginFinishResult.Value;
         });
     }
 

@@ -16,10 +16,11 @@ public abstract class ConfigFile<T> where T : ConfigFile<T>, new() {
     public static T LoadWithOrCreate(IConfigSerializer serializer, IConfigIO io, bool rethrow = false) {
         try {
             return LoadWith(serializer, io);
-        } catch (Exception) {
+        } catch (Exception e) {
             if (rethrow) {
                 throw;
             }
+            Console.WriteLine("Failed to load " + typeof(T).FullName + ": " + e.Message, ", creating new");
         }
         var created = new T
         {

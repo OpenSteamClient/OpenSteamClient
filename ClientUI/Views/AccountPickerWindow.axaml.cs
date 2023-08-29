@@ -13,4 +13,5 @@ public partial class AccountPickerWindow : Window
         InitializeComponent();
         this.TryTranslateSelf();
     }
+
 }

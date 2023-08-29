@@ -36,8 +36,8 @@ public static class UtilityFunctions {
         }
     }
 
-    public static T AssertNotNull<T>([NotNull] T? val) {
-        Assert(val != null);
+    public static T AssertNotNull<T>([NotNull] T? val, [CallerArgumentExpression(nameof(val))] string valStr = "") {
+        Assert(val != null, $"{valStr} != null");
         return val;
     }
 }

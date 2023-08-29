@@ -10,11 +10,15 @@
         "#Username": "Username",
         "#Password": "Password",
         "#Unsupported": "Unsupported",
+        "#Error": "Error",
+        "#AccountPickerWindow_FailedToRemoveAccount": "Failed to remove account",
+        "#AccountPickerWindow_Title": "Choose an account",
         "#LoginWindow_AccountCreationUnsupported": "Account creation in app is currently unsupported. Go to {0} to create an account.",
         "#LoginWindow_Register": "Register",
         "#LoginWindow_Login": "Log in",
         "#LoginWindow_Title": "Login",
         "#TwoFactorAuthentication": "Two factor authentication",
-        "#LoginWindow_OrLoginWithMobileApp": "Or login with the Steam mobile app:"
+        "#LoginWindow_OrLoginWithMobileApp": "Or login with the Steam mobile app:",
+        "#AddAccount": "Add account"
     }
 }

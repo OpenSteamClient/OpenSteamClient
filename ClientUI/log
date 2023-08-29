@@ -1,0 +1,568 @@
+/home/onni/Documents/opensteamclient/opensteamclient/OpenSteamworks.Client/Managers/LoginManager.cs(26,41): warning CS0067: The event 'LoginManager.LoggedOff' is never used [/home/onni/Documents/opensteamclient/opensteamclient/OpenSteamworks.Client/OpenSteamworks.Client.csproj]
+MSBUILD : Avalonia warning AVLN:0005: XAML resource "avares://ClientUI/Views/Debugging/InterfaceDebugger.axaml" won't be reachable via runtime loader, as no public constructor was found [/home/onni/Documents/opensteamclient/opensteamclient/ClientUI/ClientUI.csproj]
+MSBUILD : Avalonia warning AVLN:0005: XAML resource "avares://ClientUI/Views/MessageBox.axaml" won't be reachable via runtime loader, as no public constructor was found [/home/onni/Documents/opensteamclient/opensteamclient/ClientUI/ClientUI.csproj]
+MSBUILD : Avalonia warning AVLN:0005: XAML resource "avares://ClientUI/Views/ProgressWindow.axaml" won't be reachable via runtime loader, as no public constructor was found [/home/onni/Documents/opensteamclient/opensteamclient/ClientUI/ClientUI.csproj]
+Re-execing
+executable: /home/onni/Documents/opensteamclient/opensteamclient/ClientUI/bin/Debug/net7.0/ClientUI
+item: /home/onni/Documents/opensteamclient/opensteamclient/ClientUI/bin/Debug/net7.0/ClientUI
+dlmopen steamui.so failed: steamui.so: wrong ELF class: ELFCLASS32
+[FakeSteamService] Tried to start thread with name 
+[ConCommands] ConCommand added: @nClientCMUDPPingTimeoutUseGoodEnoughMS : , flags: 4
+[ConCommands] ConCommand added: @nClientCMUDPPingTimeGoodEnoughThresholdMS : , flags: 4
+[ConCommands] ConCommand added: @cUDPSendRetries : , flags: 0
+[ConCommands] ConCommand added: @EnableUDPHistory : , flags: 0
+[ConCommands] ConCommand added: @MaxOutstandingSendThreadItem : , flags: 0
+[ConCommands] ConCommand added: @net_backlog_bytes_allowed : , flags: 0
+[ConCommands] ConCommand added: @net_backlog_time_allowed_sec : , flags: 0
+[ConCommands] ConCommand added: @net_loopback : , flags: 0
+[ConCommands] ConCommand added: @cNetEncryptionHandshakeWorkMax_HighPri : , flags: 4
+[ConCommands] ConCommand added: @cNetEncryptionHandshakeWorkMax_MedPri : , flags: 4
+[ConCommands] ConCommand added: @cNetEncryptionHandshakeWorkMax_LowPri : , flags: 4
+[ConCommands] ConCommand added: @nNetConnectionBufferZipLevel : , flags: 4
+[ConCommands] ConCommand added: @NetConnectionBufferThreaded : , flags: 4
+[ConCommands] ConCommand added: @NetConnectionBufferMsgLimit : Max # of message that will be buffered into a single zipped packet, flags: 4
+[ConCommands] ConCommand added: @nSpewThrottleNagFrequencyMs : , flags: 4
+[ConCommands] ConCommand added: @nSpewThrottleUnconditionalResumeMs : , flags: 4
+[ConCommands] ConCommand added: @nSpewThrottleUnconditionalTriggerCount : , flags: 4
+[ConCommands] ConCommand added: @nSpewThrottleResumeThreshold : , flags: 4
+[ConCommands] ConCommand added: @nSpewThrottleTriggerThreshold : , flags: 4
+[ConCommands] ConCommand added: @nSpewThrottlePeriodMs : , flags: 4
+[ConCommands] ConCommand added: @bCheckMsgProtobufOnJobStackForArenaAlloc : Should we only use the arena allocator if the protobuf is on the job stack, flags: 4
+[ConCommands] ConCommand added: @nProtobufArenaMaxBlockSize : Max block allocation size for PB arena, flags: 4
+[ConCommands] ConCommand added: @nProtobufArenaInitialBlockSize : Default initial allocation size for PB arena, flags: 4
+[ConCommands] ConCommand added: @nProtobufArenaNumberOfHeadersToShare : Number of Jobs to give a single protobuf Arena before we create a new one, flags: 4
+[ConCommands] ConCommand added: @nProtobufArenaNumberOfJobsToShare : Number of Jobs to give a single protobuf Arena before we create a new one, flags: 4
+[ConCommands] ConCommand added: @bLogMessageToProtobufClass : We we first discover the protobuf class used for a particular EMsg, log it, flags: 4
+[ConCommands] ConCommand added: @nCallerDeadlineHopLatencyMS : When we send a message expecting a reply from a job with a deadline, set the timeout on the message to [current time remaining in this job] - N ms.  A negative value prevents propagating caller deadlines down the chain, flags: 4
+[ConCommands] ConCommand added: @bMsgErrorDump : , flags: 4
+[ConCommands] ConCommand added: @metricsDisabledCatalogs : Comma separated list of metrics catalogs to disable.  This is the last check., flags: 4
+[ConCommands] ConCommand added: @metricsEnabledOperations : Comma separated list of metrics operations.  Overrides disabled catalogs, flags: 4
+[ConCommands] ConCommand added: @metricsDisabledOperations : Comma separated list of metrics operations that are disabled.  This setting has highest priority, flags: 4
+[ConCommands] ConCommand added: @bMetricsEnabled : Enabling allows jobs to collect and report metrics through IMetricsReporters., flags: 4
+[ConCommands] ConCommand added: @bEnableLogTearOff : , flags: 0
+[ConCommands] ConCommand added: @bEnableSpewThrottle : , flags: 4
+[ConCommands] ConCommand added: @bEnableNetworkJobsOwnStartList : , flags: 4
+[ConCommands] ConCommand added: @cMinimumJobTimeoutsToCheckPerFrame : , flags: 4
+[ConCommands] ConCommand added: @nJobNetSendsInsaneThreshold : , flags: 4
+[ConCommands] ConCommand added: @nJobInteryieldMillisecondsLogThreshold : , flags: 4
+[ConCommands] ConCommand added: @nJobInteryieldMillisecondsAlertThreshold : , flags: 4
+[ConCommands] ConCommand added: @nHTPPServerLogLevelDetailsNon200 : Log level to use for full details of any http server request returning != 200, flags: 0
+[ConCommands] ConCommand added: @nHTPPServerLogLevelDetails200 : Log level to use for full details of any http server request returning 200.  This will probably fill up the log if you leave it on., flags: 0
+[ConCommands] ConCommand added: @nHTPPServerLogLevelAccessLineNon200 : Log level to use for one-line access-log-style for each http server request that returns != 200, flags: 0
+[ConCommands] ConCommand added: @nHTPPServerLogLevelAccessLine200 : Log level to use for one-line access-log-style for each http server request returning 200, flags: 0
+[ConCommands] ConCommand added: @bCallerDeadlineAbortJobDisableWhenHTTPReqStart : , flags: 4
+[ConCommands] ConCommand added: @bEnableHTTP2OnAllCHTTPClients : Enable HTTP/2 on all CHTTPClients automatically for SSL connections, flags: 0
+[ConCommands] ConCommand added: @bHttpClientRecordHostnameDimension : Group HTTP metrics by hostname.  Careful, the cardinality of your in-memory map might be large., flags: 0
+[ConCommands] ConCommand added: @bEnableFrameFuncOverageWarnings : This turns on the spew in SPEW_MISC at level 4, still need to adjust spew levels to see it., flags: 4
+[ConCommands] ConCommand added: @nContentDeltaChunkAppendChunksAfterProtobufSizeThresholdMB : , flags: 4
+[ConCommands] ConCommand added: @bContentManifestUseProtobufs : , flags: 4
+[ConCommands] ConCommand added: @nIOCPThreadCount : , flags: 0
+[ConCommands] ConCommand added: @cDepotBuilderFileChunkingThreads : , flags: 4
+[ConCommands] ConCommand added: @bDepotBuilderUnbufferedReads : , flags: 4
+[ConCommands] ConCommand added: @bDepotBuilderReadBufferSizeKB : , flags: 4
+[ConCommands] ConCommand added: @bEnforceValidEmailDomains : Enable valid email domains in BIsValidEmailAddress, flags: 4
+[ConCommands] ConCommand added: voice_fakeloss : , flags: 0
+[ConCommands] ConCommand added: voice_autogain : , flags: 0
+[ConCommands] ConCommand added: voice_silk_bitrate : , flags: 16
+[ConCommands] ConCommand added: voice_outputfile : causes output from voice system to be written out to the specified file, flags: 0
+[ConCommands] ConCommand added: voice_quality : , flags: 0
+[ConCommands] ConCommand added: voice_outputdevice : 0=>Miles 1=>XAudio2, flags: 0
+[ConCommands] ConCommand added: mic_autogain : automatic gain control level for microphone input, flags: 0
+[ConCommands] ConCommand added: mic_outputfile : causes microphone data to be written out to the specified file, flags: 0
+[ConCommands] ConCommand added: mic_inputfile : causes voice data to be read from the specified file instead of from the microphone, flags: 0
+[ConCommands] ConCommand added: voice_preprocess : enables voice cleanup on incoming microphone data, flags: 0
+[ConCommands] ConCommand added: bShaderFossilizeFastMerge : , flags: 4
+[ConCommands] ConCommand added: bShaderEnableFossilizeLayer : , flags: 4
+[ConCommands] ConCommand added: log_files_always_flush : , flags: 4
+[ConCommands] ConCommand added: bClientConvar601DEACE : , flags: 4
+[ConCommands] ConCommand added: @DepotBuilderProgressTimeout : , flags: 4
+[ConCommands] ConCommand added: @DepotBuilderMaxParallelUploadChunks : , flags: 4
+[ConCommands] ConCommand added: @DepotBuilderParallelUploadChunks : , flags: 4
+[ConCommands] ConCommand added: voice_api_optimalrate : , flags: 16
+[ConCommands] ConCommand added: voice_minabs : , flags: 0
+[ConCommands] ConCommand added: voice_minavg : , flags: 0
+[ConCommands] ConCommand added: AsyncFileIOAlternateReadWrite : , flags: 4
+[ConCommands] ConCommand added: AsyncFileIOMaxPendingWin32 : , flags: 4
+[ConCommands] ConCommand added: AsyncFileIODisableWrite : , flags: 4
+[ConCommands] ConCommand added: AsyncFileIOForceGenericIO : , flags: 4
+[ConCommands] ConCommand added: AsyncFileIOWriteHandleCache : , flags: 4
+[ConCommands] ConCommand added: AsyncFileIOReadHandleCache : , flags: 4
+[ConCommands] ConCommand added: AsyncFileIOExpectOutstandingIO : , flags: 4
+[ConCommands] ConCommand added: @nScreenshotSaveMaxWidth : , flags: 0
+[ConCommands] ConCommand added: @bScreenshotsLegacyCloudUpload : If set, use the legacy Steam Cloud upload path for screenshot uploads, flags: 4
+[ConCommands] ConCommand added: bEnableMHRCAsyncFileReadLog : , flags: 4
+[ConCommands] ConCommand added: bEnableSubscribedFileListCache : , flags: 4
+[ConCommands] ConCommand added: @cloud_testdynamicsyncapp : , flags: 16
+[ConCommands] ConCommand added: @test_bCloudForceSyncConflict : If @test_nCloudForceSyncFailureAppID is set, then set this so that the failure case is 'file conflict' instead of generic failure, flags: 0
+[ConCommands] ConCommand added: @test_nCloudForceSyncFailureAppID : Set this to a non-zero App ID to test cloud sync failure. The next sync request will fail., flags: 0
+[ConCommands] ConCommand added: user_friends : Dumps list of friends, flags: 0
+[ConCommands] ConCommand added: nRichPresenceUploadThrottleSecs : , flags: 4
+[ConCommands] ConCommand added: app_info_update : [0|1] : trigger app info update, optionally for update all, flags: 0
+[ConCommands] ConCommand added: licenses_for_app : <appid> : shows active licenses for appid, flags: 0
+[ConCommands] ConCommand added: licenses_print : display users's Steam3 licenses, flags: 0
+[ConCommands] ConCommand added: app_delay_update : <appid> <seconds> force delay update, flags: 0
+[ConCommands] ConCommand added: app_stop : <appid> [force:0|1] stop this running app, flags: 0
+[ConCommands] ConCommand added: apps_running : displays information about running games tracked by Steam , flags: 0
+[ConCommands] ConCommand added: test_opus_voice_encode : test an opus voice encode, flags: 0
+[ConCommands] ConCommand added: test_voice_encode : test a voice encode, flags: 0
+[ConCommands] ConCommand added: voice_game_usage : displays information about the game's use of Steam voice, flags: 0
+[ConCommands] ConCommand added: dump_box_ips : dump the list of detected local box IP addresses, flags: 0
+[ConCommands] ConCommand added: nCloudUploadMinIntervalSec : , flags: 4
+[ConCommands] ConCommand added: @nRoamingConfigReconnectCloudSyncWindowSec : , flags: 4
+[ConCommands] ConCommand added: @durationControlNightCheck : Time of day check for duration-control feature. 1 = normal. 2 = force night-time. 0 = disable checks, only enabled for age verified accounts, flags: 4
+[ConCommands] ConCommand added: @csecDurationControlSimulatedNonRecent : Simulate having already played this many seconds of playtime today, but not recently., flags: 4
+[ConCommands] ConCommand added: @csecDurationControlSimulated : Simulate having already played this many seconds of playtime., flags: 4
+[ConCommands] ConCommand added: @csecDurationControlPeriodToday : Override default duration-control / anti-indulgence time period. If nonzero, per-day playtime threshold is this value in seconds, flags: 4
+[ConCommands] ConCommand added: @csecDurationControlPeriod : Override default duration-control / anti-indulgence time period. If nonzero, initial playtime threshold is this value in seconds, flags: 4
+[ConCommands] ConCommand added: @csecFavoriteGameAccountCacheTime : Control how often we refresh the account IDs in the game server favorites list, flags: 4
+[ConCommands] ConCommand added: @nParentalSettingsLogLevel : Control the amount of spew written to the parental log file, flags: 4
+[ConCommands] ConCommand added: @bRequireOfflineLogonTicket : If true, a valid offline logon ticket is required when logging in in offline or no connection mode, flags: 4
+[ConCommands] ConCommand added: @bEnableOfflineLogonTicket : If true, an offline logon ticket will be requested during logon if none is cached, flags: 4
+[ConCommands] ConCommand added: bDisableTenFootOverlay : , flags: 4
+[ConCommands] ConCommand added: bSteamLoaderEnable : , flags: 0
+[ConCommands] ConCommand added: bSteam3LimitedUserEnable : , flags: 0
+[ConCommands] ConCommand added: bCheckUGCIntegrity : , flags: 4
+[ConCommands] ConCommand added: UGCCDNReportPct : , flags: 4
+[ConCommands] ConCommand added: bSubscribedFilesUseRangeRequests : , flags: 4
+[ConCommands] ConCommand added: bSubscribedFilesDecompressOnClient : , flags: 4
+[ConCommands] ConCommand added: bSubscribedFilesPollForUpdates : , flags: 4
+[ConCommands] ConCommand added: rtime32EarliestSubscribedFileToDownload : , flags: 4
+[ConCommands] ConCommand added: nSubscribedAutoDownloadMaxSimultaneous : , flags: 4
+[ConCommands] ConCommand added: voice_resample_quality : , flags: 16
+[ConCommands] ConCommand added: http_cache_clearall : Delete all data from internal HTTP client and CEF browser, flags: 0
+[ConCommands] ConCommand added: net_fake_state : {normal|NoLAN|CaptivePortal_Redirected|CaptivePortal_InPlace|NoInternet|NoSteam} Simulate network conditions, flags: 0
+[ConCommands] ConCommand added: dump_scheduled_functions : usage: "dump_scheduled_functions" Displays internal Steam function callback timers, flags: 0
+[ConCommands] ConCommand added: p2p_info : usage: "p2p_info" Displays the current state of the P2P networking subsystem., flags: 0
+[ConCommands] ConCommand added: test_reconnect : Reconnect after using test_failnextconnect&test_dropcon, flags: 0
+[ConCommands] ConCommand added: test_failnextconnect : Tests failing the next connection, flags: 0
+[ConCommands] ConCommand added: test_dropcon : Tests dropping a connection, flags: 0
+[ConCommands] ConCommand added: render_ipc_connections : usage: "render_ipc_connections, flags: 0
+[ConCommands] ConCommand added: log_ipc : usage: "log_ipc [counts|verbose|#maxcount] <filter>" Enables IPC logging. Specifying "counts" or "verbose" is optional, defaulting to counts., flags: 0
+[ConCommands] ConCommand added: log_callbacks : usage: "log_callbacks <first callbackID> [last callbackID], flags: 0
+[ConCommands] ConCommand added: @nClientEnableHTTP2PlatformLinux : Enable HTTP/2 connections on Linux clients, flags: 4
+[ConCommands] ConCommand added: @nClientEnableHTTP2PlatformWindows : Enable HTTP/2 connections on Windows clients, flags: 4
+[ConCommands] ConCommand added: @nLegalDictionaryUpdateRateInSeconds : , flags: 4
+[ConCommands] ConCommand added: bClientPingCSesForCellID : , flags: 4
+[ConCommands] ConCommand added: nProductInfoUpdateInterval : , flags: 4
+[ConCommands] ConCommand added: app_info_http_num_sockets : , flags: 4
+[ConCommands] ConCommand added: @bEnableMovieRecording : , flags: 4
+[ConCommands] ConCommand added: batterycharging : , flags: 0
+[ConCommands] ConCommand added: batterytime : , flags: 0
+[ConCommands] ConCommand added: batterypercent : , flags: 0
+[ConCommands] ConCommand added: mem_stats : Dump memory stats, flags: 0
+[ConCommands] ConCommand added: net_msgspew : Spews sent and recv net messages, flags: 0
+[ConCommands] ConCommand added: net_msgdump : Dumps list of sent net messages, flags: 0
+[ConCommands] ConCommand added: developer : , flags: 0
+[ConCommands] ConCommand added: @bSiteLicenseServer : , flags: 0
+[ConCommands] ConCommand added: @csecSiteLicenseProxyStatsUpdate : update proxy stats internally this often, flags: 0
+[ConCommands] ConCommand added: @csecSiteLicenseProxyStatsLog : Log proxy stats this often, flags: 0
+[ConCommands] ConCommand added: @bSiteLicenseAllowCachedClientCredentials : Allow Steam clients that associate to this site to save username and auth credentials locally, flags: 0
+[ConCommands] ConCommand added: @bSiteLicenseProxyEnableIPv6 : If set, we will enable ipv6 communications to the Steam servers, flags: 0
+[ConCommands] ConCommand added: @bSiteLicenseProxyCacheIsExternalProcess : If set, the caching content proxy will be handled by some process other than steamcmd. You probably also should set @sSiteLicenseProxyExplicitIP., flags: 0
+[ConCommands] ConCommand added: @sSiteLicenseProxyExplicitIP : Local content cache: if not blank, will instruct clients to go to this IP for the content cache., flags: 0
+[ConCommands] ConCommand added: @nSiteLicenseProxyEnableP2P : If set, will have all connected clients join the same P2P download group, flags: 0
+[ConCommands] ConCommand added: @nSiteLicenseProxyPort : Local content cache: set > 0 to enable, will listen on this port, flags: 0
+[ConCommands] ConCommand added: @nSiteLicenseProxyCacheMaxGB : If local content cache is enabled, use up to this much disk space, flags: 0
+[ConCommands] ConCommand added: @sSiteLicenseProxyCacheDirectory : If local content cache is enabled, use this path for disk cache, flags: 0
+[ConCommands] ConCommand added: @bEnableSiteLicenseConsoleLogging : , flags: 0
+[ConCommands] ConCommand added: @bEnableSiteLicenseConnect : , flags: 0
+[ConCommands] ConCommand added: @bShaderClientGetBucketManifestUseWebAPI : , flags: 4
+[ConCommands] ConCommand added: bShaderVerboseLogs : , flags: 4
+[ConCommands] ConCommand added: bShaderPrecompiledCache : , flags: 4
+[ConCommands] ConCommand added: bShaderDepotNative : , flags: 4
+[ConCommands] ConCommand added: unShaderHitCacheGeneration : , flags: 4
+[ConCommands] ConCommand added: bShaderAlwaysProcessWhenRunningGame : , flags: 4
+[ConCommands] ConCommand added: bShaderAllowReplayOnNVIDIA : , flags: 4
+[ConCommands] ConCommand added: bShaderAllowReplay : , flags: 4
+[ConCommands] ConCommand added: unShaderHighPriorityProcessingThreads : , flags: 4
+[ConCommands] ConCommand added: unShaderBackgroundProcessingThreads : , flags: 4
+[ConCommands] ConCommand added: unShaderMaxUploadMessageSizeKb : , flags: 4
+[ConCommands] ConCommand added: unShaderMaxHeadersPerMessage : , flags: 4
+[ConCommands] ConCommand added: bShaderEnableUpload : , flags: 4
+[ConCommands] ConCommand added: bShaderEnableCacheManagement : , flags: 4
+[ConCommands] ConCommand added: nCloudUploadNetworkTimeoutSeconds : , flags: 4
+[ConCommands] ConCommand added: nCloudFileCompressionMinFileSizeKBSharedFile : , flags: 4
+[ConCommands] ConCommand added: nCloudFileCompressionMinFileSizeKB : , flags: 4
+[ConCommands] ConCommand added: nCloudFileCompressionPercentageMinSharedFile : , flags: 4
+[ConCommands] ConCommand added: nCloudFileCompressionPercentageMin : , flags: 4
+[ConCommands] ConCommand added: @StreamClientArgs : , flags: 0
+[ConCommands] ConCommand added: remote_clients : dump remote client info, flags: 0
+[ConCommands] ConCommand added: @uRemoteDiscoveryPortTransmit : If non-zero, will transmit outgoing broadcasts on this port instead of on the listen port, flags: 4
+[ConCommands] ConCommand added: @uRemoteDiscoveryPortOverride : If non-zero, will listen on this port for broadcasts instead of k_nBroadcastPort, flags: 4
+[ConCommands] ConCommand added: @bForceStreamUnsupportedApp : , flags: 0
+[ConCommands] ConCommand added: @cbPartnerUploadChunkSize : Chunk size to use for POSTing partner uploads, flags: 4
+[ConCommands] ConCommand added: peer_content_server_status : Dumps status of peer content server, flags: 0
+[ConCommands] ConCommand added: @PeerContentServerMaxClients : limit number of peers connected, flags: 4
+[ConCommands] ConCommand added: @PeerContentServerPort : If peer content server, will listen on this port for TCP connections from peers, flags: 4
+[ConCommands] ConCommand added: p2p_unusedtimeout : , flags: 0
+[ConCommands] ConCommand added: p2p_connecttimeout : , flags: 0
+[ConCommands] ConCommand added: dump_offline_playtime : Dumps recorded playtime sessions, flags: 0
+[ConCommands] ConCommand added: musiclogging : , flags: 0
+[ConCommands] ConCommand added: bInstallscriptReports : send reports about broken install scripts, flags: 4
+[ConCommands] ConCommand added: DepotMinWriteGapSizeMB : , flags: 0
+[ConCommands] ConCommand added: DepotReconstructionBadChunk : , flags: 0
+[ConCommands] ConCommand added: DepotUseAlternatingReadWrite : , flags: 4
+[ConCommands] ConCommand added: DepotDownloadProgressTimeout : , flags: 4
+[ConCommands] ConCommand added: DepotReconstructionLowPrio : , flags: 4
+[ConCommands] ConCommand added: DepotReconstructionNumIOThreads : , flags: 4
+[ConCommands] ConCommand added: cChunkValidationMaxLog : , flags: 4
+[ConCommands] ConCommand added: cFileValidationMaxLog : , flags: 4
+[ConCommands] ConCommand added: download_sources : Dumps list of download sources, flags: 0
+[ConCommands] ConCommand added: @bClientDownloadUseHTTPS : Set this to use HTTPS on supported download servers, flags: 4
+[ConCommands] ConCommand added: @nClientDownloadInitWindowSizeHTTP2Connection : Init per-connection window size for HTTP/2., flags: 4
+[ConCommands] ConCommand added: @nClientDownloadInitWindowSizeHTTP2Stream : Init per-stream window size for HTTP/2., flags: 4
+[ConCommands] ConCommand added: @nClientDownloadEnableHTTP2PlatformWindows : Enable HTTP/2 connections on Windows clients, flags: 4
+[ConCommands] ConCommand added: @nClientDownloadEnableHTTP2PlatformLinux : Enable HTTP/2 connections on Linux clients, flags: 4
+[ConCommands] ConCommand added: @nClientDownloadEnableHTTP2RelBranch : Only enable HTTP/2 on enabled platforms on rel branch client if this is set, flags: 4
+[ConCommands] ConCommand added: @nClientDownloadPreferredServerMaxLoad : Once preferred servers reach this load, we'll continue to use non-preferred servers in the list after them, flags: 4
+[ConCommands] ConCommand added: @bDownloadThrottleDuringCloudSync : , flags: 4
+[ConCommands] ConCommand added: @sTrustedLocalContentCacheName : Set this to the machine name where a trusted local Steam download cache is hosted, and we'll use it if available., flags: 4
+[ConCommands] ConCommand added: @sForceLocalContentCache : , flags: 4
+[ConCommands] ConCommand added: @bDisableDualStackDownloads : , flags: 4
+[ConCommands] ConCommand added: @nClientServiceMethodForDownloadListPercent : , flags: 4
+[ConCommands] ConCommand added: @bClientOpenCacheStickyRedirects : , flags: 4
+[ConCommands] ConCommand added: @fDownloadRateImprovementToAddAnotherConnection : , flags: 4
+[ConCommands] ConCommand added: @fMinDataRateToAttemptTwoConnectionsMbps : , flags: 4
+[ConCommands] ConCommand added: @csecUpdateTargetNumConnectionsEpoch : , flags: 4
+[ConCommands] ConCommand added: @csecIncomingDataRatePeriod : , flags: 4
+[ConCommands] ConCommand added: @sCSDSVirtualHostHeader : , flags: 4
+[ConCommands] ConCommand added: @cCSClientMaxNumSocketsPerHostForCachingProxy : , flags: 4
+[ConCommands] ConCommand added: @cCSClientMaxNumSocketsPerHost : , flags: 4
+[ConCommands] ConCommand added: @PeerContentServerRetryDelay : seconds before retrying peer content server, flags: 4
+[ConCommands] ConCommand added: @CSInterfaceProxyPassword : , flags: 0
+[ConCommands] ConCommand added: @CSInterfaceProxyUsername : , flags: 0
+[ConCommands] ConCommand added: @ForceContentServerHTTPS : , flags: 0
+[ConCommands] ConCommand added: @ForceContentServerType : , flags: 0
+[ConCommands] ConCommand added: @ForceContentServer : , flags: 0
+[ConCommands] ConCommand added: @LocalContentServer : , flags: 0
+[ConCommands] ConCommand added: @cSecUploadDownloadRates : , flags: 4
+[ConCommands] ConCommand added: @cMaxInitialDownloadSources : , flags: 4
+[ConCommands] ConCommand added: @cMaxContentServersToRequest : , flags: 4
+[ConCommands] ConCommand added: @PeerContentClientMaxJobs : number of peer sources used at the same time, flags: 4
+[ConCommands] ConCommand added: @uDownloadLANPeerPort : If LAN p2p download enabled, will listen on this port for TCP connections from peers. Must be set consistently across all members of the group!, flags: 4
+[ConCommands] ConCommand added: @nLANPeerMaxConnections : , flags: 4
+[ConCommands] ConCommand added: @nLANPeerRateLimitKbps : , flags: 4
+[ConCommands] ConCommand added: @nDownloadLANPeerGroup : , flags: 4
+[ConCommands] ConCommand added: @nDownloadLANChunkCacheSizeMB : , flags: 4
+[ConCommands] ConCommand added: @nLANPeerGroupRateLimitKbps : , flags: 4
+[ConCommands] ConCommand added: @nCSClientRateLimitKbps : , flags: 4
+[ConCommands] ConCommand added: @DepotBuilderDeltaMaxChunks : , flags: 4
+[ConCommands] ConCommand added: @DepotBuilderXORMatchPercent : , flags: 4
+[ConCommands] ConCommand added: @DepotBuilderVZdMinRatio : , flags: 4
+[ConCommands] ConCommand added: @DepotBuilderEnableVZd : , flags: 4
+[ConCommands] ConCommand added: @DepotBuilderNumHTTPSocketsToMDS : , flags: 4
+[ConCommands] ConCommand added: @bClientTryRequestManifestWithoutCode : If set, client will try to get a manifest even without a manifest request code, flags: 4
+[ConCommands] ConCommand added: @bLANPeerConnectionTimeoutSec : , flags: 4
+[ConCommands] ConCommand added: @csecCSJobSuccessfulRequestTimeWindow : , flags: 4
+[ConCommands] ConCommand added: @nCSJob5xyResponseLimit : , flags: 4
+[ConCommands] ConCommand added: @nCSJob404ResponseLimit : , flags: 4
+[ConCommands] ConCommand added: @bCSForceNoCache : , flags: 4
+[ConCommands] ConCommand added: @strCSNoCacheHeader : , flags: 4
+[ConCommands] ConCommand added: @csecCSRequestProcessorTimeOut : , flags: 4
+[ConCommands] ConCommand added: gyro_raw_deadzone : , flags: 0
+[ConCommands] ConCommand added: controller_momentum_min_vel : , flags: 0
+[ConCommands] ConCommand added: controller_momentum_num_excluded_samples : , flags: 0
+[ConCommands] ConCommand added: controller_momentum_num_included_samples : , flags: 0
+[ConCommands] ConCommand added: controller_momentum_smooth : , flags: 0
+[ConCommands] ConCommand added: gyro_controller_update_ab_test : , flags: 0
+[ConCommands] ConCommand added: deck_mouse_leftside_filter : , flags: 0
+[ConCommands] ConCommand added: deck_mouse_haptic_tick_dist : , flags: 0
+[ConCommands] ConCommand added: haptic_tick_gain_modifier : , flags: 0
+[ConCommands] ConCommand added: haptic_click_gain_modifier : , flags: 0
+[ConCommands] ConCommand added: controller_gyro_x_scale : , flags: 0
+[ConCommands] ConCommand added: controller_min_activation_time : , flags: 0
+[ConCommands] ConCommand added: g_yawNudgeTowardMeanFactor : , flags: 0
+[ConCommands] ConCommand added: g_pitchNudgeFromAccelerometer : , flags: 0
+[ConCommands] ConCommand added: gyro_drift_calibration_debug : , flags: 0
+[ConCommands] ConCommand added: gyro_stationary_calibration_debug : , flags: 0
+[ConCommands] ConCommand added: gyro_calibration_duration_automatic : , flags: 0
+[ConCommands] ConCommand added: gyro_calibration_duration_manual_timeout : , flags: 0
+[ConCommands] ConCommand added: gyro_calibration_duration_manual : , flags: 0
+[ConCommands] ConCommand added: gyro_calibration_duration_stationary : , flags: 0
+[ConCommands] ConCommand added: haptic_off_divisor : , flags: 0
+[ConCommands] ConCommand added: haptic_intensity_old : , flags: 0
+[ConCommands] ConCommand added: haptic_intensity : , flags: 0
+[ConCommands] ConCommand added: haptic_new : , flags: 0
+[ConCommands] ConCommand added: controller_edge_cutoff : , flags: 0
+[ConCommands] ConCommand added: controller_base_rotation_angle : , flags: 0
+[ConCommands] ConCommand added: g_RumbleSustainTimeSeconds : , flags: 0
+[ConCommands] ConCommand added: g_RumbleRepeatAfterDelaySeconds : , flags: 0
+[ConCommands] ConCommand added: spew_controller_loss : , flags: 0
+[ConCommands] ConCommand added: controller_spew_level : , flags: 0
+[ConCommands] ConCommand added: controller_newpoll : , flags: 0
+[ConCommands] ConCommand added: controller_poll_state : , flags: 0
+[ConCommands] ConCommand added: controller_idle_poll_interval : , flags: 0
+[ConCommands] ConCommand added: controller_rate : , flags: 0
+[ConCommands] ConCommand added: DepotUseSparseFiles : , flags: 0
+[ConCommands] ConCommand added: bDepotDeltaPatchUseAPI : , flags: 4
+[ConCommands] ConCommand added: DepotDeltaPatches : , flags: 4
+[ConCommands] ConCommand added: csecManifestDownloadTimeout : , flags: 4
+[ConCommands] ConCommand added: cMaxDecryptThreadsOverride : , flags: 4
+[ConCommands] ConCommand added: cPreallocateMinimumSizeKB : , flags: 4
+[ConCommands] ConCommand added: cAppUpdateWorkingSetMB : , flags: 4
+[ConCommands] ConCommand added: async_disconnect : async disconnect, flags: 0
+[ConCommands] ConCommand added: cm_force_change : Change CM List, flags: 0
+[ConCommands] ConCommand added: ClientConnectTokenBucketEnable : , flags: 0
+[ConCommands] ConCommand added: @nClientCMDirectoryResultLoadPercentDither : Dither to apply to CM server loads received by CMDirectory query, flags: 4
+[ConCommands] ConCommand added: @nClientQueryCMDirectoryBeforeConnect : Use CMDirectory webapi to get fresh CM list on connect - 0=disabled, 1=enabled, 2=main/dev/beta clients only, flags: 4
+[ConCommands] ConCommand added: countrycode : , flags: 0
+[ConCommands] ConCommand added: ClientStatsUploadRateSeconds : , flags: 0
+[ConCommands] ConCommand added: bBroadcastUploadGameDataIntervalSeconds : , flags: 4
+[ConCommands] ConCommand added: bBroadcastAlwaysUploadThumbnails : , flags: 4
+[ConCommands] ConCommand added: nBroadcastSessionMaxDropFrames : , flags: 4
+[ConCommands] ConCommand added: workshop_status : workshop_status <appId>, flags: 0
+[ConCommands] ConCommand added: ugc_query_max_get_details : , flags: 4
+[ConCommands] ConCommand added: ugc_query_default_cache_time : , flags: 4
+[ConCommands] ConCommand added: workshop_items_update_interval : , flags: 4
+[ConCommands] ConCommand added: workshop_items_cache_days : , flags: 4
+[ConCommands] ConCommand added: timed_trial_status : timed_trial_status <appId> : show time trial app status, flags: 0
+[ConCommands] ConCommand added: timed_trial_add_playtime : timed_trial_add_playtime <appId> <seconds>: add trial app playtime (developer only), flags: 0
+[ConCommands] ConCommand added: timed_trial_reset_playtime : timed_trial_reset_playtime <appId> : reset trial app playtime (developer only), flags: 0
+[ConCommands] ConCommand added: net_incomingcheck : , flags: 0
+[ConCommands] ConCommand added: net_maxresendsperframe : , flags: 0
+[ConCommands] ConCommand added: @nContentUpdateAutoVerifyPostThresholdOdds : 1 in X chance we auto-verify this update even if you've reached the clean-data threshold, flags: 4
+[ConCommands] ConCommand added: @nContentUpdateAutoVerifyCleanBytesThresholdMB : How many clean MB must we verify before backing off on auto-verifies, flags: 4
+[ConCommands] ConCommand added: @nContentUpdateAutoVerifyEnable : 0 = disabled; 1 = enabled all clients; 2 = enabled public Beta clients only, flags: 4
+[ConCommands] ConCommand added: nDepotSaveCorruptChunks : , flags: 4
+[ConCommands] ConCommand added: bSingleFileUpdateMode : , flags: 4
+[ConCommands] ConCommand added: bFinishStagedDepotVersions : , flags: 4
+[ConCommands] ConCommand added: @CustomBinaryRequestRetryTimes : , flags: 0
+[ConCommands] ConCommand added: @nCloudClientUseGetAppFileChangelist : Should the client use the new GetAppFileChangelist API - 0 = no, 1 = yes, 2 = beta clients, flags: 4
+[ConCommands] ConCommand added: @nClientCloudMaxNumParallelDeletes : , flags: 4
+[ConCommands] ConCommand added: @nClientCloudMaxMBParallelDownloads : , flags: 4
+[ConCommands] ConCommand added: @nClientCloudMaxNumParallelDownloads : , flags: 4
+[ConCommands] ConCommand added: @nClientCloudMaxMBParallelUploads : , flags: 4
+[ConCommands] ConCommand added: @nClientCloudMaxNumParallelUploads : , flags: 4
+[ConCommands] ConCommand added: bCloudAcceptUnexpectedAutoCloudFileChanges : , flags: 4
+[ConCommands] ConCommand added: @GCNameOverride : , flags: 16
+[ConCommands] ConCommand added: AlwaysCustomizeOnBadExit : , flags: 4
+[ConCommands] ConCommand added: MergeCapReprocess_minutes : , flags: 4
+[ConCommands] ConCommand added: device_authorize_status : prints device authorization status, flags: 0
+[ConCommands] ConCommand added: nContentDownloadsToOtherDrive : Allow to download updates to other drives then install folder is on, flags: 4
+[ConCommands] ConCommand added: bShaderCacheDownloads : Allow to download shader cache depots, flags: 4
+[ConCommands] ConCommand added: bDelayGameUpdatesOnBeta : Should we do scheduling of updates on Steam Beta? If not, they'll all be ASAP, flags: 4
+[ConCommands] ConCommand added: bVerifyAllDownloads : Verify all files after downloading an update, flags: 4
+[ConCommands] ConCommand added: nClientBackgroundAutoUpdateNotPlayedTimeSpreadDays : If the user hasn't played this game in a while, pick a morning up to this many days out to update., flags: 4
+[ConCommands] ConCommand added: nClientBackgroundAutoUpdateLessRecentlyPlayedThresholdHours : If you've played the game more recently than this, we'll schedule the background update sooner., flags: 4
+[ConCommands] ConCommand added: nClientBackgroundAutoUpdateTargetHour : Target hour, in local time, for auto-scheduled app updates. Will be spread around this point via the convar below., flags: 4
+[ConCommands] ConCommand added: nClientBackgroundAutoUpdateTimeSpreadMinutes : Spread of time around the above target hour - this is the +/- 2-sigma window, so half this on either side., flags: 4
+[ConCommands] ConCommand added: nClientBackgroundAutoUpdateRecentlyPlayedThresholdHours : If you've played the game more recently than this, we'll schedule the background update sooner., flags: 4
+[ConCommands] ConCommand added: broadcast_upload_drop_sec : , flags: 4
+[ConCommands] ConCommand added: broadcast_upload_update_sec : , flags: 4
+[ConCommands] ConCommand added: log_matchmaking_callbacks : , flags: 0
+[ConCommands] ConCommand added: appcloudsessions : , flags: 16
+[ConCommands] ConCommand added: testappcloudpaths : , flags: 16
+[ConCommands] ConCommand added: library_folder_list : list all mounted Steam volumes, flags: 0
+[ConCommands] ConCommand added: set_download_throttle : set_download_throttle <kbps> <bPersistent = false>, flags: 0
+[ConCommands] ConCommand added: get_download_throttle : , flags: 0
+[ConCommands] ConCommand added: app_set_config : <AppID> <key> <value> - sets a config value for given app., flags: 0
+[ConCommands] ConCommand added: app_dlc_status : app_status <appId> <dlcId>, flags: 0
+[ConCommands] ConCommand added: app_status : app_status <appId>, flags: 0
+[ConCommands] ConCommand added: apps_installed : , flags: 0
+[ConCommands] ConCommand added: app_update_cancel : <EAppUpdateError>, flags: 0
+[ConCommands] ConCommand added: patch_dump : <filename> <depotid>, flags: 0
+[ConCommands] ConCommand added: manifest_dump : <filename> [0|1: include chunks], flags: 0
+[ConCommands] ConCommand added: bPrefetchDownloadDetails : Prefetch download size before actual update happens, flags: 4
+[ConCommands] ConCommand added: nContentStatsReportInterval : In Hours, flags: 4
+[ConCommands] ConCommand added: @sSteamCmdForcePlatformBitness : Must be one of: [32 | 64], flags: 4
+[ConCommands] ConCommand added: @sSteamCmdForcePlatformType : Must be one of: [windows | macos | linux | android], flags: 4
+[ConCommands] ConCommand added: nPeerContentDefaultMode : 0 = off, 1 = only me, 2 = only friends, 3 = anyone, flags: 4
+[ConCommands] ConCommand added: package_info_print : Dumps package info for packageID, flags: 0
+[ConCommands] ConCommand added: app_info_find : Find apps with a certain appinfo value set, eg 'common/type media'. * is any. , flags: 0
+[ConCommands] ConCommand added: app_info_print : app_info_print <appid> [section] : print app info for appID, flags: 0
+[ConCommands] ConCommand added: app_info_http_min : , flags: 4
+[ConCommands] ConCommand added: app_force_preload : force this app into preload mode, flags: 4
+Registering
+Registering
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Registering
+Registering
+Registering
+Received callback [ID: 1010055, name: 31VoiceMutingHotKeyStateChanged_t, param length: 1, data ptr: 0x7ed3840010e0]
+Received callback [ID: 1220012, name: Unknown, param length: 24, data ptr: 0x7ed3ac2451c0]
+AppsManager startup
+Not running SteamHTML due to user preference
+SteamService _init is at 0xf722898c
+dladdr returned  0xffad7524
+SteamService fbase is at 0xf7200000
+SteamServiceInternal_StartThread is at 0xf7237e30
+Starting SteamService using ipcName SteamClientService
+Service ptr 0xf7738000
+SteamService_ptr is 0xf7738000
+SteamServiceInternal_StartThread returned 1
+Kill with CTRL+C
+Received callback [ID: 1040011, name: 25SteamConfigStoreChanged_t, param length: 260, data ptr: 0x7ed384002860]
+Begin Message SteamConfigStoreChanged_t
+    ConfigStore: k_EConfigStoreInstall
+    PathToChange: 
+End of Message SteamConfigStoreChanged_t
+Handler count: 5
+No handler for 1040011
+Received callback [ID: 1280022, name: Unknown, param length: 1, data ptr: 0x7ed3ac2451c0]
+Received callback [ID: 1040021, name: Unknown, param length: 1, data ptr: 0x7ed3ac2451c0]
+Received callback [ID: 1040011, name: 25SteamConfigStoreChanged_t, param length: 260, data ptr: 0x7ed384002860]
+Begin Message SteamConfigStoreChanged_t
+    ConfigStore: k_EConfigStoreMax
+    PathToChange: 
+End of Message SteamConfigStoreChanged_t
+Handler count: 5
+No handler for 1040011
+Received callback [ID: 1040043, name: ConnectivityTestState_t, param length: 16, data ptr: 0x7ed3ac211e00]
+src/clientdll/steamp2pvoice.cpp (163) : s_libVideoFuncs.InitFunctions( LIBVIDEO_LIBRARY_NAME )
+CAppInfoCacheReadFromDiskThread took 201 milliseconds to initialize
+(0x7ed3ac2ba7b0) HTTP request resolved test.steampowered.com to 62.115.252.177. Now checking proxy.
+Auto-detected proxy settings: auto-detect(true), proxy(0.0.0.0:0), proxy-https(0.0.0.0:0), exclude:
+(0x7ed3ac2ba7b0) HTTP request connecting to 62.115.252.177:80
+Need new HTTP connection (0x7ed3ac254eb0) for 62.115.252.177:80 (62.115.252.177:80)
+(0x7ed3ac254eb0) Sending request for http://test.steampowered.com/204 - Stale Timeout 60000
+HttpClientConnection (0x7ed3ac254eb0) now connected through 9 
+[2023-08-29 23:21:24] Finding Mesa SF caches, base directory: /home/onni/.local/share/OpenSteam/shader_cache_temp_dir_gl_64.
+[2023-08-29 23:21:24] Processing FOZ cache file at /home/onni/.local/share/OpenSteam/shader_cache_temp_dir_gl_64/mesa_shader_cache_sf/94e4025243e831669ba2e48c28cb1d20d519308f/GFX1100/foz_cache.foz
+[2023-08-29 23:21:24] Loaded store 'install' from '/home/onni/.local/share/OpenSteam/config/config.vdf' successfully
+[2023-08-29 23:21:24] Mapping AppID 418530 to tool "proton_experimental" with priority 100
+[2023-08-29 23:21:24] Mapping AppID 264710 to tool "proton_experimental" with priority 100
+[2023-08-29 23:21:24] Mapping AppID 480 to tool "proton_7" with priority 200
+[2023-08-29 23:21:24] Mapping AppID 0 to tool "proton_7" with priority 0
+HTTP client (0x7ed3ac254eb0) connect completed (handle 9 handle in 9) (request handle 0x7ed3ac2ba7b0)
+(0x7ed3ac254eb0) Beginning headers to test.steampowered.com
+(0x7ed3ac254eb0) State to test.steampowered.com is now k_EHTTPClientConnectionState_WAITING_RESPONSELINE_VERSION
+[2023-08-29 23:21:24] Loaded store 'machineuser' from '/home/onni/.local/share/OpenSteam/local.vdf' successfully
+Connection for 62.115.252.177:80 re-entering pool
+No waiting requests for 62.115.252.177:80
+Success! http://test.steampowered.com/204
+Response for /204 can be cached? No.
+[2023-08-29 23:21:24] Connectivity test: OK!
+[2023-08-29 23:21:24] Connectivity test: result=Connected (since 0.0s ago), prev=Unknown, in progress=0
+Cache miss for http://ipv6check-http.steamserver.net/ipv6check - file '/home/onni/.local/share/OpenSteam/appcache/httpcache//bd/bd2fe32deba9efac5c7d4c7fd087ad04f371b438_da39a3ee5e6b4b0d3255bfef95601890afd80709' not found
+(0x7ed3ac4bae00) HTTP request resolving ipv6check-http.steamserver.net
+(0x7ed3ac4bae00) HTTP request resolved ipv6check-http.steamserver.net to 2a01:bc80:7:100::9b85:f810. Now checking proxy.
+(0x7ed3ac4bae00) HTTP request connecting to [2a01:bc80:7:100::9b85:f810]:80
+Need new HTTP connection (0x7ed3ac4d9d40) for [2a01:bc80:7:100::9b85:f810]:80 ([2a01:bc80:7:100::9b85:f810]:80)
+(0x7ed3ac4d9d40) Sending request for http://ipv6check-http.steamserver.net/ipv6check - Stale Timeout 60000
+HttpClientConnection (0x7ed3ac4d9d40) now connected through D 
+(0x7ed3ac4d9d40) Aborting HTTP request because we received a ConnectFailed callback (handle: D  eResult: 35  extended: 101)
+AbortConnection - (0x7ed3ac4d9d40) Aborting client HTTP connection
+Removing now closed connection (0x7ed3ac4d9d40) for [2a01:bc80:7:100::9b85:f810]:80
+Removing in-use connection for [2a01:bc80:7:100::9b85:f810]:80, 0 left open, 0 requests waiting, 0 requests still in-flight
+Failed! http://ipv6check-http.steamserver.net/ipv6check
+Response for /ipv6check can be cached? No.
+CTCPConnection::BFrameFuncRunConnections: outgoing connect to [2a01:bc80:7:100::9b85:f810]:80 failed, error 101 ([no name available])
+[2023-08-29 23:21:24] IPv6 HTTP connectivity test (ipv6check-http.steamserver.net / [2a01:bc80:7:100::9b85:f810]:80 ([2a01:bc80:7:100::9b85:f810]:80)) - TIMEOUT
+UDPSocket::BSend received error 11 (EWOULDBLOCK) from WSASendTo
+UDPSocket::BSend received error 11 (EWOULDBLOCK) from WSASendTo
+UDPSocket::BSend received error 11 (EWOULDBLOCK) from WSASendTo
+UDPSocket::BSend received error 11 (EWOULDBLOCK) from WSASendTo
+UDPSocket::BSend received error 11 (EWOULDBLOCK) from WSASendTo
+[2023-08-29 23:21:24] Attempting to find current bucket; tReceived callback [ID: 1060001, name: Unknown, param length: 4, data ptr: 0x7ed3ac211e00]
+Received callback [ID: 1220012, name: Unknown, param length: 24, data ptr: 0x7ed3ac211e00]
+Received callback [ID: 1220012, name: Unknown, param length: 24, data ptr: 0x7ed3ac211e00]
+AppsManager shutdown
+emporary dir: /home/onni/.local/share/OpenSteam/shader_cache_temp_dir_gl_32
+[2023-08-29 23:21:24] Creating shader cache directory: /home/onni/.local/share/OpenSteam/shader_cache_temp_dir_gl_32
+[2023-08-29 23:21:24] Setting MESA_GLSL_CACHE_DIR=/home/onni/.local/share/OpenSteam/shader_cache_temp_dir_gl_32 MESA_DISK_CACHE_READ_ONLY_FOZ_DBS=steam_cache,steam_precompiled
+Local Device Found
+  type: 054c 0ce6
+  path: sdl://1
+  serial_number:  - 0
+[2023-08-29 23:21:25] Local Device Found
+  type: 054c 0ce6
+  path: sdl://1
+  serial_number:  - 0
+  Manufacturer: 
+[2023-08-29 23:21:25]   Manufacturer: 
+  Product:      DualSense Wireless Controller
+[2023-08-29 23:21:25]   Product:      DualSense Wireless Controller
+  Release:      100
+[2023-08-29 23:21:25]   Release:      100
+  Interface:    -1
+
+[2023-08-29 23:21:25]   Interface:    -1
+
+Controller using HIDAPI driver, vid=0x054c, pid=0x0ce6
+[2023-08-29 23:21:25] Controller using HIDAPI driver, vid=0x054c, pid=0x0ce6
+!! Steam controller device opened for index 0.
+[2023-08-29 23:21:25] !! Steam controller device opened for index 0.
+Steam Controller reserving XInput slot 0
+[2023-08-29 23:21:25] Steam Controller reserving XInput slot 0
+[2023-08-29 23:21:25] Finding Mesa SF caches, base directory: /home/onni/.local/share/OpenSteam/shader_cache_temp_dir_gl_32.
+[2023-08-29 23:21:25] Processing FOZ cache file at /home/onni/.local/share/OpenSteam/shader_cache_temp_dir_gl_32/mesa_shader_cache_sf/a8e448c8f0b8172c03dbe1288191ab96690fa318/GFX1100/foz_cache.foz
+Controller PollState Changed from 0 to 1
+[2023-08-29 23:21:25] Controller PollState Changed from 0 to 1
+[2023-08-29 23:21:25] Attempting to find current bucket; temporary dir: /home/onni/.local/share/OpenSteam/shader_cache_temp_dir_vk_64
+[2023-08-29 23:21:25] Creating shader cache directory: /home/onni/.local/share/OpenSteam/shader_cache_temp_dir_vk_64
+[2023-08-29 23:21:25] Setting MESA_GLSL_CACHE_DIR=/home/onni/.local/share/OpenSteam/shader_cache_temp_dir_vk_64 MESA_DISK_CACHE_READ_ONLY_FOZ_DBS=steam_cache,steam_precompiled
+[2023-08-29 23:21:25] Finding Mesa SF caches, base directory: /home/onni/.local/share/OpenSteam/shader_cache_temp_dir_vk_64.
+[2023-08-29 23:21:25] Processing FOZ cache file at /home/onni/.local/share/OpenSteam/shader_cache_temp_dir_vk_64/mesa_shader_cache_sf/5498cace16f5117fd4e79d8c6c953351/AMD RADV GFX1100/foz_cache.foz
+[2023-08-29 23:21:25] Detected 64-bit RADV Vulkan driver AMD RADV GFX1100 / 5498cace16f5117fd4e79d8c6c953351
+[2023-08-29 23:21:26] Attempting to find current bucket; temporary dir: /home/onni/.local/share/OpenSteam/shader_cache_temp_dir_vk_32
+[2023-08-29 23:21:26] Creating shader cache directory: /home/onni/.local/share/OpenSteam/shader_cache_temp_dir_vk_32
+[2023-08-29 23:21:26] Setting MESA_GLSL_CACHE_DIR=/home/onni/.local/share/OpenSteam/shader_cache_temp_dir_vk_32 MESA_DISK_CACHE_READ_ONLY_FOZ_DBS=steam_cache,steam_precompiled
+[2023-08-29 23:21:26] Finding Mesa SF caches, base directory: /home/onni/.local/share/OpenSteam/shader_cache_temp_dir_vk_32.
+[2023-08-29 23:21:26] Processing FOZ cache file at /home/onni/.local/share/OpenSteam/shader_cache_temp_dir_vk_32/mesa_shader_cache_sf/663783d27e2752513ff7fd1ed624c100/AMD RADV GFX1100/foz_cache.foz
+[2023-08-29 23:21:26] Detected 32-bit RADV Vulkan driver AMD RADV GFX1100 / 663783d27e2752513ff7fd1ed624c100
+[2023-08-29 23:21:26] Found 7 current buckets:
+[2023-08-29 23:21:26] GFX1100 / L7:94e4025243e831669ba2e48c28cb1d20d519308f
+[2023-08-29 23:21:26] GFX1100 / L7:a8e448c8f0b8172c03dbe1288191ab96690fa318
+[2023-08-29 23:21:26] AMD RADV GFX1100 / L7:5498cace16f5117fd4e79d8c6c953351
+[2023-08-29 23:21:26] AMD RADV GFX1100 / L7:663783d27e2752513ff7fd1ed624c100
+[2023-08-29 23:21:26] SteamSwarm / G7:VulkanPipelinesV6
+[2023-08-29 23:21:26] SteamSwarm / G7:CompatAudioTCMediaV1
+[2023-08-29 23:21:26] SteamSwarm / G7:CompatVideoTCMediaV1
+[2023-08-29 23:21:26] IPv6 UDP connectivity test (ipv6check-udp.steamserver.net / 2a01:bc80:c:101::9b85:e212) - TIMEOUT
+OnSteamPipeClosed - 131073
+[Logged Off, 0, 0] [U:1:0] ResetVoiceRecording() (was recording: 0) (last get voice time: 1693340489 seconds ago)
+[2023-08-29 23:21:29] [Logged Off, 0, 0] [U:1:0] ResetVoiceRecording() (was recording: 0) (last get voice time: 1693340489 seconds ago)
+[Logged Off, 0, 0] [U:1:0] Log session ended
+[2023-08-29 23:21:29] [Logged Off, 0, 0] [U:1:0] Log session ended
+[2023-08-29 23:21:29] WebUITransport: Shutting down
+Exiting workitem thread
+[2023-08-29 23:21:29] Exiting workitem thread
