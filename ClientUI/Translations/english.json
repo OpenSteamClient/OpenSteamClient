@@ -9,6 +9,7 @@
         "#LoginWindow_LoginText": "Login with a Steam account.",
         "#Username": "Username",
         "#Password": "Password",
+        "#RememberPassword": "Remember Password",
         "#Unsupported": "Unsupported",
         "#Error": "Error",
         "#AccountPickerWindow_FailedToRemoveAccount": "Failed to remove account",

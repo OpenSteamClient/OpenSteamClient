@@ -100,7 +100,7 @@ public class LoginManager : Component
         steamClient.NativeClient.IClientUser.SetUserMachineName(machineName);
     }
 
-    public void BeginLogonToUser(LoginUser user, IExtendedProgress<int> loginProgress) {
+    public void BeginLogonToUser(LoginUser user, IExtendedProgress<int>? loginProgress) {
         if (this.isLoggingOn) {
             throw new InvalidOperationException("Logon already in progress");
         }
@@ -123,6 +123,7 @@ public class LoginManager : Component
                     if (user.SteamGuardCode != null) {
                         steamClient.NativeClient.IClientUser.SetTwoFactorCode(user.SteamGuardCode);
                     }
+                    //TODO: use Protobuf here to get SteamID with SharedConnection. Alternatively we could handle the whole process manually, and just send the token to steamclient (which we need to do for QR flow regardless)
                     break;
                 case LoginMethod.Cached:
                     OpenSteamworks.Client.Utils.UtilityFunctions.AssertNotNull(user.AccountName);
@@ -146,11 +147,14 @@ public class LoginManager : Component
             this.loginFinishResult = null;
             this.isLoggingOn = true;
 
-            loginProgress.SetOperation("Logging on " + user.AccountName);
+            loginProgress?.SetOperation("Logging on " + user.AccountName);
 
-            OpenSteamworks.Client.Utils.UtilityFunctions.Assert(user.SteamID.HasValue);
+            if (!user.SteamID.HasValue) {
+                LogOnFailed?.Invoke(this, new EResultEventArgs(EResult.k_EResultInvalidSteamID));
+                return;
+            }
             
-            // This cast is stupid. 
+            // This nullability system is stupid.
             EResult beginLogonResult = steamClient.NativeClient.IClientUser.LogOn(user.SteamID.Value);
 
             if (beginLogonResult != EResult.k_EResultOK) {
@@ -159,9 +163,8 @@ public class LoginManager : Component
                 return;
             }
 
-            loginProgress.SetSubOperation("Waiting for steamclient...");
+            loginProgress?.SetSubOperation("Waiting for steamclient...");
 
-            // This cast is stupid as well. 
             EResult result = await WaitForLogonToFinish();
 
             if (result == EResult.k_EResultOK)

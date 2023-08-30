@@ -8,4 +8,8 @@ public class AppViewModel : ViewModelBase {
         // This is stupid. TODO: Pending support for "await?" to clean up.
         await (App.Current == null ? Task.CompletedTask : App.Current.Exit(1));
     }
+
+    public void OpenInterfaceList() {
+        App.Current?.OpenInterfaceList();
+    }
 }

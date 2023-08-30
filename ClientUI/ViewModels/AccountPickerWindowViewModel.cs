@@ -38,7 +38,6 @@ public partial class AccountPickerWindowViewModel : ViewModelBase
                 {
                     this.Accounts.Remove(vm);
                 }
-
             });
 
             this.Accounts.Add(vm);
@@ -46,6 +45,6 @@ public partial class AccountPickerWindowViewModel : ViewModelBase
     }
 
     public void OpenLoginDialog() {
-
+        App.Current?.ForceLoginWindow();
     }
 }

@@ -9,6 +9,7 @@
         "#LoginWindow_LoginText": "Kirjaudu Steam-tilillä.",
         "#Username": "Käyttäjätunnus",
         "#Password": "Salasana",
+        "#RememberPassword": "Muista salasana",
         "#Unsupported": "Ei tuettu",
         "#Error": "Virhe",
         "#AccountPickerWindow_FailedToRemoveAccount": "Tilin poistaminen epäonnistui",

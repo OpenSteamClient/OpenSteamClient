@@ -19,8 +19,7 @@ public class MainWindowViewModel : ViewModelBase
         MessageBox.Show("result", launchresult.ToString());
     }
     public void DBG_OpenInterfaceList() {
-        var ifacelist = new InterfaceList();
-        ifacelist.Show();
+        App.Current?.OpenInterfaceList();
     }
     public void DBG_ChangeLanguage() {
         // Very simple logic, just switches between english and finnish. 

@@ -3,6 +3,7 @@ using System.IO;
 using Avalonia.Media.Imaging;
 using ClientUI.Translation;
 using CommunityToolkit.Mvvm.ComponentModel;
+using OpenSteamworks.Client.Managers;
 using OpenSteamworks.Generated;
 using QRCoder;
 
@@ -24,9 +25,13 @@ public partial class LoginWindowViewModel : ViewModelBase
 
     private IClientUser iClientUser;
     private TranslationManager tm;
-    public LoginWindowViewModel(IClientUser iClientUser, TranslationManager tm) {
+    private LoginManager loginManager;
+
+    public LoginWindowViewModel(IClientUser iClientUser, TranslationManager tm, LoginManager loginManager) {
         this.iClientUser = iClientUser;
         this.tm = tm;
+        this.loginManager = loginManager;
+
         var qrGenerator = new QRCodeGenerator();
         var qrCodeData = qrGenerator.CreateQrCode("https://s.team/dfgdfsgdfgdf", QRCodeGenerator.ECCLevel.Q);
         var qrCode = new PngByteQRCode(qrCodeData);
@@ -43,7 +48,9 @@ public partial class LoginWindowViewModel : ViewModelBase
     public void RegisterPressed() {
         MessageBox.Show(tm.GetTranslationForKey("#Unsupported"), string.Format(tm.GetTranslationForKey("#LoginWindow_AccountCreationUnsupported"), "https://store.steampowered.com/join/"));
     }
+
     public void LoginPressed() {
-        
+        MessageBox.Show("Debug thingy", "Username: " + this.Username + System.Environment.NewLine + "Password: " + this.Password + System.Environment.NewLine + "Remember: " + this.RememberPassword);
+        this.loginManager.BeginLogonToUser(new OpenSteamworks.Client.Config.LoginUser(this.Username, this.Password, this.RememberPassword), null);
     }
 }

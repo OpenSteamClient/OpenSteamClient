@@ -26,8 +26,9 @@
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Spacing="5">
             <TextBlock FontSize="20" c:Translatable.TranslationKey="#LoginWindow_LoginText" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <TextBox x:Name="UsernameBox" c:Translatable.TranslationKey="#Username"/>
-            <TextBox x:Name="PasswordBox" c:Translatable.TranslationKey="#Password" PasswordChar="•"/>
+            <TextBox x:Name="UsernameBox" Text="{Binding Username}" c:Translatable.TranslationKey="#Username"/>
+            <TextBox x:Name="PasswordBox" Text="{Binding Password}" c:Translatable.TranslationKey="#Password" PasswordChar="•"/>
+            <CheckBox IsChecked="{Binding RememberPassword}" c:Translatable.TranslationKey="#RememberPassword" />
             <StackPanel Orientation="Horizontal">
                 <Button x:Name="RegisterButton" Command="{Binding RegisterPressed}" c:Translatable.TranslationKey="#LoginWindow_Register" />
                 <Button x:Name="LoginButton" Command="{Binding LoginPressed}" c:Translatable.TranslationKey="#LoginWindow_Login"/>

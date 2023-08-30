@@ -20,6 +20,7 @@
       <TrayIcon Icon="/Assets/opensteam-logo.ico" ToolTipText="OpenSteamClient is running">
         <TrayIcon.Menu>
           <NativeMenu>
+            <NativeMenuItem Header="Open InterfaceList" Command="{Binding OpenInterfaceList}" />
             <NativeMenuItem Header="Exit" Command="{Binding Exit}" />
           </NativeMenu>
         </TrayIcon.Menu>
