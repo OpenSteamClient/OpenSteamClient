@@ -17,11 +17,25 @@ public class LoggedOnEventArgs : EventArgs
     public LoginUser User { get; } 
 }
 
+public class LoggedOffEventArgs : EventArgs
+{
+    public LoggedOffEventArgs(LoginUser user, EResult? error = null) { User = user; Error = error; }
+    public LoginUser User { get; } 
+    public EResult? Error { get; }
+}
+
+public class LogOnFailedEventArgs : EventArgs
+{
+    public LogOnFailedEventArgs(LoginUser user, EResult error) { User = user; Error = error; }
+    public LoginUser User { get; } 
+    public EResult Error { get; }
+}
+
 public class LoginManager : Component
 {
     public delegate void LoggedOnEventHandler(object sender, LoggedOnEventArgs e);
-    public delegate void LoggedOffEventHandler(object sender, LoggedOnEventArgs e);
-    public delegate void LogOnFailedEventHandler(object sender, EResultEventArgs e);
+    public delegate void LoggedOffEventHandler(object sender, LoggedOffEventArgs e);
+    public delegate void LogOnFailedEventHandler(object sender, LogOnFailedEventArgs e);
     public event LoggedOnEventHandler? LoggedOn;
     public event LoggedOffEventHandler? LoggedOff;
     public event LogOnFailedEventHandler? LogOnFailed;
@@ -95,9 +109,20 @@ public class LoginManager : Component
             loginFinishResult = EResult.k_EResultOK;
         }
     }
+
+    // [CallbackListener<SteamServersDisconnected_t>]
+    // public void OnSteamServersConnected(SteamServersConnected_t connected) {
+    //     if (isLoggingOn) {
+    //         loginFinishResult = EResult.k_EResultOK;
+    //     }
+    // }
     
     public void SetMachineName(string machineName) {
         steamClient.NativeClient.IClientUser.SetUserMachineName(machineName);
+    }
+
+    public bool HasCachedCredentials(LoginUser user) {
+        return steamClient.NativeClient.IClientUser.BHasCachedCredentials(user.AccountName);
     }
 
     public void BeginLogonToUser(LoginUser user, IExtendedProgress<int>? loginProgress) {
@@ -112,6 +137,8 @@ public class LoginManager : Component
 
         Task.Run(async () =>
         {
+            // TODO: we don't yet support tracking the progress (though we could estimate based on the order callbacks fire...)
+            loginProgress?.SetThrobber(true);
             this.loginProgress = loginProgress;
 
             switch (user.LoginMethod)
@@ -130,7 +157,7 @@ public class LoginManager : Component
 
                     if (!steamClient.NativeClient.IClientUser.BHasCachedCredentials(user.AccountName))
                     {
-                        LogOnFailed?.Invoke(this, new EResultEventArgs(EResult.k_EResultCachedCredentialIsInvalid));
+                        LogOnFailed?.Invoke(this, new LogOnFailedEventArgs(user, EResult.k_EResultCachedCredentialIsInvalid));
                         return;
                     }
 
@@ -150,7 +177,7 @@ public class LoginManager : Component
             loginProgress?.SetOperation("Logging on " + user.AccountName);
 
             if (!user.SteamID.HasValue) {
-                LogOnFailed?.Invoke(this, new EResultEventArgs(EResult.k_EResultInvalidSteamID));
+                LogOnFailed?.Invoke(this, new LogOnFailedEventArgs(user, EResult.k_EResultInvalidSteamID));
                 return;
             }
             
@@ -159,7 +186,7 @@ public class LoginManager : Component
 
             if (beginLogonResult != EResult.k_EResultOK) {
                 this.isLoggingOn = false;
-                LogOnFailed?.Invoke(this, new EResultEventArgs(beginLogonResult));
+                LogOnFailed?.Invoke(this, new LogOnFailedEventArgs(user, beginLogonResult));
                 return;
             }
 
@@ -180,7 +207,7 @@ public class LoginManager : Component
                 }
                 LoggedOn?.Invoke(this, new LoggedOnEventArgs(user));
             } else {
-                LogOnFailed?.Invoke(this, new EResultEventArgs(result));
+                LogOnFailed?.Invoke(this, new LogOnFailedEventArgs(user, result));
             }
         });
     }

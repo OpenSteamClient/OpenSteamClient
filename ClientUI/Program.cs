@@ -26,7 +26,7 @@ public static class Program
                 throw;
             }
             
-            MessageBox.Error("OpenSteamClient needs to close", "We encountered a fatal exception: " + e.Message, e.ToString());
+            MessageBox.Error("OpenSteamClient needs to close", "OpenSteamClient has encountered a fatal exception and will attempt to close gracefully. This may freeze. If it does, just kill the process manually. Exception message: " + e.Message, e.ToString());
             // This is stupid. TODO: Pending support for "await?" to clean up.
             await (App.Current == null ? Task.CompletedTask : App.Current.Exit(1));
         }

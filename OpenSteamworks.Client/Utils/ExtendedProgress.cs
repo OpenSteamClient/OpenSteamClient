@@ -12,7 +12,6 @@ public interface IExtendedProgress<T> : IProgress<T>
     public void SetMaxProgress(T value);
     public void SetOperation(string value);
     public void SetSubOperation(string value);
-    public void FinishOperation(string? message = null);
 }
 public class ExtendedProgress<T> : IExtendedProgress<T>
 {
@@ -26,11 +25,9 @@ public class ExtendedProgress<T> : IExtendedProgress<T>
     public T MaxProgress { get; private set; }
     public string Operation { get; private set; }
     public string SubOperation { get; private set; }
-
     public event EventHandler<T>? ProgressChanged;
-    public event EventHandler<string?>? OperationFinished;
-    public object PropertyLock = new object();
-    public object SendLock = new object();
+    private object PropertyLock = new object();
+    private object SendLock = new object();
 
     private static SynchronizationContext defaultSyncContext = new SynchronizationContext();
 
@@ -80,13 +77,6 @@ public class ExtendedProgress<T> : IExtendedProgress<T>
             this.SubOperation = value;
             (this as IProgress<T>).Report(this.Progress);
         }
-    }
-
-    void IExtendedProgress<T>.FinishOperation(string? message) {
-        lock(PropertyLock) {
-            (this as IExtendedProgress<T>).SetOperation((message != null) ? message : "Operation finished");
-        }
-        OperationFinished?.Invoke(this, message);
     }
 
     void IProgress<T>.Report(T value)

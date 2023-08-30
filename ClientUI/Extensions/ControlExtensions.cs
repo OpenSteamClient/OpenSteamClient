@@ -1,3 +1,4 @@
+using System;
 using Avalonia.Controls;
 using Avalonia.VisualTree;
 
@@ -38,6 +39,12 @@ public static class ControlExtensions {
         }
 
         tm.TranslateVisual(control);
+        control.LayoutUpdated += (object? sender, EventArgs e) => { TryTranslateSelf(control); };
         return true;
+    }
+
+    public static void TranslatableInit(this Control control) {
+        control.TryTranslateSelf();
+        control.LayoutUpdated += (object? sender, EventArgs e) => { TryTranslateSelf(control); };
     }
 }

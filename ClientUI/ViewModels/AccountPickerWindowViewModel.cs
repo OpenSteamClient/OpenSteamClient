@@ -6,7 +6,9 @@ using Avalonia.Platform;
 using ClientUI.Translation;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using OpenSteamworks.Client.Config;
 using OpenSteamworks.Client.Managers;
+using OpenSteamworks.Client.Utils;
 using OpenSteamworks.Generated;
 
 namespace ClientUI.ViewModels;
@@ -40,11 +42,32 @@ public partial class AccountPickerWindowViewModel : ViewModelBase
                 }
             });
 
+            vm.ClickAction = new RelayCommand(() =>
+            {
+                ExtendedProgress<int> prog = new(0, 100);
+                App.Current?.ForceProgressWindow(new ProgressWindowViewModel(prog, tm.GetTranslationForKey("#LoginProgress_Title")) {
+                    Translations = new() {
+                        {"Waiting for steamclient...", tm.GetTranslationForKey("#LoginProgress_WaitingForSteamClient")}
+                    }
+                });
+
+                if (this.loginManager.HasCachedCredentials(item)) {
+                    item.LoginMethod = OpenSteamworks.Client.Config.LoginMethod.Cached;
+                    this.loginManager.BeginLogonToUser(item, prog);
+                } else {
+                    this.OpenLoginDialog(item);
+                }
+            });
+
             this.Accounts.Add(vm);
         }
     }
+    
+    public void OpenLoginDialog(LoginUser? user) {
+        App.Current?.ForceLoginWindow(user);
+    }
 
     public void OpenLoginDialog() {
-        App.Current?.ForceLoginWindow();
+        this.OpenLoginDialog(null);
     }
 }

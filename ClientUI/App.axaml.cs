@@ -17,6 +17,7 @@ using System.Threading.Tasks;
 using OpenSteamworks.Client.Config;
 using OpenSteamworks.Client.CommonEventArgs;
 using System;
+using Avalonia.Controls;
 
 namespace ClientUI;
 
@@ -46,10 +47,8 @@ public partial class App : Application
         Container.RegisterComponentInstance(this);
         await Container.RunStartupForComponents();
 
-        progVm.Title = "Login Progress";
-
         // This will stay for the lifetime of the application.
-        Container.GetComponent<LoginManager>().LoggedOn += (object sender, LoggedOnEventArgs eventArgs) =>
+        Container.GetComponent<LoginManager>().LoggedOn += (object sender, LoggedOnEventArgs e) =>
         {
             Avalonia.Threading.Dispatcher.UIThread.Invoke(() =>
             {
@@ -57,10 +56,21 @@ public partial class App : Application
             });
         };
 
-        Container.GetComponent<LoginManager>().LogOnFailed += (object sender, EResultEventArgs eventArgs) =>
+        Container.GetComponent<LoginManager>().LogOnFailed += (object sender, LogOnFailedEventArgs e) =>
         {
             Avalonia.Threading.Dispatcher.UIThread.Invoke(() => {
-                MessageBox.Show("Failed to log on", "Failed with result code: " + eventArgs.EResult.ToString());
+                MessageBox.Show("Failed to log on", "Failed with result code: " + e.Error.ToString());
+                ForceAccountPickerWindow();
+            });
+        };
+
+        Container.GetComponent<LoginManager>().LoggedOff += (object sender, LoggedOffEventArgs e) =>
+        {
+            Avalonia.Threading.Dispatcher.UIThread.Invoke(() => {
+                if (e.Error != null) {
+                    // What can cause a sudden log off?
+                    MessageBox.Show("Session terminated", "You were forcibly logged off with an error code: " + e.Error.ToString());
+                }
                 ForceAccountPickerWindow();
             });
         };
@@ -76,38 +86,54 @@ public partial class App : Application
     /// Closes the current MainWindow (if exists) and replaces it with the account picker
     /// </summary>
     public void ForceAccountPickerWindow() {
-        ApplicationLifetime.MainWindow?.Close();
-        ApplicationLifetime.MainWindow = new AccountPickerWindow
+        ForceWindow(new AccountPickerWindow
         {
             DataContext = App.Container.ConstructOnly<AccountPickerWindowViewModel>()
-        };
-
-        ApplicationLifetime.MainWindow.Show();
+        });
     }
 
     /// <summary>
     /// Closes the current MainWindow (if exists) and replaces it with a new MainWindow
     /// </summary>
     public void ForceMainWindow() {
-        ApplicationLifetime.MainWindow?.Close();
-        ApplicationLifetime.MainWindow = new MainWindow
+        ForceWindow(new MainWindow
         {
             DataContext = App.Container.ConstructOnly<MainWindowViewModel>()
-        };
-
-        ApplicationLifetime.MainWindow.Show();
+        });
     }
 
     /// <summary>
     /// Closes the current MainWindow (if exists) and replaces it with the login screen
     /// </summary>
-    public void ForceLoginWindow() {
-        ApplicationLifetime.MainWindow?.Close();
-        ApplicationLifetime.MainWindow = new LoginWindow
+    public void ForceLoginWindow(LoginUser? user) {
+        LoginWindowViewModel vm;
+        if (user == null) {
+            vm = App.Container.ConstructOnly<LoginWindowViewModel>();
+        } else {
+            vm = App.Container.ConstructOnly<LoginWindowViewModel>(new object[1] { user });
+        }
+        
+        ForceWindow(new LoginWindow
         {
-            DataContext = App.Container.ConstructOnly<LoginWindowViewModel>()
-        };
+            DataContext = vm
+        });
+    }
 
+    /// <summary>
+    /// Closes the current MainWindow (if exists) and replaces it with a new Progress Window, with the user specified ProgressWindowViewModel
+    /// </summary>
+    public void ForceProgressWindow(ProgressWindowViewModel progVm) {
+        var progressWindow = new ProgressWindow(progVm);
+
+        ForceWindow(new ProgressWindow(progVm));
+    }
+
+    /// <summary>
+    /// Closes the current MainWindow (if exists) and replaces it with a user specified window
+    /// </summary>
+    public void ForceWindow(Window window) {
+        ApplicationLifetime.MainWindow?.Close();
+        ApplicationLifetime.MainWindow = window;
         ApplicationLifetime.MainWindow.Show();
     }
 
