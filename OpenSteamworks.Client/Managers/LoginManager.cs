@@ -157,7 +157,7 @@ public class LoginManager : Component
 
                     if (!steamClient.NativeClient.IClientUser.BHasCachedCredentials(user.AccountName))
                     {
-                        LogOnFailed?.Invoke(this, new LogOnFailedEventArgs(user, EResult.k_EResultCachedCredentialIsInvalid));
+                        OnLogonFailed(new LogOnFailedEventArgs(user, EResult.k_EResultCachedCredentialIsInvalid));
                         return;
                     }
 
@@ -177,16 +177,17 @@ public class LoginManager : Component
             loginProgress?.SetOperation("Logging on " + user.AccountName);
 
             if (!user.SteamID.HasValue) {
-                LogOnFailed?.Invoke(this, new LogOnFailedEventArgs(user, EResult.k_EResultInvalidSteamID));
+                Console.WriteLine("SteamID is null!");
+                OnLogonFailed(new LogOnFailedEventArgs(user, EResult.k_EResultInvalidSteamID));
                 return;
             }
             
             // This nullability system is stupid.
-            EResult beginLogonResult = steamClient.NativeClient.IClientUser.LogOn(user.SteamID.Value);
+            EResult beginLogonResult = steamClient.NativeClient.IClientUser.LogOn(user.SteamID.HasValue ? user.SteamID.Value : 0);
 
             if (beginLogonResult != EResult.k_EResultOK) {
                 this.isLoggingOn = false;
-                LogOnFailed?.Invoke(this, new LogOnFailedEventArgs(user, beginLogonResult));
+                OnLogonFailed(new LogOnFailedEventArgs(user, beginLogonResult));
                 return;
             }
 
@@ -205,13 +206,23 @@ public class LoginManager : Component
                     loginUsers.Users.Add(user);
                     loginUsers.SetUserAsAutologin(user);
                 }
-                LoggedOn?.Invoke(this, new LoggedOnEventArgs(user));
+                OnLoggedOn(new LoggedOnEventArgs(user));
             } else {
-                LogOnFailed?.Invoke(this, new LogOnFailedEventArgs(user, result));
+                OnLogonFailed(new LogOnFailedEventArgs(user, result));
             }
         });
     }
+    private void OnLogonFailed(LogOnFailedEventArgs e) {
+        this.loginFinishResult = null;
+        this.isLoggingOn = false;
+        LogOnFailed?.Invoke(this, e);
+    }
 
+    private void OnLoggedOn(LoggedOnEventArgs e) {
+        this.loginFinishResult = null;
+        this.isLoggingOn = false;
+        LoggedOn?.Invoke(this, e);
+    }
     private async Task<EResult> WaitForLogonToFinish() {
         return await Task.Run<EResult>(() =>
         {

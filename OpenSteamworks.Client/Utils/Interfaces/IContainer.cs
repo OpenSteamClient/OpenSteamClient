@@ -91,9 +91,10 @@ public class Container : IContainer
         this.RegisterComponentInstance(type, ret);
         return ret;
     }
-    private object[] FillArrayWithDependencies(ParameterInfo[] args)
+
+    private object?[] FillArrayWithDependencies(ParameterInfo[] args, bool withOptionals = true)
     {
-        List<object> constructorDependencies = new();
+        List<object?> constructorDependencies = new();
         for (int i = 0; i < args.Length; i++)
         {
             var constructorArg = args[i];
@@ -102,6 +103,10 @@ public class Container : IContainer
             } else {
                 if (!constructorArg.IsOptional) {
                     throw new InvalidOperationException("Failed to get required component " + constructorArg.ParameterType.FullName);
+                } else {
+                    if (withOptionals) {
+                        constructorDependencies.Add(null);
+                    }
                 }
             }
         }
@@ -167,7 +172,7 @@ public class Container : IContainer
     public T ConstructOnly<T>(object[]? extraArgs = null)
     {
         ConstructorInfo ctor = GetConstructorFor<T>();
-        List<object> dependencies = FillArrayWithDependencies(ctor.GetParameters()).ToList();
+        List<object?> dependencies = FillArrayWithDependencies(ctor.GetParameters(), extraArgs == null).ToList();
         if (extraArgs != null)
         {
             dependencies.AddRange(extraArgs);

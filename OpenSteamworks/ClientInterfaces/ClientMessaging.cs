@@ -12,10 +12,16 @@ namespace OpenSteamworks.ClientInterfaces;
 public class ClientMessaging : ClientInterface
 {
     private SteamClient client;
+    private IClientSharedConnection iSharedConnection;
+    private IClientUnifiedMessages iUnifiedMessages;
 
     [CallbackListener<SharedConnectionMessageReady_t>]
     private void OnSharedConnectionMessageReady(SharedConnectionMessageReady_t sharedConnectionMessageReady) {
         
+    }
+
+    public Connection AllocateConnection() {
+        return new Connection(iSharedConnection);
     }
 
     public ClientMessaging(SteamClient client) : base(client)

@@ -67,7 +67,7 @@ public class LoginUser {
     /// </summary>
     public string? SteamGuardCode { get; set; } = null;
     /// <summary>
-    /// Whether this login should be/is remembered.
+    /// Whether this login should be/is remembered (token/cached credentials stored).
     /// </summary>
     public bool Remembered { get; set; } = false;
     public CSteamID? SteamID { get; set; } = null;
