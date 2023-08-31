@@ -5,6 +5,7 @@ using OpenSteamworks.Attributes;
 using OpenSteamworks.Callbacks.Structs;
 using OpenSteamworks.Enums;
 using OpenSteamworks.Generated;
+using OpenSteamworks.Messaging;
 using OpenSteamworks.Structs;
 
 namespace OpenSteamworks.ClientInterfaces;
@@ -24,9 +25,11 @@ public class ClientMessaging : ClientInterface
         return new Connection(iSharedConnection);
     }
 
-    public ClientMessaging(SteamClient client) : base(client)
+    public ClientMessaging(SteamClient client, IClientSharedConnection iSharedConnection, IClientUnifiedMessages iUnifiedMessages) : base(client)
     {
         this.client = client;
+        this.iSharedConnection = iSharedConnection;
+        this.iUnifiedMessages = iUnifiedMessages;
     }
     
     internal override void RunShutdownTasks()
