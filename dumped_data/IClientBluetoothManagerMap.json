@@ -1,51 +1,51 @@
 {
     "name": "IClientBluetoothManagerMap",
-    "found_at": "0x2375924",
+    "found_at": "0x23aab54",
     "functions": [ 
         {
             "name": "IsInterfaceValid",
             "argc": "1",
-            "addr": "0x606200"
+            "addr": "0x60eaa0"
         },
         {
             "name": "GetBluetoothDevicesData",
             "argc": "2",
-            "addr": "0x606360"
+            "addr": "0x60ec00"
         },
         {
             "name": "SetEnabled",
             "argc": "2",
-            "addr": "0x6064e0"
+            "addr": "0x60ed80"
         },
         {
             "name": "SetDiscovering",
             "argc": "3",
-            "addr": "0x606680"
+            "addr": "0x60ef20"
         },
         {
             "name": "Pair",
             "argc": "3",
-            "addr": "0x606830"
+            "addr": "0x60f0d0"
         },
         {
             "name": "CancelPairing",
             "argc": "3",
-            "addr": "0x6069e0"
+            "addr": "0x60f280"
         },
         {
             "name": "UnPair",
             "argc": "3",
-            "addr": "0x606b90"
+            "addr": "0x60f430"
         },
         {
             "name": "Connect",
             "argc": "3",
-            "addr": "0x606d40"
+            "addr": "0x60f5e0"
         },
         {
             "name": "Disconnect",
             "argc": "3",
-            "addr": "0x606ef0"
+            "addr": "0x60f790"
         }
     ]
 }

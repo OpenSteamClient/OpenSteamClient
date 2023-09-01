@@ -41,13 +41,13 @@ public:
     virtual unknown_ret SetBitrateOverride() = 0; //argc: 1, index 8
     virtual unknown_ret ShowOnScreenKeyboard() = 0; //argc: 0, index 9
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret BQueueControllerConfigMessageForLocal() = 0; //argc: 1, index 1
+    virtual unknown_ret BQueueControllerConfigMessageForLocal() = 0; //argc: 1, index 0
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret BGetControllerConfigMessageForRemote() = 0; //argc: 1, index 2
-    virtual const char * GetSystemInfo() = 0; //argc: 0, index 3
-    virtual void StartStreamingSession( CGameID gameID ) = 0; //argc: 1, index 1
-    virtual void ReportStreamingSessionEvent( CGameID gameID, const char * ) = 0; //argc: 2, index 2
-    virtual void FinishStreamingSession( CGameID gameID, const char *, const char * ) = 0; //argc: 3, index 3
+    virtual unknown_ret BGetControllerConfigMessageForRemote() = 0; //argc: 1, index 1
+    virtual const char * GetSystemInfo() = 0; //argc: 0, index 2
+    virtual void StartStreamingSession( CGameID gameID ) = 0; //argc: 1, index 0
+    virtual void ReportStreamingSessionEvent( CGameID gameID, const char * ) = 0; //argc: 2, index 1
+    virtual void FinishStreamingSession( CGameID gameID, const char *, const char * ) = 0; //argc: 3, index 2
 };
 
 #endif // ICLIENTSTREAMCLIENT_H

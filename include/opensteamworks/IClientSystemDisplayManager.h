@@ -27,13 +27,13 @@ abstract_class IClientSystemDisplayManager
 public:
     virtual unknown_ret IsInterfaceValid() = 0; //argc: 0, index 1
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret GetState() = 0; //argc: 1, index 1
+    virtual unknown_ret GetState() = 0; //argc: 1, index 0
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret SetMode() = 0; //argc: 1, index 2
+    virtual unknown_ret SetMode() = 0; //argc: 1, index 1
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret ClearModeOverride() = 0; //argc: 1, index 3
+    virtual unknown_ret ClearModeOverride() = 0; //argc: 1, index 2
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret SetCompatibilityMode() = 0; //argc: 1, index 4
+    virtual unknown_ret SetCompatibilityMode() = 0; //argc: 1, index 3
 };
 
 #endif // ICLIENTSYSTEMDISPLAYMANAGER_H

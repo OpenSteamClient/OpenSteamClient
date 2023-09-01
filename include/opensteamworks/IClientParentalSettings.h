@@ -26,20 +26,20 @@ abstract_class IClientParentalSettings
 {
 public:
     virtual unknown_ret BIsParentalLockEnabled() = 0; //argc: 0, index 1
-    virtual unknown_ret BIsParentalLockLocked() = 0; //argc: 0, index 1
+    virtual unknown_ret BIsParentalLockLocked() = 0; //argc: 0, index 0
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret BIsAppBlocked() = 0; //argc: 1, index 1
+    virtual unknown_ret BIsAppBlocked() = 0; //argc: 1, index 0
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret BIsAppInBlockList() = 0; //argc: 1, index 2
+    virtual unknown_ret BIsAppInBlockList() = 0; //argc: 1, index 1
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret BIsFeatureBlocked() = 0; //argc: 1, index 3
+    virtual unknown_ret BIsFeatureBlocked() = 0; //argc: 1, index 2
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret BIsFeatureInBlockList() = 0; //argc: 1, index 4
+    virtual unknown_ret BIsFeatureInBlockList() = 0; //argc: 1, index 3
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret BGetSerializedParentalSettings() = 0; //argc: 1, index 5
+    virtual unknown_ret BGetSerializedParentalSettings() = 0; //argc: 1, index 4
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret BGetRecoveryEmail() = 0; //argc: 2, index 6
-    virtual unknown_ret BIsLockFromSiteLicense() = 0; //argc: 0, index 7
+    virtual unknown_ret BGetRecoveryEmail() = 0; //argc: 2, index 5
+    virtual unknown_ret BIsLockFromSiteLicense() = 0; //argc: 0, index 6
 };
 
 #endif // ICLIENTPARENTALSETTINGS_H

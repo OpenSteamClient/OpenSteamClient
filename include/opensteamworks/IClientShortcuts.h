@@ -43,36 +43,36 @@ abstract_class IClientShortcuts
 public:
     virtual AppId_t GetUniqueLocalAppId() = 0; //argc: 0, index 1
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual CGameID GetGameIDForAppID() = 0; //argc: 2, index 1
-    virtual AppId_t GetAppIDForGameID(CGameID) = 0; //argc: 1, index 2
-    virtual AppId_t GetDevkitAppIDByDevkitGameID(CGameID) = 0; //argc: 1, index 3
-    virtual unknown_ret GetShortcutAppIds(CUtlVector<AppId_t>* out) = 0; //argc: 1, index 4
-    virtual unknown_ret GetShortcutInfoByIndex(int index, ShortcutInfo*) = 0; //argc: 2, index 5
-    virtual unknown_ret GetShortcutInfoByAppID(AppId_t, ShortcutInfo*) = 0; //argc: 2, index 6
-    virtual AppId_t AddShortcut(const char *szShortcutName, const char *szShortcutExe, const char *szUnk1, const char *szUnk2, const char *szhUnk3) = 0; //argc: 5, index 7
-    virtual AppId_t AddTemporaryShortcut(const char *, const char *, const char *) = 0; //argc: 3, index 8
-    virtual AppId_t AddOpenVRShortcut(const char *, const char *, const char *) = 0; //argc: 3, index 9
-    virtual void SetShortcutFromFullpath( AppId_t unAppID, const char * szPath ) = 0; //argc: 2, index 10
-    virtual void SetShortcutAppName( AppId_t unAppID, const char * szAppName ) = 0; //argc: 2, index 11
+    virtual CGameID GetGameIDForAppID() = 0; //argc: 2, index 0
+    virtual AppId_t GetAppIDForGameID(CGameID) = 0; //argc: 1, index 1
+    virtual AppId_t GetDevkitAppIDByDevkitGameID(CGameID) = 0; //argc: 1, index 2
+    virtual unknown_ret GetShortcutAppIds(CUtlVector<AppId_t>* out) = 0; //argc: 1, index 3
+    virtual unknown_ret GetShortcutInfoByIndex(int index, ShortcutInfo*) = 0; //argc: 2, index 4
+    virtual unknown_ret GetShortcutInfoByAppID(AppId_t, ShortcutInfo*) = 0; //argc: 2, index 5
+    virtual AppId_t AddShortcut(const char *szShortcutName, const char *szShortcutExe, const char *szUnk1, const char *szUnk2, const char *szhUnk3) = 0; //argc: 5, index 6
+    virtual AppId_t AddTemporaryShortcut(const char *, const char *, const char *) = 0; //argc: 3, index 7
+    virtual AppId_t AddOpenVRShortcut(const char *, const char *, const char *) = 0; //argc: 3, index 8
+    virtual void SetShortcutFromFullpath( AppId_t unAppID, const char * szPath ) = 0; //argc: 2, index 9
+    virtual void SetShortcutAppName( AppId_t unAppID, const char * szAppName ) = 0; //argc: 2, index 10
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual void SetShortcutExe( AppId_t unAppID, const char * szExePath ) = 0; //argc: 3, index 12
-    virtual void SetShortcutStartDir( AppId_t unAppID, const char * szPath ) = 0; //argc: 2, index 13
-    virtual void SetShortcutIcon( AppId_t unAppID, const char * szIconPath ) = 0; //argc: 2, index 14
-    virtual void SetShortcutCommandLine( AppId_t unAppID, const char * szCommandLine ) = 0; //argc: 2, index 15
-    virtual void ClearShortcutUserTags( AppId_t unAppID ) = 0; //argc: 1, index 16
-    virtual void AddShortcutUserTag( AppId_t unAppID, const char * szTag) = 0; //argc: 2, index 17
-    virtual void RemoveShortcutUserTag( AppId_t unAppID, const char * szTag) = 0; //argc: 2, index 18
-    virtual void ClearAndSetShortcutUserTags( AppId_t unAppID, const SteamParamStringArray_t *) = 0; //argc: 2, index 19
-    virtual void SetShortcutHidden( AppId_t unAppID, bool bHidden ) = 0; //argc: 2, index 20
-    virtual void SetAllowDesktopConfig( uint32, bool ) = 0; //argc: 2, index 21
-    virtual void SetAllowOverlay( AppId_t unAppID, bool ) = 0; //argc: 2, index 22
-    virtual void SetOpenVRShortcut( AppId_t unAppID, bool bOpenVRShortcut ) = 0; //argc: 2, index 23
+    virtual void SetShortcutExe( AppId_t unAppID, const char * szExePath ) = 0; //argc: 3, index 11
+    virtual void SetShortcutStartDir( AppId_t unAppID, const char * szPath ) = 0; //argc: 2, index 12
+    virtual void SetShortcutIcon( AppId_t unAppID, const char * szIconPath ) = 0; //argc: 2, index 13
+    virtual void SetShortcutCommandLine( AppId_t unAppID, const char * szCommandLine ) = 0; //argc: 2, index 14
+    virtual void ClearShortcutUserTags( AppId_t unAppID ) = 0; //argc: 1, index 15
+    virtual void AddShortcutUserTag( AppId_t unAppID, const char * szTag) = 0; //argc: 2, index 16
+    virtual void RemoveShortcutUserTag( AppId_t unAppID, const char * szTag) = 0; //argc: 2, index 17
+    virtual void ClearAndSetShortcutUserTags( AppId_t unAppID, const SteamParamStringArray_t *) = 0; //argc: 2, index 18
+    virtual void SetShortcutHidden( AppId_t unAppID, bool bHidden ) = 0; //argc: 2, index 19
+    virtual void SetAllowDesktopConfig( uint32, bool ) = 0; //argc: 2, index 20
+    virtual void SetAllowOverlay( AppId_t unAppID, bool ) = 0; //argc: 2, index 21
+    virtual void SetOpenVRShortcut( AppId_t unAppID, bool bOpenVRShortcut ) = 0; //argc: 2, index 22
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual void SetDevkitShortcut( AppId_t unAppID, const char * pchUnk ) = 0; //argc: 3, index 24
-    virtual void SetFlatpakAppID( AppId_t unAppID, const char * pchUnk ) = 0; //argc: 2, index 25
-    virtual void RemoveShortcut( AppId_t unAppID ) = 0; //argc: 1, index 26
-    virtual void RemoveAllTemporaryShortcuts() = 0; //argc: 0, index 27
-    virtual bool LaunchShortcut( AppId_t unAppID, uint32 uUnk ) = 0; //argc: 2, index 1
+    virtual void SetDevkitShortcut( AppId_t unAppID, const char * pchUnk ) = 0; //argc: 3, index 23
+    virtual void SetFlatpakAppID( AppId_t unAppID, const char * pchUnk ) = 0; //argc: 2, index 24
+    virtual void RemoveShortcut( AppId_t unAppID ) = 0; //argc: 1, index 25
+    virtual void RemoveAllTemporaryShortcuts() = 0; //argc: 0, index 26
+    virtual bool LaunchShortcut( AppId_t unAppID, uint32 uUnk ) = 0; //argc: 2, index 0
 };
 
 #endif // ICLIENTSHORTCUTS_H

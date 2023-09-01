@@ -26,8 +26,8 @@ abstract_class IClientSecureDesktop
 {
 public:
     virtual unknown_ret BStartStreaming() = 0; //argc: 0, index 1
-    virtual unknown_ret StopStreaming() = 0; //argc: 0, index 1
-    virtual unknown_ret SendSAS() = 0; //argc: 0, index 1
+    virtual unknown_ret StopStreaming() = 0; //argc: 0, index 0
+    virtual unknown_ret SendSAS() = 0; //argc: 0, index 0
 };
 
 #endif // ICLIENTSECUREDESKTOP_H

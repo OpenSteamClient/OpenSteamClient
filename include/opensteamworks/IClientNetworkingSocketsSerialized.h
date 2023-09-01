@@ -31,22 +31,22 @@ public:
     virtual unknown_ret SendP2PConnectionFailureLegacy() = 0; //argc: 5, index 2
     virtual unknown_ret GetCertAsync() = 0; //argc: 0, index 3
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret CacheRelayTicket() = 0; //argc: 2, index 1
-    virtual unknown_ret GetCachedRelayTicketCount() = 0; //argc: 0, index 2
+    virtual unknown_ret CacheRelayTicket() = 0; //argc: 2, index 0
+    virtual unknown_ret GetCachedRelayTicketCount() = 0; //argc: 0, index 1
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret GetCachedRelayTicket() = 0; //argc: 3, index 1
+    virtual unknown_ret GetCachedRelayTicket() = 0; //argc: 3, index 0
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret GetSTUNServer() = 0; //argc: 3, index 2
+    virtual unknown_ret GetSTUNServer() = 0; //argc: 3, index 1
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret AllowDirectConnectToPeerString() = 0; //argc: 1, index 3
+    virtual unknown_ret AllowDirectConnectToPeerString() = 0; //argc: 1, index 2
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret BeginAsyncRequestFakeIP() = 0; //argc: 1, index 4
+    virtual unknown_ret BeginAsyncRequestFakeIP() = 0; //argc: 1, index 3
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret AllowDirectConnectToPeerString() = 0; //argc: 1, index 5
+    virtual unknown_ret AllowDirectConnectToPeerString() = 0; //argc: 1, index 4
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret SetAllowShareIPUserSetting() = 0; //argc: 1, index 6
-    virtual unknown_ret GetAllowShareIPUserSetting() = 0; //argc: 0, index 7
-    virtual unknown_ret TEST_ClearInMemoryCachedCredentials() = 0; //argc: 0, index 1
+    virtual unknown_ret SetAllowShareIPUserSetting() = 0; //argc: 1, index 5
+    virtual unknown_ret GetAllowShareIPUserSetting() = 0; //argc: 0, index 6
+    virtual unknown_ret TEST_ClearInMemoryCachedCredentials() = 0; //argc: 0, index 0
 };
 
 #endif // ICLIENTNETWORKINGSOCKETSSERIALIZED_H

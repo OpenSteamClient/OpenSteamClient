@@ -207,7 +207,9 @@ public:
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     virtual unknown_ret DeleteItem() = 0; //argc: 2, index 91
     virtual unknown_ret ShowWorkshopEULA() = 0; //argc: 0, index 92
-    virtual unknown_ret GetWorkshopEULAStatus() = 0; //argc: 0, index 1
+    virtual unknown_ret GetWorkshopEULAStatus() = 0; //argc: 0, index 0
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual unknown_ret GetUserContentDescriptorPreferences() = 0; //argc: 2, index 0
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     virtual unknown_ret GetNumDownloadedItems() = 0; //argc: 1, index 1
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!

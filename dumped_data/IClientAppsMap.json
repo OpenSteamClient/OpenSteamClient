@@ -1,86 +1,86 @@
 {
     "name": "IClientAppsMap",
-    "found_at": "0x2374444",
+    "found_at": "0x23a965c",
     "functions": [ 
         {
             "name": "GetAppData",
             "argc": "5",
-            "addr": "0x58a930"
+            "addr": "0x592920"
         },
         {
             "name": "SetLocalAppConfig",
             "argc": "4",
-            "addr": "0x58ab00"
+            "addr": "0x592af0"
         },
         {
             "name": "GetInternalAppIDFromGameID",
             "argc": "2",
-            "addr": "0x58b420"
+            "addr": "0x593410"
         },
         {
             "name": "GetAllOwnedMultiplayerApps",
             "argc": "3",
-            "addr": "0x58b280"
+            "addr": "0x593270"
         },
         {
             "name": "GetAvailableLaunchOptions",
             "argc": "4",
-            "addr": "0x58aca0"
+            "addr": "0x592c90"
         },
         {
             "name": "GetAppDataSection",
             "argc": "6",
-            "addr": "0x58ae60"
+            "addr": "0x592e50"
         },
         {
             "name": "GetMultipleAppDataSections",
             "argc": "8",
-            "addr": "0x58b060"
+            "addr": "0x593050"
         },
         {
             "name": "RequestAppInfoUpdate",
             "argc": "3",
-            "addr": "0x58b5a0"
+            "addr": "0x593590"
         },
         {
             "name": "GetDLCCount",
             "argc": "2",
-            "addr": "0x58b730"
+            "addr": "0x593720"
         },
         {
             "name": "BGetDLCDataByIndex",
             "argc": "7",
-            "addr": "0x58b8a0"
+            "addr": "0x593890"
         },
         {
             "name": "GetAppType",
             "argc": "2",
-            "addr": "0x58c070"
+            "addr": "0x594060"
         },
         {
             "name": "GetStoreTagLocalization",
             "argc": "6",
-            "addr": "0x58ba90"
+            "addr": "0x593a80"
         },
         {
             "name": "TakeUpdateLock",
             "argc": "1",
-            "addr": "0x58bc80"
+            "addr": "0x593c70"
         },
         {
             "name": "GetAppKVRaw",
             "argc": "4",
-            "addr": "0x58c1e0"
+            "addr": "0x5941d0"
         },
         {
             "name": "ReleaseUpdateLock",
             "argc": "1",
-            "addr": "0x58bde0"
+            "addr": "0x593dd0"
         },
         {
             "name": "GetLastChangeNumberReceived",
             "argc": "1",
-            "addr": "0x58bf10"
+            "addr": "0x593f00"
         }
     ]
 }

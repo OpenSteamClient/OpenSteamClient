@@ -27,14 +27,14 @@ abstract_class IClientStorageDeviceManager
 public:
     virtual unknown_ret IsInterfaceValid() = 0; //argc: 0, index 1
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret GetStorageDevicesData() = 0; //argc: 1, index 1
+    virtual unknown_ret GetStorageDevicesData() = 0; //argc: 1, index 0
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret Eject() = 0; //argc: 1, index 2
+    virtual unknown_ret Eject() = 0; //argc: 1, index 1
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret Format() = 0; //argc: 1, index 3
+    virtual unknown_ret Format() = 0; //argc: 1, index 2
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret Unmount() = 0; //argc: 1, index 4
-    virtual unknown_ret TrimAll() = 0; //argc: 0, index 5
+    virtual unknown_ret Unmount() = 0; //argc: 1, index 3
+    virtual unknown_ret TrimAll() = 0; //argc: 0, index 4
 };
 
 #endif // ICLIENTSTORAGEDEVICEMANAGER_H

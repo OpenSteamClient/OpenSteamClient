@@ -27,29 +27,29 @@ abstract_class IClientParties
 public:
     virtual unknown_ret GetNumActiveBeacons() = 0; //argc: 0, index 1
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret GetBeaconByIndex() = 0; //argc: 1, index 1
+    virtual unknown_ret GetBeaconByIndex() = 0; //argc: 1, index 0
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret GetBeaconDetails() = 0; //argc: 6, index 2
+    virtual unknown_ret GetBeaconDetails() = 0; //argc: 6, index 1
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret JoinParty() = 0; //argc: 2, index 3
+    virtual unknown_ret JoinParty() = 0; //argc: 2, index 2
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret GetNumAvailableBeaconLocations() = 0; //argc: 1, index 4
+    virtual unknown_ret GetNumAvailableBeaconLocations() = 0; //argc: 1, index 3
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret GetAvailableBeaconLocations() = 0; //argc: 2, index 5
+    virtual unknown_ret GetAvailableBeaconLocations() = 0; //argc: 2, index 4
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret CreateBeacon() = 0; //argc: 5, index 6
+    virtual unknown_ret CreateBeacon() = 0; //argc: 5, index 5
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret OnReservationCompleted() = 0; //argc: 4, index 7
+    virtual unknown_ret OnReservationCompleted() = 0; //argc: 4, index 6
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret CancelReservation() = 0; //argc: 4, index 8
+    virtual unknown_ret CancelReservation() = 0; //argc: 4, index 7
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret ChangeNumOpenSlots() = 0; //argc: 3, index 9
+    virtual unknown_ret ChangeNumOpenSlots() = 0; //argc: 3, index 8
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret DestroyBeacon() = 0; //argc: 2, index 10
+    virtual unknown_ret DestroyBeacon() = 0; //argc: 2, index 9
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret GetBeaconLocationData() = 0; //argc: 6, index 11
+    virtual unknown_ret GetBeaconLocationData() = 0; //argc: 6, index 10
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret ReservePartySlot() = 0; //argc: 3, index 12
+    virtual unknown_ret ReservePartySlot() = 0; //argc: 3, index 11
 };
 
 #endif // ICLIENTPARTIES_H

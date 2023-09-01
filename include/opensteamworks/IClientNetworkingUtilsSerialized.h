@@ -28,13 +28,13 @@ public:
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     virtual unknown_ret GetNetworkConfigJSON_DEPRECATED() = 0; //argc: 3, index 1
     virtual unknown_ret GetLauncherType() = 0; //argc: 0, index 2
-    virtual unknown_ret TEST_ClearCachedNetworkConfig() = 0; //argc: 0, index 1
+    virtual unknown_ret TEST_ClearCachedNetworkConfig() = 0; //argc: 0, index 0
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret PostConnectionStateMsg() = 0; //argc: 2, index 1
-    virtual unknown_ret PostConnectionStateUpdatesForAllConnections() = 0; //argc: 0, index 2
-    virtual unknown_ret PostAppSummaryUpdates() = 0; //argc: 0, index 1
+    virtual unknown_ret PostConnectionStateMsg() = 0; //argc: 2, index 0
+    virtual unknown_ret PostConnectionStateUpdatesForAllConnections() = 0; //argc: 0, index 1
+    virtual unknown_ret PostAppSummaryUpdates() = 0; //argc: 0, index 0
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret GotLocationString() = 0; //argc: 1, index 1
+    virtual unknown_ret GotLocationString() = 0; //argc: 1, index 0
 };
 
 #endif // ICLIENTNETWORKINGUTILSSERIALIZED_H

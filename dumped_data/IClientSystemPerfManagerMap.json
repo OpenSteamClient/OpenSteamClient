@@ -1,26 +1,26 @@
 {
     "name": "IClientSystemPerfManagerMap",
-    "found_at": "0x2374748",
+    "found_at": "0x23a9960",
     "functions": [ 
         {
             "name": "IsInterfaceValid",
             "argc": "1",
-            "addr": "0x59c5d0"
+            "addr": "0x5a4620"
         },
         {
             "name": "GetDiagnosticInfo",
             "argc": "2",
-            "addr": "0x59c730"
+            "addr": "0x5a4780"
         },
         {
             "name": "GetState",
             "argc": "2",
-            "addr": "0x59c8b0"
+            "addr": "0x5a4900"
         },
         {
             "name": "UpdateSettings",
             "argc": "2",
-            "addr": "0x59ca30"
+            "addr": "0x5a4a80"
         }
     ]
 }

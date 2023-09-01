@@ -47,7 +47,7 @@ public:
     virtual unknown_ret RunInstallScript() = 0; //argc: 3, index 10
     virtual unknown_ret GetInstallScriptExitCode() = 0; //argc: 0, index 11
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret ConfigureNetworDeviceIPAddresses() = 0; //argc: 7, index 1
+    virtual unknown_ret ConfigureNetworDeviceIPAddresses() = 0; //argc: 7, index 0
 };
 
 #endif // ICLIENTINSTALLUTILS_H

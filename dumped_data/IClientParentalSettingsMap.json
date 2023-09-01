@@ -1,51 +1,51 @@
 {
     "name": "IClientParentalSettingsMap",
-    "found_at": "0x2374f30",
+    "found_at": "0x23aa14c",
     "functions": [ 
         {
             "name": "BIsParentalLockEnabled",
             "argc": "1",
-            "addr": "0x5cade0"
+            "addr": "0x5d2fe0"
         },
         {
             "name": "BIsParentalLockLocked",
             "argc": "1",
-            "addr": "0x5caf40"
+            "addr": "0x5d3140"
         },
         {
             "name": "BIsAppBlocked",
             "argc": "2",
-            "addr": "0x5cb0a0"
+            "addr": "0x5d32a0"
         },
         {
             "name": "BIsAppInBlockList",
             "argc": "2",
-            "addr": "0x5cb220"
+            "addr": "0x5d3420"
         },
         {
             "name": "BIsFeatureBlocked",
             "argc": "2",
-            "addr": "0x5cb3a0"
+            "addr": "0x5d35a0"
         },
         {
             "name": "BIsFeatureInBlockList",
             "argc": "2",
-            "addr": "0x5cb520"
+            "addr": "0x5d3720"
         },
         {
             "name": "BGetSerializedParentalSettings",
             "argc": "2",
-            "addr": "0x5cb6a0"
+            "addr": "0x5d38a0"
         },
         {
             "name": "BGetRecoveryEmail",
             "argc": "3",
-            "addr": "0x5cb820"
+            "addr": "0x5d3a20"
         },
         {
             "name": "BIsLockFromSiteLicense",
             "argc": "1",
-            "addr": "0x5cb9b0"
+            "addr": "0x5d3bb0"
         }
     ]
 }

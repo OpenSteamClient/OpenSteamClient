@@ -1,1256 +1,1256 @@
 {
     "name": "IClientFriendsMap",
-    "found_at": "0x2373d3c",
+    "found_at": "0x23a8f4c",
     "functions": [ 
         {
             "name": "GetPersonaName",
             "argc": "1",
-            "addr": "0x562ad0"
+            "addr": "0x569ab0"
         },
         {
             "name": "SetPersonaName",
             "argc": "2",
-            "addr": "0x562c30"
+            "addr": "0x569c10"
         },
         {
             "name": "IsPersonaNameSet",
             "argc": "1",
-            "addr": "0x569380"
+            "addr": "0x570360"
         },
         {
             "name": "GetPersonaState",
             "argc": "1",
-            "addr": "0x562dc0"
+            "addr": "0x569da0"
         },
         {
             "name": "SetPersonaState",
             "argc": "2",
-            "addr": "0x562f20"
+            "addr": "0x569f00"
         },
         {
             "name": "NotifyUIOfMenuChange",
             "argc": "5",
-            "addr": "0x563070"
+            "addr": "0x56a050"
         },
         {
             "name": "GetFriendCount",
             "argc": "2",
-            "addr": "0x565dc0"
+            "addr": "0x56cda0"
         },
         {
             "name": "GetFriendArray",
             "argc": "5",
-            "addr": "0x566520"
+            "addr": "0x56d500"
         },
         {
             "name": "GetFriendArrayInGame",
             "argc": "4",
-            "addr": "0x566700"
+            "addr": "0x56d6e0"
         },
         {
             "name": "GetFriendByIndex",
             "argc": "4",
-            "addr": "0x565f30"
+            "addr": "0x56cf10"
         },
         {
             "name": "GetOnlineFriendCount",
             "argc": "1",
-            "addr": "0x5660e0"
+            "addr": "0x56d0c0"
         },
         {
             "name": "GetFriendRelationship",
             "argc": "3",
-            "addr": "0x5781e0"
+            "addr": "0x57f1e0"
         },
         {
             "name": "GetFriendPersonaState",
             "argc": "3",
-            "addr": "0x5636b0"
+            "addr": "0x56a690"
         },
         {
             "name": "GetFriendPersonaName",
             "argc": "3",
-            "addr": "0x563990"
+            "addr": "0x56a970"
         },
         {
             "name": "GetSmallFriendAvatar",
             "argc": "3",
-            "addr": "0x563b00"
+            "addr": "0x56aae0"
         },
         {
             "name": "GetMediumFriendAvatar",
             "argc": "3",
-            "addr": "0x563c70"
+            "addr": "0x56ac50"
         },
         {
             "name": "GetLargeFriendAvatar",
             "argc": "3",
-            "addr": "0x563de0"
+            "addr": "0x56adc0"
         },
         {
             "name": "BGetFriendAvatarURL",
             "argc": "6",
-            "addr": "0x578350"
+            "addr": "0x57f350"
         },
         {
             "name": "GetFriendAvatarHash",
             "argc": "5",
-            "addr": "0x5640e0"
+            "addr": "0x56b0c0"
         },
         {
             "name": "SetFriendRegValue",
             "argc": "5",
-            "addr": "0x566240"
+            "addr": "0x56d220"
         },
         {
             "name": "GetFriendRegValue",
             "argc": "4",
-            "addr": "0x5663a0"
+            "addr": "0x56d380"
         },
         {
             "name": "DeleteFriendRegValue",
             "argc": "4",
-            "addr": "0x572980"
+            "addr": "0x579980"
         },
         {
             "name": "GetFriendGamePlayed",
             "argc": "4",
-            "addr": "0x578510"
+            "addr": "0x57f510"
         },
         {
             "name": "GetFriendGamePlayedExtraInfo",
             "argc": "3",
-            "addr": "0x572510"
+            "addr": "0x579510"
         },
         {
             "name": "GetFriendGameServer",
             "argc": "4",
-            "addr": "0x56fa80"
+            "addr": "0x576a60"
         },
         {
             "name": "GetFriendPersonaStateFlags",
             "argc": "3",
-            "addr": "0x56fc10"
+            "addr": "0x576bf0"
         },
         {
             "name": "GetFriendSessionStateInfo",
             "argc": "4",
-            "addr": "0x578d30"
+            "addr": "0x57fd30"
         },
         {
             "name": "GetFriendRestrictions",
             "argc": "3",
-            "addr": "0x563820"
+            "addr": "0x56a800"
         },
         {
             "name": "GetFriendBroadcastID",
             "argc": "3",
-            "addr": "0x56fd80"
+            "addr": "0x576d60"
         },
         {
             "name": "GetFriendPersonaNameHistory",
             "argc": "4",
-            "addr": "0x5668d0"
+            "addr": "0x56d8b0"
         },
         {
             "name": "RequestPersonaNameHistory",
             "argc": "3",
-            "addr": "0x566a50"
+            "addr": "0x56da30"
         },
         {
             "name": "GetFriendPersonaNameHistoryAndDate",
             "argc": "5",
-            "addr": "0x566be0"
+            "addr": "0x56dbc0"
         },
         {
             "name": "AddFriend",
             "argc": "3",
-            "addr": "0x563240"
+            "addr": "0x56a220"
         },
         {
             "name": "RemoveFriend",
             "argc": "3",
-            "addr": "0x5633b0"
+            "addr": "0x56a390"
         },
         {
             "name": "HasFriend",
             "argc": "4",
-            "addr": "0x563520"
+            "addr": "0x56a500"
         },
         {
             "name": "RequestUserInformation",
             "argc": "4",
-            "addr": "0x572680"
+            "addr": "0x579680"
         },
         {
             "name": "SetIgnoreFriend",
             "argc": "4",
-            "addr": "0x563f50"
+            "addr": "0x56af30"
         },
         {
             "name": "ReportChatDeclined",
             "argc": "3",
-            "addr": "0x565c50"
+            "addr": "0x56cc30"
         },
         {
             "name": "CreateFriendsGroup",
             "argc": "2",
-            "addr": "0x564280"
+            "addr": "0x56b260"
         },
         {
             "name": "DeleteFriendsGroup",
             "argc": "2",
-            "addr": "0x5643f0"
+            "addr": "0x56b3d0"
         },
         {
             "name": "RenameFriendsGroup",
             "argc": "3",
-            "addr": "0x564570"
+            "addr": "0x56b550"
         },
         {
             "name": "AddFriendToGroup",
             "argc": "4",
-            "addr": "0x564700"
+            "addr": "0x56b6e0"
         },
         {
             "name": "RemoveFriendFromGroup",
             "argc": "4",
-            "addr": "0x564890"
+            "addr": "0x56b870"
         },
         {
             "name": "IsFriendMemberOfFriendsGroup",
             "argc": "4",
-            "addr": "0x564a20"
+            "addr": "0x56ba00"
         },
         {
             "name": "GetFriendsGroupCount",
             "argc": "1",
-            "addr": "0x564bb0"
+            "addr": "0x56bb90"
         },
         {
             "name": "GetFriendsGroupIDByIndex",
             "argc": "2",
-            "addr": "0x564ea0"
+            "addr": "0x56be80"
         },
         {
             "name": "GetFriendsGroupName",
             "argc": "2",
-            "addr": "0x564d20"
+            "addr": "0x56bd00"
         },
         {
             "name": "GetFriendsGroupMembershipCount",
             "argc": "2",
-            "addr": "0x565020"
+            "addr": "0x56c000"
         },
         {
             "name": "GetFirstFriendsGroupMember",
             "argc": "3",
-            "addr": "0x5651a0"
+            "addr": "0x56c180"
         },
         {
             "name": "GetNextFriendsGroupMember",
             "argc": "3",
-            "addr": "0x565340"
+            "addr": "0x56c320"
         },
         {
             "name": "GetGroupFriendsMembershipCount",
             "argc": "3",
-            "addr": "0x5654e0"
+            "addr": "0x56c4c0"
         },
         {
             "name": "GetFirstGroupFriendsMember",
             "argc": "3",
-            "addr": "0x565660"
+            "addr": "0x56c640"
         },
         {
             "name": "GetNextGroupFriendsMember",
             "argc": "3",
-            "addr": "0x5657e0"
+            "addr": "0x56c7c0"
         },
         {
             "name": "GetPlayerNickname",
             "argc": "3",
-            "addr": "0x565ae0"
+            "addr": "0x56cac0"
         },
         {
             "name": "SetPlayerNickname",
             "argc": "4",
-            "addr": "0x565960"
+            "addr": "0x56c940"
         },
         {
             "name": "GetFriendSteamLevel",
             "argc": "3",
-            "addr": "0x576e10"
+            "addr": "0x57de10"
         },
         {
             "name": "GetChatMessagesCount",
             "argc": "3",
-            "addr": "0x566d80"
+            "addr": "0x56dd60"
         },
         {
             "name": "GetChatMessage",
             "argc": "9",
-            "addr": "0x566ef0"
+            "addr": "0x56ded0"
         },
         {
             "name": "SendMsgToFriend",
             "argc": "5",
-            "addr": "0x567100"
+            "addr": "0x56e0e0"
         },
         {
             "name": "ClearChatHistory",
             "argc": "3",
-            "addr": "0x567290"
+            "addr": "0x56e270"
         },
         {
             "name": "GetKnownClanCount",
             "argc": "1",
-            "addr": "0x5673d0"
+            "addr": "0x56e3b0"
         },
         {
             "name": "GetKnownClanByIndex",
             "argc": "3",
-            "addr": "0x567530"
+            "addr": "0x56e510"
         },
         {
             "name": "GetClanCount",
             "argc": "1",
-            "addr": "0x5676d0"
+            "addr": "0x56e6b0"
         },
         {
             "name": "GetClanByIndex",
             "argc": "3",
-            "addr": "0x567830"
+            "addr": "0x56e810"
         },
         {
             "name": "GetClanName",
             "argc": "3",
-            "addr": "0x5679d0"
+            "addr": "0x56e9b0"
         },
         {
             "name": "GetClanTag",
             "argc": "3",
-            "addr": "0x567b40"
+            "addr": "0x56eb20"
         },
         {
             "name": "GetFriendActivityCounts",
             "argc": "4",
-            "addr": "0x56e980"
+            "addr": "0x575960"
         },
         {
             "name": "GetClanActivityCounts",
             "argc": "6",
-            "addr": "0x56eb30"
+            "addr": "0x575b10"
         },
         {
             "name": "DownloadClanActivityCounts",
             "argc": "3",
-            "addr": "0x56ecf0"
+            "addr": "0x575cd0"
         },
         {
             "name": "GetFriendsGroupActivityCounts",
             "argc": "4",
-            "addr": "0x56ee90"
+            "addr": "0x575e70"
         },
         {
             "name": "IsClanPublic",
             "argc": "3",
-            "addr": "0x570840"
+            "addr": "0x577820"
         },
         {
             "name": "IsClanOfficialGameGroup",
             "argc": "3",
-            "addr": "0x5709b0"
+            "addr": "0x577990"
         },
         {
             "name": "JoinClanChatRoom",
             "argc": "3",
-            "addr": "0x574e90"
+            "addr": "0x57be90"
         },
         {
             "name": "LeaveClanChatRoom",
             "argc": "3",
-            "addr": "0x575020"
+            "addr": "0x57c020"
         },
         {
             "name": "GetClanChatMemberCount",
             "argc": "3",
-            "addr": "0x575190"
+            "addr": "0x57c190"
         },
         {
             "name": "GetChatMemberByIndex",
             "argc": "5",
-            "addr": "0x575300"
+            "addr": "0x57c300"
         },
         {
             "name": "SendClanChatMessage",
             "argc": "4",
-            "addr": "0x5754b0"
+            "addr": "0x57c4b0"
         },
         {
             "name": "GetClanChatMessage",
             "argc": "8",
-            "addr": "0x575630"
+            "addr": "0x57c630"
         },
         {
             "name": "IsClanChatAdmin",
             "argc": "5",
-            "addr": "0x575820"
+            "addr": "0x57c820"
         },
         {
             "name": "IsClanChatWindowOpenInSteam",
             "argc": "3",
-            "addr": "0x5759a0"
+            "addr": "0x57c9a0"
         },
         {
             "name": "OpenClanChatWindowInSteam",
             "argc": "3",
-            "addr": "0x575b10"
+            "addr": "0x57cb10"
         },
         {
             "name": "CloseClanChatWindowInSteam",
             "argc": "3",
-            "addr": "0x575c80"
+            "addr": "0x57cc80"
         },
         {
             "name": "SetListenForFriendsMessages",
             "argc": "2",
-            "addr": "0x575df0"
+            "addr": "0x57cdf0"
         },
         {
             "name": "ReplyToFriendMessage",
             "argc": "4",
-            "addr": "0x575f70"
+            "addr": "0x57cf70"
         },
         {
             "name": "GetFriendMessage",
             "argc": "7",
-            "addr": "0x5760f0"
+            "addr": "0x57d0f0"
         },
         {
             "name": "InviteFriendToClan",
             "argc": "5",
-            "addr": "0x567cb0"
+            "addr": "0x56ec90"
         },
         {
             "name": "AcknowledgeInviteToClan",
             "argc": "4",
-            "addr": "0x567e30"
+            "addr": "0x56ee10"
         },
         {
             "name": "GetFriendCountFromSource",
             "argc": "3",
-            "addr": "0x567fc0"
+            "addr": "0x56efa0"
         },
         {
             "name": "GetFriendFromSourceByIndex",
             "argc": "5",
-            "addr": "0x568130"
+            "addr": "0x56f110"
         },
         {
             "name": "IsUserInSource",
             "argc": "5",
-            "addr": "0x569040"
+            "addr": "0x570020"
         },
         {
             "name": "GetCoplayFriendCount",
             "argc": "1",
-            "addr": "0x56f4a0"
+            "addr": "0x576480"
         },
         {
             "name": "GetCoplayFriend",
             "argc": "3",
-            "addr": "0x56f600"
+            "addr": "0x5765e0"
         },
         {
             "name": "GetFriendCoplayTime",
             "argc": "3",
-            "addr": "0x56f7a0"
+            "addr": "0x576780"
         },
         {
             "name": "GetFriendCoplayGame",
             "argc": "3",
-            "addr": "0x56f910"
+            "addr": "0x5768f0"
         },
         {
             "name": "SetRichPresence",
             "argc": "4",
-            "addr": "0x5739f0"
+            "addr": "0x57a9f0"
         },
         {
             "name": "ClearRichPresence",
             "argc": "2",
-            "addr": "0x573b80"
+            "addr": "0x57ab80"
         },
         {
             "name": "GetFriendRichPresence",
             "argc": "5",
-            "addr": "0x573cd0"
+            "addr": "0x57acd0"
         },
         {
             "name": "GetFriendRichPresenceKeyCount",
             "argc": "4",
-            "addr": "0x573e60"
+            "addr": "0x57ae60"
         },
         {
             "name": "GetFriendRichPresenceKeyByIndex",
             "argc": "5",
-            "addr": "0x573fe0"
+            "addr": "0x57afe0"
         },
         {
             "name": "RequestFriendRichPresence",
             "argc": "4",
-            "addr": "0x574170"
+            "addr": "0x57b170"
         },
         {
             "name": "JoinChatRoom",
             "argc": "3",
-            "addr": "0x5682e0"
+            "addr": "0x56f2c0"
         },
         {
             "name": "LeaveChatRoom",
             "argc": "3",
-            "addr": "0x568450"
+            "addr": "0x56f430"
         },
         {
             "name": "InviteUserToChatRoom",
             "argc": "5",
-            "addr": "0x568590"
+            "addr": "0x56f570"
         },
         {
             "name": "SendChatMsg",
             "argc": "5",
-            "addr": "0x568710"
+            "addr": "0x56f6f0"
         },
         {
             "name": "GetChatRoomMessagesCount",
             "argc": "3",
-            "addr": "0x5688a0"
+            "addr": "0x56f880"
         },
         {
             "name": "GetChatRoomEntry",
             "argc": "8",
-            "addr": "0x568a10"
+            "addr": "0x56f9f0"
         },
         {
             "name": "ClearChatRoomHistory",
             "argc": "3",
-            "addr": "0x568c00"
+            "addr": "0x56fbe0"
         },
         {
             "name": "SerializeChatRoomDlg",
             "argc": "5",
-            "addr": "0x56d7a0"
+            "addr": "0x574780"
         },
         {
             "name": "GetSizeOfSerializedChatRoomDlg",
             "argc": "3",
-            "addr": "0x56d940"
+            "addr": "0x574920"
         },
         {
             "name": "GetSerializedChatRoomDlg",
             "argc": "7",
-            "addr": "0x56dab0"
+            "addr": "0x574a90"
         },
         {
             "name": "ClearSerializedChatRoomDlg",
             "argc": "3",
-            "addr": "0x571020"
+            "addr": "0x578000"
         },
         {
             "name": "KickChatMember",
             "argc": "5",
-            "addr": "0x56d320"
+            "addr": "0x574300"
         },
         {
             "name": "BanChatMember",
             "argc": "5",
-            "addr": "0x56d4a0"
+            "addr": "0x574480"
         },
         {
             "name": "UnBanChatMember",
             "argc": "5",
-            "addr": "0x56d620"
+            "addr": "0x574600"
         },
         {
             "name": "SetChatRoomType",
             "argc": "4",
-            "addr": "0x5788b0"
+            "addr": "0x57f8b0"
         },
         {
             "name": "GetChatRoomLockState",
             "argc": "4",
-            "addr": "0x570b20"
+            "addr": "0x577b00"
         },
         {
             "name": "GetChatRoomPermissions",
             "argc": "4",
-            "addr": "0x570cb0"
+            "addr": "0x577c90"
         },
         {
             "name": "SetChatRoomModerated",
             "argc": "4",
-            "addr": "0x569920"
+            "addr": "0x570900"
         },
         {
             "name": "BChatRoomModerated",
             "argc": "3",
-            "addr": "0x569ab0"
+            "addr": "0x570a90"
         },
         {
             "name": "NotifyChatRoomDlgsOfUIChange",
             "argc": "7",
-            "addr": "0x570e40"
+            "addr": "0x577e20"
         },
         {
             "name": "TerminateChatRoom",
             "argc": "3",
-            "addr": "0x56f330"
+            "addr": "0x576310"
         },
         {
             "name": "GetChatRoomCount",
             "argc": "1",
-            "addr": "0x568d40"
+            "addr": "0x56fd20"
         },
         {
             "name": "GetChatRoomByIndex",
             "argc": "3",
-            "addr": "0x568ea0"
+            "addr": "0x56fe80"
         },
         {
             "name": "GetChatRoomName",
             "argc": "3",
-            "addr": "0x5694e0"
+            "addr": "0x5704c0"
         },
         {
             "name": "BGetChatRoomMemberDetails",
             "argc": "7",
-            "addr": "0x5691c0"
+            "addr": "0x5701a0"
         },
         {
             "name": "CreateChatRoom",
             "argc": "15",
-            "addr": "0x5786a0"
+            "addr": "0x57f6a0"
         },
         {
             "name": "JoinChatRoomGroup",
             "argc": "5",
-            "addr": "0x569650"
+            "addr": "0x570630"
         },
         {
             "name": "ShowChatRoomGroupInvite",
             "argc": "2",
-            "addr": "0x5697e0"
+            "addr": "0x5707c0"
         },
         {
             "name": "VoiceCallNew",
             "argc": "5",
-            "addr": "0x569c20"
+            "addr": "0x570c00"
         },
         {
             "name": "VoiceCall",
             "argc": "5",
-            "addr": "0x569d70"
+            "addr": "0x570d50"
         },
         {
             "name": "VoiceHangUp",
             "argc": "4",
-            "addr": "0x569ec0"
+            "addr": "0x570ea0"
         },
         {
             "name": "SetVoiceSpeakerVolume",
             "argc": "2",
-            "addr": "0x56a020"
+            "addr": "0x571000"
         },
         {
             "name": "SetVoiceMicrophoneVolume",
             "argc": "2",
-            "addr": "0x56a170"
+            "addr": "0x571150"
         },
         {
             "name": "SetAutoAnswer",
             "argc": "2",
-            "addr": "0x56a2c0"
+            "addr": "0x5712a0"
         },
         {
             "name": "VoiceAnswer",
             "argc": "2",
-            "addr": "0x56a410"
+            "addr": "0x5713f0"
         },
         {
             "name": "AcceptVoiceCall",
             "argc": "5",
-            "addr": "0x56a560"
+            "addr": "0x571540"
         },
         {
             "name": "VoicePutOnHold",
             "argc": "3",
-            "addr": "0x56a6b0"
+            "addr": "0x571690"
         },
         {
             "name": "BVoiceIsLocalOnHold",
             "argc": "2",
-            "addr": "0x56a810"
+            "addr": "0x5717f0"
         },
         {
             "name": "BVoiceIsRemoteOnHold",
             "argc": "2",
-            "addr": "0x56a990"
+            "addr": "0x571970"
         },
         {
             "name": "SetDoNotDisturb",
             "argc": "2",
-            "addr": "0x56ab10"
+            "addr": "0x571af0"
         },
         {
             "name": "EnableVoiceNotificationSounds",
             "argc": "2",
-            "addr": "0x56ac60"
+            "addr": "0x571c40"
         },
         {
             "name": "SetPushToTalkEnabled",
             "argc": "3",
-            "addr": "0x56adb0"
+            "addr": "0x571d90"
         },
         {
             "name": "IsPushToTalkEnabled",
             "argc": "1",
-            "addr": "0x56af20"
+            "addr": "0x571f00"
         },
         {
             "name": "IsPushToMuteEnabled",
             "argc": "1",
-            "addr": "0x56b080"
+            "addr": "0x572060"
         },
         {
             "name": "SetPushToTalkKey",
             "argc": "2",
-            "addr": "0x56b1e0"
+            "addr": "0x5721c0"
         },
         {
             "name": "GetPushToTalkKey",
             "argc": "1",
-            "addr": "0x56b330"
+            "addr": "0x572310"
         },
         {
             "name": "IsPushToTalkKeyDown",
             "argc": "1",
-            "addr": "0x56b490"
+            "addr": "0x572470"
         },
         {
             "name": "EnableVoiceCalibration",
             "argc": "2",
-            "addr": "0x56b5f0"
+            "addr": "0x5725d0"
         },
         {
             "name": "IsVoiceCalibrating",
             "argc": "1",
-            "addr": "0x56b740"
+            "addr": "0x572720"
         },
         {
             "name": "GetVoiceCalibrationSamplePeak",
             "argc": "1",
-            "addr": "0x56b8a0"
+            "addr": "0x572880"
         },
         {
             "name": "SetMicBoost",
             "argc": "2",
-            "addr": "0x56ba00"
+            "addr": "0x5729e0"
         },
         {
             "name": "GetMicBoost",
             "argc": "1",
-            "addr": "0x56bb50"
+            "addr": "0x572b30"
         },
         {
             "name": "HasHardwareMicBoost",
             "argc": "1",
-            "addr": "0x571190"
+            "addr": "0x578170"
         },
         {
             "name": "GetMicDeviceName",
             "argc": "1",
-            "addr": "0x5712f0"
+            "addr": "0x5782d0"
         },
         {
             "name": "StartTalking",
             "argc": "2",
-            "addr": "0x56bcb0"
+            "addr": "0x572c90"
         },
         {
             "name": "EndTalking",
             "argc": "2",
-            "addr": "0x56be00"
+            "addr": "0x572de0"
         },
         {
             "name": "VoiceIsValid",
             "argc": "2",
-            "addr": "0x56c0a0"
+            "addr": "0x573080"
         },
         {
             "name": "SetAutoReflectVoice",
             "argc": "2",
-            "addr": "0x56bf50"
+            "addr": "0x572f30"
         },
         {
             "name": "GetCallState",
             "argc": "2",
-            "addr": "0x578a40"
+            "addr": "0x57fa40"
         },
         {
             "name": "GetVoiceMicrophoneVolume",
             "argc": "1",
-            "addr": "0x56c220"
+            "addr": "0x573200"
         },
         {
             "name": "GetVoiceSpeakerVolume",
             "argc": "1",
-            "addr": "0x56c380"
+            "addr": "0x573360"
         },
         {
             "name": "TimeSinceLastVoiceDataReceived",
             "argc": "2",
-            "addr": "0x56c4e0"
+            "addr": "0x5734c0"
         },
         {
             "name": "TimeSinceLastVoiceDataSend",
             "argc": "2",
-            "addr": "0x56c650"
+            "addr": "0x573630"
         },
         {
             "name": "BCanSend",
             "argc": "2",
-            "addr": "0x56c7c0"
+            "addr": "0x5737a0"
         },
         {
             "name": "BCanReceive",
             "argc": "2",
-            "addr": "0x56c940"
+            "addr": "0x573920"
         },
         {
             "name": "GetEstimatedBitsPerSecond",
             "argc": "3",
-            "addr": "0x56cac0"
+            "addr": "0x573aa0"
         },
         {
             "name": "GetPeakSample",
             "argc": "3",
-            "addr": "0x56cc50"
+            "addr": "0x573c30"
         },
         {
             "name": "SendResumeRequest",
             "argc": "2",
-            "addr": "0x56cde0"
+            "addr": "0x573dc0"
         },
         {
             "name": "OpenFriendsDialog",
             "argc": "3",
-            "addr": "0x56cf30"
+            "addr": "0x573f10"
         },
         {
             "name": "OpenChatDialog",
             "argc": "3",
-            "addr": "0x56d0a0"
+            "addr": "0x574080"
         },
         {
             "name": "OpenInviteToTradeDialog",
             "argc": "3",
-            "addr": "0x56d1e0"
+            "addr": "0x5741c0"
         },
         {
             "name": "StartChatRoomVoiceSpeaking",
             "argc": "5",
-            "addr": "0x56dc80"
+            "addr": "0x574c60"
         },
         {
             "name": "EndChatRoomVoiceSpeaking",
             "argc": "5",
-            "addr": "0x56ddd0"
+            "addr": "0x574db0"
         },
         {
             "name": "GetFriendLastLogonTime",
             "argc": "3",
-            "addr": "0x56e6a0"
+            "addr": "0x575680"
         },
         {
             "name": "GetFriendLastLogoffTime",
             "argc": "3",
-            "addr": "0x56e810"
+            "addr": "0x5757f0"
         },
         {
             "name": "GetChatRoomVoiceTotalSlotCount",
             "argc": "3",
-            "addr": "0x56df20"
+            "addr": "0x574f00"
         },
         {
             "name": "GetChatRoomVoiceUsedSlotCount",
             "argc": "3",
-            "addr": "0x56e090"
+            "addr": "0x575070"
         },
         {
             "name": "GetChatRoomVoiceUsedSlot",
             "argc": "5",
-            "addr": "0x56e200"
+            "addr": "0x5751e0"
         },
         {
             "name": "GetChatRoomVoiceStatus",
             "argc": "5",
-            "addr": "0x578bb0"
+            "addr": "0x57fbb0"
         },
         {
             "name": "BChatRoomHasAvailableVoiceSlots",
             "argc": "3",
-            "addr": "0x56e3b0"
+            "addr": "0x575390"
         },
         {
             "name": "BIsChatRoomVoiceSpeaking",
             "argc": "5",
-            "addr": "0x56e520"
+            "addr": "0x575500"
         },
         {
             "name": "GetChatRoomPeakSample",
             "argc": "6",
-            "addr": "0x56f1a0"
+            "addr": "0x576180"
         },
         {
             "name": "ChatRoomVoiceRetryConnections",
             "argc": "3",
-            "addr": "0x570300"
+            "addr": "0x5772e0"
         },
         {
             "name": "SetPortTypes",
             "argc": "2",
-            "addr": "0x56f050"
+            "addr": "0x576030"
         },
         {
             "name": "ReinitAudio",
             "argc": "1",
-            "addr": "0x56ff10"
+            "addr": "0x576ef0"
         },
         {
             "name": "SetInGameVoiceSpeaking",
             "argc": "4",
-            "addr": "0x570040"
+            "addr": "0x577020"
         },
         {
             "name": "IsInGameVoiceSpeaking",
             "argc": "1",
-            "addr": "0x5701a0"
+            "addr": "0x577180"
         },
         {
             "name": "ActivateGameOverlay",
             "argc": "2",
-            "addr": "0x571700"
+            "addr": "0x5786e0"
         },
         {
             "name": "ActivateGameOverlayToUser",
             "argc": "4",
-            "addr": "0x571840"
+            "addr": "0x578820"
         },
         {
             "name": "ActivateGameOverlayToWebPage",
             "argc": "3",
-            "addr": "0x5791a0"
+            "addr": "0x5801a0"
         },
         {
             "name": "ActivateGameOverlayToStore",
             "argc": "3",
-            "addr": "0x5792f0"
+            "addr": "0x5802f0"
         },
         {
             "name": "ActivateGameOverlayInviteDialog",
             "argc": "3",
-            "addr": "0x571990"
+            "addr": "0x578970"
         },
         {
             "name": "ActivateGameOverlayRemotePlayTogetherInviteDialog",
             "argc": "3",
-            "addr": "0x571ad0"
+            "addr": "0x578ab0"
         },
         {
             "name": "ActivateGameOverlayInviteDialogConnectString",
             "argc": "2",
-            "addr": "0x571c10"
+            "addr": "0x578bf0"
         },
         {
             "name": "ProcessActivateGameOverlayInMainUI",
             "argc": "7",
-            "addr": "0x571d50"
+            "addr": "0x578d30"
         },
         {
             "name": "NotifyGameOverlayStateChanged",
-            "argc": "4",
-            "addr": "0x571f10"
+            "argc": "5",
+            "addr": "0x578ef0"
         },
         {
             "name": "NotifyGameServerChangeRequested",
             "argc": "3",
-            "addr": "0x572090"
+            "addr": "0x579090"
         },
         {
             "name": "NotifyLobbyJoinRequested",
             "argc": "6",
-            "addr": "0x5721e0"
+            "addr": "0x5791e0"
         },
         {
             "name": "NotifyRichPresenceJoinRequested",
             "argc": "5",
-            "addr": "0x572380"
+            "addr": "0x579380"
         },
         {
             "name": "GetClanRelationship",
             "argc": "3",
-            "addr": "0x578eb0"
+            "addr": "0x57feb0"
         },
         {
             "name": "GetClanInviteCount",
             "argc": "1",
-            "addr": "0x570440"
+            "addr": "0x577420"
         },
         {
             "name": "GetFriendClanRank",
             "argc": "5",
-            "addr": "0x579020"
+            "addr": "0x580020"
         },
         {
             "name": "VoiceIsAvailable",
             "argc": "1",
-            "addr": "0x5715a0"
+            "addr": "0x578580"
         },
         {
             "name": "TestVoiceDisconnect",
             "argc": "2",
-            "addr": "0x5705a0"
+            "addr": "0x577580"
         },
         {
             "name": "TestChatRoomPeerDisconnect",
             "argc": "5",
-            "addr": "0x5706f0"
+            "addr": "0x5776d0"
         },
         {
             "name": "TestVoicePacketLoss",
             "argc": "2",
-            "addr": "0x571450"
+            "addr": "0x578430"
         },
         {
             "name": "FindFriendVoiceChatHandle",
             "argc": "3",
-            "addr": "0x572810"
+            "addr": "0x579810"
         },
         {
             "name": "RequestFriendsWhoPlayGame",
             "argc": "2",
-            "addr": "0x572b00"
+            "addr": "0x579b00"
         },
         {
             "name": "GetCountFriendsWhoPlayGame",
             "argc": "2",
-            "addr": "0x572c50"
+            "addr": "0x579c50"
         },
         {
             "name": "GetFriendWhoPlaysGame",
             "argc": "4",
-            "addr": "0x572dd0"
+            "addr": "0x579dd0"
         },
         {
             "name": "GetCountFriendsInGame",
             "argc": "2",
-            "addr": "0x572f90"
+            "addr": "0x579f90"
         },
         {
             "name": "SetPlayedWith",
             "argc": "3",
-            "addr": "0x573110"
+            "addr": "0x57a110"
         },
         {
             "name": "RequestClanOfficerList",
             "argc": "3",
-            "addr": "0x573250"
+            "addr": "0x57a250"
         },
         {
             "name": "GetClanOwner",
             "argc": "4",
-            "addr": "0x5733e0"
+            "addr": "0x57a3e0"
         },
         {
             "name": "GetClanOfficerCount",
             "argc": "3",
-            "addr": "0x573570"
+            "addr": "0x57a570"
         },
         {
             "name": "GetClanOfficerByIndex",
             "argc": "5",
-            "addr": "0x5736e0"
+            "addr": "0x57a6e0"
         },
         {
             "name": "GetUserRestrictions",
             "argc": "1",
-            "addr": "0x573890"
+            "addr": "0x57a890"
         },
         {
             "name": "RequestFriendProfileInfo",
             "argc": "3",
-            "addr": "0x5742d0"
+            "addr": "0x57b2d0"
         },
         {
             "name": "GetFriendProfileInfo",
             "argc": "4",
-            "addr": "0x574460"
+            "addr": "0x57b460"
         },
         {
             "name": "InviteUserToGame",
             "argc": "5",
-            "addr": "0x5745e0"
+            "addr": "0x57b5e0"
         },
         {
             "name": "GetOnlineConsoleFriendCount",
             "argc": "1",
-            "addr": "0x574770"
+            "addr": "0x57b770"
         },
         {
             "name": "RequestTrade",
             "argc": "3",
-            "addr": "0x5748d0"
+            "addr": "0x57b8d0"
         },
         {
             "name": "TradeResponse",
             "argc": "3",
-            "addr": "0x574a60"
+            "addr": "0x57ba60"
         },
         {
             "name": "CancelTradeRequest",
             "argc": "3",
-            "addr": "0x574bc0"
+            "addr": "0x57bbc0"
         },
         {
             "name": "HideFriend",
             "argc": "4",
-            "addr": "0x574d00"
+            "addr": "0x57bd00"
         },
         {
             "name": "GetFollowerCount",
             "argc": "3",
-            "addr": "0x5762d0"
+            "addr": "0x57d2d0"
         },
         {
             "name": "IsFollowing",
             "argc": "3",
-            "addr": "0x576460"
+            "addr": "0x57d460"
         },
         {
             "name": "EnumerateFollowingList",
             "argc": "2",
-            "addr": "0x5765f0"
+            "addr": "0x57d5f0"
         },
         {
             "name": "RequestFriendMessageHistory",
             "argc": "3",
-            "addr": "0x576780"
+            "addr": "0x57d780"
         },
         {
             "name": "RequestFriendMessageHistoryForOfflineMessages",
             "argc": "1",
-            "addr": "0x5768c0"
+            "addr": "0x57d8c0"
         },
         {
             "name": "GetCountFriendsWithOfflineMessages",
             "argc": "1",
-            "addr": "0x5769f0"
+            "addr": "0x57d9f0"
         },
         {
             "name": "GetFriendWithOfflineMessage",
             "argc": "2",
-            "addr": "0x576b50"
+            "addr": "0x57db50"
         },
         {
             "name": "ClearFriendHasOfflineMessage",
             "argc": "2",
-            "addr": "0x576cc0"
+            "addr": "0x57dcc0"
         },
         {
             "name": "RequestEmoticonList",
             "argc": "1",
-            "addr": "0x576f80"
+            "addr": "0x57df80"
         },
         {
             "name": "GetEmoticonCount",
             "argc": "1",
-            "addr": "0x5770b0"
+            "addr": "0x57e0b0"
         },
         {
             "name": "GetEmoticonName",
             "argc": "2",
-            "addr": "0x577210"
+            "addr": "0x57e210"
         },
         {
             "name": "ClientLinkFilterInit",
             "argc": "1",
-            "addr": "0x577380"
+            "addr": "0x57e380"
         },
         {
             "name": "LinkDisposition",
             "argc": "2",
-            "addr": "0x579450"
+            "addr": "0x580450"
         },
         {
             "name": "GetFriendPersonaName_Public",
             "argc": "3",
-            "addr": "0x5774b0"
+            "addr": "0x57e4b0"
         },
         {
             "name": "GetPlayerNickname_Public",
             "argc": "3",
-            "addr": "0x577620"
+            "addr": "0x57e620"
         },
         {
             "name": "SetFriendsUIActiveClanChatList",
             "argc": "3",
-            "addr": "0x577790"
+            "addr": "0x57e790"
         },
         {
             "name": "GetNumChatsWithUnreadPriorityMessages",
             "argc": "1",
-            "addr": "0x5778f0"
+            "addr": "0x57e8f0"
         },
         {
             "name": "SetNumChatsWithUnreadPriorityMessages",
             "argc": "2",
-            "addr": "0x577a50"
+            "addr": "0x57ea50"
         },
         {
             "name": "RegisterProtocolInOverlayBrowser",
             "argc": "2",
-            "addr": "0x577ba0"
+            "addr": "0x57eba0"
         },
         {
             "name": "HandleProtocolForOverlayBrowser",
             "argc": "3",
-            "addr": "0x577d10"
+            "addr": "0x57ed10"
         },
         {
             "name": "RequestEquippedProfileItems",
             "argc": "3",
-            "addr": "0x577e90"
+            "addr": "0x57ee90"
         },
         {
             "name": "BHasEquippedProfileItem",
             "argc": "4",
-            "addr": "0x5795c0"
+            "addr": "0x5805c0"
         },
         {
             "name": "GetProfileItemPropertyString",
             "argc": "5",
-            "addr": "0x579750"
+            "addr": "0x580750"
         },
         {
             "name": "GetProfileItemPropertyUint",
             "argc": "5",
-            "addr": "0x5798e0"
+            "addr": "0x5808e0"
         },
         {
             "name": "DownloadCommunityItemAsset",
             "argc": "5",
-            "addr": "0x578020"
+            "addr": "0x57f020"
         }
     ]
 }

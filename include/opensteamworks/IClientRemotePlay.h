@@ -27,19 +27,19 @@ abstract_class IClientRemotePlay
 public:
     virtual unknown_ret GetSessionCount() = 0; //argc: 0, index 1
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret GetSessionID() = 0; //argc: 1, index 1
+    virtual unknown_ret GetSessionID() = 0; //argc: 1, index 0
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret GetSessionSteamID() = 0; //argc: 2, index 2
+    virtual unknown_ret GetSessionSteamID() = 0; //argc: 2, index 1
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret GetSessionClientName() = 0; //argc: 1, index 3
+    virtual unknown_ret GetSessionClientName() = 0; //argc: 1, index 2
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret GetSessionClientFormFactor() = 0; //argc: 1, index 4
+    virtual unknown_ret GetSessionClientFormFactor() = 0; //argc: 1, index 3
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret BGetSessionClientResolution() = 0; //argc: 3, index 5
+    virtual unknown_ret BGetSessionClientResolution() = 0; //argc: 3, index 4
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret BStartRemotePlayTogether() = 0; //argc: 1, index 6
+    virtual unknown_ret BStartRemotePlayTogether() = 0; //argc: 1, index 5
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret BSendRemotePlayTogetherInvite() = 0; //argc: 2, index 7
+    virtual unknown_ret BSendRemotePlayTogetherInvite() = 0; //argc: 2, index 6
 };
 
 #endif // ICLIENTREMOTEPLAY_H
