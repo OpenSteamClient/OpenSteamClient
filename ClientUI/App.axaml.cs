@@ -33,16 +33,14 @@ public partial class App : Application
         this.DataContext = new AppViewModel();
     }
 
+    private ExtendedProgress<int> loginProgress = new ExtendedProgress<int>(0, 100);
     public override async void OnFrameworkInitializationCompleted()
     {
-        ExtendedProgress<int> prog = new ExtendedProgress<int>(0, 100);
-        var progVm = new ProgressWindowViewModel(prog, "Bootstrapper progress");
-        var progressWindow = new ProgressWindow(progVm);
+        ExtendedProgress<int> bootstrapperProgress = new ExtendedProgress<int>(0, 100);
+        var progVm = new ProgressWindowViewModel(bootstrapperProgress, "Bootstrapper progress");
+        ForceProgressWindow(progVm);
 
-        ApplicationLifetime.MainWindow = progressWindow;
-        progressWindow.Show();
-
-        Container.RegisterComponentInstance(new Client(Container, prog));
+        Container.RegisterComponentInstance(new Client(Container, bootstrapperProgress));
         Container.ConstructAndRegisterComponentImmediate<TranslationManager>();
         Container.RegisterComponentInstance(this);
         await Container.RunStartupForComponents();
@@ -75,7 +73,19 @@ public partial class App : Application
             });
         };
 
-        if (!Container.GetComponent<LoginManager>().TryAutologin(prog)) {
+        // This is kept for the lifetime of the application, which is fine
+        Container.GetComponent<LoginManager>().SetProgress(loginProgress);
+        Container.GetComponent<LoginManager>().SetExceptionHandler(e => MessageBox.Error(e));
+        Container.GetComponent<LoginManager>().LogonStarted += (object sender, EventArgs e) =>
+        {
+            Avalonia.Threading.Dispatcher.UIThread.Invoke(() =>
+            {
+                this.ForceProgressWindow(new ProgressWindowViewModel(loginProgress, "Login progress"));
+            });
+        };
+
+
+        if (!Container.GetComponent<LoginManager>().TryAutologin()) {
             ForceAccountPickerWindow();
         }
 

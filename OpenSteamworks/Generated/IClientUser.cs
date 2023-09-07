@@ -103,7 +103,7 @@ public unsafe interface IClientUser
     public bool BHasCachedCredentials(string username);  // argc: 1, index: 51
     public bool SetAccountNameForCachedCredentialLogin(string username, bool unk1);  // argc: 2, index: 52
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret DestroyCachedCredentials();  // argc: 2, index: 53
+    public unknown_ret DestroyCachedCredentials(string username, int revokeAction = (int)EAuthTokenRevokeAction.KEauthTokenRevokeLogout);  // argc: 2, index: 53
     public bool GetCurrentWebAuthToken(StringBuilder tokenOut, UInt32 bufSize);  // argc: 2, index: 54
     public unknown_ret RequestWebAuthToken();  // argc: 0, index: 55
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
@@ -111,7 +111,7 @@ public unsafe interface IClientUser
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret SetTwoFactorCode(string twoFactorCode);  // argc: 1, index: 57
     public unknown_ret SetLoginToken(string token, string username);  // argc: 2, index: 58
-    public unknown_ret GetLoginTokenID();  // argc: 0, index: 59
+    public UInt64 GetLoginTokenID();  // argc: 0, index: 59
     public unknown_ret ClearAllLoginInformation();  // argc: 0, index: 60
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret BEnableEmbeddedClient();  // argc: 1, index: 61

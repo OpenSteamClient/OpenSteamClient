@@ -28,6 +28,34 @@ public class LoginUsers : ConfigFile<LoginUsers>
         this.Autologin = Users.IndexOf(user);
     }
 
+    public bool AddUser(LoginUser user) {
+        if (Users.Any(u => u.AccountName == user.AccountName)) {
+            return false;
+        } else {
+            Users.Add(user);
+        }
+
+        return true;
+    }
+
+    public bool RemoveUser(LoginUser user) {
+        int i = Users.FindIndex(u => u.AccountName == user.AccountName);
+        if (i == -1) {
+            return false;
+        }
+
+        Users.RemoveAt(i);
+        if (this.Autologin == i) {
+            this.Autologin = -1;
+        }
+
+        if (this.MostRecent == i) {
+            this.MostRecent = -1;
+        }
+        
+        return true;
+    }
+
     public LoginUser? GetAutologin() {
         return Users.ElementAtOrDefault(this.Autologin);
     }
@@ -72,7 +100,7 @@ public class LoginUser {
     public bool Remembered { get; set; } = false;
     public CSteamID? SteamID { get; set; } = null;
     public string AccountName { get; set; } = "";
-    public bool AllowAutoLogin { get; set; } = false;
+    public bool AllowAutoLogin { get; set; } = true;
     public LoginUser() {}
 
     public LoginUser(string username, string password, bool rememberPassword) {
@@ -80,5 +108,11 @@ public class LoginUser {
         this.AccountName = username;
         this.Password = password;
         this.Remembered = rememberPassword;
+    }
+
+    public LoginUser(string username, string JWT) {
+        this.LoginMethod = Config.LoginMethod.JWT;
+        this.AccountName = username;
+        this.LoginToken = JWT;
     }
 }

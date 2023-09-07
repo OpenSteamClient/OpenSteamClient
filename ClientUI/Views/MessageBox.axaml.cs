@@ -86,6 +86,14 @@ public partial class MessageBox : Window
     }
 
     public static MessageBoxButton? Show(string title, string header, string message, MessageBoxIcon icon = MessageBoxIcon.INFORMATION, MessageBoxButton buttons = MessageBoxButton.Ok) {
+        if (!Dispatcher.UIThread.CheckAccess()) {
+            return Dispatcher.UIThread.Invoke<MessageBoxButton?>(() => ShowInternal(title, header, message, icon, buttons));
+        } else {
+            return ShowInternal(title, header, message, icon, buttons);
+        }
+    }
+
+    private static MessageBoxButton? ShowInternal(string title, string header, string message, MessageBoxIcon icon, MessageBoxButton buttons) {
         var messageBoxViewModel = new MessageBoxViewModel(icon, buttons);
         messageBoxViewModel.Title = title;
         messageBoxViewModel.Header = header;
@@ -96,7 +104,6 @@ public partial class MessageBox : Window
         using (var source = new CancellationTokenSource())
         {
             var tcs = new TaskCompletionSource<MessageBoxButton?>();
-
             messageBox.Closing += (object? sender, WindowClosingEventArgs args) =>
             {
                 tcs.TrySetResult(messageBoxViewModel.ButtonClicked);
@@ -104,11 +111,10 @@ public partial class MessageBox : Window
             };
 
             messageBox.Show();
-
+            
             tcs.Task.ContinueWith(t => source.Cancel(), TaskScheduler.FromCurrentSynchronizationContext());
             Dispatcher.UIThread.MainLoop(source.Token);
             return tcs.Task.Result;
         }
     }
-    
 }

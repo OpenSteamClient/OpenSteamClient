@@ -7,36 +7,58 @@ using Google.Protobuf;
 
 namespace OpenSteamworks.Messaging;
 
-public class ProtoMsg<T> where T: Google.Protobuf.IMessage<T>, new()
+public interface IMessage {
+    byte[] Serialize();
+    void FillFromBinary(byte[] data);
+}
+public class ProtoMsg<T> : IMessage where T: Google.Protobuf.IMessage<T>, new()
 {
     public const uint PROTOBUF_MASK = 0x80000000;
     public CMsgProtoBufHeader header { get; private set; }
-    public uint EMsg { get; set; }
-    public T? body;
+    public EMsg EMsg { get; set; } = 0;
+    public string JobName { get; set; } = "";
+    public T body;
     public readonly Google.Protobuf.MessageParser<T> body_parser;
-    public ProtoMsg()
+    /// <summary>
+    /// Constructs a new ProtoMsg.
+    /// </summary>
+    /// <param name="jobName">The JobName of the message (leave empty if not a job)</param>
+    /// <param name="unauthenticated">If this message is a job AND this argument is set, send this as a NonAuthed service call, otherwise it is sent as a regular service call</param>
+    public ProtoMsg(string jobName = "", bool unauthenticated = false)
     {
         header = new CMsgProtoBufHeader();
-        body_parser = new Google.Protobuf.MessageParser<T>(() => new T());
-    }
+        header.Steamid = 0;
+        body = new T();
+        body_parser = new Google.Protobuf.MessageParser<T>(() => body);
+        if (!string.IsNullOrEmpty(jobName)) {
+            header.TargetJobName = jobName;
+            if (unauthenticated) {
+                this.EMsg = EMsg.KEmsgServiceMethodCallFromClientNonAuthed;
+            } else {
+                this.EMsg = EMsg.KEmsgServiceMethodCallFromClient;
+            }
+        }
 
-    [MemberNotNull(nameof(body))]
+        this.JobName = jobName;
+    }
+    
     public void FillFromBinary(byte[] data) {
         using (var stream = new MemoryStream(data)) {
             // The steamclient is a strange beast. A 64-bit library compiled for little endian.
             using (var reader = new EndianAwareBinaryReader(stream, Encoding.UTF8, EndianAwareBinaryReader.Endianness.Little))
             {
-                this.EMsg = ~PROTOBUF_MASK & reader.ReadUInt32();
+                this.EMsg = (EMsg)(~PROTOBUF_MASK & reader.ReadUInt32());
 
                 // Read the header
                 var header_size = reader.ReadUInt32();
+                Console.WriteLine("header_size: " + header_size);
                 byte[] header_binary = reader.ReadBytes((int)header_size);
 
                 // Parse the header
                 this.header = CMsgProtoBufHeader.Parser.ParseFrom(header_binary);
 
                 // Read the body
-                var body_size = reader.ReadUInt32();
+                var body_size = stream.Length - stream.Position;
                 byte[] body_binary = reader.ReadBytes((int)body_size);
 
                 // Parse the body
@@ -46,24 +68,18 @@ public class ProtoMsg<T> where T: Google.Protobuf.IMessage<T>, new()
     }
 
     public byte[] Serialize() {
-        if (this.body == null) {
-            throw new InvalidOperationException("body is null");
-        }
-
         using (var stream = new MemoryStream())
         {
             using (var writer = new EndianAwareBinaryWriter(stream, Encoding.UTF8, EndianAwareBinaryWriter.Endianness.Little))
             {
                 uint header_size = (uint)this.header.CalculateSize();
-                uint body_size = (uint)this.body.CalculateSize();
-                writer.WriteUInt32(PROTOBUF_MASK | EMsg);
+                writer.WriteUInt32(PROTOBUF_MASK | (uint)EMsg);
 
                 // Serialize header
                 writer.WriteUInt32(header_size);
                 writer.Write(this.header.ToByteArray());
 
                 // Serialize body
-                writer.WriteUInt32(body_size);
                 writer.Write(this.body.ToByteArray());
             }
 
@@ -76,7 +92,7 @@ public class ProtoMsg<T> where T: Google.Protobuf.IMessage<T>, new()
         StringBuilder builder = new StringBuilder();
         builder.AppendLine(string.Format("Printing message {0}, EMsg: {1}", typeof(T).FullName, this.EMsg));
         builder.AppendLine("Header: " + this.header.ToString());
-        builder.AppendLine("Body: " + this.body == null ? "(null)" : this.body!.ToString());
+        builder.AppendLine("Body: " + this.body.ToString());
         return builder.ToString();
     }
 }

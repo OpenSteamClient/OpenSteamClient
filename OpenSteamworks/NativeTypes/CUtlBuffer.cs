@@ -39,8 +39,12 @@ public unsafe struct CUtlBuffer {
         this.m_Memory.Free();
     }
 
-    public byte[] ToManaged() {
-        return this.m_Memory.ToManaged();
+    public byte[] ToManaged()
+    {
+        byte[] allBytes = this.m_Memory.ToManaged();
+        byte[] usedBytes = new byte[this.m_Put];
+        Array.Copy(allBytes, usedBytes, this.m_Put);
+        return usedBytes;
     }
 
     public byte[] ToManagedAndFree() {

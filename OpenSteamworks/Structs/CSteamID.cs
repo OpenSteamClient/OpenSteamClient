@@ -13,9 +13,9 @@ public struct CSteamID {
         steamid = id;
 	}
 
-    public CSteamID( string appidAsStr )
+    public CSteamID( string steamidAsStr )
 	{
-		steamid = UInt64.Parse(appidAsStr);
+		steamid = UInt64.Parse(steamidAsStr);
 	}
 
 	public override readonly string ToString() {

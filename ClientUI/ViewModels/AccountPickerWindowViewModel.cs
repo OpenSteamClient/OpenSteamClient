@@ -44,16 +44,9 @@ public partial class AccountPickerWindowViewModel : ViewModelBase
 
             vm.ClickAction = new RelayCommand(() =>
             {
-                ExtendedProgress<int> prog = new(0, 100);
-                App.Current?.ForceProgressWindow(new ProgressWindowViewModel(prog, tm.GetTranslationForKey("#LoginProgress_Title")) {
-                    Translations = new() {
-                        {"Waiting for steamclient...", tm.GetTranslationForKey("#LoginProgress_WaitingForSteamClient")}
-                    }
-                });
-
                 if (this.loginManager.HasCachedCredentials(item)) {
                     item.LoginMethod = OpenSteamworks.Client.Config.LoginMethod.Cached;
-                    this.loginManager.BeginLogonToUser(item, prog);
+                    this.loginManager.BeginLogonToUser(item);
                 } else {
                     this.OpenLoginDialog(item);
                 }

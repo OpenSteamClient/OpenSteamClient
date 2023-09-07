@@ -8,6 +8,11 @@ using OpenSteamworks.Structs;
 using OpenSteamworks.Client.Utils.Interfaces;
 using OpenSteamworks.Client.Utils;
 using OpenSteamworks.Client.CommonEventArgs;
+using OpenSteamworks.ClientInterfaces;
+using OpenSteamworks.Messaging;
+using System.Runtime.InteropServices;
+using System.Text.Json.Nodes;
+using System.Net;
 
 namespace OpenSteamworks.Client.Managers;
 
@@ -31,29 +36,175 @@ public class LogOnFailedEventArgs : EventArgs
     public EResult Error { get; }
 }
 
+public class QRGeneratedEventArgs : EventArgs
+{
+    public QRGeneratedEventArgs(string url) { URL = url; }
+    public string URL { get; }
+}
+
 public class LoginManager : Component
 {
     public delegate void LoggedOnEventHandler(object sender, LoggedOnEventArgs e);
     public delegate void LoggedOffEventHandler(object sender, LoggedOffEventArgs e);
+    public delegate void LogOnStartedEventHandler(object sender, EventArgs e);
     public delegate void LogOnFailedEventHandler(object sender, LogOnFailedEventArgs e);
+    public delegate void QRGeneratedEventHandler(object sender, QRGeneratedEventArgs e);
     public event LoggedOnEventHandler? LoggedOn;
     public event LoggedOffEventHandler? LoggedOff;
+    public event LogOnStartedEventHandler? LogonStarted;
     public event LogOnFailedEventHandler? LogOnFailed;
+    public event QRGeneratedEventHandler? QRGenerated;
 
     private SteamClient steamClient;
     private LoginUsers loginUsers;
+    private ClientMessaging clientMessaging;
+    private bool QRAuthLoopRunning = false;
+    private Task? QRAuthLoop;
 
-    public LoginManager(SteamClient steamClient, LoginUsers loginUsers, IContainer container) : base(container)
+    public LoginManager(SteamClient steamClient, LoginUsers loginUsers, IContainer container, ClientMessaging clientMessaging) : base(container)
     {
         this.steamClient = steamClient;
         this.steamClient.CallbackManager.RegisterHandlersFor(this);
         this.loginUsers = loginUsers;
+        this.clientMessaging = clientMessaging;
     }
 
     public bool RemoveAccount(LoginUser loginUser) {
-        var success = loginUsers.Users.Remove(loginUser);
+        var success = loginUsers.RemoveUser(loginUser);
+        steamClient.NativeClient.IClientUser.DestroyCachedCredentials(loginUser.AccountName, (int)EAuthTokenRevokeAction.KEauthTokenRevokePermanent);
         loginUsers.Save();
         return success;
+    }
+
+    public bool AddAccount(LoginUser loginUser) {
+        loginUser.Remembered = steamClient.NativeClient.IClientUser.BHasCachedCredentials(loginUser.AccountName);
+        var success = loginUsers.AddUser(loginUser);
+        loginUsers.Save();
+        return success;
+    }
+
+    private IExtendedProgress<int>? loginProgress;
+    public void SetProgress(IExtendedProgress<int>? progress) {
+        this.loginProgress = progress;
+    }
+    /// <summary>
+    /// Asynchronous background tasks may throw. If no exception handler is explicitly specified, C# will eat the errors and silently fail.
+    /// </summary>
+    public void SetExceptionHandler(Action<AggregateException> exceptionHandler) {
+        this.exceptionHandler = exceptionHandler;
+    }
+    private Action<AggregateException>? exceptionHandler;
+    /// <summary>
+    /// Starts generating QR codes for login. Will call QRGenerated everytime a new QR code comes in. Call this method AFTER registering a handler for QRGenerated.
+    /// </summary>
+    public void StartQRAuthLoop() {
+        if (QRAuthLoopRunning) {
+            throw new InvalidOperationException("QR Auth loop already running");
+        }
+
+        QRAuthLoopRunning = true;
+        QRAuthLoop = Task.Run(async () =>
+        {
+            using (Connection conn = clientMessaging.AllocateConnection())
+            {
+                ProtoMsg<CAuthentication_BeginAuthSessionViaQR_Request> beginMsg = new("Authentication.BeginAuthSessionViaQR#1", true);
+                beginMsg.body.DeviceDetails = DeviceDetails;
+
+                ProtoMsg<CAuthentication_BeginAuthSessionViaQR_Response> beginResp = await conn.ProtobufSendMessageAndAwaitResponse<CAuthentication_BeginAuthSessionViaQR_Response, CAuthentication_BeginAuthSessionViaQR_Request>(beginMsg);
+
+                QRGenerated?.Invoke(this, new QRGeneratedEventArgs(beginResp.body.ChallengeUrl));
+
+                ProtoMsg<CAuthentication_PollAuthSessionStatus_Request> pollMsg = new("Authentication.PollAuthSessionStatus#1", true);
+                pollMsg.body.ClientId = beginResp.body.ClientId;
+                pollMsg.body.RequestId = beginResp.body.RequestId;
+
+                while (QRAuthLoopRunning)
+                {
+                    // The Interval we get is in seconds (in format 5.1s).
+                    System.Threading.Thread.Sleep((int)(beginResp.body.Interval * 1000));
+
+                    ProtoMsg<CAuthentication_PollAuthSessionStatus_Response> pollResp = await conn.ProtobufSendMessageAndAwaitResponse<CAuthentication_PollAuthSessionStatus_Response, CAuthentication_PollAuthSessionStatus_Request>(pollMsg);
+                    
+                    if (pollResp.body.HasNewClientId) {
+                        pollMsg.body.ClientId = pollResp.body.NewClientId;
+                    }
+
+                    if (pollResp.body.HasNewChallengeUrl) {
+                        QRGenerated?.Invoke(this, new QRGeneratedEventArgs(pollResp.body.NewChallengeUrl));
+                    }
+
+                    if (pollResp.body.HasRefreshToken) {
+                        QRAuthLoopRunning = false;
+                        BeginLogonToUser(new LoginUser(pollResp.body.AccountName, pollResp.body.RefreshToken));
+                    }
+
+                    if (pollResp.header.Eresult != (int)EResult.k_EResultOK) {
+                        throw new Exception("An error occurred in the QR auth loop. EResult: " + pollResp.header.Eresult);
+                    }
+                }
+            }
+        });
+
+        QRAuthLoop.ContinueWith((t) =>
+        {
+            if (t.IsFaulted) {
+                exceptionHandler?.Invoke(t.Exception!);
+            }
+        });
+    }
+
+    public void StopQRAuthLoop() {
+        QRAuthLoopRunning = false;
+        QRAuthLoop?.Wait();
+    }
+
+    private CAuthentication_DeviceDetails? deviceDetails;
+    public CAuthentication_DeviceDetails DeviceDetails {
+        get {
+            if (deviceDetails == null) {
+                DetermineDeviceDetails();
+            }
+            return deviceDetails;
+        }
+    }
+
+    [MemberNotNull("deviceDetails")]
+    private void DetermineDeviceDetails() {
+        //TODO: allow users to opt out of this data collection. Not that it matters anyway, as steamclient collects this data itself anyway (does it also rewrite our message?).
+        deviceDetails = new();
+
+        // This means Steam Deck/Steam Link
+        // Desktop platforms is 0
+        deviceDetails.GamingDeviceType = 0;
+
+        if (OperatingSystem.IsWindows()) {
+            //TODO: more accurate logic here
+            if (OperatingSystem.IsWindowsVersionAtLeast(10)) {
+                deviceDetails.OsType = (int)EOSType.k_EOSTypeWin10;
+            } else if (OperatingSystem.IsWindowsVersionAtLeast(8, 1)) {
+                deviceDetails.OsType = (int)EOSType.k_EOSTypeWin81;
+            } else if (OperatingSystem.IsWindowsVersionAtLeast(7)) {
+                deviceDetails.OsType = (int)EOSType.k_EOSTypeWin7;
+            } else {
+                deviceDetails.OsType = (int)EOSType.k_EOSTypeWindows;
+            }
+        } else if (OperatingSystem.IsMacOS()) {
+            //TODO: actual logic for this
+            deviceDetails.OsType = (int)EOSType.k_EOSTypeMacos;
+        } else if (OperatingSystem.IsLinux()) {
+            deviceDetails.OsType = (int)EOSType.k_EOSTypeLinux;
+        }
+        
+        deviceDetails.PlatformType = EAuthTokenPlatformType.KEauthTokenPlatformTypeSteamClient;
+
+        try
+        {
+            deviceDetails.DeviceFriendlyName = Dns.GetHostName();
+        }
+        catch (System.Exception)
+        {
+            Console.WriteLine("Failed to determine hostname.");
+        }
     }
 
     /// <summary>
@@ -63,7 +214,7 @@ public class LoginManager : Component
         return loginUsers.Users;
     }
 
-    public bool TryAutologin(IExtendedProgress<int> loginProgress) {
+    public bool TryAutologin() {
         var autologinUser = this.loginUsers.GetAutologin();
         if (autologinUser == null) {
             Console.WriteLine("Cannot autologin, no autologin user.");
@@ -71,7 +222,7 @@ public class LoginManager : Component
         }
 
         autologinUser.LoginMethod = LoginMethod.Cached;
-        BeginLogonToUser(autologinUser, loginProgress);
+        BeginLogonToUser(autologinUser);
         return true;
     }
 
@@ -80,7 +231,6 @@ public class LoginManager : Component
     }
 
     private bool isLoggingOn = false;
-    private IExtendedProgress<int>? loginProgress;
     private EResult? loginFinishResult;
     [CallbackListener<SteamServerConnectFailure_t>]
     public void OnSteamServerConnectFailure(SteamServerConnectFailure_t failure) {
@@ -125,7 +275,7 @@ public class LoginManager : Component
         return steamClient.NativeClient.IClientUser.BHasCachedCredentials(user.AccountName);
     }
 
-    public void BeginLogonToUser(LoginUser user, IExtendedProgress<int>? loginProgress) {
+    public void BeginLogonToUser(LoginUser user) {
         if (this.isLoggingOn) {
             throw new InvalidOperationException("Logon already in progress");
         }
@@ -139,7 +289,6 @@ public class LoginManager : Component
         {
             // TODO: we don't yet support tracking the progress (though we could estimate based on the order callbacks fire...)
             loginProgress?.SetThrobber(true);
-            this.loginProgress = loginProgress;
 
             switch (user.LoginMethod)
             {
@@ -164,15 +313,35 @@ public class LoginManager : Component
                     steamClient.NativeClient.IClientUser.SetAccountNameForCachedCredentialLogin(user.AccountName, false);
                     break;
                 case LoginMethod.JWT:
+                    OpenSteamworks.Client.Utils.UtilityFunctions.AssertNotNull(user.AccountName);
                     OpenSteamworks.Client.Utils.UtilityFunctions.AssertNotNull(user.LoginToken);
-                    // For the JWT, we can extract the user's SteamID and username from it.
-                    throw new NotImplementedException("Logging in using JWT is not yet implemented.");
-                    //steamClient.NativeClient.IClientUser.SetLoginToken(user.LoginToken, "");
-                    //break;
+                    steamClient.NativeClient.IClientUser.SetLoginToken(user.LoginToken, user.AccountName);
+
+                    // Parse the JWT (format roughly XXXXXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXX.XXXXXXXXX where X is just base64 encoded json data)
+                    string middleBase64 = user.LoginToken.Split('.')[1];
+
+                    // The base64 is not always padded properly... Add padding if necessary (FromBase64String is standards-enforcing, meaning it doesn't take in anything but perfect strings)
+                    switch (middleBase64.Length % 4) // Pad with trailing '='s
+                    {
+                        case 0: break; // No pad chars in this case
+                        case 2: middleBase64 += "=="; break; // Two pad chars
+                        case 3: middleBase64 += "="; break; // One pad char
+                        default: throw new System.ArgumentOutOfRangeException("middleBase64", "Illegal base64url string!");
+                    }
+
+                    JsonNode? obj = JsonNode.Parse(System.Text.Encoding.UTF8.GetString(Convert.FromBase64String(middleBase64)));
+                    OpenSteamworks.Client.Utils.UtilityFunctions.AssertNotNull(obj);
+                    string? steamidStr = (string?)obj["sub"];
+                    OpenSteamworks.Client.Utils.UtilityFunctions.AssertNotNull(steamidStr);
+
+                    user.SteamID = new CSteamID(steamidStr);
+
+                    break;
             }
 
             this.loginFinishResult = null;
             this.isLoggingOn = true;
+            LogonStarted?.Invoke(this, EventArgs.Empty);
 
             loginProgress?.SetOperation("Logging on " + user.AccountName);
 
@@ -182,8 +351,7 @@ public class LoginManager : Component
                 return;
             }
             
-            // This nullability system is stupid.
-            EResult beginLogonResult = steamClient.NativeClient.IClientUser.LogOn(user.SteamID.HasValue ? user.SteamID.Value : 0);
+            EResult beginLogonResult = steamClient.NativeClient.IClientUser.LogOn(user.SteamID.Value);
 
             if (beginLogonResult != EResult.k_EResultOK) {
                 this.isLoggingOn = false;
@@ -203,12 +371,16 @@ public class LoginManager : Component
                 }
                 else if (user.AllowAutoLogin == true)
                 {
-                    loginUsers.Users.Add(user);
                     loginUsers.SetUserAsAutologin(user);
                 }
                 OnLoggedOn(new LoggedOnEventArgs(user));
             } else {
                 OnLogonFailed(new LogOnFailedEventArgs(user, result));
+            }
+        }).ContinueWith((t) =>
+        {
+            if (t.IsFaulted) {
+                exceptionHandler?.Invoke(t.Exception!);
             }
         });
     }
@@ -219,6 +391,7 @@ public class LoginManager : Component
     }
 
     private void OnLoggedOn(LoggedOnEventArgs e) {
+        AddAccount(e.User);
         this.loginFinishResult = null;
         this.isLoggingOn = false;
         LoggedOn?.Invoke(this, e);

@@ -15,6 +15,7 @@ public class ClientMessaging : ClientInterface
     private SteamClient client;
     private IClientSharedConnection iSharedConnection;
     private IClientUnifiedMessages iUnifiedMessages;
+    private IClientUser iClientUser;
 
     [CallbackListener<SharedConnectionMessageReady_t>]
     private void OnSharedConnectionMessageReady(SharedConnectionMessageReady_t sharedConnectionMessageReady) {
@@ -22,14 +23,15 @@ public class ClientMessaging : ClientInterface
     }
 
     public Connection AllocateConnection() {
-        return new Connection(iSharedConnection);
+        return new Connection(iSharedConnection, iClientUser);
     }
 
-    public ClientMessaging(SteamClient client, IClientSharedConnection iSharedConnection, IClientUnifiedMessages iUnifiedMessages) : base(client)
+    public ClientMessaging(SteamClient client) : base(client)
     {
         this.client = client;
-        this.iSharedConnection = iSharedConnection;
-        this.iUnifiedMessages = iUnifiedMessages;
+        this.iSharedConnection = client.NativeClient.IClientSharedConnection;
+        this.iUnifiedMessages = client.NativeClient.IClientUnifiedMessages;
+        this.iClientUser = client.NativeClient.IClientUser;
     }
     
     internal override void RunShutdownTasks()
