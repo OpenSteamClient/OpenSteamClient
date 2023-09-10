@@ -32,19 +32,19 @@ public static class ControlExtensions {
         return null;
     }
 
-    public static bool TryTranslateSelf(this Control control) {
-        Translation.TranslationManager tm = App.Container.GetComponent<Translation.TranslationManager>();
+    public static bool TryTranslateSelf(this Control control, bool dueToLayoutChange = false) {
+        var tm = App.Container.GetComponent<Translation.TranslationManager>();
         if (tm.CurrentTranslation.Language == OpenSteamworks.Enums.ELanguage.None) {
             return false;
         }
-
+        
+        Console.WriteLine($"Translating control {control.GetType().Name}{(dueToLayoutChange ? " (due to layout change)" : "")}");
         tm.TranslateVisual(control);
-        control.LayoutUpdated += (object? sender, EventArgs e) => { TryTranslateSelf(control); };
         return true;
     }
 
     public static void TranslatableInit(this Control control) {
         control.TryTranslateSelf();
-        control.LayoutUpdated += (object? sender, EventArgs e) => { TryTranslateSelf(control); };
+        control.LayoutUpdated += (object? sender, EventArgs e) => { control.TryTranslateSelf(true); };
     }
 }
