@@ -82,11 +82,11 @@ public class LoginManager : Component
         loginUsers.Save();
         return success;
     }
-
-    private IExtendedProgress<int>? loginProgress;
     public void SetProgress(IExtendedProgress<int>? progress) {
         this.loginProgress = progress;
     }
+    private IExtendedProgress<int>? loginProgress;
+
     /// <summary>
     /// Asynchronous background tasks may throw. If no exception handler is explicitly specified, C# will eat the errors and silently fail.
     /// </summary>
@@ -94,6 +94,7 @@ public class LoginManager : Component
         this.exceptionHandler = exceptionHandler;
     }
     private Action<AggregateException>? exceptionHandler;
+
     /// <summary>
     /// Starts generating QR codes for login. Will call QRGenerated everytime a new QR code comes in. Call this method AFTER registering a handler for QRGenerated.
     /// </summary>
@@ -189,12 +190,14 @@ public class LoginManager : Component
                 deviceDetails.OsType = (int)EOSType.k_EOSTypeWindows;
             }
         } else if (OperatingSystem.IsMacOS()) {
-            //TODO: actual logic for this
+            //TODO: logic for determining OSX version
             deviceDetails.OsType = (int)EOSType.k_EOSTypeMacos;
         } else if (OperatingSystem.IsLinux()) {
+            //TODO: logic for determining kernel version
             deviceDetails.OsType = (int)EOSType.k_EOSTypeLinux;
         }
         
+        // If this isn't specified, the auth tokens we receive will not let us login
         deviceDetails.PlatformType = EAuthTokenPlatformType.KEauthTokenPlatformTypeSteamClient;
 
         try
