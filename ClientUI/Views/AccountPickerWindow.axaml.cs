@@ -12,6 +12,7 @@ public partial class AccountPickerWindow : Window
     {
         InitializeComponent();
         this.TryTranslateSelf();
+        this.Opened += (object? sender, System.EventArgs e) => this.TryTranslateSelf();
     }
 
 }

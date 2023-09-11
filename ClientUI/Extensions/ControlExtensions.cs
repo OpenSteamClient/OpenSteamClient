@@ -46,5 +46,6 @@ public static class ControlExtensions {
     public static void TranslatableInit(this Control control) {
         control.TryTranslateSelf();
         control.LayoutUpdated += (object? sender, EventArgs e) => { control.TryTranslateSelf(true); };
+        control.Initialized += (object? sender, EventArgs e) => { control.TryTranslateSelf(true); };
     }
 }

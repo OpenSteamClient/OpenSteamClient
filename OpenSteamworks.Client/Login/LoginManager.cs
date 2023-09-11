@@ -13,6 +13,7 @@ using OpenSteamworks.Messaging;
 using System.Runtime.InteropServices;
 using System.Text.Json.Nodes;
 using System.Net;
+using OpenSteamworks.Client.Login;
 
 namespace OpenSteamworks.Client.Managers;
 
@@ -58,8 +59,8 @@ public class LoginManager : Component
     private SteamClient steamClient;
     private LoginUsers loginUsers;
     private ClientMessaging clientMessaging;
-    private bool QRAuthLoopRunning = false;
-    private Task? QRAuthLoop;
+    private LoginPoll? QRPoller;
+    private LoginPoll? CredentialsPoller;
 
     public LoginManager(SteamClient steamClient, LoginUsers loginUsers, IContainer container, ClientMessaging clientMessaging) : base(container)
     {
@@ -99,12 +100,11 @@ public class LoginManager : Component
     /// Starts generating QR codes for login. Will call QRGenerated everytime a new QR code comes in. Call this method AFTER registering a handler for QRGenerated.
     /// </summary>
     public void StartQRAuthLoop() {
-        if (QRAuthLoopRunning) {
+        if (QRPoller != null) {
             throw new InvalidOperationException("QR Auth loop already running");
         }
 
-        QRAuthLoopRunning = true;
-        QRAuthLoop = Task.Run(async () =>
+        Task.Run(async () =>
         {
             using (Connection conn = clientMessaging.AllocateConnection())
             {
@@ -115,48 +115,17 @@ public class LoginManager : Component
 
                 QRGenerated?.Invoke(this, new QRGeneratedEventArgs(beginResp.body.ChallengeUrl));
 
-                ProtoMsg<CAuthentication_PollAuthSessionStatus_Request> pollMsg = new("Authentication.PollAuthSessionStatus#1", true);
-                pollMsg.body.ClientId = beginResp.body.ClientId;
-                pollMsg.body.RequestId = beginResp.body.RequestId;
-
-                while (QRAuthLoopRunning)
-                {
-                    // The Interval we get is in seconds (in format 5.1s).
-                    System.Threading.Thread.Sleep((int)(beginResp.body.Interval * 1000));
-
-                    ProtoMsg<CAuthentication_PollAuthSessionStatus_Response> pollResp = await conn.ProtobufSendMessageAndAwaitResponse<CAuthentication_PollAuthSessionStatus_Response, CAuthentication_PollAuthSessionStatus_Request>(pollMsg);
-                    
-                    if (pollResp.body.HasNewClientId) {
-                        pollMsg.body.ClientId = pollResp.body.NewClientId;
-                    }
-
-                    if (pollResp.body.HasNewChallengeUrl) {
-                        QRGenerated?.Invoke(this, new QRGeneratedEventArgs(pollResp.body.NewChallengeUrl));
-                    }
-
-                    if (pollResp.body.HasRefreshToken) {
-                        QRAuthLoopRunning = false;
-                        BeginLogonToUser(new LoginUser(pollResp.body.AccountName, pollResp.body.RefreshToken));
-                    }
-
-                    if (pollResp.header.Eresult != (int)EResult.k_EResultOK) {
-                        throw new Exception("An error occurred in the QR auth loop. EResult: " + pollResp.header.Eresult);
-                    }
-                }
-            }
-        });
-
-        QRAuthLoop.ContinueWith((t) =>
-        {
-            if (t.IsFaulted) {
-                exceptionHandler?.Invoke(t.Exception!);
+                QRPoller = new LoginPoll(this.clientMessaging, beginResp.body.ClientId, beginResp.body.RequestId, beginResp.body.Interval);
+                QRPoller.ChallengeUrlGenerated += (object sender, ChallengeUrlGeneratedEventArgs e) => this.QRGenerated?.Invoke(this, new QRGeneratedEventArgs(e.URL));
+                QRPoller.AccessTokenGenerated += (object sender, TokenGeneratedEventArgs e) => BeginLogonToUser(new LoginUser(e.AccountName, e.Token));
+                QRPoller.Error += (object sender, EResultEventArgs e) => exceptionHandler?.Invoke(new AggregateException("Error occurred in QR Poller: " + e.EResult));
+                QRPoller.StartPolling();
             }
         });
     }
 
     public void StopQRAuthLoop() {
-        QRAuthLoopRunning = false;
-        QRAuthLoop?.Wait();
+        QRPoller?.StopPolling();
     }
 
     private CAuthentication_DeviceDetails? deviceDetails;
