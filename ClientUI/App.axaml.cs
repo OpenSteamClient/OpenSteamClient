@@ -122,11 +122,13 @@ public partial class App : Application
         } else {
             vm = App.Container.ConstructOnly<LoginWindowViewModel>(new object[1] { user });
         }
-        
-        ForceWindow(new LoginWindow
-        {
-            DataContext = vm
-        });
+
+        var window = new LoginWindow();
+        //TODO: hacky
+        vm.ShowSecondFactorDialog = window.ShowSecondFactorDialog;
+        window.DataContext = vm;
+
+        ForceWindow(window);
     }
 
     /// <summary>

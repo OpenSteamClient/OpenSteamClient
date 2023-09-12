@@ -45,7 +45,14 @@ public static class ControlExtensions {
 
     public static void TranslatableInit(this Control control) {
         control.TryTranslateSelf();
-        control.LayoutUpdated += (object? sender, EventArgs e) => { control.TryTranslateSelf(true); };
+        // Disable this for now, until I can find a way to filter out mouseover etc events from affecting this
+        // Ideally we should never need to re-update translations during runtime except on language change, but if objects get added to the visual tree, they might not be translated yet (such as in ItemsControl cases, where you can't translate the fundamental template object since it gets removed at compile time)
+        //control.LayoutUpdated += (object? sender, EventArgs e) => { control.TryTranslateSelf(true); };
         control.Initialized += (object? sender, EventArgs e) => { control.TryTranslateSelf(true); };
+
+        // Register some events for auto-retranslate
+        if (control is TopLevel) {
+            (control as TopLevel)!.Opened += (object? sender, System.EventArgs e) => control.TryTranslateSelf();
+        }
     }
 }

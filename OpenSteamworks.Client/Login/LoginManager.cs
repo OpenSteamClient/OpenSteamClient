@@ -14,6 +14,8 @@ using System.Runtime.InteropServices;
 using System.Text.Json.Nodes;
 using System.Net;
 using OpenSteamworks.Client.Login;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace OpenSteamworks.Client.Managers;
 
@@ -43,6 +45,12 @@ public class QRGeneratedEventArgs : EventArgs
     public string URL { get; }
 }
 
+public class SecondFactorNeededEventArgs : EventArgs
+{
+    public SecondFactorNeededEventArgs(IEnumerable<CAuthentication_AllowedConfirmation> allowedConfirmations) { AllowedConfirmations = allowedConfirmations; }
+    public IEnumerable<CAuthentication_AllowedConfirmation> AllowedConfirmations { get; }
+}
+
 public class LoginManager : Component
 {
     public delegate void LoggedOnEventHandler(object sender, LoggedOnEventArgs e);
@@ -50,11 +58,13 @@ public class LoginManager : Component
     public delegate void LogOnStartedEventHandler(object sender, EventArgs e);
     public delegate void LogOnFailedEventHandler(object sender, LogOnFailedEventArgs e);
     public delegate void QRGeneratedEventHandler(object sender, QRGeneratedEventArgs e);
+    public delegate void SecondFactorNeededEventHandler(object sender, SecondFactorNeededEventArgs e);
     public event LoggedOnEventHandler? LoggedOn;
     public event LoggedOffEventHandler? LoggedOff;
     public event LogOnStartedEventHandler? LogonStarted;
     public event LogOnFailedEventHandler? LogOnFailed;
     public event QRGeneratedEventHandler? QRGenerated;
+    public event SecondFactorNeededEventHandler? SecondFactorNeeded;
 
     private SteamClient steamClient;
     private LoginUsers loginUsers;
@@ -100,7 +110,7 @@ public class LoginManager : Component
     /// Starts generating QR codes for login. Will call QRGenerated everytime a new QR code comes in. Call this method AFTER registering a handler for QRGenerated.
     /// </summary>
     public void StartQRAuthLoop() {
-        if (QRPoller != null) {
+        if (QRPoller != null && QRPoller.IsPolling) {
             throw new InvalidOperationException("QR Auth loop already running");
         }
 
@@ -111,21 +121,113 @@ public class LoginManager : Component
                 ProtoMsg<CAuthentication_BeginAuthSessionViaQR_Request> beginMsg = new("Authentication.BeginAuthSessionViaQR#1", true);
                 beginMsg.body.DeviceDetails = DeviceDetails;
 
-                ProtoMsg<CAuthentication_BeginAuthSessionViaQR_Response> beginResp = await conn.ProtobufSendMessageAndAwaitResponse<CAuthentication_BeginAuthSessionViaQR_Response, CAuthentication_BeginAuthSessionViaQR_Request>(beginMsg);
+                var beginResp = await conn.ProtobufSendMessageAndAwaitResponse<CAuthentication_BeginAuthSessionViaQR_Response, CAuthentication_BeginAuthSessionViaQR_Request>(beginMsg);
 
                 QRGenerated?.Invoke(this, new QRGeneratedEventArgs(beginResp.body.ChallengeUrl));
-
+                
                 QRPoller = new LoginPoll(this.clientMessaging, beginResp.body.ClientId, beginResp.body.RequestId, beginResp.body.Interval);
                 QRPoller.ChallengeUrlGenerated += (object sender, ChallengeUrlGeneratedEventArgs e) => this.QRGenerated?.Invoke(this, new QRGeneratedEventArgs(e.URL));
-                QRPoller.AccessTokenGenerated += (object sender, TokenGeneratedEventArgs e) => BeginLogonToUser(new LoginUser(e.AccountName, e.Token));
+                QRPoller.RefreshTokenGenerated += OnRefreshTokenGenerated;
                 QRPoller.Error += (object sender, EResultEventArgs e) => exceptionHandler?.Invoke(new AggregateException("Error occurred in QR Poller: " + e.EResult));
                 QRPoller.StartPolling();
             }
         });
     }
 
+    /// <summary>
+    /// Starts an auth session via credentials. Add extra steam guard details, etc with other functions.
+    /// Will fire events for needed extra details, etc
+    /// </summary>
+    /// <returns>True if initial credentials were ok, false if session failed to start</returns>
+    public async Task<EResult> StartAuthSessionWithCredentials(string username, string password, bool rememberPassword) {
+        if (CredentialsPoller != null && CredentialsPoller.IsPolling) {
+            throw new InvalidOperationException("Credential logon already in progress");
+        }
+
+        using (Connection conn = clientMessaging.AllocateConnection())
+        {
+            // Get password RSA hash
+            ProtoMsg<CAuthentication_GetPasswordRSAPublicKey_Request> rsaRequest = new("Authentication.GetPasswordRSAPublicKey#1", true);
+            rsaRequest.body.AccountName = username;
+
+            var rsaResp = await conn.ProtobufSendMessageAndAwaitResponse<CAuthentication_GetPasswordRSAPublicKey_Response, CAuthentication_GetPasswordRSAPublicKey_Request>(rsaRequest);
+
+            // Encrypt the password (this simple in C#)
+            string encryptedPassword;
+            using (var rsa = RSA.Create())
+            {
+                
+                var rsaParameters = new RSAParameters
+                {
+                    Modulus = Convert.FromHexString(rsaResp.body.PublickeyMod),
+                    Exponent = Convert.FromHexString(rsaResp.body.PublickeyExp),
+                };
+                rsa.ImportParameters(rsaParameters);
+                encryptedPassword = Convert.ToBase64String(rsa.Encrypt(Encoding.UTF8.GetBytes(password), RSAEncryptionPadding.Pkcs1));
+            }
+
+            ProtoMsg<CAuthentication_BeginAuthSessionViaCredentials_Request> beginMsg = new("Authentication.BeginAuthSessionViaCredentials#1", true);
+            beginMsg.body.DeviceDetails = DeviceDetails;
+            beginMsg.body.AccountName = username;
+            beginMsg.body.EncryptedPassword = encryptedPassword;
+            beginMsg.body.EncryptionTimestamp = rsaResp.body.Timestamp;
+            // This one is unused, but let's set it just in case
+            beginMsg.body.RememberLogin = rememberPassword;
+            // This determines password remembered yes/no
+            beginMsg.body.Persistence = rememberPassword ? ESessionPersistence.KEsessionPersistencePersistent : ESessionPersistence.KEsessionPersistenceEphemeral;
+            beginMsg.body.PlatformType = EAuthTokenPlatformType.KEauthTokenPlatformTypeSteamClient;
+            beginMsg.body.WebsiteId = "Client";
+            beginMsg.body.DeviceFriendlyName = DeviceDetails.DeviceFriendlyName;
+
+            var beginResp = await conn.ProtobufSendMessageAndAwaitResponse<CAuthentication_BeginAuthSessionViaCredentials_Response, CAuthentication_BeginAuthSessionViaCredentials_Request>(beginMsg);
+            Console.WriteLine(beginResp);
+            if (beginResp.header.Eresult != (int)EResult.k_EResultOK) {
+                return (EResult)beginResp.header.Eresult;
+            }
+
+            // Interval is 0.1 and/or allowedconfirmations is set to [k_EAuthSessionGuardType_None] when user has no 2fa
+            if (beginResp.body.AllowedConfirmations.All(elem => elem.ConfirmationType == EAuthSessionGuardType.KEauthSessionGuardTypeNone)) {
+                // Only one session type, and that's the None type
+            } else {
+                SecondFactorNeeded?.Invoke(this, new SecondFactorNeededEventArgs(beginResp.body.AllowedConfirmations));
+            }
+
+            CredentialsPoller = new LoginPoll(this.clientMessaging, beginResp.body.ClientId, beginResp.body.RequestId, beginResp.body.Interval);
+            CredentialsPoller.RefreshTokenGenerated += OnRefreshTokenGenerated;
+            CredentialsPoller.Error += (object sender, EResultEventArgs e) => exceptionHandler?.Invoke(new AggregateException("Error occurred in Credentials Poller: " + e.EResult));
+            CredentialsPoller.StartPolling();
+            return EResult.k_EResultOK;
+        }
+    }
+
+    public async Task<bool> UpdateAuthSessionWithTwoFactor(string code, EAuthSessionGuardType codeType) {
+        if (CredentialsPoller == null || !CredentialsPoller.IsPolling) {
+            throw new InvalidOperationException("Credential logon isn't running, cannot add steam guard code");
+        }
+
+        using (Connection conn = clientMessaging.AllocateConnection())
+        {
+            ProtoMsg<CAuthentication_UpdateAuthSessionWithSteamGuardCode_Request> updateMsg = new("Authentication.UpdateAuthSessionWithSteamGuardCode#1", true);
+            updateMsg.body.ClientId = CredentialsPoller.ClientID;
+            updateMsg.body.CodeType = codeType;
+            updateMsg.body.Code = code;
+
+            var updateResp = await conn.ProtobufSendMessageAndAwaitResponse<CAuthentication_UpdateAuthSessionWithSteamGuardCode_Response, CAuthentication_UpdateAuthSessionWithSteamGuardCode_Request>(updateMsg);
+            if (updateResp.header.Eresult != (int)EResult.k_EResultOK) {
+                return false;
+            }
+
+            return true;
+        }
+    }
+
     public void StopQRAuthLoop() {
         QRPoller?.StopPolling();
+        QRPoller = null;
+    }
+
+    private void OnRefreshTokenGenerated(object sender, TokenGeneratedEventArgs e) {
+        BeginLogonToUser(new LoginUser(e.AccountName, e.Token));
     }
 
     private CAuthentication_DeviceDetails? deviceDetails;
@@ -171,6 +273,7 @@ public class LoginManager : Component
 
         try
         {
+            //TODO: allow user to specify this somewhere, maybe in a first-run wizard, in settings, config file etc
             deviceDetails.DeviceFriendlyName = Dns.GetHostName();
         }
         catch (System.Exception)
@@ -196,10 +299,6 @@ public class LoginManager : Component
         autologinUser.LoginMethod = LoginMethod.Cached;
         BeginLogonToUser(autologinUser);
         return true;
-    }
-
-    private void SetUserAsLastLogin(LoginUser user) {
-        this.loginUsers.SetUserAsMostRecent(user);
     }
 
     private bool isLoggingOn = false;
@@ -231,13 +330,6 @@ public class LoginManager : Component
             loginFinishResult = EResult.k_EResultOK;
         }
     }
-
-    // [CallbackListener<SteamServersDisconnected_t>]
-    // public void OnSteamServersConnected(SteamServersConnected_t connected) {
-    //     if (isLoggingOn) {
-    //         loginFinishResult = EResult.k_EResultOK;
-    //     }
-    // }
     
     public void SetMachineName(string machineName) {
         steamClient.NativeClient.IClientUser.SetUserMachineName(machineName);
@@ -265,13 +357,13 @@ public class LoginManager : Component
             switch (user.LoginMethod)
             {
                 case LoginMethod.UsernamePassword:
-                    OpenSteamworks.Client.Utils.UtilityFunctions.AssertNotNull(user.AccountName);
-                    OpenSteamworks.Client.Utils.UtilityFunctions.AssertNotNull(user.Password);
+                    UtilityFunctions.AssertNotNull(user.AccountName);
+                    UtilityFunctions.AssertNotNull(user.Password);
                     steamClient.NativeClient.IClientUser.SetLoginInformation(user.AccountName, user.Password, user.Remembered);
                     if (user.SteamGuardCode != null) {
                         steamClient.NativeClient.IClientUser.SetTwoFactorCode(user.SteamGuardCode);
                     }
-                    //TODO: use Protobuf here to get SteamID with SharedConnection. Alternatively we could handle the whole process manually, and just send the token to steamclient (which we need to do for QR flow regardless)
+
                     break;
                 case LoginMethod.Cached:
                     OpenSteamworks.Client.Utils.UtilityFunctions.AssertNotNull(user.AccountName);
@@ -337,11 +429,8 @@ public class LoginManager : Component
 
             if (result == EResult.k_EResultOK)
             {
-                if (loginUsers.Users.Contains(user))
-                {
-                    loginUsers.SetUserAsMostRecent(user);
-                }
-                else if (user.AllowAutoLogin == true)
+                loginUsers.SetUserAsMostRecent(user);
+                if (user.AllowAutoLogin == true)
                 {
                     loginUsers.SetUserAsAutologin(user);
                 }

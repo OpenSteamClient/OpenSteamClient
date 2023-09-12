@@ -194,7 +194,6 @@ public class CallbackManager
                 throw new ArgumentException("Function " + func.Name + " has invalid arguments for CallbackListenerAttribute. Expected " + expectedType.Name + ", had " + argType.Name);
             }
             var actType = typeof(Action<>).MakeGenericType(expectedType);
-            Console.WriteLine("Registering");
             this.RegisterHandler(func.CreateDelegate(actType, obj), expectedType, false);
         }
     }

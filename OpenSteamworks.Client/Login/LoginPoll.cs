@@ -31,6 +31,11 @@ internal class LoginPoll {
     public bool IsPolling { get; private set; }
     public Task? PollThread { get; private set; }
     public float Interval { get; private set; }
+    public ulong ClientID {
+        get {
+            return pollMsg.body.ClientId;
+        }
+    }
     /// <summary>
     /// 
     /// </summary>
@@ -49,9 +54,9 @@ internal class LoginPoll {
         using (var conn = this.clientMessaging.AllocateConnection())
         {
             while (IsPolling)
-            {            
+            {
                 ProtoMsg<CAuthentication_PollAuthSessionStatus_Response> pollResp = await conn.ProtobufSendMessageAndAwaitResponse<CAuthentication_PollAuthSessionStatus_Response, CAuthentication_PollAuthSessionStatus_Request>(pollMsg);
-                
+
                 if (pollResp.body.HasNewClientId) {
                     pollMsg.body.ClientId = pollResp.body.NewClientId;
                 }

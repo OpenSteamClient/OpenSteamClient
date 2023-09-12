@@ -20,9 +20,12 @@
         "#LoginWindow_Login": "Log in",
         "#LoginWindow_Title": "Login",
         "#LoginProgress_Title": "Logging in",
+        "#LoginFailed": "Login failed",
+        "#LoginFailed_Description": "Logging in to account {0} failed: {1}",
         "#LoginProgress_WaitingForSteamClient": "Waiting for steamclient",
         "#TwoFactorAuthentication": "Two factor authentication",
         "#LoginWindow_OrLoginWithMobileApp": "Or login with the Steam mobile app:",
+        "#LoginWindow_QRCodeLoading": "QR code loading...",
         "#AddAccount": "Add account"
     }
 }

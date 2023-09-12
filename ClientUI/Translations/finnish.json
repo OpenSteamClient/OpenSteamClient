@@ -20,9 +20,12 @@
         "#LoginWindow_Login": "Kirjaudu sisään",
         "#LoginWindow_Title": "Kirjautuminen",
         "#LoginProgress_Title": "Kirjaudutaan sisään",
+        "#LoginFailed": "Kirjautuminen epäonnistui",
+        "#LoginFailed_Description": "Kirjautuminen tilille {0} epäonnistui: {1}",
         "#LoginProgress_WaitingForSteamClient": "Odotetaan steamclient:ia",
         "#TwoFactorAuthentication": "Kaksivaiheinen varmistus",
         "#LoginWindow_OrLoginWithMobileApp": "Tai kirjaudu Steam-mobiilisovelluksella:",
+        "#LoginWindow_QRCodeLoading": "QR-koodi lataa...",
         "#AddAccount": "Lisää tili"
     }
 }

@@ -24,19 +24,20 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />   
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Spacing="5">
-            <TextBlock FontSize="20" c:Translatable.TranslationKey="#LoginWindow_LoginText" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <TextBox x:Name="UsernameBox" Text="{Binding Username}" c:Translatable.TranslationKey="#Username"/>
-            <TextBox x:Name="PasswordBox" Text="{Binding Password}" c:Translatable.TranslationKey="#Password" PasswordChar="•"/>
-            <CheckBox IsChecked="{Binding RememberPassword}" c:Translatable.TranslationKey="#RememberPassword" />
+        <StackPanel IsVisible="{Binding CredentialLoginVisible}" Grid.Row="0" Spacing="5">
+            <TextBlock IsEnabled="{Binding CanLogin}" FontSize="20" c:Translatable.TranslationKey="#LoginWindow_LoginText" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <TextBox IsEnabled="{Binding CanLogin}" x:Name="UsernameBox" Text="{Binding Username}" c:Translatable.TranslationKey="#Username"/>
+            <TextBox IsEnabled="{Binding CanLogin}" x:Name="PasswordBox" Text="{Binding Password}" c:Translatable.TranslationKey="#Password" PasswordChar="•"/>
+            <CheckBox IsEnabled="{Binding CanLogin}" IsChecked="{Binding RememberPassword}" c:Translatable.TranslationKey="#RememberPassword" />
             <StackPanel Orientation="Horizontal">
-                <Button x:Name="RegisterButton" Command="{Binding RegisterPressed}" c:Translatable.TranslationKey="#LoginWindow_Register" />
-                <Button x:Name="LoginButton" Command="{Binding LoginPressed}" c:Translatable.TranslationKey="#LoginWindow_Login"/>
+                <Button IsEnabled="{Binding CanLogin}" x:Name="RegisterButton" Command="{Binding RegisterPressed}" c:Translatable.TranslationKey="#LoginWindow_Register" />
+                <Button IsEnabled="{Binding CanLogin}" x:Name="LoginButton" Command="{Binding LoginPressed}" c:Translatable.TranslationKey="#LoginWindow_Login"/>
             </StackPanel>
         </StackPanel>
-        <StackPanel Grid.Row="1" Spacing="5">
+        <StackPanel IsVisible="{Binding QRLoginVisible}" Grid.Row="1" Spacing="5">
             <TextBlock FontSize="20" c:Translatable.TranslationKey="#LoginWindow_OrLoginWithMobileApp" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <Image MaxWidth="400" MaxHeight="400" Source="{Binding QRCode}"/>
+            <Image IsVisible="{Binding HasQRCode}" MaxWidth="400" MaxHeight="400" Source="{Binding QRCode}"/>
+            <TextBlock IsVisible="{Binding !HasQRCode}" HorizontalAlignment="Center" VerticalAlignment="Center" c:Translatable.TranslationKey="#LoginWindow_QRCodeLoading" />
         </StackPanel>
     </Grid>
 </Window>

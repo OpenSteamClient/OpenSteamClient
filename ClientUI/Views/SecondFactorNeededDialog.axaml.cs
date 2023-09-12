@@ -1,17 +1,15 @@
-using System.IO;
 using Avalonia.Controls;
 using ClientUI.Extensions;
 using ClientUI.ViewModels;
-using QRCoder;
+using OpenSteamworks.Client.Utils;
 
 namespace ClientUI.Views;
 
-public partial class AccountPickerWindow : Window
+public partial class SecondFactorNeededDialog : Window
 {
-    public AccountPickerWindow()
+    public SecondFactorNeededDialog()
     {
         InitializeComponent();
         this.TranslatableInit();
     }
-
 }
