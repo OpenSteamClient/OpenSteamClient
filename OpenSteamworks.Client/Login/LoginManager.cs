@@ -27,9 +27,10 @@ public class LoggedOnEventArgs : EventArgs
 
 public class LoggedOffEventArgs : EventArgs
 {
-    public LoggedOffEventArgs(LoginUser user, EResult? error = null) { User = user; Error = error; }
+    public LoggedOffEventArgs(LoginUser user, EResult? error = null, bool forget = false) { User = user; Error = error; Forget = forget; }
     public LoginUser User { get; } 
     public EResult? Error { get; }
+    public bool Forget { get; }
 }
 
 public class LogOnFailedEventArgs : EventArgs
@@ -458,12 +459,10 @@ public class LoginManager : Component
         });
     }
     public void LogoutForgetAccount() {
-        UtilityFunctions.AssertNotNull(this.CurrentUser);
-        this.Logout();
-        this.loginUsers.RemoveUser(this.CurrentUser);
+        this.Logout(true);
     }
 
-    public async void Logout() {
+    public async void Logout(bool forget = false) {
         UtilityFunctions.AssertNotNull(this.CurrentUser);
         var oldUser = CurrentUser;
         this.steamClient.NativeClient.IClientUser.LogOff();
@@ -473,6 +472,7 @@ public class LoginManager : Component
                 System.Threading.Thread.Sleep(50);
             }
         });
+        OnLoggedOff(new LoggedOffEventArgs(oldUser, null, true));
     }
 
     private void OnLogonFailed(LogOnFailedEventArgs e) {
@@ -482,10 +482,20 @@ public class LoginManager : Component
     }
 
     private void OnLoggedOn(LoggedOnEventArgs e) {
+        CurrentUser = e.User;
+        CurrentSteamID = 0;
         AddAccount(e.User);
         this.loginFinishResult = null;
         this.isLoggingOn = false;
         LoggedOn?.Invoke(this, e);
+    }
+
+    private void OnLoggedOff(LoggedOffEventArgs e) {
+        CurrentUser = null;
+        if (e.Forget) {
+            RemoveAccount(e.User);
+        }
+        LoggedOff?.Invoke(this, e);
     }
     private async Task<EResult> WaitForLogonToFinish() {
         return await Task.Run<EResult>(() =>
