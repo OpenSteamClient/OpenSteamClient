@@ -39,6 +39,11 @@ public class Connection : IDisposable {
                 }
             }
             var resultMsg = new ProtoMsg<TResult>();
+            if (msg.AllowRewrite) {
+                // :( unfortunately loginmanager is part of OpenSteamworks.Client so we can't use an in-progress login to get this steamid. TODO: subject to change
+                msg.header.Steamid = iClientUser.GetSteamID();
+            }
+
             unsafe {
                 byte[] serialized = msg.Serialize();
 

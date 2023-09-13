@@ -1,5 +1,6 @@
 using Avalonia.Controls;
 using ClientUI.Extensions;
+using ClientUI.ViewModels;
 using OpenSteamworks.Client.Managers;
 
 namespace ClientUI.Views;
@@ -20,7 +21,7 @@ public partial class LoginWindow : Window
     public void ShowSecondFactorDialog(SecondFactorNeededEventArgs e) {
         SecondFactorNeededDialog dialog = new()
         {
-            DataContext = new SecondFactorNeededEventArgs(e.AllowedConfirmations)
+            DataContext = App.Container.ConstructOnly<SecondFactorNeededDialogViewModel>(new object[1] {e}),
         };
         dialog.ShowDialog(this);
     }

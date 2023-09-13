@@ -84,11 +84,11 @@ public class TranslationManager : Component {
                 }
 
                 // Window eventually inherits from ContentControl. We don't want to override a window's content...
-                if (vis is Window)
-                {
+                if (vis is Window) {
                     (vis as Window)!.Title = translatedText;
-                } else if (vis is TextBox)
-                {
+                } else if (vis is MenuItem) {
+                    (vis as MenuItem)!.Header = translatedText;
+                } else if (vis is TextBox) {
                     (vis as TextBox)!.Watermark = translatedText;
                 } else if (vis is ContentControl) {
                     (vis as ContentControl)!.Content = translatedText;

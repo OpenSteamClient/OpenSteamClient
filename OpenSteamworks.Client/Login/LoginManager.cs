@@ -71,6 +71,11 @@ public class LoginManager : Component
     private ClientMessaging clientMessaging;
     private LoginPoll? QRPoller;
     private LoginPoll? CredentialsPoller;
+    /// <summary>
+    /// Used only when a logon is in progress. To get the logged in user's SteamID, use IClientUser::GetSteamID or LoginManager::CurrentUser::SteamID
+    /// </summary>
+    public CSteamID CurrentSteamID { get; private set; } = 0;
+    public LoginUser? CurrentUser { get; private set; }
 
     public LoginManager(SteamClient steamClient, LoginUsers loginUsers, IContainer container, ClientMessaging clientMessaging) : base(container)
     {
@@ -185,6 +190,9 @@ public class LoginManager : Component
                 return (EResult)beginResp.header.Eresult;
             }
 
+            // This should always have a steamid here, otherwise we can't get it from anywhere
+            CurrentSteamID = beginResp.body.Steamid;
+
             // Interval is 0.1 and/or allowedconfirmations is set to [k_EAuthSessionGuardType_None] when user has no 2fa
             if (beginResp.body.AllowedConfirmations.All(elem => elem.ConfirmationType == EAuthSessionGuardType.KEauthSessionGuardTypeNone)) {
                 // Only one session type, and that's the None type
@@ -200,7 +208,7 @@ public class LoginManager : Component
         }
     }
 
-    public async Task<bool> UpdateAuthSessionWithTwoFactor(string code, EAuthSessionGuardType codeType) {
+    public async Task<EResult> UpdateAuthSessionWithTwoFactor(string code, EAuthSessionGuardType codeType) {
         if (CredentialsPoller == null || !CredentialsPoller.IsPolling) {
             throw new InvalidOperationException("Credential logon isn't running, cannot add steam guard code");
         }
@@ -211,13 +219,10 @@ public class LoginManager : Component
             updateMsg.body.ClientId = CredentialsPoller.ClientID;
             updateMsg.body.CodeType = codeType;
             updateMsg.body.Code = code;
+            updateMsg.body.Steamid = CurrentSteamID;
 
             var updateResp = await conn.ProtobufSendMessageAndAwaitResponse<CAuthentication_UpdateAuthSessionWithSteamGuardCode_Response, CAuthentication_UpdateAuthSessionWithSteamGuardCode_Request>(updateMsg);
-            if (updateResp.header.Eresult != (int)EResult.k_EResultOK) {
-                return false;
-            }
-
-            return true;
+            return (EResult)updateResp.header.Eresult;
         }
     }
 
@@ -307,6 +312,13 @@ public class LoginManager : Component
     public void OnSteamServerConnectFailure(SteamServerConnectFailure_t failure) {
         if (isLoggingOn) {
             loginFinishResult = failure.m_EResult;
+        }
+    }
+
+    [CallbackListener<SteamServersDisconnected_t>]
+    public void OnSteamServersDisconnected(SteamServersDisconnected_t disconnect) {
+        if (CurrentUser != null) {
+            
         }
     }
 
@@ -445,6 +457,24 @@ public class LoginManager : Component
             }
         });
     }
+    public void LogoutForgetAccount() {
+        UtilityFunctions.AssertNotNull(this.CurrentUser);
+        this.Logout();
+        this.loginUsers.RemoveUser(this.CurrentUser);
+    }
+
+    public async void Logout() {
+        UtilityFunctions.AssertNotNull(this.CurrentUser);
+        var oldUser = CurrentUser;
+        this.steamClient.NativeClient.IClientUser.LogOff();
+        await Task.Run(() => {
+            while (this.steamClient.NativeClient.IClientUser.BLoggedOn())
+            {
+                System.Threading.Thread.Sleep(50);
+            }
+        });
+    }
+
     private void OnLogonFailed(LogOnFailedEventArgs e) {
         this.loginFinishResult = null;
         this.isLoggingOn = false;

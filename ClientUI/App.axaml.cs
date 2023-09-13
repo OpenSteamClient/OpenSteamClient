@@ -163,4 +163,12 @@ public partial class App : Application
         await Container.RunShutdownForComponents();
         ApplicationLifetime.Shutdown(exitCode);
     }
+
+    /// <summary>
+    /// A synchronous exit function. Simply calls Task.Run. 
+    /// </summary>
+    /// <param name="exitCode"></param>
+    public void ExitEventually(int exitCode = 0) {
+        Task.Run(async () => await this.Exit(exitCode));
+    }
 }

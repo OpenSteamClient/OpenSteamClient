@@ -20,7 +20,7 @@ public unsafe interface IClientUser
     public EResult LogOn(CSteamID steamid, bool interactive = true);  // argc: 2, index: 2
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret InvalidateCredentials();  // argc: 2, index: 3
-    public unknown_ret LogOff();  // argc: 0, index: 4
+    public void LogOff();  // argc: 0, index: 4
     public bool BLoggedOn();  // argc: 0, index: 5
     public ELogonState GetLogonState();  // argc: 0, index: 6
     public bool BConnected();  // argc: 0, index: 7
@@ -399,7 +399,7 @@ public unsafe interface IClientUser
     public unknown_ret SetCommunityPreference();  // argc: 2, index: 223
     public unknown_ret GetTextFilterSetting();  // argc: 0, index: 224
     public unknown_ret BTextFilterIgnoresFriends();  // argc: 0, index: 225
-    public unknown_ret CanLogonOffline();  // argc: 0, index: 226
+    public bool CanLogonOffline();  // argc: 0, index: 226
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret LogOnOffline();  // argc: 1, index: 227
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!

@@ -4,6 +4,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Text;
 using Google.Protobuf;
+using OpenSteamworks.Enums;
 
 namespace OpenSteamworks.Messaging;
 
@@ -19,6 +20,12 @@ public class ProtoMsg<T> : IMessage where T: Google.Protobuf.IMessage<T>, new()
     public string JobName { get; set; } = "";
     public T body;
     public readonly Google.Protobuf.MessageParser<T> body_parser;
+
+    /// <summary>
+    /// Sets whether OpenSteamworks is allowed to rewrite the message to add info to the headers.
+    /// If this message is sent with a SharedConnection, the SteamClient will rewrite it regardless and that behaviour cannot be controlled
+    /// </summary>
+    public bool AllowRewrite { get; set; }
     /// <summary>
     /// Constructs a new ProtoMsg.
     /// </summary>
@@ -64,6 +71,12 @@ public class ProtoMsg<T> : IMessage where T: Google.Protobuf.IMessage<T>, new()
                 // Parse the body
                 this.body = body_parser.ParseFrom(body_binary);
             }
+        }
+    }
+
+    public void ThrowIfErrored() {
+        if (this.header.Eresult != (int)EResult.k_EResultOK) {
+            throw new Exception($"Message {typeof(T).Name} failed with eResult {this.header.Eresult}: {this.header.ErrorMessage}");
         }
     }
 

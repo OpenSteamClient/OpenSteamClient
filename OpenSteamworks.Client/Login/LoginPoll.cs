@@ -56,7 +56,7 @@ internal class LoginPoll {
             while (IsPolling)
             {
                 ProtoMsg<CAuthentication_PollAuthSessionStatus_Response> pollResp = await conn.ProtobufSendMessageAndAwaitResponse<CAuthentication_PollAuthSessionStatus_Response, CAuthentication_PollAuthSessionStatus_Request>(pollMsg);
-
+                
                 if (pollResp.body.HasNewClientId) {
                     pollMsg.body.ClientId = pollResp.body.NewClientId;
                 }
@@ -74,6 +74,8 @@ internal class LoginPoll {
                     IsPolling = false;
                     Error?.Invoke(this, new EResultEventArgs((EResult)pollResp.header.Eresult));
                 }
+
+                Console.WriteLine(pollResp.ToString());
 
                 // The Interval we get is in seconds (in format 5.1s).
                 System.Threading.Thread.Sleep((int)(Interval * 1000));

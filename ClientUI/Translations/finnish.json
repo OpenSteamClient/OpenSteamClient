@@ -26,6 +26,11 @@
         "#TwoFactorAuthentication": "Kaksivaiheinen varmistus",
         "#LoginWindow_OrLoginWithMobileApp": "Tai kirjaudu Steam-mobiilisovelluksella:",
         "#LoginWindow_QRCodeLoading": "QR-koodi lataa...",
-        "#AddAccount": "Lisää tili"
-    }
+        "#AddAccount": "Lisää tili",
+        "#SecondFactorDialog_LoginWithAny": "Vie kirjautuminen loppuun alla olevilla vaihtoehdoilla:",
+        "#SecondFactorDialog_SteamGuardMobile": "Ilmoitus lähetettiin Steam-puhelinsovellukseen",
+        "#SecondFactorDialog_SteamGuardCode": "Syötä koodi Steam-puhelinsovelluksesta:",
+        "#SecondFactorDialog_SteamGuardEmailCode": "Sähköposti koodilla lähetettiin sähköpostiin {0}. Syötä koodi alle:",
+        "#SecondFactorDialog_SteamEmailConfirmation": "Sähköposti varmistuksella lähetettiin sähköpostiin {0}",
+        "#SecondFactorDialog_SendCode": "Lähetä koodi"
 }

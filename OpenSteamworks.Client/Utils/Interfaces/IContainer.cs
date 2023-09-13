@@ -92,27 +92,32 @@ public class Container : IContainer
         return ret;
     }
 
-    private object?[] FillArrayWithDependencies(ParameterInfo[] args, bool withOptionals = true)
+    private object?[] FillArrayWithDependencies(ParameterInfo[] args, bool withOptionals = true, object[]? extraArgs = null)
     {
         List<object?> constructorDependencies = new();
+        Dictionary<Type, object> extras = new();
+        if (extraArgs != null) {
+            foreach (var item in extraArgs)
+            {
+                extras.Add(item.GetType(), item);
+            }
+        }
         for (int i = 0; i < args.Length; i++)
         {
             var constructorArg = args[i];
             if (TryGetComponent(constructorArg.ParameterType, out object? obj)) {
                 constructorDependencies.Add(obj);
             } else {
-                if (!constructorArg.IsOptional) {
-                    throw new InvalidOperationException("Failed to get required component " + constructorArg.ParameterType.FullName);
-                } else {
+                if (extras.ContainsKey(constructorArg.ParameterType)) {
+                    constructorDependencies.Add(extras[constructorArg.ParameterType]);
+                } else if (constructorArg.IsOptional) {
                     if (withOptionals) {
                         constructorDependencies.Add(null);
                     }
+                } else {
+                    throw new InvalidOperationException("Failed to get required component " + constructorArg.ParameterType.FullName);
                 }
             }
-        }
-        foreach (var constructorArg in args)
-        {
-
         }
         return constructorDependencies.ToArray();
     }
@@ -172,12 +177,8 @@ public class Container : IContainer
     public T ConstructOnly<T>(object[]? extraArgs = null)
     {
         ConstructorInfo ctor = GetConstructorFor<T>();
-        List<object?> dependencies = FillArrayWithDependencies(ctor.GetParameters(), extraArgs == null).ToList();
-        if (extraArgs != null)
-        {
-            dependencies.AddRange(extraArgs);
-        }
-        return (T)ctor.Invoke(dependencies.ToArray());
+        var dependencies = FillArrayWithDependencies(ctor.GetParameters(), extraArgs == null, extraArgs);
+        return (T)ctor.Invoke(dependencies);
     }
 
     public T ConstructAndRegisterComponentImmediate<T>()

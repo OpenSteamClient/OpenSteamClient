@@ -26,6 +26,12 @@
         "#TwoFactorAuthentication": "Two factor authentication",
         "#LoginWindow_OrLoginWithMobileApp": "Or login with the Steam mobile app:",
         "#LoginWindow_QRCodeLoading": "QR code loading...",
-        "#AddAccount": "Add account"
+        "#AddAccount": "Add account",
+        "#SecondFactorDialog_LoginWithAny": "Finish the login with any of the below options:",
+        "#SecondFactorDialog_SteamGuardMobile": "A notification was sent to your Steam mobile app",
+        "#SecondFactorDialog_SteamGuardCode": "Input a code from the Steam mobile app below:",
+        "#SecondFactorDialog_SteamGuardEmailCode": "An email with a code was sent to your email address at {0}. Input the code below:",
+        "#SecondFactorDialog_SteamEmailConfirmation": "An email with a confirmation was sent to your email address at {0}",
+        "#SecondFactorDialog_SendCode": "Send code"
     }
 }

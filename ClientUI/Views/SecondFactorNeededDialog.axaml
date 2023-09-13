@@ -8,6 +8,7 @@
         x:Class="ClientUI.Views.SecondFactorNeededDialog"
         x:DataType="vm:SecondFactorNeededDialogViewModel"
         Icon="/Assets/opensteam-logo.ico"
+        Width="500" Height="300"
         Title="ClientUI">
 
     <Design.DataContext>
@@ -16,13 +17,25 @@
         <vm:SecondFactorNeededDialogViewModel/>
     </Design.DataContext>
 
-    <UniformGrid>
-        <StackPanel>
-            <TextBlock c:Translatable.TranslationKey="#SecondFactorDialog_SteamGuardMobile" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        </StackPanel>
-        <StackPanel>
-            <TextBlock c:Translatable.TranslationKey="#SecondFactorDialog_SteamGuardCode" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <TextBlock c:Translatable.TranslationKey="#SecondFactorDialog_SteamGuardMobile" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        </StackPanel>
-    </UniformGrid>
+    <StackPanel>
+        <TextBlock c:Translatable.TranslationKey="#SecondFactorDialog_LoginWithAny" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <UniformGrid Rows="1">
+            <StackPanel IsVisible="{Binding CanLoginSteamGuardMobile}">
+                <TextBlock c:Translatable.TranslationKey="#SecondFactorDialog_SteamGuardMobile" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </StackPanel>
+            <StackPanel IsVisible="{Binding CanLoginSteamGuardCode}">
+                <TextBlock c:Translatable.TranslationKey="#SecondFactorDialog_SteamGuardCode" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBox Text="{Binding SteamGuardCode}" Watermark="ABCDEF" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Button c:Translatable.TranslationKey="#SecondFactorDialog_SendCode" Command="{Binding LoginSteamGuardCode}"/>
+            </StackPanel>
+            <StackPanel IsVisible="{Binding CanLoginSteamGuardEmailCode}">
+                <TextBlock Text="{Binding SteamGuardEmailCodeDescription}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBox Text="{Binding SteamGuardEmailCode}" Watermark="ABCDEF" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Button c:Translatable.TranslationKey="#SecondFactorDialog_SendCode" Command="{Binding LoginSteamGuardEmailCode}"/>
+            </StackPanel>
+            <StackPanel IsVisible="{Binding CanLoginSteamEmailConfirmation}">
+                <TextBlock Text="{Binding SteamEmailConfirmationDescription}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </StackPanel>
+        </UniformGrid>
+    </StackPanel>
 </Window>
