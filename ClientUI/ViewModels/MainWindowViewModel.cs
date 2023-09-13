@@ -60,7 +60,7 @@ public partial class MainWindowViewModel : ViewModelBase
     }
 
     public void SignOut() {
-        this.loginManager.LogoutForgetAccount();
+        this.loginManager.Logout(true);
     }
     public void ChangeAccount() {
         this.loginManager.Logout();

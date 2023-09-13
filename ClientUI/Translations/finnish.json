@@ -33,4 +33,5 @@
         "#SecondFactorDialog_SteamGuardEmailCode": "Sähköposti koodilla lähetettiin sähköpostiin {0}. Syötä koodi alle:",
         "#SecondFactorDialog_SteamEmailConfirmation": "Sähköposti varmistuksella lähetettiin sähköpostiin {0}",
         "#SecondFactorDialog_SendCode": "Lähetä koodi"
+    }
 }

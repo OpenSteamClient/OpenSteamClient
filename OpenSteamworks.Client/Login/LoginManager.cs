@@ -319,7 +319,9 @@ public class LoginManager : Component
     [CallbackListener<SteamServersDisconnected_t>]
     public void OnSteamServersDisconnected(SteamServersDisconnected_t disconnect) {
         if (CurrentUser != null) {
-            
+            if (disconnect.m_EResult == EResult.k_EResultOK) {
+                OnLoggedOff(new LoggedOffEventArgs(CurrentUser, null, true));
+            }
         }
     }
 
@@ -458,9 +460,6 @@ public class LoginManager : Component
             }
         });
     }
-    public void LogoutForgetAccount() {
-        this.Logout(true);
-    }
 
     public async void Logout(bool forget = false) {
         UtilityFunctions.AssertNotNull(this.CurrentUser);
@@ -472,7 +471,10 @@ public class LoginManager : Component
                 System.Threading.Thread.Sleep(50);
             }
         });
-        OnLoggedOff(new LoggedOffEventArgs(oldUser, null, true));
+
+        if (forget) {
+            RemoveAccount(oldUser);
+        }
     }
 
     private void OnLogonFailed(LogOnFailedEventArgs e) {
@@ -485,6 +487,7 @@ public class LoginManager : Component
         CurrentUser = e.User;
         CurrentSteamID = 0;
         AddAccount(e.User);
+        this.loginUsers.SetUserAsMostRecent(e.User);
         this.loginFinishResult = null;
         this.isLoggingOn = false;
         LoggedOn?.Invoke(this, e);
@@ -492,9 +495,6 @@ public class LoginManager : Component
 
     private void OnLoggedOff(LoggedOffEventArgs e) {
         CurrentUser = null;
-        if (e.Forget) {
-            RemoveAccount(e.User);
-        }
         LoggedOff?.Invoke(this, e);
     }
     private async Task<EResult> WaitForLogonToFinish() {
