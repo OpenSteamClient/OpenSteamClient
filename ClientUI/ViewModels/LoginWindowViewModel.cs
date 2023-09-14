@@ -74,7 +74,7 @@ public partial class LoginWindowViewModel : ViewModelBase
     }
 
     private void OnLogonFailed(object sender, LogOnFailedEventArgs e) {
-        // Showing errors is handled in App.axaml.cs
+        // Showing errors is handled in AvaloniaApp.axaml.cs
         CanLogin = true;
     }
 

@@ -1,0 +1,36 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:ClientUI.ViewModels"
+             xmlns:c="using:ClientUI.Controls"
+             x:Class="ClientUI.AvaloniaApp"
+             xmlns:local="using:ClientUI"
+             x:DataType="vm:AvaloniaAppViewModel"
+             RequestedThemeVariant="Default">
+             <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
+
+    <Application.DataTemplates>
+        <local:ViewLocator/>
+    </Application.DataTemplates>
+  
+    <Application.Styles>
+        <FluentTheme />
+    </Application.Styles>
+
+   <TrayIcon.Icons>
+    <TrayIcons>
+      <TrayIcon Icon="/Assets/opensteam-logo.ico" c:Translatable.TranslationKey="#App_Tray_Tooltip" ToolTipText="OpenSteamClient is running">
+        <TrayIcon.Menu>
+          <NativeMenu>
+            <NativeMenuItem c:Translatable.TranslationKey="#App_Tray_Library" Header="Library" Command="{Binding OpenLibrary}" />
+            <NativeMenuItemSeparator />
+            <NativeMenuItem c:Translatable.TranslationKey="#MainWindow_Header_Steam_OpenSettings" Header="Settings" Command="{Binding OpenSettings}" />
+            <NativeMenuItem IsEnabled="{Binding IsSteamVRInstalled}" c:Translatable.TranslationKey="#App_Tray_OpenSteamVR" Header="Open SteamVR" Command="{Binding OpenSteamVR}" />
+            <NativeMenuItemSeparator />
+            <NativeMenuItem IsEnabled="{Binding IsDebug}" c:Translatable.TranslationKey="#MainWindow_Header_Debug_OpenInterfaceList" Header="Open InterfaceList" Command="{Binding OpenInterfaceList}" />
+            <NativeMenuItem c:Translatable.TranslationKey="#MainWindow_Header_Steam_Quit" Header="Exit" Command="{Binding Exit}" />
+          </NativeMenu>
+        </TrayIcon.Menu>
+      </TrayIcon>
+    </TrayIcons>
+  </TrayIcon.Icons>
+</Application>

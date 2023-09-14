@@ -27,7 +27,7 @@ public class Translation {
 
 public class TranslationManager : Component {
     public Translation CurrentTranslation = new Translation();
-    private List<Visual> RefreshableVisuals = new();
+    private readonly List<AvaloniaObject> RefreshableObjects = new();
 
     public TranslationManager(IContainer container) : base(container) {
         
@@ -40,9 +40,9 @@ public class TranslationManager : Component {
 
         this.GetComponent<IClientUser>().SetLanguage(lang);
         CurrentTranslation = GetForLanguage(language);
-        foreach (var visual in RefreshableVisuals)
+        foreach (var obj in RefreshableObjects)
         {
-            TranslateVisual(visual);
+            TranslateAvaloniaObject(obj);
         }
 
         this.GetComponent<GlobalSettings>().Language = language;
@@ -66,54 +66,79 @@ public class TranslationManager : Component {
         string fullPath = Path.Combine(this.GetComponent<ConfigManager>().AssemblyDirectory, "Translations", filename+".json");
         return OpenSteamworks.Client.Utils.UtilityFunctions.AssertNotNull(JsonSerializer.Deserialize<Translation>(File.ReadAllText(fullPath)));
     } 
-
     public void TranslateVisual(Visual visual) {
-        if (!RefreshableVisuals.Contains(visual)) {
-            RefreshableVisuals.Add(visual);
-        }
-        
         foreach (var vis in visual.GetAllVisualChildrenTree())
         {
-            string? translationKey = (string?)vis[Controls.Translatable.TranslationKeyProperty];
-            if (!string.IsNullOrEmpty(translationKey)) {
-                bool translationFailed = false;
-                string translatedText = "TRANSLATION FAILED";
-                if (!this.CurrentTranslation.TranslationKeys.ContainsKey(translationKey)) {
-                    translationFailed = true;
-                    Console.WriteLine("Cannot translate " + translationKey + ", no key!");
-                } else {
-                    translatedText = this.CurrentTranslation.TranslationKeys[translationKey];
+            TranslateAvaloniaObject(vis);
+        }
+    }
+    public void TranslateTrayIcon(TrayIcon icon) {
+        List<AvaloniaObject> objs = new()
+        {
+            icon
+        };
+
+        if (icon.Menu != null) {
+            objs.Add(icon.Menu);
+            foreach (var item in icon.Menu.Items)
+            {
+                objs.Add(item);
+            }
+        }
+
+        foreach (var item in objs)
+        {
+            TranslateAvaloniaObject(item);
+        }
+    }
+    public void TranslateAvaloniaObject(AvaloniaObject obj) {
+        if (!RefreshableObjects.Contains(obj)) {
+            RefreshableObjects.Add(obj);
+        }
+        
+        string? translationKey = (string?)obj[Controls.Translatable.TranslationKeyProperty];
+        if (!string.IsNullOrEmpty(translationKey)) {
+            bool translationFailed = false;
+            string translatedText = "TRANSLATION FAILED";
+            if (!this.CurrentTranslation.TranslationKeys.ContainsKey(translationKey)) {
+                translationFailed = true;
+                Console.WriteLine("Cannot translate " + translationKey + ", no key!");
+            } else {
+                translatedText = this.CurrentTranslation.TranslationKeys[translationKey];
+            }
+
+            void TranslateTextInternal<T>(StyledProperty<T> property) {
+                bool isEmptyOrNull = false;
+                T val = obj.GetValue(property);
+                if (val == null) {
+                    isEmptyOrNull = true;
+                } else if (val is string) {
+                    isEmptyOrNull = string.IsNullOrEmpty(val as string);
                 }
 
-                void TranslateTextInternal<T>(StyledProperty<T> property) {
-                    bool isEmptyOrNull = false;
-                    T val = vis.GetValue(property);
-                    if (val == null) {
-                        isEmptyOrNull = true;
-                    } else if (val is string) {
-                        isEmptyOrNull = string.IsNullOrEmpty(val as string);
-                    }
-
-                    // Don't replace text with TRANSLATION FAILED if there's pre-existing text in the control
-                    if (translationFailed && !isEmptyOrNull) {
-                        return;
-                    }
-
-                    vis.SetValue(property, translatedText);
+                // Don't replace text with TRANSLATION FAILED if there's pre-existing text in the control
+                if (translationFailed && !isEmptyOrNull) {
+                    return;
                 }
 
-                // Window eventually inherits from ContentControl, as do lots of other controls. We don't want to override a window's content...
-                if (vis is Window) {
-                    TranslateTextInternal(Window.TitleProperty);
-                } else if (vis is MenuItem) {
-                    TranslateTextInternal(MenuItem.HeaderProperty);
-                } else if (vis is TextBox) {
-                    TranslateTextInternal(TextBox.WatermarkProperty);
-                } else if (vis is ContentControl) {
-                    TranslateTextInternal(ContentControl.ContentProperty);
-                } else if (vis is TextBlock) {
-                    TranslateTextInternal(TextBlock.TextProperty);
-                }
+                obj.SetValue(property, translatedText);
+            }
+
+            // Window eventually inherits from ContentControl, as do lots of other controls. We don't want to override a window's content...
+            if (obj is Window) {
+                TranslateTextInternal(Window.TitleProperty);
+            } else if (obj is MenuItem) {
+                TranslateTextInternal(MenuItem.HeaderProperty);
+            } else if (obj is TextBox) {
+                TranslateTextInternal(TextBox.WatermarkProperty);
+            } else if (obj is ContentControl) {
+                TranslateTextInternal(ContentControl.ContentProperty);
+            } else if (obj is TextBlock) {
+                TranslateTextInternal(TextBlock.TextProperty);
+            } else if (obj is NativeMenuItem) {
+                TranslateTextInternal(NativeMenuItem.HeaderProperty);
+            } else if (obj is TrayIcon) {
+                TranslateTextInternal(TrayIcon.ToolTipTextProperty);
             }
         }
     }

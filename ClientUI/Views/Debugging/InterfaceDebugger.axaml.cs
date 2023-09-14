@@ -146,7 +146,7 @@ public partial class InterfaceDebugger : Window
     }
 
     private object GetInterfaceImpl(Type iface) {
-        var client = App.Container.GetComponent<SteamClient>();
+        var client = AvaloniaApp.Container.GetComponent<SteamClient>();
         OpenSteamworks.Client.Utils.UtilityFunctions.AssertNotNull(client);
         var jitAssembly = GetJITAssembly();
         var implementorFields = typeof(OpenSteamworks.Native.ClientNative).GetFields().Where(f => f.FieldType == iface);

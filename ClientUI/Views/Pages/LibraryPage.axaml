@@ -11,7 +11,7 @@
 
     <Design.DataContext>
         <!-- This only sets the DataContext for the previewer in an IDE,
-             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+             to set the actual DataContext for runtime, set the DataContext property in code (look at AvaloniaApp.axaml.cs) -->
         <vm:LibraryPageViewModel/>
     </Design.DataContext>
 
@@ -24,8 +24,12 @@
         <!-- Bulk of the library content -->
         <Grid Background="Green" ColumnDefinitions="1*, 2, 4*">
             <!-- Games list -->
-            <ItemsControl Items="{Bindings Apps}" Grid.Column="0" Background="Gray">
-
+            <ItemsControl ItemsSource="{Binding Apps}" Grid.Column="0" Background="Gray">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Name}" />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
             </ItemsControl>
             <GridSplitter Grid.Column="1" Background="Black" ResizeDirection="Columns"/>
 

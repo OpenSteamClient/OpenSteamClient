@@ -36,7 +36,7 @@ public partial class MainWindowViewModel : ViewModelBase
         this.ShowGoOnline = CanLogonOffline && IsOfflineMode;
         this.openSettingsWindow = openSettingsWindowAction;
         this.CurrentPage = new LibraryPage() {
-            DataContext = App.Container.ConstructOnly<LibraryPageViewModel>()
+            DataContext = AvaloniaApp.Container.ConstructOnly<LibraryPageViewModel>()
         };
     }
     public void DBG_Crash() {
@@ -47,12 +47,10 @@ public partial class MainWindowViewModel : ViewModelBase
         EAppUpdateError launchresult = client.NativeClient.IClientAppManager.LaunchApp(gameid, 3, 0, "");
         MessageBox.Show("result", launchresult.ToString());
     }
-    public void DBG_OpenInterfaceList() {
-        App.Current?.OpenInterfaceList();
-    }
+    public void DBG_OpenInterfaceList() => AvaloniaApp.Current?.OpenInterfaceList();
     public void DBG_ChangeLanguage() {
         // Very simple logic, just switches between english and finnish. 
-        Translation.TranslationManager tm = App.Container.GetComponent<Translation.TranslationManager>();
+        Translation.TranslationManager tm = AvaloniaApp.Container.GetComponent<Translation.TranslationManager>();
 
         ELanguage lang = tm.CurrentTranslation.Language;
         Console.WriteLine(string.Format(tm.GetTranslationForKey("#SettingsWindow_YourCurrentLanguage"), tm.GetTranslationForKey("#LanguageNameTranslated"), tm.CurrentTranslation.LanguageFriendlyName));
@@ -63,7 +61,7 @@ public partial class MainWindowViewModel : ViewModelBase
         }
     }
     public void Quit() {
-        App.Current?.ExitEventually();
+        AvaloniaApp.Current?.ExitEventually();
     }
 
     public void OpenSettings() {

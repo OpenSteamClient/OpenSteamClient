@@ -1,5 +1,5 @@
 {
-    "cmake.sourceDirectory": "/home/onni/Documents/opensteamclient/opensteamclient/OpenSteamworks.Native",
+    "cmake.sourceDirectory": "C:/Users/Onni/Documents/opensteamclient/OpenSteamworks.Native",
     "cmake.buildDirectory": "${workspaceFolder}/OpenSteamworks.Native/Build/IDE",
     "cmake.configureArgs": ["-DIDE_BUILD=1"],
     "cmake.configureOnOpen": true,

@@ -4,7 +4,7 @@ namespace ClientUI.ViewModels;
 
 public partial class LibraryPageViewModel : ViewModelBase
 {
-    public ObservableCollection<SAppViewModel> Apps { get; } = new();
+    public ObservableCollection<AppViewModel> Apps { get; } = new();
     public LibraryPageViewModel() {
 
     }

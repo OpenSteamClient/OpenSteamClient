@@ -1,16 +1,13 @@
 using System;
 using System.Threading.Tasks;
+using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace ClientUI.ViewModels;
 
-public class AppViewModel : ViewModelBase {
-    public bool IsDebug => App.DebugEnabled;
-    public async Task Exit() {
-        // This is stupid. TODO: Pending support for "await?" to clean up.
-        await (App.Current == null ? Task.CompletedTask : App.Current.Exit(1));
-    }
+public partial class AppViewModel : ViewModelBase {
+    [ObservableProperty]
+    private string name = "";
+    public AppViewModel() {
 
-    public void OpenInterfaceList() {
-        App.Current?.OpenInterfaceList();
     }
 }

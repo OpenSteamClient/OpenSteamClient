@@ -14,14 +14,14 @@ public partial class LoginWindow : Window
     }
 
     protected override void OnClosing(WindowClosingEventArgs e) {
-        App.Container.GetComponent<LoginManager>().StopQRAuthLoop();
+        AvaloniaApp.Container.GetComponent<LoginManager>().StopQRAuthLoop();
         base.OnClosing(e);
     }
 
     public void ShowSecondFactorDialog(SecondFactorNeededEventArgs e) {
         SecondFactorNeededDialog dialog = new()
         {
-            DataContext = App.Container.ConstructOnly<SecondFactorNeededDialogViewModel>(new object[1] {e}),
+            DataContext = AvaloniaApp.Container.ConstructOnly<SecondFactorNeededDialogViewModel>(new object[1] {e}),
         };
         dialog.ShowDialog(this);
     }

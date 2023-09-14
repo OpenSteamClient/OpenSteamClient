@@ -23,11 +23,11 @@ public static class Program
         try {
             //TODO: better command line args system (maybe in OpenSteamworks.Client to hook into various steamclient things)
             if (args.Contains("-debug")) {
-                App.DebugEnabled = true;
+                AvaloniaApp.DebugEnabled = true;
             }
 #if DEBUG
             Console.WriteLine("Running DEBUG build, debug mode forced on");
-            App.DebugEnabled = true;
+            AvaloniaApp.DebugEnabled = true;
 #endif
             BuildAvaloniaApp().StartWithClassicDesktopLifetime(args, Avalonia.Controls.ShutdownMode.OnExplicitShutdown); 
         } catch (Exception e) {
@@ -37,13 +37,13 @@ public static class Program
             
             MessageBox.Error("OpenSteamClient needs to close", "OpenSteamClient has encountered a fatal exception and will attempt to close gracefully. This may freeze. If it does, just kill the process manually. Exception message: " + e.Message, e.ToString());
             // This is stupid. TODO: Pending support for "await?" to clean up.
-            await (App.Current == null ? Task.CompletedTask : App.Current.Exit(1));
+            await (AvaloniaApp.Current == null ? Task.CompletedTask : AvaloniaApp.Current.Exit(1));
         }
     }
 
     // Avalonia configuration, don't remove; also used by visual designer.
     public static AppBuilder BuildAvaloniaApp()
-        => AppBuilder.Configure<App>()
+        => AppBuilder.Configure<AvaloniaApp>()
             .UsePlatformDetect()
             .WithInterFont()
             .LogToTrace();

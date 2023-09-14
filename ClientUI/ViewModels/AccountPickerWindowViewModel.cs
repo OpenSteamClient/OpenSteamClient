@@ -57,7 +57,7 @@ public partial class AccountPickerWindowViewModel : ViewModelBase
     }
     
     public void OpenLoginDialog(LoginUser? user) {
-        App.Current?.ForceLoginWindow(user);
+        AvaloniaApp.Current?.ForceLoginWindow(user);
     }
 
     public void OpenLoginDialog() {
