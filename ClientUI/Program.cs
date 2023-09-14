@@ -1,6 +1,7 @@
 ﻿using Avalonia;
 using System;
 using System.Diagnostics;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace ClientUI;
@@ -20,6 +21,14 @@ public static class Program
     {
         //TODO: single instance and pipe logic
         try {
+            //TODO: better command line args system (maybe in OpenSteamworks.Client to hook into various steamclient things)
+            if (args.Contains("-debug")) {
+                App.DebugEnabled = true;
+            }
+#if DEBUG
+            Console.WriteLine("Running DEBUG build, debug mode forced on");
+            App.DebugEnabled = true;
+#endif
             BuildAvaloniaApp().StartWithClassicDesktopLifetime(args, Avalonia.Controls.ShutdownMode.OnExplicitShutdown); 
         } catch (Exception e) {
             if (Debugger.IsAttached) {

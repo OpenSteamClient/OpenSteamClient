@@ -74,31 +74,50 @@ public class TranslationManager : Component {
         
         foreach (var vis in visual.GetAllVisualChildrenTree())
         {
-            string? translationKey = (string?)(vis[Controls.Translatable.TranslationKeyProperty]);
+            string? translationKey = (string?)vis[Controls.Translatable.TranslationKeyProperty];
             if (!string.IsNullOrEmpty(translationKey)) {
+                bool translationFailed = false;
                 string translatedText = "TRANSLATION FAILED";
                 if (!this.CurrentTranslation.TranslationKeys.ContainsKey(translationKey)) {
+                    translationFailed = true;
                     Console.WriteLine("Cannot translate " + translationKey + ", no key!");
                 } else {
                     translatedText = this.CurrentTranslation.TranslationKeys[translationKey];
                 }
 
-                // Window eventually inherits from ContentControl. We don't want to override a window's content...
+                void TranslateTextInternal<T>(StyledProperty<T> property) {
+                    bool isEmptyOrNull = false;
+                    T val = vis.GetValue(property);
+                    if (val == null) {
+                        isEmptyOrNull = true;
+                    } else if (val is string) {
+                        isEmptyOrNull = string.IsNullOrEmpty(val as string);
+                    }
+
+                    // Don't replace text with TRANSLATION FAILED if there's pre-existing text in the control
+                    if (translationFailed && !isEmptyOrNull) {
+                        return;
+                    }
+
+                    vis.SetValue(property, translatedText);
+                }
+
+                // Window eventually inherits from ContentControl, as do lots of other controls. We don't want to override a window's content...
                 if (vis is Window) {
-                    (vis as Window)!.Title = translatedText;
+                    TranslateTextInternal(Window.TitleProperty);
                 } else if (vis is MenuItem) {
-                    (vis as MenuItem)!.Header = translatedText;
+                    TranslateTextInternal(MenuItem.HeaderProperty);
                 } else if (vis is TextBox) {
-                    (vis as TextBox)!.Watermark = translatedText;
+                    TranslateTextInternal(TextBox.WatermarkProperty);
                 } else if (vis is ContentControl) {
-                    (vis as ContentControl)!.Content = translatedText;
+                    TranslateTextInternal(ContentControl.ContentProperty);
                 } else if (vis is TextBlock) {
-                    (vis as TextBlock)!.Text = translatedText;
+                    TranslateTextInternal(TextBlock.TextProperty);
                 }
             }
         }
     }
-
+    
     public static string? ELanguageToString(ELanguage lang) {
         switch (lang)
         {

@@ -1,4 +1,5 @@
 ﻿using System;
+using Avalonia.Controls;
 using ClientUI.Translation;
 using ClientUI.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
@@ -14,15 +15,29 @@ namespace ClientUI.ViewModels;
 public partial class MainWindowViewModel : ViewModelBase
 {
     [ObservableProperty]
-    private bool canLogonOffline = false;
+    private bool showGoOffline = false;
+
+    [ObservableProperty]
+    private bool showGoOnline = false;
+
+    [ObservableProperty]
+    private Control currentPage;
+    public bool CanLogonOffline => client.NativeClient.IClientUser.CanLogonOffline();
+    public bool IsOfflineMode => client.NativeClient.IClientUtils.GetOfflineMode();
+    private Action? openSettingsWindow;
     private TranslationManager tm;
     private SteamClient client;
     private LoginManager loginManager;
-    public MainWindowViewModel(SteamClient client, TranslationManager tm, LoginManager loginManager) {
-        CanLogonOffline = client.NativeClient.IClientUser.CanLogonOffline();
+    public MainWindowViewModel(SteamClient client, TranslationManager tm, LoginManager loginManager, Action openSettingsWindowAction) {
         this.client = client;
         this.tm = tm;
         this.loginManager = loginManager;
+        this.ShowGoOffline = CanLogonOffline && !IsOfflineMode;
+        this.ShowGoOnline = CanLogonOffline && IsOfflineMode;
+        this.openSettingsWindow = openSettingsWindowAction;
+        this.CurrentPage = new LibraryPage() {
+            DataContext = App.Container.ConstructOnly<LibraryPageViewModel>()
+        };
     }
     public void DBG_Crash() {
         throw new Exception("test");
@@ -52,11 +67,18 @@ public partial class MainWindowViewModel : ViewModelBase
     }
 
     public void OpenSettings() {
-
+        this.openSettingsWindow?.Invoke();
     }
 
     public void GoOffline() {
-        client.NativeClient.IClientUser.LogOnOffline();
+        client.NativeClient.IClientUtils.SetOfflineMode(true);
+        this.ShowGoOffline = CanLogonOffline && !IsOfflineMode;
+        this.ShowGoOnline = CanLogonOffline && IsOfflineMode;
+    }
+    public void GoOnline() {
+        client.NativeClient.IClientUtils.SetOfflineMode(false);
+        this.ShowGoOffline = CanLogonOffline && !IsOfflineMode;
+        this.ShowGoOnline = CanLogonOffline && IsOfflineMode;
     }
 
     public void SignOut() {

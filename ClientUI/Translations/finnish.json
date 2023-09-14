@@ -5,7 +5,6 @@
         "#SettingsWindow_YourCurrentLanguage": "Tämänhetkinen kielesi on {0} ({1})",
         "#LanguageNameTranslated": "Suomi",
         "#InterfaceList_Title": "Rajapintalista",
-        "#MainWindow_DBG_OpenInterfaceList": "Avaa rajapintalista",
         "#LoginWindow_LoginText": "Kirjaudu Steam-tilillä.",
         "#Username": "Käyttäjätunnus",
         "#Password": "Salasana",
@@ -32,6 +31,18 @@
         "#SecondFactorDialog_SteamGuardCode": "Syötä koodi Steam-puhelinsovelluksesta:",
         "#SecondFactorDialog_SteamGuardEmailCode": "Sähköposti koodilla lähetettiin sähköpostiin {0}. Syötä koodi alle:",
         "#SecondFactorDialog_SteamEmailConfirmation": "Sähköposti varmistuksella lähetettiin sähköpostiin {0}",
-        "#SecondFactorDialog_SendCode": "Lähetä koodi"
+        "#SecondFactorDialog_SendCode": "Lähetä koodi",
+        "#MainWindow_Header_Steam_ChangeAccount": "Vaihda tiliä",
+        "#MainWindow_Header_Steam_SignOut": "Kirjaudu ulos",
+        "#MainWindow_Header_Steam_GoOffline": "Mene offline-tilaan",
+        "#MainWindow_Header_Steam_GoOnline": "Mene online-tilaan",
+        "#MainWindow_Header_Steam_OpenSettings": "Asetukset",
+        "#MainWindow_Header_Steam_Quit": "Lopeta",
+        "#MainWindow_Header_View": "Näytä",
+        "#MainWindow_Header_Friends": "Kaverit",
+        "#MainWindow_Header_Games": "Pelit",
+        "#MainWindow_Header_Help": "Tuki",
+        "#MainWindow_Header_Debug_OpenInterfaceList": "Avaa rajapintalista",
+        "#App_Tray_OpenSteamVR": "Avaa SteamVR"
     }
 }

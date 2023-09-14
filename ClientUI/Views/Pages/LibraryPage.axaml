@@ -1,0 +1,36 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:ClientUI.ViewModels"
+        xmlns:views="using:ClientUI.Views"
+        xmlns:c="using:ClientUI.Controls"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="ClientUI.Views.LibraryPage"
+        x:DataType="vm:LibraryPageViewModel">
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:LibraryPageViewModel/>
+    </Design.DataContext>
+
+    <DockPanel Background="PowderBlue">
+        <!-- Downloads section -->
+        <StackPanel DockPanel.Dock="Bottom" Background="Red" HorizontalAlignment="Center">
+            <TextBlock Text="Downloads section" />
+        </StackPanel>
+
+        <!-- Bulk of the library content -->
+        <Grid Background="Green" ColumnDefinitions="1*, 2, 4*">
+            <!-- Games list -->
+            <ItemsControl Items="{Bindings Apps}" Grid.Column="0" Background="Gray">
+
+            </ItemsControl>
+            <GridSplitter Grid.Column="1" Background="Black" ResizeDirection="Columns"/>
+
+            <!-- Side content (game detail view, "big coverart" view) -->
+            <ContentControl Grid.Column="2" Background="White" />
+        </Grid>
+    </DockPanel>
+</UserControl>

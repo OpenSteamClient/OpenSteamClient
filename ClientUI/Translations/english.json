@@ -5,7 +5,6 @@
         "#SettingsWindow_YourCurrentLanguage": "Your current language is {0} ({1})",
         "#LanguageNameTranslated": "English",
         "#InterfaceList_Title": "Interface list",
-        "#MainWindow_DBG_OpenInterfaceList": "Open interface list",
         "#LoginWindow_LoginText": "Login with a Steam account.",
         "#Username": "Username",
         "#Password": "Password",
@@ -32,6 +31,18 @@
         "#SecondFactorDialog_SteamGuardCode": "Input a code from the Steam mobile app below:",
         "#SecondFactorDialog_SteamGuardEmailCode": "An email with a code was sent to your email address at {0}. Input the code below:",
         "#SecondFactorDialog_SteamEmailConfirmation": "An email with a confirmation was sent to your email address at {0}",
-        "#SecondFactorDialog_SendCode": "Send code"
+        "#SecondFactorDialog_SendCode": "Send code",
+        "#MainWindow_Header_Steam_ChangeAccount": "Change account",
+        "#MainWindow_Header_Steam_SignOut": "Sign out",
+        "#MainWindow_Header_Steam_GoOffline": "Go offline",
+        "#MainWindow_Header_Steam_GoOnline": "Go online",
+        "#MainWindow_Header_Steam_OpenSettings": "Settings",
+        "#MainWindow_Header_Steam_Quit": "Quit",
+        "#MainWindow_Header_View": "View",
+        "#MainWindow_Header_Friends": "Friends",
+        "#MainWindow_Header_Games": "Games",
+        "#MainWindow_Header_Help": "Help",
+        "#MainWindow_Header_Debug_OpenInterfaceList": "Open interface list",
+        "#App_Tray_OpenSteamVR": "Open SteamVR"
     }
 }

@@ -26,7 +26,7 @@ public partial class App : Application
     public static Container Container = new Container();
     public new static App? Current;
     public new IClassicDesktopStyleApplicationLifetime ApplicationLifetime => (base.ApplicationLifetime as IClassicDesktopStyleApplicationLifetime)!;
-
+    public static bool DebugEnabled = false;
     public override void Initialize()
     {
         AvaloniaXamlLoader.Load(this);
@@ -108,8 +108,17 @@ public partial class App : Application
     public void ForceMainWindow() {
         ForceWindow(new MainWindow
         {
-            DataContext = App.Container.ConstructOnly<MainWindowViewModel>()
+            DataContext = App.Container.ConstructOnly<MainWindowViewModel>(new object[] { (Action)OpenSettingsWindow })
         });
+    }
+
+    private void OpenSettingsWindow() {
+        SettingsWindow settingsWindow = new()
+        {
+            DataContext = App.Container.ConstructOnly<SettingsWindowViewModel>()
+        };
+
+        settingsWindow.Show();
     }
 
     /// <summary>
