@@ -46,6 +46,8 @@
                 <MenuItem Header="Launch factorio (linux x64 only)" Command="{Binding DBG_LaunchFactorio}"/>
                 <Separator/>
                 <MenuItem Header="Crash" Command="{Binding DBG_Crash}"/>
+                <Separator/> 
+                <MenuItem Header="Test CUtlMaps" Command="{Binding DBG_TestMaps}" />
             </MenuItem>
         </Menu>
         <ContentControl Content="{Binding CurrentPage}" />

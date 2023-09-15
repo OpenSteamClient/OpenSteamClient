@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 using Avalonia.Controls;
 using ClientUI.Translation;
 using ClientUI.Views;
@@ -8,6 +10,7 @@ using OpenSteamworks.Client;
 using OpenSteamworks.Client.Managers;
 using OpenSteamworks.Enums;
 using OpenSteamworks.Generated;
+using OpenSteamworks.NativeTypes;
 using OpenSteamworks.Structs;
 
 namespace ClientUI.ViewModels;
@@ -60,6 +63,24 @@ public partial class MainWindowViewModel : ViewModelBase
             tm.SetLanguage(ELanguage.English);
         }
     }
+    public void DBG_TestMaps() {
+        unsafe {
+            var map = new CUtlMap<uint, uint>(1, 80000, &LessFunc);
+            Console.WriteLine("LastPlayedMap: " + client.NativeClient.IClientUser.BGetAppsLastPlayedMap(&map));
+            var asManaged = map.ToManaged();
+            foreach (var item in asManaged)
+            {
+                Console.WriteLine(item.Key+":"+item.Value);
+            }
+        }
+    }
+
+    [UnmanagedCallersOnly(CallConvs = new[] { typeof(CallConvCdecl) })]
+    public unsafe static byte LessFunc(uint* first, uint* second) {
+        Console.WriteLine("Steam called LessFunc");
+        return Convert.ToByte(&first < &second);
+    }
+
     public void Quit() {
         AvaloniaApp.Current?.ExitEventually();
     }

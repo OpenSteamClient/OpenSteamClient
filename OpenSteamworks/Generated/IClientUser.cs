@@ -10,6 +10,7 @@ using System;
 using OpenSteamworks.Structs;
 using OpenSteamworks.Enums;
 using System.Text;
+using OpenSteamworks.NativeTypes;
 
 namespace OpenSteamworks.Generated;
 
@@ -434,12 +435,9 @@ public unsafe interface IClientUser
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret KillVRTheaterPancakeGame();  // argc: 1, index: 246
     public bool BIsAnyGameOrServiceAppRunning();  // argc: 0, index: 247
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret BGetAppPlaytimeMap(IntPtr vec);  // argc: 1, index: 248
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret BGetAppsLastPlayedMap(IntPtr vec);  // argc: 1, index: 249
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret BGetAppTagsMap(IntPtr vec);  // argc: 1, index: 250
+    public bool BGetAppPlaytimeMap(CUtlMap<AppId_t, UInt64>* vec);  // argc: 1, index: 248
+    public bool BGetAppsLastPlayedMap(CUtlMap<AppId_t, RTime32>* vec);  // argc: 1, index: 249
+    public bool BGetAppTagsMap(CUtlMap<AppId_t, AppTags_t>* vec);  // argc: 1, index: 250
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret SendSteamServiceStatusUpdate();  // argc: 2, index: 251
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!

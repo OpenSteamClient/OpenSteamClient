@@ -20,7 +20,7 @@ public unsafe struct CUtlBuffer {
 	public delegate* unmanaged[Cdecl]<CUtlBuffer*, int, byte> m_PutOverflowFunc;
 
     public CUtlBuffer(int length) {
-        this.m_Memory = new CUtlMemory<UInt8>(length);
+        this.m_Memory = new CUtlMemory<UInt8>(0, length);
         this.m_Error = 0;
         this.m_Get = 0;
         this.m_Put = 0;

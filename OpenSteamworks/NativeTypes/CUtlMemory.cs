@@ -10,16 +10,22 @@ public unsafe struct CUtlMemory<T> where T : unmanaged {
 	public int m_nAllocationCount;
 	public int m_nGrowSize;
 
-    public CUtlMemory(int length) {
-        this.m_nAllocationCount = length;
+    public CUtlMemory(int growSize = 0, int nInitSize = 0) {
+        this.m_nAllocationCount = nInitSize;
         this.m_unSizeOfElements = (uint)sizeof(T);
         nuint size = (nuint)(this.m_unSizeOfElements * this.m_nAllocationCount);
+        Console.WriteLine("Allocating CUtlMemory of size " + size);
         this.m_pMemory = NativeMemory.AllocZeroed(size);
-        this.m_nGrowSize = 0;
+        this.m_nGrowSize = growSize;
     }
 
     public void Free() {
+        Console.WriteLine("Freeing CUtlMemory");
         NativeMemory.Free(this.m_pMemory);
+    }
+
+    public T* Base() {
+        return (T*)m_pMemory;
     }
 
     public byte[] ToManagedAndFree() {
@@ -85,5 +91,13 @@ public unsafe struct CUtlMemory<T> where T : unmanaged {
         }
 
         return bytes;
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public unsafe struct Iterator_t {
+        public int index;
+        public static Iterator_t InvalidIterator() {
+            return new Iterator_t() { index = -1 };
+        }
     }
 }

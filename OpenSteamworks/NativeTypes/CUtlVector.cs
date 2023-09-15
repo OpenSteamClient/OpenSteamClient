@@ -11,7 +11,7 @@ public unsafe struct CUtlVector<T> where T : unmanaged {
     public int m_Size;
     public CUtlVector(int length, T defaultObject) {
         this.m_Size = length;
-        this.m_Memory = new CUtlMemory<T>(this.m_Size);
+        this.m_Memory = new CUtlMemory<T>(0, this.m_Size);
         unsafe {
             for (int i = 0; i < length; i++)
             {
