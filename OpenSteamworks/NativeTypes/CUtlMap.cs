@@ -19,6 +19,11 @@ public unsafe struct CUtlMap<KeyType_t, ElemType_t> where KeyType_t : unmanaged 
 		for (int i = 0; i < this.Count(); i++)
 		{
 			var node = Node(i);
+			// Dictionaries are meant to be unique. Maps are meant to be unique. Are CUtlMaps? They do sometimes contain two of the same element though...
+			if (dict.ContainsKey(node.key)) {
+                Console.WriteLine("WARNING: Skipping duplicate key " + node.key + " in CUtlMap.ToManaged. Incorrect datatype lengths?");
+                continue;
+            }
 			dict.Add(node.key, node.elem);
 		}
 		
