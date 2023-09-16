@@ -4,6 +4,7 @@
 #include <signal.h>
 #include <link.h>
 #include <unistd.h>
+#include <sys/prctl.h>
 
 // DEBUGGER
 #include <signal.h>
@@ -31,6 +32,9 @@ typedef void *(*createInterfaceFn)(const char *, int *);
 
 int main(int argc, char *argv[])
 {
+    // Kill process when parent dies
+    prctl(PR_SET_PDEATHSIG, SIGKILL);
+
     if (argc < 2) {
         std::cerr << "Missing required argument cachedir" << std::endl;
         return 1;

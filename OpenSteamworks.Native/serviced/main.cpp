@@ -3,6 +3,7 @@
 #include <thread>
 #include <signal.h>
 #include <link.h>
+#include <sys/prctl.h>
 
 // DEBUGGER
 #include <signal.h>
@@ -19,6 +20,7 @@ void WaitForControlSignalToContinue() {
   signal(SIGINT, handle_sigint);
   while (!done) {
     std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+    //TODO: Test if parent process is still alive (on non-linux OS:s, handled with PR_SET_PDEATHSIG on linux)
   }
   done = false;
   signal(SIGINT, SIG_DFL);
@@ -36,6 +38,9 @@ void *(*SteamService_GetIPCServer)();
 
 //TODO: This is really fishy and could potentially be VAC bannable (we don't have .valvesig section)
 int main(int argc, char *argv[]) {
+    // Kill process when parent dies
+    prctl(PR_SET_PDEATHSIG, SIGKILL);
+
     auto dl_handle = dlopen("ubuntu12_32/steamservice.so", RTLD_NOW);
     if (dl_handle == nullptr) {
         std::cerr << "dl_handle == nullptr!!!" << std::endl;
