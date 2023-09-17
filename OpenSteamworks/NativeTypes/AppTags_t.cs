@@ -4,7 +4,10 @@ using System.Runtime.InteropServices;
 
 namespace OpenSteamworks.NativeTypes;
 
-[StructLayout(LayoutKind.Sequential)]
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
 public unsafe struct AppTags_t {
-    public CUtlString name;
+    public UInt32 unk1;
+    public void* unk2;
+    public UInt32 unk3;
+    public UInt32 unk4;
 }

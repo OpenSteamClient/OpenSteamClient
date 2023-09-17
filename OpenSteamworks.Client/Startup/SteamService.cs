@@ -30,6 +30,7 @@ public class SteamService : Component {
         CurrentServiceHost.StartInfo.WorkingDirectory = Path.GetDirectoryName(pathToHost);
         CurrentServiceHost.StartInfo.FileName = pathToHost;
         CurrentServiceHost.StartInfo.Environment.Add("LD_LIBRARY_PATH", $".:{Environment.GetEnvironmentVariable("LD_LIBRARY_PATH")}");
+        CurrentServiceHost.StartInfo.Environment.Add("OPENSTEAM_PID", Environment.ProcessId.ToString());
         CurrentServiceHost.Start();
         WatcherThread = new Thread(() => {
             do

@@ -43,15 +43,6 @@ public class ClientApps : ClientInterface
     public ClientApps(SteamClient client) : base(client)
     {
         this.client = client;
-        unsafe {
-            CUtlVector<CUtlString> compatToolsVec = new CUtlVector<CUtlString>(50, new CUtlString());
-            client.NativeClient.IClientCompat.GetAvailableCompatTools(&compatToolsVec);
-            List<CUtlString> compatTools = compatToolsVec.ToManagedAndFree();
-            foreach (var tool in compatTools)
-            {
-                Console.WriteLine(tool.ToManagedAndFree());
-            }
-        }
         
         foreach (var app in RunningApps)
         {

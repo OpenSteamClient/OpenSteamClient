@@ -14,6 +14,7 @@ using System.Runtime.InteropServices;
 using System.Text.Json.Nodes;
 using System.Net;
 using OpenSteamworks.Client.Login;
+using OpenSteamworks.Protobuf;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -88,7 +89,7 @@ public class LoginManager : Component
 
     public bool RemoveAccount(LoginUser loginUser) {
         var success = loginUsers.RemoveUser(loginUser);
-        steamClient.NativeClient.IClientUser.DestroyCachedCredentials(loginUser.AccountName, (int)EAuthTokenRevokeAction.KEauthTokenRevokePermanent);
+        steamClient.NativeClient.IClientUser.DestroyCachedCredentials(loginUser.AccountName, (int)EAuthTokenRevokeAction.EauthTokenRevokePermanent);
         loginUsers.Save();
         return success;
     }
@@ -180,8 +181,8 @@ public class LoginManager : Component
             // This one is unused, but let's set it just in case
             beginMsg.body.RememberLogin = rememberPassword;
             // This determines password remembered yes/no
-            beginMsg.body.Persistence = rememberPassword ? ESessionPersistence.KEsessionPersistencePersistent : ESessionPersistence.KEsessionPersistenceEphemeral;
-            beginMsg.body.PlatformType = EAuthTokenPlatformType.KEauthTokenPlatformTypeSteamClient;
+            beginMsg.body.Persistence = rememberPassword ? ESessionPersistence.Persistent : ESessionPersistence.Ephemeral;
+            beginMsg.body.PlatformType = EAuthTokenPlatformType.SteamClient;
             beginMsg.body.WebsiteId = "Client";
             beginMsg.body.DeviceFriendlyName = DeviceDetails.DeviceFriendlyName;
 
@@ -195,7 +196,7 @@ public class LoginManager : Component
             CurrentSteamID = beginResp.body.Steamid;
 
             // Interval is 0.1 and/or allowedconfirmations is set to [k_EAuthSessionGuardType_None] when user has no 2fa
-            if (beginResp.body.AllowedConfirmations.All(elem => elem.ConfirmationType == EAuthSessionGuardType.KEauthSessionGuardTypeNone)) {
+            if (beginResp.body.AllowedConfirmations.All(elem => elem.ConfirmationType == EAuthSessionGuardType.None)) {
                 // Only one session type, and that's the None type
             } else {
                 SecondFactorNeeded?.Invoke(this, new SecondFactorNeededEventArgs(beginResp.body.AllowedConfirmations));
@@ -275,7 +276,7 @@ public class LoginManager : Component
         }
         
         // If this isn't specified, the auth tokens we receive will not let us login
-        deviceDetails.PlatformType = EAuthTokenPlatformType.KEauthTokenPlatformTypeSteamClient;
+        deviceDetails.PlatformType = EAuthTokenPlatformType.SteamClient;
 
         try
         {

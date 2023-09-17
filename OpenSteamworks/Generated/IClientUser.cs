@@ -41,19 +41,16 @@ public unsafe interface IClientUser
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret SetConfigString();  // argc: 3, index: 17
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret GetConfigString();  // argc: 4, index: 18
+    public unknown_ret GetConfigString(int eRegistrySubTree, string key, StringBuilder stringOut, Int32 stringOutMax);  // argc: 4, index: 18
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret SetConfigInt();  // argc: 3, index: 19
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret GetConfigInt();  // argc: 3, index: 20
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret SetConfigBinaryBlob();  // argc: 3, index: 21
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret GetConfigBinaryBlob();  // argc: 3, index: 22
+    public unknown_ret SetConfigBinaryBlob(int eRegistrySubTree, string key, CUtlBuffer* buf);  // argc: 3, index: 21
+    public unknown_ret GetConfigBinaryBlob(int eRegistrySubTree, string key, CUtlBuffer* buf);  // argc: 3, index: 22
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret DeleteConfigKey();  // argc: 2, index: 23
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret GetConfigStoreKeyName();  // argc: 4, index: 24
+    public unknown_ret GetConfigStoreKeyName(int eRegistrySubTree, string pchKey, StringBuilder pchStoreName, Int32 cbStoreName);  // argc: 4, index: 24
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret InitiateGameConnection();  // argc: 8, index: 25
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
@@ -104,7 +101,7 @@ public unsafe interface IClientUser
     public bool BHasCachedCredentials(string username);  // argc: 1, index: 51
     public bool SetAccountNameForCachedCredentialLogin(string username, bool unk1);  // argc: 2, index: 52
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret DestroyCachedCredentials(string username, int revokeAction = (int)EAuthTokenRevokeAction.KEauthTokenRevokeLogout);  // argc: 2, index: 53
+    public unknown_ret DestroyCachedCredentials(string username, int revokeAction = (int)Protobuf.EAuthTokenRevokeAction.EauthTokenRevokeLogout);  // argc: 2, index: 53
     public bool GetCurrentWebAuthToken(StringBuilder tokenOut, UInt32 bufSize);  // argc: 2, index: 54
     public unknown_ret RequestWebAuthToken();  // argc: 0, index: 55
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
@@ -136,7 +133,7 @@ public unsafe interface IClientUser
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public bool BIsGameWindowReady();  // argc: 1, index: 71
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public bool BUpdateAppOwnershipTicket();  // argc: 2, index: 72
+    public bool BUpdateAppOwnershipTicket(uint unk1, int pTicket);  // argc: 2, index: 72
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret GetCustomBinariesState();  // argc: 3, index: 73
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
@@ -177,7 +174,7 @@ public unsafe interface IClientUser
     public unknown_ret BIsAnyGameRunning();  // argc: 0, index: 94
     public unknown_ret GetSteamGuardDetails();  // argc: 0, index: 95
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret GetSentryFileData();  // argc: 1, index: 96
+    public uint GetSentryFileData(CUtlBuffer* data);  // argc: 1, index: 96
     public unknown_ret GetTwoFactorDetails();  // argc: 0, index: 97
     public bool BHasTwoFactor();  // argc: 0, index: 98
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
@@ -379,30 +376,36 @@ public unsafe interface IClientUser
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret UnblockFeature();  // argc: 1, index: 211
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret BIsFeatureBlocked();  // argc: 1, index: 212
+    public bool BIsFeatureBlocked();  // argc: 1, index: 212
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret BIsFeatureInBlockList();  // argc: 1, index: 213
+    public bool BIsFeatureInBlockList();  // argc: 1, index: 213
     public unknown_ret GetParentalUnlockTime();  // argc: 0, index: 214
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret BGetRecoveryEmail();  // argc: 2, index: 215
+    public bool BGetRecoveryEmail(StringBuilder email, uint strMaxLen);  // argc: 2, index: 215
     public unknown_ret RequestParentalRecoveryEmail();  // argc: 0, index: 216
-    public unknown_ret BIsLockFromSiteLicense();  // argc: 0, index: 217
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret BGetSerializedParentalSettings();  // argc: 1, index: 218
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret BSetParentalSettings();  // argc: 1, index: 219
-    public unknown_ret BDisableParentalSettings();  // argc: 0, index: 220
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret BGetParentalWebToken();  // argc: 2, index: 221
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret GetCommunityPreference();  // argc: 1, index: 222
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret SetCommunityPreference();  // argc: 2, index: 223
-    public unknown_ret GetTextFilterSetting();  // argc: 0, index: 224
-    public unknown_ret BTextFilterIgnoresFriends();  // argc: 0, index: 225
-    public bool CanLogonOffline();  // argc: 0, index: 226
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret LogOnOffline();  // argc: 1, index: 227
+    public bool BIsLockFromSiteLicense();  // argc: 0, index: 217
+    public bool BGetSerializedParentalSettings(CUtlBuffer* serialized);  // argc: 1, index: 218
+    public bool BSetParentalSettings(CUtlBuffer* serialized);  // argc: 1, index: 219
+    public bool BDisableParentalSettings();  // argc: 0, index: 220
+    public bool BGetParentalWebToken(StringBuilder tokenOut, uint strMaxLen);  // argc: 2, index: 221
+    /// <summary>
+    /// Only preference 0 seems to exist.
+    /// </summary>
+    public uint GetCommunityPreference(int preference);  // argc: 1, index: 222
+    /// <summary>
+    /// Only preference 0 seems to exist.
+    /// </summary>
+    public void SetCommunityPreference(int preference, uint value);  // argc: 2, index: 223
+    public uint GetTextFilterSetting();  // argc: 0, index: 224
+    public bool BTextFilterIgnoresFriends();  // argc: 0, index: 225
+    /// <summary>
+    /// Can return 0, 1 or 2 or a mystery uint. Probably is an enum of some sort.
+    /// </summary>
+    public unknown_ret CanLogonOffline();  // argc: 0, index: 226
+    /// <summary>
+    /// Returns 19, same mystery uint as CanLogonOffline or 1
+    /// Also unk1 only seems to affect the callback that gets posted.
+    /// </summary>
+    public unknown_ret LogOnOffline(byte unk1);  // argc: 1, index: 227
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret ValidateOfflineLogonTicket();  // argc: 1, index: 228
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
@@ -424,7 +427,7 @@ public unsafe interface IClientUser
     public unknown_ret ClearAppTags();  // argc: 1, index: 238
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret SetAppHidden();  // argc: 2, index: 239
-    public unknown_ret RequestAccountLinkInfo();  // argc: 0, index: 240
+    public SteamAPICall_t RequestAccountLinkInfo();  // argc: 0, index: 240
     public unknown_ret RequestSurveySchedule();  // argc: 0, index: 241
     public unknown_ret RequestNewSteamAnnouncementState();  // argc: 0, index: 242
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
@@ -437,6 +440,14 @@ public unsafe interface IClientUser
     public bool BIsAnyGameOrServiceAppRunning();  // argc: 0, index: 247
     public bool BGetAppPlaytimeMap(CUtlMap<AppId_t, UInt64>* vec);  // argc: 1, index: 248
     public bool BGetAppsLastPlayedMap(CUtlMap<AppId_t, RTime32>* vec);  // argc: 1, index: 249
+    /// <summary>
+    /// App tags were the old version of the "categories" system in place now.
+    /// These are stored in sharedconfig.vdf in Software/Valve/Steam/Apps/*/tags
+    /// Don't use this if wanting to get categories.
+    /// The new category system is stored here:
+    /// https://store.steampowered.com/account/userconfigstore
+    /// As for how to get it programmatically, I have no idea.
+    /// </summary>
     public bool BGetAppTagsMap(CUtlMap<AppId_t, AppTags_t>* vec);  // argc: 1, index: 250
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret SendSteamServiceStatusUpdate();  // argc: 2, index: 251

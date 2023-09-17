@@ -1,6 +1,7 @@
 using ClientUI.Translation;
 using CommunityToolkit.Mvvm.ComponentModel;
 using OpenSteamworks.Client.Managers;
+using OpenSteamworks.Protobuf;
 
 namespace ClientUI.ViewModels;
 
@@ -32,17 +33,17 @@ public partial class SecondFactorNeededDialogViewModel : ViewModelBase
         {
             switch (confirmation.ConfirmationType)
             {
-                case EAuthSessionGuardType.KEauthSessionGuardTypeDeviceCode:
+                case EAuthSessionGuardType.DeviceCode:
                     CanLoginSteamGuardCode = true;
                     break;
-                case EAuthSessionGuardType.KEauthSessionGuardTypeDeviceConfirmation:
+                case EAuthSessionGuardType.DeviceConfirmation:
                     CanLoginSteamGuardMobile = true;
                     break;
-                case EAuthSessionGuardType.KEauthSessionGuardTypeEmailCode:
+                case EAuthSessionGuardType.EmailCode:
                     CanLoginSteamGuardEmailCode = true;
                     SteamGuardEmailCodeDescription = string.Format(tm.GetTranslationForKey("#SecondFactorDialog_SteamGuardEmailCode"), confirmation.AssociatedMessage);
                     break;
-                case EAuthSessionGuardType.KEauthSessionGuardTypeEmailConfirmation:
+                case EAuthSessionGuardType.EmailConfirmation:
                     CanLoginSteamEmailConfirmation = true;
                     SteamEmailConfirmationDescription = string.Format(tm.GetTranslationForKey("#SecondFactorDialog_SteamEmailConfirmation"), confirmation.AssociatedMessage);
                     break;
@@ -51,12 +52,12 @@ public partial class SecondFactorNeededDialogViewModel : ViewModelBase
     }
 
     public async void LoginSteamGuardCode() {
-        var result = await this.loginManager.UpdateAuthSessionWithTwoFactor(SteamGuardCode, EAuthSessionGuardType.KEauthSessionGuardTypeDeviceCode);
+        var result = await this.loginManager.UpdateAuthSessionWithTwoFactor(SteamGuardCode, EAuthSessionGuardType.DeviceCode);
         MessageBox.Show("result", result.ToString());
     }
 
     public async void LoginSteamGuardEmailCode() {
-        var result = await this.loginManager.UpdateAuthSessionWithTwoFactor(SteamGuardEmailCode, EAuthSessionGuardType.KEauthSessionGuardTypeEmailCode);
+        var result = await this.loginManager.UpdateAuthSessionWithTwoFactor(SteamGuardEmailCode, EAuthSessionGuardType.EmailCode);
         MessageBox.Show("result", result.ToString());
     }
 }

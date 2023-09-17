@@ -5,6 +5,7 @@ using System.IO;
 using System.Text;
 using Google.Protobuf;
 using OpenSteamworks.Enums;
+using OpenSteamworks.Protobuf;
 
 namespace OpenSteamworks.Messaging;
 
@@ -40,9 +41,9 @@ public class ProtoMsg<T> : IMessage where T: Google.Protobuf.IMessage<T>, new()
         if (!string.IsNullOrEmpty(jobName)) {
             header.TargetJobName = jobName;
             if (unauthenticated) {
-                this.EMsg = EMsg.KEmsgServiceMethodCallFromClientNonAuthed;
+                this.EMsg = EMsg.ServiceMethodCallFromClientNonAuthed;
             } else {
-                this.EMsg = EMsg.KEmsgServiceMethodCallFromClient;
+                this.EMsg = EMsg.ServiceMethodCallFromClient;
             }
         }
 
@@ -54,7 +55,10 @@ public class ProtoMsg<T> : IMessage where T: Google.Protobuf.IMessage<T>, new()
             // The steamclient is a strange beast. A 64-bit library compiled for little endian.
             using (var reader = new EndianAwareBinaryReader(stream, Encoding.UTF8, EndianAwareBinaryReader.Endianness.Little))
             {
-                this.EMsg = (EMsg)(~PROTOBUF_MASK & reader.ReadUInt32());
+                var masked = reader.ReadUInt32();
+                Console.WriteLine("masked: " + masked);
+                this.EMsg = (EMsg)(~PROTOBUF_MASK & masked);
+                Console.WriteLine("unmasked: " + this.EMsg);
 
                 // Read the header
                 var header_size = reader.ReadUInt32();

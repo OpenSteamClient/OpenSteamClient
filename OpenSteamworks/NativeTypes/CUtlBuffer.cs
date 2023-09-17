@@ -19,8 +19,8 @@ public unsafe struct CUtlBuffer {
 	public delegate* unmanaged[Cdecl]<CUtlBuffer*, int, byte> m_GetOverflowFunc;
 	public delegate* unmanaged[Cdecl]<CUtlBuffer*, int, byte> m_PutOverflowFunc;
 
-    public CUtlBuffer(int length) {
-        this.m_Memory = new CUtlMemory<UInt8>(0, length);
+    public CUtlBuffer(int length, int growSize = 0) {
+        this.m_Memory = new CUtlMemory<UInt8>(growSize, length);
         this.m_Error = 0;
         this.m_Get = 0;
         this.m_Put = 0;
@@ -55,6 +55,7 @@ public unsafe struct CUtlBuffer {
     
     [UnmanagedCallersOnly(CallConvs = new[] { typeof(CallConvCdecl) })]
     public static byte PutOverflow(CUtlBuffer* buf, int nSize) {
+        Console.WriteLine("PutOverflow called");
         int nGrowDelta = (buf->m_Put + nSize) - buf->m_Memory.m_nAllocationCount;
 
         if (nGrowDelta > 0)
@@ -67,6 +68,7 @@ public unsafe struct CUtlBuffer {
 
     [UnmanagedCallersOnly(CallConvs = new[] { typeof(CallConvCdecl) })]
     public static byte GetOverflow(CUtlBuffer* buf, int nSize) {
+        Console.WriteLine("GetOverflow called");
         return 0;
     }
 }

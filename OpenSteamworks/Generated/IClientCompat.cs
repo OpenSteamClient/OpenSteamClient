@@ -17,9 +17,9 @@ public unsafe interface IClientCompat
 {
     public bool BIsCompatLayerEnabled();  // argc: 0, index: 1
     public void EnableCompat(bool enable);  // argc: 1, index: 2
-    public unknown_ret GetAvailableCompatTools(CUtlVector<CUtlString>* compatTools);  // argc: 1, index: 3
-    public unknown_ret GetAvailableCompatToolsFiltered(CUtlVector<CUtlString>* compatTools, ERemoteStoragePlatform platform);  // argc: 2, index: 4
-    public unknown_ret GetAvailableCompatToolsForApp(CUtlVector<CUtlString>* compatTools, AppId_t appid);  // argc: 2, index: 5
+    public unknown_ret GetAvailableCompatTools(CUtlStringList* compatTools);  // argc: 1, index: 3
+    public unknown_ret GetAvailableCompatToolsFiltered(CUtlStringList* compatTools, ERemoteStoragePlatform platform);  // argc: 2, index: 4
+    public unknown_ret GetAvailableCompatToolsForApp(CUtlStringList* compatTools, AppId_t appid);  // argc: 2, index: 5
     public unknown_ret SpecifyCompatTool(AppId_t appid, string toolName, string unk, int priority);  // argc: 4, index: 6
     public bool BIsCompatibilityToolEnabled(AppId_t appid);  // argc: 1, index: 7
     public string GetCompatToolName(AppId_t app);  // argc: 1, index: 8

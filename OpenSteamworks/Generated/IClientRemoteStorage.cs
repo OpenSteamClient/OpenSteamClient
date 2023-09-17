@@ -7,6 +7,7 @@
 //=============================================================================
 
 using System;
+using OpenSteamworks.NativeTypes;
 
 namespace OpenSteamworks.Generated;
 
@@ -168,14 +169,11 @@ public unsafe interface IClientRemoteStorage
     public unknown_ret ResolveSyncConflict();  // argc: 2, index: 78
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret SynchronizeApp();  // argc: 4, index: 79
+    public unknown_ret IsAppSyncInProgress(AppId_t appid);  // argc: 1, index: 80
+    public unknown_ret RunAutoCloudOnAppLaunch(AppId_t appid);  // argc: 1, index: 81
+    public unknown_ret RunAutoCloudOnAppExit(AppId_t appid);  // argc: 1, index: 82
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret IsAppSyncInProgress();  // argc: 1, index: 80
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret RunAutoCloudOnAppLaunch();  // argc: 1, index: 81
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret RunAutoCloudOnAppExit();  // argc: 1, index: 82
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret ResetFileRequestState();  // argc: 1, index: 83
+    public unknown_ret ResetFileRequestState(AppId_t appid);  // argc: 1, index: 83
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret ClearPublishFileUpdateRequests();  // argc: 1, index: 84
     public unknown_ret GetSubscribedFileDownloadCount();  // argc: 0, index: 85
@@ -183,10 +181,8 @@ public unsafe interface IClientRemoteStorage
     public unknown_ret BGetSubscribedFileDownloadInfo(bool unk1);  // argc: 5, index: 86
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret BGetSubscribedFileDownloadInfo(double unk1, bool unk2);  // argc: 5, index: 87
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret PauseSubscribedFileDownloadsForApp();  // argc: 1, index: 88
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret ResumeSubscribedFileDownloadsForApp();  // argc: 1, index: 89
+    public unknown_ret PauseSubscribedFileDownloadsForApp(AppId_t appid);  // argc: 1, index: 88
+    public unknown_ret ResumeSubscribedFileDownloadsForApp(AppId_t appid);  // argc: 1, index: 89
     public unknown_ret PauseAllSubscribedFileDownloads();  // argc: 0, index: 90
     public unknown_ret ResumeAllSubscribedFileDownloads();  // argc: 0, index: 91
     public unknown_ret CancelCurrentAndPendingOperations();  // argc: 0, index: 92
@@ -198,8 +194,9 @@ public unsafe interface IClientRemoteStorage
     public unknown_ret BeginFileWriteBatch();  // argc: 1, index: 95
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret EndFileWriteBatch();  // argc: 1, index: 96
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret GetCloudEnabledForAppMap();  // argc: 1, index: 97
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret GetLastKnownSyncStateMap();  // argc: 2, index: 98
+    public unknown_ret GetCloudEnabledForAppMap(CUtlMap<AppId_t, bool>* map);  // argc: 1, index: 97
+    /// <summary>
+    /// This could be an enum.
+    /// </summary>
+    public unknown_ret GetLastKnownSyncStateMap(CUtlMap<AppId_t, uint>* map);  // argc: 2, index: 98
 }

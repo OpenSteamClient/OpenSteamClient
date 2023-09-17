@@ -24,6 +24,7 @@ public class SteamHTML : Component {
         CurrentHTMLHost = new Process();
         CurrentHTMLHost.StartInfo.WorkingDirectory = Path.GetDirectoryName(pathToHost);
         CurrentHTMLHost.StartInfo.FileName = pathToHost;
+        CurrentHTMLHost.StartInfo.Environment.Add("OPENSTEAM_PID", Environment.ProcessId.ToString());
         CurrentHTMLHost.StartInfo.Environment.Add("LD_LIBRARY_PATH", $".:{Environment.GetEnvironmentVariable("LD_LIBRARY_PATH")}");
         CurrentHTMLHost.StartInfo.Environment.Add("LD_PRELOAD", $"/tmp/libhtmlhost_fakepid.so:/tmp/libbootstrappershim32.so:{Environment.GetEnvironmentVariable("LD_PRELOAD")}");
         CurrentHTMLHost.StartInfo.ArgumentList.Add(cacheDir);
@@ -38,7 +39,7 @@ public class SteamHTML : Component {
                 do
                 {
                     if (CurrentHTMLHost.HasExited) {
-                        Console.WriteLine("htmlhost crashed! Restarting.");
+                        Console.WriteLine("htmlhost crashed! Restarting in 1s.");
                         System.Threading.Thread.Sleep(1000);
                         StartHTMLHost(pathToHost, cacheDir);
                     }

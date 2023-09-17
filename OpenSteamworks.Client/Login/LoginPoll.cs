@@ -2,6 +2,7 @@ using OpenSteamworks.Client.CommonEventArgs;
 using OpenSteamworks.ClientInterfaces;
 using OpenSteamworks.Enums;
 using OpenSteamworks.Messaging;
+using OpenSteamworks.Protobuf;
 
 namespace OpenSteamworks.Client.Login;
 
