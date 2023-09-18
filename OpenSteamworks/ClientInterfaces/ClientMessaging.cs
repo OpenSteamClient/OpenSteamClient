@@ -16,14 +16,12 @@ public class ClientMessaging : ClientInterface
     private IClientSharedConnection iSharedConnection;
     private IClientUnifiedMessages iUnifiedMessages;
     private IClientUser iClientUser;
-
-    [CallbackListener<SharedConnectionMessageReady_t>]
-    private void OnSharedConnectionMessageReady(SharedConnectionMessageReady_t sharedConnectionMessageReady) {
-        
-    }
+    private List<Connection> connections = new();
 
     public Connection AllocateConnection() {
-        return new Connection(iSharedConnection, iClientUser);
+        var conn = new Connection(iSharedConnection, iClientUser);
+        connections.Add(conn);
+        return conn;
     }
 
     public ClientMessaging(SteamClient client) : base(client)
@@ -36,8 +34,11 @@ public class ClientMessaging : ClientInterface
     
     internal override void RunShutdownTasks()
     {
+        foreach (var item in connections)
+        {
+            item.Dispose();
+        }
         base.RunShutdownTasks();
-        
     }
 
 }

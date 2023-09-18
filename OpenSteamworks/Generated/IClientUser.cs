@@ -292,11 +292,11 @@ public unsafe interface IClientUser
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret BMicroTxnRefundable();  // argc: 2, index: 161
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret BGetAppMinutesPlayed();  // argc: 3, index: 162
+    public bool BGetAppMinutesPlayed(AppId_t appid, ref UInt32 allTime, ref UInt32 lastTwoWeeks);  // argc: 3, index: 162
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret GetAppLastPlayedTime();  // argc: 1, index: 163
+    public RTime32 GetAppLastPlayedTime(AppId_t appid);  // argc: 1, index: 163
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret GetAppUpdateDisabledSecondsRemaining();  // argc: 1, index: 164
+    public uint GetAppUpdateDisabledSecondsRemaining(AppId_t appid);  // argc: 1, index: 164
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret BGetGuideURL();  // argc: 3, index: 165
     public unknown_ret BPromptToChangePassword();  // argc: 0, index: 166
@@ -337,8 +337,14 @@ public unsafe interface IClientUser
     /// <param name="appid">AppID to check</param>
     /// <returns>Whether user owns game or not</returns>
     public bool BIsSubscribedApp(AppId_t appid);  // argc: 1, index: 188
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret GetSubscribedApps(AppId_t *arr, uint lengthOfArr, bool unk);  // argc: 3, index: 189
+    /// <summary>
+    /// Gets a list of all appid's the current user owns.
+    /// </summary>
+    /// <param name="arr">The preallocated array to populate</param>
+    /// <param name="lengthOfArr">The length of the preallocated array</param>
+    /// <param name="unk">Unknown...</param>
+    /// <returns>How many apps the user owns</returns>
+    public uint GetSubscribedApps(AppId_t[] arr, uint lengthOfArr, bool unk);  // argc: 3, index: 189
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret AckSystemIM();  // argc: 2, index: 190
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
@@ -438,7 +444,7 @@ public unsafe interface IClientUser
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret KillVRTheaterPancakeGame();  // argc: 1, index: 246
     public bool BIsAnyGameOrServiceAppRunning();  // argc: 0, index: 247
-    public bool BGetAppPlaytimeMap(CUtlMap<AppId_t, UInt64>* vec);  // argc: 1, index: 248
+    public bool BGetAppPlaytimeMap(CUtlMap<AppId_t, AppPlaytime_t>* vec);  // argc: 1, index: 248
     public bool BGetAppsLastPlayedMap(CUtlMap<AppId_t, RTime32>* vec);  // argc: 1, index: 249
     /// <summary>
     /// App tags were the old version of the "categories" system in place now.

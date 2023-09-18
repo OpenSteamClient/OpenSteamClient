@@ -58,7 +58,7 @@ public partial class MainWindowViewModel : ViewModelBase
     public void DBG_OpenInterfaceList() => AvaloniaApp.Current?.OpenInterfaceList();
     public void DBG_ChangeLanguage() {
         // Very simple logic, just switches between english and finnish. 
-        Translation.TranslationManager tm = AvaloniaApp.Container.GetComponent<Translation.TranslationManager>();
+        var tm = AvaloniaApp.Container.GetComponent<TranslationManager>();
 
         ELanguage lang = tm.CurrentTranslation.Language;
         Console.WriteLine(string.Format(tm.GetTranslationForKey("#SettingsWindow_YourCurrentLanguage"), tm.GetTranslationForKey("#LanguageNameTranslated"), tm.CurrentTranslation.LanguageFriendlyName));
@@ -69,35 +69,38 @@ public partial class MainWindowViewModel : ViewModelBase
         }
     }
     public async void DBG_TestMaps() {
-        unsafe {
-            var map = new CUtlMap<uint, uint>(1, 80000);
-            Console.WriteLine("LastPlayedMap: " + client.NativeClient.IClientUser.BGetAppsLastPlayedMap(&map));
-            var asManaged = map.ToManagedAndFree();
-            foreach (var item in asManaged)
-            {
-                Console.WriteLine(item.Key+":"+item.Value);
-            }
-        }
+        // Library library = await AvaloniaApp.Container.GetComponent<AppsManager>().GetLibrary();
+        // App csgo = await library.GetApp(730);
+        // Console.WriteLine(csgo.ToString());
+        // unsafe {
+        //     var map = new CUtlMap<uint, uint>(1, 80000);
+        //     Console.WriteLine("LastPlayedMap: " + client.NativeClient.IClientUser.BGetAppsLastPlayedMap(&map));
+        //     var asManaged = map.ToManagedAndFree();
+        //     foreach (var item in asManaged)
+        //     {
+        //         Console.WriteLine(item.Key+":"+item.Value);
+        //     }
+        // }
 
-        unsafe {
-            var map = new CUtlMap<uint, ulong>(1, 80000);
-            Console.WriteLine("LastPlayedMap: " + client.NativeClient.IClientUser.BGetAppPlaytimeMap(&map));
-            var asManaged = map.ToManagedAndFree();
-            foreach (var item in asManaged)
-            {
-                Console.WriteLine(item.Key+":"+item.Value);
-            }
-        }
+        // unsafe {
+        //     var map = new CUtlMap<uint, ulong>(1, 80000);
+        //     Console.WriteLine("LastPlayedMap: " + client.NativeClient.IClientUser.BGetAppPlaytimeMap(&map));
+        //     var asManaged = map.ToManagedAndFree();
+        //     foreach (var item in asManaged)
+        //     {
+        //         Console.WriteLine(item.Key+":"+item.Value);
+        //     }
+        // }
 
-        unsafe {
-            CUtlStringList compatToolsVec = new();
-            client.NativeClient.IClientCompat.GetAvailableCompatTools(&compatToolsVec);
-            List<string?> compatTools = compatToolsVec.ToManagedAndFree();
-            foreach (var tool in compatTools)
-            {
-                Console.WriteLine(tool);
-            }
-        }
+        // unsafe {
+        //     CUtlStringList compatToolsVec = new();
+        //     client.NativeClient.IClientCompat.GetAvailableCompatTools(&compatToolsVec);
+        //     List<string?> compatTools = compatToolsVec.ToManagedAndFree();
+        //     foreach (var tool in compatTools)
+        //     {
+        //         Console.WriteLine(tool);
+        //     }
+        // }
 
         // {
         //     for (int i = 0; i < 20; i++)
@@ -119,24 +122,10 @@ public partial class MainWindowViewModel : ViewModelBase
         //     }
         // }
 
-        //CloudConfigStoreManager mgr = AvaloniaApp.Container.ConstructOnly<CloudConfigStoreManager>();
-        // var nm = new OpenSteamworks.Protobuf.WebUI.CCloudConfigStore_NamespaceVersion();
-        // nm.Enamespace = 2138;
-        // var test = await mgr.Download(new() { nm });
-
-        var connection = AvaloniaApp.Container.GetComponent<ClientMessaging>().AllocateConnection();
-        ProtoMsg<CCloudConfigStore_Download_Request> msg = new("CloudConfigStore.Download#1");
-        // msg.body.Versions.Add(versions);
-        // Console.WriteLine("sending");
-        // Console.WriteLine(msg.ToString());
-        var resp = await connection.ProtobufSendMessageAndAwaitResponse<CCloudConfigStore_Download_Response, CCloudConfigStore_Download_Request>(msg);
-        connection.RegisterServiceMethodHandler("CloudConfigStoreClient.NotifyChange#1");
-        connection.RegisterServiceMethodHandler("CloudConfigStoreClient.Download#1");
-        connection.RegisterServiceMethodHandler("CloudConfigStoreClient.Upload#1");
-        Console.WriteLine("got resp");
-        Console.WriteLine(resp.ToString());
-        connection.StartPollThread();
-        //connection.ProtobufSendMessage<CCloudConfigStore_Download_Request>(msg);
+        CloudConfigStore cloudConfigStore = AvaloniaApp.Container.ConstructOnly<CloudConfigStore>();
+        var libraryData = await cloudConfigStore.DownloadNamespace(EUserConfigStoreNamespace.k_EUserConfigStoreNamespaceLibrary);
+        
+        Console.WriteLine(libraryData.ToString());
         
         // unsafe {
         //     var map = new CUtlMap<uint, AppTags_t>(1, 80000, &LessFunc);
