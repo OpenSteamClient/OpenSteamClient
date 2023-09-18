@@ -70,8 +70,18 @@ public partial class MainWindowViewModel : ViewModelBase
     }
     public async void DBG_TestMaps() {
         unsafe {
-            var map = new CUtlMap<uint, uint>(1, 80000, &LessFunc);
+            var map = new CUtlMap<uint, uint>(1, 80000);
             Console.WriteLine("LastPlayedMap: " + client.NativeClient.IClientUser.BGetAppsLastPlayedMap(&map));
+            var asManaged = map.ToManagedAndFree();
+            foreach (var item in asManaged)
+            {
+                Console.WriteLine(item.Key+":"+item.Value);
+            }
+        }
+
+        unsafe {
+            var map = new CUtlMap<uint, ulong>(1, 80000);
+            Console.WriteLine("LastPlayedMap: " + client.NativeClient.IClientUser.BGetAppPlaytimeMap(&map));
             var asManaged = map.ToManagedAndFree();
             foreach (var item in asManaged)
             {
@@ -142,11 +152,6 @@ public partial class MainWindowViewModel : ViewModelBase
         //         System.IO.File.WriteAllBytes("/tmp/" + item.Key.ToString() + ".bin", managedArray);
         //     }
         // }
-    }
-
-    [UnmanagedCallersOnly(CallConvs = new[] { typeof(CallConvCdecl) })]
-    public unsafe static byte LessFunc(uint* first, uint* second) {
-        return Convert.ToByte(&first < &second);
     }
 
     public void Quit() {
