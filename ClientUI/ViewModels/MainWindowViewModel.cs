@@ -9,6 +9,7 @@ using ClientUI.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
 using OpenSteamworks;
 using OpenSteamworks.Client;
+using OpenSteamworks.Client.Enums;
 using OpenSteamworks.Client.Managers;
 using OpenSteamworks.ClientInterfaces;
 using OpenSteamworks.Enums;
@@ -123,10 +124,15 @@ public partial class MainWindowViewModel : ViewModelBase
         // }
 
         CloudConfigStore cloudConfigStore = AvaloniaApp.Container.ConstructOnly<CloudConfigStore>();
-        var libraryData = await cloudConfigStore.DownloadNamespace(EUserConfigStoreNamespace.k_EUserConfigStoreNamespaceLibrary);
-        
-        Console.WriteLine(libraryData.ToString());
-        
+        var libraryData = await cloudConfigStore.GetNamespaceData(EUserConfigStoreNamespace.k_EUserConfigStoreNamespaceLibrary);
+        var userCollections = libraryData.GetKeysStartingWith("user-collections.");
+        foreach (var collection in userCollections)
+        {
+            Console.WriteLine(collection.Value);
+        }
+
+        libraryData["user-collections.test"] = "{\"id\":\"uc-testiaaaa\",\"name\":\"testi kollektio\",\"added\":[730],\"removed\":[]}";
+        await cloudConfigStore.UploadNamespace(libraryData);
         // unsafe {
         //     var map = new CUtlMap<uint, AppTags_t>(1, 80000, &LessFunc);
         //     Console.WriteLine("AppTagsMap: " + client.NativeClient.IClientUser.BGetAppTagsMap(&map));

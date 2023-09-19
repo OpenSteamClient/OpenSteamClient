@@ -16,8 +16,10 @@ public class Connection : IDisposable {
         public EMsg eMsg;
         public CMsgProtoBufHeader header;
         public byte[] fullMsg;
+        public DateTime removalTime;
         internal StoredMessage(byte[] fullMsg) {
             this.fullMsg = fullMsg;
+            this.removalTime = DateTime.Now.AddMinutes(1);
             using (var stream = new MemoryStream(fullMsg)) {
                 // The steamclient is a strange beast. A 64-bit library compiled for little endian.
                 using (var reader = new EndianAwareBinaryReader(stream, Encoding.UTF8, EndianAwareBinaryReader.Endianness.Little))
@@ -92,19 +94,19 @@ public class Connection : IDisposable {
                 }
             }
 
-                if (!string.IsNullOrEmpty(msg.JobName)) {
-                    // Waiting for a job 
-                    var recvd = await WaitForServiceMethod(msg.JobName);
-                    resultMsg.FillFromBinary(recvd.fullMsg);
-                } else {
-                    // Waiting for an emsg
-                    if (expectedResponseMsg == EMsg.Invalid) {
-                        throw new ArgumentException("Sending non-service method but didn't indicate response EMsg.");
-                    }
-
-                    var recvd = await WaitForEMsg(expectedResponseMsg);
-                    resultMsg.FillFromBinary(recvd.fullMsg);
+            if (!string.IsNullOrEmpty(msg.JobName)) {
+                // Waiting for a job 
+                var recvd = await WaitForServiceMethod(msg.JobName);
+                resultMsg.FillFromBinary(recvd.fullMsg);
+            } else {
+                // Waiting for an emsg
+                if (expectedResponseMsg == EMsg.Invalid) {
+                    throw new ArgumentException("Sending non-service method but didn't indicate response EMsg.");
                 }
+
+                var recvd = await WaitForEMsg(expectedResponseMsg);
+                resultMsg.FillFromBinary(recvd.fullMsg);
+            }
 
             return resultMsg;
         });
@@ -159,9 +161,13 @@ public class Connection : IDisposable {
     private bool shouldPoll = false;
     private Task? pollThread;
     private List<StoredMessage> storedMessages = new();
-    private Dictionary<EMsg, Action<StoredMessage>> eMsgHandlers = new();
-    private Dictionary<string, Action<StoredMessage>> serviceMethodHandlers = new();
+    private Dictionary<EMsg, Delegate> eMsgHandlers = new();
+    private Dictionary<string, Delegate> serviceMethodHandlers = new();
     public void StartPollThread() {
+        if (shouldPoll) {
+            throw new InvalidOperationException("Already polling");
+        }
+        
         shouldPoll = true;
         pollThread = Task.Run(() =>
         {
@@ -182,11 +188,9 @@ public class Connection : IDisposable {
                         Console.WriteLine("Got message: " + callOut + ", size: " + buffer.m_Put + ", waited " + secondsWaited + "ms");
                         var sm = new StoredMessage(buffer.ToManaged());
                         if (eMsgHandlers.ContainsKey(sm.eMsg)) {
-                            eMsgHandlers[sm.eMsg].Invoke(sm);
-                            eMsgHandlers.Remove(sm.eMsg);
+                            eMsgHandlers[sm.eMsg].DynamicInvoke(sm);
                         } else if (serviceMethodHandlers.ContainsKey(sm.header.TargetJobName)) {
-                            serviceMethodHandlers[sm.header.TargetJobName].Invoke(sm);
-                            serviceMethodHandlers.Remove(sm.header.TargetJobName);
+                            serviceMethodHandlers[sm.header.TargetJobName].DynamicInvoke(sm);
                         } else {
                             storedMessages.Add(sm);
                         }
@@ -203,6 +207,9 @@ public class Connection : IDisposable {
                         secondsWaited += 0.100;
                     }
                 }
+
+                // Remove messages that haven't been retrieved in one minute
+                this.storedMessages.RemoveAll(item => DateTime.Now > item.removalTime);
             }
 
             buffer.Free();
@@ -213,30 +220,110 @@ public class Connection : IDisposable {
         shouldPoll = false;
     }
 
-    public void SetEMsgHandler(EMsg emsg, Action<StoredMessage> callback) {
-        eMsgHandlers.Add(emsg, callback);
+    /// <summary>
+    /// Adds a handler to be called when a specific EMsg is received. If existing messages are stored, the callback will be retroactively called for all the fitting stored messages.
+    /// </summary>
+    /// <param name="emsg">EMsg to handle</param>
+    /// <param name="callback">Callback to call when the EMsg is received</param>
+    /// <param name="oneShot">Whether the handler should automatically be removed once it is called</param>
+    public void AddEMsgHandler(EMsg emsg, Action<StoredMessage> callback, bool oneShot = false) {
+        Action<StoredMessage> realCallback = callback;
+        if (oneShot) {
+            realCallback = (StoredMessage msg) =>
+            {
+                RemoveEMsgHandler(emsg, realCallback);
+                callback.Invoke(msg);
+            };
+        }
+
+        if (!eMsgHandlers.ContainsKey(emsg)) {
+            eMsgHandlers.Add(emsg, realCallback);
+        } else {
+            eMsgHandlers[emsg] = Delegate.Combine(eMsgHandlers[emsg], realCallback);
+        }
+
+        foreach (var item in storedMessages)
+        {
+            if (item.eMsg == emsg) {
+                storedMessages.Remove(item);
+                realCallback(item);
+                if (oneShot) {
+                    break;
+                }
+            }
+        }
     }
 
-    public void SetServiceMethodHandler(string method, Action<StoredMessage> callback) {
-        serviceMethodHandlers.Add(method, callback);
+    /// <summary>
+    /// Adds a handler to be called when a specific service method is received. If existing messages are stored, the callback will be retroactively called for all the fitting stored messages.
+    /// </summary>
+    /// <param name="method">Service method to handle</param>
+    /// <param name="callback">Callback to call when the service method is received</param>
+    /// <param name="oneShot">Whether the handler should automatically be removed once it is called</param>
+    public void AddServiceMethodHandler(string method, Action<StoredMessage> callback, bool oneShot = false) {
+        Action<StoredMessage> realCallback = callback;
+        if (oneShot) {
+            realCallback = (StoredMessage msg) =>
+            {
+                RemoveServiceMethodHandler(method, realCallback);
+                callback.Invoke(msg);
+            };
+        }
+
+        if (!serviceMethodHandlers.ContainsKey(method)) {
+            serviceMethodHandlers.Add(method, realCallback);
+        } else {
+            serviceMethodHandlers[method] = Delegate.Combine(serviceMethodHandlers[method], realCallback);
+        }
+
+        foreach (var item in storedMessages)
+        {
+            if (item.header.TargetJobName == method) {
+                storedMessages.Remove(item);
+                realCallback(item);
+                if (oneShot) {
+                    break;
+                }
+            }
+        }
     }
 
+    public void RemoveEMsgHandler(EMsg emsg, Action<StoredMessage> callback) {
+        Delegate.Remove(eMsgHandlers[emsg], callback);
+        eMsgHandlers.Remove(emsg);
+    }
+
+    public void RemoveServiceMethodHandler(string method, Action<StoredMessage> callback) {
+        Delegate.Remove(serviceMethodHandlers[method], callback);
+        serviceMethodHandlers.Remove(method);
+    }
+
+    /// <summary>
+    /// Waits until a message with a specific EMsg is received. Will use stored messages if they exist
+    /// </summary>
+    /// <param name="emsg">EMsg to wait for</param>
+    /// <returns>The StoredMessage object for further parsing into a ProtoMsg</returns>
     public async Task<StoredMessage> WaitForEMsg(EMsg emsg) {
         var tcs = new TaskCompletionSource<StoredMessage>();
 
-        SetEMsgHandler(emsg, msg => {
+        AddEMsgHandler(emsg, msg => {
             tcs.TrySetResult(msg);
-        });
+        }, true);
 
         return await tcs.Task;
     }
 
-    public async Task<StoredMessage> WaitForServiceMethod(string method) {
+    /// <summary>
+    /// Waits until a message with a specific TargetJobName(service method name) is received. Will use stored messages if they exist
+    /// </summary>
+    /// <param name="method">Service method to  wait for</param>
+    /// <returns>The StoredMessage object for further parsing into a ProtoMsg</returns>
+    public async Task<StoredMessage> WaitForServiceMethod(string method) {        
         var tcs = new TaskCompletionSource<StoredMessage>();
 
-        SetServiceMethodHandler(method, msg => {
+        AddServiceMethodHandler(method, msg => {
             tcs.TrySetResult(msg);
-        });
+        }, true);
 
         return await tcs.Task;
     }

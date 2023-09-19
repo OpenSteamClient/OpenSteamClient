@@ -22,7 +22,7 @@ public unsafe interface IClientUtils
     public void SetComputerActive();  // argc: 0, index: 6
     public EUniverse GetConnectedUniverse();  // argc: 0, index: 7
     public unknown_ret GetSteamRealm();  // argc: 0, index: 8
-    public unknown_ret GetServerRealTime();  // argc: 0, index: 9
+    public RTime32 GetServerRealTime();  // argc: 0, index: 9
     public unknown_ret GetIPCountry();  // argc: 0, index: 10
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret GetImageSize();  // argc: 3, index: 11

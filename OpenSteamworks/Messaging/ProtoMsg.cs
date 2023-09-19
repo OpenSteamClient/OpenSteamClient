@@ -50,6 +50,12 @@ public class ProtoMsg<T> : IMessage where T: Google.Protobuf.IMessage<T>, new()
         this.JobName = jobName;
     }
     
+    public static ProtoMsg<T> FromBinary(byte[] data) {
+        ProtoMsg<T> msg = new();
+        msg.FillFromBinary(data);
+        return msg;
+    }
+
     public void FillFromBinary(byte[] data) {
         using (var stream = new MemoryStream(data)) {
             // The steamclient is a strange beast. A 64-bit library compiled for little endian.

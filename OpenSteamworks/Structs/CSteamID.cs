@@ -24,6 +24,10 @@ public struct CSteamID {
 
     public UInt64 steamid;
 
+    public UInt32 GetAccountId() {
+        return (uint)(steamid - 76561197960265728);
+    }
+
     public static implicit operator CSteamID(UInt64 v)
     {
         return new CSteamID(v);

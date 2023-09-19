@@ -260,7 +260,9 @@ public class Container : IContainer
     }
 
     public async Task RunShutdownForComponents() {
-        foreach (var component in componentOrder)
+        var reversed = componentOrder.GetRange(0, componentOrder.Count);
+        reversed.Reverse();
+        foreach (var component in reversed)
         {
             await ((IComponent)GetComponent(component)).RunShutdown();
         }

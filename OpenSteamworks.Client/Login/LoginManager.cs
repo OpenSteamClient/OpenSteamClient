@@ -62,6 +62,7 @@ public class LoginManager : Component
     public delegate void QRGeneratedEventHandler(object sender, QRGeneratedEventArgs e);
     public delegate void SecondFactorNeededEventHandler(object sender, SecondFactorNeededEventArgs e);
     public event LoggedOnEventHandler? LoggedOn;
+    public event EventHandler? LoggingOff;
     public event LoggedOffEventHandler? LoggedOff;
     public event LogOnStartedEventHandler? LogonStarted;
     public event LogOnFailedEventHandler? LogOnFailed;
@@ -308,6 +309,15 @@ public class LoginManager : Component
         return true;
     }
 
+    public bool IsOnline() {
+        var state = steamClient.NativeClient.IClientUser.GetLogonState();
+        return state == ELogonState.k_ELogonStateLoggedOn || state == ELogonState.k_ELogonStateConnected;
+    }
+
+    public bool IsOffline() {
+        return !IsOnline();
+    }
+
     private bool isLoggingOn = false;
     private EResult? loginFinishResult;
     [CallbackListener<SteamServerConnectFailure_t>]
@@ -464,6 +474,7 @@ public class LoginManager : Component
 
     public async void Logout(bool forget = false) {
         UtilityFunctions.AssertNotNull(this.CurrentUser);
+        this.LoggingOff?.Invoke(this, EventArgs.Empty);
         var oldUser = CurrentUser;
         this.steamClient.NativeClient.IClientUser.LogOff();
         await Task.Run(() => {
