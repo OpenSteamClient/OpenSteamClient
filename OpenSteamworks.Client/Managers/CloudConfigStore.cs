@@ -29,6 +29,7 @@ public class NamespaceData {
             {
                 keys[key] = new CCloudConfigStore_Entry
                 {
+                    Key = key,
                     IsDeleted = false,
                     Timestamp = clientUtils.GetServerRealTime(),
                     Value = value,
