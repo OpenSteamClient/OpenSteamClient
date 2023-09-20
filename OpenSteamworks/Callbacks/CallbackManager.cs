@@ -208,10 +208,13 @@ public class CallbackManager
         handlers.Remove(handler);
     }
     public void RequestStopAndWaitForExit() {
+        Console.WriteLine("Stopping CallbackThread");
         poll = false;
         do
         {
             System.Threading.Thread.Sleep(10);
         } while (this.pollThread.IsAlive);
+        
+        Console.WriteLine("Stopped CallbackThread");
     }
 }

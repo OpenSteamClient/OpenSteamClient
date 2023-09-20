@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using Google.Protobuf;
 using Google.Protobuf.WellKnownTypes;
@@ -27,14 +28,25 @@ public class NamespaceData {
         set {
             lock (dataLock)
             {
-                keys[key] = new CCloudConfigStore_Entry
-                {
-                    Key = key,
-                    IsDeleted = false,
-                    Timestamp = clientUtils.GetServerRealTime(),
-                    Value = value,
-                    Version = 1
-                };
+                if (keys.ContainsKey(key)) {
+                    keys[key].IsDeleted = false;
+                    keys[key].Value = value;
+                    keys[key].Timestamp = clientUtils.GetServerRealTime();
+                    // I'm not really sure what versions are supposed to mean. I'm assuming it just gets incremented by one, which it seems like it does.
+                    keys[key].Version++;
+                } else {
+                    if (string.IsNullOrEmpty(key)) {
+                        throw new ArgumentException("Attempting to add an empty key. This will brick WebUI!");
+                    }
+                    keys[key] = new CCloudConfigStore_Entry
+                    {
+                        Key = key,
+                        IsDeleted = false,
+                        Timestamp = clientUtils.GetServerRealTime(),
+                        Value = value,
+                        Version = 1
+                    };
+                }
             }
         }
     }
@@ -51,10 +63,26 @@ public class NamespaceData {
         }
     }
 
+    public override string ToString()
+    {
+        StringBuilder sb = new();
+        sb.AppendLine("Dumping " + this.Namespace.ToString());
+        foreach (var item in this.keys)
+        {
+            sb.AppendLine(item.Key + ": '" + item.Value.Value + "'" + (item.Value.IsDeleted ? " (deleted)" : "") + ", timestamp: " + item.Value.Timestamp);
+        }
+
+        return sb.ToString();
+    }
+    
     public Dictionary<string, string> GetKeysStartingWith(string matcher) {
         Dictionary<string, string> matchedKeys = new();
         foreach (var item in keys)
         {
+            if (item.Value.IsDeleted) {
+                continue;
+            }
+
             if (item.Key.StartsWith(matcher)) {
                 matchedKeys.Add(item.Key, item.Value.Value);
             }
@@ -187,7 +215,26 @@ public class CloudConfigStore : Component {
     }
 
     private void OnLoggingOff(object? sender, EventArgs e) {
+        HandleConfigStoreShutdown();
+    }
+
+    private void HandleConfigStoreShutdown() {
+        Console.WriteLine("Flushing namespaces to disk...");
         CacheNamespaces().Wait();
+        try
+        {
+            if (loginManager.IsOnline()) {
+                Console.WriteLine("Uploading namespaces to server...");
+                UploadNamespaces().Wait();
+            } else {
+                Console.WriteLine("Warning: Not uploading namespaces, we're in offline mode.");
+            }
+        }
+        catch (System.Exception ex)
+        {
+            Console.WriteLine("Failed to upload namespaces: " + ex.ToString());
+        }
+
         this.loadedNamespaces.Clear();
     }
 
@@ -206,6 +253,7 @@ public class CloudConfigStore : Component {
     /// <summary>
     /// Gets a namespace. Attempts to use newest data, but may fall back to local cache without an internet connection.
     /// Will save it into the local cache.
+    /// If the namespace is currently loaded, it will be used instead of trying the internet and cache.
     /// </summary>
     public async Task<NamespaceData> GetNamespaceData(EUserConfigStoreNamespace @namespace) {
         if (loginManager.CurrentUser == null || !loginManager.CurrentUser.SteamID.HasValue) {
@@ -269,6 +317,13 @@ public class CloudConfigStore : Component {
         }
     }
 
+    private async Task UploadNamespaces() {
+        foreach (var item in this.loadedNamespaces)
+        {
+            await UploadNamespace(item);
+        }
+    }
+
     public async Task CacheNamespace(NamespaceData data) {
         await File.WriteAllBytesAsync(Path.Combine(this.GetStorageFolder(), GetNamespaceFilename(data)), data.GetAsProtobuf().ToByteArray());
     }
@@ -288,10 +343,32 @@ public class CloudConfigStore : Component {
         if (data.Entries.Count == 0) {
             throw new Exception("Attempted to upload namespace data with 0 entries.");
         }
+        foreach (var entry in data.Entries)
+        {
+            Console.WriteLine("entry(" + entry.Key + ")");
+            if (!entry.HasKey || string.IsNullOrEmpty(entry.Key)) {
+                Console.WriteLine("Deleting entry with empty key");
+                // This key was probably created accidentally. Having this will brick the webui though, so let's remove it just in case (but it won't immediately remove it, so you'll need to wait some time)
+                // In the meanwhile, you can launch games from the store or big picture mode
+                entry.IsDeleted = true;
+            }
+            if (entry.IsDeleted) {
+                Console.WriteLine("Deleted key found: " + entry.Key);
+            }
+        }
+
         ProtoMsg<CCloudConfigStore_Upload_Request> msg = new("CloudConfigStore.Upload#1");
         msg.body.Data.Add(data);
         var resp = await connection.ProtobufSendMessageAndAwaitResponse<CCloudConfigStore_Upload_Response, CCloudConfigStore_Upload_Request>(msg);
+        Console.WriteLine("resp: " + resp.ToString());
         return resp.body.Versions;
+    }
+
+    private readonly Random random = new Random();
+    public string GenerateRandomString(int length)
+    {
+        const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        return new string(Enumerable.Repeat(chars, length).Select(s => s[random.Next(s.Length)]).ToArray());
     }
 
     public override async Task RunStartup() {
@@ -299,8 +376,6 @@ public class CloudConfigStore : Component {
     }
     public override async Task RunShutdown()
     {
-        await CacheNamespaces();
-        this.loadedNamespaces.Clear();
         await EmptyAwaitable();
     }
 }

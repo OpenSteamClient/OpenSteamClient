@@ -17,6 +17,7 @@ using System;
 using Avalonia.Controls;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Avalonia.Input;
 
 namespace ClientUI;
 
@@ -30,6 +31,12 @@ public partial class AvaloniaApp : Application
     {
         AvaloniaXamlLoader.Load(this);
         this.DataContext = new AvaloniaAppViewModel();
+    }
+
+    public static void InvokeOnUIThread(Action callback) {
+        if (!Container.IsShuttingDown) {
+            Avalonia.Threading.Dispatcher.UIThread.Invoke(callback);
+        }
     }
 
     private ExtendedProgress<int> loginProgress = new ExtendedProgress<int>(0, 100);
@@ -47,7 +54,7 @@ public partial class AvaloniaApp : Application
         // This will stay for the lifetime of the application.
         Container.GetComponent<LoginManager>().LoggedOn += (object sender, LoggedOnEventArgs e) =>
         {
-            Avalonia.Threading.Dispatcher.UIThread.Invoke(() =>
+            InvokeOnUIThread(() =>
             {
                 ForceMainWindow();
             });
@@ -55,7 +62,7 @@ public partial class AvaloniaApp : Application
 
         Container.GetComponent<LoginManager>().LogOnFailed += (object sender, LogOnFailedEventArgs e) =>
         {
-            Avalonia.Threading.Dispatcher.UIThread.Invoke(() => {
+            InvokeOnUIThread(() => {
                 MessageBox.Show("Failed to log on", "Failed with result code: " + e.Error.ToString());
                 ForceAccountPickerWindow();
             });
@@ -63,7 +70,7 @@ public partial class AvaloniaApp : Application
         
         Container.GetComponent<LoginManager>().LoggedOff += (object sender, LoggedOffEventArgs e) =>
         {
-            Avalonia.Threading.Dispatcher.UIThread.Invoke(() => {
+            InvokeOnUIThread(() => {
                 if (e.Error != null) {
                     // What can cause a sudden log off?
                     MessageBox.Show("Session terminated", "You were forcibly logged off with an error code: " + e.Error.ToString());
@@ -77,7 +84,7 @@ public partial class AvaloniaApp : Application
         Container.GetComponent<LoginManager>().SetExceptionHandler(e => MessageBox.Error(e));
         Container.GetComponent<LoginManager>().LogonStarted += (object sender, EventArgs e) =>
         {
-            Avalonia.Threading.Dispatcher.UIThread.Invoke(() =>
+            InvokeOnUIThread(() =>
             {
                 this.ForceProgressWindow(new ProgressWindowViewModel(loginProgress, "Login progress"));
             });
@@ -197,7 +204,6 @@ public partial class AvaloniaApp : Application
     /// </summary>
     public void ForceProgressWindow(ProgressWindowViewModel progVm) {
         var progressWindow = new ProgressWindow(progVm);
-
         ForceWindow(new ProgressWindow(progVm));
     }
 
@@ -205,9 +211,11 @@ public partial class AvaloniaApp : Application
     /// Closes the current MainWindow (if exists) and replaces it with a user specified window
     /// </summary>
     public void ForceWindow(Window window) {
-        ApplicationLifetime.MainWindow?.Close();
-        ApplicationLifetime.MainWindow = window;
-        ApplicationLifetime.MainWindow.Show();
+        if (!Container.IsShuttingDown) {
+            ApplicationLifetime.MainWindow?.Close();
+            ApplicationLifetime.MainWindow = window;
+            ApplicationLifetime.MainWindow.Show();
+        }
     }
 
     public AvaloniaApp()
@@ -215,15 +223,18 @@ public partial class AvaloniaApp : Application
         Current = this;
     }
 
+    /// <summary>
+    /// Async exit function. Will hang in certain cases for some unknown reason.
+    /// </summary>
     public async Task Exit(int exitCode = 0) {
         await Container.RunShutdownForComponents();
+        Console.WriteLine("Shutting down Avalonia");
         ApplicationLifetime.Shutdown(exitCode);
     }
 
     /// <summary>
     /// A synchronous exit function. Simply calls Task.Run. 
     /// </summary>
-    /// <param name="exitCode"></param>
     public void ExitEventually(int exitCode = 0) {
         Task.Run(async () => await this.Exit(exitCode));
     }

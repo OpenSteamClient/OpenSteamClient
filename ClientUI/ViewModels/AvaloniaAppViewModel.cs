@@ -8,9 +8,8 @@ public class AvaloniaAppViewModel : ViewModelBase {
     public bool IsDebug => AvaloniaApp.DebugEnabled;
     //TODO
     public bool IsSteamVRInstalled => false;
-    public async Task Exit() {
-        // This is stupid. TODO: Pending support for "await?" to clean up.
-        await (AvaloniaApp.Current == null ? Task.CompletedTask : AvaloniaApp.Current.Exit(1));
+    public void ExitEventually() {
+        AvaloniaApp.Current?.ExitEventually();
     }
 
     public void OpenInterfaceList() => AvaloniaApp.Current?.OpenInterfaceList();

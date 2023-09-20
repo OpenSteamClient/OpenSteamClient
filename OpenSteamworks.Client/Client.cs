@@ -26,10 +26,7 @@ public class Client : Component
 
     public async override Task RunShutdown()
     {
-        await Task.Run(() =>
-        {
-            Container.GetComponent<SteamClient>().Shutdown();
-        });
+        Container.GetComponent<SteamClient>().Shutdown();
     }
 
     public Client(IContainer? container = null, IExtendedProgress<int>? bootstrapperProgress = null) : base(container != null ? container : new Container()) {
@@ -73,9 +70,9 @@ public class Client : Component
         Container.RegisterComponentFactoryMethod<IClientVR>((SteamClient client) => client.NativeClient.IClientVR);
 
         Container.ConstructAndRegisterComponent<LoginManager>();
+        Container.ConstructAndRegisterComponent<CloudConfigStore>();
         Container.ConstructAndRegisterComponent<AppsManager>();
         Container.ConstructAndRegisterComponent<SteamHTML>();
         Container.ConstructAndRegisterComponent<SteamService>();
-        
     }
 }

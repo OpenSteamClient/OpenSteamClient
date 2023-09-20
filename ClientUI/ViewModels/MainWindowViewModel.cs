@@ -123,7 +123,7 @@ public partial class MainWindowViewModel : ViewModelBase
         //     }
         // }
 
-        CloudConfigStore cloudConfigStore = AvaloniaApp.Container.ConstructOnly<CloudConfigStore>();
+        CloudConfigStore cloudConfigStore = AvaloniaApp.Container.GetComponent<CloudConfigStore>();
         var libraryData = await cloudConfigStore.GetNamespaceData(EUserConfigStoreNamespace.k_EUserConfigStoreNamespaceLibrary);
         var userCollections = libraryData.GetKeysStartingWith("user-collections.");
         foreach (var collection in userCollections)
@@ -131,7 +131,7 @@ public partial class MainWindowViewModel : ViewModelBase
             Console.WriteLine(collection.Value);
         }
 
-        libraryData["user-collections.test"] = "{\"id\":\"uc-testiaaaa\",\"name\":\"testi kollektio\",\"added\":[730],\"removed\":[]}";
+        libraryData["user-collections.test"] = "{\"id\":\"uc-testiaaaa\",\"name\":\"testi kollektio\",\"added\":[730,480],\"removed\":[]}";
         await cloudConfigStore.UploadNamespace(libraryData);
         // unsafe {
         //     var map = new CUtlMap<uint, AppTags_t>(1, 80000, &LessFunc);

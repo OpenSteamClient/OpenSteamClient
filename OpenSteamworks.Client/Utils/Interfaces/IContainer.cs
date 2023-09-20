@@ -29,6 +29,7 @@ public interface IContainer {
 
 public class Container : IContainer
 {
+    public bool IsShuttingDown { get; private set; } = false;
     private readonly object factoryPlaceholderComponent = "factory";
     internal Dictionary<Type, object> components { get; init; } = new();
     internal Dictionary<Type, Delegate> componentFactories { get; init; } = new();
@@ -255,16 +256,18 @@ public class Container : IContainer
     public async Task RunStartupForComponents() {
         foreach (var component in componentOrder)
         {
+            Console.WriteLine("Running startup for component " + component.Name);
             await ((IComponent)GetComponent(component)).RunStartup();
         }
     }
 
     public async Task RunShutdownForComponents() {
-        var reversed = componentOrder.GetRange(0, componentOrder.Count);
-        reversed.Reverse();
-        foreach (var component in reversed)
+        IsShuttingDown = true;
+        foreach (var component in componentOrder)
         {
+            Console.WriteLine("Shutting down component " + component.Name);
             await ((IComponent)GetComponent(component)).RunShutdown();
+            Console.WriteLine("Shutdown for " + component.Name + " finished");
         }
     }
 }

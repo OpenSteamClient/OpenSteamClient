@@ -31,6 +31,7 @@ public class ClientApps : ClientInterface
     }
 
     [CallbackListener<AppLicensesChanged_t>]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("CodeQuality", "IDE0051:AvoidUncalledPrivateCode")]
     private void OnAppLicensesChanged(AppLicensesChanged_t appLicensesChanged) {
         Console.WriteLine("ReloadAll: " + appLicensesChanged.bReloadAll);
         Console.WriteLine("Count: " + appLicensesChanged.m_unAppsUpdated);

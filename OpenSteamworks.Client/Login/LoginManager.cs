@@ -28,10 +28,9 @@ public class LoggedOnEventArgs : EventArgs
 
 public class LoggedOffEventArgs : EventArgs
 {
-    public LoggedOffEventArgs(LoginUser user, EResult? error = null, bool forget = false) { User = user; Error = error; Forget = forget; }
+    public LoggedOffEventArgs(LoginUser user, EResult? error = null) { User = user; Error = error; }
     public LoginUser User { get; } 
     public EResult? Error { get; }
-    public bool Forget { get; }
 }
 
 public class LogOnFailedEventArgs : EventArgs
@@ -309,11 +308,24 @@ public class LoginManager : Component
         return true;
     }
 
+    /// <summary>
+    /// Gets whether there is a user logged in or in offline mode.
+    /// </summary>
+    public bool IsLoggedOn() {
+        return steamClient.NativeClient.IClientUser.GetSteamID().steamid != 0;
+    }
+
+    /// <summary>
+    /// Checks that there is a connection to Steam's CMs.
+    /// </summary>
     public bool IsOnline() {
         var state = steamClient.NativeClient.IClientUser.GetLogonState();
         return state == ELogonState.k_ELogonStateLoggedOn || state == ELogonState.k_ELogonStateConnected;
     }
 
+    /// <summary>
+    /// Inverse of IsOnline.
+    /// </summary>
     public bool IsOffline() {
         return !IsOnline();
     }
@@ -331,7 +343,7 @@ public class LoginManager : Component
     public void OnSteamServersDisconnected(SteamServersDisconnected_t disconnect) {
         if (CurrentUser != null) {
             if (disconnect.m_EResult == EResult.k_EResultOK) {
-                OnLoggedOff(new LoggedOffEventArgs(CurrentUser, null, true));
+                OnLoggedOff(new LoggedOffEventArgs(CurrentUser, disconnect.m_EResult));
             }
         }
     }
@@ -472,17 +484,15 @@ public class LoginManager : Component
         });
     }
 
-    public async void Logout(bool forget = false) {
+    public void Logout(bool forget = false) {
         UtilityFunctions.AssertNotNull(this.CurrentUser);
         this.LoggingOff?.Invoke(this, EventArgs.Empty);
         var oldUser = CurrentUser;
         this.steamClient.NativeClient.IClientUser.LogOff();
-        await Task.Run(() => {
-            while (this.steamClient.NativeClient.IClientUser.BLoggedOn())
-            {
-                System.Threading.Thread.Sleep(50);
-            }
-        });
+        while (this.steamClient.NativeClient.IClientUser.BLoggedOn())
+        {
+            System.Threading.Thread.Sleep(50);
+        }
 
         if (forget) {
             RemoveAccount(oldUser);
@@ -528,6 +538,7 @@ public class LoginManager : Component
 
     public override async Task RunShutdown()
     {
+        Logout();
         await EmptyAwaitable();
     }
 }

@@ -42,6 +42,10 @@ public partial class MessageBox : Window
 
     public void QueueClose()
     {
+        if (AvaloniaApp.Container.IsShuttingDown) {
+            Console.WriteLine("Cannot hide messagebox during shutdown");
+            return;
+        }
         Dispatcher.UIThread.InvokeAsync(base.Close);
     }
 
@@ -86,6 +90,11 @@ public partial class MessageBox : Window
     }
 
     public static MessageBoxButton? Show(string title, string header, string message, MessageBoxIcon icon = MessageBoxIcon.INFORMATION, MessageBoxButton buttons = MessageBoxButton.Ok) {
+        if (AvaloniaApp.Container.IsShuttingDown) {
+            Console.WriteLine("Cannot show messagebox during shutdown");
+            return null;
+        }
+
         if (!Dispatcher.UIThread.CheckAccess()) {
             return Dispatcher.UIThread.Invoke<MessageBoxButton?>(() => ShowInternal(title, header, message, icon, buttons));
         } else {
@@ -94,10 +103,12 @@ public partial class MessageBox : Window
     }
 
     private static MessageBoxButton? ShowInternal(string title, string header, string message, MessageBoxIcon icon, MessageBoxButton buttons) {
-        var messageBoxViewModel = new MessageBoxViewModel(icon, buttons);
-        messageBoxViewModel.Title = title;
-        messageBoxViewModel.Header = header;
-        messageBoxViewModel.Content = message;
+        var messageBoxViewModel = new MessageBoxViewModel(icon, buttons)
+        {
+            Title = title,
+            Header = header,
+            Content = message
+        };
 
         var messageBox = new MessageBox(messageBoxViewModel);
 

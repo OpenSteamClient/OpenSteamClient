@@ -27,7 +27,7 @@
             <NativeMenuItem IsEnabled="{Binding IsSteamVRInstalled}" c:Translatable.TranslationKey="#App_Tray_OpenSteamVR" Header="Open SteamVR" Command="{Binding OpenSteamVR}" />
             <NativeMenuItemSeparator />
             <NativeMenuItem IsEnabled="{Binding IsDebug}" c:Translatable.TranslationKey="#MainWindow_Header_Debug_OpenInterfaceList" Header="Open InterfaceList" Command="{Binding OpenInterfaceList}" />
-            <NativeMenuItem c:Translatable.TranslationKey="#MainWindow_Header_Steam_Quit" Header="Exit" Command="{Binding Exit}" />
+            <NativeMenuItem c:Translatable.TranslationKey="#MainWindow_Header_Steam_Quit" Header="Exit" Command="{Binding ExitEventually}" />
           </NativeMenu>
         </TrayIcon.Menu>
       </TrayIcon>
