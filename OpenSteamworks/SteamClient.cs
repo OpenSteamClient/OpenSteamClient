@@ -30,16 +30,23 @@ public class SteamClient
     public Native.ClientNative NativeClient;
 
     private string steamclientLibPath;
-    private ConnectionType connectionType;
+    internal ConnectionType connectionType;
     private bool log = false;
+
+    internal static SteamClient? instance;
+
     /// <summary>
     /// Constructs a OpenSteamworks.Client. 
     /// Does not load any binaries, so most functions will crash. Use LoadClient to load the binaries and start the client up.
     /// </summary>
     public SteamClient(string steamclientLibPath, ConnectionType connectionType)
     {
+        if (instance != null) {
+            throw new InvalidOperationException("A SteamClient instance has been constructed already. Free it before creating another.");
+        }
         this.steamclientLibPath = steamclientLibPath;
         this.connectionType = connectionType;
+        instance = this;
 
 #if DEBUG
         log = true;
@@ -117,6 +124,7 @@ public class SteamClient
         this.NativeClient.native_Steam_BReleaseSteamPipe(this.NativeClient.pipe);
         this.NativeClient.IClientEngine.BShutdownIfAllPipesClosed();
         this.NativeClient.Unload();
+        instance = null;
     }
 
     public void LogClientState() {

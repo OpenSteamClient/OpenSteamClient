@@ -17,16 +17,21 @@ public unsafe interface IClientCompat
 {
     public bool BIsCompatLayerEnabled();  // argc: 0, index: 1
     public void EnableCompat(bool enable);  // argc: 1, index: 2
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret GetAvailableCompatTools(CUtlStringList* compatTools);  // argc: 1, index: 3
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret GetAvailableCompatToolsFiltered(CUtlStringList* compatTools, ERemoteStoragePlatform platform);  // argc: 2, index: 4
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret GetAvailableCompatToolsForApp(CUtlStringList* compatTools, AppId_t appid);  // argc: 2, index: 5
     public unknown_ret SpecifyCompatTool(AppId_t appid, string toolName, string unk, int priority);  // argc: 4, index: 6
     public bool BIsCompatibilityToolEnabled(AppId_t appid);  // argc: 1, index: 7
     public string GetCompatToolName(AppId_t app);  // argc: 1, index: 8
     public int GetCompatToolMappingPriority(AppId_t appid);  // argc: 1, index: 9
-    public string GetCompatToolDisplayName(string name);  // argc: 1, index: 10
+    public string GetCompatToolDisplayName(string name);  // argc: 1, index: 10'
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret GetWhitelistedGameList(CUtlVector<AppWhitelistSetting_t>* compatTools);  // argc: 1, index: 11
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret GetControllerConfigOverrides();  // argc: 1, index: 12
     public UInt64 StartSession(AppId_t appid);  // argc: 1, index: 13
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!

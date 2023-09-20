@@ -36,6 +36,7 @@ public unsafe interface IClientShortcuts
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret SetShortcutAppName();  // argc: 2, index: 12
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret SetShortcutExe();  // argc: 3, index: 13
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret SetShortcutStartDir();  // argc: 2, index: 14
@@ -60,6 +61,7 @@ public unsafe interface IClientShortcuts
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret SetOpenVRShortcut();  // argc: 2, index: 24
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret SetDevkitShortcut();  // argc: 3, index: 25
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret SetFlatpakAppID();  // argc: 2, index: 26

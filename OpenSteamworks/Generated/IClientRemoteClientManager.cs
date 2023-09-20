@@ -36,6 +36,7 @@ public unsafe interface IClientRemoteClientManager
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret BGetStreamTransportSignal();  // argc: 2, index: 12
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret SendStreamTransportSignal();  // argc: 2, index: 13
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret ConnectToRemote();  // argc: 2, index: 14
@@ -145,6 +146,7 @@ public unsafe interface IClientRemoteClientManager
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret SetStreamingPIN();  // argc: 1, index: 74
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret GetStreamingPINSize();  // argc: 1, index: 75
     public unknown_ret UsedVideoX264();  // argc: 0, index: 76
     public unknown_ret UsedVideoH264();  // argc: 0, index: 77
@@ -175,8 +177,10 @@ public unsafe interface IClientRemoteClientManager
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret SetPerUserControllerInputEnabled();  // argc: 10, index: 91
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret GetPerUserInputSettings();  // argc: 10, index: 92
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret GetClientInputSettings();  // argc: 10, index: 93
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret OnClientUsedInput();  // argc: 10, index: 94

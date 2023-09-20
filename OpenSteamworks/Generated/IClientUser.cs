@@ -124,6 +124,7 @@ public unsafe interface IClientUser
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret GetLanguage();  // argc: 2, index: 66
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret TrackNatTraversalStat();  // argc: 1, index: 67
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret TrackSteamUsageEvent();  // argc: 3, index: 68
@@ -137,6 +138,7 @@ public unsafe interface IClientUser
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret GetCustomBinariesState();  // argc: 3, index: 73
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret RequestCustomBinaries();  // argc: 4, index: 74
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret SetCellID();  // argc: 1, index: 75
@@ -359,6 +361,7 @@ public unsafe interface IClientUser
     public unknown_ret BIsStreamingUIToRemoteDevice();  // argc: 0, index: 196
     public unknown_ret BIsCurrentlyNVStreaming();  // argc: 0, index: 197
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret OnBigPictureForStreamingStartResult();  // argc: 2, index: 198
     public unknown_ret OnBigPictureForStreamingDone();  // argc: 0, index: 199
     public unknown_ret OnBigPictureForStreamingRestarting();  // argc: 0, index: 200
@@ -444,7 +447,9 @@ public unsafe interface IClientUser
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret KillVRTheaterPancakeGame();  // argc: 1, index: 246
     public bool BIsAnyGameOrServiceAppRunning();  // argc: 0, index: 247
+    [BlacklistedInCrossProcessIPC]
     public bool BGetAppPlaytimeMap(CUtlMap<AppId_t, AppPlaytime_t>* vec);  // argc: 1, index: 248
+    [BlacklistedInCrossProcessIPC]
     public bool BGetAppsLastPlayedMap(CUtlMap<AppId_t, RTime32>* vec);  // argc: 1, index: 249
     /// <summary>
     /// App tags were the old version of the "categories" system in place now.
@@ -454,6 +459,7 @@ public unsafe interface IClientUser
     /// https://store.steampowered.com/account/userconfigstore
     /// As for how to get it programmatically, I have no idea.
     /// </summary>
+    [BlacklistedInCrossProcessIPC]
     public bool BGetAppTagsMap(CUtlMap<AppId_t, AppTags_t>* vec);  // argc: 1, index: 250
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret SendSteamServiceStatusUpdate();  // argc: 2, index: 251

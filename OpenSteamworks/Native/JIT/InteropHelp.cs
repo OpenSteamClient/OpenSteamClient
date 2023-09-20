@@ -57,6 +57,12 @@ namespace OpenSteamworks.Native.JIT
             handle.Free();
         }
 
+        public static void ThrowIfRemotePipe() {
+            if (SteamClient.instance != null && SteamClient.instance.NativeClient.ConnectedWith == SteamClient.ConnectionType.ExistingClient) {
+                throw new InvalidOperationException("This function cannot be called in cross-process contexts.");
+            }
+        }
+
         public class BitVector64
         {
             private UInt64 data;

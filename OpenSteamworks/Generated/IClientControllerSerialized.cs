@@ -37,6 +37,7 @@ public unsafe interface IClientControllerSerialized
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret DeactivateAllActionSetLayers();  // argc: 3, index: 12
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret GetActiveActionSetLayers();  // argc: 4, index: 13
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret GetDigitalActionHandle();  // argc: 3, index: 14
@@ -53,6 +54,7 @@ public unsafe interface IClientControllerSerialized
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret BCheckGameDirectoryAndReloadConfigIfNecessary();  // argc: 3, index: 20
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret GetActionManifestPath(bool unk1);  // argc: 1, index: 21
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret GetActionManifestPath(double unk1, bool unk2);  // argc: 2, index: 22
@@ -65,6 +67,7 @@ public unsafe interface IClientControllerSerialized
     public unknown_ret StopBindingVisualization();  // argc: 2, index: 26
     public unknown_ret GetNumConnectedControllers();  // argc: 0, index: 27
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret GetAllControllersStatus();  // argc: 1, index: 28
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret GetControllerDetails();  // argc: 1, index: 29
@@ -79,6 +82,7 @@ public unsafe interface IClientControllerSerialized
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret CalibrateIMU();  // argc: 1, index: 34
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret SetAudioMapping();  // argc: 2, index: 35
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret PlayAudio();  // argc: 2, index: 36
@@ -101,6 +105,7 @@ public unsafe interface IClientControllerSerialized
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret SetGyroCalibrating();  // argc: 2, index: 45
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret LoadConfigFromVDFString();  // argc: 7, index: 46
     public unknown_ret InvalidateBindingCache();  // argc: 0, index: 47
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
@@ -114,6 +119,7 @@ public unsafe interface IClientControllerSerialized
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret GetGamepadIndexForControllerIndex();  // argc: 1, index: 52
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret CreateBindingInstanceFromVDFString();  // argc: 1, index: 53
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret FreeBindingInstance();  // argc: 1, index: 54
@@ -144,10 +150,12 @@ public unsafe interface IClientControllerSerialized
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret GetLocalizationTokenCount();  // argc: 1, index: 67
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret GetLocalizationToken();  // argc: 3, index: 68
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret GetLocalizedString();  // argc: 2, index: 69
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret GetBindingSetting();  // argc: 3, index: 70
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret SetBindingSetting();  // argc: 3, index: 71
@@ -156,6 +164,7 @@ public unsafe interface IClientControllerSerialized
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret GetSourceGroupBindingCount();  // argc: 2, index: 73
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret GetSourceGroupBindingInfo();  // argc: 5, index: 74
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret SetSourceGroupBindingActive();  // argc: 5, index: 75
@@ -164,22 +173,29 @@ public unsafe interface IClientControllerSerialized
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret BAreLayerAndParentModesEquivalent();  // argc: 3, index: 77
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret GetGroupSetting();  // argc: 4, index: 78
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret SetGroupSetting();  // argc: 4, index: 79
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret GetGroupSettingDefault();  // argc: 4, index: 80
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret GetGroupSettingUIRange();  // argc: 5, index: 81
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret GetActivatorSetting();  // argc: 6, index: 82
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret SetActivatorSetting();  // argc: 6, index: 83
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret GetActivatorSettingDefault();  // argc: 6, index: 84
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret SetGroupBinding();  // argc: 7, index: 85
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret GetGroupBinding();  // argc: 7, index: 86
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret RemoveGroupBinding();  // argc: 4, index: 87
@@ -188,6 +204,7 @@ public unsafe interface IClientControllerSerialized
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret GetParentPresetForLayerPreset();  // argc: 3, index: 89
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret GetGroupActivatorsForInput();  // argc: 4, index: 90
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret ReplaceActivator();  // argc: 5, index: 91
@@ -200,14 +217,19 @@ public unsafe interface IClientControllerSerialized
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret IsActivatorSettingsDefault();  // argc: 4, index: 95
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret SetModeShiftBinding();  // argc: 5, index: 96
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret GetModeShiftBinding();  // argc: 6, index: 97
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret AddActionSet();  // argc: 2, index: 98
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret RenameActionSet();  // argc: 2, index: 99
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret DeleteActionSet();  // argc: 2, index: 100
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret GetBindingTitle();  // argc: 2, index: 101
@@ -228,6 +250,7 @@ public unsafe interface IClientControllerSerialized
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret GetBindingTypeForIndex();  // argc: 2, index: 109
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret GetConfigBindingInfo();  // argc: 2, index: 110
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret SetBindingControllerType();  // argc: 2, index: 111
@@ -250,8 +273,10 @@ public unsafe interface IClientControllerSerialized
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret SetBindingExportType();  // argc: 2, index: 120
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret GetConfigFeatures();  // argc: 2, index: 121
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret GetAllBindings();  // argc: 3, index: 122
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret BIsXInputActiveForController();  // argc: 1, index: 123
@@ -303,8 +328,10 @@ public unsafe interface IClientControllerSerialized
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret GetActualControllerDetails();  // argc: 2, index: 148
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret GetControllerIdentity();  // argc: 2, index: 149
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret GetControllerPersonalization();  // argc: 2, index: 150
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret GetControllerReverseDiamondLayout();  // argc: 1, index: 151
@@ -329,25 +356,34 @@ public unsafe interface IClientControllerSerialized
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret SetControllerKeyboardMouseState();  // argc: 2, index: 161
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret GetTouchKeysForPopupMenu();  // argc: 4, index: 162
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret PopupMenuTouchKeyClicked();  // argc: 3, index: 163
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret AccessControllerInputGeneratorMouseButton();  // argc: 3, index: 164
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret GetGameActionSets();  // argc: 2, index: 165
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret GetBaseGameActionSets();  // argc: 2, index: 166
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret GetLayerGameActionSets();  // argc: 2, index: 167
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret GetGameActionSetById();  // argc: 2, index: 168
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret SetControllerSetting();  // argc: 2, index: 169
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret GetEmulatedOutputState();  // argc: 0, index: 170
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret SetSelectedConfigForApp();  // argc: 7, index: 171
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret BControllerHasUniqueConfigForAppID();  // argc: 2, index: 172
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret DeRegisterController();  // argc: 2, index: 173
@@ -376,14 +412,17 @@ public unsafe interface IClientControllerSerialized
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret AutoRegisterControllerRegistrationToAccount();  // argc: 2, index: 186
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret GetConfigForAppAndController();  // argc: 4, index: 187
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret SetControllerPersonalization();  // argc: 4, index: 188
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret SetPersonalizationFile();  // argc: 4, index: 189
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret SetGameWindowPos();  // argc: 4, index: 190
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret GetGameWindowPos();  // argc: 4, index: 191
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret HasGameMapping();  // argc: 1, index: 192
@@ -402,14 +441,17 @@ public unsafe interface IClientControllerSerialized
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret LoadControllerPersonalizationFile();  // argc: 4, index: 201
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret SaveControllerPersonalizationFile();  // argc: 4, index: 202
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret LoadRemotePlayControllerPersonalizationVDF();  // argc: 2, index: 203
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret FindControllerByPath();  // argc: 1, index: 204
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret GetControllerPath();  // argc: 2, index: 205
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret GetControllerProductName();  // argc: 2, index: 206
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret SetControllerHapticsSetting();  // argc: 2, index: 207
@@ -420,6 +462,7 @@ public unsafe interface IClientControllerSerialized
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret BGetTouchConfigData();  // argc: 6, index: 210
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret BSaveTouchConfigLayout();  // argc: 3, index: 211
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret SetGyroOn();  // argc: 3, index: 212

@@ -203,6 +203,7 @@ public unsafe interface IClientUGC
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret GetDownloadedItems();  // argc: 3, index: 95
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret GetFullQueryUGCResponse();  // argc: 3, index: 96
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret GetSerializedQueryUGCResponse();  // argc: 3, index: 97

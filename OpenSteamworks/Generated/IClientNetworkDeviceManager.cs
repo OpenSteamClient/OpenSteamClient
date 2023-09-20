@@ -35,6 +35,7 @@ public unsafe interface IClientNetworkDeviceManager
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret SetProxyInfo();  // argc: 3, index: 12
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret GetProxyInfo();  // argc: 4, index: 13
     public unknown_ret GetObviousConnectivityProblem();  // argc: 0, index: 14
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!

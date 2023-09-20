@@ -85,6 +85,7 @@ public unsafe interface IClientAppManager
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret GetActiveBeta();  // argc: 3, index: 38
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret BGetActiveBetaForApps();  // argc: 2, index: 39
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret SetDownloadingEnabled();  // argc: 1, index: 40
@@ -142,6 +143,7 @@ public unsafe interface IClientAppManager
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret GetAppStateInfo();  // argc: 2, index: 70
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret BGetAppStateInfoForApps();  // argc: 2, index: 71
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret BIsAvailableOnPlatform();  // argc: 2, index: 72
@@ -157,6 +159,7 @@ public unsafe interface IClientAppManager
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret RemoveLibraryFolder();  // argc: 3, index: 80
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret BGetLibraryFolderInfo();  // argc: 4, index: 81
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret GetAppLibraryFolder();  // argc: 1, index: 82

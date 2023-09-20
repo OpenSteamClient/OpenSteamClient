@@ -194,9 +194,11 @@ public unsafe interface IClientRemoteStorage
     public unknown_ret BeginFileWriteBatch();  // argc: 1, index: 95
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret EndFileWriteBatch();  // argc: 1, index: 96
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret GetCloudEnabledForAppMap(CUtlMap<AppId_t, bool>* map);  // argc: 1, index: 97
     /// <summary>
     /// This could be an enum.
     /// </summary>
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret GetLastKnownSyncStateMap(CUtlMap<AppId_t, uint>* map);  // argc: 2, index: 98
 }

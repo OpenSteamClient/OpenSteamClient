@@ -192,6 +192,7 @@ public unsafe interface IClientMusic
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret SetDisplayName();  // argc: 1, index: 107
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret SetPNGIcon_64x64();  // argc: 2, index: 108
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret EnablePlayPrevious();  // argc: 1, index: 109
@@ -221,6 +222,7 @@ public unsafe interface IClientMusic
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret UpdateCurrentEntryElapsedSeconds();  // argc: 1, index: 122
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret UpdateCurrentEntryCoverArt();  // argc: 2, index: 123
     public unknown_ret CurrentEntryDidChange();  // argc: 0, index: 124
     public unknown_ret QueueWillChange();  // argc: 0, index: 125

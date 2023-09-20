@@ -19,6 +19,7 @@ public unsafe interface IClientDepotBuilder
     // WARNING: Do not use this function! Unknown behaviour will occur!
     public unknown_ret Unknown_2_DONTUSE();  // argc: -1, index: 3
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret DownloadChunk();  // argc: 3, index: 4
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret StartDepotBuild();  // argc: 4, index: 5

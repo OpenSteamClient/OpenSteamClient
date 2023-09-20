@@ -82,6 +82,7 @@ public unsafe interface IClientVideo
     public unknown_ret AddTimelineMarker();  // argc: 5, index: 44
     public unknown_ret RemoveTimelineMarker();  // argc: 0, index: 45
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret AddRegion();  // argc: 4, index: 46
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret RemoveRegion();  // argc: 1, index: 47
@@ -92,12 +93,14 @@ public unsafe interface IClientVideo
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret GetOPFStringForApp();  // argc: 4, index: 50
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret WebRTCGetTURNAddress();  // argc: 1, index: 51
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret WebRTCStartResult();  // argc: 4, index: 52
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret WebRTCAddCandidate();  // argc: 5, index: 53
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret WebRTCGetAnswer();  // argc: 3, index: 54
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret AddTimelineHighlightMarker();  // argc: 4, index: 9

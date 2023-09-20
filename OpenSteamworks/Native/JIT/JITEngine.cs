@@ -294,6 +294,12 @@ namespace OpenSteamworks.Native.JIT
             builder.DefineMethodOverride(mbuilder, method.MethodInfo);
 
             ILGenerator ilgen = mbuilder.GetILGenerator();
+            
+            // Emit a call to ThrowIfRemotePipe if we have BlacklistedInCrossProcessIPCAttribute
+            if (method.MethodInfo.GetCustomAttributes(typeof(BlacklistedInCrossProcessIPCAttribute), false).Any()) {
+                Console.WriteLine("Emitting call to ThrowIfRemotePipe");
+                ilgen.EmitCall(OpCodes.Call, typeof(InteropHelp).GetMethod(nameof(InteropHelp.ThrowIfRemotePipe))!, null);
+            }
 
             // load object pointer
             EmitPlatformLoad(ilgen, objectptr);
@@ -312,11 +318,13 @@ namespace OpenSteamworks.Native.JIT
                     //BLOCKED: Add this when this function is reimplemented in .NET Core
                     //localArg.SetLocalSymInfo("byrefarg" + argindex);
 
-                    var helper = new MethodState.RefArgLocal();
-                    helper.builder = localArg;
-                    helper.argIndex = argindex;
-                    helper.paramType = typeInfo.PierceType;
-                    
+                    var helper = new MethodState.RefArgLocal
+                    {
+                        builder = localArg,
+                        argIndex = argindex,
+                        paramType = typeInfo.PierceType
+                    };
+
                     state.refargLocals.Add(helper);
                     ilgen.Emit(OpCodes.Ldloca_S, localArg);
                 }

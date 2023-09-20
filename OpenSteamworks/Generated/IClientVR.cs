@@ -12,10 +12,15 @@ namespace OpenSteamworks.Generated;
 
 public unsafe interface IClientVR
 {
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret GetCurrentHmd();  // argc: 0, index: 1
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret GetCompositor();  // argc: 0, index: 2
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret GetOverlay();  // argc: 0, index: 3
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret GetChaperone();  // argc: 0, index: 4
+    [BlacklistedInCrossProcessIPC]
     public unknown_ret GetSettings();  // argc: 0, index: 5
     public unknown_ret GetProperties();  // argc: 0, index: 6
     public unknown_ret GetPaths();  // argc: 0, index: 7
