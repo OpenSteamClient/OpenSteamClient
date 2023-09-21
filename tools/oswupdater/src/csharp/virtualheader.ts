@@ -50,7 +50,7 @@ export class VirtualHeader {
     private lastClassLine = -1;
     public functions: VirtualFunction[] = [];
 
-    // Creates stub file and returns the line number of "public interface ClassName"
+    // Creates stub file and returns the line number of "public unsafe interface ClassName"
     private static CreateStubFile(path: string, classname: string): number {
         var fullText = "";
         var ret: number = 0;
@@ -68,7 +68,7 @@ export class VirtualHeader {
         fullText += `\n`
         fullText += "namespace OpenSteamworks.Generated;\n"
         fullText += "\n"
-        fullText += `public interface ${classname}\n`
+        fullText += `public unsafe interface ${classname}\n`
         ret = fullText.length;
         fullText += "{\n"
         fullText += "}\n"
@@ -101,7 +101,7 @@ export class VirtualHeader {
         if (!fs.existsSync(this.loadedFrom)) {
             throw "Original file doesn't exist, cannot overwrite."
         }
-
+        
         if (this.firstClassLine == -1) {
             throw "We don't know the first class line. Cannot overwrite."
         }
@@ -151,7 +151,7 @@ export class VirtualHeader {
 
     ToString(): string {
         var fullStr = "";
-        fullStr += `public interface ${this.name}\n`
+        fullStr += `public unsafe interface ${this.name}\n`
         fullStr += "{\n"
         for (const func of this.functions) {
             fullStr += VirtualFunction_ToString(func, "    ") + "\n";
@@ -276,7 +276,7 @@ export class VirtualHeader {
             console.group();
 
             // Find the first line where the interface is
-            if (header.firstClassLine == -1 && textTrimmed.startsWith(`public interface ${abstract_class_name}`)) {
+            if (header.firstClassLine == -1 && textTrimmed.startsWith(`public unsafe interface ${abstract_class_name}`)) {
                 lastProcessedLine = line+1;
                 header.firstClassLine = line;
                 currentlyInHeader = true;

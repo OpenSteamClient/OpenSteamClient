@@ -186,6 +186,7 @@ public unsafe interface IClientUser
     public AppId_t IsInstallScriptRunning();  // argc: 0, index: 102
     public bool GetInstallScriptState(ref string pchDescription, UInt32 cchDescription, ref UInt32 punNumSteps, ref UInt32 punCurrStep);  // argc: 4, index: 103
     public unknown_ret StopInstallScript(AppId_t appid);  // argc: 1, index: 104
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret SpawnProcess(string lpApplicationName, string lpCommandLine, string lpCurrentDirectory, CGameID gameID, string pchGameName, UInt32 uUnk, UInt32 uUnk2, UInt32 uUnk3);  // argc: 9, index: 105
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret GetAppOwnershipTicketLength(AppId_t app);  // argc: 1, index: 106

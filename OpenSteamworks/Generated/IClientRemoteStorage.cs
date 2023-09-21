@@ -200,5 +200,6 @@ public unsafe interface IClientRemoteStorage
     /// This could be an enum.
     /// </summary>
     [BlacklistedInCrossProcessIPC]
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret GetLastKnownSyncStateMap(CUtlMap<AppId_t, uint>* map);  // argc: 2, index: 98
 }

@@ -1,126 +1,126 @@
 {
     "name": "IClientShaderMap",
-    "found_at": "0x23aab80",
+    "found_at": "0x23a9330",
     "functions": [ 
         {
             "name": "BIsShaderManagementEnabled",
             "argc": "1",
-            "addr": "0x60f940"
+            "addr": "0x61c630"
         },
         {
             "name": "BIsShaderBackgroundProcessingEnabled",
             "argc": "1",
-            "addr": "0x60faa0"
+            "addr": "0x61c790"
         },
         {
             "name": "EnableShaderManagement",
             "argc": "2",
-            "addr": "0x60fc00"
+            "addr": "0x61c8f0"
         },
         {
             "name": "EnableShaderBackgroundProcessing",
             "argc": "2",
-            "addr": "0x60fd50"
+            "addr": "0x61ca40"
         },
         {
             "name": "GetShaderDepotsTotalDiskUsage",
             "argc": "1",
-            "addr": "0x60fea0"
+            "addr": "0x61cb90"
         },
         {
             "name": "GetShaderCacheDiskSize",
             "argc": "2",
-            "addr": "0x610020"
+            "addr": "0x61cd10"
         },
         {
             "name": "StartShaderScan",
             "argc": "3",
-            "addr": "0x6101b0"
+            "addr": "0x61cea0"
         },
         {
             "name": "StartPipelineBuild",
             "argc": "3",
-            "addr": "0x610300"
+            "addr": "0x61cff0"
         },
         {
             "name": "StartShaderConversion",
             "argc": "5",
-            "addr": "0x610460"
+            "addr": "0x61d150"
         },
         {
             "name": "StartShaderPruning",
             "argc": "1",
-            "addr": "0x610640"
+            "addr": "0x61d330"
         },
         {
             "name": "ProcessShaderCache",
             "argc": "2",
-            "addr": "0x610770"
+            "addr": "0x61d460"
         },
         {
             "name": "GetShaderCacheProcessingCompletion",
             "argc": "1",
-            "addr": "0x6108f0"
+            "addr": "0x61d5e0"
         },
         {
             "name": "GetShaderCacheProcessingAppID",
             "argc": "1",
-            "addr": "0x610a50"
+            "addr": "0x61d740"
         },
         {
             "name": "SkipShaderProcessing",
             "argc": "2",
-            "addr": "0x610bb0"
+            "addr": "0x61d8a0"
         },
         {
             "name": "BAppHasPendingShaderContentDownload",
             "argc": "2",
-            "addr": "0x610d00"
+            "addr": "0x61d9f0"
         },
         {
             "name": "GetAppPendingShaderDownloadSize",
             "argc": "2",
-            "addr": "0x610e80"
+            "addr": "0x61db70"
         },
         {
             "name": "GetBucketManifest",
             "argc": "4",
-            "addr": "0x611010"
+            "addr": "0x61dd00"
         },
         {
             "name": "GetStaleBucket",
             "argc": "3",
-            "addr": "0x6111c0"
+            "addr": "0x61deb0"
         },
         {
             "name": "ReportExternalBuild",
             "argc": "10",
-            "addr": "0x611350"
+            "addr": "0x61e040"
         },
         {
             "name": "PrepopulatePrecompiledCache",
             "argc": "8",
-            "addr": "0x611760"
+            "addr": "0x61e450"
         },
         {
             "name": "WritePrecompiledCache",
             "argc": "5",
-            "addr": "0x611940"
+            "addr": "0x61e630"
         },
         {
             "name": "CompileShaders",
             "argc": "5",
-            "addr": "0x6115a0"
+            "addr": "0x61e290"
         },
         {
             "name": "GetShaderBucketForGraphicsAPI",
             "argc": "3",
-            "addr": "0x611c40"
+            "addr": "0x61e930"
         },
         {
             "name": "EnableShaderManagementSystem",
             "argc": "2",
-            "addr": "0x611af0"
+            "addr": "0x61e7e0"
         }
     ]
 }

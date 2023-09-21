@@ -19,7 +19,7 @@ public class Connection : IDisposable {
         public DateTime removalTime;
         internal StoredMessage(byte[] fullMsg) {
             this.fullMsg = fullMsg;
-            this.removalTime = DateTime.Now.AddMinutes(1);
+            this.removalTime = DateTime.UtcNow.AddMinutes(1);
             using (var stream = new MemoryStream(fullMsg)) {
                 // The steamclient is a strange beast. A 64-bit library compiled for little endian.
                 using (var reader = new EndianAwareBinaryReader(stream, Encoding.UTF8, EndianAwareBinaryReader.Endianness.Little))
@@ -209,7 +209,7 @@ public class Connection : IDisposable {
                 }
 
                 // Remove messages that haven't been retrieved in one minute
-                this.storedMessages.RemoveAll(item => DateTime.Now > item.removalTime);
+                this.storedMessages.RemoveAll(item => DateTime.UtcNow > item.removalTime);
             }
 
             buffer.Free();

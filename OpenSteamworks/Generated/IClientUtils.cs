@@ -100,7 +100,6 @@ public unsafe interface IClientUtils
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret GetControllerConfigFileForAppID();  // argc: 3, index: 55
     public unknown_ret IsSteamRunningInVR();  // argc: 0, index: 56
-    public unknown_ret BIsRunningOnAlienwareAlpha();  // argc: 0, index: 57
     public unknown_ret StartVRDashboard();  // argc: 0, index: 58
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret IsVRHeadsetStreamingEnabled();  // argc: 1, index: 59
@@ -190,4 +189,6 @@ public unsafe interface IClientUtils
     public unknown_ret DumpHTTPClients();  // argc: 1, index: 107
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret BGetMachineID();  // argc: 1, index: 108
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    public unknown_ret NotifyMissingInterface();  // argc: 1, index: 6
 }

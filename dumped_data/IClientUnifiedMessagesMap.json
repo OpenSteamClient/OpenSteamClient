@@ -1,31 +1,31 @@
 {
     "name": "IClientUnifiedMessagesMap",
-    "found_at": "0x23aa130",
+    "found_at": "0x23a88e0",
     "functions": [ 
         {
             "name": "SendMethod",
             "argc": "6",
-            "addr": "0x5d2740"
+            "addr": "0x5df410"
         },
         {
             "name": "GetMethodResponseInfo",
             "argc": "5",
-            "addr": "0x5d2930"
+            "addr": "0x5df600"
         },
         {
             "name": "GetMethodResponseData",
             "argc": "6",
-            "addr": "0x5d2af0"
+            "addr": "0x5df7c0"
         },
         {
             "name": "ReleaseMethod",
             "argc": "3",
-            "addr": "0x5d2cc0"
+            "addr": "0x5df990"
         },
         {
             "name": "SendNotification",
             "argc": "4",
-            "addr": "0x5d2e50"
+            "addr": "0x5dfb20"
         }
     ]
 }

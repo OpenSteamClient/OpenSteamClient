@@ -54,9 +54,10 @@ int main(int argc, char *argv[]) {
     // Init is (always?) the first function exported in an ELF (libraries and executables).
     void *initPtr = dlsym(dl_handle, "_init");
 
-    // 0x45f70 (addr of SteamServiceInternal_StartThread) - 0x10000(base of steamservice.so)
+    // 0047e20
+    // 0x47e20 (addr of SteamServiceInternal_StartThread) - 0x10000(base of steamservice.so)
     // 0x5ee50
-    uintptr_t offset = 0x37E30;
+    uintptr_t offset = 0x47e20 - 0x10000;
     if (initPtr == nullptr) {
         std::cerr << "InitPtr == nullptr!!!" << std::endl;
         return 1;
@@ -95,6 +96,7 @@ int main(int argc, char *argv[]) {
     std::cout << "Service ptr " << servicePtr << std::endl;
     
     // true, false, true is the one used on windows, on linux it is false, false, true by default
+    // true, true, true is also valid, but what does it do?
     int returnCode = SteamServiceInternal_StartThread(servicePtr, ipcName.c_str(), true, false, true);
 
     std::cout << "SteamService_ptr is " << servicePtr << std::endl;

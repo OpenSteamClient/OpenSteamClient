@@ -146,8 +146,6 @@ public unsafe interface IClientAppManager
     [BlacklistedInCrossProcessIPC]
     public unknown_ret BGetAppStateInfoForApps();  // argc: 2, index: 71
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret BIsAvailableOnPlatform();  // argc: 2, index: 72
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret BCanRemotePlayTogether();  // argc: 1, index: 73
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret BIsLocalMultiplayerApp();  // argc: 1, index: 74
@@ -208,4 +206,6 @@ public unsafe interface IClientAppManager
     public unknown_ret SuspendPeerContentServer();  // argc: 1, index: 106
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret GetPeerContentServerForApp();  // argc: 3, index: 107
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    public unknown_ret NotifyDriveRemoved();  // argc: 1, index: 4
 }

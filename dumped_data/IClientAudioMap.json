@@ -1,61 +1,61 @@
 {
     "name": "IClientAudioMap",
-    "found_at": "0x23a9e98",
+    "found_at": "0x23a8648",
     "functions": [ 
         {
             "name": "StartVoiceRecording",
             "argc": "1",
-            "addr": "0x5c3940"
+            "addr": "0x5d0610"
         },
         {
             "name": "StopVoiceRecording",
             "argc": "1",
-            "addr": "0x5c3a70"
+            "addr": "0x5d0740"
         },
         {
             "name": "ResetVoiceRecording",
             "argc": "1",
-            "addr": "0x5c3ba0"
+            "addr": "0x5d0870"
         },
         {
             "name": "GetAvailableVoice",
             "argc": "4",
-            "addr": "0x5c42b0"
+            "addr": "0x5d0f80"
         },
         {
             "name": "GetVoice",
             "argc": "10",
-            "addr": "0x5c4460"
+            "addr": "0x5d1130"
         },
         {
             "name": "GetCompressedVoice",
             "argc": "4",
-            "addr": "0x5c4100"
+            "addr": "0x5d0dd0"
         },
         {
             "name": "DecompressVoice",
             "argc": "7",
-            "addr": "0x5c46c0"
+            "addr": "0x5d1390"
         },
         {
             "name": "GetVoiceOptimalSampleRate",
             "argc": "1",
-            "addr": "0x6173e0"
+            "addr": "0x623d40"
         },
         {
             "name": "BAppUsesVoice",
             "argc": "2",
-            "addr": "0x5c3cd0"
+            "addr": "0x5d09a0"
         },
         {
             "name": "GetGameSystemVolume",
             "argc": "1",
-            "addr": "0x5c3e50"
+            "addr": "0x5d0b20"
         },
         {
             "name": "SetGameSystemVolume",
             "argc": "2",
-            "addr": "0x5c3fb0"
+            "addr": "0x5d0c80"
         }
     ]
 }

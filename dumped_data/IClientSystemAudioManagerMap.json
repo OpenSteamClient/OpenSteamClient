@@ -1,21 +1,21 @@
 {
     "name": "IClientSystemAudioManagerMap",
-    "found_at": "0x23a9990",
+    "found_at": "0x23a8140",
     "functions": [ 
         {
             "name": "IsInterfaceValid",
             "argc": "1",
-            "addr": "0x5a51e0"
+            "addr": "0x5b1eb0"
         },
         {
             "name": "GetState",
             "argc": "3",
-            "addr": "0x5a5340"
+            "addr": "0x5b2010"
         },
         {
             "name": "UpdateSomething",
             "argc": "2",
-            "addr": "0x5a54d0"
+            "addr": "0x5b21a0"
         }
     ]
 }

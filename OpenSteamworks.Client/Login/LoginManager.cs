@@ -297,6 +297,10 @@ public class LoginManager : Component
     }
 
     public bool TryAutologin() {
+        if (this.IsLoggedOn()) {
+            return true;
+        }
+        
         var autologinUser = this.loginUsers.GetAutologin();
         if (autologinUser == null) {
             Console.WriteLine("Cannot autologin, no autologin user.");

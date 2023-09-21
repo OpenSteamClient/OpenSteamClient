@@ -9,6 +9,7 @@ namespace OpenSteamworks.Client.Startup;
 
 public class SteamHTML : Component {
     public bool ShouldStop = false;
+    public object CurrentHTMLHostLock = new();
     public Process? CurrentHTMLHost;
     public Thread? WatcherThread;
     private SteamClient steamClient;
@@ -21,36 +22,38 @@ public class SteamHTML : Component {
 
     [SupportedOSPlatform("linux")]
     public void StartHTMLHost(string pathToHost, string cacheDir) {
-        CurrentHTMLHost = new Process();
-        CurrentHTMLHost.StartInfo.WorkingDirectory = Path.GetDirectoryName(pathToHost);
-        CurrentHTMLHost.StartInfo.FileName = pathToHost;
-        CurrentHTMLHost.StartInfo.Environment.Add("OPENSTEAM_PID", Environment.ProcessId.ToString());
-        CurrentHTMLHost.StartInfo.Environment.Add("LD_LIBRARY_PATH", $".:{Environment.GetEnvironmentVariable("LD_LIBRARY_PATH")}");
-        CurrentHTMLHost.StartInfo.Environment.Add("LD_PRELOAD", $"/tmp/libhtmlhost_fakepid.so:/tmp/libbootstrappershim32.so:{Environment.GetEnvironmentVariable("LD_PRELOAD")}");
-        CurrentHTMLHost.StartInfo.ArgumentList.Add(cacheDir);
+        lock (CurrentHTMLHostLock)
+        {
+            CurrentHTMLHost = new Process();
+            CurrentHTMLHost.StartInfo.WorkingDirectory = Path.GetDirectoryName(pathToHost);
+            CurrentHTMLHost.StartInfo.FileName = pathToHost;
+            CurrentHTMLHost.StartInfo.Environment.Add("OPENSTEAM_PID", Environment.ProcessId.ToString());
+            CurrentHTMLHost.StartInfo.Environment.Add("LD_LIBRARY_PATH", $".:{Environment.GetEnvironmentVariable("LD_LIBRARY_PATH")}");
+            CurrentHTMLHost.StartInfo.Environment.Add("LD_PRELOAD", $"/tmp/libhtmlhost_fakepid.so:/tmp/libbootstrappershim32.so:{Environment.GetEnvironmentVariable("LD_PRELOAD")}");
+            CurrentHTMLHost.StartInfo.ArgumentList.Add(cacheDir);
 
-        // We don't use steam-runtime-heavy
-        CurrentHTMLHost.StartInfo.Environment.Add("STEAM_RUNTIME", $"0");
-        
-        CurrentHTMLHost.Start();
+            // We don't use steam-runtime-heavy
+            CurrentHTMLHost.StartInfo.Environment.Add("STEAM_RUNTIME", $"0");
+            
+            CurrentHTMLHost.Start();
 
-        if (WatcherThread == null) {
-            WatcherThread = new Thread(() => {
-                do
-                {
-                    if (CurrentHTMLHost.HasExited) {
-                        Console.WriteLine("htmlhost crashed! Restarting in 1s.");
-                        System.Threading.Thread.Sleep(1000);
-                        StartHTMLHost(pathToHost, cacheDir);
-                    }
-                    System.Threading.Thread.Sleep(50);
-                } while (!ShouldStop);
-                CurrentHTMLHost.Kill();
-                WatcherThread = null;
-            });
-            WatcherThread.Start();
+            if (WatcherThread == null) {
+                WatcherThread = new Thread(() => {
+                    do
+                    {
+                        if (CurrentHTMLHost.HasExited) {
+                            Console.WriteLine("htmlhost crashed! Restarting in 1s.");
+                            System.Threading.Thread.Sleep(1000);
+                            StartHTMLHost(pathToHost, cacheDir);
+                        }
+                        System.Threading.Thread.Sleep(50);
+                    } while (!ShouldStop);
+                    CurrentHTMLHost.Kill();
+                    WatcherThread = null;
+                });
+                WatcherThread.Start();
+            }
         }
-        
     }
 
     public override async Task RunShutdown() {

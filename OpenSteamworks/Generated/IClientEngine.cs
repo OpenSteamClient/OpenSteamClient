@@ -69,7 +69,6 @@ public unsafe interface IClientEngine {
 	public IClientProductBuilder GetIClientProductBuilder( HSteamUser hSteamUser, HSteamPipe hSteamPipe );
 	public IClientDepotBuilder GetIClientDepotBuilder( HSteamUser hSteamUser, HSteamPipe hSteamPipe );
 	public IClientNetworkDeviceManager GetIClientNetworkDeviceManager( HSteamPipe hSteamPipe );
-	public IClientStorageDeviceManager GetIClientStorageDeviceManager( HSteamPipe hSteamPipe );
 	public IClientSystemPerfManager GetIClientSystemPerfManager( HSteamPipe hSteamPipe );
 	public IClientSystemManager GetIClientSystemManager( HSteamPipe hSteamPipe );
 	public IClientSystemDockManager GetIClientSystemDockManager( HSteamPipe hSteamPipe );
