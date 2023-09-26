@@ -69,14 +69,11 @@ public class CallbackManager
                             LogCallbackData(obj, type);
 
                             // Send to listeners if any exist
-                            Console.WriteLine("Handler count: " + this.handlers.Count);
                             if (GetHandlersForId(msg.m_iCallback, out List<Delegate>? handlers)) {
                                 foreach (var handler in handlers)
                                 {
                                     handler?.DynamicInvoke(obj);
                                 }
-                            } else {
-                                Console.WriteLine("No handler for " + msg.m_iCallback);
                             }
                         } else {
                             //TODO: logger

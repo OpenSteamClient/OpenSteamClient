@@ -7,7 +7,7 @@ using OpenSteamworks.Structs;
 namespace OpenSteamworks.Callbacks.Structs;
 
 [StructLayout(LayoutKind.Sequential, Pack = 8)]
-internal unsafe struct AppLicensesChanged_t
+public unsafe struct AppLicensesChanged_t
 {
 	public bool bReloadAll;
 	public UInt32 m_unAppsUpdated;

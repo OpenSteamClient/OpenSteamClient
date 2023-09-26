@@ -19,10 +19,8 @@ public unsafe interface IClientAppManager
     public EAppUpdateError UninstallApp(AppId_t unAppID);  // argc: 1, index: 2
     public EAppUpdateError LaunchApp(in CGameID gameID, uint uLaunchOption, ELaunchSource eLaunchSource, string pszUserArgs);  // argc: 4, index: 3
     public unknown_ret ShutdownApp(AppId_t appId, bool force);  // argc: 2, index: 4
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret GetAppInstallState();  // argc: 1, index: 5
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret GetAppInstallDir();  // argc: 3, index: 6
+    public unknown_ret GetAppInstallState(AppId_t appid);  // argc: 1, index: 5
+    public unknown_ret GetAppInstallDir(AppId_t appid, StringBuilder path, uint pathMax);  // argc: 3, index: 6
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret GetAppContentInfo();  // argc: 6, index: 7
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
@@ -45,54 +43,36 @@ public unsafe interface IClientAppManager
     public unknown_ret BIsWaitingForInstalledApps();  // argc: 0, index: 17
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret GetAppDependencies();  // argc: 3, index: 18
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret GetDependentApps();  // argc: 3, index: 19
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret GetUpdateInfo();  // argc: 2, index: 20
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret GetAppConfigValue();  // argc: 4, index: 21
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret SetAppConfigValue();  // argc: 3, index: 22
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret BIsAppUpToDate();  // argc: 1, index: 23
+    public unknown_ret GetDependentApps(AppId_t app, AppId_t[] dependantApps, int dependantAppsMax);  // argc: 3, index: 19
+    public unknown_ret GetUpdateInfo(AppId_t app, AppUpdateInfo_s* updateInfo);  // argc: 2, index: 20
+    public unknown_ret GetAppConfigValue(AppId_t app, string configKey, StringBuilder configValue, int maxConfigValue);  // argc: 4, index: 21
+    public unknown_ret SetAppConfigValue(AppId_t app, string configKey, string configValue);  // argc: 3, index: 22
+    public bool BIsAppUpToDate(AppId_t app);  // argc: 1, index: 23
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret GetAvailableLanguages();  // argc: 4, index: 24
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret GetCurrentLanguage(AppId_t app, ref string outLang, uint unk1);  // argc: 3, index: 25
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public ELanguage GetCurrentLanguage(AppId_t app);  // argc: 1, index: 26
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret GetFallbackLanguage();  // argc: 2, index: 27
     public unknown_ret SetCurrentLanguage(AppId_t app, ELanguage language);  // argc: 2, index: 28
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret StartValidatingApp(AppId_t app);  // argc: 1, index: 29
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret CancelValidation();  // argc: 1, index: 30
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret MarkContentCorrupt();  // argc: 2, index: 31
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret GetInstalledDepots();  // argc: 3, index: 32
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret GetFileDetails();  // argc: 2, index: 33
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret VerifySignedFiles();  // argc: 1, index: 34
+    public unknown_ret CancelValidation(AppId_t app);  // argc: 1, index: 30
+    public unknown_ret MarkContentCorrupt(AppId_t app, bool corrupt);  // argc: 2, index: 31
+    public unknown_ret GetInstalledDepots(AppId_t appid, uint[] depots, int depotsLen);  // argc: 3, index: 32
+    public unknown_ret GetFileDetails(AppId_t appid, string file);  // argc: 2, index: 33
+    public unknown_ret VerifySignedFiles(AppId_t appid);  // argc: 1, index: 34
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret GetAvailableBetas();  // argc: 5, index: 35
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret CheckBetaPassword();  // argc: 2, index: 36
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret BHasCachedBetaPassword();  // argc: 2, index: 37
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret GetActiveBeta();  // argc: 3, index: 38
+    public unknown_ret CheckBetaPassword(AppId_t appid, string betaPassword);  // argc: 2, index: 36
+    public unknown_ret BHasCachedBetaPassword(AppId_t appid, string betaName);  // argc: 2, index: 37
+    public unknown_ret GetActiveBeta(AppId_t appid, StringBuilder betaOut, int betaOutLen);  // argc: 3, index: 38
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     [BlacklistedInCrossProcessIPC]
     public unknown_ret BGetActiveBetaForApps();  // argc: 2, index: 39
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret SetDownloadingEnabled();  // argc: 1, index: 40
-    public unknown_ret BIsDownloadingEnabled();  // argc: 0, index: 41
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret GetDownloadStats();  // argc: 1, index: 42
-    public unknown_ret GetDownloadingAppID();  // argc: 0, index: 43
+    public unknown_ret SetDownloadingEnabled(bool enabled);  // argc: 1, index: 40
+    public bool BIsDownloadingEnabled();  // argc: 0, index: 41
+    public unknown_ret GetDownloadStats(DownloadStats_s* stats);  // argc: 1, index: 42
+    public AppId_t GetDownloadingAppID();  // argc: 0, index: 43
     public unknown_ret GetAutoUpdateTimeRestrictionEnabled();  // argc: 0, index: 44
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret SetAutoUpdateTimeRestrictionEnabled();  // argc: 1, index: 45
@@ -141,6 +121,10 @@ public unsafe interface IClientAppManager
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret CancelMoveApp();  // argc: 1, index: 69
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    /// <summary>
+    /// Called by ValveSteam 440 times.
+    /// </summary>
+    /// <returns></returns>
     public unknown_ret GetAppStateInfo();  // argc: 2, index: 70
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     [BlacklistedInCrossProcessIPC]

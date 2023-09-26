@@ -40,4 +40,11 @@ public static class UtilityFunctions {
         Assert(val != null, $"{valStr} != null");
         return val;
     }
+
+    private static readonly Random random = new();
+    public static string GenerateRandomString(int length)
+    {
+        const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        return new string(Enumerable.Repeat(chars, length).Select(s => s[random.Next(s.Length)]).ToArray());
+    }
 }

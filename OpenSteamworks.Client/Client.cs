@@ -39,7 +39,6 @@ public class Client : Component
         Container.RegisterComponentFactoryMethod<SteamClient>(() => new SteamClient(Container.GetComponent<Bootstrapper>().SteamclientLibPath, Container.GetComponent<AdvancedConfig>().EnabledConnectionTypes));
         
         Container.RegisterComponentFactoryMethod<CallbackManager>((SteamClient client) => client.CallbackManager);
-        Container.RegisterComponentFactoryMethod<ClientApps>((SteamClient client) => client.ClientApps);
         Container.RegisterComponentFactoryMethod<ClientConfigStore>((SteamClient client) => client.ClientConfigStore);
         Container.RegisterComponentFactoryMethod<ClientMessaging>((SteamClient client) => client.ClientMessaging);
         Container.RegisterComponentFactoryMethod<IClientAppDisableUpdate>((SteamClient client) => client.NativeClient.IClientAppDisableUpdate);

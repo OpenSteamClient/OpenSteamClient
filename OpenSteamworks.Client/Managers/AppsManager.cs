@@ -1,294 +1,248 @@
 
+using System.Collections.Concurrent;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
+using System.Numerics;
+using System.Text;
+using System.Text.Json;
+using System.Text.Json.Nodes;
 using OpenSteamworks;
 using OpenSteamworks.Attributes;
 using OpenSteamworks.Callbacks.Structs;
+using OpenSteamworks.Client.Utils;
 using OpenSteamworks.Client.Utils.Interfaces;
+using OpenSteamworks.ClientInterfaces;
+using OpenSteamworks.Enums;
 using OpenSteamworks.Generated;
+using OpenSteamworks.Messaging;
 using OpenSteamworks.NativeTypes;
+using OpenSteamworks.Structs;
 
 namespace OpenSteamworks.Client.Managers;
 
-public class JSONFilterGroup {
-    /// <summary>
-    /// Probably an enum of some sort.
-    /// </summary>
-    public List<int> rgOptions { get; set; } = new();
-    public bool bAcceptUnion { get; set; } = false;
+public class AppPlaytimeChangedEventArgs : EventArgs {
+    public AppPlaytimeChangedEventArgs(uint appid, AppPlaytime_t playtime) { AppID = appid; PlaytimeAllTime = TimeSpan.FromMinutes(playtime.AllTime); PlaytimeLastTwoWeeks = TimeSpan.FromMinutes(playtime.LastTwoWeeks); }
+    public uint AppID { get; }
+    public TimeSpan PlaytimeAllTime { get; }
+    public TimeSpan PlaytimeLastTwoWeeks { get; }
 }
 
-public class JSONFilterSpec {
-    public int nFormatVersion { get; set; } = 2;
-    public string strSearchText { get; set; } = "";
-    public List<JSONFilterGroup> filterGroups { get; set; } = new();
-    public List<object>? setSuggestions { get; set; } = new();
+public class AppLastPlayedChangedEventArgs : EventArgs {
+    public AppLastPlayedChangedEventArgs(uint appid, UInt32 lastPlayed) { AppID = appid; LastPlayed = DateTimeOffset.FromUnixTimeSeconds(lastPlayed).DateTime; }
+    public uint AppID { get; }
+    public DateTime LastPlayed { get; }
 }
 
-public class JSONCollection {
-    public string id { get; set; } = "";
-    public string name { get; set; } = "";
+public class AppsManager : Component
+{
+    public HashSet<uint> OwnedAppIDs { get; init; } = new();
+    private HashSet<App> LoadedApps { get; init; } = new();
 
-    public List<uint>? added { get; set; } = new();
-    /// <summary>
-    /// What does this field do?
-    /// </summary>
-    public List<uint>? removed { get; set; } = new();
-    public JSONFilterSpec? filterSpec { get; set; } = null;
-}
-
-public class Library {
-    public List<Category> Categories { get; init; } = new();
-    private object appsLockObj = new object();
-    private Dictionary<uint, App> knownApps = new();
+    private object ownedAppsLock = new();
     private SteamClient steamClient;
     private CloudConfigStore cloudConfigStore;
-    internal Library(SteamClient steamClient, CloudConfigStore cloudConfigStore) {
+    // This is bad, but the collections need to know about the library in order to be able to get apps.
+    internal static Library? currentUserLibrary;
+
+    // This is even more terrible, but avoids allocating extra references per each app
+    internal static AppsManager? instance;
+    private LoginManager loginManager;
+    private ClientMessaging clientMessaging;
+    private Logger logger;
+
+    public EventHandler<AppPlaytimeChangedEventArgs>? AppPlaytimeChanged;
+    public EventHandler<AppLastPlayedChangedEventArgs>? AppLastPlayedChanged;
+
+    public AppsManager(SteamClient steamClient, CloudConfigStore cloudConfigStore, ClientMessaging clientMessaging, LoginManager loginManager, ConfigManager configManager, IContainer container) : base(container) {
+        instance = this;
         this.steamClient = steamClient;
         this.cloudConfigStore = cloudConfigStore;
-        this.Categories.Add(new Category("Uncategorized", "uncategorized", true));
+        this.clientMessaging = clientMessaging;
+        this.loginManager = loginManager;
+        this.logger = new Logger("AppsManager", Path.Combine(configManager.LogsDir, "AppsManager.txt"));
+        this.loginManager.LoggedOn += LoggedOn;
+        this.loginManager.LoggingOff += LoggingOff;
     }
 
     [CallbackListener<AppMinutesPlayedDataNotice_t>]
     public void OnAppMinutesPlayedDataNotice(AppMinutesPlayedDataNotice_t notice) {
-        lock (appsLockObj)
+        UInt32 allTime = 0;
+        UInt32 lastTwoWeeks = 0;
+        if (steamClient.NativeClient.IClientUser.BGetAppMinutesPlayed(notice.m_nAppID, ref allTime, ref lastTwoWeeks))
         {
-            if (this.knownApps.ContainsKey(notice.m_nAppID)) {
-                UInt32 allTime = 0;
-                UInt32 lastTwoWeeks = 0;
-                if (steamClient.NativeClient.IClientUser.BGetAppMinutesPlayed(notice.m_nAppID, ref allTime, ref lastTwoWeeks)) {
-                    this.knownApps[notice.m_nAppID].UpdatePlaytime(allTime, lastTwoWeeks);
-                }
-            }
+            this.AppPlaytimeChanged?.Invoke(this, new AppPlaytimeChangedEventArgs(notice.m_nAppID, new AppPlaytime_t(allTime, lastTwoWeeks)));
         }
     }
 
     [CallbackListener<AppLastPlayedTimeChanged_t>]
     public void OnAppLastPlayedTimeChanged(AppLastPlayedTimeChanged_t lastPlayedTimeChanged) {
-        lock (appsLockObj)
+        AppLastPlayedChanged?.Invoke(this, new AppLastPlayedChangedEventArgs(lastPlayedTimeChanged.m_nAppID, lastPlayedTimeChanged.m_lastPlayed));
+    }
+
+    [CallbackListener<AppLicensesChanged_t>]
+    public void OnAppLicensesChanged(AppLicensesChanged_t licensesChanged) {
+        lock (ownedAppsLock)
         {
-            if (this.knownApps.ContainsKey(lastPlayedTimeChanged.m_nAppID)) {
-                this.knownApps[lastPlayedTimeChanged.m_nAppID].UpdateLastPlayedTime(lastPlayedTimeChanged.m_lastPlayed);
+            if (licensesChanged.bReloadAll) {
+                OwnedAppIDs.Clear();
+            }
+
+            uint[] actualAppsUpdated = new uint[licensesChanged.m_unAppsUpdated];
+            Array.Copy(licensesChanged.m_rgAppsUpdated, actualAppsUpdated, licensesChanged.m_unAppsUpdated);
+            lock (ownedAppsLock)
+            {
+                OwnedAppIDs.UnionWith(actualAppsUpdated);
             }
         }
     }
 
-    internal async Task InitializeLibrary() {
-            List<uint> appIDsToInitialize = new();
-            Dictionary<uint, uint> lastPlayed;
-            Dictionary<uint, AppPlaytime_t> playtime;
+    // Can't have async handlers as it'll fuck everything up horribly (doesn't wait for event handler to finish before continuing calling code)
+    public void LoggedOn(object sender, LoggedOnEventArgs e) {
+        // Get all owned apps
+        // uint[] ownedApps = new uint[8192];
+        // uint ownedAppsCount = steamClient.NativeClient.IClientUser.GetSubscribedApps(ownedApps, 8192, false);
+        // logger.Debug("SubscribedApps: " + ownedAppsCount);
+        // uint[] actualOwnedApps = new uint[ownedAppsCount];
+        // Array.Copy(ownedApps, actualOwnedApps, ownedAppsCount);
 
-            // First get all collections
+        // silly
+        var task = this.GetAppsForSteamID(e.User.SteamID!.Value);
+        task.Wait();
+
+        var actualOwnedApps = task.Result.ToArray();
+        CreateAppsSync(actualOwnedApps);
+        lock (ownedAppsLock)
+        {
+            OwnedAppIDs.UnionWith(actualOwnedApps);
+        }
+    }
+
+    /// <summary>
+    /// Creates app objects for all the appids in the appids array.
+    /// </summary>
+    private void CreateAppsSync(uint[] appids) {
+        // I don't think these are necessary here, but let's have them just in case they improve performance
+        steamClient.NativeClient.IClientApps.TakeUpdateLock();
+
+        foreach (var appid in appids)
+        {
+            // Skip the 0 appid, it's used by the client internally to set defaults, etc
+            if (appid == 0) {
+                continue;
+            }
+            
             try
             {
-                var libraryData = await cloudConfigStore.GetNamespaceData(Enums.EUserConfigStoreNamespace.k_EUserConfigStoreNamespaceLibrary);
-                var keyValues = libraryData.GetKeysStartingWith("user-collections.");
-                foreach (var entry in keyValues)
-                {
-                    JSONCollection? json = System.Text.Json.JsonSerializer.Deserialize<JSONCollection>(entry.Value);
-                    if (json == null) {
-                        throw new NullReferenceException("Deserializing collection " + entry.Key + " failed");
-                    }
-                    this.Categories.Add(Category.FromJSONCollection(json));
-                }
+                CreateAppSync(appid);
             }
             catch (Exception e)
             {
-                Console.WriteLine("Collections failed to deserialize: " + e.ToString());
-                throw;
+                // These aren't fatal during init
+                logger.Warning("Initializing " + appid + " failed: " + e.ToString());
             }
-
-            await Task.Run(() => {
-                {
-                    uint[] ownedApps = new uint[4096];
-                    uint ownedAppsCount = steamClient.NativeClient.IClientUser.GetSubscribedApps(ownedApps, 4096, false);
-                    Console.WriteLine("SubscribedApps: " + ownedAppsCount);
-                    uint[] actualOwnedApps = new uint[ownedAppsCount];
-                    Array.Copy(ownedApps, actualOwnedApps, ownedAppsCount);
-                    appIDsToInitialize.AddRange(actualOwnedApps);
-                }
-
-                unsafe {
-                    var map = new CUtlMap<uint, uint>(1, 80000);
-                    Console.WriteLine("LastPlayedMap: " + steamClient.NativeClient.IClientUser.BGetAppsLastPlayedMap(&map));
-                    lastPlayed = map.ToManagedAndFree();
-                    foreach (var item in lastPlayed)
-                    {
-                        if (!appIDsToInitialize.Contains(item.Key)) {
-                            appIDsToInitialize.Add(item.Key);
-                        }
-
-                        Console.WriteLine(item.Key+":"+item.Value);
-                    }
-                }
-
-                unsafe {
-                    var map = new CUtlMap<uint, AppPlaytime_t>(1, 80000);
-                    Console.WriteLine("PlaytimeMap: " + steamClient.NativeClient.IClientUser.BGetAppPlaytimeMap(&map));
-                    playtime = map.ToManagedAndFree();
-                    foreach (var item in playtime)
-                    {
-                        if (!appIDsToInitialize.Contains(item.Key)) {
-                            appIDsToInitialize.Add(item.Key);
-                        }
-
-                        Console.WriteLine(item.Key+":"+item.Value);
-                    }
-                }
-
-                AppPlaytime_t appPlaytime;
-                uint appLastPlayed;
-                foreach (var app in appIDsToInitialize)
-                {
-                    if (!playtime.TryGetValue(app, out appPlaytime)) {
-                        appPlaytime = new AppPlaytime_t();
-                    }
-
-                    if (!lastPlayed.TryGetValue(app, out appLastPlayed)) {
-                        appLastPlayed = 0;
-                    }
-
-                    knownApps.Add(app, new App(app, appLastPlayed, appPlaytime));
-                }
-            });
-    }
-
-    public async Task<App> GetApp(uint appid) {
-        return await Task.Run(() => {
-            if (this.knownApps.ContainsKey(appid)) {
-                return this.knownApps[appid];
-            }
-
-            throw new Exception("Appid " + appid + " not known by AppsManager");
-        });
-    }
-}
-
-public class Category {
-    public string ID { get; private set; }
-    public string Name { get; set; }
-    public bool IsDynamic { get; private set; }
-    public bool IsSystem { get; private set; }
-    private List<uint> explicitlyAddedApps = new();
-    internal Category(string name, string id, bool system = false) {
-        this.Name = name;
-        this.ID = id;
-        this.IsSystem = system;
-    }
-
-    /// <summary>
-    /// Creates a new standard category
-    /// </summary>
-    /// <param name="name"></param>
-    public static Category CreateCategory(string name) {
-
-    }
-
-    /// <summary>
-    /// Makes the current dynamic collection static
-    /// </summary>
-    /// <param name="name"></param>
-    public Category MakeStatic() {
-        Category staticCategory = new Category(this.Name, this.ID);
-        staticCategory.explicitlyAddedApps = this.GetApps();
-    }
-
-    /// <summary>
-    /// Creates a new dynamic
-    /// </summary>
-    /// <param name="name"></param>
-    public static Category CreateDynamicCategory(string name) {
-
-    }
-
-    public static Category FromJSONCollection(JSONCollection json) {
-        Category category = new Category(json.name, json.id);
-        // Determine if this is a dynamic category
-        category.IsDynamic = json.filterSpec != null;
-
-        if (category.IsDynamic) {
-            // No need to do any special processing here, just save the filter specs
-            
-        } else {
-            if (json.added == null) {
-                json.added = new List<uint>();
-            }
-            category.explicitlyAddedApps = json.added;
         }
 
-        return category;
+        steamClient.NativeClient.IClientApps.ReleaseUpdateLock();
     }
 
-    /// <summary>
-    /// Gets the apps in this category. Works for static and dynamic categories.
-    /// </summary>
-    public List<uint> GetApps() {
-        List<uint> apps = new();
-        apps.AddRange(this.explicitlyAddedApps);
-        if (this.IsDynamic) {
-            //TODO: process dynamic collections here
+    public async Task<App> GetAppAsync(uint appid) {
+        // Check for an existing app
+        var matches = this.LoadedApps.Where(e => e.AppID == appid);
+        if (matches.Any()) {
+            return matches.First();
         }
-        return apps;
-    }
 
-    /// <summary>
-    /// Adds an app to this category.
-    /// </summary>
-    public void AddApp(uint appid) {
-        this.explicitlyAddedApps.Add(appid);
+        return await Task.Run(() => CreateAppSync(appid));
     }
-
-    private void ThrowIfDynamic() {
-        if (this.IsDynamic) {
-            throw new InvalidOperationException("This operation is invalid for dynamic categories.");
-        }
-    }
-
-    private void ThrowIfStatic() {
-        if (!this.IsDynamic) {
-            throw new InvalidOperationException("This operation is invalid for static categories.");
-        }
-    }
-}
-
-public class App {
-    public UInt32 AppID;
-    public DateTime LastPlayed;
-    public TimeSpan PlaytimeAllTime;
-    public TimeSpan PlaytimeLastTwoWeeks;
-    internal App(UInt32 appid, uint lastPlayed, AppPlaytime_t playtime) {
-        this.AppID = appid;
-        this.UpdateLastPlayedTime(lastPlayed);
-        this.UpdatePlaytime(playtime.allTime, playtime.lastTwoWeeks);
-    }
-
-    internal void UpdatePlaytime(UInt32 allTime, UInt32 lastTwoWeeks) {
-        this.PlaytimeAllTime = TimeSpan.FromMinutes(allTime);
-        this.PlaytimeLastTwoWeeks = TimeSpan.FromMinutes(lastTwoWeeks);
-    }
-
-    internal void UpdateLastPlayedTime(UInt32 lastPlayed) {
-        this.LastPlayed = DateTimeOffset.FromUnixTimeSeconds(lastPlayed).DateTime;
-    }
-
-    public override string ToString()
-    {
-        return string.Format("[App {0}] Last Played: {1}, Playtime: {2} (All time) {3} (Last two weeks)", this.AppID, this.LastPlayed, this.PlaytimeAllTime, this.PlaytimeLastTwoWeeks);
-    }
-}
-
-public class AppsManager : Component
-{
-    private SteamClient steamClient;
-    private CloudConfigStore cloudConfigStore;
     
-    public AppsManager(SteamClient steamClient, CloudConfigStore cloudConfigStore, IContainer container) : base(container) {
-        this.steamClient = steamClient;
-        this.cloudConfigStore = cloudConfigStore;
+    private App CreateAppSync(uint appid) {
+        var appObj = new App(appid);
+
+        byte[] commonBytes;
+        byte[] configBytes;
+
+        // Get rid of the huge allocation as early as possible
+        {
+            // This should be enough for most sections, however localization sections tend to be huge and this might not work for those
+            byte[] bytes = new byte[32768];
+
+            var commonLength = steamClient.NativeClient.IClientApps.GetAppDataSection(appid, EAppInfoSection.k_EAppInfoSectionCommon, bytes, 1000000, false);
+            commonBytes = new byte[commonLength];
+            Array.Copy(bytes, commonBytes, commonLength);
+
+            var configLength = steamClient.NativeClient.IClientApps.GetAppDataSection(appid, EAppInfoSection.k_EAppInfoSectionConfig, bytes, 1000000, false);
+            configBytes = new byte[configLength];
+            Array.Copy(bytes, configBytes, configLength);
+        }
+
+        if (commonBytes.Length != 0 && configBytes.Length != 0) {
+            logger.Debug($"Initializing {appid} with appinfo length: (common: " + commonBytes.Length + ", config: " + configBytes.Length + ")");
+            appObj.FillWithAppInfoBinary(commonBytes, configBytes);
+        } else {
+            throw new Exception(appid + " did not have an app data section. Not cached, no network or invalid app type?");
+        }
+
+        LoadedApps.Add(appObj);
+        return appObj;
     }
+
+    public void LoggingOff(object? sender, EventArgs e) {
+        if (currentUserLibrary != null) {
+            currentUserLibrary.SaveLibrary();
+            currentUserLibrary = null;
+        }
+
+        OwnedAppIDs.Clear();
+    }
+
     public async Task<Library> GetLibrary() {
-        Library library = new(steamClient, cloudConfigStore);
+        if (currentUserLibrary != null) {
+            return currentUserLibrary;
+        }
+
+        Library library = new(steamClient, cloudConfigStore, loginManager, this);
         await library.InitializeLibrary();
+        currentUserLibrary = library;
         return library;
+    }
+
+    /// <summary>
+    /// May return '' or 'public' depending on the phase of the moon, angle of the sun and some other unknown factors (public seems to be the correct behaviour, does '' stand for failure?)
+    /// </summary>
+    public string GetBetaForApp(uint appid) {
+        StringBuilder betaName = new(256);
+        steamClient.NativeClient.IClientAppManager.GetActiveBeta(appid, betaName, betaName.Length);
+        return betaName.ToString();
+    }
+
+    /// <summary>
+    /// Gets all owned apps for a SteamID. 
+    /// Will not work in offline mode. Yet. TODO: we need a robust caching system.
+    /// </summary>
+    /// <param name="steamid">SteamID of the user to request apps for</param>
+    public async Task<HashSet<uint>> GetAppsForSteamID(CSteamID steamid, bool includeSteamPackageGames = true, bool includeFreeGames = true) {
+        ProtoMsg<Protobuf.CPlayer_GetOwnedGames_Request> request = new("Player.GetOwnedGames#1");
+        request.body.Steamid = steamid;
+        request.body.IncludeAppinfo = false;
+        request.body.IncludeExtendedAppinfo = false;
+        request.body.IncludeFreeSub = includeSteamPackageGames;
+        request.body.IncludePlayedFreeGames = includeFreeGames;
+
+        ProtoMsg<Protobuf.CPlayer_GetOwnedGames_Response> response;
+        HashSet<uint> ownedApps = new();
+        using (var conn = this.clientMessaging.AllocateConnection())
+        {
+            response = await conn.ProtobufSendMessageAndAwaitResponse<Protobuf.CPlayer_GetOwnedGames_Response, Protobuf.CPlayer_GetOwnedGames_Request>(request);
+        }
+
+        foreach (var protoApp in response.body.Games)
+        {
+            // Why the fuck is the AppID field an int here?????
+            ownedApps.Add((uint)protoApp.Appid);
+        }
+
+        return ownedApps;
     }
     public override async Task RunStartup()
     {

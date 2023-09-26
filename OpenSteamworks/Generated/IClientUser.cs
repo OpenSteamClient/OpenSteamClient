@@ -60,6 +60,10 @@ public unsafe interface IClientUser
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret TerminateGame();  // argc: 2, index: 28
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    /// <summary>
+    /// Apparently deprecated, but still called by ValveSteam.
+    /// </summary>
+    /// <returns></returns>
     public unknown_ret SetSelfAsChatDestination();  // argc: 1, index: 29
     public unknown_ret IsPrimaryChatDestination();  // argc: 0, index: 30
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
@@ -142,8 +146,12 @@ public unsafe interface IClientUser
     public unknown_ret RequestCustomBinaries();  // argc: 4, index: 74
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret SetCellID();  // argc: 1, index: 75
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret GetCellList();  // argc: 1, index: 76
+    /// <summary>
+    /// Called by ValveSteam 8 times.
+    /// Arguments probably incorrect.
+    /// </summary>
+    /// <returns></returns>
+    public unknown_ret GetCellList(CUtlMap<uint, CUtlString>* cells);  // argc: 1, index: 76
     public unknown_ret GetUserBaseFolder();  // argc: 0, index: 77
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret GetUserDataFolder();  // argc: 3, index: 78

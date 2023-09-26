@@ -180,7 +180,6 @@ public class NamespaceData {
 /// Take backups before mucking about with this, it WILL wipe all your collections, showcases(Shelves), and might break other stuff as well.
 /// </summary>
 public class CloudConfigStore : Component {
-    private ClientMessaging messaging;
     private LoginManager loginManager;
     private Connection connection;
     private ConfigManager configManager;
@@ -188,7 +187,6 @@ public class CloudConfigStore : Component {
     private IClientUtils clientUtils;
     public CloudConfigStore(IContainer container, ClientMessaging messaging, LoginManager loginManager, ConfigManager configManager, IClientUtils clientUtils) : base(container) {
         this.clientUtils = clientUtils;
-        this.messaging = messaging;
         this.loginManager = loginManager;
         this.configManager = configManager;
         this.loginManager.LoggingOff += OnLoggingOff;
@@ -215,12 +213,12 @@ public class CloudConfigStore : Component {
     }
 
     private void OnLoggingOff(object? sender, EventArgs e) {
-        HandleConfigStoreShutdown();
+        HandleConfigStoreShutdown().Wait();
     }
 
-    private void HandleConfigStoreShutdown() {
+    private async Task HandleConfigStoreShutdown() {
         Console.WriteLine("Flushing namespaces to disk...");
-        CacheNamespaces().Wait();
+        await CacheNamespaces();
         try
         {
             if (loginManager.IsOnline()) {
@@ -328,6 +326,14 @@ public class CloudConfigStore : Component {
         await File.WriteAllBytesAsync(Path.Combine(this.GetStorageFolder(), GetNamespaceFilename(data)), data.GetAsProtobuf().ToByteArray());
     }
 
+    /// <summary>
+    /// Saves a namespace data object to the server and locally.
+    /// </summary>
+    public async Task SaveNamespace(NamespaceData data) {
+        await this.Upload(data.GetAsProtobuf());
+        await this.CacheNamespace(data);
+    }
+
     public async Task UploadNamespace(NamespaceData data) {
         await this.Upload(data.GetAsProtobuf());
     }
@@ -362,13 +368,6 @@ public class CloudConfigStore : Component {
         var resp = await connection.ProtobufSendMessageAndAwaitResponse<CCloudConfigStore_Upload_Response, CCloudConfigStore_Upload_Request>(msg);
         Console.WriteLine("resp: " + resp.ToString());
         return resp.body.Versions;
-    }
-
-    private readonly Random random = new Random();
-    public string GenerateRandomString(int length)
-    {
-        const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-        return new string(Enumerable.Repeat(chars, length).Select(s => s[random.Next(s.Length)]).ToArray());
     }
 
     public override async Task RunStartup() {

@@ -123,16 +123,24 @@ public partial class MainWindowViewModel : ViewModelBase
         //     }
         // }
 
-        CloudConfigStore cloudConfigStore = AvaloniaApp.Container.GetComponent<CloudConfigStore>();
-        var libraryData = await cloudConfigStore.GetNamespaceData(EUserConfigStoreNamespace.k_EUserConfigStoreNamespaceLibrary);
-        var userCollections = libraryData.GetKeysStartingWith("user-collections.");
-        foreach (var collection in userCollections)
+        var appsManager = AvaloniaApp.Container.GetComponent<AppsManager>();
+        var library = await appsManager.GetLibrary();
+        
+        library.Collections.Add(library.CreateCollection("Test 2"));
+        
+        foreach (var collection in library.Collections)
         {
-            Console.WriteLine(collection.Value);
+            var appids = await library.GetAppsInCollection(collection);
+            Console.WriteLine(collection.Name + " " + appids.Count);
+            foreach (var appid in appids)
+            {
+                var app = await appsManager.GetAppAsync(appid);
+                Console.WriteLine("- " + app.Name);
+            }
         }
+        
+        library.SaveLibrary();
 
-        libraryData["user-collections.test"] = "{\"id\":\"uc-testiaaaa\",\"name\":\"testi kollektio\",\"added\":[730,480],\"removed\":[]}";
-        await cloudConfigStore.UploadNamespace(libraryData);
         // unsafe {
         //     var map = new CUtlMap<uint, AppTags_t>(1, 80000, &LessFunc);
         //     Console.WriteLine("AppTagsMap: " + client.NativeClient.IClientUser.BGetAppTagsMap(&map));

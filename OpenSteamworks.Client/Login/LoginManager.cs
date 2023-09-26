@@ -316,7 +316,7 @@ public class LoginManager : Component
     /// Gets whether there is a user logged in or in offline mode.
     /// </summary>
     public bool IsLoggedOn() {
-        return steamClient.NativeClient.IClientUser.GetSteamID().steamid != 0;
+        return steamClient.NativeClient.IClientUser.GetSteamID().SteamID64 != 0;
     }
 
     /// <summary>

@@ -22,7 +22,6 @@ public class SteamClient
     // Non-native interfaces
     private List<ClientInterface> clientinterfaces = new List<ClientInterface>();
     public ClientConfigStore ClientConfigStore;
-    public ClientApps ClientApps;
     public ClientMessaging ClientMessaging;
 
 
@@ -37,13 +36,13 @@ public class SteamClient
 
     /// <summary>
     /// Constructs a OpenSteamworks.Client. 
-    /// Does not load any binaries, so most functions will crash. Use LoadClient to load the binaries and start the client up.
     /// </summary>
     public SteamClient(string steamclientLibPath, ConnectionType connectionType)
     {
         if (instance != null) {
             throw new InvalidOperationException("A SteamClient instance has been constructed already. Free it before creating another.");
         }
+
         this.steamclientLibPath = steamclientLibPath;
         this.connectionType = connectionType;
         instance = this;
@@ -53,7 +52,6 @@ public class SteamClient
 #endif
 
         this.CallbackManager = new CallbackManager(this, log, log);
-
         this.NativeClient = new ClientNative(steamclientLibPath, connectionType);
 
         if (log) {
@@ -75,10 +73,8 @@ public class SteamClient
 
         this.ClientConfigStore = new ClientConfigStore(this);
         this.ClientMessaging = new ClientMessaging(this);
-        this.ClientApps = new ClientApps(this);
         this.clientinterfaces.Add(this.ClientConfigStore);
         this.clientinterfaces.Add(this.ClientMessaging);
-        this.clientinterfaces.Add(this.ClientApps);
 
         // Before this, most important callbacks should be registered
         this.CallbackManager.StartThread();

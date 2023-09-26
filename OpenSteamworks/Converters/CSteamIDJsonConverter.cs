@@ -14,6 +14,6 @@ public class CSteamIDJsonConverter : JsonConverter<CSteamID>
 
     public override void Write(Utf8JsonWriter writer, CSteamID val, JsonSerializerOptions options)
     {
-        writer.WriteNumberValue(val.steamid);
+        writer.WriteNumberValue(val.SteamID64);
     }
 }
