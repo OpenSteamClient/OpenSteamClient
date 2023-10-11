@@ -14,9 +14,20 @@ namespace OpenSteamworks.Native.JIT
         public JITEngineException(string message) : base(message) { }
     }
 
+    /// <summary>
+    /// The heart of OpenSteamworks. 
+    /// If you have problems with dotnet coredumping and not providing error messages, build it from source (with the debug configuration) and run your project with it (/path/to/built/runtime/artifacts/bin/testhost/net7.0-Linux-Debug-x64/dotnet bin/Debug/net7.0/ClientUI.dll)
+    /// </summary>
     public static class JITEngine
     {
         private static ModuleBuilder moduleBuilder;
+
+        /// <summary>
+        /// Maps a list of interfaces to a list of our generated implementors for it
+        /// </summary>
+        private static Dictionary<Type, Type> generatedTypes = new();
+
+        public static bool AllowConsoleLog = false;
 
         static JITEngine()
         {
@@ -37,56 +48,15 @@ namespace OpenSteamworks.Native.JIT
             moduleBuilder = assemblyBuilder.DefineDynamicModule("OpenSteamworksJIT");
         }
 
-        private static void EmitPrettyLoad(ILGenerator ilgen, int index)
-        {
-            switch (index)
-            {
-                case 0: ilgen.Emit(OpCodes.Ldarg_0); break;
-                case 1: ilgen.Emit(OpCodes.Ldarg_1); break;
-                case 2: ilgen.Emit(OpCodes.Ldarg_2); break;
-                case 3: ilgen.Emit(OpCodes.Ldarg_3); break;
-                default: ilgen.Emit(OpCodes.Ldarg_S, (byte)index); break;
+        private static void EmitConsoleLog(ILGeneratorEx ilgen, string debugText) {
+            if (AllowConsoleLog) {
+                ilgen.EmitWriteLine(debugText);
             }
         }
 
-        private static void EmitPrettyLoadLocal(ILGenerator ilgen, int index)
-        {
-            switch (index)
-            {
-                case 0: ilgen.Emit(OpCodes.Ldloc_0); break;
-                case 1: ilgen.Emit(OpCodes.Ldloc_1); break;
-                case 2: ilgen.Emit(OpCodes.Ldloc_2); break;
-                case 3: ilgen.Emit(OpCodes.Ldloc_3); break;
-                default: ilgen.Emit(OpCodes.Ldloc_S, (byte)index); break;
-            }
-        }
-
-        private static void EmitPrettyStoreLocal(ILGenerator ilgen, int index)
-        {
-            switch (index)
-            {
-                case 0: ilgen.Emit(OpCodes.Stloc_0); break;
-                case 1: ilgen.Emit(OpCodes.Stloc_1); break;
-                case 2: ilgen.Emit(OpCodes.Stloc_2); break;
-                case 3: ilgen.Emit(OpCodes.Stloc_3); break;
-                default: ilgen.Emit(OpCodes.Stloc_S, (byte)index); break;
-            }
-        }
-
-        private static void EmitPlatformLoad(ILGenerator ilgen, IntPtr pointer)
-        {
-            switch (IntPtr.Size)
-            {
-                case 4: ilgen.Emit(OpCodes.Ldc_I4, (int)pointer.ToInt32()); break;
-                case 8: ilgen.Emit(OpCodes.Ldc_I8, (long)pointer.ToInt64()); break;
-                default: throw new JITEngineException("Bad IntPtr size");
-            }
-
-            ilgen.Emit(OpCodes.Conv_I);
-        }
         /// <summary>
         /// Generates a class from an interface and a pointer to that class/interface in native memory
-        /// Will crash if ran twice for the same class
+        /// Will generate code at runtime when a specific type is first created
         /// </summary>
         /// <typeparam name="TClass">The class to generate an instance of</typeparam>
         /// <param name="classptr">The pointer to the class</param>
@@ -94,14 +64,17 @@ namespace OpenSteamworks.Native.JIT
         /// <exception cref="JITEngineException"></exception>
         public static TClass GenerateClass<TClass>(IntPtr classptr) where TClass : class
         {
+            Type targetInterface = typeof(TClass);
             if (classptr == IntPtr.Zero)
             {
                 throw new JITEngineException("GenerateClass called with NULL ptr");
             }
 
-            IntPtr vtable_ptr = Marshal.ReadIntPtr(classptr);
+            if (generatedTypes.ContainsKey(targetInterface)) {
+                return (TClass)GenerateClassForImplementor(generatedTypes[targetInterface], classptr);
+            }
 
-            Type targetInterface = typeof(TClass);
+            IntPtr vtable_ptr = Marshal.ReadIntPtr(classptr);
 
             TypeBuilder builder = moduleBuilder.DefineType(targetInterface.Name + "_" + (IntPtr.Size * 8).ToString(),
                                                     TypeAttributes.Class, null, new Type[] { targetInterface });
@@ -119,73 +92,27 @@ namespace OpenSteamworks.Native.JIT
             }
 
             Type implClass = builder.CreateType();
-            Object? instClass = Activator.CreateInstance(implClass);
-            if (instClass == null) {
-                throw new JITEngineException("Failed to CreateInstance of implClass");
-            }
-
-            FieldInfo? addressField = implClass.GetField("ObjectAddress", BindingFlags.Public | BindingFlags.Instance);
-            if (addressField == null) {
-                throw new JITEngineException("ObjectAddress field wasn't defined");
-            }
-
-            addressField.SetValue(instClass, classptr);
-
-            return (TClass)instClass;
+            generatedTypes[targetInterface] = implClass;
+            return (TClass)GenerateClassForImplementor(implClass, classptr);
         }
 
-        private static int generatedClasses = 0;
-        /// <summary>
-        /// Allows you to generate as many instances of a specific class that you want, otherwise same as GenerateClass
-        /// TODO: make this a lot more efficient, we should generate the class once and then just swap the pointers instead of just defining more and more types
-        /// </summary>
-        public static TClass GenerateUniqueClass<TClass>(IntPtr classptr) where TClass : class 
-        {
-            if (classptr == IntPtr.Zero)
-            {
-                throw new JITEngineException("GenerateClass called with NULL ptr");
-            }
-
-            IntPtr vtable_ptr = Marshal.ReadIntPtr(classptr);
-
-            Type targetInterface = typeof(TClass);
-
-            TypeBuilder builder = moduleBuilder.DefineType(targetInterface.Name + "_" + (IntPtr.Size * 8).ToString() + "_" + generatedClasses.ToString(),
-                                                    TypeAttributes.Class, null, new Type[] { targetInterface });
-            generatedClasses++;
-            
-            FieldBuilder fbuilder = builder.DefineField("ObjectAddress", typeof(IntPtr), FieldAttributes.Public);
-
-            ClassJITInfo classInfo = new(targetInterface);
-
-            for (int i = 0; i < classInfo.Methods.Count; i++)
-            {
-                IntPtr vtableMethod = Marshal.ReadIntPtr(vtable_ptr, IntPtr.Size * classInfo.Methods[i].VTableSlot);
-                MethodJITInfo methodInfo = classInfo.Methods[i];
-                EmitClassMethod(methodInfo, classptr, vtableMethod, builder, fbuilder);
-            }
-
-            Type implClass = builder.CreateType();
-            Object? instClass = Activator.CreateInstance(implClass);
+        private static object GenerateClassForImplementor(Type implClass, IntPtr classptr) {
+            object? instClass = Activator.CreateInstance(implClass);
             if (instClass == null) {
                 throw new JITEngineException("Failed to CreateInstance of implClass");
             }
 
-            FieldInfo? addressField = implClass.GetField("ObjectAddress", BindingFlags.Public | BindingFlags.Instance);
-            if (addressField == null) {
-                throw new JITEngineException("ObjectAddress field wasn't defined");
-            }
-
+            FieldInfo addressField = implClass.GetField("ObjectAddress", BindingFlags.Public | BindingFlags.Instance)!;
             addressField.SetValue(instClass, classptr);
 
-            return (TClass)instClass;
+            return instClass;
         }
 
         private class MethodState
         {
             public struct RefArgLocal
             {
-                public LocalBuilder builder;
+                public LocalBuilderEx builder;
                 public int argIndex;
                 public Type paramType;
             }
@@ -193,10 +120,10 @@ namespace OpenSteamworks.Native.JIT
             public MethodState(MethodJITInfo method)
             {
                 this.Method = method;
-                MethodArgs = new List<Type>();
-                NativeArgs = new List<Type>();
-                unmanagedMemory = new List<LocalBuilder>();
-                refargLocals = new List<RefArgLocal>();
+                MethodArgs = new();
+                NativeArgs = new();
+                unmanagedMemory = new();
+                refargLocals = new();
             }
 
             public MethodJITInfo Method;
@@ -205,42 +132,18 @@ namespace OpenSteamworks.Native.JIT
 
             public List<Type> NativeArgs;
             public Type? NativeReturn;
-            public LocalBuilder? localReturn;
 
-            public List<LocalBuilder> unmanagedMemory;
+            public List<LocalBuilderEx> unmanagedMemory;
             public List<RefArgLocal> refargLocals;
-            [MemberNotNullWhen(true, nameof(localReturn))]
-            public bool AllocLocalReturnIfByStack(ILGenerator ilgen) {
-                if (this.Method.ReturnType.IsReturnByStack)
-                {
-                    // allocate local to hold the return
-                    this.localReturn = ilgen.DeclareLocal(this.Method.ReturnType.NativeType, true);
-
-                    //BLOCKED: Add this when this function is reimplemented in .NET Core
-                    // It's only debugging info, but who needs that anyway? C/C# autogen work flawlessly always, right?
-                    //this.localReturn.SetLocalSymInfo("nativeReturnPlaceholder");
-
-                    ilgen.Emit(OpCodes.Ldloca_S, this.localReturn.LocalIndex);
-                }
-
-                return this.Method.ReturnType.IsReturnByStack;
-            }
-
         }
 
         private static void EmitClassMethod(MethodJITInfo method, IntPtr objectptr, IntPtr methodptr, TypeBuilder builder, FieldBuilder addressAssistant)
         {
-            MethodState state = new MethodState(method);
+            MethodState state = new(method);
 
             state.NativeArgs.Add(typeof(IntPtr)); // thisptr
 
-            if (method.ReturnType.IsReturnByStack)
-            {
-                // ref to the native return type
-                state.NativeArgs.Add(method.ReturnType.NativeType.MakeByRefType());
-                state.NativeReturn = null;
-            }
-            else if (method.ReturnType.IsStringClass)
+            if (method.ReturnType.IsStringClass)
             {
                 // special case for strings, we will marshal it in ourselves
                 state.NativeReturn = typeof(IntPtr);
@@ -254,19 +157,15 @@ namespace OpenSteamworks.Native.JIT
 
             foreach (TypeJITInfo typeInfo in method.Args)
             {
-                // populate MethodArgs and NativeArgs now
-                typeInfo.DetermineProps();
-
+                // Handle managed args (should match interface declaration exactly)
                 state.MethodArgs.Add(typeInfo.Type);
 
+                // Handle unmanaged args (should match natives)
                 if (typeInfo.IsStringClass)
                 {
                     // we need to specially marshal strings
                     state.NativeArgs.Add(typeof(IntPtr));
-                }
-                else
-                if (!typeInfo.IsParams)
-                {
+                } else if (!typeInfo.IsParams) {
                     if (typeInfo.IsByRef && typeInfo.NativeType.IsValueType)
                     {
                         state.NativeArgs.Add(typeInfo.NativeType.MakeByRefType());
@@ -277,6 +176,7 @@ namespace OpenSteamworks.Native.JIT
                     }
                 }
             }
+
             var paramInfos = method.MethodInfo.GetParameters();
             MethodBuilder mbuilder = builder.DefineMethod(method.Name, MethodAttributes.Public | MethodAttributes.HideBySig | MethodAttributes.NewSlot | MethodAttributes.Virtual, CallingConventions.HasThis);
             if (method.ReturnType.IsGeneric)
@@ -293,18 +193,16 @@ namespace OpenSteamworks.Native.JIT
 
             builder.DefineMethodOverride(mbuilder, method.MethodInfo);
 
-            ILGenerator ilgen = mbuilder.GetILGenerator();
-            
+            ILGeneratorEx ilgen = new(mbuilder, state.MethodArgs.ToArray());
+
             // Emit a call to ThrowIfRemotePipe if we have BlacklistedInCrossProcessIPCAttribute
             if (method.MethodInfo.GetCustomAttributes(typeof(BlacklistedInCrossProcessIPCAttribute), false).Any()) {
-                Console.WriteLine("Emitting call to ThrowIfRemotePipe");
-                ilgen.EmitCall(OpCodes.Call, typeof(InteropHelp).GetMethod(nameof(InteropHelp.ThrowIfRemotePipe))!, null);
+                ilgen.Call(typeof(InteropHelp).GetMethod(nameof(InteropHelp.ThrowIfRemotePipe))!);
             }
 
             // load object pointer
-            EmitPlatformLoad(ilgen, objectptr);
-
-            state.AllocLocalReturnIfByStack(ilgen);
+            ilgen.AddComment("Load native object pointer");
+            ilgen.EmitPlatformLoad(objectptr);
 
             int argindex = 0;
             foreach (TypeJITInfo typeInfo in method.Args)
@@ -314,9 +212,8 @@ namespace OpenSteamworks.Native.JIT
                 // perform any conversions necessary
                 if (typeInfo.NativeType != typeInfo.Type && typeInfo.IsByRef)
                 {
-                    LocalBuilder localArg = ilgen.DeclareLocal(typeInfo.NativeType);
-                    //BLOCKED: Add this when this function is reimplemented in .NET Core
-                    //localArg.SetLocalSymInfo("byrefarg" + argindex);
+                    LocalBuilderEx localArg = ilgen.DeclareLocal(typeInfo.NativeType);
+                    localArg.SetLocalSymInfo("byrefarg" + argindex);
 
                     var helper = new MethodState.RefArgLocal
                     {
@@ -326,53 +223,71 @@ namespace OpenSteamworks.Native.JIT
                     };
 
                     state.refargLocals.Add(helper);
-                    ilgen.Emit(OpCodes.Ldloca_S, localArg);
+
+                    // Store the previous value if not an out var
+                    if (!typeInfo.IsOut) {
+                        ilgen.AddComment("Store previous value in refarg var for all ref non-out args");
+                        ilgen.Ldarg(argindex);
+                        ilgen.Ldobj(typeInfo.PierceType);
+                        if (typeInfo.IsCustomValueType) {
+                            ilgen.Call(typeInfo.CustomValueTypeToNativeTypeOperator);
+                        } else {
+                            ilgen.Ldtoken(typeInfo.NativeType);
+                            ilgen.Call(typeof(Convert).GetMethod(nameof(Convert.ChangeType), new[] { typeof(object), typeof(Type) })!);
+                        }
+
+                        ilgen.Stloc(localArg.LocalIndex);
+                    }
+
+                    ilgen.Ldloca(localArg, true);
                 }
-                else if (typeInfo.NativeType != typeInfo.Type && !typeInfo.Type.IsEnum)
+                else if (typeInfo.NativeType != typeInfo.Type && !(typeInfo.Type.IsEnum || typeInfo.IsDelegate))
                 {
-                    EmitPrettyLoad(ilgen, argindex);
-                    ilgen.EmitCall(OpCodes.Call, typeInfo.Type.GetMethod("GetValue"), null);
+                    ilgen.Ldarg(argindex);
+                    if (typeInfo.IsCustomValueType) {
+                        // Create backing type from the custom value type
+                        ilgen.Call(typeInfo.CustomValueTypeToNativeTypeOperator);
+                    } else {
+                        ilgen.Call(typeInfo.Type.GetMethod("GetValue"));
+                    }
                 }
                 else
                 {
-                    EmitPrettyLoad(ilgen, argindex);
+                    ilgen.Ldarg(argindex);
                 }
-
-                if ((typeInfo.IsStringClass || typeInfo.IsParams) && method.HasParams)
+                
+                if (typeInfo.IsStringClass && typeInfo.IsParams && method.HasParams)
                 {
-                    if (!typeInfo.IsParams)
-                        continue;
-
-                    ilgen.EmitCall(OpCodes.Call, typeof(String).GetMethod(nameof(string.Format), BindingFlags.Public | BindingFlags.Static, null, new Type[] { typeof(string), typeof(object[]) }, null)!, null);
+                    ilgen.Call(typeof(string).GetMethod(nameof(string.Format), BindingFlags.Public | BindingFlags.Static, null, new Type[] { typeof(string), typeof(object[]) }, null)!);
                 }
 
                 if (typeInfo.IsStringClass || typeInfo.IsParams)
                 {
-                    LocalBuilder localString = ilgen.DeclareLocal(typeof(GCHandle));
-                    //BLOCKED: Add this when this function is reimplemented in .NET Core
-                    //localString.SetLocalSymInfo("nativeString" + argindex);
+                    LocalBuilderEx localString = ilgen.DeclareLocal(typeof(GCHandle));
+                    localString.SetLocalSymInfo("nativeString" + argindex);
 
                     state.unmanagedMemory.Add(localString);
 
                     // we need to specially marshal strings
-                    ilgen.Emit(OpCodes.Ldloca, localString.LocalIndex);
-                    ilgen.EmitCall(OpCodes.Call, typeof(InteropHelp).GetMethod(nameof(InteropHelp.EncodeUTF8String))!, null);
+                    ilgen.Ldloca(localString);
+                    ilgen.Call(typeof(InteropHelp).GetMethod(nameof(InteropHelp.EncodeUTF8String))!);
                 }
                 else if (typeInfo.IsCreatableClass)
                 {
                     // if this argument is a class we understand: get the object pointer
-                    ilgen.Emit(OpCodes.Ldfld, addressAssistant);
+                    ilgen.Ldfld(addressAssistant);
                 }
             }
 
             if (method.ReturnType.IsGeneric)
             {
-                ilgen.Emit(OpCodes.Ldtoken, method.ReturnType.Type);
-                ilgen.EmitCall(OpCodes.Call, typeof(Type).GetMethod(nameof(Type.GetTypeFromHandle), BindingFlags.Static | BindingFlags.Public)!, null);
+                ilgen.Ldtoken(method.ReturnType.Type);
+                ilgen.Call(typeof(Type).GetMethod(nameof(Type.GetTypeFromHandle), BindingFlags.Static | BindingFlags.Public)!);
             }
 
             // load vtable method pointer
-            EmitPlatformLoad(ilgen, methodptr);
+            ilgen.AddComment("load vtable method pointer");
+            ilgen.EmitPlatformLoad(methodptr);
 
             CallingConvention ccv = CallingConvention.ThisCall;
 
@@ -382,59 +297,75 @@ namespace OpenSteamworks.Native.JIT
             if (state.NativeReturn == typeof(bool))
                 state.NativeReturn = typeof(byte);
 
-            ilgen.EmitCalli(OpCodes.Calli, ccv, state.NativeReturn, state.NativeArgs.ToArray());
+            ilgen.Calli(ccv, state.NativeReturn, state.NativeArgs.ToArray());
 
             // populate byref args
             foreach (var local in state.refargLocals)
             {
-                EmitPrettyLoad(ilgen, local.argIndex);
-                EmitPrettyLoadLocal(ilgen, local.builder.LocalIndex);
-                ilgen.Emit(OpCodes.Newobj, local.paramType.GetConstructor(new Type[] { local.builder.LocalType }));
-                ilgen.Emit(OpCodes.Stind_Ref);
+                var paramTypeInfo = TypeJITInfo.FromType(local.paramType);
+                // Load the argument we got from the native function
+                ilgen.AddComment("Load arg of ptr type ");
+                ilgen.Ldarg(local.argIndex);
+
+                ilgen.AddComment("Load local variable of type " + local.builder.LocalType.Name);
+                // Load the previously created field's address
+                ilgen.Ldloc(local.builder.LocalIndex);
+
+                if (paramTypeInfo.IsCustomValueType) {
+                    ilgen.AddComment("Custom value type arg path");
+                    ilgen.Call(local.paramType.GetMethod("op_Implicit", new[] { local.builder.LocalType }));
+                    // Store the new value object into the argument
+                    ilgen.Stobj(local.paramType);
+                } else {
+                    // Create a new value type from it
+                    ilgen.AddComment("Regular arg path for type " + local.builder.LocalType.ToString());
+                    ilgen.Newobj(local.paramType.GetConstructor(new Type[] { local.builder.LocalType }));
+                    // And store it's address to the local
+                    // STIND_REF can be used to store TYP_INT, TYP_I_IMPL, TYP_REF, or TYP_BYREF (not value types)
+                    ilgen.Stind_Ref();
+                }
+
             }
 
             // clean up unmanaged memory
-            foreach (LocalBuilder localbuilder in state.unmanagedMemory)
+            foreach (LocalBuilderEx localbuilder in state.unmanagedMemory)
             {
-                ilgen.Emit(OpCodes.Ldloca, localbuilder.LocalIndex);
-                ilgen.EmitCall(OpCodes.Call, typeof(InteropHelp).GetMethod(nameof(InteropHelp.FreeString))!, null);
+                ilgen.Ldloca(localbuilder);
+                ilgen.Call(typeof(InteropHelp).GetMethod(nameof(InteropHelp.FreeString))!);
             }
 
-            if (method.ReturnType.IsReturnByStack)
-            {
-                EmitPrettyLoadLocal(ilgen, state.localReturn.LocalIndex);
-
-                // reconstruct return type
-                if (state.localReturn.LocalType != state.MethodReturn)
-                {
-                    ilgen.Emit(OpCodes.Newobj, state.MethodReturn.GetConstructor(new Type[] { state.localReturn.LocalType }));
-                }
-            }
-            else if (method.ReturnType.IsCreatableClass)
+        if (method.ReturnType.IsCreatableClass)
             {
                 if (method.ReturnType.IsGeneric)
                 {
-                    ilgen.EmitCall(OpCodes.Call, typeof(JITEngine).GetMethod(nameof(JITEngine.GenerateClass), BindingFlags.Static | BindingFlags.Public)!, null);
+                    ilgen.Call(typeof(JITEngine).GetMethod(nameof(JITEngine.GenerateClass), BindingFlags.Static | BindingFlags.Public)!);
                 }
                 else if (method.ReturnType.IsDelegate)
                 {
-                    ilgen.Emit(OpCodes.Ldtoken, method.ReturnType.Type);
-                    ilgen.EmitCall(OpCodes.Call, typeof(Type).GetMethod(nameof(Type.GetTypeFromHandle))!, null);
-                    ilgen.EmitCall(OpCodes.Call, typeof(Marshal).GetMethod(nameof(Marshal.GetDelegateForFunctionPointer), BindingFlags.Static | BindingFlags.Public)!, null);
-                    ilgen.Emit(OpCodes.Castclass, method.ReturnType.Type);
+                    ilgen.Ldtoken(method.ReturnType.Type);
+                    ilgen.Call(typeof(Type).GetMethod(nameof(Type.GetTypeFromHandle))!);
+                    ilgen.Call(typeof(Marshal).GetMethod(nameof(Marshal.GetDelegateForFunctionPointer), BindingFlags.Static | BindingFlags.Public)!);
+                    ilgen.Castclass(method.ReturnType.Type);
                 }
                 else
                 {
-                    ilgen.EmitCall(OpCodes.Call, typeof(JITEngine).GetMethod(nameof(JITEngine.GenerateClass), BindingFlags.Static | BindingFlags.Public)!.MakeGenericMethod(method.ReturnType.Type), null);
+                    ilgen.Call(typeof(JITEngine).GetMethod(nameof(JITEngine.GenerateClass), BindingFlags.Static | BindingFlags.Public)!.MakeGenericMethod(method.ReturnType.Type));
                 }
             }
             else if (method.ReturnType.IsStringClass)
             {
                 // marshal string return
-                ilgen.EmitCall(OpCodes.Call, typeof(InteropHelp).GetMethod(nameof(InteropHelp.DecodeUTF8String))!, null);
+                ilgen.Call(typeof(InteropHelp).GetMethod(nameof(InteropHelp.DecodeUTF8String))!);
+            } else if (method.ReturnType.IsCustomValueType) {
+                // Create custom value type from the backing type
+                ilgen.Call(method.ReturnType.PierceType.GetMethod("op_Implicit", new[] { method.ReturnType.NativeType }));
             }
 
-            ilgen.Emit(OpCodes.Ret);
+            ilgen.Return();
+
+            if (method.Name == "CreateGlobalUser") {
+                Console.WriteLine(ilgen.ToString());
+            }
         }
     }
 }

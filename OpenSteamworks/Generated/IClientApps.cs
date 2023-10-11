@@ -26,7 +26,7 @@ public unsafe interface IClientApps
     /// </summary>
     /// <returns></returns>
     public unknown_ret GetMultipleAppDataSections(AppId_t unAppID, EAppInfoSection[] sections, int sectionsCount, byte[] pchBuffer, int cbBufferMax, bool bSharedKVSymbols, ref int unk2);  // argc: 7, index: 7
-    public unknown_ret RequestAppInfoUpdate(AppId_t[] appIds, uint appIdsLength);  // argc: 2, index: 8
+    public bool RequestAppInfoUpdate(AppId_t[] appIds, uint appIdsLength);  // argc: 2, index: 8
     public int GetDLCCount(AppId_t app);  // argc: 1, index: 9
     public unknown_ret BGetDLCDataByIndex(AppId_t app, int iDLC, AppId_t *pAppID, bool *pbAvailable, char *pchName, int cchNameBufferSize);  // argc: 6, index: 10
     public unknown_ret GetAppType(AppId_t app);  // argc: 1, index: 11

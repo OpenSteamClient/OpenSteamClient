@@ -6,7 +6,7 @@ using OpenSteamworks.Structs;
 namespace OpenSteamworks.Callbacks.Structs;
 
 [StructLayout(LayoutKind.Sequential)]
-internal unsafe struct FriendRichPresenceUpdate_t
+public unsafe struct FriendRichPresenceUpdate_t
 {
 	public CSteamID steamid;
 	public AppId_t appid;

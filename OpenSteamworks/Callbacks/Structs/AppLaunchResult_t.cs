@@ -7,7 +7,7 @@ using OpenSteamworks.Structs;
 namespace OpenSteamworks.Callbacks.Structs;
 
 [StructLayout(LayoutKind.Sequential)]
-internal unsafe struct AppLaunchResult_t
+public unsafe struct AppLaunchResult_t
 {
 	public CGameID m_GameID;
 	public EAppUpdateError m_eAppError;

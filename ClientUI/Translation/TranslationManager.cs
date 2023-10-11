@@ -25,27 +25,34 @@ public class Translation {
     public Dictionary<string, string> TranslationKeys { get; set; } = new();
 }
 
-public class TranslationManager : Component {
-    public Translation CurrentTranslation = new Translation();
+public class TranslationManager : IClientLifetime {
+    public Translation CurrentTranslation = new();
     private readonly List<AvaloniaObject> RefreshableObjects = new();
+    private readonly IClientUser iClientUser;
+    private readonly ConfigManager configManager;
+    private readonly GlobalSettings globalSettings;
 
-    public TranslationManager(IContainer container) : base(container) {
-        
+    public TranslationManager(IClientUser iClientUser, ConfigManager configManager, GlobalSettings globalSettings) {
+        this.iClientUser = iClientUser;
+        this.configManager = configManager;
+        this.globalSettings = globalSettings;
     }
+
     public void SetLanguage(ELanguage language) {
         var lang = ELanguageToString(language);
         if (lang == null) {
             throw new ArgumentException($"Language {language} was not valid.");
         }
 
-        this.GetComponent<IClientUser>().SetLanguage(lang);
+        iClientUser.SetLanguage(lang);
         CurrentTranslation = GetForLanguage(language);
         foreach (var obj in RefreshableObjects)
         {
             TranslateAvaloniaObject(obj);
         }
 
-        this.GetComponent<GlobalSettings>().Language = language;
+        globalSettings.Language = language;
+        globalSettings.Save();
     }
 
     public string GetTranslationForKey(string key) {
@@ -63,7 +70,7 @@ public class TranslationManager : Component {
             throw new ArgumentOutOfRangeException("Invalid ELanguage " + language + " specified.");
         }
 
-        string fullPath = Path.Combine(this.GetComponent<ConfigManager>().AssemblyDirectory, "Translations", filename+".json");
+        string fullPath = Path.Combine(configManager.AssemblyDirectory, "Translations", filename+".json");
         return OpenSteamworks.Client.Utils.UtilityFunctions.AssertNotNull(JsonSerializer.Deserialize<Translation>(File.ReadAllText(fullPath)));
     } 
     public void TranslateVisual(Visual visual) {
@@ -214,14 +221,13 @@ public class TranslationManager : Component {
         return null;
     }
 
-    public override async Task RunStartup()
+    public async Task RunStartup()
     {
-        this.SetLanguage(this.GetComponent<GlobalSettings>().Language);
-        await EmptyAwaitable();
+        await Task.Run(() => this.SetLanguage(globalSettings.Language));
     }
 
-    public override async Task RunShutdown()
+    public async Task RunShutdown()
     {
-        await EmptyAwaitable();
+        await Task.CompletedTask;
     }
 }

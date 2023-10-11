@@ -1,95 +1,82 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
+using OpenSteamworks.Client;
+using OpenSteamworks.Client.Managers;
+using OpenSteamworks.Client.Utils;
 using OpenSteamworks.Client.Utils.Interfaces;
-
-public interface IContainer {
-    /// <summary>
-    /// Registers a factory method. Can use any number of params that are registered (lazy or otherwise).
-    /// Must return an instance of type T.
-    /// </summary>
-    public void RegisterComponentFactoryMethod<T>(Delegate factoryMethod);
-    public void RegisterComponentInstance(Type type, object component);
-    public void RegisterComponentInstance<T>(T component);
-    /// <summary>
-    /// Constructs a component, but does not register it. Useful for viewmodels.
-    /// </summary>
-    public T ConstructOnly<T>(object[]? extraArgs = null);
-    /// <summary>
-    /// Immediately constructs and registers a component.
-    /// </summary>
-    public T ConstructAndRegisterComponentImmediate<T>();
-    /// <summary>
-    /// Lazy constructs a component.
-    /// </summary>
-    public void ConstructAndRegisterComponent<T>();
-    public object GetComponent(Type type);
-    public T GetComponent<T>();
-}
-
-
-public class Container : IContainer
+public class Container
 {
     public bool IsShuttingDown { get; private set; } = false;
-    private readonly object factoryPlaceholderComponent = "factory";
-    internal Dictionary<Type, object> components { get; init; } = new();
-    internal Dictionary<Type, Delegate> componentFactories { get; init; } = new();
-    internal List<Type> componentOrder = new();
+    private readonly object factoryPlaceholderObject = "factory";
+    internal Dictionary<Type, object> registeredObjects { get; init; } = new();
+    internal Dictionary<Type, Delegate> factories { get; init; } = new();
+    internal List<Type> clientLifetimeOrder = new();
+    internal List<Type> logonLifetimeOrder = new();
+    private static Logger logger = new Logger("Container");
 
     public Container()
     {
-        this.RegisterComponentInstance<IContainer>(this);
+        this.RegisterInstance(this);
     }
 
-    public void RegisterComponentFactoryMethod<T>(Delegate factoryMethod)
+    public void RegisterFactoryMethod<T>(Delegate factoryMethod)
     {
-        if (this.components.ContainsKey(typeof(T)))
+        if (this.registeredObjects.ContainsKey(typeof(T)))
         {
-            throw new InvalidOperationException("Component '" + typeof(T) + "' already registered.");
+            throw new InvalidOperationException("Type '" + typeof(T) + "' already registered.");
         }
 
-        if (this.componentFactories.ContainsKey(typeof(T)))
+        if (this.factories.ContainsKey(typeof(T)))
         {
             throw new InvalidOperationException("Factory '" + typeof(T) + "' already registered.");
         }
 
-        this.componentFactories.Add(typeof(T), factoryMethod);
-        this.components.Add(typeof(T), factoryPlaceholderComponent);
-        if (typeof(IComponent).IsAssignableFrom(typeof(T)))
+        this.factories.Add(typeof(T), factoryMethod);
+        this.registeredObjects.Add(typeof(T), factoryPlaceholderObject);
+        if (typeof(IClientLifetime).IsAssignableFrom(typeof(T)))
         {
-            if (!this.componentOrder.Contains(typeof(T)))
+            if (!this.clientLifetimeOrder.Contains(typeof(T)))
             {
-                this.componentOrder.Add(typeof(T));
+                this.clientLifetimeOrder.Add(typeof(T));
+            }
+        }
+
+        if (typeof(ILogonLifetime).IsAssignableFrom(typeof(T)))
+        {
+            if (!this.logonLifetimeOrder.Contains(typeof(T)))
+            {
+                this.logonLifetimeOrder.Add(typeof(T));
             }
         }
     }
 
     private object RunFactoryFor(Type type)
     {
-        if (!this.componentFactories.ContainsKey(type))
+        if (!this.factories.ContainsKey(type))
         {
             throw new InvalidOperationException("Factory '" + type + "' not registered");
         }
-        Delegate factoryMethod = componentFactories[type];
+        Delegate factoryMethod = factories[type];
         object? ret = factoryMethod.DynamicInvoke(FillArrayWithDependencies(factoryMethod.GetMethodInfo().GetParameters()));
         if (ret == null)
         {
             throw new NullReferenceException("Factory for " + type + " returned null.");
         }
 
-        this.componentFactories.Remove(type);
-        if (this.components.ContainsKey(type))
+        this.factories.Remove(type);
+        if (this.registeredObjects.ContainsKey(type))
         {
-            if (object.ReferenceEquals(this.components[type], factoryPlaceholderComponent))
+            if (object.ReferenceEquals(this.registeredObjects[type], factoryPlaceholderObject))
             {
-                this.components.Remove(type);
+                this.registeredObjects.Remove(type);
             }
             else
             {
-                throw new InvalidOperationException("Component '" + type + "' already registered (and not factory placeholder)");
+                throw new InvalidOperationException("Type '" + type + "' already registered (and not factory placeholder)");
             }
         }
 
-        this.RegisterComponentInstance(type, ret);
+        this.RegisterInstance(type, ret);
         return ret;
     }
 
@@ -106,7 +93,7 @@ public class Container : IContainer
         for (int i = 0; i < args.Length; i++)
         {
             var constructorArg = args[i];
-            if (TryGetComponent(constructorArg.ParameterType, out object? obj)) {
+            if (TryGet(constructorArg.ParameterType, out object? obj)) {
                 constructorDependencies.Add(obj);
             } else {
                 if (extras.ContainsKey(constructorArg.ParameterType)) {
@@ -116,7 +103,7 @@ public class Container : IContainer
                         constructorDependencies.Add(null);
                     }
                 } else {
-                    throw new InvalidOperationException("Failed to get required component " + constructorArg.ParameterType.FullName);
+                    throw new InvalidOperationException("Failed to get required object " + constructorArg.ParameterType.FullName);
                 }
             }
         }
@@ -127,31 +114,41 @@ public class Container : IContainer
         return (T)RunFactoryFor(typeof(T));
     }
 
-    public void RegisterComponentInstance(Type type, object component)
+    public object RegisterInstance(Type type, object instance)
     {
-        if (this.components.ContainsKey(type))
+        if (this.registeredObjects.ContainsKey(type))
         {
-            throw new InvalidOperationException("Component '" + type + "' already registered.");
+            throw new InvalidOperationException("Type '" + type + "' already registered.");
         }
 
-        if (component == null)
+        if (instance == null)
         {
             throw new NullReferenceException("component is null");
         }
 
-        this.components.Add(type, component);
-        if (typeof(IComponent).IsAssignableFrom(type))
+        this.registeredObjects.Add(type, instance);
+        if (typeof(IClientLifetime).IsAssignableFrom(type))
         {
-            if (!this.componentOrder.Contains(type))
+            if (!this.clientLifetimeOrder.Contains(type))
             {
-                this.componentOrder.Add(type);
+                this.clientLifetimeOrder.Add(type);
             }
         }
+
+        if (typeof(ILogonLifetime).IsAssignableFrom(type))
+        {
+            if (!this.logonLifetimeOrder.Contains(type))
+            {
+                this.logonLifetimeOrder.Add(type);
+            }
+        }
+
+        return instance;
     }
 
-    public void RegisterComponentInstance<T>(T component)
+    public T RegisterInstance<T>(T instance)
     {
-        RegisterComponentInstance(typeof(T), component!);
+        return (T)RegisterInstance(typeof(T), instance!);
     }
 
     private ConstructorInfo GetConstructorFor(Type type)
@@ -164,7 +161,7 @@ public class Container : IContainer
 
         if (ctors.Length > 1)
         {
-            Console.WriteLine("More than one constructor for " + type.Name + ", issues may arise!");
+            logger.Warning("More than one constructor for " + type.Name + ", issues may arise!");
         }
 
         return ctors.First();
@@ -182,92 +179,138 @@ public class Container : IContainer
         return (T)ctor.Invoke(dependencies);
     }
 
-    public T ConstructAndRegisterComponentImmediate<T>()
+    public T ConstructAndRegisterImmediate<T>()
     {
-        if (this.components.ContainsKey(typeof(T)))
+        if (this.registeredObjects.ContainsKey(typeof(T)))
         {
-            throw new InvalidOperationException("Component '" + typeof(T) + "' already registered.");
+            throw new InvalidOperationException("Type '" + typeof(T) + "' already registered.");
         }
 
         Type componentType = typeof(T);
         T component = ConstructOnly<T>();
-        this.RegisterComponentInstance(component);
+        this.RegisterInstance(component);
         return component;
     }
 
-    public void ConstructAndRegisterComponent<T>()
+    public void ConstructAndRegister<T>()
     {
-        if (this.components.ContainsKey(typeof(T)))
+        if (this.registeredObjects.ContainsKey(typeof(T)))
         {
-            throw new InvalidOperationException("Component '" + typeof(T) + "' already registered.");
+            throw new InvalidOperationException("Type '" + typeof(T) + "' already registered.");
         }
 
-        if (this.componentFactories.ContainsKey(typeof(T)))
+        if (this.factories.ContainsKey(typeof(T)))
         {
             throw new InvalidOperationException("Factory '" + typeof(T) + "' already registered.");
         }
 
         ConstructorInfo ctor = GetConstructorFor<T>();
-        this.RegisterComponentFactoryMethod<T>(() =>
+        this.RegisterFactoryMethod<T>(() =>
         {
             List<object> constructorDependencies = new();
             foreach (var constructorArg in ctor.GetParameters())
             {
-                constructorDependencies.Add(GetComponent(constructorArg.ParameterType));
+                constructorDependencies.Add(Get(constructorArg.ParameterType));
             }
 
             return (T)ctor.Invoke(constructorDependencies.ToArray());
         });
     }
 
-    public object GetComponent(Type type)
-    {
-        if (this.components.ContainsKey(type))
-        {
-            var component = this.components[type];
-            if (object.ReferenceEquals(component, factoryPlaceholderComponent))
-            {
-                return RunFactoryFor(type);
-            }
-            return this.components[type];
-        }
-
-        throw new InvalidOperationException("Component '" + type + "' not registered.");
+    public bool Has(Type type) {
+        return this.registeredObjects.ContainsKey(type);
     }
 
-    public bool TryGetComponent(Type type, [NotNullWhen(true)] out object? obj) {
-        obj = null;
-        try
-        {
-            obj = GetComponent(type);
+    public bool HasNonFactory(Type type) {
+        if (!this.registeredObjects.ContainsKey(type)) {
+            return false;
         }
-        catch (System.Exception)
-        {
+
+        var obj = this.registeredObjects[type];
+        if (object.ReferenceEquals(obj, factoryPlaceholderObject)) {
             return false;
         }
 
         return true;
     }
 
-    public T GetComponent<T>() {
-        return (T)GetComponent(typeof(T));
+    public object Get(Type type)
+    {
+        if (this.registeredObjects.ContainsKey(type))
+        {
+            var obj = this.registeredObjects[type];
+            if (object.ReferenceEquals(obj, factoryPlaceholderObject))
+            {
+                return RunFactoryFor(type);
+            }
+            return this.registeredObjects[type];
+        }
+
+        throw new InvalidOperationException("Type '" + type + "' not registered.");
     }
 
-    public async Task RunStartupForComponents() {
-        foreach (var component in componentOrder)
+    public bool TryGet(Type type, [NotNullWhen(true)] out object? obj) {
+        obj = null;
+
+        if (this.Has(type)) {
+            obj = Get(type);
+            return true;
+        }
+
+        return false;
+    }
+
+    public T Get<T>() {
+        return (T)Get(typeof(T));
+    }
+
+    private bool hasRanStartup;
+    public async Task RunClientStartup() {
+        foreach (var component in clientLifetimeOrder)
         {
-            Console.WriteLine("Running startup for component " + component.Name);
-            await ((IComponent)GetComponent(component)).RunStartup();
+            logger.Info("Running startup for " + component.Name);
+            await ((IClientLifetime)Get(component)).RunStartup();
+        }
+        hasRanStartup = true;
+    }
+
+    public async Task RunClientShutdown() {
+        if (!hasRanStartup) {
+            throw new InvalidOperationException("Cannot run shutdown if startup was never run");
+        }
+
+        IsShuttingDown = true;
+        foreach (var component in clientLifetimeOrder)
+        {
+            logger.Info("Shutting down " + component.Name);
+            if (this.HasNonFactory(component)) {
+                await ((IClientLifetime)Get(component)).RunShutdown();
+                logger.Info("Shutdown for " + component.Name + " finished");
+            } else {
+                logger.Warning("Shutdown for " + component.Name + " skipped, factory was never ran prior.");
+            } 
         }
     }
 
-    public async Task RunShutdownForComponents() {
-        IsShuttingDown = true;
-        foreach (var component in componentOrder)
+    public async Task RunLogon(IExtendedProgress<int> progress, LoggedOnEventArgs e) {
+        foreach (var component in logonLifetimeOrder)
         {
-            Console.WriteLine("Shutting down component " + component.Name);
-            await ((IComponent)GetComponent(component)).RunShutdown();
-            Console.WriteLine("Shutdown for " + component.Name + " finished");
+            logger.Info("Running logon for component " + component.Name);
+            await ((ILogonLifetime)Get(component)).OnLoggedOn(progress, e);
+        }
+    }
+
+    public async Task RunLogoff(IExtendedProgress<int> progress) {
+        int shutdownComponents = 0;
+        progress.SetMaxProgress(logonLifetimeOrder.Count);
+        foreach (var component in logonLifetimeOrder)
+        {
+            logger.Info("Running logoff for component " + component.Name);
+            await ((ILogonLifetime)Get(component)).OnLoggingOff(progress);
+            logger.Info("Logoff for component " + component.Name + " finished");
+
+            shutdownComponents++;
+            progress.SetProgress(shutdownComponents);
         }
     }
 }

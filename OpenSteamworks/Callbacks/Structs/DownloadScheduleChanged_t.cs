@@ -5,7 +5,7 @@ using OpenSteamworks.Enums;
 namespace OpenSteamworks.Callbacks.Structs;
 
 [StructLayout(LayoutKind.Sequential)]
-internal unsafe struct DownloadScheduleChanged_t
+public unsafe struct DownloadScheduleChanged_t
 {
 	public bool m_bDownloadEnabled;
 	public UInt32 unk1;

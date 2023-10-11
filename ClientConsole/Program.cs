@@ -31,7 +31,7 @@ public static class Program
         await Container.RunStartupForComponents();
         Console.WriteLine("Started up");
         
-        Container.GetComponent<SteamClient>().LogClientState();
+        Container.Get<SteamClient>().LogClientState();
 
         do
         {

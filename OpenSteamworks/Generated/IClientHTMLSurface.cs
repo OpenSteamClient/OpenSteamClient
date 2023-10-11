@@ -6,20 +6,21 @@
 // Feel free to change parameters to be more accurate. 
 //=============================================================================
 
+global using HHTMLBrowser = System.UInt32;
+
 using System;
 using OpenSteamworks.Enums;
 
 namespace OpenSteamworks.Generated;
 
-using HHTMLBrowser = System.UInt32;
-
+//NOTE: the client always seems to get a 65536 browser id for it's first browser
 public unsafe interface IClientHTMLSurface
 {
     public unknown_ret Unknown_0_DONTUSE();
     public unknown_ret Unknown_1_DONTUSE();
-    public unknown_ret Init();
-    public unknown_ret Shutdown();
-    public HHTMLBrowser CreateBrowser(string userAgent, string customCSS);
+    public bool Init();
+    public bool Shutdown();
+    public SteamAPICall_t CreateBrowser(string userAgent, string? customCSS);
     public unknown_ret RemoveBrowser(HHTMLBrowser handle);
     public unknown_ret AllowStartRequest(HHTMLBrowser handle, bool allow);
     public unknown_ret LoadURL(HHTMLBrowser handle, string url, string postRequest = "");

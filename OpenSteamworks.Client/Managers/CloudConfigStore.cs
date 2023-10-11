@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Google.Protobuf;
 using Google.Protobuf.WellKnownTypes;
 using OpenSteamworks.Client.Enums;
+using OpenSteamworks.Client.Utils;
 using OpenSteamworks.Client.Utils.Interfaces;
 using OpenSteamworks.ClientInterfaces;
 using OpenSteamworks.Generated;
@@ -179,17 +180,16 @@ public class NamespaceData {
 /// It is currently only used for storing library related data.
 /// Take backups before mucking about with this, it WILL wipe all your collections, showcases(Shelves), and might break other stuff as well.
 /// </summary>
-public class CloudConfigStore : Component {
+public class CloudConfigStore : ILogonLifetime {
     private LoginManager loginManager;
     private Connection connection;
     private ConfigManager configManager;
     private List<NamespaceData> loadedNamespaces = new();
     private IClientUtils clientUtils;
-    public CloudConfigStore(IContainer container, ClientMessaging messaging, LoginManager loginManager, ConfigManager configManager, IClientUtils clientUtils) : base(container) {
+    public CloudConfigStore(ClientMessaging messaging, LoginManager loginManager, ConfigManager configManager, IClientUtils clientUtils) {
         this.clientUtils = clientUtils;
         this.loginManager = loginManager;
         this.configManager = configManager;
-        this.loginManager.LoggingOff += OnLoggingOff;
         this.connection = messaging.AllocateConnection();
         this.connection.AddServiceMethodHandler("CloudConfigStoreClient.NotifyChange#1", (Connection.StoredMessage msg) => this.OnCloudConfigStoreClient_NotifyChange(ProtoMsg<CCloudConfigStore_Change_Notification>.FromBinary(msg.fullMsg)));
     }
@@ -212,8 +212,12 @@ public class CloudConfigStore : Component {
         return directory;
     }
 
-    private void OnLoggingOff(object? sender, EventArgs e) {
-        HandleConfigStoreShutdown().Wait();
+    public async Task OnLoggingOff(IExtendedProgress<int> progress) {
+        await HandleConfigStoreShutdown();
+    }
+
+    public async Task OnLoggedOn(IExtendedProgress<int> progress, LoggedOnEventArgs e) {
+        await Task.CompletedTask;
     }
 
     private async Task HandleConfigStoreShutdown() {
@@ -368,13 +372,5 @@ public class CloudConfigStore : Component {
         var resp = await connection.ProtobufSendMessageAndAwaitResponse<CCloudConfigStore_Upload_Response, CCloudConfigStore_Upload_Request>(msg);
         Console.WriteLine("resp: " + resp.ToString());
         return resp.body.Versions;
-    }
-
-    public override async Task RunStartup() {
-        await EmptyAwaitable();
-    }
-    public override async Task RunShutdown()
-    {
-        await EmptyAwaitable();
     }
 }

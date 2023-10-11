@@ -35,10 +35,10 @@ public class ExtendedProgress<T> : IExtendedProgress<T>
     /// <summary>A cached delegate used to post invocation to the synchronization context.</summary>
     private readonly SendOrPostCallback invokeHandlers;
 
-    public ExtendedProgress(T initialProgress, T maxProgress)
+    public ExtendedProgress(T initialProgress, T maxProgress, string initialOperation = "")
     {
         synchronizationContext = SynchronizationContext.Current ?? defaultSyncContext;
-        Operation = "";
+        Operation = initialOperation;
         SubOperation = "";
         Throbber = false;
         this.InitialProgress = initialProgress;
@@ -59,19 +59,23 @@ public class ExtendedProgress<T> : IExtendedProgress<T>
             (this as IProgress<T>).Report(value);
         }
     }
+
     void IExtendedProgress<T>.SetMaxProgress(T value) {
         lock (PropertyLock) {
             this.MaxProgress = value;
             (this as IProgress<T>).Report(this.Progress);
         }
     }
+
     void IExtendedProgress<T>.SetOperation(string value) {
         lock(PropertyLock) {
             this.Operation = value;
             this.SubOperation = "";
-            (this as IProgress<T>).Report(this.InitialProgress);
+            this.Progress = this.InitialProgress;
+            (this as IProgress<T>).Report(this.Progress);
         }
     }
+
     void IExtendedProgress<T>.SetSubOperation(string value) {
         lock(PropertyLock) {
             this.SubOperation = value;

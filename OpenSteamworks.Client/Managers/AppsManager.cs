@@ -34,10 +34,11 @@ public class AppLastPlayedChangedEventArgs : EventArgs {
     public DateTime LastPlayed { get; }
 }
 
-public class AppsManager : Component
+public class AppsManager : ILogonLifetime
 {
-    public HashSet<uint> OwnedAppIDs { get; init; } = new();
-    private HashSet<App> LoadedApps { get; init; } = new();
+    public HashSet<AppId_t> OwnedAppIDs { get; init; } = new();
+    // I'm not a huge fan of this as it means the appid gets duplicated, but whatever
+    private Dictionary<AppId_t, App> LoadedApps { get; init; } = new();
 
     private object ownedAppsLock = new();
     private SteamClient steamClient;
@@ -54,15 +55,13 @@ public class AppsManager : Component
     public EventHandler<AppPlaytimeChangedEventArgs>? AppPlaytimeChanged;
     public EventHandler<AppLastPlayedChangedEventArgs>? AppLastPlayedChanged;
 
-    public AppsManager(SteamClient steamClient, CloudConfigStore cloudConfigStore, ClientMessaging clientMessaging, LoginManager loginManager, ConfigManager configManager, IContainer container) : base(container) {
+    public AppsManager(SteamClient steamClient, CloudConfigStore cloudConfigStore, ClientMessaging clientMessaging, LoginManager loginManager, ConfigManager configManager) {
         instance = this;
         this.steamClient = steamClient;
         this.cloudConfigStore = cloudConfigStore;
         this.clientMessaging = clientMessaging;
         this.loginManager = loginManager;
         this.logger = new Logger("AppsManager", Path.Combine(configManager.LogsDir, "AppsManager.txt"));
-        this.loginManager.LoggedOn += LoggedOn;
-        this.loginManager.LoggingOff += LoggingOff;
     }
 
     [CallbackListener<AppMinutesPlayedDataNotice_t>]
@@ -88,40 +87,32 @@ public class AppsManager : Component
                 OwnedAppIDs.Clear();
             }
 
-            uint[] actualAppsUpdated = new uint[licensesChanged.m_unAppsUpdated];
+            AppId_t[] actualAppsUpdated = new AppId_t[licensesChanged.m_unAppsUpdated];
             Array.Copy(licensesChanged.m_rgAppsUpdated, actualAppsUpdated, licensesChanged.m_unAppsUpdated);
-            lock (ownedAppsLock)
-            {
-                OwnedAppIDs.UnionWith(actualAppsUpdated);
-            }
+            OwnedAppIDs.UnionWith(actualAppsUpdated);
         }
     }
 
-    // Can't have async handlers as it'll fuck everything up horribly (doesn't wait for event handler to finish before continuing calling code)
-    public void LoggedOn(object sender, LoggedOnEventArgs e) {
-        // Get all owned apps
-        // uint[] ownedApps = new uint[8192];
-        // uint ownedAppsCount = steamClient.NativeClient.IClientUser.GetSubscribedApps(ownedApps, 8192, false);
-        // logger.Debug("SubscribedApps: " + ownedAppsCount);
-        // uint[] actualOwnedApps = new uint[ownedAppsCount];
-        // Array.Copy(ownedApps, actualOwnedApps, ownedAppsCount);
-
+    public async Task OnLoggedOn(IExtendedProgress<int> progress, LoggedOnEventArgs e) {
         // silly
-        var task = this.GetAppsForSteamID(e.User.SteamID!.Value);
-        task.Wait();
+        var ownedApps = await this.GetAppsForSteamID(e.User.SteamID!.Value);
 
-        var actualOwnedApps = task.Result.ToArray();
-        CreateAppsSync(actualOwnedApps);
+        progress.SetSubOperation("#WaitingForAppinfoUpdate");
+        Console.WriteLine("Waiting for appinfo update");
+        await RequestAppInfoUpdateForApps(ownedApps);
+        Console.WriteLine("Appinfo update finished");
+
+        UpdateMultipleAppObjectsSync(ownedApps);
         lock (ownedAppsLock)
         {
-            OwnedAppIDs.UnionWith(actualOwnedApps);
+            OwnedAppIDs.UnionWith(ownedApps);
         }
     }
 
     /// <summary>
     /// Creates app objects for all the appids in the appids array.
     /// </summary>
-    private void CreateAppsSync(uint[] appids) {
+    private void UpdateMultipleAppObjectsSync(IEnumerable<AppId_t> appids) {
         // I don't think these are necessary here, but let's have them just in case they improve performance
         steamClient.NativeClient.IClientApps.TakeUpdateLock();
 
@@ -134,7 +125,7 @@ public class AppsManager : Component
             
             try
             {
-                CreateAppSync(appid);
+                UpdateAppObjectSync(appid);
             }
             catch (Exception e)
             {
@@ -148,15 +139,14 @@ public class AppsManager : Component
 
     public async Task<App> GetAppAsync(uint appid) {
         // Check for an existing app
-        var matches = this.LoadedApps.Where(e => e.AppID == appid);
-        if (matches.Any()) {
-            return matches.First();
+        if (this.LoadedApps.TryGetValue(appid, out App? val)) {
+            return val;
+        } else {
+            return await Task.Run(() => UpdateAppObjectSync(appid));
         }
-
-        return await Task.Run(() => CreateAppSync(appid));
     }
     
-    private App CreateAppSync(uint appid) {
+    private App UpdateAppObjectSync(AppId_t appid) {
         var appObj = new App(appid);
 
         byte[] commonBytes;
@@ -176,20 +166,29 @@ public class AppsManager : Component
             Array.Copy(bytes, configBytes, configLength);
         }
 
+        logger.Debug($"{appid} got appinfo with length: (common: " + commonBytes.Length + ", config: " + configBytes.Length + ")");
         if (commonBytes.Length != 0 && configBytes.Length != 0) {
-            logger.Debug($"Initializing {appid} with appinfo length: (common: " + commonBytes.Length + ", config: " + configBytes.Length + ")");
             appObj.FillWithAppInfoBinary(commonBytes, configBytes);
         } else {
             throw new Exception(appid + " did not have an app data section. Not cached, no network or invalid app type?");
         }
 
-        LoadedApps.Add(appObj);
+        LoadedApps[appid] = appObj;
         return appObj;
     }
 
-    public void LoggingOff(object? sender, EventArgs e) {
+    public Task RequestAppInfoUpdateForApp(AppId_t appid) {
+        return RequestAppInfoUpdateForApps(new AppId_t[1] { appid });
+    }
+
+    public async Task RequestAppInfoUpdateForApps(IEnumerable<AppId_t> apps) {
+        this.steamClient.NativeClient.IClientApps.RequestAppInfoUpdate(apps.ToArray(), (uint)apps.LongCount());
+        await this.steamClient.CallbackManager.WaitForCallback(AppInfoUpdateComplete_t.CallbackID);
+    }
+
+    public async Task OnLoggingOff(IExtendedProgress<int> progress) {
         if (currentUserLibrary != null) {
-            currentUserLibrary.SaveLibrary();
+            await currentUserLibrary.SaveLibrary();
             currentUserLibrary = null;
         }
 
@@ -210,7 +209,7 @@ public class AppsManager : Component
     /// <summary>
     /// May return '' or 'public' depending on the phase of the moon, angle of the sun and some other unknown factors (public seems to be the correct behaviour, does '' stand for failure?)
     /// </summary>
-    public string GetBetaForApp(uint appid) {
+    public string GetBetaForApp(AppId_t appid) {
         StringBuilder betaName = new(256);
         steamClient.NativeClient.IClientAppManager.GetActiveBeta(appid, betaName, betaName.Length);
         return betaName.ToString();
@@ -221,7 +220,7 @@ public class AppsManager : Component
     /// Will not work in offline mode. Yet. TODO: we need a robust caching system.
     /// </summary>
     /// <param name="steamid">SteamID of the user to request apps for</param>
-    public async Task<HashSet<uint>> GetAppsForSteamID(CSteamID steamid, bool includeSteamPackageGames = true, bool includeFreeGames = true) {
+    public async Task<HashSet<AppId_t>> GetAppsForSteamID(CSteamID steamid, bool includeSteamPackageGames = true, bool includeFreeGames = true) {
         ProtoMsg<Protobuf.CPlayer_GetOwnedGames_Request> request = new("Player.GetOwnedGames#1");
         request.body.Steamid = steamid;
         request.body.IncludeAppinfo = false;
@@ -230,7 +229,7 @@ public class AppsManager : Component
         request.body.IncludePlayedFreeGames = includeFreeGames;
 
         ProtoMsg<Protobuf.CPlayer_GetOwnedGames_Response> response;
-        HashSet<uint> ownedApps = new();
+        HashSet<AppId_t> ownedApps = new();
         using (var conn = this.clientMessaging.AllocateConnection())
         {
             response = await conn.ProtobufSendMessageAndAwaitResponse<Protobuf.CPlayer_GetOwnedGames_Response, Protobuf.CPlayer_GetOwnedGames_Request>(request);
@@ -243,15 +242,5 @@ public class AppsManager : Component
         }
 
         return ownedApps;
-    }
-    public override async Task RunStartup()
-    {
-        Console.WriteLine("AppsManager startup");
-        await EmptyAwaitable();
-    }
-    public override async Task RunShutdown()
-    {
-        Console.WriteLine("AppsManager shutdown");
-        await EmptyAwaitable();
     }
 }

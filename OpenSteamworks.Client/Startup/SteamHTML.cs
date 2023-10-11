@@ -7,17 +7,19 @@ using OpenSteamworks.Client.Config;
 
 namespace OpenSteamworks.Client.Startup;
 
-public class SteamHTML : Component {
+public class SteamHTML : IClientLifetime {
     public bool ShouldStop = false;
     public object CurrentHTMLHostLock = new();
     public Process? CurrentHTMLHost;
     public Thread? WatcherThread;
     private SteamClient steamClient;
     private ConfigManager configManager;
+    private GlobalSettings globalSettings;
 
-    public SteamHTML(SteamClient steamClient, ConfigManager configManager, IContainer container) : base(container) {
+    public SteamHTML(SteamClient steamClient, ConfigManager configManager, GlobalSettings globalSettings) {
         this.steamClient = steamClient;
         this.configManager = configManager;
+        this.globalSettings = globalSettings;
     }
 
     [SupportedOSPlatform("linux")]
@@ -27,13 +29,20 @@ public class SteamHTML : Component {
             CurrentHTMLHost = new Process();
             CurrentHTMLHost.StartInfo.WorkingDirectory = Path.GetDirectoryName(pathToHost);
             CurrentHTMLHost.StartInfo.FileName = pathToHost;
+            var steampath = Directory.ResolveLinkTarget("/proc/self/exe", false)!.FullName;
+
+            // Necessary for libhtmlhost_fakepid (to get it to connect to master steam process)
+            CurrentHTMLHost.StartInfo.Environment.Add("OPENSTEAM_EXE_PATH", steampath);
             CurrentHTMLHost.StartInfo.Environment.Add("OPENSTEAM_PID", Environment.ProcessId.ToString());
             CurrentHTMLHost.StartInfo.Environment.Add("LD_LIBRARY_PATH", $".:{Environment.GetEnvironmentVariable("LD_LIBRARY_PATH")}");
             CurrentHTMLHost.StartInfo.Environment.Add("LD_PRELOAD", $"/tmp/libhtmlhost_fakepid.so:/tmp/libbootstrappershim32.so:{Environment.GetEnvironmentVariable("LD_PRELOAD")}");
-            CurrentHTMLHost.StartInfo.ArgumentList.Add(cacheDir);
-
+            
             // We don't use steam-runtime-heavy
-            CurrentHTMLHost.StartInfo.Environment.Add("STEAM_RUNTIME", $"0");
+            CurrentHTMLHost.StartInfo.Environment.Add("STEAM_RUNTIME", "0");
+            
+            CurrentHTMLHost.StartInfo.ArgumentList.Add(cacheDir);
+            CurrentHTMLHost.StartInfo.ArgumentList.Add(steampath);
+
             
             CurrentHTMLHost.Start();
 
@@ -56,14 +65,14 @@ public class SteamHTML : Component {
         }
     }
 
-    public override async Task RunShutdown() {
+    public async Task RunShutdown() {
         ShouldStop = true;
-        await EmptyAwaitable();
+        await Task.CompletedTask;
     }
 
-    public override async Task RunStartup()
+    public async Task RunStartup()
     {
-        if (GetComponent<GlobalSettings>().EnableWebHelper) {
+        if (globalSettings.EnableWebHelper) {
             if (steamClient.NativeClient.ConnectedWith == SteamClient.ConnectionType.NewClient) {
                 if (OperatingSystem.IsLinux()) {
                     try

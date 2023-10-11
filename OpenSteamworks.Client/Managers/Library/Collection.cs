@@ -100,16 +100,26 @@ public class Collection
     /// <summary>
     /// Adds an app to this collection.
     /// </summary>
-    public void AddApp(uint appid)
+    public void AddApp(AppId_t appid)
     {
         this.explicitlyAddedApps.Add(appid);
+    }
+
+    /// <summary>
+    /// Adds multiple apps to this collection.
+    /// </summary>
+    public void AddApps(IEnumerable<AppId_t> appids) {
+        foreach (var item in appids)
+        {
+            this.explicitlyAddedApps.Add(item);
+        }
     }
 
     /// <summary>
     /// Removes an app from the collection.
     /// If the collection is dynamic, it will blacklist the app from being visible in the collection
     /// </summary>
-    public void RemoveApp(uint appid)
+    public void RemoveApp(AppId_t appid)
     {
         if (this.IsDynamic)
         {
@@ -121,7 +131,7 @@ public class Collection
     /// <summary>
     /// Removes an exclusion for an app from a dynamic collection.
     /// </summary>
-    public void RemoveExcludedApp(uint appid)
+    public void RemoveExcludedApp(AppId_t appid)
     {
         this.ThrowIfStatic();
         this.explicitlyRemovedApps.Remove(appid);

@@ -12,66 +12,66 @@ using OpenSteamworks.ClientInterfaces;
 
 namespace OpenSteamworks.Client;
 
-public class Client : Component
+public class Client : IClientLifetime
 {
-    private bool isSelfContainer = false;
-    private IExtendedProgress<int>? bootstrapperProgress;
-    public async override Task RunStartup()
+    private Container container;
+    public async Task RunStartup()
     {        
         await Task.Run(() => {
             var args = Environment.GetCommandLineArgs();
-            Container.GetComponent<IClientEngine>().SetClientCommandLine(args.Length, args);
+            container.Get<IClientEngine>().SetClientCommandLine(args.Length, args);
         });
     }
 
-    public async override Task RunShutdown()
+    public async Task RunShutdown()
     {
-        Container.GetComponent<SteamClient>().Shutdown();
+        await Task.Run(() => {
+            container.Get<SteamClient>().Shutdown();
+        });
     }
 
-    public Client(IContainer? container = null, IExtendedProgress<int>? bootstrapperProgress = null) : base(container != null ? container : new Container()) {
-        this.isSelfContainer = container == null;
-        this.bootstrapperProgress = bootstrapperProgress;
-        Container.ConstructAndRegisterComponentImmediate<ConfigManager>();
-        Container.ConstructAndRegisterComponentImmediate<Bootstrapper>().SetProgressObject(bootstrapperProgress);
+    public Client(Container container, IExtendedProgress<int>? bootstrapperProgress = null) {
+        this.container = container;
+        container.ConstructAndRegisterImmediate<ConfigManager>();
+        container.ConstructAndRegisterImmediate<Bootstrapper>().SetProgressObject(bootstrapperProgress);
 
         // OpenSteamworks doesn't support the component API by design. It allows it to be leanly integrated wherever. So we do the registration here instead of with subcomponents.
-        Container.RegisterComponentFactoryMethod<SteamClient>(() => new SteamClient(Container.GetComponent<Bootstrapper>().SteamclientLibPath, Container.GetComponent<AdvancedConfig>().EnabledConnectionTypes));
+        container.RegisterFactoryMethod<SteamClient>(() => new SteamClient(container.Get<Bootstrapper>().SteamclientLibPath, container.Get<AdvancedConfig>().EnabledConnectionTypes));
         
-        Container.RegisterComponentFactoryMethod<CallbackManager>((SteamClient client) => client.CallbackManager);
-        Container.RegisterComponentFactoryMethod<ClientConfigStore>((SteamClient client) => client.ClientConfigStore);
-        Container.RegisterComponentFactoryMethod<ClientMessaging>((SteamClient client) => client.ClientMessaging);
-        Container.RegisterComponentFactoryMethod<IClientAppDisableUpdate>((SteamClient client) => client.NativeClient.IClientAppDisableUpdate);
-        Container.RegisterComponentFactoryMethod<IClientAppManager>((SteamClient client) => client.NativeClient.IClientAppManager);
-        Container.RegisterComponentFactoryMethod<IClientApps>((SteamClient client) => client.NativeClient.IClientApps);
-        Container.RegisterComponentFactoryMethod<IClientAudio>((SteamClient client) => client.NativeClient.IClientAudio);
-        Container.RegisterComponentFactoryMethod<IClientBilling>((SteamClient client) => client.NativeClient.IClientBilling);
-        Container.RegisterComponentFactoryMethod<IClientCompat>((SteamClient client) => client.NativeClient.IClientCompat);
-        Container.RegisterComponentFactoryMethod<IClientConfigStore>((SteamClient client) => client.NativeClient.IClientConfigStore);
-        Container.RegisterComponentFactoryMethod<IClientDeviceAuth>((SteamClient client) => client.NativeClient.IClientDeviceAuth);
-        Container.RegisterComponentFactoryMethod<IClientEngine>((SteamClient client) => client.NativeClient.IClientEngine);
-        Container.RegisterComponentFactoryMethod<IClientFriends>((SteamClient client) => client.NativeClient.IClientFriends);
-        Container.RegisterComponentFactoryMethod<IClientGameStats>((SteamClient client) => client.NativeClient.IClientGameStats);
-        Container.RegisterComponentFactoryMethod<IClientHTMLSurface>((SteamClient client) => client.NativeClient.IClientHTMLSurface);
-        Container.RegisterComponentFactoryMethod<IClientMatchmaking>((SteamClient client) => client.NativeClient.IClientMatchmaking);
-        Container.RegisterComponentFactoryMethod<IClientMusic>((SteamClient client) => client.NativeClient.IClientMusic);
-        Container.RegisterComponentFactoryMethod<IClientNetworking>((SteamClient client) => client.NativeClient.IClientNetworking);
-        Container.RegisterComponentFactoryMethod<IClientRemoteStorage>((SteamClient client) => client.NativeClient.IClientRemoteStorage);
-        Container.RegisterComponentFactoryMethod<IClientScreenshots>((SteamClient client) => client.NativeClient.IClientScreenshots);
-        Container.RegisterComponentFactoryMethod<IClientShader>((SteamClient client) => client.NativeClient.IClientShader);
-        Container.RegisterComponentFactoryMethod<IClientSharedConnection>((SteamClient client) => client.NativeClient.IClientSharedConnection);
-        Container.RegisterComponentFactoryMethod<IClientShortcuts>((SteamClient client) => client.NativeClient.IClientShortcuts);
-        Container.RegisterComponentFactoryMethod<IClientUGC>((SteamClient client) => client.NativeClient.IClientUGC);
-        Container.RegisterComponentFactoryMethod<IClientUnifiedMessages>((SteamClient client) => client.NativeClient.IClientUnifiedMessages);
-        Container.RegisterComponentFactoryMethod<IClientUser>((SteamClient client) => client.NativeClient.IClientUser);
-        Container.RegisterComponentFactoryMethod<IClientUserStats>((SteamClient client) => client.NativeClient.IClientUserStats);
-        Container.RegisterComponentFactoryMethod<IClientUtils>((SteamClient client) => client.NativeClient.IClientUtils);
-        Container.RegisterComponentFactoryMethod<IClientVR>((SteamClient client) => client.NativeClient.IClientVR);
+        container.RegisterFactoryMethod<CallbackManager>((SteamClient client) => client.CallbackManager);
+        container.RegisterFactoryMethod<ClientConfigStore>((SteamClient client) => client.ClientConfigStore);
+        container.RegisterFactoryMethod<ClientMessaging>((SteamClient client) => client.ClientMessaging);
+        container.RegisterFactoryMethod<IClientAppDisableUpdate>((SteamClient client) => client.NativeClient.IClientAppDisableUpdate);
+        container.RegisterFactoryMethod<IClientAppManager>((SteamClient client) => client.NativeClient.IClientAppManager);
+        container.RegisterFactoryMethod<IClientApps>((SteamClient client) => client.NativeClient.IClientApps);
+        container.RegisterFactoryMethod<IClientAudio>((SteamClient client) => client.NativeClient.IClientAudio);
+        container.RegisterFactoryMethod<IClientBilling>((SteamClient client) => client.NativeClient.IClientBilling);
+        container.RegisterFactoryMethod<IClientCompat>((SteamClient client) => client.NativeClient.IClientCompat);
+        container.RegisterFactoryMethod<IClientConfigStore>((SteamClient client) => client.NativeClient.IClientConfigStore);
+        container.RegisterFactoryMethod<IClientDeviceAuth>((SteamClient client) => client.NativeClient.IClientDeviceAuth);
+        container.RegisterFactoryMethod<IClientEngine>((SteamClient client) => client.NativeClient.IClientEngine);
+        container.RegisterFactoryMethod<IClientFriends>((SteamClient client) => client.NativeClient.IClientFriends);
+        container.RegisterFactoryMethod<IClientGameStats>((SteamClient client) => client.NativeClient.IClientGameStats);
+        container.RegisterFactoryMethod<IClientHTMLSurface>((SteamClient client) => client.NativeClient.IClientHTMLSurface);
+        container.RegisterFactoryMethod<IClientMatchmaking>((SteamClient client) => client.NativeClient.IClientMatchmaking);
+        container.RegisterFactoryMethod<IClientMusic>((SteamClient client) => client.NativeClient.IClientMusic);
+        container.RegisterFactoryMethod<IClientNetworking>((SteamClient client) => client.NativeClient.IClientNetworking);
+        container.RegisterFactoryMethod<IClientRemoteStorage>((SteamClient client) => client.NativeClient.IClientRemoteStorage);
+        container.RegisterFactoryMethod<IClientScreenshots>((SteamClient client) => client.NativeClient.IClientScreenshots);
+        container.RegisterFactoryMethod<IClientShader>((SteamClient client) => client.NativeClient.IClientShader);
+        container.RegisterFactoryMethod<IClientSharedConnection>((SteamClient client) => client.NativeClient.IClientSharedConnection);
+        container.RegisterFactoryMethod<IClientShortcuts>((SteamClient client) => client.NativeClient.IClientShortcuts);
+        container.RegisterFactoryMethod<IClientUGC>((SteamClient client) => client.NativeClient.IClientUGC);
+        container.RegisterFactoryMethod<IClientUnifiedMessages>((SteamClient client) => client.NativeClient.IClientUnifiedMessages);
+        container.RegisterFactoryMethod<IClientUser>((SteamClient client) => client.NativeClient.IClientUser);
+        container.RegisterFactoryMethod<IClientUserStats>((SteamClient client) => client.NativeClient.IClientUserStats);
+        container.RegisterFactoryMethod<IClientUtils>((SteamClient client) => client.NativeClient.IClientUtils);
+        container.RegisterFactoryMethod<IClientVR>((SteamClient client) => client.NativeClient.IClientVR);
 
-        Container.ConstructAndRegisterComponent<LoginManager>();
-        Container.ConstructAndRegisterComponent<CloudConfigStore>();
-        Container.ConstructAndRegisterComponent<AppsManager>();
-        Container.ConstructAndRegisterComponent<SteamHTML>();
-        Container.ConstructAndRegisterComponent<SteamService>();
+        container.ConstructAndRegister<LoginManager>();
+        container.ConstructAndRegister<CloudConfigStore>();
+        container.ConstructAndRegister<AppsManager>();
+        container.ConstructAndRegister<SteamHTML>();
+        container.ConstructAndRegister<SteamService>();
     }
 }

@@ -2,11 +2,16 @@ using System;
 using OpenSteamworks.Enums;
 using OpenSteamworks.Native;
 using OpenSteamworks.ConCommands;
+using System.Runtime.InteropServices;
+using System.Text;
 
 namespace OpenSteamworks.Generated;
 
-public delegate void SteamAPIWarningMessageHook_t(int nSeverity, string pchDebugText);
-public delegate void CPostAPIResultInProcess_t(UInt64 ulUnk, ref byte[] pUnk, UInt32 uUnk, Int32 iUnk);
+[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+public delegate void ClientAPI_WarningMessageHook_t(int nSeverity, string pchDebugText);
+
+[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+public delegate void ClientAPI_PostAPIResultInProcess_t(SteamAPICall_t callHandle, IntPtr callbackData, uint unCallbackSize, int iCallbackNum);
 
 public unsafe interface IClientEngine {
     public HSteamPipe CreateSteamPipe();
@@ -31,7 +36,7 @@ public unsafe interface IClientEngine {
 	public IClientGameSearch GetIClientGameSearch( HSteamUser hSteamUser, HSteamPipe hSteamPipe );
 	/// <summary>
     /// Runs a frame. 
-    /// Unneeded.
+    /// Unneeded?
     /// </summary>
 	public void RunFrame();
 	/// <summary>
@@ -48,7 +53,7 @@ public unsafe interface IClientEngine {
     /// There's lots of docs for this online, but you should use SteamAPIWarningMessageHook_t
     /// and get a pointer to it then pass it to this function.
     /// </summary>
-	public void SetWarningMessageHook( IntPtr pFunction );
+	public void SetWarningMessageHook( ClientAPI_WarningMessageHook_t func );
 	public IClientGameCoordinator GetIClientGameCoordinator( HSteamUser hSteamUser, HSteamPipe hSteamPipe );
 	public void SetOverlayNotificationPosition( ENotificationPosition eNotificationPosition );
 	public void SetOverlayNotificationInsert( Int32 unk1, Int32 unk2 );
@@ -60,12 +65,12 @@ public unsafe interface IClientEngine {
     /// </summary>
     /// <param name="hSteamPipe">Steam Pipe which contains the call</param>
     /// <param name="hSteamAPICall">The reference number of the call</param>
-    /// <param name="pCallback">An array of bytes to store the call's result (please marshal first)</param>
+    /// <param name="pCallback">An array of bytes to store the call's result</param>
     /// <param name="cubCallback">The size of pCallback. </param>
     /// <param name="iCallbackExpected">k_iCallback number that you expected back</param>
     /// <param name="pbFailed">A bool that tells you if the callback failed</param>
-    /// <returns></returns>
-	public bool GetAPICallResult( HSteamPipe hSteamPipe, SteamAPICall_t hSteamAPICall, IntPtr pCallback, int cubCallback, int iCallbackExpected, ref bool pbFailed );
+    /// <returns>If the callback is finished or not</returns>
+	public bool GetAPICallResult( HSteamPipe hSteamPipe, SteamAPICall_t hSteamAPICall, byte[] pCallback, int cubCallback, int iCallbackExpected, ref bool pbFailed );
 	public IClientProductBuilder GetIClientProductBuilder( HSteamUser hSteamUser, HSteamPipe hSteamPipe );
 	public IClientDepotBuilder GetIClientDepotBuilder( HSteamUser hSteamUser, HSteamPipe hSteamPipe );
 	public IClientNetworkDeviceManager GetIClientNetworkDeviceManager( HSteamPipe hSteamPipe );
@@ -107,20 +112,14 @@ public unsafe interface IClientEngine {
 
 	/// <summary>
     /// We don't know what this does yet.
-    /// You should use CPostAPIResultInProcess_t
-    /// and get a pointer to it then pass it to this function.
+    /// You should use ClientAPI_PostAPIResultInProcess_t and store it somewhere to prevent it being GC'd.
     /// </summary>
-	public unknown_ret Set_ClientAPI_CPostAPIResultInProcess( IntPtr callback );
+	public unknown_ret Set_ClientAPI_CPostAPIResultInProcess( ClientAPI_PostAPIResultInProcess_t callback );
 	public IClientBluetoothManager GetIClientBluetoothManager( HSteamPipe hSteamPipe);
 	public IClientSharedConnection GetIClientSharedConnection( HSteamUser hSteamUser, HSteamPipe hSteamPipe );
 	public IClientShader GetIClientShader( HSteamUser hSteamUser, HSteamPipe hSteamPipe );
 	public IClientNetworkingSocketsSerialized GetIClientNetworkingSocketsSerialized( HSteamUser hSteamUser, HSteamPipe hSteamPipe );
 	public IClientCompat GetIClientCompat( HSteamUser hSteamUser, HSteamPipe hSteamPipe );
-
-	/// <summary>
-    /// You should use a string[]
-    /// and get a pointer to it then pass it to this function.
-    /// </summary>
 	public void SetClientCommandLine( Int32 argc, string[] argv ); 
 	public IClientParties GetIClientParties( HSteamUser hSteamUser, HSteamPipe hSteamPipe );
 	public IClientNetworkingMessages GetIClientNetworkingMessages( HSteamUser hSteamUser, HSteamPipe hSteamPipe );

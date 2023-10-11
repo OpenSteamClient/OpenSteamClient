@@ -7,6 +7,7 @@
 //=============================================================================
 
 using System;
+using OpenSteamworks.Structs;
 
 namespace OpenSteamworks.Generated;
 
@@ -160,9 +161,9 @@ public unsafe interface IClientRemoteClientManager
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret BCreateRemotePlayGroup();  // argc: 1, index: 82
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret BCreateRemotePlayInviteAndSession();  // argc: 10, index: 83
+    public bool BCreateRemotePlayInviteAndSession(in RemotePlayPlayer_t player, AppId_t appid);  // argc: 10, index: 83
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret CancelRemotePlayInviteAndSession();  // argc: 9, index: 84
+    public unknown_ret CancelRemotePlayInviteAndSession(in RemotePlayPlayer_t player);  // argc: 9, index: 84
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret JoinRemotePlaySession();  // argc: 3, index: 85
     public unknown_ret BStreamingDesktopToRemotePlayTogetherEnabled();  // argc: 0, index: 86

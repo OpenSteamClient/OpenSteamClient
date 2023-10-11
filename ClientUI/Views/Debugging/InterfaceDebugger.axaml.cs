@@ -8,7 +8,9 @@ using Avalonia.VisualTree;
 using ClientUI.Extensions;
 using CommunityToolkit.Mvvm.Input;
 using OpenSteamworks;
+using OpenSteamworks.Attributes;
 using OpenSteamworks.Client;
+using OpenSteamworks.Client.Utils;
 
 namespace ClientUI.Views;
 
@@ -19,7 +21,7 @@ public partial class InterfaceDebugger : Window
     {
         InitializeComponent();
         var stackpanel = this.FindControl<StackPanel>("StackPanel");
-        OpenSteamworks.Client.Utils.UtilityFunctions.AssertNotNull(stackpanel);
+        UtilityFunctions.AssertNotNull(stackpanel);
 
         this.Title = iface.Name + " Debugger";
         this.ifaceName = iface.Name;
@@ -70,7 +72,7 @@ public partial class InterfaceDebugger : Window
         return columndef;
     }
     public void MethodCalled(Tuple<Type,MethodInfo>? info) {
-        OpenSteamworks.Client.Utils.UtilityFunctions.AssertNotNull(info);
+        UtilityFunctions.AssertNotNull(info);
         string funcidentifier = ifaceName + "_" + info.Item2.Name + info.Item2.GetParameters().Length;
         var implementer = GetInterfaceImpl(info.Item1);
         List<object?> paramArr = new();
@@ -82,7 +84,7 @@ public partial class InterfaceDebugger : Window
             var paramIdentifier = funcidentifier + "_Arg" + i;
             Console.WriteLine("trying to find " + paramIdentifier);
             var paramTextbox = this.FindControlNested<TextBox>(paramIdentifier);
-            OpenSteamworks.Client.Utils.UtilityFunctions.AssertNotNull(paramTextbox);
+            UtilityFunctions.AssertNotNull(paramTextbox);
 
             var paramCurrentText = paramTextbox.Text;
            
@@ -97,6 +99,13 @@ public partial class InterfaceDebugger : Window
 
             try {
                 bool isStruct = false;
+                bool isCustomValueType = paramInfo.ParameterType.GetCustomAttribute<CustomValueTypeAttribute>() != null;
+                Type? customValueType = null;
+
+                if (isCustomValueType) {
+                    customValueType = UtilityFunctions.AssertNotNull(paramInfo.ParameterType.GetField("_value", BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance)).FieldType;
+                }
+                
                 Type type = paramInfo.ParameterType.IsByRef ? paramInfo.ParameterType.GetElementType()! : paramInfo.ParameterType;
                 if (paramInfo.IsOut || paramInfo.ParameterType.IsByRef) {
                     refParams.Add(paramArr.Count, paramInfo);
@@ -111,17 +120,24 @@ public partial class InterfaceDebugger : Window
                     continue;
                 }
 
-                if (isStruct) {
+                if (isCustomValueType) {
+                    // Custom value type, convert to int and then run implicit operator
+                    paramArr.Add(UtilityFunctions.AssertNotNull(type.GetMethod("op_Implicit", new [] {customValueType!})).Invoke(null, new [] { Convert.ChangeType(paramCurrentText, customValueType!) }));
+                    continue;
+                }
+
+                if (isStruct && !isCustomValueType) {
                     // This is a struct, find string ctor and run it
                     var ci = type.GetConstructor(new Type[1] {
                         typeof(string)
                     });
 
-                    OpenSteamworks.Client.Utils.UtilityFunctions.AssertNotNull(ci);
+                    UtilityFunctions.AssertNotNull(ci);
 
                     paramArr.Add(ci.Invoke(new object[1] { paramCurrentText }));
                     continue;
                 }
+
                 // Enums need special handling...
                 if (type.IsEnum) {
                     paramArr.Add(Enum.Parse(type, paramCurrentText));
@@ -145,25 +161,25 @@ public partial class InterfaceDebugger : Window
         MessageBox.Show("Function executed successfully", info.Item2.Name + " returned " + ret + Environment.NewLine + refParamsAsStr);
     }
 
-    private object GetInterfaceImpl(Type iface) {
-        var client = AvaloniaApp.Container.GetComponent<SteamClient>();
-        OpenSteamworks.Client.Utils.UtilityFunctions.AssertNotNull(client);
+    private static object GetInterfaceImpl(Type iface) {
+        var client = AvaloniaApp.Container.Get<SteamClient>();
+        UtilityFunctions.AssertNotNull(client);
         var jitAssembly = GetJITAssembly();
         var implementorFields = typeof(OpenSteamworks.Native.ClientNative).GetFields().Where(f => f.FieldType == iface);
-        if (implementorFields.Count() == 0) {
+        if (!implementorFields.Any()) {
             throw new NotSupportedException("This interface is not implemented in ClientNative");
         }
         var implementorField = implementorFields.First();
         
-        return OpenSteamworks.Client.Utils.UtilityFunctions.AssertNotNull(implementorField.GetValue(client.NativeClient));
+        return UtilityFunctions.AssertNotNull(implementorField.GetValue(client.NativeClient));
     }
 
-    private Assembly GetJITAssembly()
+    private static Assembly GetJITAssembly()
     {
         var jitAssembly = AppDomain.CurrentDomain.GetAssemblies().
             SingleOrDefault(assembly => assembly.GetName().Name == "OpenSteamworksJIT");
         
-        OpenSteamworks.Client.Utils.UtilityFunctions.AssertNotNull(jitAssembly);
+        UtilityFunctions.AssertNotNull(jitAssembly);
 
         return jitAssembly;
     }

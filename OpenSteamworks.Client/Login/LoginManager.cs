@@ -52,7 +52,7 @@ public class SecondFactorNeededEventArgs : EventArgs
     public IEnumerable<CAuthentication_AllowedConfirmation> AllowedConfirmations { get; }
 }
 
-public class LoginManager : Component
+public class LoginManager : IClientLifetime
 {
     public delegate void LoggedOnEventHandler(object sender, LoggedOnEventArgs e);
     public delegate void LoggedOffEventHandler(object sender, LoggedOffEventArgs e);
@@ -71,16 +71,19 @@ public class LoginManager : Component
     private SteamClient steamClient;
     private LoginUsers loginUsers;
     private ClientMessaging clientMessaging;
+    private Container container;
+
     private LoginPoll? QRPoller;
     private LoginPoll? CredentialsPoller;
     /// <summary>
     /// Used only when a logon is in progress. To get the logged in user's SteamID, use IClientUser::GetSteamID or LoginManager::CurrentUser::SteamID
     /// </summary>
-    public CSteamID CurrentSteamID { get; private set; } = 0;
+    public CSteamID InProgressLogonSteamID { get; private set; } = 0;
     public LoginUser? CurrentUser { get; private set; }
 
-    public LoginManager(SteamClient steamClient, LoginUsers loginUsers, IContainer container, ClientMessaging clientMessaging) : base(container)
+    public LoginManager(SteamClient steamClient, LoginUsers loginUsers, Container container, ClientMessaging clientMessaging)
     {
+        this.container = container;
         this.steamClient = steamClient;
         this.steamClient.CallbackManager.RegisterHandlersFor(this);
         this.loginUsers = loginUsers;
@@ -100,9 +103,15 @@ public class LoginManager : Component
         loginUsers.Save();
         return success;
     }
+
+    /// <summary>
+    /// Sets a progress object for logging in. To set one for logging out and shutting down, set it within the container
+    /// </summary>
+    /// <param name="progress"></param>
     public void SetProgress(IExtendedProgress<int>? progress) {
         this.loginProgress = progress;
     }
+
     private IExtendedProgress<int>? loginProgress;
 
     /// <summary>
@@ -193,7 +202,7 @@ public class LoginManager : Component
             }
 
             // This should always have a steamid here, otherwise we can't get it from anywhere
-            CurrentSteamID = beginResp.body.Steamid;
+            InProgressLogonSteamID = beginResp.body.Steamid;
 
             // Interval is 0.1 and/or allowedconfirmations is set to [k_EAuthSessionGuardType_None] when user has no 2fa
             if (beginResp.body.AllowedConfirmations.All(elem => elem.ConfirmationType == EAuthSessionGuardType.None)) {
@@ -221,7 +230,7 @@ public class LoginManager : Component
             updateMsg.body.ClientId = CredentialsPoller.ClientID;
             updateMsg.body.CodeType = codeType;
             updateMsg.body.Code = code;
-            updateMsg.body.Steamid = CurrentSteamID;
+            updateMsg.body.Steamid = InProgressLogonSteamID;
 
             var updateResp = await conn.ProtobufSendMessageAndAwaitResponse<CAuthentication_UpdateAuthSessionWithSteamGuardCode_Response, CAuthentication_UpdateAuthSessionWithSteamGuardCode_Request>(updateMsg);
             return (EResult)updateResp.header.Eresult;
@@ -316,7 +325,7 @@ public class LoginManager : Component
     /// Gets whether there is a user logged in or in offline mode.
     /// </summary>
     public bool IsLoggedOn() {
-        return steamClient.NativeClient.IClientUser.GetSteamID().SteamID64 != 0;
+        return this.steamClient.NativeClient.IClientUser.BLoggedOn();
     }
 
     /// <summary>
@@ -353,25 +362,32 @@ public class LoginManager : Component
     }
 
 
+    private bool _logonStateHasStartedLoading = false;
     [CallbackListener<PostLogonState_t>]
-    // This callback doesn't really mean anything. Just used for cosmetic purposes
     public void OnPostLogonState(PostLogonState_t stateUpdate) {
         if (isLoggingOn) {
-            if (loginProgress != null) {
-                if (stateUpdate.logonComplete) {
+            if (!_logonStateHasStartedLoading && stateUpdate.isLoading) {
+                _logonStateHasStartedLoading = true;
+            } else if (_logonStateHasStartedLoading && !stateUpdate.isLoading) {
+                // loading has finished
+                _logonStateHasStartedLoading = false;
+
+                if (loginProgress != null) {
                     loginProgress.SetProgress(100);
+                    //TODO: figure out the correct field to use for progress updates (or is it guessed?)
                 }
-                //TODO: figure out the correct field to use for progress updates (or is it guessed?)
+                
+                if (isLoggingOn) {
+                    loginFinishResult = EResult.k_EResultOK;
+                }
             }
         }
     }
 
-    [CallbackListener<SteamServersConnected_t>]
-    public void OnSteamServersConnected(SteamServersConnected_t connected) {
-        if (isLoggingOn) {
-            loginFinishResult = EResult.k_EResultOK;
-        }
-    }
+    // [CallbackListener<SteamServersConnected_t>]
+    // public void OnSteamServersConnected(SteamServersConnected_t connected) {
+        
+    // }
     
     public void SetMachineName(string machineName) {
         steamClient.NativeClient.IClientUser.SetUserMachineName(machineName);
@@ -476,7 +492,7 @@ public class LoginManager : Component
                 {
                     loginUsers.SetUserAsAutologin(user);
                 }
-                OnLoggedOn(new LoggedOnEventArgs(user));
+                await OnLoggedOn(new LoggedOnEventArgs(user));
             } else {
                 OnLogonFailed(new LogOnFailedEventArgs(user, result));
             }
@@ -488,18 +504,29 @@ public class LoginManager : Component
         });
     }
 
-    public void Logout(bool forget = false) {
+    public async Task LogoutAsync(IExtendedProgress<int>? logoutProgress = null, bool forget = false) {
         UtilityFunctions.AssertNotNull(this.CurrentUser);
-        this.LoggingOff?.Invoke(this, EventArgs.Empty);
-        var oldUser = CurrentUser;
-        this.steamClient.NativeClient.IClientUser.LogOff();
-        while (this.steamClient.NativeClient.IClientUser.BLoggedOn())
-        {
-            System.Threading.Thread.Sleep(50);
+        await Task.Run(() => this.LoggingOff?.Invoke(this, EventArgs.Empty));
+
+        if (logoutProgress == null) {
+            logoutProgress = new ExtendedProgress<int>(0, 100);
         }
 
+        await container.RunLogoff(logoutProgress);
+
+        var oldUser = CurrentUser;
+
+        await Task.Run(() =>
+        {
+            this.steamClient.NativeClient.IClientUser.LogOff();
+            while (this.steamClient.NativeClient.IClientUser.BLoggedOn())
+            {
+                System.Threading.Thread.Sleep(50);
+            }
+        });
+
         if (forget) {
-            RemoveAccount(oldUser);
+            await Task.Run(() => RemoveAccount(oldUser));
         }
     }
 
@@ -509,20 +536,24 @@ public class LoginManager : Component
         LogOnFailed?.Invoke(this, e);
     }
 
-    private void OnLoggedOn(LoggedOnEventArgs e) {
+    private async Task OnLoggedOn(LoggedOnEventArgs e) {
         CurrentUser = e.User;
-        CurrentSteamID = 0;
-        AddAccount(e.User);
-        this.loginUsers.SetUserAsMostRecent(e.User);
+        InProgressLogonSteamID = 0;
+        await Task.Run(() => {
+            AddAccount(e.User);
+            this.loginUsers.SetUserAsMostRecent(e.User);
+        });
         this.loginFinishResult = null;
+        await container.RunLogon(loginProgress ?? new ExtendedProgress<int>(0, 100, ""), e);
         this.isLoggingOn = false;
-        LoggedOn?.Invoke(this, e);
+        await Task.Run(() => LoggedOn?.Invoke(this, e));
     }
 
     private void OnLoggedOff(LoggedOffEventArgs e) {
         CurrentUser = null;
         LoggedOff?.Invoke(this, e);
     }
+
     private async Task<EResult> WaitForLogonToFinish() {
         return await Task.Run<EResult>(() =>
         {
@@ -535,14 +566,20 @@ public class LoginManager : Component
         });
     }
 
-    public override async Task RunStartup()
+    public async Task RunStartup()
     {
-        await EmptyAwaitable();
+        await Task.CompletedTask;
     }
 
-    public override async Task RunShutdown()
+    public async Task RunShutdown()
     {
-        Logout();
-        await EmptyAwaitable();
+        Console.WriteLine("IsLoggedOn: " + this.IsLoggedOn());
+
+        if (this.IsLoggedOn()) {
+            Console.WriteLine("Is logged on, logging out");
+            await LogoutAsync();
+        } else {
+            Console.WriteLine("Not logged on");
+        }
     }
 }

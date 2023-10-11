@@ -24,7 +24,7 @@ public partial class InterfaceList : Window
         OpenSteamworks.Client.Utils.UtilityFunctions.AssertNotNull(osw);
         OpenSteamworks.Client.Utils.UtilityFunctions.AssertNotNull(jit);
 
-        var validInterfaces = osw.GetTypes().Where(type => type.Name.StartsWith("IClient") && type.IsInterface);
+        var validInterfaces = osw.GetTypes().Where(type => (type.Name.StartsWith("IClient") || type.Name.StartsWith("ISteam")) && type.IsInterface);
         List<Button> buttons = new();
         foreach (var type in validInterfaces)
         {

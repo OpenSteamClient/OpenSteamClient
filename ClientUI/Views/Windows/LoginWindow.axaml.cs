@@ -14,7 +14,7 @@ public partial class LoginWindow : Window
     }
 
     protected override void OnClosing(WindowClosingEventArgs e) {
-        AvaloniaApp.Container.GetComponent<LoginManager>().StopQRAuthLoop();
+        AvaloniaApp.Container.Get<LoginManager>().StopQRAuthLoop();
         base.OnClosing(e);
     }
 

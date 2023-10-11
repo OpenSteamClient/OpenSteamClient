@@ -5,7 +5,7 @@ using OpenSteamworks.Enums;
 namespace OpenSteamworks.Callbacks.Structs;
 
 [StructLayout(LayoutKind.Sequential)]
-internal unsafe struct AppLifetimeNotice_t
+public unsafe struct AppLifetimeNotice_t
 {
     // Hmm, this causes problems for 64-bit pids...
 	public UInt32 pidOfReaper;

@@ -71,6 +71,7 @@ public class ClientNative {
     public ConnectionType ConnectedWith { get; private set; }
 
     public IClientEngine IClientEngine;
+    public ISteamClient020 ISteamClient;
 
     public IClientAudio IClientAudio;
     public IClientAppDisableUpdate IClientAppDisableUpdate;
@@ -97,6 +98,8 @@ public class ClientNative {
     public IClientUserStats IClientUserStats;
     public IClientUtils IClientUtils;
     public IClientVR IClientVR;
+
+    public ISteamHTMLSurface005 ISteamHTMLSurface;
 
     public ConCommands.ConsoleNative consoleNative;
 
@@ -135,8 +138,10 @@ public class ClientNative {
     }
 
     [MemberNotNull(nameof(IClientEngine))]
+    [MemberNotNull(nameof(ISteamClient))]
     private void LoadEngine() {
         this.IClientEngine = this.CreateInterface<IClientEngine>("CLIENTENGINE_INTERFACE_VERSION005");
+        this.ISteamClient = this.CreateInterface<ISteamClient020>("SteamClient020");
         this.pipe = this.IClientEngine.CreateSteamPipe();
     }
 
@@ -165,6 +170,7 @@ public class ClientNative {
     [MemberNotNull(nameof(IClientUserStats))]
     [MemberNotNull(nameof(IClientUtils))]
     [MemberNotNull(nameof(IClientVR))]
+    [MemberNotNull(nameof(ISteamHTMLSurface))]
     private void LoadInterfaces() {
         this.IClientAudio = this.IClientEngine.GetIClientAudio(this.user, this.pipe);
         this.IClientAppDisableUpdate = this.IClientEngine.GetIClientAppDisableUpdate(this.user, this.pipe);
@@ -191,6 +197,8 @@ public class ClientNative {
         this.IClientUserStats = this.IClientEngine.GetIClientUserStats(this.user, this.pipe);
         this.IClientUtils = this.IClientEngine.GetIClientUtils(this.pipe);
         this.IClientVR = this.IClientEngine.GetIClientVR(this.pipe);
+        
+        this.ISteamHTMLSurface = this.ISteamClient.GetISteamHTMLSurface(this.user, this.pipe, "STEAMHTMLSURFACE_INTERFACE_VERSION_005");
     }
 
     private bool TryConnectToGlobalUser() {
@@ -205,7 +213,9 @@ public class ClientNative {
     }
 
     private void CreateGlobalUser() {
+        var oldPipe = this._pipe;
         this.user = this.IClientEngine.CreateGlobalUser(ref this._pipe);
+        Console.WriteLine("CreateGlobalUser returned " + user + " with new pipe " + this._pipe + ", old pipe was: " + oldPipe);
     }
 
     public ClientNative(string clientPath, ConnectionType connectionType) {

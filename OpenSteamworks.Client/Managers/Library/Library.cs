@@ -29,7 +29,7 @@ public class Library
 
     internal async Task InitializeLibrary()
     {
-        HashSet<uint> AppIDsInCollections = new();
+        HashSet<AppId_t> AppIDsInCollections = new();
 
         // Get all collections
         try
@@ -60,7 +60,7 @@ public class Library
 
         // Add all apps not in any categories to Uncategorized
         var uncategorized = GetCollectionByID("uncategorized");
-        HashSet<uint> uncategorizedAppIDs = new(this.appsManager.OwnedAppIDs);
+        HashSet<AppId_t> uncategorizedAppIDs = new(this.appsManager.OwnedAppIDs);
         uncategorizedAppIDs.SymmetricExceptWith(AppIDsInCollections);
         foreach (var item in uncategorizedAppIDs)
         {
@@ -72,7 +72,7 @@ public class Library
     /// Uploads the library to CloudConfigStore.
     /// Will also cache locally.
     /// </summary>
-    public async void SaveLibrary()
+    public async Task SaveLibrary()
     {
         if (this.namespaceData == null)
         {
@@ -148,18 +148,17 @@ public class Library
         Collection originalCollection = GetCollectionByID(id);
 
         this.Collections.Remove(originalCollection);
-        this.Collections.Add(new(originalCollection.ID, originalCollection.ID)
-        {
-            explicitlyAddedApps = await GetAppsInCollection(originalCollection)
-        });
+        Collection newCollection = new(originalCollection.ID, originalCollection.ID);
+        this.Collections.Add(newCollection);
+        newCollection.AddApps(await GetAppsInCollection(originalCollection));
     }
 
     /// <summary>
     /// Gets the apps in a collection. Dynamic collections will run through the filters.
     /// </summary>
-    public async Task<HashSet<uint>> GetAppsInCollection(Collection collection)
+    public async Task<HashSet<AppId_t>> GetAppsInCollection(Collection collection)
     {
-        HashSet<uint> apps = new();
+        HashSet<AppId_t> apps = new();
 
         if (collection.IsDynamic && collection.HasFilters)
         {
@@ -187,7 +186,10 @@ public class Library
         }
 
         // Add explicitly added apps after filtering processes
-        apps.UnionWith(collection.explicitlyAddedApps);
+        foreach (var item in collection.explicitlyAddedApps)
+        {
+            apps.Add(item);
+        }
 
         // You can explicitly exclude apps from dynamic collections.
         foreach (var item in collection.explicitlyRemovedApps)
@@ -201,8 +203,8 @@ public class Library
     /// <summary>
     /// Gets the apps in a collection. Dynamic collections will run through the filters.
     /// </summary>
-    public async Task<HashSet<uint>> GetAppsInCollection(string id)
+    public Task<HashSet<AppId_t>> GetAppsInCollection(string id)
     {
-        return await GetAppsInCollection(GetCollectionByID(id));
+        return GetAppsInCollection(GetCollectionByID(id));
     }
 }

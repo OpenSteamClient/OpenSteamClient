@@ -9,7 +9,7 @@ using OpenSteamworks.Client.Utils;
 
 namespace OpenSteamworks.Client.Startup;
 
-public class SteamService : Component {
+public class SteamService : IClientLifetime {
     public event EventHandler? FailedToStartEvent;
     public bool FailedToStart { get; private set; } = false;
     public bool ShouldStop = false;
@@ -20,11 +20,13 @@ public class SteamService : Component {
     public Thread? WatcherThread;
     private SteamClient steamClient;
     private ConfigManager configManager;
+    private AdvancedConfig advancedConfig;
     private Backoff backoff;
 
-    public SteamService(SteamClient steamClient, ConfigManager configManager, IContainer container) : base(container) {
+    public SteamService(SteamClient steamClient, ConfigManager configManager, AdvancedConfig advancedConfig) {
         this.steamClient = steamClient;
         this.configManager = configManager;
+        this.advancedConfig = advancedConfig;
         this.backoff = new Backoff(10);
         this.backoff.OnFailedPermanently += OnFailedPermanently;
     }
@@ -79,14 +81,14 @@ public class SteamService : Component {
         ShouldStop = true;
     }
 
-    public override async Task RunShutdown() {
+    public async Task RunShutdown() {
         this.StopService();
-        await EmptyAwaitable();
+        await Task.CompletedTask;
     }
 
-    public override async Task RunStartup()
+    public async Task RunStartup()
     {
-        if (GetComponent<AdvancedConfig>().EnableSteamService) {
+        if (advancedConfig.EnableSteamService) {
             if (steamClient.NativeClient.ConnectedWith == SteamClient.ConnectionType.NewClient) {
                 if (OperatingSystem.IsLinux()) {
                     try

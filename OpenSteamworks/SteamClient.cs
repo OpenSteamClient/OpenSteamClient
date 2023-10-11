@@ -9,10 +9,37 @@ using OpenSteamworks.Enums;
 using OpenSteamworks.Generated;
 using OpenSteamworks.Native;
 using System.Diagnostics.CodeAnalysis;
+using OpenSteamworks.Native.JIT;
 
 namespace OpenSteamworks;
 public class SteamClient
 {
+    // Attributes don't like non-const fields, so we can't determine this at runtime sadly
+    /// <summary>
+    /// The packing used for all structs
+    /// On Windows: 8, On all other platforms: 4
+    /// </summary>
+    // public static readonly int Pack = -1;
+    // static SteamClient() {
+    //     if (OperatingSystem.IsWindows()) {
+    //         Pack = 8;
+    //     } else {
+    //         Pack = 4;
+    //     }
+    // }
+
+    /// <summary>
+    /// The packing used for all structs
+    /// On Windows: 8, On all other platforms: 4
+    /// </summary>
+#if _WINDOWS
+    public const int Pack = 8;
+#else
+    public const int Pack = 4;
+#endif
+
+
+
     [Flags]
     public enum ConnectionType {
         ExistingClient = 1 << 1,
@@ -34,6 +61,8 @@ public class SteamClient
 
     internal static SteamClient? instance;
 
+    
+
     /// <summary>
     /// Constructs a OpenSteamworks.Client. 
     /// </summary>
@@ -50,6 +79,9 @@ public class SteamClient
 #if DEBUG
         log = true;
 #endif
+
+        // If you want to diagnose a hard to find crash, use this
+        JITEngine.AllowConsoleLog = log;
 
         this.CallbackManager = new CallbackManager(this, log, log);
         this.NativeClient = new ClientNative(steamclientLibPath, connectionType);

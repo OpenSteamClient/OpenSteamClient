@@ -1,5 +1,6 @@
 #pragma once
 
+#include "EBrowserType.h"
 #include "EHTMLCommands.h"
 #include <utlbuffer.h>
 
@@ -11,9 +12,9 @@ typedef unsigned long long    undefined8;
 
 struct HTMLOptions
 {
-	char * cachedir;
+	const char * strHTMLCacheDir;
     uint universe;
-    int field2_0x8;
+    const char* strProxy;
     undefined4 language;
     int uimode;
     undefined field5_0x14;
@@ -68,7 +69,7 @@ public:
 	virtual void StartThread() = 0;
 	virtual void BUsesCPUInfo() = 0;
 	virtual void Exit() = 0;
-	virtual bool RunFrame() = 0;
+	virtual int RunFrame() = 0;
 	virtual int ReturnsField0x160() = 0;
 	virtual void RegisterSomeFunc(StructThatHasCallback*) = 0;
 	virtual void SetCookie() = 0;
@@ -77,9 +78,9 @@ public:
 	virtual void ProtobufFUN_00030d00() = 0;
 	virtual void ProtobufFUN_00030a20() = 0;
 	virtual int CreateBrowser() = 0;
-	virtual int CreateOffscreenBrowser() = 0;
-	virtual int CreateDirectRenderingBrowser() = 0;
-	virtual int CreateVRBrowser() = 0;
+	virtual int CreateOffscreenBrowser(char* param_1,char *param_3,char *param_4, undefined4 param_5, undefined4 param_6, EBrowserType param_7, undefined4 param_8) = 0;
+	virtual int CreateDirectRenderingBrowser(char* param_1,char *param_3,char *param_4, undefined4 param_5, undefined4 param_6, EBrowserType param_7, undefined4 param_8) = 0;
+	virtual int CreateVRBrowser(char* param_1,char *param_3,char *param_4, undefined4 param_5, undefined4 param_6, const char* pchVrOverlayKey, undefined4 param_8) = 0;
 	virtual int CreateBrowser2(char* param_1,char *param_3,char *param_4, undefined4 param_5, undefined4 param_6, undefined4 param_7, undefined4 param_8) = 0;
 	virtual void SerializeFUN_0003e2b0(int handle) = 0;
 	virtual HTMLCommandBuffer_t *PackHTMLMessage(EHTMLCommands command, int iBrowser) = 0;
@@ -95,14 +96,14 @@ public:
 	virtual void SerializeFUN_00030610() = 0;
 	virtual char* AssignsDefaultStringTo0x84IfNotSetAndReturnsIt() = 0;
 	// Gets a relative path to the Steam webhelper. Hardcoded.
-	virtual char* GetSteamWebhelperPath() = 0;
+	virtual const char* GetSteamWebhelperPath() = 0;
 
 	virtual void Validate(void *validator, const char*) = 0;
 
 	virtual bool ChromePrepareForValidate() = 0;
 	virtual bool ChromeResumeFromValidate() = 0;
 
-	virtual int GetsPID() = 0;
+	virtual int GetPID() = 0;
 };
 
         // 						PTR_~CHTMLController_00247df8                   XREF[6]:     ~CHTMLController:00031723(*), 

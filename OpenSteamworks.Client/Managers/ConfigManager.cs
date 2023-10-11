@@ -10,7 +10,7 @@ using OpenSteamworks.Client.Utils.Interfaces;
 
 namespace OpenSteamworks.Client.Managers;
 
-public class ConfigManager : Component
+public class ConfigManager : IClientLifetime
 {
     private SteamClient? steamClient;
 
@@ -37,7 +37,11 @@ public class ConfigManager : Component
         steamClient = client;
     }
 
-    public ConfigManager(IContainer container) : base(container) {
+    private AdvancedConfig advancedConfig;
+    private BootstrapperState bootstrapperState;
+    private GlobalSettings globalSettings;
+    private LoginUsers loginUsers;
+    public ConfigManager(Container container) {
         AssemblyDirectory = OpenSteamworks.Client.Utils.UtilityFunctions.AssertNotNull(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location));
         //TODO: use registry to get installdir on Windows when we build an installer.
         // On all platforms, just use LocalApplicationData, which maps:
@@ -66,18 +70,19 @@ public class ConfigManager : Component
         Directory.CreateDirectory(LogsDir);
         Directory.CreateDirectory(CacheDir);
 
-        RegisterSubComponentInstance(AdvancedConfig.LoadWithOrCreate(jsonSerializer, CreateSimpleConfigIOFile(Path.Combine(ConfigDir, "AdvancedConfig.json"))));
-        RegisterSubComponentInstance(BootstrapperState.LoadWithOrCreate(jsonSerializer, CreateSimpleConfigIOFile(Path.Combine(ConfigDir, "BootstrapperState.json"))));
-        RegisterSubComponentInstance(GlobalSettings.LoadWithOrCreate(jsonSerializer, CreateSimpleConfigIOFile(Path.Combine(ConfigDir, "GlobalSettings.json"))));
-        RegisterSubComponentInstance(LoginUsers.LoadWithOrCreate(jsonSerializer, CreateSimpleConfigIOFile(Path.Combine(ConfigDir, "LoginUsers.json"))));
-    }
-    public override async Task RunStartup()
-    {
-        await EmptyAwaitable();
+        container.RegisterInstance(AdvancedConfig.LoadWithOrCreate(jsonSerializer, CreateSimpleConfigIOFile(Path.Combine(ConfigDir, "AdvancedConfig.json"))));
+        container.RegisterInstance(BootstrapperState.LoadWithOrCreate(jsonSerializer, CreateSimpleConfigIOFile(Path.Combine(ConfigDir, "BootstrapperState.json"))));
+        container.RegisterInstance(GlobalSettings.LoadWithOrCreate(jsonSerializer, CreateSimpleConfigIOFile(Path.Combine(ConfigDir, "GlobalSettings.json"))));
+        container.RegisterInstance(LoginUsers.LoadWithOrCreate(jsonSerializer, CreateSimpleConfigIOFile(Path.Combine(ConfigDir, "LoginUsers.json"))));
     }
 
-    public override async Task RunShutdown()
+    public async Task RunStartup()
     {
-        await EmptyAwaitable();
+        await Task.CompletedTask;
+    }
+
+    public async Task RunShutdown()
+    {
+        
     }
 }

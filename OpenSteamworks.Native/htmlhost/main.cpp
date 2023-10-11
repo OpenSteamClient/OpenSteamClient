@@ -29,30 +29,49 @@ void WaitForControlSignalToContinue() {
 }
 
 typedef void *(*createInterfaceFn)(const char *, int *);
+typedef void *(*overrideArgvFn)(char *argv[], int argc);
 
 int main(int argc, char *argv[])
 {
     // Kill process when parent dies
     prctl(PR_SET_PDEATHSIG, SIGKILL);
 
-    if (argc < 2) {
-        std::cerr << "Missing required argument cachedir" << std::endl;
+    if (argc < 3) {
+        std::cerr << "Missing required arguments [cachedir, steampath]" << std::endl;
         return 1;
     }
 
-    auto dl_handle = dlopen("chromehtml.so", RTLD_NOW);
-    if (dl_handle == nullptr)
+    auto dl_handle_chromehtml = dlopen("chromehtml.so", RTLD_NOW);
+    if (dl_handle_chromehtml == nullptr)
     {
-        std::cerr << "dl_handle == nullptr!!!" << std::endl;
+        std::cerr << "dl_handle_chromehtml == nullptr!!!" << std::endl;
         return 1;
     }
 
-    createInterfaceFn createInterface = (createInterfaceFn)dlsym(dl_handle, "CreateInterface");
+    auto dl_handle_tier0 = dlopen("libtier0_s.so", RTLD_NOW);
+    if (dl_handle_tier0 == nullptr)
+    {
+        std::cerr << "dl_handle_tier0 == nullptr!!!" << std::endl;
+        return 1;
+    }
+
+    overrideArgvFn Plat_InternalOverrideArgv = (overrideArgvFn)dlsym(dl_handle_tier0, "Plat_InternalOverrideArgv");
+    if (Plat_InternalOverrideArgv == nullptr)
+    {
+        std::cerr << "Plat_InternalOverrideArgv == nullptr!!!" << std::endl;
+        return 1;
+    }
+
+    argv[0] = getenv("OPENSTEAM_EXE_PATH");
+    Plat_InternalOverrideArgv(argv, argc);
+
+    createInterfaceFn createInterface = (createInterfaceFn)dlsym(dl_handle_chromehtml, "CreateInterface");
     if (createInterface == nullptr)
     {
         std::cerr << "createInterface == nullptr!!!" << std::endl;
         return 1;
     }
+
     int returnCode;
     IHTMLChromeController* controller = (IHTMLChromeController*)createInterface("ChromeHTML_Controller_003", &returnCode);
     if (controller == nullptr)
@@ -60,28 +79,29 @@ int main(int argc, char *argv[])
         std::cerr << "controller == nullptr!!!" << std::endl;
         return 1;
     }
+
     if (returnCode != 0) {
         std::cerr << "returnCode != 0!!!" << std::endl;
         return 1;
     }
 
     HTMLOptions options;
-    options.cachedir = argv[1];
+    options.strHTMLCacheDir = argv[1];
     options.universe = 1;
-    options.field2_0x8 = -1;
+    options.strProxy = "127.0.0.1:11111";
     options.language = 0;
     options.uimode = 0;
-    options.field5_0x14 = 1;
-    options.argsFlags = 1;
+    options.field5_0x14 = 0;
+    options.argsFlags = 0;
     options.field7_0x16 = 0;
     options.field8_0x17 = 0;
     options.field9_0x18 = nullptr;
-    options.field10_0x1c = 1;
-    options.field11_0x20 = 1;
-    options.field12_0x21 = 1;
-    options.field13_0x22 = 1;
-    options.field14_0x26 = 1;
-    options.field15_0x30 = 1;
+    options.field10_0x1c = 0;
+    options.field11_0x20 = 0;
+    options.field12_0x21 = 0;
+    options.field13_0x22 = 0;
+    options.field14_0x26 = 0;
+    options.field15_0x30 = 0;
 
     // char *field0_0x0;
     // uint field1_0x4;
@@ -100,6 +120,7 @@ int main(int argc, char *argv[])
     controller->SetOptions(&options);
     controller->StartThread();
     controller->Start();
+    //std::cout << "CreateOffscreenBrowser" << controller->CreateOffscreenBrowser("Valve Steam Client", nullptr, "", 1, 1, EBrowserType::OffScreen, 1) << std::endl;
     std::cout << "Kill with CTRL+C" << std::endl;
     signal(SIGINT, handle_sigint);
     while (!done)

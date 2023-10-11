@@ -20,7 +20,7 @@ using OpenSteamworks.Client.Utils.Interfaces;
 namespace OpenSteamworks.Client.Startup;
 
 //TODO: this whole thing needs a rewrite badly
-public class Bootstrapper : Component {
+public class Bootstrapper : IClientLifetime {
 
     //TODO: We shouldn't hardcode this but it will do...
     public const string BaseURL = "https://client-update.akamai.steamstatic.com/";
@@ -82,12 +82,17 @@ public class Bootstrapper : Component {
     private bool restartRequired = false;
 
     private IExtendedProgress<int>? progressHandler;
+
     public void SetProgressObject(IExtendedProgress<int>? progressHandler) {
         this.progressHandler = progressHandler;
     }
-    public Bootstrapper(ConfigManager configManager, IContainer container) : base(container) {
+
+    private BootstrapperState bootstrapperState;
+    public Bootstrapper(ConfigManager configManager, BootstrapperState bootstrapperState) {
         this.configManager = configManager;
+        this.bootstrapperState = bootstrapperState;
     }
+
     private async Task RunBootstrap() {
         if (progressHandler == null) {
             progressHandler = new ExtendedProgress<int>(0, 100);
@@ -103,7 +108,7 @@ public class Bootstrapper : Component {
         Directory.CreateDirectory(PackageDir);
 
         // Skip verification and package processing if user requests it
-        if (!GetComponent<BootstrapperState>().SkipVerification) {
+        if (!bootstrapperState.SkipVerification) {
             if (!VerifyFiles(progressHandler, out string failureReason)) {
                 Console.WriteLine("Failed verification: " + failureReason);
                 await EnsurePackages(progressHandler);
@@ -121,7 +126,7 @@ public class Bootstrapper : Component {
             // Process the Steam runtime (needed for SteamVR and some tools steam ships with)
             await CheckSteamRuntime(progressHandler);
 
-            if (!GetComponent<BootstrapperState>().LinuxPermissionsSet)
+            if (!bootstrapperState.LinuxPermissionsSet)
             {
                 progressHandler.SetOperation($"Setting proper permissions (this may freeze)");
                 progressHandler.SetThrobber(true);
@@ -129,7 +134,7 @@ public class Bootstrapper : Component {
                 await Process.Start("/usr/bin/chmod", "-R +x " + '"' + configManager.InstallDir + '"').WaitForExitAsync();
 
                 progressHandler.SetThrobber(false);
-                GetComponent<BootstrapperState>().LinuxPermissionsSet = true;
+                bootstrapperState.LinuxPermissionsSet = true;
             }
 
             //TODO: check for steam some other way (like trying to connect)
@@ -177,9 +182,9 @@ public class Bootstrapper : Component {
         // Copy/Link our files over (steamserviced, 64-bit reaper and 64-bit steamlaunchwrapper, other platform specific niceties)
         CopyOpensteamFiles(progressHandler);
 
-        GetComponent<BootstrapperState>().CommitHash = GitInfo.GitCommit;
-        GetComponent<BootstrapperState>().InstalledVersion = OpenSteamworks.Generated.VersionInfo.STEAM_MANIFEST_VERSION;
-        GetComponent<BootstrapperState>().Save();
+        bootstrapperState.CommitHash = GitInfo.GitCommit;
+        bootstrapperState.InstalledVersion = OpenSteamworks.Generated.VersionInfo.STEAM_MANIFEST_VERSION;
+        bootstrapperState.Save();
 
         await FinishBootstrap(progressHandler);
     }
@@ -293,11 +298,11 @@ public class Bootstrapper : Component {
     private bool VerifyFiles(IExtendedProgress<int> progressHandler, out string failureReason) {
         failureReason = "";
         // Verify all files and skip this step if files are valid and version matches 
-        bool failed = GetComponent<BootstrapperState>().InstalledVersion != OpenSteamworks.Generated.VersionInfo.STEAM_MANIFEST_VERSION || GetComponent<BootstrapperState>().CommitHash != GitInfo.GitCommit;
+        bool failed = bootstrapperState.InstalledVersion != OpenSteamworks.Generated.VersionInfo.STEAM_MANIFEST_VERSION || bootstrapperState.CommitHash != GitInfo.GitCommit;
         if (failed) {
             failureReason += "Failed initial check,";
         }
-        int installedFilesLength = GetComponent<BootstrapperState>().InstalledFiles.Count;
+        int installedFilesLength = bootstrapperState.InstalledFiles.Count;
         int checkedFiles = 0;
 
         progressHandler.SetOperation("Checking files");
@@ -305,7 +310,7 @@ public class Bootstrapper : Component {
         // Convert absolute progress (files checked) into relative progress (0% - 100%)
         var relativeProgress = new Progress<long>(totalFiles => progressHandler.Report((int)(totalFiles / checkedFiles) * 100));
         
-        foreach (var installedFile in GetComponent<BootstrapperState>().InstalledFiles)
+        foreach (var installedFile in bootstrapperState.InstalledFiles)
         {
             checkedFiles++;
             var info = new FileInfo(Path.Combine(configManager.InstallDir, installedFile.Key));
@@ -325,7 +330,7 @@ public class Bootstrapper : Component {
         }   
 
         // Remove packages only in case of a steam version upgrade
-        if (GetComponent<BootstrapperState>().InstalledVersion != 0 && (GetComponent<BootstrapperState>().InstalledVersion != OpenSteamworks.Generated.VersionInfo.STEAM_MANIFEST_VERSION)) {
+        if (bootstrapperState.InstalledVersion != 0 && (bootstrapperState.InstalledVersion != OpenSteamworks.Generated.VersionInfo.STEAM_MANIFEST_VERSION)) {
             Directory.Delete(PackageDir, true);
             Directory.CreateDirectory(PackageDir);
         }
@@ -468,13 +473,13 @@ public class Bootstrapper : Component {
     private async Task ExtractPackages(IExtendedProgress<int> progressHandler) {
         // Extract all the packages
         progressHandler.SetOperation("Extracting packages");
-        GetComponent<BootstrapperState>().InstalledFiles.Clear();
+        bootstrapperState.InstalledFiles.Clear();
         foreach (var zip in downloadedPackages)
         {
             using (ZipArchive archive = ZipFile.OpenRead(zip.Value))
             {
                 await archive.ExtractToDirectory(configManager.InstallDir, progressHandler, (ZipArchiveEntry entry, string name) => {
-                    GetComponent<BootstrapperState>().InstalledFiles.Add(name, entry.Length);
+                    bootstrapperState.InstalledFiles.Add(name, entry.Length);
                 });  
             } 
         }
@@ -488,7 +493,7 @@ public class Bootstrapper : Component {
 
         var runtimeChecksumBytes = File.ReadAllBytes(Path.Combine(Ubuntu12_32Dir, "steam-runtime.checksum"));
         var runtime_checksum_md5_new = Convert.ToHexString(MD5.HashData(runtimeChecksumBytes));
-        var runtime_checksum_md5_old = GetComponent<BootstrapperState>().LinuxRuntimeChecksum;
+        var runtime_checksum_md5_old = bootstrapperState.LinuxRuntimeChecksum;
         bool extractRuntime = !(runtime_checksum_md5_new == runtime_checksum_md5_old);
 
         var setupScriptPath = Path.Combine(SteamRuntimeDir, "setup.sh");
@@ -500,7 +505,7 @@ public class Bootstrapper : Component {
             await ExtractSteamRuntime(progressHandler);
 
             // If everything succeeds, record current hash to file
-            GetComponent<BootstrapperState>().LinuxRuntimeChecksum = runtime_checksum_md5_new;
+            bootstrapperState.LinuxRuntimeChecksum = runtime_checksum_md5_new;
         }
 
         // Always run setup.sh
@@ -650,7 +655,7 @@ public class Bootstrapper : Component {
             throw new NotSupportedException($"This build has not been compiled with support for {platformStr}. Please rebuild or try another OS.");
         }
 
-        var oldTimestamp = GetComponent<BootstrapperState>().NativeBuildDate;
+        var oldTimestamp = bootstrapperState.NativeBuildDate;
         var newTimestamp = Convert.ToUInt32(File.ReadAllText(Path.Combine(baseNativesFolder, "build_timestamp")));
         if (newTimestamp > oldTimestamp) {
             progressHandler.SetSubOperation("Copying OpenSteam files");
@@ -664,17 +669,17 @@ public class Bootstrapper : Component {
 
                 File.Copy(file.FullName, Path.Combine(configManager.InstallDir, name), true);
             }
-            GetComponent<BootstrapperState>().NativeBuildDate = newTimestamp;
+            bootstrapperState.NativeBuildDate = newTimestamp;
         }
     }
 
-    public override async Task RunStartup()
+    public async Task RunStartup()
     {
         await RunBootstrap();
     }
 
-    public override async Task RunShutdown()
+    public async Task RunShutdown()
     {
-        await EmptyAwaitable();
+        await Task.CompletedTask;
     }
 }

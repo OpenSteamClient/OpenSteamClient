@@ -33,7 +33,7 @@ public static class ControlExtensions {
     }
 
     public static bool TryTranslateSelf(this Control control, bool dueToLayoutChange = false) {
-        var tm = AvaloniaApp.Container.GetComponent<Translation.TranslationManager>();
+        var tm = AvaloniaApp.Container.Get<Translation.TranslationManager>();
         if (tm.CurrentTranslation.Language == OpenSteamworks.Enums.ELanguage.None) {
             return false;
         }

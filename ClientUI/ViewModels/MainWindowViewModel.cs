@@ -8,9 +8,11 @@ using ClientUI.Translation;
 using ClientUI.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
 using OpenSteamworks;
+using OpenSteamworks.Callbacks.Structs;
 using OpenSteamworks.Client;
 using OpenSteamworks.Client.Enums;
 using OpenSteamworks.Client.Managers;
+using OpenSteamworks.Client.Utils;
 using OpenSteamworks.ClientInterfaces;
 using OpenSteamworks.Enums;
 using OpenSteamworks.Generated;
@@ -59,7 +61,7 @@ public partial class MainWindowViewModel : ViewModelBase
     public void DBG_OpenInterfaceList() => AvaloniaApp.Current?.OpenInterfaceList();
     public void DBG_ChangeLanguage() {
         // Very simple logic, just switches between english and finnish. 
-        var tm = AvaloniaApp.Container.GetComponent<TranslationManager>();
+        var tm = AvaloniaApp.Container.Get<TranslationManager>();
 
         ELanguage lang = tm.CurrentTranslation.Language;
         Console.WriteLine(string.Format(tm.GetTranslationForKey("#SettingsWindow_YourCurrentLanguage"), tm.GetTranslationForKey("#LanguageNameTranslated"), tm.CurrentTranslation.LanguageFriendlyName));
@@ -70,7 +72,7 @@ public partial class MainWindowViewModel : ViewModelBase
         }
     }
     public async void DBG_TestMaps() {
-        // Library library = await AvaloniaApp.Container.GetComponent<AppsManager>().GetLibrary();
+        // Library library = await AvaloniaApp.Container.Get<AppsManager>().GetLibrary();
         // App csgo = await library.GetApp(730);
         // Console.WriteLine(csgo.ToString());
         // unsafe {
@@ -123,38 +125,45 @@ public partial class MainWindowViewModel : ViewModelBase
         //     }
         // }
 
-        var appsManager = AvaloniaApp.Container.GetComponent<AppsManager>();
-        var library = await appsManager.GetLibrary();
-        
-        library.Collections.Add(library.CreateCollection("Test 2"));
-        
-        foreach (var collection in library.Collections)
-        {
-            var appids = await library.GetAppsInCollection(collection);
-            Console.WriteLine(collection.Name + " " + appids.Count);
-            foreach (var appid in appids)
-            {
-                var app = await appsManager.GetAppAsync(appid);
-                Console.WriteLine("- " + app.Name);
-            }
-        }
-        
-        library.SaveLibrary();
+        // var appsManager = AvaloniaApp.Container.Get<AppsManager>();
+        // var library = await appsManager.GetLibrary();
 
-        // unsafe {
-        //     var map = new CUtlMap<uint, AppTags_t>(1, 80000, &LessFunc);
-        //     Console.WriteLine("AppTagsMap: " + client.NativeClient.IClientUser.BGetAppTagsMap(&map));
-        //     var asManaged = map.ToManagedAndFree();
-        //     foreach (var item in asManaged)
+        // library.Collections.Add(library.CreateCollection("Test 2"));
+
+        // foreach (var collection in library.Collections)
+        // {
+        //     var appids = await library.GetAppsInCollection(collection);
+        //     Console.WriteLine(collection.Name + " " + appids.Count);
+        //     foreach (var appid in appids)
         //     {
-        //         Console.WriteLine(item.Key+": { unk1: " + item.Value.unk1 + ", unk2: " + string.Format("0x{0:X}", (IntPtr)item.Value.unk2).ToLower() + ", unk3: " + item.Value.unk3 + ", unk4: " + item.Value.unk4 + "}");
-        //         Console.WriteLine("reading " + Marshal.PtrToStructure<CUtlString>((IntPtr)item.Value.unk2).ToManaged());
-        //         var size = 256;
-        //         byte[] managedArray = new byte[size];
-        //         Marshal.Copy((IntPtr)item.Value.unk2, managedArray, 0, size);
-        //         System.IO.File.WriteAllBytes("/tmp/" + item.Key.ToString() + ".bin", managedArray);
+        //         var app = await appsManager.GetAppAsync(appid);
+        //         Console.WriteLine("- " + app.Name);
         //     }
         // }
+
+        // await library.SaveLibrary();
+
+        Console.WriteLine("init (Client) returned: " + this.client.NativeClient.IClientHTMLSurface.Init());
+        //Console.WriteLine("init (Steam) returned: " + this.client.NativeClient.ISteamHTMLSurface.Init());
+        Console.WriteLine("Pausing");
+        this.client.CallbackManager.PauseThread();
+        Console.WriteLine("Paused");
+        
+        //var steamCallHandle = this.client.NativeClient.ISteamHTMLSurface.CreateBrowser("Valve Steam Client", null);
+        var callHandle = this.client.NativeClient.IClientHTMLSurface.CreateBrowser("Valve Steam Client", null);
+        Console.WriteLine("IClientHTMLSurface::CreateBrowser got call handle " + callHandle);
+        //Console.WriteLine("ISteamHTMLSurface::CreateBrowser got call handle " + steamCallHandle);
+        this.client.CallbackManager.WaitForSteamAPICallResult<HTML_BrowserReady_t>(callHandle, HTML_BrowserReady_t.CallbackID).ContinueWith((resultt) => {
+            Console.WriteLine("result (IClient): " + resultt.Result.data.Value.unBrowserHandle);
+        });
+
+        // this.client.CallbackManager.WaitForSteamAPICallResult<HTML_BrowserReady_t>(steamCallHandle, HTML_BrowserReady_t.CallbackID).ContinueWith((resultt) => {
+        //     Console.WriteLine("result (ISteam): " + resultt.Result.data.Value.unBrowserHandle);
+        // });
+
+        System.Threading.Thread.Sleep(2000);
+        Console.WriteLine("continuing");
+        this.client.CallbackManager.ContinueThread();
     }
 
     public void Quit() {
@@ -176,10 +185,13 @@ public partial class MainWindowViewModel : ViewModelBase
         this.ShowGoOnline = CanLogonOffline && IsOfflineMode;
     }
 
-    public void SignOut() {
-        this.loginManager.Logout(true);
+    public async void SignOut() {
+        ExtendedProgress<int> progress = new(0, 100, "Logging off");
+        AvaloniaApp.Current?.ForceProgressWindow(new ProgressWindowViewModel(progress, "Logging off"));
+        await this.loginManager.LogoutAsync(progress, true);
     }
-    public void ChangeAccount() {
-        this.loginManager.Logout();
+
+    public async void ChangeAccount() {
+        await this.loginManager.LogoutAsync();
     }
 }

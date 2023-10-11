@@ -5,7 +5,7 @@ using OpenSteamworks.Enums;
 namespace OpenSteamworks.Callbacks.Structs;
 
 [StructLayout(LayoutKind.Sequential)]
-internal unsafe struct AppEventStateChange_t
+public unsafe struct AppEventStateChange_t
 {
 	public AppId_t m_nAppID;
 	public EAppState m_eOldState;

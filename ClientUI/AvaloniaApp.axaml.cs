@@ -46,13 +46,13 @@ public partial class AvaloniaApp : Application
         var progVm = new ProgressWindowViewModel(bootstrapperProgress, "Bootstrapper progress");
         ForceProgressWindow(progVm);
 
-        Container.RegisterComponentInstance(new Client(Container, bootstrapperProgress));
-        Container.ConstructAndRegisterComponentImmediate<TranslationManager>();
-        Container.RegisterComponentInstance(this);
-        await Container.RunStartupForComponents();
+        Container.RegisterInstance(new Client(Container, bootstrapperProgress));
+        Container.ConstructAndRegisterImmediate<TranslationManager>();
+        Container.RegisterInstance(this);
+        await Container.RunClientStartup();
 
         // This will stay for the lifetime of the application.
-        Container.GetComponent<LoginManager>().LoggedOn += (object sender, LoggedOnEventArgs e) =>
+        Container.Get<LoginManager>().LoggedOn += (object sender, LoggedOnEventArgs e) =>
         {
             InvokeOnUIThread(() =>
             {
@@ -60,7 +60,7 @@ public partial class AvaloniaApp : Application
             });
         };
 
-        Container.GetComponent<LoginManager>().LogOnFailed += (object sender, LogOnFailedEventArgs e) =>
+        Container.Get<LoginManager>().LogOnFailed += (object sender, LogOnFailedEventArgs e) =>
         {
             InvokeOnUIThread(() => {
                 MessageBox.Show("Failed to log on", "Failed with result code: " + e.Error.ToString());
@@ -68,10 +68,10 @@ public partial class AvaloniaApp : Application
             });
         };
         
-        Container.GetComponent<LoginManager>().LoggedOff += (object sender, LoggedOffEventArgs e) =>
+        Container.Get<LoginManager>().LoggedOff += (object sender, LoggedOffEventArgs e) =>
         {
             InvokeOnUIThread(() => {
-                if (e.Error != null) {
+                if (e.Error != null && e.Error.Value != OpenSteamworks.Enums.EResult.k_EResultOK) {
                     // What can cause a sudden log off?
                     MessageBox.Show("Session terminated", "You were forcibly logged off with an error code: " + e.Error.ToString());
                 }
@@ -80,9 +80,9 @@ public partial class AvaloniaApp : Application
         };
 
         // This is kept for the lifetime of the application, which is fine
-        Container.GetComponent<LoginManager>().SetProgress(loginProgress);
-        Container.GetComponent<LoginManager>().SetExceptionHandler(e => MessageBox.Error(e));
-        Container.GetComponent<LoginManager>().LogonStarted += (object sender, EventArgs e) =>
+        Container.Get<LoginManager>().SetProgress(loginProgress);
+        Container.Get<LoginManager>().SetExceptionHandler(e => MessageBox.Error(e));
+        Container.Get<LoginManager>().LogonStarted += (object sender, EventArgs e) =>
         {
             InvokeOnUIThread(() =>
             {
@@ -90,8 +90,16 @@ public partial class AvaloniaApp : Application
             });
         };
 
+        Container.Get<LoginManager>().LoggingOff += (object? sender, EventArgs e) =>
+        {
+            InvokeOnUIThread(() =>
+            {
+                this.ForceProgressWindow(new ProgressWindowViewModel(loginProgress, "Logout progress"));
+            });
+        };
 
-        if (!Container.GetComponent<LoginManager>().TryAutologin()) {
+
+        if (!Container.Get<LoginManager>().TryAutologin()) {
             ForceAccountPickerWindow();
         }
 
@@ -100,7 +108,7 @@ public partial class AvaloniaApp : Application
         UtilityFunctions.AssertNotNull(icons);
         foreach (var icon in icons)
         {
-            Container.GetComponent<TranslationManager>().TranslateTrayIcon(icon);
+            Container.Get<TranslationManager>().TranslateTrayIcon(icon);
         }
     }
 
@@ -227,7 +235,7 @@ public partial class AvaloniaApp : Application
     /// Async exit function. Will hang in certain cases for some unknown reason.
     /// </summary>
     public async Task Exit(int exitCode = 0) {
-        await Container.RunShutdownForComponents();
+        await Container.RunClientShutdown();
         Console.WriteLine("Shutting down Avalonia");
         ApplicationLifetime.Shutdown(exitCode);
     }

@@ -40,15 +40,17 @@ public unsafe interface IClientUtils
     public AppId_t GetAppID();  // argc: 0, index: 19
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret SetAPIDebuggingActive();  // argc: 2, index: 20
-    public unknown_ret AllocPendingAPICallHandle();  // argc: 0, index: 21
+    public SteamAPICall_t AllocPendingAPICallHandle();  // argc: 0, index: 21
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret IsAPICallCompleted();  // argc: 3, index: 22
+    public bool IsAPICallCompleted(SteamAPICall_t handle, ref bool failed);  // argc: 3, index: 22
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret GetAPICallFailureReason();  // argc: 2, index: 23
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret GetAPICallResult();  // argc: 6, index: 24
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret SetAPICallResultWithoutPostingCallback();  // argc: 5, index: 25
+    public ESteamAPICallFailure GetAPICallFailureReason(SteamAPICall_t handle);  // argc: 2, index: 23
+    /// <summary>
+    /// Gets a result for an api call.
+    /// </summary>
+    public bool GetAPICallResult(SteamAPICall_t handle, void* callbackData, int callbackDataMax, int expectedCallbackID, ref bool failed);  // argc: 6, index: 24
+    // Why valve why
+    public unknown_ret SetAPICallResultWithoutPostingCallback(SteamAPICall_t handle, byte[] responseData, int responseDataLen, int responseCallbackID);  // argc: 5, index: 25
     public unknown_ret SignalAppsToShutDown();  // argc: 0, index: 26
     public unknown_ret SignalServiceAppsToDisconnect();  // argc: 0, index: 27
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!

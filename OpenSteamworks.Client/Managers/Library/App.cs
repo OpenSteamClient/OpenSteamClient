@@ -27,7 +27,7 @@ public struct LaunchOption {
 /// </summary>
 public class App
 {
-    public UInt32 AppID { get; init; }
+    public AppId_t AppID { get; init; }
     public string Name { get; private set; } = "";
     public EAppType Type { get; private set; } = EAppType.k_EAppTypeInvalid;
     public string ClientIconHash { get; private set; } = "";
