@@ -71,99 +71,25 @@ public partial class MainWindowViewModel : ViewModelBase
             tm.SetLanguage(ELanguage.English);
         }
     }
-    public async void DBG_TestMaps() {
-        // Library library = await AvaloniaApp.Container.Get<AppsManager>().GetLibrary();
-        // App csgo = await library.GetApp(730);
-        // Console.WriteLine(csgo.ToString());
-        // unsafe {
-        //     var map = new CUtlMap<uint, uint>(1, 80000);
-        //     Console.WriteLine("LastPlayedMap: " + client.NativeClient.IClientUser.BGetAppsLastPlayedMap(&map));
-        //     var asManaged = map.ToManagedAndFree();
-        //     foreach (var item in asManaged)
-        //     {
-        //         Console.WriteLine(item.Key+":"+item.Value);
-        //     }
+    public async void DBG_TestHTMLSurface() {
+        HTMLSurfaceTest testWnd = new(this.client);
+        testWnd.Show();
+        await testWnd.Init("Valve Steam Client", "https://google.com");
+        // Console.WriteLine("init returned: " + this.client.NativeClient.IClientHTMLSurface.Init());
+        // this.client.CallbackManager.PauseThread();
+
+        // var callHandle = this.client.NativeClient.IClientHTMLSurface.CreateBrowser("Valve Steam Client", null);
+        // Console.WriteLine("IClientHTMLSurface::CreateBrowser got call handle " + callHandle);
+
+        // var result = await this.client.CallbackManager.WaitForAPICallResult<HTML_BrowserReady_t>(callHandle);
+        // if (result.failed) {
+        //     Console.WriteLine("Call failed");
+        //     return;
         // }
 
-        // unsafe {
-        //     var map = new CUtlMap<uint, ulong>(1, 80000);
-        //     Console.WriteLine("LastPlayedMap: " + client.NativeClient.IClientUser.BGetAppPlaytimeMap(&map));
-        //     var asManaged = map.ToManagedAndFree();
-        //     foreach (var item in asManaged)
-        //     {
-        //         Console.WriteLine(item.Key+":"+item.Value);
-        //     }
-        // }
-
-        // unsafe {
-        //     CUtlStringList compatToolsVec = new();
-        //     client.NativeClient.IClientCompat.GetAvailableCompatTools(&compatToolsVec);
-        //     List<string?> compatTools = compatToolsVec.ToManagedAndFree();
-        //     foreach (var tool in compatTools)
-        //     {
-        //         Console.WriteLine(tool);
-        //     }
-        // }
-
-        // {
-        //     for (int i = 0; i < 20; i++)
-        //     {
-        //         StringBuilder sb = new StringBuilder("", 1024);
-        //         var ret = client.NativeClient.IClientUser.GetConfigString(i, "user-collections.favorite", sb, 1024);
-        //         Console.WriteLine(i + ": " + ret + " " + sb.ToString());
-
-        //         unsafe {
-        //             CUtlBuffer buf = new CUtlBuffer(10000);
-        //             var ret2 = client.NativeClient.IClientUser.GetConfigBinaryBlob(i, "user-collections.favorite", &buf);
-        //             Console.WriteLine(i + ": " + ret2 + " " + buf.m_Put);
-        //             buf.Free();
-        //         }
-
-        //         StringBuilder sb3 = new StringBuilder("", 1024);
-        //         var ret3 = client.NativeClient.IClientUser.GetConfigStoreKeyName(i, "user-collections.favorite", sb3, 1024);
-        //         Console.WriteLine(i + ": " + ret3 + " " + sb3.ToString());
-        //     }
-        // }
-
-        // var appsManager = AvaloniaApp.Container.Get<AppsManager>();
-        // var library = await appsManager.GetLibrary();
-
-        // library.Collections.Add(library.CreateCollection("Test 2"));
-
-        // foreach (var collection in library.Collections)
-        // {
-        //     var appids = await library.GetAppsInCollection(collection);
-        //     Console.WriteLine(collection.Name + " " + appids.Count);
-        //     foreach (var appid in appids)
-        //     {
-        //         var app = await appsManager.GetAppAsync(appid);
-        //         Console.WriteLine("- " + app.Name);
-        //     }
-        // }
-
-        // await library.SaveLibrary();
-
-        Console.WriteLine("init (Client) returned: " + this.client.NativeClient.IClientHTMLSurface.Init());
-        //Console.WriteLine("init (Steam) returned: " + this.client.NativeClient.ISteamHTMLSurface.Init());
-        Console.WriteLine("Pausing");
-        this.client.CallbackManager.PauseThread();
-        Console.WriteLine("Paused");
-        
-        //var steamCallHandle = this.client.NativeClient.ISteamHTMLSurface.CreateBrowser("Valve Steam Client", null);
-        var callHandle = this.client.NativeClient.IClientHTMLSurface.CreateBrowser("Valve Steam Client", null);
-        Console.WriteLine("IClientHTMLSurface::CreateBrowser got call handle " + callHandle);
-        //Console.WriteLine("ISteamHTMLSurface::CreateBrowser got call handle " + steamCallHandle);
-        this.client.CallbackManager.WaitForSteamAPICallResult<HTML_BrowserReady_t>(callHandle, HTML_BrowserReady_t.CallbackID).ContinueWith((resultt) => {
-            Console.WriteLine("result (IClient): " + resultt.Result.data.Value.unBrowserHandle);
-        });
-
-        // this.client.CallbackManager.WaitForSteamAPICallResult<HTML_BrowserReady_t>(steamCallHandle, HTML_BrowserReady_t.CallbackID).ContinueWith((resultt) => {
-        //     Console.WriteLine("result (ISteam): " + resultt.Result.data.Value.unBrowserHandle);
-        // });
-
-        System.Threading.Thread.Sleep(2000);
-        Console.WriteLine("continuing");
-        this.client.CallbackManager.ContinueThread();
+        // var handle = result.data.unBrowserHandle;
+        // Console.WriteLine("result: " + handle);
+        // this.client.NativeClient.IClientHTMLSurface.AllowStartRequest(handle, true);
     }
 
     public void Quit() {

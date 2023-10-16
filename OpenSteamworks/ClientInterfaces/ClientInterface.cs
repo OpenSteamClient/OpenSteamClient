@@ -13,7 +13,7 @@ public abstract class ClientInterface {
     private SteamClient client;
     public ClientInterface(SteamClient client) {
         this.client = client;
-        this.client.CallbackManager.RegisterHandlersFor(this);
+        this.client.CallbackManager.RegisterCallbackListenerAttributesFor(this);
     }
     internal virtual async void RunShutdownTasks() {
         await System.Threading.Tasks.Task.CompletedTask;

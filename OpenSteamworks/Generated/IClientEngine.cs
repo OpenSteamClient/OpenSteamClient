@@ -36,7 +36,8 @@ public unsafe interface IClientEngine {
 	public IClientGameSearch GetIClientGameSearch( HSteamUser hSteamUser, HSteamPipe hSteamPipe );
 	/// <summary>
     /// Runs a frame. 
-    /// Unneeded?
+    /// Needed for IClientHTMLSurface to send callbacks properly.
+    /// What interval should we call this at? Calling this too quickly results in strange backoff times being logged in connection_log.txt
     /// </summary>
 	public void RunFrame();
 	/// <summary>

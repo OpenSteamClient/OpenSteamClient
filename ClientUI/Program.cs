@@ -56,5 +56,6 @@ public static class Program
         => AppBuilder.Configure<AvaloniaApp>()
             .UsePlatformDetect()
             .WithInterFont()
+            .UseSkia()
             .LogToTrace();
 }

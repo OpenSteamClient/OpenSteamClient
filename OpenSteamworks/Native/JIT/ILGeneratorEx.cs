@@ -35,10 +35,10 @@ public class ILGeneratorEx {
     private static readonly object NoArgs = new();
 
     private static string MethodToILStr(MethodBase mi, Type returnType) {
-        return MethodToILStr(returnType, mi.DeclaringType.Assembly.GetName().Name, mi.Name, mi.GetParameters().Select(e => e.ParameterType.ToString()));
+        return MethodToILStr(returnType, mi.DeclaringType?.Assembly.GetName().Name, mi.Name, mi.GetParameters().Select(e => e.ParameterType.ToString()));
     }
 
-    private static string MethodToILStr(Type returnType, string assemblyName, string functionName, IEnumerable<string> paramTypes) {
+    private static string MethodToILStr(Type returnType, string? assemblyName, string? functionName, IEnumerable<string> paramTypes) {
         string assemblyNameStr = "";
         if (!string.IsNullOrEmpty(assemblyName)) {
             assemblyNameStr = $"[{assemblyName}]";
@@ -49,7 +49,7 @@ public class ILGeneratorEx {
             returnTypeStr += " ";
         } 
 
-        return $"{returnType}{assemblyNameStr}{functionName}({string.Join(", ", paramTypes)})";
+        return $"{returnTypeStr}{assemblyNameStr}{functionName}({string.Join(", ", paramTypes)})";
     }
 
     private void AddOPCodeToDBGString(OpCode opcode, object args) {
@@ -323,7 +323,7 @@ public class ILGeneratorEx {
 
     public void EmitWriteLine(string value) {
         this.Ldstr(value);
-        this.Call(typeof(Console).GetMethod(nameof(Console.WriteLine), new[] { typeof(string) }));
+        this.Call(typeof(Console).GetMethod(nameof(Console.WriteLine), new[] { typeof(string) })!);
     }
 
     /// <summary>

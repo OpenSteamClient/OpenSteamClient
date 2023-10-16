@@ -18,6 +18,7 @@ using OpenSteamworks.Generated;
 using OpenSteamworks.Messaging;
 using OpenSteamworks.NativeTypes;
 using OpenSteamworks.Structs;
+using static OpenSteamworks.Callbacks.CallbackManager;
 
 namespace OpenSteamworks.Client.Managers;
 
@@ -65,7 +66,7 @@ public class AppsManager : ILogonLifetime
     }
 
     [CallbackListener<AppMinutesPlayedDataNotice_t>]
-    public void OnAppMinutesPlayedDataNotice(AppMinutesPlayedDataNotice_t notice) {
+    public void OnAppMinutesPlayedDataNotice(CallbackHandler handler, AppMinutesPlayedDataNotice_t notice) {
         UInt32 allTime = 0;
         UInt32 lastTwoWeeks = 0;
         if (steamClient.NativeClient.IClientUser.BGetAppMinutesPlayed(notice.m_nAppID, ref allTime, ref lastTwoWeeks))
@@ -75,12 +76,12 @@ public class AppsManager : ILogonLifetime
     }
 
     [CallbackListener<AppLastPlayedTimeChanged_t>]
-    public void OnAppLastPlayedTimeChanged(AppLastPlayedTimeChanged_t lastPlayedTimeChanged) {
+    public void OnAppLastPlayedTimeChanged(CallbackHandler handler, AppLastPlayedTimeChanged_t lastPlayedTimeChanged) {
         AppLastPlayedChanged?.Invoke(this, new AppLastPlayedChangedEventArgs(lastPlayedTimeChanged.m_nAppID, lastPlayedTimeChanged.m_lastPlayed));
     }
 
     [CallbackListener<AppLicensesChanged_t>]
-    public void OnAppLicensesChanged(AppLicensesChanged_t licensesChanged) {
+    public void OnAppLicensesChanged(CallbackHandler handler, AppLicensesChanged_t licensesChanged) {
         lock (ownedAppsLock)
         {
             if (licensesChanged.bReloadAll) {

@@ -16,12 +16,12 @@ using OpenSteamworks.Enums;
 
 namespace OpenSteamworks.Callbacks;
 
-public class SteamAPICallResult<T> where T: unmanaged {
+public class CallResult<T> where T: unmanaged {
     public bool failed;
     public ESteamAPICallFailure failureReason;
-    public T? data = null;
+    public T data;
 
-    public SteamAPICallResult(bool failed, ESteamAPICallFailure failureReason, T? data) {
+    public CallResult(bool failed, ESteamAPICallFailure failureReason, T data) {
         this.failed = failed;
         this.failureReason = failureReason;
         this.data = data;
@@ -85,39 +85,86 @@ public class CallbackManager
         }
     }
 
-    public Task<SteamAPICallResult<T>> WaitForSteamAPICallResult<T>(SteamAPICall_t handle, int expectedCallbackID, CancellationToken token = default) where T: unmanaged {
-        return Task.Run(() =>
-        {
-            // if (this.client.NativeClient.IClientUtils.GetAPICallFailureReason(handle) == ESteamAPICallFailure.k_ESteamAPICallFailureInvalidHandle) {
-            //     throw new ArgumentException(nameof(handle));
-            // }
+    /// <summary>
+    /// Waits for an api call with the specified type to complete. Might block forever if given an invalid handle or if the call creating function succeeds too quickly before the handler gets registered.
+    /// </summary>
+    /// <typeparam name="T">Type of the call</typeparam>
+    /// <param name="handle">Handle to the call</param>
+    /// <param name="resumeThread">Whether to continue callbackthread after the handler is registered internally</param>
+    /// <param name="cancellationToken"></param>
+    /// <returns></returns>
+    /// <exception cref="Exception"></exception>
+    public Task<CallResult<T>> WaitForAPICallResult<T>(SteamAPICall_t handle, bool resumeThread = true, CancellationToken cancellationToken = default) where T: unmanaged {
+        unsafe {
+            this.PauseThread();
+            int callbackID = GetCallbackID(typeof(T));
+            int callbackSize = sizeof(T);
+            bool hasFreed = false;
+            void* data = NativeMemory.AllocZeroed((nuint)callbackSize);
+            bool failed = false;
+            ESteamAPICallFailure failureReason;
+            var tcs = new TaskCompletionSource<CallResult<T>>();
 
-            unsafe {
-                int callbackSize = sizeof(T);
-                void* data = NativeMemory.AllocZeroed((nuint)callbackSize);
-                bool failed = false;
-                bool gotResult = false;
-                Console.WriteLine("test: " + this.client.NativeClient.IClientUtils.GetAPICallFailureReason(this.client.NativeClient.IClientUtils.AllocPendingAPICallHandle()));
-                while (!gotResult)
-                {
-                    Console.WriteLine("failureReason: " + this.client.NativeClient.IClientUtils.GetAPICallFailureReason(handle));
-                    gotResult = this.client.NativeClient.IClientUtils.GetAPICallResult(handle, data, callbackSize, expectedCallbackID, ref failed);
-                    System.Threading.Thread.Sleep(50);
-                    if (token.IsCancellationRequested) {
-                        throw new OperationCanceledException();
+            var handler = this.RegisterHandler<SteamAPICallCompleted_t>((CallbackHandler handler, SteamAPICallCompleted_t compl) =>
+            {
+                if (compl.m_hAsyncCall == handle) {
+                    if (!this.client.NativeClient.IClientUtils.GetAPICallResult(handle, data, callbackSize, callbackID, ref failed)) {
+                        throw new Exception("GetAPICallResult returned false with our handle after receiving SteamAPICallCompleted_t. Bugged?");
+                    }
+                    failureReason = this.client.NativeClient.IClientUtils.GetAPICallFailureReason(handle);
+                    if (failed) {
+                        tcs.TrySetResult(new CallResult<T>(failed, failureReason, default));
+                    } else {
+                        T? val = (T?)Marshal.PtrToStructure((IntPtr)data, typeof(T));
+                        if (!val.HasValue) {
+                            failed = true;
+                            tcs.TrySetResult(new CallResult<T>(failed, failureReason, default));
+                        } else {
+                            tcs.TrySetResult(new CallResult<T>(failed, failureReason, val.Value));
+                        }
+                    }
+
+                    this.DeregisterHandler(handler);
+                    if (!hasFreed) {
+                        hasFreed = true;
+                        NativeMemory.Free(data);
                     }
                 }
+            }, false);
 
-                return new SteamAPICallResult<T>(failed, this.client.NativeClient.IClientUtils.GetAPICallFailureReason(handle), (T?)Marshal.PtrToStructure((IntPtr)data, typeof(T)));
+            cancellationToken.Register(() =>
+            {
+                this.DeregisterHandler(handler);
+                if (!hasFreed) {
+                    hasFreed = true;
+                    NativeMemory.Free(data);
+                }
+                tcs.TrySetCanceled();
+            });
+
+            if (resumeThread) {
+                this.ContinueThread();
             }
-        });
+
+            return tcs.Task;
+        }
     }
     
     public void NativePollThread() {
         bool hasCallback = false;
-
+        CallbackMsg_t msg = new();
+        Stopwatch fullPollTime = new();
+        Stopwatch runFrameTime = new();
+        Stopwatch bGetCallbackTime = new();
+        Stopwatch idToTypeTime = new();
+        Stopwatch logCallbackTime = new();
+        Stopwatch ptrToStructureTime = new();
+        Stopwatch logCallbackDataTime = new();
+        Stopwatch getTypedHandlersTime = new();
+        Stopwatch executeTypedHandlersTime = new();
+        Stopwatch getIDHandlersTime = new();
+        Stopwatch executeIDHandlersTime = new();
         unsafe {
-            CallbackMsg_t msg = new();
             do
             {                
                 if (pausePoll) {
@@ -128,7 +175,10 @@ public class CallbackManager
                     } while (pausePoll);
                     didPoll = true;
                 }
-                
+
+                fullPollTime.Reset();
+                fullPollTime.Start();
+                this.client.NativeClient.IClientEngine.RunFrame();
                 hasCallback = this.client.NativeClient.native_Steam_BGetCallback(client.NativeClient.pipe, (nint)(&msg));
                 if (hasCallback) {
                     var hasType = CallbackConstants.IDToType.TryGetValue(msg.m_iCallback, out Type? type);
@@ -136,34 +186,45 @@ public class CallbackManager
                     LogCallback(msg);
 
                     if (hasType && type != null) {
-                        var obj = Marshal.PtrToStructure((IntPtr)msg.m_pubParam, type);
-                        if (obj != null) {
-                            LogCallbackData(obj, type);
+                        try
+                        {
+                            var obj = Marshal.PtrToStructure((IntPtr)msg.m_pubParam, type);
+                            if (obj != null) {
+                                LogCallbackData(obj, type);
 
-                            // Send to listeners if any exist
-                            if (GetHandlersForId(msg.m_iCallback, out List<Delegate>? handlers)) {
-                                foreach (var handler in handlers)
-                                {
-                                    handler?.DynamicInvoke(obj);
+                                // Send to listeners if any exist
+                                if (GetHandlersForId(msg.m_iCallback, out List<CallbackHandler>? handlers)) {
+                                    foreach (var handler in handlers)
+                                    {
+                                        handler.func?.DynamicInvoke(handler, obj);
+                                    }
                                 }
+                            } else {
+                                //TODO: logger
+                                Console.WriteLine("PtrToStructure returned null. Message skipped.");
                             }
-                        } else {
-                            //TODO: logger
-                            Console.WriteLine("PtrToStructure returned null. Message skipped.");
+                        }
+                        catch (System.Exception e)
+                        {
+                            Console.WriteLine("PtrToStructure threw an error. Message skipped.");
+                            Console.WriteLine(e);
                         }
                     } else {
                         // Handle untyped (id only) handlers
-                        if (GetHandlersForId(msg.m_iCallback, out List<Delegate>? handlers)) {
+                        if (GetHandlersForId(msg.m_iCallback, out List<CallbackHandler>? handlers)) {
                             foreach (var handler in handlers)
                             {
-                                handler?.DynamicInvoke();
+                                handler.func?.DynamicInvoke(handler);
                             }
                         }
                     }
 
                     this.client.NativeClient.native_Steam_FreeLastCallback(client.NativeClient.pipe);
+                    fullPollTime.Stop();
+                    Console.WriteLine("Callback handling took " + fullPollTime.Elapsed.TotalMilliseconds + "ms");
                 } else {
-                    System.Threading.Thread.Sleep(50);
+                    // Sleep only if we have no extra messages
+                    //System.Threading.Thread.Sleep(1);
                 }
                 
             } while (poll);
@@ -190,14 +251,18 @@ public class CallbackManager
 
     private void LogCallbackData(object obj, Type type) {
         if (logCallbackContents) {
-            FieldInfo[] fields = type.GetFields();
+            // if (type.Name.StartsWith("HTML_")) {
+            //     return;
+            // }
+
+            var fields = type.GetFields();
             Console.WriteLine($"Begin Message {type.Name}");
             try {
                 foreach (var field in fields)
                 {
                     dynamic? value = field.GetValue(obj);
                     string? substituteValue = null;
-                    if ((object?)value != null) {
+                    if (value is not null) {
                         var valueType = value.GetType();
                         if (valueType.IsArray) {
                             Type elementType = valueType.GetElementType()!;
@@ -227,13 +292,13 @@ public class CallbackManager
             Console.WriteLine($"End of Message {type.Name}");
         }
     }
-    private bool GetHandlersForId(int id, [NotNullWhen(true)] out List<Delegate>? handlersOut) {
-        handlersOut = new List<Delegate>();
+    private bool GetHandlersForId(int id, [NotNullWhen(true)] out List<CallbackHandler>? handlersOut) {
+        handlersOut = new List<CallbackHandler>();
         List<CallbackHandler> handlersToRemove = new();
 
         foreach (var handler in handlers.Where(handler => handler.callbackId == id))
         {
-            handlersOut.Add(handler.func);
+            handlersOut.Add(handler);
             if (handler.oneShot == true) {
                 handlersToRemove.Add(handler);
             }
@@ -251,43 +316,51 @@ public class CallbackManager
         return false;
     }
 
-    public CallbackHandler RegisterHandler<T>(Action<T> handler, bool oneShot = false) where T : struct {
-        return this.RegisterHandler(handler, typeof(T), oneShot);
-    }
-
-    public CallbackHandler RegisterHandler(Delegate handler, Type type, bool oneShot = false) {
-        if (!CallbackConstants.TypeToID.TryGetValue(type, out int id)) {
-            throw new ArgumentException("T was not defined in TypeToID");
+    public static int GetCallbackID(Type callbackType) {
+        if (!CallbackConstants.TypeToID.TryGetValue(callbackType, out int id)) {
+            throw new ArgumentException(callbackType + " was not defined in TypeToID");
         }
 
-        return RegisterHandlerForId(id, handler, oneShot);
+        return id;
     }
 
-    public void RegisterHandlersFor(object obj) {
+    public CallbackHandler RegisterHandler<T>(Action<CallbackHandler, T> handler, bool oneShot = false) where T : struct {
+        return this.RegisterHandlerInternal(GetCallbackID(typeof(T)), handler, oneShot);
+    }
+
+    public CallbackHandler RegisterHandler(Action<CallbackHandler, object> handler, Type type, bool oneShot = false) {
+        return RegisterHandlerInternal(GetCallbackID(type), handler, oneShot);
+    }
+
+    public void RegisterCallbackListenerAttributesFor(object obj) {
         foreach (var func in obj.GetType().GetMethods(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.DeclaredOnly))
         {
             Attribute? typedAttribute = func.GetCustomAttribute(typeof(CallbackListenerAttribute<>));
             if (typedAttribute != null) {
                 Type expectedType = typedAttribute.GetType().GetGenericArguments()[0];
-                Type argType = func.GetParameters()[0].ParameterType;
-                if (expectedType != argType) {
-                    throw new ArgumentException("Function " + func.Name + " has invalid arguments for CallbackListenerAttribute. Expected " + expectedType.Name + ", had " + argType.Name);
+                var argTypes = func.GetParameters().Select(p => p.ParameterType).ToArray();
+                if (argTypes.Length != 2 || argTypes[0] != typeof(CallbackHandler) || argTypes[1] != expectedType) {
+                    throw new ArgumentException("Function " + func.Name + " has invalid arguments for CallbackListenerAttribute. Expected CallbackHandler, " + expectedType.Name + " but had " + string.Join(", ", argTypes.Select(a => a.Name)));
                 }
-                var actType = typeof(Action<>).MakeGenericType(expectedType);
-                this.RegisterHandler(func.CreateDelegate(actType, obj), expectedType, false);
+                var actType = typeof(Action<,>).MakeGenericType(typeof(CallbackHandler), expectedType);
+                this.RegisterHandlerInternal(GetCallbackID(expectedType), func.CreateDelegate(actType, obj), false);
             }
 
             CallbackIDListenerAttribute? idAttribute = (CallbackIDListenerAttribute?)func.GetCustomAttribute(typeof(CallbackIDListenerAttribute));
             if (idAttribute != null) {
-                if (func.GetParameters().Length > 0) {
-                    throw new ArgumentException("Function " + func.Name + " has arguments for CallbackIDListenerAttribute. Expected 0 arguments. ");
+                if (func.GetParameters().Length != 1) {
+                    throw new ArgumentException("Function " + func.Name + " has wrong arguments for CallbackIDListenerAttribute. Expected 1 argument of type CallbackHandler.");
                 }
-                this.RegisterHandlerForId(idAttribute.CallbackID, func.CreateDelegate(typeof(Action), obj), false);
+                this.RegisterHandlerInternal(idAttribute.CallbackID, func.CreateDelegate(typeof(Action<,>).MakeGenericType(typeof(CallbackHandler)), obj), false);
             }
         }
     }
 
-    public CallbackHandler RegisterHandlerForId(int id, Delegate func, bool oneShot = false) {
+    public CallbackHandler RegisterHandlerForId(int id, Action<CallbackHandler> func, bool oneShot = false) {
+        return RegisterHandlerInternal(id, func, oneShot);
+    }
+
+    private CallbackHandler RegisterHandlerInternal(int id, Delegate func, bool oneShot) {
         CallbackHandler handler = new(id, func, oneShot);
         lock (handlersLock)
         {
@@ -299,12 +372,23 @@ public class CallbackManager
     public async Task WaitForCallback(int callbackId) {
         var tcs = new TaskCompletionSource();
 
-        RegisterHandlerForId(callbackId, () => {
+        RegisterHandlerForId(callbackId, (CallbackHandler handler) => {
             Console.WriteLine("WaitForCallback handler fired");
             tcs.TrySetResult();
         }, true);
 
         await tcs.Task;
+    }
+
+    public async Task<object> WaitForCallback(Type callbackType) {
+        var tcs = new TaskCompletionSource<object>();
+
+        RegisterHandler((CallbackHandler handler, object callbackResult) => {
+            Console.WriteLine("WaitForCallback handler fired");
+            tcs.TrySetResult(callbackResult);
+        }, callbackType, true);
+
+        return await tcs.Task;
     }
 
     public void DeregisterHandler(CallbackHandler handler) {

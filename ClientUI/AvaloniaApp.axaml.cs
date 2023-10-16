@@ -21,7 +21,7 @@ using Avalonia.Input;
 
 namespace ClientUI;
 
-public partial class AvaloniaApp : Application
+public class AvaloniaApp : Application
 {
     public static Container Container = new Container();
     public new static AvaloniaApp? Current;
@@ -47,7 +47,7 @@ public partial class AvaloniaApp : Application
         ForceProgressWindow(progVm);
 
         Container.RegisterInstance(new Client(Container, bootstrapperProgress));
-        Container.ConstructAndRegisterImmediate<TranslationManager>();
+        Container.ConstructAndRegister<TranslationManager>();
         Container.RegisterInstance(this);
         await Container.RunClientStartup();
 
@@ -98,9 +98,14 @@ public partial class AvaloniaApp : Application
             });
         };
 
-
-        if (!Container.Get<LoginManager>().TryAutologin()) {
-            ForceAccountPickerWindow();
+        if (Container.Get<SteamClient>().NativeClient.ConnectedWith == SteamClient.ConnectionType.ExistingClient) {
+            if (Container.Get<LoginManager>().IsLoggedOn()) {
+                ForceMainWindow();
+            }
+        } else {
+            if (!Container.Get<LoginManager>().TryAutologin()) {
+                ForceAccountPickerWindow();
+            }
         }
 
         base.OnFrameworkInitializationCompleted();

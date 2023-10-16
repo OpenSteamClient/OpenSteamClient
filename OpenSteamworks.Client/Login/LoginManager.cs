@@ -17,6 +17,7 @@ using OpenSteamworks.Client.Login;
 using OpenSteamworks.Protobuf;
 using System.Security.Cryptography;
 using System.Text;
+using static OpenSteamworks.Callbacks.CallbackManager;
 
 namespace OpenSteamworks.Client.Managers;
 
@@ -85,7 +86,7 @@ public class LoginManager : IClientLifetime
     {
         this.container = container;
         this.steamClient = steamClient;
-        this.steamClient.CallbackManager.RegisterHandlersFor(this);
+        this.steamClient.CallbackManager.RegisterCallbackListenerAttributesFor(this);
         this.loginUsers = loginUsers;
         this.clientMessaging = clientMessaging;
     }
@@ -346,14 +347,14 @@ public class LoginManager : IClientLifetime
     private bool isLoggingOn = false;
     private EResult? loginFinishResult;
     [CallbackListener<SteamServerConnectFailure_t>]
-    public void OnSteamServerConnectFailure(SteamServerConnectFailure_t failure) {
+    public void OnSteamServerConnectFailure(CallbackHandler handler, SteamServerConnectFailure_t failure) {
         if (isLoggingOn) {
             loginFinishResult = failure.m_EResult;
         }
     }
 
     [CallbackListener<SteamServersDisconnected_t>]
-    public void OnSteamServersDisconnected(SteamServersDisconnected_t disconnect) {
+    public void OnSteamServersDisconnected(CallbackHandler handler, SteamServersDisconnected_t disconnect) {
         if (CurrentUser != null) {
             if (disconnect.m_EResult == EResult.k_EResultOK) {
                 OnLoggedOff(new LoggedOffEventArgs(CurrentUser, disconnect.m_EResult));
@@ -364,7 +365,7 @@ public class LoginManager : IClientLifetime
 
     private bool _logonStateHasStartedLoading = false;
     [CallbackListener<PostLogonState_t>]
-    public void OnPostLogonState(PostLogonState_t stateUpdate) {
+    public void OnPostLogonState(CallbackHandler handler, PostLogonState_t stateUpdate) {
         if (isLoggingOn) {
             if (!_logonStateHasStartedLoading && stateUpdate.isLoading) {
                 _logonStateHasStartedLoading = true;
@@ -385,7 +386,7 @@ public class LoginManager : IClientLifetime
     }
 
     // [CallbackListener<SteamServersConnected_t>]
-    // public void OnSteamServersConnected(SteamServersConnected_t connected) {
+    // public void OnSteamServersConnected(CallbackHandler handler, SteamServersConnected_t connected) {
         
     // }
     
@@ -573,13 +574,9 @@ public class LoginManager : IClientLifetime
 
     public async Task RunShutdown()
     {
-        Console.WriteLine("IsLoggedOn: " + this.IsLoggedOn());
-
-        if (this.IsLoggedOn()) {
-            Console.WriteLine("Is logged on, logging out");
+        if (this.IsLoggedOn() && this.steamClient.NativeClient.ConnectedWith == SteamClient.ConnectionType.NewClient) {
+            Console.WriteLine("Logging out");
             await LogoutAsync();
-        } else {
-            Console.WriteLine("Not logged on");
         }
     }
 }

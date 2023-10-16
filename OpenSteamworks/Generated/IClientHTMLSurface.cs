@@ -5,9 +5,6 @@
 // Parameter types and names however are preserved if the function stays unchanged.
 // Feel free to change parameters to be more accurate. 
 //=============================================================================
-
-global using HHTMLBrowser = System.UInt32;
-
 using System;
 using OpenSteamworks.Enums;
 
@@ -21,39 +18,51 @@ public unsafe interface IClientHTMLSurface
     public bool Init();
     public bool Shutdown();
     public SteamAPICall_t CreateBrowser(string userAgent, string? customCSS);
-    public unknown_ret RemoveBrowser(HHTMLBrowser handle);
-    public unknown_ret AllowStartRequest(HHTMLBrowser handle, bool allow);
-    public unknown_ret LoadURL(HHTMLBrowser handle, string url, string postRequest = "");
-    public unknown_ret SetSize(HHTMLBrowser handle, UInt32 unk2, UInt32 unk3);
-    public unknown_ret StopLoad(HHTMLBrowser handle);
-    public unknown_ret Reload(HHTMLBrowser handle);
-    public unknown_ret GoBack(HHTMLBrowser handle);
-    public unknown_ret GoForward(HHTMLBrowser handle);
-    public unknown_ret AddHeader(HHTMLBrowser handle, string unk2, string unk3);
-    public unknown_ret ExecuteJavascript(HHTMLBrowser handle, string unk2);
-    public unknown_ret MouseUp(HHTMLBrowser handle, EHTMLMouseButton button);
-    public unknown_ret MouseDown(HHTMLBrowser handle, EHTMLMouseButton button);
-    public unknown_ret MouseDoubleClick(HHTMLBrowser handle, EHTMLMouseButton button);
-    public unknown_ret MouseMove(HHTMLBrowser handle, int unk1, int unk2);
-    public unknown_ret MouseWheel(HHTMLBrowser handle, int unk1);
-    public unknown_ret KeyDown(HHTMLBrowser handle, UInt32 unk1, EHTMLKeyModifiers modifiers, bool unk2);
-    public unknown_ret KeyUp(HHTMLBrowser handle, UInt32 unk1, EHTMLKeyModifiers modifiers);
-    public unknown_ret KeyChar(HHTMLBrowser handle, UInt32 unk1, EHTMLKeyModifiers modifiers);
-    public unknown_ret SetHorizontalScroll(HHTMLBrowser handle, UInt32 unk2);
-    public unknown_ret SetVerticalScroll(HHTMLBrowser handle, UInt32 unk2);
-    public unknown_ret SetKeyFocus(HHTMLBrowser handle, bool unk2);
-    public unknown_ret ViewSource(HHTMLBrowser handle);
-    public unknown_ret CopyToClipboard(HHTMLBrowser handle);
-    public unknown_ret PasteFromClipboard(HHTMLBrowser handle);
-    public unknown_ret Find(HHTMLBrowser handle, string unk2, bool unk3, bool unk4);
-    public unknown_ret StopFind(HHTMLBrowser handle);
-    public unknown_ret GetLinkAtPosition(HHTMLBrowser handle, int unk2, int unk3);
-    public unknown_ret JSDialogResponse(HHTMLBrowser handle, bool unk2);
-    public unknown_ret FileLoadDialogResponse(HHTMLBrowser handle, string unk2);
-    public unknown_ret SetCookie(string unk1, string unk2, string unk3, string unk4, UInt32 unk5, bool unk6, bool unk7);
-    public unknown_ret SetPageScaleFactor(HHTMLBrowser handle, float unk2, int unk3, int unk4);
-    public unknown_ret SetBackgroundMode(HHTMLBrowser handle, bool unk2);
-    public unknown_ret SetDPIScalingFactor(HHTMLBrowser handle, float unk2);
+    public void RemoveBrowser(HHTMLBrowser handle);
+    public void AllowStartRequest(HHTMLBrowser handle, bool allow);
+    public void LoadURL(HHTMLBrowser handle, string url, string? postRequest);
+    public void SetSize(HHTMLBrowser handle, UInt32 width, UInt32 height);
+    public void StopLoad(HHTMLBrowser handle);
+    public void Reload(HHTMLBrowser handle);
+    public void GoBack(HHTMLBrowser handle);
+    public void GoForward(HHTMLBrowser handle);
+    public void AddHeader(HHTMLBrowser handle, string key, string value);
+    public void ExecuteJavascript(HHTMLBrowser handle, string jsToEval);
+    public void MouseUp(HHTMLBrowser handle, EHTMLMouseButton button);
+    public void MouseDown(HHTMLBrowser handle, EHTMLMouseButton button);
+    public void MouseDoubleClick(HHTMLBrowser handle, EHTMLMouseButton button);
+    public void MouseMove(HHTMLBrowser handle, int x, int y);
+    // Might also have uint32 modifiers
+    public void MouseWheel(HHTMLBrowser handle, int xDelta, int yDelta);
+    /// <summary>
+    /// Uses Xorg's KeySums on Linux, CGKeyCode on MacOS, VKey:s on Windows.
+    /// Cannot type into text fields.
+    /// </summary>
+    public void KeyDown(HHTMLBrowser handle, int keyCode, EHTMLKeyModifiers modifiers, bool isSystemKey);
+    /// <summary>
+    /// And presumably this one is broken as well.
+    /// </summary>
+    public void KeyUp(HHTMLBrowser handle, int keyCode, EHTMLKeyModifiers modifiers);
+    /// <summary>
+    /// You can't feed control keys. Use KeyDown for it.
+    /// Types characters into the current focused element
+    /// </summary>
+    public void KeyChar(HHTMLBrowser handle, int unicodeCharPoint, EHTMLKeyModifiers modifiers);
+    public void SetHorizontalScroll(HHTMLBrowser handle, UInt32 absolutePos);
+    public void SetVerticalScroll(HHTMLBrowser handle, UInt32 absolutePos);
+    public void SetKeyFocus(HHTMLBrowser handle, bool hasFocus);
+    public void ViewSource(HHTMLBrowser handle);
+    public void CopyToClipboard(HHTMLBrowser handle);
+    public void PasteFromClipboard(HHTMLBrowser handle);
+    public void Find(HHTMLBrowser handle, string searchStr, bool goToNext, bool reverse);
+    public void StopFind(HHTMLBrowser handle);
+    public SteamAPICall_t GetLinkAtPosition(HHTMLBrowser handle, int x, int y);
+    public void JSDialogResponse(HHTMLBrowser handle, bool response);
+    public void FileLoadDialogResponse(HHTMLBrowser handle, string selectedPath);
+    public void SetCookie(HHTMLBrowser handle, string hostname, string key, string value, string path, RTime32 expiry, bool secure, bool httpOnly);
+    public void SetPageScaleFactor(HHTMLBrowser handle, float zoom, int x, int y);
+    public void SetBackgroundMode(HHTMLBrowser handle, bool backgroundMode);
+    public void SetDPIScalingFactor(HHTMLBrowser handle, float scaleFactor);
     public unknown_ret OpenDeveloperTools(HHTMLBrowser handle);
     public unknown_ret Validate(void* cvalidator, string unk);
 }

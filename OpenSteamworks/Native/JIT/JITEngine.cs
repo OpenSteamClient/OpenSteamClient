@@ -248,7 +248,11 @@ namespace OpenSteamworks.Native.JIT
                         // Create backing type from the custom value type
                         ilgen.Call(typeInfo.CustomValueTypeToNativeTypeOperator);
                     } else {
-                        ilgen.Call(typeInfo.Type.GetMethod("GetValue"));
+                        var getvalueFunc = typeInfo.Type.GetMethod("GetValue");
+                        if (getvalueFunc == null) {
+                            throw new JITEngineException(typeInfo.Type + " does not implement GetValue");
+                        }
+                        ilgen.Call(getvalueFunc);
                     }
                 }
                 else

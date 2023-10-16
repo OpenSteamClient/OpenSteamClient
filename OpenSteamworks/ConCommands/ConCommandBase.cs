@@ -3,6 +3,16 @@ using System.Runtime.InteropServices;
 
 namespace OpenSteamworks.ConCommands;
 
+[Flags]
+public enum ConCommandFlags : int
+{
+    FCVAR_NEVER_AS_STRING = 1 << 0,
+    UNK1 = 1 << 1,
+    UNK2 = 1 << 2,
+    UNK3 = 1 << 3,
+    UNK4 = 1 << 4,
+};
+
 [StructLayout(LayoutKind.Sequential)]
 public unsafe struct ConCommandBase {
     public void *vtable;
@@ -10,7 +20,7 @@ public unsafe struct ConCommandBase {
     public bool m_bRegistered; // 0x08
     public IntPtr m_pszName; // 0x0C
     public IntPtr m_pszHelpString; // 0x10
-    public int m_nFlags; // 0x14
+    public ConCommandFlags m_nFlags; // 0x14
 
     public ConCommandBase *s_pConCommandBases; // 0x18
     public IConCommandBaseAccessor *s_pAccessor; // 0x1C

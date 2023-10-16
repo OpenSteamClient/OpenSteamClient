@@ -70,13 +70,6 @@ if (BUILD_PLATFORM_TARGET STREQUAL "windows")
     
 endif()
 
-# steamutl, a library that allows us to use Valve's CUtl* from C#-land
-file(GLOB_RECURSE steamutl_sources CONFIGURE_DEPENDS "steamutl/*.cpp")
-
-add_library(steamutl SHARED ${steamutl_sources} ${miniutl_sources})
-
-target_include_directories(steamutl PRIVATE "MiniUTL")
-
 if (NOT DEFINED IDE_BUILD)
     # Save build timestamp to file
     string(TIMESTAMP UNIX_TIMESTAMP "%s") 

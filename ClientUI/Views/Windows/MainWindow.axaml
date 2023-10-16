@@ -42,12 +42,13 @@
             </MenuItem>
             <MenuItem Header="Debug">
                 <MenuItem c:Translatable.TranslationKey="#MainWindow_Header_Debug_OpenInterfaceList" Header="Interface list" Command="{Binding DBG_OpenInterfaceList}"/>
+                <MenuItem Header="Test HTMLSurface" Command="{Binding DBG_TestHTMLSurface}" />
+                <Separator/> 
                 <MenuItem Header="Quick switch language (English/Finnish)" Command="{Binding DBG_ChangeLanguage}"/>
+                <Separator/> 
                 <MenuItem Header="Launch factorio (linux x64 only)" Command="{Binding DBG_LaunchFactorio}"/>
                 <Separator/>
                 <MenuItem Header="Crash" Command="{Binding DBG_Crash}"/>
-                <Separator/> 
-                <MenuItem Header="Test CUtlMaps" Command="{Binding DBG_TestMaps}" />
             </MenuItem>
         </Menu>
         <ContentControl Content="{Binding CurrentPage}" />

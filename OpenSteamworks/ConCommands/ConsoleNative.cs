@@ -19,15 +19,17 @@ public unsafe class ConsoleNative {
     public static unsafe byte RegisterConCommandBase(IConCommandBaseAccessor *acc, ConCommandBase *pVar)
     {
         //NOTE: I don't know if the steam client contains ConVars as well as ConCommands
-        Console.WriteLine("[ConCommands] ConCommand added: " + Marshal.PtrToStringAuto(pVar->m_pszName) + " : " + Marshal.PtrToStringAuto(pVar->m_pszHelpString) + ", flags: " + pVar->m_nFlags);
-
+        Console.WriteLine("[ConCommands] ConCommand added: " + Marshal.PtrToStringAuto(pVar->m_pszName) + " : " + Marshal.PtrToStringAuto(pVar->m_pszHelpString) + ", flags: " + (int)pVar->m_nFlags + "(" + pVar->m_nFlags + ")");
+        Console.WriteLine("s_pConCommandBases: " + (IntPtr)pVar->s_pConCommandBases + ", s_pAccessor: " + (IntPtr)pVar->s_pAccessor);
         // ConCommandBase_Funcs funcs = JITEngine.GenerateUniqueClass<ConCommandBase_Funcs>((IntPtr)pVar);
         // Console.WriteLine("[ConCommands] IsCommand: " + funcs.IsCommand());
         // Console.WriteLine("[ConCommands] Unk2: " + funcs.Unk2());
         // //Console.WriteLine("[ConCommands] Unk3: " + funcs.Unk3());
-        // Console.WriteLine("[ConCommands] GetFlags: " + funcs.GetFlags());
+        //Console.WriteLine("[ConCommands] Flags: " + );
+
         // Console.WriteLine("[ConCommands] IsCommand2: " + funcs.IsCommand2() + " pVar->m_bRegistered " +  pVar->m_bRegistered);
         pVar->m_bRegistered = true;
+        
         // Console.WriteLine("[ConCommands] IsCommand2: " + funcs.IsCommand2() + " pVar->m_bRegistered " +  pVar->m_bRegistered);
         // Console.WriteLine("[ConCommands] GetName: " + funcs.GetName());
         // Console.WriteLine("[ConCommands] GetDescription: " + funcs.GetHelpText());

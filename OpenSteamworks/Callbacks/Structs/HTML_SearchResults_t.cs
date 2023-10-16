@@ -6,7 +6,9 @@ using OpenSteamworks.Structs;
 namespace OpenSteamworks.Callbacks.Structs;
 
 [StructLayout(LayoutKind.Sequential, Pack = SteamClient.Pack)]
-public unsafe struct HTML_BrowserReady_t
+public unsafe struct HTML_SearchResults_t
 {
 	public HHTMLBrowser unBrowserHandle;
+	public UInt32 unResults;
+	public UInt32 unCurrentMatch;
 };

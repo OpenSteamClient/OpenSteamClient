@@ -80,7 +80,7 @@ public class SteamClient
         log = true;
 #endif
 
-        // If you want to diagnose a hard to find crash, use this
+        // If you want to diagnose a hard to find crash (in JIT code), use this
         JITEngine.AllowConsoleLog = log;
 
         this.CallbackManager = new CallbackManager(this, log, log);

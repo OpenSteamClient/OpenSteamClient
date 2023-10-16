@@ -6,7 +6,9 @@ using OpenSteamworks.Structs;
 namespace OpenSteamworks.Callbacks.Structs;
 
 [StructLayout(LayoutKind.Sequential, Pack = SteamClient.Pack)]
-public unsafe struct HTML_BrowserReady_t
+public unsafe struct HTML_FinishedRequest_t
 {
 	public HHTMLBrowser unBrowserHandle;
+	public string pchURL;
+	public string pchPageTitle;
 };

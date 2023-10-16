@@ -7,24 +7,38 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <UseLocalAvalonia>true</UseLocalAvalonia>
+    <LocalAvaloniaPath>/home/onni/Downloads/Avalonia/</LocalAvaloniaPath>
+    <AvaloniaVersion>11.0.999-cibuild0040806-beta</AvaloniaVersion>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="Models\" />
-    <AvaloniaResource Include="Assets\**" />
-    <Content Include="Translations\**">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
+  <Choose>
+    <When Condition=" '$(UseLocalAvalonia)' != 'true' ">
+        <ItemGroup>
+          <PackageReference Include="Avalonia" Version="$(AvaloniaVersion)" />
+          <PackageReference Include="Avalonia.Desktop" Version="$(AvaloniaVersion)" />
+          <PackageReference Include="Avalonia.Themes.Fluent" Version="$(AvaloniaVersion)" />
+          <PackageReference Include="Avalonia.Fonts.Inter" Version="$(AvaloniaVersion)" />
+          <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
+          <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="$(AvaloniaVersion)" />
+        </ItemGroup>
+    </When>
+    <When Condition=" '$(UseLocalAvalonia)' == 'true' ">
+        <ItemGroup>
+          <ProjectReference Include="$(LocalAvaloniaPath)\packages\Avalonia\Avalonia.csproj" />
+          <ProjectReference Include="$(LocalAvaloniaPath)\src\Avalonia.Desktop\Avalonia.Desktop.csproj" />
+          <ProjectReference Include="$(LocalAvaloniaPath)\src\Avalonia.Themes.Fluent\Avalonia.Themes.Fluent.csproj" />
+          <ProjectReference Include="$(LocalAvaloniaPath)\src\Avalonia.Fonts.Inter\Avalonia.Fonts.Inter.csproj" />
+          <ProjectReference Condition="'$(Configuration)' == 'Debug'" Include="$(LocalAvaloniaPath)\src\Avalonia.Diagnostics\Avalonia.Diagnostics.csproj" />
+        </ItemGroup>
+        <PropertyGroup>
+          <!-- <EnableNETAnalyzers>false</EnableNETAnalyzers> -->
+          <IncludeAvaloniaGenerators>true</IncludeAvaloniaGenerators>
+        </PropertyGroup>
+    </When>
+  </Choose>
 
-
   <ItemGroup>
-    <PackageReference Include="Avalonia" Version="11.0.0" />
-    <PackageReference Include="Avalonia.Desktop" Version="11.0.0" />
-    <PackageReference Include="Avalonia.Themes.Fluent" Version="11.0.0" />
-    <PackageReference Include="Avalonia.Fonts.Inter" Version="11.0.0" />
-    <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
-    <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.0.0" />
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
     <PackageReference Include="QRCoder" Version="1.4.3" />
   </ItemGroup>
@@ -34,4 +48,16 @@
     <ProjectReference Include="..\OpenSteamworks\OpenSteamworks.csproj" />
     <ProjectReference Include="..\OpenSteamworks.Client\OpenSteamworks.Client.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Models\" />
+    <AvaloniaResource Include="Assets\**" />
+    
+    <Content Include="Translations\**">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <Import Condition=" '$(UseLocalAvalonia)' == 'true' " Project="$(LocalAvaloniaPath)\build\BuildTargets.targets"/>
+  <Import Condition=" '$(UseLocalAvalonia)' == 'true' " Project="$(LocalAvaloniaPath)\build\SourceGenerators.props"/>
 </Project>
