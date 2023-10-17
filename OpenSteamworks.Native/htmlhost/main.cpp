@@ -2,9 +2,23 @@
 #include <iostream>
 #include <thread>
 #include <signal.h>
+#include <chrono>
+#include <thread>
+
+#if __linux__
+#define CHROMEHTML_LIB "chromehtml.so"
+#define TIER0_LIB "libtier0_s.so"
 #include <link.h>
 #include <unistd.h>
 #include <sys/prctl.h>
+#endif 
+
+#if _WIN32
+#define CHROMEHTML_LIB "chromehtml.dll"
+#define TIER0_LIB "..\\tier0_s.dll"
+#include <windows.h>
+#include "windowssupport.h"
+#endif
 
 // DEBUGGER
 #include <signal.h>
@@ -33,22 +47,24 @@ typedef void *(*overrideArgvFn)(char *argv[], int argc);
 
 int main(int argc, char *argv[])
 {
-    // Kill process when parent dies
+    // Kill process when parent dies (windows doesn't support this)
+#if __linux__
     prctl(PR_SET_PDEATHSIG, SIGKILL);
+#endif 
 
     if (argc < 3) {
         std::cerr << "Missing required arguments [cachedir, steampath]" << std::endl;
         return 1;
     }
 
-    auto dl_handle_chromehtml = dlopen("chromehtml.so", RTLD_NOW);
+    auto dl_handle_chromehtml = dlopen(CHROMEHTML_LIB, RTLD_NOW);
     if (dl_handle_chromehtml == nullptr)
     {
         std::cerr << "dl_handle_chromehtml == nullptr!!!" << std::endl;
         return 1;
     }
 
-    auto dl_handle_tier0 = dlopen("libtier0_s.so", RTLD_NOW);
+    auto dl_handle_tier0 = dlopen(TIER0_LIB, RTLD_NOW);
     if (dl_handle_tier0 == nullptr)
     {
         std::cerr << "dl_handle_tier0 == nullptr!!!" << std::endl;
@@ -88,7 +104,7 @@ int main(int argc, char *argv[])
     HTMLOptions options;
     options.strHTMLCacheDir = argv[1];
     options.universe = 1;
-    options.strProxy = "127.0.0.1:11111";
+    options.strProxy = "";
     options.language = 0;
     options.uimode = 0;
     options.field5_0x14 = 0;
@@ -126,7 +142,7 @@ int main(int argc, char *argv[])
     while (!done)
     {
         controller->RunFrame();
-        usleep(50);
+        std::this_thread::sleep_for(std::chrono::microseconds(50));
     }
     signal(SIGINT, SIG_DFL);
 }

@@ -23,26 +23,35 @@ public class SteamHTML : IClientLifetime {
     }
 
     [SupportedOSPlatform("linux")]
+    [SupportedOSPlatform("windows")]
     public void StartHTMLHost(string pathToHost, string cacheDir) {
         lock (CurrentHTMLHostLock)
         {
             CurrentHTMLHost = new Process();
             CurrentHTMLHost.StartInfo.WorkingDirectory = Path.GetDirectoryName(pathToHost);
             CurrentHTMLHost.StartInfo.FileName = pathToHost;
-            var steampath = Directory.ResolveLinkTarget("/proc/self/exe", false)!.FullName;
 
-            // Necessary for libhtmlhost_fakepid (to get it to connect to master steam process)
+            string steampath;
+            if (OperatingSystem.IsLinux()) {
+                steampath = Directory.ResolveLinkTarget("/proc/self/exe", false)!.FullName;
+            } else {
+                steampath = Environment.GetCommandLineArgs()[0];
+            }
+
+            // Necessary for hooking some funcs (to get it to connect to master steam process)
             CurrentHTMLHost.StartInfo.Environment.Add("OPENSTEAM_EXE_PATH", steampath);
             CurrentHTMLHost.StartInfo.Environment.Add("OPENSTEAM_PID", Environment.ProcessId.ToString());
-            CurrentHTMLHost.StartInfo.Environment.Add("LD_LIBRARY_PATH", $".:{Environment.GetEnvironmentVariable("LD_LIBRARY_PATH")}");
-            CurrentHTMLHost.StartInfo.Environment.Add("LD_PRELOAD", $"/tmp/libhtmlhost_fakepid.so:/tmp/libbootstrappershim32.so:{Environment.GetEnvironmentVariable("LD_PRELOAD")}");
             
-            // We don't use steam-runtime-heavy
-            CurrentHTMLHost.StartInfo.Environment.Add("STEAM_RUNTIME", "0");
+            if (OperatingSystem.IsLinux()) {
+                CurrentHTMLHost.StartInfo.Environment.Add("LD_LIBRARY_PATH", $".:{Environment.GetEnvironmentVariable("LD_LIBRARY_PATH")}");
+                CurrentHTMLHost.StartInfo.Environment.Add("LD_PRELOAD", $"/tmp/libhtmlhost_fakepid.so:/tmp/libbootstrappershim32.so:{Environment.GetEnvironmentVariable("LD_PRELOAD")}");
+                
+                // We don't use steam-runtime-heavy
+                CurrentHTMLHost.StartInfo.Environment.Add("STEAM_RUNTIME", "0");
+            }
             
             CurrentHTMLHost.StartInfo.ArgumentList.Add(cacheDir);
             CurrentHTMLHost.StartInfo.ArgumentList.Add(steampath);
-
             
             CurrentHTMLHost.Start();
 
@@ -89,6 +98,8 @@ public class SteamHTML : IClientLifetime {
                     }
                     
                     this.StartHTMLHost(Path.Combine(configManager.InstallDir, "ubuntu12_32", "htmlhost"), Path.Combine(configManager.InstallDir, "appcache", "htmlcache"));
+                } else if (OperatingSystem.IsWindows()) {                  
+                    this.StartHTMLHost(Path.Combine(configManager.InstallDir, "bin", "htmlhost.exe"), Path.Combine(configManager.InstallDir, "appcache", "htmlcache"));
                 } else {
                     //TODO: windows support (enable compile on windows, figure out how to hook getpid/it's variant on Windows)
                     Console.WriteLine("Not running SteamHTML due to unsupported OS");

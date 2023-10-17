@@ -69,17 +69,6 @@ extern "C" unsigned int Plat_GetExecutablePath(char* path, int length) {
     }
 
     size_t actualLength = strlen(steamExecutablePath)+1;
-    // path = (char *)malloc(actualLength);
     memcpy(path, steamExecutablePath, actualLength);
     return true;
-
-
-    // original
-    // ssize_t readLength = readlink("/proc/self/exe",path,length - 1);
-    // if (readLength != -1) {
-    //     path[readLength] = '\0';
-    //     return 1;
-    // }
-    // *path = '\0';
-    // return 0;
 }

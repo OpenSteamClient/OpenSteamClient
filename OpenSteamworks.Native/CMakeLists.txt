@@ -67,7 +67,12 @@ if (BUILD_PLATFORM_TARGET STREQUAL "linux")
 endif()
 
 if (BUILD_PLATFORM_TARGET STREQUAL "windows")
-    
+    # htmlhost hosts steamwebhelper and chromehtml if the user wants it. Some games use it to display MOTDs
+    file(GLOB_RECURSE htmlhost_sources CONFIGURE_DEPENDS "htmlhost/*.cpp")
+
+    add_executable(htmlhost ${htmlhost_sources} ${miniutl_sources})
+    set_target_properties(htmlhost PROPERTIES COMPILE_FLAGS "/arch:x86" LINK_FLAGS "/MACHINE:X86")
+    target_include_directories(htmlhost PRIVATE "MiniUTL")
 endif()
 
 if (NOT DEFINED IDE_BUILD)

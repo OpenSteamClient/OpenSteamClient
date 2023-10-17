@@ -10,6 +10,8 @@
         <BaseBuildDirectory>./Build</BaseBuildDirectory>
         <!-- Where CMake will place the build outputs -->
         <BaseNativeBuildOutput>./Natives</BaseNativeBuildOutput>
+
+        <ImplicitUsings>disable</ImplicitUsings>
     </PropertyGroup>
 
     <!-- Determine OS -->

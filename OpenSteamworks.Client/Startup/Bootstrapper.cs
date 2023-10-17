@@ -641,7 +641,8 @@ public class Bootstrapper : IClientLifetime {
             {"reaper", "linux64/reaper"},
             {"steam-launch-wrapper", "linux64/reaper"},
             {"htmlhost", "ubuntu12_32/htmlhost"},
-            {"steamservice.so", "linux64/steamservice.so"}
+            {"steamservice.so", "linux64/steamservice.so"},
+            {"htmlhost.exe", "bin/htmlhost.exe"}
         };
 
         var assemblyFolder = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
