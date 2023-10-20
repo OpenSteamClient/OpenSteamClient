@@ -11,7 +11,7 @@ A partially open-source Steam client for Windows and Linux
   - [x] Callback system
   - [ ] Misc code cleanups
   - [ ] Fix TODO:s and BLOCKER:s
-  - [ ] Callresult system for non-callback results (needed for steamwebhelper/chromehtml/storepages)
+  - [x] Callresult system for non-callback results (needed for steamwebhelper/chromehtml/storepages)
 - [ ] Account system:
   - [x] Login
   - [x] Logout
