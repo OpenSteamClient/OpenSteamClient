@@ -39,11 +39,12 @@ export async function ProcessProtobuf(workdir: string, targetdir: string) {
         }
     });
 
+    // The growing list of erroring files is worrying...
+    const blacklistedFiles: string[] = ["service_steamvrvoicechat.proto", "service_steamvrwebrtc.proto", "service_cloud.proto", "service_transportvalidation.proto"];
+
     webuiFilesRelative.forEach(file => {
         // These files cause compile errors, they're blacklisted
-        if (file == "service_steamvrvoicechat.proto" || file == "service_steamvrwebrtc.proto") {
-            // can't use continue here...
-        } else {
+        if (!blacklistedFiles.includes(file)) {
             if (fs.lstatSync(`${wantedProtobufsWebui}/${file}`).isFile()) {
                 allFiles.push(`${wantedProtobufsWebui}/${file}`);
                 webuiFiles.push(`${wantedProtobufsWebui}/${file}`);
