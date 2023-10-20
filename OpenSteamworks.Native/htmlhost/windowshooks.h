@@ -37,7 +37,7 @@ bool __cdecl Plat_GetExecutablePathHook(LPSTR path, DWORD length) {
         if (steamExecutablePath != nullptr) {
             std::cout << "[htmlhost_windowshooks] ExecutablePath faked with " << steamExecutablePath << std::endl;
         } else {
-            *path = NULL;
+            *path = 0;
             return false;
         }
     }

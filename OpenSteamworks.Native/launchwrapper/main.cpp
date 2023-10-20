@@ -42,9 +42,7 @@ bool apply_environment()
             continue;
         }
 
-        // Why is this done?
-        data[read - 1] = NULL;
-
+        data[read - 1] = 0;
         setenv(vars[i].c_str(), data, 1);
         std::cout << "launchwrapper: " << vars[i] << "=" << data << std::endl;
     }

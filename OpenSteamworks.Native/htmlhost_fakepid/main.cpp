@@ -63,7 +63,7 @@ extern "C" unsigned int Plat_GetExecutablePath(char* path, int length) {
         if (steamExecutablePath != nullptr) {
             std::cout << "[htmlhost_fakepid] ExecutablePath faked with " << steamExecutablePath << std::endl;
         } else {
-            *path = NULL;
+            *path = 0;
             return false;
         }
     }

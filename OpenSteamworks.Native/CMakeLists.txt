@@ -6,13 +6,12 @@ set(CMAKE_CXX_STANDARD 20)
 if (NOT DEFINED IDE_BUILD)
     set(CMAKE_BUILD_TYPE MinSizeRel)
     if ("${BUILD_PLATFORM_TARGET}" STREQUAL "") 
-        message( FATAL_ERROR "BUILD_PLATFORM_TARGET not set. Do not build this project outside of dotnet build." )
+        message( FATAL_ERROR "BUILD_PLATFORM_TARGET not set. Do not build this project manually outside of dotnet build." )
     endif()
     if ("${NATIVE_OUTPUT_FOLDER}" STREQUAL "") 
-        message( FATAL_ERROR "NATIVE_OUTPUT_FOLDER not set. Do not build this project outside of dotnet build." )
+        message( FATAL_ERROR "NATIVE_OUTPUT_FOLDER not set. Do not build this project manually outside of dotnet build." )
     endif()
 else()
-    # Linux
     if(UNIX AND NOT APPLE)
         set(BUILD_PLATFORM_TARGET "linux")
     elseif(APPLE) 
@@ -24,6 +23,13 @@ else()
     endif()
     set(NATIVE_OUTPUT_FOLDER "${PROJECT_SOURCE_DIR}/Build/IDE/Natives/IDE")
 endif()
+
+# Only for linux, since MSVC needs an entirely different compiler for 32-bit compiles
+function(set_ide_32bit_build targetname)
+    if (DEFINED IDE_BUILD)
+        set_target_properties(${targetname} PROPERTIES COMPILE_FLAGS "-m32" LINK_FLAGS "-m32")
+    endif()
+endfunction()
 
 # Gosh Microsoft, you really don't seem to get stuff right
 if (MSVC)
@@ -37,42 +43,65 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${NATIVE_OUTPUT_FOLDER})
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${NATIVE_OUTPUT_FOLDER})
 
 file(GLOB_RECURSE miniutl_sources CONFIGURE_DEPENDS "MiniUTL/*.cpp")
+file(GLOB_RECURSE htmlhost_sources CONFIGURE_DEPENDS "htmlhost/*.cpp")
 
 if (BUILD_PLATFORM_TARGET STREQUAL "linux")
-    add_executable(reaper ${PROJECT_SOURCE_DIR}/reaper/main.cpp)
-    add_executable(steam-launch-wrapper ${PROJECT_SOURCE_DIR}/launchwrapper/main.cpp)
+    if (BUILD_BITS STREQUAL "64" OR DEFINED IDE_BUILD)
+        add_executable(reaper ${PROJECT_SOURCE_DIR}/reaper/main.cpp)
+        add_executable(steam-launch-wrapper ${PROJECT_SOURCE_DIR}/launchwrapper/main.cpp)
 
-    add_executable(steamserviced ${PROJECT_SOURCE_DIR}/serviced/main.cpp)
-    set_target_properties(steamserviced PROPERTIES COMPILE_FLAGS "-m32" LINK_FLAGS "-m32")
+        # 64-bit steam service stub
+        add_library(steamservice SHARED ${PROJECT_SOURCE_DIR}/fakeservice/main.cpp)
+        set_target_properties(steamservice PROPERTIES PREFIX "")
 
-    # htmlhost hosts steamwebhelper and chromehtml if the user wants it. Some games use it to display MOTDs
-    file(GLOB_RECURSE htmlhost_sources CONFIGURE_DEPENDS "htmlhost/*.cpp")
+        add_library(bootstrappershim64 SHARED ${PROJECT_SOURCE_DIR}/bootstrappershim/main.cpp)
+    endif()
 
-    add_executable(htmlhost ${htmlhost_sources} ${miniutl_sources})
-    set_target_properties(htmlhost PROPERTIES COMPILE_FLAGS "-m32" LINK_FLAGS "-m32")
-    target_include_directories(htmlhost PRIVATE "MiniUTL")
+    if (BUILD_BITS STREQUAL "32" OR DEFINED IDE_BUILD)
+        # Needed for VAC, Proton
+        add_executable(steamserviced ${PROJECT_SOURCE_DIR}/serviced/main.cpp)
+        set_ide_32bit_build(steamserviced)
 
-    # We hook getpid for htmlhost so it thinks our steam process is the steam process and not itself (not really meant to be hosted)
-    add_library(htmlhost_fakepid SHARED ${PROJECT_SOURCE_DIR}/htmlhost_fakepid/main.cpp)
-    set_target_properties(htmlhost_fakepid PROPERTIES COMPILE_FLAGS "-m32" LINK_FLAGS "-m32")
+        # htmlhost hosts steamwebhelper and chromehtml if the user wants it. Some games use it to display MOTDs
+        add_executable(htmlhost ${htmlhost_sources} ${miniutl_sources})
+        target_include_directories(htmlhost PRIVATE "MiniUTL")
+        set_ide_32bit_build(htmlhost)
 
-    # Fake steam service
-    add_library(steamservice SHARED ${PROJECT_SOURCE_DIR}/fakeservice/main.cpp)
-    set_target_properties(steamservice PROPERTIES PREFIX "")
+        # We hook getpid for htmlhost (on linux with LD_PRELOAD) so it thinks our steam process is the steam process and not itself (not really meant to be hosted)
+        add_library(htmlhost_fakepid SHARED ${PROJECT_SOURCE_DIR}/htmlhost_fakepid/main.cpp)
+        set_ide_32bit_build(htmlhost_fakepid)
 
-    add_library(bootstrappershim32 SHARED ${PROJECT_SOURCE_DIR}/bootstrappershim/main.cpp)
-    set_target_properties(bootstrappershim32 PROPERTIES COMPILE_FLAGS "-m32" LINK_FLAGS "-m32")
-
-    add_library(bootstrappershim64 SHARED ${PROJECT_SOURCE_DIR}/bootstrappershim/main.cpp)
+        add_library(bootstrappershim32 SHARED ${PROJECT_SOURCE_DIR}/bootstrappershim/main.cpp)
+        set_ide_32bit_build(bootstrappershim32)
+    endif()
 endif()
 
 if (BUILD_PLATFORM_TARGET STREQUAL "windows")
-    # htmlhost hosts steamwebhelper and chromehtml if the user wants it. Some games use it to display MOTDs
-    file(GLOB_RECURSE htmlhost_sources CONFIGURE_DEPENDS "htmlhost/*.cpp")
+    if (BUILD_BITS STREQUAL "64" OR DEFINED IDE_BUILD)
 
-    add_executable(htmlhost ${htmlhost_sources} ${miniutl_sources})
-    set_target_properties(htmlhost PROPERTIES COMPILE_FLAGS "/arch:x86" LINK_FLAGS "/MACHINE:X86")
-    target_include_directories(htmlhost PRIVATE "MiniUTL")
+    endif()
+
+    if (BUILD_BITS STREQUAL "32" OR DEFINED IDE_BUILD)
+        # htmlhost hosts steamwebhelper and chromehtml if the user wants it. Some games use it to display MOTDs
+        add_executable(htmlhost ${htmlhost_sources} ${miniutl_sources})
+        target_include_directories(htmlhost PRIVATE "MiniUTL")
+    endif()
+endif()
+
+if (BUILD_PLATFORM_TARGET STREQUAL "macos")
+    if (BUILD_BITS STREQUAL "64" OR DEFINED IDE_BUILD)
+        # MacOS steam has the luxury of having a 64-bit steamservice
+        # add_executable(steamserviced ${PROJECT_SOURCE_DIR}/serviced/main.cpp)
+
+    endif()
+
+    if (BUILD_BITS STREQUAL "32" OR DEFINED IDE_BUILD)
+        # No 32-bit natives on macos
+    endif()
+
+    if (BUILD_BITS STREQUAL "ARM" OR DEFINED IDE_BUILD)
+        add_executable(steam-launch-wrapper ${PROJECT_SOURCE_DIR}/launchwrapper/main.cpp)
+    endif()
 endif()
 
 if (NOT DEFINED IDE_BUILD)
