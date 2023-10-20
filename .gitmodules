@@ -1,0 +1,3 @@
+[submodule "OpenSteamworks.Native/MiniUTL"]
+	path = OpenSteamworks.Native/MiniUTL
+	url = https://github.com/FWGS/MiniUTL.git
