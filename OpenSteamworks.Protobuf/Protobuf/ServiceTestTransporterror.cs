@@ -25,13 +25,12 @@ namespace OpenSteamworks.Protobuf.WebUI {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "CiFzZXJ2aWNlX3Rlc3RfdHJhbnNwb3J0ZXJyb3IucHJvdG8aIGdvb2dsZS9w",
-            "cm90b2J1Zi9kZXNjcmlwdG9yLnByb3RvGgxjb21tb24ucHJvdG8yhAEKE1Rl",
-            "c3RfVHJhbnNwb3J0RXJyb3ISbQoOSW52YWxpZFNlcnZpY2USLC5DVHJhbnNw",
-            "b3J0VmFsaWRhdGlvbl9BcHBlbmRUb1N0cmluZ19SZXF1ZXN0Gi0uQ1RyYW5z",
-            "cG9ydFZhbGlkYXRpb25fQXBwZW5kVG9TdHJpbmdfUmVzcG9uc2VCIKoCHU9w",
-            "ZW5TdGVhbXdvcmtzLlByb3RvYnVmLldlYlVJ"));
+            "cm90b2J1Zi9kZXNjcmlwdG9yLnByb3RvGhFjb21tb25fYmFzZS5wcm90bzJF",
+            "ChNUZXN0X1RyYW5zcG9ydEVycm9yEi4KDkludmFsaWRTZXJ2aWNlEg8uTm90",
+            "SW1wbGVtZW50ZWQaCy5Ob1Jlc3BvbnNlQiCqAh1PcGVuU3RlYW13b3Jrcy5Q",
+            "cm90b2J1Zi5XZWJVSQ=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::Google.Protobuf.Reflection.DescriptorReflection.Descriptor, global::OpenSteamworks.Protobuf.WebUI.CommonReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::Google.Protobuf.Reflection.DescriptorReflection.Descriptor, global::OpenSteamworks.Protobuf.WebUI.CommonBaseReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, null));
     }
     #endregion

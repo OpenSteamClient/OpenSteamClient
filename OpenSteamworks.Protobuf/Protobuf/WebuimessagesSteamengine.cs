@@ -33,23 +33,30 @@ namespace OpenSteamworks.Protobuf {
             "AigJEgwKBHR5cGUYAiACKAkiQwotQ1N0ZWFtRW5naW5lX0dldFRleHRGaWx0",
             "ZXJEaWN0aW9uYXJ5X1Jlc3BvbnNlEhIKCmRpY3Rpb25hcnkYASABKAkiVwo1",
             "Q1N0ZWFtRW5naW5lX1RleHRGaWx0ZXJEaWN0aW9uYXJ5Q2hhbmdlZF9Ob3Rp",
-            "ZmljYXRpb24SEAoIbGFuZ3VhZ2UYASACKAkSDAoEdHlwZRgCIAIoCTLjAgoL",
-            "U3RlYW1FbmdpbmUSZQoaVXBkYXRlVGV4dEZpbHRlckRpY3Rpb25hcnkSNS5D",
-            "U3RlYW1FbmdpbmVfVXBkYXRlVGV4dEZpbHRlckRpY3Rpb25hcnlfTm90aWZp",
-            "Y2F0aW9uGhAuV2ViVUlOb1Jlc3BvbnNlEngKF0dldFRleHRGaWx0ZXJEaWN0",
-            "aW9uYXJ5Ei0uQ1N0ZWFtRW5naW5lX0dldFRleHRGaWx0ZXJEaWN0aW9uYXJ5",
-            "X1JlcXVlc3QaLi5DU3RlYW1FbmdpbmVfR2V0VGV4dEZpbHRlckRpY3Rpb25h",
-            "cnlfUmVzcG9uc2USbQohTm90aWZ5VGV4dEZpbHRlckRpY3Rpb25hcnlDaGFu",
-            "Z2VkEjYuQ1N0ZWFtRW5naW5lX1RleHRGaWx0ZXJEaWN0aW9uYXJ5Q2hhbmdl",
-            "ZF9Ob3RpZmljYXRpb24aEC5XZWJVSU5vUmVzcG9uc2UaBICXIgJCH0gBgAEB",
-            "qgIXT3BlblN0ZWFtd29ya3MuUHJvdG9idWY="));
+            "ZmljYXRpb24SEAoIbGFuZ3VhZ2UYASACKAkSDAoEdHlwZRgCIAIoCSIzCiRD",
+            "U3RlYW1FbmdpbmVfR2V0R2FtZUlERm9yUElEX1JlcXVlc3QSCwoDcGlkGAEg",
+            "ASgNIjcKJUNTdGVhbUVuZ2luZV9HZXRHYW1lSURGb3JQSURfUmVzcG9uc2US",
+            "DgoGZ2FtZWlkGAEgASgEMsUDCgtTdGVhbUVuZ2luZRJlChpVcGRhdGVUZXh0",
+            "RmlsdGVyRGljdGlvbmFyeRI1LkNTdGVhbUVuZ2luZV9VcGRhdGVUZXh0Rmls",
+            "dGVyRGljdGlvbmFyeV9Ob3RpZmljYXRpb24aEC5XZWJVSU5vUmVzcG9uc2US",
+            "eAoXR2V0VGV4dEZpbHRlckRpY3Rpb25hcnkSLS5DU3RlYW1FbmdpbmVfR2V0",
+            "VGV4dEZpbHRlckRpY3Rpb25hcnlfUmVxdWVzdBouLkNTdGVhbUVuZ2luZV9H",
+            "ZXRUZXh0RmlsdGVyRGljdGlvbmFyeV9SZXNwb25zZRJtCiFOb3RpZnlUZXh0",
+            "RmlsdGVyRGljdGlvbmFyeUNoYW5nZWQSNi5DU3RlYW1FbmdpbmVfVGV4dEZp",
+            "bHRlckRpY3Rpb25hcnlDaGFuZ2VkX05vdGlmaWNhdGlvbhoQLldlYlVJTm9S",
+            "ZXNwb25zZRJgCg9HZXRHYW1lSURGb3JQSUQSJS5DU3RlYW1FbmdpbmVfR2V0",
+            "R2FtZUlERm9yUElEX1JlcXVlc3QaJi5DU3RlYW1FbmdpbmVfR2V0R2FtZUlE",
+            "Rm9yUElEX1Jlc3BvbnNlGgSAlyICQh9IAYABAaoCF09wZW5TdGVhbXdvcmtz",
+            "LlByb3RvYnVm"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.Reflection.DescriptorReflection.Descriptor, global::OpenSteamworks.Protobuf.SteammessagesBaseReflection.Descriptor, global::OpenSteamworks.Protobuf.WebuimessagesBaseReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CSteamEngine_UpdateTextFilterDictionary_Notification), global::OpenSteamworks.Protobuf.CSteamEngine_UpdateTextFilterDictionary_Notification.Parser, new[]{ "Language", "Type" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CSteamEngine_GetTextFilterDictionary_Request), global::OpenSteamworks.Protobuf.CSteamEngine_GetTextFilterDictionary_Request.Parser, new[]{ "Language", "Type" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CSteamEngine_GetTextFilterDictionary_Response), global::OpenSteamworks.Protobuf.CSteamEngine_GetTextFilterDictionary_Response.Parser, new[]{ "Dictionary" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CSteamEngine_TextFilterDictionaryChanged_Notification), global::OpenSteamworks.Protobuf.CSteamEngine_TextFilterDictionaryChanged_Notification.Parser, new[]{ "Language", "Type" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CSteamEngine_TextFilterDictionaryChanged_Notification), global::OpenSteamworks.Protobuf.CSteamEngine_TextFilterDictionaryChanged_Notification.Parser, new[]{ "Language", "Type" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CSteamEngine_GetGameIDForPID_Request), global::OpenSteamworks.Protobuf.CSteamEngine_GetGameIDForPID_Request.Parser, new[]{ "Pid" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CSteamEngine_GetGameIDForPID_Response), global::OpenSteamworks.Protobuf.CSteamEngine_GetGameIDForPID_Response.Parser, new[]{ "Gameid" }, null, null, null, null)
           }));
     }
     #endregion
@@ -1012,6 +1019,418 @@ namespace OpenSteamworks.Protobuf {
           }
           case 18: {
             Type = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class CSteamEngine_GetGameIDForPID_Request : pb::IMessage<CSteamEngine_GetGameIDForPID_Request>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<CSteamEngine_GetGameIDForPID_Request> _parser = new pb::MessageParser<CSteamEngine_GetGameIDForPID_Request>(() => new CSteamEngine_GetGameIDForPID_Request());
+    private pb::UnknownFieldSet _unknownFields;
+    private int _hasBits0;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<CSteamEngine_GetGameIDForPID_Request> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::OpenSteamworks.Protobuf.WebuimessagesSteamengineReflection.Descriptor.MessageTypes[4]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CSteamEngine_GetGameIDForPID_Request() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CSteamEngine_GetGameIDForPID_Request(CSteamEngine_GetGameIDForPID_Request other) : this() {
+      _hasBits0 = other._hasBits0;
+      pid_ = other.pid_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CSteamEngine_GetGameIDForPID_Request Clone() {
+      return new CSteamEngine_GetGameIDForPID_Request(this);
+    }
+
+    /// <summary>Field number for the "pid" field.</summary>
+    public const int PidFieldNumber = 1;
+    private readonly static uint PidDefaultValue = 0;
+
+    private uint pid_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint Pid {
+      get { if ((_hasBits0 & 1) != 0) { return pid_; } else { return PidDefaultValue; } }
+      set {
+        _hasBits0 |= 1;
+        pid_ = value;
+      }
+    }
+    /// <summary>Gets whether the "pid" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasPid {
+      get { return (_hasBits0 & 1) != 0; }
+    }
+    /// <summary>Clears the value of the "pid" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearPid() {
+      _hasBits0 &= ~1;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as CSteamEngine_GetGameIDForPID_Request);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(CSteamEngine_GetGameIDForPID_Request other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Pid != other.Pid) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (HasPid) hash ^= Pid.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (HasPid) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(Pid);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (HasPid) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(Pid);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (HasPid) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Pid);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(CSteamEngine_GetGameIDForPID_Request other) {
+      if (other == null) {
+        return;
+      }
+      if (other.HasPid) {
+        Pid = other.Pid;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            Pid = input.ReadUInt32();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            Pid = input.ReadUInt32();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class CSteamEngine_GetGameIDForPID_Response : pb::IMessage<CSteamEngine_GetGameIDForPID_Response>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<CSteamEngine_GetGameIDForPID_Response> _parser = new pb::MessageParser<CSteamEngine_GetGameIDForPID_Response>(() => new CSteamEngine_GetGameIDForPID_Response());
+    private pb::UnknownFieldSet _unknownFields;
+    private int _hasBits0;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<CSteamEngine_GetGameIDForPID_Response> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::OpenSteamworks.Protobuf.WebuimessagesSteamengineReflection.Descriptor.MessageTypes[5]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CSteamEngine_GetGameIDForPID_Response() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CSteamEngine_GetGameIDForPID_Response(CSteamEngine_GetGameIDForPID_Response other) : this() {
+      _hasBits0 = other._hasBits0;
+      gameid_ = other.gameid_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CSteamEngine_GetGameIDForPID_Response Clone() {
+      return new CSteamEngine_GetGameIDForPID_Response(this);
+    }
+
+    /// <summary>Field number for the "gameid" field.</summary>
+    public const int GameidFieldNumber = 1;
+    private readonly static ulong GameidDefaultValue = 0UL;
+
+    private ulong gameid_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ulong Gameid {
+      get { if ((_hasBits0 & 1) != 0) { return gameid_; } else { return GameidDefaultValue; } }
+      set {
+        _hasBits0 |= 1;
+        gameid_ = value;
+      }
+    }
+    /// <summary>Gets whether the "gameid" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasGameid {
+      get { return (_hasBits0 & 1) != 0; }
+    }
+    /// <summary>Clears the value of the "gameid" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearGameid() {
+      _hasBits0 &= ~1;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as CSteamEngine_GetGameIDForPID_Response);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(CSteamEngine_GetGameIDForPID_Response other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Gameid != other.Gameid) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (HasGameid) hash ^= Gameid.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (HasGameid) {
+        output.WriteRawTag(8);
+        output.WriteUInt64(Gameid);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (HasGameid) {
+        output.WriteRawTag(8);
+        output.WriteUInt64(Gameid);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (HasGameid) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(Gameid);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(CSteamEngine_GetGameIDForPID_Response other) {
+      if (other == null) {
+        return;
+      }
+      if (other.HasGameid) {
+        Gameid = other.Gameid;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            Gameid = input.ReadUInt64();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            Gameid = input.ReadUInt64();
             break;
           }
         }

@@ -5,32 +5,32 @@
         {
             "name": "LoadModule",
             "argc": "4",
-            "addr": "0xf54610"
+            "addr": "0xf546f0"
         },
         {
             "name": "UnloadModule",
             "argc": "2",
-            "addr": "0xf54490"
+            "addr": "0xf54570"
         },
         {
             "name": "CallFunction",
             "argc": "9",
-            "addr": "0xf54c00"
+            "addr": "0xf54ce0"
         },
         {
             "name": "CallFunctionAsync",
             "argc": "10",
-            "addr": "0xf549a0"
+            "addr": "0xf54a80"
         },
         {
             "name": "PollResponseAsync",
             "argc": "6",
-            "addr": "0xf547b0"
+            "addr": "0xf54890"
         },
         {
             "name": "SetProtonEnvironment",
             "argc": "3",
-            "addr": "0xf54330"
+            "addr": "0xf54410"
         }
     ]
 }

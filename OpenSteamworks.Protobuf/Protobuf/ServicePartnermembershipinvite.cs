@@ -26,27 +26,23 @@ namespace OpenSteamworks.Protobuf.WebUI {
           string.Concat(
             "CiVzZXJ2aWNlX3BhcnRuZXJtZW1iZXJzaGlwaW52aXRlLnByb3RvGiBnb29n",
             "bGUvcHJvdG9idWYvZGVzY3JpcHRvci5wcm90bxoRY29tbW9uX2Jhc2UucHJv",
-            "dG8iYQorQ1BhcnRuZXJNZW1iZXJzaGlwSW52aXRlX0dldEludml0ZXNfUmVx",
-            "dWVzdBIRCglwYXJ0bmVyaWQYASABKA0SHwoNZmlsdGVyX3N0YXRlcxgCIAMo",
-            "BUIIgrUYBGVudW0iUgosQ1BhcnRuZXJNZW1iZXJzaGlwSW52aXRlX0dldElu",
-            "dml0ZXNfUmVzcG9uc2USIgoHaW52aXRlcxgBIAMoCzIRLk1lbWJlcnNoaXBJ",
-            "bnZpdGUi+gIKEE1lbWJlcnNoaXBJbnZpdGUSEAoIaW52aXRlaWQYASABKAQS",
-            "GAoQYWNjb3VudGlkX3NlbmRlchgCIAEoDRINCgVlbWFpbBgDIAEoCRIRCgly",
-            "ZWFsX25hbWUYBCABKAkSDAoEbm90ZRgFIAEoCRIRCgl0aW1lX3NlbnQYBiAB",
-            "KA0SHwoNY3VycmVudF9zdGF0ZRgHIAEoBUIIgrUYBGVudW0SEgoKcHViX3Jp",
-            "Z2h0cxgIIAEoBBISCgphcHBfcmlnaHRzGAkgASgEEh8KF3RpbWVfcmVjZWl2",
-            "ZXJfcmVzcG9uZGVkGAogASgNEhEKCWFjY291bnRpZBgLIAEoDRIeChZ0aW1l",
-            "X3BhcnRuZXJfcmVzcG9uZGVkGAwgASgNEhkKEWFjY291bnRpZF9wYXJ0bmVy",
-            "GA0gASgNEhEKCXBhcnRuZXJpZBgOIAEoDRIZChF0aW1lX2xhc3RfdXBkYXRl",
-            "ZBgPIAEoDRIRCglzZW5kZXJfaXAYECABKAkyhAEKF1BhcnRuZXJNZW1iZXJz",
-            "aGlwSW52aXRlEmkKCkdldEludml0ZXMSLC5DUGFydG5lck1lbWJlcnNoaXBJ",
-            "bnZpdGVfR2V0SW52aXRlc19SZXF1ZXN0Gi0uQ1BhcnRuZXJNZW1iZXJzaGlw",
-            "SW52aXRlX0dldEludml0ZXNfUmVzcG9uc2VCIKoCHU9wZW5TdGVhbXdvcmtz",
-            "LlByb3RvYnVmLldlYlVJ"));
+            "dG8iUgosQ1BhcnRuZXJNZW1iZXJzaGlwSW52aXRlX0dldEludml0ZXNfUmVz",
+            "cG9uc2USIgoHaW52aXRlcxgBIAMoCzIRLk1lbWJlcnNoaXBJbnZpdGUi+gIK",
+            "EE1lbWJlcnNoaXBJbnZpdGUSEAoIaW52aXRlaWQYASABKAQSGAoQYWNjb3Vu",
+            "dGlkX3NlbmRlchgCIAEoDRINCgVlbWFpbBgDIAEoCRIRCglyZWFsX25hbWUY",
+            "BCABKAkSDAoEbm90ZRgFIAEoCRIRCgl0aW1lX3NlbnQYBiABKA0SHwoNY3Vy",
+            "cmVudF9zdGF0ZRgHIAEoBUIIgrUYBGVudW0SEgoKcHViX3JpZ2h0cxgIIAEo",
+            "BBISCgphcHBfcmlnaHRzGAkgASgEEh8KF3RpbWVfcmVjZWl2ZXJfcmVzcG9u",
+            "ZGVkGAogASgNEhEKCWFjY291bnRpZBgLIAEoDRIeChZ0aW1lX3BhcnRuZXJf",
+            "cmVzcG9uZGVkGAwgASgNEhkKEWFjY291bnRpZF9wYXJ0bmVyGA0gASgNEhEK",
+            "CXBhcnRuZXJpZBgOIAEoDRIZChF0aW1lX2xhc3RfdXBkYXRlZBgPIAEoDRIR",
+            "CglzZW5kZXJfaXAYECABKAkyZwoXUGFydG5lck1lbWJlcnNoaXBJbnZpdGUS",
+            "TAoKR2V0SW52aXRlcxIPLk5vdEltcGxlbWVudGVkGi0uQ1BhcnRuZXJNZW1i",
+            "ZXJzaGlwSW52aXRlX0dldEludml0ZXNfUmVzcG9uc2VCIKoCHU9wZW5TdGVh",
+            "bXdvcmtzLlByb3RvYnVmLldlYlVJ"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.Reflection.DescriptorReflection.Descriptor, global::OpenSteamworks.Protobuf.WebUI.CommonBaseReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPartnerMembershipInvite_GetInvites_Request), global::OpenSteamworks.Protobuf.WebUI.CPartnerMembershipInvite_GetInvites_Request.Parser, new[]{ "Partnerid", "FilterStates" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPartnerMembershipInvite_GetInvites_Response), global::OpenSteamworks.Protobuf.WebUI.CPartnerMembershipInvite_GetInvites_Response.Parser, new[]{ "Invites" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.MembershipInvite), global::OpenSteamworks.Protobuf.WebUI.MembershipInvite.Parser, new[]{ "Inviteid", "AccountidSender", "Email", "RealName", "Note", "TimeSent", "CurrentState", "PubRights", "AppRights", "TimeReceiverResponded", "Accountid", "TimePartnerResponded", "AccountidPartner", "Partnerid", "TimeLastUpdated", "SenderIp" }, null, null, null, null)
           }));
@@ -55,240 +51,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
   #region Messages
-  public sealed partial class CPartnerMembershipInvite_GetInvites_Request : pb::IMessage<CPartnerMembershipInvite_GetInvites_Request>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<CPartnerMembershipInvite_GetInvites_Request> _parser = new pb::MessageParser<CPartnerMembershipInvite_GetInvites_Request>(() => new CPartnerMembershipInvite_GetInvites_Request());
-    private pb::UnknownFieldSet _unknownFields;
-    private int _hasBits0;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<CPartnerMembershipInvite_GetInvites_Request> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePartnermembershipinviteReflection.Descriptor.MessageTypes[0]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CPartnerMembershipInvite_GetInvites_Request() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CPartnerMembershipInvite_GetInvites_Request(CPartnerMembershipInvite_GetInvites_Request other) : this() {
-      _hasBits0 = other._hasBits0;
-      partnerid_ = other.partnerid_;
-      filterStates_ = other.filterStates_.Clone();
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CPartnerMembershipInvite_GetInvites_Request Clone() {
-      return new CPartnerMembershipInvite_GetInvites_Request(this);
-    }
-
-    /// <summary>Field number for the "partnerid" field.</summary>
-    public const int PartneridFieldNumber = 1;
-    private readonly static uint PartneridDefaultValue = 0;
-
-    private uint partnerid_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint Partnerid {
-      get { if ((_hasBits0 & 1) != 0) { return partnerid_; } else { return PartneridDefaultValue; } }
-      set {
-        _hasBits0 |= 1;
-        partnerid_ = value;
-      }
-    }
-    /// <summary>Gets whether the "partnerid" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasPartnerid {
-      get { return (_hasBits0 & 1) != 0; }
-    }
-    /// <summary>Clears the value of the "partnerid" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearPartnerid() {
-      _hasBits0 &= ~1;
-    }
-
-    /// <summary>Field number for the "filter_states" field.</summary>
-    public const int FilterStatesFieldNumber = 2;
-    private static readonly pb::FieldCodec<int> _repeated_filterStates_codec
-        = pb::FieldCodec.ForInt32(16);
-    private readonly pbc::RepeatedField<int> filterStates_ = new pbc::RepeatedField<int>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<int> FilterStates {
-      get { return filterStates_; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override bool Equals(object other) {
-      return Equals(other as CPartnerMembershipInvite_GetInvites_Request);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(CPartnerMembershipInvite_GetInvites_Request other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (Partnerid != other.Partnerid) return false;
-      if(!filterStates_.Equals(other.filterStates_)) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (HasPartnerid) hash ^= Partnerid.GetHashCode();
-      hash ^= filterStates_.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      if (HasPartnerid) {
-        output.WriteRawTag(8);
-        output.WriteUInt32(Partnerid);
-      }
-      filterStates_.WriteTo(output, _repeated_filterStates_codec);
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (HasPartnerid) {
-        output.WriteRawTag(8);
-        output.WriteUInt32(Partnerid);
-      }
-      filterStates_.WriteTo(ref output, _repeated_filterStates_codec);
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int CalculateSize() {
-      int size = 0;
-      if (HasPartnerid) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Partnerid);
-      }
-      size += filterStates_.CalculateSize(_repeated_filterStates_codec);
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(CPartnerMembershipInvite_GetInvites_Request other) {
-      if (other == null) {
-        return;
-      }
-      if (other.HasPartnerid) {
-        Partnerid = other.Partnerid;
-      }
-      filterStates_.Add(other.filterStates_);
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 8: {
-            Partnerid = input.ReadUInt32();
-            break;
-          }
-          case 18:
-          case 16: {
-            filterStates_.AddEntriesFrom(input, _repeated_filterStates_codec);
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 8: {
-            Partnerid = input.ReadUInt32();
-            break;
-          }
-          case 18:
-          case 16: {
-            filterStates_.AddEntriesFrom(ref input, _repeated_filterStates_codec);
-            break;
-          }
-        }
-      }
-    }
-    #endif
-
-  }
-
   public sealed partial class CPartnerMembershipInvite_GetInvites_Response : pb::IMessage<CPartnerMembershipInvite_GetInvites_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -303,7 +65,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePartnermembershipinviteReflection.Descriptor.MessageTypes[1]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePartnermembershipinviteReflection.Descriptor.MessageTypes[0]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -482,7 +244,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePartnermembershipinviteReflection.Descriptor.MessageTypes[2]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePartnermembershipinviteReflection.Descriptor.MessageTypes[1]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

@@ -29,69 +29,70 @@ namespace OpenSteamworks.Protobuf {
             "GHN0ZWFtbWVzc2FnZXNfYmFzZS5wcm90bxoYd2VidWltZXNzYWdlc19iYXNl",
             "LnByb3RvIjIKMENTdG9yYWdlRGV2aWNlTWFuYWdlcl9Jc1NlcnZpY2VBdmFp",
             "bGFibGVfUmVxdWVzdCJJCjFDU3RvcmFnZURldmljZU1hbmFnZXJfSXNTZXJ2",
-            "aWNlQXZhaWxhYmxlX1Jlc3BvbnNlEhQKDGlzX2F2YWlsYWJsZRgBIAEoCCKx",
+            "aWNlQXZhaWxhYmxlX1Jlc3BvbnNlEhQKDGlzX2F2YWlsYWJsZRgBIAEoCCLl",
             "AgoaQ1N0b3JhZ2VEZXZpY2VNYW5hZ2VyRHJpdmUSDQoCaWQYASABKA06ATAS",
             "DQoFbW9kZWwYAiABKAkSDgoGdmVuZG9yGAMgASgJEg4KBnNlcmlhbBgEIAEo",
             "CRIUCgxpc19lamVjdGFibGUYBSABKAgSEgoKc2l6ZV9ieXRlcxgGIAEoBBJL",
             "CgptZWRpYV90eXBlGAcgASgOMhcuRVN0b3JhZ2VEcml2ZU1lZGlhVHlwZToe",
             "RVN0b3JhZ2VEcml2ZU1lZGlhVHlwZV9JbnZhbGlkEhYKDmlzX3VuZm9ybWF0",
             "dGVkGAggASgIEkYKC2Fkb3B0X3N0YWdlGAkgASgOMhQuRVN0b3JhZ2VGb3Jt",
-            "YXRTdGFnZTobRVN0b3JhZ2VGb3JtYXRTdGFnZV9JbnZhbGlkIq8DCiBDU3Rv",
-            "cmFnZURldmljZU1hbmFnZXJCbG9ja0RldmljZRINCgJpZBgBIAEoDToBMBIT",
-            "Cghkcml2ZV9pZBgCIAEoDToBMBIMCgRwYXRoGAMgASgJEhUKDWZyaWVuZGx5",
-            "X3BhdGgYBCABKAkSDQoFbGFiZWwYBSABKAkSEgoKc2l6ZV9ieXRlcxgGIAEo",
-            "BBIWCg5pc19mb3JtYXR0YWJsZRgHIAEoCBIUCgxpc19yZWFkX29ubHkYCCAB",
-            "KAgSFgoOaXNfcm9vdF9kZXZpY2UYCSABKAgSUQoMY29udGVudF90eXBlGAog",
-            "ASgOMhkuRVN0b3JhZ2VCbG9ja0NvbnRlbnRUeXBlOiBFU3RvcmFnZUJsb2Nr",
-            "Q29udGVudFR5cGVfSW52YWxpZBJaCg9maWxlc3lzdGVtX3R5cGUYCyABKA4y",
-            "HC5FU3RvcmFnZUJsb2NrRmlsZVN5c3RlbVR5cGU6I0VTdG9yYWdlQmxvY2tG",
-            "aWxlU3lzdGVtVHlwZV9JbnZhbGlkEhMKC21vdW50X3BhdGhzGAwgAygJEhUK",
-            "DWlzX3VubW91bnRpbmcYDSABKAgi7wEKGkNTdG9yYWdlRGV2aWNlTWFuYWdl",
-            "clN0YXRlEisKBmRyaXZlcxgBIAMoCzIbLkNTdG9yYWdlRGV2aWNlTWFuYWdl",
-            "ckRyaXZlEjYKC2Jsb2NkZXZpY2VzGAIgAygLMiEuQ1N0b3JhZ2VEZXZpY2VN",
-            "YW5hZ2VyQmxvY2tEZXZpY2USHAoUaXNfdW5tb3VudF9zdXBwb3J0ZWQYAyAB",
-            "KAgSGQoRaXNfdHJpbV9zdXBwb3J0ZWQYBCABKAgSFwoPaXNfdHJpbV9ydW5u",
-            "aW5nGAUgASgIEhoKEmlzX2Fkb3B0X3N1cHBvcnRlZBgGIAEoCCIoCiZDU3Rv",
-            "cmFnZURldmljZU1hbmFnZXJfR2V0U3RhdGVfUmVxdWVzdCJVCidDU3RvcmFn",
-            "ZURldmljZU1hbmFnZXJfR2V0U3RhdGVfUmVzcG9uc2USKgoFc3RhdGUYASAB",
-            "KAsyGy5DU3RvcmFnZURldmljZU1hbmFnZXJTdGF0ZSIxCi9DU3RvcmFnZURl",
-            "dmljZU1hbmFnZXJfU3RhdGVDaGFuZ2VkX05vdGlmaWNhdGlvbiI3CiNDU3Rv",
-            "cmFnZURldmljZU1hbmFnZXJfRWplY3RfUmVxdWVzdBIQCghkcml2ZV9pZBgB",
-            "IAEoDSImCiRDU3RvcmFnZURldmljZU1hbmFnZXJfRWplY3RfUmVzcG9uc2Ui",
-            "RgojQ1N0b3JhZ2VEZXZpY2VNYW5hZ2VyX0Fkb3B0X1JlcXVlc3QSEAoIZHJp",
-            "dmVfaWQYASABKA0SDQoFbGFiZWwYAiABKAkiJgokQ1N0b3JhZ2VEZXZpY2VN",
-            "YW5hZ2VyX0Fkb3B0X1Jlc3BvbnNlIj0KJENTdG9yYWdlRGV2aWNlTWFuYWdl",
-            "cl9Gb3JtYXRfUmVxdWVzdBIVCg1ibG9jZGV2aWNlX2lkGAEgASgNIicKJUNT",
-            "dG9yYWdlRGV2aWNlTWFuYWdlcl9Gb3JtYXRfUmVzcG9uc2UiPgolQ1N0b3Jh",
-            "Z2VEZXZpY2VNYW5hZ2VyX1VubW91bnRfUmVxdWVzdBIVCg1ibG9jZGV2aWNl",
-            "X2lkGAEgASgNIigKJkNTdG9yYWdlRGV2aWNlTWFuYWdlcl9Vbm1vdW50X1Jl",
-            "c3BvbnNlIicKJUNTdG9yYWdlRGV2aWNlTWFuYWdlcl9UcmltQWxsX1JlcXVl",
-            "c3QiKAomQ1N0b3JhZ2VEZXZpY2VNYW5hZ2VyX1RyaW1BbGxfUmVzcG9uc2Uy",
-            "jwYKFFN0b3JhZ2VEZXZpY2VNYW5hZ2VyEnsKEklzU2VydmljZUF2YWlsYWJs",
-            "ZRIxLkNTdG9yYWdlRGV2aWNlTWFuYWdlcl9Jc1NlcnZpY2VBdmFpbGFibGVf",
-            "UmVxdWVzdBoyLkNTdG9yYWdlRGV2aWNlTWFuYWdlcl9Jc1NlcnZpY2VBdmFp",
-            "bGFibGVfUmVzcG9uc2USXQoIR2V0U3RhdGUSJy5DU3RvcmFnZURldmljZU1h",
-            "bmFnZXJfR2V0U3RhdGVfUmVxdWVzdBooLkNTdG9yYWdlRGV2aWNlTWFuYWdl",
-            "cl9HZXRTdGF0ZV9SZXNwb25zZRJYChJOb3RpZnlTdGF0ZUNoYW5nZWQSMC5D",
-            "U3RvcmFnZURldmljZU1hbmFnZXJfU3RhdGVDaGFuZ2VkX05vdGlmaWNhdGlv",
-            "bhoQLldlYlVJTm9SZXNwb25zZRJUCgVBZG9wdBIkLkNTdG9yYWdlRGV2aWNl",
-            "TWFuYWdlcl9BZG9wdF9SZXF1ZXN0GiUuQ1N0b3JhZ2VEZXZpY2VNYW5hZ2Vy",
-            "X0Fkb3B0X1Jlc3BvbnNlElQKBUVqZWN0EiQuQ1N0b3JhZ2VEZXZpY2VNYW5h",
-            "Z2VyX0VqZWN0X1JlcXVlc3QaJS5DU3RvcmFnZURldmljZU1hbmFnZXJfRWpl",
-            "Y3RfUmVzcG9uc2USVwoGRm9ybWF0EiUuQ1N0b3JhZ2VEZXZpY2VNYW5hZ2Vy",
-            "X0Zvcm1hdF9SZXF1ZXN0GiYuQ1N0b3JhZ2VEZXZpY2VNYW5hZ2VyX0Zvcm1h",
-            "dF9SZXNwb25zZRJaCgdVbm1vdW50EiYuQ1N0b3JhZ2VEZXZpY2VNYW5hZ2Vy",
-            "X1VubW91bnRfUmVxdWVzdBonLkNTdG9yYWdlRGV2aWNlTWFuYWdlcl9Vbm1v",
-            "dW50X1Jlc3BvbnNlEloKB1RyaW1BbGwSJi5DU3RvcmFnZURldmljZU1hbmFn",
-            "ZXJfVHJpbUFsbF9SZXF1ZXN0GicuQ1N0b3JhZ2VEZXZpY2VNYW5hZ2VyX1Ry",
-            "aW1BbGxfUmVzcG9uc2UaBICXIgFCH0gBgAEBqgIXT3BlblN0ZWFtd29ya3Mu",
-            "UHJvdG9idWY="));
+            "YXRTdGFnZTobRVN0b3JhZ2VGb3JtYXRTdGFnZV9JbnZhbGlkEhYKDmlzX2Zv",
+            "cm1hdHRhYmxlGAogASgIEhoKEmlzX21lZGlhX2F2YWlsYWJsZRgLIAEoCCKv",
+            "AwogQ1N0b3JhZ2VEZXZpY2VNYW5hZ2VyQmxvY2tEZXZpY2USDQoCaWQYASAB",
+            "KA06ATASEwoIZHJpdmVfaWQYAiABKA06ATASDAoEcGF0aBgDIAEoCRIVCg1m",
+            "cmllbmRseV9wYXRoGAQgASgJEg0KBWxhYmVsGAUgASgJEhIKCnNpemVfYnl0",
+            "ZXMYBiABKAQSFgoOaXNfZm9ybWF0dGFibGUYByABKAgSFAoMaXNfcmVhZF9v",
+            "bmx5GAggASgIEhYKDmlzX3Jvb3RfZGV2aWNlGAkgASgIElEKDGNvbnRlbnRf",
+            "dHlwZRgKIAEoDjIZLkVTdG9yYWdlQmxvY2tDb250ZW50VHlwZTogRVN0b3Jh",
+            "Z2VCbG9ja0NvbnRlbnRUeXBlX0ludmFsaWQSWgoPZmlsZXN5c3RlbV90eXBl",
+            "GAsgASgOMhwuRVN0b3JhZ2VCbG9ja0ZpbGVTeXN0ZW1UeXBlOiNFU3RvcmFn",
+            "ZUJsb2NrRmlsZVN5c3RlbVR5cGVfSW52YWxpZBITCgttb3VudF9wYXRocxgM",
+            "IAMoCRIVCg1pc191bm1vdW50aW5nGA0gASgIIu8BChpDU3RvcmFnZURldmlj",
+            "ZU1hbmFnZXJTdGF0ZRIrCgZkcml2ZXMYASADKAsyGy5DU3RvcmFnZURldmlj",
+            "ZU1hbmFnZXJEcml2ZRI2CgtibG9jZGV2aWNlcxgCIAMoCzIhLkNTdG9yYWdl",
+            "RGV2aWNlTWFuYWdlckJsb2NrRGV2aWNlEhwKFGlzX3VubW91bnRfc3VwcG9y",
+            "dGVkGAMgASgIEhkKEWlzX3RyaW1fc3VwcG9ydGVkGAQgASgIEhcKD2lzX3Ry",
+            "aW1fcnVubmluZxgFIAEoCBIaChJpc19hZG9wdF9zdXBwb3J0ZWQYBiABKAgi",
+            "KAomQ1N0b3JhZ2VEZXZpY2VNYW5hZ2VyX0dldFN0YXRlX1JlcXVlc3QiVQon",
+            "Q1N0b3JhZ2VEZXZpY2VNYW5hZ2VyX0dldFN0YXRlX1Jlc3BvbnNlEioKBXN0",
+            "YXRlGAEgASgLMhsuQ1N0b3JhZ2VEZXZpY2VNYW5hZ2VyU3RhdGUiMQovQ1N0",
+            "b3JhZ2VEZXZpY2VNYW5hZ2VyX1N0YXRlQ2hhbmdlZF9Ob3RpZmljYXRpb24i",
+            "NwojQ1N0b3JhZ2VEZXZpY2VNYW5hZ2VyX0VqZWN0X1JlcXVlc3QSEAoIZHJp",
+            "dmVfaWQYASABKA0iJgokQ1N0b3JhZ2VEZXZpY2VNYW5hZ2VyX0VqZWN0X1Jl",
+            "c3BvbnNlIkYKI0NTdG9yYWdlRGV2aWNlTWFuYWdlcl9BZG9wdF9SZXF1ZXN0",
+            "EhAKCGRyaXZlX2lkGAEgASgNEg0KBWxhYmVsGAIgASgJIiYKJENTdG9yYWdl",
+            "RGV2aWNlTWFuYWdlcl9BZG9wdF9SZXNwb25zZSI9CiRDU3RvcmFnZURldmlj",
+            "ZU1hbmFnZXJfRm9ybWF0X1JlcXVlc3QSFQoNYmxvY2RldmljZV9pZBgBIAEo",
+            "DSInCiVDU3RvcmFnZURldmljZU1hbmFnZXJfRm9ybWF0X1Jlc3BvbnNlIj4K",
+            "JUNTdG9yYWdlRGV2aWNlTWFuYWdlcl9Vbm1vdW50X1JlcXVlc3QSFQoNYmxv",
+            "Y2RldmljZV9pZBgBIAEoDSIoCiZDU3RvcmFnZURldmljZU1hbmFnZXJfVW5t",
+            "b3VudF9SZXNwb25zZSInCiVDU3RvcmFnZURldmljZU1hbmFnZXJfVHJpbUFs",
+            "bF9SZXF1ZXN0IigKJkNTdG9yYWdlRGV2aWNlTWFuYWdlcl9UcmltQWxsX1Jl",
+            "c3BvbnNlMo8GChRTdG9yYWdlRGV2aWNlTWFuYWdlchJ7ChJJc1NlcnZpY2VB",
+            "dmFpbGFibGUSMS5DU3RvcmFnZURldmljZU1hbmFnZXJfSXNTZXJ2aWNlQXZh",
+            "aWxhYmxlX1JlcXVlc3QaMi5DU3RvcmFnZURldmljZU1hbmFnZXJfSXNTZXJ2",
+            "aWNlQXZhaWxhYmxlX1Jlc3BvbnNlEl0KCEdldFN0YXRlEicuQ1N0b3JhZ2VE",
+            "ZXZpY2VNYW5hZ2VyX0dldFN0YXRlX1JlcXVlc3QaKC5DU3RvcmFnZURldmlj",
+            "ZU1hbmFnZXJfR2V0U3RhdGVfUmVzcG9uc2USWAoSTm90aWZ5U3RhdGVDaGFu",
+            "Z2VkEjAuQ1N0b3JhZ2VEZXZpY2VNYW5hZ2VyX1N0YXRlQ2hhbmdlZF9Ob3Rp",
+            "ZmljYXRpb24aEC5XZWJVSU5vUmVzcG9uc2USVAoFQWRvcHQSJC5DU3RvcmFn",
+            "ZURldmljZU1hbmFnZXJfQWRvcHRfUmVxdWVzdBolLkNTdG9yYWdlRGV2aWNl",
+            "TWFuYWdlcl9BZG9wdF9SZXNwb25zZRJUCgVFamVjdBIkLkNTdG9yYWdlRGV2",
+            "aWNlTWFuYWdlcl9FamVjdF9SZXF1ZXN0GiUuQ1N0b3JhZ2VEZXZpY2VNYW5h",
+            "Z2VyX0VqZWN0X1Jlc3BvbnNlElcKBkZvcm1hdBIlLkNTdG9yYWdlRGV2aWNl",
+            "TWFuYWdlcl9Gb3JtYXRfUmVxdWVzdBomLkNTdG9yYWdlRGV2aWNlTWFuYWdl",
+            "cl9Gb3JtYXRfUmVzcG9uc2USWgoHVW5tb3VudBImLkNTdG9yYWdlRGV2aWNl",
+            "TWFuYWdlcl9Vbm1vdW50X1JlcXVlc3QaJy5DU3RvcmFnZURldmljZU1hbmFn",
+            "ZXJfVW5tb3VudF9SZXNwb25zZRJaCgdUcmltQWxsEiYuQ1N0b3JhZ2VEZXZp",
+            "Y2VNYW5hZ2VyX1RyaW1BbGxfUmVxdWVzdBonLkNTdG9yYWdlRGV2aWNlTWFu",
+            "YWdlcl9UcmltQWxsX1Jlc3BvbnNlGgSAlyIBQh9IAYABAaoCF09wZW5TdGVh",
+            "bXdvcmtzLlByb3RvYnVm"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.Reflection.DescriptorReflection.Descriptor, global::OpenSteamworks.Protobuf.EnumsReflection.Descriptor, global::OpenSteamworks.Protobuf.SteammessagesBaseReflection.Descriptor, global::OpenSteamworks.Protobuf.WebuimessagesBaseReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CStorageDeviceManager_IsServiceAvailable_Request), global::OpenSteamworks.Protobuf.CStorageDeviceManager_IsServiceAvailable_Request.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CStorageDeviceManager_IsServiceAvailable_Response), global::OpenSteamworks.Protobuf.CStorageDeviceManager_IsServiceAvailable_Response.Parser, new[]{ "IsAvailable" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CStorageDeviceManagerDrive), global::OpenSteamworks.Protobuf.CStorageDeviceManagerDrive.Parser, new[]{ "Id", "Model", "Vendor", "Serial", "IsEjectable", "SizeBytes", "MediaType", "IsUnformatted", "AdoptStage" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CStorageDeviceManagerDrive), global::OpenSteamworks.Protobuf.CStorageDeviceManagerDrive.Parser, new[]{ "Id", "Model", "Vendor", "Serial", "IsEjectable", "SizeBytes", "MediaType", "IsUnformatted", "AdoptStage", "IsFormattable", "IsMediaAvailable" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CStorageDeviceManagerBlockDevice), global::OpenSteamworks.Protobuf.CStorageDeviceManagerBlockDevice.Parser, new[]{ "Id", "DriveId", "Path", "FriendlyPath", "Label", "SizeBytes", "IsFormattable", "IsReadOnly", "IsRootDevice", "ContentType", "FilesystemType", "MountPaths", "IsUnmounting" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CStorageDeviceManagerState), global::OpenSteamworks.Protobuf.CStorageDeviceManagerState.Parser, new[]{ "Drives", "Blocdevices", "IsUnmountSupported", "IsTrimSupported", "IsTrimRunning", "IsAdoptSupported" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CStorageDeviceManager_GetState_Request), global::OpenSteamworks.Protobuf.CStorageDeviceManager_GetState_Request.Parser, null, null, null, null, null),
@@ -516,6 +517,8 @@ namespace OpenSteamworks.Protobuf {
       mediaType_ = other.mediaType_;
       isUnformatted_ = other.isUnformatted_;
       adoptStage_ = other.adoptStage_;
+      isFormattable_ = other.isFormattable_;
+      isMediaAvailable_ = other.isMediaAvailable_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -765,6 +768,60 @@ namespace OpenSteamworks.Protobuf {
       _hasBits0 &= ~32;
     }
 
+    /// <summary>Field number for the "is_formattable" field.</summary>
+    public const int IsFormattableFieldNumber = 10;
+    private readonly static bool IsFormattableDefaultValue = false;
+
+    private bool isFormattable_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool IsFormattable {
+      get { if ((_hasBits0 & 64) != 0) { return isFormattable_; } else { return IsFormattableDefaultValue; } }
+      set {
+        _hasBits0 |= 64;
+        isFormattable_ = value;
+      }
+    }
+    /// <summary>Gets whether the "is_formattable" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasIsFormattable {
+      get { return (_hasBits0 & 64) != 0; }
+    }
+    /// <summary>Clears the value of the "is_formattable" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearIsFormattable() {
+      _hasBits0 &= ~64;
+    }
+
+    /// <summary>Field number for the "is_media_available" field.</summary>
+    public const int IsMediaAvailableFieldNumber = 11;
+    private readonly static bool IsMediaAvailableDefaultValue = false;
+
+    private bool isMediaAvailable_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool IsMediaAvailable {
+      get { if ((_hasBits0 & 128) != 0) { return isMediaAvailable_; } else { return IsMediaAvailableDefaultValue; } }
+      set {
+        _hasBits0 |= 128;
+        isMediaAvailable_ = value;
+      }
+    }
+    /// <summary>Gets whether the "is_media_available" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasIsMediaAvailable {
+      get { return (_hasBits0 & 128) != 0; }
+    }
+    /// <summary>Clears the value of the "is_media_available" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearIsMediaAvailable() {
+      _hasBits0 &= ~128;
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -789,6 +846,8 @@ namespace OpenSteamworks.Protobuf {
       if (MediaType != other.MediaType) return false;
       if (IsUnformatted != other.IsUnformatted) return false;
       if (AdoptStage != other.AdoptStage) return false;
+      if (IsFormattable != other.IsFormattable) return false;
+      if (IsMediaAvailable != other.IsMediaAvailable) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -805,6 +864,8 @@ namespace OpenSteamworks.Protobuf {
       if (HasMediaType) hash ^= MediaType.GetHashCode();
       if (HasIsUnformatted) hash ^= IsUnformatted.GetHashCode();
       if (HasAdoptStage) hash ^= AdoptStage.GetHashCode();
+      if (HasIsFormattable) hash ^= IsFormattable.GetHashCode();
+      if (HasIsMediaAvailable) hash ^= IsMediaAvailable.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -859,6 +920,14 @@ namespace OpenSteamworks.Protobuf {
         output.WriteRawTag(72);
         output.WriteEnum((int) AdoptStage);
       }
+      if (HasIsFormattable) {
+        output.WriteRawTag(80);
+        output.WriteBool(IsFormattable);
+      }
+      if (HasIsMediaAvailable) {
+        output.WriteRawTag(88);
+        output.WriteBool(IsMediaAvailable);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -905,6 +974,14 @@ namespace OpenSteamworks.Protobuf {
         output.WriteRawTag(72);
         output.WriteEnum((int) AdoptStage);
       }
+      if (HasIsFormattable) {
+        output.WriteRawTag(80);
+        output.WriteBool(IsFormattable);
+      }
+      if (HasIsMediaAvailable) {
+        output.WriteRawTag(88);
+        output.WriteBool(IsMediaAvailable);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -941,6 +1018,12 @@ namespace OpenSteamworks.Protobuf {
       }
       if (HasAdoptStage) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) AdoptStage);
+      }
+      if (HasIsFormattable) {
+        size += 1 + 1;
+      }
+      if (HasIsMediaAvailable) {
+        size += 1 + 1;
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -980,6 +1063,12 @@ namespace OpenSteamworks.Protobuf {
       }
       if (other.HasAdoptStage) {
         AdoptStage = other.AdoptStage;
+      }
+      if (other.HasIsFormattable) {
+        IsFormattable = other.IsFormattable;
+      }
+      if (other.HasIsMediaAvailable) {
+        IsMediaAvailable = other.IsMediaAvailable;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -1032,6 +1121,14 @@ namespace OpenSteamworks.Protobuf {
             AdoptStage = (global::OpenSteamworks.Protobuf.EStorageFormatStage) input.ReadEnum();
             break;
           }
+          case 80: {
+            IsFormattable = input.ReadBool();
+            break;
+          }
+          case 88: {
+            IsMediaAvailable = input.ReadBool();
+            break;
+          }
         }
       }
     #endif
@@ -1081,6 +1178,14 @@ namespace OpenSteamworks.Protobuf {
           }
           case 72: {
             AdoptStage = (global::OpenSteamworks.Protobuf.EStorageFormatStage) input.ReadEnum();
+            break;
+          }
+          case 80: {
+            IsFormattable = input.ReadBool();
+            break;
+          }
+          case 88: {
+            IsMediaAvailable = input.ReadBool();
             break;
           }
         }

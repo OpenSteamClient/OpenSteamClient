@@ -5,17 +5,17 @@
         {
             "name": "BStartStreaming",
             "argc": "1",
-            "addr": "0xf568b0"
+            "addr": "0xf56990"
         },
         {
             "name": "StopStreaming",
             "argc": "1",
-            "addr": "0xf56770"
+            "addr": "0xf56850"
         },
         {
             "name": "SendSAS",
             "argc": "1",
-            "addr": "0xf56630"
+            "addr": "0xf56710"
         }
     ]
 }

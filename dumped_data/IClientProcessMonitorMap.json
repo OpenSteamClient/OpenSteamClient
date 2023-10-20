@@ -5,27 +5,27 @@
         {
             "name": "RegisterProcess",
             "argc": "2",
-            "addr": "0xf564e0"
+            "addr": "0xf565c0"
         },
         {
             "name": "UnregisterProcess",
             "argc": "2",
-            "addr": "0xf56390"
+            "addr": "0xf56470"
         },
         {
             "name": "TerminateProcess",
             "argc": "3",
-            "addr": "0xf56200"
+            "addr": "0xf562e0"
         },
         {
             "name": "SuspendProcess",
             "argc": "2",
-            "addr": "0xf560b0"
+            "addr": "0xf56190"
         },
         {
             "name": "ResumeProcess",
             "argc": "2",
-            "addr": "0xf55f60"
+            "addr": "0xf56040"
         }
     ]
 }

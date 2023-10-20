@@ -28,7 +28,7 @@ namespace OpenSteamworks.Protobuf {
             "cHJvdG9idWYvZGVzY3JpcHRvci5wcm90bxoLZW51bXMucHJvdG8ifAoKQ01z",
             "Z0hvdGtleRIQCghrZXlfY29kZRgBIAEoDRIPCgdhbHRfa2V5GAIgASgIEhEK",
             "CXNoaWZ0X2tleRgDIAEoCBIQCghjdHJsX2tleRgEIAEoCBIQCghtZXRhX2tl",
-            "eRgFIAEoCBIUCgxkaXNwbGF5X25hbWUYBiABKAki5j0KEkNNc2dDbGllbnRT",
+            "eRgFIAEoCBIUCgxkaXNwbGF5X25hbWUYBiABKAki8D4KEkNNc2dDbGllbnRT",
             "ZXR0aW5ncxJOChVub19zYXZlX3BlcnNvbmFsX2luZm8YASABKAhCL4CmHQGK",
             "ph0nU29mdHdhcmVcVmFsdmVcU3RlYW1cTm9TYXZlUGVyc29uYWxJbmZvElAK",
             "Fm9vYmVfdGVzdF9tb2RlX2VuYWJsZWQYAiABKAhCMICmHQGKph0oU29mdHdh",
@@ -204,37 +204,40 @@ namespace OpenSteamworks.Protobuf {
             "ASABKAhCOICmHQSKph0wSEtFWV9DVVJSRU5UX1VTRVJcU29mdHdhcmVcVmFs",
             "dmVcU3RlYW1cRm9yY2VPT0JFEi4KHm92ZXJyaWRlX2Jyb3dzZXJfY29tcG9z",
             "ZXJfbW9kZRiinAEgASgFQgSAph0FEiwKHGNlZl9yZW1vdGVfZGVidWdnaW5n",
-            "X2VuYWJsZWQYo5wBIAEoCEIEgKYdBSqJAgoTRUNsaWVudFNldHRpbmdTdG9y",
-            "ZRIfChtFQ2xpZW50U2V0dGluZ1N0b3JlX0ludmFsaWQQABIrCidFQ2xpZW50",
-            "U2V0dGluZ1N0b3JlX0NvbmZpZ1N0b3JlX0luc3RhbGwQARIvCitFQ2xpZW50",
-            "U2V0dGluZ1N0b3JlX0NvbmZpZ1N0b3JlX1VzZXJSb2FtaW5nEAISLQopRUNs",
-            "aWVudFNldHRpbmdTdG9yZV9Db25maWdTdG9yZV9Vc2VyTG9jYWwQAxIgChxF",
-            "Q2xpZW50U2V0dGluZ1N0b3JlX1JlZ2lzdHJ5EAQSIgoeRUNsaWVudFNldHRp",
-            "bmdTdG9yZV9DdXN0b21GdW5jEAUqrQEKGUVPdmVybGF5VG9nZ2xlQmFyTG9j",
-            "YXRpb24SJAogRU92ZXJsYXlUb2dnbGVCYXJMb2NhdGlvbl9Cb3R0b20QABIi",
-            "Ch5FT3ZlcmxheVRvZ2dsZUJhckxvY2F0aW9uX0xlZnQQARIjCh9FT3Zlcmxh",
-            "eVRvZ2dsZUJhckxvY2F0aW9uX1JpZ2h0EAISIQodRU92ZXJsYXlUb2dnbGVC",
-            "YXJMb2NhdGlvbl9Ub3AQAzppCg1zZXR0aW5nX3N0b3JlEh0uZ29vZ2xlLnBy",
-            "b3RvYnVmLkZpZWxkT3B0aW9ucxjg1AMgASgOMhQuRUNsaWVudFNldHRpbmdT",
-            "dG9yZTobRUNsaWVudFNldHRpbmdTdG9yZV9JbnZhbGlkOjUKDHNldHRpbmdf",
-            "bmFtZRIdLmdvb2dsZS5wcm90b2J1Zi5GaWVsZE9wdGlvbnMY4dQDIAEoCTo6",
-            "ChFzZXR0aW5nX3ByZV9sb2dpbhIdLmdvb2dsZS5wcm90b2J1Zi5GaWVsZE9w",
-            "dGlvbnMY4tQDIAEoCDo9ChRzZXR0aW5nX2RlZmF1bHRfYm9vbBIdLmdvb2ds",
-            "ZS5wcm90b2J1Zi5GaWVsZE9wdGlvbnMY49QDIAEoCDo8ChNzZXR0aW5nX2Rl",
-            "ZmF1bHRfaW50Eh0uZ29vZ2xlLnByb3RvYnVmLkZpZWxkT3B0aW9ucxjk1AMg",
-            "ASgFOj0KFHNldHRpbmdfZGVmYXVsdF91aW50Eh0uZ29vZ2xlLnByb3RvYnVm",
-            "LkZpZWxkT3B0aW9ucxjl1AMgASgNOj4KFXNldHRpbmdfZGVmYXVsdF9mbG9h",
-            "dBIdLmdvb2dsZS5wcm90b2J1Zi5GaWVsZE9wdGlvbnMY5tQDIAEoAjo/ChZz",
-            "ZXR0aW5nX2RlZmF1bHRfc3RyaW5nEh0uZ29vZ2xlLnByb3RvYnVmLkZpZWxk",
-            "T3B0aW9ucxjn1AMgASgJOjkKEHNldHRpbmdfcmVhZG9ubHkSHS5nb29nbGUu",
-            "cHJvdG9idWYuRmllbGRPcHRpb25zGOjUAyABKAg6PAoTc2V0dGluZ19kZXNj",
-            "cmlwdGlvbhIdLmdvb2dsZS5wcm90b2J1Zi5GaWVsZE9wdGlvbnMY6dQDIAEo",
-            "CUIfSAGAAQGqAhdPcGVuU3RlYW13b3Jrcy5Qcm90b2J1Zg=="));
+            "X2VuYWJsZWQYo5wBIAEoCEIEgKYdBRI/ChFmb3JjZV9kZWNwZXJmX3RhYhik",
+            "nAEgASgIQiKAph0BiqYdGkRldmVsb3Blci9Gb3JjZURlY2tQZXJmVGFiEkcK",
+            "HmdhbWVzY29wZV9oZHJfYW5hbHlzaXNfZW5hYmxlZBiIpAEgASgIQh2Aph0B",
+            "iqYdFUdhbWVzY29wZS9IRFJBbmFseXNpcyqJAgoTRUNsaWVudFNldHRpbmdT",
+            "dG9yZRIfChtFQ2xpZW50U2V0dGluZ1N0b3JlX0ludmFsaWQQABIrCidFQ2xp",
+            "ZW50U2V0dGluZ1N0b3JlX0NvbmZpZ1N0b3JlX0luc3RhbGwQARIvCitFQ2xp",
+            "ZW50U2V0dGluZ1N0b3JlX0NvbmZpZ1N0b3JlX1VzZXJSb2FtaW5nEAISLQop",
+            "RUNsaWVudFNldHRpbmdTdG9yZV9Db25maWdTdG9yZV9Vc2VyTG9jYWwQAxIg",
+            "ChxFQ2xpZW50U2V0dGluZ1N0b3JlX1JlZ2lzdHJ5EAQSIgoeRUNsaWVudFNl",
+            "dHRpbmdTdG9yZV9DdXN0b21GdW5jEAUqrQEKGUVPdmVybGF5VG9nZ2xlQmFy",
+            "TG9jYXRpb24SJAogRU92ZXJsYXlUb2dnbGVCYXJMb2NhdGlvbl9Cb3R0b20Q",
+            "ABIiCh5FT3ZlcmxheVRvZ2dsZUJhckxvY2F0aW9uX0xlZnQQARIjCh9FT3Zl",
+            "cmxheVRvZ2dsZUJhckxvY2F0aW9uX1JpZ2h0EAISIQodRU92ZXJsYXlUb2dn",
+            "bGVCYXJMb2NhdGlvbl9Ub3AQAzppCg1zZXR0aW5nX3N0b3JlEh0uZ29vZ2xl",
+            "LnByb3RvYnVmLkZpZWxkT3B0aW9ucxjg1AMgASgOMhQuRUNsaWVudFNldHRp",
+            "bmdTdG9yZTobRUNsaWVudFNldHRpbmdTdG9yZV9JbnZhbGlkOjUKDHNldHRp",
+            "bmdfbmFtZRIdLmdvb2dsZS5wcm90b2J1Zi5GaWVsZE9wdGlvbnMY4dQDIAEo",
+            "CTo6ChFzZXR0aW5nX3ByZV9sb2dpbhIdLmdvb2dsZS5wcm90b2J1Zi5GaWVs",
+            "ZE9wdGlvbnMY4tQDIAEoCDo9ChRzZXR0aW5nX2RlZmF1bHRfYm9vbBIdLmdv",
+            "b2dsZS5wcm90b2J1Zi5GaWVsZE9wdGlvbnMY49QDIAEoCDo8ChNzZXR0aW5n",
+            "X2RlZmF1bHRfaW50Eh0uZ29vZ2xlLnByb3RvYnVmLkZpZWxkT3B0aW9ucxjk",
+            "1AMgASgFOj0KFHNldHRpbmdfZGVmYXVsdF91aW50Eh0uZ29vZ2xlLnByb3Rv",
+            "YnVmLkZpZWxkT3B0aW9ucxjl1AMgASgNOj4KFXNldHRpbmdfZGVmYXVsdF9m",
+            "bG9hdBIdLmdvb2dsZS5wcm90b2J1Zi5GaWVsZE9wdGlvbnMY5tQDIAEoAjo/",
+            "ChZzZXR0aW5nX2RlZmF1bHRfc3RyaW5nEh0uZ29vZ2xlLnByb3RvYnVmLkZp",
+            "ZWxkT3B0aW9ucxjn1AMgASgJOjkKEHNldHRpbmdfcmVhZG9ubHkSHS5nb29n",
+            "bGUucHJvdG9idWYuRmllbGRPcHRpb25zGOjUAyABKAg6PAoTc2V0dGluZ19k",
+            "ZXNjcmlwdGlvbhIdLmdvb2dsZS5wcm90b2J1Zi5GaWVsZE9wdGlvbnMY6dQD",
+            "IAEoCUIfSAGAAQGqAhdPcGVuU3RlYW13b3Jrcy5Qcm90b2J1Zg=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.Reflection.DescriptorReflection.Descriptor, global::OpenSteamworks.Protobuf.EnumsReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::OpenSteamworks.Protobuf.EClientSettingStore), typeof(global::OpenSteamworks.Protobuf.EOverlayToggleBarLocation), }, new pb::Extension[] { SteammessagesClientsettingsExtensions.SettingStore, SteammessagesClientsettingsExtensions.SettingName, SteammessagesClientsettingsExtensions.SettingPreLogin, SteammessagesClientsettingsExtensions.SettingDefaultBool, SteammessagesClientsettingsExtensions.SettingDefaultInt, SteammessagesClientsettingsExtensions.SettingDefaultUint, SteammessagesClientsettingsExtensions.SettingDefaultFloat, SteammessagesClientsettingsExtensions.SettingDefaultString, SteammessagesClientsettingsExtensions.SettingReadonly, SteammessagesClientsettingsExtensions.SettingDescription }, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CMsgHotkey), global::OpenSteamworks.Protobuf.CMsgHotkey.Parser, new[]{ "KeyCode", "AltKey", "ShiftKey", "CtrlKey", "MetaKey", "DisplayName" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CMsgClientSettings), global::OpenSteamworks.Protobuf.CMsgClientSettings.Parser, new[]{ "NoSavePersonalInfo", "OobeTestModeEnabled", "InClientBeta", "IsSteamSideloaded", "PreferredMonitor", "SteamCefGpuBlocklistDisabled", "BigpictureWindowed", "DisplayName", "IsExternalDisplay", "SteamOsUnderscanLevel", "SteamOsUnderscanEnabled", "MinScaleFactor", "MaxScaleFactor", "AutoScaleFactor", "SmallMode", "SkipSteamvrInstallDialog", "AlwaysShowUserChooser", "ShowFamilySharingNotifications", "OverlayFpsCounterCorner", "OverlayFpsCounterHighContrast", "OverlayKey", "ScreenshotKey", "EnableOverlay", "DisableDesktopGameTheater", "EnableScreenshotNotification", "EnableScreenshotSound", "SaveUncompressedScreenshots", "ScreenshotsPath", "DefaultPingRate", "ServerPingRate", "SteamNetworkingShareIp", "WebBrowserHome", "VoiceMicDeviceName", "VoiceMicInputGain", "VoiceSpeakerOutputGain", "VoicePushToTalsetting", "VoicePushToTalkey", "OverlayToolbarListView", "AlwaysUseGamepaduiOverlay", "OverlayTabs", "OverlayScaleInterface", "OverlayRestoreBrowserTabs", "SmoothScrollWebviews", "EnableGpuAcceleratedWebviews", "EnableHardwareVideoDecoding", "RunAtStartup", "EnableDpiScaling", "EnableMarketingMessages", "StartInBigPictureMode", "JumplistFlags", "EnableUiSounds", "DisableAllToasts", "DisableToastsInGame", "PlaySoundOnToast", "LibraryDisplaySize", "LibraryWhatsNewShowOnlyProductUpdates", "ShowStoreContentOnHome", "StartPage", "LibraryLowBandwidthMode", "LibraryLowPerfMode", "LibraryDisableCommunityContent", "LibraryDisplayIconInGameList", "ReadyToPlayIncludesStreaming", "ShowSteamDecinfo", "EnableShaderPrecache", "EnableShaderBackgroundProcessing", "ShaderPrecachedSize", "NeedsSteamServiceRepair", "DownloadPeerContent", "DownloadRateBitsPerS", "RestrictAutoUpdates", "RestrictAutoUpdatesStart", "RestrictAutoUpdatesEnd", "DownloadRegion", "DownloadWhileAppRunning", "DownloadThrottleWhileStreaming", "DownloadThrottleRate", "CloudEnabled", "ShowScreenshotManager", "MusicVolume", "MusicPauseOnAppStart", "MusicPauseOnVoiceChat", "MusicDownloadHighQuality", "MusicPlaylistNotification", "BroadcastPermissions", "BroadcastOutputWidth", "BroadcastOutputHeight", "BroadcastBitrate", "BroadcastEncodingOption", "BroadcastRecordAllVideo", "BroadcastRecordAllAudio", "BroadcastRecordMicrophone", "BroadcastShowUploadStats", "BroadcastShowLiveReminder", "BroadcastChatCorner", "SteamInputConfiguratorErrorMsgEnable", "ControllerGuideButtonFocusSteam", "ControllerPs4Support", "ControllerXboxSupport", "ControllerXboxDriver", "ControllerSwitchSupport", "ControllerGenericSupport", "ControllerPowerOffTimeout", "TurnOffControllerOnExit", "ControllerCombineNintendoJoycons", "StartupMovieId", "StartupMovieLocalPath", "StartupMovieShuffle", "StartupMovieUsedForResume", "GameNotesEnableSpellcheck", "ScreenshotItemsPerRow", "GBackgroundEnabled", "GBackgroundPath", "GBackgroundMaxKeep", "GBackgroundTimeResolution", "GMarkerBeforeSeconds", "GMarkerAfterSeconds", "GBackgroundDevmode", "ShowTimestampsInConsole", "ForceOobe", "OverrideBrowserComposerMode", "CefRemoteDebuggingEnabled" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CMsgClientSettings), global::OpenSteamworks.Protobuf.CMsgClientSettings.Parser, new[]{ "NoSavePersonalInfo", "OobeTestModeEnabled", "InClientBeta", "IsSteamSideloaded", "PreferredMonitor", "SteamCefGpuBlocklistDisabled", "BigpictureWindowed", "DisplayName", "IsExternalDisplay", "SteamOsUnderscanLevel", "SteamOsUnderscanEnabled", "MinScaleFactor", "MaxScaleFactor", "AutoScaleFactor", "SmallMode", "SkipSteamvrInstallDialog", "AlwaysShowUserChooser", "ShowFamilySharingNotifications", "OverlayFpsCounterCorner", "OverlayFpsCounterHighContrast", "OverlayKey", "ScreenshotKey", "EnableOverlay", "DisableDesktopGameTheater", "EnableScreenshotNotification", "EnableScreenshotSound", "SaveUncompressedScreenshots", "ScreenshotsPath", "DefaultPingRate", "ServerPingRate", "SteamNetworkingShareIp", "WebBrowserHome", "VoiceMicDeviceName", "VoiceMicInputGain", "VoiceSpeakerOutputGain", "VoicePushToTalsetting", "VoicePushToTalkey", "OverlayToolbarListView", "AlwaysUseGamepaduiOverlay", "OverlayTabs", "OverlayScaleInterface", "OverlayRestoreBrowserTabs", "SmoothScrollWebviews", "EnableGpuAcceleratedWebviews", "EnableHardwareVideoDecoding", "RunAtStartup", "EnableDpiScaling", "EnableMarketingMessages", "StartInBigPictureMode", "JumplistFlags", "EnableUiSounds", "DisableAllToasts", "DisableToastsInGame", "PlaySoundOnToast", "LibraryDisplaySize", "LibraryWhatsNewShowOnlyProductUpdates", "ShowStoreContentOnHome", "StartPage", "LibraryLowBandwidthMode", "LibraryLowPerfMode", "LibraryDisableCommunityContent", "LibraryDisplayIconInGameList", "ReadyToPlayIncludesStreaming", "ShowSteamDecinfo", "EnableShaderPrecache", "EnableShaderBackgroundProcessing", "ShaderPrecachedSize", "NeedsSteamServiceRepair", "DownloadPeerContent", "DownloadRateBitsPerS", "RestrictAutoUpdates", "RestrictAutoUpdatesStart", "RestrictAutoUpdatesEnd", "DownloadRegion", "DownloadWhileAppRunning", "DownloadThrottleWhileStreaming", "DownloadThrottleRate", "CloudEnabled", "ShowScreenshotManager", "MusicVolume", "MusicPauseOnAppStart", "MusicPauseOnVoiceChat", "MusicDownloadHighQuality", "MusicPlaylistNotification", "BroadcastPermissions", "BroadcastOutputWidth", "BroadcastOutputHeight", "BroadcastBitrate", "BroadcastEncodingOption", "BroadcastRecordAllVideo", "BroadcastRecordAllAudio", "BroadcastRecordMicrophone", "BroadcastShowUploadStats", "BroadcastShowLiveReminder", "BroadcastChatCorner", "SteamInputConfiguratorErrorMsgEnable", "ControllerGuideButtonFocusSteam", "ControllerPs4Support", "ControllerXboxSupport", "ControllerXboxDriver", "ControllerSwitchSupport", "ControllerGenericSupport", "ControllerPowerOffTimeout", "TurnOffControllerOnExit", "ControllerCombineNintendoJoycons", "StartupMovieId", "StartupMovieLocalPath", "StartupMovieShuffle", "StartupMovieUsedForResume", "GameNotesEnableSpellcheck", "ScreenshotItemsPerRow", "GBackgroundEnabled", "GBackgroundPath", "GBackgroundMaxKeep", "GBackgroundTimeResolution", "GMarkerBeforeSeconds", "GMarkerAfterSeconds", "GBackgroundDevmode", "ShowTimestampsInConsole", "ForceOobe", "OverrideBrowserComposerMode", "CefRemoteDebuggingEnabled", "ForceDecperfTab", "GamescopeHdrAnalysisEnabled" }, null, null, null, null)
           }));
     }
     #endregion
@@ -913,6 +916,8 @@ namespace OpenSteamworks.Protobuf {
       forceOobe_ = other.forceOobe_;
       overrideBrowserComposerMode_ = other.overrideBrowserComposerMode_;
       cefRemoteDebuggingEnabled_ = other.cefRemoteDebuggingEnabled_;
+      forceDecperfTab_ = other.forceDecperfTab_;
+      gamescopeHdrAnalysisEnabled_ = other.gamescopeHdrAnalysisEnabled_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -4161,6 +4166,60 @@ namespace OpenSteamworks.Protobuf {
       _hasBits3 &= ~4096;
     }
 
+    /// <summary>Field number for the "force_decperf_tab" field.</summary>
+    public const int ForceDecperfTabFieldNumber = 20004;
+    private readonly static bool ForceDecperfTabDefaultValue = false;
+
+    private bool forceDecperfTab_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool ForceDecperfTab {
+      get { if ((_hasBits3 & 8192) != 0) { return forceDecperfTab_; } else { return ForceDecperfTabDefaultValue; } }
+      set {
+        _hasBits3 |= 8192;
+        forceDecperfTab_ = value;
+      }
+    }
+    /// <summary>Gets whether the "force_decperf_tab" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasForceDecperfTab {
+      get { return (_hasBits3 & 8192) != 0; }
+    }
+    /// <summary>Clears the value of the "force_decperf_tab" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearForceDecperfTab() {
+      _hasBits3 &= ~8192;
+    }
+
+    /// <summary>Field number for the "gamescope_hdr_analysis_enabled" field.</summary>
+    public const int GamescopeHdrAnalysisEnabledFieldNumber = 21000;
+    private readonly static bool GamescopeHdrAnalysisEnabledDefaultValue = false;
+
+    private bool gamescopeHdrAnalysisEnabled_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool GamescopeHdrAnalysisEnabled {
+      get { if ((_hasBits3 & 16384) != 0) { return gamescopeHdrAnalysisEnabled_; } else { return GamescopeHdrAnalysisEnabledDefaultValue; } }
+      set {
+        _hasBits3 |= 16384;
+        gamescopeHdrAnalysisEnabled_ = value;
+      }
+    }
+    /// <summary>Gets whether the "gamescope_hdr_analysis_enabled" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasGamescopeHdrAnalysisEnabled {
+      get { return (_hasBits3 & 16384) != 0; }
+    }
+    /// <summary>Clears the value of the "gamescope_hdr_analysis_enabled" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearGamescopeHdrAnalysisEnabled() {
+      _hasBits3 &= ~16384;
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -4298,6 +4357,8 @@ namespace OpenSteamworks.Protobuf {
       if (ForceOobe != other.ForceOobe) return false;
       if (OverrideBrowserComposerMode != other.OverrideBrowserComposerMode) return false;
       if (CefRemoteDebuggingEnabled != other.CefRemoteDebuggingEnabled) return false;
+      if (ForceDecperfTab != other.ForceDecperfTab) return false;
+      if (GamescopeHdrAnalysisEnabled != other.GamescopeHdrAnalysisEnabled) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -4427,6 +4488,8 @@ namespace OpenSteamworks.Protobuf {
       if (HasForceOobe) hash ^= ForceOobe.GetHashCode();
       if (HasOverrideBrowserComposerMode) hash ^= OverrideBrowserComposerMode.GetHashCode();
       if (HasCefRemoteDebuggingEnabled) hash ^= CefRemoteDebuggingEnabled.GetHashCode();
+      if (HasForceDecperfTab) hash ^= ForceDecperfTab.GetHashCode();
+      if (HasGamescopeHdrAnalysisEnabled) hash ^= GamescopeHdrAnalysisEnabled.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -4933,6 +4996,14 @@ namespace OpenSteamworks.Protobuf {
         output.WriteRawTag(152, 226, 9);
         output.WriteBool(CefRemoteDebuggingEnabled);
       }
+      if (HasForceDecperfTab) {
+        output.WriteRawTag(160, 226, 9);
+        output.WriteBool(ForceDecperfTab);
+      }
+      if (HasGamescopeHdrAnalysisEnabled) {
+        output.WriteRawTag(192, 160, 10);
+        output.WriteBool(GamescopeHdrAnalysisEnabled);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -5431,6 +5502,14 @@ namespace OpenSteamworks.Protobuf {
         output.WriteRawTag(152, 226, 9);
         output.WriteBool(CefRemoteDebuggingEnabled);
       }
+      if (HasForceDecperfTab) {
+        output.WriteRawTag(160, 226, 9);
+        output.WriteBool(ForceDecperfTab);
+      }
+      if (HasGamescopeHdrAnalysisEnabled) {
+        output.WriteRawTag(192, 160, 10);
+        output.WriteBool(GamescopeHdrAnalysisEnabled);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -5805,6 +5884,12 @@ namespace OpenSteamworks.Protobuf {
         size += 3 + pb::CodedOutputStream.ComputeInt32Size(OverrideBrowserComposerMode);
       }
       if (HasCefRemoteDebuggingEnabled) {
+        size += 3 + 1;
+      }
+      if (HasForceDecperfTab) {
+        size += 3 + 1;
+      }
+      if (HasGamescopeHdrAnalysisEnabled) {
         size += 3 + 1;
       }
       if (_unknownFields != null) {
@@ -6193,6 +6278,12 @@ namespace OpenSteamworks.Protobuf {
       }
       if (other.HasCefRemoteDebuggingEnabled) {
         CefRemoteDebuggingEnabled = other.CefRemoteDebuggingEnabled;
+      }
+      if (other.HasForceDecperfTab) {
+        ForceDecperfTab = other.ForceDecperfTab;
+      }
+      if (other.HasGamescopeHdrAnalysisEnabled) {
+        GamescopeHdrAnalysisEnabled = other.GamescopeHdrAnalysisEnabled;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -6706,6 +6797,14 @@ namespace OpenSteamworks.Protobuf {
             CefRemoteDebuggingEnabled = input.ReadBool();
             break;
           }
+          case 160032: {
+            ForceDecperfTab = input.ReadBool();
+            break;
+          }
+          case 168000: {
+            GamescopeHdrAnalysisEnabled = input.ReadBool();
+            break;
+          }
         }
       }
     #endif
@@ -7216,6 +7315,14 @@ namespace OpenSteamworks.Protobuf {
           }
           case 160024: {
             CefRemoteDebuggingEnabled = input.ReadBool();
+            break;
+          }
+          case 160032: {
+            ForceDecperfTab = input.ReadBool();
+            break;
+          }
+          case 168000: {
+            GamescopeHdrAnalysisEnabled = input.ReadBool();
             break;
           }
         }

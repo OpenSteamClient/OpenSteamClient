@@ -43,383 +43,324 @@ namespace OpenSteamworks.Protobuf.WebUI {
             "ZWRmaWxlaWQYASABKAYSDgoGaW5saXN0GAIgASgIIj4KI0NQdWJsaXNoZWRG",
             "aWxlX0NhblN1YnNjcmliZV9SZXF1ZXN0EhcKD3B1Ymxpc2hlZGZpbGVpZBgB",
             "IAEoBCI9CiRDUHVibGlzaGVkRmlsZV9DYW5TdWJzY3JpYmVfUmVzcG9uc2US",
-            "FQoNY2FuX3N1YnNjcmliZRgBIAEoCCJHCh1DUHVibGlzaGVkRmlsZV9EZWxl",
-            "dGVfUmVxdWVzdBIXCg9wdWJsaXNoZWRmaWxlaWQYASABKAYSDQoFYXBwaWQY",
-            "BSABKA0iIAoeQ1B1Ymxpc2hlZEZpbGVfRGVsZXRlX1Jlc3BvbnNlIlsKLkNQ",
-            "dWJsaXNoZWRGaWxlX0ZpbGVEZWxldGVkX0NsaWVudF9Ob3RpZmljYXRpb24S",
-            "GQoRcHVibGlzaGVkX2ZpbGVfaWQYASABKAYSDgoGYXBwX2lkGAIgASgNIpkC",
-            "CipDUHVibGlzaGVkRmlsZV9GaWxlU3Vic2NyaWJlZF9Ob3RpZmljYXRpb24S",
-            "GQoRcHVibGlzaGVkX2ZpbGVfaWQYASABKAYSDgoGYXBwX2lkGAIgASgNEhUK",
-            "DWZpbGVfaGNvbnRlbnQYAyABKAYSEQoJZmlsZV9zaXplGAQgASgNEhgKEHJ0",
-            "aW1lX3N1YnNjcmliZWQYBSABKA0SGAoQaXNfZGVwb3RfY29udGVudBgGIAEo",
-            "CBIVCg1ydGltZV91cGRhdGVkGAcgASgNEksKCXJldmlzaW9ucxgIIAMoCzI4",
-            "LkNQdWJsaXNoZWRGaWxlX0ZpbGVTdWJzY3JpYmVkX05vdGlmaWNhdGlvbl9S",
-            "ZXZpc2lvbkRhdGEigwEKN0NQdWJsaXNoZWRGaWxlX0ZpbGVTdWJzY3JpYmVk",
-            "X05vdGlmaWNhdGlvbl9SZXZpc2lvbkRhdGESGgoIcmV2aXNpb24YASABKAVC",
-            "CIK1GARlbnVtEhUKDWZpbGVfaGNvbnRlbnQYAiABKAYSFQoNcnRpbWVfdXBk",
-            "YXRlZBgDIAEoDSJZCixDUHVibGlzaGVkRmlsZV9GaWxlVW5zdWJzY3JpYmVk",
-            "X05vdGlmaWNhdGlvbhIZChFwdWJsaXNoZWRfZmlsZV9pZBgBIAEoBhIOCgZh",
-            "cHBfaWQYAiABKA0iRQoqQ1B1Ymxpc2hlZEZpbGVfR2V0QXBwUmVsYXRpb25z",
-            "aGlwc19SZXF1ZXN0EhcKD3B1Ymxpc2hlZGZpbGVpZBgBIAEoBCKGAQorQ1B1",
-            "Ymxpc2hlZEZpbGVfR2V0QXBwUmVsYXRpb25zaGlwc19SZXNwb25zZRJXChFh",
-            "cHBfcmVsYXRpb25zaGlwcxgDIAMoCzI8LkNQdWJsaXNoZWRGaWxlX0dldEFw",
-            "cFJlbGF0aW9uc2hpcHNfUmVzcG9uc2VfQXBwUmVsYXRpb25zaGlwImIKO0NQ",
-            "dWJsaXNoZWRGaWxlX0dldEFwcFJlbGF0aW9uc2hpcHNfUmVzcG9uc2VfQXBw",
-            "UmVsYXRpb25zaGlwEg0KBWFwcGlkGAEgASgNEhQKDHJlbGF0aW9uc2hpcBgC",
-            "IAEoDSJqCjFDUHVibGlzaGVkRmlsZV9HZXRBcHBSZWxhdGlvbnNoaXBzQmF0",
-            "Y2hlZF9SZXF1ZXN0EhgKEHB1Ymxpc2hlZGZpbGVpZHMYASADKAQSGwoTZmls",
-            "dGVyX3JlbGF0aW9uc2hpcBgCIAEoDSKdAQoyQ1B1Ymxpc2hlZEZpbGVfR2V0",
-            "QXBwUmVsYXRpb25zaGlwc0JhdGNoZWRfUmVzcG9uc2USZwoNcmVsYXRpb25z",
-            "aGlwcxgBIAMoCzJQLkNQdWJsaXNoZWRGaWxlX0dldEFwcFJlbGF0aW9uc2hp",
-            "cHNCYXRjaGVkX1Jlc3BvbnNlX1B1Ymxpc2hlZEZpbGVBcHBSZWxhdGlvbnNo",
-            "aXAiaQpCQ1B1Ymxpc2hlZEZpbGVfR2V0QXBwUmVsYXRpb25zaGlwc0JhdGNo",
-            "ZWRfUmVzcG9uc2VfQXBwUmVsYXRpb25zaGlwEg0KBWFwcGlkGAEgASgNEhQK",
-            "DHJlbGF0aW9uc2hpcBgCIAEoDSLaAQpPQ1B1Ymxpc2hlZEZpbGVfR2V0QXBw",
-            "UmVsYXRpb25zaGlwc0JhdGNoZWRfUmVzcG9uc2VfUHVibGlzaGVkRmlsZUFw",
-            "cFJlbGF0aW9uc2hpcBIXCg9wdWJsaXNoZWRmaWxlaWQYASABKAQSDgoGcmVz",
-            "dWx0GAIgASgNEl4KEWFwcF9yZWxhdGlvbnNoaXBzGAMgAygLMkMuQ1B1Ymxp",
-            "c2hlZEZpbGVfR2V0QXBwUmVsYXRpb25zaGlwc0JhdGNoZWRfUmVzcG9uc2Vf",
-            "QXBwUmVsYXRpb25zaGlwIo4BCidDUHVibGlzaGVkRmlsZV9HZXRDaGFuZ2VI",
-            "aXN0b3J5X1JlcXVlc3QSFwoPcHVibGlzaGVkZmlsZWlkGAEgASgGEhIKCnRv",
-            "dGFsX29ubHkYAiABKAgSEgoKc3RhcnRpbmRleBgDIAEoDRINCgVjb3VudBgE",
-            "IAEoDRITCghsYW5ndWFnZRgFIAEoBToBMCJ/CihDUHVibGlzaGVkRmlsZV9H",
-            "ZXRDaGFuZ2VIaXN0b3J5X1Jlc3BvbnNlEkQKB2NoYW5nZXMYASADKAsyMy5D",
-            "UHVibGlzaGVkRmlsZV9HZXRDaGFuZ2VIaXN0b3J5X1Jlc3BvbnNlX0NoYW5n",
-            "ZUxvZxINCgV0b3RhbBgCIAEoDSJ1CjJDUHVibGlzaGVkRmlsZV9HZXRDaGFu",
-            "Z2VIaXN0b3J5X1Jlc3BvbnNlX0NoYW5nZUxvZxIRCgl0aW1lc3RhbXAYASAB",
-            "KA0SGgoSY2hhbmdlX2Rlc2NyaXB0aW9uGAIgASgJEhAKCGxhbmd1YWdlGAMg",
-            "ASgFImwKLENQdWJsaXNoZWRGaWxlX0dldENoYW5nZUhpc3RvcnlFbnRyeV9S",
-            "ZXF1ZXN0EhcKD3B1Ymxpc2hlZGZpbGVpZBgBIAEoBhIRCgl0aW1lc3RhbXAY",
-            "AiABKA0SEAoIbGFuZ3VhZ2UYAyABKAUiXQotQ1B1Ymxpc2hlZEZpbGVfR2V0",
-            "Q2hhbmdlSGlzdG9yeUVudHJ5X1Jlc3BvbnNlEhoKEmNoYW5nZV9kZXNjcmlw",
-            "dGlvbhgBIAEoCRIQCghsYW5ndWFnZRgCIAEoBSJHCixDUHVibGlzaGVkRmls",
-            "ZV9HZXRDb250ZW50RGVzY3JpcHRvcnNfUmVxdWVzdBIXCg9wdWJsaXNoZWRm",
-            "aWxlaWQYASABKAYijgEKLUNQdWJsaXNoZWRGaWxlX0dldENvbnRlbnREZXNj",
-            "cmlwdG9yc19SZXNwb25zZRJdChNjb250ZW50X2Rlc2NyaXB0b3JzGAEgAygL",
-            "MkAuQ1B1Ymxpc2hlZEZpbGVfR2V0Q29udGVudERlc2NyaXB0b3JzX1Jlc3Bv",
-            "bnNlX0NvbnRlbnREZXNjcmlwdG9yIp4BCj9DUHVibGlzaGVkRmlsZV9HZXRD",
-            "b250ZW50RGVzY3JpcHRvcnNfUmVzcG9uc2VfQ29udGVudERlc2NyaXB0b3IS",
-            "HgoMZGVzY3JpcHRvcmlkGAEgASgFQgiCtRgEZW51bRIRCglhY2NvdW50aWQY",
-            "AiABKA0SEQoJdGltZXN0YW1wGAMgASgNEhUKDW1vZGVyYXRvcl9zZXQYBCAB",
-            "KAgiuAMKIUNQdWJsaXNoZWRGaWxlX0dldERldGFpbHNfUmVxdWVzdBIYChBw",
-            "dWJsaXNoZWRmaWxlaWRzGAEgAygGEhMKC2luY2x1ZGV0YWdzGAIgASgIEiEK",
-            "GWluY2x1ZGVhZGRpdGlvbmFscHJldmlld3MYAyABKAgSFwoPaW5jbHVkZWNo",
-            "aWxkcmVuGAQgASgIEhUKDWluY2x1ZGVrdnRhZ3MYBSABKAgSFAoMaW5jbHVk",
-            "ZXZvdGVzGAYgASgIEhkKEXNob3J0X2Rlc2NyaXB0aW9uGAggASgIEhoKEmlu",
-            "Y2x1ZGVmb3JzYWxlZGF0YRgKIAEoCBIXCg9pbmNsdWRlbWV0YWRhdGEYCyAB",
-            "KAgSEwoIbGFuZ3VhZ2UYDCABKAU6ATASHQoVcmV0dXJuX3BsYXl0aW1lX3N0",
-            "YXRzGA0gASgNEg0KBWFwcGlkGA4gASgNEiAKGHN0cmlwX2Rlc2NyaXB0aW9u",
-            "X2JiY29kZRgPIAEoCBIlChBkZXNpcmVkX3JldmlzaW9uGBAgASgFOgEwQgiC",
-            "tRgEZW51bRIfChBpbmNsdWRlcmVhY3Rpb25zGBEgASgIOgVmYWxzZSJZCiJD",
-            "UHVibGlzaGVkRmlsZV9HZXREZXRhaWxzX1Jlc3BvbnNlEjMKFHB1Ymxpc2hl",
-            "ZGZpbGVkZXRhaWxzGAEgAygLMhUuUHVibGlzaGVkRmlsZURldGFpbHMiaAol",
-            "Q1B1Ymxpc2hlZEZpbGVfR2V0SXRlbUNoYW5nZXNfUmVxdWVzdBINCgVhcHBp",
-            "ZBgBIAEoDRIZChFsYXN0X3RpbWVfdXBkYXRlZBgCIAEoDRIVCg1udW1faXRl",
-            "bXNfbWF4GAMgASgNIo8BCiZDUHVibGlzaGVkRmlsZV9HZXRJdGVtQ2hhbmdl",
-            "c19SZXNwb25zZRITCgt1cGRhdGVfdGltZRgBIAEoDRJQCg53b3Jrc2hvcF9p",
-            "dGVtcxgCIAMoCzI4LkNQdWJsaXNoZWRGaWxlX0dldEl0ZW1DaGFuZ2VzX1Jl",
-            "c3BvbnNlX1dvcmtzaG9wSXRlbUluZm8ifwo3Q1B1Ymxpc2hlZEZpbGVfR2V0",
-            "SXRlbUNoYW5nZXNfUmVzcG9uc2VfV29ya3Nob3BJdGVtSW5mbxIZChFwdWJs",
-            "aXNoZWRfZmlsZV9pZBgBIAEoBhIUCgx0aW1lX3VwZGF0ZWQYAiABKA0SEwoL",
-            "bWFuaWZlc3RfaWQYAyABKAYimAEKIkNQdWJsaXNoZWRGaWxlX0dldEl0ZW1J",
-            "bmZvX1JlcXVlc3QSDQoFYXBwaWQYASABKA0SGQoRbGFzdF90aW1lX3VwZGF0",
-            "ZWQYAiABKA0SSAoOd29ya3Nob3BfaXRlbXMYAyADKAsyMC5DUHVibGlzaGVk",
-            "RmlsZV9HZXRJdGVtSW5mb19SZXF1ZXN0X1dvcmtzaG9wSXRlbSKJAQovQ1B1",
-            "Ymxpc2hlZEZpbGVfR2V0SXRlbUluZm9fUmVxdWVzdF9Xb3Jrc2hvcEl0ZW0S",
-            "GQoRcHVibGlzaGVkX2ZpbGVfaWQYASABKAYSFAoMdGltZV91cGRhdGVkGAIg",
-            "ASgNEiUKEGRlc2lyZWRfcmV2aXNpb24YAyABKAU6ATBCCIK1GARlbnVtIqAB",
-            "CiNDUHVibGlzaGVkRmlsZV9HZXRJdGVtSW5mb19SZXNwb25zZRITCgt1cGRh",
-            "dGVfdGltZRgBIAEoDRJNCg53b3Jrc2hvcF9pdGVtcxgCIAMoCzI1LkNQdWJs",
-            "aXNoZWRGaWxlX0dldEl0ZW1JbmZvX1Jlc3BvbnNlX1dvcmtzaG9wSXRlbUlu",
-            "Zm8SFQoNcHJpdmF0ZV9pdGVtcxgDIAMoBiKLAQo0Q1B1Ymxpc2hlZEZpbGVf",
-            "R2V0SXRlbUluZm9fUmVzcG9uc2VfV29ya3Nob3BJdGVtSW5mbxIZChFwdWJs",
-            "aXNoZWRfZmlsZV9pZBgBIAEoBhIUCgx0aW1lX3VwZGF0ZWQYAiABKA0SEwoL",
-            "bWFuaWZlc3RfaWQYAyABKAYSDQoFZmxhZ3MYBCABKA0ipQEKKENQdWJsaXNo",
-            "ZWRGaWxlX0dldFN1YlNlY3Rpb25EYXRhX1JlcXVlc3QSFwoPcHVibGlzaGVk",
-            "ZmlsZWlkGAEgASgEEh0KFWZvcl90YWJsZV9vZl9jb250ZW50cxgCIAEoCBIa",
-            "ChJzcGVjaWZpY19zZWN0aW9uaWQYAyABKAQSJQoQZGVzaXJlZF9yZXZpc2lv",
-            "bhgEIAEoBToBMEIIgrUYBGVudW0iWwopQ1B1Ymxpc2hlZEZpbGVfR2V0U3Vi",
-            "U2VjdGlvbkRhdGFfUmVzcG9uc2USLgoMc3ViX3NlY3Rpb25zGAEgAygLMhgu",
-            "UHVibGlzaGVkRmlsZVN1YlNlY3Rpb24i9wcKI0NQdWJsaXNoZWRGaWxlX0dl",
-            "dFVzZXJGaWxlc19SZXF1ZXN0Eg8KB3N0ZWFtaWQYASABKAYSDQoFYXBwaWQY",
-            "AiABKA0SEgoKc2hvcnRjdXRpZBgDIAEoDRIPCgRwYWdlGAQgASgNOgExEhUK",
-            "Cm51bXBlcnBhZ2UYBSABKA06ATESFQoEdHlwZRgGIAEoCToHbXlmaWxlcxIf",
-            "Cgpzb3J0bWV0aG9kGAcgASgJOgtsYXN0dXBkYXRlZBIPCgdwcml2YWN5GAkg",
-            "ASgNEhQKDHJlcXVpcmVkdGFncxgKIAMoCRIUCgxleGNsdWRlZHRhZ3MYCyAD",
-            "KAkSEAoIZmlsZXR5cGUYDiABKA0SFQoNY3JlYXRvcl9hcHBpZBgPIAEoDRIc",
-            "ChRtYXRjaF9jbG91ZF9maWxlbmFtZRgQIAEoCRIRCgl0b3RhbG9ubHkYESAB",
-            "KAgSEAoIaWRzX29ubHkYEiABKAgSHgoQcmV0dXJuX3ZvdGVfZGF0YRgTIAEo",
-            "CDoEdHJ1ZRITCgtyZXR1cm5fdGFncxgUIAEoCBIcCg5yZXR1cm5fa3ZfdGFn",
-            "cxgVIAEoCDoEdHJ1ZRIXCg9yZXR1cm5fcHJldmlld3MYFiABKAgSFwoPcmV0",
-            "dXJuX2NoaWxkcmVuGBcgASgIEiYKGHJldHVybl9zaG9ydF9kZXNjcmlwdGlv",
-            "bhgYIAEoCDoEdHJ1ZRIbChNzdGFydGluZGV4X292ZXJyaWRlGBkgASgNEhwK",
-            "FHJldHVybl9mb3Jfc2FsZV9kYXRhGBogASgIEiAKFWNhY2hlX21heF9hZ2Vf",
-            "c2Vjb25kcxgbIAEoDToBMBIeCg9yZXR1cm5fbWV0YWRhdGEYHCABKAg6BWZh",
-            "bHNlEhMKCGxhbmd1YWdlGB0gASgFOgEwEkQKEHJlcXVpcmVkX2t2X3RhZ3MY",
-            "HiADKAsyKi5DUHVibGlzaGVkRmlsZV9HZXRVc2VyRmlsZXNfUmVxdWVzdF9L",
-            "VlRhZxIdChVyZXR1cm5fcGxheXRpbWVfc3RhdHMYHyABKA0SIAoYc3RyaXBf",
-            "ZGVzY3JpcHRpb25fYmJjb2RlGCAgASgIEiUKEGRlc2lyZWRfcmV2aXNpb24Y",
-            "ISABKAU6ATBCCIK1GARlbnVtEkAKCXRhZ2dyb3VwcxgiIAMoCzItLkNQdWJs",
-            "aXNoZWRGaWxlX0dldFVzZXJGaWxlc19SZXF1ZXN0X1RhZ0dyb3VwEh8KEHJl",
-            "dHVybl9yZWFjdGlvbnMYIyABKAg6BWZhbHNlEhMKC3JldHVybl9hcHBzGCQg",
-            "ASgIEi4KHGV4Y2x1ZGVkX2NvbnRlbnRfZGVzY3JpcHRvcnMYJSADKAVCCIK1",
-            "GARlbnVtIkcKKUNQdWJsaXNoZWRGaWxlX0dldFVzZXJGaWxlc19SZXF1ZXN0",
-            "X0tWVGFnEgsKA2tleRgBIAEoCRINCgV2YWx1ZRgCIAEoCSI8CixDUHVibGlz",
-            "aGVkRmlsZV9HZXRVc2VyRmlsZXNfUmVxdWVzdF9UYWdHcm91cBIMCgR0YWdz",
-            "GAEgAygJIrcBCiRDUHVibGlzaGVkRmlsZV9HZXRVc2VyRmlsZXNfUmVzcG9u",
-            "c2USDQoFdG90YWwYASABKA0SEgoKc3RhcnRpbmRleBgCIAEoDRIzChRwdWJs",
-            "aXNoZWRmaWxlZGV0YWlscxgDIAMoCzIVLlB1Ymxpc2hlZEZpbGVEZXRhaWxz",
-            "EjcKBGFwcHMYBCADKAsyKS5DUHVibGlzaGVkRmlsZV9HZXRVc2VyRmlsZXNf",
-            "UmVzcG9uc2VfQXBwImwKKENQdWJsaXNoZWRGaWxlX0dldFVzZXJGaWxlc19S",
-            "ZXNwb25zZV9BcHASDQoFYXBwaWQYASABKA0SDAoEbmFtZRgCIAEoCRISCgpz",
-            "aG9ydGN1dGlkGAMgASgNEg8KB3ByaXZhdGUYBCABKAgiRQopQ1B1Ymxpc2hl",
-            "ZEZpbGVfR2V0VXNlclZvdGVTdW1tYXJ5X1JlcXVlc3QSGAoQcHVibGlzaGVk",
-            "ZmlsZWlkcxgBIAMoBiJ4CipDUHVibGlzaGVkRmlsZV9HZXRVc2VyVm90ZVN1",
-            "bW1hcnlfUmVzcG9uc2USSgoJc3VtbWFyaWVzGAEgAygLMjcuQ1B1Ymxpc2hl",
-            "ZEZpbGVfR2V0VXNlclZvdGVTdW1tYXJ5X1Jlc3BvbnNlX1ZvdGVTdW1tYXJ5",
-            "IosBCjZDUHVibGlzaGVkRmlsZV9HZXRVc2VyVm90ZVN1bW1hcnlfUmVzcG9u",
-            "c2VfVm90ZVN1bW1hcnkSFwoPcHVibGlzaGVkZmlsZWlkGAEgASgGEhAKCHZv",
-            "dGVfZm9yGAIgASgIEhQKDHZvdGVfYWdhaW5zdBgDIAEoCBIQCghyZXBvcnRl",
-            "ZBgEIAEoCCL9AgoeQ1B1Ymxpc2hlZEZpbGVfUHVibGlzaF9SZXF1ZXN0Eg0K",
-            "BWFwcGlkGAEgASgNEhYKDmNvbnN1bWVyX2FwcGlkGAIgASgNEhUKDWNsb3Vk",
-            "ZmlsZW5hbWUYAyABKAkSHQoVcHJldmlld19jbG91ZGZpbGVuYW1lGAQgASgJ",
-            "Eg0KBXRpdGxlGAUgASgJEhgKEGZpbGVfZGVzY3JpcHRpb24YBiABKAkSEQoJ",
-            "ZmlsZV90eXBlGAcgASgNEh4KFmNvbnN1bWVyX3Nob3J0Y3V0X25hbWUYCCAB",
-            "KAkSGAoQeW91dHViZV91c2VybmFtZRgJIAEoCRIXCg95b3V0dWJlX3ZpZGVv",
-            "aWQYCiABKAkSEgoKdmlzaWJpbGl0eRgLIAEoDRIUCgxyZWRpcmVjdF91cmkY",
-            "DCABKAkSDAoEdGFncxgNIAMoCRIXCg9jb2xsZWN0aW9uX3R5cGUYDiABKAkS",
-            "EQoJZ2FtZV90eXBlGA8gASgJEgsKA3VybBgQIAEoCSJQCh9DUHVibGlzaGVk",
-            "RmlsZV9QdWJsaXNoX1Jlc3BvbnNlEhcKD3B1Ymxpc2hlZGZpbGVpZBgBIAEo",
-            "BBIUCgxyZWRpcmVjdF91cmkYAiABKAkioAkKIUNQdWJsaXNoZWRGaWxlX1F1",
-            "ZXJ5RmlsZXNfUmVxdWVzdBISCgpxdWVyeV90eXBlGAEgASgNEgwKBHBhZ2UY",
-            "AiABKA0SFQoKbnVtcGVycGFnZRgDIAEoDToBMRIVCg1jcmVhdG9yX2FwcGlk",
-            "GAQgASgNEg0KBWFwcGlkGAUgASgNEhQKDHJlcXVpcmVkdGFncxgGIAMoCRIU",
-            "CgxleGNsdWRlZHRhZ3MYByADKAkSHAoObWF0Y2hfYWxsX3RhZ3MYCCABKAg6",
-            "BHRydWUSFgoOcmVxdWlyZWRfZmxhZ3MYCSADKAkSFQoNb21pdHRlZF9mbGFn",
-            "cxgKIAMoCRITCgtzZWFyY2hfdGV4dBgLIAEoCRIQCghmaWxldHlwZRgMIAEo",
-            "DRIdChVjaGlsZF9wdWJsaXNoZWRmaWxlaWQYDSABKAYSDAoEZGF5cxgOIAEo",
-            "DRIhChlpbmNsdWRlX3JlY2VudF92b3Rlc19vbmx5GA8gASgIEhEKCXRvdGFs",
-            "b25seRgQIAEoCBIYChByZXR1cm5fdm90ZV9kYXRhGBEgASgIEhMKC3JldHVy",
-            "bl90YWdzGBIgASgIEhYKDnJldHVybl9rdl90YWdzGBMgASgIEhcKD3JldHVy",
-            "bl9wcmV2aWV3cxgUIAEoCBIXCg9yZXR1cm5fY2hpbGRyZW4YFSABKAgSIAoY",
-            "cmV0dXJuX3Nob3J0X2Rlc2NyaXB0aW9uGBYgASgIEhwKFHJldHVybl9mb3Jf",
-            "c2FsZV9kYXRhGB4gASgIEiAKFWNhY2hlX21heF9hZ2Vfc2Vjb25kcxgfIAEo",
-            "DToBMBIeCg9yZXR1cm5fbWV0YWRhdGEYICABKAg6BWZhbHNlEhMKCGxhbmd1",
-            "YWdlGCEgASgFOgEwEkIKEHJlcXVpcmVkX2t2X3RhZ3MYIiADKAsyKC5DUHVi",
-            "bGlzaGVkRmlsZV9RdWVyeUZpbGVzX1JlcXVlc3RfS1ZUYWcSEAoIaWRzX29u",
-            "bHkYIyABKAgSHQoVcmV0dXJuX3BsYXl0aW1lX3N0YXRzGCQgASgNEhYKDnJl",
-            "dHVybl9kZXRhaWxzGCUgASgIEiAKGHN0cmlwX2Rlc2NyaXB0aW9uX2JiY29k",
-            "ZRgmIAEoCBIOCgZjdXJzb3IYJyABKAkSJQoQZGVzaXJlZF9yZXZpc2lvbhgo",
-            "IAEoBToBMEIIgrUYBGVudW0SPgoJdGFnZ3JvdXBzGCogAygLMisuQ1B1Ymxp",
-            "c2hlZEZpbGVfUXVlcnlGaWxlc19SZXF1ZXN0X1RhZ0dyb3VwEh8KEHJldHVy",
-            "bl9yZWFjdGlvbnMYKyABKAg6BWZhbHNlEkgKEmRhdGVfcmFuZ2VfY3JlYXRl",
-            "ZBgsIAEoCzIsLkNQdWJsaXNoZWRGaWxlX1F1ZXJ5RmlsZXNfUmVxdWVzdF9E",
-            "YXRlUmFuZ2USSAoSZGF0ZV9yYW5nZV91cGRhdGVkGC0gASgLMiwuQ1B1Ymxp",
-            "c2hlZEZpbGVfUXVlcnlGaWxlc19SZXF1ZXN0X0RhdGVSYW5nZRIuChxleGNs",
-            "dWRlZF9jb250ZW50X2Rlc2NyaXB0b3JzGC4gAygFQgiCtRgEZW51bSJdCitD",
-            "UHVibGlzaGVkRmlsZV9RdWVyeUZpbGVzX1JlcXVlc3RfRGF0ZVJhbmdlEhcK",
-            "D3RpbWVzdGFtcF9zdGFydBgBIAEoDRIVCg10aW1lc3RhbXBfZW5kGAIgASgN",
-            "IkUKJ0NQdWJsaXNoZWRGaWxlX1F1ZXJ5RmlsZXNfUmVxdWVzdF9LVlRhZxIL",
-            "CgNrZXkYASABKAkSDQoFdmFsdWUYAiABKAkiOgoqQ1B1Ymxpc2hlZEZpbGVf",
-            "UXVlcnlGaWxlc19SZXF1ZXN0X1RhZ0dyb3VwEgwKBHRhZ3MYASADKAkifQoi",
-            "Q1B1Ymxpc2hlZEZpbGVfUXVlcnlGaWxlc19SZXNwb25zZRINCgV0b3RhbBgB",
-            "IAEoDRIzChRwdWJsaXNoZWRmaWxlZGV0YWlscxgCIAMoCzIVLlB1Ymxpc2hl",
-            "ZEZpbGVEZXRhaWxzEhMKC25leHRfY3Vyc29yGAMgASgJItwBCilDUHVibGlz",
-            "aGVkRmlsZV9SZWZyZXNoVm90aW5nUXVldWVfUmVxdWVzdBINCgVhcHBpZBgB",
-            "IAEoDRIaChJtYXRjaGluZ19maWxlX3R5cGUYAiABKA0SDAoEdGFncxgDIAMo",
-            "CRIcCg5tYXRjaF9hbGxfdGFncxgEIAEoCDoEdHJ1ZRIVCg1leGNsdWRlZF90",
-            "YWdzGAUgAygJEhoKEmRlc2lyZWRfcXVldWVfc2l6ZRgGIAEoDRIlChBkZXNp",
-            "cmVkX3JldmlzaW9uGAggASgFOgEwQgiCtRgEZW51bSIsCipDUHVibGlzaGVk",
-            "RmlsZV9SZWZyZXNoVm90aW5nUXVldWVfUmVzcG9uc2UibAosQ1B1Ymxpc2hl",
-            "ZEZpbGVfUmVtb3ZlQXBwUmVsYXRpb25zaGlwX1JlcXVlc3QSFwoPcHVibGlz",
-            "aGVkZmlsZWlkGAEgASgEEg0KBWFwcGlkGAIgASgNEhQKDHJlbGF0aW9uc2hp",
-            "cBgDIAEoDSIvCi1DUHVibGlzaGVkRmlsZV9SZW1vdmVBcHBSZWxhdGlvbnNo",
-            "aXBfUmVzcG9uc2UiXAoiQ1B1Ymxpc2hlZEZpbGVfUmVtb3ZlQ2hpbGRfUmVx",
-            "dWVzdBIXCg9wdWJsaXNoZWRmaWxlaWQYASABKAQSHQoVY2hpbGRfcHVibGlz",
-            "aGVkZmlsZWlkGAIgASgEIiUKI0NQdWJsaXNoZWRGaWxlX1JlbW92ZUNoaWxk",
-            "X1Jlc3BvbnNlIrcBCjZDUHVibGlzaGVkRmlsZV9TZXRQbGF5dGltZUZvckNv",
-            "bnRyb2xsZXJDb25maWdzX1JlcXVlc3QSDQoFYXBwaWQYASABKA0SbgoXY29u",
-            "dHJvbGxlcl9jb25maWdfdXNhZ2UYAiADKAsyTS5DUHVibGlzaGVkRmlsZV9T",
-            "ZXRQbGF5dGltZUZvckNvbnRyb2xsZXJDb25maWdzX1JlcXVlc3RfQ29udHJv",
-            "bGxlckNvbmZpZ1VzYWdlIn8KTENQdWJsaXNoZWRGaWxlX1NldFBsYXl0aW1l",
-            "Rm9yQ29udHJvbGxlckNvbmZpZ3NfUmVxdWVzdF9Db250cm9sbGVyQ29uZmln",
-            "VXNhZ2USFwoPcHVibGlzaGVkZmlsZWlkGAEgASgEEhYKDnNlY29uZHNfYWN0",
-            "aXZlGAIgASgCIjkKN0NQdWJsaXNoZWRGaWxlX1NldFBsYXl0aW1lRm9yQ29u",
-            "dHJvbGxlckNvbmZpZ3NfUmVzcG9uc2UiVwosQ1B1Ymxpc2hlZEZpbGVfU3Rh",
-            "cnRQbGF5dGltZVRyYWNraW5nX1JlcXVlc3QSDQoFYXBwaWQYASABKA0SGAoQ",
-            "cHVibGlzaGVkZmlsZWlkcxgCIAMoBCIvCi1DUHVibGlzaGVkRmlsZV9TdGFy",
-            "dFBsYXl0aW1lVHJhY2tpbmdfUmVzcG9uc2UiVgorQ1B1Ymxpc2hlZEZpbGVf",
-            "U3RvcFBsYXl0aW1lVHJhY2tpbmdfUmVxdWVzdBINCgVhcHBpZBgBIAEoDRIY",
-            "ChBwdWJsaXNoZWRmaWxlaWRzGAIgAygEIi4KLENQdWJsaXNoZWRGaWxlX1N0",
-            "b3BQbGF5dGltZVRyYWNraW5nX1Jlc3BvbnNlIkoKOUNQdWJsaXNoZWRGaWxl",
-            "X1N0b3BQbGF5dGltZVRyYWNraW5nRm9yQWxsQXBwSXRlbXNfUmVxdWVzdBIN",
-            "CgVhcHBpZBgBIAEoDSI8CjpDUHVibGlzaGVkRmlsZV9TdG9wUGxheXRpbWVU",
-            "cmFja2luZ0ZvckFsbEFwcEl0ZW1zX1Jlc3BvbnNlInQKIENQdWJsaXNoZWRG",
-            "aWxlX1N1YnNjcmliZV9SZXF1ZXN0EhcKD3B1Ymxpc2hlZGZpbGVpZBgBIAEo",
-            "BBIRCglsaXN0X3R5cGUYAiABKA0SDQoFYXBwaWQYAyABKAUSFQoNbm90aWZ5",
-            "X2NsaWVudBgEIAEoCCIjCiFDUHVibGlzaGVkRmlsZV9TdWJzY3JpYmVfUmVz",
-            "cG9uc2UidgoiQ1B1Ymxpc2hlZEZpbGVfVW5zdWJzY3JpYmVfUmVxdWVzdBIX",
-            "Cg9wdWJsaXNoZWRmaWxlaWQYASABKAQSEQoJbGlzdF90eXBlGAIgASgNEg0K",
-            "BWFwcGlkGAMgASgFEhUKDW5vdGlmeV9jbGllbnQYBCABKAgiJQojQ1B1Ymxp",
-            "c2hlZEZpbGVfVW5zdWJzY3JpYmVfUmVzcG9uc2Ui/gEKHUNQdWJsaXNoZWRG",
-            "aWxlX1VwZGF0ZV9SZXF1ZXN0Eg0KBWFwcGlkGAEgASgNEhcKD3B1Ymxpc2hl",
-            "ZGZpbGVpZBgCIAEoBhINCgV0aXRsZRgDIAEoCRIYChBmaWxlX2Rlc2NyaXB0",
-            "aW9uGAQgASgJEhIKCnZpc2liaWxpdHkYBSABKA0SDAoEdGFncxgGIAMoCRIQ",
-            "CghmaWxlbmFtZRgHIAEoCRIYChBwcmV2aWV3X2ZpbGVuYW1lGAggASgJEhMK",
-            "C3Nwb2lsZXJfdGFnGAogASgIEhMKC2ltYWdlX3dpZHRoGA8gASgNEhQKDGlt",
-            "YWdlX2hlaWdodBgQIAEoDSIgCh5DUHVibGlzaGVkRmlsZV9VcGRhdGVfUmVz",
-            "cG9uc2UimQEKL0NQdWJsaXNoZWRGaWxlX1VwZGF0ZUNvbnRlbnREZXNjcmlw",
-            "dG9yc19SZXF1ZXN0EhcKD3B1Ymxpc2hlZGZpbGVpZBgBIAEoBhIkChJkZXNj",
-            "cmlwdG9yc190b19hZGQYAiADKAVCCIK1GARlbnVtEicKFWRlc2NyaXB0b3Jz",
-            "X3RvX3JlbW92ZRgDIAMoBUIIgrUYBGVudW0iTQowQ1B1Ymxpc2hlZEZpbGVf",
-            "VXBkYXRlQ29udGVudERlc2NyaXB0b3JzX1Jlc3BvbnNlEhkKEXRpbWVzdGFt",
-            "cF91cGRhdGVkGAEgASgNIkcKG0NQdWJsaXNoZWRGaWxlX1ZvdGVfUmVxdWVz",
-            "dBIXCg9wdWJsaXNoZWRmaWxlaWQYASABKAQSDwoHdm90ZV91cBgCIAEoCCIe",
-            "ChxDUHVibGlzaGVkRmlsZV9Wb3RlX1Jlc3BvbnNlIoMPChRQdWJsaXNoZWRG",
-            "aWxlRGV0YWlscxIOCgZyZXN1bHQYASABKA0SFwoPcHVibGlzaGVkZmlsZWlk",
-            "GAIgASgEEg8KB2NyZWF0b3IYAyABKAYSFQoNY3JlYXRvcl9hcHBpZBgEIAEo",
-            "DRIWCg5jb25zdW1lcl9hcHBpZBgFIAEoDRIbChNjb25zdW1lcl9zaG9ydGN1",
-            "dGlkGAYgASgNEhAKCGZpbGVuYW1lGAcgASgJEhEKCWZpbGVfc2l6ZRgIIAEo",
-            "BBIZChFwcmV2aWV3X2ZpbGVfc2l6ZRgJIAEoBBIQCghmaWxlX3VybBgKIAEo",
-            "CRITCgtwcmV2aWV3X3VybBgLIAEoCRIWCg55b3V0dWJldmlkZW9pZBgMIAEo",
-            "CRILCgN1cmwYDSABKAkSFQoNaGNvbnRlbnRfZmlsZRgOIAEoBhIYChBoY29u",
-            "dGVudF9wcmV2aWV3GA8gASgGEg0KBXRpdGxlGBAgASgJEhgKEGZpbGVfZGVz",
-            "Y3JpcHRpb24YESABKAkSGQoRc2hvcnRfZGVzY3JpcHRpb24YEiABKAkSFAoM",
-            "dGltZV9jcmVhdGVkGBMgASgNEhQKDHRpbWVfdXBkYXRlZBgUIAEoDRISCgp2",
-            "aXNpYmlsaXR5GBUgASgNEg0KBWZsYWdzGBYgASgNEhUKDXdvcmtzaG9wX2Zp",
-            "bGUYFyABKAgSGQoRd29ya3Nob3BfYWNjZXB0ZWQYGCABKAgSGgoSc2hvd19z",
-            "dWJzY3JpYmVfYWxsGBkgASgIEh4KFm51bV9jb21tZW50c19kZXZlbG9wZXIY",
-            "GiABKAUSGwoTbnVtX2NvbW1lbnRzX3B1YmxpYxgbIAEoBRIOCgZiYW5uZWQY",
-            "HCABKAgSEgoKYmFuX3JlYXNvbhgdIAEoCRIOCgZiYW5uZXIYHiABKAYSFgoO",
-            "Y2FuX2JlX2RlbGV0ZWQYHyABKAgSFAoMaW5jb21wYXRpYmxlGCAgASgIEhAK",
-            "CGFwcF9uYW1lGCEgASgJEhEKCWZpbGVfdHlwZRgiIAEoDRIVCg1jYW5fc3Vi",
-            "c2NyaWJlGCMgASgIEhUKDXN1YnNjcmlwdGlvbnMYJCABKA0SEQoJZmF2b3Jp",
-            "dGVkGCUgASgNEhEKCWZvbGxvd2VycxgmIAEoDRIeChZsaWZldGltZV9zdWJz",
-            "Y3JpcHRpb25zGCcgASgNEhoKEmxpZmV0aW1lX2Zhdm9yaXRlZBgoIAEoDRIa",
-            "ChJsaWZldGltZV9mb2xsb3dlcnMYKSABKA0SDQoFdmlld3MYKiABKA0SEwoL",
-            "aW1hZ2Vfd2lkdGgYKyABKA0SFAoMaW1hZ2VfaGVpZ2h0GCwgASgNEhEKCWlt",
-            "YWdlX3VybBgtIAEoCRITCgtzcG9pbGVyX3RhZxguIAEoCBISCgpzaG9ydGN1",
-            "dGlkGC8gASgNEhQKDHNob3J0Y3V0bmFtZRgwIAEoCRIUCgxudW1fY2hpbGRy",
-            "ZW4YMSABKA0SEwoLbnVtX3JlcG9ydHMYMiABKA0SLwoIcHJldmlld3MYMyAD",
-            "KAsyHS5QdWJsaXNoZWRGaWxlRGV0YWlsc19QcmV2aWV3EicKBHRhZ3MYNCAD",
-            "KAsyGS5QdWJsaXNoZWRGaWxlRGV0YWlsc19UYWcSLQoIY2hpbGRyZW4YNSAD",
-            "KAsyGy5QdWJsaXNoZWRGaWxlRGV0YWlsc19DaGlsZBIrCgZrdnRhZ3MYNiAD",
-            "KAsyGy5QdWJsaXNoZWRGaWxlRGV0YWlsc19LVlRhZxIxCgl2b3RlX2RhdGEY",
-            "NyABKAsyHi5QdWJsaXNoZWRGaWxlRGV0YWlsc19Wb3RlRGF0YRIXCg90aW1l",
-            "X3N1YnNjcmliZWQYOCABKA0SOAoNZm9yX3NhbGVfZGF0YRg5IAEoCzIhLlB1",
-            "Ymxpc2hlZEZpbGVEZXRhaWxzX0ZvclNhbGVEYXRhEhAKCG1ldGFkYXRhGDog",
-            "ASgJEhMKCGxhbmd1YWdlGD0gASgFOgEwEhkKEWxpZmV0aW1lX3BsYXl0aW1l",
-            "GD4gASgEEiIKGmxpZmV0aW1lX3BsYXl0aW1lX3Nlc3Npb25zGD8gASgEEjsK",
-            "DnBsYXl0aW1lX3N0YXRzGEAgASgLMiMuUHVibGlzaGVkRmlsZURldGFpbHNf",
-            "UGxheXRpbWVTdGF0cxIfChdtYXliZV9pbmFwcHJvcHJpYXRlX3NleBhBIAEo",
-            "CBIkChxtYXliZV9pbmFwcHJvcHJpYXRlX3Zpb2xlbmNlGEIgASgIEh4KFnJl",
-            "dmlzaW9uX2NoYW5nZV9udW1iZXIYQyABKAQSGgoIcmV2aXNpb24YRCABKAVC",
-            "CIK1GARlbnVtEiUKE2F2YWlsYWJsZV9yZXZpc2lvbnMYRSADKAVCCIK1GARl",
-            "bnVtEjEKCXJlYWN0aW9ucxhGIAMoCzIeLlB1Ymxpc2hlZEZpbGVEZXRhaWxz",
-            "X1JlYWN0aW9uEiUKE2Jhbl90ZXh0X2NoZWNyZXN1bHQYRyABKAVCCIK1GARl",
-            "bnVtEicKFWNvbnRlbnRfZGVzY3JpcHRvcmlkcxhIIAMoBUIIgrUYBGVudW0S",
-            "FAoMc2VhcmNoX3Njb3JlGEkgASgCIlsKGlB1Ymxpc2hlZEZpbGVEZXRhaWxz",
-            "X0NoaWxkEhcKD3B1Ymxpc2hlZGZpbGVpZBgBIAEoBBIRCglzb3J0b3JkZXIY",
-            "AiABKA0SEQoJZmlsZV90eXBlGAMgASgNIskBCiBQdWJsaXNoZWRGaWxlRGV0",
-            "YWlsc19Gb3JTYWxlRGF0YRITCgtpc19mb3Jfc2FsZRgBIAEoCBIWCg5wcmlj",
-            "ZV9jYXRlZ29yeRgCIAEoDRIZCgdlc3RhdHVzGAMgASgFQgiCtRgEZW51bRIc",
-            "ChRwcmljZV9jYXRlZ29yeV9mbG9vchgEIAEoDRIiChpwcmljZV9pc19wYXlf",
-            "d2hhdF95b3Vfd2FudBgFIAEoCBIbChNkaXNjb3VudF9wZXJjZW50YWdlGAYg",
-            "ASgNIjgKGlB1Ymxpc2hlZEZpbGVEZXRhaWxzX0tWVGFnEgsKA2tleRgBIAEo",
-            "CRINCgV2YWx1ZRgCIAEoCSJUCiJQdWJsaXNoZWRGaWxlRGV0YWlsc19QbGF5",
-            "dGltZVN0YXRzEhgKEHBsYXl0aW1lX3NlY29uZHMYASABKAQSFAoMbnVtX3Nl",
-            "c3Npb25zGAIgASgEIrsBChxQdWJsaXNoZWRGaWxlRGV0YWlsc19QcmV2aWV3",
-            "EhEKCXByZXZpZXdpZBgBIAEoBBIRCglzb3J0b3JkZXIYAiABKA0SCwoDdXJs",
-            "GAMgASgJEgwKBHNpemUYBCABKA0SEAoIZmlsZW5hbWUYBSABKAkSFgoOeW91",
-            "dHViZXZpZGVvaWQYBiABKAkSFAoMcHJldmlld190eXBlGAcgASgNEhoKEmV4",
-            "dGVybmFsX3JlZmVyZW5jZRgIIAEoCSJCCh1QdWJsaXNoZWRGaWxlRGV0YWls",
-            "c19SZWFjdGlvbhISCgpyZWFjdGlvbmlkGAEgASgNEg0KBWNvdW50GAIgASgN",
-            "IlAKGFB1Ymxpc2hlZEZpbGVEZXRhaWxzX1RhZxILCgN0YWcYASABKAkSEQoJ",
-            "YWRtaW5vbmx5GAIgASgIEhQKDGRpc3BsYXlfbmFtZRgDIAEoCSJUCh1QdWJs",
-            "aXNoZWRGaWxlRGV0YWlsc19Wb3RlRGF0YRINCgVzY29yZRgBIAEoAhIQCgh2",
-            "b3Rlc191cBgCIAEoDRISCgp2b3Rlc19kb3duGAMgASgNImkKF1B1Ymxpc2hl",
-            "ZEZpbGVTdWJTZWN0aW9uEhEKCXNlY3Rpb25pZBgBIAEoBBINCgV0aXRsZRgC",
-            "IAEoCRIYChBkZXNjcmlwdGlvbl90ZXh0GAMgASgJEhIKCnNvcnRfb3JkZXIY",
-            "BCABKA0yyBkKDVB1Ymxpc2hlZEZpbGUSbQoSQWRkQXBwUmVsYXRpb25zaGlw",
-            "EiouQ1B1Ymxpc2hlZEZpbGVfQWRkQXBwUmVsYXRpb25zaGlwX1JlcXVlc3Qa",
-            "Ky5DUHVibGlzaGVkRmlsZV9BZGRBcHBSZWxhdGlvbnNoaXBfUmVzcG9uc2US",
-            "TwoIQWRkQ2hpbGQSIC5DUHVibGlzaGVkRmlsZV9BZGRDaGlsZF9SZXF1ZXN0",
-            "GiEuQ1B1Ymxpc2hlZEZpbGVfQWRkQ2hpbGRfUmVzcG9uc2UShQEKGkFyZUZp",
-            "bGVzSW5TdWJzY3JpcHRpb25MaXN0EjIuQ1B1Ymxpc2hlZEZpbGVfQXJlRmls",
-            "ZXNJblN1YnNjcmlwdGlvbkxpc3RfUmVxdWVzdBozLkNQdWJsaXNoZWRGaWxl",
-            "X0FyZUZpbGVzSW5TdWJzY3JpcHRpb25MaXN0X1Jlc3BvbnNlElsKDENhblN1",
-            "YnNjcmliZRIkLkNQdWJsaXNoZWRGaWxlX0NhblN1YnNjcmliZV9SZXF1ZXN0",
-            "GiUuQ1B1Ymxpc2hlZEZpbGVfQ2FuU3Vic2NyaWJlX1Jlc3BvbnNlEkkKBkRl",
-            "bGV0ZRIeLkNQdWJsaXNoZWRGaWxlX0RlbGV0ZV9SZXF1ZXN0Gh8uQ1B1Ymxp",
-            "c2hlZEZpbGVfRGVsZXRlX1Jlc3BvbnNlEnAKE0dldEFwcFJlbGF0aW9uc2hp",
-            "cHMSKy5DUHVibGlzaGVkRmlsZV9HZXRBcHBSZWxhdGlvbnNoaXBzX1JlcXVl",
-            "c3QaLC5DUHVibGlzaGVkRmlsZV9HZXRBcHBSZWxhdGlvbnNoaXBzX1Jlc3Bv",
-            "bnNlEoUBChpHZXRBcHBSZWxhdGlvbnNoaXBzQmF0Y2hlZBIyLkNQdWJsaXNo",
-            "ZWRGaWxlX0dldEFwcFJlbGF0aW9uc2hpcHNCYXRjaGVkX1JlcXVlc3QaMy5D",
-            "UHVibGlzaGVkRmlsZV9HZXRBcHBSZWxhdGlvbnNoaXBzQmF0Y2hlZF9SZXNw",
+            "FQoNY2FuX3N1YnNjcmliZRgBIAEoCCI4Ch1DUHVibGlzaGVkRmlsZV9EZWxl",
+            "dGVfUmVxdWVzdBIXCg9wdWJsaXNoZWRmaWxlaWQYASABKAYiIAoeQ1B1Ymxp",
+            "c2hlZEZpbGVfRGVsZXRlX1Jlc3BvbnNlIkUKKkNQdWJsaXNoZWRGaWxlX0dl",
+            "dEFwcFJlbGF0aW9uc2hpcHNfUmVxdWVzdBIXCg9wdWJsaXNoZWRmaWxlaWQY",
+            "ASABKAQihgEKK0NQdWJsaXNoZWRGaWxlX0dldEFwcFJlbGF0aW9uc2hpcHNf",
+            "UmVzcG9uc2USVwoRYXBwX3JlbGF0aW9uc2hpcHMYAyADKAsyPC5DUHVibGlz",
+            "aGVkRmlsZV9HZXRBcHBSZWxhdGlvbnNoaXBzX1Jlc3BvbnNlX0FwcFJlbGF0",
+            "aW9uc2hpcCJiCjtDUHVibGlzaGVkRmlsZV9HZXRBcHBSZWxhdGlvbnNoaXBz",
+            "X1Jlc3BvbnNlX0FwcFJlbGF0aW9uc2hpcBINCgVhcHBpZBgBIAEoDRIUCgxy",
+            "ZWxhdGlvbnNoaXAYAiABKA0ijgEKJ0NQdWJsaXNoZWRGaWxlX0dldENoYW5n",
+            "ZUhpc3RvcnlfUmVxdWVzdBIXCg9wdWJsaXNoZWRmaWxlaWQYASABKAYSEgoK",
+            "dG90YWxfb25seRgCIAEoCBISCgpzdGFydGluZGV4GAMgASgNEg0KBWNvdW50",
+            "GAQgASgNEhMKCGxhbmd1YWdlGAUgASgFOgEwIn8KKENQdWJsaXNoZWRGaWxl",
+            "X0dldENoYW5nZUhpc3RvcnlfUmVzcG9uc2USRAoHY2hhbmdlcxgBIAMoCzIz",
+            "LkNQdWJsaXNoZWRGaWxlX0dldENoYW5nZUhpc3RvcnlfUmVzcG9uc2VfQ2hh",
+            "bmdlTG9nEg0KBXRvdGFsGAIgASgNInUKMkNQdWJsaXNoZWRGaWxlX0dldENo",
+            "YW5nZUhpc3RvcnlfUmVzcG9uc2VfQ2hhbmdlTG9nEhEKCXRpbWVzdGFtcBgB",
+            "IAEoDRIaChJjaGFuZ2VfZGVzY3JpcHRpb24YAiABKAkSEAoIbGFuZ3VhZ2UY",
+            "AyABKAUibAosQ1B1Ymxpc2hlZEZpbGVfR2V0Q2hhbmdlSGlzdG9yeUVudHJ5",
+            "X1JlcXVlc3QSFwoPcHVibGlzaGVkZmlsZWlkGAEgASgGEhEKCXRpbWVzdGFt",
+            "cBgCIAEoDRIQCghsYW5ndWFnZRgDIAEoBSJdCi1DUHVibGlzaGVkRmlsZV9H",
+            "ZXRDaGFuZ2VIaXN0b3J5RW50cnlfUmVzcG9uc2USGgoSY2hhbmdlX2Rlc2Ny",
+            "aXB0aW9uGAEgASgJEhAKCGxhbmd1YWdlGAIgASgFIrUDCiFDUHVibGlzaGVk",
+            "RmlsZV9HZXREZXRhaWxzX1JlcXVlc3QSGAoQcHVibGlzaGVkZmlsZWlkcxgB",
+            "IAMoBhITCgtpbmNsdWRldGFncxgCIAEoCBIhChlpbmNsdWRlYWRkaXRpb25h",
+            "bHByZXZpZXdzGAMgASgIEhcKD2luY2x1ZGVjaGlsZHJlbhgEIAEoCBIVCg1p",
+            "bmNsdWRla3Z0YWdzGAUgASgIEhQKDGluY2x1ZGV2b3RlcxgGIAEoCBIZChFz",
+            "aG9ydF9kZXNjcmlwdGlvbhgIIAEoCBIaChJpbmNsdWRlZm9yc2FsZWRhdGEY",
+            "CiABKAgSFwoPaW5jbHVkZW1ldGFkYXRhGAsgASgIEhMKCGxhbmd1YWdlGAwg",
+            "ASgFOgEwEh0KFXJldHVybl9wbGF5dGltZV9zdGF0cxgNIAEoDRINCgVhcHBp",
+            "ZBgOIAEoDRIgChhzdHJpcF9kZXNjcmlwdGlvbl9iYmNvZGUYDyABKAgSIgoQ",
+            "ZGVzaXJlZF9yZXZpc2lvbhgQIAEoBUIIgrUYBGVudW0SHwoQaW5jbHVkZXJl",
+            "YWN0aW9ucxgRIAEoCDoFZmFsc2UiWQoiQ1B1Ymxpc2hlZEZpbGVfR2V0RGV0",
+            "YWlsc19SZXNwb25zZRIzChRwdWJsaXNoZWRmaWxlZGV0YWlscxgBIAMoCzIV",
+            "LlB1Ymxpc2hlZEZpbGVEZXRhaWxzImgKJUNQdWJsaXNoZWRGaWxlX0dldEl0",
+            "ZW1DaGFuZ2VzX1JlcXVlc3QSDQoFYXBwaWQYASABKA0SGQoRbGFzdF90aW1l",
+            "X3VwZGF0ZWQYAiABKA0SFQoNbnVtX2l0ZW1zX21heBgDIAEoDSKPAQomQ1B1",
+            "Ymxpc2hlZEZpbGVfR2V0SXRlbUNoYW5nZXNfUmVzcG9uc2USEwoLdXBkYXRl",
+            "X3RpbWUYASABKA0SUAoOd29ya3Nob3BfaXRlbXMYAiADKAsyOC5DUHVibGlz",
+            "aGVkRmlsZV9HZXRJdGVtQ2hhbmdlc19SZXNwb25zZV9Xb3Jrc2hvcEl0ZW1J",
+            "bmZvIn8KN0NQdWJsaXNoZWRGaWxlX0dldEl0ZW1DaGFuZ2VzX1Jlc3BvbnNl",
+            "X1dvcmtzaG9wSXRlbUluZm8SGQoRcHVibGlzaGVkX2ZpbGVfaWQYASABKAYS",
+            "FAoMdGltZV91cGRhdGVkGAIgASgNEhMKC21hbmlmZXN0X2lkGAMgASgGIpgB",
+            "CiJDUHVibGlzaGVkRmlsZV9HZXRJdGVtSW5mb19SZXF1ZXN0Eg0KBWFwcGlk",
+            "GAEgASgNEhkKEWxhc3RfdGltZV91cGRhdGVkGAIgASgNEkgKDndvcmtzaG9w",
+            "X2l0ZW1zGAMgAygLMjAuQ1B1Ymxpc2hlZEZpbGVfR2V0SXRlbUluZm9fUmVx",
+            "dWVzdF9Xb3Jrc2hvcEl0ZW0ihgEKL0NQdWJsaXNoZWRGaWxlX0dldEl0ZW1J",
+            "bmZvX1JlcXVlc3RfV29ya3Nob3BJdGVtEhkKEXB1Ymxpc2hlZF9maWxlX2lk",
+            "GAEgASgGEhQKDHRpbWVfdXBkYXRlZBgCIAEoDRIiChBkZXNpcmVkX3Jldmlz",
+            "aW9uGAMgASgFQgiCtRgEZW51bSKgAQojQ1B1Ymxpc2hlZEZpbGVfR2V0SXRl",
+            "bUluZm9fUmVzcG9uc2USEwoLdXBkYXRlX3RpbWUYASABKA0STQoOd29ya3No",
+            "b3BfaXRlbXMYAiADKAsyNS5DUHVibGlzaGVkRmlsZV9HZXRJdGVtSW5mb19S",
+            "ZXNwb25zZV9Xb3Jrc2hvcEl0ZW1JbmZvEhUKDXByaXZhdGVfaXRlbXMYAyAD",
+            "KAYiiwEKNENQdWJsaXNoZWRGaWxlX0dldEl0ZW1JbmZvX1Jlc3BvbnNlX1dv",
+            "cmtzaG9wSXRlbUluZm8SGQoRcHVibGlzaGVkX2ZpbGVfaWQYASABKAYSFAoM",
+            "dGltZV91cGRhdGVkGAIgASgNEhMKC21hbmlmZXN0X2lkGAMgASgGEg0KBWZs",
+            "YWdzGAQgASgNIqIBCihDUHVibGlzaGVkRmlsZV9HZXRTdWJTZWN0aW9uRGF0",
+            "YV9SZXF1ZXN0EhcKD3B1Ymxpc2hlZGZpbGVpZBgBIAEoBBIdChVmb3JfdGFi",
+            "bGVfb2ZfY29udGVudHMYAiABKAgSGgoSc3BlY2lmaWNfc2VjdGlvbmlkGAMg",
+            "ASgEEiIKEGRlc2lyZWRfcmV2aXNpb24YBCABKAVCCIK1GARlbnVtIlsKKUNQ",
+            "dWJsaXNoZWRGaWxlX0dldFN1YlNlY3Rpb25EYXRhX1Jlc3BvbnNlEi4KDHN1",
+            "Yl9zZWN0aW9ucxgBIAMoCzIYLlB1Ymxpc2hlZEZpbGVTdWJTZWN0aW9uIrAH",
+            "CiNDUHVibGlzaGVkRmlsZV9HZXRVc2VyRmlsZXNfUmVxdWVzdBIPCgdzdGVh",
+            "bWlkGAEgASgGEg0KBWFwcGlkGAIgASgNEg8KBHBhZ2UYBCABKA06ATESFQoK",
+            "bnVtcGVycGFnZRgFIAEoDToBMRIVCgR0eXBlGAYgASgJOgdteWZpbGVzEh8K",
+            "CnNvcnRtZXRob2QYByABKAk6C2xhc3R1cGRhdGVkEg8KB3ByaXZhY3kYCSAB",
+            "KA0SFAoMcmVxdWlyZWR0YWdzGAogAygJEhQKDGV4Y2x1ZGVkdGFncxgLIAMo",
+            "CRIQCghmaWxldHlwZRgOIAEoDRIVCg1jcmVhdG9yX2FwcGlkGA8gASgNEhwK",
+            "FG1hdGNoX2Nsb3VkX2ZpbGVuYW1lGBAgASgJEhEKCXRvdGFsb25seRgRIAEo",
+            "CBIQCghpZHNfb25seRgSIAEoCBIeChByZXR1cm5fdm90ZV9kYXRhGBMgASgI",
+            "OgR0cnVlEhMKC3JldHVybl90YWdzGBQgASgIEhwKDnJldHVybl9rdl90YWdz",
+            "GBUgASgIOgR0cnVlEhcKD3JldHVybl9wcmV2aWV3cxgWIAEoCBIXCg9yZXR1",
+            "cm5fY2hpbGRyZW4YFyABKAgSJgoYcmV0dXJuX3Nob3J0X2Rlc2NyaXB0aW9u",
+            "GBggASgIOgR0cnVlEhsKE3N0YXJ0aW5kZXhfb3ZlcnJpZGUYGSABKA0SHAoU",
+            "cmV0dXJuX2Zvcl9zYWxlX2RhdGEYGiABKAgSIAoVY2FjaGVfbWF4X2FnZV9z",
+            "ZWNvbmRzGBsgASgNOgEwEh4KD3JldHVybl9tZXRhZGF0YRgcIAEoCDoFZmFs",
+            "c2USEwoIbGFuZ3VhZ2UYHSABKAU6ATASRAoQcmVxdWlyZWRfa3ZfdGFncxge",
+            "IAMoCzIqLkNQdWJsaXNoZWRGaWxlX0dldFVzZXJGaWxlc19SZXF1ZXN0X0tW",
+            "VGFnEh0KFXJldHVybl9wbGF5dGltZV9zdGF0cxgfIAEoDRIgChhzdHJpcF9k",
+            "ZXNjcmlwdGlvbl9iYmNvZGUYICABKAgSIgoQZGVzaXJlZF9yZXZpc2lvbhgh",
+            "IAEoBUIIgrUYBGVudW0SQAoJdGFnZ3JvdXBzGCIgAygLMi0uQ1B1Ymxpc2hl",
+            "ZEZpbGVfR2V0VXNlckZpbGVzX1JlcXVlc3RfVGFnR3JvdXASHwoQcmV0dXJu",
+            "X3JlYWN0aW9ucxgjIAEoCDoFZmFsc2USEwoLcmV0dXJuX2FwcHMYJCABKAgi",
+            "RwopQ1B1Ymxpc2hlZEZpbGVfR2V0VXNlckZpbGVzX1JlcXVlc3RfS1ZUYWcS",
+            "CwoDa2V5GAEgASgJEg0KBXZhbHVlGAIgASgJIjwKLENQdWJsaXNoZWRGaWxl",
+            "X0dldFVzZXJGaWxlc19SZXF1ZXN0X1RhZ0dyb3VwEgwKBHRhZ3MYASADKAki",
+            "twEKJENQdWJsaXNoZWRGaWxlX0dldFVzZXJGaWxlc19SZXNwb25zZRINCgV0",
+            "b3RhbBgBIAEoDRISCgpzdGFydGluZGV4GAIgASgNEjMKFHB1Ymxpc2hlZGZp",
+            "bGVkZXRhaWxzGAMgAygLMhUuUHVibGlzaGVkRmlsZURldGFpbHMSNwoEYXBw",
+            "cxgEIAMoCzIpLkNQdWJsaXNoZWRGaWxlX0dldFVzZXJGaWxlc19SZXNwb25z",
+            "ZV9BcHAibAooQ1B1Ymxpc2hlZEZpbGVfR2V0VXNlckZpbGVzX1Jlc3BvbnNl",
+            "X0FwcBINCgVhcHBpZBgBIAEoDRIMCgRuYW1lGAIgASgJEhIKCnNob3J0Y3V0",
+            "aWQYAyABKA0SDwoHcHJpdmF0ZRgEIAEoCCJFCilDUHVibGlzaGVkRmlsZV9H",
+            "ZXRVc2VyVm90ZVN1bW1hcnlfUmVxdWVzdBIYChBwdWJsaXNoZWRmaWxlaWRz",
+            "GAEgAygGIngKKkNQdWJsaXNoZWRGaWxlX0dldFVzZXJWb3RlU3VtbWFyeV9S",
+            "ZXNwb25zZRJKCglzdW1tYXJpZXMYASADKAsyNy5DUHVibGlzaGVkRmlsZV9H",
+            "ZXRVc2VyVm90ZVN1bW1hcnlfUmVzcG9uc2VfVm90ZVN1bW1hcnkiiwEKNkNQ",
+            "dWJsaXNoZWRGaWxlX0dldFVzZXJWb3RlU3VtbWFyeV9SZXNwb25zZV9Wb3Rl",
+            "U3VtbWFyeRIXCg9wdWJsaXNoZWRmaWxlaWQYASABKAYSEAoIdm90ZV9mb3IY",
+            "AiABKAgSFAoMdm90ZV9hZ2FpbnN0GAMgASgIEhAKCHJlcG9ydGVkGAQgASgI",
+            "Iv0CCh5DUHVibGlzaGVkRmlsZV9QdWJsaXNoX1JlcXVlc3QSDQoFYXBwaWQY",
+            "ASABKA0SFgoOY29uc3VtZXJfYXBwaWQYAiABKA0SFQoNY2xvdWRmaWxlbmFt",
+            "ZRgDIAEoCRIdChVwcmV2aWV3X2Nsb3VkZmlsZW5hbWUYBCABKAkSDQoFdGl0",
+            "bGUYBSABKAkSGAoQZmlsZV9kZXNjcmlwdGlvbhgGIAEoCRIRCglmaWxlX3R5",
+            "cGUYByABKA0SHgoWY29uc3VtZXJfc2hvcnRjdXRfbmFtZRgIIAEoCRIYChB5",
+            "b3V0dWJlX3VzZXJuYW1lGAkgASgJEhcKD3lvdXR1YmVfdmlkZW9pZBgKIAEo",
+            "CRISCgp2aXNpYmlsaXR5GAsgASgNEhQKDHJlZGlyZWN0X3VyaRgMIAEoCRIM",
+            "CgR0YWdzGA0gAygJEhcKD2NvbGxlY3Rpb25fdHlwZRgOIAEoCRIRCglnYW1l",
+            "X3R5cGUYDyABKAkSCwoDdXJsGBAgASgJIlAKH0NQdWJsaXNoZWRGaWxlX1B1",
+            "Ymxpc2hfUmVzcG9uc2USFwoPcHVibGlzaGVkZmlsZWlkGAEgASgEEhQKDHJl",
+            "ZGlyZWN0X3VyaRgCIAEoCSLtCAohQ1B1Ymxpc2hlZEZpbGVfUXVlcnlGaWxl",
+            "c19SZXF1ZXN0EhIKCnF1ZXJ5X3R5cGUYASABKA0SDAoEcGFnZRgCIAEoDRIV",
+            "CgpudW1wZXJwYWdlGAMgASgNOgExEhUKDWNyZWF0b3JfYXBwaWQYBCABKA0S",
+            "DQoFYXBwaWQYBSABKA0SFAoMcmVxdWlyZWR0YWdzGAYgAygJEhQKDGV4Y2x1",
+            "ZGVkdGFncxgHIAMoCRIcCg5tYXRjaF9hbGxfdGFncxgIIAEoCDoEdHJ1ZRIW",
+            "Cg5yZXF1aXJlZF9mbGFncxgJIAMoCRIVCg1vbWl0dGVkX2ZsYWdzGAogAygJ",
+            "EhMKC3NlYXJjaF90ZXh0GAsgASgJEhAKCGZpbGV0eXBlGAwgASgNEh0KFWNo",
+            "aWxkX3B1Ymxpc2hlZGZpbGVpZBgNIAEoBhIMCgRkYXlzGA4gASgNEiEKGWlu",
+            "Y2x1ZGVfcmVjZW50X3ZvdGVzX29ubHkYDyABKAgSEQoJdG90YWxvbmx5GBAg",
+            "ASgIEhgKEHJldHVybl92b3RlX2RhdGEYESABKAgSEwoLcmV0dXJuX3RhZ3MY",
+            "EiABKAgSFgoOcmV0dXJuX2t2X3RhZ3MYEyABKAgSFwoPcmV0dXJuX3ByZXZp",
+            "ZXdzGBQgASgIEhcKD3JldHVybl9jaGlsZHJlbhgVIAEoCBIgChhyZXR1cm5f",
+            "c2hvcnRfZGVzY3JpcHRpb24YFiABKAgSHAoUcmV0dXJuX2Zvcl9zYWxlX2Rh",
+            "dGEYHiABKAgSIAoVY2FjaGVfbWF4X2FnZV9zZWNvbmRzGB8gASgNOgEwEh4K",
+            "D3JldHVybl9tZXRhZGF0YRggIAEoCDoFZmFsc2USEwoIbGFuZ3VhZ2UYISAB",
+            "KAU6ATASQgoQcmVxdWlyZWRfa3ZfdGFncxgiIAMoCzIoLkNQdWJsaXNoZWRG",
+            "aWxlX1F1ZXJ5RmlsZXNfUmVxdWVzdF9LVlRhZxIQCghpZHNfb25seRgjIAEo",
+            "CBIdChVyZXR1cm5fcGxheXRpbWVfc3RhdHMYJCABKA0SFgoOcmV0dXJuX2Rl",
+            "dGFpbHMYJSABKAgSIAoYc3RyaXBfZGVzY3JpcHRpb25fYmJjb2RlGCYgASgI",
+            "Eg4KBmN1cnNvchgnIAEoCRIiChBkZXNpcmVkX3JldmlzaW9uGCggASgFQgiC",
+            "tRgEZW51bRI+Cgl0YWdncm91cHMYKiADKAsyKy5DUHVibGlzaGVkRmlsZV9R",
+            "dWVyeUZpbGVzX1JlcXVlc3RfVGFnR3JvdXASHwoQcmV0dXJuX3JlYWN0aW9u",
+            "cxgrIAEoCDoFZmFsc2USSAoSZGF0ZV9yYW5nZV9jcmVhdGVkGCwgASgLMiwu",
+            "Q1B1Ymxpc2hlZEZpbGVfUXVlcnlGaWxlc19SZXF1ZXN0X0RhdGVSYW5nZRJI",
+            "ChJkYXRlX3JhbmdlX3VwZGF0ZWQYLSABKAsyLC5DUHVibGlzaGVkRmlsZV9R",
+            "dWVyeUZpbGVzX1JlcXVlc3RfRGF0ZVJhbmdlIl0KK0NQdWJsaXNoZWRGaWxl",
+            "X1F1ZXJ5RmlsZXNfUmVxdWVzdF9EYXRlUmFuZ2USFwoPdGltZXN0YW1wX3N0",
+            "YXJ0GAEgASgNEhUKDXRpbWVzdGFtcF9lbmQYAiABKA0iRQonQ1B1Ymxpc2hl",
+            "ZEZpbGVfUXVlcnlGaWxlc19SZXF1ZXN0X0tWVGFnEgsKA2tleRgBIAEoCRIN",
+            "CgV2YWx1ZRgCIAEoCSI6CipDUHVibGlzaGVkRmlsZV9RdWVyeUZpbGVzX1Jl",
+            "cXVlc3RfVGFnR3JvdXASDAoEdGFncxgBIAMoCSJ9CiJDUHVibGlzaGVkRmls",
+            "ZV9RdWVyeUZpbGVzX1Jlc3BvbnNlEg0KBXRvdGFsGAEgASgNEjMKFHB1Ymxp",
+            "c2hlZGZpbGVkZXRhaWxzGAIgAygLMhUuUHVibGlzaGVkRmlsZURldGFpbHMS",
+            "EwoLbmV4dF9jdXJzb3IYAyABKAki2QEKKUNQdWJsaXNoZWRGaWxlX1JlZnJl",
+            "c2hWb3RpbmdRdWV1ZV9SZXF1ZXN0Eg0KBWFwcGlkGAEgASgNEhoKEm1hdGNo",
+            "aW5nX2ZpbGVfdHlwZRgCIAEoDRIMCgR0YWdzGAMgAygJEhwKDm1hdGNoX2Fs",
+            "bF90YWdzGAQgASgIOgR0cnVlEhUKDWV4Y2x1ZGVkX3RhZ3MYBSADKAkSGgoS",
+            "ZGVzaXJlZF9xdWV1ZV9zaXplGAYgASgNEiIKEGRlc2lyZWRfcmV2aXNpb24Y",
+            "CCABKAVCCIK1GARlbnVtIiwKKkNQdWJsaXNoZWRGaWxlX1JlZnJlc2hWb3Rp",
+            "bmdRdWV1ZV9SZXNwb25zZSJsCixDUHVibGlzaGVkRmlsZV9SZW1vdmVBcHBS",
+            "ZWxhdGlvbnNoaXBfUmVxdWVzdBIXCg9wdWJsaXNoZWRmaWxlaWQYASABKAQS",
+            "DQoFYXBwaWQYAiABKA0SFAoMcmVsYXRpb25zaGlwGAMgASgNIi8KLUNQdWJs",
+            "aXNoZWRGaWxlX1JlbW92ZUFwcFJlbGF0aW9uc2hpcF9SZXNwb25zZSJcCiJD",
+            "UHVibGlzaGVkRmlsZV9SZW1vdmVDaGlsZF9SZXF1ZXN0EhcKD3B1Ymxpc2hl",
+            "ZGZpbGVpZBgBIAEoBBIdChVjaGlsZF9wdWJsaXNoZWRmaWxlaWQYAiABKAQi",
+            "JQojQ1B1Ymxpc2hlZEZpbGVfUmVtb3ZlQ2hpbGRfUmVzcG9uc2UitwEKNkNQ",
+            "dWJsaXNoZWRGaWxlX1NldFBsYXl0aW1lRm9yQ29udHJvbGxlckNvbmZpZ3Nf",
+            "UmVxdWVzdBINCgVhcHBpZBgBIAEoDRJuChdjb250cm9sbGVyX2NvbmZpZ191",
+            "c2FnZRgCIAMoCzJNLkNQdWJsaXNoZWRGaWxlX1NldFBsYXl0aW1lRm9yQ29u",
+            "dHJvbGxlckNvbmZpZ3NfUmVxdWVzdF9Db250cm9sbGVyQ29uZmlnVXNhZ2Ui",
+            "fwpMQ1B1Ymxpc2hlZEZpbGVfU2V0UGxheXRpbWVGb3JDb250cm9sbGVyQ29u",
+            "Zmlnc19SZXF1ZXN0X0NvbnRyb2xsZXJDb25maWdVc2FnZRIXCg9wdWJsaXNo",
+            "ZWRmaWxlaWQYASABKAQSFgoOc2Vjb25kc19hY3RpdmUYAiABKAIiOQo3Q1B1",
+            "Ymxpc2hlZEZpbGVfU2V0UGxheXRpbWVGb3JDb250cm9sbGVyQ29uZmlnc19S",
+            "ZXNwb25zZSJXCixDUHVibGlzaGVkRmlsZV9TdGFydFBsYXl0aW1lVHJhY2tp",
+            "bmdfUmVxdWVzdBINCgVhcHBpZBgBIAEoDRIYChBwdWJsaXNoZWRmaWxlaWRz",
+            "GAIgAygEIi8KLUNQdWJsaXNoZWRGaWxlX1N0YXJ0UGxheXRpbWVUcmFja2lu",
+            "Z19SZXNwb25zZSJWCitDUHVibGlzaGVkRmlsZV9TdG9wUGxheXRpbWVUcmFj",
+            "a2luZ19SZXF1ZXN0Eg0KBWFwcGlkGAEgASgNEhgKEHB1Ymxpc2hlZGZpbGVp",
+            "ZHMYAiADKAQiLgosQ1B1Ymxpc2hlZEZpbGVfU3RvcFBsYXl0aW1lVHJhY2tp",
+            "bmdfUmVzcG9uc2UiSgo5Q1B1Ymxpc2hlZEZpbGVfU3RvcFBsYXl0aW1lVHJh",
+            "Y2tpbmdGb3JBbGxBcHBJdGVtc19SZXF1ZXN0Eg0KBWFwcGlkGAEgASgNIjwK",
+            "OkNQdWJsaXNoZWRGaWxlX1N0b3BQbGF5dGltZVRyYWNraW5nRm9yQWxsQXBw",
+            "SXRlbXNfUmVzcG9uc2UidAogQ1B1Ymxpc2hlZEZpbGVfU3Vic2NyaWJlX1Jl",
+            "cXVlc3QSFwoPcHVibGlzaGVkZmlsZWlkGAEgASgEEhEKCWxpc3RfdHlwZRgC",
+            "IAEoDRINCgVhcHBpZBgDIAEoBRIVCg1ub3RpZnlfY2xpZW50GAQgASgIIiMK",
+            "IUNQdWJsaXNoZWRGaWxlX1N1YnNjcmliZV9SZXNwb25zZSJ2CiJDUHVibGlz",
+            "aGVkRmlsZV9VbnN1YnNjcmliZV9SZXF1ZXN0EhcKD3B1Ymxpc2hlZGZpbGVp",
+            "ZBgBIAEoBBIRCglsaXN0X3R5cGUYAiABKA0SDQoFYXBwaWQYAyABKAUSFQoN",
+            "bm90aWZ5X2NsaWVudBgEIAEoCCIlCiNDUHVibGlzaGVkRmlsZV9VbnN1YnNj",
+            "cmliZV9SZXNwb25zZSL+AQodQ1B1Ymxpc2hlZEZpbGVfVXBkYXRlX1JlcXVl",
+            "c3QSDQoFYXBwaWQYASABKA0SFwoPcHVibGlzaGVkZmlsZWlkGAIgASgGEg0K",
+            "BXRpdGxlGAMgASgJEhgKEGZpbGVfZGVzY3JpcHRpb24YBCABKAkSEgoKdmlz",
+            "aWJpbGl0eRgFIAEoDRIMCgR0YWdzGAYgAygJEhAKCGZpbGVuYW1lGAcgASgJ",
+            "EhgKEHByZXZpZXdfZmlsZW5hbWUYCCABKAkSEwoLc3BvaWxlcl90YWcYCiAB",
+            "KAgSEwoLaW1hZ2Vfd2lkdGgYDyABKA0SFAoMaW1hZ2VfaGVpZ2h0GBAgASgN",
+            "IiAKHkNQdWJsaXNoZWRGaWxlX1VwZGF0ZV9SZXNwb25zZSJHChtDUHVibGlz",
+            "aGVkRmlsZV9Wb3RlX1JlcXVlc3QSFwoPcHVibGlzaGVkZmlsZWlkGAEgASgE",
+            "Eg8KB3ZvdGVfdXAYAiABKAgiHgocQ1B1Ymxpc2hlZEZpbGVfVm90ZV9SZXNw",
+            "b25zZSLEDgoUUHVibGlzaGVkRmlsZURldGFpbHMSDgoGcmVzdWx0GAEgASgN",
+            "EhcKD3B1Ymxpc2hlZGZpbGVpZBgCIAEoBBIPCgdjcmVhdG9yGAMgASgGEhUK",
+            "DWNyZWF0b3JfYXBwaWQYBCABKA0SFgoOY29uc3VtZXJfYXBwaWQYBSABKA0S",
+            "GwoTY29uc3VtZXJfc2hvcnRjdXRpZBgGIAEoDRIQCghmaWxlbmFtZRgHIAEo",
+            "CRIRCglmaWxlX3NpemUYCCABKAQSGQoRcHJldmlld19maWxlX3NpemUYCSAB",
+            "KAQSEAoIZmlsZV91cmwYCiABKAkSEwoLcHJldmlld191cmwYCyABKAkSFgoO",
+            "eW91dHViZXZpZGVvaWQYDCABKAkSCwoDdXJsGA0gASgJEhUKDWhjb250ZW50",
+            "X2ZpbGUYDiABKAYSGAoQaGNvbnRlbnRfcHJldmlldxgPIAEoBhINCgV0aXRs",
+            "ZRgQIAEoCRIYChBmaWxlX2Rlc2NyaXB0aW9uGBEgASgJEhkKEXNob3J0X2Rl",
+            "c2NyaXB0aW9uGBIgASgJEhQKDHRpbWVfY3JlYXRlZBgTIAEoDRIUCgx0aW1l",
+            "X3VwZGF0ZWQYFCABKA0SEgoKdmlzaWJpbGl0eRgVIAEoDRINCgVmbGFncxgW",
+            "IAEoDRIVCg13b3Jrc2hvcF9maWxlGBcgASgIEhkKEXdvcmtzaG9wX2FjY2Vw",
+            "dGVkGBggASgIEhoKEnNob3dfc3Vic2NyaWJlX2FsbBgZIAEoCBIeChZudW1f",
+            "Y29tbWVudHNfZGV2ZWxvcGVyGBogASgFEhsKE251bV9jb21tZW50c19wdWJs",
+            "aWMYGyABKAUSDgoGYmFubmVkGBwgASgIEhIKCmJhbl9yZWFzb24YHSABKAkS",
+            "DgoGYmFubmVyGB4gASgGEhYKDmNhbl9iZV9kZWxldGVkGB8gASgIEhQKDGlu",
+            "Y29tcGF0aWJsZRggIAEoCBIQCghhcHBfbmFtZRghIAEoCRIRCglmaWxlX3R5",
+            "cGUYIiABKA0SFQoNY2FuX3N1YnNjcmliZRgjIAEoCBIVCg1zdWJzY3JpcHRp",
+            "b25zGCQgASgNEhEKCWZhdm9yaXRlZBglIAEoDRIRCglmb2xsb3dlcnMYJiAB",
+            "KA0SHgoWbGlmZXRpbWVfc3Vic2NyaXB0aW9ucxgnIAEoDRIaChJsaWZldGlt",
+            "ZV9mYXZvcml0ZWQYKCABKA0SGgoSbGlmZXRpbWVfZm9sbG93ZXJzGCkgASgN",
+            "Eg0KBXZpZXdzGCogASgNEhMKC2ltYWdlX3dpZHRoGCsgASgNEhQKDGltYWdl",
+            "X2hlaWdodBgsIAEoDRIRCglpbWFnZV91cmwYLSABKAkSEwoLc3BvaWxlcl90",
+            "YWcYLiABKAgSEgoKc2hvcnRjdXRpZBgvIAEoDRIUCgxzaG9ydGN1dG5hbWUY",
+            "MCABKAkSFAoMbnVtX2NoaWxkcmVuGDEgASgNEhMKC251bV9yZXBvcnRzGDIg",
+            "ASgNEi8KCHByZXZpZXdzGDMgAygLMh0uUHVibGlzaGVkRmlsZURldGFpbHNf",
+            "UHJldmlldxInCgR0YWdzGDQgAygLMhkuUHVibGlzaGVkRmlsZURldGFpbHNf",
+            "VGFnEi0KCGNoaWxkcmVuGDUgAygLMhsuUHVibGlzaGVkRmlsZURldGFpbHNf",
+            "Q2hpbGQSKwoGa3Z0YWdzGDYgAygLMhsuUHVibGlzaGVkRmlsZURldGFpbHNf",
+            "S1ZUYWcSMQoJdm90ZV9kYXRhGDcgASgLMh4uUHVibGlzaGVkRmlsZURldGFp",
+            "bHNfVm90ZURhdGESFwoPdGltZV9zdWJzY3JpYmVkGDggASgNEjgKDWZvcl9z",
+            "YWxlX2RhdGEYOSABKAsyIS5QdWJsaXNoZWRGaWxlRGV0YWlsc19Gb3JTYWxl",
+            "RGF0YRIQCghtZXRhZGF0YRg6IAEoCRITCghsYW5ndWFnZRg9IAEoBToBMBIZ",
+            "ChFsaWZldGltZV9wbGF5dGltZRg+IAEoBBIiChpsaWZldGltZV9wbGF5dGlt",
+            "ZV9zZXNzaW9ucxg/IAEoBBI7Cg5wbGF5dGltZV9zdGF0cxhAIAEoCzIjLlB1",
+            "Ymxpc2hlZEZpbGVEZXRhaWxzX1BsYXl0aW1lU3RhdHMSHwoXbWF5YmVfaW5h",
+            "cHByb3ByaWF0ZV9zZXgYQSABKAgSJAocbWF5YmVfaW5hcHByb3ByaWF0ZV92",
+            "aW9sZW5jZRhCIAEoCBIeChZyZXZpc2lvbl9jaGFuZ2VfbnVtYmVyGEMgASgE",
+            "EhoKCHJldmlzaW9uGEQgASgFQgiCtRgEZW51bRIlChNhdmFpbGFibGVfcmV2",
+            "aXNpb25zGEUgAygFQgiCtRgEZW51bRIxCglyZWFjdGlvbnMYRiADKAsyHi5Q",
+            "dWJsaXNoZWRGaWxlRGV0YWlsc19SZWFjdGlvbhIlChNiYW5fdGV4dF9jaGVj",
+            "cmVzdWx0GEcgASgFQgiCtRgEZW51bSJbChpQdWJsaXNoZWRGaWxlRGV0YWls",
+            "c19DaGlsZBIXCg9wdWJsaXNoZWRmaWxlaWQYASABKAQSEQoJc29ydG9yZGVy",
+            "GAIgASgNEhEKCWZpbGVfdHlwZRgDIAEoDSLJAQogUHVibGlzaGVkRmlsZURl",
+            "dGFpbHNfRm9yU2FsZURhdGESEwoLaXNfZm9yX3NhbGUYASABKAgSFgoOcHJp",
+            "Y2VfY2F0ZWdvcnkYAiABKA0SGQoHZXN0YXR1cxgDIAEoBUIIgrUYBGVudW0S",
+            "HAoUcHJpY2VfY2F0ZWdvcnlfZmxvb3IYBCABKA0SIgoacHJpY2VfaXNfcGF5",
+            "X3doYXRfeW91X3dhbnQYBSABKAgSGwoTZGlzY291bnRfcGVyY2VudGFnZRgG",
+            "IAEoDSI4ChpQdWJsaXNoZWRGaWxlRGV0YWlsc19LVlRhZxILCgNrZXkYASAB",
+            "KAkSDQoFdmFsdWUYAiABKAkiVAoiUHVibGlzaGVkRmlsZURldGFpbHNfUGxh",
+            "eXRpbWVTdGF0cxIYChBwbGF5dGltZV9zZWNvbmRzGAEgASgEEhQKDG51bV9z",
+            "ZXNzaW9ucxgCIAEoBCK7AQocUHVibGlzaGVkRmlsZURldGFpbHNfUHJldmll",
+            "dxIRCglwcmV2aWV3aWQYASABKAQSEQoJc29ydG9yZGVyGAIgASgNEgsKA3Vy",
+            "bBgDIAEoCRIMCgRzaXplGAQgASgNEhAKCGZpbGVuYW1lGAUgASgJEhYKDnlv",
+            "dXR1YmV2aWRlb2lkGAYgASgJEhQKDHByZXZpZXdfdHlwZRgHIAEoDRIaChJl",
+            "eHRlcm5hbF9yZWZlcmVuY2UYCCABKAkiQgodUHVibGlzaGVkRmlsZURldGFp",
+            "bHNfUmVhY3Rpb24SEgoKcmVhY3Rpb25pZBgBIAEoDRINCgVjb3VudBgCIAEo",
+            "DSJQChhQdWJsaXNoZWRGaWxlRGV0YWlsc19UYWcSCwoDdGFnGAEgASgJEhEK",
+            "CWFkbWlub25seRgCIAEoCBIUCgxkaXNwbGF5X25hbWUYAyABKAkiVAodUHVi",
+            "bGlzaGVkRmlsZURldGFpbHNfVm90ZURhdGESDQoFc2NvcmUYASABKAISEAoI",
+            "dm90ZXNfdXAYAiABKA0SEgoKdm90ZXNfZG93bhgDIAEoDSJpChdQdWJsaXNo",
+            "ZWRGaWxlU3ViU2VjdGlvbhIRCglzZWN0aW9uaWQYASABKAQSDQoFdGl0bGUY",
+            "AiABKAkSGAoQZGVzY3JpcHRpb25fdGV4dBgDIAEoCRISCgpzb3J0X29yZGVy",
+            "GAQgASgNMscWCg1QdWJsaXNoZWRGaWxlEm0KEkFkZEFwcFJlbGF0aW9uc2hp",
+            "cBIqLkNQdWJsaXNoZWRGaWxlX0FkZEFwcFJlbGF0aW9uc2hpcF9SZXF1ZXN0",
+            "GisuQ1B1Ymxpc2hlZEZpbGVfQWRkQXBwUmVsYXRpb25zaGlwX1Jlc3BvbnNl",
+            "Ek8KCEFkZENoaWxkEiAuQ1B1Ymxpc2hlZEZpbGVfQWRkQ2hpbGRfUmVxdWVz",
+            "dBohLkNQdWJsaXNoZWRGaWxlX0FkZENoaWxkX1Jlc3BvbnNlEoUBChpBcmVG",
+            "aWxlc0luU3Vic2NyaXB0aW9uTGlzdBIyLkNQdWJsaXNoZWRGaWxlX0FyZUZp",
+            "bGVzSW5TdWJzY3JpcHRpb25MaXN0X1JlcXVlc3QaMy5DUHVibGlzaGVkRmls",
+            "ZV9BcmVGaWxlc0luU3Vic2NyaXB0aW9uTGlzdF9SZXNwb25zZRJbCgxDYW5T",
+            "dWJzY3JpYmUSJC5DUHVibGlzaGVkRmlsZV9DYW5TdWJzY3JpYmVfUmVxdWVz",
+            "dBolLkNQdWJsaXNoZWRGaWxlX0NhblN1YnNjcmliZV9SZXNwb25zZRJJCgZE",
+            "ZWxldGUSHi5DUHVibGlzaGVkRmlsZV9EZWxldGVfUmVxdWVzdBofLkNQdWJs",
+            "aXNoZWRGaWxlX0RlbGV0ZV9SZXNwb25zZRJwChNHZXRBcHBSZWxhdGlvbnNo",
+            "aXBzEisuQ1B1Ymxpc2hlZEZpbGVfR2V0QXBwUmVsYXRpb25zaGlwc19SZXF1",
+            "ZXN0GiwuQ1B1Ymxpc2hlZEZpbGVfR2V0QXBwUmVsYXRpb25zaGlwc19SZXNw",
             "b25zZRJnChBHZXRDaGFuZ2VIaXN0b3J5EiguQ1B1Ymxpc2hlZEZpbGVfR2V0",
             "Q2hhbmdlSGlzdG9yeV9SZXF1ZXN0GikuQ1B1Ymxpc2hlZEZpbGVfR2V0Q2hh",
             "bmdlSGlzdG9yeV9SZXNwb25zZRJ2ChVHZXRDaGFuZ2VIaXN0b3J5RW50cnkS",
             "LS5DUHVibGlzaGVkRmlsZV9HZXRDaGFuZ2VIaXN0b3J5RW50cnlfUmVxdWVz",
             "dBouLkNQdWJsaXNoZWRGaWxlX0dldENoYW5nZUhpc3RvcnlFbnRyeV9SZXNw",
-            "b25zZRJ2ChVHZXRDb250ZW50RGVzY3JpcHRvcnMSLS5DUHVibGlzaGVkRmls",
-            "ZV9HZXRDb250ZW50RGVzY3JpcHRvcnNfUmVxdWVzdBouLkNQdWJsaXNoZWRG",
-            "aWxlX0dldENvbnRlbnREZXNjcmlwdG9yc19SZXNwb25zZRJVCgpHZXREZXRh",
-            "aWxzEiIuQ1B1Ymxpc2hlZEZpbGVfR2V0RGV0YWlsc19SZXF1ZXN0GiMuQ1B1",
-            "Ymxpc2hlZEZpbGVfR2V0RGV0YWlsc19SZXNwb25zZRJhCg5HZXRJdGVtQ2hh",
-            "bmdlcxImLkNQdWJsaXNoZWRGaWxlX0dldEl0ZW1DaGFuZ2VzX1JlcXVlc3Qa",
-            "Jy5DUHVibGlzaGVkRmlsZV9HZXRJdGVtQ2hhbmdlc19SZXNwb25zZRJYCgtH",
-            "ZXRJdGVtSW5mbxIjLkNQdWJsaXNoZWRGaWxlX0dldEl0ZW1JbmZvX1JlcXVl",
-            "c3QaJC5DUHVibGlzaGVkRmlsZV9HZXRJdGVtSW5mb19SZXNwb25zZRJqChFH",
-            "ZXRTdWJTZWN0aW9uRGF0YRIpLkNQdWJsaXNoZWRGaWxlX0dldFN1YlNlY3Rp",
-            "b25EYXRhX1JlcXVlc3QaKi5DUHVibGlzaGVkRmlsZV9HZXRTdWJTZWN0aW9u",
-            "RGF0YV9SZXNwb25zZRJfChBHZXRVc2VyRmlsZUNvdW50EiQuQ1B1Ymxpc2hl",
-            "ZEZpbGVfR2V0VXNlckZpbGVzX1JlcXVlc3QaJS5DUHVibGlzaGVkRmlsZV9H",
-            "ZXRVc2VyRmlsZXNfUmVzcG9uc2USWwoMR2V0VXNlckZpbGVzEiQuQ1B1Ymxp",
-            "c2hlZEZpbGVfR2V0VXNlckZpbGVzX1JlcXVlc3QaJS5DUHVibGlzaGVkRmls",
-            "ZV9HZXRVc2VyRmlsZXNfUmVzcG9uc2USbQoSR2V0VXNlclZvdGVTdW1tYXJ5",
-            "EiouQ1B1Ymxpc2hlZEZpbGVfR2V0VXNlclZvdGVTdW1tYXJ5X1JlcXVlc3Qa",
-            "Ky5DUHVibGlzaGVkRmlsZV9HZXRVc2VyVm90ZVN1bW1hcnlfUmVzcG9uc2US",
-            "TAoHUHVibGlzaBIfLkNQdWJsaXNoZWRGaWxlX1B1Ymxpc2hfUmVxdWVzdBog",
-            "LkNQdWJsaXNoZWRGaWxlX1B1Ymxpc2hfUmVzcG9uc2USVQoKUXVlcnlGaWxl",
-            "cxIiLkNQdWJsaXNoZWRGaWxlX1F1ZXJ5RmlsZXNfUmVxdWVzdBojLkNQdWJs",
-            "aXNoZWRGaWxlX1F1ZXJ5RmlsZXNfUmVzcG9uc2USbQoSUmVmcmVzaFZvdGlu",
-            "Z1F1ZXVlEiouQ1B1Ymxpc2hlZEZpbGVfUmVmcmVzaFZvdGluZ1F1ZXVlX1Jl",
-            "cXVlc3QaKy5DUHVibGlzaGVkRmlsZV9SZWZyZXNoVm90aW5nUXVldWVfUmVz",
-            "cG9uc2USdgoVUmVtb3ZlQXBwUmVsYXRpb25zaGlwEi0uQ1B1Ymxpc2hlZEZp",
-            "bGVfUmVtb3ZlQXBwUmVsYXRpb25zaGlwX1JlcXVlc3QaLi5DUHVibGlzaGVk",
-            "RmlsZV9SZW1vdmVBcHBSZWxhdGlvbnNoaXBfUmVzcG9uc2USWAoLUmVtb3Zl",
-            "Q2hpbGQSIy5DUHVibGlzaGVkRmlsZV9SZW1vdmVDaGlsZF9SZXF1ZXN0GiQu",
-            "Q1B1Ymxpc2hlZEZpbGVfUmVtb3ZlQ2hpbGRfUmVzcG9uc2USlAEKH1NldFBs",
-            "YXl0aW1lRm9yQ29udHJvbGxlckNvbmZpZ3MSNy5DUHVibGlzaGVkRmlsZV9T",
-            "ZXRQbGF5dGltZUZvckNvbnRyb2xsZXJDb25maWdzX1JlcXVlc3QaOC5DUHVi",
-            "bGlzaGVkRmlsZV9TZXRQbGF5dGltZUZvckNvbnRyb2xsZXJDb25maWdzX1Jl",
-            "c3BvbnNlEnYKFVN0YXJ0UGxheXRpbWVUcmFja2luZxItLkNQdWJsaXNoZWRG",
-            "aWxlX1N0YXJ0UGxheXRpbWVUcmFja2luZ19SZXF1ZXN0Gi4uQ1B1Ymxpc2hl",
-            "ZEZpbGVfU3RhcnRQbGF5dGltZVRyYWNraW5nX1Jlc3BvbnNlEnMKFFN0b3BQ",
-            "bGF5dGltZVRyYWNraW5nEiwuQ1B1Ymxpc2hlZEZpbGVfU3RvcFBsYXl0aW1l",
-            "VHJhY2tpbmdfUmVxdWVzdBotLkNQdWJsaXNoZWRGaWxlX1N0b3BQbGF5dGlt",
-            "ZVRyYWNraW5nX1Jlc3BvbnNlEp0BCiJTdG9wUGxheXRpbWVUcmFja2luZ0Zv",
-            "ckFsbEFwcEl0ZW1zEjouQ1B1Ymxpc2hlZEZpbGVfU3RvcFBsYXl0aW1lVHJh",
-            "Y2tpbmdGb3JBbGxBcHBJdGVtc19SZXF1ZXN0GjsuQ1B1Ymxpc2hlZEZpbGVf",
-            "U3RvcFBsYXl0aW1lVHJhY2tpbmdGb3JBbGxBcHBJdGVtc19SZXNwb25zZRJS",
-            "CglTdWJzY3JpYmUSIS5DUHVibGlzaGVkRmlsZV9TdWJzY3JpYmVfUmVxdWVz",
-            "dBoiLkNQdWJsaXNoZWRGaWxlX1N1YnNjcmliZV9SZXNwb25zZRJYCgtVbnN1",
-            "YnNjcmliZRIjLkNQdWJsaXNoZWRGaWxlX1Vuc3Vic2NyaWJlX1JlcXVlc3Qa",
-            "JC5DUHVibGlzaGVkRmlsZV9VbnN1YnNjcmliZV9SZXNwb25zZRJJCgZVcGRh",
-            "dGUSHi5DUHVibGlzaGVkRmlsZV9VcGRhdGVfUmVxdWVzdBofLkNQdWJsaXNo",
-            "ZWRGaWxlX1VwZGF0ZV9SZXNwb25zZRJ/ChhVcGRhdGVDb250ZW50RGVzY3Jp",
-            "cHRvcnMSMC5DUHVibGlzaGVkRmlsZV9VcGRhdGVDb250ZW50RGVzY3JpcHRv",
-            "cnNfUmVxdWVzdBoxLkNQdWJsaXNoZWRGaWxlX1VwZGF0ZUNvbnRlbnREZXNj",
-            "cmlwdG9yc19SZXNwb25zZRJDCgRWb3RlEhwuQ1B1Ymxpc2hlZEZpbGVfVm90",
-            "ZV9SZXF1ZXN0Gh0uQ1B1Ymxpc2hlZEZpbGVfVm90ZV9SZXNwb25zZTKQAgoT",
-            "UHVibGlzaGVkRmlsZUNsaWVudBJRChFOb3RpZnlGaWxlRGVsZXRlZBIvLkNQ",
-            "dWJsaXNoZWRGaWxlX0ZpbGVEZWxldGVkX0NsaWVudF9Ob3RpZmljYXRpb24a",
-            "Cy5Ob1Jlc3BvbnNlElAKFE5vdGlmeUZpbGVTdWJzY3JpYmVkEisuQ1B1Ymxp",
-            "c2hlZEZpbGVfRmlsZVN1YnNjcmliZWRfTm90aWZpY2F0aW9uGgsuTm9SZXNw",
-            "b25zZRJUChZOb3RpZnlGaWxlVW5zdWJzY3JpYmVkEi0uQ1B1Ymxpc2hlZEZp",
-            "bGVfRmlsZVVuc3Vic2NyaWJlZF9Ob3RpZmljYXRpb24aCy5Ob1Jlc3BvbnNl",
-            "QiCqAh1PcGVuU3RlYW13b3Jrcy5Qcm90b2J1Zi5XZWJVSQ=="));
+            "b25zZRJVCgpHZXREZXRhaWxzEiIuQ1B1Ymxpc2hlZEZpbGVfR2V0RGV0YWls",
+            "c19SZXF1ZXN0GiMuQ1B1Ymxpc2hlZEZpbGVfR2V0RGV0YWlsc19SZXNwb25z",
+            "ZRJhCg5HZXRJdGVtQ2hhbmdlcxImLkNQdWJsaXNoZWRGaWxlX0dldEl0ZW1D",
+            "aGFuZ2VzX1JlcXVlc3QaJy5DUHVibGlzaGVkRmlsZV9HZXRJdGVtQ2hhbmdl",
+            "c19SZXNwb25zZRJYCgtHZXRJdGVtSW5mbxIjLkNQdWJsaXNoZWRGaWxlX0dl",
+            "dEl0ZW1JbmZvX1JlcXVlc3QaJC5DUHVibGlzaGVkRmlsZV9HZXRJdGVtSW5m",
+            "b19SZXNwb25zZRJqChFHZXRTdWJTZWN0aW9uRGF0YRIpLkNQdWJsaXNoZWRG",
+            "aWxlX0dldFN1YlNlY3Rpb25EYXRhX1JlcXVlc3QaKi5DUHVibGlzaGVkRmls",
+            "ZV9HZXRTdWJTZWN0aW9uRGF0YV9SZXNwb25zZRJfChBHZXRVc2VyRmlsZUNv",
+            "dW50EiQuQ1B1Ymxpc2hlZEZpbGVfR2V0VXNlckZpbGVzX1JlcXVlc3QaJS5D",
+            "UHVibGlzaGVkRmlsZV9HZXRVc2VyRmlsZXNfUmVzcG9uc2USWwoMR2V0VXNl",
+            "ckZpbGVzEiQuQ1B1Ymxpc2hlZEZpbGVfR2V0VXNlckZpbGVzX1JlcXVlc3Qa",
+            "JS5DUHVibGlzaGVkRmlsZV9HZXRVc2VyRmlsZXNfUmVzcG9uc2USbQoSR2V0",
+            "VXNlclZvdGVTdW1tYXJ5EiouQ1B1Ymxpc2hlZEZpbGVfR2V0VXNlclZvdGVT",
+            "dW1tYXJ5X1JlcXVlc3QaKy5DUHVibGlzaGVkRmlsZV9HZXRVc2VyVm90ZVN1",
+            "bW1hcnlfUmVzcG9uc2USTAoHUHVibGlzaBIfLkNQdWJsaXNoZWRGaWxlX1B1",
+            "Ymxpc2hfUmVxdWVzdBogLkNQdWJsaXNoZWRGaWxlX1B1Ymxpc2hfUmVzcG9u",
+            "c2USVQoKUXVlcnlGaWxlcxIiLkNQdWJsaXNoZWRGaWxlX1F1ZXJ5RmlsZXNf",
+            "UmVxdWVzdBojLkNQdWJsaXNoZWRGaWxlX1F1ZXJ5RmlsZXNfUmVzcG9uc2US",
+            "bQoSUmVmcmVzaFZvdGluZ1F1ZXVlEiouQ1B1Ymxpc2hlZEZpbGVfUmVmcmVz",
+            "aFZvdGluZ1F1ZXVlX1JlcXVlc3QaKy5DUHVibGlzaGVkRmlsZV9SZWZyZXNo",
+            "Vm90aW5nUXVldWVfUmVzcG9uc2USdgoVUmVtb3ZlQXBwUmVsYXRpb25zaGlw",
+            "Ei0uQ1B1Ymxpc2hlZEZpbGVfUmVtb3ZlQXBwUmVsYXRpb25zaGlwX1JlcXVl",
+            "c3QaLi5DUHVibGlzaGVkRmlsZV9SZW1vdmVBcHBSZWxhdGlvbnNoaXBfUmVz",
+            "cG9uc2USWAoLUmVtb3ZlQ2hpbGQSIy5DUHVibGlzaGVkRmlsZV9SZW1vdmVD",
+            "aGlsZF9SZXF1ZXN0GiQuQ1B1Ymxpc2hlZEZpbGVfUmVtb3ZlQ2hpbGRfUmVz",
+            "cG9uc2USlAEKH1NldFBsYXl0aW1lRm9yQ29udHJvbGxlckNvbmZpZ3MSNy5D",
+            "UHVibGlzaGVkRmlsZV9TZXRQbGF5dGltZUZvckNvbnRyb2xsZXJDb25maWdz",
+            "X1JlcXVlc3QaOC5DUHVibGlzaGVkRmlsZV9TZXRQbGF5dGltZUZvckNvbnRy",
+            "b2xsZXJDb25maWdzX1Jlc3BvbnNlEnYKFVN0YXJ0UGxheXRpbWVUcmFja2lu",
+            "ZxItLkNQdWJsaXNoZWRGaWxlX1N0YXJ0UGxheXRpbWVUcmFja2luZ19SZXF1",
+            "ZXN0Gi4uQ1B1Ymxpc2hlZEZpbGVfU3RhcnRQbGF5dGltZVRyYWNraW5nX1Jl",
+            "c3BvbnNlEnMKFFN0b3BQbGF5dGltZVRyYWNraW5nEiwuQ1B1Ymxpc2hlZEZp",
+            "bGVfU3RvcFBsYXl0aW1lVHJhY2tpbmdfUmVxdWVzdBotLkNQdWJsaXNoZWRG",
+            "aWxlX1N0b3BQbGF5dGltZVRyYWNraW5nX1Jlc3BvbnNlEp0BCiJTdG9wUGxh",
+            "eXRpbWVUcmFja2luZ0ZvckFsbEFwcEl0ZW1zEjouQ1B1Ymxpc2hlZEZpbGVf",
+            "U3RvcFBsYXl0aW1lVHJhY2tpbmdGb3JBbGxBcHBJdGVtc19SZXF1ZXN0Gjsu",
+            "Q1B1Ymxpc2hlZEZpbGVfU3RvcFBsYXl0aW1lVHJhY2tpbmdGb3JBbGxBcHBJ",
+            "dGVtc19SZXNwb25zZRJSCglTdWJzY3JpYmUSIS5DUHVibGlzaGVkRmlsZV9T",
+            "dWJzY3JpYmVfUmVxdWVzdBoiLkNQdWJsaXNoZWRGaWxlX1N1YnNjcmliZV9S",
+            "ZXNwb25zZRJYCgtVbnN1YnNjcmliZRIjLkNQdWJsaXNoZWRGaWxlX1Vuc3Vi",
+            "c2NyaWJlX1JlcXVlc3QaJC5DUHVibGlzaGVkRmlsZV9VbnN1YnNjcmliZV9S",
+            "ZXNwb25zZRJJCgZVcGRhdGUSHi5DUHVibGlzaGVkRmlsZV9VcGRhdGVfUmVx",
+            "dWVzdBofLkNQdWJsaXNoZWRGaWxlX1VwZGF0ZV9SZXNwb25zZRJDCgRWb3Rl",
+            "EhwuQ1B1Ymxpc2hlZEZpbGVfVm90ZV9SZXF1ZXN0Gh0uQ1B1Ymxpc2hlZEZp",
+            "bGVfVm90ZV9SZXNwb25zZUIgqgIdT3BlblN0ZWFtd29ya3MuUHJvdG9idWYu",
+            "V2ViVUk="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.Reflection.DescriptorReflection.Descriptor, global::OpenSteamworks.Protobuf.WebUI.CommonBaseReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -432,27 +373,16 @@ namespace OpenSteamworks.Protobuf.WebUI {
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_AreFilesInSubscriptionList_Response_InList), global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_AreFilesInSubscriptionList_Response_InList.Parser, new[]{ "Publishedfileid", "Inlist" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_CanSubscribe_Request), global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_CanSubscribe_Request.Parser, new[]{ "Publishedfileid" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_CanSubscribe_Response), global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_CanSubscribe_Response.Parser, new[]{ "CanSubscribe" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_Delete_Request), global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_Delete_Request.Parser, new[]{ "Publishedfileid", "Appid" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_Delete_Request), global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_Delete_Request.Parser, new[]{ "Publishedfileid" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_Delete_Response), global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_Delete_Response.Parser, null, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_FileDeleted_Client_Notification), global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_FileDeleted_Client_Notification.Parser, new[]{ "PublishedFileId", "AppId" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_FileSubscribed_Notification), global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_FileSubscribed_Notification.Parser, new[]{ "PublishedFileId", "AppId", "FileHcontent", "FileSize", "RtimeSubscribed", "IsDepotContent", "RtimeUpdated", "Revisions" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_FileSubscribed_Notification_RevisionData), global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_FileSubscribed_Notification_RevisionData.Parser, new[]{ "Revision", "FileHcontent", "RtimeUpdated" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_FileUnsubscribed_Notification), global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_FileUnsubscribed_Notification.Parser, new[]{ "PublishedFileId", "AppId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_GetAppRelationships_Request), global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_GetAppRelationships_Request.Parser, new[]{ "Publishedfileid" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_GetAppRelationships_Response), global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_GetAppRelationships_Response.Parser, new[]{ "AppRelationships" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_GetAppRelationships_Response_AppRelationship), global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_GetAppRelationships_Response_AppRelationship.Parser, new[]{ "Appid", "Relationship" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_GetAppRelationshipsBatched_Request), global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_GetAppRelationshipsBatched_Request.Parser, new[]{ "Publishedfileids", "FilterRelationship" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_GetAppRelationshipsBatched_Response), global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_GetAppRelationshipsBatched_Response.Parser, new[]{ "Relationships" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_GetAppRelationshipsBatched_Response_AppRelationship), global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_GetAppRelationshipsBatched_Response_AppRelationship.Parser, new[]{ "Appid", "Relationship" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_GetAppRelationshipsBatched_Response_PublishedFileAppRelationship), global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_GetAppRelationshipsBatched_Response_PublishedFileAppRelationship.Parser, new[]{ "Publishedfileid", "Result", "AppRelationships" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_GetChangeHistory_Request), global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_GetChangeHistory_Request.Parser, new[]{ "Publishedfileid", "TotalOnly", "Startindex", "Count", "Language" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_GetChangeHistory_Response), global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_GetChangeHistory_Response.Parser, new[]{ "Changes", "Total" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_GetChangeHistory_Response_ChangeLog), global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_GetChangeHistory_Response_ChangeLog.Parser, new[]{ "Timestamp", "ChangeDescription", "Language" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_GetChangeHistoryEntry_Request), global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_GetChangeHistoryEntry_Request.Parser, new[]{ "Publishedfileid", "Timestamp", "Language" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_GetChangeHistoryEntry_Response), global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_GetChangeHistoryEntry_Response.Parser, new[]{ "ChangeDescription", "Language" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_GetContentDescriptors_Request), global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_GetContentDescriptors_Request.Parser, new[]{ "Publishedfileid" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_GetContentDescriptors_Response), global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_GetContentDescriptors_Response.Parser, new[]{ "ContentDescriptors" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_GetContentDescriptors_Response_ContentDescriptor), global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_GetContentDescriptors_Response_ContentDescriptor.Parser, new[]{ "Descriptorid", "Accountid", "Timestamp", "ModeratorSet" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_GetDetails_Request), global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_GetDetails_Request.Parser, new[]{ "Publishedfileids", "Includetags", "Includeadditionalpreviews", "Includechildren", "Includekvtags", "Includevotes", "ShortDescription", "Includeforsaledata", "Includemetadata", "Language", "ReturnPlaytimeStats", "Appid", "StripDescriptionBbcode", "DesiredRevision", "Includereactions" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_GetDetails_Response), global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_GetDetails_Response.Parser, new[]{ "Publishedfiledetails" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_GetItemChanges_Request), global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_GetItemChanges_Request.Parser, new[]{ "Appid", "LastTimeUpdated", "NumItemsMax" }, null, null, null, null),
@@ -464,7 +394,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_GetItemInfo_Response_WorkshopItemInfo), global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_GetItemInfo_Response_WorkshopItemInfo.Parser, new[]{ "PublishedFileId", "TimeUpdated", "ManifestId", "Flags" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_GetSubSectionData_Request), global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_GetSubSectionData_Request.Parser, new[]{ "Publishedfileid", "ForTableOfContents", "SpecificSectionid", "DesiredRevision" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_GetSubSectionData_Response), global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_GetSubSectionData_Response.Parser, new[]{ "SubSections" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_GetUserFiles_Request), global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_GetUserFiles_Request.Parser, new[]{ "Steamid", "Appid", "Shortcutid", "Page", "Numperpage", "Type", "Sortmethod", "Privacy", "Requiredtags", "Excludedtags", "Filetype", "CreatorAppid", "MatchCloudFilename", "Totalonly", "IdsOnly", "ReturnVoteData", "ReturnTags", "ReturnKvTags", "ReturnPreviews", "ReturnChildren", "ReturnShortDescription", "StartindexOverride", "ReturnForSaleData", "CacheMaxAgeSeconds", "ReturnMetadata", "Language", "RequiredKvTags", "ReturnPlaytimeStats", "StripDescriptionBbcode", "DesiredRevision", "Taggroups", "ReturnReactions", "ReturnApps", "ExcludedContentDescriptors" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_GetUserFiles_Request), global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_GetUserFiles_Request.Parser, new[]{ "Steamid", "Appid", "Page", "Numperpage", "Type", "Sortmethod", "Privacy", "Requiredtags", "Excludedtags", "Filetype", "CreatorAppid", "MatchCloudFilename", "Totalonly", "IdsOnly", "ReturnVoteData", "ReturnTags", "ReturnKvTags", "ReturnPreviews", "ReturnChildren", "ReturnShortDescription", "StartindexOverride", "ReturnForSaleData", "CacheMaxAgeSeconds", "ReturnMetadata", "Language", "RequiredKvTags", "ReturnPlaytimeStats", "StripDescriptionBbcode", "DesiredRevision", "Taggroups", "ReturnReactions", "ReturnApps" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_GetUserFiles_Request_KVTag), global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_GetUserFiles_Request_KVTag.Parser, new[]{ "Key", "Value" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_GetUserFiles_Request_TagGroup), global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_GetUserFiles_Request_TagGroup.Parser, new[]{ "Tags" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_GetUserFiles_Response), global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_GetUserFiles_Response.Parser, new[]{ "Total", "Startindex", "Publishedfiledetails", "Apps" }, null, null, null, null),
@@ -474,7 +404,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_GetUserVoteSummary_Response_VoteSummary), global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_GetUserVoteSummary_Response_VoteSummary.Parser, new[]{ "Publishedfileid", "VoteFor", "VoteAgainst", "Reported" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_Publish_Request), global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_Publish_Request.Parser, new[]{ "Appid", "ConsumerAppid", "Cloudfilename", "PreviewCloudfilename", "Title", "FileDescription", "FileType", "ConsumerShortcutName", "YoutubeUsername", "YoutubeVideoid", "Visibility", "RedirectUri", "Tags", "CollectionType", "GameType", "Url" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_Publish_Response), global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_Publish_Response.Parser, new[]{ "Publishedfileid", "RedirectUri" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_QueryFiles_Request), global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_QueryFiles_Request.Parser, new[]{ "QueryType", "Page", "Numperpage", "CreatorAppid", "Appid", "Requiredtags", "Excludedtags", "MatchAllTags", "RequiredFlags", "OmittedFlags", "SearchText", "Filetype", "ChildPublishedfileid", "Days", "IncludeRecentVotesOnly", "Totalonly", "ReturnVoteData", "ReturnTags", "ReturnKvTags", "ReturnPreviews", "ReturnChildren", "ReturnShortDescription", "ReturnForSaleData", "CacheMaxAgeSeconds", "ReturnMetadata", "Language", "RequiredKvTags", "IdsOnly", "ReturnPlaytimeStats", "ReturnDetails", "StripDescriptionBbcode", "Cursor", "DesiredRevision", "Taggroups", "ReturnReactions", "DateRangeCreated", "DateRangeUpdated", "ExcludedContentDescriptors" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_QueryFiles_Request), global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_QueryFiles_Request.Parser, new[]{ "QueryType", "Page", "Numperpage", "CreatorAppid", "Appid", "Requiredtags", "Excludedtags", "MatchAllTags", "RequiredFlags", "OmittedFlags", "SearchText", "Filetype", "ChildPublishedfileid", "Days", "IncludeRecentVotesOnly", "Totalonly", "ReturnVoteData", "ReturnTags", "ReturnKvTags", "ReturnPreviews", "ReturnChildren", "ReturnShortDescription", "ReturnForSaleData", "CacheMaxAgeSeconds", "ReturnMetadata", "Language", "RequiredKvTags", "IdsOnly", "ReturnPlaytimeStats", "ReturnDetails", "StripDescriptionBbcode", "Cursor", "DesiredRevision", "Taggroups", "ReturnReactions", "DateRangeCreated", "DateRangeUpdated" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_QueryFiles_Request_DateRange), global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_QueryFiles_Request_DateRange.Parser, new[]{ "TimestampStart", "TimestampEnd" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_QueryFiles_Request_KVTag), global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_QueryFiles_Request_KVTag.Parser, new[]{ "Key", "Value" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_QueryFiles_Request_TagGroup), global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_QueryFiles_Request_TagGroup.Parser, new[]{ "Tags" }, null, null, null, null),
@@ -500,11 +430,9 @@ namespace OpenSteamworks.Protobuf.WebUI {
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_Unsubscribe_Response), global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_Unsubscribe_Response.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_Update_Request), global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_Update_Request.Parser, new[]{ "Appid", "Publishedfileid", "Title", "FileDescription", "Visibility", "Tags", "Filename", "PreviewFilename", "SpoilerTag", "ImageWidth", "ImageHeight" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_Update_Response), global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_Update_Response.Parser, null, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_UpdateContentDescriptors_Request), global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_UpdateContentDescriptors_Request.Parser, new[]{ "Publishedfileid", "DescriptorsToAdd", "DescriptorsToRemove" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_UpdateContentDescriptors_Response), global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_UpdateContentDescriptors_Response.Parser, new[]{ "TimestampUpdated" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_Vote_Request), global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_Vote_Request.Parser, new[]{ "Publishedfileid", "VoteUp" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_Vote_Response), global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_Vote_Response.Parser, null, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.PublishedFileDetails), global::OpenSteamworks.Protobuf.WebUI.PublishedFileDetails.Parser, new[]{ "Result", "Publishedfileid", "Creator", "CreatorAppid", "ConsumerAppid", "ConsumerShortcutid", "Filename", "FileSize", "PreviewFileSize", "FileUrl", "PreviewUrl", "Youtubevideoid", "Url", "HcontentFile", "HcontentPreview", "Title", "FileDescription", "ShortDescription", "TimeCreated", "TimeUpdated", "Visibility", "Flags", "WorkshopFile", "WorkshopAccepted", "ShowSubscribeAll", "NumCommentsDeveloper", "NumCommentsPublic", "Banned", "BanReason", "Banner", "CanBeDeleted", "Incompatible", "AppName", "FileType", "CanSubscribe", "Subscriptions", "Favorited", "Followers", "LifetimeSubscriptions", "LifetimeFavorited", "LifetimeFollowers", "Views", "ImageWidth", "ImageHeight", "ImageUrl", "SpoilerTag", "Shortcutid", "Shortcutname", "NumChildren", "NumReports", "Previews", "Tags", "Children", "Kvtags", "VoteData", "TimeSubscribed", "ForSaleData", "Metadata", "Language", "LifetimePlaytime", "LifetimePlaytimeSessions", "PlaytimeStats", "MaybeInappropriateSex", "MaybeInappropriateViolence", "RevisionChangeNumber", "Revision", "AvailableRevisions", "Reactions", "BanTextChecresult", "ContentDescriptorids", "SearchScore" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.PublishedFileDetails), global::OpenSteamworks.Protobuf.WebUI.PublishedFileDetails.Parser, new[]{ "Result", "Publishedfileid", "Creator", "CreatorAppid", "ConsumerAppid", "ConsumerShortcutid", "Filename", "FileSize", "PreviewFileSize", "FileUrl", "PreviewUrl", "Youtubevideoid", "Url", "HcontentFile", "HcontentPreview", "Title", "FileDescription", "ShortDescription", "TimeCreated", "TimeUpdated", "Visibility", "Flags", "WorkshopFile", "WorkshopAccepted", "ShowSubscribeAll", "NumCommentsDeveloper", "NumCommentsPublic", "Banned", "BanReason", "Banner", "CanBeDeleted", "Incompatible", "AppName", "FileType", "CanSubscribe", "Subscriptions", "Favorited", "Followers", "LifetimeSubscriptions", "LifetimeFavorited", "LifetimeFollowers", "Views", "ImageWidth", "ImageHeight", "ImageUrl", "SpoilerTag", "Shortcutid", "Shortcutname", "NumChildren", "NumReports", "Previews", "Tags", "Children", "Kvtags", "VoteData", "TimeSubscribed", "ForSaleData", "Metadata", "Language", "LifetimePlaytime", "LifetimePlaytimeSessions", "PlaytimeStats", "MaybeInappropriateSex", "MaybeInappropriateViolence", "RevisionChangeNumber", "Revision", "AvailableRevisions", "Reactions", "BanTextChecresult" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.PublishedFileDetails_Child), global::OpenSteamworks.Protobuf.WebUI.PublishedFileDetails_Child.Parser, new[]{ "Publishedfileid", "Sortorder", "FileType" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.PublishedFileDetails_ForSaleData), global::OpenSteamworks.Protobuf.WebUI.PublishedFileDetails_ForSaleData.Parser, new[]{ "IsForSale", "PriceCategory", "Estatus", "PriceCategoryFloor", "PriceIsPayWhatYouWant", "DiscountPercentage" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.PublishedFileDetails_KVTag), global::OpenSteamworks.Protobuf.WebUI.PublishedFileDetails_KVTag.Parser, new[]{ "Key", "Value" }, null, null, null, null),
@@ -2667,7 +2595,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
     public CPublishedFile_Delete_Request(CPublishedFile_Delete_Request other) : this() {
       _hasBits0 = other._hasBits0;
       publishedfileid_ = other.publishedfileid_;
-      appid_ = other.appid_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -2704,33 +2631,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
       _hasBits0 &= ~1;
     }
 
-    /// <summary>Field number for the "appid" field.</summary>
-    public const int AppidFieldNumber = 5;
-    private readonly static uint AppidDefaultValue = 0;
-
-    private uint appid_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint Appid {
-      get { if ((_hasBits0 & 2) != 0) { return appid_; } else { return AppidDefaultValue; } }
-      set {
-        _hasBits0 |= 2;
-        appid_ = value;
-      }
-    }
-    /// <summary>Gets whether the "appid" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasAppid {
-      get { return (_hasBits0 & 2) != 0; }
-    }
-    /// <summary>Clears the value of the "appid" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearAppid() {
-      _hasBits0 &= ~2;
-    }
-
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -2747,7 +2647,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
         return true;
       }
       if (Publishedfileid != other.Publishedfileid) return false;
-      if (Appid != other.Appid) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -2756,7 +2655,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
     public override int GetHashCode() {
       int hash = 1;
       if (HasPublishedfileid) hash ^= Publishedfileid.GetHashCode();
-      if (HasAppid) hash ^= Appid.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -2779,10 +2677,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
         output.WriteRawTag(9);
         output.WriteFixed64(Publishedfileid);
       }
-      if (HasAppid) {
-        output.WriteRawTag(40);
-        output.WriteUInt32(Appid);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -2797,10 +2691,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
         output.WriteRawTag(9);
         output.WriteFixed64(Publishedfileid);
       }
-      if (HasAppid) {
-        output.WriteRawTag(40);
-        output.WriteUInt32(Appid);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -2813,9 +2703,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
       int size = 0;
       if (HasPublishedfileid) {
         size += 1 + 8;
-      }
-      if (HasAppid) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Appid);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -2831,9 +2718,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
       }
       if (other.HasPublishedfileid) {
         Publishedfileid = other.Publishedfileid;
-      }
-      if (other.HasAppid) {
-        Appid = other.Appid;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -2854,10 +2738,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
             Publishedfileid = input.ReadFixed64();
             break;
           }
-          case 40: {
-            Appid = input.ReadUInt32();
-            break;
-          }
         }
       }
     #endif
@@ -2875,10 +2755,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
             break;
           case 9: {
             Publishedfileid = input.ReadFixed64();
-            break;
-          }
-          case 40: {
-            Appid = input.ReadUInt32();
             break;
           }
         }
@@ -3040,1376 +2916,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
-  public sealed partial class CPublishedFile_FileDeleted_Client_Notification : pb::IMessage<CPublishedFile_FileDeleted_Client_Notification>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<CPublishedFile_FileDeleted_Client_Notification> _parser = new pb::MessageParser<CPublishedFile_FileDeleted_Client_Notification>(() => new CPublishedFile_FileDeleted_Client_Notification());
-    private pb::UnknownFieldSet _unknownFields;
-    private int _hasBits0;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<CPublishedFile_FileDeleted_Client_Notification> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[11]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CPublishedFile_FileDeleted_Client_Notification() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CPublishedFile_FileDeleted_Client_Notification(CPublishedFile_FileDeleted_Client_Notification other) : this() {
-      _hasBits0 = other._hasBits0;
-      publishedFileId_ = other.publishedFileId_;
-      appId_ = other.appId_;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CPublishedFile_FileDeleted_Client_Notification Clone() {
-      return new CPublishedFile_FileDeleted_Client_Notification(this);
-    }
-
-    /// <summary>Field number for the "published_file_id" field.</summary>
-    public const int PublishedFileIdFieldNumber = 1;
-    private readonly static ulong PublishedFileIdDefaultValue = 0UL;
-
-    private ulong publishedFileId_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public ulong PublishedFileId {
-      get { if ((_hasBits0 & 1) != 0) { return publishedFileId_; } else { return PublishedFileIdDefaultValue; } }
-      set {
-        _hasBits0 |= 1;
-        publishedFileId_ = value;
-      }
-    }
-    /// <summary>Gets whether the "published_file_id" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasPublishedFileId {
-      get { return (_hasBits0 & 1) != 0; }
-    }
-    /// <summary>Clears the value of the "published_file_id" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearPublishedFileId() {
-      _hasBits0 &= ~1;
-    }
-
-    /// <summary>Field number for the "app_id" field.</summary>
-    public const int AppIdFieldNumber = 2;
-    private readonly static uint AppIdDefaultValue = 0;
-
-    private uint appId_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint AppId {
-      get { if ((_hasBits0 & 2) != 0) { return appId_; } else { return AppIdDefaultValue; } }
-      set {
-        _hasBits0 |= 2;
-        appId_ = value;
-      }
-    }
-    /// <summary>Gets whether the "app_id" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasAppId {
-      get { return (_hasBits0 & 2) != 0; }
-    }
-    /// <summary>Clears the value of the "app_id" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearAppId() {
-      _hasBits0 &= ~2;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override bool Equals(object other) {
-      return Equals(other as CPublishedFile_FileDeleted_Client_Notification);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(CPublishedFile_FileDeleted_Client_Notification other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (PublishedFileId != other.PublishedFileId) return false;
-      if (AppId != other.AppId) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (HasPublishedFileId) hash ^= PublishedFileId.GetHashCode();
-      if (HasAppId) hash ^= AppId.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      if (HasPublishedFileId) {
-        output.WriteRawTag(9);
-        output.WriteFixed64(PublishedFileId);
-      }
-      if (HasAppId) {
-        output.WriteRawTag(16);
-        output.WriteUInt32(AppId);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (HasPublishedFileId) {
-        output.WriteRawTag(9);
-        output.WriteFixed64(PublishedFileId);
-      }
-      if (HasAppId) {
-        output.WriteRawTag(16);
-        output.WriteUInt32(AppId);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int CalculateSize() {
-      int size = 0;
-      if (HasPublishedFileId) {
-        size += 1 + 8;
-      }
-      if (HasAppId) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(AppId);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(CPublishedFile_FileDeleted_Client_Notification other) {
-      if (other == null) {
-        return;
-      }
-      if (other.HasPublishedFileId) {
-        PublishedFileId = other.PublishedFileId;
-      }
-      if (other.HasAppId) {
-        AppId = other.AppId;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 9: {
-            PublishedFileId = input.ReadFixed64();
-            break;
-          }
-          case 16: {
-            AppId = input.ReadUInt32();
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 9: {
-            PublishedFileId = input.ReadFixed64();
-            break;
-          }
-          case 16: {
-            AppId = input.ReadUInt32();
-            break;
-          }
-        }
-      }
-    }
-    #endif
-
-  }
-
-  public sealed partial class CPublishedFile_FileSubscribed_Notification : pb::IMessage<CPublishedFile_FileSubscribed_Notification>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<CPublishedFile_FileSubscribed_Notification> _parser = new pb::MessageParser<CPublishedFile_FileSubscribed_Notification>(() => new CPublishedFile_FileSubscribed_Notification());
-    private pb::UnknownFieldSet _unknownFields;
-    private int _hasBits0;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<CPublishedFile_FileSubscribed_Notification> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[12]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CPublishedFile_FileSubscribed_Notification() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CPublishedFile_FileSubscribed_Notification(CPublishedFile_FileSubscribed_Notification other) : this() {
-      _hasBits0 = other._hasBits0;
-      publishedFileId_ = other.publishedFileId_;
-      appId_ = other.appId_;
-      fileHcontent_ = other.fileHcontent_;
-      fileSize_ = other.fileSize_;
-      rtimeSubscribed_ = other.rtimeSubscribed_;
-      isDepotContent_ = other.isDepotContent_;
-      rtimeUpdated_ = other.rtimeUpdated_;
-      revisions_ = other.revisions_.Clone();
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CPublishedFile_FileSubscribed_Notification Clone() {
-      return new CPublishedFile_FileSubscribed_Notification(this);
-    }
-
-    /// <summary>Field number for the "published_file_id" field.</summary>
-    public const int PublishedFileIdFieldNumber = 1;
-    private readonly static ulong PublishedFileIdDefaultValue = 0UL;
-
-    private ulong publishedFileId_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public ulong PublishedFileId {
-      get { if ((_hasBits0 & 1) != 0) { return publishedFileId_; } else { return PublishedFileIdDefaultValue; } }
-      set {
-        _hasBits0 |= 1;
-        publishedFileId_ = value;
-      }
-    }
-    /// <summary>Gets whether the "published_file_id" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasPublishedFileId {
-      get { return (_hasBits0 & 1) != 0; }
-    }
-    /// <summary>Clears the value of the "published_file_id" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearPublishedFileId() {
-      _hasBits0 &= ~1;
-    }
-
-    /// <summary>Field number for the "app_id" field.</summary>
-    public const int AppIdFieldNumber = 2;
-    private readonly static uint AppIdDefaultValue = 0;
-
-    private uint appId_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint AppId {
-      get { if ((_hasBits0 & 2) != 0) { return appId_; } else { return AppIdDefaultValue; } }
-      set {
-        _hasBits0 |= 2;
-        appId_ = value;
-      }
-    }
-    /// <summary>Gets whether the "app_id" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasAppId {
-      get { return (_hasBits0 & 2) != 0; }
-    }
-    /// <summary>Clears the value of the "app_id" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearAppId() {
-      _hasBits0 &= ~2;
-    }
-
-    /// <summary>Field number for the "file_hcontent" field.</summary>
-    public const int FileHcontentFieldNumber = 3;
-    private readonly static ulong FileHcontentDefaultValue = 0UL;
-
-    private ulong fileHcontent_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public ulong FileHcontent {
-      get { if ((_hasBits0 & 4) != 0) { return fileHcontent_; } else { return FileHcontentDefaultValue; } }
-      set {
-        _hasBits0 |= 4;
-        fileHcontent_ = value;
-      }
-    }
-    /// <summary>Gets whether the "file_hcontent" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasFileHcontent {
-      get { return (_hasBits0 & 4) != 0; }
-    }
-    /// <summary>Clears the value of the "file_hcontent" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearFileHcontent() {
-      _hasBits0 &= ~4;
-    }
-
-    /// <summary>Field number for the "file_size" field.</summary>
-    public const int FileSizeFieldNumber = 4;
-    private readonly static uint FileSizeDefaultValue = 0;
-
-    private uint fileSize_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint FileSize {
-      get { if ((_hasBits0 & 8) != 0) { return fileSize_; } else { return FileSizeDefaultValue; } }
-      set {
-        _hasBits0 |= 8;
-        fileSize_ = value;
-      }
-    }
-    /// <summary>Gets whether the "file_size" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasFileSize {
-      get { return (_hasBits0 & 8) != 0; }
-    }
-    /// <summary>Clears the value of the "file_size" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearFileSize() {
-      _hasBits0 &= ~8;
-    }
-
-    /// <summary>Field number for the "rtime_subscribed" field.</summary>
-    public const int RtimeSubscribedFieldNumber = 5;
-    private readonly static uint RtimeSubscribedDefaultValue = 0;
-
-    private uint rtimeSubscribed_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint RtimeSubscribed {
-      get { if ((_hasBits0 & 16) != 0) { return rtimeSubscribed_; } else { return RtimeSubscribedDefaultValue; } }
-      set {
-        _hasBits0 |= 16;
-        rtimeSubscribed_ = value;
-      }
-    }
-    /// <summary>Gets whether the "rtime_subscribed" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasRtimeSubscribed {
-      get { return (_hasBits0 & 16) != 0; }
-    }
-    /// <summary>Clears the value of the "rtime_subscribed" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearRtimeSubscribed() {
-      _hasBits0 &= ~16;
-    }
-
-    /// <summary>Field number for the "is_depot_content" field.</summary>
-    public const int IsDepotContentFieldNumber = 6;
-    private readonly static bool IsDepotContentDefaultValue = false;
-
-    private bool isDepotContent_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool IsDepotContent {
-      get { if ((_hasBits0 & 32) != 0) { return isDepotContent_; } else { return IsDepotContentDefaultValue; } }
-      set {
-        _hasBits0 |= 32;
-        isDepotContent_ = value;
-      }
-    }
-    /// <summary>Gets whether the "is_depot_content" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasIsDepotContent {
-      get { return (_hasBits0 & 32) != 0; }
-    }
-    /// <summary>Clears the value of the "is_depot_content" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearIsDepotContent() {
-      _hasBits0 &= ~32;
-    }
-
-    /// <summary>Field number for the "rtime_updated" field.</summary>
-    public const int RtimeUpdatedFieldNumber = 7;
-    private readonly static uint RtimeUpdatedDefaultValue = 0;
-
-    private uint rtimeUpdated_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint RtimeUpdated {
-      get { if ((_hasBits0 & 64) != 0) { return rtimeUpdated_; } else { return RtimeUpdatedDefaultValue; } }
-      set {
-        _hasBits0 |= 64;
-        rtimeUpdated_ = value;
-      }
-    }
-    /// <summary>Gets whether the "rtime_updated" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasRtimeUpdated {
-      get { return (_hasBits0 & 64) != 0; }
-    }
-    /// <summary>Clears the value of the "rtime_updated" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearRtimeUpdated() {
-      _hasBits0 &= ~64;
-    }
-
-    /// <summary>Field number for the "revisions" field.</summary>
-    public const int RevisionsFieldNumber = 8;
-    private static readonly pb::FieldCodec<global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_FileSubscribed_Notification_RevisionData> _repeated_revisions_codec
-        = pb::FieldCodec.ForMessage(66, global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_FileSubscribed_Notification_RevisionData.Parser);
-    private readonly pbc::RepeatedField<global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_FileSubscribed_Notification_RevisionData> revisions_ = new pbc::RepeatedField<global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_FileSubscribed_Notification_RevisionData>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_FileSubscribed_Notification_RevisionData> Revisions {
-      get { return revisions_; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override bool Equals(object other) {
-      return Equals(other as CPublishedFile_FileSubscribed_Notification);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(CPublishedFile_FileSubscribed_Notification other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (PublishedFileId != other.PublishedFileId) return false;
-      if (AppId != other.AppId) return false;
-      if (FileHcontent != other.FileHcontent) return false;
-      if (FileSize != other.FileSize) return false;
-      if (RtimeSubscribed != other.RtimeSubscribed) return false;
-      if (IsDepotContent != other.IsDepotContent) return false;
-      if (RtimeUpdated != other.RtimeUpdated) return false;
-      if(!revisions_.Equals(other.revisions_)) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (HasPublishedFileId) hash ^= PublishedFileId.GetHashCode();
-      if (HasAppId) hash ^= AppId.GetHashCode();
-      if (HasFileHcontent) hash ^= FileHcontent.GetHashCode();
-      if (HasFileSize) hash ^= FileSize.GetHashCode();
-      if (HasRtimeSubscribed) hash ^= RtimeSubscribed.GetHashCode();
-      if (HasIsDepotContent) hash ^= IsDepotContent.GetHashCode();
-      if (HasRtimeUpdated) hash ^= RtimeUpdated.GetHashCode();
-      hash ^= revisions_.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      if (HasPublishedFileId) {
-        output.WriteRawTag(9);
-        output.WriteFixed64(PublishedFileId);
-      }
-      if (HasAppId) {
-        output.WriteRawTag(16);
-        output.WriteUInt32(AppId);
-      }
-      if (HasFileHcontent) {
-        output.WriteRawTag(25);
-        output.WriteFixed64(FileHcontent);
-      }
-      if (HasFileSize) {
-        output.WriteRawTag(32);
-        output.WriteUInt32(FileSize);
-      }
-      if (HasRtimeSubscribed) {
-        output.WriteRawTag(40);
-        output.WriteUInt32(RtimeSubscribed);
-      }
-      if (HasIsDepotContent) {
-        output.WriteRawTag(48);
-        output.WriteBool(IsDepotContent);
-      }
-      if (HasRtimeUpdated) {
-        output.WriteRawTag(56);
-        output.WriteUInt32(RtimeUpdated);
-      }
-      revisions_.WriteTo(output, _repeated_revisions_codec);
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (HasPublishedFileId) {
-        output.WriteRawTag(9);
-        output.WriteFixed64(PublishedFileId);
-      }
-      if (HasAppId) {
-        output.WriteRawTag(16);
-        output.WriteUInt32(AppId);
-      }
-      if (HasFileHcontent) {
-        output.WriteRawTag(25);
-        output.WriteFixed64(FileHcontent);
-      }
-      if (HasFileSize) {
-        output.WriteRawTag(32);
-        output.WriteUInt32(FileSize);
-      }
-      if (HasRtimeSubscribed) {
-        output.WriteRawTag(40);
-        output.WriteUInt32(RtimeSubscribed);
-      }
-      if (HasIsDepotContent) {
-        output.WriteRawTag(48);
-        output.WriteBool(IsDepotContent);
-      }
-      if (HasRtimeUpdated) {
-        output.WriteRawTag(56);
-        output.WriteUInt32(RtimeUpdated);
-      }
-      revisions_.WriteTo(ref output, _repeated_revisions_codec);
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int CalculateSize() {
-      int size = 0;
-      if (HasPublishedFileId) {
-        size += 1 + 8;
-      }
-      if (HasAppId) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(AppId);
-      }
-      if (HasFileHcontent) {
-        size += 1 + 8;
-      }
-      if (HasFileSize) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(FileSize);
-      }
-      if (HasRtimeSubscribed) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(RtimeSubscribed);
-      }
-      if (HasIsDepotContent) {
-        size += 1 + 1;
-      }
-      if (HasRtimeUpdated) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(RtimeUpdated);
-      }
-      size += revisions_.CalculateSize(_repeated_revisions_codec);
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(CPublishedFile_FileSubscribed_Notification other) {
-      if (other == null) {
-        return;
-      }
-      if (other.HasPublishedFileId) {
-        PublishedFileId = other.PublishedFileId;
-      }
-      if (other.HasAppId) {
-        AppId = other.AppId;
-      }
-      if (other.HasFileHcontent) {
-        FileHcontent = other.FileHcontent;
-      }
-      if (other.HasFileSize) {
-        FileSize = other.FileSize;
-      }
-      if (other.HasRtimeSubscribed) {
-        RtimeSubscribed = other.RtimeSubscribed;
-      }
-      if (other.HasIsDepotContent) {
-        IsDepotContent = other.IsDepotContent;
-      }
-      if (other.HasRtimeUpdated) {
-        RtimeUpdated = other.RtimeUpdated;
-      }
-      revisions_.Add(other.revisions_);
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 9: {
-            PublishedFileId = input.ReadFixed64();
-            break;
-          }
-          case 16: {
-            AppId = input.ReadUInt32();
-            break;
-          }
-          case 25: {
-            FileHcontent = input.ReadFixed64();
-            break;
-          }
-          case 32: {
-            FileSize = input.ReadUInt32();
-            break;
-          }
-          case 40: {
-            RtimeSubscribed = input.ReadUInt32();
-            break;
-          }
-          case 48: {
-            IsDepotContent = input.ReadBool();
-            break;
-          }
-          case 56: {
-            RtimeUpdated = input.ReadUInt32();
-            break;
-          }
-          case 66: {
-            revisions_.AddEntriesFrom(input, _repeated_revisions_codec);
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 9: {
-            PublishedFileId = input.ReadFixed64();
-            break;
-          }
-          case 16: {
-            AppId = input.ReadUInt32();
-            break;
-          }
-          case 25: {
-            FileHcontent = input.ReadFixed64();
-            break;
-          }
-          case 32: {
-            FileSize = input.ReadUInt32();
-            break;
-          }
-          case 40: {
-            RtimeSubscribed = input.ReadUInt32();
-            break;
-          }
-          case 48: {
-            IsDepotContent = input.ReadBool();
-            break;
-          }
-          case 56: {
-            RtimeUpdated = input.ReadUInt32();
-            break;
-          }
-          case 66: {
-            revisions_.AddEntriesFrom(ref input, _repeated_revisions_codec);
-            break;
-          }
-        }
-      }
-    }
-    #endif
-
-  }
-
-  public sealed partial class CPublishedFile_FileSubscribed_Notification_RevisionData : pb::IMessage<CPublishedFile_FileSubscribed_Notification_RevisionData>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<CPublishedFile_FileSubscribed_Notification_RevisionData> _parser = new pb::MessageParser<CPublishedFile_FileSubscribed_Notification_RevisionData>(() => new CPublishedFile_FileSubscribed_Notification_RevisionData());
-    private pb::UnknownFieldSet _unknownFields;
-    private int _hasBits0;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<CPublishedFile_FileSubscribed_Notification_RevisionData> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[13]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CPublishedFile_FileSubscribed_Notification_RevisionData() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CPublishedFile_FileSubscribed_Notification_RevisionData(CPublishedFile_FileSubscribed_Notification_RevisionData other) : this() {
-      _hasBits0 = other._hasBits0;
-      revision_ = other.revision_;
-      fileHcontent_ = other.fileHcontent_;
-      rtimeUpdated_ = other.rtimeUpdated_;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CPublishedFile_FileSubscribed_Notification_RevisionData Clone() {
-      return new CPublishedFile_FileSubscribed_Notification_RevisionData(this);
-    }
-
-    /// <summary>Field number for the "revision" field.</summary>
-    public const int RevisionFieldNumber = 1;
-    private readonly static int RevisionDefaultValue = 0;
-
-    private int revision_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int Revision {
-      get { if ((_hasBits0 & 1) != 0) { return revision_; } else { return RevisionDefaultValue; } }
-      set {
-        _hasBits0 |= 1;
-        revision_ = value;
-      }
-    }
-    /// <summary>Gets whether the "revision" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasRevision {
-      get { return (_hasBits0 & 1) != 0; }
-    }
-    /// <summary>Clears the value of the "revision" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearRevision() {
-      _hasBits0 &= ~1;
-    }
-
-    /// <summary>Field number for the "file_hcontent" field.</summary>
-    public const int FileHcontentFieldNumber = 2;
-    private readonly static ulong FileHcontentDefaultValue = 0UL;
-
-    private ulong fileHcontent_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public ulong FileHcontent {
-      get { if ((_hasBits0 & 2) != 0) { return fileHcontent_; } else { return FileHcontentDefaultValue; } }
-      set {
-        _hasBits0 |= 2;
-        fileHcontent_ = value;
-      }
-    }
-    /// <summary>Gets whether the "file_hcontent" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasFileHcontent {
-      get { return (_hasBits0 & 2) != 0; }
-    }
-    /// <summary>Clears the value of the "file_hcontent" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearFileHcontent() {
-      _hasBits0 &= ~2;
-    }
-
-    /// <summary>Field number for the "rtime_updated" field.</summary>
-    public const int RtimeUpdatedFieldNumber = 3;
-    private readonly static uint RtimeUpdatedDefaultValue = 0;
-
-    private uint rtimeUpdated_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint RtimeUpdated {
-      get { if ((_hasBits0 & 4) != 0) { return rtimeUpdated_; } else { return RtimeUpdatedDefaultValue; } }
-      set {
-        _hasBits0 |= 4;
-        rtimeUpdated_ = value;
-      }
-    }
-    /// <summary>Gets whether the "rtime_updated" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasRtimeUpdated {
-      get { return (_hasBits0 & 4) != 0; }
-    }
-    /// <summary>Clears the value of the "rtime_updated" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearRtimeUpdated() {
-      _hasBits0 &= ~4;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override bool Equals(object other) {
-      return Equals(other as CPublishedFile_FileSubscribed_Notification_RevisionData);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(CPublishedFile_FileSubscribed_Notification_RevisionData other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (Revision != other.Revision) return false;
-      if (FileHcontent != other.FileHcontent) return false;
-      if (RtimeUpdated != other.RtimeUpdated) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (HasRevision) hash ^= Revision.GetHashCode();
-      if (HasFileHcontent) hash ^= FileHcontent.GetHashCode();
-      if (HasRtimeUpdated) hash ^= RtimeUpdated.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      if (HasRevision) {
-        output.WriteRawTag(8);
-        output.WriteInt32(Revision);
-      }
-      if (HasFileHcontent) {
-        output.WriteRawTag(17);
-        output.WriteFixed64(FileHcontent);
-      }
-      if (HasRtimeUpdated) {
-        output.WriteRawTag(24);
-        output.WriteUInt32(RtimeUpdated);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (HasRevision) {
-        output.WriteRawTag(8);
-        output.WriteInt32(Revision);
-      }
-      if (HasFileHcontent) {
-        output.WriteRawTag(17);
-        output.WriteFixed64(FileHcontent);
-      }
-      if (HasRtimeUpdated) {
-        output.WriteRawTag(24);
-        output.WriteUInt32(RtimeUpdated);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int CalculateSize() {
-      int size = 0;
-      if (HasRevision) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Revision);
-      }
-      if (HasFileHcontent) {
-        size += 1 + 8;
-      }
-      if (HasRtimeUpdated) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(RtimeUpdated);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(CPublishedFile_FileSubscribed_Notification_RevisionData other) {
-      if (other == null) {
-        return;
-      }
-      if (other.HasRevision) {
-        Revision = other.Revision;
-      }
-      if (other.HasFileHcontent) {
-        FileHcontent = other.FileHcontent;
-      }
-      if (other.HasRtimeUpdated) {
-        RtimeUpdated = other.RtimeUpdated;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 8: {
-            Revision = input.ReadInt32();
-            break;
-          }
-          case 17: {
-            FileHcontent = input.ReadFixed64();
-            break;
-          }
-          case 24: {
-            RtimeUpdated = input.ReadUInt32();
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 8: {
-            Revision = input.ReadInt32();
-            break;
-          }
-          case 17: {
-            FileHcontent = input.ReadFixed64();
-            break;
-          }
-          case 24: {
-            RtimeUpdated = input.ReadUInt32();
-            break;
-          }
-        }
-      }
-    }
-    #endif
-
-  }
-
-  public sealed partial class CPublishedFile_FileUnsubscribed_Notification : pb::IMessage<CPublishedFile_FileUnsubscribed_Notification>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<CPublishedFile_FileUnsubscribed_Notification> _parser = new pb::MessageParser<CPublishedFile_FileUnsubscribed_Notification>(() => new CPublishedFile_FileUnsubscribed_Notification());
-    private pb::UnknownFieldSet _unknownFields;
-    private int _hasBits0;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<CPublishedFile_FileUnsubscribed_Notification> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[14]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CPublishedFile_FileUnsubscribed_Notification() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CPublishedFile_FileUnsubscribed_Notification(CPublishedFile_FileUnsubscribed_Notification other) : this() {
-      _hasBits0 = other._hasBits0;
-      publishedFileId_ = other.publishedFileId_;
-      appId_ = other.appId_;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CPublishedFile_FileUnsubscribed_Notification Clone() {
-      return new CPublishedFile_FileUnsubscribed_Notification(this);
-    }
-
-    /// <summary>Field number for the "published_file_id" field.</summary>
-    public const int PublishedFileIdFieldNumber = 1;
-    private readonly static ulong PublishedFileIdDefaultValue = 0UL;
-
-    private ulong publishedFileId_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public ulong PublishedFileId {
-      get { if ((_hasBits0 & 1) != 0) { return publishedFileId_; } else { return PublishedFileIdDefaultValue; } }
-      set {
-        _hasBits0 |= 1;
-        publishedFileId_ = value;
-      }
-    }
-    /// <summary>Gets whether the "published_file_id" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasPublishedFileId {
-      get { return (_hasBits0 & 1) != 0; }
-    }
-    /// <summary>Clears the value of the "published_file_id" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearPublishedFileId() {
-      _hasBits0 &= ~1;
-    }
-
-    /// <summary>Field number for the "app_id" field.</summary>
-    public const int AppIdFieldNumber = 2;
-    private readonly static uint AppIdDefaultValue = 0;
-
-    private uint appId_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint AppId {
-      get { if ((_hasBits0 & 2) != 0) { return appId_; } else { return AppIdDefaultValue; } }
-      set {
-        _hasBits0 |= 2;
-        appId_ = value;
-      }
-    }
-    /// <summary>Gets whether the "app_id" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasAppId {
-      get { return (_hasBits0 & 2) != 0; }
-    }
-    /// <summary>Clears the value of the "app_id" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearAppId() {
-      _hasBits0 &= ~2;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override bool Equals(object other) {
-      return Equals(other as CPublishedFile_FileUnsubscribed_Notification);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(CPublishedFile_FileUnsubscribed_Notification other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (PublishedFileId != other.PublishedFileId) return false;
-      if (AppId != other.AppId) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (HasPublishedFileId) hash ^= PublishedFileId.GetHashCode();
-      if (HasAppId) hash ^= AppId.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      if (HasPublishedFileId) {
-        output.WriteRawTag(9);
-        output.WriteFixed64(PublishedFileId);
-      }
-      if (HasAppId) {
-        output.WriteRawTag(16);
-        output.WriteUInt32(AppId);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (HasPublishedFileId) {
-        output.WriteRawTag(9);
-        output.WriteFixed64(PublishedFileId);
-      }
-      if (HasAppId) {
-        output.WriteRawTag(16);
-        output.WriteUInt32(AppId);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int CalculateSize() {
-      int size = 0;
-      if (HasPublishedFileId) {
-        size += 1 + 8;
-      }
-      if (HasAppId) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(AppId);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(CPublishedFile_FileUnsubscribed_Notification other) {
-      if (other == null) {
-        return;
-      }
-      if (other.HasPublishedFileId) {
-        PublishedFileId = other.PublishedFileId;
-      }
-      if (other.HasAppId) {
-        AppId = other.AppId;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 9: {
-            PublishedFileId = input.ReadFixed64();
-            break;
-          }
-          case 16: {
-            AppId = input.ReadUInt32();
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 9: {
-            PublishedFileId = input.ReadFixed64();
-            break;
-          }
-          case 16: {
-            AppId = input.ReadUInt32();
-            break;
-          }
-        }
-      }
-    }
-    #endif
-
-  }
-
   public sealed partial class CPublishedFile_GetAppRelationships_Request : pb::IMessage<CPublishedFile_GetAppRelationships_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -4425,7 +2931,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[15]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[11]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4630,7 +3136,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[16]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[12]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4809,7 +3315,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[17]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[13]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -5052,960 +3558,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
-  public sealed partial class CPublishedFile_GetAppRelationshipsBatched_Request : pb::IMessage<CPublishedFile_GetAppRelationshipsBatched_Request>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<CPublishedFile_GetAppRelationshipsBatched_Request> _parser = new pb::MessageParser<CPublishedFile_GetAppRelationshipsBatched_Request>(() => new CPublishedFile_GetAppRelationshipsBatched_Request());
-    private pb::UnknownFieldSet _unknownFields;
-    private int _hasBits0;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<CPublishedFile_GetAppRelationshipsBatched_Request> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[18]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CPublishedFile_GetAppRelationshipsBatched_Request() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CPublishedFile_GetAppRelationshipsBatched_Request(CPublishedFile_GetAppRelationshipsBatched_Request other) : this() {
-      _hasBits0 = other._hasBits0;
-      publishedfileids_ = other.publishedfileids_.Clone();
-      filterRelationship_ = other.filterRelationship_;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CPublishedFile_GetAppRelationshipsBatched_Request Clone() {
-      return new CPublishedFile_GetAppRelationshipsBatched_Request(this);
-    }
-
-    /// <summary>Field number for the "publishedfileids" field.</summary>
-    public const int PublishedfileidsFieldNumber = 1;
-    private static readonly pb::FieldCodec<ulong> _repeated_publishedfileids_codec
-        = pb::FieldCodec.ForUInt64(8);
-    private readonly pbc::RepeatedField<ulong> publishedfileids_ = new pbc::RepeatedField<ulong>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<ulong> Publishedfileids {
-      get { return publishedfileids_; }
-    }
-
-    /// <summary>Field number for the "filter_relationship" field.</summary>
-    public const int FilterRelationshipFieldNumber = 2;
-    private readonly static uint FilterRelationshipDefaultValue = 0;
-
-    private uint filterRelationship_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint FilterRelationship {
-      get { if ((_hasBits0 & 1) != 0) { return filterRelationship_; } else { return FilterRelationshipDefaultValue; } }
-      set {
-        _hasBits0 |= 1;
-        filterRelationship_ = value;
-      }
-    }
-    /// <summary>Gets whether the "filter_relationship" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasFilterRelationship {
-      get { return (_hasBits0 & 1) != 0; }
-    }
-    /// <summary>Clears the value of the "filter_relationship" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearFilterRelationship() {
-      _hasBits0 &= ~1;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override bool Equals(object other) {
-      return Equals(other as CPublishedFile_GetAppRelationshipsBatched_Request);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(CPublishedFile_GetAppRelationshipsBatched_Request other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if(!publishedfileids_.Equals(other.publishedfileids_)) return false;
-      if (FilterRelationship != other.FilterRelationship) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override int GetHashCode() {
-      int hash = 1;
-      hash ^= publishedfileids_.GetHashCode();
-      if (HasFilterRelationship) hash ^= FilterRelationship.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      publishedfileids_.WriteTo(output, _repeated_publishedfileids_codec);
-      if (HasFilterRelationship) {
-        output.WriteRawTag(16);
-        output.WriteUInt32(FilterRelationship);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      publishedfileids_.WriteTo(ref output, _repeated_publishedfileids_codec);
-      if (HasFilterRelationship) {
-        output.WriteRawTag(16);
-        output.WriteUInt32(FilterRelationship);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int CalculateSize() {
-      int size = 0;
-      size += publishedfileids_.CalculateSize(_repeated_publishedfileids_codec);
-      if (HasFilterRelationship) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(FilterRelationship);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(CPublishedFile_GetAppRelationshipsBatched_Request other) {
-      if (other == null) {
-        return;
-      }
-      publishedfileids_.Add(other.publishedfileids_);
-      if (other.HasFilterRelationship) {
-        FilterRelationship = other.FilterRelationship;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 10:
-          case 8: {
-            publishedfileids_.AddEntriesFrom(input, _repeated_publishedfileids_codec);
-            break;
-          }
-          case 16: {
-            FilterRelationship = input.ReadUInt32();
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 10:
-          case 8: {
-            publishedfileids_.AddEntriesFrom(ref input, _repeated_publishedfileids_codec);
-            break;
-          }
-          case 16: {
-            FilterRelationship = input.ReadUInt32();
-            break;
-          }
-        }
-      }
-    }
-    #endif
-
-  }
-
-  public sealed partial class CPublishedFile_GetAppRelationshipsBatched_Response : pb::IMessage<CPublishedFile_GetAppRelationshipsBatched_Response>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<CPublishedFile_GetAppRelationshipsBatched_Response> _parser = new pb::MessageParser<CPublishedFile_GetAppRelationshipsBatched_Response>(() => new CPublishedFile_GetAppRelationshipsBatched_Response());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<CPublishedFile_GetAppRelationshipsBatched_Response> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[19]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CPublishedFile_GetAppRelationshipsBatched_Response() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CPublishedFile_GetAppRelationshipsBatched_Response(CPublishedFile_GetAppRelationshipsBatched_Response other) : this() {
-      relationships_ = other.relationships_.Clone();
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CPublishedFile_GetAppRelationshipsBatched_Response Clone() {
-      return new CPublishedFile_GetAppRelationshipsBatched_Response(this);
-    }
-
-    /// <summary>Field number for the "relationships" field.</summary>
-    public const int RelationshipsFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_GetAppRelationshipsBatched_Response_PublishedFileAppRelationship> _repeated_relationships_codec
-        = pb::FieldCodec.ForMessage(10, global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_GetAppRelationshipsBatched_Response_PublishedFileAppRelationship.Parser);
-    private readonly pbc::RepeatedField<global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_GetAppRelationshipsBatched_Response_PublishedFileAppRelationship> relationships_ = new pbc::RepeatedField<global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_GetAppRelationshipsBatched_Response_PublishedFileAppRelationship>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_GetAppRelationshipsBatched_Response_PublishedFileAppRelationship> Relationships {
-      get { return relationships_; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override bool Equals(object other) {
-      return Equals(other as CPublishedFile_GetAppRelationshipsBatched_Response);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(CPublishedFile_GetAppRelationshipsBatched_Response other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if(!relationships_.Equals(other.relationships_)) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override int GetHashCode() {
-      int hash = 1;
-      hash ^= relationships_.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      relationships_.WriteTo(output, _repeated_relationships_codec);
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      relationships_.WriteTo(ref output, _repeated_relationships_codec);
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int CalculateSize() {
-      int size = 0;
-      size += relationships_.CalculateSize(_repeated_relationships_codec);
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(CPublishedFile_GetAppRelationshipsBatched_Response other) {
-      if (other == null) {
-        return;
-      }
-      relationships_.Add(other.relationships_);
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 10: {
-            relationships_.AddEntriesFrom(input, _repeated_relationships_codec);
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 10: {
-            relationships_.AddEntriesFrom(ref input, _repeated_relationships_codec);
-            break;
-          }
-        }
-      }
-    }
-    #endif
-
-  }
-
-  public sealed partial class CPublishedFile_GetAppRelationshipsBatched_Response_AppRelationship : pb::IMessage<CPublishedFile_GetAppRelationshipsBatched_Response_AppRelationship>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<CPublishedFile_GetAppRelationshipsBatched_Response_AppRelationship> _parser = new pb::MessageParser<CPublishedFile_GetAppRelationshipsBatched_Response_AppRelationship>(() => new CPublishedFile_GetAppRelationshipsBatched_Response_AppRelationship());
-    private pb::UnknownFieldSet _unknownFields;
-    private int _hasBits0;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<CPublishedFile_GetAppRelationshipsBatched_Response_AppRelationship> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[20]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CPublishedFile_GetAppRelationshipsBatched_Response_AppRelationship() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CPublishedFile_GetAppRelationshipsBatched_Response_AppRelationship(CPublishedFile_GetAppRelationshipsBatched_Response_AppRelationship other) : this() {
-      _hasBits0 = other._hasBits0;
-      appid_ = other.appid_;
-      relationship_ = other.relationship_;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CPublishedFile_GetAppRelationshipsBatched_Response_AppRelationship Clone() {
-      return new CPublishedFile_GetAppRelationshipsBatched_Response_AppRelationship(this);
-    }
-
-    /// <summary>Field number for the "appid" field.</summary>
-    public const int AppidFieldNumber = 1;
-    private readonly static uint AppidDefaultValue = 0;
-
-    private uint appid_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint Appid {
-      get { if ((_hasBits0 & 1) != 0) { return appid_; } else { return AppidDefaultValue; } }
-      set {
-        _hasBits0 |= 1;
-        appid_ = value;
-      }
-    }
-    /// <summary>Gets whether the "appid" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasAppid {
-      get { return (_hasBits0 & 1) != 0; }
-    }
-    /// <summary>Clears the value of the "appid" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearAppid() {
-      _hasBits0 &= ~1;
-    }
-
-    /// <summary>Field number for the "relationship" field.</summary>
-    public const int RelationshipFieldNumber = 2;
-    private readonly static uint RelationshipDefaultValue = 0;
-
-    private uint relationship_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint Relationship {
-      get { if ((_hasBits0 & 2) != 0) { return relationship_; } else { return RelationshipDefaultValue; } }
-      set {
-        _hasBits0 |= 2;
-        relationship_ = value;
-      }
-    }
-    /// <summary>Gets whether the "relationship" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasRelationship {
-      get { return (_hasBits0 & 2) != 0; }
-    }
-    /// <summary>Clears the value of the "relationship" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearRelationship() {
-      _hasBits0 &= ~2;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override bool Equals(object other) {
-      return Equals(other as CPublishedFile_GetAppRelationshipsBatched_Response_AppRelationship);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(CPublishedFile_GetAppRelationshipsBatched_Response_AppRelationship other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (Appid != other.Appid) return false;
-      if (Relationship != other.Relationship) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (HasAppid) hash ^= Appid.GetHashCode();
-      if (HasRelationship) hash ^= Relationship.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      if (HasAppid) {
-        output.WriteRawTag(8);
-        output.WriteUInt32(Appid);
-      }
-      if (HasRelationship) {
-        output.WriteRawTag(16);
-        output.WriteUInt32(Relationship);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (HasAppid) {
-        output.WriteRawTag(8);
-        output.WriteUInt32(Appid);
-      }
-      if (HasRelationship) {
-        output.WriteRawTag(16);
-        output.WriteUInt32(Relationship);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int CalculateSize() {
-      int size = 0;
-      if (HasAppid) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Appid);
-      }
-      if (HasRelationship) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Relationship);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(CPublishedFile_GetAppRelationshipsBatched_Response_AppRelationship other) {
-      if (other == null) {
-        return;
-      }
-      if (other.HasAppid) {
-        Appid = other.Appid;
-      }
-      if (other.HasRelationship) {
-        Relationship = other.Relationship;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 8: {
-            Appid = input.ReadUInt32();
-            break;
-          }
-          case 16: {
-            Relationship = input.ReadUInt32();
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 8: {
-            Appid = input.ReadUInt32();
-            break;
-          }
-          case 16: {
-            Relationship = input.ReadUInt32();
-            break;
-          }
-        }
-      }
-    }
-    #endif
-
-  }
-
-  public sealed partial class CPublishedFile_GetAppRelationshipsBatched_Response_PublishedFileAppRelationship : pb::IMessage<CPublishedFile_GetAppRelationshipsBatched_Response_PublishedFileAppRelationship>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<CPublishedFile_GetAppRelationshipsBatched_Response_PublishedFileAppRelationship> _parser = new pb::MessageParser<CPublishedFile_GetAppRelationshipsBatched_Response_PublishedFileAppRelationship>(() => new CPublishedFile_GetAppRelationshipsBatched_Response_PublishedFileAppRelationship());
-    private pb::UnknownFieldSet _unknownFields;
-    private int _hasBits0;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<CPublishedFile_GetAppRelationshipsBatched_Response_PublishedFileAppRelationship> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[21]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CPublishedFile_GetAppRelationshipsBatched_Response_PublishedFileAppRelationship() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CPublishedFile_GetAppRelationshipsBatched_Response_PublishedFileAppRelationship(CPublishedFile_GetAppRelationshipsBatched_Response_PublishedFileAppRelationship other) : this() {
-      _hasBits0 = other._hasBits0;
-      publishedfileid_ = other.publishedfileid_;
-      result_ = other.result_;
-      appRelationships_ = other.appRelationships_.Clone();
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CPublishedFile_GetAppRelationshipsBatched_Response_PublishedFileAppRelationship Clone() {
-      return new CPublishedFile_GetAppRelationshipsBatched_Response_PublishedFileAppRelationship(this);
-    }
-
-    /// <summary>Field number for the "publishedfileid" field.</summary>
-    public const int PublishedfileidFieldNumber = 1;
-    private readonly static ulong PublishedfileidDefaultValue = 0UL;
-
-    private ulong publishedfileid_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public ulong Publishedfileid {
-      get { if ((_hasBits0 & 1) != 0) { return publishedfileid_; } else { return PublishedfileidDefaultValue; } }
-      set {
-        _hasBits0 |= 1;
-        publishedfileid_ = value;
-      }
-    }
-    /// <summary>Gets whether the "publishedfileid" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasPublishedfileid {
-      get { return (_hasBits0 & 1) != 0; }
-    }
-    /// <summary>Clears the value of the "publishedfileid" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearPublishedfileid() {
-      _hasBits0 &= ~1;
-    }
-
-    /// <summary>Field number for the "result" field.</summary>
-    public const int ResultFieldNumber = 2;
-    private readonly static uint ResultDefaultValue = 0;
-
-    private uint result_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint Result {
-      get { if ((_hasBits0 & 2) != 0) { return result_; } else { return ResultDefaultValue; } }
-      set {
-        _hasBits0 |= 2;
-        result_ = value;
-      }
-    }
-    /// <summary>Gets whether the "result" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasResult {
-      get { return (_hasBits0 & 2) != 0; }
-    }
-    /// <summary>Clears the value of the "result" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearResult() {
-      _hasBits0 &= ~2;
-    }
-
-    /// <summary>Field number for the "app_relationships" field.</summary>
-    public const int AppRelationshipsFieldNumber = 3;
-    private static readonly pb::FieldCodec<global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_GetAppRelationshipsBatched_Response_AppRelationship> _repeated_appRelationships_codec
-        = pb::FieldCodec.ForMessage(26, global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_GetAppRelationshipsBatched_Response_AppRelationship.Parser);
-    private readonly pbc::RepeatedField<global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_GetAppRelationshipsBatched_Response_AppRelationship> appRelationships_ = new pbc::RepeatedField<global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_GetAppRelationshipsBatched_Response_AppRelationship>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_GetAppRelationshipsBatched_Response_AppRelationship> AppRelationships {
-      get { return appRelationships_; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override bool Equals(object other) {
-      return Equals(other as CPublishedFile_GetAppRelationshipsBatched_Response_PublishedFileAppRelationship);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(CPublishedFile_GetAppRelationshipsBatched_Response_PublishedFileAppRelationship other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (Publishedfileid != other.Publishedfileid) return false;
-      if (Result != other.Result) return false;
-      if(!appRelationships_.Equals(other.appRelationships_)) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (HasPublishedfileid) hash ^= Publishedfileid.GetHashCode();
-      if (HasResult) hash ^= Result.GetHashCode();
-      hash ^= appRelationships_.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      if (HasPublishedfileid) {
-        output.WriteRawTag(8);
-        output.WriteUInt64(Publishedfileid);
-      }
-      if (HasResult) {
-        output.WriteRawTag(16);
-        output.WriteUInt32(Result);
-      }
-      appRelationships_.WriteTo(output, _repeated_appRelationships_codec);
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (HasPublishedfileid) {
-        output.WriteRawTag(8);
-        output.WriteUInt64(Publishedfileid);
-      }
-      if (HasResult) {
-        output.WriteRawTag(16);
-        output.WriteUInt32(Result);
-      }
-      appRelationships_.WriteTo(ref output, _repeated_appRelationships_codec);
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int CalculateSize() {
-      int size = 0;
-      if (HasPublishedfileid) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(Publishedfileid);
-      }
-      if (HasResult) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Result);
-      }
-      size += appRelationships_.CalculateSize(_repeated_appRelationships_codec);
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(CPublishedFile_GetAppRelationshipsBatched_Response_PublishedFileAppRelationship other) {
-      if (other == null) {
-        return;
-      }
-      if (other.HasPublishedfileid) {
-        Publishedfileid = other.Publishedfileid;
-      }
-      if (other.HasResult) {
-        Result = other.Result;
-      }
-      appRelationships_.Add(other.appRelationships_);
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 8: {
-            Publishedfileid = input.ReadUInt64();
-            break;
-          }
-          case 16: {
-            Result = input.ReadUInt32();
-            break;
-          }
-          case 26: {
-            appRelationships_.AddEntriesFrom(input, _repeated_appRelationships_codec);
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 8: {
-            Publishedfileid = input.ReadUInt64();
-            break;
-          }
-          case 16: {
-            Result = input.ReadUInt32();
-            break;
-          }
-          case 26: {
-            appRelationships_.AddEntriesFrom(ref input, _repeated_appRelationships_codec);
-            break;
-          }
-        }
-      }
-    }
-    #endif
-
-  }
-
   public sealed partial class CPublishedFile_GetChangeHistory_Request : pb::IMessage<CPublishedFile_GetChangeHistory_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -6021,7 +3573,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[22]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[14]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -6435,7 +3987,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[23]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[15]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -6667,7 +4219,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[24]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[16]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -6976,7 +4528,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[25]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[17]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -7286,7 +4838,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[26]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[18]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -7528,752 +5080,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
-  public sealed partial class CPublishedFile_GetContentDescriptors_Request : pb::IMessage<CPublishedFile_GetContentDescriptors_Request>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<CPublishedFile_GetContentDescriptors_Request> _parser = new pb::MessageParser<CPublishedFile_GetContentDescriptors_Request>(() => new CPublishedFile_GetContentDescriptors_Request());
-    private pb::UnknownFieldSet _unknownFields;
-    private int _hasBits0;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<CPublishedFile_GetContentDescriptors_Request> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[27]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CPublishedFile_GetContentDescriptors_Request() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CPublishedFile_GetContentDescriptors_Request(CPublishedFile_GetContentDescriptors_Request other) : this() {
-      _hasBits0 = other._hasBits0;
-      publishedfileid_ = other.publishedfileid_;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CPublishedFile_GetContentDescriptors_Request Clone() {
-      return new CPublishedFile_GetContentDescriptors_Request(this);
-    }
-
-    /// <summary>Field number for the "publishedfileid" field.</summary>
-    public const int PublishedfileidFieldNumber = 1;
-    private readonly static ulong PublishedfileidDefaultValue = 0UL;
-
-    private ulong publishedfileid_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public ulong Publishedfileid {
-      get { if ((_hasBits0 & 1) != 0) { return publishedfileid_; } else { return PublishedfileidDefaultValue; } }
-      set {
-        _hasBits0 |= 1;
-        publishedfileid_ = value;
-      }
-    }
-    /// <summary>Gets whether the "publishedfileid" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasPublishedfileid {
-      get { return (_hasBits0 & 1) != 0; }
-    }
-    /// <summary>Clears the value of the "publishedfileid" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearPublishedfileid() {
-      _hasBits0 &= ~1;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override bool Equals(object other) {
-      return Equals(other as CPublishedFile_GetContentDescriptors_Request);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(CPublishedFile_GetContentDescriptors_Request other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (Publishedfileid != other.Publishedfileid) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (HasPublishedfileid) hash ^= Publishedfileid.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      if (HasPublishedfileid) {
-        output.WriteRawTag(9);
-        output.WriteFixed64(Publishedfileid);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (HasPublishedfileid) {
-        output.WriteRawTag(9);
-        output.WriteFixed64(Publishedfileid);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int CalculateSize() {
-      int size = 0;
-      if (HasPublishedfileid) {
-        size += 1 + 8;
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(CPublishedFile_GetContentDescriptors_Request other) {
-      if (other == null) {
-        return;
-      }
-      if (other.HasPublishedfileid) {
-        Publishedfileid = other.Publishedfileid;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 9: {
-            Publishedfileid = input.ReadFixed64();
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 9: {
-            Publishedfileid = input.ReadFixed64();
-            break;
-          }
-        }
-      }
-    }
-    #endif
-
-  }
-
-  public sealed partial class CPublishedFile_GetContentDescriptors_Response : pb::IMessage<CPublishedFile_GetContentDescriptors_Response>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<CPublishedFile_GetContentDescriptors_Response> _parser = new pb::MessageParser<CPublishedFile_GetContentDescriptors_Response>(() => new CPublishedFile_GetContentDescriptors_Response());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<CPublishedFile_GetContentDescriptors_Response> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[28]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CPublishedFile_GetContentDescriptors_Response() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CPublishedFile_GetContentDescriptors_Response(CPublishedFile_GetContentDescriptors_Response other) : this() {
-      contentDescriptors_ = other.contentDescriptors_.Clone();
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CPublishedFile_GetContentDescriptors_Response Clone() {
-      return new CPublishedFile_GetContentDescriptors_Response(this);
-    }
-
-    /// <summary>Field number for the "content_descriptors" field.</summary>
-    public const int ContentDescriptorsFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_GetContentDescriptors_Response_ContentDescriptor> _repeated_contentDescriptors_codec
-        = pb::FieldCodec.ForMessage(10, global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_GetContentDescriptors_Response_ContentDescriptor.Parser);
-    private readonly pbc::RepeatedField<global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_GetContentDescriptors_Response_ContentDescriptor> contentDescriptors_ = new pbc::RepeatedField<global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_GetContentDescriptors_Response_ContentDescriptor>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_GetContentDescriptors_Response_ContentDescriptor> ContentDescriptors {
-      get { return contentDescriptors_; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override bool Equals(object other) {
-      return Equals(other as CPublishedFile_GetContentDescriptors_Response);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(CPublishedFile_GetContentDescriptors_Response other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if(!contentDescriptors_.Equals(other.contentDescriptors_)) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override int GetHashCode() {
-      int hash = 1;
-      hash ^= contentDescriptors_.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      contentDescriptors_.WriteTo(output, _repeated_contentDescriptors_codec);
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      contentDescriptors_.WriteTo(ref output, _repeated_contentDescriptors_codec);
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int CalculateSize() {
-      int size = 0;
-      size += contentDescriptors_.CalculateSize(_repeated_contentDescriptors_codec);
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(CPublishedFile_GetContentDescriptors_Response other) {
-      if (other == null) {
-        return;
-      }
-      contentDescriptors_.Add(other.contentDescriptors_);
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 10: {
-            contentDescriptors_.AddEntriesFrom(input, _repeated_contentDescriptors_codec);
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 10: {
-            contentDescriptors_.AddEntriesFrom(ref input, _repeated_contentDescriptors_codec);
-            break;
-          }
-        }
-      }
-    }
-    #endif
-
-  }
-
-  public sealed partial class CPublishedFile_GetContentDescriptors_Response_ContentDescriptor : pb::IMessage<CPublishedFile_GetContentDescriptors_Response_ContentDescriptor>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<CPublishedFile_GetContentDescriptors_Response_ContentDescriptor> _parser = new pb::MessageParser<CPublishedFile_GetContentDescriptors_Response_ContentDescriptor>(() => new CPublishedFile_GetContentDescriptors_Response_ContentDescriptor());
-    private pb::UnknownFieldSet _unknownFields;
-    private int _hasBits0;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<CPublishedFile_GetContentDescriptors_Response_ContentDescriptor> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[29]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CPublishedFile_GetContentDescriptors_Response_ContentDescriptor() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CPublishedFile_GetContentDescriptors_Response_ContentDescriptor(CPublishedFile_GetContentDescriptors_Response_ContentDescriptor other) : this() {
-      _hasBits0 = other._hasBits0;
-      descriptorid_ = other.descriptorid_;
-      accountid_ = other.accountid_;
-      timestamp_ = other.timestamp_;
-      moderatorSet_ = other.moderatorSet_;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CPublishedFile_GetContentDescriptors_Response_ContentDescriptor Clone() {
-      return new CPublishedFile_GetContentDescriptors_Response_ContentDescriptor(this);
-    }
-
-    /// <summary>Field number for the "descriptorid" field.</summary>
-    public const int DescriptoridFieldNumber = 1;
-    private readonly static int DescriptoridDefaultValue = 0;
-
-    private int descriptorid_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int Descriptorid {
-      get { if ((_hasBits0 & 1) != 0) { return descriptorid_; } else { return DescriptoridDefaultValue; } }
-      set {
-        _hasBits0 |= 1;
-        descriptorid_ = value;
-      }
-    }
-    /// <summary>Gets whether the "descriptorid" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasDescriptorid {
-      get { return (_hasBits0 & 1) != 0; }
-    }
-    /// <summary>Clears the value of the "descriptorid" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearDescriptorid() {
-      _hasBits0 &= ~1;
-    }
-
-    /// <summary>Field number for the "accountid" field.</summary>
-    public const int AccountidFieldNumber = 2;
-    private readonly static uint AccountidDefaultValue = 0;
-
-    private uint accountid_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint Accountid {
-      get { if ((_hasBits0 & 2) != 0) { return accountid_; } else { return AccountidDefaultValue; } }
-      set {
-        _hasBits0 |= 2;
-        accountid_ = value;
-      }
-    }
-    /// <summary>Gets whether the "accountid" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasAccountid {
-      get { return (_hasBits0 & 2) != 0; }
-    }
-    /// <summary>Clears the value of the "accountid" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearAccountid() {
-      _hasBits0 &= ~2;
-    }
-
-    /// <summary>Field number for the "timestamp" field.</summary>
-    public const int TimestampFieldNumber = 3;
-    private readonly static uint TimestampDefaultValue = 0;
-
-    private uint timestamp_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint Timestamp {
-      get { if ((_hasBits0 & 4) != 0) { return timestamp_; } else { return TimestampDefaultValue; } }
-      set {
-        _hasBits0 |= 4;
-        timestamp_ = value;
-      }
-    }
-    /// <summary>Gets whether the "timestamp" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasTimestamp {
-      get { return (_hasBits0 & 4) != 0; }
-    }
-    /// <summary>Clears the value of the "timestamp" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearTimestamp() {
-      _hasBits0 &= ~4;
-    }
-
-    /// <summary>Field number for the "moderator_set" field.</summary>
-    public const int ModeratorSetFieldNumber = 4;
-    private readonly static bool ModeratorSetDefaultValue = false;
-
-    private bool moderatorSet_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool ModeratorSet {
-      get { if ((_hasBits0 & 8) != 0) { return moderatorSet_; } else { return ModeratorSetDefaultValue; } }
-      set {
-        _hasBits0 |= 8;
-        moderatorSet_ = value;
-      }
-    }
-    /// <summary>Gets whether the "moderator_set" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasModeratorSet {
-      get { return (_hasBits0 & 8) != 0; }
-    }
-    /// <summary>Clears the value of the "moderator_set" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearModeratorSet() {
-      _hasBits0 &= ~8;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override bool Equals(object other) {
-      return Equals(other as CPublishedFile_GetContentDescriptors_Response_ContentDescriptor);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(CPublishedFile_GetContentDescriptors_Response_ContentDescriptor other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (Descriptorid != other.Descriptorid) return false;
-      if (Accountid != other.Accountid) return false;
-      if (Timestamp != other.Timestamp) return false;
-      if (ModeratorSet != other.ModeratorSet) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (HasDescriptorid) hash ^= Descriptorid.GetHashCode();
-      if (HasAccountid) hash ^= Accountid.GetHashCode();
-      if (HasTimestamp) hash ^= Timestamp.GetHashCode();
-      if (HasModeratorSet) hash ^= ModeratorSet.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      if (HasDescriptorid) {
-        output.WriteRawTag(8);
-        output.WriteInt32(Descriptorid);
-      }
-      if (HasAccountid) {
-        output.WriteRawTag(16);
-        output.WriteUInt32(Accountid);
-      }
-      if (HasTimestamp) {
-        output.WriteRawTag(24);
-        output.WriteUInt32(Timestamp);
-      }
-      if (HasModeratorSet) {
-        output.WriteRawTag(32);
-        output.WriteBool(ModeratorSet);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (HasDescriptorid) {
-        output.WriteRawTag(8);
-        output.WriteInt32(Descriptorid);
-      }
-      if (HasAccountid) {
-        output.WriteRawTag(16);
-        output.WriteUInt32(Accountid);
-      }
-      if (HasTimestamp) {
-        output.WriteRawTag(24);
-        output.WriteUInt32(Timestamp);
-      }
-      if (HasModeratorSet) {
-        output.WriteRawTag(32);
-        output.WriteBool(ModeratorSet);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int CalculateSize() {
-      int size = 0;
-      if (HasDescriptorid) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Descriptorid);
-      }
-      if (HasAccountid) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Accountid);
-      }
-      if (HasTimestamp) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Timestamp);
-      }
-      if (HasModeratorSet) {
-        size += 1 + 1;
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(CPublishedFile_GetContentDescriptors_Response_ContentDescriptor other) {
-      if (other == null) {
-        return;
-      }
-      if (other.HasDescriptorid) {
-        Descriptorid = other.Descriptorid;
-      }
-      if (other.HasAccountid) {
-        Accountid = other.Accountid;
-      }
-      if (other.HasTimestamp) {
-        Timestamp = other.Timestamp;
-      }
-      if (other.HasModeratorSet) {
-        ModeratorSet = other.ModeratorSet;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 8: {
-            Descriptorid = input.ReadInt32();
-            break;
-          }
-          case 16: {
-            Accountid = input.ReadUInt32();
-            break;
-          }
-          case 24: {
-            Timestamp = input.ReadUInt32();
-            break;
-          }
-          case 32: {
-            ModeratorSet = input.ReadBool();
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 8: {
-            Descriptorid = input.ReadInt32();
-            break;
-          }
-          case 16: {
-            Accountid = input.ReadUInt32();
-            break;
-          }
-          case 24: {
-            Timestamp = input.ReadUInt32();
-            break;
-          }
-          case 32: {
-            ModeratorSet = input.ReadBool();
-            break;
-          }
-        }
-      }
-    }
-    #endif
-
-  }
-
   public sealed partial class CPublishedFile_GetDetails_Request : pb::IMessage<CPublishedFile_GetDetails_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -8289,7 +5095,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[30]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[19]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -9198,7 +6004,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[31]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[20]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -9377,7 +6183,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[32]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[21]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -9687,7 +6493,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[33]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[22]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -9919,7 +6725,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[34]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[23]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -10229,7 +7035,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[35]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[24]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -10513,7 +7319,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[36]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[25]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -10823,7 +7629,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[37]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[26]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -11083,7 +7889,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[38]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[27]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -11445,7 +8251,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[39]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[28]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -11806,7 +8612,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[40]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[29]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -11985,7 +8791,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[41]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[30]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -12008,7 +8814,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
       _hasBits0 = other._hasBits0;
       steamid_ = other.steamid_;
       appid_ = other.appid_;
-      shortcutid_ = other.shortcutid_;
       page_ = other.page_;
       numperpage_ = other.numperpage_;
       type_ = other.type_;
@@ -12039,7 +8844,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
       taggroups_ = other.taggroups_.Clone();
       returnReactions_ = other.returnReactions_;
       returnApps_ = other.returnApps_;
-      excludedContentDescriptors_ = other.excludedContentDescriptors_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -12103,33 +8907,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
       _hasBits0 &= ~2;
     }
 
-    /// <summary>Field number for the "shortcutid" field.</summary>
-    public const int ShortcutidFieldNumber = 3;
-    private readonly static uint ShortcutidDefaultValue = 0;
-
-    private uint shortcutid_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint Shortcutid {
-      get { if ((_hasBits0 & 4) != 0) { return shortcutid_; } else { return ShortcutidDefaultValue; } }
-      set {
-        _hasBits0 |= 4;
-        shortcutid_ = value;
-      }
-    }
-    /// <summary>Gets whether the "shortcutid" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasShortcutid {
-      get { return (_hasBits0 & 4) != 0; }
-    }
-    /// <summary>Clears the value of the "shortcutid" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearShortcutid() {
-      _hasBits0 &= ~4;
-    }
-
     /// <summary>Field number for the "page" field.</summary>
     public const int PageFieldNumber = 4;
     private readonly static uint PageDefaultValue = 1;
@@ -12138,9 +8915,9 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public uint Page {
-      get { if ((_hasBits0 & 8) != 0) { return page_; } else { return PageDefaultValue; } }
+      get { if ((_hasBits0 & 4) != 0) { return page_; } else { return PageDefaultValue; } }
       set {
-        _hasBits0 |= 8;
+        _hasBits0 |= 4;
         page_ = value;
       }
     }
@@ -12148,13 +8925,13 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool HasPage {
-      get { return (_hasBits0 & 8) != 0; }
+      get { return (_hasBits0 & 4) != 0; }
     }
     /// <summary>Clears the value of the "page" field</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void ClearPage() {
-      _hasBits0 &= ~8;
+      _hasBits0 &= ~4;
     }
 
     /// <summary>Field number for the "numperpage" field.</summary>
@@ -12165,9 +8942,9 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public uint Numperpage {
-      get { if ((_hasBits0 & 16) != 0) { return numperpage_; } else { return NumperpageDefaultValue; } }
+      get { if ((_hasBits0 & 8) != 0) { return numperpage_; } else { return NumperpageDefaultValue; } }
       set {
-        _hasBits0 |= 16;
+        _hasBits0 |= 8;
         numperpage_ = value;
       }
     }
@@ -12175,13 +8952,13 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool HasNumperpage {
-      get { return (_hasBits0 & 16) != 0; }
+      get { return (_hasBits0 & 8) != 0; }
     }
     /// <summary>Clears the value of the "numperpage" field</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void ClearNumperpage() {
-      _hasBits0 &= ~16;
+      _hasBits0 &= ~8;
     }
 
     /// <summary>Field number for the "type" field.</summary>
@@ -12244,9 +9021,9 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public uint Privacy {
-      get { if ((_hasBits0 & 32) != 0) { return privacy_; } else { return PrivacyDefaultValue; } }
+      get { if ((_hasBits0 & 16) != 0) { return privacy_; } else { return PrivacyDefaultValue; } }
       set {
-        _hasBits0 |= 32;
+        _hasBits0 |= 16;
         privacy_ = value;
       }
     }
@@ -12254,13 +9031,13 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool HasPrivacy {
-      get { return (_hasBits0 & 32) != 0; }
+      get { return (_hasBits0 & 16) != 0; }
     }
     /// <summary>Clears the value of the "privacy" field</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void ClearPrivacy() {
-      _hasBits0 &= ~32;
+      _hasBits0 &= ~16;
     }
 
     /// <summary>Field number for the "requiredtags" field.</summary>
@@ -12293,9 +9070,9 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public uint Filetype {
-      get { if ((_hasBits0 & 64) != 0) { return filetype_; } else { return FiletypeDefaultValue; } }
+      get { if ((_hasBits0 & 32) != 0) { return filetype_; } else { return FiletypeDefaultValue; } }
       set {
-        _hasBits0 |= 64;
+        _hasBits0 |= 32;
         filetype_ = value;
       }
     }
@@ -12303,13 +9080,13 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool HasFiletype {
-      get { return (_hasBits0 & 64) != 0; }
+      get { return (_hasBits0 & 32) != 0; }
     }
     /// <summary>Clears the value of the "filetype" field</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void ClearFiletype() {
-      _hasBits0 &= ~64;
+      _hasBits0 &= ~32;
     }
 
     /// <summary>Field number for the "creator_appid" field.</summary>
@@ -12320,9 +9097,9 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public uint CreatorAppid {
-      get { if ((_hasBits0 & 128) != 0) { return creatorAppid_; } else { return CreatorAppidDefaultValue; } }
+      get { if ((_hasBits0 & 64) != 0) { return creatorAppid_; } else { return CreatorAppidDefaultValue; } }
       set {
-        _hasBits0 |= 128;
+        _hasBits0 |= 64;
         creatorAppid_ = value;
       }
     }
@@ -12330,13 +9107,13 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool HasCreatorAppid {
-      get { return (_hasBits0 & 128) != 0; }
+      get { return (_hasBits0 & 64) != 0; }
     }
     /// <summary>Clears the value of the "creator_appid" field</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void ClearCreatorAppid() {
-      _hasBits0 &= ~128;
+      _hasBits0 &= ~64;
     }
 
     /// <summary>Field number for the "match_cloud_filename" field.</summary>
@@ -12373,9 +9150,9 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool Totalonly {
-      get { if ((_hasBits0 & 256) != 0) { return totalonly_; } else { return TotalonlyDefaultValue; } }
+      get { if ((_hasBits0 & 128) != 0) { return totalonly_; } else { return TotalonlyDefaultValue; } }
       set {
-        _hasBits0 |= 256;
+        _hasBits0 |= 128;
         totalonly_ = value;
       }
     }
@@ -12383,13 +9160,13 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool HasTotalonly {
-      get { return (_hasBits0 & 256) != 0; }
+      get { return (_hasBits0 & 128) != 0; }
     }
     /// <summary>Clears the value of the "totalonly" field</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void ClearTotalonly() {
-      _hasBits0 &= ~256;
+      _hasBits0 &= ~128;
     }
 
     /// <summary>Field number for the "ids_only" field.</summary>
@@ -12400,9 +9177,9 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool IdsOnly {
-      get { if ((_hasBits0 & 512) != 0) { return idsOnly_; } else { return IdsOnlyDefaultValue; } }
+      get { if ((_hasBits0 & 256) != 0) { return idsOnly_; } else { return IdsOnlyDefaultValue; } }
       set {
-        _hasBits0 |= 512;
+        _hasBits0 |= 256;
         idsOnly_ = value;
       }
     }
@@ -12410,13 +9187,13 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool HasIdsOnly {
-      get { return (_hasBits0 & 512) != 0; }
+      get { return (_hasBits0 & 256) != 0; }
     }
     /// <summary>Clears the value of the "ids_only" field</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void ClearIdsOnly() {
-      _hasBits0 &= ~512;
+      _hasBits0 &= ~256;
     }
 
     /// <summary>Field number for the "return_vote_data" field.</summary>
@@ -12427,9 +9204,9 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool ReturnVoteData {
-      get { if ((_hasBits0 & 1024) != 0) { return returnVoteData_; } else { return ReturnVoteDataDefaultValue; } }
+      get { if ((_hasBits0 & 512) != 0) { return returnVoteData_; } else { return ReturnVoteDataDefaultValue; } }
       set {
-        _hasBits0 |= 1024;
+        _hasBits0 |= 512;
         returnVoteData_ = value;
       }
     }
@@ -12437,13 +9214,13 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool HasReturnVoteData {
-      get { return (_hasBits0 & 1024) != 0; }
+      get { return (_hasBits0 & 512) != 0; }
     }
     /// <summary>Clears the value of the "return_vote_data" field</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void ClearReturnVoteData() {
-      _hasBits0 &= ~1024;
+      _hasBits0 &= ~512;
     }
 
     /// <summary>Field number for the "return_tags" field.</summary>
@@ -12454,9 +9231,9 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool ReturnTags {
-      get { if ((_hasBits0 & 2048) != 0) { return returnTags_; } else { return ReturnTagsDefaultValue; } }
+      get { if ((_hasBits0 & 1024) != 0) { return returnTags_; } else { return ReturnTagsDefaultValue; } }
       set {
-        _hasBits0 |= 2048;
+        _hasBits0 |= 1024;
         returnTags_ = value;
       }
     }
@@ -12464,13 +9241,13 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool HasReturnTags {
-      get { return (_hasBits0 & 2048) != 0; }
+      get { return (_hasBits0 & 1024) != 0; }
     }
     /// <summary>Clears the value of the "return_tags" field</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void ClearReturnTags() {
-      _hasBits0 &= ~2048;
+      _hasBits0 &= ~1024;
     }
 
     /// <summary>Field number for the "return_kv_tags" field.</summary>
@@ -12481,9 +9258,9 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool ReturnKvTags {
-      get { if ((_hasBits0 & 4096) != 0) { return returnKvTags_; } else { return ReturnKvTagsDefaultValue; } }
+      get { if ((_hasBits0 & 2048) != 0) { return returnKvTags_; } else { return ReturnKvTagsDefaultValue; } }
       set {
-        _hasBits0 |= 4096;
+        _hasBits0 |= 2048;
         returnKvTags_ = value;
       }
     }
@@ -12491,13 +9268,13 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool HasReturnKvTags {
-      get { return (_hasBits0 & 4096) != 0; }
+      get { return (_hasBits0 & 2048) != 0; }
     }
     /// <summary>Clears the value of the "return_kv_tags" field</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void ClearReturnKvTags() {
-      _hasBits0 &= ~4096;
+      _hasBits0 &= ~2048;
     }
 
     /// <summary>Field number for the "return_previews" field.</summary>
@@ -12508,9 +9285,9 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool ReturnPreviews {
-      get { if ((_hasBits0 & 8192) != 0) { return returnPreviews_; } else { return ReturnPreviewsDefaultValue; } }
+      get { if ((_hasBits0 & 4096) != 0) { return returnPreviews_; } else { return ReturnPreviewsDefaultValue; } }
       set {
-        _hasBits0 |= 8192;
+        _hasBits0 |= 4096;
         returnPreviews_ = value;
       }
     }
@@ -12518,13 +9295,13 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool HasReturnPreviews {
-      get { return (_hasBits0 & 8192) != 0; }
+      get { return (_hasBits0 & 4096) != 0; }
     }
     /// <summary>Clears the value of the "return_previews" field</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void ClearReturnPreviews() {
-      _hasBits0 &= ~8192;
+      _hasBits0 &= ~4096;
     }
 
     /// <summary>Field number for the "return_children" field.</summary>
@@ -12535,9 +9312,9 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool ReturnChildren {
-      get { if ((_hasBits0 & 16384) != 0) { return returnChildren_; } else { return ReturnChildrenDefaultValue; } }
+      get { if ((_hasBits0 & 8192) != 0) { return returnChildren_; } else { return ReturnChildrenDefaultValue; } }
       set {
-        _hasBits0 |= 16384;
+        _hasBits0 |= 8192;
         returnChildren_ = value;
       }
     }
@@ -12545,13 +9322,13 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool HasReturnChildren {
-      get { return (_hasBits0 & 16384) != 0; }
+      get { return (_hasBits0 & 8192) != 0; }
     }
     /// <summary>Clears the value of the "return_children" field</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void ClearReturnChildren() {
-      _hasBits0 &= ~16384;
+      _hasBits0 &= ~8192;
     }
 
     /// <summary>Field number for the "return_short_description" field.</summary>
@@ -12562,9 +9339,9 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool ReturnShortDescription {
-      get { if ((_hasBits0 & 32768) != 0) { return returnShortDescription_; } else { return ReturnShortDescriptionDefaultValue; } }
+      get { if ((_hasBits0 & 16384) != 0) { return returnShortDescription_; } else { return ReturnShortDescriptionDefaultValue; } }
       set {
-        _hasBits0 |= 32768;
+        _hasBits0 |= 16384;
         returnShortDescription_ = value;
       }
     }
@@ -12572,13 +9349,13 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool HasReturnShortDescription {
-      get { return (_hasBits0 & 32768) != 0; }
+      get { return (_hasBits0 & 16384) != 0; }
     }
     /// <summary>Clears the value of the "return_short_description" field</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void ClearReturnShortDescription() {
-      _hasBits0 &= ~32768;
+      _hasBits0 &= ~16384;
     }
 
     /// <summary>Field number for the "startindex_override" field.</summary>
@@ -12589,9 +9366,9 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public uint StartindexOverride {
-      get { if ((_hasBits0 & 65536) != 0) { return startindexOverride_; } else { return StartindexOverrideDefaultValue; } }
+      get { if ((_hasBits0 & 32768) != 0) { return startindexOverride_; } else { return StartindexOverrideDefaultValue; } }
       set {
-        _hasBits0 |= 65536;
+        _hasBits0 |= 32768;
         startindexOverride_ = value;
       }
     }
@@ -12599,13 +9376,13 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool HasStartindexOverride {
-      get { return (_hasBits0 & 65536) != 0; }
+      get { return (_hasBits0 & 32768) != 0; }
     }
     /// <summary>Clears the value of the "startindex_override" field</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void ClearStartindexOverride() {
-      _hasBits0 &= ~65536;
+      _hasBits0 &= ~32768;
     }
 
     /// <summary>Field number for the "return_for_sale_data" field.</summary>
@@ -12616,9 +9393,9 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool ReturnForSaleData {
-      get { if ((_hasBits0 & 131072) != 0) { return returnForSaleData_; } else { return ReturnForSaleDataDefaultValue; } }
+      get { if ((_hasBits0 & 65536) != 0) { return returnForSaleData_; } else { return ReturnForSaleDataDefaultValue; } }
       set {
-        _hasBits0 |= 131072;
+        _hasBits0 |= 65536;
         returnForSaleData_ = value;
       }
     }
@@ -12626,13 +9403,13 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool HasReturnForSaleData {
-      get { return (_hasBits0 & 131072) != 0; }
+      get { return (_hasBits0 & 65536) != 0; }
     }
     /// <summary>Clears the value of the "return_for_sale_data" field</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void ClearReturnForSaleData() {
-      _hasBits0 &= ~131072;
+      _hasBits0 &= ~65536;
     }
 
     /// <summary>Field number for the "cache_max_age_seconds" field.</summary>
@@ -12643,9 +9420,9 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public uint CacheMaxAgeSeconds {
-      get { if ((_hasBits0 & 262144) != 0) { return cacheMaxAgeSeconds_; } else { return CacheMaxAgeSecondsDefaultValue; } }
+      get { if ((_hasBits0 & 131072) != 0) { return cacheMaxAgeSeconds_; } else { return CacheMaxAgeSecondsDefaultValue; } }
       set {
-        _hasBits0 |= 262144;
+        _hasBits0 |= 131072;
         cacheMaxAgeSeconds_ = value;
       }
     }
@@ -12653,13 +9430,13 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool HasCacheMaxAgeSeconds {
-      get { return (_hasBits0 & 262144) != 0; }
+      get { return (_hasBits0 & 131072) != 0; }
     }
     /// <summary>Clears the value of the "cache_max_age_seconds" field</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void ClearCacheMaxAgeSeconds() {
-      _hasBits0 &= ~262144;
+      _hasBits0 &= ~131072;
     }
 
     /// <summary>Field number for the "return_metadata" field.</summary>
@@ -12670,9 +9447,9 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool ReturnMetadata {
-      get { if ((_hasBits0 & 524288) != 0) { return returnMetadata_; } else { return ReturnMetadataDefaultValue; } }
+      get { if ((_hasBits0 & 262144) != 0) { return returnMetadata_; } else { return ReturnMetadataDefaultValue; } }
       set {
-        _hasBits0 |= 524288;
+        _hasBits0 |= 262144;
         returnMetadata_ = value;
       }
     }
@@ -12680,13 +9457,13 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool HasReturnMetadata {
-      get { return (_hasBits0 & 524288) != 0; }
+      get { return (_hasBits0 & 262144) != 0; }
     }
     /// <summary>Clears the value of the "return_metadata" field</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void ClearReturnMetadata() {
-      _hasBits0 &= ~524288;
+      _hasBits0 &= ~262144;
     }
 
     /// <summary>Field number for the "language" field.</summary>
@@ -12697,9 +9474,9 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int Language {
-      get { if ((_hasBits0 & 1048576) != 0) { return language_; } else { return LanguageDefaultValue; } }
+      get { if ((_hasBits0 & 524288) != 0) { return language_; } else { return LanguageDefaultValue; } }
       set {
-        _hasBits0 |= 1048576;
+        _hasBits0 |= 524288;
         language_ = value;
       }
     }
@@ -12707,13 +9484,13 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool HasLanguage {
-      get { return (_hasBits0 & 1048576) != 0; }
+      get { return (_hasBits0 & 524288) != 0; }
     }
     /// <summary>Clears the value of the "language" field</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void ClearLanguage() {
-      _hasBits0 &= ~1048576;
+      _hasBits0 &= ~524288;
     }
 
     /// <summary>Field number for the "required_kv_tags" field.</summary>
@@ -12735,9 +9512,9 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public uint ReturnPlaytimeStats {
-      get { if ((_hasBits0 & 2097152) != 0) { return returnPlaytimeStats_; } else { return ReturnPlaytimeStatsDefaultValue; } }
+      get { if ((_hasBits0 & 1048576) != 0) { return returnPlaytimeStats_; } else { return ReturnPlaytimeStatsDefaultValue; } }
       set {
-        _hasBits0 |= 2097152;
+        _hasBits0 |= 1048576;
         returnPlaytimeStats_ = value;
       }
     }
@@ -12745,13 +9522,13 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool HasReturnPlaytimeStats {
-      get { return (_hasBits0 & 2097152) != 0; }
+      get { return (_hasBits0 & 1048576) != 0; }
     }
     /// <summary>Clears the value of the "return_playtime_stats" field</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void ClearReturnPlaytimeStats() {
-      _hasBits0 &= ~2097152;
+      _hasBits0 &= ~1048576;
     }
 
     /// <summary>Field number for the "strip_description_bbcode" field.</summary>
@@ -12762,9 +9539,9 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool StripDescriptionBbcode {
-      get { if ((_hasBits0 & 4194304) != 0) { return stripDescriptionBbcode_; } else { return StripDescriptionBbcodeDefaultValue; } }
+      get { if ((_hasBits0 & 2097152) != 0) { return stripDescriptionBbcode_; } else { return StripDescriptionBbcodeDefaultValue; } }
       set {
-        _hasBits0 |= 4194304;
+        _hasBits0 |= 2097152;
         stripDescriptionBbcode_ = value;
       }
     }
@@ -12772,13 +9549,13 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool HasStripDescriptionBbcode {
-      get { return (_hasBits0 & 4194304) != 0; }
+      get { return (_hasBits0 & 2097152) != 0; }
     }
     /// <summary>Clears the value of the "strip_description_bbcode" field</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void ClearStripDescriptionBbcode() {
-      _hasBits0 &= ~4194304;
+      _hasBits0 &= ~2097152;
     }
 
     /// <summary>Field number for the "desired_revision" field.</summary>
@@ -12789,9 +9566,9 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int DesiredRevision {
-      get { if ((_hasBits0 & 8388608) != 0) { return desiredRevision_; } else { return DesiredRevisionDefaultValue; } }
+      get { if ((_hasBits0 & 4194304) != 0) { return desiredRevision_; } else { return DesiredRevisionDefaultValue; } }
       set {
-        _hasBits0 |= 8388608;
+        _hasBits0 |= 4194304;
         desiredRevision_ = value;
       }
     }
@@ -12799,13 +9576,13 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool HasDesiredRevision {
-      get { return (_hasBits0 & 8388608) != 0; }
+      get { return (_hasBits0 & 4194304) != 0; }
     }
     /// <summary>Clears the value of the "desired_revision" field</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void ClearDesiredRevision() {
-      _hasBits0 &= ~8388608;
+      _hasBits0 &= ~4194304;
     }
 
     /// <summary>Field number for the "taggroups" field.</summary>
@@ -12827,9 +9604,9 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool ReturnReactions {
-      get { if ((_hasBits0 & 16777216) != 0) { return returnReactions_; } else { return ReturnReactionsDefaultValue; } }
+      get { if ((_hasBits0 & 8388608) != 0) { return returnReactions_; } else { return ReturnReactionsDefaultValue; } }
       set {
-        _hasBits0 |= 16777216;
+        _hasBits0 |= 8388608;
         returnReactions_ = value;
       }
     }
@@ -12837,13 +9614,13 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool HasReturnReactions {
-      get { return (_hasBits0 & 16777216) != 0; }
+      get { return (_hasBits0 & 8388608) != 0; }
     }
     /// <summary>Clears the value of the "return_reactions" field</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void ClearReturnReactions() {
-      _hasBits0 &= ~16777216;
+      _hasBits0 &= ~8388608;
     }
 
     /// <summary>Field number for the "return_apps" field.</summary>
@@ -12854,9 +9631,9 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool ReturnApps {
-      get { if ((_hasBits0 & 33554432) != 0) { return returnApps_; } else { return ReturnAppsDefaultValue; } }
+      get { if ((_hasBits0 & 16777216) != 0) { return returnApps_; } else { return ReturnAppsDefaultValue; } }
       set {
-        _hasBits0 |= 33554432;
+        _hasBits0 |= 16777216;
         returnApps_ = value;
       }
     }
@@ -12864,24 +9641,13 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool HasReturnApps {
-      get { return (_hasBits0 & 33554432) != 0; }
+      get { return (_hasBits0 & 16777216) != 0; }
     }
     /// <summary>Clears the value of the "return_apps" field</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void ClearReturnApps() {
-      _hasBits0 &= ~33554432;
-    }
-
-    /// <summary>Field number for the "excluded_content_descriptors" field.</summary>
-    public const int ExcludedContentDescriptorsFieldNumber = 37;
-    private static readonly pb::FieldCodec<int> _repeated_excludedContentDescriptors_codec
-        = pb::FieldCodec.ForInt32(296);
-    private readonly pbc::RepeatedField<int> excludedContentDescriptors_ = new pbc::RepeatedField<int>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<int> ExcludedContentDescriptors {
-      get { return excludedContentDescriptors_; }
+      _hasBits0 &= ~16777216;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -12901,7 +9667,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
       }
       if (Steamid != other.Steamid) return false;
       if (Appid != other.Appid) return false;
-      if (Shortcutid != other.Shortcutid) return false;
       if (Page != other.Page) return false;
       if (Numperpage != other.Numperpage) return false;
       if (Type != other.Type) return false;
@@ -12932,7 +9697,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
       if(!taggroups_.Equals(other.taggroups_)) return false;
       if (ReturnReactions != other.ReturnReactions) return false;
       if (ReturnApps != other.ReturnApps) return false;
-      if(!excludedContentDescriptors_.Equals(other.excludedContentDescriptors_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -12942,7 +9706,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
       int hash = 1;
       if (HasSteamid) hash ^= Steamid.GetHashCode();
       if (HasAppid) hash ^= Appid.GetHashCode();
-      if (HasShortcutid) hash ^= Shortcutid.GetHashCode();
       if (HasPage) hash ^= Page.GetHashCode();
       if (HasNumperpage) hash ^= Numperpage.GetHashCode();
       if (HasType) hash ^= Type.GetHashCode();
@@ -12973,7 +9736,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
       hash ^= taggroups_.GetHashCode();
       if (HasReturnReactions) hash ^= ReturnReactions.GetHashCode();
       if (HasReturnApps) hash ^= ReturnApps.GetHashCode();
-      hash ^= excludedContentDescriptors_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -12999,10 +9761,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
       if (HasAppid) {
         output.WriteRawTag(16);
         output.WriteUInt32(Appid);
-      }
-      if (HasShortcutid) {
-        output.WriteRawTag(24);
-        output.WriteUInt32(Shortcutid);
       }
       if (HasPage) {
         output.WriteRawTag(32);
@@ -13112,7 +9870,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
         output.WriteRawTag(160, 2);
         output.WriteBool(ReturnApps);
       }
-      excludedContentDescriptors_.WriteTo(output, _repeated_excludedContentDescriptors_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -13130,10 +9887,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
       if (HasAppid) {
         output.WriteRawTag(16);
         output.WriteUInt32(Appid);
-      }
-      if (HasShortcutid) {
-        output.WriteRawTag(24);
-        output.WriteUInt32(Shortcutid);
       }
       if (HasPage) {
         output.WriteRawTag(32);
@@ -13243,7 +9996,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
         output.WriteRawTag(160, 2);
         output.WriteBool(ReturnApps);
       }
-      excludedContentDescriptors_.WriteTo(ref output, _repeated_excludedContentDescriptors_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -13259,9 +10011,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
       }
       if (HasAppid) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Appid);
-      }
-      if (HasShortcutid) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Shortcutid);
       }
       if (HasPage) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Page);
@@ -13345,7 +10094,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
       if (HasReturnApps) {
         size += 2 + 1;
       }
-      size += excludedContentDescriptors_.CalculateSize(_repeated_excludedContentDescriptors_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -13363,9 +10111,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
       }
       if (other.HasAppid) {
         Appid = other.Appid;
-      }
-      if (other.HasShortcutid) {
-        Shortcutid = other.Shortcutid;
       }
       if (other.HasPage) {
         Page = other.Page;
@@ -13449,7 +10194,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
       if (other.HasReturnApps) {
         ReturnApps = other.ReturnApps;
       }
-      excludedContentDescriptors_.Add(other.excludedContentDescriptors_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -13471,10 +10215,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
           }
           case 16: {
             Appid = input.ReadUInt32();
-            break;
-          }
-          case 24: {
-            Shortcutid = input.ReadUInt32();
             break;
           }
           case 32: {
@@ -13597,11 +10337,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
             ReturnApps = input.ReadBool();
             break;
           }
-          case 298:
-          case 296: {
-            excludedContentDescriptors_.AddEntriesFrom(input, _repeated_excludedContentDescriptors_codec);
-            break;
-          }
         }
       }
     #endif
@@ -13623,10 +10358,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
           }
           case 16: {
             Appid = input.ReadUInt32();
-            break;
-          }
-          case 24: {
-            Shortcutid = input.ReadUInt32();
             break;
           }
           case 32: {
@@ -13749,11 +10480,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
             ReturnApps = input.ReadBool();
             break;
           }
-          case 298:
-          case 296: {
-            excludedContentDescriptors_.AddEntriesFrom(ref input, _repeated_excludedContentDescriptors_codec);
-            break;
-          }
         }
       }
     }
@@ -13775,7 +10501,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[42]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[31]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -14029,7 +10755,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[43]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[32]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -14208,7 +10934,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[44]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[33]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -14518,7 +11244,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[45]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[34]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -14878,7 +11604,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[46]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[35]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -15058,7 +11784,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[47]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[36]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -15237,7 +11963,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[48]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[37]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -15599,7 +12325,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[49]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[38]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -16548,7 +13274,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[50]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[39]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -16805,7 +13531,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[51]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[40]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -16863,7 +13589,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
       returnReactions_ = other.returnReactions_;
       dateRangeCreated_ = other.dateRangeCreated_ != null ? other.dateRangeCreated_.Clone() : null;
       dateRangeUpdated_ = other.dateRangeUpdated_ != null ? other.dateRangeUpdated_.Clone() : null;
-      excludedContentDescriptors_ = other.excludedContentDescriptors_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -17744,17 +14469,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
       }
     }
 
-    /// <summary>Field number for the "excluded_content_descriptors" field.</summary>
-    public const int ExcludedContentDescriptorsFieldNumber = 46;
-    private static readonly pb::FieldCodec<int> _repeated_excludedContentDescriptors_codec
-        = pb::FieldCodec.ForInt32(368);
-    private readonly pbc::RepeatedField<int> excludedContentDescriptors_ = new pbc::RepeatedField<int>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<int> ExcludedContentDescriptors {
-      get { return excludedContentDescriptors_; }
-    }
-
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -17807,7 +14521,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
       if (ReturnReactions != other.ReturnReactions) return false;
       if (!object.Equals(DateRangeCreated, other.DateRangeCreated)) return false;
       if (!object.Equals(DateRangeUpdated, other.DateRangeUpdated)) return false;
-      if(!excludedContentDescriptors_.Equals(other.excludedContentDescriptors_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -17852,7 +14565,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
       if (HasReturnReactions) hash ^= ReturnReactions.GetHashCode();
       if (dateRangeCreated_ != null) hash ^= DateRangeCreated.GetHashCode();
       if (dateRangeUpdated_ != null) hash ^= DateRangeUpdated.GetHashCode();
-      hash ^= excludedContentDescriptors_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -18001,7 +14713,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
         output.WriteRawTag(234, 2);
         output.WriteMessage(DateRangeUpdated);
       }
-      excludedContentDescriptors_.WriteTo(output, _repeated_excludedContentDescriptors_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -18142,7 +14853,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
         output.WriteRawTag(234, 2);
         output.WriteMessage(DateRangeUpdated);
       }
-      excludedContentDescriptors_.WriteTo(ref output, _repeated_excludedContentDescriptors_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -18252,7 +14962,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
       if (dateRangeUpdated_ != null) {
         size += 2 + pb::CodedOutputStream.ComputeMessageSize(DateRangeUpdated);
       }
-      size += excludedContentDescriptors_.CalculateSize(_repeated_excludedContentDescriptors_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -18370,7 +15079,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
         }
         DateRangeUpdated.MergeFrom(other.DateRangeUpdated);
       }
-      excludedContentDescriptors_.Add(other.excludedContentDescriptors_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -18538,11 +15246,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
               DateRangeUpdated = new global::OpenSteamworks.Protobuf.WebUI.CPublishedFile_QueryFiles_Request_DateRange();
             }
             input.ReadMessage(DateRangeUpdated);
-            break;
-          }
-          case 370:
-          case 368: {
-            excludedContentDescriptors_.AddEntriesFrom(input, _repeated_excludedContentDescriptors_codec);
             break;
           }
         }
@@ -18714,11 +15417,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
             input.ReadMessage(DateRangeUpdated);
             break;
           }
-          case 370:
-          case 368: {
-            excludedContentDescriptors_.AddEntriesFrom(ref input, _repeated_excludedContentDescriptors_codec);
-            break;
-          }
         }
       }
     }
@@ -18741,7 +15439,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[52]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[41]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -18998,7 +15696,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[53]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[42]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -19252,7 +15950,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[54]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[43]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -19431,7 +16129,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[55]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[44]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -19714,7 +16412,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[56]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[45]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -20179,7 +16877,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[57]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[46]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -20332,7 +17030,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[58]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[47]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -20641,7 +17339,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[59]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[48]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -20794,7 +17492,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[60]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[49]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -21051,7 +17749,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[61]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[50]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -21204,7 +17902,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[62]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[51]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -21436,7 +18134,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[63]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[52]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -21693,7 +18391,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[64]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[53]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -21846,7 +18544,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[65]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[54]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -22079,7 +18777,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[66]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[55]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -22232,7 +18930,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[67]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[56]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -22465,7 +19163,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[68]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[57]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -22618,7 +19316,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[69]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[58]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -22823,7 +19521,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[70]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[59]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -22976,7 +19674,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[71]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[60]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -23337,7 +20035,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[72]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[61]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -23490,7 +20188,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[73]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[62]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -23851,7 +20549,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[74]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[63]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -24004,7 +20702,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[75]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[64]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -24699,7 +21397,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[76]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[65]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -24837,474 +21535,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
-  public sealed partial class CPublishedFile_UpdateContentDescriptors_Request : pb::IMessage<CPublishedFile_UpdateContentDescriptors_Request>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<CPublishedFile_UpdateContentDescriptors_Request> _parser = new pb::MessageParser<CPublishedFile_UpdateContentDescriptors_Request>(() => new CPublishedFile_UpdateContentDescriptors_Request());
-    private pb::UnknownFieldSet _unknownFields;
-    private int _hasBits0;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<CPublishedFile_UpdateContentDescriptors_Request> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[77]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CPublishedFile_UpdateContentDescriptors_Request() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CPublishedFile_UpdateContentDescriptors_Request(CPublishedFile_UpdateContentDescriptors_Request other) : this() {
-      _hasBits0 = other._hasBits0;
-      publishedfileid_ = other.publishedfileid_;
-      descriptorsToAdd_ = other.descriptorsToAdd_.Clone();
-      descriptorsToRemove_ = other.descriptorsToRemove_.Clone();
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CPublishedFile_UpdateContentDescriptors_Request Clone() {
-      return new CPublishedFile_UpdateContentDescriptors_Request(this);
-    }
-
-    /// <summary>Field number for the "publishedfileid" field.</summary>
-    public const int PublishedfileidFieldNumber = 1;
-    private readonly static ulong PublishedfileidDefaultValue = 0UL;
-
-    private ulong publishedfileid_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public ulong Publishedfileid {
-      get { if ((_hasBits0 & 1) != 0) { return publishedfileid_; } else { return PublishedfileidDefaultValue; } }
-      set {
-        _hasBits0 |= 1;
-        publishedfileid_ = value;
-      }
-    }
-    /// <summary>Gets whether the "publishedfileid" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasPublishedfileid {
-      get { return (_hasBits0 & 1) != 0; }
-    }
-    /// <summary>Clears the value of the "publishedfileid" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearPublishedfileid() {
-      _hasBits0 &= ~1;
-    }
-
-    /// <summary>Field number for the "descriptors_to_add" field.</summary>
-    public const int DescriptorsToAddFieldNumber = 2;
-    private static readonly pb::FieldCodec<int> _repeated_descriptorsToAdd_codec
-        = pb::FieldCodec.ForInt32(16);
-    private readonly pbc::RepeatedField<int> descriptorsToAdd_ = new pbc::RepeatedField<int>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<int> DescriptorsToAdd {
-      get { return descriptorsToAdd_; }
-    }
-
-    /// <summary>Field number for the "descriptors_to_remove" field.</summary>
-    public const int DescriptorsToRemoveFieldNumber = 3;
-    private static readonly pb::FieldCodec<int> _repeated_descriptorsToRemove_codec
-        = pb::FieldCodec.ForInt32(24);
-    private readonly pbc::RepeatedField<int> descriptorsToRemove_ = new pbc::RepeatedField<int>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<int> DescriptorsToRemove {
-      get { return descriptorsToRemove_; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override bool Equals(object other) {
-      return Equals(other as CPublishedFile_UpdateContentDescriptors_Request);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(CPublishedFile_UpdateContentDescriptors_Request other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (Publishedfileid != other.Publishedfileid) return false;
-      if(!descriptorsToAdd_.Equals(other.descriptorsToAdd_)) return false;
-      if(!descriptorsToRemove_.Equals(other.descriptorsToRemove_)) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (HasPublishedfileid) hash ^= Publishedfileid.GetHashCode();
-      hash ^= descriptorsToAdd_.GetHashCode();
-      hash ^= descriptorsToRemove_.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      if (HasPublishedfileid) {
-        output.WriteRawTag(9);
-        output.WriteFixed64(Publishedfileid);
-      }
-      descriptorsToAdd_.WriteTo(output, _repeated_descriptorsToAdd_codec);
-      descriptorsToRemove_.WriteTo(output, _repeated_descriptorsToRemove_codec);
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (HasPublishedfileid) {
-        output.WriteRawTag(9);
-        output.WriteFixed64(Publishedfileid);
-      }
-      descriptorsToAdd_.WriteTo(ref output, _repeated_descriptorsToAdd_codec);
-      descriptorsToRemove_.WriteTo(ref output, _repeated_descriptorsToRemove_codec);
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int CalculateSize() {
-      int size = 0;
-      if (HasPublishedfileid) {
-        size += 1 + 8;
-      }
-      size += descriptorsToAdd_.CalculateSize(_repeated_descriptorsToAdd_codec);
-      size += descriptorsToRemove_.CalculateSize(_repeated_descriptorsToRemove_codec);
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(CPublishedFile_UpdateContentDescriptors_Request other) {
-      if (other == null) {
-        return;
-      }
-      if (other.HasPublishedfileid) {
-        Publishedfileid = other.Publishedfileid;
-      }
-      descriptorsToAdd_.Add(other.descriptorsToAdd_);
-      descriptorsToRemove_.Add(other.descriptorsToRemove_);
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 9: {
-            Publishedfileid = input.ReadFixed64();
-            break;
-          }
-          case 18:
-          case 16: {
-            descriptorsToAdd_.AddEntriesFrom(input, _repeated_descriptorsToAdd_codec);
-            break;
-          }
-          case 26:
-          case 24: {
-            descriptorsToRemove_.AddEntriesFrom(input, _repeated_descriptorsToRemove_codec);
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 9: {
-            Publishedfileid = input.ReadFixed64();
-            break;
-          }
-          case 18:
-          case 16: {
-            descriptorsToAdd_.AddEntriesFrom(ref input, _repeated_descriptorsToAdd_codec);
-            break;
-          }
-          case 26:
-          case 24: {
-            descriptorsToRemove_.AddEntriesFrom(ref input, _repeated_descriptorsToRemove_codec);
-            break;
-          }
-        }
-      }
-    }
-    #endif
-
-  }
-
-  public sealed partial class CPublishedFile_UpdateContentDescriptors_Response : pb::IMessage<CPublishedFile_UpdateContentDescriptors_Response>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<CPublishedFile_UpdateContentDescriptors_Response> _parser = new pb::MessageParser<CPublishedFile_UpdateContentDescriptors_Response>(() => new CPublishedFile_UpdateContentDescriptors_Response());
-    private pb::UnknownFieldSet _unknownFields;
-    private int _hasBits0;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<CPublishedFile_UpdateContentDescriptors_Response> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[78]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CPublishedFile_UpdateContentDescriptors_Response() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CPublishedFile_UpdateContentDescriptors_Response(CPublishedFile_UpdateContentDescriptors_Response other) : this() {
-      _hasBits0 = other._hasBits0;
-      timestampUpdated_ = other.timestampUpdated_;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CPublishedFile_UpdateContentDescriptors_Response Clone() {
-      return new CPublishedFile_UpdateContentDescriptors_Response(this);
-    }
-
-    /// <summary>Field number for the "timestamp_updated" field.</summary>
-    public const int TimestampUpdatedFieldNumber = 1;
-    private readonly static uint TimestampUpdatedDefaultValue = 0;
-
-    private uint timestampUpdated_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint TimestampUpdated {
-      get { if ((_hasBits0 & 1) != 0) { return timestampUpdated_; } else { return TimestampUpdatedDefaultValue; } }
-      set {
-        _hasBits0 |= 1;
-        timestampUpdated_ = value;
-      }
-    }
-    /// <summary>Gets whether the "timestamp_updated" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasTimestampUpdated {
-      get { return (_hasBits0 & 1) != 0; }
-    }
-    /// <summary>Clears the value of the "timestamp_updated" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearTimestampUpdated() {
-      _hasBits0 &= ~1;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override bool Equals(object other) {
-      return Equals(other as CPublishedFile_UpdateContentDescriptors_Response);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(CPublishedFile_UpdateContentDescriptors_Response other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (TimestampUpdated != other.TimestampUpdated) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (HasTimestampUpdated) hash ^= TimestampUpdated.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      if (HasTimestampUpdated) {
-        output.WriteRawTag(8);
-        output.WriteUInt32(TimestampUpdated);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (HasTimestampUpdated) {
-        output.WriteRawTag(8);
-        output.WriteUInt32(TimestampUpdated);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int CalculateSize() {
-      int size = 0;
-      if (HasTimestampUpdated) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(TimestampUpdated);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(CPublishedFile_UpdateContentDescriptors_Response other) {
-      if (other == null) {
-        return;
-      }
-      if (other.HasTimestampUpdated) {
-        TimestampUpdated = other.TimestampUpdated;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 8: {
-            TimestampUpdated = input.ReadUInt32();
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 8: {
-            TimestampUpdated = input.ReadUInt32();
-            break;
-          }
-        }
-      }
-    }
-    #endif
-
-  }
-
   public sealed partial class CPublishedFile_Vote_Request : pb::IMessage<CPublishedFile_Vote_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -25320,7 +21550,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[79]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[66]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -25577,7 +21807,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[80]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[67]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -25731,7 +21961,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[81]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[68]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -25822,8 +22052,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
       availableRevisions_ = other.availableRevisions_.Clone();
       reactions_ = other.reactions_.Clone();
       banTextChecresult_ = other.banTextChecresult_;
-      contentDescriptorids_ = other.contentDescriptorids_.Clone();
-      searchScore_ = other.searchScore_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -27542,44 +23770,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
       _hasBits1 &= ~16384;
     }
 
-    /// <summary>Field number for the "content_descriptorids" field.</summary>
-    public const int ContentDescriptoridsFieldNumber = 72;
-    private static readonly pb::FieldCodec<int> _repeated_contentDescriptorids_codec
-        = pb::FieldCodec.ForInt32(576);
-    private readonly pbc::RepeatedField<int> contentDescriptorids_ = new pbc::RepeatedField<int>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<int> ContentDescriptorids {
-      get { return contentDescriptorids_; }
-    }
-
-    /// <summary>Field number for the "search_score" field.</summary>
-    public const int SearchScoreFieldNumber = 73;
-    private readonly static float SearchScoreDefaultValue = 0F;
-
-    private float searchScore_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public float SearchScore {
-      get { if ((_hasBits1 & 32768) != 0) { return searchScore_; } else { return SearchScoreDefaultValue; } }
-      set {
-        _hasBits1 |= 32768;
-        searchScore_ = value;
-      }
-    }
-    /// <summary>Gets whether the "search_score" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasSearchScore {
-      get { return (_hasBits1 & 32768) != 0; }
-    }
-    /// <summary>Clears the value of the "search_score" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearSearchScore() {
-      _hasBits1 &= ~32768;
-    }
-
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -27664,8 +23854,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
       if(!availableRevisions_.Equals(other.availableRevisions_)) return false;
       if(!reactions_.Equals(other.reactions_)) return false;
       if (BanTextChecresult != other.BanTextChecresult) return false;
-      if(!contentDescriptorids_.Equals(other.contentDescriptorids_)) return false;
-      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(SearchScore, other.SearchScore)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -27742,8 +23930,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
       hash ^= availableRevisions_.GetHashCode();
       hash ^= reactions_.GetHashCode();
       if (HasBanTextChecresult) hash ^= BanTextChecresult.GetHashCode();
-      hash ^= contentDescriptorids_.GetHashCode();
-      if (HasSearchScore) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(SearchScore);
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -28020,11 +24206,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
         output.WriteRawTag(184, 4);
         output.WriteInt32(BanTextChecresult);
       }
-      contentDescriptorids_.WriteTo(output, _repeated_contentDescriptorids_codec);
-      if (HasSearchScore) {
-        output.WriteRawTag(205, 4);
-        output.WriteFloat(SearchScore);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -28293,11 +24474,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
         output.WriteRawTag(184, 4);
         output.WriteInt32(BanTextChecresult);
       }
-      contentDescriptorids_.WriteTo(ref output, _repeated_contentDescriptorids_codec);
-      if (HasSearchScore) {
-        output.WriteRawTag(205, 4);
-        output.WriteFloat(SearchScore);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -28502,10 +24678,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
       size += reactions_.CalculateSize(_repeated_reactions_codec);
       if (HasBanTextChecresult) {
         size += 2 + pb::CodedOutputStream.ComputeInt32Size(BanTextChecresult);
-      }
-      size += contentDescriptorids_.CalculateSize(_repeated_contentDescriptorids_codec);
-      if (HasSearchScore) {
-        size += 2 + 4;
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -28722,10 +24894,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
       reactions_.Add(other.reactions_);
       if (other.HasBanTextChecresult) {
         BanTextChecresult = other.BanTextChecresult;
-      }
-      contentDescriptorids_.Add(other.contentDescriptorids_);
-      if (other.HasSearchScore) {
-        SearchScore = other.SearchScore;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -29026,15 +25194,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
           }
           case 568: {
             BanTextChecresult = input.ReadInt32();
-            break;
-          }
-          case 578:
-          case 576: {
-            contentDescriptorids_.AddEntriesFrom(input, _repeated_contentDescriptorids_codec);
-            break;
-          }
-          case 589: {
-            SearchScore = input.ReadFloat();
             break;
           }
         }
@@ -29338,15 +25497,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
             BanTextChecresult = input.ReadInt32();
             break;
           }
-          case 578:
-          case 576: {
-            contentDescriptorids_.AddEntriesFrom(ref input, _repeated_contentDescriptorids_codec);
-            break;
-          }
-          case 589: {
-            SearchScore = input.ReadFloat();
-            break;
-          }
         }
       }
     }
@@ -29369,7 +25519,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[82]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[69]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -29679,7 +25829,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[83]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[70]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -30144,7 +26294,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[84]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[71]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -30399,7 +26549,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[85]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[72]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -30657,7 +26807,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[86]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[73]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -31223,7 +27373,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[87]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[74]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -31481,7 +27631,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[88]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[75]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -31789,7 +27939,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[89]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[76]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -32099,7 +28249,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[90]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishedfileReflection.Descriptor.MessageTypes[77]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

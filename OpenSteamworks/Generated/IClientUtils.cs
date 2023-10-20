@@ -48,8 +48,10 @@ public unsafe interface IClientUtils
     /// <summary>
     /// Gets a result for an api call.
     /// </summary>
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public bool GetAPICallResult(SteamAPICall_t handle, void* callbackData, int callbackDataMax, int expectedCallbackID, ref bool failed);  // argc: 6, index: 24
     // Why valve why
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret SetAPICallResultWithoutPostingCallback(SteamAPICall_t handle, byte[] responseData, int responseDataLen, int responseCallbackID);  // argc: 5, index: 25
     public unknown_ret SignalAppsToShutDown();  // argc: 0, index: 26
     public unknown_ret SignalServiceAppsToDisconnect();  // argc: 0, index: 27

@@ -51,35 +51,36 @@ namespace OpenSteamworks.Protobuf.WebUI {
             "bmx5GAggASgIEhYKDmlzX3Jvb3RfZGV2aWNlGAkgASgIEh4KDGNvbnRlbnRf",
             "dHlwZRgKIAEoBUIIgrUYBGVudW0SIQoPZmlsZXN5c3RlbV90eXBlGAsgASgF",
             "QgiCtRgEZW51bRITCgttb3VudF9wYXRocxgMIAMoCRIVCg1pc191bm1vdW50",
-            "aW5nGA0gASgIItkBChpDU3RvcmFnZURldmljZU1hbmFnZXJEcml2ZRINCgJp",
+            "aW5nGA0gASgIIo0CChpDU3RvcmFnZURldmljZU1hbmFnZXJEcml2ZRINCgJp",
             "ZBgBIAEoDToBMBINCgVtb2RlbBgCIAEoCRIOCgZ2ZW5kb3IYAyABKAkSDgoG",
             "c2VyaWFsGAQgASgJEhQKDGlzX2VqZWN0YWJsZRgFIAEoCBISCgpzaXplX2J5",
             "dGVzGAYgASgEEhwKCm1lZGlhX3R5cGUYByABKAVCCIK1GARlbnVtEhYKDmlz",
             "X3VuZm9ybWF0dGVkGAggASgIEh0KC2Fkb3B0X3N0YWdlGAkgASgFQgiCtRgE",
-            "ZW51bSLvAQoaQ1N0b3JhZ2VEZXZpY2VNYW5hZ2VyU3RhdGUSKwoGZHJpdmVz",
-            "GAEgAygLMhsuQ1N0b3JhZ2VEZXZpY2VNYW5hZ2VyRHJpdmUSNgoLYmxvY2Rl",
-            "dmljZXMYAiADKAsyIS5DU3RvcmFnZURldmljZU1hbmFnZXJCbG9ja0Rldmlj",
-            "ZRIcChRpc191bm1vdW50X3N1cHBvcnRlZBgDIAEoCBIZChFpc190cmltX3N1",
-            "cHBvcnRlZBgEIAEoCBIXCg9pc190cmltX3J1bm5pbmcYBSABKAgSGgoSaXNf",
-            "YWRvcHRfc3VwcG9ydGVkGAYgASgIMoQGChRTdG9yYWdlRGV2aWNlTWFuYWdl",
-            "chJUCgVBZG9wdBIkLkNTdG9yYWdlRGV2aWNlTWFuYWdlcl9BZG9wdF9SZXF1",
-            "ZXN0GiUuQ1N0b3JhZ2VEZXZpY2VNYW5hZ2VyX0Fkb3B0X1Jlc3BvbnNlElQK",
-            "BUVqZWN0EiQuQ1N0b3JhZ2VEZXZpY2VNYW5hZ2VyX0VqZWN0X1JlcXVlc3Qa",
-            "JS5DU3RvcmFnZURldmljZU1hbmFnZXJfRWplY3RfUmVzcG9uc2USVwoGRm9y",
-            "bWF0EiUuQ1N0b3JhZ2VEZXZpY2VNYW5hZ2VyX0Zvcm1hdF9SZXF1ZXN0GiYu",
-            "Q1N0b3JhZ2VEZXZpY2VNYW5hZ2VyX0Zvcm1hdF9SZXNwb25zZRJdCghHZXRT",
-            "dGF0ZRInLkNTdG9yYWdlRGV2aWNlTWFuYWdlcl9HZXRTdGF0ZV9SZXF1ZXN0",
-            "GiguQ1N0b3JhZ2VEZXZpY2VNYW5hZ2VyX0dldFN0YXRlX1Jlc3BvbnNlEnsK",
-            "EklzU2VydmljZUF2YWlsYWJsZRIxLkNTdG9yYWdlRGV2aWNlTWFuYWdlcl9J",
-            "c1NlcnZpY2VBdmFpbGFibGVfUmVxdWVzdBoyLkNTdG9yYWdlRGV2aWNlTWFu",
-            "YWdlcl9Jc1NlcnZpY2VBdmFpbGFibGVfUmVzcG9uc2USUwoSTm90aWZ5U3Rh",
-            "dGVDaGFuZ2VkEjAuQ1N0b3JhZ2VEZXZpY2VNYW5hZ2VyX1N0YXRlQ2hhbmdl",
-            "ZF9Ob3RpZmljYXRpb24aCy5Ob1Jlc3BvbnNlEloKB1RyaW1BbGwSJi5DU3Rv",
-            "cmFnZURldmljZU1hbmFnZXJfVHJpbUFsbF9SZXF1ZXN0GicuQ1N0b3JhZ2VE",
-            "ZXZpY2VNYW5hZ2VyX1RyaW1BbGxfUmVzcG9uc2USWgoHVW5tb3VudBImLkNT",
-            "dG9yYWdlRGV2aWNlTWFuYWdlcl9Vbm1vdW50X1JlcXVlc3QaJy5DU3RvcmFn",
-            "ZURldmljZU1hbmFnZXJfVW5tb3VudF9SZXNwb25zZUIgqgIdT3BlblN0ZWFt",
-            "d29ya3MuUHJvdG9idWYuV2ViVUk="));
+            "ZW51bRIWCg5pc19mb3JtYXR0YWJsZRgKIAEoCBIaChJpc19tZWRpYV9hdmFp",
+            "bGFibGUYCyABKAgi7wEKGkNTdG9yYWdlRGV2aWNlTWFuYWdlclN0YXRlEisK",
+            "BmRyaXZlcxgBIAMoCzIbLkNTdG9yYWdlRGV2aWNlTWFuYWdlckRyaXZlEjYK",
+            "C2Jsb2NkZXZpY2VzGAIgAygLMiEuQ1N0b3JhZ2VEZXZpY2VNYW5hZ2VyQmxv",
+            "Y2tEZXZpY2USHAoUaXNfdW5tb3VudF9zdXBwb3J0ZWQYAyABKAgSGQoRaXNf",
+            "dHJpbV9zdXBwb3J0ZWQYBCABKAgSFwoPaXNfdHJpbV9ydW5uaW5nGAUgASgI",
+            "EhoKEmlzX2Fkb3B0X3N1cHBvcnRlZBgGIAEoCDKEBgoUU3RvcmFnZURldmlj",
+            "ZU1hbmFnZXISVAoFQWRvcHQSJC5DU3RvcmFnZURldmljZU1hbmFnZXJfQWRv",
+            "cHRfUmVxdWVzdBolLkNTdG9yYWdlRGV2aWNlTWFuYWdlcl9BZG9wdF9SZXNw",
+            "b25zZRJUCgVFamVjdBIkLkNTdG9yYWdlRGV2aWNlTWFuYWdlcl9FamVjdF9S",
+            "ZXF1ZXN0GiUuQ1N0b3JhZ2VEZXZpY2VNYW5hZ2VyX0VqZWN0X1Jlc3BvbnNl",
+            "ElcKBkZvcm1hdBIlLkNTdG9yYWdlRGV2aWNlTWFuYWdlcl9Gb3JtYXRfUmVx",
+            "dWVzdBomLkNTdG9yYWdlRGV2aWNlTWFuYWdlcl9Gb3JtYXRfUmVzcG9uc2US",
+            "XQoIR2V0U3RhdGUSJy5DU3RvcmFnZURldmljZU1hbmFnZXJfR2V0U3RhdGVf",
+            "UmVxdWVzdBooLkNTdG9yYWdlRGV2aWNlTWFuYWdlcl9HZXRTdGF0ZV9SZXNw",
+            "b25zZRJ7ChJJc1NlcnZpY2VBdmFpbGFibGUSMS5DU3RvcmFnZURldmljZU1h",
+            "bmFnZXJfSXNTZXJ2aWNlQXZhaWxhYmxlX1JlcXVlc3QaMi5DU3RvcmFnZURl",
+            "dmljZU1hbmFnZXJfSXNTZXJ2aWNlQXZhaWxhYmxlX1Jlc3BvbnNlElMKEk5v",
+            "dGlmeVN0YXRlQ2hhbmdlZBIwLkNTdG9yYWdlRGV2aWNlTWFuYWdlcl9TdGF0",
+            "ZUNoYW5nZWRfTm90aWZpY2F0aW9uGgsuTm9SZXNwb25zZRJaCgdUcmltQWxs",
+            "EiYuQ1N0b3JhZ2VEZXZpY2VNYW5hZ2VyX1RyaW1BbGxfUmVxdWVzdBonLkNT",
+            "dG9yYWdlRGV2aWNlTWFuYWdlcl9UcmltQWxsX1Jlc3BvbnNlEloKB1VubW91",
+            "bnQSJi5DU3RvcmFnZURldmljZU1hbmFnZXJfVW5tb3VudF9SZXF1ZXN0Gicu",
+            "Q1N0b3JhZ2VEZXZpY2VNYW5hZ2VyX1VubW91bnRfUmVzcG9uc2VCIKoCHU9w",
+            "ZW5TdGVhbXdvcmtzLlByb3RvYnVmLldlYlVJ"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.Reflection.DescriptorReflection.Descriptor, global::OpenSteamworks.Protobuf.WebUI.CommonBaseReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -99,7 +100,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CStorageDeviceManager_Unmount_Request), global::OpenSteamworks.Protobuf.WebUI.CStorageDeviceManager_Unmount_Request.Parser, new[]{ "BlocdeviceId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CStorageDeviceManager_Unmount_Response), global::OpenSteamworks.Protobuf.WebUI.CStorageDeviceManager_Unmount_Response.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CStorageDeviceManagerBlockDevice), global::OpenSteamworks.Protobuf.WebUI.CStorageDeviceManagerBlockDevice.Parser, new[]{ "Id", "DriveId", "Path", "FriendlyPath", "Label", "SizeBytes", "IsFormattable", "IsReadOnly", "IsRootDevice", "ContentType", "FilesystemType", "MountPaths", "IsUnmounting" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CStorageDeviceManagerDrive), global::OpenSteamworks.Protobuf.WebUI.CStorageDeviceManagerDrive.Parser, new[]{ "Id", "Model", "Vendor", "Serial", "IsEjectable", "SizeBytes", "MediaType", "IsUnformatted", "AdoptStage" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CStorageDeviceManagerDrive), global::OpenSteamworks.Protobuf.WebUI.CStorageDeviceManagerDrive.Parser, new[]{ "Id", "Model", "Vendor", "Serial", "IsEjectable", "SizeBytes", "MediaType", "IsUnformatted", "AdoptStage", "IsFormattable", "IsMediaAvailable" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CStorageDeviceManagerState), global::OpenSteamworks.Protobuf.WebUI.CStorageDeviceManagerState.Parser, new[]{ "Drives", "Blocdevices", "IsUnmountSupported", "IsTrimSupported", "IsTrimRunning", "IsAdoptSupported" }, null, null, null, null)
           }));
     }
@@ -3600,6 +3601,8 @@ namespace OpenSteamworks.Protobuf.WebUI {
       mediaType_ = other.mediaType_;
       isUnformatted_ = other.isUnformatted_;
       adoptStage_ = other.adoptStage_;
+      isFormattable_ = other.isFormattable_;
+      isMediaAvailable_ = other.isMediaAvailable_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -3849,6 +3852,60 @@ namespace OpenSteamworks.Protobuf.WebUI {
       _hasBits0 &= ~32;
     }
 
+    /// <summary>Field number for the "is_formattable" field.</summary>
+    public const int IsFormattableFieldNumber = 10;
+    private readonly static bool IsFormattableDefaultValue = false;
+
+    private bool isFormattable_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool IsFormattable {
+      get { if ((_hasBits0 & 64) != 0) { return isFormattable_; } else { return IsFormattableDefaultValue; } }
+      set {
+        _hasBits0 |= 64;
+        isFormattable_ = value;
+      }
+    }
+    /// <summary>Gets whether the "is_formattable" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasIsFormattable {
+      get { return (_hasBits0 & 64) != 0; }
+    }
+    /// <summary>Clears the value of the "is_formattable" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearIsFormattable() {
+      _hasBits0 &= ~64;
+    }
+
+    /// <summary>Field number for the "is_media_available" field.</summary>
+    public const int IsMediaAvailableFieldNumber = 11;
+    private readonly static bool IsMediaAvailableDefaultValue = false;
+
+    private bool isMediaAvailable_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool IsMediaAvailable {
+      get { if ((_hasBits0 & 128) != 0) { return isMediaAvailable_; } else { return IsMediaAvailableDefaultValue; } }
+      set {
+        _hasBits0 |= 128;
+        isMediaAvailable_ = value;
+      }
+    }
+    /// <summary>Gets whether the "is_media_available" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasIsMediaAvailable {
+      get { return (_hasBits0 & 128) != 0; }
+    }
+    /// <summary>Clears the value of the "is_media_available" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearIsMediaAvailable() {
+      _hasBits0 &= ~128;
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -3873,6 +3930,8 @@ namespace OpenSteamworks.Protobuf.WebUI {
       if (MediaType != other.MediaType) return false;
       if (IsUnformatted != other.IsUnformatted) return false;
       if (AdoptStage != other.AdoptStage) return false;
+      if (IsFormattable != other.IsFormattable) return false;
+      if (IsMediaAvailable != other.IsMediaAvailable) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -3889,6 +3948,8 @@ namespace OpenSteamworks.Protobuf.WebUI {
       if (HasMediaType) hash ^= MediaType.GetHashCode();
       if (HasIsUnformatted) hash ^= IsUnformatted.GetHashCode();
       if (HasAdoptStage) hash ^= AdoptStage.GetHashCode();
+      if (HasIsFormattable) hash ^= IsFormattable.GetHashCode();
+      if (HasIsMediaAvailable) hash ^= IsMediaAvailable.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -3943,6 +4004,14 @@ namespace OpenSteamworks.Protobuf.WebUI {
         output.WriteRawTag(72);
         output.WriteInt32(AdoptStage);
       }
+      if (HasIsFormattable) {
+        output.WriteRawTag(80);
+        output.WriteBool(IsFormattable);
+      }
+      if (HasIsMediaAvailable) {
+        output.WriteRawTag(88);
+        output.WriteBool(IsMediaAvailable);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -3989,6 +4058,14 @@ namespace OpenSteamworks.Protobuf.WebUI {
         output.WriteRawTag(72);
         output.WriteInt32(AdoptStage);
       }
+      if (HasIsFormattable) {
+        output.WriteRawTag(80);
+        output.WriteBool(IsFormattable);
+      }
+      if (HasIsMediaAvailable) {
+        output.WriteRawTag(88);
+        output.WriteBool(IsMediaAvailable);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -4025,6 +4102,12 @@ namespace OpenSteamworks.Protobuf.WebUI {
       }
       if (HasAdoptStage) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(AdoptStage);
+      }
+      if (HasIsFormattable) {
+        size += 1 + 1;
+      }
+      if (HasIsMediaAvailable) {
+        size += 1 + 1;
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -4064,6 +4147,12 @@ namespace OpenSteamworks.Protobuf.WebUI {
       }
       if (other.HasAdoptStage) {
         AdoptStage = other.AdoptStage;
+      }
+      if (other.HasIsFormattable) {
+        IsFormattable = other.IsFormattable;
+      }
+      if (other.HasIsMediaAvailable) {
+        IsMediaAvailable = other.IsMediaAvailable;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -4116,6 +4205,14 @@ namespace OpenSteamworks.Protobuf.WebUI {
             AdoptStage = input.ReadInt32();
             break;
           }
+          case 80: {
+            IsFormattable = input.ReadBool();
+            break;
+          }
+          case 88: {
+            IsMediaAvailable = input.ReadBool();
+            break;
+          }
         }
       }
     #endif
@@ -4165,6 +4262,14 @@ namespace OpenSteamworks.Protobuf.WebUI {
           }
           case 72: {
             AdoptStage = input.ReadInt32();
+            break;
+          }
+          case 80: {
+            IsFormattable = input.ReadBool();
+            break;
+          }
+          case 88: {
+            IsMediaAvailable = input.ReadBool();
             break;
           }
         }
