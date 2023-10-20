@@ -11,7 +11,6 @@ public partial class HTMLSurfaceTest : Window
 {
     private Controls.HTMLSurface surfaceControl;
     private SteamClient client;
-    private int currentKey = 0x26;
     public HTMLSurfaceTest(SteamClient client) : base()
     {
         InitializeComponent();

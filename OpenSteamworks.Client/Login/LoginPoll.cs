@@ -25,7 +25,6 @@ internal class LoginPoll {
     public event ErrorEventHandler? Error;
     public event ChallengeUrlGeneratedHandler? ChallengeUrlGenerated;
     public event RefreshTokenGeneratedHandler? RefreshTokenGenerated;
-    public event AccessTokenGeneratedHandler? AccessTokenGenerated;
 
     private readonly ProtoMsg<CAuthentication_PollAuthSessionStatus_Request> pollMsg;
     private ClientMessaging clientMessaging;

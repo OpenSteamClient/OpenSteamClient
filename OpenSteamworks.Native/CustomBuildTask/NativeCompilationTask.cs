@@ -45,9 +45,9 @@ public class NativeCompilationTask : Microsoft.Build.Utilities.Task
             {
                 this.CompileFor(item);
             }
-            catch (CompileException)
+            catch (CompileException e)
             {
-                Log.LogError("Building natives failed, see output for details");
+                Log.LogError("Building natives failed with error " + e.Message);
                 return false;
             }
         }
@@ -214,7 +214,7 @@ public class NativeCompilationTask : Microsoft.Build.Utilities.Task
         proc.Start();
         proc.WaitForExit();
         if (proc.ExitCode != 0) {
-            throw new CompileException();
+            throw new CompileException("cmake exited with error " + proc.ExitCode);
         }
     }
 }

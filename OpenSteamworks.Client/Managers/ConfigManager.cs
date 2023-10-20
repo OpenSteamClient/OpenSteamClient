@@ -37,10 +37,6 @@ public class ConfigManager : IClientLifetime
         steamClient = client;
     }
 
-    private AdvancedConfig advancedConfig;
-    private BootstrapperState bootstrapperState;
-    private GlobalSettings globalSettings;
-    private LoginUsers loginUsers;
     public ConfigManager(Container container) {
         AssemblyDirectory = OpenSteamworks.Client.Utils.UtilityFunctions.AssertNotNull(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location));
         //TODO: use registry to get installdir on Windows when we build an installer.
@@ -83,6 +79,6 @@ public class ConfigManager : IClientLifetime
 
     public async Task RunShutdown()
     {
-        
+        await Task.CompletedTask;
     }
 }

@@ -317,13 +317,18 @@ namespace OpenSteamworks.Native.JIT
 
                 if (paramTypeInfo.IsCustomValueType) {
                     ilgen.AddComment("Custom value type arg path");
-                    ilgen.Call(local.paramType.GetMethod("op_Implicit", new[] { local.builder.LocalType }));
+                    ilgen.Call(paramTypeInfo.CustomValueTypeFromNativeTypeOperator);
                     // Store the new value object into the argument
                     ilgen.Stobj(local.paramType);
                 } else {
                     // Create a new value type from it
                     ilgen.AddComment("Regular arg path for type " + local.builder.LocalType.ToString());
-                    ilgen.Newobj(local.paramType.GetConstructor(new Type[] { local.builder.LocalType }));
+                    var ctor = local.paramType.GetConstructor(new Type[] { local.builder.LocalType });
+                    if (ctor == null) {
+                        throw new NullReferenceException("No constructor for " + local.paramType + " that takes " + local.builder.LocalType);
+                    }
+
+                    ilgen.Newobj(ctor);
                     // And store it's address to the local
                     // STIND_REF can be used to store TYP_INT, TYP_I_IMPL, TYP_REF, or TYP_BYREF (not value types)
                     ilgen.Stind_Ref();
@@ -362,7 +367,7 @@ namespace OpenSteamworks.Native.JIT
                 ilgen.Call(typeof(InteropHelp).GetMethod(nameof(InteropHelp.DecodeUTF8String))!);
             } else if (method.ReturnType.IsCustomValueType) {
                 // Create custom value type from the backing type
-                ilgen.Call(method.ReturnType.PierceType.GetMethod("op_Implicit", new[] { method.ReturnType.NativeType }));
+                ilgen.Call(method.ReturnType.CustomValueTypeFromNativeTypeOperator);
             }
 
             ilgen.Return();

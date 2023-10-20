@@ -19,7 +19,7 @@
     <Import Project="Sdk.targets" Sdk="Microsoft.Build.NoTargets" Version="3.7.0" />
 
     <Target Name="BuildCustomTask">
-        <MSBuild Projects="CustomBuildTask/CustomBuildTask.csproj" Targets="Build" />
+        <MSBuild Projects="CustomBuildTask/CustomBuildTask.csproj" Targets="Restore;Build" />
     </Target>
 
     <UsingTask Condition="'$(RunningCustomBuildTask)' == 'true'" TaskName="NativeCompilationTask" AssemblyFile="$(MSBuildThisFileDirectory)\CustomBuildTask\bin\Debug\net7.0\CustomBuildTask.dll" />
