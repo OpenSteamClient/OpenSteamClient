@@ -14,10 +14,12 @@
 #endif 
 
 #if _WIN32
-#define CHROMEHTML_LIB "chromehtml.dll"
-#define TIER0_LIB "..\\tier0_s.dll"
+#define CHROMEHTML_LIB "bin\\chromehtml.dll"
+#define TIER0_LIB "tier0_s.dll"
 #include <windows.h>
-#include "windowssupport.h"
+#include "../windowssupport.h"
+#include "windowshooks.h"
+#include "../bootstrappershim/windowsshim.h"
 #endif
 
 // DEBUGGER
@@ -45,22 +47,22 @@ void WaitForControlSignalToContinue() {
 typedef void *(*createInterfaceFn)(const char *, int *);
 typedef void *(*overrideArgvFn)(char *argv[], int argc);
 
+// Notes:
+// buildid is determined with tier0's GetMiniDumpBuildID
+// steamid is determined with tier0's GetMiniDumpSteamID
+// The main interface (IHTMLChromeController, CChromeIPClient) is also duplicated within steamclient.so. Yep. Even in the 64-bit one. Don't know how to access it though, shit...
 int main(int argc, char *argv[])
 {
-    // Kill process when parent dies (windows doesn't support this)
+    // Kill process when parent dies (windows doesn't support this, might leave lingering processes)
 #if __linux__
     prctl(PR_SET_PDEATHSIG, SIGKILL);
 #endif 
 
+    while( !::IsDebuggerPresent() )
+        ::Sleep( 100 ); // to avoid 100% CPU load
+
     if (argc < 3) {
         std::cerr << "Missing required arguments [cachedir, steampath]" << std::endl;
-        return 1;
-    }
-
-    auto dl_handle_chromehtml = dlopen(CHROMEHTML_LIB, RTLD_NOW);
-    if (dl_handle_chromehtml == nullptr)
-    {
-        std::cerr << "dl_handle_chromehtml == nullptr!!!" << std::endl;
         return 1;
     }
 
@@ -71,15 +73,35 @@ int main(int argc, char *argv[])
         return 1;
     }
 
+// Create hooks on Windows
+#if _WIN32
+    // This shitty hook doesn't work and causes errors, why?
+    // WindowsHookFunc((HMODULE)dl_handle_tier0, "ThreadGetCurrentProcessId", &GetCurrentProcessIdHook);
+    // This feels wrong, but isn't?
+    // WindowsHookFunc((HMODULE)dl_handle_tier0, "Plat_GetExecutablePath", &Plat_GetExecutablePathHook);
+    // WindowsHookFunc((HMODULE)dl_handle_tier0, "Plat_GetExecutablePathUTF8", &Plat_GetExecutablePathHook);
+#endif
+
+#if __linux__
     overrideArgvFn Plat_InternalOverrideArgv = (overrideArgvFn)dlsym(dl_handle_tier0, "Plat_InternalOverrideArgv");
     if (Plat_InternalOverrideArgv == nullptr)
     {
         std::cerr << "Plat_InternalOverrideArgv == nullptr!!!" << std::endl;
         return 1;
     }
+#endif
 
     argv[0] = getenv("OPENSTEAM_EXE_PATH");
+#if __linux__
     Plat_InternalOverrideArgv(argv, argc);
+#endif
+
+    auto dl_handle_chromehtml = dlopen(CHROMEHTML_LIB, RTLD_NOW);
+    if (dl_handle_chromehtml == nullptr)
+    {
+        std::cerr << "dl_handle_chromehtml == nullptr!!!" << std::endl;
+        return 1;
+    }
 
     createInterfaceFn createInterface = (createInterfaceFn)dlsym(dl_handle_chromehtml, "CreateInterface");
     if (createInterface == nullptr)
@@ -101,48 +123,51 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    HTMLOptions options;
-    options.strHTMLCacheDir = argv[1];
-    options.universe = 1;
-    options.strProxy = "";
-    options.language = 0;
-    options.uimode = 0;
-    options.field5_0x14 = 0;
-    options.argsFlags = 0;
-    options.field7_0x16 = 0;
-    options.field8_0x17 = 0;
-    options.field9_0x18 = nullptr;
-    options.field10_0x1c = 0;
-    options.field11_0x20 = 0;
-    options.field12_0x21 = 0;
-    options.field13_0x22 = 0;
-    options.field14_0x26 = 0;
-    options.field15_0x30 = 0;
+    HTMLOptions* options = new HTMLOptions();
+    options->cacheDir = argv[1];
+    options->universe = 1;
+    options->realm = 1;
+    options->language = 0;
+    options->uiMode = 0;
+    options->enableGpuAcceleration = true;
+    options->enableSmoothScrolling = true;
+    options->enableGPUVideoDecode = true;
+    options->enableHighDPI = true;
+    options->proxyServer = "";
+    options->bypassProxyForLocalhost = true;
+    options->padding1 = 0;
+    options->padding2 = 0;
+    options->padding3 = 0;
+    options->composerMode = 0;
+    options->ignoreGPUBlocklist = false;
+    options->allowWorkarounds = true;
+    options->padding4 = 0;
+    options->padding5 = 0;
+    options->padding6 = 0;
 
-    // char *field0_0x0;
-    // uint field1_0x4;
-    // int field2_0x8;
-    // undefined4 field3_0xc;
-    // int field4_0x10;
-    // undefined field5_0x14;
-    // undefined field6_0x15;
-    // undefined field7_0x16;
-    // undefined field8_0x17;
-    // undefined **field9_0x18;
-    // int field10_0x1c;
-    // undefined field11_0x20;
-    // undefined field12_0x21;
+    controller->SetHostingProcessPID(std::stoi(getenv("OPENSTEAM_PID")));
+    std::cout << "init " << controller->Init() << std::endl;
+    std::cout << "startwithoptions " << controller->StartWithOptions(options) << std::endl;
+    std::cout << "WTF " << std::endl;
+    std::cout << "FUN_10007400 " << controller->FUN_10007400() << std::endl;
+    std::cout << "start " << controller->Start() << std::endl;
 
-    controller->SetOptions(&options);
-    controller->StartThread();
-    controller->Start();
-    //std::cout << "CreateOffscreenBrowser" << controller->CreateOffscreenBrowser("Valve Steam Client", nullptr, "", 1, 1, EBrowserType::OffScreen, 1) << std::endl;
+   
+    std::cout << "CreateBrowser2 " << controller->CreateBrowser2("Valve Steam Client", nullptr, "https://google.com", 0, 0, EBrowserType::Transparent_Toplevel, 0) << std::endl;
+    std::cout << "Webhelper PID " << controller->GetPIDOfWebhelperProcess() << std::endl;
     std::cout << "Kill with CTRL+C" << std::endl;
     signal(SIGINT, handle_sigint);
     while (!done)
     {
         controller->RunFrame();
-        std::this_thread::sleep_for(std::chrono::microseconds(50));
+        std::this_thread::sleep_for(std::chrono::microseconds(1));
+    }
+    done = false;
+
+    while (!done)
+    {
+        controller->RunFrame();
+        std::this_thread::sleep_for(std::chrono::microseconds(1));
     }
     signal(SIGINT, SIG_DFL);
 }

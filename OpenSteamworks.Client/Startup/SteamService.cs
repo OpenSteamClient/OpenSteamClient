@@ -38,6 +38,7 @@ public class SteamService : IClientLifetime {
     }
 
     [SupportedOSPlatform("linux")]
+    [SupportedOSPlatform("windows")]
     [SupportedOSPlatform("osx")]
     public void StartServiceAsHost(string pathToHost) {
         FailedToStart = false;
@@ -47,8 +48,19 @@ public class SteamService : IClientLifetime {
             CurrentServiceHost = new Process();
             CurrentServiceHost.StartInfo.WorkingDirectory = Path.GetDirectoryName(pathToHost);
             CurrentServiceHost.StartInfo.FileName = pathToHost;
-            CurrentServiceHost.StartInfo.Environment.Add("LD_LIBRARY_PATH", $".:{Environment.GetEnvironmentVariable("LD_LIBRARY_PATH")}");
-            CurrentServiceHost.StartInfo.Environment.Add("OPENSTEAM_PID", Environment.ProcessId.ToString());
+            
+            if (OperatingSystem.IsLinux()) {
+                CurrentServiceHost.StartInfo.Environment.Add("LD_LIBRARY_PATH", $".:{Environment.GetEnvironmentVariable("LD_LIBRARY_PATH")}");
+                CurrentServiceHost.StartInfo.Environment.Add("OPENSTEAM_PID", Environment.ProcessId.ToString());
+            }
+
+
+            if (OperatingSystem.IsWindows()) {
+                //TODO: starting the actual properly installed service doesn't need admin, but I haven't figured out how to get it to launch without modifying the registry as admin
+                CurrentServiceHost.StartInfo.Verb = "runas";
+                CurrentServiceHost.StartInfo.UseShellExecute = true;
+            }
+
             CurrentServiceHost.Start();
             if (WatcherThread == null || !WatcherThread.IsAlive) {
                 WatcherThread = new Thread(() => {
@@ -70,11 +82,6 @@ public class SteamService : IClientLifetime {
                 WatcherThread.Start();
             }
         }
-    }
-
-    [SupportedOSPlatform("windows")]
-    public void StartServiceAsWindowsService() {
-        //CurrentWindowsService = new ServiceController("Steam Client Service");
     }
 
     public void StopService() {
@@ -106,7 +113,11 @@ public class SteamService : IClientLifetime {
                     
                     this.StartServiceAsHost(Path.Combine(configManager.InstallDir, "steamserviced"));
                 } else if (OperatingSystem.IsWindows()) {
-                    this.StartServiceAsWindowsService();
+                    if (advancedConfig.ServiceAsAdminHostOnWindows) {
+                        this.StartServiceAsHost(Path.Combine(configManager.InstallDir, "bin", "steamserviced.exe"));
+                    } else {
+                        // steamclient.dll auto starts the steamservice when needed, so this is unneeded. 
+                    }
                 } else {
                     Console.WriteLine("Not running Steam Service due to unsupported OS");
                 }

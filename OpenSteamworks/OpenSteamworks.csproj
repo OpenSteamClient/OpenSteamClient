@@ -11,7 +11,7 @@
     <ProjectReference Include="..\OpenSteamworks.Protobuf\OpenSteamworks.Protobuf.csproj" />
   </ItemGroup>
 
-  <!-- This is dumb and makes the code not portable. Microsoft, pls fix (by allowing non-const values in struct packing). -->
+  <!-- This is dumb and makes the code not portable. Microsoft, pls fix (by allowing non-const values in struct packing). Also we now use this for some edge case destructors that don't exist on Windows -->
   <PropertyGroup Condition=" '$(OS)' == 'Windows_NT' ">
     <DefineConstants>_WINDOWS</DefineConstants>
   </PropertyGroup>

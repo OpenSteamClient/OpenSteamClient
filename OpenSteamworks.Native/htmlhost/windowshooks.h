@@ -2,11 +2,12 @@
 #include <Windows.h>
 #include <string>
 #include <iostream>
+#include <memoryapi.h>
 
 DWORD pidOfSteam;
 LPSTR steamExecutablePath;
 
-DWORD __stdcall GetCurrentProcessIdHook() {
+DWORD __cdecl GetCurrentProcessIdHook() {
     if (pidOfSteam == 0) {
         char *envvar = getenv("OPENSTEAM_PID");
         if (envvar == nullptr) {
@@ -45,4 +46,25 @@ bool __cdecl Plat_GetExecutablePathHook(LPSTR path, DWORD length) {
     size_t actualLength = strlen(steamExecutablePath)+1;
     memcpy(path, steamExecutablePath, actualLength);
     return true;
+}
+
+void WindowsHookFunc(HMODULE libPtr, const char* funcName, void* hookFunc) {
+    auto origFuncPtr = GetProcAddress(libPtr, funcName);
+    char patch[5]= {0};
+    char saved_buffer[5];
+    ReadProcessMemory(GetCurrentProcess(), origFuncPtr, saved_buffer, 5, NULL);
+
+    DWORD src = (DWORD)origFuncPtr + 5; 
+    DWORD dst = (DWORD)hookFunc;
+    DWORD *relative_offset = (DWORD *)(dst-src); 
+
+    memcpy(patch, "\xE9", 1);
+    memcpy(patch + 1, &relative_offset, 4);
+
+    WriteProcessMemory(GetCurrentProcess(), (LPVOID)origFuncPtr, patch, 5, NULL);
+}
+
+void WindowsHookFunc(const char* libName, const char* funcName, void* hookFunc) {
+    auto lib = LoadLibraryA(TEXT(libName));
+    WindowsHookFunc(lib, funcName, hookFunc);
 }

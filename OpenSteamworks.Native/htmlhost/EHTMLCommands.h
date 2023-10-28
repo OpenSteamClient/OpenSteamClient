@@ -57,7 +57,7 @@ enum EHTMLCommands
 	eHTMLCommands_SetPageScale,
 	eHTMLCommands_RequestFullScreen,
 	eHTMLCommands_ExitFullScreen,
-	eHTMLCommands_GetCookiesForURL,
+	eHTMLCommands_GetCookiesForURL, // 50
 	eHTMLCommands_ZoomToCurrentlyFocusedNode,
 	eHTMLCommands_CloseFullScreenFlashIfOpen,
 	eHTMLCommands_PauseFullScreenFlashMovieIfOpen,
@@ -67,8 +67,8 @@ enum EHTMLCommands
 	eHTMLCommands_BrowserCreateResponse,
 	eHTMLCommands_BrowserReady,
 	eHTMLCommands_URLChanged,
-	eHTMLCommands_FinishedRequest,
 	eHTMLCommands_StartRequest,
+	eHTMLCommands_FinishedRequest,
 	eHTMLCommands_ShowPopup,
 	eHTMLCommands_HidePopup,
 	eHTMLCommands_OpenNewTab,

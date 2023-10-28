@@ -31,6 +31,7 @@ public class NativeCompilationTask : Microsoft.Build.Utilities.Task
         if (!FileEx.Exists("cmake")) {
             throw new Exception("cmake is not installed. Cannot proceed.");
         }
+
         List<TargetOS> buildList = new();
         foreach (var item in Enum.GetValues<TargetOS>())
         {
@@ -62,7 +63,8 @@ public class NativeCompilationTask : Microsoft.Build.Utilities.Task
                 if (CurrentOS == TargetOS.Linux || CurrentOS == TargetOS.MacOS) {
                     return FileEx.Exists("x86_64-w64-mingw32-gcc") && FileEx.Exists("ldd");
                 } else if (CurrentOS == TargetOS.Windows) {
-                    return FileEx.Exists("cl") && FileEx.Exists("link");
+                    // Assume the user has done their due diligence and installed a compiler. TODO: test for compilers with CMake
+                    return true;
                 }
                 break;
             case TargetOS.Linux:
@@ -145,7 +147,7 @@ public class NativeCompilationTask : Microsoft.Build.Utilities.Task
                 }
 
                 if (CurrentOS == TargetOS.Windows) {
-                    compilerFlags32 = "-DCMAKE_GENERATOR_PLATFORM=x86 ";
+                    compilerFlags32 = "-A Win32";
                 }
                 break;
 

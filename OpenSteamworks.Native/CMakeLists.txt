@@ -82,6 +82,9 @@ if (BUILD_PLATFORM_TARGET STREQUAL "windows")
     endif()
 
     if (BUILD_BITS STREQUAL "32" OR DEFINED IDE_BUILD)
+        # Needed for VAC
+        add_executable(steamserviced ${PROJECT_SOURCE_DIR}/serviced/main.cpp)
+
         # htmlhost hosts steamwebhelper and chromehtml if the user wants it. Some games use it to display MOTDs
         add_executable(htmlhost ${htmlhost_sources} ${miniutl_sources})
         target_include_directories(htmlhost PRIVATE "MiniUTL")

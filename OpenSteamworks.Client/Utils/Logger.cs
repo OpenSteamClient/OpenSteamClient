@@ -21,18 +21,12 @@ public class Logger {
     private object logStreamLock = new();
     private FileStream? logStream;
     public void Message(Level level, string message, string category = "", params object?[] formatObjs) {
-        // welp. we can't just use the system's date format, but we also need to use the system's time at the same time, which won't include milliseconds and will always have AM/PM appended, even on 24-hour clocks. So use the better formatting system dd/MM/yyyy and always use 24-hour time
+        // welp. we can't just use the system's date format, but we also need to use the system's time at the same time, which won't include milliseconds and will always have AM/PM appended, even on 24-hour clocks. So use the better formatting system of dd/MM/yyyy and always use 24-hour time
         string formatted = string.Format("[{0} {1}{2}: {3}] {4}", DateTime.UtcNow.ToString("dd/MM/yyyy HH:mm:ss.ff"), this.Name, string.IsNullOrEmpty(category) ? "" : $"/{category}", level.ToString(), string.Format(message, formatObjs));
-        lock (ConsoleLock)
-        {
-            Console.WriteLine(formatted);
-        }
+        Console.WriteLine(formatted);
 
         if (logStream != null) {
-            lock (logStreamLock)
-            {
-                logStream.Write(Encoding.Default.GetBytes(formatted + Environment.NewLine));
-            }
+            logStream.Write(Encoding.Default.GetBytes(formatted + Environment.NewLine));
         }
     }
 

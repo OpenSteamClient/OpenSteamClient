@@ -118,6 +118,11 @@ public class Bootstrapper : IClientLifetime {
 
         // Run platform specific tasks
 
+        if (OperatingSystem.IsWindows()) {
+            // Write our PID to HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Valve\Steam (has full access to entire Steam key by all users, security nightmare?)
+            Microsoft.Win32.Registry.SetValue("HKEY_LOCAL_MACHINE\\SOFTWARE\\WOW6432Node\\Valve\\Steam", "SteamPID", Environment.ProcessId);
+        }
+
         if (OperatingSystem.IsLinux())
         {
             // Make ourselves XDG compliant
@@ -193,7 +198,8 @@ public class Bootstrapper : IClientLifetime {
         // Currently only linux needs a restart (for LD_PRELOAD and LD_LIBRARY_PATH)
         var hasReran = GetEnvironmentVariable("OPENSTEAM_RAN_EXECVP") == "1";
         restartRequired = OperatingSystem.IsLinux() && !hasReran;
-
+        
+        SetEnvsForSteamLoad();
         progressHandler.SetOperation("Bootstrapping Completed" + (restartRequired ? ", restarting" : ""));
 
         await RestartIfNeeded(progressHandler);
@@ -263,17 +269,13 @@ public class Bootstrapper : IClientLifetime {
         [DllImport("libc")]
         static extern int execvp([MarshalAs(UnmanagedType.LPUTF8Str)] string file, [MarshalAs(UnmanagedType.LPArray)] string?[] args);
 
-        // C#'s SetEnvironmentVariable doesn't work here, but we might as well use this since we're in linux specific code anyway
-        [DllImport("libc")]
-        static extern int setenv([MarshalAs(UnmanagedType.LPUTF8Str)] string name, [MarshalAs(UnmanagedType.LPUTF8Str)] string value, int overwrite);
-
         Console.WriteLine("Re-execing");
 
         if (withDebugger) {
-            setenv("OPENSTEAM_REATTACH_DEBUGGER", "1", 1);
+            SetEnvironmentVariableCorrectly("OPENSTEAM_REATTACH_DEBUGGER", "1");
         }
-        setenv("OPENSTEAM_RAN_EXECVP", "1", 1);
-        setenv("LD_LIBRARY_PATH", $"{Path.Combine(configManager.InstallDir, "ubuntu12_64")}:{Path.Combine(configManager.InstallDir, "ubuntu12_32")}:{Path.Combine(configManager.InstallDir)}:{GetEnvironmentVariable("LD_LIBRARY_PATH")}", 1);
+        SetEnvironmentVariableCorrectly("OPENSTEAM_RAN_EXECVP", "1");
+        SetEnvironmentVariableCorrectly("LD_LIBRARY_PATH", $"{Path.Combine(configManager.InstallDir, "ubuntu12_64")}:{Path.Combine(configManager.InstallDir, "ubuntu12_32")}:{Path.Combine(configManager.InstallDir)}:{GetEnvironmentVariable("LD_LIBRARY_PATH")}");
 
         string?[] fullArgs = Environment.GetCommandLineArgs();
 
@@ -293,6 +295,28 @@ public class Bootstrapper : IClientLifetime {
         // Program execution ends here, if execvp returns, it means re-execution failed
         int ret = execvp(executable, fullArgs);
         throw new Exception($"Execvp failed: {ret}");
+    }
+
+    // Sets environment variables necessary for steamclient to work properly.
+    private void SetEnvsForSteamLoad() {
+       SetEnvironmentVariableCorrectly("SteamAppId", "");
+       // These two should point to the current running Steam's path. (We can set these later from post-steamclient load code)
+       SetEnvironmentVariableCorrectly("SteamPath", configManager.InstallDir);
+       SetEnvironmentVariableCorrectly("ValvePlatformMutex", configManager.InstallDir.ToLowerInvariant());
+       SetEnvironmentVariableCorrectly("BREAKPAD_DUMP_LOCATION", Path.Combine(configManager.InstallDir, "dumps"));
+    }
+
+    private void SetEnvironmentVariableCorrectly(string name, string value) {
+        if (OperatingSystem.IsWindows()) {
+            [DllImport("kernel32")]
+            static extern bool SetEnvironmentVariable([MarshalAs(UnmanagedType.LPUTF8Str)] string name, [MarshalAs(UnmanagedType.LPUTF8Str)] string value);
+            SetEnvironmentVariable(name, value);
+        } else {
+            [DllImport("libc")]
+            static extern int setenv([MarshalAs(UnmanagedType.LPUTF8Str)] string name, [MarshalAs(UnmanagedType.LPUTF8Str)] string value, int overwrite);
+            setenv(name, value, 1);
+            return;
+        }
     }
     
     private bool VerifyFiles(IExtendedProgress<int> progressHandler, out string failureReason) {
@@ -637,12 +661,15 @@ public class Bootstrapper : IClientLifetime {
     }
 
     private void CopyOpensteamFiles(IExtendedProgress<int> progressHandler) {
+        // By default we copy all files to the root install dir.
+        // Specify path mappings here to tell the files to go into another
         Dictionary<string, string> pathMappings = new() {
             {"reaper", "linux64/reaper"},
             {"steam-launch-wrapper", "linux64/reaper"},
+            {"steamserviced.exe", "bin/steamserviced.exe"},
+            {"steamserviced.pdb", "bin/steamserviced.pdb"},
             {"htmlhost", "ubuntu12_32/htmlhost"},
             {"steamservice.so", "linux64/steamservice.so"},
-            {"htmlhost.exe", "bin/htmlhost.exe"}
         };
 
         var assemblyFolder = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
@@ -658,7 +685,8 @@ public class Bootstrapper : IClientLifetime {
 
         var oldTimestamp = bootstrapperState.NativeBuildDate;
         var newTimestamp = Convert.ToUInt32(File.ReadAllText(Path.Combine(baseNativesFolder, "build_timestamp")));
-        if (newTimestamp > oldTimestamp) {
+        //TODO: we force this copy every time for now due to files not sometimes copying over
+        if (true || newTimestamp > oldTimestamp) {
             progressHandler.SetSubOperation("Copying OpenSteam files");
             var di = new DirectoryInfo(nativesFolder);
             foreach (var file in di.EnumerateFilesRecursively())
@@ -668,6 +696,7 @@ public class Bootstrapper : IClientLifetime {
                     name = pathMappings[name];
                 }
 
+                Console.WriteLine("Copying " + file.FullName + " to " + Path.Combine(configManager.InstallDir, name));
                 File.Copy(file.FullName, Path.Combine(configManager.InstallDir, name), true);
             }
             bootstrapperState.NativeBuildDate = newTimestamp;

@@ -28,14 +28,14 @@ public class SteamHTML : IClientLifetime {
         lock (CurrentHTMLHostLock)
         {
             CurrentHTMLHost = new Process();
-            CurrentHTMLHost.StartInfo.WorkingDirectory = Path.GetDirectoryName(pathToHost);
+            CurrentHTMLHost.StartInfo.WorkingDirectory = configManager.InstallDir;
             CurrentHTMLHost.StartInfo.FileName = pathToHost;
 
             string steampath;
             if (OperatingSystem.IsLinux()) {
                 steampath = Directory.ResolveLinkTarget("/proc/self/exe", false)!.FullName;
             } else {
-                steampath = Environment.GetCommandLineArgs()[0];
+                steampath = Process.GetCurrentProcess().MainModule!.FileName;
             }
 
             // Necessary for hooking some funcs (to get it to connect to master steam process)
@@ -52,6 +52,8 @@ public class SteamHTML : IClientLifetime {
             
             CurrentHTMLHost.StartInfo.ArgumentList.Add(cacheDir);
             CurrentHTMLHost.StartInfo.ArgumentList.Add(steampath);
+            // Corresponds to --v=4 in CEF terms
+            CurrentHTMLHost.StartInfo.ArgumentList.Add("-cef-verbose-logging 4");
             
             CurrentHTMLHost.Start();
 
@@ -99,9 +101,9 @@ public class SteamHTML : IClientLifetime {
                     
                     this.StartHTMLHost(Path.Combine(configManager.InstallDir, "ubuntu12_32", "htmlhost"), Path.Combine(configManager.InstallDir, "appcache", "htmlcache"));
                 } else if (OperatingSystem.IsWindows()) {                  
-                    this.StartHTMLHost(Path.Combine(configManager.InstallDir, "bin", "htmlhost.exe"), Path.Combine(configManager.InstallDir, "appcache", "htmlcache"));
+                    this.StartHTMLHost(Path.Combine(configManager.InstallDir, "htmlhost.exe"), Path.Combine(configManager.InstallDir, "appcache", "htmlcache"));
                 } else {
-                    //TODO: windows support (enable compile on windows, figure out how to hook getpid/it's variant on Windows)
+                    //TODO: test macos
                     Console.WriteLine("Not running SteamHTML due to unsupported OS");
                 }
             } else {

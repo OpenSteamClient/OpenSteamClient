@@ -12,7 +12,7 @@ public class Container
     internal Dictionary<Type, Delegate> factories { get; init; } = new();
     internal List<Type> clientLifetimeOrder = new();
     internal List<Type> logonLifetimeOrder = new();
-    private static Logger logger = new Logger("Container");
+    private static Logger logger = new Logger("Container", Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "OpenSteam", "logs", "Container.txt"));
 
     public Container()
     {

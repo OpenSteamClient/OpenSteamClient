@@ -8,7 +8,7 @@
     <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <UseLocalAvalonia>true</UseLocalAvalonia>
-    <LocalAvaloniaPath>/home/onni/Downloads/Avalonia</LocalAvaloniaPath>
+    <LocalAvaloniaPath>C:/Users/testaccount/Documents/Avalonia</LocalAvaloniaPath>
     <AvaloniaVersion>11.0.999-cibuild0040806-beta</AvaloniaVersion>
   </PropertyGroup>
 

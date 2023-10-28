@@ -224,7 +224,7 @@ public class CallbackManager
                     Console.WriteLine("Callback handling took " + fullPollTime.Elapsed.TotalMilliseconds + "ms");
                 } else {
                     // Sleep only if we have no extra messages
-                    //System.Threading.Thread.Sleep(1);
+                    System.Threading.Thread.Sleep(1);
                 }
                 
             } while (poll);
@@ -296,11 +296,14 @@ public class CallbackManager
         handlersOut = new List<CallbackHandler>();
         List<CallbackHandler> handlersToRemove = new();
 
-        foreach (var handler in handlers.Where(handler => handler.callbackId == id))
+        lock (handlersLock)
         {
-            handlersOut.Add(handler);
-            if (handler.oneShot == true) {
-                handlersToRemove.Add(handler);
+            foreach (var handler in handlers.Where(handler => handler.callbackId == id))
+            {
+                handlersOut.Add(handler);
+                if (handler.oneShot == true) {
+                    handlersToRemove.Add(handler);
+                }
             }
         }
 

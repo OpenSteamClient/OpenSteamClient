@@ -6,6 +6,7 @@
 // Feel free to change parameters to be more accurate. 
 //=============================================================================
 using System;
+using System.Runtime.Versioning;
 using OpenSteamworks.Enums;
 
 namespace OpenSteamworks.Generated;
@@ -14,7 +15,10 @@ namespace OpenSteamworks.Generated;
 public unsafe interface IClientHTMLSurface
 {
     public unknown_ret Unknown_0_DONTUSE();
+    // The second destructor only exists on Linux (and maybe macos?)
+#if !_WINDOWS
     public unknown_ret Unknown_1_DONTUSE();
+#endif
     public bool Init();
     public bool Shutdown();
     public SteamAPICall_t CreateBrowser(string userAgent, string? customCSS);

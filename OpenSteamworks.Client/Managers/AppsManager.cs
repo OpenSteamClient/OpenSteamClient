@@ -98,10 +98,11 @@ public class AppsManager : ILogonLifetime
         // silly
         var ownedApps = await this.GetAppsForSteamID(e.User.SteamID!.Value);
 
-        progress.SetSubOperation("#WaitingForAppinfoUpdate");
-        Console.WriteLine("Waiting for appinfo update");
-        await RequestAppInfoUpdateForApps(ownedApps);
-        Console.WriteLine("Appinfo update finished");
+        //TODO: this stalls sometimes
+        // progress.SetSubOperation("#WaitingForAppinfoUpdate");
+        // Console.WriteLine("Waiting for appinfo update");
+        // await RequestAppInfoUpdateForApps(ownedApps);
+        // Console.WriteLine("Appinfo update finished");
 
         UpdateMultipleAppObjectsSync(ownedApps);
         lock (ownedAppsLock)

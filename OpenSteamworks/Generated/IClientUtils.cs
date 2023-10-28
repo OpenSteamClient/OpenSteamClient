@@ -193,6 +193,5 @@ public unsafe interface IClientUtils
     public unknown_ret DumpHTTPClients();  // argc: 1, index: 107
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret BGetMachineID();  // argc: 1, index: 108
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret NotifyMissingInterface();  // argc: 1, index: 6
+    public unknown_ret NotifyMissingInterface(string interfaceName);  // argc: 1, index: 6
 }
