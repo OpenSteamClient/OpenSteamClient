@@ -125,8 +125,7 @@ public unsafe interface IClientUser
     public unknown_ret RequestEmbeddedClientToken();  // argc: 1, index: 64
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret AuthorizeNewDevice();  // argc: 3, index: 65
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret GetLanguage();  // argc: 2, index: 66
+    public bool GetLanguage(StringBuilder langOut, int maxOut);  // argc: 2, index: 66
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     [BlacklistedInCrossProcessIPC]
     public unknown_ret TrackNatTraversalStat();  // argc: 1, index: 67

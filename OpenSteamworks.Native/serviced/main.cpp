@@ -77,9 +77,6 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    while( !::IsDebuggerPresent() )
-        ::Sleep( 100 ); // to avoid 100% CPU load
-
     // IPC names are defined in BSetIpPortFromName (and hardcoded in steamservice.dll)
     std::string ipcName = "SteamClientService";
 

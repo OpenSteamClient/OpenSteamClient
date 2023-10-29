@@ -18,15 +18,40 @@ public class Logger {
     public static object ConsoleLock = new();
     public string Name { get; set; } = "";
     public string LogfilePath { get; init; } = "";
+    // https://no-color.org/
+    private bool disableColors = Environment.GetEnvironmentVariable("NO_COLOR") != null;
     private object logStreamLock = new();
     private FileStream? logStream;
     public void Message(Level level, string message, string category = "", params object?[] formatObjs) {
         // welp. we can't just use the system's date format, but we also need to use the system's time at the same time, which won't include milliseconds and will always have AM/PM appended, even on 24-hour clocks. So use the better formatting system of dd/MM/yyyy and always use 24-hour time
         string formatted = string.Format("[{0} {1}{2}: {3}] {4}", DateTime.UtcNow.ToString("dd/MM/yyyy HH:mm:ss.ff"), this.Name, string.IsNullOrEmpty(category) ? "" : $"/{category}", level.ToString(), string.Format(message, formatObjs));
-        Console.WriteLine(formatted);
+        string ansiColorCode = "";
+        string ansiResetCode = "";
+
+        if (!disableColors) {
+            ansiResetCode = "\x1b[0m";
+            if (level == Level.FATAL) {
+                ansiColorCode = "\x1b[91m";
+            } else if (level == Level.ERROR) {
+                ansiColorCode = "\x1b[31m";
+            } else if (level == Level.WARNING) {
+                ansiColorCode = "\x1b[33m";
+            } else if (level == Level.INFO) {
+                ansiColorCode = "\x1b[37m";
+            } else if (level == Level.DEBUG) {
+                ansiColorCode = "\x1b[2;37m";
+            }
+        }
+
+        Console.WriteLine(ansiColorCode + formatted + ansiResetCode);
 
         if (logStream != null) {
-            logStream.Write(Encoding.Default.GetBytes(formatted + Environment.NewLine));
+            lock (logStreamLock)
+            {
+                logStream.Write(Encoding.Default.GetBytes(formatted + Environment.NewLine));
+                //TODO: This is very bad
+                logStream.Flush();
+            }
         }
     }
 

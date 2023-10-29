@@ -151,74 +151,14 @@ public class TranslationManager : IClientLifetime {
     }
     
     public static string? ELanguageToString(ELanguage lang) {
-        switch (lang)
+        try
         {
-            case ELanguage.None:
-                break;
-            case ELanguage.English:
-                return "english";
-            case ELanguage.German:
-                return "german";
-            case ELanguage.French:
-                return "french";
-            case ELanguage.Italian:
-                return "italian";
-            case ELanguage.Korean:
-                return "korean";
-            case ELanguage.Spanish:
-                return "spanish";
-            case ELanguage.Simplified_Chinese:
-                return "schinese"; // Is this correct?
-            case ELanguage.Traditional_Chinese:
-                return "tchinese"; // Is this correct?
-            case ELanguage.Russian:
-                return "russian";
-            case ELanguage.Thai:
-                return "thai";
-            case ELanguage.Japanese:
-                return "japanese";
-            case ELanguage.Portuguese:
-                return "portuguese";
-            case ELanguage.Polish:
-                return "polish";
-            case ELanguage.Danish:
-                return "danish";
-            case ELanguage.Dutch:
-                return "dutch";
-            case ELanguage.Finnish:
-                return "finnish";
-            case ELanguage.Norwegian:
-                return "norwegian";
-            case ELanguage.Swedish:
-                return "swedish";
-            case ELanguage.Hungarian:
-                return "hungarian";
-            case ELanguage.Czech:
-                return "czech";
-            case ELanguage.Romanian:
-                return "romanian";
-            case ELanguage.Turkish:
-                return "turkish";
-            case ELanguage.Brazilian:
-                return "brazilian";
-            case ELanguage.Bulgarian:
-                return "bulgarian";
-            case ELanguage.Greek:
-                return "greek";
-            case ELanguage.Arabic:
-                return "arabic";
-            case ELanguage.Ukrainian:
-                return "ukrainian";
-            case ELanguage.Latam_Spanish:
-                return "latam_spanish"; // Is this correct?
-            case ELanguage.Vietnamese:
-                return "vietnamese";
-            case ELanguage.MAX:
-                break;
-            default:
-                break;
+            return ELanguageConversion.APINameFromELanguage(lang);
         }
-        return null;
+        catch (System.Exception)
+        {
+            return null;
+        }
     }
 
     public async Task RunStartup()

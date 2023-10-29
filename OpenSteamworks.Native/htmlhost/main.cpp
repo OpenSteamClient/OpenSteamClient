@@ -58,11 +58,8 @@ int main(int argc, char *argv[])
     prctl(PR_SET_PDEATHSIG, SIGKILL);
 #endif 
 
-    while( !::IsDebuggerPresent() )
-        ::Sleep( 100 ); // to avoid 100% CPU load
-
-    if (argc < 3) {
-        std::cerr << "Missing required arguments [cachedir, steampath]" << std::endl;
+    if (argc < 16) {
+        std::cerr << "Missing required arguments [cachedir, steampath, universe, realm, language, uimode, enablegpuacceleration, enablesmoothscrolling, enablegpuvideodecode, enablehighdpi, proxyserver, bypassproxyforlocalhost, composermode, ignoregpublocklist, allowworkarounds]" << std::endl;
         return 1;
     }
 
@@ -75,8 +72,12 @@ int main(int argc, char *argv[])
 
 // Create hooks on Windows
 #if _WIN32
-    // This shitty hook doesn't work and causes errors, why?
-    // WindowsHookFunc((HMODULE)dl_handle_tier0, "ThreadGetCurrentProcessId", &GetCurrentProcessIdHook);
+    WindowsHookFunc((HMODULE)dl_handle_tier0, "ThreadGetCurrentProcessId", &GetCurrentProcessIdHook);
+    
+    WindowsHookFunc((HMODULE)dl_handle_tier0, "CreateSimpleProcess", &CreateSimpleProcessHook);
+    // This is a hack and is very terrible, but chromehtml will not use the correct binary (64-bit one) if we don't override tier0's and vstdlib's detections.
+    WindowsHookFunc((HMODULE)dl_handle_tier0, "Is64BitOS", &Is64BitOSHook);
+    WindowsHookFunc("vstdlib_s.dll", "GetOSType", &GetOSTypeHook);
     // This feels wrong, but isn't?
     // WindowsHookFunc((HMODULE)dl_handle_tier0, "Plat_GetExecutablePath", &Plat_GetExecutablePathHook);
     // WindowsHookFunc((HMODULE)dl_handle_tier0, "Plat_GetExecutablePathUTF8", &Plat_GetExecutablePathHook);
@@ -91,8 +92,9 @@ int main(int argc, char *argv[])
     }
 #endif
 
-    argv[0] = getenv("OPENSTEAM_EXE_PATH");
+    
 #if __linux__
+    argv[0] = getenv("OPENSTEAM_EXE_PATH");
     Plat_InternalOverrideArgv(argv, argc);
 #endif
 
@@ -125,45 +127,42 @@ int main(int argc, char *argv[])
 
     HTMLOptions* options = new HTMLOptions();
     options->cacheDir = argv[1];
-    options->universe = 1;
-    options->realm = 1;
-    options->language = 0;
-    options->uiMode = 0;
-    options->enableGpuAcceleration = true;
-    options->enableSmoothScrolling = true;
-    options->enableGPUVideoDecode = true;
-    options->enableHighDPI = true;
-    options->proxyServer = "";
-    options->bypassProxyForLocalhost = true;
+    options->universe = std::stoi(argv[3]);
+    options->realm = std::stoi(argv[4]);
+    options->language = std::stoi(argv[5]);
+    options->uiMode = std::stoi(argv[6]);
+    options->enableGpuAcceleration = std::stoi(argv[7]);
+    options->enableSmoothScrolling = std::stoi(argv[8]);
+    options->enableGPUVideoDecode = std::stoi(argv[9]);
+    options->enableHighDPI = std::stoi(argv[10]);
+    options->proxyServer = argv[11];
+    options->bypassProxyForLocalhost = std::stoi(argv[12]);
     options->padding1 = 0;
     options->padding2 = 0;
     options->padding3 = 0;
-    options->composerMode = 0;
-    options->ignoreGPUBlocklist = false;
-    options->allowWorkarounds = true;
+    options->composerMode = std::stoi(argv[13]);
+    options->ignoreGPUBlocklist = std::stoi(argv[14]);
+    options->allowWorkarounds = std::stoi(argv[15]);
     options->padding4 = 0;
     options->padding5 = 0;
     options->padding6 = 0;
 
-    controller->SetHostingProcessPID(std::stoi(getenv("OPENSTEAM_PID")));
-    std::cout << "init " << controller->Init() << std::endl;
+    // This isn't enough. Hooking is needed. Stupid.
+    //controller->SetHostingProcessPID(std::stoi(getenv("OPENSTEAM_PID")));
+    // controller->SetOptions(&options);
+    // controller->StartThread();
+    // controller->Start();
     std::cout << "startwithoptions " << controller->StartWithOptions(options) << std::endl;
-    std::cout << "WTF " << std::endl;
-    std::cout << "FUN_10007400 " << controller->FUN_10007400() << std::endl;
+    std::cout << "init " << controller->Init() << std::endl;
+    // std::cout << "WTF " << std::endl;
+    // std::cout << "FUN_10007400 " << controller->FUN_10007400() << std::endl;
     std::cout << "start " << controller->Start() << std::endl;
 
    
-    std::cout << "CreateBrowser2 " << controller->CreateBrowser2("Valve Steam Client", nullptr, "https://google.com", 0, 0, EBrowserType::Transparent_Toplevel, 0) << std::endl;
+    //std::cout << "CreateBrowser2 " << controller->CreateBrowser2("Valve Steam Client", nullptr, "https://google.com", 0, 0, EBrowserType::Transparent_Toplevel, 0) << std::endl;
     std::cout << "Webhelper PID " << controller->GetPIDOfWebhelperProcess() << std::endl;
     std::cout << "Kill with CTRL+C" << std::endl;
     signal(SIGINT, handle_sigint);
-    while (!done)
-    {
-        controller->RunFrame();
-        std::this_thread::sleep_for(std::chrono::microseconds(1));
-    }
-    done = false;
-
     while (!done)
     {
         controller->RunFrame();

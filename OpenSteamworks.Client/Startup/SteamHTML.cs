@@ -4,6 +4,8 @@ using OpenSteamworks.Client.Managers;
 using OpenSteamworks;
 using OpenSteamworks.Client.Utils.Interfaces;
 using OpenSteamworks.Client.Config;
+using System.Text;
+using OpenSteamworks.Enums;
 
 namespace OpenSteamworks.Client.Startup;
 
@@ -50,8 +52,26 @@ public class SteamHTML : IClientLifetime {
                 CurrentHTMLHost.StartInfo.Environment.Add("STEAM_RUNTIME", "0");
             }
             
+            // [cachedir, steampath, universe, realm, language, uimode, enablegpuacceleration, enablesmoothscrolling, enablegpuvideodecode, enablehighdpi, proxyserver, bypassproxyforlocalhost, composermode, ignoregpublocklist, allowworkarounds]
             CurrentHTMLHost.StartInfo.ArgumentList.Add(cacheDir);
             CurrentHTMLHost.StartInfo.ArgumentList.Add(steampath);
+            CurrentHTMLHost.StartInfo.ArgumentList.Add(((int)this.steamClient.NativeClient.IClientUtils.GetConnectedUniverse()).ToString());
+            CurrentHTMLHost.StartInfo.ArgumentList.Add(((int)this.steamClient.NativeClient.IClientUtils.GetSteamRealm()).ToString());
+            StringBuilder builder = new StringBuilder(128);
+            this.steamClient.NativeClient.IClientUser.GetLanguage(builder, 128);
+            CurrentHTMLHost.StartInfo.ArgumentList.Add(((int)ELanguageConversion.ELanguageFromAPIName(builder.ToString())).ToString());
+            CurrentHTMLHost.StartInfo.ArgumentList.Add(((int)this.steamClient.NativeClient.IClientUtils.GetCurrentUIMode()).ToString());
+            CurrentHTMLHost.StartInfo.ArgumentList.Add(Convert.ToInt32(this.globalSettings.WebhelperGPUAcceleration).ToString());
+            CurrentHTMLHost.StartInfo.ArgumentList.Add(Convert.ToInt32(this.globalSettings.WebhelperSmoothScrolling).ToString());
+            CurrentHTMLHost.StartInfo.ArgumentList.Add(Convert.ToInt32(this.globalSettings.WebhelperGPUVideoDecode).ToString());
+            CurrentHTMLHost.StartInfo.ArgumentList.Add(Convert.ToInt32(this.globalSettings.WebhelperHighDPI).ToString());
+            CurrentHTMLHost.StartInfo.ArgumentList.Add(this.globalSettings.WebhelperProxy);
+            CurrentHTMLHost.StartInfo.ArgumentList.Add(Convert.ToInt32(this.globalSettings.WebhelperIgnoreProxyForLocalhost).ToString());
+            CurrentHTMLHost.StartInfo.ArgumentList.Add(this.globalSettings.WebhelperComposerMode.ToString());
+            CurrentHTMLHost.StartInfo.ArgumentList.Add(Convert.ToInt32(this.globalSettings.WebhelperIgnoreGPUBlocklist).ToString());
+            CurrentHTMLHost.StartInfo.ArgumentList.Add(Convert.ToInt32(this.globalSettings.WebhelperAllowWorkarounds).ToString());
+
+
             // Corresponds to --v=4 in CEF terms
             CurrentHTMLHost.StartInfo.ArgumentList.Add("-cef-verbose-logging 4");
             

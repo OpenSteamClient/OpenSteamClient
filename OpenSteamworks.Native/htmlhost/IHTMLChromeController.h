@@ -3,12 +3,7 @@
 #include "EBrowserType.h"
 #include "EHTMLCommands.h"
 #include <utlbuffer.h>
-
-typedef unsigned char   undefined;
-typedef unsigned char    undefined1;
-typedef unsigned short    undefined2;
-typedef unsigned int    undefined4;
-typedef unsigned long long    undefined8;
+#include "ghidradefines.h"
 
 
 #pragma pack(push,1)
@@ -73,7 +68,6 @@ struct HTMLCommandBuffer_t
     }
 };
 
-#define unknown_ret int
 // Most of the functions here don't work. Still figuring this out...
 class IHTMLChromeController
 {
@@ -126,50 +120,3 @@ public:
 
 	virtual uint GetPIDOfWebhelperProcess() = 0;
 };
-
-        // 						PTR_~CHTMLController_00247df8                   XREF[6]:     ~CHTMLController:00031723(*), 
-        //                                                                                   ~CHTMLController:00031729(*), 
-        //                                                                                   ~CHTMLController:00031be3(*), 
-        //                                                                                   ~CHTMLController:00031be9(*), 
-        //                                                                                   FUN_00034930:0003494f(*), 
-        //                                                                                   FUN_00034930:00034960(*)  
-        // 00247df8 c0 1b 03 00     addr       CHTMLController::~CHTMLController
-        // 00247dfc 00 17 03 00     addr       CHTMLController::~CHTMLController
-        // 00247e00 20 01 03 00     addr       CHTMLController::SetOptions
-        // 00247e04 b0 ff 02 00     addr       CHTMLController::Shutdown
-        // 00247e08 e0 ff 02 00     addr       CHTMLController::Start
-        // 00247e0c f0 03 03 00     addr       CHTMLController::StartThread
-        // 00247e10 20 ff 02 00     addr       CHTMLController::BUsesCPUInfo
-        // 00247e14 50 ff 02 00     addr       CHTMLController::Exit
-        // 00247e18 20 6f 03 00     addr       CHTMLController::RunFrame
-        // 00247e1c d0 d1 02 00     addr       CHTMLController::ReturnsField0x160
-        // 00247e20 a0 e5 02 00     addr       CHTMLController::RegisterSomeFunc
-        // 00247e24 80 20 03 00     addr       CHTMLController::SetCookie
-        // 00247e28 d0 25 03 00     addr       CHTMLController::GetCookieForURL
-        // 00247e2c c0 08 03 00     addr       CHTMLController::ProtobufFUN_000308c0
-        // 00247e30 00 0d 03 00     addr       CHTMLController::ProtobufFUN_00030d00
-        // 00247e34 20 0a 03 00     addr       CHTMLController::ProtobufFUN_00030a20
-        // 00247e38 a0 59 03 00     addr       CHTMLController::CreateBrowser
-        // 00247e3c 40 5b 03 00     addr       CHTMLController::CreateOffscreenBrowser
-        // 00247e40 30 5d 03 00     addr       CHTMLController::CreateDirectRenderingBrowser
-        // 00247e44 10 5f 03 00     addr       CHTMLController::CreateVRBrowser
-        // 00247e48 00 61 03 00     addr       CHTMLController::CreateBrowser2
-        // 00247e4c b0 e2 03 00     addr       CHTMLController::SerializeFUN_0003e2b0
-        // 00247e50 80 e6 02 00     addr       CHTMLController::AssertFUN_0002e680
-        // 00247e54 b0 e6 02 00     addr       CHTMLController::PushCommand
-        // 00247e58 e0 e6 02 00     addr       CHTMLController::FreeSomething
-        // 00247e5c 50 29 03 00     addr       CHTMLController::ReadsEnvSTEAMVIDEOTOKEN
-        // 00247e60 70 07 03 00     addr       CHTMLController::SerializeFUN_00030770
-        // 00247e64 e0 d1 02 00     addr       CHTMLController::Assigns0x80
-        // 00247e68 40 d2 02 00     addr       CHTMLController::Assigns0x2c0
-        // 00247e6c b0 04 03 00     addr       CHTMLController::SerializeFUN_000304b0
-        // 00247e70 70 14 03 00     addr       CHTMLController::SerializeFUN_00031470
-        // 00247e74 80 0b 03 00     addr       CHTMLController::SerializeFUN_00030b80
-        // 00247e78 10 06 03 00     addr       CHTMLController::SerializeFUN_00030610
-        // 00247e7c f0 d1 02 00     addr       CHTMLController::AssignsDefaultStringTo0x84IfN
-        // 00247e80 b0 00 03 00     addr       CHTMLController::GetSteamWebhelperPath
-        // 00247e84 30 0f 03 00     addr       CHTMLController::Validate
-        // 00247e88 50 d2 02 00     addr       CHTMLController::AlwaysReturns1
-        // 00247e8c 50 d2 02 00     addr       CHTMLController::AlwaysReturns1
-        // 00247e90 80 00 03 00     addr       CHTMLController::GetPID
-

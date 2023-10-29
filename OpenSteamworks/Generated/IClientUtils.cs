@@ -21,7 +21,7 @@ public unsafe interface IClientUtils
     public RTime32 GetSecondsSinceComputerActive();  // argc: 0, index: 5
     public void SetComputerActive();  // argc: 0, index: 6
     public EUniverse GetConnectedUniverse();  // argc: 0, index: 7
-    public unknown_ret GetSteamRealm();  // argc: 0, index: 8
+    public ESteamRealm GetSteamRealm();  // argc: 0, index: 8
     public RTime32 GetServerRealTime();  // argc: 0, index: 9
     public unknown_ret GetIPCountry();  // argc: 0, index: 10
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
@@ -151,7 +151,7 @@ public unsafe interface IClientUtils
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret FilterText();  // argc: 7, index: 84
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret GetIPv6ConnectivityState();  // argc: 1, index: 85
+    public unknown_ret GetIPv6ConnectivityState(ESteamIPv6ConnectivityProtocol protocol);  // argc: 1, index: 85
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret ScheduleConnectivityTest();  // argc: 2, index: 86
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
