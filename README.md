@@ -30,6 +30,8 @@ A partially open-source Steam client for Windows and Linux
 - [ ] ConCommand support
 - [ ] Steamwebhelper support
   - [ ] Store, community, profile pages
+- [ ] Windows support
+- [ ] Custom SDL lib
 - [ ] Future:
   - [ ] ProtonDB integration
   - [ ] Disabling workshop mods without unsubbing
