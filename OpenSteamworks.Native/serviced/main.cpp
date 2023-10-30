@@ -61,6 +61,39 @@ void WaitForControlSignalToContinue() {
 
 void *servicePtr = nullptr;
 
+#if __linux__
+uintptr_t EvilLinuxHack(void* dl_handle) {
+    Dl_info info;
+
+    // Init is (always?) the first function exported in an ELF (libraries and executables).
+    void *initPtr = dlsym(dl_handle, "_init");
+
+    // 0047e20
+    // 0x47e20 (addr of SteamServiceInternal_StartThread) - 0x10000(base of steamservice.so)
+    // 0x5ee50
+    uintptr_t offset = 0x47e20 - 0x10000;
+    if (initPtr == nullptr) {
+        std::cerr << "InitPtr == nullptr!!!" << std::endl;
+        return 1;
+    }
+
+    std::cout << "SteamService _init is at " << (void *)(initPtr) << std::endl;
+    // get info (including base address) of steamservice loaded in memory
+    dladdr((void *)initPtr, &info);
+
+    // calculate the location of SteamServiceInternal_StartThread
+    uintptr_t internalStartPtr = ((uintptr_t)info.dli_fbase + offset);
+
+    // here to aid in debugging (if info is 0 the lookup failed)
+    std::cout << "dladdr returned  " << (void *)(&info) << std::endl;
+
+    std::cout << "SteamService fbase is at " << (void *)(info.dli_fbase) << std::endl;
+    std::cout << "SteamServiceInternal_StartThread is at " << (void *)internalStartPtr << std::endl;
+
+    return internalStartPtr;
+}
+#endif
+
 //TODO: This is really fishy and could potentially be VAC bannable (we don't have .valvesig section or a Windows signature)
 // An evil hack that allows us to:
 // - Split the steam service into a 32-bit process while keeping our main process 64-bit
@@ -81,7 +114,7 @@ int main(int argc, char *argv[]) {
     std::string ipcName = "SteamClientService";
 
 #if __linux__
-    EvilLinuxHack();
+    uintptr_t internalStartPtr = EvilLinuxHack(dl_handle);
     *(void**)(&SteamService_GetIPCServer) = dlsym(dl_handle, "SteamService_GetIPCServer");
     *(void**)(&SteamServiceInternal_StartThread) = (void *)internalStartPtr;
     if (SteamService_GetIPCServer == nullptr) {
@@ -137,36 +170,3 @@ int main(int argc, char *argv[]) {
     WaitForControlSignalToContinue();
     SteamService_Shutdown();
 }
-
-#if __linux__
-uintptr_t EvilLinuxHack() {
-    Dl_info info;
-
-    // Init is (always?) the first function exported in an ELF (libraries and executables).
-    void *initPtr = dlsym(dl_handle, "_init");
-
-    // 0047e20
-    // 0x47e20 (addr of SteamServiceInternal_StartThread) - 0x10000(base of steamservice.so)
-    // 0x5ee50
-    uintptr_t offset = 0x47e20 - 0x10000;
-    if (initPtr == nullptr) {
-        std::cerr << "InitPtr == nullptr!!!" << std::endl;
-        return 1;
-    }
-
-    std::cout << "SteamService _init is at " << (void *)(initPtr) << std::endl;
-    // get info (including base address) of steamservice loaded in memory
-    dladdr((void *)initPtr, &info);
-
-    // calculate the location of SteamServiceInternal_StartThread
-    uintptr_t internalStartPtr = ((uintptr_t)info.dli_fbase + offset);
-
-    // here to aid in debugging (if info is 0 the lookup failed)
-    std::cout << "dladdr returned  " << (void *)(&info) << std::endl;
-
-    std::cout << "SteamService fbase is at " << (void *)(info.dli_fbase) << std::endl;
-    std::cout << "SteamServiceInternal_StartThread is at " << (void *)internalStartPtr << std::endl;
-
-    return internalStartPtr;
-}
-#endif

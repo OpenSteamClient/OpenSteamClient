@@ -209,14 +209,47 @@ public class NativeCompilationTask : Microsoft.Build.Utilities.Task
             StartInfo = new("cmake", args)
             {
                 WorkingDirectory = builddir,
+                RedirectStandardError = true,
+                RedirectStandardOutput = true
             }
         };
 
         this.Log.LogCommandLine("cmake " + args);
+        proc.OutputDataReceived += CMakeOutputHandler;
+        proc.ErrorDataReceived += CMakeOutputHandler;
         proc.Start();
+        proc.BeginErrorReadLine();
+        proc.BeginOutputReadLine();
         proc.WaitForExit();
         if (proc.ExitCode != 0) {
             throw new CompileException("cmake exited with error " + proc.ExitCode);
         }
+    }
+
+    private void CMakeOutputHandler(object sendingProcess, DataReceivedEventArgs outLine)
+    {
+        if (!string.IsNullOrEmpty(outLine.Data))
+        {
+            this.Log.LogMessage(MessageImportance.High, outLine.Data);
+        //     if (TryGetErrorInfoFromLine(outLine.Data, out string warningCode, out string file, out int lineNumber, out string message, out bool isError)) {
+        //         if (isError) {
+        //             LogWarning("", warningCode, "", file, lineNumber, 0, 0, 0, message);
+        //         } else {
+        //             LogWarning("", warningCode, "", file, lineNumber, 0, 0, 0, message);
+        //         }
+        //     } else {
+        //         LogMessage("", "", "", "", 0, 0, 0, 0, MessageImportance.High, outLine.Data);
+        //     }
+        }
+    }
+
+    //TODO: make this work one day to get correct error codes and whatnot showing
+    private bool TryGetErrorInfoFromLine(string line, out string warningCode, out string file, out int lineNumber, out string message, out bool isError) {
+        warningCode = "";
+        file = "";
+        lineNumber = 0;
+        message = "";
+        isError = false;
+        return false;
     }
 }

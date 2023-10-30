@@ -59,6 +59,8 @@ This will eventually replace the old opensteamclient.
 
 # Contributing
 Nothing for now.
+Compile and run by going into ClientUI and running `dotnet run -v:m`.
+Do not omit the verbosity flag, as important output from CMake and your compiler will be missing in the case of build errors. 
 
 # Screenshots
 Nothing for now.
@@ -67,6 +69,7 @@ Nothing for now.
 This is only meant for developers. 
 Once this is good enough I will write new install instructions. For now end users can use the old opensteamclient by switching to the master branch.
 If you're a dev, be cautious about adding things, as I am probably working on it already.
+
 
 # System requirements
 ## Distro requirements

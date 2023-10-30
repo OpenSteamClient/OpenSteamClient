@@ -29,9 +29,7 @@ public static class FileEx {
         foreach (var path in pathEnv.Split(Path.PathSeparator))
         {
             var fullPath = Path.Combine(path, fileName);
-            Console.WriteLine("trying to find at " + fullPath);
             if (File.Exists(fullPath)) {
-                Console.WriteLine("found at " + fullPath);
                 return fullPath;
             }
 
@@ -39,7 +37,6 @@ public static class FileEx {
             var fullPathExe = Path.Combine(path, fileName + ".exe");
             
             if (File.Exists(fullPathExe)) {
-                Console.WriteLine("found at " + fullPathExe);
                 return fullPathExe;
             }
         }

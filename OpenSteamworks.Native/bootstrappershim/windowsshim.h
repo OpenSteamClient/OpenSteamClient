@@ -4,7 +4,7 @@
 #include <iostream> 
 #include <vector>
 
-#include <shlobj_core.h>
+#include <shlobj.h>
 #include <stdio.h>
 #include <stdlib.h>
 

@@ -72,30 +72,15 @@ int main(int argc, char *argv[])
 
 // Create hooks on Windows
 #if _WIN32
-    WindowsHookFunc((HMODULE)dl_handle_tier0, "ThreadGetCurrentProcessId", &GetCurrentProcessIdHook);
+    WindowsHookFunc((HMODULE)dl_handle_tier0, "ThreadGetCurrentProcessId", (void*)&GetCurrentProcessIdHook);
     
-    WindowsHookFunc((HMODULE)dl_handle_tier0, "CreateSimpleProcess", &CreateSimpleProcessHook);
+    WindowsHookFunc((HMODULE)dl_handle_tier0, "CreateSimpleProcess", (void*)&CreateSimpleProcessHook);
     // This is a hack and is very terrible, but chromehtml will not use the correct binary (64-bit one) if we don't override tier0's and vstdlib's detections.
-    WindowsHookFunc((HMODULE)dl_handle_tier0, "Is64BitOS", &Is64BitOSHook);
-    WindowsHookFunc("vstdlib_s.dll", "GetOSType", &GetOSTypeHook);
+    WindowsHookFunc((HMODULE)dl_handle_tier0, "Is64BitOS", (void*)&Is64BitOSHook);
+    WindowsHookFunc("vstdlib_s.dll", "GetOSType", (void*)&GetOSTypeHook);
     // This feels wrong, but isn't?
     // WindowsHookFunc((HMODULE)dl_handle_tier0, "Plat_GetExecutablePath", &Plat_GetExecutablePathHook);
     // WindowsHookFunc((HMODULE)dl_handle_tier0, "Plat_GetExecutablePathUTF8", &Plat_GetExecutablePathHook);
-#endif
-
-#if __linux__
-    overrideArgvFn Plat_InternalOverrideArgv = (overrideArgvFn)dlsym(dl_handle_tier0, "Plat_InternalOverrideArgv");
-    if (Plat_InternalOverrideArgv == nullptr)
-    {
-        std::cerr << "Plat_InternalOverrideArgv == nullptr!!!" << std::endl;
-        return 1;
-    }
-#endif
-
-    
-#if __linux__
-    argv[0] = getenv("OPENSTEAM_EXE_PATH");
-    Plat_InternalOverrideArgv(argv, argc);
 #endif
 
     auto dl_handle_chromehtml = dlopen(CHROMEHTML_LIB, RTLD_NOW);

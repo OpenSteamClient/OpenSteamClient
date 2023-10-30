@@ -7,8 +7,9 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <!-- Don't touch this for now, working on making our Avalonia upstreamable -->
     <UseLocalAvalonia>true</UseLocalAvalonia>
-    <LocalAvaloniaPath>C:/Users/testaccount/Documents/Avalonia</LocalAvaloniaPath>
+    <LocalAvaloniaPath>$(ProjectRootDir)Avalonia</LocalAvaloniaPath>
     <AvaloniaVersion>11.0.999-cibuild0040806-beta</AvaloniaVersion>
   </PropertyGroup>
 

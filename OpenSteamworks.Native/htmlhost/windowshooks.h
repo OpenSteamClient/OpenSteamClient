@@ -1,9 +1,8 @@
 #pragma once
-#include <Windows.h>
+#include <windows.h>
 #include <string>
 #include <iostream>
 #include <memoryapi.h>
-#include <atlbase.h>
 #include "ghidradefines.h"
 
 DWORD pidOfSteam;
@@ -63,10 +62,11 @@ LPWSTR LCSTRToLPCWSTR(LPCSTR param_1) {
     if (param_1 == nullptr) {
         return nullptr;
     }
-    LPWSTR str = new WCHAR[lstrlen(param_1)];
-    auto wstr = CA2W(param_1);
-    memcpy(str, wstr, wcslen(wstr));
-    return str;
+    
+    int wchars_num = MultiByteToWideChar(CP_UTF8, 0, param_1, -1, NULL, 0);
+    wchar_t* wstr = new wchar_t[wchars_num];
+    MultiByteToWideChar(CP_UTF8, 0, param_1, -1, wstr, wchars_num );
+    return wstr;
 }
 
 BOOL __cdecl CreateProcessUTF8(LPCSTR param_1,LPCSTR param_2,LPSECURITY_ATTRIBUTES param_3,
@@ -109,9 +109,9 @@ undefined4 __cdecl CreateSimpleProcessHook(LPCSTR param_1, uint param_2) {
 
 void WindowsHookFunc(HMODULE libPtr, const char* funcName, void* hookFunc) {
     auto origFuncPtr = GetProcAddress(libPtr, funcName);
-    char patch[5]= {0};
+    char patch[5] = {0};
     char saved_buffer[5];
-    ReadProcessMemory(GetCurrentProcess(), origFuncPtr, saved_buffer, 5, NULL);
+    ReadProcessMemory(GetCurrentProcess(), (void*)origFuncPtr, saved_buffer, 5, NULL);
 
     DWORD src = (DWORD)origFuncPtr + 5; 
     DWORD dst = (DWORD)hookFunc;
