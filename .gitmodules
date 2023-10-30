@@ -1,6 +1,6 @@
 [submodule "OpenSteamworks.Native/MiniUTL"]
 	path = OpenSteamworks.Native/MiniUTL
-	url = https://github.com/OpenSteamWorks/MiniUTL.git
+	url = https://github.com/OpenSteamClient/MiniUTL.git
 [submodule "Avalonia"]
 	path = Avalonia
 	url = https://github.com/OpenSteamClient/Avalonia
