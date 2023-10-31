@@ -4,3 +4,9 @@
 [submodule "Avalonia"]
 	path = Avalonia
 	url = https://github.com/OpenSteamClient/Avalonia
+[submodule "OpenSteamworks.Native/SDL"]
+	path = OpenSteamworks.Native/SDL
+	url = https://github.com/OpenSteamClient/SDL.git
+[submodule "OpenSteamworks.Native/SDL_ttf"]
+	path = OpenSteamworks.Native/SDL_ttf
+	url = https://github.com/OpenSteamClient/SDL_ttf.git

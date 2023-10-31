@@ -45,6 +45,14 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${NATIVE_OUTPUT_FOLDER})
 file(GLOB_RECURSE miniutl_sources CONFIGURE_DEPENDS "MiniUTL/*.cpp")
 file(GLOB_RECURSE htmlhost_sources CONFIGURE_DEPENDS "htmlhost/*.cpp")
 
+# Common SDL config options
+set(SDL_TEST_LIBRARY OFF)
+
+# Stop .exp, .lib, .dll.a and various other unneeded files from manifesting
+# (Can't do this, it breaks the build due to MingW depending on a .lib existing even for a simple exe file. WTF?)
+# Let's just filter these out in the bootstrap phase.
+# unset(CMAKE_IMPORT_LIBRARY_SUFFIX)
+
 if (BUILD_PLATFORM_TARGET STREQUAL "linux")
     if (BUILD_BITS STREQUAL "64" OR DEFINED IDE_BUILD)
         add_executable(reaper ${PROJECT_SOURCE_DIR}/reaper/main.cpp)
@@ -55,6 +63,9 @@ if (BUILD_PLATFORM_TARGET STREQUAL "linux")
         set_target_properties(steamservice PROPERTIES PREFIX "")
 
         add_library(bootstrappershim64 SHARED ${PROJECT_SOURCE_DIR}/bootstrappershim/main.cpp)
+
+        add_subdirectory(SDL)
+        add_subdirectory(SDL_ttf)
     endif()
 
     if (BUILD_BITS STREQUAL "32" OR DEFINED IDE_BUILD)
@@ -78,7 +89,9 @@ endif()
 
 if (BUILD_PLATFORM_TARGET STREQUAL "windows")
     if (BUILD_BITS STREQUAL "64" OR DEFINED IDE_BUILD)
-
+        set(SDL3TTF_VENDORED ON)
+        add_subdirectory(SDL)
+        add_subdirectory(SDL_ttf)
     endif()
 
     if (BUILD_BITS STREQUAL "32" OR DEFINED IDE_BUILD)

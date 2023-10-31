@@ -179,16 +179,16 @@ public class NativeCompilationTask : Microsoft.Build.Utilities.Task
 
         this.Log.LogMessage(MessageImportance.High, $"Building x86_64 (64-bit) natives " + (string.IsNullOrEmpty(compilerIdentity64) ? "" : "with " + compilerIdentity64));
         this.RunCMake($"\"{RootDir}\" {compilerFlags64} -DBUILD_PLATFORM_TARGET={osStr} -DBUILD_BITS=\"64\" -DNATIVE_OUTPUT_FOLDER=\"{outputdir}\"", builddir64);
-        this.RunCMake("--build .", builddir64);
+        this.RunCMake($"--build . --parallel {Environment.ProcessorCount*2}", builddir64);
 
         if (targetOS == TargetOS.MacOS) {
             this.Log.LogMessage(MessageImportance.High, $"Building arm64 natives " + (string.IsNullOrEmpty(compilerIdentity32) ? "" : "with " + compilerIdentity32));
             this.RunCMake($"\"{RootDir}\" {compilerFlags32} -DBUILD_PLATFORM_TARGET={osStr} -DBUILD_BITS=\"ARM\" -DNATIVE_OUTPUT_FOLDER=\"{outputdir}\"", builddir32);
-            this.RunCMake("--build .", builddir32);
+            this.RunCMake($"--build . --parallel {Environment.ProcessorCount*2}", builddir32);
         } else {
             this.Log.LogMessage(MessageImportance.High, $"Building x86 (32-bit) natives " + (string.IsNullOrEmpty(compilerIdentity32) ? "" : "with " + compilerIdentity32));
             this.RunCMake($"\"{RootDir}\" {compilerFlags32} -DBUILD_PLATFORM_TARGET={osStr} -DBUILD_BITS=\"32\" -DNATIVE_OUTPUT_FOLDER=\"{outputdir}\"", builddir32);
-            this.RunCMake("--build .", builddir32);
+            this.RunCMake($"--build . --parallel {Environment.ProcessorCount*2}", builddir32);
         }
         
     }

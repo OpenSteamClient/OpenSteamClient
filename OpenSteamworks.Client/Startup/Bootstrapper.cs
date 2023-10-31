@@ -665,6 +665,12 @@ public class Bootstrapper : IClientLifetime {
         // Specify path mappings here to tell the files to go into another
         Dictionary<string, string> pathMappings = new() {
             {"reaper", "linux64/reaper"},
+            {"libSDL3.so", "linux64/libSDL3.so"},
+            {"libSDL3.so.0", "linux64/libSDL3.so.0"},
+            {"libSDL3.so.0.0.0", "linux64/libSDL3.so.0.0.0"},
+            {"libSDL3_ttf.so", "linux64/libSDL3_ttf.so"},
+            {"libSDL3_ttf.so.0", "linux64/libSDL3_ttf.so.0"},
+            {"libSDL3_ttf.so.0.0.0", "linux64/libSDL3_ttf.so.0.0.0"},
             {"steam-launch-wrapper", "linux64/reaper"},
             {"steamserviced.exe", "bin/steamserviced.exe"},
             {"steamserviced.pdb", "bin/steamserviced.pdb"},
@@ -691,6 +697,10 @@ public class Bootstrapper : IClientLifetime {
             var di = new DirectoryInfo(nativesFolder);
             foreach (var file in di.EnumerateFilesRecursively())
             {
+                if (file.Extension == ".lib" || file.Extension == ".exp" || file.Extension == ".a") {
+                    continue;
+                }
+
                 string name = file.Name;
                 if (pathMappings.ContainsKey(name)) {
                     name = pathMappings[name];
