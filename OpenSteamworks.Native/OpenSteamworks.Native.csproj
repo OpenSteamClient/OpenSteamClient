@@ -22,7 +22,7 @@
         <MSBuild Projects="CustomBuildTask/CustomBuildTask.csproj" Targets="Restore;Build" />
     </Target>
 
-    <UsingTask Condition="'$(RunningCustomBuildTask)' == 'true'" TaskName="NativeCompilationTask" AssemblyFile="$(MSBuildThisFileDirectory)\CustomBuildTask\bin\Debug\net7.0\CustomBuildTask.dll" />
+    <UsingTask Condition="'$(RunningCustomBuildTask)' == 'true'" TaskName="NativeCompilationTask" AssemblyFile="$(MSBuildThisFileDirectory)\CustomBuildTask\bin\$(Configuration)\net7.0\CustomBuildTask.dll" />
     <Target Name="RunCustomBuildTask">
         <NativeCompilationTask>
         </NativeCompilationTask>
