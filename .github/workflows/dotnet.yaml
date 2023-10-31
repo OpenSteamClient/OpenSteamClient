@@ -21,8 +21,7 @@ jobs:
     - uses: actions/checkout@v3
     - name: Download repo and submodules
       run: | 
-        git submodule init
-        git submodule update
+        git submodule update --init --recursive
       
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
