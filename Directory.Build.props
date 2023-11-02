@@ -1,7 +1,7 @@
 <Project>
     <PropertyGroup>
         <ProjectRootDir>$(MSBuildThisFileDirectory)</ProjectRootDir>
-        <PublishTrimmed>true</PublishTrimmed>
+        <PublishTrimmed>false</PublishTrimmed>
         <ArtifactsPath>$(MSBuildThisFileDirectory)artifacts</ArtifactsPath>
     </PropertyGroup>
 
