@@ -96,25 +96,26 @@ namespace OpenSteamworks.Native.JIT
                 }
                 else
                 {
-                    Console.WriteLine("IsArray: " + IsArray);
-                    Console.WriteLine("IsStringClass: " + IsStringClass);
-                    Console.WriteLine("IsAutoClass: " + IsAutoClass);
-                    Console.WriteLine("IsUnknownClass: " + IsUnknownClass);
-                    Console.WriteLine("IsCreatableClass: " + IsCreatableClass);
-                    Console.WriteLine("IsGeneric: " + IsGeneric);
-                    Console.WriteLine("IsDelegate: " + IsDelegate);
-                    Console.WriteLine("IsByRef: " + IsByRef);
+                    SteamClient.JITLogger.Error("Don't know what to do with type " + Type);
+                    SteamClient.JITLogger.Error("IsArray: " + IsArray);
+                    SteamClient.JITLogger.Error("IsStringClass: " + IsStringClass);
+                    SteamClient.JITLogger.Error("IsAutoClass: " + IsAutoClass);
+                    SteamClient.JITLogger.Error("IsUnknownClass: " + IsUnknownClass);
+                    SteamClient.JITLogger.Error("IsCreatableClass: " + IsCreatableClass);
+                    SteamClient.JITLogger.Error("IsGeneric: " + IsGeneric);
+                    SteamClient.JITLogger.Error("IsDelegate: " + IsDelegate);
+                    SteamClient.JITLogger.Error("IsByRef: " + IsByRef);
 
                     var pt = new TypeJITInfo(PierceType);
-                    Console.WriteLine("PierceType.IsArray: " + pt.IsArray);
-                    Console.WriteLine("PierceType.IsStringClass: " + pt.IsStringClass);
-                    Console.WriteLine("PierceType.IsAutoClass: " + pt.IsAutoClass);
-                    Console.WriteLine("PierceType.IsUnknownClass: " + pt.IsUnknownClass);
-                    Console.WriteLine("PierceType.IsCreatableClass: " + pt.IsCreatableClass);
-                    Console.WriteLine("PierceType.IsGeneric: " + pt.IsGeneric);
-                    Console.WriteLine("PierceType.IsDelegate: " + pt.IsDelegate);
-                    Console.WriteLine("PierceType.IsByRef: " + pt.IsByRef);
-                    Console.WriteLine("PierceType=" + PierceType);
+                    SteamClient.JITLogger.Error("PierceType.IsArray: " + pt.IsArray);
+                    SteamClient.JITLogger.Error("PierceType.IsStringClass: " + pt.IsStringClass);
+                    SteamClient.JITLogger.Error("PierceType.IsAutoClass: " + pt.IsAutoClass);
+                    SteamClient.JITLogger.Error("PierceType.IsUnknownClass: " + pt.IsUnknownClass);
+                    SteamClient.JITLogger.Error("PierceType.IsCreatableClass: " + pt.IsCreatableClass);
+                    SteamClient.JITLogger.Error("PierceType.IsGeneric: " + pt.IsGeneric);
+                    SteamClient.JITLogger.Error("PierceType.IsDelegate: " + pt.IsDelegate);
+                    SteamClient.JITLogger.Error("PierceType.IsByRef: " + pt.IsByRef);
+                    SteamClient.JITLogger.Error("PierceType=" + PierceType);
 
                     throw new JITInfoException("Not sure what to do with this type: " + Type);
                 }

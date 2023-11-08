@@ -5,7 +5,6 @@ using OpenSteamworks.Attributes;
 using OpenSteamworks.Callbacks.Structs;
 using OpenSteamworks.Enums;
 using OpenSteamworks.Structs;
-using OpenSteamworks.Client.Utils.Interfaces;
 using OpenSteamworks.Client.Utils;
 using OpenSteamworks.Client.CommonEventArgs;
 using OpenSteamworks.ClientInterfaces;
@@ -18,6 +17,7 @@ using OpenSteamworks.Protobuf;
 using System.Security.Cryptography;
 using System.Text;
 using static OpenSteamworks.Callbacks.CallbackManager;
+using OpenSteamworks.Client.Utils.DI;
 
 namespace OpenSteamworks.Client.Managers;
 
@@ -69,10 +69,11 @@ public class LoginManager : IClientLifetime
     public event QRGeneratedEventHandler? QRGenerated;
     public event SecondFactorNeededEventHandler? SecondFactorNeeded;
 
-    private SteamClient steamClient;
-    private LoginUsers loginUsers;
-    private ClientMessaging clientMessaging;
-    private Container container;
+    private readonly SteamClient steamClient;
+    private readonly LoginUsers loginUsers;
+    private readonly ClientMessaging clientMessaging;
+    private readonly Container container;
+    private readonly Logger logger;
 
     private LoginPoll? QRPoller;
     private LoginPoll? CredentialsPoller;
@@ -82,8 +83,9 @@ public class LoginManager : IClientLifetime
     public CSteamID InProgressLogonSteamID { get; private set; } = 0;
     public LoginUser? CurrentUser { get; private set; }
 
-    public LoginManager(SteamClient steamClient, LoginUsers loginUsers, Container container, ClientMessaging clientMessaging)
+    public LoginManager(SteamClient steamClient, LoginUsers loginUsers, Container container, ClientMessaging clientMessaging, InstallManager installManager)
     {
+        this.logger = new Logger("LoginManager", installManager.GetLogPath("LoginManager"));
         this.container = container;
         this.steamClient = steamClient;
         this.steamClient.CallbackManager.RegisterCallbackListenerAttributesFor(this);
@@ -92,6 +94,7 @@ public class LoginManager : IClientLifetime
     }
 
     public bool RemoveAccount(LoginUser loginUser) {
+        logger.Info("Removing account " + loginUser.AccountName);
         var success = loginUsers.RemoveUser(loginUser);
         steamClient.NativeClient.IClientUser.DestroyCachedCredentials(loginUser.AccountName, (int)EAuthTokenRevokeAction.EauthTokenRevokePermanent);
         loginUsers.Save();
@@ -99,6 +102,7 @@ public class LoginManager : IClientLifetime
     }
 
     public bool AddAccount(LoginUser loginUser) {
+        logger.Info("Adding account " + loginUser.AccountName);
         loginUser.Remembered = steamClient.NativeClient.IClientUser.BHasCachedCredentials(loginUser.AccountName);
         var success = loginUsers.AddUser(loginUser);
         loginUsers.Save();
@@ -128,6 +132,7 @@ public class LoginManager : IClientLifetime
     /// </summary>
     public void StartQRAuthLoop() {
         if (QRPoller != null && QRPoller.IsPolling) {
+            logger.Error("QR Auth loop already running");
             throw new InvalidOperationException("QR Auth loop already running");
         }
 
@@ -158,6 +163,7 @@ public class LoginManager : IClientLifetime
     /// <returns>True if initial credentials were ok, false if session failed to start</returns>
     public async Task<EResult> StartAuthSessionWithCredentials(string username, string password, bool rememberPassword) {
         if (CredentialsPoller != null && CredentialsPoller.IsPolling) {
+            logger.Error("Credential logon already in progress");
             throw new InvalidOperationException("Credential logon already in progress");
         }
 
@@ -197,7 +203,6 @@ public class LoginManager : IClientLifetime
             beginMsg.body.DeviceFriendlyName = DeviceDetails.DeviceFriendlyName;
 
             var beginResp = await conn.ProtobufSendMessageAndAwaitResponse<CAuthentication_BeginAuthSessionViaCredentials_Response, CAuthentication_BeginAuthSessionViaCredentials_Request>(beginMsg);
-            Console.WriteLine(beginResp);
             if (beginResp.header.Eresult != (int)EResult.k_EResultOK) {
                 return (EResult)beginResp.header.Eresult;
             }
@@ -257,7 +262,7 @@ public class LoginManager : IClientLifetime
         }
     }
 
-    [MemberNotNull("deviceDetails")]
+    [MemberNotNull(nameof(deviceDetails))]
     private void DetermineDeviceDetails() {
         //TODO: allow users to opt out of this data collection. Not that it matters anyway, as steamclient collects this data itself anyway (does it also rewrite our message?).
         deviceDetails = new();
@@ -295,7 +300,7 @@ public class LoginManager : IClientLifetime
         }
         catch (System.Exception)
         {
-            Console.WriteLine("Failed to determine hostname.");
+            logger.Warning("Failed to determine hostname.");
         }
     }
 
@@ -313,7 +318,7 @@ public class LoginManager : IClientLifetime
         
         var autologinUser = this.loginUsers.GetAutologin();
         if (autologinUser == null) {
-            Console.WriteLine("Cannot autologin, no autologin user.");
+            logger.Info("No autologin user, didn't start autologon.");
             return false;
         }
 
@@ -399,12 +404,15 @@ public class LoginManager : IClientLifetime
     }
 
     public void BeginLogonToUser(LoginUser user) {
+        logger.Info("Trying to logon to " + user.AccountName);
         if (this.isLoggingOn) {
+            logger.Error("Logon already in progress");
             throw new InvalidOperationException("Logon already in progress");
         }
 
         if (user.LoginMethod == null)
         {
+            logger.Error("LoginMethod must be set");
             throw new ArgumentException("LoginMethod must be set");
         }
 
@@ -425,7 +433,7 @@ public class LoginManager : IClientLifetime
 
                     break;
                 case LoginMethod.Cached:
-                    OpenSteamworks.Client.Utils.UtilityFunctions.AssertNotNull(user.AccountName);
+                    UtilityFunctions.AssertNotNull(user.AccountName);
 
                     if (!steamClient.NativeClient.IClientUser.BHasCachedCredentials(user.AccountName))
                     {
@@ -436,8 +444,8 @@ public class LoginManager : IClientLifetime
                     steamClient.NativeClient.IClientUser.SetAccountNameForCachedCredentialLogin(user.AccountName, false);
                     break;
                 case LoginMethod.JWT:
-                    OpenSteamworks.Client.Utils.UtilityFunctions.AssertNotNull(user.AccountName);
-                    OpenSteamworks.Client.Utils.UtilityFunctions.AssertNotNull(user.LoginToken);
+                    UtilityFunctions.AssertNotNull(user.AccountName);
+                    UtilityFunctions.AssertNotNull(user.LoginToken);
                     steamClient.NativeClient.IClientUser.SetLoginToken(user.LoginToken, user.AccountName);
 
                     // Parse the JWT (format roughly XXXXXX.XXXXXXXXXXXXXXXXXXXXXXXXXXXX.XXXXXXXXX where X is just base64 encoded json data)
@@ -453,9 +461,9 @@ public class LoginManager : IClientLifetime
                     }
 
                     JsonNode? obj = JsonNode.Parse(System.Text.Encoding.UTF8.GetString(Convert.FromBase64String(middleBase64)));
-                    OpenSteamworks.Client.Utils.UtilityFunctions.AssertNotNull(obj);
+                    UtilityFunctions.AssertNotNull(obj);
                     string? steamidStr = (string?)obj["sub"];
-                    OpenSteamworks.Client.Utils.UtilityFunctions.AssertNotNull(steamidStr);
+                    UtilityFunctions.AssertNotNull(steamidStr);
 
                     user.SteamID = new CSteamID(steamidStr);
 
@@ -469,13 +477,13 @@ public class LoginManager : IClientLifetime
             loginProgress?.SetOperation("Logging on " + user.AccountName);
 
             if (!user.SteamID.HasValue) {
-                Console.WriteLine("SteamID is null!");
+                logger.Error("SteamID is null!");
                 OnLogonFailed(new LogOnFailedEventArgs(user, EResult.k_EResultInvalidSteamID));
                 return;
             }
             
             EResult beginLogonResult = steamClient.NativeClient.IClientUser.LogOn(user.SteamID.Value);
-
+            logger.Info("BeginLogon returned " + beginLogonResult);
             if (beginLogonResult != EResult.k_EResultOK) {
                 this.isLoggingOn = false;
                 OnLogonFailed(new LogOnFailedEventArgs(user, beginLogonResult));
@@ -483,8 +491,10 @@ public class LoginManager : IClientLifetime
             }
 
             loginProgress?.SetSubOperation("Waiting for steamclient...");
-
+            
+            logger.Info("Waiting for logon to finish");
             EResult result = await WaitForLogonToFinish();
+            logger.Info("Logon finished with " + result);
 
             if (result == EResult.k_EResultOK)
             {
@@ -575,7 +585,7 @@ public class LoginManager : IClientLifetime
     public async Task RunShutdown()
     {
         if (this.IsLoggedOn() && this.steamClient.NativeClient.ConnectedWith == SteamClient.ConnectionType.NewClient) {
-            Console.WriteLine("Logging out");
+            logger.Info("Shutting down and logged in, logging out");
             await LogoutAsync();
         }
     }

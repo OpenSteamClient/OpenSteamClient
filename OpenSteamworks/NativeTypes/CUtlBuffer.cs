@@ -16,8 +16,8 @@ public unsafe struct CUtlBuffer {
 	public UInt8 m_Error;
 	public UInt8 m_Flags;
 
-	public delegate* unmanaged[Cdecl]<CUtlBuffer*, int, byte> m_GetOverflowFunc;
-	public delegate* unmanaged[Cdecl]<CUtlBuffer*, int, byte> m_PutOverflowFunc;
+	public delegate* unmanaged[Thiscall]<CUtlBuffer*, int, byte> m_GetOverflowFunc;
+	public delegate* unmanaged[Thiscall]<CUtlBuffer*, int, byte> m_PutOverflowFunc;
 
     public CUtlBuffer(int length, int growSize = 0) {
         this.m_Memory = new CUtlMemory<UInt8>(growSize, length);
@@ -47,15 +47,19 @@ public unsafe struct CUtlBuffer {
         return usedBytes;
     }
 
+    public void SeekToBeginning() {
+        this.m_Put = 0;
+    }
+
     public byte[] ToManagedAndFree() {
         var str = this.ToManaged();
         this.Free();
         return str;
     }
-    
-    [UnmanagedCallersOnly(CallConvs = new[] { typeof(CallConvCdecl) })]
+
+    [UnmanagedCallersOnly(CallConvs = new[] { typeof(CallConvThiscall) })]
     public static byte PutOverflow(CUtlBuffer* buf, int nSize) {
-        Console.WriteLine("PutOverflow called");
+        SteamClient.CUtlLogger.Debug("PutOverflow called");
         int nGrowDelta = (buf->m_Put + nSize) - buf->m_Memory.m_nAllocationCount;
 
         if (nGrowDelta > 0)
@@ -66,9 +70,9 @@ public unsafe struct CUtlBuffer {
         return 1;
     }
 
-    [UnmanagedCallersOnly(CallConvs = new[] { typeof(CallConvCdecl) })]
+    [UnmanagedCallersOnly(CallConvs = new[] { typeof(CallConvThiscall) })]
     public static byte GetOverflow(CUtlBuffer* buf, int nSize) {
-        Console.WriteLine("GetOverflow called");
+        SteamClient.CUtlLogger.Debug("GetOverflow called");
         return 0;
     }
 }

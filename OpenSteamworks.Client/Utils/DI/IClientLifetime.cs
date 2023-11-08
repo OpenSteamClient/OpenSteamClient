@@ -1,4 +1,4 @@
-namespace OpenSteamworks.Client.Utils.Interfaces;
+namespace OpenSteamworks.Client.Utils.DI;
 
 public interface IClientLifetime {
     public Task RunStartup();

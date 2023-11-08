@@ -8,7 +8,7 @@ using Google.Protobuf;
 using Google.Protobuf.WellKnownTypes;
 using OpenSteamworks.Client.Enums;
 using OpenSteamworks.Client.Utils;
-using OpenSteamworks.Client.Utils.Interfaces;
+using OpenSteamworks.Client.Utils.DI;
 using OpenSteamworks.ClientInterfaces;
 using OpenSteamworks.Generated;
 using OpenSteamworks.Messaging;
@@ -18,7 +18,7 @@ using OpenSteamworks.Structs;
 namespace OpenSteamworks.Client.Managers;
 
 public class NamespaceData {
-    private object dataLock = new object();
+    private readonly object dataLock = new();
     public string this[string key] {
         get {
             if (keys[key].IsDeleted) {
@@ -92,11 +92,13 @@ public class NamespaceData {
         return matchedKeys;
     }
 
-    private Dictionary<string, CCloudConfigStore_Entry> keys = new();
+    private readonly Dictionary<string, CCloudConfigStore_Entry> keys = new();
     private CCloudConfigStore_NamespaceData protobufData;
     internal CSteamID belongsToUser;
-    private IClientUtils clientUtils;
-    internal NamespaceData(CCloudConfigStore_NamespaceData protobufData, CSteamID steamid, IClientUtils clientUtils) {
+    private readonly IClientUtils clientUtils;
+    private readonly Logger logger;
+    internal NamespaceData(CCloudConfigStore_NamespaceData protobufData, CSteamID steamid, IClientUtils clientUtils, Logger logger) {
+        this.logger = logger;
         this.protobufData = protobufData;
         this.belongsToUser = steamid;
         this.clientUtils = clientUtils;
@@ -146,7 +148,7 @@ public class NamespaceData {
                 remoteData.Entries.Add(localEntry);
             } else {
                 // What to do in this situation?
-                Console.WriteLine("Warning: Namespace key '" + localEntry.Key + "' exists in remote, local: '" + localEntry.Value + "', remote: '" + remoteEntriesList[indexOfKey].Value + "'");
+                logger.Warning("Conflicting key '" + localEntry.Key + "', local: '" + localEntry.Value + "', remote: '" + remoteEntriesList[indexOfKey].Value + "'");
             }
         }
 
@@ -154,7 +156,7 @@ public class NamespaceData {
         {
             if (this.keys.ContainsKey(remoteEntry.Key)) {
                 if (this.keys[remoteEntry.Key].Value != remoteEntry.Value) {
-                    Console.WriteLine("Warning: Namespace data different in remote entry, local: '" + this.keys[remoteEntry.Key].Value + "', remote: '" + remoteEntry.Value + "', overriding local");
+                    logger.Warning("Namespace data different in remote entry, local: '" + this.keys[remoteEntry.Key].Value + "', remote: '" + remoteEntry.Value + "', overriding local");
                 }
                 this.keys[remoteEntry.Key] = remoteEntry;
             } else {
@@ -178,27 +180,29 @@ public class NamespaceData {
 /// <summary>
 /// CloudConfigStore seems to be a versatile system for storing all kinds of config data.
 /// It is currently only used for storing library related data.
-/// Take backups before mucking about with this, it WILL wipe all your collections, showcases(Shelves), and might break other stuff as well.
+/// Take backups before mucking about with this, it might brick ValveSteam if given wrong/unparseable data.
 /// </summary>
 public class CloudConfigStore : ILogonLifetime {
-    private LoginManager loginManager;
-    private Connection connection;
-    private ConfigManager configManager;
-    private List<NamespaceData> loadedNamespaces = new();
-    private IClientUtils clientUtils;
-    public CloudConfigStore(ClientMessaging messaging, LoginManager loginManager, ConfigManager configManager, IClientUtils clientUtils) {
+    private readonly LoginManager loginManager;
+    private readonly Connection connection;
+    private readonly List<NamespaceData> loadedNamespaces = new();
+    private readonly IClientUtils clientUtils;
+    private readonly InstallManager installManager;
+    private readonly Logger logger;
+    public CloudConfigStore(ClientMessaging messaging, LoginManager loginManager, IClientUtils clientUtils, InstallManager installManager) {
+        this.logger = new Logger("CloudConfigStore", installManager.GetLogPath("CloudConfigStore"));
+        this.installManager = installManager;
         this.clientUtils = clientUtils;
         this.loginManager = loginManager;
-        this.configManager = configManager;
         this.connection = messaging.AllocateConnection();
         this.connection.AddServiceMethodHandler("CloudConfigStoreClient.NotifyChange#1", (Connection.StoredMessage msg) => this.OnCloudConfigStoreClient_NotifyChange(ProtoMsg<CCloudConfigStore_Change_Notification>.FromBinary(msg.fullMsg)));
     }
 
-    internal string GetNamespaceFilename(NamespaceData ns) {
+    internal static string GetNamespaceFilename(NamespaceData ns) {
         return GetNamespaceFilename(ns.belongsToUser, ns.Namespace);
     }
 
-    internal string GetNamespaceFilename(CSteamID belongsToUser, EUserConfigStoreNamespace @namespace) {
+    internal static string GetNamespaceFilename(CSteamID belongsToUser, EUserConfigStoreNamespace @namespace) {
         return $"U-{belongsToUser.GetAccountId()}-cloudconfigstore-namespace-{(uint)@namespace}";
     }
 
@@ -207,7 +211,7 @@ public class CloudConfigStore : ILogonLifetime {
     /// </summary>
     /// <returns></returns>
     public string GetStorageFolder() {
-        var directory = Path.Combine(this.configManager.CacheDir, "cloudconfigstore");
+        var directory = Path.Combine(this.installManager.CacheDir, "cloudconfigstore");
         Directory.CreateDirectory(directory);
         return directory;
     }
@@ -221,27 +225,28 @@ public class CloudConfigStore : ILogonLifetime {
     }
 
     private async Task HandleConfigStoreShutdown() {
-        Console.WriteLine("Flushing namespaces to disk...");
+        logger.Info("Flushing namespaces to disk...");
         await CacheNamespaces();
         try
         {
             if (loginManager.IsOnline()) {
-                Console.WriteLine("Uploading namespaces to server...");
-                UploadNamespaces().Wait();
+                logger.Info("Uploading namespaces to server");
+                await UploadNamespaces();
+                logger.Info("Uploaded namespaces to server");
             } else {
-                Console.WriteLine("Warning: Not uploading namespaces, we're in offline mode.");
+                logger.Warning("Not uploading namespaces, we're in offline mode.");
             }
         }
         catch (System.Exception ex)
         {
-            Console.WriteLine("Failed to upload namespaces: " + ex.ToString());
+            logger.Error("Failed to upload namespaces: " + ex.ToString());
         }
 
         this.loadedNamespaces.Clear();
     }
 
     private async void OnCloudConfigStoreClient_NotifyChange(ProtoMsg<CCloudConfigStore_Change_Notification> notification) {
-        Console.WriteLine("CloudConfigStore change detected. This is untested, and loss of data may occur. Backing up affected namespaces...");
+        logger.Warning("CloudConfigStore change received. This is untested, and loss of data may occur. Backing up affected namespaces...");
         foreach (var newVersion in notification.body.Versions)
         {
             foreach (var loadedNamespace in loadedNamespaces)
@@ -259,6 +264,7 @@ public class CloudConfigStore : ILogonLifetime {
     /// </summary>
     public async Task<NamespaceData> GetNamespaceData(EUserConfigStoreNamespace @namespace) {
         if (loginManager.CurrentUser == null || !loginManager.CurrentUser.SteamID.HasValue) {
+            logger.Error("Cannot retrieve namespace data without a login.");
             throw new InvalidOperationException("Cannot retrieve namespace data without a login.");
         }
 
@@ -272,24 +278,28 @@ public class CloudConfigStore : ILogonLifetime {
         CCloudConfigStore_NamespaceData resp;
         NamespaceData nsData;
         string filename = GetNamespaceFilename(loginManager.CurrentUser.SteamID.Value, @namespace);
+        string loggerName = "Namespace-N" + @namespace + "-U-" + loginManager.CurrentUser.SteamID.Value.GetAccountId();
         if (loginManager.IsOffline()) {
             if (File.Exists(filename)) {
                 try {
                     byte[] bytes = await File.ReadAllBytesAsync(filename, default);
                     resp = CCloudConfigStore_NamespaceData.Parser.ParseFrom(bytes);
-                    nsData = new NamespaceData(resp, loginManager.CurrentUser.SteamID.Value, this.clientUtils);
+                    nsData = new NamespaceData(resp, loginManager.CurrentUser.SteamID.Value, this.clientUtils, new Logger(loggerName, installManager.GetLogPath(loggerName.Replace('-', '_'))));
                     loadedNamespaces.Add(nsData);
                     return nsData;
                 } catch (Exception e) {
+                    logger.Error("Failed to load namespace data from cache and we're in offline mode. ");
+                    logger.Error(e);
                     throw new Exception("Failed to load namespace data from cache and we're in offline mode.", e);
                 }
             } else {
+                logger.Error("No namespace data cache and we're in offline mode.");
                 throw new Exception("No namespace data cache and we're in offline mode.");
             }
         }
 
         resp = await DownloadNamespace(@namespace);
-        nsData = new NamespaceData(resp, loginManager.CurrentUser.SteamID.Value, this.clientUtils);
+        nsData = new NamespaceData(resp, loginManager.CurrentUser.SteamID.Value, this.clientUtils, new Logger(loggerName, installManager.GetLogPath(loggerName.Replace('-', '_'))));
         loadedNamespaces.Add(nsData);
         await CacheNamespace(nsData);
         return nsData;
@@ -299,6 +309,7 @@ public class CloudConfigStore : ILogonLifetime {
     /// Downloads namespace data from the server. Does not use the cache and will never use local data.
     /// </summary>
     internal async Task<CCloudConfigStore_NamespaceData> DownloadNamespace(EUserConfigStoreNamespace @namespace) {
+        logger.Info("Downloading namespace " + @namespace);
         ProtoMsg<CCloudConfigStore_Download_Request> msg = new("CloudConfigStore.Download#1");
         msg.body.Versions.Add(new CCloudConfigStore_NamespaceVersion() {
             Enamespace = (uint)@namespace,
@@ -306,9 +317,11 @@ public class CloudConfigStore : ILogonLifetime {
 
         var resp = await connection.ProtobufSendMessageAndAwaitResponse<CCloudConfigStore_Download_Response, CCloudConfigStore_Download_Request>(msg);
         if (resp.body.Data.Count == 0) {
+            logger.Error("Namespace " + @namespace + " doesn't exist.");
             throw new ArgumentException("Namespace " + @namespace + " doesn't exist.");
         }
-
+        
+        logger.Info("Downloaded namespace " + @namespace + " successfully");
         return resp.body.Data.First();
     }   
 
@@ -355,22 +368,16 @@ public class CloudConfigStore : ILogonLifetime {
         }
         foreach (var entry in data.Entries)
         {
-            Console.WriteLine("entry(" + entry.Key + ")");
             if (!entry.HasKey || string.IsNullOrEmpty(entry.Key)) {
-                Console.WriteLine("Deleting entry with empty key");
                 // This key was probably created accidentally. Having this will brick the webui though, so let's remove it just in case (but it won't immediately remove it, so you'll need to wait some time)
                 // In the meanwhile, you can launch games from the store or big picture mode
                 entry.IsDeleted = true;
-            }
-            if (entry.IsDeleted) {
-                Console.WriteLine("Deleted key found: " + entry.Key);
             }
         }
 
         ProtoMsg<CCloudConfigStore_Upload_Request> msg = new("CloudConfigStore.Upload#1");
         msg.body.Data.Add(data);
         var resp = await connection.ProtobufSendMessageAndAwaitResponse<CCloudConfigStore_Upload_Response, CCloudConfigStore_Upload_Request>(msg);
-        Console.WriteLine("resp: " + resp.ToString());
         return resp.body.Versions;
     }
 }

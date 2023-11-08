@@ -11,7 +11,7 @@ using OpenSteamworks;
 using OpenSteamworks.Attributes;
 using OpenSteamworks.Callbacks.Structs;
 using OpenSteamworks.Client.Utils;
-using OpenSteamworks.Client.Utils.Interfaces;
+using OpenSteamworks.Client.Utils.DI;
 using OpenSteamworks.ClientInterfaces;
 using OpenSteamworks.Enums;
 using OpenSteamworks.Generated;
@@ -51,18 +51,19 @@ public class AppsManager : ILogonLifetime
     internal static AppsManager? instance;
     private LoginManager loginManager;
     private ClientMessaging clientMessaging;
+    private InstallManager installManager;
     private Logger logger;
 
     public EventHandler<AppPlaytimeChangedEventArgs>? AppPlaytimeChanged;
     public EventHandler<AppLastPlayedChangedEventArgs>? AppLastPlayedChanged;
 
-    public AppsManager(SteamClient steamClient, CloudConfigStore cloudConfigStore, ClientMessaging clientMessaging, LoginManager loginManager, ConfigManager configManager) {
-        instance = this;
+    public AppsManager(SteamClient steamClient, CloudConfigStore cloudConfigStore, ClientMessaging clientMessaging, LoginManager loginManager, InstallManager installManager) {
+        this.logger = new Logger("AppsManager", installManager.GetLogPath("AppsManager"));
+        this.installManager = installManager;
         this.steamClient = steamClient;
         this.cloudConfigStore = cloudConfigStore;
         this.clientMessaging = clientMessaging;
         this.loginManager = loginManager;
-        this.logger = new Logger("AppsManager", Path.Combine(configManager.LogsDir, "AppsManager.txt"));
     }
 
     [CallbackListener<AppMinutesPlayedDataNotice_t>]
@@ -202,7 +203,7 @@ public class AppsManager : ILogonLifetime
             return currentUserLibrary;
         }
 
-        Library library = new(steamClient, cloudConfigStore, loginManager, this);
+        Library library = new(steamClient, cloudConfigStore, loginManager, this, installManager);
         await library.InitializeLibrary();
         currentUserLibrary = library;
         return library;

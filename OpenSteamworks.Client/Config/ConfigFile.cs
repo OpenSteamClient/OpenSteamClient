@@ -1,6 +1,3 @@
-using System.Text.Json;
-using OpenSteamworks.Client.Utils.Interfaces;
-
 namespace OpenSteamworks.Client.Config;
 
 public abstract class ConfigFile<T> where T : ConfigFile<T>, new() { 
@@ -34,8 +31,8 @@ public abstract class ConfigFile<T> where T : ConfigFile<T>, new() {
         io.Save(serializer.Serialize<T>(GetThis()));
     }
     public void Save() {
-        OpenSteamworks.Client.Utils.UtilityFunctions.AssertNotNull(this.io);
-        OpenSteamworks.Client.Utils.UtilityFunctions.AssertNotNull(this.serializer);
+        Utils.UtilityFunctions.AssertNotNull(this.io);
+        Utils.UtilityFunctions.AssertNotNull(this.serializer);
         
         this.SaveWith(this.serializer, this.io);
     }

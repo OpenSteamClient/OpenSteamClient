@@ -4,11 +4,11 @@ using OpenSteamworks.Client.Utils;
 using OpenSteamworks;
 using OpenSteamworks.Callbacks;
 using System.Runtime.InteropServices;
-using OpenSteamworks.Client.Utils.Interfaces;
 using System.Reflection;
 using OpenSteamworks.Client.Config;
 using OpenSteamworks.Generated;
 using OpenSteamworks.ClientInterfaces;
+using OpenSteamworks.Client.Utils.DI;
 
 namespace OpenSteamworks.Client;
 
@@ -30,14 +30,23 @@ public class Client : IClientLifetime
         });
     }
 
-    public Client(Container container, IExtendedProgress<int>? bootstrapperProgress = null) {
+    public Client(Container container, IExtendedProgress<int>? bootstrapperProgress = null)
+    {
         this.container = container;
         container.ConstructAndRegisterImmediate<ConfigManager>();
         container.ConstructAndRegisterImmediate<Bootstrapper>().SetProgressObject(bootstrapperProgress);
 
-        // OpenSteamworks doesn't support the component API by design. It allows it to be leanly integrated wherever. So we do the registration here instead of with subcomponents.
-        container.RegisterFactoryMethod<SteamClient>(() => new SteamClient(container.Get<Bootstrapper>().SteamclientLibPath, container.Get<AdvancedConfig>().EnabledConnectionTypes));
-        
+        container.RegisterFactoryMethod<SteamClient>((Bootstrapper bootstrapper, AdvancedConfig advancedConfig, InstallManager im) =>
+        {
+            SteamClient.GeneralLogger = new Logger("OpenSteamworks", im.GetLogPath("OpenSteamworks"));
+            SteamClient.NativeClientLogger = new Logger("OpenSteamworks-NativeClient", im.GetLogPath("OpenSteamworks_NativeClient"));
+            SteamClient.CallbackLogger = new Logger("OpenSteamworks-Callbacks", im.GetLogPath("OpenSteamworks_Callbacks"));
+            SteamClient.JITLogger = new Logger("OpenSteamworks-JIT", im.GetLogPath("OpenSteamworks_JIT"));
+            SteamClient.ConCommandsLogger = new Logger("OpenSteamworks-ConCommands", im.GetLogPath("OpenSteamworks_ConCommands"));
+            SteamClient.MessagingLogger = new Logger("OpenSteamworks-Messaging", im.GetLogPath("OpenSteamworks_Messaging"));
+            SteamClient.CUtlLogger = new Logger("OpenSteamworks-CUtl", im.GetLogPath("OpenSteamworks_CUtl"));
+            return new SteamClient(bootstrapper.SteamclientLibPath, advancedConfig.EnabledConnectionTypes, advancedConfig.SteamClientSpew);
+        });
         container.RegisterFactoryMethod<CallbackManager>((SteamClient client) => client.CallbackManager);
         container.RegisterFactoryMethod<ClientConfigStore>((SteamClient client) => client.ClientConfigStore);
         container.RegisterFactoryMethod<ClientMessaging>((SteamClient client) => client.ClientMessaging);

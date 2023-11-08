@@ -51,8 +51,8 @@ public unsafe interface IClientEngine {
 	public IClientScreenshots GetIClientScreenshots( HSteamUser hSteamUser, HSteamPipe hSteamPipe );
 	/// <summary>
     /// Sets a steam api warning message hook.
-    /// There's lots of docs for this online, but you should use SteamAPIWarningMessageHook_t
-    /// and get a pointer to it then pass it to this function.
+    /// There's lots of docs for this online, but you should use a SteamAPIWarningMessageHook_t
+    /// It is currently unknown whether this affects any client api's (us)
     /// </summary>
 	public void SetWarningMessageHook( ClientAPI_WarningMessageHook_t func );
 	public IClientGameCoordinator GetIClientGameCoordinator( HSteamUser hSteamUser, HSteamPipe hSteamPipe );
@@ -129,5 +129,9 @@ public unsafe interface IClientEngine {
 	public IClientNetworkingUtilsSerialized GetIClientNetworkingUtilsSerialized( HSteamPipe hSteamPipe );
 	public IClientSTARInternal GetIClientSTARInternal(HSteamUser hSteamUser, HSteamPipe hSteamPipe);
 	public IClientRemotePlay GetIClientRemotePlay(HSteamUser hSteamUser, HSteamPipe hSteamPipe);
+    public void Destructor1();
+	public void Destructor2();
+	public long GetSomeValue();
+    public void PrintSAPIWarn(string msg);
 
 }

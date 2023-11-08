@@ -2,7 +2,7 @@ using System.Diagnostics;
 using System.Runtime.Versioning;
 using OpenSteamworks.Client.Managers;
 using OpenSteamworks;
-using OpenSteamworks.Client.Utils.Interfaces;
+using OpenSteamworks.Client.Utils.DI;
 using OpenSteamworks.Client.Config;
 using System.Text;
 using OpenSteamworks.Enums;
@@ -14,13 +14,15 @@ public class SteamHTML : IClientLifetime {
     public object CurrentHTMLHostLock = new();
     public Process? CurrentHTMLHost;
     public Thread? WatcherThread;
-    private SteamClient steamClient;
-    private ConfigManager configManager;
-    private GlobalSettings globalSettings;
+    private readonly SteamClient steamClient;
+    private readonly InstallManager installManager;
+    private readonly GlobalSettings globalSettings;
+    private readonly Logger logger;
 
-    public SteamHTML(SteamClient steamClient, ConfigManager configManager, GlobalSettings globalSettings) {
+    public SteamHTML(SteamClient steamClient, InstallManager installManager, GlobalSettings globalSettings) {
+        this.logger = new Logger("SteamHTMLManager", installManager.GetLogPath("SteamHTMLManager"));
         this.steamClient = steamClient;
-        this.configManager = configManager;
+        this.installManager = installManager;
         this.globalSettings = globalSettings;
     }
 
@@ -30,14 +32,14 @@ public class SteamHTML : IClientLifetime {
         lock (CurrentHTMLHostLock)
         {
             CurrentHTMLHost = new Process();
-            CurrentHTMLHost.StartInfo.WorkingDirectory = configManager.InstallDir;
+            CurrentHTMLHost.StartInfo.WorkingDirectory = installManager.InstallDir;
             CurrentHTMLHost.StartInfo.FileName = pathToHost;
 
             string steampath;
             if (OperatingSystem.IsLinux()) {
                 steampath = Directory.ResolveLinkTarget("/proc/self/exe", false)!.FullName;
             } else {
-                steampath = Process.GetCurrentProcess().MainModule!.FileName;
+                steampath = Environment.ProcessPath!;
             }
 
             // Necessary for hooking some funcs (to get it to connect to master steam process)
@@ -57,7 +59,7 @@ public class SteamHTML : IClientLifetime {
             CurrentHTMLHost.StartInfo.ArgumentList.Add(steampath);
             CurrentHTMLHost.StartInfo.ArgumentList.Add(((int)this.steamClient.NativeClient.IClientUtils.GetConnectedUniverse()).ToString());
             CurrentHTMLHost.StartInfo.ArgumentList.Add(((int)this.steamClient.NativeClient.IClientUtils.GetSteamRealm()).ToString());
-            StringBuilder builder = new StringBuilder(128);
+            StringBuilder builder = new(128);
             this.steamClient.NativeClient.IClientUser.GetLanguage(builder, 128);
             CurrentHTMLHost.StartInfo.ArgumentList.Add(((int)ELanguageConversion.ELanguageFromAPIName(builder.ToString())).ToString());
             CurrentHTMLHost.StartInfo.ArgumentList.Add(((int)this.steamClient.NativeClient.IClientUtils.GetCurrentUIMode()).ToString());
@@ -82,11 +84,11 @@ public class SteamHTML : IClientLifetime {
                     do
                     {
                         if (CurrentHTMLHost.HasExited) {
-                            Console.WriteLine("htmlhost crashed! Restarting in 1s.");
-                            System.Threading.Thread.Sleep(1000);
+                            logger.Error("htmlhost crashed! Restarting in 1s.");
+                            Thread.Sleep(1000);
                             StartHTMLHost(pathToHost, cacheDir);
                         }
-                        System.Threading.Thread.Sleep(50);
+                        Thread.Sleep(50);
                     } while (!ShouldStop);
                     CurrentHTMLHost.Kill();
                     WatcherThread = null;
@@ -110,27 +112,27 @@ public class SteamHTML : IClientLifetime {
                     {
                         await Task.Run(() =>
                         {
-                            File.Copy(Path.Combine(configManager.InstallDir, "libbootstrappershim32.so"), "/tmp/libbootstrappershim32.so", true);
-                            File.Copy(Path.Combine(configManager.InstallDir, "libhtmlhost_fakepid.so"), "/tmp/libhtmlhost_fakepid.so", true);
+                            File.Copy(Path.Combine(installManager.InstallDir, "libbootstrappershim32.so"), "/tmp/libbootstrappershim32.so", true);
+                            File.Copy(Path.Combine(installManager.InstallDir, "libhtmlhost_fakepid.so"), "/tmp/libhtmlhost_fakepid.so", true);
                         });
                     }
                     catch (Exception e)
                     {
-                        Console.WriteLine("Failed to copy " + Path.Combine(configManager.InstallDir, "libbootstrappershim32.so") + " to /tmp/libbootstrappershim32.so: " + e.ToString());
+                        logger.Warning("Failed to copy " + Path.Combine(installManager.InstallDir, "libbootstrappershim32.so") + " to /tmp/libbootstrappershim32.so: " + e.ToString());
                     }
                     
-                    this.StartHTMLHost(Path.Combine(configManager.InstallDir, "ubuntu12_32", "htmlhost"), Path.Combine(configManager.InstallDir, "appcache", "htmlcache"));
+                    this.StartHTMLHost(Path.Combine(installManager.InstallDir, "ubuntu12_32", "htmlhost"), Path.Combine(installManager.InstallDir, "appcache", "htmlcache"));
                 } else if (OperatingSystem.IsWindows()) {                  
-                    this.StartHTMLHost(Path.Combine(configManager.InstallDir, "htmlhost.exe"), Path.Combine(configManager.InstallDir, "appcache", "htmlcache"));
+                    this.StartHTMLHost(Path.Combine(installManager.InstallDir, "htmlhost.exe"), Path.Combine(installManager.InstallDir, "appcache", "htmlcache"));
                 } else {
-                    //TODO: test macos
-                    Console.WriteLine("Not running SteamHTML due to unsupported OS");
+                    //TODO: macos
+                    logger.Warning("Not running SteamHTML due to unsupported OS");
                 }
             } else {
-                Console.WriteLine("Not running SteamHTML due to existing client connection");
+                logger.Info("Not running SteamHTML due to existing client connection");
             }
         } else {
-            Console.WriteLine("Not running SteamHTML due to user preference");
+            logger.Info("Not running SteamHTML due to user preference");
         }
     }
 }

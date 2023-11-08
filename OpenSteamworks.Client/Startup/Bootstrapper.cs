@@ -15,7 +15,7 @@ using System.Runtime.Versioning;
 using OpenSteamworks.Client.Managers;
 using System.Runtime.InteropServices;
 using OpenSteamworks.Client.Config;
-using OpenSteamworks.Client.Utils.Interfaces;
+using OpenSteamworks.Client.Utils.DI;
 
 namespace OpenSteamworks.Client.Startup;
 
@@ -24,7 +24,7 @@ public class Bootstrapper : IClientLifetime {
 
     //TODO: We shouldn't hardcode this but it will do...
     public const string BaseURL = "https://client-update.akamai.steamstatic.com/";
-    private ConfigManager configManager;
+    private InstallManager installManager;
     public string SteamclientLibPath {
         get {
             return Path.Combine(MainBinaryDir, OSSpecifics.Instance.SteamClientBinaryName);
@@ -35,19 +35,19 @@ public class Bootstrapper : IClientLifetime {
             return OSSpecifics.Instance.SteamClientManifestName;
         }
     }
-    public string PackageDir => Path.Combine(configManager.InstallDir, "package");
+    public string PackageDir => Path.Combine(installManager.InstallDir, "package");
     public string MainBinaryDir {
         get {
             if (OperatingSystem.IsLinux()) {
-                return Path.Combine(configManager.InstallDir, "linux64");
+                return Path.Combine(installManager.InstallDir, "linux64");
             }
 
-            return configManager.InstallDir;
+            return installManager.InstallDir;
         }
     }
 
     [SupportedOSPlatform("linux")]
-    public string Ubuntu12_32Dir => Path.Combine(configManager.InstallDir, "ubuntu12_32");
+    public string Ubuntu12_32Dir => Path.Combine(installManager.InstallDir, "ubuntu12_32");
 
     [SupportedOSPlatform("linux")]
     public string SteamRuntimeDir => Path.Combine(Ubuntu12_32Dir, "steam-runtime");
@@ -77,7 +77,7 @@ public class Bootstrapper : IClientLifetime {
         return false;
     }
     private int RetryCount = 0;
-    private Dictionary<string, string> downloadedPackages = new Dictionary<string, string>();
+    private readonly Dictionary<string, string> downloadedPackages = new();
 
     private bool restartRequired = false;
 
@@ -87,9 +87,12 @@ public class Bootstrapper : IClientLifetime {
         this.progressHandler = progressHandler;
     }
 
-    private BootstrapperState bootstrapperState;
-    public Bootstrapper(ConfigManager configManager, BootstrapperState bootstrapperState) {
-        this.configManager = configManager;
+    private readonly BootstrapperState bootstrapperState;
+    private readonly Logger logger;
+
+    public Bootstrapper(InstallManager installManager, BootstrapperState bootstrapperState) {
+        this.logger = new Logger("Bootstrapper", installManager.GetLogPath("Bootstrapper"));
+        this.installManager = installManager;
         this.bootstrapperState = bootstrapperState;
     }
 
@@ -100,26 +103,26 @@ public class Bootstrapper : IClientLifetime {
 
         progressHandler.SetOperation("Bootstrapping");
 
-        Directory.CreateDirectory(configManager.InstallDir);
+        Directory.CreateDirectory(installManager.InstallDir);
 
         // steamclient blindly dumps certain files to the CWD, so set it to the install dir
-        Directory.SetCurrentDirectory(configManager.InstallDir);
+        Directory.SetCurrentDirectory(installManager.InstallDir);
 
         Directory.CreateDirectory(PackageDir);
 
         // Skip verification and package processing if user requests it
         if (!bootstrapperState.SkipVerification) {
-            if (!VerifyFiles(progressHandler, out string failureReason)) {
-                Console.WriteLine("Failed verification: " + failureReason);
+            if (!VerifyFiles(progressHandler, out IEnumerable<string> failureReason)) {
+                logger.Error("Failed verification: " + string.Join(", ", failureReason));
                 await EnsurePackages(progressHandler);
                 await ExtractPackages(progressHandler);
             }
         }
 
         // Run platform specific tasks
-
         if (OperatingSystem.IsWindows()) {
             // Write our PID to HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Valve\Steam (has full access to entire Steam key by all users, security nightmare?)
+            //TODO: doesn't support machines where ValveSteam hasn't been installed atleast once
             Microsoft.Win32.Registry.SetValue("HKEY_LOCAL_MACHINE\\SOFTWARE\\WOW6432Node\\Valve\\Steam", "SteamPID", Environment.ProcessId);
         }
 
@@ -136,7 +139,7 @@ public class Bootstrapper : IClientLifetime {
                 progressHandler.SetOperation($"Setting proper permissions (this may freeze)");
                 progressHandler.SetThrobber(true);
                 // Valve doesn't include permission info in the zips, so chmod them all to allow execute
-                await Process.Start("/usr/bin/chmod", "-R +x " + '"' + configManager.InstallDir + '"').WaitForExitAsync();
+                await Process.Start("/usr/bin/chmod", "-R +x " + '"' + installManager.InstallDir + '"').WaitForExitAsync();
 
                 progressHandler.SetThrobber(false);
                 bootstrapperState.LinuxPermissionsSet = true;
@@ -145,25 +148,25 @@ public class Bootstrapper : IClientLifetime {
             //TODO: check for steam some other way (like trying to connect)
             Process[] runningSteamProcesses = Process.GetProcessesByName("steam");
             if (runningSteamProcesses.Length == 0) {
-                Directory.CreateDirectory(configManager.DatalinkDir);
+                Directory.CreateDirectory(installManager.DatalinkDir);
 
                 // This is ok, since steam automatically changes the target of these symlinks to it's own install path on start.
                 List<(string name, string targetPath)> datalinkDirs = new()
                 {
-                    ("steam", configManager.InstallDir),
-                    ("root", configManager.InstallDir),
-                    ("sdk64", Path.Combine(configManager.InstallDir, "linux64")),
-                    ("sdk32", Path.Combine(configManager.InstallDir, "linux32")),
-                    ("bin64", Path.Combine(configManager.InstallDir, "ubuntu12_64")),
-                    ("bin32", Path.Combine(configManager.InstallDir, "ubuntu12_32")),
+                    ("steam", installManager.InstallDir),
+                    ("root", installManager.InstallDir),
+                    ("sdk64", Path.Combine(installManager.InstallDir, "linux64")),
+                    ("sdk32", Path.Combine(installManager.InstallDir, "linux32")),
+                    ("bin64", Path.Combine(installManager.InstallDir, "ubuntu12_64")),
+                    ("bin32", Path.Combine(installManager.InstallDir, "ubuntu12_32")),
                     // bin points to bin32 on valve's install, we're 64-bit so we should probably point to bin64
-                    ("bin", Path.Combine(configManager.DatalinkDir, "bin64")),
+                    ("bin", Path.Combine(installManager.DatalinkDir, "bin64")),
                 };
 
                 // Create needed directory structure
                 foreach ((string name, string targetPath) in datalinkDirs)
                 {
-                    var linkPath = Path.Combine(configManager.DatalinkDir, name);
+                    var linkPath = Path.Combine(installManager.DatalinkDir, name);
                     if (Directory.Exists(linkPath)) {
                         var fsinfo = Directory.ResolveLinkTarget(linkPath, false);
                         if (fsinfo != null) {
@@ -177,7 +180,7 @@ public class Bootstrapper : IClientLifetime {
                     }
                 }
 
-                File.WriteAllText(Path.Combine(configManager.DatalinkDir, "steam.pid"), Environment.ProcessId.ToString());
+                File.WriteAllText(Path.Combine(installManager.DatalinkDir, "steam.pid"), Environment.ProcessId.ToString());
             }
         }
             
@@ -240,7 +243,7 @@ public class Bootstrapper : IClientLifetime {
                 {
                     while (!Debugger.IsAttached)
                     { 
-                        Console.WriteLine("Waiting for debugger...");
+                        logger.Info("Waiting for debugger...");
                         System.Threading.Thread.Sleep(500);
                     }
                 });
@@ -251,17 +254,17 @@ public class Bootstrapper : IClientLifetime {
     [SupportedOSPlatform("linux")]
     private void MakeXDGCompliant()
     {
-        var logsSymlink = Path.Combine(configManager.InstallDir, "logs");
+        var logsSymlink = Path.Combine(installManager.InstallDir, "logs");
         if (!Directory.Exists(logsSymlink))
-            Directory.CreateSymbolicLink(logsSymlink, configManager.LogsDir);
+            Directory.CreateSymbolicLink(logsSymlink, installManager.LogsDir);
 
-        var configSymlink = Path.Combine(configManager.InstallDir, "config");
+        var configSymlink = Path.Combine(installManager.InstallDir, "config");
         if (!Directory.Exists(configSymlink))
-            Directory.CreateSymbolicLink(configSymlink, configManager.ConfigDir);
+            Directory.CreateSymbolicLink(configSymlink, installManager.ConfigDir);
 
-        var cacheSymlink = Path.Combine(configManager.InstallDir, "appcache");
+        var cacheSymlink = Path.Combine(installManager.InstallDir, "appcache");
         if (!Directory.Exists(cacheSymlink))
-            Directory.CreateSymbolicLink(cacheSymlink, configManager.CacheDir);
+            Directory.CreateSymbolicLink(cacheSymlink, installManager.CacheDir);
     }
 
     [SupportedOSPlatform("linux")]
@@ -269,18 +272,18 @@ public class Bootstrapper : IClientLifetime {
         [DllImport("libc")]
         static extern int execvp([MarshalAs(UnmanagedType.LPUTF8Str)] string file, [MarshalAs(UnmanagedType.LPArray)] string?[] args);
 
-        Console.WriteLine("Re-execing");
+        logger.Info("Re-execing");
 
         if (withDebugger) {
             SetEnvironmentVariableCorrectly("OPENSTEAM_REATTACH_DEBUGGER", "1");
         }
         SetEnvironmentVariableCorrectly("OPENSTEAM_RAN_EXECVP", "1");
-        SetEnvironmentVariableCorrectly("LD_LIBRARY_PATH", $"{Path.Combine(configManager.InstallDir, "ubuntu12_64")}:{Path.Combine(configManager.InstallDir, "ubuntu12_32")}:{Path.Combine(configManager.InstallDir)}:{GetEnvironmentVariable("LD_LIBRARY_PATH")}");
+        SetEnvironmentVariableCorrectly("LD_LIBRARY_PATH", $"{Path.Combine(installManager.InstallDir, "ubuntu12_64")}:{Path.Combine(installManager.InstallDir, "ubuntu12_32")}:{Path.Combine(installManager.InstallDir)}:{GetEnvironmentVariable("LD_LIBRARY_PATH")}");
 
         string?[] fullArgs = Environment.GetCommandLineArgs();
 
         string executable = Directory.ResolveLinkTarget("/proc/self/exe", false)!.FullName;
-        Console.WriteLine("executable: " + executable);
+        logger.Debug("Re-exec executable: " + executable);
         if (!executable.EndsWith("dotnet")) {
             fullArgs[0] = executable;
         } else {
@@ -289,7 +292,7 @@ public class Bootstrapper : IClientLifetime {
         
         foreach (var item in fullArgs)
         {
-            Console.WriteLine("item: " + item);
+            logger.Debug("Re-exec argument: " + item);
         }
 
         // Program execution ends here, if execvp returns, it means re-execution failed
@@ -301,9 +304,9 @@ public class Bootstrapper : IClientLifetime {
     private void SetEnvsForSteamLoad() {
        SetEnvironmentVariableCorrectly("SteamAppId", "");
        // These two should point to the current running Steam's path. (We can set these later from post-steamclient load code)
-       SetEnvironmentVariableCorrectly("SteamPath", configManager.InstallDir);
-       SetEnvironmentVariableCorrectly("ValvePlatformMutex", configManager.InstallDir.ToLowerInvariant());
-       SetEnvironmentVariableCorrectly("BREAKPAD_DUMP_LOCATION", Path.Combine(configManager.InstallDir, "dumps"));
+       SetEnvironmentVariableCorrectly("SteamPath", installManager.InstallDir);
+       SetEnvironmentVariableCorrectly("ValvePlatformMutex", installManager.InstallDir.ToLowerInvariant());
+       SetEnvironmentVariableCorrectly("BREAKPAD_DUMP_LOCATION", Path.Combine(installManager.InstallDir, "dumps"));
     }
 
     private void SetEnvironmentVariableCorrectly(string name, string value) {
@@ -319,12 +322,20 @@ public class Bootstrapper : IClientLifetime {
         }
     }
     
-    private bool VerifyFiles(IExtendedProgress<int> progressHandler, out string failureReason) {
-        failureReason = "";
+    private bool VerifyFiles(IExtendedProgress<int> progressHandler, out IEnumerable<string> failureReason) {
+        var failureReasons = new List<string>();
         // Verify all files and skip this step if files are valid and version matches 
-        bool failed = bootstrapperState.InstalledVersion != OpenSteamworks.Generated.VersionInfo.STEAM_MANIFEST_VERSION || bootstrapperState.CommitHash != GitInfo.GitCommit;
+        bool failedSteamVer = bootstrapperState.InstalledVersion != VersionInfo.STEAM_MANIFEST_VERSION;
+        bool failedCommit = bootstrapperState.CommitHash != GitInfo.GitCommit;
+        bool failed =  failedSteamVer || failedCommit;
         if (failed) {
-            failureReason += "Failed initial check,";
+            if (failedSteamVer) {
+                failureReasons.Add($"Installed manifest (${bootstrapperState.InstalledVersion}) does not match expected (${VersionInfo.STEAM_MANIFEST_VERSION})");
+            }
+
+            if (failedCommit) {
+                failureReasons.Add($"Installed commit (${bootstrapperState.CommitHash}) does not match expected (${GitInfo.GitCommit})");
+            }
         }
         int installedFilesLength = bootstrapperState.InstalledFiles.Count;
         int checkedFiles = 0;
@@ -336,25 +347,27 @@ public class Bootstrapper : IClientLifetime {
         
         foreach (var installedFile in bootstrapperState.InstalledFiles)
         {
-            checkedFiles++;
-            var info = new FileInfo(Path.Combine(configManager.InstallDir, installedFile.Key));
-            if (info.Exists) {
-                if (info.Length != installedFile.Value) {
-                    failureReason += "File " + info.Name + " was wrong length,";
-                    failed = true;
-                }
-            } else {
-                failureReason += "File " + info.Name + " doesn't exist,";
-                failed = true;
-            }
-           
             if (failed) {
                 break;
             }
-        }   
+
+            checkedFiles++;
+            var info = new FileInfo(Path.Combine(installManager.InstallDir, installedFile.Key));
+            if (info.Exists) {
+                if (info.Length != installedFile.Value) {
+                    failureReasons.Add("File " + info.Name + " length was " + info.Length + " but expected " + installedFile.Value);
+                    failed = true;
+                }
+            } else {
+                failureReasons.Add("File " + info.Name + " doesn't exist");
+                failed = true;
+            }
+        }
+
+        failureReason = failureReasons;
 
         // Remove packages only in case of a steam version upgrade
-        if (bootstrapperState.InstalledVersion != 0 && (bootstrapperState.InstalledVersion != OpenSteamworks.Generated.VersionInfo.STEAM_MANIFEST_VERSION)) {
+        if (bootstrapperState.InstalledVersion != 0 && (bootstrapperState.InstalledVersion != VersionInfo.STEAM_MANIFEST_VERSION)) {
             Directory.Delete(PackageDir, true);
             Directory.CreateDirectory(PackageDir);
         }
@@ -502,7 +515,7 @@ public class Bootstrapper : IClientLifetime {
         {
             using (ZipArchive archive = ZipFile.OpenRead(zip.Value))
             {
-                await archive.ExtractToDirectory(configManager.InstallDir, progressHandler, (ZipArchiveEntry entry, string name) => {
+                await archive.ExtractToDirectory(installManager.InstallDir, progressHandler, (ZipArchiveEntry entry, string name) => {
                     bootstrapperState.InstalledFiles.Add(name, entry.Length);
                 });  
             } 
@@ -706,8 +719,8 @@ public class Bootstrapper : IClientLifetime {
                     name = pathMappings[name];
                 }
 
-                Console.WriteLine("Copying " + file.FullName + " to " + Path.Combine(configManager.InstallDir, name));
-                File.Copy(file.FullName, Path.Combine(configManager.InstallDir, name), true);
+                logger.Info("Copying " + file.FullName + " to " + Path.Combine(installManager.InstallDir, name));
+                File.Copy(file.FullName, Path.Combine(installManager.InstallDir, name), true);
             }
             bootstrapperState.NativeBuildDate = newTimestamp;
         }

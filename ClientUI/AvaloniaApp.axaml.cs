@@ -8,7 +8,6 @@ using ClientUI.Views;
 using OpenSteamworks.Client.Utils;
 using OpenSteamworks;
 using OpenSteamworks.Client;
-using OpenSteamworks.Client.Utils.Interfaces;
 using OpenSteamworks.Client.Managers;
 using System.Threading.Tasks;
 using OpenSteamworks.Client.Config;
@@ -18,15 +17,21 @@ using Avalonia.Controls;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Avalonia.Input;
+using OpenSteamworks.Client.Utils.DI;
 
 namespace ClientUI;
 
 public class AvaloniaApp : Application
 {
-    public static Container Container = new Container();
+    public static Container Container;
     public new static AvaloniaApp? Current;
     public new IClassicDesktopStyleApplicationLifetime ApplicationLifetime => (base.ApplicationLifetime as IClassicDesktopStyleApplicationLifetime)!;
     public static bool DebugEnabled = false;
+    static AvaloniaApp() {
+        var installManager = new InstallManager();
+        Container = new Container(installManager);
+    }
+
     public override void Initialize()
     {
         AvaloniaXamlLoader.Load(this);

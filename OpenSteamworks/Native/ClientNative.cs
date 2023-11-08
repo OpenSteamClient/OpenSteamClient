@@ -1,10 +1,18 @@
 using System;
+using System.Linq;
 using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
 using OpenSteamworks.Enums;
 using OpenSteamworks.Native.JIT;
 using OpenSteamworks.Generated;
 using static OpenSteamworks.SteamClient;
+using System.IO;
+using System.Diagnostics;
+using OpenSteamworks.Protobuf;
+using System.Runtime.CompilerServices;
+using System.Collections.Generic;
+using OpenSteamworks.Utils;
+using System.Text.RegularExpressions;
 
 namespace OpenSteamworks.Native;
 
@@ -49,7 +57,7 @@ public class ClientNative {
     internal NativeFuncs.Steam_FreeLastCallback native_Steam_FreeLastCallback;
 
     private HSteamPipe _pipe;
-    public HSteamPipe pipe { 
+    public HSteamPipe Pipe { 
         get {
             return _pipe;
         }
@@ -59,7 +67,7 @@ public class ClientNative {
     }
 
     private HSteamUser _user;
-    public HSteamUser user { 
+    public HSteamUser User { 
         get {
             return _user;
         } 
@@ -102,6 +110,9 @@ public class ClientNative {
     public ISteamHTMLSurface005 ISteamHTMLSurface;
 
     public ConCommands.ConsoleNative consoleNative;
+    public IntPtr libraryStartAddress;
+    public IntPtr libraryEndAddress;
+    public IntPtr librarySize;
 
     /// <summary>
     /// Loads a native func. Throws if fails.
@@ -142,7 +153,7 @@ public class ClientNative {
     private void LoadEngine() {
         this.IClientEngine = this.CreateInterface<IClientEngine>("CLIENTENGINE_INTERFACE_VERSION005");
         this.ISteamClient = this.CreateInterface<ISteamClient020>("SteamClient020");
-        this.pipe = this.IClientEngine.CreateSteamPipe();
+        this.Pipe = this.IClientEngine.CreateSteamPipe();
     }
 
     [MemberNotNull(nameof(IClientAudio))]
@@ -172,54 +183,286 @@ public class ClientNative {
     [MemberNotNull(nameof(IClientVR))]
     [MemberNotNull(nameof(ISteamHTMLSurface))]
     private void LoadInterfaces() {
-        this.IClientAudio = this.IClientEngine.GetIClientAudio(this.user, this.pipe);
-        this.IClientAppDisableUpdate = this.IClientEngine.GetIClientAppDisableUpdate(this.user, this.pipe);
-        this.IClientApps = this.IClientEngine.GetIClientApps(this.user, this.pipe);
-        this.IClientAppManager = this.IClientEngine.GetIClientAppManager(this.user, this.pipe);
-        this.IClientBilling = this.IClientEngine.GetIClientBilling(this.user, this.pipe);
-        this.IClientCompat = this.IClientEngine.GetIClientCompat(this.user, this.pipe);
-        this.IClientConfigStore = this.IClientEngine.GetIClientConfigStore(this.user, this.pipe);
-        this.IClientDeviceAuth = this.IClientEngine.GetIClientDeviceAuth(this.user, this.pipe);
-        this.IClientFriends = this.IClientEngine.GetIClientFriends(this.user, this.pipe);
-        this.IClientGameStats = this.IClientEngine.GetIClientGameStats(this.user, this.pipe);
-        this.IClientHTMLSurface = this.IClientEngine.GetIClientHTMLSurface(this.user, this.pipe);
-        this.IClientNetworking = this.IClientEngine.GetIClientNetworking(this.user, this.pipe);
-        this.IClientMatchmaking = this.IClientEngine.GetIClientMatchmaking(this.user, this.pipe);
-        this.IClientMusic = this.IClientEngine.GetIClientMusic(this.user, this.pipe);
-        this.IClientRemoteStorage = this.IClientEngine.GetIClientRemoteStorage(this.user, this.pipe);
-        this.IClientScreenshots = this.IClientEngine.GetIClientScreenshots(this.user, this.pipe);
-        this.IClientShader = this.IClientEngine.GetIClientShader(this.user, this.pipe);
-        this.IClientSharedConnection = this.IClientEngine.GetIClientSharedConnection(this.user, this.pipe);
-        this.IClientShortcuts = this.IClientEngine.GetIClientShortcuts(this.user, this.pipe);
-        this.IClientUnifiedMessages = this.IClientEngine.GetIClientUnifiedMessages(this.user, this.pipe);
-        this.IClientUGC = this.IClientEngine.GetIClientUGC(this.user, this.pipe);
-        this.IClientUser = this.IClientEngine.GetIClientUser(this.user, this.pipe);
-        this.IClientUserStats = this.IClientEngine.GetIClientUserStats(this.user, this.pipe);
-        this.IClientUtils = this.IClientEngine.GetIClientUtils(this.pipe);
-        this.IClientVR = this.IClientEngine.GetIClientVR(this.pipe);
+        this.IClientAudio = this.IClientEngine.GetIClientAudio(this.User, this.Pipe);
+        this.IClientAppDisableUpdate = this.IClientEngine.GetIClientAppDisableUpdate(this.User, this.Pipe);
+        this.IClientApps = this.IClientEngine.GetIClientApps(this.User, this.Pipe);
+        this.IClientAppManager = this.IClientEngine.GetIClientAppManager(this.User, this.Pipe);
+        this.IClientBilling = this.IClientEngine.GetIClientBilling(this.User, this.Pipe);
+        this.IClientCompat = this.IClientEngine.GetIClientCompat(this.User, this.Pipe);
+        this.IClientConfigStore = this.IClientEngine.GetIClientConfigStore(this.User, this.Pipe);
+        this.IClientDeviceAuth = this.IClientEngine.GetIClientDeviceAuth(this.User, this.Pipe);
+        this.IClientFriends = this.IClientEngine.GetIClientFriends(this.User, this.Pipe);
+        this.IClientGameStats = this.IClientEngine.GetIClientGameStats(this.User, this.Pipe);
+        this.IClientHTMLSurface = this.IClientEngine.GetIClientHTMLSurface(this.User, this.Pipe);
+        this.IClientNetworking = this.IClientEngine.GetIClientNetworking(this.User, this.Pipe);
+        this.IClientMatchmaking = this.IClientEngine.GetIClientMatchmaking(this.User, this.Pipe);
+        this.IClientMusic = this.IClientEngine.GetIClientMusic(this.User, this.Pipe);
+        this.IClientRemoteStorage = this.IClientEngine.GetIClientRemoteStorage(this.User, this.Pipe);
+        this.IClientScreenshots = this.IClientEngine.GetIClientScreenshots(this.User, this.Pipe);
+        this.IClientShader = this.IClientEngine.GetIClientShader(this.User, this.Pipe);
+        this.IClientSharedConnection = this.IClientEngine.GetIClientSharedConnection(this.User, this.Pipe);
+        this.IClientShortcuts = this.IClientEngine.GetIClientShortcuts(this.User, this.Pipe);
+        this.IClientUnifiedMessages = this.IClientEngine.GetIClientUnifiedMessages(this.User, this.Pipe);
+        this.IClientUGC = this.IClientEngine.GetIClientUGC(this.User, this.Pipe);
+        this.IClientUser = this.IClientEngine.GetIClientUser(this.User, this.Pipe);
+        this.IClientUserStats = this.IClientEngine.GetIClientUserStats(this.User, this.Pipe);
+        this.IClientUtils = this.IClientEngine.GetIClientUtils(this.Pipe);
+        this.IClientVR = this.IClientEngine.GetIClientVR(this.Pipe);
         
-        this.ISteamHTMLSurface = this.ISteamClient.GetISteamHTMLSurface(this.user, this.pipe, "STEAMHTMLSURFACE_INTERFACE_VERSION_005");
+        this.ISteamHTMLSurface = this.ISteamClient.GetISteamHTMLSurface(this.User, this.Pipe, "STEAMHTMLSURFACE_INTERFACE_VERSION_005");
     }
 
     private bool TryConnectToGlobalUser() {
         HSteamUser user = this.IClientEngine.ConnectToGlobalUser(this._pipe);
-        Console.WriteLine("ConnectToGlobalUser returned " + user);
+        SteamClient.GeneralLogger.Debug("ConnectToGlobalUser returned " + user);
         if (user == 0) {
             return false;
         }
 
-        this.user = user;
+        this.User = user;
         return true;
     }
 
     private void CreateGlobalUser() {
         var oldPipe = this._pipe;
-        this.user = this.IClientEngine.CreateGlobalUser(ref this._pipe);
-        Console.WriteLine("CreateGlobalUser returned " + user + " with new pipe " + this._pipe + ", old pipe was: " + oldPipe);
+        this.User = this.IClientEngine.CreateGlobalUser(ref this._pipe);
+        SteamClient.GeneralLogger.Debug("CreateGlobalUser returned " + User + " with new pipe " + this._pipe + ", old pipe was: " + oldPipe);
+    }
+
+    private Dictionary<IntPtr, byte[]> hookedFunctions = new();
+
+    [UnmanagedCallersOnly(CallConvs = new[] { typeof(CallConvCdecl) })]
+    public static unsafe SpewRetval_t SpewOutputFuncHook(SpewType_t pSeverity, void* str) {
+        string? message = Marshal.PtrToStringUTF8((IntPtr)str);
+        message ??= "";
+        var lines = message.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
+        foreach (var line in lines)
+        {
+            var toPrint = Regex.Replace(line, "\\[....-..-.. ..\\:..\\:..\\] +", "");
+            switch (pSeverity)
+            {
+                case SpewType_t.SPEW_WARNING:
+                    NativeClientLogger.Warning(toPrint);
+                    break;
+                case SpewType_t.SPEW_ERROR:
+                    NativeClientLogger.Error(toPrint);
+                    break;
+                case SpewType_t.SPEW_ASSERT:
+                    NativeClientLogger.Warning(toPrint);
+                    break;
+                case SpewType_t.SPEW_MESSAGE:
+                case SpewType_t.SPEW_LOG:
+                default:
+                    NativeClientLogger.Info(toPrint);
+                    break;
+            }
+        }
+        
+        if (pSeverity == SpewType_t.SPEW_ASSERT) {
+            return SpewRetval_t.SPEW_DEBUGGER;
+        }
+
+        return SpewRetval_t.SPEW_CONTINUE;
+    }
+
+    public unsafe void HookFunction(IntPtr functionToHook, IntPtr jmpTargetFunction) {
+        SteamClient.GeneralLogger.Debug("Hooking function " + functionToHook);
+        WidenLibrarySecurity();
+        if (!hookedFunctions.ContainsKey(functionToHook)) {
+            byte[] saved_buffer = new byte[5];
+            fixed (byte* p = saved_buffer)
+            {
+                Buffer.MemoryCopy((void*)functionToHook, p, 5, 5);
+            }
+            SteamClient.GeneralLogger.Debug("Copied old data");
+            hookedFunctions[functionToHook] = saved_buffer;
+        }
+
+        UIntPtr src = (UIntPtr)functionToHook + 5; 
+        UIntPtr dst = (UIntPtr)jmpTargetFunction;
+        UIntPtr relative_offset = dst-src;
+
+        // mov r10, addr
+        var patch_mov = new byte[10] { 0x49, 0xBA, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
+
+        // jmp r10
+        var patch_jmp = new byte[3] { 0x41, 0xFF, 0xE2 };
+
+        var finalPatch = new byte[13];
+
+        fixed (byte* p = patch_mov)
+        {
+            Buffer.MemoryCopy(&jmpTargetFunction, p+2, 8, 8);
+        }
+
+        patch_mov.CopyTo(finalPatch, 0);
+        patch_jmp.CopyTo(finalPatch, 10);
+
+        fixed (byte* p = finalPatch)
+        {
+            Buffer.MemoryCopy(p, (void*)functionToHook, 13, 13);
+        }
+
+        Console.WriteLine(Convert.ToHexString(finalPatch));
+
+        SteamClient.GeneralLogger.Debug("Overwrote function");
+        RestoreLibrarySecurity();
+    }
+
+    /// <summary>
+    /// Removes the hook from a previously hooked function.
+    /// </summary>
+    /// <param name="functionToUnhook"></param>
+    public unsafe void UnhookFunction(IntPtr functionToUnhook) {
+        if (!hookedFunctions.ContainsKey(functionToUnhook)) {
+            throw new ArgumentException("Function has not been hooked", nameof(functionToUnhook));
+        }
+
+        WidenLibrarySecurity();
+
+        var originalCode = hookedFunctions[functionToUnhook];
+        fixed (byte* p = originalCode)
+        {
+            Buffer.MemoryCopy(p, (void*)functionToUnhook, 5, 5);
+        }
+        hookedFunctions.Remove(functionToUnhook);
+
+        RestoreLibrarySecurity();
+    }
+
+    private static byte[] ParsePatternString(string pattern, string mask)
+	{
+		List<byte> patternbytes = new();
+
+        for (int i = 0; i < mask.Length; i++)
+        {
+            if (mask[i] == '?') {
+                patternbytes.Add(0x0);
+            } else {
+                patternbytes.Add((byte)pattern[i]);
+            }
+        }
+
+		return patternbytes.ToArray();
+	}
+
+    private unsafe bool PatternCheck(int nOffset, byte[] arrPattern, byte* memory)
+    {
+        for (int i = 0; i < arrPattern.Length; i++)
+        {
+            if (arrPattern[i] == 0x0)
+                continue;
+ 
+            if (arrPattern[i] != memory[nOffset + i]) {
+                return false;
+            }
+        }
+ 
+        return true;
+    }
+    
+    /// <summary>
+    /// Finds a signature
+    /// </summary>
+    /// <param name="signature">The signature to find</param>
+    /// <param name="signatureMask">The mask to use</param>
+    /// <param name="customStart">A custom start position to use, should be in range of memoryStart</param>
+    /// <returns>An absolute pointer to the start of the found signature or nullptr if not found</returns>
+    public unsafe IntPtr FindSignature(string szPattern, string signatureMask, IntPtr? offset = null)
+    {
+        WidenLibrarySecurity();
+        byte* memoryPtr;
+        int memoryLen = 0;
+        if(offset.HasValue)
+        {
+            memoryPtr = (byte*)(libraryStartAddress + offset);
+        } else {
+            memoryPtr = (byte*)libraryStartAddress;
+        }
+        memoryLen = (int)(libraryEndAddress - (IntPtr)memoryPtr);
+
+        //Console.WriteLine("Search starts at " + (nint)memoryPtr + " and ends at " + memoryEnd + ", offset is " + offset + ", length of signature " + szPattern.Length + ", length of mask " + signatureMask.Length + ", length of memory region " + memoryLen);
+
+        byte[] arrPattern = ParsePatternString(szPattern, signatureMask);
+ 
+        for (int nModuleIndex = 0; nModuleIndex < memoryLen; nModuleIndex++)
+        {
+            if (memoryPtr[nModuleIndex] != arrPattern[0])
+                continue;
+
+            if (PatternCheck(nModuleIndex, arrPattern, memoryPtr))
+            {
+                RestoreLibrarySecurity();
+                return (IntPtr)memoryPtr + nModuleIndex;
+            }
+        }
+
+        RestoreLibrarySecurity();
+        throw new Exception("Failed to find signature");
+    }
+
+    /// <summary>
+    /// Finds a signature and casts it to a callable function
+    /// </summary>
+    /// <param name="signature">The signature to find</param>
+    /// <param name="signatureMask">The mask to use</param>
+    /// <param name="offset">An offset to apply to memoryStart before starting a search</param>
+    /// <returns>A function to call</returns>
+    public T FindSignature<T>(string signature, string signatureMask, IntPtr? offset = null) {
+        var ptr = FindSignature(signature, signatureMask, offset);
+        return Marshal.GetDelegateForFunctionPointer<T>(ptr);
+    }
+
+    private readonly RefCount widenedSecurityRefCount = new();
+    private int previousSecurity = 0;
+
+    /// <summary>
+    /// Widens library security temporarily to allow for things that modify or read library code, like hooking functions and scanning for signatures.
+    /// </summary>
+    public void WidenLibrarySecurity() {
+        if (widenedSecurityRefCount.Increment()) {
+            if (OperatingSystem.IsLinux()) {
+                previousSecurity = LinuxNative.PROT_READ + LinuxNative.PROT_EXEC + LinuxNative.PROT_WRITE;
+                if (LinuxNative.mprotect(libraryStartAddress, (UIntPtr)librarySize, LinuxNative.PROT_READ + LinuxNative.PROT_WRITE + LinuxNative.PROT_EXEC) != 0) {
+                    GeneralLogger.Warning("Failed to widen library security, errno: " + Marshal.GetLastWin32Error());
+                }
+            }
+        }
+    }
+
+    /// <summary>
+    /// Restores library security to what it was before a call to WidenLibrarySecurity.
+    /// </summary>
+    public void RestoreLibrarySecurity() {
+        if (widenedSecurityRefCount.Decrement()) {
+            if (OperatingSystem.IsLinux()) {
+                if(LinuxNative.mprotect(libraryStartAddress, (UIntPtr)librarySize, previousSecurity) != 0) {
+                    GeneralLogger.Warning("Failed to restore library security, errno: " + Marshal.GetLastWin32Error());
+                }
+            }
+        }
     }
 
     public ClientNative(string clientPath, ConnectionType connectionType) {
         nativeLibHandle = NativeLibrary.Load(clientPath);
+        var modules = Process.GetCurrentProcess().Modules;
+        for (int i = 0; i < modules.Count; i++)
+        {
+            var module = modules[i];
+            SteamClient.GeneralLogger.Debug("Have loaded module " + module.ModuleName + ", path: " + module.FileName);
+            if (module.FileName == clientPath) {
+                libraryStartAddress = module.BaseAddress;
+                libraryEndAddress = libraryStartAddress + module.ModuleMemorySize;
+                librarySize = module.ModuleMemorySize;
+                SteamClient.GeneralLogger.Debug("Found steamclient, addresses " + libraryStartAddress + "-" + libraryEndAddress + ", len " + module.ModuleMemorySize);
+            }
+        }
+
+        // DefaultSpewOutputFunc (no valid signatures for SpewOutputFunc setter)
+        var func = FindSignature(SteamClient.platform.DefaultSpewOutputFuncSig, SteamClient.platform.DefaultSpewOutputFuncSigMask);
+        unsafe {
+            HookFunction(func, (IntPtr)(delegate* unmanaged[Cdecl]<SpewType_t, void*, SpewRetval_t>)&SpewOutputFuncHook);
+        }
 
         loadNativeFunctions();
         LoadEngine();
@@ -235,7 +478,7 @@ public class ClientNative {
 
         if (!succeededConnecting && connectionType.HasFlag(ConnectionType.NewClient)) {
             CreateGlobalUser();
-            if (this.user != 0) {
+            if (this.User != 0) {
                 succeededConnecting = true;
                 ConnectedWith = ConnectionType.NewClient;
             }

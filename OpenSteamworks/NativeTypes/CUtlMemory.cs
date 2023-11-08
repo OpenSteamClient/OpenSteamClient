@@ -14,13 +14,13 @@ public unsafe struct CUtlMemory<T> where T : unmanaged {
         this.m_nAllocationCount = nInitSize;
         this.m_unSizeOfElements = (uint)sizeof(T);
         nuint size = (nuint)(this.m_unSizeOfElements * this.m_nAllocationCount);
-        Console.WriteLine("Allocating CUtlMemory of size " + size);
+        SteamClient.CUtlLogger.Debug("Allocating CUtlMemory of size " + size);
         this.m_pMemory = NativeMemory.AllocZeroed(size);
         this.m_nGrowSize = growSize;
     }
 
     public void Free() {
-        Console.WriteLine("Freeing CUtlMemory");
+        SteamClient.CUtlLogger.Debug("Freeing CUtlMemory");
         NativeMemory.Free(this.m_pMemory);
     }
 
@@ -54,7 +54,7 @@ public unsafe struct CUtlMemory<T> where T : unmanaged {
                     // Should be impossible, but if hit try to grow an amount that may be large
                     // enough for most cases and thus avoid both divide by zero above as well as
                     // likely memory corruption afterwards.
-                    Console.WriteLine("nBytesItem is " + nBytesItem + "in UtlMemory_CalcNewAllocationCount");
+                    SteamClient.CUtlLogger.Debug("nBytesItem is " + nBytesItem + "in UtlMemory_CalcNewAllocationCount");
                     nAllocationCount = 256;
                 }
             }

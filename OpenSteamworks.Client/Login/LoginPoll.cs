@@ -75,10 +75,8 @@ internal class LoginPoll {
                     Error?.Invoke(this, new EResultEventArgs((EResult)pollResp.header.Eresult));
                 }
 
-                Console.WriteLine(pollResp.ToString());
-
                 // The Interval we get is in seconds (in format 5.1s).
-                System.Threading.Thread.Sleep((int)(Interval * 1000));
+                Thread.Sleep((int)(Interval * 1000));
             }   
         }
     }

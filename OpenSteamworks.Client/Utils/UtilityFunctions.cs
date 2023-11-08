@@ -5,13 +5,6 @@ using System.Runtime.Versioning;
 namespace OpenSteamworks.Client.Utils;
 
 public static class UtilityFunctions {
-#if DEBUG 
-    private const bool IS_DEBUG = true;
-#else 
-    private const bool IS_DEBUG = false;
-#endif
-
-    private const bool SHOULD_THROW_ON_ASSERT = IS_DEBUG;
     public static string GetPlatformString() {
         if (OperatingSystem.IsWindows()) {
             return "windows";
@@ -25,8 +18,8 @@ public static class UtilityFunctions {
     }
     public static void Assert([DoesNotReturnIf(false)] bool condition,
     [CallerArgumentExpression(nameof(condition))] string conditionStr = "", 
-    [System.Runtime.CompilerServices.CallerFilePath] string sourceFilePath = "",
-    [System.Runtime.CompilerServices.CallerLineNumber] int sourceLineNumber = 0)
+    [CallerFilePath] string sourceFilePath = "",
+    [CallerLineNumber] int sourceLineNumber = 0)
     {
         if (!condition)
         {
@@ -36,8 +29,10 @@ public static class UtilityFunctions {
         }
     }
 
-    public static T AssertNotNull<T>([NotNull] T? val, [CallerArgumentExpression(nameof(val))] string valStr = "", [System.Runtime.CompilerServices.CallerFilePath] string sourceFilePath = "",
-    [System.Runtime.CompilerServices.CallerLineNumber] int sourceLineNumber = 0) {
+    public static T AssertNotNull<T>([NotNull] T? val, 
+    [CallerArgumentExpression(nameof(val))] string valStr = "", 
+    [CallerFilePath] string sourceFilePath = "",
+    [CallerLineNumber] int sourceLineNumber = 0) {
         Assert(val != null, $"{valStr} != null", sourceFilePath, sourceLineNumber);
         return val;
     }

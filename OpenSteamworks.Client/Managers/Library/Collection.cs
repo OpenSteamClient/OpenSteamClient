@@ -70,7 +70,7 @@ public class Collection
 
             if (json.filterSpec.filterGroups.Length > 7)
             {
-                Console.WriteLine("WARNING: The amount of filterGroups is greater than 7. New filters? New length: " + json.filterSpec.filterGroups.Length);
+                throw new InvalidOperationException("The amount of filterGroups is greater than 7. New filters? New length: " + json.filterSpec.filterGroups.Length);
             }
 
             collection.StateFilter = FilterGroup<ELibraryAppStateFilter>.FromJSONFilterGroup(json.filterSpec.filterGroups[1]);

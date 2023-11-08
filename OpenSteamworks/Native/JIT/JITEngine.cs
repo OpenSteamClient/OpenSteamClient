@@ -27,8 +27,6 @@ namespace OpenSteamworks.Native.JIT
         /// </summary>
         private static Dictionary<Type, Type> generatedTypes = new();
 
-        public static bool AllowConsoleLog = false;
-
         static JITEngine()
         {
             //TODO: re-add AssemblyBuilderAccess.RunAndSave when it is implemented
@@ -46,12 +44,6 @@ namespace OpenSteamworks.Native.JIT
 #endif
 
             moduleBuilder = assemblyBuilder.DefineDynamicModule("OpenSteamworksJIT");
-        }
-
-        private static void EmitConsoleLog(ILGeneratorEx ilgen, string debugText) {
-            if (AllowConsoleLog) {
-                ilgen.EmitWriteLine(debugText);
-            }
         }
 
         /// <summary>
@@ -371,10 +363,6 @@ namespace OpenSteamworks.Native.JIT
             }
 
             ilgen.Return();
-
-            if (method.Name == "CreateGlobalUser") {
-                Console.WriteLine(ilgen.ToString());
-            }
         }
     }
 }

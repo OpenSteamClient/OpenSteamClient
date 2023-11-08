@@ -40,7 +40,7 @@ public class LessFuncFactory {
 
 		GCHandle handle = GCHandle.Alloc(func);
 		IntPtr ptr = Marshal.GetFunctionPointerForDelegate<LessFunc>(func);
-		Console.WriteLine("Allocated LessFunc " + ptr);
+		SteamClient.CUtlLogger.Debug("Allocated LessFunc " + ptr);
 		usedFuncs.Add(ptr, handle);
 		return ptr;
 	}
@@ -49,7 +49,7 @@ public class LessFuncFactory {
 			throw new ArgumentException("Func not found in usedFuncs");
 		}
 
-		Console.WriteLine("Freeing LessFunc " + func);
+		SteamClient.CUtlLogger.Debug("Freeing LessFunc " + func);
 
 		usedFuncs[func].Free();
 		usedFuncs.Remove(func);
@@ -74,9 +74,9 @@ public unsafe struct CUtlMap<KeyType_t, ElemType_t> where KeyType_t : unmanaged,
 		for (int i = 0; i < this.Count(); i++)
 		{
 			var node = Node(i);
-			// Dictionaries are meant to be unique. Maps are meant to be unique. Are CUtlMaps? They do sometimes contain two of the same element though...
+			// Dictionaries are meant to be unique. Maps are meant to be unique. Are CUtlMaps? They can sometimes contain two of the same element though...
 			if (dict.ContainsKey(node.key)) {
-                Console.WriteLine("WARNING: Skipping duplicate key " + node.key + " in CUtlMap.ToManaged. Incorrect datatype lengths?");
+                SteamClient.CUtlLogger.Warning("Skipping duplicate key " + node.key + " in CUtlMap.ToManaged. Incorrect datatype lengths?");
                 continue;
             }
 			dict.Add(node.key, node.elem);

@@ -12,14 +12,18 @@ namespace OpenSteamworks.Client.Managers;
 public class Library
 {
     public List<Collection> Collections { get; init; } = new();
-    private SteamClient steamClient;
-    private CloudConfigStore cloudConfigStore;
+    private readonly SteamClient steamClient;
+    private readonly CloudConfigStore cloudConfigStore;
     private NamespaceData? namespaceData;
-    private AppsManager appsManager;
-    private LoginManager loginManager;
+    private readonly AppsManager appsManager;
+    private readonly LoginManager loginManager;
+    private readonly InstallManager installManager;
+    private readonly Logger logger;
 
-    internal Library(SteamClient steamClient, CloudConfigStore cloudConfigStore, LoginManager loginManager, AppsManager appsManager)
+    internal Library(SteamClient steamClient, CloudConfigStore cloudConfigStore, LoginManager loginManager, AppsManager appsManager, InstallManager installManager)
     {
+        this.installManager = installManager;
+        this.logger = new Logger("Library", installManager.GetLogPath("Library"));
         this.steamClient = steamClient;
         this.cloudConfigStore = cloudConfigStore;
         this.loginManager = loginManager;
@@ -54,7 +58,7 @@ public class Library
         }
         catch (Exception e)
         {
-            Console.WriteLine("Collections failed to deserialize: " + e.ToString());
+            logger.Error("Collections failed to deserialize: " + e.ToString());
             throw;
         }
 
@@ -76,6 +80,7 @@ public class Library
     {
         if (this.namespaceData == null)
         {
+            logger.Error("Cannot upload library, not initialized prior.");
             throw new InvalidOperationException("Cannot upload library, not initialized prior.");
         }
 
@@ -162,9 +167,10 @@ public class Library
 
         if (collection.IsDynamic && collection.HasFilters)
         {
-            Console.WriteLine("Warning: dynamic collections support is still incomplete.");
+            logger.Warning("Dynamic collections support is still incomplete.");
 
             // Begin by adding all apps the user has
+            //TODO: add support for streamable games, family shared games, non-steam games
             apps.UnionWith(this.appsManager.OwnedAppIDs);
 
             // Remove apps not in common with friends if in online mode
@@ -181,7 +187,7 @@ public class Library
             }
             else
             {
-                Console.WriteLine("WARNING: Skipping friends filter since we're not connected! TODO: implement cache");
+                logger.Warning("Skipping friends filter since we're not connected! TODO: implement cache");
             }
         }
 

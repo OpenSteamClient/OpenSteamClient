@@ -28,7 +28,7 @@ public class Connection : IDisposable {
 
                     // Read the header
                     var header_size = reader.ReadUInt32();
-                    Console.WriteLine("header_size: " + header_size);
+                    SteamClient.MessagingLogger.Debug("header_size: " + header_size);
                     byte[] header_binary = reader.ReadBytes((int)header_size);
 
                     // Parse the header
@@ -172,7 +172,7 @@ public class Connection : IDisposable {
         pollThread = Task.Run(() =>
         {
             //TODO: Resizing a CUtlBuffer should work. It doesn't, and it will crash if forced to resize (never worked in C++ version either, why?).
-            CUtlBuffer buffer = new CUtlBuffer(100000);
+            CUtlBuffer buffer = new(100000);
 
             uint callOut = 0;
             double secondsWaited = 0;
@@ -185,7 +185,7 @@ public class Connection : IDisposable {
                     hasMessage = this.iSharedConnection.BPopReceivedMessage(this.nativeConnection, &buffer, ref callOut);
                     if (hasMessage)
                     {
-                        Console.WriteLine("Got message: " + callOut + ", size: " + buffer.m_Put + ", waited " + secondsWaited + "ms");
+                        SteamClient.MessagingLogger.Debug("Got message: " + callOut + ", size: " + buffer.m_Put + ", waited " + secondsWaited + "ms");
                         var sm = new StoredMessage(buffer.ToManaged());
                         if (eMsgHandlers.ContainsKey(sm.eMsg)) {
                             eMsgHandlers[sm.eMsg].DynamicInvoke(sm);
@@ -197,9 +197,7 @@ public class Connection : IDisposable {
                         
                         secondsWaited = 0;
 
-                        //TODO: allow seeking to the beginning of the buffer to avoid this
-                        buffer.Free();
-                        buffer = new CUtlBuffer(100000);
+                        buffer.SeekToBeginning();
                     }
                     else
                     {

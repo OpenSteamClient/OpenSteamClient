@@ -10,6 +10,7 @@ using OpenSteamworks.Generated;
 using OpenSteamworks.Native;
 using System.Diagnostics.CodeAnalysis;
 using OpenSteamworks.Native.JIT;
+using OpenSteamworks.Native.Platform;
 
 namespace OpenSteamworks;
 public class SteamClient
@@ -53,45 +54,75 @@ public class SteamClient
 
 
     public CallbackManager CallbackManager { get; private set; }
-    public Native.ClientNative NativeClient;
+    public ClientNative NativeClient;
 
     private string steamclientLibPath;
     internal ConnectionType connectionType;
-    private bool log = false;
 
     internal static SteamClient? instance;
 
-    
+    // Logging
+    public static ILogger GeneralLogger { internal get; set; } = new DefaultConsoleLogger();
+    /// <summary>
+    /// The logger used explicitly for messages coming straight from the underlying steamclient library.
+    /// </summary>
+    public static ILogger NativeClientLogger { internal get; set; } = new DefaultConsoleLogger();
+    public static ILogger CallbackLogger { internal get; set; } = new DefaultConsoleLogger();
+    public static ILogger JITLogger { internal get; set; } = new DefaultConsoleLogger();
+    public static ILogger ConCommandsLogger { internal get; set; } = new DefaultConsoleLogger();
+    public static ILogger MessagingLogger { internal get; set; } = new DefaultConsoleLogger();
+    /// <summary>
+    /// The logger used for CUtl types
+    /// </summary>
+    public static ILogger CUtlLogger { internal get; set; } = new DefaultConsoleLogger();
+    public static bool LogIncomingCallbacks { internal get; set; } = false;
+    public static bool LogCallbackContents { internal get; set; } = false;
+
+    internal static readonly IPlatform platform;
+    private ClientAPI_WarningMessageHook_t warningMessageHook;
+
+    delegate bool SpewOutputFunc_p(int nSeverity, string param_2);
+
+    static SteamClient() {
+        if (OperatingSystem.IsWindows()) {
+            platform = new WindowsPlatform();
+        } else if (OperatingSystem.IsLinux()) {
+            platform = new LinuxPlatform();
+        } else {
+            throw new NotSupportedException("OS unsupported");
+        }
+    }
 
     /// <summary>
     /// Constructs a OpenSteamworks.Client. 
     /// </summary>
-    public SteamClient(string steamclientLibPath, ConnectionType connectionType)
+    public SteamClient(string steamclientLibPath, ConnectionType connectionType, bool enableSpew = false)
     {
         if (instance != null) {
             throw new InvalidOperationException("A SteamClient instance has been constructed already. Free it before creating another.");
         }
 
-        this.steamclientLibPath = steamclientLibPath;
-        this.connectionType = connectionType;
         instance = this;
 
-#if DEBUG
-        log = true;
-#endif
+        warningMessageHook = (int nSeverity, string pchDebugText) =>
+        {
+            NativeClientLogger.Warning("[CLIENT_API WARN s:" + nSeverity + "] " + pchDebugText);
+        };
 
-        // If you want to diagnose a hard to find crash (in JIT code), use this
-        JITEngine.AllowConsoleLog = log;
+        this.steamclientLibPath = steamclientLibPath;
+        this.connectionType = connectionType;
 
-        this.CallbackManager = new CallbackManager(this, log, log);
+        this.CallbackManager = new CallbackManager(this);
         this.NativeClient = new ClientNative(steamclientLibPath, connectionType);
 
-        if (log) {
+        if (enableSpew) {
             for (int i = 0; i < (int)ESpewGroup.k_ESpew_ArraySize; i++)
             {
                 this.NativeClient.IClientUtils.SetSpew((ESpewGroup)i, 9, 9);
             }
         }
+
+        this.NativeClient.IClientEngine.SetWarningMessageHook(warningMessageHook);
 
         // Sets this process as the UI process
         // Doing this with an existing client causes the windows to disappear, and never reappear
@@ -133,10 +164,7 @@ public class SteamClient
         // Is this VAC bannable?
         if (OperatingSystem.IsLinux()) {
             // C#'s SetEnvironmentVariable doesn't immediately change the environment variables. Use the native function to compensate
-            [DllImport("libc")]
-            static extern int setenv([MarshalAs(UnmanagedType.LPUTF8Str)] string name, [MarshalAs(UnmanagedType.LPUTF8Str)] string value, int overwrite);
-
-            setenv("SteamClientService_" + Environment.ProcessId, "127.0.0.1:57344", 1);
+            LinuxNative.setenv("SteamClientService_" + Environment.ProcessId, "127.0.0.1:57344", 1);
         }
     }
 
@@ -148,8 +176,8 @@ public class SteamClient
         }
 
         this.CallbackManager.RequestStopAndWaitForExit();
-        this.NativeClient.native_Steam_ReleaseUser(this.NativeClient.pipe, this.NativeClient.user);
-        this.NativeClient.native_Steam_BReleaseSteamPipe(this.NativeClient.pipe);
+        this.NativeClient.native_Steam_ReleaseUser(this.NativeClient.Pipe, this.NativeClient.User);
+        this.NativeClient.native_Steam_BReleaseSteamPipe(this.NativeClient.Pipe);
         this.NativeClient.IClientEngine.BShutdownIfAllPipesClosed();
         this.NativeClient.Unload();
         instance = null;
@@ -157,46 +185,46 @@ public class SteamClient
 
     public void LogClientState() {
         if (this.NativeClient == null) {
-            Console.WriteLine("NativeClient Unloaded");
+            GeneralLogger.Info("NativeClient Unloaded");
             return;
         }
 
-        Console.WriteLine("ConnectionType: " + this.NativeClient.ConnectedWith);
+        GeneralLogger.Info("ConnectionType: " + this.NativeClient.ConnectedWith);
 
-        Console.WriteLine("Pipe: " + this.NativeClient.pipe);
+        GeneralLogger.Info("Pipe: " + this.NativeClient.Pipe);
 
-        Console.WriteLine("User: " + this.NativeClient.user);
+        GeneralLogger.Info("User: " + this.NativeClient.User);
 
-        Console.WriteLine("Logged on: " + this.NativeClient.IClientUser.BConnected());
+        GeneralLogger.Info("Logged on: " + this.NativeClient.IClientUser.BConnected());
 
         string username;
         {
-            StringBuilder sb = new StringBuilder("", 1024);
+            StringBuilder sb = new("", 1024);
             this.NativeClient.IClientUser.GetAccountName(sb, (uint)sb.Capacity);
             username = sb.ToString();
         }
 
-        Console.WriteLine("Username: " + username);
-        Console.WriteLine("HasCachedCredentials: " + this.NativeClient.IClientUser.BHasCachedCredentials(username));
+        GeneralLogger.Info("Username: " + username);
+        GeneralLogger.Info("HasCachedCredentials: " + this.NativeClient.IClientUser.BHasCachedCredentials(username));
 
         string token;
         {
-            StringBuilder sb = new StringBuilder("", 1024);
+            StringBuilder sb = new("", 1024);
             this.NativeClient.IClientUser.GetCurrentWebAuthToken(sb, (uint)sb.Capacity);
             token = sb.ToString();
         }
 
         
-        Console.WriteLine("CurrentWebAuthToken: " + token);
-        Console.WriteLine("IsAnyGameOrServiceAppRunning: " + this.NativeClient.IClientUser.BIsAnyGameOrServiceAppRunning());
-        Console.WriteLine("NumGamesRunning: " + this.NativeClient.IClientUser.NumGamesRunning());
-        Console.WriteLine("InstallPath: " + this.NativeClient.IClientUtils.GetInstallPath());
+        GeneralLogger.Info("CurrentWebAuthToken: " + token);
+        GeneralLogger.Info("IsAnyGameOrServiceAppRunning: " + this.NativeClient.IClientUser.BIsAnyGameOrServiceAppRunning());
+        GeneralLogger.Info("NumGamesRunning: " + this.NativeClient.IClientUser.NumGamesRunning());
+        GeneralLogger.Info("InstallPath: " + this.NativeClient.IClientUtils.GetInstallPath());
 
         EUniverse universe = this.NativeClient.IClientUtils.GetConnectedUniverse();
-        Console.WriteLine("Universe: " + ((int)universe));
-        Console.WriteLine("Universe (name): " + this.NativeClient.IClientEngine.GetUniverseName(universe));
+        GeneralLogger.Info("Universe: " + ((int)universe));
+        GeneralLogger.Info("Universe (name): " + this.NativeClient.IClientEngine.GetUniverseName(universe));
 
-        Console.WriteLine("SecondsSinceComputerActive: " + this.NativeClient.IClientUtils.GetSecondsSinceComputerActive());
-        Console.WriteLine("SecondsSinceAppActive: " + this.NativeClient.IClientUtils.GetSecondsSinceAppActive());
+        GeneralLogger.Info("SecondsSinceComputerActive: " + this.NativeClient.IClientUtils.GetSecondsSinceComputerActive());
+        GeneralLogger.Info("SecondsSinceAppActive: " + this.NativeClient.IClientUtils.GetSecondsSinceAppActive());
     }
 }

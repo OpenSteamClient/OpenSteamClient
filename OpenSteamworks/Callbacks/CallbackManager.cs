@@ -42,8 +42,6 @@ public class CallbackManager
     }
 
     private SteamClient client;
-    private bool logIncomingCallbacks;
-    private bool logCallbackContents;
     private bool poll = true;
     private bool pausePoll = false;
     private bool didPoll = true;
@@ -51,10 +49,8 @@ public class CallbackManager
     private readonly object handlersLock = new();
     private readonly HashSet<CallbackHandler> handlers = new();
 
-    public CallbackManager(SteamClient client, bool logIncomingCallbacks, bool logCallbackContents) {
+    internal CallbackManager(SteamClient client) {
         this.client = client;
-        this.logIncomingCallbacks = logIncomingCallbacks;
-        this.logCallbackContents = logCallbackContents;
 
         // Create the thread here, but don't start it immediately
         pollThread = new(this.NativePollThread)
@@ -179,7 +175,7 @@ public class CallbackManager
                 fullPollTime.Reset();
                 fullPollTime.Start();
                 this.client.NativeClient.IClientEngine.RunFrame();
-                hasCallback = this.client.NativeClient.native_Steam_BGetCallback(client.NativeClient.pipe, (nint)(&msg));
+                hasCallback = this.client.NativeClient.native_Steam_BGetCallback(client.NativeClient.Pipe, (nint)(&msg));
                 if (hasCallback) {
                     var hasType = CallbackConstants.IDToType.TryGetValue(msg.m_iCallback, out Type? type);
 
@@ -200,14 +196,13 @@ public class CallbackManager
                                     }
                                 }
                             } else {
-                                //TODO: logger
-                                Console.WriteLine("PtrToStructure returned null. Message skipped.");
+                                SteamClient.CallbackLogger.Error("PtrToStructure returned null. Message skipped.");
                             }
                         }
                         catch (System.Exception e)
                         {
-                            Console.WriteLine("PtrToStructure threw an error. Message skipped.");
-                            Console.WriteLine(e);
+                            SteamClient.CallbackLogger.Error("PtrToStructure threw an error. Message skipped.");
+                            SteamClient.CallbackLogger.Error(e);
                         }
                     } else {
                         // Handle untyped (id only) handlers
@@ -219,9 +214,9 @@ public class CallbackManager
                         }
                     }
 
-                    this.client.NativeClient.native_Steam_FreeLastCallback(client.NativeClient.pipe);
+                    this.client.NativeClient.native_Steam_FreeLastCallback(client.NativeClient.Pipe);
                     fullPollTime.Stop();
-                    Console.WriteLine("Callback handling took " + fullPollTime.Elapsed.TotalMilliseconds + "ms");
+                    SteamClient.CallbackLogger.Debug("Callback handling took " + fullPollTime.Elapsed.TotalMilliseconds + "ms");
                 } else {
                     // Sleep only if we have no extra messages
                     System.Threading.Thread.Sleep(1);
@@ -232,7 +227,7 @@ public class CallbackManager
     }
 
     private void LogCallback(CallbackMsg_t msg) {
-        if (logIncomingCallbacks)
+        if (SteamClient.LogIncomingCallbacks)
         {
             string callbackName = "Unknown";
             if (CallbackConstants.CallbackNames.TryGetValue(msg.m_iCallback, out string? callbackNameOut))
@@ -243,20 +238,16 @@ public class CallbackManager
             unsafe {
                 lock (handlersLock)
                 {
-                    Console.WriteLine($"Received callback [ID: {msg.m_iCallback}, name: {callbackName}, param length: {msg.m_cubParam}, data ptr: {string.Format("0x{0:x}", (IntPtr)msg.m_pubParam)}, has handlers: {handlers.Any(e => e.callbackId == msg.m_iCallback)}]");
+                    SteamClient.CallbackLogger.Debug($"Received callback [ID: {msg.m_iCallback}, name: {callbackName}, param length: {msg.m_cubParam}, data ptr: {string.Format("0x{0:x}", (IntPtr)msg.m_pubParam)}, has handlers: {handlers.Any(e => e.callbackId == msg.m_iCallback)}]");
                 }
             }
         }
     }
 
     private void LogCallbackData(object obj, Type type) {
-        if (logCallbackContents) {
-            // if (type.Name.StartsWith("HTML_")) {
-            //     return;
-            // }
-
+        if (SteamClient.LogCallbackContents) {
             var fields = type.GetFields();
-            Console.WriteLine($"Begin Message {type.Name}");
+            SteamClient.CallbackLogger.Debug($"Begin Message {type.Name}");
             try {
                 foreach (var field in fields)
                 {
@@ -279,17 +270,17 @@ public class CallbackManager
                     }
                     
                     if (substituteValue != null) {
-                        Console.WriteLine("    " + field.Name + ": " + substituteValue);
+                        SteamClient.CallbackLogger.Debug("    " + field.Name + ": " + substituteValue);
                     } else {
-                        Console.WriteLine("    " + field.Name + ": " + value);
+                        SteamClient.CallbackLogger.Debug("    " + field.Name + ": " + value);
                     }
                     
                 }
             } catch (Exception) {
-                Console.WriteLine("Encountered an error.");
+                SteamClient.CallbackLogger.Debug("Encountered an error printing message.");
             }
 
-            Console.WriteLine($"End of Message {type.Name}");
+            SteamClient.CallbackLogger.Debug($"End of Message {type.Name}");
         }
     }
     private bool GetHandlersForId(int id, [NotNullWhen(true)] out List<CallbackHandler>? handlersOut) {
@@ -376,7 +367,6 @@ public class CallbackManager
         var tcs = new TaskCompletionSource();
 
         RegisterHandlerForId(callbackId, (CallbackHandler handler) => {
-            Console.WriteLine("WaitForCallback handler fired");
             tcs.TrySetResult();
         }, true);
 
@@ -387,7 +377,6 @@ public class CallbackManager
         var tcs = new TaskCompletionSource<object>();
 
         RegisterHandler((CallbackHandler handler, object callbackResult) => {
-            Console.WriteLine("WaitForCallback handler fired");
             tcs.TrySetResult(callbackResult);
         }, callbackType, true);
 
@@ -402,13 +391,13 @@ public class CallbackManager
     }
 
     public void RequestStopAndWaitForExit() {
-        Console.WriteLine("Stopping CallbackThread");
+        SteamClient.CallbackLogger.Info("Stopping CallbackThread");
         poll = false;
         do
         {
             System.Threading.Thread.Sleep(10);
         } while (this.pollThread.IsAlive);
         
-        Console.WriteLine("Stopped CallbackThread");
+        SteamClient.CallbackLogger.Info("Stopped CallbackThread");
     }
 }

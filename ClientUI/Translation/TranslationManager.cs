@@ -13,7 +13,7 @@ using ClientUI.Extensions;
 using OpenSteamworks;
 using OpenSteamworks.Client.Config;
 using OpenSteamworks.Client.Managers;
-using OpenSteamworks.Client.Utils.Interfaces;
+using OpenSteamworks.Client.Utils.DI;
 using OpenSteamworks.Enums;
 using OpenSteamworks.Generated;
 
@@ -29,12 +29,12 @@ public class TranslationManager : IClientLifetime {
     public Translation CurrentTranslation = new();
     private readonly List<AvaloniaObject> RefreshableObjects = new();
     private readonly IClientUser iClientUser;
-    private readonly ConfigManager configManager;
+    private readonly InstallManager installManager;
     private readonly GlobalSettings globalSettings;
 
-    public TranslationManager(IClientUser iClientUser, ConfigManager configManager, GlobalSettings globalSettings) {
+    public TranslationManager(IClientUser iClientUser, InstallManager installManager, GlobalSettings globalSettings) {
         this.iClientUser = iClientUser;
-        this.configManager = configManager;
+        this.installManager = installManager;
         this.globalSettings = globalSettings;
     }
 
@@ -70,7 +70,7 @@ public class TranslationManager : IClientLifetime {
             throw new ArgumentOutOfRangeException("Invalid ELanguage " + language + " specified.");
         }
 
-        string fullPath = Path.Combine(configManager.AssemblyDirectory, "Translations", filename+".json");
+        string fullPath = Path.Combine(installManager.AssemblyDirectory, "Translations", filename+".json");
         return OpenSteamworks.Client.Utils.UtilityFunctions.AssertNotNull(JsonSerializer.Deserialize<Translation>(File.ReadAllText(fullPath)));
     } 
     public void TranslateVisual(Visual visual) {

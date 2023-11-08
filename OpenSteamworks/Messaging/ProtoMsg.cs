@@ -62,13 +62,13 @@ public class ProtoMsg<T> : IMessage where T: Google.Protobuf.IMessage<T>, new()
             using (var reader = new EndianAwareBinaryReader(stream, Encoding.UTF8, EndianAwareBinaryReader.Endianness.Little))
             {
                 var masked = reader.ReadUInt32();
-                Console.WriteLine("masked: " + masked);
+                SteamClient.MessagingLogger.Debug("masked: " + masked);
                 this.EMsg = (EMsg)(~PROTOBUF_MASK & masked);
-                Console.WriteLine("unmasked: " + this.EMsg);
+                SteamClient.MessagingLogger.Debug("unmasked: " + this.EMsg);
 
                 // Read the header
                 var header_size = reader.ReadUInt32();
-                Console.WriteLine("header_size: " + header_size);
+                SteamClient.MessagingLogger.Debug("header_size: " + header_size);
                 byte[] header_binary = reader.ReadBytes((int)header_size);
 
                 // Parse the header
