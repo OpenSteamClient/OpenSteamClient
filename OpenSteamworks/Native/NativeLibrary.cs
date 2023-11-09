@@ -134,7 +134,7 @@ public class NativeLibraryEx {
                 Buffer.MemoryCopy(p, (void*)functionToHook, 13, 13);
             }
 
-            Console.WriteLine(Convert.ToHexString(finalPatch));
+            SteamClient.GeneralLogger.Debug("Final patch: '" + Convert.ToHexString(finalPatch) + "'");
 
             SteamClient.GeneralLogger.Debug("Overwrote function");
             TextSection.RestoreSecurity();
