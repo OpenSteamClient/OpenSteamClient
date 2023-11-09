@@ -45,7 +45,8 @@ struct NativeFuncs {
 }
 
 public class ClientNative {
-    private IntPtr nativeLibHandle = IntPtr.Zero;
+    public NativeLibraryEx SteamClientLib;
+    public NativeLibraryEx? Tier0Lib;
     internal NativeFuncs.CreateInterface native_CreateInterface;
     internal NativeFuncs.Steam_CreateSteamPipe native_Steam_CreateSteamPipe;
     internal NativeFuncs.Steam_ConnectToGlobalUser native_Steam_ConnectToGlobalUser;
@@ -120,11 +121,7 @@ public class ClientNative {
     /// <param name="name">Name of func to load</param>
     /// <param name="handle">Handle out to the loaded func</param>
     private void tryLoadNativeFunc<TDelegate>(string name, out TDelegate deleg) where TDelegate : Delegate {
-        if (!NativeLibrary.TryGetExport(nativeLibHandle, name, out IntPtr handle)) {
-            throw new Exception($"Failed to get {name}");
-        }
-
-        deleg = Marshal.GetDelegateForFunctionPointer<TDelegate>(handle);
+        deleg = SteamClientLib.GetExport<TDelegate>(name);
     }
 
     [MemberNotNull(nameof(native_CreateInterface))]
@@ -229,8 +226,6 @@ public class ClientNative {
         SteamClient.GeneralLogger.Debug("CreateGlobalUser returned " + User + " with new pipe " + this._pipe + ", old pipe was: " + oldPipe);
     }
 
-    private Dictionary<IntPtr, byte[]> hookedFunctions = new();
-
     [UnmanagedCallersOnly(CallConvs = new[] { typeof(CallConvCdecl) })]
     public static unsafe SpewRetval_t SpewOutputFuncHook(SpewType_t pSeverity, void* str) {
         string? message = Marshal.PtrToStringUTF8((IntPtr)str);
@@ -265,186 +260,8 @@ public class ClientNative {
         return SpewRetval_t.SPEW_CONTINUE;
     }
 
-    public unsafe void HookFunction(IntPtr functionToHook, IntPtr jmpTargetFunction) {
-        SteamClient.GeneralLogger.Debug("Hooking function " + functionToHook);
-        WidenLibrarySecurity();
-        if (!hookedFunctions.ContainsKey(functionToHook)) {
-            byte[] saved_buffer = new byte[5];
-            fixed (byte* p = saved_buffer)
-            {
-                Buffer.MemoryCopy((void*)functionToHook, p, 5, 5);
-            }
-            SteamClient.GeneralLogger.Debug("Copied old data");
-            hookedFunctions[functionToHook] = saved_buffer;
-        }
-
-        UIntPtr src = (UIntPtr)functionToHook + 5; 
-        UIntPtr dst = (UIntPtr)jmpTargetFunction;
-        UIntPtr relative_offset = dst-src;
-
-        // mov r10, addr
-        var patch_mov = new byte[10] { 0x49, 0xBA, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
-
-        // jmp r10
-        var patch_jmp = new byte[3] { 0x41, 0xFF, 0xE2 };
-
-        var finalPatch = new byte[13];
-
-        fixed (byte* p = patch_mov)
-        {
-            Buffer.MemoryCopy(&jmpTargetFunction, p+2, 8, 8);
-        }
-
-        patch_mov.CopyTo(finalPatch, 0);
-        patch_jmp.CopyTo(finalPatch, 10);
-
-        fixed (byte* p = finalPatch)
-        {
-            Buffer.MemoryCopy(p, (void*)functionToHook, 13, 13);
-        }
-
-        Console.WriteLine(Convert.ToHexString(finalPatch));
-
-        SteamClient.GeneralLogger.Debug("Overwrote function");
-        RestoreLibrarySecurity();
-    }
-
-    /// <summary>
-    /// Removes the hook from a previously hooked function.
-    /// </summary>
-    /// <param name="functionToUnhook"></param>
-    public unsafe void UnhookFunction(IntPtr functionToUnhook) {
-        if (!hookedFunctions.ContainsKey(functionToUnhook)) {
-            throw new ArgumentException("Function has not been hooked", nameof(functionToUnhook));
-        }
-
-        WidenLibrarySecurity();
-
-        var originalCode = hookedFunctions[functionToUnhook];
-        fixed (byte* p = originalCode)
-        {
-            Buffer.MemoryCopy(p, (void*)functionToUnhook, 5, 5);
-        }
-        hookedFunctions.Remove(functionToUnhook);
-
-        RestoreLibrarySecurity();
-    }
-
-    private static byte[] ParsePatternString(string pattern, string mask)
-	{
-		List<byte> patternbytes = new();
-
-        for (int i = 0; i < mask.Length; i++)
-        {
-            if (mask[i] == '?') {
-                patternbytes.Add(0x0);
-            } else {
-                patternbytes.Add((byte)pattern[i]);
-            }
-        }
-
-		return patternbytes.ToArray();
-	}
-
-    private unsafe bool PatternCheck(int nOffset, byte[] arrPattern, byte* memory)
-    {
-        for (int i = 0; i < arrPattern.Length; i++)
-        {
-            if (arrPattern[i] == 0x0)
-                continue;
- 
-            if (arrPattern[i] != memory[nOffset + i]) {
-                return false;
-            }
-        }
- 
-        return true;
-    }
-    
-    /// <summary>
-    /// Finds a signature
-    /// </summary>
-    /// <param name="signature">The signature to find</param>
-    /// <param name="signatureMask">The mask to use</param>
-    /// <param name="customStart">A custom start position to use, should be in range of memoryStart</param>
-    /// <returns>An absolute pointer to the start of the found signature or nullptr if not found</returns>
-    public unsafe IntPtr FindSignature(string szPattern, string signatureMask, IntPtr? offset = null)
-    {
-        WidenLibrarySecurity();
-        byte* memoryPtr;
-        int memoryLen = 0;
-        if(offset.HasValue)
-        {
-            memoryPtr = (byte*)(libraryStartAddress + offset);
-        } else {
-            memoryPtr = (byte*)libraryStartAddress;
-        }
-        memoryLen = (int)(libraryEndAddress - (IntPtr)memoryPtr);
-
-        //Console.WriteLine("Search starts at " + (nint)memoryPtr + " and ends at " + memoryEnd + ", offset is " + offset + ", length of signature " + szPattern.Length + ", length of mask " + signatureMask.Length + ", length of memory region " + memoryLen);
-
-        byte[] arrPattern = ParsePatternString(szPattern, signatureMask);
- 
-        for (int nModuleIndex = 0; nModuleIndex < memoryLen; nModuleIndex++)
-        {
-            if (memoryPtr[nModuleIndex] != arrPattern[0])
-                continue;
-
-            if (PatternCheck(nModuleIndex, arrPattern, memoryPtr))
-            {
-                RestoreLibrarySecurity();
-                return (IntPtr)memoryPtr + nModuleIndex;
-            }
-        }
-
-        RestoreLibrarySecurity();
-        throw new Exception("Failed to find signature");
-    }
-
-    /// <summary>
-    /// Finds a signature and casts it to a callable function
-    /// </summary>
-    /// <param name="signature">The signature to find</param>
-    /// <param name="signatureMask">The mask to use</param>
-    /// <param name="offset">An offset to apply to memoryStart before starting a search</param>
-    /// <returns>A function to call</returns>
-    public T FindSignature<T>(string signature, string signatureMask, IntPtr? offset = null) {
-        var ptr = FindSignature(signature, signatureMask, offset);
-        return Marshal.GetDelegateForFunctionPointer<T>(ptr);
-    }
-
-    private readonly RefCount widenedSecurityRefCount = new();
-    private int previousSecurity = 0;
-
-    /// <summary>
-    /// Widens library security temporarily to allow for things that modify or read library code, like hooking functions and scanning for signatures.
-    /// </summary>
-    public void WidenLibrarySecurity() {
-        if (widenedSecurityRefCount.Increment()) {
-            if (OperatingSystem.IsLinux()) {
-                previousSecurity = LinuxNative.PROT_READ + LinuxNative.PROT_EXEC + LinuxNative.PROT_WRITE;
-                if (LinuxNative.mprotect(libraryStartAddress, (UIntPtr)librarySize, LinuxNative.PROT_READ + LinuxNative.PROT_WRITE + LinuxNative.PROT_EXEC) != 0) {
-                    GeneralLogger.Warning("Failed to widen library security, errno: " + Marshal.GetLastWin32Error());
-                }
-            }
-        }
-    }
-
-    /// <summary>
-    /// Restores library security to what it was before a call to WidenLibrarySecurity.
-    /// </summary>
-    public void RestoreLibrarySecurity() {
-        if (widenedSecurityRefCount.Decrement()) {
-            if (OperatingSystem.IsLinux()) {
-                if(LinuxNative.mprotect(libraryStartAddress, (UIntPtr)librarySize, previousSecurity) != 0) {
-                    GeneralLogger.Warning("Failed to restore library security, errno: " + Marshal.GetLastWin32Error());
-                }
-            }
-        }
-    }
-
     public ClientNative(string clientPath, ConnectionType connectionType) {
-        nativeLibHandle = NativeLibrary.Load(clientPath);
+        SteamClientLib = NativeLibraryEx.Load(clientPath);
         var modules = Process.GetCurrentProcess().Modules;
         for (int i = 0; i < modules.Count; i++)
         {
@@ -459,9 +276,9 @@ public class ClientNative {
         }
 
         // DefaultSpewOutputFunc (no valid signatures for SpewOutputFunc setter)
-        var func = FindSignature(SteamClient.platform.DefaultSpewOutputFuncSig, SteamClient.platform.DefaultSpewOutputFuncSigMask);
+        var func = SteamClientLib.FindSignature(SteamClient.platform.DefaultSpewOutputFuncSig, SteamClient.platform.DefaultSpewOutputFuncSigMask);
         unsafe {
-            HookFunction(func, (IntPtr)(delegate* unmanaged[Cdecl]<SpewType_t, void*, SpewRetval_t>)&SpewOutputFuncHook);
+            SteamClientLib.HookFunction(func, (IntPtr)(delegate* unmanaged[Cdecl]<SpewType_t, void*, SpewRetval_t>)&SpewOutputFuncHook);
         }
 
         loadNativeFunctions();
@@ -494,7 +311,7 @@ public class ClientNative {
     }
 
     public void Unload() {
-        NativeLibrary.Free(nativeLibHandle);
+        SteamClientLib.Unload();
     }
 
     // CreateInterface is common code. We should split it in the future.

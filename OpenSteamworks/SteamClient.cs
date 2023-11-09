@@ -81,7 +81,7 @@ public class SteamClient
     internal static readonly IPlatform platform;
     private ClientAPI_WarningMessageHook_t warningMessageHook;
 
-    delegate bool SpewOutputFunc_p(int nSeverity, string param_2);
+    delegate bool SpewOutputFunc_p(int nSeverity, string logMsg);
 
     static SteamClient() {
         if (OperatingSystem.IsWindows()) {

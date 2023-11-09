@@ -45,6 +45,11 @@ internal static class LinuxNative {
     /// Page can not be accessed.
     /// </summary>
     public const int PROT_NONE = 0x0;
+    /// <summary>
+    /// Treat ARG as `struct link_map **'; 
+    /// store the `struct link_map *' for HANDLE there.
+    /// </summary>
+    public const int RTLD_DI_LINKMAP = 2;
 
     [DllImport("libc", SetLastError = true)]
     public static extern int setenv([MarshalAs(UnmanagedType.LPUTF8Str)] string name, [MarshalAs(UnmanagedType.LPUTF8Str)] string value, int overwrite);

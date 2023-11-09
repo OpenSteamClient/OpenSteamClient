@@ -328,7 +328,7 @@ public unsafe interface IClientUser
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret Set2ndFactorAuthCode(string code, bool remember);  // argc: 2, index: 178
     public void SetUserMachineName(string name);  // argc: 1, index: 179
-    public void GetUserMachineName(char* name, int len);  // argc: 2, index: 180
+    public void GetUserMachineName(StringBuilder name, int len);  // argc: 2, index: 180
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret GetEmailDomainFromLogonFailure();  // argc: 2, index: 181
     public unknown_ret GetAgreementSessionUrl();  // argc: 0, index: 182
