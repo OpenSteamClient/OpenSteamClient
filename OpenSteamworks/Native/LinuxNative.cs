@@ -65,6 +65,9 @@ internal static class LinuxNative {
 
     [DllImport("libc", SetLastError = true)]
     public static extern int mprotect(IntPtr addr, UIntPtr size, int prot);
+
+    [DllImport("libc")]
+    public static extern string dlerror();
 }
 
 [StructLayout(LayoutKind.Sequential)]

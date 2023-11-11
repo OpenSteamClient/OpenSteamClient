@@ -6,6 +6,7 @@ using System.IO.MemoryMappedFiles;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Runtime.Versioning;
+using OpenSteamworks.Extensions;
 using OpenSteamworks.Utils;
 
 namespace OpenSteamworks.Native;
@@ -259,7 +260,7 @@ public class NativeLibraryEx {
             unsafe {
                 fixed (byte* ptr = bytes ) {
                     if (OperatingSystem.IsWindows()) {
-                        PopulateSectionsWindows(ptr);
+                        PopulateSectionsWindows(bytes, (byte*)this.Handle);
                     } else if (OperatingSystem.IsLinux()) {
                         PopulateSectionsLinux(ptr);
                     } else {
@@ -275,7 +276,10 @@ public class NativeLibraryEx {
         checked
         {
             link_map* linkMap = null;
-            LinuxNative.dlinfo(this.Handle, LinuxNative.RTLD_DI_LINKMAP, &linkMap);
+            var dlinfoResult = LinuxNative.dlinfo(this.Handle, LinuxNative.RTLD_DI_LINKMAP, &linkMap);
+            if (linkMap == null || dlinfoResult != 0) {
+                throw new Exception("Call to dlinfo failed, errno: " + LinuxNative.dlerror());
+            }
 
             var ehdr = (Elf64_Ehdr*)data;
             var shdrs = (Elf64_Shdr*)(data + ehdr->e_shoff);
@@ -297,8 +301,33 @@ public class NativeLibraryEx {
     }
 
     [SupportedOSPlatform("windows")]
-    private unsafe void PopulateSectionsWindows(byte* data) {
-        throw new NotImplementedException("not yet done");
+    private unsafe void PopulateSectionsWindows(byte[] data, byte* loadedLibraryHandle) {
+        checked {
+            using (var stream = new MemoryStream(data))
+            {
+                BinaryReader reader = new BinaryReader(stream);
+                var dosHeader = reader.ReadStruct<IMAGE_DOS_HEADER>();
+
+                // Add 4 bytes to the offset
+                stream.Seek(dosHeader.e_lfanew, SeekOrigin.Begin);
+
+                UInt32 ntHeadersSignature = reader.ReadUInt32();
+                var fileHeader = reader.ReadStruct<IMAGE_FILE_HEADER>();
+                var optionalHeader64 = reader.ReadStruct<IMAGE_OPTIONAL_HEADER64>();
+
+                var imageSectionHeaders = new IMAGE_SECTION_HEADER[fileHeader.NumberOfSections];
+                for(int headerNo = 0; headerNo < imageSectionHeaders.Length; ++headerNo) {
+                    imageSectionHeaders[headerNo] = reader.ReadStruct<IMAGE_SECTION_HEADER>();
+                }
+
+                foreach (var section in imageSectionHeaders)
+                {
+                    var sectionName = System.Text.Encoding.UTF8.GetString(section.Name, 8);
+                    Section sect = new Section(sectionName, (UIntPtr)(loadedLibraryHandle + section.VirtualAddress), section.PhysicalAddressOrVirtualSize, this);
+                    this.sections.Add(sect);
+                }
+            }
+        }
     }
 
     public static NativeLibraryEx Load(string filename) {

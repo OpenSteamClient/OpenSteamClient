@@ -32,17 +32,33 @@ jobs:
       run: | 
         sudo apt-get update
         sudo apt-get install -y gcc-multilib g++-multilib mingw-w64
-    
-    # No need to set up anything else as ubuntu-latest already contains everything we need for a linux-only build
-    # In .NET 8 they're gonna make publishing less bad by allowing all projects to be built to one folder without hacks, so improve build scripts then
 
-    - name: Build Release ClientUI
+    # This is terrible, but until GH updates their runners to ubuntu 23.04 this is the terribleness we need to do
+    # Or we could self-host, but I don't have dedicated hardware for it (read: my PC is not available 24/7)
+    - name: Install unsupported build dependencies from lunar repoes
+      run: |
+        sudo sh -c "echo 'deb http://azure.archive.ubuntu.com/ubuntu lunar main restricted universe multiverse' >> /etc/apt/sources.list.d/lunar-packages.list"
+        echo "content of /etc/apt/sources.list.d/lunar-packages.list"
+        cat /etc/apt/sources.list.d/lunar-packages.list
+        echo "end of contents"
+        sudo apt-get update
+        sudo apt-get install -t "lunar*" -y gcc-mingw-w64 mingw-w64
+
+    - name: Build Release ClientUI (Linux)
+      working-directory: ./ClientUI
+      run: dotnet publish --use-current-runtime -c Release
+
+    - name: Create ClientUI zip (Linux)
+      working-directory: ./ClientUI/bin/Release/
+      run: sh -c 'cd ./*/linux-x64/publish && zip -r "${GITHUB_WORKSPACE}/ClientUI_Linux.zip" .'
+
+    - name: Build Release ClientUI (Windows)
       working-directory: ./ClientUI
       run: dotnet publish -c Release
 
-    - name: Create ClientUI zip
+    - name: Create ClientUI zip (Windows)
       working-directory: ./ClientUI/bin/Release/
-      run: sh -c 'cd ./*/publish && zip -r "${GITHUB_WORKSPACE}/ClientUI.zip" .'
+      run: sh -c 'cd ./*/win-x64/publish && zip -r "${GITHUB_WORKSPACE}/ClientUI_Windows.zip" .'
     
     
     # - name: Build Release ClientConsole
@@ -53,11 +69,17 @@ jobs:
     #   working-directory: ./ClientConsole/bin/Release/
     #   run: sh -c 'cd ./*/publish && zip -r "${GITHUB_WORKSPACE}/ClientConsole.zip" .'
 
-    - name: Add ClientUI artifact
+    - name: Add ClientUI Linux artifact
       uses: actions/upload-artifact@v3
       with:
-        name: ClientUI
-        path: ${{ github.workspace }}/ClientUI.zip
+        name: ClientUI (Linux)
+        path: ${{ github.workspace }}/ClientUI_Linux.zip
+
+    - name: Add ClientUI Windows artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: ClientUI (Windows)
+        path: ${{ github.workspace }}/ClientUI_Windows.zip
     
     # - name: Add ClientConsole artifact
     #   uses: actions/upload-artifact@v3

@@ -7,6 +7,13 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <!-- We don't need this, as we have our own localization system -->
+    <!-- If this is removed, we'll get a lot of language folders in bin/Debug/net7.0/ -->
+    <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+
+    <!-- Supported runtimes (https://learn.microsoft.com/en-us/dotnet/core/rid-catalog) -->
+    <RuntimeIdentifiers>win-x64;linux-x64;osx-x64</RuntimeIdentifiers>
+
     <!-- Don't touch this for now, working on making our Avalonia upstreamable -->
     <UseLocalAvalonia>true</UseLocalAvalonia>
     <LocalAvaloniaPath>$(ProjectRootDir)Avalonia</LocalAvaloniaPath>

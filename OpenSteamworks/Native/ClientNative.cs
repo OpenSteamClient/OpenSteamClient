@@ -13,6 +13,7 @@ using System.Runtime.CompilerServices;
 using System.Collections.Generic;
 using OpenSteamworks.Utils;
 using System.Text.RegularExpressions;
+using System.Runtime.Versioning;
 
 namespace OpenSteamworks.Native;
 
@@ -46,7 +47,18 @@ struct NativeFuncs {
 
 public class ClientNative {
     public NativeLibraryEx SteamClientLib;
+
+    /// <summary>
+    /// Always defined on Windows, null on other platforms
+    /// </summary>
+    [SupportedOSPlatform("windows")]
     public NativeLibraryEx? Tier0Lib;
+    /// <summary>
+    /// Always defined on Windows, null on other platforms
+    /// </summary>
+
+    [SupportedOSPlatform("windows")]
+    public NativeLibraryEx? VStdLib;
     internal NativeFuncs.CreateInterface native_CreateInterface;
     internal NativeFuncs.Steam_CreateSteamPipe native_Steam_CreateSteamPipe;
     internal NativeFuncs.Steam_ConnectToGlobalUser native_Steam_ConnectToGlobalUser;
@@ -109,11 +121,8 @@ public class ClientNative {
     public IClientVR IClientVR;
 
     public ISteamHTMLSurface005 ISteamHTMLSurface;
-
     public ConCommands.ConsoleNative consoleNative;
-    public IntPtr libraryStartAddress;
-    public IntPtr libraryEndAddress;
-    public IntPtr librarySize;
+
 
     /// <summary>
     /// Loads a native func. Throws if fails.
@@ -261,24 +270,33 @@ public class ClientNative {
     }
 
     public ClientNative(string clientPath, ConnectionType connectionType) {
+        if (OperatingSystem.IsWindows()) {
+            // This is fine, since steamclient.dll also imports from the same directory as itself, so this should never fail
+            Tier0Lib = NativeLibraryEx.Load(Path.Combine(Path.GetDirectoryName(clientPath)!, "tier0_s64.dll"));
+            VStdLib = NativeLibraryEx.Load(Path.Combine(Path.GetDirectoryName(clientPath)!, "vstdlib_s64.dll"));
+        }
+
         SteamClientLib = NativeLibraryEx.Load(clientPath);
+
         var modules = Process.GetCurrentProcess().Modules;
         for (int i = 0; i < modules.Count; i++)
         {
             var module = modules[i];
             SteamClient.GeneralLogger.Debug("Have loaded module " + module.ModuleName + ", path: " + module.FileName);
-            if (module.FileName == clientPath) {
-                libraryStartAddress = module.BaseAddress;
-                libraryEndAddress = libraryStartAddress + module.ModuleMemorySize;
-                librarySize = module.ModuleMemorySize;
-                SteamClient.GeneralLogger.Debug("Found steamclient, addresses " + libraryStartAddress + "-" + libraryEndAddress + ", len " + module.ModuleMemorySize);
-            }
         }
 
-        // DefaultSpewOutputFunc (no valid signatures for SpewOutputFunc setter)
-        var func = SteamClientLib.FindSignature(SteamClient.platform.DefaultSpewOutputFuncSig, SteamClient.platform.DefaultSpewOutputFuncSigMask);
-        unsafe {
-            SteamClientLib.HookFunction(func, (IntPtr)(delegate* unmanaged[Cdecl]<SpewType_t, void*, SpewRetval_t>)&SpewOutputFuncHook);
+        if (OperatingSystem.IsWindows()) {
+            // Hook DefaultSpewOutputFunc instead of using SpewOutputFunc setter, since steam replaces it internally in some unknown conditions
+            var func = Tier0Lib!.FindSignature(SteamClient.platform.DefaultSpewOutputFuncSig, SteamClient.platform.DefaultSpewOutputFuncSigMask);
+            unsafe {
+                Tier0Lib!.HookFunction(func, (IntPtr)(delegate* unmanaged[Cdecl]<SpewType_t, void*, SpewRetval_t>)&SpewOutputFuncHook);
+            }
+        } else {
+            // Hook DefaultSpewOutputFunc (no valid signatures for SpewOutputFunc setter)
+            var func = SteamClientLib.FindSignature(SteamClient.platform.DefaultSpewOutputFuncSig, SteamClient.platform.DefaultSpewOutputFuncSigMask);
+            unsafe {
+                SteamClientLib.HookFunction(func, (IntPtr)(delegate* unmanaged[Cdecl]<SpewType_t, void*, SpewRetval_t>)&SpewOutputFuncHook);
+            }
         }
 
         loadNativeFunctions();

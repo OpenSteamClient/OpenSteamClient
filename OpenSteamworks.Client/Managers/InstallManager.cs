@@ -77,6 +77,6 @@ public class InstallManager
 
     public string GetLogPath(string logFileName) {
         Directory.CreateDirectory(LogsDir);
-        return Path.Combine(LogsDir, logFileName + ".txt");
+        return Path.Combine(LogsDir, logFileName + ".log");
     }
 }
