@@ -202,7 +202,7 @@ internal unsafe struct IMAGE_FILE_HEADER {
 
 [StructLayout(LayoutKind.Sequential)]
 internal unsafe struct IMAGE_SECTION_HEADER {
-  public fixed BYTE Name[8];
+  public fixed byte Name[8];
   public DWORD PhysicalAddressOrVirtualSize;
   public DWORD VirtualAddress;
   public DWORD SizeOfRawData;

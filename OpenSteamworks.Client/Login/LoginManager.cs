@@ -570,7 +570,7 @@ public class LoginManager : IClientLifetime
         {
             do
             {
-                System.Threading.Thread.Sleep(30);
+                Thread.Sleep(30);
             } while (this.loginFinishResult == null);
             this.isLoggingOn = false;
             return this.loginFinishResult.Value;
@@ -586,7 +586,15 @@ public class LoginManager : IClientLifetime
     {
         if (this.IsLoggedOn() && this.steamClient.NativeClient.ConnectedWith == SteamClient.ConnectionType.NewClient) {
             logger.Info("Shutting down and logged in, logging out");
-            await LogoutAsync();
+            try
+            {
+                await LogoutAsync();
+            }
+            catch (System.Exception e)
+            {
+                logger.Error("Failed to log out. This can be caused by a long-hanging OnLogon handler");
+                logger.Error(e);
+            }
         }
     }
 }
