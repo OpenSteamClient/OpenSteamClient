@@ -27,12 +27,16 @@ A partially open-source Steam client for Windows and Linux
   - [ ] Mini mode
   - [ ] Game settings page
   - [ ] Downloads page
+  - [ ] Disabling updates for certain apps
 - [ ] ConCommand support
 - [ ] Steamwebhelper support
   - [ ] Store, community, profile pages
+  - [ ] Non-janky typing implementation 
 - [ ] Windows support
 - [ ] Custom SDL lib
 - [ ] Future:
+  - [ ] UI Animations
+  - [ ] VAC support on Windows
   - [ ] ProtonDB integration
   - [ ] Disabling workshop mods without unsubbing
   - [ ] Automatic game tweaking
