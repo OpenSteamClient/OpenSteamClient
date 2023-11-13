@@ -18,6 +18,7 @@ using OpenSteamworks.Generated;
 using OpenSteamworks.Messaging;
 using OpenSteamworks.NativeTypes;
 using OpenSteamworks.Structs;
+using OpenSteamworks.Utils;
 using static OpenSteamworks.Callbacks.CallbackManager;
 
 namespace OpenSteamworks.Client.Managers;
@@ -37,11 +38,18 @@ public class AppLastPlayedChangedEventArgs : EventArgs {
 
 public class AppsManager : ILogonLifetime
 {
-    public HashSet<AppId_t> OwnedAppIDs { get; init; } = new();
+    public ReadOnlyCollectionEx<AppId_t> OwnedAppIDs {
+        get {
+            return new ReadOnlyCollectionEx<AppId_t>(ownedAppIDs);
+        }
+    }
+
+    private object ownedAppsLock = new();
+    private HashSet<AppId_t> ownedAppIDs { get; init; } = new();
     // I'm not a huge fan of this as it means the appid gets duplicated, but whatever
     private Dictionary<AppId_t, App> LoadedApps { get; init; } = new();
 
-    private object ownedAppsLock = new();
+    
     private SteamClient steamClient;
     private CloudConfigStore cloudConfigStore;
     // This is bad, but the collections need to know about the library in order to be able to get apps.
@@ -83,18 +91,21 @@ public class AppsManager : ILogonLifetime
 
     [CallbackListener<AppLicensesChanged_t>]
     public void OnAppLicensesChanged(CallbackHandler handler, AppLicensesChanged_t licensesChanged) {
-        lock (ownedAppsLock)
-        {
-            if (licensesChanged.bReloadAll) {
-                OwnedAppIDs.Clear();
-            }
+        if (hasLogOnFinished) {
+            lock (ownedAppsLock)
+            {
+                if (licensesChanged.bReloadAll) {
+                    ownedAppIDs.Clear();
+                }
 
-            AppId_t[] actualAppsUpdated = new AppId_t[licensesChanged.m_unAppsUpdated];
-            Array.Copy(licensesChanged.m_rgAppsUpdated, actualAppsUpdated, licensesChanged.m_unAppsUpdated);
-            OwnedAppIDs.UnionWith(actualAppsUpdated);
+                AppId_t[] actualAppsUpdated = new AppId_t[licensesChanged.m_unAppsUpdated];
+                Array.Copy(licensesChanged.m_rgAppsUpdated, actualAppsUpdated, licensesChanged.m_unAppsUpdated);
+                ownedAppIDs.UnionWith(actualAppsUpdated);
+            }
         }
     }
 
+    private bool hasLogOnFinished = false;
     public async Task OnLoggedOn(IExtendedProgress<int> progress, LoggedOnEventArgs e) {
         // silly
         var ownedApps = await this.GetAppsForSteamID(e.User.SteamID!.Value);
@@ -105,11 +116,13 @@ public class AppsManager : ILogonLifetime
         // await RequestAppInfoUpdateForApps(ownedApps);
         // Console.WriteLine("Appinfo update finished");
 
+        logger.Debug("Creating app objects on startup");
         UpdateMultipleAppObjectsSync(ownedApps);
         lock (ownedAppsLock)
         {
-            OwnedAppIDs.UnionWith(ownedApps);
+            ownedAppIDs.UnionWith(ownedApps);
         }
+        hasLogOnFinished = true;
     }
 
     /// <summary>
@@ -119,16 +132,37 @@ public class AppsManager : ILogonLifetime
         // I don't think these are necessary here, but let's have them just in case they improve performance
         steamClient.NativeClient.IClientApps.TakeUpdateLock();
 
+        // Create an allocation of 16MB for app sections objects
+        byte[] bytes = new byte[16*1024*1024];
+
         foreach (var appid in appids)
         {
             // Skip the 0 appid, it's used by the client internally to set defaults, etc
             if (appid == 0) {
                 continue;
             }
-            
+
             try
             {
-                UpdateAppObjectSync(appid);
+                var appObj = new App(appid);
+                var commonLength = steamClient.NativeClient.IClientApps.GetAppDataSection(appid, EAppInfoSection.Common, bytes, bytes.Length, false);
+                byte[] commonBytes = new byte[commonLength];
+                Array.Copy(bytes, commonBytes, commonLength);
+
+                var configLength = steamClient.NativeClient.IClientApps.GetAppDataSection(appid, EAppInfoSection.Config, bytes, bytes.Length, false);
+                byte[] configBytes = new byte[configLength];
+                Array.Copy(bytes, configBytes, configLength);
+
+                var extendedLength = steamClient.NativeClient.IClientApps.GetAppDataSection(appid, EAppInfoSection.Extended, bytes, bytes.Length, false);
+                byte[] extendedBytes = new byte[extendedLength];
+                Array.Copy(bytes, extendedBytes, extendedLength);
+
+                var depotsLength = steamClient.NativeClient.IClientApps.GetAppDataSection(appid, EAppInfoSection.Extended, bytes, bytes.Length, false);
+                byte[] depotsBytes = new byte[depotsLength];
+                Array.Copy(bytes, depotsBytes, depotsLength);
+
+                logger.Debug($"{appid} got appinfo with length: (common: {commonBytes.Length}, config: {configBytes.Length}, extended: {extendedBytes.Length}, depots: {depotsBytes.Length})");
+                appObj.FillWithAppInfoBinary(commonBytes, configBytes, extendedBytes, depotsBytes);
             }
             catch (Exception e)
             {
@@ -140,7 +174,7 @@ public class AppsManager : ILogonLifetime
         steamClient.NativeClient.IClientApps.ReleaseUpdateLock();
     }
 
-    public async Task<App> GetAppAsync(uint appid) {
+    public async Task<App> GetAppAsync(AppId_t appid) {
         // Check for an existing app
         if (this.LoadedApps.TryGetValue(appid, out App? val)) {
             return val;
@@ -149,29 +183,41 @@ public class AppsManager : ILogonLifetime
         }
     }
     
+    //TODO: Clean this up and allow a proper preallocation system for appinfo
     private App UpdateAppObjectSync(AppId_t appid) {
         var appObj = new App(appid);
 
         byte[] commonBytes;
         byte[] configBytes;
+        byte[] extendedBytes;
+        byte[] depotsBytes;
 
         // Get rid of the huge allocation as early as possible
         {
             // This should be enough for most sections, however localization sections tend to be huge and this might not work for those
             byte[] bytes = new byte[32768];
 
-            var commonLength = steamClient.NativeClient.IClientApps.GetAppDataSection(appid, EAppInfoSection.k_EAppInfoSectionCommon, bytes, 1000000, false);
+            //TODO: investigate usage of GetMultipleAppDataSections to speed this up even more
+            var commonLength = steamClient.NativeClient.IClientApps.GetAppDataSection(appid, EAppInfoSection.Common, bytes, bytes.Length, false);
             commonBytes = new byte[commonLength];
             Array.Copy(bytes, commonBytes, commonLength);
 
-            var configLength = steamClient.NativeClient.IClientApps.GetAppDataSection(appid, EAppInfoSection.k_EAppInfoSectionConfig, bytes, 1000000, false);
+            var configLength = steamClient.NativeClient.IClientApps.GetAppDataSection(appid, EAppInfoSection.Config, bytes, bytes.Length, false);
             configBytes = new byte[configLength];
             Array.Copy(bytes, configBytes, configLength);
+
+            var extendedLength = steamClient.NativeClient.IClientApps.GetAppDataSection(appid, EAppInfoSection.Extended, bytes, bytes.Length, false);
+            extendedBytes = new byte[extendedLength];
+            Array.Copy(bytes, extendedBytes, extendedLength);
+
+            var depotsLength = steamClient.NativeClient.IClientApps.GetAppDataSection(appid, EAppInfoSection.Extended, bytes, bytes.Length, false);
+            depotsBytes = new byte[depotsLength];
+            Array.Copy(bytes, depotsBytes, depotsLength);
         }
 
-        logger.Debug($"{appid} got appinfo with length: (common: " + commonBytes.Length + ", config: " + configBytes.Length + ")");
+        logger.Debug($"{appid} got appinfo with length: (common: {commonBytes.Length}, config: {configBytes.Length}, extended: {extendedBytes.Length}, depots: {depotsBytes.Length})");
         if (commonBytes.Length != 0 && configBytes.Length != 0) {
-            appObj.FillWithAppInfoBinary(commonBytes, configBytes);
+            appObj.FillWithAppInfoBinary(commonBytes, configBytes, extendedBytes, depotsBytes);
         } else {
             throw new Exception(appid + " did not have an app data section. Not cached, no network or invalid app type?");
         }
@@ -190,12 +236,14 @@ public class AppsManager : ILogonLifetime
     }
 
     public async Task OnLoggingOff(IExtendedProgress<int> progress) {
+        hasLogOnFinished = false;
         if (currentUserLibrary != null) {
             await currentUserLibrary.SaveLibrary();
             currentUserLibrary = null;
         }
 
-        OwnedAppIDs.Clear();
+        ownedAppIDs.Clear();
+        LoadedApps.Clear();
     }
 
     public async Task<Library> GetLibrary() {
@@ -224,6 +272,7 @@ public class AppsManager : ILogonLifetime
     /// </summary>
     /// <param name="steamid">SteamID of the user to request apps for</param>
     public async Task<HashSet<AppId_t>> GetAppsForSteamID(CSteamID steamid, bool includeSteamPackageGames = true, bool includeFreeGames = true) {
+        logger.Debug("Attempting to get owned apps for " + steamid);
         ProtoMsg<Protobuf.CPlayer_GetOwnedGames_Request> request = new("Player.GetOwnedGames#1");
         request.body.Steamid = steamid;
         request.body.IncludeAppinfo = false;
@@ -244,6 +293,7 @@ public class AppsManager : ILogonLifetime
             ownedApps.Add((uint)protoApp.Appid);
         }
 
+        logger.Debug(steamid + " owns " + ownedApps.Count + " games");
         return ownedApps;
     }
 }

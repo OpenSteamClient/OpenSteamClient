@@ -8,6 +8,7 @@
 
 using System;
 using OpenSteamworks.Enums;
+using OpenSteamworks.Structs;
 
 namespace OpenSteamworks.Generated;
 
@@ -74,9 +75,9 @@ public unsafe interface IClientFriends
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret GetFriendPersonaNameHistoryAndDate();  // argc: 4, index: 32
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret AddFriend();  // argc: 2, index: 33
+    public unknown_ret AddFriend(CSteamID steamID);  // argc: 2, index: 33
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret RemoveFriend();  // argc: 2, index: 34
+    public unknown_ret RemoveFriend(CSteamID steamID);  // argc: 2, index: 34
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret HasFriend();  // argc: 3, index: 35
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
@@ -151,7 +152,7 @@ public unsafe interface IClientFriends
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret IsClanOfficialGameGroup();  // argc: 2, index: 72
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret JoinClanChatRoom();  // argc: 2, index: 73
+    public unknown_ret JoinClanChatRoom(CSteamID steamID);  // argc: 2, index: 73
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret LeaveClanChatRoom();  // argc: 2, index: 74
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
@@ -206,15 +207,15 @@ public unsafe interface IClientFriends
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret RequestFriendRichPresence();  // argc: 3, index: 100
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret JoinChatRoom();  // argc: 2, index: 101
+    public unknown_ret JoinChatRoom(CSteamID steamID);  // argc: 2, index: 101
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret LeaveChatRoom();  // argc: 2, index: 102
+    public unknown_ret LeaveChatRoom(CSteamID steamID);  // argc: 2, index: 102
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret InviteUserToChatRoom();  // argc: 4, index: 103
+    public unknown_ret InviteUserToChatRoom(CSteamID steamID,CSteamID steamID2);  // argc: 4, index: 103
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret SendChatMsg();  // argc: 4, index: 104
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret GetChatRoomMessagesCount();  // argc: 2, index: 105
+    public unknown_ret GetChatRoomMessagesCount(CSteamID steamID);  // argc: 2, index: 105
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret GetChatRoomEntry();  // argc: 7, index: 106
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!

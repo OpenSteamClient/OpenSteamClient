@@ -83,9 +83,9 @@ public class NativeLibraryEx {
     public IntPtr Handle { get; private set; }
     private Dictionary<IntPtr, byte[]> hookedFunctions = new();
     private List<Section> sections = new();
-    public ReadOnlyCollection<Section> Sections {
+    public ReadOnlyCollectionEx<Section> Sections {
         get {
-            return sections.AsReadOnly();
+            return new ReadOnlyCollectionEx<Section>(sections);
         }
     }
 

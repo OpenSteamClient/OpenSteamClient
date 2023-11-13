@@ -1,5 +1,8 @@
+using System.Collections.ObjectModel;
 using OpenSteamworks.Enums;
 using OpenSteamworks.NativeTypes;
+using OpenSteamworks.Structs;
+using OpenSteamworks.Utils;
 using ValveKeyValue;
 
 namespace OpenSteamworks.Client.Managers;
@@ -16,33 +19,54 @@ public struct LaunchOption {
     public int ID = -1;
     public int Index = -1;
     public string Description = "";
-    public ELaunchOptionType Type = ELaunchOptionType.k_ELaunchOptionTypeNone;
+    public ELaunchOptionType Type = ELaunchOptionType.None;
     public LaunchOption() {
 
     }   
 }
 
 /// <summary>
-/// An app. Can mean basically anything, like a trailer, legacy media or a game.
+/// An app. Can mean basically anything, like a trailer, legacy media, game, tools, dedicated servers, configs, etc.
+/// Can also be non-steam apps.
 /// </summary>
 public class App
 {
     public AppId_t AppID { get; init; }
+    public CGameID GameID { get; init; }
     public string Name { get; private set; } = "";
     public EAppType Type { get; private set; } = EAppType.k_EAppTypeInvalid;
     public string ClientIconHash { get; private set; } = "";
     public bool HasWorkshop { get; private set; } = false;
     public bool HasCommunityHub { get; private set; } = false;
-    public LaunchOption[] LaunchOptions { get; private set; } = Array.Empty<LaunchOption>();
+    public ReadOnlyCollectionEx<LaunchOption> LaunchOptions {
+        get {
+            return new ReadOnlyCollectionEx<LaunchOption>(launchOptions);
+        }
+    }
+
+    private List<LaunchOption> launchOptions = new();
+
+    public ReadOnlyCollectionEx<string> Aliases {
+        get {
+            return new ReadOnlyCollectionEx<string>(aliases);
+        }
+    }
+    private List<string> aliases = new();
     //TODO
     //public BetaBranch[] Betas { get; private set; } = Array.Empty<BetaBranch>();
 
-    internal App(UInt32 appid)
+    internal App(UInt32 appid, CGameID nonSteamGameID = default)
     {
         this.AppID = appid;
+        if (!nonSteamGameID.IsValid()) {
+            this.GameID = new CGameID(appid);
+        } else {
+            this.GameID = nonSteamGameID;
+        }
     }
-    
-    internal void FillWithAppInfoBinary(byte[] commonBytes, byte[] configBytes) {
+
+    //TODO: This is a mess. Split this.
+    internal void FillWithAppInfoBinary(byte[] commonBytes, byte[] configBytes, byte[] extendedBytes, byte[] depotsBytes) {
         var serializer = KVSerializer.Create(KVSerializationFormat.KeyValues1Binary);
 
         KVObject common;
@@ -55,6 +79,22 @@ public class App
         using (var stream = new MemoryStream(configBytes))
         {
             config = serializer.Deserialize(stream);
+        }
+
+        KVObject? extended = null;
+        if (extendedBytes.Any()) {
+            using (var stream = new MemoryStream(extendedBytes))
+            {
+                extended = serializer.Deserialize(stream);
+            }
+        }
+
+        KVObject? depots = null;
+        if (depotsBytes.Any()) {
+            using (var stream = new MemoryStream(depotsBytes))
+            {
+                depots = serializer.Deserialize(stream);
+            }
         }
 
         //TODO: support localized names via name_localized/LANGUAGE
@@ -77,7 +117,7 @@ public class App
             }
 
             if (config["launch"] != null) {
-                List<LaunchOption> launchOptions = new();
+                this.launchOptions.Clear();
                 foreach (var launchOpt in (IEnumerable<KVObject>)config["launch"])
                 {
                     LaunchOption opt = new();
@@ -110,29 +150,29 @@ public class App
                             // Some of these are guessed, since I haven't found apps that use these.
                             opt.Type = type.ToLowerInvariant() switch
                             {
-                                "default" => ELaunchOptionType.k_ELaunchOptionTypeDefault,
-                                "safemode" => ELaunchOptionType.k_ELaunchOptionTypeSafeMode,
-                                "multiplayer" => ELaunchOptionType.k_ELaunchOptionTypeMultiplayer,
-                                "config" => ELaunchOptionType.k_ELaunchOptionTypeConfig,
-                                "vr" => ELaunchOptionType.k_ELaunchOptionTypeVR,
-                                "server" => ELaunchOptionType.k_ELaunchOptionTypeServer,
-                                "editor" => ELaunchOptionType.k_ELaunchOptionTypeEditor,
-                                "manual" => ELaunchOptionType.k_ELaunchOptionTypeManual,
-                                "benchmark" => ELaunchOptionType.k_ELaunchOptionTypeBenchmark,
-                                "option1" => ELaunchOptionType.k_ELaunchOptionTypeOption1,
-                                "option2" => ELaunchOptionType.k_ELaunchOptionTypeOption2,
-                                "option3" => ELaunchOptionType.k_ELaunchOptionTypeOption3,
-                                "othervr" => ELaunchOptionType.k_ELaunchOptionTypeOthervr,
-                                "openvroverlay" => ELaunchOptionType.k_ELaunchOptionTypeOpenvroverlay,
-                                "osvr" => ELaunchOptionType.k_ELaunchOptionTypeOsvr,
-                                "openxr" => ELaunchOptionType.k_ELaunchOptionTypeOpenxr,
-                                "dialog" => ELaunchOptionType.k_ELaunchOptionTypeDialog,
-                                _ => ELaunchOptionType.k_ELaunchOptionTypeNone
+                                "default" => ELaunchOptionType.Default,
+                                "safemode" => ELaunchOptionType.SafeMode,
+                                "multiplayer" => ELaunchOptionType.Multiplayer,
+                                "config" => ELaunchOptionType.Config,
+                                "vr" => ELaunchOptionType.VR,
+                                "server" => ELaunchOptionType.Server,
+                                "editor" => ELaunchOptionType.Editor,
+                                "manual" => ELaunchOptionType.Manual,
+                                "benchmark" => ELaunchOptionType.Benchmark,
+                                "option1" => ELaunchOptionType.Option1,
+                                "option2" => ELaunchOptionType.Option2,
+                                "option3" => ELaunchOptionType.Option3,
+                                "othervr" => ELaunchOptionType.Othervr,
+                                "openvroverlay" => ELaunchOptionType.Openvroverlay,
+                                "osvr" => ELaunchOptionType.Osvr,
+                                "openxr" => ELaunchOptionType.Openxr,
+                                "dialog" => ELaunchOptionType.Dialog,
+                                _ => ELaunchOptionType.None
                             };
 
                             switch (opt.Type)
                             {
-                                case ELaunchOptionType.k_ELaunchOptionTypeDefault:
+                                case ELaunchOptionType.Default:
                                     opt.Index = 0;
                                     if (string.IsNullOrEmpty(opt.Description))
                                     {
@@ -144,33 +184,33 @@ public class App
                                     }
                                     break;
 
-                                case ELaunchOptionType.k_ELaunchOptionTypeVR:
+                                case ELaunchOptionType.VR:
                                     opt.Description = $"Play {this.Name} in VR";
                                     break;
 
-                                case ELaunchOptionType.k_ELaunchOptionTypeSafeMode:
+                                case ELaunchOptionType.SafeMode:
                                     opt.Description = $"Play {this.Name} in Safe Mode";
                                     break;
 
-                                case ELaunchOptionType.k_ELaunchOptionTypeMultiplayer:
+                                case ELaunchOptionType.Multiplayer:
                                     opt.Description = $"Play {this.Name} in Multiplayer";
                                     break;
 
-                                case ELaunchOptionType.k_ELaunchOptionTypeOpenxr:
+                                case ELaunchOptionType.Openxr:
                                     opt.Description = $"Play {this.Name} in VR with OpenXR";
                                     break;
 
-                                case ELaunchOptionType.k_ELaunchOptionTypeOption1:
+                                case ELaunchOptionType.Option1:
                                     opt.Index = 1;
                                     opt.Description = $"Play {this.Name} ({opt.Description})";
                                     break;
 
-                                case ELaunchOptionType.k_ELaunchOptionTypeOption2:
+                                case ELaunchOptionType.Option2:
                                     opt.Index = 2;
                                     opt.Description = $"Play {this.Name} ({opt.Description})";
                                     break;
                                     
-                                case ELaunchOptionType.k_ELaunchOptionTypeOption3:
+                                case ELaunchOptionType.Option3:
                                     opt.Index = 3;
                                     opt.Description = $"Play {this.Name} ({opt.Description})";
                                     break;
@@ -181,9 +221,20 @@ public class App
                             }
                         }
                     }
-                }
 
-                this.LaunchOptions = launchOptions.ToArray();
+                    this.launchOptions.Add(opt);
+                }
+            }
+        }
+
+        if (extended != null) {
+            if (extended["aliases"] != null) {
+                string ogAliases = (string)extended["aliases"];
+                ogAliases = ogAliases.Replace(" ", "");
+                foreach (var item in ogAliases.Split(','))
+                {
+                    this.aliases.Add(item);
+                }
             }
         }
     }

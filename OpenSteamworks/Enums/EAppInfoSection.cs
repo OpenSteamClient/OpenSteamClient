@@ -2,20 +2,54 @@ namespace OpenSteamworks.Enums;
 
 public enum EAppInfoSection : int
 {
-	k_EAppInfoSectionUnknown = 0,
-	k_EAppInfoSectionAll,
-	k_EAppInfoSectionCommon,
-	k_EAppInfoSectionExtended,
-	k_EAppInfoSectionConfig,
-	k_EAppInfoSectionStats,
-	k_EAppInfoSectionInstall,
-	k_EAppInfoSectionDepots,
-	k_EAppInfoSectionVac,
-	k_EAppInfoSectionDrm,
-	k_EAppInfoSectionUfs,
-	k_EAppInfoSectionOgg,
-	k_EAppInfoSectionItems,
-	k_EAppInfoSectionPolicies,
-	k_EAppInfoSectionSysreqs,
-	k_EAppInfoSectionCommunity
+	Unknown = 0,
+	All,
+	Common,
+	Extended,
+	Config,
+	Stats,
+	Install,
+	Depots,
+	/// <summary>
+    /// Valve Anti Cheat data
+    /// Seemingly unused
+    /// </summary>
+	Vac,
+	Drm,
+	/// <summary>
+    /// Steam Cloud (User File System?)
+    /// </summary>
+	Ufs,
+	/// <summary>
+    /// Seemingly unused
+    /// </summary>
+	Ogg,
+	Items,
+	Policies,
+	/// <summary>
+    /// Legacy way for Steam to check system requirements.
+    /// Unused in modern games, as they check requirements themselves.
+    /// Used mostly for MacOS stuff.
+    /// </summary>
+	Sysreqs,
+	Community,
+	Store,
+	/// <summary>
+    /// Localization data. This section tends to be huge.
+    /// </summary>
+    Localization,
+	/// <summary>
+    /// Unknown
+    /// </summary>
+    Broadcastgamedata,
+	/// <summary>
+    /// Also unknown
+    /// </summary>
+	Computed,
+	/// <summary>
+    /// Info for soundtracks.
+    /// Tells you about tracks, artist, composer, label, other credits.
+    /// Also contains the hash of the album cover.
+    /// </summary>
+	Albummetadata,
 };
