@@ -27,12 +27,16 @@ A partially open-source Steam client for Windows and Linux
   - [ ] Mini mode
   - [ ] Game settings page
   - [ ] Downloads page
+  - [ ] Disabling updates for certain apps
 - [ ] ConCommand support
 - [ ] Steamwebhelper support
   - [ ] Store, community, profile pages
+  - [ ] Non-janky typing implementation 
 - [ ] Windows support
 - [ ] Custom SDL lib
 - [ ] Future:
+  - [ ] UI Animations
+  - [ ] VAC support on Windows
   - [ ] ProtonDB integration
   - [ ] Disabling workshop mods without unsubbing
   - [ ] Automatic game tweaking
@@ -72,8 +76,17 @@ If you're a dev, be cautious about adding things, as I am probably working on it
 
 
 # System requirements
-## Distro requirements
-- ??? (TODO: Fill this)
+## Windows
+- Windows 10 tested
+### For development
+- MSVC
+## Linux
+### For development
+- Ubuntu 23.04 or newer (maybe optional if not using MingW)
+- MingW 10.0.0/GCC12 (optional if Windows cross compile not wanted)
+- OSXCross if you want a macos cross compile
+  - You might get cryptic errors without the newest mingw, such as `std::this_thread` missing 
+- GCC, G++, CMake
 
 ## Credits
 Decompiling and datamining the steam client: 

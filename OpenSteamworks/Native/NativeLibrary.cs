@@ -109,9 +109,6 @@ public class NativeLibraryEx {
                 hookedFunctions[functionToHook] = saved_buffer;
             }
 
-            UIntPtr src = (UIntPtr)functionToHook + 5; 
-            UIntPtr dst = (UIntPtr)jmpTargetFunction;
-            UIntPtr relative_offset = dst-src;
 
             // mov r10, addr
             var patch_mov = new byte[10] { 0x49, 0xBA, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
@@ -322,11 +319,39 @@ public class NativeLibraryEx {
 
                 foreach (var section in imageSectionHeaders)
                 {
-                    var sectionName = System.Text.Encoding.UTF8.GetString(section.Name, 8);
+                    int len = strnlen(section.Name, 8);
+                    var sectionName = System.Text.Encoding.UTF8.GetString(section.Name, len);
+                    SteamClient.GeneralLogger.Debug($"Found section " + sectionName + ", which is " + section.PhysicalAddressOrVirtualSize + " bytes");
                     Section sect = new Section(sectionName, (UIntPtr)(loadedLibraryHandle + section.VirtualAddress), section.PhysicalAddressOrVirtualSize, this);
                     this.sections.Add(sect);
                 }
             }
+        }
+    }
+
+    // There's no alternative to this in C#, so add it in here for cross platform sakes
+    /// <summary>
+    /// The strnlen() function returns the number of bytes in the string
+    /// pointed to by s, excluding the terminating null byte ('\0'), but
+    /// at most maxlen.  In doing this, strnlen() looks only at the first
+    /// maxlen characters in the string pointed to by s and never beyond
+    /// s[maxlen-1]
+    /// </summary>
+    private unsafe int strnlen(byte* bytes, int maxLen) {
+        checked
+        {
+            for (int i = 0; i < maxLen; i++)
+            {
+                if (bytes[i] == 0x0) {
+                    if (i == 0) {
+                        return 0;
+                    }
+                    return i-1;
+                }
+                i++;
+            } 
+
+            return maxLen;
         }
     }
 

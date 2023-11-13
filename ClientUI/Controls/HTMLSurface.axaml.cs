@@ -400,6 +400,8 @@ public partial class HTMLSurface : UserControl
     private static int GetNativeKeyCodeForKey(Key key) {
         if (OperatingSystem.IsLinux()) {
             return (int)X11KeyTransform.X11KeyFromKey(key);
+        } else if (OperatingSystem.IsWindows()) {
+            return 0;
         }
 
         throw new PlatformNotSupportedException("This OS is not supported.");

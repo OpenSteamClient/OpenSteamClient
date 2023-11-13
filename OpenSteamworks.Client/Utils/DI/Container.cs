@@ -62,7 +62,7 @@ public class Container
             if (!this.logonLifetimeOrder.Contains(type))
             {
                 this.logonLifetimeOrder.Add(type);
-                logger.Debug("Registered factory of type '" + type.Name + "' for logon lifetime at index " + this.clientLifetimeOrder.Count);
+                logger.Debug("Registered factory of type '" + type.Name + "' for logon lifetime at index " + this.logonLifetimeOrder.Count);
             }
         }
     }
