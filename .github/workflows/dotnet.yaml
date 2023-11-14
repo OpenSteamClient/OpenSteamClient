@@ -28,10 +28,10 @@ jobs:
       with:
         dotnet-version: '7.0.x'
 
-    #- name: Install build dependencies
-    #  run: | 
-    #    sudo apt-get update
-    #    sudo apt-get install -y 
+    - name: Install build dependencies
+      run: | 
+        sudo apt-get update
+        sudo apt-get install -y gcc-multilib g++-multilib
 
     # This is terrible, but until GH updates their runners to ubuntu 23.04 this is the terribleness we need to do
     # Or we could self-host, but I don't have dedicated hardware for it (read: my PC is not available 24/7)
@@ -42,7 +42,7 @@ jobs:
         cat /etc/apt/sources.list.d/lunar-packages.list
         echo "end of contents"
         sudo apt-get update
-        sudo apt-get install -t "lunar*" -y gcc-multilib g++-multilib gcc-mingw-w64 mingw-w64 gcc-mingw-w64-i686 g++-mingw-w64-i686
+        sudo apt-get install -t "lunar*" -y gcc-mingw-w64 mingw-w64 gcc-mingw-w64-i686 g++-mingw-w64-i686
 
     - name: Build Release ClientUI (Linux)
       working-directory: ./ClientUI
