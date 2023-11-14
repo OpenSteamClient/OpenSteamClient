@@ -46,7 +46,7 @@ jobs:
 
     - name: Build Release ClientUI (Linux)
       working-directory: ./ClientUI
-      run: dotnet publish --use-current-runtime -c Release
+      run: dotnet publish --self-contained --use-current-runtime -c Release
 
     - name: Create ClientUI zip (Linux)
       working-directory: ./ClientUI/bin/Release/
@@ -54,7 +54,7 @@ jobs:
 
     - name: Build Release ClientUI (Windows)
       working-directory: ./ClientUI
-      run: dotnet publish -c Release
+      run: dotnet publish --self-contained --runtime win-x64 -c Release
 
     - name: Create ClientUI zip (Windows)
       working-directory: ./ClientUI/bin/Release/
