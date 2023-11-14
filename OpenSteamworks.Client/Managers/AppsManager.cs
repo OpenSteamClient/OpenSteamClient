@@ -46,9 +46,6 @@ public class AppsManager : ILogonLifetime
 
     private object ownedAppsLock = new();
     private HashSet<AppId_t> ownedAppIDs { get; init; } = new();
-    // I'm not a huge fan of this as it means the appid gets duplicated, but whatever
-    private Dictionary<AppId_t, App> LoadedApps { get; init; } = new();
-
     
     private SteamClient steamClient;
     private CloudConfigStore cloudConfigStore;
@@ -110,120 +107,13 @@ public class AppsManager : ILogonLifetime
         // silly
         var ownedApps = await this.GetAppsForSteamID(e.User.SteamID!.Value);
 
-        //TODO: this stalls sometimes
-        // progress.SetSubOperation("#WaitingForAppinfoUpdate");
-        // Console.WriteLine("Waiting for appinfo update");
-        // await RequestAppInfoUpdateForApps(ownedApps);
-        // Console.WriteLine("Appinfo update finished");
-
-        logger.Debug("Creating app objects on startup");
-        UpdateMultipleAppObjectsSync(ownedApps);
+        //TODO: what should we do here? Implementing some sort of App class sounds like a good idea in theory, but would make AppsManager obsolete.
+        //TODO: how to organize getting app's names, soundtrack infos, etc easily?
         lock (ownedAppsLock)
         {
             ownedAppIDs.UnionWith(ownedApps);
         }
         hasLogOnFinished = true;
-    }
-
-    /// <summary>
-    /// Creates app objects for all the appids in the appids array.
-    /// </summary>
-    private void UpdateMultipleAppObjectsSync(IEnumerable<AppId_t> appids) {
-        // I don't think these are necessary here, but let's have them just in case they improve performance
-        steamClient.NativeClient.IClientApps.TakeUpdateLock();
-
-        // Create an allocation of 16MB for app sections objects
-        byte[] bytes = new byte[16*1024*1024];
-
-        foreach (var appid in appids)
-        {
-            // Skip the 0 appid, it's used by the client internally to set defaults, etc
-            if (appid == 0) {
-                continue;
-            }
-
-            try
-            {
-                var appObj = new App(appid);
-                var commonLength = steamClient.NativeClient.IClientApps.GetAppDataSection(appid, EAppInfoSection.Common, bytes, bytes.Length, false);
-                byte[] commonBytes = new byte[commonLength];
-                Array.Copy(bytes, commonBytes, commonLength);
-
-                var configLength = steamClient.NativeClient.IClientApps.GetAppDataSection(appid, EAppInfoSection.Config, bytes, bytes.Length, false);
-                byte[] configBytes = new byte[configLength];
-                Array.Copy(bytes, configBytes, configLength);
-
-                var extendedLength = steamClient.NativeClient.IClientApps.GetAppDataSection(appid, EAppInfoSection.Extended, bytes, bytes.Length, false);
-                byte[] extendedBytes = new byte[extendedLength];
-                Array.Copy(bytes, extendedBytes, extendedLength);
-
-                var depotsLength = steamClient.NativeClient.IClientApps.GetAppDataSection(appid, EAppInfoSection.Extended, bytes, bytes.Length, false);
-                byte[] depotsBytes = new byte[depotsLength];
-                Array.Copy(bytes, depotsBytes, depotsLength);
-
-                logger.Debug($"{appid} got appinfo with length: (common: {commonBytes.Length}, config: {configBytes.Length}, extended: {extendedBytes.Length}, depots: {depotsBytes.Length})");
-                appObj.FillWithAppInfoBinary(commonBytes, configBytes, extendedBytes, depotsBytes);
-            }
-            catch (Exception e)
-            {
-                // These aren't fatal during init
-                logger.Warning("Initializing " + appid + " failed: " + e.ToString());
-            }
-        }
-
-        steamClient.NativeClient.IClientApps.ReleaseUpdateLock();
-    }
-
-    public async Task<App> GetAppAsync(AppId_t appid) {
-        // Check for an existing app
-        if (this.LoadedApps.TryGetValue(appid, out App? val)) {
-            return val;
-        } else {
-            return await Task.Run(() => UpdateAppObjectSync(appid));
-        }
-    }
-    
-    //TODO: Clean this up and allow a proper preallocation system for appinfo
-    private App UpdateAppObjectSync(AppId_t appid) {
-        var appObj = new App(appid);
-
-        byte[] commonBytes;
-        byte[] configBytes;
-        byte[] extendedBytes;
-        byte[] depotsBytes;
-
-        // Get rid of the huge allocation as early as possible
-        {
-            // This should be enough for most sections, however localization sections tend to be huge and this might not work for those
-            byte[] bytes = new byte[32768];
-
-            //TODO: investigate usage of GetMultipleAppDataSections to speed this up even more
-            var commonLength = steamClient.NativeClient.IClientApps.GetAppDataSection(appid, EAppInfoSection.Common, bytes, bytes.Length, false);
-            commonBytes = new byte[commonLength];
-            Array.Copy(bytes, commonBytes, commonLength);
-
-            var configLength = steamClient.NativeClient.IClientApps.GetAppDataSection(appid, EAppInfoSection.Config, bytes, bytes.Length, false);
-            configBytes = new byte[configLength];
-            Array.Copy(bytes, configBytes, configLength);
-
-            var extendedLength = steamClient.NativeClient.IClientApps.GetAppDataSection(appid, EAppInfoSection.Extended, bytes, bytes.Length, false);
-            extendedBytes = new byte[extendedLength];
-            Array.Copy(bytes, extendedBytes, extendedLength);
-
-            var depotsLength = steamClient.NativeClient.IClientApps.GetAppDataSection(appid, EAppInfoSection.Extended, bytes, bytes.Length, false);
-            depotsBytes = new byte[depotsLength];
-            Array.Copy(bytes, depotsBytes, depotsLength);
-        }
-
-        logger.Debug($"{appid} got appinfo with length: (common: {commonBytes.Length}, config: {configBytes.Length}, extended: {extendedBytes.Length}, depots: {depotsBytes.Length})");
-        if (commonBytes.Length != 0 && configBytes.Length != 0) {
-            appObj.FillWithAppInfoBinary(commonBytes, configBytes, extendedBytes, depotsBytes);
-        } else {
-            throw new Exception(appid + " did not have an app data section. Not cached, no network or invalid app type?");
-        }
-
-        LoadedApps[appid] = appObj;
-        return appObj;
     }
 
     public Task RequestAppInfoUpdateForApp(AppId_t appid) {
@@ -243,7 +133,6 @@ public class AppsManager : ILogonLifetime
         }
 
         ownedAppIDs.Clear();
-        LoadedApps.Clear();
     }
 
     public async Task<Library> GetLibrary() {

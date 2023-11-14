@@ -58,7 +58,6 @@ public class SteamService : IClientLifetime {
 
 
             if (OperatingSystem.IsWindows()) {
-                //TODO: starting the actual properly installed service doesn't need admin, but I haven't figured out how to get it to launch without modifying the registry as admin
                 CurrentServiceHost.StartInfo.Verb = "runas";
                 CurrentServiceHost.StartInfo.UseShellExecute = true;
             }
