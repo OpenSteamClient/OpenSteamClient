@@ -68,6 +68,17 @@ public static class UtilityFunctions {
         } else {
             [DllImport("libc", SetLastError = true)]
             static extern int setenv([MarshalAs(UnmanagedType.LPUTF8Str)] string name, [MarshalAs(UnmanagedType.LPUTF8Str)] string? value, int overwrite);
+
+            [DllImport("libc", SetLastError = true)]
+            static extern int unsetenv([MarshalAs(UnmanagedType.LPUTF8Str)] string name);
+
+            if (value == null) {
+                if (unsetenv(name) == -1) {
+                    throw new Exception("Setting environment variable failed, errno: " + Marshal.GetLastWin32Error());
+                }
+                return;
+            }
+
             if (setenv(name, value, Convert.ToInt32(overwrite)) == -1) {
                 throw new Exception("Setting environment variable failed, errno: " + Marshal.GetLastWin32Error());
             }
