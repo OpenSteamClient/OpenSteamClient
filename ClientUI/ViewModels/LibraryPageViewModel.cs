@@ -1,4 +1,5 @@
 using System.Collections.ObjectModel;
+using OpenSteamworks.Client.Apps;
 using OpenSteamworks.Client.Managers;
 
 namespace ClientUI.ViewModels;

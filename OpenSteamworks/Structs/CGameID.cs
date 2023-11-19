@@ -34,6 +34,31 @@ public struct CGameID : System.IEquatable<CGameID>, System.IComparable<CGameID> 
 	}
 
 	/// <summary>
+    /// Format: 
+    /// A:730 (as appid)
+    /// G:730 (as gameid)
+    /// M:730:2 (appid:modid pair)
+    /// </summary>
+    /// <param name="dbgStr"></param>
+    /// <returns></returns>
+    /// <exception cref="ArgumentOutOfRangeException"></exception>
+	private static CGameID InterfaceDebuggerSupport(string dbgStr) {
+		switch (dbgStr[0])
+		{
+			case 'A':
+                return new CGameID(UInt32.Parse(dbgStr[1..]));
+			case 'G':
+				return new CGameID(ulong.Parse(dbgStr[1..]));
+			case 'M':
+                var appidStr = dbgStr[1..].Split(':')[0];
+				var modidStr = dbgStr[1..].Split(':')[1];
+                return new CGameID(UInt32.Parse(appidStr), uint.Parse(modidStr));
+        }
+
+        throw new ArgumentOutOfRangeException(nameof(dbgStr), "unknown dbg string type");
+    }
+
+	/// <summary>
     /// Constructor for a mod.
     /// Path does not need to point to a valid place on the filesystem.
     /// The given values are used for hashing via CRC32 (should be compatible with the way steam does it) to generate a proper gameid

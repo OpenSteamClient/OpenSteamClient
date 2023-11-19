@@ -1,7 +1,7 @@
 using System.Text.Json;
 using OpenSteamworks.Client.Utils;
 
-namespace OpenSteamworks.Client.Managers;
+namespace OpenSteamworks.Client.Apps.Library;
 
 public class FilterGroup<T> where T: notnull {
     public List<T> FilterOptions { get; set; } = new();

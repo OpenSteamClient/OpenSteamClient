@@ -24,6 +24,10 @@ public struct CSteamID {
 		SteamID64 = UInt64.Parse(steamidAsStr);
 	}
 
+    private static CSteamID InterfaceDebuggerSupport(string dbgStr) {
+        return new CSteamID(UInt64.Parse(dbgStr));
+    }
+
 	public override readonly string ToString() {
 		return SteamID64.ToString();
 	}

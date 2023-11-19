@@ -59,11 +59,9 @@ public unsafe interface IClientRemoteStorage
     public unknown_ret GetUGCQuotaUsage();  // argc: 5, index: 22
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret InitializeUGCQuotaUsage();  // argc: 1, index: 23
-    public unknown_ret IsCloudEnabledForAccount();  // argc: 0, index: 24
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret IsCloudEnabledForApp();  // argc: 1, index: 25
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret SetCloudEnabledForApp();  // argc: 2, index: 26
+    public bool IsCloudEnabledForAccount();  // argc: 0, index: 24
+    public bool IsCloudEnabledForApp(AppId_t appid);  // argc: 1, index: 25
+    public unknown_ret SetCloudEnabledForApp(AppId_t appid, bool enable);  // argc: 2, index: 26
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret IsCloudSyncOnSuspendAvailableForApp();  // argc: 1, index: 27
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
@@ -166,9 +164,9 @@ public unsafe interface IClientRemoteStorage
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret GetPendingRemoteOperationInfo();  // argc: 2, index: 77
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret ResolveSyncConflict();  // argc: 2, index: 78
+    public unknown_ret ResolveSyncConflict(AppId_t nAppId, bool bAcceptLocalFiles);  // argc: 2, index: 78
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret SynchronizeApp();  // argc: 4, index: 79
+    public unknown_ret SynchronizeApp(AppId_t nAppId, bool bSyncClient, bool bSyncServer);  // argc: 4, index: 79
     public unknown_ret IsAppSyncInProgress(AppId_t appid);  // argc: 1, index: 80
     public unknown_ret RunAutoCloudOnAppLaunch(AppId_t appid);  // argc: 1, index: 81
     public unknown_ret RunAutoCloudOnAppExit(AppId_t appid);  // argc: 1, index: 82

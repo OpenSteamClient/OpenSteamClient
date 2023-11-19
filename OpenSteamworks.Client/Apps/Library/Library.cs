@@ -1,9 +1,12 @@
 using System.Text.Json;
+using OpenSteamworks.Client.Apps;
+using OpenSteamworks.Client.Config;
+using OpenSteamworks.Client.Managers;
 using OpenSteamworks.Client.Utils;
 using OpenSteamworks.NativeTypes;
 using OpenSteamworks.Structs;
 
-namespace OpenSteamworks.Client.Managers;
+namespace OpenSteamworks.Client.Apps.Library;
 
 /// <summary>
 /// The Library is responsible for telling you about the user's categories, and providing facilities to update the categories.

@@ -21,7 +21,6 @@ public class SteamService : IClientLifetime {
     private readonly SteamClient steamClient;
     private readonly InstallManager installManager;
     private readonly AdvancedConfig advancedConfig;
-    private readonly Backoff backoff;
     private readonly Logger logger;
 
     public SteamService(SteamClient steamClient, InstallManager installManager, AdvancedConfig advancedConfig) {
@@ -29,8 +28,6 @@ public class SteamService : IClientLifetime {
         this.steamClient = steamClient;
         this.installManager = installManager;
         this.advancedConfig = advancedConfig;
-        this.backoff = new Backoff(10);
-        this.backoff.OnFailedPermanently += OnFailedPermanently;
     }
 
     private void OnFailedPermanently(object? sender, EventArgs e) {
@@ -69,7 +66,6 @@ public class SteamService : IClientLifetime {
                     {
                         if (CurrentServiceHost.HasExited) {
                             logger.Error("steamserviced crashed! Restarting in 1s.");
-                            backoff.OnError();
                             System.Threading.Thread.Sleep(1000);
                             CurrentServiceHost.Start();
                         }
@@ -77,7 +73,6 @@ public class SteamService : IClientLifetime {
                     } while (!ShouldStop);
                     CurrentServiceHost.Kill();
                     WatcherThread = null;
-                    backoff.OnSuccess();
                 });
                 
                 WatcherThread.Start();

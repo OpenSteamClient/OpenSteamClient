@@ -193,8 +193,25 @@ public unsafe interface IClientUser
     public AppId_t IsInstallScriptRunning();  // argc: 0, index: 102
     public bool GetInstallScriptState(ref string pchDescription, UInt32 cchDescription, ref UInt32 punNumSteps, ref UInt32 punCurrStep);  // argc: 4, index: 103
     public unknown_ret StopInstallScript(AppId_t appid);  // argc: 1, index: 104
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret SpawnProcess(string lpApplicationName, string lpCommandLine, string lpCurrentDirectory, CGameID gameID, string pchGameName, UInt32 uUnk, UInt32 uUnk2, UInt32 uUnk3);  // argc: 9, index: 105
+    /// <summary>
+    /// Spawns a process with a given lpCommandLine. <br/>
+    /// Kind of similar to Windows's CreateProcess, but doesn't try to mutate the args dumbly (and is cross platform). <br/>
+    /// You can ignore passing in an lpApplicationName, and it will automatically infer it from lpCommandLine. <br/>
+    /// And CGameID is a pointer for some reason... <br/>
+    /// AND pchGameName needs to be specified manually. <br/>
+    /// AND we don't know the last three flags. <br/>
+    /// FiveM (the GTA mod) uses this internally, so we can copy them in certain cases. <br/>
+    /// </summary>
+    /// <param name="lpApplicationName"></param>
+    /// <param name="lpCommandLine"></param>
+    /// <param name="lpCurrentDirectory"></param>
+    /// <param name="gameID"></param>
+    /// <param name="pchGameName"></param>
+    /// <param name="uUnk"></param>
+    /// <param name="uUnk2"></param>
+    /// <param name="uUnk3"></param>
+    /// <returns></returns>
+    public unknown_ret SpawnProcess(string lpApplicationName, string lpCommandLine, string lpCurrentDirectory, ref CGameID pGameID, string pchGameName, UInt32 uUnk = 0, UInt32 uUnk2 = 0, UInt32 uUnk3 = 0);  // argc: 9, index: 105
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret GetAppOwnershipTicketLength(AppId_t app);  // argc: 1, index: 106
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
@@ -430,10 +447,9 @@ public unsafe interface IClientUser
     public unknown_ret UploadLocalClientLogs();  // argc: 0, index: 230
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret SetAsyncNotificationEnabled();  // argc: 2, index: 231
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret BIsOtherSessionPlaying();  // argc: 1, index: 232
-    public unknown_ret BKickOtherPlayingSession();  // argc: 0, index: 233
-    public unknown_ret BIsAccountLockedDown();  // argc: 0, index: 234
+    public bool BIsOtherSessionPlaying(UInt32* accountID);  // argc: 1, index: 232
+    public bool BKickOtherPlayingSession();  // argc: 0, index: 233
+    public bool BIsAccountLockedDown();  // argc: 0, index: 234
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret ClearAndSetAppTags();  // argc: 2, index: 235
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
@@ -470,7 +486,7 @@ public unsafe interface IClientUser
     [BlacklistedInCrossProcessIPC]
     public bool BGetAppTagsMap(CUtlMap<AppId_t, AppTags_t>* vec);  // argc: 1, index: 250
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret SendSteamServiceStatusUpdate();  // argc: 2, index: 251
+    public unknown_ret SendSteamServiceStatusUpdate(EResult unk1, ESteamServiceStatusUpdate unk2);  // argc: 2, index: 251
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret RequestSteamGroupChatMessageNotifications();  // argc: 5, index: 252
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
@@ -485,8 +501,7 @@ public unsafe interface IClientUser
     public unknown_ret OnReceivedGroupChatSubscriptionResponse();  // argc: 5, index: 257
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret GetTimedTrialStatus();  // argc: 4, index: 258
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret RequestTimedTrialStatus();  // argc: 1, index: 259
+    public unknown_ret RequestTimedTrialStatus(AppId_t appid);  // argc: 1, index: 259
     public unknown_ret PrepareForSystemSuspend();  // argc: 0, index: 260
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret ResumeSuspendedGames();  // argc: 1, index: 261

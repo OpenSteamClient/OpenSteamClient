@@ -47,6 +47,8 @@
                 <MenuItem Header="Quick switch language (English/Finnish)" Command="{Binding DBG_ChangeLanguage}"/>
                 <Separator/> 
                 <MenuItem Header="Launch factorio (linux x64 only)" Command="{Binding DBG_LaunchFactorio}"/>
+                <MenuItem Header="Launch CS2 (linux only)" Command="{Binding DBG_LaunchCS2}"/>
+                <MenuItem Header="Launch Spelunky 2" Command="{Binding DBG_LaunchSpel2}"/>
                 <Separator/>
                 <MenuItem Header="Crash" Command="{Binding DBG_Crash}"/>
             </MenuItem>

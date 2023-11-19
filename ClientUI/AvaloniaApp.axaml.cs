@@ -76,7 +76,7 @@ public class AvaloniaApp : Application
         Container.Get<LoginManager>().LoggedOff += (object sender, LoggedOffEventArgs e) =>
         {
             InvokeOnUIThread(() => {
-                if (e.Error != null && e.Error.Value != OpenSteamworks.Enums.EResult.k_EResultOK) {
+                if (e.Error != OpenSteamworks.Enums.EResult.k_EResultOK) {
                     // What can cause a sudden log off?
                     MessageBox.Show("Session terminated", "You were forcibly logged off with an error code: " + e.Error.ToString());
                 }

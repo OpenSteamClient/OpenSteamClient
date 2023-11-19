@@ -1,7 +1,8 @@
 using System.Diagnostics.CodeAnalysis;
+using OpenSteamworks.Client.Enums;
 using OpenSteamworks.Client.Utils;
 
-namespace OpenSteamworks.Client.Managers;
+namespace OpenSteamworks.Client.Apps.Library;
 
 public class Collection
 {

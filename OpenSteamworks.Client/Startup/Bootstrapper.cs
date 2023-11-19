@@ -275,10 +275,10 @@ public class Bootstrapper : IClientLifetime {
         logger.Info("Re-execing");
 
         if (withDebugger) {
-            SetEnvironmentVariableCorrectly("OPENSTEAM_REATTACH_DEBUGGER", "1");
+            UtilityFunctions.SetEnvironmentVariable("OPENSTEAM_REATTACH_DEBUGGER", "1");
         }
-        SetEnvironmentVariableCorrectly("OPENSTEAM_RAN_EXECVP", "1");
-        SetEnvironmentVariableCorrectly("LD_LIBRARY_PATH", $"{Path.Combine(installManager.InstallDir, "ubuntu12_64")}:{Path.Combine(installManager.InstallDir, "ubuntu12_32")}:{Path.Combine(installManager.InstallDir)}:{GetEnvironmentVariable("LD_LIBRARY_PATH")}");
+        UtilityFunctions.SetEnvironmentVariable("OPENSTEAM_RAN_EXECVP", "1");
+        UtilityFunctions.SetEnvironmentVariable("LD_LIBRARY_PATH", $"{Path.Combine(installManager.InstallDir, "ubuntu12_64")}:{Path.Combine(installManager.InstallDir, "ubuntu12_32")}:{Path.Combine(installManager.InstallDir)}:{GetEnvironmentVariable("LD_LIBRARY_PATH")}");
 
         string?[] fullArgs = Environment.GetCommandLineArgs();
 
@@ -302,24 +302,11 @@ public class Bootstrapper : IClientLifetime {
 
     // Sets environment variables necessary for steamclient to work properly.
     private void SetEnvsForSteamLoad() {
-       SetEnvironmentVariableCorrectly("SteamAppId", "");
+       UtilityFunctions.SetEnvironmentVariable("SteamAppId", "");
        // These two should point to the current running Steam's path. (We can set these later from post-steamclient load code)
-       SetEnvironmentVariableCorrectly("SteamPath", installManager.InstallDir);
-       SetEnvironmentVariableCorrectly("ValvePlatformMutex", installManager.InstallDir.ToLowerInvariant());
-       SetEnvironmentVariableCorrectly("BREAKPAD_DUMP_LOCATION", Path.Combine(installManager.InstallDir, "dumps"));
-    }
-
-    private void SetEnvironmentVariableCorrectly(string name, string value) {
-        if (OperatingSystem.IsWindows()) {
-            [DllImport("kernel32")]
-            static extern bool SetEnvironmentVariable([MarshalAs(UnmanagedType.LPUTF8Str)] string name, [MarshalAs(UnmanagedType.LPUTF8Str)] string value);
-            SetEnvironmentVariable(name, value);
-        } else {
-            [DllImport("libc")]
-            static extern int setenv([MarshalAs(UnmanagedType.LPUTF8Str)] string name, [MarshalAs(UnmanagedType.LPUTF8Str)] string value, int overwrite);
-            setenv(name, value, 1);
-            return;
-        }
+       UtilityFunctions.SetEnvironmentVariable("SteamPath", installManager.InstallDir);
+       UtilityFunctions.SetEnvironmentVariable("ValvePlatformMutex", installManager.InstallDir.ToLowerInvariant());
+       UtilityFunctions.SetEnvironmentVariable("BREAKPAD_DUMP_LOCATION", Path.Combine(installManager.InstallDir, "dumps"));
     }
     
     private bool VerifyFiles(IExtendedProgress<int> progressHandler, out IEnumerable<string> failureReason) {

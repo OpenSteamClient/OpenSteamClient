@@ -7,8 +7,9 @@ using OpenSteamworks.Client.Utils;
 using OpenSteamworks.Client.Utils.OSSpecific;
 using OpenSteamworks;
 using OpenSteamworks.Client.Utils.DI;
+using OpenSteamworks.Client.Managers;
 
-namespace OpenSteamworks.Client.Managers;
+namespace OpenSteamworks.Client.Config;
 
 public class ConfigManager : IClientLifetime
 {

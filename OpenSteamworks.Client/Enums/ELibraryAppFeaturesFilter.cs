@@ -1,4 +1,4 @@
-namespace OpenSteamworks.Client.Managers;
+namespace OpenSteamworks.Client.Enums;
 
 public enum ELibraryAppFeaturesFilter
 {

@@ -98,7 +98,7 @@ public class LoginUser {
     /// Whether this login should be/is remembered (token/cached credentials stored).
     /// </summary>
     public bool Remembered { get; set; } = false;
-    public CSteamID? SteamID { get; set; } = null;
+    public CSteamID SteamID { get; set; } = 0;
     public string AccountName { get; set; } = "";
     public bool AllowAutoLogin { get; set; } = true;
     public LoginUser() {}

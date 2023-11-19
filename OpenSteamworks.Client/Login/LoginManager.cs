@@ -29,9 +29,9 @@ public class LoggedOnEventArgs : EventArgs
 
 public class LoggedOffEventArgs : EventArgs
 {
-    public LoggedOffEventArgs(LoginUser user, EResult? error = null) { User = user; Error = error; }
+    public LoggedOffEventArgs(LoginUser user, EResult error) { User = user; Error = error; }
     public LoginUser User { get; } 
-    public EResult? Error { get; }
+    public EResult Error { get; }
 }
 
 public class LogOnFailedEventArgs : EventArgs
@@ -476,13 +476,13 @@ public class LoginManager : IClientLifetime
 
             loginProgress?.SetOperation("Logging on " + user.AccountName);
 
-            if (!user.SteamID.HasValue) {
-                logger.Error("SteamID is null!");
+            if (user.SteamID == 0) {
+                logger.Error("SteamID is 0!");
                 OnLogonFailed(new LogOnFailedEventArgs(user, EResult.k_EResultInvalidSteamID));
                 return;
             }
             
-            EResult beginLogonResult = steamClient.NativeClient.IClientUser.LogOn(user.SteamID.Value);
+            EResult beginLogonResult = steamClient.NativeClient.IClientUser.LogOn(user.SteamID);
             logger.Info("BeginLogon returned " + beginLogonResult);
             if (beginLogonResult != EResult.k_EResultOK) {
                 this.isLoggingOn = false;
@@ -571,7 +571,7 @@ public class LoginManager : IClientLifetime
             do
             {
                 Thread.Sleep(30);
-            } while (this.loginFinishResult == null);
+            } while (!this.loginFinishResult.HasValue);
             this.isLoggingOn = false;
             return this.loginFinishResult.Value;
         });

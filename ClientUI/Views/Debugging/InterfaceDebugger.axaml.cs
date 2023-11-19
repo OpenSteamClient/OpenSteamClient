@@ -127,15 +127,19 @@ public partial class InterfaceDebugger : Window
                 }
 
                 if (isStruct && !isCustomValueType) {
-                    // This is a struct, find string ctor and run it
-                    var ci = type.GetConstructor(new Type[1] {
+                    // This is a struct, find InterfaceDebuggerSupport and run it
+                    MethodInfo? ci;
+                    ci = type.GetMethod("InterfaceDebuggerSupport", BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.Public, new Type[1] {
                         typeof(string)
                     });
 
-                    UtilityFunctions.AssertNotNull(ci);
+                    if (ci != null)
+                    {
+                        paramArr.Add(ci.Invoke(null, new object[1] { paramCurrentText }));
+                        continue;
+                    }
 
-                    paramArr.Add(ci.Invoke(new object[1] { paramCurrentText }));
-                    continue;
+                    throw new NullReferenceException(type.Name + "doesn't take a string");
                 }
 
                 // Enums need special handling...

@@ -10,6 +10,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using OpenSteamworks;
 using OpenSteamworks.Callbacks.Structs;
 using OpenSteamworks.Client;
+using OpenSteamworks.Client.Apps;
 using OpenSteamworks.Client.Enums;
 using OpenSteamworks.Client.Managers;
 using OpenSteamworks.Client.Utils;
@@ -39,13 +40,16 @@ public partial class MainWindowViewModel : ViewModelBase
     private TranslationManager tm;
     private SteamClient client;
     private LoginManager loginManager;
-    public MainWindowViewModel(SteamClient client, TranslationManager tm, LoginManager loginManager, Action openSettingsWindowAction) {
+    private AppsManager appsManager;
+    
+    public MainWindowViewModel(SteamClient client, AppsManager appsManager, TranslationManager tm, LoginManager loginManager, Action openSettingsWindowAction) {
         this.client = client;
         this.tm = tm;
         this.loginManager = loginManager;
         this.ShowGoOffline = CanLogonOffline && !IsOfflineMode;
         this.ShowGoOnline = CanLogonOffline && IsOfflineMode;
         this.openSettingsWindow = openSettingsWindowAction;
+        this.appsManager = appsManager;
         this.CurrentPage = new LibraryPage() {
             DataContext = AvaloniaApp.Container.ConstructOnly<LibraryPageViewModel>()
         };
@@ -53,11 +57,19 @@ public partial class MainWindowViewModel : ViewModelBase
     public void DBG_Crash() {
         throw new Exception("test");
     }
+
     public void DBG_LaunchFactorio() {
-        var gameid = new CGameID(427520);
-        EAppUpdateError launchresult = client.NativeClient.IClientAppManager.LaunchApp(gameid, 3, 0, "");
-        MessageBox.Show("result", launchresult.ToString());
+        this.appsManager.LaunchApp(427520, 3, "gamemoderun %command%");
     }
+
+    public void DBG_LaunchCS2() {
+        this.appsManager.LaunchApp(730, 1, "gamemoderun %command% -dev -sdlaudiodriver pipewire");
+    }
+
+    public void DBG_LaunchSpel2() {
+        this.appsManager.LaunchApp(418530, 0, "gamemoderun %command%");
+    }
+
     public void DBG_OpenInterfaceList() => AvaloniaApp.Current?.OpenInterfaceList();
     public void DBG_ChangeLanguage() {
         // Very simple logic, just switches between english and finnish. 

@@ -17,6 +17,17 @@ public class Logger : ILogger {
 
     public string Name { get; set; } = "";
     public string? LogfilePath { get; init; } = null;
+
+    /// <summary>
+    /// If this logger is a sublogger, this is it's name.
+    /// </summary>
+    private string subLoggerName { get; set; } = "";
+
+    /// <summary>
+    /// If this logger is a sublogger, this is it's parent.
+    /// </summary>
+    private Logger? parentLogger { get; set; }
+
     // https://no-color.org/
     private bool disableColors = Environment.GetEnvironmentVariable("NO_COLOR") != null;
     private object logStreamLock = new();
@@ -42,24 +53,30 @@ public class Logger : ILogger {
             RunWindowsConsoleColorsHack();
         }
     }
-    
-    public void Message(Level level, string message) {
-        MessageInternal(level, message);
-    }
-    
-    public void Message(Level level, string message, string category) {
-        MessageInternal(level, message, category);
-    }
-    
-    public void Message(Level level, string message, params object?[] formatObjs) {
-        MessageInternal(level, string.Format(message, formatObjs));
-    }
 
-    public void Message(Level level, string message, string category, params object?[] formatObjs) {
-        MessageInternal(level, string.Format(message, formatObjs), category);
+    /// <summary>
+    /// Creates a sub-logger. Uses the logstream of the current logger, and sets subname as a category name for each print.
+    /// </summary>
+    /// <param name="subName"></param>
+    /// <returns></returns>
+    public Logger CreateSubLogger(string subName) {
+        var logger = new Logger("", "");
+        logger.subLoggerName = subName;
+        logger.parentLogger = this;
+        return logger;
     }
 
     private void MessageInternal(Level level, string message, string category = "") {
+        if (parentLogger != null) {
+            var actualCategory = this.subLoggerName;
+            if (!string.IsNullOrEmpty(category)) {
+                actualCategory += "/" + category;
+            }
+            
+            parentLogger.MessageInternal(level, message, actualCategory);
+            return;
+        }
+
         // welp. we can't just use the system's date format, but we also need to use the system's time at the same time, which won't include milliseconds and will always have AM/PM appended, even on 24-hour clocks. So use the better formatting system of dd/MM/yyyy and always use 24-hour time
         string formatted = string.Format("[{0} {1}{2}: {3}] {4}", DateTime.UtcNow.ToString("dd/MM/yyyy HH:mm:ss.ff"), this.Name, string.IsNullOrEmpty(category) ? "" : $"/{category}", level.ToString(), message);
         string ansiColorCode = "";
@@ -90,6 +107,22 @@ public class Logger : ILogger {
                 logStream.Flush();
             }
         }
+    }
+
+    public void Message(Level level, string message) {
+        MessageInternal(level, message);
+    }
+    
+    public void Message(Level level, string message, string category) {
+        MessageInternal(level, message, category);
+    }
+    
+    public void Message(Level level, string message, params object?[] formatObjs) {
+        MessageInternal(level, string.Format(message, formatObjs));
+    }
+
+    public void Message(Level level, string message, string category, params object?[] formatObjs) {
+        MessageInternal(level, string.Format(message, formatObjs), category);
     }
 
     public void Trace(string message) {

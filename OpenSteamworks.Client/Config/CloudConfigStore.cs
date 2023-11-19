@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Google.Protobuf;
 using Google.Protobuf.WellKnownTypes;
 using OpenSteamworks.Client.Enums;
+using OpenSteamworks.Client.Managers;
 using OpenSteamworks.Client.Utils;
 using OpenSteamworks.Client.Utils.DI;
 using OpenSteamworks.ClientInterfaces;
@@ -15,7 +16,7 @@ using OpenSteamworks.Messaging;
 using OpenSteamworks.Protobuf.WebUI;
 using OpenSteamworks.Structs;
 
-namespace OpenSteamworks.Client.Managers;
+namespace OpenSteamworks.Client.Config;
 
 public class NamespaceData {
     private readonly object dataLock = new();
@@ -263,7 +264,7 @@ public class CloudConfigStore : ILogonLifetime {
     /// If the namespace is currently loaded, it will be used instead of trying the internet and cache.
     /// </summary>
     public async Task<NamespaceData> GetNamespaceData(EUserConfigStoreNamespace @namespace) {
-        if (loginManager.CurrentUser == null || !loginManager.CurrentUser.SteamID.HasValue) {
+        if (loginManager.CurrentUser == null || loginManager.CurrentUser.SteamID == 0) {
             logger.Error("Cannot retrieve namespace data without a login.");
             throw new InvalidOperationException("Cannot retrieve namespace data without a login.");
         }
@@ -277,14 +278,14 @@ public class CloudConfigStore : ILogonLifetime {
 
         CCloudConfigStore_NamespaceData resp;
         NamespaceData nsData;
-        string filename = GetNamespaceFilename(loginManager.CurrentUser.SteamID.Value, @namespace);
-        string loggerName = "Namespace-N" + @namespace + "-U-" + loginManager.CurrentUser.SteamID.Value.GetAccountId();
+        string filename = GetNamespaceFilename(loginManager.CurrentUser.SteamID, @namespace);
+        string loggerName = "Namespace-N" + @namespace + "-U-" + loginManager.CurrentUser.SteamID.GetAccountId();
         if (loginManager.IsOffline()) {
             if (File.Exists(filename)) {
                 try {
                     byte[] bytes = await File.ReadAllBytesAsync(filename, default);
                     resp = CCloudConfigStore_NamespaceData.Parser.ParseFrom(bytes);
-                    nsData = new NamespaceData(resp, loginManager.CurrentUser.SteamID.Value, this.clientUtils, new Logger(loggerName, installManager.GetLogPath(loggerName.Replace('-', '_'))));
+                    nsData = new NamespaceData(resp, loginManager.CurrentUser.SteamID, this.clientUtils, new Logger(loggerName, installManager.GetLogPath(loggerName.Replace('-', '_'))));
                     loadedNamespaces.Add(nsData);
                     return nsData;
                 } catch (Exception e) {
@@ -299,7 +300,7 @@ public class CloudConfigStore : ILogonLifetime {
         }
 
         resp = await DownloadNamespace(@namespace);
-        nsData = new NamespaceData(resp, loginManager.CurrentUser.SteamID.Value, this.clientUtils, new Logger(loggerName, installManager.GetLogPath(loggerName.Replace('-', '_'))));
+        nsData = new NamespaceData(resp, loginManager.CurrentUser.SteamID, this.clientUtils, new Logger(loggerName, installManager.GetLogPath(loggerName.Replace('-', '_'))));
         loadedNamespaces.Add(nsData);
         await CacheNamespace(nsData);
         return nsData;

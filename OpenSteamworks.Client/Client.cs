@@ -9,6 +9,8 @@ using OpenSteamworks.Client.Config;
 using OpenSteamworks.Generated;
 using OpenSteamworks.ClientInterfaces;
 using OpenSteamworks.Client.Utils.DI;
+using OpenSteamworks.Client.Apps;
+using OpenSteamworks.Client.Apps.Library;
 
 namespace OpenSteamworks.Client;
 
@@ -80,6 +82,7 @@ public class Client : IClientLifetime
         container.ConstructAndRegister<LoginManager>();
         container.ConstructAndRegister<CloudConfigStore>();
         container.ConstructAndRegister<AppsManager>();
+        container.ConstructAndRegister<LibraryManager>();
         container.ConstructAndRegister<SteamHTML>();
         container.ConstructAndRegister<SteamService>();
     }

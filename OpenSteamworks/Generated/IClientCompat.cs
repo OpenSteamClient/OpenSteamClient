@@ -34,13 +34,9 @@ public unsafe interface IClientCompat
     [BlacklistedInCrossProcessIPC]
     public unknown_ret GetControllerConfigOverrides();  // argc: 1, index: 12
     public UInt64 StartSession(AppId_t appid);  // argc: 1, index: 13
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret ReleaseSession(AppId_t appid, UInt64 sessionid);  // argc: 3, index: 14
     public bool BIsLauncherServiceEnabled(AppId_t appid);  // argc: 1, index: 15
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret DeleteCompatData(AppId_t appid);  // argc: 1, index: 16
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret GetCompatibilityDataDiskSize(AppId_t appid);  // argc: 1, index: 17
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public bool BNeedsUnlockH264(AppId_t appid);  // argc: 1, index: 18
 }

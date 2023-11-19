@@ -1,4 +1,4 @@
-namespace OpenSteamworks.Client.Managers;
+namespace OpenSteamworks.Client.Apps.Library;
 
 public class JSONFilterSpec
 {

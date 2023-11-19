@@ -143,8 +143,7 @@ public unsafe interface IClientAppManager
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     [BlacklistedInCrossProcessIPC]
     public unknown_ret BGetLibraryFolderInfo();  // argc: 4, index: 81
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret GetAppLibraryFolder();  // argc: 1, index: 82
+    public LibraryFolder_t GetAppLibraryFolder(AppId_t appid);  // argc: 1, index: 82
     public unknown_ret RefreshLibraryFolders();  // argc: 0, index: 83
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret GetNumAppsInFolder();  // argc: 1, index: 84
