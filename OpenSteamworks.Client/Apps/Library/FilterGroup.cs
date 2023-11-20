@@ -1,5 +1,6 @@
 using System.Text.Json;
 using OpenSteamworks.Client.Utils;
+using OpenSteamworks.Utils;
 
 namespace OpenSteamworks.Client.Apps.Library;
 

@@ -18,6 +18,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Avalonia.Input;
 using OpenSteamworks.Client.Utils.DI;
+using OpenSteamworks.Utils;
 
 namespace ClientUI;
 

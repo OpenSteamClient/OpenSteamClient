@@ -1,4 +1,5 @@
 using System.Runtime.Versioning;
+using OpenSteamworks.Utils;
 
 namespace OpenSteamworks.Client.Utils.OSSpecific;
 
@@ -27,7 +28,7 @@ public class LinuxSpecifics : IOSSpecifics {
         string? path = Environment.GetEnvironmentVariable(varName);
         if (path == null) {
             var home = Environment.GetEnvironmentVariable("HOME");
-            Utils.UtilityFunctions.AssertNotNull(home);
+            UtilityFunctions.AssertNotNull(home);
             path = Path.Combine(home, defaultIfNotDefined);
         }
         path = Path.Combine(path, append);

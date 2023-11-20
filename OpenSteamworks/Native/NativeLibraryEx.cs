@@ -79,6 +79,20 @@ public class NativeLibraryEx {
         }
 
     }
+
+    private static nint? _libc;
+    [SupportedOSPlatform("linux")]
+    [SupportedOSPlatform("macos")]
+    public static nint Libc {
+        get {
+            if (_libc != null) {
+                return _libc.Value;
+            }
+            
+            _libc = NativeLibrary.Load("libc");
+            return _libc.Value;
+        }
+    }
     public string FileName { get; private set; }
     public IntPtr Handle { get; private set; }
     private Dictionary<IntPtr, byte[]> hookedFunctions = new();

@@ -58,16 +58,16 @@ public partial class MainWindowViewModel : ViewModelBase
         throw new Exception("test");
     }
 
-    public void DBG_LaunchFactorio() {
-        this.appsManager.LaunchApp(427520, 3, "gamemoderun %command%");
+    public async void DBG_LaunchFactorio() {
+        await this.appsManager.LaunchApp(427520, 3, "gamemoderun %command%");
     }
 
-    public void DBG_LaunchCS2() {
-        this.appsManager.LaunchApp(730, 1, "gamemoderun %command% -dev -sdlaudiodriver pipewire");
+    public async void DBG_LaunchCS2() {
+        await this.appsManager.LaunchApp(730, 1, "gamemoderun %command% -dev -sdlaudiodriver pipewire");
     }
 
-    public void DBG_LaunchSpel2() {
-        this.appsManager.LaunchApp(418530, 0, "gamemoderun %command%");
+    public async void DBG_LaunchSpel2() {
+        await this.appsManager.LaunchApp(418530, 0, "gamemoderun %command%");
     }
 
     public void DBG_OpenInterfaceList() => AvaloniaApp.Current?.OpenInterfaceList();

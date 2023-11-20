@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
+using System.Text;
 using Avalonia.Controls;
 using Avalonia.VisualTree;
 using ClientUI.Extensions;
@@ -11,6 +12,7 @@ using OpenSteamworks;
 using OpenSteamworks.Attributes;
 using OpenSteamworks.Client;
 using OpenSteamworks.Client.Utils;
+using OpenSteamworks.Utils;
 
 namespace ClientUI.Views;
 
@@ -81,21 +83,20 @@ public partial class InterfaceDebugger : Window
         for (int i = 0; i < paramInfos.Length; i++)
         {
             var paramInfo = paramInfos[i];
+            ParameterInfo? nextParamInfo = null;
+            if (i+1 < paramInfos.Length) {
+                nextParamInfo = paramInfos[i+1];
+            }
+
             var paramIdentifier = funcidentifier + "_Arg" + i;
+            var nextParamIdentifier = funcidentifier + "_Arg" + (i+1);
             Console.WriteLine("trying to find " + paramIdentifier);
+            Console.WriteLine("next identifier" + nextParamIdentifier);
             var paramTextbox = this.FindControlNested<TextBox>(paramIdentifier);
+            var nextParamTextbox = this.FindControlNested<TextBox>(nextParamIdentifier);
             UtilityFunctions.AssertNotNull(paramTextbox);
 
             var paramCurrentText = paramTextbox.Text;
-           
-            if (string.IsNullOrEmpty(paramCurrentText)) {
-                if (paramInfo.ParameterType == typeof(string)) {
-                    paramCurrentText = "";
-                } else {
-                    MessageBox.Error("Function execution failed", "Failed to execute " + funcidentifier + "\n" + "Required argument " + paramInfo.Name + " missing!");
-                    return;
-                }
-            }
 
             try {
                 bool isStruct = false;
@@ -107,6 +108,17 @@ public partial class InterfaceDebugger : Window
                 }
                 
                 Type type = paramInfo.ParameterType.IsByRef ? paramInfo.ParameterType.GetElementType()! : paramInfo.ParameterType;
+
+                if (string.IsNullOrEmpty(paramCurrentText)) {
+                    if (type == typeof(string) || type == typeof(StringBuilder)) {
+                        paramCurrentText = "";
+                    } else {
+                        MessageBox.Error("Function execution failed", "Failed to execute " + funcidentifier + "\n" + "Required argument " + paramInfo.Name + " missing!");
+                        return;
+                    }
+                }
+
+
                 if (paramInfo.IsOut || paramInfo.ParameterType.IsByRef) {
                     refParams.Add(paramArr.Count, paramInfo);
                 }
@@ -140,6 +152,14 @@ public partial class InterfaceDebugger : Window
                     }
 
                     throw new NullReferenceException(type.Name + "doesn't take a string");
+                }
+
+                if (type == typeof(StringBuilder)) {
+                    UtilityFunctions.AssertNotNull(nextParamTextbox);
+                    UtilityFunctions.AssertNotNull(nextParamTextbox.Text);
+                    refParams.Add(paramArr.Count, paramInfo);
+                    paramArr.Add(new StringBuilder(int.Parse(nextParamTextbox.Text)));
+                    continue;
                 }
 
                 // Enums need special handling...

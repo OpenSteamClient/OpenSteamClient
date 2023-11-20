@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using Avalonia.Controls;
 using CommunityToolkit.Mvvm.Input;
+using OpenSteamworks.Utils;
 
 namespace ClientUI.Views;
 
@@ -15,14 +16,14 @@ public partial class InterfaceList : Window
     {
         InitializeComponent();
         var stackpanel2 = this.FindControl<StackPanel>("StackPanel");
-        OpenSteamworks.Client.Utils.UtilityFunctions.AssertNotNull(stackpanel2);
+        UtilityFunctions.AssertNotNull(stackpanel2);
         stackpanel = stackpanel2;
 
         var jit = GetAssemblyByName("OpenSteamworksJIT");
         var osw = GetAssemblyByName("OpenSteamworks");
 
-        OpenSteamworks.Client.Utils.UtilityFunctions.AssertNotNull(osw);
-        OpenSteamworks.Client.Utils.UtilityFunctions.AssertNotNull(jit);
+        UtilityFunctions.AssertNotNull(osw);
+        UtilityFunctions.AssertNotNull(jit);
 
         var validInterfaces = osw.GetTypes().Where(type => (type.Name.StartsWith("IClient") || type.Name.StartsWith("ISteam")) && type.IsInterface);
         List<Button> buttons = new();
@@ -68,7 +69,7 @@ public partial class InterfaceList : Window
         } while (i < buttons.Count);
     }
     public void ButtonClicked(string? interfacename) {
-        OpenSteamworks.Client.Utils.UtilityFunctions.AssertNotNull(interfacename);
+        UtilityFunctions.AssertNotNull(interfacename);
         Type iface = knownInterfaces[interfacename];
         var debugger = new InterfaceDebugger(iface);
         debugger.Show();

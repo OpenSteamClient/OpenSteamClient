@@ -5,6 +5,7 @@ using OpenSteamworks.Client.Managers;
 using OpenSteamworks.Client.Utils;
 using OpenSteamworks.NativeTypes;
 using OpenSteamworks.Structs;
+using OpenSteamworks.Utils;
 
 namespace OpenSteamworks.Client.Apps.Library;
 

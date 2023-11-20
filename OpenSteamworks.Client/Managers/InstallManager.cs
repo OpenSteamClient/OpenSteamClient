@@ -2,6 +2,7 @@ using System.Reflection;
 using System.Runtime.Versioning;
 using OpenSteamworks.Client.Utils;
 using OpenSteamworks.Client.Utils.OSSpecific;
+using OpenSteamworks.Utils;
 
 namespace OpenSteamworks.Client.Managers;
 

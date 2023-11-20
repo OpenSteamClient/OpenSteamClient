@@ -16,6 +16,7 @@ using OpenSteamworks.Client.Managers;
 using System.Runtime.InteropServices;
 using OpenSteamworks.Client.Config;
 using OpenSteamworks.Client.Utils.DI;
+using OpenSteamworks.Utils;
 
 namespace OpenSteamworks.Client.Startup;
 
@@ -682,7 +683,7 @@ public class Bootstrapper : IClientLifetime {
         if (assemblyFolder == null) {
             throw new Exception("assemblyFolder is null.");
         }
-        string platformStr = Utils.UtilityFunctions.GetPlatformString();
+        string platformStr = UtilityFunctions.GetPlatformString();
         string baseNativesFolder = Path.Combine(assemblyFolder, "Natives");
         string nativesFolder = Path.Combine(baseNativesFolder, platformStr);
         if (!Directory.Exists(nativesFolder)) {

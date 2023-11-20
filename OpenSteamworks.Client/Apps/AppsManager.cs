@@ -127,7 +127,7 @@ public class AppsManager : ILogonLifetime
     /// </summary>
     public string GetBetaForApp(AppId_t appid) {
         StringBuilder betaName = new(256);
-        steamClient.NativeClient.IClientAppManager.GetActiveBeta(appid, betaName, betaName.Length);
+        steamClient.NativeClient.IClientAppManager.GetActiveBeta(appid, betaName, betaName.Capacity);
         return betaName.ToString();
     }
 
@@ -293,16 +293,32 @@ public class AppsManager : ILogonLifetime
         //TODO: synchronize controller config (how?)
         //TODO: handle site licenses
 
+        if (gameid.IsMod()) {
+            //TODO: where to get sourcemod path?
+            commandLine += " -game sourcemodpathhere";
+        }
+
         logger.Info("Built launch command line: " + commandLine);
         logger.Info("Creating process");
         using (var vars = new TemporaryEnvVars())
         {
             //TODO: set correct env vars here for proton games to work
+            // Valid vars: STEAM_GAME_LAUNCH_SHELL STEAM_RUNTIME_LIBRARY_PATH STEAM_COMPAT_FLAGS SYSTEM_PATH SYSTEM_LD_LIBRARY_PATH SUPPRESS_STEAM_OVERLAY STEAM_CLIENT_CONFIG_FILE SteamRealm SteamLauncherUI
             vars.SetEnvironmentVariable("SteamAppId", appid.ToString());
+            vars.SetEnvironmentVariable("AppId", appid.ToString());
+            vars.SetEnvironmentVariable("SteamLauncherUI", "clientui");
             vars.SetEnvironmentVariable("STEAM_COMPAT_CLIENT_INSTALL_PATH", installManager.InstallDir);
+            this.steamClient.NativeClient.IClientUtils.SetLastGameLaunchMethod(0);  
             StringBuilder libraryFolder = new(1024);
-            this.steamClient.NativeClient.IClientAppManager.GetLibraryFolderPath(this.steamClient.NativeClient.IClientAppManager.GetAppLibraryFolder(appid), libraryFolder, libraryFolder.Length);
-            vars.SetEnvironmentVariable("STEAM_COMPAT_DATA_PATH", Path.Combine(libraryFolder.ToString(), "compatdata", appid.ToString()));
+            this.steamClient.NativeClient.IClientAppManager.GetLibraryFolderPath(this.steamClient.NativeClient.IClientAppManager.GetAppLibraryFolder(appid), libraryFolder, libraryFolder.Capacity);
+            logger.Info("Appid " + appid + " is installed into library folder " + this.steamClient.NativeClient.IClientAppManager.GetAppLibraryFolder(appid) + " with path " + libraryFolder);
+            vars.SetEnvironmentVariable("STEAM_COMPAT_DATA_PATH", Path.Combine(libraryFolder.ToString(), "steamapps", "compatdata", appid.ToString()));
+            
+            logger.Info("Vars for launch: ");
+            foreach (var item in UtilityFunctions.GetEnvironmentVariables())
+            {
+                logger.Info(item.Key + "=" + item.Value);
+            }
 
             this.steamClient.NativeClient.IClientUser.SpawnProcess("", commandLine, gameInstallDir.ToString(), ref gameid, gameName.ToString());
         }

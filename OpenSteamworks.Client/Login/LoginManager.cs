@@ -18,6 +18,7 @@ using System.Security.Cryptography;
 using System.Text;
 using static OpenSteamworks.Callbacks.CallbackManager;
 using OpenSteamworks.Client.Utils.DI;
+using OpenSteamworks.Utils;
 
 namespace OpenSteamworks.Client.Managers;
 

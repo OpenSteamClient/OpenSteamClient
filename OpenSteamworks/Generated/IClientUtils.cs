@@ -89,8 +89,11 @@ public unsafe interface IClientUtils
     public unknown_ret SetFocusedWindow();  // argc: 4, index: 46
     public unknown_ret GetSteamUILanguage();  // argc: 0, index: 47
     public unknown_ret CheckSteamReachable();  // argc: 0, index: 48
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    public unknown_ret SetLastGameLaunchMethod();  // argc: 1, index: 49
+    /// <summary>
+    /// TODO: What does this do?
+    /// </summary>
+    /// <param name="launchmethod"></param>
+    public void SetLastGameLaunchMethod(int launchmethod);  // argc: 1, index: 49
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     public unknown_ret SetVideoAdapterInfo();  // argc: 7, index: 50
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!

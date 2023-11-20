@@ -16,6 +16,7 @@ using OpenSteamworks.Client.Managers;
 using OpenSteamworks.Client.Utils.DI;
 using OpenSteamworks.Enums;
 using OpenSteamworks.Generated;
+using OpenSteamworks.Utils;
 
 namespace ClientUI.Translation;
 
@@ -71,14 +72,16 @@ public class TranslationManager : IClientLifetime {
         }
 
         string fullPath = Path.Combine(installManager.AssemblyDirectory, "Translations", filename+".json");
-        return OpenSteamworks.Client.Utils.UtilityFunctions.AssertNotNull(JsonSerializer.Deserialize<Translation>(File.ReadAllText(fullPath)));
+        return UtilityFunctions.AssertNotNull(JsonSerializer.Deserialize<Translation>(File.ReadAllText(fullPath)));
     } 
+
     public void TranslateVisual(Visual visual) {
         foreach (var vis in visual.GetAllVisualChildrenTree())
         {
             TranslateAvaloniaObject(vis);
         }
     }
+    
     public void TranslateTrayIcon(TrayIcon icon) {
         List<AvaloniaObject> objs = new()
         {

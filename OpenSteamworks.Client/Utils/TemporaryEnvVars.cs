@@ -1,3 +1,6 @@
+using System.Text;
+using OpenSteamworks.Utils;
+
 namespace OpenSteamworks.Client.Utils;
 
 public class TemporaryEnvVars : IDisposable
@@ -15,5 +18,16 @@ public class TemporaryEnvVars : IDisposable
         string? prevValue = UtilityFunctions.GetEnvironmentVariable(variable);
         ChangedVars[variable] = prevValue;
         UtilityFunctions.SetEnvironmentVariable(variable, value);
+    }
+
+    public override string ToString()
+    {
+        StringBuilder builder = new();
+        foreach (var item in ChangedVars)
+        {
+            builder.Append(item.Key + "='" + UtilityFunctions.GetEnvironmentVariable(item.Key) + "' ");
+        }
+
+        return builder.ToString();
     }
 }
