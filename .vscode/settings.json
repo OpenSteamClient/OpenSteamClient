@@ -12,5 +12,6 @@
         "launch": { "visibility": "hidden" },
         "launchTarget": { "visibility": "hidden" },
         "status": { "visibility": "hidden" }
-    }
+    },
+    "dotnet.defaultSolution": "OpenSteamClient.sln"
 }

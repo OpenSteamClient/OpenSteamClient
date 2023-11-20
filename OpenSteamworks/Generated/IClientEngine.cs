@@ -131,7 +131,19 @@ public unsafe interface IClientEngine {
 	public IClientRemotePlay GetIClientRemotePlay(HSteamUser hSteamUser, HSteamPipe hSteamPipe);
     public void Destructor1();
 	public void Destructor2();
-	public long GetSomeValue();
-    public void PrintSAPIWarn(string msg);
+	/// <summary>
+	/// What is the format of the data here?
+	/// </summary>
+	/// <returns></returns>
+	public void* GetIPCServerMap();
+    public void OnDebugTextArrived(string msg);
+	/// <summary>
+	/// Unsure if this exists
+	/// </summary>
+	public unknown_ret OnThreadLocalRegistration();
 
+	/// <summary>
+	/// Unsure if this exists
+	/// </summary>
+    public unknown_ret OnThreadBuffersOverLimit();
 }
