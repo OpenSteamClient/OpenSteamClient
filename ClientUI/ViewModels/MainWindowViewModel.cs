@@ -67,7 +67,7 @@ public partial class MainWindowViewModel : ViewModelBase
     }
 
     public async void DBG_LaunchSpel2() {
-        await this.appsManager.LaunchApp(418530, 0, "gamemoderun %command%");
+        await this.appsManager.LaunchApp(418530, 0, "");
     }
 
     public void DBG_OpenInterfaceList() => AvaloniaApp.Current?.OpenInterfaceList();

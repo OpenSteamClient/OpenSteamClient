@@ -196,7 +196,18 @@ public static class UtilityFunctions {
 
         } else if (OperatingSystem.IsLinux() || OperatingSystem.IsMacOS()) {
             // And this is terrible. Why does the runtime fake environment variables on Linux????
-            IntPtr environ = NativeLibrary.GetExport(NativeLibraryEx.Libc, "environ");
+
+            //TODO: the below code doesn't work (for some reason)
+            // [DllImport("libc", SetLastError = true)]
+            // static extern void* dlsym(void* handle, string symbol);
+
+            // IntPtr environ = (IntPtr)dlsym((void*)0, "environ");
+
+            // So we resort to using dotnet's internal API. This is bad and could break at any time.
+            [DllImport("libSystem.Native.so", EntryPoint = "SystemNative_GetEnviron")]
+            static extern IntPtr SystemNative_GetEnviron();
+
+            var environ = SystemNative_GetEnviron();
             if (environ == IntPtr.Zero) {
                 throw new Exception("Environ is null");
             }

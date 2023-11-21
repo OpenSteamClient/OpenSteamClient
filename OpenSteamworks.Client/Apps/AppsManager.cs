@@ -53,12 +53,14 @@ public class AppsManager : ILogonLifetime
     private ClientMessaging clientMessaging;
     private Logger logger;
     private InstallManager installManager;
+    private LoginManager loginManager;
 
     public EventHandler<AppPlaytimeChangedEventArgs>? AppPlaytimeChanged;
     public EventHandler<AppLastPlayedChangedEventArgs>? AppLastPlayedChanged;
 
-    public AppsManager(SteamClient steamClient, ClientMessaging clientMessaging, InstallManager installManager) {
+    public AppsManager(SteamClient steamClient, ClientMessaging clientMessaging, InstallManager installManager, LoginManager loginManager) {
         this.logger = new Logger("AppsManager", installManager.GetLogPath("AppsManager"));
+        this.loginManager = loginManager;
         this.steamClient = steamClient;
         this.clientMessaging = clientMessaging;
         this.installManager = installManager;
@@ -172,12 +174,11 @@ public class AppsManager : ILogonLifetime
     }
 
     public async Task<EResult> LaunchApp(AppId_t appid, int launchOption, string userLaunchOptions) {
-        //TODO: make this actually async, not spaghetti, use compatmanager, add validation, test on windows, fix spelunky 2 not launching, maybe other issues
+        //TODO: make this actually async, not spaghetti, use compatmanager, use app class, add validation, test on windows, create a better keyvalue system with arrays, maybe other issues
         CGameID gameid = new(appid);
         var logger = this.logger.CreateSubLogger("LaunchApp");
 
-        // if (app.config.CheckForUpdatesBeforeLaunch)
-        if (true) {
+        if (app.config.CheckForUpdatesBeforeLaunch) {
             logger.Info("Updating app info (due to CheckForUpdatesBeforeLaunch)");
             await this.RequestAppInfoUpdateForApp(appid);
         }
@@ -205,13 +206,7 @@ public class AppsManager : ILogonLifetime
 
         string commandLine = "";
 
-        if (OperatingSystem.IsLinux()) {
-            string steamToolsPath = Path.Combine(this.installManager.InstallDir, "linux64");
-
-            // This is the base command line. It seems to always be used for all games, regardless of if you have compat tools enabled or not.
-            commandLine = $"{steamToolsPath}/reaper SteamLaunch AppId={appid} -- {steamToolsPath}/steam-launch-wrapper -- ";
-        }
-
+        // First fill compat tools
         if (this.steamClient.NativeClient.IClientCompat.BIsCompatLayerEnabled() && this.steamClient.NativeClient.IClientCompat.BIsCompatibilityToolEnabled(appid))
         {
             //TODO: how to handle "selected by valve testing" tools (like for csgo)
@@ -279,6 +274,14 @@ public class AppsManager : ILogonLifetime
             }
         }
 
+        // Then prefix with reaper, launchwrapper
+        if (OperatingSystem.IsLinux()) {
+            string steamToolsPath = Path.Combine(this.installManager.InstallDir, "linux64");
+
+            // This is the base command line. It seems to always be used for all games, regardless of if you have compat tools enabled or not.
+            commandLine = $"{steamToolsPath}/reaper SteamLaunch AppId={appid} -- {steamToolsPath}/steam-launch-wrapper -- " + commandLine;
+        }
+
         //TODO: does windows use x86launcher.exe or x64launcher.exe?
 
         commandLine += $"'{gameInstallDir}/{launchOptionExe}' {launchOptionCommandLine}";
@@ -302,11 +305,16 @@ public class AppsManager : ILogonLifetime
         logger.Info("Creating process");
         using (var vars = new TemporaryEnvVars())
         {
-            //TODO: set correct env vars here for proton games to work
+            // Do we really need all these vars?
             // Valid vars: STEAM_GAME_LAUNCH_SHELL STEAM_RUNTIME_LIBRARY_PATH STEAM_COMPAT_FLAGS SYSTEM_PATH SYSTEM_LD_LIBRARY_PATH SUPPRESS_STEAM_OVERLAY STEAM_CLIENT_CONFIG_FILE SteamRealm SteamLauncherUI
+            vars.SetEnvironmentVariable("SteamAppUser", this.loginManager.CurrentUser!.AccountName);
             vars.SetEnvironmentVariable("SteamAppId", appid.ToString());
+            vars.SetEnvironmentVariable("SteamGameId", ((ulong)gameid).ToString());
+            vars.SetEnvironmentVariable("SteamClientLaunch", "1");
+            vars.SetEnvironmentVariable("SteamClientService", "127.0.0.1:57344");
             vars.SetEnvironmentVariable("AppId", appid.ToString());
             vars.SetEnvironmentVariable("SteamLauncherUI", "clientui");
+            vars.SetEnvironmentVariable("PROTON_LOG", "1");
             vars.SetEnvironmentVariable("STEAM_COMPAT_CLIENT_INSTALL_PATH", installManager.InstallDir);
             this.steamClient.NativeClient.IClientUtils.SetLastGameLaunchMethod(0);  
             StringBuilder libraryFolder = new(1024);
