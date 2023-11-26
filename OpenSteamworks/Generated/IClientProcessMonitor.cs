@@ -12,14 +12,14 @@ namespace OpenSteamworks.Generated;
 
 public unsafe interface IClientProcessMonitor
 {
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    // WARNING: Arguments are unknown!
     public unknown_ret RegisterProcess();  // argc: 1, index: 1
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    // WARNING: Arguments are unknown!
     public unknown_ret UnregisterProcess();  // argc: 1, index: 2
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    // WARNING: Arguments are unknown!
     public unknown_ret TerminateProcess();  // argc: 2, index: 3
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    // WARNING: Arguments are unknown!
     public unknown_ret SuspendProcess();  // argc: 1, index: 4
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    // WARNING: Arguments are unknown!
     public unknown_ret ResumeProcess();  // argc: 1, index: 5
 }

@@ -12,14 +12,14 @@ namespace OpenSteamworks.Generated;
 
 public unsafe interface IClientGameNotifications
 {
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    // WARNING: Arguments are unknown!
     public unknown_ret EnumerateNotifications();  // argc: 1, index: 1
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    // WARNING: Arguments are unknown!
     public unknown_ret GetNotificationCount();  // argc: 1, index: 2
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    // WARNING: Arguments are unknown!
     public unknown_ret GetNotification();  // argc: 3, index: 3
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    // WARNING: Arguments are unknown!
     public unknown_ret RemoveSession();  // argc: 3, index: 4
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    // WARNING: Arguments are unknown!
     public unknown_ret UpdateSession();  // argc: 3, index: 5
 }

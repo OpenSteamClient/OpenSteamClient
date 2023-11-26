@@ -20,7 +20,7 @@ public class LibraryManager : ILogonLifetime
     internal static Library? currentUserLibrary;
 
     public LibraryManager(SteamClient steamClient, CloudConfigStore cloudConfigStore, ClientMessaging clientMessaging, LoginManager loginManager, InstallManager installManager, AppsManager appsManager) {
-        this.logger = new Logger("LibraryManager", installManager.GetLogPath("LibraryManager"));
+        this.logger = Logger.GetLogger("LibraryManager", installManager.GetLogPath("LibraryManager"));
         this.installManager = installManager;
         this.steamClient = steamClient;
         this.loginManager = loginManager;

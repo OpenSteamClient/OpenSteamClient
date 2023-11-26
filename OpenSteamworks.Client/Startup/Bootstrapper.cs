@@ -92,7 +92,7 @@ public class Bootstrapper : IClientLifetime {
     private readonly Logger logger;
 
     public Bootstrapper(InstallManager installManager, BootstrapperState bootstrapperState) {
-        this.logger = new Logger("Bootstrapper", installManager.GetLogPath("Bootstrapper"));
+        this.logger = Logger.GetLogger("Bootstrapper", installManager.GetLogPath("Bootstrapper"));
         this.installManager = installManager;
         this.bootstrapperState = bootstrapperState;
     }

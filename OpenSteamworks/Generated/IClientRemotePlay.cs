@@ -13,18 +13,18 @@ namespace OpenSteamworks.Generated;
 public unsafe interface IClientRemotePlay
 {
     public unknown_ret GetSessionCount();  // argc: 0, index: 1
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    // WARNING: Arguments are unknown!
     public unknown_ret GetSessionID();  // argc: 1, index: 2
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    // WARNING: Arguments are unknown!
     public unknown_ret GetSessionSteamID();  // argc: 2, index: 3
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    // WARNING: Arguments are unknown!
     public unknown_ret GetSessionClientName();  // argc: 1, index: 4
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    // WARNING: Arguments are unknown!
     public unknown_ret GetSessionClientFormFactor();  // argc: 1, index: 5
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    // WARNING: Arguments are unknown!
     public unknown_ret BGetSessionClientResolution();  // argc: 3, index: 6
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    // WARNING: Arguments are unknown!
     public unknown_ret BStartRemotePlayTogether();  // argc: 1, index: 7
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    // WARNING: Arguments are unknown!
     public unknown_ret BSendRemotePlayTogetherInvite();  // argc: 2, index: 8
 }

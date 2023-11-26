@@ -12,7 +12,7 @@ namespace OpenSteamworks.Generated;
 
 public unsafe interface IClientStreamLauncher
 {
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    // WARNING: Arguments are unknown!
     public unknown_ret StartStreaming();  // argc: 1, index: 1
     public unknown_ret StopStreaming();  // argc: 0, index: 2
 }

@@ -19,7 +19,7 @@ public class Container
     //TODO: constructor argument shenanigans are bad. How to make this less terrible while keeping logging immediate?
     public Container(InstallManager installManager)
     {
-        this.logger = new Logger("Container", installManager.GetLogPath("Container"));
+        this.logger = Logger.GetLogger("Container", installManager.GetLogPath("Container"));
         this.RegisterInstance(installManager);
         this.RegisterInstance(this);
     }

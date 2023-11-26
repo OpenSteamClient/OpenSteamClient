@@ -13,20 +13,20 @@ namespace OpenSteamworks.Generated;
 public unsafe interface IClientBluetoothManager
 {
     public unknown_ret IsInterfaceValid();  // argc: 0, index: 1
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    // WARNING: Arguments are unknown!
     public unknown_ret GetBluetoothDevicesData();  // argc: 1, index: 2
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    // WARNING: Arguments are unknown!
     public unknown_ret SetEnabled();  // argc: 1, index: 3
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    // WARNING: Arguments are unknown!
     public unknown_ret SetDiscovering();  // argc: 2, index: 4
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    // WARNING: Arguments are unknown!
     public unknown_ret Pair();  // argc: 2, index: 5
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    // WARNING: Arguments are unknown!
     public unknown_ret CancelPairing();  // argc: 2, index: 6
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    // WARNING: Arguments are unknown!
     public unknown_ret UnPair();  // argc: 2, index: 7
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    // WARNING: Arguments are unknown!
     public unknown_ret Connect();  // argc: 2, index: 8
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    // WARNING: Arguments are unknown!
     public unknown_ret Disconnect();  // argc: 2, index: 9
 }

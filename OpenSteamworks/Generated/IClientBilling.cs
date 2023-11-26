@@ -12,18 +12,18 @@ namespace OpenSteamworks.Generated;
 
 public unsafe interface IClientBilling
 {
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    // WARNING: Arguments are unknown!
     public unknown_ret PurchaseWithActivationCode();  // argc: 1, index: 1
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    // WARNING: Arguments are unknown!
     public unknown_ret HasActiveLicense();  // argc: 1, index: 2
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    // WARNING: Arguments are unknown!
     public unknown_ret GetLicenseInfo();  // argc: 9, index: 3
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    // WARNING: Arguments are unknown!
     public unknown_ret EnableTestLicense();  // argc: 1, index: 4
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    // WARNING: Arguments are unknown!
     public unknown_ret DisableTestLicense();  // argc: 1, index: 5
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    // WARNING: Arguments are unknown!
     public unknown_ret GetAppsInPackage();  // argc: 3, index: 6
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    // WARNING: Arguments are unknown!
     public unknown_ret RequestFreeLicenseForApps();  // argc: 2, index: 7
 }

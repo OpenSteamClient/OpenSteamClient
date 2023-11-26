@@ -32,11 +32,13 @@ public class Logger : ILogger {
     private bool disableColors = Environment.GetEnvironmentVariable("NO_COLOR") != null;
     private object logStreamLock = new();
     private FileStream? logStream;
+    private static List<Logger> loggers = new();
 
-    public Logger(string name, string? filepath = "") {
+    private Logger(string name, string? filepath = "") {
         this.Name = name;
         this.LogfilePath = filepath;
-
+        
+        loggers.Add(this);
         if (!string.IsNullOrEmpty(filepath)) {
             if (File.Exists(filepath)) {
                 // Delete if over 4MB
@@ -45,13 +47,24 @@ public class Logger : ILogger {
                     fi.Delete();
                 }
             }
-            logStream = File.Open(filepath, FileMode.OpenOrCreate, FileAccess.Write, FileShare.Read);
+            logStream = File.Open(filepath, FileMode.OpenOrCreate, FileAccess.Write, FileShare.ReadWrite);
             logStream.Seek(logStream.Length, SeekOrigin.Begin);
         }
         
         if (!hasRanWindowsHack && OperatingSystem.IsWindows()) {
             RunWindowsConsoleColorsHack();
         }
+    }
+
+    public static Logger GetLogger(string name, string? filepath = "") {
+        foreach (var item in loggers)
+        {
+            if (item.Name == name && item.LogfilePath == filepath) {
+                return item;
+            }
+        }
+
+        return new Logger(name, filepath);
     }
 
     /// <summary>
@@ -231,6 +244,10 @@ public class Logger : ILogger {
 
     public void Fatal(Exception e) {
         this.Message(Level.FATAL, e.ToString());
+    }
+
+    ~Logger() {
+        loggers.Remove(this);
     }
 
     private bool hasRanWindowsHack = false;

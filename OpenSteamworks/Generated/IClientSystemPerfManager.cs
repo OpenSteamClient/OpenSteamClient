@@ -13,10 +13,10 @@ namespace OpenSteamworks.Generated;
 public unsafe interface IClientSystemPerfManager
 {
     public unknown_ret IsInterfaceValid();  // argc: 0, index: 1
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    // WARNING: Arguments are unknown!
     public unknown_ret GetDiagnosticInfo();  // argc: 1, index: 2
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    // WARNING: Arguments are unknown!
     public unknown_ret GetState();  // argc: 1, index: 3
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    // WARNING: Arguments are unknown!
     public unknown_ret UpdateSettings();  // argc: 1, index: 4
 }

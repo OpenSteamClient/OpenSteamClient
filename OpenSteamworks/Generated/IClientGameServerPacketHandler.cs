@@ -12,8 +12,8 @@ namespace OpenSteamworks.Generated;
 
 public unsafe interface IClientGameServerPacketHandler
 {
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    // WARNING: Arguments are unknown!
     public unknown_ret HandleIncomingPacket();  // argc: 4, index: 1
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    // WARNING: Arguments are unknown!
     public unknown_ret GetNextOutgoingPacket();  // argc: 4, index: 2
 }

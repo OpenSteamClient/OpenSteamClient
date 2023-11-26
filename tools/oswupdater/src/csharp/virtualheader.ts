@@ -209,7 +209,7 @@ export class VirtualHeader {
             }
 
             const unknownBehaviourWarning = "// WARNING: Do not use this function! Unknown behaviour will occur!";
-            const argcCountNotMatchWarning = "// WARNING: Argument count doesn't match argc! Remove this once this has been corrected!"
+            const argcCountNotMatchWarning = "// WARNING: Arguments are unknown!"
             if (funcToAdd.name.endsWith("_DONTUSE")) {
                 if (!funcToAdd.precedingLines.includes(unknownBehaviourWarning))
                 funcToAdd.precedingLines.push(unknownBehaviourWarning)

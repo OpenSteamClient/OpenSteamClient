@@ -30,7 +30,7 @@ public unsafe interface IClientCompat
     public string GetCompatToolDisplayName(string name);  // argc: 1, index: 10'
     [BlacklistedInCrossProcessIPC]
     public unknown_ret GetWhitelistedGameList(CUtlVector<AppWhitelistSetting_t>* compatTools);  // argc: 1, index: 11
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    // WARNING: Arguments are unknown!
     [BlacklistedInCrossProcessIPC]
     public unknown_ret GetControllerConfigOverrides();  // argc: 1, index: 12
     public UInt64 StartSession(AppId_t appid);  // argc: 1, index: 13

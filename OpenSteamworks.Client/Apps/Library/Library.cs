@@ -27,7 +27,7 @@ public class Library
     internal Library(SteamClient steamClient, CloudConfigStore cloudConfigStore, LoginManager loginManager, AppsManager appsManager, InstallManager installManager)
     {
         this.installManager = installManager;
-        this.logger = new Logger("Library", installManager.GetLogPath("Library"));
+        this.logger = Logger.GetLogger("Library", installManager.GetLogPath("Library"));
         this.steamClient = steamClient;
         this.cloudConfigStore = cloudConfigStore;
         this.loginManager = loginManager;

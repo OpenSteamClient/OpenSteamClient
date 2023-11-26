@@ -59,7 +59,7 @@ public class AppsManager : ILogonLifetime
     public EventHandler<AppLastPlayedChangedEventArgs>? AppLastPlayedChanged;
 
     public AppsManager(SteamClient steamClient, ClientMessaging clientMessaging, InstallManager installManager, LoginManager loginManager) {
-        this.logger = new Logger("AppsManager", installManager.GetLogPath("AppsManager"));
+        this.logger = Logger.GetLogger("AppsManager", installManager.GetLogPath("AppsManager"));
         this.loginManager = loginManager;
         this.steamClient = steamClient;
         this.clientMessaging = clientMessaging;
@@ -101,13 +101,17 @@ public class AppsManager : ILogonLifetime
     public async Task OnLoggedOn(IExtendedProgress<int> progress, LoggedOnEventArgs e) {
         var ownedApps = await this.GetAppsForSteamID(e.User.SteamID);
 
-        //TODO: what should we do here? Implementing some sort of App class sounds like a good idea in theory, but would make AppsManager obsolete.
+        //TODO: what should we do here? Implementing some sort of App class sounds like a good idea in theory, but would make AppsManager largely obsolete.
         //TODO: how to organize getting app's names, soundtrack infos, etc easily?
         lock (ownedAppsLock)
         {
             ownedAppIDs.UnionWith(ownedApps);
         }
         hasLogOnFinished = true;
+    }
+
+    public AppBase GetAppSync(AppId_t appid) {
+        
     }
 
     public Task RequestAppInfoUpdateForApp(AppId_t appid) {
@@ -173,36 +177,41 @@ public class AppsManager : ILogonLifetime
         }
     }
 
-    public async Task<EResult> LaunchApp(AppId_t appid, int launchOption, string userLaunchOptions) {
+    public async Task<EResult> LaunchApp(AppBase app, int launchOption, string userLaunchOptions) {
         //TODO: make this actually async, not spaghetti, use compatmanager, use app class, add validation, test on windows, create a better keyvalue system with arrays, maybe other issues
-        CGameID gameid = new(appid);
         var logger = this.logger.CreateSubLogger("LaunchApp");
 
-        if (app.config.CheckForUpdatesBeforeLaunch) {
-            logger.Info("Updating app info (due to CheckForUpdatesBeforeLaunch)");
-            await this.RequestAppInfoUpdateForApp(appid);
+        string workingDir = "";
+        string gameExe = "";
+        if (app.IsSteamApp) {
+            SteamApp steamApp = (SteamApp)app;
+           
+
+            //TODO: What function should we use here?
+            if (this.steamClient.NativeClient.IClientRemoteStorage.IsCloudEnabledForAccount() && this.steamClient.NativeClient.IClientRemoteStorage.IsCloudEnabledForApp(app.AppID)) {
+                this.steamClient.NativeClient.IClientRemoteStorage.RunAutoCloudOnAppLaunch(app.AppID);
+            }
+
+            logger.Info("Getting launch info");
+            StringBuilder gameInstallDir = new(1024);
+            StringBuilder launchOptionExe = new(1024);
+            StringBuilder launchOptionCommandLine = new(1024);
+            this.steamClient.NativeClient.IClientAppManager.GetAppInstallDir(app.AppID, gameInstallDir, 1024);
+            
+            //TODO: do these keys exist 100% of the time for all apps?
+            // For EA games, they usually only have an executable "link2ea://launchgame/" which isn't valid on filesystem, and also are missing the 'arguments' key. WTF?
+            //TODO: how to handle link2ea protocol links (especially with proton) 
+            this.steamClient.NativeClient.IClientApps.GetAppData(app.AppID, $"config/launch/{launchOption}/executable", launchOptionExe, 1024);
+            this.steamClient.NativeClient.IClientApps.GetAppData(app.AppID, $"config/launch/{launchOption}/arguments", launchOptionCommandLine, 1024);
+            workingDir = gameInstallDir.ToString();
+            gameExe = launchOptionExe.ToString();
+        } else if (app.IsShortcut) {
+
+        } else if (app.IsMod) {
+
+        } else {
+            throw new UnreachableException("Something is seriously wrong.");
         }
-
-        await this.RunInstallScript(appid);
-
-        //TODO: What function should we use here?
-        if (this.steamClient.NativeClient.IClientRemoteStorage.IsCloudEnabledForAccount() && this.steamClient.NativeClient.IClientRemoteStorage.IsCloudEnabledForApp(appid)) {
-            this.steamClient.NativeClient.IClientRemoteStorage.RunAutoCloudOnAppLaunch(appid);
-        }
-    
-        logger.Info("Getting launch info");
-        StringBuilder gameInstallDir = new(1024);
-        StringBuilder gameName = new(1024);
-        StringBuilder launchOptionExe = new(1024);
-        StringBuilder launchOptionCommandLine = new(1024);
-        this.steamClient.NativeClient.IClientAppManager.GetAppInstallDir(appid, gameInstallDir, 1024);
-        this.steamClient.NativeClient.IClientApps.GetAppData(appid, "common/name", gameName, 1024);
-
-        //TODO: do these keys exist 100% of the time for all apps?
-        // For EA games, they usually only have an executable "link2ea://launchgame/" which isn't valid on filesystem, and also are missing the 'arguments' key. WTF?
-        //TODO: how to handle link2ea protocol links (especially with proton) 
-        this.steamClient.NativeClient.IClientApps.GetAppData(appid, $"config/launch/{launchOption}/executable", launchOptionExe, 1024);
-        this.steamClient.NativeClient.IClientApps.GetAppData(appid, $"config/launch/{launchOption}/arguments", launchOptionCommandLine, 1024);
 
         string commandLine = "";
 
@@ -210,7 +219,7 @@ public class AppsManager : ILogonLifetime
         if (this.steamClient.NativeClient.IClientCompat.BIsCompatLayerEnabled() && this.steamClient.NativeClient.IClientCompat.BIsCompatibilityToolEnabled(appid))
         {
             //TODO: how to handle "selected by valve testing" tools (like for csgo)
-            string compattool = this.steamClient.NativeClient.IClientCompat.GetCompatToolName(appid);
+            string compattool = this.steamClient.NativeClient.IClientCompat.GetCompatToolName(app.AppID);
             if (!string.IsNullOrEmpty(compattool)) {
                 KVSerializer serializer = KVSerializer.Create(KVSerializationFormat.KeyValues1Text);
                 bool useSessions = false;
@@ -269,7 +278,7 @@ public class AppsManager : ILogonLifetime
                 }
 
                 if (useSessions) {
-                    this.steamClient.NativeClient.IClientCompat.StartSession(appid);
+                    this.steamClient.NativeClient.IClientCompat.StartSession(app.AppID);
                 }
             }
         }
@@ -279,12 +288,12 @@ public class AppsManager : ILogonLifetime
             string steamToolsPath = Path.Combine(this.installManager.InstallDir, "linux64");
 
             // This is the base command line. It seems to always be used for all games, regardless of if you have compat tools enabled or not.
-            commandLine = $"{steamToolsPath}/reaper SteamLaunch AppId={appid} -- {steamToolsPath}/steam-launch-wrapper -- " + commandLine;
+            commandLine = $"{steamToolsPath}/reaper SteamLaunch AppId={app.AppID} -- {steamToolsPath}/steam-launch-wrapper -- " + commandLine;
         }
 
         //TODO: does windows use x86launcher.exe or x64launcher.exe?
 
-        commandLine += $"'{gameInstallDir}/{launchOptionExe}' {launchOptionCommandLine}";
+        commandLine += $"'{workingDir}/{gameExe}' {launchOptionCommandLine}";
 
         if (userLaunchOptions.Contains("%command%")) {
             string prefix = userLaunchOptions.Split("%command%")[0];
@@ -294,9 +303,9 @@ public class AppsManager : ILogonLifetime
         }
 
         //TODO: synchronize controller config (how?)
-        //TODO: handle site licenses
+        //TODO: handle "site licenses" (extra wtf???)
 
-        if (gameid.IsMod()) {
+        if (app.IsMod) {
             //TODO: where to get sourcemod path?
             commandLine += " -game sourcemodpathhere";
         }
@@ -308,19 +317,19 @@ public class AppsManager : ILogonLifetime
             // Do we really need all these vars?
             // Valid vars: STEAM_GAME_LAUNCH_SHELL STEAM_RUNTIME_LIBRARY_PATH STEAM_COMPAT_FLAGS SYSTEM_PATH SYSTEM_LD_LIBRARY_PATH SUPPRESS_STEAM_OVERLAY STEAM_CLIENT_CONFIG_FILE SteamRealm SteamLauncherUI
             vars.SetEnvironmentVariable("SteamAppUser", this.loginManager.CurrentUser!.AccountName);
-            vars.SetEnvironmentVariable("SteamAppId", appid.ToString());
-            vars.SetEnvironmentVariable("SteamGameId", ((ulong)gameid).ToString());
+            vars.SetEnvironmentVariable("SteamAppId", app.AppID.ToString());
+            vars.SetEnvironmentVariable("SteamGameId", ((ulong)app.GameID).ToString());
             vars.SetEnvironmentVariable("SteamClientLaunch", "1");
             vars.SetEnvironmentVariable("SteamClientService", "127.0.0.1:57344");
-            vars.SetEnvironmentVariable("AppId", appid.ToString());
+            vars.SetEnvironmentVariable("AppId", app.AppID.ToString());
             vars.SetEnvironmentVariable("SteamLauncherUI", "clientui");
-            vars.SetEnvironmentVariable("PROTON_LOG", "1");
+            //vars.SetEnvironmentVariable("PROTON_LOG", "1");
             vars.SetEnvironmentVariable("STEAM_COMPAT_CLIENT_INSTALL_PATH", installManager.InstallDir);
             this.steamClient.NativeClient.IClientUtils.SetLastGameLaunchMethod(0);  
             StringBuilder libraryFolder = new(1024);
-            this.steamClient.NativeClient.IClientAppManager.GetLibraryFolderPath(this.steamClient.NativeClient.IClientAppManager.GetAppLibraryFolder(appid), libraryFolder, libraryFolder.Capacity);
-            logger.Info("Appid " + appid + " is installed into library folder " + this.steamClient.NativeClient.IClientAppManager.GetAppLibraryFolder(appid) + " with path " + libraryFolder);
-            vars.SetEnvironmentVariable("STEAM_COMPAT_DATA_PATH", Path.Combine(libraryFolder.ToString(), "steamapps", "compatdata", appid.ToString()));
+            this.steamClient.NativeClient.IClientAppManager.GetLibraryFolderPath(this.steamClient.NativeClient.IClientAppManager.GetAppLibraryFolder(app.AppID), libraryFolder, libraryFolder.Capacity);
+            logger.Info("Appid " + app.AppID + " is installed into library folder " + this.steamClient.NativeClient.IClientAppManager.GetAppLibraryFolder(app.AppID) + " with path " + libraryFolder);
+            vars.SetEnvironmentVariable("STEAM_COMPAT_DATA_PATH", Path.Combine(libraryFolder.ToString(), "steamapps", "compatdata", app.AppID.ToString()));
             
             logger.Info("Vars for launch: ");
             foreach (var item in UtilityFunctions.GetEnvironmentVariables())
@@ -328,9 +337,27 @@ public class AppsManager : ILogonLifetime
                 logger.Info(item.Key + "=" + item.Value);
             }
 
-            this.steamClient.NativeClient.IClientUser.SpawnProcess("", commandLine, gameInstallDir.ToString(), ref gameid, gameName.ToString());
+            // For some reason, the CGameID SpawnProcess takes is a pointer.
+            CGameID gameidref = app.GameID;
+            this.steamClient.NativeClient.IClientUser.SpawnProcess("", commandLine, workingDir, ref gameidref, app.Name);
         }
 
         return EResult.k_EResultOK;
+    }
+    
+    public Logger GetLoggerForApp(AppBase app) {
+        string name;
+        if (app.IsSteamApp) {
+            name = "SteamApp";
+        } else if (app.IsMod) {
+            name = "Mod";
+        } else if (app.IsShortcut) {
+            name = "Shortcut";
+        } else {
+            name = "App";
+        }
+
+        name += app.GameID;
+        return Logger.GetLogger(name, installManager.GetLogPath(name));
     }
 }

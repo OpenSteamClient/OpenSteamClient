@@ -13,8 +13,8 @@ namespace OpenSteamworks.Generated;
 public unsafe interface IClientSystemAudioManager
 {
     public unknown_ret IsInterfaceValid();  // argc: 0, index: 1
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    // WARNING: Arguments are unknown!
     public unknown_ret GetState();  // argc: 2, index: 2
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    // WARNING: Arguments are unknown!
     public unknown_ret UpdateSomething();  // argc: 1, index: 3
 }

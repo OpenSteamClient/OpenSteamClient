@@ -13,9 +13,9 @@ namespace OpenSteamworks.Generated;
 public unsafe interface IClientSystemDockManager
 {
     public unknown_ret IsInterfaceValid();  // argc: 0, index: 1
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    // WARNING: Arguments are unknown!
     public unknown_ret GetState();  // argc: 1, index: 2
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    // WARNING: Arguments are unknown!
     public unknown_ret UpdateFirmware();  // argc: 1, index: 3
     public unknown_ret DisarmSafetyNet();  // argc: 0, index: 4
 }

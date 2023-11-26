@@ -12,10 +12,10 @@ namespace OpenSteamworks.Generated;
 
 public unsafe interface IClientProductBuilder
 {
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    // WARNING: Arguments are unknown!
     public unknown_ret SignInstallScript();  // argc: 3, index: 1
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    // WARNING: Arguments are unknown!
     public unknown_ret DRMWrap();  // argc: 6, index: 2
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    // WARNING: Arguments are unknown!
     public unknown_ret CEGWrap();  // argc: 4, index: 3
 }

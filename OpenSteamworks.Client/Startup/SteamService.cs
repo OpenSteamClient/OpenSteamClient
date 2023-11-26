@@ -24,7 +24,7 @@ public class SteamService : IClientLifetime {
     private readonly Logger logger;
 
     public SteamService(SteamClient steamClient, InstallManager installManager, AdvancedConfig advancedConfig) {
-        this.logger = new Logger("SteamServiceManager", installManager.GetLogPath("SteamServiceManager"));
+        this.logger = Logger.GetLogger("SteamServiceManager", installManager.GetLogPath("SteamServiceManager"));
         this.steamClient = steamClient;
         this.installManager = installManager;
         this.advancedConfig = advancedConfig;

@@ -40,13 +40,13 @@ public class Client : IClientLifetime
 
         container.RegisterFactoryMethod<SteamClient>((Bootstrapper bootstrapper, AdvancedConfig advancedConfig, InstallManager im) =>
         {
-            SteamClient.GeneralLogger = new Logger("OpenSteamworks", im.GetLogPath("OpenSteamworks"));
-            SteamClient.NativeClientLogger = new Logger("OpenSteamworks-NativeClient", im.GetLogPath("OpenSteamworks_NativeClient"));
-            SteamClient.CallbackLogger = new Logger("OpenSteamworks-Callbacks", im.GetLogPath("OpenSteamworks_Callbacks"));
-            SteamClient.JITLogger = new Logger("OpenSteamworks-JIT", im.GetLogPath("OpenSteamworks_JIT"));
-            SteamClient.ConCommandsLogger = new Logger("OpenSteamworks-ConCommands", im.GetLogPath("OpenSteamworks_ConCommands"));
-            SteamClient.MessagingLogger = new Logger("OpenSteamworks-Messaging", im.GetLogPath("OpenSteamworks_Messaging"));
-            SteamClient.CUtlLogger = new Logger("OpenSteamworks-CUtl", im.GetLogPath("OpenSteamworks_CUtl"));
+            SteamClient.GeneralLogger = Logger.GetLogger("OpenSteamworks", im.GetLogPath("OpenSteamworks"));
+            SteamClient.NativeClientLogger = Logger.GetLogger("OpenSteamworks-NativeClient", im.GetLogPath("OpenSteamworks_NativeClient"));
+            SteamClient.CallbackLogger = Logger.GetLogger("OpenSteamworks-Callbacks", im.GetLogPath("OpenSteamworks_Callbacks"));
+            SteamClient.JITLogger = Logger.GetLogger("OpenSteamworks-JIT", im.GetLogPath("OpenSteamworks_JIT"));
+            SteamClient.ConCommandsLogger = Logger.GetLogger("OpenSteamworks-ConCommands", im.GetLogPath("OpenSteamworks_ConCommands"));
+            SteamClient.MessagingLogger = Logger.GetLogger("OpenSteamworks-Messaging", im.GetLogPath("OpenSteamworks_Messaging"));
+            SteamClient.CUtlLogger = Logger.GetLogger("OpenSteamworks-CUtl", im.GetLogPath("OpenSteamworks_CUtl"));
             return new SteamClient(bootstrapper.SteamclientLibPath, advancedConfig.EnabledConnectionTypes, advancedConfig.SteamClientSpew);
         });
         container.RegisterFactoryMethod<CallbackManager>((SteamClient client) => client.CallbackManager);

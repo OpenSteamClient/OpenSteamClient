@@ -12,10 +12,10 @@ namespace OpenSteamworks.Generated;
 
 public unsafe interface IClientGameCoordinator
 {
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    // WARNING: Arguments are unknown!
     public unknown_ret SendMessage();  // argc: 4, index: 1
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    // WARNING: Arguments are unknown!
     public unknown_ret IsMessageAvailable();  // argc: 2, index: 2
-    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    // WARNING: Arguments are unknown!
     public unknown_ret RetrieveMessage();  // argc: 5, index: 3
 }

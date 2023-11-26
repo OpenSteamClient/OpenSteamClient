@@ -20,7 +20,7 @@ public class SteamHTML : IClientLifetime {
     private readonly Logger logger;
 
     public SteamHTML(SteamClient steamClient, InstallManager installManager, GlobalSettings globalSettings) {
-        this.logger = new Logger("SteamHTMLManager", installManager.GetLogPath("SteamHTMLManager"));
+        this.logger = Logger.GetLogger("SteamHTMLManager", installManager.GetLogPath("SteamHTMLManager"));
         this.steamClient = steamClient;
         this.installManager = installManager;
         this.globalSettings = globalSettings;

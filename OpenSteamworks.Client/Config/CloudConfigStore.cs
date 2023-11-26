@@ -191,7 +191,7 @@ public class CloudConfigStore : ILogonLifetime {
     private readonly InstallManager installManager;
     private readonly Logger logger;
     public CloudConfigStore(ClientMessaging messaging, LoginManager loginManager, IClientUtils clientUtils, InstallManager installManager) {
-        this.logger = new Logger("CloudConfigStore", installManager.GetLogPath("CloudConfigStore"));
+        this.logger = Logger.GetLogger("CloudConfigStore", installManager.GetLogPath("CloudConfigStore"));
         this.installManager = installManager;
         this.clientUtils = clientUtils;
         this.loginManager = loginManager;
@@ -285,7 +285,7 @@ public class CloudConfigStore : ILogonLifetime {
                 try {
                     byte[] bytes = await File.ReadAllBytesAsync(filename, default);
                     resp = CCloudConfigStore_NamespaceData.Parser.ParseFrom(bytes);
-                    nsData = new NamespaceData(resp, loginManager.CurrentUser.SteamID, this.clientUtils, new Logger(loggerName, installManager.GetLogPath(loggerName.Replace('-', '_'))));
+                    nsData = new NamespaceData(resp, loginManager.CurrentUser.SteamID, this.clientUtils, Logger.GetLogger(loggerName, installManager.GetLogPath(loggerName.Replace('-', '_'))));
                     loadedNamespaces.Add(nsData);
                     return nsData;
                 } catch (Exception e) {
@@ -300,7 +300,7 @@ public class CloudConfigStore : ILogonLifetime {
         }
 
         resp = await DownloadNamespace(@namespace);
-        nsData = new NamespaceData(resp, loginManager.CurrentUser.SteamID, this.clientUtils, new Logger(loggerName, installManager.GetLogPath(loggerName.Replace('-', '_'))));
+        nsData = new NamespaceData(resp, loginManager.CurrentUser.SteamID, this.clientUtils, Logger.GetLogger(loggerName, installManager.GetLogPath(loggerName.Replace('-', '_'))));
         loadedNamespaces.Add(nsData);
         await CacheNamespace(nsData);
         return nsData;

@@ -8,13 +8,15 @@ namespace OpenSteamworks.Structs;
 
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
 public struct CGameID : System.IEquatable<CGameID>, System.IComparable<CGameID> {
-	public ulong m_GameID;
+    public static readonly CGameID Zero = new((ulong)0);
+    public ulong m_GameID;
 
 	public enum EGameIDType {
 		k_EGameIDTypeApp = 0,
 		k_EGameIDTypeGameMod = 1,
 		k_EGameIDTypeShortcut = 2,
 		k_EGameIDTypeP2P = 3,
+		k_EGameIDTypeInvalid
 	};
 
 	public CGameID(ulong GameID) {
@@ -114,10 +116,18 @@ public struct CGameID : System.IEquatable<CGameID>, System.IComparable<CGameID> 
 	}
 
 	public AppId_t AppID() {
+		if (m_GameID == 0) {
+            return 0;
+        }
+
 		return new AppId_t((uint)(m_GameID & 0xFFFFFFul));
 	}
 
 	public EGameIDType Type() {
+		if (m_GameID == 0) {
+            return EGameIDType.k_EGameIDTypeInvalid;
+        }
+
 		return (EGameIDType)((m_GameID >> 24) & 0xFFul);
 	}
 

@@ -86,7 +86,7 @@ public class LoginManager : IClientLifetime
 
     public LoginManager(SteamClient steamClient, LoginUsers loginUsers, Container container, ClientMessaging clientMessaging, InstallManager installManager)
     {
-        this.logger = new Logger("LoginManager", installManager.GetLogPath("LoginManager"));
+        this.logger = Logger.GetLogger("LoginManager", installManager.GetLogPath("LoginManager"));
         this.container = container;
         this.steamClient = steamClient;
         this.steamClient.CallbackManager.RegisterCallbackListenerAttributesFor(this);
