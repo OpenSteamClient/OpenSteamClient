@@ -7,6 +7,7 @@
 //=============================================================================
 
 using System;
+using OpenSteamworks.NativeTypes;
 using OpenSteamworks.Structs;
 
 namespace OpenSteamworks.Generated;
@@ -28,30 +29,30 @@ public unsafe interface IClientShortcuts
     /// </summary>
     /// <param name="arr">Array out</param>
     /// <returns>The length of the array</returns>
-    public UInt32 GetShortcutAppIds(out AppId_t *arr);  // argc: 1, index: 5
+    public UInt32 GetShortcutAppIds(CUtlVector<AppId_t>* arr);  // argc: 1, index: 5
     // WARNING: Arguments are unknown!
     public unknown_ret GetShortcutInfoByIndex();  // argc: 2, index: 6
     // WARNING: Arguments are unknown!
     public unknown_ret GetShortcutInfoByAppID();  // argc: 2, index: 7
     // WARNING: Arguments are unknown!
-    public unknown_ret AddShortcut();  // argc: 5, index: 8
+    public CGameID AddShortcut(string wtf, string name, string exepath, string workingdir, string unk);  // argc: 5, index: 8
     // WARNING: Arguments are unknown!
-    public unknown_ret AddTemporaryShortcut();  // argc: 3, index: 9
+    public unknown_ret AddTemporaryShortcut(AppId_t appid, string name, string exepath);  // argc: 3, index: 9
     // WARNING: Arguments are unknown!
     public unknown_ret AddOpenVRShortcut();  // argc: 3, index: 10
     // WARNING: Arguments are unknown!
-    public unknown_ret SetShortcutFromFullpath();  // argc: 2, index: 11
+    public unknown_ret SetShortcutFromFullpath(AppId_t appid, string fullpath);  // argc: 2, index: 11
     // WARNING: Arguments are unknown!
-    public unknown_ret SetShortcutAppName();  // argc: 2, index: 12
+    public unknown_ret SetShortcutAppName(AppId_t appid, string name);  // argc: 2, index: 12
     // WARNING: Arguments are unknown!
     [BlacklistedInCrossProcessIPC]
-    public unknown_ret SetShortcutExe();  // argc: 3, index: 13
+    public unknown_ret SetShortcutExe(AppId_t appid, string maybepath, int unk);  // argc: 3, index: 13
     // WARNING: Arguments are unknown!
-    public unknown_ret SetShortcutStartDir();  // argc: 2, index: 14
+    public unknown_ret SetShortcutStartDir(AppId_t appid, string workingdir);  // argc: 2, index: 14
     // WARNING: Arguments are unknown!
-    public unknown_ret SetShortcutIcon();  // argc: 2, index: 15
+    public unknown_ret SetShortcutIcon(AppId_t appid, string iconpath);  // argc: 2, index: 15
     // WARNING: Arguments are unknown!
-    public unknown_ret SetShortcutCommandLine();  // argc: 2, index: 16
+    public unknown_ret SetShortcutCommandLine(AppId_t appid, string commandline);  // argc: 2, index: 16
     // WARNING: Arguments are unknown!
     public unknown_ret ClearShortcutUserTags();  // argc: 1, index: 17
     // WARNING: Arguments are unknown!
@@ -61,21 +62,21 @@ public unsafe interface IClientShortcuts
     // WARNING: Arguments are unknown!
     public unknown_ret ClearAndSetShortcutUserTags();  // argc: 2, index: 20
     // WARNING: Arguments are unknown!
-    public unknown_ret SetShortcutHidden();  // argc: 2, index: 21
+    public unknown_ret SetShortcutHidden(AppId_t appid, bool hidden);  // argc: 2, index: 21
     // WARNING: Arguments are unknown!
-    public unknown_ret SetAllowDesktopConfig();  // argc: 2, index: 22
+    public unknown_ret SetAllowDesktopConfig(AppId_t appid, bool allow);  // argc: 2, index: 22
     // WARNING: Arguments are unknown!
-    public unknown_ret SetAllowOverlay();  // argc: 2, index: 23
+    public unknown_ret SetAllowOverlay(AppId_t appid, bool allow);  // argc: 2, index: 23
     // WARNING: Arguments are unknown!
-    public unknown_ret SetOpenVRShortcut();  // argc: 2, index: 24
+    public unknown_ret SetOpenVRShortcut(AppId_t appid, bool isVR);  // argc: 2, index: 24
     // WARNING: Arguments are unknown!
     [BlacklistedInCrossProcessIPC]
     public unknown_ret SetDevkitShortcut();  // argc: 3, index: 25
     // WARNING: Arguments are unknown!
     public unknown_ret SetFlatpakAppID();  // argc: 2, index: 26
     // WARNING: Arguments are unknown!
-    public unknown_ret RemoveShortcut();  // argc: 1, index: 27
-    public unknown_ret RemoveAllTemporaryShortcuts();  // argc: 0, index: 28
+    public void RemoveShortcut(AppId_t appid);  // argc: 1, index: 27
+    public void RemoveAllTemporaryShortcuts();  // argc: 0, index: 28
     // WARNING: Arguments are unknown!
-    public unknown_ret LaunchShortcut();  // argc: 2, index: 29
+    public ulong LaunchShortcut(AppId_t appid);  // argc: 2, index: 29
 }

@@ -59,15 +59,27 @@ public partial class MainWindowViewModel : ViewModelBase
     }
 
     public async void DBG_LaunchFactorio() {
-        await this.appsManager.LaunchApp(427520, 3, "gamemoderun %command%");
+        IClientShortcuts shortcuts = AvaloniaApp.Container.Get<IClientShortcuts>();
+        CUtlVector<AppId_t> appids = new(1024, 0);
+        unsafe
+        {
+            Console.WriteLine("ret: " + shortcuts.GetShortcutAppIds(&appids));
+        }
+
+        foreach (var item in appids.ToManagedAndFree())
+        {
+            Console.WriteLine("Item: " + item);
+        }
+        
+        //await this.appsManager.LaunchApp(427520, 3, "gamemoderun %command%");
     }
 
     public async void DBG_LaunchCS2() {
-        await this.appsManager.LaunchApp(730, 1, "gamemoderun %command% -dev -sdlaudiodriver pipewire");
+        //await this.appsManager.LaunchApp(730, 1, "gamemoderun %command% -dev -sdlaudiodriver pipewire");
     }
 
     public async void DBG_LaunchSpel2() {
-        await this.appsManager.LaunchApp(418530, 0, "");
+        //await this.appsManager.LaunchApp(418530, 0, "");
     }
 
     public void DBG_OpenInterfaceList() => AvaloniaApp.Current?.OpenInterfaceList();

@@ -158,7 +158,7 @@ namespace OpenSteamworks.Native.JIT
                     // we need to specially marshal strings
                     state.NativeArgs.Add(typeof(IntPtr));
                 } else if (!typeInfo.IsParams) {
-                    if (typeInfo.IsByRef && typeInfo.NativeType.IsValueType)
+                    if (typeInfo.IsByRef && (typeInfo.NativeType.IsValueType || typeInfo.NativeType.IsArray))
                     {
                         state.NativeArgs.Add(typeInfo.NativeType.MakeByRefType());
                     }

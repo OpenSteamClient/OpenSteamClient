@@ -54,7 +54,7 @@ public class SteamApp : AppBase, ILaunchableApp<AppDataConfigSection.LaunchOptio
     public IEnumerable<AppDataConfigSection.LaunchOption> LaunchOptions => this.Config.LaunchOptions;
     public bool RequiresLaunchOption => true;
 
-    internal SteamApp(AppId_t appid, MemoryStream commonsection)
+    internal SteamApp(AppsManager appsManager, AppId_t appid, MemoryStream commonsection) : base(appsManager)
     {
         SetAppInfoCommonSection(commonsection);
         if (this.Common.GameID.IsValid())
@@ -119,5 +119,7 @@ public class SteamApp : AppBase, ILaunchableApp<AppDataConfigSection.LaunchOptio
         }
 
         await AppsManager.RunInstallScript(AppID);
+
+        return EResult.k_EResultOK;
     }
 }

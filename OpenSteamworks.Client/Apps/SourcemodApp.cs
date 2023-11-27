@@ -6,13 +6,9 @@ namespace OpenSteamworks.Client.Apps;
 
 public class SourcemodGameInfo : KVObjectEx {
     public string Name => DefaultIfUnset("game", "");
-
     public string IconRelativePath => DefaultIfUnset("icon", "");
-
     public bool SupportsVR => DefaultIfUnset("supportsvr", false);
-
     public string Type => DefaultIfUnset("type", "");
-
     public AppId_t SteamAppID => DefaultIfUnset("FileSystem/SteamAppId", (uint)0);
 
     public SourcemodGameInfo(KVObject kv) : base(kv) { }
@@ -37,12 +33,8 @@ public class SourcemodApp : AppBase {
     public override string IconURL => GetValueOverride(IconOverrideURL, this.ParentApp?.IconURL);
     public override string PortraitURL => GetValueOverride(PortraitOverrideURL, this.ParentApp?.PortraitURL);
 
-    internal SourcemodApp(string sourcemodDir, uint modid) {
+    internal SourcemodApp(AppsManager appsManager, string sourcemodDir, uint modid) : base(appsManager) {
         SourcemodGameInfo = new SourcemodGameInfo(SourcemodApp.kvserializer.Deserialize(File.OpenRead(Path.Combine(sourcemodDir, "gameinfo.txt"))));
         this.GameID = new CGameID(SourcemodGameInfo.SteamAppID, modid);
-    }
-
-    public override async Task Launch() {
-        await Task.CompletedTask;
     }
 }

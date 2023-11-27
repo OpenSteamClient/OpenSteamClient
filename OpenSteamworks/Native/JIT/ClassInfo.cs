@@ -68,6 +68,11 @@ namespace OpenSteamworks.Native.JIT
                 return;
             }
 
+            if (PierceType.IsArray && IsByRef) {
+                NativeType = Type;
+                return;
+            }
+
             if (IsCustomValueType) {
                 var customValueTypeAttrib = PierceType.GetCustomAttribute<CustomValueTypeAttribute>(false);
                 if (customValueTypeAttrib != null) {
@@ -98,6 +103,7 @@ namespace OpenSteamworks.Native.JIT
                 {
                     SteamClient.JITLogger.Error("Don't know what to do with type " + Type);
                     SteamClient.JITLogger.Error("IsArray: " + IsArray);
+                    SteamClient.JITLogger.Error("PierceType.IsClass: " + Type.IsClass);
                     SteamClient.JITLogger.Error("IsStringClass: " + IsStringClass);
                     SteamClient.JITLogger.Error("IsAutoClass: " + IsAutoClass);
                     SteamClient.JITLogger.Error("IsUnknownClass: " + IsUnknownClass);
@@ -108,6 +114,7 @@ namespace OpenSteamworks.Native.JIT
 
                     var pt = new TypeJITInfo(PierceType);
                     SteamClient.JITLogger.Error("PierceType.IsArray: " + pt.IsArray);
+                    SteamClient.JITLogger.Error("PierceType.IsClass: " + pt.Type.IsClass);
                     SteamClient.JITLogger.Error("PierceType.IsStringClass: " + pt.IsStringClass);
                     SteamClient.JITLogger.Error("PierceType.IsAutoClass: " + pt.IsAutoClass);
                     SteamClient.JITLogger.Error("PierceType.IsUnknownClass: " + pt.IsUnknownClass);

@@ -110,14 +110,13 @@ public partial class InterfaceDebugger : Window
                 Type type = paramInfo.ParameterType.IsByRef ? paramInfo.ParameterType.GetElementType()! : paramInfo.ParameterType;
 
                 if (string.IsNullOrEmpty(paramCurrentText)) {
-                    if (type == typeof(string) || type == typeof(StringBuilder)) {
+                    if (type == typeof(string) || type == typeof(StringBuilder) || paramInfo.IsOut) {
                         paramCurrentText = "";
                     } else {
                         MessageBox.Error("Function execution failed", "Failed to execute " + funcidentifier + "\n" + "Required argument " + paramInfo.Name + " missing!");
                         return;
                     }
                 }
-
 
                 if (paramInfo.IsOut || paramInfo.ParameterType.IsByRef) {
                     refParams.Add(paramArr.Count, paramInfo);

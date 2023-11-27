@@ -10,12 +10,8 @@ public class ShortcutApp : AppBase {
     public override string IconURL => IconOverrideURL;
     public override string PortraitURL => PortraitOverrideURL;
 
-    internal ShortcutApp(string name, string exe, string workingDir) {
+    internal ShortcutApp(AppsManager appsManager, string name, string exe, string workingDir) : base(appsManager) {
         this.GameID = new CGameID(Path.Combine(workingDir, exe), name);
         this.shortcutName = name;
-    }
-
-    public override async Task Launch() {
-        await Task.CompletedTask;
     }
 }

@@ -50,6 +50,8 @@ internal static partial class CallbackConstants {
         {typeof(HTML_UpdateToolTip_t), 4525},
         {typeof(HTML_HideToolTip_t), 4526},
         {typeof(HTML_BrowserRestarted_t), 4527},
+        {typeof(ShortcutChanged_t), 1130001},
+        {typeof(ShortcutRemoved_t), 1130002}
     };
     public readonly static Dictionary<int, Type> IDToType = TypeToID.ToDictionary(x => x.Value, x => x.Key);
 }

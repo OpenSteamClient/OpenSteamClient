@@ -23,8 +23,18 @@ namespace OpenSteamworks.Client.Startup;
 //TODO: this whole thing needs a rewrite badly
 public class Bootstrapper : IClientLifetime {
 
-    //TODO: We shouldn't hardcode this but it will do...
-    public const string BaseURL = "https://client-update.akamai.steamstatic.com/";
+    public string OverrideURL { get; set; } = "";
+    public string BaseURL {
+        get {
+            if (!string.IsNullOrEmpty(OverrideURL)) {
+                return OverrideURL;
+            }
+
+            //TODO: We shouldn't hardcode this but it will do...
+            return "https://client-update.akamai.steamstatic.com/";
+        }
+    }
+
     private InstallManager installManager;
     public string SteamclientLibPath {
         get {
@@ -103,6 +113,34 @@ public class Bootstrapper : IClientLifetime {
         }
 
         progressHandler.SetOperation("Bootstrapping");
+        
+        try
+        {
+            using (var client = new HttpClient())
+            {
+                var serializer = ValveKeyValue.KVSerializer.Create(KVSerializationFormat.KeyValues1Text);
+                client.DefaultRequestHeaders.ConnectionClose = true;
+                client.DefaultRequestHeaders.Add("User-Agent", $"opensteamclient {GitInfo.GitBranch}/{GitInfo.GitCommit}");
+                HttpResponseMessage resp = await client.GetAsync("http://localhost:8125/client/"+PlatformClientManifest);
+                if (resp.IsSuccessStatusCode) {
+                    using (Stream str = await resp.Content.ReadAsStreamAsync())
+                    {
+                        var deserialized = serializer.Deserialize(str);
+                        if ((string)deserialized["version"] == VersionInfo.STEAM_MANIFEST_VERSION.ToString()) {
+                            OverrideURL = "http://localhost:8125/client/";
+                            logger.Info("Using local package server");
+                        } else {
+                            logger.Debug("Local package server has different version: " + (string)deserialized["version"] + " than ours " + VersionInfo.STEAM_MANIFEST_VERSION.ToString());
+                        }
+                    }
+                }
+            }
+        }
+        catch (System.Exception e)
+        {
+            logger.Debug("Not using local package server, error occurred:");
+            logger.Debug(e.ToString());
+        }
 
         Directory.CreateDirectory(installManager.InstallDir);
 

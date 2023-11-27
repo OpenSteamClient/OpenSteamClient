@@ -79,16 +79,16 @@ public abstract class AppBase
         return valuestr;
     }
     
-    public static SteamApp CreateSteamApp(AppId_t appid, MemoryStream commonsection) {
-        return new SteamApp(appid, commonsection);
+    public static SteamApp CreateSteamApp(AppsManager appsManager, AppId_t appid, MemoryStream commonsection) {
+        return new SteamApp(appsManager, appid, commonsection);
     }
 
-    public static ShortcutApp CreateShortcut(string name, string exe, string workingDir) {
-        return new ShortcutApp(name, exe, workingDir);
+    public static ShortcutApp CreateShortcut(AppsManager appsManager, string name, string exe, string workingDir) {
+        return new ShortcutApp(appsManager, name, exe, workingDir);
     }
 
-    public static SourcemodApp CreateSourcemod(string sourcemodDir, uint modid) {
-        return new SourcemodApp(sourcemodDir, modid);
+    public static SourcemodApp CreateSourcemod(AppsManager appsManager, string sourcemodDir, uint modid) {
+        return new SourcemodApp(appsManager, sourcemodDir, modid);
     }
 
     protected AppBase? GetAppIfValidAppID(AppId_t appid) {
