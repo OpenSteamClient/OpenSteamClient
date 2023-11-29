@@ -17,7 +17,6 @@ A partially open-source Steam client for Linux.
 
 ## Important
 - Everything marked `//TODO` in the code
-- A better logo (I'm not a graphic designer)
 - Update steamclient binaries
 - UI is pretty crude
 - Lots of debug and placeholder things in UI
