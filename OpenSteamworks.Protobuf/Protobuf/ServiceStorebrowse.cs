@@ -26,42 +26,58 @@ namespace OpenSteamworks.Protobuf.WebUI {
           string.Concat(
             "ChlzZXJ2aWNlX3N0b3JlYnJvd3NlLnByb3RvGiBnb29nbGUvcHJvdG9idWYv",
             "ZGVzY3JpcHRvci5wcm90bxoMY29tbW9uLnByb3RvGhFjb21tb25fYmFzZS5w",
-            "cm90byKnAQoiQ1N0b3JlQnJvd3NlX0dldERMQ0ZvckFwcHNfUmVxdWVzdBIk",
-            "Cgdjb250ZXh0GAEgASgLMhMuU3RvcmVCcm93c2VDb250ZXh0EiwKEXN0b3Jl",
-            "X3BhZ2VfZmlsdGVyGAIgASgLMhEuQ1N0b3JlUGFnZUZpbHRlchIcCgZhcHBp",
-            "ZHMYAyADKAsyDC5TdG9yZUl0ZW1JRBIPCgdzdGVhbWlkGAQgASgEIqwBCiND",
-            "U3RvcmVCcm93c2VfR2V0RExDRm9yQXBwc19SZXNwb25zZRI+CghkbGNfZGF0",
-            "YRgBIAMoCzIsLkNTdG9yZUJyb3dzZV9HZXRETENGb3JBcHBzX1Jlc3BvbnNl",
-            "X0RMQ0RhdGESRQoIcGxheXRpbWUYAiADKAsyMy5DU3RvcmVCcm93c2VfR2V0",
-            "RExDRm9yQXBwc19SZXNwb25zZV9QbGF5dGltZUZvckFwcCKrAQorQ1N0b3Jl",
-            "QnJvd3NlX0dldERMQ0ZvckFwcHNfUmVzcG9uc2VfRExDRGF0YRINCgVhcHBp",
-            "ZBgBIAEoDRITCgtwYXJlbnRhcHBpZBgCIAEoDRIUCgxyZWxlYXNlX2RhdGUY",
-            "AyABKA0SEwoLY29taW5nX3Nvb24YBCABKAgSDQoFcHJpY2UYBSABKAMSEAoI",
-            "ZGlzY291bnQYBiABKA0SDAoEZnJlZRgHIAEoCCJqCjJDU3RvcmVCcm93c2Vf",
-            "R2V0RExDRm9yQXBwc19SZXNwb25zZV9QbGF5dGltZUZvckFwcBINCgVhcHBp",
-            "ZBgBIAEoDRIQCghwbGF5dGltZRgCIAEoDRITCgtsYXN0X3BsYXllZBgDIAEo",
-            "DSKrAQomQ1N0b3JlQnJvd3NlX0dldERMQ0ZvckFwcHNTb2xyX1JlcXVlc3QS",
-            "JAoHY29udGV4dBgBIAEoCzITLlN0b3JlQnJvd3NlQ29udGV4dBIOCgZhcHBp",
-            "ZHMYAiADKA0SDgoGZmxhdm9yGAMgASgJEg0KBWNvdW50GAQgASgNEiwKEXN0",
-            "b3JlX3BhZ2VfZmlsdGVyGAUgASgLMhEuQ1N0b3JlUGFnZUZpbHRlciJuCidD",
-            "U3RvcmVCcm93c2VfR2V0RExDRm9yQXBwc1NvbHJfUmVzcG9uc2USQwoJZGxj",
-            "X2xpc3RzGAEgAygLMjAuQ1N0b3JlQnJvd3NlX0dldERMQ0ZvckFwcHNTb2xy",
-            "X1Jlc3BvbnNlX0RMQ0xpc3QiWwovQ1N0b3JlQnJvd3NlX0dldERMQ0ZvckFw",
-            "cHNTb2xyX1Jlc3BvbnNlX0RMQ0xpc3QSFAoMcGFyZW50X2FwcGlkGAEgASgN",
-            "EhIKCmRsY19hcHBpZHMYAiADKA0iUgonQ1N0b3JlQnJvd3NlX0dldFN0b3Jl",
-            "Q2F0ZWdvcmllc19SZXF1ZXN0EhAKCGxhbmd1YWdlGAEgASgJEhUKCWVsYW5n",
-            "dWFnZRgCIAEoBToCLTEicgooQ1N0b3JlQnJvd3NlX0dldFN0b3JlQ2F0ZWdv",
-            "cmllc19SZXNwb25zZRJGCgpjYXRlZ29yaWVzGAEgAygLMjIuQ1N0b3JlQnJv",
-            "d3NlX0dldFN0b3JlQ2F0ZWdvcmllc19SZXNwb25zZV9DYXRlZ29yeSK3AQox",
-            "Q1N0b3JlQnJvd3NlX0dldFN0b3JlQ2F0ZWdvcmllc19SZXNwb25zZV9DYXRl",
-            "Z29yeRISCgpjYXRlZ29yeWlkGAEgASgNEhYKBHR5cGUYAiABKAVCCIK1GARl",
-            "bnVtEhUKDWludGVybmFsX25hbWUYAyABKAkSFAoMZGlzcGxheV9uYW1lGAQg",
-            "ASgJEhEKCWltYWdlX3VybBgFIAEoCRIWCg5zaG93X2luX3NlYXJjaBgGIAEo",
-            "CDKJAwoLU3RvcmVCcm93c2USWgoNR2V0RExDRm9yQXBwcxIjLkNTdG9yZUJy",
-            "b3dzZV9HZXRETENGb3JBcHBzX1JlcXVlc3QaJC5DU3RvcmVCcm93c2VfR2V0",
-            "RExDRm9yQXBwc19SZXNwb25zZRJmChFHZXRETENGb3JBcHBzU29schInLkNT",
-            "dG9yZUJyb3dzZV9HZXRETENGb3JBcHBzU29scl9SZXF1ZXN0GiguQ1N0b3Jl",
-            "QnJvd3NlX0dldERMQ0ZvckFwcHNTb2xyX1Jlc3BvbnNlEksKCEdldEl0ZW1z",
+            "cm90byKxAwoXQ0hhcmR3YXJlUGFja2FnZURldGFpbHMSEQoJcGFja2FnZWlk",
+            "GAEgASgNEhsKE2ludmVudG9yeV9hdmFpbGFibGUYAyABKAgSGwoTaGlnaF9w",
+            "ZW5kaW5nX29yZGVycxgEIAEoCBIqCiJhY2NvdW50X3Jlc3RyaWN0ZWRfZnJv",
+            "bV9wdXJjaGFzaW5nGAUgASgIEhwKFHJlcXVpcmVzX3Jlc2VydmF0aW9uGAYg",
+            "ASgIEiQKHHJ0aW1lX2VzdGltYXRlZF9ub3RpZmljYXRpb24YByABKA0SGQoR",
+            "bm90aWZpY2F0b25fdG9rZW4YCCABKAkSGQoRcmVzZXJ2YXRpb25fc3RhdGUY",
+            "CSABKAUSDwoHZXhwaXJlZBgKIAEoCBIUCgx0aW1lX2V4cGlyZXMYCyABKA0S",
+            "FQoNdGltZV9yZXNlcnZlZBgMIAEoDRIfChdhbGxvd19xdWFudGl0eV9wdXJj",
+            "aGFzZRgNIAEoCBIhChltYXhfcXVhbnRpdHlfcGVyX3B1cmNoYXNlGA4gASgF",
+            "EiEKGWFsbG93X3B1cmNoYXNlX2luX2NvdW50cnkYDyABKAgipwEKIkNTdG9y",
+            "ZUJyb3dzZV9HZXRETENGb3JBcHBzX1JlcXVlc3QSJAoHY29udGV4dBgBIAEo",
+            "CzITLlN0b3JlQnJvd3NlQ29udGV4dBIsChFzdG9yZV9wYWdlX2ZpbHRlchgC",
+            "IAEoCzIRLkNTdG9yZVBhZ2VGaWx0ZXISHAoGYXBwaWRzGAMgAygLMgwuU3Rv",
+            "cmVJdGVtSUQSDwoHc3RlYW1pZBgEIAEoBCKsAQojQ1N0b3JlQnJvd3NlX0dl",
+            "dERMQ0ZvckFwcHNfUmVzcG9uc2USPgoIZGxjX2RhdGEYASADKAsyLC5DU3Rv",
+            "cmVCcm93c2VfR2V0RExDRm9yQXBwc19SZXNwb25zZV9ETENEYXRhEkUKCHBs",
+            "YXl0aW1lGAIgAygLMjMuQ1N0b3JlQnJvd3NlX0dldERMQ0ZvckFwcHNfUmVz",
+            "cG9uc2VfUGxheXRpbWVGb3JBcHAiqwEKK0NTdG9yZUJyb3dzZV9HZXRETENG",
+            "b3JBcHBzX1Jlc3BvbnNlX0RMQ0RhdGESDQoFYXBwaWQYASABKA0SEwoLcGFy",
+            "ZW50YXBwaWQYAiABKA0SFAoMcmVsZWFzZV9kYXRlGAMgASgNEhMKC2NvbWlu",
+            "Z19zb29uGAQgASgIEg0KBXByaWNlGAUgASgDEhAKCGRpc2NvdW50GAYgASgN",
+            "EgwKBGZyZWUYByABKAgiagoyQ1N0b3JlQnJvd3NlX0dldERMQ0ZvckFwcHNf",
+            "UmVzcG9uc2VfUGxheXRpbWVGb3JBcHASDQoFYXBwaWQYASABKA0SEAoIcGxh",
+            "eXRpbWUYAiABKA0SEwoLbGFzdF9wbGF5ZWQYAyABKA0iqwEKJkNTdG9yZUJy",
+            "b3dzZV9HZXRETENGb3JBcHBzU29scl9SZXF1ZXN0EiQKB2NvbnRleHQYASAB",
+            "KAsyEy5TdG9yZUJyb3dzZUNvbnRleHQSDgoGYXBwaWRzGAIgAygNEg4KBmZs",
+            "YXZvchgDIAEoCRINCgVjb3VudBgEIAEoDRIsChFzdG9yZV9wYWdlX2ZpbHRl",
+            "chgFIAEoCzIRLkNTdG9yZVBhZ2VGaWx0ZXIibgonQ1N0b3JlQnJvd3NlX0dl",
+            "dERMQ0ZvckFwcHNTb2xyX1Jlc3BvbnNlEkMKCWRsY19saXN0cxgBIAMoCzIw",
+            "LkNTdG9yZUJyb3dzZV9HZXRETENGb3JBcHBzU29scl9SZXNwb25zZV9ETENM",
+            "aXN0IlsKL0NTdG9yZUJyb3dzZV9HZXRETENGb3JBcHBzU29scl9SZXNwb25z",
+            "ZV9ETENMaXN0EhQKDHBhcmVudF9hcHBpZBgBIAEoDRISCgpkbGNfYXBwaWRz",
+            "GAIgAygNImAKJUNTdG9yZUJyb3dzZV9HZXRIYXJkd2FyZUl0ZW1zX1JlcXVl",
+            "c3QSEQoJcGFja2FnZWlkGAEgAygNEiQKB2NvbnRleHQYAiABKAsyEy5TdG9y",
+            "ZUJyb3dzZUNvbnRleHQiUwomQ1N0b3JlQnJvd3NlX0dldEhhcmR3YXJlSXRl",
+            "bXNfUmVzcG9uc2USKQoHZGV0YWlscxgBIAMoCzIYLkNIYXJkd2FyZVBhY2th",
+            "Z2VEZXRhaWxzIlIKJ0NTdG9yZUJyb3dzZV9HZXRTdG9yZUNhdGVnb3JpZXNf",
+            "UmVxdWVzdBIQCghsYW5ndWFnZRgBIAEoCRIVCgllbGFuZ3VhZ2UYAiABKAU6",
+            "Ai0xInIKKENTdG9yZUJyb3dzZV9HZXRTdG9yZUNhdGVnb3JpZXNfUmVzcG9u",
+            "c2USRgoKY2F0ZWdvcmllcxgBIAMoCzIyLkNTdG9yZUJyb3dzZV9HZXRTdG9y",
+            "ZUNhdGVnb3JpZXNfUmVzcG9uc2VfQ2F0ZWdvcnkitwEKMUNTdG9yZUJyb3dz",
+            "ZV9HZXRTdG9yZUNhdGVnb3JpZXNfUmVzcG9uc2VfQ2F0ZWdvcnkSEgoKY2F0",
+            "ZWdvcnlpZBgBIAEoDRIWCgR0eXBlGAIgASgFQgiCtRgEZW51bRIVCg1pbnRl",
+            "cm5hbF9uYW1lGAMgASgJEhQKDGRpc3BsYXlfbmFtZRgEIAEoCRIRCglpbWFn",
+            "ZV91cmwYBSABKAkSFgoOc2hvd19pbl9zZWFyY2gYBiABKAgy7gMKC1N0b3Jl",
+            "QnJvd3NlEloKDUdldERMQ0ZvckFwcHMSIy5DU3RvcmVCcm93c2VfR2V0RExD",
+            "Rm9yQXBwc19SZXF1ZXN0GiQuQ1N0b3JlQnJvd3NlX0dldERMQ0ZvckFwcHNf",
+            "UmVzcG9uc2USZgoRR2V0RExDRm9yQXBwc1NvbHISJy5DU3RvcmVCcm93c2Vf",
+            "R2V0RExDRm9yQXBwc1NvbHJfUmVxdWVzdBooLkNTdG9yZUJyb3dzZV9HZXRE",
+            "TENGb3JBcHBzU29scl9SZXNwb25zZRJjChBHZXRIYXJkd2FyZUl0ZW1zEiYu",
+            "Q1N0b3JlQnJvd3NlX0dldEhhcmR3YXJlSXRlbXNfUmVxdWVzdBonLkNTdG9y",
+            "ZUJyb3dzZV9HZXRIYXJkd2FyZUl0ZW1zX1Jlc3BvbnNlEksKCEdldEl0ZW1z",
             "Eh4uQ1N0b3JlQnJvd3NlX0dldEl0ZW1zX1JlcXVlc3QaHy5DU3RvcmVCcm93",
             "c2VfR2V0SXRlbXNfUmVzcG9uc2USaQoSR2V0U3RvcmVDYXRlZ29yaWVzEigu",
             "Q1N0b3JlQnJvd3NlX0dldFN0b3JlQ2F0ZWdvcmllc19SZXF1ZXN0GikuQ1N0",
@@ -70,6 +86,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.Reflection.DescriptorReflection.Descriptor, global::OpenSteamworks.Protobuf.WebUI.CommonReflection.Descriptor, global::OpenSteamworks.Protobuf.WebUI.CommonBaseReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CHardwarePackageDetails), global::OpenSteamworks.Protobuf.WebUI.CHardwarePackageDetails.Parser, new[]{ "Packageid", "InventoryAvailable", "HighPendingOrders", "AccountRestrictedFromPurchasing", "RequiresReservation", "RtimeEstimatedNotification", "NotificatonToken", "ReservationState", "Expired", "TimeExpires", "TimeReserved", "AllowQuantityPurchase", "MaxQuantityPerPurchase", "AllowPurchaseInCountry" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CStoreBrowse_GetDLCForApps_Request), global::OpenSteamworks.Protobuf.WebUI.CStoreBrowse_GetDLCForApps_Request.Parser, new[]{ "Context", "StorePageFilter", "Appids", "Steamid" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CStoreBrowse_GetDLCForApps_Response), global::OpenSteamworks.Protobuf.WebUI.CStoreBrowse_GetDLCForApps_Response.Parser, new[]{ "DlcData", "Playtime" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CStoreBrowse_GetDLCForApps_Response_DLCData), global::OpenSteamworks.Protobuf.WebUI.CStoreBrowse_GetDLCForApps_Response_DLCData.Parser, new[]{ "Appid", "Parentappid", "ReleaseDate", "ComingSoon", "Price", "Discount", "Free" }, null, null, null, null),
@@ -77,6 +94,8 @@ namespace OpenSteamworks.Protobuf.WebUI {
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CStoreBrowse_GetDLCForAppsSolr_Request), global::OpenSteamworks.Protobuf.WebUI.CStoreBrowse_GetDLCForAppsSolr_Request.Parser, new[]{ "Context", "Appids", "Flavor", "Count", "StorePageFilter" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CStoreBrowse_GetDLCForAppsSolr_Response), global::OpenSteamworks.Protobuf.WebUI.CStoreBrowse_GetDLCForAppsSolr_Response.Parser, new[]{ "DlcLists" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CStoreBrowse_GetDLCForAppsSolr_Response_DLCList), global::OpenSteamworks.Protobuf.WebUI.CStoreBrowse_GetDLCForAppsSolr_Response_DLCList.Parser, new[]{ "ParentAppid", "DlcAppids" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CStoreBrowse_GetHardwareItems_Request), global::OpenSteamworks.Protobuf.WebUI.CStoreBrowse_GetHardwareItems_Request.Parser, new[]{ "Packageid", "Context" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CStoreBrowse_GetHardwareItems_Response), global::OpenSteamworks.Protobuf.WebUI.CStoreBrowse_GetHardwareItems_Response.Parser, new[]{ "Details" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CStoreBrowse_GetStoreCategories_Request), global::OpenSteamworks.Protobuf.WebUI.CStoreBrowse_GetStoreCategories_Request.Parser, new[]{ "Language", "Elanguage" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CStoreBrowse_GetStoreCategories_Response), global::OpenSteamworks.Protobuf.WebUI.CStoreBrowse_GetStoreCategories_Response.Parser, new[]{ "Categories" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CStoreBrowse_GetStoreCategories_Response_Category), global::OpenSteamworks.Protobuf.WebUI.CStoreBrowse_GetStoreCategories_Response_Category.Parser, new[]{ "Categoryid", "Type", "InternalName", "DisplayName", "ImageUrl", "ShowInSearch" }, null, null, null, null)
@@ -86,6 +105,887 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
   #region Messages
+  public sealed partial class CHardwarePackageDetails : pb::IMessage<CHardwarePackageDetails>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<CHardwarePackageDetails> _parser = new pb::MessageParser<CHardwarePackageDetails>(() => new CHardwarePackageDetails());
+    private pb::UnknownFieldSet _unknownFields;
+    private int _hasBits0;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<CHardwarePackageDetails> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceStorebrowseReflection.Descriptor.MessageTypes[0]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CHardwarePackageDetails() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CHardwarePackageDetails(CHardwarePackageDetails other) : this() {
+      _hasBits0 = other._hasBits0;
+      packageid_ = other.packageid_;
+      inventoryAvailable_ = other.inventoryAvailable_;
+      highPendingOrders_ = other.highPendingOrders_;
+      accountRestrictedFromPurchasing_ = other.accountRestrictedFromPurchasing_;
+      requiresReservation_ = other.requiresReservation_;
+      rtimeEstimatedNotification_ = other.rtimeEstimatedNotification_;
+      notificatonToken_ = other.notificatonToken_;
+      reservationState_ = other.reservationState_;
+      expired_ = other.expired_;
+      timeExpires_ = other.timeExpires_;
+      timeReserved_ = other.timeReserved_;
+      allowQuantityPurchase_ = other.allowQuantityPurchase_;
+      maxQuantityPerPurchase_ = other.maxQuantityPerPurchase_;
+      allowPurchaseInCountry_ = other.allowPurchaseInCountry_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CHardwarePackageDetails Clone() {
+      return new CHardwarePackageDetails(this);
+    }
+
+    /// <summary>Field number for the "packageid" field.</summary>
+    public const int PackageidFieldNumber = 1;
+    private readonly static uint PackageidDefaultValue = 0;
+
+    private uint packageid_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint Packageid {
+      get { if ((_hasBits0 & 1) != 0) { return packageid_; } else { return PackageidDefaultValue; } }
+      set {
+        _hasBits0 |= 1;
+        packageid_ = value;
+      }
+    }
+    /// <summary>Gets whether the "packageid" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasPackageid {
+      get { return (_hasBits0 & 1) != 0; }
+    }
+    /// <summary>Clears the value of the "packageid" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearPackageid() {
+      _hasBits0 &= ~1;
+    }
+
+    /// <summary>Field number for the "inventory_available" field.</summary>
+    public const int InventoryAvailableFieldNumber = 3;
+    private readonly static bool InventoryAvailableDefaultValue = false;
+
+    private bool inventoryAvailable_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool InventoryAvailable {
+      get { if ((_hasBits0 & 2) != 0) { return inventoryAvailable_; } else { return InventoryAvailableDefaultValue; } }
+      set {
+        _hasBits0 |= 2;
+        inventoryAvailable_ = value;
+      }
+    }
+    /// <summary>Gets whether the "inventory_available" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasInventoryAvailable {
+      get { return (_hasBits0 & 2) != 0; }
+    }
+    /// <summary>Clears the value of the "inventory_available" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearInventoryAvailable() {
+      _hasBits0 &= ~2;
+    }
+
+    /// <summary>Field number for the "high_pending_orders" field.</summary>
+    public const int HighPendingOrdersFieldNumber = 4;
+    private readonly static bool HighPendingOrdersDefaultValue = false;
+
+    private bool highPendingOrders_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HighPendingOrders {
+      get { if ((_hasBits0 & 4) != 0) { return highPendingOrders_; } else { return HighPendingOrdersDefaultValue; } }
+      set {
+        _hasBits0 |= 4;
+        highPendingOrders_ = value;
+      }
+    }
+    /// <summary>Gets whether the "high_pending_orders" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasHighPendingOrders {
+      get { return (_hasBits0 & 4) != 0; }
+    }
+    /// <summary>Clears the value of the "high_pending_orders" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearHighPendingOrders() {
+      _hasBits0 &= ~4;
+    }
+
+    /// <summary>Field number for the "account_restricted_from_purchasing" field.</summary>
+    public const int AccountRestrictedFromPurchasingFieldNumber = 5;
+    private readonly static bool AccountRestrictedFromPurchasingDefaultValue = false;
+
+    private bool accountRestrictedFromPurchasing_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool AccountRestrictedFromPurchasing {
+      get { if ((_hasBits0 & 8) != 0) { return accountRestrictedFromPurchasing_; } else { return AccountRestrictedFromPurchasingDefaultValue; } }
+      set {
+        _hasBits0 |= 8;
+        accountRestrictedFromPurchasing_ = value;
+      }
+    }
+    /// <summary>Gets whether the "account_restricted_from_purchasing" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasAccountRestrictedFromPurchasing {
+      get { return (_hasBits0 & 8) != 0; }
+    }
+    /// <summary>Clears the value of the "account_restricted_from_purchasing" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearAccountRestrictedFromPurchasing() {
+      _hasBits0 &= ~8;
+    }
+
+    /// <summary>Field number for the "requires_reservation" field.</summary>
+    public const int RequiresReservationFieldNumber = 6;
+    private readonly static bool RequiresReservationDefaultValue = false;
+
+    private bool requiresReservation_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool RequiresReservation {
+      get { if ((_hasBits0 & 16) != 0) { return requiresReservation_; } else { return RequiresReservationDefaultValue; } }
+      set {
+        _hasBits0 |= 16;
+        requiresReservation_ = value;
+      }
+    }
+    /// <summary>Gets whether the "requires_reservation" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasRequiresReservation {
+      get { return (_hasBits0 & 16) != 0; }
+    }
+    /// <summary>Clears the value of the "requires_reservation" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearRequiresReservation() {
+      _hasBits0 &= ~16;
+    }
+
+    /// <summary>Field number for the "rtime_estimated_notification" field.</summary>
+    public const int RtimeEstimatedNotificationFieldNumber = 7;
+    private readonly static uint RtimeEstimatedNotificationDefaultValue = 0;
+
+    private uint rtimeEstimatedNotification_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint RtimeEstimatedNotification {
+      get { if ((_hasBits0 & 32) != 0) { return rtimeEstimatedNotification_; } else { return RtimeEstimatedNotificationDefaultValue; } }
+      set {
+        _hasBits0 |= 32;
+        rtimeEstimatedNotification_ = value;
+      }
+    }
+    /// <summary>Gets whether the "rtime_estimated_notification" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasRtimeEstimatedNotification {
+      get { return (_hasBits0 & 32) != 0; }
+    }
+    /// <summary>Clears the value of the "rtime_estimated_notification" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearRtimeEstimatedNotification() {
+      _hasBits0 &= ~32;
+    }
+
+    /// <summary>Field number for the "notificaton_token" field.</summary>
+    public const int NotificatonTokenFieldNumber = 8;
+    private readonly static string NotificatonTokenDefaultValue = "";
+
+    private string notificatonToken_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string NotificatonToken {
+      get { return notificatonToken_ ?? NotificatonTokenDefaultValue; }
+      set {
+        notificatonToken_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+    /// <summary>Gets whether the "notificaton_token" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasNotificatonToken {
+      get { return notificatonToken_ != null; }
+    }
+    /// <summary>Clears the value of the "notificaton_token" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearNotificatonToken() {
+      notificatonToken_ = null;
+    }
+
+    /// <summary>Field number for the "reservation_state" field.</summary>
+    public const int ReservationStateFieldNumber = 9;
+    private readonly static int ReservationStateDefaultValue = 0;
+
+    private int reservationState_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int ReservationState {
+      get { if ((_hasBits0 & 64) != 0) { return reservationState_; } else { return ReservationStateDefaultValue; } }
+      set {
+        _hasBits0 |= 64;
+        reservationState_ = value;
+      }
+    }
+    /// <summary>Gets whether the "reservation_state" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasReservationState {
+      get { return (_hasBits0 & 64) != 0; }
+    }
+    /// <summary>Clears the value of the "reservation_state" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearReservationState() {
+      _hasBits0 &= ~64;
+    }
+
+    /// <summary>Field number for the "expired" field.</summary>
+    public const int ExpiredFieldNumber = 10;
+    private readonly static bool ExpiredDefaultValue = false;
+
+    private bool expired_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Expired {
+      get { if ((_hasBits0 & 128) != 0) { return expired_; } else { return ExpiredDefaultValue; } }
+      set {
+        _hasBits0 |= 128;
+        expired_ = value;
+      }
+    }
+    /// <summary>Gets whether the "expired" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasExpired {
+      get { return (_hasBits0 & 128) != 0; }
+    }
+    /// <summary>Clears the value of the "expired" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearExpired() {
+      _hasBits0 &= ~128;
+    }
+
+    /// <summary>Field number for the "time_expires" field.</summary>
+    public const int TimeExpiresFieldNumber = 11;
+    private readonly static uint TimeExpiresDefaultValue = 0;
+
+    private uint timeExpires_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint TimeExpires {
+      get { if ((_hasBits0 & 256) != 0) { return timeExpires_; } else { return TimeExpiresDefaultValue; } }
+      set {
+        _hasBits0 |= 256;
+        timeExpires_ = value;
+      }
+    }
+    /// <summary>Gets whether the "time_expires" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasTimeExpires {
+      get { return (_hasBits0 & 256) != 0; }
+    }
+    /// <summary>Clears the value of the "time_expires" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearTimeExpires() {
+      _hasBits0 &= ~256;
+    }
+
+    /// <summary>Field number for the "time_reserved" field.</summary>
+    public const int TimeReservedFieldNumber = 12;
+    private readonly static uint TimeReservedDefaultValue = 0;
+
+    private uint timeReserved_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint TimeReserved {
+      get { if ((_hasBits0 & 512) != 0) { return timeReserved_; } else { return TimeReservedDefaultValue; } }
+      set {
+        _hasBits0 |= 512;
+        timeReserved_ = value;
+      }
+    }
+    /// <summary>Gets whether the "time_reserved" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasTimeReserved {
+      get { return (_hasBits0 & 512) != 0; }
+    }
+    /// <summary>Clears the value of the "time_reserved" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearTimeReserved() {
+      _hasBits0 &= ~512;
+    }
+
+    /// <summary>Field number for the "allow_quantity_purchase" field.</summary>
+    public const int AllowQuantityPurchaseFieldNumber = 13;
+    private readonly static bool AllowQuantityPurchaseDefaultValue = false;
+
+    private bool allowQuantityPurchase_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool AllowQuantityPurchase {
+      get { if ((_hasBits0 & 1024) != 0) { return allowQuantityPurchase_; } else { return AllowQuantityPurchaseDefaultValue; } }
+      set {
+        _hasBits0 |= 1024;
+        allowQuantityPurchase_ = value;
+      }
+    }
+    /// <summary>Gets whether the "allow_quantity_purchase" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasAllowQuantityPurchase {
+      get { return (_hasBits0 & 1024) != 0; }
+    }
+    /// <summary>Clears the value of the "allow_quantity_purchase" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearAllowQuantityPurchase() {
+      _hasBits0 &= ~1024;
+    }
+
+    /// <summary>Field number for the "max_quantity_per_purchase" field.</summary>
+    public const int MaxQuantityPerPurchaseFieldNumber = 14;
+    private readonly static int MaxQuantityPerPurchaseDefaultValue = 0;
+
+    private int maxQuantityPerPurchase_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int MaxQuantityPerPurchase {
+      get { if ((_hasBits0 & 2048) != 0) { return maxQuantityPerPurchase_; } else { return MaxQuantityPerPurchaseDefaultValue; } }
+      set {
+        _hasBits0 |= 2048;
+        maxQuantityPerPurchase_ = value;
+      }
+    }
+    /// <summary>Gets whether the "max_quantity_per_purchase" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasMaxQuantityPerPurchase {
+      get { return (_hasBits0 & 2048) != 0; }
+    }
+    /// <summary>Clears the value of the "max_quantity_per_purchase" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearMaxQuantityPerPurchase() {
+      _hasBits0 &= ~2048;
+    }
+
+    /// <summary>Field number for the "allow_purchase_in_country" field.</summary>
+    public const int AllowPurchaseInCountryFieldNumber = 15;
+    private readonly static bool AllowPurchaseInCountryDefaultValue = false;
+
+    private bool allowPurchaseInCountry_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool AllowPurchaseInCountry {
+      get { if ((_hasBits0 & 4096) != 0) { return allowPurchaseInCountry_; } else { return AllowPurchaseInCountryDefaultValue; } }
+      set {
+        _hasBits0 |= 4096;
+        allowPurchaseInCountry_ = value;
+      }
+    }
+    /// <summary>Gets whether the "allow_purchase_in_country" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasAllowPurchaseInCountry {
+      get { return (_hasBits0 & 4096) != 0; }
+    }
+    /// <summary>Clears the value of the "allow_purchase_in_country" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearAllowPurchaseInCountry() {
+      _hasBits0 &= ~4096;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as CHardwarePackageDetails);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(CHardwarePackageDetails other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Packageid != other.Packageid) return false;
+      if (InventoryAvailable != other.InventoryAvailable) return false;
+      if (HighPendingOrders != other.HighPendingOrders) return false;
+      if (AccountRestrictedFromPurchasing != other.AccountRestrictedFromPurchasing) return false;
+      if (RequiresReservation != other.RequiresReservation) return false;
+      if (RtimeEstimatedNotification != other.RtimeEstimatedNotification) return false;
+      if (NotificatonToken != other.NotificatonToken) return false;
+      if (ReservationState != other.ReservationState) return false;
+      if (Expired != other.Expired) return false;
+      if (TimeExpires != other.TimeExpires) return false;
+      if (TimeReserved != other.TimeReserved) return false;
+      if (AllowQuantityPurchase != other.AllowQuantityPurchase) return false;
+      if (MaxQuantityPerPurchase != other.MaxQuantityPerPurchase) return false;
+      if (AllowPurchaseInCountry != other.AllowPurchaseInCountry) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (HasPackageid) hash ^= Packageid.GetHashCode();
+      if (HasInventoryAvailable) hash ^= InventoryAvailable.GetHashCode();
+      if (HasHighPendingOrders) hash ^= HighPendingOrders.GetHashCode();
+      if (HasAccountRestrictedFromPurchasing) hash ^= AccountRestrictedFromPurchasing.GetHashCode();
+      if (HasRequiresReservation) hash ^= RequiresReservation.GetHashCode();
+      if (HasRtimeEstimatedNotification) hash ^= RtimeEstimatedNotification.GetHashCode();
+      if (HasNotificatonToken) hash ^= NotificatonToken.GetHashCode();
+      if (HasReservationState) hash ^= ReservationState.GetHashCode();
+      if (HasExpired) hash ^= Expired.GetHashCode();
+      if (HasTimeExpires) hash ^= TimeExpires.GetHashCode();
+      if (HasTimeReserved) hash ^= TimeReserved.GetHashCode();
+      if (HasAllowQuantityPurchase) hash ^= AllowQuantityPurchase.GetHashCode();
+      if (HasMaxQuantityPerPurchase) hash ^= MaxQuantityPerPurchase.GetHashCode();
+      if (HasAllowPurchaseInCountry) hash ^= AllowPurchaseInCountry.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (HasPackageid) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(Packageid);
+      }
+      if (HasInventoryAvailable) {
+        output.WriteRawTag(24);
+        output.WriteBool(InventoryAvailable);
+      }
+      if (HasHighPendingOrders) {
+        output.WriteRawTag(32);
+        output.WriteBool(HighPendingOrders);
+      }
+      if (HasAccountRestrictedFromPurchasing) {
+        output.WriteRawTag(40);
+        output.WriteBool(AccountRestrictedFromPurchasing);
+      }
+      if (HasRequiresReservation) {
+        output.WriteRawTag(48);
+        output.WriteBool(RequiresReservation);
+      }
+      if (HasRtimeEstimatedNotification) {
+        output.WriteRawTag(56);
+        output.WriteUInt32(RtimeEstimatedNotification);
+      }
+      if (HasNotificatonToken) {
+        output.WriteRawTag(66);
+        output.WriteString(NotificatonToken);
+      }
+      if (HasReservationState) {
+        output.WriteRawTag(72);
+        output.WriteInt32(ReservationState);
+      }
+      if (HasExpired) {
+        output.WriteRawTag(80);
+        output.WriteBool(Expired);
+      }
+      if (HasTimeExpires) {
+        output.WriteRawTag(88);
+        output.WriteUInt32(TimeExpires);
+      }
+      if (HasTimeReserved) {
+        output.WriteRawTag(96);
+        output.WriteUInt32(TimeReserved);
+      }
+      if (HasAllowQuantityPurchase) {
+        output.WriteRawTag(104);
+        output.WriteBool(AllowQuantityPurchase);
+      }
+      if (HasMaxQuantityPerPurchase) {
+        output.WriteRawTag(112);
+        output.WriteInt32(MaxQuantityPerPurchase);
+      }
+      if (HasAllowPurchaseInCountry) {
+        output.WriteRawTag(120);
+        output.WriteBool(AllowPurchaseInCountry);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (HasPackageid) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(Packageid);
+      }
+      if (HasInventoryAvailable) {
+        output.WriteRawTag(24);
+        output.WriteBool(InventoryAvailable);
+      }
+      if (HasHighPendingOrders) {
+        output.WriteRawTag(32);
+        output.WriteBool(HighPendingOrders);
+      }
+      if (HasAccountRestrictedFromPurchasing) {
+        output.WriteRawTag(40);
+        output.WriteBool(AccountRestrictedFromPurchasing);
+      }
+      if (HasRequiresReservation) {
+        output.WriteRawTag(48);
+        output.WriteBool(RequiresReservation);
+      }
+      if (HasRtimeEstimatedNotification) {
+        output.WriteRawTag(56);
+        output.WriteUInt32(RtimeEstimatedNotification);
+      }
+      if (HasNotificatonToken) {
+        output.WriteRawTag(66);
+        output.WriteString(NotificatonToken);
+      }
+      if (HasReservationState) {
+        output.WriteRawTag(72);
+        output.WriteInt32(ReservationState);
+      }
+      if (HasExpired) {
+        output.WriteRawTag(80);
+        output.WriteBool(Expired);
+      }
+      if (HasTimeExpires) {
+        output.WriteRawTag(88);
+        output.WriteUInt32(TimeExpires);
+      }
+      if (HasTimeReserved) {
+        output.WriteRawTag(96);
+        output.WriteUInt32(TimeReserved);
+      }
+      if (HasAllowQuantityPurchase) {
+        output.WriteRawTag(104);
+        output.WriteBool(AllowQuantityPurchase);
+      }
+      if (HasMaxQuantityPerPurchase) {
+        output.WriteRawTag(112);
+        output.WriteInt32(MaxQuantityPerPurchase);
+      }
+      if (HasAllowPurchaseInCountry) {
+        output.WriteRawTag(120);
+        output.WriteBool(AllowPurchaseInCountry);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (HasPackageid) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Packageid);
+      }
+      if (HasInventoryAvailable) {
+        size += 1 + 1;
+      }
+      if (HasHighPendingOrders) {
+        size += 1 + 1;
+      }
+      if (HasAccountRestrictedFromPurchasing) {
+        size += 1 + 1;
+      }
+      if (HasRequiresReservation) {
+        size += 1 + 1;
+      }
+      if (HasRtimeEstimatedNotification) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(RtimeEstimatedNotification);
+      }
+      if (HasNotificatonToken) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(NotificatonToken);
+      }
+      if (HasReservationState) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(ReservationState);
+      }
+      if (HasExpired) {
+        size += 1 + 1;
+      }
+      if (HasTimeExpires) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(TimeExpires);
+      }
+      if (HasTimeReserved) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(TimeReserved);
+      }
+      if (HasAllowQuantityPurchase) {
+        size += 1 + 1;
+      }
+      if (HasMaxQuantityPerPurchase) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(MaxQuantityPerPurchase);
+      }
+      if (HasAllowPurchaseInCountry) {
+        size += 1 + 1;
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(CHardwarePackageDetails other) {
+      if (other == null) {
+        return;
+      }
+      if (other.HasPackageid) {
+        Packageid = other.Packageid;
+      }
+      if (other.HasInventoryAvailable) {
+        InventoryAvailable = other.InventoryAvailable;
+      }
+      if (other.HasHighPendingOrders) {
+        HighPendingOrders = other.HighPendingOrders;
+      }
+      if (other.HasAccountRestrictedFromPurchasing) {
+        AccountRestrictedFromPurchasing = other.AccountRestrictedFromPurchasing;
+      }
+      if (other.HasRequiresReservation) {
+        RequiresReservation = other.RequiresReservation;
+      }
+      if (other.HasRtimeEstimatedNotification) {
+        RtimeEstimatedNotification = other.RtimeEstimatedNotification;
+      }
+      if (other.HasNotificatonToken) {
+        NotificatonToken = other.NotificatonToken;
+      }
+      if (other.HasReservationState) {
+        ReservationState = other.ReservationState;
+      }
+      if (other.HasExpired) {
+        Expired = other.Expired;
+      }
+      if (other.HasTimeExpires) {
+        TimeExpires = other.TimeExpires;
+      }
+      if (other.HasTimeReserved) {
+        TimeReserved = other.TimeReserved;
+      }
+      if (other.HasAllowQuantityPurchase) {
+        AllowQuantityPurchase = other.AllowQuantityPurchase;
+      }
+      if (other.HasMaxQuantityPerPurchase) {
+        MaxQuantityPerPurchase = other.MaxQuantityPerPurchase;
+      }
+      if (other.HasAllowPurchaseInCountry) {
+        AllowPurchaseInCountry = other.AllowPurchaseInCountry;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            Packageid = input.ReadUInt32();
+            break;
+          }
+          case 24: {
+            InventoryAvailable = input.ReadBool();
+            break;
+          }
+          case 32: {
+            HighPendingOrders = input.ReadBool();
+            break;
+          }
+          case 40: {
+            AccountRestrictedFromPurchasing = input.ReadBool();
+            break;
+          }
+          case 48: {
+            RequiresReservation = input.ReadBool();
+            break;
+          }
+          case 56: {
+            RtimeEstimatedNotification = input.ReadUInt32();
+            break;
+          }
+          case 66: {
+            NotificatonToken = input.ReadString();
+            break;
+          }
+          case 72: {
+            ReservationState = input.ReadInt32();
+            break;
+          }
+          case 80: {
+            Expired = input.ReadBool();
+            break;
+          }
+          case 88: {
+            TimeExpires = input.ReadUInt32();
+            break;
+          }
+          case 96: {
+            TimeReserved = input.ReadUInt32();
+            break;
+          }
+          case 104: {
+            AllowQuantityPurchase = input.ReadBool();
+            break;
+          }
+          case 112: {
+            MaxQuantityPerPurchase = input.ReadInt32();
+            break;
+          }
+          case 120: {
+            AllowPurchaseInCountry = input.ReadBool();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            Packageid = input.ReadUInt32();
+            break;
+          }
+          case 24: {
+            InventoryAvailable = input.ReadBool();
+            break;
+          }
+          case 32: {
+            HighPendingOrders = input.ReadBool();
+            break;
+          }
+          case 40: {
+            AccountRestrictedFromPurchasing = input.ReadBool();
+            break;
+          }
+          case 48: {
+            RequiresReservation = input.ReadBool();
+            break;
+          }
+          case 56: {
+            RtimeEstimatedNotification = input.ReadUInt32();
+            break;
+          }
+          case 66: {
+            NotificatonToken = input.ReadString();
+            break;
+          }
+          case 72: {
+            ReservationState = input.ReadInt32();
+            break;
+          }
+          case 80: {
+            Expired = input.ReadBool();
+            break;
+          }
+          case 88: {
+            TimeExpires = input.ReadUInt32();
+            break;
+          }
+          case 96: {
+            TimeReserved = input.ReadUInt32();
+            break;
+          }
+          case 104: {
+            AllowQuantityPurchase = input.ReadBool();
+            break;
+          }
+          case 112: {
+            MaxQuantityPerPurchase = input.ReadInt32();
+            break;
+          }
+          case 120: {
+            AllowPurchaseInCountry = input.ReadBool();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
   public sealed partial class CStoreBrowse_GetDLCForApps_Request : pb::IMessage<CStoreBrowse_GetDLCForApps_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -101,7 +1001,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceStorebrowseReflection.Descriptor.MessageTypes[0]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceStorebrowseReflection.Descriptor.MessageTypes[1]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -424,7 +1324,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceStorebrowseReflection.Descriptor.MessageTypes[1]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceStorebrowseReflection.Descriptor.MessageTypes[2]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -629,7 +1529,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceStorebrowseReflection.Descriptor.MessageTypes[2]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceStorebrowseReflection.Descriptor.MessageTypes[3]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1147,7 +2047,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceStorebrowseReflection.Descriptor.MessageTypes[3]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceStorebrowseReflection.Descriptor.MessageTypes[4]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1457,7 +2357,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceStorebrowseReflection.Descriptor.MessageTypes[4]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceStorebrowseReflection.Descriptor.MessageTypes[5]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1833,7 +2733,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceStorebrowseReflection.Descriptor.MessageTypes[5]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceStorebrowseReflection.Descriptor.MessageTypes[6]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2012,7 +2912,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceStorebrowseReflection.Descriptor.MessageTypes[6]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceStorebrowseReflection.Descriptor.MessageTypes[7]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2231,6 +3131,410 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  public sealed partial class CStoreBrowse_GetHardwareItems_Request : pb::IMessage<CStoreBrowse_GetHardwareItems_Request>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<CStoreBrowse_GetHardwareItems_Request> _parser = new pb::MessageParser<CStoreBrowse_GetHardwareItems_Request>(() => new CStoreBrowse_GetHardwareItems_Request());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<CStoreBrowse_GetHardwareItems_Request> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceStorebrowseReflection.Descriptor.MessageTypes[8]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CStoreBrowse_GetHardwareItems_Request() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CStoreBrowse_GetHardwareItems_Request(CStoreBrowse_GetHardwareItems_Request other) : this() {
+      packageid_ = other.packageid_.Clone();
+      context_ = other.context_ != null ? other.context_.Clone() : null;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CStoreBrowse_GetHardwareItems_Request Clone() {
+      return new CStoreBrowse_GetHardwareItems_Request(this);
+    }
+
+    /// <summary>Field number for the "packageid" field.</summary>
+    public const int PackageidFieldNumber = 1;
+    private static readonly pb::FieldCodec<uint> _repeated_packageid_codec
+        = pb::FieldCodec.ForUInt32(8);
+    private readonly pbc::RepeatedField<uint> packageid_ = new pbc::RepeatedField<uint>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<uint> Packageid {
+      get { return packageid_; }
+    }
+
+    /// <summary>Field number for the "context" field.</summary>
+    public const int ContextFieldNumber = 2;
+    private global::OpenSteamworks.Protobuf.WebUI.StoreBrowseContext context_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::OpenSteamworks.Protobuf.WebUI.StoreBrowseContext Context {
+      get { return context_; }
+      set {
+        context_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as CStoreBrowse_GetHardwareItems_Request);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(CStoreBrowse_GetHardwareItems_Request other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if(!packageid_.Equals(other.packageid_)) return false;
+      if (!object.Equals(Context, other.Context)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      hash ^= packageid_.GetHashCode();
+      if (context_ != null) hash ^= Context.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      packageid_.WriteTo(output, _repeated_packageid_codec);
+      if (context_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Context);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      packageid_.WriteTo(ref output, _repeated_packageid_codec);
+      if (context_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Context);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      size += packageid_.CalculateSize(_repeated_packageid_codec);
+      if (context_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Context);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(CStoreBrowse_GetHardwareItems_Request other) {
+      if (other == null) {
+        return;
+      }
+      packageid_.Add(other.packageid_);
+      if (other.context_ != null) {
+        if (context_ == null) {
+          Context = new global::OpenSteamworks.Protobuf.WebUI.StoreBrowseContext();
+        }
+        Context.MergeFrom(other.Context);
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10:
+          case 8: {
+            packageid_.AddEntriesFrom(input, _repeated_packageid_codec);
+            break;
+          }
+          case 18: {
+            if (context_ == null) {
+              Context = new global::OpenSteamworks.Protobuf.WebUI.StoreBrowseContext();
+            }
+            input.ReadMessage(Context);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10:
+          case 8: {
+            packageid_.AddEntriesFrom(ref input, _repeated_packageid_codec);
+            break;
+          }
+          case 18: {
+            if (context_ == null) {
+              Context = new global::OpenSteamworks.Protobuf.WebUI.StoreBrowseContext();
+            }
+            input.ReadMessage(Context);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class CStoreBrowse_GetHardwareItems_Response : pb::IMessage<CStoreBrowse_GetHardwareItems_Response>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<CStoreBrowse_GetHardwareItems_Response> _parser = new pb::MessageParser<CStoreBrowse_GetHardwareItems_Response>(() => new CStoreBrowse_GetHardwareItems_Response());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<CStoreBrowse_GetHardwareItems_Response> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceStorebrowseReflection.Descriptor.MessageTypes[9]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CStoreBrowse_GetHardwareItems_Response() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CStoreBrowse_GetHardwareItems_Response(CStoreBrowse_GetHardwareItems_Response other) : this() {
+      details_ = other.details_.Clone();
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CStoreBrowse_GetHardwareItems_Response Clone() {
+      return new CStoreBrowse_GetHardwareItems_Response(this);
+    }
+
+    /// <summary>Field number for the "details" field.</summary>
+    public const int DetailsFieldNumber = 1;
+    private static readonly pb::FieldCodec<global::OpenSteamworks.Protobuf.WebUI.CHardwarePackageDetails> _repeated_details_codec
+        = pb::FieldCodec.ForMessage(10, global::OpenSteamworks.Protobuf.WebUI.CHardwarePackageDetails.Parser);
+    private readonly pbc::RepeatedField<global::OpenSteamworks.Protobuf.WebUI.CHardwarePackageDetails> details_ = new pbc::RepeatedField<global::OpenSteamworks.Protobuf.WebUI.CHardwarePackageDetails>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::OpenSteamworks.Protobuf.WebUI.CHardwarePackageDetails> Details {
+      get { return details_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as CStoreBrowse_GetHardwareItems_Response);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(CStoreBrowse_GetHardwareItems_Response other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if(!details_.Equals(other.details_)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      hash ^= details_.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      details_.WriteTo(output, _repeated_details_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      details_.WriteTo(ref output, _repeated_details_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      size += details_.CalculateSize(_repeated_details_codec);
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(CStoreBrowse_GetHardwareItems_Response other) {
+      if (other == null) {
+        return;
+      }
+      details_.Add(other.details_);
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            details_.AddEntriesFrom(input, _repeated_details_codec);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            details_.AddEntriesFrom(ref input, _repeated_details_codec);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
   public sealed partial class CStoreBrowse_GetStoreCategories_Request : pb::IMessage<CStoreBrowse_GetStoreCategories_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2246,7 +3550,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceStorebrowseReflection.Descriptor.MessageTypes[7]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceStorebrowseReflection.Descriptor.MessageTypes[10]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2502,7 +3806,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceStorebrowseReflection.Descriptor.MessageTypes[8]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceStorebrowseReflection.Descriptor.MessageTypes[11]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2681,7 +3985,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceStorebrowseReflection.Descriptor.MessageTypes[9]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceStorebrowseReflection.Descriptor.MessageTypes[12]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

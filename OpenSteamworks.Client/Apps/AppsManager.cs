@@ -54,12 +54,14 @@ public class AppsManager : ILogonLifetime
     private Logger logger;
     private InstallManager installManager;
     private LoginManager loginManager;
+    public readonly ClientApps ClientApps;
 
     public EventHandler<AppPlaytimeChangedEventArgs>? AppPlaytimeChanged;
     public EventHandler<AppLastPlayedChangedEventArgs>? AppLastPlayedChanged;
 
-    public AppsManager(SteamClient steamClient, ClientMessaging clientMessaging, InstallManager installManager, LoginManager loginManager) {
+    public AppsManager(SteamClient steamClient, ClientApps clientApps, ClientMessaging clientMessaging, InstallManager installManager, LoginManager loginManager) {
         this.logger = Logger.GetLogger("AppsManager", installManager.GetLogPath("AppsManager"));
+        this.ClientApps = clientApps;
         this.loginManager = loginManager;
         this.steamClient = steamClient;
         this.clientMessaging = clientMessaging;
@@ -119,15 +121,6 @@ public class AppsManager : ILogonLifetime
         }
     }
 
-    public Task RequestAppInfoUpdateForApp(AppId_t appid) {
-        return RequestAppInfoUpdateForApps(new AppId_t[1] { appid });
-    }
-
-    public async Task RequestAppInfoUpdateForApps(IEnumerable<AppId_t> apps) {
-        this.steamClient.NativeClient.IClientApps.RequestAppInfoUpdate(apps.ToArray(), (uint)apps.LongCount());
-        await this.steamClient.CallbackManager.WaitForCallback(AppInfoUpdateComplete_t.CallbackID);
-    }
-
     public async Task OnLoggingOff(IExtendedProgress<int> progress) {
         hasLogOnFinished = false;
         ownedAppIDs.Clear();
@@ -137,8 +130,8 @@ public class AppsManager : ILogonLifetime
     /// May return '' or 'public' depending on the phase of the moon, angle of the sun and some other unknown factors (public seems to be the correct behaviour, does '' stand for failure?)
     /// </summary>
     public string GetBetaForApp(AppId_t appid) {
-        StringBuilder betaName = new(256);
-        steamClient.NativeClient.IClientAppManager.GetActiveBeta(appid, betaName, betaName.Capacity);
+        IncrementingStringBuilder betaName = new();
+        betaName.RunUntilFits(() => steamClient.NativeClient.IClientAppManager.GetActiveBeta(appid, betaName.Data, betaName.Length));
         return betaName.ToString();
     }
 

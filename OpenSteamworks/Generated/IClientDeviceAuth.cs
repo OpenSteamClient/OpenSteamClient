@@ -31,9 +31,8 @@ public unsafe interface IClientDeviceAuth
     // WARNING: Arguments are unknown!
     public unknown_ret GetBorrowerInfo();  // argc: 4, index: 8
     // WARNING: Arguments are unknown!
-    public unknown_ret UpdateAuthorizedBorrowers();  // argc: 3, index: 9
-    // WARNING: Arguments are unknown!
-    public unknown_ret GetSharedLibraryLockedBy();  // argc: 1, index: 10
+    public unknown_ret UpdateAuthorizedBorrowers(void* unk, uint accountid, bool authorized);  // argc: 3, index: 9
+    public uint GetSharedLibraryLockedBy(uint accountid);  // argc: 1, index: 10
     // WARNING: Arguments are unknown!
     public unknown_ret GetSharedLibraryOwners();  // argc: 2, index: 11
 }

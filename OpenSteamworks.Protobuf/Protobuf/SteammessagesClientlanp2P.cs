@@ -34,19 +34,19 @@ namespace OpenSteamworks.Protobuf {
             "ZXF1ZXN0Q2h1bmtzUmVzcG9uc2UuQ2h1bmtEYXRhGnMKCUNodW5rRGF0YRIO",
             "CgZyZXN1bHQYASABKA0SEAoIZGVwb3RfaWQYAiABKA0SCwoDc2hhGAMgASgM",
             "EhAKCGNodW5kYXRhGAQgASgMEhEKCWVuY3J5cHRlZBgFIAEoCBISCgpjb21w",
-            "cmVzc2VkGAYgASgIIksKGkNNc2dDbGllbnRQZWVyQ2h1bmtSZXF1ZXN0Eg4K",
-            "BmFwcF9pZBgBIAEoDRIQCghkZXBvdF9pZBgCIAEoDRILCgNzaGEYAyABKAwi",
-            "lQEKG0NNc2dDbGllbnRQZWVyQ2h1bmtSZXNwb25zZRIOCgZyZXN1bHQYASAB",
-            "KA0SDgoGYXBwX2lkGAIgASgNEhAKCGRlcG90X2lkGAMgASgNEgsKA3NoYRgE",
-            "IAEoDBIRCgllbmNyeXB0ZWQYBSABKAgSEgoKY29tcHJlc3NlZBgGIAEoCBIQ",
-            "CghjaHVuZGF0YRgHIAEoDEIfSAGAAQCqAhdPcGVuU3RlYW13b3Jrcy5Qcm90",
-            "b2J1Zg=="));
+            "cmVzc2VkGAYgASgIImEKGkNNc2dDbGllbnRQZWVyQ2h1bmtSZXF1ZXN0Eg4K",
+            "BmFwcF9pZBgBIAEoDRIQCghkZXBvdF9pZBgCIAEoDRILCgNzaGEYAyABKAwS",
+            "FAoMYWNjZXNzX3Rva2VuGAQgASgEIpUBChtDTXNnQ2xpZW50UGVlckNodW5r",
+            "UmVzcG9uc2USDgoGcmVzdWx0GAEgASgNEg4KBmFwcF9pZBgCIAEoDRIQCghk",
+            "ZXBvdF9pZBgDIAEoDRILCgNzaGEYBCABKAwSEQoJZW5jcnlwdGVkGAUgASgI",
+            "EhIKCmNvbXByZXNzZWQYBiABKAgSEAoIY2h1bmRhdGEYByABKAxCH0gBgAEA",
+            "qgIXT3BlblN0ZWFtd29ya3MuUHJvdG9idWY="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.Reflection.DescriptorReflection.Descriptor, global::OpenSteamworks.Protobuf.SteammessagesBaseReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CMsgClientLANP2PRequestChunks), global::OpenSteamworks.Protobuf.CMsgClientLANP2PRequestChunks.Parser, new[]{ "Chunkeys" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CMsgClientLANP2PRequestChunks.Types.ChunkKey), global::OpenSteamworks.Protobuf.CMsgClientLANP2PRequestChunks.Types.ChunkKey.Parser, new[]{ "DepotId", "Sha" }, null, null, null, null)}),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CMsgClientLANP2PRequestChunksResponse), global::OpenSteamworks.Protobuf.CMsgClientLANP2PRequestChunksResponse.Parser, new[]{ "Chunresponses" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CMsgClientLANP2PRequestChunksResponse.Types.ChunkData), global::OpenSteamworks.Protobuf.CMsgClientLANP2PRequestChunksResponse.Types.ChunkData.Parser, new[]{ "Result", "DepotId", "Sha", "Chundata", "Encrypted", "Compressed" }, null, null, null, null)}),
-            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CMsgClientPeerChunkRequest), global::OpenSteamworks.Protobuf.CMsgClientPeerChunkRequest.Parser, new[]{ "AppId", "DepotId", "Sha" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CMsgClientPeerChunkRequest), global::OpenSteamworks.Protobuf.CMsgClientPeerChunkRequest.Parser, new[]{ "AppId", "DepotId", "Sha", "AccessToken" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CMsgClientPeerChunkResponse), global::OpenSteamworks.Protobuf.CMsgClientPeerChunkResponse.Parser, new[]{ "Result", "AppId", "DepotId", "Sha", "Encrypted", "Compressed", "Chundata" }, null, null, null, null)
           }));
     }
@@ -1186,6 +1186,7 @@ namespace OpenSteamworks.Protobuf {
       appId_ = other.appId_;
       depotId_ = other.depotId_;
       sha_ = other.sha_;
+      accessToken_ = other.accessToken_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -1275,6 +1276,33 @@ namespace OpenSteamworks.Protobuf {
       sha_ = null;
     }
 
+    /// <summary>Field number for the "access_token" field.</summary>
+    public const int AccessTokenFieldNumber = 4;
+    private readonly static ulong AccessTokenDefaultValue = 0UL;
+
+    private ulong accessToken_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ulong AccessToken {
+      get { if ((_hasBits0 & 4) != 0) { return accessToken_; } else { return AccessTokenDefaultValue; } }
+      set {
+        _hasBits0 |= 4;
+        accessToken_ = value;
+      }
+    }
+    /// <summary>Gets whether the "access_token" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasAccessToken {
+      get { return (_hasBits0 & 4) != 0; }
+    }
+    /// <summary>Clears the value of the "access_token" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearAccessToken() {
+      _hasBits0 &= ~4;
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -1293,6 +1321,7 @@ namespace OpenSteamworks.Protobuf {
       if (AppId != other.AppId) return false;
       if (DepotId != other.DepotId) return false;
       if (Sha != other.Sha) return false;
+      if (AccessToken != other.AccessToken) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1303,6 +1332,7 @@ namespace OpenSteamworks.Protobuf {
       if (HasAppId) hash ^= AppId.GetHashCode();
       if (HasDepotId) hash ^= DepotId.GetHashCode();
       if (HasSha) hash ^= Sha.GetHashCode();
+      if (HasAccessToken) hash ^= AccessToken.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1333,6 +1363,10 @@ namespace OpenSteamworks.Protobuf {
         output.WriteRawTag(26);
         output.WriteBytes(Sha);
       }
+      if (HasAccessToken) {
+        output.WriteRawTag(32);
+        output.WriteUInt64(AccessToken);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1355,6 +1389,10 @@ namespace OpenSteamworks.Protobuf {
         output.WriteRawTag(26);
         output.WriteBytes(Sha);
       }
+      if (HasAccessToken) {
+        output.WriteRawTag(32);
+        output.WriteUInt64(AccessToken);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -1373,6 +1411,9 @@ namespace OpenSteamworks.Protobuf {
       }
       if (HasSha) {
         size += 1 + pb::CodedOutputStream.ComputeBytesSize(Sha);
+      }
+      if (HasAccessToken) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(AccessToken);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -1394,6 +1435,9 @@ namespace OpenSteamworks.Protobuf {
       }
       if (other.HasSha) {
         Sha = other.Sha;
+      }
+      if (other.HasAccessToken) {
+        AccessToken = other.AccessToken;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -1422,6 +1466,10 @@ namespace OpenSteamworks.Protobuf {
             Sha = input.ReadBytes();
             break;
           }
+          case 32: {
+            AccessToken = input.ReadUInt64();
+            break;
+          }
         }
       }
     #endif
@@ -1447,6 +1495,10 @@ namespace OpenSteamworks.Protobuf {
           }
           case 26: {
             Sha = input.ReadBytes();
+            break;
+          }
+          case 32: {
+            AccessToken = input.ReadUInt64();
             break;
           }
         }

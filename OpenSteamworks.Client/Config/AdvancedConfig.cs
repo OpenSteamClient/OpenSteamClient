@@ -7,5 +7,7 @@ public class AdvancedConfig : ConfigFile<AdvancedConfig>
     public bool EnableSteamService { get; set; } = true;
     public bool ServiceAsAdminHostOnWindows { get; set; } = false;
     public bool SteamClientSpew { get; set; } = true;
+    public bool LogIncomingCallbacks { get; set; } = true;
+    public bool LogCallbackContents { get; set; } = true;
     public AdvancedConfig() {}
 }

@@ -29,51 +29,60 @@ namespace OpenSteamworks.Protobuf.WebUI {
             "Q1N0ZWFtTm90aWZpY2F0aW9uX0dldFByZWZlcmVuY2VzX1JlcXVlc3QiXwoq",
             "Q1N0ZWFtTm90aWZpY2F0aW9uX0dldFByZWZlcmVuY2VzX1Jlc3BvbnNlEjEK",
             "C3ByZWZlcmVuY2VzGAEgAygLMhwuU3RlYW1Ob3RpZmljYXRpb25QcmVmZXJl",
-            "bmNlImYKMENTdGVhbU5vdGlmaWNhdGlvbl9HZXRTdGVhbU5vdGlmaWNhdGlv",
-            "bnNfUmVxdWVzdBIdCg5pbmNsdWRlX2hpZGRlbhgBIAEoCDoFZmFsc2USEwoI",
-            "bGFuZ3VhZ2UYAiABKAU6ATAifgoxQ1N0ZWFtTm90aWZpY2F0aW9uX0dldFN0",
-            "ZWFtTm90aWZpY2F0aW9uc19SZXNwb25zZRItCg1ub3RpZmljYXRpb25zGAEg",
-            "AygLMhYuU3RlYW1Ob3RpZmljYXRpb25EYXRhEhoKEmNvbmZpcm1hdGlvbl9j",
-            "b3VudBgCIAEoBSJMCjBDU3RlYW1Ob3RpZmljYXRpb25fSGlkZU5vdGlmaWNh",
-            "dGlvbl9Ob3RpZmljYXRpb24SGAoQbm90aWZpY2F0aW9uX2lkcxgBIAMoBCKe",
-            "AQo1Q1N0ZWFtTm90aWZpY2F0aW9uX01hcmtOb3RpZmljYXRpb25zUmVhZF9O",
-            "b3RpZmljYXRpb24SEQoJdGltZXN0YW1wGAEgASgNEiMKEW5vdGlmaWNhdGlv",
-            "bl90eXBlGAIgASgFQgiCtRgEZW51bRIYChBub3RpZmljYXRpb25faWRzGAMg",
-            "AygEEhMKC21hcmFsbF9yZWFkGAQgASgIIl4KKUNTdGVhbU5vdGlmaWNhdGlv",
-            "bl9TZXRQcmVmZXJlbmNlc19SZXF1ZXN0EjEKC3ByZWZlcmVuY2VzGAEgAygL",
-            "MhwuU3RlYW1Ob3RpZmljYXRpb25QcmVmZXJlbmNlIiwKKkNTdGVhbU5vdGlm",
-            "aWNhdGlvbl9TZXRQcmVmZXJlbmNlc19SZXNwb25zZSK3AQoVU3RlYW1Ob3Rp",
-            "ZmljYXRpb25EYXRhEhcKD25vdGlmaWNhdGlvbl9pZBgBIAEoBBIcChRub3Rp",
-            "ZmljYXRpb25fdGFyZ2V0cxgCIAEoDRIjChFub3RpZmljYXRpb25fdHlwZRgD",
-            "IAEoBUIIgrUYBGVudW0SEQoJYm9keV9kYXRhGAQgASgJEgwKBHJlYWQYByAB",
-            "KAgSEQoJdGltZXN0YW1wGAggASgNEg4KBmhpZGRlbhgJIAEoCCJgChtTdGVh",
-            "bU5vdGlmaWNhdGlvblByZWZlcmVuY2USIwoRbm90aWZpY2F0aW9uX3R5cGUY",
-            "ASABKAVCCIK1GARlbnVtEhwKFG5vdGlmaWNhdGlvbl90YXJnZXRzGAIgASgN",
-            "MpsEChFTdGVhbU5vdGlmaWNhdGlvbhJpCg5HZXRQcmVmZXJlbmNlcxIqLkNT",
-            "dGVhbU5vdGlmaWNhdGlvbl9HZXRQcmVmZXJlbmNlc19SZXF1ZXN0GisuQ1N0",
-            "ZWFtTm90aWZpY2F0aW9uX0dldFByZWZlcmVuY2VzX1Jlc3BvbnNlEn4KFUdl",
-            "dFN0ZWFtTm90aWZpY2F0aW9ucxIxLkNTdGVhbU5vdGlmaWNhdGlvbl9HZXRT",
-            "dGVhbU5vdGlmaWNhdGlvbnNfUmVxdWVzdBoyLkNTdGVhbU5vdGlmaWNhdGlv",
-            "bl9HZXRTdGVhbU5vdGlmaWNhdGlvbnNfUmVzcG9uc2USUgoQSGlkZU5vdGlm",
-            "aWNhdGlvbhIxLkNTdGVhbU5vdGlmaWNhdGlvbl9IaWRlTm90aWZpY2F0aW9u",
-            "X05vdGlmaWNhdGlvbhoLLk5vUmVzcG9uc2USXAoVTWFya05vdGlmaWNhdGlv",
-            "bnNSZWFkEjYuQ1N0ZWFtTm90aWZpY2F0aW9uX01hcmtOb3RpZmljYXRpb25z",
-            "UmVhZF9Ob3RpZmljYXRpb24aCy5Ob1Jlc3BvbnNlEmkKDlNldFByZWZlcmVu",
-            "Y2VzEiouQ1N0ZWFtTm90aWZpY2F0aW9uX1NldFByZWZlcmVuY2VzX1JlcXVl",
-            "c3QaKy5DU3RlYW1Ob3RpZmljYXRpb25fU2V0UHJlZmVyZW5jZXNfUmVzcG9u",
-            "c2VCIKoCHU9wZW5TdGVhbXdvcmtzLlByb3RvYnVmLldlYlVJ"));
+            "bmNlIu0BCjBDU3RlYW1Ob3RpZmljYXRpb25fR2V0U3RlYW1Ob3RpZmljYXRp",
+            "b25zX1JlcXVlc3QSHQoOaW5jbHVkZV9oaWRkZW4YASABKAg6BWZhbHNlEhMK",
+            "CGxhbmd1YWdlGAIgASgFOgEwEigKGmluY2x1ZGVfY29uZmlybWF0aW9uX2Nv",
+            "dW50GAMgASgIOgR0cnVlEiQKFWluY2x1ZGVfcGlubmVkX2NvdW50cxgEIAEo",
+            "CDoFZmFsc2USGgoMaW5jbHVkZV9yZWFkGAUgASgIOgR0cnVlEhkKCmNvdW50",
+            "X29ubHkYBiABKAg6BWZhbHNlIvMBCjFDU3RlYW1Ob3RpZmljYXRpb25fR2V0",
+            "U3RlYW1Ob3RpZmljYXRpb25zX1Jlc3BvbnNlEi0KDW5vdGlmaWNhdGlvbnMY",
+            "ASADKAsyFi5TdGVhbU5vdGlmaWNhdGlvbkRhdGESGgoSY29uZmlybWF0aW9u",
+            "X2NvdW50GAIgASgFEhoKEnBlbmRpbmdfZ2lmdF9jb3VudBgDIAEoDRIcChRw",
+            "ZW5kaW5nX2ZyaWVuZF9jb3VudBgFIAEoDRIUCgx1bnJlYWRfY291bnQYBiAB",
+            "KA0SIwobcGVuZGluZ19mYW1pbHlfaW52aXRlX2NvdW50GAcgASgNIsUBCjVD",
+            "U3RlYW1Ob3RpZmljYXRpb25fTm90aWZpY2F0aW9uc1JlY2VpdmVkX05vdGlm",
+            "aWNhdGlvbhItCg1ub3RpZmljYXRpb25zGAEgAygLMhYuU3RlYW1Ob3RpZmlj",
+            "YXRpb25EYXRhEhoKEnBlbmRpbmdfZ2lmdF9jb3VudBgCIAEoDRIcChRwZW5k",
+            "aW5nX2ZyaWVuZF9jb3VudBgDIAEoDRIjChtwZW5kaW5nX2ZhbWlseV9pbnZp",
+            "dGVfY291bnQYBCABKA0iZwoyQ1N0ZWFtTm90aWZpY2F0aW9uX1ByZWZlcmVu",
+            "Y2VzVXBkYXRlZF9Ob3RpZmljYXRpb24SMQoLcHJlZmVyZW5jZXMYASADKAsy",
+            "HC5TdGVhbU5vdGlmaWNhdGlvblByZWZlcmVuY2UiXgopQ1N0ZWFtTm90aWZp",
+            "Y2F0aW9uX1NldFByZWZlcmVuY2VzX1JlcXVlc3QSMQoLcHJlZmVyZW5jZXMY",
+            "ASADKAsyHC5TdGVhbU5vdGlmaWNhdGlvblByZWZlcmVuY2UiLAoqQ1N0ZWFt",
+            "Tm90aWZpY2F0aW9uX1NldFByZWZlcmVuY2VzX1Jlc3BvbnNlItcBChVTdGVh",
+            "bU5vdGlmaWNhdGlvbkRhdGESFwoPbm90aWZpY2F0aW9uX2lkGAEgASgEEhwK",
+            "FG5vdGlmaWNhdGlvbl90YXJnZXRzGAIgASgNEiMKEW5vdGlmaWNhdGlvbl90",
+            "eXBlGAMgASgFQgiCtRgEZW51bRIRCglib2R5X2RhdGEYBCABKAkSDAoEcmVh",
+            "ZBgHIAEoCBIRCgl0aW1lc3RhbXAYCCABKA0SDgoGaGlkZGVuGAkgASgIEg4K",
+            "BmV4cGlyeRgKIAEoDRIOCgZ2aWV3ZWQYCyABKA0iYAobU3RlYW1Ob3RpZmlj",
+            "YXRpb25QcmVmZXJlbmNlEiMKEW5vdGlmaWNhdGlvbl90eXBlGAEgASgFQgiC",
+            "tRgEZW51bRIcChRub3RpZmljYXRpb25fdGFyZ2V0cxgCIAEoDTLpAgoRU3Rl",
+            "YW1Ob3RpZmljYXRpb24SaQoOR2V0UHJlZmVyZW5jZXMSKi5DU3RlYW1Ob3Rp",
+            "ZmljYXRpb25fR2V0UHJlZmVyZW5jZXNfUmVxdWVzdBorLkNTdGVhbU5vdGlm",
+            "aWNhdGlvbl9HZXRQcmVmZXJlbmNlc19SZXNwb25zZRJ+ChVHZXRTdGVhbU5v",
+            "dGlmaWNhdGlvbnMSMS5DU3RlYW1Ob3RpZmljYXRpb25fR2V0U3RlYW1Ob3Rp",
+            "ZmljYXRpb25zX1JlcXVlc3QaMi5DU3RlYW1Ob3RpZmljYXRpb25fR2V0U3Rl",
+            "YW1Ob3RpZmljYXRpb25zX1Jlc3BvbnNlEmkKDlNldFByZWZlcmVuY2VzEiou",
+            "Q1N0ZWFtTm90aWZpY2F0aW9uX1NldFByZWZlcmVuY2VzX1JlcXVlc3QaKy5D",
+            "U3RlYW1Ob3RpZmljYXRpb25fU2V0UHJlZmVyZW5jZXNfUmVzcG9uc2UyzwEK",
+            "F1N0ZWFtTm90aWZpY2F0aW9uQ2xpZW50ElwKFU5vdGlmaWNhdGlvbnNSZWNl",
+            "aXZlZBI2LkNTdGVhbU5vdGlmaWNhdGlvbl9Ob3RpZmljYXRpb25zUmVjZWl2",
+            "ZWRfTm90aWZpY2F0aW9uGgsuTm9SZXNwb25zZRJWChJQcmVmZXJlbmNlc1Vw",
+            "ZGF0ZWQSMy5DU3RlYW1Ob3RpZmljYXRpb25fUHJlZmVyZW5jZXNVcGRhdGVk",
+            "X05vdGlmaWNhdGlvbhoLLk5vUmVzcG9uc2VCIKoCHU9wZW5TdGVhbXdvcmtz",
+            "LlByb3RvYnVmLldlYlVJ"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.Reflection.DescriptorReflection.Descriptor, global::OpenSteamworks.Protobuf.WebUI.CommonBaseReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CSteamNotification_GetPreferences_Request), global::OpenSteamworks.Protobuf.WebUI.CSteamNotification_GetPreferences_Request.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CSteamNotification_GetPreferences_Response), global::OpenSteamworks.Protobuf.WebUI.CSteamNotification_GetPreferences_Response.Parser, new[]{ "Preferences" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CSteamNotification_GetSteamNotifications_Request), global::OpenSteamworks.Protobuf.WebUI.CSteamNotification_GetSteamNotifications_Request.Parser, new[]{ "IncludeHidden", "Language" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CSteamNotification_GetSteamNotifications_Response), global::OpenSteamworks.Protobuf.WebUI.CSteamNotification_GetSteamNotifications_Response.Parser, new[]{ "Notifications", "ConfirmationCount" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CSteamNotification_HideNotification_Notification), global::OpenSteamworks.Protobuf.WebUI.CSteamNotification_HideNotification_Notification.Parser, new[]{ "NotificationIds" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CSteamNotification_MarkNotificationsRead_Notification), global::OpenSteamworks.Protobuf.WebUI.CSteamNotification_MarkNotificationsRead_Notification.Parser, new[]{ "Timestamp", "NotificationType", "NotificationIds", "MarallRead" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CSteamNotification_GetSteamNotifications_Request), global::OpenSteamworks.Protobuf.WebUI.CSteamNotification_GetSteamNotifications_Request.Parser, new[]{ "IncludeHidden", "Language", "IncludeConfirmationCount", "IncludePinnedCounts", "IncludeRead", "CountOnly" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CSteamNotification_GetSteamNotifications_Response), global::OpenSteamworks.Protobuf.WebUI.CSteamNotification_GetSteamNotifications_Response.Parser, new[]{ "Notifications", "ConfirmationCount", "PendingGiftCount", "PendingFriendCount", "UnreadCount", "PendingFamilyInviteCount" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CSteamNotification_NotificationsReceived_Notification), global::OpenSteamworks.Protobuf.WebUI.CSteamNotification_NotificationsReceived_Notification.Parser, new[]{ "Notifications", "PendingGiftCount", "PendingFriendCount", "PendingFamilyInviteCount" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CSteamNotification_PreferencesUpdated_Notification), global::OpenSteamworks.Protobuf.WebUI.CSteamNotification_PreferencesUpdated_Notification.Parser, new[]{ "Preferences" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CSteamNotification_SetPreferences_Request), global::OpenSteamworks.Protobuf.WebUI.CSteamNotification_SetPreferences_Request.Parser, new[]{ "Preferences" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CSteamNotification_SetPreferences_Response), global::OpenSteamworks.Protobuf.WebUI.CSteamNotification_SetPreferences_Response.Parser, null, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.SteamNotificationData), global::OpenSteamworks.Protobuf.WebUI.SteamNotificationData.Parser, new[]{ "NotificationId", "NotificationTargets", "NotificationType", "BodyData", "Read", "Timestamp", "Hidden" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.SteamNotificationData), global::OpenSteamworks.Protobuf.WebUI.SteamNotificationData.Parser, new[]{ "NotificationId", "NotificationTargets", "NotificationType", "BodyData", "Read", "Timestamp", "Hidden", "Expiry", "Viewed" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.SteamNotificationPreference), global::OpenSteamworks.Protobuf.WebUI.SteamNotificationPreference.Parser, new[]{ "NotificationType", "NotificationTargets" }, null, null, null, null)
           }));
     }
@@ -449,6 +458,10 @@ namespace OpenSteamworks.Protobuf.WebUI {
       _hasBits0 = other._hasBits0;
       includeHidden_ = other.includeHidden_;
       language_ = other.language_;
+      includeConfirmationCount_ = other.includeConfirmationCount_;
+      includePinnedCounts_ = other.includePinnedCounts_;
+      includeRead_ = other.includeRead_;
+      countOnly_ = other.countOnly_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -512,6 +525,114 @@ namespace OpenSteamworks.Protobuf.WebUI {
       _hasBits0 &= ~2;
     }
 
+    /// <summary>Field number for the "include_confirmation_count" field.</summary>
+    public const int IncludeConfirmationCountFieldNumber = 3;
+    private readonly static bool IncludeConfirmationCountDefaultValue = true;
+
+    private bool includeConfirmationCount_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool IncludeConfirmationCount {
+      get { if ((_hasBits0 & 4) != 0) { return includeConfirmationCount_; } else { return IncludeConfirmationCountDefaultValue; } }
+      set {
+        _hasBits0 |= 4;
+        includeConfirmationCount_ = value;
+      }
+    }
+    /// <summary>Gets whether the "include_confirmation_count" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasIncludeConfirmationCount {
+      get { return (_hasBits0 & 4) != 0; }
+    }
+    /// <summary>Clears the value of the "include_confirmation_count" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearIncludeConfirmationCount() {
+      _hasBits0 &= ~4;
+    }
+
+    /// <summary>Field number for the "include_pinned_counts" field.</summary>
+    public const int IncludePinnedCountsFieldNumber = 4;
+    private readonly static bool IncludePinnedCountsDefaultValue = false;
+
+    private bool includePinnedCounts_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool IncludePinnedCounts {
+      get { if ((_hasBits0 & 8) != 0) { return includePinnedCounts_; } else { return IncludePinnedCountsDefaultValue; } }
+      set {
+        _hasBits0 |= 8;
+        includePinnedCounts_ = value;
+      }
+    }
+    /// <summary>Gets whether the "include_pinned_counts" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasIncludePinnedCounts {
+      get { return (_hasBits0 & 8) != 0; }
+    }
+    /// <summary>Clears the value of the "include_pinned_counts" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearIncludePinnedCounts() {
+      _hasBits0 &= ~8;
+    }
+
+    /// <summary>Field number for the "include_read" field.</summary>
+    public const int IncludeReadFieldNumber = 5;
+    private readonly static bool IncludeReadDefaultValue = true;
+
+    private bool includeRead_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool IncludeRead {
+      get { if ((_hasBits0 & 16) != 0) { return includeRead_; } else { return IncludeReadDefaultValue; } }
+      set {
+        _hasBits0 |= 16;
+        includeRead_ = value;
+      }
+    }
+    /// <summary>Gets whether the "include_read" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasIncludeRead {
+      get { return (_hasBits0 & 16) != 0; }
+    }
+    /// <summary>Clears the value of the "include_read" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearIncludeRead() {
+      _hasBits0 &= ~16;
+    }
+
+    /// <summary>Field number for the "count_only" field.</summary>
+    public const int CountOnlyFieldNumber = 6;
+    private readonly static bool CountOnlyDefaultValue = false;
+
+    private bool countOnly_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool CountOnly {
+      get { if ((_hasBits0 & 32) != 0) { return countOnly_; } else { return CountOnlyDefaultValue; } }
+      set {
+        _hasBits0 |= 32;
+        countOnly_ = value;
+      }
+    }
+    /// <summary>Gets whether the "count_only" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasCountOnly {
+      get { return (_hasBits0 & 32) != 0; }
+    }
+    /// <summary>Clears the value of the "count_only" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearCountOnly() {
+      _hasBits0 &= ~32;
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -529,6 +650,10 @@ namespace OpenSteamworks.Protobuf.WebUI {
       }
       if (IncludeHidden != other.IncludeHidden) return false;
       if (Language != other.Language) return false;
+      if (IncludeConfirmationCount != other.IncludeConfirmationCount) return false;
+      if (IncludePinnedCounts != other.IncludePinnedCounts) return false;
+      if (IncludeRead != other.IncludeRead) return false;
+      if (CountOnly != other.CountOnly) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -538,6 +663,10 @@ namespace OpenSteamworks.Protobuf.WebUI {
       int hash = 1;
       if (HasIncludeHidden) hash ^= IncludeHidden.GetHashCode();
       if (HasLanguage) hash ^= Language.GetHashCode();
+      if (HasIncludeConfirmationCount) hash ^= IncludeConfirmationCount.GetHashCode();
+      if (HasIncludePinnedCounts) hash ^= IncludePinnedCounts.GetHashCode();
+      if (HasIncludeRead) hash ^= IncludeRead.GetHashCode();
+      if (HasCountOnly) hash ^= CountOnly.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -564,6 +693,22 @@ namespace OpenSteamworks.Protobuf.WebUI {
         output.WriteRawTag(16);
         output.WriteInt32(Language);
       }
+      if (HasIncludeConfirmationCount) {
+        output.WriteRawTag(24);
+        output.WriteBool(IncludeConfirmationCount);
+      }
+      if (HasIncludePinnedCounts) {
+        output.WriteRawTag(32);
+        output.WriteBool(IncludePinnedCounts);
+      }
+      if (HasIncludeRead) {
+        output.WriteRawTag(40);
+        output.WriteBool(IncludeRead);
+      }
+      if (HasCountOnly) {
+        output.WriteRawTag(48);
+        output.WriteBool(CountOnly);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -582,6 +727,22 @@ namespace OpenSteamworks.Protobuf.WebUI {
         output.WriteRawTag(16);
         output.WriteInt32(Language);
       }
+      if (HasIncludeConfirmationCount) {
+        output.WriteRawTag(24);
+        output.WriteBool(IncludeConfirmationCount);
+      }
+      if (HasIncludePinnedCounts) {
+        output.WriteRawTag(32);
+        output.WriteBool(IncludePinnedCounts);
+      }
+      if (HasIncludeRead) {
+        output.WriteRawTag(40);
+        output.WriteBool(IncludeRead);
+      }
+      if (HasCountOnly) {
+        output.WriteRawTag(48);
+        output.WriteBool(CountOnly);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -597,6 +758,18 @@ namespace OpenSteamworks.Protobuf.WebUI {
       }
       if (HasLanguage) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(Language);
+      }
+      if (HasIncludeConfirmationCount) {
+        size += 1 + 1;
+      }
+      if (HasIncludePinnedCounts) {
+        size += 1 + 1;
+      }
+      if (HasIncludeRead) {
+        size += 1 + 1;
+      }
+      if (HasCountOnly) {
+        size += 1 + 1;
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -615,6 +788,18 @@ namespace OpenSteamworks.Protobuf.WebUI {
       }
       if (other.HasLanguage) {
         Language = other.Language;
+      }
+      if (other.HasIncludeConfirmationCount) {
+        IncludeConfirmationCount = other.IncludeConfirmationCount;
+      }
+      if (other.HasIncludePinnedCounts) {
+        IncludePinnedCounts = other.IncludePinnedCounts;
+      }
+      if (other.HasIncludeRead) {
+        IncludeRead = other.IncludeRead;
+      }
+      if (other.HasCountOnly) {
+        CountOnly = other.CountOnly;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -639,6 +824,22 @@ namespace OpenSteamworks.Protobuf.WebUI {
             Language = input.ReadInt32();
             break;
           }
+          case 24: {
+            IncludeConfirmationCount = input.ReadBool();
+            break;
+          }
+          case 32: {
+            IncludePinnedCounts = input.ReadBool();
+            break;
+          }
+          case 40: {
+            IncludeRead = input.ReadBool();
+            break;
+          }
+          case 48: {
+            CountOnly = input.ReadBool();
+            break;
+          }
         }
       }
     #endif
@@ -660,6 +861,22 @@ namespace OpenSteamworks.Protobuf.WebUI {
           }
           case 16: {
             Language = input.ReadInt32();
+            break;
+          }
+          case 24: {
+            IncludeConfirmationCount = input.ReadBool();
+            break;
+          }
+          case 32: {
+            IncludePinnedCounts = input.ReadBool();
+            break;
+          }
+          case 40: {
+            IncludeRead = input.ReadBool();
+            break;
+          }
+          case 48: {
+            CountOnly = input.ReadBool();
             break;
           }
         }
@@ -707,6 +924,10 @@ namespace OpenSteamworks.Protobuf.WebUI {
       _hasBits0 = other._hasBits0;
       notifications_ = other.notifications_.Clone();
       confirmationCount_ = other.confirmationCount_;
+      pendingGiftCount_ = other.pendingGiftCount_;
+      pendingFriendCount_ = other.pendingFriendCount_;
+      unreadCount_ = other.unreadCount_;
+      pendingFamilyInviteCount_ = other.pendingFamilyInviteCount_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -754,6 +975,114 @@ namespace OpenSteamworks.Protobuf.WebUI {
       _hasBits0 &= ~1;
     }
 
+    /// <summary>Field number for the "pending_gift_count" field.</summary>
+    public const int PendingGiftCountFieldNumber = 3;
+    private readonly static uint PendingGiftCountDefaultValue = 0;
+
+    private uint pendingGiftCount_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint PendingGiftCount {
+      get { if ((_hasBits0 & 2) != 0) { return pendingGiftCount_; } else { return PendingGiftCountDefaultValue; } }
+      set {
+        _hasBits0 |= 2;
+        pendingGiftCount_ = value;
+      }
+    }
+    /// <summary>Gets whether the "pending_gift_count" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasPendingGiftCount {
+      get { return (_hasBits0 & 2) != 0; }
+    }
+    /// <summary>Clears the value of the "pending_gift_count" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearPendingGiftCount() {
+      _hasBits0 &= ~2;
+    }
+
+    /// <summary>Field number for the "pending_friend_count" field.</summary>
+    public const int PendingFriendCountFieldNumber = 5;
+    private readonly static uint PendingFriendCountDefaultValue = 0;
+
+    private uint pendingFriendCount_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint PendingFriendCount {
+      get { if ((_hasBits0 & 4) != 0) { return pendingFriendCount_; } else { return PendingFriendCountDefaultValue; } }
+      set {
+        _hasBits0 |= 4;
+        pendingFriendCount_ = value;
+      }
+    }
+    /// <summary>Gets whether the "pending_friend_count" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasPendingFriendCount {
+      get { return (_hasBits0 & 4) != 0; }
+    }
+    /// <summary>Clears the value of the "pending_friend_count" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearPendingFriendCount() {
+      _hasBits0 &= ~4;
+    }
+
+    /// <summary>Field number for the "unread_count" field.</summary>
+    public const int UnreadCountFieldNumber = 6;
+    private readonly static uint UnreadCountDefaultValue = 0;
+
+    private uint unreadCount_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint UnreadCount {
+      get { if ((_hasBits0 & 8) != 0) { return unreadCount_; } else { return UnreadCountDefaultValue; } }
+      set {
+        _hasBits0 |= 8;
+        unreadCount_ = value;
+      }
+    }
+    /// <summary>Gets whether the "unread_count" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasUnreadCount {
+      get { return (_hasBits0 & 8) != 0; }
+    }
+    /// <summary>Clears the value of the "unread_count" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearUnreadCount() {
+      _hasBits0 &= ~8;
+    }
+
+    /// <summary>Field number for the "pending_family_invite_count" field.</summary>
+    public const int PendingFamilyInviteCountFieldNumber = 7;
+    private readonly static uint PendingFamilyInviteCountDefaultValue = 0;
+
+    private uint pendingFamilyInviteCount_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint PendingFamilyInviteCount {
+      get { if ((_hasBits0 & 16) != 0) { return pendingFamilyInviteCount_; } else { return PendingFamilyInviteCountDefaultValue; } }
+      set {
+        _hasBits0 |= 16;
+        pendingFamilyInviteCount_ = value;
+      }
+    }
+    /// <summary>Gets whether the "pending_family_invite_count" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasPendingFamilyInviteCount {
+      get { return (_hasBits0 & 16) != 0; }
+    }
+    /// <summary>Clears the value of the "pending_family_invite_count" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearPendingFamilyInviteCount() {
+      _hasBits0 &= ~16;
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -771,6 +1100,10 @@ namespace OpenSteamworks.Protobuf.WebUI {
       }
       if(!notifications_.Equals(other.notifications_)) return false;
       if (ConfirmationCount != other.ConfirmationCount) return false;
+      if (PendingGiftCount != other.PendingGiftCount) return false;
+      if (PendingFriendCount != other.PendingFriendCount) return false;
+      if (UnreadCount != other.UnreadCount) return false;
+      if (PendingFamilyInviteCount != other.PendingFamilyInviteCount) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -780,6 +1113,10 @@ namespace OpenSteamworks.Protobuf.WebUI {
       int hash = 1;
       hash ^= notifications_.GetHashCode();
       if (HasConfirmationCount) hash ^= ConfirmationCount.GetHashCode();
+      if (HasPendingGiftCount) hash ^= PendingGiftCount.GetHashCode();
+      if (HasPendingFriendCount) hash ^= PendingFriendCount.GetHashCode();
+      if (HasUnreadCount) hash ^= UnreadCount.GetHashCode();
+      if (HasPendingFamilyInviteCount) hash ^= PendingFamilyInviteCount.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -803,6 +1140,22 @@ namespace OpenSteamworks.Protobuf.WebUI {
         output.WriteRawTag(16);
         output.WriteInt32(ConfirmationCount);
       }
+      if (HasPendingGiftCount) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(PendingGiftCount);
+      }
+      if (HasPendingFriendCount) {
+        output.WriteRawTag(40);
+        output.WriteUInt32(PendingFriendCount);
+      }
+      if (HasUnreadCount) {
+        output.WriteRawTag(48);
+        output.WriteUInt32(UnreadCount);
+      }
+      if (HasPendingFamilyInviteCount) {
+        output.WriteRawTag(56);
+        output.WriteUInt32(PendingFamilyInviteCount);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -818,6 +1171,22 @@ namespace OpenSteamworks.Protobuf.WebUI {
         output.WriteRawTag(16);
         output.WriteInt32(ConfirmationCount);
       }
+      if (HasPendingGiftCount) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(PendingGiftCount);
+      }
+      if (HasPendingFriendCount) {
+        output.WriteRawTag(40);
+        output.WriteUInt32(PendingFriendCount);
+      }
+      if (HasUnreadCount) {
+        output.WriteRawTag(48);
+        output.WriteUInt32(UnreadCount);
+      }
+      if (HasPendingFamilyInviteCount) {
+        output.WriteRawTag(56);
+        output.WriteUInt32(PendingFamilyInviteCount);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -831,6 +1200,18 @@ namespace OpenSteamworks.Protobuf.WebUI {
       size += notifications_.CalculateSize(_repeated_notifications_codec);
       if (HasConfirmationCount) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(ConfirmationCount);
+      }
+      if (HasPendingGiftCount) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(PendingGiftCount);
+      }
+      if (HasPendingFriendCount) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(PendingFriendCount);
+      }
+      if (HasUnreadCount) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(UnreadCount);
+      }
+      if (HasPendingFamilyInviteCount) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(PendingFamilyInviteCount);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -847,6 +1228,18 @@ namespace OpenSteamworks.Protobuf.WebUI {
       notifications_.Add(other.notifications_);
       if (other.HasConfirmationCount) {
         ConfirmationCount = other.ConfirmationCount;
+      }
+      if (other.HasPendingGiftCount) {
+        PendingGiftCount = other.PendingGiftCount;
+      }
+      if (other.HasPendingFriendCount) {
+        PendingFriendCount = other.PendingFriendCount;
+      }
+      if (other.HasUnreadCount) {
+        UnreadCount = other.UnreadCount;
+      }
+      if (other.HasPendingFamilyInviteCount) {
+        PendingFamilyInviteCount = other.PendingFamilyInviteCount;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -869,6 +1262,22 @@ namespace OpenSteamworks.Protobuf.WebUI {
           }
           case 16: {
             ConfirmationCount = input.ReadInt32();
+            break;
+          }
+          case 24: {
+            PendingGiftCount = input.ReadUInt32();
+            break;
+          }
+          case 40: {
+            PendingFriendCount = input.ReadUInt32();
+            break;
+          }
+          case 48: {
+            UnreadCount = input.ReadUInt32();
+            break;
+          }
+          case 56: {
+            PendingFamilyInviteCount = input.ReadUInt32();
             break;
           }
         }
@@ -894,6 +1303,22 @@ namespace OpenSteamworks.Protobuf.WebUI {
             ConfirmationCount = input.ReadInt32();
             break;
           }
+          case 24: {
+            PendingGiftCount = input.ReadUInt32();
+            break;
+          }
+          case 40: {
+            PendingFriendCount = input.ReadUInt32();
+            break;
+          }
+          case 48: {
+            UnreadCount = input.ReadUInt32();
+            break;
+          }
+          case 56: {
+            PendingFamilyInviteCount = input.ReadUInt32();
+            break;
+          }
         }
       }
     }
@@ -901,16 +1326,17 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
-  public sealed partial class CSteamNotification_HideNotification_Notification : pb::IMessage<CSteamNotification_HideNotification_Notification>
+  public sealed partial class CSteamNotification_NotificationsReceived_Notification : pb::IMessage<CSteamNotification_NotificationsReceived_Notification>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<CSteamNotification_HideNotification_Notification> _parser = new pb::MessageParser<CSteamNotification_HideNotification_Notification>(() => new CSteamNotification_HideNotification_Notification());
+    private static readonly pb::MessageParser<CSteamNotification_NotificationsReceived_Notification> _parser = new pb::MessageParser<CSteamNotification_NotificationsReceived_Notification>(() => new CSteamNotification_NotificationsReceived_Notification());
     private pb::UnknownFieldSet _unknownFields;
+    private int _hasBits0;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<CSteamNotification_HideNotification_Notification> Parser { get { return _parser; } }
+    public static pb::MessageParser<CSteamNotification_NotificationsReceived_Notification> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -926,7 +1352,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CSteamNotification_HideNotification_Notification() {
+    public CSteamNotification_NotificationsReceived_Notification() {
       OnConstruction();
     }
 
@@ -934,44 +1360,132 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CSteamNotification_HideNotification_Notification(CSteamNotification_HideNotification_Notification other) : this() {
-      notificationIds_ = other.notificationIds_.Clone();
+    public CSteamNotification_NotificationsReceived_Notification(CSteamNotification_NotificationsReceived_Notification other) : this() {
+      _hasBits0 = other._hasBits0;
+      notifications_ = other.notifications_.Clone();
+      pendingGiftCount_ = other.pendingGiftCount_;
+      pendingFriendCount_ = other.pendingFriendCount_;
+      pendingFamilyInviteCount_ = other.pendingFamilyInviteCount_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CSteamNotification_HideNotification_Notification Clone() {
-      return new CSteamNotification_HideNotification_Notification(this);
+    public CSteamNotification_NotificationsReceived_Notification Clone() {
+      return new CSteamNotification_NotificationsReceived_Notification(this);
     }
 
-    /// <summary>Field number for the "notification_ids" field.</summary>
-    public const int NotificationIdsFieldNumber = 1;
-    private static readonly pb::FieldCodec<ulong> _repeated_notificationIds_codec
-        = pb::FieldCodec.ForUInt64(8);
-    private readonly pbc::RepeatedField<ulong> notificationIds_ = new pbc::RepeatedField<ulong>();
+    /// <summary>Field number for the "notifications" field.</summary>
+    public const int NotificationsFieldNumber = 1;
+    private static readonly pb::FieldCodec<global::OpenSteamworks.Protobuf.WebUI.SteamNotificationData> _repeated_notifications_codec
+        = pb::FieldCodec.ForMessage(10, global::OpenSteamworks.Protobuf.WebUI.SteamNotificationData.Parser);
+    private readonly pbc::RepeatedField<global::OpenSteamworks.Protobuf.WebUI.SteamNotificationData> notifications_ = new pbc::RepeatedField<global::OpenSteamworks.Protobuf.WebUI.SteamNotificationData>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<ulong> NotificationIds {
-      get { return notificationIds_; }
+    public pbc::RepeatedField<global::OpenSteamworks.Protobuf.WebUI.SteamNotificationData> Notifications {
+      get { return notifications_; }
+    }
+
+    /// <summary>Field number for the "pending_gift_count" field.</summary>
+    public const int PendingGiftCountFieldNumber = 2;
+    private readonly static uint PendingGiftCountDefaultValue = 0;
+
+    private uint pendingGiftCount_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint PendingGiftCount {
+      get { if ((_hasBits0 & 1) != 0) { return pendingGiftCount_; } else { return PendingGiftCountDefaultValue; } }
+      set {
+        _hasBits0 |= 1;
+        pendingGiftCount_ = value;
+      }
+    }
+    /// <summary>Gets whether the "pending_gift_count" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasPendingGiftCount {
+      get { return (_hasBits0 & 1) != 0; }
+    }
+    /// <summary>Clears the value of the "pending_gift_count" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearPendingGiftCount() {
+      _hasBits0 &= ~1;
+    }
+
+    /// <summary>Field number for the "pending_friend_count" field.</summary>
+    public const int PendingFriendCountFieldNumber = 3;
+    private readonly static uint PendingFriendCountDefaultValue = 0;
+
+    private uint pendingFriendCount_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint PendingFriendCount {
+      get { if ((_hasBits0 & 2) != 0) { return pendingFriendCount_; } else { return PendingFriendCountDefaultValue; } }
+      set {
+        _hasBits0 |= 2;
+        pendingFriendCount_ = value;
+      }
+    }
+    /// <summary>Gets whether the "pending_friend_count" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasPendingFriendCount {
+      get { return (_hasBits0 & 2) != 0; }
+    }
+    /// <summary>Clears the value of the "pending_friend_count" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearPendingFriendCount() {
+      _hasBits0 &= ~2;
+    }
+
+    /// <summary>Field number for the "pending_family_invite_count" field.</summary>
+    public const int PendingFamilyInviteCountFieldNumber = 4;
+    private readonly static uint PendingFamilyInviteCountDefaultValue = 0;
+
+    private uint pendingFamilyInviteCount_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint PendingFamilyInviteCount {
+      get { if ((_hasBits0 & 4) != 0) { return pendingFamilyInviteCount_; } else { return PendingFamilyInviteCountDefaultValue; } }
+      set {
+        _hasBits0 |= 4;
+        pendingFamilyInviteCount_ = value;
+      }
+    }
+    /// <summary>Gets whether the "pending_family_invite_count" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasPendingFamilyInviteCount {
+      get { return (_hasBits0 & 4) != 0; }
+    }
+    /// <summary>Clears the value of the "pending_family_invite_count" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearPendingFamilyInviteCount() {
+      _hasBits0 &= ~4;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
-      return Equals(other as CSteamNotification_HideNotification_Notification);
+      return Equals(other as CSteamNotification_NotificationsReceived_Notification);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(CSteamNotification_HideNotification_Notification other) {
+    public bool Equals(CSteamNotification_NotificationsReceived_Notification other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if(!notificationIds_.Equals(other.notificationIds_)) return false;
+      if(!notifications_.Equals(other.notifications_)) return false;
+      if (PendingGiftCount != other.PendingGiftCount) return false;
+      if (PendingFriendCount != other.PendingFriendCount) return false;
+      if (PendingFamilyInviteCount != other.PendingFamilyInviteCount) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -979,7 +1493,10 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      hash ^= notificationIds_.GetHashCode();
+      hash ^= notifications_.GetHashCode();
+      if (HasPendingGiftCount) hash ^= PendingGiftCount.GetHashCode();
+      if (HasPendingFriendCount) hash ^= PendingFriendCount.GetHashCode();
+      if (HasPendingFamilyInviteCount) hash ^= PendingFamilyInviteCount.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -998,7 +1515,19 @@ namespace OpenSteamworks.Protobuf.WebUI {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      notificationIds_.WriteTo(output, _repeated_notificationIds_codec);
+      notifications_.WriteTo(output, _repeated_notifications_codec);
+      if (HasPendingGiftCount) {
+        output.WriteRawTag(16);
+        output.WriteUInt32(PendingGiftCount);
+      }
+      if (HasPendingFriendCount) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(PendingFriendCount);
+      }
+      if (HasPendingFamilyInviteCount) {
+        output.WriteRawTag(32);
+        output.WriteUInt32(PendingFamilyInviteCount);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1009,7 +1538,19 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      notificationIds_.WriteTo(ref output, _repeated_notificationIds_codec);
+      notifications_.WriteTo(ref output, _repeated_notifications_codec);
+      if (HasPendingGiftCount) {
+        output.WriteRawTag(16);
+        output.WriteUInt32(PendingGiftCount);
+      }
+      if (HasPendingFriendCount) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(PendingFriendCount);
+      }
+      if (HasPendingFamilyInviteCount) {
+        output.WriteRawTag(32);
+        output.WriteUInt32(PendingFamilyInviteCount);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -1020,7 +1561,16 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      size += notificationIds_.CalculateSize(_repeated_notificationIds_codec);
+      size += notifications_.CalculateSize(_repeated_notifications_codec);
+      if (HasPendingGiftCount) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(PendingGiftCount);
+      }
+      if (HasPendingFriendCount) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(PendingFriendCount);
+      }
+      if (HasPendingFamilyInviteCount) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(PendingFamilyInviteCount);
+      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -1029,11 +1579,20 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(CSteamNotification_HideNotification_Notification other) {
+    public void MergeFrom(CSteamNotification_NotificationsReceived_Notification other) {
       if (other == null) {
         return;
       }
-      notificationIds_.Add(other.notificationIds_);
+      notifications_.Add(other.notifications_);
+      if (other.HasPendingGiftCount) {
+        PendingGiftCount = other.PendingGiftCount;
+      }
+      if (other.HasPendingFriendCount) {
+        PendingFriendCount = other.PendingFriendCount;
+      }
+      if (other.HasPendingFamilyInviteCount) {
+        PendingFamilyInviteCount = other.PendingFamilyInviteCount;
+      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -1049,9 +1608,20 @@ namespace OpenSteamworks.Protobuf.WebUI {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10:
-          case 8: {
-            notificationIds_.AddEntriesFrom(input, _repeated_notificationIds_codec);
+          case 10: {
+            notifications_.AddEntriesFrom(input, _repeated_notifications_codec);
+            break;
+          }
+          case 16: {
+            PendingGiftCount = input.ReadUInt32();
+            break;
+          }
+          case 24: {
+            PendingFriendCount = input.ReadUInt32();
+            break;
+          }
+          case 32: {
+            PendingFamilyInviteCount = input.ReadUInt32();
             break;
           }
         }
@@ -1069,9 +1639,20 @@ namespace OpenSteamworks.Protobuf.WebUI {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 10:
-          case 8: {
-            notificationIds_.AddEntriesFrom(ref input, _repeated_notificationIds_codec);
+          case 10: {
+            notifications_.AddEntriesFrom(ref input, _repeated_notifications_codec);
+            break;
+          }
+          case 16: {
+            PendingGiftCount = input.ReadUInt32();
+            break;
+          }
+          case 24: {
+            PendingFriendCount = input.ReadUInt32();
+            break;
+          }
+          case 32: {
+            PendingFamilyInviteCount = input.ReadUInt32();
             break;
           }
         }
@@ -1081,17 +1662,16 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
-  public sealed partial class CSteamNotification_MarkNotificationsRead_Notification : pb::IMessage<CSteamNotification_MarkNotificationsRead_Notification>
+  public sealed partial class CSteamNotification_PreferencesUpdated_Notification : pb::IMessage<CSteamNotification_PreferencesUpdated_Notification>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<CSteamNotification_MarkNotificationsRead_Notification> _parser = new pb::MessageParser<CSteamNotification_MarkNotificationsRead_Notification>(() => new CSteamNotification_MarkNotificationsRead_Notification());
+    private static readonly pb::MessageParser<CSteamNotification_PreferencesUpdated_Notification> _parser = new pb::MessageParser<CSteamNotification_PreferencesUpdated_Notification>(() => new CSteamNotification_PreferencesUpdated_Notification());
     private pb::UnknownFieldSet _unknownFields;
-    private int _hasBits0;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<CSteamNotification_MarkNotificationsRead_Notification> Parser { get { return _parser; } }
+    public static pb::MessageParser<CSteamNotification_PreferencesUpdated_Notification> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1107,7 +1687,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CSteamNotification_MarkNotificationsRead_Notification() {
+    public CSteamNotification_PreferencesUpdated_Notification() {
       OnConstruction();
     }
 
@@ -1115,132 +1695,44 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CSteamNotification_MarkNotificationsRead_Notification(CSteamNotification_MarkNotificationsRead_Notification other) : this() {
-      _hasBits0 = other._hasBits0;
-      timestamp_ = other.timestamp_;
-      notificationType_ = other.notificationType_;
-      notificationIds_ = other.notificationIds_.Clone();
-      marallRead_ = other.marallRead_;
+    public CSteamNotification_PreferencesUpdated_Notification(CSteamNotification_PreferencesUpdated_Notification other) : this() {
+      preferences_ = other.preferences_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CSteamNotification_MarkNotificationsRead_Notification Clone() {
-      return new CSteamNotification_MarkNotificationsRead_Notification(this);
+    public CSteamNotification_PreferencesUpdated_Notification Clone() {
+      return new CSteamNotification_PreferencesUpdated_Notification(this);
     }
 
-    /// <summary>Field number for the "timestamp" field.</summary>
-    public const int TimestampFieldNumber = 1;
-    private readonly static uint TimestampDefaultValue = 0;
-
-    private uint timestamp_;
+    /// <summary>Field number for the "preferences" field.</summary>
+    public const int PreferencesFieldNumber = 1;
+    private static readonly pb::FieldCodec<global::OpenSteamworks.Protobuf.WebUI.SteamNotificationPreference> _repeated_preferences_codec
+        = pb::FieldCodec.ForMessage(10, global::OpenSteamworks.Protobuf.WebUI.SteamNotificationPreference.Parser);
+    private readonly pbc::RepeatedField<global::OpenSteamworks.Protobuf.WebUI.SteamNotificationPreference> preferences_ = new pbc::RepeatedField<global::OpenSteamworks.Protobuf.WebUI.SteamNotificationPreference>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint Timestamp {
-      get { if ((_hasBits0 & 1) != 0) { return timestamp_; } else { return TimestampDefaultValue; } }
-      set {
-        _hasBits0 |= 1;
-        timestamp_ = value;
-      }
-    }
-    /// <summary>Gets whether the "timestamp" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasTimestamp {
-      get { return (_hasBits0 & 1) != 0; }
-    }
-    /// <summary>Clears the value of the "timestamp" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearTimestamp() {
-      _hasBits0 &= ~1;
-    }
-
-    /// <summary>Field number for the "notification_type" field.</summary>
-    public const int NotificationTypeFieldNumber = 2;
-    private readonly static int NotificationTypeDefaultValue = 0;
-
-    private int notificationType_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int NotificationType {
-      get { if ((_hasBits0 & 2) != 0) { return notificationType_; } else { return NotificationTypeDefaultValue; } }
-      set {
-        _hasBits0 |= 2;
-        notificationType_ = value;
-      }
-    }
-    /// <summary>Gets whether the "notification_type" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasNotificationType {
-      get { return (_hasBits0 & 2) != 0; }
-    }
-    /// <summary>Clears the value of the "notification_type" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearNotificationType() {
-      _hasBits0 &= ~2;
-    }
-
-    /// <summary>Field number for the "notification_ids" field.</summary>
-    public const int NotificationIdsFieldNumber = 3;
-    private static readonly pb::FieldCodec<ulong> _repeated_notificationIds_codec
-        = pb::FieldCodec.ForUInt64(24);
-    private readonly pbc::RepeatedField<ulong> notificationIds_ = new pbc::RepeatedField<ulong>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<ulong> NotificationIds {
-      get { return notificationIds_; }
-    }
-
-    /// <summary>Field number for the "marall_read" field.</summary>
-    public const int MarallReadFieldNumber = 4;
-    private readonly static bool MarallReadDefaultValue = false;
-
-    private bool marallRead_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool MarallRead {
-      get { if ((_hasBits0 & 4) != 0) { return marallRead_; } else { return MarallReadDefaultValue; } }
-      set {
-        _hasBits0 |= 4;
-        marallRead_ = value;
-      }
-    }
-    /// <summary>Gets whether the "marall_read" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasMarallRead {
-      get { return (_hasBits0 & 4) != 0; }
-    }
-    /// <summary>Clears the value of the "marall_read" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearMarallRead() {
-      _hasBits0 &= ~4;
+    public pbc::RepeatedField<global::OpenSteamworks.Protobuf.WebUI.SteamNotificationPreference> Preferences {
+      get { return preferences_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
-      return Equals(other as CSteamNotification_MarkNotificationsRead_Notification);
+      return Equals(other as CSteamNotification_PreferencesUpdated_Notification);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(CSteamNotification_MarkNotificationsRead_Notification other) {
+    public bool Equals(CSteamNotification_PreferencesUpdated_Notification other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Timestamp != other.Timestamp) return false;
-      if (NotificationType != other.NotificationType) return false;
-      if(!notificationIds_.Equals(other.notificationIds_)) return false;
-      if (MarallRead != other.MarallRead) return false;
+      if(!preferences_.Equals(other.preferences_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1248,10 +1740,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (HasTimestamp) hash ^= Timestamp.GetHashCode();
-      if (HasNotificationType) hash ^= NotificationType.GetHashCode();
-      hash ^= notificationIds_.GetHashCode();
-      if (HasMarallRead) hash ^= MarallRead.GetHashCode();
+      hash ^= preferences_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1270,19 +1759,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (HasTimestamp) {
-        output.WriteRawTag(8);
-        output.WriteUInt32(Timestamp);
-      }
-      if (HasNotificationType) {
-        output.WriteRawTag(16);
-        output.WriteInt32(NotificationType);
-      }
-      notificationIds_.WriteTo(output, _repeated_notificationIds_codec);
-      if (HasMarallRead) {
-        output.WriteRawTag(32);
-        output.WriteBool(MarallRead);
-      }
+      preferences_.WriteTo(output, _repeated_preferences_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1293,19 +1770,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (HasTimestamp) {
-        output.WriteRawTag(8);
-        output.WriteUInt32(Timestamp);
-      }
-      if (HasNotificationType) {
-        output.WriteRawTag(16);
-        output.WriteInt32(NotificationType);
-      }
-      notificationIds_.WriteTo(ref output, _repeated_notificationIds_codec);
-      if (HasMarallRead) {
-        output.WriteRawTag(32);
-        output.WriteBool(MarallRead);
-      }
+      preferences_.WriteTo(ref output, _repeated_preferences_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -1316,16 +1781,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (HasTimestamp) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Timestamp);
-      }
-      if (HasNotificationType) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(NotificationType);
-      }
-      size += notificationIds_.CalculateSize(_repeated_notificationIds_codec);
-      if (HasMarallRead) {
-        size += 1 + 1;
-      }
+      size += preferences_.CalculateSize(_repeated_preferences_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -1334,20 +1790,11 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(CSteamNotification_MarkNotificationsRead_Notification other) {
+    public void MergeFrom(CSteamNotification_PreferencesUpdated_Notification other) {
       if (other == null) {
         return;
       }
-      if (other.HasTimestamp) {
-        Timestamp = other.Timestamp;
-      }
-      if (other.HasNotificationType) {
-        NotificationType = other.NotificationType;
-      }
-      notificationIds_.Add(other.notificationIds_);
-      if (other.HasMarallRead) {
-        MarallRead = other.MarallRead;
-      }
+      preferences_.Add(other.preferences_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -1363,21 +1810,8 @@ namespace OpenSteamworks.Protobuf.WebUI {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 8: {
-            Timestamp = input.ReadUInt32();
-            break;
-          }
-          case 16: {
-            NotificationType = input.ReadInt32();
-            break;
-          }
-          case 26:
-          case 24: {
-            notificationIds_.AddEntriesFrom(input, _repeated_notificationIds_codec);
-            break;
-          }
-          case 32: {
-            MarallRead = input.ReadBool();
+          case 10: {
+            preferences_.AddEntriesFrom(input, _repeated_preferences_codec);
             break;
           }
         }
@@ -1395,21 +1829,8 @@ namespace OpenSteamworks.Protobuf.WebUI {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 8: {
-            Timestamp = input.ReadUInt32();
-            break;
-          }
-          case 16: {
-            NotificationType = input.ReadInt32();
-            break;
-          }
-          case 26:
-          case 24: {
-            notificationIds_.AddEntriesFrom(ref input, _repeated_notificationIds_codec);
-            break;
-          }
-          case 32: {
-            MarallRead = input.ReadBool();
+          case 10: {
+            preferences_.AddEntriesFrom(ref input, _repeated_preferences_codec);
             break;
           }
         }
@@ -1792,6 +2213,8 @@ namespace OpenSteamworks.Protobuf.WebUI {
       read_ = other.read_;
       timestamp_ = other.timestamp_;
       hidden_ = other.hidden_;
+      expiry_ = other.expiry_;
+      viewed_ = other.viewed_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -1989,6 +2412,60 @@ namespace OpenSteamworks.Protobuf.WebUI {
       _hasBits0 &= ~32;
     }
 
+    /// <summary>Field number for the "expiry" field.</summary>
+    public const int ExpiryFieldNumber = 10;
+    private readonly static uint ExpiryDefaultValue = 0;
+
+    private uint expiry_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint Expiry {
+      get { if ((_hasBits0 & 64) != 0) { return expiry_; } else { return ExpiryDefaultValue; } }
+      set {
+        _hasBits0 |= 64;
+        expiry_ = value;
+      }
+    }
+    /// <summary>Gets whether the "expiry" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasExpiry {
+      get { return (_hasBits0 & 64) != 0; }
+    }
+    /// <summary>Clears the value of the "expiry" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearExpiry() {
+      _hasBits0 &= ~64;
+    }
+
+    /// <summary>Field number for the "viewed" field.</summary>
+    public const int ViewedFieldNumber = 11;
+    private readonly static uint ViewedDefaultValue = 0;
+
+    private uint viewed_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint Viewed {
+      get { if ((_hasBits0 & 128) != 0) { return viewed_; } else { return ViewedDefaultValue; } }
+      set {
+        _hasBits0 |= 128;
+        viewed_ = value;
+      }
+    }
+    /// <summary>Gets whether the "viewed" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasViewed {
+      get { return (_hasBits0 & 128) != 0; }
+    }
+    /// <summary>Clears the value of the "viewed" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearViewed() {
+      _hasBits0 &= ~128;
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -2011,6 +2488,8 @@ namespace OpenSteamworks.Protobuf.WebUI {
       if (Read != other.Read) return false;
       if (Timestamp != other.Timestamp) return false;
       if (Hidden != other.Hidden) return false;
+      if (Expiry != other.Expiry) return false;
+      if (Viewed != other.Viewed) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -2025,6 +2504,8 @@ namespace OpenSteamworks.Protobuf.WebUI {
       if (HasRead) hash ^= Read.GetHashCode();
       if (HasTimestamp) hash ^= Timestamp.GetHashCode();
       if (HasHidden) hash ^= Hidden.GetHashCode();
+      if (HasExpiry) hash ^= Expiry.GetHashCode();
+      if (HasViewed) hash ^= Viewed.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -2071,6 +2552,14 @@ namespace OpenSteamworks.Protobuf.WebUI {
         output.WriteRawTag(72);
         output.WriteBool(Hidden);
       }
+      if (HasExpiry) {
+        output.WriteRawTag(80);
+        output.WriteUInt32(Expiry);
+      }
+      if (HasViewed) {
+        output.WriteRawTag(88);
+        output.WriteUInt32(Viewed);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -2109,6 +2598,14 @@ namespace OpenSteamworks.Protobuf.WebUI {
         output.WriteRawTag(72);
         output.WriteBool(Hidden);
       }
+      if (HasExpiry) {
+        output.WriteRawTag(80);
+        output.WriteUInt32(Expiry);
+      }
+      if (HasViewed) {
+        output.WriteRawTag(88);
+        output.WriteUInt32(Viewed);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -2139,6 +2636,12 @@ namespace OpenSteamworks.Protobuf.WebUI {
       }
       if (HasHidden) {
         size += 1 + 1;
+      }
+      if (HasExpiry) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Expiry);
+      }
+      if (HasViewed) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Viewed);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -2172,6 +2675,12 @@ namespace OpenSteamworks.Protobuf.WebUI {
       }
       if (other.HasHidden) {
         Hidden = other.Hidden;
+      }
+      if (other.HasExpiry) {
+        Expiry = other.Expiry;
+      }
+      if (other.HasViewed) {
+        Viewed = other.Viewed;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -2216,6 +2725,14 @@ namespace OpenSteamworks.Protobuf.WebUI {
             Hidden = input.ReadBool();
             break;
           }
+          case 80: {
+            Expiry = input.ReadUInt32();
+            break;
+          }
+          case 88: {
+            Viewed = input.ReadUInt32();
+            break;
+          }
         }
       }
     #endif
@@ -2257,6 +2774,14 @@ namespace OpenSteamworks.Protobuf.WebUI {
           }
           case 72: {
             Hidden = input.ReadBool();
+            break;
+          }
+          case 80: {
+            Expiry = input.ReadUInt32();
+            break;
+          }
+          case 88: {
+            Viewed = input.ReadUInt32();
             break;
           }
         }

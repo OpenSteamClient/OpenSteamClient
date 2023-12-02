@@ -92,7 +92,7 @@ namespace OpenSteamworks.Protobuf {
             "U3RyZWFtaW5nQ2xpZW50Q29ubmVjdGlvbhIQCghob3N0bmFtZRgBIAEoCRIP",
             "CgdtYWNoaW5lGAIgASgJEhEKCWNvbm5lY3RlZBgDIAEoCCJOCiJDQ2xpZW50",
             "Tm90aWZpY2F0aW9uUGxheXRpbWVXYXJuaW5nEgwKBHR5cGUYASABKAkSGgoS",
-            "cGxheXRpbWVfcmVtYWluaW5nGAIgASgNKuAQChdFQ2xpZW50Tm90aWZpY2F0",
+            "cGxheXRpbWVfcmVtYWluaW5nGAIgASgNKoISChdFQ2xpZW50Tm90aWZpY2F0",
             "aW9uVHlwZRIjCh9FQ2xpZW50Tm90aWZpY2F0aW9uVHlwZV9JbnZhbGlkEAAS",
             "LQopRUNsaWVudE5vdGlmaWNhdGlvblR5cGVfRG93bmxvYWRDb21wbGV0ZWQQ",
             "ARIoCiRFQ2xpZW50Tm90aWZpY2F0aW9uVHlwZV9GcmllbmRJbnZpdGUQAhIo",
@@ -140,11 +140,15 @@ namespace OpenSteamworks.Protobuf {
             "YW0QKhI1CjFFQ2xpZW50Tm90aWZpY2F0aW9uVHlwZV9TdHJlYW1pbmdDbGll",
             "bnRDb25uZWN0aW9uECsSKAokRUNsaWVudE5vdGlmaWNhdGlvblR5cGVfRmFt",
             "aWx5SW52aXRlECwSKwonRUNsaWVudE5vdGlmaWNhdGlvblR5cGVfUGxheXRp",
-            "bWVXYXJuaW5nEC0qpwEKHUVTeXN0ZW1VcGRhdGVOb3RpZmljYXRpb25UeXBl",
-            "EikKJUVTeXN0ZW1VcGRhdGVOb3RpZmljYXRpb25UeXBlX0ludmFsaWQQABIr",
-            "CidFU3lzdGVtVXBkYXRlTm90aWZpY2F0aW9uVHlwZV9BdmFpbGFibGUQARIu",
-            "CipFU3lzdGVtVXBkYXRlTm90aWZpY2F0aW9uVHlwZV9OZWVkc1Jlc3RhcnQQ",
-            "AkIfSAGAAQGqAhdPcGVuU3RlYW13b3Jrcy5Qcm90b2J1Zg=="));
+            "bWVXYXJuaW5nEC0SMQotRUNsaWVudE5vdGlmaWNhdGlvblR5cGVfRmFtaWx5",
+            "UHVyY2hhc2VSZXF1ZXN0EC4SOQo1RUNsaWVudE5vdGlmaWNhdGlvblR5cGVf",
+            "RmFtaWx5UHVyY2hhc2VSZXF1ZXN0UmVzcG9uc2UQLxIyCi5FQ2xpZW50Tm90",
+            "aWZpY2F0aW9uVHlwZV9QYXJlbnRhbEZlYXR1cmVSZXF1ZXN0EDAqpwEKHUVT",
+            "eXN0ZW1VcGRhdGVOb3RpZmljYXRpb25UeXBlEikKJUVTeXN0ZW1VcGRhdGVO",
+            "b3RpZmljYXRpb25UeXBlX0ludmFsaWQQABIrCidFU3lzdGVtVXBkYXRlTm90",
+            "aWZpY2F0aW9uVHlwZV9BdmFpbGFibGUQARIuCipFU3lzdGVtVXBkYXRlTm90",
+            "aWZpY2F0aW9uVHlwZV9OZWVkc1Jlc3RhcnQQAkIfSAGAAQGqAhdPcGVuU3Rl",
+            "YW13b3Jrcy5Qcm90b2J1Zg=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.Reflection.DescriptorReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::OpenSteamworks.Protobuf.EClientNotificationType), typeof(global::OpenSteamworks.Protobuf.ESystemUpdateNotificationType), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -237,6 +241,9 @@ namespace OpenSteamworks.Protobuf {
     [pbr::OriginalName("EClientNotificationType_StreamingClientConnection")] StreamingClientConnection = 43,
     [pbr::OriginalName("EClientNotificationType_FamilyInvite")] FamilyInvite = 44,
     [pbr::OriginalName("EClientNotificationType_PlaytimeWarning")] PlaytimeWarning = 45,
+    [pbr::OriginalName("EClientNotificationType_FamilyPurchaseRequest")] FamilyPurchaseRequest = 46,
+    [pbr::OriginalName("EClientNotificationType_FamilyPurchaseRequestResponse")] FamilyPurchaseRequestResponse = 47,
+    [pbr::OriginalName("EClientNotificationType_ParentalFeatureRequest")] ParentalFeatureRequest = 48,
   }
 
   public enum ESystemUpdateNotificationType {

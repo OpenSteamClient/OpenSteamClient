@@ -25,7 +25,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChhzZXJ2aWNlX3B1Ymxpc2hpbmcucHJvdG8aIGdvb2dsZS9wcm90b2J1Zi9k",
-            "ZXNjcmlwdG9yLnByb3RvGhFjb21tb25fYmFzZS5wcm90byLUAgoUQ1BhcnRu",
+            "ZXNjcmlwdG9yLnByb3RvGhFjb21tb25fYmFzZS5wcm90byKRBAoUQ1BhcnRu",
             "ZXJBcHBPcHRJbkRhdGESDQoFYXBwaWQYASABKA0SDgoGb3B0X2luGAIgASgI",
             "EhMKC29wdF9pbl9uYW1lGAMgASgJEhAKCGpzb25kYXRhGAQgASgJEhYKBHR5",
             "cGUYBSABKAVCCIK1GARlbnVtEhUKDWFjY291bnRpZF9hZGQYBiABKA0SFQoN",
@@ -33,91 +33,138 @@ namespace OpenSteamworks.Protobuf.WebUI {
             "YWNjb3VudGlkX2xhc3Rtb2QYCSABKA0SDwoHaW52aXRlZBgKIAEoCBIYChBh",
             "Y2NvdW50aWRfcmVtb3ZlGAsgASgNEhYKDnRpbWVfb3B0ZWRfb3V0GAwgASgN",
             "Eg4KBnBydW5lZBgNIAEoCBIXCg9hY2NvdW50aWRfcHJ1bmUYDiABKA0SEwoL",
-            "dGltZV9wcnVuZWQYDyABKA0iqwIKGENQYXJ0bmVyQXBwT3B0SW5FbWFpbERl",
-            "ZhITCgtvcHRfaW5fbmFtZRgBIAEoCRIWCg50YXJnZXRpbmdfZmxhZxgCIAEo",
-            "BhIVCg1zZXR0aW5nc19mbGFnGAMgASgGEhcKD2VtYWlsX3RlbXBsYXRlcxgE",
-            "IAEoCRITCgtzdGFydF9ydGltZRgFIAEoDRIRCgllbmRfcnRpbWUYBiABKA0S",
-            "KgoFc3RhdHMYByABKAsyGy5DUGFydG5lckFwcE9wdEluRW1haWxTdGF0cxIZ",
-            "ChFjcmVhdG9yX2FjY291bnRpZBgIIAEoDRITCgtjcmVhdGVfdGltZRgJIAEo",
-            "DRIYChBsYXN0X3VwZGF0ZV90aW1lGAogASgNEhQKDGVtYWlsX2RlZl9pZBgL",
-            "IAEoBiKrAQoaQ1BhcnRuZXJBcHBPcHRJbkVtYWlsU3RhdHMSGQoRYWNjb3Vu",
-            "dHNfZXhhbWluZWQYASABKA0SGAoQYWNjb3VudHNfZW1haWxlZBgCIAEoDRIm",
-            "Ch5hY2NvdW50c19ub3RfZW1haWxlZF9vcHRlZF9vdXQYAyABKA0SHQoVYWNj",
-            "b3VudHNfZW1haWxfZmFpbGVkGAQgASgNEhEKCWNvbXBsZXRlZBgFIAEoCCK7",
-            "AQouQ1B1Ymxpc2hpbmdfQ3JlYXRlUGFydG5lckFwcE9wdEluRW1haWxfUmVx",
-            "dWVzdBITCgtvcHRfaW5fbmFtZRgBIAEoCRIWCg50YXJnZXRpbmdfZmxhZxgC",
-            "IAEoBhIVCg1zZXR0aW5nc19mbGFnGAMgASgGEhcKD2VtYWlsX3RlbXBsYXRl",
-            "cxgEIAEoCRIWCgtzdGFydF9ydGltZRgFIAEoDToBMBIUCgllbmRfcnRpbWUY",
-            "BiABKA06ATAiRwovQ1B1Ymxpc2hpbmdfQ3JlYXRlUGFydG5lckFwcE9wdElu",
-            "RW1haWxfUmVzcG9uc2USFAoMZW1haWxfZGVmX2lkGAEgASgGIksKM0NQdWJs",
-            "aXNoaW5nX0dldEVzdGltYXRlUGFydG5lckFwcE9wdEluRW1haWxfUmVxdWVz",
-            "dBIUCgxlbWFpbF9kZWZfaWQYASABKAYiYgo0Q1B1Ymxpc2hpbmdfR2V0RXN0",
-            "aW1hdGVQYXJ0bmVyQXBwT3B0SW5FbWFpbF9SZXNwb25zZRIqCgVzdGF0cxgB",
-            "IAEoCzIbLkNQYXJ0bmVyQXBwT3B0SW5FbWFpbFN0YXRzIk0KNkNQdWJsaXNo",
-            "aW5nX0dldFBhcnRuZXJBcHBPcHRJbkVtYWlsRGVmQW5kU3RhdHNfUmVxdWVz",
-            "dBITCgtvcHRfaW5fbmFtZRgBIAEoCSJiCjdDUHVibGlzaGluZ19HZXRQYXJ0",
-            "bmVyQXBwT3B0SW5FbWFpbERlZkFuZFN0YXRzX1Jlc3BvbnNlEicKBGRlZnMY",
-            "ASADKAsyGS5DUGFydG5lckFwcE9wdEluRW1haWxEZWYiUgorQ1B1Ymxpc2hp",
-            "bmdfR2V0UGFydG5lck9wdEluSW52aXRlc19SZXNwb25zZRIjCgRkYXRhGAEg",
-            "AygLMhUuQ1BhcnRuZXJBcHBPcHRJbkRhdGEiVQouQ1B1Ymxpc2hpbmdfR2V0",
-            "U2luZ2xlUGFydG5lckFwcE9wdEluc19SZXNwb25zZRIjCgRkYXRhGAEgAygL",
-            "MhUuQ1BhcnRuZXJBcHBPcHRJbkRhdGEiSwozQ1B1Ymxpc2hpbmdfU2VuZFBh",
-            "cnRuZXJBcHBPcHRJbkVtYWlsQW5kV2FpdF9SZXF1ZXN0EhQKDGVtYWlsX2Rl",
-            "Zl9pZBgBIAEoBiJkCjRDUHVibGlzaGluZ19TZW5kUGFydG5lckFwcE9wdElu",
-            "RW1haWxBbmRXYWl0X1Jlc3BvbnNlEiwKB3Jlc3VsdHMYASABKAsyGy5DUGFy",
-            "dG5lckFwcE9wdEluRW1haWxTdGF0cyJqCjBDUHVibGlzaGluZ19UZXN0Rmly",
-            "ZVBhcnRuZXJBcHBPcHRJbkVtYWlsX1JlcXVlc3QSFAoMZW1haWxfZGVmX2lk",
-            "GAEgASgGEg0KBWFwcGlkGAIgASgNEhEKCXBhcnRuZXJpZBgDIAEoDSIzCjFD",
-            "UHVibGlzaGluZ19UZXN0RmlyZVBhcnRuZXJBcHBPcHRJbkVtYWlsX1Jlc3Bv",
-            "bnNlIrwBCi5DUHVibGlzaGluZ19VcGRhdGVQYXJ0bmVyQXBwT3B0SW5FbWFp",
-            "bF9SZXF1ZXN0EhQKDGVtYWlsX2RlZl9pZBgBIAEoBhIWCg50YXJnZXRpbmdf",
+            "dGltZV9wcnVuZWQYDyABKA0SHAoUYWRkaXRpb25hbF9mZWF0dXJpbmcYECAB",
+            "KAgSEwoLZmVhdHVyZV9kYXkYESABKA0SGQoRYWNjb3VudGlkX2ludml0ZWQY",
+            "EiABKA0SGwoTbm9fcGxhbm5lZF9kaXNjb3VudBgTIAEoCBIWCg5wZW5kaW5n",
+            "X3JldmlldxgUIAEoDRIeCgxhcHBlYWxfc3RhdGUYFSABKAVCCIK1GARlbnVt",
+            "EhgKEGFjY291bnRpZF9hcHBlYWwYFiABKA0i8gIKGENQYXJ0bmVyQXBwT3B0",
+            "SW5FbWFpbERlZhITCgtvcHRfaW5fbmFtZRgBIAEoCRIWCg50YXJnZXRpbmdf",
             "ZmxhZxgCIAEoBhIVCg1zZXR0aW5nc19mbGFnGAMgASgGEhcKD2VtYWlsX3Rl",
-            "bXBsYXRlcxgEIAEoCRIWCgtzdGFydF9ydGltZRgFIAEoDToBMBIUCgllbmRf",
-            "cnRpbWUYBiABKA06ATAiMQovQ1B1Ymxpc2hpbmdfVXBkYXRlUGFydG5lckFw",
-            "cE9wdEluRW1haWxfUmVzcG9uc2UyiggKClB1Ymxpc2hpbmcSgAEKG0NyZWF0",
-            "ZVBhcnRuZXJBcHBPcHRJbkVtYWlscxIvLkNQdWJsaXNoaW5nX0NyZWF0ZVBh",
-            "cnRuZXJBcHBPcHRJbkVtYWlsX1JlcXVlc3QaMC5DUHVibGlzaGluZ19DcmVh",
-            "dGVQYXJ0bmVyQXBwT3B0SW5FbWFpbF9SZXNwb25zZRKOAQofR2V0RXN0aW1h",
-            "dGVQYXJ0bmVyQXBwT3B0SW5FbWFpbBI0LkNQdWJsaXNoaW5nX0dldEVzdGlt",
-            "YXRlUGFydG5lckFwcE9wdEluRW1haWxfUmVxdWVzdBo1LkNQdWJsaXNoaW5n",
-            "X0dldEVzdGltYXRlUGFydG5lckFwcE9wdEluRW1haWxfUmVzcG9uc2USlwEK",
-            "IkdldFBhcnRuZXJBcHBPcHRJbkVtYWlsRGVmQW5kU3RhdHMSNy5DUHVibGlz",
-            "aGluZ19HZXRQYXJ0bmVyQXBwT3B0SW5FbWFpbERlZkFuZFN0YXRzX1JlcXVl",
-            "c3QaOC5DUHVibGlzaGluZ19HZXRQYXJ0bmVyQXBwT3B0SW5FbWFpbERlZkFu",
-            "ZFN0YXRzX1Jlc3BvbnNlElcKFkdldFBhcnRuZXJPcHRJbkludml0ZXMSDy5O",
-            "b3RJbXBsZW1lbnRlZBosLkNQdWJsaXNoaW5nX0dldFBhcnRuZXJPcHRJbklu",
-            "dml0ZXNfUmVzcG9uc2USXAoYR2V0U2luZ2xlUGFydG5lckFwcE9wdEluEg8u",
-            "Tm90SW1wbGVtZW50ZWQaLy5DUHVibGlzaGluZ19HZXRTaW5nbGVQYXJ0bmVy",
-            "QXBwT3B0SW5zX1Jlc3BvbnNlEosBChxTZW5kUGFydG5lck9wdEluRW1haWxB",
-            "bmRXYWl0EjQuQ1B1Ymxpc2hpbmdfU2VuZFBhcnRuZXJBcHBPcHRJbkVtYWls",
-            "QW5kV2FpdF9SZXF1ZXN0GjUuQ1B1Ymxpc2hpbmdfU2VuZFBhcnRuZXJBcHBP",
-            "cHRJbkVtYWlsQW5kV2FpdF9SZXNwb25zZRKFAQocVGVzdEZpcmVQYXJ0bmVy",
-            "QXBwT3B0SW5FbWFpbBIxLkNQdWJsaXNoaW5nX1Rlc3RGaXJlUGFydG5lckFw",
-            "cE9wdEluRW1haWxfUmVxdWVzdBoyLkNQdWJsaXNoaW5nX1Rlc3RGaXJlUGFy",
-            "dG5lckFwcE9wdEluRW1haWxfUmVzcG9uc2USgAEKG1VwZGF0ZVBhcnRuZXJB",
-            "cHBPcHRJbkVtYWlscxIvLkNQdWJsaXNoaW5nX1VwZGF0ZVBhcnRuZXJBcHBP",
-            "cHRJbkVtYWlsX1JlcXVlc3QaMC5DUHVibGlzaGluZ19VcGRhdGVQYXJ0bmVy",
-            "QXBwT3B0SW5FbWFpbF9SZXNwb25zZUIgqgIdT3BlblN0ZWFtd29ya3MuUHJv",
-            "dG9idWYuV2ViVUk="));
+            "bXBsYXRlcxgEIAEoCRITCgtzdGFydF9ydGltZRgFIAEoDRIRCgllbmRfcnRp",
+            "bWUYBiABKA0SKgoFc3RhdHMYByABKAsyGy5DUGFydG5lckFwcE9wdEluRW1h",
+            "aWxTdGF0cxIZChFjcmVhdG9yX2FjY291bnRpZBgIIAEoDRITCgtjcmVhdGVf",
+            "dGltZRgJIAEoDRIYChBsYXN0X3VwZGF0ZV90aW1lGAogASgNEhQKDGVtYWls",
+            "X2RlZl9pZBgLIAEoBhIRCgljb21wbGV0ZWQYDCABKAgSDwoHYWJvcnRlZBgN",
+            "IAEoCBIPCgdkZWxldGVkGA4gASgIEhAKCHJldmlld2VkGA8gASgIIsQBChpD",
+            "UGFydG5lckFwcE9wdEluRW1haWxTdGF0cxIZChFhY2NvdW50c19leGFtaW5l",
+            "ZBgBIAEoDRIYChBhY2NvdW50c19lbWFpbGVkGAIgASgNEiYKHmFjY291bnRz",
+            "X25vdF9lbWFpbGVkX29wdGVkX291dBgDIAEoDRIdChVhY2NvdW50c19lbWFp",
+            "bF9mYWlsZWQYBCABKA0SEQoJY29tcGxldGVkGAUgASgIEhcKD3J0X2xhc3Rf",
+            "dXBkYXRlZBgGIAEoDSLNAQoaQ1BhcnRuZXJPcHRJbkVtYWlsVHJhY2tpbmcS",
+            "EQoJYWNjb3VudGlkGAEgASgNEg0KBWFwcGlkGAIgASgNEhEKCXBhcnRuZXJp",
+            "ZBgDIAEoDRIWCg5ydGltZV9ub3RpZmllZBgEIAEoDRIgChhpZ25vcmVkX3Vu",
+            "dmVyaWZpZWRfZW1haWwYBSABKAgSHAoUaWdub3JlZF9lbWFpbF9vcHRvdXQY",
+            "BiABKAgSDgoGc3RhdHVzGAcgASgNEhIKCnNlbmRfcnRpbWUYCCABKA0iuwEK",
+            "LkNQdWJsaXNoaW5nX0NyZWF0ZVBhcnRuZXJBcHBPcHRJbkVtYWlsX1JlcXVl",
+            "c3QSEwoLb3B0X2luX25hbWUYASABKAkSFgoOdGFyZ2V0aW5nX2ZsYWcYAiAB",
+            "KAYSFQoNc2V0dGluZ3NfZmxhZxgDIAEoBhIXCg9lbWFpbF90ZW1wbGF0ZXMY",
+            "BCABKAkSFgoLc3RhcnRfcnRpbWUYBSABKA06ATASFAoJZW5kX3J0aW1lGAYg",
+            "ASgNOgEwIkcKL0NQdWJsaXNoaW5nX0NyZWF0ZVBhcnRuZXJBcHBPcHRJbkVt",
+            "YWlsX1Jlc3BvbnNlEhQKDGVtYWlsX2RlZl9pZBgBIAEoBiJLCjNDUHVibGlz",
+            "aGluZ19HZXRFc3RpbWF0ZVBhcnRuZXJBcHBPcHRJbkVtYWlsX1JlcXVlc3QS",
+            "FAoMZW1haWxfZGVmX2lkGAEgASgGImIKNENQdWJsaXNoaW5nX0dldEVzdGlt",
+            "YXRlUGFydG5lckFwcE9wdEluRW1haWxfUmVzcG9uc2USKgoFc3RhdHMYASAB",
+            "KAsyGy5DUGFydG5lckFwcE9wdEluRW1haWxTdGF0cyJBCilDUHVibGlzaGlu",
+            "Z19HZXRPcHRJbkVtYWlsVHJhY2tpbmdfUmVxdWVzdBIUCgxlbWFpbF9kZWZf",
+            "aWQYASABKAYicAoqQ1B1Ymxpc2hpbmdfR2V0T3B0SW5FbWFpbFRyYWNraW5n",
+            "X1Jlc3BvbnNlEhQKDGVtYWlsX2RlZl9pZBgBIAEoBhIsCgdyZXN1bHRzGAIg",
+            "AygLMhsuQ1BhcnRuZXJPcHRJbkVtYWlsVHJhY2tpbmciTQo2Q1B1Ymxpc2hp",
+            "bmdfR2V0UGFydG5lckFwcE9wdEluRW1haWxEZWZBbmRTdGF0c19SZXF1ZXN0",
+            "EhMKC29wdF9pbl9uYW1lGAEgASgJImIKN0NQdWJsaXNoaW5nX0dldFBhcnRu",
+            "ZXJBcHBPcHRJbkVtYWlsRGVmQW5kU3RhdHNfUmVzcG9uc2USJwoEZGVmcxgB",
+            "IAMoCzIZLkNQYXJ0bmVyQXBwT3B0SW5FbWFpbERlZiJSCitDUHVibGlzaGlu",
+            "Z19HZXRQYXJ0bmVyT3B0SW5JbnZpdGVzX1Jlc3BvbnNlEiMKBGRhdGEYASAD",
+            "KAsyFS5DUGFydG5lckFwcE9wdEluRGF0YSJICjJDUHVibGlzaGluZ19HZXRQ",
+            "YXJ0bmVyUGFpZEdpdmVuUGFja2FnZUxpc3RfUmVxdWVzdBISCgpwYWNrYWdl",
+            "aWRzGAEgAygNIpABCjNDUHVibGlzaGluZ19HZXRQYXJ0bmVyUGFpZEdpdmVu",
+            "UGFja2FnZUxpc3RfUmVzcG9uc2USWQoEcGFpZBgBIAMoCzJLLkNQdWJsaXNo",
+            "aW5nX0dldFBhcnRuZXJQYWlkR2l2ZW5QYWNrYWdlTGlzdF9SZXNwb25zZV9D",
+            "UGFja2FnZUFuZFBhcnRuZXJQYWlyInIKSkNQdWJsaXNoaW5nX0dldFBhcnRu",
+            "ZXJQYWlkR2l2ZW5QYWNrYWdlTGlzdF9SZXNwb25zZV9DUGFja2FnZUFuZFBh",
+            "cnRuZXJQYWlyEhEKCXBhcnRuZXJpZBgBIAEoDRIRCglwYWNrYWdlaWQYAiAB",
+            "KA0iPgotQ1B1Ymxpc2hpbmdfR2V0U2luZ2xlUGFydG5lckFwcE9wdEluc19S",
+            "ZXF1ZXN0Eg0KBWFwcGlkGAEgASgNIlUKLkNQdWJsaXNoaW5nX0dldFNpbmds",
+            "ZVBhcnRuZXJBcHBPcHRJbnNfUmVzcG9uc2USIwoEZGF0YRgBIAMoCzIVLkNQ",
+            "YXJ0bmVyQXBwT3B0SW5EYXRhImEKM0NQdWJsaXNoaW5nX1NlbmRQYXJ0bmVy",
+            "QXBwT3B0SW5FbWFpbEFuZFdhaXRfUmVxdWVzdBIUCgxlbWFpbF9kZWZfaWQY",
+            "ASABKAYSFAoMZm9yY2VfcmVzZW5kGAIgASgIImQKNENQdWJsaXNoaW5nX1Nl",
+            "bmRQYXJ0bmVyQXBwT3B0SW5FbWFpbEFuZFdhaXRfUmVzcG9uc2USLAoHcmVz",
+            "dWx0cxgBIAEoCzIbLkNQYXJ0bmVyQXBwT3B0SW5FbWFpbFN0YXRzInwKMUNQ",
+            "dWJsaXNoaW5nX1NldEZlYXR1cmluZ09uUGFydG5lckFwcE9wdEluX1JlcXVl",
+            "c3QSDgoGYXBwaWRzGAEgAygNEiIKFGFkZGl0aW9uYWxfZmVhdHVyaW5nGAIg",
+            "ASgIOgR0cnVlEhMKC29wdF9pbl9uYW1lGAMgASgJIkQKMkNQdWJsaXNoaW5n",
+            "X1NldEZlYXR1cmluZ09uUGFydG5lckFwcE9wdEluX1Jlc3BvbnNlEg4KBmFw",
+            "cGlkcxgBIAMoDSJqCjBDUHVibGlzaGluZ19UZXN0RmlyZVBhcnRuZXJBcHBP",
+            "cHRJbkVtYWlsX1JlcXVlc3QSFAoMZW1haWxfZGVmX2lkGAEgASgGEg0KBWFw",
+            "cGlkGAIgASgNEhEKCXBhcnRuZXJpZBgDIAEoDSIzCjFDUHVibGlzaGluZ19U",
+            "ZXN0RmlyZVBhcnRuZXJBcHBPcHRJbkVtYWlsX1Jlc3BvbnNlItUBCi5DUHVi",
+            "bGlzaGluZ19VcGRhdGVQYXJ0bmVyQXBwT3B0SW5FbWFpbF9SZXF1ZXN0EhQK",
+            "DGVtYWlsX2RlZl9pZBgBIAEoBhIWCg50YXJnZXRpbmdfZmxhZxgCIAEoBhIV",
+            "Cg1zZXR0aW5nc19mbGFnGAMgASgGEhcKD2VtYWlsX3RlbXBsYXRlcxgEIAEo",
+            "CRIWCgtzdGFydF9ydGltZRgFIAEoDToBMBIUCgllbmRfcnRpbWUYBiABKA06",
+            "ATASFwoIcmV2aWV3ZWQYByABKAg6BWZhbHNlIjEKL0NQdWJsaXNoaW5nX1Vw",
+            "ZGF0ZVBhcnRuZXJBcHBPcHRJbkVtYWlsX1Jlc3BvbnNlMrQLCgpQdWJsaXNo",
+            "aW5nEoABChtDcmVhdGVQYXJ0bmVyQXBwT3B0SW5FbWFpbHMSLy5DUHVibGlz",
+            "aGluZ19DcmVhdGVQYXJ0bmVyQXBwT3B0SW5FbWFpbF9SZXF1ZXN0GjAuQ1B1",
+            "Ymxpc2hpbmdfQ3JlYXRlUGFydG5lckFwcE9wdEluRW1haWxfUmVzcG9uc2US",
+            "jgEKH0dldEVzdGltYXRlUGFydG5lckFwcE9wdEluRW1haWwSNC5DUHVibGlz",
+            "aGluZ19HZXRFc3RpbWF0ZVBhcnRuZXJBcHBPcHRJbkVtYWlsX1JlcXVlc3Qa",
+            "NS5DUHVibGlzaGluZ19HZXRFc3RpbWF0ZVBhcnRuZXJBcHBPcHRJbkVtYWls",
+            "X1Jlc3BvbnNlEnAKFUdldE9wdEluRW1haWxUcmFja2luZxIqLkNQdWJsaXNo",
+            "aW5nX0dldE9wdEluRW1haWxUcmFja2luZ19SZXF1ZXN0GisuQ1B1Ymxpc2hp",
+            "bmdfR2V0T3B0SW5FbWFpbFRyYWNraW5nX1Jlc3BvbnNlEpcBCiJHZXRQYXJ0",
+            "bmVyQXBwT3B0SW5FbWFpbERlZkFuZFN0YXRzEjcuQ1B1Ymxpc2hpbmdfR2V0",
+            "UGFydG5lckFwcE9wdEluRW1haWxEZWZBbmRTdGF0c19SZXF1ZXN0GjguQ1B1",
+            "Ymxpc2hpbmdfR2V0UGFydG5lckFwcE9wdEluRW1haWxEZWZBbmRTdGF0c19S",
+            "ZXNwb25zZRJXChZHZXRQYXJ0bmVyT3B0SW5JbnZpdGVzEg8uTm90SW1wbGVt",
+            "ZW50ZWQaLC5DUHVibGlzaGluZ19HZXRQYXJ0bmVyT3B0SW5JbnZpdGVzX1Jl",
+            "c3BvbnNlEosBCh5HZXRQYXJ0bmVyUGFpZEdpdmVuUGFja2FnZUxpc3QSMy5D",
+            "UHVibGlzaGluZ19HZXRQYXJ0bmVyUGFpZEdpdmVuUGFja2FnZUxpc3RfUmVx",
+            "dWVzdBo0LkNQdWJsaXNoaW5nX0dldFBhcnRuZXJQYWlkR2l2ZW5QYWNrYWdl",
+            "TGlzdF9SZXNwb25zZRJ7ChhHZXRTaW5nbGVQYXJ0bmVyQXBwT3B0SW4SLi5D",
+            "UHVibGlzaGluZ19HZXRTaW5nbGVQYXJ0bmVyQXBwT3B0SW5zX1JlcXVlc3Qa",
+            "Ly5DUHVibGlzaGluZ19HZXRTaW5nbGVQYXJ0bmVyQXBwT3B0SW5zX1Jlc3Bv",
+            "bnNlEosBChxTZW5kUGFydG5lck9wdEluRW1haWxBbmRXYWl0EjQuQ1B1Ymxp",
+            "c2hpbmdfU2VuZFBhcnRuZXJBcHBPcHRJbkVtYWlsQW5kV2FpdF9SZXF1ZXN0",
+            "GjUuQ1B1Ymxpc2hpbmdfU2VuZFBhcnRuZXJBcHBPcHRJbkVtYWlsQW5kV2Fp",
+            "dF9SZXNwb25zZRKIAQodU2V0RmVhdHVyaW5nT25QYXJ0bmVyQXBwT3B0SW4S",
+            "Mi5DUHVibGlzaGluZ19TZXRGZWF0dXJpbmdPblBhcnRuZXJBcHBPcHRJbl9S",
+            "ZXF1ZXN0GjMuQ1B1Ymxpc2hpbmdfU2V0RmVhdHVyaW5nT25QYXJ0bmVyQXBw",
+            "T3B0SW5fUmVzcG9uc2UShQEKHFRlc3RGaXJlUGFydG5lckFwcE9wdEluRW1h",
+            "aWwSMS5DUHVibGlzaGluZ19UZXN0RmlyZVBhcnRuZXJBcHBPcHRJbkVtYWls",
+            "X1JlcXVlc3QaMi5DUHVibGlzaGluZ19UZXN0RmlyZVBhcnRuZXJBcHBPcHRJ",
+            "bkVtYWlsX1Jlc3BvbnNlEoABChtVcGRhdGVQYXJ0bmVyQXBwT3B0SW5FbWFp",
+            "bHMSLy5DUHVibGlzaGluZ19VcGRhdGVQYXJ0bmVyQXBwT3B0SW5FbWFpbF9S",
+            "ZXF1ZXN0GjAuQ1B1Ymxpc2hpbmdfVXBkYXRlUGFydG5lckFwcE9wdEluRW1h",
+            "aWxfUmVzcG9uc2VCIKoCHU9wZW5TdGVhbXdvcmtzLlByb3RvYnVmLldlYlVJ"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.Reflection.DescriptorReflection.Descriptor, global::OpenSteamworks.Protobuf.WebUI.CommonBaseReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPartnerAppOptInData), global::OpenSteamworks.Protobuf.WebUI.CPartnerAppOptInData.Parser, new[]{ "Appid", "OptIn", "OptInName", "Jsondata", "Type", "AccountidAdd", "TimeOptedIn", "TimeUpdated", "AccountidLastmod", "Invited", "AccountidRemove", "TimeOptedOut", "Pruned", "AccountidPrune", "TimePruned" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPartnerAppOptInEmailDef), global::OpenSteamworks.Protobuf.WebUI.CPartnerAppOptInEmailDef.Parser, new[]{ "OptInName", "TargetingFlag", "SettingsFlag", "EmailTemplates", "StartRtime", "EndRtime", "Stats", "CreatorAccountid", "CreateTime", "LastUpdateTime", "EmailDefId" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPartnerAppOptInEmailStats), global::OpenSteamworks.Protobuf.WebUI.CPartnerAppOptInEmailStats.Parser, new[]{ "AccountsExamined", "AccountsEmailed", "AccountsNotEmailedOptedOut", "AccountsEmailFailed", "Completed" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPartnerAppOptInData), global::OpenSteamworks.Protobuf.WebUI.CPartnerAppOptInData.Parser, new[]{ "Appid", "OptIn", "OptInName", "Jsondata", "Type", "AccountidAdd", "TimeOptedIn", "TimeUpdated", "AccountidLastmod", "Invited", "AccountidRemove", "TimeOptedOut", "Pruned", "AccountidPrune", "TimePruned", "AdditionalFeaturing", "FeatureDay", "AccountidInvited", "NoPlannedDiscount", "PendingReview", "AppealState", "AccountidAppeal" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPartnerAppOptInEmailDef), global::OpenSteamworks.Protobuf.WebUI.CPartnerAppOptInEmailDef.Parser, new[]{ "OptInName", "TargetingFlag", "SettingsFlag", "EmailTemplates", "StartRtime", "EndRtime", "Stats", "CreatorAccountid", "CreateTime", "LastUpdateTime", "EmailDefId", "Completed", "Aborted", "Deleted", "Reviewed" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPartnerAppOptInEmailStats), global::OpenSteamworks.Protobuf.WebUI.CPartnerAppOptInEmailStats.Parser, new[]{ "AccountsExamined", "AccountsEmailed", "AccountsNotEmailedOptedOut", "AccountsEmailFailed", "Completed", "RtLastUpdated" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPartnerOptInEmailTracking), global::OpenSteamworks.Protobuf.WebUI.CPartnerOptInEmailTracking.Parser, new[]{ "Accountid", "Appid", "Partnerid", "RtimeNotified", "IgnoredUnverifiedEmail", "IgnoredEmailOptout", "Status", "SendRtime" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishing_CreatePartnerAppOptInEmail_Request), global::OpenSteamworks.Protobuf.WebUI.CPublishing_CreatePartnerAppOptInEmail_Request.Parser, new[]{ "OptInName", "TargetingFlag", "SettingsFlag", "EmailTemplates", "StartRtime", "EndRtime" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishing_CreatePartnerAppOptInEmail_Response), global::OpenSteamworks.Protobuf.WebUI.CPublishing_CreatePartnerAppOptInEmail_Response.Parser, new[]{ "EmailDefId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishing_GetEstimatePartnerAppOptInEmail_Request), global::OpenSteamworks.Protobuf.WebUI.CPublishing_GetEstimatePartnerAppOptInEmail_Request.Parser, new[]{ "EmailDefId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishing_GetEstimatePartnerAppOptInEmail_Response), global::OpenSteamworks.Protobuf.WebUI.CPublishing_GetEstimatePartnerAppOptInEmail_Response.Parser, new[]{ "Stats" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishing_GetOptInEmailTracking_Request), global::OpenSteamworks.Protobuf.WebUI.CPublishing_GetOptInEmailTracking_Request.Parser, new[]{ "EmailDefId" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishing_GetOptInEmailTracking_Response), global::OpenSteamworks.Protobuf.WebUI.CPublishing_GetOptInEmailTracking_Response.Parser, new[]{ "EmailDefId", "Results" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishing_GetPartnerAppOptInEmailDefAndStats_Request), global::OpenSteamworks.Protobuf.WebUI.CPublishing_GetPartnerAppOptInEmailDefAndStats_Request.Parser, new[]{ "OptInName" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishing_GetPartnerAppOptInEmailDefAndStats_Response), global::OpenSteamworks.Protobuf.WebUI.CPublishing_GetPartnerAppOptInEmailDefAndStats_Response.Parser, new[]{ "Defs" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishing_GetPartnerOptInInvites_Response), global::OpenSteamworks.Protobuf.WebUI.CPublishing_GetPartnerOptInInvites_Response.Parser, new[]{ "Data" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishing_GetPartnerPaidGivenPackageList_Request), global::OpenSteamworks.Protobuf.WebUI.CPublishing_GetPartnerPaidGivenPackageList_Request.Parser, new[]{ "Packageids" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishing_GetPartnerPaidGivenPackageList_Response), global::OpenSteamworks.Protobuf.WebUI.CPublishing_GetPartnerPaidGivenPackageList_Response.Parser, new[]{ "Paid" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishing_GetPartnerPaidGivenPackageList_Response_CPackageAndPartnerPair), global::OpenSteamworks.Protobuf.WebUI.CPublishing_GetPartnerPaidGivenPackageList_Response_CPackageAndPartnerPair.Parser, new[]{ "Partnerid", "Packageid" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishing_GetSinglePartnerAppOptIns_Request), global::OpenSteamworks.Protobuf.WebUI.CPublishing_GetSinglePartnerAppOptIns_Request.Parser, new[]{ "Appid" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishing_GetSinglePartnerAppOptIns_Response), global::OpenSteamworks.Protobuf.WebUI.CPublishing_GetSinglePartnerAppOptIns_Response.Parser, new[]{ "Data" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishing_SendPartnerAppOptInEmailAndWait_Request), global::OpenSteamworks.Protobuf.WebUI.CPublishing_SendPartnerAppOptInEmailAndWait_Request.Parser, new[]{ "EmailDefId" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishing_SendPartnerAppOptInEmailAndWait_Request), global::OpenSteamworks.Protobuf.WebUI.CPublishing_SendPartnerAppOptInEmailAndWait_Request.Parser, new[]{ "EmailDefId", "ForceResend" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishing_SendPartnerAppOptInEmailAndWait_Response), global::OpenSteamworks.Protobuf.WebUI.CPublishing_SendPartnerAppOptInEmailAndWait_Response.Parser, new[]{ "Results" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishing_SetFeaturingOnPartnerAppOptIn_Request), global::OpenSteamworks.Protobuf.WebUI.CPublishing_SetFeaturingOnPartnerAppOptIn_Request.Parser, new[]{ "Appids", "AdditionalFeaturing", "OptInName" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishing_SetFeaturingOnPartnerAppOptIn_Response), global::OpenSteamworks.Protobuf.WebUI.CPublishing_SetFeaturingOnPartnerAppOptIn_Response.Parser, new[]{ "Appids" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishing_TestFirePartnerAppOptInEmail_Request), global::OpenSteamworks.Protobuf.WebUI.CPublishing_TestFirePartnerAppOptInEmail_Request.Parser, new[]{ "EmailDefId", "Appid", "Partnerid" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishing_TestFirePartnerAppOptInEmail_Response), global::OpenSteamworks.Protobuf.WebUI.CPublishing_TestFirePartnerAppOptInEmail_Response.Parser, null, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishing_UpdatePartnerAppOptInEmail_Request), global::OpenSteamworks.Protobuf.WebUI.CPublishing_UpdatePartnerAppOptInEmail_Request.Parser, new[]{ "EmailDefId", "TargetingFlag", "SettingsFlag", "EmailTemplates", "StartRtime", "EndRtime" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishing_UpdatePartnerAppOptInEmail_Request), global::OpenSteamworks.Protobuf.WebUI.CPublishing_UpdatePartnerAppOptInEmail_Request.Parser, new[]{ "EmailDefId", "TargetingFlag", "SettingsFlag", "EmailTemplates", "StartRtime", "EndRtime", "Reviewed" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPublishing_UpdatePartnerAppOptInEmail_Response), global::OpenSteamworks.Protobuf.WebUI.CPublishing_UpdatePartnerAppOptInEmail_Response.Parser, null, null, null, null, null)
           }));
     }
@@ -176,6 +223,13 @@ namespace OpenSteamworks.Protobuf.WebUI {
       pruned_ = other.pruned_;
       accountidPrune_ = other.accountidPrune_;
       timePruned_ = other.timePruned_;
+      additionalFeaturing_ = other.additionalFeaturing_;
+      featureDay_ = other.featureDay_;
+      accountidInvited_ = other.accountidInvited_;
+      noPlannedDiscount_ = other.noPlannedDiscount_;
+      pendingReview_ = other.pendingReview_;
+      appealState_ = other.appealState_;
+      accountidAppeal_ = other.accountidAppeal_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -588,6 +642,195 @@ namespace OpenSteamworks.Protobuf.WebUI {
       _hasBits0 &= ~4096;
     }
 
+    /// <summary>Field number for the "additional_featuring" field.</summary>
+    public const int AdditionalFeaturingFieldNumber = 16;
+    private readonly static bool AdditionalFeaturingDefaultValue = false;
+
+    private bool additionalFeaturing_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool AdditionalFeaturing {
+      get { if ((_hasBits0 & 8192) != 0) { return additionalFeaturing_; } else { return AdditionalFeaturingDefaultValue; } }
+      set {
+        _hasBits0 |= 8192;
+        additionalFeaturing_ = value;
+      }
+    }
+    /// <summary>Gets whether the "additional_featuring" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasAdditionalFeaturing {
+      get { return (_hasBits0 & 8192) != 0; }
+    }
+    /// <summary>Clears the value of the "additional_featuring" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearAdditionalFeaturing() {
+      _hasBits0 &= ~8192;
+    }
+
+    /// <summary>Field number for the "feature_day" field.</summary>
+    public const int FeatureDayFieldNumber = 17;
+    private readonly static uint FeatureDayDefaultValue = 0;
+
+    private uint featureDay_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint FeatureDay {
+      get { if ((_hasBits0 & 16384) != 0) { return featureDay_; } else { return FeatureDayDefaultValue; } }
+      set {
+        _hasBits0 |= 16384;
+        featureDay_ = value;
+      }
+    }
+    /// <summary>Gets whether the "feature_day" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasFeatureDay {
+      get { return (_hasBits0 & 16384) != 0; }
+    }
+    /// <summary>Clears the value of the "feature_day" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearFeatureDay() {
+      _hasBits0 &= ~16384;
+    }
+
+    /// <summary>Field number for the "accountid_invited" field.</summary>
+    public const int AccountidInvitedFieldNumber = 18;
+    private readonly static uint AccountidInvitedDefaultValue = 0;
+
+    private uint accountidInvited_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint AccountidInvited {
+      get { if ((_hasBits0 & 32768) != 0) { return accountidInvited_; } else { return AccountidInvitedDefaultValue; } }
+      set {
+        _hasBits0 |= 32768;
+        accountidInvited_ = value;
+      }
+    }
+    /// <summary>Gets whether the "accountid_invited" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasAccountidInvited {
+      get { return (_hasBits0 & 32768) != 0; }
+    }
+    /// <summary>Clears the value of the "accountid_invited" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearAccountidInvited() {
+      _hasBits0 &= ~32768;
+    }
+
+    /// <summary>Field number for the "no_planned_discount" field.</summary>
+    public const int NoPlannedDiscountFieldNumber = 19;
+    private readonly static bool NoPlannedDiscountDefaultValue = false;
+
+    private bool noPlannedDiscount_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool NoPlannedDiscount {
+      get { if ((_hasBits0 & 65536) != 0) { return noPlannedDiscount_; } else { return NoPlannedDiscountDefaultValue; } }
+      set {
+        _hasBits0 |= 65536;
+        noPlannedDiscount_ = value;
+      }
+    }
+    /// <summary>Gets whether the "no_planned_discount" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasNoPlannedDiscount {
+      get { return (_hasBits0 & 65536) != 0; }
+    }
+    /// <summary>Clears the value of the "no_planned_discount" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearNoPlannedDiscount() {
+      _hasBits0 &= ~65536;
+    }
+
+    /// <summary>Field number for the "pending_review" field.</summary>
+    public const int PendingReviewFieldNumber = 20;
+    private readonly static uint PendingReviewDefaultValue = 0;
+
+    private uint pendingReview_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint PendingReview {
+      get { if ((_hasBits0 & 131072) != 0) { return pendingReview_; } else { return PendingReviewDefaultValue; } }
+      set {
+        _hasBits0 |= 131072;
+        pendingReview_ = value;
+      }
+    }
+    /// <summary>Gets whether the "pending_review" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasPendingReview {
+      get { return (_hasBits0 & 131072) != 0; }
+    }
+    /// <summary>Clears the value of the "pending_review" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearPendingReview() {
+      _hasBits0 &= ~131072;
+    }
+
+    /// <summary>Field number for the "appeal_state" field.</summary>
+    public const int AppealStateFieldNumber = 21;
+    private readonly static int AppealStateDefaultValue = 0;
+
+    private int appealState_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int AppealState {
+      get { if ((_hasBits0 & 262144) != 0) { return appealState_; } else { return AppealStateDefaultValue; } }
+      set {
+        _hasBits0 |= 262144;
+        appealState_ = value;
+      }
+    }
+    /// <summary>Gets whether the "appeal_state" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasAppealState {
+      get { return (_hasBits0 & 262144) != 0; }
+    }
+    /// <summary>Clears the value of the "appeal_state" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearAppealState() {
+      _hasBits0 &= ~262144;
+    }
+
+    /// <summary>Field number for the "accountid_appeal" field.</summary>
+    public const int AccountidAppealFieldNumber = 22;
+    private readonly static uint AccountidAppealDefaultValue = 0;
+
+    private uint accountidAppeal_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint AccountidAppeal {
+      get { if ((_hasBits0 & 524288) != 0) { return accountidAppeal_; } else { return AccountidAppealDefaultValue; } }
+      set {
+        _hasBits0 |= 524288;
+        accountidAppeal_ = value;
+      }
+    }
+    /// <summary>Gets whether the "accountid_appeal" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasAccountidAppeal {
+      get { return (_hasBits0 & 524288) != 0; }
+    }
+    /// <summary>Clears the value of the "accountid_appeal" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearAccountidAppeal() {
+      _hasBits0 &= ~524288;
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -618,6 +861,13 @@ namespace OpenSteamworks.Protobuf.WebUI {
       if (Pruned != other.Pruned) return false;
       if (AccountidPrune != other.AccountidPrune) return false;
       if (TimePruned != other.TimePruned) return false;
+      if (AdditionalFeaturing != other.AdditionalFeaturing) return false;
+      if (FeatureDay != other.FeatureDay) return false;
+      if (AccountidInvited != other.AccountidInvited) return false;
+      if (NoPlannedDiscount != other.NoPlannedDiscount) return false;
+      if (PendingReview != other.PendingReview) return false;
+      if (AppealState != other.AppealState) return false;
+      if (AccountidAppeal != other.AccountidAppeal) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -640,6 +890,13 @@ namespace OpenSteamworks.Protobuf.WebUI {
       if (HasPruned) hash ^= Pruned.GetHashCode();
       if (HasAccountidPrune) hash ^= AccountidPrune.GetHashCode();
       if (HasTimePruned) hash ^= TimePruned.GetHashCode();
+      if (HasAdditionalFeaturing) hash ^= AdditionalFeaturing.GetHashCode();
+      if (HasFeatureDay) hash ^= FeatureDay.GetHashCode();
+      if (HasAccountidInvited) hash ^= AccountidInvited.GetHashCode();
+      if (HasNoPlannedDiscount) hash ^= NoPlannedDiscount.GetHashCode();
+      if (HasPendingReview) hash ^= PendingReview.GetHashCode();
+      if (HasAppealState) hash ^= AppealState.GetHashCode();
+      if (HasAccountidAppeal) hash ^= AccountidAppeal.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -718,6 +975,34 @@ namespace OpenSteamworks.Protobuf.WebUI {
         output.WriteRawTag(120);
         output.WriteUInt32(TimePruned);
       }
+      if (HasAdditionalFeaturing) {
+        output.WriteRawTag(128, 1);
+        output.WriteBool(AdditionalFeaturing);
+      }
+      if (HasFeatureDay) {
+        output.WriteRawTag(136, 1);
+        output.WriteUInt32(FeatureDay);
+      }
+      if (HasAccountidInvited) {
+        output.WriteRawTag(144, 1);
+        output.WriteUInt32(AccountidInvited);
+      }
+      if (HasNoPlannedDiscount) {
+        output.WriteRawTag(152, 1);
+        output.WriteBool(NoPlannedDiscount);
+      }
+      if (HasPendingReview) {
+        output.WriteRawTag(160, 1);
+        output.WriteUInt32(PendingReview);
+      }
+      if (HasAppealState) {
+        output.WriteRawTag(168, 1);
+        output.WriteInt32(AppealState);
+      }
+      if (HasAccountidAppeal) {
+        output.WriteRawTag(176, 1);
+        output.WriteUInt32(AccountidAppeal);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -788,6 +1073,34 @@ namespace OpenSteamworks.Protobuf.WebUI {
         output.WriteRawTag(120);
         output.WriteUInt32(TimePruned);
       }
+      if (HasAdditionalFeaturing) {
+        output.WriteRawTag(128, 1);
+        output.WriteBool(AdditionalFeaturing);
+      }
+      if (HasFeatureDay) {
+        output.WriteRawTag(136, 1);
+        output.WriteUInt32(FeatureDay);
+      }
+      if (HasAccountidInvited) {
+        output.WriteRawTag(144, 1);
+        output.WriteUInt32(AccountidInvited);
+      }
+      if (HasNoPlannedDiscount) {
+        output.WriteRawTag(152, 1);
+        output.WriteBool(NoPlannedDiscount);
+      }
+      if (HasPendingReview) {
+        output.WriteRawTag(160, 1);
+        output.WriteUInt32(PendingReview);
+      }
+      if (HasAppealState) {
+        output.WriteRawTag(168, 1);
+        output.WriteInt32(AppealState);
+      }
+      if (HasAccountidAppeal) {
+        output.WriteRawTag(176, 1);
+        output.WriteUInt32(AccountidAppeal);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -842,6 +1155,27 @@ namespace OpenSteamworks.Protobuf.WebUI {
       }
       if (HasTimePruned) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(TimePruned);
+      }
+      if (HasAdditionalFeaturing) {
+        size += 2 + 1;
+      }
+      if (HasFeatureDay) {
+        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(FeatureDay);
+      }
+      if (HasAccountidInvited) {
+        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(AccountidInvited);
+      }
+      if (HasNoPlannedDiscount) {
+        size += 2 + 1;
+      }
+      if (HasPendingReview) {
+        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(PendingReview);
+      }
+      if (HasAppealState) {
+        size += 2 + pb::CodedOutputStream.ComputeInt32Size(AppealState);
+      }
+      if (HasAccountidAppeal) {
+        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(AccountidAppeal);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -899,6 +1233,27 @@ namespace OpenSteamworks.Protobuf.WebUI {
       }
       if (other.HasTimePruned) {
         TimePruned = other.TimePruned;
+      }
+      if (other.HasAdditionalFeaturing) {
+        AdditionalFeaturing = other.AdditionalFeaturing;
+      }
+      if (other.HasFeatureDay) {
+        FeatureDay = other.FeatureDay;
+      }
+      if (other.HasAccountidInvited) {
+        AccountidInvited = other.AccountidInvited;
+      }
+      if (other.HasNoPlannedDiscount) {
+        NoPlannedDiscount = other.NoPlannedDiscount;
+      }
+      if (other.HasPendingReview) {
+        PendingReview = other.PendingReview;
+      }
+      if (other.HasAppealState) {
+        AppealState = other.AppealState;
+      }
+      if (other.HasAccountidAppeal) {
+        AccountidAppeal = other.AccountidAppeal;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -973,6 +1328,34 @@ namespace OpenSteamworks.Protobuf.WebUI {
           }
           case 120: {
             TimePruned = input.ReadUInt32();
+            break;
+          }
+          case 128: {
+            AdditionalFeaturing = input.ReadBool();
+            break;
+          }
+          case 136: {
+            FeatureDay = input.ReadUInt32();
+            break;
+          }
+          case 144: {
+            AccountidInvited = input.ReadUInt32();
+            break;
+          }
+          case 152: {
+            NoPlannedDiscount = input.ReadBool();
+            break;
+          }
+          case 160: {
+            PendingReview = input.ReadUInt32();
+            break;
+          }
+          case 168: {
+            AppealState = input.ReadInt32();
+            break;
+          }
+          case 176: {
+            AccountidAppeal = input.ReadUInt32();
             break;
           }
         }
@@ -1050,6 +1433,34 @@ namespace OpenSteamworks.Protobuf.WebUI {
             TimePruned = input.ReadUInt32();
             break;
           }
+          case 128: {
+            AdditionalFeaturing = input.ReadBool();
+            break;
+          }
+          case 136: {
+            FeatureDay = input.ReadUInt32();
+            break;
+          }
+          case 144: {
+            AccountidInvited = input.ReadUInt32();
+            break;
+          }
+          case 152: {
+            NoPlannedDiscount = input.ReadBool();
+            break;
+          }
+          case 160: {
+            PendingReview = input.ReadUInt32();
+            break;
+          }
+          case 168: {
+            AppealState = input.ReadInt32();
+            break;
+          }
+          case 176: {
+            AccountidAppeal = input.ReadUInt32();
+            break;
+          }
         }
       }
     }
@@ -1104,6 +1515,10 @@ namespace OpenSteamworks.Protobuf.WebUI {
       createTime_ = other.createTime_;
       lastUpdateTime_ = other.lastUpdateTime_;
       emailDefId_ = other.emailDefId_;
+      completed_ = other.completed_;
+      aborted_ = other.aborted_;
+      deleted_ = other.deleted_;
+      reviewed_ = other.reviewed_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -1393,6 +1808,114 @@ namespace OpenSteamworks.Protobuf.WebUI {
       _hasBits0 &= ~128;
     }
 
+    /// <summary>Field number for the "completed" field.</summary>
+    public const int CompletedFieldNumber = 12;
+    private readonly static bool CompletedDefaultValue = false;
+
+    private bool completed_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Completed {
+      get { if ((_hasBits0 & 256) != 0) { return completed_; } else { return CompletedDefaultValue; } }
+      set {
+        _hasBits0 |= 256;
+        completed_ = value;
+      }
+    }
+    /// <summary>Gets whether the "completed" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasCompleted {
+      get { return (_hasBits0 & 256) != 0; }
+    }
+    /// <summary>Clears the value of the "completed" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearCompleted() {
+      _hasBits0 &= ~256;
+    }
+
+    /// <summary>Field number for the "aborted" field.</summary>
+    public const int AbortedFieldNumber = 13;
+    private readonly static bool AbortedDefaultValue = false;
+
+    private bool aborted_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Aborted {
+      get { if ((_hasBits0 & 512) != 0) { return aborted_; } else { return AbortedDefaultValue; } }
+      set {
+        _hasBits0 |= 512;
+        aborted_ = value;
+      }
+    }
+    /// <summary>Gets whether the "aborted" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasAborted {
+      get { return (_hasBits0 & 512) != 0; }
+    }
+    /// <summary>Clears the value of the "aborted" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearAborted() {
+      _hasBits0 &= ~512;
+    }
+
+    /// <summary>Field number for the "deleted" field.</summary>
+    public const int DeletedFieldNumber = 14;
+    private readonly static bool DeletedDefaultValue = false;
+
+    private bool deleted_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Deleted {
+      get { if ((_hasBits0 & 1024) != 0) { return deleted_; } else { return DeletedDefaultValue; } }
+      set {
+        _hasBits0 |= 1024;
+        deleted_ = value;
+      }
+    }
+    /// <summary>Gets whether the "deleted" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasDeleted {
+      get { return (_hasBits0 & 1024) != 0; }
+    }
+    /// <summary>Clears the value of the "deleted" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearDeleted() {
+      _hasBits0 &= ~1024;
+    }
+
+    /// <summary>Field number for the "reviewed" field.</summary>
+    public const int ReviewedFieldNumber = 15;
+    private readonly static bool ReviewedDefaultValue = false;
+
+    private bool reviewed_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Reviewed {
+      get { if ((_hasBits0 & 2048) != 0) { return reviewed_; } else { return ReviewedDefaultValue; } }
+      set {
+        _hasBits0 |= 2048;
+        reviewed_ = value;
+      }
+    }
+    /// <summary>Gets whether the "reviewed" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasReviewed {
+      get { return (_hasBits0 & 2048) != 0; }
+    }
+    /// <summary>Clears the value of the "reviewed" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearReviewed() {
+      _hasBits0 &= ~2048;
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -1419,6 +1942,10 @@ namespace OpenSteamworks.Protobuf.WebUI {
       if (CreateTime != other.CreateTime) return false;
       if (LastUpdateTime != other.LastUpdateTime) return false;
       if (EmailDefId != other.EmailDefId) return false;
+      if (Completed != other.Completed) return false;
+      if (Aborted != other.Aborted) return false;
+      if (Deleted != other.Deleted) return false;
+      if (Reviewed != other.Reviewed) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1437,6 +1964,10 @@ namespace OpenSteamworks.Protobuf.WebUI {
       if (HasCreateTime) hash ^= CreateTime.GetHashCode();
       if (HasLastUpdateTime) hash ^= LastUpdateTime.GetHashCode();
       if (HasEmailDefId) hash ^= EmailDefId.GetHashCode();
+      if (HasCompleted) hash ^= Completed.GetHashCode();
+      if (HasAborted) hash ^= Aborted.GetHashCode();
+      if (HasDeleted) hash ^= Deleted.GetHashCode();
+      if (HasReviewed) hash ^= Reviewed.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1499,6 +2030,22 @@ namespace OpenSteamworks.Protobuf.WebUI {
         output.WriteRawTag(89);
         output.WriteFixed64(EmailDefId);
       }
+      if (HasCompleted) {
+        output.WriteRawTag(96);
+        output.WriteBool(Completed);
+      }
+      if (HasAborted) {
+        output.WriteRawTag(104);
+        output.WriteBool(Aborted);
+      }
+      if (HasDeleted) {
+        output.WriteRawTag(112);
+        output.WriteBool(Deleted);
+      }
+      if (HasReviewed) {
+        output.WriteRawTag(120);
+        output.WriteBool(Reviewed);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1553,6 +2100,22 @@ namespace OpenSteamworks.Protobuf.WebUI {
         output.WriteRawTag(89);
         output.WriteFixed64(EmailDefId);
       }
+      if (HasCompleted) {
+        output.WriteRawTag(96);
+        output.WriteBool(Completed);
+      }
+      if (HasAborted) {
+        output.WriteRawTag(104);
+        output.WriteBool(Aborted);
+      }
+      if (HasDeleted) {
+        output.WriteRawTag(112);
+        output.WriteBool(Deleted);
+      }
+      if (HasReviewed) {
+        output.WriteRawTag(120);
+        output.WriteBool(Reviewed);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -1595,6 +2158,18 @@ namespace OpenSteamworks.Protobuf.WebUI {
       }
       if (HasEmailDefId) {
         size += 1 + 8;
+      }
+      if (HasCompleted) {
+        size += 1 + 1;
+      }
+      if (HasAborted) {
+        size += 1 + 1;
+      }
+      if (HasDeleted) {
+        size += 1 + 1;
+      }
+      if (HasReviewed) {
+        size += 1 + 1;
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -1643,6 +2218,18 @@ namespace OpenSteamworks.Protobuf.WebUI {
       }
       if (other.HasEmailDefId) {
         EmailDefId = other.EmailDefId;
+      }
+      if (other.HasCompleted) {
+        Completed = other.Completed;
+      }
+      if (other.HasAborted) {
+        Aborted = other.Aborted;
+      }
+      if (other.HasDeleted) {
+        Deleted = other.Deleted;
+      }
+      if (other.HasReviewed) {
+        Reviewed = other.Reviewed;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -1704,6 +2291,22 @@ namespace OpenSteamworks.Protobuf.WebUI {
           }
           case 89: {
             EmailDefId = input.ReadFixed64();
+            break;
+          }
+          case 96: {
+            Completed = input.ReadBool();
+            break;
+          }
+          case 104: {
+            Aborted = input.ReadBool();
+            break;
+          }
+          case 112: {
+            Deleted = input.ReadBool();
+            break;
+          }
+          case 120: {
+            Reviewed = input.ReadBool();
             break;
           }
         }
@@ -1768,6 +2371,22 @@ namespace OpenSteamworks.Protobuf.WebUI {
             EmailDefId = input.ReadFixed64();
             break;
           }
+          case 96: {
+            Completed = input.ReadBool();
+            break;
+          }
+          case 104: {
+            Aborted = input.ReadBool();
+            break;
+          }
+          case 112: {
+            Deleted = input.ReadBool();
+            break;
+          }
+          case 120: {
+            Reviewed = input.ReadBool();
+            break;
+          }
         }
       }
     }
@@ -1816,6 +2435,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
       accountsNotEmailedOptedOut_ = other.accountsNotEmailedOptedOut_;
       accountsEmailFailed_ = other.accountsEmailFailed_;
       completed_ = other.completed_;
+      rtLastUpdated_ = other.rtLastUpdated_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -1960,6 +2580,33 @@ namespace OpenSteamworks.Protobuf.WebUI {
       _hasBits0 &= ~16;
     }
 
+    /// <summary>Field number for the "rt_last_updated" field.</summary>
+    public const int RtLastUpdatedFieldNumber = 6;
+    private readonly static uint RtLastUpdatedDefaultValue = 0;
+
+    private uint rtLastUpdated_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint RtLastUpdated {
+      get { if ((_hasBits0 & 32) != 0) { return rtLastUpdated_; } else { return RtLastUpdatedDefaultValue; } }
+      set {
+        _hasBits0 |= 32;
+        rtLastUpdated_ = value;
+      }
+    }
+    /// <summary>Gets whether the "rt_last_updated" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasRtLastUpdated {
+      get { return (_hasBits0 & 32) != 0; }
+    }
+    /// <summary>Clears the value of the "rt_last_updated" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearRtLastUpdated() {
+      _hasBits0 &= ~32;
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -1980,6 +2627,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
       if (AccountsNotEmailedOptedOut != other.AccountsNotEmailedOptedOut) return false;
       if (AccountsEmailFailed != other.AccountsEmailFailed) return false;
       if (Completed != other.Completed) return false;
+      if (RtLastUpdated != other.RtLastUpdated) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1992,6 +2640,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
       if (HasAccountsNotEmailedOptedOut) hash ^= AccountsNotEmailedOptedOut.GetHashCode();
       if (HasAccountsEmailFailed) hash ^= AccountsEmailFailed.GetHashCode();
       if (HasCompleted) hash ^= Completed.GetHashCode();
+      if (HasRtLastUpdated) hash ^= RtLastUpdated.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -2030,6 +2679,10 @@ namespace OpenSteamworks.Protobuf.WebUI {
         output.WriteRawTag(40);
         output.WriteBool(Completed);
       }
+      if (HasRtLastUpdated) {
+        output.WriteRawTag(48);
+        output.WriteUInt32(RtLastUpdated);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -2060,6 +2713,10 @@ namespace OpenSteamworks.Protobuf.WebUI {
         output.WriteRawTag(40);
         output.WriteBool(Completed);
       }
+      if (HasRtLastUpdated) {
+        output.WriteRawTag(48);
+        output.WriteUInt32(RtLastUpdated);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -2084,6 +2741,9 @@ namespace OpenSteamworks.Protobuf.WebUI {
       }
       if (HasCompleted) {
         size += 1 + 1;
+      }
+      if (HasRtLastUpdated) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(RtLastUpdated);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -2111,6 +2771,9 @@ namespace OpenSteamworks.Protobuf.WebUI {
       }
       if (other.HasCompleted) {
         Completed = other.Completed;
+      }
+      if (other.HasRtLastUpdated) {
+        RtLastUpdated = other.RtLastUpdated;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -2145,6 +2808,10 @@ namespace OpenSteamworks.Protobuf.WebUI {
           }
           case 40: {
             Completed = input.ReadBool();
+            break;
+          }
+          case 48: {
+            RtLastUpdated = input.ReadUInt32();
             break;
           }
         }
@@ -2182,6 +2849,580 @@ namespace OpenSteamworks.Protobuf.WebUI {
             Completed = input.ReadBool();
             break;
           }
+          case 48: {
+            RtLastUpdated = input.ReadUInt32();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class CPartnerOptInEmailTracking : pb::IMessage<CPartnerOptInEmailTracking>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<CPartnerOptInEmailTracking> _parser = new pb::MessageParser<CPartnerOptInEmailTracking>(() => new CPartnerOptInEmailTracking());
+    private pb::UnknownFieldSet _unknownFields;
+    private int _hasBits0;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<CPartnerOptInEmailTracking> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishingReflection.Descriptor.MessageTypes[3]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CPartnerOptInEmailTracking() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CPartnerOptInEmailTracking(CPartnerOptInEmailTracking other) : this() {
+      _hasBits0 = other._hasBits0;
+      accountid_ = other.accountid_;
+      appid_ = other.appid_;
+      partnerid_ = other.partnerid_;
+      rtimeNotified_ = other.rtimeNotified_;
+      ignoredUnverifiedEmail_ = other.ignoredUnverifiedEmail_;
+      ignoredEmailOptout_ = other.ignoredEmailOptout_;
+      status_ = other.status_;
+      sendRtime_ = other.sendRtime_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CPartnerOptInEmailTracking Clone() {
+      return new CPartnerOptInEmailTracking(this);
+    }
+
+    /// <summary>Field number for the "accountid" field.</summary>
+    public const int AccountidFieldNumber = 1;
+    private readonly static uint AccountidDefaultValue = 0;
+
+    private uint accountid_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint Accountid {
+      get { if ((_hasBits0 & 1) != 0) { return accountid_; } else { return AccountidDefaultValue; } }
+      set {
+        _hasBits0 |= 1;
+        accountid_ = value;
+      }
+    }
+    /// <summary>Gets whether the "accountid" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasAccountid {
+      get { return (_hasBits0 & 1) != 0; }
+    }
+    /// <summary>Clears the value of the "accountid" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearAccountid() {
+      _hasBits0 &= ~1;
+    }
+
+    /// <summary>Field number for the "appid" field.</summary>
+    public const int AppidFieldNumber = 2;
+    private readonly static uint AppidDefaultValue = 0;
+
+    private uint appid_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint Appid {
+      get { if ((_hasBits0 & 2) != 0) { return appid_; } else { return AppidDefaultValue; } }
+      set {
+        _hasBits0 |= 2;
+        appid_ = value;
+      }
+    }
+    /// <summary>Gets whether the "appid" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasAppid {
+      get { return (_hasBits0 & 2) != 0; }
+    }
+    /// <summary>Clears the value of the "appid" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearAppid() {
+      _hasBits0 &= ~2;
+    }
+
+    /// <summary>Field number for the "partnerid" field.</summary>
+    public const int PartneridFieldNumber = 3;
+    private readonly static uint PartneridDefaultValue = 0;
+
+    private uint partnerid_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint Partnerid {
+      get { if ((_hasBits0 & 4) != 0) { return partnerid_; } else { return PartneridDefaultValue; } }
+      set {
+        _hasBits0 |= 4;
+        partnerid_ = value;
+      }
+    }
+    /// <summary>Gets whether the "partnerid" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasPartnerid {
+      get { return (_hasBits0 & 4) != 0; }
+    }
+    /// <summary>Clears the value of the "partnerid" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearPartnerid() {
+      _hasBits0 &= ~4;
+    }
+
+    /// <summary>Field number for the "rtime_notified" field.</summary>
+    public const int RtimeNotifiedFieldNumber = 4;
+    private readonly static uint RtimeNotifiedDefaultValue = 0;
+
+    private uint rtimeNotified_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint RtimeNotified {
+      get { if ((_hasBits0 & 8) != 0) { return rtimeNotified_; } else { return RtimeNotifiedDefaultValue; } }
+      set {
+        _hasBits0 |= 8;
+        rtimeNotified_ = value;
+      }
+    }
+    /// <summary>Gets whether the "rtime_notified" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasRtimeNotified {
+      get { return (_hasBits0 & 8) != 0; }
+    }
+    /// <summary>Clears the value of the "rtime_notified" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearRtimeNotified() {
+      _hasBits0 &= ~8;
+    }
+
+    /// <summary>Field number for the "ignored_unverified_email" field.</summary>
+    public const int IgnoredUnverifiedEmailFieldNumber = 5;
+    private readonly static bool IgnoredUnverifiedEmailDefaultValue = false;
+
+    private bool ignoredUnverifiedEmail_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool IgnoredUnverifiedEmail {
+      get { if ((_hasBits0 & 16) != 0) { return ignoredUnverifiedEmail_; } else { return IgnoredUnverifiedEmailDefaultValue; } }
+      set {
+        _hasBits0 |= 16;
+        ignoredUnverifiedEmail_ = value;
+      }
+    }
+    /// <summary>Gets whether the "ignored_unverified_email" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasIgnoredUnverifiedEmail {
+      get { return (_hasBits0 & 16) != 0; }
+    }
+    /// <summary>Clears the value of the "ignored_unverified_email" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearIgnoredUnverifiedEmail() {
+      _hasBits0 &= ~16;
+    }
+
+    /// <summary>Field number for the "ignored_email_optout" field.</summary>
+    public const int IgnoredEmailOptoutFieldNumber = 6;
+    private readonly static bool IgnoredEmailOptoutDefaultValue = false;
+
+    private bool ignoredEmailOptout_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool IgnoredEmailOptout {
+      get { if ((_hasBits0 & 32) != 0) { return ignoredEmailOptout_; } else { return IgnoredEmailOptoutDefaultValue; } }
+      set {
+        _hasBits0 |= 32;
+        ignoredEmailOptout_ = value;
+      }
+    }
+    /// <summary>Gets whether the "ignored_email_optout" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasIgnoredEmailOptout {
+      get { return (_hasBits0 & 32) != 0; }
+    }
+    /// <summary>Clears the value of the "ignored_email_optout" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearIgnoredEmailOptout() {
+      _hasBits0 &= ~32;
+    }
+
+    /// <summary>Field number for the "status" field.</summary>
+    public const int StatusFieldNumber = 7;
+    private readonly static uint StatusDefaultValue = 0;
+
+    private uint status_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint Status {
+      get { if ((_hasBits0 & 64) != 0) { return status_; } else { return StatusDefaultValue; } }
+      set {
+        _hasBits0 |= 64;
+        status_ = value;
+      }
+    }
+    /// <summary>Gets whether the "status" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasStatus {
+      get { return (_hasBits0 & 64) != 0; }
+    }
+    /// <summary>Clears the value of the "status" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearStatus() {
+      _hasBits0 &= ~64;
+    }
+
+    /// <summary>Field number for the "send_rtime" field.</summary>
+    public const int SendRtimeFieldNumber = 8;
+    private readonly static uint SendRtimeDefaultValue = 0;
+
+    private uint sendRtime_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint SendRtime {
+      get { if ((_hasBits0 & 128) != 0) { return sendRtime_; } else { return SendRtimeDefaultValue; } }
+      set {
+        _hasBits0 |= 128;
+        sendRtime_ = value;
+      }
+    }
+    /// <summary>Gets whether the "send_rtime" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasSendRtime {
+      get { return (_hasBits0 & 128) != 0; }
+    }
+    /// <summary>Clears the value of the "send_rtime" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearSendRtime() {
+      _hasBits0 &= ~128;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as CPartnerOptInEmailTracking);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(CPartnerOptInEmailTracking other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Accountid != other.Accountid) return false;
+      if (Appid != other.Appid) return false;
+      if (Partnerid != other.Partnerid) return false;
+      if (RtimeNotified != other.RtimeNotified) return false;
+      if (IgnoredUnverifiedEmail != other.IgnoredUnverifiedEmail) return false;
+      if (IgnoredEmailOptout != other.IgnoredEmailOptout) return false;
+      if (Status != other.Status) return false;
+      if (SendRtime != other.SendRtime) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (HasAccountid) hash ^= Accountid.GetHashCode();
+      if (HasAppid) hash ^= Appid.GetHashCode();
+      if (HasPartnerid) hash ^= Partnerid.GetHashCode();
+      if (HasRtimeNotified) hash ^= RtimeNotified.GetHashCode();
+      if (HasIgnoredUnverifiedEmail) hash ^= IgnoredUnverifiedEmail.GetHashCode();
+      if (HasIgnoredEmailOptout) hash ^= IgnoredEmailOptout.GetHashCode();
+      if (HasStatus) hash ^= Status.GetHashCode();
+      if (HasSendRtime) hash ^= SendRtime.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (HasAccountid) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(Accountid);
+      }
+      if (HasAppid) {
+        output.WriteRawTag(16);
+        output.WriteUInt32(Appid);
+      }
+      if (HasPartnerid) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(Partnerid);
+      }
+      if (HasRtimeNotified) {
+        output.WriteRawTag(32);
+        output.WriteUInt32(RtimeNotified);
+      }
+      if (HasIgnoredUnverifiedEmail) {
+        output.WriteRawTag(40);
+        output.WriteBool(IgnoredUnverifiedEmail);
+      }
+      if (HasIgnoredEmailOptout) {
+        output.WriteRawTag(48);
+        output.WriteBool(IgnoredEmailOptout);
+      }
+      if (HasStatus) {
+        output.WriteRawTag(56);
+        output.WriteUInt32(Status);
+      }
+      if (HasSendRtime) {
+        output.WriteRawTag(64);
+        output.WriteUInt32(SendRtime);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (HasAccountid) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(Accountid);
+      }
+      if (HasAppid) {
+        output.WriteRawTag(16);
+        output.WriteUInt32(Appid);
+      }
+      if (HasPartnerid) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(Partnerid);
+      }
+      if (HasRtimeNotified) {
+        output.WriteRawTag(32);
+        output.WriteUInt32(RtimeNotified);
+      }
+      if (HasIgnoredUnverifiedEmail) {
+        output.WriteRawTag(40);
+        output.WriteBool(IgnoredUnverifiedEmail);
+      }
+      if (HasIgnoredEmailOptout) {
+        output.WriteRawTag(48);
+        output.WriteBool(IgnoredEmailOptout);
+      }
+      if (HasStatus) {
+        output.WriteRawTag(56);
+        output.WriteUInt32(Status);
+      }
+      if (HasSendRtime) {
+        output.WriteRawTag(64);
+        output.WriteUInt32(SendRtime);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (HasAccountid) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Accountid);
+      }
+      if (HasAppid) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Appid);
+      }
+      if (HasPartnerid) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Partnerid);
+      }
+      if (HasRtimeNotified) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(RtimeNotified);
+      }
+      if (HasIgnoredUnverifiedEmail) {
+        size += 1 + 1;
+      }
+      if (HasIgnoredEmailOptout) {
+        size += 1 + 1;
+      }
+      if (HasStatus) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Status);
+      }
+      if (HasSendRtime) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(SendRtime);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(CPartnerOptInEmailTracking other) {
+      if (other == null) {
+        return;
+      }
+      if (other.HasAccountid) {
+        Accountid = other.Accountid;
+      }
+      if (other.HasAppid) {
+        Appid = other.Appid;
+      }
+      if (other.HasPartnerid) {
+        Partnerid = other.Partnerid;
+      }
+      if (other.HasRtimeNotified) {
+        RtimeNotified = other.RtimeNotified;
+      }
+      if (other.HasIgnoredUnverifiedEmail) {
+        IgnoredUnverifiedEmail = other.IgnoredUnverifiedEmail;
+      }
+      if (other.HasIgnoredEmailOptout) {
+        IgnoredEmailOptout = other.IgnoredEmailOptout;
+      }
+      if (other.HasStatus) {
+        Status = other.Status;
+      }
+      if (other.HasSendRtime) {
+        SendRtime = other.SendRtime;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            Accountid = input.ReadUInt32();
+            break;
+          }
+          case 16: {
+            Appid = input.ReadUInt32();
+            break;
+          }
+          case 24: {
+            Partnerid = input.ReadUInt32();
+            break;
+          }
+          case 32: {
+            RtimeNotified = input.ReadUInt32();
+            break;
+          }
+          case 40: {
+            IgnoredUnverifiedEmail = input.ReadBool();
+            break;
+          }
+          case 48: {
+            IgnoredEmailOptout = input.ReadBool();
+            break;
+          }
+          case 56: {
+            Status = input.ReadUInt32();
+            break;
+          }
+          case 64: {
+            SendRtime = input.ReadUInt32();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            Accountid = input.ReadUInt32();
+            break;
+          }
+          case 16: {
+            Appid = input.ReadUInt32();
+            break;
+          }
+          case 24: {
+            Partnerid = input.ReadUInt32();
+            break;
+          }
+          case 32: {
+            RtimeNotified = input.ReadUInt32();
+            break;
+          }
+          case 40: {
+            IgnoredUnverifiedEmail = input.ReadBool();
+            break;
+          }
+          case 48: {
+            IgnoredEmailOptout = input.ReadBool();
+            break;
+          }
+          case 56: {
+            Status = input.ReadUInt32();
+            break;
+          }
+          case 64: {
+            SendRtime = input.ReadUInt32();
+            break;
+          }
         }
       }
     }
@@ -2204,7 +3445,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishingReflection.Descriptor.MessageTypes[3]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishingReflection.Descriptor.MessageTypes[4]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2668,7 +3909,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishingReflection.Descriptor.MessageTypes[4]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishingReflection.Descriptor.MessageTypes[5]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2874,7 +4115,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishingReflection.Descriptor.MessageTypes[5]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishingReflection.Descriptor.MessageTypes[6]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3079,7 +4320,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishingReflection.Descriptor.MessageTypes[6]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishingReflection.Descriptor.MessageTypes[7]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3263,6 +4504,444 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  public sealed partial class CPublishing_GetOptInEmailTracking_Request : pb::IMessage<CPublishing_GetOptInEmailTracking_Request>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<CPublishing_GetOptInEmailTracking_Request> _parser = new pb::MessageParser<CPublishing_GetOptInEmailTracking_Request>(() => new CPublishing_GetOptInEmailTracking_Request());
+    private pb::UnknownFieldSet _unknownFields;
+    private int _hasBits0;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<CPublishing_GetOptInEmailTracking_Request> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishingReflection.Descriptor.MessageTypes[8]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CPublishing_GetOptInEmailTracking_Request() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CPublishing_GetOptInEmailTracking_Request(CPublishing_GetOptInEmailTracking_Request other) : this() {
+      _hasBits0 = other._hasBits0;
+      emailDefId_ = other.emailDefId_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CPublishing_GetOptInEmailTracking_Request Clone() {
+      return new CPublishing_GetOptInEmailTracking_Request(this);
+    }
+
+    /// <summary>Field number for the "email_def_id" field.</summary>
+    public const int EmailDefIdFieldNumber = 1;
+    private readonly static ulong EmailDefIdDefaultValue = 0UL;
+
+    private ulong emailDefId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ulong EmailDefId {
+      get { if ((_hasBits0 & 1) != 0) { return emailDefId_; } else { return EmailDefIdDefaultValue; } }
+      set {
+        _hasBits0 |= 1;
+        emailDefId_ = value;
+      }
+    }
+    /// <summary>Gets whether the "email_def_id" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasEmailDefId {
+      get { return (_hasBits0 & 1) != 0; }
+    }
+    /// <summary>Clears the value of the "email_def_id" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearEmailDefId() {
+      _hasBits0 &= ~1;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as CPublishing_GetOptInEmailTracking_Request);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(CPublishing_GetOptInEmailTracking_Request other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (EmailDefId != other.EmailDefId) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (HasEmailDefId) hash ^= EmailDefId.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (HasEmailDefId) {
+        output.WriteRawTag(9);
+        output.WriteFixed64(EmailDefId);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (HasEmailDefId) {
+        output.WriteRawTag(9);
+        output.WriteFixed64(EmailDefId);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (HasEmailDefId) {
+        size += 1 + 8;
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(CPublishing_GetOptInEmailTracking_Request other) {
+      if (other == null) {
+        return;
+      }
+      if (other.HasEmailDefId) {
+        EmailDefId = other.EmailDefId;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 9: {
+            EmailDefId = input.ReadFixed64();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 9: {
+            EmailDefId = input.ReadFixed64();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class CPublishing_GetOptInEmailTracking_Response : pb::IMessage<CPublishing_GetOptInEmailTracking_Response>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<CPublishing_GetOptInEmailTracking_Response> _parser = new pb::MessageParser<CPublishing_GetOptInEmailTracking_Response>(() => new CPublishing_GetOptInEmailTracking_Response());
+    private pb::UnknownFieldSet _unknownFields;
+    private int _hasBits0;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<CPublishing_GetOptInEmailTracking_Response> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishingReflection.Descriptor.MessageTypes[9]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CPublishing_GetOptInEmailTracking_Response() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CPublishing_GetOptInEmailTracking_Response(CPublishing_GetOptInEmailTracking_Response other) : this() {
+      _hasBits0 = other._hasBits0;
+      emailDefId_ = other.emailDefId_;
+      results_ = other.results_.Clone();
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CPublishing_GetOptInEmailTracking_Response Clone() {
+      return new CPublishing_GetOptInEmailTracking_Response(this);
+    }
+
+    /// <summary>Field number for the "email_def_id" field.</summary>
+    public const int EmailDefIdFieldNumber = 1;
+    private readonly static ulong EmailDefIdDefaultValue = 0UL;
+
+    private ulong emailDefId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ulong EmailDefId {
+      get { if ((_hasBits0 & 1) != 0) { return emailDefId_; } else { return EmailDefIdDefaultValue; } }
+      set {
+        _hasBits0 |= 1;
+        emailDefId_ = value;
+      }
+    }
+    /// <summary>Gets whether the "email_def_id" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasEmailDefId {
+      get { return (_hasBits0 & 1) != 0; }
+    }
+    /// <summary>Clears the value of the "email_def_id" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearEmailDefId() {
+      _hasBits0 &= ~1;
+    }
+
+    /// <summary>Field number for the "results" field.</summary>
+    public const int ResultsFieldNumber = 2;
+    private static readonly pb::FieldCodec<global::OpenSteamworks.Protobuf.WebUI.CPartnerOptInEmailTracking> _repeated_results_codec
+        = pb::FieldCodec.ForMessage(18, global::OpenSteamworks.Protobuf.WebUI.CPartnerOptInEmailTracking.Parser);
+    private readonly pbc::RepeatedField<global::OpenSteamworks.Protobuf.WebUI.CPartnerOptInEmailTracking> results_ = new pbc::RepeatedField<global::OpenSteamworks.Protobuf.WebUI.CPartnerOptInEmailTracking>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::OpenSteamworks.Protobuf.WebUI.CPartnerOptInEmailTracking> Results {
+      get { return results_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as CPublishing_GetOptInEmailTracking_Response);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(CPublishing_GetOptInEmailTracking_Response other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (EmailDefId != other.EmailDefId) return false;
+      if(!results_.Equals(other.results_)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (HasEmailDefId) hash ^= EmailDefId.GetHashCode();
+      hash ^= results_.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (HasEmailDefId) {
+        output.WriteRawTag(9);
+        output.WriteFixed64(EmailDefId);
+      }
+      results_.WriteTo(output, _repeated_results_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (HasEmailDefId) {
+        output.WriteRawTag(9);
+        output.WriteFixed64(EmailDefId);
+      }
+      results_.WriteTo(ref output, _repeated_results_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (HasEmailDefId) {
+        size += 1 + 8;
+      }
+      size += results_.CalculateSize(_repeated_results_codec);
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(CPublishing_GetOptInEmailTracking_Response other) {
+      if (other == null) {
+        return;
+      }
+      if (other.HasEmailDefId) {
+        EmailDefId = other.EmailDefId;
+      }
+      results_.Add(other.results_);
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 9: {
+            EmailDefId = input.ReadFixed64();
+            break;
+          }
+          case 18: {
+            results_.AddEntriesFrom(input, _repeated_results_codec);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 9: {
+            EmailDefId = input.ReadFixed64();
+            break;
+          }
+          case 18: {
+            results_.AddEntriesFrom(ref input, _repeated_results_codec);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
   public sealed partial class CPublishing_GetPartnerAppOptInEmailDefAndStats_Request : pb::IMessage<CPublishing_GetPartnerAppOptInEmailDefAndStats_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -3277,7 +4956,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishingReflection.Descriptor.MessageTypes[7]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishingReflection.Descriptor.MessageTypes[10]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3480,7 +5159,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishingReflection.Descriptor.MessageTypes[8]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishingReflection.Descriptor.MessageTypes[11]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3658,7 +5337,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishingReflection.Descriptor.MessageTypes[9]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishingReflection.Descriptor.MessageTypes[12]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3822,6 +5501,828 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  public sealed partial class CPublishing_GetPartnerPaidGivenPackageList_Request : pb::IMessage<CPublishing_GetPartnerPaidGivenPackageList_Request>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<CPublishing_GetPartnerPaidGivenPackageList_Request> _parser = new pb::MessageParser<CPublishing_GetPartnerPaidGivenPackageList_Request>(() => new CPublishing_GetPartnerPaidGivenPackageList_Request());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<CPublishing_GetPartnerPaidGivenPackageList_Request> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishingReflection.Descriptor.MessageTypes[13]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CPublishing_GetPartnerPaidGivenPackageList_Request() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CPublishing_GetPartnerPaidGivenPackageList_Request(CPublishing_GetPartnerPaidGivenPackageList_Request other) : this() {
+      packageids_ = other.packageids_.Clone();
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CPublishing_GetPartnerPaidGivenPackageList_Request Clone() {
+      return new CPublishing_GetPartnerPaidGivenPackageList_Request(this);
+    }
+
+    /// <summary>Field number for the "packageids" field.</summary>
+    public const int PackageidsFieldNumber = 1;
+    private static readonly pb::FieldCodec<uint> _repeated_packageids_codec
+        = pb::FieldCodec.ForUInt32(8);
+    private readonly pbc::RepeatedField<uint> packageids_ = new pbc::RepeatedField<uint>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<uint> Packageids {
+      get { return packageids_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as CPublishing_GetPartnerPaidGivenPackageList_Request);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(CPublishing_GetPartnerPaidGivenPackageList_Request other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if(!packageids_.Equals(other.packageids_)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      hash ^= packageids_.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      packageids_.WriteTo(output, _repeated_packageids_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      packageids_.WriteTo(ref output, _repeated_packageids_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      size += packageids_.CalculateSize(_repeated_packageids_codec);
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(CPublishing_GetPartnerPaidGivenPackageList_Request other) {
+      if (other == null) {
+        return;
+      }
+      packageids_.Add(other.packageids_);
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10:
+          case 8: {
+            packageids_.AddEntriesFrom(input, _repeated_packageids_codec);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10:
+          case 8: {
+            packageids_.AddEntriesFrom(ref input, _repeated_packageids_codec);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class CPublishing_GetPartnerPaidGivenPackageList_Response : pb::IMessage<CPublishing_GetPartnerPaidGivenPackageList_Response>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<CPublishing_GetPartnerPaidGivenPackageList_Response> _parser = new pb::MessageParser<CPublishing_GetPartnerPaidGivenPackageList_Response>(() => new CPublishing_GetPartnerPaidGivenPackageList_Response());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<CPublishing_GetPartnerPaidGivenPackageList_Response> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishingReflection.Descriptor.MessageTypes[14]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CPublishing_GetPartnerPaidGivenPackageList_Response() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CPublishing_GetPartnerPaidGivenPackageList_Response(CPublishing_GetPartnerPaidGivenPackageList_Response other) : this() {
+      paid_ = other.paid_.Clone();
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CPublishing_GetPartnerPaidGivenPackageList_Response Clone() {
+      return new CPublishing_GetPartnerPaidGivenPackageList_Response(this);
+    }
+
+    /// <summary>Field number for the "paid" field.</summary>
+    public const int PaidFieldNumber = 1;
+    private static readonly pb::FieldCodec<global::OpenSteamworks.Protobuf.WebUI.CPublishing_GetPartnerPaidGivenPackageList_Response_CPackageAndPartnerPair> _repeated_paid_codec
+        = pb::FieldCodec.ForMessage(10, global::OpenSteamworks.Protobuf.WebUI.CPublishing_GetPartnerPaidGivenPackageList_Response_CPackageAndPartnerPair.Parser);
+    private readonly pbc::RepeatedField<global::OpenSteamworks.Protobuf.WebUI.CPublishing_GetPartnerPaidGivenPackageList_Response_CPackageAndPartnerPair> paid_ = new pbc::RepeatedField<global::OpenSteamworks.Protobuf.WebUI.CPublishing_GetPartnerPaidGivenPackageList_Response_CPackageAndPartnerPair>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::OpenSteamworks.Protobuf.WebUI.CPublishing_GetPartnerPaidGivenPackageList_Response_CPackageAndPartnerPair> Paid {
+      get { return paid_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as CPublishing_GetPartnerPaidGivenPackageList_Response);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(CPublishing_GetPartnerPaidGivenPackageList_Response other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if(!paid_.Equals(other.paid_)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      hash ^= paid_.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      paid_.WriteTo(output, _repeated_paid_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      paid_.WriteTo(ref output, _repeated_paid_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      size += paid_.CalculateSize(_repeated_paid_codec);
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(CPublishing_GetPartnerPaidGivenPackageList_Response other) {
+      if (other == null) {
+        return;
+      }
+      paid_.Add(other.paid_);
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            paid_.AddEntriesFrom(input, _repeated_paid_codec);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            paid_.AddEntriesFrom(ref input, _repeated_paid_codec);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class CPublishing_GetPartnerPaidGivenPackageList_Response_CPackageAndPartnerPair : pb::IMessage<CPublishing_GetPartnerPaidGivenPackageList_Response_CPackageAndPartnerPair>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<CPublishing_GetPartnerPaidGivenPackageList_Response_CPackageAndPartnerPair> _parser = new pb::MessageParser<CPublishing_GetPartnerPaidGivenPackageList_Response_CPackageAndPartnerPair>(() => new CPublishing_GetPartnerPaidGivenPackageList_Response_CPackageAndPartnerPair());
+    private pb::UnknownFieldSet _unknownFields;
+    private int _hasBits0;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<CPublishing_GetPartnerPaidGivenPackageList_Response_CPackageAndPartnerPair> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishingReflection.Descriptor.MessageTypes[15]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CPublishing_GetPartnerPaidGivenPackageList_Response_CPackageAndPartnerPair() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CPublishing_GetPartnerPaidGivenPackageList_Response_CPackageAndPartnerPair(CPublishing_GetPartnerPaidGivenPackageList_Response_CPackageAndPartnerPair other) : this() {
+      _hasBits0 = other._hasBits0;
+      partnerid_ = other.partnerid_;
+      packageid_ = other.packageid_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CPublishing_GetPartnerPaidGivenPackageList_Response_CPackageAndPartnerPair Clone() {
+      return new CPublishing_GetPartnerPaidGivenPackageList_Response_CPackageAndPartnerPair(this);
+    }
+
+    /// <summary>Field number for the "partnerid" field.</summary>
+    public const int PartneridFieldNumber = 1;
+    private readonly static uint PartneridDefaultValue = 0;
+
+    private uint partnerid_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint Partnerid {
+      get { if ((_hasBits0 & 1) != 0) { return partnerid_; } else { return PartneridDefaultValue; } }
+      set {
+        _hasBits0 |= 1;
+        partnerid_ = value;
+      }
+    }
+    /// <summary>Gets whether the "partnerid" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasPartnerid {
+      get { return (_hasBits0 & 1) != 0; }
+    }
+    /// <summary>Clears the value of the "partnerid" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearPartnerid() {
+      _hasBits0 &= ~1;
+    }
+
+    /// <summary>Field number for the "packageid" field.</summary>
+    public const int PackageidFieldNumber = 2;
+    private readonly static uint PackageidDefaultValue = 0;
+
+    private uint packageid_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint Packageid {
+      get { if ((_hasBits0 & 2) != 0) { return packageid_; } else { return PackageidDefaultValue; } }
+      set {
+        _hasBits0 |= 2;
+        packageid_ = value;
+      }
+    }
+    /// <summary>Gets whether the "packageid" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasPackageid {
+      get { return (_hasBits0 & 2) != 0; }
+    }
+    /// <summary>Clears the value of the "packageid" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearPackageid() {
+      _hasBits0 &= ~2;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as CPublishing_GetPartnerPaidGivenPackageList_Response_CPackageAndPartnerPair);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(CPublishing_GetPartnerPaidGivenPackageList_Response_CPackageAndPartnerPair other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Partnerid != other.Partnerid) return false;
+      if (Packageid != other.Packageid) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (HasPartnerid) hash ^= Partnerid.GetHashCode();
+      if (HasPackageid) hash ^= Packageid.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (HasPartnerid) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(Partnerid);
+      }
+      if (HasPackageid) {
+        output.WriteRawTag(16);
+        output.WriteUInt32(Packageid);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (HasPartnerid) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(Partnerid);
+      }
+      if (HasPackageid) {
+        output.WriteRawTag(16);
+        output.WriteUInt32(Packageid);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (HasPartnerid) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Partnerid);
+      }
+      if (HasPackageid) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Packageid);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(CPublishing_GetPartnerPaidGivenPackageList_Response_CPackageAndPartnerPair other) {
+      if (other == null) {
+        return;
+      }
+      if (other.HasPartnerid) {
+        Partnerid = other.Partnerid;
+      }
+      if (other.HasPackageid) {
+        Packageid = other.Packageid;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            Partnerid = input.ReadUInt32();
+            break;
+          }
+          case 16: {
+            Packageid = input.ReadUInt32();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            Partnerid = input.ReadUInt32();
+            break;
+          }
+          case 16: {
+            Packageid = input.ReadUInt32();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class CPublishing_GetSinglePartnerAppOptIns_Request : pb::IMessage<CPublishing_GetSinglePartnerAppOptIns_Request>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<CPublishing_GetSinglePartnerAppOptIns_Request> _parser = new pb::MessageParser<CPublishing_GetSinglePartnerAppOptIns_Request>(() => new CPublishing_GetSinglePartnerAppOptIns_Request());
+    private pb::UnknownFieldSet _unknownFields;
+    private int _hasBits0;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<CPublishing_GetSinglePartnerAppOptIns_Request> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishingReflection.Descriptor.MessageTypes[16]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CPublishing_GetSinglePartnerAppOptIns_Request() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CPublishing_GetSinglePartnerAppOptIns_Request(CPublishing_GetSinglePartnerAppOptIns_Request other) : this() {
+      _hasBits0 = other._hasBits0;
+      appid_ = other.appid_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CPublishing_GetSinglePartnerAppOptIns_Request Clone() {
+      return new CPublishing_GetSinglePartnerAppOptIns_Request(this);
+    }
+
+    /// <summary>Field number for the "appid" field.</summary>
+    public const int AppidFieldNumber = 1;
+    private readonly static uint AppidDefaultValue = 0;
+
+    private uint appid_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint Appid {
+      get { if ((_hasBits0 & 1) != 0) { return appid_; } else { return AppidDefaultValue; } }
+      set {
+        _hasBits0 |= 1;
+        appid_ = value;
+      }
+    }
+    /// <summary>Gets whether the "appid" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasAppid {
+      get { return (_hasBits0 & 1) != 0; }
+    }
+    /// <summary>Clears the value of the "appid" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearAppid() {
+      _hasBits0 &= ~1;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as CPublishing_GetSinglePartnerAppOptIns_Request);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(CPublishing_GetSinglePartnerAppOptIns_Request other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Appid != other.Appid) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (HasAppid) hash ^= Appid.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (HasAppid) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(Appid);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (HasAppid) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(Appid);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (HasAppid) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Appid);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(CPublishing_GetSinglePartnerAppOptIns_Request other) {
+      if (other == null) {
+        return;
+      }
+      if (other.HasAppid) {
+        Appid = other.Appid;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            Appid = input.ReadUInt32();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            Appid = input.ReadUInt32();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
   public sealed partial class CPublishing_GetSinglePartnerAppOptIns_Response : pb::IMessage<CPublishing_GetSinglePartnerAppOptIns_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -3836,7 +6337,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishingReflection.Descriptor.MessageTypes[10]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishingReflection.Descriptor.MessageTypes[17]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4015,7 +6516,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishingReflection.Descriptor.MessageTypes[11]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishingReflection.Descriptor.MessageTypes[18]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4037,6 +6538,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     public CPublishing_SendPartnerAppOptInEmailAndWait_Request(CPublishing_SendPartnerAppOptInEmailAndWait_Request other) : this() {
       _hasBits0 = other._hasBits0;
       emailDefId_ = other.emailDefId_;
+      forceResend_ = other.forceResend_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -4073,6 +6575,33 @@ namespace OpenSteamworks.Protobuf.WebUI {
       _hasBits0 &= ~1;
     }
 
+    /// <summary>Field number for the "force_resend" field.</summary>
+    public const int ForceResendFieldNumber = 2;
+    private readonly static bool ForceResendDefaultValue = false;
+
+    private bool forceResend_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool ForceResend {
+      get { if ((_hasBits0 & 2) != 0) { return forceResend_; } else { return ForceResendDefaultValue; } }
+      set {
+        _hasBits0 |= 2;
+        forceResend_ = value;
+      }
+    }
+    /// <summary>Gets whether the "force_resend" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasForceResend {
+      get { return (_hasBits0 & 2) != 0; }
+    }
+    /// <summary>Clears the value of the "force_resend" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearForceResend() {
+      _hasBits0 &= ~2;
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -4089,6 +6618,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
         return true;
       }
       if (EmailDefId != other.EmailDefId) return false;
+      if (ForceResend != other.ForceResend) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -4097,6 +6627,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     public override int GetHashCode() {
       int hash = 1;
       if (HasEmailDefId) hash ^= EmailDefId.GetHashCode();
+      if (HasForceResend) hash ^= ForceResend.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -4119,6 +6650,10 @@ namespace OpenSteamworks.Protobuf.WebUI {
         output.WriteRawTag(9);
         output.WriteFixed64(EmailDefId);
       }
+      if (HasForceResend) {
+        output.WriteRawTag(16);
+        output.WriteBool(ForceResend);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -4133,6 +6668,10 @@ namespace OpenSteamworks.Protobuf.WebUI {
         output.WriteRawTag(9);
         output.WriteFixed64(EmailDefId);
       }
+      if (HasForceResend) {
+        output.WriteRawTag(16);
+        output.WriteBool(ForceResend);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -4145,6 +6684,9 @@ namespace OpenSteamworks.Protobuf.WebUI {
       int size = 0;
       if (HasEmailDefId) {
         size += 1 + 8;
+      }
+      if (HasForceResend) {
+        size += 1 + 1;
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -4160,6 +6702,9 @@ namespace OpenSteamworks.Protobuf.WebUI {
       }
       if (other.HasEmailDefId) {
         EmailDefId = other.EmailDefId;
+      }
+      if (other.HasForceResend) {
+        ForceResend = other.ForceResend;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -4180,6 +6725,10 @@ namespace OpenSteamworks.Protobuf.WebUI {
             EmailDefId = input.ReadFixed64();
             break;
           }
+          case 16: {
+            ForceResend = input.ReadBool();
+            break;
+          }
         }
       }
     #endif
@@ -4197,6 +6746,10 @@ namespace OpenSteamworks.Protobuf.WebUI {
             break;
           case 9: {
             EmailDefId = input.ReadFixed64();
+            break;
+          }
+          case 16: {
+            ForceResend = input.ReadBool();
             break;
           }
         }
@@ -4220,7 +6773,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishingReflection.Descriptor.MessageTypes[12]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishingReflection.Descriptor.MessageTypes[19]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4404,6 +6957,471 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  public sealed partial class CPublishing_SetFeaturingOnPartnerAppOptIn_Request : pb::IMessage<CPublishing_SetFeaturingOnPartnerAppOptIn_Request>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<CPublishing_SetFeaturingOnPartnerAppOptIn_Request> _parser = new pb::MessageParser<CPublishing_SetFeaturingOnPartnerAppOptIn_Request>(() => new CPublishing_SetFeaturingOnPartnerAppOptIn_Request());
+    private pb::UnknownFieldSet _unknownFields;
+    private int _hasBits0;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<CPublishing_SetFeaturingOnPartnerAppOptIn_Request> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishingReflection.Descriptor.MessageTypes[20]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CPublishing_SetFeaturingOnPartnerAppOptIn_Request() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CPublishing_SetFeaturingOnPartnerAppOptIn_Request(CPublishing_SetFeaturingOnPartnerAppOptIn_Request other) : this() {
+      _hasBits0 = other._hasBits0;
+      appids_ = other.appids_.Clone();
+      additionalFeaturing_ = other.additionalFeaturing_;
+      optInName_ = other.optInName_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CPublishing_SetFeaturingOnPartnerAppOptIn_Request Clone() {
+      return new CPublishing_SetFeaturingOnPartnerAppOptIn_Request(this);
+    }
+
+    /// <summary>Field number for the "appids" field.</summary>
+    public const int AppidsFieldNumber = 1;
+    private static readonly pb::FieldCodec<uint> _repeated_appids_codec
+        = pb::FieldCodec.ForUInt32(8);
+    private readonly pbc::RepeatedField<uint> appids_ = new pbc::RepeatedField<uint>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<uint> Appids {
+      get { return appids_; }
+    }
+
+    /// <summary>Field number for the "additional_featuring" field.</summary>
+    public const int AdditionalFeaturingFieldNumber = 2;
+    private readonly static bool AdditionalFeaturingDefaultValue = true;
+
+    private bool additionalFeaturing_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool AdditionalFeaturing {
+      get { if ((_hasBits0 & 1) != 0) { return additionalFeaturing_; } else { return AdditionalFeaturingDefaultValue; } }
+      set {
+        _hasBits0 |= 1;
+        additionalFeaturing_ = value;
+      }
+    }
+    /// <summary>Gets whether the "additional_featuring" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasAdditionalFeaturing {
+      get { return (_hasBits0 & 1) != 0; }
+    }
+    /// <summary>Clears the value of the "additional_featuring" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearAdditionalFeaturing() {
+      _hasBits0 &= ~1;
+    }
+
+    /// <summary>Field number for the "opt_in_name" field.</summary>
+    public const int OptInNameFieldNumber = 3;
+    private readonly static string OptInNameDefaultValue = "";
+
+    private string optInName_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string OptInName {
+      get { return optInName_ ?? OptInNameDefaultValue; }
+      set {
+        optInName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+    /// <summary>Gets whether the "opt_in_name" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasOptInName {
+      get { return optInName_ != null; }
+    }
+    /// <summary>Clears the value of the "opt_in_name" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearOptInName() {
+      optInName_ = null;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as CPublishing_SetFeaturingOnPartnerAppOptIn_Request);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(CPublishing_SetFeaturingOnPartnerAppOptIn_Request other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if(!appids_.Equals(other.appids_)) return false;
+      if (AdditionalFeaturing != other.AdditionalFeaturing) return false;
+      if (OptInName != other.OptInName) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      hash ^= appids_.GetHashCode();
+      if (HasAdditionalFeaturing) hash ^= AdditionalFeaturing.GetHashCode();
+      if (HasOptInName) hash ^= OptInName.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      appids_.WriteTo(output, _repeated_appids_codec);
+      if (HasAdditionalFeaturing) {
+        output.WriteRawTag(16);
+        output.WriteBool(AdditionalFeaturing);
+      }
+      if (HasOptInName) {
+        output.WriteRawTag(26);
+        output.WriteString(OptInName);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      appids_.WriteTo(ref output, _repeated_appids_codec);
+      if (HasAdditionalFeaturing) {
+        output.WriteRawTag(16);
+        output.WriteBool(AdditionalFeaturing);
+      }
+      if (HasOptInName) {
+        output.WriteRawTag(26);
+        output.WriteString(OptInName);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      size += appids_.CalculateSize(_repeated_appids_codec);
+      if (HasAdditionalFeaturing) {
+        size += 1 + 1;
+      }
+      if (HasOptInName) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(OptInName);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(CPublishing_SetFeaturingOnPartnerAppOptIn_Request other) {
+      if (other == null) {
+        return;
+      }
+      appids_.Add(other.appids_);
+      if (other.HasAdditionalFeaturing) {
+        AdditionalFeaturing = other.AdditionalFeaturing;
+      }
+      if (other.HasOptInName) {
+        OptInName = other.OptInName;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10:
+          case 8: {
+            appids_.AddEntriesFrom(input, _repeated_appids_codec);
+            break;
+          }
+          case 16: {
+            AdditionalFeaturing = input.ReadBool();
+            break;
+          }
+          case 26: {
+            OptInName = input.ReadString();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10:
+          case 8: {
+            appids_.AddEntriesFrom(ref input, _repeated_appids_codec);
+            break;
+          }
+          case 16: {
+            AdditionalFeaturing = input.ReadBool();
+            break;
+          }
+          case 26: {
+            OptInName = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class CPublishing_SetFeaturingOnPartnerAppOptIn_Response : pb::IMessage<CPublishing_SetFeaturingOnPartnerAppOptIn_Response>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<CPublishing_SetFeaturingOnPartnerAppOptIn_Response> _parser = new pb::MessageParser<CPublishing_SetFeaturingOnPartnerAppOptIn_Response>(() => new CPublishing_SetFeaturingOnPartnerAppOptIn_Response());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<CPublishing_SetFeaturingOnPartnerAppOptIn_Response> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishingReflection.Descriptor.MessageTypes[21]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CPublishing_SetFeaturingOnPartnerAppOptIn_Response() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CPublishing_SetFeaturingOnPartnerAppOptIn_Response(CPublishing_SetFeaturingOnPartnerAppOptIn_Response other) : this() {
+      appids_ = other.appids_.Clone();
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CPublishing_SetFeaturingOnPartnerAppOptIn_Response Clone() {
+      return new CPublishing_SetFeaturingOnPartnerAppOptIn_Response(this);
+    }
+
+    /// <summary>Field number for the "appids" field.</summary>
+    public const int AppidsFieldNumber = 1;
+    private static readonly pb::FieldCodec<uint> _repeated_appids_codec
+        = pb::FieldCodec.ForUInt32(8);
+    private readonly pbc::RepeatedField<uint> appids_ = new pbc::RepeatedField<uint>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<uint> Appids {
+      get { return appids_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as CPublishing_SetFeaturingOnPartnerAppOptIn_Response);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(CPublishing_SetFeaturingOnPartnerAppOptIn_Response other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if(!appids_.Equals(other.appids_)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      hash ^= appids_.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      appids_.WriteTo(output, _repeated_appids_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      appids_.WriteTo(ref output, _repeated_appids_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      size += appids_.CalculateSize(_repeated_appids_codec);
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(CPublishing_SetFeaturingOnPartnerAppOptIn_Response other) {
+      if (other == null) {
+        return;
+      }
+      appids_.Add(other.appids_);
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10:
+          case 8: {
+            appids_.AddEntriesFrom(input, _repeated_appids_codec);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10:
+          case 8: {
+            appids_.AddEntriesFrom(ref input, _repeated_appids_codec);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
   public sealed partial class CPublishing_TestFirePartnerAppOptInEmail_Request : pb::IMessage<CPublishing_TestFirePartnerAppOptInEmail_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -4419,7 +7437,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishingReflection.Descriptor.MessageTypes[13]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishingReflection.Descriptor.MessageTypes[22]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4728,7 +7746,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishingReflection.Descriptor.MessageTypes[14]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishingReflection.Descriptor.MessageTypes[23]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4881,7 +7899,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishingReflection.Descriptor.MessageTypes[15]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishingReflection.Descriptor.MessageTypes[24]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4908,6 +7926,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
       emailTemplates_ = other.emailTemplates_;
       startRtime_ = other.startRtime_;
       endRtime_ = other.endRtime_;
+      reviewed_ = other.reviewed_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -5078,6 +8097,33 @@ namespace OpenSteamworks.Protobuf.WebUI {
       _hasBits0 &= ~16;
     }
 
+    /// <summary>Field number for the "reviewed" field.</summary>
+    public const int ReviewedFieldNumber = 7;
+    private readonly static bool ReviewedDefaultValue = false;
+
+    private bool reviewed_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Reviewed {
+      get { if ((_hasBits0 & 32) != 0) { return reviewed_; } else { return ReviewedDefaultValue; } }
+      set {
+        _hasBits0 |= 32;
+        reviewed_ = value;
+      }
+    }
+    /// <summary>Gets whether the "reviewed" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasReviewed {
+      get { return (_hasBits0 & 32) != 0; }
+    }
+    /// <summary>Clears the value of the "reviewed" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearReviewed() {
+      _hasBits0 &= ~32;
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -5099,6 +8145,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
       if (EmailTemplates != other.EmailTemplates) return false;
       if (StartRtime != other.StartRtime) return false;
       if (EndRtime != other.EndRtime) return false;
+      if (Reviewed != other.Reviewed) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -5112,6 +8159,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
       if (HasEmailTemplates) hash ^= EmailTemplates.GetHashCode();
       if (HasStartRtime) hash ^= StartRtime.GetHashCode();
       if (HasEndRtime) hash ^= EndRtime.GetHashCode();
+      if (HasReviewed) hash ^= Reviewed.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -5154,6 +8202,10 @@ namespace OpenSteamworks.Protobuf.WebUI {
         output.WriteRawTag(48);
         output.WriteUInt32(EndRtime);
       }
+      if (HasReviewed) {
+        output.WriteRawTag(56);
+        output.WriteBool(Reviewed);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -5188,6 +8240,10 @@ namespace OpenSteamworks.Protobuf.WebUI {
         output.WriteRawTag(48);
         output.WriteUInt32(EndRtime);
       }
+      if (HasReviewed) {
+        output.WriteRawTag(56);
+        output.WriteBool(Reviewed);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -5215,6 +8271,9 @@ namespace OpenSteamworks.Protobuf.WebUI {
       }
       if (HasEndRtime) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(EndRtime);
+      }
+      if (HasReviewed) {
+        size += 1 + 1;
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -5245,6 +8304,9 @@ namespace OpenSteamworks.Protobuf.WebUI {
       }
       if (other.HasEndRtime) {
         EndRtime = other.EndRtime;
+      }
+      if (other.HasReviewed) {
+        Reviewed = other.Reviewed;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -5283,6 +8345,10 @@ namespace OpenSteamworks.Protobuf.WebUI {
           }
           case 48: {
             EndRtime = input.ReadUInt32();
+            break;
+          }
+          case 56: {
+            Reviewed = input.ReadBool();
             break;
           }
         }
@@ -5324,6 +8390,10 @@ namespace OpenSteamworks.Protobuf.WebUI {
             EndRtime = input.ReadUInt32();
             break;
           }
+          case 56: {
+            Reviewed = input.ReadBool();
+            break;
+          }
         }
       }
     }
@@ -5345,7 +8415,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishingReflection.Descriptor.MessageTypes[16]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePublishingReflection.Descriptor.MessageTypes[25]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

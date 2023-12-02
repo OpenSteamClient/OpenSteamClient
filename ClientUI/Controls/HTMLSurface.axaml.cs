@@ -147,7 +147,7 @@ public partial class HTMLSurface : UserControl
             using (var lease = leasef.Lease())
             {
                 lock (targetBitmapLock) {
-                    lease.SkCanvas.DrawBitmap(targetBitmap, renderMaxRect.ToSKRect());
+                    lease.SkCanvas.DrawBitmap(targetBitmap, renderMaxRect.ToSKRect(), simplePaint);
                 }
             }
         }
@@ -208,12 +208,12 @@ public partial class HTMLSurface : UserControl
 
     private static int initCount = 0;
     private readonly HTMLBufferImg htmlImgBuffer;
-    private readonly ISteamHTMLSurface005 ssurface;
     private readonly IClientHTMLSurface surface;
     private readonly SteamClient client;
     private static readonly Encoding utfEncoder = new UTF32Encoding(false, true, false);
     public HHTMLBrowser BrowserHandle { get; private set; } = 0;
     // The scroll multiplier affects how fast scrolling works. Piping the scroll wheel directly into steam makes scrolling slow, so simply multiply it by this value.
+    //TODO: this is terrible and doesn't allow for smooth scrolling. This seems to be the same underlying issue that ValveSteam had on Linux for a long time, until their recent switch to a full web browser window.
     private const int SCROLL_MULTIPLIER = 20;
     
     public HTMLSurface(SteamClient client) : base()
@@ -223,7 +223,6 @@ public partial class HTMLSurface : UserControl
         this.htmlImgBuffer = new HTMLBufferImg(SKColorType.Bgra8888, SKAlphaType.Unpremul, 720, 1080);
         this.Focusable = true;
         this.client = client;
-        this.ssurface = client.NativeClient.ISteamHTMLSurface;
         this.surface = client.NativeClient.IClientHTMLSurface;
         client.CallbackManager.RegisterHandler<HTML_NeedsPaint_t>(this.OnHTML_NeedsPaint);
         client.CallbackManager.RegisterHandler<HTML_SetCursor_t>(this.OnHTML_SetCursor);
@@ -356,7 +355,7 @@ public partial class HTMLSurface : UserControl
     protected override void OnLostFocus(RoutedEventArgs e) {
         base.OnLostFocus(e);
         if (this.BrowserHandle != 0) {
-            //this.surface.SetKeyFocus(this.BrowserHandle, false);
+            this.surface.SetKeyFocus(this.BrowserHandle, false);
         }
     }
 
@@ -397,11 +396,11 @@ public partial class HTMLSurface : UserControl
         return htmlKeyModifiers;
     }
 
-    private static int GetNativeKeyCodeForKey(Key key) {
+    private static int GetNativeKeyCodeForKeyEvent(KeyEventArgs e) {
         if (OperatingSystem.IsLinux()) {
-            return (int)X11KeyTransform.X11KeyFromKey(key);
+            return (int)X11KeyTransform.X11KeyFromKey(e.Key);
         } else if (OperatingSystem.IsWindows()) {
-            return 0;
+            return (int)e.NativeKeyCode;
         }
 
         throw new PlatformNotSupportedException("This OS is not supported.");
@@ -412,10 +411,10 @@ public partial class HTMLSurface : UserControl
         e.Handled = true;
 
         base.OnKeyDown(e);
-        Console.WriteLine("OnKeyDown a:'" + e.Key + "' s:'" + e.KeySymbol + "' n:'" + GetNativeKeyCodeForKey(e.Key) + "' " + " an:'" + e.NativeKeyCode + "'");
+        Console.WriteLine("OnKeyDown a:'" + e.Key + "' s:'" + e.KeySymbol + "' n:'" + GetNativeKeyCodeForKeyEvent(e) + "' " + " an:'" + e.NativeKeyCode + "'");
         if (this.BrowserHandle != 0) {
             // If the key has an avalonia-provided symbol AND the keypress doesn't have any modifiers it's eligible for being typed
-            if (false && e.KeySymbol != null && e.KeyModifiers == 0) {
+            if (e.KeySymbol != null) {
                 // strip out all control characters so we don't type them
                 string controlCharsRemoved = new(e.KeySymbol.Where(c => !char.IsControl(c)).ToArray());
 
@@ -427,17 +426,15 @@ public partial class HTMLSurface : UserControl
             }
             
             Console.WriteLine("is actual key");
-            this.ssurface.KeyDown(this.BrowserHandle, e.NativeKeyCode, KeyModifiersToEHTMLKeyModifiers(e.KeyModifiers));
+            this.surface.KeyDown(this.BrowserHandle, GetNativeKeyCodeForKeyEvent(e), KeyModifiersToEHTMLKeyModifiers(e.KeyModifiers), false);
         }
     }
     
     protected override void OnKeyUp(KeyEventArgs e) {
         base.OnKeyUp(e);
-        Console.WriteLine("OnKeyUp a:'" + e.Key + "' s:'" + e.KeySymbol + "' n:'" + GetNativeKeyCodeForKey(e.Key) + "' " + " an:'" + e.NativeKeyCode + "'");
+        Console.WriteLine("OnKeyUp a:'" + e.Key + "' s:'" + e.KeySymbol + "' n:'" + GetNativeKeyCodeForKeyEvent(e) + "' " + " an:'" + e.NativeKeyCode + "'");
         if (this.BrowserHandle != 0) {
-            if (e.KeySymbol == null) {
-                this.ssurface.KeyUp(this.BrowserHandle, e.NativeKeyCode, KeyModifiersToEHTMLKeyModifiers(e.KeyModifiers));
-            }
+            this.surface.KeyUp(this.BrowserHandle, e.NativeKeyCode, KeyModifiersToEHTMLKeyModifiers(e.KeyModifiers));
         }
     }
 }

@@ -28,7 +28,7 @@ namespace OpenSteamworks.Protobuf {
             "dG9idWYvZGVzY3JpcHRvci5wcm90bxoLZW51bXMucHJvdG8iawobQ0FwcE92",
             "ZXJ2aWV3X0FwcEFzc29jaWF0aW9uEj4KBHR5cGUYASABKA4yFC5FQXBwQXNz",
             "b2NpYXRpb25UeXBlOhpFQXBwQXNzb2NpYXRpb25UeXBlSW52YWxpZBIMCgRu",
-            "YW1lGAIgASgJIr4DChpDQXBwT3ZlcnZpZXdfUGVyQ2xpZW50RGF0YRIQCghj",
+            "YW1lGAIgASgJIuwDChpDQXBwT3ZlcnZpZXdfUGVyQ2xpZW50RGF0YRIQCghj",
             "bGllbnRpZBgBIAEoBBITCgtjbGllbnRfbmFtZRgCIAEoCRI+Cg5kaXNwbGF5",
             "X3N0YXR1cxgDIAEoDjIPLkVEaXNwbGF5U3RhdHVzOhVFRGlzcGxheVN0YXR1",
             "c0ludmFsaWQSHAoRc3RhdHVzX3BlcmNlbnRhZ2UYBCABKA06ATASEwoLYWN0",
@@ -38,110 +38,117 @@ namespace OpenSteamworks.Protobuf {
             "bGVfb25fY3VycmVudF9wbGF0Zm9ybRgKIAEoCBIaChJpc19pbnZhbGlkX29z",
             "X3R5cGUYCyABKAgSFQoNcGxheXRpbWVfbGVmdBgMIAEoDRI+CgxjbG91ZF9z",
             "dGF0dXMYDSABKA4yEC5FQXBwQ2xvdWRTdGF0dXM6FkVBcHBDbG91ZFN0YXR1",
-            "c0ludmFsaWQikAwKDENBcHBPdmVydmlldxINCgVhcHBpZBgBIAEoDRIUCgxk",
-            "aXNwbGF5X25hbWUYAiABKAkSHAoUdmlzaWJsZV9pbl9nYW1lX2xpc3QYBCAB",
-            "KAgSDwoHc29ydF9hcxgGIAEoCRIxCghhcHBfdHlwZRgHIAEoDjIOLkVQcm90",
-            "b0FwcFR5cGU6D0VBcHBUeXBlSW52YWxpZBIRCgltcnVfaW5kZXgYDSABKA0S",
-            "IgoXcnRfcmVjZW50X2FjdGl2aXR5X3RpbWUYDiABKA06ATASIwoYbWludXRl",
-            "c19wbGF5dGltZV9mb3JldmVyGBAgASgNOgEwEioKH21pbnV0ZXNfcGxheXRp",
-            "bWVfbGFzdF90d29fd2Vla3MYESABKA06ATASHgoTcnRfbGFzdF90aW1lX3Bs",
-            "YXllZBgSIAEoDToBMBIRCglzdG9yZV90YWcYEyADKA0SMQoLYXNzb2NpYXRp",
-            "b24YFCADKAsyHC5DQXBwT3ZlcnZpZXdfQXBwQXNzb2NpYXRpb24SFgoOc3Rv",
-            "cmVfY2F0ZWdvcnkYFyADKA0SIwoYcnRfb3JpZ2luYWxfcmVsZWFzZV9kYXRl",
-            "GBkgASgNOgEwEiAKFXJ0X3N0ZWFtX3JlbGVhc2VfZGF0ZRgaIAEoDToBMBIR",
-            "CglpY29uX2hhc2gYGyABKAkSVwoSY29udHJvbGxlcl9zdXBwb3J0GB8gASgO",
-            "MhsuRUFwcENvbnRyb2xsZXJTdXBwb3J0TGV2ZWw6HkVBcHBDb250cm9sbGVy",
-            "U3VwcG9ydExldmVsTm9uZRIUCgx2cl9zdXBwb3J0ZWQYICABKAgSGAoQbWV0",
-            "YWNyaXRpY19zY29yZRgkIAEoDRIUCgxzaXplX29uX2Rpc2sYJSABKAQSFwoP",
-            "dGhpcmRfcGFydHlfbW9kGCYgASgIEhEKCWljb25fZGF0YRgnIAEoCRIYChBp",
-            "Y29uX2RhdGFfZm9ybWF0GCggASgJEg4KBmdhbWVpZBgpIAEoCRIgChhsaWJy",
-            "YXJ5X2NhcHN1bGVfZmlsZW5hbWUYKiABKAkSNAoPcGVyX2NsaWVudF9kYXRh",
-            "GCsgAygLMhsuQ0FwcE92ZXJ2aWV3X1BlckNsaWVudERhdGESHwoXbW9zdF9h",
-            "dmFpbGFibGVfY2xpZW50aWQYLCABKAQSGQoRc2VsZWN0ZWRfY2xpZW50aWQY",
-            "LSABKAQSHAoUcnRfc3RvcmVfYXNzZXRfbXRpbWUYLiABKA0SHQoVcnRfY3Vz",
-            "dG9tX2ltYWdlX210aW1lGC8gASgNEh4KFm9wdGlvbmFsX3BhcmVudF9hcHBf",
-            "aWQYMCABKA0SGAoQb3duZXJfYWNjb3VudF9pZBgxIAEoDRIfChdyZXZpZXdf",
-            "c2NvcmVfd2l0aF9ib21icxg1IAEoDRIkChxyZXZpZXdfcGVyY2VudGFnZV93",
-            "aXRoX2JvbWJzGDYgASgNEiIKGnJldmlld19zY29yZV93aXRob3V0X2JvbWJz",
-            "GDcgASgNEicKH3Jldmlld19wZXJjZW50YWdlX3dpdGhvdXRfYm9tYnMYOCAB",
-            "KA0SEgoKbGlicmFyeV9pZBg5IAEoCRIPCgd2cl9vbmx5GDogASgIEhcKD21h",
-            "c3RlcnN1Yl9hcHBpZBg7IAEoDRIjChttYXN0ZXJzdWJfaW5jbHVkZWR3aXRo",
-            "X2xvZ28YPCABKAkSHgoWc2l0ZV9saWNlbnNlX3NpdGVfbmFtZRg+IAEoCRIf",
-            "ChdzaG9ydGN1dF9vdmVycmlkZV9hcHBpZBg/IAEoDRJrChhzdGVhbV9kZWNj",
-            "b21wYXRfY2F0ZWdvcnkYQCABKA4yIC5FU3RlYW1EZWNrQ29tcGF0aWJpbGl0",
-            "eUNhdGVnb3J5OidFU3RlYW1EZWNrQ29tcGF0aWJpbGl0eUNhdGVnb3J5X1Vu",
-            "a25vd24SIwobcnRfbGFzdF90aW1lX2xvY2FsbHlfcGxheWVkGEEgASgNEhkK",
-            "EXJ0X3B1cmNoYXNlZF90aW1lGEIgASgNEhcKD2hlYWRlcl9maWxlbmFtZRhD",
-            "IAEoCRIbChNsb2NhbF9jYWNoZV92ZXJzaW9uGEQgASgNIn8KE0NBcHBPdmVy",
-            "dmlld19DaGFuZ2USIwoMYXBwX292ZXJ2aWV3GAEgAygLMg0uQ0FwcE92ZXJ2",
-            "aWV3EhUKDXJlbW92ZWRfYXBwaWQYAiADKA0SEwoLZnVsbF91cGRhdGUYAyAB",
-            "KAgSFwoPdXBkYXRlX2NvbXBsZXRlGAQgASgIIkQKEUNBcHBCb290c3RyYXBE",
-            "YXRhEg0KBWFwcGlkGAEgASgNEg4KBmhpZGRlbhgCIAEoCBIQCgh1c2VyX3Rh",
-            "ZxgDIAMoCSI9ChVDTGlicmFyeUJvb3RzdHJhcERhdGESJAoIYXBwX2RhdGEY",
-            "ASADKAsyEi5DQXBwQm9vdHN0cmFwRGF0YSqdCQoORURpc3BsYXlTdGF0dXMS",
-            "GQoVRURpc3BsYXlTdGF0dXNJbnZhbGlkEAASGwoXRURpc3BsYXlTdGF0dXNM",
-            "YXVuY2hpbmcQARIeChpFRGlzcGxheVN0YXR1c1VuaW5zdGFsbGluZxACEhwK",
-            "GEVEaXNwbGF5U3RhdHVzSW5zdGFsbGluZxADEhkKFUVEaXNwbGF5U3RhdHVz",
-            "UnVubmluZxAEEhwKGEVEaXNwbGF5U3RhdHVzVmFsaWRhdGluZxAFEhoKFkVE",
-            "aXNwbGF5U3RhdHVzVXBkYXRpbmcQBhIdChlFRGlzcGxheVN0YXR1c0Rvd25s",
-            "b2FkaW5nEAcSHwobRURpc3BsYXlTdGF0dXNTeW5jaHJvbml6aW5nEAgSIAoc",
-            "RURpc3BsYXlTdGF0dXNSZWFkeVRvSW5zdGFsbBAJEiAKHEVEaXNwbGF5U3Rh",
-            "dHVzUmVhZHlUb1ByZWxvYWQQChIfChtFRGlzcGxheVN0YXR1c1JlYWR5VG9M",
-            "YXVuY2gQCxIiCh5FRGlzcGxheVN0YXR1c1JlZ2lvblJlc3RyaWN0ZWQQDBId",
-            "ChlFRGlzcGxheVN0YXR1c1ByZXNhbGVPbmx5EA0SIQodRURpc3BsYXlTdGF0",
-            "dXNJbnZhbGlkUGxhdGZvcm0QDhIhCh1FRGlzcGxheVN0YXR1c1ByZWxvYWRD",
-            "b21wbGV0ZRAQEiAKHEVEaXNwbGF5U3RhdHVzQm9ycm93ZXJMb2NrZWQQERIe",
-            "ChpFRGlzcGxheVN0YXR1c1VwZGF0ZVBhdXNlZBASEh4KGkVEaXNwbGF5U3Rh",
-            "dHVzVXBkYXRlUXVldWVkEBMSIAocRURpc3BsYXlTdGF0dXNVcGRhdGVSZXF1",
-            "aXJlZBAUEiAKHEVEaXNwbGF5U3RhdHVzVXBkYXRlRGlzYWJsZWQQFRIgChxF",
-            "RGlzcGxheVN0YXR1c0Rvd25sb2FkUGF1c2VkEBYSIAocRURpc3BsYXlTdGF0",
-            "dXNEb3dubG9hZFF1ZXVlZBAXEiIKHkVEaXNwbGF5U3RhdHVzRG93bmxvYWRS",
-            "ZXF1aXJlZBAYEiIKHkVEaXNwbGF5U3RhdHVzRG93bmxvYWREaXNhYmxlZBAZ",
-            "EiAKHEVEaXNwbGF5U3RhdHVzTGljZW5zZVBlbmRpbmcQGhIgChxFRGlzcGxh",
-            "eVN0YXR1c0xpY2Vuc2VFeHBpcmVkEBsSHgoaRURpc3BsYXlTdGF0dXNBdmFp",
-            "bEZvckZyZWUQHBIfChtFRGlzcGxheVN0YXR1c0F2YWlsVG9Cb3Jyb3cQHRIg",
-            "ChxFRGlzcGxheVN0YXR1c0F2YWlsR3Vlc3RQYXNzEB4SGgoWRURpc3BsYXlT",
-            "dGF0dXNQdXJjaGFzZRAfEh0KGUVEaXNwbGF5U3RhdHVzVW5hdmFpbGFibGUQ",
-            "IBIfChtFRGlzcGxheVN0YXR1c05vdExhdW5jaGFibGUQIRIcChhFRGlzcGxh",
-            "eVN0YXR1c0Nsb3VkRXJyb3IQIhIgChxFRGlzcGxheVN0YXR1c0Nsb3VkT3V0",
-            "T2ZEYXRlECMSHQoZRURpc3BsYXlTdGF0dXNUZXJtaW5hdGluZxAkKuECCg9F",
-            "QXBwQ2xvdWRTdGF0dXMSGgoWRUFwcENsb3VkU3RhdHVzSW52YWxpZBAAEhsK",
-            "F0VBcHBDbG91ZFN0YXR1c0Rpc2FibGVkEAESGgoWRUFwcENsb3VkU3RhdHVz",
-            "VW5rbm93bhACEh8KG0VBcHBDbG91ZFN0YXR1c1N5bmNocm9uaXplZBADEhsK",
-            "F0VBcHBDbG91ZFN0YXR1c0NoZWNraW5nEAQSHAoYRUFwcENsb3VkU3RhdHVz",
-            "T3V0T2ZTeW5jEAUSHAoYRUFwcENsb3VkU3RhdHVzVXBsb2FkaW5nEAYSHgoa",
-            "RUFwcENsb3VkU3RhdHVzRG93bmxvYWRpbmcQBxIdChlFQXBwQ2xvdWRTdGF0",
-            "dXNTeW5jRmFpbGVkEAgSGwoXRUFwcENsb3VkU3RhdHVzQ29uZmxpY3QQCRIj",
-            "Ch9FQXBwQ2xvdWRTdGF0dXNQZW5kaW5nRWxzZXdoZXJlEAoqwgMKDUVQcm90",
-            "b0FwcFR5cGUSEwoPRUFwcFR5cGVJbnZhbGlkEAASEAoMRUFwcFR5cGVHYW1l",
-            "EAESFwoTRUFwcFR5cGVBcHBsaWNhdGlvbhACEhAKDEVBcHBUeXBlVG9vbBAE",
-            "EhAKDEVBcHBUeXBlRGVtbxAIEhUKEUVBcHBUeXBlRGVwcmVjdGVkEBASDwoL",
-            "RUFwcFR5cGVETEMQIBIRCg1FQXBwVHlwZUd1aWRlEEASEwoORUFwcFR5cGVE",
-            "cml2ZXIQgAESEwoORUFwcFR5cGVDb25maWcQgAISFQoQRUFwcFR5cGVIYXJk",
-            "d2FyZRCABBIWChFFQXBwVHlwZUZyYW5jaGlzZRCACBISCg1FQXBwVHlwZVZp",
-            "ZGVvEIAQEhMKDkVBcHBUeXBlUGx1Z2luEIAgEhcKEkVBcHBUeXBlTXVzaWNB",
-            "bGJ1bRCAQBIUCg5FQXBwVHlwZVNlcmllcxCAgAESEwoNRUFwcFR5cGVDb21p",
-            "YxCAgAISEgoMRUFwcFR5cGVCZXRhEICABBIYChBFQXBwVHlwZVNob3J0Y3V0",
-            "EICAgIAEEh4KEUVBcHBUeXBlRGVwb3RPbmx5EICAgID4/////wEqmwEKE0VB",
-            "cHBBc3NvY2lhdGlvblR5cGUSHgoaRUFwcEFzc29jaWF0aW9uVHlwZUludmFs",
-            "aWQQABIgChxFQXBwQXNzb2NpYXRpb25UeXBlUHVibGlzaGVyEAESIAocRUFw",
-            "cEFzc29jaWF0aW9uVHlwZURldmVsb3BlchACEiAKHEVBcHBBc3NvY2lhdGlv",
-            "blR5cGVGcmFuY2hpc2UQAyqLAQoaRUFwcENvbnRyb2xsZXJTdXBwb3J0TGV2",
-            "ZWwSIgoeRUFwcENvbnRyb2xsZXJTdXBwb3J0TGV2ZWxOb25lEAASJQohRUFw",
-            "cENvbnRyb2xsZXJTdXBwb3J0TGV2ZWxQYXJ0aWFsEAESIgoeRUFwcENvbnRy",
-            "b2xsZXJTdXBwb3J0TGV2ZWxGdWxsEAIq9QEKI0VBcHBHYW1lcGFkR3lyb1Ry",
-            "YWNrcGFkU3VwcG9ydExldmVsEjcKKkVBcHBHYW1lcGFkR3lyb1RyYWNrcGFk",
-            "U3VwcG9ydExldmVsVW5rbm93bhD///////////8BEjAKLEVBcHBHYW1lcGFk",
-            "R3lyb1RyYWNrcGFkU3VwcG9ydExldmVsTm9HYW1lcGFkEAASLgoqRUFwcEdh",
-            "bWVwYWRHeXJvVHJhY2twYWRTdXBwb3J0TGV2ZWxHYW1lcGFkEAESMwovRUFw",
-            "cEdhbWVwYWRHeXJvVHJhY2twYWRTdXBwb3J0TGV2ZWxTaW11bHRhbmVvdXMQ",
-            "AkIfSAGAAQGqAhdPcGVuU3RlYW13b3Jrcy5Qcm90b2J1Zg=="));
+            "c0ludmFsaWQSLAokdXBkYXRlX2F2YWlsYWJsZV9idXRfZGlzYWJsZWRfYnlf",
+            "YXBwGA4gASgIIpsOCgxDQXBwT3ZlcnZpZXcSDQoFYXBwaWQYASABKA0SFAoM",
+            "ZGlzcGxheV9uYW1lGAIgASgJEhwKFHZpc2libGVfaW5fZ2FtZV9saXN0GAQg",
+            "ASgIEhUKDXN1YnNjcmliZWRfdG8YBSABKAgSDwoHc29ydF9hcxgGIAEoCRIx",
+            "CghhcHBfdHlwZRgHIAEoDjIOLkVQcm90b0FwcFR5cGU6D0VBcHBUeXBlSW52",
+            "YWxpZBIRCgltcnVfaW5kZXgYDSABKA0SIgoXcnRfcmVjZW50X2FjdGl2aXR5",
+            "X3RpbWUYDiABKA06ATASIwoYbWludXRlc19wbGF5dGltZV9mb3JldmVyGBAg",
+            "ASgNOgEwEioKH21pbnV0ZXNfcGxheXRpbWVfbGFzdF90d29fd2Vla3MYESAB",
+            "KA06ATASHgoTcnRfbGFzdF90aW1lX3BsYXllZBgSIAEoDToBMBIRCglzdG9y",
+            "ZV90YWcYEyADKA0SMQoLYXNzb2NpYXRpb24YFCADKAsyHC5DQXBwT3ZlcnZp",
+            "ZXdfQXBwQXNzb2NpYXRpb24SFgoOc3RvcmVfY2F0ZWdvcnkYFyADKA0SIwoY",
+            "cnRfb3JpZ2luYWxfcmVsZWFzZV9kYXRlGBkgASgNOgEwEiAKFXJ0X3N0ZWFt",
+            "X3JlbGVhc2VfZGF0ZRgaIAEoDToBMBIRCglpY29uX2hhc2gYGyABKAkSXAoX",
+            "eGJveF9jb250cm9sbGVyX3N1cHBvcnQYHyABKA4yGy5FQXBwQ29udHJvbGxl",
+            "clN1cHBvcnRMZXZlbDoeRUFwcENvbnRyb2xsZXJTdXBwb3J0TGV2ZWxOb25l",
+            "EhQKDHZyX3N1cHBvcnRlZBggIAEoCBIYChBtZXRhY3JpdGljX3Njb3JlGCQg",
+            "ASgNEhQKDHNpemVfb25fZGlzaxglIAEoBBIXCg90aGlyZF9wYXJ0eV9tb2QY",
+            "JiABKAgSEQoJaWNvbl9kYXRhGCcgASgJEhgKEGljb25fZGF0YV9mb3JtYXQY",
+            "KCABKAkSDgoGZ2FtZWlkGCkgASgJEiAKGGxpYnJhcnlfY2Fwc3VsZV9maWxl",
+            "bmFtZRgqIAEoCRI0Cg9wZXJfY2xpZW50X2RhdGEYKyADKAsyGy5DQXBwT3Zl",
+            "cnZpZXdfUGVyQ2xpZW50RGF0YRIfChdtb3N0X2F2YWlsYWJsZV9jbGllbnRp",
+            "ZBgsIAEoBBIZChFzZWxlY3RlZF9jbGllbnRpZBgtIAEoBBIcChRydF9zdG9y",
+            "ZV9hc3NldF9tdGltZRguIAEoDRIdChVydF9jdXN0b21faW1hZ2VfbXRpbWUY",
+            "LyABKA0SHgoWb3B0aW9uYWxfcGFyZW50X2FwcF9pZBgwIAEoDRIYChBvd25l",
+            "cl9hY2NvdW50X2lkGDEgASgNEh8KF3Jldmlld19zY29yZV93aXRoX2JvbWJz",
+            "GDUgASgNEiQKHHJldmlld19wZXJjZW50YWdlX3dpdGhfYm9tYnMYNiABKA0S",
+            "IgoacmV2aWV3X3Njb3JlX3dpdGhvdXRfYm9tYnMYNyABKA0SJwofcmV2aWV3",
+            "X3BlcmNlbnRhZ2Vfd2l0aG91dF9ib21icxg4IAEoDRISCgpsaWJyYXJ5X2lk",
+            "GDkgASgJEg8KB3ZyX29ubHkYOiABKAgSFwoPbWFzdGVyc3ViX2FwcGlkGDsg",
+            "ASgNEiMKG21hc3RlcnN1Yl9pbmNsdWRlZHdpdGhfbG9nbxg8IAEoCRIeChZz",
+            "aXRlX2xpY2Vuc2Vfc2l0ZV9uYW1lGD4gASgJEh8KF3Nob3J0Y3V0X292ZXJy",
+            "aWRlX2FwcGlkGD8gASgNEmsKGHN0ZWFtX2RlY2NvbXBhdF9jYXRlZ29yeRhA",
+            "IAEoDjIgLkVTdGVhbURlY2tDb21wYXRpYmlsaXR5Q2F0ZWdvcnk6J0VTdGVh",
+            "bURlY2tDb21wYXRpYmlsaXR5Q2F0ZWdvcnlfVW5rbm93bhIjChtydF9sYXN0",
+            "X3RpbWVfbG9jYWxseV9wbGF5ZWQYQSABKA0SGQoRcnRfcHVyY2hhc2VkX3Rp",
+            "bWUYQiABKA0SFwoPaGVhZGVyX2ZpbGVuYW1lGEMgASgJEhsKE2xvY2FsX2Nh",
+            "Y2hlX3ZlcnNpb24YRCABKA0SWwoWcHM0X2NvbnRyb2xsZXJfc3VwcG9ydBhF",
+            "IAEoDjIbLkVBcHBDb250cm9sbGVyU3VwcG9ydExldmVsOh5FQXBwQ29udHJv",
+            "bGxlclN1cHBvcnRMZXZlbE5vbmUSWwoWcHM1X2NvbnRyb2xsZXJfc3VwcG9y",
+            "dBhGIAEoDjIbLkVBcHBDb250cm9sbGVyU3VwcG9ydExldmVsOh5FQXBwQ29u",
+            "dHJvbGxlclN1cHBvcnRMZXZlbE5vbmUSGQoRZ2FtZXBhZF9wcmVmZXJyZWQY",
+            "RyABKAgSGAoQZ2FtZXBhZF9yZXF1aXJlZBhIIAEoCCJ/ChNDQXBwT3ZlcnZp",
+            "ZXdfQ2hhbmdlEiMKDGFwcF9vdmVydmlldxgBIAMoCzINLkNBcHBPdmVydmll",
+            "dxIVCg1yZW1vdmVkX2FwcGlkGAIgAygNEhMKC2Z1bGxfdXBkYXRlGAMgASgI",
+            "EhcKD3VwZGF0ZV9jb21wbGV0ZRgEIAEoCCJEChFDQXBwQm9vdHN0cmFwRGF0",
+            "YRINCgVhcHBpZBgBIAEoDRIOCgZoaWRkZW4YAiABKAgSEAoIdXNlcl90YWcY",
+            "AyADKAkiPQoVQ0xpYnJhcnlCb290c3RyYXBEYXRhEiQKCGFwcF9kYXRhGAEg",
+            "AygLMhIuQ0FwcEJvb3RzdHJhcERhdGEqnQkKDkVEaXNwbGF5U3RhdHVzEhkK",
+            "FUVEaXNwbGF5U3RhdHVzSW52YWxpZBAAEhsKF0VEaXNwbGF5U3RhdHVzTGF1",
+            "bmNoaW5nEAESHgoaRURpc3BsYXlTdGF0dXNVbmluc3RhbGxpbmcQAhIcChhF",
+            "RGlzcGxheVN0YXR1c0luc3RhbGxpbmcQAxIZChVFRGlzcGxheVN0YXR1c1J1",
+            "bm5pbmcQBBIcChhFRGlzcGxheVN0YXR1c1ZhbGlkYXRpbmcQBRIaChZFRGlz",
+            "cGxheVN0YXR1c1VwZGF0aW5nEAYSHQoZRURpc3BsYXlTdGF0dXNEb3dubG9h",
+            "ZGluZxAHEh8KG0VEaXNwbGF5U3RhdHVzU3luY2hyb25pemluZxAIEiAKHEVE",
+            "aXNwbGF5U3RhdHVzUmVhZHlUb0luc3RhbGwQCRIgChxFRGlzcGxheVN0YXR1",
+            "c1JlYWR5VG9QcmVsb2FkEAoSHwobRURpc3BsYXlTdGF0dXNSZWFkeVRvTGF1",
+            "bmNoEAsSIgoeRURpc3BsYXlTdGF0dXNSZWdpb25SZXN0cmljdGVkEAwSHQoZ",
+            "RURpc3BsYXlTdGF0dXNQcmVzYWxlT25seRANEiEKHUVEaXNwbGF5U3RhdHVz",
+            "SW52YWxpZFBsYXRmb3JtEA4SIQodRURpc3BsYXlTdGF0dXNQcmVsb2FkQ29t",
+            "cGxldGUQEBIgChxFRGlzcGxheVN0YXR1c0JvcnJvd2VyTG9ja2VkEBESHgoa",
+            "RURpc3BsYXlTdGF0dXNVcGRhdGVQYXVzZWQQEhIeChpFRGlzcGxheVN0YXR1",
+            "c1VwZGF0ZVF1ZXVlZBATEiAKHEVEaXNwbGF5U3RhdHVzVXBkYXRlUmVxdWly",
+            "ZWQQFBIgChxFRGlzcGxheVN0YXR1c1VwZGF0ZURpc2FibGVkEBUSIAocRURp",
+            "c3BsYXlTdGF0dXNEb3dubG9hZFBhdXNlZBAWEiAKHEVEaXNwbGF5U3RhdHVz",
+            "RG93bmxvYWRRdWV1ZWQQFxIiCh5FRGlzcGxheVN0YXR1c0Rvd25sb2FkUmVx",
+            "dWlyZWQQGBIiCh5FRGlzcGxheVN0YXR1c0Rvd25sb2FkRGlzYWJsZWQQGRIg",
+            "ChxFRGlzcGxheVN0YXR1c0xpY2Vuc2VQZW5kaW5nEBoSIAocRURpc3BsYXlT",
+            "dGF0dXNMaWNlbnNlRXhwaXJlZBAbEh4KGkVEaXNwbGF5U3RhdHVzQXZhaWxG",
+            "b3JGcmVlEBwSHwobRURpc3BsYXlTdGF0dXNBdmFpbFRvQm9ycm93EB0SIAoc",
+            "RURpc3BsYXlTdGF0dXNBdmFpbEd1ZXN0UGFzcxAeEhoKFkVEaXNwbGF5U3Rh",
+            "dHVzUHVyY2hhc2UQHxIdChlFRGlzcGxheVN0YXR1c1VuYXZhaWxhYmxlECAS",
+            "HwobRURpc3BsYXlTdGF0dXNOb3RMYXVuY2hhYmxlECESHAoYRURpc3BsYXlT",
+            "dGF0dXNDbG91ZEVycm9yECISIAocRURpc3BsYXlTdGF0dXNDbG91ZE91dE9m",
+            "RGF0ZRAjEh0KGUVEaXNwbGF5U3RhdHVzVGVybWluYXRpbmcQJCrhAgoPRUFw",
+            "cENsb3VkU3RhdHVzEhoKFkVBcHBDbG91ZFN0YXR1c0ludmFsaWQQABIbChdF",
+            "QXBwQ2xvdWRTdGF0dXNEaXNhYmxlZBABEhoKFkVBcHBDbG91ZFN0YXR1c1Vu",
+            "a25vd24QAhIfChtFQXBwQ2xvdWRTdGF0dXNTeW5jaHJvbml6ZWQQAxIbChdF",
+            "QXBwQ2xvdWRTdGF0dXNDaGVja2luZxAEEhwKGEVBcHBDbG91ZFN0YXR1c091",
+            "dE9mU3luYxAFEhwKGEVBcHBDbG91ZFN0YXR1c1VwbG9hZGluZxAGEh4KGkVB",
+            "cHBDbG91ZFN0YXR1c0Rvd25sb2FkaW5nEAcSHQoZRUFwcENsb3VkU3RhdHVz",
+            "U3luY0ZhaWxlZBAIEhsKF0VBcHBDbG91ZFN0YXR1c0NvbmZsaWN0EAkSIwof",
+            "RUFwcENsb3VkU3RhdHVzUGVuZGluZ0Vsc2V3aGVyZRAKKsIDCg1FUHJvdG9B",
+            "cHBUeXBlEhMKD0VBcHBUeXBlSW52YWxpZBAAEhAKDEVBcHBUeXBlR2FtZRAB",
+            "EhcKE0VBcHBUeXBlQXBwbGljYXRpb24QAhIQCgxFQXBwVHlwZVRvb2wQBBIQ",
+            "CgxFQXBwVHlwZURlbW8QCBIVChFFQXBwVHlwZURlcHJlY3RlZBAQEg8KC0VB",
+            "cHBUeXBlRExDECASEQoNRUFwcFR5cGVHdWlkZRBAEhMKDkVBcHBUeXBlRHJp",
+            "dmVyEIABEhMKDkVBcHBUeXBlQ29uZmlnEIACEhUKEEVBcHBUeXBlSGFyZHdh",
+            "cmUQgAQSFgoRRUFwcFR5cGVGcmFuY2hpc2UQgAgSEgoNRUFwcFR5cGVWaWRl",
+            "bxCAEBITCg5FQXBwVHlwZVBsdWdpbhCAIBIXChJFQXBwVHlwZU11c2ljQWxi",
+            "dW0QgEASFAoORUFwcFR5cGVTZXJpZXMQgIABEhMKDUVBcHBUeXBlQ29taWMQ",
+            "gIACEhIKDEVBcHBUeXBlQmV0YRCAgAQSGAoQRUFwcFR5cGVTaG9ydGN1dBCA",
+            "gICABBIeChFFQXBwVHlwZURlcG90T25seRCAgICA+P////8BKpsBChNFQXBw",
+            "QXNzb2NpYXRpb25UeXBlEh4KGkVBcHBBc3NvY2lhdGlvblR5cGVJbnZhbGlk",
+            "EAASIAocRUFwcEFzc29jaWF0aW9uVHlwZVB1Ymxpc2hlchABEiAKHEVBcHBB",
+            "c3NvY2lhdGlvblR5cGVEZXZlbG9wZXIQAhIgChxFQXBwQXNzb2NpYXRpb25U",
+            "eXBlRnJhbmNoaXNlEAMqiwEKGkVBcHBDb250cm9sbGVyU3VwcG9ydExldmVs",
+            "EiIKHkVBcHBDb250cm9sbGVyU3VwcG9ydExldmVsTm9uZRAAEiUKIUVBcHBD",
+            "b250cm9sbGVyU3VwcG9ydExldmVsUGFydGlhbBABEiIKHkVBcHBDb250cm9s",
+            "bGVyU3VwcG9ydExldmVsRnVsbBACKvUBCiNFQXBwR2FtZXBhZEd5cm9UcmFj",
+            "a3BhZFN1cHBvcnRMZXZlbBI3CipFQXBwR2FtZXBhZEd5cm9UcmFja3BhZFN1",
+            "cHBvcnRMZXZlbFVua25vd24Q////////////ARIwCixFQXBwR2FtZXBhZEd5",
+            "cm9UcmFja3BhZFN1cHBvcnRMZXZlbE5vR2FtZXBhZBAAEi4KKkVBcHBHYW1l",
+            "cGFkR3lyb1RyYWNrcGFkU3VwcG9ydExldmVsR2FtZXBhZBABEjMKL0VBcHBH",
+            "YW1lcGFkR3lyb1RyYWNrcGFkU3VwcG9ydExldmVsU2ltdWx0YW5lb3VzEAJC",
+            "H0gBgAEBqgIXT3BlblN0ZWFtd29ya3MuUHJvdG9idWY="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.Reflection.DescriptorReflection.Descriptor, global::OpenSteamworks.Protobuf.EnumsReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::OpenSteamworks.Protobuf.EDisplayStatus), typeof(global::OpenSteamworks.Protobuf.EAppCloudStatus), typeof(global::OpenSteamworks.Protobuf.EProtoAppType), typeof(global::OpenSteamworks.Protobuf.EAppAssociationType), typeof(global::OpenSteamworks.Protobuf.EAppControllerSupportLevel), typeof(global::OpenSteamworks.Protobuf.EAppGamepadGyroTrackpadSupportLevel), }, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CAppOverview_AppAssociation), global::OpenSteamworks.Protobuf.CAppOverview_AppAssociation.Parser, new[]{ "Type", "Name" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CAppOverview_PerClientData), global::OpenSteamworks.Protobuf.CAppOverview_PerClientData.Parser, new[]{ "Clientid", "ClientName", "DisplayStatus", "StatusPercentage", "ActiveBeta", "Installed", "BytesDownloaded", "BytesTotal", "StreamingToLocalClient", "IsAvailableOnCurrentPlatform", "IsInvalidOsType", "PlaytimeLeft", "CloudStatus" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CAppOverview), global::OpenSteamworks.Protobuf.CAppOverview.Parser, new[]{ "Appid", "DisplayName", "VisibleInGameList", "SortAs", "AppType", "MruIndex", "RtRecentActivityTime", "MinutesPlaytimeForever", "MinutesPlaytimeLastTwoWeeks", "RtLastTimePlayed", "StoreTag", "Association", "StoreCategory", "RtOriginalReleaseDate", "RtSteamReleaseDate", "IconHash", "ControllerSupport", "VrSupported", "MetacriticScore", "SizeOnDisk", "ThirdPartyMod", "IconData", "IconDataFormat", "Gameid", "LibraryCapsuleFilename", "PerClientData", "MostAvailableClientid", "SelectedClientid", "RtStoreAssetMtime", "RtCustomImageMtime", "OptionalParentAppId", "OwnerAccountId", "ReviewScoreWithBombs", "ReviewPercentageWithBombs", "ReviewScoreWithoutBombs", "ReviewPercentageWithoutBombs", "LibraryId", "VrOnly", "MastersubAppid", "MastersubIncludedwithLogo", "SiteLicenseSiteName", "ShortcutOverrideAppid", "SteamDeccompatCategory", "RtLastTimeLocallyPlayed", "RtPurchasedTime", "HeaderFilename", "LocalCacheVersion" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CAppOverview_PerClientData), global::OpenSteamworks.Protobuf.CAppOverview_PerClientData.Parser, new[]{ "Clientid", "ClientName", "DisplayStatus", "StatusPercentage", "ActiveBeta", "Installed", "BytesDownloaded", "BytesTotal", "StreamingToLocalClient", "IsAvailableOnCurrentPlatform", "IsInvalidOsType", "PlaytimeLeft", "CloudStatus", "UpdateAvailableButDisabledByApp" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CAppOverview), global::OpenSteamworks.Protobuf.CAppOverview.Parser, new[]{ "Appid", "DisplayName", "VisibleInGameList", "SubscribedTo", "SortAs", "AppType", "MruIndex", "RtRecentActivityTime", "MinutesPlaytimeForever", "MinutesPlaytimeLastTwoWeeks", "RtLastTimePlayed", "StoreTag", "Association", "StoreCategory", "RtOriginalReleaseDate", "RtSteamReleaseDate", "IconHash", "XboxControllerSupport", "VrSupported", "MetacriticScore", "SizeOnDisk", "ThirdPartyMod", "IconData", "IconDataFormat", "Gameid", "LibraryCapsuleFilename", "PerClientData", "MostAvailableClientid", "SelectedClientid", "RtStoreAssetMtime", "RtCustomImageMtime", "OptionalParentAppId", "OwnerAccountId", "ReviewScoreWithBombs", "ReviewPercentageWithBombs", "ReviewScoreWithoutBombs", "ReviewPercentageWithoutBombs", "LibraryId", "VrOnly", "MastersubAppid", "MastersubIncludedwithLogo", "SiteLicenseSiteName", "ShortcutOverrideAppid", "SteamDeccompatCategory", "RtLastTimeLocallyPlayed", "RtPurchasedTime", "HeaderFilename", "LocalCacheVersion", "Ps4ControllerSupport", "Ps5ControllerSupport", "GamepadPreferred", "GamepadRequired" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CAppOverview_Change), global::OpenSteamworks.Protobuf.CAppOverview_Change.Parser, new[]{ "AppOverview", "RemovedAppid", "FullUpdate", "UpdateComplete" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CAppBootstrapData), global::OpenSteamworks.Protobuf.CAppBootstrapData.Parser, new[]{ "Appid", "Hidden", "UserTag" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CLibraryBootstrapData), global::OpenSteamworks.Protobuf.CLibraryBootstrapData.Parser, new[]{ "AppData" }, null, null, null, null)
@@ -556,6 +563,7 @@ namespace OpenSteamworks.Protobuf {
       isInvalidOsType_ = other.isInvalidOsType_;
       playtimeLeft_ = other.playtimeLeft_;
       cloudStatus_ = other.cloudStatus_;
+      updateAvailableButDisabledByApp_ = other.updateAvailableButDisabledByApp_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -914,6 +922,33 @@ namespace OpenSteamworks.Protobuf {
       _hasBits0 &= ~1024;
     }
 
+    /// <summary>Field number for the "update_available_but_disabled_by_app" field.</summary>
+    public const int UpdateAvailableButDisabledByAppFieldNumber = 14;
+    private readonly static bool UpdateAvailableButDisabledByAppDefaultValue = false;
+
+    private bool updateAvailableButDisabledByApp_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool UpdateAvailableButDisabledByApp {
+      get { if ((_hasBits0 & 2048) != 0) { return updateAvailableButDisabledByApp_; } else { return UpdateAvailableButDisabledByAppDefaultValue; } }
+      set {
+        _hasBits0 |= 2048;
+        updateAvailableButDisabledByApp_ = value;
+      }
+    }
+    /// <summary>Gets whether the "update_available_but_disabled_by_app" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasUpdateAvailableButDisabledByApp {
+      get { return (_hasBits0 & 2048) != 0; }
+    }
+    /// <summary>Clears the value of the "update_available_but_disabled_by_app" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearUpdateAvailableButDisabledByApp() {
+      _hasBits0 &= ~2048;
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -942,6 +977,7 @@ namespace OpenSteamworks.Protobuf {
       if (IsInvalidOsType != other.IsInvalidOsType) return false;
       if (PlaytimeLeft != other.PlaytimeLeft) return false;
       if (CloudStatus != other.CloudStatus) return false;
+      if (UpdateAvailableButDisabledByApp != other.UpdateAvailableButDisabledByApp) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -962,6 +998,7 @@ namespace OpenSteamworks.Protobuf {
       if (HasIsInvalidOsType) hash ^= IsInvalidOsType.GetHashCode();
       if (HasPlaytimeLeft) hash ^= PlaytimeLeft.GetHashCode();
       if (HasCloudStatus) hash ^= CloudStatus.GetHashCode();
+      if (HasUpdateAvailableButDisabledByApp) hash ^= UpdateAvailableButDisabledByApp.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1032,6 +1069,10 @@ namespace OpenSteamworks.Protobuf {
         output.WriteRawTag(104);
         output.WriteEnum((int) CloudStatus);
       }
+      if (HasUpdateAvailableButDisabledByApp) {
+        output.WriteRawTag(112);
+        output.WriteBool(UpdateAvailableButDisabledByApp);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1094,6 +1135,10 @@ namespace OpenSteamworks.Protobuf {
         output.WriteRawTag(104);
         output.WriteEnum((int) CloudStatus);
       }
+      if (HasUpdateAvailableButDisabledByApp) {
+        output.WriteRawTag(112);
+        output.WriteBool(UpdateAvailableButDisabledByApp);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -1142,6 +1187,9 @@ namespace OpenSteamworks.Protobuf {
       }
       if (HasCloudStatus) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) CloudStatus);
+      }
+      if (HasUpdateAvailableButDisabledByApp) {
+        size += 1 + 1;
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -1193,6 +1241,9 @@ namespace OpenSteamworks.Protobuf {
       }
       if (other.HasCloudStatus) {
         CloudStatus = other.CloudStatus;
+      }
+      if (other.HasUpdateAvailableButDisabledByApp) {
+        UpdateAvailableButDisabledByApp = other.UpdateAvailableButDisabledByApp;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -1259,6 +1310,10 @@ namespace OpenSteamworks.Protobuf {
           }
           case 104: {
             CloudStatus = (global::OpenSteamworks.Protobuf.EAppCloudStatus) input.ReadEnum();
+            break;
+          }
+          case 112: {
+            UpdateAvailableButDisabledByApp = input.ReadBool();
             break;
           }
         }
@@ -1328,6 +1383,10 @@ namespace OpenSteamworks.Protobuf {
             CloudStatus = (global::OpenSteamworks.Protobuf.EAppCloudStatus) input.ReadEnum();
             break;
           }
+          case 112: {
+            UpdateAvailableButDisabledByApp = input.ReadBool();
+            break;
+          }
         }
       }
     }
@@ -1376,6 +1435,7 @@ namespace OpenSteamworks.Protobuf {
       appid_ = other.appid_;
       displayName_ = other.displayName_;
       visibleInGameList_ = other.visibleInGameList_;
+      subscribedTo_ = other.subscribedTo_;
       sortAs_ = other.sortAs_;
       appType_ = other.appType_;
       mruIndex_ = other.mruIndex_;
@@ -1389,7 +1449,7 @@ namespace OpenSteamworks.Protobuf {
       rtOriginalReleaseDate_ = other.rtOriginalReleaseDate_;
       rtSteamReleaseDate_ = other.rtSteamReleaseDate_;
       iconHash_ = other.iconHash_;
-      controllerSupport_ = other.controllerSupport_;
+      xboxControllerSupport_ = other.xboxControllerSupport_;
       vrSupported_ = other.vrSupported_;
       metacriticScore_ = other.metacriticScore_;
       sizeOnDisk_ = other.sizeOnDisk_;
@@ -1420,6 +1480,10 @@ namespace OpenSteamworks.Protobuf {
       rtPurchasedTime_ = other.rtPurchasedTime_;
       headerFilename_ = other.headerFilename_;
       localCacheVersion_ = other.localCacheVersion_;
+      ps4ControllerSupport_ = other.ps4ControllerSupport_;
+      ps5ControllerSupport_ = other.ps5ControllerSupport_;
+      gamepadPreferred_ = other.gamepadPreferred_;
+      gamepadRequired_ = other.gamepadRequired_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -1509,6 +1573,33 @@ namespace OpenSteamworks.Protobuf {
       _hasBits0 &= ~2;
     }
 
+    /// <summary>Field number for the "subscribed_to" field.</summary>
+    public const int SubscribedToFieldNumber = 5;
+    private readonly static bool SubscribedToDefaultValue = false;
+
+    private bool subscribedTo_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool SubscribedTo {
+      get { if ((_hasBits0 & 4) != 0) { return subscribedTo_; } else { return SubscribedToDefaultValue; } }
+      set {
+        _hasBits0 |= 4;
+        subscribedTo_ = value;
+      }
+    }
+    /// <summary>Gets whether the "subscribed_to" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasSubscribedTo {
+      get { return (_hasBits0 & 4) != 0; }
+    }
+    /// <summary>Clears the value of the "subscribed_to" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearSubscribedTo() {
+      _hasBits0 &= ~4;
+    }
+
     /// <summary>Field number for the "sort_as" field.</summary>
     public const int SortAsFieldNumber = 6;
     private readonly static string SortAsDefaultValue = "";
@@ -1543,9 +1634,9 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::OpenSteamworks.Protobuf.EProtoAppType AppType {
-      get { if ((_hasBits0 & 4) != 0) { return appType_; } else { return AppTypeDefaultValue; } }
+      get { if ((_hasBits0 & 8) != 0) { return appType_; } else { return AppTypeDefaultValue; } }
       set {
-        _hasBits0 |= 4;
+        _hasBits0 |= 8;
         appType_ = value;
       }
     }
@@ -1553,13 +1644,13 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool HasAppType {
-      get { return (_hasBits0 & 4) != 0; }
+      get { return (_hasBits0 & 8) != 0; }
     }
     /// <summary>Clears the value of the "app_type" field</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void ClearAppType() {
-      _hasBits0 &= ~4;
+      _hasBits0 &= ~8;
     }
 
     /// <summary>Field number for the "mru_index" field.</summary>
@@ -1570,9 +1661,9 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public uint MruIndex {
-      get { if ((_hasBits0 & 8) != 0) { return mruIndex_; } else { return MruIndexDefaultValue; } }
+      get { if ((_hasBits0 & 16) != 0) { return mruIndex_; } else { return MruIndexDefaultValue; } }
       set {
-        _hasBits0 |= 8;
+        _hasBits0 |= 16;
         mruIndex_ = value;
       }
     }
@@ -1580,13 +1671,13 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool HasMruIndex {
-      get { return (_hasBits0 & 8) != 0; }
+      get { return (_hasBits0 & 16) != 0; }
     }
     /// <summary>Clears the value of the "mru_index" field</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void ClearMruIndex() {
-      _hasBits0 &= ~8;
+      _hasBits0 &= ~16;
     }
 
     /// <summary>Field number for the "rt_recent_activity_time" field.</summary>
@@ -1597,9 +1688,9 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public uint RtRecentActivityTime {
-      get { if ((_hasBits0 & 16) != 0) { return rtRecentActivityTime_; } else { return RtRecentActivityTimeDefaultValue; } }
+      get { if ((_hasBits0 & 32) != 0) { return rtRecentActivityTime_; } else { return RtRecentActivityTimeDefaultValue; } }
       set {
-        _hasBits0 |= 16;
+        _hasBits0 |= 32;
         rtRecentActivityTime_ = value;
       }
     }
@@ -1607,13 +1698,13 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool HasRtRecentActivityTime {
-      get { return (_hasBits0 & 16) != 0; }
+      get { return (_hasBits0 & 32) != 0; }
     }
     /// <summary>Clears the value of the "rt_recent_activity_time" field</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void ClearRtRecentActivityTime() {
-      _hasBits0 &= ~16;
+      _hasBits0 &= ~32;
     }
 
     /// <summary>Field number for the "minutes_playtime_forever" field.</summary>
@@ -1624,9 +1715,9 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public uint MinutesPlaytimeForever {
-      get { if ((_hasBits0 & 32) != 0) { return minutesPlaytimeForever_; } else { return MinutesPlaytimeForeverDefaultValue; } }
+      get { if ((_hasBits0 & 64) != 0) { return minutesPlaytimeForever_; } else { return MinutesPlaytimeForeverDefaultValue; } }
       set {
-        _hasBits0 |= 32;
+        _hasBits0 |= 64;
         minutesPlaytimeForever_ = value;
       }
     }
@@ -1634,13 +1725,13 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool HasMinutesPlaytimeForever {
-      get { return (_hasBits0 & 32) != 0; }
+      get { return (_hasBits0 & 64) != 0; }
     }
     /// <summary>Clears the value of the "minutes_playtime_forever" field</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void ClearMinutesPlaytimeForever() {
-      _hasBits0 &= ~32;
+      _hasBits0 &= ~64;
     }
 
     /// <summary>Field number for the "minutes_playtime_last_two_weeks" field.</summary>
@@ -1651,9 +1742,9 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public uint MinutesPlaytimeLastTwoWeeks {
-      get { if ((_hasBits0 & 64) != 0) { return minutesPlaytimeLastTwoWeeks_; } else { return MinutesPlaytimeLastTwoWeeksDefaultValue; } }
+      get { if ((_hasBits0 & 128) != 0) { return minutesPlaytimeLastTwoWeeks_; } else { return MinutesPlaytimeLastTwoWeeksDefaultValue; } }
       set {
-        _hasBits0 |= 64;
+        _hasBits0 |= 128;
         minutesPlaytimeLastTwoWeeks_ = value;
       }
     }
@@ -1661,13 +1752,13 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool HasMinutesPlaytimeLastTwoWeeks {
-      get { return (_hasBits0 & 64) != 0; }
+      get { return (_hasBits0 & 128) != 0; }
     }
     /// <summary>Clears the value of the "minutes_playtime_last_two_weeks" field</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void ClearMinutesPlaytimeLastTwoWeeks() {
-      _hasBits0 &= ~64;
+      _hasBits0 &= ~128;
     }
 
     /// <summary>Field number for the "rt_last_time_played" field.</summary>
@@ -1678,9 +1769,9 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public uint RtLastTimePlayed {
-      get { if ((_hasBits0 & 128) != 0) { return rtLastTimePlayed_; } else { return RtLastTimePlayedDefaultValue; } }
+      get { if ((_hasBits0 & 256) != 0) { return rtLastTimePlayed_; } else { return RtLastTimePlayedDefaultValue; } }
       set {
-        _hasBits0 |= 128;
+        _hasBits0 |= 256;
         rtLastTimePlayed_ = value;
       }
     }
@@ -1688,13 +1779,13 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool HasRtLastTimePlayed {
-      get { return (_hasBits0 & 128) != 0; }
+      get { return (_hasBits0 & 256) != 0; }
     }
     /// <summary>Clears the value of the "rt_last_time_played" field</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void ClearRtLastTimePlayed() {
-      _hasBits0 &= ~128;
+      _hasBits0 &= ~256;
     }
 
     /// <summary>Field number for the "store_tag" field.</summary>
@@ -1738,9 +1829,9 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public uint RtOriginalReleaseDate {
-      get { if ((_hasBits0 & 256) != 0) { return rtOriginalReleaseDate_; } else { return RtOriginalReleaseDateDefaultValue; } }
+      get { if ((_hasBits0 & 512) != 0) { return rtOriginalReleaseDate_; } else { return RtOriginalReleaseDateDefaultValue; } }
       set {
-        _hasBits0 |= 256;
+        _hasBits0 |= 512;
         rtOriginalReleaseDate_ = value;
       }
     }
@@ -1748,13 +1839,13 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool HasRtOriginalReleaseDate {
-      get { return (_hasBits0 & 256) != 0; }
+      get { return (_hasBits0 & 512) != 0; }
     }
     /// <summary>Clears the value of the "rt_original_release_date" field</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void ClearRtOriginalReleaseDate() {
-      _hasBits0 &= ~256;
+      _hasBits0 &= ~512;
     }
 
     /// <summary>Field number for the "rt_steam_release_date" field.</summary>
@@ -1765,9 +1856,9 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public uint RtSteamReleaseDate {
-      get { if ((_hasBits0 & 512) != 0) { return rtSteamReleaseDate_; } else { return RtSteamReleaseDateDefaultValue; } }
+      get { if ((_hasBits0 & 1024) != 0) { return rtSteamReleaseDate_; } else { return RtSteamReleaseDateDefaultValue; } }
       set {
-        _hasBits0 |= 512;
+        _hasBits0 |= 1024;
         rtSteamReleaseDate_ = value;
       }
     }
@@ -1775,13 +1866,13 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool HasRtSteamReleaseDate {
-      get { return (_hasBits0 & 512) != 0; }
+      get { return (_hasBits0 & 1024) != 0; }
     }
     /// <summary>Clears the value of the "rt_steam_release_date" field</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void ClearRtSteamReleaseDate() {
-      _hasBits0 &= ~512;
+      _hasBits0 &= ~1024;
     }
 
     /// <summary>Field number for the "icon_hash" field.</summary>
@@ -1810,31 +1901,31 @@ namespace OpenSteamworks.Protobuf {
       iconHash_ = null;
     }
 
-    /// <summary>Field number for the "controller_support" field.</summary>
-    public const int ControllerSupportFieldNumber = 31;
-    private readonly static global::OpenSteamworks.Protobuf.EAppControllerSupportLevel ControllerSupportDefaultValue = global::OpenSteamworks.Protobuf.EAppControllerSupportLevel.None;
+    /// <summary>Field number for the "xbox_controller_support" field.</summary>
+    public const int XboxControllerSupportFieldNumber = 31;
+    private readonly static global::OpenSteamworks.Protobuf.EAppControllerSupportLevel XboxControllerSupportDefaultValue = global::OpenSteamworks.Protobuf.EAppControllerSupportLevel.None;
 
-    private global::OpenSteamworks.Protobuf.EAppControllerSupportLevel controllerSupport_;
+    private global::OpenSteamworks.Protobuf.EAppControllerSupportLevel xboxControllerSupport_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::OpenSteamworks.Protobuf.EAppControllerSupportLevel ControllerSupport {
-      get { if ((_hasBits0 & 1024) != 0) { return controllerSupport_; } else { return ControllerSupportDefaultValue; } }
+    public global::OpenSteamworks.Protobuf.EAppControllerSupportLevel XboxControllerSupport {
+      get { if ((_hasBits0 & 2048) != 0) { return xboxControllerSupport_; } else { return XboxControllerSupportDefaultValue; } }
       set {
-        _hasBits0 |= 1024;
-        controllerSupport_ = value;
+        _hasBits0 |= 2048;
+        xboxControllerSupport_ = value;
       }
     }
-    /// <summary>Gets whether the "controller_support" field is set</summary>
+    /// <summary>Gets whether the "xbox_controller_support" field is set</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasControllerSupport {
-      get { return (_hasBits0 & 1024) != 0; }
+    public bool HasXboxControllerSupport {
+      get { return (_hasBits0 & 2048) != 0; }
     }
-    /// <summary>Clears the value of the "controller_support" field</summary>
+    /// <summary>Clears the value of the "xbox_controller_support" field</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearControllerSupport() {
-      _hasBits0 &= ~1024;
+    public void ClearXboxControllerSupport() {
+      _hasBits0 &= ~2048;
     }
 
     /// <summary>Field number for the "vr_supported" field.</summary>
@@ -1845,9 +1936,9 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool VrSupported {
-      get { if ((_hasBits0 & 2048) != 0) { return vrSupported_; } else { return VrSupportedDefaultValue; } }
+      get { if ((_hasBits0 & 4096) != 0) { return vrSupported_; } else { return VrSupportedDefaultValue; } }
       set {
-        _hasBits0 |= 2048;
+        _hasBits0 |= 4096;
         vrSupported_ = value;
       }
     }
@@ -1855,13 +1946,13 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool HasVrSupported {
-      get { return (_hasBits0 & 2048) != 0; }
+      get { return (_hasBits0 & 4096) != 0; }
     }
     /// <summary>Clears the value of the "vr_supported" field</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void ClearVrSupported() {
-      _hasBits0 &= ~2048;
+      _hasBits0 &= ~4096;
     }
 
     /// <summary>Field number for the "metacritic_score" field.</summary>
@@ -1872,9 +1963,9 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public uint MetacriticScore {
-      get { if ((_hasBits0 & 4096) != 0) { return metacriticScore_; } else { return MetacriticScoreDefaultValue; } }
+      get { if ((_hasBits0 & 8192) != 0) { return metacriticScore_; } else { return MetacriticScoreDefaultValue; } }
       set {
-        _hasBits0 |= 4096;
+        _hasBits0 |= 8192;
         metacriticScore_ = value;
       }
     }
@@ -1882,13 +1973,13 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool HasMetacriticScore {
-      get { return (_hasBits0 & 4096) != 0; }
+      get { return (_hasBits0 & 8192) != 0; }
     }
     /// <summary>Clears the value of the "metacritic_score" field</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void ClearMetacriticScore() {
-      _hasBits0 &= ~4096;
+      _hasBits0 &= ~8192;
     }
 
     /// <summary>Field number for the "size_on_disk" field.</summary>
@@ -1899,9 +1990,9 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public ulong SizeOnDisk {
-      get { if ((_hasBits0 & 8192) != 0) { return sizeOnDisk_; } else { return SizeOnDiskDefaultValue; } }
+      get { if ((_hasBits0 & 16384) != 0) { return sizeOnDisk_; } else { return SizeOnDiskDefaultValue; } }
       set {
-        _hasBits0 |= 8192;
+        _hasBits0 |= 16384;
         sizeOnDisk_ = value;
       }
     }
@@ -1909,13 +2000,13 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool HasSizeOnDisk {
-      get { return (_hasBits0 & 8192) != 0; }
+      get { return (_hasBits0 & 16384) != 0; }
     }
     /// <summary>Clears the value of the "size_on_disk" field</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void ClearSizeOnDisk() {
-      _hasBits0 &= ~8192;
+      _hasBits0 &= ~16384;
     }
 
     /// <summary>Field number for the "third_party_mod" field.</summary>
@@ -1926,9 +2017,9 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool ThirdPartyMod {
-      get { if ((_hasBits0 & 16384) != 0) { return thirdPartyMod_; } else { return ThirdPartyModDefaultValue; } }
+      get { if ((_hasBits0 & 32768) != 0) { return thirdPartyMod_; } else { return ThirdPartyModDefaultValue; } }
       set {
-        _hasBits0 |= 16384;
+        _hasBits0 |= 32768;
         thirdPartyMod_ = value;
       }
     }
@@ -1936,13 +2027,13 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool HasThirdPartyMod {
-      get { return (_hasBits0 & 16384) != 0; }
+      get { return (_hasBits0 & 32768) != 0; }
     }
     /// <summary>Clears the value of the "third_party_mod" field</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void ClearThirdPartyMod() {
-      _hasBits0 &= ~16384;
+      _hasBits0 &= ~32768;
     }
 
     /// <summary>Field number for the "icon_data" field.</summary>
@@ -2068,9 +2159,9 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public ulong MostAvailableClientid {
-      get { if ((_hasBits0 & 32768) != 0) { return mostAvailableClientid_; } else { return MostAvailableClientidDefaultValue; } }
+      get { if ((_hasBits0 & 65536) != 0) { return mostAvailableClientid_; } else { return MostAvailableClientidDefaultValue; } }
       set {
-        _hasBits0 |= 32768;
+        _hasBits0 |= 65536;
         mostAvailableClientid_ = value;
       }
     }
@@ -2078,13 +2169,13 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool HasMostAvailableClientid {
-      get { return (_hasBits0 & 32768) != 0; }
+      get { return (_hasBits0 & 65536) != 0; }
     }
     /// <summary>Clears the value of the "most_available_clientid" field</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void ClearMostAvailableClientid() {
-      _hasBits0 &= ~32768;
+      _hasBits0 &= ~65536;
     }
 
     /// <summary>Field number for the "selected_clientid" field.</summary>
@@ -2095,9 +2186,9 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public ulong SelectedClientid {
-      get { if ((_hasBits0 & 65536) != 0) { return selectedClientid_; } else { return SelectedClientidDefaultValue; } }
+      get { if ((_hasBits0 & 131072) != 0) { return selectedClientid_; } else { return SelectedClientidDefaultValue; } }
       set {
-        _hasBits0 |= 65536;
+        _hasBits0 |= 131072;
         selectedClientid_ = value;
       }
     }
@@ -2105,13 +2196,13 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool HasSelectedClientid {
-      get { return (_hasBits0 & 65536) != 0; }
+      get { return (_hasBits0 & 131072) != 0; }
     }
     /// <summary>Clears the value of the "selected_clientid" field</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void ClearSelectedClientid() {
-      _hasBits0 &= ~65536;
+      _hasBits0 &= ~131072;
     }
 
     /// <summary>Field number for the "rt_store_asset_mtime" field.</summary>
@@ -2122,9 +2213,9 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public uint RtStoreAssetMtime {
-      get { if ((_hasBits0 & 131072) != 0) { return rtStoreAssetMtime_; } else { return RtStoreAssetMtimeDefaultValue; } }
+      get { if ((_hasBits0 & 262144) != 0) { return rtStoreAssetMtime_; } else { return RtStoreAssetMtimeDefaultValue; } }
       set {
-        _hasBits0 |= 131072;
+        _hasBits0 |= 262144;
         rtStoreAssetMtime_ = value;
       }
     }
@@ -2132,13 +2223,13 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool HasRtStoreAssetMtime {
-      get { return (_hasBits0 & 131072) != 0; }
+      get { return (_hasBits0 & 262144) != 0; }
     }
     /// <summary>Clears the value of the "rt_store_asset_mtime" field</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void ClearRtStoreAssetMtime() {
-      _hasBits0 &= ~131072;
+      _hasBits0 &= ~262144;
     }
 
     /// <summary>Field number for the "rt_custom_image_mtime" field.</summary>
@@ -2149,9 +2240,9 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public uint RtCustomImageMtime {
-      get { if ((_hasBits0 & 262144) != 0) { return rtCustomImageMtime_; } else { return RtCustomImageMtimeDefaultValue; } }
+      get { if ((_hasBits0 & 524288) != 0) { return rtCustomImageMtime_; } else { return RtCustomImageMtimeDefaultValue; } }
       set {
-        _hasBits0 |= 262144;
+        _hasBits0 |= 524288;
         rtCustomImageMtime_ = value;
       }
     }
@@ -2159,13 +2250,13 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool HasRtCustomImageMtime {
-      get { return (_hasBits0 & 262144) != 0; }
+      get { return (_hasBits0 & 524288) != 0; }
     }
     /// <summary>Clears the value of the "rt_custom_image_mtime" field</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void ClearRtCustomImageMtime() {
-      _hasBits0 &= ~262144;
+      _hasBits0 &= ~524288;
     }
 
     /// <summary>Field number for the "optional_parent_app_id" field.</summary>
@@ -2176,9 +2267,9 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public uint OptionalParentAppId {
-      get { if ((_hasBits0 & 524288) != 0) { return optionalParentAppId_; } else { return OptionalParentAppIdDefaultValue; } }
+      get { if ((_hasBits0 & 1048576) != 0) { return optionalParentAppId_; } else { return OptionalParentAppIdDefaultValue; } }
       set {
-        _hasBits0 |= 524288;
+        _hasBits0 |= 1048576;
         optionalParentAppId_ = value;
       }
     }
@@ -2186,13 +2277,13 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool HasOptionalParentAppId {
-      get { return (_hasBits0 & 524288) != 0; }
+      get { return (_hasBits0 & 1048576) != 0; }
     }
     /// <summary>Clears the value of the "optional_parent_app_id" field</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void ClearOptionalParentAppId() {
-      _hasBits0 &= ~524288;
+      _hasBits0 &= ~1048576;
     }
 
     /// <summary>Field number for the "owner_account_id" field.</summary>
@@ -2203,9 +2294,9 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public uint OwnerAccountId {
-      get { if ((_hasBits0 & 1048576) != 0) { return ownerAccountId_; } else { return OwnerAccountIdDefaultValue; } }
+      get { if ((_hasBits0 & 2097152) != 0) { return ownerAccountId_; } else { return OwnerAccountIdDefaultValue; } }
       set {
-        _hasBits0 |= 1048576;
+        _hasBits0 |= 2097152;
         ownerAccountId_ = value;
       }
     }
@@ -2213,13 +2304,13 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool HasOwnerAccountId {
-      get { return (_hasBits0 & 1048576) != 0; }
+      get { return (_hasBits0 & 2097152) != 0; }
     }
     /// <summary>Clears the value of the "owner_account_id" field</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void ClearOwnerAccountId() {
-      _hasBits0 &= ~1048576;
+      _hasBits0 &= ~2097152;
     }
 
     /// <summary>Field number for the "review_score_with_bombs" field.</summary>
@@ -2230,9 +2321,9 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public uint ReviewScoreWithBombs {
-      get { if ((_hasBits0 & 2097152) != 0) { return reviewScoreWithBombs_; } else { return ReviewScoreWithBombsDefaultValue; } }
+      get { if ((_hasBits0 & 4194304) != 0) { return reviewScoreWithBombs_; } else { return ReviewScoreWithBombsDefaultValue; } }
       set {
-        _hasBits0 |= 2097152;
+        _hasBits0 |= 4194304;
         reviewScoreWithBombs_ = value;
       }
     }
@@ -2240,13 +2331,13 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool HasReviewScoreWithBombs {
-      get { return (_hasBits0 & 2097152) != 0; }
+      get { return (_hasBits0 & 4194304) != 0; }
     }
     /// <summary>Clears the value of the "review_score_with_bombs" field</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void ClearReviewScoreWithBombs() {
-      _hasBits0 &= ~2097152;
+      _hasBits0 &= ~4194304;
     }
 
     /// <summary>Field number for the "review_percentage_with_bombs" field.</summary>
@@ -2257,9 +2348,9 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public uint ReviewPercentageWithBombs {
-      get { if ((_hasBits0 & 4194304) != 0) { return reviewPercentageWithBombs_; } else { return ReviewPercentageWithBombsDefaultValue; } }
+      get { if ((_hasBits0 & 8388608) != 0) { return reviewPercentageWithBombs_; } else { return ReviewPercentageWithBombsDefaultValue; } }
       set {
-        _hasBits0 |= 4194304;
+        _hasBits0 |= 8388608;
         reviewPercentageWithBombs_ = value;
       }
     }
@@ -2267,13 +2358,13 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool HasReviewPercentageWithBombs {
-      get { return (_hasBits0 & 4194304) != 0; }
+      get { return (_hasBits0 & 8388608) != 0; }
     }
     /// <summary>Clears the value of the "review_percentage_with_bombs" field</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void ClearReviewPercentageWithBombs() {
-      _hasBits0 &= ~4194304;
+      _hasBits0 &= ~8388608;
     }
 
     /// <summary>Field number for the "review_score_without_bombs" field.</summary>
@@ -2284,9 +2375,9 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public uint ReviewScoreWithoutBombs {
-      get { if ((_hasBits0 & 8388608) != 0) { return reviewScoreWithoutBombs_; } else { return ReviewScoreWithoutBombsDefaultValue; } }
+      get { if ((_hasBits0 & 16777216) != 0) { return reviewScoreWithoutBombs_; } else { return ReviewScoreWithoutBombsDefaultValue; } }
       set {
-        _hasBits0 |= 8388608;
+        _hasBits0 |= 16777216;
         reviewScoreWithoutBombs_ = value;
       }
     }
@@ -2294,13 +2385,13 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool HasReviewScoreWithoutBombs {
-      get { return (_hasBits0 & 8388608) != 0; }
+      get { return (_hasBits0 & 16777216) != 0; }
     }
     /// <summary>Clears the value of the "review_score_without_bombs" field</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void ClearReviewScoreWithoutBombs() {
-      _hasBits0 &= ~8388608;
+      _hasBits0 &= ~16777216;
     }
 
     /// <summary>Field number for the "review_percentage_without_bombs" field.</summary>
@@ -2311,9 +2402,9 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public uint ReviewPercentageWithoutBombs {
-      get { if ((_hasBits0 & 16777216) != 0) { return reviewPercentageWithoutBombs_; } else { return ReviewPercentageWithoutBombsDefaultValue; } }
+      get { if ((_hasBits0 & 33554432) != 0) { return reviewPercentageWithoutBombs_; } else { return ReviewPercentageWithoutBombsDefaultValue; } }
       set {
-        _hasBits0 |= 16777216;
+        _hasBits0 |= 33554432;
         reviewPercentageWithoutBombs_ = value;
       }
     }
@@ -2321,13 +2412,13 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool HasReviewPercentageWithoutBombs {
-      get { return (_hasBits0 & 16777216) != 0; }
+      get { return (_hasBits0 & 33554432) != 0; }
     }
     /// <summary>Clears the value of the "review_percentage_without_bombs" field</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void ClearReviewPercentageWithoutBombs() {
-      _hasBits0 &= ~16777216;
+      _hasBits0 &= ~33554432;
     }
 
     /// <summary>Field number for the "library_id" field.</summary>
@@ -2364,9 +2455,9 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool VrOnly {
-      get { if ((_hasBits0 & 33554432) != 0) { return vrOnly_; } else { return VrOnlyDefaultValue; } }
+      get { if ((_hasBits0 & 67108864) != 0) { return vrOnly_; } else { return VrOnlyDefaultValue; } }
       set {
-        _hasBits0 |= 33554432;
+        _hasBits0 |= 67108864;
         vrOnly_ = value;
       }
     }
@@ -2374,13 +2465,13 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool HasVrOnly {
-      get { return (_hasBits0 & 33554432) != 0; }
+      get { return (_hasBits0 & 67108864) != 0; }
     }
     /// <summary>Clears the value of the "vr_only" field</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void ClearVrOnly() {
-      _hasBits0 &= ~33554432;
+      _hasBits0 &= ~67108864;
     }
 
     /// <summary>Field number for the "mastersub_appid" field.</summary>
@@ -2391,9 +2482,9 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public uint MastersubAppid {
-      get { if ((_hasBits0 & 67108864) != 0) { return mastersubAppid_; } else { return MastersubAppidDefaultValue; } }
+      get { if ((_hasBits0 & 134217728) != 0) { return mastersubAppid_; } else { return MastersubAppidDefaultValue; } }
       set {
-        _hasBits0 |= 67108864;
+        _hasBits0 |= 134217728;
         mastersubAppid_ = value;
       }
     }
@@ -2401,13 +2492,13 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool HasMastersubAppid {
-      get { return (_hasBits0 & 67108864) != 0; }
+      get { return (_hasBits0 & 134217728) != 0; }
     }
     /// <summary>Clears the value of the "mastersub_appid" field</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void ClearMastersubAppid() {
-      _hasBits0 &= ~67108864;
+      _hasBits0 &= ~134217728;
     }
 
     /// <summary>Field number for the "mastersub_includedwith_logo" field.</summary>
@@ -2470,9 +2561,9 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public uint ShortcutOverrideAppid {
-      get { if ((_hasBits0 & 134217728) != 0) { return shortcutOverrideAppid_; } else { return ShortcutOverrideAppidDefaultValue; } }
+      get { if ((_hasBits0 & 268435456) != 0) { return shortcutOverrideAppid_; } else { return ShortcutOverrideAppidDefaultValue; } }
       set {
-        _hasBits0 |= 134217728;
+        _hasBits0 |= 268435456;
         shortcutOverrideAppid_ = value;
       }
     }
@@ -2480,13 +2571,13 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool HasShortcutOverrideAppid {
-      get { return (_hasBits0 & 134217728) != 0; }
+      get { return (_hasBits0 & 268435456) != 0; }
     }
     /// <summary>Clears the value of the "shortcut_override_appid" field</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void ClearShortcutOverrideAppid() {
-      _hasBits0 &= ~134217728;
+      _hasBits0 &= ~268435456;
     }
 
     /// <summary>Field number for the "steam_deccompat_category" field.</summary>
@@ -2497,9 +2588,9 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public global::OpenSteamworks.Protobuf.ESteamDeckCompatibilityCategory SteamDeccompatCategory {
-      get { if ((_hasBits0 & 268435456) != 0) { return steamDeccompatCategory_; } else { return SteamDeccompatCategoryDefaultValue; } }
+      get { if ((_hasBits0 & 536870912) != 0) { return steamDeccompatCategory_; } else { return SteamDeccompatCategoryDefaultValue; } }
       set {
-        _hasBits0 |= 268435456;
+        _hasBits0 |= 536870912;
         steamDeccompatCategory_ = value;
       }
     }
@@ -2507,13 +2598,13 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool HasSteamDeccompatCategory {
-      get { return (_hasBits0 & 268435456) != 0; }
+      get { return (_hasBits0 & 536870912) != 0; }
     }
     /// <summary>Clears the value of the "steam_deccompat_category" field</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void ClearSteamDeccompatCategory() {
-      _hasBits0 &= ~268435456;
+      _hasBits0 &= ~536870912;
     }
 
     /// <summary>Field number for the "rt_last_time_locally_played" field.</summary>
@@ -2524,9 +2615,9 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public uint RtLastTimeLocallyPlayed {
-      get { if ((_hasBits0 & 536870912) != 0) { return rtLastTimeLocallyPlayed_; } else { return RtLastTimeLocallyPlayedDefaultValue; } }
+      get { if ((_hasBits0 & 1073741824) != 0) { return rtLastTimeLocallyPlayed_; } else { return RtLastTimeLocallyPlayedDefaultValue; } }
       set {
-        _hasBits0 |= 536870912;
+        _hasBits0 |= 1073741824;
         rtLastTimeLocallyPlayed_ = value;
       }
     }
@@ -2534,13 +2625,13 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool HasRtLastTimeLocallyPlayed {
-      get { return (_hasBits0 & 536870912) != 0; }
+      get { return (_hasBits0 & 1073741824) != 0; }
     }
     /// <summary>Clears the value of the "rt_last_time_locally_played" field</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void ClearRtLastTimeLocallyPlayed() {
-      _hasBits0 &= ~536870912;
+      _hasBits0 &= ~1073741824;
     }
 
     /// <summary>Field number for the "rt_purchased_time" field.</summary>
@@ -2551,9 +2642,9 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public uint RtPurchasedTime {
-      get { if ((_hasBits0 & 1073741824) != 0) { return rtPurchasedTime_; } else { return RtPurchasedTimeDefaultValue; } }
+      get { if ((_hasBits0 & -2147483648) != 0) { return rtPurchasedTime_; } else { return RtPurchasedTimeDefaultValue; } }
       set {
-        _hasBits0 |= 1073741824;
+        _hasBits0 |= -2147483648;
         rtPurchasedTime_ = value;
       }
     }
@@ -2561,13 +2652,13 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool HasRtPurchasedTime {
-      get { return (_hasBits0 & 1073741824) != 0; }
+      get { return (_hasBits0 & -2147483648) != 0; }
     }
     /// <summary>Clears the value of the "rt_purchased_time" field</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void ClearRtPurchasedTime() {
-      _hasBits0 &= ~1073741824;
+      _hasBits0 &= ~-2147483648;
     }
 
     /// <summary>Field number for the "header_filename" field.</summary>
@@ -2604,9 +2695,9 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public uint LocalCacheVersion {
-      get { if ((_hasBits0 & -2147483648) != 0) { return localCacheVersion_; } else { return LocalCacheVersionDefaultValue; } }
+      get { if ((_hasBits1 & 1) != 0) { return localCacheVersion_; } else { return LocalCacheVersionDefaultValue; } }
       set {
-        _hasBits0 |= -2147483648;
+        _hasBits1 |= 1;
         localCacheVersion_ = value;
       }
     }
@@ -2614,13 +2705,121 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool HasLocalCacheVersion {
-      get { return (_hasBits0 & -2147483648) != 0; }
+      get { return (_hasBits1 & 1) != 0; }
     }
     /// <summary>Clears the value of the "local_cache_version" field</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void ClearLocalCacheVersion() {
-      _hasBits0 &= ~-2147483648;
+      _hasBits1 &= ~1;
+    }
+
+    /// <summary>Field number for the "ps4_controller_support" field.</summary>
+    public const int Ps4ControllerSupportFieldNumber = 69;
+    private readonly static global::OpenSteamworks.Protobuf.EAppControllerSupportLevel Ps4ControllerSupportDefaultValue = global::OpenSteamworks.Protobuf.EAppControllerSupportLevel.None;
+
+    private global::OpenSteamworks.Protobuf.EAppControllerSupportLevel ps4ControllerSupport_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::OpenSteamworks.Protobuf.EAppControllerSupportLevel Ps4ControllerSupport {
+      get { if ((_hasBits1 & 2) != 0) { return ps4ControllerSupport_; } else { return Ps4ControllerSupportDefaultValue; } }
+      set {
+        _hasBits1 |= 2;
+        ps4ControllerSupport_ = value;
+      }
+    }
+    /// <summary>Gets whether the "ps4_controller_support" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasPs4ControllerSupport {
+      get { return (_hasBits1 & 2) != 0; }
+    }
+    /// <summary>Clears the value of the "ps4_controller_support" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearPs4ControllerSupport() {
+      _hasBits1 &= ~2;
+    }
+
+    /// <summary>Field number for the "ps5_controller_support" field.</summary>
+    public const int Ps5ControllerSupportFieldNumber = 70;
+    private readonly static global::OpenSteamworks.Protobuf.EAppControllerSupportLevel Ps5ControllerSupportDefaultValue = global::OpenSteamworks.Protobuf.EAppControllerSupportLevel.None;
+
+    private global::OpenSteamworks.Protobuf.EAppControllerSupportLevel ps5ControllerSupport_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::OpenSteamworks.Protobuf.EAppControllerSupportLevel Ps5ControllerSupport {
+      get { if ((_hasBits1 & 4) != 0) { return ps5ControllerSupport_; } else { return Ps5ControllerSupportDefaultValue; } }
+      set {
+        _hasBits1 |= 4;
+        ps5ControllerSupport_ = value;
+      }
+    }
+    /// <summary>Gets whether the "ps5_controller_support" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasPs5ControllerSupport {
+      get { return (_hasBits1 & 4) != 0; }
+    }
+    /// <summary>Clears the value of the "ps5_controller_support" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearPs5ControllerSupport() {
+      _hasBits1 &= ~4;
+    }
+
+    /// <summary>Field number for the "gamepad_preferred" field.</summary>
+    public const int GamepadPreferredFieldNumber = 71;
+    private readonly static bool GamepadPreferredDefaultValue = false;
+
+    private bool gamepadPreferred_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool GamepadPreferred {
+      get { if ((_hasBits1 & 8) != 0) { return gamepadPreferred_; } else { return GamepadPreferredDefaultValue; } }
+      set {
+        _hasBits1 |= 8;
+        gamepadPreferred_ = value;
+      }
+    }
+    /// <summary>Gets whether the "gamepad_preferred" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasGamepadPreferred {
+      get { return (_hasBits1 & 8) != 0; }
+    }
+    /// <summary>Clears the value of the "gamepad_preferred" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearGamepadPreferred() {
+      _hasBits1 &= ~8;
+    }
+
+    /// <summary>Field number for the "gamepad_required" field.</summary>
+    public const int GamepadRequiredFieldNumber = 72;
+    private readonly static bool GamepadRequiredDefaultValue = false;
+
+    private bool gamepadRequired_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool GamepadRequired {
+      get { if ((_hasBits1 & 16) != 0) { return gamepadRequired_; } else { return GamepadRequiredDefaultValue; } }
+      set {
+        _hasBits1 |= 16;
+        gamepadRequired_ = value;
+      }
+    }
+    /// <summary>Gets whether the "gamepad_required" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasGamepadRequired {
+      get { return (_hasBits1 & 16) != 0; }
+    }
+    /// <summary>Clears the value of the "gamepad_required" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearGamepadRequired() {
+      _hasBits1 &= ~16;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2641,6 +2840,7 @@ namespace OpenSteamworks.Protobuf {
       if (Appid != other.Appid) return false;
       if (DisplayName != other.DisplayName) return false;
       if (VisibleInGameList != other.VisibleInGameList) return false;
+      if (SubscribedTo != other.SubscribedTo) return false;
       if (SortAs != other.SortAs) return false;
       if (AppType != other.AppType) return false;
       if (MruIndex != other.MruIndex) return false;
@@ -2654,7 +2854,7 @@ namespace OpenSteamworks.Protobuf {
       if (RtOriginalReleaseDate != other.RtOriginalReleaseDate) return false;
       if (RtSteamReleaseDate != other.RtSteamReleaseDate) return false;
       if (IconHash != other.IconHash) return false;
-      if (ControllerSupport != other.ControllerSupport) return false;
+      if (XboxControllerSupport != other.XboxControllerSupport) return false;
       if (VrSupported != other.VrSupported) return false;
       if (MetacriticScore != other.MetacriticScore) return false;
       if (SizeOnDisk != other.SizeOnDisk) return false;
@@ -2685,6 +2885,10 @@ namespace OpenSteamworks.Protobuf {
       if (RtPurchasedTime != other.RtPurchasedTime) return false;
       if (HeaderFilename != other.HeaderFilename) return false;
       if (LocalCacheVersion != other.LocalCacheVersion) return false;
+      if (Ps4ControllerSupport != other.Ps4ControllerSupport) return false;
+      if (Ps5ControllerSupport != other.Ps5ControllerSupport) return false;
+      if (GamepadPreferred != other.GamepadPreferred) return false;
+      if (GamepadRequired != other.GamepadRequired) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -2695,6 +2899,7 @@ namespace OpenSteamworks.Protobuf {
       if (HasAppid) hash ^= Appid.GetHashCode();
       if (HasDisplayName) hash ^= DisplayName.GetHashCode();
       if (HasVisibleInGameList) hash ^= VisibleInGameList.GetHashCode();
+      if (HasSubscribedTo) hash ^= SubscribedTo.GetHashCode();
       if (HasSortAs) hash ^= SortAs.GetHashCode();
       if (HasAppType) hash ^= AppType.GetHashCode();
       if (HasMruIndex) hash ^= MruIndex.GetHashCode();
@@ -2708,7 +2913,7 @@ namespace OpenSteamworks.Protobuf {
       if (HasRtOriginalReleaseDate) hash ^= RtOriginalReleaseDate.GetHashCode();
       if (HasRtSteamReleaseDate) hash ^= RtSteamReleaseDate.GetHashCode();
       if (HasIconHash) hash ^= IconHash.GetHashCode();
-      if (HasControllerSupport) hash ^= ControllerSupport.GetHashCode();
+      if (HasXboxControllerSupport) hash ^= XboxControllerSupport.GetHashCode();
       if (HasVrSupported) hash ^= VrSupported.GetHashCode();
       if (HasMetacriticScore) hash ^= MetacriticScore.GetHashCode();
       if (HasSizeOnDisk) hash ^= SizeOnDisk.GetHashCode();
@@ -2739,6 +2944,10 @@ namespace OpenSteamworks.Protobuf {
       if (HasRtPurchasedTime) hash ^= RtPurchasedTime.GetHashCode();
       if (HasHeaderFilename) hash ^= HeaderFilename.GetHashCode();
       if (HasLocalCacheVersion) hash ^= LocalCacheVersion.GetHashCode();
+      if (HasPs4ControllerSupport) hash ^= Ps4ControllerSupport.GetHashCode();
+      if (HasPs5ControllerSupport) hash ^= Ps5ControllerSupport.GetHashCode();
+      if (HasGamepadPreferred) hash ^= GamepadPreferred.GetHashCode();
+      if (HasGamepadRequired) hash ^= GamepadRequired.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -2768,6 +2977,10 @@ namespace OpenSteamworks.Protobuf {
       if (HasVisibleInGameList) {
         output.WriteRawTag(32);
         output.WriteBool(VisibleInGameList);
+      }
+      if (HasSubscribedTo) {
+        output.WriteRawTag(40);
+        output.WriteBool(SubscribedTo);
       }
       if (HasSortAs) {
         output.WriteRawTag(50);
@@ -2812,9 +3025,9 @@ namespace OpenSteamworks.Protobuf {
         output.WriteRawTag(218, 1);
         output.WriteString(IconHash);
       }
-      if (HasControllerSupport) {
+      if (HasXboxControllerSupport) {
         output.WriteRawTag(248, 1);
-        output.WriteEnum((int) ControllerSupport);
+        output.WriteEnum((int) XboxControllerSupport);
       }
       if (HasVrSupported) {
         output.WriteRawTag(128, 2);
@@ -2933,6 +3146,22 @@ namespace OpenSteamworks.Protobuf {
         output.WriteRawTag(160, 4);
         output.WriteUInt32(LocalCacheVersion);
       }
+      if (HasPs4ControllerSupport) {
+        output.WriteRawTag(168, 4);
+        output.WriteEnum((int) Ps4ControllerSupport);
+      }
+      if (HasPs5ControllerSupport) {
+        output.WriteRawTag(176, 4);
+        output.WriteEnum((int) Ps5ControllerSupport);
+      }
+      if (HasGamepadPreferred) {
+        output.WriteRawTag(184, 4);
+        output.WriteBool(GamepadPreferred);
+      }
+      if (HasGamepadRequired) {
+        output.WriteRawTag(192, 4);
+        output.WriteBool(GamepadRequired);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -2954,6 +3183,10 @@ namespace OpenSteamworks.Protobuf {
       if (HasVisibleInGameList) {
         output.WriteRawTag(32);
         output.WriteBool(VisibleInGameList);
+      }
+      if (HasSubscribedTo) {
+        output.WriteRawTag(40);
+        output.WriteBool(SubscribedTo);
       }
       if (HasSortAs) {
         output.WriteRawTag(50);
@@ -2998,9 +3231,9 @@ namespace OpenSteamworks.Protobuf {
         output.WriteRawTag(218, 1);
         output.WriteString(IconHash);
       }
-      if (HasControllerSupport) {
+      if (HasXboxControllerSupport) {
         output.WriteRawTag(248, 1);
-        output.WriteEnum((int) ControllerSupport);
+        output.WriteEnum((int) XboxControllerSupport);
       }
       if (HasVrSupported) {
         output.WriteRawTag(128, 2);
@@ -3119,6 +3352,22 @@ namespace OpenSteamworks.Protobuf {
         output.WriteRawTag(160, 4);
         output.WriteUInt32(LocalCacheVersion);
       }
+      if (HasPs4ControllerSupport) {
+        output.WriteRawTag(168, 4);
+        output.WriteEnum((int) Ps4ControllerSupport);
+      }
+      if (HasPs5ControllerSupport) {
+        output.WriteRawTag(176, 4);
+        output.WriteEnum((int) Ps5ControllerSupport);
+      }
+      if (HasGamepadPreferred) {
+        output.WriteRawTag(184, 4);
+        output.WriteBool(GamepadPreferred);
+      }
+      if (HasGamepadRequired) {
+        output.WriteRawTag(192, 4);
+        output.WriteBool(GamepadRequired);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -3136,6 +3385,9 @@ namespace OpenSteamworks.Protobuf {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(DisplayName);
       }
       if (HasVisibleInGameList) {
+        size += 1 + 1;
+      }
+      if (HasSubscribedTo) {
         size += 1 + 1;
       }
       if (HasSortAs) {
@@ -3171,8 +3423,8 @@ namespace OpenSteamworks.Protobuf {
       if (HasIconHash) {
         size += 2 + pb::CodedOutputStream.ComputeStringSize(IconHash);
       }
-      if (HasControllerSupport) {
-        size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) ControllerSupport);
+      if (HasXboxControllerSupport) {
+        size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) XboxControllerSupport);
       }
       if (HasVrSupported) {
         size += 2 + 1;
@@ -3262,6 +3514,18 @@ namespace OpenSteamworks.Protobuf {
       if (HasLocalCacheVersion) {
         size += 2 + pb::CodedOutputStream.ComputeUInt32Size(LocalCacheVersion);
       }
+      if (HasPs4ControllerSupport) {
+        size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) Ps4ControllerSupport);
+      }
+      if (HasPs5ControllerSupport) {
+        size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) Ps5ControllerSupport);
+      }
+      if (HasGamepadPreferred) {
+        size += 2 + 1;
+      }
+      if (HasGamepadRequired) {
+        size += 2 + 1;
+      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -3282,6 +3546,9 @@ namespace OpenSteamworks.Protobuf {
       }
       if (other.HasVisibleInGameList) {
         VisibleInGameList = other.VisibleInGameList;
+      }
+      if (other.HasSubscribedTo) {
+        SubscribedTo = other.SubscribedTo;
       }
       if (other.HasSortAs) {
         SortAs = other.SortAs;
@@ -3316,8 +3583,8 @@ namespace OpenSteamworks.Protobuf {
       if (other.HasIconHash) {
         IconHash = other.IconHash;
       }
-      if (other.HasControllerSupport) {
-        ControllerSupport = other.ControllerSupport;
+      if (other.HasXboxControllerSupport) {
+        XboxControllerSupport = other.XboxControllerSupport;
       }
       if (other.HasVrSupported) {
         VrSupported = other.VrSupported;
@@ -3407,6 +3674,18 @@ namespace OpenSteamworks.Protobuf {
       if (other.HasLocalCacheVersion) {
         LocalCacheVersion = other.LocalCacheVersion;
       }
+      if (other.HasPs4ControllerSupport) {
+        Ps4ControllerSupport = other.Ps4ControllerSupport;
+      }
+      if (other.HasPs5ControllerSupport) {
+        Ps5ControllerSupport = other.Ps5ControllerSupport;
+      }
+      if (other.HasGamepadPreferred) {
+        GamepadPreferred = other.GamepadPreferred;
+      }
+      if (other.HasGamepadRequired) {
+        GamepadRequired = other.GamepadRequired;
+      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -3432,6 +3711,10 @@ namespace OpenSteamworks.Protobuf {
           }
           case 32: {
             VisibleInGameList = input.ReadBool();
+            break;
+          }
+          case 40: {
+            SubscribedTo = input.ReadBool();
             break;
           }
           case 50: {
@@ -3489,7 +3772,7 @@ namespace OpenSteamworks.Protobuf {
             break;
           }
           case 248: {
-            ControllerSupport = (global::OpenSteamworks.Protobuf.EAppControllerSupportLevel) input.ReadEnum();
+            XboxControllerSupport = (global::OpenSteamworks.Protobuf.EAppControllerSupportLevel) input.ReadEnum();
             break;
           }
           case 256: {
@@ -3612,6 +3895,22 @@ namespace OpenSteamworks.Protobuf {
             LocalCacheVersion = input.ReadUInt32();
             break;
           }
+          case 552: {
+            Ps4ControllerSupport = (global::OpenSteamworks.Protobuf.EAppControllerSupportLevel) input.ReadEnum();
+            break;
+          }
+          case 560: {
+            Ps5ControllerSupport = (global::OpenSteamworks.Protobuf.EAppControllerSupportLevel) input.ReadEnum();
+            break;
+          }
+          case 568: {
+            GamepadPreferred = input.ReadBool();
+            break;
+          }
+          case 576: {
+            GamepadRequired = input.ReadBool();
+            break;
+          }
         }
       }
     #endif
@@ -3637,6 +3936,10 @@ namespace OpenSteamworks.Protobuf {
           }
           case 32: {
             VisibleInGameList = input.ReadBool();
+            break;
+          }
+          case 40: {
+            SubscribedTo = input.ReadBool();
             break;
           }
           case 50: {
@@ -3694,7 +3997,7 @@ namespace OpenSteamworks.Protobuf {
             break;
           }
           case 248: {
-            ControllerSupport = (global::OpenSteamworks.Protobuf.EAppControllerSupportLevel) input.ReadEnum();
+            XboxControllerSupport = (global::OpenSteamworks.Protobuf.EAppControllerSupportLevel) input.ReadEnum();
             break;
           }
           case 256: {
@@ -3815,6 +4118,22 @@ namespace OpenSteamworks.Protobuf {
           }
           case 544: {
             LocalCacheVersion = input.ReadUInt32();
+            break;
+          }
+          case 552: {
+            Ps4ControllerSupport = (global::OpenSteamworks.Protobuf.EAppControllerSupportLevel) input.ReadEnum();
+            break;
+          }
+          case 560: {
+            Ps5ControllerSupport = (global::OpenSteamworks.Protobuf.EAppControllerSupportLevel) input.ReadEnum();
+            break;
+          }
+          case 568: {
+            GamepadPreferred = input.ReadBool();
+            break;
+          }
+          case 576: {
+            GamepadRequired = input.ReadBool();
             break;
           }
         }

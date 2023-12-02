@@ -19,6 +19,7 @@ using OpenSteamworks.Enums;
 using OpenSteamworks.Generated;
 using OpenSteamworks.Messaging;
 using OpenSteamworks.NativeTypes;
+using OpenSteamworks.Protobuf;
 using OpenSteamworks.Protobuf.WebUI;
 using OpenSteamworks.Structs;
 
@@ -60,26 +61,75 @@ public partial class MainWindowViewModel : ViewModelBase
 
     public async void DBG_LaunchFactorio() {
         IClientShortcuts shortcuts = AvaloniaApp.Container.Get<IClientShortcuts>();
-        CUtlVector<AppId_t> appids = new(1024, 0);
+        //CUtlVector<AppId_t> appids = new(1024, 0);
+        shortcuts.AddShortcut("wtf", "name", "exe", "workingdir", "unk");
+        uint appidslen = 0;
         unsafe
         {
-            Console.WriteLine("ret: " + shortcuts.GetShortcutAppIds(&appids));
+            uint* appids = null;
+            appidslen = shortcuts.GetShortcutAppIds(appids);
+            Console.WriteLine("ret: " + appidslen);
+            Console.WriteLine("ptr: " + (nint)appids);
         }
 
-        foreach (var item in appids.ToManagedAndFree())
-        {
-            Console.WriteLine("Item: " + item);
-        }
+        // foreach (var item in appids.ToManagedAndFree())
+        // {
+        //     Console.WriteLine("Item: " + item);
+        // }
         
         //await this.appsManager.LaunchApp(427520, 3, "gamemoderun %command%");
     }
 
     public async void DBG_LaunchCS2() {
+        ClientApps apps = AvaloniaApp.Container.Get<ClientApps>();
+        foreach (var item in apps.GetMultipleAppDataSectionsSync(730, new [] { EAppInfoSection.Common, EAppInfoSection.Extended, EAppInfoSection.Config }))
+        {
+            Console.WriteLine("item: " + item.ToString());
+        }
+        
         //await this.appsManager.LaunchApp(730, 1, "gamemoderun %command% -dev -sdlaudiodriver pipewire");
     }
 
     public async void DBG_LaunchSpel2() {
         //await this.appsManager.LaunchApp(418530, 0, "");
+        IClientUser user = AvaloniaApp.Container.Get<IClientUser>();
+        unsafe {
+            CMsgCellList list;
+            using (var hack = ProtobufHack.Create_CMsgCellList())
+            {
+                Console.WriteLine("ptr: " + hack.ptr);
+                Console.WriteLine("pre");
+                user.GetCellList(hack.ptr);
+                Console.WriteLine("post");
+                list = hack.GetManaged();
+            }
+
+            foreach (var item in list.Cells)
+            {
+                Console.WriteLine("i: " + item.CellId + " n: " + item.LocName);
+            }
+
+            // IntPtr ptr = ProtobufHack.CMsgCellList_Construct();
+            // Console.WriteLine("ptr: " + ptr);
+            // Console.WriteLine("pre");
+            // user.GetCellList(ptr);
+            // Console.WriteLine("post");
+            // var length = ProtobufHack.Protobuf_ByteSizeLong(ptr);
+
+            // CMsgCellList list;
+            // var bytes = new byte[length];
+            // fixed (byte* bptr = bytes) {
+            //     if (!ProtobufHack.Protobuf_SerializeToArray(ptr, bptr, length)) {
+            //         throw new Exception("Failed");
+            //     }
+            // }
+            // list = CMsgCellList.Parser.ParseFrom(bytes);
+            
+            // foreach (var item in list.Cells)
+            // {
+            //     Console.WriteLine("i: " + item.CellId + " n: " + item.LocName);
+            // }
+        }
     }
 
     public void DBG_OpenInterfaceList() => AvaloniaApp.Current?.OpenInterfaceList();

@@ -318,13 +318,14 @@ namespace OpenSteamworks.Protobuf {
             "Z2VfbGV2ZWwYAiABKA0idwogQ01zZ0NsaWVudFN0YXJ0UGVlckNvbnRlbnRT",
             "ZXJ2ZXISDwoHc3RlYW1pZBgBIAEoBhIYChBjbGllbnRfcmVtb3RlX2lkGAIg",
             "ASgGEg4KBmFwcF9pZBgDIAEoDRIYChBjdXJyZW50X2J1aWxkX2lkGAQgASgN",
-            "ImkKKENNc2dDbGllbnRTdGFydFBlZXJDb250ZW50U2VydmVyUmVzcG9uc2US",
+            "In8KKENNc2dDbGllbnRTdGFydFBlZXJDb250ZW50U2VydmVyUmVzcG9uc2US",
             "DgoGcmVzdWx0GAEgASgNEhMKC3NlcnZlcl9wb3J0GAIgASgNEhgKEGluc3Rh",
-            "bGxlZF9kZXBvdHMYAyADKA0iZgocQ01zZ0NsaWVudEdldFBlZXJDb250ZW50",
-            "SW5mbxIPCgdzdGVhbWlkGAEgASgGEhgKEGNsaWVudF9yZW1vdGVfaWQYAiAB",
-            "KAYSGwoTb3duZWRfZ2FtZXNfdmlzaWJsZRgDIAEoCCJECiRDTXNnQ2xpZW50",
-            "R2V0UGVlckNvbnRlbnRJbmZvUmVzcG9uc2USDgoGcmVzdWx0GAEgASgNEgwK",
-            "BGFwcHMYAiADKA1CH0gBgAEAqgIXT3BlblN0ZWFtd29ya3MuUHJvdG9idWY="));
+            "bGxlZF9kZXBvdHMYAyADKA0SFAoMYWNjZXNzX3Rva2VuGAQgASgEImYKHENN",
+            "c2dDbGllbnRHZXRQZWVyQ29udGVudEluZm8SDwoHc3RlYW1pZBgBIAEoBhIY",
+            "ChBjbGllbnRfcmVtb3RlX2lkGAIgASgGEhsKE293bmVkX2dhbWVzX3Zpc2li",
+            "bGUYAyABKAgiRAokQ01zZ0NsaWVudEdldFBlZXJDb250ZW50SW5mb1Jlc3Bv",
+            "bnNlEg4KBnJlc3VsdBgBIAEoDRIMCgRhcHBzGAIgAygNQh9IAYABAKoCF09w",
+            "ZW5TdGVhbXdvcmtzLlByb3RvYnVm"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.Reflection.DescriptorReflection.Descriptor, global::OpenSteamworks.Protobuf.SteammessagesBaseReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -433,7 +434,7 @@ namespace OpenSteamworks.Protobuf {
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CMsgClientVoiceCallPreAuthorizeResponse), global::OpenSteamworks.Protobuf.CMsgClientVoiceCallPreAuthorizeResponse.Parser, new[]{ "CallerSteamid", "ReceiverSteamid", "Eresult", "CallerId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CMsgBadgeCraftedNotification), global::OpenSteamworks.Protobuf.CMsgBadgeCraftedNotification.Parser, new[]{ "Appid", "BadgeLevel" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CMsgClientStartPeerContentServer), global::OpenSteamworks.Protobuf.CMsgClientStartPeerContentServer.Parser, new[]{ "Steamid", "ClientRemoteId", "AppId", "CurrentBuildId" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CMsgClientStartPeerContentServerResponse), global::OpenSteamworks.Protobuf.CMsgClientStartPeerContentServerResponse.Parser, new[]{ "Result", "ServerPort", "InstalledDepots" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CMsgClientStartPeerContentServerResponse), global::OpenSteamworks.Protobuf.CMsgClientStartPeerContentServerResponse.Parser, new[]{ "Result", "ServerPort", "InstalledDepots", "AccessToken" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CMsgClientGetPeerContentInfo), global::OpenSteamworks.Protobuf.CMsgClientGetPeerContentInfo.Parser, new[]{ "Steamid", "ClientRemoteId", "OwnedGamesVisible" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CMsgClientGetPeerContentInfoResponse), global::OpenSteamworks.Protobuf.CMsgClientGetPeerContentInfoResponse.Parser, new[]{ "Result", "Apps" }, null, null, null, null)
           }));
@@ -37974,6 +37975,7 @@ namespace OpenSteamworks.Protobuf {
       result_ = other.result_;
       serverPort_ = other.serverPort_;
       installedDepots_ = other.installedDepots_.Clone();
+      accessToken_ = other.accessToken_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -38048,6 +38050,33 @@ namespace OpenSteamworks.Protobuf {
       get { return installedDepots_; }
     }
 
+    /// <summary>Field number for the "access_token" field.</summary>
+    public const int AccessTokenFieldNumber = 4;
+    private readonly static ulong AccessTokenDefaultValue = 0UL;
+
+    private ulong accessToken_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ulong AccessToken {
+      get { if ((_hasBits0 & 4) != 0) { return accessToken_; } else { return AccessTokenDefaultValue; } }
+      set {
+        _hasBits0 |= 4;
+        accessToken_ = value;
+      }
+    }
+    /// <summary>Gets whether the "access_token" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasAccessToken {
+      get { return (_hasBits0 & 4) != 0; }
+    }
+    /// <summary>Clears the value of the "access_token" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearAccessToken() {
+      _hasBits0 &= ~4;
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -38066,6 +38095,7 @@ namespace OpenSteamworks.Protobuf {
       if (Result != other.Result) return false;
       if (ServerPort != other.ServerPort) return false;
       if(!installedDepots_.Equals(other.installedDepots_)) return false;
+      if (AccessToken != other.AccessToken) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -38076,6 +38106,7 @@ namespace OpenSteamworks.Protobuf {
       if (HasResult) hash ^= Result.GetHashCode();
       if (HasServerPort) hash ^= ServerPort.GetHashCode();
       hash ^= installedDepots_.GetHashCode();
+      if (HasAccessToken) hash ^= AccessToken.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -38103,6 +38134,10 @@ namespace OpenSteamworks.Protobuf {
         output.WriteUInt32(ServerPort);
       }
       installedDepots_.WriteTo(output, _repeated_installedDepots_codec);
+      if (HasAccessToken) {
+        output.WriteRawTag(32);
+        output.WriteUInt64(AccessToken);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -38122,6 +38157,10 @@ namespace OpenSteamworks.Protobuf {
         output.WriteUInt32(ServerPort);
       }
       installedDepots_.WriteTo(ref output, _repeated_installedDepots_codec);
+      if (HasAccessToken) {
+        output.WriteRawTag(32);
+        output.WriteUInt64(AccessToken);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -38139,6 +38178,9 @@ namespace OpenSteamworks.Protobuf {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(ServerPort);
       }
       size += installedDepots_.CalculateSize(_repeated_installedDepots_codec);
+      if (HasAccessToken) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(AccessToken);
+      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -38158,6 +38200,9 @@ namespace OpenSteamworks.Protobuf {
         ServerPort = other.ServerPort;
       }
       installedDepots_.Add(other.installedDepots_);
+      if (other.HasAccessToken) {
+        AccessToken = other.AccessToken;
+      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -38186,6 +38231,10 @@ namespace OpenSteamworks.Protobuf {
             installedDepots_.AddEntriesFrom(input, _repeated_installedDepots_codec);
             break;
           }
+          case 32: {
+            AccessToken = input.ReadUInt64();
+            break;
+          }
         }
       }
     #endif
@@ -38212,6 +38261,10 @@ namespace OpenSteamworks.Protobuf {
           case 26:
           case 24: {
             installedDepots_.AddEntriesFrom(ref input, _repeated_installedDepots_codec);
+            break;
+          }
+          case 32: {
+            AccessToken = input.ReadUInt64();
             break;
           }
         }

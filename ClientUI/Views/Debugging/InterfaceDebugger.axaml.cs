@@ -100,17 +100,16 @@ public partial class InterfaceDebugger : Window
 
             try {
                 bool isStruct = false;
-                bool isCustomValueType = paramInfo.ParameterType.GetCustomAttribute<CustomValueTypeAttribute>() != null;
+                Type pierceType = paramInfo.ParameterType.IsByRef ? paramInfo.ParameterType.GetElementType()! : paramInfo.ParameterType;
+                bool isCustomValueType = pierceType.GetCustomAttribute<CustomValueTypeAttribute>() != null;
                 Type? customValueType = null;
 
                 if (isCustomValueType) {
-                    customValueType = UtilityFunctions.AssertNotNull(paramInfo.ParameterType.GetField("_value", BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance)).FieldType;
+                    customValueType = UtilityFunctions.AssertNotNull(pierceType.GetField("_value", BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance)).FieldType;
                 }
-                
-                Type type = paramInfo.ParameterType.IsByRef ? paramInfo.ParameterType.GetElementType()! : paramInfo.ParameterType;
 
                 if (string.IsNullOrEmpty(paramCurrentText)) {
-                    if (type == typeof(string) || type == typeof(StringBuilder) || paramInfo.IsOut) {
+                    if (pierceType == typeof(string) || pierceType == typeof(StringBuilder) || paramInfo.IsOut) {
                         paramCurrentText = "";
                     } else {
                         MessageBox.Error("Function execution failed", "Failed to execute " + funcidentifier + "\n" + "Required argument " + paramInfo.Name + " missing!");
@@ -122,7 +121,7 @@ public partial class InterfaceDebugger : Window
                     refParams.Add(paramArr.Count, paramInfo);
                 }
 
-                if (type.IsValueType && !type.IsPrimitive && !type.IsEnum) {
+                if (pierceType.IsValueType && !pierceType.IsPrimitive && !pierceType.IsEnum) {
                     isStruct = true;
                 }
 
@@ -133,14 +132,14 @@ public partial class InterfaceDebugger : Window
 
                 if (isCustomValueType) {
                     // Custom value type, convert to int and then run implicit operator
-                    paramArr.Add(UtilityFunctions.AssertNotNull(type.GetMethod("op_Implicit", new [] {customValueType!})).Invoke(null, new [] { Convert.ChangeType(paramCurrentText, customValueType!) }));
+                    paramArr.Add(UtilityFunctions.AssertNotNull(pierceType.GetMethod("op_Implicit", new [] {customValueType!})).Invoke(null, new [] { Convert.ChangeType(paramCurrentText, customValueType!) }));
                     continue;
                 }
 
                 if (isStruct && !isCustomValueType) {
                     // This is a struct, find InterfaceDebuggerSupport and run it
                     MethodInfo? ci;
-                    ci = type.GetMethod("InterfaceDebuggerSupport", BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.Public, new Type[1] {
+                    ci = pierceType.GetMethod("InterfaceDebuggerSupport", BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.Public, new Type[1] {
                         typeof(string)
                     });
 
@@ -150,10 +149,10 @@ public partial class InterfaceDebugger : Window
                         continue;
                     }
 
-                    throw new NullReferenceException(type.Name + "doesn't take a string");
+                    throw new NullReferenceException(pierceType.Name + "doesn't take a string");
                 }
 
-                if (type == typeof(StringBuilder)) {
+                if (pierceType == typeof(StringBuilder)) {
                     UtilityFunctions.AssertNotNull(nextParamTextbox);
                     UtilityFunctions.AssertNotNull(nextParamTextbox.Text);
                     refParams.Add(paramArr.Count, paramInfo);
@@ -162,12 +161,12 @@ public partial class InterfaceDebugger : Window
                 }
 
                 // Enums need special handling...
-                if (type.IsEnum) {
-                    paramArr.Add(Enum.Parse(type, paramCurrentText));
+                if (pierceType.IsEnum) {
+                    paramArr.Add(Enum.Parse(pierceType, paramCurrentText));
                     continue;
                 }
 
-                paramArr.Add(Convert.ChangeType(paramCurrentText, type));
+                paramArr.Add(Convert.ChangeType(paramCurrentText, pierceType));
             } catch (Exception e) {
                 MessageBox.Error("Function execution failed", "Failed to execute " + funcidentifier + ": Conversion failed with param " + paramInfo.Name + Environment.NewLine + e.ToString());
                 return;

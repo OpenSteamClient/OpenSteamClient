@@ -7,6 +7,7 @@
 //=============================================================================
 
 using System;
+using System.Text;
 using OpenSteamworks.Enums;
 
 namespace OpenSteamworks.Generated;
@@ -57,8 +58,8 @@ public unsafe interface IClientUtils
     public unknown_ret SignalServiceAppsToDisconnect();  // argc: 0, index: 27
     // WARNING: Arguments are unknown!
     public unknown_ret TerminateAllApps();  // argc: 1, index: 28
-    public unknown_ret GetCellID();  // argc: 0, index: 29
-    public unknown_ret BIsGlobalInstance();  // argc: 0, index: 30
+    public uint GetCellID();  // argc: 0, index: 29
+    public bool BIsGlobalInstance();  // argc: 0, index: 30
     // WARNING: Arguments are unknown!
     public unknown_ret CheckFileSignature();  // argc: 1, index: 31
     public unknown_ret GetBuildID();  // argc: 0, index: 32
@@ -88,7 +89,7 @@ public unsafe interface IClientUtils
     // WARNING: Arguments are unknown!
     public unknown_ret SetFocusedWindow();  // argc: 4, index: 46
     public unknown_ret GetSteamUILanguage();  // argc: 0, index: 47
-    public unknown_ret CheckSteamReachable();  // argc: 0, index: 48
+    public SteamAPICall_t CheckSteamReachable();  // argc: 0, index: 48
     /// <summary>
     /// TODO: What does this do?
     /// </summary>
@@ -141,7 +142,7 @@ public unsafe interface IClientUtils
     // WARNING: Arguments are unknown!
     public unknown_ret DispatchOpenURLInClient();  // argc: 3, index: 76
     // WARNING: Arguments are unknown!
-    public unknown_ret UpdateWideVineCDM();  // argc: 1, index: 77
+    public SteamAPICall_t UpdateWideVineCDM();  // argc: 1, index: 77
     public unknown_ret DispatchClearAllBrowsingData();  // argc: 0, index: 78
     public unknown_ret DispatchClientSettingsChanged();  // argc: 0, index: 79
     // WARNING: Arguments are unknown!
@@ -159,7 +160,7 @@ public unsafe interface IClientUtils
     public unknown_ret ScheduleConnectivityTest();  // argc: 2, index: 86
     // WARNING: Arguments are unknown!
     public unknown_ret GetConnectivityTestState();  // argc: 1, index: 87
-    public unknown_ret GetCaptivePortalURL();  // argc: 0, index: 88
+    public string GetCaptivePortalURL();  // argc: 0, index: 88
     // WARNING: Arguments are unknown!
     public unknown_ret RecordSteamInterfaceCreation();  // argc: 2, index: 89
     public unknown_ret GetCloudGamingPlatform();  // argc: 0, index: 90
@@ -168,7 +169,7 @@ public unsafe interface IClientUtils
     // WARNING: Arguments are unknown!
     public unknown_ret BGetDiskSerialNumber();  // argc: 2, index: 92
     // WARNING: Arguments are unknown!
-    public unknown_ret GetSteamEnvironmentForApp();  // argc: 3, index: 93
+    public unknown_ret GetSteamEnvironmentForApp(AppId_t appid, StringBuilder buf, int bufMax);  // argc: 3, index: 93
     // WARNING: Arguments are unknown!
     public unknown_ret TestHTTP();  // argc: 1, index: 94
     // WARNING: Arguments are unknown!

@@ -28,6 +28,7 @@ public class CallResult<T> where T: unmanaged {
     }
 }
 
+//TODO: The code in this class is pretty terrible
 public class CallbackManager
 {
     public class CallbackHandler {
@@ -371,6 +372,22 @@ public class CallbackManager
         }, true);
 
         await tcs.Task;
+    }
+
+    public async Task<T> WaitForCallback<T>() {
+        return (T)await WaitForCallback(typeof(T));
+    }
+
+    public async Task<T> WaitForCallback<T>(Func<T, bool> checkMethod) where T: struct {
+        var tcs = new TaskCompletionSource<T>();
+
+        RegisterHandler<T>((CallbackHandler handler, T callbackResult) => {
+            if (checkMethod(callbackResult)) {
+                tcs.TrySetResult(callbackResult);
+            }
+        }, true);
+
+        return await tcs.Task;
     }
 
     public async Task<object> WaitForCallback(Type callbackType) {

@@ -7,6 +7,7 @@
 //=============================================================================
 
 using System;
+using OpenSteamworks.Enums;
 
 namespace OpenSteamworks.Generated;
 
@@ -29,7 +30,7 @@ public unsafe interface IClientVR
     public unknown_ret UpdateHmdStatus();  // argc: 0, index: 10
     public unknown_ret IsVRModeActive();  // argc: 0, index: 11
     // WARNING: Arguments are unknown!
-    public unknown_ret InitVR();  // argc: 3, index: 12
+    public unknown_ret InitVR(bool unk1, ref uint clientVRError, ref uint vrInitError);  // argc: 3, index: 12
     // WARNING: Arguments are unknown!
     public unknown_ret StartSteamVR();  // argc: 1, index: 13
     public unknown_ret CleanupVR();  // argc: 0, index: 14

@@ -47,9 +47,12 @@ public class Client : IClientLifetime
             SteamClient.ConCommandsLogger = Logger.GetLogger("OpenSteamworks-ConCommands", im.GetLogPath("OpenSteamworks_ConCommands"));
             SteamClient.MessagingLogger = Logger.GetLogger("OpenSteamworks-Messaging", im.GetLogPath("OpenSteamworks_Messaging"));
             SteamClient.CUtlLogger = Logger.GetLogger("OpenSteamworks-CUtl", im.GetLogPath("OpenSteamworks_CUtl"));
+            SteamClient.LogIncomingCallbacks = advancedConfig.LogIncomingCallbacks;
+            SteamClient.LogCallbackContents = advancedConfig.LogCallbackContents;
             return new SteamClient(bootstrapper.SteamclientLibPath, advancedConfig.EnabledConnectionTypes, advancedConfig.SteamClientSpew);
         });
         container.RegisterFactoryMethod<CallbackManager>((SteamClient client) => client.CallbackManager);
+        container.RegisterFactoryMethod<ClientApps>((SteamClient client) => client.ClientApps);
         container.RegisterFactoryMethod<ClientConfigStore>((SteamClient client) => client.ClientConfigStore);
         container.RegisterFactoryMethod<ClientMessaging>((SteamClient client) => client.ClientMessaging);
         container.RegisterFactoryMethod<IClientAppDisableUpdate>((SteamClient client) => client.NativeClient.IClientAppDisableUpdate);

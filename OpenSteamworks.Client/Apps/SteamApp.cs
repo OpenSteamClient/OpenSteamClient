@@ -104,6 +104,16 @@ public class SteamApp : AppBase, ILaunchableApp<AppDataConfigSection.LaunchOptio
     internal void SetAppInfoConfigSection(MemoryStream stream) {
         Config = SetAppInfoSection(stream, (kv) => new AppDataConfigSection(kv));
     }
+    
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="installDir"></param>
+    /// <returns>True if the game is installed</returns>
+    public bool TryGetInstallDir([NotNullWhen(true)] out string? installDir) {
+        installDir = null;
+        return false;
+    }
 
     public async Task<EResult> Launch(string userLaunchOptions, AppDataConfigSection.LaunchOption? launchOption = null)
     {
@@ -115,7 +125,7 @@ public class SteamApp : AppBase, ILaunchableApp<AppDataConfigSection.LaunchOptio
 
         if (this.Config.CheckForUpdatesBeforeLaunch) {
             logger.Info("Checking for updates (due to CheckForUpdatesBeforeLaunch)");
-            await AppsManager.RequestAppInfoUpdateForApp(AppID);
+            //await AppsManager.ClientApps.EnsureHasAppData(AppID);
         }
 
         await AppsManager.RunInstallScript(AppID);

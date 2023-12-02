@@ -53,6 +53,9 @@ public unsafe struct CUtlVector<T> where T : unmanaged {
     }
 }
 
+/// <summary>
+/// A CUtlVector<CUtlString>. Provided as a convenience so we can convert to a native string list easily.
+/// </summary>
 [StructLayout(LayoutKind.Sequential)]
 public unsafe struct CUtlStringList {
     public CUtlMemory<CUtlString> m_Memory;

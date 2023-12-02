@@ -29,7 +29,7 @@ public unsafe interface IClientShortcuts
     /// </summary>
     /// <param name="arr">Array out</param>
     /// <returns>The length of the array</returns>
-    public UInt32 GetShortcutAppIds(CUtlVector<AppId_t>* arr);  // argc: 1, index: 5
+    public UInt32 GetShortcutAppIds(uint* arr);  // argc: 1, index: 5
     // WARNING: Arguments are unknown!
     public unknown_ret GetShortcutInfoByIndex();  // argc: 2, index: 6
     // WARNING: Arguments are unknown!

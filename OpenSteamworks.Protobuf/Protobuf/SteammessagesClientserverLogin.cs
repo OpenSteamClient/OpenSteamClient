@@ -70,44 +70,43 @@ namespace OpenSteamworks.Protobuf {
             "IAEoCzIRLkNNc2dDbGllbnRTZWNyZXQSIgoaZGlzYWJsZV9wYXJ0bmVyX2F1",
             "dG9ncmFudHMYaiABKAgSFQoNaXNfc3RlYW1fZGVjaxhrIAEoCBIUCgxhY2Nl",
             "c3NfdG9rZW4YbCABKAkSFAoMaXNfY2hyb21lX29zGG0gASgIEhAKCGlzX3Rl",
-            "c2xhGG4gASgIIq4GChdDTXNnQ2xpZW50TG9nb25SZXNwb25zZRISCgdlcmVz",
+            "c2xhGG4gASgIIoYGChdDTXNnQ2xpZW50TG9nb25SZXNwb25zZRISCgdlcmVz",
             "dWx0GAEgASgFOgEyEiwKJGxlZ2FjeV9vdXRfb2ZfZ2FtZV9oZWFydGJlYXRf",
             "c2Vjb25kcxgCIAEoBRIZChFoZWFydGJlYXRfc2Vjb25kcxgDIAEoBRIcChRk",
             "ZXByZWNhdGVkX3B1YmxpY19pcBgEIAEoDRIbChNydGltZTMyX3NlcnZlcl90",
             "aW1lGAUgASgHEhUKDWFjY291bnRfZmxhZ3MYBiABKA0SDwoHY2VsbF9pZBgH",
             "IAEoDRIUCgxlbWFpbF9kb21haW4YCCABKAkSFQoNc3RlYW0yX3RpY2tldBgJ",
-            "IAEoDBIYChBlcmVzdWx0X2V4dGVuZGVkGAogASgFEiYKHndlYmFwaV9hdXRo",
-            "ZW50aWNhdGVfdXNlcl9ub25jZRgLIAEoCRIeChZjZWxsX2lkX3BpbmdfdGhy",
-            "ZXNob2xkGAwgASgNEhsKE2RlcHJlY2F0ZWRfdXNlX3BpY3MYDSABKAgSEgoK",
-            "dmFuaXR5X3VybBgOIAEoCRIhCglwdWJsaWNfaXAYDyABKAsyDi5DTXNnSVBB",
-            "ZGRyZXNzEhQKDHVzZXJfY291bnRyeRgQIAEoCRIfChdjbGllbnRfc3VwcGxp",
-            "ZWRfc3RlYW1pZBgUIAEoBhIXCg9pcF9jb3VudHJ5X2NvZGUYFSABKAkSGQoR",
-            "cGFyZW50YWxfc2V0dGluZ3MYFiABKAwSIgoacGFyZW50YWxfc2V0dGluZ19z",
-            "aWduYXR1cmUYFyABKAwSJgoeY291bnRfbG9naW5mYWlsdXJlc190b19taWdy",
-            "YXRlGBggASgFEiQKHGNvdW50X2Rpc2Nvbm5lY3RzX3RvX21pZ3JhdGUYGSAB",
-            "KAUSIwobb2dzX2RhdGFfcmVwb3J0X3RpbWVfd2luZG93GBogASgFEhoKEmNs",
-            "aWVudF9pbnN0YW5jZV9pZBgbIAEoBBIhChlmb3JjZV9jbGllbnRfdXBkYXRl",
-            "X2NoZWNrGBwgASgIEh0KFWFncmVlbWVudF9zZXNzaW9uX3VybBgdIAEoCRIQ",
-            "Cgh0b2tlbl9pZBgeIAEoBCJGCixDTXNnQ2xpZW50UmVxdWVzdFdlYkFQSUF1",
-            "dGhlbnRpY2F0ZVVzZXJOb25jZRIWCgp0b2tlbl90eXBlGAEgASgFOgItMSKK",
-            "AQo0Q01zZ0NsaWVudFJlcXVlc3RXZWJBUElBdXRoZW50aWNhdGVVc2VyTm9u",
-            "Y2VSZXNwb25zZRISCgdlcmVzdWx0GAEgASgFOgEyEiYKHndlYmFwaV9hdXRo",
-            "ZW50aWNhdGVfdXNlcl9ub25jZRgLIAEoCRIWCgp0b2tlbl90eXBlGAMgASgF",
-            "OgItMSISChBDTXNnQ2xpZW50TG9nT2ZmIikKE0NNc2dDbGllbnRMb2dnZWRP",
-            "ZmYSEgoHZXJlc3VsdBgBIAEoBToBMiI9ChVDTXNnQ2xpZW50TmV3TG9naW5L",
-            "ZXkSEQoJdW5pcXVlX2lkGAEgASgNEhEKCWxvZ2luX2tleRgCIAEoCSIyCh1D",
-            "TXNnQ2xpZW50TmV3TG9naW5LZXlBY2NlcHRlZBIRCgl1bmlxdWVfaWQYASAB",
-            "KA0iwwIKFUNNc2dDbGllbnRBY2NvdW50SW5mbxIUCgxwZXJzb25hX25hbWUY",
-            "ASABKAkSEgoKaXBfY291bnRyeRgCIAEoCRIeChZjb3VudF9hdXRoZWRfY29t",
-            "cHV0ZXJzGAUgASgFEhUKDWFjY291bnRfZmxhZ3MYByABKA0SEQoJZmFjZWJv",
-            "b2lkGAggASgEEhMKC2ZhY2Vib29uYW1lGAkgASgJEisKI3N0ZWFtZ3VhcmRf",
-            "bWFjaGluZV9uYW1lX3VzZXJfY2hvc2VuGA8gASgJEhkKEWlzX3Bob25lX3Zl",
-            "cmlmaWVkGBAgASgIEhgKEHR3b19mYWN0b3Jfc3RhdGUYESABKA0SHAoUaXNf",
-            "cGhvbmVfaWRlbnRpZnlpbmcYEiABKAgSIQoZaXNfcGhvbmVfbmVlZGluZ19y",
-            "ZXZlcmlmeRgTIAEoCCItChpDTXNnQ2xpZW50Q2hhbGxlbmdlUmVxdWVzdBIP",
-            "CgdzdGVhbWlkGAEgASgGIjAKG0NNc2dDbGllbnRDaGFsbGVuZ2VSZXNwb25z",
-            "ZRIRCgljaGFsbGVuZ2UYASABKAZCH0gBgAEAqgIXT3BlblN0ZWFtd29ya3Mu",
-            "UHJvdG9idWY="));
+            "IAEoDBIYChBlcmVzdWx0X2V4dGVuZGVkGAogASgFEh4KFmNlbGxfaWRfcGlu",
+            "Z190aHJlc2hvbGQYDCABKA0SGwoTZGVwcmVjYXRlZF91c2VfcGljcxgNIAEo",
+            "CBISCgp2YW5pdHlfdXJsGA4gASgJEiEKCXB1YmxpY19pcBgPIAEoCzIOLkNN",
+            "c2dJUEFkZHJlc3MSFAoMdXNlcl9jb3VudHJ5GBAgASgJEh8KF2NsaWVudF9z",
+            "dXBwbGllZF9zdGVhbWlkGBQgASgGEhcKD2lwX2NvdW50cnlfY29kZRgVIAEo",
+            "CRIZChFwYXJlbnRhbF9zZXR0aW5ncxgWIAEoDBIiChpwYXJlbnRhbF9zZXR0",
+            "aW5nX3NpZ25hdHVyZRgXIAEoDBImCh5jb3VudF9sb2dpbmZhaWx1cmVzX3Rv",
+            "X21pZ3JhdGUYGCABKAUSJAocY291bnRfZGlzY29ubmVjdHNfdG9fbWlncmF0",
+            "ZRgZIAEoBRIjChtvZ3NfZGF0YV9yZXBvcnRfdGltZV93aW5kb3cYGiABKAUS",
+            "GgoSY2xpZW50X2luc3RhbmNlX2lkGBsgASgEEiEKGWZvcmNlX2NsaWVudF91",
+            "cGRhdGVfY2hlY2sYHCABKAgSHQoVYWdyZWVtZW50X3Nlc3Npb25fdXJsGB0g",
+            "ASgJEhAKCHRva2VuX2lkGB4gASgEIkYKLENNc2dDbGllbnRSZXF1ZXN0V2Vi",
+            "QVBJQXV0aGVudGljYXRlVXNlck5vbmNlEhYKCnRva2VuX3R5cGUYASABKAU6",
+            "Ai0xIooBCjRDTXNnQ2xpZW50UmVxdWVzdFdlYkFQSUF1dGhlbnRpY2F0ZVVz",
+            "ZXJOb25jZVJlc3BvbnNlEhIKB2VyZXN1bHQYASABKAU6ATISJgoed2ViYXBp",
+            "X2F1dGhlbnRpY2F0ZV91c2VyX25vbmNlGAsgASgJEhYKCnRva2VuX3R5cGUY",
+            "AyABKAU6Ai0xIhIKEENNc2dDbGllbnRMb2dPZmYiKQoTQ01zZ0NsaWVudExv",
+            "Z2dlZE9mZhISCgdlcmVzdWx0GAEgASgFOgEyIj0KFUNNc2dDbGllbnROZXdM",
+            "b2dpbktleRIRCgl1bmlxdWVfaWQYASABKA0SEQoJbG9naW5fa2V5GAIgASgJ",
+            "IjIKHUNNc2dDbGllbnROZXdMb2dpbktleUFjY2VwdGVkEhEKCXVuaXF1ZV9p",
+            "ZBgBIAEoDSLDAgoVQ01zZ0NsaWVudEFjY291bnRJbmZvEhQKDHBlcnNvbmFf",
+            "bmFtZRgBIAEoCRISCgppcF9jb3VudHJ5GAIgASgJEh4KFmNvdW50X2F1dGhl",
+            "ZF9jb21wdXRlcnMYBSABKAUSFQoNYWNjb3VudF9mbGFncxgHIAEoDRIRCglm",
+            "YWNlYm9vaWQYCCABKAQSEwoLZmFjZWJvb25hbWUYCSABKAkSKwojc3RlYW1n",
+            "dWFyZF9tYWNoaW5lX25hbWVfdXNlcl9jaG9zZW4YDyABKAkSGQoRaXNfcGhv",
+            "bmVfdmVyaWZpZWQYECABKAgSGAoQdHdvX2ZhY3Rvcl9zdGF0ZRgRIAEoDRIc",
+            "ChRpc19waG9uZV9pZGVudGlmeWluZxgSIAEoCBIhChlpc19waG9uZV9uZWVk",
+            "aW5nX3JldmVyaWZ5GBMgASgIIi0KGkNNc2dDbGllbnRDaGFsbGVuZ2VSZXF1",
+            "ZXN0Eg8KB3N0ZWFtaWQYASABKAYiMAobQ01zZ0NsaWVudENoYWxsZW5nZVJl",
+            "c3BvbnNlEhEKCWNoYWxsZW5nZRgBIAEoBkIfSAGAAQCqAhdPcGVuU3RlYW13",
+            "b3Jrcy5Qcm90b2J1Zg=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.Reflection.DescriptorReflection.Descriptor, global::OpenSteamworks.Protobuf.SteammessagesBaseReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -117,7 +116,7 @@ namespace OpenSteamworks.Protobuf {
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CMsgClientSecret), global::OpenSteamworks.Protobuf.CMsgClientSecret.Parser, new[]{ "Version", "Appid", "Deviceid", "Nonce", "Hmac" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CMsgClientHello), global::OpenSteamworks.Protobuf.CMsgClientHello.Parser, new[]{ "ProtocolVersion" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CMsgClientLogon), global::OpenSteamworks.Protobuf.CMsgClientLogon.Parser, new[]{ "ProtocolVersion", "DeprecatedObfustucatedPrivateIp", "CellId", "LastSessionId", "ClientPackageVersion", "ClientLanguage", "ClientOsType", "ShouldRememberPassword", "WineVersion", "Deprecated10", "ObfuscatedPrivateIp", "DeprecatedPublicIp", "QosLevel", "ClientSuppliedSteamId", "PublicIp", "MachineId", "LauncherType", "UiMode", "ChatMode", "Steam2AuthTicket", "EmailAddress", "Rtime32AccountCreation", "AccountName", "Password", "GameServerToken", "LoginKey", "WasConvertedDeprecatedMsg", "AnonUserTargetAccountName", "ResolvedUserSteamId", "EresultSentryfile", "ShaSentryfile", "AuthCode", "OtpType", "OtpValue", "OtpIdentifier", "Steam2TicketRequest", "SonyPsnTicket", "SonyPsnServiceId", "CreateNewPsnLinkedAccountIfNeeded", "SonyPsnName", "GameServerAppId", "SteamguardDontRememberComputer", "MachineName", "MachineNameUserchosen", "CountryOverride", "IsSteamBox", "ClientInstanceId", "TwoFactorCode", "SupportsRateLimitResponse", "WebLogonNonce", "PriorityReason", "EmbeddedClientSecret", "DisablePartnerAutogrants", "IsSteamDeck", "AccessToken", "IsChromeOs", "IsTesla" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CMsgClientLogonResponse), global::OpenSteamworks.Protobuf.CMsgClientLogonResponse.Parser, new[]{ "Eresult", "LegacyOutOfGameHeartbeatSeconds", "HeartbeatSeconds", "DeprecatedPublicIp", "Rtime32ServerTime", "AccountFlags", "CellId", "EmailDomain", "Steam2Ticket", "EresultExtended", "WebapiAuthenticateUserNonce", "CellIdPingThreshold", "DeprecatedUsePics", "VanityUrl", "PublicIp", "UserCountry", "ClientSuppliedSteamid", "IpCountryCode", "ParentalSettings", "ParentalSettingSignature", "CountLoginfailuresToMigrate", "CountDisconnectsToMigrate", "OgsDataReportTimeWindow", "ClientInstanceId", "ForceClientUpdateCheck", "AgreementSessionUrl", "TokenId" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CMsgClientLogonResponse), global::OpenSteamworks.Protobuf.CMsgClientLogonResponse.Parser, new[]{ "Eresult", "LegacyOutOfGameHeartbeatSeconds", "HeartbeatSeconds", "DeprecatedPublicIp", "Rtime32ServerTime", "AccountFlags", "CellId", "EmailDomain", "Steam2Ticket", "EresultExtended", "CellIdPingThreshold", "DeprecatedUsePics", "VanityUrl", "PublicIp", "UserCountry", "ClientSuppliedSteamid", "IpCountryCode", "ParentalSettings", "ParentalSettingSignature", "CountLoginfailuresToMigrate", "CountDisconnectsToMigrate", "OgsDataReportTimeWindow", "ClientInstanceId", "ForceClientUpdateCheck", "AgreementSessionUrl", "TokenId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CMsgClientRequestWebAPIAuthenticateUserNonce), global::OpenSteamworks.Protobuf.CMsgClientRequestWebAPIAuthenticateUserNonce.Parser, new[]{ "TokenType" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CMsgClientRequestWebAPIAuthenticateUserNonceResponse), global::OpenSteamworks.Protobuf.CMsgClientRequestWebAPIAuthenticateUserNonceResponse.Parser, new[]{ "Eresult", "WebapiAuthenticateUserNonce", "TokenType" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CMsgClientLogOff), global::OpenSteamworks.Protobuf.CMsgClientLogOff.Parser, null, null, null, null, null),
@@ -4548,7 +4547,6 @@ namespace OpenSteamworks.Protobuf {
       emailDomain_ = other.emailDomain_;
       steam2Ticket_ = other.steam2Ticket_;
       eresultExtended_ = other.eresultExtended_;
-      webapiAuthenticateUserNonce_ = other.webapiAuthenticateUserNonce_;
       cellIdPingThreshold_ = other.cellIdPingThreshold_;
       deprecatedUsePics_ = other.deprecatedUsePics_;
       vanityUrl_ = other.vanityUrl_;
@@ -4840,32 +4838,6 @@ namespace OpenSteamworks.Protobuf {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void ClearEresultExtended() {
       _hasBits0 &= ~128;
-    }
-
-    /// <summary>Field number for the "webapi_authenticate_user_nonce" field.</summary>
-    public const int WebapiAuthenticateUserNonceFieldNumber = 11;
-    private readonly static string WebapiAuthenticateUserNonceDefaultValue = "";
-
-    private string webapiAuthenticateUserNonce_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string WebapiAuthenticateUserNonce {
-      get { return webapiAuthenticateUserNonce_ ?? WebapiAuthenticateUserNonceDefaultValue; }
-      set {
-        webapiAuthenticateUserNonce_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-    /// <summary>Gets whether the "webapi_authenticate_user_nonce" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasWebapiAuthenticateUserNonce {
-      get { return webapiAuthenticateUserNonce_ != null; }
-    }
-    /// <summary>Clears the value of the "webapi_authenticate_user_nonce" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearWebapiAuthenticateUserNonce() {
-      webapiAuthenticateUserNonce_ = null;
     }
 
     /// <summary>Field number for the "cell_id_ping_threshold" field.</summary>
@@ -5304,7 +5276,6 @@ namespace OpenSteamworks.Protobuf {
       if (EmailDomain != other.EmailDomain) return false;
       if (Steam2Ticket != other.Steam2Ticket) return false;
       if (EresultExtended != other.EresultExtended) return false;
-      if (WebapiAuthenticateUserNonce != other.WebapiAuthenticateUserNonce) return false;
       if (CellIdPingThreshold != other.CellIdPingThreshold) return false;
       if (DeprecatedUsePics != other.DeprecatedUsePics) return false;
       if (VanityUrl != other.VanityUrl) return false;
@@ -5338,7 +5309,6 @@ namespace OpenSteamworks.Protobuf {
       if (HasEmailDomain) hash ^= EmailDomain.GetHashCode();
       if (HasSteam2Ticket) hash ^= Steam2Ticket.GetHashCode();
       if (HasEresultExtended) hash ^= EresultExtended.GetHashCode();
-      if (HasWebapiAuthenticateUserNonce) hash ^= WebapiAuthenticateUserNonce.GetHashCode();
       if (HasCellIdPingThreshold) hash ^= CellIdPingThreshold.GetHashCode();
       if (HasDeprecatedUsePics) hash ^= DeprecatedUsePics.GetHashCode();
       if (HasVanityUrl) hash ^= VanityUrl.GetHashCode();
@@ -5412,10 +5382,6 @@ namespace OpenSteamworks.Protobuf {
       if (HasEresultExtended) {
         output.WriteRawTag(80);
         output.WriteInt32(EresultExtended);
-      }
-      if (HasWebapiAuthenticateUserNonce) {
-        output.WriteRawTag(90);
-        output.WriteString(WebapiAuthenticateUserNonce);
       }
       if (HasCellIdPingThreshold) {
         output.WriteRawTag(96);
@@ -5531,10 +5497,6 @@ namespace OpenSteamworks.Protobuf {
         output.WriteRawTag(80);
         output.WriteInt32(EresultExtended);
       }
-      if (HasWebapiAuthenticateUserNonce) {
-        output.WriteRawTag(90);
-        output.WriteString(WebapiAuthenticateUserNonce);
-      }
       if (HasCellIdPingThreshold) {
         output.WriteRawTag(96);
         output.WriteUInt32(CellIdPingThreshold);
@@ -5639,9 +5601,6 @@ namespace OpenSteamworks.Protobuf {
       if (HasEresultExtended) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(EresultExtended);
       }
-      if (HasWebapiAuthenticateUserNonce) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(WebapiAuthenticateUserNonce);
-      }
       if (HasCellIdPingThreshold) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(CellIdPingThreshold);
       }
@@ -5731,9 +5690,6 @@ namespace OpenSteamworks.Protobuf {
       }
       if (other.HasEresultExtended) {
         EresultExtended = other.EresultExtended;
-      }
-      if (other.HasWebapiAuthenticateUserNonce) {
-        WebapiAuthenticateUserNonce = other.WebapiAuthenticateUserNonce;
       }
       if (other.HasCellIdPingThreshold) {
         CellIdPingThreshold = other.CellIdPingThreshold;
@@ -5839,10 +5795,6 @@ namespace OpenSteamworks.Protobuf {
           }
           case 80: {
             EresultExtended = input.ReadInt32();
-            break;
-          }
-          case 90: {
-            WebapiAuthenticateUserNonce = input.ReadString();
             break;
           }
           case 96: {
@@ -5965,10 +5917,6 @@ namespace OpenSteamworks.Protobuf {
           }
           case 80: {
             EresultExtended = input.ReadInt32();
-            break;
-          }
-          case 90: {
-            WebapiAuthenticateUserNonce = input.ReadString();
             break;
           }
           case 96: {

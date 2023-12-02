@@ -198,8 +198,7 @@ public class Bootstrapper : IClientLifetime {
                     ("sdk32", Path.Combine(installManager.InstallDir, "linux32")),
                     ("bin64", Path.Combine(installManager.InstallDir, "ubuntu12_64")),
                     ("bin32", Path.Combine(installManager.InstallDir, "ubuntu12_32")),
-                    // bin points to bin32 on valve's install, we're 64-bit so we should probably point to bin64
-                    ("bin", Path.Combine(installManager.DatalinkDir, "bin64")),
+                    ("bin", Path.Combine(installManager.DatalinkDir, "bin32")),
                 };
 
                 // Create needed directory structure
@@ -308,7 +307,7 @@ public class Bootstrapper : IClientLifetime {
 
     [SupportedOSPlatform("linux")]
     private void ReExecWithEnvs(bool withDebugger) {
-        [DllImport("libc")]
+        [DllImport("libc", SetLastError = true)]
         static extern int execvp([MarshalAs(UnmanagedType.LPUTF8Str)] string file, [MarshalAs(UnmanagedType.LPArray)] string?[] args);
 
         logger.Info("Re-execing");
@@ -325,6 +324,7 @@ public class Bootstrapper : IClientLifetime {
         logger.Debug("Re-exec executable: " + executable);
         if (!executable.EndsWith("dotnet")) {
             fullArgs[0] = executable;
+            fullArgs = fullArgs.Append(null).ToArray();
         } else {
             fullArgs = fullArgs.Prepend(executable).Append(null).ToArray();
         }
@@ -336,7 +336,7 @@ public class Bootstrapper : IClientLifetime {
 
         // Program execution ends here, if execvp returns, it means re-execution failed
         int ret = execvp(executable, fullArgs);
-        throw new Exception($"Execvp failed: {ret}");
+        throw new Exception($"Execvp failed: {ret}, errno: {Marshal.GetLastWin32Error()}");
     }
 
     // Sets environment variables necessary for steamclient to work properly.

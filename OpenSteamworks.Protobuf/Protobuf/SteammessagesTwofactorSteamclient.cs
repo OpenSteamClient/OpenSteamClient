@@ -70,141 +70,140 @@ namespace OpenSteamworks.Protobuf {
             "d28tZmFjdG9yKRJfChB0aW1lX3RyYW5zZmVycmVkGA0gASgNQkWCtRhBV2hl",
             "biB0aGUgdG9rZW4gd2FzIHRyYW5zZmVycmVkIGZyb20gYW5vdGhlciBkZXZp",
             "Y2UsIGlmIGFwcGxpY2FibGUSKgoHdmVyc2lvbhgOIAEoDUIZgrUYFUN1cnJl",
-            "bnQgdG9rZW4gdmVyc2lvbiLzAwojQ1R3b0ZhY3Rvcl9BZGRBdXRoZW50aWNh",
+            "bnQgdG9rZW4gdmVyc2lvbiKwAwojQ1R3b0ZhY3Rvcl9BZGRBdXRoZW50aWNh",
             "dG9yX1JlcXVlc3QSIwoHc3RlYW1pZBgBIAEoBkISgrUYDnN0ZWFtaWQgdG8g",
             "dXNlEjoKEmF1dGhlbnRpY2F0b3JfdGltZRgCIAEoBEIegrUYGkN1cnJlbnQg",
             "YXV0aGVudGljYXRvciB0aW1lEj8KDXNlcmlhbF9udW1iZXIYAyABKAZCKIK1",
             "GCRsb2NhbGx5IGNvbXB1dGVkIHNlcmlhbCAoZGVwcmVjYXRlZCkSMgoSYXV0",
             "aGVudGljYXRvcl90eXBlGAQgASgNQhaCtRgSQXV0aGVudGljYXRvciB0eXBl",
             "EjcKEWRldmljZV9pZGVudGlmaWVyGAUgASgJQhyCtRgYQXV0aGVudGljYXRv",
-            "ciBpZGVudGlmaWVyEkEKDHNtc19waG9uZV9pZBgGIAEoCUIrgrUYJ0lEIG9m",
-            "IHBob25lIHRvIHVzZSBmb3IgU01TIHZlcmlmaWNhdGlvbhI5CgxodHRwX2hl",
-            "YWRlcnMYByADKAlCI4K1GB9IVFRQIGhlYWRlcnMgYWx0ZXJuYXRpbmcgYnkg",
-            "Sy9WEj8KB3ZlcnNpb24YCCABKA06ATFCK4K1GCdXaGF0IHRoZSB2ZXJzaW9u",
-            "IG9mIG91ciB0b2tlbiBzaG91bGQgYmUiygUKJENUd29GYWN0b3JfQWRkQXV0",
-            "aGVudGljYXRvcl9SZXNwb25zZRJJCg1zaGFyZWRfc2VjcmV0GAEgASgMQjKC",
-            "tRguU2hhcmVkIHNlY3JldCBiZXR3ZWVuIHNlcnZlciBhbmQgYXV0aGVudGlj",
-            "YXRvchJJCg1zZXJpYWxfbnVtYmVyGAIgASgGQjKCtRguQXV0aGVudGljYXRv",
-            "ciBzZXJpYWwgbnVtYmVyICh1bmlxdWUgcGVyIHRva2VuKRI+Cg9yZXZvY2F0",
-            "aW9uX2NvZGUYAyABKAlCJYK1GCFjb2RlIHVzZWQgdG8gcmV2b2tlIGF1dGhl",
-            "bnRpY2F0b3ISKwoDdXJpGAQgASgJQh6CtRgaVVJJIGZvciBRUiBjb2RlIGdl",
-            "bmVyYXRpb24SLAoLc2VydmVyX3RpbWUYBSABKARCF4K1GBNDdXJyZW50IHNl",
-            "cnZlciB0aW1lEkEKDGFjY291bnRfbmFtZRgGIAEoCUIrgrUYJ0FjY291bnQg",
-            "bmFtZSB0byBkaXNwbGF5IG9uIHRva2VuIGNsaWVudBIzCgl0b2tlbl9naWQY",
-            "ByABKAlCIIK1GBxUb2tlbiBHSUQgYXNzaWduZWQgYnkgc2VydmVyElYKD2lk",
-            "ZW50aXR5X3NlY3JldBgIIAEoDEI9grUYOVNlY3JldCB1c2VkIGZvciBpZGVu",
-            "dGl0eSBhdHRlc3RhdGlvbiAoZS5nLiwgZm9yIGV2ZW50aW5nKRIpCghzZWNy",
-            "ZXRfMRgJIAEoDEIXgrUYE1NwYXJlIHNoYXJlZCBzZWNyZXQSHwoGc3RhdHVz",
-            "GAogASgFQg+CtRgLUmVzdWx0IGNvZGUSVQoRcGhvbmVfbnVtYmVyX2hpbnQY",
-            "CyABKAlCOoK1GDZhIHBvcnRpb24gb2YgdGhlIHBob25lIG51bWJlciB0aGUg",
-            "U01TIGNvZGUgd2FzIHNlbnQgdG8i3QEKHENUd29GYWN0b3JfU2VuZEVtYWls",
-            "X1JlcXVlc3QSIwoHc3RlYW1pZBgBIAEoBkISgrUYDlN0ZWFtaWQgdG8gdXNl",
-            "EkYKCmVtYWlsX3R5cGUYAiABKA1CMoK1GC5UeXBlIG9mIGVtYWlsIHRvIHNl",
-            "bmQgKEVUd29GYWN0b3JFbWFpbFR5cGU6OiopElAKF2luY2x1ZGVfYWN0aXZh",
-            "dGlvbl9jb2RlGAMgASgIQi+CtRgrSW5jbHVkZSBhY3RpdmF0aW9uIGNvZGUg",
-            "aW4gZW1haWwgcGFyYW1ldGVycyIfCh1DVHdvRmFjdG9yX1NlbmRFbWFpbF9S",
-            "ZXNwb25zZSLHAworQ1R3b0ZhY3Rvcl9GaW5hbGl6ZUFkZEF1dGhlbnRpY2F0",
-            "b3JfUmVxdWVzdBIjCgdzdGVhbWlkGAEgASgGQhKCtRgOc3RlYW1pZCB0byB1",
-            "c2USMQoSYXV0aGVudGljYXRvcl9jb2RlGAIgASgJQhWCtRgRQ3VycmVudCBh",
-            "dXRoIGNvZGUSOgoSYXV0aGVudGljYXRvcl90aW1lGAMgASgEQh6CtRgaQ3Vy",
-            "cmVudCBhdXRoZW50aWNhdG9yIHRpbWUSRQoPYWN0aXZhdGlvbl9jb2RlGAQg",
-            "ASgJQiyCtRgoQWN0aXZhdGlvbiBjb2RlIGZyb20gb3V0LW9mLWJhbmQgbWVz",
-            "c2FnZRI5CgxodHRwX2hlYWRlcnMYBSADKAlCI4K1GB9IVFRQIGhlYWRlcnMg",
-            "YWx0ZXJuYXRpbmcgYnkgSy9WEoEBChF2YWxpZGF0ZV9zbXNfY29kZRgGIAEo",
-            "CEJmgrUYYldoZW4gZmluYWxpemluZyB3aXRoIGFuIFNNUyBjb2RlLCBwYXNz",
-            "IHRoZSByZXF1ZXN0IG9uIHRvIHRoZSBQaG9uZVNlcnZpY2UgdG8gdXBkYXRl",
-            "IGl0cyBzdGF0ZSB0b28uIukBCixDVHdvRmFjdG9yX0ZpbmFsaXplQWRkQXV0",
-            "aGVudGljYXRvcl9SZXNwb25zZRI6CgdzdWNjZXNzGAEgASgIQimCtRglVHJ1",
-            "ZSBpZiBzdWNjZWVkZWQsIG9yIHdhbnQgbW9yZSB0cmllcxIuCgl3YW50X21v",
-            "cmUYAiABKAhCG4K1GBdUcnVlIGlmIHdhbnQgbW9yZSB0cmllcxIsCgtzZXJ2",
-            "ZXJfdGltZRgDIAEoBEIXgrUYE0N1cnJlbnQgc2VydmVyIHRpbWUSHwoGc3Rh",
-            "dHVzGAQgASgFQg+CtRgLUmVzdWx0IGNvZGUisgEKJUNUd29GYWN0b3JfVXBk",
-            "YXRlVG9rZW5WZXJzaW9uX1JlcXVlc3QSDwoHc3RlYW1pZBgBIAEoBhI8Cgd2",
-            "ZXJzaW9uGAIgASgNQiuCtRgnV2hhdCB0aGUgdmVyc2lvbiBvZiBvdXIgdG9r",
-            "ZW4gc2hvdWxkIGJlEjoKCXNpZ25hdHVyZRgDIAEoDEIngrUYI0hNQUMgZGln",
-            "ZXN0IG92ZXIgdXNlcidzIHByaXZhdGUga2V5IigKJkNUd29GYWN0b3JfVXBk",
-            "YXRlVG9rZW5WZXJzaW9uX1Jlc3BvbnNlIssCCiZDVHdvRmFjdG9yX1JlbW92",
-            "ZUF1dGhlbnRpY2F0b3JfUmVxdWVzdBI8Cg9yZXZvY2F0aW9uX2NvZGUYAiAB",
-            "KAlCI4K1GB9QYXNzd29yZCBuZWVkZWQgdG8gcmVtb3ZlIHRva2VuEkgKEXJl",
-            "dm9jYXRpb25fcmVhc29uGAUgASgNQi2CtRgpUmVhc29uIHRoZSBhdXRoZW50",
-            "aWNhdG9yIGlzIGJlaW5nIHJlbW92ZWQSTwoRc3RlYW1ndWFyZF9zY2hlbWUY",
-            "BiABKA1CNIK1GDBUeXBlIG9mIFN0ZWFtIEd1YXJkIHRvIHVzZSBvbmNlIHRv",
-            "a2VuIGlzIHJlbW92ZWQSSAodcmVtb3ZlX2FsbF9zdGVhbWd1YXJkX2Nvb2tp",
-            "ZXMYByABKAhCIYK1GB1SZW1vdmUgYWxsIHN0ZWFtZ3VhcmQgY29va2llcyL+",
-            "AQonQ1R3b0ZhY3Rvcl9SZW1vdmVBdXRoZW50aWNhdG9yX1Jlc3BvbnNlEkwK",
-            "B3N1Y2Nlc3MYASABKAhCO4K1GDdUcnVlIGlmIHJlcXVlc3Qgc3VjY2VlZWRl",
-            "ZC4gVGhlIG1vYmlsZSBhcHAgY2hlY2tzIHRoaXMuEiwKC3NlcnZlcl90aW1l",
-            "GAMgASgEQheCtRgTQ3VycmVudCBzZXJ2ZXIgdGltZRJXCh1yZXZvY2F0aW9u",
-            "X2F0dGVtcHRzX3JlbWFpbmluZxgFIAEoDUIwgrUYLE51bWJlciBvZiByZXZv",
-            "Y2F0aW9uIGNvZGUgYXR0ZW1wdHMgcmVtYWluaW5nIjkKN0NUd29GYWN0b3Jf",
-            "UmVtb3ZlQXV0aGVudGljYXRvclZpYUNoYWxsZW5nZVN0YXJ0X1JlcXVlc3Qi",
-            "kQEKOENUd29GYWN0b3JfUmVtb3ZlQXV0aGVudGljYXRvclZpYUNoYWxsZW5n",
-            "ZVN0YXJ0X1Jlc3BvbnNlElUKB3N1Y2Nlc3MYASABKAhCRIK1GEBUcnVlIGlm",
-            "IHN1Y2NlZWRlZCwgb3Igd2FudCBtb3JlIHRyaWVzIHdpdGggYW4gYXV0aGVu",
-            "dGljYXRvcl9jb2RlIvQBCjpDVHdvRmFjdG9yX1JlbW92ZUF1dGhlbnRpY2F0",
-            "b3JWaWFDaGFsbGVuZ2VDb250aW51ZV9SZXF1ZXN0EiMKCHNtc19jb2RlGAEg",
-            "ASgJQhGCtRgNQ29kZSBmcm9tIFNNUxJQChJnZW5lcmF0ZV9uZXdfdG9rZW4Y",
-            "AiABKAhCNIK1GDBHZW5lcmF0ZSBuZXcgdG9rZW4gKGluc3RlYWQgb2YgcmVt",
-            "b3Zpbmcgb2xkIG9uZSkSPwoHdmVyc2lvbhgDIAEoDToBMUIrgrUYJ1doYXQg",
-            "dGhlIHZlcnNpb24gb2Ygb3VyIHRva2VuIHNob3VsZCBiZSKNBgo6Q1JlbW92",
-            "ZUF1dGhlbnRpY2F0b3JWaWFDaGFsbGVuZ2VDb250aW51ZV9SZXBsYWNlbWVu",
-            "dF9Ub2tlbhJJCg1zaGFyZWRfc2VjcmV0GAEgASgMQjKCtRguU2hhcmVkIHNl",
-            "Y3JldCBiZXR3ZWVuIHNlcnZlciBhbmQgYXV0aGVudGljYXRvchJJCg1zZXJp",
-            "YWxfbnVtYmVyGAIgASgGQjKCtRguQXV0aGVudGljYXRvciBzZXJpYWwgbnVt",
-            "YmVyICh1bmlxdWUgcGVyIHRva2VuKRI+Cg9yZXZvY2F0aW9uX2NvZGUYAyAB",
-            "KAlCJYK1GCFjb2RlIHVzZWQgdG8gcmV2b2tlIGF1dGhlbnRpY2F0b3ISKwoD",
-            "dXJpGAQgASgJQh6CtRgaVVJJIGZvciBRUiBjb2RlIGdlbmVyYXRpb24SLAoL",
-            "c2VydmVyX3RpbWUYBSABKARCF4K1GBNDdXJyZW50IHNlcnZlciB0aW1lEkEK",
-            "DGFjY291bnRfbmFtZRgGIAEoCUIrgrUYJ0FjY291bnQgbmFtZSB0byBkaXNw",
-            "bGF5IG9uIHRva2VuIGNsaWVudBIzCgl0b2tlbl9naWQYByABKAlCIIK1GBxU",
-            "b2tlbiBHSUQgYXNzaWduZWQgYnkgc2VydmVyElYKD2lkZW50aXR5X3NlY3Jl",
-            "dBgIIAEoDEI9grUYOVNlY3JldCB1c2VkIGZvciBpZGVudGl0eSBhdHRlc3Rh",
-            "dGlvbiAoZS5nLiwgZm9yIGV2ZW50aW5nKRIpCghzZWNyZXRfMRgJIAEoDEIX",
-            "grUYE1NwYXJlIHNoYXJlZCBzZWNyZXQSHwoGc3RhdHVzGAogASgFQg+CtRgL",
-            "UmVzdWx0IGNvZGUSTwoRc3RlYW1ndWFyZF9zY2hlbWUYCyABKA1CNIK1GDBU",
-            "eXBlIG9mIFN0ZWFtIEd1YXJkIHRvIHVzZSBvbmNlIHRva2VuIGlzIHJlbW92",
-            "ZWQSMQoHc3RlYW1pZBgMIAEoBkIggrUYHHN0ZWFtaWQgdGhhdCBvd25zIHRo",
-            "ZSBzZWNyZXQiiQIKO0NUd29GYWN0b3JfUmVtb3ZlQXV0aGVudGljYXRvclZp",
-            "YUNoYWxsZW5nZUNvbnRpbnVlX1Jlc3BvbnNlElUKB3N1Y2Nlc3MYASABKAhC",
-            "RIK1GEBUcnVlIGlmIHN1Y2NlZWRlZCwgb3Igd2FudCBtb3JlIHRyaWVzIHdp",
-            "dGggYW4gYXV0aGVudGljYXRvcl9jb2RlEnMKEXJlcGxhY2VtZW50X3Rva2Vu",
-            "GAIgASgLMjsuQ1JlbW92ZUF1dGhlbnRpY2F0b3JWaWFDaGFsbGVuZ2VDb250",
-            "aW51ZV9SZXBsYWNlbWVudF9Ub2tlbkIbgrUYF0ZyZXNoIHNlY3JldCB0byBp",
-            "bnN0YWxsMuYLCglUd29GYWN0b3ISawoJUXVlcnlUaW1lEhguQ1R3b0ZhY3Rv",
-            "cl9UaW1lX1JlcXVlc3QaGS5DVHdvRmFjdG9yX1RpbWVfUmVzcG9uc2UiKYK1",
-            "GCVHZXQgc2VydmVyJ3MgaWRlYSBvZiB0aGUgY3VycmVudCB0aW1lEowBCgtR",
-            "dWVyeVN0YXR1cxIaLkNUd29GYWN0b3JfU3RhdHVzX1JlcXVlc3QaGy5DVHdv",
-            "RmFjdG9yX1N0YXR1c19SZXNwb25zZSJEgrUYQEdldCB0d28tZmFjdG9yIGF1",
-            "dGhlbnRpY2F0aW9uIHNldHRpbmdzIGZvciB0aGUgbG9nZ2VkLWluIGFjY291",
-            "bnQSmgEKEEFkZEF1dGhlbnRpY2F0b3ISJC5DVHdvRmFjdG9yX0FkZEF1dGhl",
-            "bnRpY2F0b3JfUmVxdWVzdBolLkNUd29GYWN0b3JfQWRkQXV0aGVudGljYXRv",
-            "cl9SZXNwb25zZSI5grUYNUFkZCB0d28tZmFjdG9yIGF1dGhlbnRpY2F0b3Ig",
-            "dG8gdGhlIGxvZ2dlZC1pbiBhY2NvdW50EmkKCVNlbmRFbWFpbBIdLkNUd29G",
-            "YWN0b3JfU2VuZEVtYWlsX1JlcXVlc3QaHi5DVHdvRmFjdG9yX1NlbmRFbWFp",
-            "bF9SZXNwb25zZSIdgrUYGVNlbmQgZW1haWwgdG8gdGhlIGFjY291bnQSwQEK",
-            "GEZpbmFsaXplQWRkQXV0aGVudGljYXRvchIsLkNUd29GYWN0b3JfRmluYWxp",
-            "emVBZGRBdXRoZW50aWNhdG9yX1JlcXVlc3QaLS5DVHdvRmFjdG9yX0ZpbmFs",
-            "aXplQWRkQXV0aGVudGljYXRvcl9SZXNwb25zZSJIgrUYREZpbmFsaXplIHR3",
-            "by1mYWN0b3IgYXV0aGVudGljYXRpb24gYWRkaXRpb24gdG8gdGhlIGxvZ2dl",
-            "ZC1pbiBhY2NvdW50EooBChJVcGRhdGVUb2tlblZlcnNpb24SJi5DVHdvRmFj",
-            "dG9yX1VwZGF0ZVRva2VuVmVyc2lvbl9SZXF1ZXN0GicuQ1R3b0ZhY3Rvcl9V",
-            "cGRhdGVUb2tlblZlcnNpb25fUmVzcG9uc2UiI4K1GB9VcGRhdGUgdGhlIHZl",
-            "cnNpb24gZm9yIG15IHRva2VuErIBChNSZW1vdmVBdXRoZW50aWNhdG9yEicu",
-            "Q1R3b0ZhY3Rvcl9SZW1vdmVBdXRoZW50aWNhdG9yX1JlcXVlc3QaKC5DVHdv",
-            "RmFjdG9yX1JlbW92ZUF1dGhlbnRpY2F0b3JfUmVzcG9uc2UiSIK1GERSZW1v",
-            "dmUgdHdvLWZhY3RvciBhdXRoZW50aWNhdGlvbiBhZGRpdGlvbiBmcm9tIHRo",
-            "ZSBsb2dnZWQtaW4gYWNjb3VudBLMAQokUmVtb3ZlQXV0aGVudGljYXRvclZp",
-            "YUNoYWxsZW5nZVN0YXJ0EjguQ1R3b0ZhY3Rvcl9SZW1vdmVBdXRoZW50aWNh",
-            "dG9yVmlhQ2hhbGxlbmdlU3RhcnRfUmVxdWVzdBo5LkNUd29GYWN0b3JfUmVt",
-            "b3ZlQXV0aGVudGljYXRvclZpYUNoYWxsZW5nZVN0YXJ0X1Jlc3BvbnNlIi+C",
-            "tRgrU3RhcnQgY2hhbGxlbmdlLWJhc2VkIGF1dGhlbnRpY2F0b3IgcmVtb3Zh",
-            "bBLYAQonUmVtb3ZlQXV0aGVudGljYXRvclZpYUNoYWxsZW5nZUNvbnRpbnVl",
-            "EjsuQ1R3b0ZhY3Rvcl9SZW1vdmVBdXRoZW50aWNhdG9yVmlhQ2hhbGxlbmdl",
-            "Q29udGludWVfUmVxdWVzdBo8LkNUd29GYWN0b3JfUmVtb3ZlQXV0aGVudGlj",
-            "YXRvclZpYUNoYWxsZW5nZUNvbnRpbnVlX1Jlc3BvbnNlIjKCtRguQ29udGlu",
-            "dWUgY2hhbGxlbmdlLWJhc2VkIGF1dGhlbnRpY2F0b3IgcmVtb3ZhbBolgrUY",
-            "IVR3byBGYWN0b3IgQXV0aGVudGljYXRpb24gU2VydmljZUIdgAEBqgIXT3Bl",
-            "blN0ZWFtd29ya3MuUHJvdG9idWY="));
+            "ciBpZGVudGlmaWVyEjkKDGh0dHBfaGVhZGVycxgHIAMoCUIjgrUYH0hUVFAg",
+            "aGVhZGVycyBhbHRlcm5hdGluZyBieSBLL1YSPwoHdmVyc2lvbhgIIAEoDToB",
+            "MUIrgrUYJ1doYXQgdGhlIHZlcnNpb24gb2Ygb3VyIHRva2VuIHNob3VsZCBi",
+            "ZSKXBgokQ1R3b0ZhY3Rvcl9BZGRBdXRoZW50aWNhdG9yX1Jlc3BvbnNlEkkK",
+            "DXNoYXJlZF9zZWNyZXQYASABKAxCMoK1GC5TaGFyZWQgc2VjcmV0IGJldHdl",
+            "ZW4gc2VydmVyIGFuZCBhdXRoZW50aWNhdG9yEkkKDXNlcmlhbF9udW1iZXIY",
+            "AiABKAZCMoK1GC5BdXRoZW50aWNhdG9yIHNlcmlhbCBudW1iZXIgKHVuaXF1",
+            "ZSBwZXIgdG9rZW4pEj4KD3Jldm9jYXRpb25fY29kZRgDIAEoCUIlgrUYIWNv",
+            "ZGUgdXNlZCB0byByZXZva2UgYXV0aGVudGljYXRvchIrCgN1cmkYBCABKAlC",
+            "HoK1GBpVUkkgZm9yIFFSIGNvZGUgZ2VuZXJhdGlvbhIsCgtzZXJ2ZXJfdGlt",
+            "ZRgFIAEoBEIXgrUYE0N1cnJlbnQgc2VydmVyIHRpbWUSQQoMYWNjb3VudF9u",
+            "YW1lGAYgASgJQiuCtRgnQWNjb3VudCBuYW1lIHRvIGRpc3BsYXkgb24gdG9r",
+            "ZW4gY2xpZW50EjMKCXRva2VuX2dpZBgHIAEoCUIggrUYHFRva2VuIEdJRCBh",
+            "c3NpZ25lZCBieSBzZXJ2ZXISVgoPaWRlbnRpdHlfc2VjcmV0GAggASgMQj2C",
+            "tRg5U2VjcmV0IHVzZWQgZm9yIGlkZW50aXR5IGF0dGVzdGF0aW9uIChlLmcu",
+            "LCBmb3IgZXZlbnRpbmcpEikKCHNlY3JldF8xGAkgASgMQheCtRgTU3BhcmUg",
+            "c2hhcmVkIHNlY3JldBIfCgZzdGF0dXMYCiABKAVCD4K1GAtSZXN1bHQgY29k",
+            "ZRJVChFwaG9uZV9udW1iZXJfaGludBgLIAEoCUI6grUYNmEgcG9ydGlvbiBv",
+            "ZiB0aGUgcGhvbmUgbnVtYmVyIHRoZSBTTVMgY29kZSB3YXMgc2VudCB0bxJL",
+            "Cgxjb25maXJtX3R5cGUYDCABKAVCNYK1GDFob3cgd2UgZXhwZWN0IHRvIGNv",
+            "bmZpcm0gYWRkaW5nIHRoZSBhdXRoZW50aWNhdG9yIt0BChxDVHdvRmFjdG9y",
+            "X1NlbmRFbWFpbF9SZXF1ZXN0EiMKB3N0ZWFtaWQYASABKAZCEoK1GA5TdGVh",
+            "bWlkIHRvIHVzZRJGCgplbWFpbF90eXBlGAIgASgNQjKCtRguVHlwZSBvZiBl",
+            "bWFpbCB0byBzZW5kIChFVHdvRmFjdG9yRW1haWxUeXBlOjoqKRJQChdpbmNs",
+            "dWRlX2FjdGl2YXRpb25fY29kZRgDIAEoCEIvgrUYK0luY2x1ZGUgYWN0aXZh",
+            "dGlvbiBjb2RlIGluIGVtYWlsIHBhcmFtZXRlcnMiHwodQ1R3b0ZhY3Rvcl9T",
+            "ZW5kRW1haWxfUmVzcG9uc2UixwMKK0NUd29GYWN0b3JfRmluYWxpemVBZGRB",
+            "dXRoZW50aWNhdG9yX1JlcXVlc3QSIwoHc3RlYW1pZBgBIAEoBkISgrUYDnN0",
+            "ZWFtaWQgdG8gdXNlEjEKEmF1dGhlbnRpY2F0b3JfY29kZRgCIAEoCUIVgrUY",
+            "EUN1cnJlbnQgYXV0aCBjb2RlEjoKEmF1dGhlbnRpY2F0b3JfdGltZRgDIAEo",
+            "BEIegrUYGkN1cnJlbnQgYXV0aGVudGljYXRvciB0aW1lEkUKD2FjdGl2YXRp",
+            "b25fY29kZRgEIAEoCUIsgrUYKEFjdGl2YXRpb24gY29kZSBmcm9tIG91dC1v",
+            "Zi1iYW5kIG1lc3NhZ2USOQoMaHR0cF9oZWFkZXJzGAUgAygJQiOCtRgfSFRU",
+            "UCBoZWFkZXJzIGFsdGVybmF0aW5nIGJ5IEsvVhKBAQoRdmFsaWRhdGVfc21z",
+            "X2NvZGUYBiABKAhCZoK1GGJXaGVuIGZpbmFsaXppbmcgd2l0aCBhbiBTTVMg",
+            "Y29kZSwgcGFzcyB0aGUgcmVxdWVzdCBvbiB0byB0aGUgUGhvbmVTZXJ2aWNl",
+            "IHRvIHVwZGF0ZSBpdHMgc3RhdGUgdG9vLiK5AQosQ1R3b0ZhY3Rvcl9GaW5h",
+            "bGl6ZUFkZEF1dGhlbnRpY2F0b3JfUmVzcG9uc2USOgoHc3VjY2VzcxgBIAEo",
+            "CEIpgrUYJVRydWUgaWYgc3VjY2VlZGVkLCBvciB3YW50IG1vcmUgdHJpZXMS",
+            "LAoLc2VydmVyX3RpbWUYAyABKARCF4K1GBNDdXJyZW50IHNlcnZlciB0aW1l",
+            "Eh8KBnN0YXR1cxgEIAEoBUIPgrUYC1Jlc3VsdCBjb2RlIrIBCiVDVHdvRmFj",
+            "dG9yX1VwZGF0ZVRva2VuVmVyc2lvbl9SZXF1ZXN0Eg8KB3N0ZWFtaWQYASAB",
+            "KAYSPAoHdmVyc2lvbhgCIAEoDUIrgrUYJ1doYXQgdGhlIHZlcnNpb24gb2Yg",
+            "b3VyIHRva2VuIHNob3VsZCBiZRI6CglzaWduYXR1cmUYAyABKAxCJ4K1GCNI",
+            "TUFDIGRpZ2VzdCBvdmVyIHVzZXIncyBwcml2YXRlIGtleSIoCiZDVHdvRmFj",
+            "dG9yX1VwZGF0ZVRva2VuVmVyc2lvbl9SZXNwb25zZSLLAgomQ1R3b0ZhY3Rv",
+            "cl9SZW1vdmVBdXRoZW50aWNhdG9yX1JlcXVlc3QSPAoPcmV2b2NhdGlvbl9j",
+            "b2RlGAIgASgJQiOCtRgfUGFzc3dvcmQgbmVlZGVkIHRvIHJlbW92ZSB0b2tl",
+            "bhJIChFyZXZvY2F0aW9uX3JlYXNvbhgFIAEoDUItgrUYKVJlYXNvbiB0aGUg",
+            "YXV0aGVudGljYXRvciBpcyBiZWluZyByZW1vdmVkEk8KEXN0ZWFtZ3VhcmRf",
+            "c2NoZW1lGAYgASgNQjSCtRgwVHlwZSBvZiBTdGVhbSBHdWFyZCB0byB1c2Ug",
+            "b25jZSB0b2tlbiBpcyByZW1vdmVkEkgKHXJlbW92ZV9hbGxfc3RlYW1ndWFy",
+            "ZF9jb29raWVzGAcgASgIQiGCtRgdUmVtb3ZlIGFsbCBzdGVhbWd1YXJkIGNv",
+            "b2tpZXMi/gEKJ0NUd29GYWN0b3JfUmVtb3ZlQXV0aGVudGljYXRvcl9SZXNw",
+            "b25zZRJMCgdzdWNjZXNzGAEgASgIQjuCtRg3VHJ1ZSBpZiByZXF1ZXN0IHN1",
+            "Y2NlZWVkZWQuIFRoZSBtb2JpbGUgYXBwIGNoZWNrcyB0aGlzLhIsCgtzZXJ2",
+            "ZXJfdGltZRgDIAEoBEIXgrUYE0N1cnJlbnQgc2VydmVyIHRpbWUSVwodcmV2",
+            "b2NhdGlvbl9hdHRlbXB0c19yZW1haW5pbmcYBSABKA1CMIK1GCxOdW1iZXIg",
+            "b2YgcmV2b2NhdGlvbiBjb2RlIGF0dGVtcHRzIHJlbWFpbmluZyI5CjdDVHdv",
+            "RmFjdG9yX1JlbW92ZUF1dGhlbnRpY2F0b3JWaWFDaGFsbGVuZ2VTdGFydF9S",
+            "ZXF1ZXN0IpEBCjhDVHdvRmFjdG9yX1JlbW92ZUF1dGhlbnRpY2F0b3JWaWFD",
+            "aGFsbGVuZ2VTdGFydF9SZXNwb25zZRJVCgdzdWNjZXNzGAEgASgIQkSCtRhA",
+            "VHJ1ZSBpZiBzdWNjZWVkZWQsIG9yIHdhbnQgbW9yZSB0cmllcyB3aXRoIGFu",
+            "IGF1dGhlbnRpY2F0b3JfY29kZSL0AQo6Q1R3b0ZhY3Rvcl9SZW1vdmVBdXRo",
+            "ZW50aWNhdG9yVmlhQ2hhbGxlbmdlQ29udGludWVfUmVxdWVzdBIjCghzbXNf",
+            "Y29kZRgBIAEoCUIRgrUYDUNvZGUgZnJvbSBTTVMSUAoSZ2VuZXJhdGVfbmV3",
+            "X3Rva2VuGAIgASgIQjSCtRgwR2VuZXJhdGUgbmV3IHRva2VuIChpbnN0ZWFk",
+            "IG9mIHJlbW92aW5nIG9sZCBvbmUpEj8KB3ZlcnNpb24YAyABKA06ATFCK4K1",
+            "GCdXaGF0IHRoZSB2ZXJzaW9uIG9mIG91ciB0b2tlbiBzaG91bGQgYmUijQYK",
+            "OkNSZW1vdmVBdXRoZW50aWNhdG9yVmlhQ2hhbGxlbmdlQ29udGludWVfUmVw",
+            "bGFjZW1lbnRfVG9rZW4SSQoNc2hhcmVkX3NlY3JldBgBIAEoDEIygrUYLlNo",
+            "YXJlZCBzZWNyZXQgYmV0d2VlbiBzZXJ2ZXIgYW5kIGF1dGhlbnRpY2F0b3IS",
+            "SQoNc2VyaWFsX251bWJlchgCIAEoBkIygrUYLkF1dGhlbnRpY2F0b3Igc2Vy",
+            "aWFsIG51bWJlciAodW5pcXVlIHBlciB0b2tlbikSPgoPcmV2b2NhdGlvbl9j",
+            "b2RlGAMgASgJQiWCtRghY29kZSB1c2VkIHRvIHJldm9rZSBhdXRoZW50aWNh",
+            "dG9yEisKA3VyaRgEIAEoCUIegrUYGlVSSSBmb3IgUVIgY29kZSBnZW5lcmF0",
+            "aW9uEiwKC3NlcnZlcl90aW1lGAUgASgEQheCtRgTQ3VycmVudCBzZXJ2ZXIg",
+            "dGltZRJBCgxhY2NvdW50X25hbWUYBiABKAlCK4K1GCdBY2NvdW50IG5hbWUg",
+            "dG8gZGlzcGxheSBvbiB0b2tlbiBjbGllbnQSMwoJdG9rZW5fZ2lkGAcgASgJ",
+            "QiCCtRgcVG9rZW4gR0lEIGFzc2lnbmVkIGJ5IHNlcnZlchJWCg9pZGVudGl0",
+            "eV9zZWNyZXQYCCABKAxCPYK1GDlTZWNyZXQgdXNlZCBmb3IgaWRlbnRpdHkg",
+            "YXR0ZXN0YXRpb24gKGUuZy4sIGZvciBldmVudGluZykSKQoIc2VjcmV0XzEY",
+            "CSABKAxCF4K1GBNTcGFyZSBzaGFyZWQgc2VjcmV0Eh8KBnN0YXR1cxgKIAEo",
+            "BUIPgrUYC1Jlc3VsdCBjb2RlEk8KEXN0ZWFtZ3VhcmRfc2NoZW1lGAsgASgN",
+            "QjSCtRgwVHlwZSBvZiBTdGVhbSBHdWFyZCB0byB1c2Ugb25jZSB0b2tlbiBp",
+            "cyByZW1vdmVkEjEKB3N0ZWFtaWQYDCABKAZCIIK1GBxzdGVhbWlkIHRoYXQg",
+            "b3ducyB0aGUgc2VjcmV0IokCCjtDVHdvRmFjdG9yX1JlbW92ZUF1dGhlbnRp",
+            "Y2F0b3JWaWFDaGFsbGVuZ2VDb250aW51ZV9SZXNwb25zZRJVCgdzdWNjZXNz",
+            "GAEgASgIQkSCtRhAVHJ1ZSBpZiBzdWNjZWVkZWQsIG9yIHdhbnQgbW9yZSB0",
+            "cmllcyB3aXRoIGFuIGF1dGhlbnRpY2F0b3JfY29kZRJzChFyZXBsYWNlbWVu",
+            "dF90b2tlbhgCIAEoCzI7LkNSZW1vdmVBdXRoZW50aWNhdG9yVmlhQ2hhbGxl",
+            "bmdlQ29udGludWVfUmVwbGFjZW1lbnRfVG9rZW5CG4K1GBdGcmVzaCBzZWNy",
+            "ZXQgdG8gaW5zdGFsbDLmCwoJVHdvRmFjdG9yEmsKCVF1ZXJ5VGltZRIYLkNU",
+            "d29GYWN0b3JfVGltZV9SZXF1ZXN0GhkuQ1R3b0ZhY3Rvcl9UaW1lX1Jlc3Bv",
+            "bnNlIimCtRglR2V0IHNlcnZlcidzIGlkZWEgb2YgdGhlIGN1cnJlbnQgdGlt",
+            "ZRKMAQoLUXVlcnlTdGF0dXMSGi5DVHdvRmFjdG9yX1N0YXR1c19SZXF1ZXN0",
+            "GhsuQ1R3b0ZhY3Rvcl9TdGF0dXNfUmVzcG9uc2UiRIK1GEBHZXQgdHdvLWZh",
+            "Y3RvciBhdXRoZW50aWNhdGlvbiBzZXR0aW5ncyBmb3IgdGhlIGxvZ2dlZC1p",
+            "biBhY2NvdW50EpoBChBBZGRBdXRoZW50aWNhdG9yEiQuQ1R3b0ZhY3Rvcl9B",
+            "ZGRBdXRoZW50aWNhdG9yX1JlcXVlc3QaJS5DVHdvRmFjdG9yX0FkZEF1dGhl",
+            "bnRpY2F0b3JfUmVzcG9uc2UiOYK1GDVBZGQgdHdvLWZhY3RvciBhdXRoZW50",
+            "aWNhdG9yIHRvIHRoZSBsb2dnZWQtaW4gYWNjb3VudBJpCglTZW5kRW1haWwS",
+            "HS5DVHdvRmFjdG9yX1NlbmRFbWFpbF9SZXF1ZXN0Gh4uQ1R3b0ZhY3Rvcl9T",
+            "ZW5kRW1haWxfUmVzcG9uc2UiHYK1GBlTZW5kIGVtYWlsIHRvIHRoZSBhY2Nv",
+            "dW50EsEBChhGaW5hbGl6ZUFkZEF1dGhlbnRpY2F0b3ISLC5DVHdvRmFjdG9y",
+            "X0ZpbmFsaXplQWRkQXV0aGVudGljYXRvcl9SZXF1ZXN0Gi0uQ1R3b0ZhY3Rv",
+            "cl9GaW5hbGl6ZUFkZEF1dGhlbnRpY2F0b3JfUmVzcG9uc2UiSIK1GERGaW5h",
+            "bGl6ZSB0d28tZmFjdG9yIGF1dGhlbnRpY2F0aW9uIGFkZGl0aW9uIHRvIHRo",
+            "ZSBsb2dnZWQtaW4gYWNjb3VudBKKAQoSVXBkYXRlVG9rZW5WZXJzaW9uEiYu",
+            "Q1R3b0ZhY3Rvcl9VcGRhdGVUb2tlblZlcnNpb25fUmVxdWVzdBonLkNUd29G",
+            "YWN0b3JfVXBkYXRlVG9rZW5WZXJzaW9uX1Jlc3BvbnNlIiOCtRgfVXBkYXRl",
+            "IHRoZSB2ZXJzaW9uIGZvciBteSB0b2tlbhKyAQoTUmVtb3ZlQXV0aGVudGlj",
+            "YXRvchInLkNUd29GYWN0b3JfUmVtb3ZlQXV0aGVudGljYXRvcl9SZXF1ZXN0",
+            "GiguQ1R3b0ZhY3Rvcl9SZW1vdmVBdXRoZW50aWNhdG9yX1Jlc3BvbnNlIkiC",
+            "tRhEUmVtb3ZlIHR3by1mYWN0b3IgYXV0aGVudGljYXRpb24gYWRkaXRpb24g",
+            "ZnJvbSB0aGUgbG9nZ2VkLWluIGFjY291bnQSzAEKJFJlbW92ZUF1dGhlbnRp",
+            "Y2F0b3JWaWFDaGFsbGVuZ2VTdGFydBI4LkNUd29GYWN0b3JfUmVtb3ZlQXV0",
+            "aGVudGljYXRvclZpYUNoYWxsZW5nZVN0YXJ0X1JlcXVlc3QaOS5DVHdvRmFj",
+            "dG9yX1JlbW92ZUF1dGhlbnRpY2F0b3JWaWFDaGFsbGVuZ2VTdGFydF9SZXNw",
+            "b25zZSIvgrUYK1N0YXJ0IGNoYWxsZW5nZS1iYXNlZCBhdXRoZW50aWNhdG9y",
+            "IHJlbW92YWwS2AEKJ1JlbW92ZUF1dGhlbnRpY2F0b3JWaWFDaGFsbGVuZ2VD",
+            "b250aW51ZRI7LkNUd29GYWN0b3JfUmVtb3ZlQXV0aGVudGljYXRvclZpYUNo",
+            "YWxsZW5nZUNvbnRpbnVlX1JlcXVlc3QaPC5DVHdvRmFjdG9yX1JlbW92ZUF1",
+            "dGhlbnRpY2F0b3JWaWFDaGFsbGVuZ2VDb250aW51ZV9SZXNwb25zZSIygrUY",
+            "LkNvbnRpbnVlIGNoYWxsZW5nZS1iYXNlZCBhdXRoZW50aWNhdG9yIHJlbW92",
+            "YWwaJYK1GCFUd28gRmFjdG9yIEF1dGhlbnRpY2F0aW9uIFNlcnZpY2VCHYAB",
+            "AaoCF09wZW5TdGVhbXdvcmtzLlByb3RvYnVm"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.Reflection.DescriptorReflection.Descriptor, global::OpenSteamworks.Protobuf.SteammessagesBaseReflection.Descriptor, global::OpenSteamworks.Protobuf.SteammessagesUnifiedBaseSteamclientReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -212,12 +211,12 @@ namespace OpenSteamworks.Protobuf {
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CTwoFactor_Time_Response), global::OpenSteamworks.Protobuf.CTwoFactor_Time_Response.Parser, new[]{ "ServerTime", "SkewToleranceSeconds", "LargeTimeJink", "ProbeFrequencySeconds", "AdjustedTimeProbeFrequencySeconds", "HintProbeFrequencySeconds", "SyncTimeout", "TryAgainSeconds", "MaxAttempts" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CTwoFactor_Status_Request), global::OpenSteamworks.Protobuf.CTwoFactor_Status_Request.Parser, new[]{ "Steamid" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CTwoFactor_Status_Response), global::OpenSteamworks.Protobuf.CTwoFactor_Status_Response.Parser, new[]{ "State", "InactivationReason", "AuthenticatorType", "AuthenticatorAllowed", "SteamguardScheme", "TokenGid", "EmailValidated", "DeviceIdentifier", "TimeCreated", "RevocationAttemptsRemaining", "ClassifiedAgent", "AllowExternalAuthenticator", "TimeTransferred", "Version" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CTwoFactor_AddAuthenticator_Request), global::OpenSteamworks.Protobuf.CTwoFactor_AddAuthenticator_Request.Parser, new[]{ "Steamid", "AuthenticatorTime", "SerialNumber", "AuthenticatorType", "DeviceIdentifier", "SmsPhoneId", "HttpHeaders", "Version" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CTwoFactor_AddAuthenticator_Response), global::OpenSteamworks.Protobuf.CTwoFactor_AddAuthenticator_Response.Parser, new[]{ "SharedSecret", "SerialNumber", "RevocationCode", "Uri", "ServerTime", "AccountName", "TokenGid", "IdentitySecret", "Secret1", "Status", "PhoneNumberHint" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CTwoFactor_AddAuthenticator_Request), global::OpenSteamworks.Protobuf.CTwoFactor_AddAuthenticator_Request.Parser, new[]{ "Steamid", "AuthenticatorTime", "SerialNumber", "AuthenticatorType", "DeviceIdentifier", "HttpHeaders", "Version" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CTwoFactor_AddAuthenticator_Response), global::OpenSteamworks.Protobuf.CTwoFactor_AddAuthenticator_Response.Parser, new[]{ "SharedSecret", "SerialNumber", "RevocationCode", "Uri", "ServerTime", "AccountName", "TokenGid", "IdentitySecret", "Secret1", "Status", "PhoneNumberHint", "ConfirmType" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CTwoFactor_SendEmail_Request), global::OpenSteamworks.Protobuf.CTwoFactor_SendEmail_Request.Parser, new[]{ "Steamid", "EmailType", "IncludeActivationCode" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CTwoFactor_SendEmail_Response), global::OpenSteamworks.Protobuf.CTwoFactor_SendEmail_Response.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CTwoFactor_FinalizeAddAuthenticator_Request), global::OpenSteamworks.Protobuf.CTwoFactor_FinalizeAddAuthenticator_Request.Parser, new[]{ "Steamid", "AuthenticatorCode", "AuthenticatorTime", "ActivationCode", "HttpHeaders", "ValidateSmsCode" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CTwoFactor_FinalizeAddAuthenticator_Response), global::OpenSteamworks.Protobuf.CTwoFactor_FinalizeAddAuthenticator_Response.Parser, new[]{ "Success", "WantMore", "ServerTime", "Status" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CTwoFactor_FinalizeAddAuthenticator_Response), global::OpenSteamworks.Protobuf.CTwoFactor_FinalizeAddAuthenticator_Response.Parser, new[]{ "Success", "ServerTime", "Status" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CTwoFactor_UpdateTokenVersion_Request), global::OpenSteamworks.Protobuf.CTwoFactor_UpdateTokenVersion_Request.Parser, new[]{ "Steamid", "Version", "Signature" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CTwoFactor_UpdateTokenVersion_Response), global::OpenSteamworks.Protobuf.CTwoFactor_UpdateTokenVersion_Response.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CTwoFactor_RemoveAuthenticator_Request), global::OpenSteamworks.Protobuf.CTwoFactor_RemoveAuthenticator_Request.Parser, new[]{ "RevocationCode", "RevocationReason", "SteamguardScheme", "RemoveAllSteamguardCookies" }, null, null, null, null),
@@ -2187,7 +2186,6 @@ namespace OpenSteamworks.Protobuf {
       serialNumber_ = other.serialNumber_;
       authenticatorType_ = other.authenticatorType_;
       deviceIdentifier_ = other.deviceIdentifier_;
-      smsPhoneId_ = other.smsPhoneId_;
       httpHeaders_ = other.httpHeaders_.Clone();
       version_ = other.version_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -2333,32 +2331,6 @@ namespace OpenSteamworks.Protobuf {
       deviceIdentifier_ = null;
     }
 
-    /// <summary>Field number for the "sms_phone_id" field.</summary>
-    public const int SmsPhoneIdFieldNumber = 6;
-    private readonly static string SmsPhoneIdDefaultValue = "";
-
-    private string smsPhoneId_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string SmsPhoneId {
-      get { return smsPhoneId_ ?? SmsPhoneIdDefaultValue; }
-      set {
-        smsPhoneId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-    /// <summary>Gets whether the "sms_phone_id" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasSmsPhoneId {
-      get { return smsPhoneId_ != null; }
-    }
-    /// <summary>Clears the value of the "sms_phone_id" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearSmsPhoneId() {
-      smsPhoneId_ = null;
-    }
-
     /// <summary>Field number for the "http_headers" field.</summary>
     public const int HttpHeadersFieldNumber = 7;
     private static readonly pb::FieldCodec<string> _repeated_httpHeaders_codec
@@ -2417,7 +2389,6 @@ namespace OpenSteamworks.Protobuf {
       if (SerialNumber != other.SerialNumber) return false;
       if (AuthenticatorType != other.AuthenticatorType) return false;
       if (DeviceIdentifier != other.DeviceIdentifier) return false;
-      if (SmsPhoneId != other.SmsPhoneId) return false;
       if(!httpHeaders_.Equals(other.httpHeaders_)) return false;
       if (Version != other.Version) return false;
       return Equals(_unknownFields, other._unknownFields);
@@ -2432,7 +2403,6 @@ namespace OpenSteamworks.Protobuf {
       if (HasSerialNumber) hash ^= SerialNumber.GetHashCode();
       if (HasAuthenticatorType) hash ^= AuthenticatorType.GetHashCode();
       if (HasDeviceIdentifier) hash ^= DeviceIdentifier.GetHashCode();
-      if (HasSmsPhoneId) hash ^= SmsPhoneId.GetHashCode();
       hash ^= httpHeaders_.GetHashCode();
       if (HasVersion) hash ^= Version.GetHashCode();
       if (_unknownFields != null) {
@@ -2473,10 +2443,6 @@ namespace OpenSteamworks.Protobuf {
         output.WriteRawTag(42);
         output.WriteString(DeviceIdentifier);
       }
-      if (HasSmsPhoneId) {
-        output.WriteRawTag(50);
-        output.WriteString(SmsPhoneId);
-      }
       httpHeaders_.WriteTo(output, _repeated_httpHeaders_codec);
       if (HasVersion) {
         output.WriteRawTag(64);
@@ -2512,10 +2478,6 @@ namespace OpenSteamworks.Protobuf {
         output.WriteRawTag(42);
         output.WriteString(DeviceIdentifier);
       }
-      if (HasSmsPhoneId) {
-        output.WriteRawTag(50);
-        output.WriteString(SmsPhoneId);
-      }
       httpHeaders_.WriteTo(ref output, _repeated_httpHeaders_codec);
       if (HasVersion) {
         output.WriteRawTag(64);
@@ -2545,9 +2507,6 @@ namespace OpenSteamworks.Protobuf {
       }
       if (HasDeviceIdentifier) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(DeviceIdentifier);
-      }
-      if (HasSmsPhoneId) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(SmsPhoneId);
       }
       size += httpHeaders_.CalculateSize(_repeated_httpHeaders_codec);
       if (HasVersion) {
@@ -2579,9 +2538,6 @@ namespace OpenSteamworks.Protobuf {
       }
       if (other.HasDeviceIdentifier) {
         DeviceIdentifier = other.DeviceIdentifier;
-      }
-      if (other.HasSmsPhoneId) {
-        SmsPhoneId = other.SmsPhoneId;
       }
       httpHeaders_.Add(other.httpHeaders_);
       if (other.HasVersion) {
@@ -2620,10 +2576,6 @@ namespace OpenSteamworks.Protobuf {
           }
           case 42: {
             DeviceIdentifier = input.ReadString();
-            break;
-          }
-          case 50: {
-            SmsPhoneId = input.ReadString();
             break;
           }
           case 58: {
@@ -2667,10 +2619,6 @@ namespace OpenSteamworks.Protobuf {
           }
           case 42: {
             DeviceIdentifier = input.ReadString();
-            break;
-          }
-          case 50: {
-            SmsPhoneId = input.ReadString();
             break;
           }
           case 58: {
@@ -2735,6 +2683,7 @@ namespace OpenSteamworks.Protobuf {
       secret1_ = other.secret1_;
       status_ = other.status_;
       phoneNumberHint_ = other.phoneNumberHint_;
+      confirmType_ = other.confirmType_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -3033,6 +2982,33 @@ namespace OpenSteamworks.Protobuf {
       phoneNumberHint_ = null;
     }
 
+    /// <summary>Field number for the "confirm_type" field.</summary>
+    public const int ConfirmTypeFieldNumber = 12;
+    private readonly static int ConfirmTypeDefaultValue = 0;
+
+    private int confirmType_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int ConfirmType {
+      get { if ((_hasBits0 & 8) != 0) { return confirmType_; } else { return ConfirmTypeDefaultValue; } }
+      set {
+        _hasBits0 |= 8;
+        confirmType_ = value;
+      }
+    }
+    /// <summary>Gets whether the "confirm_type" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasConfirmType {
+      get { return (_hasBits0 & 8) != 0; }
+    }
+    /// <summary>Clears the value of the "confirm_type" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearConfirmType() {
+      _hasBits0 &= ~8;
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -3059,6 +3035,7 @@ namespace OpenSteamworks.Protobuf {
       if (Secret1 != other.Secret1) return false;
       if (Status != other.Status) return false;
       if (PhoneNumberHint != other.PhoneNumberHint) return false;
+      if (ConfirmType != other.ConfirmType) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -3077,6 +3054,7 @@ namespace OpenSteamworks.Protobuf {
       if (HasSecret1) hash ^= Secret1.GetHashCode();
       if (HasStatus) hash ^= Status.GetHashCode();
       if (HasPhoneNumberHint) hash ^= PhoneNumberHint.GetHashCode();
+      if (HasConfirmType) hash ^= ConfirmType.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -3139,6 +3117,10 @@ namespace OpenSteamworks.Protobuf {
         output.WriteRawTag(90);
         output.WriteString(PhoneNumberHint);
       }
+      if (HasConfirmType) {
+        output.WriteRawTag(96);
+        output.WriteInt32(ConfirmType);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -3193,6 +3175,10 @@ namespace OpenSteamworks.Protobuf {
         output.WriteRawTag(90);
         output.WriteString(PhoneNumberHint);
       }
+      if (HasConfirmType) {
+        output.WriteRawTag(96);
+        output.WriteInt32(ConfirmType);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -3235,6 +3221,9 @@ namespace OpenSteamworks.Protobuf {
       }
       if (HasPhoneNumberHint) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(PhoneNumberHint);
+      }
+      if (HasConfirmType) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(ConfirmType);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -3280,6 +3269,9 @@ namespace OpenSteamworks.Protobuf {
       }
       if (other.HasPhoneNumberHint) {
         PhoneNumberHint = other.PhoneNumberHint;
+      }
+      if (other.HasConfirmType) {
+        ConfirmType = other.ConfirmType;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -3340,6 +3332,10 @@ namespace OpenSteamworks.Protobuf {
             PhoneNumberHint = input.ReadString();
             break;
           }
+          case 96: {
+            ConfirmType = input.ReadInt32();
+            break;
+          }
         }
       }
     #endif
@@ -3397,6 +3393,10 @@ namespace OpenSteamworks.Protobuf {
           }
           case 90: {
             PhoneNumberHint = input.ReadString();
+            break;
+          }
+          case 96: {
+            ConfirmType = input.ReadInt32();
             break;
           }
         }
@@ -4343,7 +4343,6 @@ namespace OpenSteamworks.Protobuf {
     public CTwoFactor_FinalizeAddAuthenticator_Response(CTwoFactor_FinalizeAddAuthenticator_Response other) : this() {
       _hasBits0 = other._hasBits0;
       success_ = other.success_;
-      wantMore_ = other.wantMore_;
       serverTime_ = other.serverTime_;
       status_ = other.status_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -4382,33 +4381,6 @@ namespace OpenSteamworks.Protobuf {
       _hasBits0 &= ~1;
     }
 
-    /// <summary>Field number for the "want_more" field.</summary>
-    public const int WantMoreFieldNumber = 2;
-    private readonly static bool WantMoreDefaultValue = false;
-
-    private bool wantMore_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool WantMore {
-      get { if ((_hasBits0 & 2) != 0) { return wantMore_; } else { return WantMoreDefaultValue; } }
-      set {
-        _hasBits0 |= 2;
-        wantMore_ = value;
-      }
-    }
-    /// <summary>Gets whether the "want_more" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasWantMore {
-      get { return (_hasBits0 & 2) != 0; }
-    }
-    /// <summary>Clears the value of the "want_more" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearWantMore() {
-      _hasBits0 &= ~2;
-    }
-
     /// <summary>Field number for the "server_time" field.</summary>
     public const int ServerTimeFieldNumber = 3;
     private readonly static ulong ServerTimeDefaultValue = 0UL;
@@ -4417,9 +4389,9 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public ulong ServerTime {
-      get { if ((_hasBits0 & 4) != 0) { return serverTime_; } else { return ServerTimeDefaultValue; } }
+      get { if ((_hasBits0 & 2) != 0) { return serverTime_; } else { return ServerTimeDefaultValue; } }
       set {
-        _hasBits0 |= 4;
+        _hasBits0 |= 2;
         serverTime_ = value;
       }
     }
@@ -4427,13 +4399,13 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool HasServerTime {
-      get { return (_hasBits0 & 4) != 0; }
+      get { return (_hasBits0 & 2) != 0; }
     }
     /// <summary>Clears the value of the "server_time" field</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void ClearServerTime() {
-      _hasBits0 &= ~4;
+      _hasBits0 &= ~2;
     }
 
     /// <summary>Field number for the "status" field.</summary>
@@ -4444,9 +4416,9 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int Status {
-      get { if ((_hasBits0 & 8) != 0) { return status_; } else { return StatusDefaultValue; } }
+      get { if ((_hasBits0 & 4) != 0) { return status_; } else { return StatusDefaultValue; } }
       set {
-        _hasBits0 |= 8;
+        _hasBits0 |= 4;
         status_ = value;
       }
     }
@@ -4454,13 +4426,13 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool HasStatus {
-      get { return (_hasBits0 & 8) != 0; }
+      get { return (_hasBits0 & 4) != 0; }
     }
     /// <summary>Clears the value of the "status" field</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void ClearStatus() {
-      _hasBits0 &= ~8;
+      _hasBits0 &= ~4;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4479,7 +4451,6 @@ namespace OpenSteamworks.Protobuf {
         return true;
       }
       if (Success != other.Success) return false;
-      if (WantMore != other.WantMore) return false;
       if (ServerTime != other.ServerTime) return false;
       if (Status != other.Status) return false;
       return Equals(_unknownFields, other._unknownFields);
@@ -4490,7 +4461,6 @@ namespace OpenSteamworks.Protobuf {
     public override int GetHashCode() {
       int hash = 1;
       if (HasSuccess) hash ^= Success.GetHashCode();
-      if (HasWantMore) hash ^= WantMore.GetHashCode();
       if (HasServerTime) hash ^= ServerTime.GetHashCode();
       if (HasStatus) hash ^= Status.GetHashCode();
       if (_unknownFields != null) {
@@ -4515,10 +4485,6 @@ namespace OpenSteamworks.Protobuf {
         output.WriteRawTag(8);
         output.WriteBool(Success);
       }
-      if (HasWantMore) {
-        output.WriteRawTag(16);
-        output.WriteBool(WantMore);
-      }
       if (HasServerTime) {
         output.WriteRawTag(24);
         output.WriteUInt64(ServerTime);
@@ -4541,10 +4507,6 @@ namespace OpenSteamworks.Protobuf {
         output.WriteRawTag(8);
         output.WriteBool(Success);
       }
-      if (HasWantMore) {
-        output.WriteRawTag(16);
-        output.WriteBool(WantMore);
-      }
       if (HasServerTime) {
         output.WriteRawTag(24);
         output.WriteUInt64(ServerTime);
@@ -4564,9 +4526,6 @@ namespace OpenSteamworks.Protobuf {
     public int CalculateSize() {
       int size = 0;
       if (HasSuccess) {
-        size += 1 + 1;
-      }
-      if (HasWantMore) {
         size += 1 + 1;
       }
       if (HasServerTime) {
@@ -4589,9 +4548,6 @@ namespace OpenSteamworks.Protobuf {
       }
       if (other.HasSuccess) {
         Success = other.Success;
-      }
-      if (other.HasWantMore) {
-        WantMore = other.WantMore;
       }
       if (other.HasServerTime) {
         ServerTime = other.ServerTime;
@@ -4616,10 +4572,6 @@ namespace OpenSteamworks.Protobuf {
             break;
           case 8: {
             Success = input.ReadBool();
-            break;
-          }
-          case 16: {
-            WantMore = input.ReadBool();
             break;
           }
           case 24: {
@@ -4647,10 +4599,6 @@ namespace OpenSteamworks.Protobuf {
             break;
           case 8: {
             Success = input.ReadBool();
-            break;
-          }
-          case 16: {
-            WantMore = input.ReadBool();
             break;
           }
           case 24: {

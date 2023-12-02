@@ -92,8 +92,6 @@ public class ClientNative {
     public ConnectionType ConnectedWith { get; private set; }
 
     public IClientEngine IClientEngine;
-    public ISteamClient020 ISteamClient;
-
     public IClientAudio IClientAudio;
     public IClientAppDisableUpdate IClientAppDisableUpdate;
     public IClientApps IClientApps;
@@ -120,7 +118,6 @@ public class ClientNative {
     public IClientUtils IClientUtils;
     public IClientVR IClientVR;
 
-    public ISteamHTMLSurface005 ISteamHTMLSurface;
     public ConCommands.ConsoleNative consoleNative;
 
 
@@ -155,10 +152,8 @@ public class ClientNative {
     }
 
     [MemberNotNull(nameof(IClientEngine))]
-    [MemberNotNull(nameof(ISteamClient))]
     private void LoadEngine() {
         this.IClientEngine = this.CreateInterface<IClientEngine>("CLIENTENGINE_INTERFACE_VERSION005");
-        this.ISteamClient = this.CreateInterface<ISteamClient020>("SteamClient020");
         this.Pipe = this.IClientEngine.CreateSteamPipe();
     }
 
@@ -187,7 +182,6 @@ public class ClientNative {
     [MemberNotNull(nameof(IClientUserStats))]
     [MemberNotNull(nameof(IClientUtils))]
     [MemberNotNull(nameof(IClientVR))]
-    [MemberNotNull(nameof(ISteamHTMLSurface))]
     private void LoadInterfaces() {
         this.IClientAudio = this.IClientEngine.GetIClientAudio(this.User, this.Pipe);
         this.IClientAppDisableUpdate = this.IClientEngine.GetIClientAppDisableUpdate(this.User, this.Pipe);
@@ -214,8 +208,6 @@ public class ClientNative {
         this.IClientUserStats = this.IClientEngine.GetIClientUserStats(this.User, this.Pipe);
         this.IClientUtils = this.IClientEngine.GetIClientUtils(this.Pipe);
         this.IClientVR = this.IClientEngine.GetIClientVR(this.Pipe);
-        
-        this.ISteamHTMLSurface = this.ISteamClient.GetISteamHTMLSurface(this.User, this.Pipe, "STEAMHTMLSURFACE_INTERFACE_VERSION_005");
     }
 
     private bool TryConnectToGlobalUser() {

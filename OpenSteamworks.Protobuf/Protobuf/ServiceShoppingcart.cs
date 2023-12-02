@@ -25,81 +25,109 @@ namespace OpenSteamworks.Protobuf.WebUI {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChpzZXJ2aWNlX3Nob3BwaW5nY2FydC5wcm90bxogZ29vZ2xlL3Byb3RvYnVm",
-            "L2Rlc2NyaXB0b3IucHJvdG8aEWNvbW1vbl9iYXNlLnByb3RvImUKIENTaG9w",
-            "cGluZ0NhcnRfQWRkQnVuZGxlX1Jlc3BvbnNlEikKCGNvbnRlbnRzGAEgASgL",
-            "MhcuQ1Nob3BwaW5nQ2FydF9Db250ZW50cxIWCg5yZXN1bHRfZGV0YWlscxgC",
-            "IAMoDSKAAQoiQ1Nob3BwaW5nQ2FydF9BZGRQYWNrYWdlc19SZXNwb25zZRIX",
-            "Cg9naWRzaG9wcGluZ2NhcnQYASABKAQSKQoIY29udGVudHMYAiABKAsyFy5D",
-            "U2hvcHBpbmdDYXJ0X0NvbnRlbnRzEhYKDnJlc3VsdF9kZXRhaWxzGAMgAygN",
-            "IjwKFENTaG9wcGluZ0NhcnRfQW1vdW50Eg4KBmFtb3VudBgBIAEoAxIUCgxj",
-            "dXJyZW5jeWNvZGUYAiABKA0iWQodQ1Nob3BwaW5nQ2FydF9BdmFpbGFibGVD",
-            "b3Vwb24SEAoIY291cG9uaWQYASABKA0SEQoJZ2lkY291cG9uGAIgASgEEhMK",
-            "C2dpZGxpbmVpdGVtGAMgASgEIj4KGENTaG9wcGluZ0NhcnRfQnVuZGxlSXRl",
-            "bRIQCghidW5kbGVpZBgBIAEoDRIQCghxdWFudGl0eRgCIAEoDSKeAQoWQ1No",
-            "b3BwaW5nQ2FydF9Db250ZW50cxImCglsaW5laXRlbXMYASADKAsyEy5DU2hv",
-            "cHBpbmdDYXJ0X0l0ZW0SLQoIdHJlZXZpZXcYAiADKAsyGy5DU2hvcHBpbmdD",
-            "YXJ0X1JlbGF0aW9uU2hpcBItCgpwb3RlbnRpYWxzGAMgASgLMhkuQ1Nob3Bw",
-            "aW5nQ2FydF9Qb3RlbnRpYWxzIlgKGENTaG9wcGluZ0NhcnRfQ291cG9uSXRl",
-            "bRIQCghjb3Vwb25pZBgBIAEoDRIXCg9naWRjb3Vwb250YXJnZXQYAiABKAQS",
-            "EQoJcGFja2FnZWlkGAMgASgNIjsKIENTaG9wcGluZ0NhcnRfQ3JlYXRlTmV3",
-            "X1Jlc3BvbnNlEhcKD2dpZHNob3BwaW5nY2FydBgBIAEoBCI8CiFDU2hvcHBp",
-            "bmdDYXJ0X0dldENvbnRlbnRzX1JlcXVlc3QSFwoPZ2lkc2hvcHBpbmdjYXJ0",
-            "GAEgASgEIn4KIkNTaG9wcGluZ0NhcnRfR2V0Q29udGVudHNfUmVzcG9uc2US",
-            "FwoPZ2lkc2hvcHBpbmdjYXJ0GAEgASgEEikKCGNvbnRlbnRzGAIgASgLMhcu",
-            "Q1Nob3BwaW5nQ2FydF9Db250ZW50cxIUCgx0aW1lX2NyZWF0ZWQYAyABKA0i",
-            "4gIKEkNTaG9wcGluZ0NhcnRfSXRlbRITCgtnaWRsaW5laXRlbRgBIAEoBBIw",
-            "CgxwYWNrYWdlX2l0ZW0YAiABKAsyGi5DU2hvcHBpbmdDYXJ0X1BhY2thZ2VJ",
-            "dGVtEjsKEndhbGxldF9jcmVkaXRfaXRlbRgDIAEoCzIfLkNTaG9wcGluZ0Nh",
-            "cnRfV2FsbGV0Q3JlZGl0SXRlbRIuCgtjb3Vwb25faXRlbRgEIAEoCzIZLkNT",
-            "aG9wcGluZ0NhcnRfQ291cG9uSXRlbRIwCgptaWNyb19pdGVtGAUgASgLMhwu",
-            "Q1Nob3BwaW5nQ2FydF9NaWNyb1R4bkFzc2V0Ei4KC2J1bmRsZV9pdGVtGAcg",
-            "ASgLMhkuQ1Nob3BwaW5nQ2FydF9CdW5kbGVJdGVtEjYKDGxveWFsdHlfaXRl",
-            "bRgIIAEoCzIgLkNTaG9wcGluZ0NhcnRfTG95YWx0eVJld2FyZEl0ZW0iNAof",
-            "Q1Nob3BwaW5nQ2FydF9Mb3lhbHR5UmV3YXJkSXRlbRIRCglyZXdhcmRfaWQY",
-            "ASABKAUiUgobQ1Nob3BwaW5nQ2FydF9NaWNyb1R4bkFzc2V0EhUKDW1pY3Jv",
-            "dHhuYXBwaWQYASABKA0SHAoUbWljcm90eG5hc3NldGNsYXNzaWQYAiABKAQi",
-            "kgEKGUNTaG9wcGluZ0NhcnRfUGFja2FnZUl0ZW0SEQoJcGFja2FnZWlkGAEg",
-            "ASgNEiwKDWNvc3R3aGVuYWRkZWQYAiABKAsyFS5DU2hvcHBpbmdDYXJ0X0Ft",
-            "b3VudBIPCgdpc19naWZ0GAMgASgIEhEKCWdpZGJ1bmRsZRgEIAEoBBIQCghx",
-            "dWFudGl0eRgFIAEoDSJLChhDU2hvcHBpbmdDYXJ0X1BvdGVudGlhbHMSLwoH",
-            "Y291cG9ucxgBIAMoCzIeLkNTaG9wcGluZ0NhcnRfQXZhaWxhYmxlQ291cG9u",
-            "Il4KGkNTaG9wcGluZ0NhcnRfUmVsYXRpb25TaGlwEhEKCWdpZHBhcmVudBgB",
-            "IAEoBBItCghjaGlsZHJlbhgCIAMoCzIbLkNTaG9wcGluZ0NhcnRfUmVsYXRp",
-            "b25TaGlwImsKJkNTaG9wcGluZ0NhcnRfUmVtb3ZlTGluZUl0ZW1zX1Jlc3Bv",
-            "bnNlEikKCGNvbnRlbnRzGAEgASgLMhcuQ1Nob3BwaW5nQ2FydF9Db250ZW50",
-            "cxIWCg5yZXN1bHRfZGV0YWlscxgCIAMoDSJNCh5DU2hvcHBpbmdDYXJ0X1dh",
-            "bGxldENyZWRpdEl0ZW0SKwoMd2FsbGV0Y3JlZGl0GAEgASgLMhUuQ1Nob3Bw",
-            "aW5nQ2FydF9BbW91bnQykgMKDFNob3BwaW5nQ2FydBI/CglBZGRCdW5kbGUS",
-            "Dy5Ob3RJbXBsZW1lbnRlZBohLkNTaG9wcGluZ0NhcnRfQWRkQnVuZGxlX1Jl",
-            "c3BvbnNlEkMKC0FkZFBhY2thZ2VzEg8uTm90SW1wbGVtZW50ZWQaIy5DU2hv",
-            "cHBpbmdDYXJ0X0FkZFBhY2thZ2VzX1Jlc3BvbnNlEksKFUNyZWF0ZU5ld1No",
-            "b3BwaW5nQ2FydBIPLk5vdEltcGxlbWVudGVkGiEuQ1Nob3BwaW5nQ2FydF9D",
-            "cmVhdGVOZXdfUmVzcG9uc2USYgoXR2V0U2hvcHBpbmdDYXJ0Q29udGVudHMS",
-            "Ii5DU2hvcHBpbmdDYXJ0X0dldENvbnRlbnRzX1JlcXVlc3QaIy5DU2hvcHBp",
-            "bmdDYXJ0X0dldENvbnRlbnRzX1Jlc3BvbnNlEksKD1JlbW92ZUxpbmVJdGVt",
-            "cxIPLk5vdEltcGxlbWVudGVkGicuQ1Nob3BwaW5nQ2FydF9SZW1vdmVMaW5l",
-            "SXRlbXNfUmVzcG9uc2VCIKoCHU9wZW5TdGVhbXdvcmtzLlByb3RvYnVmLldl",
-            "YlVJ"));
+            "L2Rlc2NyaXB0b3IucHJvdG8iogEKH0NTaG9wcGluZ0NhcnRfQWRkQnVuZGxl",
+            "X1JlcXVlc3QSFwoPZ2lkc2hvcHBpbmdjYXJ0GAEgASgEEhAKCGJ1bmRsZWlk",
+            "GAIgASgNEhEKCWJyb3dzZXJpZBgDIAEoBBIVCg1zdG9yZV9jb3VudHJ5GAUg",
+            "ASgJEhAKCHF1YW50aXR5GAYgASgNEhgKCWJldGFfbW9kZRgHIAEoCDoFZmFs",
+            "c2UiZQogQ1Nob3BwaW5nQ2FydF9BZGRCdW5kbGVfUmVzcG9uc2USKQoIY29u",
+            "dGVudHMYASABKAsyFy5DU2hvcHBpbmdDYXJ0X0NvbnRlbnRzEhYKDnJlc3Vs",
+            "dF9kZXRhaWxzGAIgAygNIrUBCiFDU2hvcHBpbmdDYXJ0X0FkZFBhY2thZ2Vz",
+            "X1JlcXVlc3QSFwoPZ2lkc2hvcHBpbmdjYXJ0GAEgASgEEhEKCWJyb3dzZXJp",
+            "ZBgCIAEoBBIuCgpjYXJ0X2l0ZW1zGAQgAygLMhouQ1Nob3BwaW5nQ2FydF9Q",
+            "YWNrYWdlSXRlbRIaChJzdG9yZV9jb3VudHJ5X2NvZGUYBSABKAkSGAoJYmV0",
+            "YV9tb2RlGAYgASgIOgVmYWxzZSKAAQoiQ1Nob3BwaW5nQ2FydF9BZGRQYWNr",
+            "YWdlc19SZXNwb25zZRIXCg9naWRzaG9wcGluZ2NhcnQYASABKAQSKQoIY29u",
+            "dGVudHMYAiABKAsyFy5DU2hvcHBpbmdDYXJ0X0NvbnRlbnRzEhYKDnJlc3Vs",
+            "dF9kZXRhaWxzGAMgAygNIjwKFENTaG9wcGluZ0NhcnRfQW1vdW50Eg4KBmFt",
+            "b3VudBgBIAEoAxIUCgxjdXJyZW5jeWNvZGUYAiABKA0iWQodQ1Nob3BwaW5n",
+            "Q2FydF9BdmFpbGFibGVDb3Vwb24SEAoIY291cG9uaWQYASABKA0SEQoJZ2lk",
+            "Y291cG9uGAIgASgEEhMKC2dpZGxpbmVpdGVtGAMgASgEIj4KGENTaG9wcGlu",
+            "Z0NhcnRfQnVuZGxlSXRlbRIQCghidW5kbGVpZBgBIAEoDRIQCghxdWFudGl0",
+            "eRgCIAEoDSKeAQoWQ1Nob3BwaW5nQ2FydF9Db250ZW50cxImCglsaW5laXRl",
+            "bXMYASADKAsyEy5DU2hvcHBpbmdDYXJ0X0l0ZW0SLQoIdHJlZXZpZXcYAiAD",
+            "KAsyGy5DU2hvcHBpbmdDYXJ0X1JlbGF0aW9uU2hpcBItCgpwb3RlbnRpYWxz",
+            "GAMgASgLMhkuQ1Nob3BwaW5nQ2FydF9Qb3RlbnRpYWxzImsKGENTaG9wcGlu",
+            "Z0NhcnRfQ291cG9uSXRlbRIQCghjb3Vwb25pZBgBIAEoDRIXCg9naWRjb3Vw",
+            "b250YXJnZXQYAiABKAQSEQoJcGFja2FnZWlkGAMgASgNEhEKCWdpZGNvdXBv",
+            "bhgEIAEoBCI8Ch9DU2hvcHBpbmdDYXJ0X0NyZWF0ZU5ld19SZXF1ZXN0EhkK",
+            "EXN0ZWFtaWRfcmVxdWVzdGVyGAEgASgGIjsKIENTaG9wcGluZ0NhcnRfQ3Jl",
+            "YXRlTmV3X1Jlc3BvbnNlEhcKD2dpZHNob3BwaW5nY2FydBgBIAEoBCI8CiFD",
+            "U2hvcHBpbmdDYXJ0X0dldENvbnRlbnRzX1JlcXVlc3QSFwoPZ2lkc2hvcHBp",
+            "bmdjYXJ0GAEgASgEIrsBCiJDU2hvcHBpbmdDYXJ0X0dldENvbnRlbnRzX1Jl",
+            "c3BvbnNlEhcKD2dpZHNob3BwaW5nY2FydBgBIAEoBBIpCghjb250ZW50cxgC",
+            "IAEoCzIXLkNTaG9wcGluZ0NhcnRfQ29udGVudHMSFAoMdGltZV9jcmVhdGVk",
+            "GAMgASgNEiAKGG1lcmdlZF9pbnRvX2FjY291bnRfY2FydBgEIAEoCBIZChFz",
+            "dGVhbWlkX3JlcXVlc3RlchgFIAEoBiLiAgoSQ1Nob3BwaW5nQ2FydF9JdGVt",
+            "EhMKC2dpZGxpbmVpdGVtGAEgASgEEjAKDHBhY2thZ2VfaXRlbRgCIAEoCzIa",
+            "LkNTaG9wcGluZ0NhcnRfUGFja2FnZUl0ZW0SOwoSd2FsbGV0X2NyZWRpdF9p",
+            "dGVtGAMgASgLMh8uQ1Nob3BwaW5nQ2FydF9XYWxsZXRDcmVkaXRJdGVtEi4K",
+            "C2NvdXBvbl9pdGVtGAQgASgLMhkuQ1Nob3BwaW5nQ2FydF9Db3Vwb25JdGVt",
+            "EjAKCm1pY3JvX2l0ZW0YBSABKAsyHC5DU2hvcHBpbmdDYXJ0X01pY3JvVHhu",
+            "QXNzZXQSLgoLYnVuZGxlX2l0ZW0YByABKAsyGS5DU2hvcHBpbmdDYXJ0X0J1",
+            "bmRsZUl0ZW0SNgoMbG95YWx0eV9pdGVtGAggASgLMiAuQ1Nob3BwaW5nQ2Fy",
+            "dF9Mb3lhbHR5UmV3YXJkSXRlbSI0Ch9DU2hvcHBpbmdDYXJ0X0xveWFsdHlS",
+            "ZXdhcmRJdGVtEhEKCXJld2FyZF9pZBgBIAEoBSJSChtDU2hvcHBpbmdDYXJ0",
+            "X01pY3JvVHhuQXNzZXQSFQoNbWljcm90eG5hcHBpZBgBIAEoDRIcChRtaWNy",
+            "b3R4bmFzc2V0Y2xhc3NpZBgCIAEoBCKSAQoZQ1Nob3BwaW5nQ2FydF9QYWNr",
+            "YWdlSXRlbRIRCglwYWNrYWdlaWQYASABKA0SLAoNY29zdHdoZW5hZGRlZBgC",
+            "IAEoCzIVLkNTaG9wcGluZ0NhcnRfQW1vdW50Eg8KB2lzX2dpZnQYAyABKAgS",
+            "EQoJZ2lkYnVuZGxlGAQgASgEEhAKCHF1YW50aXR5GAUgASgNIksKGENTaG9w",
+            "cGluZ0NhcnRfUG90ZW50aWFscxIvCgdjb3Vwb25zGAEgAygLMh4uQ1Nob3Bw",
+            "aW5nQ2FydF9BdmFpbGFibGVDb3Vwb24iXgoaQ1Nob3BwaW5nQ2FydF9SZWxh",
+            "dGlvblNoaXASEQoJZ2lkcGFyZW50GAEgASgEEi0KCGNoaWxkcmVuGAIgAygL",
+            "MhsuQ1Nob3BwaW5nQ2FydF9SZWxhdGlvblNoaXAiaQolQ1Nob3BwaW5nQ2Fy",
+            "dF9SZW1vdmVMaW5lSXRlbXNfUmVxdWVzdBIXCg9naWRzaG9wcGluZ2NhcnQY",
+            "ASABKAQSFAoMZ2lkbGluZWl0ZW1zGAIgAygEEhEKCWJyb3dzZXJpZBgDIAEo",
+            "BCJrCiZDU2hvcHBpbmdDYXJ0X1JlbW92ZUxpbmVJdGVtc19SZXNwb25zZRIp",
+            "Cghjb250ZW50cxgBIAEoCzIXLkNTaG9wcGluZ0NhcnRfQ29udGVudHMSFgoO",
+            "cmVzdWx0X2RldGFpbHMYAiADKA0ibQorQ1Nob3BwaW5nQ2FydF9VcGRhdGVQ",
+            "YWNrYWdlUXVhbnRpdHlfUmVxdWVzdBIXCg9naWRzaG9wcGluZ2NhcnQYASAB",
+            "KAQSEwoLZ2lkbGluZWl0ZW0YAiABKAQSEAoIcXVhbnRpdHkYAyABKA0iigEK",
+            "LENTaG9wcGluZ0NhcnRfVXBkYXRlUGFja2FnZVF1YW50aXR5X1Jlc3BvbnNl",
+            "EhcKD2dpZHNob3BwaW5nY2FydBgBIAEoBBIpCghjb250ZW50cxgCIAEoCzIX",
+            "LkNTaG9wcGluZ0NhcnRfQ29udGVudHMSFgoOcmVzdWx0X2RldGFpbHMYAyAD",
+            "KA0iTQoeQ1Nob3BwaW5nQ2FydF9XYWxsZXRDcmVkaXRJdGVtEisKDHdhbGxl",
+            "dGNyZWRpdBgBIAEoCzIVLkNTaG9wcGluZ0NhcnRfQW1vdW50MtQECgxTaG9w",
+            "cGluZ0NhcnQSUAoJQWRkQnVuZGxlEiAuQ1Nob3BwaW5nQ2FydF9BZGRCdW5k",
+            "bGVfUmVxdWVzdBohLkNTaG9wcGluZ0NhcnRfQWRkQnVuZGxlX1Jlc3BvbnNl",
+            "ElYKC0FkZFBhY2thZ2VzEiIuQ1Nob3BwaW5nQ2FydF9BZGRQYWNrYWdlc19S",
+            "ZXF1ZXN0GiMuQ1Nob3BwaW5nQ2FydF9BZGRQYWNrYWdlc19SZXNwb25zZRJc",
+            "ChVDcmVhdGVOZXdTaG9wcGluZ0NhcnQSIC5DU2hvcHBpbmdDYXJ0X0NyZWF0",
+            "ZU5ld19SZXF1ZXN0GiEuQ1Nob3BwaW5nQ2FydF9DcmVhdGVOZXdfUmVzcG9u",
+            "c2USYgoXR2V0U2hvcHBpbmdDYXJ0Q29udGVudHMSIi5DU2hvcHBpbmdDYXJ0",
+            "X0dldENvbnRlbnRzX1JlcXVlc3QaIy5DU2hvcHBpbmdDYXJ0X0dldENvbnRl",
+            "bnRzX1Jlc3BvbnNlEmIKD1JlbW92ZUxpbmVJdGVtcxImLkNTaG9wcGluZ0Nh",
+            "cnRfUmVtb3ZlTGluZUl0ZW1zX1JlcXVlc3QaJy5DU2hvcHBpbmdDYXJ0X1Jl",
+            "bW92ZUxpbmVJdGVtc19SZXNwb25zZRJ0ChVVcGRhdGVQYWNrYWdlUXVhbnRp",
+            "dHkSLC5DU2hvcHBpbmdDYXJ0X1VwZGF0ZVBhY2thZ2VRdWFudGl0eV9SZXF1",
+            "ZXN0Gi0uQ1Nob3BwaW5nQ2FydF9VcGRhdGVQYWNrYWdlUXVhbnRpdHlfUmVz",
+            "cG9uc2VCIKoCHU9wZW5TdGVhbXdvcmtzLlByb3RvYnVmLldlYlVJ"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::Google.Protobuf.Reflection.DescriptorReflection.Descriptor, global::OpenSteamworks.Protobuf.WebUI.CommonBaseReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::Google.Protobuf.Reflection.DescriptorReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_AddBundle_Request), global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_AddBundle_Request.Parser, new[]{ "Gidshoppingcart", "Bundleid", "Browserid", "StoreCountry", "Quantity", "BetaMode" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_AddBundle_Response), global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_AddBundle_Response.Parser, new[]{ "Contents", "ResultDetails" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_AddPackages_Request), global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_AddPackages_Request.Parser, new[]{ "Gidshoppingcart", "Browserid", "CartItems", "StoreCountryCode", "BetaMode" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_AddPackages_Response), global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_AddPackages_Response.Parser, new[]{ "Gidshoppingcart", "Contents", "ResultDetails" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_Amount), global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_Amount.Parser, new[]{ "Amount", "Currencycode" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_AvailableCoupon), global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_AvailableCoupon.Parser, new[]{ "Couponid", "Gidcoupon", "Gidlineitem" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_BundleItem), global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_BundleItem.Parser, new[]{ "Bundleid", "Quantity" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_Contents), global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_Contents.Parser, new[]{ "Lineitems", "Treeview", "Potentials" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_CouponItem), global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_CouponItem.Parser, new[]{ "Couponid", "Gidcoupontarget", "Packageid" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_CouponItem), global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_CouponItem.Parser, new[]{ "Couponid", "Gidcoupontarget", "Packageid", "Gidcoupon" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_CreateNew_Request), global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_CreateNew_Request.Parser, new[]{ "SteamidRequester" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_CreateNew_Response), global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_CreateNew_Response.Parser, new[]{ "Gidshoppingcart" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_GetContents_Request), global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_GetContents_Request.Parser, new[]{ "Gidshoppingcart" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_GetContents_Response), global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_GetContents_Response.Parser, new[]{ "Gidshoppingcart", "Contents", "TimeCreated" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_GetContents_Response), global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_GetContents_Response.Parser, new[]{ "Gidshoppingcart", "Contents", "TimeCreated", "MergedIntoAccountCart", "SteamidRequester" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_Item), global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_Item.Parser, new[]{ "Gidlineitem", "PackageItem", "WalletCreditItem", "CouponItem", "MicroItem", "BundleItem", "LoyaltyItem" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_LoyaltyRewardItem), global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_LoyaltyRewardItem.Parser, new[]{ "RewardId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_MicroTxnAsset), global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_MicroTxnAsset.Parser, new[]{ "Microtxnappid", "Microtxnassetclassid" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_PackageItem), global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_PackageItem.Parser, new[]{ "Packageid", "Costwhenadded", "IsGift", "Gidbundle", "Quantity" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_Potentials), global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_Potentials.Parser, new[]{ "Coupons" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_RelationShip), global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_RelationShip.Parser, new[]{ "Gidparent", "Children" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_RemoveLineItems_Request), global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_RemoveLineItems_Request.Parser, new[]{ "Gidshoppingcart", "Gidlineitems", "Browserid" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_RemoveLineItems_Response), global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_RemoveLineItems_Response.Parser, new[]{ "Contents", "ResultDetails" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_UpdatePackageQuantity_Request), global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_UpdatePackageQuantity_Request.Parser, new[]{ "Gidshoppingcart", "Gidlineitem", "Quantity" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_UpdatePackageQuantity_Response), global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_UpdatePackageQuantity_Response.Parser, new[]{ "Gidshoppingcart", "Contents", "ResultDetails" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_WalletCreditItem), global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_WalletCreditItem.Parser, new[]{ "Walletcredit" }, null, null, null, null)
           }));
     }
@@ -107,6 +135,471 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
   #region Messages
+  public sealed partial class CShoppingCart_AddBundle_Request : pb::IMessage<CShoppingCart_AddBundle_Request>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<CShoppingCart_AddBundle_Request> _parser = new pb::MessageParser<CShoppingCart_AddBundle_Request>(() => new CShoppingCart_AddBundle_Request());
+    private pb::UnknownFieldSet _unknownFields;
+    private int _hasBits0;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<CShoppingCart_AddBundle_Request> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceShoppingcartReflection.Descriptor.MessageTypes[0]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CShoppingCart_AddBundle_Request() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CShoppingCart_AddBundle_Request(CShoppingCart_AddBundle_Request other) : this() {
+      _hasBits0 = other._hasBits0;
+      gidshoppingcart_ = other.gidshoppingcart_;
+      bundleid_ = other.bundleid_;
+      browserid_ = other.browserid_;
+      storeCountry_ = other.storeCountry_;
+      quantity_ = other.quantity_;
+      betaMode_ = other.betaMode_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CShoppingCart_AddBundle_Request Clone() {
+      return new CShoppingCart_AddBundle_Request(this);
+    }
+
+    /// <summary>Field number for the "gidshoppingcart" field.</summary>
+    public const int GidshoppingcartFieldNumber = 1;
+    private readonly static ulong GidshoppingcartDefaultValue = 0UL;
+
+    private ulong gidshoppingcart_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ulong Gidshoppingcart {
+      get { if ((_hasBits0 & 1) != 0) { return gidshoppingcart_; } else { return GidshoppingcartDefaultValue; } }
+      set {
+        _hasBits0 |= 1;
+        gidshoppingcart_ = value;
+      }
+    }
+    /// <summary>Gets whether the "gidshoppingcart" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasGidshoppingcart {
+      get { return (_hasBits0 & 1) != 0; }
+    }
+    /// <summary>Clears the value of the "gidshoppingcart" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearGidshoppingcart() {
+      _hasBits0 &= ~1;
+    }
+
+    /// <summary>Field number for the "bundleid" field.</summary>
+    public const int BundleidFieldNumber = 2;
+    private readonly static uint BundleidDefaultValue = 0;
+
+    private uint bundleid_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint Bundleid {
+      get { if ((_hasBits0 & 2) != 0) { return bundleid_; } else { return BundleidDefaultValue; } }
+      set {
+        _hasBits0 |= 2;
+        bundleid_ = value;
+      }
+    }
+    /// <summary>Gets whether the "bundleid" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasBundleid {
+      get { return (_hasBits0 & 2) != 0; }
+    }
+    /// <summary>Clears the value of the "bundleid" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearBundleid() {
+      _hasBits0 &= ~2;
+    }
+
+    /// <summary>Field number for the "browserid" field.</summary>
+    public const int BrowseridFieldNumber = 3;
+    private readonly static ulong BrowseridDefaultValue = 0UL;
+
+    private ulong browserid_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ulong Browserid {
+      get { if ((_hasBits0 & 4) != 0) { return browserid_; } else { return BrowseridDefaultValue; } }
+      set {
+        _hasBits0 |= 4;
+        browserid_ = value;
+      }
+    }
+    /// <summary>Gets whether the "browserid" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasBrowserid {
+      get { return (_hasBits0 & 4) != 0; }
+    }
+    /// <summary>Clears the value of the "browserid" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearBrowserid() {
+      _hasBits0 &= ~4;
+    }
+
+    /// <summary>Field number for the "store_country" field.</summary>
+    public const int StoreCountryFieldNumber = 5;
+    private readonly static string StoreCountryDefaultValue = "";
+
+    private string storeCountry_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string StoreCountry {
+      get { return storeCountry_ ?? StoreCountryDefaultValue; }
+      set {
+        storeCountry_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+    /// <summary>Gets whether the "store_country" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasStoreCountry {
+      get { return storeCountry_ != null; }
+    }
+    /// <summary>Clears the value of the "store_country" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearStoreCountry() {
+      storeCountry_ = null;
+    }
+
+    /// <summary>Field number for the "quantity" field.</summary>
+    public const int QuantityFieldNumber = 6;
+    private readonly static uint QuantityDefaultValue = 0;
+
+    private uint quantity_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint Quantity {
+      get { if ((_hasBits0 & 8) != 0) { return quantity_; } else { return QuantityDefaultValue; } }
+      set {
+        _hasBits0 |= 8;
+        quantity_ = value;
+      }
+    }
+    /// <summary>Gets whether the "quantity" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasQuantity {
+      get { return (_hasBits0 & 8) != 0; }
+    }
+    /// <summary>Clears the value of the "quantity" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearQuantity() {
+      _hasBits0 &= ~8;
+    }
+
+    /// <summary>Field number for the "beta_mode" field.</summary>
+    public const int BetaModeFieldNumber = 7;
+    private readonly static bool BetaModeDefaultValue = false;
+
+    private bool betaMode_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool BetaMode {
+      get { if ((_hasBits0 & 16) != 0) { return betaMode_; } else { return BetaModeDefaultValue; } }
+      set {
+        _hasBits0 |= 16;
+        betaMode_ = value;
+      }
+    }
+    /// <summary>Gets whether the "beta_mode" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasBetaMode {
+      get { return (_hasBits0 & 16) != 0; }
+    }
+    /// <summary>Clears the value of the "beta_mode" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearBetaMode() {
+      _hasBits0 &= ~16;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as CShoppingCart_AddBundle_Request);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(CShoppingCart_AddBundle_Request other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Gidshoppingcart != other.Gidshoppingcart) return false;
+      if (Bundleid != other.Bundleid) return false;
+      if (Browserid != other.Browserid) return false;
+      if (StoreCountry != other.StoreCountry) return false;
+      if (Quantity != other.Quantity) return false;
+      if (BetaMode != other.BetaMode) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (HasGidshoppingcart) hash ^= Gidshoppingcart.GetHashCode();
+      if (HasBundleid) hash ^= Bundleid.GetHashCode();
+      if (HasBrowserid) hash ^= Browserid.GetHashCode();
+      if (HasStoreCountry) hash ^= StoreCountry.GetHashCode();
+      if (HasQuantity) hash ^= Quantity.GetHashCode();
+      if (HasBetaMode) hash ^= BetaMode.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (HasGidshoppingcart) {
+        output.WriteRawTag(8);
+        output.WriteUInt64(Gidshoppingcart);
+      }
+      if (HasBundleid) {
+        output.WriteRawTag(16);
+        output.WriteUInt32(Bundleid);
+      }
+      if (HasBrowserid) {
+        output.WriteRawTag(24);
+        output.WriteUInt64(Browserid);
+      }
+      if (HasStoreCountry) {
+        output.WriteRawTag(42);
+        output.WriteString(StoreCountry);
+      }
+      if (HasQuantity) {
+        output.WriteRawTag(48);
+        output.WriteUInt32(Quantity);
+      }
+      if (HasBetaMode) {
+        output.WriteRawTag(56);
+        output.WriteBool(BetaMode);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (HasGidshoppingcart) {
+        output.WriteRawTag(8);
+        output.WriteUInt64(Gidshoppingcart);
+      }
+      if (HasBundleid) {
+        output.WriteRawTag(16);
+        output.WriteUInt32(Bundleid);
+      }
+      if (HasBrowserid) {
+        output.WriteRawTag(24);
+        output.WriteUInt64(Browserid);
+      }
+      if (HasStoreCountry) {
+        output.WriteRawTag(42);
+        output.WriteString(StoreCountry);
+      }
+      if (HasQuantity) {
+        output.WriteRawTag(48);
+        output.WriteUInt32(Quantity);
+      }
+      if (HasBetaMode) {
+        output.WriteRawTag(56);
+        output.WriteBool(BetaMode);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (HasGidshoppingcart) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(Gidshoppingcart);
+      }
+      if (HasBundleid) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Bundleid);
+      }
+      if (HasBrowserid) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(Browserid);
+      }
+      if (HasStoreCountry) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(StoreCountry);
+      }
+      if (HasQuantity) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Quantity);
+      }
+      if (HasBetaMode) {
+        size += 1 + 1;
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(CShoppingCart_AddBundle_Request other) {
+      if (other == null) {
+        return;
+      }
+      if (other.HasGidshoppingcart) {
+        Gidshoppingcart = other.Gidshoppingcart;
+      }
+      if (other.HasBundleid) {
+        Bundleid = other.Bundleid;
+      }
+      if (other.HasBrowserid) {
+        Browserid = other.Browserid;
+      }
+      if (other.HasStoreCountry) {
+        StoreCountry = other.StoreCountry;
+      }
+      if (other.HasQuantity) {
+        Quantity = other.Quantity;
+      }
+      if (other.HasBetaMode) {
+        BetaMode = other.BetaMode;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            Gidshoppingcart = input.ReadUInt64();
+            break;
+          }
+          case 16: {
+            Bundleid = input.ReadUInt32();
+            break;
+          }
+          case 24: {
+            Browserid = input.ReadUInt64();
+            break;
+          }
+          case 42: {
+            StoreCountry = input.ReadString();
+            break;
+          }
+          case 48: {
+            Quantity = input.ReadUInt32();
+            break;
+          }
+          case 56: {
+            BetaMode = input.ReadBool();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            Gidshoppingcart = input.ReadUInt64();
+            break;
+          }
+          case 16: {
+            Bundleid = input.ReadUInt32();
+            break;
+          }
+          case 24: {
+            Browserid = input.ReadUInt64();
+            break;
+          }
+          case 42: {
+            StoreCountry = input.ReadString();
+            break;
+          }
+          case 48: {
+            Quantity = input.ReadUInt32();
+            break;
+          }
+          case 56: {
+            BetaMode = input.ReadBool();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
   public sealed partial class CShoppingCart_AddBundle_Response : pb::IMessage<CShoppingCart_AddBundle_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -121,7 +614,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceShoppingcartReflection.Descriptor.MessageTypes[0]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceShoppingcartReflection.Descriptor.MessageTypes[1]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -333,6 +826,393 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  public sealed partial class CShoppingCart_AddPackages_Request : pb::IMessage<CShoppingCart_AddPackages_Request>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<CShoppingCart_AddPackages_Request> _parser = new pb::MessageParser<CShoppingCart_AddPackages_Request>(() => new CShoppingCart_AddPackages_Request());
+    private pb::UnknownFieldSet _unknownFields;
+    private int _hasBits0;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<CShoppingCart_AddPackages_Request> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceShoppingcartReflection.Descriptor.MessageTypes[2]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CShoppingCart_AddPackages_Request() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CShoppingCart_AddPackages_Request(CShoppingCart_AddPackages_Request other) : this() {
+      _hasBits0 = other._hasBits0;
+      gidshoppingcart_ = other.gidshoppingcart_;
+      browserid_ = other.browserid_;
+      cartItems_ = other.cartItems_.Clone();
+      storeCountryCode_ = other.storeCountryCode_;
+      betaMode_ = other.betaMode_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CShoppingCart_AddPackages_Request Clone() {
+      return new CShoppingCart_AddPackages_Request(this);
+    }
+
+    /// <summary>Field number for the "gidshoppingcart" field.</summary>
+    public const int GidshoppingcartFieldNumber = 1;
+    private readonly static ulong GidshoppingcartDefaultValue = 0UL;
+
+    private ulong gidshoppingcart_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ulong Gidshoppingcart {
+      get { if ((_hasBits0 & 1) != 0) { return gidshoppingcart_; } else { return GidshoppingcartDefaultValue; } }
+      set {
+        _hasBits0 |= 1;
+        gidshoppingcart_ = value;
+      }
+    }
+    /// <summary>Gets whether the "gidshoppingcart" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasGidshoppingcart {
+      get { return (_hasBits0 & 1) != 0; }
+    }
+    /// <summary>Clears the value of the "gidshoppingcart" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearGidshoppingcart() {
+      _hasBits0 &= ~1;
+    }
+
+    /// <summary>Field number for the "browserid" field.</summary>
+    public const int BrowseridFieldNumber = 2;
+    private readonly static ulong BrowseridDefaultValue = 0UL;
+
+    private ulong browserid_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ulong Browserid {
+      get { if ((_hasBits0 & 2) != 0) { return browserid_; } else { return BrowseridDefaultValue; } }
+      set {
+        _hasBits0 |= 2;
+        browserid_ = value;
+      }
+    }
+    /// <summary>Gets whether the "browserid" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasBrowserid {
+      get { return (_hasBits0 & 2) != 0; }
+    }
+    /// <summary>Clears the value of the "browserid" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearBrowserid() {
+      _hasBits0 &= ~2;
+    }
+
+    /// <summary>Field number for the "cart_items" field.</summary>
+    public const int CartItemsFieldNumber = 4;
+    private static readonly pb::FieldCodec<global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_PackageItem> _repeated_cartItems_codec
+        = pb::FieldCodec.ForMessage(34, global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_PackageItem.Parser);
+    private readonly pbc::RepeatedField<global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_PackageItem> cartItems_ = new pbc::RepeatedField<global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_PackageItem>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_PackageItem> CartItems {
+      get { return cartItems_; }
+    }
+
+    /// <summary>Field number for the "store_country_code" field.</summary>
+    public const int StoreCountryCodeFieldNumber = 5;
+    private readonly static string StoreCountryCodeDefaultValue = "";
+
+    private string storeCountryCode_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string StoreCountryCode {
+      get { return storeCountryCode_ ?? StoreCountryCodeDefaultValue; }
+      set {
+        storeCountryCode_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+    /// <summary>Gets whether the "store_country_code" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasStoreCountryCode {
+      get { return storeCountryCode_ != null; }
+    }
+    /// <summary>Clears the value of the "store_country_code" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearStoreCountryCode() {
+      storeCountryCode_ = null;
+    }
+
+    /// <summary>Field number for the "beta_mode" field.</summary>
+    public const int BetaModeFieldNumber = 6;
+    private readonly static bool BetaModeDefaultValue = false;
+
+    private bool betaMode_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool BetaMode {
+      get { if ((_hasBits0 & 4) != 0) { return betaMode_; } else { return BetaModeDefaultValue; } }
+      set {
+        _hasBits0 |= 4;
+        betaMode_ = value;
+      }
+    }
+    /// <summary>Gets whether the "beta_mode" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasBetaMode {
+      get { return (_hasBits0 & 4) != 0; }
+    }
+    /// <summary>Clears the value of the "beta_mode" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearBetaMode() {
+      _hasBits0 &= ~4;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as CShoppingCart_AddPackages_Request);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(CShoppingCart_AddPackages_Request other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Gidshoppingcart != other.Gidshoppingcart) return false;
+      if (Browserid != other.Browserid) return false;
+      if(!cartItems_.Equals(other.cartItems_)) return false;
+      if (StoreCountryCode != other.StoreCountryCode) return false;
+      if (BetaMode != other.BetaMode) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (HasGidshoppingcart) hash ^= Gidshoppingcart.GetHashCode();
+      if (HasBrowserid) hash ^= Browserid.GetHashCode();
+      hash ^= cartItems_.GetHashCode();
+      if (HasStoreCountryCode) hash ^= StoreCountryCode.GetHashCode();
+      if (HasBetaMode) hash ^= BetaMode.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (HasGidshoppingcart) {
+        output.WriteRawTag(8);
+        output.WriteUInt64(Gidshoppingcart);
+      }
+      if (HasBrowserid) {
+        output.WriteRawTag(16);
+        output.WriteUInt64(Browserid);
+      }
+      cartItems_.WriteTo(output, _repeated_cartItems_codec);
+      if (HasStoreCountryCode) {
+        output.WriteRawTag(42);
+        output.WriteString(StoreCountryCode);
+      }
+      if (HasBetaMode) {
+        output.WriteRawTag(48);
+        output.WriteBool(BetaMode);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (HasGidshoppingcart) {
+        output.WriteRawTag(8);
+        output.WriteUInt64(Gidshoppingcart);
+      }
+      if (HasBrowserid) {
+        output.WriteRawTag(16);
+        output.WriteUInt64(Browserid);
+      }
+      cartItems_.WriteTo(ref output, _repeated_cartItems_codec);
+      if (HasStoreCountryCode) {
+        output.WriteRawTag(42);
+        output.WriteString(StoreCountryCode);
+      }
+      if (HasBetaMode) {
+        output.WriteRawTag(48);
+        output.WriteBool(BetaMode);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (HasGidshoppingcart) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(Gidshoppingcart);
+      }
+      if (HasBrowserid) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(Browserid);
+      }
+      size += cartItems_.CalculateSize(_repeated_cartItems_codec);
+      if (HasStoreCountryCode) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(StoreCountryCode);
+      }
+      if (HasBetaMode) {
+        size += 1 + 1;
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(CShoppingCart_AddPackages_Request other) {
+      if (other == null) {
+        return;
+      }
+      if (other.HasGidshoppingcart) {
+        Gidshoppingcart = other.Gidshoppingcart;
+      }
+      if (other.HasBrowserid) {
+        Browserid = other.Browserid;
+      }
+      cartItems_.Add(other.cartItems_);
+      if (other.HasStoreCountryCode) {
+        StoreCountryCode = other.StoreCountryCode;
+      }
+      if (other.HasBetaMode) {
+        BetaMode = other.BetaMode;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            Gidshoppingcart = input.ReadUInt64();
+            break;
+          }
+          case 16: {
+            Browserid = input.ReadUInt64();
+            break;
+          }
+          case 34: {
+            cartItems_.AddEntriesFrom(input, _repeated_cartItems_codec);
+            break;
+          }
+          case 42: {
+            StoreCountryCode = input.ReadString();
+            break;
+          }
+          case 48: {
+            BetaMode = input.ReadBool();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            Gidshoppingcart = input.ReadUInt64();
+            break;
+          }
+          case 16: {
+            Browserid = input.ReadUInt64();
+            break;
+          }
+          case 34: {
+            cartItems_.AddEntriesFrom(ref input, _repeated_cartItems_codec);
+            break;
+          }
+          case 42: {
+            StoreCountryCode = input.ReadString();
+            break;
+          }
+          case 48: {
+            BetaMode = input.ReadBool();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
   public sealed partial class CShoppingCart_AddPackages_Response : pb::IMessage<CShoppingCart_AddPackages_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -348,7 +1228,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceShoppingcartReflection.Descriptor.MessageTypes[1]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceShoppingcartReflection.Descriptor.MessageTypes[3]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -628,7 +1508,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceShoppingcartReflection.Descriptor.MessageTypes[2]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceShoppingcartReflection.Descriptor.MessageTypes[4]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -886,7 +1766,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceShoppingcartReflection.Descriptor.MessageTypes[3]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceShoppingcartReflection.Descriptor.MessageTypes[5]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1196,7 +2076,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceShoppingcartReflection.Descriptor.MessageTypes[4]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceShoppingcartReflection.Descriptor.MessageTypes[6]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1453,7 +2333,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceShoppingcartReflection.Descriptor.MessageTypes[5]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceShoppingcartReflection.Descriptor.MessageTypes[7]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1704,7 +2584,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceShoppingcartReflection.Descriptor.MessageTypes[6]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceShoppingcartReflection.Descriptor.MessageTypes[8]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1728,6 +2608,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
       couponid_ = other.couponid_;
       gidcoupontarget_ = other.gidcoupontarget_;
       packageid_ = other.packageid_;
+      gidcoupon_ = other.gidcoupon_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -1818,6 +2699,33 @@ namespace OpenSteamworks.Protobuf.WebUI {
       _hasBits0 &= ~4;
     }
 
+    /// <summary>Field number for the "gidcoupon" field.</summary>
+    public const int GidcouponFieldNumber = 4;
+    private readonly static ulong GidcouponDefaultValue = 0UL;
+
+    private ulong gidcoupon_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ulong Gidcoupon {
+      get { if ((_hasBits0 & 8) != 0) { return gidcoupon_; } else { return GidcouponDefaultValue; } }
+      set {
+        _hasBits0 |= 8;
+        gidcoupon_ = value;
+      }
+    }
+    /// <summary>Gets whether the "gidcoupon" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasGidcoupon {
+      get { return (_hasBits0 & 8) != 0; }
+    }
+    /// <summary>Clears the value of the "gidcoupon" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearGidcoupon() {
+      _hasBits0 &= ~8;
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -1836,6 +2744,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
       if (Couponid != other.Couponid) return false;
       if (Gidcoupontarget != other.Gidcoupontarget) return false;
       if (Packageid != other.Packageid) return false;
+      if (Gidcoupon != other.Gidcoupon) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1846,6 +2755,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
       if (HasCouponid) hash ^= Couponid.GetHashCode();
       if (HasGidcoupontarget) hash ^= Gidcoupontarget.GetHashCode();
       if (HasPackageid) hash ^= Packageid.GetHashCode();
+      if (HasGidcoupon) hash ^= Gidcoupon.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1876,6 +2786,10 @@ namespace OpenSteamworks.Protobuf.WebUI {
         output.WriteRawTag(24);
         output.WriteUInt32(Packageid);
       }
+      if (HasGidcoupon) {
+        output.WriteRawTag(32);
+        output.WriteUInt64(Gidcoupon);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1898,6 +2812,10 @@ namespace OpenSteamworks.Protobuf.WebUI {
         output.WriteRawTag(24);
         output.WriteUInt32(Packageid);
       }
+      if (HasGidcoupon) {
+        output.WriteRawTag(32);
+        output.WriteUInt64(Gidcoupon);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -1916,6 +2834,9 @@ namespace OpenSteamworks.Protobuf.WebUI {
       }
       if (HasPackageid) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Packageid);
+      }
+      if (HasGidcoupon) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(Gidcoupon);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -1937,6 +2858,9 @@ namespace OpenSteamworks.Protobuf.WebUI {
       }
       if (other.HasPackageid) {
         Packageid = other.Packageid;
+      }
+      if (other.HasGidcoupon) {
+        Gidcoupon = other.Gidcoupon;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -1963,6 +2887,10 @@ namespace OpenSteamworks.Protobuf.WebUI {
           }
           case 24: {
             Packageid = input.ReadUInt32();
+            break;
+          }
+          case 32: {
+            Gidcoupon = input.ReadUInt64();
             break;
           }
         }
@@ -1992,6 +2920,216 @@ namespace OpenSteamworks.Protobuf.WebUI {
             Packageid = input.ReadUInt32();
             break;
           }
+          case 32: {
+            Gidcoupon = input.ReadUInt64();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class CShoppingCart_CreateNew_Request : pb::IMessage<CShoppingCart_CreateNew_Request>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<CShoppingCart_CreateNew_Request> _parser = new pb::MessageParser<CShoppingCart_CreateNew_Request>(() => new CShoppingCart_CreateNew_Request());
+    private pb::UnknownFieldSet _unknownFields;
+    private int _hasBits0;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<CShoppingCart_CreateNew_Request> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceShoppingcartReflection.Descriptor.MessageTypes[9]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CShoppingCart_CreateNew_Request() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CShoppingCart_CreateNew_Request(CShoppingCart_CreateNew_Request other) : this() {
+      _hasBits0 = other._hasBits0;
+      steamidRequester_ = other.steamidRequester_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CShoppingCart_CreateNew_Request Clone() {
+      return new CShoppingCart_CreateNew_Request(this);
+    }
+
+    /// <summary>Field number for the "steamid_requester" field.</summary>
+    public const int SteamidRequesterFieldNumber = 1;
+    private readonly static ulong SteamidRequesterDefaultValue = 0UL;
+
+    private ulong steamidRequester_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ulong SteamidRequester {
+      get { if ((_hasBits0 & 1) != 0) { return steamidRequester_; } else { return SteamidRequesterDefaultValue; } }
+      set {
+        _hasBits0 |= 1;
+        steamidRequester_ = value;
+      }
+    }
+    /// <summary>Gets whether the "steamid_requester" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasSteamidRequester {
+      get { return (_hasBits0 & 1) != 0; }
+    }
+    /// <summary>Clears the value of the "steamid_requester" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearSteamidRequester() {
+      _hasBits0 &= ~1;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as CShoppingCart_CreateNew_Request);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(CShoppingCart_CreateNew_Request other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (SteamidRequester != other.SteamidRequester) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (HasSteamidRequester) hash ^= SteamidRequester.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (HasSteamidRequester) {
+        output.WriteRawTag(9);
+        output.WriteFixed64(SteamidRequester);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (HasSteamidRequester) {
+        output.WriteRawTag(9);
+        output.WriteFixed64(SteamidRequester);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (HasSteamidRequester) {
+        size += 1 + 8;
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(CShoppingCart_CreateNew_Request other) {
+      if (other == null) {
+        return;
+      }
+      if (other.HasSteamidRequester) {
+        SteamidRequester = other.SteamidRequester;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 9: {
+            SteamidRequester = input.ReadFixed64();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 9: {
+            SteamidRequester = input.ReadFixed64();
+            break;
+          }
         }
       }
     }
@@ -2014,7 +3152,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceShoppingcartReflection.Descriptor.MessageTypes[7]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceShoppingcartReflection.Descriptor.MessageTypes[10]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2220,7 +3358,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceShoppingcartReflection.Descriptor.MessageTypes[8]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceShoppingcartReflection.Descriptor.MessageTypes[11]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2426,7 +3564,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceShoppingcartReflection.Descriptor.MessageTypes[9]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceShoppingcartReflection.Descriptor.MessageTypes[12]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2450,6 +3588,8 @@ namespace OpenSteamworks.Protobuf.WebUI {
       gidshoppingcart_ = other.gidshoppingcart_;
       contents_ = other.contents_ != null ? other.contents_.Clone() : null;
       timeCreated_ = other.timeCreated_;
+      mergedIntoAccountCart_ = other.mergedIntoAccountCart_;
+      steamidRequester_ = other.steamidRequester_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -2525,6 +3665,60 @@ namespace OpenSteamworks.Protobuf.WebUI {
       _hasBits0 &= ~2;
     }
 
+    /// <summary>Field number for the "merged_into_account_cart" field.</summary>
+    public const int MergedIntoAccountCartFieldNumber = 4;
+    private readonly static bool MergedIntoAccountCartDefaultValue = false;
+
+    private bool mergedIntoAccountCart_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool MergedIntoAccountCart {
+      get { if ((_hasBits0 & 4) != 0) { return mergedIntoAccountCart_; } else { return MergedIntoAccountCartDefaultValue; } }
+      set {
+        _hasBits0 |= 4;
+        mergedIntoAccountCart_ = value;
+      }
+    }
+    /// <summary>Gets whether the "merged_into_account_cart" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasMergedIntoAccountCart {
+      get { return (_hasBits0 & 4) != 0; }
+    }
+    /// <summary>Clears the value of the "merged_into_account_cart" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearMergedIntoAccountCart() {
+      _hasBits0 &= ~4;
+    }
+
+    /// <summary>Field number for the "steamid_requester" field.</summary>
+    public const int SteamidRequesterFieldNumber = 5;
+    private readonly static ulong SteamidRequesterDefaultValue = 0UL;
+
+    private ulong steamidRequester_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ulong SteamidRequester {
+      get { if ((_hasBits0 & 8) != 0) { return steamidRequester_; } else { return SteamidRequesterDefaultValue; } }
+      set {
+        _hasBits0 |= 8;
+        steamidRequester_ = value;
+      }
+    }
+    /// <summary>Gets whether the "steamid_requester" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasSteamidRequester {
+      get { return (_hasBits0 & 8) != 0; }
+    }
+    /// <summary>Clears the value of the "steamid_requester" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearSteamidRequester() {
+      _hasBits0 &= ~8;
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -2543,6 +3737,8 @@ namespace OpenSteamworks.Protobuf.WebUI {
       if (Gidshoppingcart != other.Gidshoppingcart) return false;
       if (!object.Equals(Contents, other.Contents)) return false;
       if (TimeCreated != other.TimeCreated) return false;
+      if (MergedIntoAccountCart != other.MergedIntoAccountCart) return false;
+      if (SteamidRequester != other.SteamidRequester) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -2553,6 +3749,8 @@ namespace OpenSteamworks.Protobuf.WebUI {
       if (HasGidshoppingcart) hash ^= Gidshoppingcart.GetHashCode();
       if (contents_ != null) hash ^= Contents.GetHashCode();
       if (HasTimeCreated) hash ^= TimeCreated.GetHashCode();
+      if (HasMergedIntoAccountCart) hash ^= MergedIntoAccountCart.GetHashCode();
+      if (HasSteamidRequester) hash ^= SteamidRequester.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -2583,6 +3781,14 @@ namespace OpenSteamworks.Protobuf.WebUI {
         output.WriteRawTag(24);
         output.WriteUInt32(TimeCreated);
       }
+      if (HasMergedIntoAccountCart) {
+        output.WriteRawTag(32);
+        output.WriteBool(MergedIntoAccountCart);
+      }
+      if (HasSteamidRequester) {
+        output.WriteRawTag(41);
+        output.WriteFixed64(SteamidRequester);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -2605,6 +3811,14 @@ namespace OpenSteamworks.Protobuf.WebUI {
         output.WriteRawTag(24);
         output.WriteUInt32(TimeCreated);
       }
+      if (HasMergedIntoAccountCart) {
+        output.WriteRawTag(32);
+        output.WriteBool(MergedIntoAccountCart);
+      }
+      if (HasSteamidRequester) {
+        output.WriteRawTag(41);
+        output.WriteFixed64(SteamidRequester);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -2623,6 +3837,12 @@ namespace OpenSteamworks.Protobuf.WebUI {
       }
       if (HasTimeCreated) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(TimeCreated);
+      }
+      if (HasMergedIntoAccountCart) {
+        size += 1 + 1;
+      }
+      if (HasSteamidRequester) {
+        size += 1 + 8;
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -2647,6 +3867,12 @@ namespace OpenSteamworks.Protobuf.WebUI {
       }
       if (other.HasTimeCreated) {
         TimeCreated = other.TimeCreated;
+      }
+      if (other.HasMergedIntoAccountCart) {
+        MergedIntoAccountCart = other.MergedIntoAccountCart;
+      }
+      if (other.HasSteamidRequester) {
+        SteamidRequester = other.SteamidRequester;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -2676,6 +3902,14 @@ namespace OpenSteamworks.Protobuf.WebUI {
           }
           case 24: {
             TimeCreated = input.ReadUInt32();
+            break;
+          }
+          case 32: {
+            MergedIntoAccountCart = input.ReadBool();
+            break;
+          }
+          case 41: {
+            SteamidRequester = input.ReadFixed64();
             break;
           }
         }
@@ -2708,6 +3942,14 @@ namespace OpenSteamworks.Protobuf.WebUI {
             TimeCreated = input.ReadUInt32();
             break;
           }
+          case 32: {
+            MergedIntoAccountCart = input.ReadBool();
+            break;
+          }
+          case 41: {
+            SteamidRequester = input.ReadFixed64();
+            break;
+          }
         }
       }
     }
@@ -2730,7 +3972,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceShoppingcartReflection.Descriptor.MessageTypes[10]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceShoppingcartReflection.Descriptor.MessageTypes[13]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3212,7 +4454,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceShoppingcartReflection.Descriptor.MessageTypes[11]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceShoppingcartReflection.Descriptor.MessageTypes[14]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3418,7 +4660,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceShoppingcartReflection.Descriptor.MessageTypes[12]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceShoppingcartReflection.Descriptor.MessageTypes[15]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3676,7 +4918,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceShoppingcartReflection.Descriptor.MessageTypes[13]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceShoppingcartReflection.Descriptor.MessageTypes[16]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4083,7 +5325,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceShoppingcartReflection.Descriptor.MessageTypes[14]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceShoppingcartReflection.Descriptor.MessageTypes[17]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4262,7 +5504,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceShoppingcartReflection.Descriptor.MessageTypes[15]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceShoppingcartReflection.Descriptor.MessageTypes[18]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4479,6 +5721,292 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  public sealed partial class CShoppingCart_RemoveLineItems_Request : pb::IMessage<CShoppingCart_RemoveLineItems_Request>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<CShoppingCart_RemoveLineItems_Request> _parser = new pb::MessageParser<CShoppingCart_RemoveLineItems_Request>(() => new CShoppingCart_RemoveLineItems_Request());
+    private pb::UnknownFieldSet _unknownFields;
+    private int _hasBits0;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<CShoppingCart_RemoveLineItems_Request> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceShoppingcartReflection.Descriptor.MessageTypes[19]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CShoppingCart_RemoveLineItems_Request() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CShoppingCart_RemoveLineItems_Request(CShoppingCart_RemoveLineItems_Request other) : this() {
+      _hasBits0 = other._hasBits0;
+      gidshoppingcart_ = other.gidshoppingcart_;
+      gidlineitems_ = other.gidlineitems_.Clone();
+      browserid_ = other.browserid_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CShoppingCart_RemoveLineItems_Request Clone() {
+      return new CShoppingCart_RemoveLineItems_Request(this);
+    }
+
+    /// <summary>Field number for the "gidshoppingcart" field.</summary>
+    public const int GidshoppingcartFieldNumber = 1;
+    private readonly static ulong GidshoppingcartDefaultValue = 0UL;
+
+    private ulong gidshoppingcart_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ulong Gidshoppingcart {
+      get { if ((_hasBits0 & 1) != 0) { return gidshoppingcart_; } else { return GidshoppingcartDefaultValue; } }
+      set {
+        _hasBits0 |= 1;
+        gidshoppingcart_ = value;
+      }
+    }
+    /// <summary>Gets whether the "gidshoppingcart" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasGidshoppingcart {
+      get { return (_hasBits0 & 1) != 0; }
+    }
+    /// <summary>Clears the value of the "gidshoppingcart" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearGidshoppingcart() {
+      _hasBits0 &= ~1;
+    }
+
+    /// <summary>Field number for the "gidlineitems" field.</summary>
+    public const int GidlineitemsFieldNumber = 2;
+    private static readonly pb::FieldCodec<ulong> _repeated_gidlineitems_codec
+        = pb::FieldCodec.ForUInt64(16);
+    private readonly pbc::RepeatedField<ulong> gidlineitems_ = new pbc::RepeatedField<ulong>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<ulong> Gidlineitems {
+      get { return gidlineitems_; }
+    }
+
+    /// <summary>Field number for the "browserid" field.</summary>
+    public const int BrowseridFieldNumber = 3;
+    private readonly static ulong BrowseridDefaultValue = 0UL;
+
+    private ulong browserid_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ulong Browserid {
+      get { if ((_hasBits0 & 2) != 0) { return browserid_; } else { return BrowseridDefaultValue; } }
+      set {
+        _hasBits0 |= 2;
+        browserid_ = value;
+      }
+    }
+    /// <summary>Gets whether the "browserid" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasBrowserid {
+      get { return (_hasBits0 & 2) != 0; }
+    }
+    /// <summary>Clears the value of the "browserid" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearBrowserid() {
+      _hasBits0 &= ~2;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as CShoppingCart_RemoveLineItems_Request);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(CShoppingCart_RemoveLineItems_Request other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Gidshoppingcart != other.Gidshoppingcart) return false;
+      if(!gidlineitems_.Equals(other.gidlineitems_)) return false;
+      if (Browserid != other.Browserid) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (HasGidshoppingcart) hash ^= Gidshoppingcart.GetHashCode();
+      hash ^= gidlineitems_.GetHashCode();
+      if (HasBrowserid) hash ^= Browserid.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (HasGidshoppingcart) {
+        output.WriteRawTag(8);
+        output.WriteUInt64(Gidshoppingcart);
+      }
+      gidlineitems_.WriteTo(output, _repeated_gidlineitems_codec);
+      if (HasBrowserid) {
+        output.WriteRawTag(24);
+        output.WriteUInt64(Browserid);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (HasGidshoppingcart) {
+        output.WriteRawTag(8);
+        output.WriteUInt64(Gidshoppingcart);
+      }
+      gidlineitems_.WriteTo(ref output, _repeated_gidlineitems_codec);
+      if (HasBrowserid) {
+        output.WriteRawTag(24);
+        output.WriteUInt64(Browserid);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (HasGidshoppingcart) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(Gidshoppingcart);
+      }
+      size += gidlineitems_.CalculateSize(_repeated_gidlineitems_codec);
+      if (HasBrowserid) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(Browserid);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(CShoppingCart_RemoveLineItems_Request other) {
+      if (other == null) {
+        return;
+      }
+      if (other.HasGidshoppingcart) {
+        Gidshoppingcart = other.Gidshoppingcart;
+      }
+      gidlineitems_.Add(other.gidlineitems_);
+      if (other.HasBrowserid) {
+        Browserid = other.Browserid;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            Gidshoppingcart = input.ReadUInt64();
+            break;
+          }
+          case 18:
+          case 16: {
+            gidlineitems_.AddEntriesFrom(input, _repeated_gidlineitems_codec);
+            break;
+          }
+          case 24: {
+            Browserid = input.ReadUInt64();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            Gidshoppingcart = input.ReadUInt64();
+            break;
+          }
+          case 18:
+          case 16: {
+            gidlineitems_.AddEntriesFrom(ref input, _repeated_gidlineitems_codec);
+            break;
+          }
+          case 24: {
+            Browserid = input.ReadUInt64();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
   public sealed partial class CShoppingCart_RemoveLineItems_Response : pb::IMessage<CShoppingCart_RemoveLineItems_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -4493,7 +6021,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceShoppingcartReflection.Descriptor.MessageTypes[16]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceShoppingcartReflection.Descriptor.MessageTypes[20]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4705,6 +6233,596 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  public sealed partial class CShoppingCart_UpdatePackageQuantity_Request : pb::IMessage<CShoppingCart_UpdatePackageQuantity_Request>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<CShoppingCart_UpdatePackageQuantity_Request> _parser = new pb::MessageParser<CShoppingCart_UpdatePackageQuantity_Request>(() => new CShoppingCart_UpdatePackageQuantity_Request());
+    private pb::UnknownFieldSet _unknownFields;
+    private int _hasBits0;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<CShoppingCart_UpdatePackageQuantity_Request> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceShoppingcartReflection.Descriptor.MessageTypes[21]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CShoppingCart_UpdatePackageQuantity_Request() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CShoppingCart_UpdatePackageQuantity_Request(CShoppingCart_UpdatePackageQuantity_Request other) : this() {
+      _hasBits0 = other._hasBits0;
+      gidshoppingcart_ = other.gidshoppingcart_;
+      gidlineitem_ = other.gidlineitem_;
+      quantity_ = other.quantity_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CShoppingCart_UpdatePackageQuantity_Request Clone() {
+      return new CShoppingCart_UpdatePackageQuantity_Request(this);
+    }
+
+    /// <summary>Field number for the "gidshoppingcart" field.</summary>
+    public const int GidshoppingcartFieldNumber = 1;
+    private readonly static ulong GidshoppingcartDefaultValue = 0UL;
+
+    private ulong gidshoppingcart_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ulong Gidshoppingcart {
+      get { if ((_hasBits0 & 1) != 0) { return gidshoppingcart_; } else { return GidshoppingcartDefaultValue; } }
+      set {
+        _hasBits0 |= 1;
+        gidshoppingcart_ = value;
+      }
+    }
+    /// <summary>Gets whether the "gidshoppingcart" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasGidshoppingcart {
+      get { return (_hasBits0 & 1) != 0; }
+    }
+    /// <summary>Clears the value of the "gidshoppingcart" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearGidshoppingcart() {
+      _hasBits0 &= ~1;
+    }
+
+    /// <summary>Field number for the "gidlineitem" field.</summary>
+    public const int GidlineitemFieldNumber = 2;
+    private readonly static ulong GidlineitemDefaultValue = 0UL;
+
+    private ulong gidlineitem_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ulong Gidlineitem {
+      get { if ((_hasBits0 & 2) != 0) { return gidlineitem_; } else { return GidlineitemDefaultValue; } }
+      set {
+        _hasBits0 |= 2;
+        gidlineitem_ = value;
+      }
+    }
+    /// <summary>Gets whether the "gidlineitem" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasGidlineitem {
+      get { return (_hasBits0 & 2) != 0; }
+    }
+    /// <summary>Clears the value of the "gidlineitem" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearGidlineitem() {
+      _hasBits0 &= ~2;
+    }
+
+    /// <summary>Field number for the "quantity" field.</summary>
+    public const int QuantityFieldNumber = 3;
+    private readonly static uint QuantityDefaultValue = 0;
+
+    private uint quantity_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint Quantity {
+      get { if ((_hasBits0 & 4) != 0) { return quantity_; } else { return QuantityDefaultValue; } }
+      set {
+        _hasBits0 |= 4;
+        quantity_ = value;
+      }
+    }
+    /// <summary>Gets whether the "quantity" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasQuantity {
+      get { return (_hasBits0 & 4) != 0; }
+    }
+    /// <summary>Clears the value of the "quantity" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearQuantity() {
+      _hasBits0 &= ~4;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as CShoppingCart_UpdatePackageQuantity_Request);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(CShoppingCart_UpdatePackageQuantity_Request other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Gidshoppingcart != other.Gidshoppingcart) return false;
+      if (Gidlineitem != other.Gidlineitem) return false;
+      if (Quantity != other.Quantity) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (HasGidshoppingcart) hash ^= Gidshoppingcart.GetHashCode();
+      if (HasGidlineitem) hash ^= Gidlineitem.GetHashCode();
+      if (HasQuantity) hash ^= Quantity.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (HasGidshoppingcart) {
+        output.WriteRawTag(8);
+        output.WriteUInt64(Gidshoppingcart);
+      }
+      if (HasGidlineitem) {
+        output.WriteRawTag(16);
+        output.WriteUInt64(Gidlineitem);
+      }
+      if (HasQuantity) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(Quantity);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (HasGidshoppingcart) {
+        output.WriteRawTag(8);
+        output.WriteUInt64(Gidshoppingcart);
+      }
+      if (HasGidlineitem) {
+        output.WriteRawTag(16);
+        output.WriteUInt64(Gidlineitem);
+      }
+      if (HasQuantity) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(Quantity);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (HasGidshoppingcart) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(Gidshoppingcart);
+      }
+      if (HasGidlineitem) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(Gidlineitem);
+      }
+      if (HasQuantity) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Quantity);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(CShoppingCart_UpdatePackageQuantity_Request other) {
+      if (other == null) {
+        return;
+      }
+      if (other.HasGidshoppingcart) {
+        Gidshoppingcart = other.Gidshoppingcart;
+      }
+      if (other.HasGidlineitem) {
+        Gidlineitem = other.Gidlineitem;
+      }
+      if (other.HasQuantity) {
+        Quantity = other.Quantity;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            Gidshoppingcart = input.ReadUInt64();
+            break;
+          }
+          case 16: {
+            Gidlineitem = input.ReadUInt64();
+            break;
+          }
+          case 24: {
+            Quantity = input.ReadUInt32();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            Gidshoppingcart = input.ReadUInt64();
+            break;
+          }
+          case 16: {
+            Gidlineitem = input.ReadUInt64();
+            break;
+          }
+          case 24: {
+            Quantity = input.ReadUInt32();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class CShoppingCart_UpdatePackageQuantity_Response : pb::IMessage<CShoppingCart_UpdatePackageQuantity_Response>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<CShoppingCart_UpdatePackageQuantity_Response> _parser = new pb::MessageParser<CShoppingCart_UpdatePackageQuantity_Response>(() => new CShoppingCart_UpdatePackageQuantity_Response());
+    private pb::UnknownFieldSet _unknownFields;
+    private int _hasBits0;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<CShoppingCart_UpdatePackageQuantity_Response> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceShoppingcartReflection.Descriptor.MessageTypes[22]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CShoppingCart_UpdatePackageQuantity_Response() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CShoppingCart_UpdatePackageQuantity_Response(CShoppingCart_UpdatePackageQuantity_Response other) : this() {
+      _hasBits0 = other._hasBits0;
+      gidshoppingcart_ = other.gidshoppingcart_;
+      contents_ = other.contents_ != null ? other.contents_.Clone() : null;
+      resultDetails_ = other.resultDetails_.Clone();
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CShoppingCart_UpdatePackageQuantity_Response Clone() {
+      return new CShoppingCart_UpdatePackageQuantity_Response(this);
+    }
+
+    /// <summary>Field number for the "gidshoppingcart" field.</summary>
+    public const int GidshoppingcartFieldNumber = 1;
+    private readonly static ulong GidshoppingcartDefaultValue = 0UL;
+
+    private ulong gidshoppingcart_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ulong Gidshoppingcart {
+      get { if ((_hasBits0 & 1) != 0) { return gidshoppingcart_; } else { return GidshoppingcartDefaultValue; } }
+      set {
+        _hasBits0 |= 1;
+        gidshoppingcart_ = value;
+      }
+    }
+    /// <summary>Gets whether the "gidshoppingcart" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasGidshoppingcart {
+      get { return (_hasBits0 & 1) != 0; }
+    }
+    /// <summary>Clears the value of the "gidshoppingcart" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearGidshoppingcart() {
+      _hasBits0 &= ~1;
+    }
+
+    /// <summary>Field number for the "contents" field.</summary>
+    public const int ContentsFieldNumber = 2;
+    private global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_Contents contents_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_Contents Contents {
+      get { return contents_; }
+      set {
+        contents_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "result_details" field.</summary>
+    public const int ResultDetailsFieldNumber = 3;
+    private static readonly pb::FieldCodec<uint> _repeated_resultDetails_codec
+        = pb::FieldCodec.ForUInt32(24);
+    private readonly pbc::RepeatedField<uint> resultDetails_ = new pbc::RepeatedField<uint>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<uint> ResultDetails {
+      get { return resultDetails_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as CShoppingCart_UpdatePackageQuantity_Response);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(CShoppingCart_UpdatePackageQuantity_Response other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Gidshoppingcart != other.Gidshoppingcart) return false;
+      if (!object.Equals(Contents, other.Contents)) return false;
+      if(!resultDetails_.Equals(other.resultDetails_)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (HasGidshoppingcart) hash ^= Gidshoppingcart.GetHashCode();
+      if (contents_ != null) hash ^= Contents.GetHashCode();
+      hash ^= resultDetails_.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (HasGidshoppingcart) {
+        output.WriteRawTag(8);
+        output.WriteUInt64(Gidshoppingcart);
+      }
+      if (contents_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Contents);
+      }
+      resultDetails_.WriteTo(output, _repeated_resultDetails_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (HasGidshoppingcart) {
+        output.WriteRawTag(8);
+        output.WriteUInt64(Gidshoppingcart);
+      }
+      if (contents_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(Contents);
+      }
+      resultDetails_.WriteTo(ref output, _repeated_resultDetails_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (HasGidshoppingcart) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(Gidshoppingcart);
+      }
+      if (contents_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Contents);
+      }
+      size += resultDetails_.CalculateSize(_repeated_resultDetails_codec);
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(CShoppingCart_UpdatePackageQuantity_Response other) {
+      if (other == null) {
+        return;
+      }
+      if (other.HasGidshoppingcart) {
+        Gidshoppingcart = other.Gidshoppingcart;
+      }
+      if (other.contents_ != null) {
+        if (contents_ == null) {
+          Contents = new global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_Contents();
+        }
+        Contents.MergeFrom(other.Contents);
+      }
+      resultDetails_.Add(other.resultDetails_);
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            Gidshoppingcart = input.ReadUInt64();
+            break;
+          }
+          case 18: {
+            if (contents_ == null) {
+              Contents = new global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_Contents();
+            }
+            input.ReadMessage(Contents);
+            break;
+          }
+          case 26:
+          case 24: {
+            resultDetails_.AddEntriesFrom(input, _repeated_resultDetails_codec);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            Gidshoppingcart = input.ReadUInt64();
+            break;
+          }
+          case 18: {
+            if (contents_ == null) {
+              Contents = new global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_Contents();
+            }
+            input.ReadMessage(Contents);
+            break;
+          }
+          case 26:
+          case 24: {
+            resultDetails_.AddEntriesFrom(ref input, _repeated_resultDetails_codec);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
   public sealed partial class CShoppingCart_WalletCreditItem : pb::IMessage<CShoppingCart_WalletCreditItem>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -4719,7 +6837,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceShoppingcartReflection.Descriptor.MessageTypes[17]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceShoppingcartReflection.Descriptor.MessageTypes[23]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

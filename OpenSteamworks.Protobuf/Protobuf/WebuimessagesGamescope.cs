@@ -26,27 +26,38 @@ namespace OpenSteamworks.Protobuf {
           string.Concat(
             "Ch13ZWJ1aW1lc3NhZ2VzX2dhbWVzY29wZS5wcm90bxogZ29vZ2xlL3Byb3Rv",
             "YnVmL2Rlc2NyaXB0b3IucHJvdG8aC2VudW1zLnByb3RvGhhzdGVhbW1lc3Nh",
-            "Z2VzX2Jhc2UucHJvdG8aGHdlYnVpbWVzc2FnZXNfYmFzZS5wcm90byJNCg9D",
-            "R2FtZXNjb3BlU3RhdGUSHAoUaXNfc2VydmljZV9hdmFpbGFibGUYASABKAgS",
-            "HAoUaXNfcmVzaGFkZV9zdXBwb3J0ZWQYAiABKAgiHQobQ0dhbWVzY29wZV9H",
-            "ZXRTdGF0ZV9SZXF1ZXN0Ij8KHENHYW1lc2NvcGVfR2V0U3RhdGVfUmVzcG9u",
-            "c2USHwoFc3RhdGUYASABKAsyEC5DR2FtZXNjb3BlU3RhdGUiJgokQ0dhbWVz",
-            "Y29wZV9TdGF0ZUNoYW5nZWRfTm90aWZpY2F0aW9uIowBCiBDR2FtZXNjb3Bl",
-            "X1NldEJsdXJQYXJhbXNfUmVxdWVzdBI+CgRtb2RlGAEgASgOMhMuRUdhbWVz",
-            "Y29wZUJsdXJNb2RlOhtFR2FtZXNjb3BlQmx1ck1vZGVfRGlzYWJsZWQSDgoG",
-            "cmFkaXVzGAIgASgFEhgKEGZhZGVfZHVyYXRpb25fbXMYAyABKAUiIwohQ0dh",
-            "bWVzY29wZV9TZXRCbHVyUGFyYW1zX1Jlc3BvbnNlMoECCglHYW1lc2NvcGUS",
-            "RwoIR2V0U3RhdGUSHC5DR2FtZXNjb3BlX0dldFN0YXRlX1JlcXVlc3QaHS5D",
-            "R2FtZXNjb3BlX0dldFN0YXRlX1Jlc3BvbnNlEk0KEk5vdGlmeVN0YXRlQ2hh",
-            "bmdlZBIlLkNHYW1lc2NvcGVfU3RhdGVDaGFuZ2VkX05vdGlmaWNhdGlvbhoQ",
-            "LldlYlVJTm9SZXNwb25zZRJWCg1TZXRCbHVyUGFyYW1zEiEuQ0dhbWVzY29w",
-            "ZV9TZXRCbHVyUGFyYW1zX1JlcXVlc3QaIi5DR2FtZXNjb3BlX1NldEJsdXJQ",
-            "YXJhbXNfUmVzcG9uc2UaBICXIgFCH0gBgAEBqgIXT3BlblN0ZWFtd29ya3Mu",
-            "UHJvdG9idWY="));
+            "Z2VzX2Jhc2UucHJvdG8aGHdlYnVpbWVzc2FnZXNfYmFzZS5wcm90byKbAQoP",
+            "Q01zZ0Rpc3BsYXlJbmZvEgwKBG1ha2UYASABKAkSDQoFbW9kZWwYAiABKAkS",
+            "FgoOY29ubmVjdG9yX25hbWUYAyABKAkSHwoXc3VwcG9ydGVkX3JlZnJlc2hf",
+            "cmF0ZXMYBCADKAUSHQoVc3VwcG9ydGVkX2ZyYW1lX3JhdGVzGAUgAygFEhMK",
+            "C2lzX2V4dGVybmFsGAYgASgIIuoCChJDTXNnR2FtZXNjb3BlU3RhdGUSHAoU",
+            "aXNfc2VydmljZV9hdmFpbGFibGUYASABKAgSHAoUaXNfcmVzaGFkZV9zdXBw",
+            "b3J0ZWQYAiABKAgSGgoSaXNfYXBwX2hkcl9lbmFibGVkGAMgASgIEiUKHWlz",
+            "X2FwcF9yZWZyZXNoX3JhdGVfc3VwcG9ydGVkGAQgASgIEi0KE2FjdGl2ZV9k",
+            "aXNwbGF5X2luZm8YBSABKAsyEC5DTXNnRGlzcGxheUluZm8SIwobaXNfYXBw",
+            "X3JlZnJlc2hfcmF0ZV9jYXBhYmxlGAYgASgIEisKI2lzX3JlZnJlc2hfcmF0",
+            "ZV9zd2l0Y2hpbmdfc3VwcG9ydGVkGAcgASgIEiwKJGlzX3JlZnJlc2hfcmF0",
+            "ZV9zd2l0Y2hpbmdfcmVzdHJpY3RlZBgIIAEoCBImCh5pc19oZHJfdmlzdWFs",
+            "aXphdGlvbl9zdXBwb3J0ZWQYCSABKAgiHQobQ0dhbWVzY29wZV9HZXRTdGF0",
+            "ZV9SZXF1ZXN0IkIKHENHYW1lc2NvcGVfR2V0U3RhdGVfUmVzcG9uc2USIgoF",
+            "c3RhdGUYASABKAsyEy5DTXNnR2FtZXNjb3BlU3RhdGUiJgokQ0dhbWVzY29w",
+            "ZV9TdGF0ZUNoYW5nZWRfTm90aWZpY2F0aW9uIowBCiBDR2FtZXNjb3BlX1Nl",
+            "dEJsdXJQYXJhbXNfUmVxdWVzdBI+CgRtb2RlGAEgASgOMhMuRUdhbWVzY29w",
+            "ZUJsdXJNb2RlOhtFR2FtZXNjb3BlQmx1ck1vZGVfRGlzYWJsZWQSDgoGcmFk",
+            "aXVzGAIgASgFEhgKEGZhZGVfZHVyYXRpb25fbXMYAyABKAUiIwohQ0dhbWVz",
+            "Y29wZV9TZXRCbHVyUGFyYW1zX1Jlc3BvbnNlMoECCglHYW1lc2NvcGUSRwoI",
+            "R2V0U3RhdGUSHC5DR2FtZXNjb3BlX0dldFN0YXRlX1JlcXVlc3QaHS5DR2Ft",
+            "ZXNjb3BlX0dldFN0YXRlX1Jlc3BvbnNlEk0KEk5vdGlmeVN0YXRlQ2hhbmdl",
+            "ZBIlLkNHYW1lc2NvcGVfU3RhdGVDaGFuZ2VkX05vdGlmaWNhdGlvbhoQLldl",
+            "YlVJTm9SZXNwb25zZRJWCg1TZXRCbHVyUGFyYW1zEiEuQ0dhbWVzY29wZV9T",
+            "ZXRCbHVyUGFyYW1zX1JlcXVlc3QaIi5DR2FtZXNjb3BlX1NldEJsdXJQYXJh",
+            "bXNfUmVzcG9uc2UaBICXIgFCH0gBgAEBqgIXT3BlblN0ZWFtd29ya3MuUHJv",
+            "dG9idWY="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.Reflection.DescriptorReflection.Descriptor, global::OpenSteamworks.Protobuf.EnumsReflection.Descriptor, global::OpenSteamworks.Protobuf.SteammessagesBaseReflection.Descriptor, global::OpenSteamworks.Protobuf.WebuimessagesBaseReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CGamescopeState), global::OpenSteamworks.Protobuf.CGamescopeState.Parser, new[]{ "IsServiceAvailable", "IsReshadeSupported" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CMsgDisplayInfo), global::OpenSteamworks.Protobuf.CMsgDisplayInfo.Parser, new[]{ "Make", "Model", "ConnectorName", "SupportedRefreshRates", "SupportedFrameRates", "IsExternal" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CMsgGamescopeState), global::OpenSteamworks.Protobuf.CMsgGamescopeState.Parser, new[]{ "IsServiceAvailable", "IsReshadeSupported", "IsAppHdrEnabled", "IsAppRefreshRateSupported", "ActiveDisplayInfo", "IsAppRefreshRateCapable", "IsRefreshRateSwitchingSupported", "IsRefreshRateSwitchingRestricted", "IsHdrVisualizationSupported" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CGamescope_GetState_Request), global::OpenSteamworks.Protobuf.CGamescope_GetState_Request.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CGamescope_GetState_Response), global::OpenSteamworks.Protobuf.CGamescope_GetState_Response.Parser, new[]{ "State" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CGamescope_StateChanged_Notification), global::OpenSteamworks.Protobuf.CGamescope_StateChanged_Notification.Parser, null, null, null, null, null),
@@ -58,17 +69,17 @@ namespace OpenSteamworks.Protobuf {
 
   }
   #region Messages
-  public sealed partial class CGamescopeState : pb::IMessage<CGamescopeState>
+  public sealed partial class CMsgDisplayInfo : pb::IMessage<CMsgDisplayInfo>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<CGamescopeState> _parser = new pb::MessageParser<CGamescopeState>(() => new CGamescopeState());
+    private static readonly pb::MessageParser<CMsgDisplayInfo> _parser = new pb::MessageParser<CMsgDisplayInfo>(() => new CMsgDisplayInfo());
     private pb::UnknownFieldSet _unknownFields;
     private int _hasBits0;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<CGamescopeState> Parser { get { return _parser; } }
+    public static pb::MessageParser<CMsgDisplayInfo> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -84,7 +95,7 @@ namespace OpenSteamworks.Protobuf {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CGamescopeState() {
+    public CMsgDisplayInfo() {
       OnConstruction();
     }
 
@@ -92,17 +103,439 @@ namespace OpenSteamworks.Protobuf {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CGamescopeState(CGamescopeState other) : this() {
+    public CMsgDisplayInfo(CMsgDisplayInfo other) : this() {
       _hasBits0 = other._hasBits0;
-      isServiceAvailable_ = other.isServiceAvailable_;
-      isReshadeSupported_ = other.isReshadeSupported_;
+      make_ = other.make_;
+      model_ = other.model_;
+      connectorName_ = other.connectorName_;
+      supportedRefreshRates_ = other.supportedRefreshRates_.Clone();
+      supportedFrameRates_ = other.supportedFrameRates_.Clone();
+      isExternal_ = other.isExternal_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CGamescopeState Clone() {
-      return new CGamescopeState(this);
+    public CMsgDisplayInfo Clone() {
+      return new CMsgDisplayInfo(this);
+    }
+
+    /// <summary>Field number for the "make" field.</summary>
+    public const int MakeFieldNumber = 1;
+    private readonly static string MakeDefaultValue = "";
+
+    private string make_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Make {
+      get { return make_ ?? MakeDefaultValue; }
+      set {
+        make_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+    /// <summary>Gets whether the "make" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasMake {
+      get { return make_ != null; }
+    }
+    /// <summary>Clears the value of the "make" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearMake() {
+      make_ = null;
+    }
+
+    /// <summary>Field number for the "model" field.</summary>
+    public const int ModelFieldNumber = 2;
+    private readonly static string ModelDefaultValue = "";
+
+    private string model_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Model {
+      get { return model_ ?? ModelDefaultValue; }
+      set {
+        model_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+    /// <summary>Gets whether the "model" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasModel {
+      get { return model_ != null; }
+    }
+    /// <summary>Clears the value of the "model" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearModel() {
+      model_ = null;
+    }
+
+    /// <summary>Field number for the "connector_name" field.</summary>
+    public const int ConnectorNameFieldNumber = 3;
+    private readonly static string ConnectorNameDefaultValue = "";
+
+    private string connectorName_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string ConnectorName {
+      get { return connectorName_ ?? ConnectorNameDefaultValue; }
+      set {
+        connectorName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+    /// <summary>Gets whether the "connector_name" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasConnectorName {
+      get { return connectorName_ != null; }
+    }
+    /// <summary>Clears the value of the "connector_name" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearConnectorName() {
+      connectorName_ = null;
+    }
+
+    /// <summary>Field number for the "supported_refresh_rates" field.</summary>
+    public const int SupportedRefreshRatesFieldNumber = 4;
+    private static readonly pb::FieldCodec<int> _repeated_supportedRefreshRates_codec
+        = pb::FieldCodec.ForInt32(32);
+    private readonly pbc::RepeatedField<int> supportedRefreshRates_ = new pbc::RepeatedField<int>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<int> SupportedRefreshRates {
+      get { return supportedRefreshRates_; }
+    }
+
+    /// <summary>Field number for the "supported_frame_rates" field.</summary>
+    public const int SupportedFrameRatesFieldNumber = 5;
+    private static readonly pb::FieldCodec<int> _repeated_supportedFrameRates_codec
+        = pb::FieldCodec.ForInt32(40);
+    private readonly pbc::RepeatedField<int> supportedFrameRates_ = new pbc::RepeatedField<int>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<int> SupportedFrameRates {
+      get { return supportedFrameRates_; }
+    }
+
+    /// <summary>Field number for the "is_external" field.</summary>
+    public const int IsExternalFieldNumber = 6;
+    private readonly static bool IsExternalDefaultValue = false;
+
+    private bool isExternal_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool IsExternal {
+      get { if ((_hasBits0 & 1) != 0) { return isExternal_; } else { return IsExternalDefaultValue; } }
+      set {
+        _hasBits0 |= 1;
+        isExternal_ = value;
+      }
+    }
+    /// <summary>Gets whether the "is_external" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasIsExternal {
+      get { return (_hasBits0 & 1) != 0; }
+    }
+    /// <summary>Clears the value of the "is_external" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearIsExternal() {
+      _hasBits0 &= ~1;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as CMsgDisplayInfo);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(CMsgDisplayInfo other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Make != other.Make) return false;
+      if (Model != other.Model) return false;
+      if (ConnectorName != other.ConnectorName) return false;
+      if(!supportedRefreshRates_.Equals(other.supportedRefreshRates_)) return false;
+      if(!supportedFrameRates_.Equals(other.supportedFrameRates_)) return false;
+      if (IsExternal != other.IsExternal) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (HasMake) hash ^= Make.GetHashCode();
+      if (HasModel) hash ^= Model.GetHashCode();
+      if (HasConnectorName) hash ^= ConnectorName.GetHashCode();
+      hash ^= supportedRefreshRates_.GetHashCode();
+      hash ^= supportedFrameRates_.GetHashCode();
+      if (HasIsExternal) hash ^= IsExternal.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (HasMake) {
+        output.WriteRawTag(10);
+        output.WriteString(Make);
+      }
+      if (HasModel) {
+        output.WriteRawTag(18);
+        output.WriteString(Model);
+      }
+      if (HasConnectorName) {
+        output.WriteRawTag(26);
+        output.WriteString(ConnectorName);
+      }
+      supportedRefreshRates_.WriteTo(output, _repeated_supportedRefreshRates_codec);
+      supportedFrameRates_.WriteTo(output, _repeated_supportedFrameRates_codec);
+      if (HasIsExternal) {
+        output.WriteRawTag(48);
+        output.WriteBool(IsExternal);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (HasMake) {
+        output.WriteRawTag(10);
+        output.WriteString(Make);
+      }
+      if (HasModel) {
+        output.WriteRawTag(18);
+        output.WriteString(Model);
+      }
+      if (HasConnectorName) {
+        output.WriteRawTag(26);
+        output.WriteString(ConnectorName);
+      }
+      supportedRefreshRates_.WriteTo(ref output, _repeated_supportedRefreshRates_codec);
+      supportedFrameRates_.WriteTo(ref output, _repeated_supportedFrameRates_codec);
+      if (HasIsExternal) {
+        output.WriteRawTag(48);
+        output.WriteBool(IsExternal);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (HasMake) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Make);
+      }
+      if (HasModel) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Model);
+      }
+      if (HasConnectorName) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(ConnectorName);
+      }
+      size += supportedRefreshRates_.CalculateSize(_repeated_supportedRefreshRates_codec);
+      size += supportedFrameRates_.CalculateSize(_repeated_supportedFrameRates_codec);
+      if (HasIsExternal) {
+        size += 1 + 1;
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(CMsgDisplayInfo other) {
+      if (other == null) {
+        return;
+      }
+      if (other.HasMake) {
+        Make = other.Make;
+      }
+      if (other.HasModel) {
+        Model = other.Model;
+      }
+      if (other.HasConnectorName) {
+        ConnectorName = other.ConnectorName;
+      }
+      supportedRefreshRates_.Add(other.supportedRefreshRates_);
+      supportedFrameRates_.Add(other.supportedFrameRates_);
+      if (other.HasIsExternal) {
+        IsExternal = other.IsExternal;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            Make = input.ReadString();
+            break;
+          }
+          case 18: {
+            Model = input.ReadString();
+            break;
+          }
+          case 26: {
+            ConnectorName = input.ReadString();
+            break;
+          }
+          case 34:
+          case 32: {
+            supportedRefreshRates_.AddEntriesFrom(input, _repeated_supportedRefreshRates_codec);
+            break;
+          }
+          case 42:
+          case 40: {
+            supportedFrameRates_.AddEntriesFrom(input, _repeated_supportedFrameRates_codec);
+            break;
+          }
+          case 48: {
+            IsExternal = input.ReadBool();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            Make = input.ReadString();
+            break;
+          }
+          case 18: {
+            Model = input.ReadString();
+            break;
+          }
+          case 26: {
+            ConnectorName = input.ReadString();
+            break;
+          }
+          case 34:
+          case 32: {
+            supportedRefreshRates_.AddEntriesFrom(ref input, _repeated_supportedRefreshRates_codec);
+            break;
+          }
+          case 42:
+          case 40: {
+            supportedFrameRates_.AddEntriesFrom(ref input, _repeated_supportedFrameRates_codec);
+            break;
+          }
+          case 48: {
+            IsExternal = input.ReadBool();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class CMsgGamescopeState : pb::IMessage<CMsgGamescopeState>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<CMsgGamescopeState> _parser = new pb::MessageParser<CMsgGamescopeState>(() => new CMsgGamescopeState());
+    private pb::UnknownFieldSet _unknownFields;
+    private int _hasBits0;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<CMsgGamescopeState> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::OpenSteamworks.Protobuf.WebuimessagesGamescopeReflection.Descriptor.MessageTypes[1]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CMsgGamescopeState() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CMsgGamescopeState(CMsgGamescopeState other) : this() {
+      _hasBits0 = other._hasBits0;
+      isServiceAvailable_ = other.isServiceAvailable_;
+      isReshadeSupported_ = other.isReshadeSupported_;
+      isAppHdrEnabled_ = other.isAppHdrEnabled_;
+      isAppRefreshRateSupported_ = other.isAppRefreshRateSupported_;
+      activeDisplayInfo_ = other.activeDisplayInfo_ != null ? other.activeDisplayInfo_.Clone() : null;
+      isAppRefreshRateCapable_ = other.isAppRefreshRateCapable_;
+      isRefreshRateSwitchingSupported_ = other.isRefreshRateSwitchingSupported_;
+      isRefreshRateSwitchingRestricted_ = other.isRefreshRateSwitchingRestricted_;
+      isHdrVisualizationSupported_ = other.isHdrVisualizationSupported_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CMsgGamescopeState Clone() {
+      return new CMsgGamescopeState(this);
     }
 
     /// <summary>Field number for the "is_service_available" field.</summary>
@@ -159,15 +592,189 @@ namespace OpenSteamworks.Protobuf {
       _hasBits0 &= ~2;
     }
 
+    /// <summary>Field number for the "is_app_hdr_enabled" field.</summary>
+    public const int IsAppHdrEnabledFieldNumber = 3;
+    private readonly static bool IsAppHdrEnabledDefaultValue = false;
+
+    private bool isAppHdrEnabled_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override bool Equals(object other) {
-      return Equals(other as CGamescopeState);
+    public bool IsAppHdrEnabled {
+      get { if ((_hasBits0 & 4) != 0) { return isAppHdrEnabled_; } else { return IsAppHdrEnabledDefaultValue; } }
+      set {
+        _hasBits0 |= 4;
+        isAppHdrEnabled_ = value;
+      }
+    }
+    /// <summary>Gets whether the "is_app_hdr_enabled" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasIsAppHdrEnabled {
+      get { return (_hasBits0 & 4) != 0; }
+    }
+    /// <summary>Clears the value of the "is_app_hdr_enabled" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearIsAppHdrEnabled() {
+      _hasBits0 &= ~4;
+    }
+
+    /// <summary>Field number for the "is_app_refresh_rate_supported" field.</summary>
+    public const int IsAppRefreshRateSupportedFieldNumber = 4;
+    private readonly static bool IsAppRefreshRateSupportedDefaultValue = false;
+
+    private bool isAppRefreshRateSupported_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool IsAppRefreshRateSupported {
+      get { if ((_hasBits0 & 8) != 0) { return isAppRefreshRateSupported_; } else { return IsAppRefreshRateSupportedDefaultValue; } }
+      set {
+        _hasBits0 |= 8;
+        isAppRefreshRateSupported_ = value;
+      }
+    }
+    /// <summary>Gets whether the "is_app_refresh_rate_supported" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasIsAppRefreshRateSupported {
+      get { return (_hasBits0 & 8) != 0; }
+    }
+    /// <summary>Clears the value of the "is_app_refresh_rate_supported" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearIsAppRefreshRateSupported() {
+      _hasBits0 &= ~8;
+    }
+
+    /// <summary>Field number for the "active_display_info" field.</summary>
+    public const int ActiveDisplayInfoFieldNumber = 5;
+    private global::OpenSteamworks.Protobuf.CMsgDisplayInfo activeDisplayInfo_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::OpenSteamworks.Protobuf.CMsgDisplayInfo ActiveDisplayInfo {
+      get { return activeDisplayInfo_; }
+      set {
+        activeDisplayInfo_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "is_app_refresh_rate_capable" field.</summary>
+    public const int IsAppRefreshRateCapableFieldNumber = 6;
+    private readonly static bool IsAppRefreshRateCapableDefaultValue = false;
+
+    private bool isAppRefreshRateCapable_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool IsAppRefreshRateCapable {
+      get { if ((_hasBits0 & 16) != 0) { return isAppRefreshRateCapable_; } else { return IsAppRefreshRateCapableDefaultValue; } }
+      set {
+        _hasBits0 |= 16;
+        isAppRefreshRateCapable_ = value;
+      }
+    }
+    /// <summary>Gets whether the "is_app_refresh_rate_capable" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasIsAppRefreshRateCapable {
+      get { return (_hasBits0 & 16) != 0; }
+    }
+    /// <summary>Clears the value of the "is_app_refresh_rate_capable" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearIsAppRefreshRateCapable() {
+      _hasBits0 &= ~16;
+    }
+
+    /// <summary>Field number for the "is_refresh_rate_switching_supported" field.</summary>
+    public const int IsRefreshRateSwitchingSupportedFieldNumber = 7;
+    private readonly static bool IsRefreshRateSwitchingSupportedDefaultValue = false;
+
+    private bool isRefreshRateSwitchingSupported_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool IsRefreshRateSwitchingSupported {
+      get { if ((_hasBits0 & 32) != 0) { return isRefreshRateSwitchingSupported_; } else { return IsRefreshRateSwitchingSupportedDefaultValue; } }
+      set {
+        _hasBits0 |= 32;
+        isRefreshRateSwitchingSupported_ = value;
+      }
+    }
+    /// <summary>Gets whether the "is_refresh_rate_switching_supported" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasIsRefreshRateSwitchingSupported {
+      get { return (_hasBits0 & 32) != 0; }
+    }
+    /// <summary>Clears the value of the "is_refresh_rate_switching_supported" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearIsRefreshRateSwitchingSupported() {
+      _hasBits0 &= ~32;
+    }
+
+    /// <summary>Field number for the "is_refresh_rate_switching_restricted" field.</summary>
+    public const int IsRefreshRateSwitchingRestrictedFieldNumber = 8;
+    private readonly static bool IsRefreshRateSwitchingRestrictedDefaultValue = false;
+
+    private bool isRefreshRateSwitchingRestricted_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool IsRefreshRateSwitchingRestricted {
+      get { if ((_hasBits0 & 64) != 0) { return isRefreshRateSwitchingRestricted_; } else { return IsRefreshRateSwitchingRestrictedDefaultValue; } }
+      set {
+        _hasBits0 |= 64;
+        isRefreshRateSwitchingRestricted_ = value;
+      }
+    }
+    /// <summary>Gets whether the "is_refresh_rate_switching_restricted" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasIsRefreshRateSwitchingRestricted {
+      get { return (_hasBits0 & 64) != 0; }
+    }
+    /// <summary>Clears the value of the "is_refresh_rate_switching_restricted" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearIsRefreshRateSwitchingRestricted() {
+      _hasBits0 &= ~64;
+    }
+
+    /// <summary>Field number for the "is_hdr_visualization_supported" field.</summary>
+    public const int IsHdrVisualizationSupportedFieldNumber = 9;
+    private readonly static bool IsHdrVisualizationSupportedDefaultValue = false;
+
+    private bool isHdrVisualizationSupported_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool IsHdrVisualizationSupported {
+      get { if ((_hasBits0 & 128) != 0) { return isHdrVisualizationSupported_; } else { return IsHdrVisualizationSupportedDefaultValue; } }
+      set {
+        _hasBits0 |= 128;
+        isHdrVisualizationSupported_ = value;
+      }
+    }
+    /// <summary>Gets whether the "is_hdr_visualization_supported" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasIsHdrVisualizationSupported {
+      get { return (_hasBits0 & 128) != 0; }
+    }
+    /// <summary>Clears the value of the "is_hdr_visualization_supported" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearIsHdrVisualizationSupported() {
+      _hasBits0 &= ~128;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(CGamescopeState other) {
+    public override bool Equals(object other) {
+      return Equals(other as CMsgGamescopeState);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(CMsgGamescopeState other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -176,6 +783,13 @@ namespace OpenSteamworks.Protobuf {
       }
       if (IsServiceAvailable != other.IsServiceAvailable) return false;
       if (IsReshadeSupported != other.IsReshadeSupported) return false;
+      if (IsAppHdrEnabled != other.IsAppHdrEnabled) return false;
+      if (IsAppRefreshRateSupported != other.IsAppRefreshRateSupported) return false;
+      if (!object.Equals(ActiveDisplayInfo, other.ActiveDisplayInfo)) return false;
+      if (IsAppRefreshRateCapable != other.IsAppRefreshRateCapable) return false;
+      if (IsRefreshRateSwitchingSupported != other.IsRefreshRateSwitchingSupported) return false;
+      if (IsRefreshRateSwitchingRestricted != other.IsRefreshRateSwitchingRestricted) return false;
+      if (IsHdrVisualizationSupported != other.IsHdrVisualizationSupported) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -185,6 +799,13 @@ namespace OpenSteamworks.Protobuf {
       int hash = 1;
       if (HasIsServiceAvailable) hash ^= IsServiceAvailable.GetHashCode();
       if (HasIsReshadeSupported) hash ^= IsReshadeSupported.GetHashCode();
+      if (HasIsAppHdrEnabled) hash ^= IsAppHdrEnabled.GetHashCode();
+      if (HasIsAppRefreshRateSupported) hash ^= IsAppRefreshRateSupported.GetHashCode();
+      if (activeDisplayInfo_ != null) hash ^= ActiveDisplayInfo.GetHashCode();
+      if (HasIsAppRefreshRateCapable) hash ^= IsAppRefreshRateCapable.GetHashCode();
+      if (HasIsRefreshRateSwitchingSupported) hash ^= IsRefreshRateSwitchingSupported.GetHashCode();
+      if (HasIsRefreshRateSwitchingRestricted) hash ^= IsRefreshRateSwitchingRestricted.GetHashCode();
+      if (HasIsHdrVisualizationSupported) hash ^= IsHdrVisualizationSupported.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -211,6 +832,34 @@ namespace OpenSteamworks.Protobuf {
         output.WriteRawTag(16);
         output.WriteBool(IsReshadeSupported);
       }
+      if (HasIsAppHdrEnabled) {
+        output.WriteRawTag(24);
+        output.WriteBool(IsAppHdrEnabled);
+      }
+      if (HasIsAppRefreshRateSupported) {
+        output.WriteRawTag(32);
+        output.WriteBool(IsAppRefreshRateSupported);
+      }
+      if (activeDisplayInfo_ != null) {
+        output.WriteRawTag(42);
+        output.WriteMessage(ActiveDisplayInfo);
+      }
+      if (HasIsAppRefreshRateCapable) {
+        output.WriteRawTag(48);
+        output.WriteBool(IsAppRefreshRateCapable);
+      }
+      if (HasIsRefreshRateSwitchingSupported) {
+        output.WriteRawTag(56);
+        output.WriteBool(IsRefreshRateSwitchingSupported);
+      }
+      if (HasIsRefreshRateSwitchingRestricted) {
+        output.WriteRawTag(64);
+        output.WriteBool(IsRefreshRateSwitchingRestricted);
+      }
+      if (HasIsHdrVisualizationSupported) {
+        output.WriteRawTag(72);
+        output.WriteBool(IsHdrVisualizationSupported);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -229,6 +878,34 @@ namespace OpenSteamworks.Protobuf {
         output.WriteRawTag(16);
         output.WriteBool(IsReshadeSupported);
       }
+      if (HasIsAppHdrEnabled) {
+        output.WriteRawTag(24);
+        output.WriteBool(IsAppHdrEnabled);
+      }
+      if (HasIsAppRefreshRateSupported) {
+        output.WriteRawTag(32);
+        output.WriteBool(IsAppRefreshRateSupported);
+      }
+      if (activeDisplayInfo_ != null) {
+        output.WriteRawTag(42);
+        output.WriteMessage(ActiveDisplayInfo);
+      }
+      if (HasIsAppRefreshRateCapable) {
+        output.WriteRawTag(48);
+        output.WriteBool(IsAppRefreshRateCapable);
+      }
+      if (HasIsRefreshRateSwitchingSupported) {
+        output.WriteRawTag(56);
+        output.WriteBool(IsRefreshRateSwitchingSupported);
+      }
+      if (HasIsRefreshRateSwitchingRestricted) {
+        output.WriteRawTag(64);
+        output.WriteBool(IsRefreshRateSwitchingRestricted);
+      }
+      if (HasIsHdrVisualizationSupported) {
+        output.WriteRawTag(72);
+        output.WriteBool(IsHdrVisualizationSupported);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -245,6 +922,27 @@ namespace OpenSteamworks.Protobuf {
       if (HasIsReshadeSupported) {
         size += 1 + 1;
       }
+      if (HasIsAppHdrEnabled) {
+        size += 1 + 1;
+      }
+      if (HasIsAppRefreshRateSupported) {
+        size += 1 + 1;
+      }
+      if (activeDisplayInfo_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(ActiveDisplayInfo);
+      }
+      if (HasIsAppRefreshRateCapable) {
+        size += 1 + 1;
+      }
+      if (HasIsRefreshRateSwitchingSupported) {
+        size += 1 + 1;
+      }
+      if (HasIsRefreshRateSwitchingRestricted) {
+        size += 1 + 1;
+      }
+      if (HasIsHdrVisualizationSupported) {
+        size += 1 + 1;
+      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -253,7 +951,7 @@ namespace OpenSteamworks.Protobuf {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(CGamescopeState other) {
+    public void MergeFrom(CMsgGamescopeState other) {
       if (other == null) {
         return;
       }
@@ -262,6 +960,30 @@ namespace OpenSteamworks.Protobuf {
       }
       if (other.HasIsReshadeSupported) {
         IsReshadeSupported = other.IsReshadeSupported;
+      }
+      if (other.HasIsAppHdrEnabled) {
+        IsAppHdrEnabled = other.IsAppHdrEnabled;
+      }
+      if (other.HasIsAppRefreshRateSupported) {
+        IsAppRefreshRateSupported = other.IsAppRefreshRateSupported;
+      }
+      if (other.activeDisplayInfo_ != null) {
+        if (activeDisplayInfo_ == null) {
+          ActiveDisplayInfo = new global::OpenSteamworks.Protobuf.CMsgDisplayInfo();
+        }
+        ActiveDisplayInfo.MergeFrom(other.ActiveDisplayInfo);
+      }
+      if (other.HasIsAppRefreshRateCapable) {
+        IsAppRefreshRateCapable = other.IsAppRefreshRateCapable;
+      }
+      if (other.HasIsRefreshRateSwitchingSupported) {
+        IsRefreshRateSwitchingSupported = other.IsRefreshRateSwitchingSupported;
+      }
+      if (other.HasIsRefreshRateSwitchingRestricted) {
+        IsRefreshRateSwitchingRestricted = other.IsRefreshRateSwitchingRestricted;
+      }
+      if (other.HasIsHdrVisualizationSupported) {
+        IsHdrVisualizationSupported = other.IsHdrVisualizationSupported;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -284,6 +1006,37 @@ namespace OpenSteamworks.Protobuf {
           }
           case 16: {
             IsReshadeSupported = input.ReadBool();
+            break;
+          }
+          case 24: {
+            IsAppHdrEnabled = input.ReadBool();
+            break;
+          }
+          case 32: {
+            IsAppRefreshRateSupported = input.ReadBool();
+            break;
+          }
+          case 42: {
+            if (activeDisplayInfo_ == null) {
+              ActiveDisplayInfo = new global::OpenSteamworks.Protobuf.CMsgDisplayInfo();
+            }
+            input.ReadMessage(ActiveDisplayInfo);
+            break;
+          }
+          case 48: {
+            IsAppRefreshRateCapable = input.ReadBool();
+            break;
+          }
+          case 56: {
+            IsRefreshRateSwitchingSupported = input.ReadBool();
+            break;
+          }
+          case 64: {
+            IsRefreshRateSwitchingRestricted = input.ReadBool();
+            break;
+          }
+          case 72: {
+            IsHdrVisualizationSupported = input.ReadBool();
             break;
           }
         }
@@ -309,6 +1062,37 @@ namespace OpenSteamworks.Protobuf {
             IsReshadeSupported = input.ReadBool();
             break;
           }
+          case 24: {
+            IsAppHdrEnabled = input.ReadBool();
+            break;
+          }
+          case 32: {
+            IsAppRefreshRateSupported = input.ReadBool();
+            break;
+          }
+          case 42: {
+            if (activeDisplayInfo_ == null) {
+              ActiveDisplayInfo = new global::OpenSteamworks.Protobuf.CMsgDisplayInfo();
+            }
+            input.ReadMessage(ActiveDisplayInfo);
+            break;
+          }
+          case 48: {
+            IsAppRefreshRateCapable = input.ReadBool();
+            break;
+          }
+          case 56: {
+            IsRefreshRateSwitchingSupported = input.ReadBool();
+            break;
+          }
+          case 64: {
+            IsRefreshRateSwitchingRestricted = input.ReadBool();
+            break;
+          }
+          case 72: {
+            IsHdrVisualizationSupported = input.ReadBool();
+            break;
+          }
         }
       }
     }
@@ -330,7 +1114,7 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebuimessagesGamescopeReflection.Descriptor.MessageTypes[1]; }
+      get { return global::OpenSteamworks.Protobuf.WebuimessagesGamescopeReflection.Descriptor.MessageTypes[2]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -482,7 +1266,7 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebuimessagesGamescopeReflection.Descriptor.MessageTypes[2]; }
+      get { return global::OpenSteamworks.Protobuf.WebuimessagesGamescopeReflection.Descriptor.MessageTypes[3]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -514,10 +1298,10 @@ namespace OpenSteamworks.Protobuf {
 
     /// <summary>Field number for the "state" field.</summary>
     public const int StateFieldNumber = 1;
-    private global::OpenSteamworks.Protobuf.CGamescopeState state_;
+    private global::OpenSteamworks.Protobuf.CMsgGamescopeState state_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::OpenSteamworks.Protobuf.CGamescopeState State {
+    public global::OpenSteamworks.Protobuf.CMsgGamescopeState State {
       get { return state_; }
       set {
         state_ = value;
@@ -611,7 +1395,7 @@ namespace OpenSteamworks.Protobuf {
       }
       if (other.state_ != null) {
         if (state_ == null) {
-          State = new global::OpenSteamworks.Protobuf.CGamescopeState();
+          State = new global::OpenSteamworks.Protobuf.CMsgGamescopeState();
         }
         State.MergeFrom(other.State);
       }
@@ -632,7 +1416,7 @@ namespace OpenSteamworks.Protobuf {
             break;
           case 10: {
             if (state_ == null) {
-              State = new global::OpenSteamworks.Protobuf.CGamescopeState();
+              State = new global::OpenSteamworks.Protobuf.CMsgGamescopeState();
             }
             input.ReadMessage(State);
             break;
@@ -654,7 +1438,7 @@ namespace OpenSteamworks.Protobuf {
             break;
           case 10: {
             if (state_ == null) {
-              State = new global::OpenSteamworks.Protobuf.CGamescopeState();
+              State = new global::OpenSteamworks.Protobuf.CMsgGamescopeState();
             }
             input.ReadMessage(State);
             break;
@@ -680,7 +1464,7 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebuimessagesGamescopeReflection.Descriptor.MessageTypes[3]; }
+      get { return global::OpenSteamworks.Protobuf.WebuimessagesGamescopeReflection.Descriptor.MessageTypes[4]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -833,7 +1617,7 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebuimessagesGamescopeReflection.Descriptor.MessageTypes[4]; }
+      get { return global::OpenSteamworks.Protobuf.WebuimessagesGamescopeReflection.Descriptor.MessageTypes[5]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1142,7 +1926,7 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebuimessagesGamescopeReflection.Descriptor.MessageTypes[5]; }
+      get { return global::OpenSteamworks.Protobuf.WebuimessagesGamescopeReflection.Descriptor.MessageTypes[6]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

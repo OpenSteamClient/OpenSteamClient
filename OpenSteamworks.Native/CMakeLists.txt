@@ -42,6 +42,9 @@ endif()
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${NATIVE_OUTPUT_FOLDER})
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${NATIVE_OUTPUT_FOLDER})
 
+file(GLOB_RECURSE protobufhack_sources CONFIGURE_DEPENDS "protobufhack/*.cpp")
+file(GLOB protobufhack_include_cc CONFIGURE_DEPENDS "protobufhack/generated/*.cc")
+file(GLOB protobufhack_include_h CONFIGURE_DEPENDS "protobufhack/generated/*.h")
 file(GLOB_RECURSE miniutl_sources CONFIGURE_DEPENDS "MiniUTL/*.cpp")
 file(GLOB_RECURSE htmlhost_sources CONFIGURE_DEPENDS "htmlhost/*.cpp")
 
@@ -63,6 +66,12 @@ if (BUILD_PLATFORM_TARGET STREQUAL "linux")
         set_target_properties(steamservice PROPERTIES PREFIX "")
 
         add_library(bootstrappershim64 SHARED ${PROJECT_SOURCE_DIR}/bootstrappershim/main.cpp)
+
+        include("cmake/protobuf_external.cmake")
+        add_library(protobufhack SHARED ${protobufhack_include_cc} ${protobufhack_sources})
+        set_target_properties(protobufhack PROPERTIES CXX_STANDARD 14)
+        target_include_directories(protobufhack PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
+        target_link_libraries(protobufhack ${Protobuf_LIBRARIES})
 
         add_subdirectory(SDL)
         add_subdirectory(SDL_ttf)
@@ -89,6 +98,12 @@ endif()
 
 if (BUILD_PLATFORM_TARGET STREQUAL "windows")
     if (BUILD_BITS STREQUAL "64" OR DEFINED IDE_BUILD)
+        include("cmake/protobuf_external.cmake")
+        add_library(protobufhack SHARED ${protobufhack_include_cc} ${protobufhack_sources})
+        set_target_properties(protobufhack PROPERTIES CXX_STANDARD 14)
+        target_include_directories(protobufhack PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
+        target_link_libraries(protobufhack ${Protobuf_LIBRARIES})
+
         set(SDL3TTF_VENDORED ON)
         add_subdirectory(SDL)
         add_subdirectory(SDL_ttf)
@@ -108,7 +123,12 @@ if (BUILD_PLATFORM_TARGET STREQUAL "macos")
     if (BUILD_BITS STREQUAL "64" OR DEFINED IDE_BUILD)
         # MacOS steam has the luxury of having a 64-bit steamservice
         # add_executable(steamserviced ${PROJECT_SOURCE_DIR}/serviced/main.cpp)
-
+        
+        # include("cmake/protobuf_external.cmake")
+        # add_library(protobufhack SHARED ${protobufhack_include_cc} ${protobufhack_sources})
+        # set_target_properties(protobufhack PROPERTIES CMAKE_CXX_STANDARD 17)
+        # target_include_directories(protobufhack PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
+        # target_link_libraries(protobufhack ${Protobuf_LIBRARIES})
     endif()
 
     if (BUILD_BITS STREQUAL "32" OR DEFINED IDE_BUILD)

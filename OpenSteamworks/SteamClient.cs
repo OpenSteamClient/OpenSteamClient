@@ -49,6 +49,7 @@ public class SteamClient
 
     // Non-native interfaces
     private List<ClientInterface> clientinterfaces = new List<ClientInterface>();
+    public ClientApps ClientApps;
     public ClientConfigStore ClientConfigStore;
     public ClientMessaging ClientMessaging;
 
@@ -134,8 +135,10 @@ public class SteamClient
             this.NativeClient.IClientUtils.SetClientUIProcess();
         }
 
+        this.ClientApps = new ClientApps(this);
         this.ClientConfigStore = new ClientConfigStore(this);
         this.ClientMessaging = new ClientMessaging(this);
+        this.clientinterfaces.Add(this.ClientApps);
         this.clientinterfaces.Add(this.ClientConfigStore);
         this.clientinterfaces.Add(this.ClientMessaging);
 

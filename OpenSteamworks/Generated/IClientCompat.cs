@@ -18,7 +18,7 @@ public unsafe interface IClientCompat
     public bool BIsCompatLayerEnabled();  // argc: 0, index: 1
     public void EnableCompat(bool enable);  // argc: 1, index: 2
     [BlacklistedInCrossProcessIPC]
-    public unknown_ret GetAvailableCompatTools(CUtlStringList* compatTools);  // argc: 1, index: 3
+    public void GetAvailableCompatTools(CUtlStringList* compatTools);  // argc: 1, index: 3
     [BlacklistedInCrossProcessIPC]
     public unknown_ret GetAvailableCompatToolsFiltered(CUtlStringList* compatTools, ERemoteStoragePlatform platform);  // argc: 2, index: 4
     [BlacklistedInCrossProcessIPC]

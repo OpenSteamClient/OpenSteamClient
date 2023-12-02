@@ -219,12 +219,16 @@ export async function Main(protobufonly: boolean = false): Promise<number> {
     
     console.info("Updating protobufs...");
 
-    var protocdir = `${projectDir}/OpenSteamworks.Protobuf/Protobuf`;
-    fs.rmSync(protocdir, { recursive: true, force: true });
-    mkdir(protocdir);
+    var protocdircsharp = `${projectDir}/OpenSteamworks.Protobuf/Protobuf`;
+    fs.rmSync(protocdircsharp, { recursive: true, force: true });
+    mkdir(protocdircsharp);
+
+    var protocdircpp = `${projectDir}/OpenSteamworks.Native/protobufhack/generated`;
+    fs.rmSync(protocdircpp, { recursive: true, force: true });
+    mkdir(protocdircpp);
     fs.rmSync(`${workDir}/Protobufs`, { recursive: true, force: true }); 
 
-    await ProcessProtobuf(`${workDir}/Protobufs`, protocdir);
+    await ProcessProtobuf(projectDir, `${workDir}/Protobufs`, protocdircsharp, protocdircpp);
 
     console.info("Done")
     

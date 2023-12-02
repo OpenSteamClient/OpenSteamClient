@@ -25,28 +25,20 @@ namespace OpenSteamworks.Protobuf.WebUI {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "Ch1zZXJ2aWNlX2hlbHByZXF1ZXN0bG9ncy5wcm90bxogZ29vZ2xlL3Byb3Rv",
-            "YnVmL2Rlc2NyaXB0b3IucHJvdG8iQQowQ0hlbHBSZXF1ZXN0TG9nc19HZXRB",
-            "cHBsaWNhdGlvbkxvZ0RlbWFuZF9SZXF1ZXN0Eg0KBWFwcGlkGAEgASgNIkcK",
-            "MUNIZWxwUmVxdWVzdExvZ3NfR2V0QXBwbGljYXRpb25Mb2dEZW1hbmRfUmVz",
-            "cG9uc2USEgoKcmVxdWVzdF9pZBgBIAEoBCKWAQoxQ0hlbHBSZXF1ZXN0TG9n",
-            "c19VcGxvYWRVc2VyQXBwbGljYXRpb25Mb2dfUmVxdWVzdBINCgVhcHBpZBgB",
-            "IAEoDRIQCghsb2dfdHlwZRgCIAEoCRIWCg52ZXJzaW9uX3N0cmluZxgDIAEo",
-            "CRIUCgxsb2dfY29udGVudHMYBCABKAkSEgoKcmVxdWVzdF9pZBgFIAEoBCJA",
-            "CjJDSGVscFJlcXVlc3RMb2dzX1VwbG9hZFVzZXJBcHBsaWNhdGlvbkxvZ19S",
-            "ZXNwb25zZRIKCgJpZBgBIAEoBDKaAgoPSGVscFJlcXVlc3RMb2dzEoABChdH",
-            "ZXRBcHBsaWNhdGlvbkxvZ0RlbWFuZBIxLkNIZWxwUmVxdWVzdExvZ3NfR2V0",
-            "QXBwbGljYXRpb25Mb2dEZW1hbmRfUmVxdWVzdBoyLkNIZWxwUmVxdWVzdExv",
-            "Z3NfR2V0QXBwbGljYXRpb25Mb2dEZW1hbmRfUmVzcG9uc2USgwEKGFVwbG9h",
-            "ZFVzZXJBcHBsaWNhdGlvbkxvZxIyLkNIZWxwUmVxdWVzdExvZ3NfVXBsb2Fk",
-            "VXNlckFwcGxpY2F0aW9uTG9nX1JlcXVlc3QaMy5DSGVscFJlcXVlc3RMb2dz",
-            "X1VwbG9hZFVzZXJBcHBsaWNhdGlvbkxvZ19SZXNwb25zZUIgqgIdT3BlblN0",
-            "ZWFtd29ya3MuUHJvdG9idWYuV2ViVUk="));
+            "YnVmL2Rlc2NyaXB0b3IucHJvdG8iggEKMUNIZWxwUmVxdWVzdExvZ3NfVXBs",
+            "b2FkVXNlckFwcGxpY2F0aW9uTG9nX1JlcXVlc3QSDQoFYXBwaWQYASABKA0S",
+            "EAoIbG9nX3R5cGUYAiABKAkSFgoOdmVyc2lvbl9zdHJpbmcYAyABKAkSFAoM",
+            "bG9nX2NvbnRlbnRzGAQgASgJIkAKMkNIZWxwUmVxdWVzdExvZ3NfVXBsb2Fk",
+            "VXNlckFwcGxpY2F0aW9uTG9nX1Jlc3BvbnNlEgoKAmlkGAEgASgEMpcBCg9I",
+            "ZWxwUmVxdWVzdExvZ3MSgwEKGFVwbG9hZFVzZXJBcHBsaWNhdGlvbkxvZxIy",
+            "LkNIZWxwUmVxdWVzdExvZ3NfVXBsb2FkVXNlckFwcGxpY2F0aW9uTG9nX1Jl",
+            "cXVlc3QaMy5DSGVscFJlcXVlc3RMb2dzX1VwbG9hZFVzZXJBcHBsaWNhdGlv",
+            "bkxvZ19SZXNwb25zZUIgqgIdT3BlblN0ZWFtd29ya3MuUHJvdG9idWYuV2Vi",
+            "VUk="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.Reflection.DescriptorReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CHelpRequestLogs_GetApplicationLogDemand_Request), global::OpenSteamworks.Protobuf.WebUI.CHelpRequestLogs_GetApplicationLogDemand_Request.Parser, new[]{ "Appid" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CHelpRequestLogs_GetApplicationLogDemand_Response), global::OpenSteamworks.Protobuf.WebUI.CHelpRequestLogs_GetApplicationLogDemand_Response.Parser, new[]{ "RequestId" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CHelpRequestLogs_UploadUserApplicationLog_Request), global::OpenSteamworks.Protobuf.WebUI.CHelpRequestLogs_UploadUserApplicationLog_Request.Parser, new[]{ "Appid", "LogType", "VersionString", "LogContents", "RequestId" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CHelpRequestLogs_UploadUserApplicationLog_Request), global::OpenSteamworks.Protobuf.WebUI.CHelpRequestLogs_UploadUserApplicationLog_Request.Parser, new[]{ "Appid", "LogType", "VersionString", "LogContents" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CHelpRequestLogs_UploadUserApplicationLog_Response), global::OpenSteamworks.Protobuf.WebUI.CHelpRequestLogs_UploadUserApplicationLog_Response.Parser, new[]{ "Id" }, null, null, null, null)
           }));
     }
@@ -54,418 +46,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
   #region Messages
-  public sealed partial class CHelpRequestLogs_GetApplicationLogDemand_Request : pb::IMessage<CHelpRequestLogs_GetApplicationLogDemand_Request>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<CHelpRequestLogs_GetApplicationLogDemand_Request> _parser = new pb::MessageParser<CHelpRequestLogs_GetApplicationLogDemand_Request>(() => new CHelpRequestLogs_GetApplicationLogDemand_Request());
-    private pb::UnknownFieldSet _unknownFields;
-    private int _hasBits0;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<CHelpRequestLogs_GetApplicationLogDemand_Request> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceHelprequestlogsReflection.Descriptor.MessageTypes[0]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CHelpRequestLogs_GetApplicationLogDemand_Request() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CHelpRequestLogs_GetApplicationLogDemand_Request(CHelpRequestLogs_GetApplicationLogDemand_Request other) : this() {
-      _hasBits0 = other._hasBits0;
-      appid_ = other.appid_;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CHelpRequestLogs_GetApplicationLogDemand_Request Clone() {
-      return new CHelpRequestLogs_GetApplicationLogDemand_Request(this);
-    }
-
-    /// <summary>Field number for the "appid" field.</summary>
-    public const int AppidFieldNumber = 1;
-    private readonly static uint AppidDefaultValue = 0;
-
-    private uint appid_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint Appid {
-      get { if ((_hasBits0 & 1) != 0) { return appid_; } else { return AppidDefaultValue; } }
-      set {
-        _hasBits0 |= 1;
-        appid_ = value;
-      }
-    }
-    /// <summary>Gets whether the "appid" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasAppid {
-      get { return (_hasBits0 & 1) != 0; }
-    }
-    /// <summary>Clears the value of the "appid" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearAppid() {
-      _hasBits0 &= ~1;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override bool Equals(object other) {
-      return Equals(other as CHelpRequestLogs_GetApplicationLogDemand_Request);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(CHelpRequestLogs_GetApplicationLogDemand_Request other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (Appid != other.Appid) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (HasAppid) hash ^= Appid.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      if (HasAppid) {
-        output.WriteRawTag(8);
-        output.WriteUInt32(Appid);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (HasAppid) {
-        output.WriteRawTag(8);
-        output.WriteUInt32(Appid);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int CalculateSize() {
-      int size = 0;
-      if (HasAppid) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Appid);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(CHelpRequestLogs_GetApplicationLogDemand_Request other) {
-      if (other == null) {
-        return;
-      }
-      if (other.HasAppid) {
-        Appid = other.Appid;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 8: {
-            Appid = input.ReadUInt32();
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 8: {
-            Appid = input.ReadUInt32();
-            break;
-          }
-        }
-      }
-    }
-    #endif
-
-  }
-
-  public sealed partial class CHelpRequestLogs_GetApplicationLogDemand_Response : pb::IMessage<CHelpRequestLogs_GetApplicationLogDemand_Response>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<CHelpRequestLogs_GetApplicationLogDemand_Response> _parser = new pb::MessageParser<CHelpRequestLogs_GetApplicationLogDemand_Response>(() => new CHelpRequestLogs_GetApplicationLogDemand_Response());
-    private pb::UnknownFieldSet _unknownFields;
-    private int _hasBits0;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<CHelpRequestLogs_GetApplicationLogDemand_Response> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceHelprequestlogsReflection.Descriptor.MessageTypes[1]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CHelpRequestLogs_GetApplicationLogDemand_Response() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CHelpRequestLogs_GetApplicationLogDemand_Response(CHelpRequestLogs_GetApplicationLogDemand_Response other) : this() {
-      _hasBits0 = other._hasBits0;
-      requestId_ = other.requestId_;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CHelpRequestLogs_GetApplicationLogDemand_Response Clone() {
-      return new CHelpRequestLogs_GetApplicationLogDemand_Response(this);
-    }
-
-    /// <summary>Field number for the "request_id" field.</summary>
-    public const int RequestIdFieldNumber = 1;
-    private readonly static ulong RequestIdDefaultValue = 0UL;
-
-    private ulong requestId_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public ulong RequestId {
-      get { if ((_hasBits0 & 1) != 0) { return requestId_; } else { return RequestIdDefaultValue; } }
-      set {
-        _hasBits0 |= 1;
-        requestId_ = value;
-      }
-    }
-    /// <summary>Gets whether the "request_id" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasRequestId {
-      get { return (_hasBits0 & 1) != 0; }
-    }
-    /// <summary>Clears the value of the "request_id" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearRequestId() {
-      _hasBits0 &= ~1;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override bool Equals(object other) {
-      return Equals(other as CHelpRequestLogs_GetApplicationLogDemand_Response);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(CHelpRequestLogs_GetApplicationLogDemand_Response other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (RequestId != other.RequestId) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (HasRequestId) hash ^= RequestId.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      if (HasRequestId) {
-        output.WriteRawTag(8);
-        output.WriteUInt64(RequestId);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (HasRequestId) {
-        output.WriteRawTag(8);
-        output.WriteUInt64(RequestId);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int CalculateSize() {
-      int size = 0;
-      if (HasRequestId) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(RequestId);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(CHelpRequestLogs_GetApplicationLogDemand_Response other) {
-      if (other == null) {
-        return;
-      }
-      if (other.HasRequestId) {
-        RequestId = other.RequestId;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 8: {
-            RequestId = input.ReadUInt64();
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 8: {
-            RequestId = input.ReadUInt64();
-            break;
-          }
-        }
-      }
-    }
-    #endif
-
-  }
-
   public sealed partial class CHelpRequestLogs_UploadUserApplicationLog_Request : pb::IMessage<CHelpRequestLogs_UploadUserApplicationLog_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -481,7 +61,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceHelprequestlogsReflection.Descriptor.MessageTypes[2]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceHelprequestlogsReflection.Descriptor.MessageTypes[0]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -506,7 +86,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
       logType_ = other.logType_;
       versionString_ = other.versionString_;
       logContents_ = other.logContents_;
-      requestId_ = other.requestId_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -621,33 +200,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
       logContents_ = null;
     }
 
-    /// <summary>Field number for the "request_id" field.</summary>
-    public const int RequestIdFieldNumber = 5;
-    private readonly static ulong RequestIdDefaultValue = 0UL;
-
-    private ulong requestId_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public ulong RequestId {
-      get { if ((_hasBits0 & 2) != 0) { return requestId_; } else { return RequestIdDefaultValue; } }
-      set {
-        _hasBits0 |= 2;
-        requestId_ = value;
-      }
-    }
-    /// <summary>Gets whether the "request_id" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasRequestId {
-      get { return (_hasBits0 & 2) != 0; }
-    }
-    /// <summary>Clears the value of the "request_id" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearRequestId() {
-      _hasBits0 &= ~2;
-    }
-
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -667,7 +219,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
       if (LogType != other.LogType) return false;
       if (VersionString != other.VersionString) return false;
       if (LogContents != other.LogContents) return false;
-      if (RequestId != other.RequestId) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -679,7 +230,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
       if (HasLogType) hash ^= LogType.GetHashCode();
       if (HasVersionString) hash ^= VersionString.GetHashCode();
       if (HasLogContents) hash ^= LogContents.GetHashCode();
-      if (HasRequestId) hash ^= RequestId.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -714,10 +264,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
         output.WriteRawTag(34);
         output.WriteString(LogContents);
       }
-      if (HasRequestId) {
-        output.WriteRawTag(40);
-        output.WriteUInt64(RequestId);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -744,10 +290,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
         output.WriteRawTag(34);
         output.WriteString(LogContents);
       }
-      if (HasRequestId) {
-        output.WriteRawTag(40);
-        output.WriteUInt64(RequestId);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -769,9 +311,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
       }
       if (HasLogContents) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(LogContents);
-      }
-      if (HasRequestId) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(RequestId);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -796,9 +335,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
       }
       if (other.HasLogContents) {
         LogContents = other.LogContents;
-      }
-      if (other.HasRequestId) {
-        RequestId = other.RequestId;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -829,10 +365,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
           }
           case 34: {
             LogContents = input.ReadString();
-            break;
-          }
-          case 40: {
-            RequestId = input.ReadUInt64();
             break;
           }
         }
@@ -866,10 +398,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
             LogContents = input.ReadString();
             break;
           }
-          case 40: {
-            RequestId = input.ReadUInt64();
-            break;
-          }
         }
       }
     }
@@ -892,7 +420,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceHelprequestlogsReflection.Descriptor.MessageTypes[3]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceHelprequestlogsReflection.Descriptor.MessageTypes[1]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

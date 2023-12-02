@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\OpenSteamworks.Protobuf\OpenSteamworks.Protobuf.csproj" />
+    <PackageReference Include="ValveKeyValue" Version="0.9.0.267" />
   </ItemGroup>
 
   <!-- This is dumb and makes the code not portable. Microsoft, pls fix (by allowing non-const values in struct packing). Also we now use this for some edge case destructors that don't exist on Windows -->

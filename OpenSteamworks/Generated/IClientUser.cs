@@ -11,9 +11,15 @@ using OpenSteamworks.Structs;
 using OpenSteamworks.Enums;
 using System.Text;
 using OpenSteamworks.NativeTypes;
+using OpenSteamworks.Protobuf;
+using Google.Protobuf;
+using System.Runtime.InteropServices;
+using System.Runtime.CompilerServices;
 
 namespace OpenSteamworks.Generated;
 
+//TODO: some API's take and use pointers to protobuf classes, which is not even remotely valid in C#. 
+// support that (really strange) operation with C# structs (which will be really difficult), but for now we have a native library for doing that
 public unsafe interface IClientUser
 {
     // WARNING: Do not use this function! Unknown behaviour will occur!
@@ -144,28 +150,25 @@ public unsafe interface IClientUser
     [BlacklistedInCrossProcessIPC]
     public unknown_ret RequestCustomBinaries();  // argc: 4, index: 74
     // WARNING: Arguments are unknown!
-    public unknown_ret SetCellID();  // argc: 1, index: 75
+    public unknown_ret SetCellID(uint cellid);  // argc: 1, index: 75
     /// <summary>
-    /// Called by ValveSteam 8 times.
-    /// Arguments probably incorrect.
+    /// Takes a pointer to a protobuf object and populates it with the cell list.
     /// </summary>
-    /// <returns></returns>
-    public unknown_ret GetCellList(CUtlMap<uint, CUtlString>* cells);  // argc: 1, index: 76
-    public unknown_ret GetUserBaseFolder();  // argc: 0, index: 77
+    public unknown_ret GetCellList(IntPtr cells);  // argc: 1, index: 76
+    public string GetUserBaseFolder();  // argc: 0, index: 77
+    public bool GetUserDataFolder(ref AppId_t appid, StringBuilder buf, int bufMax);  // argc: 3, index: 78
     // WARNING: Arguments are unknown!
-    public unknown_ret GetUserDataFolder();  // argc: 3, index: 78
+    public bool GetUserConfigFolder(StringBuilder buf, int bufMax);  // argc: 2, index: 79
     // WARNING: Arguments are unknown!
-    public unknown_ret GetUserConfigFolder();  // argc: 2, index: 79
+    public bool GetAccountName(StringBuilder usernameOut, uint strMaxLen);  // argc: 2, index: 80
     // WARNING: Arguments are unknown!
-    public unknown_ret GetAccountName(StringBuilder usernameOut, uint strMaxLen);  // argc: 2, index: 80
-    // WARNING: Arguments are unknown!
-    public unknown_ret GetAccountName();  // argc: 4, index: 81
+    public bool GetAccountName(CSteamID steamid, StringBuilder usernameOut, uint strMaxLen);  // argc: 4, index: 81
     public unknown_ret IsPasswordRemembered();  // argc: 0, index: 82
     // WARNING: Arguments are unknown!
     public unknown_ret CheckoutSiteLicenseSeat();  // argc: 1, index: 83
     // WARNING: Arguments are unknown!
     public unknown_ret GetAvailableSeats();  // argc: 1, index: 84
-    public unknown_ret GetAssociatedSiteName();  // argc: 0, index: 85
+    public string GetAssociatedSiteName();  // argc: 0, index: 85
     public unknown_ret BIsRunningInCafe();  // argc: 0, index: 86
     public unknown_ret BAllowCachedCredentialsInCafe();  // argc: 0, index: 87
     // WARNING: Arguments are unknown!
@@ -348,7 +351,7 @@ public unsafe interface IClientUser
     public void GetUserMachineName(StringBuilder name, int len);  // argc: 2, index: 180
     // WARNING: Arguments are unknown!
     public unknown_ret GetEmailDomainFromLogonFailure();  // argc: 2, index: 181
-    public unknown_ret GetAgreementSessionUrl();  // argc: 0, index: 182
+    public string GetAgreementSessionUrl();  // argc: 0, index: 182
     public unknown_ret GetDurationControl();  // argc: 0, index: 183
     // WARNING: Arguments are unknown!
     public unknown_ret GetDurationControlForApp();  // argc: 1, index: 184
@@ -481,7 +484,7 @@ public unsafe interface IClientUser
     /// Don't use this if wanting to get categories.
     /// The new category system is stored here:
     /// https://store.steampowered.com/account/userconfigstore
-    /// As for how to get it programmatically, I have no idea.
+    /// To get it, you can roll your own cloud config manager or use OpenSteamworks.Client
     /// </summary>
     [BlacklistedInCrossProcessIPC]
     public bool BGetAppTagsMap(CUtlMap<AppId_t, AppTags_t>* vec);  // argc: 1, index: 250
@@ -505,12 +508,12 @@ public unsafe interface IClientUser
     public unknown_ret PrepareForSystemSuspend();  // argc: 0, index: 260
     // WARNING: Arguments are unknown!
     public unknown_ret ResumeSuspendedGames();  // argc: 1, index: 261
-    public unknown_ret GetClientInstallationID();  // argc: 0, index: 262
+    public UInt64 GetClientInstallationID();  // argc: 0, index: 262
     // WARNING: Arguments are unknown!
-    public unknown_ret Test_SetClientInstallationID();  // argc: 2, index: 263
+    public unknown_ret Test_SetClientInstallationID(UInt64 id);  // argc: 2, index: 263
     // WARNING: Arguments are unknown!
-    public unknown_ret GetAppIDForGameID();  // argc: 1, index: 264
-    public unknown_ret BDoNotDisturb();  // argc: 0, index: 265
+    public AppId_t GetAppIDForGameID(in CGameID gameid);  // argc: 1, index: 264
+    public bool BDoNotDisturb();  // argc: 0, index: 265
     // WARNING: Arguments are unknown!
-    public unknown_ret SetAdditionalClientArgData();  // argc: 1, index: 266
+    public unknown_ret SetAdditionalClientArgData(string data);  // argc: 1, index: 266
 }

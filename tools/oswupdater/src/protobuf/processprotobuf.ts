@@ -3,7 +3,7 @@ import fs from 'fs';
 import clone from 'git-clone/promise';
 import { execWrap, mkdir } from '../util';
 
-export async function ProcessProtobuf(workdir: string, targetdir: string) {
+export async function ProcessProtobuf(projdir: string, workdir: string, targetdircsharp: string, targetdircpp: string) {
     console.info("Downloading SteamDatabase/Protobufs git repo")
     try {
         await clone("https://github.com/SteamDatabase/Protobufs.git", workdir);
@@ -62,7 +62,8 @@ export async function ProcessProtobuf(workdir: string, targetdir: string) {
         webuiFilesStr += '"' + fullpath + '"' + " ";
     });
 
-    mkdir(targetdir);
+    mkdir(targetdircsharp);
+    mkdir(targetdircpp);
 
     // Process all files before compiling
     // Very simple steps:
@@ -107,8 +108,9 @@ export async function ProcessProtobuf(workdir: string, targetdir: string) {
     });
 
     try {
-        await execWrap(`protoc -I="${wantedProtobufsSteam}" --csharp_out="${targetdir}" ${steamFilesStr}`, {});
-        await execWrap(`protoc -I="${wantedProtobufsWebui}" --csharp_out="${targetdir}" ${webuiFilesStr}`, {});
+        await execWrap(`protoc -I="${wantedProtobufsSteam}" --csharp_out="${targetdircsharp}" ${steamFilesStr}`, {});
+        await execWrap(`protoc -I="${wantedProtobufsWebui}" --csharp_out="${targetdircsharp}" ${webuiFilesStr}`, {});
+        await execWrap(projdir+`/OpenSteamworks.Native/Build/linux/x64/external.protobuf/bin/protoc -I="${wantedProtobufsSteam}" --cpp_out="${targetdircpp}" ${steamFilesStr}`, {});
     } catch (error) {
         throw "Failed to run protoc for C# protobuf file generation: " + error;
     }
