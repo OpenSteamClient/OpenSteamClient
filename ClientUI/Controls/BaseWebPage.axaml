@@ -1,4 +1,4 @@
-<UserControl xmlns="https://github.com/avaloniaui"
+<c:BasePage xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:vm="using:ClientUI.ViewModels"
         xmlns:views="using:ClientUI.Views"
@@ -6,14 +6,22 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-        x:Class="ClientUI.Views.WebviewPage"
-        x:DataType="vm:WebviewPageViewModel">
+        x:Class="ClientUI.Controls.BaseWebPage"
+        x:DataType="vm:StorePageViewModel">
 
     <Design.DataContext>
         <!-- This only sets the DataContext for the previewer in an IDE,
              to set the actual DataContext for runtime, set the DataContext property in code (look at AvaloniaApp.axaml.cs) -->
-        <vm:WebviewPageViewModel/>
+        <vm:StorePageViewModel/>
     </Design.DataContext>
     
-    
-</UserControl>
+    <DockPanel Background="PowderBlue">
+        <!-- Header bar for URL, next-previous-refresh buttons -->
+        <Rectangle DockPanel.Dock="Top" Fill="Red" Height="40" />
+
+        <!-- Actual browser control -->
+        <ContentControl x:Name="WebviewContainer">
+            <TextBlock Text="WebView has not yet loaded." />
+        </ContentControl>
+    </DockPanel>
+</c:BasePage>

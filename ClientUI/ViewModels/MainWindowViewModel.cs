@@ -1,9 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
 using Avalonia.Controls;
+using Avalonia.Media;
+using Avalonia.Styling;
+using ClientUI.Controls;
 using ClientUI.Translation;
 using ClientUI.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
@@ -13,6 +19,7 @@ using OpenSteamworks.Client;
 using OpenSteamworks.Client.Apps;
 using OpenSteamworks.Client.Enums;
 using OpenSteamworks.Client.Managers;
+using OpenSteamworks.Client.Startup;
 using OpenSteamworks.Client.Utils;
 using OpenSteamworks.ClientInterfaces;
 using OpenSteamworks.Enums;
@@ -34,7 +41,12 @@ public partial class MainWindowViewModel : ViewModelBase
     private bool showGoOnline = false;
 
     [ObservableProperty]
-    private Control currentPage;
+    private BasePage currentPage;
+
+    private PageHeaderViewModel? CurrentPageHeader;
+    private readonly Dictionary<Type, BasePage> LoadedPages = new();
+    public ObservableCollection<PageHeaderViewModel> PageList { get; } = new() { };
+    
     public bool CanLogonOffline => client.NativeClient.IClientUser.CanLogonOffline() == 1;
     public bool IsOfflineMode => client.NativeClient.IClientUtils.GetOfflineMode();
     private Action? openSettingsWindow;
@@ -42,8 +54,10 @@ public partial class MainWindowViewModel : ViewModelBase
     private SteamClient client;
     private LoginManager loginManager;
     private AppsManager appsManager;
-    
-    public MainWindowViewModel(SteamClient client, AppsManager appsManager, TranslationManager tm, LoginManager loginManager, Action openSettingsWindowAction) {
+    private MainWindow mainWindow;
+
+    public MainWindowViewModel(MainWindow mainWindow, SteamClient client, AppsManager appsManager, TranslationManager tm, LoginManager loginManager, Action openSettingsWindowAction) {
+        this.mainWindow = mainWindow;
         this.client = client;
         this.tm = tm;
         this.loginManager = loginManager;
@@ -51,10 +65,62 @@ public partial class MainWindowViewModel : ViewModelBase
         this.ShowGoOnline = CanLogonOffline && IsOfflineMode;
         this.openSettingsWindow = openSettingsWindowAction;
         this.appsManager = appsManager;
-        this.CurrentPage = new LibraryPage() {
-            DataContext = AvaloniaApp.Container.ConstructOnly<LibraryPageViewModel>()
-        };
+
+        PageList.Add(new(this, "Store", typeof(StorePage), typeof(StorePageViewModel)));
+        PageList.Add(new(this, "Library", typeof(LibraryPage), typeof(LibraryPageViewModel)));
+        PageList.Add(new(this, "Community", typeof(CommunityPage), typeof(CommunityPageViewModel)));
+        PageList.Add(new(this, "Console", typeof(ConsolePage), typeof(ConsolePageViewModel)));
+
+        SwitchToPage(typeof(LibraryPage));
+        // SwitchToPage("Library");
+        // this.CurrentPage = new StorePage()
+        // {
+        //     DataContext = AvaloniaApp.Container.ConstructOnly<StorePageViewModel>()
+        // };
+
+        // this.CurrentPage = new LibraryPage() {
+        //     DataContext = AvaloniaApp.Container.ConstructOnly<LibraryPageViewModel>()
+        // };
     }
+
+#pragma warning disable MVVMTK0034
+    [MemberNotNull(nameof(currentPage))]
+    [MemberNotNull(nameof(CurrentPage))]
+#pragma warning restore MVVMTK0034
+    internal void SwitchToPage(Type pageType) {
+        PageHeaderViewModel model = this.PageList.Where(item => item.PageType == pageType).First();
+        var (type, page) = LoadedPages.Where(item => item.Key == model.PageType).FirstOrDefault();
+        if (page == null) {
+            page = model.PageCtor();
+            page.DataContext = model.ViewModelCtor();
+            LoadedPages.Add(model.PageType, page);
+        }
+
+        // Set selected button
+        model.ButtonBackground = Brushes.Green;
+        if (CurrentPageHeader != null) {
+            CurrentPageHeader.ButtonBackground = AvaloniaApp.Theme!.ButtonBackground;
+            if (CurrentPageHeader.IsWebPage) {
+                CurrentPageHeader.ButtonBackground = AvaloniaApp.Theme!.AccentButtonBackground;
+            }
+        }
+
+        CurrentPage = page;
+        CurrentPageHeader = model;
+    }
+
+    internal void UnloadPage(Type pageType) {
+        if (!LoadedPages.ContainsKey(pageType)) {
+            return;
+        }
+
+        PageHeaderViewModel model = this.PageList.Where(item => item.PageType == pageType).First();
+        var loadedPage = LoadedPages[pageType];
+        loadedPage.Free();
+        loadedPage.DataContext = null;
+        LoadedPages.Remove(pageType);
+    }
+
     public void DBG_Crash() {
         throw new Exception("test");
     }
@@ -81,12 +147,39 @@ public partial class MainWindowViewModel : ViewModelBase
     }
 
     public async void DBG_LaunchCS2() {
-        ClientApps apps = AvaloniaApp.Container.Get<ClientApps>();
-        foreach (var item in apps.GetMultipleAppDataSectionsSync(730, new [] { EAppInfoSection.Common, EAppInfoSection.Extended, EAppInfoSection.Config }))
+        // ClientApps apps = AvaloniaApp.Container.Get<ClientApps>();
+        // foreach (var item in apps.GetMultipleAppDataSectionsSync(730, new [] { EAppInfoSection.Common, EAppInfoSection.Extended, EAppInfoSection.Config }))
+        // {
+        //     Console.WriteLine("item: " + item.ToString());
+        // }
+        IClientDeviceAuth devauth = AvaloniaApp.Container.Get<IClientDeviceAuth>();
+
+        uint[] owners = new uint[5];
+        Console.WriteLine("ret: " + devauth.GetSharedLibraryOwners(owners, 5));
+        foreach (var item in owners)
         {
-            Console.WriteLine("item: " + item.ToString());
+            Console.WriteLine("i: " + item);
         }
-        
+
+        uint[] owners2 = new uint[5];
+        Console.WriteLine("ret2: " + devauth.GetAuthorizedBorrowers(owners2, 5));
+        foreach (var item in owners2)
+        {
+            Console.WriteLine("i2: " + item);
+        }
+
+        uint[] owners3 = new uint[10];
+        Console.WriteLine("ret3: " + devauth.GetLocalUsers(owners3, 10));
+        StringBuilder builder = new(256);
+        bool isSharingLibrary = false;
+        foreach (var item in owners3)
+        {
+            Console.WriteLine("i3: " + item);
+            Console.WriteLine("ret i3: " + devauth.GetBorrowerInfo(item, builder, builder.Capacity, out isSharingLibrary));
+            Console.WriteLine("info: " + builder.ToString());
+            Console.WriteLine("isSharingLibrary: " + isSharingLibrary);
+        }
+
         //await this.appsManager.LaunchApp(730, 1, "gamemoderun %command% -dev -sdlaudiodriver pipewire");
     }
 
@@ -95,7 +188,7 @@ public partial class MainWindowViewModel : ViewModelBase
         IClientUser user = AvaloniaApp.Container.Get<IClientUser>();
         unsafe {
             CMsgCellList list;
-            using (var hack = ProtobufHack.Create_CMsgCellList())
+            using (var hack = ProtobufHack.Create<CMsgCellList>())
             {
                 Console.WriteLine("ptr: " + hack.ptr);
                 Console.WriteLine("pre");
@@ -146,24 +239,9 @@ public partial class MainWindowViewModel : ViewModelBase
         }
     }
     public async void DBG_TestHTMLSurface() {
-        HTMLSurfaceTest testWnd = new(this.client);
+        HTMLSurfaceTest testWnd = new();
         testWnd.Show();
-        await testWnd.Init("Valve Steam Client", "https://google.com");
-        // Console.WriteLine("init returned: " + this.client.NativeClient.IClientHTMLSurface.Init());
-        // this.client.CallbackManager.PauseThread();
-
-        // var callHandle = this.client.NativeClient.IClientHTMLSurface.CreateBrowser("Valve Steam Client", null);
-        // Console.WriteLine("IClientHTMLSurface::CreateBrowser got call handle " + callHandle);
-
-        // var result = await this.client.CallbackManager.WaitForAPICallResult<HTML_BrowserReady_t>(callHandle);
-        // if (result.failed) {
-        //     Console.WriteLine("Call failed");
-        //     return;
-        // }
-
-        // var handle = result.data.unBrowserHandle;
-        // Console.WriteLine("result: " + handle);
-        // this.client.NativeClient.IClientHTMLSurface.AllowStartRequest(handle, true);
+        await testWnd.Init("Valve Steam Client", "https://google.com/");
     }
 
     public void Quit() {

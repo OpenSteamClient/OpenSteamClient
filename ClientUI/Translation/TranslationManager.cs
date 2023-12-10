@@ -75,6 +75,16 @@ public class TranslationManager : IClientLifetime {
         return UtilityFunctions.AssertNotNull(JsonSerializer.Deserialize<Translation>(File.ReadAllText(fullPath)));
     } 
 
+    /// <summary>
+    /// This function is for creating and translating elements in code behind
+    /// </summary>
+    public T CreateTranslated<T>(T visualCreated, string translationKey, string? defaultStr = null) where T: Visual {
+        visualCreated[Controls.Translatable.TranslationKeyProperty] = translationKey;
+        visualCreated[Controls.Translatable.DefaultTextProperty] = defaultStr;
+        TranslateVisual(visualCreated);
+        return visualCreated;
+    }
+
     public void TranslateVisual(Visual visual) {
         foreach (var vis in visual.GetAllVisualChildrenTree())
         {
@@ -107,6 +117,7 @@ public class TranslationManager : IClientLifetime {
         }
         
         string? translationKey = (string?)obj[Controls.Translatable.TranslationKeyProperty];
+        string? defaultStr = (string?)obj[Controls.Translatable.DefaultTextProperty];
         if (!string.IsNullOrEmpty(translationKey)) {
             bool translationFailed = false;
             string translatedText = "TRANSLATION FAILED";
@@ -122,13 +133,18 @@ public class TranslationManager : IClientLifetime {
                 T val = obj.GetValue(property);
                 if (val == null) {
                     isEmptyOrNull = true;
-                } else if (val is string) {
-                    isEmptyOrNull = string.IsNullOrEmpty(val as string);
+                } else if (val is string str) {
+                    isEmptyOrNull = string.IsNullOrEmpty(str);
                 }
 
                 // Don't replace text with TRANSLATION FAILED if there's pre-existing text in the control
                 if (translationFailed && !isEmptyOrNull) {
                     return;
+                } else {
+                    // And if there's no pre existing text, but the translation failed, show the default string if it is not empty
+                    if (!string.IsNullOrEmpty(defaultStr)) {
+                        obj.SetValue(property, defaultStr);
+                    }
                 }
 
                 obj.SetValue(property, translatedText);

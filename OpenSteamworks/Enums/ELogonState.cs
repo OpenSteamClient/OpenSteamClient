@@ -5,10 +5,10 @@ namespace OpenSteamworks.Enums;
 
 public enum ELogonState
 {
-    k_ELogonStateLoggedOff = 0,
-    k_ELogonStateConnecting = 1,
-    k_ELogonStateConnected = 2,
-    k_ELogonStateLoggingOn = 3,
-    k_ELogonStateLoggedOn = 4,
-    k_ELogonStateLoggingOff = 5,
+    LoggedOff = 0,
+    Connecting = 1,
+    Connected = 2,
+    LoggingOn = 3,
+    LoggedOn = 4,
+    LoggingOff = 5,
 };

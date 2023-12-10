@@ -6,11 +6,11 @@ namespace OpenSteamworks.Enums;
 [Flags]
 public enum ERemoteStoragePlatform : UInt32
 {
-    k_ERemoteStoragePlatformNone = 0,
-    k_ERemoteStoragePlatformWindows = (1 << 0),
-    k_ERemoteStoragePlatformOSX = (1 << 1),
-    k_ERemoteStoragePlatformPS3 = (1 << 2),
-    k_ERemoteStoragePlatformLinux = (1 << 3),
-    k_ERemoteStoragePlatformReserved = (1 << 4),
-    k_ERemoteStoragePlatformAll	= UInt32.MaxValue
+    PlatformNone = 0,
+    PlatformWindows = (1 << 0),
+    PlatformOSX = (1 << 1),
+    PlatformPS3 = (1 << 2),
+    PlatformLinux = (1 << 3),
+    PlatformReserved = (1 << 4),
+    PlatformAll	= UInt32.MaxValue
 };

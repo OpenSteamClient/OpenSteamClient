@@ -89,9 +89,11 @@ public class LoginManager : IClientLifetime
         this.logger = Logger.GetLogger("LoginManager", installManager.GetLogPath("LoginManager"));
         this.container = container;
         this.steamClient = steamClient;
-        this.steamClient.CallbackManager.RegisterCallbackListenerAttributesFor(this);
         this.loginUsers = loginUsers;
         this.clientMessaging = clientMessaging;
+        steamClient.CallbackManager.RegisterHandler<SteamServerConnectFailure_t>(OnSteamServerConnectFailure);
+        steamClient.CallbackManager.RegisterHandler<SteamServersDisconnected_t>(OnSteamServersDisconnected);
+        steamClient.CallbackManager.RegisterHandler<PostLogonState_t>(OnPostLogonState);
     }
 
     public bool RemoveAccount(LoginUser loginUser) {
@@ -204,7 +206,7 @@ public class LoginManager : IClientLifetime
             beginMsg.body.DeviceFriendlyName = DeviceDetails.DeviceFriendlyName;
 
             var beginResp = await conn.ProtobufSendMessageAndAwaitResponse<CAuthentication_BeginAuthSessionViaCredentials_Response, CAuthentication_BeginAuthSessionViaCredentials_Request>(beginMsg);
-            if (beginResp.header.Eresult != (int)EResult.k_EResultOK) {
+            if (beginResp.header.Eresult != (int)EResult.OK) {
                 return (EResult)beginResp.header.Eresult;
             }
 
@@ -222,7 +224,7 @@ public class LoginManager : IClientLifetime
             CredentialsPoller.RefreshTokenGenerated += OnRefreshTokenGenerated;
             CredentialsPoller.Error += (object sender, EResultEventArgs e) => exceptionHandler?.Invoke(new AggregateException("Error occurred in Credentials Poller: " + e.EResult));
             CredentialsPoller.StartPolling();
-            return EResult.k_EResultOK;
+            return EResult.OK;
         }
     }
 
@@ -275,20 +277,20 @@ public class LoginManager : IClientLifetime
         if (OperatingSystem.IsWindows()) {
             //TODO: more accurate logic here
             if (OperatingSystem.IsWindowsVersionAtLeast(10)) {
-                deviceDetails.OsType = (int)EOSType.k_EOSTypeWin10;
+                deviceDetails.OsType = (int)EOSType.Win10;
             } else if (OperatingSystem.IsWindowsVersionAtLeast(8, 1)) {
-                deviceDetails.OsType = (int)EOSType.k_EOSTypeWin81;
+                deviceDetails.OsType = (int)EOSType.Win81;
             } else if (OperatingSystem.IsWindowsVersionAtLeast(7)) {
-                deviceDetails.OsType = (int)EOSType.k_EOSTypeWin7;
+                deviceDetails.OsType = (int)EOSType.Win7;
             } else {
-                deviceDetails.OsType = (int)EOSType.k_EOSTypeWindows;
+                deviceDetails.OsType = (int)EOSType.Windows;
             }
         } else if (OperatingSystem.IsMacOS()) {
             //TODO: logic for determining OSX version
-            deviceDetails.OsType = (int)EOSType.k_EOSTypeMacos;
+            deviceDetails.OsType = (int)EOSType.Macos;
         } else if (OperatingSystem.IsLinux()) {
             //TODO: logic for determining kernel version
-            deviceDetails.OsType = (int)EOSType.k_EOSTypeLinux;
+            deviceDetails.OsType = (int)EOSType.Linux;
         }
         
         // If this isn't specified, the auth tokens we receive will not let us login
@@ -340,7 +342,7 @@ public class LoginManager : IClientLifetime
     /// </summary>
     public bool IsOnline() {
         var state = steamClient.NativeClient.IClientUser.GetLogonState();
-        return state == ELogonState.k_ELogonStateLoggedOn || state == ELogonState.k_ELogonStateConnected;
+        return state == ELogonState.LoggedOn || state == ELogonState.Connected;
     }
 
     /// <summary>
@@ -352,17 +354,15 @@ public class LoginManager : IClientLifetime
 
     private bool isLoggingOn = false;
     private EResult? loginFinishResult;
-    [CallbackListener<SteamServerConnectFailure_t>]
-    public void OnSteamServerConnectFailure(CallbackHandler handler, SteamServerConnectFailure_t failure) {
+    public void OnSteamServerConnectFailure(CallbackHandler<SteamServerConnectFailure_t> handler, SteamServerConnectFailure_t failure) {
         if (isLoggingOn) {
             loginFinishResult = failure.m_EResult;
         }
     }
 
-    [CallbackListener<SteamServersDisconnected_t>]
-    public void OnSteamServersDisconnected(CallbackHandler handler, SteamServersDisconnected_t disconnect) {
+    public void OnSteamServersDisconnected(CallbackHandler<SteamServersDisconnected_t> handler, SteamServersDisconnected_t disconnect) {
         if (CurrentUser != null) {
-            if (disconnect.m_EResult == EResult.k_EResultOK) {
+            if (disconnect.m_EResult == EResult.OK) {
                 OnLoggedOff(new LoggedOffEventArgs(CurrentUser, disconnect.m_EResult));
             }
         }
@@ -370,8 +370,7 @@ public class LoginManager : IClientLifetime
 
 
     private bool _logonStateHasStartedLoading = false;
-    [CallbackListener<PostLogonState_t>]
-    public void OnPostLogonState(CallbackHandler handler, PostLogonState_t stateUpdate) {
+    public void OnPostLogonState(CallbackHandler<PostLogonState_t> handler, PostLogonState_t stateUpdate) {
         if (isLoggingOn) {
             if (!_logonStateHasStartedLoading && stateUpdate.isLoading) {
                 _logonStateHasStartedLoading = true;
@@ -385,7 +384,7 @@ public class LoginManager : IClientLifetime
                 }
                 
                 if (isLoggingOn) {
-                    loginFinishResult = EResult.k_EResultOK;
+                    loginFinishResult = EResult.OK;
                 }
             }
         }
@@ -438,7 +437,7 @@ public class LoginManager : IClientLifetime
 
                     if (!steamClient.NativeClient.IClientUser.BHasCachedCredentials(user.AccountName))
                     {
-                        OnLogonFailed(new LogOnFailedEventArgs(user, EResult.k_EResultCachedCredentialIsInvalid));
+                        OnLogonFailed(new LogOnFailedEventArgs(user, EResult.CachedCredentialIsInvalid));
                         return;
                     }
 
@@ -479,13 +478,13 @@ public class LoginManager : IClientLifetime
 
             if (user.SteamID == 0) {
                 logger.Error("SteamID is 0!");
-                OnLogonFailed(new LogOnFailedEventArgs(user, EResult.k_EResultInvalidSteamID));
+                OnLogonFailed(new LogOnFailedEventArgs(user, EResult.InvalidSteamID));
                 return;
             }
             
             EResult beginLogonResult = steamClient.NativeClient.IClientUser.LogOn(user.SteamID);
             logger.Info("BeginLogon returned " + beginLogonResult);
-            if (beginLogonResult != EResult.k_EResultOK) {
+            if (beginLogonResult != EResult.OK) {
                 this.isLoggingOn = false;
                 OnLogonFailed(new LogOnFailedEventArgs(user, beginLogonResult));
                 return;
@@ -497,7 +496,7 @@ public class LoginManager : IClientLifetime
             EResult result = await WaitForLogonToFinish();
             logger.Info("Logon finished with " + result);
 
-            if (result == EResult.k_EResultOK)
+            if (result == EResult.OK)
             {
                 loginUsers.SetUserAsMostRecent(user);
                 if (user.AllowAutoLogin == true)

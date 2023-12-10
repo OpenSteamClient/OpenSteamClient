@@ -2,14 +2,14 @@ namespace OpenSteamworks.Enums;
 
 public enum ELauncherType
 {
-    k_ELauncherTypeDefault = 0,
-    k_ELauncherTypePw_dota2 = 1,
-    k_ELauncherTypeNexon_dota2 = 2,
-    k_ELauncherTypeSteamcmd = 3,
-    k_ELauncherTypePw_csgo = 4,
-    k_ELauncherTypeClientui = 5,
-    k_ELauncherTypeSteamhdl = 6,
-    k_ELauncherTypeSteamchina = 7,
-    k_ELauncherTypeSingleapp = 8,
-    k_ELauncherTypeGameserver = 9,
+    Default = 0,
+    Pw_dota2 = 1,
+    Nexon_dota2 = 2,
+    Steamcmd = 3,
+    Pw_csgo = 4,
+    Clientui = 5,
+    Steamhdl = 6,
+    Steamchina = 7,
+    Singleapp = 8,
+    Gameserver = 9,
 };

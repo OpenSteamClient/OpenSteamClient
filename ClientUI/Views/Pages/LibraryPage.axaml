@@ -1,4 +1,4 @@
-<UserControl xmlns="https://github.com/avaloniaui"
+<c:BasePage xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:vm="using:ClientUI.ViewModels"
         xmlns:views="using:ClientUI.Views"
@@ -37,4 +37,4 @@
             <ContentControl Grid.Column="2" Background="White" />
         </Grid>
     </DockPanel>
-</UserControl>
+</c:BasePage>

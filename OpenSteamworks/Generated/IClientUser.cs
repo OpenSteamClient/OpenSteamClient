@@ -450,7 +450,7 @@ public unsafe interface IClientUser
     public unknown_ret UploadLocalClientLogs();  // argc: 0, index: 230
     // WARNING: Arguments are unknown!
     public unknown_ret SetAsyncNotificationEnabled();  // argc: 2, index: 231
-    public bool BIsOtherSessionPlaying(UInt32* accountID);  // argc: 1, index: 232
+    public bool BIsOtherSessionPlaying(ref UInt32 accountID);  // argc: 1, index: 232
     public bool BKickOtherPlayingSession();  // argc: 0, index: 233
     public bool BIsAccountLockedDown();  // argc: 0, index: 234
     // WARNING: Arguments are unknown!

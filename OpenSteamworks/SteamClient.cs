@@ -47,8 +47,6 @@ public class SteamClient
         NewClient = 1 << 2
     }
 
-    // Non-native interfaces
-    private List<ClientInterface> clientinterfaces = new List<ClientInterface>();
     public ClientApps ClientApps;
     public ClientConfigStore ClientConfigStore;
     public ClientMessaging ClientMessaging;
@@ -129,8 +127,8 @@ public class SteamClient
         // Doing this with an existing client causes the windows to disappear, and never reappear
         if (this.NativeClient.ConnectedWith == ConnectionType.NewClient) {
             RunServiceHack();
-            this.NativeClient.IClientUtils.SetLauncherType(ELauncherType.k_ELauncherTypeClientui);
-            this.NativeClient.IClientUtils.SetCurrentUIMode(EUIMode.k_EUIModeNormal);
+            this.NativeClient.IClientUtils.SetLauncherType(ELauncherType.Clientui);
+            this.NativeClient.IClientUtils.SetCurrentUIMode(EUIMode.Normal);
             this.NativeClient.IClientUtils.SetAppIDForCurrentPipe(7);
             this.NativeClient.IClientUtils.SetClientUIProcess();
         }
@@ -138,9 +136,6 @@ public class SteamClient
         this.ClientApps = new ClientApps(this);
         this.ClientConfigStore = new ClientConfigStore(this);
         this.ClientMessaging = new ClientMessaging(this);
-        this.clientinterfaces.Add(this.ClientApps);
-        this.clientinterfaces.Add(this.ClientConfigStore);
-        this.clientinterfaces.Add(this.ClientMessaging);
 
         // Before this, most important callbacks should be registered
         this.CallbackManager.StartThread();
@@ -167,16 +162,14 @@ public class SteamClient
         // Is this VAC bannable?
         if (OperatingSystem.IsLinux()) {
             // C#'s SetEnvironmentVariable doesn't immediately change the environment variables. Use the native function to compensate
-            LinuxNative.setenv("SteamClientService_" + Environment.ProcessId, "127.0.0.1:57344", 1);
+            LinuxNative.setenv($"SteamClientService_{Environment.ProcessId}", "127.0.0.1:57344", 1);
         }
     }
 
     public void Shutdown() {
-        // Shutdown non-native interfaces first
-        foreach (var iface in this.clientinterfaces)
-        {
-            iface.RunShutdownTasks();
-        }
+        // Shutdown ClientInterfaces first
+        this.ClientMessaging.Shutdown();
+        this.ClientConfigStore.Shutdown();
 
         this.CallbackManager.RequestStopAndWaitForExit();
         this.NativeClient.native_Steam_ReleaseUser(this.NativeClient.Pipe, this.NativeClient.User);

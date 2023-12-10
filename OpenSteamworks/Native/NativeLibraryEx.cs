@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.IO.MemoryMappedFiles;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Runtime.Versioning;
 using OpenSteamworks.Extensions;
@@ -260,13 +261,17 @@ public class NativeLibraryEx {
         return Marshal.GetDelegateForFunctionPointer<T>(ptr);
     }
 
-    public NativeLibraryEx(string filename) {
+    private NativeLibraryEx(string filename, bool withSectionInfo, bool withSearch) {
         FileName = filename;
-        Handle = NativeLibrary.Load(filename);
+        if (withSearch) {
+            Handle = NativeLibrary.Load(filename, Assembly.GetExecutingAssembly(), DllImportSearchPath.ApplicationDirectory | DllImportSearchPath.AssemblyDirectory | DllImportSearchPath.UserDirectories);
+        } else {
+            Handle = NativeLibrary.Load(filename);
+        }
 
         // Need to load the file a second time so we can iterate over the sections, since section info is removed at runtime (the entire library is NOT mapped into RAM, only the sections that matter (on linux, windows is untested for now))
         //NOTE: this could be bad if some OS decides to lock the file from being read if it's loaded
-        {
+        if (withSectionInfo) {
             byte[] bytes = File.ReadAllBytes(filename);
             unsafe {
                 fixed (byte* ptr = bytes ) {
@@ -369,8 +374,8 @@ public class NativeLibraryEx {
         }
     }
 
-    public static NativeLibraryEx Load(string filename) {
-        return new NativeLibraryEx(filename);
+    public static NativeLibraryEx Load(string filename, bool withSectionInfo = true, bool withSearch = false) {
+        return new NativeLibraryEx(filename, withSectionInfo, withSearch);
     }
 
     public void Unload() {

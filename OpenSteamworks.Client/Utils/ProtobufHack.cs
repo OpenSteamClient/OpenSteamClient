@@ -1,4 +1,6 @@
 using System.Runtime.InteropServices;
+using Google.Protobuf;
+using OpenSteamworks.Native;
 using OpenSteamworks.Protobuf;
 
 namespace OpenSteamworks.Client.Utils;
@@ -8,15 +10,20 @@ namespace OpenSteamworks.Client.Utils;
 /// A class for marshalling managed protobuf objects to unmanaged pointers for the sake of interoperability with native binaries.
 /// </summary>
 public unsafe static class ProtobufHack {
-    public class CMsgCellList_Disposable : IDisposable
+    public class Proto_Disposable<T> : IDisposable where T: IMessage<T>, new()
     {
+        private readonly delegate* unmanaged[Cdecl]<IntPtr, void> deletor;
+        private readonly delegate* unmanaged[Cdecl]<IntPtr> constructor;
+        private readonly delegate* unmanaged[Cdecl]<void*, int, IntPtr> deserializer;
+
         public IntPtr ptr;
         private bool disposed = false;
-        public CMsgCellList GetManaged() {
+        public T GetManaged() {
             if (disposed) {
                 throw new ObjectDisposedException("");
             }
 
+            var parser = new MessageParser<T>(() => new T());
             var length = ProtobufHack.Protobuf_ByteSizeLong(ptr);
             var bytes = new byte[length];
             fixed (byte* bptr = bytes) {
@@ -24,39 +31,71 @@ public unsafe static class ProtobufHack {
                     throw new Exception("Failed to serialize in native code!");
                 }
             }
-
-            return CMsgCellList.Parser.ParseFrom(bytes);
+            
+            return parser.ParseFrom(bytes);
         }
 
-        internal CMsgCellList_Disposable() {
-            this.ptr = CMsgCellList_Construct();
+        private Proto_Disposable(string nativename) {
+            var lib = GetProtobufHackLib();
+            this.constructor = (delegate* unmanaged[Cdecl]<IntPtr>)lib.GetExport(nativename + "_Construct");
+            this.deletor = (delegate* unmanaged[Cdecl]<IntPtr, void>)lib.GetExport(nativename + "_Delete");
+            this.deserializer = (delegate* unmanaged[Cdecl]<void*, int, IntPtr>)lib.GetExport(nativename + "_Deserialize");
+            
+            if (this.constructor == null || this.deletor == null | this.deserializer == null) {
+                throw new InvalidOperationException("This type is not supported in protobuf hack native lib");
+            }
+
+            this.ptr = constructor();
+        }
+
+        internal static Proto_Disposable<T> Create() {
+            return new Proto_Disposable<T>(typeof(T).Name);
+        }
+
+        internal static Proto_Disposable<T> CreateWithName(string nativename) {
+            return new Proto_Disposable<T>(nativename);
+        }
+
+        /// <summary>
+        /// Copies the managed protobuf object into the unmanaged protobuf pointer
+        /// </summary>
+        public void CopyFrom(T managed) {
+            var bytes = managed.ToByteArray();
+            fixed (byte* bptr = bytes) {
+                this.ptr = deserializer(bptr, bytes.Length);
+            }
         }
 
         public void Dispose()
         {
+            GC.SuppressFinalize(this);
             disposed = true;
-            CMsgCellList_Delete(ptr);
+            deletor(ptr);
             ptr = 0;
         }
     }
-
-    //TODO: auto generate allllll of these
-    [DllImport("protobufhack")]
-    public static extern IntPtr CMsgCellList_Construct();
 
     [DllImport("protobufhack")]
     public static extern size_t Protobuf_ByteSizeLong(IntPtr ptr);
 
     [DllImport("protobufhack")]
-    public static extern void CMsgCellList_Delete(IntPtr ptr);
-
-    [DllImport("protobufhack")]
     public static extern bool Protobuf_SerializeToArray(IntPtr ptr, void* buffer, size_t maxLen);
 
-    [DllImport("protobufhack")]
-    public static extern IntPtr CMsgCellList_Deserialize(void* buffer, int len);
+    public static Proto_Disposable<T> Create<T>() where T: IMessage<T>, new() {
+        return Proto_Disposable<T>.Create();
+    }
 
-    public static CMsgCellList_Disposable Create_CMsgCellList() {
-        return new CMsgCellList_Disposable();
+    public static Proto_Disposable<T> CreateWithName<T>(string name) where T: IMessage<T>, new() {
+        return Proto_Disposable<T>.CreateWithName(name);
+    }
+
+    private static NativeLibraryEx? loadedLibrary;
+    internal static NativeLibraryEx GetProtobufHackLib() {
+        if (loadedLibrary != null) {
+            return loadedLibrary;
+        }
+
+        loadedLibrary = NativeLibraryEx.Load("protobufhack", false, true);
+        return loadedLibrary;
     }
 }

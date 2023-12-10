@@ -1,4 +1,4 @@
-<UserControl xmlns="https://github.com/avaloniaui"
+<c:BaseWebPage xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:vm="using:ClientUI.ViewModels"
         xmlns:views="using:ClientUI.Views"
@@ -7,6 +7,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="ClientUI.Views.StorePage"
+        c:BaseWebPage.URL="https://store.steampowered.com"
         x:DataType="vm:StorePageViewModel">
 
     <Design.DataContext>
@@ -14,6 +15,5 @@
              to set the actual DataContext for runtime, set the DataContext property in code (look at AvaloniaApp.axaml.cs) -->
         <vm:StorePageViewModel/>
     </Design.DataContext>
-    
-    
-</UserControl>
+
+</c:BaseWebPage>

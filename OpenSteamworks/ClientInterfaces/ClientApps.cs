@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -14,13 +15,13 @@ using ValveKeyValue;
 
 namespace OpenSteamworks.ClientInterfaces;
 
-public class ClientApps : ClientInterface {
+public class ClientApps {
     private readonly IClientApps nativeClientApps;
     private readonly IClientAppManager nativeClientAppManager;
     private readonly CallbackManager callbackManager;
     private static readonly KVSerializer serializertext = KVSerializer.Create(KVSerializationFormat.KeyValues1Text);
     private static readonly KVSerializer serializerbinary = KVSerializer.Create(KVSerializationFormat.KeyValues1Binary);
-    public ClientApps(SteamClient client) : base(client) {
+    public ClientApps(SteamClient client) {
         this.nativeClientApps = client.NativeClient.IClientApps;
         this.nativeClientAppManager = client.NativeClient.IClientAppManager;
         this.callbackManager = client.CallbackManager;
@@ -35,23 +36,25 @@ public class ClientApps : ClientInterface {
         }
     }
 
-    public IEnumerable<KVObject> GetMultipleAppDataSectionsSync(AppId_t app, EAppInfoSection[] sections) {
+    public ReadOnlyDictionary<EAppInfoSection, KVObject> GetMultipleAppDataSectionsSync(AppId_t app, EAppInfoSection[] sections) {
         IncrementingBuffer buf = new(1024*sections.Length);
         int[] lengths = new int[sections.Length];
         buf.RunToFit(() => nativeClientApps.GetMultipleAppDataSections(app, sections, sections.Length, buf.Data, buf.Length, false, lengths));
-        List<KVObject> objects = new();
+        Dictionary<EAppInfoSection, KVObject> objects = new();
+        int position = 0;
         int index = 0;
         foreach (var length in lengths)
         {
-            using (var stream = new MemoryStream(buf.Data, index, length))
+            using (var stream = new MemoryStream(buf.Data, position, length))
             {
-                objects.Add(serializerbinary.Deserialize(stream));
+                objects.Add(sections.ElementAt(index), serializerbinary.Deserialize(stream));
             }
 
-            index += length;
+            position += length;
+            index++;
         }
 
-        return objects.AsEnumerable();
+        return objects.AsReadOnly();
     }
 
     public async Task EnsureHasAppData(AppId_t[] apps) {
@@ -66,7 +69,7 @@ public class ClientApps : ClientInterface {
 
     public bool IsAppInstalled(AppId_t app) {
         // This is probably good enough.
-        return !this.nativeClientAppManager.GetAppInstallState(app).HasFlag(EAppState.k_EAppStateUninstalled);
+        return !this.nativeClientAppManager.GetAppInstallState(app).HasFlag(EAppState.Uninstalled);
     }
 
     public string GetAppInstallDir(AppId_t app) {
@@ -127,10 +130,5 @@ public class ClientApps : ClientInterface {
 
     public void SetAppBeta(AppId_t appid, string betaname) {
         SetAppConfigValue(appid, "betakey", betaname);
-    }
-
-    internal override void RunShutdownTasks()
-    {
-        base.RunShutdownTasks();
     }
 }

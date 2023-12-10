@@ -70,7 +70,7 @@ internal class LoginPoll {
                     RefreshTokenGenerated?.Invoke(this, new TokenGeneratedEventArgs(pollResp.body.RefreshToken, pollResp.body.AccountName));
                 }
 
-                if (pollResp.header.Eresult != (int)EResult.k_EResultOK) {
+                if (pollResp.header.Eresult != (int)EResult.OK) {
                     IsPolling = false;
                     Error?.Invoke(this, new EResultEventArgs((EResult)pollResp.header.Eresult));
                 }

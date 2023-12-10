@@ -116,22 +116,17 @@ public class Bootstrapper : IClientLifetime {
         
         try
         {
-            using (var client = new HttpClient())
-            {
-                var serializer = ValveKeyValue.KVSerializer.Create(KVSerializationFormat.KeyValues1Text);
-                client.DefaultRequestHeaders.ConnectionClose = true;
-                client.DefaultRequestHeaders.Add("User-Agent", $"opensteamclient {GitInfo.GitBranch}/{GitInfo.GitCommit}");
-                HttpResponseMessage resp = await client.GetAsync("http://localhost:8125/client/"+PlatformClientManifest);
-                if (resp.IsSuccessStatusCode) {
-                    using (Stream str = await resp.Content.ReadAsStreamAsync())
-                    {
-                        var deserialized = serializer.Deserialize(str);
-                        if ((string)deserialized["version"] == VersionInfo.STEAM_MANIFEST_VERSION.ToString()) {
-                            OverrideURL = "http://localhost:8125/client/";
-                            logger.Info("Using local package server");
-                        } else {
-                            logger.Debug("Local package server has different version: " + (string)deserialized["version"] + " than ours " + VersionInfo.STEAM_MANIFEST_VERSION.ToString());
-                        }
+            var serializer = ValveKeyValue.KVSerializer.Create(KVSerializationFormat.KeyValues1Text);
+            HttpResponseMessage resp = await Client.HttpClient.GetAsync("http://localhost:8125/client/"+PlatformClientManifest);
+            if (resp.IsSuccessStatusCode) {
+                using (Stream str = await resp.Content.ReadAsStreamAsync())
+                {
+                    var deserialized = serializer.Deserialize(str);
+                    if ((string)deserialized["version"] == VersionInfo.STEAM_MANIFEST_VERSION.ToString()) {
+                        OverrideURL = "http://localhost:8125/client/";
+                        logger.Info("Using local package server");
+                    } else {
+                        logger.Debug("Local package server has different version: " + (string)deserialized["version"] + " than ours " + VersionInfo.STEAM_MANIFEST_VERSION.ToString());
                     }
                 }
             }
@@ -477,20 +472,13 @@ public class Bootstrapper : IClientLifetime {
 
                 // Download the file if it doesn't exist
                 if (!File.Exists(saveLocation)) {
-                    // Start the download
-                    using (var client = new HttpClient())
-                    {
-                        client.DefaultRequestHeaders.ConnectionClose = true;
-                        client.DefaultRequestHeaders.Add("User-Agent", $"opensteamclient {GitInfo.GitBranch}/{GitInfo.GitCommit}");
-                        
-                        // Create a file stream to store the downloaded data.
-                        // This really can be any type of writeable stream.
-                        using (var file = new FileStream(saveLocation, FileMode.Create, FileAccess.Write, FileShare.None)) {
-                            progressHandler.SetSubOperation($"Downloading {package.Name}{(string.IsNullOrEmpty(specialVersion) ? "" : ' ' + specialVersion)}");
-                            // Use the custom extension method below to download the data.
-                            // The passed progress-instance will receive the download status updates.
-                            await client.DownloadAsync(url, file, progressHandler, size_expected, default);
-                        }
+                    // Create a file stream to store the downloaded data.
+                    // This really can be any type of writeable stream.
+                    using (var file = new FileStream(saveLocation, FileMode.Create, FileAccess.Write, FileShare.None)) {
+                        progressHandler.SetSubOperation($"Downloading {package.Name}{(string.IsNullOrEmpty(specialVersion) ? "" : ' ' + specialVersion)}");
+                        // Use the custom extension method below to download the data.
+                        // The passed progress-instance will receive the download status updates.
+                        await Client.HttpClient.DownloadAsync(url, file, progressHandler, size_expected, default);
                     }
                 }
 

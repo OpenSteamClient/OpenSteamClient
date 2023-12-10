@@ -16,6 +16,14 @@ namespace OpenSteamworks.Client;
 
 public class Client : IClientLifetime
 {
+    // HttpClient is intended to be instantiated once per application, rather than per-use. We define this here, you are free to use this for any web requests you may need.
+    public static readonly HttpClient HttpClient = new();
+
+    static Client() {
+        HttpClient.DefaultRequestHeaders.ConnectionClose = true;
+        HttpClient.DefaultRequestHeaders.Add("User-Agent", $"opensteamclient {GitInfo.GitBranch}/{GitInfo.GitCommit}");
+    }
+
     private Container container;
     public async Task RunStartup()
     {        

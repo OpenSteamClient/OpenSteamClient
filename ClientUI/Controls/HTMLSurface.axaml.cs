@@ -1,3 +1,6 @@
+// HAS_RENDERIMMEDIATE (for custom avalonia builds (on by default))
+#define HAS_RENDERIMMEDIATE
+
 using System;
 using Avalonia.Reactive;
 using System.Threading.Tasks;
@@ -21,6 +24,13 @@ using System.Globalization;
 using System.Text;
 using System.Linq;
 using System.Threading;
+using System.Runtime.InteropServices;
+using System.Diagnostics;
+using System.Collections.Generic;
+using System.Reflection;
+using OpenSteamworks.Client.Startup;
+using Avalonia.Media.Imaging;
+using System.IO;
 
 namespace ClientUI.Controls;
 
@@ -92,39 +102,43 @@ public partial class HTMLSurface : UserControl
         private bool disposedValue;
         private readonly object targetBitmapLock = new();
         private SKBitmap targetBitmap;
-        private SKImageInfo targetBitmapInfo;
-        private readonly SKPaint simplePaint;
+        private nint lastPtr = 0;
+        internal bool isCurrentlyRenderable = false;
+        private static readonly SKPaint simplePaint;
+
+        static HTMLBufferImg() {
+            simplePaint = new SKPaint
+            {
+                IsAntialias = true,
+                HintingLevel = SKPaintHinting.Full,
+                IsAutohinted = true,
+                IsDither = true,
+                SubpixelText = true,
+                BlendMode = SKBlendMode.Src,
+            };
+        }
 
         public HTMLBufferImg(SKColorType format, SKAlphaType alphaFormat, int width, int height) {
             this.width = width;
             this.height = height;
-            Console.WriteLine("allocating bitmap of size " + width + "x" + height);
-            this.targetBitmapInfo = new SKImageInfo(width, height, format, alphaFormat);
-            this.targetBitmap = AllocBitmap();
-            this.simplePaint = new SKPaint
-            {
-                IsAntialias = false,
-                HintingLevel = SKPaintHinting.NoHinting,
-                IsAutohinted = false,
-                IsDither = false,
-                SubpixelText = false,
-                BlendMode = SKBlendMode.SrcIn
-            };
+            Console.WriteLine("allocating initial bitmap of size " + width + "x" + height);
+            this.targetBitmap = AllocBitmap(new(width, height, format, alphaFormat));
+
         }
 
-        private SKBitmap AllocBitmap() {
-            if (targetBitmapInfo.Width == 0 || targetBitmapInfo.Height == 0) {
+        private SKBitmap AllocBitmap(SKImageInfo info) {
+            if (info.Width == 0 || info.Height == 0) {
                 throw new InvalidOperationException("Cannot allocate a bitmap of size 0");
             }
 
-            return new(targetBitmapInfo, SKBitmapAllocFlags.ZeroPixels);
+            return new(info, SKBitmapAllocFlags.ZeroPixels);
         }
 
         public Rect Bounds => new(0, 0, width, height);
 
         public bool Equals(ICustomDrawOperation? other)
         {
-            return false;
+            return other != null && other.GetType() == typeof(HTMLBufferImg) && ((HTMLBufferImg)other).lastPtr == this.lastPtr;
         }
 
         public bool HitTest(Point p)
@@ -132,13 +146,12 @@ public partial class HTMLSurface : UserControl
             return Bounds.Intersects(new Rect(p.X, p.Y, 1, 1));
         }
 
-        private Rect renderMaxRect;
-        public void PreRender(Rect renderMaxRect) {
-            this.renderMaxRect = renderMaxRect;
-        }
-
         public void Render(ImmediateDrawingContext context)
         {
+            if (!isCurrentlyRenderable) {
+                return;
+            }
+
             var leasef = context.PlatformImpl.GetFeature<ISkiaSharpApiLeaseFeature>();
             if (leasef == null) {
                 throw new PlatformNotSupportedException("Your platform does not support SkiaSharpApiLeaseFeature.");
@@ -146,42 +159,90 @@ public partial class HTMLSurface : UserControl
             
             using (var lease = leasef.Lease())
             {
-                lock (targetBitmapLock) {
-                    lease.SkCanvas.DrawBitmap(targetBitmap, renderMaxRect.ToSKRect(), simplePaint);
-                }
-            }
-        }
-
-        public void Resize(int newWidth, int newHeight) {
-            lock (targetBitmapLock) {
-                ResizeInternal(newWidth, newHeight);
+                lease.SkCanvas.DrawBitmap(targetBitmap, 0f, 0f, simplePaint);
             }
         }
 
         private void ResizeInternal(int newWidth, int newHeight) {
-            // Disallow resizing to 0x0
-            if (newWidth == 0 || newHeight == 0) {
-                Console.WriteLine("Trying to resize to 0! Resize ignored");
-                return;
-            }
+            unsafe {
+                checked {
+                    // Disallow resizing to 0x0
+                    if (newWidth == 0 || newHeight == 0) {
+                        Console.WriteLine("Trying to resize to 0! Resize ignored");
+                        return;
+                    }
 
-            this.width = newWidth;
-            this.height = newHeight;
-            targetBitmapInfo = new SKImageInfo(width, height, this.targetBitmapInfo.ColorType, this.targetBitmapInfo.AlphaType);
-            targetBitmap.Dispose();
-            targetBitmap = AllocBitmap();
+                    this.width = newWidth;
+                    this.height = newHeight;
+                    var newInfo = new SKImageInfo(this.width, this.height, targetBitmap.Info.ColorType, targetBitmap.Info.AlphaType);
+                    targetBitmap.Dispose();
+                    targetBitmap = AllocBitmap(newInfo);
+                    // if (currentPtr != 0) {
+                    //     NativeMemory.Free((void*)currentPtr);
+                    // }
+
+                    //currentPtrSize = (nuint)(this.targetBitmapInfo.Width * this.targetBitmapInfo.Height * this.targetBitmapInfo.BytesPerPixel);
+                    //currentPtr = (IntPtr)NativeMemory.AllocZeroed(currentPtrSize);
+                }
+            }
         }
+
+        Stopwatch lockTime = new();
+        Stopwatch resizeTime = new();
+        Stopwatch memcpyTime = new();
+        Stopwatch installPixelsTime = new();
 
         public void UpdateData(int newWidth, int newHeight, IntPtr dataPtr) {
             Console.WriteLine("UpdateData called " + newWidth + "x" + newHeight + " : " + dataPtr);
+            lockTime.Reset();
+            resizeTime.Reset();
+            memcpyTime.Reset();
+            installPixelsTime.Reset();
+
+            if (newWidth == 0 || newWidth == 1 || newHeight == 0 || newHeight == 1) {
+                Console.WriteLine("Ignoring UpdateData where newWidth or newHeight was invalid");
+                return;
+            }
+
+            if (dataPtr == 0) {
+                Console.WriteLine("Ignoring UpdateData where dataPtr is null");
+                return;
+            }
+
+            lockTime.Start();
             lock (targetBitmapLock) {
-                if (this.targetBitmapInfo.Width != newWidth || this.targetBitmapInfo.Height != newHeight) {
+                lockTime.Stop();
+                
+                if (this.targetBitmap.Width != newWidth || this.targetBitmap.Height != newHeight) {
+                    resizeTime.Start();
                     ResizeInternal(newWidth, newHeight);
+                    resizeTime.Stop();
                 }
 
-                if (!targetBitmap.InstallPixels(targetBitmapInfo, dataPtr)) {
-                    throw new Exception("InstallPixels failed");
+
+                // unsafe {
+                //     memcpyTime.Start();
+                //     NativeMemory.Copy((void*)dataPtr, (void*)currentPtr, currentPtrSize);
+                //     memcpyTime.Stop();
+                // }
+
+                // installPixelsTime.Start();
+                //NOTE: installpixels does not copy. It simply sets an internal pointer to the one specified here. This is bad in our use case, where the pointer is only valid during this function call. (Which means we need to memcpy or lock, which is also bad)
+                targetBitmap.InstallPixels(targetBitmap.Info, dataPtr);
+                installPixelsTime.Stop();
+
+                if (!File.Exists("/tmp/frame.png")) {
+                    using (var file = File.OpenWrite("/tmp/frame.png"))
+                    {
+                        targetBitmap.Encode(file, SKEncodedImageFormat.Png, 100);
+                    }
                 }
+
+                //bitmap = new Bitmap(PixelFormat.Bgra8888, AlphaFormat.Unpremul, dataPtr, PixelSize.FromSizeWithDpi(new Size(this.width, this.height), 96), new Vector(96, 96), 4 * ((width * this.targetBitmapInfo.BytesPerPixel + 3) / 4));
+                lastPtr = dataPtr;
+                installPixelsTime.Stop();
+                isCurrentlyRenderable = true;
+                Console.WriteLine("UpdateData took " + lockTime.Elapsed.TotalMilliseconds + "ms + " + resizeTime.Elapsed.TotalMilliseconds + "ms + " + memcpyTime.Elapsed.TotalMilliseconds + "ms + " + installPixelsTime.Elapsed.TotalMilliseconds + "ms");
             }
         }
 
@@ -206,31 +267,39 @@ public partial class HTMLSurface : UserControl
         }
     }
 
-    private static int initCount = 0;
     private readonly HTMLBufferImg htmlImgBuffer;
     private readonly IClientHTMLSurface surface;
     private readonly SteamClient client;
+    private readonly SteamHTML htmlHost;
     private static readonly Encoding utfEncoder = new UTF32Encoding(false, true, false);
     public HHTMLBrowser BrowserHandle { get; private set; } = 0;
     // The scroll multiplier affects how fast scrolling works. Piping the scroll wheel directly into steam makes scrolling slow, so simply multiply it by this value.
-    //TODO: this is terrible and doesn't allow for smooth scrolling. This seems to be the same underlying issue that ValveSteam had on Linux for a long time, until their recent switch to a full web browser window.
-    private const int SCROLL_MULTIPLIER = 20;
+    //TODO: this is terrible and doesn't allow for smooth scrolling. This seems to be the same underlying issue that ValveSteam had on Linux for a long time, until their recent switch to a full web browser window. 
+    // However, on the release of the deck, if you tricked ValveSteam it was running on deck, it scrolled the library smoothly (albeit with only software rendering)
+    // Maybe we can use something else to simulate smooth scrolling?
+    private const int SCROLL_MULTIPLIER = 35;
     
-    public HTMLSurface(SteamClient client) : base()
+    public HTMLSurface() : base()
     {
+        this.client = AvaloniaApp.Container.Get<SteamClient>();
+        this.htmlHost = AvaloniaApp.Container.Get<SteamHTML>();
+
         InitializeComponent();
+
         // Allocate an initial buffer at 720p, since we don't know our size yet
         this.htmlImgBuffer = new HTMLBufferImg(SKColorType.Bgra8888, SKAlphaType.Unpremul, 720, 1080);
         this.Focusable = true;
-        this.client = client;
+        
         this.surface = client.NativeClient.IClientHTMLSurface;
         client.CallbackManager.RegisterHandler<HTML_NeedsPaint_t>(this.OnHTML_NeedsPaint);
         client.CallbackManager.RegisterHandler<HTML_SetCursor_t>(this.OnHTML_SetCursor);
+        client.CallbackManager.RegisterHandler<HTML_ShowToolTip_t>(this.OnHTML_ShowToolTip_t);
+        client.CallbackManager.RegisterHandler<HTML_HideToolTip_t>(this.OnHTML_HideToolTip_t);
         // Reactive bloat. No events here, need to do this instead...
         this.GetObservable(BoundsProperty).Subscribe(new AnonymousObserver<Rect>(BoundsChange));
     }
 
-    private void OnHTML_SetCursor(CallbackHandler handler, HTML_SetCursor_t setCursor) {
+    private void OnHTML_SetCursor(CallbackHandler<HTML_SetCursor_t> handler, HTML_SetCursor_t setCursor) {
         if (setCursor.unBrowserHandle == BrowserHandle) {
             SetCursorNonUICode(AvaloniaCursors.GetCursorForEMouseCursor(setCursor.eMouseCursor));
         }
@@ -243,39 +312,85 @@ public partial class HTMLSurface : UserControl
     }
 
     private void ForceRedrawNonUICode() {
-        Dispatcher.UIThread.InvokeAsync(InvalidateVisual, DispatcherPriority.Render);
+        Dispatcher.UIThread.Invoke(() => {
+            // Strange quirk, calling paint will not force a repaint unless the control is marked as dirty
+#if HAS_RENDERIMMEDIATE
+            VisualRoot?.Renderer.RenderImmediate(this);
+#else
+            VisualRoot?.Renderer.AddDirty(this);
+            VisualRoot?.Renderer.Paint(this.Bounds);
+#endif
+        }, DispatcherPriority.MaxValue);
     }
 
     private void BoundsChange(Rect newBounds) {
         if (this.BrowserHandle != 0) {
-            this.surface.SetSize(this.BrowserHandle, (uint)newBounds.Width, (uint)newBounds.Height);
+            Console.WriteLine($"Bounds changed! ({(uint)newBounds.Width}x{(uint)newBounds.Height})");
+            if (!this.htmlImgBuffer.isCurrentlyRenderable) {
+                this.surface.SetSize(this.BrowserHandle, (uint)newBounds.Width, (uint)newBounds.Height);
+            } else {
+                Console.WriteLine("Currently rendering, not resizing!");
+            }
         }
     }
     
-    private void OnHTML_NeedsPaint(CallbackHandler handler, HTML_NeedsPaint_t paintEvent) {
+    Stopwatch paintUpdateDataTime = new();
+    Stopwatch forceRedrawTime = new();
+    //TODO: performance could be improved by using unUpdateXXXX properties to only update the part of the canvas that needs updating
+    private void OnHTML_NeedsPaint(CallbackHandler<HTML_NeedsPaint_t> handler, HTML_NeedsPaint_t paintEvent) {
         if (paintEvent.unBrowserHandle == this.BrowserHandle) {
+            forceRedrawTime.Reset();
+            paintUpdateDataTime.Reset();
+            paintUpdateDataTime.Start();
             htmlImgBuffer.UpdateData((int)paintEvent.unWide, (int)paintEvent.unTall, paintEvent.pBGRA);
+            paintUpdateDataTime.Stop();
+            forceRedrawTime.Start();
             this.ForceRedrawNonUICode();
-        } else {
-            Console.WriteLine("Ignoring paint event for browser we don't own: " + paintEvent.unBrowserHandle + ", ours: " + this.BrowserHandle);
+            forceRedrawTime.Stop();
+            Console.WriteLine("Paint took " + forceRedrawTime.Elapsed.TotalMilliseconds + "ms + " + paintUpdateDataTime.Elapsed.TotalMilliseconds + "ms ");
+            htmlImgBuffer.isCurrentlyRenderable = false;
         }
     }
 
-    public async Task<HHTMLBrowser> CreateBrowser(string userAgent, string? customCSS) {
-        if (initCount == 0) {
-            Console.WriteLine("Initializing IClientHTMLSurface");
-            this.surface.Init();
+    private void OnHTML_ShowToolTip_t(CallbackHandler<HTML_ShowToolTip_t> handler, HTML_ShowToolTip_t ev) {
+        if (ev.unBrowserHandle == this.BrowserHandle) {
+            Dispatcher.UIThread.Invoke(() =>
+            {
+                this[ToolTip.TipProperty] = ev.pchMsg;
+                this[ToolTip.IsOpenProperty] = true;
+            });
         }
-        initCount++;
+    }
 
-        this.client.CallbackManager.PauseThread();
+    private void OnHTML_HideToolTip_t(CallbackHandler<HTML_HideToolTip_t> handler, HTML_HideToolTip_t ev) {
+        if (ev.unBrowserHandle == this.BrowserHandle) {
+            Dispatcher.UIThread.Invoke(() => {
+                this[ToolTip.IsOpenProperty] = false;
+            });
+        }
+    }
+
+    public void SetBackgroundMode(bool background) {
+        this.surface.SetBackgroundMode(this.BrowserHandle, background);
+    }
+
+    internal void RequestRepaint() {
+        //TODO: this is a hack. Can we find a better way?
+        this.surface.SetSize(this.BrowserHandle, (uint)this.Bounds.Width, (uint)this.Bounds.Height);
+    }
+
+    public async Task<HHTMLBrowser> CreateBrowserAsync(string userAgent, string? customCSS) {
+        this.htmlHost.Start();
+        await this.client.CallbackManager.PauseThreadAsync();
         var callHandle = this.surface.CreateBrowser(userAgent, customCSS);
         if (callHandle == 0) {
+            this.htmlHost.Stop();
             throw new InvalidOperationException("CreateBrowser failed due to no call handle being returned.");
         }
 
-        var result = await this.client.CallbackManager.WaitForAPICallResult<HTML_BrowserReady_t>(callHandle, true, new CancellationTokenSource(2000).Token);
+        var result = await this.client.CallbackManager.WaitForAPICallResultAsync<HTML_BrowserReady_t>(callHandle, true, new CancellationTokenSource(2000).Token);
         if (result.failed) {
+            this.htmlHost.Stop();
             throw new InvalidOperationException("CreateBrowser failed due to CallResult failure: " + result.failureReason);
         }
 
@@ -283,7 +398,30 @@ public partial class HTMLSurface : UserControl
 
         Console.WriteLine("Created new browser with handle " + this.BrowserHandle);
         this.surface.AllowStartRequest(this.BrowserHandle, true);
-        this.htmlImgBuffer.Resize((int)this.Bounds.Width, (int)this.Bounds.Height);
+        this.surface.SetSize(this.BrowserHandle, (uint)this.Bounds.Width, (uint)this.Bounds.Height);
+
+        return result.data.unBrowserHandle;
+    }
+
+    public HHTMLBrowser CreateBrowserSync(string userAgent, string? customCSS) {
+        this.htmlHost.Start();
+        this.client.CallbackManager.PauseThreadSync();
+        var callHandle = this.surface.CreateBrowser(userAgent, customCSS);
+        if (callHandle == 0) {
+            this.htmlHost.Stop();
+            throw new InvalidOperationException("CreateBrowser failed due to no call handle being returned.");
+        }
+
+        var result = this.client.CallbackManager.WaitForAPICallResultSync<HTML_BrowserReady_t>(callHandle, true);
+        if (result.failed) {
+            this.htmlHost.Stop();
+            throw new InvalidOperationException("CreateBrowser failed due to CallResult failure: " + result.failureReason);
+        }
+
+        this.BrowserHandle = result.data.unBrowserHandle;
+
+        Console.WriteLine($"Created new browser with handle {this.BrowserHandle} size: ({this.Bounds.Width}x{this.Bounds.Height})");
+        this.surface.AllowStartRequest(this.BrowserHandle, true);
         this.surface.SetSize(this.BrowserHandle, (uint)this.Bounds.Width, (uint)this.Bounds.Height);
 
         return result.data.unBrowserHandle;
@@ -298,17 +436,16 @@ public partial class HTMLSurface : UserControl
         this.surface.RemoveBrowser(this.BrowserHandle);
 
         // Shutdown the interface if no other surfaces are left
-        initCount--;
-        if (initCount == 0) {
-            Console.WriteLine("Freeing IClientHTMLSurface, no surfaces left");
-            this.surface.Shutdown();
-        }
+        this.htmlHost.Stop();
+    }
+
+    public void LoadURL(string url) {
+        this.surface.LoadURL(this.BrowserHandle, url, null);
     }
     
     public override void Render(DrawingContext context)
     {
-        base.Render(context);
-        this.htmlImgBuffer.PreRender(new Rect(0, 0, Bounds.Width, Bounds.Height));
+        context.DrawRectangle(Brushes.Black, null, this.Bounds, 0, 0, default);
         context.Custom(this.htmlImgBuffer);
     }
 
@@ -364,15 +501,15 @@ public partial class HTMLSurface : UserControl
         {
             case PointerUpdateKind.LeftButtonPressed:
             case PointerUpdateKind.LeftButtonReleased:
-                return EHTMLMouseButton.k_EHTMLMouseButton_Left;
+                return EHTMLMouseButton.Left;
 
             case PointerUpdateKind.MiddleButtonPressed:
             case PointerUpdateKind.MiddleButtonReleased:
-                return EHTMLMouseButton.k_EHTMLMouseButton_Middle;
+                return EHTMLMouseButton.Middle;
 
             case PointerUpdateKind.RightButtonPressed:
             case PointerUpdateKind.RightButtonReleased:
-                return EHTMLMouseButton.k_EHTMLMouseButton_Right;
+                return EHTMLMouseButton.Right;
             
             default:
                 throw new Exception("PointerPressed received but no mouse buttons were down.");
@@ -380,17 +517,17 @@ public partial class HTMLSurface : UserControl
     }
 
     private static EHTMLKeyModifiers KeyModifiersToEHTMLKeyModifiers(KeyModifiers modifiers) {
-        EHTMLKeyModifiers htmlKeyModifiers = EHTMLKeyModifiers.k_EHTMLKeyModifier_None;
+        EHTMLKeyModifiers htmlKeyModifiers = EHTMLKeyModifiers.None;
         if (modifiers.HasFlag(KeyModifiers.Control)) {
-            htmlKeyModifiers |= EHTMLKeyModifiers.k_EHTMLKeyModifier_CtrlDown;
+            htmlKeyModifiers |= EHTMLKeyModifiers.CtrlDown;
         }
         
         if (modifiers.HasFlag(KeyModifiers.Alt)) {
-            htmlKeyModifiers |= EHTMLKeyModifiers.k_EHTMLKeyModifier_AltDown;
+            htmlKeyModifiers |= EHTMLKeyModifiers.AltDown;
         }
 
         if (modifiers.HasFlag(KeyModifiers.Shift)) {
-            htmlKeyModifiers |= EHTMLKeyModifiers.k_EHTMLKeyModifier_ShiftDown;
+            htmlKeyModifiers |= EHTMLKeyModifiers.ShiftDown;
         }
 
         return htmlKeyModifiers;
@@ -400,7 +537,8 @@ public partial class HTMLSurface : UserControl
         if (OperatingSystem.IsLinux()) {
             return (int)X11KeyTransform.X11KeyFromKey(e.Key);
         } else if (OperatingSystem.IsWindows()) {
-            return (int)e.NativeKeyCode;
+            return 0;
+            // return (int)e.NativeKeyCode;
         }
 
         throw new PlatformNotSupportedException("This OS is not supported.");
@@ -432,6 +570,7 @@ public partial class HTMLSurface : UserControl
     
     protected override void OnKeyUp(KeyEventArgs e) {
         base.OnKeyUp(e);
+
         Console.WriteLine("OnKeyUp a:'" + e.Key + "' s:'" + e.KeySymbol + "' n:'" + GetNativeKeyCodeForKeyEvent(e) + "' " + " an:'" + e.NativeKeyCode + "'");
         if (this.BrowserHandle != 0) {
             this.surface.KeyUp(this.BrowserHandle, e.NativeKeyCode, KeyModifiersToEHTMLKeyModifiers(e.KeyModifiers));

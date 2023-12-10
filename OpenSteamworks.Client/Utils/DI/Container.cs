@@ -216,6 +216,14 @@ public class Container
         return GetConstructorFor(typeof(T));
     }
 
+    public object ConstructOnly(Type type, object[]? extraArgs = null)
+    {
+        logger.Debug("Attempting to construct type '" + type.Name + "'");
+        ConstructorInfo ctor = GetConstructorFor(type);
+        var dependencies = FillArrayWithDependencies(ctor.GetParameters(), extraArgs == null, extraArgs);
+        return ctor.Invoke(dependencies);
+    }
+
     public T ConstructOnly<T>(object[]? extraArgs = null)
     {
         logger.Debug("Attempting to construct type '" + typeof(T).Name + "'");

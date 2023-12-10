@@ -109,7 +109,7 @@ public partial class LoginWindowViewModel : ViewModelBase
     public async void LoginPressed() {
         CanLogin = false;
         EResult result = await this.loginManager.StartAuthSessionWithCredentials(this.Username, this.Password, this.RememberPassword);
-        if (result != EResult.k_EResultOK) {
+        if (result != EResult.OK) {
             CanLogin = true;
             MessageBox.Show(tm.GetTranslationForKey("#LoginFailed"), string.Format(tm.GetTranslationForKey("#LoginFailed_Description"), this.Username, result));
         }

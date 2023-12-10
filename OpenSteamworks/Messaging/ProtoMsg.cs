@@ -85,7 +85,7 @@ public class ProtoMsg<T> : IMessage where T: Google.Protobuf.IMessage<T>, new()
     }
 
     public void ThrowIfErrored() {
-        if (this.header.Eresult != (int)EResult.k_EResultOK) {
+        if (this.header.Eresult != (int)EResult.OK) {
             throw new Exception($"Message {typeof(T).Name} failed with eResult {this.header.Eresult}: {this.header.ErrorMessage}");
         }
     }

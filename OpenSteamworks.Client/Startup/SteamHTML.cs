@@ -6,6 +6,7 @@ using OpenSteamworks.Client.Utils.DI;
 using OpenSteamworks.Client.Config;
 using System.Text;
 using OpenSteamworks.Enums;
+using OpenSteamworks.Utils;
 
 namespace OpenSteamworks.Client.Startup;
 
@@ -18,6 +19,8 @@ public class SteamHTML : IClientLifetime {
     private readonly InstallManager installManager;
     private readonly GlobalSettings globalSettings;
     private readonly Logger logger;
+    private bool hasCopiedFiles = false;
+    private static RefCount initCount = new();
 
     public SteamHTML(SteamClient steamClient, InstallManager installManager, GlobalSettings globalSettings) {
         this.logger = Logger.GetLogger("SteamHTMLManager", installManager.GetLogPath("SteamHTMLManager"));
@@ -28,7 +31,7 @@ public class SteamHTML : IClientLifetime {
 
     [SupportedOSPlatform("linux")]
     [SupportedOSPlatform("windows")]
-    public void StartHTMLHost(string pathToHost, string cacheDir) {
+    private void StartHTMLHost(string pathToHost, string cacheDir) {
         lock (CurrentHTMLHostLock)
         {
             CurrentHTMLHost = new Process();
@@ -73,7 +76,6 @@ public class SteamHTML : IClientLifetime {
             CurrentHTMLHost.StartInfo.ArgumentList.Add(Convert.ToInt32(this.globalSettings.WebhelperIgnoreGPUBlocklist).ToString());
             CurrentHTMLHost.StartInfo.ArgumentList.Add(Convert.ToInt32(this.globalSettings.WebhelperAllowWorkarounds).ToString());
 
-
             // Corresponds to --v=4 in CEF terms
             CurrentHTMLHost.StartInfo.ArgumentList.Add("-cef-verbose-logging 4");
             
@@ -98,6 +100,98 @@ public class SteamHTML : IClientLifetime {
         }
     }
 
+    private void StopThread() {
+        ShouldStop = true;
+        while (WatcherThread != null) { Thread.Sleep(1); }
+    }
+
+    public void Stop() {
+        if (CurrentHTMLHost == null || CurrentHTMLHost.HasExited) {
+            return;
+        }
+
+        Console.WriteLine("pre: " + initCount.Count);
+        if (initCount.Decrement()) {
+            logger.Info("Freeing IClientHTMLSurface, no surfaces left");
+            this.steamClient.NativeClient.IClientHTMLSurface.Shutdown();
+
+            logger.Info("Killing HTMLHost");
+            StopThread();
+            CurrentHTMLHost.Kill(true);
+
+            logger.Info("Killing remaining steamwebhelper processes");
+            foreach (var process in Process.GetProcessesByName("steamwebhelper"))
+            {
+                process.Kill();
+            }
+        }
+        Console.WriteLine("post: " + initCount.Count);
+    }
+
+    public bool CanRun() {
+        if (!globalSettings.EnableWebHelper) {
+            logger.Info("Not running SteamHTML due to user preference");
+            return false;
+        }
+
+        if (!(OperatingSystem.IsLinux() || OperatingSystem.IsWindows())) {
+            //TODO: macos
+            logger.Warning("Not running SteamHTML due to unsupported OS");
+            return false;
+        }
+
+        return true;
+    }
+
+    public void Start() {
+        if (!CanRun()) {
+            return;
+        }
+
+        if (initCount.Increment()) {
+            logger.Info("Initializing SteamHTML");
+            
+            if (CurrentHTMLHost != null && !CurrentHTMLHost.HasExited) {
+                logger.Info("Not running SteamHTML due to it already running");
+            } else if (steamClient.NativeClient.ConnectedWith == SteamClient.ConnectionType.ExistingClient) {
+                //TODO: check for existing steamwebhelper here
+                logger.Info("Not rerunning SteamHTML due to existing client connection");
+            } else {
+                if (OperatingSystem.IsLinux()) {
+                    if (!hasCopiedFiles) {
+                        try
+                        {   
+                            File.Copy(Path.Combine(installManager.InstallDir, "libbootstrappershim32.so"), "/tmp/libbootstrappershim32.so", true);
+                            File.Copy(Path.Combine(installManager.InstallDir, "libhtmlhost_fakepid.so"), "/tmp/libhtmlhost_fakepid.so", true);
+                            hasCopiedFiles = true;
+                        }
+                        catch (Exception e)
+                        {
+                            logger.Warning("Failed to copy files required for htmlhost. Issues may arise!");
+                            logger.Warning(e);
+                        }
+                    }
+                    
+                    this.StartHTMLHost(Path.Combine(installManager.InstallDir, "ubuntu12_32", "htmlhost"), Path.Combine(installManager.InstallDir, "appcache", "htmlcache"));
+                } else if (OperatingSystem.IsWindows()) {                  
+                    this.StartHTMLHost(Path.Combine(installManager.InstallDir, "htmlhost.exe"), Path.Combine(installManager.InstallDir, "appcache", "htmlcache"));
+                }
+
+                logger.Info("Waiting a bit for init");
+                Thread.Sleep(500);
+            }
+
+            logger.Info("Initializing IClientHTMLSurface");
+            while (!this.steamClient.NativeClient.IClientHTMLSurface.Init())
+            {
+                logger.Warning("Init failed. Retrying");
+                Thread.Sleep(50);
+            }
+        }
+
+        return;
+    }
+
     public async Task RunShutdown() {
         ShouldStop = true;
         await Task.CompletedTask;
@@ -105,34 +199,6 @@ public class SteamHTML : IClientLifetime {
 
     public async Task RunStartup()
     {
-        if (globalSettings.EnableWebHelper) {
-            if (steamClient.NativeClient.ConnectedWith == SteamClient.ConnectionType.NewClient) {
-                if (OperatingSystem.IsLinux()) {
-                    try
-                    {
-                        await Task.Run(() =>
-                        {
-                            File.Copy(Path.Combine(installManager.InstallDir, "libbootstrappershim32.so"), "/tmp/libbootstrappershim32.so", true);
-                            File.Copy(Path.Combine(installManager.InstallDir, "libhtmlhost_fakepid.so"), "/tmp/libhtmlhost_fakepid.so", true);
-                        });
-                    }
-                    catch (Exception e)
-                    {
-                        logger.Warning("Failed to copy " + Path.Combine(installManager.InstallDir, "libbootstrappershim32.so") + " to /tmp/libbootstrappershim32.so: " + e.ToString());
-                    }
-                    
-                    this.StartHTMLHost(Path.Combine(installManager.InstallDir, "ubuntu12_32", "htmlhost"), Path.Combine(installManager.InstallDir, "appcache", "htmlcache"));
-                } else if (OperatingSystem.IsWindows()) {                  
-                    this.StartHTMLHost(Path.Combine(installManager.InstallDir, "htmlhost.exe"), Path.Combine(installManager.InstallDir, "appcache", "htmlcache"));
-                } else {
-                    //TODO: macos
-                    logger.Warning("Not running SteamHTML due to unsupported OS");
-                }
-            } else {
-                logger.Info("Not running SteamHTML due to existing client connection");
-            }
-        } else {
-            logger.Info("Not running SteamHTML due to user preference");
-        }
+        await Task.CompletedTask;
     }
 }

@@ -10,7 +10,7 @@ using OpenSteamworks.Structs;
 
 namespace OpenSteamworks.ClientInterfaces;
 
-public class ClientMessaging : ClientInterface
+public class ClientMessaging
 {
     private SteamClient client;
     private IClientSharedConnection iSharedConnection;
@@ -24,7 +24,7 @@ public class ClientMessaging : ClientInterface
         return conn;
     }
 
-    public ClientMessaging(SteamClient client) : base(client)
+    public ClientMessaging(SteamClient client)
     {
         this.client = client;
         this.iSharedConnection = client.NativeClient.IClientSharedConnection;
@@ -32,13 +32,11 @@ public class ClientMessaging : ClientInterface
         this.iClientUser = client.NativeClient.IClientUser;
     }
     
-    internal override void RunShutdownTasks()
+    internal void Shutdown()
     {
         foreach (var item in connections)
         {
             item.Dispose();
         }
-        base.RunShutdownTasks();
     }
-
 }

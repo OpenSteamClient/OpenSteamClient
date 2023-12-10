@@ -50,8 +50,19 @@ internal static partial class CallbackConstants {
         {typeof(HTML_UpdateToolTip_t), 4525},
         {typeof(HTML_HideToolTip_t), 4526},
         {typeof(HTML_BrowserRestarted_t), 4527},
+        {typeof(StopPlayingBorrowedApp_t), 1080003},
         {typeof(ShortcutChanged_t), 1130001},
-        {typeof(ShortcutRemoved_t), 1130002}
+        {typeof(ShortcutRemoved_t), 1130002},
+        {typeof(UnknownCallback4_1090001), 1090001},
+        {typeof(UnknownCallback8_1040026), 1040026},
+        {typeof(WindowFocusChanged_t), 1040015},
+        {typeof(FocusedAndFocusableWindowsUpdate_t), 1040044},
+        {typeof(UnknownCallback4288_1040033), 1040033},
+        {typeof(StartVRDashboard_t), 1040018},
+        {typeof(UIModeChanged_t), 1040029},
+        {typeof(StreamClientRaiseWindow_t), 1300001},
+        {typeof(OverlayGameWindowFocusChange_t), 1020105}
+
     };
     public readonly static Dictionary<int, Type> IDToType = TypeToID.ToDictionary(x => x.Value, x => x.Key);
 }

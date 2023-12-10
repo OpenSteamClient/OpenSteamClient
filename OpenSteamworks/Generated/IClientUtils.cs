@@ -9,6 +9,8 @@
 using System;
 using System.Text;
 using OpenSteamworks.Enums;
+using OpenSteamworks.Protobuf;
+using OpenSteamworks.Structs;
 
 namespace OpenSteamworks.Generated;
 
@@ -16,7 +18,7 @@ public unsafe interface IClientUtils
 {
     public string GetInstallPath();  // argc: 0, index: 1
     public string GetUserBaseFolderInstallImage();  // argc: 0, index: 2
-    public unknown_ret GetUserBaseFolderPersistentStorage();  // argc: 0, index: 0
+    public string GetUserBaseFolderPersistentStorage();  // argc: 0, index: 0
     public string GetManagedContentRoot();  // argc: 0, index: 3
     public RTime32 GetSecondsSinceAppActive();  // argc: 0, index: 4
     public RTime32 GetSecondsSinceComputerActive();  // argc: 0, index: 5
@@ -39,20 +41,14 @@ public unsafe interface IClientUtils
     // WARNING: Arguments are unknown!
     public unknown_ret SetAppIDForCurrentPipe(AppId_t appid);  // argc: 2, index: 18
     public AppId_t GetAppID();  // argc: 0, index: 19
-    // WARNING: Arguments are unknown!
-    public unknown_ret SetAPIDebuggingActive();  // argc: 2, index: 20
+    public void SetAPIDebuggingActive(bool active, bool verbose);  // argc: 2, index: 20
     public SteamAPICall_t AllocPendingAPICallHandle();  // argc: 0, index: 21
-    // WARNING: Arguments are unknown!
     public bool IsAPICallCompleted(SteamAPICall_t handle, ref bool failed);  // argc: 3, index: 22
-    // WARNING: Arguments are unknown!
     public ESteamAPICallFailure GetAPICallFailureReason(SteamAPICall_t handle);  // argc: 2, index: 23
     /// <summary>
     /// Gets a result for an api call.
     /// </summary>
-    // WARNING: Arguments are unknown!
-    public bool GetAPICallResult(SteamAPICall_t handle, void* callbackData, int callbackDataMax, int expectedCallbackID, ref bool failed);  // argc: 6, index: 24
-    // Why valve why
-    // WARNING: Arguments are unknown!
+    public bool GetAPICallResult(SteamAPICall_t handle, void* callbackData, int callbackDataMax, int expectedCallbackID, out bool failed);  // argc: 6, index: 24
     public unknown_ret SetAPICallResultWithoutPostingCallback(SteamAPICall_t handle, byte[] responseData, int responseDataLen, int responseCallbackID);  // argc: 5, index: 25
     public unknown_ret SignalAppsToShutDown();  // argc: 0, index: 26
     public unknown_ret SignalServiceAppsToDisconnect();  // argc: 0, index: 27
@@ -63,16 +59,14 @@ public unsafe interface IClientUtils
     // WARNING: Arguments are unknown!
     public unknown_ret CheckFileSignature();  // argc: 1, index: 31
     public unknown_ret GetBuildID();  // argc: 0, index: 32
-    // WARNING: Arguments are unknown!
-    public unknown_ret SetCurrentUIMode(EUIMode mode);  // argc: 1, index: 33
+    public void SetCurrentUIMode(EUIMode mode);  // argc: 1, index: 33
     public EUIMode GetCurrentUIMode();  // argc: 0, index: 34
-    public unknown_ret BIsWebBasedUIMode();  // argc: 0, index: 35
-    // WARNING: Arguments are unknown!
-    public unknown_ret SetDisableOverlayScaling();  // argc: 1, index: 0
+    public bool BIsWebBasedUIMode();  // argc: 0, index: 35
+    public void SetDisableOverlayScaling(bool val);  // argc: 1, index: 0
     // WARNING: Arguments are unknown!
     public unknown_ret ShutdownLauncher();  // argc: 2, index: 36
     // WARNING: Arguments are unknown!
-    public unknown_ret SetLauncherType(ELauncherType type);  // argc: 1, index: 37
+    public void SetLauncherType(ELauncherType type);  // argc: 1, index: 37
     public ELauncherType GetLauncherType();  // argc: 0, index: 38
     // WARNING: Arguments are unknown!
     public unknown_ret ShowGamepadTextInput();  // argc: 5, index: 39
@@ -117,11 +111,11 @@ public unsafe interface IClientUtils
     // WARNING: Arguments are unknown!
     public unknown_ret GetSupportSystemReport();  // argc: 4, index: 62
     // WARNING: Arguments are unknown!
-    public unknown_ret GetAppIdForPid();  // argc: 2, index: 63
+    public unknown_ret GetAppIdForPid(AppId_t appid, bool unk);  // argc: 2, index: 63
     public unknown_ret SetClientUIProcess();  // argc: 0, index: 64
     public unknown_ret BIsClientUIInForeground();  // argc: 0, index: 65
     // WARNING: Arguments are unknown!
-    public unknown_ret AllowSetForegroundThroughWebhelper();  // argc: 1, index: 66
+    public unknown_ret AllowSetForegroundThroughWebhelper(bool val);  // argc: 1, index: 66
     // WARNING: Arguments are unknown!
     public unknown_ret SetOverlayBrowserInfo();  // argc: 8, index: 67
     // WARNING: Arguments are unknown!
@@ -142,18 +136,16 @@ public unsafe interface IClientUtils
     // WARNING: Arguments are unknown!
     public unknown_ret DispatchOpenURLInClient();  // argc: 3, index: 76
     // WARNING: Arguments are unknown!
-    public SteamAPICall_t UpdateWideVineCDM();  // argc: 1, index: 77
+    public SteamAPICall_t UpdateWideVineCDM(string maybePath);  // argc: 1, index: 77
     public unknown_ret DispatchClearAllBrowsingData();  // argc: 0, index: 78
     public unknown_ret DispatchClientSettingsChanged();  // argc: 0, index: 79
     // WARNING: Arguments are unknown!
     public unknown_ret DispatchClientPostMessage();  // argc: 3, index: 80
     public unknown_ret IsSteamChina();  // argc: 0, index: 81
     // WARNING: Arguments are unknown!
-    public unknown_ret NeedsSteamChinaWorkshop();  // argc: 1, index: 82
-    // WARNING: Arguments are unknown!
-    public unknown_ret InitFilterText();  // argc: 2, index: 83
-    // WARNING: Arguments are unknown!
-    public unknown_ret FilterText();  // argc: 7, index: 84
+    public bool NeedsSteamChinaWorkshop(AppId_t app);  // argc: 1, index: 82
+    public bool InitFilterText(AppId_t appid, uint filterOptions = 0);  // argc: 2, index: 83
+    public int FilterText(AppId_t appid, ETextFilteringContext context, CSteamID senderSteamID, string msg, StringBuilder msgOut, int maxMsgOut);  // argc: 7, index: 84
     // WARNING: Arguments are unknown!
     public unknown_ret GetIPv6ConnectivityState(ESteamIPv6ConnectivityProtocol protocol);  // argc: 1, index: 85
     // WARNING: Arguments are unknown!
@@ -162,18 +154,18 @@ public unsafe interface IClientUtils
     public unknown_ret GetConnectivityTestState();  // argc: 1, index: 87
     public string GetCaptivePortalURL();  // argc: 0, index: 88
     // WARNING: Arguments are unknown!
-    public unknown_ret RecordSteamInterfaceCreation();  // argc: 2, index: 89
-    public unknown_ret GetCloudGamingPlatform();  // argc: 0, index: 90
+    public unknown_ret RecordSteamInterfaceCreation(string unk, string unk1);  // argc: 2, index: 89
+    public ECloudGamingPlatform GetCloudGamingPlatform();  // argc: 0, index: 90
     // WARNING: Arguments are unknown!
     public unknown_ret BGetMacAddresses();  // argc: 3, index: 91
     // WARNING: Arguments are unknown!
-    public unknown_ret BGetDiskSerialNumber();  // argc: 2, index: 92
+    public unknown_ret BGetDiskSerialNumber(StringBuilder builder, int maxOut);  // argc: 2, index: 92
     // WARNING: Arguments are unknown!
     public unknown_ret GetSteamEnvironmentForApp(AppId_t appid, StringBuilder buf, int bufMax);  // argc: 3, index: 93
     // WARNING: Arguments are unknown!
-    public unknown_ret TestHTTP();  // argc: 1, index: 94
+    public unknown_ret TestHTTP(string unk);  // argc: 1, index: 94
     // WARNING: Arguments are unknown!
-    public unknown_ret DumpJobs();  // argc: 1, index: 95
+    public unknown_ret DumpJobs(string unk);  // argc: 1, index: 95
     // WARNING: Arguments are unknown!
     public unknown_ret ShowFloatingGamepadTextInput();  // argc: 6, index: 96
     // WARNING: Arguments are unknown!
@@ -184,9 +176,9 @@ public unsafe interface IClientUtils
     public unknown_ret ClearAllHTTPCaches();  // argc: 0, index: 100
     // WARNING: Arguments are unknown!
     public unknown_ret GetFocusedGameID();  // argc: 1, index: 101
-    public unknown_ret GetFocusedWindowPID();  // argc: 0, index: 102
+    public uint GetFocusedWindowPID();  // argc: 0, index: 102
     // WARNING: Arguments are unknown!
-    public unknown_ret SetWebUITransportWebhelperPID();  // argc: 1, index: 103
+    public unknown_ret SetWebUITransportWebhelperPID(uint pid);  // argc: 1, index: 103
     // WARNING: Arguments are unknown!
     public unknown_ret GetWebUITransportInfo();  // argc: 1, index: 104
     // WARNING: Arguments are unknown!

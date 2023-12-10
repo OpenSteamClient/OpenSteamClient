@@ -66,10 +66,12 @@ public class AppsManager : ILogonLifetime
         this.steamClient = steamClient;
         this.clientMessaging = clientMessaging;
         this.installManager = installManager;
+        steamClient.CallbackManager.RegisterHandler<AppMinutesPlayedDataNotice_t>(OnAppMinutesPlayedDataNotice);
+        steamClient.CallbackManager.RegisterHandler<AppLastPlayedTimeChanged_t>(OnAppLastPlayedTimeChanged);
+        steamClient.CallbackManager.RegisterHandler<AppLicensesChanged_t>(OnAppLicensesChanged);
     }
 
-    [CallbackListener<AppMinutesPlayedDataNotice_t>]
-    public void OnAppMinutesPlayedDataNotice(CallbackHandler handler, AppMinutesPlayedDataNotice_t notice) {
+    public void OnAppMinutesPlayedDataNotice(CallbackHandler<AppMinutesPlayedDataNotice_t> handler, AppMinutesPlayedDataNotice_t notice) {
         UInt32 allTime = 0;
         UInt32 lastTwoWeeks = 0;
         if (steamClient.NativeClient.IClientUser.BGetAppMinutesPlayed(notice.m_nAppID, ref allTime, ref lastTwoWeeks))
@@ -78,13 +80,11 @@ public class AppsManager : ILogonLifetime
         }
     }
 
-    [CallbackListener<AppLastPlayedTimeChanged_t>]
-    public void OnAppLastPlayedTimeChanged(CallbackHandler handler, AppLastPlayedTimeChanged_t lastPlayedTimeChanged) {
+    public void OnAppLastPlayedTimeChanged(CallbackHandler<AppLastPlayedTimeChanged_t> handler, AppLastPlayedTimeChanged_t lastPlayedTimeChanged) {
         AppLastPlayedChanged?.Invoke(this, new AppLastPlayedChangedEventArgs(lastPlayedTimeChanged.m_nAppID, lastPlayedTimeChanged.m_lastPlayed));
     }
 
-    [CallbackListener<AppLicensesChanged_t>]
-    public void OnAppLicensesChanged(CallbackHandler handler, AppLicensesChanged_t licensesChanged) {
+    public void OnAppLicensesChanged(CallbackHandler<AppLicensesChanged_t> handler, AppLicensesChanged_t licensesChanged) {
         if (hasLogOnFinished) {
             lock (ownedAppsLock)
             {
@@ -112,13 +112,8 @@ public class AppsManager : ILogonLifetime
         hasLogOnFinished = true;
     }
 
-    public AppBase GetAppSync(AppId_t appid) {
-        byte[] commonSection = new byte[10000];
-        this.steamClient.NativeClient.IClientApps.GetAppDataSection(appid, EAppInfoSection.Common, commonSection, commonSection.Length, false);
-        using (var commonsection = new MemoryStream(commonSection))
-        {
-            return AppBase.CreateSteamApp(this, appid, commonsection);
-        }
+    public SteamApp GetSteamAppSync(AppId_t appid) {
+        return AppBase.CreateSteamApp(this, appid);
     }
 
     public async Task OnLoggingOff(IExtendedProgress<int> progress) {
@@ -166,17 +161,21 @@ public class AppsManager : ILogonLifetime
         return ownedApps;
     }
 
-    public async Task RunInstallScript(AppId_t appid, bool uninstall = false) {
+    public async Task RunInstallScriptAsync(AppId_t appid, bool uninstall = false) {
+        await Task.Run(() => RunInstallScriptSync(appid, uninstall));
+    }
+
+    public void RunInstallScriptSync(AppId_t appid, bool uninstall = false) {
         //TODO: we still aren't 100% sure about the second arg.
         steamClient.NativeClient.IClientUser.RunInstallScript(appid, "english", false);
         while (steamClient.NativeClient.IClientUser.IsInstallScriptRunning() != 0)
         {
-            System.Threading.Thread.Sleep(30);
+            Thread.Sleep(30);
         }
     }
 
     public async Task<EResult> LaunchApp(AppBase app, int launchOption, string userLaunchOptions) {
-        return EResult.k_EResultOK;
+        return EResult.OK;
         // //TODO: make this actually async, not spaghetti, use compatmanager, use app class, add validation, test on windows, create a better keyvalue system with arrays, maybe other issues
         // var logger = this.logger.CreateSubLogger("LaunchApp");
 
@@ -341,7 +340,7 @@ public class AppsManager : ILogonLifetime
         //     this.steamClient.NativeClient.IClientUser.SpawnProcess("", commandLine, workingDir, ref gameidref, app.Name);
         // }
 
-        // return EResult.k_EResultOK;
+        // return EResult.OK;
     }
     
     public Logger GetLoggerForApp(AppBase app) {

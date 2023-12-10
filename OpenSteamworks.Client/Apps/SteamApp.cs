@@ -1,5 +1,8 @@
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using OpenSteamworks.Client.Apps.Compat;
 using OpenSteamworks.Client.Apps.Sections;
 using OpenSteamworks.Client.Extensions;
 using OpenSteamworks.Client.Utils;
@@ -31,21 +34,21 @@ public class SteamApp : AppBase, ILaunchableApp<AppDataConfigSection.LaunchOptio
             // Because some people might still own these, don't throw here, instead give out an invalid app type.
             if (string.IsNullOrEmpty(this.Common.Type))
             {
-                return EAppType.k_EAppTypeInvalid;
+                return EAppType.Invalid;
             }
 
             return this.Common.Type.ToLowerInvariant() switch
             {
-                "game" => EAppType.k_EAppTypeGame,
-                "application" => EAppType.k_EAppTypeApplication,
-                "music" => EAppType.k_EAppTypeMusic,
-                "tool" => EAppType.k_EAppTypeTool,
-                "beta" => EAppType.k_EAppTypeBeta,
-                "demo" => EAppType.k_EAppTypeDemo,
-                "config" => EAppType.k_EAppTypeConfig,
-                "dlc" => EAppType.k_EAppTypeDlc,
-                "media" => EAppType.k_EAppTypeMedia,
-                "video" => EAppType.k_EAppTypeVideo,
+                "game" => EAppType.Game,
+                "application" => EAppType.Application,
+                "music" => EAppType.Music,
+                "tool" => EAppType.Tool,
+                "beta" => EAppType.Beta,
+                "demo" => EAppType.Demo,
+                "config" => EAppType.Config,
+                "dlc" => EAppType.Dlc,
+                "media" => EAppType.Media,
+                "video" => EAppType.Video,
                 _ => throw new InvalidOperationException("Unknown app type " + this.Common.Type.ToLowerInvariant()),
             };
         }
@@ -54,9 +57,10 @@ public class SteamApp : AppBase, ILaunchableApp<AppDataConfigSection.LaunchOptio
     public IEnumerable<AppDataConfigSection.LaunchOption> LaunchOptions => this.Config.LaunchOptions;
     public bool RequiresLaunchOption => true;
 
-    internal SteamApp(AppsManager appsManager, AppId_t appid, MemoryStream commonsection) : base(appsManager)
+    internal SteamApp(AppsManager appsManager, AppId_t appid) : base(appsManager)
     {
-        SetAppInfoCommonSection(commonsection);
+        var sections = appsManager.ClientApps.GetMultipleAppDataSectionsSync(appid, new EAppInfoSection[] {EAppInfoSection.Common, EAppInfoSection.Config, EAppInfoSection.Extended, EAppInfoSection.Install, EAppInfoSection.Depots, EAppInfoSection.Community, EAppInfoSection.Localization});
+        SetAppInfoCommonSection(sections[EAppInfoSection.Common]);
         if (this.Common.GameID.IsValid())
         {
             this.GameID = this.Common.GameID;
@@ -67,52 +71,62 @@ public class SteamApp : AppBase, ILaunchableApp<AppDataConfigSection.LaunchOptio
         }
     }
 
-    private static T SetAppInfoSection<T>(MemoryStream stream, Func<KVObject, T> ctor) {
-        if (stream == null) {
-            throw new NullReferenceException("stream was null");
-        }
-
-        if (stream.Length == 0) {
-            throw new Exception("Stream was empty");
-        }
-
-        KVObject obj;
-        try
-        {
-            obj = KVSerializer.Deserialize(stream);
-        }
-        catch (System.Exception e)
-        {
-            throw new Exception("Failed to deserialize given stream.", e);
-        }
-
+    private static T SetAppInfoSection<T>(KVObject obj, Func<KVObject, T> ctor) {
         return ctor(obj)!;
     }
 
 
     [MemberNotNull(nameof(Common))]
-    internal void SetAppInfoCommonSection(MemoryStream stream) {
-        Common = SetAppInfoSection(stream, (kv) => new AppDataCommonSection(kv));
+    internal void SetAppInfoCommonSection(KVObject obj) {
+        Common = SetAppInfoSection(obj, (kv) => new AppDataCommonSection(kv));
     }
 
     [MemberNotNull(nameof(Extended))]
-    internal void SetAppInfoExtendedSection(MemoryStream stream) {
-        Extended = SetAppInfoSection(stream, (kv) => new AppDataExtendedSection(kv));
+    internal void SetAppInfoExtendedSection(KVObject obj) {
+        Extended = SetAppInfoSection(obj, (kv) => new AppDataExtendedSection(kv));
     }
 
     [MemberNotNull(nameof(Config))]
-    internal void SetAppInfoConfigSection(MemoryStream stream) {
-        Config = SetAppInfoSection(stream, (kv) => new AppDataConfigSection(kv));
+    internal void SetAppInfoConfigSection(KVObject obj) {
+        Config = SetAppInfoSection(obj, (kv) => new AppDataConfigSection(kv));
     }
     
     /// <summary>
-    /// 
+    /// Gets the path to the app's install dir.
     /// </summary>
     /// <param name="installDir"></param>
-    /// <returns>True if the game is installed</returns>
+    /// <returns>True if the game is installed, false if it is not installed</returns>
     public bool TryGetInstallDir([NotNullWhen(true)] out string? installDir) {
         installDir = null;
-        return false;
+        if (!this.AppsManager.ClientApps.IsAppInstalled(this.AppID)) {
+            return false;
+        }
+
+        installDir = this.AppsManager.ClientApps.GetAppInstallDir(this.AppID);
+        if (string.IsNullOrEmpty(installDir)) {
+            return false;
+        }
+
+        return true;
+    }
+
+    /// <summary>
+    /// Gets the path to the app's libray folder's root path "/path/to/SteamLibrary/steamapps/"
+    /// </summary>
+    /// <param name="installDir"></param>
+    /// <returns>True if the game is installed, false if it is not installed</returns>
+    public bool TryGetAppLibraryFolderDir([NotNullWhen(true)] out string? installDir) {
+        installDir = null;
+        if (!this.AppsManager.ClientApps.IsAppInstalled(this.AppID)) {
+            return false;
+        }
+
+        installDir = this.AppsManager.ClientApps.GetAppInstallDir(this.AppID);
+        if (string.IsNullOrEmpty(installDir)) {
+            return false;
+        }
+
+        return true;
     }
 
     public async Task<EResult> Launch(string userLaunchOptions, AppDataConfigSection.LaunchOption? launchOption = null)
@@ -128,8 +142,21 @@ public class SteamApp : AppBase, ILaunchableApp<AppDataConfigSection.LaunchOptio
             //await AppsManager.ClientApps.EnsureHasAppData(AppID);
         }
 
-        await AppsManager.RunInstallScript(AppID);
+        await AppsManager.RunInstallScriptAsync(AppID);
 
-        return EResult.k_EResultOK;
+        return EResult.OK;
     }
+
+
+    public async Task<ProtonDBInfo> GetProtonDBCompatData() {
+        string response = await Client.HttpClient.GetStringAsync($"https://www.protondb.com/api/v1/reports/summaries/{this.AppID}.json");
+        JsonSerializerOptions.Default.Converters.Add(new JsonStringEnumConverter());
+        var json = JsonSerializer.Deserialize<ProtonDBInfo>(response);
+        if (json == null) {
+            throw new NullReferenceException("Failed to get compatibility data from ProtonDB");
+        }
+
+        return json;
+    }
+
 }

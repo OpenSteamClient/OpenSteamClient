@@ -79,8 +79,8 @@ public abstract class AppBase
         return valuestr;
     }
     
-    public static SteamApp CreateSteamApp(AppsManager appsManager, AppId_t appid, MemoryStream commonsection) {
-        return new SteamApp(appsManager, appid, commonsection);
+    public static SteamApp CreateSteamApp(AppsManager appsManager, AppId_t appid) {
+        return new SteamApp(appsManager, appid);
     }
 
     public static ShortcutApp CreateShortcut(AppsManager appsManager, string name, string exe, string workingDir) {
@@ -100,6 +100,6 @@ public abstract class AppBase
             throw new InvalidOperationException("AppsManager was null when getting ParentApp");
         }
 
-        return AppsManager.GetAppSync(appid);
+        return AppsManager.GetSteamAppSync(appid);
     }
 }

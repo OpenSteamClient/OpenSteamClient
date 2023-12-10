@@ -53,6 +53,26 @@
                 <MenuItem Header="Crash" Command="{Binding DBG_Crash}"/>
             </MenuItem>
         </Menu>
+
+        <!-- Header buttons -->
+        <ItemsControl ItemsSource="{Binding PageList}" DockPanel.Dock="Top">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal" />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Button Background="{Binding ButtonBackground}" Command="{Binding SwitchPageAction}" Padding="10">
+                        <Button.ContextMenu>
+                            <ContextMenu ItemsSource="{Binding ContextMenuItems}" />
+                        </Button.ContextMenu>     
+                        <ContentControl Content="{Binding PageName}"/>
+                    </Button>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+
         <ContentControl Content="{Binding CurrentPage}" />
     </DockPanel>
     

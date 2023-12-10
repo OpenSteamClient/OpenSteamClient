@@ -1,5 +1,8 @@
+using System;
+
 namespace OpenSteamworks.Enums;
 
+[Flags]
 public enum EAppOwnershipFlags : uint
 {
 	None = 0,

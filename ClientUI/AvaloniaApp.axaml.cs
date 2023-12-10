@@ -19,13 +19,15 @@ using System.Linq;
 using Avalonia.Input;
 using OpenSteamworks.Client.Utils.DI;
 using OpenSteamworks.Utils;
+using Avalonia.Styling;
 
 namespace ClientUI;
 
 public class AvaloniaApp : Application
 {
-    public static Container Container;
+    public static readonly Container Container;
     public new static AvaloniaApp? Current;
+    public static Theme? Theme;
     public new IClassicDesktopStyleApplicationLifetime ApplicationLifetime => (base.ApplicationLifetime as IClassicDesktopStyleApplicationLifetime)!;
     public static bool DebugEnabled = false;
     static AvaloniaApp() {
@@ -39,7 +41,7 @@ public class AvaloniaApp : Application
         this.DataContext = new AvaloniaAppViewModel();
     }
 
-    public static void InvokeOnUIThread(Action callback) {
+    private static void InvokeOnUIThread(Action callback) {
         if (!Container.IsShuttingDown) {
             Avalonia.Threading.Dispatcher.UIThread.Invoke(callback);
         }
@@ -48,6 +50,8 @@ public class AvaloniaApp : Application
     private ExtendedProgress<int> loginProgress = new ExtendedProgress<int>(0, 100);
     public override async void OnFrameworkInitializationCompleted()
     {
+        Theme = new Theme(this);
+        
         ExtendedProgress<int> bootstrapperProgress = new ExtendedProgress<int>(0, 100);
         var progVm = new ProgressWindowViewModel(bootstrapperProgress, "Bootstrapper progress");
         ForceProgressWindow(progVm);
@@ -77,7 +81,7 @@ public class AvaloniaApp : Application
         Container.Get<LoginManager>().LoggedOff += (object sender, LoggedOffEventArgs e) =>
         {
             InvokeOnUIThread(() => {
-                if (e.Error != OpenSteamworks.Enums.EResult.k_EResultOK) {
+                if (e.Error != OpenSteamworks.Enums.EResult.OK) {
                     // What can cause a sudden log off?
                     MessageBox.Show("Session terminated", "You were forcibly logged off with an error code: " + e.Error.ToString());
                 }
@@ -137,10 +141,8 @@ public class AvaloniaApp : Application
     /// Closes the current MainWindow (if exists) and replaces it with a new MainWindow
     /// </summary>
     public void ForceMainWindow() {
-        ForceWindow(new MainWindow
-        {
-            DataContext = AvaloniaApp.Container.ConstructOnly<MainWindowViewModel>(new object[] { (Action)OpenSettingsWindow })
-        });
+        var window = ForceWindow(new MainWindow());
+        window.DataContext = AvaloniaApp.Container.ConstructOnly<MainWindowViewModel>(new object[] { (Action)OpenSettingsWindow, window });
     }
 
     private SettingsWindow? CurrentSettingsWindow;
@@ -222,24 +224,26 @@ public class AvaloniaApp : Application
     /// Closes the current MainWindow (if exists) and replaces it with a new Progress Window, with the user specified ProgressWindowViewModel
     /// </summary>
     public void ForceProgressWindow(ProgressWindowViewModel progVm) {
-        var progressWindow = new ProgressWindow(progVm);
         ForceWindow(new ProgressWindow(progVm));
     }
 
     /// <summary>
     /// Closes the current MainWindow (if exists) and replaces it with a user specified window
     /// </summary>
-    public void ForceWindow(Window window) {
+    public T ForceWindow<T>(T window) where T: Window {
         if (!Container.IsShuttingDown) {
             ApplicationLifetime.MainWindow?.Close();
             ApplicationLifetime.MainWindow = window;
             ApplicationLifetime.MainWindow.Show();
         }
+
+        return window;
     }
 
     public AvaloniaApp()
     {
         Current = this;
+        Name = "OpenSteamClient";
     }
 
     /// <summary>

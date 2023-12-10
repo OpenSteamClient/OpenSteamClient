@@ -14,8 +14,12 @@ public unsafe interface IClientNetworkDeviceManager
 {
     public unknown_ret IsInterfaceValid();  // argc: 0, index: 1
     public unknown_ret RefreshDevices();  // argc: 0, index: 2
-    // WARNING: Arguments are unknown!
-    public unknown_ret GetNetworkDevicesData();  // argc: 1, index: 3
+    /// <summary>
+    /// Takes a pointer to CMsgNetworkDevicesData protobuf object
+    /// </summary>
+    /// <param name="protoptr"></param>
+    /// <returns></returns>
+    public unknown_ret GetNetworkDevicesData(IntPtr protoptr);  // argc: 1, index: 3
     // WARNING: Arguments are unknown!
     public unknown_ret ConnectToDevice();  // argc: 1, index: 4
     // WARNING: Arguments are unknown!

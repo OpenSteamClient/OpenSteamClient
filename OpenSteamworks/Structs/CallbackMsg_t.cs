@@ -1,7 +1,7 @@
 using System;
 using System.Runtime.InteropServices;
 
-namespace OpenSteamworks.Callbacks;
+namespace OpenSteamworks.Structs;
 
 [StructLayout(LayoutKind.Sequential)]
 internal unsafe struct CallbackMsg_t {

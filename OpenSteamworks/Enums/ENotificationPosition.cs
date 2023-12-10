@@ -2,8 +2,8 @@ namespace OpenSteamworks.Enums;
 
 public enum ENotificationPosition
 {
-    k_EPositionTopLeft = 0,
-	k_EPositionTopRight = 1,
-	k_EPositionBottomLeft = 2,
-	k_EPositionBottomRight = 3,
+    TopLeft = 0,
+	TopRight = 1,
+	BottomLeft = 2,
+	BottomRight = 3,
 }

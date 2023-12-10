@@ -35,7 +35,7 @@ public static class Program
                 throw;
             }
             
-            MessageBox.Error("OpenSteamClient needs to close", "OpenSteamClient has encountered a fatal exception and will attempt to close gracefully. This may freeze. If it does, just kill the process manually. Exception message: " + e.Message, e.ToString());
+            MessageBox.Error("OpenSteamClient needs to close", "OpenSteamClient has encountered a fatal exception. Exception message: " + e.Message, e.ToString());
             Console.WriteLine(e.ToString());
 
             try
@@ -48,6 +48,9 @@ public static class Program
                 Console.WriteLine("And an additional exception occurred during shutdown: ");
                 Console.WriteLine(e2.ToString());
             }
+
+            Console.WriteLine("Killing...");
+            Process.GetCurrentProcess().Kill(true);
         }
     }
 

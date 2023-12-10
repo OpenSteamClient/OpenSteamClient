@@ -9,12 +9,12 @@ namespace OpenSteamworks.Enums;
 
 public enum ERegistrySubTree : int
 {
-    k_ERegistrySubTreeNews = 0,
-    k_ERegistrySubTreeApps = 1,
-    k_ERegistrySubTreeSubscriptions = 2,
-    k_ERegistrySubTreeGameServers = 3,
-    k_ERegistrySubTreeFriends = 4,
-    k_ERegistrySubTreeSystem = 5,
-    k_ERegistrySubTreeAppOwnershipTickets = 6,
-    k_ERegistrySubTreeLegacyCDKeys = 7,
+    News = 0,
+    Apps = 1,
+    Subscriptions = 2,
+    GameServers = 3,
+    Friends = 4,
+    System = 5,
+    AppOwnershipTickets = 6,
+    LegacyCDKeys = 7,
 };

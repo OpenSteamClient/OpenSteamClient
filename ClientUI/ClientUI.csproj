@@ -13,44 +13,25 @@
 
     <!-- Supported runtimes (https://learn.microsoft.com/en-us/dotnet/core/rid-catalog) -->
     <RuntimeIdentifiers>win-x64;linux-x64;osx-x64</RuntimeIdentifiers>
-
-    <!-- Don't touch this for now, working on making our Avalonia upstreamable -->
-    <UseLocalAvalonia>true</UseLocalAvalonia>
-    <LocalAvaloniaPath>$(ProjectRootDir)Avalonia</LocalAvaloniaPath>
-    <AvaloniaVersion>11.0.999-cibuild0040806-beta</AvaloniaVersion>
+    <AvaloniaPath>$(ProjectRootDir)Avalonia</AvaloniaPath>
   </PropertyGroup>
 
-  <Choose>
-    <When Condition=" '$(UseLocalAvalonia)' != 'true' ">
-        <ItemGroup>
-          <PackageReference Include="Avalonia" Version="$(AvaloniaVersion)" />
-          <PackageReference Include="Avalonia.Desktop" Version="$(AvaloniaVersion)" />
-          <PackageReference Include="Avalonia.Themes.Fluent" Version="$(AvaloniaVersion)" />
-          <PackageReference Include="Avalonia.Fonts.Inter" Version="$(AvaloniaVersion)" />
-          <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
-          <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="$(AvaloniaVersion)" />
-        </ItemGroup>
-    </When>
-    <When Condition=" '$(UseLocalAvalonia)' == 'true' ">
-        <ItemGroup>
-          <ProjectReference Include="$(LocalAvaloniaPath)\packages\Avalonia\Avalonia.csproj" />
-          <ProjectReference Include="$(LocalAvaloniaPath)\src\Avalonia.Desktop\Avalonia.Desktop.csproj" />
-          <ProjectReference Include="$(LocalAvaloniaPath)\src\Avalonia.Themes.Fluent\Avalonia.Themes.Fluent.csproj" />
-          <ProjectReference Include="$(LocalAvaloniaPath)\src\Avalonia.Fonts.Inter\Avalonia.Fonts.Inter.csproj" />
-          <ProjectReference Condition="'$(Configuration)' == 'Debug'" Include="$(LocalAvaloniaPath)\src\Avalonia.Diagnostics\Avalonia.Diagnostics.csproj" />
-        </ItemGroup>
-        <PropertyGroup>
-          <!-- <EnableNETAnalyzers>false</EnableNETAnalyzers> -->
-          <IncludeAvaloniaGenerators>true</IncludeAvaloniaGenerators>
-        </PropertyGroup>
-    </When>
-  </Choose>
+  <ItemGroup>
+    <ProjectReference Include="$(AvaloniaPath)\packages\Avalonia\Avalonia.csproj" />
+    <ProjectReference Include="$(AvaloniaPath)\src\Avalonia.Desktop\Avalonia.Desktop.csproj" />
+    <ProjectReference Include="$(AvaloniaPath)\src\Avalonia.Themes.Fluent\Avalonia.Themes.Fluent.csproj" />
+    <ProjectReference Include="$(AvaloniaPath)\src\Avalonia.Fonts.Inter\Avalonia.Fonts.Inter.csproj" />
+    <ProjectReference Condition="'$(Configuration)' == 'Debug'" Include="$(AvaloniaPath)\src\Avalonia.Diagnostics\Avalonia.Diagnostics.csproj" />
+  </ItemGroup>
+  <PropertyGroup>
+    <!-- <EnableNETAnalyzers>false</EnableNETAnalyzers> -->
+    <IncludeAvaloniaGenerators>true</IncludeAvaloniaGenerators>
+  </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
     <PackageReference Include="QRCoder" Version="1.4.3" />
   </ItemGroup>
-
 
   <ItemGroup>
     <ProjectReference Include="..\OpenSteamworks\OpenSteamworks.csproj" />
@@ -66,6 +47,6 @@
     </Content>
   </ItemGroup>
 
-  <Import Condition=" '$(UseLocalAvalonia)' == 'true' " Project="$(LocalAvaloniaPath)\build\BuildTargets.targets"/>
-  <Import Condition=" '$(UseLocalAvalonia)' == 'true' " Project="$(LocalAvaloniaPath)\build\SourceGenerators.props"/>
+  <Import Project="$(AvaloniaPath)\build\BuildTargets.targets"/>
+  <Import Project="$(AvaloniaPath)\build\SourceGenerators.props"/>
 </Project>

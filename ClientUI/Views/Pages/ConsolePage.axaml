@@ -1,0 +1,29 @@
+<c:BasePage xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:ClientUI.ViewModels"
+        xmlns:views="using:ClientUI.Views"
+        xmlns:c="using:ClientUI.Controls"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="ClientUI.Views.ConsolePage"
+        x:DataType="vm:ConsolePageViewModel">
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at AvaloniaApp.axaml.cs) -->
+        <vm:ConsolePageViewModel/>
+    </Design.DataContext>
+
+    <DockPanel Background="PowderBlue">
+        <!-- Downloads section -->
+        <StackPanel DockPanel.Dock="Bottom" Background="Red" HorizontalAlignment="Center">
+            <TextBox Text="{Binding CurrentCommandText}"/>
+        </StackPanel>
+
+        <!-- Bulk of the library content -->
+        <TextBox AcceptsReturn="true" Text="{Binding OutputText}" IsEnabled="false" TextWrapping="Wrap">
+            
+        </TextBox>
+    </DockPanel>
+</c:BasePage>
