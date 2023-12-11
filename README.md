@@ -29,11 +29,11 @@ A partially open-source Steam client for Windows and Linux
   - [ ] Downloads page
   - [ ] Disabling updates for certain apps
 - [ ] ConCommand support
-- [ ] Steamwebhelper support
-  - [ ] Store, community, profile pages
-  - [ ] Non-janky typing implementation 
-- [ ] Windows support
-- [ ] Custom SDL lib
+- [x] Steamwebhelper support
+  - [x] Store, community, profile pages
+  - [ ] ~~Non-janky typing implementation~~ (probably never)
+- [x] Windows support
+- [x] Custom SDL lib
 - [ ] Future:
   - [ ] UI Animations
   - [ ] VAC support on Windows
@@ -44,6 +44,7 @@ A partially open-source Steam client for Windows and Linux
   - [ ] Cloud file manager GUI
   - [ ] UI sounds
   - [ ] Shut off PC when game finishes installing
+  - [ ] Reimplement steamclient.dll/so
 
 
 # Features

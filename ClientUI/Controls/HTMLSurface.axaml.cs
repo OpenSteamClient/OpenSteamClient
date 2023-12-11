@@ -31,6 +31,7 @@ using System.Reflection;
 using OpenSteamworks.Client.Startup;
 using Avalonia.Media.Imaging;
 using System.IO;
+using OpenSteamworks.Utils;
 
 namespace ClientUI.Controls;
 
@@ -305,6 +306,22 @@ public partial class HTMLSurface : UserControl
         }
     }
 
+    public void Refresh() {
+        this.surface.Reload(this.BrowserHandle);
+    }
+
+    public void Previous() {
+        this.surface.GoBack(this.BrowserHandle);
+    }
+
+    public void Next() {
+        this.surface.GoForward(this.BrowserHandle);
+    }
+
+    public void OpenDevTools() {
+        this.surface.OpenDeveloperTools(this.BrowserHandle);
+    }
+
     private void SetCursorNonUICode(Cursor cursor) {
         Dispatcher.UIThread.InvokeAsync(() => {
             this.Cursor = cursor;
@@ -379,7 +396,57 @@ public partial class HTMLSurface : UserControl
         this.surface.SetSize(this.BrowserHandle, (uint)this.Bounds.Width, (uint)this.Bounds.Height);
     }
 
+    /// <summary>
+    /// Sets this webview with the current user's web auth token for accessing steam websites.
+    /// </summary>
+    /// <returns></returns>
+    public async Task SetSteamCookies() {
+        string[] domains = new string[] {"https://store.steampowered.com", "https://help.steampowered.com", "https://steamcommunity.com"};
+        StringBuilder language = new(128);
+        this.client.NativeClient.IClientUser.GetLanguage(language, language.Capacity);
+
+        string vractiveStr = "0";
+        if (this.client.NativeClient.IClientUtils.IsSteamRunningInVR()) {
+            vractiveStr = "1";
+        }
+
+        foreach (var item in domains)
+        {
+            checked {
+                this.surface.SetCookie(item, "steamLoginSecure", await GetWebToken(), "/", 0, true, true);
+                this.surface.SetCookie(item, "Steam_Language", language.ToString(), "/", 0, false, false);
+                this.surface.SetCookie(item, "vractive", vractiveStr, "/", 0, false, false);
+            }
+        }
+    }
+
+    public async Task<string> GetWebToken() {
+        // No need to use incrementing stringbuilder here, since the webauth tokens are always this size
+        StringBuilder sb = new(1024);
+        string token;
+        if (!this.client.NativeClient.IClientUser.GetCurrentWebAuthToken(sb, (uint)sb.Capacity)) {
+            await this.client.CallbackManager.PauseThreadAsync();
+
+            var callHandle = this.client.NativeClient.IClientUser.RequestWebAuthToken();
+            if (callHandle == 0) {
+                throw new InvalidOperationException("SetWebAuthToken failed due to no call handle being returned.");
+            }
+            
+            var result = await this.client.CallbackManager.WaitForAPICallResultAsync<WebAuthRequestCallback_t>(callHandle, true, new CancellationTokenSource(10000).Token);
+            if (result.failed) {
+                throw new InvalidOperationException("SetWebAuthToken failed due to CallResult failure: " + result.failureReason);
+            }
+
+            token = result.data.m_rgchToken;
+        } else {
+            token = sb.ToString();
+        }
+
+        return token;
+    }
+
     public async Task<HHTMLBrowser> CreateBrowserAsync(string userAgent, string? customCSS) {
+        await GetWebToken();
         this.htmlHost.Start();
         await this.client.CallbackManager.PauseThreadAsync();
         var callHandle = this.surface.CreateBrowser(userAgent, customCSS);
@@ -397,30 +464,6 @@ public partial class HTMLSurface : UserControl
         this.BrowserHandle = result.data.unBrowserHandle;
 
         Console.WriteLine("Created new browser with handle " + this.BrowserHandle);
-        this.surface.AllowStartRequest(this.BrowserHandle, true);
-        this.surface.SetSize(this.BrowserHandle, (uint)this.Bounds.Width, (uint)this.Bounds.Height);
-
-        return result.data.unBrowserHandle;
-    }
-
-    public HHTMLBrowser CreateBrowserSync(string userAgent, string? customCSS) {
-        this.htmlHost.Start();
-        this.client.CallbackManager.PauseThreadSync();
-        var callHandle = this.surface.CreateBrowser(userAgent, customCSS);
-        if (callHandle == 0) {
-            this.htmlHost.Stop();
-            throw new InvalidOperationException("CreateBrowser failed due to no call handle being returned.");
-        }
-
-        var result = this.client.CallbackManager.WaitForAPICallResultSync<HTML_BrowserReady_t>(callHandle, true);
-        if (result.failed) {
-            this.htmlHost.Stop();
-            throw new InvalidOperationException("CreateBrowser failed due to CallResult failure: " + result.failureReason);
-        }
-
-        this.BrowserHandle = result.data.unBrowserHandle;
-
-        Console.WriteLine($"Created new browser with handle {this.BrowserHandle} size: ({this.Bounds.Width}x{this.Bounds.Height})");
         this.surface.AllowStartRequest(this.BrowserHandle, true);
         this.surface.SetSize(this.BrowserHandle, (uint)this.Bounds.Width, (uint)this.Bounds.Height);
 

@@ -101,7 +101,7 @@ public unsafe interface IClientUtils
     public unknown_ret SetControllerConfigFileForAppID();  // argc: 2, index: 54
     // WARNING: Arguments are unknown!
     public unknown_ret GetControllerConfigFileForAppID();  // argc: 3, index: 55
-    public unknown_ret IsSteamRunningInVR();  // argc: 0, index: 56
+    public bool IsSteamRunningInVR();  // argc: 0, index: 56
     public unknown_ret StartVRDashboard();  // argc: 0, index: 58
     // WARNING: Arguments are unknown!
     public unknown_ret IsVRHeadsetStreamingEnabled();  // argc: 1, index: 59

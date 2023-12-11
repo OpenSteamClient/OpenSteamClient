@@ -15,13 +15,39 @@
         <vm:StorePageViewModel/>
     </Design.DataContext>
     
-    <DockPanel Background="PowderBlue">
+    <DockPanel>
         <!-- Header bar for URL, next-previous-refresh buttons -->
-        <Rectangle DockPanel.Dock="Top" Fill="Red" Height="40" />
+        <DockPanel DockPanel.Dock="Top" Height="40">
+            <Button x:Name="PrevButton" IsEnabled="false" DockPanel.Dock="Left">
+                <PathIcon
+                    Width="40"
+                    Data="{StaticResource arrow_previous_regular}"/>
+            </Button>
+
+            <Button x:Name="NextButton" IsEnabled="false" DockPanel.Dock="Left">
+                <PathIcon
+                    Width="40"
+                    Data="{StaticResource arrow_next_regular}"/>
+            </Button>
+
+            <Button x:Name="RefreshButton" DockPanel.Dock="Left">
+                <PathIcon
+                    Width="40"
+                    Data="{StaticResource arrow_sync_circle_regular}"/>
+            </Button>
+
+            <Button x:Name="DevToolsButton" DockPanel.Dock="Right">
+                <PathIcon
+                    Width="40"
+                    Data="{StaticResource wrench_regular}"/>
+            </Button>
+
+            <TextBox x:Name="CurrentURLTextBox" Text="about:blank" IsReadOnly="true"/>
+        </DockPanel>
 
         <!-- Actual browser control -->
         <ContentControl x:Name="WebviewContainer">
-            <TextBlock Text="WebView has not yet loaded." />
+            <TextBlock Text="WebView has not yet loaded or it is disabled" />
         </ContentControl>
     </DockPanel>
 </c:BasePage>

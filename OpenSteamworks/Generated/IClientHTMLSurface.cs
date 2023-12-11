@@ -63,7 +63,8 @@ public unsafe interface IClientHTMLSurface
     public SteamAPICall_t GetLinkAtPosition(HHTMLBrowser handle, int x, int y);
     public void JSDialogResponse(HHTMLBrowser handle, bool response);
     public void FileLoadDialogResponse(HHTMLBrowser handle, string selectedPath);
-    public void SetCookie(HHTMLBrowser handle, string hostname, string key, string value, string path, RTime32 expiry, bool secure, bool httpOnly);
+    // Doesn't take a HHTMLBrowser. Wtf?
+    public void SetCookie(string hostname, string key, string value, string path, RTime32 expiry, bool secure, bool httpOnly);
     public void SetPageScaleFactor(HHTMLBrowser handle, float zoom, int x, int y);
     public void SetBackgroundMode(HHTMLBrowser handle, bool backgroundMode);
     public void SetDPIScalingFactor(HHTMLBrowser handle, float scaleFactor);

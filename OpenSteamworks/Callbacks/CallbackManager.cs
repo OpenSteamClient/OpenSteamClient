@@ -18,7 +18,7 @@ using OpenSteamworks.Structs;
 
 namespace OpenSteamworks.Callbacks;
 
-public class CallResult<T> where T: unmanaged {
+public class CallResult<T> where T: struct {
     public bool failed;
     public ESteamAPICallFailure failureReason;
     public T data;
@@ -124,13 +124,13 @@ public class CallbackManager
     /// <param name="cancellationToken"></param>
     /// <returns></returns>
     /// <exception cref="Exception"></exception>
-    public async Task<CallResult<T>> WaitForAPICallResultAsync<T>(SteamAPICall_t handle, bool resumeThread = true, CancellationToken cancellationToken = default) where T: unmanaged {
+    public async Task<CallResult<T>> WaitForAPICallResultAsync<T>(SteamAPICall_t handle, bool resumeThread = true, CancellationToken cancellationToken = default) where T: struct {
         await this.PauseThreadAsync();
         
         var tcs = new TaskCompletionSource<CallResult<T>>();
         unsafe {
             int callbackID = GetCallbackID(typeof(T));
-            int callbackSize = sizeof(T);
+            int callbackSize = Marshal.SizeOf<T>();
 
             var handler = this.RegisterHandler((CallbackHandler<SteamAPICallCompleted_t> handler, SteamAPICallCompleted_t compl) =>
             {

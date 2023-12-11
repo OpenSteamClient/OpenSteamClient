@@ -49,7 +49,7 @@ enum EHTMLCommands
 	eHTMLCommands_JSAlert,
 	eHTMLCommands_JSConfirm,
 	eHTMLCommands_CanGoBackandForward,
-	eHTMLCommands_OpenSteamURL,
+	eHTMLCommands_OpenSteamURL, // 42 (actual setcookie)
 	eHTMLCommands_SizePopup,
 	eHTMLCommands_SetCookie,
 	eHTMLCommands_SetTargetFrameRate,

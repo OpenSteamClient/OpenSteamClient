@@ -33,12 +33,12 @@ public unsafe interface IClientUser
     public bool BConnected();  // argc: 0, index: 7
     public bool BInitiateReconnect();  // argc: 0, index: 8
     public unknown_ret EConnect();  // argc: 0, index: 9
-    public unknown_ret BTryingToLogin();  // argc: 0, index: 10
+    public bool BTryingToLogin();  // argc: 0, index: 10
     // WARNING: Arguments are unknown!
     public CSteamID GetSteamID();  // argc: 1, index: 11
     // WARNING: Arguments are unknown!
-    public unknown_ret GetConsoleSteamID();  // argc: 1, index: 12
-    public unknown_ret GetClientInstanceID();  // argc: 0, index: 13
+    public CSteamID GetConsoleSteamID();  // argc: 1, index: 12
+    public ulong GetClientInstanceID();  // argc: 0, index: 13
     public string GetUserCountry();  // argc: 0, index: 14
     // WARNING: Arguments are unknown!
     public unknown_ret IsVACBanned();  // argc: 1, index: 15
@@ -64,38 +64,36 @@ public unsafe interface IClientUser
     // WARNING: Arguments are unknown!
     public unknown_ret TerminateGameConnection();  // argc: 2, index: 27
     // WARNING: Arguments are unknown!
-    public unknown_ret TerminateGame();  // argc: 2, index: 28
+    public unknown_ret TerminateGame(AppId_t appid, bool force);  // argc: 2, index: 28
     // WARNING: Arguments are unknown!
     /// <summary>
     /// Apparently deprecated, but still called by ValveSteam.
     /// </summary>
     /// <returns></returns>
-    public unknown_ret SetSelfAsChatDestination();  // argc: 1, index: 29
+    public unknown_ret SetSelfAsChatDestination(bool val);  // argc: 1, index: 29
     public unknown_ret IsPrimaryChatDestination();  // argc: 0, index: 30
     // WARNING: Arguments are unknown!
-    public unknown_ret RequestLegacyCDKey();  // argc: 1, index: 31
+    public unknown_ret RequestLegacyCDKey(AppId_t appid);  // argc: 1, index: 31
     // WARNING: Arguments are unknown!
-    public unknown_ret AckGuestPass();  // argc: 1, index: 32
+    public unknown_ret AckGuestPass(string guestPassId);  // argc: 1, index: 32
     // WARNING: Arguments are unknown!
-    public unknown_ret RedeemGuestPass();  // argc: 1, index: 33
+    public unknown_ret RedeemGuestPass(string guestPassId);  // argc: 1, index: 33
     public unknown_ret GetGuestPassToGiveCount();  // argc: 0, index: 34
     public unknown_ret GetGuestPassToRedeemCount();  // argc: 0, index: 35
     // WARNING: Arguments are unknown!
     public unknown_ret GetGuestPassToGiveInfo();  // argc: 9, index: 36
     // WARNING: Arguments are unknown!
-    public unknown_ret GetGuestPassToGiveOut();  // argc: 1, index: 37
+    public unknown_ret GetGuestPassToGiveOut(AppId_t appid);  // argc: 1, index: 37
     // WARNING: Arguments are unknown!
-    public unknown_ret GetGuestPassToRedeem();  // argc: 1, index: 38
+    public unknown_ret GetGuestPassToRedeem(AppId_t appid);  // argc: 1, index: 38
     // WARNING: Arguments are unknown!
     public unknown_ret GetGuestPassToRedeemInfo();  // argc: 7, index: 39
-    // WARNING: Arguments are unknown!
-    public unknown_ret GetGuestPassToRedeemSenderName();  // argc: 3, index: 40
+    public bool GetGuestPassToRedeemSenderName(AppId_t appid, StringBuilder name, int nameMax);  // argc: 3, index: 40
     public unknown_ret GetNumAppsInGuestPassesToRedeem();  // argc: 0, index: 41
-    // WARNING: Arguments are unknown!
-    public unknown_ret GetAppsInGuestPassesToRedeem();  // argc: 2, index: 42
+    public uint GetAppsInGuestPassesToRedeem(AppId_t[] appids, uint appidsMax);  // argc: 2, index: 42
     public unknown_ret GetCountUserNotifications();  // argc: 0, index: 43
     // WARNING: Arguments are unknown!
-    public unknown_ret GetCountUserNotification();  // argc: 1, index: 44
+    public unknown_ret GetCountUserNotification(int EUserNotification);  // argc: 1, index: 44
     // WARNING: Arguments are unknown!
     public unknown_ret RequestStoreAuthURL();  // argc: 1, index: 45
     // WARNING: Arguments are unknown!
@@ -113,7 +111,7 @@ public unsafe interface IClientUser
     // WARNING: Arguments are unknown!
     public unknown_ret DestroyCachedCredentials(string username, int revokeAction = (int)Protobuf.EAuthTokenRevokeAction.EauthTokenRevokeLogout);  // argc: 2, index: 53
     public bool GetCurrentWebAuthToken(StringBuilder tokenOut, UInt32 bufSize);  // argc: 2, index: 54
-    public unknown_ret RequestWebAuthToken();  // argc: 0, index: 55
+    public SteamAPICall_t RequestWebAuthToken();  // argc: 0, index: 55
     // WARNING: Arguments are unknown!
     public unknown_ret SetLoginInformation(string username, string password, bool remember);  // argc: 3, index: 56
     // WARNING: Arguments are unknown!
@@ -138,14 +136,13 @@ public unsafe interface IClientUser
     // WARNING: Arguments are unknown!
     public unknown_ret TrackSteamUsageEvent();  // argc: 3, index: 68
     public unknown_ret SetComputerInUse();  // argc: 0, index: 69
+    public bool BIsGameRunning(CGameID gameid);  // argc: 1, index: 70
     // WARNING: Arguments are unknown!
-    public bool BIsGameRunning();  // argc: 1, index: 70
-    // WARNING: Arguments are unknown!
-    public bool BIsGameWindowReady();  // argc: 1, index: 71
+    public bool BIsGameWindowReady(CGameID gameid);  // argc: 1, index: 71
     // WARNING: Arguments are unknown!
     public bool BUpdateAppOwnershipTicket(uint unk1, int pTicket);  // argc: 2, index: 72
     // WARNING: Arguments are unknown!
-    public unknown_ret GetCustomBinariesState();  // argc: 3, index: 73
+    public UInt32 GetCustomBinariesState(AppId_t unAppID, ref UInt32 punProgress);  // argc: 3, index: 73
     // WARNING: Arguments are unknown!
     [BlacklistedInCrossProcessIPC]
     public unknown_ret RequestCustomBinaries();  // argc: 4, index: 74

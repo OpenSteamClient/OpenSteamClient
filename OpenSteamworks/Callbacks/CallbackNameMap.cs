@@ -429,5 +429,6 @@ internal static partial class CallbackConstants {
         {1300003, "StreamClientConfigUpdated_t"},
         {1300005, "StreamClientControllerMessageQueuedForRemote_t"},
         {1300006, "StreamClientControllerMessageQueuedForLocal_t"},
+        {1020042, "WebAuthRequestCallback_t"}
     };
 }

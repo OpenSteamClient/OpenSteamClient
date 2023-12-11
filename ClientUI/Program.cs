@@ -37,19 +37,6 @@ public static class Program
             
             MessageBox.Error("OpenSteamClient needs to close", "OpenSteamClient has encountered a fatal exception. Exception message: " + e.Message, e.ToString());
             Console.WriteLine(e.ToString());
-
-            try
-            {
-                // This is stupid. TODO: Pending support for "await?" to clean up.
-                await (AvaloniaApp.Current == null ? Task.CompletedTask : AvaloniaApp.Current.Exit(1));
-            }
-            catch (Exception e2)
-            {
-                Console.WriteLine("And an additional exception occurred during shutdown: ");
-                Console.WriteLine(e2.ToString());
-            }
-
-            Console.WriteLine("Killing...");
             Process.GetCurrentProcess().Kill(true);
         }
     }
