@@ -42,7 +42,7 @@ jobs:
         cat /etc/apt/sources.list.d/lunar-packages.list
         echo "end of contents"
         sudo apt-get update
-        sudo apt-get install -t "lunar*" -y gcc-mingw-w64 mingw-w64 gcc-mingw-w64-i686-posix g++-mingw-w64-i686-posix g++-mingw-w64-x86-64-posix
+        sudo apt-get install -t "lunar*" -y x86_64-w64-mingw32-g++-posix gcc-mingw-w64-i686-posix g++-mingw-w64-i686-posix g++-mingw-w64-x86-64-posix
 
     - name: Build Release ClientUI (Linux)
       working-directory: ./ClientUI
