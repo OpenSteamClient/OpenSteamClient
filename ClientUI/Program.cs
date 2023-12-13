@@ -14,11 +14,6 @@ public static class Program
     [STAThread]
     public static void Main(string[] args)
     {
-        MainAsync(args).Wait();
-    }
-    [STAThread]
-    public static async Task MainAsync(string[] args)
-    {
         //TODO: single instance and pipe logic
         try {
             //TODO: better command line args system (maybe in OpenSteamworks.Client to hook into various steamclient things)

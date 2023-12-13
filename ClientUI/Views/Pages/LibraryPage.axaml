@@ -15,26 +15,29 @@
         <vm:LibraryPageViewModel/>
     </Design.DataContext>
 
-    <DockPanel Background="PowderBlue">
+    <DockPanel>
         <!-- Downloads section -->
         <StackPanel DockPanel.Dock="Bottom" Background="Red" HorizontalAlignment="Center">
             <TextBlock Text="Downloads section" />
         </StackPanel>
 
         <!-- Bulk of the library content -->
-        <Grid Background="Green" ColumnDefinitions="1*, 2, 4*">
+        <Grid ColumnDefinitions="1*, 2, 4*">
             <!-- Games list -->
-            <ItemsControl ItemsSource="{Binding Apps}" Grid.Column="0" Background="Gray">
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <TextBlock Text="{Binding Name}" />
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
+            <TreeView MinWidth="64" ItemsSource="{Binding Nodes}">
+                <TreeView.ItemTemplate>
+                    <TreeDataTemplate ItemsSource="{Binding Children}">
+                        <StackPanel Orientation="Horizontal">
+                            <Canvas Height="20" Width="20" Top="0" Left="0" Background="Red"/>
+                            <TextBlock Text="{Binding Name}"/>
+                        </StackPanel>
+                    </TreeDataTemplate>
+                </TreeView.ItemTemplate>
+            </TreeView>
             <GridSplitter Grid.Column="1" Background="Black" ResizeDirection="Columns"/>
 
             <!-- Side content (game detail view, "big coverart" view) -->
-            <ContentControl Grid.Column="2" Background="White" />
+            <ContentControl MinWidth="64" Grid.Column="2" Background="White" />
         </Grid>
     </DockPanel>
 </c:BasePage>

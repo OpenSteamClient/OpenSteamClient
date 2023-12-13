@@ -45,9 +45,12 @@ public class ClientApps {
         int index = 0;
         foreach (var length in lengths)
         {
-            using (var stream = new MemoryStream(buf.Data, position, length))
-            {
-                objects.Add(sections.ElementAt(index), serializerbinary.Deserialize(stream));
+            Console.WriteLine("Idx: " + index + ", pos: " + position + ", len: " + length);
+            if (length > 0) {
+                using (var stream = new MemoryStream(buf.Data, position, length))
+                {
+                    objects.Add(sections.ElementAt(index), serializerbinary.Deserialize(stream));
+                }
             }
 
             position += length;

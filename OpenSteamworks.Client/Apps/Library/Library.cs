@@ -54,7 +54,7 @@ public class Library
 
                 var collection = Collection.FromJSONCollection(json);
                 this.Collections.Add(collection);
-                foreach (var item in await this.GetAppsInCollection(collection))
+                foreach (var item in this.GetAppsInCollection(collection))
                 {
                     AppIDsInCollections.Add(item);
                 }
@@ -73,6 +73,13 @@ public class Library
         foreach (var item in uncategorizedAppIDs)
         {
             uncategorized.AddApp(item);
+        }
+
+        foreach (var item in this.Collections)
+        {
+            if (item.IsDynamic) {
+                item.dynamicCollectionAppsCached = await ProcessDynamicCollection(item);
+            }
         }
     }
 
@@ -152,47 +159,26 @@ public class Library
     /// <summary>
     /// Makes a dynamic collection static
     /// </summary>
-    public async void MakeCollectionStatic(string id)
+    public void MakeCollectionStatic(string id)
     {
         Collection originalCollection = GetCollectionByID(id);
 
         this.Collections.Remove(originalCollection);
         Collection newCollection = new(originalCollection.ID, originalCollection.ID);
         this.Collections.Add(newCollection);
-        newCollection.AddApps(await GetAppsInCollection(originalCollection));
+        newCollection.AddApps(GetAppsInCollection(originalCollection));
     }
 
     /// <summary>
     /// Gets the apps in a collection. Dynamic collections will run through the filters.
     /// </summary>
-    public async Task<HashSet<AppId_t>> GetAppsInCollection(Collection collection)
+    public HashSet<AppId_t> GetAppsInCollection(Collection collection)
     {
         HashSet<AppId_t> apps = new();
 
-        if (collection.IsDynamic && collection.HasFilters)
+        foreach (var item in collection.dynamicCollectionAppsCached)
         {
-            logger.Warning("Dynamic collections support is still incomplete.");
-
-            // Begin by adding all apps the user has
-            //TODO: add support for streamable games, family shared games, non-steam games
-            apps.UnionWith(this.appsManager.OwnedAppIDs);
-
-            // Remove apps not in common with friends if in online mode
-            if (this.loginManager.IsOnline())
-            {
-                foreach (var friendAccountID in collection.FriendsInCommonFilter.FilterOptions)
-                {
-                    CSteamID steamid = CSteamID.FromAccountID(friendAccountID);
-                    var appsFriendOwns = await appsManager.GetAppsForSteamID(steamid);
-
-                    // An intersection takes the common elements of both arrays and returns them, abandoning all that weren't mentioned in both lists.
-                    apps = apps.Intersect(appsFriendOwns).ToHashSet();
-                }
-            }
-            else
-            {
-                logger.Warning("Skipping friends filter since we're not connected! TODO: implement cache");
-            }
+            apps.Add(item);
         }
 
         // Add explicitly added apps after filtering processes
@@ -210,10 +196,46 @@ public class Library
         return apps;
     }
 
+    private async Task<HashSet<AppId_t>> ProcessDynamicCollection(Collection collection) {
+        HashSet<AppId_t> apps = new();
+
+        if (!collection.IsDynamic) {
+            throw new InvalidOperationException("Collection not dynamic");
+        }
+
+        if (collection.HasFilters)
+        {
+            logger.Warning("Dynamic collections support is still incomplete.");
+
+            // Begin by adding all apps the user has
+            //TODO: add support for streamable games, family shared games, non-steam games
+            apps.UnionWith(this.appsManager.OwnedAppIDs);
+
+            // Remove apps not in common with friends if in online mode
+            if (this.loginManager.IsOnline())
+            {
+                foreach (var friendAccountID in collection.FriendsInCommonFilter.FilterOptions)
+                {
+                    CSteamID steamid = CSteamID.FromAccountID(friendAccountID);
+                    var appsFriendOwnsTask = await appsManager.GetAppsForSteamID(steamid);
+
+                    // An intersection takes the common elements of both arrays and returns them, abandoning all that weren't mentioned in both lists.
+                    apps = apps.Intersect(appsFriendOwnsTask).ToHashSet();
+                }
+            }
+            else
+            {
+                logger.Warning("Skipping friends filter since we're not connected! TODO: implement cache");
+            }
+        }
+
+        return apps;
+    }
+
     /// <summary>
     /// Gets the apps in a collection. Dynamic collections will run through the filters.
     /// </summary>
-    public Task<HashSet<AppId_t>> GetAppsInCollection(string id)
+    public HashSet<AppId_t> GetAppsInCollection(string id)
     {
         return GetAppsInCollection(GetCollectionByID(id));
     }

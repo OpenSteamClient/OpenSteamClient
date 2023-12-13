@@ -30,20 +30,18 @@ public class LibraryManager : ILogonLifetime
     }
 
     public async Task OnLoggedOn(IExtendedProgress<int> progress, LoggedOnEventArgs e) {
-
-    }
-
-    public async Task<Library> GetLibrary()
-    {
-        if (currentUserLibrary != null)
-        {
-            return currentUserLibrary;
-        }
-
         Library library = new(steamClient, cloudConfigStore, loginManager, appsManager, installManager);
         await library.InitializeLibrary();
         currentUserLibrary = library;
-        return library;
+    }
+
+    public Library GetLibrary()
+    {
+        if (currentUserLibrary == null) {
+            throw new NullReferenceException("Attempted to get library before logon has finished.");
+        }
+
+        return currentUserLibrary;
     }
 
     public async Task OnLoggingOff(IExtendedProgress<int> progress) {

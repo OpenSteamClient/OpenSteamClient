@@ -42,8 +42,10 @@ public class Collection
     public FilterGroup<int>? StoreTagsFilter { get; set; }
     public FilterGroup<uint>? FriendsInCommonFilter { get; set; }
 
-    internal HashSet<uint> explicitlyAddedApps = new();
-    internal HashSet<uint> explicitlyRemovedApps = new();
+    internal HashSet<AppId_t> explicitlyAddedApps = new();
+    internal HashSet<AppId_t> explicitlyRemovedApps = new();
+
+    internal HashSet<AppId_t> dynamicCollectionAppsCached = new();
 
     internal Collection(string name, string id, bool system = false)
     {
@@ -92,8 +94,8 @@ public class Collection
                 json.removed = new List<uint>();
             }
 
-            collection.explicitlyAddedApps = json.added.ToHashSet();
-            collection.explicitlyRemovedApps = json.removed.ToHashSet();
+            collection.explicitlyAddedApps = json.added.Select(x => (AppId_t)x).ToHashSet();
+            collection.explicitlyRemovedApps = json.removed.Select(x => (AppId_t)x).ToHashSet();
         }
 
         return collection;
@@ -169,8 +171,8 @@ public class Collection
         {
             id = this.ID,
             name = this.Name,
-            added = this.explicitlyAddedApps.ToList(),
-            removed = this.explicitlyRemovedApps.ToList()
+            added = this.explicitlyAddedApps.Select(x => (uint)x).ToList(),
+            removed = this.explicitlyRemovedApps.Select(x => (uint)x).ToList()
         };
 
         if (this.IsDynamic)
