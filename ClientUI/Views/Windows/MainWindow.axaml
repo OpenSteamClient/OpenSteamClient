@@ -63,7 +63,7 @@
             </ItemsControl.ItemsPanel>
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Button Background="{Binding ButtonBackground}" Command="{Binding SwitchPageAction}" Padding="10">
+                    <Button IsEnabled="{Binding CanUse}" Background="{Binding ButtonBackground}" Command="{Binding SwitchPageAction}" Padding="10">
                         <Button.ContextMenu>
                             <ContextMenu ItemsSource="{Binding ContextMenuItems}" />
                         </Button.ContextMenu>     

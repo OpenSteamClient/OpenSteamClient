@@ -11,6 +11,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using OpenSteamworks.Client.Apps;
 using OpenSteamworks.Client.Managers;
+using OpenSteamworks.Client.Startup;
 
 namespace ClientUI.ViewModels;
 
@@ -38,6 +39,9 @@ public partial class PageHeaderViewModel : ViewModelBase
 
     [ObservableProperty]
     private IBrush buttonForeground;
+
+    [ObservableProperty]
+    private bool canUse;
 
     public PageHeaderViewModel(MainWindowViewModel mainWindowViewModel, string name, Type pageType, Type viewModelType) {
         this.PageName = name;
@@ -74,6 +78,10 @@ public partial class PageHeaderViewModel : ViewModelBase
                     mainWindowViewModel.UnloadPage(PageType);
                 })
             }, "#PageHeader_UnloadPage", "Unload page"));
+
+            this.CanUse = AvaloniaApp.Container.Get<SteamHTML>().CanRun();
+        } else {
+            this.CanUse = true;
         }
     }
 }

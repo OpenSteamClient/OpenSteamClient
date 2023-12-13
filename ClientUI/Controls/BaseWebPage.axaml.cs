@@ -94,7 +94,7 @@ public partial class BaseWebPage : BasePage
     {
         AvaloniaXamlLoader.Load(this);
         this.TranslatableInit();
-
+        
         var webviewContainer = this.FindControl<ContentControl>("WebviewContainer");
         if (webviewContainer == null) {
             throw new NullReferenceException("webviewContainer not found");
@@ -130,7 +130,7 @@ public partial class BaseWebPage : BasePage
             throw new NullReferenceException("currentURLTextBox not found");
         }
         this.currentURLTextBox = currentURLTextBox;
-
+        
         this.AttachedToVisualTree += BaseWebPage_AttachedToVisualTree;
         this.DetachedFromVisualTree += BaseWebPage_DetachedFromVisualTree;
     }

@@ -145,7 +145,7 @@ public class SteamHTML : IClientLifetime {
 
     public void Start() {
         if (!CanRun()) {
-            return;
+            throw new InvalidOperationException("SteamHTML cannot run on this installation.");
         }
 
         if (initCount.Increment()) {
