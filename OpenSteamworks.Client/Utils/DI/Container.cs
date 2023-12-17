@@ -24,9 +24,14 @@ public class Container
         this.RegisterInstance(this);
     }
 
-    public void RegisterFactoryMethod<T>(Delegate factoryMethod)
+    public void RegisterFactoryMethod<T>(Func<T> factoryMethod)
     {
         RegisterFactoryMethod(typeof(T), factoryMethod);
+    }
+
+    public void RegisterFactoryMethod<T>(Delegate factoryMethodWithArgs)
+    {
+        RegisterFactoryMethod(typeof(T), factoryMethodWithArgs);
     }
 
     public void RegisterFactoryMethod(Type type, Delegate factoryMethod)
@@ -307,6 +312,16 @@ public class Container
         }
 
         throw new InvalidOperationException("Type '" + type + "' not registered.");
+    }
+
+    public bool TryGet<T>([NotNullWhen(true)] out T? obj) {
+        obj = default;
+        if (TryGet(typeof(T), out object? obji)) {
+            obj = (T)obji;
+            return true;
+        }
+
+        return false;
     }
 
     public bool TryGet(Type type, [NotNullWhen(true)] out object? obj)

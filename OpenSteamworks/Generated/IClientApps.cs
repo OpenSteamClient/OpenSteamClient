@@ -29,7 +29,7 @@ public unsafe interface IClientApps
     public bool RequestAppInfoUpdate(AppId_t[] appIds, int appIdsLength);  // argc: 2, index: 8
     public int GetDLCCount(AppId_t app);  // argc: 1, index: 9
     public unknown_ret BGetDLCDataByIndex(AppId_t app, int iDLC, AppId_t[] pAppID, ref bool pbAvailable, string pchName, int cchNameBufferSize);  // argc: 6, index: 10
-    public unknown_ret GetAppType(AppId_t app);  // argc: 1, index: 11
+    public EAppType GetAppType(AppId_t app);  // argc: 1, index: 11
     // WARNING: Arguments are unknown!
     public unknown_ret GetStoreTagLocalization(ELanguage language, uint* unk1, int unk2, void* unk3, int unk3Max);  // argc: 5, index: 12
     /// <summary>

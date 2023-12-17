@@ -59,6 +59,7 @@ public class Client : IClientLifetime
             SteamClient.LogCallbackContents = advancedConfig.LogCallbackContents;
             return new SteamClient(bootstrapper.SteamclientLibPath, advancedConfig.EnabledConnectionTypes, advancedConfig.SteamClientSpew);
         });
+        
         container.RegisterFactoryMethod<CallbackManager>((SteamClient client) => client.CallbackManager);
         container.RegisterFactoryMethod<ClientApps>((SteamClient client) => client.ClientApps);
         container.RegisterFactoryMethod<ClientConfigStore>((SteamClient client) => client.ClientConfigStore);

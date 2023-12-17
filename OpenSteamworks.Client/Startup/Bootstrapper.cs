@@ -100,11 +100,13 @@ public class Bootstrapper : IClientLifetime {
 
     private readonly BootstrapperState bootstrapperState;
     private readonly Logger logger;
+    private readonly ConfigManager configManager;
 
-    public Bootstrapper(InstallManager installManager, BootstrapperState bootstrapperState) {
+    public Bootstrapper(InstallManager installManager, BootstrapperState bootstrapperState, ConfigManager configManager) {
         this.logger = Logger.GetLogger("Bootstrapper", installManager.GetLogPath("Bootstrapper"));
         this.installManager = installManager;
         this.bootstrapperState = bootstrapperState;
+        this.configManager = configManager;
     }
 
     private async Task RunBootstrap() {
@@ -225,7 +227,7 @@ public class Bootstrapper : IClientLifetime {
 
         bootstrapperState.CommitHash = GitInfo.GitCommit;
         bootstrapperState.InstalledVersion = OpenSteamworks.Generated.VersionInfo.STEAM_MANIFEST_VERSION;
-        bootstrapperState.Save();
+        await configManager.SaveAsync(bootstrapperState);
 
         await FinishBootstrap(progressHandler);
     }

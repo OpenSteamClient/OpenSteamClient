@@ -12,20 +12,40 @@ using ValveKeyValue;
 
 namespace OpenSteamworks.Client.Apps;
 
-public class SteamApp : AppBase, ILaunchableApp<AppDataConfigSection.LaunchOption, EResult>
+public class SteamApp : AppBase
 {
-    public override string Name => GetValueOverride(NameOverride, Common.Name);
-    public AppBase? ParentApp => GetAppIfValidAppID(this.Common.ParentAppID);
-    public override string HeroURL => GetValueOverride(HeroOverrideURL, $"https://cdn.cloudflare.steamstatic.com/steam/apps/{this.AppID}/library_hero.jpg?t={this.Common.StoreAssetModificationTime}");
-    public override string LogoURL => GetValueOverride(LogoOverrideURL, $"https://cdn.cloudflare.steamstatic.com/steam/apps/{this.AppID}/logo.jpg?t={this.Common.StoreAssetModificationTime}");
-    public override string IconURL => GetValueOverride(IconOverrideURL, $"https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/apps/{this.AppID}/{this.Common.Icon}.jpg");
-    public override string PortraitURL => GetValueOverride(PortraitOverrideURL, $"https://cdn.cloudflare.steamstatic.com/steam/apps/{this.AppID}/library_600x900.jpg?t={this.Common.StoreAssetModificationTime}");
+    public class LaunchOption : ILaunchOption
+    {
+        public int ID { get; init; }
+        public string Name { get; init; }
+        public string Description { get; init; }
+        public string CommandLine { get; init; }
 
-    private static readonly KVSerializer KVSerializer = KVSerializer.Create(KVSerializationFormat.KeyValues1Text);
+        public LaunchOption(int id, string name, string desc, string commandLine)
+        {
+            this.ID = id;
+            this.Name = name;
+            this.Description = desc;
+            this.CommandLine = commandLine;
+        }
+    }
+
+    protected override string ActualName => Common.Name;
+    protected override string ActualHeroURL => $"https://cdn.cloudflare.steamstatic.com/steam/apps/{this.AppID}/library_hero.jpg?t={this.Common.StoreAssetModificationTime}";
+    protected override string ActualLogoURL => $"https://cdn.cloudflare.steamstatic.com/steam/apps/{this.AppID}/logo.jpg?t={this.Common.StoreAssetModificationTime}";
+    protected override string ActualIconURL => $"https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/apps/{this.AppID}/{this.Common.Icon}.jpg";
+    protected override string ActualPortraitURL => $"https://cdn.cloudflare.steamstatic.com/steam/apps/{this.AppID}/library_600x900.jpg?t={this.Common.StoreAssetModificationTime}";
+
+    public AppBase? ParentApp => GetAppIfValidGameID(new CGameID(this.Common.ParentAppID));
+    protected readonly Logger logger;
+
     public AppDataCommonSection Common { get; private set; }
-    public AppDataExtendedSection? Extended { get; private set; }
     public AppDataConfigSection? Config { get; private set; }
-
+    public AppDataExtendedSection? Extended { get; private set; }
+    public AppDataInstallSection? Install { get; private set; }
+    public AppDataDepotsSection? Depots { get; private set; }
+    public AppDataCommunitySection? Community { get; private set; }
+    public AppDataLocalizationSection? Localization { get; private set; }
     public EAppType Type
     {
         get
@@ -34,33 +54,58 @@ public class SteamApp : AppBase, ILaunchableApp<AppDataConfigSection.LaunchOptio
             // Because some people might still own these, don't throw here, instead give out an invalid app type.
             if (string.IsNullOrEmpty(this.Common.Type))
             {
+                logger.Warning("Encountered empty type field for app " + this.AppID);
                 return EAppType.Invalid;
             }
 
             return this.Common.Type.ToLowerInvariant() switch
             {
+
+                // These are handled by this "main" SteamApp class
                 "game" => EAppType.Game,
                 "application" => EAppType.Application,
-                "music" => EAppType.Music,
-                "tool" => EAppType.Tool,
                 "beta" => EAppType.Beta,
                 "demo" => EAppType.Demo,
+
+                // These are not playable (most of the time, some DLC's are separate and playable as well)
+                //TODO: handle configs elegantly
                 "config" => EAppType.Config,
                 "dlc" => EAppType.Dlc,
-                "media" => EAppType.Media,
+
+                // These mean dedicated servers, not "actual" tools like Hammer, etc. We could maybe setup some sort of server hosting UI for dedicated servers? 
+                // Or atleast allow the user to specify the command line to run the server from OpenSteamClient.
+                "tool" => EAppType.Tool,
+
+                // This is handled via SteamSoundtrackApp
+                "music" => EAppType.Music,
+
+                // These are videos, which should just popup in the user's browser. TODO: eventually support this as well, but maybe not
                 "video" => EAppType.Video,
+                "media" => EAppType.Media,
+
                 _ => throw new InvalidOperationException("Unknown app type " + this.Common.Type.ToLowerInvariant()),
             };
         }
     }
 
-    public IEnumerable<AppDataConfigSection.LaunchOption> LaunchOptions => this.Config.LaunchOptions;
-    public bool RequiresLaunchOption => true;
-
     internal SteamApp(AppsManager appsManager, AppId_t appid) : base(appsManager)
     {
+        this.logger = appsManager.GetLoggerForApp(this);
+
         var sections = appsManager.ClientApps.GetMultipleAppDataSectionsSync(appid, new EAppInfoSection[] {EAppInfoSection.Common, EAppInfoSection.Config, EAppInfoSection.Extended, EAppInfoSection.Install, EAppInfoSection.Depots, EAppInfoSection.Community, EAppInfoSection.Localization});
-        SetAppInfoCommonSection(sections[EAppInfoSection.Common]);
+        // The common section should always exist for all app types.
+        if (sections[EAppInfoSection.Common] == null) {
+            throw new NullReferenceException("Common section does not exist for app " + appid);
+        }
+
+        Common = TryCreateSection(sections[EAppInfoSection.Common], obj => new AppDataCommonSection(obj))!;
+        Config = TryCreateSection(sections[EAppInfoSection.Config], obj => new AppDataConfigSection(obj));
+        Extended = TryCreateSection(sections[EAppInfoSection.Extended], obj => new AppDataExtendedSection(obj));
+        Install = TryCreateSection(sections[EAppInfoSection.Install], obj => new AppDataInstallSection(obj));
+        Depots = TryCreateSection(sections[EAppInfoSection.Depots], obj => new AppDataDepotsSection(obj));
+        Community = TryCreateSection(sections[EAppInfoSection.Community], obj => new AppDataCommunitySection(obj));
+        Localization = TryCreateSection(sections[EAppInfoSection.Localization], obj => new AppDataLocalizationSection(obj));
+
         if (this.Common.GameID.IsValid())
         {
             this.GameID = this.Common.GameID;
@@ -71,24 +116,12 @@ public class SteamApp : AppBase, ILaunchableApp<AppDataConfigSection.LaunchOptio
         }
     }
 
-    private static T SetAppInfoSection<T>(KVObject obj, Func<KVObject, T> ctor) {
-        return ctor(obj)!;
-    }
+    private static T? TryCreateSection<T>(KVObject? obj, Func<KVObject, T> factory) where T: KVObjectEx {
+        if (obj == null) {
+            return null;
+        }
 
-
-    [MemberNotNull(nameof(Common))]
-    internal void SetAppInfoCommonSection(KVObject obj) {
-        Common = SetAppInfoSection(obj, (kv) => new AppDataCommonSection(kv));
-    }
-
-    [MemberNotNull(nameof(Extended))]
-    internal void SetAppInfoExtendedSection(KVObject obj) {
-        Extended = SetAppInfoSection(obj, (kv) => new AppDataExtendedSection(kv));
-    }
-
-    [MemberNotNull(nameof(Config))]
-    internal void SetAppInfoConfigSection(KVObject obj) {
-        Config = SetAppInfoSection(obj, (kv) => new AppDataConfigSection(kv));
+        return factory(obj);
     }
     
     /// <summary>
@@ -129,25 +162,6 @@ public class SteamApp : AppBase, ILaunchableApp<AppDataConfigSection.LaunchOptio
         return true;
     }
 
-    public async Task<EResult> Launch(string userLaunchOptions, AppDataConfigSection.LaunchOption? launchOption = null)
-    {
-        if (launchOption == null) {
-            throw new NullReferenceException("launchOption was null. SteamApp launching requires a launch option");
-        }
-
-        var logger = AppsManager.GetLoggerForApp(this);
-
-        if (this.Config.CheckForUpdatesBeforeLaunch) {
-            logger.Info("Checking for updates (due to CheckForUpdatesBeforeLaunch)");
-            //await AppsManager.ClientApps.EnsureHasAppData(AppID);
-        }
-
-        await AppsManager.RunInstallScriptAsync(AppID);
-
-        return EResult.OK;
-    }
-
-
     public async Task<ProtonDBInfo> GetProtonDBCompatData() {
         string response = await Client.HttpClient.GetStringAsync($"https://www.protondb.com/api/v1/reports/summaries/{this.AppID}.json");
         JsonSerializerOptions.Default.Converters.Add(new JsonStringEnumConverter());
@@ -159,4 +173,46 @@ public class SteamApp : AppBase, ILaunchableApp<AppDataConfigSection.LaunchOptio
         return json;
     }
 
+    public bool IsCompatEnabled {
+        get {
+            return this.CompatTool != "";
+        }
+
+        set {
+            if (value == true) {
+                this.AppsManager.SetDefaultCompatToolForApp(this.GameID);
+            } else {
+                this.AppsManager.DisableCompatToolForApp(this.GameID);
+            }
+        }
+    }
+
+    public string CompatTool {
+        get {
+            return this.AppsManager.GetCurrentCompatToolForApp(this.GameID);
+        }
+
+        set {
+            this.AppsManager.SetCompatToolForApp(this.GameID, value);
+        }
+    }
+
+    private int? defaultLaunchOptionId;
+    private readonly List<LaunchOption> launchOptions = new();
+    public override IEnumerable<LaunchOption> LaunchOptions => launchOptions;
+    public override int? DefaultLaunchOptionID => defaultLaunchOptionId;
+    
+    public override async Task<EAppUpdateError> Launch(string userLaunchOptions, int launchOptionID)
+    {
+        if (this.Config.CheckForUpdatesBeforeLaunch) {
+            logger.Info("Checking for updates (due to CheckForUpdatesBeforeLaunch)");
+            if (!this.AppsManager.ClientApps.BIsAppUpToDate(this.AppID)) {
+                return EAppUpdateError.UpdateRequired;
+            }
+        }
+
+        await AppsManager.RunInstallScriptAsync(AppID);
+
+        return EAppUpdateError.NoError;
+    }
 }

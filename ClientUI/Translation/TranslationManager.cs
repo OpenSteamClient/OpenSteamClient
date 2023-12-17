@@ -7,12 +7,15 @@ using System.Threading.Tasks;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.LogicalTree;
+using Avalonia.Threading;
 using Avalonia.VisualTree;
 using ClientUI.Extensions;
 
 using OpenSteamworks;
+using OpenSteamworks.Client;
 using OpenSteamworks.Client.Config;
 using OpenSteamworks.Client.Managers;
+using OpenSteamworks.Client.Utils;
 using OpenSteamworks.Client.Utils.DI;
 using OpenSteamworks.Enums;
 using OpenSteamworks.Generated;
@@ -26,34 +29,60 @@ public class Translation {
     public Dictionary<string, string> TranslationKeys { get; set; } = new();
 }
 
-public class TranslationManager : IClientLifetime {
+public class TranslationManager : ILogonLifetime {
     public Translation CurrentTranslation = new();
     private readonly List<AvaloniaObject> RefreshableObjects = new();
-    private readonly IClientUser iClientUser;
+    private readonly IClientUser clientUser;
+    private readonly IClientUtils clientUtils;
     private readonly InstallManager installManager;
-    private readonly GlobalSettings globalSettings;
+    private readonly Container container;
+    private readonly ConfigManager configManager;
+    private readonly Logger logger;
 
-    public TranslationManager(IClientUser iClientUser, InstallManager installManager, GlobalSettings globalSettings) {
-        this.iClientUser = iClientUser;
-        this.installManager = installManager;
-        this.globalSettings = globalSettings;
+    private UserSettings userSettings {
+        get {
+            return container.Get<UserSettings>();
+        }
     }
 
-    public void SetLanguage(ELanguage language) {
+    public TranslationManager(IClientUser clientUser, IClientUtils clientUtils, InstallManager installManager, Container container, ConfigManager configManager) {
+        this.logger = Logger.GetLogger("TranslationManager", installManager.GetLogPath("TranslationManager"));
+        this.clientUser = clientUser;
+        this.clientUtils = clientUtils;
+        this.installManager = installManager;
+        this.container = container;
+        this.configManager = configManager;
+    }
+    
+    public void SetLanguage(ELanguage language, bool save = true) {
         var lang = ELanguageToString(language);
         if (lang == null) {
             throw new ArgumentException($"Language {language} was not valid.");
         }
 
-        iClientUser.SetLanguage(lang);
-        CurrentTranslation = GetForLanguage(language);
-        foreach (var obj in RefreshableObjects)
-        {
-            TranslateAvaloniaObject(obj);
+        // Allow setting steamclient language
+        clientUser.SetLanguage(lang);
+
+        // Even if we don't have a GUI translation
+        var newTranslation = GetForLanguage(language, out bool failed);
+        if (failed) {
+            logger.Warning("Attempted to switch to unsupported language " + language + ", still switching steamclient");
+        } else {
+            CurrentTranslation = newTranslation;
+
+            Dispatcher.UIThread.Invoke(() =>
+            {
+                foreach (var obj in RefreshableObjects)
+                {
+                    TranslateAvaloniaObject(obj);
+                }
+            });
         }
 
-        globalSettings.Language = language;
-        globalSettings.Save();
+        if (save) {
+            userSettings.Language = language;
+            configManager.Save(userSettings);
+        }
     }
 
     public string GetTranslationForKey(string key) {
@@ -65,13 +94,23 @@ public class TranslationManager : IClientLifetime {
         return val;
     }
     
-    private Translation GetForLanguage(ELanguage language) {
-        string? filename = TranslationManager.ELanguageToString(language);
+    private Translation GetForLanguage(ELanguage language, out bool failed) {
+        failed = false;
+        string? filename = ELanguageToString(language);
         if (filename == null) {
             throw new ArgumentOutOfRangeException("Invalid ELanguage " + language + " specified.");
         }
 
         string fullPath = Path.Combine(installManager.AssemblyDirectory, "Translations", filename+".json");
+        if (!File.Exists(fullPath)) {
+            if (language == ELanguage.English) {
+                throw new Exception("Base language not found!");
+            }
+
+            failed = true;
+            return CurrentTranslation;
+        }
+
         return UtilityFunctions.AssertNotNull(JsonSerializer.Deserialize<Translation>(File.ReadAllText(fullPath)));
     } 
 
@@ -180,12 +219,12 @@ public class TranslationManager : IClientLifetime {
         }
     }
 
-    public async Task RunStartup()
+    async Task ILogonLifetime.OnLoggedOn(IExtendedProgress<int> progress, LoggedOnEventArgs e)
     {
-        await Task.Run(() => this.SetLanguage(globalSettings.Language));
+        await Task.Run(() => this.SetLanguage(userSettings.Language));
     }
 
-    public async Task RunShutdown()
+    async Task ILogonLifetime.OnLoggingOff(IExtendedProgress<int> progress)
     {
         await Task.CompletedTask;
     }

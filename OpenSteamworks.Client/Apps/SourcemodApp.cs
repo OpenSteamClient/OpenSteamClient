@@ -1,4 +1,5 @@
 using OpenSteamworks.Client.Utils;
+using OpenSteamworks.Enums;
 using OpenSteamworks.Structs;
 using ValveKeyValue;
 
@@ -15,26 +16,38 @@ public class SourcemodGameInfo : KVObjectEx {
 }
 
 public class SourcemodApp : AppBase {
-    private static readonly KVSerializer kvserializer = KVSerializer.Create(KVSerializationFormat.KeyValues1Text);
-    public SourcemodGameInfo SourcemodGameInfo { get; private set; }
-    public AppBase? ParentApp => GetAppIfValidAppID(this.SourcemodGameInfo.SteamAppID);
-    public override string Name {
-        get {
-            if (!string.IsNullOrEmpty(NameOverride)) {
-                return NameOverride;
-            }
-            
-            return this.SourcemodGameInfo.Name;
+    public class LaunchOption : ILaunchOption
+    {
+        public int ID { get; init; }
+        public string Name { get; init; }
+        public string Description { get; init; }
+        
+        public LaunchOption(int id, string name, string desc) {
+            this.ID = id;
+            this.Name = name;
+            this.Description = desc;
         }
     }
 
-    public override string HeroURL => GetValueOverride(HeroOverrideURL, this.ParentApp?.HeroURL);
-    public override string LogoURL => GetValueOverride(LogoOverrideURL, this.ParentApp?.LogoURL);
-    public override string IconURL => GetValueOverride(IconOverrideURL, this.ParentApp?.IconURL);
-    public override string PortraitURL => GetValueOverride(PortraitOverrideURL, this.ParentApp?.PortraitURL);
+    private static readonly KVSerializer kvserializer = KVSerializer.Create(KVSerializationFormat.KeyValues1Text);
+    public SourcemodGameInfo SourcemodGameInfo { get; private set; }
+    public AppBase? ParentApp => GetAppIfValidGameID(new CGameID(this.SourcemodGameInfo.SteamAppID));
+    protected override string ActualName => this.SourcemodGameInfo.Name;
+    protected override string ActualHeroURL => this.ParentApp?.HeroURL ?? "";
+    protected override string ActualLogoURL => this.ParentApp?.LogoURL ?? "";
+    protected override string ActualIconURL => this.ParentApp?.IconURL ?? "";
+    protected override string ActualPortraitURL => this.ParentApp?.PortraitURL ?? "";
+
+    public override IEnumerable<LaunchOption> LaunchOptions => new List<LaunchOption>() { new(0, "Play " + this.Name, "") };
+    public override int? DefaultLaunchOptionID => 0;
 
     internal SourcemodApp(AppsManager appsManager, string sourcemodDir, uint modid) : base(appsManager) {
         SourcemodGameInfo = new SourcemodGameInfo(SourcemodApp.kvserializer.Deserialize(File.OpenRead(Path.Combine(sourcemodDir, "gameinfo.txt"))));
         this.GameID = new CGameID(SourcemodGameInfo.SteamAppID, modid);
+    }
+
+    public override Task<EAppUpdateError> Launch(string userLaunchOptions, int launchOptionID)
+    {
+        throw new NotImplementedException();
     }
 }

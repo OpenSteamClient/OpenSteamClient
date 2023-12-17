@@ -23,4 +23,15 @@ public static class StreamExtensions
             progress.Report(totalBytesRead);
         }
     }
+
+    public static bool AreEqual(this MemoryStream first, MemoryStream second) {
+        if (first.Length != second.Length) {
+            return false;
+        }
+
+        first.Position = 0;
+        second.Position = 0;
+
+        return first.ToArray().SequenceEqual(second.ToArray());
+    }
 }

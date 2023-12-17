@@ -8,16 +8,14 @@ namespace OpenSteamworks.Client.Apps.Library;
 
 public class LibraryManager : ILogonLifetime
 {
-    private CloudConfigStore cloudConfigStore;
-    private SteamClient steamClient;
-    private ClientMessaging clientMessaging;
-    private Logger logger;
-    private InstallManager installManager;
-    private LoginManager loginManager;
-    private AppsManager appsManager;
-
-    // This is bad, but the collections need to know about the library in order to be able to get apps.
-    internal static Library? currentUserLibrary;
+    private readonly CloudConfigStore cloudConfigStore;
+    private readonly SteamClient steamClient;
+    private readonly ClientMessaging clientMessaging;
+    private readonly Logger logger;
+    private readonly InstallManager installManager;
+    private readonly LoginManager loginManager;
+    private readonly AppsManager appsManager;
+    private Library? currentUserLibrary;
 
     public LibraryManager(SteamClient steamClient, CloudConfigStore cloudConfigStore, ClientMessaging clientMessaging, LoginManager loginManager, InstallManager installManager, AppsManager appsManager) {
         this.logger = Logger.GetLogger("LibraryManager", installManager.GetLogPath("LibraryManager"));

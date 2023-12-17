@@ -6,6 +6,7 @@ using ClientUI.Translation;
 using ClientUI.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
 using OpenSteamworks.Client.Config;
+using OpenSteamworks.Client.Login;
 using OpenSteamworks.Client.Managers;
 using OpenSteamworks.Enums;
 using OpenSteamworks.Generated;
@@ -43,7 +44,7 @@ public partial class LoginWindowViewModel : ViewModelBase
         }
     }
 
-    private IClientUser iClientUser;
+    private IClientUser clientUser;
     private TranslationManager tm;
     private LoginManager loginManager;
     private QRCodeGenerator qrGenerator;
@@ -51,8 +52,8 @@ public partial class LoginWindowViewModel : ViewModelBase
     //TODO: make a better system for communicating certain things to the views. This is hacky, and feels like we're reimplementing the wheel. ReactiveUI does not have a better solution for this unfortunately either, as it also adds a ton of spaghetti
     public Action<SecondFactorNeededEventArgs>? ShowSecondFactorDialog;
 
-    public LoginWindowViewModel(IClientUser iClientUser, TranslationManager tm, LoginManager loginManager, LoginUser? user = null) {
-        this.iClientUser = iClientUser;
+    public LoginWindowViewModel(IClientUser clientUser, TranslationManager tm, LoginManager loginManager, LoginUser? user = null) {
+        this.clientUser = clientUser;
         this.tm = tm;
         this.loginManager = loginManager;
         this.loginManager.QRGenerated += this.OnQRGenerated;

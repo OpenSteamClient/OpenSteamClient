@@ -2,6 +2,7 @@ using System.Windows.Input;
 using Avalonia.Media.Imaging;
 using CommunityToolkit.Mvvm.ComponentModel;
 using OpenSteamworks.Client.Config;
+using OpenSteamworks.Client.Login;
 
 namespace ClientUI.ViewModels;
 

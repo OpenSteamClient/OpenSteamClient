@@ -157,37 +157,37 @@ public unsafe interface IClientUser
     // WARNING: Arguments are unknown!
     public bool GetUserConfigFolder(StringBuilder buf, int bufMax);  // argc: 2, index: 79
     // WARNING: Arguments are unknown!
-    public bool GetAccountName(StringBuilder usernameOut, uint strMaxLen);  // argc: 2, index: 80
+    public bool GetAccountName(StringBuilder usernameOut, int strMaxLen);  // argc: 2, index: 80
     // WARNING: Arguments are unknown!
-    public bool GetAccountName(CSteamID steamid, StringBuilder usernameOut, uint strMaxLen);  // argc: 4, index: 81
-    public unknown_ret IsPasswordRemembered();  // argc: 0, index: 82
+    public bool GetAccountName(CSteamID steamid, StringBuilder usernameOut, int strMaxLen);  // argc: 4, index: 81
+    public bool IsPasswordRemembered();  // argc: 0, index: 82
     // WARNING: Arguments are unknown!
-    public unknown_ret CheckoutSiteLicenseSeat();  // argc: 1, index: 83
+    public unknown_ret CheckoutSiteLicenseSeat(AppId_t appid);  // argc: 1, index: 83
     // WARNING: Arguments are unknown!
-    public unknown_ret GetAvailableSeats();  // argc: 1, index: 84
+    public unknown_ret GetAvailableSeats(AppId_t appid);  // argc: 1, index: 84
     public string GetAssociatedSiteName();  // argc: 0, index: 85
-    public unknown_ret BIsRunningInCafe();  // argc: 0, index: 86
-    public unknown_ret BAllowCachedCredentialsInCafe();  // argc: 0, index: 87
+    public bool BIsRunningInCafe();  // argc: 0, index: 86
+    public bool BAllowCachedCredentialsInCafe();  // argc: 0, index: 87
     // WARNING: Arguments are unknown!
-    public unknown_ret RequiresLegacyCDKey();  // argc: 2, index: 88
+    public unknown_ret RequiresLegacyCDKey(AppId_t appid, out bool unk);  // argc: 2, index: 88
     // WARNING: Arguments are unknown!
-    public unknown_ret GetLegacyCDKey();  // argc: 3, index: 89
+    public unknown_ret GetLegacyCDKey(AppId_t appid, StringBuilder keyData, int keyDataMax);  // argc: 3, index: 89
     // WARNING: Arguments are unknown!
-    public unknown_ret SetLegacyCDKey();  // argc: 2, index: 90
+    public unknown_ret SetLegacyCDKey(AppId_t appid, string keyData);  // argc: 2, index: 90
     // WARNING: Arguments are unknown!
-    public unknown_ret WriteLegacyCDKey();  // argc: 1, index: 91
+    public unknown_ret WriteLegacyCDKey(AppId_t appid);  // argc: 1, index: 91
     // WARNING: Arguments are unknown!
-    public unknown_ret RemoveLegacyCDKey();  // argc: 1, index: 92
+    public unknown_ret RemoveLegacyCDKey(AppId_t appid);  // argc: 1, index: 92
     // WARNING: Arguments are unknown!
     public unknown_ret RequestLegacyCDKeyFromApp();  // argc: 3, index: 93
-    public unknown_ret BIsAnyGameRunning();  // argc: 0, index: 94
+    public bool BIsAnyGameRunning();  // argc: 0, index: 94
     public unknown_ret GetSteamGuardDetails();  // argc: 0, index: 95
     // WARNING: Arguments are unknown!
     public uint GetSentryFileData(CUtlBuffer* data);  // argc: 1, index: 96
     public unknown_ret GetTwoFactorDetails();  // argc: 0, index: 97
     public bool BHasTwoFactor();  // argc: 0, index: 98
     // WARNING: Arguments are unknown!
-    public unknown_ret GetEmail();  // argc: 3, index: 99
+    public unknown_ret GetEmail(StringBuilder email, int emailMax, out bool validated);  // argc: 3, index: 99
     public unknown_ret Test_FakeConnectionTimeout();  // argc: 0, index: 100
     public unknown_ret RunInstallScript(AppId_t appid, string unk, bool uninstall);  // argc: 3, index: 101
     public AppId_t IsInstallScriptRunning();  // argc: 0, index: 102
@@ -218,11 +218,11 @@ public unsafe interface IClientUser
     public unknown_ret GetAppOwnershipTicketData();  // argc: 3, index: 107
     // WARNING: Arguments are unknown!
     public unknown_ret GetAppOwnershipTicketExtendedData();  // argc: 7, index: 108
-    public unknown_ret GetMarketingMessageCount();  // argc: 0, index: 109
+    public int GetMarketingMessageCount();  // argc: 0, index: 109
     // WARNING: Arguments are unknown!
-    public unknown_ret GetMarketingMessage();  // argc: 5, index: 110
+    public unknown_ret GetMarketingMessage(int cMarketingMessage, out GID_t gidMarketingMessageID, StringBuilder pubMsgUrl, int cubMessageUrl, out EMarketingMessageFlags eMarketingMssageFlags);  // argc: 5, index: 110
     // WARNING: Arguments are unknown!
-    public unknown_ret MarkMarketingMessageSeen();  // argc: 2, index: 111
+    public unknown_ret MarkMarketingMessageSeen(GID_t gidMarketingMessageID);  // argc: 2, index: 111
     public unknown_ret CheckForPendingMarketingMessages();  // argc: 0, index: 112
     // WARNING: Arguments are unknown!
     public unknown_ret GetAuthSessionTicket();  // argc: 3, index: 113
@@ -243,9 +243,9 @@ public unsafe interface IClientUser
     // WARNING: Arguments are unknown!
     public unknown_ret IsUserSubscribedAppInTicket();  // argc: 3, index: 121
     // WARNING: Arguments are unknown!
-    public unknown_ret AdvertiseGame();  // argc: 5, index: 122
+    public unknown_ret AdvertiseGame(CSteamID steamIDGameServer, UInt32 unIPServer, UInt16 usPortServer);  // argc: 5, index: 122
     // WARNING: Arguments are unknown!
-    public unknown_ret RequestEncryptedAppTicket();  // argc: 2, index: 123
+    public SteamAPICall_t RequestEncryptedAppTicket();  // argc: 2, index: 123
     // WARNING: Arguments are unknown!
     public unknown_ret GetEncryptedAppTicket();  // argc: 3, index: 124
     // WARNING: Arguments are unknown!
@@ -275,89 +275,78 @@ public unsafe interface IClientUser
     public int NumGamesRunning();  // argc: 0, index: 135
     public CGameID GetRunningGameID(int index, int unk);  // argc: 2, index: 136
     // WARNING: Arguments are unknown!
-    public unknown_ret GetRunningGamePID();  // argc: 1, index: 137
+    public UInt32 GetRunningGamePID(int index);  // argc: 1, index: 137
     // WARNING: Arguments are unknown!
     public unknown_ret RaiseWindowForGame();  // argc: 1, index: 138
-    public unknown_ret GetAccountSecurityPolicyFlags();  // argc: 0, index: 139
+    public UInt32 GetAccountSecurityPolicyFlags();  // argc: 0, index: 139
     // WARNING: Arguments are unknown!
     public unknown_ret SetClientStat();  // argc: 6, index: 140
     // WARNING: Arguments are unknown!
     public SteamAPICall_t VerifyPassword(string password);  // argc: 1, index: 141
-    public unknown_ret BSupportUser();  // argc: 0, index: 142
+    public bool BSupportUser();  // argc: 0, index: 142
     public unknown_ret BNeedsSSANextSteamLogon();  // argc: 0, index: 143
     public unknown_ret ClearNeedsSSANextSteamLogon();  // argc: 0, index: 144
+    public bool BIsAppOverlayEnabled(CGameID gameid);  // argc: 1, index: 145
+    public bool BOverlayIgnoreChildProcesses(CGameID gameid);  // argc: 1, index: 146
     // WARNING: Arguments are unknown!
-    public unknown_ret BIsAppOverlayEnabled();  // argc: 1, index: 145
-    // WARNING: Arguments are unknown!
-    public unknown_ret BOverlayIgnoreChildProcesses();  // argc: 1, index: 146
-    // WARNING: Arguments are unknown!
-    public unknown_ret SetOverlayState();  // argc: 2, index: 147
+    public unknown_ret SetOverlayState(AppId_t appid, bool visible);  // argc: 2, index: 147
     public unknown_ret NotifyOverlaySettingsChanged();  // argc: 0, index: 148
-    public unknown_ret BIsBehindNAT();  // argc: 0, index: 149
+    public bool BIsBehindNAT();  // argc: 0, index: 149
     // WARNING: Arguments are unknown!
-    public unknown_ret GetMicroTxnAppID();  // argc: 2, index: 150
+    public unknown_ret GetMicroTxnAppID(GID_t transactionId);  // argc: 2, index: 150
     // WARNING: Arguments are unknown!
-    public unknown_ret GetMicroTxnOrderID();  // argc: 2, index: 151
+    public unknown_ret GetMicroTxnOrderID(GID_t transactionId);  // argc: 2, index: 151
     // WARNING: Arguments are unknown!
     public unknown_ret BGetMicroTxnPrice();  // argc: 6, index: 152
     // WARNING: Arguments are unknown!
-    public unknown_ret GetMicroTxnSteamRealm();  // argc: 2, index: 153
+    public ESteamRealm GetMicroTxnSteamRealm(GID_t transactionId);  // argc: 2, index: 153
     // WARNING: Arguments are unknown!
-    public unknown_ret GetMicroTxnLineItemCount();  // argc: 2, index: 154
+    public unknown_ret GetMicroTxnLineItemCount(GID_t transactionId);  // argc: 2, index: 154
     // WARNING: Arguments are unknown!
-    public unknown_ret BGetMicroTxnLineItem();  // argc: 11, index: 155
+    public unknown_ret BGetMicroTxnLineItem(GID_t transactionId, uint unk, ref int unk2, ref uint unk3, StringBuilder name, int nameMax, ref int unk4, byte* unk5, ref int unk6, ref bool unk7);  // argc: 11, index: 155
     // WARNING: Arguments are unknown!
-    public unknown_ret BIsSandboxMicroTxn();  // argc: 3, index: 156
+    public bool BIsSandboxMicroTxn(GID_t transactionId, ref bool unk);  // argc: 3, index: 156
     // WARNING: Arguments are unknown!
-    public unknown_ret BMicroTxnRequiresCachedPmtMethod();  // argc: 3, index: 157
+    public bool BMicroTxnRequiresCachedPmtMethod(GID_t transactionId, ref bool unk);  // argc: 3, index: 157
     // WARNING: Arguments are unknown!
-    public unknown_ret AuthorizeMicroTxn();  // argc: 3, index: 158
+    public unknown_ret AuthorizeMicroTxn(GID_t transactionId, int unk);  // argc: 3, index: 158
     // WARNING: Arguments are unknown!
-    public unknown_ret BGetWalletBalance();  // argc: 3, index: 159
+    public bool BGetWalletBalance(out bool hasWallet, out CAmount amount, out CAmount amountPending);  // argc: 3, index: 159
     // WARNING: Arguments are unknown!
-    public unknown_ret RequestMicroTxnInfo();  // argc: 2, index: 160
+    public unknown_ret RequestMicroTxnInfo(GID_t transactionId);  // argc: 2, index: 160
     // WARNING: Arguments are unknown!
-    public unknown_ret BMicroTxnRefundable();  // argc: 2, index: 161
-    // WARNING: Arguments are unknown!
+    public unknown_ret BMicroTxnRefundable(GID_t transactionId);  // argc: 2, index: 161
     public bool BGetAppMinutesPlayed(AppId_t appid, ref UInt32 allTime, ref UInt32 lastTwoWeeks);  // argc: 3, index: 162
-    // WARNING: Arguments are unknown!
     public RTime32 GetAppLastPlayedTime(AppId_t appid);  // argc: 1, index: 163
-    // WARNING: Arguments are unknown!
     public uint GetAppUpdateDisabledSecondsRemaining(AppId_t appid);  // argc: 1, index: 164
+    public bool BGetGuideURL(AppId_t appid, StringBuilder url, int urlMax);  // argc: 3, index: 165
+    public bool BPromptToChangePassword();  // argc: 0, index: 166
+    public bool BAccountExtraSecurity();  // argc: 0, index: 167
+    public bool BAccountShouldShowLockUI();  // argc: 0, index: 168
+    public int GetCountAuthedComputers();  // argc: 0, index: 169
+    public RTime32 GetSteamGuardEnabledTime();  // argc: 0, index: 170
+    public void SetPhoneIsVerified(bool val);  // argc: 1, index: 171
+    public bool BIsPhoneVerified();  // argc: 0, index: 172
+    public void SetPhoneIsIdentifying(bool val);  // argc: 1, index: 173
+    public bool BIsPhoneIdentifying();  // argc: 0, index: 174
+    public void SetPhoneIsRequiringVerification(bool val);  // argc: 1, index: 175
+    public bool BIsPhoneRequiringVerification();  // argc: 0, index: 176
     // WARNING: Arguments are unknown!
-    public unknown_ret BGetGuideURL();  // argc: 3, index: 165
-    public unknown_ret BPromptToChangePassword();  // argc: 0, index: 166
-    public unknown_ret BAccountExtraSecurity();  // argc: 0, index: 167
-    public unknown_ret BAccountShouldShowLockUI();  // argc: 0, index: 168
-    public unknown_ret GetCountAuthedComputers();  // argc: 0, index: 169
-    public unknown_ret GetSteamGuardEnabledTime();  // argc: 0, index: 170
-    // WARNING: Arguments are unknown!
-    public unknown_ret SetPhoneIsVerified();  // argc: 1, index: 171
-    public unknown_ret BIsPhoneVerified();  // argc: 0, index: 172
-    // WARNING: Arguments are unknown!
-    public unknown_ret SetPhoneIsIdentifying();  // argc: 1, index: 173
-    public unknown_ret BIsPhoneIdentifying();  // argc: 0, index: 174
-    // WARNING: Arguments are unknown!
-    public unknown_ret SetPhoneIsRequiringVerification();  // argc: 1, index: 175
-    public unknown_ret BIsPhoneRequiringVerification();  // argc: 0, index: 176
-    // WARNING: Arguments are unknown!
-    public unknown_ret ChangeTwoFactorAuthOptions();  // argc: 1, index: 177
+    public unknown_ret ChangeTwoFactorAuthOptions(int eOption);  // argc: 1, index: 177
     // WARNING: Arguments are unknown!
     public unknown_ret Set2ndFactorAuthCode(string code, bool remember);  // argc: 2, index: 178
     public void SetUserMachineName(string name);  // argc: 1, index: 179
     public void GetUserMachineName(StringBuilder name, int len);  // argc: 2, index: 180
     // WARNING: Arguments are unknown!
-    public unknown_ret GetEmailDomainFromLogonFailure();  // argc: 2, index: 181
+    public bool GetEmailDomainFromLogonFailure(StringBuilder domain, int domainMax);  // argc: 2, index: 181
     public string GetAgreementSessionUrl();  // argc: 0, index: 182
-    public unknown_ret GetDurationControl();  // argc: 0, index: 183
+    public SteamAPICall_t GetDurationControl();  // argc: 0, index: 183
     // WARNING: Arguments are unknown!
-    public unknown_ret GetDurationControlForApp();  // argc: 1, index: 184
+    public UInt64 GetDurationControlForApp(AppId_t appid);  // argc: 1, index: 184
+    public bool BSetDurationControlOnlineState(EDurationControlOnlineState eNewState);  // argc: 1, index: 185
+    public bool BSetDurationControlOnlineStateForApp(AppId_t appid, EDurationControlOnlineState eNewState);  // argc: 2, index: 186
     // WARNING: Arguments are unknown!
-    public unknown_ret BSetDurationControlOnlineState();  // argc: 1, index: 185
-    // WARNING: Arguments are unknown!
-    public unknown_ret BSetDurationControlOnlineStateForApp();  // argc: 2, index: 186
-    // WARNING: Arguments are unknown!
-    public unknown_ret BGetDurationControlExtendedResults();  // argc: 3, index: 187
+    public bool BGetDurationControlExtendedResults();  // argc: 3, index: 187
     /// <summary>
     /// Checks if the active user owns a specific app.
     /// </summary>
@@ -373,49 +362,56 @@ public unsafe interface IClientUser
     /// <returns>How many apps the user owns</returns>
     public uint GetSubscribedApps(AppId_t[] arr, uint lengthOfArr, bool unk);  // argc: 3, index: 189
     // WARNING: Arguments are unknown!
-    public unknown_ret AckSystemIM();  // argc: 2, index: 190
+    public unknown_ret AckSystemIM(GID_t id);  // argc: 2, index: 190
     // WARNING: Arguments are unknown!
-    public unknown_ret RequestSpecialSurvey(uint unk);  // argc: 1, index: 191
+    public unknown_ret RequestSpecialSurvey(uint surveyId);  // argc: 1, index: 191
     // WARNING: Arguments are unknown!
-    public unknown_ret SendSpecialSurveyResponse();  // argc: 3, index: 192
+    public unknown_ret SendSpecialSurveyResponse(uint surveyId, byte[] data, int dataLength);  // argc: 3, index: 192
     public unknown_ret RequestNotifications();  // argc: 0, index: 193
     // WARNING: Arguments are unknown!
-    public unknown_ret GetAppOwnershipInfo();  // argc: 4, index: 194
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="appid"></param>
+    /// <param name="timeCreated"></param>
+    /// <param name="country">Use a 3 byte buffer for the country</param>
+    /// <returns></returns>
+    public unknown_ret GetAppOwnershipInfo(AppId_t appid, out RTime32 timeCreated, out UInt32 unk, StringBuilder country);  // argc: 4, index: 194
     // WARNING: Arguments are unknown!
-    public unknown_ret SendGameWebCallback();  // argc: 2, index: 195
-    public unknown_ret BIsStreamingUIToRemoteDevice();  // argc: 0, index: 196
-    public unknown_ret BIsCurrentlyNVStreaming();  // argc: 0, index: 197
+    public unknown_ret SendGameWebCallback(AppId_t appid, string data);  // argc: 2, index: 195
+    public bool BIsStreamingUIToRemoteDevice();  // argc: 0, index: 196
+    public bool BIsCurrentlyNVStreaming();  // argc: 0, index: 197
     // WARNING: Arguments are unknown!
     [BlacklistedInCrossProcessIPC]
     public unknown_ret OnBigPictureForStreamingStartResult();  // argc: 2, index: 198
     public unknown_ret OnBigPictureForStreamingDone();  // argc: 0, index: 199
     public unknown_ret OnBigPictureForStreamingRestarting();  // argc: 0, index: 200
     // WARNING: Arguments are unknown!
-    public unknown_ret StopStreaming();  // argc: 1, index: 201
+    public unknown_ret StopStreaming(AppId_t appid);  // argc: 1, index: 201
     public unknown_ret LockParentalLock();  // argc: 0, index: 202
     // WARNING: Arguments are unknown!
-    public unknown_ret UnlockParentalLock();  // argc: 1, index: 203
-    public unknown_ret BIsParentalLockEnabled();  // argc: 0, index: 204
-    public unknown_ret BIsParentalLockLocked();  // argc: 0, index: 205
+    public unknown_ret UnlockParentalLock(string unk);  // argc: 1, index: 203
+    public bool BIsParentalLockEnabled();  // argc: 0, index: 204
+    public bool BIsParentalLockLocked();  // argc: 0, index: 205
     // WARNING: Arguments are unknown!
-    public unknown_ret BlockApp();  // argc: 1, index: 206
+    public unknown_ret BlockApp(AppId_t appid);  // argc: 1, index: 206
     // WARNING: Arguments are unknown!
-    public unknown_ret UnblockApp();  // argc: 1, index: 207
+    public unknown_ret UnblockApp(AppId_t appid);  // argc: 1, index: 207
     // WARNING: Arguments are unknown!
-    public unknown_ret BIsAppBlocked();  // argc: 1, index: 208
+    public bool BIsAppBlocked(AppId_t appid);  // argc: 1, index: 208
     // WARNING: Arguments are unknown!
-    public unknown_ret BIsAppInBlockList();  // argc: 1, index: 209
+    public bool BIsAppInBlockList(AppId_t appid);  // argc: 1, index: 209
     // WARNING: Arguments are unknown!
-    public unknown_ret BlockFeature();  // argc: 1, index: 210
+    public unknown_ret BlockFeature(EParentalFeature eParentalFeature);  // argc: 1, index: 210
     // WARNING: Arguments are unknown!
-    public unknown_ret UnblockFeature();  // argc: 1, index: 211
+    public unknown_ret UnblockFeature(EParentalFeature eParentalFeature);  // argc: 1, index: 211
     // WARNING: Arguments are unknown!
-    public bool BIsFeatureBlocked();  // argc: 1, index: 212
+    public bool BIsFeatureBlocked(EParentalFeature eParentalFeature);  // argc: 1, index: 212
     // WARNING: Arguments are unknown!
-    public bool BIsFeatureInBlockList();  // argc: 1, index: 213
+    public bool BIsFeatureInBlockList(EParentalFeature eParentalFeature);  // argc: 1, index: 213
     public unknown_ret GetParentalUnlockTime();  // argc: 0, index: 214
     public bool BGetRecoveryEmail(StringBuilder email, uint strMaxLen);  // argc: 2, index: 215
-    public unknown_ret RequestParentalRecoveryEmail();  // argc: 0, index: 216
+    public SteamAPICall_t RequestParentalRecoveryEmail();  // argc: 0, index: 216
     public bool BIsLockFromSiteLicense();  // argc: 0, index: 217
     public bool BGetSerializedParentalSettings(CUtlBuffer* serialized);  // argc: 1, index: 218
     public bool BSetParentalSettings(CUtlBuffer* serialized);  // argc: 1, index: 219
@@ -443,10 +439,10 @@ public unsafe interface IClientUser
     // WARNING: Arguments are unknown!
     public unknown_ret ValidateOfflineLogonTicket();  // argc: 1, index: 228
     // WARNING: Arguments are unknown!
-    public unknown_ret BGetOfflineLogonTicket();  // argc: 2, index: 229
+    public bool BGetOfflineLogonTicket(StringBuilder ticket, int ticketMax);  // argc: 2, index: 229
     public unknown_ret UploadLocalClientLogs();  // argc: 0, index: 230
     // WARNING: Arguments are unknown!
-    public unknown_ret SetAsyncNotificationEnabled();  // argc: 2, index: 231
+    public void SetAsyncNotificationEnabled(AppId_t appid, bool val);  // argc: 2, index: 231
     public bool BIsOtherSessionPlaying(ref UInt32 accountID);  // argc: 1, index: 232
     public bool BKickOtherPlayingSession();  // argc: 0, index: 233
     public bool BIsAccountLockedDown();  // argc: 0, index: 234
@@ -467,9 +463,9 @@ public unsafe interface IClientUser
     public unknown_ret UpdateSteamAnnouncementLastRead();  // argc: 3, index: 243
     public unknown_ret GetMarketEligibility();  // argc: 0, index: 244
     // WARNING: Arguments are unknown!
-    public unknown_ret UpdateGameVrDllState();  // argc: 3, index: 245
+    public unknown_ret UpdateGameVrDllState(CGameID gameid, bool unk, bool unk2);  // argc: 3, index: 245
     // WARNING: Arguments are unknown!
-    public unknown_ret KillVRTheaterPancakeGame();  // argc: 1, index: 246
+    public unknown_ret KillVRTheaterPancakeGame(CGameID gameid);  // argc: 1, index: 246
     public bool BIsAnyGameOrServiceAppRunning();  // argc: 0, index: 247
     [BlacklistedInCrossProcessIPC]
     public bool BGetAppPlaytimeMap(CUtlMap<AppId_t, AppPlaytime_t>* vec);  // argc: 1, index: 248
@@ -488,7 +484,7 @@ public unsafe interface IClientUser
     // WARNING: Arguments are unknown!
     public unknown_ret SendSteamServiceStatusUpdate(EResult unk1, ESteamServiceStatusUpdate unk2);  // argc: 2, index: 251
     // WARNING: Arguments are unknown!
-    public unknown_ret RequestSteamGroupChatMessageNotifications();  // argc: 5, index: 252
+    public EResult RequestSteamGroupChatMessageNotifications();  // argc: 5, index: 252
     // WARNING: Arguments are unknown!
     public unknown_ret RequestSteamGroupChatMessageHistory();  // argc: 5, index: 253
     // WARNING: Arguments are unknown!
@@ -501,7 +497,7 @@ public unsafe interface IClientUser
     public unknown_ret OnReceivedGroupChatSubscriptionResponse();  // argc: 5, index: 257
     // WARNING: Arguments are unknown!
     public unknown_ret GetTimedTrialStatus();  // argc: 4, index: 258
-    public unknown_ret RequestTimedTrialStatus(AppId_t appid);  // argc: 1, index: 259
+    public SteamAPICall_t RequestTimedTrialStatus(AppId_t appid);  // argc: 1, index: 259
     public unknown_ret PrepareForSystemSuspend();  // argc: 0, index: 260
     // WARNING: Arguments are unknown!
     public unknown_ret ResumeSuspendedGames();  // argc: 1, index: 261

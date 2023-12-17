@@ -36,7 +36,6 @@ public enum ELanguage
 	Ukrainian = 26,
 	Latam_Spanish = 27,
 	Vietnamese = 28,
-	MAX = 29,
 }
 
 public static class ELanguageConversion {

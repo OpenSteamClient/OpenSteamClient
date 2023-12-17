@@ -196,7 +196,7 @@ public class SteamClient
         string username;
         {
             StringBuilder sb = new("", 1024);
-            this.NativeClient.IClientUser.GetAccountName(sb, (uint)sb.Capacity);
+            this.NativeClient.IClientUser.GetAccountName(sb, sb.Capacity);
             username = sb.ToString();
         }
 

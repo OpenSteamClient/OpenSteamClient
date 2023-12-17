@@ -8,7 +8,7 @@ namespace OpenSteamworks.Callbacks.Structs;
 public unsafe struct AppLifetimeNotice_t
 {
     // Hmm, this causes problems for 64-bit pids...
-	public UInt32 pidOfReaper;
+	public UInt32 pidOfGame;
 
     // What do these mean?
     public UInt16 unk3;

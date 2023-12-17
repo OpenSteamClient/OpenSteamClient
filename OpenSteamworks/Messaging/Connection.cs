@@ -41,13 +41,13 @@ public class Connection : IDisposable {
     }
     private uint nativeConnection;
     private IClientSharedConnection iSharedConnection;
-    private IClientUser iClientUser;
+    private IClientUser clientUser;
     private bool disposed = false;
 
-    internal Connection(IClientSharedConnection iSharedConnection, IClientUser iClientUser) {
+    internal Connection(IClientSharedConnection iSharedConnection, IClientUser clientUser) {
         this.nativeConnection = iSharedConnection.AllocateSharedConnection();
         this.iSharedConnection = iSharedConnection;
-        this.iClientUser = iClientUser;
+        this.clientUser = clientUser;
         this.StartPollThread();
     }
 
@@ -65,9 +65,9 @@ public class Connection : IDisposable {
     where TMessage: Google.Protobuf.IMessage<TMessage>, new() {
         return await Task.Run(async () =>
         {
-            if (!iClientUser.BConnected()) {
-                iClientUser.EConnect();
-                while (!iClientUser.BConnected())
+            if (!clientUser.BConnected()) {
+                clientUser.EConnect();
+                while (!clientUser.BConnected())
                 {
                     System.Threading.Thread.Sleep(50);
                 }
@@ -75,7 +75,7 @@ public class Connection : IDisposable {
             var resultMsg = new ProtoMsg<TResult>();
             if (msg.AllowRewrite) {
                 // :( unfortunately loginmanager is part of OpenSteamworks.Client so we can't use an in-progress login to get this steamid. TODO: subject to change
-                msg.header.Steamid = iClientUser.GetSteamID();
+                msg.header.Steamid = clientUser.GetSteamID();
             }
 
             // Register a service method handler if we have a jobname
@@ -119,9 +119,9 @@ public class Connection : IDisposable {
     where TMessage: Google.Protobuf.IMessage<TMessage>, new() {
         await Task.Run(() =>
         {
-            if (!iClientUser.BConnected()) {
-                iClientUser.EConnect();
-                while (!iClientUser.BConnected())
+            if (!clientUser.BConnected()) {
+                clientUser.EConnect();
+                while (!clientUser.BConnected())
                 {
                     System.Threading.Thread.Sleep(50);
                 }
@@ -129,7 +129,7 @@ public class Connection : IDisposable {
 
             if (msg.AllowRewrite) {
                 // :( unfortunately loginmanager is part of OpenSteamworks.Client so we can't use an in-progress login to get this steamid. TODO: subject to change
-                msg.header.Steamid = iClientUser.GetSteamID();
+                msg.header.Steamid = clientUser.GetSteamID();
             }
 
             // Register a service method handler if we have a jobname

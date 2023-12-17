@@ -1,6 +1,7 @@
 using System.Text.Json;
 using OpenSteamworks.Client.Apps;
 using OpenSteamworks.Client.Config;
+using OpenSteamworks.Client.Enums;
 using OpenSteamworks.Client.Managers;
 using OpenSteamworks.Client.Utils;
 using OpenSteamworks.NativeTypes;
@@ -78,10 +79,127 @@ public class Library
         foreach (var item in this.Collections)
         {
             if (item.IsDynamic) {
-                item.dynamicCollectionAppsCached = await ProcessDynamicCollection(item);
+                item.dynamicCollectionAppsCached = await ProcessFilters(item);
             }
         }
     }
+
+    private void UnionOrIntersect<T>(ref HashSet<T> set, HashSet<T> target, bool union) {
+        if (union) {
+            set.UnionWith(target);
+        } else {
+            set = set.Intersect(target).ToHashSet();
+        }
+    }
+
+    private HashSet<AppId_t> RunStateFilterAndGetInitialApps(Collection collection) {
+        if (!collection.IsDynamic) {
+            throw new InvalidOperationException("Collection not dynamic");
+        }
+
+        HashSet<AppId_t> apps = new();
+        bool union = collection.StateFilter.FilterOptions.Count == 1;
+        if (union) {
+            logger.Info("Have filters " + string.Join(",", collection.StateFilter.FilterOptions));
+        } else {
+            // Begin by adding all apps the user has
+            apps.UnionWith(this.appsManager.OwnedAppIDs);
+        }
+
+        foreach (ELibraryAppStateFilter opt in collection.StateFilter.FilterOptions)
+        {
+            switch (opt)
+            {
+                case ELibraryAppStateFilter.InstalledLocally:
+                    UnionOrIntersect(ref apps, appsManager.InstalledApps, union);
+                    union = false;
+                    break;
+                case ELibraryAppStateFilter.ReadyToPlay:
+                    UnionOrIntersect(ref apps, appsManager.ReadyToPlayApps, union);
+                    union = false;
+                    break;
+                case ELibraryAppStateFilter.Played:
+                    UnionOrIntersect(ref apps, appsManager.PlayedApps, union);
+                    union = false;
+                    break;
+                case ELibraryAppStateFilter.Unplayed:
+                    UnionOrIntersect(ref apps, appsManager.UnplayedApps, union);
+                    union = false;
+                    break;
+
+                default:
+                    throw new NotSupportedException();
+            }
+        }
+
+        return apps;
+    }
+
+
+    /// <summary>
+    /// Run through the filters of a dynamic collection.
+    /// </summary>
+    private async Task<HashSet<AppId_t>> ProcessFilters(Collection collection) {
+        HashSet<AppId_t> apps = new();
+
+        if (!collection.IsDynamic) {
+            throw new InvalidOperationException("Collection not dynamic");
+        }
+
+        if (collection.HasFilters)
+        {
+            logger.Warning("Dynamic collections support is still incomplete.");
+            apps = RunStateFilterAndGetInitialApps(collection);
+
+            if (collection.StateFilter.FilterOptions.Count == 1) {
+                logger.Info("Have filters " + string.Join(",", collection.StateFilter.FilterOptions));
+                foreach (ELibraryAppStateFilter opt in collection.StateFilter.FilterOptions)
+                {
+                    switch (opt)
+                    {
+                        case ELibraryAppStateFilter.InstalledLocally:
+                            apps.UnionWith(appsManager.InstalledApps);
+                            break;
+                        case ELibraryAppStateFilter.ReadyToPlay:
+                            apps.UnionWith(appsManager.ReadyToPlayApps);
+                            break;
+                        case ELibraryAppStateFilter.Played:
+                            apps.UnionWith(appsManager.PlayedApps);
+                            break;
+                        case ELibraryAppStateFilter.Unplayed:
+                            apps.UnionWith(appsManager.UnplayedApps);
+                            break;
+
+                        default:
+                            throw new NotSupportedException();
+                    }
+                }
+            } else {
+                // Begin by adding all apps the user has
+                apps.UnionWith(this.appsManager.OwnedAppIDs);
+            }
+
+            // Remove apps not in common with friends if in online mode
+            if (this.loginManager.IsOnline())
+            {
+                foreach (var friendAccountID in collection.FriendsInCommonFilter.FilterOptions)
+                {
+                    CSteamID steamid = CSteamID.FromAccountID(friendAccountID);
+                    var appsFriendOwnsTask = await appsManager.GetAppsForSteamID(steamid);
+
+                    // An intersection takes the common elements of both arrays and returns them, abandoning all that weren't mentioned in both lists.
+                    apps = apps.Intersect(appsFriendOwnsTask).ToHashSet();
+                }
+            }
+            else
+            {
+                logger.Warning("Skipping friends filter since we're not connected! TODO: implement cache");
+            }
+        }
+
+        return apps;
+    }
+
 
     /// <summary>
     /// Uploads the library to CloudConfigStore.
@@ -191,42 +309,6 @@ public class Library
         foreach (var item in collection.explicitlyRemovedApps)
         {
             apps.Remove(item);
-        }
-
-        return apps;
-    }
-
-    private async Task<HashSet<AppId_t>> ProcessDynamicCollection(Collection collection) {
-        HashSet<AppId_t> apps = new();
-
-        if (!collection.IsDynamic) {
-            throw new InvalidOperationException("Collection not dynamic");
-        }
-
-        if (collection.HasFilters)
-        {
-            logger.Warning("Dynamic collections support is still incomplete.");
-
-            // Begin by adding all apps the user has
-            //TODO: add support for streamable games, family shared games, non-steam games
-            apps.UnionWith(this.appsManager.OwnedAppIDs);
-
-            // Remove apps not in common with friends if in online mode
-            if (this.loginManager.IsOnline())
-            {
-                foreach (var friendAccountID in collection.FriendsInCommonFilter.FilterOptions)
-                {
-                    CSteamID steamid = CSteamID.FromAccountID(friendAccountID);
-                    var appsFriendOwnsTask = await appsManager.GetAppsForSteamID(steamid);
-
-                    // An intersection takes the common elements of both arrays and returns them, abandoning all that weren't mentioned in both lists.
-                    apps = apps.Intersect(appsFriendOwnsTask).ToHashSet();
-                }
-            }
-            else
-            {
-                logger.Warning("Skipping friends filter since we're not connected! TODO: implement cache");
-            }
         }
 
         return apps;

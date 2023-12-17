@@ -15,11 +15,11 @@ public class ClientMessaging
     private SteamClient client;
     private IClientSharedConnection iSharedConnection;
     private IClientUnifiedMessages iUnifiedMessages;
-    private IClientUser iClientUser;
+    private IClientUser clientUser;
     private List<Connection> connections = new();
 
     public Connection AllocateConnection() {
-        var conn = new Connection(iSharedConnection, iClientUser);
+        var conn = new Connection(iSharedConnection, clientUser);
         connections.Add(conn);
         return conn;
     }
@@ -29,7 +29,7 @@ public class ClientMessaging
         this.client = client;
         this.iSharedConnection = client.NativeClient.IClientSharedConnection;
         this.iUnifiedMessages = client.NativeClient.IClientUnifiedMessages;
-        this.iClientUser = client.NativeClient.IClientUser;
+        this.clientUser = client.NativeClient.IClientUser;
     }
     
     internal void Shutdown()

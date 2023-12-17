@@ -7,11 +7,13 @@ using OpenSteamworks.Utils;
 namespace OpenSteamworks.Structs;
 
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
-public struct CGameID : System.IEquatable<CGameID>, System.IComparable<CGameID> {
+public struct CGameID : IEquatable<CGameID>, IComparable<CGameID> {
     public static readonly CGameID Zero = new((ulong)0);
-    public ulong m_GameID;
 
-	public enum EGameIDType {
+	[field: MarshalAs(UnmanagedType.U8)]
+    public ulong GameID { get; set; }
+
+    public enum EGameIDType {
 		k_EGameIDTypeApp = 0,
 		k_EGameIDTypeGameMod = 1,
 		k_EGameIDTypeShortcut = 2,
@@ -19,20 +21,20 @@ public struct CGameID : System.IEquatable<CGameID>, System.IComparable<CGameID> 
 		k_EGameIDTypeInvalid
 	};
 
-	public CGameID(ulong GameID) {
-		m_GameID = GameID;
+	public CGameID(ulong gameID) {
+		GameID = gameID;
 	}
 
 	public CGameID(AppId_t nAppID) {
-		m_GameID = 0;
-		SetAppID(nAppID);
-	}
+		GameID = 0;
+        AppID = nAppID;
+    }
 
 	public CGameID(AppId_t nAppID, uint nModID) {
-		m_GameID = 0;
-		SetAppID(nAppID);
-		SetType(EGameIDType.k_EGameIDTypeGameMod);
-		SetModID(nModID);
+		GameID = 0;
+		AppID = nAppID;
+		Type = EGameIDType.k_EGameIDTypeGameMod;
+		ModID = nModID;
 	}
 
 	/// <summary>
@@ -66,19 +68,16 @@ public struct CGameID : System.IEquatable<CGameID>, System.IComparable<CGameID> 
     /// The given values are used for hashing via CRC32 (should be compatible with the way steam does it) to generate a proper gameid
     /// </summary>
 	public CGameID(AppId_t nAppID, string modPath) {
-		m_GameID = 0;
-		SetAppID(nAppID);
-		SetType(EGameIDType.k_EGameIDTypeGameMod);
+		GameID = 0;
+		AppID = nAppID;
+		Type = EGameIDType.k_EGameIDTypeGameMod;
 
         CRC32 crc32 = new();
-        string? toCrc = Path.GetDirectoryName(modPath);
-		if (toCrc == null) {
-            toCrc = modPath;
-        }
+        string toCrc = Path.GetDirectoryName(modPath) ?? modPath;
 
         byte[] pathBytes = Encoding.UTF8.GetBytes(toCrc);
         crc32.AddBytes(pathBytes);
-        SetModID(crc32.GetHash() | (0x80000000));
+        ModID = crc32.GetHash() | (0x80000000);
 	}
 
 
@@ -88,67 +87,47 @@ public struct CGameID : System.IEquatable<CGameID>, System.IComparable<CGameID> 
     /// The given values are used for hashing via CRC32 (should be compatible with the way steam does it) to generate a proper gameid
     /// </summary>
 	public CGameID(string nonSteamAppPath, string nonSteamGameName) {
-		m_GameID = 0;
-		SetAppID(0);
-		SetType(EGameIDType.k_EGameIDTypeShortcut);
+		GameID = 0;
+		AppID = 0;
+		Type = EGameIDType.k_EGameIDTypeShortcut;
         CRC32 crc32 = new();
 		byte[] pathBytes = Encoding.UTF8.GetBytes(nonSteamAppPath);
 		byte[] nameBytes = Encoding.UTF8.GetBytes(nonSteamGameName);
         crc32.AddBytes(pathBytes);
 		crc32.AddBytes(nameBytes);
-        SetModID(crc32.GetHash() | (0x80000000));
+        ModID = crc32.GetHash() | (0x80000000);
 	}
 
 	public bool IsSteamApp() {
-		return Type() == EGameIDType.k_EGameIDTypeApp;
+		return Type == EGameIDType.k_EGameIDTypeApp;
 	}
 
 	public bool IsMod() {
-		return Type() == EGameIDType.k_EGameIDTypeGameMod;
+		return Type == EGameIDType.k_EGameIDTypeGameMod;
 	}
 
 	public bool IsShortcut() {
-		return Type() == EGameIDType.k_EGameIDTypeShortcut;
+		return Type == EGameIDType.k_EGameIDTypeShortcut;
 	}
 
 	public bool IsP2PFile() {
-		return Type() == EGameIDType.k_EGameIDTypeP2P;
-	}
-
-	public AppId_t AppID() {
-		if (m_GameID == 0) {
-            return 0;
-        }
-
-		return new AppId_t((uint)(m_GameID & 0xFFFFFFul));
-	}
-
-	public EGameIDType Type() {
-		if (m_GameID == 0) {
-            return EGameIDType.k_EGameIDTypeInvalid;
-        }
-
-		return (EGameIDType)((m_GameID >> 24) & 0xFFul);
-	}
-
-	public uint ModID() {
-		return (uint)((m_GameID >> 32) & 0xFFFFFFFFul);
+		return Type == EGameIDType.k_EGameIDTypeP2P;
 	}
 
 	public bool IsValid() {
 		// Each type has it's own invalid fixed point:
-		switch (Type()) {
+		switch (Type) {
 			case EGameIDType.k_EGameIDTypeApp:
-				return AppID() != 0;
+				return AppID != 0;
 
 			case EGameIDType.k_EGameIDTypeGameMod:
-				return AppID() != 0 && (ModID() & 0x80000000) != 0;
+				return AppID != 0 && (ModID & 0x80000000) != 0;
 
 			case EGameIDType.k_EGameIDTypeShortcut:
-				return (ModID() & 0x80000000) != 0;
+				return (ModID & 0x80000000) != 0;
 
 			case EGameIDType.k_EGameIDTypeP2P:
-				return AppID() == 0 && (ModID() & 0x80000000) != 0;
+				return AppID == 0 && (ModID & 0x80000000) != 0;
 
 			default:
 				return false;
@@ -156,27 +135,53 @@ public struct CGameID : System.IEquatable<CGameID>, System.IComparable<CGameID> 
 	}
 
 	public void Reset() {
-		m_GameID = 0;
+		GameID = 0;
 	}
 
-	public void Set(ulong GameID) {
-		m_GameID = GameID;
+	public void Set(ulong gameID) {
+		GameID = gameID;
 	}
 
-	private void SetAppID(AppId_t other) {
-		m_GameID = (m_GameID & ~(0xFFFFFFul << (ushort)0)) | (((ulong)(other) & 0xFFFFFFul) << (ushort)0);
+	public AppId_t AppID {
+		get {
+			if (GameID == 0) {
+				return 0;
+			}
+
+			return new AppId_t((uint)(GameID & 0xFFFFFFul));
+		}
+
+		set {
+			GameID = (GameID & ~(0xFFFFFFul << (ushort)0)) | (((ulong)(value) & 0xFFFFFFul) << (ushort)0);
+		}
 	}
 
-	private void SetType(EGameIDType other) {
-		m_GameID = (m_GameID & ~(0xFFul << (ushort)24)) | (((ulong)(other) & 0xFFul) << (ushort)24);
-	}
+	public EGameIDType Type {
+		get {
+			if (GameID == 0) {
+				return EGameIDType.k_EGameIDTypeInvalid;
+			}
 
-	private void SetModID(uint other) {
-		m_GameID = (m_GameID & ~(0xFFFFFFFFul << (ushort)32)) | (((ulong)(other) & 0xFFFFFFFFul) << (ushort)32);
+			return (EGameIDType)((GameID >> 24) & 0xFFul);
+		}
+
+		set {
+			GameID = (GameID & ~(0xFFul << (ushort)24)) | (((ulong)(value) & 0xFFul) << (ushort)24);
+		}
+	}
+	
+	public uint ModID {
+		get {
+			return (uint)((GameID >> 32) & 0xFFFFFFFFul);
+		}
+
+		set {
+			GameID = (GameID & ~(0xFFFFFFFFul << (ushort)32)) | (((ulong)(value) & 0xFFFFFFFFul) << (ushort)32);
+		}
 	}
 
 	public override string ToString() {
-		return m_GameID.ToString();
+		return GameID.ToString();
 	}
 
 	public override bool Equals(object? other) {
@@ -184,11 +189,11 @@ public struct CGameID : System.IEquatable<CGameID>, System.IComparable<CGameID> 
 	}
 
 	public override int GetHashCode() {
-		return m_GameID.GetHashCode();
+		return GameID.GetHashCode();
 	}
 
 	public static bool operator ==(CGameID x, CGameID y) {
-		return x.m_GameID == y.m_GameID;
+		return x.GameID == y.GameID;
 	}
 
 	public static bool operator !=(CGameID x, CGameID y) {
@@ -199,14 +204,14 @@ public struct CGameID : System.IEquatable<CGameID>, System.IComparable<CGameID> 
 		return new CGameID(value);
 	}
 	public static explicit operator ulong(CGameID that) {
-		return that.m_GameID;
+		return that.GameID;
 	}
 
 	public bool Equals(CGameID other) {
-		return m_GameID == other.m_GameID;
+		return GameID == other.GameID;
 	}
 
 	public int CompareTo(CGameID other) {
-		return m_GameID.CompareTo(other.m_GameID);
+		return GameID.CompareTo(other.GameID);
 	}
 }

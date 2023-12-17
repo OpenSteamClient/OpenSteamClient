@@ -32,6 +32,30 @@ public abstract class IncrementingBase<T> {
     }
 
     /// <summary>
+    /// Runs a function until our buffer fits it's output. <br/>
+    /// </summary>
+    /// <param name="func"></param>
+    public void RunUntilFits(Func<uint> func) {
+        uint lastResult;
+        while (true)
+        {
+            lastResult = func();
+
+            if (lastResult == 0) {
+                throw new ZeroLengthResultException();
+            }
+
+            if (lastResult < Length) {
+                break;
+            }
+
+            if (lastResult == Length) {
+                Data = Allocate(Length * 2);
+            }
+        }
+    }
+
+    /// <summary>
     /// Runs a function and resizes our buffer to it's outputted length.
     /// </summary>
     /// <param name="func"></param>

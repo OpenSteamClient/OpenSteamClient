@@ -9,6 +9,8 @@ namespace OpenSteamworks.Client.Utils;
 /// </summary>
 public abstract class KVObjectEx {
     private readonly KVObject kv;
+    public KVObject UnderlyingObject => kv;
+    
     public KVObjectEx(KVObject kv) {
         this.kv = kv;
     }
@@ -71,7 +73,7 @@ public abstract class KVObjectEx {
         return (int)kv == 1;
     }
 
-    protected T? DefaultIfUnset<T>(string key, Func<KVObject, T> ctor, T? def) where T: KVObjectEx {
+    protected T? DefaultIfUnset<T>(string key, Func<KVObject, T> ctor, T? def = null) where T: KVObjectEx {
         if (!TryGetKey(key, out KVValue? kv)) {
             return def;
         }
@@ -92,8 +94,36 @@ public abstract class KVObjectEx {
 
         return list;
     }
+
+    protected IDictionary<string, string> EmptyStringDictionaryIfUnset(string key) {
+        Dictionary<string, string> dict = new();
+        if (!TryGetKey(key, out KVValue? kv)) {
+            return dict;
+        }
+
+        foreach (var item in kv.GetChildrenAsKVObjects())
+        {
+            dict.Add(item.Name, (string)item.Value);
+        }
+
+        return dict;
+    }
+
+    protected IDictionary<string, bool> EmptyBoolDictionaryIfUnset(string key) {
+        Dictionary<string, bool> dict = new();
+        if (!TryGetKey(key, out KVValue? kv)) {
+            return dict;
+        }
+
+        foreach (var item in kv.GetChildrenAsKVObjects())
+        {
+            dict.Add(item.Name, (bool)item.Value);
+        }
+
+        return dict;
+    }
     
-    private bool TryGetKey(string key, [NotNullWhen(true)] out KVValue? kv) {
+    protected bool TryGetKey(string key, [NotNullWhen(true)] out KVValue? kv) {
         string[]? keys;
         if (key.Contains('/')) {
             keys = key.Split('/');

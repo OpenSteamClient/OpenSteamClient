@@ -20,6 +20,11 @@ using Avalonia.Input;
 using OpenSteamworks.Client.Utils.DI;
 using OpenSteamworks.Utils;
 using Avalonia.Styling;
+using OpenSteamworks.Client.Apps.Library;
+using OpenSteamworks.Generated;
+using System.Text;
+using OpenSteamworks.Client.Login;
+using OpenSteamworks.Enums;
 
 namespace ClientUI;
 
@@ -58,6 +63,8 @@ public class AvaloniaApp : Application
 
         Container.RegisterInstance(new Client(Container, bootstrapperProgress));
         Container.ConstructAndRegister<TranslationManager>();
+
+        Container.Get<TranslationManager>().SetLanguage(ELanguage.English, false);
         Container.RegisterInstance(this);
         await Container.RunClientStartup();
 
@@ -109,7 +116,13 @@ public class AvaloniaApp : Application
         };
 
         if (Container.Get<SteamClient>().NativeClient.ConnectedWith == SteamClient.ConnectionType.ExistingClient) {
-            if (Container.Get<LoginManager>().IsLoggedOn()) {
+            var loginManager = Container.Get<LoginManager>();
+            var clientUser = Container.Get<IClientUser>();
+            if (loginManager.IsLoggedOn()) {
+                StringBuilder username = new StringBuilder(256);
+                clientUser.GetAccountName(username, username.Capacity);
+
+                await Container.Get<LoginManager>().OnLoggedOn(new LoggedOnEventArgs(new LoginUser() { AccountName = username.ToString(), SteamID = clientUser.GetSteamID() }));
                 ForceMainWindow();
             }
         } else {

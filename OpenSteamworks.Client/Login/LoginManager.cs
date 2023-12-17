@@ -75,6 +75,7 @@ public class LoginManager : IClientLifetime
     private readonly ClientMessaging clientMessaging;
     private readonly Container container;
     private readonly Logger logger;
+    private readonly ConfigManager configManager;
 
     private LoginPoll? QRPoller;
     private LoginPoll? CredentialsPoller;
@@ -84,8 +85,9 @@ public class LoginManager : IClientLifetime
     public CSteamID InProgressLogonSteamID { get; private set; } = 0;
     public LoginUser? CurrentUser { get; private set; }
 
-    public LoginManager(SteamClient steamClient, LoginUsers loginUsers, Container container, ClientMessaging clientMessaging, InstallManager installManager)
+    public LoginManager(SteamClient steamClient, LoginUsers loginUsers, ConfigManager configManager, Container container, ClientMessaging clientMessaging, InstallManager installManager)
     {
+        this.configManager = configManager;
         this.logger = Logger.GetLogger("LoginManager", installManager.GetLogPath("LoginManager"));
         this.container = container;
         this.steamClient = steamClient;
@@ -100,7 +102,7 @@ public class LoginManager : IClientLifetime
         logger.Info("Removing account " + loginUser.AccountName);
         var success = loginUsers.RemoveUser(loginUser);
         steamClient.NativeClient.IClientUser.DestroyCachedCredentials(loginUser.AccountName, (int)EAuthTokenRevokeAction.EauthTokenRevokePermanent);
-        loginUsers.Save();
+        configManager.Save(loginUsers);
         return success;
     }
 
@@ -108,7 +110,7 @@ public class LoginManager : IClientLifetime
         logger.Info("Adding account " + loginUser.AccountName);
         loginUser.Remembered = steamClient.NativeClient.IClientUser.BHasCachedCredentials(loginUser.AccountName);
         var success = loginUsers.AddUser(loginUser);
-        loginUsers.Save();
+        configManager.Save(loginUsers);
         return success;
     }
 
@@ -325,7 +327,7 @@ public class LoginManager : IClientLifetime
             return false;
         }
 
-        autologinUser.LoginMethod = LoginMethod.Cached;
+        autologinUser.LoginMethod = LoginUser.ELoginMethod.Cached;
         BeginLogonToUser(autologinUser);
         return true;
     }
@@ -333,6 +335,7 @@ public class LoginManager : IClientLifetime
     /// <summary>
     /// Gets whether there is a user logged in or in offline mode.
     /// </summary>
+    [MemberNotNullWhen(true, nameof(CurrentUser))]
     public bool IsLoggedOn() {
         return this.steamClient.NativeClient.IClientUser.BLoggedOn();
     }
@@ -423,7 +426,7 @@ public class LoginManager : IClientLifetime
 
             switch (user.LoginMethod)
             {
-                case LoginMethod.UsernamePassword:
+                case LoginUser.ELoginMethod.UsernamePassword:
                     UtilityFunctions.AssertNotNull(user.AccountName);
                     UtilityFunctions.AssertNotNull(user.Password);
                     steamClient.NativeClient.IClientUser.SetLoginInformation(user.AccountName, user.Password, user.Remembered);
@@ -432,7 +435,7 @@ public class LoginManager : IClientLifetime
                     }
 
                     break;
-                case LoginMethod.Cached:
+                case LoginUser.ELoginMethod.Cached:
                     UtilityFunctions.AssertNotNull(user.AccountName);
 
                     if (!steamClient.NativeClient.IClientUser.BHasCachedCredentials(user.AccountName))
@@ -443,7 +446,7 @@ public class LoginManager : IClientLifetime
 
                     steamClient.NativeClient.IClientUser.SetAccountNameForCachedCredentialLogin(user.AccountName, false);
                     break;
-                case LoginMethod.JWT:
+                case LoginUser.ELoginMethod.JWT:
                     UtilityFunctions.AssertNotNull(user.AccountName);
                     UtilityFunctions.AssertNotNull(user.LoginToken);
                     steamClient.NativeClient.IClientUser.SetLoginToken(user.LoginToken, user.AccountName);
@@ -541,13 +544,21 @@ public class LoginManager : IClientLifetime
         }
     }
 
+    public string GetUserConfigDirectory() {
+        if (!IsLoggedOn()) {
+            throw new InvalidOperationException("GetUserConfigDirectory called but we're not logged in");
+        }
+
+        return this.steamClient.NativeClient.IClientUtils.GetUserBaseFolderPersistentStorage();
+    }
+
     private void OnLogonFailed(LogOnFailedEventArgs e) {
         this.loginFinishResult = null;
         this.isLoggingOn = false;
         LogOnFailed?.Invoke(this, e);
     }
 
-    private async Task OnLoggedOn(LoggedOnEventArgs e) {
+    public async Task OnLoggedOn(LoggedOnEventArgs e) {
         CurrentUser = e.User;
         InProgressLogonSteamID = 0;
         await Task.Run(() => {
@@ -592,7 +603,7 @@ public class LoginManager : IClientLifetime
             }
             catch (System.Exception e)
             {
-                logger.Error("Failed to log out. This can be caused by a long-hanging OnLogon handler");
+                logger.Error("Failed to log out.");
                 logger.Error(e);
             }
         }

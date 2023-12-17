@@ -24,7 +24,9 @@ public unsafe interface IClientFriends
     // WARNING: Arguments are unknown!
     public unknown_ret NotifyUIOfMenuChange();  // argc: 4, index: 6
     // WARNING: Arguments are unknown!
-    public unknown_ret GetFriendCount();  // argc: 1, index: 7
+    // 4 = Direct
+    // 8 = Group
+    public unknown_ret GetFriendCount(int getFriendCountFlags = 4);  // argc: 1, index: 7
     // WARNING: Arguments are unknown!
     public unknown_ret GetFriendArray();  // argc: 4, index: 8
     // WARNING: Arguments are unknown!

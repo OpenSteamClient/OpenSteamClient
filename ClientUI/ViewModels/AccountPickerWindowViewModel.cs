@@ -7,6 +7,7 @@ using ClientUI.Translation;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using OpenSteamworks.Client.Config;
+using OpenSteamworks.Client.Login;
 using OpenSteamworks.Client.Managers;
 using OpenSteamworks.Client.Utils;
 using OpenSteamworks.Generated;
@@ -16,11 +17,11 @@ namespace ClientUI.ViewModels;
 public partial class AccountPickerWindowViewModel : ViewModelBase
 {
     public ObservableCollection<SavedAccountViewModel> Accounts { get; } = new();
-    private IClientUser iClientUser;
+    private IClientUser clientUser;
     private LoginManager loginManager;
     private static Bitmap unknownBitmap = new Bitmap(AssetLoader.Open(new Uri("avares://ClientUI/Assets/unknown.png")));
-    public AccountPickerWindowViewModel(IClientUser iClientUser, LoginManager loginManager, TranslationManager tm) {
-        this.iClientUser = iClientUser;
+    public AccountPickerWindowViewModel(IClientUser clientUser, LoginManager loginManager, TranslationManager tm) {
+        this.clientUser = clientUser;
         this.loginManager = loginManager;
 
         foreach (var item in loginManager.GetSavedUsers())
@@ -45,7 +46,7 @@ public partial class AccountPickerWindowViewModel : ViewModelBase
             vm.ClickAction = new RelayCommand(() =>
             {
                 if (this.loginManager.HasCachedCredentials(item)) {
-                    item.LoginMethod = OpenSteamworks.Client.Config.LoginMethod.Cached;
+                    item.LoginMethod = LoginUser.ELoginMethod.Cached;
                     this.loginManager.BeginLogonToUser(item);
                 } else {
                     this.OpenLoginDialog(item);

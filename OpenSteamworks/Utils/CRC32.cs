@@ -3,17 +3,17 @@ using System;
 namespace OpenSteamworks.Utils;
 
 public class CRC32 {
-    public const UInt32 DefaultPolynomial = 0xedb88320u;
-    public const UInt32 DefaultSeed = 0xffffffffu;
+    public const uint DefaultPolynomial = 0xedb88320u;
+    public const uint DefaultSeed = 0xffffffffu;
 
     private uint hash = DefaultSeed;
-    private static UInt32[] defaultTable = new UInt32[256];
+    private static uint[] defaultTable = new uint[256];
 
     static CRC32() {
         // Initialize the default table
         for (var i = 0; i < 256; i++)
         {
-            var entry = (UInt32)i;
+            var entry = (uint)i;
             for (var j = 0; j < 8; j++)
                 if ((entry & 1) == 1)
                     entry = (entry >> 1) ^ DefaultPolynomial;
@@ -21,10 +21,6 @@ public class CRC32 {
                     entry >>= 1;
             defaultTable[i] = entry;
         }
-    }
-
-    public CRC32() {
-
     }
 
     public void AddBytes(byte[] bytes) {

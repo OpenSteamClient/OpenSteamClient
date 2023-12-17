@@ -41,6 +41,7 @@ public class AppLastPlayedChangedEventArgs : EventArgs {
 
 public class AppsManager : ILogonLifetime
 {
+    private readonly HashSet<AppId_t> ownedAppIDs = new();
     public ReadOnlyCollectionEx<AppId_t> OwnedAppIDs {
         get {
             return new ReadOnlyCollectionEx<AppId_t>(ownedAppIDs);
@@ -48,16 +49,57 @@ public class AppsManager : ILogonLifetime
     }
 
     private object ownedAppsLock = new();
-    private HashSet<AppId_t> ownedAppIDs { get; init; } = new();
-    private SteamClient steamClient;
-    private ClientMessaging clientMessaging;
-    private Logger logger;
-    private InstallManager installManager;
-    private LoginManager loginManager;
+    private readonly SteamClient steamClient;
+    private readonly ClientMessaging clientMessaging;
+    private readonly Logger logger;
+    private readonly InstallManager installManager;
+    private readonly LoginManager loginManager;
     public readonly ClientApps ClientApps;
 
     public EventHandler<AppPlaytimeChangedEventArgs>? AppPlaytimeChanged;
     public EventHandler<AppLastPlayedChangedEventArgs>? AppLastPlayedChanged;
+
+    public HashSet<AppId_t> InstalledApps {
+        get {
+            IncrementingAppIDArray arr = new();
+            arr.RunUntilFits(() => this.steamClient.NativeClient.IClientAppManager.GetInstalledApps(arr.Data, arr.Length));
+            return arr.Data.ToHashSet();
+        }
+    }
+
+    //TODO: streamable apps
+    public HashSet<AppId_t> ReadyToPlayApps {
+        get {
+            var apps = InstalledApps;
+            Console.WriteLine("apps: " + apps.Count);
+            apps = apps.Where((app) => this.steamClient.NativeClient.IClientAppManager.BIsAppUpToDate(app)).ToHashSet();
+            Console.WriteLine("apps2: " + apps.Count);
+            return apps;
+        }
+    }
+    
+    private Dictionary<AppId_t, RTime32> appLastPlayedMap = new();
+    private Dictionary<AppId_t, AppPlaytime_t> appPlaytimeMap = new();
+
+    public HashSet<AppId_t> PlayedApps {
+        get {
+            HashSet<AppId_t> apps = new();
+            foreach (var item in appLastPlayedMap)
+            {
+                apps.Add(item.Key);
+            }
+
+            return apps;
+        }
+    }
+
+    public HashSet<AppId_t> UnplayedApps {
+        get {
+            HashSet<AppId_t> apps = ownedAppIDs;
+            apps = apps.Except(PlayedApps).ToHashSet();
+            return apps;
+        }
+    }
 
     public AppsManager(SteamClient steamClient, ClientApps clientApps, ClientMessaging clientMessaging, InstallManager installManager, LoginManager loginManager) {
         this.logger = Logger.GetLogger("AppsManager", installManager.GetLogPath("AppsManager"));
@@ -103,22 +145,71 @@ public class AppsManager : ILogonLifetime
     public async Task OnLoggedOn(IExtendedProgress<int> progress, LoggedOnEventArgs e) {
         var ownedApps = await this.GetAppsForSteamID(e.User.SteamID);
 
-        //TODO: what should we do here? Implementing some sort of App class sounds like a good idea in theory, but would make AppsManager largely obsolete.
-        //TODO: how to organize getting app's names, soundtrack infos, etc easily?
         lock (ownedAppsLock)
         {
             ownedAppIDs.UnionWith(ownedApps);
         }
         hasLogOnFinished = true;
+
+        if (steamClient.NativeClient.ConnectedWith == SteamClient.ConnectionType.NewClient) {
+            unsafe {
+                CUtlMap<AppId_t, RTime32> mapn = new(0, 4096);
+                if (steamClient.NativeClient.IClientUser.BGetAppsLastPlayedMap(&mapn)) {
+                    appLastPlayedMap = mapn.ToManagedAndFree();
+                } else {
+                    mapn.Free();
+                }
+            }
+
+            unsafe {
+                CUtlMap<AppId_t, AppPlaytime_t> mapn = new(0, 4096);
+                if (steamClient.NativeClient.IClientUser.BGetAppPlaytimeMap(&mapn)) {
+                    appPlaytimeMap = mapn.ToManagedAndFree();
+                } else {
+                    mapn.Free();
+                }
+            }
+        } else {
+            foreach (var ownedAppID in ownedAppIDs)
+            {
+                var lastPlayed = steamClient.NativeClient.IClientUser.GetAppLastPlayedTime(ownedAppID);
+                if (lastPlayed != 0) {
+                    appLastPlayedMap[ownedAppID] = lastPlayed;
+                }
+
+                var playtime = this.steamClient.ClientConfigStore.GetInt(EConfigStore.UserLocal, $"Software\\Valve\\Steam\\Apps\\{ownedAppID}\\Playtime") ?? 0;
+                var playtime2wks = this.steamClient.ClientConfigStore.GetInt(EConfigStore.UserLocal, $"Software\\Valve\\Steam\\Apps\\{ownedAppID}\\Playtime2wks") ?? 0;
+                if (playtime != 0 || playtime2wks != 0) {
+                    appPlaytimeMap[ownedAppID] = new AppPlaytime_t((uint)playtime, (uint)playtime2wks);
+                }
+            }
+        }
     }
 
-    public SteamApp GetSteamAppSync(AppId_t appid) {
-        return AppBase.CreateSteamApp(this, appid);
+    private List<AppBase> apps = new();
+
+    /// <summary>
+    /// Gets an app. Initializes it synchronously if not previously initialized.
+    /// </summary>
+    /// <param name="gameid"></param>
+    /// <returns></returns>
+    public AppBase GetApp(CGameID gameid) {
+        var existingApp = apps.Where((a) => a.GameID == gameid).FirstOrDefault();
+        if (existingApp != null) {
+            return existingApp;
+        }
+
+        var app = AppBase.CreateSteamApp(this, gameid.AppID);
+        apps.Add(app);
+        return app;
     }
 
     public async Task OnLoggingOff(IExtendedProgress<int> progress) {
         hasLogOnFinished = false;
         ownedAppIDs.Clear();
+        appLastPlayedMap.Clear();
+        appPlaytimeMap.Clear();
+        await Task.CompletedTask;
     }
 
     /// <summary>
@@ -172,6 +263,31 @@ public class AppsManager : ILogonLifetime
         {
             Thread.Sleep(30);
         }
+    }
+
+    public void SetDefaultCompatToolForApp(CGameID gameid) {
+        string defaultCompatTool = this.steamClient.NativeClient.IClientCompat.GetCompatToolName(0);
+        if (string.IsNullOrEmpty(defaultCompatTool)) {
+            throw new InvalidOperationException("Can't set default config tool for app " + gameid + ", since no default compat tool has been specified!");
+        }
+
+        this.SetCompatToolForApp(gameid, defaultCompatTool);
+    }
+
+    public void DisableCompatToolForApp(CGameID gameid) {
+        this.steamClient.NativeClient.IClientCompat.SpecifyCompatTool(gameid.AppID, "", "", 0);
+    }
+
+    public string GetCurrentCompatToolForApp(CGameID gameid) {
+        if (!this.steamClient.NativeClient.IClientCompat.BIsCompatibilityToolEnabled(gameid.AppID)) {
+            return "";
+        }
+        
+        return this.steamClient.NativeClient.IClientCompat.GetCompatToolName(gameid.AppID);
+    }
+
+    public void SetCompatToolForApp(CGameID gameid, string compatToolName) {
+        this.steamClient.NativeClient.IClientCompat.SpecifyCompatTool(gameid.AppID, compatToolName, "", 250);
     }
 
     public async Task<EResult> LaunchApp(AppBase app, int launchOption, string userLaunchOptions) {

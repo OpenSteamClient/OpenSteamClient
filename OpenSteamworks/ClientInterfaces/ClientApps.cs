@@ -27,6 +27,7 @@ public class ClientApps {
         this.callbackManager = client.CallbackManager;
     }
 
+    public bool BIsAppUpToDate(AppId_t appid) => this.nativeClientAppManager.BIsAppUpToDate(appid);
     public KVObject GetAppDataSection(AppId_t appid, EAppInfoSection section) {
         IncrementingBuffer buf = new();
         buf.RunUntilFits(() => nativeClientApps.GetAppDataSection(appid, section, buf.Data, buf.Length, false));
@@ -36,11 +37,11 @@ public class ClientApps {
         }
     }
 
-    public ReadOnlyDictionary<EAppInfoSection, KVObject> GetMultipleAppDataSectionsSync(AppId_t app, EAppInfoSection[] sections) {
+    public ReadOnlyDictionary<EAppInfoSection, KVObject?> GetMultipleAppDataSectionsSync(AppId_t app, EAppInfoSection[] sections) {
         IncrementingBuffer buf = new(1024*sections.Length);
         int[] lengths = new int[sections.Length];
         buf.RunToFit(() => nativeClientApps.GetMultipleAppDataSections(app, sections, sections.Length, buf.Data, buf.Length, false, lengths));
-        Dictionary<EAppInfoSection, KVObject> objects = new();
+        Dictionary<EAppInfoSection, KVObject?> objects = new();
         int position = 0;
         int index = 0;
         foreach (var length in lengths)
@@ -51,6 +52,8 @@ public class ClientApps {
                 {
                     objects.Add(sections.ElementAt(index), serializerbinary.Deserialize(stream));
                 }
+            } else {
+                objects.Add(sections.ElementAt(index), null);
             }
 
             position += length;

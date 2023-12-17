@@ -1,3 +1,5 @@
+using System.Diagnostics.CodeAnalysis;
+using OpenSteamworks.Enums;
 using OpenSteamworks.Structs;
 
 namespace OpenSteamworks.Client.Apps;
@@ -7,25 +9,45 @@ namespace OpenSteamworks.Client.Apps;
 /// </summary>
 public abstract class AppBase
 {
-    public abstract string Name { get; }
-    public abstract string HeroURL { get; }
-    public abstract string LogoURL { get; }
-    public abstract string IconURL { get; }
-    public abstract string PortraitURL { get; }
+    /// <summary>
+    /// Generic launch option for implementation and display purposes
+    /// </summary>
+    public interface ILaunchOption {
+        public int ID { get; }
+        public string Name { get; }
+        public string Description { get; }
+    }
+
+    public abstract IEnumerable<ILaunchOption> LaunchOptions { get; }
+    public abstract int? DefaultLaunchOptionID { get; }
+    // For easier calling of correct Launch method
+    public Task<EAppUpdateError> Launch(string userLaunchOptions, ILaunchOption option) => this.Launch(userLaunchOptions, option.ID);
+    public abstract Task<EAppUpdateError> Launch(string userLaunchOptions, int launchOptionID);
+
+    protected abstract string ActualName { get; }
+    protected abstract string ActualHeroURL { get; }
+    protected abstract string ActualLogoURL { get; }
+    protected abstract string ActualIconURL { get; }
+    protected abstract string ActualPortraitURL { get; }
+    
+    public string Name => GetValueOverride(NameOverride, ActualName);
+    public string HeroURL => GetValueOverride(HeroOverrideURL, ActualHeroURL);
+    public string LogoURL => GetValueOverride(LogoOverrideURL, ActualLogoURL);
+    public string IconURL => GetValueOverride(IconOverrideURL, ActualIconURL);
+    public string PortraitURL => GetValueOverride(PortraitOverrideURL, ActualPortraitURL);
 
     public CGameID GameID { get; protected set; } = CGameID.Zero;
     public AppId_t AppID
     {
         get
         {
-            return GameID.AppID();
+            return GameID.AppID;
         }
     }
 
     /// <summary>
     /// Use this to set a custom name. <br/> 
     /// It will override the name defined in the app's appdata sections, or in the case of mods it will override the mod's name (from it's gameinfo.txt)
-    /// For inheriters: Please check this property's contents before using your actual name in get_Name.
     /// </summary>
     public string NameOverride { get; set; } = "";
 
@@ -52,13 +74,17 @@ public abstract class AppBase
     /// It will override the artwork defined in the app's appdata sections, or in the case of mods it will override the default grey portrait. 
     /// </summary>
     public string PortraitOverrideURL { get; set; } = "";
+    
+    public string? CachedIconPath { get; protected set; }
+    public string? CachedLogoPath { get; protected set; }
+    public string? CachedHeroPath { get; protected set; }
+    public string? CachedPortraitPath { get; protected set; }
 
     public bool IsMod => this.GameID.IsMod();
     public bool IsShortcut => this.GameID.IsShortcut();
     public bool IsSteamApp => this.GameID.IsSteamApp();
-    public bool IsMisc => !(IsMod || IsShortcut || IsSteamApp);
 
-    protected AppsManager AppsManager;
+    protected AppsManager AppsManager { get; init; }
     public AppBase(AppsManager appsManager)
     {
         AppsManager = appsManager;
@@ -73,12 +99,12 @@ public abstract class AppBase
 
         if (string.IsNullOrEmpty(valuestr))
         {
-            return "";
+            return string.Empty;
         }
 
         return valuestr;
     }
-    
+
     public static SteamApp CreateSteamApp(AppsManager appsManager, AppId_t appid) {
         return new SteamApp(appsManager, appid);
     }
@@ -91,15 +117,15 @@ public abstract class AppBase
         return new SourcemodApp(appsManager, sourcemodDir, modid);
     }
 
-    protected AppBase? GetAppIfValidAppID(AppId_t appid) {
-        if (appid == 0) {
+    protected AppBase? GetAppIfValidGameID(CGameID gameid) {
+        if (!gameid.IsValid()) {
             return null;
         }
 
         if (AppsManager == null) {
-            throw new InvalidOperationException("AppsManager was null when getting ParentApp");
+            throw new InvalidOperationException("AppsManager was null when getting gameid " + gameid);
         }
 
-        return AppsManager.GetSteamAppSync(appid);
+        return AppsManager.GetApp(gameid);
     }
 }

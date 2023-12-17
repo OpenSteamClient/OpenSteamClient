@@ -16,7 +16,7 @@ using OpenSteamworks.Messaging;
 using OpenSteamworks.Protobuf.WebUI;
 using OpenSteamworks.Structs;
 
-namespace OpenSteamworks.Client.Config;
+namespace OpenSteamworks.Client.Apps;
 
 public class NamespaceData {
     private readonly object dataLock = new();

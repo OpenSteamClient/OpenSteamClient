@@ -236,7 +236,7 @@ internal static partial class CallbackConstants {
         {1020073, "28OfflineLogonTicketReceived_t"},
         {1020076, "35NotifyAsyncNotificationsRequested_t"},
         {1020077, "PlayingSessionChanged_t"},
-        {1020078, "Unknown"},
+        {1020078, "19AppStartedProcess_t"},
         {1020079, "Unknown"},
         {1020081, "29GetTwoFactorDetailsResponse_t"},
         {1020082, "PrepareForSuspendProgress_t"},
