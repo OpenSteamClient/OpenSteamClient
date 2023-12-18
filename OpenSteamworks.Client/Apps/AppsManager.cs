@@ -184,6 +184,11 @@ public class AppsManager : ILogonLifetime
                 }
             }
         }
+
+        foreach (var item in ownedAppIDs)
+        {
+            GetApp(new CGameID(item));
+        }
     }
 
     private List<AppBase> apps = new();
@@ -226,7 +231,7 @@ public class AppsManager : ILogonLifetime
     /// Will not work in offline mode. Yet. TODO: we need a robust caching system.
     /// </summary>
     /// <param name="steamid">SteamID of the user to request apps for</param>
-    public async Task<HashSet<AppId_t>> GetAppsForSteamID(CSteamID steamid, bool includeSteamPackageGames = true, bool includeFreeGames = true) {
+    public async Task<HashSet<AppId_t>> GetAppsForSteamID(CSteamID steamid, bool includeSteamPackageGames = false, bool includeFreeGames = true) {
         logger.Debug("Attempting to get owned apps for " + steamid);
         ProtoMsg<Protobuf.CPlayer_GetOwnedGames_Request> request = new("Player.GetOwnedGames#1");
         request.body.Steamid = steamid;

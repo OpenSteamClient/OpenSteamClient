@@ -63,10 +63,10 @@ public class AvaloniaApp : Application
 
         Container.RegisterInstance(new Client(Container, bootstrapperProgress));
         Container.ConstructAndRegister<TranslationManager>();
-
-        Container.Get<TranslationManager>().SetLanguage(ELanguage.English, false);
         Container.RegisterInstance(this);
         await Container.RunClientStartup();
+
+        Container.Get<TranslationManager>().SetLanguage(ELanguage.English, false);
 
         // This will stay for the lifetime of the application.
         Container.Get<LoginManager>().LoggedOn += (object sender, LoggedOnEventArgs e) =>

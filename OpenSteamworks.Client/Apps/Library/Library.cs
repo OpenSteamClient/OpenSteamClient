@@ -43,7 +43,7 @@ public class Library
         // Get all collections
         try
         {
-            namespaceData = await cloudConfigStore.GetNamespaceData(Enums.EUserConfigStoreNamespace.k_EUserConfigStoreNamespaceLibrary);
+            namespaceData = await cloudConfigStore.GetNamespaceData(Enums.EUserConfigStoreNamespace.Library);
             var keyValues = namespaceData.GetKeysStartingWith("user-collections.");
             foreach (var entry in keyValues)
             {

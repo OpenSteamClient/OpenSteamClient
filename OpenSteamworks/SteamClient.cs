@@ -143,7 +143,7 @@ public class SteamClient
 
     /// <summary>
     /// Does trickery to allow running an external steamservice on Linux. Unused on Windows, as it's the default configuration there.
-    /// You'll still need to provide your own host for the steamservice (an example is available at Rosentti/OpenSteamClient/Native/serviced/main.cpp)
+    /// You'll still need to provide your own host for the steamservice (an example is available at OpenSteamClient/OpenSteamClient/Native/serviced/main.cpp)
     /// </summary>
     private void RunServiceHack() {
         // TODO: find out a better way (probably in IClientNetworkingUtils) to set bIsServiceLocal to true instead of doing this

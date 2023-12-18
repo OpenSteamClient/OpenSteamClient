@@ -14,11 +14,11 @@ public struct CGameID : IEquatable<CGameID>, IComparable<CGameID> {
     public ulong GameID { get; set; }
 
     public enum EGameIDType {
-		k_EGameIDTypeApp = 0,
-		k_EGameIDTypeGameMod = 1,
-		k_EGameIDTypeShortcut = 2,
-		k_EGameIDTypeP2P = 3,
-		k_EGameIDTypeInvalid
+		App = 0,
+		GameMod = 1,
+		Shortcut = 2,
+		P2P = 3,
+		Invalid
 	};
 
 	public CGameID(ulong gameID) {
@@ -33,7 +33,7 @@ public struct CGameID : IEquatable<CGameID>, IComparable<CGameID> {
 	public CGameID(AppId_t nAppID, uint nModID) {
 		GameID = 0;
 		AppID = nAppID;
-		Type = EGameIDType.k_EGameIDTypeGameMod;
+		Type = EGameIDType.GameMod;
 		ModID = nModID;
 	}
 
@@ -70,7 +70,7 @@ public struct CGameID : IEquatable<CGameID>, IComparable<CGameID> {
 	public CGameID(AppId_t nAppID, string modPath) {
 		GameID = 0;
 		AppID = nAppID;
-		Type = EGameIDType.k_EGameIDTypeGameMod;
+		Type = EGameIDType.GameMod;
 
         CRC32 crc32 = new();
         string toCrc = Path.GetDirectoryName(modPath) ?? modPath;
@@ -89,7 +89,7 @@ public struct CGameID : IEquatable<CGameID>, IComparable<CGameID> {
 	public CGameID(string nonSteamAppPath, string nonSteamGameName) {
 		GameID = 0;
 		AppID = 0;
-		Type = EGameIDType.k_EGameIDTypeShortcut;
+		Type = EGameIDType.Shortcut;
         CRC32 crc32 = new();
 		byte[] pathBytes = Encoding.UTF8.GetBytes(nonSteamAppPath);
 		byte[] nameBytes = Encoding.UTF8.GetBytes(nonSteamGameName);
@@ -99,34 +99,34 @@ public struct CGameID : IEquatable<CGameID>, IComparable<CGameID> {
 	}
 
 	public bool IsSteamApp() {
-		return Type == EGameIDType.k_EGameIDTypeApp;
+		return Type == EGameIDType.App;
 	}
 
 	public bool IsMod() {
-		return Type == EGameIDType.k_EGameIDTypeGameMod;
+		return Type == EGameIDType.GameMod;
 	}
 
 	public bool IsShortcut() {
-		return Type == EGameIDType.k_EGameIDTypeShortcut;
+		return Type == EGameIDType.Shortcut;
 	}
 
 	public bool IsP2PFile() {
-		return Type == EGameIDType.k_EGameIDTypeP2P;
+		return Type == EGameIDType.P2P;
 	}
 
 	public bool IsValid() {
 		// Each type has it's own invalid fixed point:
 		switch (Type) {
-			case EGameIDType.k_EGameIDTypeApp:
+			case EGameIDType.App:
 				return AppID != 0;
 
-			case EGameIDType.k_EGameIDTypeGameMod:
+			case EGameIDType.GameMod:
 				return AppID != 0 && (ModID & 0x80000000) != 0;
 
-			case EGameIDType.k_EGameIDTypeShortcut:
+			case EGameIDType.Shortcut:
 				return (ModID & 0x80000000) != 0;
 
-			case EGameIDType.k_EGameIDTypeP2P:
+			case EGameIDType.P2P:
 				return AppID == 0 && (ModID & 0x80000000) != 0;
 
 			default:
@@ -159,7 +159,7 @@ public struct CGameID : IEquatable<CGameID>, IComparable<CGameID> {
 	public EGameIDType Type {
 		get {
 			if (GameID == 0) {
-				return EGameIDType.k_EGameIDTypeInvalid;
+				return EGameIDType.Invalid;
 			}
 
 			return (EGameIDType)((GameID >> 24) & 0xFFul);

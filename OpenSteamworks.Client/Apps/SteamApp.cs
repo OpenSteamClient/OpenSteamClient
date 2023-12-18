@@ -40,12 +40,12 @@ public class SteamApp : AppBase
     protected readonly Logger logger;
 
     public AppDataCommonSection Common { get; private set; }
-    public AppDataConfigSection? Config { get; private set; }
-    public AppDataExtendedSection? Extended { get; private set; }
-    public AppDataInstallSection? Install { get; private set; }
-    public AppDataDepotsSection? Depots { get; private set; }
-    public AppDataCommunitySection? Community { get; private set; }
-    public AppDataLocalizationSection? Localization { get; private set; }
+    public AppDataConfigSection Config { get; private set; }
+    public AppDataExtendedSection Extended { get; private set; }
+    public AppDataInstallSection Install { get; private set; }
+    public AppDataDepotsSection Depots { get; private set; }
+    public AppDataCommunitySection Community { get; private set; }
+    public AppDataLocalizationSection Localization { get; private set; }
     public EAppType Type
     {
         get
@@ -93,18 +93,19 @@ public class SteamApp : AppBase
         this.logger = appsManager.GetLoggerForApp(this);
 
         var sections = appsManager.ClientApps.GetMultipleAppDataSectionsSync(appid, new EAppInfoSection[] {EAppInfoSection.Common, EAppInfoSection.Config, EAppInfoSection.Extended, EAppInfoSection.Install, EAppInfoSection.Depots, EAppInfoSection.Community, EAppInfoSection.Localization});
+        
         // The common section should always exist for all app types.
         if (sections[EAppInfoSection.Common] == null) {
             throw new NullReferenceException("Common section does not exist for app " + appid);
         }
-
-        Common = TryCreateSection(sections[EAppInfoSection.Common], obj => new AppDataCommonSection(obj))!;
-        Config = TryCreateSection(sections[EAppInfoSection.Config], obj => new AppDataConfigSection(obj));
-        Extended = TryCreateSection(sections[EAppInfoSection.Extended], obj => new AppDataExtendedSection(obj));
-        Install = TryCreateSection(sections[EAppInfoSection.Install], obj => new AppDataInstallSection(obj));
-        Depots = TryCreateSection(sections[EAppInfoSection.Depots], obj => new AppDataDepotsSection(obj));
-        Community = TryCreateSection(sections[EAppInfoSection.Community], obj => new AppDataCommunitySection(obj));
-        Localization = TryCreateSection(sections[EAppInfoSection.Localization], obj => new AppDataLocalizationSection(obj));
+        
+        Common = TryCreateSection(sections[EAppInfoSection.Common], "common", obj => new AppDataCommonSection(obj))!;
+        Config = TryCreateSection(sections[EAppInfoSection.Config], "config", obj => new AppDataConfigSection(obj))!;
+        Extended = TryCreateSection(sections[EAppInfoSection.Extended], "extended", obj => new AppDataExtendedSection(obj));
+        Install = TryCreateSection(sections[EAppInfoSection.Install], "install", obj => new AppDataInstallSection(obj));
+        Depots = TryCreateSection(sections[EAppInfoSection.Depots], "depots", obj => new AppDataDepotsSection(obj));
+        Community = TryCreateSection(sections[EAppInfoSection.Community], "community", obj => new AppDataCommunitySection(obj));
+        Localization = TryCreateSection(sections[EAppInfoSection.Localization], "localization", obj => new AppDataLocalizationSection(obj));
 
         if (this.Common.GameID.IsValid())
         {
@@ -116,9 +117,9 @@ public class SteamApp : AppBase
         }
     }
 
-    private static T? TryCreateSection<T>(KVObject? obj, Func<KVObject, T> factory) where T: KVObjectEx {
+    private static T TryCreateSection<T>(KVObject? obj, string sectionName, Func<KVObject, T> factory) where T: KVObjectEx {
         if (obj == null) {
-            return null;
+            return factory(new KVObject(sectionName, ""));
         }
 
         return factory(obj);
