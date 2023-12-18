@@ -16,7 +16,7 @@ public abstract class KVObjectEx {
     }
 
     public KVValue this[string key] => kv[key];
-
+    
     protected int DefaultIfUnset(string key, int def) {
         if (!TryGetKey(key, out KVValue? kv)) {
             return def;
@@ -79,6 +79,10 @@ public abstract class KVObjectEx {
         }
 
         return ctor(kv[key].GetAsKVObject());
+    }
+
+    protected void SetValue(string key, KVValue val) {
+        kv[key] = val;
     }
 
     protected IEnumerable<T> EmptyListIfUnset<T>(string key, Func<KVObject, T> ctor) where T: KVObjectEx {

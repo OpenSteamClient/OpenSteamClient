@@ -2,10 +2,10 @@
 Categories=Network;Game;
 Comment=Partially open-source alternative to the Steam Client application
 Comment[fi]=Vaihtoehtoinen osittain avoimen lähdekoodin Steam-asiakassovellus
-Exec=/usr/bin/opensteam %U
+Exec=/usr/bin/opensteamclient-gui %U
 GenericName=Game Launcher
-Icon=opensteam
+Icon=opensteamclient
 MimeType=
-Name=OpenSteam
+Name=OpenSteamClient
 StartupNotify=true
 Type=Application

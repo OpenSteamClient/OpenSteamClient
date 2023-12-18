@@ -17,6 +17,7 @@ public class ShortcutApp : AppBase {
         }
     }
 
+    
     private string shortcutName = "";
     protected override string ActualName => shortcutName;
     protected override string ActualHeroURL => this.UserSetApp?.HeroURL ?? "";
@@ -43,6 +44,8 @@ public class ShortcutApp : AppBase {
     public override IEnumerable<LaunchOption> LaunchOptions => new List<LaunchOption>() { new(0, "", "") };
     public override int? DefaultLaunchOptionID => 0;
 
+    public override int ChangeNumber => 0;
+    
     internal ShortcutApp(AppsManager appsManager, string name, string exe, string workingDir) : base(appsManager) {
         this.GameID = new CGameID(Path.Combine(workingDir, exe), name);
         this.shortcutName = name;

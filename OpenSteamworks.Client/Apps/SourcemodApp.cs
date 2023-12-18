@@ -41,6 +41,8 @@ public class SourcemodApp : AppBase {
     public override IEnumerable<LaunchOption> LaunchOptions => new List<LaunchOption>() { new(0, "Play " + this.Name, "") };
     public override int? DefaultLaunchOptionID => 0;
 
+    public override int ChangeNumber => 0;
+
     internal SourcemodApp(AppsManager appsManager, string sourcemodDir, uint modid) : base(appsManager) {
         SourcemodGameInfo = new SourcemodGameInfo(SourcemodApp.kvserializer.Deserialize(File.OpenRead(Path.Combine(sourcemodDir, "gameinfo.txt"))));
         this.GameID = new CGameID(SourcemodGameInfo.SteamAppID, modid);

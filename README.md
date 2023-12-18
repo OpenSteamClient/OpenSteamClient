@@ -6,7 +6,7 @@ A partially open-source Steam client for Windows and Linux
 # Current development status
 - [x] Bootstrapper
 - [ ] Backend stuff:
-  - [ ] JITEngine classgen with fields (would be nice for concommand support)
+  - [ ] (optional) JITEngine classgen with fields (would be nice for concommand support)
   - [x] Custom value types
   - [x] Callback system
   - [ ] Misc code cleanups
@@ -23,12 +23,12 @@ A partially open-source Steam client for Windows and Linux
   - [x] Collections backend
   - [ ] Collection editing GUI
   - [ ] Games list
-  - [ ] Focused game view
-  - [ ] Mini mode
+  - [ ] Focused game view (library art, friends who play, etc)
+  - [ ] (optional) Mini mode
   - [ ] Game settings page
   - [ ] Downloads page
-  - [ ] Disabling updates for certain apps
-- [ ] ConCommand support
+  - [ ] (optional) Disabling updates for certain apps
+- [ ] (optional) ConCommand support
 - [x] Steamwebhelper support
   - [x] Store, community, profile pages
   - [ ] ~~Non-janky typing implementation~~ (probably never)
@@ -40,7 +40,7 @@ A partially open-source Steam client for Windows and Linux
   - [ ] ProtonDB integration
   - [ ] Disabling workshop mods without unsubbing
   - [ ] Automatic game tweaking
-  - [ ] External modding sources (like Nexus for Fallout games)
+  - [ ] External modding sources (like Nexus for Fallout games, r2modman for Lethal Company, etc)
   - [ ] Cloud file manager GUI
   - [ ] UI sounds
   - [ ] Shut off PC when game finishes installing

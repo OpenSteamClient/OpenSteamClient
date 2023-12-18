@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using System.Security.Cryptography;
 using OpenSteamworks.Enums;
 using OpenSteamworks.Structs;
 
@@ -36,6 +37,7 @@ public abstract class AppBase
     public string IconURL => GetValueOverride(IconOverrideURL, ActualIconURL);
     public string PortraitURL => GetValueOverride(PortraitOverrideURL, ActualPortraitURL);
 
+    public abstract int ChangeNumber { get; }
     public CGameID GameID { get; protected set; } = CGameID.Zero;
     public AppId_t AppID
     {
@@ -75,11 +77,39 @@ public abstract class AppBase
     /// </summary>
     public string PortraitOverrideURL { get; set; } = "";
     
-    public string? CachedIconPath { get; protected set; }
-    public string? CachedLogoPath { get; protected set; }
-    public string? CachedHeroPath { get; protected set; }
-    public string? CachedPortraitPath { get; protected set; }
+    public string? LocalIconPath { get; protected set; }
+    public string? LocalLogoPath { get; protected set; }
+    public string? LocalHeroPath { get; protected set; }
+    public string? LocalPortraitPath { get; protected set; }
 
+    public async Task UpdateLibraryAssets() {
+        var HeroURI = new Uri(HeroURL);
+        if (HeroURI.IsFile) {
+            LocalHeroPath = HeroURI.LocalPath;
+        } else {
+            int lastAssetsChangeNumber = 0;
+            string oldPath = Path.Combine(this.AppsManager.LibraryAssetsPath, $"{this.AppID}_change");
+            string targetPath = Path.Combine(this.AppsManager.LibraryAssetsPath, $"{this.AppID}_Hero");
+            if (File.Exists(oldPath)) {
+                lastAssetsChangeNumber = int.Parse(await File.ReadAllTextAsync(oldPath));
+            }
+
+            //TODO: this isn't the most efficient way to do this. Too bad!
+            if (!File.Exists(targetPath) || ChangeNumber > lastAssetsChangeNumber) {
+                using (var response = await Client.HttpClient.GetStreamAsync(HeroURL))
+                {
+                    using var file = File.OpenWrite(targetPath);
+                    await response.CopyToAsync(file);
+                }
+            } else {
+                LocalHeroPath = targetPath;
+            }
+        }
+
+        LibraryAssetsUpdated?.Invoke(this, EventArgs.Empty);
+    }
+
+    public event EventHandler? LibraryAssetsUpdated;
     public bool IsMod => this.GameID.IsMod();
     public bool IsShortcut => this.GameID.IsShortcut();
     public bool IsSteamApp => this.GameID.IsSteamApp();

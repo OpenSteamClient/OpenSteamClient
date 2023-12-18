@@ -55,6 +55,7 @@ public class AppsManager : ILogonLifetime
     private readonly InstallManager installManager;
     private readonly LoginManager loginManager;
     public readonly ClientApps ClientApps;
+    public string LibraryAssetsPath { get; private set; }
 
     public EventHandler<AppPlaytimeChangedEventArgs>? AppPlaytimeChanged;
     public EventHandler<AppLastPlayedChangedEventArgs>? AppLastPlayedChanged;
@@ -108,6 +109,7 @@ public class AppsManager : ILogonLifetime
         this.steamClient = steamClient;
         this.clientMessaging = clientMessaging;
         this.installManager = installManager;
+        this.LibraryAssetsPath = Path.Combine(this.installManager.CacheDir, "librarycache");
         steamClient.CallbackManager.RegisterHandler<AppMinutesPlayedDataNotice_t>(OnAppMinutesPlayedDataNotice);
         steamClient.CallbackManager.RegisterHandler<AppLastPlayedTimeChanged_t>(OnAppLastPlayedTimeChanged);
         steamClient.CallbackManager.RegisterHandler<AppLicensesChanged_t>(OnAppLicensesChanged);

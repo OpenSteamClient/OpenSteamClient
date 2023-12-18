@@ -36,6 +36,8 @@ public class SteamApp : AppBase
     protected override string ActualIconURL => $"https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/apps/{this.AppID}/{this.Common.Icon}.jpg";
     protected override string ActualPortraitURL => $"https://cdn.cloudflare.steamstatic.com/steam/apps/{this.AppID}/library_600x900.jpg?t={this.Common.StoreAssetModificationTime}";
 
+    public override int ChangeNumber => int.Parse(this.Common.StoreAssetModificationTime);
+
     public AppBase? ParentApp => GetAppIfValidGameID(new CGameID(this.Common.ParentAppID));
     protected readonly Logger logger;
 
