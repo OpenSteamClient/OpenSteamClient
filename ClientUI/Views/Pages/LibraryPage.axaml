@@ -1,6 +1,7 @@
 <c:BasePage xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:vm="using:ClientUI.ViewModels"
+        xmlns:vml="using:ClientUI.ViewModels.Library"
         xmlns:views="using:ClientUI.Views"
         xmlns:c="using:ClientUI.Controls"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -22,22 +23,36 @@
         </StackPanel>
 
         <!-- Bulk of the library content -->
-        <Grid ColumnDefinitions="1*, 2, 4*">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" MinWidth="64" />
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition Width="4*" MinWidth="64" />
+            </Grid.ColumnDefinitions>
+
             <!-- Games list -->
-            <TreeView MinWidth="64" ItemsSource="{Binding Nodes}">
+            <TreeView SelectedItems="{Binding SelectedNodes}" ItemsSource="{Binding Nodes}">
+
+                <!-- To set properties in the constructed TreeItem, do this -->
+                <TreeView.Styles>
+                    <Style Selector="TreeViewItem" x:DataType="vml:INode">
+                        <Setter Property="ShowExpandCollapseChevron" Value="{Binding !IsApp}"/>
+                    </Style>
+                </TreeView.Styles>
+
                 <TreeView.ItemTemplate>
                     <TreeDataTemplate ItemsSource="{Binding Children}">
                         <StackPanel Orientation="Horizontal">
-                            <Canvas Height="20" Width="20" Top="0" Left="0" Background="Red"/>
+                            <Canvas Height="20" Width="20" Top="0" Left="0" Margin="0,0,4,0" IsVisible="{Binding HasIcon}" Background="{Binding Icon}"/>
                             <TextBlock Text="{Binding Name}"/>
                         </StackPanel>
                     </TreeDataTemplate>
                 </TreeView.ItemTemplate>
             </TreeView>
-            <GridSplitter Grid.Column="1" Background="Black" ResizeDirection="Columns"/>
+            <GridSplitter Grid.Column="1" ResizeDirection="Columns"/>
 
             <!-- Side content (game detail view, "big coverart" view) -->
-            <ContentControl MinWidth="64" Grid.Column="2" Background="White" />
+            <ContentControl Grid.Column="2" Content="{Binding SideContent}" />
         </Grid>
     </DockPanel>
 </c:BasePage>

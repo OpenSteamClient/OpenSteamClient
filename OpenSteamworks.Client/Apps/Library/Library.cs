@@ -288,7 +288,7 @@ public class Library
     }
 
     /// <summary>
-    /// Gets the apps in a collection. Dynamic collections will run through the filters.
+    /// Gets the apps in a collection. Dynamic collections will run through the filters at library init time.
     /// </summary>
     public HashSet<AppId_t> GetAppsInCollection(Collection collection)
     {
