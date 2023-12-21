@@ -181,10 +181,37 @@ public struct CGameID : IEquatable<CGameID>, IComparable<CGameID> {
 	}
 
 	public override string ToString() {
-		return GameID.ToString();
-	}
+        char type;
+        string value;
+        switch (Type)
+        {
+            case EGameIDType.App:
+				type = 'A';
+                value = AppID.ToString();
+                break;
+            case EGameIDType.GameMod:
+				type = 'M';
+                value = AppID + ":" + ModID;
+                break;
+            case EGameIDType.Shortcut:
+				type = 'S';
+                value = AppID + ":" + ModID;
+                break;
+            case EGameIDType.P2P:
+				type = 'P';
+                value = GameID.ToString();
+                break;
+            case EGameIDType.Invalid:
+            default:
+                type = 'I';
+				value = GameID.ToString();
+                break;
+        }
 
-	public override bool Equals(object? other) {
+        return "[" + type + ":" + value + "]";
+    }
+
+    public override bool Equals(object? other) {
 		return other != null && other is CGameID && this == (CGameID)other;
 	}
 

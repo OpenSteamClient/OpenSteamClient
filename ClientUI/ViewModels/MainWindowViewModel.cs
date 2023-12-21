@@ -49,12 +49,12 @@ public partial class MainWindowViewModel : ViewModelBase
     
     public bool CanLogonOffline => client.NativeClient.IClientUser.CanLogonOffline() == 1;
     public bool IsOfflineMode => client.NativeClient.IClientUtils.GetOfflineMode();
-    private Action? openSettingsWindow;
-    private TranslationManager tm;
-    private SteamClient client;
-    private LoginManager loginManager;
-    private AppsManager appsManager;
-    private MainWindow mainWindow;
+    private readonly Action openSettingsWindow;
+    private readonly TranslationManager tm;
+    private readonly SteamClient client;
+    private readonly LoginManager loginManager;
+    private readonly AppsManager appsManager;
+    private readonly MainWindow mainWindow;
 
     public MainWindowViewModel(MainWindow mainWindow, SteamClient client, AppsManager appsManager, TranslationManager tm, LoginManager loginManager, Action openSettingsWindowAction) {
         this.mainWindow = mainWindow;
@@ -72,15 +72,6 @@ public partial class MainWindowViewModel : ViewModelBase
         PageList.Add(new(this, "Console", typeof(ConsolePage), typeof(ConsolePageViewModel)));
 
         SwitchToPage(typeof(LibraryPage));
-        // SwitchToPage("Library");
-        // this.CurrentPage = new StorePage()
-        // {
-        //     DataContext = AvaloniaApp.Container.ConstructOnly<StorePageViewModel>()
-        // };
-
-        // this.CurrentPage = new LibraryPage() {
-        //     DataContext = AvaloniaApp.Container.ConstructOnly<LibraryPageViewModel>()
-        // };
     }
 
 #pragma warning disable MVVMTK0034
@@ -128,15 +119,51 @@ public partial class MainWindowViewModel : ViewModelBase
     public async void DBG_LaunchFactorio() {
         IClientShortcuts shortcuts = AvaloniaApp.Container.Get<IClientShortcuts>();
         //CUtlVector<AppId_t> appids = new(1024, 0);
-        shortcuts.AddShortcut("wtf", "name", "exe", "workingdir", "unk");
-        uint appidslen = 0;
-        unsafe
+        //shortcuts.AddShortcut("wtf", "name", "exe", "workingdir", "unk");
+        var ret = shortcuts.AddTemporaryShortcut("name", "exepath", "icon");
+        Console.WriteLine("ret:" + ret);
+        //Console.WriteLine("ret2:" + shortcuts.SetDevkitShortcut(ret, true, new CGameID(730)));
+        Console.WriteLine("ret2:" + shortcuts.SetFlatpakAppID(ret, "io.github.sigmasd.nosleep"));
+        //Console.WriteLine("ret:" + shortcuts.AddTemporaryShortcut("name", "exepath", "icon"));
+
+
         {
-            uint* appids = null;
-            appidslen = shortcuts.GetShortcutAppIds(appids);
-            Console.WriteLine("ret: " + appidslen);
-            Console.WriteLine("ptr: " + (nint)appids);
+            bool shouldRun = true;
+            int idex = 0;
+            using (var disp = ProtobufHack.Create<CMsgShortcutInfo>()) {
+                while (shouldRun)
+                {
+                    shouldRun = shortcuts.GetShortcutInfoByIndex(idex, disp.ptr);
+                    Console.WriteLine("shouldRun:" + shouldRun);
+                    var managed = disp.GetManaged();
+                    Console.WriteLine("AppID:" + managed.Appid + ", AppName: " + managed.AppName + ", Args: " + managed.Args + ", AllowDesktopConfig: " + managed.AllowDesktopConfig + ", AllowOverlay: " + managed.AllowOverlay);
+                    idex++;
+                }
+            }
         }
+
+        {
+            bool succeeded;
+            using (var disp = ProtobufHack.Create<CMsgShortcutAppIds>()) {
+                succeeded = shortcuts.GetShortcutAppIds(disp.ptr);
+                Console.WriteLine("succeeded:" + succeeded);
+                var managed = disp.GetManaged();
+                Console.WriteLine("AppIDs:" + managed.Appids.Count);
+                foreach (var item in managed.Appids)
+                {
+                    Console.WriteLine("AppID:" + item);
+                }
+            }
+        }
+
+        // CUtlMap<AppId_t, IntPtr> appids = new(512, 0);
+        // uint len;
+        // unsafe
+        // {
+        //     len = shortcuts.GetShortcutAppIds(&appids);
+        //     Console.WriteLine("ret: " + len);
+        //     //Console.WriteLine("ptr: " + (nint)appids.);
+        // }
 
         // foreach (var item in appids.ToManagedAndFree())
         // {
