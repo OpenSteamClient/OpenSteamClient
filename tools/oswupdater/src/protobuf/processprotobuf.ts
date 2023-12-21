@@ -39,8 +39,8 @@ export async function ProcessProtobuf(projdir: string, workdir: string, targetdi
         }
     });
 
-    // The growing list of erroring files is worrying...
-    const blacklistedFiles: string[] = ["service_steamvrvoicechat.proto", "service_steamvrwebrtc.proto", "service_cloud.proto", "service_transportvalidation.proto"];
+    // The growing list of erroring files is worrying... Seriously.
+    const blacklistedFiles: string[] = ["service_steamvrvoicechat.proto", "service_steamvrwebrtc.proto", "service_cloud.proto", "service_transportvalidation.proto", "service_accountcart.proto", "service_checkout.proto"];
 
     webuiFilesRelative.forEach(file => {
         // These files cause compile errors, they're blacklisted

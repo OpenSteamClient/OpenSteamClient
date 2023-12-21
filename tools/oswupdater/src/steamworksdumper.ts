@@ -38,7 +38,7 @@ export class SteamworksDumper {
         } else {
             console.info("Downloading m4dEngi/steamworks_dumper git repo")
             try {
-                await clone("https://github.com/m4dEngi/steamworks_dumper.git", "steamworks_dumper");
+                await clone("https://github.com/Rosentti/steamworks_dumper.git", "steamworks_dumper");
             } catch (e) {
                 throw "Failed to download m4dEngi/steamworks_dumper " + e;
             } finally {
