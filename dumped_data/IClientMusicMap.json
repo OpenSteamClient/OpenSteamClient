@@ -1,761 +1,761 @@
 {
     "name": "IClientMusicMap",
-    "found_at": "0x23a867c",
+    "found_at": "0x24033b0",
     "functions": [ 
         {
             "name": "BIsEnabled",
             "argc": "1",
-            "addr": "0x5d1590"
+            "addr": "0x5ef740"
         },
         {
             "name": "Enable",
             "argc": "2",
-            "addr": "0x5d16f0"
+            "addr": "0x5ef8a0"
         },
         {
             "name": "EnableCrawlLogging",
             "argc": "2",
-            "addr": "0x5d1840"
+            "addr": "0x5ef9f0"
         },
         {
             "name": "BIsPlaying",
             "argc": "1",
-            "addr": "0x5d1990"
+            "addr": "0x5efb40"
         },
         {
             "name": "GetQueueCount",
             "argc": "1",
-            "addr": "0x5d1d80"
+            "addr": "0x5eff30"
         },
         {
             "name": "GetCurrentQueueEntry",
             "argc": "1",
-            "addr": "0x5d2090"
+            "addr": "0x5f0240"
         },
         {
             "name": "GetQueueEntryURI",
             "argc": "4",
-            "addr": "0x5d1ee0"
+            "addr": "0x5f0090"
         },
         {
             "name": "GetQueueEntryData",
             "argc": "11",
-            "addr": "0x5ded50"
+            "addr": "0x5fcf00"
         },
         {
             "name": "GetQueueEntryOrigin",
             "argc": "4",
-            "addr": "0x5defa0"
+            "addr": "0x5fd150"
         },
         {
             "name": "EmptyQueue",
             "argc": "1",
-            "addr": "0x5d1af0"
+            "addr": "0x5efca0"
         },
         {
             "name": "RemoveQueueEntry",
             "argc": "3",
-            "addr": "0x5d1c20"
+            "addr": "0x5efdd0"
         },
         {
             "name": "AddArtistToQueue",
             "argc": "4",
-            "addr": "0x5d21f0"
+            "addr": "0x5f03a0"
         },
         {
             "name": "AddTracksOfAlbumIDToQueue",
             "argc": "8",
-            "addr": "0x5d2370"
+            "addr": "0x5f0520"
         },
         {
             "name": "AddAllTracksOfAlbumIDToQueue",
             "argc": "6",
-            "addr": "0x5d2560"
+            "addr": "0x5f0710"
         },
         {
             "name": "AddTracksOfPlaylistIDToQueue",
             "argc": "7",
-            "addr": "0x5d2710"
+            "addr": "0x5f08c0"
         },
         {
             "name": "SetSuppressAutoTrackAdvance",
             "argc": "2",
-            "addr": "0x5de920"
+            "addr": "0x5fcad0"
         },
         {
             "name": "GetPlaybackStatus",
             "argc": "1",
-            "addr": "0x5d28f0"
+            "addr": "0x5f0aa0"
         },
         {
             "name": "SetPlayingRepeatStatus",
             "argc": "2",
-            "addr": "0x5d2a50"
+            "addr": "0x5f0c00"
         },
         {
             "name": "GetPlayingRepeatStatus",
             "argc": "1",
-            "addr": "0x5d2ba0"
+            "addr": "0x5f0d50"
         },
         {
             "name": "TogglePlayingRepeatStatus",
             "argc": "1",
-            "addr": "0x5d2d00"
+            "addr": "0x5f0eb0"
         },
         {
             "name": "SetPlayingShuffled",
             "argc": "2",
-            "addr": "0x5d2e60"
+            "addr": "0x5f1010"
         },
         {
             "name": "IsPlayingShuffled",
             "argc": "1",
-            "addr": "0x5d2fb0"
+            "addr": "0x5f1160"
         },
         {
             "name": "Play",
             "argc": "1",
-            "addr": "0x5d3110"
+            "addr": "0x5f12c0"
         },
         {
             "name": "Pause",
             "argc": "1",
-            "addr": "0x5d3240"
+            "addr": "0x5f13f0"
         },
         {
             "name": "PlayPrevious",
             "argc": "1",
-            "addr": "0x5d3370"
+            "addr": "0x5f1520"
         },
         {
             "name": "PlayNext",
             "argc": "1",
-            "addr": "0x5d34a0"
+            "addr": "0x5f1650"
         },
         {
             "name": "PlayEntry",
             "argc": "2",
-            "addr": "0x5d35d0"
+            "addr": "0x5f1780"
         },
         {
             "name": "TogglePlayPause",
             "argc": "1",
-            "addr": "0x5d3720"
+            "addr": "0x5f18d0"
         },
         {
             "name": "SetVolume",
             "argc": "2",
-            "addr": "0x5d3850"
+            "addr": "0x5f1a00"
         },
         {
             "name": "GetVolume",
             "argc": "1",
-            "addr": "0x5d39a0"
+            "addr": "0x5f1b50"
         },
         {
             "name": "ToggleMuteVolume",
             "argc": "1",
-            "addr": "0x5d3b00"
+            "addr": "0x5f1cb0"
         },
         {
             "name": "IncreaseVolume",
             "argc": "1",
-            "addr": "0x5d3c30"
+            "addr": "0x5f1de0"
         },
         {
             "name": "DecreaseVolume",
             "argc": "1",
-            "addr": "0x5d3d60"
+            "addr": "0x5f1f10"
         },
         {
             "name": "SetPlaybackPosition",
             "argc": "2",
-            "addr": "0x5de510"
+            "addr": "0x5fc6c0"
         },
         {
             "name": "GetPlaybackPosition",
             "argc": "1",
-            "addr": "0x5de660"
+            "addr": "0x5fc810"
         },
         {
             "name": "GetPlaybackDuration",
             "argc": "1",
-            "addr": "0x5de7c0"
+            "addr": "0x5fc970"
         },
         {
             "name": "LocalLibraryCrawlTrack",
             "argc": "2",
-            "addr": "0x5d3e90"
+            "addr": "0x5f2040"
         },
         {
             "name": "ResetLocalLibrary",
             "argc": "1",
-            "addr": "0x5d46a0"
+            "addr": "0x5f2850"
         },
         {
             "name": "GetStatusLocalLibrary",
             "argc": "1",
-            "addr": "0x5df150"
+            "addr": "0x5fd300"
         },
         {
             "name": "SaveLocalLibraryDirectorySettings",
             "argc": "1",
-            "addr": "0x5d3fd0"
+            "addr": "0x5f2180"
         },
         {
             "name": "GetLocalLibraryDirectoryEntryCount",
             "argc": "1",
-            "addr": "0x5d4100"
+            "addr": "0x5f22b0"
         },
         {
             "name": "GetLocalLibraryDirectoryEntry",
             "argc": "4",
-            "addr": "0x5d4260"
+            "addr": "0x5f2410"
         },
         {
             "name": "AddLocalLibraryDirectoryEntry",
             "argc": "2",
-            "addr": "0x5d4410"
+            "addr": "0x5f25c0"
         },
         {
             "name": "ResetLocalLibraryDirectories",
             "argc": "2",
-            "addr": "0x5d4550"
+            "addr": "0x5f2700"
         },
         {
             "name": "GetDefaultLocalLibraryDirectory",
             "argc": "3",
-            "addr": "0x5d47d0"
+            "addr": "0x5f2980"
         },
         {
             "name": "LocalLibraryStopCrawling",
             "argc": "1",
-            "addr": "0x5d5270"
+            "addr": "0x5f3420"
         },
         {
             "name": "UpdateLocalLibraryDirectoriesToCrawl",
             "argc": "1",
-            "addr": "0x5d53a0"
+            "addr": "0x5f3550"
         },
         {
             "name": "BLocalLibraryIsCrawling",
             "argc": "1",
-            "addr": "0x5d54d0"
+            "addr": "0x5f3680"
         },
         {
             "name": "GetLocalLibraryTrackCount",
             "argc": "1",
-            "addr": "0x5d4ac0"
+            "addr": "0x5f2c70"
         },
         {
             "name": "GetLocalLibraryAlbumCount",
             "argc": "1",
-            "addr": "0x5d4960"
+            "addr": "0x5f2b10"
         },
         {
             "name": "GetLocalLibraryAlbumID",
             "argc": "3",
-            "addr": "0x5d6000"
+            "addr": "0x5f41b0"
         },
         {
             "name": "GetLocalLibraryAlbumIDEntry",
             "argc": "9",
-            "addr": "0x5d6190"
+            "addr": "0x5f4340"
         },
         {
             "name": "GetLocalLibraryAlbumIDTrackEntry",
             "argc": "10",
-            "addr": "0x5d63b0"
+            "addr": "0x5f4560"
         },
         {
             "name": "GetLocalLibraryAlbumDirectoryForAlbumID",
             "argc": "4",
-            "addr": "0x5d6da0"
+            "addr": "0x5f4f50"
         },
         {
             "name": "GetLocalLibraryAlbumSortNameForAlbumID",
             "argc": "4",
-            "addr": "0x5d6f50"
+            "addr": "0x5f5100"
         },
         {
             "name": "GetLocalLibraryArtistSortNameForAlbumID",
             "argc": "4",
-            "addr": "0x5d7100"
+            "addr": "0x5f52b0"
         },
         {
             "name": "GetLocalLibraryTrackCountForAlbumID",
             "argc": "2",
-            "addr": "0x5d67b0"
+            "addr": "0x5f4960"
         },
         {
             "name": "GetLocalLibraryAlbumIDTrackKey",
             "argc": "5",
-            "addr": "0x5d65f0"
+            "addr": "0x5f47a0"
         },
         {
             "name": "GetLocalLibraryAlbumIDForTrackKey",
             "argc": "2",
-            "addr": "0x5d6aa0"
+            "addr": "0x5f4c50"
         },
         {
             "name": "GetLocalLibraryArtistCount",
             "argc": "1",
-            "addr": "0x5d4c20"
+            "addr": "0x5f2dd0"
         },
         {
             "name": "GetLocalLibraryArtistName",
             "argc": "6",
-            "addr": "0x5d4d80"
+            "addr": "0x5f2f30"
         },
         {
             "name": "GetLocalLibraryAlbumCountForArtistName",
             "argc": "2",
-            "addr": "0x5d4f60"
+            "addr": "0x5f3110"
         },
         {
             "name": "GetLocalLibraryTrackAndAlbumCountOfArtistName",
             "argc": "4",
-            "addr": "0x5d50d0"
+            "addr": "0x5f3280"
         },
         {
             "name": "GetLocalLibraryAlbumIDForArtist",
             "argc": "3",
-            "addr": "0x5d6920"
+            "addr": "0x5f4ad0"
         },
         {
             "name": "GetLocalLibraryRepresentativeAlbumIDForArtist",
             "argc": "3",
-            "addr": "0x5d6c10"
+            "addr": "0x5f4dc0"
         },
         {
             "name": "GetLocalLibraryTrackEntry",
             "argc": "7",
-            "addr": "0x5d72b0"
+            "addr": "0x5f5460"
         },
         {
             "name": "BRequestAllArtistListData",
             "argc": "2",
-            "addr": "0x5d7490"
+            "addr": "0x5f5640"
         },
         {
             "name": "BRequestAllAlbumListData",
             "argc": "2",
-            "addr": "0x5d7610"
+            "addr": "0x5f57c0"
         },
         {
             "name": "BRequestAllTracksListDataForAlbumID",
             "argc": "3",
-            "addr": "0x5d7790"
+            "addr": "0x5f5940"
         },
         {
             "name": "GetPlaylistCount",
             "argc": "1",
-            "addr": "0x5d7920"
+            "addr": "0x5f5ad0"
         },
         {
             "name": "GetPlaylistID",
             "argc": "2",
-            "addr": "0x5d7a80"
+            "addr": "0x5f5c30"
         },
         {
             "name": "GetPositionForPlaylistID",
             "argc": "2",
-            "addr": "0x5d7bf0"
+            "addr": "0x5f5da0"
         },
         {
             "name": "GetPlaylistIDForPosition",
             "argc": "2",
-            "addr": "0x5d7d60"
+            "addr": "0x5f5f10"
         },
         {
             "name": "BRequestAllPlayListData",
             "argc": "2",
-            "addr": "0x5d7ed0"
+            "addr": "0x5f6080"
         },
         {
             "name": "GetNextPlaylistName",
             "argc": "4",
-            "addr": "0x5d8050"
+            "addr": "0x5f6200"
         },
         {
             "name": "InsertPlaylistWithNameAtPosition",
             "argc": "3",
-            "addr": "0x5d81f0"
+            "addr": "0x5f63a0"
         },
         {
             "name": "MovePlaylistFromPositionToPosition",
             "argc": "3",
-            "addr": "0x5d8370"
+            "addr": "0x5f6520"
         },
         {
             "name": "DeletePlaylistWithID",
             "argc": "2",
-            "addr": "0x5d8500"
+            "addr": "0x5f66b0"
         },
         {
             "name": "RenamePlaylistWithID",
             "argc": "3",
-            "addr": "0x5d8680"
+            "addr": "0x5f6830"
         },
         {
             "name": "AddRandomTracksToPlaylistID",
             "argc": "3",
-            "addr": "0x5d8800"
+            "addr": "0x5f69b0"
         },
         {
             "name": "GetPlaylistIDData",
             "argc": "9",
-            "addr": "0x5d8990"
+            "addr": "0x5f6b40"
         },
         {
             "name": "GetPlaylistIDTrackCount",
             "argc": "2",
-            "addr": "0x5d8bb0"
+            "addr": "0x5f6d60"
         },
         {
             "name": "BRequestAllTracksListDataForPlaylistID",
             "argc": "3",
-            "addr": "0x5d8d20"
+            "addr": "0x5f6ed0"
         },
         {
             "name": "GetPlaylistIDTrackKey",
             "argc": "6",
-            "addr": "0x5d8eb0"
+            "addr": "0x5f7060"
         },
         {
             "name": "GetPositionForPlaylistItemID",
             "argc": "2",
-            "addr": "0x5d9090"
+            "addr": "0x5f7240"
         },
         {
             "name": "AddTrackKeyToPlaylistID",
             "argc": "3",
-            "addr": "0x5d9200"
+            "addr": "0x5f73b0"
         },
         {
             "name": "AddAlbumIDToPlaylistID",
             "argc": "4",
-            "addr": "0x5d9380"
+            "addr": "0x5f7530"
         },
         {
             "name": "AddArtistNameToPlaylistID",
             "argc": "3",
-            "addr": "0x5d9520"
+            "addr": "0x5f76d0"
         },
         {
             "name": "AddPlaylistIDToPlaylistID",
             "argc": "3",
-            "addr": "0x5d96a0"
+            "addr": "0x5f7850"
         },
         {
             "name": "RemovePlaylistPositionFromPlaylistID",
             "argc": "3",
-            "addr": "0x5d9830"
+            "addr": "0x5f79e0"
         },
         {
             "name": "RemoveAllTracksFromPlaylistID",
             "argc": "3",
-            "addr": "0x5d99c0"
+            "addr": "0x5f7b70"
         },
         {
             "name": "MoveTrackFromPositionToPositonInPlaylistID",
             "argc": "4",
-            "addr": "0x5d9b60"
+            "addr": "0x5f7d10"
         },
         {
             "name": "AppendQueueToPlaylistID",
             "argc": "3",
-            "addr": "0x5d9d00"
+            "addr": "0x5f7eb0"
         },
         {
             "name": "GetLocalLibraryRepresentativeAlbumIDForPlaylist",
             "argc": "3",
-            "addr": "0x5d9ea0"
+            "addr": "0x5f8050"
         },
         {
             "name": "MarkTrackKeyAsPlayed",
             "argc": "2",
-            "addr": "0x5da030"
+            "addr": "0x5f81e0"
         },
         {
             "name": "GetMostRecentlyPlayedAlbums",
             "argc": "3",
-            "addr": "0x5da1a0"
+            "addr": "0x5f8350"
         },
         {
             "name": "GetMostRecentlyAddedAlbums",
             "argc": "3",
-            "addr": "0x5da340"
+            "addr": "0x5f84f0"
         },
         {
             "name": "ActivateRemotePlayerWithID",
             "argc": "2",
-            "addr": "0x5da4e0"
+            "addr": "0x5f8690"
         },
         {
             "name": "GetActiveRemotePlayerID",
             "argc": "1",
-            "addr": "0x5da660"
+            "addr": "0x5f8810"
         },
         {
             "name": "GetRemotePlayerCount",
             "argc": "1",
-            "addr": "0x5da7c0"
+            "addr": "0x5f8970"
         },
         {
             "name": "GetRemotePlayerIDAndName",
             "argc": "5",
-            "addr": "0x5da920"
+            "addr": "0x5f8ad0"
         },
         {
             "name": "GetCurrentEntryTextForRemotePlayerWithID",
             "argc": "4",
-            "addr": "0x5daae0"
+            "addr": "0x5f8c90"
         },
         {
             "name": "RegisterSteamMusicRemote",
             "argc": "2",
-            "addr": "0x5dac90"
+            "addr": "0x5f8e40"
         },
         {
             "name": "DeregisterSteamMusicRemote",
             "argc": "1",
-            "addr": "0x5dae00"
+            "addr": "0x5f8fb0"
         },
         {
             "name": "BIsCurrentMusicRemote",
             "argc": "1",
-            "addr": "0x5daf60"
+            "addr": "0x5f9110"
         },
         {
             "name": "BActivationSuccess",
             "argc": "2",
-            "addr": "0x5db0c0"
+            "addr": "0x5f9270"
         },
         {
             "name": "SetDisplayName",
             "argc": "2",
-            "addr": "0x5db240"
+            "addr": "0x5f93f0"
         },
         {
             "name": "SetPNGIcon_64x64",
             "argc": "3",
-            "addr": "0x5db3b0"
+            "addr": "0x5f9560"
         },
         {
             "name": "EnablePlayPrevious",
             "argc": "2",
-            "addr": "0x5db570"
+            "addr": "0x5f9720"
         },
         {
             "name": "EnablePlayNext",
             "argc": "2",
-            "addr": "0x5db6f0"
+            "addr": "0x5f98a0"
         },
         {
             "name": "EnableShuffled",
             "argc": "2",
-            "addr": "0x5db870"
+            "addr": "0x5f9a20"
         },
         {
             "name": "EnableLooped",
             "argc": "2",
-            "addr": "0x5db9f0"
+            "addr": "0x5f9ba0"
         },
         {
             "name": "EnableQueue",
             "argc": "2",
-            "addr": "0x5dbb70"
+            "addr": "0x5f9d20"
         },
         {
             "name": "EnablePlaylists",
             "argc": "2",
-            "addr": "0x5dbcf0"
+            "addr": "0x5f9ea0"
         },
         {
             "name": "UpdatePlaybackStatus",
             "argc": "2",
-            "addr": "0x5dbe70"
+            "addr": "0x5fa020"
         },
         {
             "name": "UpdateShuffled",
             "argc": "2",
-            "addr": "0x5dbff0"
+            "addr": "0x5fa1a0"
         },
         {
             "name": "UpdateLooped",
             "argc": "2",
-            "addr": "0x5dc170"
+            "addr": "0x5fa320"
         },
         {
             "name": "UpdateVolume",
             "argc": "2",
-            "addr": "0x5dc2f0"
+            "addr": "0x5fa4a0"
         },
         {
             "name": "CurrentEntryWillChange",
             "argc": "1",
-            "addr": "0x5dc470"
+            "addr": "0x5fa620"
         },
         {
             "name": "CurrentEntryIsAvailable",
             "argc": "2",
-            "addr": "0x5dc5d0"
+            "addr": "0x5fa780"
         },
         {
             "name": "UpdateCurrentEntryText",
             "argc": "2",
-            "addr": "0x5dc750"
+            "addr": "0x5fa900"
         },
         {
             "name": "UpdateCurrentEntryElapsedSeconds",
             "argc": "2",
-            "addr": "0x5dc8c0"
+            "addr": "0x5faa70"
         },
         {
             "name": "UpdateCurrentEntryCoverArt",
             "argc": "3",
-            "addr": "0x5dca40"
+            "addr": "0x5fabf0"
         },
         {
             "name": "CurrentEntryDidChange",
             "argc": "1",
-            "addr": "0x5dcc00"
+            "addr": "0x5fadb0"
         },
         {
             "name": "QueueWillChange",
             "argc": "1",
-            "addr": "0x5dcd60"
+            "addr": "0x5faf10"
         },
         {
             "name": "ResetQueueEntries",
             "argc": "1",
-            "addr": "0x5dcec0"
+            "addr": "0x5fb070"
         },
         {
             "name": "SetQueueEntry",
             "argc": "4",
-            "addr": "0x5dd020"
+            "addr": "0x5fb1d0"
         },
         {
             "name": "SetCurrentQueueEntry",
             "argc": "2",
-            "addr": "0x5dd1c0"
+            "addr": "0x5fb370"
         },
         {
             "name": "QueueDidChange",
             "argc": "1",
-            "addr": "0x5dd340"
+            "addr": "0x5fb4f0"
         },
         {
             "name": "PlaylistWillChange",
             "argc": "1",
-            "addr": "0x5dd4a0"
+            "addr": "0x5fb650"
         },
         {
             "name": "ResetPlaylistEntries",
             "argc": "1",
-            "addr": "0x5dd600"
+            "addr": "0x5fb7b0"
         },
         {
             "name": "SetPlaylistEntry",
             "argc": "4",
-            "addr": "0x5dd760"
+            "addr": "0x5fb910"
         },
         {
             "name": "SetCurrentPlaylistEntry",
             "argc": "2",
-            "addr": "0x5dd900"
+            "addr": "0x5fbab0"
         },
         {
             "name": "PlaylistDidChange",
             "argc": "1",
-            "addr": "0x5dda80"
+            "addr": "0x5fbc30"
         },
         {
             "name": "RequestAlbumCoverForAlbumID",
             "argc": "2",
-            "addr": "0x5ddbe0"
+            "addr": "0x5fbd90"
         },
         {
             "name": "RequestAlbumCoverForTrackKey",
             "argc": "2",
-            "addr": "0x5ddd50"
+            "addr": "0x5fbf00"
         },
         {
             "name": "GetAlbumCoverForIndex",
             "argc": "4",
-            "addr": "0x5ddec0"
+            "addr": "0x5fc070"
         },
         {
             "name": "CancelAlbumCoverRequestForIndex",
             "argc": "2",
-            "addr": "0x5de070"
+            "addr": "0x5fc220"
         },
         {
             "name": "GetAlbumCoverURLForAlbumID",
             "argc": "4",
-            "addr": "0x5de1c0"
+            "addr": "0x5fc370"
         },
         {
             "name": "GetAlbumCoverURLForTrackKey",
             "argc": "4",
-            "addr": "0x5de370"
+            "addr": "0x5fc520"
         },
         {
             "name": "StartUsingSpotify",
             "argc": "1",
-            "addr": "0x5d5630"
+            "addr": "0x5f37e0"
         },
         {
             "name": "StopUsingSpotify",
             "argc": "1",
-            "addr": "0x5d5760"
+            "addr": "0x5f3910"
         },
         {
             "name": "GetStatusSpotify",
             "argc": "1",
-            "addr": "0x5df2b0"
+            "addr": "0x5fd460"
         },
         {
             "name": "LoginSpotify",
             "argc": "3",
-            "addr": "0x5d5890"
+            "addr": "0x5f3a40"
         },
         {
             "name": "ReloginSpotify",
             "argc": "1",
-            "addr": "0x5d59e0"
+            "addr": "0x5f3b90"
         },
         {
             "name": "GetCurrentUserSpotify",
             "argc": "1",
-            "addr": "0x5d5b10"
+            "addr": "0x5f3cc0"
         },
         {
             "name": "ForgetCurrentUserSpotify",
             "argc": "1",
-            "addr": "0x5d5c70"
+            "addr": "0x5f3e20"
         },
         {
             "name": "LogoutSpotify",
             "argc": "1",
-            "addr": "0x5d5da0"
+            "addr": "0x5f3f50"
         },
         {
             "name": "DumpStatusToConsole",
             "argc": "1",
-            "addr": "0x5d5ed0"
+            "addr": "0x5f4080"
         },
         {
             "name": "ReplacePlaylistWithSoundtrackAlbum",
             "argc": "2",
-            "addr": "0x5dea70"
+            "addr": "0x5fcc20"
         },
         {
             "name": "GetQueueSoundtrackAppID",
             "argc": "1",
-            "addr": "0x5debf0"
+            "addr": "0x5fcda0"
         }
     ]
 }

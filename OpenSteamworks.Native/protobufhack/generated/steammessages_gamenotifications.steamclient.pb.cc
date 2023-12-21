@@ -542,193 +542,90 @@ const char descriptor_table_protodef_steammessages_5fgamenotifications_2esteamcl
   "\n1steammessages_gamenotifications.steamc"
   "lient.proto\032 google/protobuf/descriptor."
   "proto\032\030steammessages_base.proto\032,steamme"
-  "ssages_unified_base.steamclient.proto\"\340\002"
-  "\n\033CGameNotifications_Variable\022\246\001\n\003key\030\001 "
-  "\001(\tB\230\001\202\265\030\223\001The name of the variable in t"
-  "he localized text -- anywhere that %vari"
-  "ablename% is found within the text it wi"
-  "ll be substituded with the given value\022\227"
-  "\001\n\005value\030\002 \001(\tB\207\001\202\265\030\202\001The value of the v"
-  "ariable to substitute in the localized t"
-  "ext in place of the given variable.  Can"
-  " itself be a localization token.\"\205\003\n CGa"
-  "meNotifications_LocalizedText\022H\n\005token\030\001"
-  " \001(\tB9\202\265\0305A localization token that maps"
-  " to the desired string.\022\215\001\n\tvariables\030\002 "
-  "\003(\0132\034.CGameNotifications_VariableB\\\202\265\030XA"
-  " list of variables values to substitute "
-  "in any variables found in the localized "
-  "string.\022\206\001\n\rrendered_text\030\003 \001(\tBo\202\265\030kTex"
-  "t rendered in the requested language, co"
-  "mplete with variable substitutions, if a"
-  " language was specified.\"\225\004\n\035CGameNotifi"
-  "cations_UserStatus\0221\n\007steamid\030\001 \001(\006B \202\265\030"
-  "\034The specific user\'s steamid.\022\244\001\n\005state\030"
-  "\002 \001(\tB\224\001\202\265\030\217\001The user\'s state.  ready --"
-  " the user is ready to play.  waiting -- "
-  "The game is waiting on an action from th"
-  "e user. completed, the game is over.\022\204\001\n"
-  "\005title\030\003 \001(\0132!.CGameNotifications_Locali"
-  "zedTextBR\202\265\030NTitle of the session to dis"
-  "play to this user in their list of activ"
-  "e sessions.\022\222\001\n\007message\030\004 \001(\0132!.CGameNot"
-  "ifications_LocalizedTextB^\202\265\030ZSubtitle o"
-  "f the session to display to this user us"
-  "er within their list of active sessions."
-  "\"\223\005\n(CGameNotifications_CreateSession_Re"
-  "quest\0227\n\005appid\030\001 \001(\rB(\202\265\030$The appid to c"
-  "reate the session for.\022\177\n\007context\030\002 \001(\004B"
-  "n\202\265\030jGame-specified context value the ga"
-  "me can used to associate the session wit"
-  "h some object on their backend.\022\203\001\n\005titl"
-  "e\030\003 \001(\0132!.CGameNotifications_LocalizedTe"
-  "xtBQ\202\265\030MThe title of the session to be d"
-  "isplayed within each user\'s list of sess"
-  "ions.\022a\n\005users\030\004 \003(\0132\036.CGameNotification"
-  "s_UserStatusB2\202\265\030.The initial state of a"
-  "ll users in the session.\022\303\001\n\007steamid\030\005 \001"
-  "(\006B\261\001\202\265\030\254\001(Optional) steamid to make the"
-  " request on behalf of -- if specified, t"
-  "he user must be in the session and all u"
-  "sers being added to the session must be "
-  "friends with the user.\"i\n)CGameNotificat"
-  "ions_CreateSession_Response\022<\n\tsessionid"
-  "\030\001 \001(\004B)\202\265\030%The sessionid of the created"
-  " session.\"\217\002\n(CGameNotifications_DeleteS"
-  "ession_Request\022/\n\tsessionid\030\001 \001(\004B\034\202\265\030\030T"
-  "he sessionid to delete.\0226\n\005appid\030\002 \001(\rB\'"
-  "\202\265\030#The appid of the session to delete.\022"
-  "z\n\007steamid\030\003 \001(\006Bi\202\265\030e(Optional) steamid"
-  " to make the request on behalf of -- if "
-  "specified, the user must be in the sessi"
-  "on.\"+\n)CGameNotifications_DeleteSession_"
-  "Response\"\275\005\n(CGameNotifications_UpdateSe"
-  "ssion_Request\022/\n\tsessionid\030\001 \001(\004B\034\202\265\030\030Th"
-  "e sessionid to update.\0226\n\005appid\030\002 \001(\rB\'\202"
-  "\265\030#The appid of the session to update.\022\220"
-  "\001\n\005title\030\003 \001(\0132!.CGameNotifications_Loca"
-  "lizedTextB^\202\265\030Z(Optional) The new title "
-  "of the session.  If not specified, the t"
-  "itle will not be changed.\022\316\001\n\005users\030\004 \003("
-  "\0132\036.CGameNotifications_UserStatusB\236\001\202\265\030\231"
-  "\001(Optional) A list of users whose state "
-  "will be updated to reflect the given sta"
-  "te. If the users are not already in the "
-  "session, they will be added to it.\022\303\001\n\007s"
-  "teamid\030\006 \001(\006B\261\001\202\265\030\254\001(Optional) steamid t"
-  "o make the request on behalf of -- if sp"
-  "ecified, the user must be in the session"
-  " and all users being added to the sessio"
-  "n must be friends with the user.\"+\n)CGam"
-  "eNotifications_UpdateSession_Response\"\241\004"
-  "\n,CGameNotifications_EnumerateSessions_R"
-  "equest\022~\n\005appid\030\001 \001(\rBo\202\265\030kThe sessionid"
-  " to request details for. Optional. If no"
-  "t specified, all the user\'s sessions wil"
-  "l be returned.\022\216\001\n\031include_all_user_mess"
-  "ages\030\003 \001(\010Bk\202\265\030g(Optional) Boolean deter"
-  "mining whether the message for all users"
-  " should be included. Defaults to false.\022"
-  "\233\001\n\031include_auth_user_message\030\004 \001(\010Bx\202\265\030"
-  "t(Optional) Boolean determining whether "
-  "the message for the authenticated user s"
-  "hould be included. Defaults to false.\022B\n"
-  "\010language\030\005 \001(\tB0\202\265\030,(Optional) Language"
-  " to localize the text in.\"\303\004\n\032CGameNotif"
-  "ications_Session\0226\n\tsessionid\030\001 \001(\004B#\202\265\030"
-  "\037The sessionid for this session.\022-\n\005appi"
-  "d\030\002 \001(\004B\036\202\265\030\032The appid for the session.\022"
-  "\177\n\007context\030\003 \001(\004Bn\202\265\030jGame-specified con"
-  "text value the game can used to associat"
-  "e the session with some object on their "
-  "backend.\022X\n\005title\030\004 \001(\0132!.CGameNotificat"
-  "ions_LocalizedTextB&\202\265\030\"The current titl"
-  "e for the session.\022;\n\014time_created\030\005 \001(\r"
-  "B%\202\265\030!The time the session was created.\022"
-  "@\n\014time_updated\030\006 \001(\rB*\202\265\030&The last time"
-  " the session was updated.\022d\n\013user_status"
-  "\030\007 \003(\0132\036.CGameNotifications_UserStatusB/"
-  "\202\265\030+The status of all the users in the s"
-  "ession.\"\202\001\n-CGameNotifications_Enumerate"
-  "Sessions_Response\022Q\n\010sessions\030\001 \003(\0132\033.CG"
-  "ameNotifications_SessionB\"\202\265\030\036A list of "
-  "the user\'s sessions.\"\326\003\n,CGameNotificati"
-  "ons_GetSessionDetails_Request\022P\n\010session"
-  "s\030\001 \003(\0132>.CGameNotifications_GetSessionD"
-  "etails_Request.RequestedSession\022.\n\005appid"
-  "\030\002 \001(\rB\037\202\265\030\033The appid for the sessions.\022"
-  "7\n\010language\030\003 \001(\tB%\202\265\030!Language to local"
-  "ize the text in.\032\352\001\n\020RequestedSession\0228\n"
-  "\tsessionid\030\001 \001(\004B%\202\265\030!The sessionid to g"
-  "et details for.\022\233\001\n\031include_auth_user_me"
-  "ssage\030\003 \001(\010Bx\202\265\030t(Optional) Boolean dete"
-  "rmining whether the message for the auth"
-  "enticated user should be included. Defau"
-  "lts to false.\"\177\n-CGameNotifications_GetS"
-  "essionDetails_Response\022N\n\010sessions\030\001 \003(\013"
-  "2\033.CGameNotifications_SessionB\037\202\265\030\033The d"
-  "etails of the session.\"\250\001\n\030GameNotificat"
-  "ionSettings\0227\n\005appid\030\001 \001(\rB(\202\265\030$The appi"
-  "d to create the session for.\022S\n\023allow_no"
-  "tifications\030\002 \001(\010B6\202\265\0302Whether the user "
-  "allows notification for this app.\"v\n5CGa"
+  "ssages_unified_base.steamclient.proto\"9\n"
+  "\033CGameNotifications_Variable\022\013\n\003key\030\001 \001("
+  "\t\022\r\n\005value\030\002 \001(\t\"y\n CGameNotifications_L"
+  "ocalizedText\022\r\n\005token\030\001 \001(\t\022/\n\tvariables"
+  "\030\002 \003(\0132\034.CGameNotifications_Variable\022\025\n\r"
+  "rendered_text\030\003 \001(\t\"\245\001\n\035CGameNotificatio"
+  "ns_UserStatus\022\017\n\007steamid\030\001 \001(\006\022\r\n\005state\030"
+  "\002 \001(\t\0220\n\005title\030\003 \001(\0132!.CGameNotification"
+  "s_LocalizedText\0222\n\007message\030\004 \001(\0132!.CGame"
+  "Notifications_LocalizedText\"\274\001\n(CGameNot"
+  "ifications_CreateSession_Request\022\r\n\005appi"
+  "d\030\001 \001(\r\022\017\n\007context\030\002 \001(\004\0220\n\005title\030\003 \001(\0132"
+  "!.CGameNotifications_LocalizedText\022-\n\005us"
+  "ers\030\004 \003(\0132\036.CGameNotifications_UserStatu"
+  "s\022\017\n\007steamid\030\005 \001(\006\">\n)CGameNotifications"
+  "_CreateSession_Response\022\021\n\tsessionid\030\001 \001"
+  "(\004\"]\n(CGameNotifications_DeleteSession_R"
+  "equest\022\021\n\tsessionid\030\001 \001(\004\022\r\n\005appid\030\002 \001(\r"
+  "\022\017\n\007steamid\030\003 \001(\006\"+\n)CGameNotifications_"
+  "DeleteSession_Response\"\276\001\n(CGameNotifica"
+  "tions_UpdateSession_Request\022\021\n\tsessionid"
+  "\030\001 \001(\004\022\r\n\005appid\030\002 \001(\r\0220\n\005title\030\003 \001(\0132!.C"
+  "GameNotifications_LocalizedText\022-\n\005users"
+  "\030\004 \003(\0132\036.CGameNotifications_UserStatus\022\017"
+  "\n\007steamid\030\006 \001(\006\"+\n)CGameNotifications_Up"
+  "dateSession_Response\"\225\001\n,CGameNotificati"
+  "ons_EnumerateSessions_Request\022\r\n\005appid\030\001"
+  " \001(\r\022!\n\031include_all_user_messages\030\003 \001(\010\022"
+  "!\n\031include_auth_user_message\030\004 \001(\010\022\020\n\010la"
+  "nguage\030\005 \001(\t\"\342\001\n\032CGameNotifications_Sess"
+  "ion\022\021\n\tsessionid\030\001 \001(\004\022\r\n\005appid\030\002 \001(\004\022\017\n"
+  "\007context\030\003 \001(\004\0220\n\005title\030\004 \001(\0132!.CGameNot"
+  "ifications_LocalizedText\022\024\n\014time_created"
+  "\030\005 \001(\r\022\024\n\014time_updated\030\006 \001(\r\0223\n\013user_sta"
+  "tus\030\007 \003(\0132\036.CGameNotifications_UserStatu"
+  "s\"^\n-CGameNotifications_EnumerateSession"
+  "s_Response\022-\n\010sessions\030\001 \003(\0132\033.CGameNoti"
+  "fications_Session\"\353\001\n,CGameNotifications"
+  "_GetSessionDetails_Request\022P\n\010sessions\030\001"
+  " \003(\0132>.CGameNotifications_GetSessionDeta"
+  "ils_Request.RequestedSession\022\r\n\005appid\030\002 "
+  "\001(\r\022\020\n\010language\030\003 \001(\t\032H\n\020RequestedSessio"
+  "n\022\021\n\tsessionid\030\001 \001(\004\022!\n\031include_auth_use"
+  "r_message\030\003 \001(\010\"^\n-CGameNotifications_Ge"
+  "tSessionDetails_Response\022-\n\010sessions\030\001 \003"
+  "(\0132\033.CGameNotifications_Session\"F\n\030GameN"
+  "otificationSettings\022\r\n\005appid\030\001 \001(\r\022\033\n\023al"
+  "low_notifications\030\002 \001(\010\"v\n5CGameNotifica"
+  "tions_UpdateNotificationSettings_Request"
+  "\022=\n\032game_notification_settings\030\001 \003(\0132\031.G"
+  "ameNotificationSettings\"8\n6CGameNotifica"
+  "tions_UpdateNotificationSettings_Respons"
+  "e\"Z\n8CGameNotifications_OnNotificationsR"
+  "equested_Notification\022\017\n\007steamid\030\001 \001(\006\022\r"
+  "\n\005appid\030\002 \001(\r\"\251\001\n3CGameNotifications_OnU"
+  "serStatusChanged_Notification\022\017\n\007steamid"
+  "\030\001 \001(\006\022\021\n\tsessionid\030\002 \001(\004\022\r\n\005appid\030\003 \001(\r"
+  "\022.\n\006status\030\004 \001(\0132\036.CGameNotifications_Us"
+  "erStatus\022\017\n\007removed\030\005 \001(\0102\317\005\n\021GameNotifi"
+  "cations\022j\n\021UserCreateSession\022).CGameNoti"
+  "fications_CreateSession_Request\032*.CGameN"
+  "otifications_CreateSession_Response\022j\n\021U"
+  "serDeleteSession\022).CGameNotifications_De"
+  "leteSession_Request\032*.CGameNotifications"
+  "_DeleteSession_Response\022j\n\021UserUpdateSes"
+  "sion\022).CGameNotifications_UpdateSession_"
+  "Request\032*.CGameNotifications_UpdateSessi"
+  "on_Response\022r\n\021EnumerateSessions\022-.CGame"
+  "Notifications_EnumerateSessions_Request\032"
+  "..CGameNotifications_EnumerateSessions_R"
+  "esponse\022r\n\021GetSessionDetails\022-.CGameNoti"
+  "fications_GetSessionDetails_Request\032..CG"
+  "ameNotifications_GetSessionDetails_Respo"
+  "nse\022\215\001\n\032UpdateNotificationSettings\0226.CGa"
   "meNotifications_UpdateNotificationSettin"
-  "gs_Request\022=\n\032game_notification_settings"
-  "\030\001 \003(\0132\031.GameNotificationSettings\"8\n6CGa"
-  "meNotifications_UpdateNotificationSettin"
-  "gs_Response\"\306\001\n8CGameNotifications_OnNot"
-  "ificationsRequested_Notification\022N\n\007stea"
-  "mid\030\001 \001(\006B=\202\265\0309steamid of the user who n"
-  "otifications were requested for.\022:\n\005appi"
-  "d\030\002 \001(\rB+\202\265\030\'The appid that requested no"
-  "tifications.\"\276\003\n3CGameNotifications_OnUs"
-  "erStatusChanged_Notification\022>\n\007steamid\030"
-  "\001 \001(\006B-\202\265\030)steamid of the user whose sta"
-  "tus changed.\022X\n\tsessionid\030\002 \001(\004BE\202\265\030AThe"
-  " sessionid of the session where the user"
-  "\'s status was changed.\022L\n\005appid\030\003 \001(\rB=\202"
-  "\265\0309The appid of the session where the us"
-  "er\'s status changed.\022V\n\006status\030\004 \001(\0132\036.C"
-  "GameNotifications_UserStatusB&\202\265\030\"(Optio"
-  "nal) New status of the user.\022G\n\007removed\030"
-  "\005 \001(\010B6\202\265\0302(Optional) User has been remo"
-  "ved from the session.2\246\010\n\021GameNotificati"
-  "ons\022\215\001\n\021UserCreateSession\022).CGameNotific"
-  "ations_CreateSession_Request\032*.CGameNoti"
-  "fications_CreateSession_Response\"!\202\265\030\035Cr"
-  "eates an async game session\022\215\001\n\021UserDele"
-  "teSession\022).CGameNotifications_DeleteSes"
-  "sion_Request\032*.CGameNotifications_Delete"
-  "Session_Response\"!\202\265\030\035Deletes an async g"
-  "ame session\022\215\001\n\021UserUpdateSession\022).CGam"
-  "eNotifications_UpdateSession_Request\032*.C"
-  "GameNotifications_UpdateSession_Response"
-  "\"!\202\265\030\035Updates an async game session\022\224\001\n\021"
-  "EnumerateSessions\022-.CGameNotifications_E"
-  "numerateSessions_Request\032..CGameNotifica"
-  "tions_EnumerateSessions_Response\" \202\265\030\034En"
-  "umerates a user\'s sessions\022\236\001\n\021GetSessio"
-  "nDetails\022-.CGameNotifications_GetSession"
-  "Details_Request\032..CGameNotifications_Get"
-  "SessionDetails_Response\"*\202\265\030&Get the det"
-  "ails for a specific session\022\326\001\n\032UpdateNo"
-  "tificationSettings\0226.CGameNotifications_"
-  "UpdateNotificationSettings_Request\0327.CGa"
-  "meNotifications_UpdateNotificationSettin"
-  "gs_Response\"G\202\265\030CUpdates whether a user "
-  "allows game notifications for a specific"
-  " app\032P\202\265\030LA service for functions relate"
-  "d to the asyncronous game notification s"
-  "erver.2\337\002\n\027GameNotificationsClient\022\225\001\n\030O"
-  "nNotificationsRequested\0229.CGameNotificat"
-  "ions_OnNotificationsRequested_Notificati"
-  "on\032\013.NoResponse\"1\202\265\030-Requests that the u"
-  "ser opt into notifications\022\215\001\n\023OnUserSta"
-  "tusChanged\0224.CGameNotifications_OnUserSt"
-  "atusChanged_Notification\032\013.NoResponse\"3\202"
-  "\265\030/Notification that the user\'s status h"
-  "as changed\032\034\202\265\030\024Client notifications\300\265\030\002"
-  "B\035\200\001\001\252\002\027OpenSteamworks.Protobuf"
+  "gs_Request\0327.CGameNotifications_UpdateNo"
+  "tificationSettings_Response2\335\001\n\027GameNoti"
+  "ficationsClient\022b\n\030OnNotificationsReques"
+  "ted\0229.CGameNotifications_OnNotifications"
+  "Requested_Notification\032\013.NoResponse\022X\n\023O"
+  "nUserStatusChanged\0224.CGameNotifications_"
+  "OnUserStatusChanged_Notification\032\013.NoRes"
+  "ponse\032\004\300\265\030\002B\035\200\001\001\252\002\027OpenSteamworks.Protob"
+  "uf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fgamenotifications_2esteamclient_2eproto_deps[3] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
@@ -737,7 +634,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fgamenotifications_2esteamclient_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fgamenotifications_2esteamclient_2eproto = {
-  false, false, 7591, descriptor_table_protodef_steammessages_5fgamenotifications_2esteamclient_2eproto, "steammessages_gamenotifications.steamclient.proto", 
+  false, false, 3442, descriptor_table_protodef_steammessages_5fgamenotifications_2esteamclient_2eproto, "steammessages_gamenotifications.steamclient.proto", 
   &descriptor_table_steammessages_5fgamenotifications_2esteamclient_2eproto_once, descriptor_table_steammessages_5fgamenotifications_2esteamclient_2eproto_deps, 3, 20,
   schemas, file_default_instances, TableStruct_steammessages_5fgamenotifications_2esteamclient_2eproto::offsets,
   file_level_metadata_steammessages_5fgamenotifications_2esteamclient_2eproto, file_level_enum_descriptors_steammessages_5fgamenotifications_2esteamclient_2eproto, file_level_service_descriptors_steammessages_5fgamenotifications_2esteamclient_2eproto,
@@ -841,7 +738,7 @@ const char* CGameNotifications_Variable::_InternalParse(const char* ptr, ::PROTO
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional string key = 1 [(.description) = "The name of the variable in the localized text -- anywhere that %variablename% is found within the text it will be substituded with the given value"];
+      // optional string key = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           auto str = _internal_mutable_key();
@@ -852,7 +749,7 @@ const char* CGameNotifications_Variable::_InternalParse(const char* ptr, ::PROTO
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string value = 2 [(.description) = "The value of the variable to substitute in the localized text in place of the given variable.  Can itself be a localization token."];
+      // optional string value = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           auto str = _internal_mutable_value();
@@ -893,7 +790,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional string key = 1 [(.description) = "The name of the variable in the localized text -- anywhere that %variablename% is found within the text it will be substituded with the given value"];
+  // optional string key = 1;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_key().data(), static_cast<int>(this->_internal_key().length()),
@@ -903,7 +800,7 @@ failure:
         1, this->_internal_key(), target);
   }
 
-  // optional string value = 2 [(.description) = "The value of the variable to substitute in the localized text in place of the given variable.  Can itself be a localization token."];
+  // optional string value = 2;
   if (cached_has_bits & 0x00000002u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_value().data(), static_cast<int>(this->_internal_value().length()),
@@ -931,14 +828,14 @@ size_t CGameNotifications_Variable::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional string key = 1 [(.description) = "The name of the variable in the localized text -- anywhere that %variablename% is found within the text it will be substituded with the given value"];
+    // optional string key = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_key());
     }
 
-    // optional string value = 2 [(.description) = "The value of the variable to substitute in the localized text in place of the given variable.  Can itself be a localization token."];
+    // optional string value = 2;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
@@ -1112,7 +1009,7 @@ const char* CGameNotifications_LocalizedText::_InternalParse(const char* ptr, ::
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional string token = 1 [(.description) = "A localization token that maps to the desired string."];
+      // optional string token = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           auto str = _internal_mutable_token();
@@ -1123,7 +1020,7 @@ const char* CGameNotifications_LocalizedText::_InternalParse(const char* ptr, ::
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated .CGameNotifications_Variable variables = 2 [(.description) = "A list of variables values to substitute in any variables found in the localized string."];
+      // repeated .CGameNotifications_Variable variables = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           ptr -= 1;
@@ -1135,7 +1032,7 @@ const char* CGameNotifications_LocalizedText::_InternalParse(const char* ptr, ::
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
         } else goto handle_unusual;
         continue;
-      // optional string rendered_text = 3 [(.description) = "Text rendered in the requested language, complete with variable substitutions, if a language was specified."];
+      // optional string rendered_text = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           auto str = _internal_mutable_rendered_text();
@@ -1176,7 +1073,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional string token = 1 [(.description) = "A localization token that maps to the desired string."];
+  // optional string token = 1;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_token().data(), static_cast<int>(this->_internal_token().length()),
@@ -1186,7 +1083,7 @@ failure:
         1, this->_internal_token(), target);
   }
 
-  // repeated .CGameNotifications_Variable variables = 2 [(.description) = "A list of variables values to substitute in any variables found in the localized string."];
+  // repeated .CGameNotifications_Variable variables = 2;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_variables_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
@@ -1194,7 +1091,7 @@ failure:
       InternalWriteMessage(2, this->_internal_variables(i), target, stream);
   }
 
-  // optional string rendered_text = 3 [(.description) = "Text rendered in the requested language, complete with variable substitutions, if a language was specified."];
+  // optional string rendered_text = 3;
   if (cached_has_bits & 0x00000002u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_rendered_text().data(), static_cast<int>(this->_internal_rendered_text().length()),
@@ -1220,7 +1117,7 @@ size_t CGameNotifications_LocalizedText::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .CGameNotifications_Variable variables = 2 [(.description) = "A list of variables values to substitute in any variables found in the localized string."];
+  // repeated .CGameNotifications_Variable variables = 2;
   total_size += 1UL * this->_internal_variables_size();
   for (const auto& msg : this->variables_) {
     total_size +=
@@ -1229,14 +1126,14 @@ size_t CGameNotifications_LocalizedText::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional string token = 1 [(.description) = "A localization token that maps to the desired string."];
+    // optional string token = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_token());
     }
 
-    // optional string rendered_text = 3 [(.description) = "Text rendered in the requested language, complete with variable substitutions, if a language was specified."];
+    // optional string rendered_text = 3;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
@@ -1441,7 +1338,7 @@ const char* CGameNotifications_UserStatus::_InternalParse(const char* ptr, ::PRO
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional fixed64 steamid = 1 [(.description) = "The specific user\'s steamid."];
+      // optional fixed64 steamid = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
           _Internal::set_has_steamid(&has_bits);
@@ -1449,7 +1346,7 @@ const char* CGameNotifications_UserStatus::_InternalParse(const char* ptr, ::PRO
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
         } else goto handle_unusual;
         continue;
-      // optional string state = 2 [(.description) = "The user\'s state.  ready -- the user is ready to play.  waiting -- The game is waiting on an action from the user. completed, the game is over."];
+      // optional string state = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           auto str = _internal_mutable_state();
@@ -1460,14 +1357,14 @@ const char* CGameNotifications_UserStatus::_InternalParse(const char* ptr, ::PRO
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional .CGameNotifications_LocalizedText title = 3 [(.description) = "Title of the session to display to this user in their list of active sessions."];
+      // optional .CGameNotifications_LocalizedText title = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           ptr = ctx->ParseMessage(_internal_mutable_title(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional .CGameNotifications_LocalizedText message = 4 [(.description) = "Subtitle of the session to display to this user user within their list of active sessions."];
+      // optional .CGameNotifications_LocalizedText message = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
           ptr = ctx->ParseMessage(_internal_mutable_message(), ptr);
@@ -1504,13 +1401,13 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional fixed64 steamid = 1 [(.description) = "The specific user\'s steamid."];
+  // optional fixed64 steamid = 1;
   if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_steamid(), target);
   }
 
-  // optional string state = 2 [(.description) = "The user\'s state.  ready -- the user is ready to play.  waiting -- The game is waiting on an action from the user. completed, the game is over."];
+  // optional string state = 2;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_state().data(), static_cast<int>(this->_internal_state().length()),
@@ -1520,7 +1417,7 @@ failure:
         2, this->_internal_state(), target);
   }
 
-  // optional .CGameNotifications_LocalizedText title = 3 [(.description) = "Title of the session to display to this user in their list of active sessions."];
+  // optional .CGameNotifications_LocalizedText title = 3;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -1528,7 +1425,7 @@ failure:
         3, _Internal::title(this), target, stream);
   }
 
-  // optional .CGameNotifications_LocalizedText message = 4 [(.description) = "Subtitle of the session to display to this user user within their list of active sessions."];
+  // optional .CGameNotifications_LocalizedText message = 4;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -1554,28 +1451,28 @@ size_t CGameNotifications_UserStatus::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x0000000fu) {
-    // optional string state = 2 [(.description) = "The user\'s state.  ready -- the user is ready to play.  waiting -- The game is waiting on an action from the user. completed, the game is over."];
+    // optional string state = 2;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_state());
     }
 
-    // optional .CGameNotifications_LocalizedText title = 3 [(.description) = "Title of the session to display to this user in their list of active sessions."];
+    // optional .CGameNotifications_LocalizedText title = 3;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
           *title_);
     }
 
-    // optional .CGameNotifications_LocalizedText message = 4 [(.description) = "Subtitle of the session to display to this user user within their list of active sessions."];
+    // optional .CGameNotifications_LocalizedText message = 4;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
           *message_);
     }
 
-    // optional fixed64 steamid = 1 [(.description) = "The specific user\'s steamid."];
+    // optional fixed64 steamid = 1;
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 + 8;
     }
@@ -1770,7 +1667,7 @@ const char* CGameNotifications_CreateSession_Request::_InternalParse(const char*
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint32 appid = 1 [(.description) = "The appid to create the session for."];
+      // optional uint32 appid = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_appid(&has_bits);
@@ -1778,7 +1675,7 @@ const char* CGameNotifications_CreateSession_Request::_InternalParse(const char*
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint64 context = 2 [(.description) = "Game-specified context value the game can used to associate the session with some object on their backend."];
+      // optional uint64 context = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_context(&has_bits);
@@ -1786,14 +1683,14 @@ const char* CGameNotifications_CreateSession_Request::_InternalParse(const char*
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional .CGameNotifications_LocalizedText title = 3 [(.description) = "The title of the session to be displayed within each user\'s list of sessions."];
+      // optional .CGameNotifications_LocalizedText title = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           ptr = ctx->ParseMessage(_internal_mutable_title(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated .CGameNotifications_UserStatus users = 4 [(.description) = "The initial state of all users in the session."];
+      // repeated .CGameNotifications_UserStatus users = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
           ptr -= 1;
@@ -1805,7 +1702,7 @@ const char* CGameNotifications_CreateSession_Request::_InternalParse(const char*
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<34>(ptr));
         } else goto handle_unusual;
         continue;
-      // optional fixed64 steamid = 5 [(.description) = "(Optional) steamid to make the request on behalf of -- if specified, the user must be in the session and all users being added to the session must be friends with the user."];
+      // optional fixed64 steamid = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 41)) {
           _Internal::set_has_steamid(&has_bits);
@@ -1843,19 +1740,19 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint32 appid = 1 [(.description) = "The appid to create the session for."];
+  // optional uint32 appid = 1;
   if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_appid(), target);
   }
 
-  // optional uint64 context = 2 [(.description) = "Game-specified context value the game can used to associate the session with some object on their backend."];
+  // optional uint64 context = 2;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(2, this->_internal_context(), target);
   }
 
-  // optional .CGameNotifications_LocalizedText title = 3 [(.description) = "The title of the session to be displayed within each user\'s list of sessions."];
+  // optional .CGameNotifications_LocalizedText title = 3;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -1863,7 +1760,7 @@ failure:
         3, _Internal::title(this), target, stream);
   }
 
-  // repeated .CGameNotifications_UserStatus users = 4 [(.description) = "The initial state of all users in the session."];
+  // repeated .CGameNotifications_UserStatus users = 4;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_users_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
@@ -1871,7 +1768,7 @@ failure:
       InternalWriteMessage(4, this->_internal_users(i), target, stream);
   }
 
-  // optional fixed64 steamid = 5 [(.description) = "(Optional) steamid to make the request on behalf of -- if specified, the user must be in the session and all users being added to the session must be friends with the user."];
+  // optional fixed64 steamid = 5;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(5, this->_internal_steamid(), target);
@@ -1893,7 +1790,7 @@ size_t CGameNotifications_CreateSession_Request::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .CGameNotifications_UserStatus users = 4 [(.description) = "The initial state of all users in the session."];
+  // repeated .CGameNotifications_UserStatus users = 4;
   total_size += 1UL * this->_internal_users_size();
   for (const auto& msg : this->users_) {
     total_size +=
@@ -1902,26 +1799,26 @@ size_t CGameNotifications_CreateSession_Request::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x0000000fu) {
-    // optional .CGameNotifications_LocalizedText title = 3 [(.description) = "The title of the session to be displayed within each user\'s list of sessions."];
+    // optional .CGameNotifications_LocalizedText title = 3;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
           *title_);
     }
 
-    // optional uint64 context = 2 [(.description) = "Game-specified context value the game can used to associate the session with some object on their backend."];
+    // optional uint64 context = 2;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_context());
     }
 
-    // optional fixed64 steamid = 5 [(.description) = "(Optional) steamid to make the request on behalf of -- if specified, the user must be in the session and all users being added to the session must be friends with the user."];
+    // optional fixed64 steamid = 5;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 + 8;
     }
 
-    // optional uint32 appid = 1 [(.description) = "The appid to create the session for."];
+    // optional uint32 appid = 1;
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -2082,7 +1979,7 @@ const char* CGameNotifications_CreateSession_Response::_InternalParse(const char
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint64 sessionid = 1 [(.description) = "The sessionid of the created session."];
+      // optional uint64 sessionid = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_sessionid(&has_bits);
@@ -2120,7 +2017,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint64 sessionid = 1 [(.description) = "The sessionid of the created session."];
+  // optional uint64 sessionid = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_sessionid(), target);
@@ -2142,7 +2039,7 @@ size_t CGameNotifications_CreateSession_Response::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // optional uint64 sessionid = 1 [(.description) = "The sessionid of the created session."];
+  // optional uint64 sessionid = 1;
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += 1 +
@@ -2299,7 +2196,7 @@ const char* CGameNotifications_DeleteSession_Request::_InternalParse(const char*
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint64 sessionid = 1 [(.description) = "The sessionid to delete."];
+      // optional uint64 sessionid = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_sessionid(&has_bits);
@@ -2307,7 +2204,7 @@ const char* CGameNotifications_DeleteSession_Request::_InternalParse(const char*
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 appid = 2 [(.description) = "The appid of the session to delete."];
+      // optional uint32 appid = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_appid(&has_bits);
@@ -2315,7 +2212,7 @@ const char* CGameNotifications_DeleteSession_Request::_InternalParse(const char*
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional fixed64 steamid = 3 [(.description) = "(Optional) steamid to make the request on behalf of -- if specified, the user must be in the session."];
+      // optional fixed64 steamid = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 25)) {
           _Internal::set_has_steamid(&has_bits);
@@ -2353,19 +2250,19 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint64 sessionid = 1 [(.description) = "The sessionid to delete."];
+  // optional uint64 sessionid = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_sessionid(), target);
   }
 
-  // optional uint32 appid = 2 [(.description) = "The appid of the session to delete."];
+  // optional uint32 appid = 2;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_appid(), target);
   }
 
-  // optional fixed64 steamid = 3 [(.description) = "(Optional) steamid to make the request on behalf of -- if specified, the user must be in the session."];
+  // optional fixed64 steamid = 3;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(3, this->_internal_steamid(), target);
@@ -2389,19 +2286,19 @@ size_t CGameNotifications_DeleteSession_Request::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000007u) {
-    // optional uint64 sessionid = 1 [(.description) = "The sessionid to delete."];
+    // optional uint64 sessionid = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_sessionid());
     }
 
-    // optional fixed64 steamid = 3 [(.description) = "(Optional) steamid to make the request on behalf of -- if specified, the user must be in the session."];
+    // optional fixed64 steamid = 3;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 + 8;
     }
 
-    // optional uint32 appid = 2 [(.description) = "The appid of the session to delete."];
+    // optional uint32 appid = 2;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -2751,7 +2648,7 @@ const char* CGameNotifications_UpdateSession_Request::_InternalParse(const char*
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint64 sessionid = 1 [(.description) = "The sessionid to update."];
+      // optional uint64 sessionid = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_sessionid(&has_bits);
@@ -2759,7 +2656,7 @@ const char* CGameNotifications_UpdateSession_Request::_InternalParse(const char*
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 appid = 2 [(.description) = "The appid of the session to update."];
+      // optional uint32 appid = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_appid(&has_bits);
@@ -2767,14 +2664,14 @@ const char* CGameNotifications_UpdateSession_Request::_InternalParse(const char*
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional .CGameNotifications_LocalizedText title = 3 [(.description) = "(Optional) The new title of the session.  If not specified, the title will not be changed."];
+      // optional .CGameNotifications_LocalizedText title = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           ptr = ctx->ParseMessage(_internal_mutable_title(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated .CGameNotifications_UserStatus users = 4 [(.description) = "(Optional) A list of users whose state will be updated to reflect the given state. If the users are not already in the session, they will be added to it."];
+      // repeated .CGameNotifications_UserStatus users = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
           ptr -= 1;
@@ -2786,7 +2683,7 @@ const char* CGameNotifications_UpdateSession_Request::_InternalParse(const char*
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<34>(ptr));
         } else goto handle_unusual;
         continue;
-      // optional fixed64 steamid = 6 [(.description) = "(Optional) steamid to make the request on behalf of -- if specified, the user must be in the session and all users being added to the session must be friends with the user."];
+      // optional fixed64 steamid = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 49)) {
           _Internal::set_has_steamid(&has_bits);
@@ -2824,19 +2721,19 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint64 sessionid = 1 [(.description) = "The sessionid to update."];
+  // optional uint64 sessionid = 1;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_sessionid(), target);
   }
 
-  // optional uint32 appid = 2 [(.description) = "The appid of the session to update."];
+  // optional uint32 appid = 2;
   if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_appid(), target);
   }
 
-  // optional .CGameNotifications_LocalizedText title = 3 [(.description) = "(Optional) The new title of the session.  If not specified, the title will not be changed."];
+  // optional .CGameNotifications_LocalizedText title = 3;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -2844,7 +2741,7 @@ failure:
         3, _Internal::title(this), target, stream);
   }
 
-  // repeated .CGameNotifications_UserStatus users = 4 [(.description) = "(Optional) A list of users whose state will be updated to reflect the given state. If the users are not already in the session, they will be added to it."];
+  // repeated .CGameNotifications_UserStatus users = 4;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_users_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
@@ -2852,7 +2749,7 @@ failure:
       InternalWriteMessage(4, this->_internal_users(i), target, stream);
   }
 
-  // optional fixed64 steamid = 6 [(.description) = "(Optional) steamid to make the request on behalf of -- if specified, the user must be in the session and all users being added to the session must be friends with the user."];
+  // optional fixed64 steamid = 6;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(6, this->_internal_steamid(), target);
@@ -2874,7 +2771,7 @@ size_t CGameNotifications_UpdateSession_Request::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .CGameNotifications_UserStatus users = 4 [(.description) = "(Optional) A list of users whose state will be updated to reflect the given state. If the users are not already in the session, they will be added to it."];
+  // repeated .CGameNotifications_UserStatus users = 4;
   total_size += 1UL * this->_internal_users_size();
   for (const auto& msg : this->users_) {
     total_size +=
@@ -2883,26 +2780,26 @@ size_t CGameNotifications_UpdateSession_Request::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x0000000fu) {
-    // optional .CGameNotifications_LocalizedText title = 3 [(.description) = "(Optional) The new title of the session.  If not specified, the title will not be changed."];
+    // optional .CGameNotifications_LocalizedText title = 3;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
           *title_);
     }
 
-    // optional uint64 sessionid = 1 [(.description) = "The sessionid to update."];
+    // optional uint64 sessionid = 1;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_sessionid());
     }
 
-    // optional fixed64 steamid = 6 [(.description) = "(Optional) steamid to make the request on behalf of -- if specified, the user must be in the session and all users being added to the session must be friends with the user."];
+    // optional fixed64 steamid = 6;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 + 8;
     }
 
-    // optional uint32 appid = 2 [(.description) = "The appid of the session to update."];
+    // optional uint32 appid = 2;
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -3249,7 +3146,7 @@ const char* CGameNotifications_EnumerateSessions_Request::_InternalParse(const c
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint32 appid = 1 [(.description) = "The sessionid to request details for. Optional. If not specified, all the user\'s sessions will be returned."];
+      // optional uint32 appid = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_appid(&has_bits);
@@ -3257,7 +3154,7 @@ const char* CGameNotifications_EnumerateSessions_Request::_InternalParse(const c
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool include_all_user_messages = 3 [(.description) = "(Optional) Boolean determining whether the message for all users should be included. Defaults to false."];
+      // optional bool include_all_user_messages = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           _Internal::set_has_include_all_user_messages(&has_bits);
@@ -3265,7 +3162,7 @@ const char* CGameNotifications_EnumerateSessions_Request::_InternalParse(const c
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool include_auth_user_message = 4 [(.description) = "(Optional) Boolean determining whether the message for the authenticated user should be included. Defaults to false."];
+      // optional bool include_auth_user_message = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
           _Internal::set_has_include_auth_user_message(&has_bits);
@@ -3273,7 +3170,7 @@ const char* CGameNotifications_EnumerateSessions_Request::_InternalParse(const c
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string language = 5 [(.description) = "(Optional) Language to localize the text in."];
+      // optional string language = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
           auto str = _internal_mutable_language();
@@ -3314,25 +3211,25 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint32 appid = 1 [(.description) = "The sessionid to request details for. Optional. If not specified, all the user\'s sessions will be returned."];
+  // optional uint32 appid = 1;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_appid(), target);
   }
 
-  // optional bool include_all_user_messages = 3 [(.description) = "(Optional) Boolean determining whether the message for all users should be included. Defaults to false."];
+  // optional bool include_all_user_messages = 3;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(3, this->_internal_include_all_user_messages(), target);
   }
 
-  // optional bool include_auth_user_message = 4 [(.description) = "(Optional) Boolean determining whether the message for the authenticated user should be included. Defaults to false."];
+  // optional bool include_auth_user_message = 4;
   if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(4, this->_internal_include_auth_user_message(), target);
   }
 
-  // optional string language = 5 [(.description) = "(Optional) Language to localize the text in."];
+  // optional string language = 5;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_language().data(), static_cast<int>(this->_internal_language().length()),
@@ -3360,26 +3257,26 @@ size_t CGameNotifications_EnumerateSessions_Request::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x0000000fu) {
-    // optional string language = 5 [(.description) = "(Optional) Language to localize the text in."];
+    // optional string language = 5;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_language());
     }
 
-    // optional uint32 appid = 1 [(.description) = "The sessionid to request details for. Optional. If not specified, all the user\'s sessions will be returned."];
+    // optional uint32 appid = 1;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_appid());
     }
 
-    // optional bool include_all_user_messages = 3 [(.description) = "(Optional) Boolean determining whether the message for all users should be included. Defaults to false."];
+    // optional bool include_all_user_messages = 3;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 + 1;
     }
 
-    // optional bool include_auth_user_message = 4 [(.description) = "(Optional) Boolean determining whether the message for the authenticated user should be included. Defaults to false."];
+    // optional bool include_auth_user_message = 4;
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 + 1;
     }
@@ -3580,7 +3477,7 @@ const char* CGameNotifications_Session::_InternalParse(const char* ptr, ::PROTOB
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint64 sessionid = 1 [(.description) = "The sessionid for this session."];
+      // optional uint64 sessionid = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_sessionid(&has_bits);
@@ -3588,7 +3485,7 @@ const char* CGameNotifications_Session::_InternalParse(const char* ptr, ::PROTOB
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint64 appid = 2 [(.description) = "The appid for the session."];
+      // optional uint64 appid = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_appid(&has_bits);
@@ -3596,7 +3493,7 @@ const char* CGameNotifications_Session::_InternalParse(const char* ptr, ::PROTOB
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint64 context = 3 [(.description) = "Game-specified context value the game can used to associate the session with some object on their backend."];
+      // optional uint64 context = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           _Internal::set_has_context(&has_bits);
@@ -3604,14 +3501,14 @@ const char* CGameNotifications_Session::_InternalParse(const char* ptr, ::PROTOB
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional .CGameNotifications_LocalizedText title = 4 [(.description) = "The current title for the session."];
+      // optional .CGameNotifications_LocalizedText title = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
           ptr = ctx->ParseMessage(_internal_mutable_title(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 time_created = 5 [(.description) = "The time the session was created."];
+      // optional uint32 time_created = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
           _Internal::set_has_time_created(&has_bits);
@@ -3619,7 +3516,7 @@ const char* CGameNotifications_Session::_InternalParse(const char* ptr, ::PROTOB
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 time_updated = 6 [(.description) = "The last time the session was updated."];
+      // optional uint32 time_updated = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
           _Internal::set_has_time_updated(&has_bits);
@@ -3627,7 +3524,7 @@ const char* CGameNotifications_Session::_InternalParse(const char* ptr, ::PROTOB
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated .CGameNotifications_UserStatus user_status = 7 [(.description) = "The status of all the users in the session."];
+      // repeated .CGameNotifications_UserStatus user_status = 7;
       case 7:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
           ptr -= 1;
@@ -3669,25 +3566,25 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint64 sessionid = 1 [(.description) = "The sessionid for this session."];
+  // optional uint64 sessionid = 1;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_sessionid(), target);
   }
 
-  // optional uint64 appid = 2 [(.description) = "The appid for the session."];
+  // optional uint64 appid = 2;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(2, this->_internal_appid(), target);
   }
 
-  // optional uint64 context = 3 [(.description) = "Game-specified context value the game can used to associate the session with some object on their backend."];
+  // optional uint64 context = 3;
   if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(3, this->_internal_context(), target);
   }
 
-  // optional .CGameNotifications_LocalizedText title = 4 [(.description) = "The current title for the session."];
+  // optional .CGameNotifications_LocalizedText title = 4;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -3695,19 +3592,19 @@ failure:
         4, _Internal::title(this), target, stream);
   }
 
-  // optional uint32 time_created = 5 [(.description) = "The time the session was created."];
+  // optional uint32 time_created = 5;
   if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(5, this->_internal_time_created(), target);
   }
 
-  // optional uint32 time_updated = 6 [(.description) = "The last time the session was updated."];
+  // optional uint32 time_updated = 6;
   if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(6, this->_internal_time_updated(), target);
   }
 
-  // repeated .CGameNotifications_UserStatus user_status = 7 [(.description) = "The status of all the users in the session."];
+  // repeated .CGameNotifications_UserStatus user_status = 7;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_user_status_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
@@ -3731,7 +3628,7 @@ size_t CGameNotifications_Session::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .CGameNotifications_UserStatus user_status = 7 [(.description) = "The status of all the users in the session."];
+  // repeated .CGameNotifications_UserStatus user_status = 7;
   total_size += 1UL * this->_internal_user_status_size();
   for (const auto& msg : this->user_status_) {
     total_size +=
@@ -3740,42 +3637,42 @@ size_t CGameNotifications_Session::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x0000003fu) {
-    // optional .CGameNotifications_LocalizedText title = 4 [(.description) = "The current title for the session."];
+    // optional .CGameNotifications_LocalizedText title = 4;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
           *title_);
     }
 
-    // optional uint64 sessionid = 1 [(.description) = "The sessionid for this session."];
+    // optional uint64 sessionid = 1;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_sessionid());
     }
 
-    // optional uint64 appid = 2 [(.description) = "The appid for the session."];
+    // optional uint64 appid = 2;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_appid());
     }
 
-    // optional uint64 context = 3 [(.description) = "Game-specified context value the game can used to associate the session with some object on their backend."];
+    // optional uint64 context = 3;
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_context());
     }
 
-    // optional uint32 time_created = 5 [(.description) = "The time the session was created."];
+    // optional uint32 time_created = 5;
     if (cached_has_bits & 0x00000010u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_time_created());
     }
 
-    // optional uint32 time_updated = 6 [(.description) = "The last time the session was updated."];
+    // optional uint32 time_updated = 6;
     if (cached_has_bits & 0x00000020u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -3935,7 +3832,7 @@ const char* CGameNotifications_EnumerateSessions_Response::_InternalParse(const 
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // repeated .CGameNotifications_Session sessions = 1 [(.description) = "A list of the user\'s sessions."];
+      // repeated .CGameNotifications_Session sessions = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           ptr -= 1;
@@ -3975,7 +3872,7 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated .CGameNotifications_Session sessions = 1 [(.description) = "A list of the user\'s sessions."];
+  // repeated .CGameNotifications_Session sessions = 1;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_sessions_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
@@ -3999,7 +3896,7 @@ size_t CGameNotifications_EnumerateSessions_Response::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .CGameNotifications_Session sessions = 1 [(.description) = "A list of the user\'s sessions."];
+  // repeated .CGameNotifications_Session sessions = 1;
   total_size += 1UL * this->_internal_sessions_size();
   for (const auto& msg : this->sessions_) {
     total_size +=
@@ -4149,7 +4046,7 @@ const char* CGameNotifications_GetSessionDetails_Request_RequestedSession::_Inte
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint64 sessionid = 1 [(.description) = "The sessionid to get details for."];
+      // optional uint64 sessionid = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_sessionid(&has_bits);
@@ -4157,7 +4054,7 @@ const char* CGameNotifications_GetSessionDetails_Request_RequestedSession::_Inte
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool include_auth_user_message = 3 [(.description) = "(Optional) Boolean determining whether the message for the authenticated user should be included. Defaults to false."];
+      // optional bool include_auth_user_message = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           _Internal::set_has_include_auth_user_message(&has_bits);
@@ -4195,13 +4092,13 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint64 sessionid = 1 [(.description) = "The sessionid to get details for."];
+  // optional uint64 sessionid = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_sessionid(), target);
   }
 
-  // optional bool include_auth_user_message = 3 [(.description) = "(Optional) Boolean determining whether the message for the authenticated user should be included. Defaults to false."];
+  // optional bool include_auth_user_message = 3;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(3, this->_internal_include_auth_user_message(), target);
@@ -4225,14 +4122,14 @@ size_t CGameNotifications_GetSessionDetails_Request_RequestedSession::ByteSizeLo
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional uint64 sessionid = 1 [(.description) = "The sessionid to get details for."];
+    // optional uint64 sessionid = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_sessionid());
     }
 
-    // optional bool include_auth_user_message = 3 [(.description) = "(Optional) Boolean determining whether the message for the authenticated user should be included. Defaults to false."];
+    // optional bool include_auth_user_message = 3;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 + 1;
     }
@@ -4412,7 +4309,7 @@ const char* CGameNotifications_GetSessionDetails_Request::_InternalParse(const c
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
         } else goto handle_unusual;
         continue;
-      // optional uint32 appid = 2 [(.description) = "The appid for the sessions."];
+      // optional uint32 appid = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_appid(&has_bits);
@@ -4420,7 +4317,7 @@ const char* CGameNotifications_GetSessionDetails_Request::_InternalParse(const c
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string language = 3 [(.description) = "Language to localize the text in."];
+      // optional string language = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           auto str = _internal_mutable_language();
@@ -4469,13 +4366,13 @@ failure:
   }
 
   cached_has_bits = _has_bits_[0];
-  // optional uint32 appid = 2 [(.description) = "The appid for the sessions."];
+  // optional uint32 appid = 2;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_appid(), target);
   }
 
-  // optional string language = 3 [(.description) = "Language to localize the text in."];
+  // optional string language = 3;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_language().data(), static_cast<int>(this->_internal_language().length()),
@@ -4510,14 +4407,14 @@ size_t CGameNotifications_GetSessionDetails_Request::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional string language = 3 [(.description) = "Language to localize the text in."];
+    // optional string language = 3;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_language());
     }
 
-    // optional uint32 appid = 2 [(.description) = "The appid for the sessions."];
+    // optional uint32 appid = 2;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -4661,7 +4558,7 @@ const char* CGameNotifications_GetSessionDetails_Response::_InternalParse(const 
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // repeated .CGameNotifications_Session sessions = 1 [(.description) = "The details of the session."];
+      // repeated .CGameNotifications_Session sessions = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           ptr -= 1;
@@ -4701,7 +4598,7 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated .CGameNotifications_Session sessions = 1 [(.description) = "The details of the session."];
+  // repeated .CGameNotifications_Session sessions = 1;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_sessions_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
@@ -4725,7 +4622,7 @@ size_t CGameNotifications_GetSessionDetails_Response::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .CGameNotifications_Session sessions = 1 [(.description) = "The details of the session."];
+  // repeated .CGameNotifications_Session sessions = 1;
   total_size += 1UL * this->_internal_sessions_size();
   for (const auto& msg : this->sessions_) {
     total_size +=
@@ -4875,7 +4772,7 @@ const char* GameNotificationSettings::_InternalParse(const char* ptr, ::PROTOBUF
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint32 appid = 1 [(.description) = "The appid to create the session for."];
+      // optional uint32 appid = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_appid(&has_bits);
@@ -4883,7 +4780,7 @@ const char* GameNotificationSettings::_InternalParse(const char* ptr, ::PROTOBUF
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool allow_notifications = 2 [(.description) = "Whether the user allows notification for this app."];
+      // optional bool allow_notifications = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_allow_notifications(&has_bits);
@@ -4921,13 +4818,13 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint32 appid = 1 [(.description) = "The appid to create the session for."];
+  // optional uint32 appid = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_appid(), target);
   }
 
-  // optional bool allow_notifications = 2 [(.description) = "Whether the user allows notification for this app."];
+  // optional bool allow_notifications = 2;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(2, this->_internal_allow_notifications(), target);
@@ -4951,14 +4848,14 @@ size_t GameNotificationSettings::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional uint32 appid = 1 [(.description) = "The appid to create the session for."];
+    // optional uint32 appid = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_appid());
     }
 
-    // optional bool allow_notifications = 2 [(.description) = "Whether the user allows notification for this app."];
+    // optional bool allow_notifications = 2;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 + 1;
     }
@@ -5473,7 +5370,7 @@ const char* CGameNotifications_OnNotificationsRequested_Notification::_InternalP
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional fixed64 steamid = 1 [(.description) = "steamid of the user who notifications were requested for."];
+      // optional fixed64 steamid = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
           _Internal::set_has_steamid(&has_bits);
@@ -5481,7 +5378,7 @@ const char* CGameNotifications_OnNotificationsRequested_Notification::_InternalP
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
         } else goto handle_unusual;
         continue;
-      // optional uint32 appid = 2 [(.description) = "The appid that requested notifications."];
+      // optional uint32 appid = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_appid(&has_bits);
@@ -5519,13 +5416,13 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional fixed64 steamid = 1 [(.description) = "steamid of the user who notifications were requested for."];
+  // optional fixed64 steamid = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_steamid(), target);
   }
 
-  // optional uint32 appid = 2 [(.description) = "The appid that requested notifications."];
+  // optional uint32 appid = 2;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_appid(), target);
@@ -5549,12 +5446,12 @@ size_t CGameNotifications_OnNotificationsRequested_Notification::ByteSizeLong() 
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional fixed64 steamid = 1 [(.description) = "steamid of the user who notifications were requested for."];
+    // optional fixed64 steamid = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 + 8;
     }
 
-    // optional uint32 appid = 2 [(.description) = "The appid that requested notifications."];
+    // optional uint32 appid = 2;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -5744,7 +5641,7 @@ const char* CGameNotifications_OnUserStatusChanged_Notification::_InternalParse(
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional fixed64 steamid = 1 [(.description) = "steamid of the user whose status changed."];
+      // optional fixed64 steamid = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
           _Internal::set_has_steamid(&has_bits);
@@ -5752,7 +5649,7 @@ const char* CGameNotifications_OnUserStatusChanged_Notification::_InternalParse(
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
         } else goto handle_unusual;
         continue;
-      // optional uint64 sessionid = 2 [(.description) = "The sessionid of the session where the user\'s status was changed."];
+      // optional uint64 sessionid = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_sessionid(&has_bits);
@@ -5760,7 +5657,7 @@ const char* CGameNotifications_OnUserStatusChanged_Notification::_InternalParse(
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 appid = 3 [(.description) = "The appid of the session where the user\'s status changed."];
+      // optional uint32 appid = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           _Internal::set_has_appid(&has_bits);
@@ -5768,14 +5665,14 @@ const char* CGameNotifications_OnUserStatusChanged_Notification::_InternalParse(
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional .CGameNotifications_UserStatus status = 4 [(.description) = "(Optional) New status of the user."];
+      // optional .CGameNotifications_UserStatus status = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
           ptr = ctx->ParseMessage(_internal_mutable_status(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool removed = 5 [(.description) = "(Optional) User has been removed from the session."];
+      // optional bool removed = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
           _Internal::set_has_removed(&has_bits);
@@ -5813,25 +5710,25 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional fixed64 steamid = 1 [(.description) = "steamid of the user whose status changed."];
+  // optional fixed64 steamid = 1;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_steamid(), target);
   }
 
-  // optional uint64 sessionid = 2 [(.description) = "The sessionid of the session where the user\'s status was changed."];
+  // optional uint64 sessionid = 2;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(2, this->_internal_sessionid(), target);
   }
 
-  // optional uint32 appid = 3 [(.description) = "The appid of the session where the user\'s status changed."];
+  // optional uint32 appid = 3;
   if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_appid(), target);
   }
 
-  // optional .CGameNotifications_UserStatus status = 4 [(.description) = "(Optional) New status of the user."];
+  // optional .CGameNotifications_UserStatus status = 4;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -5839,7 +5736,7 @@ failure:
         4, _Internal::status(this), target, stream);
   }
 
-  // optional bool removed = 5 [(.description) = "(Optional) User has been removed from the session."];
+  // optional bool removed = 5;
   if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(5, this->_internal_removed(), target);
@@ -5863,33 +5760,33 @@ size_t CGameNotifications_OnUserStatusChanged_Notification::ByteSizeLong() const
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x0000001fu) {
-    // optional .CGameNotifications_UserStatus status = 4 [(.description) = "(Optional) New status of the user."];
+    // optional .CGameNotifications_UserStatus status = 4;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
           *status_);
     }
 
-    // optional fixed64 steamid = 1 [(.description) = "steamid of the user whose status changed."];
+    // optional fixed64 steamid = 1;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 + 8;
     }
 
-    // optional uint64 sessionid = 2 [(.description) = "The sessionid of the session where the user\'s status was changed."];
+    // optional uint64 sessionid = 2;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_sessionid());
     }
 
-    // optional uint32 appid = 3 [(.description) = "The appid of the session where the user\'s status changed."];
+    // optional uint32 appid = 3;
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_appid());
     }
 
-    // optional bool removed = 5 [(.description) = "(Optional) User has been removed from the session."];
+    // optional bool removed = 5;
     if (cached_has_bits & 0x00000010u) {
       total_size += 1 + 1;
     }

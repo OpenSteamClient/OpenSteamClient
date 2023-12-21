@@ -98,6 +98,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
   #region Messages
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CAuction_Bid : pb::IMessage<CAuction_Bid>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -668,6 +669,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CAuction_CancelBid_Request : pb::IMessage<CAuction_CancelBid_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -874,6 +876,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CAuction_CancelBid_Response : pb::IMessage<CAuction_CancelBid_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1080,6 +1083,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CAuction_GetAllItems_Request : pb::IMessage<CAuction_GetAllItems_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1232,6 +1236,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CAuction_GetAllItems_Response : pb::IMessage<CAuction_GetAllItems_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1410,6 +1415,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CAuction_GetBidsForItem_Request : pb::IMessage<CAuction_GetBidsForItem_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1616,6 +1622,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CAuction_GetBidsForItem_Response : pb::IMessage<CAuction_GetBidsForItem_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1946,6 +1953,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CAuction_GetBidsForUser_Request : pb::IMessage<CAuction_GetBidsForUser_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2152,6 +2160,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CAuction_GetBidsForUser_Response : pb::IMessage<CAuction_GetBidsForUser_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2330,6 +2339,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CAuction_GetItemDetails_Request : pb::IMessage<CAuction_GetItemDetails_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2536,6 +2546,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CAuction_GetItemDetails_Response : pb::IMessage<CAuction_GetItemDetails_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2734,6 +2745,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CAuction_GetUserBidForItem_Request : pb::IMessage<CAuction_GetUserBidForItem_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2940,6 +2952,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CAuction_GetUserBidForItem_Response : pb::IMessage<CAuction_GetUserBidForItem_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -3138,6 +3151,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CAuction_Item : pb::IMessage<CAuction_Item>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -3892,6 +3906,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CAuction_PlaceBid_Request : pb::IMessage<CAuction_PlaceBid_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -4202,6 +4217,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CAuction_PlaceBid_Response : pb::IMessage<CAuction_PlaceBid_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage

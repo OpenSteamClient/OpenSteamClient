@@ -189,21 +189,15 @@ const char descriptor_table_protodef_steammessages_5ftimedtrial_2esteamclient_2e
   "_ResetPlaytime_Request\022\r\n\005appid\030\001 \001(\r\"U\n"
   "\"CTimedTrial_ResetPlaytime_Response\022\026\n\016s"
   "econds_played\030\001 \001(\r\022\027\n\017seconds_allowed\030\002"
-  " \001(\r2\233\004\n\nTimedTrial\022\255\001\n\020GetTimeRemaining"
-  "\022%.CTimedTrial_GetTimeRemaining_Request\032"
-  "&.CTimedTrial_GetTimeRemaining_Response\""
-  "J\202\265\030FReturns the amount of time a user h"
-  "as left on a timed trial for an app\022\224\001\n\016"
-  "RecordPlaytime\022#.CTimedTrial_RecordPlayt"
-  "ime_Request\032$.CTimedTrial_RecordPlaytime"
-  "_Response\"7\202\265\0303Updates the user\'s remain"
-  "ing playtime while in game\022\222\001\n\rResetPlay"
-  "time\022\".CTimedTrial_ResetPlaytime_Request"
-  "\032#.CTimedTrial_ResetPlaytime_Response\"8\202"
-  "\265\0304Reset the user\'s remaining playtime ("
-  "developer only)\0321\202\265\030-A service to get us"
-  "er timed trial informationB\035\200\001\001\252\002\027OpenSt"
-  "eamworks.Protobuf"
+  " \001(\r2\246\002\n\nTimedTrial\022a\n\020GetTimeRemaining\022"
+  "%.CTimedTrial_GetTimeRemaining_Request\032&"
+  ".CTimedTrial_GetTimeRemaining_Response\022["
+  "\n\016RecordPlaytime\022#.CTimedTrial_RecordPla"
+  "ytime_Request\032$.CTimedTrial_RecordPlayti"
+  "me_Response\022X\n\rResetPlaytime\022\".CTimedTri"
+  "al_ResetPlaytime_Request\032#.CTimedTrial_R"
+  "esetPlaytime_ResponseB\035\200\001\001\252\002\027OpenSteamwo"
+  "rks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5ftimedtrial_2esteamclient_2eproto_deps[3] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
@@ -212,7 +206,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5ftimedtrial_2esteamclient_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5ftimedtrial_2esteamclient_2eproto = {
-  false, false, 1217, descriptor_table_protodef_steammessages_5ftimedtrial_2esteamclient_2eproto, "steammessages_timedtrial.steamclient.proto", 
+  false, false, 972, descriptor_table_protodef_steammessages_5ftimedtrial_2esteamclient_2eproto, "steammessages_timedtrial.steamclient.proto", 
   &descriptor_table_steammessages_5ftimedtrial_2esteamclient_2eproto_once, descriptor_table_steammessages_5ftimedtrial_2esteamclient_2eproto_deps, 3, 6,
   schemas, file_default_instances, TableStruct_steammessages_5ftimedtrial_2esteamclient_2eproto::offsets,
   file_level_metadata_steammessages_5ftimedtrial_2esteamclient_2eproto, file_level_enum_descriptors_steammessages_5ftimedtrial_2esteamclient_2eproto, file_level_service_descriptors_steammessages_5ftimedtrial_2esteamclient_2eproto,

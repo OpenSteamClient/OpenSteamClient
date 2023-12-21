@@ -1,11 +1,11 @@
 {
     "name": "IClientAppDisableUpdateMap",
-    "found_at": "0x23a92f8",
+    "found_at": "0x2404044",
     "functions": [ 
         {
             "name": "SetAppUpdateDisabledSecondsRemaining",
             "argc": "3",
-            "addr": "0x61b630"
+            "addr": "0x63a1c0"
         }
     ]
 }

@@ -42,6 +42,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
   #region Messages
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CSystemManager_Hibernate_Request : pb::IMessage<CSystemManager_Hibernate_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -194,6 +195,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CSystemManager_Hibernate_Response : pb::IMessage<CSystemManager_Hibernate_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage

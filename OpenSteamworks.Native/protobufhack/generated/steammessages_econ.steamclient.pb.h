@@ -787,7 +787,7 @@ class CEcon_Asset PROTOBUF_FINAL :
   void _internal_set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 currencyid = 6 [(.description) = "Set currencyid if it\'s a currency, assetid for an item"];
+  // optional uint32 currencyid = 6;
   bool has_currencyid() const;
   private:
   bool _internal_has_currencyid() const;
@@ -2128,7 +2128,7 @@ class CEconItem_Tag PROTOBUF_FINAL :
     kColorFieldNumber = 6,
     kAppidFieldNumber = 1,
   };
-  // optional string category = 2 [(.description) = "The internal name of the category the tag belongs to"];
+  // optional string category = 2;
   bool has_category() const;
   private:
   bool _internal_has_category() const;
@@ -2148,7 +2148,7 @@ class CEconItem_Tag PROTOBUF_FINAL :
   std::string* _internal_mutable_category();
   public:
 
-  // optional string internal_name = 3 [(.description) = "The internal name of the tag"];
+  // optional string internal_name = 3;
   bool has_internal_name() const;
   private:
   bool _internal_has_internal_name() const;
@@ -2168,7 +2168,7 @@ class CEconItem_Tag PROTOBUF_FINAL :
   std::string* _internal_mutable_internal_name();
   public:
 
-  // optional string localized_category_name = 4 [(.description) = "The localized name of the category"];
+  // optional string localized_category_name = 4;
   bool has_localized_category_name() const;
   private:
   bool _internal_has_localized_category_name() const;
@@ -2188,7 +2188,7 @@ class CEconItem_Tag PROTOBUF_FINAL :
   std::string* _internal_mutable_localized_category_name();
   public:
 
-  // optional string localized_tag_name = 5 [(.description) = "The localized name of the tag"];
+  // optional string localized_tag_name = 5;
   bool has_localized_tag_name() const;
   private:
   bool _internal_has_localized_tag_name() const;
@@ -2208,7 +2208,7 @@ class CEconItem_Tag PROTOBUF_FINAL :
   std::string* _internal_mutable_localized_tag_name();
   public:
 
-  // optional string color = 6 [(.description) = "The color to use when displaying the tag to the user"];
+  // optional string color = 6;
   bool has_color() const;
   private:
   bool _internal_has_color() const;
@@ -2228,7 +2228,7 @@ class CEconItem_Tag PROTOBUF_FINAL :
   std::string* _internal_mutable_color();
   public:
 
-  // optional uint32 appid = 1 [(.description) = "The app that contains the item"];
+  // optional uint32 appid = 1;
   bool has_appid() const;
   private:
   bool _internal_has_appid() const;
@@ -2423,7 +2423,7 @@ class CEcon_GetInventoryItemsWithDescriptions_Response PROTOBUF_FINAL :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CEconItem_Description >&
       descriptions() const;
 
-  // repeated .CEcon_Asset missing_assets = 3 [(.description) = "This list of assets in the original list we could not find in the users inventory"];
+  // repeated .CEcon_Asset missing_assets = 3;
   int missing_assets_size() const;
   private:
   int _internal_missing_assets_size() const;
@@ -4383,7 +4383,7 @@ inline void CEcon_Asset::set_instanceid(::PROTOBUF_NAMESPACE_ID::uint64 value) {
   // @@protoc_insertion_point(field_set:CEcon_Asset.instanceid)
 }
 
-// optional uint32 currencyid = 6 [(.description) = "Set currencyid if it\'s a currency, assetid for an item"];
+// optional uint32 currencyid = 6;
 inline bool CEcon_Asset::_internal_has_currencyid() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -6496,7 +6496,7 @@ inline void CEconItem_Description::set_allocated_market_sell_country_restriction
 
 // CEconItem_Tag
 
-// optional uint32 appid = 1 [(.description) = "The app that contains the item"];
+// optional uint32 appid = 1;
 inline bool CEconItem_Tag::_internal_has_appid() const {
   bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
@@ -6524,7 +6524,7 @@ inline void CEconItem_Tag::set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   // @@protoc_insertion_point(field_set:CEconItem_Tag.appid)
 }
 
-// optional string category = 2 [(.description) = "The internal name of the category the tag belongs to"];
+// optional string category = 2;
 inline bool CEconItem_Tag::_internal_has_category() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -6597,7 +6597,7 @@ inline void CEconItem_Tag::set_allocated_category(std::string* category) {
   // @@protoc_insertion_point(field_set_allocated:CEconItem_Tag.category)
 }
 
-// optional string internal_name = 3 [(.description) = "The internal name of the tag"];
+// optional string internal_name = 3;
 inline bool CEconItem_Tag::_internal_has_internal_name() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -6670,7 +6670,7 @@ inline void CEconItem_Tag::set_allocated_internal_name(std::string* internal_nam
   // @@protoc_insertion_point(field_set_allocated:CEconItem_Tag.internal_name)
 }
 
-// optional string localized_category_name = 4 [(.description) = "The localized name of the category"];
+// optional string localized_category_name = 4;
 inline bool CEconItem_Tag::_internal_has_localized_category_name() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -6743,7 +6743,7 @@ inline void CEconItem_Tag::set_allocated_localized_category_name(std::string* lo
   // @@protoc_insertion_point(field_set_allocated:CEconItem_Tag.localized_category_name)
 }
 
-// optional string localized_tag_name = 5 [(.description) = "The localized name of the tag"];
+// optional string localized_tag_name = 5;
 inline bool CEconItem_Tag::_internal_has_localized_tag_name() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -6816,7 +6816,7 @@ inline void CEconItem_Tag::set_allocated_localized_tag_name(std::string* localiz
   // @@protoc_insertion_point(field_set_allocated:CEconItem_Tag.localized_tag_name)
 }
 
-// optional string color = 6 [(.description) = "The color to use when displaying the tag to the user"];
+// optional string color = 6;
 inline bool CEconItem_Tag::_internal_has_color() const {
   bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
@@ -6971,7 +6971,7 @@ CEcon_GetInventoryItemsWithDescriptions_Response::descriptions() const {
   return descriptions_;
 }
 
-// repeated .CEcon_Asset missing_assets = 3 [(.description) = "This list of assets in the original list we could not find in the users inventory"];
+// repeated .CEcon_Asset missing_assets = 3;
 inline int CEcon_GetInventoryItemsWithDescriptions_Response::_internal_missing_assets_size() const {
   return missing_assets_.size();
 }

@@ -53,7 +53,7 @@ struct TableStruct_steammessages_5fstore_2esteamclient_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[49]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[51]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -199,6 +199,12 @@ extern CStore_SkipDiscoveryQueueItem_ResponseDefaultTypeInternal _CStore_SkipDis
 class CStore_StorePreferencesChanged_Notification;
 struct CStore_StorePreferencesChanged_NotificationDefaultTypeInternal;
 extern CStore_StorePreferencesChanged_NotificationDefaultTypeInternal _CStore_StorePreferencesChanged_Notification_default_instance_;
+class CStore_UpdatePackageReservations_Request;
+struct CStore_UpdatePackageReservations_RequestDefaultTypeInternal;
+extern CStore_UpdatePackageReservations_RequestDefaultTypeInternal _CStore_UpdatePackageReservations_Request_default_instance_;
+class CStore_UpdatePackageReservations_Response;
+struct CStore_UpdatePackageReservations_ResponseDefaultTypeInternal;
+extern CStore_UpdatePackageReservations_ResponseDefaultTypeInternal _CStore_UpdatePackageReservations_Response_default_instance_;
 class CStore_UserPreferences;
 struct CStore_UserPreferencesDefaultTypeInternal;
 extern CStore_UserPreferencesDefaultTypeInternal _CStore_UserPreferences_default_instance_;
@@ -255,6 +261,8 @@ template<> ::CStore_SetReservationPositionMessage_Response* Arena::CreateMaybeMe
 template<> ::CStore_SkipDiscoveryQueueItem_Request* Arena::CreateMaybeMessage<::CStore_SkipDiscoveryQueueItem_Request>(Arena*);
 template<> ::CStore_SkipDiscoveryQueueItem_Response* Arena::CreateMaybeMessage<::CStore_SkipDiscoveryQueueItem_Response>(Arena*);
 template<> ::CStore_StorePreferencesChanged_Notification* Arena::CreateMaybeMessage<::CStore_StorePreferencesChanged_Notification>(Arena*);
+template<> ::CStore_UpdatePackageReservations_Request* Arena::CreateMaybeMessage<::CStore_UpdatePackageReservations_Request>(Arena*);
+template<> ::CStore_UpdatePackageReservations_Response* Arena::CreateMaybeMessage<::CStore_UpdatePackageReservations_Response>(Arena*);
 template<> ::CStore_UserPreferences* Arena::CreateMaybeMessage<::CStore_UserPreferences>(Arena*);
 template<> ::CStore_UserTagPreferences* Arena::CreateMaybeMessage<::CStore_UserTagPreferences>(Arena*);
 template<> ::CStore_UserTagPreferences_Tag* Arena::CreateMaybeMessage<::CStore_UserTagPreferences_Tag>(Arena*);
@@ -532,7 +540,7 @@ class CStore_RegisterCDKey_Request PROTOBUF_FINAL :
     kPurchasePlatformFieldNumber = 2,
     kIsRequestFromClientFieldNumber = 3,
   };
-  // optional string activation_code = 1 [(.description) = "Key string to register on the logged in user\'s account"];
+  // optional string activation_code = 1;
   bool has_activation_code() const;
   private:
   bool _internal_has_activation_code() const;
@@ -552,7 +560,7 @@ class CStore_RegisterCDKey_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_activation_code();
   public:
 
-  // optional int32 purchase_platform = 2 [(.description) = "EPurchasePlatform for platform of request"];
+  // optional int32 purchase_platform = 2;
   bool has_purchase_platform() const;
   private:
   bool _internal_has_purchase_platform() const;
@@ -565,7 +573,7 @@ class CStore_RegisterCDKey_Request PROTOBUF_FINAL :
   void _internal_set_purchase_platform(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
-  // optional bool is_request_from_client = 3 [(.description) = "True if the request was initiated from inside the Steam client"];
+  // optional bool is_request_from_client = 3;
   bool has_is_request_from_client() const;
   private:
   bool _internal_has_is_request_from_client() const;
@@ -1349,7 +1357,7 @@ class CStore_RegisterCDKey_Response PROTOBUF_FINAL :
     kPurchaseReceiptInfoFieldNumber = 2,
     kPurchaseResultDetailsFieldNumber = 1,
   };
-  // optional .CStore_PurchaseReceiptInfo purchase_receipt_info = 2 [(.description) = "Purchase receipt info"];
+  // optional .CStore_PurchaseReceiptInfo purchase_receipt_info = 2;
   bool has_purchase_receipt_info() const;
   private:
   bool _internal_has_purchase_receipt_info() const;
@@ -1367,7 +1375,7 @@ class CStore_RegisterCDKey_Response PROTOBUF_FINAL :
       ::CStore_PurchaseReceiptInfo* purchase_receipt_info);
   ::CStore_PurchaseReceiptInfo* unsafe_arena_release_purchase_receipt_info();
 
-  // optional int32 purchase_result_details = 1 [(.description) = "EPurchaseResultDetails from key activation"];
+  // optional int32 purchase_result_details = 1;
   bool has_purchase_result_details() const;
   private:
   bool _internal_has_purchase_result_details() const;
@@ -2222,7 +2230,7 @@ class CStore_GetLocalizedNameForTags_Response_Tag PROTOBUF_FINAL :
   std::string* _internal_mutable_name();
   public:
 
-  // optional string normalized_name = 4 [(.description) = "english_name, lowercase, with homoglyphs replaced and spaces and some punctuation removed."];
+  // optional string normalized_name = 4;
   bool has_normalized_name() const;
   private:
   bool _internal_has_normalized_name() const;
@@ -2570,7 +2578,7 @@ class CStore_GetTagList_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_language();
   public:
 
-  // optional string have_version_hash = 2 [(.description) = "The hash returned in the last call.  Will return no results if the list hasn\'t changed."];
+  // optional string have_version_hash = 2;
   bool has_have_version_hash() const;
   private:
   bool _internal_has_have_version_hash() const;
@@ -2919,7 +2927,7 @@ class CStore_GetTagList_Response PROTOBUF_FINAL :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CStore_GetTagList_Response_Tag >&
       tags() const;
 
-  // optional string version_hash = 1 [(.description) = "Pass in future calls, server will only return data if it has changed (hash is per-language)."];
+  // optional string version_hash = 1;
   bool has_version_hash() const;
   private:
   bool _internal_has_version_hash() const;
@@ -3088,7 +3096,7 @@ class CStoreDiscoveryQueueSettings PROTOBUF_FINAL :
     kExcludeDlcFieldNumber = 14,
     kExcludeSoundtracksFieldNumber = 15,
   };
-  // repeated uint32 excluded_tagids = 10 [(.description) = "Don\'t return any games with these tags."];
+  // repeated uint32 excluded_tagids = 10;
   int excluded_tagids_size() const;
   private:
   int _internal_excluded_tagids_size() const;
@@ -3110,7 +3118,7 @@ class CStoreDiscoveryQueueSettings PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
       mutable_excluded_tagids();
 
-  // repeated uint32 featured_tagids = 16 [(.description) = "Must be marked with one of these featured tagids (for sale pages and events)"];
+  // repeated uint32 featured_tagids = 16;
   int featured_tagids_size() const;
   private:
   int _internal_featured_tagids_size() const;
@@ -5084,7 +5092,7 @@ class CStore_GetUserGameInterestState_Response PROTOBUF_FINAL :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>& in_queues() const;
   ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>* mutable_in_queues();
 
-  // repeated .EStoreDiscoveryQueueType queues_with_skip = 6 [(.description) = "Discovery queue types where the user has skipped this game."];
+  // repeated .EStoreDiscoveryQueueType queues_with_skip = 6;
   int queues_with_skip_size() const;
   private:
   int _internal_queues_with_skip_size() const;
@@ -5101,7 +5109,7 @@ class CStore_GetUserGameInterestState_Response PROTOBUF_FINAL :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>& queues_with_skip() const;
   ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>* mutable_queues_with_skip();
 
-  // repeated int32 queue_items_remaining = 7 [(.description) = "# of items remaining in the discovery queue - matches the same order as in_queues"];
+  // repeated int32 queue_items_remaining = 7;
   int queue_items_remaining_size() const;
   private:
   int _internal_queue_items_remaining_size() const;
@@ -5123,7 +5131,7 @@ class CStore_GetUserGameInterestState_Response PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >*
       mutable_queue_items_remaining();
 
-  // repeated uint32 queue_items_next_appid = 8 [(.description) = "the next appid in the queue - matches the same order as in_queues"];
+  // repeated uint32 queue_items_next_appid = 8;
   int queue_items_next_appid_size() const;
   private:
   int _internal_queue_items_next_appid_size() const;
@@ -5215,7 +5223,7 @@ class CStore_GetUserGameInterestState_Response PROTOBUF_FINAL :
   void _internal_set_following(bool value);
   public:
 
-  // optional bool temporarily_owned = 9 [(.description) = "The user owns the game temporarily, eg a rental or free weekend"];
+  // optional bool temporarily_owned = 9;
   bool has_temporarily_owned() const;
   private:
   bool _internal_has_temporarily_owned() const;
@@ -5228,7 +5236,7 @@ class CStore_GetUserGameInterestState_Response PROTOBUF_FINAL :
   void _internal_set_temporarily_owned(bool value);
   public:
 
-  // optional int32 ignored_reason = 11 [(.description) = "The ERecommendationIgnoreReason why the user ignored the app"];
+  // optional int32 ignored_reason = 11;
   bool has_ignored_reason() const;
   private:
   bool _internal_has_ignored_reason() const;
@@ -5241,7 +5249,7 @@ class CStore_GetUserGameInterestState_Response PROTOBUF_FINAL :
   void _internal_set_ignored_reason(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
-  // optional .EPlaytestStatus beta_status = 12 [default = ETesterStatusNone, (.description) = "User interest or membership in the playtest for this app if any"];
+  // optional .EPlaytestStatus beta_status = 12 [default = ETesterStatusNone];
   bool has_beta_status() const;
   private:
   bool _internal_has_beta_status() const;
@@ -7595,6 +7603,363 @@ class CStore_MigratePartnerLinkTracking_Notification PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
+class CStore_UpdatePackageReservations_Request PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CStore_UpdatePackageReservations_Request) */ {
+ public:
+  inline CStore_UpdatePackageReservations_Request() : CStore_UpdatePackageReservations_Request(nullptr) {}
+  virtual ~CStore_UpdatePackageReservations_Request();
+  explicit constexpr CStore_UpdatePackageReservations_Request(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CStore_UpdatePackageReservations_Request(const CStore_UpdatePackageReservations_Request& from);
+  CStore_UpdatePackageReservations_Request(CStore_UpdatePackageReservations_Request&& from) noexcept
+    : CStore_UpdatePackageReservations_Request() {
+    *this = ::std::move(from);
+  }
+
+  inline CStore_UpdatePackageReservations_Request& operator=(const CStore_UpdatePackageReservations_Request& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CStore_UpdatePackageReservations_Request& operator=(CStore_UpdatePackageReservations_Request&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CStore_UpdatePackageReservations_Request& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CStore_UpdatePackageReservations_Request* internal_default_instance() {
+    return reinterpret_cast<const CStore_UpdatePackageReservations_Request*>(
+               &_CStore_UpdatePackageReservations_Request_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    36;
+
+  friend void swap(CStore_UpdatePackageReservations_Request& a, CStore_UpdatePackageReservations_Request& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CStore_UpdatePackageReservations_Request* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CStore_UpdatePackageReservations_Request* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CStore_UpdatePackageReservations_Request* New() const final {
+    return CreateMaybeMessage<CStore_UpdatePackageReservations_Request>(nullptr);
+  }
+
+  CStore_UpdatePackageReservations_Request* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CStore_UpdatePackageReservations_Request>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CStore_UpdatePackageReservations_Request& from);
+  void MergeFrom(const CStore_UpdatePackageReservations_Request& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CStore_UpdatePackageReservations_Request* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CStore_UpdatePackageReservations_Request";
+  }
+  protected:
+  explicit CStore_UpdatePackageReservations_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_steammessages_5fstore_2esteamclient_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kPackagesToReserveFieldNumber = 1,
+    kPackagesToUnreserveFieldNumber = 2,
+    kCountryCodeFieldNumber = 3,
+  };
+  // repeated uint32 packages_to_reserve = 1;
+  int packages_to_reserve_size() const;
+  private:
+  int _internal_packages_to_reserve_size() const;
+  public:
+  void clear_packages_to_reserve();
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_packages_to_reserve(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
+      _internal_packages_to_reserve() const;
+  void _internal_add_packages_to_reserve(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
+      _internal_mutable_packages_to_reserve();
+  public:
+  ::PROTOBUF_NAMESPACE_ID::uint32 packages_to_reserve(int index) const;
+  void set_packages_to_reserve(int index, ::PROTOBUF_NAMESPACE_ID::uint32 value);
+  void add_packages_to_reserve(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
+      packages_to_reserve() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
+      mutable_packages_to_reserve();
+
+  // repeated uint32 packages_to_unreserve = 2;
+  int packages_to_unreserve_size() const;
+  private:
+  int _internal_packages_to_unreserve_size() const;
+  public:
+  void clear_packages_to_unreserve();
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_packages_to_unreserve(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
+      _internal_packages_to_unreserve() const;
+  void _internal_add_packages_to_unreserve(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
+      _internal_mutable_packages_to_unreserve();
+  public:
+  ::PROTOBUF_NAMESPACE_ID::uint32 packages_to_unreserve(int index) const;
+  void set_packages_to_unreserve(int index, ::PROTOBUF_NAMESPACE_ID::uint32 value);
+  void add_packages_to_unreserve(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
+      packages_to_unreserve() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
+      mutable_packages_to_unreserve();
+
+  // optional string country_code = 3;
+  bool has_country_code() const;
+  private:
+  bool _internal_has_country_code() const;
+  public:
+  void clear_country_code();
+  const std::string& country_code() const;
+  void set_country_code(const std::string& value);
+  void set_country_code(std::string&& value);
+  void set_country_code(const char* value);
+  void set_country_code(const char* value, size_t size);
+  std::string* mutable_country_code();
+  std::string* release_country_code();
+  void set_allocated_country_code(std::string* country_code);
+  private:
+  const std::string& _internal_country_code() const;
+  void _internal_set_country_code(const std::string& value);
+  std::string* _internal_mutable_country_code();
+  public:
+
+  // @@protoc_insertion_point(class_scope:CStore_UpdatePackageReservations_Request)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 > packages_to_reserve_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 > packages_to_unreserve_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr country_code_;
+  friend struct ::TableStruct_steammessages_5fstore_2esteamclient_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CStore_UpdatePackageReservations_Response PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CStore_UpdatePackageReservations_Response) */ {
+ public:
+  inline CStore_UpdatePackageReservations_Response() : CStore_UpdatePackageReservations_Response(nullptr) {}
+  virtual ~CStore_UpdatePackageReservations_Response();
+  explicit constexpr CStore_UpdatePackageReservations_Response(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CStore_UpdatePackageReservations_Response(const CStore_UpdatePackageReservations_Response& from);
+  CStore_UpdatePackageReservations_Response(CStore_UpdatePackageReservations_Response&& from) noexcept
+    : CStore_UpdatePackageReservations_Response() {
+    *this = ::std::move(from);
+  }
+
+  inline CStore_UpdatePackageReservations_Response& operator=(const CStore_UpdatePackageReservations_Response& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CStore_UpdatePackageReservations_Response& operator=(CStore_UpdatePackageReservations_Response&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CStore_UpdatePackageReservations_Response& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CStore_UpdatePackageReservations_Response* internal_default_instance() {
+    return reinterpret_cast<const CStore_UpdatePackageReservations_Response*>(
+               &_CStore_UpdatePackageReservations_Response_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    37;
+
+  friend void swap(CStore_UpdatePackageReservations_Response& a, CStore_UpdatePackageReservations_Response& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CStore_UpdatePackageReservations_Response* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CStore_UpdatePackageReservations_Response* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CStore_UpdatePackageReservations_Response* New() const final {
+    return CreateMaybeMessage<CStore_UpdatePackageReservations_Response>(nullptr);
+  }
+
+  CStore_UpdatePackageReservations_Response* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CStore_UpdatePackageReservations_Response>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CStore_UpdatePackageReservations_Response& from);
+  void MergeFrom(const CStore_UpdatePackageReservations_Response& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CStore_UpdatePackageReservations_Response* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CStore_UpdatePackageReservations_Response";
+  }
+  protected:
+  explicit CStore_UpdatePackageReservations_Response(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_steammessages_5fstore_2esteamclient_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kReservationStatusFieldNumber = 1,
+  };
+  // repeated .CPackageReservationStatus reservation_status = 1;
+  int reservation_status_size() const;
+  private:
+  int _internal_reservation_status_size() const;
+  public:
+  void clear_reservation_status();
+  ::CPackageReservationStatus* mutable_reservation_status(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CPackageReservationStatus >*
+      mutable_reservation_status();
+  private:
+  const ::CPackageReservationStatus& _internal_reservation_status(int index) const;
+  ::CPackageReservationStatus* _internal_add_reservation_status();
+  public:
+  const ::CPackageReservationStatus& reservation_status(int index) const;
+  ::CPackageReservationStatus* add_reservation_status();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CPackageReservationStatus >&
+      reservation_status() const;
+
+  // @@protoc_insertion_point(class_scope:CStore_UpdatePackageReservations_Response)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CPackageReservationStatus > reservation_status_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_steammessages_5fstore_2esteamclient_2eproto;
+};
+// -------------------------------------------------------------------
+
 class CReservationPositionMessage PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CReservationPositionMessage) */ {
  public:
@@ -7645,7 +8010,7 @@ class CReservationPositionMessage PROTOBUF_FINAL :
                &_CReservationPositionMessage_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    36;
+    38;
 
   friend void swap(CReservationPositionMessage& a, CReservationPositionMessage& b) {
     a.Swap(&b);
@@ -7743,7 +8108,7 @@ class CReservationPositionMessage PROTOBUF_FINAL :
   std::string* _internal_mutable_product_identifier();
   public:
 
-  // optional string localization_token = 5 [(.description) = "Localization token that we want to use to format the above number"];
+  // optional string localization_token = 5;
   bool has_localization_token() const;
   private:
   bool _internal_has_localization_token() const;
@@ -7789,7 +8154,7 @@ class CReservationPositionMessage PROTOBUF_FINAL :
   void _internal_set_start_queue_position(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 rtime_estimated_notification = 4 [(.description) = "When we estimate the users will receive a message by"];
+  // optional uint32 rtime_estimated_notification = 4;
   bool has_rtime_estimated_notification() const;
   private:
   bool _internal_has_rtime_estimated_notification() const;
@@ -7802,7 +8167,7 @@ class CReservationPositionMessage PROTOBUF_FINAL :
   void _internal_set_rtime_estimated_notification(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 accountid = 6 [(.description) = "User who created this entry"];
+  // optional uint32 accountid = 6;
   bool has_accountid() const;
   private:
   bool _internal_has_accountid() const;
@@ -7815,7 +8180,7 @@ class CReservationPositionMessage PROTOBUF_FINAL :
   void _internal_set_accountid(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 rtime_created = 7 [(.description) = "When this entry was created"];
+  // optional uint32 rtime_created = 7;
   bool has_rtime_created() const;
   private:
   bool _internal_has_rtime_created() const;
@@ -7898,7 +8263,7 @@ class CStore_SetReservationPositionMessage_Request PROTOBUF_FINAL :
                &_CStore_SetReservationPositionMessage_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    37;
+    39;
 
   friend void swap(CStore_SetReservationPositionMessage_Request& a, CStore_SetReservationPositionMessage_Request& b) {
     a.Swap(&b);
@@ -8051,7 +8416,7 @@ class CStore_SetReservationPositionMessage_Response PROTOBUF_FINAL :
                &_CStore_SetReservationPositionMessage_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    38;
+    40;
 
   friend void swap(CStore_SetReservationPositionMessage_Response& a, CStore_SetReservationPositionMessage_Response& b) {
     a.Swap(&b);
@@ -8182,7 +8547,7 @@ class CStore_DeleteReservationPositionMessage_Request PROTOBUF_FINAL :
                &_CStore_DeleteReservationPositionMessage_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    39;
+    41;
 
   friend void swap(CStore_DeleteReservationPositionMessage_Request& a, CStore_DeleteReservationPositionMessage_Request& b) {
     a.Swap(&b);
@@ -8368,7 +8733,7 @@ class CStore_DeleteReservationPositionMessage_Response PROTOBUF_FINAL :
                &_CStore_DeleteReservationPositionMessage_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    40;
+    42;
 
   friend void swap(CStore_DeleteReservationPositionMessage_Response& a, CStore_DeleteReservationPositionMessage_Response& b) {
     a.Swap(&b);
@@ -8499,7 +8864,7 @@ class CStore_GetAllReservationPositionMessages_Request PROTOBUF_FINAL :
                &_CStore_GetAllReservationPositionMessages_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    41;
+    43;
 
   friend void swap(CStore_GetAllReservationPositionMessages_Request& a, CStore_GetAllReservationPositionMessages_Request& b) {
     a.Swap(&b);
@@ -8630,7 +8995,7 @@ class CStore_GetAllReservationPositionMessages_Response PROTOBUF_FINAL :
                &_CStore_GetAllReservationPositionMessages_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    42;
+    44;
 
   friend void swap(CStore_GetAllReservationPositionMessages_Response& a, CStore_GetAllReservationPositionMessages_Response& b) {
     a.Swap(&b);
@@ -8783,7 +9148,7 @@ class CStore_ReloadAllReservationPositionMessages_Notification PROTOBUF_FINAL :
                &_CStore_ReloadAllReservationPositionMessages_Notification_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    43;
+    45;
 
   friend void swap(CStore_ReloadAllReservationPositionMessages_Notification& a, CStore_ReloadAllReservationPositionMessages_Notification& b) {
     a.Swap(&b);
@@ -8914,7 +9279,7 @@ class CSteamDeckCompatibility_SetFeedbacRequest PROTOBUF_FINAL :
                &_CSteamDeckCompatibility_SetFeedbacRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    44;
+    46;
 
   friend void swap(CSteamDeckCompatibility_SetFeedbacRequest& a, CSteamDeckCompatibility_SetFeedbacRequest& b) {
     a.Swap(&b);
@@ -9078,7 +9443,7 @@ class CSteamDeckCompatibility_SetFeedbacResponse PROTOBUF_FINAL :
                &_CSteamDeckCompatibility_SetFeedbacResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    45;
+    47;
 
   friend void swap(CSteamDeckCompatibility_SetFeedbacResponse& a, CSteamDeckCompatibility_SetFeedbacResponse& b) {
     a.Swap(&b);
@@ -9209,7 +9574,7 @@ class CSteamDeckCompatibility_ShouldPrompt_Request PROTOBUF_FINAL :
                &_CSteamDeckCompatibility_ShouldPrompt_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    46;
+    48;
 
   friend void swap(CSteamDeckCompatibility_ShouldPrompt_Request& a, CSteamDeckCompatibility_ShouldPrompt_Request& b) {
     a.Swap(&b);
@@ -9358,7 +9723,7 @@ class CSteamDeckCompatibility_ShouldPrompt_Response PROTOBUF_FINAL :
                &_CSteamDeckCompatibility_ShouldPrompt_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    47;
+    49;
 
   friend void swap(CSteamDeckCompatibility_ShouldPrompt_Response& a, CSteamDeckCompatibility_ShouldPrompt_Response& b) {
     a.Swap(&b);
@@ -9537,7 +9902,7 @@ class CStore_StorePreferencesChanged_Notification PROTOBUF_FINAL :
                &_CStore_StorePreferencesChanged_Notification_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    48;
+    50;
 
   friend void swap(CStore_StorePreferencesChanged_Notification& a, CStore_StorePreferencesChanged_Notification& b) {
     a.Swap(&b);
@@ -9746,6 +10111,10 @@ class Store : public ::PROTOBUF_NAMESPACE_ID::Service {
                        const ::CStore_MigratePartnerLinkTracking_Notification* request,
                        ::NoResponse* response,
                        ::google::protobuf::Closure* done);
+  virtual void UpdatePackageReservations(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                       const ::CStore_UpdatePackageReservations_Request* request,
+                       ::CStore_UpdatePackageReservations_Response* response,
+                       ::google::protobuf::Closure* done);
   virtual void SetReservationPositionMessage(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                        const ::CStore_SetReservationPositionMessage_Request* request,
                        ::CStore_SetReservationPositionMessage_Response* response,
@@ -9851,6 +10220,10 @@ class Store_Stub : public Store {
                        const ::CStore_MigratePartnerLinkTracking_Notification* request,
                        ::NoResponse* response,
                        ::google::protobuf::Closure* done);
+  void UpdatePackageReservations(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                       const ::CStore_UpdatePackageReservations_Request* request,
+                       ::CStore_UpdatePackageReservations_Response* response,
+                       ::google::protobuf::Closure* done);
   void SetReservationPositionMessage(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                        const ::CStore_SetReservationPositionMessage_Request* request,
                        ::CStore_SetReservationPositionMessage_Response* response,
@@ -9952,7 +10325,7 @@ class StoreClient_Stub : public StoreClient {
 #endif  // __GNUC__
 // CStore_RegisterCDKey_Request
 
-// optional string activation_code = 1 [(.description) = "Key string to register on the logged in user\'s account"];
+// optional string activation_code = 1;
 inline bool CStore_RegisterCDKey_Request::_internal_has_activation_code() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -10025,7 +10398,7 @@ inline void CStore_RegisterCDKey_Request::set_allocated_activation_code(std::str
   // @@protoc_insertion_point(field_set_allocated:CStore_RegisterCDKey_Request.activation_code)
 }
 
-// optional int32 purchase_platform = 2 [(.description) = "EPurchasePlatform for platform of request"];
+// optional int32 purchase_platform = 2;
 inline bool CStore_RegisterCDKey_Request::_internal_has_purchase_platform() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -10053,7 +10426,7 @@ inline void CStore_RegisterCDKey_Request::set_purchase_platform(::PROTOBUF_NAMES
   // @@protoc_insertion_point(field_set:CStore_RegisterCDKey_Request.purchase_platform)
 }
 
-// optional bool is_request_from_client = 3 [(.description) = "True if the request was initiated from inside the Steam client"];
+// optional bool is_request_from_client = 3;
 inline bool CStore_RegisterCDKey_Request::_internal_has_is_request_from_client() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -10962,7 +11335,7 @@ CStore_PurchaseReceiptInfo::line_items() const {
 
 // CStore_RegisterCDKey_Response
 
-// optional int32 purchase_result_details = 1 [(.description) = "EPurchaseResultDetails from key activation"];
+// optional int32 purchase_result_details = 1;
 inline bool CStore_RegisterCDKey_Response::_internal_has_purchase_result_details() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -10990,7 +11363,7 @@ inline void CStore_RegisterCDKey_Response::set_purchase_result_details(::PROTOBU
   // @@protoc_insertion_point(field_set:CStore_RegisterCDKey_Response.purchase_result_details)
 }
 
-// optional .CStore_PurchaseReceiptInfo purchase_receipt_info = 2 [(.description) = "Purchase receipt info"];
+// optional .CStore_PurchaseReceiptInfo purchase_receipt_info = 2;
 inline bool CStore_RegisterCDKey_Response::_internal_has_purchase_receipt_info() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   PROTOBUF_ASSUME(!value || purchase_receipt_info_ != nullptr);
@@ -11600,7 +11973,7 @@ inline void CStore_GetLocalizedNameForTags_Response_Tag::set_allocated_name(std:
   // @@protoc_insertion_point(field_set_allocated:CStore_GetLocalizedNameForTags_Response.Tag.name)
 }
 
-// optional string normalized_name = 4 [(.description) = "english_name, lowercase, with homoglyphs replaced and spaces and some punctuation removed."];
+// optional string normalized_name = 4;
 inline bool CStore_GetLocalizedNameForTags_Response_Tag::_internal_has_normalized_name() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -11793,7 +12166,7 @@ inline void CStore_GetTagList_Request::set_allocated_language(std::string* langu
   // @@protoc_insertion_point(field_set_allocated:CStore_GetTagList_Request.language)
 }
 
-// optional string have_version_hash = 2 [(.description) = "The hash returned in the last call.  Will return no results if the list hasn\'t changed."];
+// optional string have_version_hash = 2;
 inline bool CStore_GetTagList_Request::_internal_has_have_version_hash() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -11975,7 +12348,7 @@ inline void CStore_GetTagList_Response_Tag::set_allocated_name(std::string* name
 
 // CStore_GetTagList_Response
 
-// optional string version_hash = 1 [(.description) = "Pass in future calls, server will only return data if it has changed (hash is per-language)."];
+// optional string version_hash = 1;
 inline bool CStore_GetTagList_Response::_internal_has_version_hash() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -12259,7 +12632,7 @@ inline void CStoreDiscoveryQueueSettings::set_include_coming_soon(bool value) {
   // @@protoc_insertion_point(field_set:CStoreDiscoveryQueueSettings.include_coming_soon)
 }
 
-// repeated uint32 excluded_tagids = 10 [(.description) = "Don\'t return any games with these tags."];
+// repeated uint32 excluded_tagids = 10;
 inline int CStoreDiscoveryQueueSettings::_internal_excluded_tagids_size() const {
   return excluded_tagids_.size();
 }
@@ -12446,7 +12819,7 @@ inline void CStoreDiscoveryQueueSettings::set_exclude_soundtracks(bool value) {
   // @@protoc_insertion_point(field_set:CStoreDiscoveryQueueSettings.exclude_soundtracks)
 }
 
-// repeated uint32 featured_tagids = 16 [(.description) = "Must be marked with one of these featured tagids (for sale pages and events)"];
+// repeated uint32 featured_tagids = 16;
 inline int CStoreDiscoveryQueueSettings::_internal_featured_tagids_size() const {
   return featured_tagids_.size();
 }
@@ -14131,7 +14504,7 @@ CStore_GetUserGameInterestState_Response::mutable_in_queues() {
   return _internal_mutable_in_queues();
 }
 
-// repeated .EStoreDiscoveryQueueType queues_with_skip = 6 [(.description) = "Discovery queue types where the user has skipped this game."];
+// repeated .EStoreDiscoveryQueueType queues_with_skip = 6;
 inline int CStore_GetUserGameInterestState_Response::_internal_queues_with_skip_size() const {
   return queues_with_skip_.size();
 }
@@ -14176,7 +14549,7 @@ CStore_GetUserGameInterestState_Response::mutable_queues_with_skip() {
   return _internal_mutable_queues_with_skip();
 }
 
-// repeated int32 queue_items_remaining = 7 [(.description) = "# of items remaining in the discovery queue - matches the same order as in_queues"];
+// repeated int32 queue_items_remaining = 7;
 inline int CStore_GetUserGameInterestState_Response::_internal_queue_items_remaining_size() const {
   return queue_items_remaining_.size();
 }
@@ -14223,7 +14596,7 @@ CStore_GetUserGameInterestState_Response::mutable_queue_items_remaining() {
   return _internal_mutable_queue_items_remaining();
 }
 
-// repeated uint32 queue_items_next_appid = 8 [(.description) = "the next appid in the queue - matches the same order as in_queues"];
+// repeated uint32 queue_items_next_appid = 8;
 inline int CStore_GetUserGameInterestState_Response::_internal_queue_items_next_appid_size() const {
   return queue_items_next_appid_.size();
 }
@@ -14270,7 +14643,7 @@ CStore_GetUserGameInterestState_Response::mutable_queue_items_next_appid() {
   return _internal_mutable_queue_items_next_appid();
 }
 
-// optional bool temporarily_owned = 9 [(.description) = "The user owns the game temporarily, eg a rental or free weekend"];
+// optional bool temporarily_owned = 9;
 inline bool CStore_GetUserGameInterestState_Response::_internal_has_temporarily_owned() const {
   bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
@@ -14337,7 +14710,7 @@ CStore_GetUserGameInterestState_Response::queues() const {
   return queues_;
 }
 
-// optional int32 ignored_reason = 11 [(.description) = "The ERecommendationIgnoreReason why the user ignored the app"];
+// optional int32 ignored_reason = 11;
 inline bool CStore_GetUserGameInterestState_Response::_internal_has_ignored_reason() const {
   bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
@@ -14365,7 +14738,7 @@ inline void CStore_GetUserGameInterestState_Response::set_ignored_reason(::PROTO
   // @@protoc_insertion_point(field_set:CStore_GetUserGameInterestState_Response.ignored_reason)
 }
 
-// optional .EPlaytestStatus beta_status = 12 [default = ETesterStatusNone, (.description) = "User interest or membership in the playtest for this app if any"];
+// optional .EPlaytestStatus beta_status = 12 [default = ETesterStatusNone];
 inline bool CStore_GetUserGameInterestState_Response::_internal_has_beta_status() const {
   bool value = (_has_bits_[0] & 0x00000040u) != 0;
   return value;
@@ -15812,6 +16185,217 @@ inline void CStore_MigratePartnerLinkTracking_Notification::set_backfill_source(
 
 // -------------------------------------------------------------------
 
+// CStore_UpdatePackageReservations_Request
+
+// repeated uint32 packages_to_reserve = 1;
+inline int CStore_UpdatePackageReservations_Request::_internal_packages_to_reserve_size() const {
+  return packages_to_reserve_.size();
+}
+inline int CStore_UpdatePackageReservations_Request::packages_to_reserve_size() const {
+  return _internal_packages_to_reserve_size();
+}
+inline void CStore_UpdatePackageReservations_Request::clear_packages_to_reserve() {
+  packages_to_reserve_.Clear();
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CStore_UpdatePackageReservations_Request::_internal_packages_to_reserve(int index) const {
+  return packages_to_reserve_.Get(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CStore_UpdatePackageReservations_Request::packages_to_reserve(int index) const {
+  // @@protoc_insertion_point(field_get:CStore_UpdatePackageReservations_Request.packages_to_reserve)
+  return _internal_packages_to_reserve(index);
+}
+inline void CStore_UpdatePackageReservations_Request::set_packages_to_reserve(int index, ::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  packages_to_reserve_.Set(index, value);
+  // @@protoc_insertion_point(field_set:CStore_UpdatePackageReservations_Request.packages_to_reserve)
+}
+inline void CStore_UpdatePackageReservations_Request::_internal_add_packages_to_reserve(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  packages_to_reserve_.Add(value);
+}
+inline void CStore_UpdatePackageReservations_Request::add_packages_to_reserve(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_add_packages_to_reserve(value);
+  // @@protoc_insertion_point(field_add:CStore_UpdatePackageReservations_Request.packages_to_reserve)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
+CStore_UpdatePackageReservations_Request::_internal_packages_to_reserve() const {
+  return packages_to_reserve_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
+CStore_UpdatePackageReservations_Request::packages_to_reserve() const {
+  // @@protoc_insertion_point(field_list:CStore_UpdatePackageReservations_Request.packages_to_reserve)
+  return _internal_packages_to_reserve();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
+CStore_UpdatePackageReservations_Request::_internal_mutable_packages_to_reserve() {
+  return &packages_to_reserve_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
+CStore_UpdatePackageReservations_Request::mutable_packages_to_reserve() {
+  // @@protoc_insertion_point(field_mutable_list:CStore_UpdatePackageReservations_Request.packages_to_reserve)
+  return _internal_mutable_packages_to_reserve();
+}
+
+// repeated uint32 packages_to_unreserve = 2;
+inline int CStore_UpdatePackageReservations_Request::_internal_packages_to_unreserve_size() const {
+  return packages_to_unreserve_.size();
+}
+inline int CStore_UpdatePackageReservations_Request::packages_to_unreserve_size() const {
+  return _internal_packages_to_unreserve_size();
+}
+inline void CStore_UpdatePackageReservations_Request::clear_packages_to_unreserve() {
+  packages_to_unreserve_.Clear();
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CStore_UpdatePackageReservations_Request::_internal_packages_to_unreserve(int index) const {
+  return packages_to_unreserve_.Get(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CStore_UpdatePackageReservations_Request::packages_to_unreserve(int index) const {
+  // @@protoc_insertion_point(field_get:CStore_UpdatePackageReservations_Request.packages_to_unreserve)
+  return _internal_packages_to_unreserve(index);
+}
+inline void CStore_UpdatePackageReservations_Request::set_packages_to_unreserve(int index, ::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  packages_to_unreserve_.Set(index, value);
+  // @@protoc_insertion_point(field_set:CStore_UpdatePackageReservations_Request.packages_to_unreserve)
+}
+inline void CStore_UpdatePackageReservations_Request::_internal_add_packages_to_unreserve(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  packages_to_unreserve_.Add(value);
+}
+inline void CStore_UpdatePackageReservations_Request::add_packages_to_unreserve(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_add_packages_to_unreserve(value);
+  // @@protoc_insertion_point(field_add:CStore_UpdatePackageReservations_Request.packages_to_unreserve)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
+CStore_UpdatePackageReservations_Request::_internal_packages_to_unreserve() const {
+  return packages_to_unreserve_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
+CStore_UpdatePackageReservations_Request::packages_to_unreserve() const {
+  // @@protoc_insertion_point(field_list:CStore_UpdatePackageReservations_Request.packages_to_unreserve)
+  return _internal_packages_to_unreserve();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
+CStore_UpdatePackageReservations_Request::_internal_mutable_packages_to_unreserve() {
+  return &packages_to_unreserve_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
+CStore_UpdatePackageReservations_Request::mutable_packages_to_unreserve() {
+  // @@protoc_insertion_point(field_mutable_list:CStore_UpdatePackageReservations_Request.packages_to_unreserve)
+  return _internal_mutable_packages_to_unreserve();
+}
+
+// optional string country_code = 3;
+inline bool CStore_UpdatePackageReservations_Request::_internal_has_country_code() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CStore_UpdatePackageReservations_Request::has_country_code() const {
+  return _internal_has_country_code();
+}
+inline void CStore_UpdatePackageReservations_Request::clear_country_code() {
+  country_code_.ClearToEmpty();
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline const std::string& CStore_UpdatePackageReservations_Request::country_code() const {
+  // @@protoc_insertion_point(field_get:CStore_UpdatePackageReservations_Request.country_code)
+  return _internal_country_code();
+}
+inline void CStore_UpdatePackageReservations_Request::set_country_code(const std::string& value) {
+  _internal_set_country_code(value);
+  // @@protoc_insertion_point(field_set:CStore_UpdatePackageReservations_Request.country_code)
+}
+inline std::string* CStore_UpdatePackageReservations_Request::mutable_country_code() {
+  // @@protoc_insertion_point(field_mutable:CStore_UpdatePackageReservations_Request.country_code)
+  return _internal_mutable_country_code();
+}
+inline const std::string& CStore_UpdatePackageReservations_Request::_internal_country_code() const {
+  return country_code_.Get();
+}
+inline void CStore_UpdatePackageReservations_Request::_internal_set_country_code(const std::string& value) {
+  _has_bits_[0] |= 0x00000001u;
+  country_code_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void CStore_UpdatePackageReservations_Request::set_country_code(std::string&& value) {
+  _has_bits_[0] |= 0x00000001u;
+  country_code_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:CStore_UpdatePackageReservations_Request.country_code)
+}
+inline void CStore_UpdatePackageReservations_Request::set_country_code(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _has_bits_[0] |= 0x00000001u;
+  country_code_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:CStore_UpdatePackageReservations_Request.country_code)
+}
+inline void CStore_UpdatePackageReservations_Request::set_country_code(const char* value,
+    size_t size) {
+  _has_bits_[0] |= 0x00000001u;
+  country_code_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:CStore_UpdatePackageReservations_Request.country_code)
+}
+inline std::string* CStore_UpdatePackageReservations_Request::_internal_mutable_country_code() {
+  _has_bits_[0] |= 0x00000001u;
+  return country_code_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* CStore_UpdatePackageReservations_Request::release_country_code() {
+  // @@protoc_insertion_point(field_release:CStore_UpdatePackageReservations_Request.country_code)
+  if (!_internal_has_country_code()) {
+    return nullptr;
+  }
+  _has_bits_[0] &= ~0x00000001u;
+  return country_code_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void CStore_UpdatePackageReservations_Request::set_allocated_country_code(std::string* country_code) {
+  if (country_code != nullptr) {
+    _has_bits_[0] |= 0x00000001u;
+  } else {
+    _has_bits_[0] &= ~0x00000001u;
+  }
+  country_code_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), country_code,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:CStore_UpdatePackageReservations_Request.country_code)
+}
+
+// -------------------------------------------------------------------
+
+// CStore_UpdatePackageReservations_Response
+
+// repeated .CPackageReservationStatus reservation_status = 1;
+inline int CStore_UpdatePackageReservations_Response::_internal_reservation_status_size() const {
+  return reservation_status_.size();
+}
+inline int CStore_UpdatePackageReservations_Response::reservation_status_size() const {
+  return _internal_reservation_status_size();
+}
+inline ::CPackageReservationStatus* CStore_UpdatePackageReservations_Response::mutable_reservation_status(int index) {
+  // @@protoc_insertion_point(field_mutable:CStore_UpdatePackageReservations_Response.reservation_status)
+  return reservation_status_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CPackageReservationStatus >*
+CStore_UpdatePackageReservations_Response::mutable_reservation_status() {
+  // @@protoc_insertion_point(field_mutable_list:CStore_UpdatePackageReservations_Response.reservation_status)
+  return &reservation_status_;
+}
+inline const ::CPackageReservationStatus& CStore_UpdatePackageReservations_Response::_internal_reservation_status(int index) const {
+  return reservation_status_.Get(index);
+}
+inline const ::CPackageReservationStatus& CStore_UpdatePackageReservations_Response::reservation_status(int index) const {
+  // @@protoc_insertion_point(field_get:CStore_UpdatePackageReservations_Response.reservation_status)
+  return _internal_reservation_status(index);
+}
+inline ::CPackageReservationStatus* CStore_UpdatePackageReservations_Response::_internal_add_reservation_status() {
+  return reservation_status_.Add();
+}
+inline ::CPackageReservationStatus* CStore_UpdatePackageReservations_Response::add_reservation_status() {
+  // @@protoc_insertion_point(field_add:CStore_UpdatePackageReservations_Response.reservation_status)
+  return _internal_add_reservation_status();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CPackageReservationStatus >&
+CStore_UpdatePackageReservations_Response::reservation_status() const {
+  // @@protoc_insertion_point(field_list:CStore_UpdatePackageReservations_Response.reservation_status)
+  return reservation_status_;
+}
+
+// -------------------------------------------------------------------
+
 // CReservationPositionMessage
 
 // optional uint32 edistributor = 1;
@@ -15943,7 +16527,7 @@ inline void CReservationPositionMessage::set_start_queue_position(::PROTOBUF_NAM
   // @@protoc_insertion_point(field_set:CReservationPositionMessage.start_queue_position)
 }
 
-// optional uint32 rtime_estimated_notification = 4 [(.description) = "When we estimate the users will receive a message by"];
+// optional uint32 rtime_estimated_notification = 4;
 inline bool CReservationPositionMessage::_internal_has_rtime_estimated_notification() const {
   bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
@@ -15971,7 +16555,7 @@ inline void CReservationPositionMessage::set_rtime_estimated_notification(::PROT
   // @@protoc_insertion_point(field_set:CReservationPositionMessage.rtime_estimated_notification)
 }
 
-// optional string localization_token = 5 [(.description) = "Localization token that we want to use to format the above number"];
+// optional string localization_token = 5;
 inline bool CReservationPositionMessage::_internal_has_localization_token() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -16044,7 +16628,7 @@ inline void CReservationPositionMessage::set_allocated_localization_token(std::s
   // @@protoc_insertion_point(field_set_allocated:CReservationPositionMessage.localization_token)
 }
 
-// optional uint32 accountid = 6 [(.description) = "User who created this entry"];
+// optional uint32 accountid = 6;
 inline bool CReservationPositionMessage::_internal_has_accountid() const {
   bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
@@ -16072,7 +16656,7 @@ inline void CReservationPositionMessage::set_accountid(::PROTOBUF_NAMESPACE_ID::
   // @@protoc_insertion_point(field_set:CReservationPositionMessage.accountid)
 }
 
-// optional uint32 rtime_created = 7 [(.description) = "When this entry was created"];
+// optional uint32 rtime_created = 7;
 inline bool CReservationPositionMessage::_internal_has_rtime_created() const {
   bool value = (_has_bits_[0] & 0x00000040u) != 0;
   return value;
@@ -16773,6 +17357,10 @@ inline void CStore_StorePreferencesChanged_Notification::set_allocated_content_d
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

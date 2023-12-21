@@ -211,7 +211,7 @@ class CCommunity_GetLinkFilterHashPrefixes_Request PROTOBUF_FINAL :
     kCountFieldNumber = 2,
     kStartFieldNumber = 3,
   };
-  // optional uint32 hit_type = 1 [(.description) = "The retrieved hits will be filtered to this type."];
+  // optional uint32 hit_type = 1;
   bool has_hit_type() const;
   private:
   bool _internal_has_hit_type() const;
@@ -224,7 +224,7 @@ class CCommunity_GetLinkFilterHashPrefixes_Request PROTOBUF_FINAL :
   void _internal_set_hit_type(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 count = 2 [(.description) = "The number of hits to retrieve in a single batch. Specify 0 for no limit."];
+  // optional uint32 count = 2;
   bool has_count() const;
   private:
   bool _internal_has_count() const;
@@ -237,7 +237,7 @@ class CCommunity_GetLinkFilterHashPrefixes_Request PROTOBUF_FINAL :
   void _internal_set_count(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint64 start = 3 [(.description) = "The starting count when retrieving hits in batches."];
+  // optional uint64 start = 3;
   bool has_start() const;
   private:
   bool _internal_has_start() const;
@@ -388,7 +388,7 @@ class CCommunity_GetLinkFilterHashPrefixes_Response PROTOBUF_FINAL :
   enum : int {
     kHashPrefixesFieldNumber = 1,
   };
-  // repeated uint32 hash_prefixes = 1 [(.description) = "The first 32 bits of the SHA1 hashes of each hit requested."];
+  // repeated uint32 hash_prefixes = 1;
   int hash_prefixes_size() const;
   private:
   int _internal_hash_prefixes_size() const;
@@ -547,7 +547,7 @@ class CCommunity_GetLinkFilterHashes_Request PROTOBUF_FINAL :
     kCountFieldNumber = 2,
     kStartFieldNumber = 3,
   };
-  // optional uint32 hit_type = 1 [(.description) = "The retrieved hits will be filtered to this type."];
+  // optional uint32 hit_type = 1;
   bool has_hit_type() const;
   private:
   bool _internal_has_hit_type() const;
@@ -560,7 +560,7 @@ class CCommunity_GetLinkFilterHashes_Request PROTOBUF_FINAL :
   void _internal_set_hit_type(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 count = 2 [(.description) = "The number of hits to retrieve in a single batch. Specify 0 for no limit."];
+  // optional uint32 count = 2;
   bool has_count() const;
   private:
   bool _internal_has_count() const;
@@ -573,7 +573,7 @@ class CCommunity_GetLinkFilterHashes_Request PROTOBUF_FINAL :
   void _internal_set_count(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint64 start = 3 [(.description) = "The starting count when retrieving hits in batches."];
+  // optional uint64 start = 3;
   bool has_start() const;
   private:
   bool _internal_has_start() const;
@@ -724,7 +724,7 @@ class CCommunity_GetLinkFilterHashes_Response PROTOBUF_FINAL :
   enum : int {
     kHashesFieldNumber = 1,
   };
-  // repeated bytes hashes = 1 [(.description) = "A list of hashes returned from our request."];
+  // repeated bytes hashes = 1;
   int hashes_size() const;
   private:
   int _internal_hashes_size() const;
@@ -883,7 +883,7 @@ class CCommunity_GetLinkFilterListVersion_Request PROTOBUF_FINAL :
   enum : int {
     kHitTypeFieldNumber = 1,
   };
-  // optional uint32 hit_type = 1 [(.description) = "The version hashes for this type\'s chunks will be returned."];
+  // optional uint32 hit_type = 1;
   bool has_hit_type() const;
   private:
   bool _internal_has_hit_type() const;
@@ -1033,7 +1033,7 @@ class CCommunity_GetLinkFilterListVersion_Response PROTOBUF_FINAL :
     kVersionFieldNumber = 1,
     kCountFieldNumber = 2,
   };
-  // optional string version = 1 [(.description) = "A hash built using the IDs of the contained hits."];
+  // optional string version = 1;
   bool has_version() const;
   private:
   bool _internal_has_version() const;
@@ -1053,7 +1053,7 @@ class CCommunity_GetLinkFilterListVersion_Response PROTOBUF_FINAL :
   std::string* _internal_mutable_version();
   public:
 
-  // optional uint64 count = 2 [(.description) = "The number of hits of this type"];
+  // optional uint64 count = 2;
   bool has_count() const;
   private:
   bool _internal_has_count() const;
@@ -1165,7 +1165,7 @@ class CommunityLinkFilter_Stub : public CommunityLinkFilter {
 #endif  // __GNUC__
 // CCommunity_GetLinkFilterHashPrefixes_Request
 
-// optional uint32 hit_type = 1 [(.description) = "The retrieved hits will be filtered to this type."];
+// optional uint32 hit_type = 1;
 inline bool CCommunity_GetLinkFilterHashPrefixes_Request::_internal_has_hit_type() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -1193,7 +1193,7 @@ inline void CCommunity_GetLinkFilterHashPrefixes_Request::set_hit_type(::PROTOBU
   // @@protoc_insertion_point(field_set:CCommunity_GetLinkFilterHashPrefixes_Request.hit_type)
 }
 
-// optional uint32 count = 2 [(.description) = "The number of hits to retrieve in a single batch. Specify 0 for no limit."];
+// optional uint32 count = 2;
 inline bool CCommunity_GetLinkFilterHashPrefixes_Request::_internal_has_count() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -1221,7 +1221,7 @@ inline void CCommunity_GetLinkFilterHashPrefixes_Request::set_count(::PROTOBUF_N
   // @@protoc_insertion_point(field_set:CCommunity_GetLinkFilterHashPrefixes_Request.count)
 }
 
-// optional uint64 start = 3 [(.description) = "The starting count when retrieving hits in batches."];
+// optional uint64 start = 3;
 inline bool CCommunity_GetLinkFilterHashPrefixes_Request::_internal_has_start() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -1253,7 +1253,7 @@ inline void CCommunity_GetLinkFilterHashPrefixes_Request::set_start(::PROTOBUF_N
 
 // CCommunity_GetLinkFilterHashPrefixes_Response
 
-// repeated uint32 hash_prefixes = 1 [(.description) = "The first 32 bits of the SHA1 hashes of each hit requested."];
+// repeated uint32 hash_prefixes = 1;
 inline int CCommunity_GetLinkFilterHashPrefixes_Response::_internal_hash_prefixes_size() const {
   return hash_prefixes_.size();
 }
@@ -1304,7 +1304,7 @@ CCommunity_GetLinkFilterHashPrefixes_Response::mutable_hash_prefixes() {
 
 // CCommunity_GetLinkFilterHashes_Request
 
-// optional uint32 hit_type = 1 [(.description) = "The retrieved hits will be filtered to this type."];
+// optional uint32 hit_type = 1;
 inline bool CCommunity_GetLinkFilterHashes_Request::_internal_has_hit_type() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -1332,7 +1332,7 @@ inline void CCommunity_GetLinkFilterHashes_Request::set_hit_type(::PROTOBUF_NAME
   // @@protoc_insertion_point(field_set:CCommunity_GetLinkFilterHashes_Request.hit_type)
 }
 
-// optional uint32 count = 2 [(.description) = "The number of hits to retrieve in a single batch. Specify 0 for no limit."];
+// optional uint32 count = 2;
 inline bool CCommunity_GetLinkFilterHashes_Request::_internal_has_count() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -1360,7 +1360,7 @@ inline void CCommunity_GetLinkFilterHashes_Request::set_count(::PROTOBUF_NAMESPA
   // @@protoc_insertion_point(field_set:CCommunity_GetLinkFilterHashes_Request.count)
 }
 
-// optional uint64 start = 3 [(.description) = "The starting count when retrieving hits in batches."];
+// optional uint64 start = 3;
 inline bool CCommunity_GetLinkFilterHashes_Request::_internal_has_start() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -1392,7 +1392,7 @@ inline void CCommunity_GetLinkFilterHashes_Request::set_start(::PROTOBUF_NAMESPA
 
 // CCommunity_GetLinkFilterHashes_Response
 
-// repeated bytes hashes = 1 [(.description) = "A list of hashes returned from our request."];
+// repeated bytes hashes = 1;
 inline int CCommunity_GetLinkFilterHashes_Response::_internal_hashes_size() const {
   return hashes_.size();
 }
@@ -1470,7 +1470,7 @@ CCommunity_GetLinkFilterHashes_Response::mutable_hashes() {
 
 // CCommunity_GetLinkFilterListVersion_Request
 
-// optional uint32 hit_type = 1 [(.description) = "The version hashes for this type\'s chunks will be returned."];
+// optional uint32 hit_type = 1;
 inline bool CCommunity_GetLinkFilterListVersion_Request::_internal_has_hit_type() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -1502,7 +1502,7 @@ inline void CCommunity_GetLinkFilterListVersion_Request::set_hit_type(::PROTOBUF
 
 // CCommunity_GetLinkFilterListVersion_Response
 
-// optional string version = 1 [(.description) = "A hash built using the IDs of the contained hits."];
+// optional string version = 1;
 inline bool CCommunity_GetLinkFilterListVersion_Response::_internal_has_version() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -1575,7 +1575,7 @@ inline void CCommunity_GetLinkFilterListVersion_Response::set_allocated_version(
   // @@protoc_insertion_point(field_set_allocated:CCommunity_GetLinkFilterListVersion_Response.version)
 }
 
-// optional uint64 count = 2 [(.description) = "The number of hits of this type"];
+// optional uint64 count = 2;
 inline bool CCommunity_GetLinkFilterListVersion_Response::_internal_has_count() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;

@@ -97,6 +97,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
   #region Messages
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CStoreQuery_Query_Request : pb::IMessage<CStoreQuery_Query_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -489,6 +490,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CStoreQuery_Query_Response : pb::IMessage<CStoreQuery_Query_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -739,6 +741,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CStoreQuery_SearchSuggestions_Request : pb::IMessage<CStoreQuery_SearchSuggestions_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1393,6 +1396,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CStoreQuery_SearchSuggestions_Response : pb::IMessage<CStoreQuery_SearchSuggestions_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1643,6 +1647,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CStoreQueryFilters : pb::IMessage<CStoreQueryFilters>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2339,6 +2344,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CStoreQueryFilters_TagFilter : pb::IMessage<CStoreQueryFilters_TagFilter>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2519,6 +2525,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CStoreQueryFilters_TypeFilters : pb::IMessage<CStoreQueryFilters_TypeFilters>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -3297,6 +3304,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CStoreQueryParams : pb::IMessage<CStoreQueryParams>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -3653,6 +3661,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CStoreQueryPerResultMetadata : pb::IMessage<CStoreQueryPerResultMetadata>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -3957,6 +3966,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CStoreQueryResultMetadata : pb::IMessage<CStoreQueryResultMetadata>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage

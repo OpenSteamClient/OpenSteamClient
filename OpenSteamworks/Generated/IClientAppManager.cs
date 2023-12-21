@@ -27,6 +27,7 @@ public unsafe interface IClientAppManager
     // WARNING: Arguments are unknown!
     public bool GetAppStagingInfo();  // argc: 3, index: 8
     public bool IsAppDlcInstalled(AppId_t appid, AppId_t dlcid);  // argc: 2, index: 9
+    // WARNING: Arguments are unknown!
     public bool GetDlcDownloadProgress(AppId_t appid, ref UInt64 downloaded, ref UInt64 toDownload);  // argc: 4, index: 10
     public bool BIsDlcEnabled(AppId_t appid, AppId_t dlcid, ref bool appManagesDLC);  // argc: 3, index: 11
     public unknown_ret SetDlcEnabled(AppId_t appid, AppId_t dlcid, bool enable);  // argc: 3, index: 12
@@ -39,8 +40,6 @@ public unsafe interface IClientAppManager
     public unknown_ret GetAppDependencies(AppId_t appid, AppId_t[] dependencies, int dependenciesMax);  // argc: 3, index: 18
     public unknown_ret GetDependentApps(AppId_t app, AppId_t[] dependantApps, int dependantAppsMax);  // argc: 3, index: 19
     public bool GetUpdateInfo(AppId_t app, AppUpdateInfo_s* updateInfo);  // argc: 2, index: 20
-    public int GetAppConfigValue(AppId_t app, string configKey, StringBuilder configValue, int maxConfigValue);  // argc: 4, index: 21
-    public unknown_ret SetAppConfigValue(AppId_t app, string configKey, string configValue);  // argc: 3, index: 22
     public bool BIsAppUpToDate(AppId_t app);  // argc: 1, index: 23
     // WARNING: Arguments are unknown!
     public int GetAvailableLanguages(AppId_t appid, bool unk, StringBuilder langOut, int maxLangOut);  // argc: 4, index: 24
@@ -62,7 +61,8 @@ public unsafe interface IClientAppManager
     // WARNING: Arguments are unknown!
     public int GetAvailableBetas(AppId_t appid);  // argc: 5, index: 35
     public bool CheckBetaPassword(AppId_t appid, string betaPassword);  // argc: 2, index: 36
-    public bool BHasCachedBetaPassword(AppId_t appid, string betaName);  // argc: 2, index: 37
+    // WARNING: Arguments are unknown!
+    public unknown_ret SetActiveBeta();  // argc: 2, index: 17
     public int GetActiveBeta(AppId_t appid, StringBuilder betaOut, int betaOutLen);  // argc: 3, index: 38
     [BlacklistedInCrossProcessIPC]
     public bool BGetActiveBetaForApps(CUtlVector<AppId_t>* apps, CUtlStringList* betas);  // argc: 2, index: 39
@@ -112,11 +112,11 @@ public unsafe interface IClientAppManager
     public unknown_ret GetAppStateInfo(AppId_t appid, AppStateInfo_s* state);  // argc: 2, index: 70
     [BlacklistedInCrossProcessIPC]
     public bool BGetAppStateInfoForApps(CUtlVector<AppId_t>* apps, CUtlVector<AppStateInfo_s>* states);  // argc: 2, index: 71
-
+    
     // There's a function between these two "bool unk(AppId_t appid, string str)"
     // Except not for our steamclient version...
     // Seems to be a platform compatibility testing function
-
+    
     public bool BCanRemotePlayTogether(AppId_t appid);  // argc: 1, index: 73
     public bool BIsLocalMultiplayerApp(AppId_t appid);  // argc: 1, index: 74
     public int GetNumLibraryFolders();  // argc: 0, index: 75
@@ -179,5 +179,9 @@ public unsafe interface IClientAppManager
     // WARNING: Arguments are unknown!
     public UInt64 GetPeerContentServerForApp(AppId_t appid, int unk, int unk2);  // argc: 3, index: 107
     // WARNING: Arguments are unknown!
+    public unknown_ret NotifyDriveAdded();  // argc: 1, index: 4
+    // WARNING: Arguments are unknown!
     public SteamAPICall_t NotifyDriveRemoved(string path);  // argc: 1, index: 4
+    // WARNING: Arguments are unknown!
+    public unknown_ret SetAudioDownloadQuality();  // argc: 1, index: 6
 }

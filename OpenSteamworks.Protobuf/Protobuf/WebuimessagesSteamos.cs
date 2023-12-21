@@ -103,6 +103,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
   #region Messages
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CSteamOSManagerState : pb::IMessage<CSteamOSManagerState>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -464,6 +465,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CSteamOSManager_GetState_Request : pb::IMessage<CSteamOSManager_GetState_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -616,6 +618,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CSteamOSManager_GetState_Response : pb::IMessage<CSteamOSManager_GetState_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -814,6 +817,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CSteamOSManager_StateChanged_Notification : pb::IMessage<CSteamOSManager_StateChanged_Notification>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -966,6 +970,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CSteamOSManager_IsTelemetryHelperAvailable_Request : pb::IMessage<CSteamOSManager_IsTelemetryHelperAvailable_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1172,6 +1177,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CSteamOSManager_IsTelemetryHelperAvailable_Response : pb::IMessage<CSteamOSManager_IsTelemetryHelperAvailable_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1378,6 +1384,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CSteamOSManager_OptOutOfSideloadedClient_Request : pb::IMessage<CSteamOSManager_OptOutOfSideloadedClient_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1530,6 +1537,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CSteamOSManager_OptOutOfSideloadedClient_Response : pb::IMessage<CSteamOSManager_OptOutOfSideloadedClient_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1682,6 +1690,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CSteamOSManager_ApplyMandatoryUpdate_Request : pb::IMessage<CSteamOSManager_ApplyMandatoryUpdate_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1834,6 +1843,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CSteamOSManager_ApplyMandatoryUpdate_Response : pb::IMessage<CSteamOSManager_ApplyMandatoryUpdate_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1986,6 +1996,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CSteamOSSLSPlugin : pb::IMessage<CSteamOSSLSPlugin>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2296,6 +2307,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CSteamOSSLSState : pb::IMessage<CSteamOSSLSState>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2580,6 +2592,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CSteamOSSLS_GetState_Request : pb::IMessage<CSteamOSSLS_GetState_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2732,6 +2745,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CSteamOSSLS_GetState_Response : pb::IMessage<CSteamOSSLS_GetState_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2930,6 +2944,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CSteamOSSLS_StateChanged_Notification : pb::IMessage<CSteamOSSLS_StateChanged_Notification>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -3082,6 +3097,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CSteamOSSLS_SetEnabled_Request : pb::IMessage<CSteamOSSLS_SetEnabled_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -3288,6 +3304,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CSteamOSSLS_SetEnabled_Response : pb::IMessage<CSteamOSSLS_SetEnabled_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -3440,6 +3457,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CSteamOSSLS_SetPluginEnabled_Request : pb::IMessage<CSteamOSSLS_SetPluginEnabled_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -3698,6 +3716,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CSteamOSSLS_SetPluginEnabled_Response : pb::IMessage<CSteamOSSLS_SetPluginEnabled_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage

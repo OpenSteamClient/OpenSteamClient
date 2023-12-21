@@ -60,38 +60,27 @@ namespace OpenSteamworks.Protobuf {
             "YXRzX1JlcXVlc3QSDwoHc3RlYW1pZBgBIAEoBhISCgppbnN0YW5jZWlkGAIg",
             "ASgGEg0KBWFwcGlkGAMgASgNIkgKLUNTaXRlTGljZW5zZV9DbGllbnRHZXRB",
             "dmFpbGFibGVTZWF0c19SZXNwb25zZRIXCg9hdmFpbGFibGVfc2VhdHMYASAB",
-            "KA0yowQKEVNpdGVNYW5hZ2VyQ2xpZW50Eq8BCg5JbmNvbWluZ0NsaWVudBIq",
-            "LkNTaXRlTWFuYWdlckNsaWVudF9JbmNvbWluZ0NsaWVudF9SZXF1ZXN0Gisu",
-            "Q1NpdGVNYW5hZ2VyQ2xpZW50X0luY29taW5nQ2xpZW50X1Jlc3BvbnNlIkSC",
-            "tRhAUmFjayBpbmZvcm1pbmcgc2l0ZSBtYW5hZ2VyIG9mIG5ldyBpbmJvdW5k",
-            "IGNsaWVudCBQU0sgY29ubmVjdGlvbhKTAQoeQ2xpZW50U2VhdENoZWNrb3V0",
-            "Tm90aWZpY2F0aW9uEi0uQ1NpdGVMaWNlbnNlX0NsaWVudFNlYXRDaGVja291",
-            "dF9Ob3RpZmljYXRpb24aCy5Ob1Jlc3BvbnNlIjWCtRgxTm90aWZ5IGNsaWVu",
-            "dCBkaXJlY3RseSBhYm91dCBzZWF0IGNoZWNrb3V0IHJlc3VsdBKaAQobVHJh",
-            "Y2tlZFBheW1lbnRzTm90aWZpY2F0aW9uEjAuQ1NpdGVNYW5hZ2VyQ2xpZW50",
-            "X1RyYWNrZWRQYXltZW50c19Ob3RpZmljYXRpb24aCy5Ob1Jlc3BvbnNlIjyC",
-            "tRg4UmFjayBpbmZvcm1pbmcgc2l0ZSBtYW5hZ2VyIG9mIGV4aXN0aW5nIHRy",
-            "YWNrZWQgcGF5bWVudHMaKYK1GCFMb2NhbCBzaXRlIG1hbmFnZXIgY2xpZW50",
-            "IHNlcnZpY2XAtRgCMtUGCgtTaXRlTGljZW5zZRKkAQoTSW5pdGlhdGVBc3Nv",
-            "Y2lhdGlvbhIpLkNTaXRlTGljZW5zZV9Jbml0aWF0ZUFzc29jaWF0aW9uX1Jl",
-            "cXVlc3QaKi5DU2l0ZUxpY2Vuc2VfSW5pdGlhdGVBc3NvY2lhdGlvbl9SZXNw",
-            "b25zZSI2grUYMkNsaWVudCBpcyByZXF1ZXN0aW5nIGNvbm5ldGlvbiBpbmZv",
-            "IGZvciBsb2NhbCBzaXRlEoYBCg9MQ1NBdXRoZW50aWNhdGUSJS5DU2l0ZUxp",
-            "Y2Vuc2VfTENTQXV0aGVudGljYXRlX1JlcXVlc3QaJi5DU2l0ZUxpY2Vuc2Vf",
-            "TENTQXV0aGVudGljYXRlX1Jlc3BvbnNlIiSCtRggTG9jYWwgY2FmZSBzZXJ2",
-            "ZXIgYXV0aGVudGljYXRpb24SnQEKEExDU0Fzc29jaWF0ZVVzZXISJi5DU2l0",
-            "ZUxpY2Vuc2VfTENTQXNzb2NpYXRlVXNlcl9SZXF1ZXN0GicuQ1NpdGVMaWNl",
-            "bnNlX0xDU0Fzc29jaWF0ZVVzZXJfUmVzcG9uc2UiOIK1GDRMb2NhbCBjYWZl",
-            "IHNlcnZlciB3YW50cyB0byBncmFudCB1c2VyIGFjY2VzcyB0byBzaXRlEp4B",
-            "ChJDbGllbnRTZWF0Q2hlY2tvdXQSKC5DU2l0ZUxpY2Vuc2VfQ2xpZW50U2Vh",
-            "dENoZWNrb3V0X1JlcXVlc3QaKS5DU2l0ZUxpY2Vuc2VfQ2xpZW50U2VhdENo",
-            "ZWNrb3V0X1Jlc3BvbnNlIjOCtRgvQ2xpZW50IGlzIHJlcXVlc3RpbmcgdXNl",
-            "IG9mIGEgc2l0ZSBsaWNlbnNlIHNlYXQSugEKF0NsaWVudEdldEF2YWlsYWJs",
-            "ZVNlYXRzEi0uQ1NpdGVMaWNlbnNlX0NsaWVudEdldEF2YWlsYWJsZVNlYXRz",
-            "X1JlcXVlc3QaLi5DU2l0ZUxpY2Vuc2VfQ2xpZW50R2V0QXZhaWxhYmxlU2Vh",
-            "dHNfUmVzcG9uc2UiQIK1GDxDbGllbnQgaXMgcmVxdWVzdGluZyB0aGUgbnVt",
-            "YmVyIG9mIGN1cnJlbnRseSBhdmFpbGFibGUgc2VhdHMaGIK1GBRTaXRlIExp",
-            "Y2Vuc2Ugc2VydmljZUIdgAEBqgIXT3BlblN0ZWFtd29ya3MuUHJvdG9idWY="));
+            "KA0ywAIKEVNpdGVNYW5hZ2VyQ2xpZW50EmkKDkluY29taW5nQ2xpZW50Eiou",
+            "Q1NpdGVNYW5hZ2VyQ2xpZW50X0luY29taW5nQ2xpZW50X1JlcXVlc3QaKy5D",
+            "U2l0ZU1hbmFnZXJDbGllbnRfSW5jb21pbmdDbGllbnRfUmVzcG9uc2USXAoe",
+            "Q2xpZW50U2VhdENoZWNrb3V0Tm90aWZpY2F0aW9uEi0uQ1NpdGVMaWNlbnNl",
+            "X0NsaWVudFNlYXRDaGVja291dF9Ob3RpZmljYXRpb24aCy5Ob1Jlc3BvbnNl",
+            "ElwKG1RyYWNrZWRQYXltZW50c05vdGlmaWNhdGlvbhIwLkNTaXRlTWFuYWdl",
+            "ckNsaWVudF9UcmFja2VkUGF5bWVudHNfTm90aWZpY2F0aW9uGgsuTm9SZXNw",
+            "b25zZRoEwLUYAjKnBAoLU2l0ZUxpY2Vuc2USbAoTSW5pdGlhdGVBc3NvY2lh",
+            "dGlvbhIpLkNTaXRlTGljZW5zZV9Jbml0aWF0ZUFzc29jaWF0aW9uX1JlcXVl",
+            "c3QaKi5DU2l0ZUxpY2Vuc2VfSW5pdGlhdGVBc3NvY2lhdGlvbl9SZXNwb25z",
+            "ZRJgCg9MQ1NBdXRoZW50aWNhdGUSJS5DU2l0ZUxpY2Vuc2VfTENTQXV0aGVu",
+            "dGljYXRlX1JlcXVlc3QaJi5DU2l0ZUxpY2Vuc2VfTENTQXV0aGVudGljYXRl",
+            "X1Jlc3BvbnNlEmMKEExDU0Fzc29jaWF0ZVVzZXISJi5DU2l0ZUxpY2Vuc2Vf",
+            "TENTQXNzb2NpYXRlVXNlcl9SZXF1ZXN0GicuQ1NpdGVMaWNlbnNlX0xDU0Fz",
+            "c29jaWF0ZVVzZXJfUmVzcG9uc2USaQoSQ2xpZW50U2VhdENoZWNrb3V0Eigu",
+            "Q1NpdGVMaWNlbnNlX0NsaWVudFNlYXRDaGVja291dF9SZXF1ZXN0GikuQ1Np",
+            "dGVMaWNlbnNlX0NsaWVudFNlYXRDaGVja291dF9SZXNwb25zZRJ4ChdDbGll",
+            "bnRHZXRBdmFpbGFibGVTZWF0cxItLkNTaXRlTGljZW5zZV9DbGllbnRHZXRB",
+            "dmFpbGFibGVTZWF0c19SZXF1ZXN0Gi4uQ1NpdGVMaWNlbnNlX0NsaWVudEdl",
+            "dEF2YWlsYWJsZVNlYXRzX1Jlc3BvbnNlQh2AAQGqAhdPcGVuU3RlYW13b3Jr",
+            "cy5Qcm90b2J1Zg=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.Reflection.DescriptorReflection.Descriptor, global::OpenSteamworks.Protobuf.SteammessagesBaseReflection.Descriptor, global::OpenSteamworks.Protobuf.SteammessagesUnifiedBaseSteamclientReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -115,6 +104,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
   #region Messages
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CSiteManagerClient_IncomingClient_Request : pb::IMessage<CSiteManagerClient_IncomingClient_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -476,6 +466,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CSiteManagerClient_IncomingClient_Response : pb::IMessage<CSiteManagerClient_IncomingClient_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -628,6 +619,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CSiteLicense_ClientSeatCheckout_Notification : pb::IMessage<CSiteLicense_ClientSeatCheckout_Notification>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -886,6 +878,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CSiteManagerClient_TrackedPayments_Notification : pb::IMessage<CSiteManagerClient_TrackedPayments_Notification>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1121,6 +1114,7 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static partial class Types {
+      [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
       public sealed partial class Payment : pb::IMessage<Payment>
       #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
           , pb::IBufferMessage
@@ -1796,6 +1790,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CSiteLicense_InitiateAssociation_Request : pb::IMessage<CSiteLicense_InitiateAssociation_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2106,6 +2101,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CSiteLicense_InitiateAssociation_Response : pb::IMessage<CSiteLicense_InitiateAssociation_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2309,6 +2305,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CSiteLicense_LCSAuthenticate_Request : pb::IMessage<CSiteLicense_LCSAuthenticate_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2515,6 +2512,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CSiteLicense_LCSAuthenticate_Response : pb::IMessage<CSiteLicense_LCSAuthenticate_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2876,6 +2874,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CSiteLicense_LCSAssociateUser_Request : pb::IMessage<CSiteLicense_LCSAssociateUser_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -3237,6 +3236,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CSiteLicense_LCSAssociateUser_Response : pb::IMessage<CSiteLicense_LCSAssociateUser_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -3389,6 +3389,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CSiteLicense_ClientSeatCheckout_Request : pb::IMessage<CSiteLicense_ClientSeatCheckout_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -3699,6 +3700,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CSiteLicense_ClientSeatCheckout_Response : pb::IMessage<CSiteLicense_ClientSeatCheckout_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -3851,6 +3853,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CSiteLicense_ClientGetAvailableSeats_Request : pb::IMessage<CSiteLicense_ClientGetAvailableSeats_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -4161,6 +4164,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CSiteLicense_ClientGetAvailableSeats_Response : pb::IMessage<CSiteLicense_ClientGetAvailableSeats_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage

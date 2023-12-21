@@ -97,6 +97,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
   #region Messages
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CStoreAppSimilarity_IdentifyClustersFromPlaytime_Request : pb::IMessage<CStoreAppSimilarity_IdentifyClustersFromPlaytime_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -551,6 +552,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CStoreAppSimilarity_IdentifyClustersFromPlaytime_Response : pb::IMessage<CStoreAppSimilarity_IdentifyClustersFromPlaytime_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -729,6 +731,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CStoreAppSimilarity_IdentifyClustersFromPlaytime_Response_Cluster : pb::IMessage<CStoreAppSimilarity_IdentifyClustersFromPlaytime_Response_Cluster>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1225,6 +1228,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CStoreAppSimilarity_PrioritizeAppsForUser_Request : pb::IMessage<CStoreAppSimilarity_PrioritizeAppsForUser_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1658,6 +1662,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CStoreAppSimilarity_PrioritizeAppsForUser_Response : pb::IMessage<CStoreAppSimilarity_PrioritizeAppsForUser_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1836,6 +1841,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CStoreAppSimilarity_PrioritizeAppsForUser_Response_ResultItem : pb::IMessage<CStoreAppSimilarity_PrioritizeAppsForUser_Response_ResultItem>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2264,6 +2270,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CStoreAppSimilarity_PrioritizeAppsForUser_Response_ResultItem_MatchDebugInfo : pb::IMessage<CStoreAppSimilarity_PrioritizeAppsForUser_Response_ResultItem_MatchDebugInfo>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2574,6 +2581,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CStoreAppSimilarity_PrioritizeAppsForUser_Response_ResultItem_PopularityDebugInfo : pb::IMessage<CStoreAppSimilarity_PrioritizeAppsForUser_Response_ResultItem_PopularityDebugInfo>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2884,6 +2892,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class StoreAppSimilarityPriorityOptions : pb::IMessage<StoreAppSimilarityPriorityOptions>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage

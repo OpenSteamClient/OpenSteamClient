@@ -1374,15 +1374,6 @@ enum EMsg : int {
   EMsgClientUGSGetGlobalStatsResponse = 7902,
   EMsgStoreBase = 8000,
   EMsgUMQBase = 8100,
-  EMsgUMQLogonRequest = 8100,
-  EMsgUMQLogonResponse = 8101,
-  EMsgUMQLogoffRequest = 8102,
-  EMsgUMQLogoffResponse = 8103,
-  EMsgUMQSendChatMessage = 8104,
-  EMsgUMQIncomingChatMessage = 8105,
-  EMsgUMQPoll = 8106,
-  EMsgUMQPollResults = 8107,
-  EMsgUMQ2AM_ClientMsgBatch = 8108,
   EMsgWorkshopBase = 8200,
   EMsgWebAPIBase = 8300,
   EMsgWebAPIValidateOAuth2Token = 8300,
@@ -1530,11 +1521,13 @@ enum EMsg : int {
   EMsgWGConnectionValidateUserToken = 12201,
   EMsgWGConnectionValidateUserTokenResponse = 12202,
   EMsgWGConnectionLegacyWGRequest = 12203,
-  EMsgWGConnectionLegacyWGResponse = 12204
+  EMsgWGConnectionLegacyWGResponse = 12204,
+  EMsgClientPendingGameLaunch = 12300,
+  EMsgClientPendingGameLaunchResponse = 12301
 };
 bool EMsg_IsValid(int value);
 constexpr EMsg EMsg_MIN = EMsgInvalid;
-constexpr EMsg EMsg_MAX = EMsgWGConnectionLegacyWGResponse;
+constexpr EMsg EMsg_MAX = EMsgClientPendingGameLaunchResponse;
 constexpr int EMsg_ARRAYSIZE = EMsg_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EMsg_descriptor();

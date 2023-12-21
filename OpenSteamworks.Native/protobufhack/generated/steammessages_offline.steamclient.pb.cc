@@ -158,18 +158,14 @@ const char descriptor_table_protodef_steammessages_5foffline_2esteamclient_2epro
   "ntid\030\001 \001(\r\022\035\n\025rtime32_creation_time\030\002 \001("
   "\007\"_\n/COffline_GetUnsignedOfflineLogonTic"
   "ket_Response\022,\n\006ticket\030\001 \001(\0132\034.COffline_"
-  "OfflineLogonTicket2\243\003\n\007Offline\022\265\001\n\025GetOf"
-  "flineLogonTicket\022\'.COffline_GetOfflineLo"
-  "gonTicket_Request\032(.COffline_GetOfflineL"
-  "ogonTicket_Response\"I\202\265\030EGet a serialize"
-  "d and signed offline logon ticket for th"
-  "e current user\022\301\001\n\035GetUnsignedOfflineLog"
-  "onTicket\022/.COffline_GetUnsignedOfflineLo"
-  "gonTicket_Request\0320.COffline_GetUnsigned"
-  "OfflineLogonTicket_Response\"=\202\265\0309Get an "
-  "unsigned offline logon ticket for the cu"
-  "rrent user\032\034\202\265\030\030Offline settings service"
-  "B\035\200\001\001\252\002\027OpenSteamworks.Protobuf"
+  "OfflineLogonTicket2\372\001\n\007Offline\022j\n\025GetOff"
+  "lineLogonTicket\022\'.COffline_GetOfflineLog"
+  "onTicket_Request\032(.COffline_GetOfflineLo"
+  "gonTicket_Response\022\202\001\n\035GetUnsignedOfflin"
+  "eLogonTicket\022/.COffline_GetUnsignedOffli"
+  "neLogonTicket_Request\0320.COffline_GetUnsi"
+  "gnedOfflineLogonTicket_ResponseB\035\200\001\001\252\002\027O"
+  "penSteamworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5foffline_2esteamclient_2eproto_deps[4] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
@@ -179,7 +175,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5foffline_2esteamclient_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5foffline_2esteamclient_2eproto = {
-  false, false, 1071, descriptor_table_protodef_steammessages_5foffline_2esteamclient_2eproto, "steammessages_offline.steamclient.proto", 
+  false, false, 902, descriptor_table_protodef_steammessages_5foffline_2esteamclient_2eproto, "steammessages_offline.steamclient.proto", 
   &descriptor_table_steammessages_5foffline_2esteamclient_2eproto_once, descriptor_table_steammessages_5foffline_2esteamclient_2eproto_deps, 4, 5,
   schemas, file_default_instances, TableStruct_steammessages_5foffline_2esteamclient_2eproto::offsets,
   file_level_metadata_steammessages_5foffline_2esteamclient_2eproto, file_level_enum_descriptors_steammessages_5foffline_2esteamclient_2eproto, file_level_service_descriptors_steammessages_5foffline_2esteamclient_2eproto,

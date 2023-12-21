@@ -732,6 +732,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
   #region Messages
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_AcceptSSA_Request : pb::IMessage<CPlayer_AcceptSSA_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -990,6 +991,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_AcceptSSA_Response : pb::IMessage<CPlayer_AcceptSSA_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1142,6 +1144,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_AddFriend_Request : pb::IMessage<CPlayer_AddFriend_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1348,6 +1351,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_AddFriend_Response : pb::IMessage<CPlayer_AddFriend_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1658,6 +1662,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_CommunityPreferences : pb::IMessage<CPlayer_CommunityPreferences>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2176,6 +2181,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_CommunityPreferencesChanged_Notification : pb::IMessage<CPlayer_CommunityPreferencesChanged_Notification>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2420,6 +2426,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_DeletePostedStatus_Request : pb::IMessage<CPlayer_DeletePostedStatus_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2626,6 +2633,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_DeletePostedStatus_Response : pb::IMessage<CPlayer_DeletePostedStatus_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2778,6 +2786,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_FriendEquippedProfileItemsChanged_Notification : pb::IMessage<CPlayer_FriendEquippedProfileItemsChanged_Notification>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2984,6 +2993,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_FriendNicknameChanged_Notification : pb::IMessage<CPlayer_FriendNicknameChanged_Notification>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -3293,6 +3303,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetAchievementsProgress_Request : pb::IMessage<CPlayer_GetAchievementsProgress_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -3578,6 +3589,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetAchievementsProgress_Response : pb::IMessage<CPlayer_GetAchievementsProgress_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -3756,6 +3768,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetAchievementsProgress_Response_AchievementProgress : pb::IMessage<CPlayer_GetAchievementsProgress_Response_AchievementProgress>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -4222,6 +4235,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetAnimatedAvatar_Request : pb::IMessage<CPlayer_GetAnimatedAvatar_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -4479,6 +4493,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetAnimatedAvatar_Response : pb::IMessage<CPlayer_GetAnimatedAvatar_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -4677,6 +4692,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetAvatarFrame_Request : pb::IMessage<CPlayer_GetAvatarFrame_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -4934,6 +4950,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetAvatarFrame_Response : pb::IMessage<CPlayer_GetAvatarFrame_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -5132,6 +5149,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetCommunityBadgeProgress_Request : pb::IMessage<CPlayer_GetCommunityBadgeProgress_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -5390,6 +5408,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetCommunityBadgeProgress_Response : pb::IMessage<CPlayer_GetCommunityBadgeProgress_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -5568,6 +5587,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetCommunityBadgeProgress_Response_Quest : pb::IMessage<CPlayer_GetCommunityBadgeProgress_Response_Quest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -5826,6 +5846,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetCommunityPreferences_Request : pb::IMessage<CPlayer_GetCommunityPreferences_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -5978,6 +5999,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetCommunityPreferences_Response : pb::IMessage<CPlayer_GetCommunityPreferences_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -6222,6 +6244,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetDurationControl_Request : pb::IMessage<CPlayer_GetDurationControl_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -6428,6 +6451,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetDurationControl_Response : pb::IMessage<CPlayer_GetDurationControl_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -6998,6 +7022,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetEmoticonList_Request : pb::IMessage<CPlayer_GetEmoticonList_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -7150,6 +7175,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetEmoticonList_Response : pb::IMessage<CPlayer_GetEmoticonList_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -7328,6 +7354,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetEmoticonList_Response_Emoticon : pb::IMessage<CPlayer_GetEmoticonList_Response_Emoticon>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -7793,6 +7820,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetFavoriteBadge_Request : pb::IMessage<CPlayer_GetFavoriteBadge_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -7999,6 +8027,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetFavoriteBadge_Response : pb::IMessage<CPlayer_GetFavoriteBadge_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -8517,6 +8546,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetFriendsAppsActivity_Request : pb::IMessage<CPlayer_GetFriendsAppsActivity_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -8774,6 +8804,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetFriendsAppsActivity_Response : pb::IMessage<CPlayer_GetFriendsAppsActivity_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -9188,6 +9219,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetFriendsAppsActivity_Response_AppFriendsInfo : pb::IMessage<CPlayer_GetFriendsAppsActivity_Response_AppFriendsInfo>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -9472,6 +9504,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetFriendsAppsActivity_Response_FriendPlayTime : pb::IMessage<CPlayer_GetFriendsAppsActivity_Response_FriendPlayTime>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -9886,6 +9919,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetFriendsGameplayInfo_Request : pb::IMessage<CPlayer_GetFriendsGameplayInfo_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -10092,6 +10126,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetFriendsGameplayInfo_Response : pb::IMessage<CPlayer_GetFriendsGameplayInfo_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -10420,6 +10455,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetFriendsGameplayInfo_Response_FriendsGameplayInfo : pb::IMessage<CPlayer_GetFriendsGameplayInfo_Response_FriendsGameplayInfo>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -10730,6 +10766,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetFriendsGameplayInfo_Response_OwnGameplayInfo : pb::IMessage<CPlayer_GetFriendsGameplayInfo_Response_OwnGameplayInfo>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -11144,6 +11181,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetGameAchievements_Request : pb::IMessage<CPlayer_GetGameAchievements_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -11401,6 +11439,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetGameAchievements_Response : pb::IMessage<CPlayer_GetGameAchievements_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -11579,6 +11618,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetGameAchievements_Response_Achievement : pb::IMessage<CPlayer_GetGameAchievements_Response_Achievement>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -12091,6 +12131,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetGameBadgeLevels_Request : pb::IMessage<CPlayer_GetGameBadgeLevels_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -12297,6 +12338,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetGameBadgeLevels_Response : pb::IMessage<CPlayer_GetGameBadgeLevels_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -12529,6 +12571,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetGameBadgeLevels_Response_Badge : pb::IMessage<CPlayer_GetGameBadgeLevels_Response_Badge>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -12839,6 +12882,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetLastPlayedTimes_Request : pb::IMessage<CPlayer_GetLastPlayedTimes_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -13045,6 +13089,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetLastPlayedTimes_Response : pb::IMessage<CPlayer_GetLastPlayedTimes_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -13223,6 +13268,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetLastPlayedTimes_Response_Game : pb::IMessage<CPlayer_GetLastPlayedTimes_Response_Game>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -14157,6 +14203,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetMiniProfileBackground_Request : pb::IMessage<CPlayer_GetMiniProfileBackground_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -14414,6 +14461,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetMiniProfileBackground_Response : pb::IMessage<CPlayer_GetMiniProfileBackground_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -14612,6 +14660,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetMutualFriendsForIncomingInvites_Request : pb::IMessage<CPlayer_GetMutualFriendsForIncomingInvites_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -14764,6 +14813,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetMutualFriendsForIncomingInvites_Response : pb::IMessage<CPlayer_GetMutualFriendsForIncomingInvites_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -14942,6 +14992,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetNewSteamAnnouncementState_Request : pb::IMessage<CPlayer_GetNewSteamAnnouncementState_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -15148,6 +15199,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetNewSteamAnnouncementState_Response : pb::IMessage<CPlayer_GetNewSteamAnnouncementState_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -15560,6 +15612,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetNicknameList_Request : pb::IMessage<CPlayer_GetNicknameList_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -15712,6 +15765,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetNicknameList_Response : pb::IMessage<CPlayer_GetNicknameList_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -15890,6 +15944,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetNicknameList_Response_PlayerNickname : pb::IMessage<CPlayer_GetNicknameList_Response_PlayerNickname>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -16147,6 +16202,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetOwnedGames_Request : pb::IMessage<CPlayer_GetOwnedGames_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -16692,6 +16748,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetOwnedGames_Response : pb::IMessage<CPlayer_GetOwnedGames_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -16924,6 +16981,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetOwnedGames_Response_Game : pb::IMessage<CPlayer_GetOwnedGames_Response_Game>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -18037,6 +18095,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetPerFriendPreferences_Request : pb::IMessage<CPlayer_GetPerFriendPreferences_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -18189,6 +18248,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetPerFriendPreferences_Response : pb::IMessage<CPlayer_GetPerFriendPreferences_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -18367,6 +18427,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetPlayerLinkDetails_Request : pb::IMessage<CPlayer_GetPlayerLinkDetails_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -18547,6 +18608,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetPlayerLinkDetails_Response : pb::IMessage<CPlayer_GetPlayerLinkDetails_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -18725,6 +18787,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetPlayerLinkDetails_Response_PlayerLinkDetails : pb::IMessage<CPlayer_GetPlayerLinkDetails_Response_PlayerLinkDetails>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -18969,6 +19032,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetPlayerLinkDetails_Response_PlayerLinkDetails_AccountPrivateData : pb::IMessage<CPlayer_GetPlayerLinkDetails_Response_PlayerLinkDetails_AccountPrivateData>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -20210,6 +20274,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetPlayerLinkDetails_Response_PlayerLinkDetails_AccountPublicData : pb::IMessage<CPlayer_GetPlayerLinkDetails_Response_PlayerLinkDetails_AccountPublicData>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -20881,6 +20946,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetPlayNext_Request : pb::IMessage<CPlayer_GetPlayNext_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -21115,6 +21181,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetPlayNext_Response : pb::IMessage<CPlayer_GetPlayNext_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -21349,6 +21416,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetPostedStatus_Request : pb::IMessage<CPlayer_GetPostedStatus_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -21607,6 +21675,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetPostedStatus_Response : pb::IMessage<CPlayer_GetPostedStatus_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -22020,6 +22089,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetPrivacySettings_Request : pb::IMessage<CPlayer_GetPrivacySettings_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -22172,6 +22242,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetPrivacySettings_Response : pb::IMessage<CPlayer_GetPrivacySettings_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -22370,6 +22441,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetProfileBackground_Request : pb::IMessage<CPlayer_GetProfileBackground_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -22627,6 +22699,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetProfileBackground_Response : pb::IMessage<CPlayer_GetProfileBackground_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -22825,6 +22898,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetProfileCustomization_Request : pb::IMessage<CPlayer_GetProfileCustomization_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -23135,6 +23209,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetProfileCustomization_Response : pb::IMessage<CPlayer_GetProfileCustomization_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -23485,6 +23560,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetProfileCustomization_Response_PurchasedCustomization : pb::IMessage<CPlayer_GetProfileCustomization_Response_PurchasedCustomization>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -23795,6 +23871,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetProfileItemsEquipped_Request : pb::IMessage<CPlayer_GetProfileItemsEquipped_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -24052,6 +24129,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetProfileItemsEquipped_Response : pb::IMessage<CPlayer_GetProfileItemsEquipped_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -24480,6 +24558,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetProfileItemsOwned_Request : pb::IMessage<CPlayer_GetProfileItemsOwned_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -24711,6 +24790,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetProfileItemsOwned_Response : pb::IMessage<CPlayer_GetProfileItemsOwned_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -25045,6 +25125,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetProfileThemesAvailable_Request : pb::IMessage<CPlayer_GetProfileThemesAvailable_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -25197,6 +25278,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetProfileThemesAvailable_Response : pb::IMessage<CPlayer_GetProfileThemesAvailable_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -25375,6 +25457,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Request : pb::IMessage<CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -25581,6 +25664,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response : pb::IMessage<CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -25785,6 +25869,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response_PurchasedCustomization : pb::IMessage<CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response_PurchasedCustomization>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -26043,6 +26128,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response_UpgradedCustomization : pb::IMessage<CPlayer_GetPurchasedAndUpgradedProfileCustomizations_Response_UpgradedCustomization>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -26301,6 +26387,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetPurchasedProfileCustomizations_Request : pb::IMessage<CPlayer_GetPurchasedProfileCustomizations_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -26507,6 +26594,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetPurchasedProfileCustomizations_Response : pb::IMessage<CPlayer_GetPurchasedProfileCustomizations_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -26685,6 +26773,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetPurchasedProfileCustomizations_Response_PurchasedCustomization : pb::IMessage<CPlayer_GetPurchasedProfileCustomizations_Response_PurchasedCustomization>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -26943,6 +27032,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetSteamDeckKeyboardSkin_Request : pb::IMessage<CPlayer_GetSteamDeckKeyboardSkin_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -27200,6 +27290,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetSteamDeckKeyboardSkin_Response : pb::IMessage<CPlayer_GetSteamDeckKeyboardSkin_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -27398,6 +27489,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetTextFilterWords_Request : pb::IMessage<CPlayer_GetTextFilterWords_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -27550,6 +27642,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetTextFilterWords_Response : pb::IMessage<CPlayer_GetTextFilterWords_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -27748,6 +27841,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetTimeSSAAccepted_Request : pb::IMessage<CPlayer_GetTimeSSAAccepted_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -27900,6 +27994,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetTimeSSAAccepted_Response : pb::IMessage<CPlayer_GetTimeSSAAccepted_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -28210,6 +28305,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetTopAchievementsForGames_Request : pb::IMessage<CPlayer_GetTopAchievementsForGames_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -28547,6 +28643,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetTopAchievementsForGames_Response : pb::IMessage<CPlayer_GetTopAchievementsForGames_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -28725,6 +28822,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetTopAchievementsForGames_Response_Achievement : pb::IMessage<CPlayer_GetTopAchievementsForGames_Response_Achievement>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -29290,6 +29388,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_GetTopAchievementsForGames_Response_Game : pb::IMessage<CPlayer_GetTopAchievementsForGames_Response_Game>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -29574,6 +29673,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_IgnoreFriend_Request : pb::IMessage<CPlayer_IgnoreFriend_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -29832,6 +29932,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_IgnoreFriend_Response : pb::IMessage<CPlayer_IgnoreFriend_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -30038,6 +30139,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_IncomingInviteMutualFriendList : pb::IMessage<CPlayer_IncomingInviteMutualFriendList>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -30272,6 +30374,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_LastPlayedTimes_Notification : pb::IMessage<CPlayer_LastPlayedTimes_Notification>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -30450,6 +30553,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_NewSteamAnnouncementState_Notification : pb::IMessage<CPlayer_NewSteamAnnouncementState_Notification>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -30862,6 +30966,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_PerFriendPreferencesChanged_Notification : pb::IMessage<CPlayer_PerFriendPreferencesChanged_Notification>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -31114,6 +31219,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_PostStatusToFriends_Request : pb::IMessage<CPlayer_PostStatusToFriends_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -31371,6 +31477,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_PostStatusToFriends_Response : pb::IMessage<CPlayer_PostStatusToFriends_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -31523,6 +31630,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_PrivacySettingsChanged_Notification : pb::IMessage<CPlayer_PrivacySettingsChanged_Notification>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -31721,6 +31829,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_RecordDisconnectedPlaytime_Request : pb::IMessage<CPlayer_RecordDisconnectedPlaytime_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -31899,6 +32008,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_RecordDisconnectedPlaytime_Request_PlayHistory : pb::IMessage<CPlayer_RecordDisconnectedPlaytime_Request_PlayHistory>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -32313,6 +32423,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_RecordDisconnectedPlaytime_Response : pb::IMessage<CPlayer_RecordDisconnectedPlaytime_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -32465,6 +32576,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_RemoveFriend_Request : pb::IMessage<CPlayer_RemoveFriend_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -32671,6 +32783,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_RemoveFriend_Response : pb::IMessage<CPlayer_RemoveFriend_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -32877,6 +32990,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_SetAnimatedAvatar_Request : pb::IMessage<CPlayer_SetAnimatedAvatar_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -33083,6 +33197,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_SetAnimatedAvatar_Response : pb::IMessage<CPlayer_SetAnimatedAvatar_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -33235,6 +33350,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_SetAvatarFrame_Request : pb::IMessage<CPlayer_SetAvatarFrame_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -33441,6 +33557,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_SetAvatarFrame_Response : pb::IMessage<CPlayer_SetAvatarFrame_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -33593,6 +33710,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_SetCommunityPreferences_Request : pb::IMessage<CPlayer_SetCommunityPreferences_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -33791,6 +33909,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_SetCommunityPreferences_Response : pb::IMessage<CPlayer_SetCommunityPreferences_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -33943,6 +34062,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_SetEquippedProfileItemFlags_Request : pb::IMessage<CPlayer_SetEquippedProfileItemFlags_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -34201,6 +34321,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_SetEquippedProfileItemFlags_Response : pb::IMessage<CPlayer_SetEquippedProfileItemFlags_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -34353,6 +34474,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_SetFavoriteBadge_Request : pb::IMessage<CPlayer_SetFavoriteBadge_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -34611,6 +34733,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_SetFavoriteBadge_Response : pb::IMessage<CPlayer_SetFavoriteBadge_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -34763,6 +34886,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_SetMiniProfileBackground_Request : pb::IMessage<CPlayer_SetMiniProfileBackground_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -34969,6 +35093,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_SetMiniProfileBackground_Response : pb::IMessage<CPlayer_SetMiniProfileBackground_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -35121,6 +35246,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_SetPerFriendPreferences_Request : pb::IMessage<CPlayer_SetPerFriendPreferences_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -35319,6 +35445,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_SetPerFriendPreferences_Response : pb::IMessage<CPlayer_SetPerFriendPreferences_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -35471,6 +35598,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_SetProfileBackground_Request : pb::IMessage<CPlayer_SetProfileBackground_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -35677,6 +35805,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_SetProfileBackground_Response : pb::IMessage<CPlayer_SetProfileBackground_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -35829,6 +35958,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_SetProfilePreferences_Request : pb::IMessage<CPlayer_SetProfilePreferences_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -36027,6 +36157,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_SetProfilePreferences_Response : pb::IMessage<CPlayer_SetProfilePreferences_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -36179,6 +36310,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_SetProfileTheme_Request : pb::IMessage<CPlayer_SetProfileTheme_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -36382,6 +36514,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_SetProfileTheme_Response : pb::IMessage<CPlayer_SetProfileTheme_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -36534,6 +36667,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_SetSteamDeckKeyboardSkin_Request : pb::IMessage<CPlayer_SetSteamDeckKeyboardSkin_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -36740,6 +36874,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_SetSteamDeckKeyboardSkin_Response : pb::IMessage<CPlayer_SetSteamDeckKeyboardSkin_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -36892,6 +37027,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_TextFilterWords : pb::IMessage<CPlayer_TextFilterWords>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -37150,6 +37286,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_TextFilterWordsChanged_Notification : pb::IMessage<CPlayer_TextFilterWordsChanged_Notification>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -37348,6 +37485,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_UpdateSteamAnnouncementLastRead_Request : pb::IMessage<CPlayer_UpdateSteamAnnouncementLastRead_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -37606,6 +37744,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPlayer_UpdateSteamAnnouncementLastRead_Response : pb::IMessage<CPlayer_UpdateSteamAnnouncementLastRead_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -37758,6 +37897,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPrivacySettings : pb::IMessage<CPrivacySettings>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -38224,6 +38364,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class PerFriendPreferences : pb::IMessage<PerFriendPreferences>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -38845,6 +38986,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class ProfileCustomization : pb::IMessage<ProfileCustomization>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -39337,6 +39479,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class ProfileCustomizationSlot : pb::IMessage<ProfileCustomizationSlot>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -40217,6 +40360,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class ProfileItem : pb::IMessage<ProfileItem>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -41116,6 +41260,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class ProfileItem_ProfileColor : pb::IMessage<ProfileItem_ProfileColor>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -41370,6 +41515,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class ProfilePreferences : pb::IMessage<ProfilePreferences>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -41576,6 +41722,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class ProfileTheme : pb::IMessage<ProfileTheme>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage

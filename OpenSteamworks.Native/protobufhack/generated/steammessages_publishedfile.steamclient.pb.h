@@ -52,7 +52,7 @@ struct TableStruct_steammessages_5fpublishedfile_2esteamclient_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[91]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[95]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -246,6 +246,12 @@ extern CPublishedFile_RemoveChild_RequestDefaultTypeInternal _CPublishedFile_Rem
 class CPublishedFile_RemoveChild_Response;
 struct CPublishedFile_RemoveChild_ResponseDefaultTypeInternal;
 extern CPublishedFile_RemoveChild_ResponseDefaultTypeInternal _CPublishedFile_RemoveChild_Response_default_instance_;
+class CPublishedFile_SetCollectionChildren_Request;
+struct CPublishedFile_SetCollectionChildren_RequestDefaultTypeInternal;
+extern CPublishedFile_SetCollectionChildren_RequestDefaultTypeInternal _CPublishedFile_SetCollectionChildren_Request_default_instance_;
+class CPublishedFile_SetCollectionChildren_Response;
+struct CPublishedFile_SetCollectionChildren_ResponseDefaultTypeInternal;
+extern CPublishedFile_SetCollectionChildren_ResponseDefaultTypeInternal _CPublishedFile_SetCollectionChildren_Response_default_instance_;
 class CPublishedFile_SetPlaytimeForControllerConfigs_Request;
 struct CPublishedFile_SetPlaytimeForControllerConfigs_RequestDefaultTypeInternal;
 extern CPublishedFile_SetPlaytimeForControllerConfigs_RequestDefaultTypeInternal _CPublishedFile_SetPlaytimeForControllerConfigs_Request_default_instance_;
@@ -255,6 +261,12 @@ extern CPublishedFile_SetPlaytimeForControllerConfigs_Request_ControllerConfigUs
 class CPublishedFile_SetPlaytimeForControllerConfigs_Response;
 struct CPublishedFile_SetPlaytimeForControllerConfigs_ResponseDefaultTypeInternal;
 extern CPublishedFile_SetPlaytimeForControllerConfigs_ResponseDefaultTypeInternal _CPublishedFile_SetPlaytimeForControllerConfigs_Response_default_instance_;
+class CPublishedFile_SetSubscriptionListFromCollection_Request;
+struct CPublishedFile_SetSubscriptionListFromCollection_RequestDefaultTypeInternal;
+extern CPublishedFile_SetSubscriptionListFromCollection_RequestDefaultTypeInternal _CPublishedFile_SetSubscriptionListFromCollection_Request_default_instance_;
+class CPublishedFile_SetSubscriptionListFromCollection_Response;
+struct CPublishedFile_SetSubscriptionListFromCollection_ResponseDefaultTypeInternal;
+extern CPublishedFile_SetSubscriptionListFromCollection_ResponseDefaultTypeInternal _CPublishedFile_SetSubscriptionListFromCollection_Response_default_instance_;
 class CPublishedFile_StartPlaytimeTracking_Request;
 struct CPublishedFile_StartPlaytimeTracking_RequestDefaultTypeInternal;
 extern CPublishedFile_StartPlaytimeTracking_RequestDefaultTypeInternal _CPublishedFile_StartPlaytimeTracking_Request_default_instance_;
@@ -396,9 +408,13 @@ template<> ::CPublishedFile_RemoveAppRelationship_Request* Arena::CreateMaybeMes
 template<> ::CPublishedFile_RemoveAppRelationship_Response* Arena::CreateMaybeMessage<::CPublishedFile_RemoveAppRelationship_Response>(Arena*);
 template<> ::CPublishedFile_RemoveChild_Request* Arena::CreateMaybeMessage<::CPublishedFile_RemoveChild_Request>(Arena*);
 template<> ::CPublishedFile_RemoveChild_Response* Arena::CreateMaybeMessage<::CPublishedFile_RemoveChild_Response>(Arena*);
+template<> ::CPublishedFile_SetCollectionChildren_Request* Arena::CreateMaybeMessage<::CPublishedFile_SetCollectionChildren_Request>(Arena*);
+template<> ::CPublishedFile_SetCollectionChildren_Response* Arena::CreateMaybeMessage<::CPublishedFile_SetCollectionChildren_Response>(Arena*);
 template<> ::CPublishedFile_SetPlaytimeForControllerConfigs_Request* Arena::CreateMaybeMessage<::CPublishedFile_SetPlaytimeForControllerConfigs_Request>(Arena*);
 template<> ::CPublishedFile_SetPlaytimeForControllerConfigs_Request_ControllerConfigUsage* Arena::CreateMaybeMessage<::CPublishedFile_SetPlaytimeForControllerConfigs_Request_ControllerConfigUsage>(Arena*);
 template<> ::CPublishedFile_SetPlaytimeForControllerConfigs_Response* Arena::CreateMaybeMessage<::CPublishedFile_SetPlaytimeForControllerConfigs_Response>(Arena*);
+template<> ::CPublishedFile_SetSubscriptionListFromCollection_Request* Arena::CreateMaybeMessage<::CPublishedFile_SetSubscriptionListFromCollection_Request>(Arena*);
+template<> ::CPublishedFile_SetSubscriptionListFromCollection_Response* Arena::CreateMaybeMessage<::CPublishedFile_SetSubscriptionListFromCollection_Response>(Arena*);
 template<> ::CPublishedFile_StartPlaytimeTracking_Request* Arena::CreateMaybeMessage<::CPublishedFile_StartPlaytimeTracking_Request>(Arena*);
 template<> ::CPublishedFile_StartPlaytimeTracking_Response* Arena::CreateMaybeMessage<::CPublishedFile_StartPlaytimeTracking_Response>(Arena*);
 template<> ::CPublishedFile_StopPlaytimeTrackingForAllAppItems_Request* Arena::CreateMaybeMessage<::CPublishedFile_StopPlaytimeTrackingForAllAppItems_Request>(Arena*);
@@ -902,6 +918,7 @@ class CPublishedFile_Subscribe_Request PROTOBUF_FINAL :
     kListTypeFieldNumber = 2,
     kAppidFieldNumber = 3,
     kNotifyClientFieldNumber = 4,
+    kIncludeDependenciesFieldNumber = 5,
   };
   // optional uint64 publishedfileid = 1;
   bool has_publishedfileid() const;
@@ -955,6 +972,19 @@ class CPublishedFile_Subscribe_Request PROTOBUF_FINAL :
   void _internal_set_notify_client(bool value);
   public:
 
+  // optional bool include_dependencies = 5;
+  bool has_include_dependencies() const;
+  private:
+  bool _internal_has_include_dependencies() const;
+  public:
+  void clear_include_dependencies();
+  bool include_dependencies() const;
+  void set_include_dependencies(bool value);
+  private:
+  bool _internal_include_dependencies() const;
+  void _internal_set_include_dependencies(bool value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CPublishedFile_Subscribe_Request)
  private:
   class _Internal;
@@ -968,6 +998,7 @@ class CPublishedFile_Subscribe_Request PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::uint32 list_type_;
   ::PROTOBUF_NAMESPACE_ID::int32 appid_;
   bool notify_client_;
+  bool include_dependencies_;
   friend struct ::TableStruct_steammessages_5fpublishedfile_2esteamclient_2eproto;
 };
 // -------------------------------------------------------------------
@@ -1890,7 +1921,7 @@ class CPublishedFile_GetSubSectionData_Request PROTOBUF_FINAL :
   void _internal_set_for_table_of_contents(bool value);
   public:
 
-  // optional .EPublishedFileRevision desired_revision = 4 [default = EPublishedFileRevision_Default, (.description) = "Return the data for the specified revision."];
+  // optional .EPublishedFileRevision desired_revision = 4 [default = EPublishedFileRevision_Default];
   bool has_desired_revision() const;
   private:
   bool _internal_has_desired_revision() const;
@@ -2418,7 +2449,7 @@ class CPublishedFile_Publish_Request PROTOBUF_FINAL :
     kFileTypeFieldNumber = 7,
     kVisibilityFieldNumber = 11,
   };
-  // repeated string tags = 13 [(.description) = "Array of text tags to apply to the published file."];
+  // repeated string tags = 13;
   int tags_size() const;
   private:
   int _internal_tags_size() const;
@@ -2442,7 +2473,7 @@ class CPublishedFile_Publish_Request PROTOBUF_FINAL :
   std::string* _internal_add_tags();
   public:
 
-  // optional string cloudfilename = 3 [(.description) = "Name of the file to publish in the user\'s cloud."];
+  // optional string cloudfilename = 3;
   bool has_cloudfilename() const;
   private:
   bool _internal_has_cloudfilename() const;
@@ -2462,7 +2493,7 @@ class CPublishedFile_Publish_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_cloudfilename();
   public:
 
-  // optional string preview_cloudfilename = 4 [(.description) = "Name of the file to use as the published file\'s preview."];
+  // optional string preview_cloudfilename = 4;
   bool has_preview_cloudfilename() const;
   private:
   bool _internal_has_preview_cloudfilename() const;
@@ -2482,7 +2513,7 @@ class CPublishedFile_Publish_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_preview_cloudfilename();
   public:
 
-  // optional string title = 5 [(.description) = "Text title for the published file."];
+  // optional string title = 5;
   bool has_title() const;
   private:
   bool _internal_has_title() const;
@@ -2502,7 +2533,7 @@ class CPublishedFile_Publish_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_title();
   public:
 
-  // optional string file_description = 6 [(.description) = "Text description for the published file."];
+  // optional string file_description = 6;
   bool has_file_description() const;
   private:
   bool _internal_has_file_description() const;
@@ -2522,7 +2553,7 @@ class CPublishedFile_Publish_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_file_description();
   public:
 
-  // optional string consumer_shortcut_name = 8 [(.description) = "Shortcut name for the published file."];
+  // optional string consumer_shortcut_name = 8;
   bool has_consumer_shortcut_name() const;
   private:
   bool _internal_has_consumer_shortcut_name() const;
@@ -2542,7 +2573,7 @@ class CPublishedFile_Publish_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_consumer_shortcut_name();
   public:
 
-  // optional string youtube_username = 9 [(.description) = "(Optional) User\'s YouTube account username."];
+  // optional string youtube_username = 9;
   bool has_youtube_username() const;
   private:
   bool _internal_has_youtube_username() const;
@@ -2562,7 +2593,7 @@ class CPublishedFile_Publish_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_youtube_username();
   public:
 
-  // optional string youtube_videoid = 10 [(.description) = "(Optional) Video Id of a YouTube video for this published file."];
+  // optional string youtube_videoid = 10;
   bool has_youtube_videoid() const;
   private:
   bool _internal_has_youtube_videoid() const;
@@ -2582,7 +2613,7 @@ class CPublishedFile_Publish_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_youtube_videoid();
   public:
 
-  // optional string redirect_uri = 12 [(.description) = "(Optional) If supplied, the resulting published file\'s Id is appended to the URI."];
+  // optional string redirect_uri = 12;
   bool has_redirect_uri() const;
   private:
   bool _internal_has_redirect_uri() const;
@@ -2602,7 +2633,7 @@ class CPublishedFile_Publish_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_redirect_uri();
   public:
 
-  // optional string collection_type = 14 [(.description) = "(Optional) Type of collection the published file represents."];
+  // optional string collection_type = 14;
   bool has_collection_type() const;
   private:
   bool _internal_has_collection_type() const;
@@ -2622,7 +2653,7 @@ class CPublishedFile_Publish_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_collection_type();
   public:
 
-  // optional string game_type = 15 [(.description) = "(Optional) Type of game the published file represents."];
+  // optional string game_type = 15;
   bool has_game_type() const;
   private:
   bool _internal_has_game_type() const;
@@ -2642,7 +2673,7 @@ class CPublishedFile_Publish_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_game_type();
   public:
 
-  // optional string url = 16 [(.description) = "(Optional) If this represents a game, this is the URL to that game\'s page."];
+  // optional string url = 16;
   bool has_url() const;
   private:
   bool _internal_has_url() const;
@@ -2662,7 +2693,7 @@ class CPublishedFile_Publish_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_url();
   public:
 
-  // optional uint32 appid = 1 [(.description) = "App Id this file is being published FROM."];
+  // optional uint32 appid = 1;
   bool has_appid() const;
   private:
   bool _internal_has_appid() const;
@@ -2675,7 +2706,7 @@ class CPublishedFile_Publish_Request PROTOBUF_FINAL :
   void _internal_set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 consumer_appid = 2 [(.description) = "App Id this file is being published TO."];
+  // optional uint32 consumer_appid = 2;
   bool has_consumer_appid() const;
   private:
   bool _internal_has_consumer_appid() const;
@@ -2688,7 +2719,7 @@ class CPublishedFile_Publish_Request PROTOBUF_FINAL :
   void _internal_set_consumer_appid(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 file_type = 7 [(.description) = "(EWorkshopFileType) Type of Workshop file to publish."];
+  // optional uint32 file_type = 7;
   bool has_file_type() const;
   private:
   bool _internal_has_file_type() const;
@@ -2701,7 +2732,7 @@ class CPublishedFile_Publish_Request PROTOBUF_FINAL :
   void _internal_set_file_type(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 visibility = 11 [(.description) = "(ERemoteStoragePublishedFileVisibility) Visibility of the published file (private, friends, public, etc.)"];
+  // optional uint32 visibility = 11;
   bool has_visibility() const;
   private:
   bool _internal_has_visibility() const;
@@ -3050,7 +3081,7 @@ class CPublishedFile_GetDetails_Request PROTOBUF_FINAL :
     kStripDescriptionBbcodeFieldNumber = 15,
     kIncludereactionsFieldNumber = 17,
   };
-  // repeated fixed64 publishedfileids = 1 [(.description) = "Set of published file Ids to retrieve details for."];
+  // repeated fixed64 publishedfileids = 1;
   int publishedfileids_size() const;
   private:
   int _internal_publishedfileids_size() const;
@@ -3072,7 +3103,7 @@ class CPublishedFile_GetDetails_Request PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 >*
       mutable_publishedfileids();
 
-  // optional bool includetags = 2 [(.description) = "If true, return tag information in the returned details."];
+  // optional bool includetags = 2;
   bool has_includetags() const;
   private:
   bool _internal_has_includetags() const;
@@ -3085,7 +3116,7 @@ class CPublishedFile_GetDetails_Request PROTOBUF_FINAL :
   void _internal_set_includetags(bool value);
   public:
 
-  // optional bool includeadditionalpreviews = 3 [(.description) = "If true, return preview information in the returned details."];
+  // optional bool includeadditionalpreviews = 3;
   bool has_includeadditionalpreviews() const;
   private:
   bool _internal_has_includeadditionalpreviews() const;
@@ -3098,7 +3129,7 @@ class CPublishedFile_GetDetails_Request PROTOBUF_FINAL :
   void _internal_set_includeadditionalpreviews(bool value);
   public:
 
-  // optional bool includechildren = 4 [(.description) = "If true, return children in the returned details."];
+  // optional bool includechildren = 4;
   bool has_includechildren() const;
   private:
   bool _internal_has_includechildren() const;
@@ -3111,7 +3142,7 @@ class CPublishedFile_GetDetails_Request PROTOBUF_FINAL :
   void _internal_set_includechildren(bool value);
   public:
 
-  // optional bool includekvtags = 5 [(.description) = "If true, return key value tags in the returned details."];
+  // optional bool includekvtags = 5;
   bool has_includekvtags() const;
   private:
   bool _internal_has_includekvtags() const;
@@ -3124,7 +3155,7 @@ class CPublishedFile_GetDetails_Request PROTOBUF_FINAL :
   void _internal_set_includekvtags(bool value);
   public:
 
-  // optional bool includevotes = 6 [(.description) = "If true, return vote data in the returned details."];
+  // optional bool includevotes = 6;
   bool has_includevotes() const;
   private:
   bool _internal_has_includevotes() const;
@@ -3137,7 +3168,7 @@ class CPublishedFile_GetDetails_Request PROTOBUF_FINAL :
   void _internal_set_includevotes(bool value);
   public:
 
-  // optional bool short_description = 8 [(.description) = "If true, return a short description instead of the full description."];
+  // optional bool short_description = 8;
   bool has_short_description() const;
   private:
   bool _internal_has_short_description() const;
@@ -3150,7 +3181,7 @@ class CPublishedFile_GetDetails_Request PROTOBUF_FINAL :
   void _internal_set_short_description(bool value);
   public:
 
-  // optional bool includeforsaledata = 10 [(.description) = "If true, return pricing data, if applicable."];
+  // optional bool includeforsaledata = 10;
   bool has_includeforsaledata() const;
   private:
   bool _internal_has_includeforsaledata() const;
@@ -3163,7 +3194,7 @@ class CPublishedFile_GetDetails_Request PROTOBUF_FINAL :
   void _internal_set_includeforsaledata(bool value);
   public:
 
-  // optional bool includemetadata = 11 [(.description) = "If true, populate the metadata field."];
+  // optional bool includemetadata = 11;
   bool has_includemetadata() const;
   private:
   bool _internal_has_includemetadata() const;
@@ -3176,7 +3207,7 @@ class CPublishedFile_GetDetails_Request PROTOBUF_FINAL :
   void _internal_set_includemetadata(bool value);
   public:
 
-  // optional int32 language = 12 [default = 0, (.description) = "Specifies the localized text to return. Defaults to English."];
+  // optional int32 language = 12 [default = 0];
   bool has_language() const;
   private:
   bool _internal_has_language() const;
@@ -3189,7 +3220,7 @@ class CPublishedFile_GetDetails_Request PROTOBUF_FINAL :
   void _internal_set_language(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
-  // optional uint32 return_playtime_stats = 13 [(.description) = "Return playtime stats for the specified number of days before today."];
+  // optional uint32 return_playtime_stats = 13;
   bool has_return_playtime_stats() const;
   private:
   bool _internal_has_return_playtime_stats() const;
@@ -3215,7 +3246,7 @@ class CPublishedFile_GetDetails_Request PROTOBUF_FINAL :
   void _internal_set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional .EPublishedFileRevision desired_revision = 16 [default = EPublishedFileRevision_Default, (.description) = "Return the data for the specified revision."];
+  // optional .EPublishedFileRevision desired_revision = 16 [default = EPublishedFileRevision_Default];
   bool has_desired_revision() const;
   private:
   bool _internal_has_desired_revision() const;
@@ -3228,7 +3259,7 @@ class CPublishedFile_GetDetails_Request PROTOBUF_FINAL :
   void _internal_set_desired_revision(::EPublishedFileRevision value);
   public:
 
-  // optional bool strip_description_bbcode = 15 [(.description) = "Strips BBCode from descriptions."];
+  // optional bool strip_description_bbcode = 15;
   bool has_strip_description_bbcode() const;
   private:
   bool _internal_has_strip_description_bbcode() const;
@@ -3241,7 +3272,7 @@ class CPublishedFile_GetDetails_Request PROTOBUF_FINAL :
   void _internal_set_strip_description_bbcode(bool value);
   public:
 
-  // optional bool includereactions = 17 [default = false, (.description) = "If true, then reactions to items will be returned."];
+  // optional bool includereactions = 17 [default = false];
   bool has_includereactions() const;
   private:
   bool _internal_has_includereactions() const;
@@ -5045,6 +5076,7 @@ class PublishedFileDetails PROTOBUF_FINAL :
     kRevisionFieldNumber = 68,
     kBanTextChecresultFieldNumber = 71,
     kSearchScoreFieldNumber = 73,
+    kExternalAssetIdFieldNumber = 74,
   };
   // repeated .PublishedFileDetails.Preview previews = 51;
   int previews_size() const;
@@ -5118,7 +5150,7 @@ class PublishedFileDetails PROTOBUF_FINAL :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::PublishedFileDetails_KVTag >&
       kvtags() const;
 
-  // repeated .EPublishedFileRevision available_revisions = 69 [(.description) = "Available revisions"];
+  // repeated .EPublishedFileRevision available_revisions = 69;
   int available_revisions_size() const;
   private:
   int _internal_available_revisions_size() const;
@@ -5135,7 +5167,7 @@ class PublishedFileDetails PROTOBUF_FINAL :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>& available_revisions() const;
   ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>* mutable_available_revisions();
 
-  // repeated .PublishedFileDetails.Reaction reactions = 70 [(.description) = "Reactions to this item"];
+  // repeated .PublishedFileDetails.Reaction reactions = 70;
   int reactions_size() const;
   private:
   int _internal_reactions_size() const;
@@ -5410,7 +5442,7 @@ class PublishedFileDetails PROTOBUF_FINAL :
   std::string* _internal_mutable_shortcutname();
   public:
 
-  // optional string metadata = 58 [(.description) = "Metadata associated with the item"];
+  // optional string metadata = 58;
   bool has_metadata() const;
   private:
   bool _internal_has_metadata() const;
@@ -5448,7 +5480,7 @@ class PublishedFileDetails PROTOBUF_FINAL :
       ::PublishedFileDetails_VoteData* vote_data);
   ::PublishedFileDetails_VoteData* unsafe_arena_release_vote_data();
 
-  // optional .PublishedFileDetails.ForSaleData for_sale_data = 57 [(.description) = "Pricing information, if applicable."];
+  // optional .PublishedFileDetails.ForSaleData for_sale_data = 57;
   bool has_for_sale_data() const;
   private:
   bool _internal_has_for_sale_data() const;
@@ -5978,7 +6010,7 @@ class PublishedFileDetails PROTOBUF_FINAL :
   void _internal_set_num_reports(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 time_subscribed = 56 [(.description) = "Only valid in PublishedFile.GetUserFiles and not normal PublishedFile.GetDetail calls"];
+  // optional uint32 time_subscribed = 56;
   bool has_time_subscribed() const;
   private:
   bool _internal_has_time_subscribed() const;
@@ -6017,7 +6049,7 @@ class PublishedFileDetails PROTOBUF_FINAL :
   void _internal_set_lifetime_playtime_sessions(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional int32 language = 61 [default = 0, (.description) = "The language of the title and description."];
+  // optional int32 language = 61 [default = 0];
   bool has_language() const;
   private:
   bool _internal_has_language() const;
@@ -6056,7 +6088,7 @@ class PublishedFileDetails PROTOBUF_FINAL :
   void _internal_set_maybe_inappropriate_violence(bool value);
   public:
 
-  // optional uint64 revision_change_number = 67 [(.description) = "The change number for the specified revision."];
+  // optional uint64 revision_change_number = 67;
   bool has_revision_change_number() const;
   private:
   bool _internal_has_revision_change_number() const;
@@ -6069,7 +6101,7 @@ class PublishedFileDetails PROTOBUF_FINAL :
   void _internal_set_revision_change_number(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional .EPublishedFileRevision revision = 68 [default = EPublishedFileRevision_Default, (.description) = "The revision of the data returned, usually EPublishedFileRevision_Latest, but can be another revision/snapshot depending on the caller."];
+  // optional .EPublishedFileRevision revision = 68 [default = EPublishedFileRevision_Default];
   bool has_revision() const;
   private:
   bool _internal_has_revision() const;
@@ -6095,7 +6127,7 @@ class PublishedFileDetails PROTOBUF_FINAL :
   void _internal_set_ban_text_checresult(::EBanContentCheckResult value);
   public:
 
-  // optional float search_score = 73 [(.description) = "Search score, admin only"];
+  // optional float search_score = 73;
   bool has_search_score() const;
   private:
   bool _internal_has_search_score() const;
@@ -6108,6 +6140,19 @@ class PublishedFileDetails PROTOBUF_FINAL :
   void _internal_set_search_score(float value);
   public:
 
+  // optional uint64 external_asset_id = 74;
+  bool has_external_asset_id() const;
+  private:
+  bool _internal_has_external_asset_id() const;
+  public:
+  void clear_external_asset_id();
+  ::PROTOBUF_NAMESPACE_ID::uint64 external_asset_id() const;
+  void set_external_asset_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_external_asset_id() const;
+  void _internal_set_external_asset_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
   // @@protoc_insertion_point(class_scope:PublishedFileDetails)
  private:
   class _Internal;
@@ -6115,7 +6160,7 @@ class PublishedFileDetails PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<2> _has_bits_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<3> _has_bits_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::PublishedFileDetails_Preview > previews_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::PublishedFileDetails_Tag > tags_;
@@ -6188,6 +6233,7 @@ class PublishedFileDetails PROTOBUF_FINAL :
   int revision_;
   int ban_text_checresult_;
   float search_score_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 external_asset_id_;
   friend struct ::TableStruct_steammessages_5fpublishedfile_2esteamclient_2eproto;
 };
 // -------------------------------------------------------------------
@@ -6495,7 +6541,7 @@ class CPublishedFile_GetItemInfo_Request_WorkshopItem PROTOBUF_FINAL :
   void _internal_set_time_updated(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional .EPublishedFileRevision desired_revision = 3 [default = EPublishedFileRevision_Default, (.description) = "Return the data for the specified revision."];
+  // optional .EPublishedFileRevision desired_revision = 3 [default = EPublishedFileRevision_Default];
   bool has_desired_revision() const;
   private:
   bool _internal_has_desired_revision() const;
@@ -7594,7 +7640,7 @@ class CPublishedFile_GetUserFiles_Request PROTOBUF_FINAL :
     kPageFieldNumber = 4,
     kNumperpageFieldNumber = 5,
   };
-  // repeated string requiredtags = 10 [(.description) = "(Optional) Tags that must be present on a published file to satisfy the query."];
+  // repeated string requiredtags = 10;
   int requiredtags_size() const;
   private:
   int _internal_requiredtags_size() const;
@@ -7618,7 +7664,7 @@ class CPublishedFile_GetUserFiles_Request PROTOBUF_FINAL :
   std::string* _internal_add_requiredtags();
   public:
 
-  // repeated string excludedtags = 11 [(.description) = "(Optional) Tags that must NOT be present on a published file to satisfy the query."];
+  // repeated string excludedtags = 11;
   int excludedtags_size() const;
   private:
   int _internal_excludedtags_size() const;
@@ -7642,7 +7688,7 @@ class CPublishedFile_GetUserFiles_Request PROTOBUF_FINAL :
   std::string* _internal_add_excludedtags();
   public:
 
-  // repeated .CPublishedFile_GetUserFiles_Request.KVTag required_kv_tags = 30 [(.description) = "Required key-value tags to match on."];
+  // repeated .CPublishedFile_GetUserFiles_Request.KVTag required_kv_tags = 30;
   int required_kv_tags_size() const;
   private:
   int _internal_required_kv_tags_size() const;
@@ -7660,7 +7706,7 @@ class CPublishedFile_GetUserFiles_Request PROTOBUF_FINAL :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CPublishedFile_GetUserFiles_Request_KVTag >&
       required_kv_tags() const;
 
-  // repeated .CPublishedFile_GetUserFiles_Request.TagGroup taggroups = 34 [(.description) = "(Optional) At least one of the tags must be present on a published file to satisfy the query."];
+  // repeated .CPublishedFile_GetUserFiles_Request.TagGroup taggroups = 34;
   int taggroups_size() const;
   private:
   int _internal_taggroups_size() const;
@@ -7678,7 +7724,7 @@ class CPublishedFile_GetUserFiles_Request PROTOBUF_FINAL :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CPublishedFile_GetUserFiles_Request_TagGroup >&
       taggroups() const;
 
-  // repeated .EContentDescriptorID excluded_content_descriptors = 37 [(.description) = "(Optional) Filter out items that have these content descriptors."];
+  // repeated .EContentDescriptorID excluded_content_descriptors = 37;
   int excluded_content_descriptors_size() const;
   private:
   int _internal_excluded_content_descriptors_size() const;
@@ -7695,7 +7741,7 @@ class CPublishedFile_GetUserFiles_Request PROTOBUF_FINAL :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>& excluded_content_descriptors() const;
   ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>* mutable_excluded_content_descriptors();
 
-  // optional string type = 6 [default = "myfiles", (.description) = "(Optional) Type of files to be returned."];
+  // optional string type = 6 [default = "myfiles"];
   bool has_type() const;
   private:
   bool _internal_has_type() const;
@@ -7715,7 +7761,7 @@ class CPublishedFile_GetUserFiles_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_type();
   public:
 
-  // optional string sortmethod = 7 [default = "lastupdated", (.description) = "(Optional) Sorting method to use on returned values."];
+  // optional string sortmethod = 7 [default = "lastupdated"];
   bool has_sortmethod() const;
   private:
   bool _internal_has_sortmethod() const;
@@ -7735,7 +7781,7 @@ class CPublishedFile_GetUserFiles_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_sortmethod();
   public:
 
-  // optional string match_cloud_filename = 16 [(.description) = "Match this cloud filename if specified."];
+  // optional string match_cloud_filename = 16;
   bool has_match_cloud_filename() const;
   private:
   bool _internal_has_match_cloud_filename() const;
@@ -7755,7 +7801,7 @@ class CPublishedFile_GetUserFiles_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_match_cloud_filename();
   public:
 
-  // optional fixed64 steamid = 1 [(.description) = "Steam ID of the user whose files are being requested."];
+  // optional fixed64 steamid = 1;
   bool has_steamid() const;
   private:
   bool _internal_has_steamid() const;
@@ -7768,7 +7814,7 @@ class CPublishedFile_GetUserFiles_Request PROTOBUF_FINAL :
   void _internal_set_steamid(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional uint32 appid = 2 [(.description) = "App Id of the app that the files were published to."];
+  // optional uint32 appid = 2;
   bool has_appid() const;
   private:
   bool _internal_has_appid() const;
@@ -7781,7 +7827,7 @@ class CPublishedFile_GetUserFiles_Request PROTOBUF_FINAL :
   void _internal_set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 shortcutid = 3 [(.description) = "(Optional) Shortcut Id to retrieve published files from."];
+  // optional uint32 shortcutid = 3;
   bool has_shortcutid() const;
   private:
   bool _internal_has_shortcutid() const;
@@ -7794,7 +7840,7 @@ class CPublishedFile_GetUserFiles_Request PROTOBUF_FINAL :
   void _internal_set_shortcutid(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 privacy = 9 [(.description) = "(optional) Filter by privacy settings."];
+  // optional uint32 privacy = 9;
   bool has_privacy() const;
   private:
   bool _internal_has_privacy() const;
@@ -7807,7 +7853,7 @@ class CPublishedFile_GetUserFiles_Request PROTOBUF_FINAL :
   void _internal_set_privacy(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 filetype = 14 [(.description) = "(Optional) File type to match files to."];
+  // optional uint32 filetype = 14;
   bool has_filetype() const;
   private:
   bool _internal_has_filetype() const;
@@ -7820,7 +7866,7 @@ class CPublishedFile_GetUserFiles_Request PROTOBUF_FINAL :
   void _internal_set_filetype(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 creator_appid = 15 [(.description) = "App Id of the app that published the files, only matched if specified."];
+  // optional uint32 creator_appid = 15;
   bool has_creator_appid() const;
   private:
   bool _internal_has_creator_appid() const;
@@ -7833,7 +7879,7 @@ class CPublishedFile_GetUserFiles_Request PROTOBUF_FINAL :
   void _internal_set_creator_appid(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional bool totalonly = 17 [(.description) = "(Optional) If true, only return the total number of files that satisfy this query."];
+  // optional bool totalonly = 17;
   bool has_totalonly() const;
   private:
   bool _internal_has_totalonly() const;
@@ -7846,7 +7892,7 @@ class CPublishedFile_GetUserFiles_Request PROTOBUF_FINAL :
   void _internal_set_totalonly(bool value);
   public:
 
-  // optional bool ids_only = 18 [(.description) = "(Optional) If true, only return the published file ids of files that satisfy this query."];
+  // optional bool ids_only = 18;
   bool has_ids_only() const;
   private:
   bool _internal_has_ids_only() const;
@@ -7859,7 +7905,7 @@ class CPublishedFile_GetUserFiles_Request PROTOBUF_FINAL :
   void _internal_set_ids_only(bool value);
   public:
 
-  // optional bool return_tags = 20 [(.description) = "Return tags in the file details"];
+  // optional bool return_tags = 20;
   bool has_return_tags() const;
   private:
   bool _internal_has_return_tags() const;
@@ -7872,7 +7918,7 @@ class CPublishedFile_GetUserFiles_Request PROTOBUF_FINAL :
   void _internal_set_return_tags(bool value);
   public:
 
-  // optional bool return_previews = 22 [(.description) = "Return preview image and video details in the file details"];
+  // optional bool return_previews = 22;
   bool has_return_previews() const;
   private:
   bool _internal_has_return_previews() const;
@@ -7885,7 +7931,7 @@ class CPublishedFile_GetUserFiles_Request PROTOBUF_FINAL :
   void _internal_set_return_previews(bool value);
   public:
 
-  // optional uint32 startindex_override = 25 [(.description) = "Backwards compatible for the client."];
+  // optional uint32 startindex_override = 25;
   bool has_startindex_override() const;
   private:
   bool _internal_has_startindex_override() const;
@@ -7898,7 +7944,7 @@ class CPublishedFile_GetUserFiles_Request PROTOBUF_FINAL :
   void _internal_set_startindex_override(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 cache_max_age_seconds = 27 [default = 0, (.description) = "Allow stale data to be returned for the specified number of seconds."];
+  // optional uint32 cache_max_age_seconds = 27 [default = 0];
   bool has_cache_max_age_seconds() const;
   private:
   bool _internal_has_cache_max_age_seconds() const;
@@ -7911,7 +7957,7 @@ class CPublishedFile_GetUserFiles_Request PROTOBUF_FINAL :
   void _internal_set_cache_max_age_seconds(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional bool return_children = 23 [(.description) = "Return child item ids in the file details"];
+  // optional bool return_children = 23;
   bool has_return_children() const;
   private:
   bool _internal_has_return_children() const;
@@ -7924,7 +7970,7 @@ class CPublishedFile_GetUserFiles_Request PROTOBUF_FINAL :
   void _internal_set_return_children(bool value);
   public:
 
-  // optional bool return_for_sale_data = 26 [(.description) = "Return pricing information, if applicable"];
+  // optional bool return_for_sale_data = 26;
   bool has_return_for_sale_data() const;
   private:
   bool _internal_has_return_for_sale_data() const;
@@ -7937,7 +7983,7 @@ class CPublishedFile_GetUserFiles_Request PROTOBUF_FINAL :
   void _internal_set_return_for_sale_data(bool value);
   public:
 
-  // optional bool return_metadata = 28 [default = false, (.description) = "Populate the metadata field"];
+  // optional bool return_metadata = 28 [default = false];
   bool has_return_metadata() const;
   private:
   bool _internal_has_return_metadata() const;
@@ -7950,7 +7996,7 @@ class CPublishedFile_GetUserFiles_Request PROTOBUF_FINAL :
   void _internal_set_return_metadata(bool value);
   public:
 
-  // optional bool strip_description_bbcode = 32 [(.description) = "Strips BBCode from descriptions."];
+  // optional bool strip_description_bbcode = 32;
   bool has_strip_description_bbcode() const;
   private:
   bool _internal_has_strip_description_bbcode() const;
@@ -7963,7 +8009,7 @@ class CPublishedFile_GetUserFiles_Request PROTOBUF_FINAL :
   void _internal_set_strip_description_bbcode(bool value);
   public:
 
-  // optional int32 language = 29 [default = 0, (.description) = "Specifies the localized text to return. Defaults to English."];
+  // optional int32 language = 29 [default = 0];
   bool has_language() const;
   private:
   bool _internal_has_language() const;
@@ -7976,7 +8022,7 @@ class CPublishedFile_GetUserFiles_Request PROTOBUF_FINAL :
   void _internal_set_language(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
-  // optional uint32 return_playtime_stats = 31 [(.description) = "Return playtime stats for the specified number of days before today."];
+  // optional uint32 return_playtime_stats = 31;
   bool has_return_playtime_stats() const;
   private:
   bool _internal_has_return_playtime_stats() const;
@@ -7989,7 +8035,7 @@ class CPublishedFile_GetUserFiles_Request PROTOBUF_FINAL :
   void _internal_set_return_playtime_stats(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional .EPublishedFileRevision desired_revision = 33 [default = EPublishedFileRevision_Default, (.description) = "Return the data for the specified revision."];
+  // optional .EPublishedFileRevision desired_revision = 33 [default = EPublishedFileRevision_Default];
   bool has_desired_revision() const;
   private:
   bool _internal_has_desired_revision() const;
@@ -8002,7 +8048,7 @@ class CPublishedFile_GetUserFiles_Request PROTOBUF_FINAL :
   void _internal_set_desired_revision(::EPublishedFileRevision value);
   public:
 
-  // optional bool return_reactions = 35 [default = false, (.description) = "If true, then reactions to items will be returned."];
+  // optional bool return_reactions = 35 [default = false];
   bool has_return_reactions() const;
   private:
   bool _internal_has_return_reactions() const;
@@ -8015,7 +8061,7 @@ class CPublishedFile_GetUserFiles_Request PROTOBUF_FINAL :
   void _internal_set_return_reactions(bool value);
   public:
 
-  // optional bool return_apps = 36 [(.description) = "Return list of apps the items belong to"];
+  // optional bool return_apps = 36;
   bool has_return_apps() const;
   private:
   bool _internal_has_return_apps() const;
@@ -8028,7 +8074,7 @@ class CPublishedFile_GetUserFiles_Request PROTOBUF_FINAL :
   void _internal_set_return_apps(bool value);
   public:
 
-  // optional bool return_vote_data = 19 [default = true, (.description) = "Return vote data"];
+  // optional bool return_vote_data = 19 [default = true];
   bool has_return_vote_data() const;
   private:
   bool _internal_has_return_vote_data() const;
@@ -8041,7 +8087,7 @@ class CPublishedFile_GetUserFiles_Request PROTOBUF_FINAL :
   void _internal_set_return_vote_data(bool value);
   public:
 
-  // optional bool return_kv_tags = 21 [default = true, (.description) = "Return key-value tags in the file details"];
+  // optional bool return_kv_tags = 21 [default = true];
   bool has_return_kv_tags() const;
   private:
   bool _internal_has_return_kv_tags() const;
@@ -8054,7 +8100,7 @@ class CPublishedFile_GetUserFiles_Request PROTOBUF_FINAL :
   void _internal_set_return_kv_tags(bool value);
   public:
 
-  // optional bool return_short_description = 24 [default = true, (.description) = "Populate the short_description field instead of file_description"];
+  // optional bool return_short_description = 24 [default = true];
   bool has_return_short_description() const;
   private:
   bool _internal_has_return_short_description() const;
@@ -8067,7 +8113,7 @@ class CPublishedFile_GetUserFiles_Request PROTOBUF_FINAL :
   void _internal_set_return_short_description(bool value);
   public:
 
-  // optional uint32 page = 4 [default = 1, (.description) = "(Optional) Starting page for results."];
+  // optional uint32 page = 4 [default = 1];
   bool has_page() const;
   private:
   bool _internal_has_page() const;
@@ -8080,7 +8126,7 @@ class CPublishedFile_GetUserFiles_Request PROTOBUF_FINAL :
   void _internal_set_page(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 numperpage = 5 [default = 1, (.description) = "(Optional) The number of results, per page to return."];
+  // optional uint32 numperpage = 5 [default = 1];
   bool has_numperpage() const;
   private:
   bool _internal_has_numperpage() const;
@@ -8710,7 +8756,7 @@ class CPublishedFile_AreFilesInSubscriptionList_Request PROTOBUF_FINAL :
   void _internal_set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 listtype = 3 [(.description) = "See EUCMListType"];
+  // optional uint32 listtype = 3;
   bool has_listtype() const;
   private:
   bool _internal_has_listtype() const;
@@ -8723,7 +8769,7 @@ class CPublishedFile_AreFilesInSubscriptionList_Request PROTOBUF_FINAL :
   void _internal_set_listtype(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 filetype = 4 [(.description) = "See EPublishedFileInfoMatchingFileType"];
+  // optional uint32 filetype = 4;
   bool has_filetype() const;
   private:
   bool _internal_has_filetype() const;
@@ -8736,7 +8782,7 @@ class CPublishedFile_AreFilesInSubscriptionList_Request PROTOBUF_FINAL :
   void _internal_set_filetype(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 workshopfiletype = 5 [(.description) = "See EWorkshopFileType.  If specified, overrides filetype"];
+  // optional uint32 workshopfiletype = 5;
   bool has_workshopfiletype() const;
   private:
   bool _internal_has_workshopfiletype() const;
@@ -9219,7 +9265,7 @@ class CPublishedFile_Update_Request PROTOBUF_FINAL :
     kImageHeightFieldNumber = 16,
     kLanguageFieldNumber = 17,
   };
-  // repeated string tags = 6 [(.description) = "(Optional) Set of tags for the published file."];
+  // repeated string tags = 6;
   int tags_size() const;
   private:
   int _internal_tags_size() const;
@@ -9243,7 +9289,7 @@ class CPublishedFile_Update_Request PROTOBUF_FINAL :
   std::string* _internal_add_tags();
   public:
 
-  // optional string title = 3 [(.description) = "(Optional) Title of the published file."];
+  // optional string title = 3;
   bool has_title() const;
   private:
   bool _internal_has_title() const;
@@ -9263,7 +9309,7 @@ class CPublishedFile_Update_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_title();
   public:
 
-  // optional string file_description = 4 [(.description) = "(Optional) Description of the published file."];
+  // optional string file_description = 4;
   bool has_file_description() const;
   private:
   bool _internal_has_file_description() const;
@@ -9283,7 +9329,7 @@ class CPublishedFile_Update_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_file_description();
   public:
 
-  // optional string filename = 7 [(.description) = "(Optional) Filename for the published file."];
+  // optional string filename = 7;
   bool has_filename() const;
   private:
   bool _internal_has_filename() const;
@@ -9303,7 +9349,7 @@ class CPublishedFile_Update_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_filename();
   public:
 
-  // optional string preview_filename = 8 [(.description) = "(Optional) Preview filename for the published file."];
+  // optional string preview_filename = 8;
   bool has_preview_filename() const;
   private:
   bool _internal_has_preview_filename() const;
@@ -9323,7 +9369,7 @@ class CPublishedFile_Update_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_preview_filename();
   public:
 
-  // optional fixed64 publishedfileid = 2 [(.description) = "Published file id of the file we\'d like to update."];
+  // optional fixed64 publishedfileid = 2;
   bool has_publishedfileid() const;
   private:
   bool _internal_has_publishedfileid() const;
@@ -9336,7 +9382,7 @@ class CPublishedFile_Update_Request PROTOBUF_FINAL :
   void _internal_set_publishedfileid(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional uint32 appid = 1 [(.description) = "App Id this published file belongs to."];
+  // optional uint32 appid = 1;
   bool has_appid() const;
   private:
   bool _internal_has_appid() const;
@@ -9349,7 +9395,7 @@ class CPublishedFile_Update_Request PROTOBUF_FINAL :
   void _internal_set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 visibility = 5 [(.description) = "(Optional) Visibility of the published file."];
+  // optional uint32 visibility = 5;
   bool has_visibility() const;
   private:
   bool _internal_has_visibility() const;
@@ -9362,7 +9408,7 @@ class CPublishedFile_Update_Request PROTOBUF_FINAL :
   void _internal_set_visibility(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional bool spoiler_tag = 10 [(.description) = "(Optional) Whether this published file should have a spoiler tag attached to it."];
+  // optional bool spoiler_tag = 10;
   bool has_spoiler_tag() const;
   private:
   bool _internal_has_spoiler_tag() const;
@@ -9375,7 +9421,7 @@ class CPublishedFile_Update_Request PROTOBUF_FINAL :
   void _internal_set_spoiler_tag(bool value);
   public:
 
-  // optional uint32 image_width = 15 [(.description) = "(Optional) If this is an image file, you can specify the image width."];
+  // optional uint32 image_width = 15;
   bool has_image_width() const;
   private:
   bool _internal_has_image_width() const;
@@ -9388,7 +9434,7 @@ class CPublishedFile_Update_Request PROTOBUF_FINAL :
   void _internal_set_image_width(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 image_height = 16 [(.description) = "(Optional) If this is an image file, you can specify the image height."];
+  // optional uint32 image_height = 16;
   bool has_image_height() const;
   private:
   bool _internal_has_image_height() const;
@@ -9401,7 +9447,7 @@ class CPublishedFile_Update_Request PROTOBUF_FINAL :
   void _internal_set_image_height(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional int32 language = 17 [(.description) = "(Optional) If setting title & description, what language to set"];
+  // optional int32 language = 17;
   bool has_language() const;
   private:
   bool _internal_has_language() const;
@@ -9693,7 +9739,7 @@ class CPublishedFile_Delete_Request PROTOBUF_FINAL :
     kPublishedfileidFieldNumber = 1,
     kAppidFieldNumber = 5,
   };
-  // optional fixed64 publishedfileid = 1 [(.description) = "Published file id of the file we\'d like to delete."];
+  // optional fixed64 publishedfileid = 1;
   bool has_publishedfileid() const;
   private:
   bool _internal_has_publishedfileid() const;
@@ -9989,7 +10035,7 @@ class CPublishedFile_GetChangeHistoryEntry_Request PROTOBUF_FINAL :
     kTimestampFieldNumber = 2,
     kLanguageFieldNumber = 3,
   };
-  // optional fixed64 publishedfileid = 1 [(.description) = "Published file id of the file we\'d like to get the change history for."];
+  // optional fixed64 publishedfileid = 1;
   bool has_publishedfileid() const;
   private:
   bool _internal_has_publishedfileid() const;
@@ -10341,7 +10387,7 @@ class CPublishedFile_GetChangeHistory_Request PROTOBUF_FINAL :
     kCountFieldNumber = 4,
     kLanguageFieldNumber = 5,
   };
-  // optional fixed64 publishedfileid = 1 [(.description) = "Published file id of the file we\'d like to get the change history for."];
+  // optional fixed64 publishedfileid = 1;
   bool has_publishedfileid() const;
   private:
   bool _internal_has_publishedfileid() const;
@@ -10354,7 +10400,7 @@ class CPublishedFile_GetChangeHistory_Request PROTOBUF_FINAL :
   void _internal_set_publishedfileid(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional bool total_only = 2 [(.description) = "Return the total number of changes only."];
+  // optional bool total_only = 2;
   bool has_total_only() const;
   private:
   bool _internal_has_total_only() const;
@@ -10393,7 +10439,7 @@ class CPublishedFile_GetChangeHistory_Request PROTOBUF_FINAL :
   void _internal_set_count(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional int32 language = 5 [default = 0, (.description) = "Desired language"];
+  // optional int32 language = 5 [default = 0];
   bool has_language() const;
   private:
   bool _internal_has_language() const;
@@ -10909,7 +10955,7 @@ class CPublishedFile_RefreshVotingQueue_Request PROTOBUF_FINAL :
     kDesiredRevisionFieldNumber = 8,
     kMatchAllTagsFieldNumber = 4,
   };
-  // repeated string tags = 3 [(.description) = "Include files that have all the tags or any of the tags if match_all_tags is set to false."];
+  // repeated string tags = 3;
   int tags_size() const;
   private:
   int _internal_tags_size() const;
@@ -10933,7 +10979,7 @@ class CPublishedFile_RefreshVotingQueue_Request PROTOBUF_FINAL :
   std::string* _internal_add_tags();
   public:
 
-  // repeated string excluded_tags = 5 [(.description) = "Exclude any files that have any of these tags."];
+  // repeated string excluded_tags = 5;
   int excluded_tags_size() const;
   private:
   int _internal_excluded_tags_size() const;
@@ -10970,7 +11016,7 @@ class CPublishedFile_RefreshVotingQueue_Request PROTOBUF_FINAL :
   void _internal_set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 matching_file_type = 2 [(.description) = "EPublishedFileInfoMatchingFileType"];
+  // optional uint32 matching_file_type = 2;
   bool has_matching_file_type() const;
   private:
   bool _internal_has_matching_file_type() const;
@@ -10983,7 +11029,7 @@ class CPublishedFile_RefreshVotingQueue_Request PROTOBUF_FINAL :
   void _internal_set_matching_file_type(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 desired_queue_size = 6 [(.description) = "Desired number of items in the voting queue.  May be clamped by the server"];
+  // optional uint32 desired_queue_size = 6;
   bool has_desired_queue_size() const;
   private:
   bool _internal_has_desired_queue_size() const;
@@ -10996,7 +11042,7 @@ class CPublishedFile_RefreshVotingQueue_Request PROTOBUF_FINAL :
   void _internal_set_desired_queue_size(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional .EPublishedFileRevision desired_revision = 8 [default = EPublishedFileRevision_Default, (.description) = "Filter to items that have data for the specified revision."];
+  // optional .EPublishedFileRevision desired_revision = 8 [default = EPublishedFileRevision_Default];
   bool has_desired_revision() const;
   private:
   bool _internal_has_desired_revision() const;
@@ -11009,7 +11055,7 @@ class CPublishedFile_RefreshVotingQueue_Request PROTOBUF_FINAL :
   void _internal_set_desired_revision(::EPublishedFileRevision value);
   public:
 
-  // optional bool match_all_tags = 4 [default = true, (.description) = "If true, then files must have all the tags specified.  If false, then must have at least one of the tags specified."];
+  // optional bool match_all_tags = 4 [default = true];
   bool has_match_all_tags() const;
   private:
   bool _internal_has_match_all_tags() const;
@@ -11633,7 +11679,7 @@ class CPublishedFile_QueryFiles_Request_DateRange PROTOBUF_FINAL :
     kTimestampStartFieldNumber = 1,
     kTimestampEndFieldNumber = 2,
   };
-  // optional uint32 timestamp_start = 1 [(.description) = "(Optional) Include items with the relevant date field after this value."];
+  // optional uint32 timestamp_start = 1;
   bool has_timestamp_start() const;
   private:
   bool _internal_has_timestamp_start() const;
@@ -11646,7 +11692,7 @@ class CPublishedFile_QueryFiles_Request_DateRange PROTOBUF_FINAL :
   void _internal_set_timestamp_start(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 timestamp_end = 2 [(.description) = "(Optional) Include items with the relevant date field before this value."];
+  // optional uint32 timestamp_end = 2;
   bool has_timestamp_end() const;
   private:
   bool _internal_has_timestamp_end() const;
@@ -11837,7 +11883,7 @@ class CPublishedFile_QueryFiles_Request PROTOBUF_FINAL :
     kNumperpageFieldNumber = 3,
     kMatchAllTagsFieldNumber = 8,
   };
-  // repeated string requiredtags = 6 [(.description) = "Tags to match on. See match_all_tags parameter below"];
+  // repeated string requiredtags = 6;
   int requiredtags_size() const;
   private:
   int _internal_requiredtags_size() const;
@@ -11861,7 +11907,7 @@ class CPublishedFile_QueryFiles_Request PROTOBUF_FINAL :
   std::string* _internal_add_requiredtags();
   public:
 
-  // repeated string excludedtags = 7 [(.description) = "(Optional) Tags that must NOT be present on a published file to satisfy the query."];
+  // repeated string excludedtags = 7;
   int excludedtags_size() const;
   private:
   int _internal_excludedtags_size() const;
@@ -11885,7 +11931,7 @@ class CPublishedFile_QueryFiles_Request PROTOBUF_FINAL :
   std::string* _internal_add_excludedtags();
   public:
 
-  // repeated string required_flags = 9 [(.description) = "Required flags that must be set on any returned items"];
+  // repeated string required_flags = 9;
   int required_flags_size() const;
   private:
   int _internal_required_flags_size() const;
@@ -11909,7 +11955,7 @@ class CPublishedFile_QueryFiles_Request PROTOBUF_FINAL :
   std::string* _internal_add_required_flags();
   public:
 
-  // repeated string omitted_flags = 10 [(.description) = "Flags that must not be set on any returned items"];
+  // repeated string omitted_flags = 10;
   int omitted_flags_size() const;
   private:
   int _internal_omitted_flags_size() const;
@@ -11933,7 +11979,7 @@ class CPublishedFile_QueryFiles_Request PROTOBUF_FINAL :
   std::string* _internal_add_omitted_flags();
   public:
 
-  // repeated .CPublishedFile_QueryFiles_Request.KVTag required_kv_tags = 34 [(.description) = "Required key-value tags to match on."];
+  // repeated .CPublishedFile_QueryFiles_Request.KVTag required_kv_tags = 34;
   int required_kv_tags_size() const;
   private:
   int _internal_required_kv_tags_size() const;
@@ -11951,7 +11997,7 @@ class CPublishedFile_QueryFiles_Request PROTOBUF_FINAL :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CPublishedFile_QueryFiles_Request_KVTag >&
       required_kv_tags() const;
 
-  // repeated .CPublishedFile_QueryFiles_Request.TagGroup taggroups = 42 [(.description) = "(Optional) At least one of the tags must be present on a published file to satisfy the query."];
+  // repeated .CPublishedFile_QueryFiles_Request.TagGroup taggroups = 42;
   int taggroups_size() const;
   private:
   int _internal_taggroups_size() const;
@@ -11969,7 +12015,7 @@ class CPublishedFile_QueryFiles_Request PROTOBUF_FINAL :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CPublishedFile_QueryFiles_Request_TagGroup >&
       taggroups() const;
 
-  // repeated .EContentDescriptorID excluded_content_descriptors = 46 [(.description) = "(Optional) Filter out items that have these content descriptors."];
+  // repeated .EContentDescriptorID excluded_content_descriptors = 46;
   int excluded_content_descriptors_size() const;
   private:
   int _internal_excluded_content_descriptors_size() const;
@@ -11986,7 +12032,7 @@ class CPublishedFile_QueryFiles_Request PROTOBUF_FINAL :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>& excluded_content_descriptors() const;
   ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>* mutable_excluded_content_descriptors();
 
-  // optional string search_text = 11 [(.description) = "Text to match in the item\'s title or description"];
+  // optional string search_text = 11;
   bool has_search_text() const;
   private:
   bool _internal_has_search_text() const;
@@ -12006,7 +12052,7 @@ class CPublishedFile_QueryFiles_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_search_text();
   public:
 
-  // optional string cursor = 39 [(.description) = "Cursor to paginate through the results (set to \'*\' for the first request).  Prefer this over using the page parameter, as it will allow you to do deep pagination.  When used, the page parameter will be ignored."];
+  // optional string cursor = 39;
   bool has_cursor() const;
   private:
   bool _internal_has_cursor() const;
@@ -12026,7 +12072,7 @@ class CPublishedFile_QueryFiles_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_cursor();
   public:
 
-  // optional .CPublishedFile_QueryFiles_Request.DateRange date_range_created = 44 [(.description) = "(Optional) Filter to items created within this range."];
+  // optional .CPublishedFile_QueryFiles_Request.DateRange date_range_created = 44;
   bool has_date_range_created() const;
   private:
   bool _internal_has_date_range_created() const;
@@ -12044,7 +12090,7 @@ class CPublishedFile_QueryFiles_Request PROTOBUF_FINAL :
       ::CPublishedFile_QueryFiles_Request_DateRange* date_range_created);
   ::CPublishedFile_QueryFiles_Request_DateRange* unsafe_arena_release_date_range_created();
 
-  // optional .CPublishedFile_QueryFiles_Request.DateRange date_range_updated = 45 [(.description) = "(Optional) Filter to items updated within this range."];
+  // optional .CPublishedFile_QueryFiles_Request.DateRange date_range_updated = 45;
   bool has_date_range_updated() const;
   private:
   bool _internal_has_date_range_updated() const;
@@ -12062,7 +12108,7 @@ class CPublishedFile_QueryFiles_Request PROTOBUF_FINAL :
       ::CPublishedFile_QueryFiles_Request_DateRange* date_range_updated);
   ::CPublishedFile_QueryFiles_Request_DateRange* unsafe_arena_release_date_range_updated();
 
-  // optional uint32 query_type = 1 [(.description) = "enumeration EPublishedFileQueryType in clientenums.h"];
+  // optional uint32 query_type = 1;
   bool has_query_type() const;
   private:
   bool _internal_has_query_type() const;
@@ -12075,7 +12121,7 @@ class CPublishedFile_QueryFiles_Request PROTOBUF_FINAL :
   void _internal_set_query_type(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 page = 2 [(.description) = "Current page"];
+  // optional uint32 page = 2;
   bool has_page() const;
   private:
   bool _internal_has_page() const;
@@ -12088,7 +12134,7 @@ class CPublishedFile_QueryFiles_Request PROTOBUF_FINAL :
   void _internal_set_page(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 creator_appid = 4 [(.description) = "App that created the files"];
+  // optional uint32 creator_appid = 4;
   bool has_creator_appid() const;
   private:
   bool _internal_has_creator_appid() const;
@@ -12101,7 +12147,7 @@ class CPublishedFile_QueryFiles_Request PROTOBUF_FINAL :
   void _internal_set_creator_appid(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 appid = 5 [(.description) = "App that consumes the files"];
+  // optional uint32 appid = 5;
   bool has_appid() const;
   private:
   bool _internal_has_appid() const;
@@ -12114,7 +12160,7 @@ class CPublishedFile_QueryFiles_Request PROTOBUF_FINAL :
   void _internal_set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional fixed64 child_publishedfileid = 13 [(.description) = "Find all items that reference the given item."];
+  // optional fixed64 child_publishedfileid = 13;
   bool has_child_publishedfileid() const;
   private:
   bool _internal_has_child_publishedfileid() const;
@@ -12127,7 +12173,7 @@ class CPublishedFile_QueryFiles_Request PROTOBUF_FINAL :
   void _internal_set_child_publishedfileid(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional uint32 filetype = 12 [(.description) = "EPublishedFileInfoMatchingFileType"];
+  // optional uint32 filetype = 12;
   bool has_filetype() const;
   private:
   bool _internal_has_filetype() const;
@@ -12140,7 +12186,7 @@ class CPublishedFile_QueryFiles_Request PROTOBUF_FINAL :
   void _internal_set_filetype(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 days = 14 [(.description) = "If query_type is PublishedFileQueryType_RankedByTrend, then this is the number of days to get votes for [1,7]."];
+  // optional uint32 days = 14;
   bool has_days() const;
   private:
   bool _internal_has_days() const;
@@ -12153,7 +12199,7 @@ class CPublishedFile_QueryFiles_Request PROTOBUF_FINAL :
   void _internal_set_days(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional bool return_tags = 18 [(.description) = "Return tags in the file details"];
+  // optional bool return_tags = 18;
   bool has_return_tags() const;
   private:
   bool _internal_has_return_tags() const;
@@ -12166,7 +12212,7 @@ class CPublishedFile_QueryFiles_Request PROTOBUF_FINAL :
   void _internal_set_return_tags(bool value);
   public:
 
-  // optional bool return_kv_tags = 19 [(.description) = "Return key-value tags in the file details"];
+  // optional bool return_kv_tags = 19;
   bool has_return_kv_tags() const;
   private:
   bool _internal_has_return_kv_tags() const;
@@ -12179,7 +12225,7 @@ class CPublishedFile_QueryFiles_Request PROTOBUF_FINAL :
   void _internal_set_return_kv_tags(bool value);
   public:
 
-  // optional bool return_previews = 20 [(.description) = "Return preview image and video details in the file details"];
+  // optional bool return_previews = 20;
   bool has_return_previews() const;
   private:
   bool _internal_has_return_previews() const;
@@ -12192,7 +12238,7 @@ class CPublishedFile_QueryFiles_Request PROTOBUF_FINAL :
   void _internal_set_return_previews(bool value);
   public:
 
-  // optional bool return_children = 21 [(.description) = "Return child item ids in the file details"];
+  // optional bool return_children = 21;
   bool has_return_children() const;
   private:
   bool _internal_has_return_children() const;
@@ -12205,7 +12251,7 @@ class CPublishedFile_QueryFiles_Request PROTOBUF_FINAL :
   void _internal_set_return_children(bool value);
   public:
 
-  // optional bool include_recent_votes_only = 15 [(.description) = "If query_type is PublishedFileQueryType_RankedByTrend, then limit result set just to items that have votes within the day range given"];
+  // optional bool include_recent_votes_only = 15;
   bool has_include_recent_votes_only() const;
   private:
   bool _internal_has_include_recent_votes_only() const;
@@ -12218,7 +12264,7 @@ class CPublishedFile_QueryFiles_Request PROTOBUF_FINAL :
   void _internal_set_include_recent_votes_only(bool value);
   public:
 
-  // optional bool totalonly = 16 [(.description) = "(Optional) If true, only return the total number of files that satisfy this query."];
+  // optional bool totalonly = 16;
   bool has_totalonly() const;
   private:
   bool _internal_has_totalonly() const;
@@ -12231,7 +12277,7 @@ class CPublishedFile_QueryFiles_Request PROTOBUF_FINAL :
   void _internal_set_totalonly(bool value);
   public:
 
-  // optional bool ids_only = 35 [(.description) = "(Optional) If true, only return the published file ids of files that satisfy this query."];
+  // optional bool ids_only = 35;
   bool has_ids_only() const;
   private:
   bool _internal_has_ids_only() const;
@@ -12244,7 +12290,7 @@ class CPublishedFile_QueryFiles_Request PROTOBUF_FINAL :
   void _internal_set_ids_only(bool value);
   public:
 
-  // optional bool return_vote_data = 17 [(.description) = "Return vote data"];
+  // optional bool return_vote_data = 17;
   bool has_return_vote_data() const;
   private:
   bool _internal_has_return_vote_data() const;
@@ -12257,7 +12303,7 @@ class CPublishedFile_QueryFiles_Request PROTOBUF_FINAL :
   void _internal_set_return_vote_data(bool value);
   public:
 
-  // optional bool return_short_description = 22 [(.description) = "Populate the short_description field instead of file_description"];
+  // optional bool return_short_description = 22;
   bool has_return_short_description() const;
   private:
   bool _internal_has_return_short_description() const;
@@ -12270,7 +12316,7 @@ class CPublishedFile_QueryFiles_Request PROTOBUF_FINAL :
   void _internal_set_return_short_description(bool value);
   public:
 
-  // optional bool return_for_sale_data = 30 [(.description) = "Return pricing information, if applicable"];
+  // optional bool return_for_sale_data = 30;
   bool has_return_for_sale_data() const;
   private:
   bool _internal_has_return_for_sale_data() const;
@@ -12283,7 +12329,7 @@ class CPublishedFile_QueryFiles_Request PROTOBUF_FINAL :
   void _internal_set_return_for_sale_data(bool value);
   public:
 
-  // optional bool return_metadata = 32 [default = false, (.description) = "Populate the metadata"];
+  // optional bool return_metadata = 32 [default = false];
   bool has_return_metadata() const;
   private:
   bool _internal_has_return_metadata() const;
@@ -12296,7 +12342,7 @@ class CPublishedFile_QueryFiles_Request PROTOBUF_FINAL :
   void _internal_set_return_metadata(bool value);
   public:
 
-  // optional bool return_details = 37 [(.description) = "By default, if none of the other \'return_*\' fields are set, only some voting details are returned. Set this to true to return the default set of details."];
+  // optional bool return_details = 37;
   bool has_return_details() const;
   private:
   bool _internal_has_return_details() const;
@@ -12309,7 +12355,7 @@ class CPublishedFile_QueryFiles_Request PROTOBUF_FINAL :
   void _internal_set_return_details(bool value);
   public:
 
-  // optional uint32 cache_max_age_seconds = 31 [default = 0, (.description) = "Allow stale data to be returned for the specified number of seconds."];
+  // optional uint32 cache_max_age_seconds = 31 [default = 0];
   bool has_cache_max_age_seconds() const;
   private:
   bool _internal_has_cache_max_age_seconds() const;
@@ -12322,7 +12368,7 @@ class CPublishedFile_QueryFiles_Request PROTOBUF_FINAL :
   void _internal_set_cache_max_age_seconds(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional int32 language = 33 [default = 0, (.description) = "Language to search in and also what gets returned. Defaults to English."];
+  // optional int32 language = 33 [default = 0];
   bool has_language() const;
   private:
   bool _internal_has_language() const;
@@ -12335,7 +12381,7 @@ class CPublishedFile_QueryFiles_Request PROTOBUF_FINAL :
   void _internal_set_language(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
-  // optional uint32 return_playtime_stats = 36 [(.description) = "Return playtime stats for the specified number of days before today."];
+  // optional uint32 return_playtime_stats = 36;
   bool has_return_playtime_stats() const;
   private:
   bool _internal_has_return_playtime_stats() const;
@@ -12348,7 +12394,7 @@ class CPublishedFile_QueryFiles_Request PROTOBUF_FINAL :
   void _internal_set_return_playtime_stats(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional .EPublishedFileRevision desired_revision = 40 [default = EPublishedFileRevision_Default, (.description) = "Return the data for the specified revision."];
+  // optional .EPublishedFileRevision desired_revision = 40 [default = EPublishedFileRevision_Default];
   bool has_desired_revision() const;
   private:
   bool _internal_has_desired_revision() const;
@@ -12361,7 +12407,7 @@ class CPublishedFile_QueryFiles_Request PROTOBUF_FINAL :
   void _internal_set_desired_revision(::EPublishedFileRevision value);
   public:
 
-  // optional bool strip_description_bbcode = 38 [(.description) = "Strips BBCode from descriptions."];
+  // optional bool strip_description_bbcode = 38;
   bool has_strip_description_bbcode() const;
   private:
   bool _internal_has_strip_description_bbcode() const;
@@ -12374,7 +12420,7 @@ class CPublishedFile_QueryFiles_Request PROTOBUF_FINAL :
   void _internal_set_strip_description_bbcode(bool value);
   public:
 
-  // optional bool return_reactions = 43 [default = false, (.description) = "If true, then reactions to items will be returned."];
+  // optional bool return_reactions = 43 [default = false];
   bool has_return_reactions() const;
   private:
   bool _internal_has_return_reactions() const;
@@ -12387,7 +12433,7 @@ class CPublishedFile_QueryFiles_Request PROTOBUF_FINAL :
   void _internal_set_return_reactions(bool value);
   public:
 
-  // optional uint32 numperpage = 3 [default = 1, (.description) = "(Optional) The number of results, per page to return."];
+  // optional uint32 numperpage = 3 [default = 1];
   bool has_numperpage() const;
   private:
   bool _internal_has_numperpage() const;
@@ -12400,7 +12446,7 @@ class CPublishedFile_QueryFiles_Request PROTOBUF_FINAL :
   void _internal_set_numperpage(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional bool match_all_tags = 8 [default = true, (.description) = "If true, then items must have all the tags specified, otherwise they must have at least one of the tags."];
+  // optional bool match_all_tags = 8 [default = true];
   bool has_match_all_tags() const;
   private:
   bool _internal_has_match_all_tags() const;
@@ -12588,7 +12634,7 @@ class CPublishedFile_QueryFiles_Response PROTOBUF_FINAL :
     kNextCursorFieldNumber = 3,
     kTotalFieldNumber = 1,
   };
-  // repeated .PublishedFileDetails publishedfiledetails = 2 [(.description) = "Each file details will be populated, depending on what return values were requested."];
+  // repeated .PublishedFileDetails publishedfiledetails = 2;
   int publishedfiledetails_size() const;
   private:
   int _internal_publishedfiledetails_size() const;
@@ -12606,7 +12652,7 @@ class CPublishedFile_QueryFiles_Response PROTOBUF_FINAL :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::PublishedFileDetails >&
       publishedfiledetails() const;
 
-  // optional string next_cursor = 3 [(.description) = "If a paging cursor was used, then this will be the next cursor to use for paging through results"];
+  // optional string next_cursor = 3;
   bool has_next_cursor() const;
   private:
   bool _internal_has_next_cursor() const;
@@ -12626,7 +12672,7 @@ class CPublishedFile_QueryFiles_Response PROTOBUF_FINAL :
   std::string* _internal_mutable_next_cursor();
   public:
 
-  // optional uint32 total = 1 [(.description) = "Number of matches found, not necessarily number of items returned"];
+  // optional uint32 total = 1;
   bool has_total() const;
   private:
   bool _internal_has_total() const;
@@ -16364,6 +16410,650 @@ class CPublishedFile_RemoveChild_Response PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
+class CPublishedFile_SetCollectionChildren_Request PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CPublishedFile_SetCollectionChildren_Request) */ {
+ public:
+  inline CPublishedFile_SetCollectionChildren_Request() : CPublishedFile_SetCollectionChildren_Request(nullptr) {}
+  virtual ~CPublishedFile_SetCollectionChildren_Request();
+  explicit constexpr CPublishedFile_SetCollectionChildren_Request(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CPublishedFile_SetCollectionChildren_Request(const CPublishedFile_SetCollectionChildren_Request& from);
+  CPublishedFile_SetCollectionChildren_Request(CPublishedFile_SetCollectionChildren_Request&& from) noexcept
+    : CPublishedFile_SetCollectionChildren_Request() {
+    *this = ::std::move(from);
+  }
+
+  inline CPublishedFile_SetCollectionChildren_Request& operator=(const CPublishedFile_SetCollectionChildren_Request& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CPublishedFile_SetCollectionChildren_Request& operator=(CPublishedFile_SetCollectionChildren_Request&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CPublishedFile_SetCollectionChildren_Request& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CPublishedFile_SetCollectionChildren_Request* internal_default_instance() {
+    return reinterpret_cast<const CPublishedFile_SetCollectionChildren_Request*>(
+               &_CPublishedFile_SetCollectionChildren_Request_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    76;
+
+  friend void swap(CPublishedFile_SetCollectionChildren_Request& a, CPublishedFile_SetCollectionChildren_Request& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CPublishedFile_SetCollectionChildren_Request* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CPublishedFile_SetCollectionChildren_Request* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CPublishedFile_SetCollectionChildren_Request* New() const final {
+    return CreateMaybeMessage<CPublishedFile_SetCollectionChildren_Request>(nullptr);
+  }
+
+  CPublishedFile_SetCollectionChildren_Request* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CPublishedFile_SetCollectionChildren_Request>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CPublishedFile_SetCollectionChildren_Request& from);
+  void MergeFrom(const CPublishedFile_SetCollectionChildren_Request& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CPublishedFile_SetCollectionChildren_Request* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CPublishedFile_SetCollectionChildren_Request";
+  }
+  protected:
+  explicit CPublishedFile_SetCollectionChildren_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_steammessages_5fpublishedfile_2esteamclient_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kChildrenFieldNumber = 3,
+    kPublishedfileidFieldNumber = 2,
+    kAppidFieldNumber = 1,
+  };
+  // repeated uint64 children = 3;
+  int children_size() const;
+  private:
+  int _internal_children_size() const;
+  public:
+  void clear_children();
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_children(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 >&
+      _internal_children() const;
+  void _internal_add_children(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 >*
+      _internal_mutable_children();
+  public:
+  ::PROTOBUF_NAMESPACE_ID::uint64 children(int index) const;
+  void set_children(int index, ::PROTOBUF_NAMESPACE_ID::uint64 value);
+  void add_children(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 >&
+      children() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 >*
+      mutable_children();
+
+  // optional uint64 publishedfileid = 2;
+  bool has_publishedfileid() const;
+  private:
+  bool _internal_has_publishedfileid() const;
+  public:
+  void clear_publishedfileid();
+  ::PROTOBUF_NAMESPACE_ID::uint64 publishedfileid() const;
+  void set_publishedfileid(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_publishedfileid() const;
+  void _internal_set_publishedfileid(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
+  // optional uint32 appid = 1;
+  bool has_appid() const;
+  private:
+  bool _internal_has_appid() const;
+  public:
+  void clear_appid();
+  ::PROTOBUF_NAMESPACE_ID::uint32 appid() const;
+  void set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_appid() const;
+  void _internal_set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CPublishedFile_SetCollectionChildren_Request)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 > children_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 publishedfileid_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 appid_;
+  friend struct ::TableStruct_steammessages_5fpublishedfile_2esteamclient_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CPublishedFile_SetCollectionChildren_Response PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CPublishedFile_SetCollectionChildren_Response) */ {
+ public:
+  inline CPublishedFile_SetCollectionChildren_Response() : CPublishedFile_SetCollectionChildren_Response(nullptr) {}
+  virtual ~CPublishedFile_SetCollectionChildren_Response();
+  explicit constexpr CPublishedFile_SetCollectionChildren_Response(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CPublishedFile_SetCollectionChildren_Response(const CPublishedFile_SetCollectionChildren_Response& from);
+  CPublishedFile_SetCollectionChildren_Response(CPublishedFile_SetCollectionChildren_Response&& from) noexcept
+    : CPublishedFile_SetCollectionChildren_Response() {
+    *this = ::std::move(from);
+  }
+
+  inline CPublishedFile_SetCollectionChildren_Response& operator=(const CPublishedFile_SetCollectionChildren_Response& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CPublishedFile_SetCollectionChildren_Response& operator=(CPublishedFile_SetCollectionChildren_Response&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CPublishedFile_SetCollectionChildren_Response& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CPublishedFile_SetCollectionChildren_Response* internal_default_instance() {
+    return reinterpret_cast<const CPublishedFile_SetCollectionChildren_Response*>(
+               &_CPublishedFile_SetCollectionChildren_Response_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    77;
+
+  friend void swap(CPublishedFile_SetCollectionChildren_Response& a, CPublishedFile_SetCollectionChildren_Response& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CPublishedFile_SetCollectionChildren_Response* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CPublishedFile_SetCollectionChildren_Response* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CPublishedFile_SetCollectionChildren_Response* New() const final {
+    return CreateMaybeMessage<CPublishedFile_SetCollectionChildren_Response>(nullptr);
+  }
+
+  CPublishedFile_SetCollectionChildren_Response* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CPublishedFile_SetCollectionChildren_Response>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CPublishedFile_SetCollectionChildren_Response& from);
+  void MergeFrom(const CPublishedFile_SetCollectionChildren_Response& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CPublishedFile_SetCollectionChildren_Response* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CPublishedFile_SetCollectionChildren_Response";
+  }
+  protected:
+  explicit CPublishedFile_SetCollectionChildren_Response(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_steammessages_5fpublishedfile_2esteamclient_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:CPublishedFile_SetCollectionChildren_Response)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_steammessages_5fpublishedfile_2esteamclient_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CPublishedFile_SetSubscriptionListFromCollection_Request PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CPublishedFile_SetSubscriptionListFromCollection_Request) */ {
+ public:
+  inline CPublishedFile_SetSubscriptionListFromCollection_Request() : CPublishedFile_SetSubscriptionListFromCollection_Request(nullptr) {}
+  virtual ~CPublishedFile_SetSubscriptionListFromCollection_Request();
+  explicit constexpr CPublishedFile_SetSubscriptionListFromCollection_Request(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CPublishedFile_SetSubscriptionListFromCollection_Request(const CPublishedFile_SetSubscriptionListFromCollection_Request& from);
+  CPublishedFile_SetSubscriptionListFromCollection_Request(CPublishedFile_SetSubscriptionListFromCollection_Request&& from) noexcept
+    : CPublishedFile_SetSubscriptionListFromCollection_Request() {
+    *this = ::std::move(from);
+  }
+
+  inline CPublishedFile_SetSubscriptionListFromCollection_Request& operator=(const CPublishedFile_SetSubscriptionListFromCollection_Request& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CPublishedFile_SetSubscriptionListFromCollection_Request& operator=(CPublishedFile_SetSubscriptionListFromCollection_Request&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CPublishedFile_SetSubscriptionListFromCollection_Request& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CPublishedFile_SetSubscriptionListFromCollection_Request* internal_default_instance() {
+    return reinterpret_cast<const CPublishedFile_SetSubscriptionListFromCollection_Request*>(
+               &_CPublishedFile_SetSubscriptionListFromCollection_Request_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    78;
+
+  friend void swap(CPublishedFile_SetSubscriptionListFromCollection_Request& a, CPublishedFile_SetSubscriptionListFromCollection_Request& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CPublishedFile_SetSubscriptionListFromCollection_Request* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CPublishedFile_SetSubscriptionListFromCollection_Request* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CPublishedFile_SetSubscriptionListFromCollection_Request* New() const final {
+    return CreateMaybeMessage<CPublishedFile_SetSubscriptionListFromCollection_Request>(nullptr);
+  }
+
+  CPublishedFile_SetSubscriptionListFromCollection_Request* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CPublishedFile_SetSubscriptionListFromCollection_Request>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CPublishedFile_SetSubscriptionListFromCollection_Request& from);
+  void MergeFrom(const CPublishedFile_SetSubscriptionListFromCollection_Request& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CPublishedFile_SetSubscriptionListFromCollection_Request* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CPublishedFile_SetSubscriptionListFromCollection_Request";
+  }
+  protected:
+  explicit CPublishedFile_SetSubscriptionListFromCollection_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_steammessages_5fpublishedfile_2esteamclient_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kAppidFieldNumber = 1,
+    kListTypeFieldNumber = 2,
+    kPublishedfileidFieldNumber = 3,
+    kAddOnlyFieldNumber = 4,
+  };
+  // optional uint32 appid = 1;
+  bool has_appid() const;
+  private:
+  bool _internal_has_appid() const;
+  public:
+  void clear_appid();
+  ::PROTOBUF_NAMESPACE_ID::uint32 appid() const;
+  void set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_appid() const;
+  void _internal_set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // optional uint32 list_type = 2;
+  bool has_list_type() const;
+  private:
+  bool _internal_has_list_type() const;
+  public:
+  void clear_list_type();
+  ::PROTOBUF_NAMESPACE_ID::uint32 list_type() const;
+  void set_list_type(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_list_type() const;
+  void _internal_set_list_type(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // optional uint64 publishedfileid = 3;
+  bool has_publishedfileid() const;
+  private:
+  bool _internal_has_publishedfileid() const;
+  public:
+  void clear_publishedfileid();
+  ::PROTOBUF_NAMESPACE_ID::uint64 publishedfileid() const;
+  void set_publishedfileid(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_publishedfileid() const;
+  void _internal_set_publishedfileid(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
+  // optional bool add_only = 4;
+  bool has_add_only() const;
+  private:
+  bool _internal_has_add_only() const;
+  public:
+  void clear_add_only();
+  bool add_only() const;
+  void set_add_only(bool value);
+  private:
+  bool _internal_add_only() const;
+  void _internal_set_add_only(bool value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CPublishedFile_SetSubscriptionListFromCollection_Request)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 appid_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 list_type_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 publishedfileid_;
+  bool add_only_;
+  friend struct ::TableStruct_steammessages_5fpublishedfile_2esteamclient_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CPublishedFile_SetSubscriptionListFromCollection_Response PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CPublishedFile_SetSubscriptionListFromCollection_Response) */ {
+ public:
+  inline CPublishedFile_SetSubscriptionListFromCollection_Response() : CPublishedFile_SetSubscriptionListFromCollection_Response(nullptr) {}
+  virtual ~CPublishedFile_SetSubscriptionListFromCollection_Response();
+  explicit constexpr CPublishedFile_SetSubscriptionListFromCollection_Response(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CPublishedFile_SetSubscriptionListFromCollection_Response(const CPublishedFile_SetSubscriptionListFromCollection_Response& from);
+  CPublishedFile_SetSubscriptionListFromCollection_Response(CPublishedFile_SetSubscriptionListFromCollection_Response&& from) noexcept
+    : CPublishedFile_SetSubscriptionListFromCollection_Response() {
+    *this = ::std::move(from);
+  }
+
+  inline CPublishedFile_SetSubscriptionListFromCollection_Response& operator=(const CPublishedFile_SetSubscriptionListFromCollection_Response& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CPublishedFile_SetSubscriptionListFromCollection_Response& operator=(CPublishedFile_SetSubscriptionListFromCollection_Response&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CPublishedFile_SetSubscriptionListFromCollection_Response& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CPublishedFile_SetSubscriptionListFromCollection_Response* internal_default_instance() {
+    return reinterpret_cast<const CPublishedFile_SetSubscriptionListFromCollection_Response*>(
+               &_CPublishedFile_SetSubscriptionListFromCollection_Response_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    79;
+
+  friend void swap(CPublishedFile_SetSubscriptionListFromCollection_Response& a, CPublishedFile_SetSubscriptionListFromCollection_Response& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CPublishedFile_SetSubscriptionListFromCollection_Response* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CPublishedFile_SetSubscriptionListFromCollection_Response* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CPublishedFile_SetSubscriptionListFromCollection_Response* New() const final {
+    return CreateMaybeMessage<CPublishedFile_SetSubscriptionListFromCollection_Response>(nullptr);
+  }
+
+  CPublishedFile_SetSubscriptionListFromCollection_Response* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CPublishedFile_SetSubscriptionListFromCollection_Response>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CPublishedFile_SetSubscriptionListFromCollection_Response& from);
+  void MergeFrom(const CPublishedFile_SetSubscriptionListFromCollection_Response& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CPublishedFile_SetSubscriptionListFromCollection_Response* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CPublishedFile_SetSubscriptionListFromCollection_Response";
+  }
+  protected:
+  explicit CPublishedFile_SetSubscriptionListFromCollection_Response(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_steammessages_5fpublishedfile_2esteamclient_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:CPublishedFile_SetSubscriptionListFromCollection_Response)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_steammessages_5fpublishedfile_2esteamclient_2eproto;
+};
+// -------------------------------------------------------------------
+
 class CPublishedFile_GetUserVoteSummary_Request PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CPublishedFile_GetUserVoteSummary_Request) */ {
  public:
@@ -16414,7 +17104,7 @@ class CPublishedFile_GetUserVoteSummary_Request PROTOBUF_FINAL :
                &_CPublishedFile_GetUserVoteSummary_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    76;
+    80;
 
   friend void swap(CPublishedFile_GetUserVoteSummary_Request& a, CPublishedFile_GetUserVoteSummary_Request& b) {
     a.Swap(&b);
@@ -16571,7 +17261,7 @@ class CPublishedFile_GetUserVoteSummary_Response_VoteSummary PROTOBUF_FINAL :
                &_CPublishedFile_GetUserVoteSummary_Response_VoteSummary_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    77;
+    81;
 
   friend void swap(CPublishedFile_GetUserVoteSummary_Response_VoteSummary& a, CPublishedFile_GetUserVoteSummary_Response_VoteSummary& b) {
     a.Swap(&b);
@@ -16765,7 +17455,7 @@ class CPublishedFile_GetUserVoteSummary_Response PROTOBUF_FINAL :
                &_CPublishedFile_GetUserVoteSummary_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    78;
+    82;
 
   friend void swap(CPublishedFile_GetUserVoteSummary_Response& a, CPublishedFile_GetUserVoteSummary_Response& b) {
     a.Swap(&b);
@@ -16920,7 +17610,7 @@ class CPublishedFile_GetItemChanges_Request PROTOBUF_FINAL :
                &_CPublishedFile_GetItemChanges_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    79;
+    83;
 
   friend void swap(CPublishedFile_GetItemChanges_Request& a, CPublishedFile_GetItemChanges_Request& b) {
     a.Swap(&b);
@@ -17099,7 +17789,7 @@ class CPublishedFile_GetItemChanges_Response_WorkshopItemInfo PROTOBUF_FINAL :
                &_CPublishedFile_GetItemChanges_Response_WorkshopItemInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    80;
+    84;
 
   friend void swap(CPublishedFile_GetItemChanges_Response_WorkshopItemInfo& a, CPublishedFile_GetItemChanges_Response_WorkshopItemInfo& b) {
     a.Swap(&b);
@@ -17278,7 +17968,7 @@ class CPublishedFile_GetItemChanges_Response PROTOBUF_FINAL :
                &_CPublishedFile_GetItemChanges_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    81;
+    85;
 
   friend void swap(CPublishedFile_GetItemChanges_Response& a, CPublishedFile_GetItemChanges_Response& b) {
     a.Swap(&b);
@@ -17449,7 +18139,7 @@ class CPublishedFile_GetContentDescriptors_Request PROTOBUF_FINAL :
                &_CPublishedFile_GetContentDescriptors_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    82;
+    86;
 
   friend void swap(CPublishedFile_GetContentDescriptors_Request& a, CPublishedFile_GetContentDescriptors_Request& b) {
     a.Swap(&b);
@@ -17598,7 +18288,7 @@ class CPublishedFile_GetContentDescriptors_Response_ContentDescriptor PROTOBUF_F
                &_CPublishedFile_GetContentDescriptors_Response_ContentDescriptor_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    83;
+    87;
 
   friend void swap(CPublishedFile_GetContentDescriptors_Response_ContentDescriptor& a, CPublishedFile_GetContentDescriptors_Response_ContentDescriptor& b) {
     a.Swap(&b);
@@ -17792,7 +18482,7 @@ class CPublishedFile_GetContentDescriptors_Response PROTOBUF_FINAL :
                &_CPublishedFile_GetContentDescriptors_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    84;
+    88;
 
   friend void swap(CPublishedFile_GetContentDescriptors_Response& a, CPublishedFile_GetContentDescriptors_Response& b) {
     a.Swap(&b);
@@ -17947,7 +18637,7 @@ class CPublishedFile_UpdateContentDescriptors_Request PROTOBUF_FINAL :
                &_CPublishedFile_UpdateContentDescriptors_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    85;
+    89;
 
   friend void swap(CPublishedFile_UpdateContentDescriptors_Request& a, CPublishedFile_UpdateContentDescriptors_Request& b) {
     a.Swap(&b);
@@ -18134,7 +18824,7 @@ class CPublishedFile_UpdateContentDescriptors_Response PROTOBUF_FINAL :
                &_CPublishedFile_UpdateContentDescriptors_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    86;
+    90;
 
   friend void swap(CPublishedFile_UpdateContentDescriptors_Response& a, CPublishedFile_UpdateContentDescriptors_Response& b) {
     a.Swap(&b);
@@ -18283,7 +18973,7 @@ class CPublishedFile_FileSubscribed_Notification_RevisionData PROTOBUF_FINAL :
                &_CPublishedFile_FileSubscribed_Notification_RevisionData_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    87;
+    91;
 
   friend void swap(CPublishedFile_FileSubscribed_Notification_RevisionData& a, CPublishedFile_FileSubscribed_Notification_RevisionData& b) {
     a.Swap(&b);
@@ -18357,7 +19047,7 @@ class CPublishedFile_FileSubscribed_Notification_RevisionData PROTOBUF_FINAL :
     kRevisionFieldNumber = 1,
     kRtimeUpdatedFieldNumber = 3,
   };
-  // optional fixed64 file_hcontent = 2 [(.description) = "Manifest GID"];
+  // optional fixed64 file_hcontent = 2;
   bool has_file_hcontent() const;
   private:
   bool _internal_has_file_hcontent() const;
@@ -18383,7 +19073,7 @@ class CPublishedFile_FileSubscribed_Notification_RevisionData PROTOBUF_FINAL :
   void _internal_set_revision(::EPublishedFileRevision value);
   public:
 
-  // optional uint32 rtime_updated = 3 [(.description) = "Last time content updated"];
+  // optional uint32 rtime_updated = 3;
   bool has_rtime_updated() const;
   private:
   bool _internal_has_rtime_updated() const;
@@ -18462,7 +19152,7 @@ class CPublishedFile_FileSubscribed_Notification PROTOBUF_FINAL :
                &_CPublishedFile_FileSubscribed_Notification_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    88;
+    92;
 
   friend void swap(CPublishedFile_FileSubscribed_Notification& a, CPublishedFile_FileSubscribed_Notification& b) {
     a.Swap(&b);
@@ -18543,7 +19233,7 @@ class CPublishedFile_FileSubscribed_Notification PROTOBUF_FINAL :
     kIsDepotContentFieldNumber = 6,
     kRtimeUpdatedFieldNumber = 7,
   };
-  // repeated .CPublishedFile_FileSubscribed_Notification.RevisionData revisions = 8 [(.description) = "Data for each of the revisions that this item has"];
+  // repeated .CPublishedFile_FileSubscribed_Notification.RevisionData revisions = 8;
   int revisions_size() const;
   private:
   int _internal_revisions_size() const;
@@ -18561,7 +19251,7 @@ class CPublishedFile_FileSubscribed_Notification PROTOBUF_FINAL :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CPublishedFile_FileSubscribed_Notification_RevisionData >&
       revisions() const;
 
-  // optional fixed64 published_file_id = 1 [(.description) = "PublishedFileID_t for the content"];
+  // optional fixed64 published_file_id = 1;
   bool has_published_file_id() const;
   private:
   bool _internal_has_published_file_id() const;
@@ -18574,7 +19264,7 @@ class CPublishedFile_FileSubscribed_Notification PROTOBUF_FINAL :
   void _internal_set_published_file_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional fixed64 file_hcontent = 3 [(.description) = "UGC file handle or manifest GID"];
+  // optional fixed64 file_hcontent = 3;
   bool has_file_hcontent() const;
   private:
   bool _internal_has_file_hcontent() const;
@@ -18626,7 +19316,7 @@ class CPublishedFile_FileSubscribed_Notification PROTOBUF_FINAL :
   void _internal_set_rtime_subscribed(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional bool is_depot_content = 6 [(.description) = "True if workshop item is delivered via Steampipe"];
+  // optional bool is_depot_content = 6;
   bool has_is_depot_content() const;
   private:
   bool _internal_has_is_depot_content() const;
@@ -18639,7 +19329,7 @@ class CPublishedFile_FileSubscribed_Notification PROTOBUF_FINAL :
   void _internal_set_is_depot_content(bool value);
   public:
 
-  // optional uint32 rtime_updated = 7 [(.description) = "Last time content updated"];
+  // optional uint32 rtime_updated = 7;
   bool has_rtime_updated() const;
   private:
   bool _internal_has_rtime_updated() const;
@@ -18723,7 +19413,7 @@ class CPublishedFile_FileUnsubscribed_Notification PROTOBUF_FINAL :
                &_CPublishedFile_FileUnsubscribed_Notification_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    89;
+    93;
 
   friend void swap(CPublishedFile_FileUnsubscribed_Notification& a, CPublishedFile_FileUnsubscribed_Notification& b) {
     a.Swap(&b);
@@ -18796,7 +19486,7 @@ class CPublishedFile_FileUnsubscribed_Notification PROTOBUF_FINAL :
     kPublishedFileIdFieldNumber = 1,
     kAppIdFieldNumber = 2,
   };
-  // optional fixed64 published_file_id = 1 [(.description) = "PublishedFileID_t for the content"];
+  // optional fixed64 published_file_id = 1;
   bool has_published_file_id() const;
   private:
   bool _internal_has_published_file_id() const;
@@ -18887,7 +19577,7 @@ class CPublishedFile_FileDeleted_Client_Notification PROTOBUF_FINAL :
                &_CPublishedFile_FileDeleted_Client_Notification_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    90;
+    94;
 
   friend void swap(CPublishedFile_FileDeleted_Client_Notification& a, CPublishedFile_FileDeleted_Client_Notification& b) {
     a.Swap(&b);
@@ -18960,7 +19650,7 @@ class CPublishedFile_FileDeleted_Client_Notification PROTOBUF_FINAL :
     kPublishedFileIdFieldNumber = 1,
     kAppIdFieldNumber = 2,
   };
-  // optional fixed64 published_file_id = 1 [(.description) = "PublishedFileID_t for the content"];
+  // optional fixed64 published_file_id = 1;
   bool has_published_file_id() const;
   private:
   bool _internal_has_published_file_id() const;
@@ -19122,6 +19812,14 @@ class PublishedFile : public ::PROTOBUF_NAMESPACE_ID::Service {
                        const ::CPublishedFile_RemoveChild_Request* request,
                        ::CPublishedFile_RemoveChild_Response* response,
                        ::google::protobuf::Closure* done);
+  virtual void SetCollectionChildren(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                       const ::CPublishedFile_SetCollectionChildren_Request* request,
+                       ::CPublishedFile_SetCollectionChildren_Response* response,
+                       ::google::protobuf::Closure* done);
+  virtual void SetSubscriptionListFromCollection(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                       const ::CPublishedFile_SetSubscriptionListFromCollection_Request* request,
+                       ::CPublishedFile_SetSubscriptionListFromCollection_Response* response,
+                       ::google::protobuf::Closure* done);
   virtual void GetUserVoteSummary(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                        const ::CPublishedFile_GetUserVoteSummary_Request* request,
                        ::CPublishedFile_GetUserVoteSummary_Response* response,
@@ -19274,6 +19972,14 @@ class PublishedFile_Stub : public PublishedFile {
   void RemoveChild(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                        const ::CPublishedFile_RemoveChild_Request* request,
                        ::CPublishedFile_RemoveChild_Response* response,
+                       ::google::protobuf::Closure* done);
+  void SetCollectionChildren(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                       const ::CPublishedFile_SetCollectionChildren_Request* request,
+                       ::CPublishedFile_SetCollectionChildren_Response* response,
+                       ::google::protobuf::Closure* done);
+  void SetSubscriptionListFromCollection(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                       const ::CPublishedFile_SetSubscriptionListFromCollection_Request* request,
+                       ::CPublishedFile_SetSubscriptionListFromCollection_Response* response,
                        ::google::protobuf::Closure* done);
   void GetUserVoteSummary(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                        const ::CPublishedFile_GetUserVoteSummary_Request* request,
@@ -19560,6 +20266,34 @@ inline void CPublishedFile_Subscribe_Request::set_notify_client(bool value) {
   // @@protoc_insertion_point(field_set:CPublishedFile_Subscribe_Request.notify_client)
 }
 
+// optional bool include_dependencies = 5;
+inline bool CPublishedFile_Subscribe_Request::_internal_has_include_dependencies() const {
+  bool value = (_has_bits_[0] & 0x00000010u) != 0;
+  return value;
+}
+inline bool CPublishedFile_Subscribe_Request::has_include_dependencies() const {
+  return _internal_has_include_dependencies();
+}
+inline void CPublishedFile_Subscribe_Request::clear_include_dependencies() {
+  include_dependencies_ = false;
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline bool CPublishedFile_Subscribe_Request::_internal_include_dependencies() const {
+  return include_dependencies_;
+}
+inline bool CPublishedFile_Subscribe_Request::include_dependencies() const {
+  // @@protoc_insertion_point(field_get:CPublishedFile_Subscribe_Request.include_dependencies)
+  return _internal_include_dependencies();
+}
+inline void CPublishedFile_Subscribe_Request::_internal_set_include_dependencies(bool value) {
+  _has_bits_[0] |= 0x00000010u;
+  include_dependencies_ = value;
+}
+inline void CPublishedFile_Subscribe_Request::set_include_dependencies(bool value) {
+  _internal_set_include_dependencies(value);
+  // @@protoc_insertion_point(field_set:CPublishedFile_Subscribe_Request.include_dependencies)
+}
+
 // -------------------------------------------------------------------
 
 // CPublishedFile_Subscribe_Response
@@ -19836,7 +20570,7 @@ inline void CPublishedFile_GetSubSectionData_Request::set_specific_sectionid(::P
   // @@protoc_insertion_point(field_set:CPublishedFile_GetSubSectionData_Request.specific_sectionid)
 }
 
-// optional .EPublishedFileRevision desired_revision = 4 [default = EPublishedFileRevision_Default, (.description) = "Return the data for the specified revision."];
+// optional .EPublishedFileRevision desired_revision = 4 [default = EPublishedFileRevision_Default];
 inline bool CPublishedFile_GetSubSectionData_Request::_internal_has_desired_revision() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -20118,7 +20852,7 @@ CPublishedFile_GetSubSectionData_Response::sub_sections() const {
 
 // CPublishedFile_Publish_Request
 
-// optional uint32 appid = 1 [(.description) = "App Id this file is being published FROM."];
+// optional uint32 appid = 1;
 inline bool CPublishedFile_Publish_Request::_internal_has_appid() const {
   bool value = (_has_bits_[0] & 0x00000800u) != 0;
   return value;
@@ -20146,7 +20880,7 @@ inline void CPublishedFile_Publish_Request::set_appid(::PROTOBUF_NAMESPACE_ID::u
   // @@protoc_insertion_point(field_set:CPublishedFile_Publish_Request.appid)
 }
 
-// optional uint32 consumer_appid = 2 [(.description) = "App Id this file is being published TO."];
+// optional uint32 consumer_appid = 2;
 inline bool CPublishedFile_Publish_Request::_internal_has_consumer_appid() const {
   bool value = (_has_bits_[0] & 0x00001000u) != 0;
   return value;
@@ -20174,7 +20908,7 @@ inline void CPublishedFile_Publish_Request::set_consumer_appid(::PROTOBUF_NAMESP
   // @@protoc_insertion_point(field_set:CPublishedFile_Publish_Request.consumer_appid)
 }
 
-// optional string cloudfilename = 3 [(.description) = "Name of the file to publish in the user\'s cloud."];
+// optional string cloudfilename = 3;
 inline bool CPublishedFile_Publish_Request::_internal_has_cloudfilename() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -20247,7 +20981,7 @@ inline void CPublishedFile_Publish_Request::set_allocated_cloudfilename(std::str
   // @@protoc_insertion_point(field_set_allocated:CPublishedFile_Publish_Request.cloudfilename)
 }
 
-// optional string preview_cloudfilename = 4 [(.description) = "Name of the file to use as the published file\'s preview."];
+// optional string preview_cloudfilename = 4;
 inline bool CPublishedFile_Publish_Request::_internal_has_preview_cloudfilename() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -20320,7 +21054,7 @@ inline void CPublishedFile_Publish_Request::set_allocated_preview_cloudfilename(
   // @@protoc_insertion_point(field_set_allocated:CPublishedFile_Publish_Request.preview_cloudfilename)
 }
 
-// optional string title = 5 [(.description) = "Text title for the published file."];
+// optional string title = 5;
 inline bool CPublishedFile_Publish_Request::_internal_has_title() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -20393,7 +21127,7 @@ inline void CPublishedFile_Publish_Request::set_allocated_title(std::string* tit
   // @@protoc_insertion_point(field_set_allocated:CPublishedFile_Publish_Request.title)
 }
 
-// optional string file_description = 6 [(.description) = "Text description for the published file."];
+// optional string file_description = 6;
 inline bool CPublishedFile_Publish_Request::_internal_has_file_description() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -20466,7 +21200,7 @@ inline void CPublishedFile_Publish_Request::set_allocated_file_description(std::
   // @@protoc_insertion_point(field_set_allocated:CPublishedFile_Publish_Request.file_description)
 }
 
-// optional uint32 file_type = 7 [(.description) = "(EWorkshopFileType) Type of Workshop file to publish."];
+// optional uint32 file_type = 7;
 inline bool CPublishedFile_Publish_Request::_internal_has_file_type() const {
   bool value = (_has_bits_[0] & 0x00002000u) != 0;
   return value;
@@ -20494,7 +21228,7 @@ inline void CPublishedFile_Publish_Request::set_file_type(::PROTOBUF_NAMESPACE_I
   // @@protoc_insertion_point(field_set:CPublishedFile_Publish_Request.file_type)
 }
 
-// optional string consumer_shortcut_name = 8 [(.description) = "Shortcut name for the published file."];
+// optional string consumer_shortcut_name = 8;
 inline bool CPublishedFile_Publish_Request::_internal_has_consumer_shortcut_name() const {
   bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
@@ -20567,7 +21301,7 @@ inline void CPublishedFile_Publish_Request::set_allocated_consumer_shortcut_name
   // @@protoc_insertion_point(field_set_allocated:CPublishedFile_Publish_Request.consumer_shortcut_name)
 }
 
-// optional string youtube_username = 9 [(.description) = "(Optional) User\'s YouTube account username."];
+// optional string youtube_username = 9;
 inline bool CPublishedFile_Publish_Request::_internal_has_youtube_username() const {
   bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
@@ -20640,7 +21374,7 @@ inline void CPublishedFile_Publish_Request::set_allocated_youtube_username(std::
   // @@protoc_insertion_point(field_set_allocated:CPublishedFile_Publish_Request.youtube_username)
 }
 
-// optional string youtube_videoid = 10 [(.description) = "(Optional) Video Id of a YouTube video for this published file."];
+// optional string youtube_videoid = 10;
 inline bool CPublishedFile_Publish_Request::_internal_has_youtube_videoid() const {
   bool value = (_has_bits_[0] & 0x00000040u) != 0;
   return value;
@@ -20713,7 +21447,7 @@ inline void CPublishedFile_Publish_Request::set_allocated_youtube_videoid(std::s
   // @@protoc_insertion_point(field_set_allocated:CPublishedFile_Publish_Request.youtube_videoid)
 }
 
-// optional uint32 visibility = 11 [(.description) = "(ERemoteStoragePublishedFileVisibility) Visibility of the published file (private, friends, public, etc.)"];
+// optional uint32 visibility = 11;
 inline bool CPublishedFile_Publish_Request::_internal_has_visibility() const {
   bool value = (_has_bits_[0] & 0x00004000u) != 0;
   return value;
@@ -20741,7 +21475,7 @@ inline void CPublishedFile_Publish_Request::set_visibility(::PROTOBUF_NAMESPACE_
   // @@protoc_insertion_point(field_set:CPublishedFile_Publish_Request.visibility)
 }
 
-// optional string redirect_uri = 12 [(.description) = "(Optional) If supplied, the resulting published file\'s Id is appended to the URI."];
+// optional string redirect_uri = 12;
 inline bool CPublishedFile_Publish_Request::_internal_has_redirect_uri() const {
   bool value = (_has_bits_[0] & 0x00000080u) != 0;
   return value;
@@ -20814,7 +21548,7 @@ inline void CPublishedFile_Publish_Request::set_allocated_redirect_uri(std::stri
   // @@protoc_insertion_point(field_set_allocated:CPublishedFile_Publish_Request.redirect_uri)
 }
 
-// repeated string tags = 13 [(.description) = "Array of text tags to apply to the published file."];
+// repeated string tags = 13;
 inline int CPublishedFile_Publish_Request::_internal_tags_size() const {
   return tags_.size();
 }
@@ -20888,7 +21622,7 @@ CPublishedFile_Publish_Request::mutable_tags() {
   return &tags_;
 }
 
-// optional string collection_type = 14 [(.description) = "(Optional) Type of collection the published file represents."];
+// optional string collection_type = 14;
 inline bool CPublishedFile_Publish_Request::_internal_has_collection_type() const {
   bool value = (_has_bits_[0] & 0x00000100u) != 0;
   return value;
@@ -20961,7 +21695,7 @@ inline void CPublishedFile_Publish_Request::set_allocated_collection_type(std::s
   // @@protoc_insertion_point(field_set_allocated:CPublishedFile_Publish_Request.collection_type)
 }
 
-// optional string game_type = 15 [(.description) = "(Optional) Type of game the published file represents."];
+// optional string game_type = 15;
 inline bool CPublishedFile_Publish_Request::_internal_has_game_type() const {
   bool value = (_has_bits_[0] & 0x00000200u) != 0;
   return value;
@@ -21034,7 +21768,7 @@ inline void CPublishedFile_Publish_Request::set_allocated_game_type(std::string*
   // @@protoc_insertion_point(field_set_allocated:CPublishedFile_Publish_Request.game_type)
 }
 
-// optional string url = 16 [(.description) = "(Optional) If this represents a game, this is the URL to that game\'s page."];
+// optional string url = 16;
 inline bool CPublishedFile_Publish_Request::_internal_has_url() const {
   bool value = (_has_bits_[0] & 0x00000400u) != 0;
   return value;
@@ -21216,7 +21950,7 @@ inline void CPublishedFile_Publish_Response::set_allocated_redirect_uri(std::str
 
 // CPublishedFile_GetDetails_Request
 
-// repeated fixed64 publishedfileids = 1 [(.description) = "Set of published file Ids to retrieve details for."];
+// repeated fixed64 publishedfileids = 1;
 inline int CPublishedFile_GetDetails_Request::_internal_publishedfileids_size() const {
   return publishedfileids_.size();
 }
@@ -21263,7 +21997,7 @@ CPublishedFile_GetDetails_Request::mutable_publishedfileids() {
   return _internal_mutable_publishedfileids();
 }
 
-// optional bool includetags = 2 [(.description) = "If true, return tag information in the returned details."];
+// optional bool includetags = 2;
 inline bool CPublishedFile_GetDetails_Request::_internal_has_includetags() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -21291,7 +22025,7 @@ inline void CPublishedFile_GetDetails_Request::set_includetags(bool value) {
   // @@protoc_insertion_point(field_set:CPublishedFile_GetDetails_Request.includetags)
 }
 
-// optional bool includeadditionalpreviews = 3 [(.description) = "If true, return preview information in the returned details."];
+// optional bool includeadditionalpreviews = 3;
 inline bool CPublishedFile_GetDetails_Request::_internal_has_includeadditionalpreviews() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -21319,7 +22053,7 @@ inline void CPublishedFile_GetDetails_Request::set_includeadditionalpreviews(boo
   // @@protoc_insertion_point(field_set:CPublishedFile_GetDetails_Request.includeadditionalpreviews)
 }
 
-// optional bool includechildren = 4 [(.description) = "If true, return children in the returned details."];
+// optional bool includechildren = 4;
 inline bool CPublishedFile_GetDetails_Request::_internal_has_includechildren() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -21347,7 +22081,7 @@ inline void CPublishedFile_GetDetails_Request::set_includechildren(bool value) {
   // @@protoc_insertion_point(field_set:CPublishedFile_GetDetails_Request.includechildren)
 }
 
-// optional bool includekvtags = 5 [(.description) = "If true, return key value tags in the returned details."];
+// optional bool includekvtags = 5;
 inline bool CPublishedFile_GetDetails_Request::_internal_has_includekvtags() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -21375,7 +22109,7 @@ inline void CPublishedFile_GetDetails_Request::set_includekvtags(bool value) {
   // @@protoc_insertion_point(field_set:CPublishedFile_GetDetails_Request.includekvtags)
 }
 
-// optional bool includevotes = 6 [(.description) = "If true, return vote data in the returned details."];
+// optional bool includevotes = 6;
 inline bool CPublishedFile_GetDetails_Request::_internal_has_includevotes() const {
   bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
@@ -21403,7 +22137,7 @@ inline void CPublishedFile_GetDetails_Request::set_includevotes(bool value) {
   // @@protoc_insertion_point(field_set:CPublishedFile_GetDetails_Request.includevotes)
 }
 
-// optional bool short_description = 8 [(.description) = "If true, return a short description instead of the full description."];
+// optional bool short_description = 8;
 inline bool CPublishedFile_GetDetails_Request::_internal_has_short_description() const {
   bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
@@ -21431,7 +22165,7 @@ inline void CPublishedFile_GetDetails_Request::set_short_description(bool value)
   // @@protoc_insertion_point(field_set:CPublishedFile_GetDetails_Request.short_description)
 }
 
-// optional bool includeforsaledata = 10 [(.description) = "If true, return pricing data, if applicable."];
+// optional bool includeforsaledata = 10;
 inline bool CPublishedFile_GetDetails_Request::_internal_has_includeforsaledata() const {
   bool value = (_has_bits_[0] & 0x00000040u) != 0;
   return value;
@@ -21459,7 +22193,7 @@ inline void CPublishedFile_GetDetails_Request::set_includeforsaledata(bool value
   // @@protoc_insertion_point(field_set:CPublishedFile_GetDetails_Request.includeforsaledata)
 }
 
-// optional bool includemetadata = 11 [(.description) = "If true, populate the metadata field."];
+// optional bool includemetadata = 11;
 inline bool CPublishedFile_GetDetails_Request::_internal_has_includemetadata() const {
   bool value = (_has_bits_[0] & 0x00000080u) != 0;
   return value;
@@ -21487,7 +22221,7 @@ inline void CPublishedFile_GetDetails_Request::set_includemetadata(bool value) {
   // @@protoc_insertion_point(field_set:CPublishedFile_GetDetails_Request.includemetadata)
 }
 
-// optional int32 language = 12 [default = 0, (.description) = "Specifies the localized text to return. Defaults to English."];
+// optional int32 language = 12 [default = 0];
 inline bool CPublishedFile_GetDetails_Request::_internal_has_language() const {
   bool value = (_has_bits_[0] & 0x00000100u) != 0;
   return value;
@@ -21515,7 +22249,7 @@ inline void CPublishedFile_GetDetails_Request::set_language(::PROTOBUF_NAMESPACE
   // @@protoc_insertion_point(field_set:CPublishedFile_GetDetails_Request.language)
 }
 
-// optional uint32 return_playtime_stats = 13 [(.description) = "Return playtime stats for the specified number of days before today."];
+// optional uint32 return_playtime_stats = 13;
 inline bool CPublishedFile_GetDetails_Request::_internal_has_return_playtime_stats() const {
   bool value = (_has_bits_[0] & 0x00000200u) != 0;
   return value;
@@ -21571,7 +22305,7 @@ inline void CPublishedFile_GetDetails_Request::set_appid(::PROTOBUF_NAMESPACE_ID
   // @@protoc_insertion_point(field_set:CPublishedFile_GetDetails_Request.appid)
 }
 
-// optional bool strip_description_bbcode = 15 [(.description) = "Strips BBCode from descriptions."];
+// optional bool strip_description_bbcode = 15;
 inline bool CPublishedFile_GetDetails_Request::_internal_has_strip_description_bbcode() const {
   bool value = (_has_bits_[0] & 0x00001000u) != 0;
   return value;
@@ -21599,7 +22333,7 @@ inline void CPublishedFile_GetDetails_Request::set_strip_description_bbcode(bool
   // @@protoc_insertion_point(field_set:CPublishedFile_GetDetails_Request.strip_description_bbcode)
 }
 
-// optional .EPublishedFileRevision desired_revision = 16 [default = EPublishedFileRevision_Default, (.description) = "Return the data for the specified revision."];
+// optional .EPublishedFileRevision desired_revision = 16 [default = EPublishedFileRevision_Default];
 inline bool CPublishedFile_GetDetails_Request::_internal_has_desired_revision() const {
   bool value = (_has_bits_[0] & 0x00000800u) != 0;
   return value;
@@ -21628,7 +22362,7 @@ inline void CPublishedFile_GetDetails_Request::set_desired_revision(::EPublished
   // @@protoc_insertion_point(field_set:CPublishedFile_GetDetails_Request.desired_revision)
 }
 
-// optional bool includereactions = 17 [default = false, (.description) = "If true, then reactions to items will be returned."];
+// optional bool includereactions = 17 [default = false];
 inline bool CPublishedFile_GetDetails_Request::_internal_has_includereactions() const {
   bool value = (_has_bits_[0] & 0x00002000u) != 0;
   return value;
@@ -25183,7 +25917,7 @@ inline void PublishedFileDetails::set_allocated_playtime_stats(::PublishedFileDe
   // @@protoc_insertion_point(field_set_allocated:PublishedFileDetails.playtime_stats)
 }
 
-// optional uint32 time_subscribed = 56 [(.description) = "Only valid in PublishedFile.GetUserFiles and not normal PublishedFile.GetDetail calls"];
+// optional uint32 time_subscribed = 56;
 inline bool PublishedFileDetails::_internal_has_time_subscribed() const {
   bool value = (_has_bits_[1] & 0x00400000u) != 0;
   return value;
@@ -25211,7 +25945,7 @@ inline void PublishedFileDetails::set_time_subscribed(::PROTOBUF_NAMESPACE_ID::u
   // @@protoc_insertion_point(field_set:PublishedFileDetails.time_subscribed)
 }
 
-// optional .PublishedFileDetails.ForSaleData for_sale_data = 57 [(.description) = "Pricing information, if applicable."];
+// optional .PublishedFileDetails.ForSaleData for_sale_data = 57;
 inline bool PublishedFileDetails::_internal_has_for_sale_data() const {
   bool value = (_has_bits_[0] & 0x00004000u) != 0;
   PROTOBUF_ASSUME(!value || for_sale_data_ != nullptr);
@@ -25294,7 +26028,7 @@ inline void PublishedFileDetails::set_allocated_for_sale_data(::PublishedFileDet
   // @@protoc_insertion_point(field_set_allocated:PublishedFileDetails.for_sale_data)
 }
 
-// optional string metadata = 58 [(.description) = "Metadata associated with the item"];
+// optional string metadata = 58;
 inline bool PublishedFileDetails::_internal_has_metadata() const {
   bool value = (_has_bits_[0] & 0x00001000u) != 0;
   return value;
@@ -25367,7 +26101,7 @@ inline void PublishedFileDetails::set_allocated_metadata(std::string* metadata) 
   // @@protoc_insertion_point(field_set_allocated:PublishedFileDetails.metadata)
 }
 
-// optional int32 language = 61 [default = 0, (.description) = "The language of the title and description."];
+// optional int32 language = 61 [default = 0];
 inline bool PublishedFileDetails::_internal_has_language() const {
   bool value = (_has_bits_[1] & 0x02000000u) != 0;
   return value;
@@ -25496,7 +26230,7 @@ PublishedFileDetails::mutable_content_descriptorids() {
   return _internal_mutable_content_descriptorids();
 }
 
-// optional uint64 revision_change_number = 67 [(.description) = "The change number for the specified revision."];
+// optional uint64 revision_change_number = 67;
 inline bool PublishedFileDetails::_internal_has_revision_change_number() const {
   bool value = (_has_bits_[1] & 0x10000000u) != 0;
   return value;
@@ -25524,7 +26258,7 @@ inline void PublishedFileDetails::set_revision_change_number(::PROTOBUF_NAMESPAC
   // @@protoc_insertion_point(field_set:PublishedFileDetails.revision_change_number)
 }
 
-// optional .EPublishedFileRevision revision = 68 [default = EPublishedFileRevision_Default, (.description) = "The revision of the data returned, usually EPublishedFileRevision_Latest, but can be another revision/snapshot depending on the caller."];
+// optional .EPublishedFileRevision revision = 68 [default = EPublishedFileRevision_Default];
 inline bool PublishedFileDetails::_internal_has_revision() const {
   bool value = (_has_bits_[1] & 0x20000000u) != 0;
   return value;
@@ -25553,7 +26287,7 @@ inline void PublishedFileDetails::set_revision(::EPublishedFileRevision value) {
   // @@protoc_insertion_point(field_set:PublishedFileDetails.revision)
 }
 
-// repeated .EPublishedFileRevision available_revisions = 69 [(.description) = "Available revisions"];
+// repeated .EPublishedFileRevision available_revisions = 69;
 inline int PublishedFileDetails::_internal_available_revisions_size() const {
   return available_revisions_.size();
 }
@@ -25598,7 +26332,7 @@ PublishedFileDetails::mutable_available_revisions() {
   return _internal_mutable_available_revisions();
 }
 
-// repeated .PublishedFileDetails.Reaction reactions = 70 [(.description) = "Reactions to this item"];
+// repeated .PublishedFileDetails.Reaction reactions = 70;
 inline int PublishedFileDetails::_internal_reactions_size() const {
   return reactions_.size();
 }
@@ -25666,7 +26400,7 @@ inline void PublishedFileDetails::set_ban_text_checresult(::EBanContentCheckResu
   // @@protoc_insertion_point(field_set:PublishedFileDetails.ban_text_checresult)
 }
 
-// optional float search_score = 73 [(.description) = "Search score, admin only"];
+// optional float search_score = 73;
 inline bool PublishedFileDetails::_internal_has_search_score() const {
   bool value = (_has_bits_[1] & 0x80000000u) != 0;
   return value;
@@ -25692,6 +26426,34 @@ inline void PublishedFileDetails::_internal_set_search_score(float value) {
 inline void PublishedFileDetails::set_search_score(float value) {
   _internal_set_search_score(value);
   // @@protoc_insertion_point(field_set:PublishedFileDetails.search_score)
+}
+
+// optional uint64 external_asset_id = 74;
+inline bool PublishedFileDetails::_internal_has_external_asset_id() const {
+  bool value = (_has_bits_[2] & 0x00000001u) != 0;
+  return value;
+}
+inline bool PublishedFileDetails::has_external_asset_id() const {
+  return _internal_has_external_asset_id();
+}
+inline void PublishedFileDetails::clear_external_asset_id() {
+  external_asset_id_ = PROTOBUF_ULONGLONG(0);
+  _has_bits_[2] &= ~0x00000001u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 PublishedFileDetails::_internal_external_asset_id() const {
+  return external_asset_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 PublishedFileDetails::external_asset_id() const {
+  // @@protoc_insertion_point(field_get:PublishedFileDetails.external_asset_id)
+  return _internal_external_asset_id();
+}
+inline void PublishedFileDetails::_internal_set_external_asset_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _has_bits_[2] |= 0x00000001u;
+  external_asset_id_ = value;
+}
+inline void PublishedFileDetails::set_external_asset_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_external_asset_id(value);
+  // @@protoc_insertion_point(field_set:PublishedFileDetails.external_asset_id)
 }
 
 // -------------------------------------------------------------------
@@ -25797,7 +26559,7 @@ inline void CPublishedFile_GetItemInfo_Request_WorkshopItem::set_time_updated(::
   // @@protoc_insertion_point(field_set:CPublishedFile_GetItemInfo_Request.WorkshopItem.time_updated)
 }
 
-// optional .EPublishedFileRevision desired_revision = 3 [default = EPublishedFileRevision_Default, (.description) = "Return the data for the specified revision."];
+// optional .EPublishedFileRevision desired_revision = 3 [default = EPublishedFileRevision_Default];
 inline bool CPublishedFile_GetItemInfo_Request_WorkshopItem::_internal_has_desired_revision() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -26391,7 +27153,7 @@ CPublishedFile_GetUserFiles_Request_TagGroup::mutable_tags() {
 
 // CPublishedFile_GetUserFiles_Request
 
-// optional fixed64 steamid = 1 [(.description) = "Steam ID of the user whose files are being requested."];
+// optional fixed64 steamid = 1;
 inline bool CPublishedFile_GetUserFiles_Request::_internal_has_steamid() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -26419,7 +27181,7 @@ inline void CPublishedFile_GetUserFiles_Request::set_steamid(::PROTOBUF_NAMESPAC
   // @@protoc_insertion_point(field_set:CPublishedFile_GetUserFiles_Request.steamid)
 }
 
-// optional uint32 appid = 2 [(.description) = "App Id of the app that the files were published to."];
+// optional uint32 appid = 2;
 inline bool CPublishedFile_GetUserFiles_Request::_internal_has_appid() const {
   bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
@@ -26447,7 +27209,7 @@ inline void CPublishedFile_GetUserFiles_Request::set_appid(::PROTOBUF_NAMESPACE_
   // @@protoc_insertion_point(field_set:CPublishedFile_GetUserFiles_Request.appid)
 }
 
-// optional uint32 shortcutid = 3 [(.description) = "(Optional) Shortcut Id to retrieve published files from."];
+// optional uint32 shortcutid = 3;
 inline bool CPublishedFile_GetUserFiles_Request::_internal_has_shortcutid() const {
   bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
@@ -26475,7 +27237,7 @@ inline void CPublishedFile_GetUserFiles_Request::set_shortcutid(::PROTOBUF_NAMES
   // @@protoc_insertion_point(field_set:CPublishedFile_GetUserFiles_Request.shortcutid)
 }
 
-// optional uint32 page = 4 [default = 1, (.description) = "(Optional) Starting page for results."];
+// optional uint32 page = 4 [default = 1];
 inline bool CPublishedFile_GetUserFiles_Request::_internal_has_page() const {
   bool value = (_has_bits_[0] & 0x08000000u) != 0;
   return value;
@@ -26503,7 +27265,7 @@ inline void CPublishedFile_GetUserFiles_Request::set_page(::PROTOBUF_NAMESPACE_I
   // @@protoc_insertion_point(field_set:CPublishedFile_GetUserFiles_Request.page)
 }
 
-// optional uint32 numperpage = 5 [default = 1, (.description) = "(Optional) The number of results, per page to return."];
+// optional uint32 numperpage = 5 [default = 1];
 inline bool CPublishedFile_GetUserFiles_Request::_internal_has_numperpage() const {
   bool value = (_has_bits_[0] & 0x10000000u) != 0;
   return value;
@@ -26531,7 +27293,7 @@ inline void CPublishedFile_GetUserFiles_Request::set_numperpage(::PROTOBUF_NAMES
   // @@protoc_insertion_point(field_set:CPublishedFile_GetUserFiles_Request.numperpage)
 }
 
-// optional string type = 6 [default = "myfiles", (.description) = "(Optional) Type of files to be returned."];
+// optional string type = 6 [default = "myfiles"];
 inline bool CPublishedFile_GetUserFiles_Request::_internal_has_type() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -26605,7 +27367,7 @@ inline void CPublishedFile_GetUserFiles_Request::set_allocated_type(std::string*
   // @@protoc_insertion_point(field_set_allocated:CPublishedFile_GetUserFiles_Request.type)
 }
 
-// optional string sortmethod = 7 [default = "lastupdated", (.description) = "(Optional) Sorting method to use on returned values."];
+// optional string sortmethod = 7 [default = "lastupdated"];
 inline bool CPublishedFile_GetUserFiles_Request::_internal_has_sortmethod() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -26679,7 +27441,7 @@ inline void CPublishedFile_GetUserFiles_Request::set_allocated_sortmethod(std::s
   // @@protoc_insertion_point(field_set_allocated:CPublishedFile_GetUserFiles_Request.sortmethod)
 }
 
-// optional uint32 privacy = 9 [(.description) = "(optional) Filter by privacy settings."];
+// optional uint32 privacy = 9;
 inline bool CPublishedFile_GetUserFiles_Request::_internal_has_privacy() const {
   bool value = (_has_bits_[0] & 0x00000040u) != 0;
   return value;
@@ -26707,7 +27469,7 @@ inline void CPublishedFile_GetUserFiles_Request::set_privacy(::PROTOBUF_NAMESPAC
   // @@protoc_insertion_point(field_set:CPublishedFile_GetUserFiles_Request.privacy)
 }
 
-// repeated string requiredtags = 10 [(.description) = "(Optional) Tags that must be present on a published file to satisfy the query."];
+// repeated string requiredtags = 10;
 inline int CPublishedFile_GetUserFiles_Request::_internal_requiredtags_size() const {
   return requiredtags_.size();
 }
@@ -26781,7 +27543,7 @@ CPublishedFile_GetUserFiles_Request::mutable_requiredtags() {
   return &requiredtags_;
 }
 
-// repeated string excludedtags = 11 [(.description) = "(Optional) Tags that must NOT be present on a published file to satisfy the query."];
+// repeated string excludedtags = 11;
 inline int CPublishedFile_GetUserFiles_Request::_internal_excludedtags_size() const {
   return excludedtags_.size();
 }
@@ -26855,7 +27617,7 @@ CPublishedFile_GetUserFiles_Request::mutable_excludedtags() {
   return &excludedtags_;
 }
 
-// repeated .CPublishedFile_GetUserFiles_Request.KVTag required_kv_tags = 30 [(.description) = "Required key-value tags to match on."];
+// repeated .CPublishedFile_GetUserFiles_Request.KVTag required_kv_tags = 30;
 inline int CPublishedFile_GetUserFiles_Request::_internal_required_kv_tags_size() const {
   return required_kv_tags_.size();
 }
@@ -26894,7 +27656,7 @@ CPublishedFile_GetUserFiles_Request::required_kv_tags() const {
   return required_kv_tags_;
 }
 
-// optional uint32 filetype = 14 [(.description) = "(Optional) File type to match files to."];
+// optional uint32 filetype = 14;
 inline bool CPublishedFile_GetUserFiles_Request::_internal_has_filetype() const {
   bool value = (_has_bits_[0] & 0x00000080u) != 0;
   return value;
@@ -26922,7 +27684,7 @@ inline void CPublishedFile_GetUserFiles_Request::set_filetype(::PROTOBUF_NAMESPA
   // @@protoc_insertion_point(field_set:CPublishedFile_GetUserFiles_Request.filetype)
 }
 
-// optional uint32 creator_appid = 15 [(.description) = "App Id of the app that published the files, only matched if specified."];
+// optional uint32 creator_appid = 15;
 inline bool CPublishedFile_GetUserFiles_Request::_internal_has_creator_appid() const {
   bool value = (_has_bits_[0] & 0x00000100u) != 0;
   return value;
@@ -26950,7 +27712,7 @@ inline void CPublishedFile_GetUserFiles_Request::set_creator_appid(::PROTOBUF_NA
   // @@protoc_insertion_point(field_set:CPublishedFile_GetUserFiles_Request.creator_appid)
 }
 
-// optional string match_cloud_filename = 16 [(.description) = "Match this cloud filename if specified."];
+// optional string match_cloud_filename = 16;
 inline bool CPublishedFile_GetUserFiles_Request::_internal_has_match_cloud_filename() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -27023,7 +27785,7 @@ inline void CPublishedFile_GetUserFiles_Request::set_allocated_match_cloud_filen
   // @@protoc_insertion_point(field_set_allocated:CPublishedFile_GetUserFiles_Request.match_cloud_filename)
 }
 
-// optional uint32 cache_max_age_seconds = 27 [default = 0, (.description) = "Allow stale data to be returned for the specified number of seconds."];
+// optional uint32 cache_max_age_seconds = 27 [default = 0];
 inline bool CPublishedFile_GetUserFiles_Request::_internal_has_cache_max_age_seconds() const {
   bool value = (_has_bits_[0] & 0x00004000u) != 0;
   return value;
@@ -27051,7 +27813,7 @@ inline void CPublishedFile_GetUserFiles_Request::set_cache_max_age_seconds(::PRO
   // @@protoc_insertion_point(field_set:CPublishedFile_GetUserFiles_Request.cache_max_age_seconds)
 }
 
-// optional int32 language = 29 [default = 0, (.description) = "Specifies the localized text to return. Defaults to English."];
+// optional int32 language = 29 [default = 0];
 inline bool CPublishedFile_GetUserFiles_Request::_internal_has_language() const {
   bool value = (_has_bits_[0] & 0x00080000u) != 0;
   return value;
@@ -27079,7 +27841,7 @@ inline void CPublishedFile_GetUserFiles_Request::set_language(::PROTOBUF_NAMESPA
   // @@protoc_insertion_point(field_set:CPublishedFile_GetUserFiles_Request.language)
 }
 
-// repeated .CPublishedFile_GetUserFiles_Request.TagGroup taggroups = 34 [(.description) = "(Optional) At least one of the tags must be present on a published file to satisfy the query."];
+// repeated .CPublishedFile_GetUserFiles_Request.TagGroup taggroups = 34;
 inline int CPublishedFile_GetUserFiles_Request::_internal_taggroups_size() const {
   return taggroups_.size();
 }
@@ -27118,7 +27880,7 @@ CPublishedFile_GetUserFiles_Request::taggroups() const {
   return taggroups_;
 }
 
-// repeated .EContentDescriptorID excluded_content_descriptors = 37 [(.description) = "(Optional) Filter out items that have these content descriptors."];
+// repeated .EContentDescriptorID excluded_content_descriptors = 37;
 inline int CPublishedFile_GetUserFiles_Request::_internal_excluded_content_descriptors_size() const {
   return excluded_content_descriptors_.size();
 }
@@ -27163,7 +27925,7 @@ CPublishedFile_GetUserFiles_Request::mutable_excluded_content_descriptors() {
   return _internal_mutable_excluded_content_descriptors();
 }
 
-// optional bool totalonly = 17 [(.description) = "(Optional) If true, only return the total number of files that satisfy this query."];
+// optional bool totalonly = 17;
 inline bool CPublishedFile_GetUserFiles_Request::_internal_has_totalonly() const {
   bool value = (_has_bits_[0] & 0x00000200u) != 0;
   return value;
@@ -27191,7 +27953,7 @@ inline void CPublishedFile_GetUserFiles_Request::set_totalonly(bool value) {
   // @@protoc_insertion_point(field_set:CPublishedFile_GetUserFiles_Request.totalonly)
 }
 
-// optional bool ids_only = 18 [(.description) = "(Optional) If true, only return the published file ids of files that satisfy this query."];
+// optional bool ids_only = 18;
 inline bool CPublishedFile_GetUserFiles_Request::_internal_has_ids_only() const {
   bool value = (_has_bits_[0] & 0x00000400u) != 0;
   return value;
@@ -27219,7 +27981,7 @@ inline void CPublishedFile_GetUserFiles_Request::set_ids_only(bool value) {
   // @@protoc_insertion_point(field_set:CPublishedFile_GetUserFiles_Request.ids_only)
 }
 
-// optional bool return_vote_data = 19 [default = true, (.description) = "Return vote data"];
+// optional bool return_vote_data = 19 [default = true];
 inline bool CPublishedFile_GetUserFiles_Request::_internal_has_return_vote_data() const {
   bool value = (_has_bits_[0] & 0x01000000u) != 0;
   return value;
@@ -27247,7 +28009,7 @@ inline void CPublishedFile_GetUserFiles_Request::set_return_vote_data(bool value
   // @@protoc_insertion_point(field_set:CPublishedFile_GetUserFiles_Request.return_vote_data)
 }
 
-// optional bool return_tags = 20 [(.description) = "Return tags in the file details"];
+// optional bool return_tags = 20;
 inline bool CPublishedFile_GetUserFiles_Request::_internal_has_return_tags() const {
   bool value = (_has_bits_[0] & 0x00000800u) != 0;
   return value;
@@ -27275,7 +28037,7 @@ inline void CPublishedFile_GetUserFiles_Request::set_return_tags(bool value) {
   // @@protoc_insertion_point(field_set:CPublishedFile_GetUserFiles_Request.return_tags)
 }
 
-// optional bool return_kv_tags = 21 [default = true, (.description) = "Return key-value tags in the file details"];
+// optional bool return_kv_tags = 21 [default = true];
 inline bool CPublishedFile_GetUserFiles_Request::_internal_has_return_kv_tags() const {
   bool value = (_has_bits_[0] & 0x02000000u) != 0;
   return value;
@@ -27303,7 +28065,7 @@ inline void CPublishedFile_GetUserFiles_Request::set_return_kv_tags(bool value) 
   // @@protoc_insertion_point(field_set:CPublishedFile_GetUserFiles_Request.return_kv_tags)
 }
 
-// optional bool return_previews = 22 [(.description) = "Return preview image and video details in the file details"];
+// optional bool return_previews = 22;
 inline bool CPublishedFile_GetUserFiles_Request::_internal_has_return_previews() const {
   bool value = (_has_bits_[0] & 0x00001000u) != 0;
   return value;
@@ -27331,7 +28093,7 @@ inline void CPublishedFile_GetUserFiles_Request::set_return_previews(bool value)
   // @@protoc_insertion_point(field_set:CPublishedFile_GetUserFiles_Request.return_previews)
 }
 
-// optional bool return_children = 23 [(.description) = "Return child item ids in the file details"];
+// optional bool return_children = 23;
 inline bool CPublishedFile_GetUserFiles_Request::_internal_has_return_children() const {
   bool value = (_has_bits_[0] & 0x00008000u) != 0;
   return value;
@@ -27359,7 +28121,7 @@ inline void CPublishedFile_GetUserFiles_Request::set_return_children(bool value)
   // @@protoc_insertion_point(field_set:CPublishedFile_GetUserFiles_Request.return_children)
 }
 
-// optional bool return_short_description = 24 [default = true, (.description) = "Populate the short_description field instead of file_description"];
+// optional bool return_short_description = 24 [default = true];
 inline bool CPublishedFile_GetUserFiles_Request::_internal_has_return_short_description() const {
   bool value = (_has_bits_[0] & 0x04000000u) != 0;
   return value;
@@ -27387,7 +28149,7 @@ inline void CPublishedFile_GetUserFiles_Request::set_return_short_description(bo
   // @@protoc_insertion_point(field_set:CPublishedFile_GetUserFiles_Request.return_short_description)
 }
 
-// optional bool return_for_sale_data = 26 [(.description) = "Return pricing information, if applicable"];
+// optional bool return_for_sale_data = 26;
 inline bool CPublishedFile_GetUserFiles_Request::_internal_has_return_for_sale_data() const {
   bool value = (_has_bits_[0] & 0x00010000u) != 0;
   return value;
@@ -27415,7 +28177,7 @@ inline void CPublishedFile_GetUserFiles_Request::set_return_for_sale_data(bool v
   // @@protoc_insertion_point(field_set:CPublishedFile_GetUserFiles_Request.return_for_sale_data)
 }
 
-// optional bool return_metadata = 28 [default = false, (.description) = "Populate the metadata field"];
+// optional bool return_metadata = 28 [default = false];
 inline bool CPublishedFile_GetUserFiles_Request::_internal_has_return_metadata() const {
   bool value = (_has_bits_[0] & 0x00020000u) != 0;
   return value;
@@ -27443,7 +28205,7 @@ inline void CPublishedFile_GetUserFiles_Request::set_return_metadata(bool value)
   // @@protoc_insertion_point(field_set:CPublishedFile_GetUserFiles_Request.return_metadata)
 }
 
-// optional uint32 return_playtime_stats = 31 [(.description) = "Return playtime stats for the specified number of days before today."];
+// optional uint32 return_playtime_stats = 31;
 inline bool CPublishedFile_GetUserFiles_Request::_internal_has_return_playtime_stats() const {
   bool value = (_has_bits_[0] & 0x00100000u) != 0;
   return value;
@@ -27471,7 +28233,7 @@ inline void CPublishedFile_GetUserFiles_Request::set_return_playtime_stats(::PRO
   // @@protoc_insertion_point(field_set:CPublishedFile_GetUserFiles_Request.return_playtime_stats)
 }
 
-// optional bool strip_description_bbcode = 32 [(.description) = "Strips BBCode from descriptions."];
+// optional bool strip_description_bbcode = 32;
 inline bool CPublishedFile_GetUserFiles_Request::_internal_has_strip_description_bbcode() const {
   bool value = (_has_bits_[0] & 0x00040000u) != 0;
   return value;
@@ -27499,7 +28261,7 @@ inline void CPublishedFile_GetUserFiles_Request::set_strip_description_bbcode(bo
   // @@protoc_insertion_point(field_set:CPublishedFile_GetUserFiles_Request.strip_description_bbcode)
 }
 
-// optional bool return_reactions = 35 [default = false, (.description) = "If true, then reactions to items will be returned."];
+// optional bool return_reactions = 35 [default = false];
 inline bool CPublishedFile_GetUserFiles_Request::_internal_has_return_reactions() const {
   bool value = (_has_bits_[0] & 0x00400000u) != 0;
   return value;
@@ -27527,7 +28289,7 @@ inline void CPublishedFile_GetUserFiles_Request::set_return_reactions(bool value
   // @@protoc_insertion_point(field_set:CPublishedFile_GetUserFiles_Request.return_reactions)
 }
 
-// optional uint32 startindex_override = 25 [(.description) = "Backwards compatible for the client."];
+// optional uint32 startindex_override = 25;
 inline bool CPublishedFile_GetUserFiles_Request::_internal_has_startindex_override() const {
   bool value = (_has_bits_[0] & 0x00002000u) != 0;
   return value;
@@ -27555,7 +28317,7 @@ inline void CPublishedFile_GetUserFiles_Request::set_startindex_override(::PROTO
   // @@protoc_insertion_point(field_set:CPublishedFile_GetUserFiles_Request.startindex_override)
 }
 
-// optional .EPublishedFileRevision desired_revision = 33 [default = EPublishedFileRevision_Default, (.description) = "Return the data for the specified revision."];
+// optional .EPublishedFileRevision desired_revision = 33 [default = EPublishedFileRevision_Default];
 inline bool CPublishedFile_GetUserFiles_Request::_internal_has_desired_revision() const {
   bool value = (_has_bits_[0] & 0x00200000u) != 0;
   return value;
@@ -27584,7 +28346,7 @@ inline void CPublishedFile_GetUserFiles_Request::set_desired_revision(::EPublish
   // @@protoc_insertion_point(field_set:CPublishedFile_GetUserFiles_Request.desired_revision)
 }
 
-// optional bool return_apps = 36 [(.description) = "Return list of apps the items belong to"];
+// optional bool return_apps = 36;
 inline bool CPublishedFile_GetUserFiles_Request::_internal_has_return_apps() const {
   bool value = (_has_bits_[0] & 0x00800000u) != 0;
   return value;
@@ -27990,7 +28752,7 @@ CPublishedFile_AreFilesInSubscriptionList_Request::mutable_publishedfileids() {
   return _internal_mutable_publishedfileids();
 }
 
-// optional uint32 listtype = 3 [(.description) = "See EUCMListType"];
+// optional uint32 listtype = 3;
 inline bool CPublishedFile_AreFilesInSubscriptionList_Request::_internal_has_listtype() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -28018,7 +28780,7 @@ inline void CPublishedFile_AreFilesInSubscriptionList_Request::set_listtype(::PR
   // @@protoc_insertion_point(field_set:CPublishedFile_AreFilesInSubscriptionList_Request.listtype)
 }
 
-// optional uint32 filetype = 4 [(.description) = "See EPublishedFileInfoMatchingFileType"];
+// optional uint32 filetype = 4;
 inline bool CPublishedFile_AreFilesInSubscriptionList_Request::_internal_has_filetype() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -28046,7 +28808,7 @@ inline void CPublishedFile_AreFilesInSubscriptionList_Request::set_filetype(::PR
   // @@protoc_insertion_point(field_set:CPublishedFile_AreFilesInSubscriptionList_Request.filetype)
 }
 
-// optional uint32 workshopfiletype = 5 [(.description) = "See EWorkshopFileType.  If specified, overrides filetype"];
+// optional uint32 workshopfiletype = 5;
 inline bool CPublishedFile_AreFilesInSubscriptionList_Request::_internal_has_workshopfiletype() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -28181,7 +28943,7 @@ CPublishedFile_AreFilesInSubscriptionList_Response::files() const {
 
 // CPublishedFile_Update_Request
 
-// optional uint32 appid = 1 [(.description) = "App Id this published file belongs to."];
+// optional uint32 appid = 1;
 inline bool CPublishedFile_Update_Request::_internal_has_appid() const {
   bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
@@ -28209,7 +28971,7 @@ inline void CPublishedFile_Update_Request::set_appid(::PROTOBUF_NAMESPACE_ID::ui
   // @@protoc_insertion_point(field_set:CPublishedFile_Update_Request.appid)
 }
 
-// optional fixed64 publishedfileid = 2 [(.description) = "Published file id of the file we\'d like to update."];
+// optional fixed64 publishedfileid = 2;
 inline bool CPublishedFile_Update_Request::_internal_has_publishedfileid() const {
   bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
@@ -28237,7 +28999,7 @@ inline void CPublishedFile_Update_Request::set_publishedfileid(::PROTOBUF_NAMESP
   // @@protoc_insertion_point(field_set:CPublishedFile_Update_Request.publishedfileid)
 }
 
-// optional string title = 3 [(.description) = "(Optional) Title of the published file."];
+// optional string title = 3;
 inline bool CPublishedFile_Update_Request::_internal_has_title() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -28310,7 +29072,7 @@ inline void CPublishedFile_Update_Request::set_allocated_title(std::string* titl
   // @@protoc_insertion_point(field_set_allocated:CPublishedFile_Update_Request.title)
 }
 
-// optional string file_description = 4 [(.description) = "(Optional) Description of the published file."];
+// optional string file_description = 4;
 inline bool CPublishedFile_Update_Request::_internal_has_file_description() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -28383,7 +29145,7 @@ inline void CPublishedFile_Update_Request::set_allocated_file_description(std::s
   // @@protoc_insertion_point(field_set_allocated:CPublishedFile_Update_Request.file_description)
 }
 
-// optional uint32 visibility = 5 [(.description) = "(Optional) Visibility of the published file."];
+// optional uint32 visibility = 5;
 inline bool CPublishedFile_Update_Request::_internal_has_visibility() const {
   bool value = (_has_bits_[0] & 0x00000040u) != 0;
   return value;
@@ -28411,7 +29173,7 @@ inline void CPublishedFile_Update_Request::set_visibility(::PROTOBUF_NAMESPACE_I
   // @@protoc_insertion_point(field_set:CPublishedFile_Update_Request.visibility)
 }
 
-// repeated string tags = 6 [(.description) = "(Optional) Set of tags for the published file."];
+// repeated string tags = 6;
 inline int CPublishedFile_Update_Request::_internal_tags_size() const {
   return tags_.size();
 }
@@ -28485,7 +29247,7 @@ CPublishedFile_Update_Request::mutable_tags() {
   return &tags_;
 }
 
-// optional string filename = 7 [(.description) = "(Optional) Filename for the published file."];
+// optional string filename = 7;
 inline bool CPublishedFile_Update_Request::_internal_has_filename() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -28558,7 +29320,7 @@ inline void CPublishedFile_Update_Request::set_allocated_filename(std::string* f
   // @@protoc_insertion_point(field_set_allocated:CPublishedFile_Update_Request.filename)
 }
 
-// optional string preview_filename = 8 [(.description) = "(Optional) Preview filename for the published file."];
+// optional string preview_filename = 8;
 inline bool CPublishedFile_Update_Request::_internal_has_preview_filename() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -28631,7 +29393,7 @@ inline void CPublishedFile_Update_Request::set_allocated_preview_filename(std::s
   // @@protoc_insertion_point(field_set_allocated:CPublishedFile_Update_Request.preview_filename)
 }
 
-// optional bool spoiler_tag = 10 [(.description) = "(Optional) Whether this published file should have a spoiler tag attached to it."];
+// optional bool spoiler_tag = 10;
 inline bool CPublishedFile_Update_Request::_internal_has_spoiler_tag() const {
   bool value = (_has_bits_[0] & 0x00000080u) != 0;
   return value;
@@ -28659,7 +29421,7 @@ inline void CPublishedFile_Update_Request::set_spoiler_tag(bool value) {
   // @@protoc_insertion_point(field_set:CPublishedFile_Update_Request.spoiler_tag)
 }
 
-// optional uint32 image_width = 15 [(.description) = "(Optional) If this is an image file, you can specify the image width."];
+// optional uint32 image_width = 15;
 inline bool CPublishedFile_Update_Request::_internal_has_image_width() const {
   bool value = (_has_bits_[0] & 0x00000100u) != 0;
   return value;
@@ -28687,7 +29449,7 @@ inline void CPublishedFile_Update_Request::set_image_width(::PROTOBUF_NAMESPACE_
   // @@protoc_insertion_point(field_set:CPublishedFile_Update_Request.image_width)
 }
 
-// optional uint32 image_height = 16 [(.description) = "(Optional) If this is an image file, you can specify the image height."];
+// optional uint32 image_height = 16;
 inline bool CPublishedFile_Update_Request::_internal_has_image_height() const {
   bool value = (_has_bits_[0] & 0x00000200u) != 0;
   return value;
@@ -28715,7 +29477,7 @@ inline void CPublishedFile_Update_Request::set_image_height(::PROTOBUF_NAMESPACE
   // @@protoc_insertion_point(field_set:CPublishedFile_Update_Request.image_height)
 }
 
-// optional int32 language = 17 [(.description) = "(Optional) If setting title & description, what language to set"];
+// optional int32 language = 17;
 inline bool CPublishedFile_Update_Request::_internal_has_language() const {
   bool value = (_has_bits_[0] & 0x00000400u) != 0;
   return value;
@@ -28751,7 +29513,7 @@ inline void CPublishedFile_Update_Request::set_language(::PROTOBUF_NAMESPACE_ID:
 
 // CPublishedFile_Delete_Request
 
-// optional fixed64 publishedfileid = 1 [(.description) = "Published file id of the file we\'d like to delete."];
+// optional fixed64 publishedfileid = 1;
 inline bool CPublishedFile_Delete_Request::_internal_has_publishedfileid() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -28815,7 +29577,7 @@ inline void CPublishedFile_Delete_Request::set_appid(::PROTOBUF_NAMESPACE_ID::ui
 
 // CPublishedFile_GetChangeHistoryEntry_Request
 
-// optional fixed64 publishedfileid = 1 [(.description) = "Published file id of the file we\'d like to get the change history for."];
+// optional fixed64 publishedfileid = 1;
 inline bool CPublishedFile_GetChangeHistoryEntry_Request::_internal_has_publishedfileid() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -29008,7 +29770,7 @@ inline void CPublishedFile_GetChangeHistoryEntry_Response::set_language(::PROTOB
 
 // CPublishedFile_GetChangeHistory_Request
 
-// optional fixed64 publishedfileid = 1 [(.description) = "Published file id of the file we\'d like to get the change history for."];
+// optional fixed64 publishedfileid = 1;
 inline bool CPublishedFile_GetChangeHistory_Request::_internal_has_publishedfileid() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -29036,7 +29798,7 @@ inline void CPublishedFile_GetChangeHistory_Request::set_publishedfileid(::PROTO
   // @@protoc_insertion_point(field_set:CPublishedFile_GetChangeHistory_Request.publishedfileid)
 }
 
-// optional bool total_only = 2 [(.description) = "Return the total number of changes only."];
+// optional bool total_only = 2;
 inline bool CPublishedFile_GetChangeHistory_Request::_internal_has_total_only() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -29120,7 +29882,7 @@ inline void CPublishedFile_GetChangeHistory_Request::set_count(::PROTOBUF_NAMESP
   // @@protoc_insertion_point(field_set:CPublishedFile_GetChangeHistory_Request.count)
 }
 
-// optional int32 language = 5 [default = 0, (.description) = "Desired language"];
+// optional int32 language = 5 [default = 0];
 inline bool CPublishedFile_GetChangeHistory_Request::_internal_has_language() const {
   bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
@@ -29384,7 +30146,7 @@ inline void CPublishedFile_RefreshVotingQueue_Request::set_appid(::PROTOBUF_NAME
   // @@protoc_insertion_point(field_set:CPublishedFile_RefreshVotingQueue_Request.appid)
 }
 
-// optional uint32 matching_file_type = 2 [(.description) = "EPublishedFileInfoMatchingFileType"];
+// optional uint32 matching_file_type = 2;
 inline bool CPublishedFile_RefreshVotingQueue_Request::_internal_has_matching_file_type() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -29412,7 +30174,7 @@ inline void CPublishedFile_RefreshVotingQueue_Request::set_matching_file_type(::
   // @@protoc_insertion_point(field_set:CPublishedFile_RefreshVotingQueue_Request.matching_file_type)
 }
 
-// repeated string tags = 3 [(.description) = "Include files that have all the tags or any of the tags if match_all_tags is set to false."];
+// repeated string tags = 3;
 inline int CPublishedFile_RefreshVotingQueue_Request::_internal_tags_size() const {
   return tags_.size();
 }
@@ -29486,7 +30248,7 @@ CPublishedFile_RefreshVotingQueue_Request::mutable_tags() {
   return &tags_;
 }
 
-// optional bool match_all_tags = 4 [default = true, (.description) = "If true, then files must have all the tags specified.  If false, then must have at least one of the tags specified."];
+// optional bool match_all_tags = 4 [default = true];
 inline bool CPublishedFile_RefreshVotingQueue_Request::_internal_has_match_all_tags() const {
   bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
@@ -29514,7 +30276,7 @@ inline void CPublishedFile_RefreshVotingQueue_Request::set_match_all_tags(bool v
   // @@protoc_insertion_point(field_set:CPublishedFile_RefreshVotingQueue_Request.match_all_tags)
 }
 
-// repeated string excluded_tags = 5 [(.description) = "Exclude any files that have any of these tags."];
+// repeated string excluded_tags = 5;
 inline int CPublishedFile_RefreshVotingQueue_Request::_internal_excluded_tags_size() const {
   return excluded_tags_.size();
 }
@@ -29588,7 +30350,7 @@ CPublishedFile_RefreshVotingQueue_Request::mutable_excluded_tags() {
   return &excluded_tags_;
 }
 
-// optional uint32 desired_queue_size = 6 [(.description) = "Desired number of items in the voting queue.  May be clamped by the server"];
+// optional uint32 desired_queue_size = 6;
 inline bool CPublishedFile_RefreshVotingQueue_Request::_internal_has_desired_queue_size() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -29616,7 +30378,7 @@ inline void CPublishedFile_RefreshVotingQueue_Request::set_desired_queue_size(::
   // @@protoc_insertion_point(field_set:CPublishedFile_RefreshVotingQueue_Request.desired_queue_size)
 }
 
-// optional .EPublishedFileRevision desired_revision = 8 [default = EPublishedFileRevision_Default, (.description) = "Filter to items that have data for the specified revision."];
+// optional .EPublishedFileRevision desired_revision = 8 [default = EPublishedFileRevision_Default];
 inline bool CPublishedFile_RefreshVotingQueue_Request::_internal_has_desired_revision() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -29881,7 +30643,7 @@ CPublishedFile_QueryFiles_Request_TagGroup::mutable_tags() {
 
 // CPublishedFile_QueryFiles_Request_DateRange
 
-// optional uint32 timestamp_start = 1 [(.description) = "(Optional) Include items with the relevant date field after this value."];
+// optional uint32 timestamp_start = 1;
 inline bool CPublishedFile_QueryFiles_Request_DateRange::_internal_has_timestamp_start() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -29909,7 +30671,7 @@ inline void CPublishedFile_QueryFiles_Request_DateRange::set_timestamp_start(::P
   // @@protoc_insertion_point(field_set:CPublishedFile_QueryFiles_Request.DateRange.timestamp_start)
 }
 
-// optional uint32 timestamp_end = 2 [(.description) = "(Optional) Include items with the relevant date field before this value."];
+// optional uint32 timestamp_end = 2;
 inline bool CPublishedFile_QueryFiles_Request_DateRange::_internal_has_timestamp_end() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -29941,7 +30703,7 @@ inline void CPublishedFile_QueryFiles_Request_DateRange::set_timestamp_end(::PRO
 
 // CPublishedFile_QueryFiles_Request
 
-// optional uint32 query_type = 1 [(.description) = "enumeration EPublishedFileQueryType in clientenums.h"];
+// optional uint32 query_type = 1;
 inline bool CPublishedFile_QueryFiles_Request::_internal_has_query_type() const {
   bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
@@ -29969,7 +30731,7 @@ inline void CPublishedFile_QueryFiles_Request::set_query_type(::PROTOBUF_NAMESPA
   // @@protoc_insertion_point(field_set:CPublishedFile_QueryFiles_Request.query_type)
 }
 
-// optional uint32 page = 2 [(.description) = "Current page"];
+// optional uint32 page = 2;
 inline bool CPublishedFile_QueryFiles_Request::_internal_has_page() const {
   bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
@@ -29997,7 +30759,7 @@ inline void CPublishedFile_QueryFiles_Request::set_page(::PROTOBUF_NAMESPACE_ID:
   // @@protoc_insertion_point(field_set:CPublishedFile_QueryFiles_Request.page)
 }
 
-// optional string cursor = 39 [(.description) = "Cursor to paginate through the results (set to \'*\' for the first request).  Prefer this over using the page parameter, as it will allow you to do deep pagination.  When used, the page parameter will be ignored."];
+// optional string cursor = 39;
 inline bool CPublishedFile_QueryFiles_Request::_internal_has_cursor() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -30070,7 +30832,7 @@ inline void CPublishedFile_QueryFiles_Request::set_allocated_cursor(std::string*
   // @@protoc_insertion_point(field_set_allocated:CPublishedFile_QueryFiles_Request.cursor)
 }
 
-// optional uint32 numperpage = 3 [default = 1, (.description) = "(Optional) The number of results, per page to return."];
+// optional uint32 numperpage = 3 [default = 1];
 inline bool CPublishedFile_QueryFiles_Request::_internal_has_numperpage() const {
   bool value = (_has_bits_[0] & 0x20000000u) != 0;
   return value;
@@ -30098,7 +30860,7 @@ inline void CPublishedFile_QueryFiles_Request::set_numperpage(::PROTOBUF_NAMESPA
   // @@protoc_insertion_point(field_set:CPublishedFile_QueryFiles_Request.numperpage)
 }
 
-// optional uint32 creator_appid = 4 [(.description) = "App that created the files"];
+// optional uint32 creator_appid = 4;
 inline bool CPublishedFile_QueryFiles_Request::_internal_has_creator_appid() const {
   bool value = (_has_bits_[0] & 0x00000040u) != 0;
   return value;
@@ -30126,7 +30888,7 @@ inline void CPublishedFile_QueryFiles_Request::set_creator_appid(::PROTOBUF_NAME
   // @@protoc_insertion_point(field_set:CPublishedFile_QueryFiles_Request.creator_appid)
 }
 
-// optional uint32 appid = 5 [(.description) = "App that consumes the files"];
+// optional uint32 appid = 5;
 inline bool CPublishedFile_QueryFiles_Request::_internal_has_appid() const {
   bool value = (_has_bits_[0] & 0x00000080u) != 0;
   return value;
@@ -30154,7 +30916,7 @@ inline void CPublishedFile_QueryFiles_Request::set_appid(::PROTOBUF_NAMESPACE_ID
   // @@protoc_insertion_point(field_set:CPublishedFile_QueryFiles_Request.appid)
 }
 
-// repeated string requiredtags = 6 [(.description) = "Tags to match on. See match_all_tags parameter below"];
+// repeated string requiredtags = 6;
 inline int CPublishedFile_QueryFiles_Request::_internal_requiredtags_size() const {
   return requiredtags_.size();
 }
@@ -30228,7 +30990,7 @@ CPublishedFile_QueryFiles_Request::mutable_requiredtags() {
   return &requiredtags_;
 }
 
-// repeated string excludedtags = 7 [(.description) = "(Optional) Tags that must NOT be present on a published file to satisfy the query."];
+// repeated string excludedtags = 7;
 inline int CPublishedFile_QueryFiles_Request::_internal_excludedtags_size() const {
   return excludedtags_.size();
 }
@@ -30302,7 +31064,7 @@ CPublishedFile_QueryFiles_Request::mutable_excludedtags() {
   return &excludedtags_;
 }
 
-// optional bool match_all_tags = 8 [default = true, (.description) = "If true, then items must have all the tags specified, otherwise they must have at least one of the tags."];
+// optional bool match_all_tags = 8 [default = true];
 inline bool CPublishedFile_QueryFiles_Request::_internal_has_match_all_tags() const {
   bool value = (_has_bits_[0] & 0x40000000u) != 0;
   return value;
@@ -30330,7 +31092,7 @@ inline void CPublishedFile_QueryFiles_Request::set_match_all_tags(bool value) {
   // @@protoc_insertion_point(field_set:CPublishedFile_QueryFiles_Request.match_all_tags)
 }
 
-// repeated string required_flags = 9 [(.description) = "Required flags that must be set on any returned items"];
+// repeated string required_flags = 9;
 inline int CPublishedFile_QueryFiles_Request::_internal_required_flags_size() const {
   return required_flags_.size();
 }
@@ -30404,7 +31166,7 @@ CPublishedFile_QueryFiles_Request::mutable_required_flags() {
   return &required_flags_;
 }
 
-// repeated string omitted_flags = 10 [(.description) = "Flags that must not be set on any returned items"];
+// repeated string omitted_flags = 10;
 inline int CPublishedFile_QueryFiles_Request::_internal_omitted_flags_size() const {
   return omitted_flags_.size();
 }
@@ -30478,7 +31240,7 @@ CPublishedFile_QueryFiles_Request::mutable_omitted_flags() {
   return &omitted_flags_;
 }
 
-// optional string search_text = 11 [(.description) = "Text to match in the item\'s title or description"];
+// optional string search_text = 11;
 inline bool CPublishedFile_QueryFiles_Request::_internal_has_search_text() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -30551,7 +31313,7 @@ inline void CPublishedFile_QueryFiles_Request::set_allocated_search_text(std::st
   // @@protoc_insertion_point(field_set_allocated:CPublishedFile_QueryFiles_Request.search_text)
 }
 
-// optional uint32 filetype = 12 [(.description) = "EPublishedFileInfoMatchingFileType"];
+// optional uint32 filetype = 12;
 inline bool CPublishedFile_QueryFiles_Request::_internal_has_filetype() const {
   bool value = (_has_bits_[0] & 0x00000200u) != 0;
   return value;
@@ -30579,7 +31341,7 @@ inline void CPublishedFile_QueryFiles_Request::set_filetype(::PROTOBUF_NAMESPACE
   // @@protoc_insertion_point(field_set:CPublishedFile_QueryFiles_Request.filetype)
 }
 
-// optional fixed64 child_publishedfileid = 13 [(.description) = "Find all items that reference the given item."];
+// optional fixed64 child_publishedfileid = 13;
 inline bool CPublishedFile_QueryFiles_Request::_internal_has_child_publishedfileid() const {
   bool value = (_has_bits_[0] & 0x00000100u) != 0;
   return value;
@@ -30607,7 +31369,7 @@ inline void CPublishedFile_QueryFiles_Request::set_child_publishedfileid(::PROTO
   // @@protoc_insertion_point(field_set:CPublishedFile_QueryFiles_Request.child_publishedfileid)
 }
 
-// optional uint32 days = 14 [(.description) = "If query_type is PublishedFileQueryType_RankedByTrend, then this is the number of days to get votes for [1,7]."];
+// optional uint32 days = 14;
 inline bool CPublishedFile_QueryFiles_Request::_internal_has_days() const {
   bool value = (_has_bits_[0] & 0x00000400u) != 0;
   return value;
@@ -30635,7 +31397,7 @@ inline void CPublishedFile_QueryFiles_Request::set_days(::PROTOBUF_NAMESPACE_ID:
   // @@protoc_insertion_point(field_set:CPublishedFile_QueryFiles_Request.days)
 }
 
-// optional bool include_recent_votes_only = 15 [(.description) = "If query_type is PublishedFileQueryType_RankedByTrend, then limit result set just to items that have votes within the day range given"];
+// optional bool include_recent_votes_only = 15;
 inline bool CPublishedFile_QueryFiles_Request::_internal_has_include_recent_votes_only() const {
   bool value = (_has_bits_[0] & 0x00008000u) != 0;
   return value;
@@ -30663,7 +31425,7 @@ inline void CPublishedFile_QueryFiles_Request::set_include_recent_votes_only(boo
   // @@protoc_insertion_point(field_set:CPublishedFile_QueryFiles_Request.include_recent_votes_only)
 }
 
-// optional uint32 cache_max_age_seconds = 31 [default = 0, (.description) = "Allow stale data to be returned for the specified number of seconds."];
+// optional uint32 cache_max_age_seconds = 31 [default = 0];
 inline bool CPublishedFile_QueryFiles_Request::_internal_has_cache_max_age_seconds() const {
   bool value = (_has_bits_[0] & 0x00800000u) != 0;
   return value;
@@ -30691,7 +31453,7 @@ inline void CPublishedFile_QueryFiles_Request::set_cache_max_age_seconds(::PROTO
   // @@protoc_insertion_point(field_set:CPublishedFile_QueryFiles_Request.cache_max_age_seconds)
 }
 
-// optional int32 language = 33 [default = 0, (.description) = "Language to search in and also what gets returned. Defaults to English."];
+// optional int32 language = 33 [default = 0];
 inline bool CPublishedFile_QueryFiles_Request::_internal_has_language() const {
   bool value = (_has_bits_[0] & 0x01000000u) != 0;
   return value;
@@ -30719,7 +31481,7 @@ inline void CPublishedFile_QueryFiles_Request::set_language(::PROTOBUF_NAMESPACE
   // @@protoc_insertion_point(field_set:CPublishedFile_QueryFiles_Request.language)
 }
 
-// repeated .CPublishedFile_QueryFiles_Request.KVTag required_kv_tags = 34 [(.description) = "Required key-value tags to match on."];
+// repeated .CPublishedFile_QueryFiles_Request.KVTag required_kv_tags = 34;
 inline int CPublishedFile_QueryFiles_Request::_internal_required_kv_tags_size() const {
   return required_kv_tags_.size();
 }
@@ -30758,7 +31520,7 @@ CPublishedFile_QueryFiles_Request::required_kv_tags() const {
   return required_kv_tags_;
 }
 
-// repeated .CPublishedFile_QueryFiles_Request.TagGroup taggroups = 42 [(.description) = "(Optional) At least one of the tags must be present on a published file to satisfy the query."];
+// repeated .CPublishedFile_QueryFiles_Request.TagGroup taggroups = 42;
 inline int CPublishedFile_QueryFiles_Request::_internal_taggroups_size() const {
   return taggroups_.size();
 }
@@ -30797,7 +31559,7 @@ CPublishedFile_QueryFiles_Request::taggroups() const {
   return taggroups_;
 }
 
-// optional .CPublishedFile_QueryFiles_Request.DateRange date_range_created = 44 [(.description) = "(Optional) Filter to items created within this range."];
+// optional .CPublishedFile_QueryFiles_Request.DateRange date_range_created = 44;
 inline bool CPublishedFile_QueryFiles_Request::_internal_has_date_range_created() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   PROTOBUF_ASSUME(!value || date_range_created_ != nullptr);
@@ -30880,7 +31642,7 @@ inline void CPublishedFile_QueryFiles_Request::set_allocated_date_range_created(
   // @@protoc_insertion_point(field_set_allocated:CPublishedFile_QueryFiles_Request.date_range_created)
 }
 
-// optional .CPublishedFile_QueryFiles_Request.DateRange date_range_updated = 45 [(.description) = "(Optional) Filter to items updated within this range."];
+// optional .CPublishedFile_QueryFiles_Request.DateRange date_range_updated = 45;
 inline bool CPublishedFile_QueryFiles_Request::_internal_has_date_range_updated() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   PROTOBUF_ASSUME(!value || date_range_updated_ != nullptr);
@@ -30963,7 +31725,7 @@ inline void CPublishedFile_QueryFiles_Request::set_allocated_date_range_updated(
   // @@protoc_insertion_point(field_set_allocated:CPublishedFile_QueryFiles_Request.date_range_updated)
 }
 
-// repeated .EContentDescriptorID excluded_content_descriptors = 46 [(.description) = "(Optional) Filter out items that have these content descriptors."];
+// repeated .EContentDescriptorID excluded_content_descriptors = 46;
 inline int CPublishedFile_QueryFiles_Request::_internal_excluded_content_descriptors_size() const {
   return excluded_content_descriptors_.size();
 }
@@ -31008,7 +31770,7 @@ CPublishedFile_QueryFiles_Request::mutable_excluded_content_descriptors() {
   return _internal_mutable_excluded_content_descriptors();
 }
 
-// optional bool totalonly = 16 [(.description) = "(Optional) If true, only return the total number of files that satisfy this query."];
+// optional bool totalonly = 16;
 inline bool CPublishedFile_QueryFiles_Request::_internal_has_totalonly() const {
   bool value = (_has_bits_[0] & 0x00010000u) != 0;
   return value;
@@ -31036,7 +31798,7 @@ inline void CPublishedFile_QueryFiles_Request::set_totalonly(bool value) {
   // @@protoc_insertion_point(field_set:CPublishedFile_QueryFiles_Request.totalonly)
 }
 
-// optional bool ids_only = 35 [(.description) = "(Optional) If true, only return the published file ids of files that satisfy this query."];
+// optional bool ids_only = 35;
 inline bool CPublishedFile_QueryFiles_Request::_internal_has_ids_only() const {
   bool value = (_has_bits_[0] & 0x00020000u) != 0;
   return value;
@@ -31064,7 +31826,7 @@ inline void CPublishedFile_QueryFiles_Request::set_ids_only(bool value) {
   // @@protoc_insertion_point(field_set:CPublishedFile_QueryFiles_Request.ids_only)
 }
 
-// optional bool return_vote_data = 17 [(.description) = "Return vote data"];
+// optional bool return_vote_data = 17;
 inline bool CPublishedFile_QueryFiles_Request::_internal_has_return_vote_data() const {
   bool value = (_has_bits_[0] & 0x00040000u) != 0;
   return value;
@@ -31092,7 +31854,7 @@ inline void CPublishedFile_QueryFiles_Request::set_return_vote_data(bool value) 
   // @@protoc_insertion_point(field_set:CPublishedFile_QueryFiles_Request.return_vote_data)
 }
 
-// optional bool return_tags = 18 [(.description) = "Return tags in the file details"];
+// optional bool return_tags = 18;
 inline bool CPublishedFile_QueryFiles_Request::_internal_has_return_tags() const {
   bool value = (_has_bits_[0] & 0x00000800u) != 0;
   return value;
@@ -31120,7 +31882,7 @@ inline void CPublishedFile_QueryFiles_Request::set_return_tags(bool value) {
   // @@protoc_insertion_point(field_set:CPublishedFile_QueryFiles_Request.return_tags)
 }
 
-// optional bool return_kv_tags = 19 [(.description) = "Return key-value tags in the file details"];
+// optional bool return_kv_tags = 19;
 inline bool CPublishedFile_QueryFiles_Request::_internal_has_return_kv_tags() const {
   bool value = (_has_bits_[0] & 0x00001000u) != 0;
   return value;
@@ -31148,7 +31910,7 @@ inline void CPublishedFile_QueryFiles_Request::set_return_kv_tags(bool value) {
   // @@protoc_insertion_point(field_set:CPublishedFile_QueryFiles_Request.return_kv_tags)
 }
 
-// optional bool return_previews = 20 [(.description) = "Return preview image and video details in the file details"];
+// optional bool return_previews = 20;
 inline bool CPublishedFile_QueryFiles_Request::_internal_has_return_previews() const {
   bool value = (_has_bits_[0] & 0x00002000u) != 0;
   return value;
@@ -31176,7 +31938,7 @@ inline void CPublishedFile_QueryFiles_Request::set_return_previews(bool value) {
   // @@protoc_insertion_point(field_set:CPublishedFile_QueryFiles_Request.return_previews)
 }
 
-// optional bool return_children = 21 [(.description) = "Return child item ids in the file details"];
+// optional bool return_children = 21;
 inline bool CPublishedFile_QueryFiles_Request::_internal_has_return_children() const {
   bool value = (_has_bits_[0] & 0x00004000u) != 0;
   return value;
@@ -31204,7 +31966,7 @@ inline void CPublishedFile_QueryFiles_Request::set_return_children(bool value) {
   // @@protoc_insertion_point(field_set:CPublishedFile_QueryFiles_Request.return_children)
 }
 
-// optional bool return_short_description = 22 [(.description) = "Populate the short_description field instead of file_description"];
+// optional bool return_short_description = 22;
 inline bool CPublishedFile_QueryFiles_Request::_internal_has_return_short_description() const {
   bool value = (_has_bits_[0] & 0x00080000u) != 0;
   return value;
@@ -31232,7 +31994,7 @@ inline void CPublishedFile_QueryFiles_Request::set_return_short_description(bool
   // @@protoc_insertion_point(field_set:CPublishedFile_QueryFiles_Request.return_short_description)
 }
 
-// optional bool return_for_sale_data = 30 [(.description) = "Return pricing information, if applicable"];
+// optional bool return_for_sale_data = 30;
 inline bool CPublishedFile_QueryFiles_Request::_internal_has_return_for_sale_data() const {
   bool value = (_has_bits_[0] & 0x00100000u) != 0;
   return value;
@@ -31260,7 +32022,7 @@ inline void CPublishedFile_QueryFiles_Request::set_return_for_sale_data(bool val
   // @@protoc_insertion_point(field_set:CPublishedFile_QueryFiles_Request.return_for_sale_data)
 }
 
-// optional bool return_metadata = 32 [default = false, (.description) = "Populate the metadata"];
+// optional bool return_metadata = 32 [default = false];
 inline bool CPublishedFile_QueryFiles_Request::_internal_has_return_metadata() const {
   bool value = (_has_bits_[0] & 0x00200000u) != 0;
   return value;
@@ -31288,7 +32050,7 @@ inline void CPublishedFile_QueryFiles_Request::set_return_metadata(bool value) {
   // @@protoc_insertion_point(field_set:CPublishedFile_QueryFiles_Request.return_metadata)
 }
 
-// optional uint32 return_playtime_stats = 36 [(.description) = "Return playtime stats for the specified number of days before today."];
+// optional uint32 return_playtime_stats = 36;
 inline bool CPublishedFile_QueryFiles_Request::_internal_has_return_playtime_stats() const {
   bool value = (_has_bits_[0] & 0x02000000u) != 0;
   return value;
@@ -31316,7 +32078,7 @@ inline void CPublishedFile_QueryFiles_Request::set_return_playtime_stats(::PROTO
   // @@protoc_insertion_point(field_set:CPublishedFile_QueryFiles_Request.return_playtime_stats)
 }
 
-// optional bool return_details = 37 [(.description) = "By default, if none of the other \'return_*\' fields are set, only some voting details are returned. Set this to true to return the default set of details."];
+// optional bool return_details = 37;
 inline bool CPublishedFile_QueryFiles_Request::_internal_has_return_details() const {
   bool value = (_has_bits_[0] & 0x00400000u) != 0;
   return value;
@@ -31344,7 +32106,7 @@ inline void CPublishedFile_QueryFiles_Request::set_return_details(bool value) {
   // @@protoc_insertion_point(field_set:CPublishedFile_QueryFiles_Request.return_details)
 }
 
-// optional bool strip_description_bbcode = 38 [(.description) = "Strips BBCode from descriptions."];
+// optional bool strip_description_bbcode = 38;
 inline bool CPublishedFile_QueryFiles_Request::_internal_has_strip_description_bbcode() const {
   bool value = (_has_bits_[0] & 0x08000000u) != 0;
   return value;
@@ -31372,7 +32134,7 @@ inline void CPublishedFile_QueryFiles_Request::set_strip_description_bbcode(bool
   // @@protoc_insertion_point(field_set:CPublishedFile_QueryFiles_Request.strip_description_bbcode)
 }
 
-// optional .EPublishedFileRevision desired_revision = 40 [default = EPublishedFileRevision_Default, (.description) = "Return the data for the specified revision."];
+// optional .EPublishedFileRevision desired_revision = 40 [default = EPublishedFileRevision_Default];
 inline bool CPublishedFile_QueryFiles_Request::_internal_has_desired_revision() const {
   bool value = (_has_bits_[0] & 0x04000000u) != 0;
   return value;
@@ -31401,7 +32163,7 @@ inline void CPublishedFile_QueryFiles_Request::set_desired_revision(::EPublished
   // @@protoc_insertion_point(field_set:CPublishedFile_QueryFiles_Request.desired_revision)
 }
 
-// optional bool return_reactions = 43 [default = false, (.description) = "If true, then reactions to items will be returned."];
+// optional bool return_reactions = 43 [default = false];
 inline bool CPublishedFile_QueryFiles_Request::_internal_has_return_reactions() const {
   bool value = (_has_bits_[0] & 0x10000000u) != 0;
   return value;
@@ -31433,7 +32195,7 @@ inline void CPublishedFile_QueryFiles_Request::set_return_reactions(bool value) 
 
 // CPublishedFile_QueryFiles_Response
 
-// optional uint32 total = 1 [(.description) = "Number of matches found, not necessarily number of items returned"];
+// optional uint32 total = 1;
 inline bool CPublishedFile_QueryFiles_Response::_internal_has_total() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -31461,7 +32223,7 @@ inline void CPublishedFile_QueryFiles_Response::set_total(::PROTOBUF_NAMESPACE_I
   // @@protoc_insertion_point(field_set:CPublishedFile_QueryFiles_Response.total)
 }
 
-// repeated .PublishedFileDetails publishedfiledetails = 2 [(.description) = "Each file details will be populated, depending on what return values were requested."];
+// repeated .PublishedFileDetails publishedfiledetails = 2;
 inline int CPublishedFile_QueryFiles_Response::_internal_publishedfiledetails_size() const {
   return publishedfiledetails_.size();
 }
@@ -31500,7 +32262,7 @@ CPublishedFile_QueryFiles_Response::publishedfiledetails() const {
   return publishedfiledetails_;
 }
 
-// optional string next_cursor = 3 [(.description) = "If a paging cursor was used, then this will be the next cursor to use for paging through results"];
+// optional string next_cursor = 3;
 inline bool CPublishedFile_QueryFiles_Response::_internal_has_next_cursor() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -32640,6 +33402,237 @@ inline void CPublishedFile_RemoveChild_Request::set_child_publishedfileid(::PROT
 
 // -------------------------------------------------------------------
 
+// CPublishedFile_SetCollectionChildren_Request
+
+// optional uint32 appid = 1;
+inline bool CPublishedFile_SetCollectionChildren_Request::_internal_has_appid() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CPublishedFile_SetCollectionChildren_Request::has_appid() const {
+  return _internal_has_appid();
+}
+inline void CPublishedFile_SetCollectionChildren_Request::clear_appid() {
+  appid_ = 0u;
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CPublishedFile_SetCollectionChildren_Request::_internal_appid() const {
+  return appid_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CPublishedFile_SetCollectionChildren_Request::appid() const {
+  // @@protoc_insertion_point(field_get:CPublishedFile_SetCollectionChildren_Request.appid)
+  return _internal_appid();
+}
+inline void CPublishedFile_SetCollectionChildren_Request::_internal_set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _has_bits_[0] |= 0x00000002u;
+  appid_ = value;
+}
+inline void CPublishedFile_SetCollectionChildren_Request::set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_appid(value);
+  // @@protoc_insertion_point(field_set:CPublishedFile_SetCollectionChildren_Request.appid)
+}
+
+// optional uint64 publishedfileid = 2;
+inline bool CPublishedFile_SetCollectionChildren_Request::_internal_has_publishedfileid() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CPublishedFile_SetCollectionChildren_Request::has_publishedfileid() const {
+  return _internal_has_publishedfileid();
+}
+inline void CPublishedFile_SetCollectionChildren_Request::clear_publishedfileid() {
+  publishedfileid_ = PROTOBUF_ULONGLONG(0);
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CPublishedFile_SetCollectionChildren_Request::_internal_publishedfileid() const {
+  return publishedfileid_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CPublishedFile_SetCollectionChildren_Request::publishedfileid() const {
+  // @@protoc_insertion_point(field_get:CPublishedFile_SetCollectionChildren_Request.publishedfileid)
+  return _internal_publishedfileid();
+}
+inline void CPublishedFile_SetCollectionChildren_Request::_internal_set_publishedfileid(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _has_bits_[0] |= 0x00000001u;
+  publishedfileid_ = value;
+}
+inline void CPublishedFile_SetCollectionChildren_Request::set_publishedfileid(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_publishedfileid(value);
+  // @@protoc_insertion_point(field_set:CPublishedFile_SetCollectionChildren_Request.publishedfileid)
+}
+
+// repeated uint64 children = 3;
+inline int CPublishedFile_SetCollectionChildren_Request::_internal_children_size() const {
+  return children_.size();
+}
+inline int CPublishedFile_SetCollectionChildren_Request::children_size() const {
+  return _internal_children_size();
+}
+inline void CPublishedFile_SetCollectionChildren_Request::clear_children() {
+  children_.Clear();
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CPublishedFile_SetCollectionChildren_Request::_internal_children(int index) const {
+  return children_.Get(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CPublishedFile_SetCollectionChildren_Request::children(int index) const {
+  // @@protoc_insertion_point(field_get:CPublishedFile_SetCollectionChildren_Request.children)
+  return _internal_children(index);
+}
+inline void CPublishedFile_SetCollectionChildren_Request::set_children(int index, ::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  children_.Set(index, value);
+  // @@protoc_insertion_point(field_set:CPublishedFile_SetCollectionChildren_Request.children)
+}
+inline void CPublishedFile_SetCollectionChildren_Request::_internal_add_children(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  children_.Add(value);
+}
+inline void CPublishedFile_SetCollectionChildren_Request::add_children(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_add_children(value);
+  // @@protoc_insertion_point(field_add:CPublishedFile_SetCollectionChildren_Request.children)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 >&
+CPublishedFile_SetCollectionChildren_Request::_internal_children() const {
+  return children_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 >&
+CPublishedFile_SetCollectionChildren_Request::children() const {
+  // @@protoc_insertion_point(field_list:CPublishedFile_SetCollectionChildren_Request.children)
+  return _internal_children();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 >*
+CPublishedFile_SetCollectionChildren_Request::_internal_mutable_children() {
+  return &children_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 >*
+CPublishedFile_SetCollectionChildren_Request::mutable_children() {
+  // @@protoc_insertion_point(field_mutable_list:CPublishedFile_SetCollectionChildren_Request.children)
+  return _internal_mutable_children();
+}
+
+// -------------------------------------------------------------------
+
+// CPublishedFile_SetCollectionChildren_Response
+
+// -------------------------------------------------------------------
+
+// CPublishedFile_SetSubscriptionListFromCollection_Request
+
+// optional uint32 appid = 1;
+inline bool CPublishedFile_SetSubscriptionListFromCollection_Request::_internal_has_appid() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CPublishedFile_SetSubscriptionListFromCollection_Request::has_appid() const {
+  return _internal_has_appid();
+}
+inline void CPublishedFile_SetSubscriptionListFromCollection_Request::clear_appid() {
+  appid_ = 0u;
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CPublishedFile_SetSubscriptionListFromCollection_Request::_internal_appid() const {
+  return appid_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CPublishedFile_SetSubscriptionListFromCollection_Request::appid() const {
+  // @@protoc_insertion_point(field_get:CPublishedFile_SetSubscriptionListFromCollection_Request.appid)
+  return _internal_appid();
+}
+inline void CPublishedFile_SetSubscriptionListFromCollection_Request::_internal_set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _has_bits_[0] |= 0x00000001u;
+  appid_ = value;
+}
+inline void CPublishedFile_SetSubscriptionListFromCollection_Request::set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_appid(value);
+  // @@protoc_insertion_point(field_set:CPublishedFile_SetSubscriptionListFromCollection_Request.appid)
+}
+
+// optional uint32 list_type = 2;
+inline bool CPublishedFile_SetSubscriptionListFromCollection_Request::_internal_has_list_type() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CPublishedFile_SetSubscriptionListFromCollection_Request::has_list_type() const {
+  return _internal_has_list_type();
+}
+inline void CPublishedFile_SetSubscriptionListFromCollection_Request::clear_list_type() {
+  list_type_ = 0u;
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CPublishedFile_SetSubscriptionListFromCollection_Request::_internal_list_type() const {
+  return list_type_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CPublishedFile_SetSubscriptionListFromCollection_Request::list_type() const {
+  // @@protoc_insertion_point(field_get:CPublishedFile_SetSubscriptionListFromCollection_Request.list_type)
+  return _internal_list_type();
+}
+inline void CPublishedFile_SetSubscriptionListFromCollection_Request::_internal_set_list_type(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _has_bits_[0] |= 0x00000002u;
+  list_type_ = value;
+}
+inline void CPublishedFile_SetSubscriptionListFromCollection_Request::set_list_type(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_list_type(value);
+  // @@protoc_insertion_point(field_set:CPublishedFile_SetSubscriptionListFromCollection_Request.list_type)
+}
+
+// optional uint64 publishedfileid = 3;
+inline bool CPublishedFile_SetSubscriptionListFromCollection_Request::_internal_has_publishedfileid() const {
+  bool value = (_has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CPublishedFile_SetSubscriptionListFromCollection_Request::has_publishedfileid() const {
+  return _internal_has_publishedfileid();
+}
+inline void CPublishedFile_SetSubscriptionListFromCollection_Request::clear_publishedfileid() {
+  publishedfileid_ = PROTOBUF_ULONGLONG(0);
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CPublishedFile_SetSubscriptionListFromCollection_Request::_internal_publishedfileid() const {
+  return publishedfileid_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CPublishedFile_SetSubscriptionListFromCollection_Request::publishedfileid() const {
+  // @@protoc_insertion_point(field_get:CPublishedFile_SetSubscriptionListFromCollection_Request.publishedfileid)
+  return _internal_publishedfileid();
+}
+inline void CPublishedFile_SetSubscriptionListFromCollection_Request::_internal_set_publishedfileid(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _has_bits_[0] |= 0x00000004u;
+  publishedfileid_ = value;
+}
+inline void CPublishedFile_SetSubscriptionListFromCollection_Request::set_publishedfileid(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_publishedfileid(value);
+  // @@protoc_insertion_point(field_set:CPublishedFile_SetSubscriptionListFromCollection_Request.publishedfileid)
+}
+
+// optional bool add_only = 4;
+inline bool CPublishedFile_SetSubscriptionListFromCollection_Request::_internal_has_add_only() const {
+  bool value = (_has_bits_[0] & 0x00000008u) != 0;
+  return value;
+}
+inline bool CPublishedFile_SetSubscriptionListFromCollection_Request::has_add_only() const {
+  return _internal_has_add_only();
+}
+inline void CPublishedFile_SetSubscriptionListFromCollection_Request::clear_add_only() {
+  add_only_ = false;
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline bool CPublishedFile_SetSubscriptionListFromCollection_Request::_internal_add_only() const {
+  return add_only_;
+}
+inline bool CPublishedFile_SetSubscriptionListFromCollection_Request::add_only() const {
+  // @@protoc_insertion_point(field_get:CPublishedFile_SetSubscriptionListFromCollection_Request.add_only)
+  return _internal_add_only();
+}
+inline void CPublishedFile_SetSubscriptionListFromCollection_Request::_internal_set_add_only(bool value) {
+  _has_bits_[0] |= 0x00000008u;
+  add_only_ = value;
+}
+inline void CPublishedFile_SetSubscriptionListFromCollection_Request::set_add_only(bool value) {
+  _internal_set_add_only(value);
+  // @@protoc_insertion_point(field_set:CPublishedFile_SetSubscriptionListFromCollection_Request.add_only)
+}
+
+// -------------------------------------------------------------------
+
+// CPublishedFile_SetSubscriptionListFromCollection_Response
+
+// -------------------------------------------------------------------
+
 // CPublishedFile_GetUserVoteSummary_Request
 
 // repeated fixed64 publishedfileids = 1;
@@ -33474,7 +34467,7 @@ inline void CPublishedFile_FileSubscribed_Notification_RevisionData::set_revisio
   // @@protoc_insertion_point(field_set:CPublishedFile_FileSubscribed_Notification.RevisionData.revision)
 }
 
-// optional fixed64 file_hcontent = 2 [(.description) = "Manifest GID"];
+// optional fixed64 file_hcontent = 2;
 inline bool CPublishedFile_FileSubscribed_Notification_RevisionData::_internal_has_file_hcontent() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -33502,7 +34495,7 @@ inline void CPublishedFile_FileSubscribed_Notification_RevisionData::set_file_hc
   // @@protoc_insertion_point(field_set:CPublishedFile_FileSubscribed_Notification.RevisionData.file_hcontent)
 }
 
-// optional uint32 rtime_updated = 3 [(.description) = "Last time content updated"];
+// optional uint32 rtime_updated = 3;
 inline bool CPublishedFile_FileSubscribed_Notification_RevisionData::_internal_has_rtime_updated() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -33534,7 +34527,7 @@ inline void CPublishedFile_FileSubscribed_Notification_RevisionData::set_rtime_u
 
 // CPublishedFile_FileSubscribed_Notification
 
-// optional fixed64 published_file_id = 1 [(.description) = "PublishedFileID_t for the content"];
+// optional fixed64 published_file_id = 1;
 inline bool CPublishedFile_FileSubscribed_Notification::_internal_has_published_file_id() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -33590,7 +34583,7 @@ inline void CPublishedFile_FileSubscribed_Notification::set_app_id(::PROTOBUF_NA
   // @@protoc_insertion_point(field_set:CPublishedFile_FileSubscribed_Notification.app_id)
 }
 
-// optional fixed64 file_hcontent = 3 [(.description) = "UGC file handle or manifest GID"];
+// optional fixed64 file_hcontent = 3;
 inline bool CPublishedFile_FileSubscribed_Notification::_internal_has_file_hcontent() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -33674,7 +34667,7 @@ inline void CPublishedFile_FileSubscribed_Notification::set_rtime_subscribed(::P
   // @@protoc_insertion_point(field_set:CPublishedFile_FileSubscribed_Notification.rtime_subscribed)
 }
 
-// optional bool is_depot_content = 6 [(.description) = "True if workshop item is delivered via Steampipe"];
+// optional bool is_depot_content = 6;
 inline bool CPublishedFile_FileSubscribed_Notification::_internal_has_is_depot_content() const {
   bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
@@ -33702,7 +34695,7 @@ inline void CPublishedFile_FileSubscribed_Notification::set_is_depot_content(boo
   // @@protoc_insertion_point(field_set:CPublishedFile_FileSubscribed_Notification.is_depot_content)
 }
 
-// optional uint32 rtime_updated = 7 [(.description) = "Last time content updated"];
+// optional uint32 rtime_updated = 7;
 inline bool CPublishedFile_FileSubscribed_Notification::_internal_has_rtime_updated() const {
   bool value = (_has_bits_[0] & 0x00000040u) != 0;
   return value;
@@ -33730,7 +34723,7 @@ inline void CPublishedFile_FileSubscribed_Notification::set_rtime_updated(::PROT
   // @@protoc_insertion_point(field_set:CPublishedFile_FileSubscribed_Notification.rtime_updated)
 }
 
-// repeated .CPublishedFile_FileSubscribed_Notification.RevisionData revisions = 8 [(.description) = "Data for each of the revisions that this item has"];
+// repeated .CPublishedFile_FileSubscribed_Notification.RevisionData revisions = 8;
 inline int CPublishedFile_FileSubscribed_Notification::_internal_revisions_size() const {
   return revisions_.size();
 }
@@ -33773,7 +34766,7 @@ CPublishedFile_FileSubscribed_Notification::revisions() const {
 
 // CPublishedFile_FileUnsubscribed_Notification
 
-// optional fixed64 published_file_id = 1 [(.description) = "PublishedFileID_t for the content"];
+// optional fixed64 published_file_id = 1;
 inline bool CPublishedFile_FileUnsubscribed_Notification::_internal_has_published_file_id() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -33833,7 +34826,7 @@ inline void CPublishedFile_FileUnsubscribed_Notification::set_app_id(::PROTOBUF_
 
 // CPublishedFile_FileDeleted_Client_Notification
 
-// optional fixed64 published_file_id = 1 [(.description) = "PublishedFileID_t for the content"];
+// optional fixed64 published_file_id = 1;
 inline bool CPublishedFile_FileDeleted_Client_Notification::_internal_has_published_file_id() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -33892,6 +34885,14 @@ inline void CPublishedFile_FileDeleted_Client_Notification::set_app_id(::PROTOBU
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

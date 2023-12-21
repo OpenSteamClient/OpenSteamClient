@@ -1,521 +1,521 @@
 {
     "name": "IClientRemoteClientManagerMap",
-    "found_at": "0x23a896c",
+    "found_at": "0x24036a0",
     "functions": [ 
         {
             "name": "SetUIReadyForStream",
             "argc": "2",
-            "addr": "0x5e1f60"
+            "addr": "0x600110"
         },
         {
             "name": "StreamingAudioPreparationComplete",
             "argc": "2",
-            "addr": "0x5e20b0"
+            "addr": "0x600260"
         },
         {
             "name": "StreamingAudioFinished",
             "argc": "1",
-            "addr": "0x5e2200"
+            "addr": "0x6003b0"
         },
         {
             "name": "ProcessStreamAvailable",
             "argc": "3",
-            "addr": "0x5e2330"
+            "addr": "0x6004e0"
         },
         {
             "name": "ProcessStreamShutdown",
             "argc": "2",
-            "addr": "0x5e2490"
+            "addr": "0x600640"
         },
         {
             "name": "UpdateStreamClientResolution",
             "argc": "4",
-            "addr": "0x5e25e0"
+            "addr": "0x600790"
         },
         {
             "name": "ProcessStreamClientConnected",
             "argc": "12",
-            "addr": "0x5e2750"
+            "addr": "0x600900"
         },
         {
             "name": "GetStreamClientPlayer",
             "argc": "3",
-            "addr": "0x6242d0"
+            "addr": "0x643250"
         },
         {
             "name": "GetStreamClientFormFactor",
             "argc": "2",
-            "addr": "0x5e2950"
+            "addr": "0x600b00"
         },
         {
             "name": "UpdateStreamClientNetworkUtilization",
             "argc": "4",
-            "addr": "0x5e2ac0"
+            "addr": "0x600c70"
         },
         {
             "name": "ProcessStreamClientDisconnected",
             "argc": "2",
-            "addr": "0x5e2c30"
+            "addr": "0x600de0"
         },
         {
             "name": "BGetStreamTransportSignal",
             "argc": "3",
-            "addr": "0x5e2d80"
+            "addr": "0x600f30"
         },
         {
             "name": "SendStreamTransportSignal",
             "argc": "3",
-            "addr": "0x5ea8f0"
+            "addr": "0x608aa0"
         },
         {
             "name": "ConnectToRemote",
             "argc": "3",
-            "addr": "0x5e2f10"
+            "addr": "0x6010c0"
         },
         {
             "name": "ConnectToRemoteAddress",
             "argc": "2",
-            "addr": "0x5e3070"
+            "addr": "0x601220"
         },
         {
             "name": "RefreshRemoteClients",
             "argc": "2",
-            "addr": "0x5e31b0"
+            "addr": "0x601360"
         },
         {
             "name": "GetClientPlatformTypes",
             "argc": "1",
-            "addr": "0x5e3300"
+            "addr": "0x6014b0"
         },
         {
             "name": "GetRemoteClientCount",
             "argc": "1",
-            "addr": "0x5e3460"
+            "addr": "0x601610"
         },
         {
             "name": "GetRemoteClientIDByIndex",
             "argc": "2",
-            "addr": "0x5e35c0"
+            "addr": "0x601770"
         },
         {
             "name": "GetRemoteClientNameByIndex",
             "argc": "2",
-            "addr": "0x5e3be0"
+            "addr": "0x601d90"
         },
         {
             "name": "GetRemoteClientConnectStateByIndex",
             "argc": "2",
-            "addr": "0x5eaa70"
+            "addr": "0x608c20"
         },
         {
             "name": "BRemoteClientHasStreamingSupportedByIndex",
             "argc": "2",
-            "addr": "0x5e3750"
+            "addr": "0x601900"
         },
         {
             "name": "BRemoteClientHasStreamingEnabledByIndex",
             "argc": "2",
-            "addr": "0x5e38d0"
+            "addr": "0x601a80"
         },
         {
             "name": "GetRemoteClientAppStateByIndex",
             "argc": "3",
-            "addr": "0x5e3a50"
+            "addr": "0x601c00"
         },
         {
             "name": "GetRemoteClientConnectedCount",
             "argc": "1",
-            "addr": "0x5e4820"
+            "addr": "0x6029d0"
         },
         {
             "name": "GetRemoteClientStreamingEnabledCount",
             "argc": "1",
-            "addr": "0x5e4980"
+            "addr": "0x602b30"
         },
         {
             "name": "GetRemoteClientName",
             "argc": "3",
-            "addr": "0x5e3d50"
+            "addr": "0x601f00"
         },
         {
             "name": "BRemoteClientStreaming",
             "argc": "3",
-            "addr": "0x5e3ed0"
+            "addr": "0x602080"
         },
         {
             "name": "GetRemoteClientStreamingSession",
             "argc": "3",
-            "addr": "0x5e4060"
+            "addr": "0x602210"
         },
         {
             "name": "GetRemoteClientFormFactor",
             "argc": "3",
-            "addr": "0x5e41e0"
+            "addr": "0x602390"
         },
         {
             "name": "GetRemoteClientConnectState",
             "argc": "3",
-            "addr": "0x5eabe0"
+            "addr": "0x608d90"
         },
         {
             "name": "BRemoteClientHasStreamingSupported",
             "argc": "3",
-            "addr": "0x5e4360"
+            "addr": "0x602510"
         },
         {
             "name": "BRemoteClientHasStreamingEnabled",
             "argc": "3",
-            "addr": "0x5e44f0"
+            "addr": "0x6026a0"
         },
         {
             "name": "GetRemoteClientAppAvailability",
             "argc": "4",
-            "addr": "0x5ead60"
+            "addr": "0x608f10"
         },
         {
             "name": "GetRemoteClientAppState",
             "argc": "4",
-            "addr": "0x5e4680"
+            "addr": "0x602830"
         },
         {
             "name": "GetRemoteDeviceCount",
             "argc": "1",
-            "addr": "0x5e4ae0"
+            "addr": "0x602c90"
         },
         {
             "name": "GetRemoteDeviceIDByIndex",
             "argc": "2",
-            "addr": "0x5e4c40"
+            "addr": "0x602df0"
         },
         {
             "name": "GetRemoteDeviceNameByIndex",
             "argc": "2",
-            "addr": "0x5e4dd0"
+            "addr": "0x602f80"
         },
         {
             "name": "GetRemoteDeviceName",
             "argc": "3",
-            "addr": "0x5e4f40"
+            "addr": "0x6030f0"
         },
         {
             "name": "BRemoteDeviceStreaming",
             "argc": "3",
-            "addr": "0x5e50c0"
+            "addr": "0x603270"
         },
         {
             "name": "GetRemoteDeviceStreamingSession",
             "argc": "3",
-            "addr": "0x5e5250"
+            "addr": "0x603400"
         },
         {
             "name": "GetRemoteDeviceFormFactor",
             "argc": "3",
-            "addr": "0x5e53d0"
+            "addr": "0x603580"
         },
         {
             "name": "UnpairRemoteDevices",
             "argc": "1",
-            "addr": "0x5e5550"
+            "addr": "0x603700"
         },
         {
             "name": "BIsStreamingSupported",
             "argc": "1",
-            "addr": "0x5e5680"
+            "addr": "0x603830"
         },
         {
             "name": "BIsStreamingEnabled",
             "argc": "1",
-            "addr": "0x5e57e0"
+            "addr": "0x603990"
         },
         {
             "name": "SetStreamingEnabled",
             "argc": "2",
-            "addr": "0x5e5940"
+            "addr": "0x603af0"
         },
         {
             "name": "StartStream",
             "argc": "8",
-            "addr": "0x5eaf00"
+            "addr": "0x6090b0"
         },
         {
             "name": "BIsRemoteLaunch",
             "argc": "2",
-            "addr": "0x5e5a90"
+            "addr": "0x603c40"
         },
         {
             "name": "BIsBigPictureActiveForStreaming",
             "argc": "1",
-            "addr": "0x5e5c10"
+            "addr": "0x603dc0"
         },
         {
             "name": "BIsStreamingSessionActive",
             "argc": "1",
-            "addr": "0x5e5d70"
+            "addr": "0x603f20"
         },
         {
             "name": "BIsStreamingSessionActiveForGame",
             "argc": "2",
-            "addr": "0x5e5ed0"
+            "addr": "0x604080"
         },
         {
             "name": "BIsStreamingClientConnected",
             "argc": "1",
-            "addr": "0x5e6050"
+            "addr": "0x604200"
         },
         {
             "name": "BStreamingClientWantsRecentGames",
             "argc": "1",
-            "addr": "0x5e61b0"
+            "addr": "0x604360"
         },
         {
             "name": "StopStreamingSession",
             "argc": "2",
-            "addr": "0x5e6310"
+            "addr": "0x6044c0"
         },
         {
             "name": "LaunchAppProgress",
             "argc": "6",
-            "addr": "0x5e6460"
+            "addr": "0x604610"
         },
         {
             "name": "LaunchAppResult",
             "argc": "3",
-            "addr": "0x5eb130"
+            "addr": "0x6092e0"
         },
         {
             "name": "BIsStreamStartInProgress",
             "argc": "4",
-            "addr": "0x5e65f0"
+            "addr": "0x6047a0"
         },
         {
             "name": "LaunchAppResultRequestLaunchOption",
             "argc": "4",
-            "addr": "0x5e6790"
+            "addr": "0x604940"
         },
         {
             "name": "AcceptEULA",
             "argc": "6",
-            "addr": "0x5e6900"
+            "addr": "0x604ab0"
         },
         {
             "name": "GetRemoteClientPlatformName",
             "argc": "4",
-            "addr": "0x5e6ac0"
+            "addr": "0x604c70"
         },
         {
             "name": "BIsStreamClientRunning",
             "argc": "1",
-            "addr": "0x5e6c60"
+            "addr": "0x604e10"
         },
         {
             "name": "BIsStreamClientRunningConnectedToClient",
             "argc": "4",
-            "addr": "0x5e6dc0"
+            "addr": "0x604f70"
         },
         {
             "name": "BIsStreamClientRemotePlayTogether",
             "argc": "1",
-            "addr": "0x5e6f70"
+            "addr": "0x605120"
         },
         {
             "name": "GetStreamClientRemoteSteamVersion",
             "argc": "1",
-            "addr": "0x5e70d0"
+            "addr": "0x605280"
         },
         {
             "name": "BGetStreamingClientConfig",
             "argc": "2",
-            "addr": "0x5e7250"
+            "addr": "0x605400"
         },
         {
             "name": "BSetStreamingClientConfig",
             "argc": "2",
-            "addr": "0x5e73d0"
+            "addr": "0x605580"
         },
         {
             "name": "BQueueControllerConfigMessageForRemote",
             "argc": "2",
-            "addr": "0x5e7a70"
+            "addr": "0x605c20"
         },
         {
             "name": "BGetControllerConfigMessageForLocal",
             "argc": "2",
-            "addr": "0x5e7be0"
+            "addr": "0x605d90"
         },
         {
             "name": "RequestControllerConfig",
             "argc": "5",
-            "addr": "0x5e7540"
+            "addr": "0x6056f0"
         },
         {
             "name": "PostControllerConfig",
             "argc": "5",
-            "addr": "0x5e7730"
+            "addr": "0x6058e0"
         },
         {
             "name": "GetControllerConfig",
             "argc": "5",
-            "addr": "0x5e78b0"
+            "addr": "0x605a60"
         },
         {
             "name": "SetRemoteDeviceAuthorized",
             "argc": "3",
-            "addr": "0x5e7d60"
+            "addr": "0x605f10"
         },
         {
             "name": "SetStreamingDriversInstalled",
             "argc": "2",
-            "addr": "0x5e7ec0"
+            "addr": "0x606070"
         },
         {
             "name": "SetStreamingPIN",
             "argc": "2",
-            "addr": "0x5e8010"
+            "addr": "0x6061c0"
         },
         {
             "name": "GetStreamingPINSize",
             "argc": "2",
-            "addr": "0x5e8150"
+            "addr": "0x606300"
         },
         {
             "name": "UsedVideoX264",
             "argc": "1",
-            "addr": "0x5e82c0"
+            "addr": "0x606470"
         },
         {
             "name": "UsedVideoH264",
             "argc": "1",
-            "addr": "0x5e83f0"
+            "addr": "0x6065a0"
         },
         {
             "name": "UsedVideoHEVC",
             "argc": "1",
-            "addr": "0x5e8520"
+            "addr": "0x6066d0"
         },
         {
             "name": "SetRemotePlayTogetherQualityOverride",
             "argc": "2",
-            "addr": "0x5e8650"
+            "addr": "0x606800"
         },
         {
             "name": "SetRemotePlayTogetherBitrateOverride",
             "argc": "2",
-            "addr": "0x5e87a0"
+            "addr": "0x606950"
         },
         {
             "name": "BHasRemotePlayInviteAndSession",
             "argc": "10",
-            "addr": "0x5e88f0"
+            "addr": "0x606aa0"
         },
         {
             "name": "BCreateRemotePlayGroup",
             "argc": "2",
-            "addr": "0x5e8b00"
+            "addr": "0x606cb0"
         },
         {
             "name": "BCreateRemotePlayInviteAndSession",
             "argc": "11",
-            "addr": "0x5e8c80"
+            "addr": "0x606e30"
         },
         {
             "name": "CancelRemotePlayInviteAndSession",
             "argc": "10",
-            "addr": "0x5e8eb0"
+            "addr": "0x607060"
         },
         {
             "name": "JoinRemotePlaySession",
             "argc": "4",
-            "addr": "0x5e9080"
+            "addr": "0x607230"
         },
         {
             "name": "BStreamingDesktopToRemotePlayTogetherEnabled",
             "argc": "1",
-            "addr": "0x5e91d0"
+            "addr": "0x607380"
         },
         {
             "name": "SetStreamingDesktopToRemotePlayTogetherEnabled",
             "argc": "2",
-            "addr": "0x5e9330"
+            "addr": "0x6074e0"
         },
         {
             "name": "GetStreamingSessionForRemotePlayer",
             "argc": "10",
-            "addr": "0x5e9480"
+            "addr": "0x607630"
         },
         {
             "name": "SetPerUserKeyboardInputEnabled",
             "argc": "11",
-            "addr": "0x5e9690"
+            "addr": "0x607840"
         },
         {
             "name": "SetPerUserMouseInputEnabled",
             "argc": "11",
-            "addr": "0x5e9880"
+            "addr": "0x607a30"
         },
         {
             "name": "SetPerUserControllerInputEnabled",
             "argc": "11",
-            "addr": "0x5e9a70"
+            "addr": "0x607c20"
         },
         {
             "name": "GetPerUserInputSettings",
             "argc": "11",
-            "addr": "0x5eb290"
+            "addr": "0x609440"
         },
         {
             "name": "GetClientInputSettings",
             "argc": "11",
-            "addr": "0x5eb4f0"
+            "addr": "0x6096a0"
         },
         {
             "name": "OnClientUsedInput",
             "argc": "11",
-            "addr": "0x5eb750"
+            "addr": "0x609900"
         },
         {
             "name": "OnPlaceholderStateChanged",
             "argc": "2",
-            "addr": "0x5e9c60"
+            "addr": "0x607e10"
         },
         {
             "name": "OnRemoteClientRemotePlayClearControllers",
             "argc": "1",
-            "addr": "0x5e9db0"
+            "addr": "0x607f60"
         },
         {
             "name": "OnRemoteClientRemotePlayControllerIndexSet",
             "argc": "12",
-            "addr": "0x5e9ee0"
+            "addr": "0x608090"
         },
         {
             "name": "UpdateRemotePlayTogetherGroup",
             "argc": "1",
-            "addr": "0x5ea0e0"
+            "addr": "0x608290"
         },
         {
             "name": "DisbandRemotePlayTogetherGroup",
             "argc": "1",
-            "addr": "0x5ea210"
+            "addr": "0x6083c0"
         },
         {
             "name": "OnRemotePlayUIMovedController",
             "argc": "1",
-            "addr": "0x5ea340"
+            "addr": "0x6084f0"
         },
         {
             "name": "OnSendRemotePlayTogetherInvite",
             "argc": "4",
-            "addr": "0x5ea470"
+            "addr": "0x608620"
         },
         {
             "name": "GetCloudGameTimeRemaining",
             "argc": "4",
-            "addr": "0x5ea600"
+            "addr": "0x6087b0"
         },
         {
             "name": "ShutdownStreamClients",
             "argc": "2",
-            "addr": "0x5ea7a0"
+            "addr": "0x608950"
         }
     ]
 }

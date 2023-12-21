@@ -1702,329 +1702,159 @@ const char descriptor_table_protodef_steammessages_5fcloud_2esteamclient_2eproto
   "loud_ClientLogUploadChecNotification\022\021\n\t"
   "client_id\030\001 \001(\004\"T\n+CCloud_ClientLogUploa"
   "dComplete_Notification\022\021\n\tclient_id\030\001 \001("
-  "\004\022\022\n\nrequest_id\030\002 \001(\004\"d\n\"CCloud_GetUploa"
-  "dServerInfo_Request\022>\n\005appid\030\001 \001(\rB/\202\265\030+"
-  "App ID to which a file will be uploaded "
-  "to.\"9\n#CCloud_GetUploadServerInfo_Respon"
-  "se\022\022\n\nserver_url\030\001 \001(\t\"\215\007\n\036CCloud_BeginH"
-  "TTPUpload_Request\022\?\n\005appid\030\001 \001(\rB0\202\265\030,Ap"
-  "p ID for which the file is being uploade"
-  "d.\0223\n\tfile_size\030\002 \001(\rB \202\265\030\034Original file"
-  " size in bytes.\022=\n\010filename\030\003 \001(\tB+\202\265\030\'N"
-  "ame of the file to store in the cloud.\022V"
-  "\n\010file_sha\030\004 \001(\tBD\202\265\030@Hex string (40 dig"
-  "its) representing the SHA1 digest of the"
-  " file.\022\\\n\tis_public\030\005 \001(\010BI\202\265\030ETrue if t"
-  "he file should be marked public on the U"
-  "FS, false otherwise.\022\227\001\n\021platforms_to_sy"
-  "nc\030\006 \003(\tB|\202\265\030xArray of string specifying"
-  " which platforms to sync; value values: "
-  "all, Windows, MacOS, linux, Switch, iPho"
-  "neOS, Android.\022r\n\025request_headers_names\030"
-  "\007 \003(\tBS\202\265\030ONames for headers you\'ll want"
-  " to set on your upload request. May be l"
-  "eft blank.\022\226\001\n\026request_headers_values\030\010 "
-  "\003(\tBv\202\265\030rValues for headers you\'ll want "
-  "to set on your upload request. The numbe"
-  "r of names must equal the number of valu"
-  "es.\022Y\n\017upload_batch_id\030\t \001(\004B@\202\265\030<ID of "
-  "this batch returned by prior BeginAppUpl"
-  "oadBatch call.\"\230\004\n\037CCloud_BeginHTTPUploa"
-  "d_Response\022/\n\005ugcid\030\001 \001(\006B \202\265\030\034UGC ID of"
-  " the uploaded file.\0220\n\ttimestamp\030\002 \001(\007B\035"
-  "\202\265\030\031Server timestamp of file.\022X\n\010url_hos"
-  "t\030\003 \001(\tBF\202\265\030BHost name of server to whic"
-  "h file should be uploaded via HTTP PUT.\022"
-  "O\n\010url_path\030\004 \001(\tB=\202\265\0309Relative path on "
-  "server to which file should be uploaded."
-  "\022>\n\tuse_https\030\005 \001(\010B+\202\265\030\'If true, use ht"
-  "tps, otherwise use http.\022{\n\017request_head"
-  "ers\030\006 \003(\0132,.CCloud_BeginHTTPUpload_Respo"
-  "nse.HTTPHeadersB4\202\265\0300Name-value pairs to"
-  " be sent in HTTP PUT request.\032*\n\013HTTPHea"
-  "ders\022\014\n\004name\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\"\255\004\n\037CC"
-  "loud_CommitHTTPUpload_Request\022\244\001\n\022transf"
-  "er_succeeded\030\001 \001(\010B\207\001\202\265\030\202\001True if the HT"
-  "TP PUT to the upload URL succeeded (URL "
-  "provided in response to Cloud.BeginHTTPU"
-  "pload), false if a failure occurred.\022x\n\005"
-  "appid\030\002 \001(\rBi\202\265\030eApp ID for which the fi"
-  "le is being uploaded. Must match the app"
-  " ID provided to Cloud.BeginHTTPUpload.\022\225"
-  "\001\n\010file_sha\030\003 \001(\tB\202\001\202\265\030~Hex string (40 d"
-  "igits) representing the SHA1 digest of t"
-  "he file. Must match the SHA1 digest prov"
-  "ided to Cloud.BeginHTTPUpload.\022Q\n\010filena"
-  "me\030\004 \001(\tB\?\202\265\030;Filename as specified in t"
-  "he Cloud.BeginHTTPUpload request.\"}\n CCl"
-  "oud_CommitHTTPUpload_Response\022Y\n\016file_co"
-  "mmitted\030\001 \001(\010BA\202\265\030=True if the file was "
-  "successfully committed, false otherwise."
-  "\"\265\002\n\035CCloud_BeginUGCUpload_Request\022.\n\005ap"
-  "pid\030\001 \001(\rB\037\202\265\030\033App ID this UGC belongs t"
-  "o.\022*\n\tfile_size\030\002 \001(\rB\027\202\265\030\023File size in "
-  "bytes.\022\'\n\010filename\030\003 \001(\tB\025\202\265\030\021Name of th"
-  "e file.\022V\n\010file_sha\030\004 \001(\tBD\202\265\030@Hex strin"
-  "g (40 digits) representing the SHA1 dige"
-  "st of the file.\0227\n\014content_type\030\005 \001(\tB!\202"
-  "\265\030\035MIME content type of the file\"\236\005\n\036CCl"
-  "oud_BeginUGCUpload_Response\022\205\001\n\016storage_"
-  "system\030\001 \001(\0162\034.EPublishedFileStorageSyst"
-  "em:\"EPublishedFileStorageSystemInvalidB+"
-  "\202\265\030\'UGC Storage system chosen for this f"
-  "ile\022/\n\005ugcid\030\002 \001(\006B \202\265\030\034UGC ID of the up"
-  "loaded file.\0220\n\ttimestamp\030\003 \001(\007B\035\202\265\030\031Ser"
-  "ver timestamp of file.\022X\n\010url_host\030\004 \001(\t"
-  "BF\202\265\030BHost name of server to which file "
-  "should be uploaded via HTTP PUT.\022O\n\010url_"
-  "path\030\005 \001(\tB=\202\265\0309Relative path on server "
-  "to which file should be uploaded.\022>\n\tuse"
-  "_https\030\006 \001(\010B+\202\265\030\'If true, use https, ot"
-  "herwise use http.\022z\n\017request_headers\030\007 \003"
-  "(\0132+.CCloud_BeginUGCUpload_Response.HTTP"
-  "HeadersB4\202\265\0300Name-value pairs to be sent"
-  " in HTTP PUT request.\032*\n\013HTTPHeaders\022\014\n\004"
-  "name\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\"\360\002\n\036CCloud_Com"
-  "mitUGCUpload_Request\022\243\001\n\022transfer_succee"
-  "ded\030\001 \001(\010B\206\001\202\265\030\201\001True if the HTTP PUT to"
-  " the upload URL succeeded (URL provided "
-  "in response to Cloud.BeginUGCUpload), fa"
-  "lse if a failure occurred.\022w\n\005appid\030\002 \001("
-  "\rBh\202\265\030dApp ID for which the file is bein"
-  "g uploaded. Must match the app ID provid"
-  "ed to Cloud.BeginUGCUpload.\022/\n\005ugcid\030\003 \001"
-  "(\006B \202\265\030\034UGC ID of the uploaded file.\"|\n\037"
-  "CCloud_CommitUGCUpload_Response\022Y\n\016file_"
-  "committed\030\001 \001(\010BA\202\265\030=True if the file wa"
-  "s successfully committed, false otherwis"
-  "e.\"\214\001\n\035CCloud_GetFileDetails_Request\022;\n\005"
-  "ugcid\030\001 \001(\004B,\202\265\030(ID of the Cloud file to"
-  " get details for.\022.\n\005appid\030\002 \001(\rB\037\202\265\030\033Ap"
-  "p ID the file belongs to.\"\216\003\n\017CCloud_Use"
-  "rFile\022\r\n\005appid\030\001 \001(\r\022\r\n\005ugcid\030\002 \001(\004\022\020\n\010f"
-  "ilename\030\003 \001(\t\022\021\n\ttimestamp\030\004 \001(\004\022\021\n\tfile"
-  "_size\030\005 \001(\r\022\013\n\003url\030\006 \001(\t\022\027\n\017steamid_crea"
-  "tor\030\007 \001(\006\022\r\n\005flags\030\010 \001(\r\022\227\001\n\021platforms_t"
-  "o_sync\030\t \003(\tB|\202\265\030xArray of string specif"
-  "ying which platforms to sync; value valu"
-  "es: all, Windows, MacOS, linux, Switch, "
-  "iPhoneOS, Android.\022V\n\010file_sha\030\n \001(\tBD\202\265"
-  "\030@Hex string (40 digits) representing th"
-  "e SHA1 digest of the file.\"C\n\036CCloud_Get"
-  "FileDetails_Response\022!\n\007details\030\001 \001(\0132\020."
-  "CCloud_UserFile\"\351\003\n!CCloud_EnumerateUser"
-  "Files_Request\0224\n\005appid\030\001 \001(\rB%\202\265\030!App ID"
-  " to enumerate the files of.\022\233\001\n\020extended"
-  "_details\030\002 \001(\010B\200\001\202\265\030|(Optional) Get exte"
-  "nded details back on the files found. De"
-  "faults to only returned the app Id and U"
-  "GC Id of the files found.\022|\n\005count\030\003 \001(\r"
-  "Bm\202\265\030i(Optional) Maximum number of resul"
-  "ts to return on this call. Defaults to a"
-  " maximum of 500 files returned.\022r\n\013start"
-  "_index\030\004 \001(\rB]\202\265\030Y(Optional) Starting in"
-  "dex to begin enumeration at. Defaults to"
-  " the beginning of the list.\"Z\n\"CCloud_En"
-  "umerateUserFiles_Response\022\037\n\005files\030\001 \003(\013"
-  "2\020.CCloud_UserFile\022\023\n\013total_files\030\002 \001(\r\""
-  "\264\001\n\025CCloud_Delete_Request\022\020\n\010filename\030\001 "
-  "\001(\t\022.\n\005appid\030\002 \001(\rB\037\202\265\030\033App ID the file "
-  "belongs to.\022Y\n\017upload_batch_id\030\003 \001(\004B@\202\265"
-  "\030<ID of this batch returned by prior Beg"
-  "inAppUploadBatch call.\"\030\n\026CCloud_Delete_"
-  "Response\"\'\n%CCloud_GetClientEncryptionKe"
-  "y_Request\"n\n&CCloud_GetClientEncryptionK"
-  "ey_Response\022\'\n\003key\030\001 \001(\014B\032\202\265\030\026AES-256 en"
-  "cryption key\022\033\n\003crc\030\002 \001(\005B\016\202\265\030\nCRC of ke"
-  "y\"\252\001\n\035CCloud_CDNReport_Notification\022\017\n\007s"
-  "teamid\030\001 \001(\006\022\013\n\003url\030\002 \001(\t\022\017\n\007success\030\003 \001"
-  "(\010\022\030\n\020http_status_code\030\004 \001(\r\022\026\n\016expected"
-  "_bytes\030\005 \001(\004\022\026\n\016received_bytes\030\006 \001(\004\022\020\n\010"
-  "duration\030\007 \001(\r\"\220\003\n1CCloud_ExternalStorag"
-  "eTransferReport_Notification\022\014\n\004host\030\001 \001"
-  "(\t\022\014\n\004path\030\002 \001(\t\022\021\n\tis_upload\030\003 \001(\010\022\017\n\007s"
-  "uccess\030\004 \001(\010\022\030\n\020http_status_code\030\005 \001(\r\022\026"
-  "\n\016bytes_expected\030\006 \001(\004\022\024\n\014bytes_actual\030\007"
-  " \001(\004\022\023\n\013duration_ms\030\010 \001(\r\022\016\n\006cellid\030\t \001("
-  "\r\022\017\n\007proxied\030\n \001(\010\022\022\n\nipv6_local\030\013 \001(\010\022\023"
-  "\n\013ipv6_remote\030\014 \001(\010\022\032\n\022time_to_connect_m"
-  "s\030\r \001(\r\022\033\n\023time_to_send_req_ms\030\016 \001(\r\022\035\n\025"
-  "time_to_first_byte_ms\030\017 \001(\r\022\034\n\024time_to_l"
-  "ast_byte_ms\030\020 \001(\r\"\252\003\n\"CCloud_BeginAppUpl"
-  "oadBatch_Request\0220\n\005appid\030\001 \001(\rB!\202\265\030\035App"
-  " ID for this batch is for.\022D\n\014machine_na"
-  "me\030\002 \001(\tB.\202\265\030*Client machine name (may b"
-  "e user\'s alias).\022G\n\017files_to_upload\030\003 \003("
-  "\tB.\202\265\030*Filenames of files to upload in t"
-  "his batch\022G\n\017files_to_delete\030\004 \003(\tB.\202\265\030*"
-  "Filenames of files to delete in this bat"
-  "ch\022\'\n\tclient_id\030\005 \001(\004B\024\202\265\030\020Client ID num"
-  "ber\022Q\n\014app_build_id\030\006 \001(\004B;\202\265\0307Current l"
-  "ocal build of the app which made these c"
-  "hanges\"\204\001\n#CCloud_BeginAppUploadBatch_Re"
-  "sponse\022\'\n\010batch_id\030\001 \001(\004B\025\202\265\030\021ID of this"
-  " batch.\0224\n\021app_change_number\030\004 \001(\004B\031\202\265\030\025"
-  "New App Change Number\"\271\001\n*CCloud_Complet"
-  "eAppUploadBatch_Notification\0220\n\005appid\030\001 "
-  "\001(\rB!\202\265\030\035App ID for this batch is for.\022\'"
-  "\n\010batch_id\030\002 \001(\004B\025\202\265\030\021ID of this batch.\022"
-  "0\n\rbatch_eresult\030\003 \001(\rB\031\202\265\030\025result of th"
-  "is batch.\"\264\001\n%CCloud_CompleteAppUploadBa"
-  "tch_Request\0220\n\005appid\030\001 \001(\rB!\202\265\030\035App ID f"
-  "or this batch is for.\022\'\n\010batch_id\030\002 \001(\004B"
-  "\025\202\265\030\021ID of this batch.\0220\n\rbatch_eresult\030"
-  "\003 \001(\rB\031\202\265\030\025result of this batch.\"(\n&CClo"
-  "ud_CompleteAppUploadBatch_Response\"\222\006\n$C"
-  "Cloud_ClientBeginFileUpload_Request\022\?\n\005a"
-  "ppid\030\001 \001(\rB0\202\265\030,App ID for which the fil"
-  "e is being uploaded.\022D\n\tfile_size\030\002 \001(\rB"
-  "1\202\265\030-file size as transmitted and stored"
-  " in Cloud.\022N\n\rraw_file_size\030\003 \001(\rB7\202\265\0303f"
-  "ile size before any compression and/or e"
-  "ncryption.\022(\n\010file_sha\030\004 \001(\014B\026\202\265\030\022SHA-1 "
-  "of raw file.\022*\n\ntime_stamp\030\005 \001(\004B\026\202\265\030\022Ti"
-  "mestamp of file.\022=\n\010filename\030\006 \001(\tB+\202\265\030\'"
-  "Name of the file to store in the cloud.\022"
-  "%\n\021platforms_to_sync\030\007 \001(\r:\n4294967295\022F"
-  "\n\007cell_id\030\t \001(\rB5\202\265\0301Client\'s cell ID so"
-  " we can pick storage location.\022Q\n\013can_en"
-  "crypt\030\n \001(\010B<\202\265\0308if true, client can enc"
-  "rypt the file before uploading it\022f\n\016is_"
-  "shared_file\030\013 \001(\010BN\202\265\030Jif true, this is "
-  "going to be UGC or a screenshot or some "
-  "other shared file\022$\n\020deprecated_realm\030\014 "
-  "\001(\rB\n\202\265\030\006unused\022.\n\017upload_batch_id\030\r \001(\004"
-  "B\025\202\265\030\021ID of this batch.\"\355\006\n!ClientCloudF"
-  "ileUploadBlockDetails\022X\n\010url_host\030\001 \001(\tB"
-  "F\202\265\030BHost name of server to which file s"
-  "hould be uploaded via HTTP PUT.\022O\n\010url_p"
-  "ath\030\002 \001(\tB=\202\265\0309Relative path on server t"
-  "o which file should be uploaded.\022>\n\tuse_"
-  "https\030\003 \001(\010B+\202\265\030\'If true, use https, oth"
-  "erwise use http.\022;\n\013http_method\030\004 \001(\005B&\202"
-  "\265\030\"EHTTPMethod to use for this block.\022}\n"
-  "\017request_headers\030\005 \003(\0132..ClientCloudFile"
-  "UploadBlockDetails.HTTPHeadersB4\202\265\0300Name"
-  "-value pairs to be sent in HTTP PUT requ"
-  "est.\0226\n\nblocoffset\030\006 \001(\004B\"\202\265\030\036offset of "
-  "file block to upload\022k\n\nbloclength\030\007 \001(\r"
-  "BW\202\265\030Slength of file block to upload - i"
-  "f zero, no part of the file is part of t"
-  "his block\022_\n\022explicit_body_data\030\010 \001(\014BC\202"
-  "\265\030\?explicit body data to use, instead of"
-  " file data, for this block\022o\n\017may_parall"
-  "elize\030\t \001(\010BV\202\265\030Rif true, this request m"
-  "ay be done in parallel with other simila"
-  "rly-marked requests\032*\n\013HTTPHeaders\022\014\n\004na"
-  "me\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\"\353\001\n%CCloud_Clien"
-  "tBeginFileUpload_Response\022[\n\014encrypt_fil"
-  "e\030\001 \001(\010BE\202\265\030AIf true, the file should be"
-  " encrypted by the client before upload\022e"
-  "\n\014blocrequests\030\002 \003(\0132\".ClientCloudFileUp"
-  "loadBlockDetailsB+\202\265\030\'HTTP requests to m"
-  "ake to perform upload\"\311\003\n%CCloud_ClientC"
-  "ommitFileUpload_Request\022a\n\022transfer_succ"
-  "eeded\030\001 \001(\010BE\202\265\030ATrue if all block uploa"
-  "ds succeeded, false if any of them faile"
-  "d.\022x\n\005appid\030\002 \001(\rBi\202\265\030eApp ID for which "
-  "the file is being uploaded. Must match t"
-  "he app ID provided to Cloud.BeginFileUpl"
-  "oad.\022p\n\010file_sha\030\003 \001(\014B^\202\265\030ZSHA1 digest "
-  "of the raw file. Must match the SHA1 dig"
-  "est provided to Cloud.BeginFileUpload.\022Q"
-  "\n\010filename\030\004 \001(\tB\?\202\265\030;Filename as specif"
-  "ied in the Cloud.BeginFileUpload request"
-  ".\"\203\001\n&CCloud_ClientCommitFileUpload_Resp"
-  "onse\022Y\n\016file_committed\030\001 \001(\010BA\202\265\030=True i"
-  "f the file was successfully committed, f"
-  "alse otherwise.\"\240\001\n!CCloud_ClientFileDow"
-  "nload_Request\022.\n\005appid\030\001 \001(\rB\037\202\265\030\033App ID"
-  " the file is part of.\022+\n\010filename\030\002 \001(\tB"
-  "\031\202\265\030\025Filename of the file.\022\036\n\005realm\030\003 \001("
-  "\rB\017\202\265\030\013Steam Realm\"\376\005\n\"CCloud_ClientFile"
-  "Download_Response\0222\n\005appid\030\001 \001(\rB#\202\265\030\037Ap"
-  "plication the file belongs to\022G\n\tfile_si"
-  "ze\030\002 \001(\rB4\202\265\0300file size as transmitted a"
-  "nd stored in the Cloud\022G\n\rraw_file_size\030"
-  "\003 \001(\rB0\202\265\030,file size when decompressed a"
-  "nd/or decrypted\022!\n\010sha_file\030\004 \001(\014B\017\202\265\030\013S"
-  "HA of file\022)\n\ntime_stamp\030\005 \001(\004B\025\202\265\030\021Time"
-  "stamp of file\022J\n\022is_explicit_delete\030\006 \001("
-  "\010B.\202\265\030*True if this is an explicitly del"
-  "eted file\022/\n\010url_host\030\007 \001(\tB\035\202\265\030\031Host to"
-  " GET the file from\022O\n\010url_path\030\010 \001(\tB=\202\265"
-  "\0309Path on that host to use, including UR"
-  "L parameters if any\0227\n\tuse_https\030\t \001(\010B$"
-  "\202\265\030 If set, use HTTPS, else use HTTP\022~\n\017"
-  "request_headers\030\n \003(\0132/.CCloud_ClientFil"
-  "eDownload_Response.HTTPHeadersB4\202\265\0300Name"
-  "-value pairs to be sent in HTTP GET requ"
-  "est.\022\021\n\tencrypted\030\013 \001(\010\032*\n\013HTTPHeaders\022\014"
-  "\n\004name\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\"\223\002\n\037CCloud_C"
-  "lientDeleteFile_Request\022>\n\005appid\030\001 \001(\rB/"
-  "\202\265\030+App ID for which the file is being d"
-  "eleted.\022\'\n\010filename\030\002 \001(\tB\025\202\265\030\021Filename "
-  "of file.\022W\n\022is_explicit_delete\030\003 \001(\010B;\202\265"
-  "\0307If true, this is a \'delete\'; if false,"
-  " it is a \'forget\'\022.\n\017upload_batch_id\030\004 \001"
-  "(\004B\025\202\265\030\021ID of this batch.\"\"\n CCloud_Clie"
-  "ntDeleteFile_Response\"\340\001\n,CCloud_ClientC"
-  "onflictResolution_Notification\022>\n\005appid\030"
-  "\001 \001(\rB/\202\265\030+App ID for which the conflict"
-  " was resolved.\022p\n\021chose_local_files\030\002 \001("
-  "\010BU\202\265\030QDid the user choose to keep the f"
-  "iles local to the machine they are on ri"
-  "ght now\?\"\"\n CCloud_EnumerateUserApps_Req"
-  "uest\"\230\001\n!CCloud_EnumerateUserApps_Respon"
-  "se\0225\n\004apps\030\001 \003(\0132\'.CCloud_EnumerateUserA"
-  "pps_Response.Apps\032<\n\004Apps\022\r\n\005appid\030\001 \001(\r"
-  "\022\022\n\ntotalcount\030\002 \001(\005\022\021\n\ttotalsize\030\003 \001(\003\""
-  "\245\001\n#CCloud_GetAppFileChangelist_Request\022"
-  "\031\n\005appid\030\001 \001(\rB\n\202\265\030\006App ID\022c\n\024synced_cha"
-  "nge_number\030\002 \001(\004BE\202\265\030AChange Number to w"
-  "hich local machine was last successfully"
-  " synced\"\231\004\n\022CCloud_AppFileInfo\022+\n\tfile_n"
-  "ame\030\001 \001(\tB\030\202\265\030\024unqualified filename\022!\n\010s"
-  "ha_file\030\002 \001(\014B\017\202\265\030\013SHA of file\022=\n\ntime_s"
-  "tamp\030\003 \001(\004B)\202\265\030%server timestamp of last"
-  " modification\022+\n\rraw_file_size\030\004 \001(\rB\024\202\265"
-  "\030\020size of raw file\022|\n\rpersist_state\030\005 \001("
-  "\0162\032.ECloudStoragePersistState:\"ECloudSto"
-  "ragePersistStatePersistedB%\202\265\030!current p"
-  "ersist state of the file\022:\n\021platforms_to"
-  "_sync\030\006 \001(\rB\037\202\265\030\033ERemoteStoragePlatform "
-  "bits\022G\n\021path_prefix_index\030\007 \001(\rB,\202\265\030(ind"
-  "ex into string table of path prefixes\022D\n"
-  "\022machine_name_index\030\010 \001(\rB(\202\265\030$what mach"
-  "ine last modified this file\"\241\004\n$CCloud_G"
-  "etAppFileChangelist_Response\022B\n\025current_"
-  "change_number\030\001 \001(\004B#\202\265\030\037Change Number c"
-  "urrent on server\022\211\001\n\005files\030\002 \003(\0132\023.CClou"
-  "d_AppFileInfoBe\202\265\030aList of files; may be"
-  " the full list of extant/deleted files, "
-  "or just a delta from the client list\022j\n\r"
-  "is_only_delta\030\003 \001(\010BS\202\265\030OIf true, \'files"
-  "\' omits any files that have not changed "
-  "since client\'s change ID\0228\n\rpath_prefixe"
-  "s\030\004 \003(\tB!\202\265\030\035string table of path prefix"
-  "es\0228\n\rmachine_names\030\005 \003(\tB!\202\265\030\035string ta"
-  "ble of machine names\022I\n\017app_buildid_hwm\030"
-  "\006 \001(\004B0\202\265\030,highest app build ID which ha"
-  "s uploaded data\"x\n CCloud_AppSessionSusp"
-  "end_Request\022\r\n\005appid\030\001 \001(\r\022\021\n\tclient_id\030"
-  "\002 \001(\004\022\024\n\014machine_name\030\003 \001(\t\022\034\n\024cloud_syn"
-  "c_completed\030\004 \001(\010\"#\n!CCloud_AppSessionSu"
-  "spend_Response\"C\n\037CCloud_AppSessionResum"
-  "e_Request\022\r\n\005appid\030\001 \001(\r\022\021\n\tclient_id\030\002 "
-  "\001(\004\"\"\n CCloud_AppSessionResume_Response\""
-  "{\n\036CCloud_AppLaunchIntent_Request\022\r\n\005app"
-  "id\030\001 \001(\r\022\021\n\tclient_id\030\002 \001(\004\022\024\n\014machine_n"
-  "ame\030\003 \001(\t\022!\n\031ignore_pending_operations\030\004"
-  " \001(\010\"\232\001\n\037CCloud_AppLaunchIntent_Response"
-  "\022w\n\031pending_remote_operations\030\001 \003(\0132\036.CC"
-  "loud_PendingRemoteOperationB4\202\265\0300pending"
-  " remote operations you should be aware o"
-  "f\"|\n#CCloud_AppExitSyncDone_Notification"
+  "\004\022\022\n\nrequest_id\030\002 \001(\004\"3\n\"CCloud_GetUploa"
+  "dServerInfo_Request\022\r\n\005appid\030\001 \001(\r\"9\n#CC"
+  "loud_GetUploadServerInfo_Response\022\022\n\nser"
+  "ver_url\030\001 \001(\t\"\354\001\n\036CCloud_BeginHTTPUpload"
+  "_Request\022\r\n\005appid\030\001 \001(\r\022\021\n\tfile_size\030\002 \001"
+  "(\r\022\020\n\010filename\030\003 \001(\t\022\020\n\010file_sha\030\004 \001(\t\022\021"
+  "\n\tis_public\030\005 \001(\010\022\031\n\021platforms_to_sync\030\006"
+  " \003(\t\022\035\n\025request_headers_names\030\007 \003(\t\022\036\n\026r"
+  "equest_headers_values\030\010 \003(\t\022\027\n\017upload_ba"
+  "tch_id\030\t \001(\004\"\355\001\n\037CCloud_BeginHTTPUpload_"
+  "Response\022\r\n\005ugcid\030\001 \001(\006\022\021\n\ttimestamp\030\002 \001"
+  "(\007\022\020\n\010url_host\030\003 \001(\t\022\020\n\010url_path\030\004 \001(\t\022\021"
+  "\n\tuse_https\030\005 \001(\010\022E\n\017request_headers\030\006 \003"
+  "(\0132,.CCloud_BeginHTTPUpload_Response.HTT"
+  "PHeaders\032*\n\013HTTPHeaders\022\014\n\004name\030\001 \001(\t\022\r\n"
+  "\005value\030\002 \001(\t\"p\n\037CCloud_CommitHTTPUpload_"
+  "Request\022\032\n\022transfer_succeeded\030\001 \001(\010\022\r\n\005a"
+  "ppid\030\002 \001(\r\022\020\n\010file_sha\030\003 \001(\t\022\020\n\010filename"
+  "\030\004 \001(\t\":\n CCloud_CommitHTTPUpload_Respon"
+  "se\022\026\n\016file_committed\030\001 \001(\010\"{\n\035CCloud_Beg"
+  "inUGCUpload_Request\022\r\n\005appid\030\001 \001(\r\022\021\n\tfi"
+  "le_size\030\002 \001(\r\022\020\n\010filename\030\003 \001(\t\022\020\n\010file_"
+  "sha\030\004 \001(\t\022\024\n\014content_type\030\005 \001(\t\"\305\002\n\036CClo"
+  "ud_BeginUGCUpload_Response\022X\n\016storage_sy"
+  "stem\030\001 \001(\0162\034.EPublishedFileStorageSystem"
+  ":\"EPublishedFileStorageSystemInvalid\022\r\n\005"
+  "ugcid\030\002 \001(\006\022\021\n\ttimestamp\030\003 \001(\007\022\020\n\010url_ho"
+  "st\030\004 \001(\t\022\020\n\010url_path\030\005 \001(\t\022\021\n\tuse_https\030"
+  "\006 \001(\010\022D\n\017request_headers\030\007 \003(\0132+.CCloud_"
+  "BeginUGCUpload_Response.HTTPHeaders\032*\n\013H"
+  "TTPHeaders\022\014\n\004name\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\""
+  "Z\n\036CCloud_CommitUGCUpload_Request\022\032\n\022tra"
+  "nsfer_succeeded\030\001 \001(\010\022\r\n\005appid\030\002 \001(\r\022\r\n\005"
+  "ugcid\030\003 \001(\006\"9\n\037CCloud_CommitUGCUpload_Re"
+  "sponse\022\026\n\016file_committed\030\001 \001(\010\"=\n\035CCloud"
+  "_GetFileDetails_Request\022\r\n\005ugcid\030\001 \001(\004\022\r"
+  "\n\005appid\030\002 \001(\r\"\311\001\n\017CCloud_UserFile\022\r\n\005app"
+  "id\030\001 \001(\r\022\r\n\005ugcid\030\002 \001(\004\022\020\n\010filename\030\003 \001("
+  "\t\022\021\n\ttimestamp\030\004 \001(\004\022\021\n\tfile_size\030\005 \001(\r\022"
+  "\013\n\003url\030\006 \001(\t\022\027\n\017steamid_creator\030\007 \001(\006\022\r\n"
+  "\005flags\030\010 \001(\r\022\031\n\021platforms_to_sync\030\t \003(\t\022"
+  "\020\n\010file_sha\030\n \001(\t\"C\n\036CCloud_GetFileDetai"
+  "ls_Response\022!\n\007details\030\001 \001(\0132\020.CCloud_Us"
+  "erFile\"p\n!CCloud_EnumerateUserFiles_Requ"
+  "est\022\r\n\005appid\030\001 \001(\r\022\030\n\020extended_details\030\002"
+  " \001(\010\022\r\n\005count\030\003 \001(\r\022\023\n\013start_index\030\004 \001(\r"
+  "\"Z\n\"CCloud_EnumerateUserFiles_Response\022\037"
+  "\n\005files\030\001 \003(\0132\020.CCloud_UserFile\022\023\n\013total"
+  "_files\030\002 \001(\r\"Q\n\025CCloud_Delete_Request\022\020\n"
+  "\010filename\030\001 \001(\t\022\r\n\005appid\030\002 \001(\r\022\027\n\017upload"
+  "_batch_id\030\003 \001(\004\"\030\n\026CCloud_Delete_Respons"
+  "e\"\'\n%CCloud_GetClientEncryptionKey_Reque"
+  "st\"B\n&CCloud_GetClientEncryptionKey_Resp"
+  "onse\022\013\n\003key\030\001 \001(\014\022\013\n\003crc\030\002 \001(\005\"\252\001\n\035CClou"
+  "d_CDNReport_Notification\022\017\n\007steamid\030\001 \001("
+  "\006\022\013\n\003url\030\002 \001(\t\022\017\n\007success\030\003 \001(\010\022\030\n\020http_"
+  "status_code\030\004 \001(\r\022\026\n\016expected_bytes\030\005 \001("
+  "\004\022\026\n\016received_bytes\030\006 \001(\004\022\020\n\010duration\030\007 "
+  "\001(\r\"\220\003\n1CCloud_ExternalStorageTransferRe"
+  "port_Notification\022\014\n\004host\030\001 \001(\t\022\014\n\004path\030"
+  "\002 \001(\t\022\021\n\tis_upload\030\003 \001(\010\022\017\n\007success\030\004 \001("
+  "\010\022\030\n\020http_status_code\030\005 \001(\r\022\026\n\016bytes_exp"
+  "ected\030\006 \001(\004\022\024\n\014bytes_actual\030\007 \001(\004\022\023\n\013dur"
+  "ation_ms\030\010 \001(\r\022\016\n\006cellid\030\t \001(\r\022\017\n\007proxie"
+  "d\030\n \001(\010\022\022\n\nipv6_local\030\013 \001(\010\022\023\n\013ipv6_remo"
+  "te\030\014 \001(\010\022\032\n\022time_to_connect_ms\030\r \001(\r\022\033\n\023"
+  "time_to_send_req_ms\030\016 \001(\r\022\035\n\025time_to_fir"
+  "st_byte_ms\030\017 \001(\r\022\034\n\024time_to_last_byte_ms"
+  "\030\020 \001(\r\"\244\001\n\"CCloud_BeginAppUploadBatch_Re"
+  "quest\022\r\n\005appid\030\001 \001(\r\022\024\n\014machine_name\030\002 \001"
+  "(\t\022\027\n\017files_to_upload\030\003 \003(\t\022\027\n\017files_to_"
+  "delete\030\004 \003(\t\022\021\n\tclient_id\030\005 \001(\004\022\024\n\014app_b"
+  "uild_id\030\006 \001(\004\"R\n#CCloud_BeginAppUploadBa"
+  "tch_Response\022\020\n\010batch_id\030\001 \001(\004\022\031\n\021app_ch"
+  "ange_number\030\004 \001(\004\"d\n*CCloud_CompleteAppU"
+  "ploadBatch_Notification\022\r\n\005appid\030\001 \001(\r\022\020"
+  "\n\010batch_id\030\002 \001(\004\022\025\n\rbatch_eresult\030\003 \001(\r\""
+  "_\n%CCloud_CompleteAppUploadBatch_Request"
+  "\022\r\n\005appid\030\001 \001(\r\022\020\n\010batch_id\030\002 \001(\004\022\025\n\rbat"
+  "ch_eresult\030\003 \001(\r\"(\n&CCloud_CompleteAppUp"
+  "loadBatch_Response\"\257\002\n$CCloud_ClientBegi"
+  "nFileUpload_Request\022\r\n\005appid\030\001 \001(\r\022\021\n\tfi"
+  "le_size\030\002 \001(\r\022\025\n\rraw_file_size\030\003 \001(\r\022\020\n\010"
+  "file_sha\030\004 \001(\014\022\022\n\ntime_stamp\030\005 \001(\004\022\020\n\010fi"
+  "lename\030\006 \001(\t\022%\n\021platforms_to_sync\030\007 \001(\r:"
+  "\n4294967295\022\017\n\007cell_id\030\t \001(\r\022\023\n\013can_encr"
+  "ypt\030\n \001(\010\022\026\n\016is_shared_file\030\013 \001(\010\022\030\n\020dep"
+  "recated_realm\030\014 \001(\r\022\027\n\017upload_batch_id\030\r"
+  " \001(\004\"\301\002\n!ClientCloudFileUploadBlockDetai"
+  "ls\022\020\n\010url_host\030\001 \001(\t\022\020\n\010url_path\030\002 \001(\t\022\021"
+  "\n\tuse_https\030\003 \001(\010\022\023\n\013http_method\030\004 \001(\005\022G"
+  "\n\017request_headers\030\005 \003(\0132..ClientCloudFil"
+  "eUploadBlockDetails.HTTPHeaders\022\022\n\nbloco"
+  "ffset\030\006 \001(\004\022\022\n\nbloclength\030\007 \001(\r\022\032\n\022expli"
+  "cit_body_data\030\010 \001(\014\022\027\n\017may_parallelize\030\t"
+  " \001(\010\032*\n\013HTTPHeaders\022\014\n\004name\030\001 \001(\t\022\r\n\005val"
+  "ue\030\002 \001(\t\"w\n%CCloud_ClientBeginFileUpload"
+  "_Response\022\024\n\014encrypt_file\030\001 \001(\010\0228\n\014blocr"
+  "equests\030\002 \003(\0132\".ClientCloudFileUploadBlo"
+  "ckDetails\"v\n%CCloud_ClientCommitFileUplo"
+  "ad_Request\022\032\n\022transfer_succeeded\030\001 \001(\010\022\r"
+  "\n\005appid\030\002 \001(\r\022\020\n\010file_sha\030\003 \001(\014\022\020\n\010filen"
+  "ame\030\004 \001(\t\"@\n&CCloud_ClientCommitFileUplo"
+  "ad_Response\022\026\n\016file_committed\030\001 \001(\010\"S\n!C"
+  "Cloud_ClientFileDownload_Request\022\r\n\005appi"
+  "d\030\001 \001(\r\022\020\n\010filename\030\002 \001(\t\022\r\n\005realm\030\003 \001(\r"
+  "\"\337\002\n\"CCloud_ClientFileDownload_Response\022"
+  "\r\n\005appid\030\001 \001(\r\022\021\n\tfile_size\030\002 \001(\r\022\025\n\rraw"
+  "_file_size\030\003 \001(\r\022\020\n\010sha_file\030\004 \001(\014\022\022\n\nti"
+  "me_stamp\030\005 \001(\004\022\032\n\022is_explicit_delete\030\006 \001"
+  "(\010\022\020\n\010url_host\030\007 \001(\t\022\020\n\010url_path\030\010 \001(\t\022\021"
+  "\n\tuse_https\030\t \001(\010\022H\n\017request_headers\030\n \003"
+  "(\0132/.CCloud_ClientFileDownload_Response."
+  "HTTPHeaders\022\021\n\tencrypted\030\013 \001(\010\032*\n\013HTTPHe"
+  "aders\022\014\n\004name\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\"w\n\037CC"
+  "loud_ClientDeleteFile_Request\022\r\n\005appid\030\001"
+  " \001(\r\022\020\n\010filename\030\002 \001(\t\022\032\n\022is_explicit_de"
+  "lete\030\003 \001(\010\022\027\n\017upload_batch_id\030\004 \001(\004\"\"\n C"
+  "Cloud_ClientDeleteFile_Response\"X\n,CClou"
+  "d_ClientConflictResolution_Notification\022"
+  "\r\n\005appid\030\001 \001(\r\022\031\n\021chose_local_files\030\002 \001("
+  "\010\"\"\n CCloud_EnumerateUserApps_Request\"\230\001"
+  "\n!CCloud_EnumerateUserApps_Response\0225\n\004a"
+  "pps\030\001 \003(\0132\'.CCloud_EnumerateUserApps_Res"
+  "ponse.Apps\032<\n\004Apps\022\r\n\005appid\030\001 \001(\r\022\022\n\ntot"
+  "alcount\030\002 \001(\005\022\021\n\ttotalsize\030\003 \001(\003\"R\n#CClo"
+  "ud_GetAppFileChangelist_Request\022\r\n\005appid"
+  "\030\001 \001(\r\022\034\n\024synced_change_number\030\002 \001(\004\"\215\002\n"
+  "\022CCloud_AppFileInfo\022\021\n\tfile_name\030\001 \001(\t\022\020"
+  "\n\010sha_file\030\002 \001(\014\022\022\n\ntime_stamp\030\003 \001(\004\022\025\n\r"
+  "raw_file_size\030\004 \001(\r\022U\n\rpersist_state\030\005 \001"
+  "(\0162\032.ECloudStoragePersistState:\"ECloudSt"
+  "oragePersistStatePersisted\022\031\n\021platforms_"
+  "to_sync\030\006 \001(\r\022\031\n\021path_prefix_index\030\007 \001(\r"
+  "\022\032\n\022machine_name_index\030\010 \001(\r\"\307\001\n$CCloud_"
+  "GetAppFileChangelist_Response\022\035\n\025current"
+  "_change_number\030\001 \001(\004\022\"\n\005files\030\002 \003(\0132\023.CC"
+  "loud_AppFileInfo\022\025\n\ris_only_delta\030\003 \001(\010\022"
+  "\025\n\rpath_prefixes\030\004 \003(\t\022\025\n\rmachine_names\030"
+  "\005 \003(\t\022\027\n\017app_buildid_hwm\030\006 \001(\004\"x\n CCloud"
+  "_AppSessionSuspend_Request\022\r\n\005appid\030\001 \001("
+  "\r\022\021\n\tclient_id\030\002 \001(\004\022\024\n\014machine_name\030\003 \001"
+  "(\t\022\034\n\024cloud_sync_completed\030\004 \001(\010\"#\n!CClo"
+  "ud_AppSessionSuspend_Response\"C\n\037CCloud_"
+  "AppSessionResume_Request\022\r\n\005appid\030\001 \001(\r\022"
+  "\021\n\tclient_id\030\002 \001(\004\"\"\n CCloud_AppSessionR"
+  "esume_Response\"{\n\036CCloud_AppLaunchIntent"
+  "_Request\022\r\n\005appid\030\001 \001(\r\022\021\n\tclient_id\030\002 \001"
+  "(\004\022\024\n\014machine_name\030\003 \001(\t\022!\n\031ignore_pendi"
+  "ng_operations\030\004 \001(\010\"d\n\037CCloud_AppLaunchI"
+  "ntent_Response\022A\n\031pending_remote_operati"
+  "ons\030\001 \003(\0132\036.CCloud_PendingRemoteOperatio"
+  "n\"|\n#CCloud_AppExitSyncDone_Notification"
   "\022\r\n\005appid\030\001 \001(\r\022\021\n\tclient_id\030\002 \001(\004\022\031\n\021up"
   "loads_completed\030\003 \001(\010\022\030\n\020uploads_require"
   "d\030\004 \001(\010\"6\n%CCloud_ClientGetAppQuotaUsage"
@@ -2032,134 +1862,79 @@ const char descriptor_table_protodef_steammessages_5fcloud_2esteamclient_2eproto
   "tGetAppQuotaUsage_Response\022\026\n\016existing_f"
   "iles\030\001 \001(\r\022\026\n\016existing_bytes\030\002 \001(\004\022\025\n\rma"
   "x_num_files\030\003 \001(\r\022\025\n\rmax_num_bytes\030\004 \001(\004"
-  "\"\235\001\n\'CCloud_AppCloudStateChange_Notifica"
-  "tion\022<\n\005appid\030\001 \001(\rB-\202\265\030)App which has h"
-  "ad a change in cloud state\0224\n\021app_change"
-  "_number\030\002 \001(\004B\031\202\265\030\025New App Change Number"
-  "\"@\n*CCloud_ClientLogUploadRequest_Notifi"
-  "cation\022\022\n\nrequest_id\030\001 \001(\0042\213#\n\005Cloud\022\202\001\n"
-  "\024ClientLogUploadCheck\022\'.CCloud_ClientLog"
-  "UploadChecNotification\032\013.NoResponse\"4\202\265\030"
-  "0Client checking for pending log upload "
-  "requests.\022\217\001\n\027ClientLogUploadComplete\022,."
-  "CCloud_ClientLogUploadComplete_Notificat"
-  "ion\032\013.NoResponse\"9\202\265\0305Client is flagging"
-  " a log upload request as completed.\022\234\001\n\023"
-  "GetUploadServerInfo\022#.CCloud_GetUploadSe"
-  "rverInfo_Request\032$.CCloud_GetUploadServe"
-  "rInfo_Response\":\202\265\0306Returns the URL of t"
-  "he proper cloud server for a user.\022\250\002\n\017B"
-  "eginHTTPUpload\022\037.CCloud_BeginHTTPUpload_"
-  "Request\032 .CCloud_BeginHTTPUpload_Respons"
-  "e\"\321\001\202\265\030\314\001Begins the process of uploading"
-  " a file to Steam external storage servic"
-  "es. File should be uploaded via HTTP PUT"
-  " to the returned URL, after which the up"
-  "load must be finalized by a call to Comm"
-  "itHTTPUpload.\022\255\001\n\020CommitHTTPUpload\022 .CCl"
-  "oud_CommitHTTPUpload_Request\032!.CCloud_Co"
-  "mmitHTTPUpload_Response\"T\202\265\030PCommits a f"
-  "ile upload initiated by BeginHTTPUpload "
-  "and transferred via HTTP PUT.\022\245\002\n\016BeginU"
-  "GCUpload\022\036.CCloud_BeginUGCUpload_Request"
-  "\032\037.CCloud_BeginUGCUpload_Response\"\321\001\202\265\030\314"
-  "\001Begins the process of uploading a file "
-  "to Steam external storage services. File"
-  " should be uploaded via HTTP PUT to the "
-  "returned URL, after which the upload mus"
-  "t be finalized by a call to CommitHTTPUp"
-  "load.\022\251\001\n\017CommitUGCUpload\022\037.CCloud_Commi"
-  "tUGCUpload_Request\032 .CCloud_CommitUGCUpl"
-  "oad_Response\"S\202\265\030OCommits a file upload "
-  "initiated by BeginUGCUpload and transfer"
-  "red via HTTP PUT.\022w\n\016GetFileDetails\022\036.CC"
-  "loud_GetFileDetails_Request\032\037.CCloud_Get"
-  "FileDetails_Response\"$\202\265\030 Returns detail"
-  "s on a Cloud file.\022\272\001\n\022EnumerateUserFile"
-  "s\022\".CCloud_EnumerateUserFiles_Request\032#."
-  "CCloud_EnumerateUserFiles_Response\"[\202\265\030W"
-  "Enumerates Cloud files for a user of a g"
-  "iven app ID. Returns up to 500 files at "
-  "a time.\022d\n\006Delete\022\026.CCloud_Delete_Reques"
-  "t\032\027.CCloud_Delete_Response\")\202\265\030%Deletes "
-  "a file from the user\'s cloud.\022\231\001\n\026GetCli"
-  "entEncryptionKey\022&.CCloud_GetClientEncry"
-  "ptionKey_Request\032\'.CCloud_GetClientEncry"
-  "ptionKey_Response\".\202\265\030*Gets the user\'s C"
-  "loud file encryption key.\022c\n\tCDNReport\022\036"
-  ".CCloud_CDNReport_Notification\032\013.NoRespo"
-  "nse\")\202\265\030%Reports the result of a CDN tra"
-  "nsfer.\022\237\001\n\035ExternalStorageTransferReport"
-  "\0222.CCloud_ExternalStorageTransferReport_"
-  "Notification\032\013.NoResponse\"=\202\265\0309Reports t"
-  "he result of an external Cloud storage t"
-  "ransfer.\022\253\001\n\023BeginAppUploadBatch\022#.CClou"
-  "d_BeginAppUploadBatch_Request\032$.CCloud_B"
-  "eginAppUploadBatch_Response\"I\202\265\030EIndicat"
-  "e a batch of files that will be uploaded"
-  " / deleted for an app.\022\243\001\n\026CompleteAppUp"
-  "loadBatch\022+.CCloud_CompleteAppUploadBatc"
-  "h_Notification\032\013.NoResponse\"O\202\265\030KIndicat"
-  "e that the batch is complete or being st"
-  "opped for some other reason.\022\302\001\n\036Complet"
-  "eAppUploadBatchBlocking\022&.CCloud_Complet"
-  "eAppUploadBatch_Request\032\'.CCloud_Complet"
-  "eAppUploadBatch_Response\"O\202\265\030KIndicate t"
-  "hat the batch is complete or being stopp"
-  "ed for some other reason.\022\210\001\n\025ClientBegi"
-  "nFileUpload\022%.CCloud_ClientBeginFileUplo"
-  "ad_Request\032&.CCloud_ClientBeginFileUploa"
-  "d_Response\" \202\265\030\034Initiate an upload to Cl"
-  "oud.\022\232\001\n\026ClientCommitFileUpload\022&.CCloud"
-  "_ClientCommitFileUpload_Request\032\'.CCloud"
-  "_ClientCommitFileUpload_Response\"/\202\265\030+Co"
-  "mmit the file upload or indicate failure"
-  ".\022|\n\022ClientFileDownload\022\".CCloud_ClientF"
-  "ileDownload_Request\032#.CCloud_ClientFileD"
-  "ownload_Response\"\035\202\265\030\031Initiate a file do"
-  "wnload.\022u\n\020ClientDeleteFile\022 .CCloud_Cli"
-  "entDeleteFile_Request\032!.CCloud_ClientDel"
-  "eteFile_Response\"\034\202\265\030\030Delete or forget a"
-  " file.\022\216\001\n\030ClientConflictResolution\022-.CC"
-  "loud_ClientConflictResolution_Notificati"
-  "on\032\013.NoResponse\"6\202\265\0302User has picked a r"
-  "esolution for a Cloud conflict.\022\217\001\n\021Enum"
-  "erateUserApps\022!.CCloud_EnumerateUserApps"
-  "_Request\032\".CCloud_EnumerateUserApps_Resp"
-  "onse\"3\202\265\030/Enumerates apps stroing cloud "
-  "files for a user.\022\264\001\n\024GetAppFileChangeli"
-  "st\022$.CCloud_GetAppFileChangelist_Request"
-  "\032%.CCloud_GetAppFileChangelist_Response\""
-  "O\202\265\030KGet a list of Cloud file changes fo"
-  "r an app given a starting Change Number."
-  "\022\201\001\n\021SuspendAppSession\022!.CCloud_AppSessi"
-  "onSuspend_Request\032\".CCloud_AppSessionSus"
-  "pend_Response\"%\202\265\030!An app session is bei"
-  "ng suspended\022|\n\020ResumeAppSession\022 .CClou"
+  "\"S\n\'CCloud_AppCloudStateChange_Notificat"
+  "ion\022\r\n\005appid\030\001 \001(\r\022\031\n\021app_change_number\030"
+  "\002 \001(\004\"@\n*CCloud_ClientLogUploadRequest_N"
+  "otification\022\022\n\nrequest_id\030\001 \001(\0042\356\023\n\005Clou"
+  "d\022L\n\024ClientLogUploadCheck\022\'.CCloud_Clien"
+  "tLogUploadChecNotification\032\013.NoResponse\022"
+  "T\n\027ClientLogUploadComplete\022,.CCloud_Clie"
+  "ntLogUploadComplete_Notification\032\013.NoRes"
+  "ponse\022`\n\023GetUploadServerInfo\022#.CCloud_Ge"
+  "tUploadServerInfo_Request\032$.CCloud_GetUp"
+  "loadServerInfo_Response\022T\n\017BeginHTTPUplo"
+  "ad\022\037.CCloud_BeginHTTPUpload_Request\032 .CC"
+  "loud_BeginHTTPUpload_Response\022W\n\020CommitH"
+  "TTPUpload\022 .CCloud_CommitHTTPUpload_Requ"
+  "est\032!.CCloud_CommitHTTPUpload_Response\022Q"
+  "\n\016BeginUGCUpload\022\036.CCloud_BeginUGCUpload"
+  "_Request\032\037.CCloud_BeginUGCUpload_Respons"
+  "e\022T\n\017CommitUGCUpload\022\037.CCloud_CommitUGCU"
+  "pload_Request\032 .CCloud_CommitUGCUpload_R"
+  "esponse\022Q\n\016GetFileDetails\022\036.CCloud_GetFi"
+  "leDetails_Request\032\037.CCloud_GetFileDetail"
+  "s_Response\022]\n\022EnumerateUserFiles\022\".CClou"
+  "d_EnumerateUserFiles_Request\032#.CCloud_En"
+  "umerateUserFiles_Response\0229\n\006Delete\022\026.CC"
+  "loud_Delete_Request\032\027.CCloud_Delete_Resp"
+  "onse\022i\n\026GetClientEncryptionKey\022&.CCloud_"
+  "GetClientEncryptionKey_Request\032\'.CCloud_"
+  "GetClientEncryptionKey_Response\0228\n\tCDNRe"
+  "port\022\036.CCloud_CDNReport_Notification\032\013.N"
+  "oResponse\022`\n\035ExternalStorageTransferRepo"
+  "rt\0222.CCloud_ExternalStorageTransferRepor"
+  "t_Notification\032\013.NoResponse\022`\n\023BeginAppU"
+  "ploadBatch\022#.CCloud_BeginAppUploadBatch_"
+  "Request\032$.CCloud_BeginAppUploadBatch_Res"
+  "ponse\022R\n\026CompleteAppUploadBatch\022+.CCloud"
+  "_CompleteAppUploadBatch_Notification\032\013.N"
+  "oResponse\022q\n\036CompleteAppUploadBatchBlock"
+  "ing\022&.CCloud_CompleteAppUploadBatch_Requ"
+  "est\032\'.CCloud_CompleteAppUploadBatch_Resp"
+  "onse\022f\n\025ClientBeginFileUpload\022%.CCloud_C"
+  "lientBeginFileUpload_Request\032&.CCloud_Cl"
+  "ientBeginFileUpload_Response\022i\n\026ClientCo"
+  "mmitFileUpload\022&.CCloud_ClientCommitFile"
+  "Upload_Request\032\'.CCloud_ClientCommitFile"
+  "Upload_Response\022]\n\022ClientFileDownload\022\"."
+  "CCloud_ClientFileDownload_Request\032#.CClo"
+  "ud_ClientFileDownload_Response\022W\n\020Client"
+  "DeleteFile\022 .CCloud_ClientDeleteFile_Req"
+  "uest\032!.CCloud_ClientDeleteFile_Response\022"
+  "V\n\030ClientConflictResolution\022-.CCloud_Cli"
+  "entConflictResolution_Notification\032\013.NoR"
+  "esponse\022Z\n\021EnumerateUserApps\022!.CCloud_En"
+  "umerateUserApps_Request\032\".CCloud_Enumera"
+  "teUserApps_Response\022c\n\024GetAppFileChangel"
+  "ist\022$.CCloud_GetAppFileChangelist_Reques"
+  "t\032%.CCloud_GetAppFileChangelist_Response"
+  "\022Z\n\021SuspendAppSession\022!.CCloud_AppSessio"
+  "nSuspend_Request\032\".CCloud_AppSessionSusp"
+  "end_Response\022W\n\020ResumeAppSession\022 .CClou"
   "d_AppSessionResume_Request\032!.CCloud_AppS"
-  "essionResume_Response\"#\202\265\030\037An app sessio"
-  "n is being resumed\022\177\n\025SignalAppLaunchInt"
-  "ent\022\037.CCloud_AppLaunchIntent_Request\032 .C"
-  "Cloud_AppLaunchIntent_Response\"#\202\265\030\037Clie"
-  "nt intends to launch an app\022\202\001\n\025SignalAp"
-  "pExitSyncDone\022$.CCloud_AppExitSyncDone_N"
-  "otification\032\013.NoResponse\"6\202\265\0302Client is "
-  "done trying to sync after a game session"
-  "\022\232\001\n\026ClientGetAppQuotaUsage\022&.CCloud_Cli"
-  "entGetAppQuotaUsage_Request\032\'.CCloud_Cli"
-  "entGetAppQuotaUsage_Response\"/\202\265\030+Client"
-  " is requesting quota usage for an app\032)\202"
-  "\265\030%A service for Steam Cloud operations."
-  "2\330\002\n\013CloudClient\022}\n\024NotifyAppStateChange"
-  "\022(.CCloud_AppCloudStateChange_Notificati"
-  "on\032\013.NoResponse\".\202\265\030*Cloud state for the"
-  " given app has changed.\022\224\001\n\026ClientLogUpl"
-  "oadRequest\022+.CCloud_ClientLogUploadReque"
-  "st_Notification\032\013.NoResponse\"@\202\265\030<Server"
-  " is requesting log file uploads from the"
-  " given client.\0323\202\265\030+Client notifications"
-  " for Steam cloud events\300\265\030\002B\035\200\001\001\252\002\027OpenS"
-  "teamworks.Protobuf"
+  "essionResume_Response\022Z\n\025SignalAppLaunch"
+  "Intent\022\037.CCloud_AppLaunchIntent_Request\032"
+  " .CCloud_AppLaunchIntent_Response\022J\n\025Sig"
+  "nalAppExitSyncDone\022$.CCloud_AppExitSyncD"
+  "one_Notification\032\013.NoResponse\022i\n\026ClientG"
+  "etAppQuotaUsage\022&.CCloud_ClientGetAppQuo"
+  "taUsage_Request\032\'.CCloud_ClientGetAppQuo"
+  "taUsage_Response2\266\001\n\013CloudClient\022M\n\024Noti"
+  "fyAppStateChange\022(.CCloud_AppCloudStateC"
+  "hange_Notification\032\013.NoResponse\022R\n\026Clien"
+  "tLogUploadRequest\022+.CCloud_ClientLogUplo"
+  "adRequest_Notification\032\013.NoResponse\032\004\300\265\030"
+  "\002B\035\200\001\001\252\002\027OpenSteamworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fcloud_2esteamclient_2eproto_deps[5] = {
   &::descriptor_table_enums_2eproto,
@@ -2170,7 +1945,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fcloud_2esteamclient_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fcloud_2esteamclient_2eproto = {
-  false, false, 18618, descriptor_table_protodef_steammessages_5fcloud_2esteamclient_2eproto, "steammessages_cloud.steamclient.proto", 
+  false, false, 9632, descriptor_table_protodef_steammessages_5fcloud_2esteamclient_2eproto, "steammessages_cloud.steamclient.proto", 
   &descriptor_table_steammessages_5fcloud_2esteamclient_2eproto_once, descriptor_table_steammessages_5fcloud_2esteamclient_2eproto_deps, 5, 59,
   schemas, file_default_instances, TableStruct_steammessages_5fcloud_2esteamclient_2eproto::offsets,
   file_level_metadata_steammessages_5fcloud_2esteamclient_2eproto, file_level_enum_descriptors_steammessages_5fcloud_2esteamclient_2eproto, file_level_service_descriptors_steammessages_5fcloud_2esteamclient_2eproto,
@@ -2701,7 +2476,7 @@ const char* CCloud_GetUploadServerInfo_Request::_InternalParse(const char* ptr, 
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint32 appid = 1 [(.description) = "App ID to which a file will be uploaded to."];
+      // optional uint32 appid = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_appid(&has_bits);
@@ -2739,7 +2514,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint32 appid = 1 [(.description) = "App ID to which a file will be uploaded to."];
+  // optional uint32 appid = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_appid(), target);
@@ -2761,7 +2536,7 @@ size_t CCloud_GetUploadServerInfo_Request::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // optional uint32 appid = 1 [(.description) = "App ID to which a file will be uploaded to."];
+  // optional uint32 appid = 1;
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += 1 +
@@ -3174,7 +2949,7 @@ const char* CCloud_BeginHTTPUpload_Request::_InternalParse(const char* ptr, ::PR
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint32 appid = 1 [(.description) = "App ID for which the file is being uploaded."];
+      // optional uint32 appid = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_appid(&has_bits);
@@ -3182,7 +2957,7 @@ const char* CCloud_BeginHTTPUpload_Request::_InternalParse(const char* ptr, ::PR
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 file_size = 2 [(.description) = "Original file size in bytes."];
+      // optional uint32 file_size = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_file_size(&has_bits);
@@ -3190,7 +2965,7 @@ const char* CCloud_BeginHTTPUpload_Request::_InternalParse(const char* ptr, ::PR
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string filename = 3 [(.description) = "Name of the file to store in the cloud."];
+      // optional string filename = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           auto str = _internal_mutable_filename();
@@ -3201,7 +2976,7 @@ const char* CCloud_BeginHTTPUpload_Request::_InternalParse(const char* ptr, ::PR
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string file_sha = 4 [(.description) = "Hex string (40 digits) representing the SHA1 digest of the file."];
+      // optional string file_sha = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
           auto str = _internal_mutable_file_sha();
@@ -3212,7 +2987,7 @@ const char* CCloud_BeginHTTPUpload_Request::_InternalParse(const char* ptr, ::PR
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool is_public = 5 [(.description) = "True if the file should be marked public on the UFS, false otherwise."];
+      // optional bool is_public = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
           _Internal::set_has_is_public(&has_bits);
@@ -3220,7 +2995,7 @@ const char* CCloud_BeginHTTPUpload_Request::_InternalParse(const char* ptr, ::PR
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated string platforms_to_sync = 6 [(.description) = "Array of string specifying which platforms to sync; value values: all, Windows, MacOS, linux, Switch, iPhoneOS, Android."];
+      // repeated string platforms_to_sync = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
           ptr -= 1;
@@ -3236,7 +3011,7 @@ const char* CCloud_BeginHTTPUpload_Request::_InternalParse(const char* ptr, ::PR
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<50>(ptr));
         } else goto handle_unusual;
         continue;
-      // repeated string request_headers_names = 7 [(.description) = "Names for headers you\'ll want to set on your upload request. May be left blank."];
+      // repeated string request_headers_names = 7;
       case 7:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
           ptr -= 1;
@@ -3252,7 +3027,7 @@ const char* CCloud_BeginHTTPUpload_Request::_InternalParse(const char* ptr, ::PR
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<58>(ptr));
         } else goto handle_unusual;
         continue;
-      // repeated string request_headers_values = 8 [(.description) = "Values for headers you\'ll want to set on your upload request. The number of names must equal the number of values."];
+      // repeated string request_headers_values = 8;
       case 8:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 66)) {
           ptr -= 1;
@@ -3268,7 +3043,7 @@ const char* CCloud_BeginHTTPUpload_Request::_InternalParse(const char* ptr, ::PR
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<66>(ptr));
         } else goto handle_unusual;
         continue;
-      // optional uint64 upload_batch_id = 9 [(.description) = "ID of this batch returned by prior BeginAppUploadBatch call."];
+      // optional uint64 upload_batch_id = 9;
       case 9:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 72)) {
           _Internal::set_has_upload_batch_id(&has_bits);
@@ -3306,19 +3081,19 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint32 appid = 1 [(.description) = "App ID for which the file is being uploaded."];
+  // optional uint32 appid = 1;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_appid(), target);
   }
 
-  // optional uint32 file_size = 2 [(.description) = "Original file size in bytes."];
+  // optional uint32 file_size = 2;
   if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_file_size(), target);
   }
 
-  // optional string filename = 3 [(.description) = "Name of the file to store in the cloud."];
+  // optional string filename = 3;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_filename().data(), static_cast<int>(this->_internal_filename().length()),
@@ -3328,7 +3103,7 @@ failure:
         3, this->_internal_filename(), target);
   }
 
-  // optional string file_sha = 4 [(.description) = "Hex string (40 digits) representing the SHA1 digest of the file."];
+  // optional string file_sha = 4;
   if (cached_has_bits & 0x00000002u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_file_sha().data(), static_cast<int>(this->_internal_file_sha().length()),
@@ -3338,13 +3113,13 @@ failure:
         4, this->_internal_file_sha(), target);
   }
 
-  // optional bool is_public = 5 [(.description) = "True if the file should be marked public on the UFS, false otherwise."];
+  // optional bool is_public = 5;
   if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(5, this->_internal_is_public(), target);
   }
 
-  // repeated string platforms_to_sync = 6 [(.description) = "Array of string specifying which platforms to sync; value values: all, Windows, MacOS, linux, Switch, iPhoneOS, Android."];
+  // repeated string platforms_to_sync = 6;
   for (int i = 0, n = this->_internal_platforms_to_sync_size(); i < n; i++) {
     const auto& s = this->_internal_platforms_to_sync(i);
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
@@ -3354,7 +3129,7 @@ failure:
     target = stream->WriteString(6, s, target);
   }
 
-  // repeated string request_headers_names = 7 [(.description) = "Names for headers you\'ll want to set on your upload request. May be left blank."];
+  // repeated string request_headers_names = 7;
   for (int i = 0, n = this->_internal_request_headers_names_size(); i < n; i++) {
     const auto& s = this->_internal_request_headers_names(i);
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
@@ -3364,7 +3139,7 @@ failure:
     target = stream->WriteString(7, s, target);
   }
 
-  // repeated string request_headers_values = 8 [(.description) = "Values for headers you\'ll want to set on your upload request. The number of names must equal the number of values."];
+  // repeated string request_headers_values = 8;
   for (int i = 0, n = this->_internal_request_headers_values_size(); i < n; i++) {
     const auto& s = this->_internal_request_headers_values(i);
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
@@ -3374,7 +3149,7 @@ failure:
     target = stream->WriteString(8, s, target);
   }
 
-  // optional uint64 upload_batch_id = 9 [(.description) = "ID of this batch returned by prior BeginAppUploadBatch call."];
+  // optional uint64 upload_batch_id = 9;
   if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(9, this->_internal_upload_batch_id(), target);
@@ -3396,7 +3171,7 @@ size_t CCloud_BeginHTTPUpload_Request::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated string platforms_to_sync = 6 [(.description) = "Array of string specifying which platforms to sync; value values: all, Windows, MacOS, linux, Switch, iPhoneOS, Android."];
+  // repeated string platforms_to_sync = 6;
   total_size += 1 *
       ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(platforms_to_sync_.size());
   for (int i = 0, n = platforms_to_sync_.size(); i < n; i++) {
@@ -3404,7 +3179,7 @@ size_t CCloud_BeginHTTPUpload_Request::ByteSizeLong() const {
       platforms_to_sync_.Get(i));
   }
 
-  // repeated string request_headers_names = 7 [(.description) = "Names for headers you\'ll want to set on your upload request. May be left blank."];
+  // repeated string request_headers_names = 7;
   total_size += 1 *
       ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(request_headers_names_.size());
   for (int i = 0, n = request_headers_names_.size(); i < n; i++) {
@@ -3412,7 +3187,7 @@ size_t CCloud_BeginHTTPUpload_Request::ByteSizeLong() const {
       request_headers_names_.Get(i));
   }
 
-  // repeated string request_headers_values = 8 [(.description) = "Values for headers you\'ll want to set on your upload request. The number of names must equal the number of values."];
+  // repeated string request_headers_values = 8;
   total_size += 1 *
       ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(request_headers_values_.size());
   for (int i = 0, n = request_headers_values_.size(); i < n; i++) {
@@ -3422,42 +3197,42 @@ size_t CCloud_BeginHTTPUpload_Request::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x0000003fu) {
-    // optional string filename = 3 [(.description) = "Name of the file to store in the cloud."];
+    // optional string filename = 3;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_filename());
     }
 
-    // optional string file_sha = 4 [(.description) = "Hex string (40 digits) representing the SHA1 digest of the file."];
+    // optional string file_sha = 4;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_file_sha());
     }
 
-    // optional uint32 appid = 1 [(.description) = "App ID for which the file is being uploaded."];
+    // optional uint32 appid = 1;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_appid());
     }
 
-    // optional uint32 file_size = 2 [(.description) = "Original file size in bytes."];
+    // optional uint32 file_size = 2;
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_file_size());
     }
 
-    // optional uint64 upload_batch_id = 9 [(.description) = "ID of this batch returned by prior BeginAppUploadBatch call."];
+    // optional uint64 upload_batch_id = 9;
     if (cached_has_bits & 0x00000010u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_upload_batch_id());
     }
 
-    // optional bool is_public = 5 [(.description) = "True if the file should be marked public on the UFS, false otherwise."];
+    // optional bool is_public = 5;
     if (cached_has_bits & 0x00000020u) {
       total_size += 1 + 1;
     }
@@ -3943,7 +3718,7 @@ const char* CCloud_BeginHTTPUpload_Response::_InternalParse(const char* ptr, ::P
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional fixed64 ugcid = 1 [(.description) = "UGC ID of the uploaded file."];
+      // optional fixed64 ugcid = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
           _Internal::set_has_ugcid(&has_bits);
@@ -3951,7 +3726,7 @@ const char* CCloud_BeginHTTPUpload_Response::_InternalParse(const char* ptr, ::P
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
         } else goto handle_unusual;
         continue;
-      // optional fixed32 timestamp = 2 [(.description) = "Server timestamp of file."];
+      // optional fixed32 timestamp = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 21)) {
           _Internal::set_has_timestamp(&has_bits);
@@ -3959,7 +3734,7 @@ const char* CCloud_BeginHTTPUpload_Response::_InternalParse(const char* ptr, ::P
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint32);
         } else goto handle_unusual;
         continue;
-      // optional string url_host = 3 [(.description) = "Host name of server to which file should be uploaded via HTTP PUT."];
+      // optional string url_host = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           auto str = _internal_mutable_url_host();
@@ -3970,7 +3745,7 @@ const char* CCloud_BeginHTTPUpload_Response::_InternalParse(const char* ptr, ::P
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string url_path = 4 [(.description) = "Relative path on server to which file should be uploaded."];
+      // optional string url_path = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
           auto str = _internal_mutable_url_path();
@@ -3981,7 +3756,7 @@ const char* CCloud_BeginHTTPUpload_Response::_InternalParse(const char* ptr, ::P
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool use_https = 5 [(.description) = "If true, use https, otherwise use http."];
+      // optional bool use_https = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
           _Internal::set_has_use_https(&has_bits);
@@ -3989,7 +3764,7 @@ const char* CCloud_BeginHTTPUpload_Response::_InternalParse(const char* ptr, ::P
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated .CCloud_BeginHTTPUpload_Response.HTTPHeaders request_headers = 6 [(.description) = "Name-value pairs to be sent in HTTP PUT request."];
+      // repeated .CCloud_BeginHTTPUpload_Response.HTTPHeaders request_headers = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
           ptr -= 1;
@@ -4031,19 +3806,19 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional fixed64 ugcid = 1 [(.description) = "UGC ID of the uploaded file."];
+  // optional fixed64 ugcid = 1;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_ugcid(), target);
   }
 
-  // optional fixed32 timestamp = 2 [(.description) = "Server timestamp of file."];
+  // optional fixed32 timestamp = 2;
   if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed32ToArray(2, this->_internal_timestamp(), target);
   }
 
-  // optional string url_host = 3 [(.description) = "Host name of server to which file should be uploaded via HTTP PUT."];
+  // optional string url_host = 3;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_url_host().data(), static_cast<int>(this->_internal_url_host().length()),
@@ -4053,7 +3828,7 @@ failure:
         3, this->_internal_url_host(), target);
   }
 
-  // optional string url_path = 4 [(.description) = "Relative path on server to which file should be uploaded."];
+  // optional string url_path = 4;
   if (cached_has_bits & 0x00000002u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_url_path().data(), static_cast<int>(this->_internal_url_path().length()),
@@ -4063,13 +3838,13 @@ failure:
         4, this->_internal_url_path(), target);
   }
 
-  // optional bool use_https = 5 [(.description) = "If true, use https, otherwise use http."];
+  // optional bool use_https = 5;
   if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(5, this->_internal_use_https(), target);
   }
 
-  // repeated .CCloud_BeginHTTPUpload_Response.HTTPHeaders request_headers = 6 [(.description) = "Name-value pairs to be sent in HTTP PUT request."];
+  // repeated .CCloud_BeginHTTPUpload_Response.HTTPHeaders request_headers = 6;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_request_headers_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
@@ -4093,7 +3868,7 @@ size_t CCloud_BeginHTTPUpload_Response::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .CCloud_BeginHTTPUpload_Response.HTTPHeaders request_headers = 6 [(.description) = "Name-value pairs to be sent in HTTP PUT request."];
+  // repeated .CCloud_BeginHTTPUpload_Response.HTTPHeaders request_headers = 6;
   total_size += 1UL * this->_internal_request_headers_size();
   for (const auto& msg : this->request_headers_) {
     total_size +=
@@ -4102,31 +3877,31 @@ size_t CCloud_BeginHTTPUpload_Response::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x0000001fu) {
-    // optional string url_host = 3 [(.description) = "Host name of server to which file should be uploaded via HTTP PUT."];
+    // optional string url_host = 3;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_url_host());
     }
 
-    // optional string url_path = 4 [(.description) = "Relative path on server to which file should be uploaded."];
+    // optional string url_path = 4;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_url_path());
     }
 
-    // optional fixed64 ugcid = 1 [(.description) = "UGC ID of the uploaded file."];
+    // optional fixed64 ugcid = 1;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 + 8;
     }
 
-    // optional fixed32 timestamp = 2 [(.description) = "Server timestamp of file."];
+    // optional fixed32 timestamp = 2;
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 + 4;
     }
 
-    // optional bool use_https = 5 [(.description) = "If true, use https, otherwise use http."];
+    // optional bool use_https = 5;
     if (cached_has_bits & 0x00000010u) {
       total_size += 1 + 1;
     }
@@ -4331,7 +4106,7 @@ const char* CCloud_CommitHTTPUpload_Request::_InternalParse(const char* ptr, ::P
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional bool transfer_succeeded = 1 [(.description) = "True if the HTTP PUT to the upload URL succeeded (URL provided in response to Cloud.BeginHTTPUpload), false if a failure occurred."];
+      // optional bool transfer_succeeded = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_transfer_succeeded(&has_bits);
@@ -4339,7 +4114,7 @@ const char* CCloud_CommitHTTPUpload_Request::_InternalParse(const char* ptr, ::P
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 appid = 2 [(.description) = "App ID for which the file is being uploaded. Must match the app ID provided to Cloud.BeginHTTPUpload."];
+      // optional uint32 appid = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_appid(&has_bits);
@@ -4347,7 +4122,7 @@ const char* CCloud_CommitHTTPUpload_Request::_InternalParse(const char* ptr, ::P
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string file_sha = 3 [(.description) = "Hex string (40 digits) representing the SHA1 digest of the file. Must match the SHA1 digest provided to Cloud.BeginHTTPUpload."];
+      // optional string file_sha = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           auto str = _internal_mutable_file_sha();
@@ -4358,7 +4133,7 @@ const char* CCloud_CommitHTTPUpload_Request::_InternalParse(const char* ptr, ::P
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string filename = 4 [(.description) = "Filename as specified in the Cloud.BeginHTTPUpload request."];
+      // optional string filename = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
           auto str = _internal_mutable_filename();
@@ -4399,19 +4174,19 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional bool transfer_succeeded = 1 [(.description) = "True if the HTTP PUT to the upload URL succeeded (URL provided in response to Cloud.BeginHTTPUpload), false if a failure occurred."];
+  // optional bool transfer_succeeded = 1;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(1, this->_internal_transfer_succeeded(), target);
   }
 
-  // optional uint32 appid = 2 [(.description) = "App ID for which the file is being uploaded. Must match the app ID provided to Cloud.BeginHTTPUpload."];
+  // optional uint32 appid = 2;
   if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_appid(), target);
   }
 
-  // optional string file_sha = 3 [(.description) = "Hex string (40 digits) representing the SHA1 digest of the file. Must match the SHA1 digest provided to Cloud.BeginHTTPUpload."];
+  // optional string file_sha = 3;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_file_sha().data(), static_cast<int>(this->_internal_file_sha().length()),
@@ -4421,7 +4196,7 @@ failure:
         3, this->_internal_file_sha(), target);
   }
 
-  // optional string filename = 4 [(.description) = "Filename as specified in the Cloud.BeginHTTPUpload request."];
+  // optional string filename = 4;
   if (cached_has_bits & 0x00000002u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_filename().data(), static_cast<int>(this->_internal_filename().length()),
@@ -4449,26 +4224,26 @@ size_t CCloud_CommitHTTPUpload_Request::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x0000000fu) {
-    // optional string file_sha = 3 [(.description) = "Hex string (40 digits) representing the SHA1 digest of the file. Must match the SHA1 digest provided to Cloud.BeginHTTPUpload."];
+    // optional string file_sha = 3;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_file_sha());
     }
 
-    // optional string filename = 4 [(.description) = "Filename as specified in the Cloud.BeginHTTPUpload request."];
+    // optional string filename = 4;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_filename());
     }
 
-    // optional bool transfer_succeeded = 1 [(.description) = "True if the HTTP PUT to the upload URL succeeded (URL provided in response to Cloud.BeginHTTPUpload), false if a failure occurred."];
+    // optional bool transfer_succeeded = 1;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 + 1;
     }
 
-    // optional uint32 appid = 2 [(.description) = "App ID for which the file is being uploaded. Must match the app ID provided to Cloud.BeginHTTPUpload."];
+    // optional uint32 appid = 2;
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -4629,7 +4404,7 @@ const char* CCloud_CommitHTTPUpload_Response::_InternalParse(const char* ptr, ::
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional bool file_committed = 1 [(.description) = "True if the file was successfully committed, false otherwise."];
+      // optional bool file_committed = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_file_committed(&has_bits);
@@ -4667,7 +4442,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional bool file_committed = 1 [(.description) = "True if the file was successfully committed, false otherwise."];
+  // optional bool file_committed = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(1, this->_internal_file_committed(), target);
@@ -4689,7 +4464,7 @@ size_t CCloud_CommitHTTPUpload_Response::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // optional bool file_committed = 1 [(.description) = "True if the file was successfully committed, false otherwise."];
+  // optional bool file_committed = 1;
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += 1 + 1;
@@ -4882,7 +4657,7 @@ const char* CCloud_BeginUGCUpload_Request::_InternalParse(const char* ptr, ::PRO
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint32 appid = 1 [(.description) = "App ID this UGC belongs to."];
+      // optional uint32 appid = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_appid(&has_bits);
@@ -4890,7 +4665,7 @@ const char* CCloud_BeginUGCUpload_Request::_InternalParse(const char* ptr, ::PRO
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 file_size = 2 [(.description) = "File size in bytes."];
+      // optional uint32 file_size = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_file_size(&has_bits);
@@ -4898,7 +4673,7 @@ const char* CCloud_BeginUGCUpload_Request::_InternalParse(const char* ptr, ::PRO
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string filename = 3 [(.description) = "Name of the file."];
+      // optional string filename = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           auto str = _internal_mutable_filename();
@@ -4909,7 +4684,7 @@ const char* CCloud_BeginUGCUpload_Request::_InternalParse(const char* ptr, ::PRO
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string file_sha = 4 [(.description) = "Hex string (40 digits) representing the SHA1 digest of the file."];
+      // optional string file_sha = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
           auto str = _internal_mutable_file_sha();
@@ -4920,7 +4695,7 @@ const char* CCloud_BeginUGCUpload_Request::_InternalParse(const char* ptr, ::PRO
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string content_type = 5 [(.description) = "MIME content type of the file"];
+      // optional string content_type = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
           auto str = _internal_mutable_content_type();
@@ -4961,19 +4736,19 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint32 appid = 1 [(.description) = "App ID this UGC belongs to."];
+  // optional uint32 appid = 1;
   if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_appid(), target);
   }
 
-  // optional uint32 file_size = 2 [(.description) = "File size in bytes."];
+  // optional uint32 file_size = 2;
   if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_file_size(), target);
   }
 
-  // optional string filename = 3 [(.description) = "Name of the file."];
+  // optional string filename = 3;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_filename().data(), static_cast<int>(this->_internal_filename().length()),
@@ -4983,7 +4758,7 @@ failure:
         3, this->_internal_filename(), target);
   }
 
-  // optional string file_sha = 4 [(.description) = "Hex string (40 digits) representing the SHA1 digest of the file."];
+  // optional string file_sha = 4;
   if (cached_has_bits & 0x00000002u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_file_sha().data(), static_cast<int>(this->_internal_file_sha().length()),
@@ -4993,7 +4768,7 @@ failure:
         4, this->_internal_file_sha(), target);
   }
 
-  // optional string content_type = 5 [(.description) = "MIME content type of the file"];
+  // optional string content_type = 5;
   if (cached_has_bits & 0x00000004u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_content_type().data(), static_cast<int>(this->_internal_content_type().length()),
@@ -5021,35 +4796,35 @@ size_t CCloud_BeginUGCUpload_Request::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x0000001fu) {
-    // optional string filename = 3 [(.description) = "Name of the file."];
+    // optional string filename = 3;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_filename());
     }
 
-    // optional string file_sha = 4 [(.description) = "Hex string (40 digits) representing the SHA1 digest of the file."];
+    // optional string file_sha = 4;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_file_sha());
     }
 
-    // optional string content_type = 5 [(.description) = "MIME content type of the file"];
+    // optional string content_type = 5;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_content_type());
     }
 
-    // optional uint32 appid = 1 [(.description) = "App ID this UGC belongs to."];
+    // optional uint32 appid = 1;
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_appid());
     }
 
-    // optional uint32 file_size = 2 [(.description) = "File size in bytes."];
+    // optional uint32 file_size = 2;
     if (cached_has_bits & 0x00000010u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -5532,7 +5307,7 @@ const char* CCloud_BeginUGCUpload_Response::_InternalParse(const char* ptr, ::PR
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional .EPublishedFileStorageSystem storage_system = 1 [default = EPublishedFileStorageSystemInvalid, (.description) = "UGC Storage system chosen for this file"];
+      // optional .EPublishedFileStorageSystem storage_system = 1 [default = EPublishedFileStorageSystemInvalid];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -5544,7 +5319,7 @@ const char* CCloud_BeginUGCUpload_Response::_InternalParse(const char* ptr, ::PR
           }
         } else goto handle_unusual;
         continue;
-      // optional fixed64 ugcid = 2 [(.description) = "UGC ID of the uploaded file."];
+      // optional fixed64 ugcid = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 17)) {
           _Internal::set_has_ugcid(&has_bits);
@@ -5552,7 +5327,7 @@ const char* CCloud_BeginUGCUpload_Response::_InternalParse(const char* ptr, ::PR
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
         } else goto handle_unusual;
         continue;
-      // optional fixed32 timestamp = 3 [(.description) = "Server timestamp of file."];
+      // optional fixed32 timestamp = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 29)) {
           _Internal::set_has_timestamp(&has_bits);
@@ -5560,7 +5335,7 @@ const char* CCloud_BeginUGCUpload_Response::_InternalParse(const char* ptr, ::PR
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint32);
         } else goto handle_unusual;
         continue;
-      // optional string url_host = 4 [(.description) = "Host name of server to which file should be uploaded via HTTP PUT."];
+      // optional string url_host = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
           auto str = _internal_mutable_url_host();
@@ -5571,7 +5346,7 @@ const char* CCloud_BeginUGCUpload_Response::_InternalParse(const char* ptr, ::PR
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string url_path = 5 [(.description) = "Relative path on server to which file should be uploaded."];
+      // optional string url_path = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
           auto str = _internal_mutable_url_path();
@@ -5582,7 +5357,7 @@ const char* CCloud_BeginUGCUpload_Response::_InternalParse(const char* ptr, ::PR
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool use_https = 6 [(.description) = "If true, use https, otherwise use http."];
+      // optional bool use_https = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
           _Internal::set_has_use_https(&has_bits);
@@ -5590,7 +5365,7 @@ const char* CCloud_BeginUGCUpload_Response::_InternalParse(const char* ptr, ::PR
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated .CCloud_BeginUGCUpload_Response.HTTPHeaders request_headers = 7 [(.description) = "Name-value pairs to be sent in HTTP PUT request."];
+      // repeated .CCloud_BeginUGCUpload_Response.HTTPHeaders request_headers = 7;
       case 7:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
           ptr -= 1;
@@ -5632,26 +5407,26 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional .EPublishedFileStorageSystem storage_system = 1 [default = EPublishedFileStorageSystemInvalid, (.description) = "UGC Storage system chosen for this file"];
+  // optional .EPublishedFileStorageSystem storage_system = 1 [default = EPublishedFileStorageSystemInvalid];
   if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       1, this->_internal_storage_system(), target);
   }
 
-  // optional fixed64 ugcid = 2 [(.description) = "UGC ID of the uploaded file."];
+  // optional fixed64 ugcid = 2;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(2, this->_internal_ugcid(), target);
   }
 
-  // optional fixed32 timestamp = 3 [(.description) = "Server timestamp of file."];
+  // optional fixed32 timestamp = 3;
   if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed32ToArray(3, this->_internal_timestamp(), target);
   }
 
-  // optional string url_host = 4 [(.description) = "Host name of server to which file should be uploaded via HTTP PUT."];
+  // optional string url_host = 4;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_url_host().data(), static_cast<int>(this->_internal_url_host().length()),
@@ -5661,7 +5436,7 @@ failure:
         4, this->_internal_url_host(), target);
   }
 
-  // optional string url_path = 5 [(.description) = "Relative path on server to which file should be uploaded."];
+  // optional string url_path = 5;
   if (cached_has_bits & 0x00000002u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_url_path().data(), static_cast<int>(this->_internal_url_path().length()),
@@ -5671,13 +5446,13 @@ failure:
         5, this->_internal_url_path(), target);
   }
 
-  // optional bool use_https = 6 [(.description) = "If true, use https, otherwise use http."];
+  // optional bool use_https = 6;
   if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(6, this->_internal_use_https(), target);
   }
 
-  // repeated .CCloud_BeginUGCUpload_Response.HTTPHeaders request_headers = 7 [(.description) = "Name-value pairs to be sent in HTTP PUT request."];
+  // repeated .CCloud_BeginUGCUpload_Response.HTTPHeaders request_headers = 7;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_request_headers_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
@@ -5701,7 +5476,7 @@ size_t CCloud_BeginUGCUpload_Response::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .CCloud_BeginUGCUpload_Response.HTTPHeaders request_headers = 7 [(.description) = "Name-value pairs to be sent in HTTP PUT request."];
+  // repeated .CCloud_BeginUGCUpload_Response.HTTPHeaders request_headers = 7;
   total_size += 1UL * this->_internal_request_headers_size();
   for (const auto& msg : this->request_headers_) {
     total_size +=
@@ -5710,37 +5485,37 @@ size_t CCloud_BeginUGCUpload_Response::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x0000003fu) {
-    // optional string url_host = 4 [(.description) = "Host name of server to which file should be uploaded via HTTP PUT."];
+    // optional string url_host = 4;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_url_host());
     }
 
-    // optional string url_path = 5 [(.description) = "Relative path on server to which file should be uploaded."];
+    // optional string url_path = 5;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_url_path());
     }
 
-    // optional fixed64 ugcid = 2 [(.description) = "UGC ID of the uploaded file."];
+    // optional fixed64 ugcid = 2;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 + 8;
     }
 
-    // optional .EPublishedFileStorageSystem storage_system = 1 [default = EPublishedFileStorageSystemInvalid, (.description) = "UGC Storage system chosen for this file"];
+    // optional .EPublishedFileStorageSystem storage_system = 1 [default = EPublishedFileStorageSystemInvalid];
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_storage_system());
     }
 
-    // optional fixed32 timestamp = 3 [(.description) = "Server timestamp of file."];
+    // optional fixed32 timestamp = 3;
     if (cached_has_bits & 0x00000010u) {
       total_size += 1 + 4;
     }
 
-    // optional bool use_https = 6 [(.description) = "If true, use https, otherwise use http."];
+    // optional bool use_https = 6;
     if (cached_has_bits & 0x00000020u) {
       total_size += 1 + 1;
     }
@@ -5923,7 +5698,7 @@ const char* CCloud_CommitUGCUpload_Request::_InternalParse(const char* ptr, ::PR
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional bool transfer_succeeded = 1 [(.description) = "True if the HTTP PUT to the upload URL succeeded (URL provided in response to Cloud.BeginUGCUpload), false if a failure occurred."];
+      // optional bool transfer_succeeded = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_transfer_succeeded(&has_bits);
@@ -5931,7 +5706,7 @@ const char* CCloud_CommitUGCUpload_Request::_InternalParse(const char* ptr, ::PR
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 appid = 2 [(.description) = "App ID for which the file is being uploaded. Must match the app ID provided to Cloud.BeginUGCUpload."];
+      // optional uint32 appid = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_appid(&has_bits);
@@ -5939,7 +5714,7 @@ const char* CCloud_CommitUGCUpload_Request::_InternalParse(const char* ptr, ::PR
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional fixed64 ugcid = 3 [(.description) = "UGC ID of the uploaded file."];
+      // optional fixed64 ugcid = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 25)) {
           _Internal::set_has_ugcid(&has_bits);
@@ -5977,19 +5752,19 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional bool transfer_succeeded = 1 [(.description) = "True if the HTTP PUT to the upload URL succeeded (URL provided in response to Cloud.BeginUGCUpload), false if a failure occurred."];
+  // optional bool transfer_succeeded = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(1, this->_internal_transfer_succeeded(), target);
   }
 
-  // optional uint32 appid = 2 [(.description) = "App ID for which the file is being uploaded. Must match the app ID provided to Cloud.BeginUGCUpload."];
+  // optional uint32 appid = 2;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_appid(), target);
   }
 
-  // optional fixed64 ugcid = 3 [(.description) = "UGC ID of the uploaded file."];
+  // optional fixed64 ugcid = 3;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(3, this->_internal_ugcid(), target);
@@ -6013,19 +5788,19 @@ size_t CCloud_CommitUGCUpload_Request::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000007u) {
-    // optional bool transfer_succeeded = 1 [(.description) = "True if the HTTP PUT to the upload URL succeeded (URL provided in response to Cloud.BeginUGCUpload), false if a failure occurred."];
+    // optional bool transfer_succeeded = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 + 1;
     }
 
-    // optional uint32 appid = 2 [(.description) = "App ID for which the file is being uploaded. Must match the app ID provided to Cloud.BeginUGCUpload."];
+    // optional uint32 appid = 2;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_appid());
     }
 
-    // optional fixed64 ugcid = 3 [(.description) = "UGC ID of the uploaded file."];
+    // optional fixed64 ugcid = 3;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 + 8;
     }
@@ -6179,7 +5954,7 @@ const char* CCloud_CommitUGCUpload_Response::_InternalParse(const char* ptr, ::P
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional bool file_committed = 1 [(.description) = "True if the file was successfully committed, false otherwise."];
+      // optional bool file_committed = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_file_committed(&has_bits);
@@ -6217,7 +5992,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional bool file_committed = 1 [(.description) = "True if the file was successfully committed, false otherwise."];
+  // optional bool file_committed = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(1, this->_internal_file_committed(), target);
@@ -6239,7 +6014,7 @@ size_t CCloud_CommitUGCUpload_Response::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // optional bool file_committed = 1 [(.description) = "True if the file was successfully committed, false otherwise."];
+  // optional bool file_committed = 1;
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += 1 + 1;
@@ -6391,7 +6166,7 @@ const char* CCloud_GetFileDetails_Request::_InternalParse(const char* ptr, ::PRO
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint64 ugcid = 1 [(.description) = "ID of the Cloud file to get details for."];
+      // optional uint64 ugcid = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_ugcid(&has_bits);
@@ -6399,7 +6174,7 @@ const char* CCloud_GetFileDetails_Request::_InternalParse(const char* ptr, ::PRO
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 appid = 2 [(.description) = "App ID the file belongs to."];
+      // optional uint32 appid = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_appid(&has_bits);
@@ -6437,13 +6212,13 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint64 ugcid = 1 [(.description) = "ID of the Cloud file to get details for."];
+  // optional uint64 ugcid = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_ugcid(), target);
   }
 
-  // optional uint32 appid = 2 [(.description) = "App ID the file belongs to."];
+  // optional uint32 appid = 2;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_appid(), target);
@@ -6467,14 +6242,14 @@ size_t CCloud_GetFileDetails_Request::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional uint64 ugcid = 1 [(.description) = "ID of the Cloud file to get details for."];
+    // optional uint64 ugcid = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_ugcid());
     }
 
-    // optional uint32 appid = 2 [(.description) = "App ID the file belongs to."];
+    // optional uint32 appid = 2;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -6767,7 +6542,7 @@ const char* CCloud_UserFile::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPAC
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated string platforms_to_sync = 9 [(.description) = "Array of string specifying which platforms to sync; value values: all, Windows, MacOS, linux, Switch, iPhoneOS, Android."];
+      // repeated string platforms_to_sync = 9;
       case 9:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 74)) {
           ptr -= 1;
@@ -6783,7 +6558,7 @@ const char* CCloud_UserFile::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPAC
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<74>(ptr));
         } else goto handle_unusual;
         continue;
-      // optional string file_sha = 10 [(.description) = "Hex string (40 digits) representing the SHA1 digest of the file."];
+      // optional string file_sha = 10;
       case 10:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 82)) {
           auto str = _internal_mutable_file_sha();
@@ -6880,7 +6655,7 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(8, this->_internal_flags(), target);
   }
 
-  // repeated string platforms_to_sync = 9 [(.description) = "Array of string specifying which platforms to sync; value values: all, Windows, MacOS, linux, Switch, iPhoneOS, Android."];
+  // repeated string platforms_to_sync = 9;
   for (int i = 0, n = this->_internal_platforms_to_sync_size(); i < n; i++) {
     const auto& s = this->_internal_platforms_to_sync(i);
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
@@ -6890,7 +6665,7 @@ failure:
     target = stream->WriteString(9, s, target);
   }
 
-  // optional string file_sha = 10 [(.description) = "Hex string (40 digits) representing the SHA1 digest of the file."];
+  // optional string file_sha = 10;
   if (cached_has_bits & 0x00000004u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_file_sha().data(), static_cast<int>(this->_internal_file_sha().length()),
@@ -6916,7 +6691,7 @@ size_t CCloud_UserFile::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated string platforms_to_sync = 9 [(.description) = "Array of string specifying which platforms to sync; value values: all, Windows, MacOS, linux, Switch, iPhoneOS, Android."];
+  // repeated string platforms_to_sync = 9;
   total_size += 1 *
       ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(platforms_to_sync_.size());
   for (int i = 0, n = platforms_to_sync_.size(); i < n; i++) {
@@ -6940,7 +6715,7 @@ size_t CCloud_UserFile::ByteSizeLong() const {
           this->_internal_url());
     }
 
-    // optional string file_sha = 10 [(.description) = "Hex string (40 digits) representing the SHA1 digest of the file."];
+    // optional string file_sha = 10;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
@@ -7394,7 +7169,7 @@ const char* CCloud_EnumerateUserFiles_Request::_InternalParse(const char* ptr, :
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint32 appid = 1 [(.description) = "App ID to enumerate the files of."];
+      // optional uint32 appid = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_appid(&has_bits);
@@ -7402,7 +7177,7 @@ const char* CCloud_EnumerateUserFiles_Request::_InternalParse(const char* ptr, :
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool extended_details = 2 [(.description) = "(Optional) Get extended details back on the files found. Defaults to only returned the app Id and UGC Id of the files found."];
+      // optional bool extended_details = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_extended_details(&has_bits);
@@ -7410,7 +7185,7 @@ const char* CCloud_EnumerateUserFiles_Request::_InternalParse(const char* ptr, :
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 count = 3 [(.description) = "(Optional) Maximum number of results to return on this call. Defaults to a maximum of 500 files returned."];
+      // optional uint32 count = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           _Internal::set_has_count(&has_bits);
@@ -7418,7 +7193,7 @@ const char* CCloud_EnumerateUserFiles_Request::_InternalParse(const char* ptr, :
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 start_index = 4 [(.description) = "(Optional) Starting index to begin enumeration at. Defaults to the beginning of the list."];
+      // optional uint32 start_index = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
           _Internal::set_has_start_index(&has_bits);
@@ -7456,25 +7231,25 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint32 appid = 1 [(.description) = "App ID to enumerate the files of."];
+  // optional uint32 appid = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_appid(), target);
   }
 
-  // optional bool extended_details = 2 [(.description) = "(Optional) Get extended details back on the files found. Defaults to only returned the app Id and UGC Id of the files found."];
+  // optional bool extended_details = 2;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(2, this->_internal_extended_details(), target);
   }
 
-  // optional uint32 count = 3 [(.description) = "(Optional) Maximum number of results to return on this call. Defaults to a maximum of 500 files returned."];
+  // optional uint32 count = 3;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_count(), target);
   }
 
-  // optional uint32 start_index = 4 [(.description) = "(Optional) Starting index to begin enumeration at. Defaults to the beginning of the list."];
+  // optional uint32 start_index = 4;
   if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_start_index(), target);
@@ -7498,26 +7273,26 @@ size_t CCloud_EnumerateUserFiles_Request::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x0000000fu) {
-    // optional uint32 appid = 1 [(.description) = "App ID to enumerate the files of."];
+    // optional uint32 appid = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_appid());
     }
 
-    // optional bool extended_details = 2 [(.description) = "(Optional) Get extended details back on the files found. Defaults to only returned the app Id and UGC Id of the files found."];
+    // optional bool extended_details = 2;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 + 1;
     }
 
-    // optional uint32 count = 3 [(.description) = "(Optional) Maximum number of results to return on this call. Defaults to a maximum of 500 files returned."];
+    // optional uint32 count = 3;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_count());
     }
 
-    // optional uint32 start_index = 4 [(.description) = "(Optional) Starting index to begin enumeration at. Defaults to the beginning of the list."];
+    // optional uint32 start_index = 4;
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -7946,7 +7721,7 @@ const char* CCloud_Delete_Request::_InternalParse(const char* ptr, ::PROTOBUF_NA
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 appid = 2 [(.description) = "App ID the file belongs to."];
+      // optional uint32 appid = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_appid(&has_bits);
@@ -7954,7 +7729,7 @@ const char* CCloud_Delete_Request::_InternalParse(const char* ptr, ::PROTOBUF_NA
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint64 upload_batch_id = 3 [(.description) = "ID of this batch returned by prior BeginAppUploadBatch call."];
+      // optional uint64 upload_batch_id = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           _Internal::set_has_upload_batch_id(&has_bits);
@@ -8002,13 +7777,13 @@ failure:
         1, this->_internal_filename(), target);
   }
 
-  // optional uint32 appid = 2 [(.description) = "App ID the file belongs to."];
+  // optional uint32 appid = 2;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_appid(), target);
   }
 
-  // optional uint64 upload_batch_id = 3 [(.description) = "ID of this batch returned by prior BeginAppUploadBatch call."];
+  // optional uint64 upload_batch_id = 3;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(3, this->_internal_upload_batch_id(), target);
@@ -8039,14 +7814,14 @@ size_t CCloud_Delete_Request::ByteSizeLong() const {
           this->_internal_filename());
     }
 
-    // optional uint64 upload_batch_id = 3 [(.description) = "ID of this batch returned by prior BeginAppUploadBatch call."];
+    // optional uint64 upload_batch_id = 3;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_upload_batch_id());
     }
 
-    // optional uint32 appid = 2 [(.description) = "App ID the file belongs to."];
+    // optional uint32 appid = 2;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -8531,7 +8306,7 @@ const char* CCloud_GetClientEncryptionKey_Response::_InternalParse(const char* p
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional bytes key = 1 [(.description) = "AES-256 encryption key"];
+      // optional bytes key = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           auto str = _internal_mutable_key();
@@ -8539,7 +8314,7 @@ const char* CCloud_GetClientEncryptionKey_Response::_InternalParse(const char* p
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional int32 crc = 2 [(.description) = "CRC of key"];
+      // optional int32 crc = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_crc(&has_bits);
@@ -8577,13 +8352,13 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional bytes key = 1 [(.description) = "AES-256 encryption key"];
+  // optional bytes key = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->WriteBytesMaybeAliased(
         1, this->_internal_key(), target);
   }
 
-  // optional int32 crc = 2 [(.description) = "CRC of key"];
+  // optional int32 crc = 2;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(2, this->_internal_crc(), target);
@@ -8607,14 +8382,14 @@ size_t CCloud_GetClientEncryptionKey_Response::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional bytes key = 1 [(.description) = "AES-256 encryption key"];
+    // optional bytes key = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
           this->_internal_key());
     }
 
-    // optional int32 crc = 2 [(.description) = "CRC of key"];
+    // optional int32 crc = 2;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
@@ -9861,7 +9636,7 @@ const char* CCloud_BeginAppUploadBatch_Request::_InternalParse(const char* ptr, 
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint32 appid = 1 [(.description) = "App ID for this batch is for."];
+      // optional uint32 appid = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_appid(&has_bits);
@@ -9869,7 +9644,7 @@ const char* CCloud_BeginAppUploadBatch_Request::_InternalParse(const char* ptr, 
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string machine_name = 2 [(.description) = "Client machine name (may be user\'s alias)."];
+      // optional string machine_name = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           auto str = _internal_mutable_machine_name();
@@ -9880,7 +9655,7 @@ const char* CCloud_BeginAppUploadBatch_Request::_InternalParse(const char* ptr, 
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated string files_to_upload = 3 [(.description) = "Filenames of files to upload in this batch"];
+      // repeated string files_to_upload = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           ptr -= 1;
@@ -9896,7 +9671,7 @@ const char* CCloud_BeginAppUploadBatch_Request::_InternalParse(const char* ptr, 
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<26>(ptr));
         } else goto handle_unusual;
         continue;
-      // repeated string files_to_delete = 4 [(.description) = "Filenames of files to delete in this batch"];
+      // repeated string files_to_delete = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
           ptr -= 1;
@@ -9912,7 +9687,7 @@ const char* CCloud_BeginAppUploadBatch_Request::_InternalParse(const char* ptr, 
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<34>(ptr));
         } else goto handle_unusual;
         continue;
-      // optional uint64 client_id = 5 [(.description) = "Client ID number"];
+      // optional uint64 client_id = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
           _Internal::set_has_client_id(&has_bits);
@@ -9920,7 +9695,7 @@ const char* CCloud_BeginAppUploadBatch_Request::_InternalParse(const char* ptr, 
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint64 app_build_id = 6 [(.description) = "Current local build of the app which made these changes"];
+      // optional uint64 app_build_id = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
           _Internal::set_has_app_build_id(&has_bits);
@@ -9958,13 +9733,13 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint32 appid = 1 [(.description) = "App ID for this batch is for."];
+  // optional uint32 appid = 1;
   if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_appid(), target);
   }
 
-  // optional string machine_name = 2 [(.description) = "Client machine name (may be user\'s alias)."];
+  // optional string machine_name = 2;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_machine_name().data(), static_cast<int>(this->_internal_machine_name().length()),
@@ -9974,7 +9749,7 @@ failure:
         2, this->_internal_machine_name(), target);
   }
 
-  // repeated string files_to_upload = 3 [(.description) = "Filenames of files to upload in this batch"];
+  // repeated string files_to_upload = 3;
   for (int i = 0, n = this->_internal_files_to_upload_size(); i < n; i++) {
     const auto& s = this->_internal_files_to_upload(i);
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
@@ -9984,7 +9759,7 @@ failure:
     target = stream->WriteString(3, s, target);
   }
 
-  // repeated string files_to_delete = 4 [(.description) = "Filenames of files to delete in this batch"];
+  // repeated string files_to_delete = 4;
   for (int i = 0, n = this->_internal_files_to_delete_size(); i < n; i++) {
     const auto& s = this->_internal_files_to_delete(i);
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
@@ -9994,13 +9769,13 @@ failure:
     target = stream->WriteString(4, s, target);
   }
 
-  // optional uint64 client_id = 5 [(.description) = "Client ID number"];
+  // optional uint64 client_id = 5;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(5, this->_internal_client_id(), target);
   }
 
-  // optional uint64 app_build_id = 6 [(.description) = "Current local build of the app which made these changes"];
+  // optional uint64 app_build_id = 6;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(6, this->_internal_app_build_id(), target);
@@ -10022,7 +9797,7 @@ size_t CCloud_BeginAppUploadBatch_Request::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated string files_to_upload = 3 [(.description) = "Filenames of files to upload in this batch"];
+  // repeated string files_to_upload = 3;
   total_size += 1 *
       ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(files_to_upload_.size());
   for (int i = 0, n = files_to_upload_.size(); i < n; i++) {
@@ -10030,7 +9805,7 @@ size_t CCloud_BeginAppUploadBatch_Request::ByteSizeLong() const {
       files_to_upload_.Get(i));
   }
 
-  // repeated string files_to_delete = 4 [(.description) = "Filenames of files to delete in this batch"];
+  // repeated string files_to_delete = 4;
   total_size += 1 *
       ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(files_to_delete_.size());
   for (int i = 0, n = files_to_delete_.size(); i < n; i++) {
@@ -10040,28 +9815,28 @@ size_t CCloud_BeginAppUploadBatch_Request::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x0000000fu) {
-    // optional string machine_name = 2 [(.description) = "Client machine name (may be user\'s alias)."];
+    // optional string machine_name = 2;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_machine_name());
     }
 
-    // optional uint64 client_id = 5 [(.description) = "Client ID number"];
+    // optional uint64 client_id = 5;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_client_id());
     }
 
-    // optional uint64 app_build_id = 6 [(.description) = "Current local build of the app which made these changes"];
+    // optional uint64 app_build_id = 6;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_app_build_id());
     }
 
-    // optional uint32 appid = 1 [(.description) = "App ID for this batch is for."];
+    // optional uint32 appid = 1;
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -10238,7 +10013,7 @@ const char* CCloud_BeginAppUploadBatch_Response::_InternalParse(const char* ptr,
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint64 batch_id = 1 [(.description) = "ID of this batch."];
+      // optional uint64 batch_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_batch_id(&has_bits);
@@ -10246,7 +10021,7 @@ const char* CCloud_BeginAppUploadBatch_Response::_InternalParse(const char* ptr,
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint64 app_change_number = 4 [(.description) = "New App Change Number"];
+      // optional uint64 app_change_number = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
           _Internal::set_has_app_change_number(&has_bits);
@@ -10284,13 +10059,13 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint64 batch_id = 1 [(.description) = "ID of this batch."];
+  // optional uint64 batch_id = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_batch_id(), target);
   }
 
-  // optional uint64 app_change_number = 4 [(.description) = "New App Change Number"];
+  // optional uint64 app_change_number = 4;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(4, this->_internal_app_change_number(), target);
@@ -10314,14 +10089,14 @@ size_t CCloud_BeginAppUploadBatch_Response::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional uint64 batch_id = 1 [(.description) = "ID of this batch."];
+    // optional uint64 batch_id = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_batch_id());
     }
 
-    // optional uint64 app_change_number = 4 [(.description) = "New App Change Number"];
+    // optional uint64 app_change_number = 4;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
@@ -10490,7 +10265,7 @@ const char* CCloud_CompleteAppUploadBatch_Notification::_InternalParse(const cha
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint32 appid = 1 [(.description) = "App ID for this batch is for."];
+      // optional uint32 appid = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_appid(&has_bits);
@@ -10498,7 +10273,7 @@ const char* CCloud_CompleteAppUploadBatch_Notification::_InternalParse(const cha
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint64 batch_id = 2 [(.description) = "ID of this batch."];
+      // optional uint64 batch_id = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_batch_id(&has_bits);
@@ -10506,7 +10281,7 @@ const char* CCloud_CompleteAppUploadBatch_Notification::_InternalParse(const cha
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 batch_eresult = 3 [(.description) = "result of this batch."];
+      // optional uint32 batch_eresult = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           _Internal::set_has_batch_eresult(&has_bits);
@@ -10544,19 +10319,19 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint32 appid = 1 [(.description) = "App ID for this batch is for."];
+  // optional uint32 appid = 1;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_appid(), target);
   }
 
-  // optional uint64 batch_id = 2 [(.description) = "ID of this batch."];
+  // optional uint64 batch_id = 2;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(2, this->_internal_batch_id(), target);
   }
 
-  // optional uint32 batch_eresult = 3 [(.description) = "result of this batch."];
+  // optional uint32 batch_eresult = 3;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_batch_eresult(), target);
@@ -10580,21 +10355,21 @@ size_t CCloud_CompleteAppUploadBatch_Notification::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000007u) {
-    // optional uint64 batch_id = 2 [(.description) = "ID of this batch."];
+    // optional uint64 batch_id = 2;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_batch_id());
     }
 
-    // optional uint32 appid = 1 [(.description) = "App ID for this batch is for."];
+    // optional uint32 appid = 1;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_appid());
     }
 
-    // optional uint32 batch_eresult = 3 [(.description) = "result of this batch."];
+    // optional uint32 batch_eresult = 3;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -10766,7 +10541,7 @@ const char* CCloud_CompleteAppUploadBatch_Request::_InternalParse(const char* pt
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint32 appid = 1 [(.description) = "App ID for this batch is for."];
+      // optional uint32 appid = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_appid(&has_bits);
@@ -10774,7 +10549,7 @@ const char* CCloud_CompleteAppUploadBatch_Request::_InternalParse(const char* pt
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint64 batch_id = 2 [(.description) = "ID of this batch."];
+      // optional uint64 batch_id = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_batch_id(&has_bits);
@@ -10782,7 +10557,7 @@ const char* CCloud_CompleteAppUploadBatch_Request::_InternalParse(const char* pt
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 batch_eresult = 3 [(.description) = "result of this batch."];
+      // optional uint32 batch_eresult = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           _Internal::set_has_batch_eresult(&has_bits);
@@ -10820,19 +10595,19 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint32 appid = 1 [(.description) = "App ID for this batch is for."];
+  // optional uint32 appid = 1;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_appid(), target);
   }
 
-  // optional uint64 batch_id = 2 [(.description) = "ID of this batch."];
+  // optional uint64 batch_id = 2;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(2, this->_internal_batch_id(), target);
   }
 
-  // optional uint32 batch_eresult = 3 [(.description) = "result of this batch."];
+  // optional uint32 batch_eresult = 3;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_batch_eresult(), target);
@@ -10856,21 +10631,21 @@ size_t CCloud_CompleteAppUploadBatch_Request::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000007u) {
-    // optional uint64 batch_id = 2 [(.description) = "ID of this batch."];
+    // optional uint64 batch_id = 2;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_batch_id());
     }
 
-    // optional uint32 appid = 1 [(.description) = "App ID for this batch is for."];
+    // optional uint32 appid = 1;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_appid());
     }
 
-    // optional uint32 batch_eresult = 3 [(.description) = "result of this batch."];
+    // optional uint32 batch_eresult = 3;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -11255,7 +11030,7 @@ const char* CCloud_ClientBeginFileUpload_Request::_InternalParse(const char* ptr
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint32 appid = 1 [(.description) = "App ID for which the file is being uploaded."];
+      // optional uint32 appid = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_appid(&has_bits);
@@ -11263,7 +11038,7 @@ const char* CCloud_ClientBeginFileUpload_Request::_InternalParse(const char* ptr
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 file_size = 2 [(.description) = "file size as transmitted and stored in Cloud."];
+      // optional uint32 file_size = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_file_size(&has_bits);
@@ -11271,7 +11046,7 @@ const char* CCloud_ClientBeginFileUpload_Request::_InternalParse(const char* ptr
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 raw_file_size = 3 [(.description) = "file size before any compression and/or encryption."];
+      // optional uint32 raw_file_size = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           _Internal::set_has_raw_file_size(&has_bits);
@@ -11279,7 +11054,7 @@ const char* CCloud_ClientBeginFileUpload_Request::_InternalParse(const char* ptr
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bytes file_sha = 4 [(.description) = "SHA-1 of raw file."];
+      // optional bytes file_sha = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
           auto str = _internal_mutable_file_sha();
@@ -11287,7 +11062,7 @@ const char* CCloud_ClientBeginFileUpload_Request::_InternalParse(const char* ptr
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint64 time_stamp = 5 [(.description) = "Timestamp of file."];
+      // optional uint64 time_stamp = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
           _Internal::set_has_time_stamp(&has_bits);
@@ -11295,7 +11070,7 @@ const char* CCloud_ClientBeginFileUpload_Request::_InternalParse(const char* ptr
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string filename = 6 [(.description) = "Name of the file to store in the cloud."];
+      // optional string filename = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
           auto str = _internal_mutable_filename();
@@ -11314,7 +11089,7 @@ const char* CCloud_ClientBeginFileUpload_Request::_InternalParse(const char* ptr
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 cell_id = 9 [(.description) = "Client\'s cell ID so we can pick storage location."];
+      // optional uint32 cell_id = 9;
       case 9:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 72)) {
           _Internal::set_has_cell_id(&has_bits);
@@ -11322,7 +11097,7 @@ const char* CCloud_ClientBeginFileUpload_Request::_InternalParse(const char* ptr
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool can_encrypt = 10 [(.description) = "if true, client can encrypt the file before uploading it"];
+      // optional bool can_encrypt = 10;
       case 10:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 80)) {
           _Internal::set_has_can_encrypt(&has_bits);
@@ -11330,7 +11105,7 @@ const char* CCloud_ClientBeginFileUpload_Request::_InternalParse(const char* ptr
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool is_shared_file = 11 [(.description) = "if true, this is going to be UGC or a screenshot or some other shared file"];
+      // optional bool is_shared_file = 11;
       case 11:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 88)) {
           _Internal::set_has_is_shared_file(&has_bits);
@@ -11338,7 +11113,7 @@ const char* CCloud_ClientBeginFileUpload_Request::_InternalParse(const char* ptr
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 deprecated_realm = 12 [(.description) = "unused"];
+      // optional uint32 deprecated_realm = 12;
       case 12:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 96)) {
           _Internal::set_has_deprecated_realm(&has_bits);
@@ -11346,7 +11121,7 @@ const char* CCloud_ClientBeginFileUpload_Request::_InternalParse(const char* ptr
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint64 upload_batch_id = 13 [(.description) = "ID of this batch."];
+      // optional uint64 upload_batch_id = 13;
       case 13:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 104)) {
           _Internal::set_has_upload_batch_id(&has_bits);
@@ -11384,37 +11159,37 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint32 appid = 1 [(.description) = "App ID for which the file is being uploaded."];
+  // optional uint32 appid = 1;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_appid(), target);
   }
 
-  // optional uint32 file_size = 2 [(.description) = "file size as transmitted and stored in Cloud."];
+  // optional uint32 file_size = 2;
   if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_file_size(), target);
   }
 
-  // optional uint32 raw_file_size = 3 [(.description) = "file size before any compression and/or encryption."];
+  // optional uint32 raw_file_size = 3;
   if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_raw_file_size(), target);
   }
 
-  // optional bytes file_sha = 4 [(.description) = "SHA-1 of raw file."];
+  // optional bytes file_sha = 4;
   if (cached_has_bits & 0x00000001u) {
     target = stream->WriteBytesMaybeAliased(
         4, this->_internal_file_sha(), target);
   }
 
-  // optional uint64 time_stamp = 5 [(.description) = "Timestamp of file."];
+  // optional uint64 time_stamp = 5;
   if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(5, this->_internal_time_stamp(), target);
   }
 
-  // optional string filename = 6 [(.description) = "Name of the file to store in the cloud."];
+  // optional string filename = 6;
   if (cached_has_bits & 0x00000002u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_filename().data(), static_cast<int>(this->_internal_filename().length()),
@@ -11430,31 +11205,31 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(7, this->_internal_platforms_to_sync(), target);
   }
 
-  // optional uint32 cell_id = 9 [(.description) = "Client\'s cell ID so we can pick storage location."];
+  // optional uint32 cell_id = 9;
   if (cached_has_bits & 0x00000040u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(9, this->_internal_cell_id(), target);
   }
 
-  // optional bool can_encrypt = 10 [(.description) = "if true, client can encrypt the file before uploading it"];
+  // optional bool can_encrypt = 10;
   if (cached_has_bits & 0x00000080u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(10, this->_internal_can_encrypt(), target);
   }
 
-  // optional bool is_shared_file = 11 [(.description) = "if true, this is going to be UGC or a screenshot or some other shared file"];
+  // optional bool is_shared_file = 11;
   if (cached_has_bits & 0x00000100u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(11, this->_internal_is_shared_file(), target);
   }
 
-  // optional uint32 deprecated_realm = 12 [(.description) = "unused"];
+  // optional uint32 deprecated_realm = 12;
   if (cached_has_bits & 0x00000200u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(12, this->_internal_deprecated_realm(), target);
   }
 
-  // optional uint64 upload_batch_id = 13 [(.description) = "ID of this batch."];
+  // optional uint64 upload_batch_id = 13;
   if (cached_has_bits & 0x00000400u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(13, this->_internal_upload_batch_id(), target);
@@ -11478,75 +11253,75 @@ size_t CCloud_ClientBeginFileUpload_Request::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x000000ffu) {
-    // optional bytes file_sha = 4 [(.description) = "SHA-1 of raw file."];
+    // optional bytes file_sha = 4;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
           this->_internal_file_sha());
     }
 
-    // optional string filename = 6 [(.description) = "Name of the file to store in the cloud."];
+    // optional string filename = 6;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_filename());
     }
 
-    // optional uint32 appid = 1 [(.description) = "App ID for which the file is being uploaded."];
+    // optional uint32 appid = 1;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_appid());
     }
 
-    // optional uint32 file_size = 2 [(.description) = "file size as transmitted and stored in Cloud."];
+    // optional uint32 file_size = 2;
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_file_size());
     }
 
-    // optional uint64 time_stamp = 5 [(.description) = "Timestamp of file."];
+    // optional uint64 time_stamp = 5;
     if (cached_has_bits & 0x00000010u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_time_stamp());
     }
 
-    // optional uint32 raw_file_size = 3 [(.description) = "file size before any compression and/or encryption."];
+    // optional uint32 raw_file_size = 3;
     if (cached_has_bits & 0x00000020u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_raw_file_size());
     }
 
-    // optional uint32 cell_id = 9 [(.description) = "Client\'s cell ID so we can pick storage location."];
+    // optional uint32 cell_id = 9;
     if (cached_has_bits & 0x00000040u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_cell_id());
     }
 
-    // optional bool can_encrypt = 10 [(.description) = "if true, client can encrypt the file before uploading it"];
+    // optional bool can_encrypt = 10;
     if (cached_has_bits & 0x00000080u) {
       total_size += 1 + 1;
     }
 
   }
   if (cached_has_bits & 0x00000f00u) {
-    // optional bool is_shared_file = 11 [(.description) = "if true, this is going to be UGC or a screenshot or some other shared file"];
+    // optional bool is_shared_file = 11;
     if (cached_has_bits & 0x00000100u) {
       total_size += 1 + 1;
     }
 
-    // optional uint32 deprecated_realm = 12 [(.description) = "unused"];
+    // optional uint32 deprecated_realm = 12;
     if (cached_has_bits & 0x00000200u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_deprecated_realm());
     }
 
-    // optional uint64 upload_batch_id = 13 [(.description) = "ID of this batch."];
+    // optional uint64 upload_batch_id = 13;
     if (cached_has_bits & 0x00000400u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
@@ -12076,7 +11851,7 @@ const char* ClientCloudFileUploadBlockDetails::_InternalParse(const char* ptr, :
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional string url_host = 1 [(.description) = "Host name of server to which file should be uploaded via HTTP PUT."];
+      // optional string url_host = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           auto str = _internal_mutable_url_host();
@@ -12087,7 +11862,7 @@ const char* ClientCloudFileUploadBlockDetails::_InternalParse(const char* ptr, :
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string url_path = 2 [(.description) = "Relative path on server to which file should be uploaded."];
+      // optional string url_path = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           auto str = _internal_mutable_url_path();
@@ -12098,7 +11873,7 @@ const char* ClientCloudFileUploadBlockDetails::_InternalParse(const char* ptr, :
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool use_https = 3 [(.description) = "If true, use https, otherwise use http."];
+      // optional bool use_https = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           _Internal::set_has_use_https(&has_bits);
@@ -12106,7 +11881,7 @@ const char* ClientCloudFileUploadBlockDetails::_InternalParse(const char* ptr, :
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional int32 http_method = 4 [(.description) = "EHTTPMethod to use for this block."];
+      // optional int32 http_method = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
           _Internal::set_has_http_method(&has_bits);
@@ -12114,7 +11889,7 @@ const char* ClientCloudFileUploadBlockDetails::_InternalParse(const char* ptr, :
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated .ClientCloudFileUploadBlockDetails.HTTPHeaders request_headers = 5 [(.description) = "Name-value pairs to be sent in HTTP PUT request."];
+      // repeated .ClientCloudFileUploadBlockDetails.HTTPHeaders request_headers = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
           ptr -= 1;
@@ -12126,7 +11901,7 @@ const char* ClientCloudFileUploadBlockDetails::_InternalParse(const char* ptr, :
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<42>(ptr));
         } else goto handle_unusual;
         continue;
-      // optional uint64 blocoffset = 6 [(.description) = "offset of file block to upload"];
+      // optional uint64 blocoffset = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
           _Internal::set_has_blocoffset(&has_bits);
@@ -12134,7 +11909,7 @@ const char* ClientCloudFileUploadBlockDetails::_InternalParse(const char* ptr, :
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 bloclength = 7 [(.description) = "length of file block to upload - if zero, no part of the file is part of this block"];
+      // optional uint32 bloclength = 7;
       case 7:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 56)) {
           _Internal::set_has_bloclength(&has_bits);
@@ -12142,7 +11917,7 @@ const char* ClientCloudFileUploadBlockDetails::_InternalParse(const char* ptr, :
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bytes explicit_body_data = 8 [(.description) = "explicit body data to use, instead of file data, for this block"];
+      // optional bytes explicit_body_data = 8;
       case 8:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 66)) {
           auto str = _internal_mutable_explicit_body_data();
@@ -12150,7 +11925,7 @@ const char* ClientCloudFileUploadBlockDetails::_InternalParse(const char* ptr, :
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool may_parallelize = 9 [(.description) = "if true, this request may be done in parallel with other similarly-marked requests"];
+      // optional bool may_parallelize = 9;
       case 9:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 72)) {
           _Internal::set_has_may_parallelize(&has_bits);
@@ -12188,7 +11963,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional string url_host = 1 [(.description) = "Host name of server to which file should be uploaded via HTTP PUT."];
+  // optional string url_host = 1;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_url_host().data(), static_cast<int>(this->_internal_url_host().length()),
@@ -12198,7 +11973,7 @@ failure:
         1, this->_internal_url_host(), target);
   }
 
-  // optional string url_path = 2 [(.description) = "Relative path on server to which file should be uploaded."];
+  // optional string url_path = 2;
   if (cached_has_bits & 0x00000002u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_url_path().data(), static_cast<int>(this->_internal_url_path().length()),
@@ -12208,19 +11983,19 @@ failure:
         2, this->_internal_url_path(), target);
   }
 
-  // optional bool use_https = 3 [(.description) = "If true, use https, otherwise use http."];
+  // optional bool use_https = 3;
   if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(3, this->_internal_use_https(), target);
   }
 
-  // optional int32 http_method = 4 [(.description) = "EHTTPMethod to use for this block."];
+  // optional int32 http_method = 4;
   if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(4, this->_internal_http_method(), target);
   }
 
-  // repeated .ClientCloudFileUploadBlockDetails.HTTPHeaders request_headers = 5 [(.description) = "Name-value pairs to be sent in HTTP PUT request."];
+  // repeated .ClientCloudFileUploadBlockDetails.HTTPHeaders request_headers = 5;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_request_headers_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
@@ -12228,25 +12003,25 @@ failure:
       InternalWriteMessage(5, this->_internal_request_headers(i), target, stream);
   }
 
-  // optional uint64 blocoffset = 6 [(.description) = "offset of file block to upload"];
+  // optional uint64 blocoffset = 6;
   if (cached_has_bits & 0x00000040u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(6, this->_internal_blocoffset(), target);
   }
 
-  // optional uint32 bloclength = 7 [(.description) = "length of file block to upload - if zero, no part of the file is part of this block"];
+  // optional uint32 bloclength = 7;
   if (cached_has_bits & 0x00000080u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(7, this->_internal_bloclength(), target);
   }
 
-  // optional bytes explicit_body_data = 8 [(.description) = "explicit body data to use, instead of file data, for this block"];
+  // optional bytes explicit_body_data = 8;
   if (cached_has_bits & 0x00000004u) {
     target = stream->WriteBytesMaybeAliased(
         8, this->_internal_explicit_body_data(), target);
   }
 
-  // optional bool may_parallelize = 9 [(.description) = "if true, this request may be done in parallel with other similarly-marked requests"];
+  // optional bool may_parallelize = 9;
   if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(9, this->_internal_may_parallelize(), target);
@@ -12268,7 +12043,7 @@ size_t ClientCloudFileUploadBlockDetails::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .ClientCloudFileUploadBlockDetails.HTTPHeaders request_headers = 5 [(.description) = "Name-value pairs to be sent in HTTP PUT request."];
+  // repeated .ClientCloudFileUploadBlockDetails.HTTPHeaders request_headers = 5;
   total_size += 1UL * this->_internal_request_headers_size();
   for (const auto& msg : this->request_headers_) {
     total_size +=
@@ -12277,52 +12052,52 @@ size_t ClientCloudFileUploadBlockDetails::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x000000ffu) {
-    // optional string url_host = 1 [(.description) = "Host name of server to which file should be uploaded via HTTP PUT."];
+    // optional string url_host = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_url_host());
     }
 
-    // optional string url_path = 2 [(.description) = "Relative path on server to which file should be uploaded."];
+    // optional string url_path = 2;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_url_path());
     }
 
-    // optional bytes explicit_body_data = 8 [(.description) = "explicit body data to use, instead of file data, for this block"];
+    // optional bytes explicit_body_data = 8;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
           this->_internal_explicit_body_data());
     }
 
-    // optional int32 http_method = 4 [(.description) = "EHTTPMethod to use for this block."];
+    // optional int32 http_method = 4;
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
           this->_internal_http_method());
     }
 
-    // optional bool use_https = 3 [(.description) = "If true, use https, otherwise use http."];
+    // optional bool use_https = 3;
     if (cached_has_bits & 0x00000010u) {
       total_size += 1 + 1;
     }
 
-    // optional bool may_parallelize = 9 [(.description) = "if true, this request may be done in parallel with other similarly-marked requests"];
+    // optional bool may_parallelize = 9;
     if (cached_has_bits & 0x00000020u) {
       total_size += 1 + 1;
     }
 
-    // optional uint64 blocoffset = 6 [(.description) = "offset of file block to upload"];
+    // optional uint64 blocoffset = 6;
     if (cached_has_bits & 0x00000040u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_blocoffset());
     }
 
-    // optional uint32 bloclength = 7 [(.description) = "length of file block to upload - if zero, no part of the file is part of this block"];
+    // optional uint32 bloclength = 7;
     if (cached_has_bits & 0x00000080u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -12501,7 +12276,7 @@ const char* CCloud_ClientBeginFileUpload_Response::_InternalParse(const char* pt
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional bool encrypt_file = 1 [(.description) = "If true, the file should be encrypted by the client before upload"];
+      // optional bool encrypt_file = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_encrypt_file(&has_bits);
@@ -12509,7 +12284,7 @@ const char* CCloud_ClientBeginFileUpload_Response::_InternalParse(const char* pt
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated .ClientCloudFileUploadBlockDetails blocrequests = 2 [(.description) = "HTTP requests to make to perform upload"];
+      // repeated .ClientCloudFileUploadBlockDetails blocrequests = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           ptr -= 1;
@@ -12551,13 +12326,13 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional bool encrypt_file = 1 [(.description) = "If true, the file should be encrypted by the client before upload"];
+  // optional bool encrypt_file = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(1, this->_internal_encrypt_file(), target);
   }
 
-  // repeated .ClientCloudFileUploadBlockDetails blocrequests = 2 [(.description) = "HTTP requests to make to perform upload"];
+  // repeated .ClientCloudFileUploadBlockDetails blocrequests = 2;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_blocrequests_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
@@ -12581,14 +12356,14 @@ size_t CCloud_ClientBeginFileUpload_Response::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .ClientCloudFileUploadBlockDetails blocrequests = 2 [(.description) = "HTTP requests to make to perform upload"];
+  // repeated .ClientCloudFileUploadBlockDetails blocrequests = 2;
   total_size += 1UL * this->_internal_blocrequests_size();
   for (const auto& msg : this->blocrequests_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  // optional bool encrypt_file = 1 [(.description) = "If true, the file should be encrypted by the client before upload"];
+  // optional bool encrypt_file = 1;
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += 1 + 1;
@@ -12770,7 +12545,7 @@ const char* CCloud_ClientCommitFileUpload_Request::_InternalParse(const char* pt
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional bool transfer_succeeded = 1 [(.description) = "True if all block uploads succeeded, false if any of them failed."];
+      // optional bool transfer_succeeded = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_transfer_succeeded(&has_bits);
@@ -12778,7 +12553,7 @@ const char* CCloud_ClientCommitFileUpload_Request::_InternalParse(const char* pt
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 appid = 2 [(.description) = "App ID for which the file is being uploaded. Must match the app ID provided to Cloud.BeginFileUpload."];
+      // optional uint32 appid = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_appid(&has_bits);
@@ -12786,7 +12561,7 @@ const char* CCloud_ClientCommitFileUpload_Request::_InternalParse(const char* pt
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bytes file_sha = 3 [(.description) = "SHA1 digest of the raw file. Must match the SHA1 digest provided to Cloud.BeginFileUpload."];
+      // optional bytes file_sha = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           auto str = _internal_mutable_file_sha();
@@ -12794,7 +12569,7 @@ const char* CCloud_ClientCommitFileUpload_Request::_InternalParse(const char* pt
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string filename = 4 [(.description) = "Filename as specified in the Cloud.BeginFileUpload request."];
+      // optional string filename = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
           auto str = _internal_mutable_filename();
@@ -12835,25 +12610,25 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional bool transfer_succeeded = 1 [(.description) = "True if all block uploads succeeded, false if any of them failed."];
+  // optional bool transfer_succeeded = 1;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(1, this->_internal_transfer_succeeded(), target);
   }
 
-  // optional uint32 appid = 2 [(.description) = "App ID for which the file is being uploaded. Must match the app ID provided to Cloud.BeginFileUpload."];
+  // optional uint32 appid = 2;
   if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_appid(), target);
   }
 
-  // optional bytes file_sha = 3 [(.description) = "SHA1 digest of the raw file. Must match the SHA1 digest provided to Cloud.BeginFileUpload."];
+  // optional bytes file_sha = 3;
   if (cached_has_bits & 0x00000001u) {
     target = stream->WriteBytesMaybeAliased(
         3, this->_internal_file_sha(), target);
   }
 
-  // optional string filename = 4 [(.description) = "Filename as specified in the Cloud.BeginFileUpload request."];
+  // optional string filename = 4;
   if (cached_has_bits & 0x00000002u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_filename().data(), static_cast<int>(this->_internal_filename().length()),
@@ -12881,26 +12656,26 @@ size_t CCloud_ClientCommitFileUpload_Request::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x0000000fu) {
-    // optional bytes file_sha = 3 [(.description) = "SHA1 digest of the raw file. Must match the SHA1 digest provided to Cloud.BeginFileUpload."];
+    // optional bytes file_sha = 3;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
           this->_internal_file_sha());
     }
 
-    // optional string filename = 4 [(.description) = "Filename as specified in the Cloud.BeginFileUpload request."];
+    // optional string filename = 4;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_filename());
     }
 
-    // optional bool transfer_succeeded = 1 [(.description) = "True if all block uploads succeeded, false if any of them failed."];
+    // optional bool transfer_succeeded = 1;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 + 1;
     }
 
-    // optional uint32 appid = 2 [(.description) = "App ID for which the file is being uploaded. Must match the app ID provided to Cloud.BeginFileUpload."];
+    // optional uint32 appid = 2;
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -13061,7 +12836,7 @@ const char* CCloud_ClientCommitFileUpload_Response::_InternalParse(const char* p
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional bool file_committed = 1 [(.description) = "True if the file was successfully committed, false otherwise."];
+      // optional bool file_committed = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_file_committed(&has_bits);
@@ -13099,7 +12874,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional bool file_committed = 1 [(.description) = "True if the file was successfully committed, false otherwise."];
+  // optional bool file_committed = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(1, this->_internal_file_committed(), target);
@@ -13121,7 +12896,7 @@ size_t CCloud_ClientCommitFileUpload_Response::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // optional bool file_committed = 1 [(.description) = "True if the file was successfully committed, false otherwise."];
+  // optional bool file_committed = 1;
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += 1 + 1;
@@ -13286,7 +13061,7 @@ const char* CCloud_ClientFileDownload_Request::_InternalParse(const char* ptr, :
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint32 appid = 1 [(.description) = "App ID the file is part of."];
+      // optional uint32 appid = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_appid(&has_bits);
@@ -13294,7 +13069,7 @@ const char* CCloud_ClientFileDownload_Request::_InternalParse(const char* ptr, :
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string filename = 2 [(.description) = "Filename of the file."];
+      // optional string filename = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           auto str = _internal_mutable_filename();
@@ -13305,7 +13080,7 @@ const char* CCloud_ClientFileDownload_Request::_InternalParse(const char* ptr, :
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 realm = 3 [(.description) = "Steam Realm"];
+      // optional uint32 realm = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           _Internal::set_has_realm(&has_bits);
@@ -13343,13 +13118,13 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint32 appid = 1 [(.description) = "App ID the file is part of."];
+  // optional uint32 appid = 1;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_appid(), target);
   }
 
-  // optional string filename = 2 [(.description) = "Filename of the file."];
+  // optional string filename = 2;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_filename().data(), static_cast<int>(this->_internal_filename().length()),
@@ -13359,7 +13134,7 @@ failure:
         2, this->_internal_filename(), target);
   }
 
-  // optional uint32 realm = 3 [(.description) = "Steam Realm"];
+  // optional uint32 realm = 3;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_realm(), target);
@@ -13383,21 +13158,21 @@ size_t CCloud_ClientFileDownload_Request::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000007u) {
-    // optional string filename = 2 [(.description) = "Filename of the file."];
+    // optional string filename = 2;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_filename());
     }
 
-    // optional uint32 appid = 1 [(.description) = "App ID the file is part of."];
+    // optional uint32 appid = 1;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_appid());
     }
 
-    // optional uint32 realm = 3 [(.description) = "Steam Realm"];
+    // optional uint32 realm = 3;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -13899,7 +13674,7 @@ const char* CCloud_ClientFileDownload_Response::_InternalParse(const char* ptr, 
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint32 appid = 1 [(.description) = "Application the file belongs to"];
+      // optional uint32 appid = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_appid(&has_bits);
@@ -13907,7 +13682,7 @@ const char* CCloud_ClientFileDownload_Response::_InternalParse(const char* ptr, 
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 file_size = 2 [(.description) = "file size as transmitted and stored in the Cloud"];
+      // optional uint32 file_size = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_file_size(&has_bits);
@@ -13915,7 +13690,7 @@ const char* CCloud_ClientFileDownload_Response::_InternalParse(const char* ptr, 
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 raw_file_size = 3 [(.description) = "file size when decompressed and/or decrypted"];
+      // optional uint32 raw_file_size = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           _Internal::set_has_raw_file_size(&has_bits);
@@ -13923,7 +13698,7 @@ const char* CCloud_ClientFileDownload_Response::_InternalParse(const char* ptr, 
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bytes sha_file = 4 [(.description) = "SHA of file"];
+      // optional bytes sha_file = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
           auto str = _internal_mutable_sha_file();
@@ -13931,7 +13706,7 @@ const char* CCloud_ClientFileDownload_Response::_InternalParse(const char* ptr, 
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint64 time_stamp = 5 [(.description) = "Timestamp of file"];
+      // optional uint64 time_stamp = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
           _Internal::set_has_time_stamp(&has_bits);
@@ -13939,7 +13714,7 @@ const char* CCloud_ClientFileDownload_Response::_InternalParse(const char* ptr, 
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool is_explicit_delete = 6 [(.description) = "True if this is an explicitly deleted file"];
+      // optional bool is_explicit_delete = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
           _Internal::set_has_is_explicit_delete(&has_bits);
@@ -13947,7 +13722,7 @@ const char* CCloud_ClientFileDownload_Response::_InternalParse(const char* ptr, 
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string url_host = 7 [(.description) = "Host to GET the file from"];
+      // optional string url_host = 7;
       case 7:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
           auto str = _internal_mutable_url_host();
@@ -13958,7 +13733,7 @@ const char* CCloud_ClientFileDownload_Response::_InternalParse(const char* ptr, 
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string url_path = 8 [(.description) = "Path on that host to use, including URL parameters if any"];
+      // optional string url_path = 8;
       case 8:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 66)) {
           auto str = _internal_mutable_url_path();
@@ -13969,7 +13744,7 @@ const char* CCloud_ClientFileDownload_Response::_InternalParse(const char* ptr, 
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool use_https = 9 [(.description) = "If set, use HTTPS, else use HTTP"];
+      // optional bool use_https = 9;
       case 9:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 72)) {
           _Internal::set_has_use_https(&has_bits);
@@ -13977,7 +13752,7 @@ const char* CCloud_ClientFileDownload_Response::_InternalParse(const char* ptr, 
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated .CCloud_ClientFileDownload_Response.HTTPHeaders request_headers = 10 [(.description) = "Name-value pairs to be sent in HTTP GET request."];
+      // repeated .CCloud_ClientFileDownload_Response.HTTPHeaders request_headers = 10;
       case 10:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 82)) {
           ptr -= 1;
@@ -14027,43 +13802,43 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint32 appid = 1 [(.description) = "Application the file belongs to"];
+  // optional uint32 appid = 1;
   if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_appid(), target);
   }
 
-  // optional uint32 file_size = 2 [(.description) = "file size as transmitted and stored in the Cloud"];
+  // optional uint32 file_size = 2;
   if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_file_size(), target);
   }
 
-  // optional uint32 raw_file_size = 3 [(.description) = "file size when decompressed and/or decrypted"];
+  // optional uint32 raw_file_size = 3;
   if (cached_has_bits & 0x00000040u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_raw_file_size(), target);
   }
 
-  // optional bytes sha_file = 4 [(.description) = "SHA of file"];
+  // optional bytes sha_file = 4;
   if (cached_has_bits & 0x00000001u) {
     target = stream->WriteBytesMaybeAliased(
         4, this->_internal_sha_file(), target);
   }
 
-  // optional uint64 time_stamp = 5 [(.description) = "Timestamp of file"];
+  // optional uint64 time_stamp = 5;
   if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(5, this->_internal_time_stamp(), target);
   }
 
-  // optional bool is_explicit_delete = 6 [(.description) = "True if this is an explicitly deleted file"];
+  // optional bool is_explicit_delete = 6;
   if (cached_has_bits & 0x00000080u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(6, this->_internal_is_explicit_delete(), target);
   }
 
-  // optional string url_host = 7 [(.description) = "Host to GET the file from"];
+  // optional string url_host = 7;
   if (cached_has_bits & 0x00000002u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_url_host().data(), static_cast<int>(this->_internal_url_host().length()),
@@ -14073,7 +13848,7 @@ failure:
         7, this->_internal_url_host(), target);
   }
 
-  // optional string url_path = 8 [(.description) = "Path on that host to use, including URL parameters if any"];
+  // optional string url_path = 8;
   if (cached_has_bits & 0x00000004u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_url_path().data(), static_cast<int>(this->_internal_url_path().length()),
@@ -14083,13 +13858,13 @@ failure:
         8, this->_internal_url_path(), target);
   }
 
-  // optional bool use_https = 9 [(.description) = "If set, use HTTPS, else use HTTP"];
+  // optional bool use_https = 9;
   if (cached_has_bits & 0x00000100u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(9, this->_internal_use_https(), target);
   }
 
-  // repeated .CCloud_ClientFileDownload_Response.HTTPHeaders request_headers = 10 [(.description) = "Name-value pairs to be sent in HTTP GET request."];
+  // repeated .CCloud_ClientFileDownload_Response.HTTPHeaders request_headers = 10;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_request_headers_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
@@ -14119,7 +13894,7 @@ size_t CCloud_ClientFileDownload_Response::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .CCloud_ClientFileDownload_Response.HTTPHeaders request_headers = 10 [(.description) = "Name-value pairs to be sent in HTTP GET request."];
+  // repeated .CCloud_ClientFileDownload_Response.HTTPHeaders request_headers = 10;
   total_size += 1UL * this->_internal_request_headers_size();
   for (const auto& msg : this->request_headers_) {
     total_size +=
@@ -14128,63 +13903,63 @@ size_t CCloud_ClientFileDownload_Response::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x000000ffu) {
-    // optional bytes sha_file = 4 [(.description) = "SHA of file"];
+    // optional bytes sha_file = 4;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
           this->_internal_sha_file());
     }
 
-    // optional string url_host = 7 [(.description) = "Host to GET the file from"];
+    // optional string url_host = 7;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_url_host());
     }
 
-    // optional string url_path = 8 [(.description) = "Path on that host to use, including URL parameters if any"];
+    // optional string url_path = 8;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_url_path());
     }
 
-    // optional uint32 appid = 1 [(.description) = "Application the file belongs to"];
+    // optional uint32 appid = 1;
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_appid());
     }
 
-    // optional uint32 file_size = 2 [(.description) = "file size as transmitted and stored in the Cloud"];
+    // optional uint32 file_size = 2;
     if (cached_has_bits & 0x00000010u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_file_size());
     }
 
-    // optional uint64 time_stamp = 5 [(.description) = "Timestamp of file"];
+    // optional uint64 time_stamp = 5;
     if (cached_has_bits & 0x00000020u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_time_stamp());
     }
 
-    // optional uint32 raw_file_size = 3 [(.description) = "file size when decompressed and/or decrypted"];
+    // optional uint32 raw_file_size = 3;
     if (cached_has_bits & 0x00000040u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_raw_file_size());
     }
 
-    // optional bool is_explicit_delete = 6 [(.description) = "True if this is an explicitly deleted file"];
+    // optional bool is_explicit_delete = 6;
     if (cached_has_bits & 0x00000080u) {
       total_size += 1 + 1;
     }
 
   }
   if (cached_has_bits & 0x00000300u) {
-    // optional bool use_https = 9 [(.description) = "If set, use HTTPS, else use HTTP"];
+    // optional bool use_https = 9;
     if (cached_has_bits & 0x00000100u) {
       total_size += 1 + 1;
     }
@@ -14401,7 +14176,7 @@ const char* CCloud_ClientDeleteFile_Request::_InternalParse(const char* ptr, ::P
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint32 appid = 1 [(.description) = "App ID for which the file is being deleted."];
+      // optional uint32 appid = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_appid(&has_bits);
@@ -14409,7 +14184,7 @@ const char* CCloud_ClientDeleteFile_Request::_InternalParse(const char* ptr, ::P
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string filename = 2 [(.description) = "Filename of file."];
+      // optional string filename = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           auto str = _internal_mutable_filename();
@@ -14420,7 +14195,7 @@ const char* CCloud_ClientDeleteFile_Request::_InternalParse(const char* ptr, ::P
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool is_explicit_delete = 3 [(.description) = "If true, this is a \'delete\'; if false, it is a \'forget\'"];
+      // optional bool is_explicit_delete = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           _Internal::set_has_is_explicit_delete(&has_bits);
@@ -14428,7 +14203,7 @@ const char* CCloud_ClientDeleteFile_Request::_InternalParse(const char* ptr, ::P
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint64 upload_batch_id = 4 [(.description) = "ID of this batch."];
+      // optional uint64 upload_batch_id = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
           _Internal::set_has_upload_batch_id(&has_bits);
@@ -14466,13 +14241,13 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint32 appid = 1 [(.description) = "App ID for which the file is being deleted."];
+  // optional uint32 appid = 1;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_appid(), target);
   }
 
-  // optional string filename = 2 [(.description) = "Filename of file."];
+  // optional string filename = 2;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_filename().data(), static_cast<int>(this->_internal_filename().length()),
@@ -14482,13 +14257,13 @@ failure:
         2, this->_internal_filename(), target);
   }
 
-  // optional bool is_explicit_delete = 3 [(.description) = "If true, this is a \'delete\'; if false, it is a \'forget\'"];
+  // optional bool is_explicit_delete = 3;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(3, this->_internal_is_explicit_delete(), target);
   }
 
-  // optional uint64 upload_batch_id = 4 [(.description) = "ID of this batch."];
+  // optional uint64 upload_batch_id = 4;
   if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(4, this->_internal_upload_batch_id(), target);
@@ -14512,26 +14287,26 @@ size_t CCloud_ClientDeleteFile_Request::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x0000000fu) {
-    // optional string filename = 2 [(.description) = "Filename of file."];
+    // optional string filename = 2;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_filename());
     }
 
-    // optional uint32 appid = 1 [(.description) = "App ID for which the file is being deleted."];
+    // optional uint32 appid = 1;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_appid());
     }
 
-    // optional bool is_explicit_delete = 3 [(.description) = "If true, this is a \'delete\'; if false, it is a \'forget\'"];
+    // optional bool is_explicit_delete = 3;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 + 1;
     }
 
-    // optional uint64 upload_batch_id = 4 [(.description) = "ID of this batch."];
+    // optional uint64 upload_batch_id = 4;
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
@@ -14861,7 +14636,7 @@ const char* CCloud_ClientConflictResolution_Notification::_InternalParse(const c
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint32 appid = 1 [(.description) = "App ID for which the conflict was resolved."];
+      // optional uint32 appid = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_appid(&has_bits);
@@ -14869,7 +14644,7 @@ const char* CCloud_ClientConflictResolution_Notification::_InternalParse(const c
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool chose_local_files = 2 [(.description) = "Did the user choose to keep the files local to the machine they are on right now?"];
+      // optional bool chose_local_files = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_chose_local_files(&has_bits);
@@ -14907,13 +14682,13 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint32 appid = 1 [(.description) = "App ID for which the conflict was resolved."];
+  // optional uint32 appid = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_appid(), target);
   }
 
-  // optional bool chose_local_files = 2 [(.description) = "Did the user choose to keep the files local to the machine they are on right now?"];
+  // optional bool chose_local_files = 2;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(2, this->_internal_chose_local_files(), target);
@@ -14937,14 +14712,14 @@ size_t CCloud_ClientConflictResolution_Notification::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional uint32 appid = 1 [(.description) = "App ID for which the conflict was resolved."];
+    // optional uint32 appid = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_appid());
     }
 
-    // optional bool chose_local_files = 2 [(.description) = "Did the user choose to keep the files local to the machine they are on right now?"];
+    // optional bool chose_local_files = 2;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 + 1;
     }
@@ -15735,7 +15510,7 @@ const char* CCloud_GetAppFileChangelist_Request::_InternalParse(const char* ptr,
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint32 appid = 1 [(.description) = "App ID"];
+      // optional uint32 appid = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_appid(&has_bits);
@@ -15743,7 +15518,7 @@ const char* CCloud_GetAppFileChangelist_Request::_InternalParse(const char* ptr,
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint64 synced_change_number = 2 [(.description) = "Change Number to which local machine was last successfully synced"];
+      // optional uint64 synced_change_number = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_synced_change_number(&has_bits);
@@ -15781,13 +15556,13 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint32 appid = 1 [(.description) = "App ID"];
+  // optional uint32 appid = 1;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_appid(), target);
   }
 
-  // optional uint64 synced_change_number = 2 [(.description) = "Change Number to which local machine was last successfully synced"];
+  // optional uint64 synced_change_number = 2;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(2, this->_internal_synced_change_number(), target);
@@ -15811,14 +15586,14 @@ size_t CCloud_GetAppFileChangelist_Request::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional uint64 synced_change_number = 2 [(.description) = "Change Number to which local machine was last successfully synced"];
+    // optional uint64 synced_change_number = 2;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_synced_change_number());
     }
 
-    // optional uint32 appid = 1 [(.description) = "App ID"];
+    // optional uint32 appid = 1;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -16024,7 +15799,7 @@ const char* CCloud_AppFileInfo::_InternalParse(const char* ptr, ::PROTOBUF_NAMES
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional string file_name = 1 [(.description) = "unqualified filename"];
+      // optional string file_name = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           auto str = _internal_mutable_file_name();
@@ -16035,7 +15810,7 @@ const char* CCloud_AppFileInfo::_InternalParse(const char* ptr, ::PROTOBUF_NAMES
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bytes sha_file = 2 [(.description) = "SHA of file"];
+      // optional bytes sha_file = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           auto str = _internal_mutable_sha_file();
@@ -16043,7 +15818,7 @@ const char* CCloud_AppFileInfo::_InternalParse(const char* ptr, ::PROTOBUF_NAMES
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint64 time_stamp = 3 [(.description) = "server timestamp of last modification"];
+      // optional uint64 time_stamp = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           _Internal::set_has_time_stamp(&has_bits);
@@ -16051,7 +15826,7 @@ const char* CCloud_AppFileInfo::_InternalParse(const char* ptr, ::PROTOBUF_NAMES
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 raw_file_size = 4 [(.description) = "size of raw file"];
+      // optional uint32 raw_file_size = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
           _Internal::set_has_raw_file_size(&has_bits);
@@ -16059,7 +15834,7 @@ const char* CCloud_AppFileInfo::_InternalParse(const char* ptr, ::PROTOBUF_NAMES
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional .ECloudStoragePersistState persist_state = 5 [default = ECloudStoragePersistStatePersisted, (.description) = "current persist state of the file"];
+      // optional .ECloudStoragePersistState persist_state = 5 [default = ECloudStoragePersistStatePersisted];
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
           ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -16071,7 +15846,7 @@ const char* CCloud_AppFileInfo::_InternalParse(const char* ptr, ::PROTOBUF_NAMES
           }
         } else goto handle_unusual;
         continue;
-      // optional uint32 platforms_to_sync = 6 [(.description) = "ERemoteStoragePlatform bits"];
+      // optional uint32 platforms_to_sync = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
           _Internal::set_has_platforms_to_sync(&has_bits);
@@ -16079,7 +15854,7 @@ const char* CCloud_AppFileInfo::_InternalParse(const char* ptr, ::PROTOBUF_NAMES
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 path_prefix_index = 7 [(.description) = "index into string table of path prefixes"];
+      // optional uint32 path_prefix_index = 7;
       case 7:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 56)) {
           _Internal::set_has_path_prefix_index(&has_bits);
@@ -16087,7 +15862,7 @@ const char* CCloud_AppFileInfo::_InternalParse(const char* ptr, ::PROTOBUF_NAMES
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 machine_name_index = 8 [(.description) = "what machine last modified this file"];
+      // optional uint32 machine_name_index = 8;
       case 8:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 64)) {
           _Internal::set_has_machine_name_index(&has_bits);
@@ -16125,7 +15900,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional string file_name = 1 [(.description) = "unqualified filename"];
+  // optional string file_name = 1;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_file_name().data(), static_cast<int>(this->_internal_file_name().length()),
@@ -16135,44 +15910,44 @@ failure:
         1, this->_internal_file_name(), target);
   }
 
-  // optional bytes sha_file = 2 [(.description) = "SHA of file"];
+  // optional bytes sha_file = 2;
   if (cached_has_bits & 0x00000002u) {
     target = stream->WriteBytesMaybeAliased(
         2, this->_internal_sha_file(), target);
   }
 
-  // optional uint64 time_stamp = 3 [(.description) = "server timestamp of last modification"];
+  // optional uint64 time_stamp = 3;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(3, this->_internal_time_stamp(), target);
   }
 
-  // optional uint32 raw_file_size = 4 [(.description) = "size of raw file"];
+  // optional uint32 raw_file_size = 4;
   if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_raw_file_size(), target);
   }
 
-  // optional .ECloudStoragePersistState persist_state = 5 [default = ECloudStoragePersistStatePersisted, (.description) = "current persist state of the file"];
+  // optional .ECloudStoragePersistState persist_state = 5 [default = ECloudStoragePersistStatePersisted];
   if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       5, this->_internal_persist_state(), target);
   }
 
-  // optional uint32 platforms_to_sync = 6 [(.description) = "ERemoteStoragePlatform bits"];
+  // optional uint32 platforms_to_sync = 6;
   if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(6, this->_internal_platforms_to_sync(), target);
   }
 
-  // optional uint32 path_prefix_index = 7 [(.description) = "index into string table of path prefixes"];
+  // optional uint32 path_prefix_index = 7;
   if (cached_has_bits & 0x00000040u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(7, this->_internal_path_prefix_index(), target);
   }
 
-  // optional uint32 machine_name_index = 8 [(.description) = "what machine last modified this file"];
+  // optional uint32 machine_name_index = 8;
   if (cached_has_bits & 0x00000080u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(8, this->_internal_machine_name_index(), target);
@@ -16196,55 +15971,55 @@ size_t CCloud_AppFileInfo::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x000000ffu) {
-    // optional string file_name = 1 [(.description) = "unqualified filename"];
+    // optional string file_name = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_file_name());
     }
 
-    // optional bytes sha_file = 2 [(.description) = "SHA of file"];
+    // optional bytes sha_file = 2;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
           this->_internal_sha_file());
     }
 
-    // optional uint64 time_stamp = 3 [(.description) = "server timestamp of last modification"];
+    // optional uint64 time_stamp = 3;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_time_stamp());
     }
 
-    // optional uint32 raw_file_size = 4 [(.description) = "size of raw file"];
+    // optional uint32 raw_file_size = 4;
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_raw_file_size());
     }
 
-    // optional .ECloudStoragePersistState persist_state = 5 [default = ECloudStoragePersistStatePersisted, (.description) = "current persist state of the file"];
+    // optional .ECloudStoragePersistState persist_state = 5 [default = ECloudStoragePersistStatePersisted];
     if (cached_has_bits & 0x00000010u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_persist_state());
     }
 
-    // optional uint32 platforms_to_sync = 6 [(.description) = "ERemoteStoragePlatform bits"];
+    // optional uint32 platforms_to_sync = 6;
     if (cached_has_bits & 0x00000020u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_platforms_to_sync());
     }
 
-    // optional uint32 path_prefix_index = 7 [(.description) = "index into string table of path prefixes"];
+    // optional uint32 path_prefix_index = 7;
     if (cached_has_bits & 0x00000040u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_path_prefix_index());
     }
 
-    // optional uint32 machine_name_index = 8 [(.description) = "what machine last modified this file"];
+    // optional uint32 machine_name_index = 8;
     if (cached_has_bits & 0x00000080u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -16442,7 +16217,7 @@ const char* CCloud_GetAppFileChangelist_Response::_InternalParse(const char* ptr
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint64 current_change_number = 1 [(.description) = "Change Number current on server"];
+      // optional uint64 current_change_number = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_current_change_number(&has_bits);
@@ -16450,7 +16225,7 @@ const char* CCloud_GetAppFileChangelist_Response::_InternalParse(const char* ptr
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated .CCloud_AppFileInfo files = 2 [(.description) = "List of files; may be the full list of extant/deleted files, or just a delta from the client list"];
+      // repeated .CCloud_AppFileInfo files = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           ptr -= 1;
@@ -16462,7 +16237,7 @@ const char* CCloud_GetAppFileChangelist_Response::_InternalParse(const char* ptr
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
         } else goto handle_unusual;
         continue;
-      // optional bool is_only_delta = 3 [(.description) = "If true, \'files\' omits any files that have not changed since client\'s change ID"];
+      // optional bool is_only_delta = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           _Internal::set_has_is_only_delta(&has_bits);
@@ -16470,7 +16245,7 @@ const char* CCloud_GetAppFileChangelist_Response::_InternalParse(const char* ptr
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated string path_prefixes = 4 [(.description) = "string table of path prefixes"];
+      // repeated string path_prefixes = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
           ptr -= 1;
@@ -16486,7 +16261,7 @@ const char* CCloud_GetAppFileChangelist_Response::_InternalParse(const char* ptr
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<34>(ptr));
         } else goto handle_unusual;
         continue;
-      // repeated string machine_names = 5 [(.description) = "string table of machine names"];
+      // repeated string machine_names = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
           ptr -= 1;
@@ -16502,7 +16277,7 @@ const char* CCloud_GetAppFileChangelist_Response::_InternalParse(const char* ptr
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<42>(ptr));
         } else goto handle_unusual;
         continue;
-      // optional uint64 app_buildid_hwm = 6 [(.description) = "highest app build ID which has uploaded data"];
+      // optional uint64 app_buildid_hwm = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
           _Internal::set_has_app_buildid_hwm(&has_bits);
@@ -16540,13 +16315,13 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint64 current_change_number = 1 [(.description) = "Change Number current on server"];
+  // optional uint64 current_change_number = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_current_change_number(), target);
   }
 
-  // repeated .CCloud_AppFileInfo files = 2 [(.description) = "List of files; may be the full list of extant/deleted files, or just a delta from the client list"];
+  // repeated .CCloud_AppFileInfo files = 2;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_files_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
@@ -16554,13 +16329,13 @@ failure:
       InternalWriteMessage(2, this->_internal_files(i), target, stream);
   }
 
-  // optional bool is_only_delta = 3 [(.description) = "If true, \'files\' omits any files that have not changed since client\'s change ID"];
+  // optional bool is_only_delta = 3;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(3, this->_internal_is_only_delta(), target);
   }
 
-  // repeated string path_prefixes = 4 [(.description) = "string table of path prefixes"];
+  // repeated string path_prefixes = 4;
   for (int i = 0, n = this->_internal_path_prefixes_size(); i < n; i++) {
     const auto& s = this->_internal_path_prefixes(i);
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
@@ -16570,7 +16345,7 @@ failure:
     target = stream->WriteString(4, s, target);
   }
 
-  // repeated string machine_names = 5 [(.description) = "string table of machine names"];
+  // repeated string machine_names = 5;
   for (int i = 0, n = this->_internal_machine_names_size(); i < n; i++) {
     const auto& s = this->_internal_machine_names(i);
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
@@ -16580,7 +16355,7 @@ failure:
     target = stream->WriteString(5, s, target);
   }
 
-  // optional uint64 app_buildid_hwm = 6 [(.description) = "highest app build ID which has uploaded data"];
+  // optional uint64 app_buildid_hwm = 6;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(6, this->_internal_app_buildid_hwm(), target);
@@ -16602,14 +16377,14 @@ size_t CCloud_GetAppFileChangelist_Response::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .CCloud_AppFileInfo files = 2 [(.description) = "List of files; may be the full list of extant/deleted files, or just a delta from the client list"];
+  // repeated .CCloud_AppFileInfo files = 2;
   total_size += 1UL * this->_internal_files_size();
   for (const auto& msg : this->files_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  // repeated string path_prefixes = 4 [(.description) = "string table of path prefixes"];
+  // repeated string path_prefixes = 4;
   total_size += 1 *
       ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(path_prefixes_.size());
   for (int i = 0, n = path_prefixes_.size(); i < n; i++) {
@@ -16617,7 +16392,7 @@ size_t CCloud_GetAppFileChangelist_Response::ByteSizeLong() const {
       path_prefixes_.Get(i));
   }
 
-  // repeated string machine_names = 5 [(.description) = "string table of machine names"];
+  // repeated string machine_names = 5;
   total_size += 1 *
       ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(machine_names_.size());
   for (int i = 0, n = machine_names_.size(); i < n; i++) {
@@ -16627,21 +16402,21 @@ size_t CCloud_GetAppFileChangelist_Response::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000007u) {
-    // optional uint64 current_change_number = 1 [(.description) = "Change Number current on server"];
+    // optional uint64 current_change_number = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_current_change_number());
     }
 
-    // optional uint64 app_buildid_hwm = 6 [(.description) = "highest app build ID which has uploaded data"];
+    // optional uint64 app_buildid_hwm = 6;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_app_buildid_hwm());
     }
 
-    // optional bool is_only_delta = 3 [(.description) = "If true, \'files\' omits any files that have not changed since client\'s change ID"];
+    // optional bool is_only_delta = 3;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 + 1;
     }
@@ -17998,7 +17773,7 @@ const char* CCloud_AppLaunchIntent_Response::_InternalParse(const char* ptr, ::P
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // repeated .CCloud_PendingRemoteOperation pending_remote_operations = 1 [(.description) = "pending remote operations you should be aware of"];
+      // repeated .CCloud_PendingRemoteOperation pending_remote_operations = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           ptr -= 1;
@@ -18038,7 +17813,7 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated .CCloud_PendingRemoteOperation pending_remote_operations = 1 [(.description) = "pending remote operations you should be aware of"];
+  // repeated .CCloud_PendingRemoteOperation pending_remote_operations = 1;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_pending_remote_operations_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
@@ -18062,7 +17837,7 @@ size_t CCloud_AppLaunchIntent_Response::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .CCloud_PendingRemoteOperation pending_remote_operations = 1 [(.description) = "pending remote operations you should be aware of"];
+  // repeated .CCloud_PendingRemoteOperation pending_remote_operations = 1;
   total_size += 1UL * this->_internal_pending_remote_operations_size();
   for (const auto& msg : this->pending_remote_operations_) {
     total_size +=
@@ -19015,7 +18790,7 @@ const char* CCloud_AppCloudStateChange_Notification::_InternalParse(const char* 
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint32 appid = 1 [(.description) = "App which has had a change in cloud state"];
+      // optional uint32 appid = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_appid(&has_bits);
@@ -19023,7 +18798,7 @@ const char* CCloud_AppCloudStateChange_Notification::_InternalParse(const char* 
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint64 app_change_number = 2 [(.description) = "New App Change Number"];
+      // optional uint64 app_change_number = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_app_change_number(&has_bits);
@@ -19061,13 +18836,13 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint32 appid = 1 [(.description) = "App which has had a change in cloud state"];
+  // optional uint32 appid = 1;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_appid(), target);
   }
 
-  // optional uint64 app_change_number = 2 [(.description) = "New App Change Number"];
+  // optional uint64 app_change_number = 2;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(2, this->_internal_app_change_number(), target);
@@ -19091,14 +18866,14 @@ size_t CCloud_AppCloudStateChange_Notification::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional uint64 app_change_number = 2 [(.description) = "New App Change Number"];
+    // optional uint64 app_change_number = 2;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_app_change_number());
     }
 
-    // optional uint32 appid = 1 [(.description) = "App which has had a change in cloud state"];
+    // optional uint32 appid = 1;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(

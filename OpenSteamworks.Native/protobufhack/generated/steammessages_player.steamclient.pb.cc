@@ -3740,717 +3740,571 @@ const char descriptor_table_protodef_steammessages_5fplayer_2esteamclient_2eprot
   " \003(\r\"\214\001\n3CPlayer_GetMutualFriendsForInco"
   "mingInvites_Response\022U\n$incoming_invite_"
   "mutual_friends_lists\030\001 \003(\0132\'.CPlayer_Inc"
-  "omingInviteMutualFriendList\"\224\006\n\035CPlayer_"
-  "GetOwnedGames_Request\0222\n\007steamid\030\001 \001(\004B!"
-  "\202\265\030\035The player we\'re asking about\022\\\n\017inc"
-  "lude_appinfo\030\002 \001(\010BC\202\265\030\?true if we want "
-  "additional details (name, icon) about ea"
-  "ch game\022\214\001\n\031include_played_free_games\030\003 "
-  "\001(\010Bi\202\265\030eFree games are excluded by defa"
-  "ult.  If this is set, free games the use"
-  "r has played will be returned.\022M\n\rappids"
-  "_filter\030\004 \003(\rB6\202\265\0302if set, restricts res"
-  "ult set to the passed in apps\022\\\n\020include"
-  "_free_sub\030\005 \001(\010BB\202\265\030>Some games are in t"
-  "he free sub, which are excluded by defau"
-  "lt.\022F\n\022skip_unvetted_apps\030\006 \001(\010:\004trueB$\202"
-  "\265\030 if set, skip unvetted store apps\022:\n\010l"
-  "anguage\030\007 \001(\tB(\202\265\030$Will return appinfo i"
-  "n this language\022\240\001\n\030include_extended_app"
-  "info\030\010 \001(\010B~\202\265\030ztrue if we want even mor"
-  "e details (capsule, sortas, and capabili"
-  "ties) about each game.  include_appinfo "
-  "must also be true.\"\266\004\n\036CPlayer_GetOwnedG"
-  "ames_Response\022\022\n\ngame_count\030\001 \001(\r\0223\n\005gam"
-  "es\030\002 \003(\0132$.CPlayer_GetOwnedGames_Respons"
-  "e.Game\032\312\003\n\004Game\022\r\n\005appid\030\001 \001(\005\022\014\n\004name\030\002"
-  " \001(\t\022\027\n\017playtime_2weeks\030\003 \001(\005\022\030\n\020playtim"
-  "e_forever\030\004 \001(\005\022\024\n\014img_icon_url\030\005 \001(\t\022#\n"
-  "\033has_community_visible_stats\030\007 \001(\010\022 \n\030pl"
-  "aytime_windows_forever\030\010 \001(\005\022\034\n\024playtime"
-  "_mac_forever\030\t \001(\005\022\036\n\026playtime_linux_for"
-  "ever\030\n \001(\005\022\031\n\021rtime_last_played\030\013 \001(\r\022\030\n"
-  "\020capsule_filename\030\014 \001(\t\022\017\n\007sort_as\030\r \001(\t"
-  "\022\024\n\014has_workshop\030\016 \001(\010\022\022\n\nhas_market\030\017 \001"
-  "(\010\022\017\n\007has_dlc\030\020 \001(\010\022\030\n\020has_leaderboards\030"
-  "\021 \001(\010\022\035\n\025content_descriptorids\030\022 \003(\r\022\035\n\025"
-  "playtime_disconnected\030\023 \001(\005\"M\n\033CPlayer_G"
-  "etPlayNext_Request\022\027\n\017max_age_seconds\030\001 "
-  "\001(\r\022\025\n\rignore_appids\030\002 \003(\r\"H\n\034CPlayer_Ge"
-  "tPlayNext_Response\022\030\n\020last_update_time\030\001"
-  " \001(\r\022\016\n\006appids\030\002 \003(\r\"7\n&CPlayer_GetFrien"
-  "dsGameplayInfo_Request\022\r\n\005appid\030\001 \001(\r\"\356\005"
-  "\n\'CPlayer_GetFriendsGameplayInfo_Respons"
-  "e\022K\n\tyour_info\030\001 \001(\01328.CPlayer_GetFriend"
-  "sGameplayInfo_Response.OwnGameplayInfo\022M"
-  "\n\007in_game\030\002 \003(\0132<.CPlayer_GetFriendsGame"
-  "playInfo_Response.FriendsGameplayInfo\022U\n"
-  "\017played_recently\030\003 \003(\0132<.CPlayer_GetFrie"
-  "ndsGameplayInfo_Response.FriendsGameplay"
-  "Info\022Q\n\013played_ever\030\004 \003(\0132<.CPlayer_GetF"
-  "riendsGameplayInfo_Response.FriendsGamep"
-  "layInfo\022J\n\004owns\030\005 \003(\0132<.CPlayer_GetFrien"
-  "dsGameplayInfo_Response.FriendsGameplayI"
-  "nfo\022Q\n\013in_wishlist\030\006 \003(\0132<.CPlayer_GetFr"
-  "iendsGameplayInfo_Response.FriendsGamepl"
-  "ayInfo\032^\n\023FriendsGameplayInfo\022\017\n\007steamid"
-  "\030\001 \001(\006\022\026\n\016minutes_played\030\002 \001(\r\022\036\n\026minute"
-  "s_played_forever\030\003 \001(\r\032~\n\017OwnGameplayInf"
-  "o\022\017\n\007steamid\030\001 \001(\006\022\026\n\016minutes_played\030\002 \001"
-  "(\r\022\036\n\026minutes_played_forever\030\003 \001(\r\022\023\n\013in"
-  "_wishlist\030\004 \001(\010\022\r\n\005owned\030\005 \001(\010\"3\n\"CPlaye"
-  "r_GetGameBadgeLevels_Request\022\r\n\005appid\030\001 "
-  "\001(\r\"\265\001\n#CPlayer_GetGameBadgeLevels_Respo"
-  "nse\022\024\n\014player_level\030\001 \001(\r\022:\n\006badges\030\002 \003("
-  "\0132*.CPlayer_GetGameBadgeLevels_Response."
-  "Badge\032<\n\005Badge\022\r\n\005level\030\001 \001(\005\022\016\n\006series\030"
-  "\002 \001(\005\022\024\n\014border_color\030\003 \001(\r\"l\n$CPlayer_G"
-  "etProfileBackground_Request\0222\n\007steamid\030\001"
-  " \001(\006B!\202\265\030\035The player we\'re asking about\022"
-  "\020\n\010language\030\002 \001(\t\"\253\006\n\013ProfileItem\022\027\n\017com"
-  "munityitemid\030\001 \001(\004\022B\n\013image_small\030\002 \001(\tB"
-  "-\202\265\030)small image used in backpack or sel"
-  "ection\022)\n\013image_large\030\003 \001(\tB\024\202\265\030\020the ima"
-  "ge itself\022\036\n\004name\030\004 \001(\tB\020\202\265\030\014english nam"
-  "e\022\'\n\nitem_title\030\005 \001(\tB\023\202\265\030\017localized tit"
-  "le\0223\n\020item_description\030\006 \001(\tB\031\202\265\030\025locali"
-  "zed description\022\r\n\005appid\030\007 \001(\r\022\021\n\titem_t"
-  "ype\030\010 \001(\r\022\022\n\nitem_class\030\t \001(\r\022+\n\nmovie_w"
-  "ebm\030\n \001(\tB\027\202\265\030\023URL to webm, if any\022)\n\tmo"
-  "vie_mp4\030\013 \001(\tB\026\202\265\030\022URL to mp4, if any\0227\n"
-  "\020movie_webm_small\030\r \001(\tB\035\202\265\030\031URL to smal"
-  "l webm, if any\0225\n\017movie_mp4_small\030\016 \001(\tB"
-  "\034\202\265\030\030URL to small mp4, if any\022V\n\016equippe"
-  "d_flags\030\014 \001(\rB>\202\265\030:Special flags set whe"
-  "n equipped (EProfileItemEquippedFlag)\022N\n"
-  "\016profile_colors\030\017 \003(\0132\031.ProfileItem.Prof"
-  "ileColorB\033\202\265\030\027Game profile css colors\032p\n"
-  "\014ProfileColor\0229\n\nstyle_name\030\001 \001(\tB%\202\265\030!E"
-  "ProfileColorStyle string version\022%\n\005colo"
-  "r\030\002 \001(\tB\026\202\265\030\022hex color to apply\"Q\n%CPlay"
-  "er_GetProfileBackground_Response\022(\n\022prof"
-  "ile_background\030\001 \001(\0132\014.ProfileItem\"\?\n$CP"
-  "layer_SetProfileBackground_Request\022\027\n\017co"
-  "mmunityitemid\030\001 \001(\004\"\'\n%CPlayer_SetProfil"
-  "eBackground_Response\"p\n(CPlayer_GetMiniP"
-  "rofileBackground_Request\0222\n\007steamid\030\001 \001("
-  "\006B!\202\265\030\035The player we\'re asking about\022\020\n\010"
-  "language\030\002 \001(\t\"U\n)CPlayer_GetMiniProfile"
-  "Background_Response\022(\n\022profile_backgroun"
-  "d\030\001 \001(\0132\014.ProfileItem\"C\n(CPlayer_SetMini"
-  "ProfileBackground_Request\022\027\n\017communityit"
-  "emid\030\001 \001(\004\"+\n)CPlayer_SetMiniProfileBack"
-  "ground_Response\"f\n\036CPlayer_GetAvatarFram"
-  "e_Request\0222\n\007steamid\030\001 \001(\006B!\202\265\030\035The play"
-  "er we\'re asking about\022\020\n\010language\030\002 \001(\t\""
-  "E\n\037CPlayer_GetAvatarFrame_Response\022\"\n\014av"
-  "atar_frame\030\001 \001(\0132\014.ProfileItem\"9\n\036CPlaye"
-  "r_SetAvatarFrame_Request\022\027\n\017communityite"
-  "mid\030\001 \001(\004\"!\n\037CPlayer_SetAvatarFrame_Resp"
-  "onse\"i\n!CPlayer_GetAnimatedAvatar_Reques"
-  "t\0222\n\007steamid\030\001 \001(\006B!\202\265\030\035The player we\'re"
-  " asking about\022\020\n\010language\030\002 \001(\t\"B\n\"CPlay"
-  "er_GetAnimatedAvatar_Response\022\034\n\006avatar\030"
-  "\001 \001(\0132\014.ProfileItem\"<\n!CPlayer_SetAnimat"
-  "edAvatar_Request\022\027\n\017communityitemid\030\001 \001("
-  "\004\"$\n\"CPlayer_SetAnimatedAvatar_Response\""
-  "p\n(CPlayer_GetSteamDeckKeyboardSkin_Requ"
-  "est\0222\n\007steamid\030\001 \001(\006B!\202\265\030\035The player we\'"
-  "re asking about\022\020\n\010language\030\002 \001(\t\"Y\n)CPl"
-  "ayer_GetSteamDeckKeyboardSkin_Response\022,"
-  "\n\026steam_deckeyboard_skin\030\001 \001(\0132\014.Profile"
-  "Item\"C\n(CPlayer_SetSteamDeckKeyboardSkin"
-  "_Request\022\027\n\017communityitemid\030\001 \001(\004\"+\n)CPl"
-  "ayer_SetSteamDeckKeyboardSkin_Response\"_"
-  "\n$CPlayer_GetProfileItemsOwned_Request\022\020"
-  "\n\010language\030\001 \001(\t\022%\n\007filters\030\002 \003(\0162\024.ECom"
-  "munityItemClass\"\326\002\n%CPlayer_GetProfileIt"
-  "emsOwned_Response\022)\n\023profile_backgrounds"
-  "\030\001 \003(\0132\014.ProfileItem\022.\n\030mini_profile_bac"
-  "kgrounds\030\002 \003(\0132\014.ProfileItem\022#\n\ravatar_f"
-  "rames\030\003 \003(\0132\014.ProfileItem\022&\n\020animated_av"
-  "atars\030\004 \003(\0132\014.ProfileItem\022\'\n\021profile_mod"
-  "ifiers\030\005 \003(\0132\014.ProfileItem\022-\n\027steam_deck"
-  "eyboard_skins\030\006 \003(\0132\014.ProfileItem\022-\n\027ste"
-  "am_decstartup_movies\030\007 \003(\0132\014.ProfileItem"
-  "\"L\n\'CPlayer_GetProfileItemsEquipped_Requ"
-  "est\022\017\n\007steamid\030\001 \001(\006\022\020\n\010language\030\002 \001(\t\"\244"
-  "\002\n(CPlayer_GetProfileItemsEquipped_Respo"
+  "omingInviteMutualFriendList\"\363\001\n\035CPlayer_"
+  "GetOwnedGames_Request\022\017\n\007steamid\030\001 \001(\004\022\027"
+  "\n\017include_appinfo\030\002 \001(\010\022!\n\031include_playe"
+  "d_free_games\030\003 \001(\010\022\025\n\rappids_filter\030\004 \003("
+  "\r\022\030\n\020include_free_sub\030\005 \001(\010\022 \n\022skip_unve"
+  "tted_apps\030\006 \001(\010:\004true\022\020\n\010language\030\007 \001(\t\022"
+  " \n\030include_extended_appinfo\030\010 \001(\010\"\266\004\n\036CP"
+  "layer_GetOwnedGames_Response\022\022\n\ngame_cou"
+  "nt\030\001 \001(\r\0223\n\005games\030\002 \003(\0132$.CPlayer_GetOwn"
+  "edGames_Response.Game\032\312\003\n\004Game\022\r\n\005appid\030"
+  "\001 \001(\005\022\014\n\004name\030\002 \001(\t\022\027\n\017playtime_2weeks\030\003"
+  " \001(\005\022\030\n\020playtime_forever\030\004 \001(\005\022\024\n\014img_ic"
+  "on_url\030\005 \001(\t\022#\n\033has_community_visible_st"
+  "ats\030\007 \001(\010\022 \n\030playtime_windows_forever\030\010 "
+  "\001(\005\022\034\n\024playtime_mac_forever\030\t \001(\005\022\036\n\026pla"
+  "ytime_linux_forever\030\n \001(\005\022\031\n\021rtime_last_"
+  "played\030\013 \001(\r\022\030\n\020capsule_filename\030\014 \001(\t\022\017"
+  "\n\007sort_as\030\r \001(\t\022\024\n\014has_workshop\030\016 \001(\010\022\022\n"
+  "\nhas_market\030\017 \001(\010\022\017\n\007has_dlc\030\020 \001(\010\022\030\n\020ha"
+  "s_leaderboards\030\021 \001(\010\022\035\n\025content_descript"
+  "orids\030\022 \003(\r\022\035\n\025playtime_disconnected\030\023 \001"
+  "(\005\"M\n\033CPlayer_GetPlayNext_Request\022\027\n\017max"
+  "_age_seconds\030\001 \001(\r\022\025\n\rignore_appids\030\002 \003("
+  "\r\"H\n\034CPlayer_GetPlayNext_Response\022\030\n\020las"
+  "t_update_time\030\001 \001(\r\022\016\n\006appids\030\002 \003(\r\"7\n&C"
+  "Player_GetFriendsGameplayInfo_Request\022\r\n"
+  "\005appid\030\001 \001(\r\"\356\005\n\'CPlayer_GetFriendsGamep"
+  "layInfo_Response\022K\n\tyour_info\030\001 \001(\01328.CP"
+  "layer_GetFriendsGameplayInfo_Response.Ow"
+  "nGameplayInfo\022M\n\007in_game\030\002 \003(\0132<.CPlayer"
+  "_GetFriendsGameplayInfo_Response.Friends"
+  "GameplayInfo\022U\n\017played_recently\030\003 \003(\0132<."
+  "CPlayer_GetFriendsGameplayInfo_Response."
+  "FriendsGameplayInfo\022Q\n\013played_ever\030\004 \003(\013"
+  "2<.CPlayer_GetFriendsGameplayInfo_Respon"
+  "se.FriendsGameplayInfo\022J\n\004owns\030\005 \003(\0132<.C"
+  "Player_GetFriendsGameplayInfo_Response.F"
+  "riendsGameplayInfo\022Q\n\013in_wishlist\030\006 \003(\0132"
+  "<.CPlayer_GetFriendsGameplayInfo_Respons"
+  "e.FriendsGameplayInfo\032^\n\023FriendsGameplay"
+  "Info\022\017\n\007steamid\030\001 \001(\006\022\026\n\016minutes_played\030"
+  "\002 \001(\r\022\036\n\026minutes_played_forever\030\003 \001(\r\032~\n"
+  "\017OwnGameplayInfo\022\017\n\007steamid\030\001 \001(\006\022\026\n\016min"
+  "utes_played\030\002 \001(\r\022\036\n\026minutes_played_fore"
+  "ver\030\003 \001(\r\022\023\n\013in_wishlist\030\004 \001(\010\022\r\n\005owned\030"
+  "\005 \001(\010\"3\n\"CPlayer_GetGameBadgeLevels_Requ"
+  "est\022\r\n\005appid\030\001 \001(\r\"\265\001\n#CPlayer_GetGameBa"
+  "dgeLevels_Response\022\024\n\014player_level\030\001 \001(\r"
+  "\022:\n\006badges\030\002 \003(\0132*.CPlayer_GetGameBadgeL"
+  "evels_Response.Badge\032<\n\005Badge\022\r\n\005level\030\001"
+  " \001(\005\022\016\n\006series\030\002 \001(\005\022\024\n\014border_color\030\003 \001"
+  "(\r\"I\n$CPlayer_GetProfileBackground_Reque"
+  "st\022\017\n\007steamid\030\001 \001(\006\022\020\n\010language\030\002 \001(\t\"\232\003"
+  "\n\013ProfileItem\022\027\n\017communityitemid\030\001 \001(\004\022\023"
+  "\n\013image_small\030\002 \001(\t\022\023\n\013image_large\030\003 \001(\t"
+  "\022\014\n\004name\030\004 \001(\t\022\022\n\nitem_title\030\005 \001(\t\022\030\n\020it"
+  "em_description\030\006 \001(\t\022\r\n\005appid\030\007 \001(\r\022\021\n\ti"
+  "tem_type\030\010 \001(\r\022\022\n\nitem_class\030\t \001(\r\022\022\n\nmo"
+  "vie_webm\030\n \001(\t\022\021\n\tmovie_mp4\030\013 \001(\t\022\030\n\020mov"
+  "ie_webm_small\030\r \001(\t\022\027\n\017movie_mp4_small\030\016"
+  " \001(\t\022\026\n\016equipped_flags\030\014 \001(\r\0221\n\016profile_"
+  "colors\030\017 \003(\0132\031.ProfileItem.ProfileColor\032"
+  "1\n\014ProfileColor\022\022\n\nstyle_name\030\001 \001(\t\022\r\n\005c"
+  "olor\030\002 \001(\t\"Q\n%CPlayer_GetProfileBackgrou"
+  "nd_Response\022(\n\022profile_background\030\001 \001(\0132"
+  "\014.ProfileItem\"\?\n$CPlayer_SetProfileBackg"
+  "round_Request\022\027\n\017communityitemid\030\001 \001(\004\"\'"
+  "\n%CPlayer_SetProfileBackground_Response\""
+  "M\n(CPlayer_GetMiniProfileBackground_Requ"
+  "est\022\017\n\007steamid\030\001 \001(\006\022\020\n\010language\030\002 \001(\t\"U"
+  "\n)CPlayer_GetMiniProfileBackground_Respo"
   "nse\022(\n\022profile_background\030\001 \001(\0132\014.Profil"
-  "eItem\022-\n\027mini_profile_background\030\002 \001(\0132\014"
-  ".ProfileItem\022\"\n\014avatar_frame\030\003 \001(\0132\014.Pro"
-  "fileItem\022%\n\017animated_avatar\030\004 \001(\0132\014.Prof"
-  "ileItem\022&\n\020profile_modifier\030\005 \001(\0132\014.Prof"
-  "ileItem\022,\n\026steam_deckeyboard_skin\030\006 \001(\0132"
-  "\014.ProfileItem\"z\n+CPlayer_SetEquippedProf"
-  "ileItemFlags_Request\022\027\n\017communityitemid\030"
-  "\001 \001(\004\0222\n\005flags\030\002 \001(\rB#\202\265\030\037Set of EProfil"
-  "eItemEquippedFlag\".\n,CPlayer_SetEquipped"
-  "ProfileItemFlags_Response\"!\n\037CPlayer_Get"
-  "EmoticonList_Request\"\333\001\n CPlayer_GetEmot"
-  "iconList_Response\022=\n\temoticons\030\001 \003(\0132*.C"
-  "Player_GetEmoticonList_Response.Emoticon"
-  "\032x\n\010Emoticon\022\014\n\004name\030\001 \001(\t\022\r\n\005count\030\002 \001("
-  "\005\022\026\n\016time_last_used\030\003 \001(\r\022\021\n\tuse_count\030\004"
-  " \001(\r\022\025\n\rtime_received\030\005 \001(\r\022\r\n\005appid\030\006 \001"
-  "(\r\"\222\001\n)CPlayer_GetCommunityBadgeProgress"
-  "_Request\0222\n\007steamid\030\001 \001(\004B!\202\265\030\035The playe"
-  "r we\'re asking about\0221\n\007badgeid\030\002 \001(\005B \202"
-  "\265\030\034The badge we\'re asking about\"\234\001\n*CPla"
-  "yer_GetCommunityBadgeProgress_Response\022A"
-  "\n\006quests\030\001 \003(\01321.CPlayer_GetCommunityBad"
-  "geProgress_Response.Quest\032+\n\005Quest\022\017\n\007qu"
-  "estid\030\001 \001(\r\022\021\n\tcompleted\030\002 \001(\010\"\242\001\n*CPlay"
-  "er_GetTopAchievementsForGames_Request\022\017\n"
-  "\007steamid\030\001 \001(\004\022\020\n\010language\030\002 \001(\t\022A\n\020max_"
-  "achievements\030\003 \001(\rB\'\202\265\030#The max achievem"
-  "ents to load. Max 8\022\016\n\006appids\030\004 \003(\r\"\323\003\n+"
-  "CPlayer_GetTopAchievementsForGames_Respo"
-  "nse\022@\n\005games\030\001 \003(\01321.CPlayer_GetTopAchie"
-  "vementsForGames_Response.Game\032\335\001\n\013Achiev"
-  "ement\022\016\n\006statid\030\001 \001(\r\022\013\n\003bit\030\002 \001(\r\022\014\n\004na"
-  "me\030\003 \001(\t\022\014\n\004desc\030\004 \001(\t\022\014\n\004icon\030\005 \001(\t\022\021\n\t"
-  "icon_gray\030\006 \001(\t\022\016\n\006hidden\030\007 \001(\010\022d\n\027playe"
-  "r_percent_unlocked\030\010 \001(\tBC\202\265\030\?Formatted "
-  "to one decimal place, min value is 0.1, "
-  "max value 100\032\201\001\n\004Game\022\r\n\005appid\030\001 \001(\r\022\032\n"
-  "\022total_achievements\030\002 \001(\r\022N\n\014achievement"
-  "s\030\003 \003(\01328.CPlayer_GetTopAchievementsForG"
-  "ames_Response.Achievement\"\\\n\'CPlayer_Get"
-  "AchievementsProgress_Request\022\017\n\007steamid\030"
-  "\001 \001(\004\022\020\n\010language\030\002 \001(\t\022\016\n\006appids\030\003 \003(\r\""
-  "\215\002\n(CPlayer_GetAchievementsProgress_Resp"
-  "onse\022[\n\024achievement_progress\030\001 \003(\0132=.CPl"
-  "ayer_GetAchievementsProgress_Response.Ac"
-  "hievementProgress\032\203\001\n\023AchievementProgres"
-  "s\022\r\n\005appid\030\001 \001(\r\022\020\n\010unlocked\030\002 \001(\r\022\r\n\005to"
-  "tal\030\003 \001(\r\022\022\n\npercentage\030\004 \001(\002\022\024\n\014all_unl"
-  "ocked\030\005 \001(\010\022\022\n\ncache_time\030\006 \001(\r\"j\n#CPlay"
-  "er_GetGameAchievements_Request\022\r\n\005appid\030"
-  "\001 \001(\r\0224\n\010language\030\002 \001(\tB\"\202\265\030\036Lowercase, "
-  "language shortnames\"\305\003\n$CPlayer_GetGameA"
-  "chievements_Response\022G\n\014achievements\030\001 \003"
-  "(\01321.CPlayer_GetGameAchievements_Respons"
-  "e.Achievement\032\323\002\n\013Achievement\022}\n\rinterna"
-  "l_name\030\001 \001(\tBf\202\265\030bWill come uppercase, i"
-  "nternal facing name set by the partner; "
-  "needed to associate with user unlock\022\026\n\016"
-  "localized_name\030\002 \001(\t\022\026\n\016localized_desc\030\003"
-  " \001(\t\022\014\n\004icon\030\004 \001(\t\022\021\n\ticon_gray\030\005 \001(\t\022\016\n"
-  "\006hidden\030\006 \001(\010\022d\n\027player_percent_unlocked"
-  "\030\007 \001(\tBC\202\265\030\?Formatted to one decimal pla"
-  "ce, min value is 0.1, max value 100\"3\n C"
-  "Player_GetFavoriteBadge_Request\022\017\n\007steam"
-  "id\030\001 \001(\004\"\260\001\n!CPlayer_GetFavoriteBadge_Re"
-  "sponse\022\032\n\022has_favorite_badge\030\001 \001(\010\022\017\n\007ba"
-  "dgeid\030\002 \001(\r\022\027\n\017communityitemid\030\003 \001(\004\022\021\n\t"
-  "item_type\030\004 \001(\r\022\024\n\014border_color\030\005 \001(\r\022\r\n"
-  "\005appid\030\006 \001(\r\022\r\n\005level\030\007 \001(\r\"L\n CPlayer_S"
-  "etFavoriteBadge_Request\022\027\n\017communityitem"
-  "id\030\001 \001(\004\022\017\n\007badgeid\030\002 \001(\r\"#\n!CPlayer_Set"
-  "FavoriteBadge_Response\"\215\001\n\'CPlayer_GetPr"
-  "ofileCustomization_Request\022\017\n\007steamid\030\001 "
-  "\001(\006\022\'\n\037include_inactive_customizations\030\002"
-  " \001(\010\022(\n include_purchased_customizations"
-  "\030\003 \001(\010\"\356\002\n\030ProfileCustomizationSlot\022\014\n\004s"
-  "lot\030\001 \001(\r\022\r\n\005appid\030\002 \001(\r\022\027\n\017publishedfil"
-  "eid\030\003 \001(\004\022\024\n\014item_assetid\030\004 \001(\004\022\026\n\016item_"
-  "contextid\030\005 \001(\004\022\r\n\005notes\030\006 \001(\t\022\r\n\005title\030"
-  "\007 \001(\t\022\021\n\taccountid\030\010 \001(\r\022\017\n\007badgeid\030\t \001("
-  "\r\022\024\n\014border_color\030\n \001(\r\022\024\n\014item_classid\030"
-  "\013 \001(\004\022\027\n\017item_instanceid\030\014 \001(\004\022R\n\016ban_ch"
-  "ecresult\030\r \001(\0162\027.EBanContentCheckResult:"
-  "!EBanContentCheckResult_NotScanned\022\023\n\013re"
-  "play_year\030\016 \001(\r\"\271\002\n\024ProfileCustomization"
-  "\022X\n\022customization_type\030\001 \001(\0162\032.EProfileC"
-  "ustomizationType: EProfileCustomizationT"
-  "ypeInvalid\022\r\n\005large\030\002 \001(\010\022(\n\005slots\030\003 \003(\013"
-  "2\031.ProfileCustomizationSlot\022\016\n\006active\030\004 "
-  "\001(\010\022[\n\023customization_style\030\005 \001(\0162\033.EProf"
-  "ileCustomizationStyle:!EProfileCustomiza"
-  "tionStyleDefault\022\022\n\npurchaseid\030\006 \001(\004\022\r\n\005"
-  "level\030\007 \001(\r\"/\n\014ProfileTheme\022\020\n\010theme_id\030"
-  "\001 \001(\t\022\r\n\005title\030\002 \001(\t\"1\n\022ProfilePreferenc"
-  "es\022\033\n\023hide_profile_awards\030\001 \001(\010\"\306\003\n(CPla"
-  "yer_GetProfileCustomization_Response\022-\n\016"
-  "customizations\030\001 \003(\0132\025.ProfileCustomizat"
-  "ion\022\027\n\017slots_available\030\002 \001(\r\022$\n\rprofile_"
-  "theme\030\003 \001(\0132\r.ProfileTheme\022b\n\030purchased_"
-  "customizations\030\004 \003(\0132@.CPlayer_GetProfil"
-  "eCustomization_Response.PurchasedCustomi"
-  "zation\0220\n\023profile_preferences\030\005 \001(\0132\023.Pr"
-  "ofilePreferences\032\225\001\n\026PurchasedCustomizat"
-  "ion\022\022\n\npurchaseid\030\001 \001(\004\022X\n\022customization"
-  "_type\030\002 \001(\0162\032.EProfileCustomizationType:"
-  " EProfileCustomizationTypeInvalid\022\r\n\005lev"
-  "el\030\003 \001(\r\"D\n1CPlayer_GetPurchasedProfileC"
-  "ustomizations_Request\022\017\n\007steamid\030\001 \001(\006\"\253"
-  "\002\n2CPlayer_GetPurchasedProfileCustomizat"
-  "ions_Response\022l\n\030purchased_customization"
-  "s\030\001 \003(\0132J.CPlayer_GetPurchasedProfileCus"
-  "tomizations_Response.PurchasedCustomizat"
-  "ion\032\206\001\n\026PurchasedCustomization\022\022\n\npurcha"
-  "seid\030\001 \001(\004\022X\n\022customization_type\030\002 \001(\0162\032"
-  ".EProfileCustomizationType: EProfileCust"
-  "omizationTypeInvalid\"O\n<CPlayer_GetPurch"
-  "asedAndUpgradedProfileCustomizations_Req"
-  "uest\022\017\n\007steamid\030\001 \001(\006\"\266\004\n=CPlayer_GetPur"
-  "chasedAndUpgradedProfileCustomizations_R"
-  "esponse\022w\n\030purchased_customizations\030\001 \003("
-  "\0132U.CPlayer_GetPurchasedAndUpgradedProfi"
-  "leCustomizations_Response.PurchasedCusto"
-  "mization\022u\n\027upgraded_customizations\030\002 \003("
-  "\0132T.CPlayer_GetPurchasedAndUpgradedProfi"
-  "leCustomizations_Response.UpgradedCustom"
-  "ization\032\201\001\n\026PurchasedCustomization\022X\n\022cu"
-  "stomization_type\030\001 \001(\0162\032.EProfileCustomi"
-  "zationType: EProfileCustomizationTypeInv"
-  "alid\022\r\n\005count\030\002 \001(\r\032\200\001\n\025UpgradedCustomiz"
-  "ation\022X\n\022customization_type\030\001 \001(\0162\032.EPro"
-  "fileCustomizationType: EProfileCustomiza"
-  "tionTypeInvalid\022\r\n\005level\030\002 \001(\r\"+\n)CPlaye"
-  "r_GetProfileThemesAvailable_Request\"S\n*C"
-  "Player_GetProfileThemesAvailable_Respons"
-  "e\022%\n\016profile_themes\030\001 \003(\0132\r.ProfileTheme"
-  "\"3\n\037CPlayer_SetProfileTheme_Request\022\020\n\010t"
-  "heme_id\030\001 \001(\t\"\"\n CPlayer_SetProfileTheme"
-  "_Response\"Y\n%CPlayer_SetProfilePreferenc"
-  "es_Request\0220\n\023profile_preferences\030\001 \001(\0132"
-  "\023.ProfilePreferences\"(\n&CPlayer_SetProfi"
-  "lePreferences_Response\"I\n#CPlayer_PostSt"
-  "atusToFriends_Request\022\r\n\005appid\030\001 \001(\r\022\023\n\013"
-  "status_text\030\002 \001(\t\"&\n$CPlayer_PostStatusT"
-  "oFriends_Response\"e\n\037CPlayer_GetPostedSt"
-  "atus_Request\0222\n\007steamid\030\001 \001(\004B!\202\265\030\035The p"
-  "layer we\'re asking about\022\016\n\006postid\030\002 \001(\004"
-  "\"z\n CPlayer_GetPostedStatus_Response\022\021\n\t"
-  "accountid\030\001 \001(\r\022\016\n\006postid\030\002 \001(\004\022\023\n\013statu"
-  "s_text\030\003 \001(\t\022\017\n\007deleted\030\004 \001(\010\022\r\n\005appid\030\005"
-  " \001(\r\"4\n\"CPlayer_DeletePostedStatus_Reque"
-  "st\022\016\n\006postid\030\001 \001(\004\"%\n#CPlayer_DeletePost"
-  "edStatus_Response\"\202\001\n\"CPlayer_GetLastPla"
-  "yedTimes_Request\022\\\n\017min_last_played\030\001 \001("
-  "\rBC\202\265\030\?The most recent last-played time "
-  "the client already knows about\"\211\004\n#CPlay"
-  "er_GetLastPlayedTimes_Response\0228\n\005games\030"
-  "\001 \003(\0132).CPlayer_GetLastPlayedTimes_Respo"
-  "nse.Game\032\247\003\n\004Game\022\r\n\005appid\030\001 \001(\005\022\025\n\rlast"
-  "_playtime\030\002 \001(\r\022\027\n\017playtime_2weeks\030\003 \001(\005"
-  "\022\030\n\020playtime_forever\030\004 \001(\005\022\026\n\016first_play"
-  "time\030\005 \001(\r\022 \n\030playtime_windows_forever\030\006"
-  " \001(\005\022\034\n\024playtime_mac_forever\030\007 \001(\005\022\036\n\026pl"
-  "aytime_linux_forever\030\010 \001(\005\022\036\n\026first_wind"
-  "ows_playtime\030\t \001(\r\022\032\n\022first_mac_playtime"
-  "\030\n \001(\r\022\034\n\024first_linux_playtime\030\013 \001(\r\022\035\n\025"
-  "last_windows_playtime\030\014 \001(\r\022\031\n\021last_mac_"
-  "playtime\030\r \001(\r\022\033\n\023last_linux_playtime\030\016 "
-  "\001(\r\022\035\n\025playtime_disconnected\030\017 \001(\r\"$\n\"CP"
-  "layer_GetTimeSSAAccepted_Request\"z\n#CPla"
-  "yer_GetTimeSSAAccepted_Response\022\031\n\021time_"
-  "ssa_accepted\030\001 \001(\r\022\030\n\020time_ssa_updated\030\002"
-  " \001(\r\022\036\n\026time_chinassa_accepted\030\003 \001(\r\"u\n\031"
-  "CPlayer_AcceptSSA_Request\022\?\n\016agreement_t"
-  "ype\030\001 \001(\0162\017.EAgreementType:\026EAgreementTy"
-  "pe_Invalid\022\027\n\017time_signed_utc\030\002 \001(\r\"\034\n\032C"
-  "Player_AcceptSSA_Response\"!\n\037CPlayer_Get"
-  "NicknameList_Request\"\236\001\n CPlayer_GetNick"
-  "nameList_Response\022C\n\tnicknames\030\001 \003(\01320.C"
-  "Player_GetNicknameList_Response.PlayerNi"
-  "ckname\0325\n\016PlayerNickname\022\021\n\taccountid\030\001 "
-  "\001(\007\022\020\n\010nickname\030\002 \001(\t\")\n\'CPlayer_GetPerF"
-  "riendPreferences_Request\"\303\005\n\024PerFriendPr"
-  "eferences\022\021\n\taccountid\030\001 \001(\007\022\020\n\010nickname"
-  "\030\002 \001(\t\022]\n\030notifications_showingame\030\003 \001(\016"
-  "2\025.ENotificationSetting:$ENotificationSe"
-  "ttingNotifyUseDefault\022]\n\030notifications_s"
-  "howonline\030\004 \001(\0162\025.ENotificationSetting:$"
-  "ENotificationSettingNotifyUseDefault\022_\n\032"
-  "notifications_showmessages\030\005 \001(\0162\025.ENoti"
-  "ficationSetting:$ENotificationSettingNot"
-  "ifyUseDefault\022V\n\021sounds_showingame\030\006 \001(\016"
-  "2\025.ENotificationSetting:$ENotificationSe"
-  "ttingNotifyUseDefault\022V\n\021sounds_showonli"
-  "ne\030\007 \001(\0162\025.ENotificationSetting:$ENotifi"
-  "cationSettingNotifyUseDefault\022X\n\023sounds_"
-  "showmessages\030\010 \001(\0162\025.ENotificationSettin"
-  "g:$ENotificationSettingNotifyUseDefault\022"
-  "]\n\030notifications_sendmobile\030\t \001(\0162\025.ENot"
-  "ificationSetting:$ENotificationSettingNo"
-  "tifyUseDefault\"V\n(CPlayer_GetPerFriendPr"
-  "eferences_Response\022*\n\013preferences\030\001 \003(\0132"
-  "\025.PerFriendPreferences\"U\n\'CPlayer_SetPer"
-  "FriendPreferences_Request\022*\n\013preferences"
-  "\030\001 \001(\0132\025.PerFriendPreferences\"*\n(CPlayer"
-  "_SetPerFriendPreferences_Response\"c\n\031CPl"
-  "ayer_AddFriend_Request\022F\n\007steamid\030\001 \001(\006B"
-  "5\202\265\0301Steam ID of user to whom to send a "
-  "friend invite.\"\206\002\n\032CPlayer_AddFriend_Res"
-  "ponse\022O\n\013invite_sent\030\001 \001(\010B:\202\265\0306True if "
-  "the operation was successful, false othe"
-  "rwise.\022\206\001\n\023friend_relationship\030\002 \001(\rBi\202\265"
-  "\030ethe resulting relationship.  Depending"
-  " on state, may move directly to friends "
-  "rather than invite sent\022\016\n\006result\030\003 \001(\005\""
-  "R\n\034CPlayer_RemoveFriend_Request\0222\n\007steam"
-  "id\030\001 \001(\006B!\202\265\030\035Steam ID of friend to remo"
-  "ve.\"\\\n\035CPlayer_RemoveFriend_Response\022;\n\023"
-  "friend_relationship\030\001 \001(\rB\036\202\265\030\032the resul"
-  "ting relationship\"\177\n\034CPlayer_IgnoreFrien"
-  "d_Request\022\017\n\007steamid\030\001 \001(\006\022N\n\010unignore\030\002"
-  " \001(\010B<\202\265\0308If set, remove from ignore/blo"
-  "ck list instead of adding \"\\\n\035CPlayer_Ig"
-  "noreFriend_Response\022;\n\023friend_relationsh"
-  "ip\030\001 \001(\rB\036\202\265\030\032the resulting relationship"
-  "\")\n\'CPlayer_GetCommunityPreferences_Requ"
-  "est\"\204\002\n\034CPlayer_CommunityPreferences\022%\n\026"
-  "parenthesize_nicknames\030\004 \001(\010:\005false\022T\n\023t"
-  "ext_filter_setting\030\005 \001(\0162\023.ETextFilterSe"
-  "tting:\"ETextFilterSettingSteamLabOptedOu"
-  "t\022(\n\032text_filter_ignore_friends\030\006 \001(\010:\004t"
-  "rue\022\"\n\032text_filter_words_revision\030\007 \001(\r\022"
-  "\031\n\021timestamp_updated\030\003 \001(\r\"\251\001\n(CPlayer_G"
-  "etCommunityPreferences_Response\0222\n\013prefe"
-  "rences\030\001 \001(\0132\035.CPlayer_CommunityPreferen"
-  "ces\022I\n\036content_descriptor_preferences\030\002 "
-  "\001(\0132!.UserContentDescriptorPreferences\"]"
-  "\n\'CPlayer_SetCommunityPreferences_Reques"
-  "t\0222\n\013preferences\030\001 \001(\0132\035.CPlayer_Communi"
-  "tyPreferences\"*\n(CPlayer_SetCommunityPre"
-  "ferences_Response\"$\n\"CPlayer_GetTextFilt"
-  "erWords_Request\"\216\001\n\027CPlayer_TextFilterWo"
-  "rds\022\'\n\037text_filter_custom_banned_words\030\001"
-  " \003(\t\022&\n\036text_filter_custom_clean_words\030\002"
-  " \003(\t\022\"\n\032text_filter_words_revision\030\003 \001(\r"
-  "\"N\n#CPlayer_GetTextFilterWords_Response\022"
-  "\'\n\005words\030\001 \001(\0132\030.CPlayer_TextFilterWords"
-  "\"@\n,CPlayer_GetNewSteamAnnouncementState"
-  "_Request\022\020\n\010language\030\001 \001(\005\"\347\001\n-CPlayer_G"
-  "etNewSteamAnnouncementState_Response\022N\n\005"
-  "state\030\001 \001(\0162\033.ENewSteamAnnouncementState"
-  ":\"ENewSteamAnnouncementState_Invalid\022\035\n\025"
-  "announcement_headline\030\002 \001(\t\022\030\n\020announcem"
-  "ent_url\030\003 \001(\t\022\023\n\013time_posted\030\004 \001(\r\022\030\n\020an"
-  "nouncement_gid\030\005 \001(\004\"`\n/CPlayer_UpdateSt"
-  "eamAnnouncementLastRead_Request\022\030\n\020annou"
-  "ncement_gid\030\001 \001(\004\022\023\n\013time_posted\030\002 \001(\r\"2"
-  "\n0CPlayer_UpdateSteamAnnouncementLastRea"
-  "d_Response\"$\n\"CPlayer_GetPrivacySettings"
-  "_Request\"\314\001\n\020CPrivacySettings\022\025\n\rprivacy"
-  "_state\030\001 \001(\005\022\037\n\027privacy_state_inventory\030"
-  "\002 \001(\005\022\033\n\023privacy_state_gifts\030\003 \001(\005\022 \n\030pr"
-  "ivacy_state_ownedgames\030\004 \001(\005\022\036\n\026privacy_"
-  "state_playtime\030\005 \001(\005\022!\n\031privacy_state_fr"
-  "iendslist\030\006 \001(\005\"R\n#CPlayer_GetPrivacySet"
-  "tings_Response\022+\n\020privacy_settings\030\001 \001(\013"
-  "2\021.CPrivacySettings\"3\n\"CPlayer_GetDurati"
-  "onControl_Request\022\r\n\005appid\030\001 \001(\r\"\356\001\n#CPl"
-  "ayer_GetDurationControl_Response\022\022\n\nis_e"
-  "nabled\030\001 \001(\010\022\017\n\007seconds\030\002 \001(\005\022\025\n\rseconds"
-  "_today\030\003 \001(\005\022\035\n\025is_steamchina_account\030\004 "
-  "\001(\010\022\027\n\017is_age_verified\030\005 \001(\010\022\035\n\025seconds_"
-  "allowed_today\030\006 \001(\r\022 \n\030age_verification_"
-  "pending\030\007 \001(\010\022\022\n\nblocminors\030\010 \001(\010\"\347\001\n*CP"
-  "layer_RecordDisconnectedPlaytime_Request"
-  "\022N\n\rplay_sessions\030\003 \003(\01327.CPlayer_Record"
-  "DisconnectedPlaytime_Request.PlayHistory"
-  "\032i\n\013PlayHistory\022\r\n\005appid\030\001 \001(\r\022\032\n\022sessio"
-  "n_time_start\030\002 \001(\r\022\017\n\007seconds\030\003 \001(\r\022\017\n\007o"
-  "ffline\030\004 \001(\010\022\r\n\005owner\030\005 \001(\r\"-\n+CPlayer_R"
-  "ecordDisconnectedPlaytime_Response\"`\n$CP"
-  "layer_LastPlayedTimes_Notification\0228\n\005ga"
-  "mes\030\001 \003(\0132).CPlayer_GetLastPlayedTimes_R"
-  "esponse.Game\"j\n*CPlayer_FriendNicknameCh"
-  "anged_Notification\022\021\n\taccountid\030\001 \001(\007\022\020\n"
-  "\010nickname\030\002 \001(\t\022\027\n\017is_echo_to_self\030\003 \001(\010"
-  "\"K\n6CPlayer_FriendEquippedProfileItemsCh"
-  "anged_Notification\022\021\n\taccountid\030\001 \001(\007\"\350\001"
-  "\n.CPlayer_NewSteamAnnouncementState_Noti"
-  "fication\022N\n\005state\030\001 \001(\0162\033.ENewSteamAnnou"
-  "ncementState:\"ENewSteamAnnouncementState"
-  "_Invalid\022\035\n\025announcement_headline\030\002 \001(\t\022"
-  "\030\n\020announcement_url\030\003 \001(\t\022\023\n\013time_posted"
-  "\030\004 \001(\r\022\030\n\020announcement_gid\030\005 \001(\004\"\261\001\n0CPl"
-  "ayer_CommunityPreferencesChanged_Notific"
-  "ation\0222\n\013preferences\030\001 \001(\0132\035.CPlayer_Com"
-  "munityPreferences\022I\n\036content_descriptor_"
-  "preferences\030\002 \001(\0132!.UserContentDescripto"
-  "rPreferences\"V\n+CPlayer_TextFilterWordsC"
-  "hanged_Notification\022\'\n\005words\030\001 \001(\0132\030.CPl"
-  "ayer_TextFilterWords\"q\n0CPlayer_PerFrien"
-  "dPreferencesChanged_Notification\022\021\n\tacco"
-  "untid\030\001 \001(\007\022*\n\013preferences\030\002 \001(\0132\025.PerFr"
-  "iendPreferences\"Z\n+CPlayer_PrivacySettin"
-  "gsChanged_Notification\022+\n\020privacy_settin"
-  "gs\030\001 \001(\0132\021.CPrivacySettings*\215\002\n\032EProfile"
-  "CustomizationStyle\022%\n!EProfileCustomizat"
-  "ionStyleDefault\020\000\022&\n\"EProfileCustomizati"
-  "onStyleSelected\020\001\022$\n EProfileCustomizati"
-  "onStyleRarest\020\002\022(\n$EProfileCustomization"
-  "StyleMostRecent\020\003\022$\n EProfileCustomizati"
-  "onStyleRandom\020\004\022*\n&EProfileCustomization"
-  "StyleHighestRated\020\005*p\n\016EAgreementType\022#\n"
-  "\026EAgreementType_Invalid\020\377\377\377\377\377\377\377\377\377\001\022\034\n\030EA"
-  "greementType_GlobalSSA\020\000\022\033\n\027EAgreementTy"
-  "pe_ChinaSSA\020\001*\177\n\024ENotificationSetting\022(\n"
-  "$ENotificationSettingNotifyUseDefault\020\000\022"
-  "\036\n\032ENotificationSettingAlways\020\001\022\035\n\031ENoti"
-  "ficationSettingNever\020\002*\250\001\n\022ETextFilterSe"
-  "tting\022&\n\"ETextFilterSettingSteamLabOpted"
-  "Out\020\000\022\035\n\031ETextFilterSettingEnabled\020\001\022+\n\'"
-  "ETextFilterSettingEnabledAllowProfanity\020"
-  "\002\022\036\n\032ETextFilterSettingDisabled\020\0032\227C\n\006Pl"
-  "ayer\022\222\001\n\024GetPlayerLinkDetails\022%.CPlayer_"
-  "GetPlayerLinkDetails_Request\032&.CPlayer_G"
-  "etPlayerLinkDetails_Response\"+\202\265\030\'Replac"
-  "ement for WG GetPlayerLinkDetails\022\357\001\n\"Ge"
-  "tMutualFriendsForIncomingInvites\0223.CPlay"
-  "er_GetMutualFriendsForIncomingInvites_Re"
-  "quest\0324.CPlayer_GetMutualFriendsForIncom"
-  "ingInvites_Response\"^\202\265\030ZGet me the mutu"
-  "al friends for each of my pending incomi"
-  "ng invites (individuals and clans).\022\200\001\n\r"
-  "GetOwnedGames\022\036.CPlayer_GetOwnedGames_Re"
-  "quest\032\037.CPlayer_GetOwnedGames_Response\"."
-  "\202\265\030*Return a list of games owned by the "
-  "player\022\177\n\013GetPlayNext\022\034.CPlayer_GetPlayN"
-  "ext_Request\032\035.CPlayer_GetPlayNext_Respon"
-  "se\"3\202\265\030/Return suggested games for playe"
-  "r to play next.\022\270\001\n\026GetFriendsGameplayIn"
-  "fo\022\'.CPlayer_GetFriendsGameplayInfo_Requ"
-  "est\032(.CPlayer_GetFriendsGameplayInfo_Res"
-  "ponse\"K\202\265\030GGet a list of friends who are"
-  " playing, have played, own, or want a ga"
-  "me\022\266\001\n\022GetGameBadgeLevels\022#.CPlayer_GetG"
-  "ameBadgeLevels_Request\032$.CPlayer_GetGame"
-  "BadgeLevels_Response\"U\202\265\030QReturns the St"
-  "eam Level of a user, the Badge level for"
-  " the game, and if it\'s foil\022\246\001\n\024GetProfi"
-  "leBackground\022%.CPlayer_GetProfileBackgro"
-  "und_Request\032&.CPlayer_GetProfileBackgrou"
-  "nd_Response\"\?\202\265\030;Gets which profile back"
-  "ground is active for a specific user\022\215\001\n"
-  "\024SetProfileBackground\022%.CPlayer_SetProfi"
-  "leBackground_Request\032&.CPlayer_SetProfil"
-  "eBackground_Response\"&\202\265\030\"Sets the user\'"
-  "s profile background\022\267\001\n\030GetMiniProfileB"
-  "ackground\022).CPlayer_GetMiniProfileBackgr"
-  "ound_Request\032*.CPlayer_GetMiniProfileBac"
-  "kground_Response\"D\202\265\030@Gets which mini pr"
-  "ofile background is active for a specifi"
-  "c user\022\236\001\n\030SetMiniProfileBackground\022).CP"
-  "layer_SetMiniProfileBackground_Request\032*"
-  ".CPlayer_SetMiniProfileBackground_Respon"
-  "se\"+\202\265\030\'Sets the user\'s mini profile bac"
-  "kground\022\216\001\n\016GetAvatarFrame\022\037.CPlayer_Get"
-  "AvatarFrame_Request\032 .CPlayer_GetAvatarF"
-  "rame_Response\"9\202\265\0305Gets which avatar fra"
-  "me is active for a specific user\022\207\001\n\016Set"
-  "AvatarFrame\022\037.CPlayer_SetAvatarFrame_Req"
-  "uest\032 .CPlayer_SetAvatarFrame_Response\"2"
-  "\202\265\030.Sets the user\'s avatar frame for the"
-  "ir profile\022\232\001\n\021GetAnimatedAvatar\022\".CPlay"
-  "er_GetAnimatedAvatar_Request\032#.CPlayer_G"
-  "etAnimatedAvatar_Response\"<\202\265\0308Gets whic"
-  "h animated avatar is active for a specif"
-  "ic user\022\223\001\n\021SetAnimatedAvatar\022\".CPlayer_"
-  "SetAnimatedAvatar_Request\032#.CPlayer_SetA"
-  "nimatedAvatar_Response\"5\202\265\0301Sets the use"
-  "r\'s animated avatar for their profile\022\270\001"
-  "\n\030GetSteamDeckKeyboardSkin\022).CPlayer_Get"
-  "SteamDeckKeyboardSkin_Request\032*.CPlayer_"
-  "GetSteamDeckKeyboardSkin_Response\"E\202\265\030AG"
-  "ets which Steam Deck keyboard skin is ac"
-  "tive for a specific user\022\247\001\n\030SetSteamDec"
-  "kKeyboardSkin\022).CPlayer_SetSteamDeckKeyb"
-  "oardSkin_Request\032*.CPlayer_SetSteamDeckK"
-  "eyboardSkin_Response\"4\202\265\0300Sets the user\'"
-  "s current Steam Deck keyboard skin\022\240\001\n\024G"
-  "etProfileItemsOwned\022%.CPlayer_GetProfile"
-  "ItemsOwned_Request\032&.CPlayer_GetProfileI"
-  "temsOwned_Response\"9\202\265\0305Returns the item"
-  "s the user can equip on their profile\022\254\001"
-  "\n\027GetProfileItemsEquipped\022(.CPlayer_GetP"
-  "rofileItemsEquipped_Request\032).CPlayer_Ge"
-  "tProfileItemsEquipped_Response\"<\202\265\0308Retu"
-  "rns the items the user has equipped on t"
-  "heir profile\022\247\001\n\033SetEquippedProfileItemF"
-  "lags\022,.CPlayer_SetEquippedProfileItemFla"
-  "gs_Request\032-.CPlayer_SetEquippedProfileI"
-  "temFlags_Response\"+\202\265\030\'Sets special flag"
-  "s on the equipped item\022\221\001\n\017GetEmoticonLi"
-  "st\022 .CPlayer_GetEmoticonList_Request\032!.C"
-  "Player_GetEmoticonList_Response\"9\202\265\0305Get"
-  "s a list of the emoticons a user has wit"
-  "h metadata\022\310\001\n\031GetCommunityBadgeProgress"
-  "\022*.CPlayer_GetCommunityBadgeProgress_Req"
-  "uest\032+.CPlayer_GetCommunityBadgeProgress"
-  "_Response\"R\202\265\030NGets all the quests neede"
-  "d to get the specified badge, and which "
-  "are completed\022\313\001\n\032GetTopAchievementsForG"
-  "ames\022+.CPlayer_GetTopAchievementsForGame"
-  "s_Request\032,.CPlayer_GetTopAchievementsFo"
-  "rGames_Response\"R\202\265\030NGets the best achie"
-  "vements the user has gotten for the spec"
-  "ified list of apps.\022\271\001\n\027GetAchievementsP"
-  "rogress\022(.CPlayer_GetAchievementsProgres"
-  "s_Request\032).CPlayer_GetAchievementsProgr"
-  "ess_Response\"I\202\265\030EGets the achievement c"
-  "ompletion stats for the specified list o"
-  "f apps.\022\240\001\n\023GetGameAchievements\022$.CPlaye"
-  "r_GetGameAchievements_Request\032%.CPlayer_"
-  "GetGameAchievements_Response\"<\202\265\0308Get a "
-  "games available achievements for display"
-  " purposes.\022\220\001\n\020GetFavoriteBadge\022!.CPlaye"
-  "r_GetFavoriteBadge_Request\032\".CPlayer_Get"
-  "FavoriteBadge_Response\"5\202\265\0301Gets the bad"
-  "ge the user has set as their favorite\022\204\001"
-  "\n\020SetFavoriteBadge\022!.CPlayer_SetFavorite"
-  "Badge_Request\032\".CPlayer_SetFavoriteBadge"
-  "_Response\")\202\265\030%Sets the badge  as the us"
-  "ers favorite\022\245\001\n\027GetProfileCustomization"
-  "\022(.CPlayer_GetProfileCustomization_Reque"
-  "st\032).CPlayer_GetProfileCustomization_Res"
-  "ponse\"5\202\265\0301Returns the customizations (i"
-  "f any) for a profile\022\276\001\n!GetPurchasedPro"
-  "fileCustomizations\0222.CPlayer_GetPurchase"
-  "dProfileCustomizations_Request\0323.CPlayer"
-  "_GetPurchasedProfileCustomizations_Respo"
-  "nse\"0\202\265\030,Returns the purchased profile c"
-  "ustomizations\022\354\001\n,GetPurchasedAndUpgrade"
-  "dProfileCustomizations\022=.CPlayer_GetPurc"
-  "hasedAndUpgradedProfileCustomizations_Re"
-  "quest\032>.CPlayer_GetPurchasedAndUpgradedP"
-  "rofileCustomizations_Response\"=\202\265\0309Retur"
-  "ns the purchased and upgraded profile cu"
-  "stomizations\022\235\001\n\031GetProfileThemesAvailab"
-  "le\022*.CPlayer_GetProfileThemesAvailable_R"
-  "equest\032+.CPlayer_GetProfileThemesAvailab"
-  "le_Response\"\'\202\265\030#Gets themes available f"
-  "or the user.\022{\n\017SetProfileTheme\022 .CPlaye"
+  "eItem\"C\n(CPlayer_SetMiniProfileBackgroun"
+  "d_Request\022\027\n\017communityitemid\030\001 \001(\004\"+\n)CP"
+  "layer_SetMiniProfileBackground_Response\""
+  "C\n\036CPlayer_GetAvatarFrame_Request\022\017\n\007ste"
+  "amid\030\001 \001(\006\022\020\n\010language\030\002 \001(\t\"E\n\037CPlayer_"
+  "GetAvatarFrame_Response\022\"\n\014avatar_frame\030"
+  "\001 \001(\0132\014.ProfileItem\"9\n\036CPlayer_SetAvatar"
+  "Frame_Request\022\027\n\017communityitemid\030\001 \001(\004\"!"
+  "\n\037CPlayer_SetAvatarFrame_Response\"F\n!CPl"
+  "ayer_GetAnimatedAvatar_Request\022\017\n\007steami"
+  "d\030\001 \001(\006\022\020\n\010language\030\002 \001(\t\"B\n\"CPlayer_Get"
+  "AnimatedAvatar_Response\022\034\n\006avatar\030\001 \001(\0132"
+  "\014.ProfileItem\"<\n!CPlayer_SetAnimatedAvat"
+  "ar_Request\022\027\n\017communityitemid\030\001 \001(\004\"$\n\"C"
+  "Player_SetAnimatedAvatar_Response\"M\n(CPl"
+  "ayer_GetSteamDeckKeyboardSkin_Request\022\017\n"
+  "\007steamid\030\001 \001(\006\022\020\n\010language\030\002 \001(\t\"Y\n)CPla"
+  "yer_GetSteamDeckKeyboardSkin_Response\022,\n"
+  "\026steam_deckeyboard_skin\030\001 \001(\0132\014.ProfileI"
+  "tem\"C\n(CPlayer_SetSteamDeckKeyboardSkin_"
+  "Request\022\027\n\017communityitemid\030\001 \001(\004\"+\n)CPla"
+  "yer_SetSteamDeckKeyboardSkin_Response\"_\n"
+  "$CPlayer_GetProfileItemsOwned_Request\022\020\n"
+  "\010language\030\001 \001(\t\022%\n\007filters\030\002 \003(\0162\024.EComm"
+  "unityItemClass\"\326\002\n%CPlayer_GetProfileIte"
+  "msOwned_Response\022)\n\023profile_backgrounds\030"
+  "\001 \003(\0132\014.ProfileItem\022.\n\030mini_profile_back"
+  "grounds\030\002 \003(\0132\014.ProfileItem\022#\n\ravatar_fr"
+  "ames\030\003 \003(\0132\014.ProfileItem\022&\n\020animated_ava"
+  "tars\030\004 \003(\0132\014.ProfileItem\022\'\n\021profile_modi"
+  "fiers\030\005 \003(\0132\014.ProfileItem\022-\n\027steam_decke"
+  "yboard_skins\030\006 \003(\0132\014.ProfileItem\022-\n\027stea"
+  "m_decstartup_movies\030\007 \003(\0132\014.ProfileItem\""
+  "L\n\'CPlayer_GetProfileItemsEquipped_Reque"
+  "st\022\017\n\007steamid\030\001 \001(\006\022\020\n\010language\030\002 \001(\t\"\244\002"
+  "\n(CPlayer_GetProfileItemsEquipped_Respon"
+  "se\022(\n\022profile_background\030\001 \001(\0132\014.Profile"
+  "Item\022-\n\027mini_profile_background\030\002 \001(\0132\014."
+  "ProfileItem\022\"\n\014avatar_frame\030\003 \001(\0132\014.Prof"
+  "ileItem\022%\n\017animated_avatar\030\004 \001(\0132\014.Profi"
+  "leItem\022&\n\020profile_modifier\030\005 \001(\0132\014.Profi"
+  "leItem\022,\n\026steam_deckeyboard_skin\030\006 \001(\0132\014"
+  ".ProfileItem\"U\n+CPlayer_SetEquippedProfi"
+  "leItemFlags_Request\022\027\n\017communityitemid\030\001"
+  " \001(\004\022\r\n\005flags\030\002 \001(\r\".\n,CPlayer_SetEquipp"
+  "edProfileItemFlags_Response\"!\n\037CPlayer_G"
+  "etEmoticonList_Request\"\333\001\n CPlayer_GetEm"
+  "oticonList_Response\022=\n\temoticons\030\001 \003(\0132*"
+  ".CPlayer_GetEmoticonList_Response.Emotic"
+  "on\032x\n\010Emoticon\022\014\n\004name\030\001 \001(\t\022\r\n\005count\030\002 "
+  "\001(\005\022\026\n\016time_last_used\030\003 \001(\r\022\021\n\tuse_count"
+  "\030\004 \001(\r\022\025\n\rtime_received\030\005 \001(\r\022\r\n\005appid\030\006"
+  " \001(\r\"M\n)CPlayer_GetCommunityBadgeProgres"
+  "s_Request\022\017\n\007steamid\030\001 \001(\004\022\017\n\007badgeid\030\002 "
+  "\001(\005\"\234\001\n*CPlayer_GetCommunityBadgeProgres"
+  "s_Response\022A\n\006quests\030\001 \003(\01321.CPlayer_Get"
+  "CommunityBadgeProgress_Response.Quest\032+\n"
+  "\005Quest\022\017\n\007questid\030\001 \001(\r\022\021\n\tcompleted\030\002 \001"
+  "(\010\"y\n*CPlayer_GetTopAchievementsForGames"
+  "_Request\022\017\n\007steamid\030\001 \001(\004\022\020\n\010language\030\002 "
+  "\001(\t\022\030\n\020max_achievements\030\003 \001(\r\022\016\n\006appids\030"
+  "\004 \003(\r\"\216\003\n+CPlayer_GetTopAchievementsForG"
+  "ames_Response\022@\n\005games\030\001 \003(\01321.CPlayer_G"
+  "etTopAchievementsForGames_Response.Game\032"
+  "\230\001\n\013Achievement\022\016\n\006statid\030\001 \001(\r\022\013\n\003bit\030\002"
+  " \001(\r\022\014\n\004name\030\003 \001(\t\022\014\n\004desc\030\004 \001(\t\022\014\n\004icon"
+  "\030\005 \001(\t\022\021\n\ticon_gray\030\006 \001(\t\022\016\n\006hidden\030\007 \001("
+  "\010\022\037\n\027player_percent_unlocked\030\010 \001(\t\032\201\001\n\004G"
+  "ame\022\r\n\005appid\030\001 \001(\r\022\032\n\022total_achievements"
+  "\030\002 \001(\r\022N\n\014achievements\030\003 \003(\01328.CPlayer_G"
+  "etTopAchievementsForGames_Response.Achie"
+  "vement\"\\\n\'CPlayer_GetAchievementsProgres"
+  "s_Request\022\017\n\007steamid\030\001 \001(\004\022\020\n\010language\030\002"
+  " \001(\t\022\016\n\006appids\030\003 \003(\r\"\215\002\n(CPlayer_GetAchi"
+  "evementsProgress_Response\022[\n\024achievement"
+  "_progress\030\001 \003(\0132=.CPlayer_GetAchievement"
+  "sProgress_Response.AchievementProgress\032\203"
+  "\001\n\023AchievementProgress\022\r\n\005appid\030\001 \001(\r\022\020\n"
+  "\010unlocked\030\002 \001(\r\022\r\n\005total\030\003 \001(\r\022\022\n\npercen"
+  "tage\030\004 \001(\002\022\024\n\014all_unlocked\030\005 \001(\010\022\022\n\ncach"
+  "e_time\030\006 \001(\r\"F\n#CPlayer_GetGameAchieveme"
+  "nts_Request\022\r\n\005appid\030\001 \001(\r\022\020\n\010language\030\002"
+  " \001(\t\"\230\002\n$CPlayer_GetGameAchievements_Res"
+  "ponse\022G\n\014achievements\030\001 \003(\01321.CPlayer_Ge"
+  "tGameAchievements_Response.Achievement\032\246"
+  "\001\n\013Achievement\022\025\n\rinternal_name\030\001 \001(\t\022\026\n"
+  "\016localized_name\030\002 \001(\t\022\026\n\016localized_desc\030"
+  "\003 \001(\t\022\014\n\004icon\030\004 \001(\t\022\021\n\ticon_gray\030\005 \001(\t\022\016"
+  "\n\006hidden\030\006 \001(\010\022\037\n\027player_percent_unlocke"
+  "d\030\007 \001(\t\"3\n CPlayer_GetFavoriteBadge_Requ"
+  "est\022\017\n\007steamid\030\001 \001(\004\"\260\001\n!CPlayer_GetFavo"
+  "riteBadge_Response\022\032\n\022has_favorite_badge"
+  "\030\001 \001(\010\022\017\n\007badgeid\030\002 \001(\r\022\027\n\017communityitem"
+  "id\030\003 \001(\004\022\021\n\titem_type\030\004 \001(\r\022\024\n\014border_co"
+  "lor\030\005 \001(\r\022\r\n\005appid\030\006 \001(\r\022\r\n\005level\030\007 \001(\r\""
+  "L\n CPlayer_SetFavoriteBadge_Request\022\027\n\017c"
+  "ommunityitemid\030\001 \001(\004\022\017\n\007badgeid\030\002 \001(\r\"#\n"
+  "!CPlayer_SetFavoriteBadge_Response\"\215\001\n\'C"
+  "Player_GetProfileCustomization_Request\022\017"
+  "\n\007steamid\030\001 \001(\006\022\'\n\037include_inactive_cust"
+  "omizations\030\002 \001(\010\022(\n include_purchased_cu"
+  "stomizations\030\003 \001(\010\"\356\002\n\030ProfileCustomizat"
+  "ionSlot\022\014\n\004slot\030\001 \001(\r\022\r\n\005appid\030\002 \001(\r\022\027\n\017"
+  "publishedfileid\030\003 \001(\004\022\024\n\014item_assetid\030\004 "
+  "\001(\004\022\026\n\016item_contextid\030\005 \001(\004\022\r\n\005notes\030\006 \001"
+  "(\t\022\r\n\005title\030\007 \001(\t\022\021\n\taccountid\030\010 \001(\r\022\017\n\007"
+  "badgeid\030\t \001(\r\022\024\n\014border_color\030\n \001(\r\022\024\n\014i"
+  "tem_classid\030\013 \001(\004\022\027\n\017item_instanceid\030\014 \001"
+  "(\004\022R\n\016ban_checresult\030\r \001(\0162\027.EBanContent"
+  "CheckResult:!EBanContentCheckResult_NotS"
+  "canned\022\023\n\013replay_year\030\016 \001(\r\"\271\002\n\024ProfileC"
+  "ustomization\022X\n\022customization_type\030\001 \001(\016"
+  "2\032.EProfileCustomizationType: EProfileCu"
+  "stomizationTypeInvalid\022\r\n\005large\030\002 \001(\010\022(\n"
+  "\005slots\030\003 \003(\0132\031.ProfileCustomizationSlot\022"
+  "\016\n\006active\030\004 \001(\010\022[\n\023customization_style\030\005"
+  " \001(\0162\033.EProfileCustomizationStyle:!EProf"
+  "ileCustomizationStyleDefault\022\022\n\npurchase"
+  "id\030\006 \001(\004\022\r\n\005level\030\007 \001(\r\"/\n\014ProfileTheme\022"
+  "\020\n\010theme_id\030\001 \001(\t\022\r\n\005title\030\002 \001(\t\"1\n\022Prof"
+  "ilePreferences\022\033\n\023hide_profile_awards\030\001 "
+  "\001(\010\"\306\003\n(CPlayer_GetProfileCustomization_"
+  "Response\022-\n\016customizations\030\001 \003(\0132\025.Profi"
+  "leCustomization\022\027\n\017slots_available\030\002 \001(\r"
+  "\022$\n\rprofile_theme\030\003 \001(\0132\r.ProfileTheme\022b"
+  "\n\030purchased_customizations\030\004 \003(\0132@.CPlay"
+  "er_GetProfileCustomization_Response.Purc"
+  "hasedCustomization\0220\n\023profile_preference"
+  "s\030\005 \001(\0132\023.ProfilePreferences\032\225\001\n\026Purchas"
+  "edCustomization\022\022\n\npurchaseid\030\001 \001(\004\022X\n\022c"
+  "ustomization_type\030\002 \001(\0162\032.EProfileCustom"
+  "izationType: EProfileCustomizationTypeIn"
+  "valid\022\r\n\005level\030\003 \001(\r\"D\n1CPlayer_GetPurch"
+  "asedProfileCustomizations_Request\022\017\n\007ste"
+  "amid\030\001 \001(\006\"\253\002\n2CPlayer_GetPurchasedProfi"
+  "leCustomizations_Response\022l\n\030purchased_c"
+  "ustomizations\030\001 \003(\0132J.CPlayer_GetPurchas"
+  "edProfileCustomizations_Response.Purchas"
+  "edCustomization\032\206\001\n\026PurchasedCustomizati"
+  "on\022\022\n\npurchaseid\030\001 \001(\004\022X\n\022customization_"
+  "type\030\002 \001(\0162\032.EProfileCustomizationType: "
+  "EProfileCustomizationTypeInvalid\"O\n<CPla"
+  "yer_GetPurchasedAndUpgradedProfileCustom"
+  "izations_Request\022\017\n\007steamid\030\001 \001(\006\"\266\004\n=CP"
+  "layer_GetPurchasedAndUpgradedProfileCust"
+  "omizations_Response\022w\n\030purchased_customi"
+  "zations\030\001 \003(\0132U.CPlayer_GetPurchasedAndU"
+  "pgradedProfileCustomizations_Response.Pu"
+  "rchasedCustomization\022u\n\027upgraded_customi"
+  "zations\030\002 \003(\0132T.CPlayer_GetPurchasedAndU"
+  "pgradedProfileCustomizations_Response.Up"
+  "gradedCustomization\032\201\001\n\026PurchasedCustomi"
+  "zation\022X\n\022customization_type\030\001 \001(\0162\032.EPr"
+  "ofileCustomizationType: EProfileCustomiz"
+  "ationTypeInvalid\022\r\n\005count\030\002 \001(\r\032\200\001\n\025Upgr"
+  "adedCustomization\022X\n\022customization_type\030"
+  "\001 \001(\0162\032.EProfileCustomizationType: EProf"
+  "ileCustomizationTypeInvalid\022\r\n\005level\030\002 \001"
+  "(\r\"+\n)CPlayer_GetProfileThemesAvailable_"
+  "Request\"S\n*CPlayer_GetProfileThemesAvail"
+  "able_Response\022%\n\016profile_themes\030\001 \003(\0132\r."
+  "ProfileTheme\"3\n\037CPlayer_SetProfileTheme_"
+  "Request\022\020\n\010theme_id\030\001 \001(\t\"\"\n CPlayer_Set"
+  "ProfileTheme_Response\"Y\n%CPlayer_SetProf"
+  "ilePreferences_Request\0220\n\023profile_prefer"
+  "ences\030\001 \001(\0132\023.ProfilePreferences\"(\n&CPla"
+  "yer_SetProfilePreferences_Response\"I\n#CP"
+  "layer_PostStatusToFriends_Request\022\r\n\005app"
+  "id\030\001 \001(\r\022\023\n\013status_text\030\002 \001(\t\"&\n$CPlayer"
+  "_PostStatusToFriends_Response\"B\n\037CPlayer"
+  "_GetPostedStatus_Request\022\017\n\007steamid\030\001 \001("
+  "\004\022\016\n\006postid\030\002 \001(\004\"z\n CPlayer_GetPostedSt"
+  "atus_Response\022\021\n\taccountid\030\001 \001(\r\022\016\n\006post"
+  "id\030\002 \001(\004\022\023\n\013status_text\030\003 \001(\t\022\017\n\007deleted"
+  "\030\004 \001(\010\022\r\n\005appid\030\005 \001(\r\"4\n\"CPlayer_DeleteP"
+  "ostedStatus_Request\022\016\n\006postid\030\001 \001(\004\"%\n#C"
+  "Player_DeletePostedStatus_Response\"=\n\"CP"
+  "layer_GetLastPlayedTimes_Request\022\027\n\017min_"
+  "last_played\030\001 \001(\r\"\211\004\n#CPlayer_GetLastPla"
+  "yedTimes_Response\0228\n\005games\030\001 \003(\0132).CPlay"
+  "er_GetLastPlayedTimes_Response.Game\032\247\003\n\004"
+  "Game\022\r\n\005appid\030\001 \001(\005\022\025\n\rlast_playtime\030\002 \001"
+  "(\r\022\027\n\017playtime_2weeks\030\003 \001(\005\022\030\n\020playtime_"
+  "forever\030\004 \001(\005\022\026\n\016first_playtime\030\005 \001(\r\022 \n"
+  "\030playtime_windows_forever\030\006 \001(\005\022\034\n\024playt"
+  "ime_mac_forever\030\007 \001(\005\022\036\n\026playtime_linux_"
+  "forever\030\010 \001(\005\022\036\n\026first_windows_playtime\030"
+  "\t \001(\r\022\032\n\022first_mac_playtime\030\n \001(\r\022\034\n\024fir"
+  "st_linux_playtime\030\013 \001(\r\022\035\n\025last_windows_"
+  "playtime\030\014 \001(\r\022\031\n\021last_mac_playtime\030\r \001("
+  "\r\022\033\n\023last_linux_playtime\030\016 \001(\r\022\035\n\025playti"
+  "me_disconnected\030\017 \001(\r\"$\n\"CPlayer_GetTime"
+  "SSAAccepted_Request\"z\n#CPlayer_GetTimeSS"
+  "AAccepted_Response\022\031\n\021time_ssa_accepted\030"
+  "\001 \001(\r\022\030\n\020time_ssa_updated\030\002 \001(\r\022\036\n\026time_"
+  "chinassa_accepted\030\003 \001(\r\"u\n\031CPlayer_Accep"
+  "tSSA_Request\022\?\n\016agreement_type\030\001 \001(\0162\017.E"
+  "AgreementType:\026EAgreementType_Invalid\022\027\n"
+  "\017time_signed_utc\030\002 \001(\r\"\034\n\032CPlayer_Accept"
+  "SSA_Response\"!\n\037CPlayer_GetNicknameList_"
+  "Request\"\236\001\n CPlayer_GetNicknameList_Resp"
+  "onse\022C\n\tnicknames\030\001 \003(\01320.CPlayer_GetNic"
+  "knameList_Response.PlayerNickname\0325\n\016Pla"
+  "yerNickname\022\021\n\taccountid\030\001 \001(\007\022\020\n\010nickna"
+  "me\030\002 \001(\t\")\n\'CPlayer_GetPerFriendPreferen"
+  "ces_Request\"\303\005\n\024PerFriendPreferences\022\021\n\t"
+  "accountid\030\001 \001(\007\022\020\n\010nickname\030\002 \001(\t\022]\n\030not"
+  "ifications_showingame\030\003 \001(\0162\025.ENotificat"
+  "ionSetting:$ENotificationSettingNotifyUs"
+  "eDefault\022]\n\030notifications_showonline\030\004 \001"
+  "(\0162\025.ENotificationSetting:$ENotification"
+  "SettingNotifyUseDefault\022_\n\032notifications"
+  "_showmessages\030\005 \001(\0162\025.ENotificationSetti"
+  "ng:$ENotificationSettingNotifyUseDefault"
+  "\022V\n\021sounds_showingame\030\006 \001(\0162\025.ENotificat"
+  "ionSetting:$ENotificationSettingNotifyUs"
+  "eDefault\022V\n\021sounds_showonline\030\007 \001(\0162\025.EN"
+  "otificationSetting:$ENotificationSetting"
+  "NotifyUseDefault\022X\n\023sounds_showmessages\030"
+  "\010 \001(\0162\025.ENotificationSetting:$ENotificat"
+  "ionSettingNotifyUseDefault\022]\n\030notificati"
+  "ons_sendmobile\030\t \001(\0162\025.ENotificationSett"
+  "ing:$ENotificationSettingNotifyUseDefaul"
+  "t\"V\n(CPlayer_GetPerFriendPreferences_Res"
+  "ponse\022*\n\013preferences\030\001 \003(\0132\025.PerFriendPr"
+  "eferences\"U\n\'CPlayer_SetPerFriendPrefere"
+  "nces_Request\022*\n\013preferences\030\001 \001(\0132\025.PerF"
+  "riendPreferences\"*\n(CPlayer_SetPerFriend"
+  "Preferences_Response\",\n\031CPlayer_AddFrien"
+  "d_Request\022\017\n\007steamid\030\001 \001(\006\"^\n\032CPlayer_Ad"
+  "dFriend_Response\022\023\n\013invite_sent\030\001 \001(\010\022\033\n"
+  "\023friend_relationship\030\002 \001(\r\022\016\n\006result\030\003 \001"
+  "(\005\"/\n\034CPlayer_RemoveFriend_Request\022\017\n\007st"
+  "eamid\030\001 \001(\006\"<\n\035CPlayer_RemoveFriend_Resp"
+  "onse\022\033\n\023friend_relationship\030\001 \001(\r\"A\n\034CPl"
+  "ayer_IgnoreFriend_Request\022\017\n\007steamid\030\001 \001"
+  "(\006\022\020\n\010unignore\030\002 \001(\010\"<\n\035CPlayer_IgnoreFr"
+  "iend_Response\022\033\n\023friend_relationship\030\001 \001"
+  "(\r\")\n\'CPlayer_GetCommunityPreferences_Re"
+  "quest\"\204\002\n\034CPlayer_CommunityPreferences\022%"
+  "\n\026parenthesize_nicknames\030\004 \001(\010:\005false\022T\n"
+  "\023text_filter_setting\030\005 \001(\0162\023.ETextFilter"
+  "Setting:\"ETextFilterSettingSteamLabOpted"
+  "Out\022(\n\032text_filter_ignore_friends\030\006 \001(\010:"
+  "\004true\022\"\n\032text_filter_words_revision\030\007 \001("
+  "\r\022\031\n\021timestamp_updated\030\003 \001(\r\"\251\001\n(CPlayer"
+  "_GetCommunityPreferences_Response\0222\n\013pre"
+  "ferences\030\001 \001(\0132\035.CPlayer_CommunityPrefer"
+  "ences\022I\n\036content_descriptor_preferences\030"
+  "\002 \001(\0132!.UserContentDescriptorPreferences"
+  "\"]\n\'CPlayer_SetCommunityPreferences_Requ"
+  "est\0222\n\013preferences\030\001 \001(\0132\035.CPlayer_Commu"
+  "nityPreferences\"*\n(CPlayer_SetCommunityP"
+  "references_Response\"$\n\"CPlayer_GetTextFi"
+  "lterWords_Request\"\216\001\n\027CPlayer_TextFilter"
+  "Words\022\'\n\037text_filter_custom_banned_words"
+  "\030\001 \003(\t\022&\n\036text_filter_custom_clean_words"
+  "\030\002 \003(\t\022\"\n\032text_filter_words_revision\030\003 \001"
+  "(\r\"N\n#CPlayer_GetTextFilterWords_Respons"
+  "e\022\'\n\005words\030\001 \001(\0132\030.CPlayer_TextFilterWor"
+  "ds\"@\n,CPlayer_GetNewSteamAnnouncementSta"
+  "te_Request\022\020\n\010language\030\001 \001(\005\"\347\001\n-CPlayer"
+  "_GetNewSteamAnnouncementState_Response\022N"
+  "\n\005state\030\001 \001(\0162\033.ENewSteamAnnouncementSta"
+  "te:\"ENewSteamAnnouncementState_Invalid\022\035"
+  "\n\025announcement_headline\030\002 \001(\t\022\030\n\020announc"
+  "ement_url\030\003 \001(\t\022\023\n\013time_posted\030\004 \001(\r\022\030\n\020"
+  "announcement_gid\030\005 \001(\004\"`\n/CPlayer_Update"
+  "SteamAnnouncementLastRead_Request\022\030\n\020ann"
+  "ouncement_gid\030\001 \001(\004\022\023\n\013time_posted\030\002 \001(\r"
+  "\"2\n0CPlayer_UpdateSteamAnnouncementLastR"
+  "ead_Response\"$\n\"CPlayer_GetPrivacySettin"
+  "gs_Request\"\314\001\n\020CPrivacySettings\022\025\n\rpriva"
+  "cy_state\030\001 \001(\005\022\037\n\027privacy_state_inventor"
+  "y\030\002 \001(\005\022\033\n\023privacy_state_gifts\030\003 \001(\005\022 \n\030"
+  "privacy_state_ownedgames\030\004 \001(\005\022\036\n\026privac"
+  "y_state_playtime\030\005 \001(\005\022!\n\031privacy_state_"
+  "friendslist\030\006 \001(\005\"R\n#CPlayer_GetPrivacyS"
+  "ettings_Response\022+\n\020privacy_settings\030\001 \001"
+  "(\0132\021.CPrivacySettings\"3\n\"CPlayer_GetDura"
+  "tionControl_Request\022\r\n\005appid\030\001 \001(\r\"\356\001\n#C"
+  "Player_GetDurationControl_Response\022\022\n\nis"
+  "_enabled\030\001 \001(\010\022\017\n\007seconds\030\002 \001(\005\022\025\n\rsecon"
+  "ds_today\030\003 \001(\005\022\035\n\025is_steamchina_account\030"
+  "\004 \001(\010\022\027\n\017is_age_verified\030\005 \001(\010\022\035\n\025second"
+  "s_allowed_today\030\006 \001(\r\022 \n\030age_verificatio"
+  "n_pending\030\007 \001(\010\022\022\n\nblocminors\030\010 \001(\010\"\347\001\n*"
+  "CPlayer_RecordDisconnectedPlaytime_Reque"
+  "st\022N\n\rplay_sessions\030\003 \003(\01327.CPlayer_Reco"
+  "rdDisconnectedPlaytime_Request.PlayHisto"
+  "ry\032i\n\013PlayHistory\022\r\n\005appid\030\001 \001(\r\022\032\n\022sess"
+  "ion_time_start\030\002 \001(\r\022\017\n\007seconds\030\003 \001(\r\022\017\n"
+  "\007offline\030\004 \001(\010\022\r\n\005owner\030\005 \001(\r\"-\n+CPlayer"
+  "_RecordDisconnectedPlaytime_Response\"`\n$"
+  "CPlayer_LastPlayedTimes_Notification\0228\n\005"
+  "games\030\001 \003(\0132).CPlayer_GetLastPlayedTimes"
+  "_Response.Game\"j\n*CPlayer_FriendNickname"
+  "Changed_Notification\022\021\n\taccountid\030\001 \001(\007\022"
+  "\020\n\010nickname\030\002 \001(\t\022\027\n\017is_echo_to_self\030\003 \001"
+  "(\010\"K\n6CPlayer_FriendEquippedProfileItems"
+  "Changed_Notification\022\021\n\taccountid\030\001 \001(\007\""
+  "\350\001\n.CPlayer_NewSteamAnnouncementState_No"
+  "tification\022N\n\005state\030\001 \001(\0162\033.ENewSteamAnn"
+  "ouncementState:\"ENewSteamAnnouncementSta"
+  "te_Invalid\022\035\n\025announcement_headline\030\002 \001("
+  "\t\022\030\n\020announcement_url\030\003 \001(\t\022\023\n\013time_post"
+  "ed\030\004 \001(\r\022\030\n\020announcement_gid\030\005 \001(\004\"\261\001\n0C"
+  "Player_CommunityPreferencesChanged_Notif"
+  "ication\0222\n\013preferences\030\001 \001(\0132\035.CPlayer_C"
+  "ommunityPreferences\022I\n\036content_descripto"
+  "r_preferences\030\002 \001(\0132!.UserContentDescrip"
+  "torPreferences\"V\n+CPlayer_TextFilterWord"
+  "sChanged_Notification\022\'\n\005words\030\001 \001(\0132\030.C"
+  "Player_TextFilterWords\"q\n0CPlayer_PerFri"
+  "endPreferencesChanged_Notification\022\021\n\tac"
+  "countid\030\001 \001(\007\022*\n\013preferences\030\002 \001(\0132\025.Per"
+  "FriendPreferences\"Z\n+CPlayer_PrivacySett"
+  "ingsChanged_Notification\022+\n\020privacy_sett"
+  "ings\030\001 \001(\0132\021.CPrivacySettings*\215\002\n\032EProfi"
+  "leCustomizationStyle\022%\n!EProfileCustomiz"
+  "ationStyleDefault\020\000\022&\n\"EProfileCustomiza"
+  "tionStyleSelected\020\001\022$\n EProfileCustomiza"
+  "tionStyleRarest\020\002\022(\n$EProfileCustomizati"
+  "onStyleMostRecent\020\003\022$\n EProfileCustomiza"
+  "tionStyleRandom\020\004\022*\n&EProfileCustomizati"
+  "onStyleHighestRated\020\005*p\n\016EAgreementType\022"
+  "#\n\026EAgreementType_Invalid\020\377\377\377\377\377\377\377\377\377\001\022\034\n\030"
+  "EAgreementType_GlobalSSA\020\000\022\033\n\027EAgreement"
+  "Type_ChinaSSA\020\001*\177\n\024ENotificationSetting\022"
+  "(\n$ENotificationSettingNotifyUseDefault\020"
+  "\000\022\036\n\032ENotificationSettingAlways\020\001\022\035\n\031ENo"
+  "tificationSettingNever\020\002*\250\001\n\022ETextFilter"
+  "Setting\022&\n\"ETextFilterSettingSteamLabOpt"
+  "edOut\020\000\022\035\n\031ETextFilterSettingEnabled\020\001\022+"
+  "\n\'ETextFilterSettingEnabledAllowProfanit"
+  "y\020\002\022\036\n\032ETextFilterSettingDisabled\020\0032\303*\n\006"
+  "Player\022e\n\024GetPlayerLinkDetails\022%.CPlayer"
+  "_GetPlayerLinkDetails_Request\032&.CPlayer_"
+  "GetPlayerLinkDetails_Response\022\217\001\n\"GetMut"
+  "ualFriendsForIncomingInvites\0223.CPlayer_G"
+  "etMutualFriendsForIncomingInvites_Reques"
+  "t\0324.CPlayer_GetMutualFriendsForIncomingI"
+  "nvites_Response\022P\n\rGetOwnedGames\022\036.CPlay"
+  "er_GetOwnedGames_Request\032\037.CPlayer_GetOw"
+  "nedGames_Response\022J\n\013GetPlayNext\022\034.CPlay"
+  "er_GetPlayNext_Request\032\035.CPlayer_GetPlay"
+  "Next_Response\022k\n\026GetFriendsGameplayInfo\022"
+  "\'.CPlayer_GetFriendsGameplayInfo_Request"
+  "\032(.CPlayer_GetFriendsGameplayInfo_Respon"
+  "se\022_\n\022GetGameBadgeLevels\022#.CPlayer_GetGa"
+  "meBadgeLevels_Request\032$.CPlayer_GetGameB"
+  "adgeLevels_Response\022e\n\024GetProfileBackgro"
+  "und\022%.CPlayer_GetProfileBackground_Reque"
+  "st\032&.CPlayer_GetProfileBackground_Respon"
+  "se\022e\n\024SetProfileBackground\022%.CPlayer_Set"
+  "ProfileBackground_Request\032&.CPlayer_SetP"
+  "rofileBackground_Response\022q\n\030GetMiniProf"
+  "ileBackground\022).CPlayer_GetMiniProfileBa"
+  "ckground_Request\032*.CPlayer_GetMiniProfil"
+  "eBackground_Response\022q\n\030SetMiniProfileBa"
+  "ckground\022).CPlayer_SetMiniProfileBackgro"
+  "und_Request\032*.CPlayer_SetMiniProfileBack"
+  "ground_Response\022S\n\016GetAvatarFrame\022\037.CPla"
+  "yer_GetAvatarFrame_Request\032 .CPlayer_Get"
+  "AvatarFrame_Response\022S\n\016SetAvatarFrame\022\037"
+  ".CPlayer_SetAvatarFrame_Request\032 .CPlaye"
+  "r_SetAvatarFrame_Response\022\\\n\021GetAnimated"
+  "Avatar\022\".CPlayer_GetAnimatedAvatar_Reque"
+  "st\032#.CPlayer_GetAnimatedAvatar_Response\022"
+  "\\\n\021SetAnimatedAvatar\022\".CPlayer_SetAnimat"
+  "edAvatar_Request\032#.CPlayer_SetAnimatedAv"
+  "atar_Response\022q\n\030GetSteamDeckKeyboardSki"
+  "n\022).CPlayer_GetSteamDeckKeyboardSkin_Req"
+  "uest\032*.CPlayer_GetSteamDeckKeyboardSkin_"
+  "Response\022q\n\030SetSteamDeckKeyboardSkin\022).C"
+  "Player_SetSteamDeckKeyboardSkin_Request\032"
+  "*.CPlayer_SetSteamDeckKeyboardSkin_Respo"
+  "nse\022e\n\024GetProfileItemsOwned\022%.CPlayer_Ge"
+  "tProfileItemsOwned_Request\032&.CPlayer_Get"
+  "ProfileItemsOwned_Response\022n\n\027GetProfile"
+  "ItemsEquipped\022(.CPlayer_GetProfileItemsE"
+  "quipped_Request\032).CPlayer_GetProfileItem"
+  "sEquipped_Response\022z\n\033SetEquippedProfile"
+  "ItemFlags\022,.CPlayer_SetEquippedProfileIt"
+  "emFlags_Request\032-.CPlayer_SetEquippedPro"
+  "fileItemFlags_Response\022V\n\017GetEmoticonLis"
+  "t\022 .CPlayer_GetEmoticonList_Request\032!.CP"
+  "layer_GetEmoticonList_Response\022t\n\031GetCom"
+  "munityBadgeProgress\022*.CPlayer_GetCommuni"
+  "tyBadgeProgress_Request\032+.CPlayer_GetCom"
+  "munityBadgeProgress_Response\022w\n\032GetTopAc"
+  "hievementsForGames\022+.CPlayer_GetTopAchie"
+  "vementsForGames_Request\032,.CPlayer_GetTop"
+  "AchievementsForGames_Response\022n\n\027GetAchi"
+  "evementsProgress\022(.CPlayer_GetAchievemen"
+  "tsProgress_Request\032).CPlayer_GetAchievem"
+  "entsProgress_Response\022b\n\023GetGameAchievem"
+  "ents\022$.CPlayer_GetGameAchievements_Reque"
+  "st\032%.CPlayer_GetGameAchievements_Respons"
+  "e\022Y\n\020GetFavoriteBadge\022!.CPlayer_GetFavor"
+  "iteBadge_Request\032\".CPlayer_GetFavoriteBa"
+  "dge_Response\022Y\n\020SetFavoriteBadge\022!.CPlay"
+  "er_SetFavoriteBadge_Request\032\".CPlayer_Se"
+  "tFavoriteBadge_Response\022n\n\027GetProfileCus"
+  "tomization\022(.CPlayer_GetProfileCustomiza"
+  "tion_Request\032).CPlayer_GetProfileCustomi"
+  "zation_Response\022\214\001\n!GetPurchasedProfileC"
+  "ustomizations\0222.CPlayer_GetPurchasedProf"
+  "ileCustomizations_Request\0323.CPlayer_GetP"
+  "urchasedProfileCustomizations_Response\022\255"
+  "\001\n,GetPurchasedAndUpgradedProfileCustomi"
+  "zations\022=.CPlayer_GetPurchasedAndUpgrade"
+  "dProfileCustomizations_Request\032>.CPlayer"
+  "_GetPurchasedAndUpgradedProfileCustomiza"
+  "tions_Response\022t\n\031GetProfileThemesAvaila"
+  "ble\022*.CPlayer_GetProfileThemesAvailable_"
+  "Request\032+.CPlayer_GetProfileThemesAvaila"
+  "ble_Response\022V\n\017SetProfileTheme\022 .CPlaye"
   "r_SetProfileTheme_Request\032!.CPlayer_SetP"
-  "rofileTheme_Response\"#\202\265\030\037Selects a them"
-  "e for the profile\022\206\001\n\025SetProfilePreferen"
-  "ces\022&.CPlayer_SetProfilePreferences_Requ"
-  "est\032\'.CPlayer_SetProfilePreferences_Resp"
-  "onse\"\034\202\265\030\030Sets profile preferences\022\221\001\n\023P"
-  "ostStatusToFriends\022$.CPlayer_PostStatusT"
-  "oFriends_Request\032%.CPlayer_PostStatusToF"
-  "riends_Response\"-\202\265\030)Posts custom status"
-  " text into the blotter\022\206\001\n\017GetPostedStat"
-  "us\022 .CPlayer_GetPostedStatus_Request\032!.C"
-  "Player_GetPostedStatus_Response\".\202\265\030*Get"
-  "s a posted status text for a user by id\022"
-  "\222\001\n\022DeletePostedStatus\022#.CPlayer_DeleteP"
-  "ostedStatus_Request\032$.CPlayer_DeletePost"
-  "edStatus_Response\"1\202\265\030-Deletes a posted "
-  "status text for a user by id\022\225\001\n\030ClientG"
-  "etLastPlayedTimes\022#.CPlayer_GetLastPlaye"
-  "dTimes_Request\032$.CPlayer_GetLastPlayedTi"
-  "mes_Response\".\202\265\030*Gets the last-played t"
-  "imes for the account\022\221\001\n\022GetTimeSSAAccep"
-  "ted\022#.CPlayer_GetTimeSSAAccepted_Request"
-  "\032$.CPlayer_GetTimeSSAAccepted_Response\"0"
-  "\202\265\030,Gets the time when the user accepted"
-  " the SSA\022c\n\tAcceptSSA\022\032.CPlayer_AcceptSS"
-  "A_Request\032\033.CPlayer_AcceptSSA_Response\"\035"
-  "\202\265\030\031User is accepting the SSA\022\224\001\n\017GetNic"
-  "knameList\022 .CPlayer_GetNicknameList_Requ"
-  "est\032!.CPlayer_GetNicknameList_Response\"<"
-  "\202\265\0308Gets the list of nicknames this user"
-  " has for other users\022\275\001\n\027GetPerFriendPre"
-  "ferences\022(.CPlayer_GetPerFriendPreferenc"
-  "es_Request\032).CPlayer_GetPerFriendPrefere"
-  "nces_Response\"M\202\265\030IGets the list of per-"
-  "friend preferences this user has set for"
-  " other users\022\267\001\n\027SetPerFriendPreferences"
-  "\022(.CPlayer_SetPerFriendPreferences_Reque"
-  "st\032).CPlayer_SetPerFriendPreferences_Res"
-  "ponse\"G\202\265\030CSets the logged in user\'s per"
-  "-friend preferences for the given user\022s"
-  "\n\tAddFriend\022\032.CPlayer_AddFriend_Request\032"
-  "\033.CPlayer_AddFriend_Response\"-\202\265\030)Invite"
-  "s another Steam user to be a friend\022\202\001\n\014"
-  "RemoveFriend\022\035.CPlayer_RemoveFriend_Requ"
-  "est\032\036.CPlayer_RemoveFriend_Response\"3\202\265\030"
-  "/Removes a friend or ignores a friend su"
-  "ggestion\022\246\001\n\014IgnoreFriend\022\035.CPlayer_Igno"
-  "reFriend_Request\032\036.CPlayer_IgnoreFriend_"
-  "Response\"W\202\265\030SBlocks or unblocks communi"
-  "cation with the user.  Despite name, can"
-  " be a non-friend.\022\236\001\n\027GetCommunityPrefer"
-  "ences\022(.CPlayer_GetCommunityPreferences_"
-  "Request\032).CPlayer_GetCommunityPreference"
-  "s_Response\".\202\265\030*Returns the player\'s com"
-  "munity preferences\022\233\001\n\027SetCommunityPrefe"
-  "rences\022(.CPlayer_SetCommunityPreferences"
-  "_Request\032).CPlayer_SetCommunityPreferenc"
-  "es_Response\"+\202\265\030\'Sets the player\'s commu"
-  "nity preferences\022\233\001\n\022GetTextFilterWords\022"
-  "#.CPlayer_GetTextFilterWords_Request\032$.C"
-  "Player_GetTextFilterWords_Response\":\202\265\0306"
-  "Get the custom text filtering dictionary"
-  " for this user\022\336\001\n\034GetNewSteamAnnounceme"
-  "ntState\022-.CPlayer_GetNewSteamAnnouncemen"
-  "tState_Request\032..CPlayer_GetNewSteamAnno"
-  "uncementState_Response\"_\202\265\030[Calculates a"
-  "nd returns what to display for UI that r"
-  "enders new steam announcement available\022"
-  "\274\001\n\037UpdateSteamAnnouncementLastRead\0220.CP"
+  "rofileTheme_Response\022h\n\025SetProfilePrefer"
+  "ences\022&.CPlayer_SetProfilePreferences_Re"
+  "quest\032\'.CPlayer_SetProfilePreferences_Re"
+  "sponse\022b\n\023PostStatusToFriends\022$.CPlayer_"
+  "PostStatusToFriends_Request\032%.CPlayer_Po"
+  "stStatusToFriends_Response\022V\n\017GetPostedS"
+  "tatus\022 .CPlayer_GetPostedStatus_Request\032"
+  "!.CPlayer_GetPostedStatus_Response\022_\n\022De"
+  "letePostedStatus\022#.CPlayer_DeletePostedS"
+  "tatus_Request\032$.CPlayer_DeletePostedStat"
+  "us_Response\022e\n\030ClientGetLastPlayedTimes\022"
+  "#.CPlayer_GetLastPlayedTimes_Request\032$.C"
+  "Player_GetLastPlayedTimes_Response\022_\n\022Ge"
+  "tTimeSSAAccepted\022#.CPlayer_GetTimeSSAAcc"
+  "epted_Request\032$.CPlayer_GetTimeSSAAccept"
+  "ed_Response\022D\n\tAcceptSSA\022\032.CPlayer_Accep"
+  "tSSA_Request\032\033.CPlayer_AcceptSSA_Respons"
+  "e\022V\n\017GetNicknameList\022 .CPlayer_GetNickna"
+  "meList_Request\032!.CPlayer_GetNicknameList"
+  "_Response\022n\n\027GetPerFriendPreferences\022(.C"
+  "Player_GetPerFriendPreferences_Request\032)"
+  ".CPlayer_GetPerFriendPreferences_Respons"
+  "e\022n\n\027SetPerFriendPreferences\022(.CPlayer_S"
+  "etPerFriendPreferences_Request\032).CPlayer"
+  "_SetPerFriendPreferences_Response\022D\n\tAdd"
+  "Friend\022\032.CPlayer_AddFriend_Request\032\033.CPl"
+  "ayer_AddFriend_Response\022M\n\014RemoveFriend\022"
+  "\035.CPlayer_RemoveFriend_Request\032\036.CPlayer"
+  "_RemoveFriend_Response\022M\n\014IgnoreFriend\022\035"
+  ".CPlayer_IgnoreFriend_Request\032\036.CPlayer_"
+  "IgnoreFriend_Response\022n\n\027GetCommunityPre"
+  "ferences\022(.CPlayer_GetCommunityPreferenc"
+  "es_Request\032).CPlayer_GetCommunityPrefere"
+  "nces_Response\022n\n\027SetCommunityPreferences"
+  "\022(.CPlayer_SetCommunityPreferences_Reque"
+  "st\032).CPlayer_SetCommunityPreferences_Res"
+  "ponse\022_\n\022GetTextFilterWords\022#.CPlayer_Ge"
+  "tTextFilterWords_Request\032$.CPlayer_GetTe"
+  "xtFilterWords_Response\022}\n\034GetNewSteamAnn"
+  "ouncementState\022-.CPlayer_GetNewSteamAnno"
+  "uncementState_Request\032..CPlayer_GetNewSt"
+  "eamAnnouncementState_Response\022\206\001\n\037Update"
+  "SteamAnnouncementLastRead\0220.CPlayer_Upda"
+  "teSteamAnnouncementLastRead_Request\0321.CP"
   "layer_UpdateSteamAnnouncementLastRead_Re"
-  "quest\0321.CPlayer_UpdateSteamAnnouncementL"
-  "astRead_Response\"4\202\265\0300Marks latest annou"
-  "ncement timestamp read by user\022\202\001\n\022GetPr"
-  "ivacySettings\022#.CPlayer_GetPrivacySettin"
-  "gs_Request\032$.CPlayer_GetPrivacySettings_"
-  "Response\"!\202\265\030\035Get current privacy settin"
-  "gs.\022\214\001\n\022GetDurationControl\022#.CPlayer_Get"
-  "DurationControl_Request\032$.CPlayer_GetDur"
-  "ationControl_Response\"+\202\265\030\'Get gameplay "
-  "duration control settings.\022\357\001\n\032RecordDis"
-  "connectedPlaytime\022+.CPlayer_RecordDiscon"
-  "nectedPlaytime_Request\032,.CPlayer_RecordD"
-  "isconnectedPlaytime_Response\"v\202\265\030rSubmit"
-  " playtime records that happened while th"
-  "e client was disconnected from steam (wh"
-  "ether marked offline or not)\032-\202\265\030)A serv"
-  "ice for accessing Steam player data2\246\013\n\014"
-  "PlayerClient\022\214\001\n\025NotifyLastPlayedTimes\022%"
-  ".CPlayer_LastPlayedTimes_Notification\032\013."
-  "NoResponse\"\?\202\265\030;Notification from server"
-  " to client of more recent play time\022\244\001\n\033"
-  "NotifyFriendNicknameChanged\022+.CPlayer_Fr"
-  "iendNicknameChanged_Notification\032\013.NoRes"
-  "ponse\"K\202\265\030GNotification from server to c"
-  "lient that a friend\'s nickname has chang"
-  "ed\022\313\001\n\'NotifyFriendEquippedProfileItemsC"
-  "hanged\0227.CPlayer_FriendEquippedProfileIt"
-  "emsChanged_Notification\032\013.NoResponse\"Z\202\265"
-  "\030VNotification from server to client tha"
-  "t a friend\'s equipped profile items have"
-  " changed\022\244\001\n\037NotifyNewSteamAnnouncementS"
-  "tate\022/.CPlayer_NewSteamAnnouncementState"
-  "_Notification\032\013.NoResponse\"C\202\265\030\?Notifies"
-  " client of changes to steam announcement"
-  " state for user\022\271\001\n!NotifyCommunityPrefe"
-  "rencesChanged\0221.CPlayer_CommunityPrefere"
-  "ncesChanged_Notification\032\013.NoResponse\"T\202"
-  "\265\030PNotification from server to client th"
-  "at their community preferences have chan"
-  "ged\022\262\001\n\034NotifyTextFilterWordsChanged\022,.C"
-  "Player_TextFilterWordsChanged_Notificati"
-  "on\032\013.NoResponse\"W\202\265\030SNotification from s"
-  "erver to client that their text filterin"
-  "g dictionary has changed\022\252\001\n!NotifyPerFr"
-  "iendPreferencesChanged\0221.CPlayer_PerFrie"
-  "ndPreferencesChanged_Notification\032\013.NoRe"
-  "sponse\"E\202\265\030ANotification from server tha"
-  "t per-friend preferences have changed\022\234\001"
-  "\n#NotifyPrivacyPrivacySettingsChanged\022,."
-  "CPlayer_PrivacySettingsChanged_Notificat"
-  "ion\032\013.NoResponse\":\202\265\0306Notification from "
-  "server that privacy settings changed\032.\202\265"
-  "\030&Steam player data client notifications"
-  "\300\265\030\002B\035\200\001\001\252\002\027OpenSteamworks.Protobuf"
+  "sponse\022_\n\022GetPrivacySettings\022#.CPlayer_G"
+  "etPrivacySettings_Request\032$.CPlayer_GetP"
+  "rivacySettings_Response\022_\n\022GetDurationCo"
+  "ntrol\022#.CPlayer_GetDurationControl_Reque"
+  "st\032$.CPlayer_GetDurationControl_Response"
+  "\022w\n\032RecordDisconnectedPlaytime\022+.CPlayer"
+  "_RecordDisconnectedPlaytime_Request\032,.CP"
+  "layer_RecordDisconnectedPlaytime_Respons"
+  "e2\223\006\n\014PlayerClient\022K\n\025NotifyLastPlayedTi"
+  "mes\022%.CPlayer_LastPlayedTimes_Notificati"
+  "on\032\013.NoResponse\022W\n\033NotifyFriendNicknameC"
+  "hanged\022+.CPlayer_FriendNicknameChanged_N"
+  "otification\032\013.NoResponse\022o\n\'NotifyFriend"
+  "EquippedProfileItemsChanged\0227.CPlayer_Fr"
+  "iendEquippedProfileItemsChanged_Notifica"
+  "tion\032\013.NoResponse\022_\n\037NotifyNewSteamAnnou"
+  "ncementState\022/.CPlayer_NewSteamAnnouncem"
+  "entState_Notification\032\013.NoResponse\022c\n!No"
+  "tifyCommunityPreferencesChanged\0221.CPlaye"
+  "r_CommunityPreferencesChanged_Notificati"
+  "on\032\013.NoResponse\022Y\n\034NotifyTextFilterWords"
+  "Changed\022,.CPlayer_TextFilterWordsChanged"
+  "_Notification\032\013.NoResponse\022c\n!NotifyPerF"
+  "riendPreferencesChanged\0221.CPlayer_PerFri"
+  "endPreferencesChanged_Notification\032\013.NoR"
+  "esponse\022`\n#NotifyPrivacyPrivacySettingsC"
+  "hanged\022,.CPlayer_PrivacySettingsChanged_"
+  "Notification\032\013.NoResponse\032\004\300\265\030\002B\035\200\001\001\252\002\027O"
+  "penSteamworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fplayer_2esteamclient_2eproto_deps[4] = {
   &::descriptor_table_enums_2eproto,
@@ -4460,7 +4314,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fplayer_2esteamclient_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fplayer_2esteamclient_2eproto = {
-  false, false, 30115, descriptor_table_protodef_steammessages_5fplayer_2esteamclient_2eproto, "steammessages_player.steamclient.proto", 
+  false, false, 24262, descriptor_table_protodef_steammessages_5fplayer_2esteamclient_2eproto, "steammessages_player.steamclient.proto", 
   &descriptor_table_steammessages_5fplayer_2esteamclient_2eproto_once, descriptor_table_steammessages_5fplayer_2esteamclient_2eproto_deps, 4, 143,
   schemas, file_default_instances, TableStruct_steammessages_5fplayer_2esteamclient_2eproto::offsets,
   file_level_metadata_steammessages_5fplayer_2esteamclient_2eproto, file_level_enum_descriptors_steammessages_5fplayer_2esteamclient_2eproto, file_level_service_descriptors_steammessages_5fplayer_2esteamclient_2eproto,
@@ -7293,7 +7147,7 @@ const char* CPlayer_GetOwnedGames_Request::_InternalParse(const char* ptr, ::PRO
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint64 steamid = 1 [(.description) = "The player we\'re asking about"];
+      // optional uint64 steamid = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_steamid(&has_bits);
@@ -7301,7 +7155,7 @@ const char* CPlayer_GetOwnedGames_Request::_InternalParse(const char* ptr, ::PRO
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool include_appinfo = 2 [(.description) = "true if we want additional details (name, icon) about each game"];
+      // optional bool include_appinfo = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_include_appinfo(&has_bits);
@@ -7309,7 +7163,7 @@ const char* CPlayer_GetOwnedGames_Request::_InternalParse(const char* ptr, ::PRO
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool include_played_free_games = 3 [(.description) = "Free games are excluded by default.  If this is set, free games the user has played will be returned."];
+      // optional bool include_played_free_games = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           _Internal::set_has_include_played_free_games(&has_bits);
@@ -7317,7 +7171,7 @@ const char* CPlayer_GetOwnedGames_Request::_InternalParse(const char* ptr, ::PRO
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated uint32 appids_filter = 4 [(.description) = "if set, restricts result set to the passed in apps"];
+      // repeated uint32 appids_filter = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
           ptr -= 1;
@@ -7332,7 +7186,7 @@ const char* CPlayer_GetOwnedGames_Request::_InternalParse(const char* ptr, ::PRO
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool include_free_sub = 5 [(.description) = "Some games are in the free sub, which are excluded by default."];
+      // optional bool include_free_sub = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
           _Internal::set_has_include_free_sub(&has_bits);
@@ -7340,7 +7194,7 @@ const char* CPlayer_GetOwnedGames_Request::_InternalParse(const char* ptr, ::PRO
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool skip_unvetted_apps = 6 [default = true, (.description) = "if set, skip unvetted store apps"];
+      // optional bool skip_unvetted_apps = 6 [default = true];
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
           _Internal::set_has_skip_unvetted_apps(&has_bits);
@@ -7348,7 +7202,7 @@ const char* CPlayer_GetOwnedGames_Request::_InternalParse(const char* ptr, ::PRO
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string language = 7 [(.description) = "Will return appinfo in this language"];
+      // optional string language = 7;
       case 7:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
           auto str = _internal_mutable_language();
@@ -7359,7 +7213,7 @@ const char* CPlayer_GetOwnedGames_Request::_InternalParse(const char* ptr, ::PRO
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool include_extended_appinfo = 8 [(.description) = "true if we want even more details (capsule, sortas, and capabilities) about each game.  include_appinfo must also be true."];
+      // optional bool include_extended_appinfo = 8;
       case 8:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 64)) {
           _Internal::set_has_include_extended_appinfo(&has_bits);
@@ -7397,43 +7251,43 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint64 steamid = 1 [(.description) = "The player we\'re asking about"];
+  // optional uint64 steamid = 1;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_steamid(), target);
   }
 
-  // optional bool include_appinfo = 2 [(.description) = "true if we want additional details (name, icon) about each game"];
+  // optional bool include_appinfo = 2;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(2, this->_internal_include_appinfo(), target);
   }
 
-  // optional bool include_played_free_games = 3 [(.description) = "Free games are excluded by default.  If this is set, free games the user has played will be returned."];
+  // optional bool include_played_free_games = 3;
   if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(3, this->_internal_include_played_free_games(), target);
   }
 
-  // repeated uint32 appids_filter = 4 [(.description) = "if set, restricts result set to the passed in apps"];
+  // repeated uint32 appids_filter = 4;
   for (int i = 0, n = this->_internal_appids_filter_size(); i < n; i++) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_appids_filter(i), target);
   }
 
-  // optional bool include_free_sub = 5 [(.description) = "Some games are in the free sub, which are excluded by default."];
+  // optional bool include_free_sub = 5;
   if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(5, this->_internal_include_free_sub(), target);
   }
 
-  // optional bool skip_unvetted_apps = 6 [default = true, (.description) = "if set, skip unvetted store apps"];
+  // optional bool skip_unvetted_apps = 6 [default = true];
   if (cached_has_bits & 0x00000040u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(6, this->_internal_skip_unvetted_apps(), target);
   }
 
-  // optional string language = 7 [(.description) = "Will return appinfo in this language"];
+  // optional string language = 7;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_language().data(), static_cast<int>(this->_internal_language().length()),
@@ -7443,7 +7297,7 @@ failure:
         7, this->_internal_language(), target);
   }
 
-  // optional bool include_extended_appinfo = 8 [(.description) = "true if we want even more details (capsule, sortas, and capabilities) about each game.  include_appinfo must also be true."];
+  // optional bool include_extended_appinfo = 8;
   if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(8, this->_internal_include_extended_appinfo(), target);
@@ -7465,7 +7319,7 @@ size_t CPlayer_GetOwnedGames_Request::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated uint32 appids_filter = 4 [(.description) = "if set, restricts result set to the passed in apps"];
+  // repeated uint32 appids_filter = 4;
   {
     size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       UInt32Size(this->appids_filter_);
@@ -7476,41 +7330,41 @@ size_t CPlayer_GetOwnedGames_Request::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x0000007fu) {
-    // optional string language = 7 [(.description) = "Will return appinfo in this language"];
+    // optional string language = 7;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_language());
     }
 
-    // optional uint64 steamid = 1 [(.description) = "The player we\'re asking about"];
+    // optional uint64 steamid = 1;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_steamid());
     }
 
-    // optional bool include_appinfo = 2 [(.description) = "true if we want additional details (name, icon) about each game"];
+    // optional bool include_appinfo = 2;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 + 1;
     }
 
-    // optional bool include_played_free_games = 3 [(.description) = "Free games are excluded by default.  If this is set, free games the user has played will be returned."];
+    // optional bool include_played_free_games = 3;
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 + 1;
     }
 
-    // optional bool include_free_sub = 5 [(.description) = "Some games are in the free sub, which are excluded by default."];
+    // optional bool include_free_sub = 5;
     if (cached_has_bits & 0x00000010u) {
       total_size += 1 + 1;
     }
 
-    // optional bool include_extended_appinfo = 8 [(.description) = "true if we want even more details (capsule, sortas, and capabilities) about each game.  include_appinfo must also be true."];
+    // optional bool include_extended_appinfo = 8;
     if (cached_has_bits & 0x00000020u) {
       total_size += 1 + 1;
     }
 
-    // optional bool skip_unvetted_apps = 6 [default = true, (.description) = "if set, skip unvetted store apps"];
+    // optional bool skip_unvetted_apps = 6 [default = true];
     if (cached_has_bits & 0x00000040u) {
       total_size += 1 + 1;
     }
@@ -11048,7 +10902,7 @@ const char* CPlayer_GetProfileBackground_Request::_InternalParse(const char* ptr
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional fixed64 steamid = 1 [(.description) = "The player we\'re asking about"];
+      // optional fixed64 steamid = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
           _Internal::set_has_steamid(&has_bits);
@@ -11097,7 +10951,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional fixed64 steamid = 1 [(.description) = "The player we\'re asking about"];
+  // optional fixed64 steamid = 1;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_steamid(), target);
@@ -11138,7 +10992,7 @@ size_t CPlayer_GetProfileBackground_Request::ByteSizeLong() const {
           this->_internal_language());
     }
 
-    // optional fixed64 steamid = 1 [(.description) = "The player we\'re asking about"];
+    // optional fixed64 steamid = 1;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 + 8;
     }
@@ -11308,7 +11162,7 @@ const char* ProfileItem_ProfileColor::_InternalParse(const char* ptr, ::PROTOBUF
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional string style_name = 1 [(.description) = "EProfileColorStyle string version"];
+      // optional string style_name = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           auto str = _internal_mutable_style_name();
@@ -11319,7 +11173,7 @@ const char* ProfileItem_ProfileColor::_InternalParse(const char* ptr, ::PROTOBUF
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string color = 2 [(.description) = "hex color to apply"];
+      // optional string color = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           auto str = _internal_mutable_color();
@@ -11360,7 +11214,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional string style_name = 1 [(.description) = "EProfileColorStyle string version"];
+  // optional string style_name = 1;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_style_name().data(), static_cast<int>(this->_internal_style_name().length()),
@@ -11370,7 +11224,7 @@ failure:
         1, this->_internal_style_name(), target);
   }
 
-  // optional string color = 2 [(.description) = "hex color to apply"];
+  // optional string color = 2;
   if (cached_has_bits & 0x00000002u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_color().data(), static_cast<int>(this->_internal_color().length()),
@@ -11398,14 +11252,14 @@ size_t ProfileItem_ProfileColor::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional string style_name = 1 [(.description) = "EProfileColorStyle string version"];
+    // optional string style_name = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_style_name());
     }
 
-    // optional string color = 2 [(.description) = "hex color to apply"];
+    // optional string color = 2;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
@@ -11705,7 +11559,7 @@ const char* ProfileItem::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string image_small = 2 [(.description) = "small image used in backpack or selection"];
+      // optional string image_small = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           auto str = _internal_mutable_image_small();
@@ -11716,7 +11570,7 @@ const char* ProfileItem::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string image_large = 3 [(.description) = "the image itself"];
+      // optional string image_large = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           auto str = _internal_mutable_image_large();
@@ -11727,7 +11581,7 @@ const char* ProfileItem::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string name = 4 [(.description) = "english name"];
+      // optional string name = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
           auto str = _internal_mutable_name();
@@ -11738,7 +11592,7 @@ const char* ProfileItem::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string item_title = 5 [(.description) = "localized title"];
+      // optional string item_title = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
           auto str = _internal_mutable_item_title();
@@ -11749,7 +11603,7 @@ const char* ProfileItem::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string item_description = 6 [(.description) = "localized description"];
+      // optional string item_description = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
           auto str = _internal_mutable_item_description();
@@ -11784,7 +11638,7 @@ const char* ProfileItem::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string movie_webm = 10 [(.description) = "URL to webm, if any"];
+      // optional string movie_webm = 10;
       case 10:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 82)) {
           auto str = _internal_mutable_movie_webm();
@@ -11795,7 +11649,7 @@ const char* ProfileItem::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string movie_mp4 = 11 [(.description) = "URL to mp4, if any"];
+      // optional string movie_mp4 = 11;
       case 11:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 90)) {
           auto str = _internal_mutable_movie_mp4();
@@ -11806,7 +11660,7 @@ const char* ProfileItem::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 equipped_flags = 12 [(.description) = "Special flags set when equipped (EProfileItemEquippedFlag)"];
+      // optional uint32 equipped_flags = 12;
       case 12:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 96)) {
           _Internal::set_has_equipped_flags(&has_bits);
@@ -11814,7 +11668,7 @@ const char* ProfileItem::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string movie_webm_small = 13 [(.description) = "URL to small webm, if any"];
+      // optional string movie_webm_small = 13;
       case 13:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 106)) {
           auto str = _internal_mutable_movie_webm_small();
@@ -11825,7 +11679,7 @@ const char* ProfileItem::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string movie_mp4_small = 14 [(.description) = "URL to small mp4, if any"];
+      // optional string movie_mp4_small = 14;
       case 14:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 114)) {
           auto str = _internal_mutable_movie_mp4_small();
@@ -11836,7 +11690,7 @@ const char* ProfileItem::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated .ProfileItem.ProfileColor profile_colors = 15 [(.description) = "Game profile css colors"];
+      // repeated .ProfileItem.ProfileColor profile_colors = 15;
       case 15:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 122)) {
           ptr -= 1;
@@ -11884,7 +11738,7 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_communityitemid(), target);
   }
 
-  // optional string image_small = 2 [(.description) = "small image used in backpack or selection"];
+  // optional string image_small = 2;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_image_small().data(), static_cast<int>(this->_internal_image_small().length()),
@@ -11894,7 +11748,7 @@ failure:
         2, this->_internal_image_small(), target);
   }
 
-  // optional string image_large = 3 [(.description) = "the image itself"];
+  // optional string image_large = 3;
   if (cached_has_bits & 0x00000002u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_image_large().data(), static_cast<int>(this->_internal_image_large().length()),
@@ -11904,7 +11758,7 @@ failure:
         3, this->_internal_image_large(), target);
   }
 
-  // optional string name = 4 [(.description) = "english name"];
+  // optional string name = 4;
   if (cached_has_bits & 0x00000004u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
@@ -11914,7 +11768,7 @@ failure:
         4, this->_internal_name(), target);
   }
 
-  // optional string item_title = 5 [(.description) = "localized title"];
+  // optional string item_title = 5;
   if (cached_has_bits & 0x00000008u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_item_title().data(), static_cast<int>(this->_internal_item_title().length()),
@@ -11924,7 +11778,7 @@ failure:
         5, this->_internal_item_title(), target);
   }
 
-  // optional string item_description = 6 [(.description) = "localized description"];
+  // optional string item_description = 6;
   if (cached_has_bits & 0x00000010u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_item_description().data(), static_cast<int>(this->_internal_item_description().length()),
@@ -11952,7 +11806,7 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(9, this->_internal_item_class(), target);
   }
 
-  // optional string movie_webm = 10 [(.description) = "URL to webm, if any"];
+  // optional string movie_webm = 10;
   if (cached_has_bits & 0x00000020u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_movie_webm().data(), static_cast<int>(this->_internal_movie_webm().length()),
@@ -11962,7 +11816,7 @@ failure:
         10, this->_internal_movie_webm(), target);
   }
 
-  // optional string movie_mp4 = 11 [(.description) = "URL to mp4, if any"];
+  // optional string movie_mp4 = 11;
   if (cached_has_bits & 0x00000040u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_movie_mp4().data(), static_cast<int>(this->_internal_movie_mp4().length()),
@@ -11972,13 +11826,13 @@ failure:
         11, this->_internal_movie_mp4(), target);
   }
 
-  // optional uint32 equipped_flags = 12 [(.description) = "Special flags set when equipped (EProfileItemEquippedFlag)"];
+  // optional uint32 equipped_flags = 12;
   if (cached_has_bits & 0x00002000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(12, this->_internal_equipped_flags(), target);
   }
 
-  // optional string movie_webm_small = 13 [(.description) = "URL to small webm, if any"];
+  // optional string movie_webm_small = 13;
   if (cached_has_bits & 0x00000080u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_movie_webm_small().data(), static_cast<int>(this->_internal_movie_webm_small().length()),
@@ -11988,7 +11842,7 @@ failure:
         13, this->_internal_movie_webm_small(), target);
   }
 
-  // optional string movie_mp4_small = 14 [(.description) = "URL to small mp4, if any"];
+  // optional string movie_mp4_small = 14;
   if (cached_has_bits & 0x00000100u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_movie_mp4_small().data(), static_cast<int>(this->_internal_movie_mp4_small().length()),
@@ -11998,7 +11852,7 @@ failure:
         14, this->_internal_movie_mp4_small(), target);
   }
 
-  // repeated .ProfileItem.ProfileColor profile_colors = 15 [(.description) = "Game profile css colors"];
+  // repeated .ProfileItem.ProfileColor profile_colors = 15;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_profile_colors_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
@@ -12022,7 +11876,7 @@ size_t ProfileItem::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .ProfileItem.ProfileColor profile_colors = 15 [(.description) = "Game profile css colors"];
+  // repeated .ProfileItem.ProfileColor profile_colors = 15;
   total_size += 1UL * this->_internal_profile_colors_size();
   for (const auto& msg : this->profile_colors_) {
     total_size +=
@@ -12031,56 +11885,56 @@ size_t ProfileItem::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x000000ffu) {
-    // optional string image_small = 2 [(.description) = "small image used in backpack or selection"];
+    // optional string image_small = 2;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_image_small());
     }
 
-    // optional string image_large = 3 [(.description) = "the image itself"];
+    // optional string image_large = 3;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_image_large());
     }
 
-    // optional string name = 4 [(.description) = "english name"];
+    // optional string name = 4;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_name());
     }
 
-    // optional string item_title = 5 [(.description) = "localized title"];
+    // optional string item_title = 5;
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_item_title());
     }
 
-    // optional string item_description = 6 [(.description) = "localized description"];
+    // optional string item_description = 6;
     if (cached_has_bits & 0x00000010u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_item_description());
     }
 
-    // optional string movie_webm = 10 [(.description) = "URL to webm, if any"];
+    // optional string movie_webm = 10;
     if (cached_has_bits & 0x00000020u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_movie_webm());
     }
 
-    // optional string movie_mp4 = 11 [(.description) = "URL to mp4, if any"];
+    // optional string movie_mp4 = 11;
     if (cached_has_bits & 0x00000040u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_movie_mp4());
     }
 
-    // optional string movie_webm_small = 13 [(.description) = "URL to small webm, if any"];
+    // optional string movie_webm_small = 13;
     if (cached_has_bits & 0x00000080u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
@@ -12089,7 +11943,7 @@ size_t ProfileItem::ByteSizeLong() const {
 
   }
   if (cached_has_bits & 0x00003f00u) {
-    // optional string movie_mp4_small = 14 [(.description) = "URL to small mp4, if any"];
+    // optional string movie_mp4_small = 14;
     if (cached_has_bits & 0x00000100u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
@@ -12124,7 +11978,7 @@ size_t ProfileItem::ByteSizeLong() const {
           this->_internal_item_class());
     }
 
-    // optional uint32 equipped_flags = 12 [(.description) = "Special flags set when equipped (EProfileItemEquippedFlag)"];
+    // optional uint32 equipped_flags = 12;
     if (cached_has_bits & 0x00002000u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -12914,7 +12768,7 @@ const char* CPlayer_GetMiniProfileBackground_Request::_InternalParse(const char*
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional fixed64 steamid = 1 [(.description) = "The player we\'re asking about"];
+      // optional fixed64 steamid = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
           _Internal::set_has_steamid(&has_bits);
@@ -12963,7 +12817,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional fixed64 steamid = 1 [(.description) = "The player we\'re asking about"];
+  // optional fixed64 steamid = 1;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_steamid(), target);
@@ -13004,7 +12858,7 @@ size_t CPlayer_GetMiniProfileBackground_Request::ByteSizeLong() const {
           this->_internal_language());
     }
 
-    // optional fixed64 steamid = 1 [(.description) = "The player we\'re asking about"];
+    // optional fixed64 steamid = 1;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 + 8;
     }
@@ -13739,7 +13593,7 @@ const char* CPlayer_GetAvatarFrame_Request::_InternalParse(const char* ptr, ::PR
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional fixed64 steamid = 1 [(.description) = "The player we\'re asking about"];
+      // optional fixed64 steamid = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
           _Internal::set_has_steamid(&has_bits);
@@ -13788,7 +13642,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional fixed64 steamid = 1 [(.description) = "The player we\'re asking about"];
+  // optional fixed64 steamid = 1;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_steamid(), target);
@@ -13829,7 +13683,7 @@ size_t CPlayer_GetAvatarFrame_Request::ByteSizeLong() const {
           this->_internal_language());
     }
 
-    // optional fixed64 steamid = 1 [(.description) = "The player we\'re asking about"];
+    // optional fixed64 steamid = 1;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 + 8;
     }
@@ -14564,7 +14418,7 @@ const char* CPlayer_GetAnimatedAvatar_Request::_InternalParse(const char* ptr, :
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional fixed64 steamid = 1 [(.description) = "The player we\'re asking about"];
+      // optional fixed64 steamid = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
           _Internal::set_has_steamid(&has_bits);
@@ -14613,7 +14467,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional fixed64 steamid = 1 [(.description) = "The player we\'re asking about"];
+  // optional fixed64 steamid = 1;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_steamid(), target);
@@ -14654,7 +14508,7 @@ size_t CPlayer_GetAnimatedAvatar_Request::ByteSizeLong() const {
           this->_internal_language());
     }
 
-    // optional fixed64 steamid = 1 [(.description) = "The player we\'re asking about"];
+    // optional fixed64 steamid = 1;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 + 8;
     }
@@ -15389,7 +15243,7 @@ const char* CPlayer_GetSteamDeckKeyboardSkin_Request::_InternalParse(const char*
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional fixed64 steamid = 1 [(.description) = "The player we\'re asking about"];
+      // optional fixed64 steamid = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
           _Internal::set_has_steamid(&has_bits);
@@ -15438,7 +15292,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional fixed64 steamid = 1 [(.description) = "The player we\'re asking about"];
+  // optional fixed64 steamid = 1;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_steamid(), target);
@@ -15479,7 +15333,7 @@ size_t CPlayer_GetSteamDeckKeyboardSkin_Request::ByteSizeLong() const {
           this->_internal_language());
     }
 
-    // optional fixed64 steamid = 1 [(.description) = "The player we\'re asking about"];
+    // optional fixed64 steamid = 1;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 + 8;
     }
@@ -17562,7 +17416,7 @@ const char* CPlayer_SetEquippedProfileItemFlags_Request::_InternalParse(const ch
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 flags = 2 [(.description) = "Set of EProfileItemEquippedFlag"];
+      // optional uint32 flags = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_flags(&has_bits);
@@ -17606,7 +17460,7 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_communityitemid(), target);
   }
 
-  // optional uint32 flags = 2 [(.description) = "Set of EProfileItemEquippedFlag"];
+  // optional uint32 flags = 2;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_flags(), target);
@@ -17637,7 +17491,7 @@ size_t CPlayer_SetEquippedProfileItemFlags_Request::ByteSizeLong() const {
           this->_internal_communityitemid());
     }
 
-    // optional uint32 flags = 2 [(.description) = "Set of EProfileItemEquippedFlag"];
+    // optional uint32 flags = 2;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -18686,7 +18540,7 @@ const char* CPlayer_GetCommunityBadgeProgress_Request::_InternalParse(const char
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint64 steamid = 1 [(.description) = "The player we\'re asking about"];
+      // optional uint64 steamid = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_steamid(&has_bits);
@@ -18694,7 +18548,7 @@ const char* CPlayer_GetCommunityBadgeProgress_Request::_InternalParse(const char
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional int32 badgeid = 2 [(.description) = "The badge we\'re asking about"];
+      // optional int32 badgeid = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_badgeid(&has_bits);
@@ -18732,13 +18586,13 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint64 steamid = 1 [(.description) = "The player we\'re asking about"];
+  // optional uint64 steamid = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_steamid(), target);
   }
 
-  // optional int32 badgeid = 2 [(.description) = "The badge we\'re asking about"];
+  // optional int32 badgeid = 2;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(2, this->_internal_badgeid(), target);
@@ -18762,14 +18616,14 @@ size_t CPlayer_GetCommunityBadgeProgress_Request::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional uint64 steamid = 1 [(.description) = "The player we\'re asking about"];
+    // optional uint64 steamid = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_steamid());
     }
 
-    // optional int32 badgeid = 2 [(.description) = "The badge we\'re asking about"];
+    // optional int32 badgeid = 2;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
@@ -19411,7 +19265,7 @@ const char* CPlayer_GetTopAchievementsForGames_Request::_InternalParse(const cha
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 max_achievements = 3 [(.description) = "The max achievements to load. Max 8"];
+      // optional uint32 max_achievements = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           _Internal::set_has_max_achievements(&has_bits);
@@ -19480,7 +19334,7 @@ failure:
         2, this->_internal_language(), target);
   }
 
-  // optional uint32 max_achievements = 3 [(.description) = "The max achievements to load. Max 8"];
+  // optional uint32 max_achievements = 3;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_max_achievements(), target);
@@ -19533,7 +19387,7 @@ size_t CPlayer_GetTopAchievementsForGames_Request::ByteSizeLong() const {
           this->_internal_steamid());
     }
 
-    // optional uint32 max_achievements = 3 [(.description) = "The max achievements to load. Max 8"];
+    // optional uint32 max_achievements = 3;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -19843,7 +19697,7 @@ const char* CPlayer_GetTopAchievementsForGames_Response_Achievement::_InternalPa
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string player_percent_unlocked = 8 [(.description) = "Formatted to one decimal place, min value is 0.1, max value 100"];
+      // optional string player_percent_unlocked = 8;
       case 8:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 66)) {
           auto str = _internal_mutable_player_percent_unlocked();
@@ -19942,7 +19796,7 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(7, this->_internal_hidden(), target);
   }
 
-  // optional string player_percent_unlocked = 8 [(.description) = "Formatted to one decimal place, min value is 0.1, max value 100"];
+  // optional string player_percent_unlocked = 8;
   if (cached_has_bits & 0x00000010u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_player_percent_unlocked().data(), static_cast<int>(this->_internal_player_percent_unlocked().length()),
@@ -19998,7 +19852,7 @@ size_t CPlayer_GetTopAchievementsForGames_Response_Achievement::ByteSizeLong() c
           this->_internal_icon_gray());
     }
 
-    // optional string player_percent_unlocked = 8 [(.description) = "Formatted to one decimal place, min value is 0.1, max value 100"];
+    // optional string player_percent_unlocked = 8;
     if (cached_has_bits & 0x00000010u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
@@ -21525,7 +21379,7 @@ const char* CPlayer_GetGameAchievements_Request::_InternalParse(const char* ptr,
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string language = 2 [(.description) = "Lowercase, language shortnames"];
+      // optional string language = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           auto str = _internal_mutable_language();
@@ -21572,7 +21426,7 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_appid(), target);
   }
 
-  // optional string language = 2 [(.description) = "Lowercase, language shortnames"];
+  // optional string language = 2;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_language().data(), static_cast<int>(this->_internal_language().length()),
@@ -21600,7 +21454,7 @@ size_t CPlayer_GetGameAchievements_Request::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional string language = 2 [(.description) = "Lowercase, language shortnames"];
+    // optional string language = 2;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
@@ -21837,7 +21691,7 @@ const char* CPlayer_GetGameAchievements_Response_Achievement::_InternalParse(con
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional string internal_name = 1 [(.description) = "Will come uppercase, internal facing name set by the partner; needed to associate with user unlock"];
+      // optional string internal_name = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           auto str = _internal_mutable_internal_name();
@@ -21900,7 +21754,7 @@ const char* CPlayer_GetGameAchievements_Response_Achievement::_InternalParse(con
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string player_percent_unlocked = 7 [(.description) = "Formatted to one decimal place, min value is 0.1, max value 100"];
+      // optional string player_percent_unlocked = 7;
       case 7:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
           auto str = _internal_mutable_player_percent_unlocked();
@@ -21941,7 +21795,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional string internal_name = 1 [(.description) = "Will come uppercase, internal facing name set by the partner; needed to associate with user unlock"];
+  // optional string internal_name = 1;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_internal_name().data(), static_cast<int>(this->_internal_internal_name().length()),
@@ -21997,7 +21851,7 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(6, this->_internal_hidden(), target);
   }
 
-  // optional string player_percent_unlocked = 7 [(.description) = "Formatted to one decimal place, min value is 0.1, max value 100"];
+  // optional string player_percent_unlocked = 7;
   if (cached_has_bits & 0x00000020u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_player_percent_unlocked().data(), static_cast<int>(this->_internal_player_percent_unlocked().length()),
@@ -22025,7 +21879,7 @@ size_t CPlayer_GetGameAchievements_Response_Achievement::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x0000007fu) {
-    // optional string internal_name = 1 [(.description) = "Will come uppercase, internal facing name set by the partner; needed to associate with user unlock"];
+    // optional string internal_name = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
@@ -22060,7 +21914,7 @@ size_t CPlayer_GetGameAchievements_Response_Achievement::ByteSizeLong() const {
           this->_internal_icon_gray());
     }
 
-    // optional string player_percent_unlocked = 7 [(.description) = "Formatted to one decimal place, min value is 0.1, max value 100"];
+    // optional string player_percent_unlocked = 7;
     if (cached_has_bits & 0x00000020u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
@@ -28917,7 +28771,7 @@ const char* CPlayer_GetPostedStatus_Request::_InternalParse(const char* ptr, ::P
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint64 steamid = 1 [(.description) = "The player we\'re asking about"];
+      // optional uint64 steamid = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_steamid(&has_bits);
@@ -28963,7 +28817,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint64 steamid = 1 [(.description) = "The player we\'re asking about"];
+  // optional uint64 steamid = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_steamid(), target);
@@ -28993,7 +28847,7 @@ size_t CPlayer_GetPostedStatus_Request::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional uint64 steamid = 1 [(.description) = "The player we\'re asking about"];
+    // optional uint64 steamid = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
@@ -29857,7 +29711,7 @@ const char* CPlayer_GetLastPlayedTimes_Request::_InternalParse(const char* ptr, 
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint32 min_last_played = 1 [(.description) = "The most recent last-played time the client already knows about"];
+      // optional uint32 min_last_played = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_min_last_played(&has_bits);
@@ -29895,7 +29749,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint32 min_last_played = 1 [(.description) = "The most recent last-played time the client already knows about"];
+  // optional uint32 min_last_played = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_min_last_played(), target);
@@ -29917,7 +29771,7 @@ size_t CPlayer_GetLastPlayedTimes_Request::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // optional uint32 min_last_played = 1 [(.description) = "The most recent last-played time the client already knows about"];
+  // optional uint32 min_last_played = 1;
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += 1 +
@@ -33507,7 +33361,7 @@ const char* CPlayer_AddFriend_Request::_InternalParse(const char* ptr, ::PROTOBU
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional fixed64 steamid = 1 [(.description) = "Steam ID of user to whom to send a friend invite."];
+      // optional fixed64 steamid = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
           _Internal::set_has_steamid(&has_bits);
@@ -33545,7 +33399,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional fixed64 steamid = 1 [(.description) = "Steam ID of user to whom to send a friend invite."];
+  // optional fixed64 steamid = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_steamid(), target);
@@ -33567,7 +33421,7 @@ size_t CPlayer_AddFriend_Request::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // optional fixed64 steamid = 1 [(.description) = "Steam ID of user to whom to send a friend invite."];
+  // optional fixed64 steamid = 1;
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += 1 + 8;
@@ -33722,7 +33576,7 @@ const char* CPlayer_AddFriend_Response::_InternalParse(const char* ptr, ::PROTOB
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional bool invite_sent = 1 [(.description) = "True if the operation was successful, false otherwise."];
+      // optional bool invite_sent = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_invite_sent(&has_bits);
@@ -33730,7 +33584,7 @@ const char* CPlayer_AddFriend_Response::_InternalParse(const char* ptr, ::PROTOB
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 friend_relationship = 2 [(.description) = "the resulting relationship.  Depending on state, may move directly to friends rather than invite sent"];
+      // optional uint32 friend_relationship = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_friend_relationship(&has_bits);
@@ -33776,13 +33630,13 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional bool invite_sent = 1 [(.description) = "True if the operation was successful, false otherwise."];
+  // optional bool invite_sent = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(1, this->_internal_invite_sent(), target);
   }
 
-  // optional uint32 friend_relationship = 2 [(.description) = "the resulting relationship.  Depending on state, may move directly to friends rather than invite sent"];
+  // optional uint32 friend_relationship = 2;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_friend_relationship(), target);
@@ -33812,12 +33666,12 @@ size_t CPlayer_AddFriend_Response::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000007u) {
-    // optional bool invite_sent = 1 [(.description) = "True if the operation was successful, false otherwise."];
+    // optional bool invite_sent = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 + 1;
     }
 
-    // optional uint32 friend_relationship = 2 [(.description) = "the resulting relationship.  Depending on state, may move directly to friends rather than invite sent"];
+    // optional uint32 friend_relationship = 2;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -33980,7 +33834,7 @@ const char* CPlayer_RemoveFriend_Request::_InternalParse(const char* ptr, ::PROT
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional fixed64 steamid = 1 [(.description) = "Steam ID of friend to remove."];
+      // optional fixed64 steamid = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
           _Internal::set_has_steamid(&has_bits);
@@ -34018,7 +33872,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional fixed64 steamid = 1 [(.description) = "Steam ID of friend to remove."];
+  // optional fixed64 steamid = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_steamid(), target);
@@ -34040,7 +33894,7 @@ size_t CPlayer_RemoveFriend_Request::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // optional fixed64 steamid = 1 [(.description) = "Steam ID of friend to remove."];
+  // optional fixed64 steamid = 1;
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += 1 + 8;
@@ -34179,7 +34033,7 @@ const char* CPlayer_RemoveFriend_Response::_InternalParse(const char* ptr, ::PRO
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint32 friend_relationship = 1 [(.description) = "the resulting relationship"];
+      // optional uint32 friend_relationship = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_friend_relationship(&has_bits);
@@ -34217,7 +34071,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint32 friend_relationship = 1 [(.description) = "the resulting relationship"];
+  // optional uint32 friend_relationship = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_friend_relationship(), target);
@@ -34239,7 +34093,7 @@ size_t CPlayer_RemoveFriend_Response::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // optional uint32 friend_relationship = 1 [(.description) = "the resulting relationship"];
+  // optional uint32 friend_relationship = 1;
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += 1 +
@@ -34401,7 +34255,7 @@ const char* CPlayer_IgnoreFriend_Request::_InternalParse(const char* ptr, ::PROT
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
         } else goto handle_unusual;
         continue;
-      // optional bool unignore = 2 [(.description) = "If set, remove from ignore/block list instead of adding "];
+      // optional bool unignore = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_unignore(&has_bits);
@@ -34445,7 +34299,7 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_steamid(), target);
   }
 
-  // optional bool unignore = 2 [(.description) = "If set, remove from ignore/block list instead of adding "];
+  // optional bool unignore = 2;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(2, this->_internal_unignore(), target);
@@ -34474,7 +34328,7 @@ size_t CPlayer_IgnoreFriend_Request::ByteSizeLong() const {
       total_size += 1 + 8;
     }
 
-    // optional bool unignore = 2 [(.description) = "If set, remove from ignore/block list instead of adding "];
+    // optional bool unignore = 2;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 + 1;
     }
@@ -34625,7 +34479,7 @@ const char* CPlayer_IgnoreFriend_Response::_InternalParse(const char* ptr, ::PRO
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint32 friend_relationship = 1 [(.description) = "the resulting relationship"];
+      // optional uint32 friend_relationship = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_friend_relationship(&has_bits);
@@ -34663,7 +34517,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint32 friend_relationship = 1 [(.description) = "the resulting relationship"];
+  // optional uint32 friend_relationship = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_friend_relationship(), target);
@@ -34685,7 +34539,7 @@ size_t CPlayer_IgnoreFriend_Response::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // optional uint32 friend_relationship = 1 [(.description) = "the resulting relationship"];
+  // optional uint32 friend_relationship = 1;
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += 1 +

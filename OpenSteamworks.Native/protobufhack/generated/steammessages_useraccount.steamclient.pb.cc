@@ -845,119 +845,80 @@ const char descriptor_table_protodef_steammessages_5fuseraccount_2esteamclient_2
   "erAccount_RevokeFriendInviteToken_Respon"
   "se\">\n\'CUserAccount_RegisterCompatTool_Re"
   "quest\022\023\n\013compat_tool\030\001 \001(\r\"*\n(CUserAccou"
-  "nt_RegisterCompatTool_Response\"\230\003\n,CAcco"
+  "nt_RegisterCompatTool_Response\"\335\001\n,CAcco"
   "untLinking_GetLinkedAccountInfo_Request\022"
   "F\n\014account_type\030\001 \001(\0162\025.EInternalAccount"
-  "Type:\031EInternalSteamAccountType\022+\n\naccou"
-  "nt_id\030\002 \001(\004B\027\202\265\030\023Internal account ID\022r\n\006"
-  "filter\030\003 \001(\0162\025.EExternalAccountType:\rEEx"
-  "ternalNoneB<\202\265\0308if specified then only r"
-  "eturn this external account type\022\177\n\023retu"
-  "rn_access_token\030\004 \001(\010Bb\202\265\030^if provided a"
-  "nd true, then returns valid access token"
-  " if available. It may refresh the token."
-  " \"\211\006\n-CAccountLinking_GetLinkedAccountIn"
-  "fo_Response\022h\n\021external_accounts\030\001 \003(\0132M"
-  ".CAccountLinking_GetLinkedAccountInfo_Re"
-  "sponse.CExternalAccountTuple_Response\032\355\004"
-  "\n\036CExternalAccountTuple_Response\022;\n\rexte"
-  "rnal_type\030\001 \001(\0162\025.EExternalAccountType:\r"
-  "EExternalNone\022;\n\013external_id\030\002 \001(\tB&\202\265\030\""
-  "unique external account identifier\022:\n\022ex"
-  "ternal_user_name\030\003 \001(\tB\036\202\265\030\032user readabl"
-  "e; best effort\022S\n\014external_url\030\004 \001(\tB=\202\265"
-  "\0309required for all, can be a sentinal to"
-  " verify correctness\022@\n\014access_token\030\005 \001("
-  "\tB*\202\265\030&provided if requeest and it was v"
-  "alid.\022k\n\023access_token_secret\030\006 \001(\tBN\202\265\030J"
-  "required for OAuth v1 and signing the me"
-  "ssage, provided with access token.\022\220\001\n\010i"
-  "s_valid\030\007 \001(\010B~\202\265\030zIf false, it means ac"
-  "cess token no longer work (expired, disc"
-  "onnected) and the link is now broken. In"
-  "form user to refresh.\"w\n.CEmbeddedClient"
-  "_AuthorizeCurrentDevice_Request\022\017\n\007steam"
-  "id\030\001 \001(\006\022\r\n\005appid\030\002 \001(\r\022\023\n\013device_info\030\003"
-  " \001(\t\022\020\n\010deviceid\030\004 \001(\r\"`\n\025CEmbeddedClien"
-  "t_Token\022\017\n\007steamid\030\001 \001(\006\022\024\n\014client_token"
-  "\030\002 \001(\014\022\016\n\006expiry\030\003 \001(\r\022\020\n\010deviceid\030\004 \001(\r"
-  "\"a\n(CEmbeddedClient_AuthorizeDevice_Resp"
-  "onse\022\016\n\006result\030\001 \001(\r\022%\n\005token\030\002 \001(\0132\026.CE"
-  "mbeddedClient_Token*\205\001\n\024EInternalAccount"
-  "Type\022\035\n\031EInternalSteamAccountType\020\001\022\025\n\021E"
-  "InternalClanType\020\002\022\024\n\020EInternalAppType\020\003"
-  "\022!\n\035EInternalBroadcastChannelType\020\004*\366\001\n\024"
-  "EExternalAccountType\022\021\n\rEExternalNone\020\000\022"
-  "\031\n\025EExternalSteamAccount\020\001\022\032\n\026EExternalG"
-  "oogleAccount\020\002\022\034\n\030EExternalFacebookAccou"
-  "nt\020\003\022\033\n\027EExternalTwitterAccount\020\004\022\032\n\026EEx"
-  "ternalTwitchAccount\020\005\022\"\n\036EExternalYouTub"
-  "eChannelAccount\020\006\022\031\n\025EExternalFacebookPa"
-  "ge\020\0072\301\017\n\013UserAccount\022\340\001\n#GetAvailableVal"
-  "veDiscountPromotions\0229.CUserAccount_GetA"
-  "vailableValveDiscountPromotions_Request\032"
-  ":.CUserAccount_GetAvailableValveDiscount"
-  "Promotions_Response\"B\202\265\030>Gets the availa"
-  "ble promotional discounts available to t"
-  "he user\022\247\001\n\026GetClientWalletDetails\022,.CUs"
-  "erAccount_GetClientWalletDetails_Request"
-  "\032\'.CUserAccount_GetWalletDetails_Respons"
-  "e\"6\202\265\0302Returns balance and details about"
-  " any users wallet\022\220\001\n\024GetAccountLinkStat"
-  "us\022*.CUserAccount_GetAccountLinkStatus_R"
-  "equest\032+.CUserAccount_GetAccountLinkStat"
-  "us_Response\"\037\202\265\030\033Fetches account link st"
-  "atus\022\223\001\n\023CancelLicenseForApp\022).CUserAcco"
-  "unt_CancelLicenseForApp_Request\032*.CUserA"
-  "ccount_CancelLicenseForApp_Response\"%\202\265\030"
-  "!Cancels a free license for a user\022\311\001\n\016G"
-  "etUserCountry\022$.CUserAccount_GetUserCoun"
-  "try_Request\032%.CUserAccount_GetUserCountr"
-  "y_Response\"j\202\265\030fGet the country code ass"
-  "ociated with the passed steamid (only av"
-  "ailable for logged-in user or support)\022\304"
-  "\001\n\027CreateFriendInviteToken\022-.CUserAccoun"
-  "t_CreateFriendInviteToken_Request\032..CUse"
-  "rAccount_CreateFriendInviteToken_Respons"
-  "e\"J\202\265\030FCreate a limited-use token that c"
-  "an be used to create a friend request\022\241\001"
-  "\n\025GetFriendInviteTokens\022+.CUserAccount_G"
-  "etFriendInviteTokens_Request\032,.CUserAcco"
-  "unt_GetFriendInviteTokens_Response\"-\202\265\030)"
-  "Get the set of active tokens for the use"
-  "r\022\233\001\n\025ViewFriendInviteToken\022+.CUserAccou"
-  "nt_ViewFriendInviteToken_Request\032,.CUser"
-  "Account_ViewFriendInviteToken_Response\"\'"
-  "\202\265\030#View details about an invite token \022"
-  "\267\001\n\027RedeemFriendInviteToken\022-.CUserAccou"
-  "nt_RedeemFriendInviteToken_Request\032..CUs"
-  "erAccount_RedeemFriendInviteToken_Respon"
-  "se\"=\202\265\0309Create a friend relationship usi"
-  "ng the given invite token\022\242\001\n\027RevokeFrie"
-  "ndInviteToken\022-.CUserAccount_RevokeFrien"
-  "dInviteToken_Request\032..CUserAccount_Revo"
-  "keFriendInviteToken_Response\"(\202\265\030$Revoke"
-  " an active friend invite token\022\230\001\n\022Regis"
-  "terCompatTool\022(.CUserAccount_RegisterCom"
-  "patTool_Request\032).CUserAccount_RegisterC"
-  "ompatTool_Response\"-\202\265\030)Register intende"
-  "d account usage of a tool\032-\202\265\030)A service"
-  " to get user account information2\235\002\n\016Acc"
-  "ountLinking\022\323\001\n\024GetLinkedAccountInfo\022-.C"
-  "AccountLinking_GetLinkedAccountInfo_Requ"
-  "est\032..CAccountLinking_GetLinkedAccountIn"
-  "fo_Response\"\\\202\265\030XList all my active link"
-  "ed external accounts; may be requested t"
-  "o return the access token\0325\202\265\0301A service"
-  " to manage and link to external accounts"
-  "2\244\002\n\016EmbeddedClient\022\301\001\n\026AuthorizeCurrent"
-  "Device\022/.CEmbeddedClient_AuthorizeCurren"
-  "tDevice_Request\032).CEmbeddedClient_Author"
-  "izeDevice_Response\"K\202\265\030GUse a logged-in "
-  "(password/etc) session to create a durab"
-  "le access token\032N\202\265\030JService to authoriz"
-  "e and manage Steam functions directly em"
-  "bedded in gamesB\035\200\001\001\252\002\027OpenSteamworks.Pr"
+  "Type:\031EInternalSteamAccountType\022\022\n\naccou"
+  "nt_id\030\002 \001(\004\0224\n\006filter\030\003 \001(\0162\025.EExternalA"
+  "ccountType:\rEExternalNone\022\033\n\023return_acce"
+  "ss_token\030\004 \001(\010\"\205\003\n-CAccountLinking_GetLi"
+  "nkedAccountInfo_Response\022h\n\021external_acc"
+  "ounts\030\001 \003(\0132M.CAccountLinking_GetLinkedA"
+  "ccountInfo_Response.CExternalAccountTupl"
+  "e_Response\032\351\001\n\036CExternalAccountTuple_Res"
+  "ponse\022;\n\rexternal_type\030\001 \001(\0162\025.EExternal"
+  "AccountType:\rEExternalNone\022\023\n\013external_i"
+  "d\030\002 \001(\t\022\032\n\022external_user_name\030\003 \001(\t\022\024\n\014e"
+  "xternal_url\030\004 \001(\t\022\024\n\014access_token\030\005 \001(\t\022"
+  "\033\n\023access_token_secret\030\006 \001(\t\022\020\n\010is_valid"
+  "\030\007 \001(\010\"w\n.CEmbeddedClient_AuthorizeCurre"
+  "ntDevice_Request\022\017\n\007steamid\030\001 \001(\006\022\r\n\005app"
+  "id\030\002 \001(\r\022\023\n\013device_info\030\003 \001(\t\022\020\n\010devicei"
+  "d\030\004 \001(\r\"`\n\025CEmbeddedClient_Token\022\017\n\007stea"
+  "mid\030\001 \001(\006\022\024\n\014client_token\030\002 \001(\014\022\016\n\006expir"
+  "y\030\003 \001(\r\022\020\n\010deviceid\030\004 \001(\r\"a\n(CEmbeddedCl"
+  "ient_AuthorizeDevice_Response\022\016\n\006result\030"
+  "\001 \001(\r\022%\n\005token\030\002 \001(\0132\026.CEmbeddedClient_T"
+  "oken*\205\001\n\024EInternalAccountType\022\035\n\031EIntern"
+  "alSteamAccountType\020\001\022\025\n\021EInternalClanTyp"
+  "e\020\002\022\024\n\020EInternalAppType\020\003\022!\n\035EInternalBr"
+  "oadcastChannelType\020\004*\366\001\n\024EExternalAccoun"
+  "tType\022\021\n\rEExternalNone\020\000\022\031\n\025EExternalSte"
+  "amAccount\020\001\022\032\n\026EExternalGoogleAccount\020\002\022"
+  "\034\n\030EExternalFacebookAccount\020\003\022\033\n\027EExtern"
+  "alTwitterAccount\020\004\022\032\n\026EExternalTwitchAcc"
+  "ount\020\005\022\"\n\036EExternalYouTubeChannelAccount"
+  "\020\006\022\031\n\025EExternalFacebookPage\020\0072\234\n\n\013UserAc"
+  "count\022\234\001\n#GetAvailableValveDiscountPromo"
+  "tions\0229.CUserAccount_GetAvailableValveDi"
+  "scountPromotions_Request\032:.CUserAccount_"
+  "GetAvailableValveDiscountPromotions_Resp"
+  "onse\022o\n\026GetClientWalletDetails\022,.CUserAc"
+  "count_GetClientWalletDetails_Request\032\'.C"
+  "UserAccount_GetWalletDetails_Response\022o\n"
+  "\024GetAccountLinkStatus\022*.CUserAccount_Get"
+  "AccountLinkStatus_Request\032+.CUserAccount"
+  "_GetAccountLinkStatus_Response\022l\n\023Cancel"
+  "LicenseForApp\022).CUserAccount_CancelLicen"
+  "seForApp_Request\032*.CUserAccount_CancelLi"
+  "censeForApp_Response\022]\n\016GetUserCountry\022$"
+  ".CUserAccount_GetUserCountry_Request\032%.C"
+  "UserAccount_GetUserCountry_Response\022x\n\027C"
+  "reateFriendInviteToken\022-.CUserAccount_Cr"
+  "eateFriendInviteToken_Request\032..CUserAcc"
+  "ount_CreateFriendInviteToken_Response\022r\n"
+  "\025GetFriendInviteTokens\022+.CUserAccount_Ge"
+  "tFriendInviteTokens_Request\032,.CUserAccou"
+  "nt_GetFriendInviteTokens_Response\022r\n\025Vie"
+  "wFriendInviteToken\022+.CUserAccount_ViewFr"
+  "iendInviteToken_Request\032,.CUserAccount_V"
+  "iewFriendInviteToken_Response\022x\n\027RedeemF"
+  "riendInviteToken\022-.CUserAccount_RedeemFr"
+  "iendInviteToken_Request\032..CUserAccount_R"
+  "edeemFriendInviteToken_Response\022x\n\027Revok"
+  "eFriendInviteToken\022-.CUserAccount_Revoke"
+  "FriendInviteToken_Request\032..CUserAccount"
+  "_RevokeFriendInviteToken_Response\022i\n\022Reg"
+  "isterCompatTool\022(.CUserAccount_RegisterC"
+  "ompatTool_Request\032).CUserAccount_Registe"
+  "rCompatTool_Response2\207\001\n\016AccountLinking\022"
+  "u\n\024GetLinkedAccountInfo\022-.CAccountLinkin"
+  "g_GetLinkedAccountInfo_Request\032..CAccoun"
+  "tLinking_GetLinkedAccountInfo_Response2\206"
+  "\001\n\016EmbeddedClient\022t\n\026AuthorizeCurrentDev"
+  "ice\022/.CEmbeddedClient_AuthorizeCurrentDe"
+  "vice_Request\032).CEmbeddedClient_Authorize"
+  "Device_ResponseB\035\200\001\001\252\002\027OpenSteamworks.Pr"
   "otobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fuseraccount_2esteamclient_2eproto_deps[3] = {
@@ -967,7 +928,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fuseraccount_2esteamclient_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fuseraccount_2esteamclient_2eproto = {
-  false, false, 7166, descriptor_table_protodef_steammessages_5fuseraccount_2esteamclient_2eproto, "steammessages_useraccount.steamclient.proto", 
+  false, false, 5606, descriptor_table_protodef_steammessages_5fuseraccount_2esteamclient_2eproto, "steammessages_useraccount.steamclient.proto", 
   &descriptor_table_steammessages_5fuseraccount_2esteamclient_2eproto_once, descriptor_table_steammessages_5fuseraccount_2esteamclient_2eproto_deps, 3, 29,
   schemas, file_default_instances, TableStruct_steammessages_5fuseraccount_2esteamclient_2eproto::offsets,
   file_level_metadata_steammessages_5fuseraccount_2esteamclient_2eproto, file_level_enum_descriptors_steammessages_5fuseraccount_2esteamclient_2eproto, file_level_service_descriptors_steammessages_5fuseraccount_2esteamclient_2eproto,
@@ -6857,7 +6818,7 @@ const char* CAccountLinking_GetLinkedAccountInfo_Request::_InternalParse(const c
           }
         } else goto handle_unusual;
         continue;
-      // optional uint64 account_id = 2 [(.description) = "Internal account ID"];
+      // optional uint64 account_id = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_account_id(&has_bits);
@@ -6865,7 +6826,7 @@ const char* CAccountLinking_GetLinkedAccountInfo_Request::_InternalParse(const c
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional .EExternalAccountType filter = 3 [default = EExternalNone, (.description) = "if specified then only return this external account type"];
+      // optional .EExternalAccountType filter = 3 [default = EExternalNone];
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -6877,7 +6838,7 @@ const char* CAccountLinking_GetLinkedAccountInfo_Request::_InternalParse(const c
           }
         } else goto handle_unusual;
         continue;
-      // optional bool return_access_token = 4 [(.description) = "if provided and true, then returns valid access token if available. It may refresh the token. "];
+      // optional bool return_access_token = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
           _Internal::set_has_return_access_token(&has_bits);
@@ -6922,20 +6883,20 @@ failure:
       1, this->_internal_account_type(), target);
   }
 
-  // optional uint64 account_id = 2 [(.description) = "Internal account ID"];
+  // optional uint64 account_id = 2;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(2, this->_internal_account_id(), target);
   }
 
-  // optional .EExternalAccountType filter = 3 [default = EExternalNone, (.description) = "if specified then only return this external account type"];
+  // optional .EExternalAccountType filter = 3 [default = EExternalNone];
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       3, this->_internal_filter(), target);
   }
 
-  // optional bool return_access_token = 4 [(.description) = "if provided and true, then returns valid access token if available. It may refresh the token. "];
+  // optional bool return_access_token = 4;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(4, this->_internal_return_access_token(), target);
@@ -6959,20 +6920,20 @@ size_t CAccountLinking_GetLinkedAccountInfo_Request::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x0000000fu) {
-    // optional uint64 account_id = 2 [(.description) = "Internal account ID"];
+    // optional uint64 account_id = 2;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_account_id());
     }
 
-    // optional .EExternalAccountType filter = 3 [default = EExternalNone, (.description) = "if specified then only return this external account type"];
+    // optional .EExternalAccountType filter = 3 [default = EExternalNone];
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_filter());
     }
 
-    // optional bool return_access_token = 4 [(.description) = "if provided and true, then returns valid access token if available. It may refresh the token. "];
+    // optional bool return_access_token = 4;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 + 1;
     }
@@ -7228,7 +7189,7 @@ const char* CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_
           }
         } else goto handle_unusual;
         continue;
-      // optional string external_id = 2 [(.description) = "unique external account identifier"];
+      // optional string external_id = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           auto str = _internal_mutable_external_id();
@@ -7239,7 +7200,7 @@ const char* CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string external_user_name = 3 [(.description) = "user readable; best effort"];
+      // optional string external_user_name = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           auto str = _internal_mutable_external_user_name();
@@ -7250,7 +7211,7 @@ const char* CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string external_url = 4 [(.description) = "required for all, can be a sentinal to verify correctness"];
+      // optional string external_url = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
           auto str = _internal_mutable_external_url();
@@ -7261,7 +7222,7 @@ const char* CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string access_token = 5 [(.description) = "provided if requeest and it was valid."];
+      // optional string access_token = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
           auto str = _internal_mutable_access_token();
@@ -7272,7 +7233,7 @@ const char* CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string access_token_secret = 6 [(.description) = "required for OAuth v1 and signing the message, provided with access token."];
+      // optional string access_token_secret = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
           auto str = _internal_mutable_access_token_secret();
@@ -7283,7 +7244,7 @@ const char* CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool is_valid = 7 [(.description) = "If false, it means access token no longer work (expired, disconnected) and the link is now broken. Inform user to refresh."];
+      // optional bool is_valid = 7;
       case 7:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 56)) {
           _Internal::set_has_is_valid(&has_bits);
@@ -7328,7 +7289,7 @@ failure:
       1, this->_internal_external_type(), target);
   }
 
-  // optional string external_id = 2 [(.description) = "unique external account identifier"];
+  // optional string external_id = 2;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_external_id().data(), static_cast<int>(this->_internal_external_id().length()),
@@ -7338,7 +7299,7 @@ failure:
         2, this->_internal_external_id(), target);
   }
 
-  // optional string external_user_name = 3 [(.description) = "user readable; best effort"];
+  // optional string external_user_name = 3;
   if (cached_has_bits & 0x00000002u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_external_user_name().data(), static_cast<int>(this->_internal_external_user_name().length()),
@@ -7348,7 +7309,7 @@ failure:
         3, this->_internal_external_user_name(), target);
   }
 
-  // optional string external_url = 4 [(.description) = "required for all, can be a sentinal to verify correctness"];
+  // optional string external_url = 4;
   if (cached_has_bits & 0x00000004u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_external_url().data(), static_cast<int>(this->_internal_external_url().length()),
@@ -7358,7 +7319,7 @@ failure:
         4, this->_internal_external_url(), target);
   }
 
-  // optional string access_token = 5 [(.description) = "provided if requeest and it was valid."];
+  // optional string access_token = 5;
   if (cached_has_bits & 0x00000008u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_access_token().data(), static_cast<int>(this->_internal_access_token().length()),
@@ -7368,7 +7329,7 @@ failure:
         5, this->_internal_access_token(), target);
   }
 
-  // optional string access_token_secret = 6 [(.description) = "required for OAuth v1 and signing the message, provided with access token."];
+  // optional string access_token_secret = 6;
   if (cached_has_bits & 0x00000010u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_access_token_secret().data(), static_cast<int>(this->_internal_access_token_secret().length()),
@@ -7378,7 +7339,7 @@ failure:
         6, this->_internal_access_token_secret(), target);
   }
 
-  // optional bool is_valid = 7 [(.description) = "If false, it means access token no longer work (expired, disconnected) and the link is now broken. Inform user to refresh."];
+  // optional bool is_valid = 7;
   if (cached_has_bits & 0x00000040u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(7, this->_internal_is_valid(), target);
@@ -7402,35 +7363,35 @@ size_t CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Respo
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x0000007fu) {
-    // optional string external_id = 2 [(.description) = "unique external account identifier"];
+    // optional string external_id = 2;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_external_id());
     }
 
-    // optional string external_user_name = 3 [(.description) = "user readable; best effort"];
+    // optional string external_user_name = 3;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_external_user_name());
     }
 
-    // optional string external_url = 4 [(.description) = "required for all, can be a sentinal to verify correctness"];
+    // optional string external_url = 4;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_external_url());
     }
 
-    // optional string access_token = 5 [(.description) = "provided if requeest and it was valid."];
+    // optional string access_token = 5;
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_access_token());
     }
 
-    // optional string access_token_secret = 6 [(.description) = "required for OAuth v1 and signing the message, provided with access token."];
+    // optional string access_token_secret = 6;
     if (cached_has_bits & 0x00000010u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
@@ -7443,7 +7404,7 @@ size_t CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Respo
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_external_type());
     }
 
-    // optional bool is_valid = 7 [(.description) = "If false, it means access token no longer work (expired, disconnected) and the link is now broken. Inform user to refresh."];
+    // optional bool is_valid = 7;
     if (cached_has_bits & 0x00000040u) {
       total_size += 1 + 1;
     }

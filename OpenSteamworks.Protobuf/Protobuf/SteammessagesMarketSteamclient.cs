@@ -27,32 +27,17 @@ namespace OpenSteamworks.Protobuf {
             "CiZzdGVhbW1lc3NhZ2VzX21hcmtldC5zdGVhbWNsaWVudC5wcm90bxogZ29v",
             "Z2xlL3Byb3RvYnVmL2Rlc2NyaXB0b3IucHJvdG8aGHN0ZWFtbWVzc2FnZXNf",
             "YmFzZS5wcm90bxosc3RlYW1tZXNzYWdlc191bmlmaWVkX2Jhc2Uuc3RlYW1j",
-            "bGllbnQucHJvdG8ibgooQ0Vjb25NYXJrZXRfSXNNYXJrZXRwbGFjZUFsbG93",
-            "ZWRfUmVxdWVzdBJCCgl3ZWJjb29raWUYASABKAlCL4K1GCtUaGUgdXNlcidz",
-            "IFN0ZWFtIEd1YXJkIG1hY2hpbmUgYXV0aCBjb29raWUuIvUFCilDRWNvbk1h",
-            "cmtldF9Jc01hcmtldHBsYWNlQWxsb3dlZF9SZXNwb25zZRJJCgdhbGxvd2Vk",
-            "GAEgASgIQjiCtRg0V2hldGhlciBvciBub3QgdGhlIHVzZXIgaXMgYWxsb3dl",
-            "ZCB0byB1c2UgdGhlIG1hcmtldBJLCgZyZWFzb24YAiABKA1CO4K1GDdUaGUg",
-            "cmVhc29uIHRoZSB1c2VyIGNhbid0IHVzZSB0aGUgbWFya2V0LCBpZiBhcHBs",
-            "aWNhYmxlElAKD2FsbG93ZWRfYXRfdGltZRgDIAEoDUI3grUYM1RoZSB0aW1l",
-            "IHRoZSB1c2VyIHdpbGwgYmUgYWxsb3dlZCB0byB1c2UgdGhlIG1hcmtldBKE",
-            "AQoYc3RlYW1ndWFyZF9yZXF1aXJlZF9kYXlzGAQgASgNQmKCtRheVGhlIG51",
-            "bWJlciBvZiBkYXlzIGFueSB1c2VyIGlzIHJlcXVpcmVkIHRvIGhhdmUgaGFk",
-            "IFN0ZWFtIEd1YXJkIGJlZm9yZSB0aGV5IGNhbiB1c2UgdGhlIG1hcmtldBJX",
-            "Cg9mb3Jtc19yZXF1ZXN0ZWQYByABKAhCPoK1GDpXaGV0aGVyIG9yIG5vdCB3",
-            "ZSd2ZSByZXF1ZXN0ZWQgdGhlIHVzZXIgZmlsbCBvdXQgdGF4IGZvcm1zEmgK",
-            "GmZvcm1zX3JlcXVpcmVfdmVyaWZpY2F0aW9uGAggASgIQkSCtRhAVHJ1ZSBp",
-            "ZiB3ZSd2ZSByZWNlaXZlZCBmb3JtcyBidXQgdGhleSByZXF1aXJlIHZlcmlm",
-            "aWNhdGlvbiBmaXJzdBKTAQoYbmV3X2RldmljZV9jb29sZG93bl9kYXlzGAkg",
-            "ASgNQnGCtRhtVGhlIG51bWJlciBvZiBkYXlzIGFmdGVyIGluaXRpYWwgZGV2",
-            "aWNlIGF1dGhvcml6YXRpb24gYSB1c2VyIG11c3Qgd2FpdCBiZWZvcmUgdXNp",
-            "bmcgdGhlIG1hcmtldCBvbiB0aGF0IGRldmljZTLuAQoKRWNvbk1hcmtldBK4",
-            "AQoUSXNNYXJrZXRwbGFjZUFsbG93ZWQSKS5DRWNvbk1hcmtldF9Jc01hcmtl",
-            "dHBsYWNlQWxsb3dlZF9SZXF1ZXN0GiouQ0Vjb25NYXJrZXRfSXNNYXJrZXRw",
-            "bGFjZUFsbG93ZWRfUmVzcG9uc2UiSYK1GEVDaGVja3Mgd2hldGhlciBvciBu",
-            "b3QgdGhlIGF1dGhlZCBhY2NvdW50IGlzIGFsbG93ZWQgdG8gdXNlIHRoZSBt",
-            "YXJrZXQaJYK1GCFBIHNlcnZpY2UgdG8gdXNlIG1hcmtldCBmdW5jdGlvbnNC",
-            "HYABAaoCF09wZW5TdGVhbXdvcmtzLlByb3RvYnVm"));
+            "bGllbnQucHJvdG8iPQooQ0Vjb25NYXJrZXRfSXNNYXJrZXRwbGFjZUFsbG93",
+            "ZWRfUmVxdWVzdBIRCgl3ZWJjb29raWUYASABKAki5gEKKUNFY29uTWFya2V0",
+            "X0lzTWFya2V0cGxhY2VBbGxvd2VkX1Jlc3BvbnNlEg8KB2FsbG93ZWQYASAB",
+            "KAgSDgoGcmVhc29uGAIgASgNEhcKD2FsbG93ZWRfYXRfdGltZRgDIAEoDRIg",
+            "ChhzdGVhbWd1YXJkX3JlcXVpcmVkX2RheXMYBCABKA0SFwoPZm9ybXNfcmVx",
+            "dWVzdGVkGAcgASgIEiIKGmZvcm1zX3JlcXVpcmVfdmVyaWZpY2F0aW9uGAgg",
+            "ASgIEiAKGG5ld19kZXZpY2VfY29vbGRvd25fZGF5cxgJIAEoDTJ7CgpFY29u",
+            "TWFya2V0Em0KFElzTWFya2V0cGxhY2VBbGxvd2VkEikuQ0Vjb25NYXJrZXRf",
+            "SXNNYXJrZXRwbGFjZUFsbG93ZWRfUmVxdWVzdBoqLkNFY29uTWFya2V0X0lz",
+            "TWFya2V0cGxhY2VBbGxvd2VkX1Jlc3BvbnNlQh2AAQGqAhdPcGVuU3RlYW13",
+            "b3Jrcy5Qcm90b2J1Zg=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.Reflection.DescriptorReflection.Descriptor, global::OpenSteamworks.Protobuf.SteammessagesBaseReflection.Descriptor, global::OpenSteamworks.Protobuf.SteammessagesUnifiedBaseSteamclientReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -64,6 +49,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
   #region Messages
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CEconMarket_IsMarketplaceAllowed_Request : pb::IMessage<CEconMarket_IsMarketplaceAllowed_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -267,6 +253,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CEconMarket_IsMarketplaceAllowed_Response : pb::IMessage<CEconMarket_IsMarketplaceAllowed_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage

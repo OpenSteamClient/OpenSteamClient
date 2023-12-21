@@ -1102,248 +1102,162 @@ const char descriptor_table_protodef_steammessages_5fparental_2esteamclient_2epr
   "to\032 google/protobuf/descriptor.proto\032\030st"
   "eammessages_base.proto\032,steammessages_un"
   "ified_base.steamclient.proto\"0\n\013Parental"
-  "App\022\r\n\005appid\030\001 \001(\r\022\022\n\nis_allowed\030\002 \001(\010\"\371"
-  "\001\n\023ParentalPlaytimeDay\022\215\001\n\024allowed_time_"
-  "windows\030\001 \001(\004Bo\202\265\030kA bitfield where each"
-  " bit represents a thirty minute window i"
-  "nto the day, with bit 0 being midnight-1"
-  "2:30AM\022R\n\025allowed_daily_minutes\030\002 \001(\rB3\202"
-  "\265\030/Total number of minutes of playtime f"
-  "or the day\"\225\002\n\034ParentalPlaytimeRestricti"
-  "ons\022`\n\033apply_playtime_restrictions\030\002 \001(\010"
-  "B;\202\265\0307If true, apply the playtime restri"
-  "ctions described here\022\222\001\n\rplaytime_days\030"
-  "\017 \003(\0132\024.ParentalPlaytimeDayBe\202\265\030aPlaytim"
-  "e restrictions for each day of the week."
-  " This will either be empty or will be 7 "
-  "items long\"\330\001\n%ParentalTemporaryPlaytime"
-  "Restrictions\022_\n\014restrictions\030\001 \001(\0132\024.Par"
-  "entalPlaytimeDayB3\202\265\030/Playtime restricti"
-  "ons to be temporarily applied\022N\n\rrtime_e"
-  "xpires\030\002 \001(\rB7\202\265\0303Time at which playtime"
-  " restrictions no longer apply\"\251\004\n\020Parent"
-  "alSettings\022\017\n\007steamid\030\001 \001(\006\022\027\n\017applist_b"
-  "ase_id\030\002 \001(\r\022 \n\030applist_base_description"
-  "\030\003 \001(\t\022\"\n\014applist_base\030\004 \003(\0132\014.ParentalA"
-  "pp\022$\n\016applist_custom\030\005 \003(\0132\014.ParentalApp"
-  "\022\030\n\020passwordhashtype\030\006 \001(\r\022\014\n\004salt\030\007 \001(\014"
-  "\022\024\n\014passwordhash\030\010 \001(\014\022\022\n\nis_enabled\030\t \001"
-  "(\010\022\030\n\020enabled_features\030\n \001(\r\022\026\n\016recovery"
-  "_email\030\013 \001(\t\022\034\n\024is_site_license_lock\030\014 \001"
-  "(\010\022\"\n\032temporary_enabled_features\030\r \001(\r\022*"
-  "\n\"rtime_temporary_feature_expiration\030\016 \001"
-  "(\r\022<\n\025playtime_restrictions\030\017 \001(\0132\035.Pare"
-  "ntalPlaytimeRestrictions\022O\n\037temporary_pl"
-  "aytime_restrictions\030\020 \001(\0132&.ParentalTemp"
-  "oraryPlaytimeRestrictions\"\231\001\n(CParental_"
-  "EnableParentalSettings_Request\022\020\n\010passwo"
-  "rd\030\001 \001(\t\022#\n\010settings\030\002 \001(\0132\021.ParentalSet"
-  "tings\022\021\n\tsessionid\030\003 \001(\t\022\022\n\nenablecode\030\004"
-  " \001(\r\022\017\n\007steamid\030\n \001(\006\"+\n)CParental_Enabl"
-  "eParentalSettings_Response\"N\n)CParental_"
-  "DisableParentalSettings_Request\022\020\n\010passw"
-  "ord\030\001 \001(\t\022\017\n\007steamid\030\n \001(\006\",\n*CParental_"
-  "DisableParentalSettings_Response\"8\n%CPar"
-  "ental_GetParentalSettings_Request\022\017\n\007ste"
-  "amid\030\n \001(\006\"M\n&CParental_GetParentalSetti"
-  "ngs_Response\022#\n\010settings\030\001 \001(\0132\021.Parenta"
-  "lSettings\"\?\n+CParental_GetSignedParental"
-  "Settings_Request\022\020\n\010priority\030\001 \001(\r\"^\n,CP"
-  "arental_GetSignedParentalSettings_Respon"
-  "se\022\033\n\023serialized_settings\030\001 \001(\014\022\021\n\tsigna"
-  "ture\030\002 \001(\014\"\230\001\n%CParental_SetParentalSett"
-  "ings_Request\022\020\n\010password\030\001 \001(\t\022#\n\010settin"
-  "gs\030\002 \001(\0132\021.ParentalSettings\022\024\n\014new_passw"
-  "ord\030\003 \001(\t\022\021\n\tsessionid\030\004 \001(\t\022\017\n\007steamid\030"
-  "\n \001(\006\"(\n&CParental_SetParentalSettings_R"
-  "esponse\"5\n\037CParental_ValidateToken_Reque"
-  "st\022\022\n\nunloctoken\030\001 \001(\t\"\"\n CParental_Vali"
-  "dateToken_Response\"e\n\"CParental_Validate"
-  "Password_Request\022\020\n\010password\030\001 \001(\t\022\017\n\007se"
-  "ssion\030\002 \001(\t\022\034\n\024send_unlocon_success\030\003 \001("
-  "\010\"4\n#CParental_ValidatePassword_Response"
-  "\022\r\n\005token\030\001 \001(\t\"/\n\034CParental_LockClient_"
-  "Request\022\017\n\007session\030\001 \001(\t\"\037\n\035CParental_Lo"
-  "ckClient_Response\"\'\n%CParental_RequestRe"
-  "coveryCode_Request\"(\n&CParental_RequestR"
-  "ecoveryCode_Response\"S\n)CParental_Disabl"
-  "eWithRecoveryCode_Request\022\025\n\rrecovery_co"
-  "de\030\001 \001(\r\022\017\n\007steamid\030\n \001(\006\",\n*CParental_D"
-  "isableWithRecoveryCode_Response\"u\n&CPare"
-  "ntal_RequestFeatureAccess_Request\022:\n\010fea"
-  "tures\030\001 \001(\rB(\202\265\030$Bitfield of features be"
-  "ing requested\022\017\n\007steamid\030\n \001(\006\"<\n\'CParen"
-  "tal_RequestFeatureAccess_Response\022\021\n\treq"
-  "uestid\030\001 \001(\006\"\271\002\n&CParental_ApproveFeatur"
-  "eAccess_Request\0225\n\007approve\030\001 \001(\010B$\202\265\030 Tr"
-  "ue to approve, false to reject\022\021\n\treques"
-  "tid\030\002 \001(\006\022_\n\010features\030\003 \001(\rBM\202\265\030IBitfiel"
-  "d of features being approved. Must match"
-  " the features in requestid\022S\n\010duration\030\004"
-  " \001(\rBA\202\265\030=Length of approval in seconds."
-  " If zero, approval is permanent\022\017\n\007steam"
-  "id\030\n \001(\006\")\n\'CParental_ApproveFeatureAcce"
-  "ss_Response\"\333\002\n!CParental_RequestPlaytim"
-  "e_Request\022o\n\014time_expires\030\001 \001(\rBY\202\265\030Urti"
-  "me at which the request expires. This is"
-  " typically midnight of the next local da"
-  "y.\022\263\001\n\035current_playtime_restrictions\030\002 \001"
-  "(\0132\024.ParentalPlaytimeDayBv\202\265\030rCurrent re"
-  "strictions for the day at the time the r"
-  "equest was made, including previously gr"
-  "anted temporary playtime\022\017\n\007steamid\030\n \001("
-  "\006\"7\n\"CParental_RequestPlaytime_Response\022"
-  "\021\n\trequestid\030\001 \001(\006\"\237\001\n!CParental_Approve"
-  "Playtime_Request\022\017\n\007approve\030\001 \001(\010\022\021\n\treq"
-  "uestid\030\002 \001(\006\022E\n\025restrictions_approved\030\003 "
-  "\001(\0132&.ParentalTemporaryPlaytimeRestricti"
-  "ons\022\017\n\007steamid\030\n \001(\006\"$\n\"CParental_Approv"
-  "ePlaytime_Response\"\360\001\n\035CParental_GetRequ"
-  "ests_Request\022n\n\032rt_include_completed_sin"
-  "ce\030\001 \001(\rBJ\202\265\030FAlso return completed requ"
-  "ests that were responded to after this r"
-  "time\022_\n\007steamid\030\n \001(\006BN\202\265\030JSteamID of th"
-  "e requester. This must be an adult accou"
-  "nt in a family group.\"\261\003\n\026ParentalFeatur"
+  "App\022\r\n\005appid\030\001 \001(\r\022\022\n\nis_allowed\030\002 \001(\010\"R"
+  "\n\023ParentalPlaytimeDay\022\034\n\024allowed_time_wi"
+  "ndows\030\001 \001(\004\022\035\n\025allowed_daily_minutes\030\002 \001"
+  "(\r\"p\n\034ParentalPlaytimeRestrictions\022#\n\033ap"
+  "ply_playtime_restrictions\030\002 \001(\010\022+\n\rplayt"
+  "ime_days\030\017 \003(\0132\024.ParentalPlaytimeDay\"j\n%"
+  "ParentalTemporaryPlaytimeRestrictions\022*\n"
+  "\014restrictions\030\001 \001(\0132\024.ParentalPlaytimeDa"
+  "y\022\025\n\rrtime_expires\030\002 \001(\r\"\251\004\n\020ParentalSet"
+  "tings\022\017\n\007steamid\030\001 \001(\006\022\027\n\017applist_base_i"
+  "d\030\002 \001(\r\022 \n\030applist_base_description\030\003 \001("
+  "\t\022\"\n\014applist_base\030\004 \003(\0132\014.ParentalApp\022$\n"
+  "\016applist_custom\030\005 \003(\0132\014.ParentalApp\022\030\n\020p"
+  "asswordhashtype\030\006 \001(\r\022\014\n\004salt\030\007 \001(\014\022\024\n\014p"
+  "asswordhash\030\010 \001(\014\022\022\n\nis_enabled\030\t \001(\010\022\030\n"
+  "\020enabled_features\030\n \001(\r\022\026\n\016recovery_emai"
+  "l\030\013 \001(\t\022\034\n\024is_site_license_lock\030\014 \001(\010\022\"\n"
+  "\032temporary_enabled_features\030\r \001(\r\022*\n\"rti"
+  "me_temporary_feature_expiration\030\016 \001(\r\022<\n"
+  "\025playtime_restrictions\030\017 \001(\0132\035.ParentalP"
+  "laytimeRestrictions\022O\n\037temporary_playtim"
+  "e_restrictions\030\020 \001(\0132&.ParentalTemporary"
+  "PlaytimeRestrictions\"\231\001\n(CParental_Enabl"
+  "eParentalSettings_Request\022\020\n\010password\030\001 "
+  "\001(\t\022#\n\010settings\030\002 \001(\0132\021.ParentalSettings"
+  "\022\021\n\tsessionid\030\003 \001(\t\022\022\n\nenablecode\030\004 \001(\r\022"
+  "\017\n\007steamid\030\n \001(\006\"+\n)CParental_EnablePare"
+  "ntalSettings_Response\"N\n)CParental_Disab"
+  "leParentalSettings_Request\022\020\n\010password\030\001"
+  " \001(\t\022\017\n\007steamid\030\n \001(\006\",\n*CParental_Disab"
+  "leParentalSettings_Response\"8\n%CParental"
+  "_GetParentalSettings_Request\022\017\n\007steamid\030"
+  "\n \001(\006\"M\n&CParental_GetParentalSettings_R"
+  "esponse\022#\n\010settings\030\001 \001(\0132\021.ParentalSett"
+  "ings\"\?\n+CParental_GetSignedParentalSetti"
+  "ngs_Request\022\020\n\010priority\030\001 \001(\r\"^\n,CParent"
+  "al_GetSignedParentalSettings_Response\022\033\n"
+  "\023serialized_settings\030\001 \001(\014\022\021\n\tsignature\030"
+  "\002 \001(\014\"\230\001\n%CParental_SetParentalSettings_"
+  "Request\022\020\n\010password\030\001 \001(\t\022#\n\010settings\030\002 "
+  "\001(\0132\021.ParentalSettings\022\024\n\014new_password\030\003"
+  " \001(\t\022\021\n\tsessionid\030\004 \001(\t\022\017\n\007steamid\030\n \001(\006"
+  "\"(\n&CParental_SetParentalSettings_Respon"
+  "se\"5\n\037CParental_ValidateToken_Request\022\022\n"
+  "\nunloctoken\030\001 \001(\t\"\"\n CParental_ValidateT"
+  "oken_Response\"e\n\"CParental_ValidatePassw"
+  "ord_Request\022\020\n\010password\030\001 \001(\t\022\017\n\007session"
+  "\030\002 \001(\t\022\034\n\024send_unlocon_success\030\003 \001(\010\"4\n#"
+  "CParental_ValidatePassword_Response\022\r\n\005t"
+  "oken\030\001 \001(\t\"/\n\034CParental_LockClient_Reque"
+  "st\022\017\n\007session\030\001 \001(\t\"\037\n\035CParental_LockCli"
+  "ent_Response\"\'\n%CParental_RequestRecover"
+  "yCode_Request\"(\n&CParental_RequestRecove"
+  "ryCode_Response\"S\n)CParental_DisableWith"
+  "RecoveryCode_Request\022\025\n\rrecovery_code\030\001 "
+  "\001(\r\022\017\n\007steamid\030\n \001(\006\",\n*CParental_Disabl"
+  "eWithRecoveryCode_Response\"K\n&CParental_"
+  "RequestFeatureAccess_Request\022\020\n\010features"
+  "\030\001 \001(\r\022\017\n\007steamid\030\n \001(\006\"<\n\'CParental_Req"
+  "uestFeatureAccess_Response\022\021\n\trequestid\030"
+  "\001 \001(\006\"\201\001\n&CParental_ApproveFeatureAccess"
+  "_Request\022\017\n\007approve\030\001 \001(\010\022\021\n\trequestid\030\002"
+  " \001(\006\022\020\n\010features\030\003 \001(\r\022\020\n\010duration\030\004 \001(\r"
+  "\022\017\n\007steamid\030\n \001(\006\")\n\'CParental_ApproveFe"
+  "atureAccess_Response\"\207\001\n!CParental_Reque"
+  "stPlaytime_Request\022\024\n\014time_expires\030\001 \001(\r"
+  "\022;\n\035current_playtime_restrictions\030\002 \001(\0132"
+  "\024.ParentalPlaytimeDay\022\017\n\007steamid\030\n \001(\006\"7"
+  "\n\"CParental_RequestPlaytime_Response\022\021\n\t"
+  "requestid\030\001 \001(\006\"\237\001\n!CParental_ApprovePla"
+  "ytime_Request\022\017\n\007approve\030\001 \001(\010\022\021\n\treques"
+  "tid\030\002 \001(\006\022E\n\025restrictions_approved\030\003 \001(\013"
+  "2&.ParentalTemporaryPlaytimeRestrictions"
+  "\022\017\n\007steamid\030\n \001(\006\"$\n\"CParental_ApprovePl"
+  "aytime_Response\"T\n\035CParental_GetRequests"
+  "_Request\022\"\n\032rt_include_completed_since\030\001"
+  " \001(\r\022\017\n\007steamid\030\n \001(\006\"\303\001\n\026ParentalFeatur"
   "eRequest\022\021\n\trequestid\030\001 \001(\006\022\026\n\016family_gr"
-  "oupid\030\002 \001(\006\022-\n\007steamid\030\003 \001(\006B\034\202\265\030\030Steami"
-  "d of the requester\0224\n\010features\030\004 \001(\rB\"\202\265"
-  "\030\036Bitfield of features requested\0226\n\016time"
-  "_requested\030\005 \001(\rB\036\202\265\030\032rtime the request "
-  "was made\022I\n\010approved\030\006 \001(\010B7\202\265\0303True if "
-  "the request was approved, false if rejec"
-  "ted\022\?\n\021steamid_responder\030\007 \001(\006B$\202\265\030 Stea"
-  "mid of the approver/rejecter\022C\n\016time_res"
-  "ponded\030\010 \001(\rB+\202\265\030\'rtime the request was "
-  "approved/rejected\"\264\006\n\027ParentalPlaytimeRe"
-  "quest\022\021\n\trequestid\030\001 \001(\006\022\026\n\016family_group"
-  "id\030\002 \001(\006\022-\n\007steamid\030\003 \001(\006B\034\202\265\030\030Steamid o"
-  "f the requester\022\263\001\n\035current_playtime_res"
-  "trictions\030\004 \001(\0132\024.ParentalPlaytimeDayBv\202"
-  "\265\030rCurrent restrictions for the day at t"
-  "he time the request was made, including "
-  "previously granted temporary playtime\022o\n"
-  "\014time_expires\030\005 \001(\rBY\202\265\030Urtime at which "
-  "the request expires. This is typically m"
-  "idnight of the next local day.\0226\n\016time_r"
-  "equested\030\006 \001(\rB\036\202\265\030\032rtime the request wa"
-  "s made\022I\n\010approved\030\007 \001(\010B7\202\265\0303True if th"
-  "e request was approved, false if rejecte"
-  "d\022\?\n\021steamid_responder\030\010 \001(\006B$\202\265\030 Steami"
-  "d of the approver/rejecter\022C\n\016time_respo"
-  "nded\030\t \001(\rB+\202\265\030\'rtime the request was ap"
-  "proved/rejected\022\216\001\n\025restrictions_approve"
-  "d\030\n \001(\0132&.ParentalTemporaryPlaytimeRestr"
-  "ictionsBG\202\265\030CFor approved requests, the "
-  "new playtime restrictions after approval"
-  "\"\210\001\n\036CParental_GetRequests_Response\0221\n\020f"
-  "eature_requests\030\001 \003(\0132\027.ParentalFeatureR"
-  "equest\0223\n\021playtime_requests\030\002 \003(\0132\030.Pare"
-  "ntalPlaytimeRequest\"g\n)CParental_ReportP"
-  "laytimeAndNotify_Request\022\023\n\013day_of_week\030"
-  "\001 \001(\r\022\024\n\014minutes_used\030\002 \001(\r\022\017\n\007steamid\030\n"
-  " \001(\006\",\n*CParental_ReportPlaytimeAndNotif"
-  "y_Response\"\204\001\n-CParental_ParentalSetting"
-  "sChange_Notification\022\033\n\023serialized_setti"
-  "ngs\030\001 \001(\014\022\021\n\tsignature\030\002 \001(\014\022\020\n\010password"
-  "\030\003 \001(\t\022\021\n\tsessionid\030\004 \001(\t\"J\n#CParental_P"
-  "arentalUnlocNotification\022\020\n\010password\030\001 \001"
-  "(\t\022\021\n\tsessionid\030\002 \001(\t\"6\n!CParental_Paren"
-  "talLocNotification\022\021\n\tsessionid\030\001 \001(\t\"P\n"
-  "#CParental_PlaytimeUsed_Notification\022\023\n\013"
-  "day_of_week\030\001 \001(\r\022\024\n\014minutes_used\030\002 \001(\r2"
-  "\206\027\n\010Parental\022\320\001\n\026EnableParentalSettings\022"
-  ").CParental_EnableParentalSettings_Reque"
-  "st\032*.CParental_EnableParentalSettings_Re"
-  "sponse\"_\202\265\030[Enable parental settings for"
-  " the logged in account, optionally setti"
-  "ng the current settings\022\253\001\n\027DisableParen"
-  "talSettings\022*.CParental_DisableParentalS"
-  "ettings_Request\032+.CParental_DisableParen"
-  "talSettings_Response\"7\202\265\0303Disable parent"
-  "al settings for the logged in account\022\247\001"
-  "\n\023GetParentalSettings\022&.CParental_GetPar"
-  "entalSettings_Request\032\'.CParental_GetPar"
-  "entalSettings_Response\"\?\202\265\030;Get the curr"
-  "ent parental settings for the logged in "
-  "account\022\350\001\n\031GetSignedParentalSettings\022,."
-  "CParental_GetSignedParentalSettings_Requ"
-  "est\032-.CParental_GetSignedParentalSetting"
-  "s_Response\"n\202\265\030jGet the current parental"
-  " settings for the logged in account in a"
-  " form that can by verified by the receiv"
-  "er\022\247\001\n\023SetParentalSettings\022&.CParental_S"
-  "etParentalSettings_Request\032\'.CParental_S"
-  "etParentalSettings_Response\"\?\202\265\030;Set the"
-  " current parental settings for the logge"
-  "d in account\022\247\001\n\rValidateToken\022 .CParent"
-  "al_ValidateToken_Request\032!.CParental_Val"
-  "idateToken_Response\"Q\202\265\030MCheck if the gi"
-  "ven parental unlock token is correct for"
-  " the logged in account\022\267\001\n\020ValidatePassw"
-  "ord\022#.CParental_ValidatePassword_Request"
-  "\032$.CParental_ValidatePassword_Response\"X"
-  "\202\265\030TValidate the plaintext password for "
-  "the logged in account and return an unlo"
-  "ck token\022\217\001\n\nLockClient\022\035.CParental_Lock"
-  "Client_Request\032\036.CParental_LockClient_Re"
-  "sponse\"B\202\265\030>Notify connected clients tha"
-  "t a lock has occurred in a browser\022\303\001\n\023R"
-  "equestRecoveryCode\022&.CParental_RequestRe"
-  "coveryCode_Request\032\'.CParental_RequestRe"
-  "coveryCode_Response\"[\202\265\030WRequest a recov"
-  "ery code be sent to the recovery email a"
-  "ddress for the specified account\022\252\001\n\027Dis"
-  "ableWithRecoveryCode\022*.CParental_Disable"
-  "WithRecoveryCode_Request\032+.CParental_Dis"
-  "ableWithRecoveryCode_Response\"6\202\265\0302Attem"
-  "pt a recovery unlock on the specified ac"
-  "count\022\252\001\n\024RequestFeatureAccess\022\'.CParent"
-  "al_RequestFeatureAccess_Request\032(.CParen"
-  "tal_RequestFeatureAccess_Response\"\?\202\265\030;R"
-  "equest temporary access to a feature fro"
-  "m a parent account\022\261\001\n\024ApproveFeatureAcc"
-  "ess\022\'.CParental_ApproveFeatureAccess_Req"
-  "uest\032(.CParental_ApproveFeatureAccess_Re"
-  "sponse\"F\202\265\030BApprove or deny temporary ac"
-  "cess to a feature from a child account\022\233"
-  "\001\n\017RequestPlaytime\022\".CParental_RequestPl"
-  "aytime_Request\032#.CParental_RequestPlayti"
-  "me_Response\"\?\202\265\030;Request temporary addit"
-  "ional playtime from a parent account\022\241\001\n"
-  "\017ApprovePlaytime\022\".CParental_ApprovePlay"
-  "time_Request\032#.CParental_ApprovePlaytime"
-  "_Response\"E\202\265\030AApprove or deny a tempora"
-  "ry playtime request from a child account"
-  "\022\273\001\n\013GetRequests\022\036.CParental_GetRequests"
+  "oupid\030\002 \001(\006\022\017\n\007steamid\030\003 \001(\006\022\020\n\010features"
+  "\030\004 \001(\r\022\026\n\016time_requested\030\005 \001(\r\022\020\n\010approv"
+  "ed\030\006 \001(\010\022\031\n\021steamid_responder\030\007 \001(\006\022\026\n\016t"
+  "ime_responded\030\010 \001(\r\"\314\002\n\027ParentalPlaytime"
+  "Request\022\021\n\trequestid\030\001 \001(\006\022\026\n\016family_gro"
+  "upid\030\002 \001(\006\022\017\n\007steamid\030\003 \001(\006\022;\n\035current_p"
+  "laytime_restrictions\030\004 \001(\0132\024.ParentalPla"
+  "ytimeDay\022\024\n\014time_expires\030\005 \001(\r\022\026\n\016time_r"
+  "equested\030\006 \001(\r\022\020\n\010approved\030\007 \001(\010\022\031\n\021stea"
+  "mid_responder\030\010 \001(\006\022\026\n\016time_responded\030\t "
+  "\001(\r\022E\n\025restrictions_approved\030\n \001(\0132&.Par"
+  "entalTemporaryPlaytimeRestrictions\"\210\001\n\036C"
+  "Parental_GetRequests_Response\0221\n\020feature"
+  "_requests\030\001 \003(\0132\027.ParentalFeatureRequest"
+  "\0223\n\021playtime_requests\030\002 \003(\0132\030.ParentalPl"
+  "aytimeRequest\"g\n)CParental_ReportPlaytim"
+  "eAndNotify_Request\022\023\n\013day_of_week\030\001 \001(\r\022"
+  "\024\n\014minutes_used\030\002 \001(\r\022\017\n\007steamid\030\n \001(\006\","
+  "\n*CParental_ReportPlaytimeAndNotify_Resp"
+  "onse\"\204\001\n-CParental_ParentalSettingsChang"
+  "e_Notification\022\033\n\023serialized_settings\030\001 "
+  "\001(\014\022\021\n\tsignature\030\002 \001(\014\022\020\n\010password\030\003 \001(\t"
+  "\022\021\n\tsessionid\030\004 \001(\t\"J\n#CParental_Parenta"
+  "lUnlocNotification\022\020\n\010password\030\001 \001(\t\022\021\n\t"
+  "sessionid\030\002 \001(\t\"6\n!CParental_ParentalLoc"
+  "Notification\022\021\n\tsessionid\030\001 \001(\t\"P\n#CPare"
+  "ntal_PlaytimeUsed_Notification\022\023\n\013day_of"
+  "_week\030\001 \001(\r\022\024\n\014minutes_used\030\002 \001(\r2\351\014\n\010Pa"
+  "rental\022o\n\026EnableParentalSettings\022).CPare"
+  "ntal_EnableParentalSettings_Request\032*.CP"
+  "arental_EnableParentalSettings_Response\022"
+  "r\n\027DisableParentalSettings\022*.CParental_D"
+  "isableParentalSettings_Request\032+.CParent"
+  "al_DisableParentalSettings_Response\022f\n\023G"
+  "etParentalSettings\022&.CParental_GetParent"
+  "alSettings_Request\032\'.CParental_GetParent"
+  "alSettings_Response\022x\n\031GetSignedParental"
+  "Settings\022,.CParental_GetSignedParentalSe"
+  "ttings_Request\032-.CParental_GetSignedPare"
+  "ntalSettings_Response\022f\n\023SetParentalSett"
+  "ings\022&.CParental_SetParentalSettings_Req"
+  "uest\032\'.CParental_SetParentalSettings_Res"
+  "ponse\022T\n\rValidateToken\022 .CParental_Valid"
+  "ateToken_Request\032!.CParental_ValidateTok"
+  "en_Response\022]\n\020ValidatePassword\022#.CParen"
+  "tal_ValidatePassword_Request\032$.CParental"
+  "_ValidatePassword_Response\022K\n\nLockClient"
+  "\022\035.CParental_LockClient_Request\032\036.CParen"
+  "tal_LockClient_Response\022f\n\023RequestRecove"
+  "ryCode\022&.CParental_RequestRecoveryCode_R"
+  "equest\032\'.CParental_RequestRecoveryCode_R"
+  "esponse\022r\n\027DisableWithRecoveryCode\022*.CPa"
+  "rental_DisableWithRecoveryCode_Request\032+"
+  ".CParental_DisableWithRecoveryCode_Respo"
+  "nse\022i\n\024RequestFeatureAccess\022\'.CParental_"
+  "RequestFeatureAccess_Request\032(.CParental"
+  "_RequestFeatureAccess_Response\022i\n\024Approv"
+  "eFeatureAccess\022\'.CParental_ApproveFeatur"
+  "eAccess_Request\032(.CParental_ApproveFeatu"
+  "reAccess_Response\022Z\n\017RequestPlaytime\022\".C"
+  "Parental_RequestPlaytime_Request\032#.CPare"
+  "ntal_RequestPlaytime_Response\022Z\n\017Approve"
+  "Playtime\022\".CParental_ApprovePlaytime_Req"
+  "uest\032#.CParental_ApprovePlaytime_Respons"
+  "e\022N\n\013GetRequests\022\036.CParental_GetRequests"
   "_Request\032\037.CParental_GetRequests_Respons"
-  "e\"k\202\265\030gReturn a list of pending (or pend"
-  "ing and completed) feature and playtime "
-  "requests for the given steamid\022\320\001\n\027Repor"
-  "tPlaytimeAndNotify\022*.CParental_ReportPla"
-  "ytimeAndNotify_Request\032+.CParental_Repor"
-  "tPlaytimeAndNotify_Response\"\\\202\265\030XReport "
-  "playtime for the given account and notif"
-  "y all connected clients of the new resul"
-  "t\032\035\202\265\030\031Parental settings service2\240\005\n\016Par"
-  "entalClient\022\234\001\n\024NotifySettingsChange\022..C"
-  "Parental_ParentalSettingsChange_Notifica"
-  "tion\032\013.NoResponse\"G\202\265\030CNotification from"
-  " server to client of a change in parenta"
-  "l settings\022\222\001\n\014NotifyUnlock\022$.CParental_"
-  "ParentalUnlocNotification\032\013.NoResponse\"O"
-  "\202\265\030KNotification from server to client t"
-  "hat an unlock has occurred in a browser\022"
-  "\213\001\n\nNotifyLock\022\".CParental_ParentalLocNo"
-  "tification\032\013.NoResponse\"L\202\265\030HNotificatio"
-  "n from server to client that a lock has "
-  "occurred in a browser\022\233\001\n\022NotifyPlaytime"
-  "Used\022$.CParental_PlaytimeUsed_Notificati"
-  "on\032\013.NoResponse\"R\202\265\030NNotification from s"
-  "erver to client that playtime has been c"
-  "onsumed by the user\032.\202\265\030&Parental settin"
-  "gs client notifications\300\265\030\002B\035\200\001\001\252\002\027OpenS"
-  "teamworks.Protobuf"
+  "e\022r\n\027ReportPlaytimeAndNotify\022*.CParental"
+  "_ReportPlaytimeAndNotify_Request\032+.CPare"
+  "ntal_ReportPlaytimeAndNotify_Response2\266\002"
+  "\n\016ParentalClient\022S\n\024NotifySettingsChange"
+  "\022..CParental_ParentalSettingsChange_Noti"
+  "fication\032\013.NoResponse\022A\n\014NotifyUnlock\022$."
+  "CParental_ParentalUnlocNotification\032\013.No"
+  "Response\022=\n\nNotifyLock\022\".CParental_Paren"
+  "talLocNotification\032\013.NoResponse\022G\n\022Notif"
+  "yPlaytimeUsed\022$.CParental_PlaytimeUsed_N"
+  "otification\032\013.NoResponse\032\004\300\265\030\002B\035\200\001\001\252\002\027Op"
+  "enSteamworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fparental_2esteamclient_2eproto_deps[3] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
@@ -1352,7 +1266,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fparental_2esteamclient_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fparental_2esteamclient_2eproto = {
-  false, false, 9818, descriptor_table_protodef_steammessages_5fparental_2esteamclient_2eproto, "steammessages_parental.steamclient.proto", 
+  false, false, 6381, descriptor_table_protodef_steammessages_5fparental_2esteamclient_2eproto, "steammessages_parental.steamclient.proto", 
   &descriptor_table_steammessages_5fparental_2esteamclient_2eproto_once, descriptor_table_steammessages_5fparental_2esteamclient_2eproto_deps, 3, 43,
   schemas, file_default_instances, TableStruct_steammessages_5fparental_2esteamclient_2eproto::offsets,
   file_level_metadata_steammessages_5fparental_2esteamclient_2eproto, file_level_enum_descriptors_steammessages_5fparental_2esteamclient_2eproto, file_level_service_descriptors_steammessages_5fparental_2esteamclient_2eproto,
@@ -1693,7 +1607,7 @@ const char* ParentalPlaytimeDay::_InternalParse(const char* ptr, ::PROTOBUF_NAME
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint64 allowed_time_windows = 1 [(.description) = "A bitfield where each bit represents a thirty minute window into the day, with bit 0 being midnight-12:30AM"];
+      // optional uint64 allowed_time_windows = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_allowed_time_windows(&has_bits);
@@ -1701,7 +1615,7 @@ const char* ParentalPlaytimeDay::_InternalParse(const char* ptr, ::PROTOBUF_NAME
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 allowed_daily_minutes = 2 [(.description) = "Total number of minutes of playtime for the day"];
+      // optional uint32 allowed_daily_minutes = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_allowed_daily_minutes(&has_bits);
@@ -1739,13 +1653,13 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint64 allowed_time_windows = 1 [(.description) = "A bitfield where each bit represents a thirty minute window into the day, with bit 0 being midnight-12:30AM"];
+  // optional uint64 allowed_time_windows = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_allowed_time_windows(), target);
   }
 
-  // optional uint32 allowed_daily_minutes = 2 [(.description) = "Total number of minutes of playtime for the day"];
+  // optional uint32 allowed_daily_minutes = 2;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_allowed_daily_minutes(), target);
@@ -1769,14 +1683,14 @@ size_t ParentalPlaytimeDay::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional uint64 allowed_time_windows = 1 [(.description) = "A bitfield where each bit represents a thirty minute window into the day, with bit 0 being midnight-12:30AM"];
+    // optional uint64 allowed_time_windows = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_allowed_time_windows());
     }
 
-    // optional uint32 allowed_daily_minutes = 2 [(.description) = "Total number of minutes of playtime for the day"];
+    // optional uint32 allowed_daily_minutes = 2;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -1932,7 +1846,7 @@ const char* ParentalPlaytimeRestrictions::_InternalParse(const char* ptr, ::PROT
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional bool apply_playtime_restrictions = 2 [(.description) = "If true, apply the playtime restrictions described here"];
+      // optional bool apply_playtime_restrictions = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_apply_playtime_restrictions(&has_bits);
@@ -1940,7 +1854,7 @@ const char* ParentalPlaytimeRestrictions::_InternalParse(const char* ptr, ::PROT
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated .ParentalPlaytimeDay playtime_days = 15 [(.description) = "Playtime restrictions for each day of the week. This will either be empty or will be 7 items long"];
+      // repeated .ParentalPlaytimeDay playtime_days = 15;
       case 15:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 122)) {
           ptr -= 1;
@@ -1982,13 +1896,13 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional bool apply_playtime_restrictions = 2 [(.description) = "If true, apply the playtime restrictions described here"];
+  // optional bool apply_playtime_restrictions = 2;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(2, this->_internal_apply_playtime_restrictions(), target);
   }
 
-  // repeated .ParentalPlaytimeDay playtime_days = 15 [(.description) = "Playtime restrictions for each day of the week. This will either be empty or will be 7 items long"];
+  // repeated .ParentalPlaytimeDay playtime_days = 15;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_playtime_days_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
@@ -2012,14 +1926,14 @@ size_t ParentalPlaytimeRestrictions::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .ParentalPlaytimeDay playtime_days = 15 [(.description) = "Playtime restrictions for each day of the week. This will either be empty or will be 7 items long"];
+  // repeated .ParentalPlaytimeDay playtime_days = 15;
   total_size += 1UL * this->_internal_playtime_days_size();
   for (const auto& msg : this->playtime_days_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  // optional bool apply_playtime_restrictions = 2 [(.description) = "If true, apply the playtime restrictions described here"];
+  // optional bool apply_playtime_restrictions = 2;
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += 1 + 1;
@@ -2182,14 +2096,14 @@ const char* ParentalTemporaryPlaytimeRestrictions::_InternalParse(const char* pt
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional .ParentalPlaytimeDay restrictions = 1 [(.description) = "Playtime restrictions to be temporarily applied"];
+      // optional .ParentalPlaytimeDay restrictions = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           ptr = ctx->ParseMessage(_internal_mutable_restrictions(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 rtime_expires = 2 [(.description) = "Time at which playtime restrictions no longer apply"];
+      // optional uint32 rtime_expires = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_rtime_expires(&has_bits);
@@ -2227,7 +2141,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional .ParentalPlaytimeDay restrictions = 1 [(.description) = "Playtime restrictions to be temporarily applied"];
+  // optional .ParentalPlaytimeDay restrictions = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -2235,7 +2149,7 @@ failure:
         1, _Internal::restrictions(this), target, stream);
   }
 
-  // optional uint32 rtime_expires = 2 [(.description) = "Time at which playtime restrictions no longer apply"];
+  // optional uint32 rtime_expires = 2;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_rtime_expires(), target);
@@ -2259,14 +2173,14 @@ size_t ParentalTemporaryPlaytimeRestrictions::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional .ParentalPlaytimeDay restrictions = 1 [(.description) = "Playtime restrictions to be temporarily applied"];
+    // optional .ParentalPlaytimeDay restrictions = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
           *restrictions_);
     }
 
-    // optional uint32 rtime_expires = 2 [(.description) = "Time at which playtime restrictions no longer apply"];
+    // optional uint32 rtime_expires = 2;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -7511,7 +7425,7 @@ const char* CParental_RequestFeatureAccess_Request::_InternalParse(const char* p
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint32 features = 1 [(.description) = "Bitfield of features being requested"];
+      // optional uint32 features = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_features(&has_bits);
@@ -7557,7 +7471,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint32 features = 1 [(.description) = "Bitfield of features being requested"];
+  // optional uint32 features = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_features(), target);
@@ -7587,7 +7501,7 @@ size_t CParental_RequestFeatureAccess_Request::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional uint32 features = 1 [(.description) = "Bitfield of features being requested"];
+    // optional uint32 features = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -7966,7 +7880,7 @@ const char* CParental_ApproveFeatureAccess_Request::_InternalParse(const char* p
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional bool approve = 1 [(.description) = "True to approve, false to reject"];
+      // optional bool approve = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_approve(&has_bits);
@@ -7982,7 +7896,7 @@ const char* CParental_ApproveFeatureAccess_Request::_InternalParse(const char* p
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
         } else goto handle_unusual;
         continue;
-      // optional uint32 features = 3 [(.description) = "Bitfield of features being approved. Must match the features in requestid"];
+      // optional uint32 features = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           _Internal::set_has_features(&has_bits);
@@ -7990,7 +7904,7 @@ const char* CParental_ApproveFeatureAccess_Request::_InternalParse(const char* p
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 duration = 4 [(.description) = "Length of approval in seconds. If zero, approval is permanent"];
+      // optional uint32 duration = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
           _Internal::set_has_duration(&has_bits);
@@ -8036,7 +7950,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional bool approve = 1 [(.description) = "True to approve, false to reject"];
+  // optional bool approve = 1;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(1, this->_internal_approve(), target);
@@ -8048,13 +7962,13 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(2, this->_internal_requestid(), target);
   }
 
-  // optional uint32 features = 3 [(.description) = "Bitfield of features being approved. Must match the features in requestid"];
+  // optional uint32 features = 3;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_features(), target);
   }
 
-  // optional uint32 duration = 4 [(.description) = "Length of approval in seconds. If zero, approval is permanent"];
+  // optional uint32 duration = 4;
   if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_duration(), target);
@@ -8089,19 +8003,19 @@ size_t CParental_ApproveFeatureAccess_Request::ByteSizeLong() const {
       total_size += 1 + 8;
     }
 
-    // optional bool approve = 1 [(.description) = "True to approve, false to reject"];
+    // optional bool approve = 1;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 + 1;
     }
 
-    // optional uint32 features = 3 [(.description) = "Bitfield of features being approved. Must match the features in requestid"];
+    // optional uint32 features = 3;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_features());
     }
 
-    // optional uint32 duration = 4 [(.description) = "Length of approval in seconds. If zero, approval is permanent"];
+    // optional uint32 duration = 4;
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -8456,7 +8370,7 @@ const char* CParental_RequestPlaytime_Request::_InternalParse(const char* ptr, :
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint32 time_expires = 1 [(.description) = "rtime at which the request expires. This is typically midnight of the next local day."];
+      // optional uint32 time_expires = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_time_expires(&has_bits);
@@ -8464,7 +8378,7 @@ const char* CParental_RequestPlaytime_Request::_InternalParse(const char* ptr, :
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional .ParentalPlaytimeDay current_playtime_restrictions = 2 [(.description) = "Current restrictions for the day at the time the request was made, including previously granted temporary playtime"];
+      // optional .ParentalPlaytimeDay current_playtime_restrictions = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           ptr = ctx->ParseMessage(_internal_mutable_current_playtime_restrictions(), ptr);
@@ -8509,13 +8423,13 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint32 time_expires = 1 [(.description) = "rtime at which the request expires. This is typically midnight of the next local day."];
+  // optional uint32 time_expires = 1;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_time_expires(), target);
   }
 
-  // optional .ParentalPlaytimeDay current_playtime_restrictions = 2 [(.description) = "Current restrictions for the day at the time the request was made, including previously granted temporary playtime"];
+  // optional .ParentalPlaytimeDay current_playtime_restrictions = 2;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -8547,14 +8461,14 @@ size_t CParental_RequestPlaytime_Request::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000007u) {
-    // optional .ParentalPlaytimeDay current_playtime_restrictions = 2 [(.description) = "Current restrictions for the day at the time the request was made, including previously granted temporary playtime"];
+    // optional .ParentalPlaytimeDay current_playtime_restrictions = 2;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
           *current_playtime_restrictions_);
     }
 
-    // optional uint32 time_expires = 1 [(.description) = "rtime at which the request expires. This is typically midnight of the next local day."];
+    // optional uint32 time_expires = 1;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -9397,7 +9311,7 @@ const char* CParental_GetRequests_Request::_InternalParse(const char* ptr, ::PRO
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint32 rt_include_completed_since = 1 [(.description) = "Also return completed requests that were responded to after this rtime"];
+      // optional uint32 rt_include_completed_since = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_rt_include_completed_since(&has_bits);
@@ -9405,7 +9319,7 @@ const char* CParental_GetRequests_Request::_InternalParse(const char* ptr, ::PRO
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional fixed64 steamid = 10 [(.description) = "SteamID of the requester. This must be an adult account in a family group."];
+      // optional fixed64 steamid = 10;
       case 10:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 81)) {
           _Internal::set_has_steamid(&has_bits);
@@ -9443,13 +9357,13 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint32 rt_include_completed_since = 1 [(.description) = "Also return completed requests that were responded to after this rtime"];
+  // optional uint32 rt_include_completed_since = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_rt_include_completed_since(), target);
   }
 
-  // optional fixed64 steamid = 10 [(.description) = "SteamID of the requester. This must be an adult account in a family group."];
+  // optional fixed64 steamid = 10;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(10, this->_internal_steamid(), target);
@@ -9473,14 +9387,14 @@ size_t CParental_GetRequests_Request::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional uint32 rt_include_completed_since = 1 [(.description) = "Also return completed requests that were responded to after this rtime"];
+    // optional uint32 rt_include_completed_since = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_rt_include_completed_since());
     }
 
-    // optional fixed64 steamid = 10 [(.description) = "SteamID of the requester. This must be an adult account in a family group."];
+    // optional fixed64 steamid = 10;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 + 8;
     }
@@ -9678,7 +9592,7 @@ const char* ParentalFeatureRequest::_InternalParse(const char* ptr, ::PROTOBUF_N
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
         } else goto handle_unusual;
         continue;
-      // optional fixed64 steamid = 3 [(.description) = "Steamid of the requester"];
+      // optional fixed64 steamid = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 25)) {
           _Internal::set_has_steamid(&has_bits);
@@ -9686,7 +9600,7 @@ const char* ParentalFeatureRequest::_InternalParse(const char* ptr, ::PROTOBUF_N
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
         } else goto handle_unusual;
         continue;
-      // optional uint32 features = 4 [(.description) = "Bitfield of features requested"];
+      // optional uint32 features = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
           _Internal::set_has_features(&has_bits);
@@ -9694,7 +9608,7 @@ const char* ParentalFeatureRequest::_InternalParse(const char* ptr, ::PROTOBUF_N
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 time_requested = 5 [(.description) = "rtime the request was made"];
+      // optional uint32 time_requested = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
           _Internal::set_has_time_requested(&has_bits);
@@ -9702,7 +9616,7 @@ const char* ParentalFeatureRequest::_InternalParse(const char* ptr, ::PROTOBUF_N
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool approved = 6 [(.description) = "True if the request was approved, false if rejected"];
+      // optional bool approved = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
           _Internal::set_has_approved(&has_bits);
@@ -9710,7 +9624,7 @@ const char* ParentalFeatureRequest::_InternalParse(const char* ptr, ::PROTOBUF_N
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional fixed64 steamid_responder = 7 [(.description) = "Steamid of the approver/rejecter"];
+      // optional fixed64 steamid_responder = 7;
       case 7:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 57)) {
           _Internal::set_has_steamid_responder(&has_bits);
@@ -9718,7 +9632,7 @@ const char* ParentalFeatureRequest::_InternalParse(const char* ptr, ::PROTOBUF_N
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
         } else goto handle_unusual;
         continue;
-      // optional uint32 time_responded = 8 [(.description) = "rtime the request was approved/rejected"];
+      // optional uint32 time_responded = 8;
       case 8:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 64)) {
           _Internal::set_has_time_responded(&has_bits);
@@ -9768,37 +9682,37 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(2, this->_internal_family_groupid(), target);
   }
 
-  // optional fixed64 steamid = 3 [(.description) = "Steamid of the requester"];
+  // optional fixed64 steamid = 3;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(3, this->_internal_steamid(), target);
   }
 
-  // optional uint32 features = 4 [(.description) = "Bitfield of features requested"];
+  // optional uint32 features = 4;
   if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_features(), target);
   }
 
-  // optional uint32 time_requested = 5 [(.description) = "rtime the request was made"];
+  // optional uint32 time_requested = 5;
   if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(5, this->_internal_time_requested(), target);
   }
 
-  // optional bool approved = 6 [(.description) = "True if the request was approved, false if rejected"];
+  // optional bool approved = 6;
   if (cached_has_bits & 0x00000040u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(6, this->_internal_approved(), target);
   }
 
-  // optional fixed64 steamid_responder = 7 [(.description) = "Steamid of the approver/rejecter"];
+  // optional fixed64 steamid_responder = 7;
   if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(7, this->_internal_steamid_responder(), target);
   }
 
-  // optional uint32 time_responded = 8 [(.description) = "rtime the request was approved/rejected"];
+  // optional uint32 time_responded = 8;
   if (cached_has_bits & 0x00000080u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(8, this->_internal_time_responded(), target);
@@ -9832,36 +9746,36 @@ size_t ParentalFeatureRequest::ByteSizeLong() const {
       total_size += 1 + 8;
     }
 
-    // optional fixed64 steamid = 3 [(.description) = "Steamid of the requester"];
+    // optional fixed64 steamid = 3;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 + 8;
     }
 
-    // optional uint32 features = 4 [(.description) = "Bitfield of features requested"];
+    // optional uint32 features = 4;
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_features());
     }
 
-    // optional uint32 time_requested = 5 [(.description) = "rtime the request was made"];
+    // optional uint32 time_requested = 5;
     if (cached_has_bits & 0x00000010u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_time_requested());
     }
 
-    // optional fixed64 steamid_responder = 7 [(.description) = "Steamid of the approver/rejecter"];
+    // optional fixed64 steamid_responder = 7;
     if (cached_has_bits & 0x00000020u) {
       total_size += 1 + 8;
     }
 
-    // optional bool approved = 6 [(.description) = "True if the request was approved, false if rejected"];
+    // optional bool approved = 6;
     if (cached_has_bits & 0x00000040u) {
       total_size += 1 + 1;
     }
 
-    // optional uint32 time_responded = 8 [(.description) = "rtime the request was approved/rejected"];
+    // optional uint32 time_responded = 8;
     if (cached_has_bits & 0x00000080u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -10122,7 +10036,7 @@ const char* ParentalPlaytimeRequest::_InternalParse(const char* ptr, ::PROTOBUF_
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
         } else goto handle_unusual;
         continue;
-      // optional fixed64 steamid = 3 [(.description) = "Steamid of the requester"];
+      // optional fixed64 steamid = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 25)) {
           _Internal::set_has_steamid(&has_bits);
@@ -10130,14 +10044,14 @@ const char* ParentalPlaytimeRequest::_InternalParse(const char* ptr, ::PROTOBUF_
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
         } else goto handle_unusual;
         continue;
-      // optional .ParentalPlaytimeDay current_playtime_restrictions = 4 [(.description) = "Current restrictions for the day at the time the request was made, including previously granted temporary playtime"];
+      // optional .ParentalPlaytimeDay current_playtime_restrictions = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
           ptr = ctx->ParseMessage(_internal_mutable_current_playtime_restrictions(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 time_expires = 5 [(.description) = "rtime at which the request expires. This is typically midnight of the next local day."];
+      // optional uint32 time_expires = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
           _Internal::set_has_time_expires(&has_bits);
@@ -10145,7 +10059,7 @@ const char* ParentalPlaytimeRequest::_InternalParse(const char* ptr, ::PROTOBUF_
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 time_requested = 6 [(.description) = "rtime the request was made"];
+      // optional uint32 time_requested = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
           _Internal::set_has_time_requested(&has_bits);
@@ -10153,7 +10067,7 @@ const char* ParentalPlaytimeRequest::_InternalParse(const char* ptr, ::PROTOBUF_
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool approved = 7 [(.description) = "True if the request was approved, false if rejected"];
+      // optional bool approved = 7;
       case 7:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 56)) {
           _Internal::set_has_approved(&has_bits);
@@ -10161,7 +10075,7 @@ const char* ParentalPlaytimeRequest::_InternalParse(const char* ptr, ::PROTOBUF_
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional fixed64 steamid_responder = 8 [(.description) = "Steamid of the approver/rejecter"];
+      // optional fixed64 steamid_responder = 8;
       case 8:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 65)) {
           _Internal::set_has_steamid_responder(&has_bits);
@@ -10169,7 +10083,7 @@ const char* ParentalPlaytimeRequest::_InternalParse(const char* ptr, ::PROTOBUF_
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
         } else goto handle_unusual;
         continue;
-      // optional uint32 time_responded = 9 [(.description) = "rtime the request was approved/rejected"];
+      // optional uint32 time_responded = 9;
       case 9:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 72)) {
           _Internal::set_has_time_responded(&has_bits);
@@ -10177,7 +10091,7 @@ const char* ParentalPlaytimeRequest::_InternalParse(const char* ptr, ::PROTOBUF_
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional .ParentalTemporaryPlaytimeRestrictions restrictions_approved = 10 [(.description) = "For approved requests, the new playtime restrictions after approval"];
+      // optional .ParentalTemporaryPlaytimeRestrictions restrictions_approved = 10;
       case 10:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 82)) {
           ptr = ctx->ParseMessage(_internal_mutable_restrictions_approved(), ptr);
@@ -10226,13 +10140,13 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(2, this->_internal_family_groupid(), target);
   }
 
-  // optional fixed64 steamid = 3 [(.description) = "Steamid of the requester"];
+  // optional fixed64 steamid = 3;
   if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(3, this->_internal_steamid(), target);
   }
 
-  // optional .ParentalPlaytimeDay current_playtime_restrictions = 4 [(.description) = "Current restrictions for the day at the time the request was made, including previously granted temporary playtime"];
+  // optional .ParentalPlaytimeDay current_playtime_restrictions = 4;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -10240,37 +10154,37 @@ failure:
         4, _Internal::current_playtime_restrictions(this), target, stream);
   }
 
-  // optional uint32 time_expires = 5 [(.description) = "rtime at which the request expires. This is typically midnight of the next local day."];
+  // optional uint32 time_expires = 5;
   if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(5, this->_internal_time_expires(), target);
   }
 
-  // optional uint32 time_requested = 6 [(.description) = "rtime the request was made"];
+  // optional uint32 time_requested = 6;
   if (cached_has_bits & 0x00000040u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(6, this->_internal_time_requested(), target);
   }
 
-  // optional bool approved = 7 [(.description) = "True if the request was approved, false if rejected"];
+  // optional bool approved = 7;
   if (cached_has_bits & 0x00000100u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(7, this->_internal_approved(), target);
   }
 
-  // optional fixed64 steamid_responder = 8 [(.description) = "Steamid of the approver/rejecter"];
+  // optional fixed64 steamid_responder = 8;
   if (cached_has_bits & 0x00000080u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(8, this->_internal_steamid_responder(), target);
   }
 
-  // optional uint32 time_responded = 9 [(.description) = "rtime the request was approved/rejected"];
+  // optional uint32 time_responded = 9;
   if (cached_has_bits & 0x00000200u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(9, this->_internal_time_responded(), target);
   }
 
-  // optional .ParentalTemporaryPlaytimeRestrictions restrictions_approved = 10 [(.description) = "For approved requests, the new playtime restrictions after approval"];
+  // optional .ParentalTemporaryPlaytimeRestrictions restrictions_approved = 10;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -10296,14 +10210,14 @@ size_t ParentalPlaytimeRequest::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x000000ffu) {
-    // optional .ParentalPlaytimeDay current_playtime_restrictions = 4 [(.description) = "Current restrictions for the day at the time the request was made, including previously granted temporary playtime"];
+    // optional .ParentalPlaytimeDay current_playtime_restrictions = 4;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
           *current_playtime_restrictions_);
     }
 
-    // optional .ParentalTemporaryPlaytimeRestrictions restrictions_approved = 10 [(.description) = "For approved requests, the new playtime restrictions after approval"];
+    // optional .ParentalTemporaryPlaytimeRestrictions restrictions_approved = 10;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
@@ -10320,38 +10234,38 @@ size_t ParentalPlaytimeRequest::ByteSizeLong() const {
       total_size += 1 + 8;
     }
 
-    // optional fixed64 steamid = 3 [(.description) = "Steamid of the requester"];
+    // optional fixed64 steamid = 3;
     if (cached_has_bits & 0x00000010u) {
       total_size += 1 + 8;
     }
 
-    // optional uint32 time_expires = 5 [(.description) = "rtime at which the request expires. This is typically midnight of the next local day."];
+    // optional uint32 time_expires = 5;
     if (cached_has_bits & 0x00000020u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_time_expires());
     }
 
-    // optional uint32 time_requested = 6 [(.description) = "rtime the request was made"];
+    // optional uint32 time_requested = 6;
     if (cached_has_bits & 0x00000040u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_time_requested());
     }
 
-    // optional fixed64 steamid_responder = 8 [(.description) = "Steamid of the approver/rejecter"];
+    // optional fixed64 steamid_responder = 8;
     if (cached_has_bits & 0x00000080u) {
       total_size += 1 + 8;
     }
 
   }
   if (cached_has_bits & 0x00000300u) {
-    // optional bool approved = 7 [(.description) = "True if the request was approved, false if rejected"];
+    // optional bool approved = 7;
     if (cached_has_bits & 0x00000100u) {
       total_size += 1 + 1;
     }
 
-    // optional uint32 time_responded = 9 [(.description) = "rtime the request was approved/rejected"];
+    // optional uint32 time_responded = 9;
     if (cached_has_bits & 0x00000200u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(

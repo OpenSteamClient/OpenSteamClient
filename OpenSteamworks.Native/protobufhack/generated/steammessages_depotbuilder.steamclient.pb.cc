@@ -459,34 +459,25 @@ const char descriptor_table_protodef_steammessages_5fdepotbuilder_2esteamclient_
   "ignInstallScript_Request\022\r\n\005appid\030\001 \001(\r\022"
   "\017\n\007depotid\030\002 \001(\r\022\026\n\016install_script\030\003 \001(\t"
   "\"K\n*CContentBuilder_SignInstallScript_Re"
-  "sponse\022\035\n\025signed_install_script\030\001 \001(\t2\222\010"
-  "\n\016ContentBuilder\022\230\001\n\016InitDepotBuild\022\'.CC"
-  "ontentBuilder_InitDepotBuild_Request\032(.C"
-  "ContentBuilder_InitDepotBuild_Response\"3"
-  "\202\265\030/Get inital parameters to start build"
-  "ing a depot\022\236\001\n\020StartDepotUpload\022).CCont"
-  "entBuilder_StartDepotUpload_Request\032*.CC"
-  "ontentBuilder_StartDepotUpload_Response\""
-  "3\202\265\030/Start uploading manifest and chunks"
-  " for a depot\022\251\001\n\025GetMissingDepotChunks\022."
-  ".CContentBuilder_GetMissingDepotChunks_R"
-  "equest\032/.CContentBuilder_GetMissingDepot"
-  "Chunks_Response\"/\202\265\030+Get list of missing"
-  " chunks for depot upload\022\261\001\n\021FinishDepot"
-  "Upload\022*.CContentBuilder_FinishDepotUplo"
-  "ad_Request\032+.CContentBuilder_FinishDepot"
-  "Upload_Response\"C\202\265\030\?Commit a depot buil"
-  "d after manifest and all chunks are uplo"
-  "aded\022\247\001\n\016CommitAppBuild\022\'.CContentBuilde"
-  "r_CommitAppBuild_Request\032(.CContentBuild"
-  "er_CommitAppBuild_Response\"B\202\265\030>Combine "
-  "previous depot uploads into an app build"
-  " and commit it\022\210\001\n\021SignInstallScript\022*.C"
-  "ContentBuilder_SignInstallScript_Request"
-  "\032+.CContentBuilder_SignInstallScript_Res"
-  "ponse\"\032\202\265\030\026Sign an install script\032/\202\265\030+I"
-  "nterface to build and upload depot conte"
-  "ntB\035\200\001\001\252\002\027OpenSteamworks.Protobuf"
+  "sponse\022\035\n\025signed_install_script\030\001 \001(\t2\233\005"
+  "\n\016ContentBuilder\022c\n\016InitDepotBuild\022\'.CCo"
+  "ntentBuilder_InitDepotBuild_Request\032(.CC"
+  "ontentBuilder_InitDepotBuild_Response\022i\n"
+  "\020StartDepotUpload\022).CContentBuilder_Star"
+  "tDepotUpload_Request\032*.CContentBuilder_S"
+  "tartDepotUpload_Response\022x\n\025GetMissingDe"
+  "potChunks\022..CContentBuilder_GetMissingDe"
+  "potChunks_Request\032/.CContentBuilder_GetM"
+  "issingDepotChunks_Response\022l\n\021FinishDepo"
+  "tUpload\022*.CContentBuilder_FinishDepotUpl"
+  "oad_Request\032+.CContentBuilder_FinishDepo"
+  "tUpload_Response\022c\n\016CommitAppBuild\022\'.CCo"
+  "ntentBuilder_CommitAppBuild_Request\032(.CC"
+  "ontentBuilder_CommitAppBuild_Response\022l\n"
+  "\021SignInstallScript\022*.CContentBuilder_Sig"
+  "nInstallScript_Request\032+.CContentBuilder"
+  "_SignInstallScript_ResponseB\035\200\001\001\252\002\027OpenS"
+  "teamworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fdepotbuilder_2esteamclient_2eproto_deps[3] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
@@ -495,7 +486,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fdepotbuilder_2esteamclient_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fdepotbuilder_2esteamclient_2eproto = {
-  false, false, 2953, descriptor_table_protodef_steammessages_5fdepotbuilder_2esteamclient_2eproto, "steammessages_depotbuilder.steamclient.proto", 
+  false, false, 2578, descriptor_table_protodef_steammessages_5fdepotbuilder_2esteamclient_2eproto, "steammessages_depotbuilder.steamclient.proto", 
   &descriptor_table_steammessages_5fdepotbuilder_2esteamclient_2eproto_once, descriptor_table_steammessages_5fdepotbuilder_2esteamclient_2eproto_deps, 3, 14,
   schemas, file_default_instances, TableStruct_steammessages_5fdepotbuilder_2esteamclient_2eproto::offsets,
   file_level_metadata_steammessages_5fdepotbuilder_2esteamclient_2eproto, file_level_enum_descriptors_steammessages_5fdepotbuilder_2esteamclient_2eproto, file_level_service_descriptors_steammessages_5fdepotbuilder_2esteamclient_2eproto,

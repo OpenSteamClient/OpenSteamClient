@@ -38,20 +38,14 @@ namespace OpenSteamworks.Protobuf {
             "b3dlZBgCIAEoDSIyCiFDVGltZWRUcmlhbF9SZXNldFBsYXl0aW1lX1JlcXVl",
             "c3QSDQoFYXBwaWQYASABKA0iVQoiQ1RpbWVkVHJpYWxfUmVzZXRQbGF5dGlt",
             "ZV9SZXNwb25zZRIWCg5zZWNvbmRzX3BsYXllZBgBIAEoDRIXCg9zZWNvbmRz",
-            "X2FsbG93ZWQYAiABKA0ymwQKClRpbWVkVHJpYWwSrQEKEEdldFRpbWVSZW1h",
-            "aW5pbmcSJS5DVGltZWRUcmlhbF9HZXRUaW1lUmVtYWluaW5nX1JlcXVlc3Qa",
-            "Ji5DVGltZWRUcmlhbF9HZXRUaW1lUmVtYWluaW5nX1Jlc3BvbnNlIkqCtRhG",
-            "UmV0dXJucyB0aGUgYW1vdW50IG9mIHRpbWUgYSB1c2VyIGhhcyBsZWZ0IG9u",
-            "IGEgdGltZWQgdHJpYWwgZm9yIGFuIGFwcBKUAQoOUmVjb3JkUGxheXRpbWUS",
-            "Iy5DVGltZWRUcmlhbF9SZWNvcmRQbGF5dGltZV9SZXF1ZXN0GiQuQ1RpbWVk",
-            "VHJpYWxfUmVjb3JkUGxheXRpbWVfUmVzcG9uc2UiN4K1GDNVcGRhdGVzIHRo",
-            "ZSB1c2VyJ3MgcmVtYWluaW5nIHBsYXl0aW1lIHdoaWxlIGluIGdhbWUSkgEK",
-            "DVJlc2V0UGxheXRpbWUSIi5DVGltZWRUcmlhbF9SZXNldFBsYXl0aW1lX1Jl",
-            "cXVlc3QaIy5DVGltZWRUcmlhbF9SZXNldFBsYXl0aW1lX1Jlc3BvbnNlIjiC",
-            "tRg0UmVzZXQgdGhlIHVzZXIncyByZW1haW5pbmcgcGxheXRpbWUgKGRldmVs",
-            "b3BlciBvbmx5KRoxgrUYLUEgc2VydmljZSB0byBnZXQgdXNlciB0aW1lZCB0",
-            "cmlhbCBpbmZvcm1hdGlvbkIdgAEBqgIXT3BlblN0ZWFtd29ya3MuUHJvdG9i",
-            "dWY="));
+            "X2FsbG93ZWQYAiABKA0ypgIKClRpbWVkVHJpYWwSYQoQR2V0VGltZVJlbWFp",
+            "bmluZxIlLkNUaW1lZFRyaWFsX0dldFRpbWVSZW1haW5pbmdfUmVxdWVzdBom",
+            "LkNUaW1lZFRyaWFsX0dldFRpbWVSZW1haW5pbmdfUmVzcG9uc2USWwoOUmVj",
+            "b3JkUGxheXRpbWUSIy5DVGltZWRUcmlhbF9SZWNvcmRQbGF5dGltZV9SZXF1",
+            "ZXN0GiQuQ1RpbWVkVHJpYWxfUmVjb3JkUGxheXRpbWVfUmVzcG9uc2USWAoN",
+            "UmVzZXRQbGF5dGltZRIiLkNUaW1lZFRyaWFsX1Jlc2V0UGxheXRpbWVfUmVx",
+            "dWVzdBojLkNUaW1lZFRyaWFsX1Jlc2V0UGxheXRpbWVfUmVzcG9uc2VCHYAB",
+            "AaoCF09wZW5TdGVhbXdvcmtzLlByb3RvYnVm"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.Reflection.DescriptorReflection.Descriptor, global::OpenSteamworks.Protobuf.SteammessagesBaseReflection.Descriptor, global::OpenSteamworks.Protobuf.SteammessagesUnifiedBaseSteamclientReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -67,6 +61,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
   #region Messages
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CTimedTrial_GetTimeRemaining_Request : pb::IMessage<CTimedTrial_GetTimeRemaining_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -273,6 +268,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CTimedTrial_GetTimeRemaining_Response : pb::IMessage<CTimedTrial_GetTimeRemaining_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -635,6 +631,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CTimedTrial_RecordPlaytime_Request : pb::IMessage<CTimedTrial_RecordPlaytime_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -893,6 +890,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CTimedTrial_RecordPlaytime_Response : pb::IMessage<CTimedTrial_RecordPlaytime_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1151,6 +1149,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CTimedTrial_ResetPlaytime_Request : pb::IMessage<CTimedTrial_ResetPlaytime_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1357,6 +1356,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CTimedTrial_ResetPlaytime_Response : pb::IMessage<CTimedTrial_ResetPlaytime_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage

@@ -33,15 +33,12 @@ namespace OpenSteamworks.Protobuf {
             "X1Jlc3BvbnNlEg8KB2Zha2VfaXAYASABKAcSEgoKZmFrZV9wb3J0cxgCIAMo",
             "DSJhCipDR2FtZU5ldHdvcmtpbmdfUmVsZWFzZUZha2VJUF9Ob3RpZmljYXRp",
             "b24SDgoGYXBwX2lkGAEgASgNEg8KB2Zha2VfaXAYAiABKAcSEgoKZmFrZV9w",
-            "b3J0cxgDIAMoDTLSAgoOR2FtZU5ldHdvcmtpbmcSjAEKDkFsbG9jYXRlRmFr",
-            "ZUlQEicuQ0dhbWVOZXR3b3JraW5nX0FsbG9jYXRlRmFrZUlQX1JlcXVlc3Qa",
-            "KC5DR2FtZU5ldHdvcmtpbmdfQWxsb2NhdGVGYWtlSVBfUmVzcG9uc2UiJ4K1",
-            "GCNDbGllbnQgaXMgYXNraW5nIHRvIGxlYXNlIGEgRmFrZUlQLhKGAQoTTm90",
-            "aWZ5UmVsZWFzZUZha2VJUBIrLkNHYW1lTmV0d29ya2luZ19SZWxlYXNlRmFr",
-            "ZUlQX05vdGlmaWNhdGlvbhoLLk5vUmVzcG9uc2UiNYK1GDFDbGllbnQgaW5m",
-            "b3JtcyBzZXJ2ZXIgaXQgaXMgZG9uZSB3aXRoIHRoZSBGYWtlSVAuGiiCtRgk",
-            "U2VydmljZXMgdGhhdCBzdXBwb3J0IFAyUCBuZXR3b3JraW5nQh2AAQGqAhdP",
-            "cGVuU3RlYW13b3Jrcy5Qcm90b2J1Zg=="));
+            "b3J0cxgDIAMoDTLGAQoOR2FtZU5ldHdvcmtpbmcSYwoOQWxsb2NhdGVGYWtl",
+            "SVASJy5DR2FtZU5ldHdvcmtpbmdfQWxsb2NhdGVGYWtlSVBfUmVxdWVzdBoo",
+            "LkNHYW1lTmV0d29ya2luZ19BbGxvY2F0ZUZha2VJUF9SZXNwb25zZRJPChNO",
+            "b3RpZnlSZWxlYXNlRmFrZUlQEisuQ0dhbWVOZXR3b3JraW5nX1JlbGVhc2VG",
+            "YWtlSVBfTm90aWZpY2F0aW9uGgsuTm9SZXNwb25zZUIdgAEBqgIXT3BlblN0",
+            "ZWFtd29ya3MuUHJvdG9idWY="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.Reflection.DescriptorReflection.Descriptor, global::OpenSteamworks.Protobuf.SteammessagesBaseReflection.Descriptor, global::OpenSteamworks.Protobuf.SteammessagesUnifiedBaseSteamclientReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -54,6 +51,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
   #region Messages
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CGameNetworking_AllocateFakeIP_Request : pb::IMessage<CGameNetworking_AllocateFakeIP_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -312,6 +310,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CGameNetworking_AllocateFakeIP_Response : pb::IMessage<CGameNetworking_AllocateFakeIP_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -546,6 +545,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CGameNetworking_ReleaseFakeIP_Notification : pb::IMessage<CGameNetworking_ReleaseFakeIP_Notification>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage

@@ -131,9 +131,6 @@ public unsafe interface IClientUser
     public unknown_ret AuthorizeNewDevice();  // argc: 3, index: 65
     public bool GetLanguage(StringBuilder langOut, int maxOut);  // argc: 2, index: 66
     // WARNING: Arguments are unknown!
-    [BlacklistedInCrossProcessIPC]
-    public unknown_ret TrackNatTraversalStat();  // argc: 1, index: 67
-    // WARNING: Arguments are unknown!
     public unknown_ret TrackSteamUsageEvent();  // argc: 3, index: 68
     public unknown_ret SetComputerInUse();  // argc: 0, index: 69
     public bool BIsGameRunning(CGameID gameid);  // argc: 1, index: 70
@@ -211,6 +208,7 @@ public unsafe interface IClientUser
     /// <param name="uUnk2"></param>
     /// <param name="uUnk3"></param>
     /// <returns></returns>
+    // WARNING: Arguments are unknown!
     public unknown_ret SpawnProcess(string lpApplicationName, string lpCommandLine, string lpCurrentDirectory, ref CGameID pGameID, string pchGameName, UInt32 uUnk = 0, UInt32 uUnk2 = 0, UInt32 uUnk3 = 0);  // argc: 9, index: 105
     // WARNING: Arguments are unknown!
     public unknown_ret GetAppOwnershipTicketLength(AppId_t app);  // argc: 1, index: 106
@@ -332,8 +330,6 @@ public unsafe interface IClientUser
     public void SetPhoneIsRequiringVerification(bool val);  // argc: 1, index: 175
     public bool BIsPhoneRequiringVerification();  // argc: 0, index: 176
     // WARNING: Arguments are unknown!
-    public unknown_ret ChangeTwoFactorAuthOptions(int eOption);  // argc: 1, index: 177
-    // WARNING: Arguments are unknown!
     public unknown_ret Set2ndFactorAuthCode(string code, bool remember);  // argc: 2, index: 178
     public void SetUserMachineName(string name);  // argc: 1, index: 179
     public void GetUserMachineName(StringBuilder name, int len);  // argc: 2, index: 180
@@ -413,6 +409,7 @@ public unsafe interface IClientUser
     public bool BGetRecoveryEmail(StringBuilder email, uint strMaxLen);  // argc: 2, index: 215
     public SteamAPICall_t RequestParentalRecoveryEmail();  // argc: 0, index: 216
     public bool BIsLockFromSiteLicense();  // argc: 0, index: 217
+    public unknown_ret EIsParentalPlaytimeBlocked();  // argc: 0, index: 0
     public bool BGetSerializedParentalSettings(CUtlBuffer* serialized);  // argc: 1, index: 218
     public bool BSetParentalSettings(CUtlBuffer* serialized);  // argc: 1, index: 219
     public bool BDisableParentalSettings();  // argc: 0, index: 220

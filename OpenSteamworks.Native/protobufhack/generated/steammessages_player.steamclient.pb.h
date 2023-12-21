@@ -2601,7 +2601,7 @@ class CPlayer_GetOwnedGames_Request PROTOBUF_FINAL :
     kIncludeExtendedAppinfoFieldNumber = 8,
     kSkipUnvettedAppsFieldNumber = 6,
   };
-  // repeated uint32 appids_filter = 4 [(.description) = "if set, restricts result set to the passed in apps"];
+  // repeated uint32 appids_filter = 4;
   int appids_filter_size() const;
   private:
   int _internal_appids_filter_size() const;
@@ -2623,7 +2623,7 @@ class CPlayer_GetOwnedGames_Request PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
       mutable_appids_filter();
 
-  // optional string language = 7 [(.description) = "Will return appinfo in this language"];
+  // optional string language = 7;
   bool has_language() const;
   private:
   bool _internal_has_language() const;
@@ -2643,7 +2643,7 @@ class CPlayer_GetOwnedGames_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_language();
   public:
 
-  // optional uint64 steamid = 1 [(.description) = "The player we\'re asking about"];
+  // optional uint64 steamid = 1;
   bool has_steamid() const;
   private:
   bool _internal_has_steamid() const;
@@ -2656,7 +2656,7 @@ class CPlayer_GetOwnedGames_Request PROTOBUF_FINAL :
   void _internal_set_steamid(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional bool include_appinfo = 2 [(.description) = "true if we want additional details (name, icon) about each game"];
+  // optional bool include_appinfo = 2;
   bool has_include_appinfo() const;
   private:
   bool _internal_has_include_appinfo() const;
@@ -2669,7 +2669,7 @@ class CPlayer_GetOwnedGames_Request PROTOBUF_FINAL :
   void _internal_set_include_appinfo(bool value);
   public:
 
-  // optional bool include_played_free_games = 3 [(.description) = "Free games are excluded by default.  If this is set, free games the user has played will be returned."];
+  // optional bool include_played_free_games = 3;
   bool has_include_played_free_games() const;
   private:
   bool _internal_has_include_played_free_games() const;
@@ -2682,7 +2682,7 @@ class CPlayer_GetOwnedGames_Request PROTOBUF_FINAL :
   void _internal_set_include_played_free_games(bool value);
   public:
 
-  // optional bool include_free_sub = 5 [(.description) = "Some games are in the free sub, which are excluded by default."];
+  // optional bool include_free_sub = 5;
   bool has_include_free_sub() const;
   private:
   bool _internal_has_include_free_sub() const;
@@ -2695,7 +2695,7 @@ class CPlayer_GetOwnedGames_Request PROTOBUF_FINAL :
   void _internal_set_include_free_sub(bool value);
   public:
 
-  // optional bool include_extended_appinfo = 8 [(.description) = "true if we want even more details (capsule, sortas, and capabilities) about each game.  include_appinfo must also be true."];
+  // optional bool include_extended_appinfo = 8;
   bool has_include_extended_appinfo() const;
   private:
   bool _internal_has_include_extended_appinfo() const;
@@ -2708,7 +2708,7 @@ class CPlayer_GetOwnedGames_Request PROTOBUF_FINAL :
   void _internal_set_include_extended_appinfo(bool value);
   public:
 
-  // optional bool skip_unvetted_apps = 6 [default = true, (.description) = "if set, skip unvetted store apps"];
+  // optional bool skip_unvetted_apps = 6 [default = true];
   bool has_skip_unvetted_apps() const;
   private:
   bool _internal_has_skip_unvetted_apps() const;
@@ -5136,7 +5136,7 @@ class CPlayer_GetProfileBackground_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_language();
   public:
 
-  // optional fixed64 steamid = 1 [(.description) = "The player we\'re asking about"];
+  // optional fixed64 steamid = 1;
   bool has_steamid() const;
   private:
   bool _internal_has_steamid() const;
@@ -5287,7 +5287,7 @@ class ProfileItem_ProfileColor PROTOBUF_FINAL :
     kStyleNameFieldNumber = 1,
     kColorFieldNumber = 2,
   };
-  // optional string style_name = 1 [(.description) = "EProfileColorStyle string version"];
+  // optional string style_name = 1;
   bool has_style_name() const;
   private:
   bool _internal_has_style_name() const;
@@ -5307,7 +5307,7 @@ class ProfileItem_ProfileColor PROTOBUF_FINAL :
   std::string* _internal_mutable_style_name();
   public:
 
-  // optional string color = 2 [(.description) = "hex color to apply"];
+  // optional string color = 2;
   bool has_color() const;
   private:
   bool _internal_has_color() const;
@@ -5480,7 +5480,7 @@ class ProfileItem PROTOBUF_FINAL :
     kItemClassFieldNumber = 9,
     kEquippedFlagsFieldNumber = 12,
   };
-  // repeated .ProfileItem.ProfileColor profile_colors = 15 [(.description) = "Game profile css colors"];
+  // repeated .ProfileItem.ProfileColor profile_colors = 15;
   int profile_colors_size() const;
   private:
   int _internal_profile_colors_size() const;
@@ -5498,7 +5498,7 @@ class ProfileItem PROTOBUF_FINAL :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ProfileItem_ProfileColor >&
       profile_colors() const;
 
-  // optional string image_small = 2 [(.description) = "small image used in backpack or selection"];
+  // optional string image_small = 2;
   bool has_image_small() const;
   private:
   bool _internal_has_image_small() const;
@@ -5518,7 +5518,7 @@ class ProfileItem PROTOBUF_FINAL :
   std::string* _internal_mutable_image_small();
   public:
 
-  // optional string image_large = 3 [(.description) = "the image itself"];
+  // optional string image_large = 3;
   bool has_image_large() const;
   private:
   bool _internal_has_image_large() const;
@@ -5538,7 +5538,7 @@ class ProfileItem PROTOBUF_FINAL :
   std::string* _internal_mutable_image_large();
   public:
 
-  // optional string name = 4 [(.description) = "english name"];
+  // optional string name = 4;
   bool has_name() const;
   private:
   bool _internal_has_name() const;
@@ -5558,7 +5558,7 @@ class ProfileItem PROTOBUF_FINAL :
   std::string* _internal_mutable_name();
   public:
 
-  // optional string item_title = 5 [(.description) = "localized title"];
+  // optional string item_title = 5;
   bool has_item_title() const;
   private:
   bool _internal_has_item_title() const;
@@ -5578,7 +5578,7 @@ class ProfileItem PROTOBUF_FINAL :
   std::string* _internal_mutable_item_title();
   public:
 
-  // optional string item_description = 6 [(.description) = "localized description"];
+  // optional string item_description = 6;
   bool has_item_description() const;
   private:
   bool _internal_has_item_description() const;
@@ -5598,7 +5598,7 @@ class ProfileItem PROTOBUF_FINAL :
   std::string* _internal_mutable_item_description();
   public:
 
-  // optional string movie_webm = 10 [(.description) = "URL to webm, if any"];
+  // optional string movie_webm = 10;
   bool has_movie_webm() const;
   private:
   bool _internal_has_movie_webm() const;
@@ -5618,7 +5618,7 @@ class ProfileItem PROTOBUF_FINAL :
   std::string* _internal_mutable_movie_webm();
   public:
 
-  // optional string movie_mp4 = 11 [(.description) = "URL to mp4, if any"];
+  // optional string movie_mp4 = 11;
   bool has_movie_mp4() const;
   private:
   bool _internal_has_movie_mp4() const;
@@ -5638,7 +5638,7 @@ class ProfileItem PROTOBUF_FINAL :
   std::string* _internal_mutable_movie_mp4();
   public:
 
-  // optional string movie_webm_small = 13 [(.description) = "URL to small webm, if any"];
+  // optional string movie_webm_small = 13;
   bool has_movie_webm_small() const;
   private:
   bool _internal_has_movie_webm_small() const;
@@ -5658,7 +5658,7 @@ class ProfileItem PROTOBUF_FINAL :
   std::string* _internal_mutable_movie_webm_small();
   public:
 
-  // optional string movie_mp4_small = 14 [(.description) = "URL to small mp4, if any"];
+  // optional string movie_mp4_small = 14;
   bool has_movie_mp4_small() const;
   private:
   bool _internal_has_movie_mp4_small() const;
@@ -5730,7 +5730,7 @@ class ProfileItem PROTOBUF_FINAL :
   void _internal_set_item_class(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 equipped_flags = 12 [(.description) = "Special flags set when equipped (EProfileItemEquippedFlag)"];
+  // optional uint32 equipped_flags = 12;
   bool has_equipped_flags() const;
   private:
   bool _internal_has_equipped_flags() const;
@@ -6348,7 +6348,7 @@ class CPlayer_GetMiniProfileBackground_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_language();
   public:
 
-  // optional fixed64 steamid = 1 [(.description) = "The player we\'re asking about"];
+  // optional fixed64 steamid = 1;
   bool has_steamid() const;
   private:
   bool _internal_has_steamid() const;
@@ -6953,7 +6953,7 @@ class CPlayer_GetAvatarFrame_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_language();
   public:
 
-  // optional fixed64 steamid = 1 [(.description) = "The player we\'re asking about"];
+  // optional fixed64 steamid = 1;
   bool has_steamid() const;
   private:
   bool _internal_has_steamid() const;
@@ -7558,7 +7558,7 @@ class CPlayer_GetAnimatedAvatar_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_language();
   public:
 
-  // optional fixed64 steamid = 1 [(.description) = "The player we\'re asking about"];
+  // optional fixed64 steamid = 1;
   bool has_steamid() const;
   private:
   bool _internal_has_steamid() const;
@@ -8163,7 +8163,7 @@ class CPlayer_GetSteamDeckKeyboardSkin_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_language();
   public:
 
-  // optional fixed64 steamid = 1 [(.description) = "The player we\'re asking about"];
+  // optional fixed64 steamid = 1;
   bool has_steamid() const;
   private:
   bool _internal_has_steamid() const;
@@ -9634,7 +9634,7 @@ class CPlayer_SetEquippedProfileItemFlags_Request PROTOBUF_FINAL :
   void _internal_set_communityitemid(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional uint32 flags = 2 [(.description) = "Set of EProfileItemEquippedFlag"];
+  // optional uint32 flags = 2;
   bool has_flags() const;
   private:
   bool _internal_has_flags() const;
@@ -10433,7 +10433,7 @@ class CPlayer_GetCommunityBadgeProgress_Request PROTOBUF_FINAL :
     kSteamidFieldNumber = 1,
     kBadgeidFieldNumber = 2,
   };
-  // optional uint64 steamid = 1 [(.description) = "The player we\'re asking about"];
+  // optional uint64 steamid = 1;
   bool has_steamid() const;
   private:
   bool _internal_has_steamid() const;
@@ -10446,7 +10446,7 @@ class CPlayer_GetCommunityBadgeProgress_Request PROTOBUF_FINAL :
   void _internal_set_steamid(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional int32 badgeid = 2 [(.description) = "The badge we\'re asking about"];
+  // optional int32 badgeid = 2;
   bool has_badgeid() const;
   private:
   bool _internal_has_badgeid() const;
@@ -10973,7 +10973,7 @@ class CPlayer_GetTopAchievementsForGames_Request PROTOBUF_FINAL :
   void _internal_set_steamid(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional uint32 max_achievements = 3 [(.description) = "The max achievements to load. Max 8"];
+  // optional uint32 max_achievements = 3;
   bool has_max_achievements() const;
   private:
   bool _internal_has_max_achievements() const;
@@ -11212,7 +11212,7 @@ class CPlayer_GetTopAchievementsForGames_Response_Achievement PROTOBUF_FINAL :
   std::string* _internal_mutable_icon_gray();
   public:
 
-  // optional string player_percent_unlocked = 8 [(.description) = "Formatted to one decimal place, min value is 0.1, max value 100"];
+  // optional string player_percent_unlocked = 8;
   bool has_player_percent_unlocked() const;
   private:
   bool _internal_has_player_percent_unlocked() const;
@@ -12329,7 +12329,7 @@ class CPlayer_GetGameAchievements_Request PROTOBUF_FINAL :
     kLanguageFieldNumber = 2,
     kAppidFieldNumber = 1,
   };
-  // optional string language = 2 [(.description) = "Lowercase, language shortnames"];
+  // optional string language = 2;
   bool has_language() const;
   private:
   bool _internal_has_language() const;
@@ -12505,7 +12505,7 @@ class CPlayer_GetGameAchievements_Response_Achievement PROTOBUF_FINAL :
     kPlayerPercentUnlockedFieldNumber = 7,
     kHiddenFieldNumber = 6,
   };
-  // optional string internal_name = 1 [(.description) = "Will come uppercase, internal facing name set by the partner; needed to associate with user unlock"];
+  // optional string internal_name = 1;
   bool has_internal_name() const;
   private:
   bool _internal_has_internal_name() const;
@@ -12605,7 +12605,7 @@ class CPlayer_GetGameAchievements_Response_Achievement PROTOBUF_FINAL :
   std::string* _internal_mutable_icon_gray();
   public:
 
-  // optional string player_percent_unlocked = 7 [(.description) = "Formatted to one decimal place, min value is 0.1, max value 100"];
+  // optional string player_percent_unlocked = 7;
   bool has_player_percent_unlocked() const;
   private:
   bool _internal_has_player_percent_unlocked() const;
@@ -17416,7 +17416,7 @@ class CPlayer_GetPostedStatus_Request PROTOBUF_FINAL :
     kSteamidFieldNumber = 1,
     kPostidFieldNumber = 2,
   };
-  // optional uint64 steamid = 1 [(.description) = "The player we\'re asking about"];
+  // optional uint64 steamid = 1;
   bool has_steamid() const;
   private:
   bool _internal_has_steamid() const;
@@ -18075,7 +18075,7 @@ class CPlayer_GetLastPlayedTimes_Request PROTOBUF_FINAL :
   enum : int {
     kMinLastPlayedFieldNumber = 1,
   };
-  // optional uint32 min_last_played = 1 [(.description) = "The most recent last-played time the client already knows about"];
+  // optional uint32 min_last_played = 1;
   bool has_min_last_played() const;
   private:
   bool _internal_has_min_last_played() const;
@@ -20645,7 +20645,7 @@ class CPlayer_AddFriend_Request PROTOBUF_FINAL :
   enum : int {
     kSteamidFieldNumber = 1,
   };
-  // optional fixed64 steamid = 1 [(.description) = "Steam ID of user to whom to send a friend invite."];
+  // optional fixed64 steamid = 1;
   bool has_steamid() const;
   private:
   bool _internal_has_steamid() const;
@@ -20796,7 +20796,7 @@ class CPlayer_AddFriend_Response PROTOBUF_FINAL :
     kFriendRelationshipFieldNumber = 2,
     kResultFieldNumber = 3,
   };
-  // optional bool invite_sent = 1 [(.description) = "True if the operation was successful, false otherwise."];
+  // optional bool invite_sent = 1;
   bool has_invite_sent() const;
   private:
   bool _internal_has_invite_sent() const;
@@ -20809,7 +20809,7 @@ class CPlayer_AddFriend_Response PROTOBUF_FINAL :
   void _internal_set_invite_sent(bool value);
   public:
 
-  // optional uint32 friend_relationship = 2 [(.description) = "the resulting relationship.  Depending on state, may move directly to friends rather than invite sent"];
+  // optional uint32 friend_relationship = 2;
   bool has_friend_relationship() const;
   private:
   bool _internal_has_friend_relationship() const;
@@ -20973,7 +20973,7 @@ class CPlayer_RemoveFriend_Request PROTOBUF_FINAL :
   enum : int {
     kSteamidFieldNumber = 1,
   };
-  // optional fixed64 steamid = 1 [(.description) = "Steam ID of friend to remove."];
+  // optional fixed64 steamid = 1;
   bool has_steamid() const;
   private:
   bool _internal_has_steamid() const;
@@ -21122,7 +21122,7 @@ class CPlayer_RemoveFriend_Response PROTOBUF_FINAL :
   enum : int {
     kFriendRelationshipFieldNumber = 1,
   };
-  // optional uint32 friend_relationship = 1 [(.description) = "the resulting relationship"];
+  // optional uint32 friend_relationship = 1;
   bool has_friend_relationship() const;
   private:
   bool _internal_has_friend_relationship() const;
@@ -21285,7 +21285,7 @@ class CPlayer_IgnoreFriend_Request PROTOBUF_FINAL :
   void _internal_set_steamid(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional bool unignore = 2 [(.description) = "If set, remove from ignore/block list instead of adding "];
+  // optional bool unignore = 2;
   bool has_unignore() const;
   private:
   bool _internal_has_unignore() const;
@@ -21435,7 +21435,7 @@ class CPlayer_IgnoreFriend_Response PROTOBUF_FINAL :
   enum : int {
     kFriendRelationshipFieldNumber = 1,
   };
-  // optional uint32 friend_relationship = 1 [(.description) = "the resulting relationship"];
+  // optional uint32 friend_relationship = 1;
   bool has_friend_relationship() const;
   private:
   bool _internal_has_friend_relationship() const;
@@ -28400,7 +28400,7 @@ CPlayer_GetMutualFriendsForIncomingInvites_Response::incoming_invite_mutual_frie
 
 // CPlayer_GetOwnedGames_Request
 
-// optional uint64 steamid = 1 [(.description) = "The player we\'re asking about"];
+// optional uint64 steamid = 1;
 inline bool CPlayer_GetOwnedGames_Request::_internal_has_steamid() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -28428,7 +28428,7 @@ inline void CPlayer_GetOwnedGames_Request::set_steamid(::PROTOBUF_NAMESPACE_ID::
   // @@protoc_insertion_point(field_set:CPlayer_GetOwnedGames_Request.steamid)
 }
 
-// optional bool include_appinfo = 2 [(.description) = "true if we want additional details (name, icon) about each game"];
+// optional bool include_appinfo = 2;
 inline bool CPlayer_GetOwnedGames_Request::_internal_has_include_appinfo() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -28456,7 +28456,7 @@ inline void CPlayer_GetOwnedGames_Request::set_include_appinfo(bool value) {
   // @@protoc_insertion_point(field_set:CPlayer_GetOwnedGames_Request.include_appinfo)
 }
 
-// optional bool include_played_free_games = 3 [(.description) = "Free games are excluded by default.  If this is set, free games the user has played will be returned."];
+// optional bool include_played_free_games = 3;
 inline bool CPlayer_GetOwnedGames_Request::_internal_has_include_played_free_games() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -28484,7 +28484,7 @@ inline void CPlayer_GetOwnedGames_Request::set_include_played_free_games(bool va
   // @@protoc_insertion_point(field_set:CPlayer_GetOwnedGames_Request.include_played_free_games)
 }
 
-// repeated uint32 appids_filter = 4 [(.description) = "if set, restricts result set to the passed in apps"];
+// repeated uint32 appids_filter = 4;
 inline int CPlayer_GetOwnedGames_Request::_internal_appids_filter_size() const {
   return appids_filter_.size();
 }
@@ -28531,7 +28531,7 @@ CPlayer_GetOwnedGames_Request::mutable_appids_filter() {
   return _internal_mutable_appids_filter();
 }
 
-// optional bool include_free_sub = 5 [(.description) = "Some games are in the free sub, which are excluded by default."];
+// optional bool include_free_sub = 5;
 inline bool CPlayer_GetOwnedGames_Request::_internal_has_include_free_sub() const {
   bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
@@ -28559,7 +28559,7 @@ inline void CPlayer_GetOwnedGames_Request::set_include_free_sub(bool value) {
   // @@protoc_insertion_point(field_set:CPlayer_GetOwnedGames_Request.include_free_sub)
 }
 
-// optional bool skip_unvetted_apps = 6 [default = true, (.description) = "if set, skip unvetted store apps"];
+// optional bool skip_unvetted_apps = 6 [default = true];
 inline bool CPlayer_GetOwnedGames_Request::_internal_has_skip_unvetted_apps() const {
   bool value = (_has_bits_[0] & 0x00000040u) != 0;
   return value;
@@ -28587,7 +28587,7 @@ inline void CPlayer_GetOwnedGames_Request::set_skip_unvetted_apps(bool value) {
   // @@protoc_insertion_point(field_set:CPlayer_GetOwnedGames_Request.skip_unvetted_apps)
 }
 
-// optional string language = 7 [(.description) = "Will return appinfo in this language"];
+// optional string language = 7;
 inline bool CPlayer_GetOwnedGames_Request::_internal_has_language() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -28660,7 +28660,7 @@ inline void CPlayer_GetOwnedGames_Request::set_allocated_language(std::string* l
   // @@protoc_insertion_point(field_set_allocated:CPlayer_GetOwnedGames_Request.language)
 }
 
-// optional bool include_extended_appinfo = 8 [(.description) = "true if we want even more details (capsule, sortas, and capabilities) about each game.  include_appinfo must also be true."];
+// optional bool include_extended_appinfo = 8;
 inline bool CPlayer_GetOwnedGames_Request::_internal_has_include_extended_appinfo() const {
   bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
@@ -30365,7 +30365,7 @@ CPlayer_GetGameBadgeLevels_Response::badges() const {
 
 // CPlayer_GetProfileBackground_Request
 
-// optional fixed64 steamid = 1 [(.description) = "The player we\'re asking about"];
+// optional fixed64 steamid = 1;
 inline bool CPlayer_GetProfileBackground_Request::_internal_has_steamid() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -30470,7 +30470,7 @@ inline void CPlayer_GetProfileBackground_Request::set_allocated_language(std::st
 
 // ProfileItem_ProfileColor
 
-// optional string style_name = 1 [(.description) = "EProfileColorStyle string version"];
+// optional string style_name = 1;
 inline bool ProfileItem_ProfileColor::_internal_has_style_name() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -30543,7 +30543,7 @@ inline void ProfileItem_ProfileColor::set_allocated_style_name(std::string* styl
   // @@protoc_insertion_point(field_set_allocated:ProfileItem.ProfileColor.style_name)
 }
 
-// optional string color = 2 [(.description) = "hex color to apply"];
+// optional string color = 2;
 inline bool ProfileItem_ProfileColor::_internal_has_color() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -30648,7 +30648,7 @@ inline void ProfileItem::set_communityitemid(::PROTOBUF_NAMESPACE_ID::uint64 val
   // @@protoc_insertion_point(field_set:ProfileItem.communityitemid)
 }
 
-// optional string image_small = 2 [(.description) = "small image used in backpack or selection"];
+// optional string image_small = 2;
 inline bool ProfileItem::_internal_has_image_small() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -30721,7 +30721,7 @@ inline void ProfileItem::set_allocated_image_small(std::string* image_small) {
   // @@protoc_insertion_point(field_set_allocated:ProfileItem.image_small)
 }
 
-// optional string image_large = 3 [(.description) = "the image itself"];
+// optional string image_large = 3;
 inline bool ProfileItem::_internal_has_image_large() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -30794,7 +30794,7 @@ inline void ProfileItem::set_allocated_image_large(std::string* image_large) {
   // @@protoc_insertion_point(field_set_allocated:ProfileItem.image_large)
 }
 
-// optional string name = 4 [(.description) = "english name"];
+// optional string name = 4;
 inline bool ProfileItem::_internal_has_name() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -30867,7 +30867,7 @@ inline void ProfileItem::set_allocated_name(std::string* name) {
   // @@protoc_insertion_point(field_set_allocated:ProfileItem.name)
 }
 
-// optional string item_title = 5 [(.description) = "localized title"];
+// optional string item_title = 5;
 inline bool ProfileItem::_internal_has_item_title() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -30940,7 +30940,7 @@ inline void ProfileItem::set_allocated_item_title(std::string* item_title) {
   // @@protoc_insertion_point(field_set_allocated:ProfileItem.item_title)
 }
 
-// optional string item_description = 6 [(.description) = "localized description"];
+// optional string item_description = 6;
 inline bool ProfileItem::_internal_has_item_description() const {
   bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
@@ -31097,7 +31097,7 @@ inline void ProfileItem::set_item_class(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   // @@protoc_insertion_point(field_set:ProfileItem.item_class)
 }
 
-// optional string movie_webm = 10 [(.description) = "URL to webm, if any"];
+// optional string movie_webm = 10;
 inline bool ProfileItem::_internal_has_movie_webm() const {
   bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
@@ -31170,7 +31170,7 @@ inline void ProfileItem::set_allocated_movie_webm(std::string* movie_webm) {
   // @@protoc_insertion_point(field_set_allocated:ProfileItem.movie_webm)
 }
 
-// optional string movie_mp4 = 11 [(.description) = "URL to mp4, if any"];
+// optional string movie_mp4 = 11;
 inline bool ProfileItem::_internal_has_movie_mp4() const {
   bool value = (_has_bits_[0] & 0x00000040u) != 0;
   return value;
@@ -31243,7 +31243,7 @@ inline void ProfileItem::set_allocated_movie_mp4(std::string* movie_mp4) {
   // @@protoc_insertion_point(field_set_allocated:ProfileItem.movie_mp4)
 }
 
-// optional string movie_webm_small = 13 [(.description) = "URL to small webm, if any"];
+// optional string movie_webm_small = 13;
 inline bool ProfileItem::_internal_has_movie_webm_small() const {
   bool value = (_has_bits_[0] & 0x00000080u) != 0;
   return value;
@@ -31316,7 +31316,7 @@ inline void ProfileItem::set_allocated_movie_webm_small(std::string* movie_webm_
   // @@protoc_insertion_point(field_set_allocated:ProfileItem.movie_webm_small)
 }
 
-// optional string movie_mp4_small = 14 [(.description) = "URL to small mp4, if any"];
+// optional string movie_mp4_small = 14;
 inline bool ProfileItem::_internal_has_movie_mp4_small() const {
   bool value = (_has_bits_[0] & 0x00000100u) != 0;
   return value;
@@ -31389,7 +31389,7 @@ inline void ProfileItem::set_allocated_movie_mp4_small(std::string* movie_mp4_sm
   // @@protoc_insertion_point(field_set_allocated:ProfileItem.movie_mp4_small)
 }
 
-// optional uint32 equipped_flags = 12 [(.description) = "Special flags set when equipped (EProfileItemEquippedFlag)"];
+// optional uint32 equipped_flags = 12;
 inline bool ProfileItem::_internal_has_equipped_flags() const {
   bool value = (_has_bits_[0] & 0x00002000u) != 0;
   return value;
@@ -31417,7 +31417,7 @@ inline void ProfileItem::set_equipped_flags(::PROTOBUF_NAMESPACE_ID::uint32 valu
   // @@protoc_insertion_point(field_set:ProfileItem.equipped_flags)
 }
 
-// repeated .ProfileItem.ProfileColor profile_colors = 15 [(.description) = "Game profile css colors"];
+// repeated .ProfileItem.ProfileColor profile_colors = 15;
 inline int ProfileItem::_internal_profile_colors_size() const {
   return profile_colors_.size();
 }
@@ -31583,7 +31583,7 @@ inline void CPlayer_SetProfileBackground_Request::set_communityitemid(::PROTOBUF
 
 // CPlayer_GetMiniProfileBackground_Request
 
-// optional fixed64 steamid = 1 [(.description) = "The player we\'re asking about"];
+// optional fixed64 steamid = 1;
 inline bool CPlayer_GetMiniProfileBackground_Request::_internal_has_steamid() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -31811,7 +31811,7 @@ inline void CPlayer_SetMiniProfileBackground_Request::set_communityitemid(::PROT
 
 // CPlayer_GetAvatarFrame_Request
 
-// optional fixed64 steamid = 1 [(.description) = "The player we\'re asking about"];
+// optional fixed64 steamid = 1;
 inline bool CPlayer_GetAvatarFrame_Request::_internal_has_steamid() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -32039,7 +32039,7 @@ inline void CPlayer_SetAvatarFrame_Request::set_communityitemid(::PROTOBUF_NAMES
 
 // CPlayer_GetAnimatedAvatar_Request
 
-// optional fixed64 steamid = 1 [(.description) = "The player we\'re asking about"];
+// optional fixed64 steamid = 1;
 inline bool CPlayer_GetAnimatedAvatar_Request::_internal_has_steamid() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -32267,7 +32267,7 @@ inline void CPlayer_SetAnimatedAvatar_Request::set_communityitemid(::PROTOBUF_NA
 
 // CPlayer_GetSteamDeckKeyboardSkin_Request
 
-// optional fixed64 steamid = 1 [(.description) = "The player we\'re asking about"];
+// optional fixed64 steamid = 1;
 inline bool CPlayer_GetSteamDeckKeyboardSkin_Request::_internal_has_steamid() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -33529,7 +33529,7 @@ inline void CPlayer_SetEquippedProfileItemFlags_Request::set_communityitemid(::P
   // @@protoc_insertion_point(field_set:CPlayer_SetEquippedProfileItemFlags_Request.communityitemid)
 }
 
-// optional uint32 flags = 2 [(.description) = "Set of EProfileItemEquippedFlag"];
+// optional uint32 flags = 2;
 inline bool CPlayer_SetEquippedProfileItemFlags_Request::_internal_has_flags() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -33829,7 +33829,7 @@ CPlayer_GetEmoticonList_Response::emoticons() const {
 
 // CPlayer_GetCommunityBadgeProgress_Request
 
-// optional uint64 steamid = 1 [(.description) = "The player we\'re asking about"];
+// optional uint64 steamid = 1;
 inline bool CPlayer_GetCommunityBadgeProgress_Request::_internal_has_steamid() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -33857,7 +33857,7 @@ inline void CPlayer_GetCommunityBadgeProgress_Request::set_steamid(::PROTOBUF_NA
   // @@protoc_insertion_point(field_set:CPlayer_GetCommunityBadgeProgress_Request.steamid)
 }
 
-// optional int32 badgeid = 2 [(.description) = "The badge we\'re asking about"];
+// optional int32 badgeid = 2;
 inline bool CPlayer_GetCommunityBadgeProgress_Request::_internal_has_badgeid() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -34093,7 +34093,7 @@ inline void CPlayer_GetTopAchievementsForGames_Request::set_allocated_language(s
   // @@protoc_insertion_point(field_set_allocated:CPlayer_GetTopAchievementsForGames_Request.language)
 }
 
-// optional uint32 max_achievements = 3 [(.description) = "The max achievements to load. Max 8"];
+// optional uint32 max_achievements = 3;
 inline bool CPlayer_GetTopAchievementsForGames_Request::_internal_has_max_achievements() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -34548,7 +34548,7 @@ inline void CPlayer_GetTopAchievementsForGames_Response_Achievement::set_hidden(
   // @@protoc_insertion_point(field_set:CPlayer_GetTopAchievementsForGames_Response.Achievement.hidden)
 }
 
-// optional string player_percent_unlocked = 8 [(.description) = "Formatted to one decimal place, min value is 0.1, max value 100"];
+// optional string player_percent_unlocked = 8;
 inline bool CPlayer_GetTopAchievementsForGames_Response_Achievement::_internal_has_player_percent_unlocked() const {
   bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
@@ -35162,7 +35162,7 @@ inline void CPlayer_GetGameAchievements_Request::set_appid(::PROTOBUF_NAMESPACE_
   // @@protoc_insertion_point(field_set:CPlayer_GetGameAchievements_Request.appid)
 }
 
-// optional string language = 2 [(.description) = "Lowercase, language shortnames"];
+// optional string language = 2;
 inline bool CPlayer_GetGameAchievements_Request::_internal_has_language() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -35239,7 +35239,7 @@ inline void CPlayer_GetGameAchievements_Request::set_allocated_language(std::str
 
 // CPlayer_GetGameAchievements_Response_Achievement
 
-// optional string internal_name = 1 [(.description) = "Will come uppercase, internal facing name set by the partner; needed to associate with user unlock"];
+// optional string internal_name = 1;
 inline bool CPlayer_GetGameAchievements_Response_Achievement::_internal_has_internal_name() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -35632,7 +35632,7 @@ inline void CPlayer_GetGameAchievements_Response_Achievement::set_hidden(bool va
   // @@protoc_insertion_point(field_set:CPlayer_GetGameAchievements_Response.Achievement.hidden)
 }
 
-// optional string player_percent_unlocked = 7 [(.description) = "Formatted to one decimal place, min value is 0.1, max value 100"];
+// optional string player_percent_unlocked = 7;
 inline bool CPlayer_GetGameAchievements_Response_Achievement::_internal_has_player_percent_unlocked() const {
   bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
@@ -38083,7 +38083,7 @@ inline void CPlayer_PostStatusToFriends_Request::set_allocated_status_text(std::
 
 // CPlayer_GetPostedStatus_Request
 
-// optional uint64 steamid = 1 [(.description) = "The player we\'re asking about"];
+// optional uint64 steamid = 1;
 inline bool CPlayer_GetPostedStatus_Request::_internal_has_steamid() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -38368,7 +38368,7 @@ inline void CPlayer_DeletePostedStatus_Request::set_postid(::PROTOBUF_NAMESPACE_
 
 // CPlayer_GetLastPlayedTimes_Request
 
-// optional uint32 min_last_played = 1 [(.description) = "The most recent last-played time the client already knows about"];
+// optional uint32 min_last_played = 1;
 inline bool CPlayer_GetLastPlayedTimes_Request::_internal_has_min_last_played() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -39622,7 +39622,7 @@ inline void CPlayer_SetPerFriendPreferences_Request::set_allocated_preferences(:
 
 // CPlayer_AddFriend_Request
 
-// optional fixed64 steamid = 1 [(.description) = "Steam ID of user to whom to send a friend invite."];
+// optional fixed64 steamid = 1;
 inline bool CPlayer_AddFriend_Request::_internal_has_steamid() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -39654,7 +39654,7 @@ inline void CPlayer_AddFriend_Request::set_steamid(::PROTOBUF_NAMESPACE_ID::uint
 
 // CPlayer_AddFriend_Response
 
-// optional bool invite_sent = 1 [(.description) = "True if the operation was successful, false otherwise."];
+// optional bool invite_sent = 1;
 inline bool CPlayer_AddFriend_Response::_internal_has_invite_sent() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -39682,7 +39682,7 @@ inline void CPlayer_AddFriend_Response::set_invite_sent(bool value) {
   // @@protoc_insertion_point(field_set:CPlayer_AddFriend_Response.invite_sent)
 }
 
-// optional uint32 friend_relationship = 2 [(.description) = "the resulting relationship.  Depending on state, may move directly to friends rather than invite sent"];
+// optional uint32 friend_relationship = 2;
 inline bool CPlayer_AddFriend_Response::_internal_has_friend_relationship() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -39742,7 +39742,7 @@ inline void CPlayer_AddFriend_Response::set_result(::PROTOBUF_NAMESPACE_ID::int3
 
 // CPlayer_RemoveFriend_Request
 
-// optional fixed64 steamid = 1 [(.description) = "Steam ID of friend to remove."];
+// optional fixed64 steamid = 1;
 inline bool CPlayer_RemoveFriend_Request::_internal_has_steamid() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -39774,7 +39774,7 @@ inline void CPlayer_RemoveFriend_Request::set_steamid(::PROTOBUF_NAMESPACE_ID::u
 
 // CPlayer_RemoveFriend_Response
 
-// optional uint32 friend_relationship = 1 [(.description) = "the resulting relationship"];
+// optional uint32 friend_relationship = 1;
 inline bool CPlayer_RemoveFriend_Response::_internal_has_friend_relationship() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -39834,7 +39834,7 @@ inline void CPlayer_IgnoreFriend_Request::set_steamid(::PROTOBUF_NAMESPACE_ID::u
   // @@protoc_insertion_point(field_set:CPlayer_IgnoreFriend_Request.steamid)
 }
 
-// optional bool unignore = 2 [(.description) = "If set, remove from ignore/block list instead of adding "];
+// optional bool unignore = 2;
 inline bool CPlayer_IgnoreFriend_Request::_internal_has_unignore() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -39866,7 +39866,7 @@ inline void CPlayer_IgnoreFriend_Request::set_unignore(bool value) {
 
 // CPlayer_IgnoreFriend_Response
 
-// optional uint32 friend_relationship = 1 [(.description) = "the resulting relationship"];
+// optional uint32 friend_relationship = 1;
 inline bool CPlayer_IgnoreFriend_Response::_internal_has_friend_relationship() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;

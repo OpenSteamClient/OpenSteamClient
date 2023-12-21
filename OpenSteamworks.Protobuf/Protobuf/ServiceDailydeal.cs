@@ -25,46 +25,37 @@ namespace OpenSteamworks.Protobuf.WebUI {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChdzZXJ2aWNlX2RhaWx5ZGVhbC5wcm90bxogZ29vZ2xlL3Byb3RvYnVmL2Rl",
-            "c2NyaXB0b3IucHJvdG8aEWNvbW1vbl9iYXNlLnByb3RvIlsKIkNEYWlseURl",
+            "c2NyaXB0b3IucHJvdG8aEWNvbW1vbl9iYXNlLnByb3RvIl8KIkNEYWlseURl",
             "YWxfQ3JlYXRlRGFpbHlEZWFsX1JlcXVlc3QSJgoKZGFpbHlfZGVhbBgBIAEo",
-            "CzISLkNEYWlseURlYWxEZXRhaWxzEg0KBWFwcGlkGAIgASgNIjIKI0NEYWls",
-            "eURlYWxfQ3JlYXRlRGFpbHlEZWFsX1Jlc3BvbnNlEgsKA2dpZBgBIAEoBiIx",
-            "CiJDRGFpbHlEZWFsX0RlbGV0ZURhaWx5RGVhbF9SZXF1ZXN0EgsKA2dpZBgB",
-            "IAEoBiIlCiNDRGFpbHlEZWFsX0RlbGV0ZURhaWx5RGVhbF9SZXNwb25zZSKs",
-            "AQogQ0RhaWx5RGVhbF9HZXREYWlseURlYWxzX1JlcXVlc3QSCwoDZ2lkGAEg",
-            "ASgGEhoKEnJ0aW1lMzJfc3RhcnRfZGF0ZRgCIAEoDRIYChBydGltZTMyX2Vu",
-            "ZF9kYXRlGAMgASgNEg0KBWFwcGlkGAQgASgNEiEKD3N0b3JlX2l0ZW1fdHlw",
-            "ZRgFIAEoBUIIgrUYBGVudW0SEwoLc2VhcmNoX3Rlcm0YBiABKAkiTAohQ0Rh",
-            "aWx5RGVhbF9HZXREYWlseURlYWxzX1Jlc3BvbnNlEicKC2RhaWx5X2RlYWxz",
-            "GAEgAygLMhIuQ0RhaWx5RGVhbERldGFpbHMiWQoiQ0RhaWx5RGVhbF9VcGRh",
-            "dGVEYWlseURlYWxfUmVxdWVzdBImCgpkYWlseV9kZWFsGAEgASgLMhIuQ0Rh",
-            "aWx5RGVhbERldGFpbHMSCwoDZ2lkGAIgASgGIiUKI0NEYWlseURlYWxfVXBk",
-            "YXRlRGFpbHlEZWFsX1Jlc3BvbnNlIrECChFDRGFpbHlEZWFsRGV0YWlscxIL",
-            "CgNnaWQYASABKAYSIQoPc3RvcmVfaXRlbV90eXBlGAIgASgFQgiCtRgEZW51",
-            "bRIVCg1zdG9yZV9pdGVtX2lkGAMgASgNEhcKD3N0b3JlX2l0ZW1fbmFtZRgE",
-            "IAEoCRIZChFkaXNjb3VudF9ldmVudF9pZBgFIAEoDRISCgpjcmVhdG9yX2lk",
-            "GAYgASgNEhoKEnJ0aW1lMzJfc3RhcnRfdGltZRgHIAEoDRIYChBsYXN0X3Vw",
-            "ZGF0ZV90aW1lGAggASgNEhUKDXRlbXBsYXRlX2pzb24YCSABKAkSGAoQcGFy",
-            "dG5lcl9qc29uZGF0YRgKIAEoCRIVCg1pbnRlcm5hbF9qc29uGAsgASgJEg8K",
-            "B2RlbGV0ZWQYDCABKAgy/QIKCURhaWx5RGVhbBJcCg9DcmVhdGVEYWlseURl",
-            "YWwSIy5DRGFpbHlEZWFsX0NyZWF0ZURhaWx5RGVhbF9SZXF1ZXN0GiQuQ0Rh",
-            "aWx5RGVhbF9DcmVhdGVEYWlseURlYWxfUmVzcG9uc2USXAoPRGVsZXRlRGFp",
-            "bHlEZWFsEiMuQ0RhaWx5RGVhbF9EZWxldGVEYWlseURlYWxfUmVxdWVzdBok",
-            "LkNEYWlseURlYWxfRGVsZXRlRGFpbHlEZWFsX1Jlc3BvbnNlElYKDUdldERh",
-            "aWx5RGVhbHMSIS5DRGFpbHlEZWFsX0dldERhaWx5RGVhbHNfUmVxdWVzdBoi",
-            "LkNEYWlseURlYWxfR2V0RGFpbHlEZWFsc19SZXNwb25zZRJcCg9VcGRhdGVE",
-            "YWlseURlYWwSIy5DRGFpbHlEZWFsX1VwZGF0ZURhaWx5RGVhbF9SZXF1ZXN0",
-            "GiQuQ0RhaWx5RGVhbF9VcGRhdGVEYWlseURlYWxfUmVzcG9uc2VCIKoCHU9w",
-            "ZW5TdGVhbXdvcmtzLlByb3RvYnVmLldlYlVJ"));
+            "CzISLkNEYWlseURlYWxEZXRhaWxzEhEKCXBhcnRuZXJpZBgCIAEoDSIyCiND",
+            "RGFpbHlEZWFsX0NyZWF0ZURhaWx5RGVhbF9SZXNwb25zZRILCgNnaWQYASAB",
+            "KAYiMQoiQ0RhaWx5RGVhbF9EZWxldGVEYWlseURlYWxfUmVxdWVzdBILCgNn",
+            "aWQYASABKAYiJQojQ0RhaWx5RGVhbF9EZWxldGVEYWlseURlYWxfUmVzcG9u",
+            "c2UiWQoiQ0RhaWx5RGVhbF9VcGRhdGVEYWlseURlYWxfUmVxdWVzdBImCgpk",
+            "YWlseV9kZWFsGAEgASgLMhIuQ0RhaWx5RGVhbERldGFpbHMSCwoDZ2lkGAIg",
+            "ASgGIiUKI0NEYWlseURlYWxfVXBkYXRlRGFpbHlEZWFsX1Jlc3BvbnNlIrEC",
+            "ChFDRGFpbHlEZWFsRGV0YWlscxILCgNnaWQYASABKAYSIQoPc3RvcmVfaXRl",
+            "bV90eXBlGAIgASgFQgiCtRgEZW51bRIVCg1zdG9yZV9pdGVtX2lkGAMgASgN",
+            "EhcKD3N0b3JlX2l0ZW1fbmFtZRgEIAEoCRIZChFkaXNjb3VudF9ldmVudF9p",
+            "ZBgFIAEoDRISCgpjcmVhdG9yX2lkGAYgASgNEhoKEnJ0aW1lMzJfc3RhcnRf",
+            "dGltZRgHIAEoDRIYChBsYXN0X3VwZGF0ZV90aW1lGAggASgNEhUKDXRlbXBs",
+            "YXRlX2pzb24YCSABKAkSGAoQcGFydG5lcl9qc29uZGF0YRgKIAEoCRIVCg1p",
+            "bnRlcm5hbF9qc29uGAsgASgJEg8KB2RlbGV0ZWQYDCABKAgypQIKCURhaWx5",
+            "RGVhbBJcCg9DcmVhdGVEYWlseURlYWwSIy5DRGFpbHlEZWFsX0NyZWF0ZURh",
+            "aWx5RGVhbF9SZXF1ZXN0GiQuQ0RhaWx5RGVhbF9DcmVhdGVEYWlseURlYWxf",
+            "UmVzcG9uc2USXAoPRGVsZXRlRGFpbHlEZWFsEiMuQ0RhaWx5RGVhbF9EZWxl",
+            "dGVEYWlseURlYWxfUmVxdWVzdBokLkNEYWlseURlYWxfRGVsZXRlRGFpbHlE",
+            "ZWFsX1Jlc3BvbnNlElwKD1VwZGF0ZURhaWx5RGVhbBIjLkNEYWlseURlYWxf",
+            "VXBkYXRlRGFpbHlEZWFsX1JlcXVlc3QaJC5DRGFpbHlEZWFsX1VwZGF0ZURh",
+            "aWx5RGVhbF9SZXNwb25zZUIgqgIdT3BlblN0ZWFtd29ya3MuUHJvdG9idWYu",
+            "V2ViVUk="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.Reflection.DescriptorReflection.Descriptor, global::OpenSteamworks.Protobuf.WebUI.CommonBaseReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CDailyDeal_CreateDailyDeal_Request), global::OpenSteamworks.Protobuf.WebUI.CDailyDeal_CreateDailyDeal_Request.Parser, new[]{ "DailyDeal", "Appid" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CDailyDeal_CreateDailyDeal_Request), global::OpenSteamworks.Protobuf.WebUI.CDailyDeal_CreateDailyDeal_Request.Parser, new[]{ "DailyDeal", "Partnerid" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CDailyDeal_CreateDailyDeal_Response), global::OpenSteamworks.Protobuf.WebUI.CDailyDeal_CreateDailyDeal_Response.Parser, new[]{ "Gid" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CDailyDeal_DeleteDailyDeal_Request), global::OpenSteamworks.Protobuf.WebUI.CDailyDeal_DeleteDailyDeal_Request.Parser, new[]{ "Gid" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CDailyDeal_DeleteDailyDeal_Response), global::OpenSteamworks.Protobuf.WebUI.CDailyDeal_DeleteDailyDeal_Response.Parser, null, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CDailyDeal_GetDailyDeals_Request), global::OpenSteamworks.Protobuf.WebUI.CDailyDeal_GetDailyDeals_Request.Parser, new[]{ "Gid", "Rtime32StartDate", "Rtime32EndDate", "Appid", "StoreItemType", "SearchTerm" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CDailyDeal_GetDailyDeals_Response), global::OpenSteamworks.Protobuf.WebUI.CDailyDeal_GetDailyDeals_Response.Parser, new[]{ "DailyDeals" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CDailyDeal_UpdateDailyDeal_Request), global::OpenSteamworks.Protobuf.WebUI.CDailyDeal_UpdateDailyDeal_Request.Parser, new[]{ "DailyDeal", "Gid" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CDailyDeal_UpdateDailyDeal_Response), global::OpenSteamworks.Protobuf.WebUI.CDailyDeal_UpdateDailyDeal_Response.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CDailyDealDetails), global::OpenSteamworks.Protobuf.WebUI.CDailyDealDetails.Parser, new[]{ "Gid", "StoreItemType", "StoreItemId", "StoreItemName", "DiscountEventId", "CreatorId", "Rtime32StartTime", "LastUpdateTime", "TemplateJson", "PartnerJsondata", "InternalJson", "Deleted" }, null, null, null, null)
@@ -74,6 +65,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
   #region Messages
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CDailyDeal_CreateDailyDeal_Request : pb::IMessage<CDailyDeal_CreateDailyDeal_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -111,7 +103,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     public CDailyDeal_CreateDailyDeal_Request(CDailyDeal_CreateDailyDeal_Request other) : this() {
       _hasBits0 = other._hasBits0;
       dailyDeal_ = other.dailyDeal_ != null ? other.dailyDeal_.Clone() : null;
-      appid_ = other.appid_;
+      partnerid_ = other.partnerid_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -133,30 +125,30 @@ namespace OpenSteamworks.Protobuf.WebUI {
       }
     }
 
-    /// <summary>Field number for the "appid" field.</summary>
-    public const int AppidFieldNumber = 2;
-    private readonly static uint AppidDefaultValue = 0;
+    /// <summary>Field number for the "partnerid" field.</summary>
+    public const int PartneridFieldNumber = 2;
+    private readonly static uint PartneridDefaultValue = 0;
 
-    private uint appid_;
+    private uint partnerid_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint Appid {
-      get { if ((_hasBits0 & 1) != 0) { return appid_; } else { return AppidDefaultValue; } }
+    public uint Partnerid {
+      get { if ((_hasBits0 & 1) != 0) { return partnerid_; } else { return PartneridDefaultValue; } }
       set {
         _hasBits0 |= 1;
-        appid_ = value;
+        partnerid_ = value;
       }
     }
-    /// <summary>Gets whether the "appid" field is set</summary>
+    /// <summary>Gets whether the "partnerid" field is set</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasAppid {
+    public bool HasPartnerid {
       get { return (_hasBits0 & 1) != 0; }
     }
-    /// <summary>Clears the value of the "appid" field</summary>
+    /// <summary>Clears the value of the "partnerid" field</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearAppid() {
+    public void ClearPartnerid() {
       _hasBits0 &= ~1;
     }
 
@@ -176,7 +168,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
         return true;
       }
       if (!object.Equals(DailyDeal, other.DailyDeal)) return false;
-      if (Appid != other.Appid) return false;
+      if (Partnerid != other.Partnerid) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -185,7 +177,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     public override int GetHashCode() {
       int hash = 1;
       if (dailyDeal_ != null) hash ^= DailyDeal.GetHashCode();
-      if (HasAppid) hash ^= Appid.GetHashCode();
+      if (HasPartnerid) hash ^= Partnerid.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -208,9 +200,9 @@ namespace OpenSteamworks.Protobuf.WebUI {
         output.WriteRawTag(10);
         output.WriteMessage(DailyDeal);
       }
-      if (HasAppid) {
+      if (HasPartnerid) {
         output.WriteRawTag(16);
-        output.WriteUInt32(Appid);
+        output.WriteUInt32(Partnerid);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -226,9 +218,9 @@ namespace OpenSteamworks.Protobuf.WebUI {
         output.WriteRawTag(10);
         output.WriteMessage(DailyDeal);
       }
-      if (HasAppid) {
+      if (HasPartnerid) {
         output.WriteRawTag(16);
-        output.WriteUInt32(Appid);
+        output.WriteUInt32(Partnerid);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -243,8 +235,8 @@ namespace OpenSteamworks.Protobuf.WebUI {
       if (dailyDeal_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(DailyDeal);
       }
-      if (HasAppid) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Appid);
+      if (HasPartnerid) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Partnerid);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -264,8 +256,8 @@ namespace OpenSteamworks.Protobuf.WebUI {
         }
         DailyDeal.MergeFrom(other.DailyDeal);
       }
-      if (other.HasAppid) {
-        Appid = other.Appid;
+      if (other.HasPartnerid) {
+        Partnerid = other.Partnerid;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -290,7 +282,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
             break;
           }
           case 16: {
-            Appid = input.ReadUInt32();
+            Partnerid = input.ReadUInt32();
             break;
           }
         }
@@ -316,7 +308,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
             break;
           }
           case 16: {
-            Appid = input.ReadUInt32();
+            Partnerid = input.ReadUInt32();
             break;
           }
         }
@@ -326,6 +318,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CDailyDeal_CreateDailyDeal_Response : pb::IMessage<CDailyDeal_CreateDailyDeal_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -532,6 +525,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CDailyDeal_DeleteDailyDeal_Request : pb::IMessage<CDailyDeal_DeleteDailyDeal_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -738,6 +732,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CDailyDeal_DeleteDailyDeal_Response : pb::IMessage<CDailyDeal_DeleteDailyDeal_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -890,649 +885,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
-  public sealed partial class CDailyDeal_GetDailyDeals_Request : pb::IMessage<CDailyDeal_GetDailyDeals_Request>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<CDailyDeal_GetDailyDeals_Request> _parser = new pb::MessageParser<CDailyDeal_GetDailyDeals_Request>(() => new CDailyDeal_GetDailyDeals_Request());
-    private pb::UnknownFieldSet _unknownFields;
-    private int _hasBits0;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<CDailyDeal_GetDailyDeals_Request> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceDailydealReflection.Descriptor.MessageTypes[4]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CDailyDeal_GetDailyDeals_Request() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CDailyDeal_GetDailyDeals_Request(CDailyDeal_GetDailyDeals_Request other) : this() {
-      _hasBits0 = other._hasBits0;
-      gid_ = other.gid_;
-      rtime32StartDate_ = other.rtime32StartDate_;
-      rtime32EndDate_ = other.rtime32EndDate_;
-      appid_ = other.appid_;
-      storeItemType_ = other.storeItemType_;
-      searchTerm_ = other.searchTerm_;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CDailyDeal_GetDailyDeals_Request Clone() {
-      return new CDailyDeal_GetDailyDeals_Request(this);
-    }
-
-    /// <summary>Field number for the "gid" field.</summary>
-    public const int GidFieldNumber = 1;
-    private readonly static ulong GidDefaultValue = 0UL;
-
-    private ulong gid_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public ulong Gid {
-      get { if ((_hasBits0 & 1) != 0) { return gid_; } else { return GidDefaultValue; } }
-      set {
-        _hasBits0 |= 1;
-        gid_ = value;
-      }
-    }
-    /// <summary>Gets whether the "gid" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasGid {
-      get { return (_hasBits0 & 1) != 0; }
-    }
-    /// <summary>Clears the value of the "gid" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearGid() {
-      _hasBits0 &= ~1;
-    }
-
-    /// <summary>Field number for the "rtime32_start_date" field.</summary>
-    public const int Rtime32StartDateFieldNumber = 2;
-    private readonly static uint Rtime32StartDateDefaultValue = 0;
-
-    private uint rtime32StartDate_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint Rtime32StartDate {
-      get { if ((_hasBits0 & 2) != 0) { return rtime32StartDate_; } else { return Rtime32StartDateDefaultValue; } }
-      set {
-        _hasBits0 |= 2;
-        rtime32StartDate_ = value;
-      }
-    }
-    /// <summary>Gets whether the "rtime32_start_date" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasRtime32StartDate {
-      get { return (_hasBits0 & 2) != 0; }
-    }
-    /// <summary>Clears the value of the "rtime32_start_date" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearRtime32StartDate() {
-      _hasBits0 &= ~2;
-    }
-
-    /// <summary>Field number for the "rtime32_end_date" field.</summary>
-    public const int Rtime32EndDateFieldNumber = 3;
-    private readonly static uint Rtime32EndDateDefaultValue = 0;
-
-    private uint rtime32EndDate_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint Rtime32EndDate {
-      get { if ((_hasBits0 & 4) != 0) { return rtime32EndDate_; } else { return Rtime32EndDateDefaultValue; } }
-      set {
-        _hasBits0 |= 4;
-        rtime32EndDate_ = value;
-      }
-    }
-    /// <summary>Gets whether the "rtime32_end_date" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasRtime32EndDate {
-      get { return (_hasBits0 & 4) != 0; }
-    }
-    /// <summary>Clears the value of the "rtime32_end_date" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearRtime32EndDate() {
-      _hasBits0 &= ~4;
-    }
-
-    /// <summary>Field number for the "appid" field.</summary>
-    public const int AppidFieldNumber = 4;
-    private readonly static uint AppidDefaultValue = 0;
-
-    private uint appid_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint Appid {
-      get { if ((_hasBits0 & 8) != 0) { return appid_; } else { return AppidDefaultValue; } }
-      set {
-        _hasBits0 |= 8;
-        appid_ = value;
-      }
-    }
-    /// <summary>Gets whether the "appid" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasAppid {
-      get { return (_hasBits0 & 8) != 0; }
-    }
-    /// <summary>Clears the value of the "appid" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearAppid() {
-      _hasBits0 &= ~8;
-    }
-
-    /// <summary>Field number for the "store_item_type" field.</summary>
-    public const int StoreItemTypeFieldNumber = 5;
-    private readonly static int StoreItemTypeDefaultValue = 0;
-
-    private int storeItemType_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int StoreItemType {
-      get { if ((_hasBits0 & 16) != 0) { return storeItemType_; } else { return StoreItemTypeDefaultValue; } }
-      set {
-        _hasBits0 |= 16;
-        storeItemType_ = value;
-      }
-    }
-    /// <summary>Gets whether the "store_item_type" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasStoreItemType {
-      get { return (_hasBits0 & 16) != 0; }
-    }
-    /// <summary>Clears the value of the "store_item_type" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearStoreItemType() {
-      _hasBits0 &= ~16;
-    }
-
-    /// <summary>Field number for the "search_term" field.</summary>
-    public const int SearchTermFieldNumber = 6;
-    private readonly static string SearchTermDefaultValue = "";
-
-    private string searchTerm_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string SearchTerm {
-      get { return searchTerm_ ?? SearchTermDefaultValue; }
-      set {
-        searchTerm_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-    /// <summary>Gets whether the "search_term" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasSearchTerm {
-      get { return searchTerm_ != null; }
-    }
-    /// <summary>Clears the value of the "search_term" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearSearchTerm() {
-      searchTerm_ = null;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override bool Equals(object other) {
-      return Equals(other as CDailyDeal_GetDailyDeals_Request);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(CDailyDeal_GetDailyDeals_Request other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (Gid != other.Gid) return false;
-      if (Rtime32StartDate != other.Rtime32StartDate) return false;
-      if (Rtime32EndDate != other.Rtime32EndDate) return false;
-      if (Appid != other.Appid) return false;
-      if (StoreItemType != other.StoreItemType) return false;
-      if (SearchTerm != other.SearchTerm) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (HasGid) hash ^= Gid.GetHashCode();
-      if (HasRtime32StartDate) hash ^= Rtime32StartDate.GetHashCode();
-      if (HasRtime32EndDate) hash ^= Rtime32EndDate.GetHashCode();
-      if (HasAppid) hash ^= Appid.GetHashCode();
-      if (HasStoreItemType) hash ^= StoreItemType.GetHashCode();
-      if (HasSearchTerm) hash ^= SearchTerm.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      if (HasGid) {
-        output.WriteRawTag(9);
-        output.WriteFixed64(Gid);
-      }
-      if (HasRtime32StartDate) {
-        output.WriteRawTag(16);
-        output.WriteUInt32(Rtime32StartDate);
-      }
-      if (HasRtime32EndDate) {
-        output.WriteRawTag(24);
-        output.WriteUInt32(Rtime32EndDate);
-      }
-      if (HasAppid) {
-        output.WriteRawTag(32);
-        output.WriteUInt32(Appid);
-      }
-      if (HasStoreItemType) {
-        output.WriteRawTag(40);
-        output.WriteInt32(StoreItemType);
-      }
-      if (HasSearchTerm) {
-        output.WriteRawTag(50);
-        output.WriteString(SearchTerm);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (HasGid) {
-        output.WriteRawTag(9);
-        output.WriteFixed64(Gid);
-      }
-      if (HasRtime32StartDate) {
-        output.WriteRawTag(16);
-        output.WriteUInt32(Rtime32StartDate);
-      }
-      if (HasRtime32EndDate) {
-        output.WriteRawTag(24);
-        output.WriteUInt32(Rtime32EndDate);
-      }
-      if (HasAppid) {
-        output.WriteRawTag(32);
-        output.WriteUInt32(Appid);
-      }
-      if (HasStoreItemType) {
-        output.WriteRawTag(40);
-        output.WriteInt32(StoreItemType);
-      }
-      if (HasSearchTerm) {
-        output.WriteRawTag(50);
-        output.WriteString(SearchTerm);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int CalculateSize() {
-      int size = 0;
-      if (HasGid) {
-        size += 1 + 8;
-      }
-      if (HasRtime32StartDate) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Rtime32StartDate);
-      }
-      if (HasRtime32EndDate) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Rtime32EndDate);
-      }
-      if (HasAppid) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Appid);
-      }
-      if (HasStoreItemType) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(StoreItemType);
-      }
-      if (HasSearchTerm) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(SearchTerm);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(CDailyDeal_GetDailyDeals_Request other) {
-      if (other == null) {
-        return;
-      }
-      if (other.HasGid) {
-        Gid = other.Gid;
-      }
-      if (other.HasRtime32StartDate) {
-        Rtime32StartDate = other.Rtime32StartDate;
-      }
-      if (other.HasRtime32EndDate) {
-        Rtime32EndDate = other.Rtime32EndDate;
-      }
-      if (other.HasAppid) {
-        Appid = other.Appid;
-      }
-      if (other.HasStoreItemType) {
-        StoreItemType = other.StoreItemType;
-      }
-      if (other.HasSearchTerm) {
-        SearchTerm = other.SearchTerm;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 9: {
-            Gid = input.ReadFixed64();
-            break;
-          }
-          case 16: {
-            Rtime32StartDate = input.ReadUInt32();
-            break;
-          }
-          case 24: {
-            Rtime32EndDate = input.ReadUInt32();
-            break;
-          }
-          case 32: {
-            Appid = input.ReadUInt32();
-            break;
-          }
-          case 40: {
-            StoreItemType = input.ReadInt32();
-            break;
-          }
-          case 50: {
-            SearchTerm = input.ReadString();
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 9: {
-            Gid = input.ReadFixed64();
-            break;
-          }
-          case 16: {
-            Rtime32StartDate = input.ReadUInt32();
-            break;
-          }
-          case 24: {
-            Rtime32EndDate = input.ReadUInt32();
-            break;
-          }
-          case 32: {
-            Appid = input.ReadUInt32();
-            break;
-          }
-          case 40: {
-            StoreItemType = input.ReadInt32();
-            break;
-          }
-          case 50: {
-            SearchTerm = input.ReadString();
-            break;
-          }
-        }
-      }
-    }
-    #endif
-
-  }
-
-  public sealed partial class CDailyDeal_GetDailyDeals_Response : pb::IMessage<CDailyDeal_GetDailyDeals_Response>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<CDailyDeal_GetDailyDeals_Response> _parser = new pb::MessageParser<CDailyDeal_GetDailyDeals_Response>(() => new CDailyDeal_GetDailyDeals_Response());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<CDailyDeal_GetDailyDeals_Response> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceDailydealReflection.Descriptor.MessageTypes[5]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CDailyDeal_GetDailyDeals_Response() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CDailyDeal_GetDailyDeals_Response(CDailyDeal_GetDailyDeals_Response other) : this() {
-      dailyDeals_ = other.dailyDeals_.Clone();
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CDailyDeal_GetDailyDeals_Response Clone() {
-      return new CDailyDeal_GetDailyDeals_Response(this);
-    }
-
-    /// <summary>Field number for the "daily_deals" field.</summary>
-    public const int DailyDealsFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::OpenSteamworks.Protobuf.WebUI.CDailyDealDetails> _repeated_dailyDeals_codec
-        = pb::FieldCodec.ForMessage(10, global::OpenSteamworks.Protobuf.WebUI.CDailyDealDetails.Parser);
-    private readonly pbc::RepeatedField<global::OpenSteamworks.Protobuf.WebUI.CDailyDealDetails> dailyDeals_ = new pbc::RepeatedField<global::OpenSteamworks.Protobuf.WebUI.CDailyDealDetails>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::OpenSteamworks.Protobuf.WebUI.CDailyDealDetails> DailyDeals {
-      get { return dailyDeals_; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override bool Equals(object other) {
-      return Equals(other as CDailyDeal_GetDailyDeals_Response);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(CDailyDeal_GetDailyDeals_Response other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if(!dailyDeals_.Equals(other.dailyDeals_)) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override int GetHashCode() {
-      int hash = 1;
-      hash ^= dailyDeals_.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      dailyDeals_.WriteTo(output, _repeated_dailyDeals_codec);
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      dailyDeals_.WriteTo(ref output, _repeated_dailyDeals_codec);
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int CalculateSize() {
-      int size = 0;
-      size += dailyDeals_.CalculateSize(_repeated_dailyDeals_codec);
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(CDailyDeal_GetDailyDeals_Response other) {
-      if (other == null) {
-        return;
-      }
-      dailyDeals_.Add(other.dailyDeals_);
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 10: {
-            dailyDeals_.AddEntriesFrom(input, _repeated_dailyDeals_codec);
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 10: {
-            dailyDeals_.AddEntriesFrom(ref input, _repeated_dailyDeals_codec);
-            break;
-          }
-        }
-      }
-    }
-    #endif
-
-  }
-
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CDailyDeal_UpdateDailyDeal_Request : pb::IMessage<CDailyDeal_UpdateDailyDeal_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1548,7 +901,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceDailydealReflection.Descriptor.MessageTypes[6]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceDailydealReflection.Descriptor.MessageTypes[4]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1785,6 +1138,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CDailyDeal_UpdateDailyDeal_Response : pb::IMessage<CDailyDeal_UpdateDailyDeal_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1799,7 +1153,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceDailydealReflection.Descriptor.MessageTypes[7]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceDailydealReflection.Descriptor.MessageTypes[5]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1937,6 +1291,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CDailyDealDetails : pb::IMessage<CDailyDealDetails>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1952,7 +1307,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceDailydealReflection.Descriptor.MessageTypes[8]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceDailydealReflection.Descriptor.MessageTypes[6]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

@@ -1,31 +1,31 @@
 {
     "name": "IClientSystemDisplayManagerMap",
-    "found_at": "0x23a8154",
+    "found_at": "0x2402e88",
     "functions": [ 
         {
             "name": "IsInterfaceValid",
             "argc": "1",
-            "addr": "0x5b2330"
+            "addr": "0x5d04e0"
         },
         {
             "name": "GetState",
             "argc": "2",
-            "addr": "0x5b2490"
+            "addr": "0x5d0640"
         },
         {
             "name": "SetMode",
             "argc": "2",
-            "addr": "0x5b2610"
+            "addr": "0x5d07c0"
         },
         {
             "name": "ClearModeOverride",
             "argc": "2",
-            "addr": "0x5b27a0"
+            "addr": "0x5d0950"
         },
         {
             "name": "SetCompatibilityMode",
             "argc": "2",
-            "addr": "0x5b2910"
+            "addr": "0x5d0ac0"
         }
     ]
 }

@@ -1,296 +1,306 @@
 {
     "name": "IClientVideoMap",
-    "found_at": "0x23a8e3c",
+    "found_at": "0x2403b70",
     "functions": [ 
         {
             "name": "UnlockH264",
             "argc": "3",
-            "addr": "0x5fef50"
+            "addr": "0x61d100"
         },
         {
             "name": "EGetBroadcastReady",
             "argc": "1",
-            "addr": "0x5ff0b0"
+            "addr": "0x61d260"
         },
         {
             "name": "BeginBroadcastSession",
             "argc": "1",
-            "addr": "0x5ff210"
+            "addr": "0x61d3c0"
         },
         {
             "name": "EndBroadcastSession",
             "argc": "1",
-            "addr": "0x5ffc80"
+            "addr": "0x61de30"
         },
         {
             "name": "IsBroadcasting",
             "argc": "2",
-            "addr": "0x5ff340"
+            "addr": "0x61d4f0"
         },
         {
             "name": "BIsUploadingThumbnails",
             "argc": "1",
-            "addr": "0x5ff4c0"
+            "addr": "0x61d670"
         },
         {
             "name": "GetBroadcastSessionID",
             "argc": "1",
-            "addr": "0x5ff620"
+            "addr": "0x61d7d0"
         },
         {
             "name": "ReceiveBroadcastChat",
             "argc": "6",
-            "addr": "0x5ff930"
+            "addr": "0x61dae0"
         },
         {
             "name": "PostBroadcastChat",
             "argc": "4",
-            "addr": "0x5ff7a0"
+            "addr": "0x61d950"
         },
         {
             "name": "MuteBroadcastChatUser",
             "argc": "5",
-            "addr": "0x5ffae0"
+            "addr": "0x61dc90"
         },
         {
             "name": "InitBroadcastVideo",
             "argc": "9",
-            "addr": "0x5ffdb0"
+            "addr": "0x61df60"
         },
         {
             "name": "InitBroadcastAudio",
             "argc": "8",
-            "addr": "0x5fffb0"
+            "addr": "0x61e160"
         },
         {
             "name": "Unknown_12",
             "argc": "0",
-            "addr": "0x6001a0"
+            "addr": "0x61e350"
         },
         {
             "name": "UploadBroadcastThumbnail",
             "argc": "5",
-            "addr": "0x6003e0"
+            "addr": "0x61e590"
         },
         {
             "name": "DroppedVideoFrames",
             "argc": "2",
-            "addr": "0x600590"
+            "addr": "0x61e740"
         },
         {
             "name": "SetCurrentVideoEncodingRate",
             "argc": "2",
-            "addr": "0x6006e0"
+            "addr": "0x61e890"
         },
         {
             "name": "SetMicrophoneState",
             "argc": "3",
-            "addr": "0x600830"
+            "addr": "0x61e9e0"
         },
         {
             "name": "SetVideoSource",
             "argc": "2",
-            "addr": "0x6009a0"
+            "addr": "0x61eb50"
         },
         {
             "name": "BroadcastRecorderError",
             "argc": "2",
-            "addr": "0x603ce0"
+            "addr": "0x622070"
         },
         {
             "name": "LoadBroadcastSettings",
             "argc": "1",
-            "addr": "0x600af0"
+            "addr": "0x61eca0"
         },
         {
             "name": "SetBroadcastPermissions",
             "argc": "2",
-            "addr": "0x600c20"
+            "addr": "0x61edd0"
         },
         {
             "name": "GetBroadcastPermissions",
             "argc": "1",
-            "addr": "0x600d70"
+            "addr": "0x61ef20"
         },
         {
             "name": "GetBroadcastMaxKbps",
             "argc": "1",
-            "addr": "0x600ed0"
+            "addr": "0x61f080"
         },
         {
             "name": "GetBroadcastDelaySeconds",
             "argc": "1",
-            "addr": "0x601a10"
+            "addr": "0x61fbc0"
         },
         {
             "name": "BGetBroadcastDimensions",
             "argc": "3",
-            "addr": "0x601030"
+            "addr": "0x61f1e0"
         },
         {
             "name": "GetBroadcastIncludeDesktop",
             "argc": "1",
-            "addr": "0x6011d0"
+            "addr": "0x61f380"
         },
         {
             "name": "GetBroadcastRecordSystemAudio",
             "argc": "1",
-            "addr": "0x601330"
+            "addr": "0x61f4e0"
         },
         {
             "name": "GetBroadcastRecordMic",
             "argc": "1",
-            "addr": "0x601490"
+            "addr": "0x61f640"
         },
         {
             "name": "GetBroadcastShowChatCorner",
             "argc": "1",
-            "addr": "0x6015f0"
+            "addr": "0x61f7a0"
         },
         {
             "name": "GetBroadcastShowDebugInfo",
             "argc": "1",
-            "addr": "0x601750"
+            "addr": "0x61f900"
         },
         {
             "name": "GetBroadcastShowReminderBanner",
             "argc": "1",
-            "addr": "0x6018b0"
+            "addr": "0x61fa60"
         },
         {
             "name": "GetBroadcastEncoderSetting",
             "argc": "1",
-            "addr": "0x603e30"
+            "addr": "0x6221c0"
         },
         {
             "name": "InviteToBroadcast",
             "argc": "5",
-            "addr": "0x601b70"
+            "addr": "0x61fd20"
         },
         {
             "name": "IgnoreApprovalRequest",
             "argc": "4",
-            "addr": "0x601ce0"
+            "addr": "0x61fe90"
         },
         {
             "name": "BroadcastFirstTimeComplete",
             "argc": "1",
-            "addr": "0x601e40"
+            "addr": "0x61fff0"
         },
         {
             "name": "SetInHomeStreamState",
             "argc": "2",
-            "addr": "0x601f70"
+            "addr": "0x620120"
         },
         {
             "name": "WatchBroadcast",
             "argc": "3",
-            "addr": "0x6020c0"
+            "addr": "0x620270"
         },
         {
             "name": "GetWatchBroadcastMPD",
             "argc": "3",
-            "addr": "0x602200"
+            "addr": "0x6203b0"
         },
         {
             "name": "GetApprovalRequestCount",
             "argc": "1",
-            "addr": "0x602370"
+            "addr": "0x620520"
         },
         {
             "name": "GetApprovalRequests",
             "argc": "3",
-            "addr": "0x6024d0"
+            "addr": "0x620680"
         },
         {
             "name": "AddBroadcastGameData",
             "argc": "3",
-            "addr": "0x602670"
+            "addr": "0x620820"
         },
         {
             "name": "RemoveBroadcastGameData",
             "argc": "2",
-            "addr": "0x6027c0"
+            "addr": "0x620970"
         },
         {
             "name": "AddTimelineMarker",
             "argc": "6",
-            "addr": "0x602900"
+            "addr": "0x620ab0"
         },
         {
             "name": "RemoveTimelineMarker",
             "argc": "1",
-            "addr": "0x602ac0"
+            "addr": "0x620c70"
         },
         {
             "name": "AddRegion",
             "argc": "5",
-            "addr": "0x603f90"
+            "addr": "0x622320"
         },
         {
             "name": "RemoveRegion",
             "argc": "2",
-            "addr": "0x602bf0"
+            "addr": "0x620da0"
         },
         {
             "name": "GetVideoURL",
             "argc": "2",
-            "addr": "0x602d40"
+            "addr": "0x620ef0"
         },
         {
             "name": "GetOPFSettings",
             "argc": "2",
-            "addr": "0x602e90"
+            "addr": "0x621040"
         },
         {
             "name": "GetOPFStringForApp",
             "argc": "5",
-            "addr": "0x602fe0"
+            "addr": "0x621190"
         },
         {
             "name": "WebRTCGetTURNAddress",
             "argc": "2",
-            "addr": "0x6031a0"
+            "addr": "0x621350"
         },
         {
             "name": "WebRTCStartResult",
             "argc": "5",
-            "addr": "0x603310"
+            "addr": "0x6214c0"
         },
         {
             "name": "WebRTCAddCandidate",
             "argc": "6",
-            "addr": "0x603490"
+            "addr": "0x621640"
         },
         {
             "name": "WebRTCGetAnswer",
             "argc": "4",
-            "addr": "0x603610"
+            "addr": "0x6217c0"
         },
         {
             "name": "AddTimelineHighlightMarker",
-            "argc": "5",
-            "addr": "0x6037a0"
+            "argc": "6",
+            "addr": "0x621950"
         },
         {
             "name": "AddTimelineTimestamp",
-            "argc": "2",
-            "addr": "0x603910"
-        },
-        {
-            "name": "AddTimelineRangeStart",
             "argc": "3",
-            "addr": "0x603a50"
+            "addr": "0x621c20"
         },
         {
-            "name": "AddTimelineRangeEnd",
-            "argc": "2",
-            "addr": "0x603ba0"
+            "name": "AddTimelineRange",
+            "argc": "8",
+            "addr": "0x621d70"
         },
         {
             "name": "SetTimelineGameMode",
             "argc": "2",
-            "addr": "0x604150"
+            "addr": "0x6224e0"
+        },
+        {
+            "name": "AddUserMarkerForGame",
+            "argc": "2",
+            "addr": "0x621ad0"
+        },
+        {
+            "name": "ToggleVideoRecordingForGame",
+            "argc": "2",
+            "addr": "0x621f20"
+        },
+        {
+            "name": "CreateVideoManagerClip",
+            "argc": "24",
+            "addr": "0x622630"
         }
     ]
 }

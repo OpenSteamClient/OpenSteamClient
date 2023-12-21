@@ -46,6 +46,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
   #region Messages
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPhysicalGoods_CheckInventoryAvailableByPackage_Request : pb::IMessage<CPhysicalGoods_CheckInventoryAvailableByPackage_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -303,6 +304,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPhysicalGoods_CheckInventoryAvailableByPackage_Response : pb::IMessage<CPhysicalGoods_CheckInventoryAvailableByPackage_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage

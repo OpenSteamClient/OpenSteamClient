@@ -522,7 +522,7 @@ class ParentalPlaytimeDay PROTOBUF_FINAL :
     kAllowedTimeWindowsFieldNumber = 1,
     kAllowedDailyMinutesFieldNumber = 2,
   };
-  // optional uint64 allowed_time_windows = 1 [(.description) = "A bitfield where each bit represents a thirty minute window into the day, with bit 0 being midnight-12:30AM"];
+  // optional uint64 allowed_time_windows = 1;
   bool has_allowed_time_windows() const;
   private:
   bool _internal_has_allowed_time_windows() const;
@@ -535,7 +535,7 @@ class ParentalPlaytimeDay PROTOBUF_FINAL :
   void _internal_set_allowed_time_windows(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional uint32 allowed_daily_minutes = 2 [(.description) = "Total number of minutes of playtime for the day"];
+  // optional uint32 allowed_daily_minutes = 2;
   bool has_allowed_daily_minutes() const;
   private:
   bool _internal_has_allowed_daily_minutes() const;
@@ -686,7 +686,7 @@ class ParentalPlaytimeRestrictions PROTOBUF_FINAL :
     kPlaytimeDaysFieldNumber = 15,
     kApplyPlaytimeRestrictionsFieldNumber = 2,
   };
-  // repeated .ParentalPlaytimeDay playtime_days = 15 [(.description) = "Playtime restrictions for each day of the week. This will either be empty or will be 7 items long"];
+  // repeated .ParentalPlaytimeDay playtime_days = 15;
   int playtime_days_size() const;
   private:
   int _internal_playtime_days_size() const;
@@ -704,7 +704,7 @@ class ParentalPlaytimeRestrictions PROTOBUF_FINAL :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ParentalPlaytimeDay >&
       playtime_days() const;
 
-  // optional bool apply_playtime_restrictions = 2 [(.description) = "If true, apply the playtime restrictions described here"];
+  // optional bool apply_playtime_restrictions = 2;
   bool has_apply_playtime_restrictions() const;
   private:
   bool _internal_has_apply_playtime_restrictions() const;
@@ -855,7 +855,7 @@ class ParentalTemporaryPlaytimeRestrictions PROTOBUF_FINAL :
     kRestrictionsFieldNumber = 1,
     kRtimeExpiresFieldNumber = 2,
   };
-  // optional .ParentalPlaytimeDay restrictions = 1 [(.description) = "Playtime restrictions to be temporarily applied"];
+  // optional .ParentalPlaytimeDay restrictions = 1;
   bool has_restrictions() const;
   private:
   bool _internal_has_restrictions() const;
@@ -873,7 +873,7 @@ class ParentalTemporaryPlaytimeRestrictions PROTOBUF_FINAL :
       ::ParentalPlaytimeDay* restrictions);
   ::ParentalPlaytimeDay* unsafe_arena_release_restrictions();
 
-  // optional uint32 rtime_expires = 2 [(.description) = "Time at which playtime restrictions no longer apply"];
+  // optional uint32 rtime_expires = 2;
   bool has_rtime_expires() const;
   private:
   bool _internal_has_rtime_expires() const;
@@ -4583,7 +4583,7 @@ class CParental_RequestFeatureAccess_Request PROTOBUF_FINAL :
     kFeaturesFieldNumber = 1,
     kSteamidFieldNumber = 10,
   };
-  // optional uint32 features = 1 [(.description) = "Bitfield of features being requested"];
+  // optional uint32 features = 1;
   bool has_features() const;
   private:
   bool _internal_has_features() const;
@@ -4912,7 +4912,7 @@ class CParental_ApproveFeatureAccess_Request PROTOBUF_FINAL :
   void _internal_set_requestid(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional bool approve = 1 [(.description) = "True to approve, false to reject"];
+  // optional bool approve = 1;
   bool has_approve() const;
   private:
   bool _internal_has_approve() const;
@@ -4925,7 +4925,7 @@ class CParental_ApproveFeatureAccess_Request PROTOBUF_FINAL :
   void _internal_set_approve(bool value);
   public:
 
-  // optional uint32 features = 3 [(.description) = "Bitfield of features being approved. Must match the features in requestid"];
+  // optional uint32 features = 3;
   bool has_features() const;
   private:
   bool _internal_has_features() const;
@@ -4938,7 +4938,7 @@ class CParental_ApproveFeatureAccess_Request PROTOBUF_FINAL :
   void _internal_set_features(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 duration = 4 [(.description) = "Length of approval in seconds. If zero, approval is permanent"];
+  // optional uint32 duration = 4;
   bool has_duration() const;
   private:
   bool _internal_has_duration() const;
@@ -5237,7 +5237,7 @@ class CParental_RequestPlaytime_Request PROTOBUF_FINAL :
     kTimeExpiresFieldNumber = 1,
     kSteamidFieldNumber = 10,
   };
-  // optional .ParentalPlaytimeDay current_playtime_restrictions = 2 [(.description) = "Current restrictions for the day at the time the request was made, including previously granted temporary playtime"];
+  // optional .ParentalPlaytimeDay current_playtime_restrictions = 2;
   bool has_current_playtime_restrictions() const;
   private:
   bool _internal_has_current_playtime_restrictions() const;
@@ -5255,7 +5255,7 @@ class CParental_RequestPlaytime_Request PROTOBUF_FINAL :
       ::ParentalPlaytimeDay* current_playtime_restrictions);
   ::ParentalPlaytimeDay* unsafe_arena_release_current_playtime_restrictions();
 
-  // optional uint32 time_expires = 1 [(.description) = "rtime at which the request expires. This is typically midnight of the next local day."];
+  // optional uint32 time_expires = 1;
   bool has_time_expires() const;
   private:
   bool _internal_has_time_expires() const;
@@ -5899,7 +5899,7 @@ class CParental_GetRequests_Request PROTOBUF_FINAL :
     kRtIncludeCompletedSinceFieldNumber = 1,
     kSteamidFieldNumber = 10,
   };
-  // optional uint32 rt_include_completed_since = 1 [(.description) = "Also return completed requests that were responded to after this rtime"];
+  // optional uint32 rt_include_completed_since = 1;
   bool has_rt_include_completed_since() const;
   private:
   bool _internal_has_rt_include_completed_since() const;
@@ -5912,7 +5912,7 @@ class CParental_GetRequests_Request PROTOBUF_FINAL :
   void _internal_set_rt_include_completed_since(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional fixed64 steamid = 10 [(.description) = "SteamID of the requester. This must be an adult account in a family group."];
+  // optional fixed64 steamid = 10;
   bool has_steamid() const;
   private:
   bool _internal_has_steamid() const;
@@ -6095,7 +6095,7 @@ class ParentalFeatureRequest PROTOBUF_FINAL :
   void _internal_set_family_groupid(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional fixed64 steamid = 3 [(.description) = "Steamid of the requester"];
+  // optional fixed64 steamid = 3;
   bool has_steamid() const;
   private:
   bool _internal_has_steamid() const;
@@ -6108,7 +6108,7 @@ class ParentalFeatureRequest PROTOBUF_FINAL :
   void _internal_set_steamid(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional uint32 features = 4 [(.description) = "Bitfield of features requested"];
+  // optional uint32 features = 4;
   bool has_features() const;
   private:
   bool _internal_has_features() const;
@@ -6121,7 +6121,7 @@ class ParentalFeatureRequest PROTOBUF_FINAL :
   void _internal_set_features(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 time_requested = 5 [(.description) = "rtime the request was made"];
+  // optional uint32 time_requested = 5;
   bool has_time_requested() const;
   private:
   bool _internal_has_time_requested() const;
@@ -6134,7 +6134,7 @@ class ParentalFeatureRequest PROTOBUF_FINAL :
   void _internal_set_time_requested(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional fixed64 steamid_responder = 7 [(.description) = "Steamid of the approver/rejecter"];
+  // optional fixed64 steamid_responder = 7;
   bool has_steamid_responder() const;
   private:
   bool _internal_has_steamid_responder() const;
@@ -6147,7 +6147,7 @@ class ParentalFeatureRequest PROTOBUF_FINAL :
   void _internal_set_steamid_responder(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional bool approved = 6 [(.description) = "True if the request was approved, false if rejected"];
+  // optional bool approved = 6;
   bool has_approved() const;
   private:
   bool _internal_has_approved() const;
@@ -6160,7 +6160,7 @@ class ParentalFeatureRequest PROTOBUF_FINAL :
   void _internal_set_approved(bool value);
   public:
 
-  // optional uint32 time_responded = 8 [(.description) = "rtime the request was approved/rejected"];
+  // optional uint32 time_responded = 8;
   bool has_time_responded() const;
   private:
   bool _internal_has_time_responded() const;
@@ -6325,7 +6325,7 @@ class ParentalPlaytimeRequest PROTOBUF_FINAL :
     kApprovedFieldNumber = 7,
     kTimeRespondedFieldNumber = 9,
   };
-  // optional .ParentalPlaytimeDay current_playtime_restrictions = 4 [(.description) = "Current restrictions for the day at the time the request was made, including previously granted temporary playtime"];
+  // optional .ParentalPlaytimeDay current_playtime_restrictions = 4;
   bool has_current_playtime_restrictions() const;
   private:
   bool _internal_has_current_playtime_restrictions() const;
@@ -6343,7 +6343,7 @@ class ParentalPlaytimeRequest PROTOBUF_FINAL :
       ::ParentalPlaytimeDay* current_playtime_restrictions);
   ::ParentalPlaytimeDay* unsafe_arena_release_current_playtime_restrictions();
 
-  // optional .ParentalTemporaryPlaytimeRestrictions restrictions_approved = 10 [(.description) = "For approved requests, the new playtime restrictions after approval"];
+  // optional .ParentalTemporaryPlaytimeRestrictions restrictions_approved = 10;
   bool has_restrictions_approved() const;
   private:
   bool _internal_has_restrictions_approved() const;
@@ -6387,7 +6387,7 @@ class ParentalPlaytimeRequest PROTOBUF_FINAL :
   void _internal_set_family_groupid(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional fixed64 steamid = 3 [(.description) = "Steamid of the requester"];
+  // optional fixed64 steamid = 3;
   bool has_steamid() const;
   private:
   bool _internal_has_steamid() const;
@@ -6400,7 +6400,7 @@ class ParentalPlaytimeRequest PROTOBUF_FINAL :
   void _internal_set_steamid(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional uint32 time_expires = 5 [(.description) = "rtime at which the request expires. This is typically midnight of the next local day."];
+  // optional uint32 time_expires = 5;
   bool has_time_expires() const;
   private:
   bool _internal_has_time_expires() const;
@@ -6413,7 +6413,7 @@ class ParentalPlaytimeRequest PROTOBUF_FINAL :
   void _internal_set_time_expires(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 time_requested = 6 [(.description) = "rtime the request was made"];
+  // optional uint32 time_requested = 6;
   bool has_time_requested() const;
   private:
   bool _internal_has_time_requested() const;
@@ -6426,7 +6426,7 @@ class ParentalPlaytimeRequest PROTOBUF_FINAL :
   void _internal_set_time_requested(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional fixed64 steamid_responder = 8 [(.description) = "Steamid of the approver/rejecter"];
+  // optional fixed64 steamid_responder = 8;
   bool has_steamid_responder() const;
   private:
   bool _internal_has_steamid_responder() const;
@@ -6439,7 +6439,7 @@ class ParentalPlaytimeRequest PROTOBUF_FINAL :
   void _internal_set_steamid_responder(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional bool approved = 7 [(.description) = "True if the request was approved, false if rejected"];
+  // optional bool approved = 7;
   bool has_approved() const;
   private:
   bool _internal_has_approved() const;
@@ -6452,7 +6452,7 @@ class ParentalPlaytimeRequest PROTOBUF_FINAL :
   void _internal_set_approved(bool value);
   public:
 
-  // optional uint32 time_responded = 9 [(.description) = "rtime the request was approved/rejected"];
+  // optional uint32 time_responded = 9;
   bool has_time_responded() const;
   private:
   bool _internal_has_time_responded() const;
@@ -8022,7 +8022,7 @@ inline void ParentalApp::set_is_allowed(bool value) {
 
 // ParentalPlaytimeDay
 
-// optional uint64 allowed_time_windows = 1 [(.description) = "A bitfield where each bit represents a thirty minute window into the day, with bit 0 being midnight-12:30AM"];
+// optional uint64 allowed_time_windows = 1;
 inline bool ParentalPlaytimeDay::_internal_has_allowed_time_windows() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -8050,7 +8050,7 @@ inline void ParentalPlaytimeDay::set_allowed_time_windows(::PROTOBUF_NAMESPACE_I
   // @@protoc_insertion_point(field_set:ParentalPlaytimeDay.allowed_time_windows)
 }
 
-// optional uint32 allowed_daily_minutes = 2 [(.description) = "Total number of minutes of playtime for the day"];
+// optional uint32 allowed_daily_minutes = 2;
 inline bool ParentalPlaytimeDay::_internal_has_allowed_daily_minutes() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -8082,7 +8082,7 @@ inline void ParentalPlaytimeDay::set_allowed_daily_minutes(::PROTOBUF_NAMESPACE_
 
 // ParentalPlaytimeRestrictions
 
-// optional bool apply_playtime_restrictions = 2 [(.description) = "If true, apply the playtime restrictions described here"];
+// optional bool apply_playtime_restrictions = 2;
 inline bool ParentalPlaytimeRestrictions::_internal_has_apply_playtime_restrictions() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -8110,7 +8110,7 @@ inline void ParentalPlaytimeRestrictions::set_apply_playtime_restrictions(bool v
   // @@protoc_insertion_point(field_set:ParentalPlaytimeRestrictions.apply_playtime_restrictions)
 }
 
-// repeated .ParentalPlaytimeDay playtime_days = 15 [(.description) = "Playtime restrictions for each day of the week. This will either be empty or will be 7 items long"];
+// repeated .ParentalPlaytimeDay playtime_days = 15;
 inline int ParentalPlaytimeRestrictions::_internal_playtime_days_size() const {
   return playtime_days_.size();
 }
@@ -8153,7 +8153,7 @@ ParentalPlaytimeRestrictions::playtime_days() const {
 
 // ParentalTemporaryPlaytimeRestrictions
 
-// optional .ParentalPlaytimeDay restrictions = 1 [(.description) = "Playtime restrictions to be temporarily applied"];
+// optional .ParentalPlaytimeDay restrictions = 1;
 inline bool ParentalTemporaryPlaytimeRestrictions::_internal_has_restrictions() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   PROTOBUF_ASSUME(!value || restrictions_ != nullptr);
@@ -8236,7 +8236,7 @@ inline void ParentalTemporaryPlaytimeRestrictions::set_allocated_restrictions(::
   // @@protoc_insertion_point(field_set_allocated:ParentalTemporaryPlaytimeRestrictions.restrictions)
 }
 
-// optional uint32 rtime_expires = 2 [(.description) = "Time at which playtime restrictions no longer apply"];
+// optional uint32 rtime_expires = 2;
 inline bool ParentalTemporaryPlaytimeRestrictions::_internal_has_rtime_expires() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -10562,7 +10562,7 @@ inline void CParental_DisableWithRecoveryCode_Request::set_steamid(::PROTOBUF_NA
 
 // CParental_RequestFeatureAccess_Request
 
-// optional uint32 features = 1 [(.description) = "Bitfield of features being requested"];
+// optional uint32 features = 1;
 inline bool CParental_RequestFeatureAccess_Request::_internal_has_features() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -10654,7 +10654,7 @@ inline void CParental_RequestFeatureAccess_Response::set_requestid(::PROTOBUF_NA
 
 // CParental_ApproveFeatureAccess_Request
 
-// optional bool approve = 1 [(.description) = "True to approve, false to reject"];
+// optional bool approve = 1;
 inline bool CParental_ApproveFeatureAccess_Request::_internal_has_approve() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -10710,7 +10710,7 @@ inline void CParental_ApproveFeatureAccess_Request::set_requestid(::PROTOBUF_NAM
   // @@protoc_insertion_point(field_set:CParental_ApproveFeatureAccess_Request.requestid)
 }
 
-// optional uint32 features = 3 [(.description) = "Bitfield of features being approved. Must match the features in requestid"];
+// optional uint32 features = 3;
 inline bool CParental_ApproveFeatureAccess_Request::_internal_has_features() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -10738,7 +10738,7 @@ inline void CParental_ApproveFeatureAccess_Request::set_features(::PROTOBUF_NAME
   // @@protoc_insertion_point(field_set:CParental_ApproveFeatureAccess_Request.features)
 }
 
-// optional uint32 duration = 4 [(.description) = "Length of approval in seconds. If zero, approval is permanent"];
+// optional uint32 duration = 4;
 inline bool CParental_ApproveFeatureAccess_Request::_internal_has_duration() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -10802,7 +10802,7 @@ inline void CParental_ApproveFeatureAccess_Request::set_steamid(::PROTOBUF_NAMES
 
 // CParental_RequestPlaytime_Request
 
-// optional uint32 time_expires = 1 [(.description) = "rtime at which the request expires. This is typically midnight of the next local day."];
+// optional uint32 time_expires = 1;
 inline bool CParental_RequestPlaytime_Request::_internal_has_time_expires() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -10830,7 +10830,7 @@ inline void CParental_RequestPlaytime_Request::set_time_expires(::PROTOBUF_NAMES
   // @@protoc_insertion_point(field_set:CParental_RequestPlaytime_Request.time_expires)
 }
 
-// optional .ParentalPlaytimeDay current_playtime_restrictions = 2 [(.description) = "Current restrictions for the day at the time the request was made, including previously granted temporary playtime"];
+// optional .ParentalPlaytimeDay current_playtime_restrictions = 2;
 inline bool CParental_RequestPlaytime_Request::_internal_has_current_playtime_restrictions() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   PROTOBUF_ASSUME(!value || current_playtime_restrictions_ != nullptr);
@@ -11152,7 +11152,7 @@ inline void CParental_ApprovePlaytime_Request::set_steamid(::PROTOBUF_NAMESPACE_
 
 // CParental_GetRequests_Request
 
-// optional uint32 rt_include_completed_since = 1 [(.description) = "Also return completed requests that were responded to after this rtime"];
+// optional uint32 rt_include_completed_since = 1;
 inline bool CParental_GetRequests_Request::_internal_has_rt_include_completed_since() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -11180,7 +11180,7 @@ inline void CParental_GetRequests_Request::set_rt_include_completed_since(::PROT
   // @@protoc_insertion_point(field_set:CParental_GetRequests_Request.rt_include_completed_since)
 }
 
-// optional fixed64 steamid = 10 [(.description) = "SteamID of the requester. This must be an adult account in a family group."];
+// optional fixed64 steamid = 10;
 inline bool CParental_GetRequests_Request::_internal_has_steamid() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -11268,7 +11268,7 @@ inline void ParentalFeatureRequest::set_family_groupid(::PROTOBUF_NAMESPACE_ID::
   // @@protoc_insertion_point(field_set:ParentalFeatureRequest.family_groupid)
 }
 
-// optional fixed64 steamid = 3 [(.description) = "Steamid of the requester"];
+// optional fixed64 steamid = 3;
 inline bool ParentalFeatureRequest::_internal_has_steamid() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -11296,7 +11296,7 @@ inline void ParentalFeatureRequest::set_steamid(::PROTOBUF_NAMESPACE_ID::uint64 
   // @@protoc_insertion_point(field_set:ParentalFeatureRequest.steamid)
 }
 
-// optional uint32 features = 4 [(.description) = "Bitfield of features requested"];
+// optional uint32 features = 4;
 inline bool ParentalFeatureRequest::_internal_has_features() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -11324,7 +11324,7 @@ inline void ParentalFeatureRequest::set_features(::PROTOBUF_NAMESPACE_ID::uint32
   // @@protoc_insertion_point(field_set:ParentalFeatureRequest.features)
 }
 
-// optional uint32 time_requested = 5 [(.description) = "rtime the request was made"];
+// optional uint32 time_requested = 5;
 inline bool ParentalFeatureRequest::_internal_has_time_requested() const {
   bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
@@ -11352,7 +11352,7 @@ inline void ParentalFeatureRequest::set_time_requested(::PROTOBUF_NAMESPACE_ID::
   // @@protoc_insertion_point(field_set:ParentalFeatureRequest.time_requested)
 }
 
-// optional bool approved = 6 [(.description) = "True if the request was approved, false if rejected"];
+// optional bool approved = 6;
 inline bool ParentalFeatureRequest::_internal_has_approved() const {
   bool value = (_has_bits_[0] & 0x00000040u) != 0;
   return value;
@@ -11380,7 +11380,7 @@ inline void ParentalFeatureRequest::set_approved(bool value) {
   // @@protoc_insertion_point(field_set:ParentalFeatureRequest.approved)
 }
 
-// optional fixed64 steamid_responder = 7 [(.description) = "Steamid of the approver/rejecter"];
+// optional fixed64 steamid_responder = 7;
 inline bool ParentalFeatureRequest::_internal_has_steamid_responder() const {
   bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
@@ -11408,7 +11408,7 @@ inline void ParentalFeatureRequest::set_steamid_responder(::PROTOBUF_NAMESPACE_I
   // @@protoc_insertion_point(field_set:ParentalFeatureRequest.steamid_responder)
 }
 
-// optional uint32 time_responded = 8 [(.description) = "rtime the request was approved/rejected"];
+// optional uint32 time_responded = 8;
 inline bool ParentalFeatureRequest::_internal_has_time_responded() const {
   bool value = (_has_bits_[0] & 0x00000080u) != 0;
   return value;
@@ -11496,7 +11496,7 @@ inline void ParentalPlaytimeRequest::set_family_groupid(::PROTOBUF_NAMESPACE_ID:
   // @@protoc_insertion_point(field_set:ParentalPlaytimeRequest.family_groupid)
 }
 
-// optional fixed64 steamid = 3 [(.description) = "Steamid of the requester"];
+// optional fixed64 steamid = 3;
 inline bool ParentalPlaytimeRequest::_internal_has_steamid() const {
   bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
@@ -11524,7 +11524,7 @@ inline void ParentalPlaytimeRequest::set_steamid(::PROTOBUF_NAMESPACE_ID::uint64
   // @@protoc_insertion_point(field_set:ParentalPlaytimeRequest.steamid)
 }
 
-// optional .ParentalPlaytimeDay current_playtime_restrictions = 4 [(.description) = "Current restrictions for the day at the time the request was made, including previously granted temporary playtime"];
+// optional .ParentalPlaytimeDay current_playtime_restrictions = 4;
 inline bool ParentalPlaytimeRequest::_internal_has_current_playtime_restrictions() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   PROTOBUF_ASSUME(!value || current_playtime_restrictions_ != nullptr);
@@ -11607,7 +11607,7 @@ inline void ParentalPlaytimeRequest::set_allocated_current_playtime_restrictions
   // @@protoc_insertion_point(field_set_allocated:ParentalPlaytimeRequest.current_playtime_restrictions)
 }
 
-// optional uint32 time_expires = 5 [(.description) = "rtime at which the request expires. This is typically midnight of the next local day."];
+// optional uint32 time_expires = 5;
 inline bool ParentalPlaytimeRequest::_internal_has_time_expires() const {
   bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
@@ -11635,7 +11635,7 @@ inline void ParentalPlaytimeRequest::set_time_expires(::PROTOBUF_NAMESPACE_ID::u
   // @@protoc_insertion_point(field_set:ParentalPlaytimeRequest.time_expires)
 }
 
-// optional uint32 time_requested = 6 [(.description) = "rtime the request was made"];
+// optional uint32 time_requested = 6;
 inline bool ParentalPlaytimeRequest::_internal_has_time_requested() const {
   bool value = (_has_bits_[0] & 0x00000040u) != 0;
   return value;
@@ -11663,7 +11663,7 @@ inline void ParentalPlaytimeRequest::set_time_requested(::PROTOBUF_NAMESPACE_ID:
   // @@protoc_insertion_point(field_set:ParentalPlaytimeRequest.time_requested)
 }
 
-// optional bool approved = 7 [(.description) = "True if the request was approved, false if rejected"];
+// optional bool approved = 7;
 inline bool ParentalPlaytimeRequest::_internal_has_approved() const {
   bool value = (_has_bits_[0] & 0x00000100u) != 0;
   return value;
@@ -11691,7 +11691,7 @@ inline void ParentalPlaytimeRequest::set_approved(bool value) {
   // @@protoc_insertion_point(field_set:ParentalPlaytimeRequest.approved)
 }
 
-// optional fixed64 steamid_responder = 8 [(.description) = "Steamid of the approver/rejecter"];
+// optional fixed64 steamid_responder = 8;
 inline bool ParentalPlaytimeRequest::_internal_has_steamid_responder() const {
   bool value = (_has_bits_[0] & 0x00000080u) != 0;
   return value;
@@ -11719,7 +11719,7 @@ inline void ParentalPlaytimeRequest::set_steamid_responder(::PROTOBUF_NAMESPACE_
   // @@protoc_insertion_point(field_set:ParentalPlaytimeRequest.steamid_responder)
 }
 
-// optional uint32 time_responded = 9 [(.description) = "rtime the request was approved/rejected"];
+// optional uint32 time_responded = 9;
 inline bool ParentalPlaytimeRequest::_internal_has_time_responded() const {
   bool value = (_has_bits_[0] & 0x00000200u) != 0;
   return value;
@@ -11747,7 +11747,7 @@ inline void ParentalPlaytimeRequest::set_time_responded(::PROTOBUF_NAMESPACE_ID:
   // @@protoc_insertion_point(field_set:ParentalPlaytimeRequest.time_responded)
 }
 
-// optional .ParentalTemporaryPlaytimeRestrictions restrictions_approved = 10 [(.description) = "For approved requests, the new playtime restrictions after approval"];
+// optional .ParentalTemporaryPlaytimeRestrictions restrictions_approved = 10;
 inline bool ParentalPlaytimeRequest::_internal_has_restrictions_approved() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   PROTOBUF_ASSUME(!value || restrictions_approved_ != nullptr);

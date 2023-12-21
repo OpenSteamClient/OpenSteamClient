@@ -39,7 +39,7 @@ namespace OpenSteamworks.Protobuf {
             "X3R5cGUYCyABKAgSFQoNcGxheXRpbWVfbGVmdBgMIAEoDRI+CgxjbG91ZF9z",
             "dGF0dXMYDSABKA4yEC5FQXBwQ2xvdWRTdGF0dXM6FkVBcHBDbG91ZFN0YXR1",
             "c0ludmFsaWQSLAokdXBkYXRlX2F2YWlsYWJsZV9idXRfZGlzYWJsZWRfYnlf",
-            "YXBwGA4gASgIIpsOCgxDQXBwT3ZlcnZpZXcSDQoFYXBwaWQYASABKA0SFAoM",
+            "YXBwGA4gASgIIoEOCgxDQXBwT3ZlcnZpZXcSDQoFYXBwaWQYASABKA0SFAoM",
             "ZGlzcGxheV9uYW1lGAIgASgJEhwKFHZpc2libGVfaW5fZ2FtZV9saXN0GAQg",
             "ASgIEhUKDXN1YnNjcmliZWRfdG8YBSABKAgSDwoHc29ydF9hcxgGIAEoCRIx",
             "CghhcHBfdHlwZRgHIAEoDjIOLkVQcm90b0FwcFR5cGU6D0VBcHBUeXBlSW52",
@@ -79,76 +79,80 @@ namespace OpenSteamworks.Protobuf {
             "bGxlclN1cHBvcnRMZXZlbE5vbmUSWwoWcHM1X2NvbnRyb2xsZXJfc3VwcG9y",
             "dBhGIAEoDjIbLkVBcHBDb250cm9sbGVyU3VwcG9ydExldmVsOh5FQXBwQ29u",
             "dHJvbGxlclN1cHBvcnRMZXZlbE5vbmUSGQoRZ2FtZXBhZF9wcmVmZXJyZWQY",
-            "RyABKAgSGAoQZ2FtZXBhZF9yZXF1aXJlZBhIIAEoCCJ/ChNDQXBwT3ZlcnZp",
-            "ZXdfQ2hhbmdlEiMKDGFwcF9vdmVydmlldxgBIAMoCzINLkNBcHBPdmVydmll",
-            "dxIVCg1yZW1vdmVkX2FwcGlkGAIgAygNEhMKC2Z1bGxfdXBkYXRlGAMgASgI",
-            "EhcKD3VwZGF0ZV9jb21wbGV0ZRgEIAEoCCJEChFDQXBwQm9vdHN0cmFwRGF0",
-            "YRINCgVhcHBpZBgBIAEoDRIOCgZoaWRkZW4YAiABKAgSEAoIdXNlcl90YWcY",
-            "AyADKAkiPQoVQ0xpYnJhcnlCb290c3RyYXBEYXRhEiQKCGFwcF9kYXRhGAEg",
-            "AygLMhIuQ0FwcEJvb3RzdHJhcERhdGEqnQkKDkVEaXNwbGF5U3RhdHVzEhkK",
-            "FUVEaXNwbGF5U3RhdHVzSW52YWxpZBAAEhsKF0VEaXNwbGF5U3RhdHVzTGF1",
-            "bmNoaW5nEAESHgoaRURpc3BsYXlTdGF0dXNVbmluc3RhbGxpbmcQAhIcChhF",
-            "RGlzcGxheVN0YXR1c0luc3RhbGxpbmcQAxIZChVFRGlzcGxheVN0YXR1c1J1",
-            "bm5pbmcQBBIcChhFRGlzcGxheVN0YXR1c1ZhbGlkYXRpbmcQBRIaChZFRGlz",
-            "cGxheVN0YXR1c1VwZGF0aW5nEAYSHQoZRURpc3BsYXlTdGF0dXNEb3dubG9h",
-            "ZGluZxAHEh8KG0VEaXNwbGF5U3RhdHVzU3luY2hyb25pemluZxAIEiAKHEVE",
-            "aXNwbGF5U3RhdHVzUmVhZHlUb0luc3RhbGwQCRIgChxFRGlzcGxheVN0YXR1",
-            "c1JlYWR5VG9QcmVsb2FkEAoSHwobRURpc3BsYXlTdGF0dXNSZWFkeVRvTGF1",
-            "bmNoEAsSIgoeRURpc3BsYXlTdGF0dXNSZWdpb25SZXN0cmljdGVkEAwSHQoZ",
-            "RURpc3BsYXlTdGF0dXNQcmVzYWxlT25seRANEiEKHUVEaXNwbGF5U3RhdHVz",
-            "SW52YWxpZFBsYXRmb3JtEA4SIQodRURpc3BsYXlTdGF0dXNQcmVsb2FkQ29t",
-            "cGxldGUQEBIgChxFRGlzcGxheVN0YXR1c0JvcnJvd2VyTG9ja2VkEBESHgoa",
-            "RURpc3BsYXlTdGF0dXNVcGRhdGVQYXVzZWQQEhIeChpFRGlzcGxheVN0YXR1",
-            "c1VwZGF0ZVF1ZXVlZBATEiAKHEVEaXNwbGF5U3RhdHVzVXBkYXRlUmVxdWly",
-            "ZWQQFBIgChxFRGlzcGxheVN0YXR1c1VwZGF0ZURpc2FibGVkEBUSIAocRURp",
-            "c3BsYXlTdGF0dXNEb3dubG9hZFBhdXNlZBAWEiAKHEVEaXNwbGF5U3RhdHVz",
-            "RG93bmxvYWRRdWV1ZWQQFxIiCh5FRGlzcGxheVN0YXR1c0Rvd25sb2FkUmVx",
-            "dWlyZWQQGBIiCh5FRGlzcGxheVN0YXR1c0Rvd25sb2FkRGlzYWJsZWQQGRIg",
-            "ChxFRGlzcGxheVN0YXR1c0xpY2Vuc2VQZW5kaW5nEBoSIAocRURpc3BsYXlT",
-            "dGF0dXNMaWNlbnNlRXhwaXJlZBAbEh4KGkVEaXNwbGF5U3RhdHVzQXZhaWxG",
-            "b3JGcmVlEBwSHwobRURpc3BsYXlTdGF0dXNBdmFpbFRvQm9ycm93EB0SIAoc",
-            "RURpc3BsYXlTdGF0dXNBdmFpbEd1ZXN0UGFzcxAeEhoKFkVEaXNwbGF5U3Rh",
-            "dHVzUHVyY2hhc2UQHxIdChlFRGlzcGxheVN0YXR1c1VuYXZhaWxhYmxlECAS",
-            "HwobRURpc3BsYXlTdGF0dXNOb3RMYXVuY2hhYmxlECESHAoYRURpc3BsYXlT",
-            "dGF0dXNDbG91ZEVycm9yECISIAocRURpc3BsYXlTdGF0dXNDbG91ZE91dE9m",
-            "RGF0ZRAjEh0KGUVEaXNwbGF5U3RhdHVzVGVybWluYXRpbmcQJCrhAgoPRUFw",
-            "cENsb3VkU3RhdHVzEhoKFkVBcHBDbG91ZFN0YXR1c0ludmFsaWQQABIbChdF",
-            "QXBwQ2xvdWRTdGF0dXNEaXNhYmxlZBABEhoKFkVBcHBDbG91ZFN0YXR1c1Vu",
-            "a25vd24QAhIfChtFQXBwQ2xvdWRTdGF0dXNTeW5jaHJvbml6ZWQQAxIbChdF",
-            "QXBwQ2xvdWRTdGF0dXNDaGVja2luZxAEEhwKGEVBcHBDbG91ZFN0YXR1c091",
-            "dE9mU3luYxAFEhwKGEVBcHBDbG91ZFN0YXR1c1VwbG9hZGluZxAGEh4KGkVB",
-            "cHBDbG91ZFN0YXR1c0Rvd25sb2FkaW5nEAcSHQoZRUFwcENsb3VkU3RhdHVz",
-            "U3luY0ZhaWxlZBAIEhsKF0VBcHBDbG91ZFN0YXR1c0NvbmZsaWN0EAkSIwof",
-            "RUFwcENsb3VkU3RhdHVzUGVuZGluZ0Vsc2V3aGVyZRAKKsIDCg1FUHJvdG9B",
-            "cHBUeXBlEhMKD0VBcHBUeXBlSW52YWxpZBAAEhAKDEVBcHBUeXBlR2FtZRAB",
-            "EhcKE0VBcHBUeXBlQXBwbGljYXRpb24QAhIQCgxFQXBwVHlwZVRvb2wQBBIQ",
-            "CgxFQXBwVHlwZURlbW8QCBIVChFFQXBwVHlwZURlcHJlY3RlZBAQEg8KC0VB",
-            "cHBUeXBlRExDECASEQoNRUFwcFR5cGVHdWlkZRBAEhMKDkVBcHBUeXBlRHJp",
-            "dmVyEIABEhMKDkVBcHBUeXBlQ29uZmlnEIACEhUKEEVBcHBUeXBlSGFyZHdh",
-            "cmUQgAQSFgoRRUFwcFR5cGVGcmFuY2hpc2UQgAgSEgoNRUFwcFR5cGVWaWRl",
-            "bxCAEBITCg5FQXBwVHlwZVBsdWdpbhCAIBIXChJFQXBwVHlwZU11c2ljQWxi",
-            "dW0QgEASFAoORUFwcFR5cGVTZXJpZXMQgIABEhMKDUVBcHBUeXBlQ29taWMQ",
-            "gIACEhIKDEVBcHBUeXBlQmV0YRCAgAQSGAoQRUFwcFR5cGVTaG9ydGN1dBCA",
-            "gICABBIeChFFQXBwVHlwZURlcG90T25seRCAgICA+P////8BKpsBChNFQXBw",
-            "QXNzb2NpYXRpb25UeXBlEh4KGkVBcHBBc3NvY2lhdGlvblR5cGVJbnZhbGlk",
-            "EAASIAocRUFwcEFzc29jaWF0aW9uVHlwZVB1Ymxpc2hlchABEiAKHEVBcHBB",
-            "c3NvY2lhdGlvblR5cGVEZXZlbG9wZXIQAhIgChxFQXBwQXNzb2NpYXRpb25U",
-            "eXBlRnJhbmNoaXNlEAMqiwEKGkVBcHBDb250cm9sbGVyU3VwcG9ydExldmVs",
-            "EiIKHkVBcHBDb250cm9sbGVyU3VwcG9ydExldmVsTm9uZRAAEiUKIUVBcHBD",
-            "b250cm9sbGVyU3VwcG9ydExldmVsUGFydGlhbBABEiIKHkVBcHBDb250cm9s",
-            "bGVyU3VwcG9ydExldmVsRnVsbBACKvUBCiNFQXBwR2FtZXBhZEd5cm9UcmFj",
-            "a3BhZFN1cHBvcnRMZXZlbBI3CipFQXBwR2FtZXBhZEd5cm9UcmFja3BhZFN1",
-            "cHBvcnRMZXZlbFVua25vd24Q////////////ARIwCixFQXBwR2FtZXBhZEd5",
-            "cm9UcmFja3BhZFN1cHBvcnRMZXZlbE5vR2FtZXBhZBAAEi4KKkVBcHBHYW1l",
-            "cGFkR3lyb1RyYWNrcGFkU3VwcG9ydExldmVsR2FtZXBhZBABEjMKL0VBcHBH",
-            "YW1lcGFkR3lyb1RyYWNrcGFkU3VwcG9ydExldmVsU2ltdWx0YW5lb3VzEAJC",
-            "H0gBgAEBqgIXT3BlblN0ZWFtd29ya3MuUHJvdG9idWY="));
+            "RyABKAgifwoTQ0FwcE92ZXJ2aWV3X0NoYW5nZRIjCgxhcHBfb3ZlcnZpZXcY",
+            "ASADKAsyDS5DQXBwT3ZlcnZpZXcSFQoNcmVtb3ZlZF9hcHBpZBgCIAMoDRIT",
+            "CgtmdWxsX3VwZGF0ZRgDIAEoCBIXCg91cGRhdGVfY29tcGxldGUYBCABKAgi",
+            "RAoRQ0FwcEJvb3RzdHJhcERhdGESDQoFYXBwaWQYASABKA0SDgoGaGlkZGVu",
+            "GAIgASgIEhAKCHVzZXJfdGFnGAMgAygJIj0KFUNMaWJyYXJ5Qm9vdHN0cmFw",
+            "RGF0YRIkCghhcHBfZGF0YRgBIAMoCzISLkNBcHBCb290c3RyYXBEYXRhKrwJ",
+            "Cg5FRGlzcGxheVN0YXR1cxIZChVFRGlzcGxheVN0YXR1c0ludmFsaWQQABIb",
+            "ChdFRGlzcGxheVN0YXR1c0xhdW5jaGluZxABEh4KGkVEaXNwbGF5U3RhdHVz",
+            "VW5pbnN0YWxsaW5nEAISHAoYRURpc3BsYXlTdGF0dXNJbnN0YWxsaW5nEAMS",
+            "GQoVRURpc3BsYXlTdGF0dXNSdW5uaW5nEAQSHAoYRURpc3BsYXlTdGF0dXNW",
+            "YWxpZGF0aW5nEAUSGgoWRURpc3BsYXlTdGF0dXNVcGRhdGluZxAGEh0KGUVE",
+            "aXNwbGF5U3RhdHVzRG93bmxvYWRpbmcQBxIfChtFRGlzcGxheVN0YXR1c1N5",
+            "bmNocm9uaXppbmcQCBIgChxFRGlzcGxheVN0YXR1c1JlYWR5VG9JbnN0YWxs",
+            "EAkSIAocRURpc3BsYXlTdGF0dXNSZWFkeVRvUHJlbG9hZBAKEh8KG0VEaXNw",
+            "bGF5U3RhdHVzUmVhZHlUb0xhdW5jaBALEiIKHkVEaXNwbGF5U3RhdHVzUmVn",
+            "aW9uUmVzdHJpY3RlZBAMEh0KGUVEaXNwbGF5U3RhdHVzUHJlc2FsZU9ubHkQ",
+            "DRIhCh1FRGlzcGxheVN0YXR1c0ludmFsaWRQbGF0Zm9ybRAOEiEKHUVEaXNw",
+            "bGF5U3RhdHVzUHJlbG9hZENvbXBsZXRlEBASIAocRURpc3BsYXlTdGF0dXNC",
+            "b3Jyb3dlckxvY2tlZBAREh4KGkVEaXNwbGF5U3RhdHVzVXBkYXRlUGF1c2Vk",
+            "EBISHgoaRURpc3BsYXlTdGF0dXNVcGRhdGVRdWV1ZWQQExIgChxFRGlzcGxh",
+            "eVN0YXR1c1VwZGF0ZVJlcXVpcmVkEBQSIAocRURpc3BsYXlTdGF0dXNVcGRh",
+            "dGVEaXNhYmxlZBAVEiAKHEVEaXNwbGF5U3RhdHVzRG93bmxvYWRQYXVzZWQQ",
+            "FhIgChxFRGlzcGxheVN0YXR1c0Rvd25sb2FkUXVldWVkEBcSIgoeRURpc3Bs",
+            "YXlTdGF0dXNEb3dubG9hZFJlcXVpcmVkEBgSIgoeRURpc3BsYXlTdGF0dXNE",
+            "b3dubG9hZERpc2FibGVkEBkSIAocRURpc3BsYXlTdGF0dXNMaWNlbnNlUGVu",
+            "ZGluZxAaEiAKHEVEaXNwbGF5U3RhdHVzTGljZW5zZUV4cGlyZWQQGxIeChpF",
+            "RGlzcGxheVN0YXR1c0F2YWlsRm9yRnJlZRAcEh8KG0VEaXNwbGF5U3RhdHVz",
+            "QXZhaWxUb0JvcnJvdxAdEiAKHEVEaXNwbGF5U3RhdHVzQXZhaWxHdWVzdFBh",
+            "c3MQHhIaChZFRGlzcGxheVN0YXR1c1B1cmNoYXNlEB8SHQoZRURpc3BsYXlT",
+            "dGF0dXNVbmF2YWlsYWJsZRAgEh8KG0VEaXNwbGF5U3RhdHVzTm90TGF1bmNo",
+            "YWJsZRAhEhwKGEVEaXNwbGF5U3RhdHVzQ2xvdWRFcnJvchAiEiAKHEVEaXNw",
+            "bGF5U3RhdHVzQ2xvdWRPdXRPZkRhdGUQIxIdChlFRGlzcGxheVN0YXR1c1Rl",
+            "cm1pbmF0aW5nECQSHQoZRURpc3BsYXlTdGF0dXNPd25lckxvY2tlZBAlKuEC",
+            "Cg9FQXBwQ2xvdWRTdGF0dXMSGgoWRUFwcENsb3VkU3RhdHVzSW52YWxpZBAA",
+            "EhsKF0VBcHBDbG91ZFN0YXR1c0Rpc2FibGVkEAESGgoWRUFwcENsb3VkU3Rh",
+            "dHVzVW5rbm93bhACEh8KG0VBcHBDbG91ZFN0YXR1c1N5bmNocm9uaXplZBAD",
+            "EhsKF0VBcHBDbG91ZFN0YXR1c0NoZWNraW5nEAQSHAoYRUFwcENsb3VkU3Rh",
+            "dHVzT3V0T2ZTeW5jEAUSHAoYRUFwcENsb3VkU3RhdHVzVXBsb2FkaW5nEAYS",
+            "HgoaRUFwcENsb3VkU3RhdHVzRG93bmxvYWRpbmcQBxIdChlFQXBwQ2xvdWRT",
+            "dGF0dXNTeW5jRmFpbGVkEAgSGwoXRUFwcENsb3VkU3RhdHVzQ29uZmxpY3QQ",
+            "CRIjCh9FQXBwQ2xvdWRTdGF0dXNQZW5kaW5nRWxzZXdoZXJlEAoqwgMKDUVQ",
+            "cm90b0FwcFR5cGUSEwoPRUFwcFR5cGVJbnZhbGlkEAASEAoMRUFwcFR5cGVH",
+            "YW1lEAESFwoTRUFwcFR5cGVBcHBsaWNhdGlvbhACEhAKDEVBcHBUeXBlVG9v",
+            "bBAEEhAKDEVBcHBUeXBlRGVtbxAIEhUKEUVBcHBUeXBlRGVwcmVjdGVkEBAS",
+            "DwoLRUFwcFR5cGVETEMQIBIRCg1FQXBwVHlwZUd1aWRlEEASEwoORUFwcFR5",
+            "cGVEcml2ZXIQgAESEwoORUFwcFR5cGVDb25maWcQgAISFQoQRUFwcFR5cGVI",
+            "YXJkd2FyZRCABBIWChFFQXBwVHlwZUZyYW5jaGlzZRCACBISCg1FQXBwVHlw",
+            "ZVZpZGVvEIAQEhMKDkVBcHBUeXBlUGx1Z2luEIAgEhcKEkVBcHBUeXBlTXVz",
+            "aWNBbGJ1bRCAQBIUCg5FQXBwVHlwZVNlcmllcxCAgAESEwoNRUFwcFR5cGVD",
+            "b21pYxCAgAISEgoMRUFwcFR5cGVCZXRhEICABBIYChBFQXBwVHlwZVNob3J0",
+            "Y3V0EICAgIAEEh4KEUVBcHBUeXBlRGVwb3RPbmx5EICAgID4/////wEqmwEK",
+            "E0VBcHBBc3NvY2lhdGlvblR5cGUSHgoaRUFwcEFzc29jaWF0aW9uVHlwZUlu",
+            "dmFsaWQQABIgChxFQXBwQXNzb2NpYXRpb25UeXBlUHVibGlzaGVyEAESIAoc",
+            "RUFwcEFzc29jaWF0aW9uVHlwZURldmVsb3BlchACEiAKHEVBcHBBc3NvY2lh",
+            "dGlvblR5cGVGcmFuY2hpc2UQAyqLAQoaRUFwcENvbnRyb2xsZXJTdXBwb3J0",
+            "TGV2ZWwSIgoeRUFwcENvbnRyb2xsZXJTdXBwb3J0TGV2ZWxOb25lEAASJQoh",
+            "RUFwcENvbnRyb2xsZXJTdXBwb3J0TGV2ZWxQYXJ0aWFsEAESIgoeRUFwcENv",
+            "bnRyb2xsZXJTdXBwb3J0TGV2ZWxGdWxsEAIq9QEKI0VBcHBHYW1lcGFkR3ly",
+            "b1RyYWNrcGFkU3VwcG9ydExldmVsEjcKKkVBcHBHYW1lcGFkR3lyb1RyYWNr",
+            "cGFkU3VwcG9ydExldmVsVW5rbm93bhD///////////8BEjAKLEVBcHBHYW1l",
+            "cGFkR3lyb1RyYWNrcGFkU3VwcG9ydExldmVsTm9HYW1lcGFkEAASLgoqRUFw",
+            "cEdhbWVwYWRHeXJvVHJhY2twYWRTdXBwb3J0TGV2ZWxHYW1lcGFkEAESMwov",
+            "RUFwcEdhbWVwYWRHeXJvVHJhY2twYWRTdXBwb3J0TGV2ZWxTaW11bHRhbmVv",
+            "dXMQAiqXAQoORUFwcEhEUlN1cHBvcnQSFwoTRUhEUlN1cHBvcnRfVW5rbm93",
+            "bhAAEhMKD0VIRFJTdXBwb3J0X1NEUhABEhMKD0VIRFJTdXBwb3J0X0hEUhAC",
+            "EhoKFkVIRFJTdXBwb3J0X0hEUl9Ccm9rZW4QAxImCiJFSERSU3VwcG9ydF9I",
+            "RFJfUmVxdWlyZXNVc2VyQWN0aW9uEARCH0gBgAEBqgIXT3BlblN0ZWFtd29y",
+            "a3MuUHJvdG9idWY="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.Reflection.DescriptorReflection.Descriptor, global::OpenSteamworks.Protobuf.EnumsReflection.Descriptor, },
-          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::OpenSteamworks.Protobuf.EDisplayStatus), typeof(global::OpenSteamworks.Protobuf.EAppCloudStatus), typeof(global::OpenSteamworks.Protobuf.EProtoAppType), typeof(global::OpenSteamworks.Protobuf.EAppAssociationType), typeof(global::OpenSteamworks.Protobuf.EAppControllerSupportLevel), typeof(global::OpenSteamworks.Protobuf.EAppGamepadGyroTrackpadSupportLevel), }, null, new pbr::GeneratedClrTypeInfo[] {
+          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::OpenSteamworks.Protobuf.EDisplayStatus), typeof(global::OpenSteamworks.Protobuf.EAppCloudStatus), typeof(global::OpenSteamworks.Protobuf.EProtoAppType), typeof(global::OpenSteamworks.Protobuf.EAppAssociationType), typeof(global::OpenSteamworks.Protobuf.EAppControllerSupportLevel), typeof(global::OpenSteamworks.Protobuf.EAppGamepadGyroTrackpadSupportLevel), typeof(global::OpenSteamworks.Protobuf.EAppHDRSupport), }, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CAppOverview_AppAssociation), global::OpenSteamworks.Protobuf.CAppOverview_AppAssociation.Parser, new[]{ "Type", "Name" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CAppOverview_PerClientData), global::OpenSteamworks.Protobuf.CAppOverview_PerClientData.Parser, new[]{ "Clientid", "ClientName", "DisplayStatus", "StatusPercentage", "ActiveBeta", "Installed", "BytesDownloaded", "BytesTotal", "StreamingToLocalClient", "IsAvailableOnCurrentPlatform", "IsInvalidOsType", "PlaytimeLeft", "CloudStatus", "UpdateAvailableButDisabledByApp" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CAppOverview), global::OpenSteamworks.Protobuf.CAppOverview.Parser, new[]{ "Appid", "DisplayName", "VisibleInGameList", "SubscribedTo", "SortAs", "AppType", "MruIndex", "RtRecentActivityTime", "MinutesPlaytimeForever", "MinutesPlaytimeLastTwoWeeks", "RtLastTimePlayed", "StoreTag", "Association", "StoreCategory", "RtOriginalReleaseDate", "RtSteamReleaseDate", "IconHash", "XboxControllerSupport", "VrSupported", "MetacriticScore", "SizeOnDisk", "ThirdPartyMod", "IconData", "IconDataFormat", "Gameid", "LibraryCapsuleFilename", "PerClientData", "MostAvailableClientid", "SelectedClientid", "RtStoreAssetMtime", "RtCustomImageMtime", "OptionalParentAppId", "OwnerAccountId", "ReviewScoreWithBombs", "ReviewPercentageWithBombs", "ReviewScoreWithoutBombs", "ReviewPercentageWithoutBombs", "LibraryId", "VrOnly", "MastersubAppid", "MastersubIncludedwithLogo", "SiteLicenseSiteName", "ShortcutOverrideAppid", "SteamDeccompatCategory", "RtLastTimeLocallyPlayed", "RtPurchasedTime", "HeaderFilename", "LocalCacheVersion", "Ps4ControllerSupport", "Ps5ControllerSupport", "GamepadPreferred", "GamepadRequired" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CAppOverview), global::OpenSteamworks.Protobuf.CAppOverview.Parser, new[]{ "Appid", "DisplayName", "VisibleInGameList", "SubscribedTo", "SortAs", "AppType", "MruIndex", "RtRecentActivityTime", "MinutesPlaytimeForever", "MinutesPlaytimeLastTwoWeeks", "RtLastTimePlayed", "StoreTag", "Association", "StoreCategory", "RtOriginalReleaseDate", "RtSteamReleaseDate", "IconHash", "XboxControllerSupport", "VrSupported", "MetacriticScore", "SizeOnDisk", "ThirdPartyMod", "IconData", "IconDataFormat", "Gameid", "LibraryCapsuleFilename", "PerClientData", "MostAvailableClientid", "SelectedClientid", "RtStoreAssetMtime", "RtCustomImageMtime", "OptionalParentAppId", "OwnerAccountId", "ReviewScoreWithBombs", "ReviewPercentageWithBombs", "ReviewScoreWithoutBombs", "ReviewPercentageWithoutBombs", "LibraryId", "VrOnly", "MastersubAppid", "MastersubIncludedwithLogo", "SiteLicenseSiteName", "ShortcutOverrideAppid", "SteamDeccompatCategory", "RtLastTimeLocallyPlayed", "RtPurchasedTime", "HeaderFilename", "LocalCacheVersion", "Ps4ControllerSupport", "Ps5ControllerSupport", "GamepadPreferred" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CAppOverview_Change), global::OpenSteamworks.Protobuf.CAppOverview_Change.Parser, new[]{ "AppOverview", "RemovedAppid", "FullUpdate", "UpdateComplete" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CAppBootstrapData), global::OpenSteamworks.Protobuf.CAppBootstrapData.Parser, new[]{ "Appid", "Hidden", "UserTag" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CLibraryBootstrapData), global::OpenSteamworks.Protobuf.CLibraryBootstrapData.Parser, new[]{ "AppData" }, null, null, null, null)
@@ -195,6 +199,7 @@ namespace OpenSteamworks.Protobuf {
     [pbr::OriginalName("EDisplayStatusCloudError")] CloudError = 34,
     [pbr::OriginalName("EDisplayStatusCloudOutOfDate")] CloudOutOfDate = 35,
     [pbr::OriginalName("EDisplayStatusTerminating")] Terminating = 36,
+    [pbr::OriginalName("EDisplayStatusOwnerLocked")] OwnerLocked = 37,
   }
 
   public enum EAppCloudStatus {
@@ -254,9 +259,18 @@ namespace OpenSteamworks.Protobuf {
     [pbr::OriginalName("EAppGamepadGyroTrackpadSupportLevelSimultaneous")] Simultaneous = 2,
   }
 
+  public enum EAppHDRSupport {
+    [pbr::OriginalName("EHDRSupport_Unknown")] EhdrsupportUnknown = 0,
+    [pbr::OriginalName("EHDRSupport_SDR")] EhdrsupportSdr = 1,
+    [pbr::OriginalName("EHDRSupport_HDR")] EhdrsupportHdr = 2,
+    [pbr::OriginalName("EHDRSupport_HDR_Broken")] EhdrsupportHdrBroken = 3,
+    [pbr::OriginalName("EHDRSupport_HDR_RequiresUserAction")] EhdrsupportHdrRequiresUserAction = 4,
+  }
+
   #endregion
 
   #region Messages
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CAppOverview_AppAssociation : pb::IMessage<CAppOverview_AppAssociation>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -514,6 +528,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CAppOverview_PerClientData : pb::IMessage<CAppOverview_PerClientData>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1394,6 +1409,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CAppOverview : pb::IMessage<CAppOverview>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1483,7 +1499,6 @@ namespace OpenSteamworks.Protobuf {
       ps4ControllerSupport_ = other.ps4ControllerSupport_;
       ps5ControllerSupport_ = other.ps5ControllerSupport_;
       gamepadPreferred_ = other.gamepadPreferred_;
-      gamepadRequired_ = other.gamepadRequired_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -2795,33 +2810,6 @@ namespace OpenSteamworks.Protobuf {
       _hasBits1 &= ~8;
     }
 
-    /// <summary>Field number for the "gamepad_required" field.</summary>
-    public const int GamepadRequiredFieldNumber = 72;
-    private readonly static bool GamepadRequiredDefaultValue = false;
-
-    private bool gamepadRequired_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool GamepadRequired {
-      get { if ((_hasBits1 & 16) != 0) { return gamepadRequired_; } else { return GamepadRequiredDefaultValue; } }
-      set {
-        _hasBits1 |= 16;
-        gamepadRequired_ = value;
-      }
-    }
-    /// <summary>Gets whether the "gamepad_required" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasGamepadRequired {
-      get { return (_hasBits1 & 16) != 0; }
-    }
-    /// <summary>Clears the value of the "gamepad_required" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearGamepadRequired() {
-      _hasBits1 &= ~16;
-    }
-
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -2888,7 +2876,6 @@ namespace OpenSteamworks.Protobuf {
       if (Ps4ControllerSupport != other.Ps4ControllerSupport) return false;
       if (Ps5ControllerSupport != other.Ps5ControllerSupport) return false;
       if (GamepadPreferred != other.GamepadPreferred) return false;
-      if (GamepadRequired != other.GamepadRequired) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -2947,7 +2934,6 @@ namespace OpenSteamworks.Protobuf {
       if (HasPs4ControllerSupport) hash ^= Ps4ControllerSupport.GetHashCode();
       if (HasPs5ControllerSupport) hash ^= Ps5ControllerSupport.GetHashCode();
       if (HasGamepadPreferred) hash ^= GamepadPreferred.GetHashCode();
-      if (HasGamepadRequired) hash ^= GamepadRequired.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -3158,10 +3144,6 @@ namespace OpenSteamworks.Protobuf {
         output.WriteRawTag(184, 4);
         output.WriteBool(GamepadPreferred);
       }
-      if (HasGamepadRequired) {
-        output.WriteRawTag(192, 4);
-        output.WriteBool(GamepadRequired);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -3364,10 +3346,6 @@ namespace OpenSteamworks.Protobuf {
         output.WriteRawTag(184, 4);
         output.WriteBool(GamepadPreferred);
       }
-      if (HasGamepadRequired) {
-        output.WriteRawTag(192, 4);
-        output.WriteBool(GamepadRequired);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -3521,9 +3499,6 @@ namespace OpenSteamworks.Protobuf {
         size += 2 + pb::CodedOutputStream.ComputeEnumSize((int) Ps5ControllerSupport);
       }
       if (HasGamepadPreferred) {
-        size += 2 + 1;
-      }
-      if (HasGamepadRequired) {
         size += 2 + 1;
       }
       if (_unknownFields != null) {
@@ -3682,9 +3657,6 @@ namespace OpenSteamworks.Protobuf {
       }
       if (other.HasGamepadPreferred) {
         GamepadPreferred = other.GamepadPreferred;
-      }
-      if (other.HasGamepadRequired) {
-        GamepadRequired = other.GamepadRequired;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -3905,10 +3877,6 @@ namespace OpenSteamworks.Protobuf {
           }
           case 568: {
             GamepadPreferred = input.ReadBool();
-            break;
-          }
-          case 576: {
-            GamepadRequired = input.ReadBool();
             break;
           }
         }
@@ -4132,10 +4100,6 @@ namespace OpenSteamworks.Protobuf {
             GamepadPreferred = input.ReadBool();
             break;
           }
-          case 576: {
-            GamepadRequired = input.ReadBool();
-            break;
-          }
         }
       }
     }
@@ -4143,6 +4107,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CAppOverview_Change : pb::IMessage<CAppOverview_Change>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -4455,6 +4420,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CAppBootstrapData : pb::IMessage<CAppBootstrapData>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -4739,6 +4705,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CLibraryBootstrapData : pb::IMessage<CLibraryBootstrapData>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage

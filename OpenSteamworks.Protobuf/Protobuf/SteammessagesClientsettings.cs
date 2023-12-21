@@ -28,7 +28,7 @@ namespace OpenSteamworks.Protobuf {
             "cHJvdG9idWYvZGVzY3JpcHRvci5wcm90bxoLZW51bXMucHJvdG8ifAoKQ01z",
             "Z0hvdGtleRIQCghrZXlfY29kZRgBIAEoDRIPCgdhbHRfa2V5GAIgASgIEhEK",
             "CXNoaWZ0X2tleRgDIAEoCBIQCghjdHJsX2tleRgEIAEoCBIQCghtZXRhX2tl",
-            "eRgFIAEoCBIUCgxkaXNwbGF5X25hbWUYBiABKAkiuUIKEkNNc2dDbGllbnRT",
+            "eRgFIAEoCBIUCgxkaXNwbGF5X25hbWUYBiABKAkin0MKEkNNc2dDbGllbnRT",
             "ZXR0aW5ncxJOChVub19zYXZlX3BlcnNvbmFsX2luZm8YASABKAhCL4CmHQGK",
             "ph0nU29mdHdhcmVcVmFsdmVcU3RlYW1cTm9TYXZlUGVyc29uYWxJbmZvElAK",
             "Fm9vYmVfdGVzdF9tb2RlX2VuYWJsZWQYAiABKAhCMICmHQGKph0oU29mdHdh",
@@ -206,54 +206,56 @@ namespace OpenSteamworks.Protobuf {
             "CEIEgKYdBRI/ChFmb3JjZV9kZWNwZXJmX3RhYhiknAEgASgIQiKAph0BiqYd",
             "GkRldmVsb3Blci9Gb3JjZURlY2tQZXJmVGFiEkwKG2ZvcmNlX2Zha2VfbWFu",
             "ZGF0b3J5X3VwZGF0ZRilnAEgASgIQiWAph0BiqYdHURldmVsb3Blci9GYWtl",
-            "TWFuZGF0b3J5VXBkYXRlEnUKG2dhbWVzY29wZV9oZHJfdmlzdWFsaXphdGlv",
+            "TWFuZGF0b3J5VXBkYXRlEnYKG2dhbWVzY29wZV9oZHJfdmlzdWFsaXphdGlv",
             "bhiJpAEgASgOMhIuRUhEUlZpc3VhbGl6YXRpb246FkVIRFJWaXN1YWxpemF0",
-            "aW9uX05vbmVCIoCmHQOKph0aR2FtZXNjb3BlL0hEUlZpc3VhbGl6YXRpb24S",
-            "VgoeZ2FtZXNjb3BlX2FwcF90YXJnZXRfZnJhbWVyYXRlGIqkASABKAVCLICm",
-            "HQOKph0cR2FtZXNjb3BlL0FwcFRhcmdldEZyYW1lUmF0ZaCmHQDQph0CEogB",
-            "CiVnYW1lc2NvcGVfZW5hYmxlX2FwcF90YXJnZXRfZnJhbWVyYXRlGIukASAB",
-            "KAhCV4CmHQSKph1LSEtFWV9DVVJSRU5UX1VTRVJcU29mdHdhcmVcVmFsdmVc",
-            "U3RlYW1cR2FtZXNjb3BlRW5hYmxlQXBwVGFyZ2V0UmVmcmVzaFJhdGUymKYd",
-            "ARJTChxnYW1lc2NvcGVfZGlzYWJsZV9mcmFtZWxpbWl0GIykASABKAhCK4Cm",
-            "HQOKph0bR2FtZXNjb3BlL0Rpc2FibGVGcmFtZUxpbWl0mKYdANCmHQISTwoe",
-            "Z2FtZXNjb3BlX2Rpc3BsYXlfcmVmcmVzaF9yYXRlGI2kASABKAVCJYCmHQOK",
-            "ph0VR2FtZXNjb3BlL1JlZnJlc2hSYXRloKYdANCmHQIqiQIKE0VDbGllbnRT",
-            "ZXR0aW5nU3RvcmUSHwobRUNsaWVudFNldHRpbmdTdG9yZV9JbnZhbGlkEAAS",
-            "KwonRUNsaWVudFNldHRpbmdTdG9yZV9Db25maWdTdG9yZV9JbnN0YWxsEAES",
-            "LworRUNsaWVudFNldHRpbmdTdG9yZV9Db25maWdTdG9yZV9Vc2VyUm9hbWlu",
-            "ZxACEi0KKUVDbGllbnRTZXR0aW5nU3RvcmVfQ29uZmlnU3RvcmVfVXNlckxv",
-            "Y2FsEAMSIAocRUNsaWVudFNldHRpbmdTdG9yZV9SZWdpc3RyeRAEEiIKHkVD",
-            "bGllbnRTZXR0aW5nU3RvcmVfQ3VzdG9tRnVuYxAFKq0BChlFT3ZlcmxheVRv",
-            "Z2dsZUJhckxvY2F0aW9uEiQKIEVPdmVybGF5VG9nZ2xlQmFyTG9jYXRpb25f",
-            "Qm90dG9tEAASIgoeRU92ZXJsYXlUb2dnbGVCYXJMb2NhdGlvbl9MZWZ0EAES",
-            "IwofRU92ZXJsYXlUb2dnbGVCYXJMb2NhdGlvbl9SaWdodBACEiEKHUVPdmVy",
-            "bGF5VG9nZ2xlQmFyTG9jYXRpb25fVG9wEAMqfwoTRVNldHRpbmdQcm9maWxl",
-            "TW9kZRIcChhFU2V0dGluZ1Byb2ZpbGVNb2RlX05vbmUQABIfChtFU2V0dGlu",
-            "Z1Byb2ZpbGVNb2RlX1BlckdhbWUQARIpCiVFU2V0dGluZ1Byb2ZpbGVNb2Rl",
-            "X1BlckdhbWVQZXJEaXNwbGF5EAI6aQoNc2V0dGluZ19zdG9yZRIdLmdvb2ds",
-            "ZS5wcm90b2J1Zi5GaWVsZE9wdGlvbnMY4NQDIAEoDjIULkVDbGllbnRTZXR0",
-            "aW5nU3RvcmU6G0VDbGllbnRTZXR0aW5nU3RvcmVfSW52YWxpZDo1CgxzZXR0",
-            "aW5nX25hbWUSHS5nb29nbGUucHJvdG9idWYuRmllbGRPcHRpb25zGOHUAyAB",
-            "KAk6OgoRc2V0dGluZ19wcmVfbG9naW4SHS5nb29nbGUucHJvdG9idWYuRmll",
-            "bGRPcHRpb25zGOLUAyABKAg6PQoUc2V0dGluZ19kZWZhdWx0X2Jvb2wSHS5n",
-            "b29nbGUucHJvdG9idWYuRmllbGRPcHRpb25zGOPUAyABKAg6PAoTc2V0dGlu",
-            "Z19kZWZhdWx0X2ludBIdLmdvb2dsZS5wcm90b2J1Zi5GaWVsZE9wdGlvbnMY",
-            "5NQDIAEoBTo9ChRzZXR0aW5nX2RlZmF1bHRfdWludBIdLmdvb2dsZS5wcm90",
-            "b2J1Zi5GaWVsZE9wdGlvbnMY5dQDIAEoDTo+ChVzZXR0aW5nX2RlZmF1bHRf",
-            "ZmxvYXQSHS5nb29nbGUucHJvdG9idWYuRmllbGRPcHRpb25zGObUAyABKAI6",
-            "PwoWc2V0dGluZ19kZWZhdWx0X3N0cmluZxIdLmdvb2dsZS5wcm90b2J1Zi5G",
-            "aWVsZE9wdGlvbnMY59QDIAEoCTo5ChBzZXR0aW5nX3JlYWRvbmx5Eh0uZ29v",
-            "Z2xlLnByb3RvYnVmLkZpZWxkT3B0aW9ucxjo1AMgASgIOjwKE3NldHRpbmdf",
-            "ZGVzY3JpcHRpb24SHS5nb29nbGUucHJvdG9idWYuRmllbGRPcHRpb25zGOnU",
-            "AyABKAk6bQoUc2V0dGluZ19wcm9maWxlX21vZGUSHS5nb29nbGUucHJvdG9i",
-            "dWYuRmllbGRPcHRpb25zGOrUAyABKA4yFC5FU2V0dGluZ1Byb2ZpbGVNb2Rl",
-            "OhhFU2V0dGluZ1Byb2ZpbGVNb2RlX05vbmVCH0gBgAEBqgIXT3BlblN0ZWFt",
-            "d29ya3MuUHJvdG9idWY="));
+            "aW9uX05vbmVCI4CmHQOKph0bR2FtZXNjb3BlL0hEUlZpc3VhbGl6YXRpb24y",
+            "ElYKHmdhbWVzY29wZV9hcHBfdGFyZ2V0X2ZyYW1lcmF0ZRiKpAEgASgFQiyA",
+            "ph0DiqYdHEdhbWVzY29wZS9BcHBUYXJnZXRGcmFtZVJhdGWgph0A0KYdAhKI",
+            "AQolZ2FtZXNjb3BlX2VuYWJsZV9hcHBfdGFyZ2V0X2ZyYW1lcmF0ZRiLpAEg",
+            "ASgIQleAph0EiqYdS0hLRVlfQ1VSUkVOVF9VU0VSXFNvZnR3YXJlXFZhbHZl",
+            "XFN0ZWFtXEdhbWVzY29wZUVuYWJsZUFwcFRhcmdldFJlZnJlc2hSYXRlMpim",
+            "HQESUwocZ2FtZXNjb3BlX2Rpc2FibGVfZnJhbWVsaW1pdBiMpAEgASgIQiuA",
+            "ph0DiqYdG0dhbWVzY29wZS9EaXNhYmxlRnJhbWVMaW1pdJimHQDQph0CEk8K",
+            "HmdhbWVzY29wZV9kaXNwbGF5X3JlZnJlc2hfcmF0ZRiNpAEgASgFQiWAph0D",
+            "iqYdFUdhbWVzY29wZS9SZWZyZXNoUmF0ZaCmHQDQph0CEmMKKGdhbWVzY29w",
+            "ZV91c2VfZ2FtZV9yZWZyZXNoX3JhdGVfaW5fc3RlYW0YjqQBIAEoCEIvgKYd",
+            "A4qmHSNEZXZlbG9wZXIvRHluYW1pY1JlZnJlc2hSYXRlSW5TdGVhbZimHQEq",
+            "iQIKE0VDbGllbnRTZXR0aW5nU3RvcmUSHwobRUNsaWVudFNldHRpbmdTdG9y",
+            "ZV9JbnZhbGlkEAASKwonRUNsaWVudFNldHRpbmdTdG9yZV9Db25maWdTdG9y",
+            "ZV9JbnN0YWxsEAESLworRUNsaWVudFNldHRpbmdTdG9yZV9Db25maWdTdG9y",
+            "ZV9Vc2VyUm9hbWluZxACEi0KKUVDbGllbnRTZXR0aW5nU3RvcmVfQ29uZmln",
+            "U3RvcmVfVXNlckxvY2FsEAMSIAocRUNsaWVudFNldHRpbmdTdG9yZV9SZWdp",
+            "c3RyeRAEEiIKHkVDbGllbnRTZXR0aW5nU3RvcmVfQ3VzdG9tRnVuYxAFKq0B",
+            "ChlFT3ZlcmxheVRvZ2dsZUJhckxvY2F0aW9uEiQKIEVPdmVybGF5VG9nZ2xl",
+            "QmFyTG9jYXRpb25fQm90dG9tEAASIgoeRU92ZXJsYXlUb2dnbGVCYXJMb2Nh",
+            "dGlvbl9MZWZ0EAESIwofRU92ZXJsYXlUb2dnbGVCYXJMb2NhdGlvbl9SaWdo",
+            "dBACEiEKHUVPdmVybGF5VG9nZ2xlQmFyTG9jYXRpb25fVG9wEAMqfwoTRVNl",
+            "dHRpbmdQcm9maWxlTW9kZRIcChhFU2V0dGluZ1Byb2ZpbGVNb2RlX05vbmUQ",
+            "ABIfChtFU2V0dGluZ1Byb2ZpbGVNb2RlX1BlckdhbWUQARIpCiVFU2V0dGlu",
+            "Z1Byb2ZpbGVNb2RlX1BlckdhbWVQZXJEaXNwbGF5EAI6aQoNc2V0dGluZ19z",
+            "dG9yZRIdLmdvb2dsZS5wcm90b2J1Zi5GaWVsZE9wdGlvbnMY4NQDIAEoDjIU",
+            "LkVDbGllbnRTZXR0aW5nU3RvcmU6G0VDbGllbnRTZXR0aW5nU3RvcmVfSW52",
+            "YWxpZDo1CgxzZXR0aW5nX25hbWUSHS5nb29nbGUucHJvdG9idWYuRmllbGRP",
+            "cHRpb25zGOHUAyABKAk6OgoRc2V0dGluZ19wcmVfbG9naW4SHS5nb29nbGUu",
+            "cHJvdG9idWYuRmllbGRPcHRpb25zGOLUAyABKAg6PQoUc2V0dGluZ19kZWZh",
+            "dWx0X2Jvb2wSHS5nb29nbGUucHJvdG9idWYuRmllbGRPcHRpb25zGOPUAyAB",
+            "KAg6PAoTc2V0dGluZ19kZWZhdWx0X2ludBIdLmdvb2dsZS5wcm90b2J1Zi5G",
+            "aWVsZE9wdGlvbnMY5NQDIAEoBTo9ChRzZXR0aW5nX2RlZmF1bHRfdWludBId",
+            "Lmdvb2dsZS5wcm90b2J1Zi5GaWVsZE9wdGlvbnMY5dQDIAEoDTo+ChVzZXR0",
+            "aW5nX2RlZmF1bHRfZmxvYXQSHS5nb29nbGUucHJvdG9idWYuRmllbGRPcHRp",
+            "b25zGObUAyABKAI6PwoWc2V0dGluZ19kZWZhdWx0X3N0cmluZxIdLmdvb2ds",
+            "ZS5wcm90b2J1Zi5GaWVsZE9wdGlvbnMY59QDIAEoCTo5ChBzZXR0aW5nX3Jl",
+            "YWRvbmx5Eh0uZ29vZ2xlLnByb3RvYnVmLkZpZWxkT3B0aW9ucxjo1AMgASgI",
+            "OjwKE3NldHRpbmdfZGVzY3JpcHRpb24SHS5nb29nbGUucHJvdG9idWYuRmll",
+            "bGRPcHRpb25zGOnUAyABKAk6bQoUc2V0dGluZ19wcm9maWxlX21vZGUSHS5n",
+            "b29nbGUucHJvdG9idWYuRmllbGRPcHRpb25zGOrUAyABKA4yFC5FU2V0dGlu",
+            "Z1Byb2ZpbGVNb2RlOhhFU2V0dGluZ1Byb2ZpbGVNb2RlX05vbmVCH0gBgAEB",
+            "qgIXT3BlblN0ZWFtd29ya3MuUHJvdG9idWY="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.Reflection.DescriptorReflection.Descriptor, global::OpenSteamworks.Protobuf.EnumsReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::OpenSteamworks.Protobuf.EClientSettingStore), typeof(global::OpenSteamworks.Protobuf.EOverlayToggleBarLocation), typeof(global::OpenSteamworks.Protobuf.ESettingProfileMode), }, new pb::Extension[] { SteammessagesClientsettingsExtensions.SettingStore, SteammessagesClientsettingsExtensions.SettingName, SteammessagesClientsettingsExtensions.SettingPreLogin, SteammessagesClientsettingsExtensions.SettingDefaultBool, SteammessagesClientsettingsExtensions.SettingDefaultInt, SteammessagesClientsettingsExtensions.SettingDefaultUint, SteammessagesClientsettingsExtensions.SettingDefaultFloat, SteammessagesClientsettingsExtensions.SettingDefaultString, SteammessagesClientsettingsExtensions.SettingReadonly, SteammessagesClientsettingsExtensions.SettingDescription, SteammessagesClientsettingsExtensions.SettingProfileMode }, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CMsgHotkey), global::OpenSteamworks.Protobuf.CMsgHotkey.Parser, new[]{ "KeyCode", "AltKey", "ShiftKey", "CtrlKey", "MetaKey", "DisplayName" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CMsgClientSettings), global::OpenSteamworks.Protobuf.CMsgClientSettings.Parser, new[]{ "NoSavePersonalInfo", "OobeTestModeEnabled", "InClientBeta", "IsSteamSideloaded", "PreferredMonitor", "SteamCefGpuBlocklistDisabled", "BigpictureWindowed", "DisplayName", "IsExternalDisplay", "SteamOsUnderscanLevel", "SteamOsUnderscanEnabled", "MinScaleFactor", "MaxScaleFactor", "AutoScaleFactor", "SmallMode", "SkipSteamvrInstallDialog", "AlwaysShowUserChooser", "ShowFamilySharingNotifications", "OverlayFpsCounterCorner", "OverlayFpsCounterHighContrast", "OverlayKey", "ScreenshotKey", "EnableOverlay", "EnableScreenshotNotification", "EnableScreenshotSound", "SaveUncompressedScreenshots", "ScreenshotsPath", "DefaultPingRate", "ServerPingRate", "SteamNetworkingShareIp", "WebBrowserHome", "VoiceMicDeviceName", "VoiceMicInputGain", "VoiceSpeakerOutputGain", "VoicePushToTalsetting", "VoicePushToTalkey", "OverlayToolbarListView", "AlwaysUseGamepaduiOverlay", "OverlayTabs", "OverlayScaleInterface", "OverlayRestoreBrowserTabs", "SmoothScrollWebviews", "EnableGpuAcceleratedWebviews", "EnableHardwareVideoDecoding", "RunAtStartup", "EnableDpiScaling", "EnableMarketingMessages", "StartInBigPictureMode", "JumplistFlags", "EnableUiSounds", "DisableAllToasts", "DisableToastsInGame", "PlaySoundOnToast", "LibraryDisplaySize", "LibraryWhatsNewShowOnlyProductUpdates", "ShowStoreContentOnHome", "StartPage", "LibraryLowBandwidthMode", "LibraryLowPerfMode", "LibraryDisableCommunityContent", "LibraryDisplayIconInGameList", "ReadyToPlayIncludesStreaming", "ShowSteamDecinfo", "EnableShaderPrecache", "EnableShaderBackgroundProcessing", "ShaderPrecachedSize", "NeedsSteamServiceRepair", "DownloadPeerContent", "DownloadRateBitsPerS", "RestrictAutoUpdates", "RestrictAutoUpdatesStart", "RestrictAutoUpdatesEnd", "DownloadRegion", "DownloadWhileAppRunning", "DownloadThrottleWhileStreaming", "DownloadThrottleRate", "CloudEnabled", "ShowScreenshotManager", "MusicVolume", "MusicPauseOnAppStart", "MusicPauseOnVoiceChat", "MusicDownloadHighQuality", "MusicPlaylistNotification", "BroadcastPermissions", "BroadcastOutputWidth", "BroadcastOutputHeight", "BroadcastBitrate", "BroadcastEncodingOption", "BroadcastRecordAllVideo", "BroadcastRecordAllAudio", "BroadcastRecordMicrophone", "BroadcastShowUploadStats", "BroadcastShowLiveReminder", "BroadcastChatCorner", "SteamInputConfiguratorErrorMsgEnable", "ControllerGuideButtonFocusSteam", "ControllerPsSupport", "ControllerXboxSupport", "ControllerXboxDriver", "ControllerSwitchSupport", "ControllerGenericSupport", "ControllerPowerOffTimeout", "TurnOffControllerOnExit", "ControllerCombineNintendoJoycons", "StartupMovieId", "StartupMovieLocalPath", "StartupMovieShuffle", "StartupMovieUsedForResume", "GameNotesEnableSpellcheck", "ScreenshotItemsPerRow", "GBackgroundEnabled", "GBackgroundPath", "GBackgroundMaxKeep", "GBackgroundTimeResolution", "GBackgroundDevmode", "GBackgroundMk", "GBackgroundTg", "ShowTimestampsInConsole", "ForceOobe", "OverrideBrowserComposerMode", "CefRemoteDebuggingEnabled", "ForceDecperfTab", "ForceFakeMandatoryUpdate", "GamescopeHdrVisualization", "GamescopeAppTargetFramerate", "GamescopeEnableAppTargetFramerate", "GamescopeDisableFramelimit", "GamescopeDisplayRefreshRate" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CMsgClientSettings), global::OpenSteamworks.Protobuf.CMsgClientSettings.Parser, new[]{ "NoSavePersonalInfo", "OobeTestModeEnabled", "InClientBeta", "IsSteamSideloaded", "PreferredMonitor", "SteamCefGpuBlocklistDisabled", "BigpictureWindowed", "DisplayName", "IsExternalDisplay", "SteamOsUnderscanLevel", "SteamOsUnderscanEnabled", "MinScaleFactor", "MaxScaleFactor", "AutoScaleFactor", "SmallMode", "SkipSteamvrInstallDialog", "AlwaysShowUserChooser", "ShowFamilySharingNotifications", "OverlayFpsCounterCorner", "OverlayFpsCounterHighContrast", "OverlayKey", "ScreenshotKey", "EnableOverlay", "EnableScreenshotNotification", "EnableScreenshotSound", "SaveUncompressedScreenshots", "ScreenshotsPath", "DefaultPingRate", "ServerPingRate", "SteamNetworkingShareIp", "WebBrowserHome", "VoiceMicDeviceName", "VoiceMicInputGain", "VoiceSpeakerOutputGain", "VoicePushToTalsetting", "VoicePushToTalkey", "OverlayToolbarListView", "AlwaysUseGamepaduiOverlay", "OverlayTabs", "OverlayScaleInterface", "OverlayRestoreBrowserTabs", "SmoothScrollWebviews", "EnableGpuAcceleratedWebviews", "EnableHardwareVideoDecoding", "RunAtStartup", "EnableDpiScaling", "EnableMarketingMessages", "StartInBigPictureMode", "JumplistFlags", "EnableUiSounds", "DisableAllToasts", "DisableToastsInGame", "PlaySoundOnToast", "LibraryDisplaySize", "LibraryWhatsNewShowOnlyProductUpdates", "ShowStoreContentOnHome", "StartPage", "LibraryLowBandwidthMode", "LibraryLowPerfMode", "LibraryDisableCommunityContent", "LibraryDisplayIconInGameList", "ReadyToPlayIncludesStreaming", "ShowSteamDecinfo", "EnableShaderPrecache", "EnableShaderBackgroundProcessing", "ShaderPrecachedSize", "NeedsSteamServiceRepair", "DownloadPeerContent", "DownloadRateBitsPerS", "RestrictAutoUpdates", "RestrictAutoUpdatesStart", "RestrictAutoUpdatesEnd", "DownloadRegion", "DownloadWhileAppRunning", "DownloadThrottleWhileStreaming", "DownloadThrottleRate", "CloudEnabled", "ShowScreenshotManager", "MusicVolume", "MusicPauseOnAppStart", "MusicPauseOnVoiceChat", "MusicDownloadHighQuality", "MusicPlaylistNotification", "BroadcastPermissions", "BroadcastOutputWidth", "BroadcastOutputHeight", "BroadcastBitrate", "BroadcastEncodingOption", "BroadcastRecordAllVideo", "BroadcastRecordAllAudio", "BroadcastRecordMicrophone", "BroadcastShowUploadStats", "BroadcastShowLiveReminder", "BroadcastChatCorner", "SteamInputConfiguratorErrorMsgEnable", "ControllerGuideButtonFocusSteam", "ControllerPsSupport", "ControllerXboxSupport", "ControllerXboxDriver", "ControllerSwitchSupport", "ControllerGenericSupport", "ControllerPowerOffTimeout", "TurnOffControllerOnExit", "ControllerCombineNintendoJoycons", "StartupMovieId", "StartupMovieLocalPath", "StartupMovieShuffle", "StartupMovieUsedForResume", "GameNotesEnableSpellcheck", "ScreenshotItemsPerRow", "GBackgroundEnabled", "GBackgroundPath", "GBackgroundMaxKeep", "GBackgroundTimeResolution", "GBackgroundDevmode", "GBackgroundMk", "GBackgroundTg", "ShowTimestampsInConsole", "ForceOobe", "OverrideBrowserComposerMode", "CefRemoteDebuggingEnabled", "ForceDecperfTab", "ForceFakeMandatoryUpdate", "GamescopeHdrVisualization", "GamescopeAppTargetFramerate", "GamescopeEnableAppTargetFramerate", "GamescopeDisableFramelimit", "GamescopeDisplayRefreshRate", "GamescopeUseGameRefreshRateInSteam" }, null, null, null, null)
           }));
     }
     #endregion
@@ -311,6 +313,7 @@ namespace OpenSteamworks.Protobuf {
   #endregion
 
   #region Messages
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CMsgHotkey : pb::IMessage<CMsgHotkey>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -776,6 +779,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CMsgClientSettings : pb::IMessage<CMsgClientSettings>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -946,6 +950,7 @@ namespace OpenSteamworks.Protobuf {
       gamescopeEnableAppTargetFramerate_ = other.gamescopeEnableAppTargetFramerate_;
       gamescopeDisableFramelimit_ = other.gamescopeDisableFramelimit_;
       gamescopeDisplayRefreshRate_ = other.gamescopeDisplayRefreshRate_;
+      gamescopeUseGameRefreshRateInSteam_ = other.gamescopeUseGameRefreshRateInSteam_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -4326,6 +4331,33 @@ namespace OpenSteamworks.Protobuf {
       _hasBits3 &= ~65536;
     }
 
+    /// <summary>Field number for the "gamescope_use_game_refresh_rate_in_steam" field.</summary>
+    public const int GamescopeUseGameRefreshRateInSteamFieldNumber = 21006;
+    private readonly static bool GamescopeUseGameRefreshRateInSteamDefaultValue = false;
+
+    private bool gamescopeUseGameRefreshRateInSteam_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool GamescopeUseGameRefreshRateInSteam {
+      get { if ((_hasBits3 & 131072) != 0) { return gamescopeUseGameRefreshRateInSteam_; } else { return GamescopeUseGameRefreshRateInSteamDefaultValue; } }
+      set {
+        _hasBits3 |= 131072;
+        gamescopeUseGameRefreshRateInSteam_ = value;
+      }
+    }
+    /// <summary>Gets whether the "gamescope_use_game_refresh_rate_in_steam" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasGamescopeUseGameRefreshRateInSteam {
+      get { return (_hasBits3 & 131072) != 0; }
+    }
+    /// <summary>Clears the value of the "gamescope_use_game_refresh_rate_in_steam" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearGamescopeUseGameRefreshRateInSteam() {
+      _hasBits3 &= ~131072;
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -4469,6 +4501,7 @@ namespace OpenSteamworks.Protobuf {
       if (GamescopeEnableAppTargetFramerate != other.GamescopeEnableAppTargetFramerate) return false;
       if (GamescopeDisableFramelimit != other.GamescopeDisableFramelimit) return false;
       if (GamescopeDisplayRefreshRate != other.GamescopeDisplayRefreshRate) return false;
+      if (GamescopeUseGameRefreshRateInSteam != other.GamescopeUseGameRefreshRateInSteam) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -4604,6 +4637,7 @@ namespace OpenSteamworks.Protobuf {
       if (HasGamescopeEnableAppTargetFramerate) hash ^= GamescopeEnableAppTargetFramerate.GetHashCode();
       if (HasGamescopeDisableFramelimit) hash ^= GamescopeDisableFramelimit.GetHashCode();
       if (HasGamescopeDisplayRefreshRate) hash ^= GamescopeDisplayRefreshRate.GetHashCode();
+      if (HasGamescopeUseGameRefreshRateInSteam) hash ^= GamescopeUseGameRefreshRateInSteam.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -5134,6 +5168,10 @@ namespace OpenSteamworks.Protobuf {
         output.WriteRawTag(232, 160, 10);
         output.WriteInt32(GamescopeDisplayRefreshRate);
       }
+      if (HasGamescopeUseGameRefreshRateInSteam) {
+        output.WriteRawTag(240, 160, 10);
+        output.WriteBool(GamescopeUseGameRefreshRateInSteam);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -5656,6 +5694,10 @@ namespace OpenSteamworks.Protobuf {
         output.WriteRawTag(232, 160, 10);
         output.WriteInt32(GamescopeDisplayRefreshRate);
       }
+      if (HasGamescopeUseGameRefreshRateInSteam) {
+        output.WriteRawTag(240, 160, 10);
+        output.WriteBool(GamescopeUseGameRefreshRateInSteam);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -6049,6 +6091,9 @@ namespace OpenSteamworks.Protobuf {
       }
       if (HasGamescopeDisplayRefreshRate) {
         size += 3 + pb::CodedOutputStream.ComputeInt32Size(GamescopeDisplayRefreshRate);
+      }
+      if (HasGamescopeUseGameRefreshRateInSteam) {
+        size += 3 + 1;
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -6460,6 +6505,9 @@ namespace OpenSteamworks.Protobuf {
       }
       if (other.HasGamescopeDisplayRefreshRate) {
         GamescopeDisplayRefreshRate = other.GamescopeDisplayRefreshRate;
+      }
+      if (other.HasGamescopeUseGameRefreshRateInSteam) {
+        GamescopeUseGameRefreshRateInSteam = other.GamescopeUseGameRefreshRateInSteam;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -7003,6 +7051,10 @@ namespace OpenSteamworks.Protobuf {
             GamescopeDisplayRefreshRate = input.ReadInt32();
             break;
           }
+          case 168048: {
+            GamescopeUseGameRefreshRateInSteam = input.ReadBool();
+            break;
+          }
         }
       }
     #endif
@@ -7543,6 +7595,10 @@ namespace OpenSteamworks.Protobuf {
           }
           case 168040: {
             GamescopeDisplayRefreshRate = input.ReadInt32();
+            break;
+          }
+          case 168048: {
+            GamescopeUseGameRefreshRateInSteam = input.ReadBool();
             break;
           }
         }

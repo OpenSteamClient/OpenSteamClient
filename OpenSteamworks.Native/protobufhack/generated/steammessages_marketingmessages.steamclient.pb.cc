@@ -405,7 +405,80 @@ struct CMarketingMessages_GetMarketingMessagesViewerRangeStats_ResponseDefaultTy
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CMarketingMessages_GetMarketingMessagesViewerRangeStats_ResponseDefaultTypeInternal _CMarketingMessages_GetMarketingMessagesViewerRangeStats_Response_default_instance_;
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_steammessages_5fmarketingmessages_2esteamclient_2eproto[27];
+constexpr CMarketingMessages_GetPartnerReadyToPublishMessages_Request::CMarketingMessages_GetPartnerReadyToPublishMessages_Request(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : partnerid_(0u){}
+struct CMarketingMessages_GetPartnerReadyToPublishMessages_RequestDefaultTypeInternal {
+  constexpr CMarketingMessages_GetPartnerReadyToPublishMessages_RequestDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CMarketingMessages_GetPartnerReadyToPublishMessages_RequestDefaultTypeInternal() {}
+  union {
+    CMarketingMessages_GetPartnerReadyToPublishMessages_Request _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CMarketingMessages_GetPartnerReadyToPublishMessages_RequestDefaultTypeInternal _CMarketingMessages_GetPartnerReadyToPublishMessages_Request_default_instance_;
+constexpr CMarketingMessages_GetPartnerReadyToPublishMessages_Response::CMarketingMessages_GetPartnerReadyToPublishMessages_Response(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : messages_(){}
+struct CMarketingMessages_GetPartnerReadyToPublishMessages_ResponseDefaultTypeInternal {
+  constexpr CMarketingMessages_GetPartnerReadyToPublishMessages_ResponseDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CMarketingMessages_GetPartnerReadyToPublishMessages_ResponseDefaultTypeInternal() {}
+  union {
+    CMarketingMessages_GetPartnerReadyToPublishMessages_Response _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CMarketingMessages_GetPartnerReadyToPublishMessages_ResponseDefaultTypeInternal _CMarketingMessages_GetPartnerReadyToPublishMessages_Response_default_instance_;
+constexpr CMarketingMessages_PartnerPublishMessage_Request::CMarketingMessages_PartnerPublishMessage_Request(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : gid_(PROTOBUF_ULONGLONG(0))
+  , partnerid_(0u){}
+struct CMarketingMessages_PartnerPublishMessage_RequestDefaultTypeInternal {
+  constexpr CMarketingMessages_PartnerPublishMessage_RequestDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CMarketingMessages_PartnerPublishMessage_RequestDefaultTypeInternal() {}
+  union {
+    CMarketingMessages_PartnerPublishMessage_Request _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CMarketingMessages_PartnerPublishMessage_RequestDefaultTypeInternal _CMarketingMessages_PartnerPublishMessage_Request_default_instance_;
+constexpr CMarketingMessages_PartnerPublishMessage_Response::CMarketingMessages_PartnerPublishMessage_Response(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized){}
+struct CMarketingMessages_PartnerPublishMessage_ResponseDefaultTypeInternal {
+  constexpr CMarketingMessages_PartnerPublishMessage_ResponseDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CMarketingMessages_PartnerPublishMessage_ResponseDefaultTypeInternal() {}
+  union {
+    CMarketingMessages_PartnerPublishMessage_Response _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CMarketingMessages_PartnerPublishMessage_ResponseDefaultTypeInternal _CMarketingMessages_PartnerPublishMessage_Response_default_instance_;
+constexpr CMarketingMessages_GetPartnerMessagePreview_Request::CMarketingMessages_GetPartnerMessagePreview_Request(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : gid_(PROTOBUF_ULONGLONG(0))
+  , partnerid_(0u){}
+struct CMarketingMessages_GetPartnerMessagePreview_RequestDefaultTypeInternal {
+  constexpr CMarketingMessages_GetPartnerMessagePreview_RequestDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CMarketingMessages_GetPartnerMessagePreview_RequestDefaultTypeInternal() {}
+  union {
+    CMarketingMessages_GetPartnerMessagePreview_Request _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CMarketingMessages_GetPartnerMessagePreview_RequestDefaultTypeInternal _CMarketingMessages_GetPartnerMessagePreview_Request_default_instance_;
+constexpr CMarketingMessages_GetPartnerMessagePreview_Response::CMarketingMessages_GetPartnerMessagePreview_Response(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : message_(nullptr){}
+struct CMarketingMessages_GetPartnerMessagePreview_ResponseDefaultTypeInternal {
+  constexpr CMarketingMessages_GetPartnerMessagePreview_ResponseDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CMarketingMessages_GetPartnerMessagePreview_ResponseDefaultTypeInternal() {}
+  union {
+    CMarketingMessages_GetPartnerMessagePreview_Response _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CMarketingMessages_GetPartnerMessagePreview_ResponseDefaultTypeInternal _CMarketingMessages_GetPartnerMessagePreview_Response_default_instance_;
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_steammessages_5fmarketingmessages_2esteamclient_2eproto[33];
 static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_steammessages_5fmarketingmessages_2esteamclient_2eproto[5];
 static const ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor* file_level_service_descriptors_steammessages_5fmarketingmessages_2esteamclient_2eproto[1];
 
@@ -709,6 +782,49 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fmarketingmessa
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::CMarketingMessages_GetMarketingMessagesViewerRangeStats_Response, stats_),
+  PROTOBUF_FIELD_OFFSET(::CMarketingMessages_GetPartnerReadyToPublishMessages_Request, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CMarketingMessages_GetPartnerReadyToPublishMessages_Request, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::CMarketingMessages_GetPartnerReadyToPublishMessages_Request, partnerid_),
+  0,
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::CMarketingMessages_GetPartnerReadyToPublishMessages_Response, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::CMarketingMessages_GetPartnerReadyToPublishMessages_Response, messages_),
+  PROTOBUF_FIELD_OFFSET(::CMarketingMessages_PartnerPublishMessage_Request, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CMarketingMessages_PartnerPublishMessage_Request, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::CMarketingMessages_PartnerPublishMessage_Request, gid_),
+  PROTOBUF_FIELD_OFFSET(::CMarketingMessages_PartnerPublishMessage_Request, partnerid_),
+  0,
+  1,
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::CMarketingMessages_PartnerPublishMessage_Response, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::CMarketingMessages_GetPartnerMessagePreview_Request, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CMarketingMessages_GetPartnerMessagePreview_Request, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::CMarketingMessages_GetPartnerMessagePreview_Request, gid_),
+  PROTOBUF_FIELD_OFFSET(::CMarketingMessages_GetPartnerMessagePreview_Request, partnerid_),
+  0,
+  1,
+  PROTOBUF_FIELD_OFFSET(::CMarketingMessages_GetPartnerMessagePreview_Response, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CMarketingMessages_GetPartnerMessagePreview_Response, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::CMarketingMessages_GetPartnerMessagePreview_Response, message_),
+  0,
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, 7, sizeof(::CMarketingMessages_GetActiveMarketingMessages_Request)},
@@ -738,6 +854,12 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 278, -1, sizeof(::CMarketingMessages_GetMarketingMessageViewerStats_Response)},
   { 284, 291, sizeof(::CMarketingMessages_GetMarketingMessagesViewerRangeStats_Request)},
   { 293, -1, sizeof(::CMarketingMessages_GetMarketingMessagesViewerRangeStats_Response)},
+  { 299, 305, sizeof(::CMarketingMessages_GetPartnerReadyToPublishMessages_Request)},
+  { 306, -1, sizeof(::CMarketingMessages_GetPartnerReadyToPublishMessages_Response)},
+  { 312, 319, sizeof(::CMarketingMessages_PartnerPublishMessage_Request)},
+  { 321, -1, sizeof(::CMarketingMessages_PartnerPublishMessage_Response)},
+  { 326, 333, sizeof(::CMarketingMessages_GetPartnerMessagePreview_Request)},
+  { 335, 341, sizeof(::CMarketingMessages_GetPartnerMessagePreview_Response)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -768,6 +890,12 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMarketingMessages_GetMarketingMessageViewerStats_Response_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMarketingMessages_GetMarketingMessagesViewerRangeStats_Request_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMarketingMessages_GetMarketingMessagesViewerRangeStats_Response_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMarketingMessages_GetPartnerReadyToPublishMessages_Request_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMarketingMessages_GetPartnerReadyToPublishMessages_Response_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMarketingMessages_PartnerPublishMessage_Request_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMarketingMessages_PartnerPublishMessage_Response_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMarketingMessages_GetPartnerMessagePreview_Request_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CMarketingMessages_GetPartnerMessagePreview_Response_default_instance_),
 };
 
 const char descriptor_table_protodef_steammessages_5fmarketingmessages_2esteamclient_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -776,240 +904,220 @@ const char descriptor_table_protodef_steammessages_5fmarketingmessages_2esteamcl
   "proto\032\030steammessages_base.proto\032,steamme"
   "ssages_unified_base.steamclient.proto\032+s"
   "teammessages_storebrowse.steamclient.pro"
-  "to\"\265\001\n5CMarketingMessages_GetActiveMarke"
-  "tingMessages_Request\022\017\n\007country\030\001 \001(\t\022k\n"
-  "\016anonymous_user\030\002 \001(\010BS\202\265\030OWill not retu"
-  "rn any marketing message that requires o"
-  "wnership/playtime/wishlist\"\251\006\n\026CMarketin"
-  "gMessageProto\022\013\n\003gid\030\001 \001(\006\022\r\n\005title\030\002 \001("
-  "\t\022>\n\004type\030\003 \001(\0162\026.EMarketingMessageType:"
-  "\030EMarketingMessageInvalid\022N\n\nvisibility\030"
-  "\004 \001(\0162\034.EMarketingMessageVisibility:\034EMa"
-  "rketingMessageVisibleBeta\022\020\n\010priority\030\005 "
-  "\001(\r\022[\n\020association_type\030\006 \001(\0162!.EMarketi"
-  "ngMessageAssociationType:\036EMarketingMess"
-  "ageNoAssociation\022\025\n\rassociated_id\030\007 \001(\r\022"
-  "\027\n\017associated_name\030\010 \001(\t\022\022\n\nstart_date\030\t"
-  " \001(\r\022\020\n\010end_date\030\n \001(\r\022\025\n\rcountry_allow\030"
-  "\013 \001(\t\022\024\n\014country_deny\030\014 \001(\t\022)\n!ownership"
-  "_restrictions_overridden\030\r \001(\010\022\026\n\016must_o"
-  "wn_appid\030\016 \001(\r\022\032\n\022must_not_own_appid\030\017 \001"
-  "(\r\022\032\n\022must_own_packageid\030\020 \001(\r\022\036\n\026must_n"
-  "ot_own_packageid\030\021 \001(\r\022 \n\030must_have_laun"
-  "ched_appid\030\022 \001(\r\022\037\n\027additional_restricti"
-  "ons\030\023 \001(\t\022\025\n\rtemplate_type\030\024 \001(\t\022\025\n\rtemp"
-  "late_vars\030\025 \001(\t\022\r\n\005flags\030\026 \001(\r\022\024\n\014creato"
-  "r_name\030\027 \001(\t\022\032\n\022template_vars_json\030\030 \001(\t"
-  "\022$\n\034additional_restrictions_json\030\031 \001(\t\"\202"
-  "\001\n6CMarketingMessages_GetActiveMarketing"
-  "Messages_Response\022)\n\010messages\030\001 \003(\0132\027.CM"
-  "arketingMessageProto\022\035\n\025time_next_messag"
-  "e_age\030\002 \001(\r\"\237\003\n6CMarketingMessages_GetMa"
-  "rketingMessagesForUser_Request\022\035\n\025includ"
-  "e_seen_messages\030\001 \001(\010\022\024\n\014country_code\030\002 "
-  "\001(\t\022\021\n\telanguage\030\003 \001(\005\0221\n\020operating_syst"
-  "em\030\004 \001(\005B\027\202\265\030\023EOSType from client\022\036\n\026cli"
-  "ent_package_version\030\005 \001(\005\022l\n\007context\030\006 \001"
-  "(\0132\023.StoreBrowseContextBF\202\265\030BOptional, s"
-  "erver can fill in from country code/lang"
-  "uage if not set\022\\\n\014data_request\030\007 \001(\0132\033."
-  "StoreBrowseItemDataRequestB)\202\265\030%If passe"
-  "d, item data will be returned\"\221\002\n\030CDispl"
-  "ayMarketingMessage\022\013\n\003gid\030\001 \001(\006\022\r\n\005title"
-  "\030\002 \001(\t\022>\n\004type\030\003 \001(\0162\026.EMarketingMessage"
-  "Type:\030EMarketingMessageInvalid\022(\n\022associ"
-  "ated_item_id\030\004 \001(\0132\014.StoreItemID\022#\n\017asso"
-  "ciated_item\030\005 \001(\0132\n.StoreItem\022\027\n\017associa"
-  "ted_name\030\006 \001(\t\022\025\n\rtemplate_type\030\n \001(\t\022\032\n"
-  "\022template_vars_json\030\013 \001(\t\"\372\001\n7CMarketing"
-  "Messages_GetMarketingMessagesForUser_Res"
-  "ponse\022b\n\010messages\030\001 \003(\0132P.CMarketingMess"
-  "ages_GetMarketingMessagesForUser_Respons"
-  "e.MarketingMessageForUser\032[\n\027MarketingMe"
-  "ssageForUser\022\024\n\014already_seen\030\001 \001(\010\022*\n\007me"
-  "ssage\030\002 \001(\0132\031.CDisplayMarketingMessage\"\275"
-  "\001\n\?CMarketingMessages_DoesUserHavePendin"
-  "gMarketingMessages_Request\022\024\n\014country_co"
-  "de\030\002 \001(\t\022\021\n\telanguage\030\003 \001(\005\0221\n\020operating"
-  "_system\030\004 \001(\005B\027\202\265\030\023EOSType from client\022\036"
-  "\n\026client_package_version\030\005 \001(\005\"\177\n@CMarke"
-  "tingMessages_DoesUserHavePendingMarketin"
-  "gMessages_Response\022\034\n\024has_pending_messag"
-  "es\030\001 \001(\010\022\035\n\025pending_message_count\030\002 \001(\005\""
-  "\310\001\n5CMarketingMessages_GetDisplayMarketi"
-  "ngMessage_Request\022\013\n\003gid\030\001 \001(\006\022$\n\007contex"
-  "t\030\002 \001(\0132\023.StoreBrowseContext\022\\\n\014data_req"
-  "uest\030\003 \001(\0132\033.StoreBrowseItemDataRequestB"
-  ")\202\265\030%If passed, item data will be return"
-  "ed\"d\n6CMarketingMessages_GetDisplayMarke"
-  "tingMessage_Response\022*\n\007message\030\001 \001(\0132\031."
-  "CDisplayMarketingMessage\"\261\002\n/CMarketingM"
-  "essages_MarkMessageSeen_Notification\022\013\n\003"
-  "gid\030\001 \001(\006\022m\n\rdisplay_index\030\002 \001(\r:\0010BS\202\265\030"
-  "OWhere in the stack was the marketing me"
-  "ssage, 1-based, zero means we don\'t know"
-  "\022\201\001\n\rtemplate_type\030\003 \001(\0162\036.EMarketingMes"
-  "sageTemplateType:!EMarketingMessageTempl"
-  "ate_UnknownB\'\202\265\030#Which type of template "
-  "did they see\"=\n.CMarketingMessages_GetMa"
-  "rketingMessage_Request\022\013\n\003gid\030\001 \001(\006\"[\n/C"
-  "MarketingMessages_GetMarketingMessage_Re"
-  "sponse\022(\n\007message\030\001 \001(\0132\027.CMarketingMess"
-  "ageProto\"\316\001\n1CMarketingMessages_CreateMa"
-  "rketingMessage_Request\022(\n\007message\030\001 \001(\0132"
-  "\027.CMarketingMessageProto\022o\n\tfrom_json\030\002 "
-  "\001(\010B\\\202\265\030XIf set, then overwrite the temp"
-  "late_vars and additional_restrictions ke"
-  "yvalues from json\"A\n2CMarketingMessages_"
-  "CreateMarketingMessage_Response\022\013\n\003gid\030\001"
-  " \001(\006\"\333\001\n1CMarketingMessages_UpdateMarket"
-  "ingMessage_Request\022\013\n\003gid\030\001 \001(\006\022(\n\007messa"
-  "ge\030\002 \001(\0132\027.CMarketingMessageProto\022o\n\tfro"
-  "m_json\030\003 \001(\010B\\\202\265\030XIf set, then overwrite"
-  " the template_vars and additional_restri"
-  "ctions keyvalues from json\"4\n2CMarketing"
-  "Messages_UpdateMarketingMessage_Response"
-  "\"@\n1CMarketingMessages_DeleteMarketingMe"
-  "ssage_Request\022\013\n\003gid\030\001 \001(\006\"4\n2CMarketing"
-  "Messages_DeleteMarketingMessage_Response"
-  "\"\372\001\n0CMarketingMessages_FindMarketingMes"
-  "sages_Request\022Q\n\013lookup_type\030\001 \001(\0162\034.EMa"
-  "rketingMessageLookupType:\036EMarketingMess"
-  "ageLookupInvalid\022\013\n\003gid\030\002 \001(\006\022F\n\014message"
-  "_type\030\003 \001(\0162\026.EMarketingMessageType:\030EMa"
-  "rketingMessageInvalid\022\017\n\007gidlist\030\004 \003(\006\022\r"
-  "\n\005title\030\005 \001(\t\"^\n1CMarketingMessages_Find"
-  "MarketingMessages_Response\022)\n\010messages\030\001"
-  " \003(\0132\027.CMarketingMessageProto\"H\n9CMarket"
-  "ingMessages_GetMarketingMessageViewerSta"
-  "ts_Request\022\013\n\003gid\030\001 \001(\006\"\313\002\n\034CMarketingMe"
-  "ssageHourlyStats\022\024\n\014rt_time_hour\030\001 \001(\r\022."
-  "\n\nseen_count\030\002 \001(\rB\032\202\265\030\026within the hour "
-  "period\022\217\001\n\rtemplate_type\030\003 \001(\0162\036.EMarket"
-  "ingMessageTemplateType:!EMarketingMessag"
-  "eTemplate_UnknownB5\202\265\0301Which template ty"
-  "pe was shown, usually just IMAGE\022S\n\rdisp"
-  "lay_index\030\004 \001(\rB<\202\265\0308Zero is invalid/we "
-  "don\'t have information; 1 based index\"j\n"
-  ":CMarketingMessages_GetMarketingMessageV"
-  "iewerStats_Response\022,\n\005stats\030\001 \003(\0132\035.CMa"
-  "rketingMessageHourlyStats\"m\n\?CMarketingM"
-  "essages_GetMarketingMessagesViewerRangeS"
-  "tats_Request\022\025\n\rrt_start_time\030\001 \001(\r\022\023\n\013r"
-  "t_end_time\030\002 \001(\r\"\235\001\n@CMarketingMessages_"
-  "GetMarketingMessagesViewerRangeStats_Res"
-  "ponse\022Y\n\005stats\030\001 \003(\0132\035.CMarketingMessage"
-  "HourlyStatsB+\202\265\030\'Flatterns results for t"
-  "he range of time*\265\003\n\025EMarketingMessageTy"
-  "pe\022\034\n\030EMarketingMessageInvalid\020\000\022!\n\035EMar"
-  "ketingMessageNowAvailable\020\001\022 \n\034EMarketin"
-  "gMessageWeekendDeal\020\002\022 \n\034EMarketingMessa"
-  "gePrePurchase\020\003\022\034\n\030EMarketingMessagePlay"
-  "Now\020\004\022\037\n\033EMarketingMessagePreloadNow\020\005\022\034"
-  "\n\030EMarketingMessageGeneral\020\006\022\035\n\031EMarketi"
-  "ngMessageDemoQuit\020\007\022\034\n\030EMarketingMessage"
-  "Gifting\020\010\022\036\n\032EMarketingMessageEJsKorner\020"
-  "\t\022\033\n\027EMarketingMessageUpdate\020\n\022 \n\034EMarke"
-  "tingMessageMidweekDeal\020\013\022\036\n\032EMarketingMe"
-  "ssageDailyDeal\020\014*c\n\033EMarketingMessageVis"
-  "ibility\022 \n\034EMarketingMessageVisibleBeta\020"
-  "\001\022\"\n\036EMarketingMessageVisiblePublic\020\002*\223\002"
-  "\n EMarketingMessageAssociationType\022\"\n\036EM"
-  "arketingMessageNoAssociation\020\000\022#\n\037EMarke"
-  "tingMessageAppAssociation\020\001\022,\n(EMarketin"
-  "gMessageSubscriptionAssociation\020\002\022)\n%EMa"
-  "rketingMessagePublisherAssociation\020\003\022%\n!"
-  "EMarketingMessageGenreAssociation\020\004\022&\n\"E"
-  "MarketingMessageBundleAssociation\020\005*\266\002\n\035"
-  "EMarketingMessageTemplateType\022%\n!EMarket"
-  "ingMessageTemplate_Unknown\020\000\022#\n\037EMarketi"
-  "ngMessageTemplate_Image\020\001\022&\n\"EMarketingM"
-  "essageTemplate_Animated\020\002\022,\n(EMarketingM"
-  "essageTemplate_Featured_Video\020\003\022*\n&EMark"
-  "etingMessageTemplate_DLC_Override\020\004\022$\n E"
-  "MarketingMessageTemplate_Replay\020\005\022!\n\035EMa"
-  "rketingMessageTemplate_MAX\020\006*\330\001\n\033EMarket"
-  "ingMessageLookupType\022\"\n\036EMarketingMessag"
-  "eLookupInvalid\020\000\022 \n\034EMarketingMessageLoo"
-  "kupByGID\020\001\022!\n\035EMarketingMessageLookupAct"
-  "ive\020\002\022*\n&EMarketingMessageLookupByTitleW"
-  "ithType\020\003\022$\n EMarketingMessageLookupByGI"
-  "DList\020\0042\246\027\n\021MarketingMessages\022\273\001\n\032GetAct"
-  "iveMarketingMessages\0226.CMarketingMessage"
-  "s_GetActiveMarketingMessages_Request\0327.C"
-  "MarketingMessages_GetActiveMarketingMess"
-  "ages_Response\",\202\265\030(Get a list of active "
-  "marketing messages.\022\333\001\n\033GetMarketingMess"
-  "agesForUser\0227.CMarketingMessages_GetMark"
-  "etingMessagesForUser_Request\0328.CMarketin"
-  "gMessages_GetMarketingMessagesForUser_Re"
-  "sponse\"I\202\265\030EGet a list of active marketi"
-  "ng messages filtered for a specific user"
-  ".\022\204\002\n$DoesUserHavePendingMarketingMessag"
-  "es\022@.CMarketingMessages_DoesUserHavePend"
-  "ingMarketingMessages_Request\032A.CMarketin"
-  "gMessages_DoesUserHavePendingMarketingMe"
-  "ssages_Response\"W\202\265\030SReturns a boolean i"
-  "f the user has pending marketing message"
-  "s.  Intended to be fast.\022\275\001\n\032GetDisplayM"
-  "arketingMessage\0226.CMarketingMessages_Get"
-  "DisplayMarketingMessage_Request\0327.CMarke"
-  "tingMessages_GetDisplayMarketingMessage_"
-  "Response\".\202\265\030*Get a single marketing mes"
-  "sage, cacheable.\022\333\001\n!GetDisplayMarketing"
-  "MessageForUser\0226.CMarketingMessages_GetD"
-  "isplayMarketingMessage_Request\0327.CMarket"
+  "to\"`\n5CMarketingMessages_GetActiveMarket"
+  "ingMessages_Request\022\017\n\007country\030\001 \001(\t\022\026\n\016"
+  "anonymous_user\030\002 \001(\010\"\251\006\n\026CMarketingMessa"
+  "geProto\022\013\n\003gid\030\001 \001(\006\022\r\n\005title\030\002 \001(\t\022>\n\004t"
+  "ype\030\003 \001(\0162\026.EMarketingMessageType:\030EMark"
+  "etingMessageInvalid\022N\n\nvisibility\030\004 \001(\0162"
+  "\034.EMarketingMessageVisibility:\034EMarketin"
+  "gMessageVisibleBeta\022\020\n\010priority\030\005 \001(\r\022[\n"
+  "\020association_type\030\006 \001(\0162!.EMarketingMess"
+  "ageAssociationType:\036EMarketingMessageNoA"
+  "ssociation\022\025\n\rassociated_id\030\007 \001(\r\022\027\n\017ass"
+  "ociated_name\030\010 \001(\t\022\022\n\nstart_date\030\t \001(\r\022\020"
+  "\n\010end_date\030\n \001(\r\022\025\n\rcountry_allow\030\013 \001(\t\022"
+  "\024\n\014country_deny\030\014 \001(\t\022)\n!ownership_restr"
+  "ictions_overridden\030\r \001(\010\022\026\n\016must_own_app"
+  "id\030\016 \001(\r\022\032\n\022must_not_own_appid\030\017 \001(\r\022\032\n\022"
+  "must_own_packageid\030\020 \001(\r\022\036\n\026must_not_own"
+  "_packageid\030\021 \001(\r\022 \n\030must_have_launched_a"
+  "ppid\030\022 \001(\r\022\037\n\027additional_restrictions\030\023 "
+  "\001(\t\022\025\n\rtemplate_type\030\024 \001(\t\022\025\n\rtemplate_v"
+  "ars\030\025 \001(\t\022\r\n\005flags\030\026 \001(\r\022\024\n\014creator_name"
+  "\030\027 \001(\t\022\032\n\022template_vars_json\030\030 \001(\t\022$\n\034ad"
+  "ditional_restrictions_json\030\031 \001(\t\"\202\001\n6CMa"
+  "rketingMessages_GetActiveMarketingMessag"
+  "es_Response\022)\n\010messages\030\001 \003(\0132\027.CMarketi"
+  "ngMessageProto\022\035\n\025time_next_message_age\030"
+  "\002 \001(\r\"\223\002\n6CMarketingMessages_GetMarketin"
+  "gMessagesForUser_Request\022\035\n\025include_seen"
+  "_messages\030\001 \001(\010\022\024\n\014country_code\030\002 \001(\t\022\021\n"
+  "\telanguage\030\003 \001(\005\022\030\n\020operating_system\030\004 \001"
+  "(\005\022\036\n\026client_package_version\030\005 \001(\005\022$\n\007co"
+  "ntext\030\006 \001(\0132\023.StoreBrowseContext\0221\n\014data"
+  "_request\030\007 \001(\0132\033.StoreBrowseItemDataRequ"
+  "est\"\221\002\n\030CDisplayMarketingMessage\022\013\n\003gid\030"
+  "\001 \001(\006\022\r\n\005title\030\002 \001(\t\022>\n\004type\030\003 \001(\0162\026.EMa"
+  "rketingMessageType:\030EMarketingMessageInv"
+  "alid\022(\n\022associated_item_id\030\004 \001(\0132\014.Store"
+  "ItemID\022#\n\017associated_item\030\005 \001(\0132\n.StoreI"
+  "tem\022\027\n\017associated_name\030\006 \001(\t\022\025\n\rtemplate"
+  "_type\030\n \001(\t\022\032\n\022template_vars_json\030\013 \001(\t\""
+  "\372\001\n7CMarketingMessages_GetMarketingMessa"
+  "gesForUser_Response\022b\n\010messages\030\001 \003(\0132P."
+  "CMarketingMessages_GetMarketingMessagesF"
+  "orUser_Response.MarketingMessageForUser\032"
+  "[\n\027MarketingMessageForUser\022\024\n\014already_se"
+  "en\030\001 \001(\010\022*\n\007message\030\002 \001(\0132\031.CDisplayMark"
+  "etingMessage\"\244\001\n\?CMarketingMessages_Does"
+  "UserHavePendingMarketingMessages_Request"
+  "\022\024\n\014country_code\030\002 \001(\t\022\021\n\telanguage\030\003 \001("
+  "\005\022\030\n\020operating_system\030\004 \001(\005\022\036\n\026client_pa"
+  "ckage_version\030\005 \001(\005\"\177\n@CMarketingMessage"
+  "s_DoesUserHavePendingMarketingMessages_R"
+  "esponse\022\034\n\024has_pending_messages\030\001 \001(\010\022\035\n"
+  "\025pending_message_count\030\002 \001(\005\"\235\001\n5CMarket"
   "ingMessages_GetDisplayMarketingMessage_R"
-  "esponse\"E\202\265\030AGet a single marketing mess"
-  "age, which can be customized per user.\022\320"
-  "\001\n\037GetDisplayMarketingMessageAdmin\0226.CMa"
-  "rketingMessages_GetDisplayMarketingMessa"
-  "ge_Request\0327.CMarketingMessages_GetDispl"
-  "ayMarketingMessage_Response\"<\202\265\0308Get a s"
-  "ingle marketing message for Admin, not c"
-  "acheable.\022\231\001\n\017MarkMessageSeen\0220.CMarketi"
-  "ngMessages_MarkMessageSeen_Notification\032"
-  "\013.NoResponse\"G\202\265\030CMark that a user has v"
-  "iewed a message (so we won\'t show it aga"
-  "in)\'.\022\313\001\n\023GetMarketingMessage\022/.CMarketi"
-  "ngMessages_GetMarketingMessage_Request\0320"
-  ".CMarketingMessages_GetMarketingMessage_"
-  "Response\"Q\202\265\030MGet a single marketing mes"
-  "sage.  Admin account needed for non-acti"
-  "ve messages\022\246\001\n\026CreateMarketingMessage\0222"
-  ".CMarketingMessages_CreateMarketingMessa"
-  "ge_Request\0323.CMarketingMessages_CreateMa"
-  "rketingMessage_Response\"#\202\265\030\037Create a ne"
-  "w marketing message.\022\242\001\n\026UpdateMarketing"
-  "Message\0222.CMarketingMessages_UpdateMarke"
-  "tingMessage_Request\0323.CMarketingMessages"
-  "_UpdateMarketingMessage_Response\"\037\202\265\030\033Mo"
-  "dify a marketing message.\022\242\001\n\026DeleteMark"
-  "etingMessage\0222.CMarketingMessages_Delete"
-  "MarketingMessage_Request\0323.CMarketingMes"
-  "sages_DeleteMarketingMessage_Response\"\037\202"
-  "\265\030\033Delete a marketing message.\022\265\001\n\025FindM"
-  "arketingMessages\0221.CMarketingMessages_Fi"
-  "ndMarketingMessages_Request\0322.CMarketing"
-  "Messages_FindMarketingMessages_Response\""
-  "5\202\265\0301Search for marketing messages by na"
-  "me, type, etc.\022\241\002\n\036GetMarketingMessageVi"
-  "ewerStats\022:.CMarketingMessages_GetMarket"
-  "ingMessageViewerStats_Request\032;.CMarketi"
-  "ngMessages_GetMarketingMessageViewerStat"
-  "s_Response\"\205\001\202\265\030\200\001For a specific marketi"
-  "ng message, then all of the viewership s"
-  "tats for the date range it was intended "
-  "to be visible to customers\022\375\001\n$GetMarket"
-  "ingMessagesViewerRangeStats\022@.CMarketing"
-  "Messages_GetMarketingMessagesViewerRange"
-  "Stats_Request\032A.CMarketingMessages_GetMa"
-  "rketingMessagesViewerRangeStats_Response"
-  "\"P\202\265\030LFor a time range, return the seen "
-  "stats across all of the marketing messag"
-  "es\032D\202\265\030@Marketing message data (\"Steam N"
-  "ews\" updates at client startup).B\035\200\001\001\252\002\027"
-  "OpenSteamworks.Protobuf"
+  "equest\022\013\n\003gid\030\001 \001(\006\022$\n\007context\030\002 \001(\0132\023.S"
+  "toreBrowseContext\0221\n\014data_request\030\003 \001(\0132"
+  "\033.StoreBrowseItemDataRequest\"d\n6CMarketi"
+  "ngMessages_GetDisplayMarketingMessage_Re"
+  "sponse\022*\n\007message\030\001 \001(\0132\031.CDisplayMarket"
+  "ingMessage\"\262\001\n/CMarketingMessages_MarkMe"
+  "ssageSeen_Notification\022\013\n\003gid\030\001 \001(\006\022\030\n\rd"
+  "isplay_index\030\002 \001(\r:\0010\022X\n\rtemplate_type\030\003"
+  " \001(\0162\036.EMarketingMessageTemplateType:!EM"
+  "arketingMessageTemplate_Unknown\"=\n.CMark"
+  "etingMessages_GetMarketingMessage_Reques"
+  "t\022\013\n\003gid\030\001 \001(\006\"[\n/CMarketingMessages_Get"
+  "MarketingMessage_Response\022(\n\007message\030\001 \001"
+  "(\0132\027.CMarketingMessageProto\"p\n1CMarketin"
+  "gMessages_CreateMarketingMessage_Request"
+  "\022(\n\007message\030\001 \001(\0132\027.CMarketingMessagePro"
+  "to\022\021\n\tfrom_json\030\002 \001(\010\"A\n2CMarketingMessa"
+  "ges_CreateMarketingMessage_Response\022\013\n\003g"
+  "id\030\001 \001(\006\"}\n1CMarketingMessages_UpdateMar"
+  "ketingMessage_Request\022\013\n\003gid\030\001 \001(\006\022(\n\007me"
+  "ssage\030\002 \001(\0132\027.CMarketingMessageProto\022\021\n\t"
+  "from_json\030\003 \001(\010\"4\n2CMarketingMessages_Up"
+  "dateMarketingMessage_Response\"@\n1CMarket"
+  "ingMessages_DeleteMarketingMessage_Reque"
+  "st\022\013\n\003gid\030\001 \001(\006\"4\n2CMarketingMessages_De"
+  "leteMarketingMessage_Response\"\372\001\n0CMarke"
+  "tingMessages_FindMarketingMessages_Reque"
+  "st\022Q\n\013lookup_type\030\001 \001(\0162\034.EMarketingMess"
+  "ageLookupType:\036EMarketingMessageLookupIn"
+  "valid\022\013\n\003gid\030\002 \001(\006\022F\n\014message_type\030\003 \001(\016"
+  "2\026.EMarketingMessageType:\030EMarketingMess"
+  "ageInvalid\022\017\n\007gidlist\030\004 \003(\006\022\r\n\005title\030\005 \001"
+  "(\t\"^\n1CMarketingMessages_FindMarketingMe"
+  "ssages_Response\022)\n\010messages\030\001 \003(\0132\027.CMar"
+  "ketingMessageProto\"H\n9CMarketingMessages"
+  "_GetMarketingMessageViewerStats_Request\022"
+  "\013\n\003gid\030\001 \001(\006\"\271\001\n\034CMarketingMessageHourly"
+  "Stats\022\024\n\014rt_time_hour\030\001 \001(\r\022\022\n\nseen_coun"
+  "t\030\002 \001(\r\022X\n\rtemplate_type\030\003 \001(\0162\036.EMarket"
+  "ingMessageTemplateType:!EMarketingMessag"
+  "eTemplate_Unknown\022\025\n\rdisplay_index\030\004 \001(\r"
+  "\"j\n:CMarketingMessages_GetMarketingMessa"
+  "geViewerStats_Response\022,\n\005stats\030\001 \003(\0132\035."
+  "CMarketingMessageHourlyStats\"m\n\?CMarketi"
+  "ngMessages_GetMarketingMessagesViewerRan"
+  "geStats_Request\022\025\n\rrt_start_time\030\001 \001(\r\022\023"
+  "\n\013rt_end_time\030\002 \001(\r\"p\n@CMarketingMessage"
+  "s_GetMarketingMessagesViewerRangeStats_R"
+  "esponse\022,\n\005stats\030\001 \003(\0132\035.CMarketingMessa"
+  "geHourlyStats\"P\n;CMarketingMessages_GetP"
+  "artnerReadyToPublishMessages_Request\022\021\n\t"
+  "partnerid\030\001 \001(\r\"k\n<CMarketingMessages_Ge"
+  "tPartnerReadyToPublishMessages_Response\022"
+  "+\n\010messages\030\001 \003(\0132\031.CDisplayMarketingMes"
+  "sage\"R\n0CMarketingMessages_PartnerPublis"
+  "hMessage_Request\022\013\n\003gid\030\001 \001(\006\022\021\n\tpartner"
+  "id\030\002 \001(\r\"3\n1CMarketingMessages_PartnerPu"
+  "blishMessage_Response\"U\n3CMarketingMessa"
+  "ges_GetPartnerMessagePreview_Request\022\013\n\003"
+  "gid\030\001 \001(\006\022\021\n\tpartnerid\030\002 \001(\r\"`\n4CMarketi"
+  "ngMessages_GetPartnerMessagePreview_Resp"
+  "onse\022(\n\007message\030\001 \001(\0132\027.CMarketingMessag"
+  "eProto*\265\003\n\025EMarketingMessageType\022\034\n\030EMar"
+  "ketingMessageInvalid\020\000\022!\n\035EMarketingMess"
+  "ageNowAvailable\020\001\022 \n\034EMarketingMessageWe"
+  "ekendDeal\020\002\022 \n\034EMarketingMessagePrePurch"
+  "ase\020\003\022\034\n\030EMarketingMessagePlayNow\020\004\022\037\n\033E"
+  "MarketingMessagePreloadNow\020\005\022\034\n\030EMarketi"
+  "ngMessageGeneral\020\006\022\035\n\031EMarketingMessageD"
+  "emoQuit\020\007\022\034\n\030EMarketingMessageGifting\020\010\022"
+  "\036\n\032EMarketingMessageEJsKorner\020\t\022\033\n\027EMark"
+  "etingMessageUpdate\020\n\022 \n\034EMarketingMessag"
+  "eMidweekDeal\020\013\022\036\n\032EMarketingMessageDaily"
+  "Deal\020\014*\223\001\n\033EMarketingMessageVisibility\022 "
+  "\n\034EMarketingMessageVisibleBeta\020\001\022\"\n\036EMar"
+  "ketingMessageVisiblePublic\020\002\022.\n*EMarketi"
+  "ngMessageVisibleApprovedForPublish\020\003*\223\002\n"
+  " EMarketingMessageAssociationType\022\"\n\036EMa"
+  "rketingMessageNoAssociation\020\000\022#\n\037EMarket"
+  "ingMessageAppAssociation\020\001\022,\n(EMarketing"
+  "MessageSubscriptionAssociation\020\002\022)\n%EMar"
+  "ketingMessagePublisherAssociation\020\003\022%\n!E"
+  "MarketingMessageGenreAssociation\020\004\022&\n\"EM"
+  "arketingMessageBundleAssociation\020\005*\266\002\n\035E"
+  "MarketingMessageTemplateType\022%\n!EMarketi"
+  "ngMessageTemplate_Unknown\020\000\022#\n\037EMarketin"
+  "gMessageTemplate_Image\020\001\022&\n\"EMarketingMe"
+  "ssageTemplate_Animated\020\002\022,\n(EMarketingMe"
+  "ssageTemplate_Featured_Video\020\003\022*\n&EMarke"
+  "tingMessageTemplate_DLC_Override\020\004\022$\n EM"
+  "arketingMessageTemplate_Replay\020\005\022!\n\035EMar"
+  "ketingMessageTemplate_MAX\020\006*\330\001\n\033EMarketi"
+  "ngMessageLookupType\022\"\n\036EMarketingMessage"
+  "LookupInvalid\020\000\022 \n\034EMarketingMessageLook"
+  "upByGID\020\001\022!\n\035EMarketingMessageLookupActi"
+  "ve\020\002\022*\n&EMarketingMessageLookupByTitleWi"
+  "thType\020\003\022$\n EMarketingMessageLookupByGID"
+  "List\020\0042\356\022\n\021MarketingMessages\022\215\001\n\032GetActi"
+  "veMarketingMessages\0226.CMarketingMessages"
+  "_GetActiveMarketingMessages_Request\0327.CM"
+  "arketingMessages_GetActiveMarketingMessa"
+  "ges_Response\022\220\001\n\033GetMarketingMessagesFor"
+  "User\0227.CMarketingMessages_GetMarketingMe"
+  "ssagesForUser_Request\0328.CMarketingMessag"
+  "es_GetMarketingMessagesForUser_Response\022"
+  "\253\001\n$DoesUserHavePendingMarketingMessages"
+  "\022@.CMarketingMessages_DoesUserHavePendin"
+  "gMarketingMessages_Request\032A.CMarketingM"
+  "essages_DoesUserHavePendingMarketingMess"
+  "ages_Response\022\215\001\n\032GetDisplayMarketingMes"
+  "sage\0226.CMarketingMessages_GetDisplayMark"
+  "etingMessage_Request\0327.CMarketingMessage"
+  "s_GetDisplayMarketingMessage_Response\022\224\001"
+  "\n!GetDisplayMarketingMessageForUser\0226.CM"
+  "arketingMessages_GetDisplayMarketingMess"
+  "age_Request\0327.CMarketingMessages_GetDisp"
+  "layMarketingMessage_Response\022\222\001\n\037GetDisp"
+  "layMarketingMessageAdmin\0226.CMarketingMes"
+  "sages_GetDisplayMarketingMessage_Request"
+  "\0327.CMarketingMessages_GetDisplayMarketin"
+  "gMessage_Response\022P\n\017MarkMessageSeen\0220.C"
+  "MarketingMessages_MarkMessageSeen_Notifi"
+  "cation\032\013.NoResponse\022x\n\023GetMarketingMessa"
+  "ge\022/.CMarketingMessages_GetMarketingMess"
+  "age_Request\0320.CMarketingMessages_GetMark"
+  "etingMessage_Response\022\201\001\n\026CreateMarketin"
+  "gMessage\0222.CMarketingMessages_CreateMark"
+  "etingMessage_Request\0323.CMarketingMessage"
+  "s_CreateMarketingMessage_Response\022\201\001\n\026Up"
+  "dateMarketingMessage\0222.CMarketingMessage"
+  "s_UpdateMarketingMessage_Request\0323.CMark"
+  "etingMessages_UpdateMarketingMessage_Res"
+  "ponse\022\201\001\n\026DeleteMarketingMessage\0222.CMark"
+  "etingMessages_DeleteMarketingMessage_Req"
+  "uest\0323.CMarketingMessages_DeleteMarketin"
+  "gMessage_Response\022~\n\025FindMarketingMessag"
+  "es\0221.CMarketingMessages_FindMarketingMes"
+  "sages_Request\0322.CMarketingMessages_FindM"
+  "arketingMessages_Response\022\231\001\n\036GetMarketi"
+  "ngMessageViewerStats\022:.CMarketingMessage"
+  "s_GetMarketingMessageViewerStats_Request"
+  "\032;.CMarketingMessages_GetMarketingMessag"
+  "eViewerStats_Response\022\253\001\n$GetMarketingMe"
+  "ssagesViewerRangeStats\022@.CMarketingMessa"
+  "ges_GetMarketingMessagesViewerRangeStats"
+  "_Request\032A.CMarketingMessages_GetMarketi"
+  "ngMessagesViewerRangeStats_Response\022\237\001\n "
+  "GetPartnerReadyToPublishMessages\022<.CMark"
+  "etingMessages_GetPartnerReadyToPublishMe"
+  "ssages_Request\032=.CMarketingMessages_GetP"
+  "artnerReadyToPublishMessages_Response\022~\n"
+  "\025PublishPartnerMessage\0221.CMarketingMessa"
+  "ges_PartnerPublishMessage_Request\0322.CMar"
+  "ketingMessages_PartnerPublishMessage_Res"
+  "ponse\022\207\001\n\030GetPartnerMessagePreview\0224.CMa"
+  "rketingMessages_GetPartnerMessagePreview"
+  "_Request\0325.CMarketingMessages_GetPartner"
+  "MessagePreview_ResponseB\035\200\001\001\252\002\027OpenSteam"
+  "works.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fmarketingmessages_2esteamclient_2eproto_deps[4] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
@@ -1019,8 +1127,8 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fmarketingmessages_2esteamclient_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fmarketingmessages_2esteamclient_2eproto = {
-  false, false, 9543, descriptor_table_protodef_steammessages_5fmarketingmessages_2esteamclient_2eproto, "steammessages_marketingmessages.steamclient.proto", 
-  &descriptor_table_steammessages_5fmarketingmessages_2esteamclient_2eproto_once, descriptor_table_steammessages_5fmarketingmessages_2esteamclient_2eproto_deps, 4, 27,
+  false, false, 8734, descriptor_table_protodef_steammessages_5fmarketingmessages_2esteamclient_2eproto, "steammessages_marketingmessages.steamclient.proto", 
+  &descriptor_table_steammessages_5fmarketingmessages_2esteamclient_2eproto_once, descriptor_table_steammessages_5fmarketingmessages_2esteamclient_2eproto_deps, 4, 33,
   schemas, file_default_instances, TableStruct_steammessages_5fmarketingmessages_2esteamclient_2eproto::offsets,
   file_level_metadata_steammessages_5fmarketingmessages_2esteamclient_2eproto, file_level_enum_descriptors_steammessages_5fmarketingmessages_2esteamclient_2eproto, file_level_service_descriptors_steammessages_5fmarketingmessages_2esteamclient_2eproto,
 };
@@ -1065,6 +1173,7 @@ bool EMarketingMessageVisibility_IsValid(int value) {
   switch (value) {
     case 1:
     case 2:
+    case 3:
       return true;
     default:
       return false;
@@ -1218,7 +1327,7 @@ const char* CMarketingMessages_GetActiveMarketingMessages_Request::_InternalPars
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool anonymous_user = 2 [(.description) = "Will not return any marketing message that requires ownership/playtime/wishlist"];
+      // optional bool anonymous_user = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_anonymous_user(&has_bits);
@@ -1266,7 +1375,7 @@ failure:
         1, this->_internal_country(), target);
   }
 
-  // optional bool anonymous_user = 2 [(.description) = "Will not return any marketing message that requires ownership/playtime/wishlist"];
+  // optional bool anonymous_user = 2;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(2, this->_internal_anonymous_user(), target);
@@ -1297,7 +1406,7 @@ size_t CMarketingMessages_GetActiveMarketingMessages_Request::ByteSizeLong() con
           this->_internal_country());
     }
 
-    // optional bool anonymous_user = 2 [(.description) = "Will not return any marketing message that requires ownership/playtime/wishlist"];
+    // optional bool anonymous_user = 2;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 + 1;
     }
@@ -2861,7 +2970,7 @@ const char* CMarketingMessages_GetMarketingMessagesForUser_Request::_InternalPar
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional int32 operating_system = 4 [(.description) = "EOSType from client"];
+      // optional int32 operating_system = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
           _Internal::set_has_operating_system(&has_bits);
@@ -2877,14 +2986,14 @@ const char* CMarketingMessages_GetMarketingMessagesForUser_Request::_InternalPar
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional .StoreBrowseContext context = 6 [(.description) = "Optional, server can fill in from country code/language if not set"];
+      // optional .StoreBrowseContext context = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
           ptr = ctx->ParseMessage(_internal_mutable_context(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional .StoreBrowseItemDataRequest data_request = 7 [(.description) = "If passed, item data will be returned"];
+      // optional .StoreBrowseItemDataRequest data_request = 7;
       case 7:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
           ptr = ctx->ParseMessage(_internal_mutable_data_request(), ptr);
@@ -2943,7 +3052,7 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(3, this->_internal_elanguage(), target);
   }
 
-  // optional int32 operating_system = 4 [(.description) = "EOSType from client"];
+  // optional int32 operating_system = 4;
   if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(4, this->_internal_operating_system(), target);
@@ -2955,7 +3064,7 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(5, this->_internal_client_package_version(), target);
   }
 
-  // optional .StoreBrowseContext context = 6 [(.description) = "Optional, server can fill in from country code/language if not set"];
+  // optional .StoreBrowseContext context = 6;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -2963,7 +3072,7 @@ failure:
         6, _Internal::context(this), target, stream);
   }
 
-  // optional .StoreBrowseItemDataRequest data_request = 7 [(.description) = "If passed, item data will be returned"];
+  // optional .StoreBrowseItemDataRequest data_request = 7;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -2996,14 +3105,14 @@ size_t CMarketingMessages_GetMarketingMessagesForUser_Request::ByteSizeLong() co
           this->_internal_country_code());
     }
 
-    // optional .StoreBrowseContext context = 6 [(.description) = "Optional, server can fill in from country code/language if not set"];
+    // optional .StoreBrowseContext context = 6;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
           *context_);
     }
 
-    // optional .StoreBrowseItemDataRequest data_request = 7 [(.description) = "If passed, item data will be returned"];
+    // optional .StoreBrowseItemDataRequest data_request = 7;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
@@ -3022,7 +3131,7 @@ size_t CMarketingMessages_GetMarketingMessagesForUser_Request::ByteSizeLong() co
           this->_internal_elanguage());
     }
 
-    // optional int32 operating_system = 4 [(.description) = "EOSType from client"];
+    // optional int32 operating_system = 4;
     if (cached_has_bits & 0x00000020u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
@@ -4224,7 +4333,7 @@ const char* CMarketingMessages_DoesUserHavePendingMarketingMessages_Request::_In
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional int32 operating_system = 4 [(.description) = "EOSType from client"];
+      // optional int32 operating_system = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
           _Internal::set_has_operating_system(&has_bits);
@@ -4286,7 +4395,7 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(3, this->_internal_elanguage(), target);
   }
 
-  // optional int32 operating_system = 4 [(.description) = "EOSType from client"];
+  // optional int32 operating_system = 4;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(4, this->_internal_operating_system(), target);
@@ -4330,7 +4439,7 @@ size_t CMarketingMessages_DoesUserHavePendingMarketingMessages_Request::ByteSize
           this->_internal_elanguage());
     }
 
-    // optional int32 operating_system = 4 [(.description) = "EOSType from client"];
+    // optional int32 operating_system = 4;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
@@ -4809,7 +4918,7 @@ const char* CMarketingMessages_GetDisplayMarketingMessage_Request::_InternalPars
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional .StoreBrowseItemDataRequest data_request = 3 [(.description) = "If passed, item data will be returned"];
+      // optional .StoreBrowseItemDataRequest data_request = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           ptr = ctx->ParseMessage(_internal_mutable_data_request(), ptr);
@@ -4860,7 +4969,7 @@ failure:
         2, _Internal::context(this), target, stream);
   }
 
-  // optional .StoreBrowseItemDataRequest data_request = 3 [(.description) = "If passed, item data will be returned"];
+  // optional .StoreBrowseItemDataRequest data_request = 3;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -4893,7 +5002,7 @@ size_t CMarketingMessages_GetDisplayMarketingMessage_Request::ByteSizeLong() con
           *context_);
     }
 
-    // optional .StoreBrowseItemDataRequest data_request = 3 [(.description) = "If passed, item data will be returned"];
+    // optional .StoreBrowseItemDataRequest data_request = 3;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
@@ -5294,7 +5403,7 @@ const char* CMarketingMessages_MarkMessageSeen_Notification::_InternalParse(cons
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
         } else goto handle_unusual;
         continue;
-      // optional uint32 display_index = 2 [default = 0, (.description) = "Where in the stack was the marketing message, 1-based, zero means we don\'t know"];
+      // optional uint32 display_index = 2 [default = 0];
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_display_index(&has_bits);
@@ -5302,7 +5411,7 @@ const char* CMarketingMessages_MarkMessageSeen_Notification::_InternalParse(cons
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional .EMarketingMessageTemplateType template_type = 3 [default = EMarketingMessageTemplate_Unknown, (.description) = "Which type of template did they see"];
+      // optional .EMarketingMessageTemplateType template_type = 3 [default = EMarketingMessageTemplate_Unknown];
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -5350,13 +5459,13 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_gid(), target);
   }
 
-  // optional uint32 display_index = 2 [default = 0, (.description) = "Where in the stack was the marketing message, 1-based, zero means we don\'t know"];
+  // optional uint32 display_index = 2 [default = 0];
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_display_index(), target);
   }
 
-  // optional .EMarketingMessageTemplateType template_type = 3 [default = EMarketingMessageTemplate_Unknown, (.description) = "Which type of template did they see"];
+  // optional .EMarketingMessageTemplateType template_type = 3 [default = EMarketingMessageTemplate_Unknown];
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
@@ -5386,14 +5495,14 @@ size_t CMarketingMessages_MarkMessageSeen_Notification::ByteSizeLong() const {
       total_size += 1 + 8;
     }
 
-    // optional uint32 display_index = 2 [default = 0, (.description) = "Where in the stack was the marketing message, 1-based, zero means we don\'t know"];
+    // optional uint32 display_index = 2 [default = 0];
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_display_index());
     }
 
-    // optional .EMarketingMessageTemplateType template_type = 3 [default = EMarketingMessageTemplate_Unknown, (.description) = "Which type of template did they see"];
+    // optional .EMarketingMessageTemplateType template_type = 3 [default = EMarketingMessageTemplate_Unknown];
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_template_type());
@@ -5992,7 +6101,7 @@ const char* CMarketingMessages_CreateMarketingMessage_Request::_InternalParse(co
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool from_json = 2 [(.description) = "If set, then overwrite the template_vars and additional_restrictions keyvalues from json"];
+      // optional bool from_json = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_from_json(&has_bits);
@@ -6038,7 +6147,7 @@ failure:
         1, _Internal::message(this), target, stream);
   }
 
-  // optional bool from_json = 2 [(.description) = "If set, then overwrite the template_vars and additional_restrictions keyvalues from json"];
+  // optional bool from_json = 2;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(2, this->_internal_from_json(), target);
@@ -6069,7 +6178,7 @@ size_t CMarketingMessages_CreateMarketingMessage_Request::ByteSizeLong() const {
           *message_);
     }
 
-    // optional bool from_json = 2 [(.description) = "If set, then overwrite the template_vars and additional_restrictions keyvalues from json"];
+    // optional bool from_json = 2;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 + 1;
     }
@@ -6465,7 +6574,7 @@ const char* CMarketingMessages_UpdateMarketingMessage_Request::_InternalParse(co
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool from_json = 3 [(.description) = "If set, then overwrite the template_vars and additional_restrictions keyvalues from json"];
+      // optional bool from_json = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           _Internal::set_has_from_json(&has_bits);
@@ -6517,7 +6626,7 @@ failure:
         2, _Internal::message(this), target, stream);
   }
 
-  // optional bool from_json = 3 [(.description) = "If set, then overwrite the template_vars and additional_restrictions keyvalues from json"];
+  // optional bool from_json = 3;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(3, this->_internal_from_json(), target);
@@ -6553,7 +6662,7 @@ size_t CMarketingMessages_UpdateMarketingMessage_Request::ByteSizeLong() const {
       total_size += 1 + 8;
     }
 
-    // optional bool from_json = 3 [(.description) = "If set, then overwrite the template_vars and additional_restrictions keyvalues from json"];
+    // optional bool from_json = 3;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 + 1;
     }
@@ -8002,7 +8111,7 @@ const char* CMarketingMessageHourlyStats::_InternalParse(const char* ptr, ::PROT
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 seen_count = 2 [(.description) = "within the hour period"];
+      // optional uint32 seen_count = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_seen_count(&has_bits);
@@ -8010,7 +8119,7 @@ const char* CMarketingMessageHourlyStats::_InternalParse(const char* ptr, ::PROT
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional .EMarketingMessageTemplateType template_type = 3 [default = EMarketingMessageTemplate_Unknown, (.description) = "Which template type was shown, usually just IMAGE"];
+      // optional .EMarketingMessageTemplateType template_type = 3 [default = EMarketingMessageTemplate_Unknown];
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -8022,7 +8131,7 @@ const char* CMarketingMessageHourlyStats::_InternalParse(const char* ptr, ::PROT
           }
         } else goto handle_unusual;
         continue;
-      // optional uint32 display_index = 4 [(.description) = "Zero is invalid/we don\'t have information; 1 based index"];
+      // optional uint32 display_index = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
           _Internal::set_has_display_index(&has_bits);
@@ -8066,20 +8175,20 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_rt_time_hour(), target);
   }
 
-  // optional uint32 seen_count = 2 [(.description) = "within the hour period"];
+  // optional uint32 seen_count = 2;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_seen_count(), target);
   }
 
-  // optional .EMarketingMessageTemplateType template_type = 3 [default = EMarketingMessageTemplate_Unknown, (.description) = "Which template type was shown, usually just IMAGE"];
+  // optional .EMarketingMessageTemplateType template_type = 3 [default = EMarketingMessageTemplate_Unknown];
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       3, this->_internal_template_type(), target);
   }
 
-  // optional uint32 display_index = 4 [(.description) = "Zero is invalid/we don\'t have information; 1 based index"];
+  // optional uint32 display_index = 4;
   if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_display_index(), target);
@@ -8110,20 +8219,20 @@ size_t CMarketingMessageHourlyStats::ByteSizeLong() const {
           this->_internal_rt_time_hour());
     }
 
-    // optional uint32 seen_count = 2 [(.description) = "within the hour period"];
+    // optional uint32 seen_count = 2;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_seen_count());
     }
 
-    // optional .EMarketingMessageTemplateType template_type = 3 [default = EMarketingMessageTemplate_Unknown, (.description) = "Which template type was shown, usually just IMAGE"];
+    // optional .EMarketingMessageTemplateType template_type = 3 [default = EMarketingMessageTemplate_Unknown];
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_template_type());
     }
 
-    // optional uint32 display_index = 4 [(.description) = "Zero is invalid/we don\'t have information; 1 based index"];
+    // optional uint32 display_index = 4;
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -8718,7 +8827,7 @@ const char* CMarketingMessages_GetMarketingMessagesViewerRangeStats_Response::_I
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // repeated .CMarketingMessageHourlyStats stats = 1 [(.description) = "Flatterns results for the range of time"];
+      // repeated .CMarketingMessageHourlyStats stats = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           ptr -= 1;
@@ -8758,7 +8867,7 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated .CMarketingMessageHourlyStats stats = 1 [(.description) = "Flatterns results for the range of time"];
+  // repeated .CMarketingMessageHourlyStats stats = 1;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_stats_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
@@ -8782,7 +8891,7 @@ size_t CMarketingMessages_GetMarketingMessagesViewerRangeStats_Response::ByteSiz
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .CMarketingMessageHourlyStats stats = 1 [(.description) = "Flatterns results for the range of time"];
+  // repeated .CMarketingMessageHourlyStats stats = 1;
   total_size += 1UL * this->_internal_stats_size();
   for (const auto& msg : this->stats_) {
     total_size +=
@@ -8848,6 +8957,1268 @@ void CMarketingMessages_GetMarketingMessagesViewerRangeStats_Response::InternalS
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CMarketingMessages_GetMarketingMessagesViewerRangeStats_Response::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class CMarketingMessages_GetPartnerReadyToPublishMessages_Request::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CMarketingMessages_GetPartnerReadyToPublishMessages_Request>()._has_bits_);
+  static void set_has_partnerid(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+};
+
+CMarketingMessages_GetPartnerReadyToPublishMessages_Request::CMarketingMessages_GetPartnerReadyToPublishMessages_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CMarketingMessages_GetPartnerReadyToPublishMessages_Request)
+}
+CMarketingMessages_GetPartnerReadyToPublishMessages_Request::CMarketingMessages_GetPartnerReadyToPublishMessages_Request(const CMarketingMessages_GetPartnerReadyToPublishMessages_Request& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _has_bits_(from._has_bits_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  partnerid_ = from.partnerid_;
+  // @@protoc_insertion_point(copy_constructor:CMarketingMessages_GetPartnerReadyToPublishMessages_Request)
+}
+
+void CMarketingMessages_GetPartnerReadyToPublishMessages_Request::SharedCtor() {
+partnerid_ = 0u;
+}
+
+CMarketingMessages_GetPartnerReadyToPublishMessages_Request::~CMarketingMessages_GetPartnerReadyToPublishMessages_Request() {
+  // @@protoc_insertion_point(destructor:CMarketingMessages_GetPartnerReadyToPublishMessages_Request)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CMarketingMessages_GetPartnerReadyToPublishMessages_Request::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void CMarketingMessages_GetPartnerReadyToPublishMessages_Request::ArenaDtor(void* object) {
+  CMarketingMessages_GetPartnerReadyToPublishMessages_Request* _this = reinterpret_cast< CMarketingMessages_GetPartnerReadyToPublishMessages_Request* >(object);
+  (void)_this;
+}
+void CMarketingMessages_GetPartnerReadyToPublishMessages_Request::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CMarketingMessages_GetPartnerReadyToPublishMessages_Request::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CMarketingMessages_GetPartnerReadyToPublishMessages_Request::Clear() {
+// @@protoc_insertion_point(message_clear_start:CMarketingMessages_GetPartnerReadyToPublishMessages_Request)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  partnerid_ = 0u;
+  _has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CMarketingMessages_GetPartnerReadyToPublishMessages_Request::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // optional uint32 partnerid = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          _Internal::set_has_partnerid(&has_bits);
+          partnerid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  _has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CMarketingMessages_GetPartnerReadyToPublishMessages_Request::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CMarketingMessages_GetPartnerReadyToPublishMessages_Request)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // optional uint32 partnerid = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_partnerid(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CMarketingMessages_GetPartnerReadyToPublishMessages_Request)
+  return target;
+}
+
+size_t CMarketingMessages_GetPartnerReadyToPublishMessages_Request::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CMarketingMessages_GetPartnerReadyToPublishMessages_Request)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // optional uint32 partnerid = 1;
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_partnerid());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CMarketingMessages_GetPartnerReadyToPublishMessages_Request::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CMarketingMessages_GetPartnerReadyToPublishMessages_Request)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CMarketingMessages_GetPartnerReadyToPublishMessages_Request* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CMarketingMessages_GetPartnerReadyToPublishMessages_Request>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CMarketingMessages_GetPartnerReadyToPublishMessages_Request)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CMarketingMessages_GetPartnerReadyToPublishMessages_Request)
+    MergeFrom(*source);
+  }
+}
+
+void CMarketingMessages_GetPartnerReadyToPublishMessages_Request::MergeFrom(const CMarketingMessages_GetPartnerReadyToPublishMessages_Request& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CMarketingMessages_GetPartnerReadyToPublishMessages_Request)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_has_partnerid()) {
+    _internal_set_partnerid(from._internal_partnerid());
+  }
+}
+
+void CMarketingMessages_GetPartnerReadyToPublishMessages_Request::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CMarketingMessages_GetPartnerReadyToPublishMessages_Request)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CMarketingMessages_GetPartnerReadyToPublishMessages_Request::CopyFrom(const CMarketingMessages_GetPartnerReadyToPublishMessages_Request& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CMarketingMessages_GetPartnerReadyToPublishMessages_Request)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CMarketingMessages_GetPartnerReadyToPublishMessages_Request::IsInitialized() const {
+  return true;
+}
+
+void CMarketingMessages_GetPartnerReadyToPublishMessages_Request::InternalSwap(CMarketingMessages_GetPartnerReadyToPublishMessages_Request* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  swap(partnerid_, other->partnerid_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CMarketingMessages_GetPartnerReadyToPublishMessages_Request::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class CMarketingMessages_GetPartnerReadyToPublishMessages_Response::_Internal {
+ public:
+};
+
+CMarketingMessages_GetPartnerReadyToPublishMessages_Response::CMarketingMessages_GetPartnerReadyToPublishMessages_Response(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+  messages_(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CMarketingMessages_GetPartnerReadyToPublishMessages_Response)
+}
+CMarketingMessages_GetPartnerReadyToPublishMessages_Response::CMarketingMessages_GetPartnerReadyToPublishMessages_Response(const CMarketingMessages_GetPartnerReadyToPublishMessages_Response& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      messages_(from.messages_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:CMarketingMessages_GetPartnerReadyToPublishMessages_Response)
+}
+
+void CMarketingMessages_GetPartnerReadyToPublishMessages_Response::SharedCtor() {
+}
+
+CMarketingMessages_GetPartnerReadyToPublishMessages_Response::~CMarketingMessages_GetPartnerReadyToPublishMessages_Response() {
+  // @@protoc_insertion_point(destructor:CMarketingMessages_GetPartnerReadyToPublishMessages_Response)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CMarketingMessages_GetPartnerReadyToPublishMessages_Response::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void CMarketingMessages_GetPartnerReadyToPublishMessages_Response::ArenaDtor(void* object) {
+  CMarketingMessages_GetPartnerReadyToPublishMessages_Response* _this = reinterpret_cast< CMarketingMessages_GetPartnerReadyToPublishMessages_Response* >(object);
+  (void)_this;
+}
+void CMarketingMessages_GetPartnerReadyToPublishMessages_Response::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CMarketingMessages_GetPartnerReadyToPublishMessages_Response::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CMarketingMessages_GetPartnerReadyToPublishMessages_Response::Clear() {
+// @@protoc_insertion_point(message_clear_start:CMarketingMessages_GetPartnerReadyToPublishMessages_Response)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  messages_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CMarketingMessages_GetPartnerReadyToPublishMessages_Response::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // repeated .CDisplayMarketingMessage messages = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_messages(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CMarketingMessages_GetPartnerReadyToPublishMessages_Response::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CMarketingMessages_GetPartnerReadyToPublishMessages_Response)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated .CDisplayMarketingMessage messages = 1;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->_internal_messages_size()); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(1, this->_internal_messages(i), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CMarketingMessages_GetPartnerReadyToPublishMessages_Response)
+  return target;
+}
+
+size_t CMarketingMessages_GetPartnerReadyToPublishMessages_Response::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CMarketingMessages_GetPartnerReadyToPublishMessages_Response)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .CDisplayMarketingMessage messages = 1;
+  total_size += 1UL * this->_internal_messages_size();
+  for (const auto& msg : this->messages_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CMarketingMessages_GetPartnerReadyToPublishMessages_Response::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CMarketingMessages_GetPartnerReadyToPublishMessages_Response)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CMarketingMessages_GetPartnerReadyToPublishMessages_Response* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CMarketingMessages_GetPartnerReadyToPublishMessages_Response>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CMarketingMessages_GetPartnerReadyToPublishMessages_Response)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CMarketingMessages_GetPartnerReadyToPublishMessages_Response)
+    MergeFrom(*source);
+  }
+}
+
+void CMarketingMessages_GetPartnerReadyToPublishMessages_Response::MergeFrom(const CMarketingMessages_GetPartnerReadyToPublishMessages_Response& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CMarketingMessages_GetPartnerReadyToPublishMessages_Response)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  messages_.MergeFrom(from.messages_);
+}
+
+void CMarketingMessages_GetPartnerReadyToPublishMessages_Response::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CMarketingMessages_GetPartnerReadyToPublishMessages_Response)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CMarketingMessages_GetPartnerReadyToPublishMessages_Response::CopyFrom(const CMarketingMessages_GetPartnerReadyToPublishMessages_Response& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CMarketingMessages_GetPartnerReadyToPublishMessages_Response)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CMarketingMessages_GetPartnerReadyToPublishMessages_Response::IsInitialized() const {
+  return true;
+}
+
+void CMarketingMessages_GetPartnerReadyToPublishMessages_Response::InternalSwap(CMarketingMessages_GetPartnerReadyToPublishMessages_Response* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  messages_.InternalSwap(&other->messages_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CMarketingMessages_GetPartnerReadyToPublishMessages_Response::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class CMarketingMessages_PartnerPublishMessage_Request::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CMarketingMessages_PartnerPublishMessage_Request>()._has_bits_);
+  static void set_has_gid(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_partnerid(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+};
+
+CMarketingMessages_PartnerPublishMessage_Request::CMarketingMessages_PartnerPublishMessage_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CMarketingMessages_PartnerPublishMessage_Request)
+}
+CMarketingMessages_PartnerPublishMessage_Request::CMarketingMessages_PartnerPublishMessage_Request(const CMarketingMessages_PartnerPublishMessage_Request& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _has_bits_(from._has_bits_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&gid_, &from.gid_,
+    static_cast<size_t>(reinterpret_cast<char*>(&partnerid_) -
+    reinterpret_cast<char*>(&gid_)) + sizeof(partnerid_));
+  // @@protoc_insertion_point(copy_constructor:CMarketingMessages_PartnerPublishMessage_Request)
+}
+
+void CMarketingMessages_PartnerPublishMessage_Request::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&gid_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&partnerid_) -
+    reinterpret_cast<char*>(&gid_)) + sizeof(partnerid_));
+}
+
+CMarketingMessages_PartnerPublishMessage_Request::~CMarketingMessages_PartnerPublishMessage_Request() {
+  // @@protoc_insertion_point(destructor:CMarketingMessages_PartnerPublishMessage_Request)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CMarketingMessages_PartnerPublishMessage_Request::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void CMarketingMessages_PartnerPublishMessage_Request::ArenaDtor(void* object) {
+  CMarketingMessages_PartnerPublishMessage_Request* _this = reinterpret_cast< CMarketingMessages_PartnerPublishMessage_Request* >(object);
+  (void)_this;
+}
+void CMarketingMessages_PartnerPublishMessage_Request::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CMarketingMessages_PartnerPublishMessage_Request::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CMarketingMessages_PartnerPublishMessage_Request::Clear() {
+// @@protoc_insertion_point(message_clear_start:CMarketingMessages_PartnerPublishMessage_Request)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    ::memset(&gid_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&partnerid_) -
+        reinterpret_cast<char*>(&gid_)) + sizeof(partnerid_));
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CMarketingMessages_PartnerPublishMessage_Request::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // optional fixed64 gid = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
+          _Internal::set_has_gid(&has_bits);
+          gid_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<::PROTOBUF_NAMESPACE_ID::uint64>(ptr);
+          ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
+        } else goto handle_unusual;
+        continue;
+      // optional uint32 partnerid = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          _Internal::set_has_partnerid(&has_bits);
+          partnerid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  _has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CMarketingMessages_PartnerPublishMessage_Request::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CMarketingMessages_PartnerPublishMessage_Request)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // optional fixed64 gid = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_gid(), target);
+  }
+
+  // optional uint32 partnerid = 2;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_partnerid(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CMarketingMessages_PartnerPublishMessage_Request)
+  return target;
+}
+
+size_t CMarketingMessages_PartnerPublishMessage_Request::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CMarketingMessages_PartnerPublishMessage_Request)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    // optional fixed64 gid = 1;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 + 8;
+    }
+
+    // optional uint32 partnerid = 2;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+          this->_internal_partnerid());
+    }
+
+  }
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CMarketingMessages_PartnerPublishMessage_Request::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CMarketingMessages_PartnerPublishMessage_Request)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CMarketingMessages_PartnerPublishMessage_Request* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CMarketingMessages_PartnerPublishMessage_Request>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CMarketingMessages_PartnerPublishMessage_Request)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CMarketingMessages_PartnerPublishMessage_Request)
+    MergeFrom(*source);
+  }
+}
+
+void CMarketingMessages_PartnerPublishMessage_Request::MergeFrom(const CMarketingMessages_PartnerPublishMessage_Request& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CMarketingMessages_PartnerPublishMessage_Request)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      gid_ = from.gid_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      partnerid_ = from.partnerid_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void CMarketingMessages_PartnerPublishMessage_Request::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CMarketingMessages_PartnerPublishMessage_Request)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CMarketingMessages_PartnerPublishMessage_Request::CopyFrom(const CMarketingMessages_PartnerPublishMessage_Request& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CMarketingMessages_PartnerPublishMessage_Request)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CMarketingMessages_PartnerPublishMessage_Request::IsInitialized() const {
+  return true;
+}
+
+void CMarketingMessages_PartnerPublishMessage_Request::InternalSwap(CMarketingMessages_PartnerPublishMessage_Request* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CMarketingMessages_PartnerPublishMessage_Request, partnerid_)
+      + sizeof(CMarketingMessages_PartnerPublishMessage_Request::partnerid_)
+      - PROTOBUF_FIELD_OFFSET(CMarketingMessages_PartnerPublishMessage_Request, gid_)>(
+          reinterpret_cast<char*>(&gid_),
+          reinterpret_cast<char*>(&other->gid_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CMarketingMessages_PartnerPublishMessage_Request::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class CMarketingMessages_PartnerPublishMessage_Response::_Internal {
+ public:
+};
+
+CMarketingMessages_PartnerPublishMessage_Response::CMarketingMessages_PartnerPublishMessage_Response(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CMarketingMessages_PartnerPublishMessage_Response)
+}
+CMarketingMessages_PartnerPublishMessage_Response::CMarketingMessages_PartnerPublishMessage_Response(const CMarketingMessages_PartnerPublishMessage_Response& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:CMarketingMessages_PartnerPublishMessage_Response)
+}
+
+void CMarketingMessages_PartnerPublishMessage_Response::SharedCtor() {
+}
+
+CMarketingMessages_PartnerPublishMessage_Response::~CMarketingMessages_PartnerPublishMessage_Response() {
+  // @@protoc_insertion_point(destructor:CMarketingMessages_PartnerPublishMessage_Response)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CMarketingMessages_PartnerPublishMessage_Response::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void CMarketingMessages_PartnerPublishMessage_Response::ArenaDtor(void* object) {
+  CMarketingMessages_PartnerPublishMessage_Response* _this = reinterpret_cast< CMarketingMessages_PartnerPublishMessage_Response* >(object);
+  (void)_this;
+}
+void CMarketingMessages_PartnerPublishMessage_Response::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CMarketingMessages_PartnerPublishMessage_Response::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CMarketingMessages_PartnerPublishMessage_Response::Clear() {
+// @@protoc_insertion_point(message_clear_start:CMarketingMessages_PartnerPublishMessage_Response)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CMarketingMessages_PartnerPublishMessage_Response::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CMarketingMessages_PartnerPublishMessage_Response::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CMarketingMessages_PartnerPublishMessage_Response)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CMarketingMessages_PartnerPublishMessage_Response)
+  return target;
+}
+
+size_t CMarketingMessages_PartnerPublishMessage_Response::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CMarketingMessages_PartnerPublishMessage_Response)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CMarketingMessages_PartnerPublishMessage_Response::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CMarketingMessages_PartnerPublishMessage_Response)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CMarketingMessages_PartnerPublishMessage_Response* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CMarketingMessages_PartnerPublishMessage_Response>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CMarketingMessages_PartnerPublishMessage_Response)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CMarketingMessages_PartnerPublishMessage_Response)
+    MergeFrom(*source);
+  }
+}
+
+void CMarketingMessages_PartnerPublishMessage_Response::MergeFrom(const CMarketingMessages_PartnerPublishMessage_Response& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CMarketingMessages_PartnerPublishMessage_Response)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+}
+
+void CMarketingMessages_PartnerPublishMessage_Response::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CMarketingMessages_PartnerPublishMessage_Response)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CMarketingMessages_PartnerPublishMessage_Response::CopyFrom(const CMarketingMessages_PartnerPublishMessage_Response& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CMarketingMessages_PartnerPublishMessage_Response)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CMarketingMessages_PartnerPublishMessage_Response::IsInitialized() const {
+  return true;
+}
+
+void CMarketingMessages_PartnerPublishMessage_Response::InternalSwap(CMarketingMessages_PartnerPublishMessage_Response* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CMarketingMessages_PartnerPublishMessage_Response::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class CMarketingMessages_GetPartnerMessagePreview_Request::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CMarketingMessages_GetPartnerMessagePreview_Request>()._has_bits_);
+  static void set_has_gid(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_partnerid(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+};
+
+CMarketingMessages_GetPartnerMessagePreview_Request::CMarketingMessages_GetPartnerMessagePreview_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CMarketingMessages_GetPartnerMessagePreview_Request)
+}
+CMarketingMessages_GetPartnerMessagePreview_Request::CMarketingMessages_GetPartnerMessagePreview_Request(const CMarketingMessages_GetPartnerMessagePreview_Request& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _has_bits_(from._has_bits_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&gid_, &from.gid_,
+    static_cast<size_t>(reinterpret_cast<char*>(&partnerid_) -
+    reinterpret_cast<char*>(&gid_)) + sizeof(partnerid_));
+  // @@protoc_insertion_point(copy_constructor:CMarketingMessages_GetPartnerMessagePreview_Request)
+}
+
+void CMarketingMessages_GetPartnerMessagePreview_Request::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&gid_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&partnerid_) -
+    reinterpret_cast<char*>(&gid_)) + sizeof(partnerid_));
+}
+
+CMarketingMessages_GetPartnerMessagePreview_Request::~CMarketingMessages_GetPartnerMessagePreview_Request() {
+  // @@protoc_insertion_point(destructor:CMarketingMessages_GetPartnerMessagePreview_Request)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CMarketingMessages_GetPartnerMessagePreview_Request::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void CMarketingMessages_GetPartnerMessagePreview_Request::ArenaDtor(void* object) {
+  CMarketingMessages_GetPartnerMessagePreview_Request* _this = reinterpret_cast< CMarketingMessages_GetPartnerMessagePreview_Request* >(object);
+  (void)_this;
+}
+void CMarketingMessages_GetPartnerMessagePreview_Request::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CMarketingMessages_GetPartnerMessagePreview_Request::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CMarketingMessages_GetPartnerMessagePreview_Request::Clear() {
+// @@protoc_insertion_point(message_clear_start:CMarketingMessages_GetPartnerMessagePreview_Request)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    ::memset(&gid_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&partnerid_) -
+        reinterpret_cast<char*>(&gid_)) + sizeof(partnerid_));
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CMarketingMessages_GetPartnerMessagePreview_Request::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // optional fixed64 gid = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
+          _Internal::set_has_gid(&has_bits);
+          gid_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<::PROTOBUF_NAMESPACE_ID::uint64>(ptr);
+          ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
+        } else goto handle_unusual;
+        continue;
+      // optional uint32 partnerid = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          _Internal::set_has_partnerid(&has_bits);
+          partnerid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  _has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CMarketingMessages_GetPartnerMessagePreview_Request::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CMarketingMessages_GetPartnerMessagePreview_Request)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // optional fixed64 gid = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_gid(), target);
+  }
+
+  // optional uint32 partnerid = 2;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_partnerid(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CMarketingMessages_GetPartnerMessagePreview_Request)
+  return target;
+}
+
+size_t CMarketingMessages_GetPartnerMessagePreview_Request::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CMarketingMessages_GetPartnerMessagePreview_Request)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    // optional fixed64 gid = 1;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 + 8;
+    }
+
+    // optional uint32 partnerid = 2;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+          this->_internal_partnerid());
+    }
+
+  }
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CMarketingMessages_GetPartnerMessagePreview_Request::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CMarketingMessages_GetPartnerMessagePreview_Request)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CMarketingMessages_GetPartnerMessagePreview_Request* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CMarketingMessages_GetPartnerMessagePreview_Request>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CMarketingMessages_GetPartnerMessagePreview_Request)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CMarketingMessages_GetPartnerMessagePreview_Request)
+    MergeFrom(*source);
+  }
+}
+
+void CMarketingMessages_GetPartnerMessagePreview_Request::MergeFrom(const CMarketingMessages_GetPartnerMessagePreview_Request& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CMarketingMessages_GetPartnerMessagePreview_Request)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      gid_ = from.gid_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      partnerid_ = from.partnerid_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void CMarketingMessages_GetPartnerMessagePreview_Request::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CMarketingMessages_GetPartnerMessagePreview_Request)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CMarketingMessages_GetPartnerMessagePreview_Request::CopyFrom(const CMarketingMessages_GetPartnerMessagePreview_Request& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CMarketingMessages_GetPartnerMessagePreview_Request)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CMarketingMessages_GetPartnerMessagePreview_Request::IsInitialized() const {
+  return true;
+}
+
+void CMarketingMessages_GetPartnerMessagePreview_Request::InternalSwap(CMarketingMessages_GetPartnerMessagePreview_Request* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CMarketingMessages_GetPartnerMessagePreview_Request, partnerid_)
+      + sizeof(CMarketingMessages_GetPartnerMessagePreview_Request::partnerid_)
+      - PROTOBUF_FIELD_OFFSET(CMarketingMessages_GetPartnerMessagePreview_Request, gid_)>(
+          reinterpret_cast<char*>(&gid_),
+          reinterpret_cast<char*>(&other->gid_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CMarketingMessages_GetPartnerMessagePreview_Request::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class CMarketingMessages_GetPartnerMessagePreview_Response::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CMarketingMessages_GetPartnerMessagePreview_Response>()._has_bits_);
+  static const ::CMarketingMessageProto& message(const CMarketingMessages_GetPartnerMessagePreview_Response* msg);
+  static void set_has_message(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+};
+
+const ::CMarketingMessageProto&
+CMarketingMessages_GetPartnerMessagePreview_Response::_Internal::message(const CMarketingMessages_GetPartnerMessagePreview_Response* msg) {
+  return *msg->message_;
+}
+CMarketingMessages_GetPartnerMessagePreview_Response::CMarketingMessages_GetPartnerMessagePreview_Response(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CMarketingMessages_GetPartnerMessagePreview_Response)
+}
+CMarketingMessages_GetPartnerMessagePreview_Response::CMarketingMessages_GetPartnerMessagePreview_Response(const CMarketingMessages_GetPartnerMessagePreview_Response& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _has_bits_(from._has_bits_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_message()) {
+    message_ = new ::CMarketingMessageProto(*from.message_);
+  } else {
+    message_ = nullptr;
+  }
+  // @@protoc_insertion_point(copy_constructor:CMarketingMessages_GetPartnerMessagePreview_Response)
+}
+
+void CMarketingMessages_GetPartnerMessagePreview_Response::SharedCtor() {
+message_ = nullptr;
+}
+
+CMarketingMessages_GetPartnerMessagePreview_Response::~CMarketingMessages_GetPartnerMessagePreview_Response() {
+  // @@protoc_insertion_point(destructor:CMarketingMessages_GetPartnerMessagePreview_Response)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CMarketingMessages_GetPartnerMessagePreview_Response::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  if (this != internal_default_instance()) delete message_;
+}
+
+void CMarketingMessages_GetPartnerMessagePreview_Response::ArenaDtor(void* object) {
+  CMarketingMessages_GetPartnerMessagePreview_Response* _this = reinterpret_cast< CMarketingMessages_GetPartnerMessagePreview_Response* >(object);
+  (void)_this;
+}
+void CMarketingMessages_GetPartnerMessagePreview_Response::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CMarketingMessages_GetPartnerMessagePreview_Response::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CMarketingMessages_GetPartnerMessagePreview_Response::Clear() {
+// @@protoc_insertion_point(message_clear_start:CMarketingMessages_GetPartnerMessagePreview_Response)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    GOOGLE_DCHECK(message_ != nullptr);
+    message_->Clear();
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CMarketingMessages_GetPartnerMessagePreview_Response::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // optional .CMarketingMessageProto message = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_message(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  _has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CMarketingMessages_GetPartnerMessagePreview_Response::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CMarketingMessages_GetPartnerMessagePreview_Response)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // optional .CMarketingMessageProto message = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        1, _Internal::message(this), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CMarketingMessages_GetPartnerMessagePreview_Response)
+  return target;
+}
+
+size_t CMarketingMessages_GetPartnerMessagePreview_Response::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CMarketingMessages_GetPartnerMessagePreview_Response)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // optional .CMarketingMessageProto message = 1;
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *message_);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CMarketingMessages_GetPartnerMessagePreview_Response::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CMarketingMessages_GetPartnerMessagePreview_Response)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CMarketingMessages_GetPartnerMessagePreview_Response* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CMarketingMessages_GetPartnerMessagePreview_Response>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CMarketingMessages_GetPartnerMessagePreview_Response)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CMarketingMessages_GetPartnerMessagePreview_Response)
+    MergeFrom(*source);
+  }
+}
+
+void CMarketingMessages_GetPartnerMessagePreview_Response::MergeFrom(const CMarketingMessages_GetPartnerMessagePreview_Response& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CMarketingMessages_GetPartnerMessagePreview_Response)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_has_message()) {
+    _internal_mutable_message()->::CMarketingMessageProto::MergeFrom(from._internal_message());
+  }
+}
+
+void CMarketingMessages_GetPartnerMessagePreview_Response::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CMarketingMessages_GetPartnerMessagePreview_Response)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CMarketingMessages_GetPartnerMessagePreview_Response::CopyFrom(const CMarketingMessages_GetPartnerMessagePreview_Response& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CMarketingMessages_GetPartnerMessagePreview_Response)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CMarketingMessages_GetPartnerMessagePreview_Response::IsInitialized() const {
+  return true;
+}
+
+void CMarketingMessages_GetPartnerMessagePreview_Response::InternalSwap(CMarketingMessages_GetPartnerMessagePreview_Response* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  swap(message_, other->message_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CMarketingMessages_GetPartnerMessagePreview_Response::GetMetadata() const {
   return GetMetadataStatic();
 }
 
@@ -8977,6 +10348,30 @@ void MarketingMessages::GetMarketingMessagesViewerRangeStats(::PROTOBUF_NAMESPAC
   done->Run();
 }
 
+void MarketingMessages::GetPartnerReadyToPublishMessages(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                         const ::CMarketingMessages_GetPartnerReadyToPublishMessages_Request*,
+                         ::CMarketingMessages_GetPartnerReadyToPublishMessages_Response*,
+                         ::google::protobuf::Closure* done) {
+  controller->SetFailed("Method GetPartnerReadyToPublishMessages() not implemented.");
+  done->Run();
+}
+
+void MarketingMessages::PublishPartnerMessage(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                         const ::CMarketingMessages_PartnerPublishMessage_Request*,
+                         ::CMarketingMessages_PartnerPublishMessage_Response*,
+                         ::google::protobuf::Closure* done) {
+  controller->SetFailed("Method PublishPartnerMessage() not implemented.");
+  done->Run();
+}
+
+void MarketingMessages::GetPartnerMessagePreview(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                         const ::CMarketingMessages_GetPartnerMessagePreview_Request*,
+                         ::CMarketingMessages_GetPartnerMessagePreview_Response*,
+                         ::google::protobuf::Closure* done) {
+  controller->SetFailed("Method GetPartnerMessagePreview() not implemented.");
+  done->Run();
+}
+
 void MarketingMessages::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* method,
                              ::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                              const ::PROTOBUF_NAMESPACE_ID::Message* request,
@@ -9096,6 +10491,30 @@ void MarketingMessages::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescript
                  response),
              done);
       break;
+    case 14:
+      GetPartnerReadyToPublishMessages(controller,
+             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CMarketingMessages_GetPartnerReadyToPublishMessages_Request*>(
+                 request),
+             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<::CMarketingMessages_GetPartnerReadyToPublishMessages_Response*>(
+                 response),
+             done);
+      break;
+    case 15:
+      PublishPartnerMessage(controller,
+             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CMarketingMessages_PartnerPublishMessage_Request*>(
+                 request),
+             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<::CMarketingMessages_PartnerPublishMessage_Response*>(
+                 response),
+             done);
+      break;
+    case 16:
+      GetPartnerMessagePreview(controller,
+             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CMarketingMessages_GetPartnerMessagePreview_Request*>(
+                 request),
+             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<::CMarketingMessages_GetPartnerMessagePreview_Response*>(
+                 response),
+             done);
+      break;
     default:
       GOOGLE_LOG(FATAL) << "Bad method index; this should never happen.";
       break;
@@ -9134,6 +10553,12 @@ const ::PROTOBUF_NAMESPACE_ID::Message& MarketingMessages::GetRequestPrototype(
       return ::CMarketingMessages_GetMarketingMessageViewerStats_Request::default_instance();
     case 13:
       return ::CMarketingMessages_GetMarketingMessagesViewerRangeStats_Request::default_instance();
+    case 14:
+      return ::CMarketingMessages_GetPartnerReadyToPublishMessages_Request::default_instance();
+    case 15:
+      return ::CMarketingMessages_PartnerPublishMessage_Request::default_instance();
+    case 16:
+      return ::CMarketingMessages_GetPartnerMessagePreview_Request::default_instance();
     default:
       GOOGLE_LOG(FATAL) << "Bad method index; this should never happen.";
       return *::PROTOBUF_NAMESPACE_ID::MessageFactory::generated_factory()
@@ -9173,6 +10598,12 @@ const ::PROTOBUF_NAMESPACE_ID::Message& MarketingMessages::GetResponsePrototype(
       return ::CMarketingMessages_GetMarketingMessageViewerStats_Response::default_instance();
     case 13:
       return ::CMarketingMessages_GetMarketingMessagesViewerRangeStats_Response::default_instance();
+    case 14:
+      return ::CMarketingMessages_GetPartnerReadyToPublishMessages_Response::default_instance();
+    case 15:
+      return ::CMarketingMessages_PartnerPublishMessage_Response::default_instance();
+    case 16:
+      return ::CMarketingMessages_GetPartnerMessagePreview_Response::default_instance();
     default:
       GOOGLE_LOG(FATAL) << "Bad method index; this should never happen.";
       return *::PROTOBUF_NAMESPACE_ID::MessageFactory::generated_factory()
@@ -9289,6 +10720,27 @@ void MarketingMessages_Stub::GetMarketingMessagesViewerRangeStats(::PROTOBUF_NAM
   channel_->CallMethod(descriptor()->method(13),
                        controller, request, response, done);
 }
+void MarketingMessages_Stub::GetPartnerReadyToPublishMessages(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                              const ::CMarketingMessages_GetPartnerReadyToPublishMessages_Request* request,
+                              ::CMarketingMessages_GetPartnerReadyToPublishMessages_Response* response,
+                              ::google::protobuf::Closure* done) {
+  channel_->CallMethod(descriptor()->method(14),
+                       controller, request, response, done);
+}
+void MarketingMessages_Stub::PublishPartnerMessage(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                              const ::CMarketingMessages_PartnerPublishMessage_Request* request,
+                              ::CMarketingMessages_PartnerPublishMessage_Response* response,
+                              ::google::protobuf::Closure* done) {
+  channel_->CallMethod(descriptor()->method(15),
+                       controller, request, response, done);
+}
+void MarketingMessages_Stub::GetPartnerMessagePreview(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                              const ::CMarketingMessages_GetPartnerMessagePreview_Request* request,
+                              ::CMarketingMessages_GetPartnerMessagePreview_Response* response,
+                              ::google::protobuf::Closure* done) {
+  channel_->CallMethod(descriptor()->method(16),
+                       controller, request, response, done);
+}
 
 // @@protoc_insertion_point(namespace_scope)
 PROTOBUF_NAMESPACE_OPEN
@@ -9372,6 +10824,24 @@ template<> PROTOBUF_NOINLINE ::CMarketingMessages_GetMarketingMessagesViewerRang
 }
 template<> PROTOBUF_NOINLINE ::CMarketingMessages_GetMarketingMessagesViewerRangeStats_Response* Arena::CreateMaybeMessage< ::CMarketingMessages_GetMarketingMessagesViewerRangeStats_Response >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CMarketingMessages_GetMarketingMessagesViewerRangeStats_Response >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CMarketingMessages_GetPartnerReadyToPublishMessages_Request* Arena::CreateMaybeMessage< ::CMarketingMessages_GetPartnerReadyToPublishMessages_Request >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CMarketingMessages_GetPartnerReadyToPublishMessages_Request >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CMarketingMessages_GetPartnerReadyToPublishMessages_Response* Arena::CreateMaybeMessage< ::CMarketingMessages_GetPartnerReadyToPublishMessages_Response >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CMarketingMessages_GetPartnerReadyToPublishMessages_Response >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CMarketingMessages_PartnerPublishMessage_Request* Arena::CreateMaybeMessage< ::CMarketingMessages_PartnerPublishMessage_Request >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CMarketingMessages_PartnerPublishMessage_Request >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CMarketingMessages_PartnerPublishMessage_Response* Arena::CreateMaybeMessage< ::CMarketingMessages_PartnerPublishMessage_Response >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CMarketingMessages_PartnerPublishMessage_Response >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CMarketingMessages_GetPartnerMessagePreview_Request* Arena::CreateMaybeMessage< ::CMarketingMessages_GetPartnerMessagePreview_Request >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CMarketingMessages_GetPartnerMessagePreview_Request >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CMarketingMessages_GetPartnerMessagePreview_Response* Arena::CreateMaybeMessage< ::CMarketingMessages_GetPartnerMessagePreview_Response >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CMarketingMessages_GetPartnerMessagePreview_Response >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

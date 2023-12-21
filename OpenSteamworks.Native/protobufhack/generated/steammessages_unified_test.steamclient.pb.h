@@ -217,7 +217,7 @@ class CMsgTest_MessageToClient_Request PROTOBUF_FINAL :
   enum : int {
     kSomeTextFieldNumber = 1,
   };
-  // optional string some_text = 1 [(.description) = "Some string."];
+  // optional string some_text = 1;
   bool has_some_text() const;
   private:
   bool _internal_has_some_text() const;
@@ -373,7 +373,7 @@ class CMsgTest_MessageToClient_Response PROTOBUF_FINAL :
   enum : int {
     kSomeTextFieldNumber = 1,
   };
-  // optional string some_text = 1 [(.description) = "Some string."];
+  // optional string some_text = 1;
   bool has_some_text() const;
   private:
   bool _internal_has_some_text() const;
@@ -529,7 +529,7 @@ class CMsgTest_NotifyClient_Notification PROTOBUF_FINAL :
   enum : int {
     kSomeTextFieldNumber = 1,
   };
-  // optional string some_text = 1 [(.description) = "Some string."];
+  // optional string some_text = 1;
   bool has_some_text() const;
   private:
   bool _internal_has_some_text() const;
@@ -685,7 +685,7 @@ class CMsgTest_MessageToServer_Request PROTOBUF_FINAL :
   enum : int {
     kSomeTextFieldNumber = 1,
   };
-  // optional string some_text = 1 [(.description) = "Some string."];
+  // optional string some_text = 1;
   bool has_some_text() const;
   private:
   bool _internal_has_some_text() const;
@@ -841,7 +841,7 @@ class CMsgTest_MessageToServer_Response PROTOBUF_FINAL :
   enum : int {
     kSomeTextFieldNumber = 1,
   };
-  // optional string some_text = 1 [(.description) = "Some string."];
+  // optional string some_text = 1;
   bool has_some_text() const;
   private:
   bool _internal_has_some_text() const;
@@ -997,7 +997,7 @@ class CMsgTest_NotifyServer_Notification PROTOBUF_FINAL :
   enum : int {
     kSomeTextFieldNumber = 1,
   };
-  // optional string some_text = 1 [(.description) = "Some string."];
+  // optional string some_text = 1;
   bool has_some_text() const;
   private:
   bool _internal_has_some_text() const;
@@ -1513,7 +1513,7 @@ class TestExternalPrivilege_Stub : public TestExternalPrivilege {
 #endif  // __GNUC__
 // CMsgTest_MessageToClient_Request
 
-// optional string some_text = 1 [(.description) = "Some string."];
+// optional string some_text = 1;
 inline bool CMsgTest_MessageToClient_Request::_internal_has_some_text() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -1590,7 +1590,7 @@ inline void CMsgTest_MessageToClient_Request::set_allocated_some_text(std::strin
 
 // CMsgTest_MessageToClient_Response
 
-// optional string some_text = 1 [(.description) = "Some string."];
+// optional string some_text = 1;
 inline bool CMsgTest_MessageToClient_Response::_internal_has_some_text() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -1667,7 +1667,7 @@ inline void CMsgTest_MessageToClient_Response::set_allocated_some_text(std::stri
 
 // CMsgTest_NotifyClient_Notification
 
-// optional string some_text = 1 [(.description) = "Some string."];
+// optional string some_text = 1;
 inline bool CMsgTest_NotifyClient_Notification::_internal_has_some_text() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -1744,7 +1744,7 @@ inline void CMsgTest_NotifyClient_Notification::set_allocated_some_text(std::str
 
 // CMsgTest_MessageToServer_Request
 
-// optional string some_text = 1 [(.description) = "Some string."];
+// optional string some_text = 1;
 inline bool CMsgTest_MessageToServer_Request::_internal_has_some_text() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -1821,7 +1821,7 @@ inline void CMsgTest_MessageToServer_Request::set_allocated_some_text(std::strin
 
 // CMsgTest_MessageToServer_Response
 
-// optional string some_text = 1 [(.description) = "Some string."];
+// optional string some_text = 1;
 inline bool CMsgTest_MessageToServer_Response::_internal_has_some_text() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -1898,7 +1898,7 @@ inline void CMsgTest_MessageToServer_Response::set_allocated_some_text(std::stri
 
 // CMsgTest_NotifyServer_Notification
 
-// optional string some_text = 1 [(.description) = "Some string."];
+// optional string some_text = 1;
 inline bool CMsgTest_NotifyServer_Notification::_internal_has_some_text() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;

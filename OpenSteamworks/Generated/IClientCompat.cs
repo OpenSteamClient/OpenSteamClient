@@ -34,6 +34,7 @@ public unsafe interface IClientCompat
     [BlacklistedInCrossProcessIPC]
     public unknown_ret GetControllerConfigOverrides();  // argc: 1, index: 12
     public UInt64 StartSession(AppId_t appid);  // argc: 1, index: 13
+    // WARNING: Arguments are unknown!
     public unknown_ret ReleaseSession(AppId_t appid, UInt64 sessionid);  // argc: 3, index: 14
     public bool BIsLauncherServiceEnabled(AppId_t appid);  // argc: 1, index: 15
     public unknown_ret DeleteCompatData(AppId_t appid);  // argc: 1, index: 16

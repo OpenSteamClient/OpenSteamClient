@@ -589,7 +589,7 @@ class CCredentials_GetSteamGuardDetails_Request PROTOBUF_FINAL :
     kTimestampMinimumWantedFieldNumber = 3,
     kDeprecatedIpaddressFieldNumber = 4,
   };
-  // optional string webcookie = 2 [(.description) = "The user\'s Steam Guard machine auth cookie. If present, it\'ll be used to get the user\'s machine ID instead of the AM session."];
+  // optional string webcookie = 2;
   bool has_webcookie() const;
   private:
   bool _internal_has_webcookie() const;
@@ -3029,7 +3029,7 @@ inline void CCredentials_TestAvailablePassword_Response::set_is_valid(bool value
 
 // CCredentials_GetSteamGuardDetails_Request
 
-// optional string webcookie = 2 [(.description) = "The user\'s Steam Guard machine auth cookie. If present, it\'ll be used to get the user\'s machine ID instead of the AM session."];
+// optional string webcookie = 2;
 inline bool CCredentials_GetSteamGuardDetails_Request::_internal_has_webcookie() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;

@@ -1,16 +1,16 @@
 {
     "name": "IClientGameServerPacketHandlerMap",
-    "found_at": "0x23a76d8",
+    "found_at": "0x2402408",
     "functions": [ 
         {
             "name": "HandleIncomingPacket",
             "argc": "5",
-            "addr": "0x5759b0"
+            "addr": "0x593c40"
         },
         {
             "name": "GetNextOutgoingPacket",
             "argc": "5",
-            "addr": "0x575b70"
+            "addr": "0x593e00"
         }
     ]
 }

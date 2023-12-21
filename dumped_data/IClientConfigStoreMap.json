@@ -1,101 +1,101 @@
 {
     "name": "IClientConfigStoreMap",
-    "found_at": "0x23a8498",
+    "found_at": "0x24031cc",
     "functions": [ 
         {
             "name": "IsSet",
             "argc": "3",
-            "addr": "0x5c6630"
+            "addr": "0x5e47e0"
         },
         {
             "name": "GetBool",
             "argc": "4",
-            "addr": "0x5c67b0"
+            "addr": "0x5e4960"
         },
         {
             "name": "GetInt",
             "argc": "4",
-            "addr": "0x5c6950"
+            "addr": "0x5e4b00"
         },
         {
             "name": "GetUint64",
             "argc": "5",
-            "addr": "0x5c6ae0"
+            "addr": "0x5e4c90"
         },
         {
             "name": "GetFloat",
             "argc": "4",
-            "addr": "0x5c6cc0"
+            "addr": "0x5e4e70"
         },
         {
             "name": "GetString",
             "argc": "4",
-            "addr": "0x5c6e50"
+            "addr": "0x5e5000"
         },
         {
             "name": "GetBinary",
             "argc": "5",
-            "addr": "0x5c6fe0"
+            "addr": "0x5e5190"
         },
         {
             "name": "GetBinary",
             "argc": "4",
-            "addr": "0x5c71a0"
+            "addr": "0x5e5350"
         },
         {
             "name": "GetBinaryWatermarked",
             "argc": "5",
-            "addr": "0x5c7340"
+            "addr": "0x5e54f0"
         },
         {
             "name": "SetBool",
             "argc": "4",
-            "addr": "0x5c7500"
+            "addr": "0x5e56b0"
         },
         {
             "name": "SetInt",
             "argc": "4",
-            "addr": "0x5c76a0"
+            "addr": "0x5e5850"
         },
         {
             "name": "SetUint64",
             "argc": "5",
-            "addr": "0x5c7840"
+            "addr": "0x5e59f0"
         },
         {
             "name": "SetFloat",
             "argc": "4",
-            "addr": "0x5c79f0"
+            "addr": "0x5e5ba0"
         },
         {
             "name": "SetString",
             "argc": "4",
-            "addr": "0x5c7b90"
+            "addr": "0x5e5d40"
         },
         {
             "name": "SetBinary",
             "argc": "5",
-            "addr": "0x5c7d20"
+            "addr": "0x5e5ed0"
         },
         {
             "name": "SetBinaryWatermarked",
             "argc": "5",
-            "addr": "0x5c7ed0"
+            "addr": "0x5e6080"
         },
         {
             "name": "RemoveKey",
             "argc": "3",
-            "addr": "0x5c8080"
+            "addr": "0x5e6230"
         },
         {
             "name": "GetKeySerialized",
             "argc": "5",
-            "addr": "0x5c8200"
+            "addr": "0x5e63b0"
         },
         {
             "name": "FlushToDisk",
             "argc": "2",
-            "addr": "0x5c83c0"
+            "addr": "0x5e6570"
         }
     ]
 }

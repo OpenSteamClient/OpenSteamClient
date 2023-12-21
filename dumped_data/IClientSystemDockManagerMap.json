@@ -1,26 +1,26 @@
 {
     "name": "IClientSystemDockManagerMap",
-    "found_at": "0x23a8128",
+    "found_at": "0x2402e5c",
     "functions": [ 
         {
             "name": "IsInterfaceValid",
             "argc": "1",
-            "addr": "0x5b18e0"
+            "addr": "0x5cfa90"
         },
         {
             "name": "GetState",
             "argc": "2",
-            "addr": "0x5b1a40"
+            "addr": "0x5cfbf0"
         },
         {
             "name": "UpdateFirmware",
             "argc": "2",
-            "addr": "0x5b1bc0"
+            "addr": "0x5cfd70"
         },
         {
             "name": "DisarmSafetyNet",
             "argc": "1",
-            "addr": "0x5b1d50"
+            "addr": "0x5cff00"
         }
     ]
 }

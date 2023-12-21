@@ -30,29 +30,29 @@ namespace OpenSteamworks.Protobuf.WebUI {
             "Y2NvdW50UHJpdmF0ZUFwcHNfR2V0UHJpdmF0ZUFwcExpc3RfUmVxdWVzdCJf",
             "Ci5DQWNjb3VudFByaXZhdGVBcHBzX0dldFByaXZhdGVBcHBMaXN0X1Jlc3Bv",
             "bnNlEi0KDHByaXZhdGVfYXBwcxgBIAEoCzIXLkNBY2NvdW50UHJpdmF0ZUFw",
-            "cExpc3QiTgosQ0FjY291bnRQcml2YXRlQXBwc19Ub2dnbGVBcHBQcml2YWN5",
-            "X1JlcXVlc3QSDQoFYXBwaWQYASABKAUSDwoHcHJpdmF0ZRgCIAEoCCIvCi1D",
-            "QWNjb3VudFByaXZhdGVBcHBzX1RvZ2dsZUFwcFByaXZhY3lfUmVzcG9uc2Ui",
-            "cgpBQ0FjY291bnRQcml2YXRlQXBzQ2xpZW50X05vdGlmeVByaXZhdGVBcHBM",
-            "aXN0Q2hhbmdlZF9Ob3RpZmljYXRpb24SLQoMcHJpdmF0ZV9hcHBzGAEgASgL",
-            "MhcuQ0FjY291bnRQcml2YXRlQXBwTGlzdDL9AQoSQWNjb3VudFByaXZhdGVB",
-            "cHBzEnQKEUdldFByaXZhdGVBcHBMaXN0Ei4uQ0FjY291bnRQcml2YXRlQXBw",
-            "c19HZXRQcml2YXRlQXBwTGlzdF9SZXF1ZXN0Gi8uQ0FjY291bnRQcml2YXRl",
-            "QXBwc19HZXRQcml2YXRlQXBwTGlzdF9SZXNwb25zZRJxChBUb2dnbGVBcHBQ",
-            "cml2YWN5Ei0uQ0FjY291bnRQcml2YXRlQXBwc19Ub2dnbGVBcHBQcml2YWN5",
-            "X1JlcXVlc3QaLi5DQWNjb3VudFByaXZhdGVBcHBzX1RvZ2dsZUFwcFByaXZh",
-            "Y3lfUmVzcG9uc2UyigEKGEFjY291bnRQcml2YXRlQXBwc0NsaWVudBJuChtO",
-            "b3RpZnlQcml2YXRlQXBwTGlzdENoYW5nZWQSQi5DQWNjb3VudFByaXZhdGVB",
-            "cHNDbGllbnRfTm90aWZ5UHJpdmF0ZUFwcExpc3RDaGFuZ2VkX05vdGlmaWNh",
-            "dGlvbhoLLk5vUmVzcG9uc2VCIKoCHU9wZW5TdGVhbXdvcmtzLlByb3RvYnVm",
-            "LldlYlVJ"));
+            "cExpc3QiTwosQ0FjY291bnRQcml2YXRlQXBwc19Ub2dnbGVBcHBQcml2YWN5",
+            "X1JlcXVlc3QSDgoGYXBwaWRzGAEgAygFEg8KB3ByaXZhdGUYAiABKAgiLwot",
+            "Q0FjY291bnRQcml2YXRlQXBwc19Ub2dnbGVBcHBQcml2YWN5X1Jlc3BvbnNl",
+            "InIKQUNBY2NvdW50UHJpdmF0ZUFwc0NsaWVudF9Ob3RpZnlQcml2YXRlQXBw",
+            "TGlzdENoYW5nZWRfTm90aWZpY2F0aW9uEi0KDHByaXZhdGVfYXBwcxgBIAEo",
+            "CzIXLkNBY2NvdW50UHJpdmF0ZUFwcExpc3Qy/QEKEkFjY291bnRQcml2YXRl",
+            "QXBwcxJ0ChFHZXRQcml2YXRlQXBwTGlzdBIuLkNBY2NvdW50UHJpdmF0ZUFw",
+            "cHNfR2V0UHJpdmF0ZUFwcExpc3RfUmVxdWVzdBovLkNBY2NvdW50UHJpdmF0",
+            "ZUFwcHNfR2V0UHJpdmF0ZUFwcExpc3RfUmVzcG9uc2UScQoQVG9nZ2xlQXBw",
+            "UHJpdmFjeRItLkNBY2NvdW50UHJpdmF0ZUFwcHNfVG9nZ2xlQXBwUHJpdmFj",
+            "eV9SZXF1ZXN0Gi4uQ0FjY291bnRQcml2YXRlQXBwc19Ub2dnbGVBcHBQcml2",
+            "YWN5X1Jlc3BvbnNlMooBChhBY2NvdW50UHJpdmF0ZUFwcHNDbGllbnQSbgob",
+            "Tm90aWZ5UHJpdmF0ZUFwcExpc3RDaGFuZ2VkEkIuQ0FjY291bnRQcml2YXRl",
+            "QXBzQ2xpZW50X05vdGlmeVByaXZhdGVBcHBMaXN0Q2hhbmdlZF9Ob3RpZmlj",
+            "YXRpb24aCy5Ob1Jlc3BvbnNlQiCqAh1PcGVuU3RlYW13b3Jrcy5Qcm90b2J1",
+            "Zi5XZWJVSQ=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.Reflection.DescriptorReflection.Descriptor, global::OpenSteamworks.Protobuf.WebUI.CommonBaseReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CAccountPrivateAppList), global::OpenSteamworks.Protobuf.WebUI.CAccountPrivateAppList.Parser, new[]{ "Appids" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CAccountPrivateApps_GetPrivateAppList_Request), global::OpenSteamworks.Protobuf.WebUI.CAccountPrivateApps_GetPrivateAppList_Request.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CAccountPrivateApps_GetPrivateAppList_Response), global::OpenSteamworks.Protobuf.WebUI.CAccountPrivateApps_GetPrivateAppList_Response.Parser, new[]{ "PrivateApps" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CAccountPrivateApps_ToggleAppPrivacy_Request), global::OpenSteamworks.Protobuf.WebUI.CAccountPrivateApps_ToggleAppPrivacy_Request.Parser, new[]{ "Appid", "Private" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CAccountPrivateApps_ToggleAppPrivacy_Request), global::OpenSteamworks.Protobuf.WebUI.CAccountPrivateApps_ToggleAppPrivacy_Request.Parser, new[]{ "Appids", "Private" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CAccountPrivateApps_ToggleAppPrivacy_Response), global::OpenSteamworks.Protobuf.WebUI.CAccountPrivateApps_ToggleAppPrivacy_Response.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CAccountPrivateApsClient_NotifyPrivateAppListChanged_Notification), global::OpenSteamworks.Protobuf.WebUI.CAccountPrivateApsClient_NotifyPrivateAppListChanged_Notification.Parser, new[]{ "PrivateApps" }, null, null, null, null)
           }));
@@ -61,6 +61,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
   #region Messages
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CAccountPrivateAppList : pb::IMessage<CAccountPrivateAppList>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -241,6 +242,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CAccountPrivateApps_GetPrivateAppList_Request : pb::IMessage<CAccountPrivateApps_GetPrivateAppList_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -393,6 +395,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CAccountPrivateApps_GetPrivateAppList_Response : pb::IMessage<CAccountPrivateApps_GetPrivateAppList_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -591,6 +594,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CAccountPrivateApps_ToggleAppPrivacy_Request : pb::IMessage<CAccountPrivateApps_ToggleAppPrivacy_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -627,7 +631,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public CAccountPrivateApps_ToggleAppPrivacy_Request(CAccountPrivateApps_ToggleAppPrivacy_Request other) : this() {
       _hasBits0 = other._hasBits0;
-      appid_ = other.appid_;
+      appids_ = other.appids_.Clone();
       private_ = other.private_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -638,31 +642,15 @@ namespace OpenSteamworks.Protobuf.WebUI {
       return new CAccountPrivateApps_ToggleAppPrivacy_Request(this);
     }
 
-    /// <summary>Field number for the "appid" field.</summary>
-    public const int AppidFieldNumber = 1;
-    private readonly static int AppidDefaultValue = 0;
-
-    private int appid_;
+    /// <summary>Field number for the "appids" field.</summary>
+    public const int AppidsFieldNumber = 1;
+    private static readonly pb::FieldCodec<int> _repeated_appids_codec
+        = pb::FieldCodec.ForInt32(8);
+    private readonly pbc::RepeatedField<int> appids_ = new pbc::RepeatedField<int>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int Appid {
-      get { if ((_hasBits0 & 1) != 0) { return appid_; } else { return AppidDefaultValue; } }
-      set {
-        _hasBits0 |= 1;
-        appid_ = value;
-      }
-    }
-    /// <summary>Gets whether the "appid" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasAppid {
-      get { return (_hasBits0 & 1) != 0; }
-    }
-    /// <summary>Clears the value of the "appid" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearAppid() {
-      _hasBits0 &= ~1;
+    public pbc::RepeatedField<int> Appids {
+      get { return appids_; }
     }
 
     /// <summary>Field number for the "private" field.</summary>
@@ -673,9 +661,9 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool Private {
-      get { if ((_hasBits0 & 2) != 0) { return private_; } else { return PrivateDefaultValue; } }
+      get { if ((_hasBits0 & 1) != 0) { return private_; } else { return PrivateDefaultValue; } }
       set {
-        _hasBits0 |= 2;
+        _hasBits0 |= 1;
         private_ = value;
       }
     }
@@ -683,13 +671,13 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool HasPrivate {
-      get { return (_hasBits0 & 2) != 0; }
+      get { return (_hasBits0 & 1) != 0; }
     }
     /// <summary>Clears the value of the "private" field</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void ClearPrivate() {
-      _hasBits0 &= ~2;
+      _hasBits0 &= ~1;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -707,7 +695,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Appid != other.Appid) return false;
+      if(!appids_.Equals(other.appids_)) return false;
       if (Private != other.Private) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -716,7 +704,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (HasAppid) hash ^= Appid.GetHashCode();
+      hash ^= appids_.GetHashCode();
       if (HasPrivate) hash ^= Private.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -736,10 +724,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (HasAppid) {
-        output.WriteRawTag(8);
-        output.WriteInt32(Appid);
-      }
+      appids_.WriteTo(output, _repeated_appids_codec);
       if (HasPrivate) {
         output.WriteRawTag(16);
         output.WriteBool(Private);
@@ -754,10 +739,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (HasAppid) {
-        output.WriteRawTag(8);
-        output.WriteInt32(Appid);
-      }
+      appids_.WriteTo(ref output, _repeated_appids_codec);
       if (HasPrivate) {
         output.WriteRawTag(16);
         output.WriteBool(Private);
@@ -772,9 +754,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (HasAppid) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Appid);
-      }
+      size += appids_.CalculateSize(_repeated_appids_codec);
       if (HasPrivate) {
         size += 1 + 1;
       }
@@ -790,9 +770,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
       if (other == null) {
         return;
       }
-      if (other.HasAppid) {
-        Appid = other.Appid;
-      }
+      appids_.Add(other.appids_);
       if (other.HasPrivate) {
         Private = other.Private;
       }
@@ -811,8 +789,9 @@ namespace OpenSteamworks.Protobuf.WebUI {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
+          case 10:
           case 8: {
-            Appid = input.ReadInt32();
+            appids_.AddEntriesFrom(input, _repeated_appids_codec);
             break;
           }
           case 16: {
@@ -834,8 +813,9 @@ namespace OpenSteamworks.Protobuf.WebUI {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
+          case 10:
           case 8: {
-            Appid = input.ReadInt32();
+            appids_.AddEntriesFrom(ref input, _repeated_appids_codec);
             break;
           }
           case 16: {
@@ -849,6 +829,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CAccountPrivateApps_ToggleAppPrivacy_Response : pb::IMessage<CAccountPrivateApps_ToggleAppPrivacy_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1001,6 +982,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CAccountPrivateApsClient_NotifyPrivateAppListChanged_Notification : pb::IMessage<CAccountPrivateApsClient_NotifyPrivateAppListChanged_Notification>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage

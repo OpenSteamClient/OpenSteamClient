@@ -1017,6 +1017,7 @@ class CMsgClientGetClientDetailsResponse PROTOBUF_FINAL :
 
   enum : int {
     kGamesRunningFieldNumber = 6,
+    kLocalUsersFieldNumber = 10,
     kOsFieldNumber = 2,
     kMachineNameFieldNumber = 3,
     kIpPublicFieldNumber = 4,
@@ -1043,6 +1044,28 @@ class CMsgClientGetClientDetailsResponse PROTOBUF_FINAL :
   ::CMsgClientGetClientDetailsResponse_Game* add_games_running();
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgClientGetClientDetailsResponse_Game >&
       games_running() const;
+
+  // repeated uint32 local_users = 10;
+  int local_users_size() const;
+  private:
+  int _internal_local_users_size() const;
+  public:
+  void clear_local_users();
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_local_users(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
+      _internal_local_users() const;
+  void _internal_add_local_users(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
+      _internal_mutable_local_users();
+  public:
+  ::PROTOBUF_NAMESPACE_ID::uint32 local_users(int index) const;
+  void set_local_users(int index, ::PROTOBUF_NAMESPACE_ID::uint32 value);
+  void add_local_users(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
+      local_users() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
+      mutable_local_users();
 
   // optional string os = 2;
   bool has_os() const;
@@ -1186,6 +1209,7 @@ class CMsgClientGetClientDetailsResponse PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgClientGetClientDetailsResponse_Game > games_running_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 > local_users_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr os_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr machine_name_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr ip_public_;
@@ -4445,6 +4469,53 @@ inline void CMsgClientGetClientDetailsResponse::_internal_set_clientcomm_version
 inline void CMsgClientGetClientDetailsResponse::set_clientcomm_version(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   _internal_set_clientcomm_version(value);
   // @@protoc_insertion_point(field_set:CMsgClientGetClientDetailsResponse.clientcomm_version)
+}
+
+// repeated uint32 local_users = 10;
+inline int CMsgClientGetClientDetailsResponse::_internal_local_users_size() const {
+  return local_users_.size();
+}
+inline int CMsgClientGetClientDetailsResponse::local_users_size() const {
+  return _internal_local_users_size();
+}
+inline void CMsgClientGetClientDetailsResponse::clear_local_users() {
+  local_users_.Clear();
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientGetClientDetailsResponse::_internal_local_users(int index) const {
+  return local_users_.Get(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientGetClientDetailsResponse::local_users(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgClientGetClientDetailsResponse.local_users)
+  return _internal_local_users(index);
+}
+inline void CMsgClientGetClientDetailsResponse::set_local_users(int index, ::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  local_users_.Set(index, value);
+  // @@protoc_insertion_point(field_set:CMsgClientGetClientDetailsResponse.local_users)
+}
+inline void CMsgClientGetClientDetailsResponse::_internal_add_local_users(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  local_users_.Add(value);
+}
+inline void CMsgClientGetClientDetailsResponse::add_local_users(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_add_local_users(value);
+  // @@protoc_insertion_point(field_add:CMsgClientGetClientDetailsResponse.local_users)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
+CMsgClientGetClientDetailsResponse::_internal_local_users() const {
+  return local_users_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >&
+CMsgClientGetClientDetailsResponse::local_users() const {
+  // @@protoc_insertion_point(field_list:CMsgClientGetClientDetailsResponse.local_users)
+  return _internal_local_users();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
+CMsgClientGetClientDetailsResponse::_internal_mutable_local_users() {
+  return &local_users_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
+CMsgClientGetClientDetailsResponse::mutable_local_users() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgClientGetClientDetailsResponse.local_users)
+  return _internal_mutable_local_users();
 }
 
 // -------------------------------------------------------------------

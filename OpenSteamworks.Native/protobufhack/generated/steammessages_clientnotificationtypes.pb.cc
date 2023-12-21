@@ -216,7 +216,8 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CClientNotificationFamilySharin
 constexpr CClientNotificationFamilySharingStopPlaying::CClientNotificationFamilySharingStopPlaying(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : accountid_owner_(0u)
-  , seconds_remaining_(0u){}
+  , seconds_remaining_(0u)
+  , appid_(0u){}
 struct CClientNotificationFamilySharingStopPlayingDefaultTypeInternal {
   constexpr CClientNotificationFamilySharingStopPlayingDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -651,8 +652,10 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fclientnotifica
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::CClientNotificationFamilySharingStopPlaying, accountid_owner_),
   PROTOBUF_FIELD_OFFSET(::CClientNotificationFamilySharingStopPlaying, seconds_remaining_),
+  PROTOBUF_FIELD_OFFSET(::CClientNotificationFamilySharingStopPlaying, appid_),
   0,
   1,
+  2,
   PROTOBUF_FIELD_OFFSET(::CClientNotificationFamilySharingLibraryAvailable, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CClientNotificationFamilySharingLibraryAvailable, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -830,28 +833,28 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 103, 115, sizeof(::CClientNotificationFriendMessage)},
   { 122, 136, sizeof(::CClientNotificationGroupChatMessage)},
   { 145, 152, sizeof(::CClientNotificationFamilySharingDeviceAuthorizationChanged)},
-  { 154, 161, sizeof(::CClientNotificationFamilySharingStopPlaying)},
-  { 163, 169, sizeof(::CClientNotificationFamilySharingLibraryAvailable)},
-  { 170, 176, sizeof(::CClientNotificationIncomingVoiceChat)},
-  { 177, -1, sizeof(::CClientNotificationClaimSteamDeckRewards)},
-  { 182, 188, sizeof(::CClientNotificationGiftReceived)},
-  { 189, 196, sizeof(::CClientNotificationItemAnnouncement)},
-  { 198, -1, sizeof(::CClientNotificationHardwareSurveyPending)},
-  { 203, 209, sizeof(::CClientNotificationLowDiskSpace)},
-  { 210, 217, sizeof(::CClientNotificationBatteryTemperature)},
-  { 219, -1, sizeof(::CClientNotificationDockUnsupportedFirmware)},
-  { 224, 231, sizeof(::CClientNotificationPeerContentUpload)},
-  { 233, 239, sizeof(::CClientNotificationCannotReadControllerGuideButton)},
-  { 240, -1, sizeof(::CClientNotificationOverlaySplashScreen)},
-  { 245, 251, sizeof(::CClientNotificationBroadcastAvailableToWatch)},
-  { 252, 262, sizeof(::CClientNotificationTimedTrialRemaining)},
-  { 267, -1, sizeof(::CClientNotificationLoginRefresh)},
-  { 272, -1, sizeof(::CClientNotificationTimerExpired)},
-  { 277, 284, sizeof(::CClientNotificationSteamInputActionSetChanged)},
-  { 286, 293, sizeof(::CClientNotificationRemoteClientConnection)},
-  { 295, 302, sizeof(::CClientNotificationRemoteClientStartStream)},
-  { 304, 312, sizeof(::CClientNotificationStreamingClientConnection)},
-  { 315, 322, sizeof(::CClientNotificationPlaytimeWarning)},
+  { 154, 162, sizeof(::CClientNotificationFamilySharingStopPlaying)},
+  { 165, 171, sizeof(::CClientNotificationFamilySharingLibraryAvailable)},
+  { 172, 178, sizeof(::CClientNotificationIncomingVoiceChat)},
+  { 179, -1, sizeof(::CClientNotificationClaimSteamDeckRewards)},
+  { 184, 190, sizeof(::CClientNotificationGiftReceived)},
+  { 191, 198, sizeof(::CClientNotificationItemAnnouncement)},
+  { 200, -1, sizeof(::CClientNotificationHardwareSurveyPending)},
+  { 205, 211, sizeof(::CClientNotificationLowDiskSpace)},
+  { 212, 219, sizeof(::CClientNotificationBatteryTemperature)},
+  { 221, -1, sizeof(::CClientNotificationDockUnsupportedFirmware)},
+  { 226, 233, sizeof(::CClientNotificationPeerContentUpload)},
+  { 235, 241, sizeof(::CClientNotificationCannotReadControllerGuideButton)},
+  { 242, -1, sizeof(::CClientNotificationOverlaySplashScreen)},
+  { 247, 253, sizeof(::CClientNotificationBroadcastAvailableToWatch)},
+  { 254, 264, sizeof(::CClientNotificationTimedTrialRemaining)},
+  { 269, -1, sizeof(::CClientNotificationLoginRefresh)},
+  { 274, -1, sizeof(::CClientNotificationTimerExpired)},
+  { 279, 286, sizeof(::CClientNotificationSteamInputActionSetChanged)},
+  { 288, 295, sizeof(::CClientNotificationRemoteClientConnection)},
+  { 297, 304, sizeof(::CClientNotificationRemoteClientStartStream)},
+  { 306, 314, sizeof(::CClientNotificationStreamingClientConnection)},
+  { 317, 324, sizeof(::CClientNotificationPlaytimeWarning)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -931,116 +934,118 @@ const char descriptor_table_protodef_steammessages_5fclientnotificationtypes_2ep
   "on\030\010 \001(\t\022\026\n\016notificationid\030\t \001(\r\"i\n:CCli"
   "entNotificationFamilySharingDeviceAuthor"
   "izationChanged\022\027\n\017accountid_owner\030\001 \001(\r\022"
-  "\022\n\nauthorized\030\002 \001(\010\"a\n+CClientNotificati"
+  "\022\n\nauthorized\030\002 \001(\010\"p\n+CClientNotificati"
   "onFamilySharingStopPlaying\022\027\n\017accountid_"
-  "owner\030\001 \001(\r\022\031\n\021seconds_remaining\030\002 \001(\r\"K"
-  "\n0CClientNotificationFamilySharingLibrar"
-  "yAvailable\022\027\n\017accountid_owner\030\001 \001(\r\"7\n$C"
-  "ClientNotificationIncomingVoiceChat\022\017\n\007s"
-  "teamid\030\001 \001(\006\"*\n(CClientNotificationClaim"
-  "SteamDeckRewards\"6\n\037CClientNotificationG"
-  "iftReceived\022\023\n\013sender_name\030\001 \001(\t\"W\n#CCli"
-  "entNotificationItemAnnouncement\022\026\n\016new_i"
-  "tem_count\030\001 \001(\r\022\030\n\020new_backpacitems\030\002 \001("
-  "\010\"*\n(CClientNotificationHardwareSurveyPe"
-  "nding\"7\n\037CClientNotificationLowDiskSpace"
-  "\022\024\n\014folder_index\030\001 \001(\r\"W\n%CClientNotific"
-  "ationBatteryTemperature\022\023\n\013temperature\030\001"
-  " \001(\r\022\031\n\021notification_type\030\002 \001(\t\",\n*CClie"
-  "ntNotificationDockUnsupportedFirmware\"H\n"
-  "$CClientNotificationPeerContentUpload\022\r\n"
-  "\005appid\030\001 \001(\r\022\021\n\tpeer_name\030\002 \001(\t\"N\n2CClie"
-  "ntNotificationCannotReadControllerGuideB"
-  "utton\022\030\n\020controller_index\030\001 \001(\005\"(\n&CClie"
-  "ntNotificationOverlaySplashScreen\"L\n,CCl"
-  "ientNotificationBroadcastAvailableToWatc"
-  "h\022\034\n\024broadcast_permission\030\001 \001(\005\"\207\001\n&CCli"
-  "entNotificationTimedTrialRemaining\022\r\n\005ap"
-  "pid\030\001 \001(\r\022\014\n\004icon\030\002 \001(\t\022\017\n\007offline\030\003 \001(\010"
-  "\022\027\n\017allowed_seconds\030\004 \001(\r\022\026\n\016played_seco"
-  "nds\030\005 \001(\r\"!\n\037CClientNotificationLoginRef"
-  "resh\"!\n\037CClientNotificationTimerExpired\""
-  "b\n-CClientNotificationSteamInputActionSe"
-  "tChanged\022\030\n\020controller_index\030\001 \001(\005\022\027\n\017ac"
-  "tion_set_name\030\002 \001(\t\"O\n)CClientNotificati"
-  "onRemoteClientConnection\022\017\n\007machine\030\001 \001("
-  "\t\022\021\n\tconnected\030\002 \001(\010\"P\n*CClientNotificat"
-  "ionRemoteClientStartStream\022\017\n\007machine\030\001 "
-  "\001(\t\022\021\n\tgame_name\030\002 \001(\t\"d\n,CClientNotific"
-  "ationStreamingClientConnection\022\020\n\010hostna"
-  "me\030\001 \001(\t\022\017\n\007machine\030\002 \001(\t\022\021\n\tconnected\030\003"
-  " \001(\010\"N\n\"CClientNotificationPlaytimeWarni"
-  "ng\022\014\n\004type\030\001 \001(\t\022\032\n\022playtime_remaining\030\002"
-  " \001(\r*\202\022\n\027EClientNotificationType\022#\n\037ECli"
-  "entNotificationType_Invalid\020\000\022-\n)EClient"
-  "NotificationType_DownloadCompleted\020\001\022(\n$"
-  "EClientNotificationType_FriendInvite\020\002\022("
-  "\n$EClientNotificationType_FriendInGame\020\003"
-  "\022(\n$EClientNotificationType_FriendOnline"
-  "\020\004\022\'\n#EClientNotificationType_Achievemen"
-  "t\020\005\022&\n\"EClientNotificationType_LowBatter"
-  "y\020\006\022(\n$EClientNotificationType_SystemUpd"
-  "ate\020\007\022)\n%EClientNotificationType_FriendM"
-  "essage\020\010\022,\n(EClientNotificationType_Grou"
-  "pChatMessage\020\t\022.\n*EClientNotificationTyp"
-  "e_FriendInviteRollup\020\n\022C\n\?EClientNotific"
-  "ationType_FamilySharingDeviceAuthorizati"
-  "onChanged\020\013\0224\n0EClientNotificationType_F"
-  "amilySharingStopPlaying\020\014\0229\n5EClientNoti"
-  "ficationType_FamilySharingLibraryAvailab"
-  "le\020\r\022&\n\"EClientNotificationType_Screensh"
-  "ot\020\016\022,\n(EClientNotificationType_CloudSyn"
-  "cFailure\020\017\022-\n)EClientNotificationType_Cl"
-  "oudSyncConflict\020\020\022-\n)EClientNotification"
-  "Type_IncomingVoiceChat\020\021\0221\n-EClientNotif"
-  "icationType_ClaimSteamDeckRewards\020\022\022(\n$E"
-  "ClientNotificationType_GiftReceived\020\023\022,\n"
-  "(EClientNotificationType_ItemAnnouncemen"
-  "t\020\024\022*\n&EClientNotificationType_HardwareS"
-  "urvey\020\025\022(\n$EClientNotificationType_LowDi"
-  "skSpace\020\026\022.\n*EClientNotificationType_Bat"
-  "teryTemperature\020\027\0223\n/EClientNotification"
-  "Type_DockUnsupportedFirmware\020\030\022-\n)EClien"
-  "tNotificationType_PeerContentUpload\020\031\022;\n"
-  "7EClientNotificationType_CannotReadContr"
-  "ollerGuideButton\020\032\022#\n\037EClientNotificatio"
-  "nType_Comment\020\033\022$\n EClientNotificationTy"
-  "pe_Wishlist\020\034\022&\n\"EClientNotificationType"
-  "_TradeOffer\020\035\022%\n!EClientNotificationType"
-  "_AsyncGame\020\036\022#\n\037EClientNotificationType_"
-  "General\020\037\022\'\n#EClientNotificationType_Hel"
-  "pRequest\020 \022/\n+EClientNotificationType_Ov"
-  "erlaySplashScreen\020!\0225\n1EClientNotificati"
-  "onType_BroadcastAvailableToWatch\020\"\022/\n+EC"
-  "lientNotificationType_TimedTrialRemainin"
-  "g\020#\022(\n$EClientNotificationType_LoginRefr"
-  "esh\020$\022%\n!EClientNotificationType_MajorSa"
-  "le\020%\022(\n$EClientNotificationType_TimerExp"
-  "ired\020&\022(\n$EClientNotificationType_Modera"
-  "torMsg\020\'\0226\n2EClientNotificationType_Stea"
-  "mInputActionSetChanged\020(\0222\n.EClientNotif"
-  "icationType_RemoteClientConnection\020)\0223\n/"
-  "EClientNotificationType_RemoteClientStar"
-  "tStream\020*\0225\n1EClientNotificationType_Str"
-  "eamingClientConnection\020+\022(\n$EClientNotif"
-  "icationType_FamilyInvite\020,\022+\n\'EClientNot"
-  "ificationType_PlaytimeWarning\020-\0221\n-EClie"
-  "ntNotificationType_FamilyPurchaseRequest"
-  "\020.\0229\n5EClientNotificationType_FamilyPurc"
-  "haseRequestResponse\020/\0222\n.EClientNotifica"
-  "tionType_ParentalFeatureRequest\0200*\247\001\n\035ES"
-  "ystemUpdateNotificationType\022)\n%ESystemUp"
-  "dateNotificationType_Invalid\020\000\022+\n\'ESyste"
-  "mUpdateNotificationType_Available\020\001\022.\n*E"
-  "SystemUpdateNotificationType_NeedsRestar"
-  "t\020\002B\037H\001\200\001\001\252\002\027OpenSteamworks.Protobuf"
+  "owner\030\001 \001(\r\022\031\n\021seconds_remaining\030\002 \001(\r\022\r"
+  "\n\005appid\030\003 \001(\r\"K\n0CClientNotificationFami"
+  "lySharingLibraryAvailable\022\027\n\017accountid_o"
+  "wner\030\001 \001(\r\"7\n$CClientNotificationIncomin"
+  "gVoiceChat\022\017\n\007steamid\030\001 \001(\006\"*\n(CClientNo"
+  "tificationClaimSteamDeckRewards\"6\n\037CClie"
+  "ntNotificationGiftReceived\022\023\n\013sender_nam"
+  "e\030\001 \001(\t\"W\n#CClientNotificationItemAnnoun"
+  "cement\022\026\n\016new_item_count\030\001 \001(\r\022\030\n\020new_ba"
+  "ckpacitems\030\002 \001(\010\"*\n(CClientNotificationH"
+  "ardwareSurveyPending\"7\n\037CClientNotificat"
+  "ionLowDiskSpace\022\024\n\014folder_index\030\001 \001(\r\"W\n"
+  "%CClientNotificationBatteryTemperature\022\023"
+  "\n\013temperature\030\001 \001(\r\022\031\n\021notification_type"
+  "\030\002 \001(\t\",\n*CClientNotificationDockUnsuppo"
+  "rtedFirmware\"H\n$CClientNotificationPeerC"
+  "ontentUpload\022\r\n\005appid\030\001 \001(\r\022\021\n\tpeer_name"
+  "\030\002 \001(\t\"N\n2CClientNotificationCannotReadC"
+  "ontrollerGuideButton\022\030\n\020controller_index"
+  "\030\001 \001(\005\"(\n&CClientNotificationOverlaySpla"
+  "shScreen\"L\n,CClientNotificationBroadcast"
+  "AvailableToWatch\022\034\n\024broadcast_permission"
+  "\030\001 \001(\005\"\207\001\n&CClientNotificationTimedTrial"
+  "Remaining\022\r\n\005appid\030\001 \001(\r\022\014\n\004icon\030\002 \001(\t\022\017"
+  "\n\007offline\030\003 \001(\010\022\027\n\017allowed_seconds\030\004 \001(\r"
+  "\022\026\n\016played_seconds\030\005 \001(\r\"!\n\037CClientNotif"
+  "icationLoginRefresh\"!\n\037CClientNotificati"
+  "onTimerExpired\"b\n-CClientNotificationSte"
+  "amInputActionSetChanged\022\030\n\020controller_in"
+  "dex\030\001 \001(\005\022\027\n\017action_set_name\030\002 \001(\t\"O\n)CC"
+  "lientNotificationRemoteClientConnection\022"
+  "\017\n\007machine\030\001 \001(\t\022\021\n\tconnected\030\002 \001(\010\"P\n*C"
+  "ClientNotificationRemoteClientStartStrea"
+  "m\022\017\n\007machine\030\001 \001(\t\022\021\n\tgame_name\030\002 \001(\t\"d\n"
+  ",CClientNotificationStreamingClientConne"
+  "ction\022\020\n\010hostname\030\001 \001(\t\022\017\n\007machine\030\002 \001(\t"
+  "\022\021\n\tconnected\030\003 \001(\010\"N\n\"CClientNotificati"
+  "onPlaytimeWarning\022\014\n\004type\030\001 \001(\t\022\032\n\022playt"
+  "ime_remaining\030\002 \001(\r*\267\022\n\027EClientNotificat"
+  "ionType\022#\n\037EClientNotificationType_Inval"
+  "id\020\000\022-\n)EClientNotificationType_Download"
+  "Completed\020\001\022(\n$EClientNotificationType_F"
+  "riendInvite\020\002\022(\n$EClientNotificationType"
+  "_FriendInGame\020\003\022(\n$EClientNotificationTy"
+  "pe_FriendOnline\020\004\022\'\n#EClientNotification"
+  "Type_Achievement\020\005\022&\n\"EClientNotificatio"
+  "nType_LowBattery\020\006\022(\n$EClientNotificatio"
+  "nType_SystemUpdate\020\007\022)\n%EClientNotificat"
+  "ionType_FriendMessage\020\010\022,\n(EClientNotifi"
+  "cationType_GroupChatMessage\020\t\022.\n*EClient"
+  "NotificationType_FriendInviteRollup\020\n\022C\n"
+  "\?EClientNotificationType_FamilySharingDe"
+  "viceAuthorizationChanged\020\013\0224\n0EClientNot"
+  "ificationType_FamilySharingStopPlaying\020\014"
+  "\0229\n5EClientNotificationType_FamilySharin"
+  "gLibraryAvailable\020\r\022&\n\"EClientNotificati"
+  "onType_Screenshot\020\016\022,\n(EClientNotificati"
+  "onType_CloudSyncFailure\020\017\022-\n)EClientNoti"
+  "ficationType_CloudSyncConflict\020\020\022-\n)ECli"
+  "entNotificationType_IncomingVoiceChat\020\021\022"
+  "1\n-EClientNotificationType_ClaimSteamDec"
+  "kRewards\020\022\022(\n$EClientNotificationType_Gi"
+  "ftReceived\020\023\022,\n(EClientNotificationType_"
+  "ItemAnnouncement\020\024\022*\n&EClientNotificatio"
+  "nType_HardwareSurvey\020\025\022(\n$EClientNotific"
+  "ationType_LowDiskSpace\020\026\022.\n*EClientNotif"
+  "icationType_BatteryTemperature\020\027\0223\n/ECli"
+  "entNotificationType_DockUnsupportedFirmw"
+  "are\020\030\022-\n)EClientNotificationType_PeerCon"
+  "tentUpload\020\031\022;\n7EClientNotificationType_"
+  "CannotReadControllerGuideButton\020\032\022#\n\037ECl"
+  "ientNotificationType_Comment\020\033\022$\n EClien"
+  "tNotificationType_Wishlist\020\034\022&\n\"EClientN"
+  "otificationType_TradeOffer\020\035\022%\n!EClientN"
+  "otificationType_AsyncGame\020\036\022#\n\037EClientNo"
+  "tificationType_General\020\037\022\'\n#EClientNotif"
+  "icationType_HelpRequest\020 \022/\n+EClientNoti"
+  "ficationType_OverlaySplashScreen\020!\0225\n1EC"
+  "lientNotificationType_BroadcastAvailable"
+  "ToWatch\020\"\022/\n+EClientNotificationType_Tim"
+  "edTrialRemaining\020#\022(\n$EClientNotificatio"
+  "nType_LoginRefresh\020$\022%\n!EClientNotificat"
+  "ionType_MajorSale\020%\022(\n$EClientNotificati"
+  "onType_TimerExpired\020&\022(\n$EClientNotifica"
+  "tionType_ModeratorMsg\020\'\0226\n2EClientNotifi"
+  "cationType_SteamInputActionSetChanged\020(\022"
+  "2\n.EClientNotificationType_RemoteClientC"
+  "onnection\020)\0223\n/EClientNotificationType_R"
+  "emoteClientStartStream\020*\0225\n1EClientNotif"
+  "icationType_StreamingClientConnection\020+\022"
+  "(\n$EClientNotificationType_FamilyInvite\020"
+  ",\022+\n\'EClientNotificationType_PlaytimeWar"
+  "ning\020-\0221\n-EClientNotificationType_Family"
+  "PurchaseRequest\020.\0229\n5EClientNotification"
+  "Type_FamilyPurchaseRequestResponse\020/\0222\n."
+  "EClientNotificationType_ParentalFeatureR"
+  "equest\0200\0223\n/EClientNotificationType_Pare"
+  "ntalPlaytimeRequest\0201*\247\001\n\035ESystemUpdateN"
+  "otificationType\022)\n%ESystemUpdateNotifica"
+  "tionType_Invalid\020\000\022+\n\'ESystemUpdateNotif"
+  "icationType_Available\020\001\022.\n*ESystemUpdate"
+  "NotificationType_NeedsRestart\020\002B\037H\001\200\001\001\252\002"
+  "\027OpenSteamworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fclientnotificationtypes_2eproto_deps[1] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fclientnotificationtypes_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fclientnotificationtypes_2eproto = {
-  false, false, 5596, descriptor_table_protodef_steammessages_5fclientnotificationtypes_2eproto, "steammessages_clientnotificationtypes.proto", 
+  false, false, 5664, descriptor_table_protodef_steammessages_5fclientnotificationtypes_2eproto, "steammessages_clientnotificationtypes.proto", 
   &descriptor_table_steammessages_5fclientnotificationtypes_2eproto_once, descriptor_table_steammessages_5fclientnotificationtypes_2eproto_deps, 1, 36,
   schemas, file_default_instances, TableStruct_steammessages_5fclientnotificationtypes_2eproto::offsets,
   file_level_metadata_steammessages_5fclientnotificationtypes_2eproto, file_level_enum_descriptors_steammessages_5fclientnotificationtypes_2eproto, file_level_service_descriptors_steammessages_5fclientnotificationtypes_2eproto,
@@ -1108,6 +1113,7 @@ bool EClientNotificationType_IsValid(int value) {
     case 46:
     case 47:
     case 48:
+    case 49:
       return true;
     default:
       return false;
@@ -5173,6 +5179,9 @@ class CClientNotificationFamilySharingStopPlaying::_Internal {
   static void set_has_seconds_remaining(HasBits* has_bits) {
     (*has_bits)[0] |= 2u;
   }
+  static void set_has_appid(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
 };
 
 CClientNotificationFamilySharingStopPlaying::CClientNotificationFamilySharingStopPlaying(::PROTOBUF_NAMESPACE_ID::Arena* arena)
@@ -5186,16 +5195,16 @@ CClientNotificationFamilySharingStopPlaying::CClientNotificationFamilySharingSto
       _has_bits_(from._has_bits_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::memcpy(&accountid_owner_, &from.accountid_owner_,
-    static_cast<size_t>(reinterpret_cast<char*>(&seconds_remaining_) -
-    reinterpret_cast<char*>(&accountid_owner_)) + sizeof(seconds_remaining_));
+    static_cast<size_t>(reinterpret_cast<char*>(&appid_) -
+    reinterpret_cast<char*>(&accountid_owner_)) + sizeof(appid_));
   // @@protoc_insertion_point(copy_constructor:CClientNotificationFamilySharingStopPlaying)
 }
 
 void CClientNotificationFamilySharingStopPlaying::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&accountid_owner_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&seconds_remaining_) -
-    reinterpret_cast<char*>(&accountid_owner_)) + sizeof(seconds_remaining_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&appid_) -
+    reinterpret_cast<char*>(&accountid_owner_)) + sizeof(appid_));
 }
 
 CClientNotificationFamilySharingStopPlaying::~CClientNotificationFamilySharingStopPlaying() {
@@ -5225,10 +5234,10 @@ void CClientNotificationFamilySharingStopPlaying::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
+  if (cached_has_bits & 0x00000007u) {
     ::memset(&accountid_owner_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&seconds_remaining_) -
-        reinterpret_cast<char*>(&accountid_owner_)) + sizeof(seconds_remaining_));
+        reinterpret_cast<char*>(&appid_) -
+        reinterpret_cast<char*>(&accountid_owner_)) + sizeof(appid_));
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -5255,6 +5264,14 @@ const char* CClientNotificationFamilySharingStopPlaying::_InternalParse(const ch
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_seconds_remaining(&has_bits);
           seconds_remaining_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional uint32 appid = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+          _Internal::set_has_appid(&has_bits);
+          appid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -5300,6 +5317,12 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_seconds_remaining(), target);
   }
 
+  // optional uint32 appid = 3;
+  if (cached_has_bits & 0x00000004u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_appid(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -5317,7 +5340,7 @@ size_t CClientNotificationFamilySharingStopPlaying::ByteSizeLong() const {
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
+  if (cached_has_bits & 0x00000007u) {
     // optional uint32 accountid_owner = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
@@ -5330,6 +5353,13 @@ size_t CClientNotificationFamilySharingStopPlaying::ByteSizeLong() const {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_seconds_remaining());
+    }
+
+    // optional uint32 appid = 3;
+    if (cached_has_bits & 0x00000004u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+          this->_internal_appid());
     }
 
   }
@@ -5365,12 +5395,15 @@ void CClientNotificationFamilySharingStopPlaying::MergeFrom(const CClientNotific
   (void) cached_has_bits;
 
   cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
+  if (cached_has_bits & 0x00000007u) {
     if (cached_has_bits & 0x00000001u) {
       accountid_owner_ = from.accountid_owner_;
     }
     if (cached_has_bits & 0x00000002u) {
       seconds_remaining_ = from.seconds_remaining_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      appid_ = from.appid_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
@@ -5399,8 +5432,8 @@ void CClientNotificationFamilySharingStopPlaying::InternalSwap(CClientNotificati
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   swap(_has_bits_[0], other->_has_bits_[0]);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CClientNotificationFamilySharingStopPlaying, seconds_remaining_)
-      + sizeof(CClientNotificationFamilySharingStopPlaying::seconds_remaining_)
+      PROTOBUF_FIELD_OFFSET(CClientNotificationFamilySharingStopPlaying, appid_)
+      + sizeof(CClientNotificationFamilySharingStopPlaying::appid_)
       - PROTOBUF_FIELD_OFFSET(CClientNotificationFamilySharingStopPlaying, accountid_owner_)>(
           reinterpret_cast<char*>(&accountid_owner_),
           reinterpret_cast<char*>(&other->accountid_owner_));

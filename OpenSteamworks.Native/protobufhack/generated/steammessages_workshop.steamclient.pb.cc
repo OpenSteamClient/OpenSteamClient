@@ -87,13 +87,11 @@ const char descriptor_table_protodef_steammessages_5fworkshop_2esteamclient_2epr
   "p_GetEULAStatus_Request\022\r\n\005appid\030\001 \001(\r\"u"
   "\n CWorkshop_GetEULAStatus_Response\022\017\n\007ve"
   "rsion\030\001 \001(\r\022\030\n\020timestamp_action\030\002 \001(\r\022\020\n"
-  "\010accepted\030\003 \001(\010\022\024\n\014needs_action\030\004 \001(\0102\306\001"
-  "\n\010Workshop\022\214\001\n\rGetEULAStatus\022 .CWorkshop"
-  "_GetEULAStatus_Request\032!.CWorkshop_GetEU"
-  "LAStatus_Response\"6\202\265\0302Retrieve the stat"
-  "us of the user\'s EULA acceptance.\032+\202\265\030\'A"
-  " service to access published file dataB\035"
-  "\200\001\001\252\002\027OpenSteamworks.Protobuf"
+  "\010accepted\030\003 \001(\010\022\024\n\014needs_action\030\004 \001(\0102`\n"
+  "\010Workshop\022T\n\rGetEULAStatus\022 .CWorkshop_G"
+  "etEULAStatus_Request\032!.CWorkshop_GetEULA"
+  "Status_ResponseB\035\200\001\001\252\002\027OpenSteamworks.Pr"
+  "otobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fworkshop_2esteamclient_2eproto_deps[3] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
@@ -102,7 +100,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fworkshop_2esteamclient_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fworkshop_2esteamclient_2eproto = {
-  false, false, 549, descriptor_table_protodef_steammessages_5fworkshop_2esteamclient_2eproto, "steammessages_workshop.steamclient.proto", 
+  false, false, 446, descriptor_table_protodef_steammessages_5fworkshop_2esteamclient_2eproto, "steammessages_workshop.steamclient.proto", 
   &descriptor_table_steammessages_5fworkshop_2esteamclient_2eproto_once, descriptor_table_steammessages_5fworkshop_2esteamclient_2eproto_deps, 3, 2,
   schemas, file_default_instances, TableStruct_steammessages_5fworkshop_2esteamclient_2eproto::offsets,
   file_level_metadata_steammessages_5fworkshop_2esteamclient_2eproto, file_level_enum_descriptors_steammessages_5fworkshop_2esteamclient_2eproto, file_level_service_descriptors_steammessages_5fworkshop_2esteamclient_2eproto,

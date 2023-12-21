@@ -447,7 +447,7 @@ class CContentServerDirectory_GetServersForSteamPipe_Request PROTOBUF_FINAL :
     kLauncherTypeFieldNumber = 4,
     kMaxServersFieldNumber = 2,
   };
-  // repeated .CContentServerDirectory_ConnectedSteamPipeServerInfo current_connections = 6 [(.description) = "what sources is the client currently using"];
+  // repeated .CContentServerDirectory_ConnectedSteamPipeServerInfo current_connections = 6;
   int current_connections_size() const;
   private:
   int _internal_current_connections_size() const;
@@ -465,7 +465,7 @@ class CContentServerDirectory_GetServersForSteamPipe_Request PROTOBUF_FINAL :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CContentServerDirectory_ConnectedSteamPipeServerInfo >&
       current_connections() const;
 
-  // optional string ip_override = 3 [(.description) = "client IP address"];
+  // optional string ip_override = 3;
   bool has_ip_override() const;
   private:
   bool _internal_has_ip_override() const;
@@ -485,7 +485,7 @@ class CContentServerDirectory_GetServersForSteamPipe_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_ip_override();
   public:
 
-  // optional string ipv6_public = 5 [(.description) = "client public ipv6 address if it knows it"];
+  // optional string ipv6_public = 5;
   bool has_ipv6_public() const;
   private:
   bool _internal_has_ipv6_public() const;
@@ -505,7 +505,7 @@ class CContentServerDirectory_GetServersForSteamPipe_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_ipv6_public();
   public:
 
-  // optional uint32 cell_id = 1 [(.description) = "client Cell ID"];
+  // optional uint32 cell_id = 1;
   bool has_cell_id() const;
   private:
   bool _internal_has_cell_id() const;
@@ -518,7 +518,7 @@ class CContentServerDirectory_GetServersForSteamPipe_Request PROTOBUF_FINAL :
   void _internal_set_cell_id(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional int32 launcher_type = 4 [default = 0, (.description) = "launcher type"];
+  // optional int32 launcher_type = 4 [default = 0];
   bool has_launcher_type() const;
   private:
   bool _internal_has_launcher_type() const;
@@ -531,7 +531,7 @@ class CContentServerDirectory_GetServersForSteamPipe_Request PROTOBUF_FINAL :
   void _internal_set_launcher_type(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
-  // optional uint32 max_servers = 2 [default = 20, (.description) = "max servers in response list"];
+  // optional uint32 max_servers = 2 [default = 20];
   bool has_max_servers() const;
   private:
   bool _internal_has_max_servers() const;
@@ -1107,7 +1107,7 @@ class CContentServerDirectory_GetServersForSteamPipe_Response PROTOBUF_FINAL :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CContentServerDirectory_ServerInfo >&
       servers() const;
 
-  // optional bool no_change = 2 [(.description) = "server list is empty because client current list is still good"];
+  // optional bool no_change = 2;
   bool has_no_change() const;
   private:
   bool _internal_has_no_change() const;
@@ -3636,7 +3636,7 @@ inline void CContentServerDirectory_ConnectedSteamPipeServerInfo::set_allocated_
 
 // CContentServerDirectory_GetServersForSteamPipe_Request
 
-// optional uint32 cell_id = 1 [(.description) = "client Cell ID"];
+// optional uint32 cell_id = 1;
 inline bool CContentServerDirectory_GetServersForSteamPipe_Request::_internal_has_cell_id() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -3664,7 +3664,7 @@ inline void CContentServerDirectory_GetServersForSteamPipe_Request::set_cell_id(
   // @@protoc_insertion_point(field_set:CContentServerDirectory_GetServersForSteamPipe_Request.cell_id)
 }
 
-// optional uint32 max_servers = 2 [default = 20, (.description) = "max servers in response list"];
+// optional uint32 max_servers = 2 [default = 20];
 inline bool CContentServerDirectory_GetServersForSteamPipe_Request::_internal_has_max_servers() const {
   bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
@@ -3692,7 +3692,7 @@ inline void CContentServerDirectory_GetServersForSteamPipe_Request::set_max_serv
   // @@protoc_insertion_point(field_set:CContentServerDirectory_GetServersForSteamPipe_Request.max_servers)
 }
 
-// optional string ip_override = 3 [(.description) = "client IP address"];
+// optional string ip_override = 3;
 inline bool CContentServerDirectory_GetServersForSteamPipe_Request::_internal_has_ip_override() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -3765,7 +3765,7 @@ inline void CContentServerDirectory_GetServersForSteamPipe_Request::set_allocate
   // @@protoc_insertion_point(field_set_allocated:CContentServerDirectory_GetServersForSteamPipe_Request.ip_override)
 }
 
-// optional int32 launcher_type = 4 [default = 0, (.description) = "launcher type"];
+// optional int32 launcher_type = 4 [default = 0];
 inline bool CContentServerDirectory_GetServersForSteamPipe_Request::_internal_has_launcher_type() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -3793,7 +3793,7 @@ inline void CContentServerDirectory_GetServersForSteamPipe_Request::set_launcher
   // @@protoc_insertion_point(field_set:CContentServerDirectory_GetServersForSteamPipe_Request.launcher_type)
 }
 
-// optional string ipv6_public = 5 [(.description) = "client public ipv6 address if it knows it"];
+// optional string ipv6_public = 5;
 inline bool CContentServerDirectory_GetServersForSteamPipe_Request::_internal_has_ipv6_public() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -3866,7 +3866,7 @@ inline void CContentServerDirectory_GetServersForSteamPipe_Request::set_allocate
   // @@protoc_insertion_point(field_set_allocated:CContentServerDirectory_GetServersForSteamPipe_Request.ipv6_public)
 }
 
-// repeated .CContentServerDirectory_ConnectedSteamPipeServerInfo current_connections = 6 [(.description) = "what sources is the client currently using"];
+// repeated .CContentServerDirectory_ConnectedSteamPipeServerInfo current_connections = 6;
 inline int CContentServerDirectory_GetServersForSteamPipe_Request::_internal_current_connections_size() const {
   return current_connections_.size();
 }
@@ -4616,7 +4616,7 @@ CContentServerDirectory_GetServersForSteamPipe_Response::servers() const {
   return servers_;
 }
 
-// optional bool no_change = 2 [(.description) = "server list is empty because client current list is still good"];
+// optional bool no_change = 2;
 inline bool CContentServerDirectory_GetServersForSteamPipe_Response::_internal_has_no_change() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;

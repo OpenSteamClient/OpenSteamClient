@@ -27,84 +27,69 @@ namespace OpenSteamworks.Protobuf {
             "CitzdGVhbW1lc3NhZ2VzX2dhbWVzZXJ2ZXJzLnN0ZWFtY2xpZW50LnByb3Rv",
             "GiBnb29nbGUvcHJvdG9idWYvZGVzY3JpcHRvci5wcm90bxoYc3RlYW1tZXNz",
             "YWdlc19iYXNlLnByb3RvGixzdGVhbW1lc3NhZ2VzX3VuaWZpZWRfYmFzZS5z",
-            "dGVhbWNsaWVudC5wcm90byKfAQoiQ0dhbWVTZXJ2ZXJzX0dldFNlcnZlckxp",
-            "c3RfUmVxdWVzdBIoCgZmaWx0ZXIYASABKAlCGIK1GBRRdWVyeSBmaWx0ZXIg",
-            "c3RyaW5nLhJPCgVsaW1pdBgCIAEoDToDMTAwQjuCtRg3VGhlIG1heGltdW0g",
-            "bnVtYmVyIG9mIHNlcnZlcnMgdG8gcmV0dXJuIGluIHRoZSByZXNwb25zZSLg",
-            "AwojQ0dhbWVTZXJ2ZXJzX0dldFNlcnZlckxpc3RfUmVzcG9uc2USZQoHc2Vy",
-            "dmVycxgBIAMoCzIrLkNHYW1lU2VydmVyc19HZXRTZXJ2ZXJMaXN0X1Jlc3Bv",
-            "bnNlLlNlcnZlckIngrUYI0xpc3Qgb2Ygc2VydmVycyBtYXRjaGluZyB0aGUg",
-            "ZmlsdGVyGtECCgZTZXJ2ZXISMAoEYWRkchgBIAEoCUIigrUYHlRoZSBzZXJ2",
-            "ZXIncyBJUCBhbmQgcXVlcnkgcG9ydBIQCghnYW1lcG9ydBgCIAEoDRIQCghz",
-            "cGVjcG9ydBgDIAEoDRIPCgdzdGVhbWlkGAQgASgGEgwKBG5hbWUYBSABKAkS",
-            "DQoFYXBwaWQYBiABKA0SDwoHZ2FtZWRpchgHIAEoCRIPCgd2ZXJzaW9uGAgg",
-            "ASgJEg8KB3Byb2R1Y3QYCSABKAkSDgoGcmVnaW9uGAogASgFEg8KB3BsYXll",
-            "cnMYCyABKAUSEwoLbWF4X3BsYXllcnMYDCABKAUSDAoEYm90cxgNIAEoBRIL",
-            "CgNtYXAYDiABKAkSDgoGc2VjdXJlGA8gASgIEhEKCWRlZGljYXRlZBgQIAEo",
-            "CBIKCgJvcxgRIAEoCRIQCghnYW1ldHlwZRgSIAEoCSJACipDR2FtZVNlcnZl",
-            "cnNfR2V0U2VydmVyU3RlYW1JRHNCeUlQX1JlcXVlc3QSEgoKc2VydmVyX2lw",
-            "cxgBIAMoCSKQAQolQ0dhbWVTZXJ2ZXJzX0lQc1dpdGhTdGVhbUlEc19SZXNw",
-            "b25zZRI+CgdzZXJ2ZXJzGAEgAygLMi0uQ0dhbWVTZXJ2ZXJzX0lQc1dpdGhT",
-            "dGVhbUlEc19SZXNwb25zZS5TZXJ2ZXIaJwoGU2VydmVyEgwKBGFkZHIYASAB",
-            "KAkSDwoHc3RlYW1pZBgCIAEoBiJFCipDR2FtZVNlcnZlcnNfR2V0U2VydmVy",
-            "SVBzQnlTdGVhbUlEX1JlcXVlc3QSFwoPc2VydmVyX3N0ZWFtaWRzGAEgAygG",
-            "IpcDCiJDR2FtZVNlcnZlcnNfUXVlcnlCeUZha2VJUF9SZXF1ZXN0Ei8KB2Zh",
-            "a2VfaXAYASABKA1CHoK1GBpGYWtlSVAgb2Ygc2VydmVyIHRvIHF1ZXJ5LhI0",
-            "CglmYWtlX3BvcnQYAiABKA1CIYK1GB1GYWtlIHBvcnQgb2Ygc2VydmVyIHRv",
-            "IHF1ZXJ5LhJJCgZhcHBfaWQYAyABKA1COYK1GDVBcHBJRCB0byB1c2UuICBF",
-            "YWNoIEFwcElEIGhhcyBpdHMgb3duIEZha2VJUCBhZGRyZXNzLhJqCgpxdWVy",
-            "eV90eXBlGAQgASgOMi4uQ0dhbWVTZXJ2ZXJzX1F1ZXJ5QnlGYWtlSVBfUmVx",
-            "dWVzdC5FUXVlcnlUeXBlOg1RdWVyeV9JbnZhbGlkQheCtRgTV2hhdCB0eXBl",
-            "IG9mIHF1ZXJ5PyJTCgpFUXVlcnlUeXBlEhEKDVF1ZXJ5X0ludmFsaWQQABIO",
-            "CgpRdWVyeV9QaW5nEAESEQoNUXVlcnlfUGxheWVycxACEg8KC1F1ZXJ5X1J1",
-            "bGVzEAMi0AMKG0NNc2dHYW1lU2VydmVyUGluZ1F1ZXJ5RGF0YRIhCglzZXJ2",
-            "ZXJfaXAYASABKAsyDi5DTXNnSVBBZGRyZXNzEhIKCnF1ZXJ5X3BvcnQYAiAB",
-            "KA0SEQoJZ2FtZV9wb3J0GAMgASgNEhYKDnNwZWN0YXRvcl9wb3J0GAQgASgN",
-            "Eh0KFXNwZWN0YXRvcl9zZXJ2ZXJfbmFtZRgFIAEoCRITCgtzZXJ2ZXJfbmFt",
-            "ZRgGIAEoCRIPCgdzdGVhbWlkGAcgASgGEg4KBmFwcF9pZBgIIAEoDRIPCgdn",
-            "YW1lZGlyGAkgASgJEgsKA21hcBgKIAEoCRIYChBnYW1lX2Rlc2NyaXB0aW9u",
-            "GAsgASgJEhAKCGdhbWV0eXBlGAwgASgJEhMKC251bV9wbGF5ZXJzGA0gASgN",
-            "EhMKC21heF9wbGF5ZXJzGA4gASgNEhAKCG51bV9ib3RzGA8gASgNEhAKCHBh",
-            "c3N3b3JkGBAgASgIEg4KBnNlY3VyZRgRIAEoCBIRCglkZWRpY2F0ZWQYEiAB",
-            "KAgSDwoHdmVyc2lvbhgTIAEoCRIRCglzZHJfcG9waWQYFCABKAcSGwoTc2Ry",
-            "X2xvY2F0aW9uX3N0cmluZxgVIAEoCSKVAQoeQ01zZ0dhbWVTZXJ2ZXJQbGF5",
-            "ZXJzUXVlcnlEYXRhEjcKB3BsYXllcnMYASADKAsyJi5DTXNnR2FtZVNlcnZl",
-            "clBsYXllcnNRdWVyeURhdGEuUGxheWVyGjoKBlBsYXllchIMCgRuYW1lGAEg",
-            "ASgJEg0KBXNjb3JlGAIgASgNEhMKC3RpbWVfcGxheWVkGAMgASgNInYKHENN",
-            "c2dHYW1lU2VydmVyUnVsZXNRdWVyeURhdGESMQoFcnVsZXMYASADKAsyIi5D",
-            "TXNnR2FtZVNlcnZlclJ1bGVzUXVlcnlEYXRhLlJ1bGUaIwoEUnVsZRIMCgRy",
-            "dWxlGAEgASgJEg0KBXZhbHVlGAIgASgJIsIBCiVDR2FtZVNlcnZlcnNfR2Ft",
-            "ZVNlcnZlclF1ZXJ5X1Jlc3BvbnNlEi8KCXBpbmdfZGF0YRgBIAEoCzIcLkNN",
-            "c2dHYW1lU2VydmVyUGluZ1F1ZXJ5RGF0YRI1CgxwbGF5ZXJzX2RhdGEYAiAB",
-            "KAsyHy5DTXNnR2FtZVNlcnZlclBsYXllcnNRdWVyeURhdGESMQoKcnVsZXNf",
-            "ZGF0YRgDIAEoCzIdLkNNc2dHYW1lU2VydmVyUnVsZXNRdWVyeURhdGEiKgoo",
-            "R2FtZVNlcnZlckNsaWVudF9RdWVyeVNlcnZlckRhdGFfUmVxdWVzdCLGAQop",
-            "R2FtZVNlcnZlckNsaWVudF9RdWVyeVNlcnZlckRhdGFfUmVzcG9uc2USLwoJ",
-            "cGluZ19kYXRhGAEgASgLMhwuQ01zZ0dhbWVTZXJ2ZXJQaW5nUXVlcnlEYXRh",
-            "EjUKDHBsYXllcnNfZGF0YRgCIAEoCzIfLkNNc2dHYW1lU2VydmVyUGxheWVy",
-            "c1F1ZXJ5RGF0YRIxCgpydWxlc19kYXRhGAMgASgLMh0uQ01zZ0dhbWVTZXJ2",
-            "ZXJSdWxlc1F1ZXJ5RGF0YTK+BQoLR2FtZVNlcnZlcnMSjAEKDUdldFNlcnZl",
-            "ckxpc3QSIy5DR2FtZVNlcnZlcnNfR2V0U2VydmVyTGlzdF9SZXF1ZXN0GiQu",
-            "Q0dhbWVTZXJ2ZXJzX0dldFNlcnZlckxpc3RfUmVzcG9uc2UiMIK1GCxHZXRz",
-            "IGEgbGlzdCBvZiBzZXJ2ZXJzIGdpdmVuIGEgZmlsdGVyIHN0cmluZxKkAQoV",
-            "R2V0U2VydmVyU3RlYW1JRHNCeUlQEisuQ0dhbWVTZXJ2ZXJzX0dldFNlcnZl",
-            "clN0ZWFtSURzQnlJUF9SZXF1ZXN0GiYuQ0dhbWVTZXJ2ZXJzX0lQc1dpdGhT",
-            "dGVhbUlEc19SZXNwb25zZSI2grUYMkdldHMgYSBsaXN0IG9mIHNlcnZlciBT",
-            "dGVhbUlEcyBnaXZlbiBhIGxpc3Qgb2YgSVBzEq0BChVHZXRTZXJ2ZXJJUHNC",
-            "eVN0ZWFtSUQSKy5DR2FtZVNlcnZlcnNfR2V0U2VydmVySVBzQnlTdGVhbUlE",
-            "X1JlcXVlc3QaJi5DR2FtZVNlcnZlcnNfSVBzV2l0aFN0ZWFtSURzX1Jlc3Bv",
-            "bnNlIj+CtRg7R2V0cyBhIGxpc3Qgb2Ygc2VydmVyIElQIGFkZHJlc3NlcyBn",
-            "aXZlbiBhIGxpc3Qgb2YgU3RlYW1JRHMSkAEKDVF1ZXJ5QnlGYWtlSVASIy5D",
-            "R2FtZVNlcnZlcnNfUXVlcnlCeUZha2VJUF9SZXF1ZXN0GiYuQ0dhbWVTZXJ2",
-            "ZXJzX0dhbWVTZXJ2ZXJRdWVyeV9SZXNwb25zZSIygrUYLlBlcmZvcm0gYSBx",
-            "dWVyeSBvbiBhIHNwZWNpZmljIHNlcnZlciBieSBGYWtlSVAaNoK1GDJBIHNl",
-            "cnZpY2UgZm9yIHNlYXJjaGluZyBhbmQgbWFuYWdpbmcgZ2FtZSBzZXJ2ZXJz",
-            "LjLpAQoQR2FtZVNlcnZlckNsaWVudBKXAQoPUXVlcnlTZXJ2ZXJEYXRhEiku",
-            "R2FtZVNlcnZlckNsaWVudF9RdWVyeVNlcnZlckRhdGFfUmVxdWVzdBoqLkdh",
-            "bWVTZXJ2ZXJDbGllbnRfUXVlcnlTZXJ2ZXJEYXRhX1Jlc3BvbnNlIi2CtRgp",
-            "U3RlYW0gaXMgYXNraW5nIGEgZ2FtZXNlcnZlciBmb3IgaXRzIGRhdGEaO4K1",
-            "GDNTZXJ2aWNlIG1ldGhvZHMgZXhwb3NlZCBieSBHYW1lU2VydmVyIFN0ZWFt",
-            "IGNsaWVudHPAtRgCQh2AAQGqAhdPcGVuU3RlYW13b3Jrcy5Qcm90b2J1Zg=="));
+            "dGVhbWNsaWVudC5wcm90byJICiJDR2FtZVNlcnZlcnNfR2V0U2VydmVyTGlz",
+            "dF9SZXF1ZXN0Eg4KBmZpbHRlchgBIAEoCRISCgVsaW1pdBgCIAEoDToDMTAw",
+            "IpMDCiNDR2FtZVNlcnZlcnNfR2V0U2VydmVyTGlzdF9SZXNwb25zZRI8Cgdz",
+            "ZXJ2ZXJzGAEgAygLMisuQ0dhbWVTZXJ2ZXJzX0dldFNlcnZlckxpc3RfUmVz",
+            "cG9uc2UuU2VydmVyGq0CCgZTZXJ2ZXISDAoEYWRkchgBIAEoCRIQCghnYW1l",
+            "cG9ydBgCIAEoDRIQCghzcGVjcG9ydBgDIAEoDRIPCgdzdGVhbWlkGAQgASgG",
+            "EgwKBG5hbWUYBSABKAkSDQoFYXBwaWQYBiABKA0SDwoHZ2FtZWRpchgHIAEo",
+            "CRIPCgd2ZXJzaW9uGAggASgJEg8KB3Byb2R1Y3QYCSABKAkSDgoGcmVnaW9u",
+            "GAogASgFEg8KB3BsYXllcnMYCyABKAUSEwoLbWF4X3BsYXllcnMYDCABKAUS",
+            "DAoEYm90cxgNIAEoBRILCgNtYXAYDiABKAkSDgoGc2VjdXJlGA8gASgIEhEK",
+            "CWRlZGljYXRlZBgQIAEoCBIKCgJvcxgRIAEoCRIQCghnYW1ldHlwZRgSIAEo",
+            "CSJACipDR2FtZVNlcnZlcnNfR2V0U2VydmVyU3RlYW1JRHNCeUlQX1JlcXVl",
+            "c3QSEgoKc2VydmVyX2lwcxgBIAMoCSKQAQolQ0dhbWVTZXJ2ZXJzX0lQc1dp",
+            "dGhTdGVhbUlEc19SZXNwb25zZRI+CgdzZXJ2ZXJzGAEgAygLMi0uQ0dhbWVT",
+            "ZXJ2ZXJzX0lQc1dpdGhTdGVhbUlEc19SZXNwb25zZS5TZXJ2ZXIaJwoGU2Vy",
+            "dmVyEgwKBGFkZHIYASABKAkSDwoHc3RlYW1pZBgCIAEoBiJFCipDR2FtZVNl",
+            "cnZlcnNfR2V0U2VydmVySVBzQnlTdGVhbUlEX1JlcXVlc3QSFwoPc2VydmVy",
+            "X3N0ZWFtaWRzGAEgAygGIoACCiJDR2FtZVNlcnZlcnNfUXVlcnlCeUZha2VJ",
+            "UF9SZXF1ZXN0Eg8KB2Zha2VfaXAYASABKA0SEQoJZmFrZV9wb3J0GAIgASgN",
+            "Eg4KBmFwcF9pZBgDIAEoDRJRCgpxdWVyeV90eXBlGAQgASgOMi4uQ0dhbWVT",
+            "ZXJ2ZXJzX1F1ZXJ5QnlGYWtlSVBfUmVxdWVzdC5FUXVlcnlUeXBlOg1RdWVy",
+            "eV9JbnZhbGlkIlMKCkVRdWVyeVR5cGUSEQoNUXVlcnlfSW52YWxpZBAAEg4K",
+            "ClF1ZXJ5X1BpbmcQARIRCg1RdWVyeV9QbGF5ZXJzEAISDwoLUXVlcnlfUnVs",
+            "ZXMQAyLQAwobQ01zZ0dhbWVTZXJ2ZXJQaW5nUXVlcnlEYXRhEiEKCXNlcnZl",
+            "cl9pcBgBIAEoCzIOLkNNc2dJUEFkZHJlc3MSEgoKcXVlcnlfcG9ydBgCIAEo",
+            "DRIRCglnYW1lX3BvcnQYAyABKA0SFgoOc3BlY3RhdG9yX3BvcnQYBCABKA0S",
+            "HQoVc3BlY3RhdG9yX3NlcnZlcl9uYW1lGAUgASgJEhMKC3NlcnZlcl9uYW1l",
+            "GAYgASgJEg8KB3N0ZWFtaWQYByABKAYSDgoGYXBwX2lkGAggASgNEg8KB2dh",
+            "bWVkaXIYCSABKAkSCwoDbWFwGAogASgJEhgKEGdhbWVfZGVzY3JpcHRpb24Y",
+            "CyABKAkSEAoIZ2FtZXR5cGUYDCABKAkSEwoLbnVtX3BsYXllcnMYDSABKA0S",
+            "EwoLbWF4X3BsYXllcnMYDiABKA0SEAoIbnVtX2JvdHMYDyABKA0SEAoIcGFz",
+            "c3dvcmQYECABKAgSDgoGc2VjdXJlGBEgASgIEhEKCWRlZGljYXRlZBgSIAEo",
+            "CBIPCgd2ZXJzaW9uGBMgASgJEhEKCXNkcl9wb3BpZBgUIAEoBxIbChNzZHJf",
+            "bG9jYXRpb25fc3RyaW5nGBUgASgJIpUBCh5DTXNnR2FtZVNlcnZlclBsYXll",
+            "cnNRdWVyeURhdGESNwoHcGxheWVycxgBIAMoCzImLkNNc2dHYW1lU2VydmVy",
+            "UGxheWVyc1F1ZXJ5RGF0YS5QbGF5ZXIaOgoGUGxheWVyEgwKBG5hbWUYASAB",
+            "KAkSDQoFc2NvcmUYAiABKA0SEwoLdGltZV9wbGF5ZWQYAyABKA0idgocQ01z",
+            "Z0dhbWVTZXJ2ZXJSdWxlc1F1ZXJ5RGF0YRIxCgVydWxlcxgBIAMoCzIiLkNN",
+            "c2dHYW1lU2VydmVyUnVsZXNRdWVyeURhdGEuUnVsZRojCgRSdWxlEgwKBHJ1",
+            "bGUYASABKAkSDQoFdmFsdWUYAiABKAkiwgEKJUNHYW1lU2VydmVyc19HYW1l",
+            "U2VydmVyUXVlcnlfUmVzcG9uc2USLwoJcGluZ19kYXRhGAEgASgLMhwuQ01z",
+            "Z0dhbWVTZXJ2ZXJQaW5nUXVlcnlEYXRhEjUKDHBsYXllcnNfZGF0YRgCIAEo",
+            "CzIfLkNNc2dHYW1lU2VydmVyUGxheWVyc1F1ZXJ5RGF0YRIxCgpydWxlc19k",
+            "YXRhGAMgASgLMh0uQ01zZ0dhbWVTZXJ2ZXJSdWxlc1F1ZXJ5RGF0YSIqCihH",
+            "YW1lU2VydmVyQ2xpZW50X1F1ZXJ5U2VydmVyRGF0YV9SZXF1ZXN0IsYBCilH",
+            "YW1lU2VydmVyQ2xpZW50X1F1ZXJ5U2VydmVyRGF0YV9SZXNwb25zZRIvCglw",
+            "aW5nX2RhdGEYASABKAsyHC5DTXNnR2FtZVNlcnZlclBpbmdRdWVyeURhdGES",
+            "NQoMcGxheWVyc19kYXRhGAIgASgLMh8uQ01zZ0dhbWVTZXJ2ZXJQbGF5ZXJz",
+            "UXVlcnlEYXRhEjEKCnJ1bGVzX2RhdGEYAyABKAsyHS5DTXNnR2FtZVNlcnZl",
+            "clJ1bGVzUXVlcnlEYXRhMqMDCgtHYW1lU2VydmVycxJaCg1HZXRTZXJ2ZXJM",
+            "aXN0EiMuQ0dhbWVTZXJ2ZXJzX0dldFNlcnZlckxpc3RfUmVxdWVzdBokLkNH",
+            "YW1lU2VydmVyc19HZXRTZXJ2ZXJMaXN0X1Jlc3BvbnNlEmwKFUdldFNlcnZl",
+            "clN0ZWFtSURzQnlJUBIrLkNHYW1lU2VydmVyc19HZXRTZXJ2ZXJTdGVhbUlE",
+            "c0J5SVBfUmVxdWVzdBomLkNHYW1lU2VydmVyc19JUHNXaXRoU3RlYW1JRHNf",
+            "UmVzcG9uc2USbAoVR2V0U2VydmVySVBzQnlTdGVhbUlEEisuQ0dhbWVTZXJ2",
+            "ZXJzX0dldFNlcnZlcklQc0J5U3RlYW1JRF9SZXF1ZXN0GiYuQ0dhbWVTZXJ2",
+            "ZXJzX0lQc1dpdGhTdGVhbUlEc19SZXNwb25zZRJcCg1RdWVyeUJ5RmFrZUlQ",
+            "EiMuQ0dhbWVTZXJ2ZXJzX1F1ZXJ5QnlGYWtlSVBfUmVxdWVzdBomLkNHYW1l",
+            "U2VydmVyc19HYW1lU2VydmVyUXVlcnlfUmVzcG9uc2UyggEKEEdhbWVTZXJ2",
+            "ZXJDbGllbnQSaAoPUXVlcnlTZXJ2ZXJEYXRhEikuR2FtZVNlcnZlckNsaWVu",
+            "dF9RdWVyeVNlcnZlckRhdGFfUmVxdWVzdBoqLkdhbWVTZXJ2ZXJDbGllbnRf",
+            "UXVlcnlTZXJ2ZXJEYXRhX1Jlc3BvbnNlGgTAtRgCQh2AAQGqAhdPcGVuU3Rl",
+            "YW13b3Jrcy5Qcm90b2J1Zg=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.Reflection.DescriptorReflection.Descriptor, global::OpenSteamworks.Protobuf.SteammessagesBaseReflection.Descriptor, global::OpenSteamworks.Protobuf.SteammessagesUnifiedBaseSteamclientReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -126,6 +111,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
   #region Messages
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CGameServers_GetServerList_Request : pb::IMessage<CGameServers_GetServerList_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -383,6 +369,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CGameServers_GetServerList_Response : pb::IMessage<CGameServers_GetServerList_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -564,6 +551,7 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static partial class Types {
+      [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
       public sealed partial class Server : pb::IMessage<Server>
       #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
           , pb::IBufferMessage
@@ -1651,6 +1639,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CGameServers_GetServerSteamIDsByIP_Request : pb::IMessage<CGameServers_GetServerSteamIDsByIP_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1829,6 +1818,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CGameServers_IPsWithSteamIDs_Response : pb::IMessage<CGameServers_IPsWithSteamIDs_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2010,6 +2000,7 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static partial class Types {
+      [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
       public sealed partial class Server : pb::IMessage<Server>
       #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
           , pb::IBufferMessage
@@ -2272,6 +2263,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CGameServers_GetServerIPsBySteamID_Request : pb::IMessage<CGameServers_GetServerIPsBySteamID_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2452,6 +2444,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CGameServers_QueryByFakeIP_Request : pb::IMessage<CGameServers_QueryByFakeIP_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2829,6 +2822,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CMsgGameServerPingQueryData : pb::IMessage<CMsgGameServerPingQueryData>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -4061,6 +4055,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CMsgGameServerPlayersQueryData : pb::IMessage<CMsgGameServerPlayersQueryData>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -4242,6 +4237,7 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static partial class Types {
+      [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
       public sealed partial class Player : pb::IMessage<Player>
       #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
           , pb::IBufferMessage
@@ -4556,6 +4552,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CMsgGameServerRulesQueryData : pb::IMessage<CMsgGameServerRulesQueryData>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -4737,6 +4734,7 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static partial class Types {
+      [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
       public sealed partial class Rule : pb::IMessage<Rule>
       #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
           , pb::IBufferMessage
@@ -4996,6 +4994,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CGameServers_GameServerQuery_Response : pb::IMessage<CGameServers_GameServerQuery_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -5286,6 +5285,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class GameServerClient_QueryServerData_Request : pb::IMessage<GameServerClient_QueryServerData_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -5438,6 +5438,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class GameServerClient_QueryServerData_Response : pb::IMessage<GameServerClient_QueryServerData_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage

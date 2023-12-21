@@ -39,12 +39,9 @@ namespace OpenSteamworks.Protobuf {
             "X3Byb3Zpc2lvbmluZ19pZBgJIAEoDSI5ChNDS2V5RXNjcm93X1Jlc3BvbnNl",
             "EiIKBnRpY2tldBgBIAEoCzISLkNLZXlFc2Nyb3dfVGlja2V0KjUKD0VLZXlF",
             "c2Nyb3dVc2FnZRIiCh5FS2V5RXNjcm93VXNhZ2VTdHJlYW1pbmdEZXZpY2UQ",
-            "ADLIAQoHU2VjcmV0cxKAAQoJS2V5RXNjcm93EhMuQ0tleUVzY3Jvd19SZXF1",
-            "ZXN0GhQuQ0tleUVzY3Jvd19SZXNwb25zZSJIgrUYRFNlcnZpY2UgdG8gcGVy",
-            "Zm9ybSBhdXRoZW50aWNhdGVkIGtleS1leGNoYW5nZSBpbnZvbHZpbmcgU3Rl",
-            "YW0gQ2xpZW50GjqCtRg2U2VydmljZSBmb3IgYWNjZXNzaW5nIGNyZWRlbnRp",
-            "YWxzIGFuZCBndWFyZGluZyBzZWNyZXRzQh2AAQGqAhdPcGVuU3RlYW13b3Jr",
-            "cy5Qcm90b2J1Zg=="));
+            "ADJBCgdTZWNyZXRzEjYKCUtleUVzY3JvdxITLkNLZXlFc2Nyb3dfUmVxdWVz",
+            "dBoULkNLZXlFc2Nyb3dfUmVzcG9uc2VCHYABAaoCF09wZW5TdGVhbXdvcmtz",
+            "LlByb3RvYnVm"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.Reflection.DescriptorReflection.Descriptor, global::OpenSteamworks.Protobuf.SteammessagesBaseReflection.Descriptor, global::OpenSteamworks.Protobuf.SteammessagesUnifiedBaseSteamclientReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::OpenSteamworks.Protobuf.EKeyEscrowUsage), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -64,6 +61,7 @@ namespace OpenSteamworks.Protobuf {
   #endregion
 
   #region Messages
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CKeyEscrow_Request : pb::IMessage<CKeyEscrow_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -423,6 +421,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CKeyEscrow_Ticket : pb::IMessage<CKeyEscrow_Ticket>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1040,6 +1039,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CKeyEscrow_Response : pb::IMessage<CKeyEscrow_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage

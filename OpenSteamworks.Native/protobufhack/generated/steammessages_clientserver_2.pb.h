@@ -48,7 +48,7 @@ struct TableStruct_steammessages_5fclientserver_5f2_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[125]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[127]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -221,6 +221,12 @@ extern CMsgClientOGSReportStringDefaultTypeInternal _CMsgClientOGSReportString_d
 class CMsgClientOfflineMessageNotification;
 struct CMsgClientOfflineMessageNotificationDefaultTypeInternal;
 extern CMsgClientOfflineMessageNotificationDefaultTypeInternal _CMsgClientOfflineMessageNotification_default_instance_;
+class CMsgClientPendingGameLaunch;
+struct CMsgClientPendingGameLaunchDefaultTypeInternal;
+extern CMsgClientPendingGameLaunchDefaultTypeInternal _CMsgClientPendingGameLaunch_default_instance_;
+class CMsgClientPendingGameLaunchResponse;
+struct CMsgClientPendingGameLaunchResponseDefaultTypeInternal;
+extern CMsgClientPendingGameLaunchResponseDefaultTypeInternal _CMsgClientPendingGameLaunchResponse_default_instance_;
 class CMsgClientPlayingSessionState;
 struct CMsgClientPlayingSessionStateDefaultTypeInternal;
 extern CMsgClientPlayingSessionStateDefaultTypeInternal _CMsgClientPlayingSessionState_default_instance_;
@@ -487,6 +493,8 @@ template<> ::CMsgClientKickPlayingSession* Arena::CreateMaybeMessage<::CMsgClien
 template<> ::CMsgClientOGSReportBug* Arena::CreateMaybeMessage<::CMsgClientOGSReportBug>(Arena*);
 template<> ::CMsgClientOGSReportString* Arena::CreateMaybeMessage<::CMsgClientOGSReportString>(Arena*);
 template<> ::CMsgClientOfflineMessageNotification* Arena::CreateMaybeMessage<::CMsgClientOfflineMessageNotification>(Arena*);
+template<> ::CMsgClientPendingGameLaunch* Arena::CreateMaybeMessage<::CMsgClientPendingGameLaunch>(Arena*);
+template<> ::CMsgClientPendingGameLaunchResponse* Arena::CreateMaybeMessage<::CMsgClientPendingGameLaunchResponse>(Arena*);
 template<> ::CMsgClientPlayingSessionState* Arena::CreateMaybeMessage<::CMsgClientPlayingSessionState>(Arena*);
 template<> ::CMsgClientPurchaseResponse* Arena::CreateMaybeMessage<::CMsgClientPurchaseResponse>(Arena*);
 template<> ::CMsgClientPurchaseWithMachineID* Arena::CreateMaybeMessage<::CMsgClientPurchaseWithMachineID>(Arena*);
@@ -23917,6 +23925,341 @@ class CMsgClientGetPeerContentInfoResponse PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::uint32 result_;
   friend struct ::TableStruct_steammessages_5fclientserver_5f2_2eproto;
 };
+// -------------------------------------------------------------------
+
+class CMsgClientPendingGameLaunch PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgClientPendingGameLaunch) */ {
+ public:
+  inline CMsgClientPendingGameLaunch() : CMsgClientPendingGameLaunch(nullptr) {}
+  virtual ~CMsgClientPendingGameLaunch();
+  explicit constexpr CMsgClientPendingGameLaunch(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgClientPendingGameLaunch(const CMsgClientPendingGameLaunch& from);
+  CMsgClientPendingGameLaunch(CMsgClientPendingGameLaunch&& from) noexcept
+    : CMsgClientPendingGameLaunch() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgClientPendingGameLaunch& operator=(const CMsgClientPendingGameLaunch& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgClientPendingGameLaunch& operator=(CMsgClientPendingGameLaunch&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CMsgClientPendingGameLaunch& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgClientPendingGameLaunch* internal_default_instance() {
+    return reinterpret_cast<const CMsgClientPendingGameLaunch*>(
+               &_CMsgClientPendingGameLaunch_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    125;
+
+  friend void swap(CMsgClientPendingGameLaunch& a, CMsgClientPendingGameLaunch& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgClientPendingGameLaunch* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgClientPendingGameLaunch* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CMsgClientPendingGameLaunch* New() const final {
+    return CreateMaybeMessage<CMsgClientPendingGameLaunch>(nullptr);
+  }
+
+  CMsgClientPendingGameLaunch* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CMsgClientPendingGameLaunch>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CMsgClientPendingGameLaunch& from);
+  void MergeFrom(const CMsgClientPendingGameLaunch& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgClientPendingGameLaunch* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgClientPendingGameLaunch";
+  }
+  protected:
+  explicit CMsgClientPendingGameLaunch(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_steammessages_5fclientserver_5f2_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kAppIdFieldNumber = 1,
+  };
+  // optional uint32 app_id = 1;
+  bool has_app_id() const;
+  private:
+  bool _internal_has_app_id() const;
+  public:
+  void clear_app_id();
+  ::PROTOBUF_NAMESPACE_ID::uint32 app_id() const;
+  void set_app_id(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_app_id() const;
+  void _internal_set_app_id(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgClientPendingGameLaunch)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 app_id_;
+  friend struct ::TableStruct_steammessages_5fclientserver_5f2_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CMsgClientPendingGameLaunchResponse PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgClientPendingGameLaunchResponse) */ {
+ public:
+  inline CMsgClientPendingGameLaunchResponse() : CMsgClientPendingGameLaunchResponse(nullptr) {}
+  virtual ~CMsgClientPendingGameLaunchResponse();
+  explicit constexpr CMsgClientPendingGameLaunchResponse(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgClientPendingGameLaunchResponse(const CMsgClientPendingGameLaunchResponse& from);
+  CMsgClientPendingGameLaunchResponse(CMsgClientPendingGameLaunchResponse&& from) noexcept
+    : CMsgClientPendingGameLaunchResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgClientPendingGameLaunchResponse& operator=(const CMsgClientPendingGameLaunchResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgClientPendingGameLaunchResponse& operator=(CMsgClientPendingGameLaunchResponse&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const CMsgClientPendingGameLaunchResponse& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgClientPendingGameLaunchResponse* internal_default_instance() {
+    return reinterpret_cast<const CMsgClientPendingGameLaunchResponse*>(
+               &_CMsgClientPendingGameLaunchResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    126;
+
+  friend void swap(CMsgClientPendingGameLaunchResponse& a, CMsgClientPendingGameLaunchResponse& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgClientPendingGameLaunchResponse* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgClientPendingGameLaunchResponse* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline CMsgClientPendingGameLaunchResponse* New() const final {
+    return CreateMaybeMessage<CMsgClientPendingGameLaunchResponse>(nullptr);
+  }
+
+  CMsgClientPendingGameLaunchResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<CMsgClientPendingGameLaunchResponse>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const CMsgClientPendingGameLaunchResponse& from);
+  void MergeFrom(const CMsgClientPendingGameLaunchResponse& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgClientPendingGameLaunchResponse* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgClientPendingGameLaunchResponse";
+  }
+  protected:
+  explicit CMsgClientPendingGameLaunchResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_steammessages_5fclientserver_5f2_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kEnvkeyFieldNumber = 3,
+    kAppIdFieldNumber = 2,
+    kEresultFieldNumber = 1,
+  };
+  // optional string envkey = 3;
+  bool has_envkey() const;
+  private:
+  bool _internal_has_envkey() const;
+  public:
+  void clear_envkey();
+  const std::string& envkey() const;
+  void set_envkey(const std::string& value);
+  void set_envkey(std::string&& value);
+  void set_envkey(const char* value);
+  void set_envkey(const char* value, size_t size);
+  std::string* mutable_envkey();
+  std::string* release_envkey();
+  void set_allocated_envkey(std::string* envkey);
+  private:
+  const std::string& _internal_envkey() const;
+  void _internal_set_envkey(const std::string& value);
+  std::string* _internal_mutable_envkey();
+  public:
+
+  // optional uint32 app_id = 2;
+  bool has_app_id() const;
+  private:
+  bool _internal_has_app_id() const;
+  public:
+  void clear_app_id();
+  ::PROTOBUF_NAMESPACE_ID::uint32 app_id() const;
+  void set_app_id(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_app_id() const;
+  void _internal_set_app_id(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // optional int32 eresult = 1 [default = 2];
+  bool has_eresult() const;
+  private:
+  bool _internal_has_eresult() const;
+  public:
+  void clear_eresult();
+  ::PROTOBUF_NAMESPACE_ID::int32 eresult() const;
+  void set_eresult(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_eresult() const;
+  void _internal_set_eresult(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgClientPendingGameLaunchResponse)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr envkey_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 app_id_;
+  ::PROTOBUF_NAMESPACE_ID::int32 eresult_;
+  friend struct ::TableStruct_steammessages_5fclientserver_5f2_2eproto;
+};
 // ===================================================================
 
 
@@ -39900,9 +40243,178 @@ CMsgClientGetPeerContentInfoResponse::mutable_apps() {
   return _internal_mutable_apps();
 }
 
+// -------------------------------------------------------------------
+
+// CMsgClientPendingGameLaunch
+
+// optional uint32 app_id = 1;
+inline bool CMsgClientPendingGameLaunch::_internal_has_app_id() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgClientPendingGameLaunch::has_app_id() const {
+  return _internal_has_app_id();
+}
+inline void CMsgClientPendingGameLaunch::clear_app_id() {
+  app_id_ = 0u;
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientPendingGameLaunch::_internal_app_id() const {
+  return app_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientPendingGameLaunch::app_id() const {
+  // @@protoc_insertion_point(field_get:CMsgClientPendingGameLaunch.app_id)
+  return _internal_app_id();
+}
+inline void CMsgClientPendingGameLaunch::_internal_set_app_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _has_bits_[0] |= 0x00000001u;
+  app_id_ = value;
+}
+inline void CMsgClientPendingGameLaunch::set_app_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_app_id(value);
+  // @@protoc_insertion_point(field_set:CMsgClientPendingGameLaunch.app_id)
+}
+
+// -------------------------------------------------------------------
+
+// CMsgClientPendingGameLaunchResponse
+
+// optional int32 eresult = 1 [default = 2];
+inline bool CMsgClientPendingGameLaunchResponse::_internal_has_eresult() const {
+  bool value = (_has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CMsgClientPendingGameLaunchResponse::has_eresult() const {
+  return _internal_has_eresult();
+}
+inline void CMsgClientPendingGameLaunchResponse::clear_eresult() {
+  eresult_ = 2;
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgClientPendingGameLaunchResponse::_internal_eresult() const {
+  return eresult_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgClientPendingGameLaunchResponse::eresult() const {
+  // @@protoc_insertion_point(field_get:CMsgClientPendingGameLaunchResponse.eresult)
+  return _internal_eresult();
+}
+inline void CMsgClientPendingGameLaunchResponse::_internal_set_eresult(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _has_bits_[0] |= 0x00000004u;
+  eresult_ = value;
+}
+inline void CMsgClientPendingGameLaunchResponse::set_eresult(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_eresult(value);
+  // @@protoc_insertion_point(field_set:CMsgClientPendingGameLaunchResponse.eresult)
+}
+
+// optional uint32 app_id = 2;
+inline bool CMsgClientPendingGameLaunchResponse::_internal_has_app_id() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CMsgClientPendingGameLaunchResponse::has_app_id() const {
+  return _internal_has_app_id();
+}
+inline void CMsgClientPendingGameLaunchResponse::clear_app_id() {
+  app_id_ = 0u;
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientPendingGameLaunchResponse::_internal_app_id() const {
+  return app_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CMsgClientPendingGameLaunchResponse::app_id() const {
+  // @@protoc_insertion_point(field_get:CMsgClientPendingGameLaunchResponse.app_id)
+  return _internal_app_id();
+}
+inline void CMsgClientPendingGameLaunchResponse::_internal_set_app_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _has_bits_[0] |= 0x00000002u;
+  app_id_ = value;
+}
+inline void CMsgClientPendingGameLaunchResponse::set_app_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_app_id(value);
+  // @@protoc_insertion_point(field_set:CMsgClientPendingGameLaunchResponse.app_id)
+}
+
+// optional string envkey = 3;
+inline bool CMsgClientPendingGameLaunchResponse::_internal_has_envkey() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgClientPendingGameLaunchResponse::has_envkey() const {
+  return _internal_has_envkey();
+}
+inline void CMsgClientPendingGameLaunchResponse::clear_envkey() {
+  envkey_.ClearToEmpty();
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline const std::string& CMsgClientPendingGameLaunchResponse::envkey() const {
+  // @@protoc_insertion_point(field_get:CMsgClientPendingGameLaunchResponse.envkey)
+  return _internal_envkey();
+}
+inline void CMsgClientPendingGameLaunchResponse::set_envkey(const std::string& value) {
+  _internal_set_envkey(value);
+  // @@protoc_insertion_point(field_set:CMsgClientPendingGameLaunchResponse.envkey)
+}
+inline std::string* CMsgClientPendingGameLaunchResponse::mutable_envkey() {
+  // @@protoc_insertion_point(field_mutable:CMsgClientPendingGameLaunchResponse.envkey)
+  return _internal_mutable_envkey();
+}
+inline const std::string& CMsgClientPendingGameLaunchResponse::_internal_envkey() const {
+  return envkey_.Get();
+}
+inline void CMsgClientPendingGameLaunchResponse::_internal_set_envkey(const std::string& value) {
+  _has_bits_[0] |= 0x00000001u;
+  envkey_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void CMsgClientPendingGameLaunchResponse::set_envkey(std::string&& value) {
+  _has_bits_[0] |= 0x00000001u;
+  envkey_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:CMsgClientPendingGameLaunchResponse.envkey)
+}
+inline void CMsgClientPendingGameLaunchResponse::set_envkey(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _has_bits_[0] |= 0x00000001u;
+  envkey_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:CMsgClientPendingGameLaunchResponse.envkey)
+}
+inline void CMsgClientPendingGameLaunchResponse::set_envkey(const char* value,
+    size_t size) {
+  _has_bits_[0] |= 0x00000001u;
+  envkey_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:CMsgClientPendingGameLaunchResponse.envkey)
+}
+inline std::string* CMsgClientPendingGameLaunchResponse::_internal_mutable_envkey() {
+  _has_bits_[0] |= 0x00000001u;
+  return envkey_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* CMsgClientPendingGameLaunchResponse::release_envkey() {
+  // @@protoc_insertion_point(field_release:CMsgClientPendingGameLaunchResponse.envkey)
+  if (!_internal_has_envkey()) {
+    return nullptr;
+  }
+  _has_bits_[0] &= ~0x00000001u;
+  return envkey_.ReleaseNonDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void CMsgClientPendingGameLaunchResponse::set_allocated_envkey(std::string* envkey) {
+  if (envkey != nullptr) {
+    _has_bits_[0] |= 0x00000001u;
+  } else {
+    _has_bits_[0] &= ~0x00000001u;
+  }
+  envkey_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), envkey,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:CMsgClientPendingGameLaunchResponse.envkey)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

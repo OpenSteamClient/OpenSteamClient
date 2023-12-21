@@ -26,7 +26,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
           string.Concat(
             "ChlzZXJ2aWNlX3N0b3JlYnJvd3NlLnByb3RvGiBnb29nbGUvcHJvdG9idWYv",
             "ZGVzY3JpcHRvci5wcm90bxoMY29tbW9uLnByb3RvGhFjb21tb25fYmFzZS5w",
-            "cm90byKxAwoXQ0hhcmR3YXJlUGFja2FnZURldGFpbHMSEQoJcGFja2FnZWlk",
+            "cm90byKUBAoXQ0hhcmR3YXJlUGFja2FnZURldGFpbHMSEQoJcGFja2FnZWlk",
             "GAEgASgNEhsKE2ludmVudG9yeV9hdmFpbGFibGUYAyABKAgSGwoTaGlnaF9w",
             "ZW5kaW5nX29yZGVycxgEIAEoCBIqCiJhY2NvdW50X3Jlc3RyaWN0ZWRfZnJv",
             "bV9wdXJjaGFzaW5nGAUgASgIEhwKFHJlcXVpcmVzX3Jlc2VydmF0aW9uGAYg",
@@ -35,58 +35,60 @@ namespace OpenSteamworks.Protobuf.WebUI {
             "CSABKAUSDwoHZXhwaXJlZBgKIAEoCBIUCgx0aW1lX2V4cGlyZXMYCyABKA0S",
             "FQoNdGltZV9yZXNlcnZlZBgMIAEoDRIfChdhbGxvd19xdWFudGl0eV9wdXJj",
             "aGFzZRgNIAEoCBIhChltYXhfcXVhbnRpdHlfcGVyX3B1cmNoYXNlGA4gASgF",
-            "EiEKGWFsbG93X3B1cmNoYXNlX2luX2NvdW50cnkYDyABKAgipwEKIkNTdG9y",
-            "ZUJyb3dzZV9HZXRETENGb3JBcHBzX1JlcXVlc3QSJAoHY29udGV4dBgBIAEo",
-            "CzITLlN0b3JlQnJvd3NlQ29udGV4dBIsChFzdG9yZV9wYWdlX2ZpbHRlchgC",
-            "IAEoCzIRLkNTdG9yZVBhZ2VGaWx0ZXISHAoGYXBwaWRzGAMgAygLMgwuU3Rv",
-            "cmVJdGVtSUQSDwoHc3RlYW1pZBgEIAEoBCKsAQojQ1N0b3JlQnJvd3NlX0dl",
-            "dERMQ0ZvckFwcHNfUmVzcG9uc2USPgoIZGxjX2RhdGEYASADKAsyLC5DU3Rv",
-            "cmVCcm93c2VfR2V0RExDRm9yQXBwc19SZXNwb25zZV9ETENEYXRhEkUKCHBs",
-            "YXl0aW1lGAIgAygLMjMuQ1N0b3JlQnJvd3NlX0dldERMQ0ZvckFwcHNfUmVz",
-            "cG9uc2VfUGxheXRpbWVGb3JBcHAiqwEKK0NTdG9yZUJyb3dzZV9HZXRETENG",
-            "b3JBcHBzX1Jlc3BvbnNlX0RMQ0RhdGESDQoFYXBwaWQYASABKA0SEwoLcGFy",
-            "ZW50YXBwaWQYAiABKA0SFAoMcmVsZWFzZV9kYXRlGAMgASgNEhMKC2NvbWlu",
-            "Z19zb29uGAQgASgIEg0KBXByaWNlGAUgASgDEhAKCGRpc2NvdW50GAYgASgN",
-            "EgwKBGZyZWUYByABKAgiagoyQ1N0b3JlQnJvd3NlX0dldERMQ0ZvckFwcHNf",
-            "UmVzcG9uc2VfUGxheXRpbWVGb3JBcHASDQoFYXBwaWQYASABKA0SEAoIcGxh",
-            "eXRpbWUYAiABKA0SEwoLbGFzdF9wbGF5ZWQYAyABKA0iqwEKJkNTdG9yZUJy",
-            "b3dzZV9HZXRETENGb3JBcHBzU29scl9SZXF1ZXN0EiQKB2NvbnRleHQYASAB",
-            "KAsyEy5TdG9yZUJyb3dzZUNvbnRleHQSDgoGYXBwaWRzGAIgAygNEg4KBmZs",
-            "YXZvchgDIAEoCRINCgVjb3VudBgEIAEoDRIsChFzdG9yZV9wYWdlX2ZpbHRl",
-            "chgFIAEoCzIRLkNTdG9yZVBhZ2VGaWx0ZXIibgonQ1N0b3JlQnJvd3NlX0dl",
-            "dERMQ0ZvckFwcHNTb2xyX1Jlc3BvbnNlEkMKCWRsY19saXN0cxgBIAMoCzIw",
-            "LkNTdG9yZUJyb3dzZV9HZXRETENGb3JBcHBzU29scl9SZXNwb25zZV9ETENM",
-            "aXN0IlsKL0NTdG9yZUJyb3dzZV9HZXRETENGb3JBcHBzU29scl9SZXNwb25z",
-            "ZV9ETENMaXN0EhQKDHBhcmVudF9hcHBpZBgBIAEoDRISCgpkbGNfYXBwaWRz",
-            "GAIgAygNImAKJUNTdG9yZUJyb3dzZV9HZXRIYXJkd2FyZUl0ZW1zX1JlcXVl",
-            "c3QSEQoJcGFja2FnZWlkGAEgAygNEiQKB2NvbnRleHQYAiABKAsyEy5TdG9y",
-            "ZUJyb3dzZUNvbnRleHQiUwomQ1N0b3JlQnJvd3NlX0dldEhhcmR3YXJlSXRl",
-            "bXNfUmVzcG9uc2USKQoHZGV0YWlscxgBIAMoCzIYLkNIYXJkd2FyZVBhY2th",
-            "Z2VEZXRhaWxzIlIKJ0NTdG9yZUJyb3dzZV9HZXRTdG9yZUNhdGVnb3JpZXNf",
-            "UmVxdWVzdBIQCghsYW5ndWFnZRgBIAEoCRIVCgllbGFuZ3VhZ2UYAiABKAU6",
-            "Ai0xInIKKENTdG9yZUJyb3dzZV9HZXRTdG9yZUNhdGVnb3JpZXNfUmVzcG9u",
-            "c2USRgoKY2F0ZWdvcmllcxgBIAMoCzIyLkNTdG9yZUJyb3dzZV9HZXRTdG9y",
-            "ZUNhdGVnb3JpZXNfUmVzcG9uc2VfQ2F0ZWdvcnkitwEKMUNTdG9yZUJyb3dz",
-            "ZV9HZXRTdG9yZUNhdGVnb3JpZXNfUmVzcG9uc2VfQ2F0ZWdvcnkSEgoKY2F0",
-            "ZWdvcnlpZBgBIAEoDRIWCgR0eXBlGAIgASgFQgiCtRgEZW51bRIVCg1pbnRl",
-            "cm5hbF9uYW1lGAMgASgJEhQKDGRpc3BsYXlfbmFtZRgEIAEoCRIRCglpbWFn",
-            "ZV91cmwYBSABKAkSFgoOc2hvd19pbl9zZWFyY2gYBiABKAgy7gMKC1N0b3Jl",
-            "QnJvd3NlEloKDUdldERMQ0ZvckFwcHMSIy5DU3RvcmVCcm93c2VfR2V0RExD",
-            "Rm9yQXBwc19SZXF1ZXN0GiQuQ1N0b3JlQnJvd3NlX0dldERMQ0ZvckFwcHNf",
-            "UmVzcG9uc2USZgoRR2V0RExDRm9yQXBwc1NvbHISJy5DU3RvcmVCcm93c2Vf",
-            "R2V0RExDRm9yQXBwc1NvbHJfUmVxdWVzdBooLkNTdG9yZUJyb3dzZV9HZXRE",
-            "TENGb3JBcHBzU29scl9SZXNwb25zZRJjChBHZXRIYXJkd2FyZUl0ZW1zEiYu",
-            "Q1N0b3JlQnJvd3NlX0dldEhhcmR3YXJlSXRlbXNfUmVxdWVzdBonLkNTdG9y",
-            "ZUJyb3dzZV9HZXRIYXJkd2FyZUl0ZW1zX1Jlc3BvbnNlEksKCEdldEl0ZW1z",
-            "Eh4uQ1N0b3JlQnJvd3NlX0dldEl0ZW1zX1JlcXVlc3QaHy5DU3RvcmVCcm93",
-            "c2VfR2V0SXRlbXNfUmVzcG9uc2USaQoSR2V0U3RvcmVDYXRlZ29yaWVzEigu",
-            "Q1N0b3JlQnJvd3NlX0dldFN0b3JlQ2F0ZWdvcmllc19SZXF1ZXN0GikuQ1N0",
-            "b3JlQnJvd3NlX0dldFN0b3JlQ2F0ZWdvcmllc19SZXNwb25zZUIgqgIdT3Bl",
-            "blN0ZWFtd29ya3MuUHJvdG9idWYuV2ViVUk="));
+            "EiEKGWFsbG93X3B1cmNoYXNlX2luX2NvdW50cnkYDyABKAgSMAooZXN0aW1h",
+            "dGVkX2RlbGl2ZXJ5X3Nvb25lc3RfYnVzaW5lc3NfZGF5cxgRIAEoDRIvCidl",
+            "c3RpbWF0ZWRfZGVsaXZlcnlfbGF0ZXN0X2J1c2luZXNzX2RheXMYEiABKA0i",
+            "pwEKIkNTdG9yZUJyb3dzZV9HZXRETENGb3JBcHBzX1JlcXVlc3QSJAoHY29u",
+            "dGV4dBgBIAEoCzITLlN0b3JlQnJvd3NlQ29udGV4dBIsChFzdG9yZV9wYWdl",
+            "X2ZpbHRlchgCIAEoCzIRLkNTdG9yZVBhZ2VGaWx0ZXISHAoGYXBwaWRzGAMg",
+            "AygLMgwuU3RvcmVJdGVtSUQSDwoHc3RlYW1pZBgEIAEoBCKsAQojQ1N0b3Jl",
+            "QnJvd3NlX0dldERMQ0ZvckFwcHNfUmVzcG9uc2USPgoIZGxjX2RhdGEYASAD",
+            "KAsyLC5DU3RvcmVCcm93c2VfR2V0RExDRm9yQXBwc19SZXNwb25zZV9ETENE",
+            "YXRhEkUKCHBsYXl0aW1lGAIgAygLMjMuQ1N0b3JlQnJvd3NlX0dldERMQ0Zv",
+            "ckFwcHNfUmVzcG9uc2VfUGxheXRpbWVGb3JBcHAiqwEKK0NTdG9yZUJyb3dz",
+            "ZV9HZXRETENGb3JBcHBzX1Jlc3BvbnNlX0RMQ0RhdGESDQoFYXBwaWQYASAB",
+            "KA0SEwoLcGFyZW50YXBwaWQYAiABKA0SFAoMcmVsZWFzZV9kYXRlGAMgASgN",
+            "EhMKC2NvbWluZ19zb29uGAQgASgIEg0KBXByaWNlGAUgASgDEhAKCGRpc2Nv",
+            "dW50GAYgASgNEgwKBGZyZWUYByABKAgiagoyQ1N0b3JlQnJvd3NlX0dldERM",
+            "Q0ZvckFwcHNfUmVzcG9uc2VfUGxheXRpbWVGb3JBcHASDQoFYXBwaWQYASAB",
+            "KA0SEAoIcGxheXRpbWUYAiABKA0SEwoLbGFzdF9wbGF5ZWQYAyABKA0iqwEK",
+            "JkNTdG9yZUJyb3dzZV9HZXRETENGb3JBcHBzU29scl9SZXF1ZXN0EiQKB2Nv",
+            "bnRleHQYASABKAsyEy5TdG9yZUJyb3dzZUNvbnRleHQSDgoGYXBwaWRzGAIg",
+            "AygNEg4KBmZsYXZvchgDIAEoCRINCgVjb3VudBgEIAEoDRIsChFzdG9yZV9w",
+            "YWdlX2ZpbHRlchgFIAEoCzIRLkNTdG9yZVBhZ2VGaWx0ZXIibgonQ1N0b3Jl",
+            "QnJvd3NlX0dldERMQ0ZvckFwcHNTb2xyX1Jlc3BvbnNlEkMKCWRsY19saXN0",
+            "cxgBIAMoCzIwLkNTdG9yZUJyb3dzZV9HZXRETENGb3JBcHBzU29scl9SZXNw",
+            "b25zZV9ETENMaXN0IlsKL0NTdG9yZUJyb3dzZV9HZXRETENGb3JBcHBzU29s",
+            "cl9SZXNwb25zZV9ETENMaXN0EhQKDHBhcmVudF9hcHBpZBgBIAEoDRISCgpk",
+            "bGNfYXBwaWRzGAIgAygNImAKJUNTdG9yZUJyb3dzZV9HZXRIYXJkd2FyZUl0",
+            "ZW1zX1JlcXVlc3QSEQoJcGFja2FnZWlkGAEgAygNEiQKB2NvbnRleHQYAiAB",
+            "KAsyEy5TdG9yZUJyb3dzZUNvbnRleHQiUwomQ1N0b3JlQnJvd3NlX0dldEhh",
+            "cmR3YXJlSXRlbXNfUmVzcG9uc2USKQoHZGV0YWlscxgBIAMoCzIYLkNIYXJk",
+            "d2FyZVBhY2thZ2VEZXRhaWxzIlIKJ0NTdG9yZUJyb3dzZV9HZXRTdG9yZUNh",
+            "dGVnb3JpZXNfUmVxdWVzdBIQCghsYW5ndWFnZRgBIAEoCRIVCgllbGFuZ3Vh",
+            "Z2UYAiABKAU6Ai0xInIKKENTdG9yZUJyb3dzZV9HZXRTdG9yZUNhdGVnb3Jp",
+            "ZXNfUmVzcG9uc2USRgoKY2F0ZWdvcmllcxgBIAMoCzIyLkNTdG9yZUJyb3dz",
+            "ZV9HZXRTdG9yZUNhdGVnb3JpZXNfUmVzcG9uc2VfQ2F0ZWdvcnkitwEKMUNT",
+            "dG9yZUJyb3dzZV9HZXRTdG9yZUNhdGVnb3JpZXNfUmVzcG9uc2VfQ2F0ZWdv",
+            "cnkSEgoKY2F0ZWdvcnlpZBgBIAEoDRIWCgR0eXBlGAIgASgFQgiCtRgEZW51",
+            "bRIVCg1pbnRlcm5hbF9uYW1lGAMgASgJEhQKDGRpc3BsYXlfbmFtZRgEIAEo",
+            "CRIRCglpbWFnZV91cmwYBSABKAkSFgoOc2hvd19pbl9zZWFyY2gYBiABKAgy",
+            "7gMKC1N0b3JlQnJvd3NlEloKDUdldERMQ0ZvckFwcHMSIy5DU3RvcmVCcm93",
+            "c2VfR2V0RExDRm9yQXBwc19SZXF1ZXN0GiQuQ1N0b3JlQnJvd3NlX0dldERM",
+            "Q0ZvckFwcHNfUmVzcG9uc2USZgoRR2V0RExDRm9yQXBwc1NvbHISJy5DU3Rv",
+            "cmVCcm93c2VfR2V0RExDRm9yQXBwc1NvbHJfUmVxdWVzdBooLkNTdG9yZUJy",
+            "b3dzZV9HZXRETENGb3JBcHBzU29scl9SZXNwb25zZRJjChBHZXRIYXJkd2Fy",
+            "ZUl0ZW1zEiYuQ1N0b3JlQnJvd3NlX0dldEhhcmR3YXJlSXRlbXNfUmVxdWVz",
+            "dBonLkNTdG9yZUJyb3dzZV9HZXRIYXJkd2FyZUl0ZW1zX1Jlc3BvbnNlEksK",
+            "CEdldEl0ZW1zEh4uQ1N0b3JlQnJvd3NlX0dldEl0ZW1zX1JlcXVlc3QaHy5D",
+            "U3RvcmVCcm93c2VfR2V0SXRlbXNfUmVzcG9uc2USaQoSR2V0U3RvcmVDYXRl",
+            "Z29yaWVzEiguQ1N0b3JlQnJvd3NlX0dldFN0b3JlQ2F0ZWdvcmllc19SZXF1",
+            "ZXN0GikuQ1N0b3JlQnJvd3NlX0dldFN0b3JlQ2F0ZWdvcmllc19SZXNwb25z",
+            "ZUIgqgIdT3BlblN0ZWFtd29ya3MuUHJvdG9idWYuV2ViVUk="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.Reflection.DescriptorReflection.Descriptor, global::OpenSteamworks.Protobuf.WebUI.CommonReflection.Descriptor, global::OpenSteamworks.Protobuf.WebUI.CommonBaseReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CHardwarePackageDetails), global::OpenSteamworks.Protobuf.WebUI.CHardwarePackageDetails.Parser, new[]{ "Packageid", "InventoryAvailable", "HighPendingOrders", "AccountRestrictedFromPurchasing", "RequiresReservation", "RtimeEstimatedNotification", "NotificatonToken", "ReservationState", "Expired", "TimeExpires", "TimeReserved", "AllowQuantityPurchase", "MaxQuantityPerPurchase", "AllowPurchaseInCountry" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CHardwarePackageDetails), global::OpenSteamworks.Protobuf.WebUI.CHardwarePackageDetails.Parser, new[]{ "Packageid", "InventoryAvailable", "HighPendingOrders", "AccountRestrictedFromPurchasing", "RequiresReservation", "RtimeEstimatedNotification", "NotificatonToken", "ReservationState", "Expired", "TimeExpires", "TimeReserved", "AllowQuantityPurchase", "MaxQuantityPerPurchase", "AllowPurchaseInCountry", "EstimatedDeliverySoonestBusinessDays", "EstimatedDeliveryLatestBusinessDays" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CStoreBrowse_GetDLCForApps_Request), global::OpenSteamworks.Protobuf.WebUI.CStoreBrowse_GetDLCForApps_Request.Parser, new[]{ "Context", "StorePageFilter", "Appids", "Steamid" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CStoreBrowse_GetDLCForApps_Response), global::OpenSteamworks.Protobuf.WebUI.CStoreBrowse_GetDLCForApps_Response.Parser, new[]{ "DlcData", "Playtime" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CStoreBrowse_GetDLCForApps_Response_DLCData), global::OpenSteamworks.Protobuf.WebUI.CStoreBrowse_GetDLCForApps_Response_DLCData.Parser, new[]{ "Appid", "Parentappid", "ReleaseDate", "ComingSoon", "Price", "Discount", "Free" }, null, null, null, null),
@@ -105,6 +107,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
   #region Messages
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CHardwarePackageDetails : pb::IMessage<CHardwarePackageDetails>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -155,6 +158,8 @@ namespace OpenSteamworks.Protobuf.WebUI {
       allowQuantityPurchase_ = other.allowQuantityPurchase_;
       maxQuantityPerPurchase_ = other.maxQuantityPerPurchase_;
       allowPurchaseInCountry_ = other.allowPurchaseInCountry_;
+      estimatedDeliverySoonestBusinessDays_ = other.estimatedDeliverySoonestBusinessDays_;
+      estimatedDeliveryLatestBusinessDays_ = other.estimatedDeliveryLatestBusinessDays_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -541,6 +546,60 @@ namespace OpenSteamworks.Protobuf.WebUI {
       _hasBits0 &= ~4096;
     }
 
+    /// <summary>Field number for the "estimated_delivery_soonest_business_days" field.</summary>
+    public const int EstimatedDeliverySoonestBusinessDaysFieldNumber = 17;
+    private readonly static uint EstimatedDeliverySoonestBusinessDaysDefaultValue = 0;
+
+    private uint estimatedDeliverySoonestBusinessDays_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint EstimatedDeliverySoonestBusinessDays {
+      get { if ((_hasBits0 & 8192) != 0) { return estimatedDeliverySoonestBusinessDays_; } else { return EstimatedDeliverySoonestBusinessDaysDefaultValue; } }
+      set {
+        _hasBits0 |= 8192;
+        estimatedDeliverySoonestBusinessDays_ = value;
+      }
+    }
+    /// <summary>Gets whether the "estimated_delivery_soonest_business_days" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasEstimatedDeliverySoonestBusinessDays {
+      get { return (_hasBits0 & 8192) != 0; }
+    }
+    /// <summary>Clears the value of the "estimated_delivery_soonest_business_days" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearEstimatedDeliverySoonestBusinessDays() {
+      _hasBits0 &= ~8192;
+    }
+
+    /// <summary>Field number for the "estimated_delivery_latest_business_days" field.</summary>
+    public const int EstimatedDeliveryLatestBusinessDaysFieldNumber = 18;
+    private readonly static uint EstimatedDeliveryLatestBusinessDaysDefaultValue = 0;
+
+    private uint estimatedDeliveryLatestBusinessDays_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint EstimatedDeliveryLatestBusinessDays {
+      get { if ((_hasBits0 & 16384) != 0) { return estimatedDeliveryLatestBusinessDays_; } else { return EstimatedDeliveryLatestBusinessDaysDefaultValue; } }
+      set {
+        _hasBits0 |= 16384;
+        estimatedDeliveryLatestBusinessDays_ = value;
+      }
+    }
+    /// <summary>Gets whether the "estimated_delivery_latest_business_days" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasEstimatedDeliveryLatestBusinessDays {
+      get { return (_hasBits0 & 16384) != 0; }
+    }
+    /// <summary>Clears the value of the "estimated_delivery_latest_business_days" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearEstimatedDeliveryLatestBusinessDays() {
+      _hasBits0 &= ~16384;
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -570,6 +629,8 @@ namespace OpenSteamworks.Protobuf.WebUI {
       if (AllowQuantityPurchase != other.AllowQuantityPurchase) return false;
       if (MaxQuantityPerPurchase != other.MaxQuantityPerPurchase) return false;
       if (AllowPurchaseInCountry != other.AllowPurchaseInCountry) return false;
+      if (EstimatedDeliverySoonestBusinessDays != other.EstimatedDeliverySoonestBusinessDays) return false;
+      if (EstimatedDeliveryLatestBusinessDays != other.EstimatedDeliveryLatestBusinessDays) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -591,6 +652,8 @@ namespace OpenSteamworks.Protobuf.WebUI {
       if (HasAllowQuantityPurchase) hash ^= AllowQuantityPurchase.GetHashCode();
       if (HasMaxQuantityPerPurchase) hash ^= MaxQuantityPerPurchase.GetHashCode();
       if (HasAllowPurchaseInCountry) hash ^= AllowPurchaseInCountry.GetHashCode();
+      if (HasEstimatedDeliverySoonestBusinessDays) hash ^= EstimatedDeliverySoonestBusinessDays.GetHashCode();
+      if (HasEstimatedDeliveryLatestBusinessDays) hash ^= EstimatedDeliveryLatestBusinessDays.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -665,6 +728,14 @@ namespace OpenSteamworks.Protobuf.WebUI {
         output.WriteRawTag(120);
         output.WriteBool(AllowPurchaseInCountry);
       }
+      if (HasEstimatedDeliverySoonestBusinessDays) {
+        output.WriteRawTag(136, 1);
+        output.WriteUInt32(EstimatedDeliverySoonestBusinessDays);
+      }
+      if (HasEstimatedDeliveryLatestBusinessDays) {
+        output.WriteRawTag(144, 1);
+        output.WriteUInt32(EstimatedDeliveryLatestBusinessDays);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -731,6 +802,14 @@ namespace OpenSteamworks.Protobuf.WebUI {
         output.WriteRawTag(120);
         output.WriteBool(AllowPurchaseInCountry);
       }
+      if (HasEstimatedDeliverySoonestBusinessDays) {
+        output.WriteRawTag(136, 1);
+        output.WriteUInt32(EstimatedDeliverySoonestBusinessDays);
+      }
+      if (HasEstimatedDeliveryLatestBusinessDays) {
+        output.WriteRawTag(144, 1);
+        output.WriteUInt32(EstimatedDeliveryLatestBusinessDays);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -782,6 +861,12 @@ namespace OpenSteamworks.Protobuf.WebUI {
       }
       if (HasAllowPurchaseInCountry) {
         size += 1 + 1;
+      }
+      if (HasEstimatedDeliverySoonestBusinessDays) {
+        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(EstimatedDeliverySoonestBusinessDays);
+      }
+      if (HasEstimatedDeliveryLatestBusinessDays) {
+        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(EstimatedDeliveryLatestBusinessDays);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -836,6 +921,12 @@ namespace OpenSteamworks.Protobuf.WebUI {
       }
       if (other.HasAllowPurchaseInCountry) {
         AllowPurchaseInCountry = other.AllowPurchaseInCountry;
+      }
+      if (other.HasEstimatedDeliverySoonestBusinessDays) {
+        EstimatedDeliverySoonestBusinessDays = other.EstimatedDeliverySoonestBusinessDays;
+      }
+      if (other.HasEstimatedDeliveryLatestBusinessDays) {
+        EstimatedDeliveryLatestBusinessDays = other.EstimatedDeliveryLatestBusinessDays;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -906,6 +997,14 @@ namespace OpenSteamworks.Protobuf.WebUI {
           }
           case 120: {
             AllowPurchaseInCountry = input.ReadBool();
+            break;
+          }
+          case 136: {
+            EstimatedDeliverySoonestBusinessDays = input.ReadUInt32();
+            break;
+          }
+          case 144: {
+            EstimatedDeliveryLatestBusinessDays = input.ReadUInt32();
             break;
           }
         }
@@ -979,6 +1078,14 @@ namespace OpenSteamworks.Protobuf.WebUI {
             AllowPurchaseInCountry = input.ReadBool();
             break;
           }
+          case 136: {
+            EstimatedDeliverySoonestBusinessDays = input.ReadUInt32();
+            break;
+          }
+          case 144: {
+            EstimatedDeliveryLatestBusinessDays = input.ReadUInt32();
+            break;
+          }
         }
       }
     }
@@ -986,6 +1093,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CStoreBrowse_GetDLCForApps_Request : pb::IMessage<CStoreBrowse_GetDLCForApps_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1310,6 +1418,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CStoreBrowse_GetDLCForApps_Response : pb::IMessage<CStoreBrowse_GetDLCForApps_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1514,6 +1623,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CStoreBrowse_GetDLCForApps_Response_DLCData : pb::IMessage<CStoreBrowse_GetDLCForApps_Response_DLCData>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2032,6 +2142,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CStoreBrowse_GetDLCForApps_Response_PlaytimeForApp : pb::IMessage<CStoreBrowse_GetDLCForApps_Response_PlaytimeForApp>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2342,6 +2453,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CStoreBrowse_GetDLCForAppsSolr_Request : pb::IMessage<CStoreBrowse_GetDLCForAppsSolr_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2719,6 +2831,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CStoreBrowse_GetDLCForAppsSolr_Response : pb::IMessage<CStoreBrowse_GetDLCForAppsSolr_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2897,6 +3010,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CStoreBrowse_GetDLCForAppsSolr_Response_DLCList : pb::IMessage<CStoreBrowse_GetDLCForAppsSolr_Response_DLCList>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -3131,6 +3245,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CStoreBrowse_GetHardwareItems_Request : pb::IMessage<CStoreBrowse_GetHardwareItems_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -3357,6 +3472,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CStoreBrowse_GetHardwareItems_Response : pb::IMessage<CStoreBrowse_GetHardwareItems_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -3535,6 +3651,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CStoreBrowse_GetStoreCategories_Request : pb::IMessage<CStoreBrowse_GetStoreCategories_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -3792,6 +3909,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CStoreBrowse_GetStoreCategories_Response : pb::IMessage<CStoreBrowse_GetStoreCategories_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -3970,6 +4088,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CStoreBrowse_GetStoreCategories_Response_Category : pb::IMessage<CStoreBrowse_GetStoreCategories_Response_Category>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage

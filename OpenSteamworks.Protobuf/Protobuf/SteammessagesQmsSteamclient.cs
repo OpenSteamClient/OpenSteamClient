@@ -75,23 +75,19 @@ namespace OpenSteamworks.Protobuf {
             "ZWFyY2hSZXN1bHRfU2VhcmNoR2FtZUZvdW5kEAMSLAooRUdhbWVTZWFyY2hS",
             "ZXN1bHRfU2VhcmNoQ29tcGxldGVBY2NlcHRlZBAEEiwKKEVHYW1lU2VhcmNo",
             "UmVzdWx0X1NlYXJjaENvbXBsZXRlRGVjbGluZWQQBRIkCiBFR2FtZVNlYXJj",
-            "aFJlc3VsdF9TZWFyY2hDYW5jZWxlZBAGMrIBChFRdWV1ZWRNYXRjaG1ha2lu",
-            "ZxJ9Cg1TZWFyY2hGb3JHYW1lEikuQ1F1ZXVlZE1hdGNobWFraW5nX1NlYXJj",
-            "aEZvckdhbWVfUmVxdWVzdBoqLkNRdWV1ZWRNYXRjaG1ha2luZ19TZWFyY2hG",
-            "b3JHYW1lX1Jlc3BvbnNlIhWCtRgRU2VhcmNoIGZvciBhIGdhbWUaHoK1GBpR",
-            "dWV1ZWQgbWF0Y2htYWtpbmcgc2VydmljZTLrAwoZUXVldWVkTWF0Y2htYWtp",
-            "bmdHYW1lSG9zdBKVAQoQU2VhcmNoRm9yUGxheWVycxI0LkNRdWV1ZWRNYXRj",
-            "aG1ha2luZ0dhbWVIb3N0X1NlYXJjaEZvclBsYXllcnNfUmVxdWVzdBo1LkNR",
-            "dWV1ZWRNYXRjaG1ha2luZ0dhbWVIb3N0X1NlYXJjaEZvclBsYXllcnNfUmVz",
-            "cG9uc2UiFIK1GBBTZWFyY2hGb3JQbGF5ZXJzEp0BChJTdWJtaXRQbGF5ZXJS",
-            "ZXN1bHQSNi5DUXVldWVkTWF0Y2htYWtpbmdHYW1lSG9zdF9TdWJtaXRQbGF5",
-            "ZXJSZXN1bHRfUmVxdWVzdBo3LkNRdWV1ZWRNYXRjaG1ha2luZ0dhbWVIb3N0",
-            "X1N1Ym1pdFBsYXllclJlc3VsdF9SZXNwb25zZSIWgrUYElN1Ym1pdFBsYXll",
-            "clJlc3VsdBJxCgdFbmRHYW1lEisuQ1F1ZXVlZE1hdGNobWFraW5nR2FtZUhv",
-            "c3RfRW5kR2FtZV9SZXF1ZXN0GiwuQ1F1ZXVlZE1hdGNobWFraW5nR2FtZUhv",
-            "c3RfRW5kR2FtZV9SZXNwb25zZSILgrUYB0VuZEdhbWUaI4K1GB9RdWV1ZWQg",
-            "bWF0Y2htYWtpbmcgaG9zdCBzZXJ2aWNlQh2AAQGqAhdPcGVuU3RlYW13b3Jr",
-            "cy5Qcm90b2J1Zg=="));
+            "aFJlc3VsdF9TZWFyY2hDYW5jZWxlZBAGMnsKEVF1ZXVlZE1hdGNobWFraW5n",
+            "EmYKDVNlYXJjaEZvckdhbWUSKS5DUXVldWVkTWF0Y2htYWtpbmdfU2VhcmNo",
+            "Rm9yR2FtZV9SZXF1ZXN0GiouQ1F1ZXVlZE1hdGNobWFraW5nX1NlYXJjaEZv",
+            "ckdhbWVfUmVzcG9uc2UyigMKGVF1ZXVlZE1hdGNobWFraW5nR2FtZUhvc3QS",
+            "fwoQU2VhcmNoRm9yUGxheWVycxI0LkNRdWV1ZWRNYXRjaG1ha2luZ0dhbWVI",
+            "b3N0X1NlYXJjaEZvclBsYXllcnNfUmVxdWVzdBo1LkNRdWV1ZWRNYXRjaG1h",
+            "a2luZ0dhbWVIb3N0X1NlYXJjaEZvclBsYXllcnNfUmVzcG9uc2UShQEKElN1",
+            "Ym1pdFBsYXllclJlc3VsdBI2LkNRdWV1ZWRNYXRjaG1ha2luZ0dhbWVIb3N0",
+            "X1N1Ym1pdFBsYXllclJlc3VsdF9SZXF1ZXN0GjcuQ1F1ZXVlZE1hdGNobWFr",
+            "aW5nR2FtZUhvc3RfU3VibWl0UGxheWVyUmVzdWx0X1Jlc3BvbnNlEmQKB0Vu",
+            "ZEdhbWUSKy5DUXVldWVkTWF0Y2htYWtpbmdHYW1lSG9zdF9FbmRHYW1lX1Jl",
+            "cXVlc3QaLC5DUXVldWVkTWF0Y2htYWtpbmdHYW1lSG9zdF9FbmRHYW1lX1Jl",
+            "c3BvbnNlQh2AAQGqAhdPcGVuU3RlYW13b3Jrcy5Qcm90b2J1Zg=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.Reflection.DescriptorReflection.Descriptor, global::OpenSteamworks.Protobuf.SteammessagesBaseReflection.Descriptor, global::OpenSteamworks.Protobuf.SteammessagesUnifiedBaseSteamclientReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::OpenSteamworks.Protobuf.EGameSearchAction), typeof(global::OpenSteamworks.Protobuf.EGameSearchResult), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -132,6 +128,7 @@ namespace OpenSteamworks.Protobuf {
   #endregion
 
   #region Messages
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class GameSearchParam : pb::IMessage<GameSearchParam>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -361,6 +358,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CQueuedMatchmaking_SearchForGame_Request : pb::IMessage<CQueuedMatchmaking_SearchForGame_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -853,6 +851,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CQueuedMatchmaking_SearchForGame_Response : pb::IMessage<CQueuedMatchmaking_SearchForGame_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1630,6 +1629,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CQueuedMatchmakingGameHost_SearchForPlayers_Request : pb::IMessage<CQueuedMatchmakingGameHost_SearchForPlayers_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2173,6 +2173,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class PlayerFound : pb::IMessage<PlayerFound>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2509,6 +2510,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CQueuedMatchmakingGameHost_SearchForPlayers_Response : pb::IMessage<CQueuedMatchmakingGameHost_SearchForPlayers_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -3001,6 +3003,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class PlayerResult : pb::IMessage<PlayerResult>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -3259,6 +3262,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CQueuedMatchmakingGameHost_SubmitPlayerResult_Request : pb::IMessage<CQueuedMatchmakingGameHost_SubmitPlayerResult_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -3543,6 +3547,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CQueuedMatchmakingGameHost_SubmitPlayerResult_Response : pb::IMessage<CQueuedMatchmakingGameHost_SubmitPlayerResult_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -3695,6 +3700,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CQueuedMatchmakingGameHost_EndGame_Request : pb::IMessage<CQueuedMatchmakingGameHost_EndGame_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -3953,6 +3959,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CQueuedMatchmakingGameHost_EndGame_Response : pb::IMessage<CQueuedMatchmakingGameHost_EndGame_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage

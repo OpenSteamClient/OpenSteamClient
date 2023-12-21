@@ -4431,553 +4431,430 @@ const char descriptor_table_protodef_steammessages_5fchat_2esteamclient_2eproto[
   "RoomGroupInvite\"N\n CChatRoom_DeleteInvit"
   "eLinRequest\022\025\n\rchat_group_id\030\001 \001(\004\022\023\n\013in"
   "vite_code\030\002 \001(\t\"#\n!CChatRoom_DeleteInvit"
-  "eLinResponse\"\364\001\n0CChatRoom_SetSessionAct"
+  "eLinResponse\"\224\001\n0CChatRoom_SetSessionAct"
   "iveChatRoomGroups_Request\022\026\n\016chat_group_"
   "ids\030\001 \003(\004\022\"\n\032chat_groups_data_requested\030"
-  "\002 \003(\004\022\203\001\n\034virtualize_members_threshold\030\003"
-  " \001(\005B]\202\265\030YIf a chat room has more member"
-  "s than this threshold, we will opt in to"
-  " a virtualized list\"\211\001\n1CChatRoom_SetSes"
-  "sionActiveChatRoomGroups_Response\022)\n\013cha"
-  "t_states\030\001 \003(\0132\024.CChatRoomGroupState\022)\n!"
-  "virtualize_members_chat_group_ids\030\002 \003(\004\""
-  "\242\006\n-CChatRoom_SetUserChatGroupPreference"
-  "s_Request\022\025\n\rchat_group_id\030\001 \001(\004\022c\n\026chat"
-  "_group_preferences\030\002 \001(\0132C.CChatRoom_Set"
-  "UserChatGroupPreferences_Request.ChatGro"
-  "upPreferences\022a\n\025chat_room_preferences\030\003"
-  " \003(\0132B.CChatRoom_SetUserChatGroupPrefere"
-  "nces_Request.ChatRoomPreferences\032\377\001\n\024Cha"
-  "tGroupPreferences\022c\n\032desktop_notificatio"
-  "n_level\030\001 \001(\0162\033.EChatRoomNotificationLev"
-  "el:\"EChatroomNotificationLevel_Invalid\022b"
-  "\n\031mobile_notification_level\030\002 \001(\0162\033.ECha"
-  "tRoomNotificationLevel:\"EChatroomNotific"
-  "ationLevel_Invalid\022\036\n\026unread_indicator_m"
-  "uted\030\003 \001(\010\032\217\002\n\023ChatRoomPreferences\022\017\n\007ch"
-  "at_id\030\001 \001(\004\022c\n\032desktop_notification_leve"
-  "l\030\002 \001(\0162\033.EChatRoomNotificationLevel:\"EC"
-  "hatroomNotificationLevel_Invalid\022b\n\031mobi"
-  "le_notification_level\030\003 \001(\0162\033.EChatRoomN"
-  "otificationLevel:\"EChatroomNotificationL"
-  "evel_Invalid\022\036\n\026unread_indicator_muted\030\004"
-  " \001(\010\"0\n.CChatRoom_SetUserChatGroupPrefer"
-  "ences_Response\"\305\001\n$CChatRoom_DeleteChatM"
-  "essages_Request\022\025\n\rchat_group_id\030\001 \001(\004\022\017"
-  "\n\007chat_id\030\002 \001(\004\022\?\n\010messages\030\003 \003(\0132-.CCha"
-  "tRoom_DeleteChatMessages_Request.Message"
-  "\0324\n\007Message\022\030\n\020server_timestamp\030\001 \001(\r\022\017\n"
-  "\007ordinal\030\002 \001(\r\"\'\n%CChatRoom_DeleteChatMe"
-  "ssages_Response\"\351\003\n+CChatRoom_UpdateMemb"
-  "erListView_Notification\022\025\n\rchat_group_id"
-  "\030\001 \001(\004\022g\n\007view_id\030\002 \001(\004BV\202\265\030RClient-gene"
-  "rated ID.  Should send the same value on"
-  " all requests for the same view\022\r\n\005start"
-  "\030\003 \001(\005\022\013\n\003end\030\004 \001(\005\022\217\001\n\023client_changenum"
-  "ber\030\005 \001(\005Br\202\265\030nAny updates from this cal"
-  "l on will have this changenumber present"
-  ".  Can be used to guarantee in-order upd"
-  "ates.\022>\n\013delete_view\030\006 \001(\010B)\202\265\030%Indicate"
-  "s this view has been deleted.\022$\n\034persona"
-  "_subscribe_accountids\030\007 \003(\005\022&\n\036persona_u"
-  "nsubscribe_accountids\030\010 \003(\005\"\227\002\n\037CChatRoo"
-  "m_SearchMembers_Request\022\025\n\rchat_group_id"
-  "\030\001 \001(\004\022\262\001\n\tsearch_id\030\002 \001(\004B\236\001\202\265\030\231\001Client"
-  "-supplied id.  For find-as-you-type sear"
-  "ches, as search narrows the server will "
-  "not return persona states previously ret"
-  "urned for a given searchid.\022\023\n\013search_te"
-  "xt\030\003 \001(\t\022\023\n\013max_results\030\004 \001(\005\"\324\001\n CChatR"
-  "oom_SearchMembers_Response\022G\n\020matching_m"
-  "embers\030\001 \003(\0132-.CChatRoom_SearchMembers_R"
-  "esponse.MemberMatch\022\024\n\014status_flags\030\002 \001("
-  "\r\032Q\n\013MemberMatch\022\021\n\taccountid\030\001 \001(\005\022/\n\007p"
-  "ersona\030\002 \001(\0132\036.CMsgClientPersonaState.Fr"
-  "iend\"\372\001\n\'CChatRoom_UpdateMessageReaction"
-  "_Request\022\025\n\rchat_group_id\030\001 \001(\004\022\017\n\007chat_"
-  "id\030\002 \001(\004\022\030\n\020server_timestamp\030\003 \001(\r\022\017\n\007or"
-  "dinal\030\004 \001(\r\022Z\n\rreaction_type\030\005 \001(\0162\035.ECh"
-  "atRoomMessageReactionType:$EChatRoomMess"
-  "ageReactionType_Invalid\022\020\n\010reaction\030\006 \001("
-  "\t\022\016\n\006is_add\030\007 \001(\010\"@\n(CChatRoom_UpdateMes"
-  "sageReaction_Response\022\024\n\014num_reactors\030\001 "
-  "\001(\r\"\376\001\n,CChatRoom_GetMessageReactionReac"
-  "tors_Request\022\025\n\rchat_group_id\030\001 \001(\004\022\017\n\007c"
-  "hat_id\030\002 \001(\004\022\030\n\020server_timestamp\030\003 \001(\r\022\017"
-  "\n\007ordinal\030\004 \001(\r\022Z\n\rreaction_type\030\005 \001(\0162\035"
-  ".EChatRoomMessageReactionType:$EChatRoom"
-  "MessageReactionType_Invalid\022\020\n\010reaction\030"
-  "\006 \001(\t\022\r\n\005limit\030\007 \001(\r\"A\n-CChatRoom_GetMes"
-  "sageReactionReactors_Response\022\020\n\010reactor"
-  "s\030\001 \003(\r\"\230\001\n*CClanChatRooms_GetClanChatRo"
-  "omInfo_Request\022\017\n\007steamid\030\001 \001(\006\022Y\n\nautoc"
-  "reate\030\002 \001(\010:\004trueB\?\202\265\030;Create a default "
-  "chat room if none has been created befor"
-  "e.\"v\n+CClanChatRooms_GetClanChatRoomInfo"
-  "_Response\022G\n\022chat_group_summary\030\001 \001(\0132+."
-  "CChatRoom_GetChatRoomGroupSummary_Respon"
-  "se\"[\n-CClanChatRooms_SetClanChatRoomPriv"
-  "ate_Request\022\017\n\007steamid\030\001 \001(\006\022\031\n\021chat_roo"
-  "m_private\030\002 \001(\010\"K\n.CClanChatRooms_SetCla"
-  "nChatRoomPrivate_Response\022\031\n\021chat_room_p"
-  "rivate\030\001 \001(\010\"V\n\rCChatMentions\022\023\n\013mention"
-  "_all\030\001 \001(\010\022\024\n\014mention_here\030\002 \001(\010\022\032\n\022ment"
-  "ion_accountids\030\003 \003(\r\"\325\002\n*CChatRoom_Incom"
-  "ingChatMessage_Notification\022\025\n\rchat_grou"
-  "p_id\030\001 \001(\004\022\017\n\007chat_id\030\002 \001(\004\022\026\n\016steamid_s"
-  "ender\030\003 \001(\006\022\017\n\007message\030\004 \001(\t\022\021\n\ttimestam"
-  "p\030\005 \001(\r\022 \n\010mentions\030\006 \001(\0132\016.CChatMention"
-  "s\022\017\n\007ordinal\030\007 \001(\r\022&\n\016server_message\030\010 \001"
-  "(\0132\016.ServerMessage\022\031\n\021message_no_bbcode\030"
-  "\t \001(\t\022M\n\tchat_name\030\n \001(\tB:\202\265\0306A name to "
-  "use for the chat, intended for notificat"
-  "ions\"\352\001\n*CChatRoom_ChatMessageModified_N"
-  "otification\022\025\n\rchat_group_id\030\001 \001(\004\022\017\n\007ch"
-  "at_id\030\002 \001(\004\022I\n\010messages\030\003 \003(\01327.CChatRoo"
-  "m_ChatMessageModified_Notification.ChatM"
-  "essage\032I\n\013ChatMessage\022\030\n\020server_timestam"
-  "p\030\001 \001(\r\022\017\n\007ordinal\030\002 \001(\r\022\017\n\007deleted\030\003 \001("
-  "\010\"\264\001\n(CChatRoom_MemberStateChange_Notifi"
-  "cation\022\025\n\rchat_group_id\030\001 \001(\004\022 \n\006member\030"
-  "\002 \001(\0132\020.CChatRoomMember\022O\n\006change\030\003 \001(\0162"
+  "\002 \003(\004\022$\n\034virtualize_members_threshold\030\003 "
+  "\001(\005\"\211\001\n1CChatRoom_SetSessionActiveChatRo"
+  "omGroups_Response\022)\n\013chat_states\030\001 \003(\0132\024"
+  ".CChatRoomGroupState\022)\n!virtualize_membe"
+  "rs_chat_group_ids\030\002 \003(\004\"\242\006\n-CChatRoom_Se"
+  "tUserChatGroupPreferences_Request\022\025\n\rcha"
+  "t_group_id\030\001 \001(\004\022c\n\026chat_group_preferenc"
+  "es\030\002 \001(\0132C.CChatRoom_SetUserChatGroupPre"
+  "ferences_Request.ChatGroupPreferences\022a\n"
+  "\025chat_room_preferences\030\003 \003(\0132B.CChatRoom"
+  "_SetUserChatGroupPreferences_Request.Cha"
+  "tRoomPreferences\032\377\001\n\024ChatGroupPreference"
+  "s\022c\n\032desktop_notification_level\030\001 \001(\0162\033."
+  "EChatRoomNotificationLevel:\"EChatroomNot"
+  "ificationLevel_Invalid\022b\n\031mobile_notific"
+  "ation_level\030\002 \001(\0162\033.EChatRoomNotificatio"
+  "nLevel:\"EChatroomNotificationLevel_Inval"
+  "id\022\036\n\026unread_indicator_muted\030\003 \001(\010\032\217\002\n\023C"
+  "hatRoomPreferences\022\017\n\007chat_id\030\001 \001(\004\022c\n\032d"
+  "esktop_notification_level\030\002 \001(\0162\033.EChatR"
+  "oomNotificationLevel:\"EChatroomNotificat"
+  "ionLevel_Invalid\022b\n\031mobile_notification_"
+  "level\030\003 \001(\0162\033.EChatRoomNotificationLevel"
+  ":\"EChatroomNotificationLevel_Invalid\022\036\n\026"
+  "unread_indicator_muted\030\004 \001(\010\"0\n.CChatRoo"
+  "m_SetUserChatGroupPreferences_Response\"\305"
+  "\001\n$CChatRoom_DeleteChatMessages_Request\022"
+  "\025\n\rchat_group_id\030\001 \001(\004\022\017\n\007chat_id\030\002 \001(\004\022"
+  "\?\n\010messages\030\003 \003(\0132-.CChatRoom_DeleteChat"
+  "Messages_Request.Message\0324\n\007Message\022\030\n\020s"
+  "erver_timestamp\030\001 \001(\r\022\017\n\007ordinal\030\002 \001(\r\"\'"
+  "\n%CChatRoom_DeleteChatMessages_Response\""
+  "\361\001\n+CChatRoom_UpdateMemberListView_Notif"
+  "ication\022\025\n\rchat_group_id\030\001 \001(\004\022\017\n\007view_i"
+  "d\030\002 \001(\004\022\r\n\005start\030\003 \001(\005\022\013\n\003end\030\004 \001(\005\022\033\n\023c"
+  "lient_changenumber\030\005 \001(\005\022\023\n\013delete_view\030"
+  "\006 \001(\010\022$\n\034persona_subscribe_accountids\030\007 "
+  "\003(\005\022&\n\036persona_unsubscribe_accountids\030\010 "
+  "\003(\005\"u\n\037CChatRoom_SearchMembers_Request\022\025"
+  "\n\rchat_group_id\030\001 \001(\004\022\021\n\tsearch_id\030\002 \001(\004"
+  "\022\023\n\013search_text\030\003 \001(\t\022\023\n\013max_results\030\004 \001"
+  "(\005\"\324\001\n CChatRoom_SearchMembers_Response\022"
+  "G\n\020matching_members\030\001 \003(\0132-.CChatRoom_Se"
+  "archMembers_Response.MemberMatch\022\024\n\014stat"
+  "us_flags\030\002 \001(\r\032Q\n\013MemberMatch\022\021\n\taccount"
+  "id\030\001 \001(\005\022/\n\007persona\030\002 \001(\0132\036.CMsgClientPe"
+  "rsonaState.Friend\"\372\001\n\'CChatRoom_UpdateMe"
+  "ssageReaction_Request\022\025\n\rchat_group_id\030\001"
+  " \001(\004\022\017\n\007chat_id\030\002 \001(\004\022\030\n\020server_timestam"
+  "p\030\003 \001(\r\022\017\n\007ordinal\030\004 \001(\r\022Z\n\rreaction_typ"
+  "e\030\005 \001(\0162\035.EChatRoomMessageReactionType:$"
+  "EChatRoomMessageReactionType_Invalid\022\020\n\010"
+  "reaction\030\006 \001(\t\022\016\n\006is_add\030\007 \001(\010\"@\n(CChatR"
+  "oom_UpdateMessageReaction_Response\022\024\n\014nu"
+  "m_reactors\030\001 \001(\r\"\376\001\n,CChatRoom_GetMessag"
+  "eReactionReactors_Request\022\025\n\rchat_group_"
+  "id\030\001 \001(\004\022\017\n\007chat_id\030\002 \001(\004\022\030\n\020server_time"
+  "stamp\030\003 \001(\r\022\017\n\007ordinal\030\004 \001(\r\022Z\n\rreaction"
+  "_type\030\005 \001(\0162\035.EChatRoomMessageReactionTy"
+  "pe:$EChatRoomMessageReactionType_Invalid"
+  "\022\020\n\010reaction\030\006 \001(\t\022\r\n\005limit\030\007 \001(\r\"A\n-CCh"
+  "atRoom_GetMessageReactionReactors_Respon"
+  "se\022\020\n\010reactors\030\001 \003(\r\"W\n*CClanChatRooms_G"
+  "etClanChatRoomInfo_Request\022\017\n\007steamid\030\001 "
+  "\001(\006\022\030\n\nautocreate\030\002 \001(\010:\004true\"v\n+CClanCh"
+  "atRooms_GetClanChatRoomInfo_Response\022G\n\022"
+  "chat_group_summary\030\001 \001(\0132+.CChatRoom_Get"
+  "ChatRoomGroupSummary_Response\"[\n-CClanCh"
+  "atRooms_SetClanChatRoomPrivate_Request\022\017"
+  "\n\007steamid\030\001 \001(\006\022\031\n\021chat_room_private\030\002 \001"
+  "(\010\"K\n.CClanChatRooms_SetClanChatRoomPriv"
+  "ate_Response\022\031\n\021chat_room_private\030\001 \001(\010\""
+  "V\n\rCChatMentions\022\023\n\013mention_all\030\001 \001(\010\022\024\n"
+  "\014mention_here\030\002 \001(\010\022\032\n\022mention_accountid"
+  "s\030\003 \003(\r\"\231\002\n*CChatRoom_IncomingChatMessag"
+  "e_Notification\022\025\n\rchat_group_id\030\001 \001(\004\022\017\n"
+  "\007chat_id\030\002 \001(\004\022\026\n\016steamid_sender\030\003 \001(\006\022\017"
+  "\n\007message\030\004 \001(\t\022\021\n\ttimestamp\030\005 \001(\r\022 \n\010me"
+  "ntions\030\006 \001(\0132\016.CChatMentions\022\017\n\007ordinal\030"
+  "\007 \001(\r\022&\n\016server_message\030\010 \001(\0132\016.ServerMe"
+  "ssage\022\031\n\021message_no_bbcode\030\t \001(\t\022\021\n\tchat"
+  "_name\030\n \001(\t\"\352\001\n*CChatRoom_ChatMessageMod"
+  "ified_Notification\022\025\n\rchat_group_id\030\001 \001("
+  "\004\022\017\n\007chat_id\030\002 \001(\004\022I\n\010messages\030\003 \003(\01327.C"
+  "ChatRoom_ChatMessageModified_Notificatio"
+  "n.ChatMessage\032I\n\013ChatMessage\022\030\n\020server_t"
+  "imestamp\030\001 \001(\r\022\017\n\007ordinal\030\002 \001(\r\022\017\n\007delet"
+  "ed\030\003 \001(\010\"\264\001\n(CChatRoom_MemberStateChange"
+  "_Notification\022\025\n\rchat_group_id\030\001 \001(\004\022 \n\006"
+  "member\030\002 \001(\0132\020.CChatRoomMember\022O\n\006change"
+  "\030\003 \001(\0162\033.EChatRoomMemberStateChange:\"ECh"
+  "atRoomMemberStateChange_Invalid\"^\n*CChat"
+  "Room_ChatRoomHeaderState_Notification\0220\n"
+  "\014header_state\030\001 \001(\0132\032.CChatRoomGroupHead"
+  "erState\"\206\001\n/CChatRoom_ChatRoomGroupRooms"
+  "Change_Notification\022\025\n\rchat_group_id\030\001 \001"
+  "(\004\022\027\n\017default_chat_id\030\002 \001(\004\022#\n\nchat_room"
+  "s\030\003 \003(\0132\017.CChatRoomState\"d\n:CChatRoom_No"
+  "tifyShouldRejoinChatRoomVoiceChat_Notifi"
+  "cation\022\017\n\007chat_id\030\001 \001(\004\022\025\n\rchat_group_id"
+  "\030\002 \001(\004\"\247\002\n;ChatRoomClient_NotifyChatGrou"
+  "pUserStateChanged_Notification\022\025\n\rchat_g"
+  "roup_id\030\001 \001(\004\0227\n\025user_chat_group_state\030\002"
+  " \001(\0132\030.CUserChatRoomGroupState\022B\n\rgroup_"
+  "summary\030\003 \001(\0132+.CChatRoom_GetChatRoomGro"
+  "upSummary_Response\022T\n\013user_action\030\004 \001(\0162"
   "\033.EChatRoomMemberStateChange:\"EChatRoomM"
-  "emberStateChange_Invalid\"^\n*CChatRoom_Ch"
-  "atRoomHeaderState_Notification\0220\n\014header"
-  "_state\030\001 \001(\0132\032.CChatRoomGroupHeaderState"
-  "\"\206\001\n/CChatRoom_ChatRoomGroupRoomsChange_"
-  "Notification\022\025\n\rchat_group_id\030\001 \001(\004\022\027\n\017d"
-  "efault_chat_id\030\002 \001(\004\022#\n\nchat_rooms\030\003 \003(\013"
-  "2\017.CChatRoomState\"d\n:CChatRoom_NotifySho"
-  "uldRejoinChatRoomVoiceChat_Notification\022"
-  "\017\n\007chat_id\030\001 \001(\004\022\025\n\rchat_group_id\030\002 \001(\004\""
-  "\247\002\n;ChatRoomClient_NotifyChatGroupUserSt"
-  "ateChanged_Notification\022\025\n\rchat_group_id"
-  "\030\001 \001(\004\0227\n\025user_chat_group_state\030\002 \001(\0132\030."
-  "CUserChatRoomGroupState\022B\n\rgroup_summary"
-  "\030\003 \001(\0132+.CChatRoom_GetChatRoomGroupSumma"
-  "ry_Response\022T\n\013user_action\030\004 \001(\0162\033.EChat"
-  "RoomMemberStateChange:\"EChatRoomMemberSt"
-  "ateChange_Invalid\"N\n4ChatRoomClient_Noti"
-  "fyChatRoomDisconnect_Notification\022\026\n\016cha"
-  "t_group_ids\030\001 \003(\004\"\224\002\n\027CChatRoomMemberLis"
-  "tView\022\r\n\005start\030\003 \001(\005\022\013\n\003end\030\004 \001(\005\022\023\n\013tot"
-  "al_count\030\005 \001(\005\022a\n\023client_changenumber\030\006 "
-  "\001(\005BD\202\265\030@Value sent by the client on the"
-  " last UpdateMemberListView call. \022e\n\023ser"
-  "ver_changenumber\030\007 \001(\005BH\202\265\030DValue increm"
-  "ented by the server on each MemberListVi"
-  "ewUpdated call. \"O\n\034CChatRoomMemberSumma"
-  "ryCounts\022\016\n\006ingame\030\001 \001(\005\022\016\n\006online\030\002 \001(\005"
-  "\022\017\n\007offline\030\003 \001(\005\"\217\004\n2CChatRoomClient_Me"
-  "mberListViewUpdated_Notification\022\025\n\rchat"
-  "_group_id\030\001 \001(\004\022M\n\007view_id\030\002 \001(\004B<\202\265\0308Th"
-  "ew view_id supplied when the client crea"
-  "ted the view. \022&\n\004view\030\003 \001(\0132\030.CChatRoom"
-  "MemberListView\022X\n\007members\030\004 \003(\0132G.CChatR"
-  "oomClient_MemberListViewUpdated_Notifica"
-  "tion.MemberListViewEntry\022\024\n\014status_flags"
-  "\030\005 \001(\r\0225\n\016member_summary\030\006 \001(\0132\035.CChatRo"
-  "omMemberSummaryCounts\022;\n\023subscribed_pers"
-  "onas\030\007 \003(\0132\036.CMsgClientPersonaState.Frie"
-  "nd\032g\n\023MemberListViewEntry\022\014\n\004rank\030\001 \001(\005\022"
-  "\021\n\taccountid\030\002 \001(\r\022/\n\007persona\030\003 \001(\0132\036.CM"
-  "sgClientPersonaState.Friend\"\212\002\n&CChatRoo"
-  "m_MessageReaction_Notification\022\025\n\rchat_g"
-  "roup_id\030\001 \001(\004\022\017\n\007chat_id\030\002 \001(\004\022\030\n\020server"
-  "_timestamp\030\003 \001(\r\022\017\n\007ordinal\030\004 \001(\r\022\017\n\007rea"
-  "ctor\030\005 \001(\006\022Z\n\rreaction_type\030\006 \001(\0162\035.ECha"
-  "tRoomMessageReactionType:$EChatRoomMessa"
-  "geReactionType_Invalid\022\020\n\010reaction\030\007 \001(\t"
-  "\022\016\n\006is_add\030\010 \001(\010\"\333\025\n2CChatUsability_Clie"
-  "ntUsabilityMetrics_Notification\022\026\n\016metri"
-  "cs_run_id\030\001 \001(\r\022\024\n\014client_build\030\002 \001(\r\022\027\n"
-  "\017metrics_version\030\003 \001(\r\022\016\n\006in_web\030\004 \001(\010\022N"
-  "\n\010settings\030\n \001(\0132<.CChatUsability_Client"
-  "UsabilityMetrics_Notification.Settings\022Y"
-  "\n\016voice_settings\030\013 \001(\0132A.CChatUsability_"
-  "ClientUsabilityMetrics_Notification.Voic"
-  "eSettings\022M\n\010ui_state\030\014 \001(\0132;.CChatUsabi"
-  "lity_ClientUsabilityMetrics_Notification"
-  ".UIState\022L\n\007metrics\030\r \001(\0132;.CChatUsabili"
-  "ty_ClientUsabilityMetrics_Notification.M"
-  "etrics\032\327\006\n\010Settings\022!\n\031notifications_sho"
-  "w_ingame\030\001 \001(\010\022!\n\031notifications_show_onl"
-  "ine\030\002 \001(\010\022\"\n\032notifications_show_message\030"
-  "\003 \001(\010\022.\n&notifications_events_and_announ"
-  "cements\030\004 \001(\010\022\032\n\022sounds_play_ingame\030\005 \001("
-  "\010\022\032\n\022sounds_play_online\030\006 \001(\010\022\033\n\023sounds_"
-  "play_message\030\007 \001(\010\022\'\n\037sounds_events_and_"
-  "announcements\030\010 \001(\010\022\036\n\026always_new_chat_w"
-  "indow\030\t \001(\010\022\'\n\037force_alphabetic_friend_s"
-  "orting\030\n \001(\010\022\027\n\017chat_flash_mode\030\013 \001(\005\022\033\n"
-  "\023remember_open_chats\030\014 \001(\010\022\032\n\022compact_qu"
-  "icaccess\030\r \001(\010\022\034\n\024compact_friends_list\030\016"
-  " \001(\010\0221\n)notifications_show_chat_room_not"
-  "ification\030\017 \001(\010\022*\n\"sounds_play_chat_room"
-  "_notification\030\020 \001(\010\022*\n\"hide_offline_frie"
-  "nds_in_tag_groups\030\021 \001(\010\022 \n\030hide_categori"
-  "zed_friends\030\022 \001(\010\022*\n\"categorize_in_game_"
-  "friends_by_game\030\023 \001(\010\022\026\n\016chat_font_size\030"
-  "\024 \001(\005\022\027\n\017use24hour_clock\030\025 \001(\010\022\033\n\023do_not"
-  "_disturb_mode\030\026 \001(\010\022\036\n\026disable_embed_inl"
-  "ining\030\027 \001(\010\022\031\n\021sign_into_friends\030\030 \001(\010\022\030"
-  "\n\020animated_avatars\030\031 \001(\010\032\350\002\n\rVoiceSettin"
-  "gs\022\030\n\020voice_input_gain\030\001 \001(\002\022\031\n\021voice_ou"
-  "tput_gain\030\002 \001(\002\022\030\n\020noise_gate_level\030\003 \001("
-  "\005\022#\n\033voice_use_echo_cancellation\030\004 \001(\010\022$"
-  "\n\034voice_use_noise_cancellation\030\005 \001(\010\022#\n\033"
-  "voice_use_auto_gain_control\030\006 \001(\010\022 \n\030sel"
-  "ected_non_default_mic\030\007 \001(\010\022#\n\033selected_"
-  "non_default_output\030\010 \001(\010\022\032\n\022push_to_tale"
-  "nabled\030\t \001(\010\022\034\n\024push_to_mute_enabled\030\n \001"
-  "(\010\022\027\n\017play_ptt_sounds\030\013 \001(\010\032\375\005\n\007UIState\022"
-  "\033\n\023friends_list_height\030\001 \001(\005\022\032\n\022friends_"
-  "list_width\030\002 \001(\005\022\033\n\023friends_list_docked\030"
-  "\003 \001(\010\022\036\n\026friends_list_collapsed\030\004 \001(\010\022\'\n"
-  "\037friends_list_group_chats_height\030\005 \001(\005\022\034"
-  "\n\024friends_list_visible\030\006 \001(\010\022\032\n\022chat_pop"
-  "ups_opened\030\007 \001(\005\022\036\n\026group_chat_tabs_open"
-  "ed\030\010 \001(\005\022\037\n\027friend_chat_tabs_opened\030\t \001("
-  "\005\022\031\n\021chat_window_width\030\n \001(\005\022\032\n\022chat_win"
-  "dow_height\030\013 \001(\005\022l\n\021category_collapse\030\014 "
-  "\001(\0132Q.CChatUsability_ClientUsabilityMetr"
-  "ics_Notification.UIState.CategoryCollaps"
-  "eState\022%\n\035group_chat_left_col_collapsed\030"
-  "\r \001(\005\022&\n\036group_chat_right_col_collapsed\030"
-  "\016 \001(\005\022 \n\030in_one_on_one_voice_chat\030\017 \001(\010\022"
-  "\033\n\023in_group_voice_chat\030\020 \001(\010\032\244\001\n\025Categor"
-  "yCollapseState\022\031\n\021in_game_collapsed\030\001 \001("
-  "\010\022\030\n\020online_collapsed\030\002 \001(\010\022\031\n\021offline_c"
-  "ollapsed\030\003 \001(\010\022\035\n\025game_groups_collapsed\030"
-  "\004 \001(\005\022\034\n\024categories_collapsed\030\005 \001(\005\032\300\002\n\007"
-  "Metrics\022\025\n\rfriends_count\030\001 \001(\005\022\036\n\026friend"
-  "s_category_count\030\002 \001(\005\022!\n\031friends_catego"
-  "rized_count\030\003 \001(\005\022\034\n\024friends_online_coun"
-  "t\030\004 \001(\005\022\035\n\025friends_in_game_count\030\005 \001(\005\022\'"
-  "\n\037friends_in_game_singleton_count\030\006 \001(\005\022"
-  "\030\n\020game_group_count\030\007 \001(\005\022\036\n\026friends_fav"
-  "orite_count\030\010 \001(\005\022\030\n\020group_chat_count\030\t "
-  "\001(\005\022!\n\031group_chat_favorite_count\030\n \001(\005\"S"
-  "\n9CChatUsability_RequestClientUsabilityM"
-  "etrics_Notification\022\026\n\016metrics_run_id\030\001 "
-  "\001(\r*\224\001\n\022EChatRoomJoinState\022\036\n\032EChatRoomJ"
-  "oinState_Default\020\000\022\033\n\027EChatRoomJoinState"
-  "_None\020\001\022\035\n\031EChatRoomJoinState_Joined\020\002\022\""
-  "\n\036EChatRoomJoinState_TestInvalid\020c*\204\002\n\022E"
-  "ChatRoomGroupRank\022\034\n\030EChatRoomGroupRanDe"
-  "fault\020\000\022\033\n\027EChatRoomGroupRanViewer\020\n\022\032\n\026"
-  "EChatRoomGroupRanGuest\020\017\022\033\n\027EChatRoomGro"
-  "upRanMember\020\024\022\036\n\032EChatRoomGroupRanModera"
-  "tor\020\036\022\034\n\030EChatRoomGroupRanOfficer\020(\022\032\n\026E"
-  "ChatRoomGroupRanOwner\0202\022 \n\034EChatRoomGrou"
-  "pRanTestInvalid\020c*\352\001\n\032EChatRoomNotificat"
-  "ionLevel\022&\n\"EChatroomNotificationLevel_I"
-  "nvalid\020\000\022#\n\037EChatroomNotificationLevel_N"
-  "one\020\001\022(\n$EChatroomNotificationLevel_Ment"
-  "ionMe\020\002\022)\n%EChatroomNotificationLevel_Me"
-  "ntionAll\020\003\022*\n&EChatroomNotificationLevel"
-  "_AllMessages\020\004*\203\003\n\026EChatRoomServerMessag"
-  "e\022\036\n\032EChatRoomServerMsg_Invalid\020\000\022%\n!ECh"
-  "atRoomServerMsg_RenameChatRoom\020\001\022\035\n\031ECha"
-  "tRoomServerMsg_Joined\020\002\022\035\n\031EChatRoomServ"
-  "erMsg_Parted\020\003\022\035\n\031EChatRoomServerMsg_Kic"
-  "ked\020\004\022\036\n\032EChatRoomServerMsg_Invited\020\005\022&\n"
-  "\"EChatRoomServerMsg_InviteDismissed\020\010\022-\n"
-  ")EChatRoomServerMsg_ChatRoomTaglineChang"
-  "ed\020\t\022,\n(EChatRoomServerMsg_ChatRoomAvata"
-  "rChanged\020\n\022 \n\034EChatRoomServerMsg_AppCust"
-  "om\020\013*\235\001\n\034EChatRoomMessageReactionType\022(\n"
-  "$EChatRoomMessageReactionType_Invalid\020\000\022"
-  ")\n%EChatRoomMessageReactionType_Emoticon"
-  "\020\001\022(\n$EChatRoomMessageReactionType_Stick"
-  "er\020\002*\267\003\n\032EChatRoomMemberStateChange\022&\n\"E"
-  "ChatRoomMemberStateChange_Invalid\020\000\022%\n!E"
-  "ChatRoomMemberStateChange_Joined\020\001\022%\n!EC"
-  "hatRoomMemberStateChange_Parted\020\002\022%\n!ECh"
-  "atRoomMemberStateChange_Kicked\020\003\022&\n\"ECha"
-  "tRoomMemberStateChange_Invited\020\004\022*\n&ECha"
-  "tRoomMemberStateChange_RankChanged\020\007\022.\n*"
-  "EChatRoomMemberStateChange_InviteDismiss"
-  "ed\020\010\022$\n EChatRoomMemberStateChange_Muted"
-  "\020\t\022%\n!EChatRoomMemberStateChange_Banned\020"
-  "\n\022+\n\'EChatRoomMemberStateChange_RolesCha"
-  "nged\020\0142\213\002\n\004Chat\022\347\001\n\032RequestFriendPersona"
-  "States\022).CChat_RequestFriendPersonaState"
-  "s_Request\032*.CChat_RequestFriendPersonaSt"
-  "ates_Response\"r\202\265\030nRequest to be notifie"
-  "d of online friend persona state informa"
-  "tion.  Responses sent via CMsgClientPers"
-  "onaState.\032\031\202\265\030\025Chat-related services2\257>\n"
-  "\010ChatRoom\022\243\001\n\023CreateChatRoomGroup\022&.CCha"
-  "tRoom_CreateChatRoomGroup_Request\032\'.CCha"
-  "tRoom_CreateChatRoomGroup_Response\";\202\265\0307"
-  "Create\'s a chat group that can contain o"
-  "ther chat rooms\022z\n\021SaveChatRoomGroup\022$.C"
-  "ChatRoom_SaveChatRoomGroup_Request\032%.CCh"
-  "atRoom_SaveChatRoomGroup_Response\"\030\202\265\030\024S"
-  "aves\'s a chat group\022\204\001\n\023RenameChatRoomGr"
-  "oup\022&.CChatRoom_RenameChatRoomGroup_Requ"
-  "est\032\'.CChatRoom_RenameChatRoomGroup_Resp"
-  "onse\"\034\202\265\030\030Rename a chat room group\022\231\001\n\027S"
-  "etChatRoomGroupTagline\022*.CChatRoom_SetCh"
-  "atRoomGroupTagline_Request\032+.CChatRoom_S"
-  "etChatRoomGroupTagline_Response\"%\202\265\030!Set"
-  " tagline for a chat room group\022\231\001\n\026SetCh"
-  "atRoomGroupAvatar\022).CChatRoom_SetChatRoo"
-  "mGroupAvatar_Request\032*.CChatRoom_SetChat"
-  "RoomGroupAvatar_Response\"(\202\265\030$Set avatar"
-  " SHA for a chat room group\022\313\001\n!SetChatRo"
-  "omGroupWatchingBroadcast\0224.CChatRoom_Set"
-  "ChatRoomGroupWatchingBroadcast_Request\0325"
+  "emberStateChange_Invalid\"N\n4ChatRoomClie"
+  "nt_NotifyChatRoomDisconnect_Notification"
+  "\022\026\n\016chat_group_ids\030\001 \003(\004\"\204\001\n\027CChatRoomMe"
+  "mberListView\022\r\n\005start\030\003 \001(\005\022\013\n\003end\030\004 \001(\005"
+  "\022\023\n\013total_count\030\005 \001(\005\022\033\n\023client_changenu"
+  "mber\030\006 \001(\005\022\033\n\023server_changenumber\030\007 \001(\005\""
+  "O\n\034CChatRoomMemberSummaryCounts\022\016\n\006ingam"
+  "e\030\001 \001(\005\022\016\n\006online\030\002 \001(\005\022\017\n\007offline\030\003 \001(\005"
+  "\"\321\003\n2CChatRoomClient_MemberListViewUpdat"
+  "ed_Notification\022\025\n\rchat_group_id\030\001 \001(\004\022\017"
+  "\n\007view_id\030\002 \001(\004\022&\n\004view\030\003 \001(\0132\030.CChatRoo"
+  "mMemberListView\022X\n\007members\030\004 \003(\0132G.CChat"
+  "RoomClient_MemberListViewUpdated_Notific"
+  "ation.MemberListViewEntry\022\024\n\014status_flag"
+  "s\030\005 \001(\r\0225\n\016member_summary\030\006 \001(\0132\035.CChatR"
+  "oomMemberSummaryCounts\022;\n\023subscribed_per"
+  "sonas\030\007 \003(\0132\036.CMsgClientPersonaState.Fri"
+  "end\032g\n\023MemberListViewEntry\022\014\n\004rank\030\001 \001(\005"
+  "\022\021\n\taccountid\030\002 \001(\r\022/\n\007persona\030\003 \001(\0132\036.C"
+  "MsgClientPersonaState.Friend\"\212\002\n&CChatRo"
+  "om_MessageReaction_Notification\022\025\n\rchat_"
+  "group_id\030\001 \001(\004\022\017\n\007chat_id\030\002 \001(\004\022\030\n\020serve"
+  "r_timestamp\030\003 \001(\r\022\017\n\007ordinal\030\004 \001(\r\022\017\n\007re"
+  "actor\030\005 \001(\006\022Z\n\rreaction_type\030\006 \001(\0162\035.ECh"
+  "atRoomMessageReactionType:$EChatRoomMess"
+  "ageReactionType_Invalid\022\020\n\010reaction\030\007 \001("
+  "\t\022\016\n\006is_add\030\010 \001(\010\"\333\025\n2CChatUsability_Cli"
+  "entUsabilityMetrics_Notification\022\026\n\016metr"
+  "ics_run_id\030\001 \001(\r\022\024\n\014client_build\030\002 \001(\r\022\027"
+  "\n\017metrics_version\030\003 \001(\r\022\016\n\006in_web\030\004 \001(\010\022"
+  "N\n\010settings\030\n \001(\0132<.CChatUsability_Clien"
+  "tUsabilityMetrics_Notification.Settings\022"
+  "Y\n\016voice_settings\030\013 \001(\0132A.CChatUsability"
+  "_ClientUsabilityMetrics_Notification.Voi"
+  "ceSettings\022M\n\010ui_state\030\014 \001(\0132;.CChatUsab"
+  "ility_ClientUsabilityMetrics_Notificatio"
+  "n.UIState\022L\n\007metrics\030\r \001(\0132;.CChatUsabil"
+  "ity_ClientUsabilityMetrics_Notification."
+  "Metrics\032\327\006\n\010Settings\022!\n\031notifications_sh"
+  "ow_ingame\030\001 \001(\010\022!\n\031notifications_show_on"
+  "line\030\002 \001(\010\022\"\n\032notifications_show_message"
+  "\030\003 \001(\010\022.\n&notifications_events_and_annou"
+  "ncements\030\004 \001(\010\022\032\n\022sounds_play_ingame\030\005 \001"
+  "(\010\022\032\n\022sounds_play_online\030\006 \001(\010\022\033\n\023sounds"
+  "_play_message\030\007 \001(\010\022\'\n\037sounds_events_and"
+  "_announcements\030\010 \001(\010\022\036\n\026always_new_chat_"
+  "window\030\t \001(\010\022\'\n\037force_alphabetic_friend_"
+  "sorting\030\n \001(\010\022\027\n\017chat_flash_mode\030\013 \001(\005\022\033"
+  "\n\023remember_open_chats\030\014 \001(\010\022\032\n\022compact_q"
+  "uicaccess\030\r \001(\010\022\034\n\024compact_friends_list\030"
+  "\016 \001(\010\0221\n)notifications_show_chat_room_no"
+  "tification\030\017 \001(\010\022*\n\"sounds_play_chat_roo"
+  "m_notification\030\020 \001(\010\022*\n\"hide_offline_fri"
+  "ends_in_tag_groups\030\021 \001(\010\022 \n\030hide_categor"
+  "ized_friends\030\022 \001(\010\022*\n\"categorize_in_game"
+  "_friends_by_game\030\023 \001(\010\022\026\n\016chat_font_size"
+  "\030\024 \001(\005\022\027\n\017use24hour_clock\030\025 \001(\010\022\033\n\023do_no"
+  "t_disturb_mode\030\026 \001(\010\022\036\n\026disable_embed_in"
+  "lining\030\027 \001(\010\022\031\n\021sign_into_friends\030\030 \001(\010\022"
+  "\030\n\020animated_avatars\030\031 \001(\010\032\350\002\n\rVoiceSetti"
+  "ngs\022\030\n\020voice_input_gain\030\001 \001(\002\022\031\n\021voice_o"
+  "utput_gain\030\002 \001(\002\022\030\n\020noise_gate_level\030\003 \001"
+  "(\005\022#\n\033voice_use_echo_cancellation\030\004 \001(\010\022"
+  "$\n\034voice_use_noise_cancellation\030\005 \001(\010\022#\n"
+  "\033voice_use_auto_gain_control\030\006 \001(\010\022 \n\030se"
+  "lected_non_default_mic\030\007 \001(\010\022#\n\033selected"
+  "_non_default_output\030\010 \001(\010\022\032\n\022push_to_tal"
+  "enabled\030\t \001(\010\022\034\n\024push_to_mute_enabled\030\n "
+  "\001(\010\022\027\n\017play_ptt_sounds\030\013 \001(\010\032\375\005\n\007UIState"
+  "\022\033\n\023friends_list_height\030\001 \001(\005\022\032\n\022friends"
+  "_list_width\030\002 \001(\005\022\033\n\023friends_list_docked"
+  "\030\003 \001(\010\022\036\n\026friends_list_collapsed\030\004 \001(\010\022\'"
+  "\n\037friends_list_group_chats_height\030\005 \001(\005\022"
+  "\034\n\024friends_list_visible\030\006 \001(\010\022\032\n\022chat_po"
+  "pups_opened\030\007 \001(\005\022\036\n\026group_chat_tabs_ope"
+  "ned\030\010 \001(\005\022\037\n\027friend_chat_tabs_opened\030\t \001"
+  "(\005\022\031\n\021chat_window_width\030\n \001(\005\022\032\n\022chat_wi"
+  "ndow_height\030\013 \001(\005\022l\n\021category_collapse\030\014"
+  " \001(\0132Q.CChatUsability_ClientUsabilityMet"
+  "rics_Notification.UIState.CategoryCollap"
+  "seState\022%\n\035group_chat_left_col_collapsed"
+  "\030\r \001(\005\022&\n\036group_chat_right_col_collapsed"
+  "\030\016 \001(\005\022 \n\030in_one_on_one_voice_chat\030\017 \001(\010"
+  "\022\033\n\023in_group_voice_chat\030\020 \001(\010\032\244\001\n\025Catego"
+  "ryCollapseState\022\031\n\021in_game_collapsed\030\001 \001"
+  "(\010\022\030\n\020online_collapsed\030\002 \001(\010\022\031\n\021offline_"
+  "collapsed\030\003 \001(\010\022\035\n\025game_groups_collapsed"
+  "\030\004 \001(\005\022\034\n\024categories_collapsed\030\005 \001(\005\032\300\002\n"
+  "\007Metrics\022\025\n\rfriends_count\030\001 \001(\005\022\036\n\026frien"
+  "ds_category_count\030\002 \001(\005\022!\n\031friends_categ"
+  "orized_count\030\003 \001(\005\022\034\n\024friends_online_cou"
+  "nt\030\004 \001(\005\022\035\n\025friends_in_game_count\030\005 \001(\005\022"
+  "\'\n\037friends_in_game_singleton_count\030\006 \001(\005"
+  "\022\030\n\020game_group_count\030\007 \001(\005\022\036\n\026friends_fa"
+  "vorite_count\030\010 \001(\005\022\030\n\020group_chat_count\030\t"
+  " \001(\005\022!\n\031group_chat_favorite_count\030\n \001(\005\""
+  "S\n9CChatUsability_RequestClientUsability"
+  "Metrics_Notification\022\026\n\016metrics_run_id\030\001"
+  " \001(\r*\224\001\n\022EChatRoomJoinState\022\036\n\032EChatRoom"
+  "JoinState_Default\020\000\022\033\n\027EChatRoomJoinStat"
+  "e_None\020\001\022\035\n\031EChatRoomJoinState_Joined\020\002\022"
+  "\"\n\036EChatRoomJoinState_TestInvalid\020c*\204\002\n\022"
+  "EChatRoomGroupRank\022\034\n\030EChatRoomGroupRanD"
+  "efault\020\000\022\033\n\027EChatRoomGroupRanViewer\020\n\022\032\n"
+  "\026EChatRoomGroupRanGuest\020\017\022\033\n\027EChatRoomGr"
+  "oupRanMember\020\024\022\036\n\032EChatRoomGroupRanModer"
+  "ator\020\036\022\034\n\030EChatRoomGroupRanOfficer\020(\022\032\n\026"
+  "EChatRoomGroupRanOwner\0202\022 \n\034EChatRoomGro"
+  "upRanTestInvalid\020c*\352\001\n\032EChatRoomNotifica"
+  "tionLevel\022&\n\"EChatroomNotificationLevel_"
+  "Invalid\020\000\022#\n\037EChatroomNotificationLevel_"
+  "None\020\001\022(\n$EChatroomNotificationLevel_Men"
+  "tionMe\020\002\022)\n%EChatroomNotificationLevel_M"
+  "entionAll\020\003\022*\n&EChatroomNotificationLeve"
+  "l_AllMessages\020\004*\203\003\n\026EChatRoomServerMessa"
+  "ge\022\036\n\032EChatRoomServerMsg_Invalid\020\000\022%\n!EC"
+  "hatRoomServerMsg_RenameChatRoom\020\001\022\035\n\031ECh"
+  "atRoomServerMsg_Joined\020\002\022\035\n\031EChatRoomSer"
+  "verMsg_Parted\020\003\022\035\n\031EChatRoomServerMsg_Ki"
+  "cked\020\004\022\036\n\032EChatRoomServerMsg_Invited\020\005\022&"
+  "\n\"EChatRoomServerMsg_InviteDismissed\020\010\022-"
+  "\n)EChatRoomServerMsg_ChatRoomTaglineChan"
+  "ged\020\t\022,\n(EChatRoomServerMsg_ChatRoomAvat"
+  "arChanged\020\n\022 \n\034EChatRoomServerMsg_AppCus"
+  "tom\020\013*\235\001\n\034EChatRoomMessageReactionType\022("
+  "\n$EChatRoomMessageReactionType_Invalid\020\000"
+  "\022)\n%EChatRoomMessageReactionType_Emotico"
+  "n\020\001\022(\n$EChatRoomMessageReactionType_Stic"
+  "ker\020\002*\267\003\n\032EChatRoomMemberStateChange\022&\n\""
+  "EChatRoomMemberStateChange_Invalid\020\000\022%\n!"
+  "EChatRoomMemberStateChange_Joined\020\001\022%\n!E"
+  "ChatRoomMemberStateChange_Parted\020\002\022%\n!EC"
+  "hatRoomMemberStateChange_Kicked\020\003\022&\n\"ECh"
+  "atRoomMemberStateChange_Invited\020\004\022*\n&ECh"
+  "atRoomMemberStateChange_RankChanged\020\007\022.\n"
+  "*EChatRoomMemberStateChange_InviteDismis"
+  "sed\020\010\022$\n EChatRoomMemberStateChange_Mute"
+  "d\020\t\022%\n!EChatRoomMemberStateChange_Banned"
+  "\020\n\022+\n\'EChatRoomMemberStateChange_RolesCh"
+  "anged\020\0142{\n\004Chat\022s\n\032RequestFriendPersonaS"
+  "tates\022).CChat_RequestFriendPersonaStates"
+  "_Request\032*.CChat_RequestFriendPersonaSta"
+  "tes_Response2\211)\n\010ChatRoom\022f\n\023CreateChatR"
+  "oomGroup\022&.CChatRoom_CreateChatRoomGroup"
+  "_Request\032\'.CChatRoom_CreateChatRoomGroup"
+  "_Response\022`\n\021SaveChatRoomGroup\022$.CChatRo"
+  "om_SaveChatRoomGroup_Request\032%.CChatRoom"
+  "_SaveChatRoomGroup_Response\022f\n\023RenameCha"
+  "tRoomGroup\022&.CChatRoom_RenameChatRoomGro"
+  "up_Request\032\'.CChatRoom_RenameChatRoomGro"
+  "up_Response\022r\n\027SetChatRoomGroupTagline\022*"
+  ".CChatRoom_SetChatRoomGroupTagline_Reque"
+  "st\032+.CChatRoom_SetChatRoomGroupTagline_R"
+  "esponse\022o\n\026SetChatRoomGroupAvatar\022).CCha"
+  "tRoom_SetChatRoomGroupAvatar_Request\032*.C"
+  "ChatRoom_SetChatRoomGroupAvatar_Response"
+  "\022\220\001\n!SetChatRoomGroupWatchingBroadcast\0224"
   ".CChatRoom_SetChatRoomGroupWatchingBroad"
-  "cast_Response\"9\202\265\0305Sets a broadcast that"
-  " the chat room group is watching\022\343\001\n\034Joi"
-  "nMiniGameForChatRoomGroup\022/.CChatRoom_Jo"
-  "inMiniGameForChatRoomGroup_Request\0320.CCh"
-  "atRoom_JoinMiniGameForChatRoomGroup_Resp"
-  "onse\"`\202\265\030\\Joins the minigame for the cha"
-  "t room group or starts a new one (Winter"
-  " 2019 sale party game)\022\254\001\n\033EndMiniGameFo"
-  "rChatRoomGroup\022..CChatRoom_EndMiniGameFo"
-  "rChatRoomGroup_Request\032/.CChatRoom_EndMi"
-  "niGameForChatRoomGroup_Response\",\202\265\030(End"
-  "s the minigame in the chat room group\022d\n"
-  "\017MuteUserInGroup\022\033.CChatRoom_MuteUser_Re"
-  "quest\032\034.CChatRoom_MuteUser_Response\"\026\202\265\030"
-  "\022Mute user in group\022h\n\021KickUserFromGroup"
-  "\022\033.CChatRoom_KickUser_Request\032\034.CChatRoo"
-  "m_KickUser_Response\"\030\202\265\030\024Kick user from "
-  "group\022y\n\017SetUserBanState\022\".CChatRoom_Set"
+  "cast_Request\0325.CChatRoom_SetChatRoomGrou"
+  "pWatchingBroadcast_Response\022\201\001\n\034JoinMini"
+  "GameForChatRoomGroup\022/.CChatRoom_JoinMin"
+  "iGameForChatRoomGroup_Request\0320.CChatRoo"
+  "m_JoinMiniGameForChatRoomGroup_Response\022"
+  "~\n\033EndMiniGameForChatRoomGroup\022..CChatRo"
+  "om_EndMiniGameForChatRoomGroup_Request\032/"
+  ".CChatRoom_EndMiniGameForChatRoomGroup_R"
+  "esponse\022L\n\017MuteUserInGroup\022\033.CChatRoom_M"
+  "uteUser_Request\032\034.CChatRoom_MuteUser_Res"
+  "ponse\022N\n\021KickUserFromGroup\022\033.CChatRoom_K"
+  "ickUser_Request\032\034.CChatRoom_KickUser_Res"
+  "ponse\022Z\n\017SetUserBanState\022\".CChatRoom_Set"
   "UserBanState_Request\032#.CChatRoom_SetUser"
-  "BanState_Response\"\035\202\265\030\031Ban/unban user fr"
-  "om group\022\202\001\n\023RevokeInviteToGroup\022\037.CChat"
-  "Room_RevokeInvite_Request\032 .CChatRoom_Re"
-  "vokeInvite_Response\"(\202\265\030$Revoke a direct"
-  " invitation of a user\022e\n\nCreateRole\022\035.CC"
-  "hatRoom_CreateRole_Request\032\036.CChatRoom_C"
-  "reateRole_Response\"\030\202\265\030\024Create role for "
-  "goup\022a\n\010GetRoles\022\033.CChatRoom_GetRoles_Re"
-  "quest\032\034.CChatRoom_GetRoles_Response\"\032\202\265\030"
-  "\026Get all roles in group\022e\n\nRenameRole\022\035."
-  "CChatRoom_RenameRole_Request\032\036.CChatRoom"
-  "_RenameRole_Response\"\030\202\265\030\024Rename role fo"
-  "r goup\022l\n\013ReorderRole\022\036.CChatRoom_Reorde"
-  "rRole_Request\032\037.CChatRoom_ReorderRole_Re"
-  "sponse\"\034\202\265\030\030Reorder role with a goup\022g\n\n"
-  "DeleteRole\022\035.CChatRoom_DeleteRole_Reques"
-  "t\032\036.CChatRoom_DeleteRole_Response\"\032\202\265\030\026D"
-  "elete role from group\022\207\001\n\016GetRoleActions"
-  "\022!.CChatRoom_GetRoleActions_Request\032\".CC"
-  "hatRoom_GetRoleActions_Response\".\202\265\030*Get"
-  " all defined roles and actions in group\022"
-  "\206\001\n\022ReplaceRoleActions\022%.CChatRoom_Repla"
-  "ceRoleActions_Request\032&.CChatRoom_Replac"
-  "eRoleActions_Response\"!\202\265\030\035Replace role "
-  "actions in group\022s\n\rAddRoleToUser\022 .CCha"
-  "tRoom_AddRoleToUser_Request\032!.CChatRoom_"
-  "AddRoleToUser_Response\"\035\202\265\030\031Add role to "
-  "user in group\022\207\001\n\017GetRolesForUser\022\".CCha"
-  "tRoom_GetRolesForUser_Request\032#.CChatRoo"
-  "m_GetRolesForUser_Response\"+\202\265\030\'Get all "
-  "roles assigned to user in group\022\207\001\n\022Dele"
-  "teRoleFromUser\022%.CChatRoom_DeleteRoleFro"
-  "mUser_Request\032&.CChatRoom_DeleteRoleFrom"
-  "User_Response\"\"\202\265\030\036Delete role from user"
-  " in group\022\201\001\n\021JoinChatRoomGroup\022$.CChatR"
-  "oom_JoinChatRoomGroup_Request\032%.CChatRoo"
-  "m_JoinChatRoomGroup_Response\"\037\202\265\030\033Join a"
-  " multi-user chat room\022\255\001\n\033InviteFriendTo"
-  "ChatRoomGroup\022..CChatRoom_InviteFriendTo"
-  "ChatRoomGroup_Request\032/.CChatRoom_Invite"
-  "FriendToChatRoomGroup_Response\"-\202\265\030)Invi"
-  "te a friend to a multi-user chat room\022\227\001"
-  "\n\022LeaveChatRoomGroup\022%.CChatRoom_LeaveCh"
-  "atRoomGroup_Request\032&.CChatRoom_LeaveCha"
-  "tRoomGroup_Response\"2\202\265\030.Leaves a chat r"
-  "oom group and all related chats\022\211\001\n\016Crea"
-  "teChatRoom\022!.CChatRoom_CreateChatRoom_Re"
-  "quest\032\".CChatRoom_CreateChatRoom_Respons"
-  "e\"0\202\265\030,Creates a chat room inside a chat"
-  " room group\022\211\001\n\016DeleteChatRoom\022!.CChatRo"
-  "om_DeleteChatRoom_Request\032\".CChatRoom_De"
-  "leteChatRoom_Response\"0\202\265\030,Deletes a cha"
-  "t room inside a chat room group\022\211\001\n\016Rena"
-  "meChatRoom\022!.CChatRoom_RenameChatRoom_Re"
-  "quest\032\".CChatRoom_RenameChatRoom_Respons"
-  "e\"0\202\265\030,Renames a chat room inside a chat"
-  " room group\022\215\001\n\017ReorderChatRoom\022\".CChatR"
-  "oom_ReorderChatRoom_Request\032#.CChatRoom_"
-  "ReorderChatRoom_Response\"1\202\265\030-Reorders a"
-  " chat room inside a chat room group\022\215\001\n\017"
-  "SendChatMessage\022\".CChatRoom_SendChatMess"
-  "age_Request\032#.CChatRoom_SendChatMessage_"
-  "Response\"1\202\265\030-Send a chat message to a m"
-  "ulti-user chat room\022\247\001\n\rJoinVoiceChat\022 ."
-  "CChatRoom_JoinVoiceChat_Request\032!.CChatR"
-  "oom_JoinVoiceChat_Response\"Q\202\265\030MJoin the"
-  " voice chat in a multi-room chat (should"
-  " already be in the chat room)\022\206\001\n\016LeaveV"
-  "oiceChat\022!.CChatRoom_LeaveVoiceChat_Requ"
-  "est\032\".CChatRoom_LeaveVoiceChat_Response\""
-  "-\202\265\030)Leave the voice chat in a multi-roo"
-  "m chat\022\303\001\n\021GetMessageHistory\022$.CChatRoom"
-  "_GetMessageHistory_Request\032%.CChatRoom_G"
-  "etMessageHistory_Response\"a\202\265\030]Get the h"
-  "istory of messages in a chat room.  You "
-  "must currently be a member of the chat r"
-  "oom.\022\210\001\n\023GetMyChatRoomGroups\022&.CChatRoom"
-  "_GetMyChatRoomGroups_Request\032\'.CChatRoom"
-  "_GetMyChatRoomGroups_Response\" \202\265\030\034Get a"
-  " list of our chat rooms\022\232\001\n\025GetChatRoomG"
-  "roupState\022(.CChatRoom_GetChatRoomGroupSt"
-  "ate_Request\032).CChatRoom_GetChatRoomGroup"
-  "State_Response\",\202\265\030(Get information abou"
-  "t a single chat room\022\245\001\n\027GetChatRoomGrou"
-  "pSummary\022*.CChatRoom_GetChatRoomGroupSum"
-  "mary_Request\032+.CChatRoom_GetChatRoomGrou"
-  "pSummary_Response\"1\202\265\030-Get basic informa"
-  "tion about a chat room group\022\323\001\n\036SetAppC"
-  "hatRoomGroupForceActive\0221.CChatRoom_SetA"
-  "ppChatRoomGroupForceActive_Request\0322.CCh"
-  "atRoom_SetAppChatRoomGroupForceActive_Re"
-  "sponse\"J\202\265\030FForce a group chat to be con"
-  "sidered active on the server for this us"
-  "er\022\323\001\n\"SetAppChatRoomGroupStopForceActiv"
-  "e\022:.CChatRoom_SetAppChatRoomGroupStopFor"
-  "ceActive_Notification\032\013.NoResponse\"d\202\265\030`"
-  "If a group chat is forced active (see Se"
-  "tAppChatRoomGroupForceActive), decrement"
-  " the force count\022\217\001\n\016AckChatMessage\022&.CC"
-  "hatRoom_AckChatMessage_Notification\032\013.No"
-  "Response\"H\202\265\030DAcknowledge that we have s"
-  "een the most recent chat message in a ch"
-  "at\022}\n\020CreateInviteLink\022!.CChatRoom_Creat"
-  "eInviteLinRequest\032\".CChatRoom_CreateInvi"
-  "teLinResponse\"\"\202\265\030\036Creates a chatroom in"
-  "vite link\022\220\001\n\021GetInviteLinkInfo\022$.CChatR"
-  "oom_GetInviteLinkInfo_Request\032%.CChatRoo"
-  "m_GetInviteLinkInfo_Response\".\202\265\030*Return"
-  "s chat room info about provided link\022\252\001\n"
-  "\rGetInviteInfo\022 .CChatRoom_GetInviteInfo"
-  "_Request\032!.CChatRoom_GetInviteInfo_Respo"
-  "nse\"T\202\265\030PReturns chat room info about an"
-  "y invite involving the sender and passed"
-  " group id\022\245\001\n\026GetInviteLinksForGroup\022).C"
-  "ChatRoom_GetInviteLinksForGroup_Request\032"
-  "*.CChatRoom_GetInviteLinksForGroup_Respo"
-  "nse\"4\202\265\0300Returns all invite links for th"
-  "e specified group\022\213\001\n\nGetBanList\022\035.CChat"
-  "Room_GetBanList_Request\032\036.CChatRoom_GetB"
-  "anList_Response\">\202\265\030:Gets a list of user"
-  "s who have been banned from a chat room\022"
-  "\223\001\n\rGetInviteList\022 .CChatRoom_GetInviteL"
-  "ist_Request\032!.CChatRoom_GetInviteList_Re"
-  "sponse\"=\202\265\0309Gets a list of users who hav"
-  "e been invited to a chat room\022|\n\020DeleteI"
-  "nviteLink\022!.CChatRoom_DeleteInviteLinReq"
-  "uest\032\".CChatRoom_DeleteInviteLinResponse"
-  "\"!\202\265\030\035Deletes specified invite link\022\304\001\n\036"
-  "SetSessionActiveChatRoomGroups\0221.CChatRo"
-  "om_SetSessionActiveChatRoomGroups_Reques"
-  "t\0322.CChatRoom_SetSessionActiveChatRoomGr"
-  "oups_Response\";\202\265\0307Set which chat rooms "
-  "we are using in the active session\022\271\001\n\033S"
-  "etUserChatGroupPreferences\022..CChatRoom_S"
-  "etUserChatGroupPreferences_Request\032/.CCh"
-  "atRoom_SetUserChatGroupPreferences_Respo"
-  "nse\"9\202\265\0305Set preferences around chat not"
-  "ifications for a group\022\210\001\n\022DeleteChatMes"
-  "sages\022%.CChatRoom_DeleteChatMessages_Req"
-  "uest\032&.CChatRoom_DeleteChatMessages_Resp"
-  "onse\"#\202\265\030\037Deletes specified chat message"
-  "s\022\232\001\n\024UpdateMemberListView\022,.CChatRoom_U"
-  "pdateMemberListView_Notification\032\013.NoRes"
-  "ponse\"G\202\265\030CA client is indicating it has"
-  " an active view into the members list.\022{"
-  "\n\rSearchMembers\022 .CChatRoom_SearchMember"
-  "s_Request\032!.CChatRoom_SearchMembers_Resp"
-  "onse\"%\202\265\030!Search chat room members by na"
-  "me.\022\245\001\n\025UpdateMessageReaction\022(.CChatRoo"
-  "m_UpdateMessageReaction_Request\032).CChatR"
-  "oom_UpdateMessageReaction_Response\"7\202\265\0303"
-  "Adds/removes a reaction to/from a chat r"
-  "oom message\022\264\001\n\032GetMessageReactionReacto"
-  "rs\022-.CChatRoom_GetMessageReactionReactor"
-  "s_Request\032..CChatRoom_GetMessageReaction"
-  "Reactors_Response\"7\202\265\0303Fetches a list of"
-  " reactors for a specified reaction\032B\202\265\030>"
-  "Service for joining, managing, and using"
-  " multi-user chat rooms2\256\003\n\rClanChatRooms"
-  "\022\270\001\n\023GetClanChatRoomInfo\022+.CClanChatRoom"
-  "s_GetClanChatRoomInfo_Request\032,.CClanCha"
-  "tRooms_GetClanChatRoomInfo_Response\"F\202\265\030"
-  "BGet a list of chat rooms for a clan, op"
-  "tionally creating a new one\022\262\001\n\026SetClanC"
-  "hatRoomPrivate\022..CClanChatRooms_SetClanC"
-  "hatRoomPrivate_Request\032/.CClanChatRooms_"
-  "SetClanChatRoomPrivate_Response\"7\202\265\0303Set"
-  " a clan chat room to be members only (or"
-  " public)\032-\202\265\030)Methods for getting clan c"
-  "hat information2\357\016\n\016ChatRoomClient\022{\n\031No"
-  "tifyIncomingChatMessage\022+.CChatRoom_Inco"
-  "mingChatMessage_Notification\032\013.NoRespons"
-  "e\"$\202\265\030 New chat message for a chat room\022"
-  "\224\001\n\031NotifyChatMessageModified\022+.CChatRoo"
-  "m_ChatMessageModified_Notification\032\013.NoR"
-  "esponse\"=\202\265\0309An existing chat message ha"
-  "s been modified on the backend\022\225\001\n\027Notif"
-  "yMemberStateChange\022).CChatRoom_MemberSta"
-  "teChange_Notification\032\013.NoResponse\"B\202\265\030>"
-  "A chat room member\'s state has changed ("
-  "join/part/permissions)\022\210\001\n\037NotifyChatRoo"
-  "mHeaderStateChange\022+.CChatRoom_ChatRoomH"
-  "eaderState_Notification\032\013.NoResponse\"+\202\265"
-  "\030\'Chat Room header / metadata has change"
-  "d\022\246\001\n\036NotifyChatRoomGroupRoomsChange\0220.C"
-  "ChatRoom_ChatRoomGroupRoomsChange_Notifi"
-  "cation\032\013.NoResponse\"E\202\265\030ASomething about"
-  " a chatroom group changed (created, dele"
-  "ted, etc.)\022\325\001\n#NotifyShouldRejoinChatRoo"
-  "mVoiceChat\022;.CChatRoom_NotifyShouldRejoi"
-  "nChatRoomVoiceChat_Notification\032\013.NoResp"
-  "onse\"d\202\265\030`Voice chat was recreated or dr"
-  "opped on the backend and client needs to"
-  " rejoin to remain in chat.\022\263\001\n\037NotifyCha"
-  "tGroupUserStateChanged\022<.ChatRoomClient_"
-  "NotifyChatGroupUserStateChanged_Notifica"
-  "tion\032\013.NoResponse\"E\202\265\030AUser chat group s"
-  "tate (preferences, ack state, etc) have "
-  "changed.\022\217\001\n\030NotifyAckChatMessageEcho\022&."
-  "CChatRoom_AckChatMessage_Notification\032\013."
-  "NoResponse\">\202\265\030:A session acked an unrea"
-  "d message, echo to other sessions.\022\355\001\n\030N"
-  "otifyChatRoomDisconnect\0225.ChatRoomClient"
-  "_NotifyChatRoomDisconnect_Notification\032\013"
-  ".NoResponse\"\214\001\202\265\030\207\001The ChatRoom server h"
-  "osting the chat rooms has reconnected to"
-  " the user\'s Chat server (may have restar"
-  "ted), client should refresh state.\022\325\001\n\033N"
-  "otifyMemberListViewUpdated\0223.CChatRoomCl"
-  "ient_MemberListViewUpdated_Notification\032"
-  "\013.NoResponse\"t\202\265\030pThe list of members fo"
-  "r a chat room with virtualized member li"
-  "st has changed on the server (or client "
-  "requested)\022g\n\025NotifyMessageReaction\022\'.CC"
+  "BanState_Response\022X\n\023RevokeInviteToGroup"
+  "\022\037.CChatRoom_RevokeInvite_Request\032 .CCha"
+  "tRoom_RevokeInvite_Response\022K\n\nCreateRol"
+  "e\022\035.CChatRoom_CreateRole_Request\032\036.CChat"
+  "Room_CreateRole_Response\022E\n\010GetRoles\022\033.C"
+  "ChatRoom_GetRoles_Request\032\034.CChatRoom_Ge"
+  "tRoles_Response\022K\n\nRenameRole\022\035.CChatRoo"
+  "m_RenameRole_Request\032\036.CChatRoom_RenameR"
+  "ole_Response\022N\n\013ReorderRole\022\036.CChatRoom_"
+  "ReorderRole_Request\032\037.CChatRoom_ReorderR"
+  "ole_Response\022K\n\nDeleteRole\022\035.CChatRoom_D"
+  "eleteRole_Request\032\036.CChatRoom_DeleteRole"
+  "_Response\022W\n\016GetRoleActions\022!.CChatRoom_"
+  "GetRoleActions_Request\032\".CChatRoom_GetRo"
+  "leActions_Response\022c\n\022ReplaceRoleActions"
+  "\022%.CChatRoom_ReplaceRoleActions_Request\032"
+  "&.CChatRoom_ReplaceRoleActions_Response\022"
+  "T\n\rAddRoleToUser\022 .CChatRoom_AddRoleToUs"
+  "er_Request\032!.CChatRoom_AddRoleToUser_Res"
+  "ponse\022Z\n\017GetRolesForUser\022\".CChatRoom_Get"
+  "RolesForUser_Request\032#.CChatRoom_GetRole"
+  "sForUser_Response\022c\n\022DeleteRoleFromUser\022"
+  "%.CChatRoom_DeleteRoleFromUser_Request\032&"
+  ".CChatRoom_DeleteRoleFromUser_Response\022`"
+  "\n\021JoinChatRoomGroup\022$.CChatRoom_JoinChat"
+  "RoomGroup_Request\032%.CChatRoom_JoinChatRo"
+  "omGroup_Response\022~\n\033InviteFriendToChatRo"
+  "omGroup\022..CChatRoom_InviteFriendToChatRo"
+  "omGroup_Request\032/.CChatRoom_InviteFriend"
+  "ToChatRoomGroup_Response\022c\n\022LeaveChatRoo"
+  "mGroup\022%.CChatRoom_LeaveChatRoomGroup_Re"
+  "quest\032&.CChatRoom_LeaveChatRoomGroup_Res"
+  "ponse\022W\n\016CreateChatRoom\022!.CChatRoom_Crea"
+  "teChatRoom_Request\032\".CChatRoom_CreateCha"
+  "tRoom_Response\022W\n\016DeleteChatRoom\022!.CChat"
+  "Room_DeleteChatRoom_Request\032\".CChatRoom_"
+  "DeleteChatRoom_Response\022W\n\016RenameChatRoo"
+  "m\022!.CChatRoom_RenameChatRoom_Request\032\".C"
+  "ChatRoom_RenameChatRoom_Response\022Z\n\017Reor"
+  "derChatRoom\022\".CChatRoom_ReorderChatRoom_"
+  "Request\032#.CChatRoom_ReorderChatRoom_Resp"
+  "onse\022Z\n\017SendChatMessage\022\".CChatRoom_Send"
+  "ChatMessage_Request\032#.CChatRoom_SendChat"
+  "Message_Response\022T\n\rJoinVoiceChat\022 .CCha"
+  "tRoom_JoinVoiceChat_Request\032!.CChatRoom_"
+  "JoinVoiceChat_Response\022W\n\016LeaveVoiceChat"
+  "\022!.CChatRoom_LeaveVoiceChat_Request\032\".CC"
+  "hatRoom_LeaveVoiceChat_Response\022`\n\021GetMe"
+  "ssageHistory\022$.CChatRoom_GetMessageHisto"
+  "ry_Request\032%.CChatRoom_GetMessageHistory"
+  "_Response\022f\n\023GetMyChatRoomGroups\022&.CChat"
+  "Room_GetMyChatRoomGroups_Request\032\'.CChat"
+  "Room_GetMyChatRoomGroups_Response\022l\n\025Get"
+  "ChatRoomGroupState\022(.CChatRoom_GetChatRo"
+  "omGroupState_Request\032).CChatRoom_GetChat"
+  "RoomGroupState_Response\022r\n\027GetChatRoomGr"
+  "oupSummary\022*.CChatRoom_GetChatRoomGroupS"
+  "ummary_Request\032+.CChatRoom_GetChatRoomGr"
+  "oupSummary_Response\022\207\001\n\036SetAppChatRoomGr"
+  "oupForceActive\0221.CChatRoom_SetAppChatRoo"
+  "mGroupForceActive_Request\0322.CChatRoom_Se"
+  "tAppChatRoomGroupForceActive_Response\022m\n"
+  "\"SetAppChatRoomGroupStopForceActive\022:.CC"
+  "hatRoom_SetAppChatRoomGroupStopForceActi"
+  "ve_Notification\032\013.NoResponse\022E\n\016AckChatM"
+  "essage\022&.CChatRoom_AckChatMessage_Notifi"
+  "cation\032\013.NoResponse\022Y\n\020CreateInviteLink\022"
+  "!.CChatRoom_CreateInviteLinRequest\032\".CCh"
+  "atRoom_CreateInviteLinResponse\022`\n\021GetInv"
+  "iteLinkInfo\022$.CChatRoom_GetInviteLinkInf"
+  "o_Request\032%.CChatRoom_GetInviteLinkInfo_"
+  "Response\022T\n\rGetInviteInfo\022 .CChatRoom_Ge"
+  "tInviteInfo_Request\032!.CChatRoom_GetInvit"
+  "eInfo_Response\022o\n\026GetInviteLinksForGroup"
+  "\022).CChatRoom_GetInviteLinksForGroup_Requ"
+  "est\032*.CChatRoom_GetInviteLinksForGroup_R"
+  "esponse\022K\n\nGetBanList\022\035.CChatRoom_GetBan"
+  "List_Request\032\036.CChatRoom_GetBanList_Resp"
+  "onse\022T\n\rGetInviteList\022 .CChatRoom_GetInv"
+  "iteList_Request\032!.CChatRoom_GetInviteLis"
+  "t_Response\022Y\n\020DeleteInviteLink\022!.CChatRo"
+  "om_DeleteInviteLinRequest\032\".CChatRoom_De"
+  "leteInviteLinResponse\022\207\001\n\036SetSessionActi"
+  "veChatRoomGroups\0221.CChatRoom_SetSessionA"
+  "ctiveChatRoomGroups_Request\0322.CChatRoom_"
+  "SetSessionActiveChatRoomGroups_Response\022"
+  "~\n\033SetUserChatGroupPreferences\022..CChatRo"
+  "om_SetUserChatGroupPreferences_Request\032/"
+  ".CChatRoom_SetUserChatGroupPreferences_R"
+  "esponse\022c\n\022DeleteChatMessages\022%.CChatRoo"
+  "m_DeleteChatMessages_Request\032&.CChatRoom"
+  "_DeleteChatMessages_Response\022Q\n\024UpdateMe"
+  "mberListView\022,.CChatRoom_UpdateMemberLis"
+  "tView_Notification\032\013.NoResponse\022T\n\rSearc"
+  "hMembers\022 .CChatRoom_SearchMembers_Reque"
+  "st\032!.CChatRoom_SearchMembers_Response\022l\n"
+  "\025UpdateMessageReaction\022(.CChatRoom_Updat"
+  "eMessageReaction_Request\032).CChatRoom_Upd"
+  "ateMessageReaction_Response\022{\n\032GetMessag"
+  "eReactionReactors\022-.CChatRoom_GetMessage"
+  "ReactionReactors_Request\032..CChatRoom_Get"
+  "MessageReactionReactors_Response2\374\001\n\rCla"
+  "nChatRooms\022p\n\023GetClanChatRoomInfo\022+.CCla"
+  "nChatRooms_GetClanChatRoomInfo_Request\032,"
+  ".CClanChatRooms_GetClanChatRoomInfo_Resp"
+  "onse\022y\n\026SetClanChatRoomPrivate\022..CClanCh"
+  "atRooms_SetClanChatRoomPrivate_Request\032/"
+  ".CClanChatRooms_SetClanChatRoomPrivate_R"
+  "esponse2\225\010\n\016ChatRoomClient\022U\n\031NotifyInco"
+  "mingChatMessage\022+.CChatRoom_IncomingChat"
+  "Message_Notification\032\013.NoResponse\022U\n\031Not"
+  "ifyChatMessageModified\022+.CChatRoom_ChatM"
+  "essageModified_Notification\032\013.NoResponse"
+  "\022Q\n\027NotifyMemberStateChange\022).CChatRoom_"
+  "MemberStateChange_Notification\032\013.NoRespo"
+  "nse\022[\n\037NotifyChatRoomHeaderStateChange\022+"
+  ".CChatRoom_ChatRoomHeaderState_Notificat"
+  "ion\032\013.NoResponse\022_\n\036NotifyChatRoomGroupR"
+  "oomsChange\0220.CChatRoom_ChatRoomGroupRoom"
+  "sChange_Notification\032\013.NoResponse\022o\n#Not"
+  "ifyShouldRejoinChatRoomVoiceChat\022;.CChat"
+  "Room_NotifyShouldRejoinChatRoomVoiceChat"
+  "_Notification\032\013.NoResponse\022l\n\037NotifyChat"
+  "GroupUserStateChanged\022<.ChatRoomClient_N"
+  "otifyChatGroupUserStateChanged_Notificat"
+  "ion\032\013.NoResponse\022O\n\030NotifyAckChatMessage"
+  "Echo\022&.CChatRoom_AckChatMessage_Notifica"
+  "tion\032\013.NoResponse\022^\n\030NotifyChatRoomDisco"
+  "nnect\0225.ChatRoomClient_NotifyChatRoomDis"
+  "connect_Notification\032\013.NoResponse\022_\n\033Not"
+  "ifyMemberListViewUpdated\0223.CChatRoomClie"
+  "nt_MemberListViewUpdated_Notification\032\013."
+  "NoResponse\022M\n\025NotifyMessageReaction\022\'.CC"
   "hatRoom_MessageReaction_Notification\032\013.N"
-  "oResponse\"\030\202\265\030\024New message reaction\032,\202\265\030"
-  "$Client notifications for chat events\300\265\030"
-  "\0022\302\001\n\rChatUsability\022\206\001\n\034NotifyClientUsab"
-  "ilityMetrics\0223.CChatUsability_ClientUsab"
-  "ilityMetrics_Notification\032\013.NoResponse\"$"
-  "\202\265\030 Incoming metrics from the client\032(\202\265"
-  "\030$Client notifications for chat events2\342"
-  "\001\n\023ChatUsabilityClient\022\231\001\n#NotifyRequest"
-  "ClientUsabilityMetrics\022:.CChatUsability_"
-  "RequestClientUsabilityMetrics_Notificati"
-  "on\032\013.NoResponse\")\202\265\030%Request client send"
-  " usability metrics\032/\202\265\030\'Client notificat"
-  "ions for chat usability\300\265\030\002B\035\200\001\001\252\002\027OpenS"
-  "teamworks.Protobuf"
+  "oResponse\032\004\300\265\030\0022q\n\rChatUsability\022`\n\034Noti"
+  "fyClientUsabilityMetrics\0223.CChatUsabilit"
+  "y_ClientUsabilityMetrics_Notification\032\013."
+  "NoResponse2\213\001\n\023ChatUsabilityClient\022n\n#No"
+  "tifyRequestClientUsabilityMetrics\022:.CCha"
+  "tUsability_RequestClientUsabilityMetrics"
+  "_Notification\032\013.NoResponse\032\004\300\265\030\002B\035\200\001\001\252\002\027"
+  "OpenSteamworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fchat_2esteamclient_2eproto_deps[4] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
@@ -4987,7 +4864,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fchat_2esteamclient_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fchat_2esteamclient_2eproto = {
-  false, false, 33378, descriptor_table_protodef_steammessages_5fchat_2esteamclient_2eproto, "steammessages_chat.steamclient.proto", 
+  false, false, 28463, descriptor_table_protodef_steammessages_5fchat_2esteamclient_2eproto, "steammessages_chat.steamclient.proto", 
   &descriptor_table_steammessages_5fchat_2esteamclient_2eproto_once, descriptor_table_steammessages_5fchat_2esteamclient_2eproto_deps, 4, 151,
   schemas, file_default_instances, TableStruct_steammessages_5fchat_2esteamclient_2eproto::offsets,
   file_level_metadata_steammessages_5fchat_2esteamclient_2eproto, file_level_enum_descriptors_steammessages_5fchat_2esteamclient_2eproto, file_level_service_descriptors_steammessages_5fchat_2esteamclient_2eproto,
@@ -32921,7 +32798,7 @@ const char* CChatRoom_SetSessionActiveChatRoomGroups_Request::_InternalParse(con
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional int32 virtualize_members_threshold = 3 [(.description) = "If a chat room has more members than this threshold, we will opt in to a virtualized list"];
+      // optional int32 virtualize_members_threshold = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           _Internal::set_has_virtualize_members_threshold(&has_bits);
@@ -32971,7 +32848,7 @@ failure:
   }
 
   cached_has_bits = _has_bits_[0];
-  // optional int32 virtualize_members_threshold = 3 [(.description) = "If a chat room has more members than this threshold, we will opt in to a virtualized list"];
+  // optional int32 virtualize_members_threshold = 3;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(3, this->_internal_virtualize_members_threshold(), target);
@@ -33011,7 +32888,7 @@ size_t CChatRoom_SetSessionActiveChatRoomGroups_Request::ByteSizeLong() const {
     total_size += data_size;
   }
 
-  // optional int32 virtualize_members_threshold = 3 [(.description) = "If a chat room has more members than this threshold, we will opt in to a virtualized list"];
+  // optional int32 virtualize_members_threshold = 3;
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += 1 +
@@ -35150,7 +35027,7 @@ const char* CChatRoom_UpdateMemberListView_Notification::_InternalParse(const ch
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint64 view_id = 2 [(.description) = "Client-generated ID.  Should send the same value on all requests for the same view"];
+      // optional uint64 view_id = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_view_id(&has_bits);
@@ -35174,7 +35051,7 @@ const char* CChatRoom_UpdateMemberListView_Notification::_InternalParse(const ch
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional int32 client_changenumber = 5 [(.description) = "Any updates from this call on will have this changenumber present.  Can be used to guarantee in-order updates."];
+      // optional int32 client_changenumber = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
           _Internal::set_has_client_changenumber(&has_bits);
@@ -35182,7 +35059,7 @@ const char* CChatRoom_UpdateMemberListView_Notification::_InternalParse(const ch
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool delete_view = 6 [(.description) = "Indicates this view has been deleted."];
+      // optional bool delete_view = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
           _Internal::set_has_delete_view(&has_bits);
@@ -35256,7 +35133,7 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_chat_group_id(), target);
   }
 
-  // optional uint64 view_id = 2 [(.description) = "Client-generated ID.  Should send the same value on all requests for the same view"];
+  // optional uint64 view_id = 2;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(2, this->_internal_view_id(), target);
@@ -35274,13 +35151,13 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(4, this->_internal_end(), target);
   }
 
-  // optional int32 client_changenumber = 5 [(.description) = "Any updates from this call on will have this changenumber present.  Can be used to guarantee in-order updates."];
+  // optional int32 client_changenumber = 5;
   if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(5, this->_internal_client_changenumber(), target);
   }
 
-  // optional bool delete_view = 6 [(.description) = "Indicates this view has been deleted."];
+  // optional bool delete_view = 6;
   if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(6, this->_internal_delete_view(), target);
@@ -35341,7 +35218,7 @@ size_t CChatRoom_UpdateMemberListView_Notification::ByteSizeLong() const {
           this->_internal_chat_group_id());
     }
 
-    // optional uint64 view_id = 2 [(.description) = "Client-generated ID.  Should send the same value on all requests for the same view"];
+    // optional uint64 view_id = 2;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
@@ -35362,14 +35239,14 @@ size_t CChatRoom_UpdateMemberListView_Notification::ByteSizeLong() const {
           this->_internal_end());
     }
 
-    // optional int32 client_changenumber = 5 [(.description) = "Any updates from this call on will have this changenumber present.  Can be used to guarantee in-order updates."];
+    // optional int32 client_changenumber = 5;
     if (cached_has_bits & 0x00000010u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
           this->_internal_client_changenumber());
     }
 
-    // optional bool delete_view = 6 [(.description) = "Indicates this view has been deleted."];
+    // optional bool delete_view = 6;
     if (cached_has_bits & 0x00000020u) {
       total_size += 1 + 1;
     }
@@ -35573,7 +35450,7 @@ const char* CChatRoom_SearchMembers_Request::_InternalParse(const char* ptr, ::P
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint64 search_id = 2 [(.description) = "Client-supplied id.  For find-as-you-type searches, as search narrows the server will not return persona states previously returned for a given searchid."];
+      // optional uint64 search_id = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_search_id(&has_bits);
@@ -35636,7 +35513,7 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_chat_group_id(), target);
   }
 
-  // optional uint64 search_id = 2 [(.description) = "Client-supplied id.  For find-as-you-type searches, as search narrows the server will not return persona states previously returned for a given searchid."];
+  // optional uint64 search_id = 2;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(2, this->_internal_search_id(), target);
@@ -35690,7 +35567,7 @@ size_t CChatRoom_SearchMembers_Request::ByteSizeLong() const {
           this->_internal_chat_group_id());
     }
 
-    // optional uint64 search_id = 2 [(.description) = "Client-supplied id.  For find-as-you-type searches, as search narrows the server will not return persona states previously returned for a given searchid."];
+    // optional uint64 search_id = 2;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
@@ -37579,7 +37456,7 @@ const char* CClanChatRooms_GetClanChatRoomInfo_Request::_InternalParse(const cha
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
         } else goto handle_unusual;
         continue;
-      // optional bool autocreate = 2 [default = true, (.description) = "Create a default chat room if none has been created before."];
+      // optional bool autocreate = 2 [default = true];
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_autocreate(&has_bits);
@@ -37623,7 +37500,7 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_steamid(), target);
   }
 
-  // optional bool autocreate = 2 [default = true, (.description) = "Create a default chat room if none has been created before."];
+  // optional bool autocreate = 2 [default = true];
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(2, this->_internal_autocreate(), target);
@@ -37652,7 +37529,7 @@ size_t CClanChatRooms_GetClanChatRoomInfo_Request::ByteSizeLong() const {
       total_size += 1 + 8;
     }
 
-    // optional bool autocreate = 2 [default = true, (.description) = "Create a default chat room if none has been created before."];
+    // optional bool autocreate = 2 [default = true];
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 + 1;
     }
@@ -38916,7 +38793,7 @@ const char* CChatRoom_IncomingChatMessage_Notification::_InternalParse(const cha
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string chat_name = 10 [(.description) = "A name to use for the chat, intended for notifications"];
+      // optional string chat_name = 10;
       case 10:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 82)) {
           auto str = _internal_mutable_chat_name();
@@ -39023,7 +38900,7 @@ failure:
         9, this->_internal_message_no_bbcode(), target);
   }
 
-  // optional string chat_name = 10 [(.description) = "A name to use for the chat, intended for notifications"];
+  // optional string chat_name = 10;
   if (cached_has_bits & 0x00000004u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_chat_name().data(), static_cast<int>(this->_internal_chat_name().length()),
@@ -39065,7 +38942,7 @@ size_t CChatRoom_IncomingChatMessage_Notification::ByteSizeLong() const {
           this->_internal_message_no_bbcode());
     }
 
-    // optional string chat_name = 10 [(.description) = "A name to use for the chat, intended for notifications"];
+    // optional string chat_name = 10;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
@@ -41478,7 +41355,7 @@ const char* CChatRoomMemberListView::_InternalParse(const char* ptr, ::PROTOBUF_
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional int32 client_changenumber = 6 [(.description) = "Value sent by the client on the last UpdateMemberListView call. "];
+      // optional int32 client_changenumber = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
           _Internal::set_has_client_changenumber(&has_bits);
@@ -41486,7 +41363,7 @@ const char* CChatRoomMemberListView::_InternalParse(const char* ptr, ::PROTOBUF_
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional int32 server_changenumber = 7 [(.description) = "Value incremented by the server on each MemberListViewUpdated call. "];
+      // optional int32 server_changenumber = 7;
       case 7:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 56)) {
           _Internal::set_has_server_changenumber(&has_bits);
@@ -41542,13 +41419,13 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(5, this->_internal_total_count(), target);
   }
 
-  // optional int32 client_changenumber = 6 [(.description) = "Value sent by the client on the last UpdateMemberListView call. "];
+  // optional int32 client_changenumber = 6;
   if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(6, this->_internal_client_changenumber(), target);
   }
 
-  // optional int32 server_changenumber = 7 [(.description) = "Value incremented by the server on each MemberListViewUpdated call. "];
+  // optional int32 server_changenumber = 7;
   if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(7, this->_internal_server_changenumber(), target);
@@ -41593,14 +41470,14 @@ size_t CChatRoomMemberListView::ByteSizeLong() const {
           this->_internal_total_count());
     }
 
-    // optional int32 client_changenumber = 6 [(.description) = "Value sent by the client on the last UpdateMemberListView call. "];
+    // optional int32 client_changenumber = 6;
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
           this->_internal_client_changenumber());
     }
 
-    // optional int32 server_changenumber = 7 [(.description) = "Value incremented by the server on each MemberListViewUpdated call. "];
+    // optional int32 server_changenumber = 7;
     if (cached_has_bits & 0x00000010u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
@@ -42405,7 +42282,7 @@ const char* CChatRoomClient_MemberListViewUpdated_Notification::_InternalParse(c
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint64 view_id = 2 [(.description) = "Thew view_id supplied when the client created the view. "];
+      // optional uint64 view_id = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_view_id(&has_bits);
@@ -42495,7 +42372,7 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_chat_group_id(), target);
   }
 
-  // optional uint64 view_id = 2 [(.description) = "Thew view_id supplied when the client created the view. "];
+  // optional uint64 view_id = 2;
   if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(2, this->_internal_view_id(), target);
@@ -42592,7 +42469,7 @@ size_t CChatRoomClient_MemberListViewUpdated_Notification::ByteSizeLong() const 
           this->_internal_chat_group_id());
     }
 
-    // optional uint64 view_id = 2 [(.description) = "Thew view_id supplied when the client created the view. "];
+    // optional uint64 view_id = 2;
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(

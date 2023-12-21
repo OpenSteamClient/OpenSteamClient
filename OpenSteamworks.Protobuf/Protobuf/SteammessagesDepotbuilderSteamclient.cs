@@ -65,31 +65,23 @@ namespace OpenSteamworks.Protobuf {
             "dEJ1aWxkZXJfU2lnbkluc3RhbGxTY3JpcHRfUmVxdWVzdBINCgVhcHBpZBgB",
             "IAEoDRIPCgdkZXBvdGlkGAIgASgNEhYKDmluc3RhbGxfc2NyaXB0GAMgASgJ",
             "IksKKkNDb250ZW50QnVpbGRlcl9TaWduSW5zdGFsbFNjcmlwdF9SZXNwb25z",
-            "ZRIdChVzaWduZWRfaW5zdGFsbF9zY3JpcHQYASABKAkykggKDkNvbnRlbnRC",
-            "dWlsZGVyEpgBCg5Jbml0RGVwb3RCdWlsZBInLkNDb250ZW50QnVpbGRlcl9J",
-            "bml0RGVwb3RCdWlsZF9SZXF1ZXN0GiguQ0NvbnRlbnRCdWlsZGVyX0luaXRE",
-            "ZXBvdEJ1aWxkX1Jlc3BvbnNlIjOCtRgvR2V0IGluaXRhbCBwYXJhbWV0ZXJz",
-            "IHRvIHN0YXJ0IGJ1aWxkaW5nIGEgZGVwb3QSngEKEFN0YXJ0RGVwb3RVcGxv",
-            "YWQSKS5DQ29udGVudEJ1aWxkZXJfU3RhcnREZXBvdFVwbG9hZF9SZXF1ZXN0",
-            "GiouQ0NvbnRlbnRCdWlsZGVyX1N0YXJ0RGVwb3RVcGxvYWRfUmVzcG9uc2Ui",
-            "M4K1GC9TdGFydCB1cGxvYWRpbmcgbWFuaWZlc3QgYW5kIGNodW5rcyBmb3Ig",
-            "YSBkZXBvdBKpAQoVR2V0TWlzc2luZ0RlcG90Q2h1bmtzEi4uQ0NvbnRlbnRC",
-            "dWlsZGVyX0dldE1pc3NpbmdEZXBvdENodW5rc19SZXF1ZXN0Gi8uQ0NvbnRl",
-            "bnRCdWlsZGVyX0dldE1pc3NpbmdEZXBvdENodW5rc19SZXNwb25zZSIvgrUY",
-            "K0dldCBsaXN0IG9mIG1pc3NpbmcgY2h1bmtzIGZvciBkZXBvdCB1cGxvYWQS",
-            "sQEKEUZpbmlzaERlcG90VXBsb2FkEiouQ0NvbnRlbnRCdWlsZGVyX0Zpbmlz",
-            "aERlcG90VXBsb2FkX1JlcXVlc3QaKy5DQ29udGVudEJ1aWxkZXJfRmluaXNo",
-            "RGVwb3RVcGxvYWRfUmVzcG9uc2UiQ4K1GD9Db21taXQgYSBkZXBvdCBidWls",
-            "ZCBhZnRlciBtYW5pZmVzdCBhbmQgYWxsIGNodW5rcyBhcmUgdXBsb2FkZWQS",
-            "pwEKDkNvbW1pdEFwcEJ1aWxkEicuQ0NvbnRlbnRCdWlsZGVyX0NvbW1pdEFw",
-            "cEJ1aWxkX1JlcXVlc3QaKC5DQ29udGVudEJ1aWxkZXJfQ29tbWl0QXBwQnVp",
-            "bGRfUmVzcG9uc2UiQoK1GD5Db21iaW5lIHByZXZpb3VzIGRlcG90IHVwbG9h",
-            "ZHMgaW50byBhbiBhcHAgYnVpbGQgYW5kIGNvbW1pdCBpdBKIAQoRU2lnbklu",
-            "c3RhbGxTY3JpcHQSKi5DQ29udGVudEJ1aWxkZXJfU2lnbkluc3RhbGxTY3Jp",
-            "cHRfUmVxdWVzdBorLkNDb250ZW50QnVpbGRlcl9TaWduSW5zdGFsbFNjcmlw",
-            "dF9SZXNwb25zZSIagrUYFlNpZ24gYW4gaW5zdGFsbCBzY3JpcHQaL4K1GCtJ",
-            "bnRlcmZhY2UgdG8gYnVpbGQgYW5kIHVwbG9hZCBkZXBvdCBjb250ZW50Qh2A",
-            "AQGqAhdPcGVuU3RlYW13b3Jrcy5Qcm90b2J1Zg=="));
+            "ZRIdChVzaWduZWRfaW5zdGFsbF9zY3JpcHQYASABKAkymwUKDkNvbnRlbnRC",
+            "dWlsZGVyEmMKDkluaXREZXBvdEJ1aWxkEicuQ0NvbnRlbnRCdWlsZGVyX0lu",
+            "aXREZXBvdEJ1aWxkX1JlcXVlc3QaKC5DQ29udGVudEJ1aWxkZXJfSW5pdERl",
+            "cG90QnVpbGRfUmVzcG9uc2USaQoQU3RhcnREZXBvdFVwbG9hZBIpLkNDb250",
+            "ZW50QnVpbGRlcl9TdGFydERlcG90VXBsb2FkX1JlcXVlc3QaKi5DQ29udGVu",
+            "dEJ1aWxkZXJfU3RhcnREZXBvdFVwbG9hZF9SZXNwb25zZRJ4ChVHZXRNaXNz",
+            "aW5nRGVwb3RDaHVua3MSLi5DQ29udGVudEJ1aWxkZXJfR2V0TWlzc2luZ0Rl",
+            "cG90Q2h1bmtzX1JlcXVlc3QaLy5DQ29udGVudEJ1aWxkZXJfR2V0TWlzc2lu",
+            "Z0RlcG90Q2h1bmtzX1Jlc3BvbnNlEmwKEUZpbmlzaERlcG90VXBsb2FkEiou",
+            "Q0NvbnRlbnRCdWlsZGVyX0ZpbmlzaERlcG90VXBsb2FkX1JlcXVlc3QaKy5D",
+            "Q29udGVudEJ1aWxkZXJfRmluaXNoRGVwb3RVcGxvYWRfUmVzcG9uc2USYwoO",
+            "Q29tbWl0QXBwQnVpbGQSJy5DQ29udGVudEJ1aWxkZXJfQ29tbWl0QXBwQnVp",
+            "bGRfUmVxdWVzdBooLkNDb250ZW50QnVpbGRlcl9Db21taXRBcHBCdWlsZF9S",
+            "ZXNwb25zZRJsChFTaWduSW5zdGFsbFNjcmlwdBIqLkNDb250ZW50QnVpbGRl",
+            "cl9TaWduSW5zdGFsbFNjcmlwdF9SZXF1ZXN0GisuQ0NvbnRlbnRCdWlsZGVy",
+            "X1NpZ25JbnN0YWxsU2NyaXB0X1Jlc3BvbnNlQh2AAQGqAhdPcGVuU3RlYW13",
+            "b3Jrcy5Qcm90b2J1Zg=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.Reflection.DescriptorReflection.Descriptor, global::OpenSteamworks.Protobuf.SteammessagesBaseReflection.Descriptor, global::OpenSteamworks.Protobuf.SteammessagesUnifiedBaseSteamclientReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -111,6 +103,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
   #region Messages
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CContentBuilder_InitDepotBuild_Request : pb::IMessage<CContentBuilder_InitDepotBuild_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -524,6 +517,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CContentBuilder_InitDepotBuild_Response : pb::IMessage<CContentBuilder_InitDepotBuild_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1247,6 +1241,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CContentBuilder_StartDepotUpload_Request : pb::IMessage<CContentBuilder_StartDepotUpload_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1713,6 +1708,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CContentBuilder_StartDepotUpload_Response : pb::IMessage<CContentBuilder_StartDepotUpload_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1919,6 +1915,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CContentBuilder_GetMissingDepotChunks_Request : pb::IMessage<CContentBuilder_GetMissingDepotChunks_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2177,6 +2174,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CContentBuilder_GetMissingDepotChunks_Response : pb::IMessage<CContentBuilder_GetMissingDepotChunks_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2464,6 +2462,7 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static partial class Types {
+      [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
       public sealed partial class Chunks : pb::IMessage<Chunks>
       #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
           , pb::IBufferMessage
@@ -2672,6 +2671,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CContentBuilder_FinishDepotUpload_Request : pb::IMessage<CContentBuilder_FinishDepotUpload_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2930,6 +2930,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CContentBuilder_FinishDepotUpload_Response : pb::IMessage<CContentBuilder_FinishDepotUpload_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -3188,6 +3189,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CContentBuilder_CommitAppBuild_Request : pb::IMessage<CContentBuilder_CommitAppBuild_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -3525,6 +3527,7 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static partial class Types {
+      [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
       public sealed partial class Depots : pb::IMessage<Depots>
       #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
           , pb::IBufferMessage
@@ -3788,6 +3791,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CContentBuilder_CommitAppBuild_Response : pb::IMessage<CContentBuilder_CommitAppBuild_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -3994,6 +3998,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CContentBuilder_SignInstallScript_Request : pb::IMessage<CContentBuilder_SignInstallScript_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -4303,6 +4308,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CContentBuilder_SignInstallScript_Response : pb::IMessage<CContentBuilder_SignInstallScript_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage

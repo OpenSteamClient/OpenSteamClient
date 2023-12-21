@@ -32,102 +32,101 @@ namespace OpenSteamworks.Protobuf.WebUI {
             "EhMKC3NlcnZlcl90aW1lGAUgASgEEhQKDGFjY291bnRfbmFtZRgGIAEoCRIR",
             "Cgl0b2tlbl9naWQYByABKAkSFwoPaWRlbnRpdHlfc2VjcmV0GAggASgMEhAK",
             "CHNlY3JldF8xGAkgASgMEg4KBnN0YXR1cxgKIAEoBRIZChFzdGVhbWd1YXJk",
-            "X3NjaGVtZRgLIAEoDRIPCgdzdGVhbWlkGAwgASgGIuABCiNDVHdvRmFjdG9y",
+            "X3NjaGVtZRgLIAEoDRIPCgdzdGVhbWlkGAwgASgGIsoBCiNDVHdvRmFjdG9y",
             "X0FkZEF1dGhlbnRpY2F0b3JfUmVxdWVzdBIPCgdzdGVhbWlkGAEgASgGEhoK",
             "EmF1dGhlbnRpY2F0b3JfdGltZRgCIAEoBBIVCg1zZXJpYWxfbnVtYmVyGAMg",
             "ASgGEhoKEmF1dGhlbnRpY2F0b3JfdHlwZRgEIAEoDRIZChFkZXZpY2VfaWRl",
-            "bnRpZmllchgFIAEoCRIUCgxzbXNfcGhvbmVfaWQYBiABKAkSFAoMaHR0cF9o",
-            "ZWFkZXJzGAcgAygJEhIKB3ZlcnNpb24YCCABKA06ATEipAIKJENUd29GYWN0",
-            "b3JfQWRkQXV0aGVudGljYXRvcl9SZXNwb25zZRIVCg1zaGFyZWRfc2VjcmV0",
-            "GAEgASgMEhUKDXNlcmlhbF9udW1iZXIYAiABKAYSFwoPcmV2b2NhdGlvbl9j",
-            "b2RlGAMgASgJEgsKA3VyaRgEIAEoCRITCgtzZXJ2ZXJfdGltZRgFIAEoBBIU",
-            "CgxhY2NvdW50X25hbWUYBiABKAkSEQoJdG9rZW5fZ2lkGAcgASgJEhcKD2lk",
-            "ZW50aXR5X3NlY3JldBgIIAEoDBIQCghzZWNyZXRfMRgJIAEoDBIOCgZzdGF0",
-            "dXMYCiABKAUSGQoRcGhvbmVfbnVtYmVyX2hpbnQYCyABKAkSFAoMY29uZmly",
-            "bV90eXBlGAwgASgFIjkKKENUd29GYWN0b3JfQ3JlYXRlRW1lcmdlbmN5Q29k",
-            "ZXNfUmVzcG9uc2USDQoFY29kZXMYASADKAkiKwopQ1R3b0ZhY3Rvcl9EZXN0",
-            "cm95RW1lcmdlbmN5Q29kZXNfUmVzcG9uc2UiwAEKK0NUd29GYWN0b3JfRmlu",
-            "YWxpemVBZGRBdXRoZW50aWNhdG9yX1JlcXVlc3QSDwoHc3RlYW1pZBgBIAEo",
-            "BhIaChJhdXRoZW50aWNhdG9yX2NvZGUYAiABKAkSGgoSYXV0aGVudGljYXRv",
-            "cl90aW1lGAMgASgEEhcKD2FjdGl2YXRpb25fY29kZRgEIAEoCRIUCgxodHRw",
-            "X2hlYWRlcnMYBSADKAkSGQoRdmFsaWRhdGVfc21zX2NvZGUYBiABKAgidwos",
-            "Q1R3b0ZhY3Rvcl9GaW5hbGl6ZUFkZEF1dGhlbnRpY2F0b3JfUmVzcG9uc2US",
-            "DwoHc3VjY2VzcxgBIAEoCBIRCgl3YW50X21vcmUYAiABKAgSEwoLc2VydmVy",
-            "X3RpbWUYAyABKAQSDgoGc3RhdHVzGAQgASgFIp4BCiZDVHdvRmFjdG9yX1Jl",
-            "bW92ZUF1dGhlbnRpY2F0b3JfUmVxdWVzdBIXCg9yZXZvY2F0aW9uX2NvZGUY",
-            "AiABKAkSGQoRcmV2b2NhdGlvbl9yZWFzb24YBSABKA0SGQoRc3RlYW1ndWFy",
-            "ZF9zY2hlbWUYBiABKA0SJQodcmVtb3ZlX2FsbF9zdGVhbWd1YXJkX2Nvb2tp",
-            "ZXMYByABKAgidgonQ1R3b0ZhY3Rvcl9SZW1vdmVBdXRoZW50aWNhdG9yX1Jl",
-            "c3BvbnNlEg8KB3N1Y2Nlc3MYASABKAgSEwoLc2VydmVyX3RpbWUYAyABKAQS",
-            "JQodcmV2b2NhdGlvbl9hdHRlbXB0c19yZW1haW5pbmcYBSABKA0ifgo6Q1R3",
-            "b0ZhY3Rvcl9SZW1vdmVBdXRoZW50aWNhdG9yVmlhQ2hhbGxlbmdlQ29udGlu",
-            "dWVfUmVxdWVzdBIQCghzbXNfY29kZRgBIAEoCRIaChJnZW5lcmF0ZV9uZXdf",
-            "dG9rZW4YAiABKAgSEgoHdmVyc2lvbhgDIAEoDToBMSKmAQo7Q1R3b0ZhY3Rv",
-            "cl9SZW1vdmVBdXRoZW50aWNhdG9yVmlhQ2hhbGxlbmdlQ29udGludWVfUmVz",
-            "cG9uc2USDwoHc3VjY2VzcxgBIAEoCBJWChFyZXBsYWNlbWVudF90b2tlbhgC",
-            "IAEoCzI7LkNSZW1vdmVBdXRoZW50aWNhdG9yVmlhQ2hhbGxlbmdlQ29udGlu",
-            "dWVfUmVwbGFjZW1lbnRfVG9rZW4iOQo3Q1R3b0ZhY3Rvcl9SZW1vdmVBdXRo",
-            "ZW50aWNhdG9yVmlhQ2hhbGxlbmdlU3RhcnRfUmVxdWVzdCJLCjhDVHdvRmFj",
-            "dG9yX1JlbW92ZUF1dGhlbnRpY2F0b3JWaWFDaGFsbGVuZ2VTdGFydF9SZXNw",
-            "b25zZRIPCgdzdWNjZXNzGAEgASgIImQKHENUd29GYWN0b3JfU2VuZEVtYWls",
-            "X1JlcXVlc3QSDwoHc3RlYW1pZBgBIAEoBhISCgplbWFpbF90eXBlGAIgASgN",
-            "Eh8KF2luY2x1ZGVfYWN0aXZhdGlvbl9jb2RlGAMgASgIIh8KHUNUd29GYWN0",
-            "b3JfU2VuZEVtYWlsX1Jlc3BvbnNlIiwKGUNUd29GYWN0b3JfU3RhdHVzX1Jl",
-            "cXVlc3QSDwoHc3RlYW1pZBgBIAEoBiKNAwoaQ1R3b0ZhY3Rvcl9TdGF0dXNf",
-            "UmVzcG9uc2USDQoFc3RhdGUYASABKA0SGwoTaW5hY3RpdmF0aW9uX3JlYXNv",
-            "bhgCIAEoDRIaChJhdXRoZW50aWNhdG9yX3R5cGUYAyABKA0SHQoVYXV0aGVu",
-            "dGljYXRvcl9hbGxvd2VkGAQgASgIEhkKEXN0ZWFtZ3VhcmRfc2NoZW1lGAUg",
-            "ASgNEhEKCXRva2VuX2dpZBgGIAEoCRIXCg9lbWFpbF92YWxpZGF0ZWQYByAB",
-            "KAgSGQoRZGV2aWNlX2lkZW50aWZpZXIYCCABKAkSFAoMdGltZV9jcmVhdGVk",
-            "GAkgASgNEiUKHXJldm9jYXRpb25fYXR0ZW1wdHNfcmVtYWluaW5nGAogASgN",
-            "EhgKEGNsYXNzaWZpZWRfYWdlbnQYCyABKAkSJAocYWxsb3dfZXh0ZXJuYWxf",
-            "YXV0aGVudGljYXRvchgMIAEoCBIYChB0aW1lX3RyYW5zZmVycmVkGA0gASgN",
-            "Eg8KB3ZlcnNpb24YDiABKA0iLgoXQ1R3b0ZhY3Rvcl9UaW1lX1JlcXVlc3QS",
-            "EwoLc2VuZGVyX3RpbWUYASABKAQipQIKGENUd29GYWN0b3JfVGltZV9SZXNw",
-            "b25zZRITCgtzZXJ2ZXJfdGltZRgBIAEoBBIeChZza2V3X3RvbGVyYW5jZV9z",
-            "ZWNvbmRzGAIgASgEEhcKD2xhcmdlX3RpbWVfamluaxgDIAEoBBIfChdwcm9i",
-            "ZV9mcmVxdWVuY3lfc2Vjb25kcxgEIAEoDRItCiVhZGp1c3RlZF90aW1lX3By",
-            "b2JlX2ZyZXF1ZW5jeV9zZWNvbmRzGAUgASgNEiQKHGhpbnRfcHJvYmVfZnJl",
-            "cXVlbmN5X3NlY29uZHMYBiABKA0SFAoMc3luY190aW1lb3V0GAcgASgNEhkK",
-            "EXRyeV9hZ2Fpbl9zZWNvbmRzGAggASgNEhQKDG1heF9hdHRlbXB0cxgJIAEo",
-            "DSJcCiVDVHdvRmFjdG9yX1VwZGF0ZVRva2VuVmVyc2lvbl9SZXF1ZXN0Eg8K",
-            "B3N0ZWFtaWQYASABKAYSDwoHdmVyc2lvbhgCIAEoDRIRCglzaWduYXR1cmUY",
-            "AyABKAwiKAomQ1R3b0ZhY3Rvcl9VcGRhdGVUb2tlblZlcnNpb25fUmVzcG9u",
-            "c2UiMgohQ1R3b0ZhY3Rvcl9WYWxpZGF0ZVRva2VuX1Jlc3BvbnNlEg0KBXZh",
-            "bGlkGAEgASgIMsEJCglUd29GYWN0b3ISXwoQQWRkQXV0aGVudGljYXRvchIk",
-            "LkNUd29GYWN0b3JfQWRkQXV0aGVudGljYXRvcl9SZXF1ZXN0GiUuQ1R3b0Zh",
-            "Y3Rvcl9BZGRBdXRoZW50aWNhdG9yX1Jlc3BvbnNlElIKFENyZWF0ZUVtZXJn",
-            "ZW5jeUNvZGVzEg8uTm90SW1wbGVtZW50ZWQaKS5DVHdvRmFjdG9yX0NyZWF0",
-            "ZUVtZXJnZW5jeUNvZGVzX1Jlc3BvbnNlElQKFURlc3Ryb3lFbWVyZ2VuY3lD",
-            "b2RlcxIPLk5vdEltcGxlbWVudGVkGiouQ1R3b0ZhY3Rvcl9EZXN0cm95RW1l",
-            "cmdlbmN5Q29kZXNfUmVzcG9uc2USdwoYRmluYWxpemVBZGRBdXRoZW50aWNh",
-            "dG9yEiwuQ1R3b0ZhY3Rvcl9GaW5hbGl6ZUFkZEF1dGhlbnRpY2F0b3JfUmVx",
-            "dWVzdBotLkNUd29GYWN0b3JfRmluYWxpemVBZGRBdXRoZW50aWNhdG9yX1Jl",
-            "c3BvbnNlEkYKC1F1ZXJ5U3RhdHVzEhouQ1R3b0ZhY3Rvcl9TdGF0dXNfUmVx",
-            "dWVzdBobLkNUd29GYWN0b3JfU3RhdHVzX1Jlc3BvbnNlEkAKCVF1ZXJ5VGlt",
-            "ZRIYLkNUd29GYWN0b3JfVGltZV9SZXF1ZXN0GhkuQ1R3b0ZhY3Rvcl9UaW1l",
-            "X1Jlc3BvbnNlEmgKE1JlbW92ZUF1dGhlbnRpY2F0b3ISJy5DVHdvRmFjdG9y",
-            "X1JlbW92ZUF1dGhlbnRpY2F0b3JfUmVxdWVzdBooLkNUd29GYWN0b3JfUmVt",
-            "b3ZlQXV0aGVudGljYXRvcl9SZXNwb25zZRKkAQonUmVtb3ZlQXV0aGVudGlj",
-            "YXRvclZpYUNoYWxsZW5nZUNvbnRpbnVlEjsuQ1R3b0ZhY3Rvcl9SZW1vdmVB",
-            "dXRoZW50aWNhdG9yVmlhQ2hhbGxlbmdlQ29udGludWVfUmVxdWVzdBo8LkNU",
-            "d29GYWN0b3JfUmVtb3ZlQXV0aGVudGljYXRvclZpYUNoYWxsZW5nZUNvbnRp",
-            "bnVlX1Jlc3BvbnNlEpsBCiRSZW1vdmVBdXRoZW50aWNhdG9yVmlhQ2hhbGxl",
-            "bmdlU3RhcnQSOC5DVHdvRmFjdG9yX1JlbW92ZUF1dGhlbnRpY2F0b3JWaWFD",
-            "aGFsbGVuZ2VTdGFydF9SZXF1ZXN0GjkuQ1R3b0ZhY3Rvcl9SZW1vdmVBdXRo",
-            "ZW50aWNhdG9yVmlhQ2hhbGxlbmdlU3RhcnRfUmVzcG9uc2USSgoJU2VuZEVt",
-            "YWlsEh0uQ1R3b0ZhY3Rvcl9TZW5kRW1haWxfUmVxdWVzdBoeLkNUd29GYWN0",
-            "b3JfU2VuZEVtYWlsX1Jlc3BvbnNlEmUKElVwZGF0ZVRva2VuVmVyc2lvbhIm",
-            "LkNUd29GYWN0b3JfVXBkYXRlVG9rZW5WZXJzaW9uX1JlcXVlc3QaJy5DVHdv",
-            "RmFjdG9yX1VwZGF0ZVRva2VuVmVyc2lvbl9SZXNwb25zZRJECg1WYWxpZGF0",
-            "ZVRva2VuEg8uTm90SW1wbGVtZW50ZWQaIi5DVHdvRmFjdG9yX1ZhbGlkYXRl",
-            "VG9rZW5fUmVzcG9uc2VCIKoCHU9wZW5TdGVhbXdvcmtzLlByb3RvYnVmLldl",
-            "YlVJ"));
+            "bnRpZmllchgFIAEoCRIUCgxodHRwX2hlYWRlcnMYByADKAkSEgoHdmVyc2lv",
+            "bhgIIAEoDToBMSKkAgokQ1R3b0ZhY3Rvcl9BZGRBdXRoZW50aWNhdG9yX1Jl",
+            "c3BvbnNlEhUKDXNoYXJlZF9zZWNyZXQYASABKAwSFQoNc2VyaWFsX251bWJl",
+            "chgCIAEoBhIXCg9yZXZvY2F0aW9uX2NvZGUYAyABKAkSCwoDdXJpGAQgASgJ",
+            "EhMKC3NlcnZlcl90aW1lGAUgASgEEhQKDGFjY291bnRfbmFtZRgGIAEoCRIR",
+            "Cgl0b2tlbl9naWQYByABKAkSFwoPaWRlbnRpdHlfc2VjcmV0GAggASgMEhAK",
+            "CHNlY3JldF8xGAkgASgMEg4KBnN0YXR1cxgKIAEoBRIZChFwaG9uZV9udW1i",
+            "ZXJfaGludBgLIAEoCRIUCgxjb25maXJtX3R5cGUYDCABKAUiOQooQ1R3b0Zh",
+            "Y3Rvcl9DcmVhdGVFbWVyZ2VuY3lDb2Rlc19SZXNwb25zZRINCgVjb2RlcxgB",
+            "IAMoCSIrCilDVHdvRmFjdG9yX0Rlc3Ryb3lFbWVyZ2VuY3lDb2Rlc19SZXNw",
+            "b25zZSLAAQorQ1R3b0ZhY3Rvcl9GaW5hbGl6ZUFkZEF1dGhlbnRpY2F0b3Jf",
+            "UmVxdWVzdBIPCgdzdGVhbWlkGAEgASgGEhoKEmF1dGhlbnRpY2F0b3JfY29k",
+            "ZRgCIAEoCRIaChJhdXRoZW50aWNhdG9yX3RpbWUYAyABKAQSFwoPYWN0aXZh",
+            "dGlvbl9jb2RlGAQgASgJEhQKDGh0dHBfaGVhZGVycxgFIAMoCRIZChF2YWxp",
+            "ZGF0ZV9zbXNfY29kZRgGIAEoCCJ3CixDVHdvRmFjdG9yX0ZpbmFsaXplQWRk",
+            "QXV0aGVudGljYXRvcl9SZXNwb25zZRIPCgdzdWNjZXNzGAEgASgIEhEKCXdh",
+            "bnRfbW9yZRgCIAEoCBITCgtzZXJ2ZXJfdGltZRgDIAEoBBIOCgZzdGF0dXMY",
+            "BCABKAUingEKJkNUd29GYWN0b3JfUmVtb3ZlQXV0aGVudGljYXRvcl9SZXF1",
+            "ZXN0EhcKD3Jldm9jYXRpb25fY29kZRgCIAEoCRIZChFyZXZvY2F0aW9uX3Jl",
+            "YXNvbhgFIAEoDRIZChFzdGVhbWd1YXJkX3NjaGVtZRgGIAEoDRIlCh1yZW1v",
+            "dmVfYWxsX3N0ZWFtZ3VhcmRfY29va2llcxgHIAEoCCJ2CidDVHdvRmFjdG9y",
+            "X1JlbW92ZUF1dGhlbnRpY2F0b3JfUmVzcG9uc2USDwoHc3VjY2VzcxgBIAEo",
+            "CBITCgtzZXJ2ZXJfdGltZRgDIAEoBBIlCh1yZXZvY2F0aW9uX2F0dGVtcHRz",
+            "X3JlbWFpbmluZxgFIAEoDSJ+CjpDVHdvRmFjdG9yX1JlbW92ZUF1dGhlbnRp",
+            "Y2F0b3JWaWFDaGFsbGVuZ2VDb250aW51ZV9SZXF1ZXN0EhAKCHNtc19jb2Rl",
+            "GAEgASgJEhoKEmdlbmVyYXRlX25ld190b2tlbhgCIAEoCBISCgd2ZXJzaW9u",
+            "GAMgASgNOgExIqYBCjtDVHdvRmFjdG9yX1JlbW92ZUF1dGhlbnRpY2F0b3JW",
+            "aWFDaGFsbGVuZ2VDb250aW51ZV9SZXNwb25zZRIPCgdzdWNjZXNzGAEgASgI",
+            "ElYKEXJlcGxhY2VtZW50X3Rva2VuGAIgASgLMjsuQ1JlbW92ZUF1dGhlbnRp",
+            "Y2F0b3JWaWFDaGFsbGVuZ2VDb250aW51ZV9SZXBsYWNlbWVudF9Ub2tlbiI5",
+            "CjdDVHdvRmFjdG9yX1JlbW92ZUF1dGhlbnRpY2F0b3JWaWFDaGFsbGVuZ2VT",
+            "dGFydF9SZXF1ZXN0IksKOENUd29GYWN0b3JfUmVtb3ZlQXV0aGVudGljYXRv",
+            "clZpYUNoYWxsZW5nZVN0YXJ0X1Jlc3BvbnNlEg8KB3N1Y2Nlc3MYASABKAgi",
+            "ZAocQ1R3b0ZhY3Rvcl9TZW5kRW1haWxfUmVxdWVzdBIPCgdzdGVhbWlkGAEg",
+            "ASgGEhIKCmVtYWlsX3R5cGUYAiABKA0SHwoXaW5jbHVkZV9hY3RpdmF0aW9u",
+            "X2NvZGUYAyABKAgiHwodQ1R3b0ZhY3Rvcl9TZW5kRW1haWxfUmVzcG9uc2Ui",
+            "LAoZQ1R3b0ZhY3Rvcl9TdGF0dXNfUmVxdWVzdBIPCgdzdGVhbWlkGAEgASgG",
+            "Io0DChpDVHdvRmFjdG9yX1N0YXR1c19SZXNwb25zZRINCgVzdGF0ZRgBIAEo",
+            "DRIbChNpbmFjdGl2YXRpb25fcmVhc29uGAIgASgNEhoKEmF1dGhlbnRpY2F0",
+            "b3JfdHlwZRgDIAEoDRIdChVhdXRoZW50aWNhdG9yX2FsbG93ZWQYBCABKAgS",
+            "GQoRc3RlYW1ndWFyZF9zY2hlbWUYBSABKA0SEQoJdG9rZW5fZ2lkGAYgASgJ",
+            "EhcKD2VtYWlsX3ZhbGlkYXRlZBgHIAEoCBIZChFkZXZpY2VfaWRlbnRpZmll",
+            "chgIIAEoCRIUCgx0aW1lX2NyZWF0ZWQYCSABKA0SJQodcmV2b2NhdGlvbl9h",
+            "dHRlbXB0c19yZW1haW5pbmcYCiABKA0SGAoQY2xhc3NpZmllZF9hZ2VudBgL",
+            "IAEoCRIkChxhbGxvd19leHRlcm5hbF9hdXRoZW50aWNhdG9yGAwgASgIEhgK",
+            "EHRpbWVfdHJhbnNmZXJyZWQYDSABKA0SDwoHdmVyc2lvbhgOIAEoDSIuChdD",
+            "VHdvRmFjdG9yX1RpbWVfUmVxdWVzdBITCgtzZW5kZXJfdGltZRgBIAEoBCKl",
+            "AgoYQ1R3b0ZhY3Rvcl9UaW1lX1Jlc3BvbnNlEhMKC3NlcnZlcl90aW1lGAEg",
+            "ASgEEh4KFnNrZXdfdG9sZXJhbmNlX3NlY29uZHMYAiABKAQSFwoPbGFyZ2Vf",
+            "dGltZV9qaW5rGAMgASgEEh8KF3Byb2JlX2ZyZXF1ZW5jeV9zZWNvbmRzGAQg",
+            "ASgNEi0KJWFkanVzdGVkX3RpbWVfcHJvYmVfZnJlcXVlbmN5X3NlY29uZHMY",
+            "BSABKA0SJAocaGludF9wcm9iZV9mcmVxdWVuY3lfc2Vjb25kcxgGIAEoDRIU",
+            "CgxzeW5jX3RpbWVvdXQYByABKA0SGQoRdHJ5X2FnYWluX3NlY29uZHMYCCAB",
+            "KA0SFAoMbWF4X2F0dGVtcHRzGAkgASgNIlwKJUNUd29GYWN0b3JfVXBkYXRl",
+            "VG9rZW5WZXJzaW9uX1JlcXVlc3QSDwoHc3RlYW1pZBgBIAEoBhIPCgd2ZXJz",
+            "aW9uGAIgASgNEhEKCXNpZ25hdHVyZRgDIAEoDCIoCiZDVHdvRmFjdG9yX1Vw",
+            "ZGF0ZVRva2VuVmVyc2lvbl9SZXNwb25zZSIyCiFDVHdvRmFjdG9yX1ZhbGlk",
+            "YXRlVG9rZW5fUmVzcG9uc2USDQoFdmFsaWQYASABKAgywQkKCVR3b0ZhY3Rv",
+            "chJfChBBZGRBdXRoZW50aWNhdG9yEiQuQ1R3b0ZhY3Rvcl9BZGRBdXRoZW50",
+            "aWNhdG9yX1JlcXVlc3QaJS5DVHdvRmFjdG9yX0FkZEF1dGhlbnRpY2F0b3Jf",
+            "UmVzcG9uc2USUgoUQ3JlYXRlRW1lcmdlbmN5Q29kZXMSDy5Ob3RJbXBsZW1l",
+            "bnRlZBopLkNUd29GYWN0b3JfQ3JlYXRlRW1lcmdlbmN5Q29kZXNfUmVzcG9u",
+            "c2USVAoVRGVzdHJveUVtZXJnZW5jeUNvZGVzEg8uTm90SW1wbGVtZW50ZWQa",
+            "Ki5DVHdvRmFjdG9yX0Rlc3Ryb3lFbWVyZ2VuY3lDb2Rlc19SZXNwb25zZRJ3",
+            "ChhGaW5hbGl6ZUFkZEF1dGhlbnRpY2F0b3ISLC5DVHdvRmFjdG9yX0ZpbmFs",
+            "aXplQWRkQXV0aGVudGljYXRvcl9SZXF1ZXN0Gi0uQ1R3b0ZhY3Rvcl9GaW5h",
+            "bGl6ZUFkZEF1dGhlbnRpY2F0b3JfUmVzcG9uc2USRgoLUXVlcnlTdGF0dXMS",
+            "Gi5DVHdvRmFjdG9yX1N0YXR1c19SZXF1ZXN0GhsuQ1R3b0ZhY3Rvcl9TdGF0",
+            "dXNfUmVzcG9uc2USQAoJUXVlcnlUaW1lEhguQ1R3b0ZhY3Rvcl9UaW1lX1Jl",
+            "cXVlc3QaGS5DVHdvRmFjdG9yX1RpbWVfUmVzcG9uc2USaAoTUmVtb3ZlQXV0",
+            "aGVudGljYXRvchInLkNUd29GYWN0b3JfUmVtb3ZlQXV0aGVudGljYXRvcl9S",
+            "ZXF1ZXN0GiguQ1R3b0ZhY3Rvcl9SZW1vdmVBdXRoZW50aWNhdG9yX1Jlc3Bv",
+            "bnNlEqQBCidSZW1vdmVBdXRoZW50aWNhdG9yVmlhQ2hhbGxlbmdlQ29udGlu",
+            "dWUSOy5DVHdvRmFjdG9yX1JlbW92ZUF1dGhlbnRpY2F0b3JWaWFDaGFsbGVu",
+            "Z2VDb250aW51ZV9SZXF1ZXN0GjwuQ1R3b0ZhY3Rvcl9SZW1vdmVBdXRoZW50",
+            "aWNhdG9yVmlhQ2hhbGxlbmdlQ29udGludWVfUmVzcG9uc2USmwEKJFJlbW92",
+            "ZUF1dGhlbnRpY2F0b3JWaWFDaGFsbGVuZ2VTdGFydBI4LkNUd29GYWN0b3Jf",
+            "UmVtb3ZlQXV0aGVudGljYXRvclZpYUNoYWxsZW5nZVN0YXJ0X1JlcXVlc3Qa",
+            "OS5DVHdvRmFjdG9yX1JlbW92ZUF1dGhlbnRpY2F0b3JWaWFDaGFsbGVuZ2VT",
+            "dGFydF9SZXNwb25zZRJKCglTZW5kRW1haWwSHS5DVHdvRmFjdG9yX1NlbmRF",
+            "bWFpbF9SZXF1ZXN0Gh4uQ1R3b0ZhY3Rvcl9TZW5kRW1haWxfUmVzcG9uc2US",
+            "ZQoSVXBkYXRlVG9rZW5WZXJzaW9uEiYuQ1R3b0ZhY3Rvcl9VcGRhdGVUb2tl",
+            "blZlcnNpb25fUmVxdWVzdBonLkNUd29GYWN0b3JfVXBkYXRlVG9rZW5WZXJz",
+            "aW9uX1Jlc3BvbnNlEkQKDVZhbGlkYXRlVG9rZW4SDy5Ob3RJbXBsZW1lbnRl",
+            "ZBoiLkNUd29GYWN0b3JfVmFsaWRhdGVUb2tlbl9SZXNwb25zZUIgqgIdT3Bl",
+            "blN0ZWFtd29ya3MuUHJvdG9idWYuV2ViVUk="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.Reflection.DescriptorReflection.Descriptor, global::OpenSteamworks.Protobuf.WebUI.CommonBaseReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CRemoveAuthenticatorViaChallengeContinue_Replacement_Token), global::OpenSteamworks.Protobuf.WebUI.CRemoveAuthenticatorViaChallengeContinue_Replacement_Token.Parser, new[]{ "SharedSecret", "SerialNumber", "RevocationCode", "Uri", "ServerTime", "AccountName", "TokenGid", "IdentitySecret", "Secret1", "Status", "SteamguardScheme", "Steamid" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CTwoFactor_AddAuthenticator_Request), global::OpenSteamworks.Protobuf.WebUI.CTwoFactor_AddAuthenticator_Request.Parser, new[]{ "Steamid", "AuthenticatorTime", "SerialNumber", "AuthenticatorType", "DeviceIdentifier", "SmsPhoneId", "HttpHeaders", "Version" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CTwoFactor_AddAuthenticator_Request), global::OpenSteamworks.Protobuf.WebUI.CTwoFactor_AddAuthenticator_Request.Parser, new[]{ "Steamid", "AuthenticatorTime", "SerialNumber", "AuthenticatorType", "DeviceIdentifier", "HttpHeaders", "Version" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CTwoFactor_AddAuthenticator_Response), global::OpenSteamworks.Protobuf.WebUI.CTwoFactor_AddAuthenticator_Response.Parser, new[]{ "SharedSecret", "SerialNumber", "RevocationCode", "Uri", "ServerTime", "AccountName", "TokenGid", "IdentitySecret", "Secret1", "Status", "PhoneNumberHint", "ConfirmType" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CTwoFactor_CreateEmergencyCodes_Response), global::OpenSteamworks.Protobuf.WebUI.CTwoFactor_CreateEmergencyCodes_Response.Parser, new[]{ "Codes" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CTwoFactor_DestroyEmergencyCodes_Response), global::OpenSteamworks.Protobuf.WebUI.CTwoFactor_DestroyEmergencyCodes_Response.Parser, null, null, null, null, null),
@@ -154,6 +153,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
   #region Messages
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CRemoveAuthenticatorViaChallengeContinue_Replacement_Token : pb::IMessage<CRemoveAuthenticatorViaChallengeContinue_Replacement_Token>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -925,6 +925,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CTwoFactor_AddAuthenticator_Request : pb::IMessage<CTwoFactor_AddAuthenticator_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -966,7 +967,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
       serialNumber_ = other.serialNumber_;
       authenticatorType_ = other.authenticatorType_;
       deviceIdentifier_ = other.deviceIdentifier_;
-      smsPhoneId_ = other.smsPhoneId_;
       httpHeaders_ = other.httpHeaders_.Clone();
       version_ = other.version_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -1112,32 +1112,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
       deviceIdentifier_ = null;
     }
 
-    /// <summary>Field number for the "sms_phone_id" field.</summary>
-    public const int SmsPhoneIdFieldNumber = 6;
-    private readonly static string SmsPhoneIdDefaultValue = "";
-
-    private string smsPhoneId_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string SmsPhoneId {
-      get { return smsPhoneId_ ?? SmsPhoneIdDefaultValue; }
-      set {
-        smsPhoneId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-    /// <summary>Gets whether the "sms_phone_id" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasSmsPhoneId {
-      get { return smsPhoneId_ != null; }
-    }
-    /// <summary>Clears the value of the "sms_phone_id" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearSmsPhoneId() {
-      smsPhoneId_ = null;
-    }
-
     /// <summary>Field number for the "http_headers" field.</summary>
     public const int HttpHeadersFieldNumber = 7;
     private static readonly pb::FieldCodec<string> _repeated_httpHeaders_codec
@@ -1196,7 +1170,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
       if (SerialNumber != other.SerialNumber) return false;
       if (AuthenticatorType != other.AuthenticatorType) return false;
       if (DeviceIdentifier != other.DeviceIdentifier) return false;
-      if (SmsPhoneId != other.SmsPhoneId) return false;
       if(!httpHeaders_.Equals(other.httpHeaders_)) return false;
       if (Version != other.Version) return false;
       return Equals(_unknownFields, other._unknownFields);
@@ -1211,7 +1184,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
       if (HasSerialNumber) hash ^= SerialNumber.GetHashCode();
       if (HasAuthenticatorType) hash ^= AuthenticatorType.GetHashCode();
       if (HasDeviceIdentifier) hash ^= DeviceIdentifier.GetHashCode();
-      if (HasSmsPhoneId) hash ^= SmsPhoneId.GetHashCode();
       hash ^= httpHeaders_.GetHashCode();
       if (HasVersion) hash ^= Version.GetHashCode();
       if (_unknownFields != null) {
@@ -1252,10 +1224,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
         output.WriteRawTag(42);
         output.WriteString(DeviceIdentifier);
       }
-      if (HasSmsPhoneId) {
-        output.WriteRawTag(50);
-        output.WriteString(SmsPhoneId);
-      }
       httpHeaders_.WriteTo(output, _repeated_httpHeaders_codec);
       if (HasVersion) {
         output.WriteRawTag(64);
@@ -1291,10 +1259,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
         output.WriteRawTag(42);
         output.WriteString(DeviceIdentifier);
       }
-      if (HasSmsPhoneId) {
-        output.WriteRawTag(50);
-        output.WriteString(SmsPhoneId);
-      }
       httpHeaders_.WriteTo(ref output, _repeated_httpHeaders_codec);
       if (HasVersion) {
         output.WriteRawTag(64);
@@ -1324,9 +1288,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
       }
       if (HasDeviceIdentifier) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(DeviceIdentifier);
-      }
-      if (HasSmsPhoneId) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(SmsPhoneId);
       }
       size += httpHeaders_.CalculateSize(_repeated_httpHeaders_codec);
       if (HasVersion) {
@@ -1358,9 +1319,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
       }
       if (other.HasDeviceIdentifier) {
         DeviceIdentifier = other.DeviceIdentifier;
-      }
-      if (other.HasSmsPhoneId) {
-        SmsPhoneId = other.SmsPhoneId;
       }
       httpHeaders_.Add(other.httpHeaders_);
       if (other.HasVersion) {
@@ -1399,10 +1357,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
           }
           case 42: {
             DeviceIdentifier = input.ReadString();
-            break;
-          }
-          case 50: {
-            SmsPhoneId = input.ReadString();
             break;
           }
           case 58: {
@@ -1448,10 +1402,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
             DeviceIdentifier = input.ReadString();
             break;
           }
-          case 50: {
-            SmsPhoneId = input.ReadString();
-            break;
-          }
           case 58: {
             httpHeaders_.AddEntriesFrom(ref input, _repeated_httpHeaders_codec);
             break;
@@ -1467,6 +1417,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CTwoFactor_AddAuthenticator_Response : pb::IMessage<CTwoFactor_AddAuthenticator_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2237,6 +2188,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CTwoFactor_CreateEmergencyCodes_Response : pb::IMessage<CTwoFactor_CreateEmergencyCodes_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2415,6 +2367,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CTwoFactor_DestroyEmergencyCodes_Response : pb::IMessage<CTwoFactor_DestroyEmergencyCodes_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2567,6 +2520,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CTwoFactor_FinalizeAddAuthenticator_Request : pb::IMessage<CTwoFactor_FinalizeAddAuthenticator_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -3005,6 +2959,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CTwoFactor_FinalizeAddAuthenticator_Response : pb::IMessage<CTwoFactor_FinalizeAddAuthenticator_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -3367,6 +3322,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CTwoFactor_RemoveAuthenticator_Request : pb::IMessage<CTwoFactor_RemoveAuthenticator_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -3728,6 +3684,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CTwoFactor_RemoveAuthenticator_Response : pb::IMessage<CTwoFactor_RemoveAuthenticator_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -4038,6 +3995,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CTwoFactor_RemoveAuthenticatorViaChallengeContinue_Request : pb::IMessage<CTwoFactor_RemoveAuthenticatorViaChallengeContinue_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -4347,6 +4305,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CTwoFactor_RemoveAuthenticatorViaChallengeContinue_Response : pb::IMessage<CTwoFactor_RemoveAuthenticatorViaChallengeContinue_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -4599,6 +4558,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CTwoFactor_RemoveAuthenticatorViaChallengeStart_Request : pb::IMessage<CTwoFactor_RemoveAuthenticatorViaChallengeStart_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -4751,6 +4711,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CTwoFactor_RemoveAuthenticatorViaChallengeStart_Response : pb::IMessage<CTwoFactor_RemoveAuthenticatorViaChallengeStart_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -4957,6 +4918,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CTwoFactor_SendEmail_Request : pb::IMessage<CTwoFactor_SendEmail_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -5267,6 +5229,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CTwoFactor_SendEmail_Response : pb::IMessage<CTwoFactor_SendEmail_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -5419,6 +5382,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CTwoFactor_Status_Request : pb::IMessage<CTwoFactor_Status_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -5625,6 +5589,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CTwoFactor_Status_Response : pb::IMessage<CTwoFactor_Status_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -6504,6 +6469,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CTwoFactor_Time_Request : pb::IMessage<CTwoFactor_Time_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -6710,6 +6676,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CTwoFactor_Time_Response : pb::IMessage<CTwoFactor_Time_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -7332,6 +7299,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CTwoFactor_UpdateTokenVersion_Request : pb::IMessage<CTwoFactor_UpdateTokenVersion_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -7641,6 +7609,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CTwoFactor_UpdateTokenVersion_Response : pb::IMessage<CTwoFactor_UpdateTokenVersion_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -7793,6 +7762,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CTwoFactor_ValidateToken_Response : pb::IMessage<CTwoFactor_ValidateToken_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage

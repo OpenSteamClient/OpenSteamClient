@@ -104,13 +104,12 @@ const char descriptor_table_protodef_steammessages_5flobbymatchmaking_2esteamcli
   "atus:\023ELobbyStatusInvalid*y\n\014ELobbyStatu"
   "s\022\027\n\023ELobbyStatusInvalid\020\000\022\026\n\022ELobbyStat"
   "usExists\020\001\022\034\n\030ELobbyStatusDoesNotExist\020\002"
-  "\022\032\n\026ELobbyStatusNotAMember\020\0032\306\001\n\026LobbyMa"
-  "tchmakingLegacy\022\205\001\n\016GetLobbyStatus\022..Lob"
-  "byMatchmakingLegacy_GetLobbyStatus_Reque"
-  "st\032/.LobbyMatchmakingLegacy_GetLobbyStat"
-  "us_Response\"\022\202\265\030\016GetLobbyStatus\032$\202\265\030 Lob"
-  "by matchmaking legacy serviceB\035\200\001\001\252\002\027Ope"
-  "nSteamworks.Protobuf"
+  "\022\032\n\026ELobbyStatusNotAMember\020\0032\213\001\n\026LobbyMa"
+  "tchmakingLegacy\022q\n\016GetLobbyStatus\022..Lobb"
+  "yMatchmakingLegacy_GetLobbyStatus_Reques"
+  "t\032/.LobbyMatchmakingLegacy_GetLobbyStatu"
+  "s_ResponseB\035\200\001\001\252\002\027OpenSteamworks.Protobu"
+  "f"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5flobbymatchmaking_2esteamclient_2eproto_deps[3] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
@@ -119,7 +118,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5flobbymatchmaking_2esteamclient_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5flobbymatchmaking_2esteamclient_2eproto = {
-  false, false, 820, descriptor_table_protodef_steammessages_5flobbymatchmaking_2esteamclient_2eproto, "steammessages_lobbymatchmaking.steamclient.proto", 
+  false, false, 761, descriptor_table_protodef_steammessages_5flobbymatchmaking_2esteamclient_2eproto, "steammessages_lobbymatchmaking.steamclient.proto", 
   &descriptor_table_steammessages_5flobbymatchmaking_2esteamclient_2eproto_once, descriptor_table_steammessages_5flobbymatchmaking_2esteamclient_2eproto_deps, 3, 2,
   schemas, file_default_instances, TableStruct_steammessages_5flobbymatchmaking_2esteamclient_2eproto::offsets,
   file_level_metadata_steammessages_5flobbymatchmaking_2esteamclient_2eproto, file_level_enum_descriptors_steammessages_5flobbymatchmaking_2esteamclient_2eproto, file_level_service_descriptors_steammessages_5flobbymatchmaking_2esteamclient_2eproto,

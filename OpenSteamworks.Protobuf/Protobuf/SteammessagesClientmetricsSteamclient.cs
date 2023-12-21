@@ -117,7 +117,7 @@ namespace OpenSteamworks.Protobuf {
             "VHlwZRIjCh9FU3RlYW1QaXBlT3BlcmF0aW9uVHlwZV9JbnZhbGlkEAASJgoi",
             "RVN0ZWFtUGlwZU9wZXJhdGlvblR5cGVfRGVjcnlwdENQVRABEiQKIEVTdGVh",
             "bVBpcGVPcGVyYXRpb25UeXBlX0Rpc2tSZWFkEAISJQohRVN0ZWFtUGlwZU9w",
-            "ZXJhdGlvblR5cGVfRGlza1dyaXRlEAMyjggKDUNsaWVudE1ldHJpY3MSXAod",
+            "ZXJhdGlvblR5cGVfRGlza1dyaXRlEAMy4wcKDUNsaWVudE1ldHJpY3MSXAod",
             "Q2xpZW50QXBwSW50ZXJmYWNlU3RhdHNSZXBvcnQSLi5DQ2xpZW50TWV0cmlj",
             "c19BcHBJbnRlcmZhY2VTdGF0c19Ob3RpZmljYXRpb24aCy5Ob1Jlc3BvbnNl",
             "EloKHENsaWVudElQdjZDb25uZWN0aXZpdHlSZXBvcnQSLS5DQ2xpZW50TWV0",
@@ -139,9 +139,8 @@ namespace OpenSteamworks.Protobuf {
             "c2VDb2RlQ291bnRzEjsuQ0NsaWVudE1ldHJpY3NfQ29udGVudERvd25sb2Fk",
             "UmVzcG9uc2VfQ291bnRzX05vdGlmaWNhdGlvbhoLLk5vUmVzcG9uc2USTgoQ",
             "UmVwb3J0Q2xpZW50QXJncxItLkNDbGllbnRNZXRyaWNzX1JlcG9ydENsaWVu",
-            "dEFyZ3NfTm90aWZpY2F0aW9uGgsuTm9SZXNwb25zZRopgrUYJUEgc2Vydmlj",
-            "ZSBmb3IgY2xpZW50LXJlcG9ydGVkIG1ldHJpY3NCHYABAaoCF09wZW5TdGVh",
-            "bXdvcmtzLlByb3RvYnVm"));
+            "dEFyZ3NfTm90aWZpY2F0aW9uGgsuTm9SZXNwb25zZUIdgAEBqgIXT3BlblN0",
+            "ZWFtd29ya3MuUHJvdG9idWY="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.Reflection.DescriptorReflection.Descriptor, global::OpenSteamworks.Protobuf.SteammessagesBaseReflection.Descriptor, global::OpenSteamworks.Protobuf.SteammessagesUnifiedBaseSteamclientReflection.Descriptor, global::OpenSteamworks.Protobuf.ClientmetricsReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::OpenSteamworks.Protobuf.ESteamPipeWorkType), typeof(global::OpenSteamworks.Protobuf.ESteamPipeOperationType), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -183,6 +182,7 @@ namespace OpenSteamworks.Protobuf {
   #endregion
 
   #region Messages
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CClientMetrics_AppInterfaceCreation : pb::IMessage<CClientMetrics_AppInterfaceCreation>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -437,6 +437,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CClientMetrics_AppInterfaceMethodCounts : pb::IMessage<CClientMetrics_AppInterfaceMethodCounts>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -745,6 +746,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CClientMetrics_AppInterfaceStats_Notification : pb::IMessage<CClientMetrics_AppInterfaceStats_Notification>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1055,6 +1057,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CClientMetrics_IPv6Connectivity_Result : pb::IMessage<CClientMetrics_IPv6Connectivity_Result>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1313,6 +1316,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CClientMetrics_IPv6Connectivity_Notification : pb::IMessage<CClientMetrics_IPv6Connectivity_Notification>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1597,6 +1601,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CClientMetrics_SteamPipeWorkStats_Operation : pb::IMessage<CClientMetrics_SteamPipeWorkStats_Operation>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2115,6 +2120,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CClientMetrics_SteamPipeWorkStats_Notification : pb::IMessage<CClientMetrics_SteamPipeWorkStats_Notification>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2503,6 +2509,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CClientMetrics_ReportReactUsage_Notification : pb::IMessage<CClientMetrics_ReportReactUsage_Notification>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2838,6 +2845,7 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static partial class Types {
+      [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
       public sealed partial class RouteData : pb::IMessage<RouteData>
       #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
           , pb::IBufferMessage
@@ -3095,6 +3103,7 @@ namespace OpenSteamworks.Protobuf {
 
       }
 
+      [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
       public sealed partial class ComponentData : pb::IMessage<ComponentData>
       #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
           , pb::IBufferMessage
@@ -3352,6 +3361,7 @@ namespace OpenSteamworks.Protobuf {
 
       }
 
+      [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
       public sealed partial class ActionData : pb::IMessage<ActionData>
       #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
           , pb::IBufferMessage
@@ -3614,6 +3624,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CClientMetrics_ReportClientError_Notification : pb::IMessage<CClientMetrics_ReportClientError_Notification>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -3897,6 +3908,7 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static partial class Types {
+      [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
       public sealed partial class Error : pb::IMessage<Error>
       #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
           , pb::IBufferMessage
@@ -4210,6 +4222,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CClientMetrics_ClientBootstrap_Notification : pb::IMessage<CClientMetrics_ClientBootstrap_Notification>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -4408,6 +4421,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CClientMetrics_DownloadRates_Notification : pb::IMessage<CClientMetrics_DownloadRates_Notification>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -4695,6 +4709,7 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static partial class Types {
+      [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
       public sealed partial class StatsInfo : pb::IMessage<StatsInfo>
       #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
           , pb::IBufferMessage
@@ -5477,6 +5492,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CClientMetrics_ContentValidation_Notification : pb::IMessage<CClientMetrics_ContentValidation_Notification>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -6151,6 +6167,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CClientMetrics_CloudAppSyncStats_Notification : pb::IMessage<CClientMetrics_CloudAppSyncStats_Notification>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -7397,6 +7414,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CClientMetrics_ContentDownloadResponse_Counts_Notification : pb::IMessage<CClientMetrics_ContentDownloadResponse_Counts_Notification>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -7649,6 +7667,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CClientMetrics_ReportClientArgs_Notification : pb::IMessage<CClientMetrics_ReportClientArgs_Notification>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage

@@ -171,54 +171,29 @@ const char descriptor_table_protodef_steammessages_5flinkfilter_2esteamclient_2e
   "\n*steammessages_linkfilter.steamclient.p"
   "roto\032 google/protobuf/descriptor.proto\032\030"
   "steammessages_base.proto\032,steammessages_"
-  "unified_base.steamclient.proto\"\235\002\n,CComm"
-  "unity_GetLinkFilterHashPrefixes_Request\022"
-  "G\n\010hit_type\030\001 \001(\rB5\202\265\0301The retrieved hit"
-  "s will be filtered to this type.\022\\\n\005coun"
-  "t\030\002 \001(\rBM\202\265\030IThe number of hits to retri"
-  "eve in a single batch. Specify 0 for no "
-  "limit.\022F\n\005start\030\003 \001(\004B7\202\265\0303The starting "
-  "count when retrieving hits in batches.\"\207"
-  "\001\n-CCommunity_GetLinkFilterHashPrefixes_"
-  "Response\022V\n\rhash_prefixes\030\001 \003(\rB\?\202\265\030;The"
-  " first 32 bits of the SHA1 hashes of eac"
-  "h hit requested.\"\227\002\n&CCommunity_GetLinkF"
-  "ilterHashes_Request\022G\n\010hit_type\030\001 \001(\rB5\202"
-  "\265\0301The retrieved hits will be filtered t"
-  "o this type.\022\\\n\005count\030\002 \001(\rBM\202\265\030IThe num"
-  "ber of hits to retrieve in a single batc"
-  "h. Specify 0 for no limit.\022F\n\005start\030\003 \001("
-  "\004B7\202\265\0303The starting count when retrievin"
-  "g hits in batches.\"j\n\'CCommunity_GetLink"
-  "FilterHashes_Response\022\?\n\006hashes\030\001 \003(\014B/\202"
-  "\265\030+A list of hashes returned from our re"
-  "quest.\"\200\001\n+CCommunity_GetLinkFilterListV"
-  "ersion_Request\022Q\n\010hit_type\030\001 \001(\rB\?\202\265\030;Th"
-  "e version hashes for this type\'s chunks "
-  "will be returned.\"\252\001\n,CCommunity_GetLink"
-  "FilterListVersion_Response\022F\n\007version\030\001 "
-  "\001(\tB5\202\265\0301A hash built using the IDs of t"
-  "he contained hits.\0222\n\005count\030\002 \001(\004B#\202\265\030\037T"
-  "he number of hits of this type2\306\005\n\023Commu"
-  "nityLinkFilter\022\322\001\n\031GetLinkFilterHashPref"
-  "ixes\022-.CCommunity_GetLinkFilterHashPrefi"
-  "xes_Request\032..CCommunity_GetLinkFilterHa"
-  "shPrefixes_Response\"V\202\265\030RGet a list of h"
-  "ash prefixes for the specified hit type,"
-  " to use for client caching.\022\271\001\n\023GetLinkF"
-  "ilterHashes\022\'.CCommunity_GetLinkFilterHa"
-  "shes_Request\032(.CCommunity_GetLinkFilterH"
-  "ashes_Response\"O\202\265\030KGet a list of hashes"
-  " for the specified hit type, to use for "
-  "client caching.\022\315\001\n\030GetLinkFilterListVer"
-  "sion\022,.CCommunity_GetLinkFilterListVersi"
-  "on_Request\032-.CCommunity_GetLinkFilterLis"
-  "tVersion_Response\"T\202\265\030PGet a list of has"
-  "hes describing the version of each chunk"
-  " of the requested size.\032N\202\265\030JA service f"
-  "or recording data about Steam Community "
-  "phishing link filteringB\035\200\001\001\252\002\027OpenSteam"
-  "works.Protobuf"
+  "unified_base.steamclient.proto\"^\n,CCommu"
+  "nity_GetLinkFilterHashPrefixes_Request\022\020"
+  "\n\010hit_type\030\001 \001(\r\022\r\n\005count\030\002 \001(\r\022\r\n\005start"
+  "\030\003 \001(\004\"F\n-CCommunity_GetLinkFilterHashPr"
+  "efixes_Response\022\025\n\rhash_prefixes\030\001 \003(\r\"X"
+  "\n&CCommunity_GetLinkFilterHashes_Request"
+  "\022\020\n\010hit_type\030\001 \001(\r\022\r\n\005count\030\002 \001(\r\022\r\n\005sta"
+  "rt\030\003 \001(\004\"9\n\'CCommunity_GetLinkFilterHash"
+  "es_Response\022\016\n\006hashes\030\001 \003(\014\"\?\n+CCommunit"
+  "y_GetLinkFilterListVersion_Request\022\020\n\010hi"
+  "t_type\030\001 \001(\r\"N\n,CCommunity_GetLinkFilter"
+  "ListVersion_Response\022\017\n\007version\030\001 \001(\t\022\r\n"
+  "\005count\030\002 \001(\0042\364\002\n\023CommunityLinkFilter\022z\n\031"
+  "GetLinkFilterHashPrefixes\022-.CCommunity_G"
+  "etLinkFilterHashPrefixes_Request\032..CComm"
+  "unity_GetLinkFilterHashPrefixes_Response"
+  "\022h\n\023GetLinkFilterHashes\022\'.CCommunity_Get"
+  "LinkFilterHashes_Request\032(.CCommunity_Ge"
+  "tLinkFilterHashes_Response\022w\n\030GetLinkFil"
+  "terListVersion\022,.CCommunity_GetLinkFilte"
+  "rListVersion_Request\032-.CCommunity_GetLin"
+  "kFilterListVersion_ResponseB\035\200\001\001\252\002\027OpenS"
+  "teamworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5flinkfilter_2esteamclient_2eproto_deps[3] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
@@ -227,7 +202,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5flinkfilter_2esteamclient_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5flinkfilter_2esteamclient_2eproto = {
-  false, false, 2014, descriptor_table_protodef_steammessages_5flinkfilter_2esteamclient_2eproto, "steammessages_linkfilter.steamclient.proto", 
+  false, false, 1018, descriptor_table_protodef_steammessages_5flinkfilter_2esteamclient_2eproto, "steammessages_linkfilter.steamclient.proto", 
   &descriptor_table_steammessages_5flinkfilter_2esteamclient_2eproto_once, descriptor_table_steammessages_5flinkfilter_2esteamclient_2eproto_deps, 3, 6,
   schemas, file_default_instances, TableStruct_steammessages_5flinkfilter_2esteamclient_2eproto::offsets,
   file_level_metadata_steammessages_5flinkfilter_2esteamclient_2eproto, file_level_enum_descriptors_steammessages_5flinkfilter_2esteamclient_2eproto, file_level_service_descriptors_steammessages_5flinkfilter_2esteamclient_2eproto,
@@ -324,7 +299,7 @@ const char* CCommunity_GetLinkFilterHashPrefixes_Request::_InternalParse(const c
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint32 hit_type = 1 [(.description) = "The retrieved hits will be filtered to this type."];
+      // optional uint32 hit_type = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_hit_type(&has_bits);
@@ -332,7 +307,7 @@ const char* CCommunity_GetLinkFilterHashPrefixes_Request::_InternalParse(const c
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 count = 2 [(.description) = "The number of hits to retrieve in a single batch. Specify 0 for no limit."];
+      // optional uint32 count = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_count(&has_bits);
@@ -340,7 +315,7 @@ const char* CCommunity_GetLinkFilterHashPrefixes_Request::_InternalParse(const c
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint64 start = 3 [(.description) = "The starting count when retrieving hits in batches."];
+      // optional uint64 start = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           _Internal::set_has_start(&has_bits);
@@ -378,19 +353,19 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint32 hit_type = 1 [(.description) = "The retrieved hits will be filtered to this type."];
+  // optional uint32 hit_type = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_hit_type(), target);
   }
 
-  // optional uint32 count = 2 [(.description) = "The number of hits to retrieve in a single batch. Specify 0 for no limit."];
+  // optional uint32 count = 2;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_count(), target);
   }
 
-  // optional uint64 start = 3 [(.description) = "The starting count when retrieving hits in batches."];
+  // optional uint64 start = 3;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(3, this->_internal_start(), target);
@@ -414,21 +389,21 @@ size_t CCommunity_GetLinkFilterHashPrefixes_Request::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000007u) {
-    // optional uint32 hit_type = 1 [(.description) = "The retrieved hits will be filtered to this type."];
+    // optional uint32 hit_type = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_hit_type());
     }
 
-    // optional uint32 count = 2 [(.description) = "The number of hits to retrieve in a single batch. Specify 0 for no limit."];
+    // optional uint32 count = 2;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_count());
     }
 
-    // optional uint64 start = 3 [(.description) = "The starting count when retrieving hits in batches."];
+    // optional uint64 start = 3;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
@@ -577,7 +552,7 @@ const char* CCommunity_GetLinkFilterHashPrefixes_Response::_InternalParse(const 
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // repeated uint32 hash_prefixes = 1 [(.description) = "The first 32 bits of the SHA1 hashes of each hit requested."];
+      // repeated uint32 hash_prefixes = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           ptr -= 1;
@@ -620,7 +595,7 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated uint32 hash_prefixes = 1 [(.description) = "The first 32 bits of the SHA1 hashes of each hit requested."];
+  // repeated uint32 hash_prefixes = 1;
   for (int i = 0, n = this->_internal_hash_prefixes_size(); i < n; i++) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_hash_prefixes(i), target);
@@ -642,7 +617,7 @@ size_t CCommunity_GetLinkFilterHashPrefixes_Response::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated uint32 hash_prefixes = 1 [(.description) = "The first 32 bits of the SHA1 hashes of each hit requested."];
+  // repeated uint32 hash_prefixes = 1;
   {
     size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       UInt32Size(this->hash_prefixes_);
@@ -797,7 +772,7 @@ const char* CCommunity_GetLinkFilterHashes_Request::_InternalParse(const char* p
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint32 hit_type = 1 [(.description) = "The retrieved hits will be filtered to this type."];
+      // optional uint32 hit_type = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_hit_type(&has_bits);
@@ -805,7 +780,7 @@ const char* CCommunity_GetLinkFilterHashes_Request::_InternalParse(const char* p
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 count = 2 [(.description) = "The number of hits to retrieve in a single batch. Specify 0 for no limit."];
+      // optional uint32 count = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_count(&has_bits);
@@ -813,7 +788,7 @@ const char* CCommunity_GetLinkFilterHashes_Request::_InternalParse(const char* p
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint64 start = 3 [(.description) = "The starting count when retrieving hits in batches."];
+      // optional uint64 start = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           _Internal::set_has_start(&has_bits);
@@ -851,19 +826,19 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint32 hit_type = 1 [(.description) = "The retrieved hits will be filtered to this type."];
+  // optional uint32 hit_type = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_hit_type(), target);
   }
 
-  // optional uint32 count = 2 [(.description) = "The number of hits to retrieve in a single batch. Specify 0 for no limit."];
+  // optional uint32 count = 2;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_count(), target);
   }
 
-  // optional uint64 start = 3 [(.description) = "The starting count when retrieving hits in batches."];
+  // optional uint64 start = 3;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(3, this->_internal_start(), target);
@@ -887,21 +862,21 @@ size_t CCommunity_GetLinkFilterHashes_Request::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000007u) {
-    // optional uint32 hit_type = 1 [(.description) = "The retrieved hits will be filtered to this type."];
+    // optional uint32 hit_type = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_hit_type());
     }
 
-    // optional uint32 count = 2 [(.description) = "The number of hits to retrieve in a single batch. Specify 0 for no limit."];
+    // optional uint32 count = 2;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_count());
     }
 
-    // optional uint64 start = 3 [(.description) = "The starting count when retrieving hits in batches."];
+    // optional uint64 start = 3;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
@@ -1050,7 +1025,7 @@ const char* CCommunity_GetLinkFilterHashes_Response::_InternalParse(const char* 
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // repeated bytes hashes = 1 [(.description) = "A list of hashes returned from our request."];
+      // repeated bytes hashes = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           ptr -= 1;
@@ -1091,7 +1066,7 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated bytes hashes = 1 [(.description) = "A list of hashes returned from our request."];
+  // repeated bytes hashes = 1;
   for (int i = 0, n = this->_internal_hashes_size(); i < n; i++) {
     const auto& s = this->_internal_hashes(i);
     target = stream->WriteBytes(1, s, target);
@@ -1113,7 +1088,7 @@ size_t CCommunity_GetLinkFilterHashes_Response::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated bytes hashes = 1 [(.description) = "A list of hashes returned from our request."];
+  // repeated bytes hashes = 1;
   total_size += 1 *
       ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(hashes_.size());
   for (int i = 0, n = hashes_.size(); i < n; i++) {
@@ -1251,7 +1226,7 @@ const char* CCommunity_GetLinkFilterListVersion_Request::_InternalParse(const ch
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint32 hit_type = 1 [(.description) = "The version hashes for this type\'s chunks will be returned."];
+      // optional uint32 hit_type = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_hit_type(&has_bits);
@@ -1289,7 +1264,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint32 hit_type = 1 [(.description) = "The version hashes for this type\'s chunks will be returned."];
+  // optional uint32 hit_type = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_hit_type(), target);
@@ -1311,7 +1286,7 @@ size_t CCommunity_GetLinkFilterListVersion_Request::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // optional uint32 hit_type = 1 [(.description) = "The version hashes for this type\'s chunks will be returned."];
+  // optional uint32 hit_type = 1;
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += 1 +
@@ -1466,7 +1441,7 @@ const char* CCommunity_GetLinkFilterListVersion_Response::_InternalParse(const c
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional string version = 1 [(.description) = "A hash built using the IDs of the contained hits."];
+      // optional string version = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           auto str = _internal_mutable_version();
@@ -1477,7 +1452,7 @@ const char* CCommunity_GetLinkFilterListVersion_Response::_InternalParse(const c
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint64 count = 2 [(.description) = "The number of hits of this type"];
+      // optional uint64 count = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_count(&has_bits);
@@ -1515,7 +1490,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional string version = 1 [(.description) = "A hash built using the IDs of the contained hits."];
+  // optional string version = 1;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_version().data(), static_cast<int>(this->_internal_version().length()),
@@ -1525,7 +1500,7 @@ failure:
         1, this->_internal_version(), target);
   }
 
-  // optional uint64 count = 2 [(.description) = "The number of hits of this type"];
+  // optional uint64 count = 2;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(2, this->_internal_count(), target);
@@ -1549,14 +1524,14 @@ size_t CCommunity_GetLinkFilterListVersion_Response::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional string version = 1 [(.description) = "A hash built using the IDs of the contained hits."];
+    // optional string version = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_version());
     }
 
-    // optional uint64 count = 2 [(.description) = "The number of hits of this type"];
+    // optional uint64 count = 2;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(

@@ -25,87 +25,72 @@ namespace OpenSteamworks.Protobuf.WebUI {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "Ch9zZXJ2aWNlX2dhbWVyZWNvcmRpbmdjbGlwLnByb3RvGiBnb29nbGUvcHJv",
-            "dG9idWYvZGVzY3JpcHRvci5wcm90byKLAQomQ0dhbWVSZWNvcmRpbmdfQ3Jl",
-            "YXRlU2hhcmVDbGlwX1JlcXVlc3QSDwoHc3RlYW1pZBgBIAEoBhIhCgRjbGlw",
-            "GAIgASgLMhMuQ0dhbWVSZWNvcmRpbmdDbGlwEi0KCXZpZGVvX2RlZhgDIAMo",
-            "CzIaLkNNc2dWaWRlb0dhbWVSZWNvcmRpbmdEZWYiTAonQ0dhbWVSZWNvcmRp",
-            "bmdfQ3JlYXRlU2hhcmVDbGlwX1Jlc3BvbnNlEiEKBGNsaXAYASABKAsyEy5D",
-            "R2FtZVJlY29yZGluZ0NsaXAiSwonQ0dhbWVSZWNvcmRpbmdfRGVsZXRlU2hh",
-            "cmVkQ2xpcF9SZXF1ZXN0Eg8KB3N0ZWFtaWQYASABKAYSDwoHY2xpcF9pZBgC",
-            "IAEoBiIqCihDR2FtZVJlY29yZGluZ19EZWxldGVTaGFyZWRDbGlwX1Jlc3Bv",
-            "bnNlIkcKJUNHYW1lUmVjb3JkaW5nX0dldFNoYXJlZENsaXBzX1JlcXVlc3QS",
-            "DwoHc3RlYW1pZBgBIAEoBhINCgVhcHBpZBgCIAEoDSJMCiZDR2FtZVJlY29y",
-            "ZGluZ19HZXRTaGFyZWRDbGlwc19SZXNwb25zZRIiCgVjbGlwcxgBIAMoCzIT",
-            "LkNHYW1lUmVjb3JkaW5nQ2xpcCJOCipDR2FtZVJlY29yZGluZ19HZXRTaW5n",
-            "bGVTaGFyZWRDbGlwX1JlcXVlc3QSDwoHc3RlYW1pZBgBIAEoBhIPCgdjbGlw",
-            "X2lkGAIgASgGIlAKK0NHYW1lUmVjb3JkaW5nX0dldFNpbmdsZVNoYXJlZENs",
-            "aXBfUmVzcG9uc2USIQoEY2xpcBgBIAEoCzITLkNHYW1lUmVjb3JkaW5nQ2xp",
-            "cCKNAQonQ0dhbWVSZWNvcmRpbmdfVXBkYXRlU2hhcmVkQ2xpcF9SZXF1ZXN0",
-            "Eg8KB3N0ZWFtaWQYASABKAYSDwoHY2xpcF9pZBgCIAEoBhISCgpjbGlwX3Rp",
-            "dGxlGAMgASgJEhgKEGNsaXBfZGVzY3JpcHRpb24YBCABKAkSEgoKcGVybWlz",
-            "c2lvbhgFIAEoDSIqCihDR2FtZVJlY29yZGluZ19VcGRhdGVTaGFyZWRDbGlw",
-            "X1Jlc3BvbnNlIpUCChJDR2FtZVJlY29yZGluZ0NsaXASDwoHY2xpcF9pZBgB",
-            "IAEoBhIOCgZnYW1laWQYAiABKAQSDQoFYXBwaWQYAyABKA0SFQoNZGF0ZV9y",
-            "ZWNvcmRlZBgEIAEoDRISCgpjbGlwX3RpdGxlGAUgASgJEhgKEGNsaXBfZGVz",
-            "Y3JpcHRpb24YBiABKAkSHQoVdG90YWxfZmlsZV9zaXplX2J5dGVzGAcgASgE",
-            "EhIKCnBlcm1pc3Npb24YCCABKA0SJwoJdmlkZW9faWRzGAkgAygLMhQuQ1Zp",
-            "ZGVvTWFuYWdlckNsaXBJRBIVCg1vd25lcl9zdGVhbWlkGAogASgGEhcKD3Vw",
-            "bG9hZF9jb21wbGV0ZRgLIAEoCCK0AQofQ01zZ1ZpZGVvR2FtZVJlY29yZGlu",
-            "Z0NvbXBvbmVudBIWCg5jb21wb25lbnRfbmFtZRgBIAEoCRIQCghjb250ZW50",
-            "cxgCIAEoDRIUCgxzZWdtZW50X3NpemUYAyABKA0SEQoJZmlsZV90eXBlGAQg",
-            "ASgJEj4KD3JlcHJlc2VudGF0aW9ucxgFIAMoCzIlLkNNc2dWaWRlb0dhbWVS",
-            "ZWNvcmRpbmdSZXByZXNlbnRhdGlvbiL6AQoZQ01zZ1ZpZGVvR2FtZVJlY29y",
-            "ZGluZ0RlZhIPCgdzdGVhbWlkGAEgASgEEg4KBmFwcF9pZBgCIAEoDRIUCgxu",
-            "dW1fc2VnbWVudHMYAyABKA0SGwoTbGVuZ3RoX21pbGxpc2Vjb25kcxgEIAEo",
-            "DRIiChpzZWdtZW50X2R1cmF0aW9uX3RpbWVzY2FsZRgFIAEoDRIYChBzZWdt",
-            "ZW50X2R1cmF0aW9uGAYgASgNEjQKCmNvbXBvbmVudHMYByADKAsyIC5DTXNn",
-            "VmlkZW9HYW1lUmVjb3JkaW5nQ29tcG9uZW50EhUKDXN0YXJ0X3RpbWVfbXMY",
-            "CCABKA0iiQIKJENNc2dWaWRlb0dhbWVSZWNvcmRpbmdSZXByZXNlbnRhdGlv",
-            "bhIbChNyZXByZXNlbnRhdGlvbl9uYW1lGAIgASgJEh0KFWhvcml6b250YWxf",
-            "cmVzb2x1dGlvbhgDIAEoDRIbChN2ZXJ0aWNhbF9yZXNvbHV0aW9uGAQgASgN",
-            "EhIKCmZyYW1lX3JhdGUYBSABKAESEQoJYmFuZHdpZHRoGAYgASgNEhkKEWF1",
-            "ZGlvX3NhbXBsZV9yYXRlGAcgASgNEhkKEWZyYW1lX3JhdGVfc3RyaW5nGAgg",
-            "ASgJEg0KBWNvZGVjGAkgASgJEhwKFGF1ZGlvX2NoYW5uZWxfY29uZmlnGAog",
-            "ASgNInAKE0NWaWRlb01hbmFnZXJDbGlwSUQSHQoVdmlkZW9fbWFuYWdlcl9j",
-            "bGlwX2lkGAEgASgGEh4KFnZpZGVvX21hbmFnZXJfdmlkZW9faWQYAiABKAYS",
-            "GgoSc2VydmVyX3RpbWVsaW5lX2lkGAMgASgGMqAEChFHYW1lUmVjb3JkaW5n",
-            "Q2xpcBJkCg9DcmVhdGVTaGFyZUNsaXASJy5DR2FtZVJlY29yZGluZ19DcmVh",
-            "dGVTaGFyZUNsaXBfUmVxdWVzdBooLkNHYW1lUmVjb3JkaW5nX0NyZWF0ZVNo",
-            "YXJlQ2xpcF9SZXNwb25zZRJnChBEZWxldGVTaGFyZWRDbGlwEiguQ0dhbWVS",
-            "ZWNvcmRpbmdfRGVsZXRlU2hhcmVkQ2xpcF9SZXF1ZXN0GikuQ0dhbWVSZWNv",
-            "cmRpbmdfRGVsZXRlU2hhcmVkQ2xpcF9SZXNwb25zZRJhCg5HZXRTaGFyZWRD",
-            "bGlwcxImLkNHYW1lUmVjb3JkaW5nX0dldFNoYXJlZENsaXBzX1JlcXVlc3Qa",
-            "Jy5DR2FtZVJlY29yZGluZ19HZXRTaGFyZWRDbGlwc19SZXNwb25zZRJwChNH",
-            "ZXRTaW5nbGVTaGFyZWRDbGlwEisuQ0dhbWVSZWNvcmRpbmdfR2V0U2luZ2xl",
-            "U2hhcmVkQ2xpcF9SZXF1ZXN0GiwuQ0dhbWVSZWNvcmRpbmdfR2V0U2luZ2xl",
-            "U2hhcmVkQ2xpcF9SZXNwb25zZRJnChBVcGRhdGVTaGFyZWRDbGlwEiguQ0dh",
-            "bWVSZWNvcmRpbmdfVXBkYXRlU2hhcmVkQ2xpcF9SZXF1ZXN0GikuQ0dhbWVS",
-            "ZWNvcmRpbmdfVXBkYXRlU2hhcmVkQ2xpcF9SZXNwb25zZUIgqgIdT3BlblN0",
-            "ZWFtd29ya3MuUHJvdG9idWYuV2ViVUk="));
+            "dG9idWYvZGVzY3JpcHRvci5wcm90byJ6CiZDR2FtZVJlY29yZGluZ19DcmVh",
+            "dGVTaGFyZUNsaXBfUmVxdWVzdBIhCgRjbGlwGAIgASgLMhMuQ0dhbWVSZWNv",
+            "cmRpbmdDbGlwEi0KCXZpZGVvX2RlZhgDIAMoCzIaLkNNc2dWaWRlb0dhbWVS",
+            "ZWNvcmRpbmdEZWYiTAonQ0dhbWVSZWNvcmRpbmdfQ3JlYXRlU2hhcmVDbGlw",
+            "X1Jlc3BvbnNlEiEKBGNsaXAYASABKAsyEy5DR2FtZVJlY29yZGluZ0NsaXAi",
+            "OgonQ0dhbWVSZWNvcmRpbmdfRGVsZXRlU2hhcmVkQ2xpcF9SZXF1ZXN0Eg8K",
+            "B2NsaXBfaWQYAiABKAYiKgooQ0dhbWVSZWNvcmRpbmdfRGVsZXRlU2hhcmVk",
+            "Q2xpcF9SZXNwb25zZSI9CipDR2FtZVJlY29yZGluZ19HZXRTaW5nbGVTaGFy",
+            "ZWRDbGlwX1JlcXVlc3QSDwoHY2xpcF9pZBgCIAEoBiJQCitDR2FtZVJlY29y",
+            "ZGluZ19HZXRTaW5nbGVTaGFyZWRDbGlwX1Jlc3BvbnNlEiEKBGNsaXAYASAB",
+            "KAsyEy5DR2FtZVJlY29yZGluZ0NsaXAi2QEKEkNHYW1lUmVjb3JkaW5nQ2xp",
+            "cBIPCgdjbGlwX2lkGAEgASgGEg4KBmdhbWVpZBgCIAEoBBIVCg1kYXRlX3Jl",
+            "Y29yZGVkGAQgASgNEh0KFXRvdGFsX2ZpbGVfc2l6ZV9ieXRlcxgHIAEoBBIn",
+            "Cgl2aWRlb19pZHMYCSADKAsyFC5DVmlkZW9NYW5hZ2VyQ2xpcElEEhUKDW93",
+            "bmVyX3N0ZWFtaWQYCiABKAYSFwoPdXBsb2FkX2NvbXBsZXRlGAsgASgIEhMK",
+            "C2R1cmF0aW9uX21zGAwgASgNIrQBCh9DTXNnVmlkZW9HYW1lUmVjb3JkaW5n",
+            "Q29tcG9uZW50EhYKDmNvbXBvbmVudF9uYW1lGAEgASgJEhAKCGNvbnRlbnRz",
+            "GAIgASgNEhQKDHNlZ21lbnRfc2l6ZRgDIAEoDRIRCglmaWxlX3R5cGUYBCAB",
+            "KAkSPgoPcmVwcmVzZW50YXRpb25zGAUgAygLMiUuQ01zZ1ZpZGVvR2FtZVJl",
+            "Y29yZGluZ1JlcHJlc2VudGF0aW9uIp8CChlDTXNnVmlkZW9HYW1lUmVjb3Jk",
+            "aW5nRGVmEg8KB3N0ZWFtaWQYASABKAQSDgoGYXBwX2lkGAIgASgNEhQKDG51",
+            "bV9zZWdtZW50cxgDIAEoDRIbChNsZW5ndGhfbWlsbGlzZWNvbmRzGAQgASgN",
+            "EiIKGnNlZ21lbnRfZHVyYXRpb25fdGltZXNjYWxlGAUgASgNEhgKEHNlZ21l",
+            "bnRfZHVyYXRpb24YBiABKA0SNAoKY29tcG9uZW50cxgHIAMoCzIgLkNNc2dW",
+            "aWRlb0dhbWVSZWNvcmRpbmdDb21wb25lbnQSFQoNc3RhcnRfdGltZV9tcxgI",
+            "IAEoDRIjChtzdGFydF9vZmZzZXRfaW5fdGltZWxpbmVfbXMYCSABKA0iiQIK",
+            "JENNc2dWaWRlb0dhbWVSZWNvcmRpbmdSZXByZXNlbnRhdGlvbhIbChNyZXBy",
+            "ZXNlbnRhdGlvbl9uYW1lGAIgASgJEh0KFWhvcml6b250YWxfcmVzb2x1dGlv",
+            "bhgDIAEoDRIbChN2ZXJ0aWNhbF9yZXNvbHV0aW9uGAQgASgNEhIKCmZyYW1l",
+            "X3JhdGUYBSABKAESEQoJYmFuZHdpZHRoGAYgASgNEhkKEWF1ZGlvX3NhbXBs",
+            "ZV9yYXRlGAcgASgNEhkKEWZyYW1lX3JhdGVfc3RyaW5nGAggASgJEg0KBWNv",
+            "ZGVjGAkgASgJEhwKFGF1ZGlvX2NoYW5uZWxfY29uZmlnGAogASgNIrQBChND",
+            "VmlkZW9NYW5hZ2VyQ2xpcElEEh0KFXZpZGVvX21hbmFnZXJfY2xpcF9pZBgB",
+            "IAEoBhIeChZ2aWRlb19tYW5hZ2VyX3ZpZGVvX2lkGAIgASgGEhoKEnNlcnZl",
+            "cl90aW1lbGluZV9pZBgDIAEoBhIUCgxtYW5pZmVzdF91cmwYBCABKAkSEwoL",
+            "ZHVyYXRpb25fbXMYBSABKA0SFwoPc3RhcnRfb2Zmc2V0X21zGAYgASgNMtQC",
+            "ChFHYW1lUmVjb3JkaW5nQ2xpcBJkCg9DcmVhdGVTaGFyZUNsaXASJy5DR2Ft",
+            "ZVJlY29yZGluZ19DcmVhdGVTaGFyZUNsaXBfUmVxdWVzdBooLkNHYW1lUmVj",
+            "b3JkaW5nX0NyZWF0ZVNoYXJlQ2xpcF9SZXNwb25zZRJnChBEZWxldGVTaGFy",
+            "ZWRDbGlwEiguQ0dhbWVSZWNvcmRpbmdfRGVsZXRlU2hhcmVkQ2xpcF9SZXF1",
+            "ZXN0GikuQ0dhbWVSZWNvcmRpbmdfRGVsZXRlU2hhcmVkQ2xpcF9SZXNwb25z",
+            "ZRJwChNHZXRTaW5nbGVTaGFyZWRDbGlwEisuQ0dhbWVSZWNvcmRpbmdfR2V0",
+            "U2luZ2xlU2hhcmVkQ2xpcF9SZXF1ZXN0GiwuQ0dhbWVSZWNvcmRpbmdfR2V0",
+            "U2luZ2xlU2hhcmVkQ2xpcF9SZXNwb25zZUIgqgIdT3BlblN0ZWFtd29ya3Mu",
+            "UHJvdG9idWYuV2ViVUk="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.Reflection.DescriptorReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CGameRecording_CreateShareClip_Request), global::OpenSteamworks.Protobuf.WebUI.CGameRecording_CreateShareClip_Request.Parser, new[]{ "Steamid", "Clip", "VideoDef" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CGameRecording_CreateShareClip_Request), global::OpenSteamworks.Protobuf.WebUI.CGameRecording_CreateShareClip_Request.Parser, new[]{ "Clip", "VideoDef" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CGameRecording_CreateShareClip_Response), global::OpenSteamworks.Protobuf.WebUI.CGameRecording_CreateShareClip_Response.Parser, new[]{ "Clip" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CGameRecording_DeleteSharedClip_Request), global::OpenSteamworks.Protobuf.WebUI.CGameRecording_DeleteSharedClip_Request.Parser, new[]{ "Steamid", "ClipId" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CGameRecording_DeleteSharedClip_Request), global::OpenSteamworks.Protobuf.WebUI.CGameRecording_DeleteSharedClip_Request.Parser, new[]{ "ClipId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CGameRecording_DeleteSharedClip_Response), global::OpenSteamworks.Protobuf.WebUI.CGameRecording_DeleteSharedClip_Response.Parser, null, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CGameRecording_GetSharedClips_Request), global::OpenSteamworks.Protobuf.WebUI.CGameRecording_GetSharedClips_Request.Parser, new[]{ "Steamid", "Appid" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CGameRecording_GetSharedClips_Response), global::OpenSteamworks.Protobuf.WebUI.CGameRecording_GetSharedClips_Response.Parser, new[]{ "Clips" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CGameRecording_GetSingleSharedClip_Request), global::OpenSteamworks.Protobuf.WebUI.CGameRecording_GetSingleSharedClip_Request.Parser, new[]{ "Steamid", "ClipId" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CGameRecording_GetSingleSharedClip_Request), global::OpenSteamworks.Protobuf.WebUI.CGameRecording_GetSingleSharedClip_Request.Parser, new[]{ "ClipId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CGameRecording_GetSingleSharedClip_Response), global::OpenSteamworks.Protobuf.WebUI.CGameRecording_GetSingleSharedClip_Response.Parser, new[]{ "Clip" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CGameRecording_UpdateSharedClip_Request), global::OpenSteamworks.Protobuf.WebUI.CGameRecording_UpdateSharedClip_Request.Parser, new[]{ "Steamid", "ClipId", "ClipTitle", "ClipDescription", "Permission" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CGameRecording_UpdateSharedClip_Response), global::OpenSteamworks.Protobuf.WebUI.CGameRecording_UpdateSharedClip_Response.Parser, null, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CGameRecordingClip), global::OpenSteamworks.Protobuf.WebUI.CGameRecordingClip.Parser, new[]{ "ClipId", "Gameid", "Appid", "DateRecorded", "ClipTitle", "ClipDescription", "TotalFileSizeBytes", "Permission", "VideoIds", "OwnerSteamid", "UploadComplete" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CGameRecordingClip), global::OpenSteamworks.Protobuf.WebUI.CGameRecordingClip.Parser, new[]{ "ClipId", "Gameid", "DateRecorded", "TotalFileSizeBytes", "VideoIds", "OwnerSteamid", "UploadComplete", "DurationMs" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CMsgVideoGameRecordingComponent), global::OpenSteamworks.Protobuf.WebUI.CMsgVideoGameRecordingComponent.Parser, new[]{ "ComponentName", "Contents", "SegmentSize", "FileType", "Representations" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CMsgVideoGameRecordingDef), global::OpenSteamworks.Protobuf.WebUI.CMsgVideoGameRecordingDef.Parser, new[]{ "Steamid", "AppId", "NumSegments", "LengthMilliseconds", "SegmentDurationTimescale", "SegmentDuration", "Components", "StartTimeMs" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CMsgVideoGameRecordingDef), global::OpenSteamworks.Protobuf.WebUI.CMsgVideoGameRecordingDef.Parser, new[]{ "Steamid", "AppId", "NumSegments", "LengthMilliseconds", "SegmentDurationTimescale", "SegmentDuration", "Components", "StartTimeMs", "StartOffsetInTimelineMs" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CMsgVideoGameRecordingRepresentation), global::OpenSteamworks.Protobuf.WebUI.CMsgVideoGameRecordingRepresentation.Parser, new[]{ "RepresentationName", "HorizontalResolution", "VerticalResolution", "FrameRate", "Bandwidth", "AudioSampleRate", "FrameRateString", "Codec", "AudioChannelConfig" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CVideoManagerClipID), global::OpenSteamworks.Protobuf.WebUI.CVideoManagerClipID.Parser, new[]{ "VideoManagerClipId", "VideoManagerVideoId", "ServerTimelineId" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CVideoManagerClipID), global::OpenSteamworks.Protobuf.WebUI.CVideoManagerClipID.Parser, new[]{ "VideoManagerClipId", "VideoManagerVideoId", "ServerTimelineId", "ManifestUrl", "DurationMs", "StartOffsetMs" }, null, null, null, null)
           }));
     }
     #endregion
 
   }
   #region Messages
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CGameRecording_CreateShareClip_Request : pb::IMessage<CGameRecording_CreateShareClip_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -113,7 +98,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
   {
     private static readonly pb::MessageParser<CGameRecording_CreateShareClip_Request> _parser = new pb::MessageParser<CGameRecording_CreateShareClip_Request>(() => new CGameRecording_CreateShareClip_Request());
     private pb::UnknownFieldSet _unknownFields;
-    private int _hasBits0;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pb::MessageParser<CGameRecording_CreateShareClip_Request> Parser { get { return _parser; } }
@@ -141,8 +125,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public CGameRecording_CreateShareClip_Request(CGameRecording_CreateShareClip_Request other) : this() {
-      _hasBits0 = other._hasBits0;
-      steamid_ = other.steamid_;
       clip_ = other.clip_ != null ? other.clip_.Clone() : null;
       videoDef_ = other.videoDef_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -152,33 +134,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public CGameRecording_CreateShareClip_Request Clone() {
       return new CGameRecording_CreateShareClip_Request(this);
-    }
-
-    /// <summary>Field number for the "steamid" field.</summary>
-    public const int SteamidFieldNumber = 1;
-    private readonly static ulong SteamidDefaultValue = 0UL;
-
-    private ulong steamid_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public ulong Steamid {
-      get { if ((_hasBits0 & 1) != 0) { return steamid_; } else { return SteamidDefaultValue; } }
-      set {
-        _hasBits0 |= 1;
-        steamid_ = value;
-      }
-    }
-    /// <summary>Gets whether the "steamid" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasSteamid {
-      get { return (_hasBits0 & 1) != 0; }
-    }
-    /// <summary>Clears the value of the "steamid" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearSteamid() {
-      _hasBits0 &= ~1;
     }
 
     /// <summary>Field number for the "clip" field.</summary>
@@ -219,7 +174,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Steamid != other.Steamid) return false;
       if (!object.Equals(Clip, other.Clip)) return false;
       if(!videoDef_.Equals(other.videoDef_)) return false;
       return Equals(_unknownFields, other._unknownFields);
@@ -229,7 +183,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (HasSteamid) hash ^= Steamid.GetHashCode();
       if (clip_ != null) hash ^= Clip.GetHashCode();
       hash ^= videoDef_.GetHashCode();
       if (_unknownFields != null) {
@@ -250,10 +203,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (HasSteamid) {
-        output.WriteRawTag(9);
-        output.WriteFixed64(Steamid);
-      }
       if (clip_ != null) {
         output.WriteRawTag(18);
         output.WriteMessage(Clip);
@@ -269,10 +218,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (HasSteamid) {
-        output.WriteRawTag(9);
-        output.WriteFixed64(Steamid);
-      }
       if (clip_ != null) {
         output.WriteRawTag(18);
         output.WriteMessage(Clip);
@@ -288,9 +233,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (HasSteamid) {
-        size += 1 + 8;
-      }
       if (clip_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Clip);
       }
@@ -306,9 +248,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
     public void MergeFrom(CGameRecording_CreateShareClip_Request other) {
       if (other == null) {
         return;
-      }
-      if (other.HasSteamid) {
-        Steamid = other.Steamid;
       }
       if (other.clip_ != null) {
         if (clip_ == null) {
@@ -332,10 +271,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 9: {
-            Steamid = input.ReadFixed64();
-            break;
-          }
           case 18: {
             if (clip_ == null) {
               Clip = new global::OpenSteamworks.Protobuf.WebUI.CGameRecordingClip();
@@ -362,10 +297,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 9: {
-            Steamid = input.ReadFixed64();
-            break;
-          }
           case 18: {
             if (clip_ == null) {
               Clip = new global::OpenSteamworks.Protobuf.WebUI.CGameRecordingClip();
@@ -384,6 +315,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CGameRecording_CreateShareClip_Response : pb::IMessage<CGameRecording_CreateShareClip_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -582,6 +514,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CGameRecording_DeleteSharedClip_Request : pb::IMessage<CGameRecording_DeleteSharedClip_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -618,7 +551,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public CGameRecording_DeleteSharedClip_Request(CGameRecording_DeleteSharedClip_Request other) : this() {
       _hasBits0 = other._hasBits0;
-      steamid_ = other.steamid_;
       clipId_ = other.clipId_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -629,33 +561,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
       return new CGameRecording_DeleteSharedClip_Request(this);
     }
 
-    /// <summary>Field number for the "steamid" field.</summary>
-    public const int SteamidFieldNumber = 1;
-    private readonly static ulong SteamidDefaultValue = 0UL;
-
-    private ulong steamid_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public ulong Steamid {
-      get { if ((_hasBits0 & 1) != 0) { return steamid_; } else { return SteamidDefaultValue; } }
-      set {
-        _hasBits0 |= 1;
-        steamid_ = value;
-      }
-    }
-    /// <summary>Gets whether the "steamid" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasSteamid {
-      get { return (_hasBits0 & 1) != 0; }
-    }
-    /// <summary>Clears the value of the "steamid" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearSteamid() {
-      _hasBits0 &= ~1;
-    }
-
     /// <summary>Field number for the "clip_id" field.</summary>
     public const int ClipIdFieldNumber = 2;
     private readonly static ulong ClipIdDefaultValue = 0UL;
@@ -664,9 +569,9 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public ulong ClipId {
-      get { if ((_hasBits0 & 2) != 0) { return clipId_; } else { return ClipIdDefaultValue; } }
+      get { if ((_hasBits0 & 1) != 0) { return clipId_; } else { return ClipIdDefaultValue; } }
       set {
-        _hasBits0 |= 2;
+        _hasBits0 |= 1;
         clipId_ = value;
       }
     }
@@ -674,13 +579,13 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool HasClipId {
-      get { return (_hasBits0 & 2) != 0; }
+      get { return (_hasBits0 & 1) != 0; }
     }
     /// <summary>Clears the value of the "clip_id" field</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void ClearClipId() {
-      _hasBits0 &= ~2;
+      _hasBits0 &= ~1;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -698,7 +603,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Steamid != other.Steamid) return false;
       if (ClipId != other.ClipId) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -707,7 +611,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (HasSteamid) hash ^= Steamid.GetHashCode();
       if (HasClipId) hash ^= ClipId.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -727,10 +630,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (HasSteamid) {
-        output.WriteRawTag(9);
-        output.WriteFixed64(Steamid);
-      }
       if (HasClipId) {
         output.WriteRawTag(17);
         output.WriteFixed64(ClipId);
@@ -745,10 +644,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (HasSteamid) {
-        output.WriteRawTag(9);
-        output.WriteFixed64(Steamid);
-      }
       if (HasClipId) {
         output.WriteRawTag(17);
         output.WriteFixed64(ClipId);
@@ -763,9 +658,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (HasSteamid) {
-        size += 1 + 8;
-      }
       if (HasClipId) {
         size += 1 + 8;
       }
@@ -780,9 +672,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
     public void MergeFrom(CGameRecording_DeleteSharedClip_Request other) {
       if (other == null) {
         return;
-      }
-      if (other.HasSteamid) {
-        Steamid = other.Steamid;
       }
       if (other.HasClipId) {
         ClipId = other.ClipId;
@@ -802,10 +691,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 9: {
-            Steamid = input.ReadFixed64();
-            break;
-          }
           case 17: {
             ClipId = input.ReadFixed64();
             break;
@@ -825,10 +710,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 9: {
-            Steamid = input.ReadFixed64();
-            break;
-          }
           case 17: {
             ClipId = input.ReadFixed64();
             break;
@@ -840,6 +721,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CGameRecording_DeleteSharedClip_Response : pb::IMessage<CGameRecording_DeleteSharedClip_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -992,442 +874,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
-  public sealed partial class CGameRecording_GetSharedClips_Request : pb::IMessage<CGameRecording_GetSharedClips_Request>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<CGameRecording_GetSharedClips_Request> _parser = new pb::MessageParser<CGameRecording_GetSharedClips_Request>(() => new CGameRecording_GetSharedClips_Request());
-    private pb::UnknownFieldSet _unknownFields;
-    private int _hasBits0;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<CGameRecording_GetSharedClips_Request> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceGamerecordingclipReflection.Descriptor.MessageTypes[4]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CGameRecording_GetSharedClips_Request() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CGameRecording_GetSharedClips_Request(CGameRecording_GetSharedClips_Request other) : this() {
-      _hasBits0 = other._hasBits0;
-      steamid_ = other.steamid_;
-      appid_ = other.appid_;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CGameRecording_GetSharedClips_Request Clone() {
-      return new CGameRecording_GetSharedClips_Request(this);
-    }
-
-    /// <summary>Field number for the "steamid" field.</summary>
-    public const int SteamidFieldNumber = 1;
-    private readonly static ulong SteamidDefaultValue = 0UL;
-
-    private ulong steamid_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public ulong Steamid {
-      get { if ((_hasBits0 & 1) != 0) { return steamid_; } else { return SteamidDefaultValue; } }
-      set {
-        _hasBits0 |= 1;
-        steamid_ = value;
-      }
-    }
-    /// <summary>Gets whether the "steamid" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasSteamid {
-      get { return (_hasBits0 & 1) != 0; }
-    }
-    /// <summary>Clears the value of the "steamid" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearSteamid() {
-      _hasBits0 &= ~1;
-    }
-
-    /// <summary>Field number for the "appid" field.</summary>
-    public const int AppidFieldNumber = 2;
-    private readonly static uint AppidDefaultValue = 0;
-
-    private uint appid_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint Appid {
-      get { if ((_hasBits0 & 2) != 0) { return appid_; } else { return AppidDefaultValue; } }
-      set {
-        _hasBits0 |= 2;
-        appid_ = value;
-      }
-    }
-    /// <summary>Gets whether the "appid" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasAppid {
-      get { return (_hasBits0 & 2) != 0; }
-    }
-    /// <summary>Clears the value of the "appid" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearAppid() {
-      _hasBits0 &= ~2;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override bool Equals(object other) {
-      return Equals(other as CGameRecording_GetSharedClips_Request);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(CGameRecording_GetSharedClips_Request other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (Steamid != other.Steamid) return false;
-      if (Appid != other.Appid) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (HasSteamid) hash ^= Steamid.GetHashCode();
-      if (HasAppid) hash ^= Appid.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      if (HasSteamid) {
-        output.WriteRawTag(9);
-        output.WriteFixed64(Steamid);
-      }
-      if (HasAppid) {
-        output.WriteRawTag(16);
-        output.WriteUInt32(Appid);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (HasSteamid) {
-        output.WriteRawTag(9);
-        output.WriteFixed64(Steamid);
-      }
-      if (HasAppid) {
-        output.WriteRawTag(16);
-        output.WriteUInt32(Appid);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int CalculateSize() {
-      int size = 0;
-      if (HasSteamid) {
-        size += 1 + 8;
-      }
-      if (HasAppid) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Appid);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(CGameRecording_GetSharedClips_Request other) {
-      if (other == null) {
-        return;
-      }
-      if (other.HasSteamid) {
-        Steamid = other.Steamid;
-      }
-      if (other.HasAppid) {
-        Appid = other.Appid;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 9: {
-            Steamid = input.ReadFixed64();
-            break;
-          }
-          case 16: {
-            Appid = input.ReadUInt32();
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 9: {
-            Steamid = input.ReadFixed64();
-            break;
-          }
-          case 16: {
-            Appid = input.ReadUInt32();
-            break;
-          }
-        }
-      }
-    }
-    #endif
-
-  }
-
-  public sealed partial class CGameRecording_GetSharedClips_Response : pb::IMessage<CGameRecording_GetSharedClips_Response>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<CGameRecording_GetSharedClips_Response> _parser = new pb::MessageParser<CGameRecording_GetSharedClips_Response>(() => new CGameRecording_GetSharedClips_Response());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<CGameRecording_GetSharedClips_Response> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceGamerecordingclipReflection.Descriptor.MessageTypes[5]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CGameRecording_GetSharedClips_Response() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CGameRecording_GetSharedClips_Response(CGameRecording_GetSharedClips_Response other) : this() {
-      clips_ = other.clips_.Clone();
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CGameRecording_GetSharedClips_Response Clone() {
-      return new CGameRecording_GetSharedClips_Response(this);
-    }
-
-    /// <summary>Field number for the "clips" field.</summary>
-    public const int ClipsFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::OpenSteamworks.Protobuf.WebUI.CGameRecordingClip> _repeated_clips_codec
-        = pb::FieldCodec.ForMessage(10, global::OpenSteamworks.Protobuf.WebUI.CGameRecordingClip.Parser);
-    private readonly pbc::RepeatedField<global::OpenSteamworks.Protobuf.WebUI.CGameRecordingClip> clips_ = new pbc::RepeatedField<global::OpenSteamworks.Protobuf.WebUI.CGameRecordingClip>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::OpenSteamworks.Protobuf.WebUI.CGameRecordingClip> Clips {
-      get { return clips_; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override bool Equals(object other) {
-      return Equals(other as CGameRecording_GetSharedClips_Response);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(CGameRecording_GetSharedClips_Response other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if(!clips_.Equals(other.clips_)) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override int GetHashCode() {
-      int hash = 1;
-      hash ^= clips_.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      clips_.WriteTo(output, _repeated_clips_codec);
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      clips_.WriteTo(ref output, _repeated_clips_codec);
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int CalculateSize() {
-      int size = 0;
-      size += clips_.CalculateSize(_repeated_clips_codec);
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(CGameRecording_GetSharedClips_Response other) {
-      if (other == null) {
-        return;
-      }
-      clips_.Add(other.clips_);
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 10: {
-            clips_.AddEntriesFrom(input, _repeated_clips_codec);
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 10: {
-            clips_.AddEntriesFrom(ref input, _repeated_clips_codec);
-            break;
-          }
-        }
-      }
-    }
-    #endif
-
-  }
-
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CGameRecording_GetSingleSharedClip_Request : pb::IMessage<CGameRecording_GetSingleSharedClip_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1443,7 +890,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceGamerecordingclipReflection.Descriptor.MessageTypes[6]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceGamerecordingclipReflection.Descriptor.MessageTypes[4]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1464,7 +911,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public CGameRecording_GetSingleSharedClip_Request(CGameRecording_GetSingleSharedClip_Request other) : this() {
       _hasBits0 = other._hasBits0;
-      steamid_ = other.steamid_;
       clipId_ = other.clipId_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -1475,33 +921,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
       return new CGameRecording_GetSingleSharedClip_Request(this);
     }
 
-    /// <summary>Field number for the "steamid" field.</summary>
-    public const int SteamidFieldNumber = 1;
-    private readonly static ulong SteamidDefaultValue = 0UL;
-
-    private ulong steamid_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public ulong Steamid {
-      get { if ((_hasBits0 & 1) != 0) { return steamid_; } else { return SteamidDefaultValue; } }
-      set {
-        _hasBits0 |= 1;
-        steamid_ = value;
-      }
-    }
-    /// <summary>Gets whether the "steamid" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasSteamid {
-      get { return (_hasBits0 & 1) != 0; }
-    }
-    /// <summary>Clears the value of the "steamid" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearSteamid() {
-      _hasBits0 &= ~1;
-    }
-
     /// <summary>Field number for the "clip_id" field.</summary>
     public const int ClipIdFieldNumber = 2;
     private readonly static ulong ClipIdDefaultValue = 0UL;
@@ -1510,9 +929,9 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public ulong ClipId {
-      get { if ((_hasBits0 & 2) != 0) { return clipId_; } else { return ClipIdDefaultValue; } }
+      get { if ((_hasBits0 & 1) != 0) { return clipId_; } else { return ClipIdDefaultValue; } }
       set {
-        _hasBits0 |= 2;
+        _hasBits0 |= 1;
         clipId_ = value;
       }
     }
@@ -1520,13 +939,13 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool HasClipId {
-      get { return (_hasBits0 & 2) != 0; }
+      get { return (_hasBits0 & 1) != 0; }
     }
     /// <summary>Clears the value of the "clip_id" field</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void ClearClipId() {
-      _hasBits0 &= ~2;
+      _hasBits0 &= ~1;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1544,7 +963,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Steamid != other.Steamid) return false;
       if (ClipId != other.ClipId) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -1553,7 +971,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (HasSteamid) hash ^= Steamid.GetHashCode();
       if (HasClipId) hash ^= ClipId.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -1573,10 +990,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (HasSteamid) {
-        output.WriteRawTag(9);
-        output.WriteFixed64(Steamid);
-      }
       if (HasClipId) {
         output.WriteRawTag(17);
         output.WriteFixed64(ClipId);
@@ -1591,10 +1004,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (HasSteamid) {
-        output.WriteRawTag(9);
-        output.WriteFixed64(Steamid);
-      }
       if (HasClipId) {
         output.WriteRawTag(17);
         output.WriteFixed64(ClipId);
@@ -1609,9 +1018,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (HasSteamid) {
-        size += 1 + 8;
-      }
       if (HasClipId) {
         size += 1 + 8;
       }
@@ -1626,9 +1032,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
     public void MergeFrom(CGameRecording_GetSingleSharedClip_Request other) {
       if (other == null) {
         return;
-      }
-      if (other.HasSteamid) {
-        Steamid = other.Steamid;
       }
       if (other.HasClipId) {
         ClipId = other.ClipId;
@@ -1648,10 +1051,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 9: {
-            Steamid = input.ReadFixed64();
-            break;
-          }
           case 17: {
             ClipId = input.ReadFixed64();
             break;
@@ -1671,10 +1070,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 9: {
-            Steamid = input.ReadFixed64();
-            break;
-          }
           case 17: {
             ClipId = input.ReadFixed64();
             break;
@@ -1686,6 +1081,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CGameRecording_GetSingleSharedClip_Response : pb::IMessage<CGameRecording_GetSingleSharedClip_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1700,7 +1096,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceGamerecordingclipReflection.Descriptor.MessageTypes[7]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceGamerecordingclipReflection.Descriptor.MessageTypes[5]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1884,570 +1280,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
-  public sealed partial class CGameRecording_UpdateSharedClip_Request : pb::IMessage<CGameRecording_UpdateSharedClip_Request>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<CGameRecording_UpdateSharedClip_Request> _parser = new pb::MessageParser<CGameRecording_UpdateSharedClip_Request>(() => new CGameRecording_UpdateSharedClip_Request());
-    private pb::UnknownFieldSet _unknownFields;
-    private int _hasBits0;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<CGameRecording_UpdateSharedClip_Request> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceGamerecordingclipReflection.Descriptor.MessageTypes[8]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CGameRecording_UpdateSharedClip_Request() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CGameRecording_UpdateSharedClip_Request(CGameRecording_UpdateSharedClip_Request other) : this() {
-      _hasBits0 = other._hasBits0;
-      steamid_ = other.steamid_;
-      clipId_ = other.clipId_;
-      clipTitle_ = other.clipTitle_;
-      clipDescription_ = other.clipDescription_;
-      permission_ = other.permission_;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CGameRecording_UpdateSharedClip_Request Clone() {
-      return new CGameRecording_UpdateSharedClip_Request(this);
-    }
-
-    /// <summary>Field number for the "steamid" field.</summary>
-    public const int SteamidFieldNumber = 1;
-    private readonly static ulong SteamidDefaultValue = 0UL;
-
-    private ulong steamid_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public ulong Steamid {
-      get { if ((_hasBits0 & 1) != 0) { return steamid_; } else { return SteamidDefaultValue; } }
-      set {
-        _hasBits0 |= 1;
-        steamid_ = value;
-      }
-    }
-    /// <summary>Gets whether the "steamid" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasSteamid {
-      get { return (_hasBits0 & 1) != 0; }
-    }
-    /// <summary>Clears the value of the "steamid" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearSteamid() {
-      _hasBits0 &= ~1;
-    }
-
-    /// <summary>Field number for the "clip_id" field.</summary>
-    public const int ClipIdFieldNumber = 2;
-    private readonly static ulong ClipIdDefaultValue = 0UL;
-
-    private ulong clipId_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public ulong ClipId {
-      get { if ((_hasBits0 & 2) != 0) { return clipId_; } else { return ClipIdDefaultValue; } }
-      set {
-        _hasBits0 |= 2;
-        clipId_ = value;
-      }
-    }
-    /// <summary>Gets whether the "clip_id" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasClipId {
-      get { return (_hasBits0 & 2) != 0; }
-    }
-    /// <summary>Clears the value of the "clip_id" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearClipId() {
-      _hasBits0 &= ~2;
-    }
-
-    /// <summary>Field number for the "clip_title" field.</summary>
-    public const int ClipTitleFieldNumber = 3;
-    private readonly static string ClipTitleDefaultValue = "";
-
-    private string clipTitle_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string ClipTitle {
-      get { return clipTitle_ ?? ClipTitleDefaultValue; }
-      set {
-        clipTitle_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-    /// <summary>Gets whether the "clip_title" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasClipTitle {
-      get { return clipTitle_ != null; }
-    }
-    /// <summary>Clears the value of the "clip_title" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearClipTitle() {
-      clipTitle_ = null;
-    }
-
-    /// <summary>Field number for the "clip_description" field.</summary>
-    public const int ClipDescriptionFieldNumber = 4;
-    private readonly static string ClipDescriptionDefaultValue = "";
-
-    private string clipDescription_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string ClipDescription {
-      get { return clipDescription_ ?? ClipDescriptionDefaultValue; }
-      set {
-        clipDescription_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-    /// <summary>Gets whether the "clip_description" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasClipDescription {
-      get { return clipDescription_ != null; }
-    }
-    /// <summary>Clears the value of the "clip_description" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearClipDescription() {
-      clipDescription_ = null;
-    }
-
-    /// <summary>Field number for the "permission" field.</summary>
-    public const int PermissionFieldNumber = 5;
-    private readonly static uint PermissionDefaultValue = 0;
-
-    private uint permission_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint Permission {
-      get { if ((_hasBits0 & 4) != 0) { return permission_; } else { return PermissionDefaultValue; } }
-      set {
-        _hasBits0 |= 4;
-        permission_ = value;
-      }
-    }
-    /// <summary>Gets whether the "permission" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasPermission {
-      get { return (_hasBits0 & 4) != 0; }
-    }
-    /// <summary>Clears the value of the "permission" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearPermission() {
-      _hasBits0 &= ~4;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override bool Equals(object other) {
-      return Equals(other as CGameRecording_UpdateSharedClip_Request);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(CGameRecording_UpdateSharedClip_Request other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (Steamid != other.Steamid) return false;
-      if (ClipId != other.ClipId) return false;
-      if (ClipTitle != other.ClipTitle) return false;
-      if (ClipDescription != other.ClipDescription) return false;
-      if (Permission != other.Permission) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (HasSteamid) hash ^= Steamid.GetHashCode();
-      if (HasClipId) hash ^= ClipId.GetHashCode();
-      if (HasClipTitle) hash ^= ClipTitle.GetHashCode();
-      if (HasClipDescription) hash ^= ClipDescription.GetHashCode();
-      if (HasPermission) hash ^= Permission.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      if (HasSteamid) {
-        output.WriteRawTag(9);
-        output.WriteFixed64(Steamid);
-      }
-      if (HasClipId) {
-        output.WriteRawTag(17);
-        output.WriteFixed64(ClipId);
-      }
-      if (HasClipTitle) {
-        output.WriteRawTag(26);
-        output.WriteString(ClipTitle);
-      }
-      if (HasClipDescription) {
-        output.WriteRawTag(34);
-        output.WriteString(ClipDescription);
-      }
-      if (HasPermission) {
-        output.WriteRawTag(40);
-        output.WriteUInt32(Permission);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (HasSteamid) {
-        output.WriteRawTag(9);
-        output.WriteFixed64(Steamid);
-      }
-      if (HasClipId) {
-        output.WriteRawTag(17);
-        output.WriteFixed64(ClipId);
-      }
-      if (HasClipTitle) {
-        output.WriteRawTag(26);
-        output.WriteString(ClipTitle);
-      }
-      if (HasClipDescription) {
-        output.WriteRawTag(34);
-        output.WriteString(ClipDescription);
-      }
-      if (HasPermission) {
-        output.WriteRawTag(40);
-        output.WriteUInt32(Permission);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int CalculateSize() {
-      int size = 0;
-      if (HasSteamid) {
-        size += 1 + 8;
-      }
-      if (HasClipId) {
-        size += 1 + 8;
-      }
-      if (HasClipTitle) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(ClipTitle);
-      }
-      if (HasClipDescription) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(ClipDescription);
-      }
-      if (HasPermission) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Permission);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(CGameRecording_UpdateSharedClip_Request other) {
-      if (other == null) {
-        return;
-      }
-      if (other.HasSteamid) {
-        Steamid = other.Steamid;
-      }
-      if (other.HasClipId) {
-        ClipId = other.ClipId;
-      }
-      if (other.HasClipTitle) {
-        ClipTitle = other.ClipTitle;
-      }
-      if (other.HasClipDescription) {
-        ClipDescription = other.ClipDescription;
-      }
-      if (other.HasPermission) {
-        Permission = other.Permission;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 9: {
-            Steamid = input.ReadFixed64();
-            break;
-          }
-          case 17: {
-            ClipId = input.ReadFixed64();
-            break;
-          }
-          case 26: {
-            ClipTitle = input.ReadString();
-            break;
-          }
-          case 34: {
-            ClipDescription = input.ReadString();
-            break;
-          }
-          case 40: {
-            Permission = input.ReadUInt32();
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 9: {
-            Steamid = input.ReadFixed64();
-            break;
-          }
-          case 17: {
-            ClipId = input.ReadFixed64();
-            break;
-          }
-          case 26: {
-            ClipTitle = input.ReadString();
-            break;
-          }
-          case 34: {
-            ClipDescription = input.ReadString();
-            break;
-          }
-          case 40: {
-            Permission = input.ReadUInt32();
-            break;
-          }
-        }
-      }
-    }
-    #endif
-
-  }
-
-  public sealed partial class CGameRecording_UpdateSharedClip_Response : pb::IMessage<CGameRecording_UpdateSharedClip_Response>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<CGameRecording_UpdateSharedClip_Response> _parser = new pb::MessageParser<CGameRecording_UpdateSharedClip_Response>(() => new CGameRecording_UpdateSharedClip_Response());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<CGameRecording_UpdateSharedClip_Response> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceGamerecordingclipReflection.Descriptor.MessageTypes[9]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CGameRecording_UpdateSharedClip_Response() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CGameRecording_UpdateSharedClip_Response(CGameRecording_UpdateSharedClip_Response other) : this() {
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CGameRecording_UpdateSharedClip_Response Clone() {
-      return new CGameRecording_UpdateSharedClip_Response(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override bool Equals(object other) {
-      return Equals(other as CGameRecording_UpdateSharedClip_Response);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(CGameRecording_UpdateSharedClip_Response other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public int CalculateSize() {
-      int size = 0;
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(CGameRecording_UpdateSharedClip_Response other) {
-      if (other == null) {
-        return;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-        }
-      }
-    }
-    #endif
-
-  }
-
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CGameRecordingClip : pb::IMessage<CGameRecordingClip>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2463,7 +1296,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceGamerecordingclipReflection.Descriptor.MessageTypes[10]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceGamerecordingclipReflection.Descriptor.MessageTypes[6]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2486,15 +1319,12 @@ namespace OpenSteamworks.Protobuf.WebUI {
       _hasBits0 = other._hasBits0;
       clipId_ = other.clipId_;
       gameid_ = other.gameid_;
-      appid_ = other.appid_;
       dateRecorded_ = other.dateRecorded_;
-      clipTitle_ = other.clipTitle_;
-      clipDescription_ = other.clipDescription_;
       totalFileSizeBytes_ = other.totalFileSizeBytes_;
-      permission_ = other.permission_;
       videoIds_ = other.videoIds_.Clone();
       ownerSteamid_ = other.ownerSteamid_;
       uploadComplete_ = other.uploadComplete_;
+      durationMs_ = other.durationMs_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -2558,33 +1388,6 @@ namespace OpenSteamworks.Protobuf.WebUI {
       _hasBits0 &= ~2;
     }
 
-    /// <summary>Field number for the "appid" field.</summary>
-    public const int AppidFieldNumber = 3;
-    private readonly static uint AppidDefaultValue = 0;
-
-    private uint appid_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint Appid {
-      get { if ((_hasBits0 & 4) != 0) { return appid_; } else { return AppidDefaultValue; } }
-      set {
-        _hasBits0 |= 4;
-        appid_ = value;
-      }
-    }
-    /// <summary>Gets whether the "appid" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasAppid {
-      get { return (_hasBits0 & 4) != 0; }
-    }
-    /// <summary>Clears the value of the "appid" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearAppid() {
-      _hasBits0 &= ~4;
-    }
-
     /// <summary>Field number for the "date_recorded" field.</summary>
     public const int DateRecordedFieldNumber = 4;
     private readonly static uint DateRecordedDefaultValue = 0;
@@ -2593,9 +1396,9 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public uint DateRecorded {
-      get { if ((_hasBits0 & 8) != 0) { return dateRecorded_; } else { return DateRecordedDefaultValue; } }
+      get { if ((_hasBits0 & 4) != 0) { return dateRecorded_; } else { return DateRecordedDefaultValue; } }
       set {
-        _hasBits0 |= 8;
+        _hasBits0 |= 4;
         dateRecorded_ = value;
       }
     }
@@ -2603,65 +1406,13 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool HasDateRecorded {
-      get { return (_hasBits0 & 8) != 0; }
+      get { return (_hasBits0 & 4) != 0; }
     }
     /// <summary>Clears the value of the "date_recorded" field</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void ClearDateRecorded() {
-      _hasBits0 &= ~8;
-    }
-
-    /// <summary>Field number for the "clip_title" field.</summary>
-    public const int ClipTitleFieldNumber = 5;
-    private readonly static string ClipTitleDefaultValue = "";
-
-    private string clipTitle_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string ClipTitle {
-      get { return clipTitle_ ?? ClipTitleDefaultValue; }
-      set {
-        clipTitle_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-    /// <summary>Gets whether the "clip_title" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasClipTitle {
-      get { return clipTitle_ != null; }
-    }
-    /// <summary>Clears the value of the "clip_title" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearClipTitle() {
-      clipTitle_ = null;
-    }
-
-    /// <summary>Field number for the "clip_description" field.</summary>
-    public const int ClipDescriptionFieldNumber = 6;
-    private readonly static string ClipDescriptionDefaultValue = "";
-
-    private string clipDescription_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public string ClipDescription {
-      get { return clipDescription_ ?? ClipDescriptionDefaultValue; }
-      set {
-        clipDescription_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-    /// <summary>Gets whether the "clip_description" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasClipDescription {
-      get { return clipDescription_ != null; }
-    }
-    /// <summary>Clears the value of the "clip_description" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearClipDescription() {
-      clipDescription_ = null;
+      _hasBits0 &= ~4;
     }
 
     /// <summary>Field number for the "total_file_size_bytes" field.</summary>
@@ -2672,9 +1423,9 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public ulong TotalFileSizeBytes {
-      get { if ((_hasBits0 & 16) != 0) { return totalFileSizeBytes_; } else { return TotalFileSizeBytesDefaultValue; } }
+      get { if ((_hasBits0 & 8) != 0) { return totalFileSizeBytes_; } else { return TotalFileSizeBytesDefaultValue; } }
       set {
-        _hasBits0 |= 16;
+        _hasBits0 |= 8;
         totalFileSizeBytes_ = value;
       }
     }
@@ -2682,40 +1433,13 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool HasTotalFileSizeBytes {
-      get { return (_hasBits0 & 16) != 0; }
+      get { return (_hasBits0 & 8) != 0; }
     }
     /// <summary>Clears the value of the "total_file_size_bytes" field</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void ClearTotalFileSizeBytes() {
-      _hasBits0 &= ~16;
-    }
-
-    /// <summary>Field number for the "permission" field.</summary>
-    public const int PermissionFieldNumber = 8;
-    private readonly static uint PermissionDefaultValue = 0;
-
-    private uint permission_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint Permission {
-      get { if ((_hasBits0 & 32) != 0) { return permission_; } else { return PermissionDefaultValue; } }
-      set {
-        _hasBits0 |= 32;
-        permission_ = value;
-      }
-    }
-    /// <summary>Gets whether the "permission" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasPermission {
-      get { return (_hasBits0 & 32) != 0; }
-    }
-    /// <summary>Clears the value of the "permission" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearPermission() {
-      _hasBits0 &= ~32;
+      _hasBits0 &= ~8;
     }
 
     /// <summary>Field number for the "video_ids" field.</summary>
@@ -2737,9 +1461,9 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public ulong OwnerSteamid {
-      get { if ((_hasBits0 & 64) != 0) { return ownerSteamid_; } else { return OwnerSteamidDefaultValue; } }
+      get { if ((_hasBits0 & 16) != 0) { return ownerSteamid_; } else { return OwnerSteamidDefaultValue; } }
       set {
-        _hasBits0 |= 64;
+        _hasBits0 |= 16;
         ownerSteamid_ = value;
       }
     }
@@ -2747,13 +1471,13 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool HasOwnerSteamid {
-      get { return (_hasBits0 & 64) != 0; }
+      get { return (_hasBits0 & 16) != 0; }
     }
     /// <summary>Clears the value of the "owner_steamid" field</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void ClearOwnerSteamid() {
-      _hasBits0 &= ~64;
+      _hasBits0 &= ~16;
     }
 
     /// <summary>Field number for the "upload_complete" field.</summary>
@@ -2764,9 +1488,9 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool UploadComplete {
-      get { if ((_hasBits0 & 128) != 0) { return uploadComplete_; } else { return UploadCompleteDefaultValue; } }
+      get { if ((_hasBits0 & 32) != 0) { return uploadComplete_; } else { return UploadCompleteDefaultValue; } }
       set {
-        _hasBits0 |= 128;
+        _hasBits0 |= 32;
         uploadComplete_ = value;
       }
     }
@@ -2774,13 +1498,40 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public bool HasUploadComplete {
-      get { return (_hasBits0 & 128) != 0; }
+      get { return (_hasBits0 & 32) != 0; }
     }
     /// <summary>Clears the value of the "upload_complete" field</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public void ClearUploadComplete() {
-      _hasBits0 &= ~128;
+      _hasBits0 &= ~32;
+    }
+
+    /// <summary>Field number for the "duration_ms" field.</summary>
+    public const int DurationMsFieldNumber = 12;
+    private readonly static uint DurationMsDefaultValue = 0;
+
+    private uint durationMs_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint DurationMs {
+      get { if ((_hasBits0 & 64) != 0) { return durationMs_; } else { return DurationMsDefaultValue; } }
+      set {
+        _hasBits0 |= 64;
+        durationMs_ = value;
+      }
+    }
+    /// <summary>Gets whether the "duration_ms" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasDurationMs {
+      get { return (_hasBits0 & 64) != 0; }
+    }
+    /// <summary>Clears the value of the "duration_ms" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearDurationMs() {
+      _hasBits0 &= ~64;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2800,15 +1551,12 @@ namespace OpenSteamworks.Protobuf.WebUI {
       }
       if (ClipId != other.ClipId) return false;
       if (Gameid != other.Gameid) return false;
-      if (Appid != other.Appid) return false;
       if (DateRecorded != other.DateRecorded) return false;
-      if (ClipTitle != other.ClipTitle) return false;
-      if (ClipDescription != other.ClipDescription) return false;
       if (TotalFileSizeBytes != other.TotalFileSizeBytes) return false;
-      if (Permission != other.Permission) return false;
       if(!videoIds_.Equals(other.videoIds_)) return false;
       if (OwnerSteamid != other.OwnerSteamid) return false;
       if (UploadComplete != other.UploadComplete) return false;
+      if (DurationMs != other.DurationMs) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -2818,15 +1566,12 @@ namespace OpenSteamworks.Protobuf.WebUI {
       int hash = 1;
       if (HasClipId) hash ^= ClipId.GetHashCode();
       if (HasGameid) hash ^= Gameid.GetHashCode();
-      if (HasAppid) hash ^= Appid.GetHashCode();
       if (HasDateRecorded) hash ^= DateRecorded.GetHashCode();
-      if (HasClipTitle) hash ^= ClipTitle.GetHashCode();
-      if (HasClipDescription) hash ^= ClipDescription.GetHashCode();
       if (HasTotalFileSizeBytes) hash ^= TotalFileSizeBytes.GetHashCode();
-      if (HasPermission) hash ^= Permission.GetHashCode();
       hash ^= videoIds_.GetHashCode();
       if (HasOwnerSteamid) hash ^= OwnerSteamid.GetHashCode();
       if (HasUploadComplete) hash ^= UploadComplete.GetHashCode();
+      if (HasDurationMs) hash ^= DurationMs.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -2853,29 +1598,13 @@ namespace OpenSteamworks.Protobuf.WebUI {
         output.WriteRawTag(16);
         output.WriteUInt64(Gameid);
       }
-      if (HasAppid) {
-        output.WriteRawTag(24);
-        output.WriteUInt32(Appid);
-      }
       if (HasDateRecorded) {
         output.WriteRawTag(32);
         output.WriteUInt32(DateRecorded);
       }
-      if (HasClipTitle) {
-        output.WriteRawTag(42);
-        output.WriteString(ClipTitle);
-      }
-      if (HasClipDescription) {
-        output.WriteRawTag(50);
-        output.WriteString(ClipDescription);
-      }
       if (HasTotalFileSizeBytes) {
         output.WriteRawTag(56);
         output.WriteUInt64(TotalFileSizeBytes);
-      }
-      if (HasPermission) {
-        output.WriteRawTag(64);
-        output.WriteUInt32(Permission);
       }
       videoIds_.WriteTo(output, _repeated_videoIds_codec);
       if (HasOwnerSteamid) {
@@ -2885,6 +1614,10 @@ namespace OpenSteamworks.Protobuf.WebUI {
       if (HasUploadComplete) {
         output.WriteRawTag(88);
         output.WriteBool(UploadComplete);
+      }
+      if (HasDurationMs) {
+        output.WriteRawTag(96);
+        output.WriteUInt32(DurationMs);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -2904,29 +1637,13 @@ namespace OpenSteamworks.Protobuf.WebUI {
         output.WriteRawTag(16);
         output.WriteUInt64(Gameid);
       }
-      if (HasAppid) {
-        output.WriteRawTag(24);
-        output.WriteUInt32(Appid);
-      }
       if (HasDateRecorded) {
         output.WriteRawTag(32);
         output.WriteUInt32(DateRecorded);
       }
-      if (HasClipTitle) {
-        output.WriteRawTag(42);
-        output.WriteString(ClipTitle);
-      }
-      if (HasClipDescription) {
-        output.WriteRawTag(50);
-        output.WriteString(ClipDescription);
-      }
       if (HasTotalFileSizeBytes) {
         output.WriteRawTag(56);
         output.WriteUInt64(TotalFileSizeBytes);
-      }
-      if (HasPermission) {
-        output.WriteRawTag(64);
-        output.WriteUInt32(Permission);
       }
       videoIds_.WriteTo(ref output, _repeated_videoIds_codec);
       if (HasOwnerSteamid) {
@@ -2936,6 +1653,10 @@ namespace OpenSteamworks.Protobuf.WebUI {
       if (HasUploadComplete) {
         output.WriteRawTag(88);
         output.WriteBool(UploadComplete);
+      }
+      if (HasDurationMs) {
+        output.WriteRawTag(96);
+        output.WriteUInt32(DurationMs);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -2953,23 +1674,11 @@ namespace OpenSteamworks.Protobuf.WebUI {
       if (HasGameid) {
         size += 1 + pb::CodedOutputStream.ComputeUInt64Size(Gameid);
       }
-      if (HasAppid) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Appid);
-      }
       if (HasDateRecorded) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(DateRecorded);
       }
-      if (HasClipTitle) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(ClipTitle);
-      }
-      if (HasClipDescription) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(ClipDescription);
-      }
       if (HasTotalFileSizeBytes) {
         size += 1 + pb::CodedOutputStream.ComputeUInt64Size(TotalFileSizeBytes);
-      }
-      if (HasPermission) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Permission);
       }
       size += videoIds_.CalculateSize(_repeated_videoIds_codec);
       if (HasOwnerSteamid) {
@@ -2977,6 +1686,9 @@ namespace OpenSteamworks.Protobuf.WebUI {
       }
       if (HasUploadComplete) {
         size += 1 + 1;
+      }
+      if (HasDurationMs) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(DurationMs);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -2996,23 +1708,11 @@ namespace OpenSteamworks.Protobuf.WebUI {
       if (other.HasGameid) {
         Gameid = other.Gameid;
       }
-      if (other.HasAppid) {
-        Appid = other.Appid;
-      }
       if (other.HasDateRecorded) {
         DateRecorded = other.DateRecorded;
       }
-      if (other.HasClipTitle) {
-        ClipTitle = other.ClipTitle;
-      }
-      if (other.HasClipDescription) {
-        ClipDescription = other.ClipDescription;
-      }
       if (other.HasTotalFileSizeBytes) {
         TotalFileSizeBytes = other.TotalFileSizeBytes;
-      }
-      if (other.HasPermission) {
-        Permission = other.Permission;
       }
       videoIds_.Add(other.videoIds_);
       if (other.HasOwnerSteamid) {
@@ -3020,6 +1720,9 @@ namespace OpenSteamworks.Protobuf.WebUI {
       }
       if (other.HasUploadComplete) {
         UploadComplete = other.UploadComplete;
+      }
+      if (other.HasDurationMs) {
+        DurationMs = other.DurationMs;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -3044,28 +1747,12 @@ namespace OpenSteamworks.Protobuf.WebUI {
             Gameid = input.ReadUInt64();
             break;
           }
-          case 24: {
-            Appid = input.ReadUInt32();
-            break;
-          }
           case 32: {
             DateRecorded = input.ReadUInt32();
             break;
           }
-          case 42: {
-            ClipTitle = input.ReadString();
-            break;
-          }
-          case 50: {
-            ClipDescription = input.ReadString();
-            break;
-          }
           case 56: {
             TotalFileSizeBytes = input.ReadUInt64();
-            break;
-          }
-          case 64: {
-            Permission = input.ReadUInt32();
             break;
           }
           case 74: {
@@ -3078,6 +1765,10 @@ namespace OpenSteamworks.Protobuf.WebUI {
           }
           case 88: {
             UploadComplete = input.ReadBool();
+            break;
+          }
+          case 96: {
+            DurationMs = input.ReadUInt32();
             break;
           }
         }
@@ -3103,28 +1794,12 @@ namespace OpenSteamworks.Protobuf.WebUI {
             Gameid = input.ReadUInt64();
             break;
           }
-          case 24: {
-            Appid = input.ReadUInt32();
-            break;
-          }
           case 32: {
             DateRecorded = input.ReadUInt32();
             break;
           }
-          case 42: {
-            ClipTitle = input.ReadString();
-            break;
-          }
-          case 50: {
-            ClipDescription = input.ReadString();
-            break;
-          }
           case 56: {
             TotalFileSizeBytes = input.ReadUInt64();
-            break;
-          }
-          case 64: {
-            Permission = input.ReadUInt32();
             break;
           }
           case 74: {
@@ -3139,6 +1814,10 @@ namespace OpenSteamworks.Protobuf.WebUI {
             UploadComplete = input.ReadBool();
             break;
           }
+          case 96: {
+            DurationMs = input.ReadUInt32();
+            break;
+          }
         }
       }
     }
@@ -3146,6 +1825,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CMsgVideoGameRecordingComponent : pb::IMessage<CMsgVideoGameRecordingComponent>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -3161,7 +1841,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceGamerecordingclipReflection.Descriptor.MessageTypes[11]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceGamerecordingclipReflection.Descriptor.MessageTypes[7]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3532,6 +2212,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CMsgVideoGameRecordingDef : pb::IMessage<CMsgVideoGameRecordingDef>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -3547,7 +2228,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceGamerecordingclipReflection.Descriptor.MessageTypes[12]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceGamerecordingclipReflection.Descriptor.MessageTypes[8]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3576,6 +2257,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
       segmentDuration_ = other.segmentDuration_;
       components_ = other.components_.Clone();
       startTimeMs_ = other.startTimeMs_;
+      startOffsetInTimelineMs_ = other.startOffsetInTimelineMs_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -3785,6 +2467,33 @@ namespace OpenSteamworks.Protobuf.WebUI {
       _hasBits0 &= ~64;
     }
 
+    /// <summary>Field number for the "start_offset_in_timeline_ms" field.</summary>
+    public const int StartOffsetInTimelineMsFieldNumber = 9;
+    private readonly static uint StartOffsetInTimelineMsDefaultValue = 0;
+
+    private uint startOffsetInTimelineMs_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint StartOffsetInTimelineMs {
+      get { if ((_hasBits0 & 128) != 0) { return startOffsetInTimelineMs_; } else { return StartOffsetInTimelineMsDefaultValue; } }
+      set {
+        _hasBits0 |= 128;
+        startOffsetInTimelineMs_ = value;
+      }
+    }
+    /// <summary>Gets whether the "start_offset_in_timeline_ms" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasStartOffsetInTimelineMs {
+      get { return (_hasBits0 & 128) != 0; }
+    }
+    /// <summary>Clears the value of the "start_offset_in_timeline_ms" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearStartOffsetInTimelineMs() {
+      _hasBits0 &= ~128;
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -3808,6 +2517,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
       if (SegmentDuration != other.SegmentDuration) return false;
       if(!components_.Equals(other.components_)) return false;
       if (StartTimeMs != other.StartTimeMs) return false;
+      if (StartOffsetInTimelineMs != other.StartOffsetInTimelineMs) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -3823,6 +2533,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
       if (HasSegmentDuration) hash ^= SegmentDuration.GetHashCode();
       hash ^= components_.GetHashCode();
       if (HasStartTimeMs) hash ^= StartTimeMs.GetHashCode();
+      if (HasStartOffsetInTimelineMs) hash ^= StartOffsetInTimelineMs.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -3870,6 +2581,10 @@ namespace OpenSteamworks.Protobuf.WebUI {
         output.WriteRawTag(64);
         output.WriteUInt32(StartTimeMs);
       }
+      if (HasStartOffsetInTimelineMs) {
+        output.WriteRawTag(72);
+        output.WriteUInt32(StartOffsetInTimelineMs);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -3909,6 +2624,10 @@ namespace OpenSteamworks.Protobuf.WebUI {
         output.WriteRawTag(64);
         output.WriteUInt32(StartTimeMs);
       }
+      if (HasStartOffsetInTimelineMs) {
+        output.WriteRawTag(72);
+        output.WriteUInt32(StartOffsetInTimelineMs);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -3940,6 +2659,9 @@ namespace OpenSteamworks.Protobuf.WebUI {
       size += components_.CalculateSize(_repeated_components_codec);
       if (HasStartTimeMs) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(StartTimeMs);
+      }
+      if (HasStartOffsetInTimelineMs) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(StartOffsetInTimelineMs);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -3974,6 +2696,9 @@ namespace OpenSteamworks.Protobuf.WebUI {
       components_.Add(other.components_);
       if (other.HasStartTimeMs) {
         StartTimeMs = other.StartTimeMs;
+      }
+      if (other.HasStartOffsetInTimelineMs) {
+        StartOffsetInTimelineMs = other.StartOffsetInTimelineMs;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -4020,6 +2745,10 @@ namespace OpenSteamworks.Protobuf.WebUI {
           }
           case 64: {
             StartTimeMs = input.ReadUInt32();
+            break;
+          }
+          case 72: {
+            StartOffsetInTimelineMs = input.ReadUInt32();
             break;
           }
         }
@@ -4069,6 +2798,10 @@ namespace OpenSteamworks.Protobuf.WebUI {
             StartTimeMs = input.ReadUInt32();
             break;
           }
+          case 72: {
+            StartOffsetInTimelineMs = input.ReadUInt32();
+            break;
+          }
         }
       }
     }
@@ -4076,6 +2809,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CMsgVideoGameRecordingRepresentation : pb::IMessage<CMsgVideoGameRecordingRepresentation>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -4091,7 +2825,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceGamerecordingclipReflection.Descriptor.MessageTypes[13]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceGamerecordingclipReflection.Descriptor.MessageTypes[9]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4695,6 +3429,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CVideoManagerClipID : pb::IMessage<CVideoManagerClipID>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -4710,7 +3445,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceGamerecordingclipReflection.Descriptor.MessageTypes[14]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceGamerecordingclipReflection.Descriptor.MessageTypes[10]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4734,6 +3469,9 @@ namespace OpenSteamworks.Protobuf.WebUI {
       videoManagerClipId_ = other.videoManagerClipId_;
       videoManagerVideoId_ = other.videoManagerVideoId_;
       serverTimelineId_ = other.serverTimelineId_;
+      manifestUrl_ = other.manifestUrl_;
+      durationMs_ = other.durationMs_;
+      startOffsetMs_ = other.startOffsetMs_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -4824,6 +3562,86 @@ namespace OpenSteamworks.Protobuf.WebUI {
       _hasBits0 &= ~4;
     }
 
+    /// <summary>Field number for the "manifest_url" field.</summary>
+    public const int ManifestUrlFieldNumber = 4;
+    private readonly static string ManifestUrlDefaultValue = "";
+
+    private string manifestUrl_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string ManifestUrl {
+      get { return manifestUrl_ ?? ManifestUrlDefaultValue; }
+      set {
+        manifestUrl_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+    /// <summary>Gets whether the "manifest_url" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasManifestUrl {
+      get { return manifestUrl_ != null; }
+    }
+    /// <summary>Clears the value of the "manifest_url" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearManifestUrl() {
+      manifestUrl_ = null;
+    }
+
+    /// <summary>Field number for the "duration_ms" field.</summary>
+    public const int DurationMsFieldNumber = 5;
+    private readonly static uint DurationMsDefaultValue = 0;
+
+    private uint durationMs_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint DurationMs {
+      get { if ((_hasBits0 & 8) != 0) { return durationMs_; } else { return DurationMsDefaultValue; } }
+      set {
+        _hasBits0 |= 8;
+        durationMs_ = value;
+      }
+    }
+    /// <summary>Gets whether the "duration_ms" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasDurationMs {
+      get { return (_hasBits0 & 8) != 0; }
+    }
+    /// <summary>Clears the value of the "duration_ms" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearDurationMs() {
+      _hasBits0 &= ~8;
+    }
+
+    /// <summary>Field number for the "start_offset_ms" field.</summary>
+    public const int StartOffsetMsFieldNumber = 6;
+    private readonly static uint StartOffsetMsDefaultValue = 0;
+
+    private uint startOffsetMs_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint StartOffsetMs {
+      get { if ((_hasBits0 & 16) != 0) { return startOffsetMs_; } else { return StartOffsetMsDefaultValue; } }
+      set {
+        _hasBits0 |= 16;
+        startOffsetMs_ = value;
+      }
+    }
+    /// <summary>Gets whether the "start_offset_ms" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasStartOffsetMs {
+      get { return (_hasBits0 & 16) != 0; }
+    }
+    /// <summary>Clears the value of the "start_offset_ms" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearStartOffsetMs() {
+      _hasBits0 &= ~16;
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -4842,6 +3660,9 @@ namespace OpenSteamworks.Protobuf.WebUI {
       if (VideoManagerClipId != other.VideoManagerClipId) return false;
       if (VideoManagerVideoId != other.VideoManagerVideoId) return false;
       if (ServerTimelineId != other.ServerTimelineId) return false;
+      if (ManifestUrl != other.ManifestUrl) return false;
+      if (DurationMs != other.DurationMs) return false;
+      if (StartOffsetMs != other.StartOffsetMs) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -4852,6 +3673,9 @@ namespace OpenSteamworks.Protobuf.WebUI {
       if (HasVideoManagerClipId) hash ^= VideoManagerClipId.GetHashCode();
       if (HasVideoManagerVideoId) hash ^= VideoManagerVideoId.GetHashCode();
       if (HasServerTimelineId) hash ^= ServerTimelineId.GetHashCode();
+      if (HasManifestUrl) hash ^= ManifestUrl.GetHashCode();
+      if (HasDurationMs) hash ^= DurationMs.GetHashCode();
+      if (HasStartOffsetMs) hash ^= StartOffsetMs.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -4882,6 +3706,18 @@ namespace OpenSteamworks.Protobuf.WebUI {
         output.WriteRawTag(25);
         output.WriteFixed64(ServerTimelineId);
       }
+      if (HasManifestUrl) {
+        output.WriteRawTag(34);
+        output.WriteString(ManifestUrl);
+      }
+      if (HasDurationMs) {
+        output.WriteRawTag(40);
+        output.WriteUInt32(DurationMs);
+      }
+      if (HasStartOffsetMs) {
+        output.WriteRawTag(48);
+        output.WriteUInt32(StartOffsetMs);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -4904,6 +3740,18 @@ namespace OpenSteamworks.Protobuf.WebUI {
         output.WriteRawTag(25);
         output.WriteFixed64(ServerTimelineId);
       }
+      if (HasManifestUrl) {
+        output.WriteRawTag(34);
+        output.WriteString(ManifestUrl);
+      }
+      if (HasDurationMs) {
+        output.WriteRawTag(40);
+        output.WriteUInt32(DurationMs);
+      }
+      if (HasStartOffsetMs) {
+        output.WriteRawTag(48);
+        output.WriteUInt32(StartOffsetMs);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -4922,6 +3770,15 @@ namespace OpenSteamworks.Protobuf.WebUI {
       }
       if (HasServerTimelineId) {
         size += 1 + 8;
+      }
+      if (HasManifestUrl) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(ManifestUrl);
+      }
+      if (HasDurationMs) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(DurationMs);
+      }
+      if (HasStartOffsetMs) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(StartOffsetMs);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -4943,6 +3800,15 @@ namespace OpenSteamworks.Protobuf.WebUI {
       }
       if (other.HasServerTimelineId) {
         ServerTimelineId = other.ServerTimelineId;
+      }
+      if (other.HasManifestUrl) {
+        ManifestUrl = other.ManifestUrl;
+      }
+      if (other.HasDurationMs) {
+        DurationMs = other.DurationMs;
+      }
+      if (other.HasStartOffsetMs) {
+        StartOffsetMs = other.StartOffsetMs;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -4971,6 +3837,18 @@ namespace OpenSteamworks.Protobuf.WebUI {
             ServerTimelineId = input.ReadFixed64();
             break;
           }
+          case 34: {
+            ManifestUrl = input.ReadString();
+            break;
+          }
+          case 40: {
+            DurationMs = input.ReadUInt32();
+            break;
+          }
+          case 48: {
+            StartOffsetMs = input.ReadUInt32();
+            break;
+          }
         }
       }
     #endif
@@ -4996,6 +3874,18 @@ namespace OpenSteamworks.Protobuf.WebUI {
           }
           case 25: {
             ServerTimelineId = input.ReadFixed64();
+            break;
+          }
+          case 34: {
+            ManifestUrl = input.ReadString();
+            break;
+          }
+          case 40: {
+            DurationMs = input.ReadUInt32();
+            break;
+          }
+          case 48: {
+            StartOffsetMs = input.ReadUInt32();
             break;
           }
         }

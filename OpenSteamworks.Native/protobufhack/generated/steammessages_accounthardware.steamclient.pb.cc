@@ -762,97 +762,75 @@ const char descriptor_table_protodef_steammessages_5faccounthardware_2esteamclie
   "onalizationFile_Request\022\025\n\rserial_number"
   "\030\001 \001(\t\022\021\n\taccountid\030\002 \001(\r\"K\n0CAccountHar"
   "dware_GetPersonalizationFile_Response\022\027\n"
-  "\017publishedfileid\030\001 \001(\004\"\363\001\n+CAccountHardw"
-  "are_VRCompatibilityChecRequest\0228\n\014produc"
-  "t_name\030\001 \001(\tB\"\202\265\030\036Name of product we\'re "
-  "checking\022f\n\006values\030\002 \003(\01321.CAccountHardw"
-  "are_VRCompatibilityChecRequest.PairB#\202\265\030"
-  "\037Values from client system probe\032\"\n\004Pair"
-  "\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\"\325\003\n,CAccoun"
-  "tHardware_VRCompatibilityChecResponse\022k\n"
-  "\006values\030\001 \003(\01322.CAccountHardware_VRCompa"
-  "tibilityChecResponse.PairB\'\202\265\030#Top-level"
-  " values reported to client\022r\n\ncomponents"
-  "\030\002 \003(\0132>.CAccountHardware_VRCompatibilit"
-  "yChecResponse.ComponentDisplayB\036\202\265\030\032Spec"
-  "ific values to display\032\"\n\004Pair\022\013\n\003key\030\001 "
-  "\001(\t\022\r\n\005value\030\002 \001(\t\032\237\001\n\020ComponentDisplay\022"
-  "8\n\004name\030\001 \001(\tB*\202\265\030&Name of component (OS"
-  ", RAM, GPU, etc.)\022&\n\005image\030\002 \001(\tB\027\202\265\030\023Na"
-  "me of icon to use\022)\n\005value\030\003 \001(\tB\032\202\265\030\026St"
-  "ring value to report\"\370\001\n4CAccountHardwar"
-  "e_RegisterValveIndexComponent_Request\022\025\n"
-  "\rserial_number\030\001 \001(\t\022\"\n\032manufacturer_ser"
-  "ial_number\030\002 \001(\t\022\026\n\016component_code\030\003 \001(\t"
-  "\022J\n\016component_type\030\004 \001(\0162\025.EValveIndexCo"
-  "mponent:\033EValveIndexComponentUnknown\022!\n\031"
-  "estimated_time_registered\030\005 \001(\005\"7\n5CAcco"
-  "untHardware_RegisterValveIndexComponent_"
-  "Response\"a\n/CAccountHardware_GetSteamDec"
-  "kComponents_Request\022\025\n\rserial_number\030\001 \001"
-  "(\t\022\027\n\017controller_code\030\002 \001(\t\"K\n0CAccountH"
-  "ardware_GetSteamDeckComponents_Response\022"
-  "\027\n\017json_components\030\001 \001(\t*\237\001\n\024EValveIndex"
-  "Component\022\037\n\033EValveIndexComponentUnknown"
-  "\020\000\022\033\n\027EValveIndexComponentHMD\020\001\022#\n\037EValv"
-  "eIndexComponentLeftKnuckle\020\002\022$\n EValveIn"
-  "dexComponentRightKnuckle\020\0032\246\021\n\017AccountHa"
-  "rdware\022\330\001\n\027RegisterSteamController\0221.CAc"
-  "countHardware_RegisterSteamController_Re"
-  "quest\0322.CAccountHardware_RegisterSteamCo"
-  "ntroller_Response\"V\202\265\030RRecords a serial "
-  "number and the calling user\'s account in"
-  "fo for warranty purposes.\022\327\001\n#CompleteSt"
-  "eamControllerRegistration\022=.CAccountHard"
-  "ware_CompleteSteamControllerRegistration"
-  "_Request\032>.CAccountHardware_CompleteStea"
-  "mControllerRegistration_Response\"1\202\265\030-Ma"
-  "rks a controller\'s registration as compl"
-  "ete\022\333\001\n#QueryAccountsRegisteredToControl"
-  "ler\0229.CAccountHardware_QueryAccountsRegi"
-  "steredToSerial_Request\032:.CAccountHardwar"
-  "e_QueryAccountsRegisteredToSerial_Respon"
-  "se\"=\202\265\0309Sends back a list of accounts re"
-  "gistered to a controller.\022\274\001\n SetDesired"
-  "ControllerConfigForApp\0222.CAccountHardwar"
-  "e_SteamControllerSetConfig_Request\0323.CAc"
-  "countHardware_SteamControllerSetConfig_R"
-  "esponse\"/\202\265\030+Sets a desired controller c"
-  "onfig for an app\022\274\001\n GetDesiredControlle"
-  "rConfigForApp\0222.CAccountHardware_SteamCo"
-  "ntrollerGetConfig_Request\0323.CAccountHard"
-  "ware_SteamControllerGetConfig_Response\"/"
-  "\202\265\030+Gets a desired controller config for"
-  " an app\022\245\001\n\031DeRegisterSteamController\0223."
-  "CAccountHardware_DeRegisterSteamControll"
-  "er_Request\0324.CAccountHardware_DeRegister"
-  "SteamController_Response\"\035\202\265\030\031De registe"
-  "rs a controller\022\273\001\n SetControllerPersona"
-  "lizationFile\0220.CAccountHardware_SetPerso"
-  "nalizationFile_Request\0321.CAccountHardwar"
-  "e_SetPersonalizationFile_Response\"2\202\265\030.S"
-  "tores the file ID of the personalization"
-  " file\022\271\001\n GetControllerPersonalizationFi"
-  "le\0220.CAccountHardware_GetPersonalization"
-  "File_Request\0321.CAccountHardware_GetPerso"
-  "nalizationFile_Response\"0\202\265\030,Gets the fi"
-  "le ID of the personalization file\022\244\001\n\024VR"
-  "CompatibilityCheck\022,.CAccountHardware_VR"
-  "CompatibilityChecRequest\032-.CAccountHardw"
-  "are_VRCompatibilityChecResponse\"/\202\265\030+Che"
-  "ck system info for compatibility with VR"
-  "\022\301\001\n\033RegisterValveIndexComponent\0225.CAcco"
-  "untHardware_RegisterValveIndexComponent_"
-  "Request\0326.CAccountHardware_RegisterValve"
-  "IndexComponent_Response\"3\202\265\030/Registers a"
-  " valve index component to a customer\022\275\001\n"
-  "\026GetSteamDeckComponents\0220.CAccountHardwa"
-  "re_GetSteamDeckComponents_Request\0321.CAcc"
-  "ountHardware_GetSteamDeckComponents_Resp"
-  "onse\">\202\265\030:Returns the components that we"
-  "nt into the given Steam Deck\0325\202\265\0301A serv"
-  "ice to use account hardware related meth"
-  "odsB\035\200\001\001\252\002\027OpenSteamworks.Protobuf"
+  "\017publishedfileid\030\001 \001(\004\"\252\001\n+CAccountHardw"
+  "are_VRCompatibilityChecRequest\022\024\n\014produc"
+  "t_name\030\001 \001(\t\022A\n\006values\030\002 \003(\01321.CAccountH"
+  "ardware_VRCompatibilityChecRequest.Pair\032"
+  "\"\n\004Pair\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\"\252\002\n,"
+  "CAccountHardware_VRCompatibilityChecResp"
+  "onse\022B\n\006values\030\001 \003(\01322.CAccountHardware_"
+  "VRCompatibilityChecResponse.Pair\022R\n\ncomp"
+  "onents\030\002 \003(\0132>.CAccountHardware_VRCompat"
+  "ibilityChecResponse.ComponentDisplay\032\"\n\004"
+  "Pair\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\032>\n\020Comp"
+  "onentDisplay\022\014\n\004name\030\001 \001(\t\022\r\n\005image\030\002 \001("
+  "\t\022\r\n\005value\030\003 \001(\t\"\370\001\n4CAccountHardware_Re"
+  "gisterValveIndexComponent_Request\022\025\n\rser"
+  "ial_number\030\001 \001(\t\022\"\n\032manufacturer_serial_"
+  "number\030\002 \001(\t\022\026\n\016component_code\030\003 \001(\t\022J\n\016"
+  "component_type\030\004 \001(\0162\025.EValveIndexCompon"
+  "ent:\033EValveIndexComponentUnknown\022!\n\031esti"
+  "mated_time_registered\030\005 \001(\005\"7\n5CAccountH"
+  "ardware_RegisterValveIndexComponent_Resp"
+  "onse\"a\n/CAccountHardware_GetSteamDeckCom"
+  "ponents_Request\022\025\n\rserial_number\030\001 \001(\t\022\027"
+  "\n\017controller_code\030\002 \001(\t\"K\n0CAccountHardw"
+  "are_GetSteamDeckComponents_Response\022\027\n\017j"
+  "son_components\030\001 \001(\t*\237\001\n\024EValveIndexComp"
+  "onent\022\037\n\033EValveIndexComponentUnknown\020\000\022\033"
+  "\n\027EValveIndexComponentHMD\020\001\022#\n\037EValveInd"
+  "exComponentLeftKnuckle\020\002\022$\n EValveIndexC"
+  "omponentRightKnuckle\020\0032\226\014\n\017AccountHardwa"
+  "re\022\200\001\n\027RegisterSteamController\0221.CAccoun"
+  "tHardware_RegisterSteamController_Reques"
+  "t\0322.CAccountHardware_RegisterSteamContro"
+  "ller_Response\022\244\001\n#CompleteSteamControlle"
+  "rRegistration\022=.CAccountHardware_Complet"
+  "eSteamControllerRegistration_Request\032>.C"
+  "AccountHardware_CompleteSteamControllerR"
+  "egistration_Response\022\234\001\n#QueryAccountsRe"
+  "gisteredToController\0229.CAccountHardware_"
+  "QueryAccountsRegisteredToSerial_Request\032"
+  ":.CAccountHardware_QueryAccountsRegister"
+  "edToSerial_Response\022\213\001\n SetDesiredContro"
+  "llerConfigForApp\0222.CAccountHardware_Stea"
+  "mControllerSetConfig_Request\0323.CAccountH"
+  "ardware_SteamControllerSetConfig_Respons"
+  "e\022\213\001\n GetDesiredControllerConfigForApp\0222"
+  ".CAccountHardware_SteamControllerGetConf"
+  "ig_Request\0323.CAccountHardware_SteamContr"
+  "ollerGetConfig_Response\022\206\001\n\031DeRegisterSt"
+  "eamController\0223.CAccountHardware_DeRegis"
+  "terSteamController_Request\0324.CAccountHar"
+  "dware_DeRegisterSteamController_Response"
+  "\022\207\001\n SetControllerPersonalizationFile\0220."
+  "CAccountHardware_SetPersonalizationFile_"
+  "Request\0321.CAccountHardware_SetPersonaliz"
+  "ationFile_Response\022\207\001\n GetControllerPers"
+  "onalizationFile\0220.CAccountHardware_GetPe"
+  "rsonalizationFile_Request\0321.CAccountHard"
+  "ware_GetPersonalizationFile_Response\022s\n\024"
+  "VRCompatibilityCheck\022,.CAccountHardware_"
+  "VRCompatibilityChecRequest\032-.CAccountHar"
+  "dware_VRCompatibilityChecResponse\022\214\001\n\033Re"
+  "gisterValveIndexComponent\0225.CAccountHard"
+  "ware_RegisterValveIndexComponent_Request"
+  "\0326.CAccountHardware_RegisterValveIndexCo"
+  "mponent_Response\022}\n\026GetSteamDeckComponen"
+  "ts\0220.CAccountHardware_GetSteamDeckCompon"
+  "ents_Request\0321.CAccountHardware_GetSteam"
+  "DeckComponents_ResponseB\035\200\001\001\252\002\027OpenSteam"
+  "works.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5faccounthardware_2esteamclient_2eproto_deps[3] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
@@ -861,7 +839,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5faccounthardware_2esteamclient_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5faccounthardware_2esteamclient_2eproto = {
-  false, false, 5954, descriptor_table_protodef_steammessages_5faccounthardware_2esteamclient_2eproto, "steammessages_accounthardware.steamclient.proto", 
+  false, false, 5054, descriptor_table_protodef_steammessages_5faccounthardware_2esteamclient_2eproto, "steammessages_accounthardware.steamclient.proto", 
   &descriptor_table_steammessages_5faccounthardware_2esteamclient_2eproto_once, descriptor_table_steammessages_5faccounthardware_2esteamclient_2eproto_deps, 3, 28,
   schemas, file_default_instances, TableStruct_steammessages_5faccounthardware_2esteamclient_2eproto::offsets,
   file_level_metadata_steammessages_5faccounthardware_2esteamclient_2eproto, file_level_enum_descriptors_steammessages_5faccounthardware_2esteamclient_2eproto, file_level_service_descriptors_steammessages_5faccounthardware_2esteamclient_2eproto,
@@ -6008,7 +5986,7 @@ const char* CAccountHardware_VRCompatibilityChecRequest::_InternalParse(const ch
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional string product_name = 1 [(.description) = "Name of product we\'re checking"];
+      // optional string product_name = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           auto str = _internal_mutable_product_name();
@@ -6019,7 +5997,7 @@ const char* CAccountHardware_VRCompatibilityChecRequest::_InternalParse(const ch
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated .CAccountHardware_VRCompatibilityChecRequest.Pair values = 2 [(.description) = "Values from client system probe"];
+      // repeated .CAccountHardware_VRCompatibilityChecRequest.Pair values = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           ptr -= 1;
@@ -6061,7 +6039,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional string product_name = 1 [(.description) = "Name of product we\'re checking"];
+  // optional string product_name = 1;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_product_name().data(), static_cast<int>(this->_internal_product_name().length()),
@@ -6071,7 +6049,7 @@ failure:
         1, this->_internal_product_name(), target);
   }
 
-  // repeated .CAccountHardware_VRCompatibilityChecRequest.Pair values = 2 [(.description) = "Values from client system probe"];
+  // repeated .CAccountHardware_VRCompatibilityChecRequest.Pair values = 2;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_values_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
@@ -6095,14 +6073,14 @@ size_t CAccountHardware_VRCompatibilityChecRequest::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .CAccountHardware_VRCompatibilityChecRequest.Pair values = 2 [(.description) = "Values from client system probe"];
+  // repeated .CAccountHardware_VRCompatibilityChecRequest.Pair values = 2;
   total_size += 1UL * this->_internal_values_size();
   for (const auto& msg : this->values_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  // optional string product_name = 1 [(.description) = "Name of product we\'re checking"];
+  // optional string product_name = 1;
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += 1 +
@@ -6549,7 +6527,7 @@ const char* CAccountHardware_VRCompatibilityChecResponse_ComponentDisplay::_Inte
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional string name = 1 [(.description) = "Name of component (OS, RAM, GPU, etc.)"];
+      // optional string name = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           auto str = _internal_mutable_name();
@@ -6560,7 +6538,7 @@ const char* CAccountHardware_VRCompatibilityChecResponse_ComponentDisplay::_Inte
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string image = 2 [(.description) = "Name of icon to use"];
+      // optional string image = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           auto str = _internal_mutable_image();
@@ -6571,7 +6549,7 @@ const char* CAccountHardware_VRCompatibilityChecResponse_ComponentDisplay::_Inte
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string value = 3 [(.description) = "String value to report"];
+      // optional string value = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           auto str = _internal_mutable_value();
@@ -6612,7 +6590,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional string name = 1 [(.description) = "Name of component (OS, RAM, GPU, etc.)"];
+  // optional string name = 1;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
@@ -6622,7 +6600,7 @@ failure:
         1, this->_internal_name(), target);
   }
 
-  // optional string image = 2 [(.description) = "Name of icon to use"];
+  // optional string image = 2;
   if (cached_has_bits & 0x00000002u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_image().data(), static_cast<int>(this->_internal_image().length()),
@@ -6632,7 +6610,7 @@ failure:
         2, this->_internal_image(), target);
   }
 
-  // optional string value = 3 [(.description) = "String value to report"];
+  // optional string value = 3;
   if (cached_has_bits & 0x00000004u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_value().data(), static_cast<int>(this->_internal_value().length()),
@@ -6660,21 +6638,21 @@ size_t CAccountHardware_VRCompatibilityChecResponse_ComponentDisplay::ByteSizeLo
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000007u) {
-    // optional string name = 1 [(.description) = "Name of component (OS, RAM, GPU, etc.)"];
+    // optional string name = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_name());
     }
 
-    // optional string image = 2 [(.description) = "Name of icon to use"];
+    // optional string image = 2;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_image());
     }
 
-    // optional string value = 3 [(.description) = "String value to report"];
+    // optional string value = 3;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
@@ -6822,7 +6800,7 @@ const char* CAccountHardware_VRCompatibilityChecResponse::_InternalParse(const c
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // repeated .CAccountHardware_VRCompatibilityChecResponse.Pair values = 1 [(.description) = "Top-level values reported to client"];
+      // repeated .CAccountHardware_VRCompatibilityChecResponse.Pair values = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           ptr -= 1;
@@ -6834,7 +6812,7 @@ const char* CAccountHardware_VRCompatibilityChecResponse::_InternalParse(const c
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
         } else goto handle_unusual;
         continue;
-      // repeated .CAccountHardware_VRCompatibilityChecResponse.ComponentDisplay components = 2 [(.description) = "Specific values to display"];
+      // repeated .CAccountHardware_VRCompatibilityChecResponse.ComponentDisplay components = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           ptr -= 1;
@@ -6874,7 +6852,7 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated .CAccountHardware_VRCompatibilityChecResponse.Pair values = 1 [(.description) = "Top-level values reported to client"];
+  // repeated .CAccountHardware_VRCompatibilityChecResponse.Pair values = 1;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_values_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
@@ -6882,7 +6860,7 @@ failure:
       InternalWriteMessage(1, this->_internal_values(i), target, stream);
   }
 
-  // repeated .CAccountHardware_VRCompatibilityChecResponse.ComponentDisplay components = 2 [(.description) = "Specific values to display"];
+  // repeated .CAccountHardware_VRCompatibilityChecResponse.ComponentDisplay components = 2;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_components_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
@@ -6906,14 +6884,14 @@ size_t CAccountHardware_VRCompatibilityChecResponse::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .CAccountHardware_VRCompatibilityChecResponse.Pair values = 1 [(.description) = "Top-level values reported to client"];
+  // repeated .CAccountHardware_VRCompatibilityChecResponse.Pair values = 1;
   total_size += 1UL * this->_internal_values_size();
   for (const auto& msg : this->values_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  // repeated .CAccountHardware_VRCompatibilityChecResponse.ComponentDisplay components = 2 [(.description) = "Specific values to display"];
+  // repeated .CAccountHardware_VRCompatibilityChecResponse.ComponentDisplay components = 2;
   total_size += 1UL * this->_internal_components_size();
   for (const auto& msg : this->components_) {
     total_size +=

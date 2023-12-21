@@ -248,7 +248,7 @@ class CSTAR_KeyValueQuery PROTOBUF_FINAL :
     kKeyFieldNumber = 1,
     kValueFieldNumber = 2,
   };
-  // optional string key = 1 [(.description) = "key to search for in JSON path format (SQL subset)"];
+  // optional string key = 1;
   bool has_key() const;
   private:
   bool _internal_has_key() const;
@@ -268,7 +268,7 @@ class CSTAR_KeyValueQuery PROTOBUF_FINAL :
   std::string* _internal_mutable_key();
   public:
 
-  // optional string value = 2 [(.description) = "the value to compare against (the JSON value will be compared for equality as a string)"];
+  // optional string value = 2;
   bool has_value() const;
   private:
   bool _internal_has_value() const;
@@ -426,7 +426,7 @@ class CSTAR_GlyphQueryParams PROTOBUF_FINAL :
     kQueriesFieldNumber = 2,
     kBundleIdFieldNumber = 1,
   };
-  // repeated .CSTAR_KeyValueQuery queries = 2 [(.description) = "key value queries"];
+  // repeated .CSTAR_KeyValueQuery queries = 2;
   int queries_size() const;
   private:
   int _internal_queries_size() const;
@@ -444,7 +444,7 @@ class CSTAR_GlyphQueryParams PROTOBUF_FINAL :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CSTAR_KeyValueQuery >&
       queries() const;
 
-  // optional uint64 bundle_id = 1 [(.description) = "if provided, Bundle ID is used instead of the other query parameters (much faster SQL query)"];
+  // optional uint64 bundle_id = 1;
   bool has_bundle_id() const;
   private:
   bool _internal_has_bundle_id() const;
@@ -595,7 +595,7 @@ class CSTAR_ReadGlyphData_Request PROTOBUF_FINAL :
     kLastModifiedTimeLowerLimitFieldNumber = 2,
     kQueryParamsFieldNumber = 1,
   };
-  // optional string last_modified_time_lower_limit = 2 [(.description) = "if provided, only return glyphs modified more recently than this timestamp  (RFC 3339 UTC format)"];
+  // optional string last_modified_time_lower_limit = 2;
   bool has_last_modified_time_lower_limit() const;
   private:
   bool _internal_has_last_modified_time_lower_limit() const;
@@ -615,7 +615,7 @@ class CSTAR_ReadGlyphData_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_last_modified_time_lower_limit();
   public:
 
-  // optional .CSTAR_GlyphQueryParams query_params = 1 [(.description) = "parameters to identify the glyphs to read from SQL"];
+  // optional .CSTAR_GlyphQueryParams query_params = 1;
   bool has_query_params() const;
   private:
   bool _internal_has_query_params() const;
@@ -772,7 +772,7 @@ class CSTAR_GlyphData PROTOBUF_FINAL :
     kGlyphLastModifiedFieldNumber = 2,
     kGlyphJsonDataFieldNumber = 3,
   };
-  // optional bytes glyph_guid = 1 [(.description) = "GUID uniquely identifying this glyph"];
+  // optional bytes glyph_guid = 1;
   bool has_glyph_guid() const;
   private:
   bool _internal_has_glyph_guid() const;
@@ -792,7 +792,7 @@ class CSTAR_GlyphData PROTOBUF_FINAL :
   std::string* _internal_mutable_glyph_guid();
   public:
 
-  // optional string glyph_last_modified = 2 [(.description) = "timestamp of when this glyph was last modified (RFC 3339 UTC format)"];
+  // optional string glyph_last_modified = 2;
   bool has_glyph_last_modified() const;
   private:
   bool _internal_has_glyph_last_modified() const;
@@ -812,7 +812,7 @@ class CSTAR_GlyphData PROTOBUF_FINAL :
   std::string* _internal_mutable_glyph_last_modified();
   public:
 
-  // optional string glyph_json_data = 3 [(.description) = "JSON encoded glyph data"];
+  // optional string glyph_json_data = 3;
   bool has_glyph_json_data() const;
   private:
   bool _internal_has_glyph_json_data() const;
@@ -971,7 +971,7 @@ class CSTAR_WriteGlyphData_Request PROTOBUF_FINAL :
     kGlyphDataFieldNumber = 2,
     kBundleIdFieldNumber = 1,
   };
-  // repeated .CSTAR_GlyphData glyph_data = 2 [(.description) = "one or more items of glyph data to write"];
+  // repeated .CSTAR_GlyphData glyph_data = 2;
   int glyph_data_size() const;
   private:
   int _internal_glyph_data_size() const;
@@ -989,7 +989,7 @@ class CSTAR_WriteGlyphData_Request PROTOBUF_FINAL :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CSTAR_GlyphData >&
       glyph_data() const;
 
-  // optional uint64 bundle_id = 1 [(.description) = "the Bundle ID of the glyphs to be written"];
+  // optional uint64 bundle_id = 1;
   bool has_bundle_id() const;
   private:
   bool _internal_has_bundle_id() const;
@@ -1314,7 +1314,7 @@ class CSTAR_ReadGlyphData_Response PROTOBUF_FINAL :
     kGlyphDataFieldNumber = 2,
     kBundleIdFieldNumber = 1,
   };
-  // repeated .CSTAR_GlyphData glyph_data = 2 [(.description) = "zero or more items of returned glyph data"];
+  // repeated .CSTAR_GlyphData glyph_data = 2;
   int glyph_data_size() const;
   private:
   int _internal_glyph_data_size() const;
@@ -1332,7 +1332,7 @@ class CSTAR_ReadGlyphData_Response PROTOBUF_FINAL :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CSTAR_GlyphData >&
       glyph_data() const;
 
-  // optional uint64 bundle_id = 1 [(.description) = "the Bundle ID of the returned glyphs; the client should send this back to optimize subsequent queries"];
+  // optional uint64 bundle_id = 1;
   bool has_bundle_id() const;
   private:
   bool _internal_has_bundle_id() const;
@@ -1482,7 +1482,7 @@ class CSTAR_WriteGlyphData_Response PROTOBUF_FINAL :
   enum : int {
     kResultFieldNumber = 1,
   };
-  // repeated .E_STAR_GlyphWriteResult result = 1 [(.description) = "write result for each item of glyph data"];
+  // repeated .E_STAR_GlyphWriteResult result = 1;
   int result_size() const;
   private:
   int _internal_result_size() const;
@@ -1754,7 +1754,7 @@ class STAR_Stub : public STAR {
 #endif  // __GNUC__
 // CSTAR_KeyValueQuery
 
-// optional string key = 1 [(.description) = "key to search for in JSON path format (SQL subset)"];
+// optional string key = 1;
 inline bool CSTAR_KeyValueQuery::_internal_has_key() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -1827,7 +1827,7 @@ inline void CSTAR_KeyValueQuery::set_allocated_key(std::string* key) {
   // @@protoc_insertion_point(field_set_allocated:CSTAR_KeyValueQuery.key)
 }
 
-// optional string value = 2 [(.description) = "the value to compare against (the JSON value will be compared for equality as a string)"];
+// optional string value = 2;
 inline bool CSTAR_KeyValueQuery::_internal_has_value() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -1904,7 +1904,7 @@ inline void CSTAR_KeyValueQuery::set_allocated_value(std::string* value) {
 
 // CSTAR_GlyphQueryParams
 
-// optional uint64 bundle_id = 1 [(.description) = "if provided, Bundle ID is used instead of the other query parameters (much faster SQL query)"];
+// optional uint64 bundle_id = 1;
 inline bool CSTAR_GlyphQueryParams::_internal_has_bundle_id() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -1932,7 +1932,7 @@ inline void CSTAR_GlyphQueryParams::set_bundle_id(::PROTOBUF_NAMESPACE_ID::uint6
   // @@protoc_insertion_point(field_set:CSTAR_GlyphQueryParams.bundle_id)
 }
 
-// repeated .CSTAR_KeyValueQuery queries = 2 [(.description) = "key value queries"];
+// repeated .CSTAR_KeyValueQuery queries = 2;
 inline int CSTAR_GlyphQueryParams::_internal_queries_size() const {
   return queries_.size();
 }
@@ -1975,7 +1975,7 @@ CSTAR_GlyphQueryParams::queries() const {
 
 // CSTAR_ReadGlyphData_Request
 
-// optional .CSTAR_GlyphQueryParams query_params = 1 [(.description) = "parameters to identify the glyphs to read from SQL"];
+// optional .CSTAR_GlyphQueryParams query_params = 1;
 inline bool CSTAR_ReadGlyphData_Request::_internal_has_query_params() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   PROTOBUF_ASSUME(!value || query_params_ != nullptr);
@@ -2058,7 +2058,7 @@ inline void CSTAR_ReadGlyphData_Request::set_allocated_query_params(::CSTAR_Glyp
   // @@protoc_insertion_point(field_set_allocated:CSTAR_ReadGlyphData_Request.query_params)
 }
 
-// optional string last_modified_time_lower_limit = 2 [(.description) = "if provided, only return glyphs modified more recently than this timestamp  (RFC 3339 UTC format)"];
+// optional string last_modified_time_lower_limit = 2;
 inline bool CSTAR_ReadGlyphData_Request::_internal_has_last_modified_time_lower_limit() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -2135,7 +2135,7 @@ inline void CSTAR_ReadGlyphData_Request::set_allocated_last_modified_time_lower_
 
 // CSTAR_GlyphData
 
-// optional bytes glyph_guid = 1 [(.description) = "GUID uniquely identifying this glyph"];
+// optional bytes glyph_guid = 1;
 inline bool CSTAR_GlyphData::_internal_has_glyph_guid() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -2208,7 +2208,7 @@ inline void CSTAR_GlyphData::set_allocated_glyph_guid(std::string* glyph_guid) {
   // @@protoc_insertion_point(field_set_allocated:CSTAR_GlyphData.glyph_guid)
 }
 
-// optional string glyph_last_modified = 2 [(.description) = "timestamp of when this glyph was last modified (RFC 3339 UTC format)"];
+// optional string glyph_last_modified = 2;
 inline bool CSTAR_GlyphData::_internal_has_glyph_last_modified() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -2281,7 +2281,7 @@ inline void CSTAR_GlyphData::set_allocated_glyph_last_modified(std::string* glyp
   // @@protoc_insertion_point(field_set_allocated:CSTAR_GlyphData.glyph_last_modified)
 }
 
-// optional string glyph_json_data = 3 [(.description) = "JSON encoded glyph data"];
+// optional string glyph_json_data = 3;
 inline bool CSTAR_GlyphData::_internal_has_glyph_json_data() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -2358,7 +2358,7 @@ inline void CSTAR_GlyphData::set_allocated_glyph_json_data(std::string* glyph_js
 
 // CSTAR_WriteGlyphData_Request
 
-// optional uint64 bundle_id = 1 [(.description) = "the Bundle ID of the glyphs to be written"];
+// optional uint64 bundle_id = 1;
 inline bool CSTAR_WriteGlyphData_Request::_internal_has_bundle_id() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -2386,7 +2386,7 @@ inline void CSTAR_WriteGlyphData_Request::set_bundle_id(::PROTOBUF_NAMESPACE_ID:
   // @@protoc_insertion_point(field_set:CSTAR_WriteGlyphData_Request.bundle_id)
 }
 
-// repeated .CSTAR_GlyphData glyph_data = 2 [(.description) = "one or more items of glyph data to write"];
+// repeated .CSTAR_GlyphData glyph_data = 2;
 inline int CSTAR_WriteGlyphData_Request::_internal_glyph_data_size() const {
   return glyph_data_.size();
 }
@@ -2599,7 +2599,7 @@ inline void CSTAR_Request::set_allocated_write_glyph_data(::CSTAR_WriteGlyphData
 
 // CSTAR_ReadGlyphData_Response
 
-// optional uint64 bundle_id = 1 [(.description) = "the Bundle ID of the returned glyphs; the client should send this back to optimize subsequent queries"];
+// optional uint64 bundle_id = 1;
 inline bool CSTAR_ReadGlyphData_Response::_internal_has_bundle_id() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -2627,7 +2627,7 @@ inline void CSTAR_ReadGlyphData_Response::set_bundle_id(::PROTOBUF_NAMESPACE_ID:
   // @@protoc_insertion_point(field_set:CSTAR_ReadGlyphData_Response.bundle_id)
 }
 
-// repeated .CSTAR_GlyphData glyph_data = 2 [(.description) = "zero or more items of returned glyph data"];
+// repeated .CSTAR_GlyphData glyph_data = 2;
 inline int CSTAR_ReadGlyphData_Response::_internal_glyph_data_size() const {
   return glyph_data_.size();
 }
@@ -2670,7 +2670,7 @@ CSTAR_ReadGlyphData_Response::glyph_data() const {
 
 // CSTAR_WriteGlyphData_Response
 
-// repeated .E_STAR_GlyphWriteResult result = 1 [(.description) = "write result for each item of glyph data"];
+// repeated .E_STAR_GlyphWriteResult result = 1;
 inline int CSTAR_WriteGlyphData_Response::_internal_result_size() const {
   return result_.size();
 }

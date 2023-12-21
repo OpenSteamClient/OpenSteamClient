@@ -238,7 +238,7 @@ class CDataPublisher_ClientContentCorruptionReport_Notification PROTOBUF_FINAL :
     kUsedHttpsFieldNumber = 9,
     kOcProxyDetectedFieldNumber = 10,
   };
-  // optional string download_source = 3 [(.description) = "host name of download source"];
+  // optional string download_source = 3;
   bool has_download_source() const;
   private:
   bool _internal_has_download_source() const;
@@ -258,7 +258,7 @@ class CDataPublisher_ClientContentCorruptionReport_Notification PROTOBUF_FINAL :
   std::string* _internal_mutable_download_source();
   public:
 
-  // optional string objectid = 4 [(.description) = "Chunk SHA or Manifest ID"];
+  // optional string objectid = 4;
   bool has_objectid() const;
   private:
   bool _internal_has_objectid() const;
@@ -304,7 +304,7 @@ class CDataPublisher_ClientContentCorruptionReport_Notification PROTOBUF_FINAL :
   void _internal_set_depotid(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 cellid = 5 [(.description) = "Client Cell ID"];
+  // optional uint32 cellid = 5;
   bool has_cellid() const;
   private:
   bool _internal_has_cellid() const;
@@ -317,7 +317,7 @@ class CDataPublisher_ClientContentCorruptionReport_Notification PROTOBUF_FINAL :
   void _internal_set_cellid(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 corruption_type = 8 [(.description) = "See EContentCorruptionType"];
+  // optional uint32 corruption_type = 8;
   bool has_corruption_type() const;
   private:
   bool _internal_has_corruption_type() const;
@@ -330,7 +330,7 @@ class CDataPublisher_ClientContentCorruptionReport_Notification PROTOBUF_FINAL :
   void _internal_set_corruption_type(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint64 object_size = 7 [(.description) = "object size in bytes"];
+  // optional uint64 object_size = 7;
   bool has_object_size() const;
   private:
   bool _internal_has_object_size() const;
@@ -343,7 +343,7 @@ class CDataPublisher_ClientContentCorruptionReport_Notification PROTOBUF_FINAL :
   void _internal_set_object_size(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional bool is_manifest = 6 [(.description) = "The object is a manifest, not a chunk"];
+  // optional bool is_manifest = 6;
   bool has_is_manifest() const;
   private:
   bool _internal_has_is_manifest() const;
@@ -356,7 +356,7 @@ class CDataPublisher_ClientContentCorruptionReport_Notification PROTOBUF_FINAL :
   void _internal_set_is_manifest(bool value);
   public:
 
-  // optional bool used_https = 9 [(.description) = "the request was HTTPS"];
+  // optional bool used_https = 9;
   bool has_used_https() const;
   private:
   bool _internal_has_used_https() const;
@@ -369,7 +369,7 @@ class CDataPublisher_ClientContentCorruptionReport_Notification PROTOBUF_FINAL :
   void _internal_set_used_https(bool value);
   public:
 
-  // optional bool oc_proxy_detected = 10 [(.description) = "detected an OpenCache proxy"];
+  // optional bool oc_proxy_detected = 10;
   bool has_oc_proxy_detected() const;
   private:
   bool _internal_has_oc_proxy_detected() const;
@@ -999,7 +999,7 @@ class CDataPublisher_GetVRDeviceInfo_Request PROTOBUF_FINAL :
   enum : int {
     kMonthCountFieldNumber = 1,
   };
-  // optional uint32 month_count = 1 [(.description) = "Number of months for which to generate a report"];
+  // optional uint32 month_count = 1;
   bool has_month_count() const;
   private:
   bool _internal_has_month_count() const;
@@ -1153,7 +1153,7 @@ class CDataPublisher_GetVRDeviceInfo_Response_Device PROTOBUF_FINAL :
     kTotalFieldNumber = 4,
     kDeviceClassFieldNumber = 6,
   };
-  // optional string name = 1 [(.description) = "Name to show for this device"];
+  // optional string name = 1;
   bool has_name() const;
   private:
   bool _internal_has_name() const;
@@ -1173,7 +1173,7 @@ class CDataPublisher_GetVRDeviceInfo_Response_Device PROTOBUF_FINAL :
   std::string* _internal_mutable_name();
   public:
 
-  // optional string driver = 5 [(.description) = "driver name reported by the user"];
+  // optional string driver = 5;
   bool has_driver() const;
   private:
   bool _internal_has_driver() const;
@@ -1193,7 +1193,7 @@ class CDataPublisher_GetVRDeviceInfo_Response_Device PROTOBUF_FINAL :
   std::string* _internal_mutable_driver();
   public:
 
-  // optional uint32 ref = 2 [(.description) = "Reference number for this device"];
+  // optional uint32 ref = 2;
   bool has_ref() const;
   private:
   bool _internal_has_ref() const;
@@ -1206,7 +1206,7 @@ class CDataPublisher_GetVRDeviceInfo_Response_Device PROTOBUF_FINAL :
   void _internal_set_ref(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 aggregation_ref = 3 [(.description) = "Reference number to aggregate this device under"];
+  // optional uint32 aggregation_ref = 3;
   bool has_aggregation_ref() const;
   private:
   bool _internal_has_aggregation_ref() const;
@@ -1219,7 +1219,7 @@ class CDataPublisher_GetVRDeviceInfo_Response_Device PROTOBUF_FINAL :
   void _internal_set_aggregation_ref(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 total = 4 [(.description) = "Sum of all the counts"];
+  // optional uint32 total = 4;
   bool has_total() const;
   private:
   bool _internal_has_total() const;
@@ -1232,7 +1232,7 @@ class CDataPublisher_GetVRDeviceInfo_Response_Device PROTOBUF_FINAL :
   void _internal_set_total(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional int32 device_class = 6 [(.description) = "Class of the device. HMD=1, controller=2, tracker=3, base=4"];
+  // optional int32 device_class = 6;
   bool has_device_class() const;
   private:
   bool _internal_has_device_class() const;
@@ -1388,7 +1388,7 @@ class CDataPublisher_GetVRDeviceInfo_Response PROTOBUF_FINAL :
   enum : int {
     kDeviceFieldNumber = 1,
   };
-  // repeated .CDataPublisher_GetVRDeviceInfo_Response.Device device = 1 [(.description) = "Result devices"];
+  // repeated .CDataPublisher_GetVRDeviceInfo_Response.Device device = 1;
   int device_size() const;
   private:
   int _internal_device_size() const;
@@ -1542,7 +1542,7 @@ class CDataPublisher_SetVRDeviceInfoAggregationReference_Request PROTOBUF_FINAL 
     kRefFieldNumber = 1,
     kAggregationRefFieldNumber = 2,
   };
-  // optional uint32 ref = 1 [(.description) = "Reference number in the VRDeviceInfo table for the entry to set"];
+  // optional uint32 ref = 1;
   bool has_ref() const;
   private:
   bool _internal_has_ref() const;
@@ -1555,7 +1555,7 @@ class CDataPublisher_SetVRDeviceInfoAggregationReference_Request PROTOBUF_FINAL 
   void _internal_set_ref(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 aggregation_ref = 2 [(.description) = "Aggregation to set the entry to"];
+  // optional uint32 aggregation_ref = 2;
   bool has_aggregation_ref() const;
   private:
   bool _internal_has_aggregation_ref() const;
@@ -1705,7 +1705,7 @@ class CDataPublisher_SetVRDeviceInfoAggregationReference_Response PROTOBUF_FINAL
   enum : int {
     kResultFieldNumber = 1,
   };
-  // optional uint32 result = 1 [(.description) = "EResultOK, etc."];
+  // optional uint32 result = 1;
   bool has_result() const;
   private:
   bool _internal_has_result() const;
@@ -1858,7 +1858,7 @@ class CDataPublisher_AddVRDeviceInfo_Request PROTOBUF_FINAL :
     kControllerTypeFieldNumber = 4,
     kDeviceClassFieldNumber = 5,
   };
-  // optional string manufacturer = 1 [(.description) = "Manufacturer for the new device"];
+  // optional string manufacturer = 1;
   bool has_manufacturer() const;
   private:
   bool _internal_has_manufacturer() const;
@@ -1878,7 +1878,7 @@ class CDataPublisher_AddVRDeviceInfo_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_manufacturer();
   public:
 
-  // optional string model = 2 [(.description) = "Model for the new device"];
+  // optional string model = 2;
   bool has_model() const;
   private:
   bool _internal_has_model() const;
@@ -1898,7 +1898,7 @@ class CDataPublisher_AddVRDeviceInfo_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_model();
   public:
 
-  // optional string driver = 3 [(.description) = "driver name (not including driver_). e.g. lighthouse, oculus, holographic"];
+  // optional string driver = 3;
   bool has_driver() const;
   private:
   bool _internal_has_driver() const;
@@ -1918,7 +1918,7 @@ class CDataPublisher_AddVRDeviceInfo_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_driver();
   public:
 
-  // optional string controller_type = 4 [(.description) = "controller type for the device. Can be an empty string for devices with no inputs"];
+  // optional string controller_type = 4;
   bool has_controller_type() const;
   private:
   bool _internal_has_controller_type() const;
@@ -1938,7 +1938,7 @@ class CDataPublisher_AddVRDeviceInfo_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_controller_type();
   public:
 
-  // optional int32 device_class = 5 [(.description) = "Class of the device. HMD=1, controller=2, tracker=3, base=4"];
+  // optional int32 device_class = 5;
   bool has_device_class() const;
   private:
   bool _internal_has_device_class() const;
@@ -2092,7 +2092,7 @@ class CDataPublisher_AddVRDeviceInfo_Response PROTOBUF_FINAL :
     kResultFieldNumber = 1,
     kRefFieldNumber = 2,
   };
-  // optional uint32 result = 1 [(.description) = "EResultOK, etc."];
+  // optional uint32 result = 1;
   bool has_result() const;
   private:
   bool _internal_has_result() const;
@@ -2105,7 +2105,7 @@ class CDataPublisher_AddVRDeviceInfo_Response PROTOBUF_FINAL :
   void _internal_set_result(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 ref = 2 [(.description) = "The reference number of the inserted device"];
+  // optional uint32 ref = 2;
   bool has_ref() const;
   private:
   bool _internal_has_ref() const;
@@ -2683,7 +2683,7 @@ inline void CDataPublisher_ClientContentCorruptionReport_Notification::set_depot
   // @@protoc_insertion_point(field_set:CDataPublisher_ClientContentCorruptionReport_Notification.depotid)
 }
 
-// optional string download_source = 3 [(.description) = "host name of download source"];
+// optional string download_source = 3;
 inline bool CDataPublisher_ClientContentCorruptionReport_Notification::_internal_has_download_source() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -2756,7 +2756,7 @@ inline void CDataPublisher_ClientContentCorruptionReport_Notification::set_alloc
   // @@protoc_insertion_point(field_set_allocated:CDataPublisher_ClientContentCorruptionReport_Notification.download_source)
 }
 
-// optional string objectid = 4 [(.description) = "Chunk SHA or Manifest ID"];
+// optional string objectid = 4;
 inline bool CDataPublisher_ClientContentCorruptionReport_Notification::_internal_has_objectid() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -2829,7 +2829,7 @@ inline void CDataPublisher_ClientContentCorruptionReport_Notification::set_alloc
   // @@protoc_insertion_point(field_set_allocated:CDataPublisher_ClientContentCorruptionReport_Notification.objectid)
 }
 
-// optional uint32 cellid = 5 [(.description) = "Client Cell ID"];
+// optional uint32 cellid = 5;
 inline bool CDataPublisher_ClientContentCorruptionReport_Notification::_internal_has_cellid() const {
   bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
@@ -2857,7 +2857,7 @@ inline void CDataPublisher_ClientContentCorruptionReport_Notification::set_celli
   // @@protoc_insertion_point(field_set:CDataPublisher_ClientContentCorruptionReport_Notification.cellid)
 }
 
-// optional bool is_manifest = 6 [(.description) = "The object is a manifest, not a chunk"];
+// optional bool is_manifest = 6;
 inline bool CDataPublisher_ClientContentCorruptionReport_Notification::_internal_has_is_manifest() const {
   bool value = (_has_bits_[0] & 0x00000080u) != 0;
   return value;
@@ -2885,7 +2885,7 @@ inline void CDataPublisher_ClientContentCorruptionReport_Notification::set_is_ma
   // @@protoc_insertion_point(field_set:CDataPublisher_ClientContentCorruptionReport_Notification.is_manifest)
 }
 
-// optional uint64 object_size = 7 [(.description) = "object size in bytes"];
+// optional uint64 object_size = 7;
 inline bool CDataPublisher_ClientContentCorruptionReport_Notification::_internal_has_object_size() const {
   bool value = (_has_bits_[0] & 0x00000040u) != 0;
   return value;
@@ -2913,7 +2913,7 @@ inline void CDataPublisher_ClientContentCorruptionReport_Notification::set_objec
   // @@protoc_insertion_point(field_set:CDataPublisher_ClientContentCorruptionReport_Notification.object_size)
 }
 
-// optional uint32 corruption_type = 8 [(.description) = "See EContentCorruptionType"];
+// optional uint32 corruption_type = 8;
 inline bool CDataPublisher_ClientContentCorruptionReport_Notification::_internal_has_corruption_type() const {
   bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
@@ -2941,7 +2941,7 @@ inline void CDataPublisher_ClientContentCorruptionReport_Notification::set_corru
   // @@protoc_insertion_point(field_set:CDataPublisher_ClientContentCorruptionReport_Notification.corruption_type)
 }
 
-// optional bool used_https = 9 [(.description) = "the request was HTTPS"];
+// optional bool used_https = 9;
 inline bool CDataPublisher_ClientContentCorruptionReport_Notification::_internal_has_used_https() const {
   bool value = (_has_bits_[0] & 0x00000100u) != 0;
   return value;
@@ -2969,7 +2969,7 @@ inline void CDataPublisher_ClientContentCorruptionReport_Notification::set_used_
   // @@protoc_insertion_point(field_set:CDataPublisher_ClientContentCorruptionReport_Notification.used_https)
 }
 
-// optional bool oc_proxy_detected = 10 [(.description) = "detected an OpenCache proxy"];
+// optional bool oc_proxy_detected = 10;
 inline bool CDataPublisher_ClientContentCorruptionReport_Notification::_internal_has_oc_proxy_detected() const {
   bool value = (_has_bits_[0] & 0x00000200u) != 0;
   return value;
@@ -3702,7 +3702,7 @@ inline void CDataPublisher_ClientUpdateAppJob_Notification::set_cell_id(::PROTOB
 
 // CDataPublisher_GetVRDeviceInfo_Request
 
-// optional uint32 month_count = 1 [(.description) = "Number of months for which to generate a report"];
+// optional uint32 month_count = 1;
 inline bool CDataPublisher_GetVRDeviceInfo_Request::_internal_has_month_count() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -3734,7 +3734,7 @@ inline void CDataPublisher_GetVRDeviceInfo_Request::set_month_count(::PROTOBUF_N
 
 // CDataPublisher_GetVRDeviceInfo_Response_Device
 
-// optional string name = 1 [(.description) = "Name to show for this device"];
+// optional string name = 1;
 inline bool CDataPublisher_GetVRDeviceInfo_Response_Device::_internal_has_name() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -3807,7 +3807,7 @@ inline void CDataPublisher_GetVRDeviceInfo_Response_Device::set_allocated_name(s
   // @@protoc_insertion_point(field_set_allocated:CDataPublisher_GetVRDeviceInfo_Response.Device.name)
 }
 
-// optional uint32 ref = 2 [(.description) = "Reference number for this device"];
+// optional uint32 ref = 2;
 inline bool CDataPublisher_GetVRDeviceInfo_Response_Device::_internal_has_ref() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -3835,7 +3835,7 @@ inline void CDataPublisher_GetVRDeviceInfo_Response_Device::set_ref(::PROTOBUF_N
   // @@protoc_insertion_point(field_set:CDataPublisher_GetVRDeviceInfo_Response.Device.ref)
 }
 
-// optional uint32 aggregation_ref = 3 [(.description) = "Reference number to aggregate this device under"];
+// optional uint32 aggregation_ref = 3;
 inline bool CDataPublisher_GetVRDeviceInfo_Response_Device::_internal_has_aggregation_ref() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -3863,7 +3863,7 @@ inline void CDataPublisher_GetVRDeviceInfo_Response_Device::set_aggregation_ref(
   // @@protoc_insertion_point(field_set:CDataPublisher_GetVRDeviceInfo_Response.Device.aggregation_ref)
 }
 
-// optional uint32 total = 4 [(.description) = "Sum of all the counts"];
+// optional uint32 total = 4;
 inline bool CDataPublisher_GetVRDeviceInfo_Response_Device::_internal_has_total() const {
   bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
@@ -3891,7 +3891,7 @@ inline void CDataPublisher_GetVRDeviceInfo_Response_Device::set_total(::PROTOBUF
   // @@protoc_insertion_point(field_set:CDataPublisher_GetVRDeviceInfo_Response.Device.total)
 }
 
-// optional string driver = 5 [(.description) = "driver name reported by the user"];
+// optional string driver = 5;
 inline bool CDataPublisher_GetVRDeviceInfo_Response_Device::_internal_has_driver() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -3964,7 +3964,7 @@ inline void CDataPublisher_GetVRDeviceInfo_Response_Device::set_allocated_driver
   // @@protoc_insertion_point(field_set_allocated:CDataPublisher_GetVRDeviceInfo_Response.Device.driver)
 }
 
-// optional int32 device_class = 6 [(.description) = "Class of the device. HMD=1, controller=2, tracker=3, base=4"];
+// optional int32 device_class = 6;
 inline bool CDataPublisher_GetVRDeviceInfo_Response_Device::_internal_has_device_class() const {
   bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
@@ -3996,7 +3996,7 @@ inline void CDataPublisher_GetVRDeviceInfo_Response_Device::set_device_class(::P
 
 // CDataPublisher_GetVRDeviceInfo_Response
 
-// repeated .CDataPublisher_GetVRDeviceInfo_Response.Device device = 1 [(.description) = "Result devices"];
+// repeated .CDataPublisher_GetVRDeviceInfo_Response.Device device = 1;
 inline int CDataPublisher_GetVRDeviceInfo_Response::_internal_device_size() const {
   return device_.size();
 }
@@ -4039,7 +4039,7 @@ CDataPublisher_GetVRDeviceInfo_Response::device() const {
 
 // CDataPublisher_SetVRDeviceInfoAggregationReference_Request
 
-// optional uint32 ref = 1 [(.description) = "Reference number in the VRDeviceInfo table for the entry to set"];
+// optional uint32 ref = 1;
 inline bool CDataPublisher_SetVRDeviceInfoAggregationReference_Request::_internal_has_ref() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -4067,7 +4067,7 @@ inline void CDataPublisher_SetVRDeviceInfoAggregationReference_Request::set_ref(
   // @@protoc_insertion_point(field_set:CDataPublisher_SetVRDeviceInfoAggregationReference_Request.ref)
 }
 
-// optional uint32 aggregation_ref = 2 [(.description) = "Aggregation to set the entry to"];
+// optional uint32 aggregation_ref = 2;
 inline bool CDataPublisher_SetVRDeviceInfoAggregationReference_Request::_internal_has_aggregation_ref() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -4099,7 +4099,7 @@ inline void CDataPublisher_SetVRDeviceInfoAggregationReference_Request::set_aggr
 
 // CDataPublisher_SetVRDeviceInfoAggregationReference_Response
 
-// optional uint32 result = 1 [(.description) = "EResultOK, etc."];
+// optional uint32 result = 1;
 inline bool CDataPublisher_SetVRDeviceInfoAggregationReference_Response::_internal_has_result() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -4131,7 +4131,7 @@ inline void CDataPublisher_SetVRDeviceInfoAggregationReference_Response::set_res
 
 // CDataPublisher_AddVRDeviceInfo_Request
 
-// optional string manufacturer = 1 [(.description) = "Manufacturer for the new device"];
+// optional string manufacturer = 1;
 inline bool CDataPublisher_AddVRDeviceInfo_Request::_internal_has_manufacturer() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -4204,7 +4204,7 @@ inline void CDataPublisher_AddVRDeviceInfo_Request::set_allocated_manufacturer(s
   // @@protoc_insertion_point(field_set_allocated:CDataPublisher_AddVRDeviceInfo_Request.manufacturer)
 }
 
-// optional string model = 2 [(.description) = "Model for the new device"];
+// optional string model = 2;
 inline bool CDataPublisher_AddVRDeviceInfo_Request::_internal_has_model() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -4277,7 +4277,7 @@ inline void CDataPublisher_AddVRDeviceInfo_Request::set_allocated_model(std::str
   // @@protoc_insertion_point(field_set_allocated:CDataPublisher_AddVRDeviceInfo_Request.model)
 }
 
-// optional string driver = 3 [(.description) = "driver name (not including driver_). e.g. lighthouse, oculus, holographic"];
+// optional string driver = 3;
 inline bool CDataPublisher_AddVRDeviceInfo_Request::_internal_has_driver() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -4350,7 +4350,7 @@ inline void CDataPublisher_AddVRDeviceInfo_Request::set_allocated_driver(std::st
   // @@protoc_insertion_point(field_set_allocated:CDataPublisher_AddVRDeviceInfo_Request.driver)
 }
 
-// optional string controller_type = 4 [(.description) = "controller type for the device. Can be an empty string for devices with no inputs"];
+// optional string controller_type = 4;
 inline bool CDataPublisher_AddVRDeviceInfo_Request::_internal_has_controller_type() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -4423,7 +4423,7 @@ inline void CDataPublisher_AddVRDeviceInfo_Request::set_allocated_controller_typ
   // @@protoc_insertion_point(field_set_allocated:CDataPublisher_AddVRDeviceInfo_Request.controller_type)
 }
 
-// optional int32 device_class = 5 [(.description) = "Class of the device. HMD=1, controller=2, tracker=3, base=4"];
+// optional int32 device_class = 5;
 inline bool CDataPublisher_AddVRDeviceInfo_Request::_internal_has_device_class() const {
   bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
@@ -4455,7 +4455,7 @@ inline void CDataPublisher_AddVRDeviceInfo_Request::set_device_class(::PROTOBUF_
 
 // CDataPublisher_AddVRDeviceInfo_Response
 
-// optional uint32 result = 1 [(.description) = "EResultOK, etc."];
+// optional uint32 result = 1;
 inline bool CDataPublisher_AddVRDeviceInfo_Response::_internal_has_result() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -4483,7 +4483,7 @@ inline void CDataPublisher_AddVRDeviceInfo_Response::set_result(::PROTOBUF_NAMES
   // @@protoc_insertion_point(field_set:CDataPublisher_AddVRDeviceInfo_Response.result)
 }
 
-// optional uint32 ref = 2 [(.description) = "The reference number of the inserted device"];
+// optional uint32 ref = 2;
 inline bool CDataPublisher_AddVRDeviceInfo_Response::_internal_has_ref() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;

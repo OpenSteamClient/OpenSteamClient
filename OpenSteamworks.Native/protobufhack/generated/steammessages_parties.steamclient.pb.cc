@@ -359,33 +359,22 @@ const char descriptor_table_protodef_steammessages_5fparties_2esteamclient_2epro
   "penSlots_Response\022\021\n\tbeacon_id\030\001 \001(\004\"3\n\036"
   "CParties_DestroyBeacon_Request\022\021\n\tbeacon"
   "_id\030\001 \001(\004\"4\n\037CParties_DestroyBeacon_Resp"
-  "onse\022\021\n\tbeacon_id\030\001 \001(\0042\331\007\n\007Parties\022\271\001\n\t"
-  "JoinParty\022\033.CParties_JoinParty_Request\032\034"
-  ".CParties_JoinParty_Response\"q\202\265\030mReques"
-  "t to join a Party via the given Beacon I"
-  "D. If successful, will be given the nece"
-  "ssary \'connect\' string.\022\205\001\n\014CreateBeacon"
-  "\022\036.CParties_CreateBeacon_Request\032\037.CPart"
-  "ies_CreateBeacon_Response\"4\202\265\0300Create a "
-  "Beacon to attract people to your Party.\022"
-  "\267\001\n\026OnReservationCompleted\022(.CParties_On"
-  "ReservationCompleted_Request\032).CParties_"
-  "OnReservationCompleted_Response\"H\202\265\030DNot"
-  "ify Steam that a user with a reservation"
-  " has successfully joined.\022\276\001\n\021CancelRese"
-  "rvation\022#.CParties_CancelReservation_Req"
-  "uest\032$.CParties_CancelReservation_Respon"
-  "se\"^\202\265\030ZNotify Steam that a user with a "
-  "reservation either never showed up, or h"
-  "as left the party.\022\206\001\n\022ChangeNumOpenSlot"
-  "s\022$.CParties_ChangeNumOpenSlots_Request\032"
-  "%.CParties_ChangeNumOpenSlots_Response\"#"
-  "\202\265\030\037Change the number of open slots\022j\n\rD"
-  "estroyBeacon\022\037.CParties_DestroyBeacon_Re"
-  "quest\032 .CParties_DestroyBeacon_Response\""
-  "\026\202\265\030\022Delete the Beacon.\032\032\202\265\030\026Party-relat"
-  "ed servicesB\035\200\001\001\252\002\027OpenSteamworks.Protob"
-  "uf"
+  "onse\022\021\n\tbeacon_id\030\001 \001(\0042\250\004\n\007Parties\022F\n\tJ"
+  "oinParty\022\033.CParties_JoinParty_Request\032\034."
+  "CParties_JoinParty_Response\022O\n\014CreateBea"
+  "con\022\036.CParties_CreateBeacon_Request\032\037.CP"
+  "arties_CreateBeacon_Response\022m\n\026OnReserv"
+  "ationCompleted\022(.CParties_OnReservationC"
+  "ompleted_Request\032).CParties_OnReservatio"
+  "nCompleted_Response\022^\n\021CancelReservation"
+  "\022#.CParties_CancelReservation_Request\032$."
+  "CParties_CancelReservation_Response\022a\n\022C"
+  "hangeNumOpenSlots\022$.CParties_ChangeNumOp"
+  "enSlots_Request\032%.CParties_ChangeNumOpen"
+  "Slots_Response\022R\n\rDestroyBeacon\022\037.CParti"
+  "es_DestroyBeacon_Request\032 .CParties_Dest"
+  "royBeacon_ResponseB\035\200\001\001\252\002\027OpenSteamworks"
+  ".Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fparties_2esteamclient_2eproto_deps[3] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
@@ -394,7 +383,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fparties_2esteamclient_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fparties_2esteamclient_2eproto = {
-  false, false, 2122, descriptor_table_protodef_steammessages_5fparties_2esteamclient_2eproto, "steammessages_parties.steamclient.proto", 
+  false, false, 1689, descriptor_table_protodef_steammessages_5fparties_2esteamclient_2eproto, "steammessages_parties.steamclient.proto", 
   &descriptor_table_steammessages_5fparties_2esteamclient_2eproto_once, descriptor_table_steammessages_5fparties_2esteamclient_2eproto_deps, 3, 13,
   schemas, file_default_instances, TableStruct_steammessages_5fparties_2esteamclient_2eproto::offsets,
   file_level_metadata_steammessages_5fparties_2esteamclient_2eproto, file_level_enum_descriptors_steammessages_5fparties_2esteamclient_2eproto, file_level_service_descriptors_steammessages_5fparties_2esteamclient_2eproto,

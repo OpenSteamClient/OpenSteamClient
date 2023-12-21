@@ -165,7 +165,8 @@ constexpr CMsgClientSettings::CMsgClientSettings(
 
   , gamescope_app_target_framerate_(0)
   , gamescope_enable_app_target_framerate_(false)
-  , gamescope_disable_framelimit_(false){}
+  , gamescope_disable_framelimit_(false)
+  , gamescope_use_game_refresh_rate_in_steam_(false){}
 struct CMsgClientSettingsDefaultTypeInternal {
   constexpr CMsgClientSettingsDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -330,6 +331,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fclientsettings
   PROTOBUF_FIELD_OFFSET(::CMsgClientSettings, gamescope_enable_app_target_framerate_),
   PROTOBUF_FIELD_OFFSET(::CMsgClientSettings, gamescope_disable_framelimit_),
   PROTOBUF_FIELD_OFFSET(::CMsgClientSettings, gamescope_display_refresh_rate_),
+  PROTOBUF_FIELD_OFFSET(::CMsgClientSettings, gamescope_use_game_refresh_rate_in_steam_),
   15,
   16,
   17,
@@ -458,10 +460,11 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fclientsettings
   126,
   127,
   27,
+  128,
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, 11, sizeof(::CMsgHotkey)},
-  { 17, 150, sizeof(::CMsgClientSettings)},
+  { 17, 151, sizeof(::CMsgClientSettings)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -475,7 +478,7 @@ const char descriptor_table_protodef_steammessages_5fclientsettings_2eproto[] PR
   "oto\"|\n\nCMsgHotkey\022\020\n\010key_code\030\001 \001(\r\022\017\n\007a"
   "lt_key\030\002 \001(\010\022\021\n\tshift_key\030\003 \001(\010\022\020\n\010ctrl_"
   "key\030\004 \001(\010\022\020\n\010meta_key\030\005 \001(\010\022\024\n\014display_n"
-  "ame\030\006 \001(\t\"\271B\n\022CMsgClientSettings\022N\n\025no_s"
+  "ame\030\006 \001(\t\"\237C\n\022CMsgClientSettings\022N\n\025no_s"
   "ave_personal_info\030\001 \001(\010B/\200\246\035\001\212\246\035\'Softwar"
   "e\\Valve\\Steam\\NoSavePersonalInfo\022P\n\026oobe"
   "_test_mode_enabled\030\002 \001(\010B0\200\246\035\001\212\246\035(Softwa"
@@ -675,54 +678,56 @@ const char descriptor_table_protodef_steammessages_5fclientsettings_2eproto[] PR
   "tab\030\244\234\001 \001(\010B\"\200\246\035\001\212\246\035\032Developer/ForceDeck"
   "PerfTab\022L\n\033force_fake_mandatory_update\030\245"
   "\234\001 \001(\010B%\200\246\035\001\212\246\035\035Developer/FakeMandatoryU"
-  "pdate\022u\n\033gamescope_hdr_visualization\030\211\244\001"
+  "pdate\022v\n\033gamescope_hdr_visualization\030\211\244\001"
   " \001(\0162\022.EHDRVisualization:\026EHDRVisualizat"
-  "ion_NoneB\"\200\246\035\003\212\246\035\032Gamescope/HDRVisualiza"
-  "tion\022V\n\036gamescope_app_target_framerate\030\212"
-  "\244\001 \001(\005B,\200\246\035\003\212\246\035\034Gamescope/AppTargetFrame"
-  "Rate\240\246\035\000\320\246\035\002\022\210\001\n%gamescope_enable_app_ta"
-  "rget_framerate\030\213\244\001 \001(\010BW\200\246\035\004\212\246\035KHKEY_CUR"
-  "RENT_USER\\Software\\Valve\\Steam\\Gamescope"
-  "EnableAppTargetRefreshRate2\230\246\035\001\022S\n\034games"
-  "cope_disable_framelimit\030\214\244\001 \001(\010B+\200\246\035\003\212\246\035"
-  "\033Gamescope/DisableFrameLimit\230\246\035\000\320\246\035\002\022O\n\036"
-  "gamescope_display_refresh_rate\030\215\244\001 \001(\005B%"
-  "\200\246\035\003\212\246\035\025Gamescope/RefreshRate\240\246\035\000\320\246\035\002*\211\002"
-  "\n\023EClientSettingStore\022\037\n\033EClientSettingS"
-  "tore_Invalid\020\000\022+\n\'EClientSettingStore_Co"
-  "nfigStore_Install\020\001\022/\n+EClientSettingSto"
-  "re_ConfigStore_UserRoaming\020\002\022-\n)EClientS"
-  "ettingStore_ConfigStore_UserLocal\020\003\022 \n\034E"
-  "ClientSettingStore_Registry\020\004\022\"\n\036EClient"
-  "SettingStore_CustomFunc\020\005*\255\001\n\031EOverlayTo"
-  "ggleBarLocation\022$\n EOverlayToggleBarLoca"
-  "tion_Bottom\020\000\022\"\n\036EOverlayToggleBarLocati"
-  "on_Left\020\001\022#\n\037EOverlayToggleBarLocation_R"
-  "ight\020\002\022!\n\035EOverlayToggleBarLocation_Top\020"
-  "\003*\177\n\023ESettingProfileMode\022\034\n\030ESettingProf"
-  "ileMode_None\020\000\022\037\n\033ESettingProfileMode_Pe"
-  "rGame\020\001\022)\n%ESettingProfileMode_PerGamePe"
-  "rDisplay\020\002:i\n\rsetting_store\022\035.google.pro"
-  "tobuf.FieldOptions\030\340\324\003 \001(\0162\024.EClientSett"
-  "ingStore:\033EClientSettingStore_Invalid:5\n"
-  "\014setting_name\022\035.google.protobuf.FieldOpt"
-  "ions\030\341\324\003 \001(\t::\n\021setting_pre_login\022\035.goog"
-  "le.protobuf.FieldOptions\030\342\324\003 \001(\010:=\n\024sett"
-  "ing_default_bool\022\035.google.protobuf.Field"
-  "Options\030\343\324\003 \001(\010:<\n\023setting_default_int\022\035"
-  ".google.protobuf.FieldOptions\030\344\324\003 \001(\005:=\n"
-  "\024setting_default_uint\022\035.google.protobuf."
-  "FieldOptions\030\345\324\003 \001(\r:>\n\025setting_default_"
-  "float\022\035.google.protobuf.FieldOptions\030\346\324\003"
-  " \001(\002:\?\n\026setting_default_string\022\035.google."
-  "protobuf.FieldOptions\030\347\324\003 \001(\t:9\n\020setting"
-  "_readonly\022\035.google.protobuf.FieldOptions"
-  "\030\350\324\003 \001(\010:<\n\023setting_description\022\035.google"
-  ".protobuf.FieldOptions\030\351\324\003 \001(\t:m\n\024settin"
-  "g_profile_mode\022\035.google.protobuf.FieldOp"
-  "tions\030\352\324\003 \001(\0162\024.ESettingProfileMode:\030ESe"
-  "ttingProfileMode_NoneB\037H\001\200\001\001\252\002\027OpenSteam"
-  "works.Protobuf"
+  "ion_NoneB#\200\246\035\003\212\246\035\033Gamescope/HDRVisualiza"
+  "tion2\022V\n\036gamescope_app_target_framerate\030"
+  "\212\244\001 \001(\005B,\200\246\035\003\212\246\035\034Gamescope/AppTargetFram"
+  "eRate\240\246\035\000\320\246\035\002\022\210\001\n%gamescope_enable_app_t"
+  "arget_framerate\030\213\244\001 \001(\010BW\200\246\035\004\212\246\035KHKEY_CU"
+  "RRENT_USER\\Software\\Valve\\Steam\\Gamescop"
+  "eEnableAppTargetRefreshRate2\230\246\035\001\022S\n\034game"
+  "scope_disable_framelimit\030\214\244\001 \001(\010B+\200\246\035\003\212\246"
+  "\035\033Gamescope/DisableFrameLimit\230\246\035\000\320\246\035\002\022O\n"
+  "\036gamescope_display_refresh_rate\030\215\244\001 \001(\005B"
+  "%\200\246\035\003\212\246\035\025Gamescope/RefreshRate\240\246\035\000\320\246\035\002\022c"
+  "\n(gamescope_use_game_refresh_rate_in_ste"
+  "am\030\216\244\001 \001(\010B/\200\246\035\003\212\246\035#Developer/DynamicRef"
+  "reshRateInSteam\230\246\035\001*\211\002\n\023EClientSettingSt"
+  "ore\022\037\n\033EClientSettingStore_Invalid\020\000\022+\n\'"
+  "EClientSettingStore_ConfigStore_Install\020"
+  "\001\022/\n+EClientSettingStore_ConfigStore_Use"
+  "rRoaming\020\002\022-\n)EClientSettingStore_Config"
+  "Store_UserLocal\020\003\022 \n\034EClientSettingStore"
+  "_Registry\020\004\022\"\n\036EClientSettingStore_Custo"
+  "mFunc\020\005*\255\001\n\031EOverlayToggleBarLocation\022$\n"
+  " EOverlayToggleBarLocation_Bottom\020\000\022\"\n\036E"
+  "OverlayToggleBarLocation_Left\020\001\022#\n\037EOver"
+  "layToggleBarLocation_Right\020\002\022!\n\035EOverlay"
+  "ToggleBarLocation_Top\020\003*\177\n\023ESettingProfi"
+  "leMode\022\034\n\030ESettingProfileMode_None\020\000\022\037\n\033"
+  "ESettingProfileMode_PerGame\020\001\022)\n%ESettin"
+  "gProfileMode_PerGamePerDisplay\020\002:i\n\rsett"
+  "ing_store\022\035.google.protobuf.FieldOptions"
+  "\030\340\324\003 \001(\0162\024.EClientSettingStore:\033EClientS"
+  "ettingStore_Invalid:5\n\014setting_name\022\035.go"
+  "ogle.protobuf.FieldOptions\030\341\324\003 \001(\t::\n\021se"
+  "tting_pre_login\022\035.google.protobuf.FieldO"
+  "ptions\030\342\324\003 \001(\010:=\n\024setting_default_bool\022\035"
+  ".google.protobuf.FieldOptions\030\343\324\003 \001(\010:<\n"
+  "\023setting_default_int\022\035.google.protobuf.F"
+  "ieldOptions\030\344\324\003 \001(\005:=\n\024setting_default_u"
+  "int\022\035.google.protobuf.FieldOptions\030\345\324\003 \001"
+  "(\r:>\n\025setting_default_float\022\035.google.pro"
+  "tobuf.FieldOptions\030\346\324\003 \001(\002:\?\n\026setting_de"
+  "fault_string\022\035.google.protobuf.FieldOpti"
+  "ons\030\347\324\003 \001(\t:9\n\020setting_readonly\022\035.google"
+  ".protobuf.FieldOptions\030\350\324\003 \001(\010:<\n\023settin"
+  "g_description\022\035.google.protobuf.FieldOpt"
+  "ions\030\351\324\003 \001(\t:m\n\024setting_profile_mode\022\035.g"
+  "oogle.protobuf.FieldOptions\030\352\324\003 \001(\0162\024.ES"
+  "ettingProfileMode:\030ESettingProfileMode_N"
+  "oneB\037H\001\200\001\001\252\002\027OpenSteamworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fclientsettings_2eproto_deps[2] = {
   &::descriptor_table_enums_2eproto,
@@ -730,7 +735,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fclientsettings_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fclientsettings_2eproto = {
-  false, false, 10094, descriptor_table_protodef_steammessages_5fclientsettings_2eproto, "steammessages_clientsettings.proto", 
+  false, false, 10196, descriptor_table_protodef_steammessages_5fclientsettings_2eproto, "steammessages_clientsettings.proto", 
   &descriptor_table_steammessages_5fclientsettings_2eproto_once, descriptor_table_steammessages_5fclientsettings_2eproto_deps, 2, 2,
   schemas, file_default_instances, TableStruct_steammessages_5fclientsettings_2eproto::offsets,
   file_level_metadata_steammessages_5fclientsettings_2eproto, file_level_enum_descriptors_steammessages_5fclientsettings_2eproto, file_level_service_descriptors_steammessages_5fclientsettings_2eproto,
@@ -1554,6 +1559,9 @@ class CMsgClientSettings::_Internal {
   static void set_has_gamescope_display_refresh_rate(HasBits* has_bits) {
     (*has_bits)[0] |= 134217728u;
   }
+  static void set_has_gamescope_use_game_refresh_rate_in_steam(HasBits* has_bits) {
+    (*has_bits)[4] |= 1u;
+  }
 };
 
 const ::CMsgHotkey&
@@ -1662,8 +1670,8 @@ CMsgClientSettings::CMsgClientSettings(const CMsgClientSettings& from)
     g_background_tg_ = nullptr;
   }
   ::memcpy(&no_save_personal_info_, &from.no_save_personal_info_,
-    static_cast<size_t>(reinterpret_cast<char*>(&gamescope_disable_framelimit_) -
-    reinterpret_cast<char*>(&no_save_personal_info_)) + sizeof(gamescope_disable_framelimit_));
+    static_cast<size_t>(reinterpret_cast<char*>(&gamescope_use_game_refresh_rate_in_steam_) -
+    reinterpret_cast<char*>(&no_save_personal_info_)) + sizeof(gamescope_use_game_refresh_rate_in_steam_));
   // @@protoc_insertion_point(copy_constructor:CMsgClientSettings)
 }
 
@@ -1680,8 +1688,8 @@ g_background_path_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmpty
 g_background_max_keep_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&overlay_key_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&gamescope_disable_framelimit_) -
-    reinterpret_cast<char*>(&overlay_key_)) + sizeof(gamescope_disable_framelimit_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&gamescope_use_game_refresh_rate_in_steam_) -
+    reinterpret_cast<char*>(&overlay_key_)) + sizeof(gamescope_use_game_refresh_rate_in_steam_));
 }
 
 CMsgClientSettings::~CMsgClientSettings() {
@@ -1854,6 +1862,7 @@ void CMsgClientSettings::Clear() {
         reinterpret_cast<char*>(&gamescope_disable_framelimit_) -
         reinterpret_cast<char*>(&force_oobe_)) + sizeof(gamescope_disable_framelimit_));
   }
+  gamescope_use_game_refresh_rate_in_steam_ = false;
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -2882,7 +2891,7 @@ const char* CMsgClientSettings::_InternalParse(const char* ptr, ::PROTOBUF_NAMES
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional .EHDRVisualization gamescope_hdr_visualization = 21001 [default = EHDRVisualization_None, (.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "Gamescope/HDRVisualization"];
+      // optional .EHDRVisualization gamescope_hdr_visualization = 21001 [default = EHDRVisualization_None, (.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "Gamescope/HDRVisualization2"];
       case 21001:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 72)) {
           ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -2923,6 +2932,14 @@ const char* CMsgClientSettings::_InternalParse(const char* ptr, ::PROTOBUF_NAMES
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 104)) {
           _Internal::set_has_gamescope_display_refresh_rate(&_has_bits_);
           gamescope_display_refresh_rate_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional bool gamescope_use_game_refresh_rate_in_steam = 21006 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "Developer/DynamicRefreshRateInSteam", (.setting_default_bool) = true];
+      case 21006:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 112)) {
+          _Internal::set_has_gamescope_use_game_refresh_rate_in_steam(&_has_bits_);
+          gamescope_use_game_refresh_rate_in_steam_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -3768,7 +3785,7 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(20005, this->_internal_force_fake_mandatory_update(), target);
   }
 
-  // optional .EHDRVisualization gamescope_hdr_visualization = 21001 [default = EHDRVisualization_None, (.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "Gamescope/HDRVisualization"];
+  // optional .EHDRVisualization gamescope_hdr_visualization = 21001 [default = EHDRVisualization_None, (.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "Gamescope/HDRVisualization2"];
   if (cached_has_bits & 0x10000000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
@@ -3798,6 +3815,13 @@ failure:
   if (cached_has_bits & 0x08000000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(21005, this->_internal_gamescope_display_refresh_rate(), target);
+  }
+
+  cached_has_bits = _has_bits_[4];
+  // optional bool gamescope_use_game_refresh_rate_in_steam = 21006 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "Developer/DynamicRefreshRateInSteam", (.setting_default_bool) = true];
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(21006, this->_internal_gamescope_use_game_refresh_rate_in_steam(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -4553,7 +4577,7 @@ size_t CMsgClientSettings::ByteSizeLong() const {
       total_size += 3 + 1;
     }
 
-    // optional .EHDRVisualization gamescope_hdr_visualization = 21001 [default = EHDRVisualization_None, (.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "Gamescope/HDRVisualization"];
+    // optional .EHDRVisualization gamescope_hdr_visualization = 21001 [default = EHDRVisualization_None, (.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "Gamescope/HDRVisualization2"];
     if (cached_has_bits & 0x10000000u) {
       total_size += 3 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_gamescope_hdr_visualization());
@@ -4577,6 +4601,12 @@ size_t CMsgClientSettings::ByteSizeLong() const {
     }
 
   }
+  // optional bool gamescope_use_game_refresh_rate_in_steam = 21006 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "Developer/DynamicRefreshRateInSteam", (.setting_default_bool) = true];
+  cached_has_bits = _has_bits_[4];
+  if (cached_has_bits & 0x00000001u) {
+    total_size += 3 + 1;
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
         _internal_metadata_, total_size, &_cached_size_);
@@ -5043,6 +5073,9 @@ void CMsgClientSettings::MergeFrom(const CMsgClientSettings& from) {
     }
     _has_bits_[3] |= cached_has_bits;
   }
+  if (from._internal_has_gamescope_use_game_refresh_rate_in_steam()) {
+    _internal_set_gamescope_use_game_refresh_rate_in_steam(from._internal_gamescope_use_game_refresh_rate_in_steam());
+  }
 }
 
 void CMsgClientSettings::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
@@ -5070,6 +5103,7 @@ void CMsgClientSettings::InternalSwap(CMsgClientSettings* other) {
   swap(_has_bits_[1], other->_has_bits_[1]);
   swap(_has_bits_[2], other->_has_bits_[2]);
   swap(_has_bits_[3], other->_has_bits_[3]);
+  swap(_has_bits_[4], other->_has_bits_[4]);
   preferred_monitor_.Swap(&other->preferred_monitor_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   display_name_.Swap(&other->display_name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   screenshots_path_.Swap(&other->screenshots_path_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
@@ -5081,8 +5115,8 @@ void CMsgClientSettings::InternalSwap(CMsgClientSettings* other) {
   g_background_path_.Swap(&other->g_background_path_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   g_background_max_keep_.Swap(&other->g_background_max_keep_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CMsgClientSettings, gamescope_disable_framelimit_)
-      + sizeof(CMsgClientSettings::gamescope_disable_framelimit_)
+      PROTOBUF_FIELD_OFFSET(CMsgClientSettings, gamescope_use_game_refresh_rate_in_steam_)
+      + sizeof(CMsgClientSettings::gamescope_use_game_refresh_rate_in_steam_)
       - PROTOBUF_FIELD_OFFSET(CMsgClientSettings, overlay_key_)>(
           reinterpret_cast<char*>(&overlay_key_),
           reinterpret_cast<char*>(&other->overlay_key_));

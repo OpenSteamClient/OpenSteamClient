@@ -255,73 +255,41 @@ const char descriptor_table_protodef_steammessages_5fvideo_2esteamclient_2eproto
   "\n%steammessages_video.steamclient.proto\032"
   " google/protobuf/descriptor.proto\032\030steam"
   "messages_base.proto\032,steammessages_unifi"
-  "ed_base.steamclient.proto\"\201\001\n CVideo_Cli"
-  "entGetVideoURL_Request\022\036\n\010video_id\030\001 \001(\004"
-  "B\014\202\265\030\010Video ID\022=\n\rclient_cellid\030\002 \001(\rB&\202"
-  "\265\030\"Cell ID of client, zero if unknown\"r\n"
-  "!CVideo_ClientGetVideoURL_Response\022\036\n\010vi"
-  "deo_id\030\001 \001(\004B\014\202\265\030\010Video ID\022-\n\tvideo_url\030"
-  "\002 \001(\tB\032\202\265\030\026URL for video manifest\"\242\004\n\rVi"
-  "deoBookmark\022\032\n\006app_id\030\001 \001(\rB\n\202\265\030\006App ID\022"
-  "[\n\032playbacposition_in_seconds\030\002 \001(\rB7\202\265\030"
-  "3How many seconds into the video the boo"
-  "kmark is for\022-\n\014video_tracid\030\003 \001(\004B\027\202\265\030\023"
-  "video track choice.\022-\n\014audio_tracid\030\004 \001("
-  "\004B\027\202\265\030\023audio track choice.\022A\n\020timedtext_"
-  "tracid\030\005 \001(\004B\'\202\265\030#timedtimed or subtitle"
-  " track choice\022O\n\rlast_modified\030\006 \001(\rB8\202\265"
-  "\0304when we recorded it was last modified."
-  " Not settable.\022U\n\027hide_from_watch_histor"
-  "y\030\007 \001(\010:\005falseB-\202\265\030)Whether I want to sh"
-  "ow this in my history\022O\n\021hide_from_libra"
-  "ry\030\010 \001(\010:\005falseB-\202\265\030)Whether I want to s"
-  "how this in my library\"p\n\"CVideo_SetVide"
-  "oBookmarNotification\022J\n\tbookmarks\030\001 \003(\0132"
-  "\016.VideoBookmarkB\'\202\265\030#list of bookmarks w"
-  "e want to store.\"\201\002\n CVideo_GetVideoBook"
-  "marks_Request\022_\n\006appids\030\001 \003(\rBO\202\265\030KList "
-  "of App IDs to grab bookmarks for. Can be"
-  " empty if using updated_since.\022|\n\rupdate"
-  "d_since\030\002 \001(\rBe\202\265\030aOnly return results a"
-  "fter time. Min value is 1. (seconds sinc"
-  "e epoch January 1st, 1970 Unix Time)\"u\n!"
-  "CVideo_GetVideoBookmarks_Response\022P\n\tboo"
-  "kmarks\030\001 \003(\0132\016.VideoBookmarkB-\202\265\030)List o"
-  "f bookmarks we found. Can be empty.\":\n C"
-  "Video_UnlockedH264_Notification\022\026\n\016encry"
-  "ption_key\030\001 \001(\014\"\205\001\n(CFovasVideo_ClientGe"
-  "tOPFSettings_Request\022\032\n\006app_id\030\001 \001(\rB\n\202\265"
-  "\030\006App ID\022=\n\rclient_cellid\030\002 \001(\rB&\202\265\030\"Cel"
-  "l ID of client, zero if unknown\"|\n)CFova"
-  "sVideo_ClientGetOPFSettings_Response\022\032\n\006"
-  "app_id\030\001 \001(\rB\n\202\265\030\006App ID\0223\n\014opf_settings"
-  "\030\002 \001(\tB\035\202\265\030\031JSON blob of OPF Settings2\263\004"
-  "\n\005Video\022\216\001\n\021ClientGetVideoURL\022!.CVideo_C"
-  "lientGetVideoURL_Request\032\".CVideo_Client"
-  "GetVideoURL_Response\"2\202\265\030.Get the initia"
-  "l URL to begin streaming a video\022\277\001\n\020Set"
-  "VideoBookmark\022#.CVideo_SetVideoBookmarNo"
-  "tification\032\013.NoResponse\"y\202\265\030uBookmarks t"
-  "he locations in the video the user has r"
-  "eached. As as record playback settings p"
-  "er video. Fire and forget.\022\303\001\n\021GetVideoB"
-  "ookmarks\022!.CVideo_GetVideoBookmarks_Requ"
-  "est\032\".CVideo_GetVideoBookmarks_Response\""
-  "g\202\265\030cReturns the video bookmarks locatio"
-  "ns for the specific videos. Includes pla"
-  "yback settings per video\032\021\202\265\030\rVideo meth"
-  "ods2\236\001\n\013VideoClient\022\210\001\n\022NotifyUnlockedH2"
-  "64\022!.CVideo_UnlockedH264_Notification\032\013."
-  "NoResponse\"B\202\265\030>Notification from server"
-  " to client that h264 has been unlocked\032\004"
-  "\300\265\030\0022\363\001\n\nFovasVideo\022\303\001\n\024ClientGetOPFSett"
-  "ings\022).CFovasVideo_ClientGetOPFSettings_"
-  "Request\032*.CFovasVideo_ClientGetOPFSettin"
-  "gs_Response\"T\202\265\030PRetrieve the OPF settin"
-  "gs JSON blob. Available via the Client f"
-  "or 360 Player App\032\037\202\265\030\033Fovas Video Servi"
-  "ce MethodsB\035\200\001\001\252\002\027OpenSteamworks.Protobu"
-  "f"
+  "ed_base.steamclient.proto\"K\n CVideo_Clie"
+  "ntGetVideoURL_Request\022\020\n\010video_id\030\001 \001(\004\022"
+  "\025\n\rclient_cellid\030\002 \001(\r\"H\n!CVideo_ClientG"
+  "etVideoURL_Response\022\020\n\010video_id\030\001 \001(\004\022\021\n"
+  "\tvideo_url\030\002 \001(\t\"\352\001\n\rVideoBookmark\022\016\n\006ap"
+  "p_id\030\001 \001(\r\022\"\n\032playbacposition_in_seconds"
+  "\030\002 \001(\r\022\024\n\014video_tracid\030\003 \001(\004\022\024\n\014audio_tr"
+  "acid\030\004 \001(\004\022\030\n\020timedtext_tracid\030\005 \001(\004\022\025\n\r"
+  "last_modified\030\006 \001(\r\022&\n\027hide_from_watch_h"
+  "istory\030\007 \001(\010:\005false\022 \n\021hide_from_library"
+  "\030\010 \001(\010:\005false\"G\n\"CVideo_SetVideoBookmarN"
+  "otification\022!\n\tbookmarks\030\001 \003(\0132\016.VideoBo"
+  "okmark\"I\n CVideo_GetVideoBookmarks_Reque"
+  "st\022\016\n\006appids\030\001 \003(\r\022\025\n\rupdated_since\030\002 \001("
+  "\r\"F\n!CVideo_GetVideoBookmarks_Response\022!"
+  "\n\tbookmarks\030\001 \003(\0132\016.VideoBookmark\":\n CVi"
+  "deo_UnlockedH264_Notification\022\026\n\016encrypt"
+  "ion_key\030\001 \001(\014\"Q\n(CFovasVideo_ClientGetOP"
+  "FSettings_Request\022\016\n\006app_id\030\001 \001(\r\022\025\n\rcli"
+  "ent_cellid\030\002 \001(\r\"Q\n)CFovasVideo_ClientGe"
+  "tOPFSettings_Response\022\016\n\006app_id\030\001 \001(\r\022\024\n"
+  "\014opf_settings\030\002 \001(\t2\205\002\n\005Video\022Z\n\021ClientG"
+  "etVideoURL\022!.CVideo_ClientGetVideoURL_Re"
+  "quest\032\".CVideo_ClientGetVideoURL_Respons"
+  "e\022D\n\020SetVideoBookmark\022#.CVideo_SetVideoB"
+  "ookmarNotification\032\013.NoResponse\022Z\n\021GetVi"
+  "deoBookmarks\022!.CVideo_GetVideoBookmarks_"
+  "Request\032\".CVideo_GetVideoBookmarks_Respo"
+  "nse2Y\n\013VideoClient\022D\n\022NotifyUnlockedH264"
+  "\022!.CVideo_UnlockedH264_Notification\032\013.No"
+  "Response\032\004\300\265\030\0022{\n\nFovasVideo\022m\n\024ClientGe"
+  "tOPFSettings\022).CFovasVideo_ClientGetOPFS"
+  "ettings_Request\032*.CFovasVideo_ClientGetO"
+  "PFSettings_ResponseB\035\200\001\001\252\002\027OpenSteamwork"
+  "s.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fvideo_2esteamclient_2eproto_deps[3] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
@@ -330,7 +298,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fvideo_2esteamclient_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fvideo_2esteamclient_2eproto = {
-  false, false, 2761, descriptor_table_protodef_steammessages_5fvideo_2esteamclient_2eproto, "steammessages_video.steamclient.proto", 
+  false, false, 1490, descriptor_table_protodef_steammessages_5fvideo_2esteamclient_2eproto, "steammessages_video.steamclient.proto", 
   &descriptor_table_steammessages_5fvideo_2esteamclient_2eproto_once, descriptor_table_steammessages_5fvideo_2esteamclient_2eproto_deps, 3, 9,
   schemas, file_default_instances, TableStruct_steammessages_5fvideo_2esteamclient_2eproto::offsets,
   file_level_metadata_steammessages_5fvideo_2esteamclient_2eproto, file_level_enum_descriptors_steammessages_5fvideo_2esteamclient_2eproto, file_level_service_descriptors_steammessages_5fvideo_2esteamclient_2eproto,
@@ -424,7 +392,7 @@ const char* CVideo_ClientGetVideoURL_Request::_InternalParse(const char* ptr, ::
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint64 video_id = 1 [(.description) = "Video ID"];
+      // optional uint64 video_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_video_id(&has_bits);
@@ -432,7 +400,7 @@ const char* CVideo_ClientGetVideoURL_Request::_InternalParse(const char* ptr, ::
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 client_cellid = 2 [(.description) = "Cell ID of client, zero if unknown"];
+      // optional uint32 client_cellid = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_client_cellid(&has_bits);
@@ -470,13 +438,13 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint64 video_id = 1 [(.description) = "Video ID"];
+  // optional uint64 video_id = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_video_id(), target);
   }
 
-  // optional uint32 client_cellid = 2 [(.description) = "Cell ID of client, zero if unknown"];
+  // optional uint32 client_cellid = 2;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_client_cellid(), target);
@@ -500,14 +468,14 @@ size_t CVideo_ClientGetVideoURL_Request::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional uint64 video_id = 1 [(.description) = "Video ID"];
+    // optional uint64 video_id = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_video_id());
     }
 
-    // optional uint32 client_cellid = 2 [(.description) = "Cell ID of client, zero if unknown"];
+    // optional uint32 client_cellid = 2;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -674,7 +642,7 @@ const char* CVideo_ClientGetVideoURL_Response::_InternalParse(const char* ptr, :
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint64 video_id = 1 [(.description) = "Video ID"];
+      // optional uint64 video_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_video_id(&has_bits);
@@ -682,7 +650,7 @@ const char* CVideo_ClientGetVideoURL_Response::_InternalParse(const char* ptr, :
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string video_url = 2 [(.description) = "URL for video manifest"];
+      // optional string video_url = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           auto str = _internal_mutable_video_url();
@@ -723,13 +691,13 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint64 video_id = 1 [(.description) = "Video ID"];
+  // optional uint64 video_id = 1;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_video_id(), target);
   }
 
-  // optional string video_url = 2 [(.description) = "URL for video manifest"];
+  // optional string video_url = 2;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_video_url().data(), static_cast<int>(this->_internal_video_url().length()),
@@ -757,14 +725,14 @@ size_t CVideo_ClientGetVideoURL_Response::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional string video_url = 2 [(.description) = "URL for video manifest"];
+    // optional string video_url = 2;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_video_url());
     }
 
-    // optional uint64 video_id = 1 [(.description) = "Video ID"];
+    // optional uint64 video_id = 1;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
@@ -944,7 +912,7 @@ const char* VideoBookmark::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint32 app_id = 1 [(.description) = "App ID"];
+      // optional uint32 app_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_app_id(&has_bits);
@@ -952,7 +920,7 @@ const char* VideoBookmark::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 playbacposition_in_seconds = 2 [(.description) = "How many seconds into the video the bookmark is for"];
+      // optional uint32 playbacposition_in_seconds = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_playbacposition_in_seconds(&has_bits);
@@ -960,7 +928,7 @@ const char* VideoBookmark::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint64 video_tracid = 3 [(.description) = "video track choice."];
+      // optional uint64 video_tracid = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           _Internal::set_has_video_tracid(&has_bits);
@@ -968,7 +936,7 @@ const char* VideoBookmark::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint64 audio_tracid = 4 [(.description) = "audio track choice."];
+      // optional uint64 audio_tracid = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
           _Internal::set_has_audio_tracid(&has_bits);
@@ -976,7 +944,7 @@ const char* VideoBookmark::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint64 timedtext_tracid = 5 [(.description) = "timedtimed or subtitle track choice"];
+      // optional uint64 timedtext_tracid = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
           _Internal::set_has_timedtext_tracid(&has_bits);
@@ -984,7 +952,7 @@ const char* VideoBookmark::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 last_modified = 6 [(.description) = "when we recorded it was last modified. Not settable."];
+      // optional uint32 last_modified = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
           _Internal::set_has_last_modified(&has_bits);
@@ -992,7 +960,7 @@ const char* VideoBookmark::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool hide_from_watch_history = 7 [default = false, (.description) = "Whether I want to show this in my history"];
+      // optional bool hide_from_watch_history = 7 [default = false];
       case 7:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 56)) {
           _Internal::set_has_hide_from_watch_history(&has_bits);
@@ -1000,7 +968,7 @@ const char* VideoBookmark::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool hide_from_library = 8 [default = false, (.description) = "Whether I want to show this in my library"];
+      // optional bool hide_from_library = 8 [default = false];
       case 8:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 64)) {
           _Internal::set_has_hide_from_library(&has_bits);
@@ -1038,49 +1006,49 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint32 app_id = 1 [(.description) = "App ID"];
+  // optional uint32 app_id = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_app_id(), target);
   }
 
-  // optional uint32 playbacposition_in_seconds = 2 [(.description) = "How many seconds into the video the bookmark is for"];
+  // optional uint32 playbacposition_in_seconds = 2;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_playbacposition_in_seconds(), target);
   }
 
-  // optional uint64 video_tracid = 3 [(.description) = "video track choice."];
+  // optional uint64 video_tracid = 3;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(3, this->_internal_video_tracid(), target);
   }
 
-  // optional uint64 audio_tracid = 4 [(.description) = "audio track choice."];
+  // optional uint64 audio_tracid = 4;
   if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(4, this->_internal_audio_tracid(), target);
   }
 
-  // optional uint64 timedtext_tracid = 5 [(.description) = "timedtimed or subtitle track choice"];
+  // optional uint64 timedtext_tracid = 5;
   if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(5, this->_internal_timedtext_tracid(), target);
   }
 
-  // optional uint32 last_modified = 6 [(.description) = "when we recorded it was last modified. Not settable."];
+  // optional uint32 last_modified = 6;
   if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(6, this->_internal_last_modified(), target);
   }
 
-  // optional bool hide_from_watch_history = 7 [default = false, (.description) = "Whether I want to show this in my history"];
+  // optional bool hide_from_watch_history = 7 [default = false];
   if (cached_has_bits & 0x00000040u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(7, this->_internal_hide_from_watch_history(), target);
   }
 
-  // optional bool hide_from_library = 8 [default = false, (.description) = "Whether I want to show this in my library"];
+  // optional bool hide_from_library = 8 [default = false];
   if (cached_has_bits & 0x00000080u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(8, this->_internal_hide_from_library(), target);
@@ -1104,54 +1072,54 @@ size_t VideoBookmark::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x000000ffu) {
-    // optional uint32 app_id = 1 [(.description) = "App ID"];
+    // optional uint32 app_id = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_app_id());
     }
 
-    // optional uint32 playbacposition_in_seconds = 2 [(.description) = "How many seconds into the video the bookmark is for"];
+    // optional uint32 playbacposition_in_seconds = 2;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_playbacposition_in_seconds());
     }
 
-    // optional uint64 video_tracid = 3 [(.description) = "video track choice."];
+    // optional uint64 video_tracid = 3;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_video_tracid());
     }
 
-    // optional uint64 audio_tracid = 4 [(.description) = "audio track choice."];
+    // optional uint64 audio_tracid = 4;
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_audio_tracid());
     }
 
-    // optional uint64 timedtext_tracid = 5 [(.description) = "timedtimed or subtitle track choice"];
+    // optional uint64 timedtext_tracid = 5;
     if (cached_has_bits & 0x00000010u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_timedtext_tracid());
     }
 
-    // optional uint32 last_modified = 6 [(.description) = "when we recorded it was last modified. Not settable."];
+    // optional uint32 last_modified = 6;
     if (cached_has_bits & 0x00000020u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_last_modified());
     }
 
-    // optional bool hide_from_watch_history = 7 [default = false, (.description) = "Whether I want to show this in my history"];
+    // optional bool hide_from_watch_history = 7 [default = false];
     if (cached_has_bits & 0x00000040u) {
       total_size += 1 + 1;
     }
 
-    // optional bool hide_from_library = 8 [default = false, (.description) = "Whether I want to show this in my library"];
+    // optional bool hide_from_library = 8 [default = false];
     if (cached_has_bits & 0x00000080u) {
       total_size += 1 + 1;
     }
@@ -1313,7 +1281,7 @@ const char* CVideo_SetVideoBookmarNotification::_InternalParse(const char* ptr, 
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // repeated .VideoBookmark bookmarks = 1 [(.description) = "list of bookmarks we want to store."];
+      // repeated .VideoBookmark bookmarks = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           ptr -= 1;
@@ -1353,7 +1321,7 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated .VideoBookmark bookmarks = 1 [(.description) = "list of bookmarks we want to store."];
+  // repeated .VideoBookmark bookmarks = 1;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_bookmarks_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
@@ -1377,7 +1345,7 @@ size_t CVideo_SetVideoBookmarNotification::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .VideoBookmark bookmarks = 1 [(.description) = "list of bookmarks we want to store."];
+  // repeated .VideoBookmark bookmarks = 1;
   total_size += 1UL * this->_internal_bookmarks_size();
   for (const auto& msg : this->bookmarks_) {
     total_size +=
@@ -1517,7 +1485,7 @@ const char* CVideo_GetVideoBookmarks_Request::_InternalParse(const char* ptr, ::
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // repeated uint32 appids = 1 [(.description) = "List of App IDs to grab bookmarks for. Can be empty if using updated_since."];
+      // repeated uint32 appids = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           ptr -= 1;
@@ -1532,7 +1500,7 @@ const char* CVideo_GetVideoBookmarks_Request::_InternalParse(const char* ptr, ::
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 updated_since = 2 [(.description) = "Only return results after time. Min value is 1. (seconds since epoch January 1st, 1970 Unix Time)"];
+      // optional uint32 updated_since = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_updated_since(&has_bits);
@@ -1569,14 +1537,14 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated uint32 appids = 1 [(.description) = "List of App IDs to grab bookmarks for. Can be empty if using updated_since."];
+  // repeated uint32 appids = 1;
   for (int i = 0, n = this->_internal_appids_size(); i < n; i++) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_appids(i), target);
   }
 
   cached_has_bits = _has_bits_[0];
-  // optional uint32 updated_since = 2 [(.description) = "Only return results after time. Min value is 1. (seconds since epoch January 1st, 1970 Unix Time)"];
+  // optional uint32 updated_since = 2;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_updated_since(), target);
@@ -1598,7 +1566,7 @@ size_t CVideo_GetVideoBookmarks_Request::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated uint32 appids = 1 [(.description) = "List of App IDs to grab bookmarks for. Can be empty if using updated_since."];
+  // repeated uint32 appids = 1;
   {
     size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       UInt32Size(this->appids_);
@@ -1607,7 +1575,7 @@ size_t CVideo_GetVideoBookmarks_Request::ByteSizeLong() const {
     total_size += data_size;
   }
 
-  // optional uint32 updated_since = 2 [(.description) = "Only return results after time. Min value is 1. (seconds since epoch January 1st, 1970 Unix Time)"];
+  // optional uint32 updated_since = 2;
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += 1 +
@@ -1743,7 +1711,7 @@ const char* CVideo_GetVideoBookmarks_Response::_InternalParse(const char* ptr, :
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // repeated .VideoBookmark bookmarks = 1 [(.description) = "List of bookmarks we found. Can be empty."];
+      // repeated .VideoBookmark bookmarks = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           ptr -= 1;
@@ -1783,7 +1751,7 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated .VideoBookmark bookmarks = 1 [(.description) = "List of bookmarks we found. Can be empty."];
+  // repeated .VideoBookmark bookmarks = 1;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_bookmarks_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
@@ -1807,7 +1775,7 @@ size_t CVideo_GetVideoBookmarks_Response::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .VideoBookmark bookmarks = 1 [(.description) = "List of bookmarks we found. Can be empty."];
+  // repeated .VideoBookmark bookmarks = 1;
   total_size += 1UL * this->_internal_bookmarks_size();
   for (const auto& msg : this->bookmarks_) {
     total_size +=
@@ -2166,7 +2134,7 @@ const char* CFovasVideo_ClientGetOPFSettings_Request::_InternalParse(const char*
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint32 app_id = 1 [(.description) = "App ID"];
+      // optional uint32 app_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_app_id(&has_bits);
@@ -2174,7 +2142,7 @@ const char* CFovasVideo_ClientGetOPFSettings_Request::_InternalParse(const char*
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 client_cellid = 2 [(.description) = "Cell ID of client, zero if unknown"];
+      // optional uint32 client_cellid = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_client_cellid(&has_bits);
@@ -2212,13 +2180,13 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint32 app_id = 1 [(.description) = "App ID"];
+  // optional uint32 app_id = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_app_id(), target);
   }
 
-  // optional uint32 client_cellid = 2 [(.description) = "Cell ID of client, zero if unknown"];
+  // optional uint32 client_cellid = 2;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_client_cellid(), target);
@@ -2242,14 +2210,14 @@ size_t CFovasVideo_ClientGetOPFSettings_Request::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional uint32 app_id = 1 [(.description) = "App ID"];
+    // optional uint32 app_id = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_app_id());
     }
 
-    // optional uint32 client_cellid = 2 [(.description) = "Cell ID of client, zero if unknown"];
+    // optional uint32 client_cellid = 2;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -2416,7 +2384,7 @@ const char* CFovasVideo_ClientGetOPFSettings_Response::_InternalParse(const char
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint32 app_id = 1 [(.description) = "App ID"];
+      // optional uint32 app_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_app_id(&has_bits);
@@ -2424,7 +2392,7 @@ const char* CFovasVideo_ClientGetOPFSettings_Response::_InternalParse(const char
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string opf_settings = 2 [(.description) = "JSON blob of OPF Settings"];
+      // optional string opf_settings = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           auto str = _internal_mutable_opf_settings();
@@ -2465,13 +2433,13 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint32 app_id = 1 [(.description) = "App ID"];
+  // optional uint32 app_id = 1;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_app_id(), target);
   }
 
-  // optional string opf_settings = 2 [(.description) = "JSON blob of OPF Settings"];
+  // optional string opf_settings = 2;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_opf_settings().data(), static_cast<int>(this->_internal_opf_settings().length()),
@@ -2499,14 +2467,14 @@ size_t CFovasVideo_ClientGetOPFSettings_Response::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional string opf_settings = 2 [(.description) = "JSON blob of OPF Settings"];
+    // optional string opf_settings = 2;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_opf_settings());
     }
 
-    // optional uint32 app_id = 1 [(.description) = "App ID"];
+    // optional uint32 app_id = 1;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(

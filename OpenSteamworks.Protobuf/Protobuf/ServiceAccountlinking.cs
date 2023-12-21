@@ -55,6 +55,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
   #region Messages
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CAccountLinking_GetLinkedAccountInfo_Request : pb::IMessage<CAccountLinking_GetLinkedAccountInfo_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -417,6 +418,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CAccountLinking_GetLinkedAccountInfo_Response : pb::IMessage<CAccountLinking_GetLinkedAccountInfo_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -595,6 +597,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response : pb::IMessage<CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage

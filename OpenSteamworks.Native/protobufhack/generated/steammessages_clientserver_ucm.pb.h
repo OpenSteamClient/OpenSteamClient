@@ -2369,6 +2369,7 @@ class CMsgClientUCMUpdatePublishedFile PROTOBUF_FINAL :
     kClearInProgressFieldNumber = 27,
     kRemoveAllKvtagsFieldNumber = 28,
     kAllowAdminTagsFieldNumber = 31,
+    kExternalAssetIdFieldNumber = 32,
   };
   // repeated string tags = 7;
   int tags_size() const;
@@ -2881,6 +2882,19 @@ class CMsgClientUCMUpdatePublishedFile PROTOBUF_FINAL :
   void _internal_set_allow_admin_tags(bool value);
   public:
 
+  // optional uint64 external_asset_id = 32;
+  bool has_external_asset_id() const;
+  private:
+  bool _internal_has_external_asset_id() const;
+  public:
+  void clear_external_asset_id();
+  ::PROTOBUF_NAMESPACE_ID::uint64 external_asset_id() const;
+  void set_external_asset_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_external_asset_id() const;
+  void _internal_set_external_asset_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CMsgClientUCMUpdatePublishedFile)
  private:
   class _Internal;
@@ -2921,6 +2935,7 @@ class CMsgClientUCMUpdatePublishedFile PROTOBUF_FINAL :
   bool clear_in_progress_;
   bool remove_all_kvtags_;
   bool allow_admin_tags_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 external_asset_id_;
   friend struct ::TableStruct_steammessages_5fclientserver_5fucm_2eproto;
 };
 // -------------------------------------------------------------------
@@ -9399,6 +9414,34 @@ inline void CMsgClientUCMUpdatePublishedFile::_internal_set_allow_admin_tags(boo
 inline void CMsgClientUCMUpdatePublishedFile::set_allow_admin_tags(bool value) {
   _internal_set_allow_admin_tags(value);
   // @@protoc_insertion_point(field_set:CMsgClientUCMUpdatePublishedFile.allow_admin_tags)
+}
+
+// optional uint64 external_asset_id = 32;
+inline bool CMsgClientUCMUpdatePublishedFile::_internal_has_external_asset_id() const {
+  bool value = (_has_bits_[0] & 0x01000000u) != 0;
+  return value;
+}
+inline bool CMsgClientUCMUpdatePublishedFile::has_external_asset_id() const {
+  return _internal_has_external_asset_id();
+}
+inline void CMsgClientUCMUpdatePublishedFile::clear_external_asset_id() {
+  external_asset_id_ = PROTOBUF_ULONGLONG(0);
+  _has_bits_[0] &= ~0x01000000u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgClientUCMUpdatePublishedFile::_internal_external_asset_id() const {
+  return external_asset_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgClientUCMUpdatePublishedFile::external_asset_id() const {
+  // @@protoc_insertion_point(field_get:CMsgClientUCMUpdatePublishedFile.external_asset_id)
+  return _internal_external_asset_id();
+}
+inline void CMsgClientUCMUpdatePublishedFile::_internal_set_external_asset_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _has_bits_[0] |= 0x01000000u;
+  external_asset_id_ = value;
+}
+inline void CMsgClientUCMUpdatePublishedFile::set_external_asset_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_external_asset_id(value);
+  // @@protoc_insertion_point(field_set:CMsgClientUCMUpdatePublishedFile.external_asset_id)
 }
 
 // -------------------------------------------------------------------

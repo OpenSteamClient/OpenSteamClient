@@ -193,7 +193,7 @@ class CEconMarket_IsMarketplaceAllowed_Request PROTOBUF_FINAL :
   enum : int {
     kWebcookieFieldNumber = 1,
   };
-  // optional string webcookie = 1 [(.description) = "The user\'s Steam Guard machine auth cookie."];
+  // optional string webcookie = 1;
   bool has_webcookie() const;
   private:
   bool _internal_has_webcookie() const;
@@ -355,7 +355,7 @@ class CEconMarket_IsMarketplaceAllowed_Response PROTOBUF_FINAL :
     kFormsRequireVerificationFieldNumber = 8,
     kNewDeviceCooldownDaysFieldNumber = 9,
   };
-  // optional uint32 reason = 2 [(.description) = "The reason the user can\'t use the market, if applicable"];
+  // optional uint32 reason = 2;
   bool has_reason() const;
   private:
   bool _internal_has_reason() const;
@@ -368,7 +368,7 @@ class CEconMarket_IsMarketplaceAllowed_Response PROTOBUF_FINAL :
   void _internal_set_reason(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 allowed_at_time = 3 [(.description) = "The time the user will be allowed to use the market"];
+  // optional uint32 allowed_at_time = 3;
   bool has_allowed_at_time() const;
   private:
   bool _internal_has_allowed_at_time() const;
@@ -381,7 +381,7 @@ class CEconMarket_IsMarketplaceAllowed_Response PROTOBUF_FINAL :
   void _internal_set_allowed_at_time(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 steamguard_required_days = 4 [(.description) = "The number of days any user is required to have had Steam Guard before they can use the market"];
+  // optional uint32 steamguard_required_days = 4;
   bool has_steamguard_required_days() const;
   private:
   bool _internal_has_steamguard_required_days() const;
@@ -394,7 +394,7 @@ class CEconMarket_IsMarketplaceAllowed_Response PROTOBUF_FINAL :
   void _internal_set_steamguard_required_days(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional bool allowed = 1 [(.description) = "Whether or not the user is allowed to use the market"];
+  // optional bool allowed = 1;
   bool has_allowed() const;
   private:
   bool _internal_has_allowed() const;
@@ -407,7 +407,7 @@ class CEconMarket_IsMarketplaceAllowed_Response PROTOBUF_FINAL :
   void _internal_set_allowed(bool value);
   public:
 
-  // optional bool forms_requested = 7 [(.description) = "Whether or not we\'ve requested the user fill out tax forms"];
+  // optional bool forms_requested = 7;
   bool has_forms_requested() const;
   private:
   bool _internal_has_forms_requested() const;
@@ -420,7 +420,7 @@ class CEconMarket_IsMarketplaceAllowed_Response PROTOBUF_FINAL :
   void _internal_set_forms_requested(bool value);
   public:
 
-  // optional bool forms_require_verification = 8 [(.description) = "True if we\'ve received forms but they require verification first"];
+  // optional bool forms_require_verification = 8;
   bool has_forms_require_verification() const;
   private:
   bool _internal_has_forms_require_verification() const;
@@ -433,7 +433,7 @@ class CEconMarket_IsMarketplaceAllowed_Response PROTOBUF_FINAL :
   void _internal_set_forms_require_verification(bool value);
   public:
 
-  // optional uint32 new_device_cooldown_days = 9 [(.description) = "The number of days after initial device authorization a user must wait before using the market on that device"];
+  // optional uint32 new_device_cooldown_days = 9;
   bool has_new_device_cooldown_days() const;
   private:
   bool _internal_has_new_device_cooldown_days() const;
@@ -534,7 +534,7 @@ class EconMarket_Stub : public EconMarket {
 #endif  // __GNUC__
 // CEconMarket_IsMarketplaceAllowed_Request
 
-// optional string webcookie = 1 [(.description) = "The user\'s Steam Guard machine auth cookie."];
+// optional string webcookie = 1;
 inline bool CEconMarket_IsMarketplaceAllowed_Request::_internal_has_webcookie() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -611,7 +611,7 @@ inline void CEconMarket_IsMarketplaceAllowed_Request::set_allocated_webcookie(st
 
 // CEconMarket_IsMarketplaceAllowed_Response
 
-// optional bool allowed = 1 [(.description) = "Whether or not the user is allowed to use the market"];
+// optional bool allowed = 1;
 inline bool CEconMarket_IsMarketplaceAllowed_Response::_internal_has_allowed() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -639,7 +639,7 @@ inline void CEconMarket_IsMarketplaceAllowed_Response::set_allowed(bool value) {
   // @@protoc_insertion_point(field_set:CEconMarket_IsMarketplaceAllowed_Response.allowed)
 }
 
-// optional uint32 reason = 2 [(.description) = "The reason the user can\'t use the market, if applicable"];
+// optional uint32 reason = 2;
 inline bool CEconMarket_IsMarketplaceAllowed_Response::_internal_has_reason() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -667,7 +667,7 @@ inline void CEconMarket_IsMarketplaceAllowed_Response::set_reason(::PROTOBUF_NAM
   // @@protoc_insertion_point(field_set:CEconMarket_IsMarketplaceAllowed_Response.reason)
 }
 
-// optional uint32 allowed_at_time = 3 [(.description) = "The time the user will be allowed to use the market"];
+// optional uint32 allowed_at_time = 3;
 inline bool CEconMarket_IsMarketplaceAllowed_Response::_internal_has_allowed_at_time() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -695,7 +695,7 @@ inline void CEconMarket_IsMarketplaceAllowed_Response::set_allowed_at_time(::PRO
   // @@protoc_insertion_point(field_set:CEconMarket_IsMarketplaceAllowed_Response.allowed_at_time)
 }
 
-// optional uint32 steamguard_required_days = 4 [(.description) = "The number of days any user is required to have had Steam Guard before they can use the market"];
+// optional uint32 steamguard_required_days = 4;
 inline bool CEconMarket_IsMarketplaceAllowed_Response::_internal_has_steamguard_required_days() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -723,7 +723,7 @@ inline void CEconMarket_IsMarketplaceAllowed_Response::set_steamguard_required_d
   // @@protoc_insertion_point(field_set:CEconMarket_IsMarketplaceAllowed_Response.steamguard_required_days)
 }
 
-// optional bool forms_requested = 7 [(.description) = "Whether or not we\'ve requested the user fill out tax forms"];
+// optional bool forms_requested = 7;
 inline bool CEconMarket_IsMarketplaceAllowed_Response::_internal_has_forms_requested() const {
   bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
@@ -751,7 +751,7 @@ inline void CEconMarket_IsMarketplaceAllowed_Response::set_forms_requested(bool 
   // @@protoc_insertion_point(field_set:CEconMarket_IsMarketplaceAllowed_Response.forms_requested)
 }
 
-// optional bool forms_require_verification = 8 [(.description) = "True if we\'ve received forms but they require verification first"];
+// optional bool forms_require_verification = 8;
 inline bool CEconMarket_IsMarketplaceAllowed_Response::_internal_has_forms_require_verification() const {
   bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
@@ -779,7 +779,7 @@ inline void CEconMarket_IsMarketplaceAllowed_Response::set_forms_require_verific
   // @@protoc_insertion_point(field_set:CEconMarket_IsMarketplaceAllowed_Response.forms_require_verification)
 }
 
-// optional uint32 new_device_cooldown_days = 9 [(.description) = "The number of days after initial device authorization a user must wait before using the market on that device"];
+// optional uint32 new_device_cooldown_days = 9;
 inline bool CEconMarket_IsMarketplaceAllowed_Response::_internal_has_new_device_cooldown_days() const {
   bool value = (_has_bits_[0] & 0x00000040u) != 0;
   return value;

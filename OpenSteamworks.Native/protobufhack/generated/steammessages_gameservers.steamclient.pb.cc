@@ -507,95 +507,77 @@ const char descriptor_table_protodef_steammessages_5fgameservers_2esteamclient_2
   "\n+steammessages_gameservers.steamclient."
   "proto\032 google/protobuf/descriptor.proto\032"
   "\030steammessages_base.proto\032,steammessages"
-  "_unified_base.steamclient.proto\"\237\001\n\"CGam"
-  "eServers_GetServerList_Request\022(\n\006filter"
-  "\030\001 \001(\tB\030\202\265\030\024Query filter string.\022O\n\005limi"
-  "t\030\002 \001(\r:\003100B;\202\265\0307The maximum number of "
-  "servers to return in the response\"\340\003\n#CG"
-  "ameServers_GetServerList_Response\022e\n\007ser"
-  "vers\030\001 \003(\0132+.CGameServers_GetServerList_"
-  "Response.ServerB\'\202\265\030#List of servers mat"
-  "ching the filter\032\321\002\n\006Server\0220\n\004addr\030\001 \001("
-  "\tB\"\202\265\030\036The server\'s IP and query port\022\020\n"
-  "\010gameport\030\002 \001(\r\022\020\n\010specport\030\003 \001(\r\022\017\n\007ste"
-  "amid\030\004 \001(\006\022\014\n\004name\030\005 \001(\t\022\r\n\005appid\030\006 \001(\r\022"
-  "\017\n\007gamedir\030\007 \001(\t\022\017\n\007version\030\010 \001(\t\022\017\n\007pro"
-  "duct\030\t \001(\t\022\016\n\006region\030\n \001(\005\022\017\n\007players\030\013 "
-  "\001(\005\022\023\n\013max_players\030\014 \001(\005\022\014\n\004bots\030\r \001(\005\022\013"
-  "\n\003map\030\016 \001(\t\022\016\n\006secure\030\017 \001(\010\022\021\n\tdedicated"
-  "\030\020 \001(\010\022\n\n\002os\030\021 \001(\t\022\020\n\010gametype\030\022 \001(\t\"@\n*"
-  "CGameServers_GetServerSteamIDsByIP_Reque"
-  "st\022\022\n\nserver_ips\030\001 \003(\t\"\220\001\n%CGameServers_"
-  "IPsWithSteamIDs_Response\022>\n\007servers\030\001 \003("
-  "\0132-.CGameServers_IPsWithSteamIDs_Respons"
-  "e.Server\032\'\n\006Server\022\014\n\004addr\030\001 \001(\t\022\017\n\007stea"
-  "mid\030\002 \001(\006\"E\n*CGameServers_GetServerIPsBy"
-  "SteamID_Request\022\027\n\017server_steamids\030\001 \003(\006"
-  "\"\227\003\n\"CGameServers_QueryByFakeIP_Request\022"
-  "/\n\007fake_ip\030\001 \001(\rB\036\202\265\030\032FakeIP of server t"
-  "o query.\0224\n\tfake_port\030\002 \001(\rB!\202\265\030\035Fake po"
-  "rt of server to query.\022I\n\006app_id\030\003 \001(\rB9"
-  "\202\265\0305AppID to use.  Each AppID has its ow"
-  "n FakeIP address.\022j\n\nquery_type\030\004 \001(\0162.."
-  "CGameServers_QueryByFakeIP_Request.EQuer"
-  "yType:\rQuery_InvalidB\027\202\265\030\023What type of q"
-  "uery\?\"S\n\nEQueryType\022\021\n\rQuery_Invalid\020\000\022\016"
-  "\n\nQuery_Ping\020\001\022\021\n\rQuery_Players\020\002\022\017\n\013Que"
-  "ry_Rules\020\003\"\320\003\n\033CMsgGameServerPingQueryDa"
-  "ta\022!\n\tserver_ip\030\001 \001(\0132\016.CMsgIPAddress\022\022\n"
-  "\nquery_port\030\002 \001(\r\022\021\n\tgame_port\030\003 \001(\r\022\026\n\016"
-  "spectator_port\030\004 \001(\r\022\035\n\025spectator_server"
-  "_name\030\005 \001(\t\022\023\n\013server_name\030\006 \001(\t\022\017\n\007stea"
-  "mid\030\007 \001(\006\022\016\n\006app_id\030\010 \001(\r\022\017\n\007gamedir\030\t \001"
-  "(\t\022\013\n\003map\030\n \001(\t\022\030\n\020game_description\030\013 \001("
-  "\t\022\020\n\010gametype\030\014 \001(\t\022\023\n\013num_players\030\r \001(\r"
-  "\022\023\n\013max_players\030\016 \001(\r\022\020\n\010num_bots\030\017 \001(\r\022"
-  "\020\n\010password\030\020 \001(\010\022\016\n\006secure\030\021 \001(\010\022\021\n\tded"
-  "icated\030\022 \001(\010\022\017\n\007version\030\023 \001(\t\022\021\n\tsdr_pop"
-  "id\030\024 \001(\007\022\033\n\023sdr_location_string\030\025 \001(\t\"\225\001"
-  "\n\036CMsgGameServerPlayersQueryData\0227\n\007play"
-  "ers\030\001 \003(\0132&.CMsgGameServerPlayersQueryDa"
-  "ta.Player\032:\n\006Player\022\014\n\004name\030\001 \001(\t\022\r\n\005sco"
-  "re\030\002 \001(\r\022\023\n\013time_played\030\003 \001(\r\"v\n\034CMsgGam"
-  "eServerRulesQueryData\0221\n\005rules\030\001 \003(\0132\".C"
-  "MsgGameServerRulesQueryData.Rule\032#\n\004Rule"
-  "\022\014\n\004rule\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\"\302\001\n%CGameS"
-  "ervers_GameServerQuery_Response\022/\n\tping_"
-  "data\030\001 \001(\0132\034.CMsgGameServerPingQueryData"
-  "\0225\n\014players_data\030\002 \001(\0132\037.CMsgGameServerP"
-  "layersQueryData\0221\n\nrules_data\030\003 \001(\0132\035.CM"
-  "sgGameServerRulesQueryData\"*\n(GameServer"
-  "Client_QueryServerData_Request\"\306\001\n)GameS"
-  "erverClient_QueryServerData_Response\022/\n\t"
-  "ping_data\030\001 \001(\0132\034.CMsgGameServerPingQuer"
-  "yData\0225\n\014players_data\030\002 \001(\0132\037.CMsgGameSe"
-  "rverPlayersQueryData\0221\n\nrules_data\030\003 \001(\013"
-  "2\035.CMsgGameServerRulesQueryData2\276\005\n\013Game"
-  "Servers\022\214\001\n\rGetServerList\022#.CGameServers"
-  "_GetServerList_Request\032$.CGameServers_Ge"
-  "tServerList_Response\"0\202\265\030,Gets a list of"
-  " servers given a filter string\022\244\001\n\025GetSe"
-  "rverSteamIDsByIP\022+.CGameServers_GetServe"
-  "rSteamIDsByIP_Request\032&.CGameServers_IPs"
-  "WithSteamIDs_Response\"6\202\265\0302Gets a list o"
-  "f server SteamIDs given a list of IPs\022\255\001"
-  "\n\025GetServerIPsBySteamID\022+.CGameServers_G"
-  "etServerIPsBySteamID_Request\032&.CGameServ"
-  "ers_IPsWithSteamIDs_Response\"\?\202\265\030;Gets a"
-  " list of server IP addresses given a lis"
-  "t of SteamIDs\022\220\001\n\rQueryByFakeIP\022#.CGameS"
-  "ervers_QueryByFakeIP_Request\032&.CGameServ"
-  "ers_GameServerQuery_Response\"2\202\265\030.Perfor"
-  "m a query on a specific server by FakeIP"
-  "\0326\202\265\0302A service for searching and managi"
-  "ng game servers.2\351\001\n\020GameServerClient\022\227\001"
+  "_unified_base.steamclient.proto\"H\n\"CGame"
+  "Servers_GetServerList_Request\022\016\n\006filter\030"
+  "\001 \001(\t\022\022\n\005limit\030\002 \001(\r:\003100\"\223\003\n#CGameServe"
+  "rs_GetServerList_Response\022<\n\007servers\030\001 \003"
+  "(\0132+.CGameServers_GetServerList_Response"
+  ".Server\032\255\002\n\006Server\022\014\n\004addr\030\001 \001(\t\022\020\n\010game"
+  "port\030\002 \001(\r\022\020\n\010specport\030\003 \001(\r\022\017\n\007steamid\030"
+  "\004 \001(\006\022\014\n\004name\030\005 \001(\t\022\r\n\005appid\030\006 \001(\r\022\017\n\007ga"
+  "medir\030\007 \001(\t\022\017\n\007version\030\010 \001(\t\022\017\n\007product\030"
+  "\t \001(\t\022\016\n\006region\030\n \001(\005\022\017\n\007players\030\013 \001(\005\022\023"
+  "\n\013max_players\030\014 \001(\005\022\014\n\004bots\030\r \001(\005\022\013\n\003map"
+  "\030\016 \001(\t\022\016\n\006secure\030\017 \001(\010\022\021\n\tdedicated\030\020 \001("
+  "\010\022\n\n\002os\030\021 \001(\t\022\020\n\010gametype\030\022 \001(\t\"@\n*CGame"
+  "Servers_GetServerSteamIDsByIP_Request\022\022\n"
+  "\nserver_ips\030\001 \003(\t\"\220\001\n%CGameServers_IPsWi"
+  "thSteamIDs_Response\022>\n\007servers\030\001 \003(\0132-.C"
+  "GameServers_IPsWithSteamIDs_Response.Ser"
+  "ver\032\'\n\006Server\022\014\n\004addr\030\001 \001(\t\022\017\n\007steamid\030\002"
+  " \001(\006\"E\n*CGameServers_GetServerIPsBySteam"
+  "ID_Request\022\027\n\017server_steamids\030\001 \003(\006\"\200\002\n\""
+  "CGameServers_QueryByFakeIP_Request\022\017\n\007fa"
+  "ke_ip\030\001 \001(\r\022\021\n\tfake_port\030\002 \001(\r\022\016\n\006app_id"
+  "\030\003 \001(\r\022Q\n\nquery_type\030\004 \001(\0162..CGameServer"
+  "s_QueryByFakeIP_Request.EQueryType:\rQuer"
+  "y_Invalid\"S\n\nEQueryType\022\021\n\rQuery_Invalid"
+  "\020\000\022\016\n\nQuery_Ping\020\001\022\021\n\rQuery_Players\020\002\022\017\n"
+  "\013Query_Rules\020\003\"\320\003\n\033CMsgGameServerPingQue"
+  "ryData\022!\n\tserver_ip\030\001 \001(\0132\016.CMsgIPAddres"
+  "s\022\022\n\nquery_port\030\002 \001(\r\022\021\n\tgame_port\030\003 \001(\r"
+  "\022\026\n\016spectator_port\030\004 \001(\r\022\035\n\025spectator_se"
+  "rver_name\030\005 \001(\t\022\023\n\013server_name\030\006 \001(\t\022\017\n\007"
+  "steamid\030\007 \001(\006\022\016\n\006app_id\030\010 \001(\r\022\017\n\007gamedir"
+  "\030\t \001(\t\022\013\n\003map\030\n \001(\t\022\030\n\020game_description\030"
+  "\013 \001(\t\022\020\n\010gametype\030\014 \001(\t\022\023\n\013num_players\030\r"
+  " \001(\r\022\023\n\013max_players\030\016 \001(\r\022\020\n\010num_bots\030\017 "
+  "\001(\r\022\020\n\010password\030\020 \001(\010\022\016\n\006secure\030\021 \001(\010\022\021\n"
+  "\tdedicated\030\022 \001(\010\022\017\n\007version\030\023 \001(\t\022\021\n\tsdr"
+  "_popid\030\024 \001(\007\022\033\n\023sdr_location_string\030\025 \001("
+  "\t\"\225\001\n\036CMsgGameServerPlayersQueryData\0227\n\007"
+  "players\030\001 \003(\0132&.CMsgGameServerPlayersQue"
+  "ryData.Player\032:\n\006Player\022\014\n\004name\030\001 \001(\t\022\r\n"
+  "\005score\030\002 \001(\r\022\023\n\013time_played\030\003 \001(\r\"v\n\034CMs"
+  "gGameServerRulesQueryData\0221\n\005rules\030\001 \003(\013"
+  "2\".CMsgGameServerRulesQueryData.Rule\032#\n\004"
+  "Rule\022\014\n\004rule\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\"\302\001\n%CG"
+  "ameServers_GameServerQuery_Response\022/\n\tp"
+  "ing_data\030\001 \001(\0132\034.CMsgGameServerPingQuery"
+  "Data\0225\n\014players_data\030\002 \001(\0132\037.CMsgGameSer"
+  "verPlayersQueryData\0221\n\nrules_data\030\003 \001(\0132"
+  "\035.CMsgGameServerRulesQueryData\"*\n(GameSe"
+  "rverClient_QueryServerData_Request\"\306\001\n)G"
+  "ameServerClient_QueryServerData_Response"
+  "\022/\n\tping_data\030\001 \001(\0132\034.CMsgGameServerPing"
+  "QueryData\0225\n\014players_data\030\002 \001(\0132\037.CMsgGa"
+  "meServerPlayersQueryData\0221\n\nrules_data\030\003"
+  " \001(\0132\035.CMsgGameServerRulesQueryData2\243\003\n\013"
+  "GameServers\022Z\n\rGetServerList\022#.CGameServ"
+  "ers_GetServerList_Request\032$.CGameServers"
+  "_GetServerList_Response\022l\n\025GetServerStea"
+  "mIDsByIP\022+.CGameServers_GetServerSteamID"
+  "sByIP_Request\032&.CGameServers_IPsWithStea"
+  "mIDs_Response\022l\n\025GetServerIPsBySteamID\022+"
+  ".CGameServers_GetServerIPsBySteamID_Requ"
+  "est\032&.CGameServers_IPsWithSteamIDs_Respo"
+  "nse\022\\\n\rQueryByFakeIP\022#.CGameServers_Quer"
+  "yByFakeIP_Request\032&.CGameServers_GameSer"
+  "verQuery_Response2\202\001\n\020GameServerClient\022h"
   "\n\017QueryServerData\022).GameServerClient_Que"
   "ryServerData_Request\032*.GameServerClient_"
-  "QueryServerData_Response\"-\202\265\030)Steam is a"
-  "sking a gameserver for its data\032;\202\265\0303Ser"
-  "vice methods exposed by GameServer Steam"
-  " clients\300\265\030\002B\035\200\001\001\252\002\027OpenSteamworks.Proto"
-  "buf"
+  "QueryServerData_Response\032\004\300\265\030\002B\035\200\001\001\252\002\027Op"
+  "enSteamworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fgameservers_2esteamclient_2eproto_deps[3] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
@@ -604,7 +586,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fgameservers_2esteamclient_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fgameservers_2esteamclient_2eproto = {
-  false, false, 3643, descriptor_table_protodef_steammessages_5fgameservers_2esteamclient_2eproto, "steammessages_gameservers.steamclient.proto", 
+  false, false, 2941, descriptor_table_protodef_steammessages_5fgameservers_2esteamclient_2eproto, "steammessages_gameservers.steamclient.proto", 
   &descriptor_table_steammessages_5fgameservers_2esteamclient_2eproto_once, descriptor_table_steammessages_5fgameservers_2esteamclient_2eproto_deps, 3, 16,
   schemas, file_default_instances, TableStruct_steammessages_5fgameservers_2esteamclient_2eproto::offsets,
   file_level_metadata_steammessages_5fgameservers_2esteamclient_2eproto, file_level_enum_descriptors_steammessages_5fgameservers_2esteamclient_2eproto, file_level_service_descriptors_steammessages_5fgameservers_2esteamclient_2eproto,
@@ -726,7 +708,7 @@ const char* CGameServers_GetServerList_Request::_InternalParse(const char* ptr, 
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional string filter = 1 [(.description) = "Query filter string."];
+      // optional string filter = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           auto str = _internal_mutable_filter();
@@ -737,7 +719,7 @@ const char* CGameServers_GetServerList_Request::_InternalParse(const char* ptr, 
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 limit = 2 [default = 100, (.description) = "The maximum number of servers to return in the response"];
+      // optional uint32 limit = 2 [default = 100];
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_limit(&has_bits);
@@ -775,7 +757,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional string filter = 1 [(.description) = "Query filter string."];
+  // optional string filter = 1;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_filter().data(), static_cast<int>(this->_internal_filter().length()),
@@ -785,7 +767,7 @@ failure:
         1, this->_internal_filter(), target);
   }
 
-  // optional uint32 limit = 2 [default = 100, (.description) = "The maximum number of servers to return in the response"];
+  // optional uint32 limit = 2 [default = 100];
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_limit(), target);
@@ -809,14 +791,14 @@ size_t CGameServers_GetServerList_Request::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional string filter = 1 [(.description) = "Query filter string."];
+    // optional string filter = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_filter());
     }
 
-    // optional uint32 limit = 2 [default = 100, (.description) = "The maximum number of servers to return in the response"];
+    // optional uint32 limit = 2 [default = 100];
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -1113,7 +1095,7 @@ const char* CGameServers_GetServerList_Response_Server::_InternalParse(const cha
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional string addr = 1 [(.description) = "The server\'s IP and query port"];
+      // optional string addr = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           auto str = _internal_mutable_addr();
@@ -1311,7 +1293,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional string addr = 1 [(.description) = "The server\'s IP and query port"];
+  // optional string addr = 1;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_addr().data(), static_cast<int>(this->_internal_addr().length()),
@@ -1469,7 +1451,7 @@ size_t CGameServers_GetServerList_Response_Server::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x000000ffu) {
-    // optional string addr = 1 [(.description) = "The server\'s IP and query port"];
+    // optional string addr = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
@@ -1793,7 +1775,7 @@ const char* CGameServers_GetServerList_Response::_InternalParse(const char* ptr,
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // repeated .CGameServers_GetServerList_Response.Server servers = 1 [(.description) = "List of servers matching the filter"];
+      // repeated .CGameServers_GetServerList_Response.Server servers = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           ptr -= 1;
@@ -1833,7 +1815,7 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated .CGameServers_GetServerList_Response.Server servers = 1 [(.description) = "List of servers matching the filter"];
+  // repeated .CGameServers_GetServerList_Response.Server servers = 1;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_servers_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
@@ -1857,7 +1839,7 @@ size_t CGameServers_GetServerList_Response::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .CGameServers_GetServerList_Response.Server servers = 1 [(.description) = "List of servers matching the filter"];
+  // repeated .CGameServers_GetServerList_Response.Server servers = 1;
   total_size += 1UL * this->_internal_servers_size();
   for (const auto& msg : this->servers_) {
     total_size +=
@@ -2856,7 +2838,7 @@ const char* CGameServers_QueryByFakeIP_Request::_InternalParse(const char* ptr, 
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint32 fake_ip = 1 [(.description) = "FakeIP of server to query."];
+      // optional uint32 fake_ip = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_fake_ip(&has_bits);
@@ -2864,7 +2846,7 @@ const char* CGameServers_QueryByFakeIP_Request::_InternalParse(const char* ptr, 
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 fake_port = 2 [(.description) = "Fake port of server to query."];
+      // optional uint32 fake_port = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_fake_port(&has_bits);
@@ -2872,7 +2854,7 @@ const char* CGameServers_QueryByFakeIP_Request::_InternalParse(const char* ptr, 
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 app_id = 3 [(.description) = "AppID to use.  Each AppID has its own FakeIP address."];
+      // optional uint32 app_id = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           _Internal::set_has_app_id(&has_bits);
@@ -2880,7 +2862,7 @@ const char* CGameServers_QueryByFakeIP_Request::_InternalParse(const char* ptr, 
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional .CGameServers_QueryByFakeIP_Request.EQueryType query_type = 4 [default = Query_Invalid, (.description) = "What type of query?"];
+      // optional .CGameServers_QueryByFakeIP_Request.EQueryType query_type = 4 [default = Query_Invalid];
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
           ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -2922,25 +2904,25 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint32 fake_ip = 1 [(.description) = "FakeIP of server to query."];
+  // optional uint32 fake_ip = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_fake_ip(), target);
   }
 
-  // optional uint32 fake_port = 2 [(.description) = "Fake port of server to query."];
+  // optional uint32 fake_port = 2;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_fake_port(), target);
   }
 
-  // optional uint32 app_id = 3 [(.description) = "AppID to use.  Each AppID has its own FakeIP address."];
+  // optional uint32 app_id = 3;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_app_id(), target);
   }
 
-  // optional .CGameServers_QueryByFakeIP_Request.EQueryType query_type = 4 [default = Query_Invalid, (.description) = "What type of query?"];
+  // optional .CGameServers_QueryByFakeIP_Request.EQueryType query_type = 4 [default = Query_Invalid];
   if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
@@ -2965,28 +2947,28 @@ size_t CGameServers_QueryByFakeIP_Request::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x0000000fu) {
-    // optional uint32 fake_ip = 1 [(.description) = "FakeIP of server to query."];
+    // optional uint32 fake_ip = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_fake_ip());
     }
 
-    // optional uint32 fake_port = 2 [(.description) = "Fake port of server to query."];
+    // optional uint32 fake_port = 2;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_fake_port());
     }
 
-    // optional uint32 app_id = 3 [(.description) = "AppID to use.  Each AppID has its own FakeIP address."];
+    // optional uint32 app_id = 3;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_app_id());
     }
 
-    // optional .CGameServers_QueryByFakeIP_Request.EQueryType query_type = 4 [default = Query_Invalid, (.description) = "What type of query?"];
+    // optional .CGameServers_QueryByFakeIP_Request.EQueryType query_type = 4 [default = Query_Invalid];
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_query_type());

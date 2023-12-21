@@ -39,15 +39,13 @@ namespace OpenSteamworks.Protobuf {
             "aW9uGAMgASgNEhUKDWxhdW5jaGVyX3R5cGUYBCABKA0SDwoHb3NfdHlwZRgF",
             "IAEoDRIWCg5zZXJ2aWNlX3JlcGFpchgGIAEoDSJECipDRmlsZVZlcmlmaWNh",
             "dGlvbl9TdGVhbVNlcnZpY2VDaGVjUmVzcG9uc2USFgoOYXR0ZW1wdF9yZXBh",
-            "aXIYASABKAgy1gIKEEZpbGVWZXJpZmljYXRpb24SiwEKDlNpZ25hdHVyZUNo",
-            "ZWNrEicuQ0ZpbGVWZXJpZmljYXRpb25fU2lnbmF0dXJlQ2hlY1JlcXVlc3Qa",
-            "KC5DRmlsZVZlcmlmaWNhdGlvbl9TaWduYXR1cmVDaGVjUmVzcG9uc2UiJoK1",
-            "GCJGaWxlIHNpZ25hdHVyZSBjaGVjayB3YXMgcGVyZm9ybWVkEpMBChFTdGVh",
-            "bVNlcnZpY2VDaGVjaxIqLkNGaWxlVmVyaWZpY2F0aW9uX1N0ZWFtU2Vydmlj",
-            "ZUNoZWNSZXF1ZXN0GisuQ0ZpbGVWZXJpZmljYXRpb25fU3RlYW1TZXJ2aWNl",
-            "Q2hlY1Jlc3BvbnNlIiWCtRghU3RlYW0gU2VydmljZSBjaGVjayB3YXMgcGVy",
-            "Zm9ybWVkGh6CtRgaRmlsZSB2ZXJpZmljYXRpb24gc2VydmljZXNCHYABAaoC",
-            "F09wZW5TdGVhbXdvcmtzLlByb3RvYnVm"));
+            "aXIYASABKAgy5QEKEEZpbGVWZXJpZmljYXRpb24SYwoOU2lnbmF0dXJlQ2hl",
+            "Y2sSJy5DRmlsZVZlcmlmaWNhdGlvbl9TaWduYXR1cmVDaGVjUmVxdWVzdBoo",
+            "LkNGaWxlVmVyaWZpY2F0aW9uX1NpZ25hdHVyZUNoZWNSZXNwb25zZRJsChFT",
+            "dGVhbVNlcnZpY2VDaGVjaxIqLkNGaWxlVmVyaWZpY2F0aW9uX1N0ZWFtU2Vy",
+            "dmljZUNoZWNSZXF1ZXN0GisuQ0ZpbGVWZXJpZmljYXRpb25fU3RlYW1TZXJ2",
+            "aWNlQ2hlY1Jlc3BvbnNlQh2AAQGqAhdPcGVuU3RlYW13b3Jrcy5Qcm90b2J1",
+            "Zg=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.Reflection.DescriptorReflection.Descriptor, global::OpenSteamworks.Protobuf.SteammessagesBaseReflection.Descriptor, global::OpenSteamworks.Protobuf.SteammessagesUnifiedBaseSteamclientReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -61,6 +59,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
   #region Messages
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CFileVerification_SignatureChecRequest : pb::IMessage<CFileVerification_SignatureChecRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -681,6 +680,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CFileVerification_SignatureChecResponse : pb::IMessage<CFileVerification_SignatureChecResponse>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -887,6 +887,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CFileVerification_SteamServiceChecRequest : pb::IMessage<CFileVerification_SteamServiceChecRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1301,6 +1302,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CFileVerification_SteamServiceChecResponse : pb::IMessage<CFileVerification_SteamServiceChecResponse>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage

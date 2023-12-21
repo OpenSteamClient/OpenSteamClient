@@ -1,66 +1,66 @@
 {
     "name": "IClientInstallUtilsMap",
-    "found_at": "0x23b0b30",
+    "found_at": "0x240b9b0",
     "functions": [ 
         {
             "name": "SetUniverse",
             "argc": "2",
-            "addr": "0xf53160"
+            "addr": "0xf8b120"
         },
         {
             "name": "AddShortcut",
             "argc": "6",
-            "addr": "0xf53a50"
+            "addr": "0xf8b8a0"
         },
         {
             "name": "RemoveShortcut",
             "argc": "2",
-            "addr": "0xf538e0"
+            "addr": "0xf8b730"
         },
         {
             "name": "AddUninstallEntry",
             "argc": "8",
-            "addr": "0xf53720"
+            "addr": "0xf8b570"
         },
         {
             "name": "RemoveUninstallEntry",
             "argc": "2",
-            "addr": "0xf535a0"
+            "addr": "0xf8b3f0"
         },
         {
             "name": "AddToFirewall",
             "argc": "3",
-            "addr": "0xf53420"
+            "addr": "0xf8b270"
         },
         {
             "name": "RemoveFromFirewall",
-            "argc": "2",
-            "addr": "0xf532b0"
+            "argc": "3",
+            "addr": "0xf8ba40"
         },
         {
             "name": "RegisterSteamProtocolHandler",
             "argc": "3",
-            "addr": "0xf53bf0"
+            "addr": "0xf8bbd0"
         },
         {
             "name": "AddInstallScriptToWhiteList",
             "argc": "3",
-            "addr": "0xf53ef0"
+            "addr": "0xf8bed0"
         },
         {
             "name": "RunInstallScript",
             "argc": "4",
-            "addr": "0xf54270"
+            "addr": "0xf8c250"
         },
         {
             "name": "GetInstallScriptExitCode",
             "argc": "1",
-            "addr": "0xf53d80"
+            "addr": "0xf8bd60"
         },
         {
             "name": "ConfigureNetworDeviceIPAddresses",
             "argc": "8",
-            "addr": "0xf54070"
+            "addr": "0xf8c050"
         }
     ]
 }

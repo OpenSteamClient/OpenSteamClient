@@ -308,7 +308,7 @@ class CFriendMessages_GetRecentMessages_Request PROTOBUF_FINAL :
   void _internal_set_steamid2(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional uint32 count = 3 [(.description) = "If non-zero, cap the number of recent messages to return."];
+  // optional uint32 count = 3;
   bool has_count() const;
   private:
   bool _internal_has_count() const;
@@ -321,7 +321,7 @@ class CFriendMessages_GetRecentMessages_Request PROTOBUF_FINAL :
   void _internal_set_count(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional fixed32 rtime32_start_time = 5 [(.description) = "If non-zero, return only messages with timestamps greater or equal to this. If zero, we only return messages from a recent time cutoff."];
+  // optional fixed32 rtime32_start_time = 5;
   bool has_rtime32_start_time() const;
   private:
   bool _internal_has_rtime32_start_time() const;
@@ -334,7 +334,7 @@ class CFriendMessages_GetRecentMessages_Request PROTOBUF_FINAL :
   void _internal_set_rtime32_start_time(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional bool most_recent_conversation = 4 [(.description) = "Grab the block of chat from the most recent conversation (a ~5 minute period)"];
+  // optional bool most_recent_conversation = 4;
   bool has_most_recent_conversation() const;
   private:
   bool _internal_has_most_recent_conversation() const;
@@ -347,7 +347,7 @@ class CFriendMessages_GetRecentMessages_Request PROTOBUF_FINAL :
   void _internal_set_most_recent_conversation(bool value);
   public:
 
-  // optional bool bbcode_format = 6 [(.description) = "Return the results with bbcode formatting."];
+  // optional bool bbcode_format = 6;
   bool has_bbcode_format() const;
   private:
   bool _internal_has_bbcode_format() const;
@@ -360,7 +360,7 @@ class CFriendMessages_GetRecentMessages_Request PROTOBUF_FINAL :
   void _internal_set_bbcode_format(bool value);
   public:
 
-  // optional uint32 start_ordinal = 7 [(.description) = "Combined with start time, only messages after this ordinal are returned (dedupes messages in same second)"];
+  // optional uint32 start_ordinal = 7;
   bool has_start_ordinal() const;
   private:
   bool _internal_has_start_ordinal() const;
@@ -373,7 +373,7 @@ class CFriendMessages_GetRecentMessages_Request PROTOBUF_FINAL :
   void _internal_set_start_ordinal(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 time_last = 8 [(.description) = "if present/non-zero, return only messages before this."];
+  // optional uint32 time_last = 8;
   bool has_time_last() const;
   private:
   bool _internal_has_time_last() const;
@@ -964,7 +964,7 @@ class CFriendMessages_GetRecentMessages_Response PROTOBUF_FINAL :
     kMessagesFieldNumber = 1,
     kMoreAvailableFieldNumber = 4,
   };
-  // repeated .CFriendMessages_GetRecentMessages_Response.FriendMessage messages = 1 [(.description) = "Array of messages, returned newest to oldest."];
+  // repeated .CFriendMessages_GetRecentMessages_Response.FriendMessage messages = 1;
   int messages_size() const;
   private:
   int _internal_messages_size() const;
@@ -1133,7 +1133,7 @@ class CFriendsMessages_GetActiveMessageSessions_Request PROTOBUF_FINAL :
     kLastmessageSinceFieldNumber = 1,
     kOnlySessionsWithMessagesFieldNumber = 2,
   };
-  // optional uint32 lastmessage_since = 1 [(.description) = "return only session information where a chat message has been sent since this time (for polling)"];
+  // optional uint32 lastmessage_since = 1;
   bool has_lastmessage_since() const;
   private:
   bool _internal_has_lastmessage_since() const;
@@ -1146,7 +1146,7 @@ class CFriendsMessages_GetActiveMessageSessions_Request PROTOBUF_FINAL :
   void _internal_set_lastmessage_since(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional bool only_sessions_with_messages = 2 [(.description) = "If non-zero, return only message sessions that have messages since our message cutoff. If zero, we return all active sessions."];
+  // optional bool only_sessions_with_messages = 2;
   bool has_only_sessions_with_messages() const;
   private:
   bool _internal_has_only_sessions_with_messages() const;
@@ -1511,7 +1511,7 @@ class CFriendsMessages_GetActiveMessageSessions_Response PROTOBUF_FINAL :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CFriendsMessages_GetActiveMessageSessions_Response_FriendMessageSession >&
       message_sessions() const;
 
-  // optional uint32 timestamp = 2 [(.description) = "This should be passed in the next request as lastmessage_since to poll for updates"];
+  // optional uint32 timestamp = 2;
   bool has_timestamp() const;
   private:
   bool _internal_has_timestamp() const;
@@ -3633,7 +3633,7 @@ inline void CFriendMessages_GetRecentMessages_Request::set_steamid2(::PROTOBUF_N
   // @@protoc_insertion_point(field_set:CFriendMessages_GetRecentMessages_Request.steamid2)
 }
 
-// optional uint32 count = 3 [(.description) = "If non-zero, cap the number of recent messages to return."];
+// optional uint32 count = 3;
 inline bool CFriendMessages_GetRecentMessages_Request::_internal_has_count() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -3661,7 +3661,7 @@ inline void CFriendMessages_GetRecentMessages_Request::set_count(::PROTOBUF_NAME
   // @@protoc_insertion_point(field_set:CFriendMessages_GetRecentMessages_Request.count)
 }
 
-// optional bool most_recent_conversation = 4 [(.description) = "Grab the block of chat from the most recent conversation (a ~5 minute period)"];
+// optional bool most_recent_conversation = 4;
 inline bool CFriendMessages_GetRecentMessages_Request::_internal_has_most_recent_conversation() const {
   bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
@@ -3689,7 +3689,7 @@ inline void CFriendMessages_GetRecentMessages_Request::set_most_recent_conversat
   // @@protoc_insertion_point(field_set:CFriendMessages_GetRecentMessages_Request.most_recent_conversation)
 }
 
-// optional fixed32 rtime32_start_time = 5 [(.description) = "If non-zero, return only messages with timestamps greater or equal to this. If zero, we only return messages from a recent time cutoff."];
+// optional fixed32 rtime32_start_time = 5;
 inline bool CFriendMessages_GetRecentMessages_Request::_internal_has_rtime32_start_time() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -3717,7 +3717,7 @@ inline void CFriendMessages_GetRecentMessages_Request::set_rtime32_start_time(::
   // @@protoc_insertion_point(field_set:CFriendMessages_GetRecentMessages_Request.rtime32_start_time)
 }
 
-// optional bool bbcode_format = 6 [(.description) = "Return the results with bbcode formatting."];
+// optional bool bbcode_format = 6;
 inline bool CFriendMessages_GetRecentMessages_Request::_internal_has_bbcode_format() const {
   bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
@@ -3745,7 +3745,7 @@ inline void CFriendMessages_GetRecentMessages_Request::set_bbcode_format(bool va
   // @@protoc_insertion_point(field_set:CFriendMessages_GetRecentMessages_Request.bbcode_format)
 }
 
-// optional uint32 start_ordinal = 7 [(.description) = "Combined with start time, only messages after this ordinal are returned (dedupes messages in same second)"];
+// optional uint32 start_ordinal = 7;
 inline bool CFriendMessages_GetRecentMessages_Request::_internal_has_start_ordinal() const {
   bool value = (_has_bits_[0] & 0x00000040u) != 0;
   return value;
@@ -3773,7 +3773,7 @@ inline void CFriendMessages_GetRecentMessages_Request::set_start_ordinal(::PROTO
   // @@protoc_insertion_point(field_set:CFriendMessages_GetRecentMessages_Request.start_ordinal)
 }
 
-// optional uint32 time_last = 8 [(.description) = "if present/non-zero, return only messages before this."];
+// optional uint32 time_last = 8;
 inline bool CFriendMessages_GetRecentMessages_Request::_internal_has_time_last() const {
   bool value = (_has_bits_[0] & 0x00000080u) != 0;
   return value;
@@ -4186,7 +4186,7 @@ CFriendMessages_GetRecentMessages_Response_FriendMessage::reactions() const {
 
 // CFriendMessages_GetRecentMessages_Response
 
-// repeated .CFriendMessages_GetRecentMessages_Response.FriendMessage messages = 1 [(.description) = "Array of messages, returned newest to oldest."];
+// repeated .CFriendMessages_GetRecentMessages_Response.FriendMessage messages = 1;
 inline int CFriendMessages_GetRecentMessages_Response::_internal_messages_size() const {
   return messages_.size();
 }
@@ -4257,7 +4257,7 @@ inline void CFriendMessages_GetRecentMessages_Response::set_more_available(bool 
 
 // CFriendsMessages_GetActiveMessageSessions_Request
 
-// optional uint32 lastmessage_since = 1 [(.description) = "return only session information where a chat message has been sent since this time (for polling)"];
+// optional uint32 lastmessage_since = 1;
 inline bool CFriendsMessages_GetActiveMessageSessions_Request::_internal_has_lastmessage_since() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -4285,7 +4285,7 @@ inline void CFriendsMessages_GetActiveMessageSessions_Request::set_lastmessage_s
   // @@protoc_insertion_point(field_set:CFriendsMessages_GetActiveMessageSessions_Request.lastmessage_since)
 }
 
-// optional bool only_sessions_with_messages = 2 [(.description) = "If non-zero, return only message sessions that have messages since our message cutoff. If zero, we return all active sessions."];
+// optional bool only_sessions_with_messages = 2;
 inline bool CFriendsMessages_GetActiveMessageSessions_Request::_internal_has_only_sessions_with_messages() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -4472,7 +4472,7 @@ CFriendsMessages_GetActiveMessageSessions_Response::message_sessions() const {
   return message_sessions_;
 }
 
-// optional uint32 timestamp = 2 [(.description) = "This should be passed in the next request as lastmessage_since to poll for updates"];
+// optional uint32 timestamp = 2;
 inline bool CFriendsMessages_GetActiveMessageSessions_Response::_internal_has_timestamp() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;

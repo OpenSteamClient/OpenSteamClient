@@ -1,276 +1,276 @@
 {
     "name": "IClientUserStatsMap",
-    "found_at": "0x23a81c8",
+    "found_at": "0x2402efc",
     "functions": [ 
         {
             "name": "GetNumStats",
             "argc": "2",
-            "addr": "0x5b47f0"
+            "addr": "0x5d29a0"
         },
         {
             "name": "GetStatName",
             "argc": "3",
-            "addr": "0x5b4970"
+            "addr": "0x5d2b20"
         },
         {
             "name": "GetStatType",
             "argc": "3",
-            "addr": "0x5b9790"
+            "addr": "0x5d7940"
         },
         {
             "name": "GetNumAchievements",
             "argc": "2",
-            "addr": "0x5b4b00"
+            "addr": "0x5d2cb0"
         },
         {
             "name": "GetAchievementName",
             "argc": "3",
-            "addr": "0x5b4c80"
+            "addr": "0x5d2e30"
         },
         {
             "name": "RequestCurrentStats",
             "argc": "2",
-            "addr": "0x5b4e10"
+            "addr": "0x5d2fc0"
         },
         {
             "name": "GetStat",
             "argc": "4",
-            "addr": "0x5b4f90"
+            "addr": "0x5d3140"
         },
         {
             "name": "GetStat",
             "argc": "4",
-            "addr": "0x5b5140"
+            "addr": "0x5d32f0"
         },
         {
             "name": "SetStat",
             "argc": "4",
-            "addr": "0x5b52f0"
+            "addr": "0x5d34a0"
         },
         {
             "name": "SetStat",
             "argc": "4",
-            "addr": "0x5b5490"
+            "addr": "0x5d3640"
         },
         {
             "name": "UpdateAvgRateStat",
             "argc": "5",
-            "addr": "0x5b5630"
+            "addr": "0x5d37e0"
         },
         {
             "name": "GetAchievement",
             "argc": "5",
-            "addr": "0x5b5970"
+            "addr": "0x5d3b20"
         },
         {
             "name": "SetAchievement",
             "argc": "3",
-            "addr": "0x5b5b30"
+            "addr": "0x5d3ce0"
         },
         {
             "name": "ClearAchievement",
             "argc": "3",
-            "addr": "0x5b5cc0"
+            "addr": "0x5d3e70"
         },
         {
             "name": "GetAchievementProgress",
             "argc": "6",
-            "addr": "0x5b5e50"
+            "addr": "0x5d4000"
         },
         {
             "name": "StoreStats",
             "argc": "2",
-            "addr": "0x5b57f0"
+            "addr": "0x5d39a0"
         },
         {
             "name": "GetAchievementIcon",
             "argc": "4",
-            "addr": "0x5b9910"
+            "addr": "0x5d7ac0"
         },
         {
             "name": "BGetAchievementIconURL",
             "argc": "6",
-            "addr": "0x5b9ab0"
+            "addr": "0x5d7c60"
         },
         {
             "name": "GetAchievementDisplayAttribute",
             "argc": "5",
-            "addr": "0x5b6210"
+            "addr": "0x5d43c0"
         },
         {
             "name": "IndicateAchievementProgress",
             "argc": "5",
-            "addr": "0x5b63c0"
+            "addr": "0x5d4570"
         },
         {
             "name": "SetMaxStatsLoaded",
             "argc": "2",
-            "addr": "0x5b6580"
+            "addr": "0x5d4730"
         },
         {
             "name": "RequestUserStats",
             "argc": "4",
-            "addr": "0x5b66d0"
+            "addr": "0x5d4880"
         },
         {
             "name": "GetUserStat",
             "argc": "6",
-            "addr": "0x5b6880"
+            "addr": "0x5d4a30"
         },
         {
             "name": "GetUserStat",
             "argc": "6",
-            "addr": "0x5b6a30"
+            "addr": "0x5d4be0"
         },
         {
             "name": "GetUserAchievement",
             "argc": "7",
-            "addr": "0x5b6be0"
+            "addr": "0x5d4d90"
         },
         {
             "name": "GetUserAchievementProgress",
             "argc": "8",
-            "addr": "0x5b6030"
+            "addr": "0x5d41e0"
         },
         {
             "name": "ResetAllStats",
             "argc": "3",
-            "addr": "0x5b6db0"
+            "addr": "0x5d4f60"
         },
         {
             "name": "FindOrCreateLeaderboard",
             "argc": "4",
-            "addr": "0x5b6f50"
+            "addr": "0x5d5100"
         },
         {
             "name": "FindLeaderboard",
             "argc": "2",
-            "addr": "0x5b7100"
+            "addr": "0x5d52b0"
         },
         {
             "name": "GetLeaderboardName",
             "argc": "3",
-            "addr": "0x5b7290"
+            "addr": "0x5d5440"
         },
         {
             "name": "GetLeaderboardEntryCount",
             "argc": "3",
-            "addr": "0x5b7410"
+            "addr": "0x5d55c0"
         },
         {
             "name": "GetLeaderboardSortMethod",
             "argc": "3",
-            "addr": "0x5b7590"
+            "addr": "0x5d5740"
         },
         {
             "name": "GetLeaderboardDisplayType",
             "argc": "3",
-            "addr": "0x5b7710"
+            "addr": "0x5d58c0"
         },
         {
             "name": "DownloadLeaderboardEntries",
             "argc": "6",
-            "addr": "0x5b9c80"
+            "addr": "0x5d7e30"
         },
         {
             "name": "DownloadLeaderboardEntriesForUsers",
             "argc": "5",
-            "addr": "0x5b7890"
+            "addr": "0x5d5a40"
         },
         {
             "name": "GetDownloadedLeaderboardEntry",
             "argc": "7",
-            "addr": "0x5b9e80"
+            "addr": "0x5d8030"
         },
         {
             "name": "AttachLeaderboardUGC",
             "argc": "5",
-            "addr": "0x5b7a80"
+            "addr": "0x5d5c30"
         },
         {
             "name": "UploadLeaderboardScore",
             "argc": "7",
-            "addr": "0x5ba070"
+            "addr": "0x5d8220"
         },
         {
             "name": "GetNumberOfCurrentPlayers",
             "argc": "1",
-            "addr": "0x5b7c90"
+            "addr": "0x5d5e40"
         },
         {
             "name": "GetNumAchievedAchievements",
             "argc": "2",
-            "addr": "0x5b7e10"
+            "addr": "0x5d5fc0"
         },
         {
             "name": "GetLastAchievementUnlocked",
             "argc": "2",
-            "addr": "0x5b7f90"
+            "addr": "0x5d6140"
         },
         {
             "name": "GetMostRecentAchievementUnlocked",
             "argc": "3",
-            "addr": "0x5b8110"
+            "addr": "0x5d62c0"
         },
         {
             "name": "RequestGlobalAchievementPercentages",
             "argc": "2",
-            "addr": "0x5b82a0"
+            "addr": "0x5d6450"
         },
         {
             "name": "GetMostAchievedAchievementInfo",
             "argc": "6",
-            "addr": "0x5b8440"
+            "addr": "0x5d65f0"
         },
         {
             "name": "GetNextMostAchievedAchievementInfo",
             "argc": "7",
-            "addr": "0x5b8620"
+            "addr": "0x5d67d0"
         },
         {
             "name": "GetAchievementAchievedPercent",
             "argc": "4",
-            "addr": "0x5b8820"
+            "addr": "0x5d69d0"
         },
         {
             "name": "RequestGlobalStats",
             "argc": "3",
-            "addr": "0x5b89d0"
+            "addr": "0x5d6b80"
         },
         {
             "name": "GetGlobalStat",
             "argc": "4",
-            "addr": "0x5b8b80"
+            "addr": "0x5d6d30"
         },
         {
             "name": "GetGlobalStat",
             "argc": "4",
-            "addr": "0x5b8d30"
+            "addr": "0x5d6ee0"
         },
         {
             "name": "GetGlobalStatHistory",
             "argc": "5",
-            "addr": "0x5b8ee0"
+            "addr": "0x5d7090"
         },
         {
             "name": "GetGlobalStatHistory",
             "argc": "5",
-            "addr": "0x5b90a0"
+            "addr": "0x5d7250"
         },
         {
             "name": "GetAchievementProgressLimits",
             "argc": "5",
-            "addr": "0x5b9260"
+            "addr": "0x5d7410"
         },
         {
             "name": "GetAchievementProgressLimits",
             "argc": "5",
-            "addr": "0x5b9420"
+            "addr": "0x5d75d0"
         },
         {
             "name": "BAchievementIconLoaded",
             "argc": "4",
-            "addr": "0x5b95e0"
+            "addr": "0x5d7790"
         }
     ]
 }

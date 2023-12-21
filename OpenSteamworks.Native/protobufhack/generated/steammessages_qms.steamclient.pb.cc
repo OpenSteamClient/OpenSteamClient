@@ -431,24 +431,20 @@ const char descriptor_table_protodef_steammessages_5fqms_2esteamclient_2eproto[]
   "archResult_SearchCompleteAccepted\020\004\022,\n(E"
   "GameSearchResult_SearchCompleteDeclined\020"
   "\005\022$\n EGameSearchResult_SearchCanceled\020\0062"
-  "\262\001\n\021QueuedMatchmaking\022}\n\rSearchForGame\022)"
-  ".CQueuedMatchmaking_SearchForGame_Reques"
-  "t\032*.CQueuedMatchmaking_SearchForGame_Res"
-  "ponse\"\025\202\265\030\021Search for a game\032\036\202\265\030\032Queued"
-  " matchmaking service2\353\003\n\031QueuedMatchmaki"
-  "ngGameHost\022\225\001\n\020SearchForPlayers\0224.CQueue"
-  "dMatchmakingGameHost_SearchForPlayers_Re"
-  "quest\0325.CQueuedMatchmakingGameHost_Searc"
-  "hForPlayers_Response\"\024\202\265\030\020SearchForPlaye"
-  "rs\022\235\001\n\022SubmitPlayerResult\0226.CQueuedMatch"
-  "makingGameHost_SubmitPlayerResult_Reques"
-  "t\0327.CQueuedMatchmakingGameHost_SubmitPla"
-  "yerResult_Response\"\026\202\265\030\022SubmitPlayerResu"
-  "lt\022q\n\007EndGame\022+.CQueuedMatchmakingGameHo"
-  "st_EndGame_Request\032,.CQueuedMatchmakingG"
-  "ameHost_EndGame_Response\"\013\202\265\030\007EndGame\032#\202"
-  "\265\030\037Queued matchmaking host serviceB\035\200\001\001\252"
-  "\002\027OpenSteamworks.Protobuf"
+  "{\n\021QueuedMatchmaking\022f\n\rSearchForGame\022)."
+  "CQueuedMatchmaking_SearchForGame_Request"
+  "\032*.CQueuedMatchmaking_SearchForGame_Resp"
+  "onse2\212\003\n\031QueuedMatchmakingGameHost\022\177\n\020Se"
+  "archForPlayers\0224.CQueuedMatchmakingGameH"
+  "ost_SearchForPlayers_Request\0325.CQueuedMa"
+  "tchmakingGameHost_SearchForPlayers_Respo"
+  "nse\022\205\001\n\022SubmitPlayerResult\0226.CQueuedMatc"
+  "hmakingGameHost_SubmitPlayerResult_Reque"
+  "st\0327.CQueuedMatchmakingGameHost_SubmitPl"
+  "ayerResult_Response\022d\n\007EndGame\022+.CQueued"
+  "MatchmakingGameHost_EndGame_Request\032,.CQ"
+  "ueuedMatchmakingGameHost_EndGame_Respons"
+  "eB\035\200\001\001\252\002\027OpenSteamworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fqms_2esteamclient_2eproto_deps[3] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
@@ -457,7 +453,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fqms_2esteamclient_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fqms_2esteamclient_2eproto = {
-  false, false, 3025, descriptor_table_protodef_steammessages_5fqms_2esteamclient_2eproto, "steammessages_qms.steamclient.proto", 
+  false, false, 2872, descriptor_table_protodef_steammessages_5fqms_2esteamclient_2eproto, "steammessages_qms.steamclient.proto", 
   &descriptor_table_steammessages_5fqms_2esteamclient_2eproto_once, descriptor_table_steammessages_5fqms_2esteamclient_2eproto_deps, 3, 11,
   schemas, file_default_instances, TableStruct_steammessages_5fqms_2esteamclient_2eproto::offsets,
   file_level_metadata_steammessages_5fqms_2esteamclient_2eproto, file_level_enum_descriptors_steammessages_5fqms_2esteamclient_2eproto, file_level_service_descriptors_steammessages_5fqms_2esteamclient_2eproto,

@@ -1,1076 +1,1081 @@
 {
     "name": "IClientControllerSerializedMap",
-    "found_at": "0x23a8f98",
+    "found_at": "0x2403ce0",
     "functions": [ 
         {
             "name": "Unknown_0",
             "argc": "0",
-            "addr": "0x55cc60"
+            "addr": "0x57b050"
         },
         {
             "name": "Unknown_1",
             "argc": "0",
-            "addr": "0x6242b0"
+            "addr": "0x643230"
         },
         {
             "name": "ShowBindingPanel",
             "argc": "4",
-            "addr": "0x606600"
+            "addr": "0x625050"
         },
         {
             "name": "GetControllerTypeForHandle",
             "argc": "3",
-            "addr": "0x6067a0"
+            "addr": "0x6251f0"
         },
         {
             "name": "GetGamepadIndexForHandle",
             "argc": "3",
-            "addr": "0x606920"
+            "addr": "0x625370"
         },
         {
             "name": "GetHandleForGamepadIndex",
             "argc": "2",
-            "addr": "0x606aa0"
+            "addr": "0x6254f0"
         },
         {
             "name": "GetActionSetHandle",
             "argc": "3",
-            "addr": "0x606c30"
+            "addr": "0x625680"
         },
         {
             "name": "GetActionSetHandleByTitle",
             "argc": "3",
-            "addr": "0x606dd0"
+            "addr": "0x625820"
         },
         {
             "name": "ActivateActionSet",
             "argc": "6",
-            "addr": "0x606f70"
+            "addr": "0x6259c0"
         },
         {
             "name": "ActivateActionSetLayer",
             "argc": "6",
-            "addr": "0x607110"
+            "addr": "0x625b60"
         },
         {
             "name": "DeactivateActionSetLayer",
             "argc": "6",
-            "addr": "0x6072b0"
+            "addr": "0x625d00"
         },
         {
             "name": "DeactivateAllActionSetLayers",
             "argc": "4",
-            "addr": "0x607450"
+            "addr": "0x625ea0"
         },
         {
             "name": "GetActiveActionSetLayers",
             "argc": "5",
-            "addr": "0x6075c0"
+            "addr": "0x626010"
         },
         {
             "name": "GetDigitalActionHandle",
             "argc": "4",
-            "addr": "0x6077b0"
+            "addr": "0x626200"
         },
         {
             "name": "GetAnalogActionHandle",
             "argc": "4",
-            "addr": "0x607970"
+            "addr": "0x6263c0"
         },
         {
             "name": "StopAnalogActionMomentum",
             "argc": "5",
-            "addr": "0x607b30"
+            "addr": "0x626580"
         },
         {
             "name": "EnableDeviceCallbacks",
             "argc": "2",
-            "addr": "0x612de0"
+            "addr": "0x6319b0"
         },
         {
             "name": "GetStringForDigitalActionName",
             "argc": "6",
-            "addr": "0x612f30"
+            "addr": "0x631b00"
         },
         {
             "name": "GetStringForAnalogActionName",
             "argc": "6",
-            "addr": "0x613100"
+            "addr": "0x631cd0"
         },
         {
             "name": "BCheckGameDirectoryAndReloadConfigIfNecessary",
             "argc": "4",
-            "addr": "0x6132d0"
+            "addr": "0x631ea0"
         },
         {
             "name": "GetActionManifestPath",
             "argc": "2",
-            "addr": "0x613470"
+            "addr": "0x632040"
         },
         {
             "name": "GetActionManifestPath",
             "argc": "3",
-            "addr": "0x6135e0"
+            "addr": "0x6321b0"
         },
         {
             "name": "DumpConfigurationToDisk",
             "argc": "2",
-            "addr": "0x613790"
+            "addr": "0x632360"
         },
         {
             "name": "FlushCloudedConfigFilesToDisk",
             "argc": "1",
-            "addr": "0x613910"
+            "addr": "0x6324e0"
         },
         {
             "name": "StartBindingVisualization",
             "argc": "4",
-            "addr": "0x614290"
+            "addr": "0x632e60"
         },
         {
             "name": "StopBindingVisualization",
             "argc": "3",
-            "addr": "0x614400"
+            "addr": "0x632fd0"
         },
         {
             "name": "GetNumConnectedControllers",
             "argc": "1",
-            "addr": "0x607cc0"
+            "addr": "0x626710"
         },
         {
             "name": "GetAllControllersStatus",
             "argc": "2",
-            "addr": "0x6146b0"
+            "addr": "0x633280"
         },
         {
             "name": "GetControllerDetails",
             "argc": "2",
-            "addr": "0x608530"
+            "addr": "0x626f80"
         },
         {
             "name": "FactoryReset",
             "argc": "2",
-            "addr": "0x6086c0"
+            "addr": "0x627110"
         },
         {
             "name": "SetDefaultConfig",
             "argc": "2",
-            "addr": "0x608840"
+            "addr": "0x627290"
         },
         {
             "name": "CalibrateTrackpads",
             "argc": "2",
-            "addr": "0x6089c0"
+            "addr": "0x627410"
         },
         {
             "name": "CalibrateJoystick",
             "argc": "2",
-            "addr": "0x608b40"
+            "addr": "0x627590"
         },
         {
             "name": "CalibrateIMU",
             "argc": "2",
-            "addr": "0x608cc0"
+            "addr": "0x627710"
         },
         {
             "name": "SetAudioMapping",
             "argc": "3",
-            "addr": "0x614820"
+            "addr": "0x6333f0"
         },
         {
             "name": "PlayAudio",
             "argc": "3",
-            "addr": "0x608e40"
+            "addr": "0x627890"
         },
         {
             "name": "ResetStickExtents",
             "argc": "2",
-            "addr": "0x608fd0"
+            "addr": "0x627a20"
         },
         {
             "name": "BIsStreamingController",
             "argc": "2",
-            "addr": "0x609150"
+            "addr": "0x627ba0"
         },
         {
             "name": "SetUserLedColor",
             "argc": "5",
-            "addr": "0x6092d0"
+            "addr": "0x627d20"
         },
         {
             "name": "SetRumble",
             "argc": "6",
-            "addr": "0x6094a0"
+            "addr": "0x627ef0"
         },
         {
             "name": "SetRumbleExtended",
             "argc": "8",
-            "addr": "0x609680"
+            "addr": "0x6280d0"
         },
         {
             "name": "IdentifyControllerRumbleEffect",
             "argc": "2",
-            "addr": "0x6098b0"
+            "addr": "0x628300"
         },
         {
             "name": "SetGyroAutoCalibrate",
             "argc": "3",
-            "addr": "0x609a30"
+            "addr": "0x628480"
         },
         {
             "name": "RequestGyroActive",
             "argc": "4",
-            "addr": "0x609bd0"
+            "addr": "0x628620"
         },
         {
             "name": "SetGyroCalibrating",
             "argc": "3",
-            "addr": "0x609d50"
+            "addr": "0x6287a0"
         },
         {
             "name": "LoadConfigFromVDFString",
             "argc": "8",
-            "addr": "0x6149e0"
+            "addr": "0x6335b0"
         },
         {
             "name": "InvalidateBindingCache",
             "argc": "1",
-            "addr": "0x609eb0"
+            "addr": "0x628900"
         },
         {
             "name": "ActivateConfig",
             "argc": "3",
-            "addr": "0x60a190"
+            "addr": "0x628be0"
         },
         {
             "name": "WarmOptInStatus",
             "argc": "3",
-            "addr": "0x60a2f0"
+            "addr": "0x628d40"
         },
         {
             "name": "GetCurrentActionSetHandleForRunningApp",
             "argc": "3",
-            "addr": "0x609fe0"
+            "addr": "0x628a30"
         },
         {
             "name": "BAnyControllerOptedInAndAvailable",
             "argc": "2",
-            "addr": "0x60b830"
+            "addr": "0x62a280"
         },
         {
             "name": "GetGamepadIndexForControllerIndex",
             "argc": "2",
-            "addr": "0x60fe80"
+            "addr": "0x62e8d0"
         },
         {
             "name": "CreateBindingInstanceFromVDFString",
             "argc": "2",
-            "addr": "0x614c00"
+            "addr": "0x6337d0"
         },
         {
             "name": "FreeBindingInstance",
             "argc": "2",
-            "addr": "0x60a450"
+            "addr": "0x628ea0"
         },
         {
             "name": "GetControllerConfiguration",
             "argc": "3",
-            "addr": "0x614da0"
+            "addr": "0x633970"
         },
         {
             "name": "SetControllerActionSet",
             "argc": "4",
-            "addr": "0x614f30"
+            "addr": "0x633b00"
         },
         {
             "name": "SetControllerSourceMode",
             "argc": "4",
-            "addr": "0x6150d0"
+            "addr": "0x633ca0"
         },
         {
             "name": "DuplicateControllerSourceMode",
             "argc": "4",
-            "addr": "0x615270"
+            "addr": "0x633e40"
         },
         {
             "name": "SetControllerInputActivator",
             "argc": "4",
-            "addr": "0x615410"
+            "addr": "0x633fe0"
         },
         {
             "name": "SetControllerInputBinding",
             "argc": "4",
-            "addr": "0x6155b0"
+            "addr": "0x634180"
         },
         {
             "name": "SetControllerInputActivatorEnabled",
             "argc": "4",
-            "addr": "0x615750"
+            "addr": "0x634320"
         },
         {
             "name": "SetControllerMiscMappingSettings",
             "argc": "4",
-            "addr": "0x6158f0"
+            "addr": "0x6344c0"
         },
         {
             "name": "SwapControllerModeInputBindings",
             "argc": "4",
-            "addr": "0x615a90"
+            "addr": "0x634660"
         },
         {
             "name": "SetControllerModeShiftBinding",
             "argc": "4",
-            "addr": "0x615c30"
+            "addr": "0x634800"
         },
         {
             "name": "IsModified",
             "argc": "2",
-            "addr": "0x60a5d0"
+            "addr": "0x629020"
         },
         {
             "name": "ClearModified",
             "argc": "2",
-            "addr": "0x60a750"
+            "addr": "0x6291a0"
         },
         {
             "name": "GetLocalizationTokenCount",
             "argc": "2",
-            "addr": "0x60a8a0"
+            "addr": "0x6292f0"
         },
         {
             "name": "GetLocalizationToken",
             "argc": "4",
-            "addr": "0x60aa10"
+            "addr": "0x629460"
         },
         {
             "name": "GetLocalizedString",
             "argc": "3",
-            "addr": "0x60abe0"
+            "addr": "0x629630"
         },
         {
             "name": "GetBindingSetting",
             "argc": "4",
-            "addr": "0x615dd0"
+            "addr": "0x6349a0"
         },
         {
             "name": "SetBindingSetting",
             "argc": "4",
-            "addr": "0x615fa0"
+            "addr": "0x634b70"
         },
         {
             "name": "GetBindingVDFString",
             "argc": "2",
-            "addr": "0x60ad60"
+            "addr": "0x6297b0"
         },
         {
             "name": "GetSourceGroupBindingCount",
             "argc": "3",
-            "addr": "0x6168e0"
+            "addr": "0x6354b0"
         },
         {
             "name": "GetSourceGroupBindingInfo",
             "argc": "6",
-            "addr": "0x616a70"
+            "addr": "0x635640"
         },
         {
             "name": "SetSourceGroupBindingActive",
             "argc": "6",
-            "addr": "0x616c70"
+            "addr": "0x635840"
         },
         {
             "name": "CreateSourceGroupBinding",
             "argc": "7",
-            "addr": "0x616e60"
+            "addr": "0x635a30"
         },
         {
             "name": "BAreLayerAndParentModesEquivalent",
             "argc": "4",
-            "addr": "0x617040"
+            "addr": "0x635c10"
         },
         {
             "name": "GetGroupSetting",
             "argc": "5",
-            "addr": "0x616140"
+            "addr": "0x634d10"
         },
         {
             "name": "SetGroupSetting",
             "argc": "5",
-            "addr": "0x616320"
+            "addr": "0x634ef0"
         },
         {
             "name": "GetGroupSettingDefault",
             "argc": "5",
-            "addr": "0x6164e0"
+            "addr": "0x6350b0"
         },
         {
             "name": "GetGroupSettingUIRange",
             "argc": "6",
-            "addr": "0x6166c0"
+            "addr": "0x635290"
         },
         {
             "name": "GetActivatorSetting",
             "argc": "7",
-            "addr": "0x617380"
+            "addr": "0x635f50"
         },
         {
             "name": "SetActivatorSetting",
             "argc": "7",
-            "addr": "0x617590"
+            "addr": "0x636160"
         },
         {
             "name": "GetActivatorSettingDefault",
             "argc": "7",
-            "addr": "0x617780"
+            "addr": "0x636350"
         },
         {
             "name": "SetGroupBinding",
             "argc": "8",
-            "addr": "0x6180a0"
+            "addr": "0x636c70"
         },
         {
             "name": "GetGroupBinding",
             "argc": "8",
-            "addr": "0x6182e0"
+            "addr": "0x636eb0"
         },
         {
             "name": "RemoveGroupBinding",
             "argc": "5",
-            "addr": "0x617990"
+            "addr": "0x636560"
         },
         {
             "name": "GetParentGroupForLayerGroup",
             "argc": "4",
-            "addr": "0x618550"
+            "addr": "0x637120"
         },
         {
             "name": "GetParentPresetForLayerPreset",
             "argc": "4",
-            "addr": "0x6186e0"
+            "addr": "0x6372b0"
         },
         {
             "name": "GetGroupActivatorsForInput",
             "argc": "5",
-            "addr": "0x618870"
+            "addr": "0x637440"
         },
         {
             "name": "ReplaceActivator",
             "argc": "6",
-            "addr": "0x618a50"
+            "addr": "0x637620"
         },
         {
             "name": "AddActivator",
             "argc": "4",
-            "addr": "0x6171e0"
+            "addr": "0x635db0"
         },
         {
             "name": "RemoveActivator",
             "argc": "5",
-            "addr": "0x617b50"
+            "addr": "0x636720"
         },
         {
             "name": "CopyActivator",
             "argc": "6",
-            "addr": "0x617d10"
+            "addr": "0x6368e0"
         },
         {
             "name": "IsActivatorSettingsDefault",
             "argc": "5",
-            "addr": "0x617ee0"
+            "addr": "0x636ab0"
         },
         {
             "name": "SetModeShiftBinding",
             "argc": "6",
-            "addr": "0x618c20"
+            "addr": "0x6377f0"
         },
         {
             "name": "GetModeShiftBinding",
             "argc": "7",
-            "addr": "0x618e10"
+            "addr": "0x6379e0"
         },
         {
             "name": "AddActionSet",
             "argc": "3",
-            "addr": "0x60b9b0"
+            "addr": "0x62a400"
         },
         {
             "name": "RenameActionSet",
             "argc": "3",
-            "addr": "0x60bb70"
+            "addr": "0x62a5c0"
         },
         {
             "name": "DeleteActionSet",
             "argc": "3",
-            "addr": "0x60bd30"
+            "addr": "0x62a780"
         },
         {
             "name": "GetBindingTitle",
             "argc": "3",
-            "addr": "0x60aed0"
+            "addr": "0x629920"
         },
         {
             "name": "SetBindingTitle",
             "argc": "3",
-            "addr": "0x60b3e0"
+            "addr": "0x629e30"
         },
         {
             "name": "GetBindingDescription",
             "argc": "3",
-            "addr": "0x60bef0"
+            "addr": "0x62a940"
         },
         {
             "name": "GetBindingRevision",
             "argc": "4",
-            "addr": "0x60c080"
+            "addr": "0x62aad0"
         },
         {
             "name": "BBindingMajorRevisionMismatch",
             "argc": "2",
-            "addr": "0x60c230"
+            "addr": "0x62ac80"
         },
         {
             "name": "SetBindingDescription",
             "argc": "3",
-            "addr": "0x60c3b0"
+            "addr": "0x62ae00"
         },
         {
             "name": "GetBindingTitleForIndex",
             "argc": "5",
-            "addr": "0x60b060"
+            "addr": "0x629ab0"
         },
         {
             "name": "GetBindingDescForIndex",
             "argc": "5",
-            "addr": "0x60b220"
+            "addr": "0x629c70"
         },
         {
             "name": "GetBindingTypeForIndex",
             "argc": "3",
-            "addr": "0x619040"
+            "addr": "0x637c10"
         },
         {
             "name": "GetConfigBindingInfo",
             "argc": "3",
-            "addr": "0x6191d0"
+            "addr": "0x637da0"
         },
         {
             "name": "SetBindingControllerType",
             "argc": "3",
-            "addr": "0x60c500"
+            "addr": "0x62af50"
         },
         {
             "name": "GetBindingControllerType",
             "argc": "2",
-            "addr": "0x60c660"
+            "addr": "0x62b0b0"
         },
         {
             "name": "SetBindingCreator",
             "argc": "4",
-            "addr": "0x60b6c0"
+            "addr": "0x62a110"
         },
         {
             "name": "GetBindingCreator",
             "argc": "2",
-            "addr": "0x60b530"
+            "addr": "0x629f80"
         },
         {
             "name": "GetBindingProgenitor",
             "argc": "2",
-            "addr": "0x613a40"
+            "addr": "0x632610"
         },
         {
             "name": "SetBindingProgenitor",
             "argc": "3",
-            "addr": "0x613bb0"
+            "addr": "0x632780"
         },
         {
             "name": "GetBindingURL",
             "argc": "2",
-            "addr": "0x613d00"
+            "addr": "0x6328d0"
         },
         {
             "name": "SetBindingURL",
             "argc": "3",
-            "addr": "0x613e70"
+            "addr": "0x632a40"
         },
         {
             "name": "GetBindingExportType",
             "argc": "2",
-            "addr": "0x613fc0"
+            "addr": "0x632b90"
         },
         {
             "name": "SetBindingExportType",
             "argc": "3",
-            "addr": "0x614130"
+            "addr": "0x632d00"
         },
         {
             "name": "GetConfigFeatures",
             "argc": "3",
-            "addr": "0x619350"
+            "addr": "0x637f20"
         },
         {
             "name": "GetAllBindings",
             "argc": "4",
-            "addr": "0x6194d0"
+            "addr": "0x6380a0"
         },
         {
             "name": "BIsXInputActiveForController",
             "argc": "2",
-            "addr": "0x607e20"
+            "addr": "0x626870"
         },
         {
             "name": "PS4SettingsChanged",
             "argc": "2",
-            "addr": "0x607fa0"
+            "addr": "0x6269f0"
         },
         {
             "name": "SwitchSettingsChanged",
             "argc": "2",
-            "addr": "0x6080f0"
+            "addr": "0x626b40"
         },
         {
             "name": "ControllerSettingsChanged",
             "argc": "2",
-            "addr": "0x608240"
+            "addr": "0x626c90"
         },
         {
             "name": "SetTrackpadPressureCurve",
             "argc": "4",
-            "addr": "0x619a30"
+            "addr": "0x638600"
         },
         {
             "name": "SetDefaultNintendoButtonLayout",
             "argc": "2",
-            "addr": "0x614560"
+            "addr": "0x633130"
         },
         {
             "name": "IsControllerConnected",
             "argc": "3",
-            "addr": "0x608390"
+            "addr": "0x626de0"
         },
         {
             "name": "GetControllerState",
             "argc": "3",
-            "addr": "0x6196c0"
+            "addr": "0x638290"
         },
         {
             "name": "TriggerHapticPulse",
             "argc": "7",
-            "addr": "0x619860"
+            "addr": "0x638430"
         },
         {
             "name": "TriggerSimpleHapticEvent",
             "argc": "6",
-            "addr": "0x60c7d0"
+            "addr": "0x62b220"
         },
         {
             "name": "TriggerVibration",
             "argc": "5",
-            "addr": "0x60cb70"
+            "addr": "0x62b5c0"
         },
         {
             "name": "TriggerVibrationExtended",
             "argc": "7",
-            "addr": "0x60cd10"
+            "addr": "0x62b760"
         },
         {
             "name": "SetLEDColor",
             "argc": "6",
-            "addr": "0x60cef0"
+            "addr": "0x62b940"
         },
         {
             "name": "SetDonglePairingMode",
             "argc": "3",
-            "addr": "0x60d210"
+            "addr": "0x62bc60"
         },
         {
             "name": "ReserveSteamController",
             "argc": "1",
-            "addr": "0x60d370"
+            "addr": "0x62bdc0"
         },
         {
             "name": "CancelSteamControllerReservations",
             "argc": "1",
-            "addr": "0x60d4a0"
+            "addr": "0x62bef0"
         },
         {
             "name": "OpenStreamingSession",
             "argc": "3",
-            "addr": "0x60d5d0"
+            "addr": "0x62c020"
         },
         {
             "name": "CloseStreamingSession",
             "argc": "3",
-            "addr": "0x60d730"
+            "addr": "0x62c180"
         },
         {
             "name": "UpdateStreamingSessionInputPermissions",
             "argc": "2",
-            "addr": "0x60d890"
+            "addr": "0x62c2e0"
         },
         {
             "name": "InitiateISPFirmwareUpdate",
             "argc": "2",
-            "addr": "0x60d9e0"
+            "addr": "0x62c430"
         },
         {
             "name": "InitiateBootloaderFirmwareUpdate",
             "argc": "2",
-            "addr": "0x60db70"
+            "addr": "0x62c5c0"
         },
         {
             "name": "FlashControllerFirmware",
             "argc": "5",
-            "addr": "0x60dd00"
+            "addr": "0x62c750"
         },
         {
             "name": "TurnOffController",
             "argc": "2",
-            "addr": "0x60dec0"
+            "addr": "0x62c910"
         },
         {
             "name": "EnumerateControllers",
             "argc": "1",
-            "addr": "0x60e010"
+            "addr": "0x62ca60"
         },
         {
             "name": "GetControllerStatusEvent",
             "argc": "3",
-            "addr": "0x619ba0"
+            "addr": "0x638770"
         },
         {
             "name": "GetActualControllerDetails",
             "argc": "3",
-            "addr": "0x619d30"
+            "addr": "0x638900"
         },
         {
             "name": "GetControllerIdentity",
             "argc": "3",
-            "addr": "0x619ec0"
+            "addr": "0x638a90"
         },
         {
             "name": "GetControllerPersonalization",
             "argc": "3",
-            "addr": "0x61a270"
+            "addr": "0x638e20"
         },
         {
             "name": "GetControllerReverseDiamondLayout",
             "argc": "2",
-            "addr": "0x60e140"
+            "addr": "0x62cb90"
         },
         {
             "name": "BRumbleEnabledByUser",
             "argc": "2",
-            "addr": "0x60e470"
+            "addr": "0x62cec0"
         },
         {
             "name": "BHapticsEnabledByUser",
             "argc": "2",
-            "addr": "0x60e5f0"
+            "addr": "0x62d040"
         },
         {
             "name": "GetControllerSerialNumber",
             "argc": "4",
-            "addr": "0x60e2c0"
+            "addr": "0x62cd10"
         },
         {
             "name": "GetControllerChipID",
             "argc": "4",
-            "addr": "0x60e770"
+            "addr": "0x62d1c0"
         },
         {
             "name": "BSupportsControllerLEDBrightness",
             "argc": "2",
-            "addr": "0x60ea80"
+            "addr": "0x62d4d0"
         },
         {
             "name": "BSupportsControllerLEDColor",
             "argc": "2",
-            "addr": "0x60ec00"
+            "addr": "0x62d650"
         },
         {
             "name": "BSupportsControllerRumble",
             "argc": "2",
-            "addr": "0x60ed80"
+            "addr": "0x62d7d0"
         },
         {
             "name": "BSupportsControllerHaptics",
             "argc": "2",
-            "addr": "0x60ef00"
+            "addr": "0x62d950"
         },
         {
             "name": "SetControllerPairingConnectionState",
             "argc": "3",
-            "addr": "0x60e920"
+            "addr": "0x62d370"
         },
         {
             "name": "SetControllerKeyboardMouseState",
             "argc": "3",
-            "addr": "0x60f080"
+            "addr": "0x62dad0"
         },
         {
             "name": "GetTouchKeysForPopupMenu",
             "argc": "5",
-            "addr": "0x61a5f0"
+            "addr": "0x639180"
         },
         {
             "name": "PopupMenuTouchKeyClicked",
             "argc": "4",
-            "addr": "0x60f1e0"
+            "addr": "0x62dc30"
         },
         {
             "name": "AccessControllerInputGeneratorMouseButton",
             "argc": "4",
-            "addr": "0x61a7d0"
+            "addr": "0x639360"
         },
         {
             "name": "GetGameActionSets",
             "argc": "3",
-            "addr": "0x61a950"
+            "addr": "0x6394e0"
         },
         {
             "name": "GetBaseGameActionSets",
             "argc": "3",
-            "addr": "0x61ab10"
+            "addr": "0x6396a0"
         },
         {
             "name": "GetLayerGameActionSets",
             "argc": "3",
-            "addr": "0x61acd0"
+            "addr": "0x639860"
         },
         {
             "name": "GetGameActionSetById",
             "argc": "3",
-            "addr": "0x61ae90"
+            "addr": "0x639a20"
         },
         {
             "name": "SetControllerSetting",
             "argc": "3",
-            "addr": "0x61b040"
+            "addr": "0x639bd0"
         },
         {
             "name": "GetEmulatedOutputState",
             "argc": "1",
-            "addr": "0x61b1c0"
+            "addr": "0x639d50"
         },
         {
             "name": "SetSelectedConfigForApp",
             "argc": "8",
-            "addr": "0x60f350"
+            "addr": "0x62dda0"
         },
         {
             "name": "BControllerHasUniqueConfigForAppID",
             "argc": "3",
-            "addr": "0x60f5a0"
+            "addr": "0x62dff0"
         },
         {
             "name": "DeRegisterController",
             "argc": "3",
-            "addr": "0x610a40"
+            "addr": "0x62f490"
         },
         {
             "name": "SendOSKeyboardEvent",
             "argc": "2",
-            "addr": "0x60f760"
+            "addr": "0x62e1b0"
         },
         {
             "name": "SetOSKeyboardKey",
             "argc": "3",
-            "addr": "0x61b340"
+            "addr": "0x639ed0"
         },
         {
             "name": "SetMousePosition",
             "argc": "4",
-            "addr": "0x60f8a0"
+            "addr": "0x62e2f0"
         },
         {
             "name": "GetGamepadIndexChangeCounter",
             "argc": "1",
-            "addr": "0x60fa10"
+            "addr": "0x62e460"
         },
         {
             "name": "BSwapGamepadIndex",
             "argc": "4",
-            "addr": "0x60fb70"
+            "addr": "0x62e5c0"
         },
         {
             "name": "GetGamepadIndexForXInputIndex",
             "argc": "2",
-            "addr": "0x60fd10"
+            "addr": "0x62e760"
         },
         {
             "name": "GetControllerIndexForGamepadIndex",
             "argc": "2",
-            "addr": "0x60fff0"
+            "addr": "0x62ea40"
         },
         {
             "name": "GetNumControllersWithDetails",
             "argc": "1",
-            "addr": "0x610160"
+            "addr": "0x62ebb0"
         },
         {
             "name": "ConvertBindingToNewControllerType",
             "argc": "3",
-            "addr": "0x6117e0"
+            "addr": "0x630230"
         },
         {
             "name": "SetControllerActiveAccount",
             "argc": "3",
-            "addr": "0x6102c0"
+            "addr": "0x62ed10"
         },
         {
             "name": "StartControllerRegistrationToAccount",
             "argc": "3",
-            "addr": "0x610420"
+            "addr": "0x62ee70"
         },
         {
             "name": "CompleteControllerRegistrationToAccount",
             "argc": "3",
-            "addr": "0x610580"
+            "addr": "0x62efd0"
         },
         {
             "name": "AutoRegisterControllerRegistrationToAccount",
             "argc": "3",
-            "addr": "0x6106e0"
+            "addr": "0x62f130"
         },
         {
             "name": "GetConfigForAppAndController",
             "argc": "5",
-            "addr": "0x610840"
+            "addr": "0x62f290"
         },
         {
             "name": "SetControllerPersonalization",
-            "argc": "5",
-            "addr": "0x61a430"
+            "argc": "4",
+            "addr": "0x638fe0"
         },
         {
             "name": "SetPersonalizationFile",
             "argc": "5",
-            "addr": "0x610ba0"
+            "addr": "0x62f5f0"
         },
         {
             "name": "SetGameWindowPos",
             "argc": "5",
-            "addr": "0x610d20"
+            "addr": "0x62f770"
         },
         {
             "name": "GetGameWindowPos",
             "argc": "5",
-            "addr": "0x610eb0"
+            "addr": "0x62f900"
         },
         {
             "name": "HasGameMapping",
             "argc": "2",
-            "addr": "0x6110d0"
+            "addr": "0x62fb20"
         },
         {
             "name": "GetControllerUsageData",
             "argc": "3",
-            "addr": "0x62a2d0"
+            "addr": "0x6492e0"
         },
         {
             "name": "BAllowAppConfigForController",
             "argc": "3",
-            "addr": "0x611250"
+            "addr": "0x62fca0"
         },
         {
             "name": "ResetControllerEnableCache",
             "argc": "1",
-            "addr": "0x6113e0"
+            "addr": "0x62fe30"
         },
         {
             "name": "GetControllerEnableSupport",
             "argc": "2",
-            "addr": "0x611510"
+            "addr": "0x62ff60"
         },
         {
             "name": "BInputGenerated",
             "argc": "1",
-            "addr": "0x611680"
+            "addr": "0x6300d0"
         },
         {
             "name": "GetControllerActivityByType",
             "argc": "2",
-            "addr": "0x611970"
+            "addr": "0x6303c0"
         },
         {
             "name": "GetLastActiveControllerVID",
             "argc": "1",
-            "addr": "0x611ae0"
+            "addr": "0x630530"
         },
         {
             "name": "GetLastActiveControllerPID",
             "argc": "1",
-            "addr": "0x611c50"
+            "addr": "0x6306a0"
         },
         {
             "name": "LoadControllerPersonalizationFile",
             "argc": "5",
-            "addr": "0x611dc0"
+            "addr": "0x630810"
         },
         {
             "name": "SaveControllerPersonalizationFile",
-            "argc": "5",
-            "addr": "0x61a080"
+            "argc": "4",
+            "addr": "0x638c50"
         },
         {
             "name": "LoadRemotePlayControllerPersonalizationVDF",
             "argc": "3",
-            "addr": "0x611f50"
+            "addr": "0x6309a0"
         },
         {
             "name": "FindControllerByPath",
             "argc": "2",
-            "addr": "0x6120a0"
+            "addr": "0x630af0"
         },
         {
             "name": "GetControllerPath",
             "argc": "3",
-            "addr": "0x612210"
+            "addr": "0x630c60"
         },
         {
             "name": "GetControllerProductName",
             "argc": "3",
-            "addr": "0x6123d0"
+            "addr": "0x630e20"
         },
         {
             "name": "SetControllerHapticsSetting",
             "argc": "3",
-            "addr": "0x612590"
+            "addr": "0x630fe0"
+        },
+        {
+            "name": "SetControllerName",
+            "argc": "3",
+            "addr": "0x631180"
         },
         {
             "name": "SetControllerRumbleSetting",
             "argc": "3",
-            "addr": "0x61b4a0"
+            "addr": "0x63a030"
         },
         {
             "name": "SetControllerNintendoLayoutSetting",
             "argc": "3",
-            "addr": "0x612730"
+            "addr": "0x631300"
         },
         {
             "name": "BGetTouchConfigData",
             "argc": "7",
-            "addr": "0x6128d0"
+            "addr": "0x6314a0"
         },
         {
             "name": "BSaveTouchConfigLayout",
             "argc": "4",
-            "addr": "0x612ac0"
+            "addr": "0x631690"
         },
         {
             "name": "SetGyroOn",
             "argc": "4",
-            "addr": "0x60d0a0"
+            "addr": "0x62baf0"
         },
         {
             "name": "CursorVisibilityChanged",
             "argc": "2",
-            "addr": "0x612c90"
+            "addr": "0x631860"
         },
         {
             "name": "ForceSimpleHapticEvent",
             "argc": "6",
-            "addr": "0x60c9a0"
+            "addr": "0x62b3f0"
         }
     ]
 }

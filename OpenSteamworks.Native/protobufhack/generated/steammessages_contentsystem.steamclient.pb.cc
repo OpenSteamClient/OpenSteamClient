@@ -506,95 +506,87 @@ const char descriptor_table_protodef_steammessages_5fcontentsystem_2esteamclient
   "es_unified_base.steamclient.proto\"i\n4CCo"
   "ntentServerDirectory_ConnectedSteamPipeS"
   "erverInfo\022\014\n\004type\030\001 \001(\t\022\021\n\tsource_id\030\002 \001"
-  "(\005\022\020\n\010hostname\030\003 \001(\t\"\272\003\n6CContentServerD"
+  "(\005\022\020\n\010hostname\030\003 \001(\t\"\372\001\n6CContentServerD"
   "irectory_GetServersForSteamPipe_Request\022"
-  "#\n\007cell_id\030\001 \001(\rB\022\202\265\030\016client Cell ID\0229\n\013"
-  "max_servers\030\002 \001(\r:\00220B \202\265\030\034max servers i"
-  "n response list\022*\n\013ip_override\030\003 \001(\tB\025\202\265"
-  "\030\021client IP address\022+\n\rlauncher_type\030\004 \001"
-  "(\005:\0010B\021\202\265\030\rlauncher type\022B\n\013ipv6_public\030"
-  "\005 \001(\tB-\202\265\030)client public ipv6 address if"
-  " it knows it\022\202\001\n\023current_connections\030\006 \003"
-  "(\01325.CContentServerDirectory_ConnectedSt"
-  "eamPipeServerInfoB.\202\265\030*what sources is t"
-  "he client currently using\"\363\002\n\"CContentSe"
-  "rverDirectory_ServerInfo\022\014\n\004type\030\001 \001(\t\022\021"
-  "\n\tsource_id\030\002 \001(\005\022\017\n\007cell_id\030\003 \001(\005\022\014\n\004lo"
-  "ad\030\004 \001(\005\022\025\n\rweighted_load\030\005 \001(\002\022\"\n\032num_e"
-  "ntries_in_client_list\030\006 \001(\005\022\030\n\020steam_chi"
-  "na_only\030\007 \001(\010\022\014\n\004host\030\010 \001(\t\022\r\n\005vhost\030\t \001"
-  "(\t\022\024\n\014use_as_proxy\030\n \001(\010\022#\n\033proxy_reques"
-  "t_path_template\030\013 \001(\t\022\025\n\rhttps_support\030\014"
-  " \001(\t\022\027\n\017allowed_app_ids\030\r \003(\r\022\030\n\020preferr"
-  "ed_server\030\016 \001(\010\022\026\n\016priority_class\030\017 \001(\r\""
-  "\306\001\n7CContentServerDirectory_GetServersFo"
-  "rSteamPipe_Response\0224\n\007servers\030\001 \003(\0132#.C"
-  "ContentServerDirectory_ServerInfo\022U\n\tno_"
-  "change\030\002 \001(\010BB\202\265\030>server list is empty b"
-  "ecause client current list is still good"
-  "\"\211\001\n1CContentServerDirectory_GetDepotPat"
-  "chInfo_Request\022\r\n\005appid\030\001 \001(\r\022\017\n\007depotid"
-  "\030\002 \001(\r\022\031\n\021source_manifestid\030\003 \001(\004\022\031\n\021tar"
-  "get_manifestid\030\004 \001(\004\"{\n2CContentServerDi"
-  "rectory_GetDepotPatchInfo_Response\022\024\n\014is"
-  "_available\030\001 \001(\010\022\022\n\npatch_size\030\002 \001(\004\022\033\n\023"
-  "patched_chunks_size\030\003 \001(\004\"P\n4CContentSer"
-  "verDirectory_GetClientUpdateHosts_Reques"
-  "t\022\030\n\020cached_signature\030\001 \001(\t\"w\n5CContentS"
-  "erverDirectory_GetClientUpdateHosts_Resp"
-  "onse\022\020\n\010hosts_kv\030\001 \001(\t\022\030\n\020valid_until_ti"
-  "me\030\002 \001(\004\022\022\n\nip_country\030\003 \001(\t\"\241\001\n6CConten"
-  "tServerDirectory_GetManifestRequestCode_"
-  "Request\022\016\n\006app_id\030\001 \001(\r\022\020\n\010depot_id\030\002 \001("
-  "\r\022\023\n\013manifest_id\030\003 \001(\004\022\022\n\napp_branch\030\004 \001"
-  "(\t\022\034\n\024branch_password_hash\030\005 \001(\t\"X\n7CCon"
-  "tentServerDirectory_GetManifestRequestCo"
-  "de_Response\022\035\n\025manifest_request_code\030\001 \001"
-  "(\004\"f\n/CContentServerDirectory_GetCDNAuth"
-  "Token_Request\022\020\n\010depot_id\030\001 \001(\r\022\021\n\thost_"
-  "name\030\002 \001(\t\022\016\n\006app_id\030\003 \001(\r\"Z\n0CContentSe"
-  "rverDirectory_GetCDNAuthToken_Response\022\r"
-  "\n\005token\030\001 \001(\t\022\027\n\017expiration_time\030\002 \001(\r\"\260"
-  "\001\n8CContentServerDirectory_RequestPeerCo"
-  "ntentServer_Request\022\030\n\020remote_client_id\030"
-  "\001 \001(\004\022\017\n\007steamid\030\002 \001(\004\022\037\n\027server_remote_"
-  "client_id\030\003 \001(\004\022\016\n\006app_id\030\004 \001(\r\022\030\n\020curre"
-  "nt_build_id\030\005 \001(\r\"\200\001\n9CContentServerDire"
-  "ctory_RequestPeerContentServer_Response\022"
-  "\023\n\013server_port\030\001 \001(\r\022\030\n\020installed_depots"
-  "\030\002 \003(\r\022\024\n\014access_token\030\003 \001(\004\"\200\001\n2CConten"
-  "tServerDirectory_GetPeerContentInfo_Requ"
-  "est\022\030\n\020remote_client_id\030\001 \001(\004\022\017\n\007steamid"
-  "\030\002 \001(\004\022\037\n\027server_remote_client_id\030\003 \001(\004\""
-  "X\n3CContentServerDirectory_GetPeerConten"
-  "tInfo_Response\022\016\n\006appids\030\001 \003(\r\022\021\n\tip_pub"
-  "lic\030\002 \001(\t2\355\007\n\026ContentServerDirectory\022\213\001\n"
-  "\026GetServersForSteamPipe\0227.CContentServer"
-  "Directory_GetServersForSteamPipe_Request"
-  "\0328.CContentServerDirectory_GetServersFor"
-  "SteamPipe_Response\022|\n\021GetDepotPatchInfo\022"
-  "2.CContentServerDirectory_GetDepotPatchI"
-  "nfo_Request\0323.CContentServerDirectory_Ge"
-  "tDepotPatchInfo_Response\022\205\001\n\024GetClientUp"
-  "dateHosts\0225.CContentServerDirectory_GetC"
-  "lientUpdateHosts_Request\0326.CContentServe"
-  "rDirectory_GetClientUpdateHosts_Response"
-  "\022\213\001\n\026GetManifestRequestCode\0227.CContentSe"
-  "rverDirectory_GetManifestRequestCode_Req"
-  "uest\0328.CContentServerDirectory_GetManife"
-  "stRequestCode_Response\022v\n\017GetCDNAuthToke"
-  "n\0220.CContentServerDirectory_GetCDNAuthTo"
-  "ken_Request\0321.CContentServerDirectory_Ge"
-  "tCDNAuthToken_Response\022\221\001\n\030RequestPeerCo"
-  "ntentServer\0229.CContentServerDirectory_Re"
-  "questPeerContentServer_Request\032:.CConten"
-  "tServerDirectory_RequestPeerContentServe"
-  "r_Response\022\177\n\022GetPeerContentInfo\0223.CCont"
-  "entServerDirectory_GetPeerContentInfo_Re"
-  "quest\0324.CContentServerDirectory_GetPeerC"
-  "ontentInfo_Response\032$\202\265\030 Content Server "
-  "and CDN directoryB\035\200\001\001\252\002\027OpenSteamworks."
-  "Protobuf"
+  "\017\n\007cell_id\030\001 \001(\r\022\027\n\013max_servers\030\002 \001(\r:\0022"
+  "0\022\023\n\013ip_override\030\003 \001(\t\022\030\n\rlauncher_type\030"
+  "\004 \001(\005:\0010\022\023\n\013ipv6_public\030\005 \001(\t\022R\n\023current"
+  "_connections\030\006 \003(\01325.CContentServerDirec"
+  "tory_ConnectedSteamPipeServerInfo\"\363\002\n\"CC"
+  "ontentServerDirectory_ServerInfo\022\014\n\004type"
+  "\030\001 \001(\t\022\021\n\tsource_id\030\002 \001(\005\022\017\n\007cell_id\030\003 \001"
+  "(\005\022\014\n\004load\030\004 \001(\005\022\025\n\rweighted_load\030\005 \001(\002\022"
+  "\"\n\032num_entries_in_client_list\030\006 \001(\005\022\030\n\020s"
+  "team_china_only\030\007 \001(\010\022\014\n\004host\030\010 \001(\t\022\r\n\005v"
+  "host\030\t \001(\t\022\024\n\014use_as_proxy\030\n \001(\010\022#\n\033prox"
+  "y_request_path_template\030\013 \001(\t\022\025\n\rhttps_s"
+  "upport\030\014 \001(\t\022\027\n\017allowed_app_ids\030\r \003(\r\022\030\n"
+  "\020preferred_server\030\016 \001(\010\022\026\n\016priority_clas"
+  "s\030\017 \001(\r\"\202\001\n7CContentServerDirectory_GetS"
+  "erversForSteamPipe_Response\0224\n\007servers\030\001"
+  " \003(\0132#.CContentServerDirectory_ServerInf"
+  "o\022\021\n\tno_change\030\002 \001(\010\"\211\001\n1CContentServerD"
+  "irectory_GetDepotPatchInfo_Request\022\r\n\005ap"
+  "pid\030\001 \001(\r\022\017\n\007depotid\030\002 \001(\r\022\031\n\021source_man"
+  "ifestid\030\003 \001(\004\022\031\n\021target_manifestid\030\004 \001(\004"
+  "\"{\n2CContentServerDirectory_GetDepotPatc"
+  "hInfo_Response\022\024\n\014is_available\030\001 \001(\010\022\022\n\n"
+  "patch_size\030\002 \001(\004\022\033\n\023patched_chunks_size\030"
+  "\003 \001(\004\"P\n4CContentServerDirectory_GetClie"
+  "ntUpdateHosts_Request\022\030\n\020cached_signatur"
+  "e\030\001 \001(\t\"w\n5CContentServerDirectory_GetCl"
+  "ientUpdateHosts_Response\022\020\n\010hosts_kv\030\001 \001"
+  "(\t\022\030\n\020valid_until_time\030\002 \001(\004\022\022\n\nip_count"
+  "ry\030\003 \001(\t\"\241\001\n6CContentServerDirectory_Get"
+  "ManifestRequestCode_Request\022\016\n\006app_id\030\001 "
+  "\001(\r\022\020\n\010depot_id\030\002 \001(\r\022\023\n\013manifest_id\030\003 \001"
+  "(\004\022\022\n\napp_branch\030\004 \001(\t\022\034\n\024branch_passwor"
+  "d_hash\030\005 \001(\t\"X\n7CContentServerDirectory_"
+  "GetManifestRequestCode_Response\022\035\n\025manif"
+  "est_request_code\030\001 \001(\004\"f\n/CContentServer"
+  "Directory_GetCDNAuthToken_Request\022\020\n\010dep"
+  "ot_id\030\001 \001(\r\022\021\n\thost_name\030\002 \001(\t\022\016\n\006app_id"
+  "\030\003 \001(\r\"Z\n0CContentServerDirectory_GetCDN"
+  "AuthToken_Response\022\r\n\005token\030\001 \001(\t\022\027\n\017exp"
+  "iration_time\030\002 \001(\r\"\260\001\n8CContentServerDir"
+  "ectory_RequestPeerContentServer_Request\022"
+  "\030\n\020remote_client_id\030\001 \001(\004\022\017\n\007steamid\030\002 \001"
+  "(\004\022\037\n\027server_remote_client_id\030\003 \001(\004\022\016\n\006a"
+  "pp_id\030\004 \001(\r\022\030\n\020current_build_id\030\005 \001(\r\"\200\001"
+  "\n9CContentServerDirectory_RequestPeerCon"
+  "tentServer_Response\022\023\n\013server_port\030\001 \001(\r"
+  "\022\030\n\020installed_depots\030\002 \003(\r\022\024\n\014access_tok"
+  "en\030\003 \001(\004\"\200\001\n2CContentServerDirectory_Get"
+  "PeerContentInfo_Request\022\030\n\020remote_client"
+  "_id\030\001 \001(\004\022\017\n\007steamid\030\002 \001(\004\022\037\n\027server_rem"
+  "ote_client_id\030\003 \001(\004\"X\n3CContentServerDir"
+  "ectory_GetPeerContentInfo_Response\022\016\n\006ap"
+  "pids\030\001 \003(\r\022\021\n\tip_public\030\002 \001(\t2\307\007\n\026Conten"
+  "tServerDirectory\022\213\001\n\026GetServersForSteamP"
+  "ipe\0227.CContentServerDirectory_GetServers"
+  "ForSteamPipe_Request\0328.CContentServerDir"
+  "ectory_GetServersForSteamPipe_Response\022|"
+  "\n\021GetDepotPatchInfo\0222.CContentServerDire"
+  "ctory_GetDepotPatchInfo_Request\0323.CConte"
+  "ntServerDirectory_GetDepotPatchInfo_Resp"
+  "onse\022\205\001\n\024GetClientUpdateHosts\0225.CContent"
+  "ServerDirectory_GetClientUpdateHosts_Req"
+  "uest\0326.CContentServerDirectory_GetClient"
+  "UpdateHosts_Response\022\213\001\n\026GetManifestRequ"
+  "estCode\0227.CContentServerDirectory_GetMan"
+  "ifestRequestCode_Request\0328.CContentServe"
+  "rDirectory_GetManifestRequestCode_Respon"
+  "se\022v\n\017GetCDNAuthToken\0220.CContentServerDi"
+  "rectory_GetCDNAuthToken_Request\0321.CConte"
+  "ntServerDirectory_GetCDNAuthToken_Respon"
+  "se\022\221\001\n\030RequestPeerContentServer\0229.CConte"
+  "ntServerDirectory_RequestPeerContentServ"
+  "er_Request\032:.CContentServerDirectory_Req"
+  "uestPeerContentServer_Response\022\177\n\022GetPee"
+  "rContentInfo\0223.CContentServerDirectory_G"
+  "etPeerContentInfo_Request\0324.CContentServ"
+  "erDirectory_GetPeerContentInfo_ResponseB"
+  "\035\200\001\001\252\002\027OpenSteamworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fcontentsystem_2esteamclient_2eproto_deps[3] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
@@ -603,7 +595,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fcontentsystem_2esteamclient_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fcontentsystem_2esteamclient_2eproto = {
-  false, false, 3768, descriptor_table_protodef_steammessages_5fcontentsystem_2esteamclient_2eproto, "steammessages_contentsystem.steamclient.proto", 
+  false, false, 3470, descriptor_table_protodef_steammessages_5fcontentsystem_2esteamclient_2eproto, "steammessages_contentsystem.steamclient.proto", 
   &descriptor_table_steammessages_5fcontentsystem_2esteamclient_2eproto_once, descriptor_table_steammessages_5fcontentsystem_2esteamclient_2eproto_deps, 3, 16,
   schemas, file_default_instances, TableStruct_steammessages_5fcontentsystem_2esteamclient_2eproto::offsets,
   file_level_metadata_steammessages_5fcontentsystem_2esteamclient_2eproto, file_level_enum_descriptors_steammessages_5fcontentsystem_2esteamclient_2eproto, file_level_service_descriptors_steammessages_5fcontentsystem_2esteamclient_2eproto,
@@ -1033,7 +1025,7 @@ const char* CContentServerDirectory_GetServersForSteamPipe_Request::_InternalPar
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint32 cell_id = 1 [(.description) = "client Cell ID"];
+      // optional uint32 cell_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_cell_id(&has_bits);
@@ -1041,7 +1033,7 @@ const char* CContentServerDirectory_GetServersForSteamPipe_Request::_InternalPar
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 max_servers = 2 [default = 20, (.description) = "max servers in response list"];
+      // optional uint32 max_servers = 2 [default = 20];
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_max_servers(&has_bits);
@@ -1049,7 +1041,7 @@ const char* CContentServerDirectory_GetServersForSteamPipe_Request::_InternalPar
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string ip_override = 3 [(.description) = "client IP address"];
+      // optional string ip_override = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           auto str = _internal_mutable_ip_override();
@@ -1060,7 +1052,7 @@ const char* CContentServerDirectory_GetServersForSteamPipe_Request::_InternalPar
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional int32 launcher_type = 4 [default = 0, (.description) = "launcher type"];
+      // optional int32 launcher_type = 4 [default = 0];
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
           _Internal::set_has_launcher_type(&has_bits);
@@ -1068,7 +1060,7 @@ const char* CContentServerDirectory_GetServersForSteamPipe_Request::_InternalPar
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string ipv6_public = 5 [(.description) = "client public ipv6 address if it knows it"];
+      // optional string ipv6_public = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
           auto str = _internal_mutable_ipv6_public();
@@ -1079,7 +1071,7 @@ const char* CContentServerDirectory_GetServersForSteamPipe_Request::_InternalPar
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated .CContentServerDirectory_ConnectedSteamPipeServerInfo current_connections = 6 [(.description) = "what sources is the client currently using"];
+      // repeated .CContentServerDirectory_ConnectedSteamPipeServerInfo current_connections = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
           ptr -= 1;
@@ -1121,19 +1113,19 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint32 cell_id = 1 [(.description) = "client Cell ID"];
+  // optional uint32 cell_id = 1;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_cell_id(), target);
   }
 
-  // optional uint32 max_servers = 2 [default = 20, (.description) = "max servers in response list"];
+  // optional uint32 max_servers = 2 [default = 20];
   if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_max_servers(), target);
   }
 
-  // optional string ip_override = 3 [(.description) = "client IP address"];
+  // optional string ip_override = 3;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_ip_override().data(), static_cast<int>(this->_internal_ip_override().length()),
@@ -1143,13 +1135,13 @@ failure:
         3, this->_internal_ip_override(), target);
   }
 
-  // optional int32 launcher_type = 4 [default = 0, (.description) = "launcher type"];
+  // optional int32 launcher_type = 4 [default = 0];
   if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(4, this->_internal_launcher_type(), target);
   }
 
-  // optional string ipv6_public = 5 [(.description) = "client public ipv6 address if it knows it"];
+  // optional string ipv6_public = 5;
   if (cached_has_bits & 0x00000002u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_ipv6_public().data(), static_cast<int>(this->_internal_ipv6_public().length()),
@@ -1159,7 +1151,7 @@ failure:
         5, this->_internal_ipv6_public(), target);
   }
 
-  // repeated .CContentServerDirectory_ConnectedSteamPipeServerInfo current_connections = 6 [(.description) = "what sources is the client currently using"];
+  // repeated .CContentServerDirectory_ConnectedSteamPipeServerInfo current_connections = 6;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_current_connections_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
@@ -1183,7 +1175,7 @@ size_t CContentServerDirectory_GetServersForSteamPipe_Request::ByteSizeLong() co
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .CContentServerDirectory_ConnectedSteamPipeServerInfo current_connections = 6 [(.description) = "what sources is the client currently using"];
+  // repeated .CContentServerDirectory_ConnectedSteamPipeServerInfo current_connections = 6;
   total_size += 1UL * this->_internal_current_connections_size();
   for (const auto& msg : this->current_connections_) {
     total_size +=
@@ -1192,35 +1184,35 @@ size_t CContentServerDirectory_GetServersForSteamPipe_Request::ByteSizeLong() co
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x0000001fu) {
-    // optional string ip_override = 3 [(.description) = "client IP address"];
+    // optional string ip_override = 3;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_ip_override());
     }
 
-    // optional string ipv6_public = 5 [(.description) = "client public ipv6 address if it knows it"];
+    // optional string ipv6_public = 5;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_ipv6_public());
     }
 
-    // optional uint32 cell_id = 1 [(.description) = "client Cell ID"];
+    // optional uint32 cell_id = 1;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_cell_id());
     }
 
-    // optional int32 launcher_type = 4 [default = 0, (.description) = "launcher type"];
+    // optional int32 launcher_type = 4 [default = 0];
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
           this->_internal_launcher_type());
     }
 
-    // optional uint32 max_servers = 2 [default = 20, (.description) = "max servers in response list"];
+    // optional uint32 max_servers = 2 [default = 20];
     if (cached_has_bits & 0x00000010u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -2104,7 +2096,7 @@ const char* CContentServerDirectory_GetServersForSteamPipe_Response::_InternalPa
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
         } else goto handle_unusual;
         continue;
-      // optional bool no_change = 2 [(.description) = "server list is empty because client current list is still good"];
+      // optional bool no_change = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_no_change(&has_bits);
@@ -2150,7 +2142,7 @@ failure:
   }
 
   cached_has_bits = _has_bits_[0];
-  // optional bool no_change = 2 [(.description) = "server list is empty because client current list is still good"];
+  // optional bool no_change = 2;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(2, this->_internal_no_change(), target);
@@ -2179,7 +2171,7 @@ size_t CContentServerDirectory_GetServersForSteamPipe_Response::ByteSizeLong() c
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  // optional bool no_change = 2 [(.description) = "server list is empty because client current list is still good"];
+  // optional bool no_change = 2;
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += 1 + 1;

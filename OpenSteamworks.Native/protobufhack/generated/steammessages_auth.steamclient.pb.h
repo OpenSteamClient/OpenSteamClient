@@ -530,7 +530,7 @@ class CAuthentication_GetPasswordRSAPublicKey_Request PROTOBUF_FINAL :
   enum : int {
     kAccountNameFieldNumber = 1,
   };
-  // optional string account_name = 1 [(.description) = "user-provided account name to get an RSA key for"];
+  // optional string account_name = 1;
   bool has_account_name() const;
   private:
   bool _internal_has_account_name() const;
@@ -688,7 +688,7 @@ class CAuthentication_GetPasswordRSAPublicKey_Response PROTOBUF_FINAL :
     kPublickeyExpFieldNumber = 2,
     kTimestampFieldNumber = 3,
   };
-  // optional string publickey_mod = 1 [(.description) = "the public key modulus"];
+  // optional string publickey_mod = 1;
   bool has_publickey_mod() const;
   private:
   bool _internal_has_publickey_mod() const;
@@ -708,7 +708,7 @@ class CAuthentication_GetPasswordRSAPublicKey_Response PROTOBUF_FINAL :
   std::string* _internal_mutable_publickey_mod();
   public:
 
-  // optional string publickey_exp = 2 [(.description) = "the public key exponent"];
+  // optional string publickey_exp = 2;
   bool has_publickey_exp() const;
   private:
   bool _internal_has_publickey_exp() const;
@@ -728,7 +728,7 @@ class CAuthentication_GetPasswordRSAPublicKey_Response PROTOBUF_FINAL :
   std::string* _internal_mutable_publickey_exp();
   public:
 
-  // optional uint64 timestamp = 3 [(.description) = "the timestamp the key was generated"];
+  // optional uint64 timestamp = 3;
   bool has_timestamp() const;
   private:
   bool _internal_has_timestamp() const;
@@ -884,7 +884,7 @@ class CAuthentication_DeviceDetails PROTOBUF_FINAL :
     kGamingDeviceTypeFieldNumber = 4,
     kClientCountFieldNumber = 5,
   };
-  // optional string device_friendly_name = 1 [(.description) = "User-supplied, or client-supplied, friendly name of device"];
+  // optional string device_friendly_name = 1;
   bool has_device_friendly_name() const;
   private:
   bool _internal_has_device_friendly_name() const;
@@ -904,7 +904,7 @@ class CAuthentication_DeviceDetails PROTOBUF_FINAL :
   std::string* _internal_mutable_device_friendly_name();
   public:
 
-  // optional bytes machine_id = 6 [(.description) = "Additional device context"];
+  // optional bytes machine_id = 6;
   bool has_machine_id() const;
   private:
   bool _internal_has_machine_id() const;
@@ -924,7 +924,7 @@ class CAuthentication_DeviceDetails PROTOBUF_FINAL :
   std::string* _internal_mutable_machine_id();
   public:
 
-  // optional .EAuthTokenPlatformType platform_type = 2 [default = EAuthTokenPlatformType_Unknown, (.description) = "EAuthTokenPlatformType, claimed, of device"];
+  // optional .EAuthTokenPlatformType platform_type = 2 [default = EAuthTokenPlatformType_Unknown];
   bool has_platform_type() const;
   private:
   bool _internal_has_platform_type() const;
@@ -937,7 +937,7 @@ class CAuthentication_DeviceDetails PROTOBUF_FINAL :
   void _internal_set_platform_type(::EAuthTokenPlatformType value);
   public:
 
-  // optional int32 os_type = 3 [(.description) = "EOSType, claimed, of authorized device"];
+  // optional int32 os_type = 3;
   bool has_os_type() const;
   private:
   bool _internal_has_os_type() const;
@@ -950,7 +950,7 @@ class CAuthentication_DeviceDetails PROTOBUF_FINAL :
   void _internal_set_os_type(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
-  // optional uint32 gaming_device_type = 4 [(.description) = "EGamingDeviceType, claimed, of authorized device for steam client-type devices"];
+  // optional uint32 gaming_device_type = 4;
   bool has_gaming_device_type() const;
   private:
   bool _internal_has_gaming_device_type() const;
@@ -963,7 +963,7 @@ class CAuthentication_DeviceDetails PROTOBUF_FINAL :
   void _internal_set_gaming_device_type(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 client_count = 5 [(.description) = "For desktop clients, quantized number of users in history"];
+  // optional uint32 client_count = 5;
   bool has_client_count() const;
   private:
   bool _internal_has_client_count() const;
@@ -1140,7 +1140,7 @@ class CAuthentication_BeginAuthSessionViaQR_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_device_friendly_name();
   public:
 
-  // optional string website_id = 4 [default = "Unknown", (.description) = "(EMachineAuthWebDomain) identifier of client requesting auth"];
+  // optional string website_id = 4 [default = "Unknown"];
   bool has_website_id() const;
   private:
   bool _internal_has_website_id() const;
@@ -1160,7 +1160,7 @@ class CAuthentication_BeginAuthSessionViaQR_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_website_id();
   public:
 
-  // optional .CAuthentication_DeviceDetails device_details = 3 [(.description) = "User-supplied details about the device attempting to sign in"];
+  // optional .CAuthentication_DeviceDetails device_details = 3;
   bool has_device_details() const;
   private:
   bool _internal_has_device_details() const;
@@ -1332,7 +1332,7 @@ class CAuthentication_AllowedConfirmation PROTOBUF_FINAL :
     kAssociatedMessageFieldNumber = 2,
     kConfirmationTypeFieldNumber = 1,
   };
-  // optional string associated_message = 2 [(.description) = "message to be interpreted depending on the confirmation type. for email confirmation, this might be the redacted email address to which email was sent."];
+  // optional string associated_message = 2;
   bool has_associated_message() const;
   private:
   bool _internal_has_associated_message() const;
@@ -1352,7 +1352,7 @@ class CAuthentication_AllowedConfirmation PROTOBUF_FINAL :
   std::string* _internal_mutable_associated_message();
   public:
 
-  // optional .EAuthSessionGuardType confirmation_type = 1 [default = EAuthSessionGuardType_Unknown, (.description) = "authentication can proceed with this confirmation type"];
+  // optional .EAuthSessionGuardType confirmation_type = 1 [default = EAuthSessionGuardType_Unknown];
   bool has_confirmation_type() const;
   private:
   bool _internal_has_confirmation_type() const;
@@ -1507,7 +1507,7 @@ class CAuthentication_BeginAuthSessionViaQR_Response PROTOBUF_FINAL :
     kIntervalFieldNumber = 4,
     kVersionFieldNumber = 6,
   };
-  // repeated .CAuthentication_AllowedConfirmation allowed_confirmations = 5 [(.description) = "the confirmation types that will be able to confirm the request"];
+  // repeated .CAuthentication_AllowedConfirmation allowed_confirmations = 5;
   int allowed_confirmations_size() const;
   private:
   int _internal_allowed_confirmations_size() const;
@@ -1525,7 +1525,7 @@ class CAuthentication_BeginAuthSessionViaQR_Response PROTOBUF_FINAL :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CAuthentication_AllowedConfirmation >&
       allowed_confirmations() const;
 
-  // optional string challenge_url = 2 [(.description) = "URL based on client ID, which will be rendered as QR code"];
+  // optional string challenge_url = 2;
   bool has_challenge_url() const;
   private:
   bool _internal_has_challenge_url() const;
@@ -1545,7 +1545,7 @@ class CAuthentication_BeginAuthSessionViaQR_Response PROTOBUF_FINAL :
   std::string* _internal_mutable_challenge_url();
   public:
 
-  // optional bytes request_id = 3 [(.description) = "unique request ID to be presented by requestor at poll time - must not be rendered in QR"];
+  // optional bytes request_id = 3;
   bool has_request_id() const;
   private:
   bool _internal_has_request_id() const;
@@ -1565,7 +1565,7 @@ class CAuthentication_BeginAuthSessionViaQR_Response PROTOBUF_FINAL :
   std::string* _internal_mutable_request_id();
   public:
 
-  // optional uint64 client_id = 1 [(.description) = "unique identifier of requestor, also used for routing, portion of QR code"];
+  // optional uint64 client_id = 1;
   bool has_client_id() const;
   private:
   bool _internal_has_client_id() const;
@@ -1578,7 +1578,7 @@ class CAuthentication_BeginAuthSessionViaQR_Response PROTOBUF_FINAL :
   void _internal_set_client_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional float interval = 4 [(.description) = "refresh interval with which requestor should call PollAuthSessionStatus"];
+  // optional float interval = 4;
   bool has_interval() const;
   private:
   bool _internal_has_interval() const;
@@ -1591,7 +1591,7 @@ class CAuthentication_BeginAuthSessionViaQR_Response PROTOBUF_FINAL :
   void _internal_set_interval(float value);
   public:
 
-  // optional int32 version = 6 [(.description) = "version of the QR data"];
+  // optional int32 version = 6;
   bool has_version() const;
   private:
   bool _internal_has_version() const;
@@ -1796,7 +1796,7 @@ class CAuthentication_BeginAuthSessionViaCredentials_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_account_name();
   public:
 
-  // optional string encrypted_password = 3 [(.description) = "password, RSA encrypted client side"];
+  // optional string encrypted_password = 3;
   bool has_encrypted_password() const;
   private:
   bool _internal_has_encrypted_password() const;
@@ -1816,7 +1816,7 @@ class CAuthentication_BeginAuthSessionViaCredentials_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_encrypted_password();
   public:
 
-  // optional string website_id = 8 [default = "Unknown", (.description) = "(EMachineAuthWebDomain) identifier of client requesting auth"];
+  // optional string website_id = 8 [default = "Unknown"];
   bool has_website_id() const;
   private:
   bool _internal_has_website_id() const;
@@ -1836,7 +1836,7 @@ class CAuthentication_BeginAuthSessionViaCredentials_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_website_id();
   public:
 
-  // optional string guard_data = 10 [(.description) = "steam guard data for client login"];
+  // optional string guard_data = 10;
   bool has_guard_data() const;
   private:
   bool _internal_has_guard_data() const;
@@ -1856,7 +1856,7 @@ class CAuthentication_BeginAuthSessionViaCredentials_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_guard_data();
   public:
 
-  // optional .CAuthentication_DeviceDetails device_details = 9 [(.description) = "User-supplied details about the device attempting to sign in"];
+  // optional .CAuthentication_DeviceDetails device_details = 9;
   bool has_device_details() const;
   private:
   bool _internal_has_device_details() const;
@@ -1874,7 +1874,7 @@ class CAuthentication_BeginAuthSessionViaCredentials_Request PROTOBUF_FINAL :
       ::CAuthentication_DeviceDetails* device_details);
   ::CAuthentication_DeviceDetails* unsafe_arena_release_device_details();
 
-  // optional uint64 encryption_timestamp = 4 [(.description) = "timestamp to map to a key - STime"];
+  // optional uint64 encryption_timestamp = 4;
   bool has_encryption_timestamp() const;
   private:
   bool _internal_has_encryption_timestamp() const;
@@ -1887,7 +1887,7 @@ class CAuthentication_BeginAuthSessionViaCredentials_Request PROTOBUF_FINAL :
   void _internal_set_encryption_timestamp(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional bool remember_login = 5 [(.description) = "deprecated"];
+  // optional bool remember_login = 5;
   bool has_remember_login() const;
   private:
   bool _internal_has_remember_login() const;
@@ -1926,7 +1926,7 @@ class CAuthentication_BeginAuthSessionViaCredentials_Request PROTOBUF_FINAL :
   void _internal_set_language(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional .ESessionPersistence persistence = 7 [default = ESessionPersistence_Persistent, (.description) = "whether we are requesting a persistent or an ephemeral session"];
+  // optional .ESessionPersistence persistence = 7 [default = ESessionPersistence_Persistent];
   bool has_persistence() const;
   private:
   bool _internal_has_persistence() const;
@@ -1939,7 +1939,7 @@ class CAuthentication_BeginAuthSessionViaCredentials_Request PROTOBUF_FINAL :
   void _internal_set_persistence(::ESessionPersistence value);
   public:
 
-  // optional int32 qos_level = 12 [default = 2, (.description) = "[ENetQOSLevel] client-specified priority for this auth attempt"];
+  // optional int32 qos_level = 12 [default = 2];
   bool has_qos_level() const;
   private:
   bool _internal_has_qos_level() const;
@@ -2107,7 +2107,7 @@ class CAuthentication_BeginAuthSessionViaCredentials_Response PROTOBUF_FINAL :
     kSteamidFieldNumber = 5,
     kIntervalFieldNumber = 3,
   };
-  // repeated .CAuthentication_AllowedConfirmation allowed_confirmations = 4 [(.description) = "the confirmation types that will be able to confirm the request"];
+  // repeated .CAuthentication_AllowedConfirmation allowed_confirmations = 4;
   int allowed_confirmations_size() const;
   private:
   int _internal_allowed_confirmations_size() const;
@@ -2125,7 +2125,7 @@ class CAuthentication_BeginAuthSessionViaCredentials_Response PROTOBUF_FINAL :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CAuthentication_AllowedConfirmation >&
       allowed_confirmations() const;
 
-  // optional bytes request_id = 2 [(.description) = "unique request ID to be presented by requestor at poll time - must not be transferred or displayed"];
+  // optional bytes request_id = 2;
   bool has_request_id() const;
   private:
   bool _internal_has_request_id() const;
@@ -2145,7 +2145,7 @@ class CAuthentication_BeginAuthSessionViaCredentials_Response PROTOBUF_FINAL :
   std::string* _internal_mutable_request_id();
   public:
 
-  // optional string weatoken = 6 [(.description) = "partial-authentication token - limited lifetime and scope, included only if credentials were valid"];
+  // optional string weatoken = 6;
   bool has_weatoken() const;
   private:
   bool _internal_has_weatoken() const;
@@ -2165,7 +2165,7 @@ class CAuthentication_BeginAuthSessionViaCredentials_Response PROTOBUF_FINAL :
   std::string* _internal_mutable_weatoken();
   public:
 
-  // optional string agreement_session_url = 7 [(.description) = "agreement the user needs to agree to"];
+  // optional string agreement_session_url = 7;
   bool has_agreement_session_url() const;
   private:
   bool _internal_has_agreement_session_url() const;
@@ -2185,7 +2185,7 @@ class CAuthentication_BeginAuthSessionViaCredentials_Response PROTOBUF_FINAL :
   std::string* _internal_mutable_agreement_session_url();
   public:
 
-  // optional string extended_error_message = 8 [(.description) = "error string to display if supported by the client"];
+  // optional string extended_error_message = 8;
   bool has_extended_error_message() const;
   private:
   bool _internal_has_extended_error_message() const;
@@ -2205,7 +2205,7 @@ class CAuthentication_BeginAuthSessionViaCredentials_Response PROTOBUF_FINAL :
   std::string* _internal_mutable_extended_error_message();
   public:
 
-  // optional uint64 client_id = 1 [(.description) = "unique identifier of requestor, also used for routing"];
+  // optional uint64 client_id = 1;
   bool has_client_id() const;
   private:
   bool _internal_has_client_id() const;
@@ -2218,7 +2218,7 @@ class CAuthentication_BeginAuthSessionViaCredentials_Response PROTOBUF_FINAL :
   void _internal_set_client_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional uint64 steamid = 5 [(.description) = "steamid of the account logging in - will only be included if the credentials were correct"];
+  // optional uint64 steamid = 5;
   bool has_steamid() const;
   private:
   bool _internal_has_steamid() const;
@@ -2231,7 +2231,7 @@ class CAuthentication_BeginAuthSessionViaCredentials_Response PROTOBUF_FINAL :
   void _internal_set_steamid(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional float interval = 3 [(.description) = "refresh interval with which requestor should call PollAuthSessionStatus"];
+  // optional float interval = 3;
   bool has_interval() const;
   private:
   bool _internal_has_interval() const;
@@ -2422,7 +2422,7 @@ class CAuthentication_PollAuthSessionStatus_Request PROTOBUF_FINAL :
   void _internal_set_client_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional fixed64 token_to_revoke = 3 [(.description) = "If this is set to a token owned by this user, that token will be retired"];
+  // optional fixed64 token_to_revoke = 3;
   bool has_token_to_revoke() const;
   private:
   bool _internal_has_token_to_revoke() const;
@@ -2580,7 +2580,7 @@ class CAuthentication_PollAuthSessionStatus_Response PROTOBUF_FINAL :
     kNewClientIdFieldNumber = 1,
     kHadRemoteInteractionFieldNumber = 5,
   };
-  // optional string new_challenge_url = 2 [(.description) = "if challenge is old, this is the new challenge ID to re-render for mobile confirmation"];
+  // optional string new_challenge_url = 2;
   bool has_new_challenge_url() const;
   private:
   bool _internal_has_new_challenge_url() const;
@@ -2600,7 +2600,7 @@ class CAuthentication_PollAuthSessionStatus_Response PROTOBUF_FINAL :
   std::string* _internal_mutable_new_challenge_url();
   public:
 
-  // optional string refresh_token = 3 [(.description) = "if login has been confirmed, this is the requestor\'s new refresh token"];
+  // optional string refresh_token = 3;
   bool has_refresh_token() const;
   private:
   bool _internal_has_refresh_token() const;
@@ -2620,7 +2620,7 @@ class CAuthentication_PollAuthSessionStatus_Response PROTOBUF_FINAL :
   std::string* _internal_mutable_refresh_token();
   public:
 
-  // optional string access_token = 4 [(.description) = "if login has been confirmed, this is a new token subordinate to refresh_token"];
+  // optional string access_token = 4;
   bool has_access_token() const;
   private:
   bool _internal_has_access_token() const;
@@ -2640,7 +2640,7 @@ class CAuthentication_PollAuthSessionStatus_Response PROTOBUF_FINAL :
   std::string* _internal_mutable_access_token();
   public:
 
-  // optional string account_name = 6 [(.description) = "account name of authenticating account, for use by UI layer"];
+  // optional string account_name = 6;
   bool has_account_name() const;
   private:
   bool _internal_has_account_name() const;
@@ -2660,7 +2660,7 @@ class CAuthentication_PollAuthSessionStatus_Response PROTOBUF_FINAL :
   std::string* _internal_mutable_account_name();
   public:
 
-  // optional string new_guard_data = 7 [(.description) = "if login has been confirmed, may contain remembered machine ID for future login"];
+  // optional string new_guard_data = 7;
   bool has_new_guard_data() const;
   private:
   bool _internal_has_new_guard_data() const;
@@ -2680,7 +2680,7 @@ class CAuthentication_PollAuthSessionStatus_Response PROTOBUF_FINAL :
   std::string* _internal_mutable_new_guard_data();
   public:
 
-  // optional string agreement_session_url = 8 [(.description) = "agreement the user needs to agree to"];
+  // optional string agreement_session_url = 8;
   bool has_agreement_session_url() const;
   private:
   bool _internal_has_agreement_session_url() const;
@@ -2700,7 +2700,7 @@ class CAuthentication_PollAuthSessionStatus_Response PROTOBUF_FINAL :
   std::string* _internal_mutable_agreement_session_url();
   public:
 
-  // optional uint64 new_client_id = 1 [(.description) = "if challenge is old, this is the new client id"];
+  // optional uint64 new_client_id = 1;
   bool has_new_client_id() const;
   private:
   bool _internal_has_new_client_id() const;
@@ -2713,7 +2713,7 @@ class CAuthentication_PollAuthSessionStatus_Response PROTOBUF_FINAL :
   void _internal_set_new_client_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional bool had_remote_interaction = 5 [(.description) = "whether or not the auth session appears to have had remote interaction from a potential confirmer"];
+  // optional bool had_remote_interaction = 5;
   bool has_had_remote_interaction() const;
   private:
   bool _internal_has_had_remote_interaction() const;
@@ -2869,7 +2869,7 @@ class CAuthentication_GetAuthSessionInfo_Request PROTOBUF_FINAL :
   enum : int {
     kClientIdFieldNumber = 1,
   };
-  // optional uint64 client_id = 1 [(.description) = "client ID from scanned QR Code, used for routing"];
+  // optional uint64 client_id = 1;
   bool has_client_id() const;
   private:
   bool _internal_has_client_id() const;
@@ -3029,7 +3029,7 @@ class CAuthentication_GetAuthSessionInfo_Response PROTOBUF_FINAL :
     kHighUsageLoginFieldNumber = 11,
     kRequestedPersistenceFieldNumber = 12,
   };
-  // optional string ip = 1 [(.description) = "IP address of requestor"];
+  // optional string ip = 1;
   bool has_ip() const;
   private:
   bool _internal_has_ip() const;
@@ -3049,7 +3049,7 @@ class CAuthentication_GetAuthSessionInfo_Response PROTOBUF_FINAL :
   std::string* _internal_mutable_ip();
   public:
 
-  // optional string geoloc = 2 [(.description) = "geoloc info of requestor"];
+  // optional string geoloc = 2;
   bool has_geoloc() const;
   private:
   bool _internal_has_geoloc() const;
@@ -3069,7 +3069,7 @@ class CAuthentication_GetAuthSessionInfo_Response PROTOBUF_FINAL :
   std::string* _internal_mutable_geoloc();
   public:
 
-  // optional string city = 3 [(.description) = "city of requestor"];
+  // optional string city = 3;
   bool has_city() const;
   private:
   bool _internal_has_city() const;
@@ -3089,7 +3089,7 @@ class CAuthentication_GetAuthSessionInfo_Response PROTOBUF_FINAL :
   std::string* _internal_mutable_city();
   public:
 
-  // optional string state = 4 [(.description) = "state of requestor"];
+  // optional string state = 4;
   bool has_state() const;
   private:
   bool _internal_has_state() const;
@@ -3109,7 +3109,7 @@ class CAuthentication_GetAuthSessionInfo_Response PROTOBUF_FINAL :
   std::string* _internal_mutable_state();
   public:
 
-  // optional string country = 5 [(.description) = "country of requestor"];
+  // optional string country = 5;
   bool has_country() const;
   private:
   bool _internal_has_country() const;
@@ -3129,7 +3129,7 @@ class CAuthentication_GetAuthSessionInfo_Response PROTOBUF_FINAL :
   std::string* _internal_mutable_country();
   public:
 
-  // optional string device_friendly_name = 7 [(.description) = "name of requestor device"];
+  // optional string device_friendly_name = 7;
   bool has_device_friendly_name() const;
   private:
   bool _internal_has_device_friendly_name() const;
@@ -3149,7 +3149,7 @@ class CAuthentication_GetAuthSessionInfo_Response PROTOBUF_FINAL :
   std::string* _internal_mutable_device_friendly_name();
   public:
 
-  // optional .EAuthTokenPlatformType platform_type = 6 [default = EAuthTokenPlatformType_Unknown, (.description) = "platform type of requestor"];
+  // optional .EAuthTokenPlatformType platform_type = 6 [default = EAuthTokenPlatformType_Unknown];
   bool has_platform_type() const;
   private:
   bool _internal_has_platform_type() const;
@@ -3162,7 +3162,7 @@ class CAuthentication_GetAuthSessionInfo_Response PROTOBUF_FINAL :
   void _internal_set_platform_type(::EAuthTokenPlatformType value);
   public:
 
-  // optional int32 version = 8 [(.description) = "version field"];
+  // optional int32 version = 8;
   bool has_version() const;
   private:
   bool _internal_has_version() const;
@@ -3175,7 +3175,7 @@ class CAuthentication_GetAuthSessionInfo_Response PROTOBUF_FINAL :
   void _internal_set_version(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
-  // optional .EAuthSessionSecurityHistory login_history = 9 [default = EAuthSessionSecurityHistory_Invalid, (.description) = "whether the ip has previuously been used on the account successfully"];
+  // optional .EAuthSessionSecurityHistory login_history = 9 [default = EAuthSessionSecurityHistory_Invalid];
   bool has_login_history() const;
   private:
   bool _internal_has_login_history() const;
@@ -3188,7 +3188,7 @@ class CAuthentication_GetAuthSessionInfo_Response PROTOBUF_FINAL :
   void _internal_set_login_history(::EAuthSessionSecurityHistory value);
   public:
 
-  // optional bool requestor_location_mismatch = 10 [(.description) = "whether the requestor location matches this requests location"];
+  // optional bool requestor_location_mismatch = 10;
   bool has_requestor_location_mismatch() const;
   private:
   bool _internal_has_requestor_location_mismatch() const;
@@ -3201,7 +3201,7 @@ class CAuthentication_GetAuthSessionInfo_Response PROTOBUF_FINAL :
   void _internal_set_requestor_location_mismatch(bool value);
   public:
 
-  // optional bool high_usage_login = 11 [(.description) = "whether this login has seen high usage recently"];
+  // optional bool high_usage_login = 11;
   bool has_high_usage_login() const;
   private:
   bool _internal_has_high_usage_login() const;
@@ -3214,7 +3214,7 @@ class CAuthentication_GetAuthSessionInfo_Response PROTOBUF_FINAL :
   void _internal_set_high_usage_login(bool value);
   public:
 
-  // optional .ESessionPersistence requested_persistence = 12 [default = ESessionPersistence_Invalid, (.description) = "session persistence requestor has indicated they want"];
+  // optional .ESessionPersistence requested_persistence = 12 [default = ESessionPersistence_Invalid];
   bool has_requested_persistence() const;
   private:
   bool _internal_has_requested_persistence() const;
@@ -3379,7 +3379,7 @@ class CAuthentication_UpdateAuthSessionWithMobileConfirmation_Request PROTOBUF_F
     kConfirmFieldNumber = 5,
     kPersistenceFieldNumber = 6,
   };
-  // optional bytes signature = 4 [(.description) = "HMAC digest over {version,client_id,steamid} via user\'s private key"];
+  // optional bytes signature = 4;
   bool has_signature() const;
   private:
   bool _internal_has_signature() const;
@@ -3399,7 +3399,7 @@ class CAuthentication_UpdateAuthSessionWithMobileConfirmation_Request PROTOBUF_F
   std::string* _internal_mutable_signature();
   public:
 
-  // optional uint64 client_id = 2 [(.description) = "pending client ID, from scanned QR Code"];
+  // optional uint64 client_id = 2;
   bool has_client_id() const;
   private:
   bool _internal_has_client_id() const;
@@ -3412,7 +3412,7 @@ class CAuthentication_UpdateAuthSessionWithMobileConfirmation_Request PROTOBUF_F
   void _internal_set_client_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional fixed64 steamid = 3 [(.description) = "user who wants to login"];
+  // optional fixed64 steamid = 3;
   bool has_steamid() const;
   private:
   bool _internal_has_steamid() const;
@@ -3425,7 +3425,7 @@ class CAuthentication_UpdateAuthSessionWithMobileConfirmation_Request PROTOBUF_F
   void _internal_set_steamid(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional int32 version = 1 [(.description) = "version field"];
+  // optional int32 version = 1;
   bool has_version() const;
   private:
   bool _internal_has_version() const;
@@ -3438,7 +3438,7 @@ class CAuthentication_UpdateAuthSessionWithMobileConfirmation_Request PROTOBUF_F
   void _internal_set_version(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
-  // optional bool confirm = 5 [default = false, (.description) = "Whether to confirm the login (true) or deny the login (false)"];
+  // optional bool confirm = 5 [default = false];
   bool has_confirm() const;
   private:
   bool _internal_has_confirm() const;
@@ -3451,7 +3451,7 @@ class CAuthentication_UpdateAuthSessionWithMobileConfirmation_Request PROTOBUF_F
   void _internal_set_confirm(bool value);
   public:
 
-  // optional .ESessionPersistence persistence = 6 [default = ESessionPersistence_Persistent, (.description) = "whether we are requesting a persistent or an ephemeral session"];
+  // optional .ESessionPersistence persistence = 6 [default = ESessionPersistence_Persistent];
   bool has_persistence() const;
   private:
   bool _internal_has_persistence() const;
@@ -3739,7 +3739,7 @@ class CAuthentication_UpdateAuthSessionWithSteamGuardCode_Request PROTOBUF_FINAL
     kSteamidFieldNumber = 2,
     kCodeTypeFieldNumber = 4,
   };
-  // optional string code = 3 [(.description) = "confirmation code"];
+  // optional string code = 3;
   bool has_code() const;
   private:
   bool _internal_has_code() const;
@@ -3759,7 +3759,7 @@ class CAuthentication_UpdateAuthSessionWithSteamGuardCode_Request PROTOBUF_FINAL
   std::string* _internal_mutable_code();
   public:
 
-  // optional uint64 client_id = 1 [(.description) = "pending client ID, from initialized session"];
+  // optional uint64 client_id = 1;
   bool has_client_id() const;
   private:
   bool _internal_has_client_id() const;
@@ -3772,7 +3772,7 @@ class CAuthentication_UpdateAuthSessionWithSteamGuardCode_Request PROTOBUF_FINAL
   void _internal_set_client_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional fixed64 steamid = 2 [(.description) = "user who wants to login"];
+  // optional fixed64 steamid = 2;
   bool has_steamid() const;
   private:
   bool _internal_has_steamid() const;
@@ -3785,7 +3785,7 @@ class CAuthentication_UpdateAuthSessionWithSteamGuardCode_Request PROTOBUF_FINAL
   void _internal_set_steamid(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional .EAuthSessionGuardType code_type = 4 [default = EAuthSessionGuardType_Unknown, (.description) = "type of confirmation code"];
+  // optional .EAuthSessionGuardType code_type = 4 [default = EAuthSessionGuardType_Unknown];
   bool has_code_type() const;
   private:
   bool _internal_has_code_type() const;
@@ -3937,7 +3937,7 @@ class CAuthentication_UpdateAuthSessionWithSteamGuardCode_Response PROTOBUF_FINA
   enum : int {
     kAgreementSessionUrlFieldNumber = 7,
   };
-  // optional string agreement_session_url = 7 [(.description) = "agreement the user needs to agree to"];
+  // optional string agreement_session_url = 7;
   bool has_agreement_session_url() const;
   private:
   bool _internal_has_agreement_session_url() const;
@@ -4613,7 +4613,7 @@ class CAuthentication_RefreshToken_Enumerate_Response_TokenUsageEvent PROTOBUF_F
   std::string* _internal_mutable_locale();
   public:
 
-  // optional string country = 4 [(.description) = "Location (country code) of event, as inferred from IP"];
+  // optional string country = 4;
   bool has_country() const;
   private:
   bool _internal_has_country() const;
@@ -4633,7 +4633,7 @@ class CAuthentication_RefreshToken_Enumerate_Response_TokenUsageEvent PROTOBUF_F
   std::string* _internal_mutable_country();
   public:
 
-  // optional string state = 5 [(.description) = "Location (state code) of event, as inferred from IP"];
+  // optional string state = 5;
   bool has_state() const;
   private:
   bool _internal_has_state() const;
@@ -4653,7 +4653,7 @@ class CAuthentication_RefreshToken_Enumerate_Response_TokenUsageEvent PROTOBUF_F
   std::string* _internal_mutable_state();
   public:
 
-  // optional string city = 6 [(.description) = "Location (city) of event, as inferred from IP"];
+  // optional string city = 6;
   bool has_city() const;
   private:
   bool _internal_has_city() const;
@@ -4673,7 +4673,7 @@ class CAuthentication_RefreshToken_Enumerate_Response_TokenUsageEvent PROTOBUF_F
   std::string* _internal_mutable_city();
   public:
 
-  // optional .CMsgIPAddress ip = 2 [(.description) = "IP at which event was observed"];
+  // optional .CMsgIPAddress ip = 2;
   bool has_ip() const;
   private:
   bool _internal_has_ip() const;
@@ -4691,7 +4691,7 @@ class CAuthentication_RefreshToken_Enumerate_Response_TokenUsageEvent PROTOBUF_F
       ::CMsgIPAddress* ip);
   ::CMsgIPAddress* unsafe_arena_release_ip();
 
-  // optional uint32 time = 1 [(.description) = "Approximate time of history event (may be deliberately fuzzed or omitted)"];
+  // optional uint32 time = 1;
   bool has_time() const;
   private:
   bool _internal_has_time() const;
@@ -4855,7 +4855,7 @@ class CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescription PR
     kGamingDeviceTypeFieldNumber = 8,
     kOsTypeFieldNumber = 11,
   };
-  // optional string token_description = 2 [(.description) = "client-supplied friendly name for the device"];
+  // optional string token_description = 2;
   bool has_token_description() const;
   private:
   bool _internal_has_token_description() const;
@@ -4875,7 +4875,7 @@ class CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescription PR
   std::string* _internal_mutable_token_description();
   public:
 
-  // optional .CAuthentication_RefreshToken_Enumerate_Response.TokenUsageEvent first_seen = 9 [(.description) = "Information about original authorization event"];
+  // optional .CAuthentication_RefreshToken_Enumerate_Response.TokenUsageEvent first_seen = 9;
   bool has_first_seen() const;
   private:
   bool _internal_has_first_seen() const;
@@ -4893,7 +4893,7 @@ class CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescription PR
       ::CAuthentication_RefreshToken_Enumerate_Response_TokenUsageEvent* first_seen);
   ::CAuthentication_RefreshToken_Enumerate_Response_TokenUsageEvent* unsafe_arena_release_first_seen();
 
-  // optional .CAuthentication_RefreshToken_Enumerate_Response.TokenUsageEvent last_seen = 10 [(.description) = "Information about most-recently seen, if known for this device"];
+  // optional .CAuthentication_RefreshToken_Enumerate_Response.TokenUsageEvent last_seen = 10;
   bool has_last_seen() const;
   private:
   bool _internal_has_last_seen() const;
@@ -4911,7 +4911,7 @@ class CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescription PR
       ::CAuthentication_RefreshToken_Enumerate_Response_TokenUsageEvent* last_seen);
   ::CAuthentication_RefreshToken_Enumerate_Response_TokenUsageEvent* unsafe_arena_release_last_seen();
 
-  // optional fixed64 token_id = 1 [(.description) = "Persistent token/device identifier"];
+  // optional fixed64 token_id = 1;
   bool has_token_id() const;
   private:
   bool _internal_has_token_id() const;
@@ -4937,7 +4937,7 @@ class CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescription PR
   void _internal_set_time_updated(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional .EAuthTokenPlatformType platform_type = 4 [default = EAuthTokenPlatformType_Unknown, (.description) = "gross platform type (mobile/client/browser)"];
+  // optional .EAuthTokenPlatformType platform_type = 4 [default = EAuthTokenPlatformType_Unknown];
   bool has_platform_type() const;
   private:
   bool _internal_has_platform_type() const;
@@ -4950,7 +4950,7 @@ class CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescription PR
   void _internal_set_platform_type(::EAuthTokenPlatformType value);
   public:
 
-  // optional bool logged_in = 5 [(.description) = "If true, this token is currently valid. False indicates it is a machine token - ok for steamguard if you know the credential"];
+  // optional bool logged_in = 5;
   bool has_logged_in() const;
   private:
   bool _internal_has_logged_in() const;
@@ -4963,7 +4963,7 @@ class CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescription PR
   void _internal_set_logged_in(bool value);
   public:
 
-  // optional uint32 os_platform = 6 [(.description) = "EPlatformType - rough classification of device OS, if known"];
+  // optional uint32 os_platform = 6;
   bool has_os_platform() const;
   private:
   bool _internal_has_os_platform() const;
@@ -4976,7 +4976,7 @@ class CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescription PR
   void _internal_set_os_platform(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 auth_type = 7 [(.description) = "EAuthTokenGuardType - device authorization mechanism, if known"];
+  // optional uint32 auth_type = 7;
   bool has_auth_type() const;
   private:
   bool _internal_has_auth_type() const;
@@ -4989,7 +4989,7 @@ class CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescription PR
   void _internal_set_auth_type(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 gaming_device_type = 8 [(.description) = "EGamingDeviceType - classify console/PC/SteamDeck, if known; applies only for Steam Client devices"];
+  // optional uint32 gaming_device_type = 8;
   bool has_gaming_device_type() const;
   private:
   bool _internal_has_gaming_device_type() const;
@@ -5002,7 +5002,7 @@ class CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescription PR
   void _internal_set_gaming_device_type(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional int32 os_type = 11 [(.description) = "EOSType - specific device OS, if known"];
+  // optional int32 os_type = 11;
   bool has_os_type() const;
   private:
   bool _internal_has_os_type() const;
@@ -5464,7 +5464,7 @@ class CAuthentication_GetAuthSessionsForAccount_Response PROTOBUF_FINAL :
   enum : int {
     kClientIdsFieldNumber = 1,
   };
-  // repeated uint64 client_ids = 1 [(.description) = "unique identifier of requestor, also used for routing"];
+  // repeated uint64 client_ids = 1;
   int client_ids_size() const;
   private:
   int _internal_client_ids_size() const;
@@ -5623,7 +5623,7 @@ class CAuthentication_MigrateMobileSession_Request PROTOBUF_FINAL :
     kSignatureFieldNumber = 3,
     kSteamidFieldNumber = 1,
   };
-  // optional string token = 2 [(.description) = "WG Token to migrate"];
+  // optional string token = 2;
   bool has_token() const;
   private:
   bool _internal_has_token() const;
@@ -5643,7 +5643,7 @@ class CAuthentication_MigrateMobileSession_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_token();
   public:
 
-  // optional string signature = 3 [(.description) = "Signature over the wg token using the user\'s 2FA token"];
+  // optional string signature = 3;
   bool has_signature() const;
   private:
   bool _internal_has_signature() const;
@@ -5663,7 +5663,7 @@ class CAuthentication_MigrateMobileSession_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_signature();
   public:
 
-  // optional fixed64 steamid = 1 [(.description) = "Steam ID of the user to migrate"];
+  // optional fixed64 steamid = 1;
   bool has_steamid() const;
   private:
   bool _internal_has_steamid() const;
@@ -6013,7 +6013,7 @@ class CAuthentication_Token_Revoke_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_token();
   public:
 
-  // optional .EAuthTokenRevokeAction revoke_action = 2 [default = EAuthTokenRevokePermanent, (.description) = "Select between logout and logout-and-forget-machine"];
+  // optional .EAuthTokenRevokeAction revoke_action = 2 [default = EAuthTokenRevokePermanent];
   bool has_revoke_action() const;
   private:
   bool _internal_has_revoke_action() const;
@@ -6297,7 +6297,7 @@ class CAuthentication_RefreshToken_Revoke_Request PROTOBUF_FINAL :
     kSteamidFieldNumber = 2,
     kRevokeActionFieldNumber = 3,
   };
-  // optional bytes signature = 4 [(.description) = "required signature over token_id"];
+  // optional bytes signature = 4;
   bool has_signature() const;
   private:
   bool _internal_has_signature() const;
@@ -6330,7 +6330,7 @@ class CAuthentication_RefreshToken_Revoke_Request PROTOBUF_FINAL :
   void _internal_set_token_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional fixed64 steamid = 2 [(.description) = "Token holder if an admin action on behalf of another user"];
+  // optional fixed64 steamid = 2;
   bool has_steamid() const;
   private:
   bool _internal_has_steamid() const;
@@ -6343,7 +6343,7 @@ class CAuthentication_RefreshToken_Revoke_Request PROTOBUF_FINAL :
   void _internal_set_steamid(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional .EAuthTokenRevokeAction revoke_action = 3 [default = EAuthTokenRevokePermanent, (.description) = "Select between logout and logout-and-forget-machine"];
+  // optional .EAuthTokenRevokeAction revoke_action = 3 [default = EAuthTokenRevokePermanent];
   bool has_revoke_action() const;
   private:
   bool _internal_has_revoke_action() const;
@@ -6627,7 +6627,7 @@ class CAuthenticationSupport_QueryRefreshTokensByAccount_Request PROTOBUF_FINAL 
     kSteamidFieldNumber = 1,
     kIncludeRevokedTokensFieldNumber = 2,
   };
-  // optional fixed64 steamid = 1 [(.description) = "SteamID of the account to query (required)"];
+  // optional fixed64 steamid = 1;
   bool has_steamid() const;
   private:
   bool _internal_has_steamid() const;
@@ -6640,7 +6640,7 @@ class CAuthenticationSupport_QueryRefreshTokensByAccount_Request PROTOBUF_FINAL 
   void _internal_set_steamid(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional bool include_revoked_tokens = 2 [(.description) = "Includes tokens that are revoked or expired in the query"];
+  // optional bool include_revoked_tokens = 2;
   bool has_include_revoked_tokens() const;
   private:
   bool _internal_has_include_revoked_tokens() const;
@@ -6794,7 +6794,7 @@ class CSupportRefreshTokenDescription_TokenUsageEvent PROTOBUF_FINAL :
     kIpFieldNumber = 2,
     kTimeFieldNumber = 1,
   };
-  // optional string country = 3 [(.description) = "Location (country code) of event, as inferred from IP"];
+  // optional string country = 3;
   bool has_country() const;
   private:
   bool _internal_has_country() const;
@@ -6814,7 +6814,7 @@ class CSupportRefreshTokenDescription_TokenUsageEvent PROTOBUF_FINAL :
   std::string* _internal_mutable_country();
   public:
 
-  // optional string state = 4 [(.description) = "Location (state code) of event, as inferred from IP"];
+  // optional string state = 4;
   bool has_state() const;
   private:
   bool _internal_has_state() const;
@@ -6834,7 +6834,7 @@ class CSupportRefreshTokenDescription_TokenUsageEvent PROTOBUF_FINAL :
   std::string* _internal_mutable_state();
   public:
 
-  // optional string city = 5 [(.description) = "Location (city) of event, as inferred from IP"];
+  // optional string city = 5;
   bool has_city() const;
   private:
   bool _internal_has_city() const;
@@ -6854,7 +6854,7 @@ class CSupportRefreshTokenDescription_TokenUsageEvent PROTOBUF_FINAL :
   std::string* _internal_mutable_city();
   public:
 
-  // optional .CMsgIPAddress ip = 2 [(.description) = "IP at which event was observed"];
+  // optional .CMsgIPAddress ip = 2;
   bool has_ip() const;
   private:
   bool _internal_has_ip() const;
@@ -6872,7 +6872,7 @@ class CSupportRefreshTokenDescription_TokenUsageEvent PROTOBUF_FINAL :
       ::CMsgIPAddress* ip);
   ::CMsgIPAddress* unsafe_arena_release_ip();
 
-  // optional uint32 time = 1 [(.description) = "Approximate time of history event (may be deliberately fuzzed or omitted)"];
+  // optional uint32 time = 1;
   bool has_time() const;
   private:
   bool _internal_has_time() const;
@@ -7058,7 +7058,7 @@ class CSupportRefreshTokenDescription PROTOBUF_FINAL :
   std::string* _internal_mutable_token_description();
   public:
 
-  // optional .CSupportRefreshTokenDescription.TokenUsageEvent first_seen = 11 [(.description) = "Information about original authorization event"];
+  // optional .CSupportRefreshTokenDescription.TokenUsageEvent first_seen = 11;
   bool has_first_seen() const;
   private:
   bool _internal_has_first_seen() const;
@@ -7076,7 +7076,7 @@ class CSupportRefreshTokenDescription PROTOBUF_FINAL :
       ::CSupportRefreshTokenDescription_TokenUsageEvent* first_seen);
   ::CSupportRefreshTokenDescription_TokenUsageEvent* unsafe_arena_release_first_seen();
 
-  // optional .CSupportRefreshTokenDescription.TokenUsageEvent last_seen = 12 [(.description) = "Information about most-recently seen, if known for this device"];
+  // optional .CSupportRefreshTokenDescription.TokenUsageEvent last_seen = 12;
   bool has_last_seen() const;
   private:
   bool _internal_has_last_seen() const;
@@ -7159,7 +7159,7 @@ class CSupportRefreshTokenDescription PROTOBUF_FINAL :
   void _internal_set_token_state(::EAuthTokenState value);
   public:
 
-  // optional uint32 os_platform = 7 [(.description) = "EPlatformType - rough classification of device OS, if known"];
+  // optional uint32 os_platform = 7;
   bool has_os_platform() const;
   private:
   bool _internal_has_os_platform() const;
@@ -7172,7 +7172,7 @@ class CSupportRefreshTokenDescription PROTOBUF_FINAL :
   void _internal_set_os_platform(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional int32 os_type = 8 [(.description) = "EOSType - specific device OS, if known"];
+  // optional int32 os_type = 8;
   bool has_os_type() const;
   private:
   bool _internal_has_os_type() const;
@@ -7185,7 +7185,7 @@ class CSupportRefreshTokenDescription PROTOBUF_FINAL :
   void _internal_set_os_type(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
-  // optional uint32 auth_type = 9 [(.description) = "EAuthTokenGuardType - device authorization mechanism, if known"];
+  // optional uint32 auth_type = 9;
   bool has_auth_type() const;
   private:
   bool _internal_has_auth_type() const;
@@ -7198,7 +7198,7 @@ class CSupportRefreshTokenDescription PROTOBUF_FINAL :
   void _internal_set_auth_type(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 gaming_device_type = 10 [(.description) = "EGamingDeviceType - classify console/PC/SteamDeck, if known; applies only for Steam Client devices"];
+  // optional uint32 gaming_device_type = 10;
   bool has_gaming_device_type() const;
   private:
   bool _internal_has_gaming_device_type() const;
@@ -7527,7 +7527,7 @@ class CAuthenticationSupport_QueryRefreshTokenByID_Request PROTOBUF_FINAL :
   enum : int {
     kTokenIdFieldNumber = 1,
   };
-  // optional fixed64 token_id = 1 [(.description) = "Token ID of the token to look up (required)"];
+  // optional fixed64 token_id = 1;
   bool has_token_id() const;
   private:
   bool _internal_has_token_id() const;
@@ -7830,7 +7830,7 @@ class CAuthenticationSupport_RevokeToken_Request PROTOBUF_FINAL :
     kTokenIdFieldNumber = 1,
     kSteamidFieldNumber = 2,
   };
-  // optional fixed64 token_id = 1 [(.description) = "Token ID of the token to revoke (required)"];
+  // optional fixed64 token_id = 1;
   bool has_token_id() const;
   private:
   bool _internal_has_token_id() const;
@@ -7843,7 +7843,7 @@ class CAuthenticationSupport_RevokeToken_Request PROTOBUF_FINAL :
   void _internal_set_token_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional fixed64 steamid = 2 [(.description) = "Steam ID of the owner of that token (required)"];
+  // optional fixed64 steamid = 2;
   bool has_steamid() const;
   private:
   bool _internal_has_steamid() const;
@@ -8124,7 +8124,7 @@ class CAuthenticationSupport_GetTokenHistory_Request PROTOBUF_FINAL :
   enum : int {
     kTokenIdFieldNumber = 1,
   };
-  // optional fixed64 token_id = 1 [(.description) = "Token ID of the token to get history for (required)"];
+  // optional fixed64 token_id = 1;
   bool has_token_id() const;
   private:
   bool _internal_has_token_id() const;
@@ -9656,7 +9656,7 @@ class CloudGaming_Stub : public CloudGaming {
 #endif  // __GNUC__
 // CAuthentication_GetPasswordRSAPublicKey_Request
 
-// optional string account_name = 1 [(.description) = "user-provided account name to get an RSA key for"];
+// optional string account_name = 1;
 inline bool CAuthentication_GetPasswordRSAPublicKey_Request::_internal_has_account_name() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -9733,7 +9733,7 @@ inline void CAuthentication_GetPasswordRSAPublicKey_Request::set_allocated_accou
 
 // CAuthentication_GetPasswordRSAPublicKey_Response
 
-// optional string publickey_mod = 1 [(.description) = "the public key modulus"];
+// optional string publickey_mod = 1;
 inline bool CAuthentication_GetPasswordRSAPublicKey_Response::_internal_has_publickey_mod() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -9806,7 +9806,7 @@ inline void CAuthentication_GetPasswordRSAPublicKey_Response::set_allocated_publ
   // @@protoc_insertion_point(field_set_allocated:CAuthentication_GetPasswordRSAPublicKey_Response.publickey_mod)
 }
 
-// optional string publickey_exp = 2 [(.description) = "the public key exponent"];
+// optional string publickey_exp = 2;
 inline bool CAuthentication_GetPasswordRSAPublicKey_Response::_internal_has_publickey_exp() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -9879,7 +9879,7 @@ inline void CAuthentication_GetPasswordRSAPublicKey_Response::set_allocated_publ
   // @@protoc_insertion_point(field_set_allocated:CAuthentication_GetPasswordRSAPublicKey_Response.publickey_exp)
 }
 
-// optional uint64 timestamp = 3 [(.description) = "the timestamp the key was generated"];
+// optional uint64 timestamp = 3;
 inline bool CAuthentication_GetPasswordRSAPublicKey_Response::_internal_has_timestamp() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -9911,7 +9911,7 @@ inline void CAuthentication_GetPasswordRSAPublicKey_Response::set_timestamp(::PR
 
 // CAuthentication_DeviceDetails
 
-// optional string device_friendly_name = 1 [(.description) = "User-supplied, or client-supplied, friendly name of device"];
+// optional string device_friendly_name = 1;
 inline bool CAuthentication_DeviceDetails::_internal_has_device_friendly_name() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -9984,7 +9984,7 @@ inline void CAuthentication_DeviceDetails::set_allocated_device_friendly_name(st
   // @@protoc_insertion_point(field_set_allocated:CAuthentication_DeviceDetails.device_friendly_name)
 }
 
-// optional .EAuthTokenPlatformType platform_type = 2 [default = EAuthTokenPlatformType_Unknown, (.description) = "EAuthTokenPlatformType, claimed, of device"];
+// optional .EAuthTokenPlatformType platform_type = 2 [default = EAuthTokenPlatformType_Unknown];
 inline bool CAuthentication_DeviceDetails::_internal_has_platform_type() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -10013,7 +10013,7 @@ inline void CAuthentication_DeviceDetails::set_platform_type(::EAuthTokenPlatfor
   // @@protoc_insertion_point(field_set:CAuthentication_DeviceDetails.platform_type)
 }
 
-// optional int32 os_type = 3 [(.description) = "EOSType, claimed, of authorized device"];
+// optional int32 os_type = 3;
 inline bool CAuthentication_DeviceDetails::_internal_has_os_type() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -10041,7 +10041,7 @@ inline void CAuthentication_DeviceDetails::set_os_type(::PROTOBUF_NAMESPACE_ID::
   // @@protoc_insertion_point(field_set:CAuthentication_DeviceDetails.os_type)
 }
 
-// optional uint32 gaming_device_type = 4 [(.description) = "EGamingDeviceType, claimed, of authorized device for steam client-type devices"];
+// optional uint32 gaming_device_type = 4;
 inline bool CAuthentication_DeviceDetails::_internal_has_gaming_device_type() const {
   bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
@@ -10069,7 +10069,7 @@ inline void CAuthentication_DeviceDetails::set_gaming_device_type(::PROTOBUF_NAM
   // @@protoc_insertion_point(field_set:CAuthentication_DeviceDetails.gaming_device_type)
 }
 
-// optional uint32 client_count = 5 [(.description) = "For desktop clients, quantized number of users in history"];
+// optional uint32 client_count = 5;
 inline bool CAuthentication_DeviceDetails::_internal_has_client_count() const {
   bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
@@ -10097,7 +10097,7 @@ inline void CAuthentication_DeviceDetails::set_client_count(::PROTOBUF_NAMESPACE
   // @@protoc_insertion_point(field_set:CAuthentication_DeviceDetails.client_count)
 }
 
-// optional bytes machine_id = 6 [(.description) = "Additional device context"];
+// optional bytes machine_id = 6;
 inline bool CAuthentication_DeviceDetails::_internal_has_machine_id() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -10276,7 +10276,7 @@ inline void CAuthentication_BeginAuthSessionViaQR_Request::set_platform_type(::E
   // @@protoc_insertion_point(field_set:CAuthentication_BeginAuthSessionViaQR_Request.platform_type)
 }
 
-// optional .CAuthentication_DeviceDetails device_details = 3 [(.description) = "User-supplied details about the device attempting to sign in"];
+// optional .CAuthentication_DeviceDetails device_details = 3;
 inline bool CAuthentication_BeginAuthSessionViaQR_Request::_internal_has_device_details() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   PROTOBUF_ASSUME(!value || device_details_ != nullptr);
@@ -10359,7 +10359,7 @@ inline void CAuthentication_BeginAuthSessionViaQR_Request::set_allocated_device_
   // @@protoc_insertion_point(field_set_allocated:CAuthentication_BeginAuthSessionViaQR_Request.device_details)
 }
 
-// optional string website_id = 4 [default = "Unknown", (.description) = "(EMachineAuthWebDomain) identifier of client requesting auth"];
+// optional string website_id = 4 [default = "Unknown"];
 inline bool CAuthentication_BeginAuthSessionViaQR_Request::_internal_has_website_id() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -10437,7 +10437,7 @@ inline void CAuthentication_BeginAuthSessionViaQR_Request::set_allocated_website
 
 // CAuthentication_AllowedConfirmation
 
-// optional .EAuthSessionGuardType confirmation_type = 1 [default = EAuthSessionGuardType_Unknown, (.description) = "authentication can proceed with this confirmation type"];
+// optional .EAuthSessionGuardType confirmation_type = 1 [default = EAuthSessionGuardType_Unknown];
 inline bool CAuthentication_AllowedConfirmation::_internal_has_confirmation_type() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -10466,7 +10466,7 @@ inline void CAuthentication_AllowedConfirmation::set_confirmation_type(::EAuthSe
   // @@protoc_insertion_point(field_set:CAuthentication_AllowedConfirmation.confirmation_type)
 }
 
-// optional string associated_message = 2 [(.description) = "message to be interpreted depending on the confirmation type. for email confirmation, this might be the redacted email address to which email was sent."];
+// optional string associated_message = 2;
 inline bool CAuthentication_AllowedConfirmation::_internal_has_associated_message() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -10543,7 +10543,7 @@ inline void CAuthentication_AllowedConfirmation::set_allocated_associated_messag
 
 // CAuthentication_BeginAuthSessionViaQR_Response
 
-// optional uint64 client_id = 1 [(.description) = "unique identifier of requestor, also used for routing, portion of QR code"];
+// optional uint64 client_id = 1;
 inline bool CAuthentication_BeginAuthSessionViaQR_Response::_internal_has_client_id() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -10571,7 +10571,7 @@ inline void CAuthentication_BeginAuthSessionViaQR_Response::set_client_id(::PROT
   // @@protoc_insertion_point(field_set:CAuthentication_BeginAuthSessionViaQR_Response.client_id)
 }
 
-// optional string challenge_url = 2 [(.description) = "URL based on client ID, which will be rendered as QR code"];
+// optional string challenge_url = 2;
 inline bool CAuthentication_BeginAuthSessionViaQR_Response::_internal_has_challenge_url() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -10644,7 +10644,7 @@ inline void CAuthentication_BeginAuthSessionViaQR_Response::set_allocated_challe
   // @@protoc_insertion_point(field_set_allocated:CAuthentication_BeginAuthSessionViaQR_Response.challenge_url)
 }
 
-// optional bytes request_id = 3 [(.description) = "unique request ID to be presented by requestor at poll time - must not be rendered in QR"];
+// optional bytes request_id = 3;
 inline bool CAuthentication_BeginAuthSessionViaQR_Response::_internal_has_request_id() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -10717,7 +10717,7 @@ inline void CAuthentication_BeginAuthSessionViaQR_Response::set_allocated_reques
   // @@protoc_insertion_point(field_set_allocated:CAuthentication_BeginAuthSessionViaQR_Response.request_id)
 }
 
-// optional float interval = 4 [(.description) = "refresh interval with which requestor should call PollAuthSessionStatus"];
+// optional float interval = 4;
 inline bool CAuthentication_BeginAuthSessionViaQR_Response::_internal_has_interval() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -10745,7 +10745,7 @@ inline void CAuthentication_BeginAuthSessionViaQR_Response::set_interval(float v
   // @@protoc_insertion_point(field_set:CAuthentication_BeginAuthSessionViaQR_Response.interval)
 }
 
-// repeated .CAuthentication_AllowedConfirmation allowed_confirmations = 5 [(.description) = "the confirmation types that will be able to confirm the request"];
+// repeated .CAuthentication_AllowedConfirmation allowed_confirmations = 5;
 inline int CAuthentication_BeginAuthSessionViaQR_Response::_internal_allowed_confirmations_size() const {
   return allowed_confirmations_.size();
 }
@@ -10784,7 +10784,7 @@ CAuthentication_BeginAuthSessionViaQR_Response::allowed_confirmations() const {
   return allowed_confirmations_;
 }
 
-// optional int32 version = 6 [(.description) = "version of the QR data"];
+// optional int32 version = 6;
 inline bool CAuthentication_BeginAuthSessionViaQR_Response::_internal_has_version() const {
   bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
@@ -10962,7 +10962,7 @@ inline void CAuthentication_BeginAuthSessionViaCredentials_Request::set_allocate
   // @@protoc_insertion_point(field_set_allocated:CAuthentication_BeginAuthSessionViaCredentials_Request.account_name)
 }
 
-// optional string encrypted_password = 3 [(.description) = "password, RSA encrypted client side"];
+// optional string encrypted_password = 3;
 inline bool CAuthentication_BeginAuthSessionViaCredentials_Request::_internal_has_encrypted_password() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -11035,7 +11035,7 @@ inline void CAuthentication_BeginAuthSessionViaCredentials_Request::set_allocate
   // @@protoc_insertion_point(field_set_allocated:CAuthentication_BeginAuthSessionViaCredentials_Request.encrypted_password)
 }
 
-// optional uint64 encryption_timestamp = 4 [(.description) = "timestamp to map to a key - STime"];
+// optional uint64 encryption_timestamp = 4;
 inline bool CAuthentication_BeginAuthSessionViaCredentials_Request::_internal_has_encryption_timestamp() const {
   bool value = (_has_bits_[0] & 0x00000040u) != 0;
   return value;
@@ -11063,7 +11063,7 @@ inline void CAuthentication_BeginAuthSessionViaCredentials_Request::set_encrypti
   // @@protoc_insertion_point(field_set:CAuthentication_BeginAuthSessionViaCredentials_Request.encryption_timestamp)
 }
 
-// optional bool remember_login = 5 [(.description) = "deprecated"];
+// optional bool remember_login = 5;
 inline bool CAuthentication_BeginAuthSessionViaCredentials_Request::_internal_has_remember_login() const {
   bool value = (_has_bits_[0] & 0x00000080u) != 0;
   return value;
@@ -11120,7 +11120,7 @@ inline void CAuthentication_BeginAuthSessionViaCredentials_Request::set_platform
   // @@protoc_insertion_point(field_set:CAuthentication_BeginAuthSessionViaCredentials_Request.platform_type)
 }
 
-// optional .ESessionPersistence persistence = 7 [default = ESessionPersistence_Persistent, (.description) = "whether we are requesting a persistent or an ephemeral session"];
+// optional .ESessionPersistence persistence = 7 [default = ESessionPersistence_Persistent];
 inline bool CAuthentication_BeginAuthSessionViaCredentials_Request::_internal_has_persistence() const {
   bool value = (_has_bits_[0] & 0x00000400u) != 0;
   return value;
@@ -11149,7 +11149,7 @@ inline void CAuthentication_BeginAuthSessionViaCredentials_Request::set_persiste
   // @@protoc_insertion_point(field_set:CAuthentication_BeginAuthSessionViaCredentials_Request.persistence)
 }
 
-// optional string website_id = 8 [default = "Unknown", (.description) = "(EMachineAuthWebDomain) identifier of client requesting auth"];
+// optional string website_id = 8 [default = "Unknown"];
 inline bool CAuthentication_BeginAuthSessionViaCredentials_Request::_internal_has_website_id() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -11223,7 +11223,7 @@ inline void CAuthentication_BeginAuthSessionViaCredentials_Request::set_allocate
   // @@protoc_insertion_point(field_set_allocated:CAuthentication_BeginAuthSessionViaCredentials_Request.website_id)
 }
 
-// optional .CAuthentication_DeviceDetails device_details = 9 [(.description) = "User-supplied details about the device attempting to sign in"];
+// optional .CAuthentication_DeviceDetails device_details = 9;
 inline bool CAuthentication_BeginAuthSessionViaCredentials_Request::_internal_has_device_details() const {
   bool value = (_has_bits_[0] & 0x00000020u) != 0;
   PROTOBUF_ASSUME(!value || device_details_ != nullptr);
@@ -11306,7 +11306,7 @@ inline void CAuthentication_BeginAuthSessionViaCredentials_Request::set_allocate
   // @@protoc_insertion_point(field_set_allocated:CAuthentication_BeginAuthSessionViaCredentials_Request.device_details)
 }
 
-// optional string guard_data = 10 [(.description) = "steam guard data for client login"];
+// optional string guard_data = 10;
 inline bool CAuthentication_BeginAuthSessionViaCredentials_Request::_internal_has_guard_data() const {
   bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
@@ -11407,7 +11407,7 @@ inline void CAuthentication_BeginAuthSessionViaCredentials_Request::set_language
   // @@protoc_insertion_point(field_set:CAuthentication_BeginAuthSessionViaCredentials_Request.language)
 }
 
-// optional int32 qos_level = 12 [default = 2, (.description) = "[ENetQOSLevel] client-specified priority for this auth attempt"];
+// optional int32 qos_level = 12 [default = 2];
 inline bool CAuthentication_BeginAuthSessionViaCredentials_Request::_internal_has_qos_level() const {
   bool value = (_has_bits_[0] & 0x00000800u) != 0;
   return value;
@@ -11439,7 +11439,7 @@ inline void CAuthentication_BeginAuthSessionViaCredentials_Request::set_qos_leve
 
 // CAuthentication_BeginAuthSessionViaCredentials_Response
 
-// optional uint64 client_id = 1 [(.description) = "unique identifier of requestor, also used for routing"];
+// optional uint64 client_id = 1;
 inline bool CAuthentication_BeginAuthSessionViaCredentials_Response::_internal_has_client_id() const {
   bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
@@ -11467,7 +11467,7 @@ inline void CAuthentication_BeginAuthSessionViaCredentials_Response::set_client_
   // @@protoc_insertion_point(field_set:CAuthentication_BeginAuthSessionViaCredentials_Response.client_id)
 }
 
-// optional bytes request_id = 2 [(.description) = "unique request ID to be presented by requestor at poll time - must not be transferred or displayed"];
+// optional bytes request_id = 2;
 inline bool CAuthentication_BeginAuthSessionViaCredentials_Response::_internal_has_request_id() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -11540,7 +11540,7 @@ inline void CAuthentication_BeginAuthSessionViaCredentials_Response::set_allocat
   // @@protoc_insertion_point(field_set_allocated:CAuthentication_BeginAuthSessionViaCredentials_Response.request_id)
 }
 
-// optional float interval = 3 [(.description) = "refresh interval with which requestor should call PollAuthSessionStatus"];
+// optional float interval = 3;
 inline bool CAuthentication_BeginAuthSessionViaCredentials_Response::_internal_has_interval() const {
   bool value = (_has_bits_[0] & 0x00000040u) != 0;
   return value;
@@ -11568,7 +11568,7 @@ inline void CAuthentication_BeginAuthSessionViaCredentials_Response::set_interva
   // @@protoc_insertion_point(field_set:CAuthentication_BeginAuthSessionViaCredentials_Response.interval)
 }
 
-// repeated .CAuthentication_AllowedConfirmation allowed_confirmations = 4 [(.description) = "the confirmation types that will be able to confirm the request"];
+// repeated .CAuthentication_AllowedConfirmation allowed_confirmations = 4;
 inline int CAuthentication_BeginAuthSessionViaCredentials_Response::_internal_allowed_confirmations_size() const {
   return allowed_confirmations_.size();
 }
@@ -11607,7 +11607,7 @@ CAuthentication_BeginAuthSessionViaCredentials_Response::allowed_confirmations()
   return allowed_confirmations_;
 }
 
-// optional uint64 steamid = 5 [(.description) = "steamid of the account logging in - will only be included if the credentials were correct"];
+// optional uint64 steamid = 5;
 inline bool CAuthentication_BeginAuthSessionViaCredentials_Response::_internal_has_steamid() const {
   bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
@@ -11635,7 +11635,7 @@ inline void CAuthentication_BeginAuthSessionViaCredentials_Response::set_steamid
   // @@protoc_insertion_point(field_set:CAuthentication_BeginAuthSessionViaCredentials_Response.steamid)
 }
 
-// optional string weatoken = 6 [(.description) = "partial-authentication token - limited lifetime and scope, included only if credentials were valid"];
+// optional string weatoken = 6;
 inline bool CAuthentication_BeginAuthSessionViaCredentials_Response::_internal_has_weatoken() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -11708,7 +11708,7 @@ inline void CAuthentication_BeginAuthSessionViaCredentials_Response::set_allocat
   // @@protoc_insertion_point(field_set_allocated:CAuthentication_BeginAuthSessionViaCredentials_Response.weatoken)
 }
 
-// optional string agreement_session_url = 7 [(.description) = "agreement the user needs to agree to"];
+// optional string agreement_session_url = 7;
 inline bool CAuthentication_BeginAuthSessionViaCredentials_Response::_internal_has_agreement_session_url() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -11781,7 +11781,7 @@ inline void CAuthentication_BeginAuthSessionViaCredentials_Response::set_allocat
   // @@protoc_insertion_point(field_set_allocated:CAuthentication_BeginAuthSessionViaCredentials_Response.agreement_session_url)
 }
 
-// optional string extended_error_message = 8 [(.description) = "error string to display if supported by the client"];
+// optional string extended_error_message = 8;
 inline bool CAuthentication_BeginAuthSessionViaCredentials_Response::_internal_has_extended_error_message() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -11959,7 +11959,7 @@ inline void CAuthentication_PollAuthSessionStatus_Request::set_allocated_request
   // @@protoc_insertion_point(field_set_allocated:CAuthentication_PollAuthSessionStatus_Request.request_id)
 }
 
-// optional fixed64 token_to_revoke = 3 [(.description) = "If this is set to a token owned by this user, that token will be retired"];
+// optional fixed64 token_to_revoke = 3;
 inline bool CAuthentication_PollAuthSessionStatus_Request::_internal_has_token_to_revoke() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -11991,7 +11991,7 @@ inline void CAuthentication_PollAuthSessionStatus_Request::set_token_to_revoke(:
 
 // CAuthentication_PollAuthSessionStatus_Response
 
-// optional uint64 new_client_id = 1 [(.description) = "if challenge is old, this is the new client id"];
+// optional uint64 new_client_id = 1;
 inline bool CAuthentication_PollAuthSessionStatus_Response::_internal_has_new_client_id() const {
   bool value = (_has_bits_[0] & 0x00000040u) != 0;
   return value;
@@ -12019,7 +12019,7 @@ inline void CAuthentication_PollAuthSessionStatus_Response::set_new_client_id(::
   // @@protoc_insertion_point(field_set:CAuthentication_PollAuthSessionStatus_Response.new_client_id)
 }
 
-// optional string new_challenge_url = 2 [(.description) = "if challenge is old, this is the new challenge ID to re-render for mobile confirmation"];
+// optional string new_challenge_url = 2;
 inline bool CAuthentication_PollAuthSessionStatus_Response::_internal_has_new_challenge_url() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -12092,7 +12092,7 @@ inline void CAuthentication_PollAuthSessionStatus_Response::set_allocated_new_ch
   // @@protoc_insertion_point(field_set_allocated:CAuthentication_PollAuthSessionStatus_Response.new_challenge_url)
 }
 
-// optional string refresh_token = 3 [(.description) = "if login has been confirmed, this is the requestor\'s new refresh token"];
+// optional string refresh_token = 3;
 inline bool CAuthentication_PollAuthSessionStatus_Response::_internal_has_refresh_token() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -12165,7 +12165,7 @@ inline void CAuthentication_PollAuthSessionStatus_Response::set_allocated_refres
   // @@protoc_insertion_point(field_set_allocated:CAuthentication_PollAuthSessionStatus_Response.refresh_token)
 }
 
-// optional string access_token = 4 [(.description) = "if login has been confirmed, this is a new token subordinate to refresh_token"];
+// optional string access_token = 4;
 inline bool CAuthentication_PollAuthSessionStatus_Response::_internal_has_access_token() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -12238,7 +12238,7 @@ inline void CAuthentication_PollAuthSessionStatus_Response::set_allocated_access
   // @@protoc_insertion_point(field_set_allocated:CAuthentication_PollAuthSessionStatus_Response.access_token)
 }
 
-// optional bool had_remote_interaction = 5 [(.description) = "whether or not the auth session appears to have had remote interaction from a potential confirmer"];
+// optional bool had_remote_interaction = 5;
 inline bool CAuthentication_PollAuthSessionStatus_Response::_internal_has_had_remote_interaction() const {
   bool value = (_has_bits_[0] & 0x00000080u) != 0;
   return value;
@@ -12266,7 +12266,7 @@ inline void CAuthentication_PollAuthSessionStatus_Response::set_had_remote_inter
   // @@protoc_insertion_point(field_set:CAuthentication_PollAuthSessionStatus_Response.had_remote_interaction)
 }
 
-// optional string account_name = 6 [(.description) = "account name of authenticating account, for use by UI layer"];
+// optional string account_name = 6;
 inline bool CAuthentication_PollAuthSessionStatus_Response::_internal_has_account_name() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -12339,7 +12339,7 @@ inline void CAuthentication_PollAuthSessionStatus_Response::set_allocated_accoun
   // @@protoc_insertion_point(field_set_allocated:CAuthentication_PollAuthSessionStatus_Response.account_name)
 }
 
-// optional string new_guard_data = 7 [(.description) = "if login has been confirmed, may contain remembered machine ID for future login"];
+// optional string new_guard_data = 7;
 inline bool CAuthentication_PollAuthSessionStatus_Response::_internal_has_new_guard_data() const {
   bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
@@ -12412,7 +12412,7 @@ inline void CAuthentication_PollAuthSessionStatus_Response::set_allocated_new_gu
   // @@protoc_insertion_point(field_set_allocated:CAuthentication_PollAuthSessionStatus_Response.new_guard_data)
 }
 
-// optional string agreement_session_url = 8 [(.description) = "agreement the user needs to agree to"];
+// optional string agreement_session_url = 8;
 inline bool CAuthentication_PollAuthSessionStatus_Response::_internal_has_agreement_session_url() const {
   bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
@@ -12489,7 +12489,7 @@ inline void CAuthentication_PollAuthSessionStatus_Response::set_allocated_agreem
 
 // CAuthentication_GetAuthSessionInfo_Request
 
-// optional uint64 client_id = 1 [(.description) = "client ID from scanned QR Code, used for routing"];
+// optional uint64 client_id = 1;
 inline bool CAuthentication_GetAuthSessionInfo_Request::_internal_has_client_id() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -12521,7 +12521,7 @@ inline void CAuthentication_GetAuthSessionInfo_Request::set_client_id(::PROTOBUF
 
 // CAuthentication_GetAuthSessionInfo_Response
 
-// optional string ip = 1 [(.description) = "IP address of requestor"];
+// optional string ip = 1;
 inline bool CAuthentication_GetAuthSessionInfo_Response::_internal_has_ip() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -12594,7 +12594,7 @@ inline void CAuthentication_GetAuthSessionInfo_Response::set_allocated_ip(std::s
   // @@protoc_insertion_point(field_set_allocated:CAuthentication_GetAuthSessionInfo_Response.ip)
 }
 
-// optional string geoloc = 2 [(.description) = "geoloc info of requestor"];
+// optional string geoloc = 2;
 inline bool CAuthentication_GetAuthSessionInfo_Response::_internal_has_geoloc() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -12667,7 +12667,7 @@ inline void CAuthentication_GetAuthSessionInfo_Response::set_allocated_geoloc(st
   // @@protoc_insertion_point(field_set_allocated:CAuthentication_GetAuthSessionInfo_Response.geoloc)
 }
 
-// optional string city = 3 [(.description) = "city of requestor"];
+// optional string city = 3;
 inline bool CAuthentication_GetAuthSessionInfo_Response::_internal_has_city() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -12740,7 +12740,7 @@ inline void CAuthentication_GetAuthSessionInfo_Response::set_allocated_city(std:
   // @@protoc_insertion_point(field_set_allocated:CAuthentication_GetAuthSessionInfo_Response.city)
 }
 
-// optional string state = 4 [(.description) = "state of requestor"];
+// optional string state = 4;
 inline bool CAuthentication_GetAuthSessionInfo_Response::_internal_has_state() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -12813,7 +12813,7 @@ inline void CAuthentication_GetAuthSessionInfo_Response::set_allocated_state(std
   // @@protoc_insertion_point(field_set_allocated:CAuthentication_GetAuthSessionInfo_Response.state)
 }
 
-// optional string country = 5 [(.description) = "country of requestor"];
+// optional string country = 5;
 inline bool CAuthentication_GetAuthSessionInfo_Response::_internal_has_country() const {
   bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
@@ -12886,7 +12886,7 @@ inline void CAuthentication_GetAuthSessionInfo_Response::set_allocated_country(s
   // @@protoc_insertion_point(field_set_allocated:CAuthentication_GetAuthSessionInfo_Response.country)
 }
 
-// optional .EAuthTokenPlatformType platform_type = 6 [default = EAuthTokenPlatformType_Unknown, (.description) = "platform type of requestor"];
+// optional .EAuthTokenPlatformType platform_type = 6 [default = EAuthTokenPlatformType_Unknown];
 inline bool CAuthentication_GetAuthSessionInfo_Response::_internal_has_platform_type() const {
   bool value = (_has_bits_[0] & 0x00000040u) != 0;
   return value;
@@ -12915,7 +12915,7 @@ inline void CAuthentication_GetAuthSessionInfo_Response::set_platform_type(::EAu
   // @@protoc_insertion_point(field_set:CAuthentication_GetAuthSessionInfo_Response.platform_type)
 }
 
-// optional string device_friendly_name = 7 [(.description) = "name of requestor device"];
+// optional string device_friendly_name = 7;
 inline bool CAuthentication_GetAuthSessionInfo_Response::_internal_has_device_friendly_name() const {
   bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
@@ -12988,7 +12988,7 @@ inline void CAuthentication_GetAuthSessionInfo_Response::set_allocated_device_fr
   // @@protoc_insertion_point(field_set_allocated:CAuthentication_GetAuthSessionInfo_Response.device_friendly_name)
 }
 
-// optional int32 version = 8 [(.description) = "version field"];
+// optional int32 version = 8;
 inline bool CAuthentication_GetAuthSessionInfo_Response::_internal_has_version() const {
   bool value = (_has_bits_[0] & 0x00000080u) != 0;
   return value;
@@ -13016,7 +13016,7 @@ inline void CAuthentication_GetAuthSessionInfo_Response::set_version(::PROTOBUF_
   // @@protoc_insertion_point(field_set:CAuthentication_GetAuthSessionInfo_Response.version)
 }
 
-// optional .EAuthSessionSecurityHistory login_history = 9 [default = EAuthSessionSecurityHistory_Invalid, (.description) = "whether the ip has previuously been used on the account successfully"];
+// optional .EAuthSessionSecurityHistory login_history = 9 [default = EAuthSessionSecurityHistory_Invalid];
 inline bool CAuthentication_GetAuthSessionInfo_Response::_internal_has_login_history() const {
   bool value = (_has_bits_[0] & 0x00000100u) != 0;
   return value;
@@ -13045,7 +13045,7 @@ inline void CAuthentication_GetAuthSessionInfo_Response::set_login_history(::EAu
   // @@protoc_insertion_point(field_set:CAuthentication_GetAuthSessionInfo_Response.login_history)
 }
 
-// optional bool requestor_location_mismatch = 10 [(.description) = "whether the requestor location matches this requests location"];
+// optional bool requestor_location_mismatch = 10;
 inline bool CAuthentication_GetAuthSessionInfo_Response::_internal_has_requestor_location_mismatch() const {
   bool value = (_has_bits_[0] & 0x00000200u) != 0;
   return value;
@@ -13073,7 +13073,7 @@ inline void CAuthentication_GetAuthSessionInfo_Response::set_requestor_location_
   // @@protoc_insertion_point(field_set:CAuthentication_GetAuthSessionInfo_Response.requestor_location_mismatch)
 }
 
-// optional bool high_usage_login = 11 [(.description) = "whether this login has seen high usage recently"];
+// optional bool high_usage_login = 11;
 inline bool CAuthentication_GetAuthSessionInfo_Response::_internal_has_high_usage_login() const {
   bool value = (_has_bits_[0] & 0x00000400u) != 0;
   return value;
@@ -13101,7 +13101,7 @@ inline void CAuthentication_GetAuthSessionInfo_Response::set_high_usage_login(bo
   // @@protoc_insertion_point(field_set:CAuthentication_GetAuthSessionInfo_Response.high_usage_login)
 }
 
-// optional .ESessionPersistence requested_persistence = 12 [default = ESessionPersistence_Invalid, (.description) = "session persistence requestor has indicated they want"];
+// optional .ESessionPersistence requested_persistence = 12 [default = ESessionPersistence_Invalid];
 inline bool CAuthentication_GetAuthSessionInfo_Response::_internal_has_requested_persistence() const {
   bool value = (_has_bits_[0] & 0x00000800u) != 0;
   return value;
@@ -13134,7 +13134,7 @@ inline void CAuthentication_GetAuthSessionInfo_Response::set_requested_persisten
 
 // CAuthentication_UpdateAuthSessionWithMobileConfirmation_Request
 
-// optional int32 version = 1 [(.description) = "version field"];
+// optional int32 version = 1;
 inline bool CAuthentication_UpdateAuthSessionWithMobileConfirmation_Request::_internal_has_version() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -13162,7 +13162,7 @@ inline void CAuthentication_UpdateAuthSessionWithMobileConfirmation_Request::set
   // @@protoc_insertion_point(field_set:CAuthentication_UpdateAuthSessionWithMobileConfirmation_Request.version)
 }
 
-// optional uint64 client_id = 2 [(.description) = "pending client ID, from scanned QR Code"];
+// optional uint64 client_id = 2;
 inline bool CAuthentication_UpdateAuthSessionWithMobileConfirmation_Request::_internal_has_client_id() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -13190,7 +13190,7 @@ inline void CAuthentication_UpdateAuthSessionWithMobileConfirmation_Request::set
   // @@protoc_insertion_point(field_set:CAuthentication_UpdateAuthSessionWithMobileConfirmation_Request.client_id)
 }
 
-// optional fixed64 steamid = 3 [(.description) = "user who wants to login"];
+// optional fixed64 steamid = 3;
 inline bool CAuthentication_UpdateAuthSessionWithMobileConfirmation_Request::_internal_has_steamid() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -13218,7 +13218,7 @@ inline void CAuthentication_UpdateAuthSessionWithMobileConfirmation_Request::set
   // @@protoc_insertion_point(field_set:CAuthentication_UpdateAuthSessionWithMobileConfirmation_Request.steamid)
 }
 
-// optional bytes signature = 4 [(.description) = "HMAC digest over {version,client_id,steamid} via user\'s private key"];
+// optional bytes signature = 4;
 inline bool CAuthentication_UpdateAuthSessionWithMobileConfirmation_Request::_internal_has_signature() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -13291,7 +13291,7 @@ inline void CAuthentication_UpdateAuthSessionWithMobileConfirmation_Request::set
   // @@protoc_insertion_point(field_set_allocated:CAuthentication_UpdateAuthSessionWithMobileConfirmation_Request.signature)
 }
 
-// optional bool confirm = 5 [default = false, (.description) = "Whether to confirm the login (true) or deny the login (false)"];
+// optional bool confirm = 5 [default = false];
 inline bool CAuthentication_UpdateAuthSessionWithMobileConfirmation_Request::_internal_has_confirm() const {
   bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
@@ -13319,7 +13319,7 @@ inline void CAuthentication_UpdateAuthSessionWithMobileConfirmation_Request::set
   // @@protoc_insertion_point(field_set:CAuthentication_UpdateAuthSessionWithMobileConfirmation_Request.confirm)
 }
 
-// optional .ESessionPersistence persistence = 6 [default = ESessionPersistence_Persistent, (.description) = "whether we are requesting a persistent or an ephemeral session"];
+// optional .ESessionPersistence persistence = 6 [default = ESessionPersistence_Persistent];
 inline bool CAuthentication_UpdateAuthSessionWithMobileConfirmation_Request::_internal_has_persistence() const {
   bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
@@ -13356,7 +13356,7 @@ inline void CAuthentication_UpdateAuthSessionWithMobileConfirmation_Request::set
 
 // CAuthentication_UpdateAuthSessionWithSteamGuardCode_Request
 
-// optional uint64 client_id = 1 [(.description) = "pending client ID, from initialized session"];
+// optional uint64 client_id = 1;
 inline bool CAuthentication_UpdateAuthSessionWithSteamGuardCode_Request::_internal_has_client_id() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -13384,7 +13384,7 @@ inline void CAuthentication_UpdateAuthSessionWithSteamGuardCode_Request::set_cli
   // @@protoc_insertion_point(field_set:CAuthentication_UpdateAuthSessionWithSteamGuardCode_Request.client_id)
 }
 
-// optional fixed64 steamid = 2 [(.description) = "user who wants to login"];
+// optional fixed64 steamid = 2;
 inline bool CAuthentication_UpdateAuthSessionWithSteamGuardCode_Request::_internal_has_steamid() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -13412,7 +13412,7 @@ inline void CAuthentication_UpdateAuthSessionWithSteamGuardCode_Request::set_ste
   // @@protoc_insertion_point(field_set:CAuthentication_UpdateAuthSessionWithSteamGuardCode_Request.steamid)
 }
 
-// optional string code = 3 [(.description) = "confirmation code"];
+// optional string code = 3;
 inline bool CAuthentication_UpdateAuthSessionWithSteamGuardCode_Request::_internal_has_code() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -13485,7 +13485,7 @@ inline void CAuthentication_UpdateAuthSessionWithSteamGuardCode_Request::set_all
   // @@protoc_insertion_point(field_set_allocated:CAuthentication_UpdateAuthSessionWithSteamGuardCode_Request.code)
 }
 
-// optional .EAuthSessionGuardType code_type = 4 [default = EAuthSessionGuardType_Unknown, (.description) = "type of confirmation code"];
+// optional .EAuthSessionGuardType code_type = 4 [default = EAuthSessionGuardType_Unknown];
 inline bool CAuthentication_UpdateAuthSessionWithSteamGuardCode_Request::_internal_has_code_type() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -13518,7 +13518,7 @@ inline void CAuthentication_UpdateAuthSessionWithSteamGuardCode_Request::set_cod
 
 // CAuthentication_UpdateAuthSessionWithSteamGuardCode_Response
 
-// optional string agreement_session_url = 7 [(.description) = "agreement the user needs to agree to"];
+// optional string agreement_session_url = 7;
 inline bool CAuthentication_UpdateAuthSessionWithSteamGuardCode_Response::_internal_has_agreement_session_url() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -13883,7 +13883,7 @@ inline void CAuthentication_AccessToken_GenerateForApp_Response::set_allocated_r
 
 // CAuthentication_RefreshToken_Enumerate_Response_TokenUsageEvent
 
-// optional uint32 time = 1 [(.description) = "Approximate time of history event (may be deliberately fuzzed or omitted)"];
+// optional uint32 time = 1;
 inline bool CAuthentication_RefreshToken_Enumerate_Response_TokenUsageEvent::_internal_has_time() const {
   bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
@@ -13911,7 +13911,7 @@ inline void CAuthentication_RefreshToken_Enumerate_Response_TokenUsageEvent::set
   // @@protoc_insertion_point(field_set:CAuthentication_RefreshToken_Enumerate_Response.TokenUsageEvent.time)
 }
 
-// optional .CMsgIPAddress ip = 2 [(.description) = "IP at which event was observed"];
+// optional .CMsgIPAddress ip = 2;
 inline bool CAuthentication_RefreshToken_Enumerate_Response_TokenUsageEvent::_internal_has_ip() const {
   bool value = (_has_bits_[0] & 0x00000010u) != 0;
   PROTOBUF_ASSUME(!value || ip_ != nullptr);
@@ -14063,7 +14063,7 @@ inline void CAuthentication_RefreshToken_Enumerate_Response_TokenUsageEvent::set
   // @@protoc_insertion_point(field_set_allocated:CAuthentication_RefreshToken_Enumerate_Response.TokenUsageEvent.locale)
 }
 
-// optional string country = 4 [(.description) = "Location (country code) of event, as inferred from IP"];
+// optional string country = 4;
 inline bool CAuthentication_RefreshToken_Enumerate_Response_TokenUsageEvent::_internal_has_country() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -14136,7 +14136,7 @@ inline void CAuthentication_RefreshToken_Enumerate_Response_TokenUsageEvent::set
   // @@protoc_insertion_point(field_set_allocated:CAuthentication_RefreshToken_Enumerate_Response.TokenUsageEvent.country)
 }
 
-// optional string state = 5 [(.description) = "Location (state code) of event, as inferred from IP"];
+// optional string state = 5;
 inline bool CAuthentication_RefreshToken_Enumerate_Response_TokenUsageEvent::_internal_has_state() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -14209,7 +14209,7 @@ inline void CAuthentication_RefreshToken_Enumerate_Response_TokenUsageEvent::set
   // @@protoc_insertion_point(field_set_allocated:CAuthentication_RefreshToken_Enumerate_Response.TokenUsageEvent.state)
 }
 
-// optional string city = 6 [(.description) = "Location (city) of event, as inferred from IP"];
+// optional string city = 6;
 inline bool CAuthentication_RefreshToken_Enumerate_Response_TokenUsageEvent::_internal_has_city() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -14286,7 +14286,7 @@ inline void CAuthentication_RefreshToken_Enumerate_Response_TokenUsageEvent::set
 
 // CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescription
 
-// optional fixed64 token_id = 1 [(.description) = "Persistent token/device identifier"];
+// optional fixed64 token_id = 1;
 inline bool CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescription::_internal_has_token_id() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -14314,7 +14314,7 @@ inline void CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescript
   // @@protoc_insertion_point(field_set:CAuthentication_RefreshToken_Enumerate_Response.RefreshTokenDescription.token_id)
 }
 
-// optional string token_description = 2 [(.description) = "client-supplied friendly name for the device"];
+// optional string token_description = 2;
 inline bool CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescription::_internal_has_token_description() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -14415,7 +14415,7 @@ inline void CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescript
   // @@protoc_insertion_point(field_set:CAuthentication_RefreshToken_Enumerate_Response.RefreshTokenDescription.time_updated)
 }
 
-// optional .EAuthTokenPlatformType platform_type = 4 [default = EAuthTokenPlatformType_Unknown, (.description) = "gross platform type (mobile/client/browser)"];
+// optional .EAuthTokenPlatformType platform_type = 4 [default = EAuthTokenPlatformType_Unknown];
 inline bool CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescription::_internal_has_platform_type() const {
   bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
@@ -14444,7 +14444,7 @@ inline void CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescript
   // @@protoc_insertion_point(field_set:CAuthentication_RefreshToken_Enumerate_Response.RefreshTokenDescription.platform_type)
 }
 
-// optional bool logged_in = 5 [(.description) = "If true, this token is currently valid. False indicates it is a machine token - ok for steamguard if you know the credential"];
+// optional bool logged_in = 5;
 inline bool CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescription::_internal_has_logged_in() const {
   bool value = (_has_bits_[0] & 0x00000040u) != 0;
   return value;
@@ -14472,7 +14472,7 @@ inline void CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescript
   // @@protoc_insertion_point(field_set:CAuthentication_RefreshToken_Enumerate_Response.RefreshTokenDescription.logged_in)
 }
 
-// optional uint32 os_platform = 6 [(.description) = "EPlatformType - rough classification of device OS, if known"];
+// optional uint32 os_platform = 6;
 inline bool CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescription::_internal_has_os_platform() const {
   bool value = (_has_bits_[0] & 0x00000080u) != 0;
   return value;
@@ -14500,7 +14500,7 @@ inline void CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescript
   // @@protoc_insertion_point(field_set:CAuthentication_RefreshToken_Enumerate_Response.RefreshTokenDescription.os_platform)
 }
 
-// optional uint32 auth_type = 7 [(.description) = "EAuthTokenGuardType - device authorization mechanism, if known"];
+// optional uint32 auth_type = 7;
 inline bool CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescription::_internal_has_auth_type() const {
   bool value = (_has_bits_[0] & 0x00000100u) != 0;
   return value;
@@ -14528,7 +14528,7 @@ inline void CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescript
   // @@protoc_insertion_point(field_set:CAuthentication_RefreshToken_Enumerate_Response.RefreshTokenDescription.auth_type)
 }
 
-// optional uint32 gaming_device_type = 8 [(.description) = "EGamingDeviceType - classify console/PC/SteamDeck, if known; applies only for Steam Client devices"];
+// optional uint32 gaming_device_type = 8;
 inline bool CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescription::_internal_has_gaming_device_type() const {
   bool value = (_has_bits_[0] & 0x00000200u) != 0;
   return value;
@@ -14556,7 +14556,7 @@ inline void CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescript
   // @@protoc_insertion_point(field_set:CAuthentication_RefreshToken_Enumerate_Response.RefreshTokenDescription.gaming_device_type)
 }
 
-// optional .CAuthentication_RefreshToken_Enumerate_Response.TokenUsageEvent first_seen = 9 [(.description) = "Information about original authorization event"];
+// optional .CAuthentication_RefreshToken_Enumerate_Response.TokenUsageEvent first_seen = 9;
 inline bool CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescription::_internal_has_first_seen() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   PROTOBUF_ASSUME(!value || first_seen_ != nullptr);
@@ -14639,7 +14639,7 @@ inline void CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescript
   // @@protoc_insertion_point(field_set_allocated:CAuthentication_RefreshToken_Enumerate_Response.RefreshTokenDescription.first_seen)
 }
 
-// optional .CAuthentication_RefreshToken_Enumerate_Response.TokenUsageEvent last_seen = 10 [(.description) = "Information about most-recently seen, if known for this device"];
+// optional .CAuthentication_RefreshToken_Enumerate_Response.TokenUsageEvent last_seen = 10;
 inline bool CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescription::_internal_has_last_seen() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   PROTOBUF_ASSUME(!value || last_seen_ != nullptr);
@@ -14722,7 +14722,7 @@ inline void CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescript
   // @@protoc_insertion_point(field_set_allocated:CAuthentication_RefreshToken_Enumerate_Response.RefreshTokenDescription.last_seen)
 }
 
-// optional int32 os_type = 11 [(.description) = "EOSType - specific device OS, if known"];
+// optional int32 os_type = 11;
 inline bool CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescription::_internal_has_os_type() const {
   bool value = (_has_bits_[0] & 0x00000400u) != 0;
   return value;
@@ -14829,7 +14829,7 @@ inline void CAuthentication_RefreshToken_Enumerate_Response::set_requesting_toke
 
 // CAuthentication_GetAuthSessionsForAccount_Response
 
-// repeated uint64 client_ids = 1 [(.description) = "unique identifier of requestor, also used for routing"];
+// repeated uint64 client_ids = 1;
 inline int CAuthentication_GetAuthSessionsForAccount_Response::_internal_client_ids_size() const {
   return client_ids_.size();
 }
@@ -14880,7 +14880,7 @@ CAuthentication_GetAuthSessionsForAccount_Response::mutable_client_ids() {
 
 // CAuthentication_MigrateMobileSession_Request
 
-// optional fixed64 steamid = 1 [(.description) = "Steam ID of the user to migrate"];
+// optional fixed64 steamid = 1;
 inline bool CAuthentication_MigrateMobileSession_Request::_internal_has_steamid() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -14908,7 +14908,7 @@ inline void CAuthentication_MigrateMobileSession_Request::set_steamid(::PROTOBUF
   // @@protoc_insertion_point(field_set:CAuthentication_MigrateMobileSession_Request.steamid)
 }
 
-// optional string token = 2 [(.description) = "WG Token to migrate"];
+// optional string token = 2;
 inline bool CAuthentication_MigrateMobileSession_Request::_internal_has_token() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -14981,7 +14981,7 @@ inline void CAuthentication_MigrateMobileSession_Request::set_allocated_token(st
   // @@protoc_insertion_point(field_set_allocated:CAuthentication_MigrateMobileSession_Request.token)
 }
 
-// optional string signature = 3 [(.description) = "Signature over the wg token using the user\'s 2FA token"];
+// optional string signature = 3;
 inline bool CAuthentication_MigrateMobileSession_Request::_internal_has_signature() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -15281,7 +15281,7 @@ inline void CAuthentication_Token_Revoke_Request::set_allocated_token(std::strin
   // @@protoc_insertion_point(field_set_allocated:CAuthentication_Token_Revoke_Request.token)
 }
 
-// optional .EAuthTokenRevokeAction revoke_action = 2 [default = EAuthTokenRevokePermanent, (.description) = "Select between logout and logout-and-forget-machine"];
+// optional .EAuthTokenRevokeAction revoke_action = 2 [default = EAuthTokenRevokePermanent];
 inline bool CAuthentication_Token_Revoke_Request::_internal_has_revoke_action() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -15346,7 +15346,7 @@ inline void CAuthentication_RefreshToken_Revoke_Request::set_token_id(::PROTOBUF
   // @@protoc_insertion_point(field_set:CAuthentication_RefreshToken_Revoke_Request.token_id)
 }
 
-// optional fixed64 steamid = 2 [(.description) = "Token holder if an admin action on behalf of another user"];
+// optional fixed64 steamid = 2;
 inline bool CAuthentication_RefreshToken_Revoke_Request::_internal_has_steamid() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -15374,7 +15374,7 @@ inline void CAuthentication_RefreshToken_Revoke_Request::set_steamid(::PROTOBUF_
   // @@protoc_insertion_point(field_set:CAuthentication_RefreshToken_Revoke_Request.steamid)
 }
 
-// optional .EAuthTokenRevokeAction revoke_action = 3 [default = EAuthTokenRevokePermanent, (.description) = "Select between logout and logout-and-forget-machine"];
+// optional .EAuthTokenRevokeAction revoke_action = 3 [default = EAuthTokenRevokePermanent];
 inline bool CAuthentication_RefreshToken_Revoke_Request::_internal_has_revoke_action() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -15403,7 +15403,7 @@ inline void CAuthentication_RefreshToken_Revoke_Request::set_revoke_action(::EAu
   // @@protoc_insertion_point(field_set:CAuthentication_RefreshToken_Revoke_Request.revoke_action)
 }
 
-// optional bytes signature = 4 [(.description) = "required signature over token_id"];
+// optional bytes signature = 4;
 inline bool CAuthentication_RefreshToken_Revoke_Request::_internal_has_signature() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -15484,7 +15484,7 @@ inline void CAuthentication_RefreshToken_Revoke_Request::set_allocated_signature
 
 // CAuthenticationSupport_QueryRefreshTokensByAccount_Request
 
-// optional fixed64 steamid = 1 [(.description) = "SteamID of the account to query (required)"];
+// optional fixed64 steamid = 1;
 inline bool CAuthenticationSupport_QueryRefreshTokensByAccount_Request::_internal_has_steamid() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -15512,7 +15512,7 @@ inline void CAuthenticationSupport_QueryRefreshTokensByAccount_Request::set_stea
   // @@protoc_insertion_point(field_set:CAuthenticationSupport_QueryRefreshTokensByAccount_Request.steamid)
 }
 
-// optional bool include_revoked_tokens = 2 [(.description) = "Includes tokens that are revoked or expired in the query"];
+// optional bool include_revoked_tokens = 2;
 inline bool CAuthenticationSupport_QueryRefreshTokensByAccount_Request::_internal_has_include_revoked_tokens() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -15544,7 +15544,7 @@ inline void CAuthenticationSupport_QueryRefreshTokensByAccount_Request::set_incl
 
 // CSupportRefreshTokenDescription_TokenUsageEvent
 
-// optional uint32 time = 1 [(.description) = "Approximate time of history event (may be deliberately fuzzed or omitted)"];
+// optional uint32 time = 1;
 inline bool CSupportRefreshTokenDescription_TokenUsageEvent::_internal_has_time() const {
   bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
@@ -15572,7 +15572,7 @@ inline void CSupportRefreshTokenDescription_TokenUsageEvent::set_time(::PROTOBUF
   // @@protoc_insertion_point(field_set:CSupportRefreshTokenDescription.TokenUsageEvent.time)
 }
 
-// optional .CMsgIPAddress ip = 2 [(.description) = "IP at which event was observed"];
+// optional .CMsgIPAddress ip = 2;
 inline bool CSupportRefreshTokenDescription_TokenUsageEvent::_internal_has_ip() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   PROTOBUF_ASSUME(!value || ip_ != nullptr);
@@ -15651,7 +15651,7 @@ inline void CSupportRefreshTokenDescription_TokenUsageEvent::set_allocated_ip(::
   // @@protoc_insertion_point(field_set_allocated:CSupportRefreshTokenDescription.TokenUsageEvent.ip)
 }
 
-// optional string country = 3 [(.description) = "Location (country code) of event, as inferred from IP"];
+// optional string country = 3;
 inline bool CSupportRefreshTokenDescription_TokenUsageEvent::_internal_has_country() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -15724,7 +15724,7 @@ inline void CSupportRefreshTokenDescription_TokenUsageEvent::set_allocated_count
   // @@protoc_insertion_point(field_set_allocated:CSupportRefreshTokenDescription.TokenUsageEvent.country)
 }
 
-// optional string state = 4 [(.description) = "Location (state code) of event, as inferred from IP"];
+// optional string state = 4;
 inline bool CSupportRefreshTokenDescription_TokenUsageEvent::_internal_has_state() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -15797,7 +15797,7 @@ inline void CSupportRefreshTokenDescription_TokenUsageEvent::set_allocated_state
   // @@protoc_insertion_point(field_set_allocated:CSupportRefreshTokenDescription.TokenUsageEvent.state)
 }
 
-// optional string city = 5 [(.description) = "Location (city) of event, as inferred from IP"];
+// optional string city = 5;
 inline bool CSupportRefreshTokenDescription_TokenUsageEvent::_internal_has_city() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -16089,7 +16089,7 @@ inline void CSupportRefreshTokenDescription::set_owner_steamid(::PROTOBUF_NAMESP
   // @@protoc_insertion_point(field_set:CSupportRefreshTokenDescription.owner_steamid)
 }
 
-// optional uint32 os_platform = 7 [(.description) = "EPlatformType - rough classification of device OS, if known"];
+// optional uint32 os_platform = 7;
 inline bool CSupportRefreshTokenDescription::_internal_has_os_platform() const {
   bool value = (_has_bits_[0] & 0x00000100u) != 0;
   return value;
@@ -16117,7 +16117,7 @@ inline void CSupportRefreshTokenDescription::set_os_platform(::PROTOBUF_NAMESPAC
   // @@protoc_insertion_point(field_set:CSupportRefreshTokenDescription.os_platform)
 }
 
-// optional int32 os_type = 8 [(.description) = "EOSType - specific device OS, if known"];
+// optional int32 os_type = 8;
 inline bool CSupportRefreshTokenDescription::_internal_has_os_type() const {
   bool value = (_has_bits_[0] & 0x00000200u) != 0;
   return value;
@@ -16145,7 +16145,7 @@ inline void CSupportRefreshTokenDescription::set_os_type(::PROTOBUF_NAMESPACE_ID
   // @@protoc_insertion_point(field_set:CSupportRefreshTokenDescription.os_type)
 }
 
-// optional uint32 auth_type = 9 [(.description) = "EAuthTokenGuardType - device authorization mechanism, if known"];
+// optional uint32 auth_type = 9;
 inline bool CSupportRefreshTokenDescription::_internal_has_auth_type() const {
   bool value = (_has_bits_[0] & 0x00000400u) != 0;
   return value;
@@ -16173,7 +16173,7 @@ inline void CSupportRefreshTokenDescription::set_auth_type(::PROTOBUF_NAMESPACE_
   // @@protoc_insertion_point(field_set:CSupportRefreshTokenDescription.auth_type)
 }
 
-// optional uint32 gaming_device_type = 10 [(.description) = "EGamingDeviceType - classify console/PC/SteamDeck, if known; applies only for Steam Client devices"];
+// optional uint32 gaming_device_type = 10;
 inline bool CSupportRefreshTokenDescription::_internal_has_gaming_device_type() const {
   bool value = (_has_bits_[0] & 0x00000800u) != 0;
   return value;
@@ -16201,7 +16201,7 @@ inline void CSupportRefreshTokenDescription::set_gaming_device_type(::PROTOBUF_N
   // @@protoc_insertion_point(field_set:CSupportRefreshTokenDescription.gaming_device_type)
 }
 
-// optional .CSupportRefreshTokenDescription.TokenUsageEvent first_seen = 11 [(.description) = "Information about original authorization event"];
+// optional .CSupportRefreshTokenDescription.TokenUsageEvent first_seen = 11;
 inline bool CSupportRefreshTokenDescription::_internal_has_first_seen() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   PROTOBUF_ASSUME(!value || first_seen_ != nullptr);
@@ -16284,7 +16284,7 @@ inline void CSupportRefreshTokenDescription::set_allocated_first_seen(::CSupport
   // @@protoc_insertion_point(field_set_allocated:CSupportRefreshTokenDescription.first_seen)
 }
 
-// optional .CSupportRefreshTokenDescription.TokenUsageEvent last_seen = 12 [(.description) = "Information about most-recently seen, if known for this device"];
+// optional .CSupportRefreshTokenDescription.TokenUsageEvent last_seen = 12;
 inline bool CSupportRefreshTokenDescription::_internal_has_last_seen() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   PROTOBUF_ASSUME(!value || last_seen_ != nullptr);
@@ -16442,7 +16442,7 @@ inline void CAuthenticationSupport_QueryRefreshTokensByAccount_Response::set_las
 
 // CAuthenticationSupport_QueryRefreshTokenByID_Request
 
-// optional fixed64 token_id = 1 [(.description) = "Token ID of the token to look up (required)"];
+// optional fixed64 token_id = 1;
 inline bool CAuthenticationSupport_QueryRefreshTokenByID_Request::_internal_has_token_id() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -16517,7 +16517,7 @@ CAuthenticationSupport_QueryRefreshTokenByID_Response::refresh_tokens() const {
 
 // CAuthenticationSupport_RevokeToken_Request
 
-// optional fixed64 token_id = 1 [(.description) = "Token ID of the token to revoke (required)"];
+// optional fixed64 token_id = 1;
 inline bool CAuthenticationSupport_RevokeToken_Request::_internal_has_token_id() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -16545,7 +16545,7 @@ inline void CAuthenticationSupport_RevokeToken_Request::set_token_id(::PROTOBUF_
   // @@protoc_insertion_point(field_set:CAuthenticationSupport_RevokeToken_Request.token_id)
 }
 
-// optional fixed64 steamid = 2 [(.description) = "Steam ID of the owner of that token (required)"];
+// optional fixed64 steamid = 2;
 inline bool CAuthenticationSupport_RevokeToken_Request::_internal_has_steamid() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -16581,7 +16581,7 @@ inline void CAuthenticationSupport_RevokeToken_Request::set_steamid(::PROTOBUF_N
 
 // CAuthenticationSupport_GetTokenHistory_Request
 
-// optional fixed64 token_id = 1 [(.description) = "Token ID of the token to get history for (required)"];
+// optional fixed64 token_id = 1;
 inline bool CAuthenticationSupport_GetTokenHistory_Request::_internal_has_token_id() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;

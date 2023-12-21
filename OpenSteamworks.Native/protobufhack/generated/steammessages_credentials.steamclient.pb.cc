@@ -403,81 +403,72 @@ const char descriptor_table_protodef_steammessages_5fcredentials_2esteamclient_2
   "\010password\030\001 \001(\t\022\033\n\023sha_digest_password\030\002"
   " \001(\014\022\024\n\014account_name\030\003 \001(\t\"\?\n+CCredentia"
   "ls_TestAvailablePassword_Response\022\020\n\010is_"
-  "valid\030\003 \001(\010\"\247\002\n)CCredentials_GetSteamGua"
-  "rdDetails_Request\022\225\001\n\twebcookie\030\002 \001(\tB\201\001"
-  "\202\265\030}The user\'s Steam Guard machine auth "
-  "cookie. If present, it\'ll be used to get"
-  " the user\'s machine ID instead of the AM"
-  " session.\022 \n\030timestamp_minimum_wanted\030\003 "
-  "\001(\007\022\034\n\024deprecated_ipaddress\030\004 \001(\005\022\"\n\nip_"
-  "address\030\005 \001(\0132\016.CMsgIPAddress\"\377\005\n*CCrede"
-  "ntials_GetSteamGuardDetails_Response\022\035\n\025"
-  "is_steamguard_enabled\030\001 \001(\010\022$\n\034timestamp"
-  "_steamguard_enabled\030\002 \001(\007\022*\n\"deprecated_"
-  "machine_name_userchosen\030\004 \001(\t\0227\n/depreca"
-  "ted_timestamp_machine_steamguard_enabled"
-  "\030\005 \001(\007\022C\n;deprecated_authentication_exis"
-  "ts_from_geoloc_before_mintime\030\006 \001(\010\022\035\n\025d"
-  "eprecated_machine_id\030\007 \001(\004\022M\n\014session_da"
-  "ta\030\010 \003(\01327.CCredentials_GetSteamGuardDet"
-  "ails_Response.SessionData\022\034\n\024is_twofacto"
-  "r_enabled\030\t \001(\010\022#\n\033timestamp_twofactor_e"
-  "nabled\030\n \001(\007\022\031\n\021is_phone_verified\030\013 \001(\010\032"
-  "\225\002\n\013SessionData\022\022\n\nmachine_id\030\001 \001(\004\022\037\n\027m"
-  "achine_name_userchosen\030\002 \001(\t\022,\n$timestam"
-  "p_machine_steamguard_enabled\030\003 \001(\007\0228\n0au"
-  "thentication_exists_from_geoloc_before_m"
-  "intime\030\004 \001(\010\0229\n1authentication_exists_fr"
-  "om_same_ip_before_mintime\030\006 \001(\010\022\023\n\013publi"
-  "c_ipv4\030\007 \001(\r\022\031\n\021public_ip_address\030\010 \001(\t\""
-  ";\n)CCredentials_ValidateEmailAddress_Req"
-  "uest\022\016\n\006stoken\030\001 \001(\t\"C\n*CCredentials_Val"
-  "idateEmailAddress_Response\022\025\n\rwas_valida"
-  "ted\030\001 \001(\010\"_\n-CCredentials_SteamGuardPhis"
-  "hingReport_Request\022\024\n\014param_string\030\001 \001(\t"
-  "\022\030\n\020ipaddress_actual\030\002 \001(\t\"\263\002\n.CCredenti"
-  "als_SteamGuardPhishingReport_Response\022\036\n"
-  "\026ipaddress_loginattempt\030\001 \001(\t\022 \n\030country"
-  "name_loginattempt\030\002 \001(\t\022\036\n\026statename_log"
-  "inattempt\030\003 \001(\t\022\035\n\025cityname_loginattempt"
-  "\030\004 \001(\t\022\030\n\020ipaddress_actual\030\005 \001(\t\022\032\n\022coun"
-  "tryname_actual\030\006 \001(\t\022\030\n\020statename_actual"
-  "\030\007 \001(\t\022\027\n\017cityname_actual\030\010 \001(\t\022\027\n\017steam"
-  "guard_code\030\t \001(\t\"J\n-CCredentials_LastCre"
-  "dentialChangeTime_Request\022\031\n\021user_change"
-  "s_only\030\001 \001(\010\"\244\001\n.CCredentials_LastCreden"
-  "tialChangeTime_Response\022&\n\036timestamp_las"
-  "t_password_change\030\001 \001(\007\022#\n\033timestamp_las"
-  "t_email_change\030\002 \001(\007\022%\n\035timestamp_last_p"
-  "assword_reset\030\003 \001(\007\"+\n)CCredentials_GetA"
-  "ccountAuthSecret_Request\"O\n*CCredentials"
-  "_GetAccountAuthSecret_Response\022\021\n\tsecret"
-  "_id\030\001 \001(\005\022\016\n\006secret\030\002 \001(\0142\264\007\n\013Credential"
-  "s\022\216\001\n\025TestAvailablePassword\022+.CCredentia"
-  "ls_TestAvailablePassword_Request\032,.CCred"
-  "entials_TestAvailablePassword_Response\"\032"
-  "\202\265\030\026TestAvailablePassword.\022\212\001\n\024GetSteamG"
-  "uardDetails\022*.CCredentials_GetSteamGuard"
-  "Details_Request\032+.CCredentials_GetSteamG"
-  "uardDetails_Response\"\031\202\265\030\025GetSteamGuardD"
-  "etails.\022\234\001\n\024ValidateEmailAddress\022*.CCred"
-  "entials_ValidateEmailAddress_Request\032+.C"
-  "Credentials_ValidateEmailAddress_Respons"
-  "e\"+\202\265\030\'Validate an email address given a"
-  " token\022\231\001\n\030SteamGuardPhishingReport\022..CC"
-  "redentials_SteamGuardPhishingReport_Requ"
-  "est\032/.CCredentials_SteamGuardPhishingRep"
-  "ort_Response\"\034\202\265\030\030SteamGuardPhishingRepo"
-  "rt\022\246\001\n\036GetCredentialChangeTimeDetails\022.."
-  "CCredentials_LastCredentialChangeTime_Re"
-  "quest\032/.CCredentials_LastCredentialChang"
-  "eTime_Response\"#\202\265\030\037GetCredentialChangeT"
-  "imeDetails.\022\211\001\n\024GetAccountAuthSecret\022*.C"
-  "Credentials_GetAccountAuthSecret_Request"
-  "\032+.CCredentials_GetAccountAuthSecret_Res"
-  "ponse\"\030\202\265\030\024GetAccountAuthSecret\032\027\202\265\030\023Cre"
-  "dentials serviceB\035\200\001\001\252\002\027OpenSteamworks.P"
-  "rotobuf"
+  "valid\030\003 \001(\010\"\242\001\n)CCredentials_GetSteamGua"
+  "rdDetails_Request\022\021\n\twebcookie\030\002 \001(\t\022 \n\030"
+  "timestamp_minimum_wanted\030\003 \001(\007\022\034\n\024deprec"
+  "ated_ipaddress\030\004 \001(\005\022\"\n\nip_address\030\005 \001(\013"
+  "2\016.CMsgIPAddress\"\377\005\n*CCredentials_GetSte"
+  "amGuardDetails_Response\022\035\n\025is_steamguard"
+  "_enabled\030\001 \001(\010\022$\n\034timestamp_steamguard_e"
+  "nabled\030\002 \001(\007\022*\n\"deprecated_machine_name_"
+  "userchosen\030\004 \001(\t\0227\n/deprecated_timestamp"
+  "_machine_steamguard_enabled\030\005 \001(\007\022C\n;dep"
+  "recated_authentication_exists_from_geolo"
+  "c_before_mintime\030\006 \001(\010\022\035\n\025deprecated_mac"
+  "hine_id\030\007 \001(\004\022M\n\014session_data\030\010 \003(\01327.CC"
+  "redentials_GetSteamGuardDetails_Response"
+  ".SessionData\022\034\n\024is_twofactor_enabled\030\t \001"
+  "(\010\022#\n\033timestamp_twofactor_enabled\030\n \001(\007\022"
+  "\031\n\021is_phone_verified\030\013 \001(\010\032\225\002\n\013SessionDa"
+  "ta\022\022\n\nmachine_id\030\001 \001(\004\022\037\n\027machine_name_u"
+  "serchosen\030\002 \001(\t\022,\n$timestamp_machine_ste"
+  "amguard_enabled\030\003 \001(\007\0228\n0authentication_"
+  "exists_from_geoloc_before_mintime\030\004 \001(\010\022"
+  "9\n1authentication_exists_from_same_ip_be"
+  "fore_mintime\030\006 \001(\010\022\023\n\013public_ipv4\030\007 \001(\r\022"
+  "\031\n\021public_ip_address\030\010 \001(\t\";\n)CCredentia"
+  "ls_ValidateEmailAddress_Request\022\016\n\006stoke"
+  "n\030\001 \001(\t\"C\n*CCredentials_ValidateEmailAdd"
+  "ress_Response\022\025\n\rwas_validated\030\001 \001(\010\"_\n-"
+  "CCredentials_SteamGuardPhishingReport_Re"
+  "quest\022\024\n\014param_string\030\001 \001(\t\022\030\n\020ipaddress"
+  "_actual\030\002 \001(\t\"\263\002\n.CCredentials_SteamGuar"
+  "dPhishingReport_Response\022\036\n\026ipaddress_lo"
+  "ginattempt\030\001 \001(\t\022 \n\030countryname_loginatt"
+  "empt\030\002 \001(\t\022\036\n\026statename_loginattempt\030\003 \001"
+  "(\t\022\035\n\025cityname_loginattempt\030\004 \001(\t\022\030\n\020ipa"
+  "ddress_actual\030\005 \001(\t\022\032\n\022countryname_actua"
+  "l\030\006 \001(\t\022\030\n\020statename_actual\030\007 \001(\t\022\027\n\017cit"
+  "yname_actual\030\010 \001(\t\022\027\n\017steamguard_code\030\t "
+  "\001(\t\"J\n-CCredentials_LastCredentialChange"
+  "Time_Request\022\031\n\021user_changes_only\030\001 \001(\010\""
+  "\244\001\n.CCredentials_LastCredentialChangeTim"
+  "e_Response\022&\n\036timestamp_last_password_ch"
+  "ange\030\001 \001(\007\022#\n\033timestamp_last_email_chang"
+  "e\030\002 \001(\007\022%\n\035timestamp_last_password_reset"
+  "\030\003 \001(\007\"+\n)CCredentials_GetAccountAuthSec"
+  "ret_Request\"O\n*CCredentials_GetAccountAu"
+  "thSecret_Response\022\021\n\tsecret_id\030\001 \001(\005\022\016\n\006"
+  "secret\030\002 \001(\0142\325\005\n\013Credentials\022r\n\025TestAvai"
+  "lablePassword\022+.CCredentials_TestAvailab"
+  "lePassword_Request\032,.CCredentials_TestAv"
+  "ailablePassword_Response\022o\n\024GetSteamGuar"
+  "dDetails\022*.CCredentials_GetSteamGuardDet"
+  "ails_Request\032+.CCredentials_GetSteamGuar"
+  "dDetails_Response\022o\n\024ValidateEmailAddres"
+  "s\022*.CCredentials_ValidateEmailAddress_Re"
+  "quest\032+.CCredentials_ValidateEmailAddres"
+  "s_Response\022{\n\030SteamGuardPhishingReport\022."
+  ".CCredentials_SteamGuardPhishingReport_R"
+  "equest\032/.CCredentials_SteamGuardPhishing"
+  "Report_Response\022\201\001\n\036GetCredentialChangeT"
+  "imeDetails\022..CCredentials_LastCredential"
+  "ChangeTime_Request\032/.CCredentials_LastCr"
+  "edentialChangeTime_Response\022o\n\024GetAccoun"
+  "tAuthSecret\022*.CCredentials_GetAccountAut"
+  "hSecret_Request\032+.CCredentials_GetAccoun"
+  "tAuthSecret_ResponseB\035\200\001\001\252\002\027OpenSteamwor"
+  "ks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fcredentials_2esteamclient_2eproto_deps[3] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
@@ -486,7 +477,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fcredentials_2esteamclient_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fcredentials_2esteamclient_2eproto = {
-  false, false, 3287, descriptor_table_protodef_steammessages_5fcredentials_2esteamclient_2eproto, "steammessages_credentials.steamclient.proto", 
+  false, false, 2931, descriptor_table_protodef_steammessages_5fcredentials_2esteamclient_2eproto, "steammessages_credentials.steamclient.proto", 
   &descriptor_table_steammessages_5fcredentials_2esteamclient_2eproto_once, descriptor_table_steammessages_5fcredentials_2esteamclient_2eproto_deps, 3, 13,
   schemas, file_default_instances, TableStruct_steammessages_5fcredentials_2esteamclient_2eproto::offsets,
   file_level_metadata_steammessages_5fcredentials_2esteamclient_2eproto, file_level_enum_descriptors_steammessages_5fcredentials_2esteamclient_2eproto, file_level_service_descriptors_steammessages_5fcredentials_2esteamclient_2eproto,
@@ -1122,7 +1113,7 @@ const char* CCredentials_GetSteamGuardDetails_Request::_InternalParse(const char
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional string webcookie = 2 [(.description) = "The user\'s Steam Guard machine auth cookie. If present, it\'ll be used to get the user\'s machine ID instead of the AM session."];
+      // optional string webcookie = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           auto str = _internal_mutable_webcookie();
@@ -1186,7 +1177,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional string webcookie = 2 [(.description) = "The user\'s Steam Guard machine auth cookie. If present, it\'ll be used to get the user\'s machine ID instead of the AM session."];
+  // optional string webcookie = 2;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_webcookie().data(), static_cast<int>(this->_internal_webcookie().length()),
@@ -1234,7 +1225,7 @@ size_t CCredentials_GetSteamGuardDetails_Request::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x0000000fu) {
-    // optional string webcookie = 2 [(.description) = "The user\'s Steam Guard machine auth cookie. If present, it\'ll be used to get the user\'s machine ID instead of the AM session."];
+    // optional string webcookie = 2;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(

@@ -2313,562 +2313,408 @@ const char descriptor_table_protodef_steammessages_5fbroadcast_2esteamclient_2ep
   "_instance_id\030\003 \001(\004\022\r\n\005title\030\004 \001(\t\022\016\n\006cel"
   "lid\030\005 \001(\r\022\022\n\nrtmp_token\030\006 \001(\004\022\030\n\020thumbna"
   "il_upload\030\007 \001(\010\022\023\n\013client_beta\030\010 \001(\t\022\r\n\005"
-  "sysid\030\t \001(\r\022\024\n\014allow_webrtc\030\n \001(\010\"\234\003\n)CB"
+  "sysid\030\t \001(\r\022\024\n\014allow_webrtc\030\n \001(\010\"\313\001\n)CB"
   "roadcast_BeginBroadcastSession_Response\022"
-  "\024\n\014broadcast_id\030\001 \001(\006\022P\n\030thumbnail_uploa"
-  "d_address\030\002 \001(\tB.\202\265\030*Http address to upl"
-  "oad the thumbnail data.\022e\n\026thumbnail_upl"
-  "oad_token\030\003 \001(\tBE\202\265\030Atoken to authorize "
-  "as broadcaster to upload content to the "
-  "relay.\022K\n\032thumbnail_interval_seconds\030\004 \001"
-  "(\rB\'\202\265\030#how many seconds between thumbna"
-  "ils\022S\n\032heartbeat_interval_seconds\030\005 \001(\rB"
-  "/\202\265\030+how many seconds between session he"
-  "artbeats\">\n&CBroadcast_EndBroadcastSessi"
-  "on_Request\022\024\n\014broadcast_id\030\001 \001(\006\")\n\'CBro"
-  "adcast_EndBroadcastSession_Response\"\210\002\n\'"
-  "CBroadcast_StartBroadcastUpload_Request\022"
-  "\024\n\014broadcast_id\030\001 \001(\006\022\016\n\006cellid\030\002 \001(\r\022\017\n"
-  "\007as_rtmp\030\003 \001(\010\022\025\n\rdelay_seconds\030\004 \001(\r\022R\n"
-  "\nrtmp_token\030\005 \001(\004:\0010B;\202\265\0307Only set durin"
-  "g RTMP uploads; secret key from the user"
-  ".\022\031\n\021upload_ip_address\030\006 \001(\r\022\021\n\tis_repla"
-  "y\030\007 \001(\010\022\r\n\005sysid\030\010 \001(\r\"\242\001\n(CBroadcast_St"
-  "artBroadcastUpload_Response\022\024\n\014upload_to"
-  "ken\030\001 \001(\t\022\026\n\016upload_address\030\002 \001(\t\022\033\n\023bro"
-  "adcast_upload_id\030\003 \001(\006\022\025\n\renable_replay\030"
-  "\006 \001(\010\022\024\n\014http_address\030\007 \001(\t\"g\n1CBroadcas"
-  "t_NotifyBroadcastUploadStop_Notification"
-  "\022\033\n\023broadcast_upload_id\030\001 \001(\006\022\025\n\rupload_"
-  "result\030\002 \001(\r\"\207\003\n!CBroadcast_WatchBroadca"
-  "st_Request\022)\n\007steamid\030\001 \001(\006B\030\202\265\030\024broadca"
-  "ster steamID.\022X\n\025existing_broadcast_id\030\002"
-  " \001(\006B9\202\265\0305broadcast session ID (optional"
-  ", rejoin if specified).\022b\n\014viewer_token\030"
-  "\003 \001(\006BL\202\265\030Hviewer token received from la"
-  "st WatchRequest call, from browser stora"
-  "ge.\022\023\n\013client_cell\030\005 \001(\r\022Q\n\016watch_locati"
-  "on\030\006 \001(\0162\030.EBroadcastWatchLocation:\037EBro"
-  "adcastWatchLocation_Invalid\022\021\n\tis_webrtc"
-  "\030\007 \001(\010\"\202\010\n\"CBroadcast_WatchBroadcast_Res"
-  "ponse\022Y\n\010response\030\001 \001(\01622.CBroadcast_Wat"
-  "chBroadcast_Response.EWatchResponse:\023EWa"
-  "tchResponseReady\022\017\n\007mpd_url\030\002 \001(\t\022\024\n\014bro"
-  "adcast_id\030\003 \001(\006\022\016\n\006gameid\030\004 \001(\004\022\r\n\005title"
-  "\030\005 \001(\t\022\023\n\013num_viewers\030\006 \001(\r\022\022\n\npermissio"
-  "n\030\007 \001(\005\022\017\n\007is_rtmp\030\010 \001(\010\022\025\n\rseconds_dela"
-  "y\030\t \001(\005\022\024\n\014viewer_token\030\n \001(\006\022\033\n\023hls_m3u"
-  "8_master_url\030\013 \001(\t\022\032\n\022heartbeat_interval"
-  "\030\014 \001(\005\022\025\n\rthumbnail_url\030\r \001(\t\022\021\n\tis_webr"
-  "tc\030\016 \001(\010\022\031\n\021webrtc_session_id\030\017 \001(\006\022\030\n\020w"
-  "ebrtc_offer_sdp\030\020 \001(\t\022\032\n\022webrtc_turn_ser"
-  "ver\030\021 \001(\t\022\021\n\tis_replay\030\022 \001(\010\022\020\n\010duration"
-  "\030\023 \001(\005\022\037\n\027cdn_auth_url_parameters\030\024 \001(\t\""
-  "\331\003\n\016EWatchResponse\022\027\n\023EWatchResponseRead"
-  "y\020\001\022\036\n\032EWatchResponseNotAvailable\020\002\022$\n E"
-  "WatchResponseWaitingForApproval\020\003\022!\n\035EWa"
-  "tchResponseWaitingForStart\020\004\022 \n\034EWatchRe"
-  "sponseInvalidSession\020\005\022#\n\037EWatchResponse"
-  "TooManyBroadcasts\020\006\022%\n!EWatchResponseWai"
-  "tingForReconnect\020\007\022$\n EWatchResponseSyst"
-  "emNotSupported\020\010\022 \n\034EWatchResponseUserRe"
-  "stricted\020\t\022!\n\035EWatchResponseClientOutOfD"
-  "ate\020\n\022#\n\037EWatchResponsePoorUploadQuality"
-  "\020\013\022%\n!EWatchResponseMissingSubscription\020"
-  "\014\022 \n\034EWatchResponseTooManyViewers\020\r\"\256\002\n*"
-  "CBroadcast_HeartbeatBroadcast_Notificati"
-  "on\022)\n\007steamid\030\001 \001(\006B\030\202\265\030\024broadcaster ste"
-  "amID.\022/\n\014broadcast_id\030\002 \001(\006B\031\202\265\030\025broadca"
-  "st session ID.\022b\n\014viewer_token\030\003 \001(\006BL\202\265"
-  "\030Hviewer token received from last WatchR"
-  "equest call, from browser storage.\022@\n\016re"
-  "presentation\030\004 \001(\rB(\202\265\030$video stream rep"
-  "resentation watching\"\357\001\n-CBroadcast_Stop"
-  "WatchingBroadcast_Notification\022)\n\007steami"
-  "d\030\001 \001(\006B\030\202\265\030\024broadcaster steamID.\022/\n\014bro"
-  "adcast_id\030\002 \001(\006B\031\202\265\030\025broadcast session I"
-  "D.\022b\n\014viewer_token\030\003 \001(\006BL\202\265\030Hviewer tok"
-  "en received from last WatchRequest call,"
-  " from browser storage.\"\260\001\n%CBroadcast_Ge"
-  "tBroadcastStatus_Request\022)\n\007steamid\030\001 \001("
-  "\006B\030\202\265\030\024broadcaster steamID.\022\\\n\014broadcast"
-  "_id\030\002 \001(\006BF\202\265\030Bbroadcast session ID to p"
-  "roof that user is allowed to see details"
-  ".\"\321\002\n&CBroadcast_GetBroadcastStatus_Resp"
-  "onse\022\016\n\006gameid\030\001 \001(\004\022\r\n\005title\030\002 \001(\t\022\023\n\013n"
-  "um_viewers\030\003 \001(\r\022\022\n\npermission\030\004 \001(\005\022\017\n\007"
-  "is_rtmp\030\005 \001(\010\022\025\n\rseconds_delay\030\006 \001(\005\022\024\n\014"
-  "is_publisher\030\007 \001(\010\022\025\n\rthumbnail_url\030\010 \001("
-  "\t\022\027\n\017update_interval\030\t \001(\005\022\024\n\014is_uploadi"
-  "ng\030\n \001(\010\022\020\n\010duration\030\013 \001(\r\022\021\n\tis_replay\030"
-  "\014 \001(\010\022\030\n\020is_capturing_vod\030\r \001(\010\022\034\n\024is_st"
-  "ore_whitelisted\030\016 \001(\010\"Q\n(CBroadcast_GetB"
-  "roadcastThumbnail_Request\022\017\n\007steamid\030\001 \001"
-  "(\006\022\024\n\014broadcast_id\030\002 \001(\006\"\202\001\n)CBroadcast_"
-  "GetBroadcastThumbnail_Response\022\025\n\rthumbn"
-  "ail_url\030\001 \001(\t\022\027\n\017update_interval\030\002 \001(\005\022\023"
-  "\n\013num_viewers\030\003 \001(\005\022\020\n\010duration\030\004 \001(\005\"R\n"
-  "$CBroadcast_InviteToBroadcast_Request\022\017\n"
-  "\007steamid\030\001 \001(\006\022\031\n\021approval_response\030\002 \001("
-  "\010\"8\n%CBroadcast_InviteToBroadcast_Respon"
-  "se\022\017\n\007success\030\001 \001(\010\"|\n-CBroadcast_SendBr"
-  "oadcastStateToServer_Request\022\022\n\npermissi"
-  "on\030\001 \001(\005\022\016\n\006gameid\030\002 \001(\004\022\r\n\005title\030\003 \001(\t\022"
-  "\030\n\020game_data_config\030\004 \001(\t\"0\n.CBroadcast_"
-  "SendBroadcastStateToServer_Response\"O\n7C"
-  "Broadcast_NotifyBroadcastSessionHeartbea"
-  "t_Notification\022\024\n\014broadcast_id\030\001 \001(\006\"x\n\'"
-  "CBroadcast_GetBroadcastChatInfo_Request\022"
-  "\017\n\007steamid\030\001 \001(\006\022\024\n\014broadcast_id\030\002 \001(\006\022\021"
-  "\n\tclient_ip\030\003 \001(\r\022\023\n\013client_cell\030\004 \001(\r\"o"
-  "\n(CBroadcast_GetBroadcastChatInfo_Respon"
-  "se\022\017\n\007chat_id\030\001 \001(\006\022\031\n\021view_url_template"
-  "\030\003 \001(\t\022\027\n\017flair_group_ids\030\004 \003(\r\"\352\001\n\"CBro"
-  "adcast_PostChatMessage_Request\022\017\n\007chat_i"
-  "d\030\001 \001(\006\022\017\n\007message\030\002 \001(\t\022\023\n\013instance_id\030"
-  "\003 \001(\r\022V\n\010language\030\004 \001(\r:\0010BA\202\265\030=ELanguag"
-  "e of the user posting the message, defau"
-  "lt is english\0225\n\014country_code\030\005 \001(\tB\037\202\265\030"
-  "\033The two letter country code\"{\n#CBroadca"
-  "st_PostChatMessage_Response\022\024\n\014persona_n"
-  "ame\030\001 \001(\t\022\017\n\007in_game\030\002 \001(\010\022\016\n\006result\030\003 \001"
-  "(\005\022\035\n\025cooldown_time_seconds\030\004 \001(\005\"K\n)CBr"
-  "oadcast_UpdateChatMessageFlair_Request\022\017"
-  "\n\007chat_id\030\001 \001(\006\022\r\n\005flair\030\002 \001(\t\"\\\n*CBroad"
-  "cast_UpdateChatMessageFlair_Response\022\016\n\006"
-  "result\030\001 \001(\005\022\017\n\007chat_id\030\002 \001(\006\022\r\n\005flair\030\003"
-  " \001(\t\"`\n(CBroadcast_MuteBroadcastChatUser"
-  "_Request\022\017\n\007chat_id\030\001 \001(\006\022\024\n\014user_steami"
-  "d\030\002 \001(\006\022\r\n\005muted\030\003 \001(\010\"+\n)CBroadcast_Mut"
-  "eBroadcastChatUser_Response\"N\n%CBroadcas"
-  "t_RemoveUserChatText_Request\022\017\n\007chat_id\030"
-  "\001 \001(\006\022\024\n\014user_steamid\030\002 \001(\006\"(\n&CBroadcas"
-  "t_RemoveUserChatText_Response\"U\n,CBroadc"
-  "ast_GetBroadcastChatUserNames_Request\022\017\n"
-  "\007chat_id\030\001 \001(\006\022\024\n\014user_steamid\030\002 \003(\006\"\272\001\n"
-  "-CBroadcast_GetBroadcastChatUserNames_Re"
-  "sponse\022Q\n\rpersona_names\030\001 \003(\0132:.CBroadca"
-  "st_GetBroadcastChatUserNames_Response.Pe"
-  "rsonaName\0326\n\013PersonaName\022\026\n\010steam_id\030\001 \001"
-  "(\006B\004\300\266\030\001\022\017\n\007persona\030\002 \001(\t\"\231\001\n!CBroadcast"
-  "_StartBuildClip_Request\022\017\n\007steamid\030\001 \001(\006"
-  "\022\034\n\024broadcast_session_id\030\002 \001(\006\022\025\n\rfirst_"
-  "segment\030\003 \001(\005\022\024\n\014num_segments\030\004 \001(\005\022\030\n\020c"
-  "lip_description\030\005 \001(\t\"\?\n\"CBroadcast_Star"
-  "tBuildClip_Response\022\031\n\021broadcast_clip_id"
-  "\030\001 \001(\006\"B\n%CBroadcast_GetBuildClipStatus_"
-  "Request\022\031\n\021broadcast_clip_id\030\001 \001(\006\"(\n&CB"
-  "roadcast_GetBuildClipStatus_Response\"\302\001\n"
-  "!CBroadcast_SetClipDetails_Request\022&\n\021br"
-  "oadcast_clip_id\030\001 \001(\004B\013\202\265\030\007Clip ID\022.\n\nst"
-  "art_time\030\002 \001(\rB\032\202\265\030\026start time of the cl"
-  "ip\022*\n\010end_time\030\003 \001(\rB\030\202\265\030\024end time of th"
-  "e clip\022\031\n\021video_description\030\004 \001(\t\"$\n\"CBr"
-  "oadcast_SetClipDetails_Response\"h\n!CBroa"
-  "dcast_GetClipDetails_Request\022C\n\021broadcas"
-  "t_clip_id\030\001 \001(\004B(\202\265\030$List of clip IDs we"
-  " want details for\"\317\004\n\"CBroadcast_GetClip"
-  "Details_Response\0220\n\021broadcast_clip_id\030\001 "
-  "\001(\004B\025\202\265\030\021broadcast clip ID\022.\n\010video_id\030\002"
-  " \001(\004B\034\202\265\030\030matching unique video ID\022,\n\nch"
-  "annel_id\030\003 \001(\004B\030\202\265\030\024Broadcast Channel ID"
-  "\0220\n\006app_id\030\004 \001(\rB \202\265\030\034App ID stream is t"
-  "agged with\022<\n\025accountid_broadcaster\030\005 \001("
-  "\rB\035\202\265\030\031Account ID of broadcaster\0229\n\023acco"
-  "untid_clipmaker\030\006 \001(\rB\034\202\265\030\030Account ID of"
-  " clip-maker\022E\n\021video_description\030\007 \001(\tB*"
-  "\202\265\030&Short name or description of this cl"
-  "ip\022;\n\nstart_time\030\010 \001(\rB\'\202\265\030#Wall time cl"
-  "ip was broadcasted live\0226\n\023length_millis"
-  "econds\030\t \001(\rB\031\202\265\030\025length of video in MS\022"
-  "2\n\016thumbnail_path\030\n \001(\tB\032\202\265\030\026Path for th"
-  "umbnail URL\"\273\005\n\036CBroadcast_SetRTMPInfo_R"
-  "equest\022\034\n\024broadcast_permission\030\001 \001(\005\022\024\n\014"
-  "update_token\030\002 \001(\010\022\027\n\017broadcast_delay\030\003 "
-  "\001(\005\022\016\n\006app_id\030\004 \001(\r\022\027\n\017required_app_id\030\005"
-  " \001(\r\022\232\001\n\031broadcast_chat_permission\030\006 \001(\016"
-  "2\031.EBroadcastChatPermission:\036EBroadcastC"
-  "hatPermissionPublicB<\202\265\0308Who is permitte"
-  "d to send a chat message during broadcas"
-  "t\022N\n\020broadcast_buffer\030\007 \001(\005B4\202\265\0300Previou"
-  "s seconds we keep of the stream availabl"
-  "e\022>\n\007steamid\030\010 \001(\006B-\202\265\030)broadcaster stea"
-  "mID if not logged-in user\022C\n\017chat_rate_l"
-  "imit\030\t \001(\rB*\202\265\030&Seconds required between"
-  " chat messages\0227\n\renable_replay\030\n \001(\010B \202"
-  "\265\030\034Enable replay of last upload\022b\n\024is_pa"
-  "rtner_chat_only\030\013 \001(\010BD\202\265\030@When true, th"
-  "en only steamwork partner can create cha"
-  "t messages.\022\024\n\014wordban_list\030\014 \001(\t\"!\n\037CBr"
-  "oadcast_SetRTMPInfo_Response\"l\n\036CBroadca"
-  "st_GetRTMPInfo_Request\022\n\n\002ip\030\001 \001(\r\022>\n\007st"
-  "eamid\030\002 \001(\006B-\202\265\030)broadcaster steamID if "
-  "not logged-in user\"\250\005\n\037CBroadcast_GetRTM"
+  "\024\n\014broadcast_id\030\001 \001(\006\022 \n\030thumbnail_uploa"
+  "d_address\030\002 \001(\t\022\036\n\026thumbnail_upload_toke"
+  "n\030\003 \001(\t\022\"\n\032thumbnail_interval_seconds\030\004 "
+  "\001(\r\022\"\n\032heartbeat_interval_seconds\030\005 \001(\r\""
+  ">\n&CBroadcast_EndBroadcastSession_Reques"
+  "t\022\024\n\014broadcast_id\030\001 \001(\006\")\n\'CBroadcast_En"
+  "dBroadcastSession_Response\"\313\001\n\'CBroadcas"
+  "t_StartBroadcastUpload_Request\022\024\n\014broadc"
+  "ast_id\030\001 \001(\006\022\016\n\006cellid\030\002 \001(\r\022\017\n\007as_rtmp\030"
+  "\003 \001(\010\022\025\n\rdelay_seconds\030\004 \001(\r\022\025\n\nrtmp_tok"
+  "en\030\005 \001(\004:\0010\022\031\n\021upload_ip_address\030\006 \001(\r\022\021"
+  "\n\tis_replay\030\007 \001(\010\022\r\n\005sysid\030\010 \001(\r\"\242\001\n(CBr"
+  "oadcast_StartBroadcastUpload_Response\022\024\n"
+  "\014upload_token\030\001 \001(\t\022\026\n\016upload_address\030\002 "
+  "\001(\t\022\033\n\023broadcast_upload_id\030\003 \001(\006\022\025\n\renab"
+  "le_replay\030\006 \001(\010\022\024\n\014http_address\030\007 \001(\t\"g\n"
+  "1CBroadcast_NotifyBroadcastUploadStop_No"
+  "tification\022\033\n\023broadcast_upload_id\030\001 \001(\006\022"
+  "\025\n\rupload_result\030\002 \001(\r\"\344\001\n!CBroadcast_Wa"
+  "tchBroadcast_Request\022\017\n\007steamid\030\001 \001(\006\022\035\n"
+  "\025existing_broadcast_id\030\002 \001(\006\022\024\n\014viewer_t"
+  "oken\030\003 \001(\006\022\023\n\013client_cell\030\005 \001(\r\022Q\n\016watch"
+  "_location\030\006 \001(\0162\030.EBroadcastWatchLocatio"
+  "n:\037EBroadcastWatchLocation_Invalid\022\021\n\tis"
+  "_webrtc\030\007 \001(\010\"\202\010\n\"CBroadcast_WatchBroadc"
+  "ast_Response\022Y\n\010response\030\001 \001(\01622.CBroadc"
+  "ast_WatchBroadcast_Response.EWatchRespon"
+  "se:\023EWatchResponseReady\022\017\n\007mpd_url\030\002 \001(\t"
+  "\022\024\n\014broadcast_id\030\003 \001(\006\022\016\n\006gameid\030\004 \001(\004\022\r"
+  "\n\005title\030\005 \001(\t\022\023\n\013num_viewers\030\006 \001(\r\022\022\n\npe"
+  "rmission\030\007 \001(\005\022\017\n\007is_rtmp\030\010 \001(\010\022\025\n\rsecon"
+  "ds_delay\030\t \001(\005\022\024\n\014viewer_token\030\n \001(\006\022\033\n\023"
+  "hls_m3u8_master_url\030\013 \001(\t\022\032\n\022heartbeat_i"
+  "nterval\030\014 \001(\005\022\025\n\rthumbnail_url\030\r \001(\t\022\021\n\t"
+  "is_webrtc\030\016 \001(\010\022\031\n\021webrtc_session_id\030\017 \001"
+  "(\006\022\030\n\020webrtc_offer_sdp\030\020 \001(\t\022\032\n\022webrtc_t"
+  "urn_server\030\021 \001(\t\022\021\n\tis_replay\030\022 \001(\010\022\020\n\010d"
+  "uration\030\023 \001(\005\022\037\n\027cdn_auth_url_parameters"
+  "\030\024 \001(\t\"\331\003\n\016EWatchResponse\022\027\n\023EWatchRespo"
+  "nseReady\020\001\022\036\n\032EWatchResponseNotAvailable"
+  "\020\002\022$\n EWatchResponseWaitingForApproval\020\003"
+  "\022!\n\035EWatchResponseWaitingForStart\020\004\022 \n\034E"
+  "WatchResponseInvalidSession\020\005\022#\n\037EWatchR"
+  "esponseTooManyBroadcasts\020\006\022%\n!EWatchResp"
+  "onseWaitingForReconnect\020\007\022$\n EWatchRespo"
+  "nseSystemNotSupported\020\010\022 \n\034EWatchRespons"
+  "eUserRestricted\020\t\022!\n\035EWatchResponseClien"
+  "tOutOfDate\020\n\022#\n\037EWatchResponsePoorUpload"
+  "Quality\020\013\022%\n!EWatchResponseMissingSubscr"
+  "iption\020\014\022 \n\034EWatchResponseTooManyViewers"
+  "\020\r\"\201\001\n*CBroadcast_HeartbeatBroadcast_Not"
+  "ification\022\017\n\007steamid\030\001 \001(\006\022\024\n\014broadcast_"
+  "id\030\002 \001(\006\022\024\n\014viewer_token\030\003 \001(\006\022\026\n\016repres"
+  "entation\030\004 \001(\r\"l\n-CBroadcast_StopWatchin"
+  "gBroadcast_Notification\022\017\n\007steamid\030\001 \001(\006"
+  "\022\024\n\014broadcast_id\030\002 \001(\006\022\024\n\014viewer_token\030\003"
+  " \001(\006\"N\n%CBroadcast_GetBroadcastStatus_Re"
+  "quest\022\017\n\007steamid\030\001 \001(\006\022\024\n\014broadcast_id\030\002"
+  " \001(\006\"\321\002\n&CBroadcast_GetBroadcastStatus_R"
+  "esponse\022\016\n\006gameid\030\001 \001(\004\022\r\n\005title\030\002 \001(\t\022\023"
+  "\n\013num_viewers\030\003 \001(\r\022\022\n\npermission\030\004 \001(\005\022"
+  "\017\n\007is_rtmp\030\005 \001(\010\022\025\n\rseconds_delay\030\006 \001(\005\022"
+  "\024\n\014is_publisher\030\007 \001(\010\022\025\n\rthumbnail_url\030\010"
+  " \001(\t\022\027\n\017update_interval\030\t \001(\005\022\024\n\014is_uplo"
+  "ading\030\n \001(\010\022\020\n\010duration\030\013 \001(\r\022\021\n\tis_repl"
+  "ay\030\014 \001(\010\022\030\n\020is_capturing_vod\030\r \001(\010\022\034\n\024is"
+  "_store_whitelisted\030\016 \001(\010\"Q\n(CBroadcast_G"
+  "etBroadcastThumbnail_Request\022\017\n\007steamid\030"
+  "\001 \001(\006\022\024\n\014broadcast_id\030\002 \001(\006\"\202\001\n)CBroadca"
+  "st_GetBroadcastThumbnail_Response\022\025\n\rthu"
+  "mbnail_url\030\001 \001(\t\022\027\n\017update_interval\030\002 \001("
+  "\005\022\023\n\013num_viewers\030\003 \001(\005\022\020\n\010duration\030\004 \001(\005"
+  "\"R\n$CBroadcast_InviteToBroadcast_Request"
+  "\022\017\n\007steamid\030\001 \001(\006\022\031\n\021approval_response\030\002"
+  " \001(\010\"8\n%CBroadcast_InviteToBroadcast_Res"
+  "ponse\022\017\n\007success\030\001 \001(\010\"|\n-CBroadcast_Sen"
+  "dBroadcastStateToServer_Request\022\022\n\npermi"
+  "ssion\030\001 \001(\005\022\016\n\006gameid\030\002 \001(\004\022\r\n\005title\030\003 \001"
+  "(\t\022\030\n\020game_data_config\030\004 \001(\t\"0\n.CBroadca"
+  "st_SendBroadcastStateToServer_Response\"O"
+  "\n7CBroadcast_NotifyBroadcastSessionHeart"
+  "beat_Notification\022\024\n\014broadcast_id\030\001 \001(\006\""
+  "x\n\'CBroadcast_GetBroadcastChatInfo_Reque"
+  "st\022\017\n\007steamid\030\001 \001(\006\022\024\n\014broadcast_id\030\002 \001("
+  "\006\022\021\n\tclient_ip\030\003 \001(\r\022\023\n\013client_cell\030\004 \001("
+  "\r\"o\n(CBroadcast_GetBroadcastChatInfo_Res"
+  "ponse\022\017\n\007chat_id\030\001 \001(\006\022\031\n\021view_url_templ"
+  "ate\030\003 \001(\t\022\027\n\017flair_group_ids\030\004 \003(\r\"\206\001\n\"C"
+  "Broadcast_PostChatMessage_Request\022\017\n\007cha"
+  "t_id\030\001 \001(\006\022\017\n\007message\030\002 \001(\t\022\023\n\013instance_"
+  "id\030\003 \001(\r\022\023\n\010language\030\004 \001(\r:\0010\022\024\n\014country"
+  "_code\030\005 \001(\t\"{\n#CBroadcast_PostChatMessag"
+  "e_Response\022\024\n\014persona_name\030\001 \001(\t\022\017\n\007in_g"
+  "ame\030\002 \001(\010\022\016\n\006result\030\003 \001(\005\022\035\n\025cooldown_ti"
+  "me_seconds\030\004 \001(\005\"K\n)CBroadcast_UpdateCha"
+  "tMessageFlair_Request\022\017\n\007chat_id\030\001 \001(\006\022\r"
+  "\n\005flair\030\002 \001(\t\"\\\n*CBroadcast_UpdateChatMe"
+  "ssageFlair_Response\022\016\n\006result\030\001 \001(\005\022\017\n\007c"
+  "hat_id\030\002 \001(\006\022\r\n\005flair\030\003 \001(\t\"`\n(CBroadcas"
+  "t_MuteBroadcastChatUser_Request\022\017\n\007chat_"
+  "id\030\001 \001(\006\022\024\n\014user_steamid\030\002 \001(\006\022\r\n\005muted\030"
+  "\003 \001(\010\"+\n)CBroadcast_MuteBroadcastChatUse"
+  "r_Response\"N\n%CBroadcast_RemoveUserChatT"
+  "ext_Request\022\017\n\007chat_id\030\001 \001(\006\022\024\n\014user_ste"
+  "amid\030\002 \001(\006\"(\n&CBroadcast_RemoveUserChatT"
+  "ext_Response\"U\n,CBroadcast_GetBroadcastC"
+  "hatUserNames_Request\022\017\n\007chat_id\030\001 \001(\006\022\024\n"
+  "\014user_steamid\030\002 \003(\006\"\272\001\n-CBroadcast_GetBr"
+  "oadcastChatUserNames_Response\022Q\n\rpersona"
+  "_names\030\001 \003(\0132:.CBroadcast_GetBroadcastCh"
+  "atUserNames_Response.PersonaName\0326\n\013Pers"
+  "onaName\022\026\n\010steam_id\030\001 \001(\006B\004\300\266\030\001\022\017\n\007perso"
+  "na\030\002 \001(\t\"\231\001\n!CBroadcast_StartBuildClip_R"
+  "equest\022\017\n\007steamid\030\001 \001(\006\022\034\n\024broadcast_ses"
+  "sion_id\030\002 \001(\006\022\025\n\rfirst_segment\030\003 \001(\005\022\024\n\014"
+  "num_segments\030\004 \001(\005\022\030\n\020clip_description\030\005"
+  " \001(\t\"\?\n\"CBroadcast_StartBuildClip_Respon"
+  "se\022\031\n\021broadcast_clip_id\030\001 \001(\006\"B\n%CBroadc"
+  "ast_GetBuildClipStatus_Request\022\031\n\021broadc"
+  "ast_clip_id\030\001 \001(\006\"(\n&CBroadcast_GetBuild"
+  "ClipStatus_Response\"\177\n!CBroadcast_SetCli"
+  "pDetails_Request\022\031\n\021broadcast_clip_id\030\001 "
+  "\001(\004\022\022\n\nstart_time\030\002 \001(\r\022\020\n\010end_time\030\003 \001("
+  "\r\022\031\n\021video_description\030\004 \001(\t\"$\n\"CBroadca"
+  "st_SetClipDetails_Response\">\n!CBroadcast"
+  "_GetClipDetails_Request\022\031\n\021broadcast_cli"
+  "p_id\030\001 \001(\004\"\225\002\n\"CBroadcast_GetClipDetails"
+  "_Response\022\031\n\021broadcast_clip_id\030\001 \001(\004\022\020\n\010"
+  "video_id\030\002 \001(\004\022\022\n\nchannel_id\030\003 \001(\004\022\016\n\006ap"
+  "p_id\030\004 \001(\r\022\035\n\025accountid_broadcaster\030\005 \001("
+  "\r\022\033\n\023accountid_clipmaker\030\006 \001(\r\022\031\n\021video_"
+  "description\030\007 \001(\t\022\022\n\nstart_time\030\010 \001(\r\022\033\n"
+  "\023length_milliseconds\030\t \001(\r\022\026\n\016thumbnail_"
+  "path\030\n \001(\t\"\203\003\n\036CBroadcast_SetRTMPInfo_Re"
+  "quest\022\034\n\024broadcast_permission\030\001 \001(\005\022\024\n\014u"
+  "pdate_token\030\002 \001(\010\022\027\n\017broadcast_delay\030\003 \001"
+  "(\005\022\016\n\006app_id\030\004 \001(\r\022\027\n\017required_app_id\030\005 "
+  "\001(\r\022\\\n\031broadcast_chat_permission\030\006 \001(\0162\031"
+  ".EBroadcastChatPermission:\036EBroadcastCha"
+  "tPermissionPublic\022\030\n\020broadcast_buffer\030\007 "
+  "\001(\005\022\017\n\007steamid\030\010 \001(\006\022\027\n\017chat_rate_limit\030"
+  "\t \001(\r\022\025\n\renable_replay\030\n \001(\010\022\034\n\024is_partn"
+  "er_chat_only\030\013 \001(\010\022\024\n\014wordban_list\030\014 \001(\t"
+  "\"!\n\037CBroadcast_SetRTMPInfo_Response\"=\n\036C"
+  "Broadcast_GetRTMPInfo_Request\022\n\n\002ip\030\001 \001("
+  "\r\022\017\n\007steamid\030\002 \001(\006\"\225\003\n\037CBroadcast_GetRTM"
   "PInfo_Response\022\034\n\024broadcast_permission\030\001"
   " \001(\005\022\021\n\trtmp_host\030\002 \001(\t\022\022\n\nrtmp_token\030\003 "
   "\001(\t\022\027\n\017broadcast_delay\030\004 \001(\005\022\016\n\006app_id\030\005"
-  " \001(\r\022\027\n\017required_app_id\030\006 \001(\r\022\232\001\n\031broadc"
-  "ast_chat_permission\030\007 \001(\0162\031.EBroadcastCh"
-  "atPermission:\036EBroadcastChatPermissionPu"
-  "blicB<\202\265\0308Who is permitted to send a cha"
-  "t message during broadcast\022\?\n\020broadcast_"
-  "buffer\030\010 \001(\005B%\202\265\030!Seconds we keep stream"
-  "s available\022(\n\007steamid\030\t \001(\006B\027\202\265\030\023broadc"
-  "aster steamID\022C\n\017chat_rate_limit\030\n \001(\rB*"
-  "\202\265\030&Seconds required between chat messag"
-  "es\0227\n\renable_replay\030\013 \001(\010B \202\265\030\034Enable re"
-  "play of last upload\022b\n\024is_partner_chat_o"
-  "nly\030\014 \001(\010BD\202\265\030@When true, then only stea"
-  "mwork partner can create chat messages.\022"
-  "\024\n\014wordban_list\030\r \001(\t\"a\n,CBroadcast_WebR"
-  "TCHaveTURNServer_Notification\022\034\n\024broadca"
-  "st_session_id\030\001 \001(\006\022\023\n\013turn_server\030\002 \001(\t"
-  "\"\232\001\n$CBroadcast_WebRTCStartResult_Reques"
-  "t\022\031\n\021webrtc_session_id\030\001 \001(\006\022\017\n\007started\030"
-  "\002 \001(\010\022\r\n\005offer\030\003 \001(\t\022\024\n\014resolution_x\030\004 \001"
-  "(\r\022\024\n\014resolution_y\030\005 \001(\r\022\013\n\003fps\030\006 \001(\r\"\'\n"
-  "%CBroadcast_WebRTCStartResult_Response\"="
-  "\n CBroadcast_WebRTCStopped_Request\022\031\n\021we"
-  "brtc_session_id\030\001 \001(\006\"#\n!CBroadcast_WebR"
-  "TCStopped_Response\"l\n\"CBroadcast_WebRTCS"
-  "etAnswer_Request\022\033\n\023broadcaster_steamid\030"
+  " \001(\r\022\027\n\017required_app_id\030\006 \001(\r\022\\\n\031broadca"
+  "st_chat_permission\030\007 \001(\0162\031.EBroadcastCha"
+  "tPermission:\036EBroadcastChatPermissionPub"
+  "lic\022\030\n\020broadcast_buffer\030\010 \001(\005\022\017\n\007steamid"
+  "\030\t \001(\006\022\027\n\017chat_rate_limit\030\n \001(\r\022\025\n\renabl"
+  "e_replay\030\013 \001(\010\022\034\n\024is_partner_chat_only\030\014"
+  " \001(\010\022\024\n\014wordban_list\030\r \001(\t\"a\n,CBroadcast"
+  "_WebRTCHaveTURNServer_Notification\022\034\n\024br"
+  "oadcast_session_id\030\001 \001(\006\022\023\n\013turn_server\030"
+  "\002 \001(\t\"\232\001\n$CBroadcast_WebRTCStartResult_R"
+  "equest\022\031\n\021webrtc_session_id\030\001 \001(\006\022\017\n\007sta"
+  "rted\030\002 \001(\010\022\r\n\005offer\030\003 \001(\t\022\024\n\014resolution_"
+  "x\030\004 \001(\r\022\024\n\014resolution_y\030\005 \001(\r\022\013\n\003fps\030\006 \001"
+  "(\r\"\'\n%CBroadcast_WebRTCStartResult_Respo"
+  "nse\"=\n CBroadcast_WebRTCStopped_Request\022"
+  "\031\n\021webrtc_session_id\030\001 \001(\006\"#\n!CBroadcast"
+  "_WebRTCStopped_Response\"l\n\"CBroadcast_We"
+  "bRTCSetAnswer_Request\022\033\n\023broadcaster_ste"
+  "amid\030\001 \001(\006\022\031\n\021webrtc_session_id\030\002 \001(\006\022\016\n"
+  "\006answer\030\003 \001(\t\"%\n#CBroadcast_WebRTCSetAns"
+  "wer_Response\";\n)CBroadcast_WebRTCLookupT"
+  "URNServer_Request\022\016\n\006cellid\030\001 \001(\r\"A\n*CBr"
+  "oadcast_WebRTCLookupTURNServer_Response\022"
+  "\023\n\013turn_server\030\001 \001(\t\"Z\n\033CBroadcast_WebRT"
+  "C_Candidate\022\017\n\007sdp_mid\030\001 \001(\t\022\027\n\017sdp_mlin"
+  "e_index\030\002 \001(\005\022\021\n\tcandidate\030\003 \001(\t\"w\n)CBro"
+  "adcast_WebRTCAddHostCandidate_Request\022\031\n"
+  "\021webrtc_session_id\030\001 \001(\006\022/\n\tcandidate\030\002 "
+  "\001(\0132\034.CBroadcast_WebRTC_Candidate\",\n*CBr"
+  "oadcast_WebRTCAddHostCandidate_Response\""
+  "\226\001\n+CBroadcast_WebRTCAddViewerCandidate_"
+  "Request\022\033\n\023broadcaster_steamid\030\001 \001(\006\022\031\n\021"
+  "webrtc_session_id\030\002 \001(\006\022/\n\tcandidate\030\003 \001"
+  "(\0132\034.CBroadcast_WebRTC_Candidate\".\n,CBro"
+  "adcast_WebRTCAddViewerCandidate_Response"
+  "\"\202\001\n*CBroadcast_WebRTCGetHostCandidates_"
+  "Request\022\033\n\023broadcaster_steamid\030\001 \001(\006\022\031\n\021"
+  "webrtc_session_id\030\002 \001(\006\022\034\n\024candidate_gen"
+  "eration\030\003 \001(\r\"}\n+CBroadcast_WebRTCGetHos"
+  "tCandidates_Response\022\034\n\024candidate_genera"
+  "tion\030\001 \001(\r\0220\n\ncandidates\030\002 \003(\0132\034.CBroadc"
+  "ast_WebRTC_Candidate\"\223\001\n*CBroadcast_GetB"
+  "roadcastUploadStats_Request\022\026\n\trow_limit"
+  "\030\001 \001(\r:\003100\022\025\n\nstart_time\030\002 \001(\r:\0010\022\021\n\tup"
+  "load_id\030\003 \001(\004\022\017\n\007steamid\030\004 \001(\006\022\022\n\nsessio"
+  "n_id\030\005 \001(\004\"\327\004\n+CBroadcast_GetBroadcastUp"
+  "loadStats_Response\022N\n\014upload_stats\030\001 \003(\013"
+  "28.CBroadcast_GetBroadcastUploadStats_Re"
+  "sponse.UploadStats\032\327\003\n\013UploadStats\022\025\n\rup"
+  "load_result\030\001 \001(\r\022\024\n\014time_stopped\030\002 \001(\r\022"
+  "\030\n\020seconds_uploaded\030\003 \001(\r\022\023\n\013max_viewers"
+  "\030\004 \001(\r\022\024\n\014resolution_x\030\005 \001(\r\022\024\n\014resoluti"
+  "on_y\030\006 \001(\r\022\025\n\ravg_bandwidth\030\007 \001(\r\022\023\n\013tot"
+  "al_bytes\030\010 \001(\004\022\016\n\006app_id\030\t \001(\r\022\034\n\024total_"
+  "unique_viewers\030\n \001(\r\022\035\n\025total_seconds_wa"
+  "tched\030\013 \001(\004\022\024\n\014time_started\030\014 \001(\r\022\021\n\tupl"
+  "oad_id\030\r \001(\004\022\025\n\rlocal_address\030\016 \001(\t\022\026\n\016r"
+  "emote_address\030\017 \001(\t\022\031\n\021frames_per_second"
+  "\030\020 \001(\r\022\033\n\023num_representations\030\021 \001(\r\022\020\n\010a"
+  "pp_name\030\022 \001(\t\022\021\n\tis_replay\030\023 \001(\010\022\022\n\nsess"
+  "ion_id\030\024 \001(\004\"P\n*CBroadcast_GetBroadcastV"
+  "iewerStats_Request\022\021\n\tupload_id\030\001 \001(\004\022\017\n"
+  "\007steamid\030\002 \001(\006\"\274\002\n+CBroadcast_GetBroadca"
+  "stViewerStats_Response\022N\n\014viewer_stats\030\001"
+  " \003(\01328.CBroadcast_GetBroadcastViewerStat"
+  "s_Response.ViewerStats\022P\n\rcountry_stats\030"
+  "\002 \003(\01329.CBroadcast_GetBroadcastViewerSta"
+  "ts_Response.CountryStats\0320\n\013ViewerStats\022"
+  "\014\n\004time\030\001 \001(\r\022\023\n\013num_viewers\030\002 \001(\r\0329\n\014Co"
+  "untryStats\022\024\n\014country_code\030\001 \001(\t\022\023\n\013num_"
+  "viewers\030\002 \001(\r\"\360\001\n,CBroadcast_BroadcastVi"
+  "ewerState_Notification\022\017\n\007steamid\030\001 \001(\006\022"
+  "_\n\005state\030\002 \001(\0162:.CBroadcast_BroadcastVie"
+  "werState_Notification.EViewerState:\024EVie"
+  "werNeedsApproval\"N\n\014EViewerState\022\030\n\024EVie"
+  "werNeedsApproval\020\001\022\023\n\017EViewerWatching\020\002\022"
+  "\017\n\013EViewerLeft\020\003\"F\n.CBroadcast_WaitingBr"
+  "oadcastViewer_Notification\022\024\n\014broadcast_"
+  "id\030\001 \001(\006\"\334\001\n.CBroadcast_BroadcastUploadS"
+  "tarted_Notification\022\024\n\014broadcast_id\030\001 \001("
+  "\006\022\024\n\014upload_token\030\002 \001(\t\022\026\n\016upload_addres"
+  "s\030\003 \001(\t\022\024\n\014http_address\030\004 \001(\t\022\033\n\023broadca"
+  "st_upload_id\030\005 \001(\006\022\"\n\032heartbeat_interval"
+  "_seconds\030\006 \001(\r\022\017\n\007is_rtmp\030\007 \001(\010\"\225\001\n+CBro"
+  "adcast_StopBroadcastUpload_Notification\022"
+  "\024\n\014broadcast_id\030\001 \001(\006\022\032\n\022broadcast_relay"
+  "_id\030\002 \001(\006\022\025\n\rupload_result\030\003 \001(\r\022\035\n\025too_"
+  "many_poor_uploads\030\004 \001(\010\"=\n%CBroadcast_Se"
+  "ssionClosed_Notification\022\024\n\014broadcast_id"
+  "\030\001 \001(\006\"L\n-CBroadcast_ViewerBroadcastInvi"
+  "te_Notification\022\033\n\023broadcaster_steamid\030\001"
+  " \001(\006\"T\n\'CBroadcast_BroadcastStatus_Notif"
+  "ication\022\024\n\014broadcast_id\030\001 \001(\006\022\023\n\013num_vie"
+  "wers\030\002 \001(\005\"\216\001\n,CBroadcast_BroadcastChann"
+  "elLive_Notification\022\034\n\024broadcast_channel"
+  "_id\030\001 \001(\006\022\036\n\026broadcast_channel_name\030\002 \001("
+  "\t\022 \n\030broadcast_channel_avatar\030\003 \001(\t\"\301\001\n,"
+  "CBroadcast_SendThumbnailToRelay_Notifica"
+  "tion\022\036\n\026thumbnail_upload_token\030\001 \001(\t\022&\n\036"
+  "thumbnail_broadcast_session_id\030\002 \001(\006\022\026\n\016"
+  "thumbnail_data\030\003 \001(\014\022\027\n\017thumbnail_width\030"
+  "\004 \001(\r\022\030\n\020thumbnail_height\030\005 \001(\r\"L\n,CBroa"
+  "dcast_WebRTCNeedTURNServer_Notification\022"
+  "\034\n\024broadcast_session_id\030\001 \001(\006\"\214\001\n#CBroad"
+  "cast_WebRTCStart_Notification\022\034\n\024broadca"
+  "st_session_id\030\001 \001(\006\022\031\n\021webrtc_session_id"
+  "\030\002 \001(\006\022\026\n\016viewer_steamid\030\003 \001(\006\022\024\n\014viewer"
+  "_token\030\004 \001(\006\"r\n\'CBroadcast_WebRTCSetAnsw"
+  "er_Notification\022\034\n\024broadcast_session_id\030"
   "\001 \001(\006\022\031\n\021webrtc_session_id\030\002 \001(\006\022\016\n\006answ"
-  "er\030\003 \001(\t\"%\n#CBroadcast_WebRTCSetAnswer_R"
-  "esponse\";\n)CBroadcast_WebRTCLookupTURNSe"
-  "rver_Request\022\016\n\006cellid\030\001 \001(\r\"A\n*CBroadca"
-  "st_WebRTCLookupTURNServer_Response\022\023\n\013tu"
-  "rn_server\030\001 \001(\t\"Z\n\033CBroadcast_WebRTC_Can"
-  "didate\022\017\n\007sdp_mid\030\001 \001(\t\022\027\n\017sdp_mline_ind"
-  "ex\030\002 \001(\005\022\021\n\tcandidate\030\003 \001(\t\"w\n)CBroadcas"
-  "t_WebRTCAddHostCandidate_Request\022\031\n\021webr"
-  "tc_session_id\030\001 \001(\006\022/\n\tcandidate\030\002 \001(\0132\034"
-  ".CBroadcast_WebRTC_Candidate\",\n*CBroadca"
-  "st_WebRTCAddHostCandidate_Response\"\226\001\n+C"
-  "Broadcast_WebRTCAddViewerCandidate_Reque"
-  "st\022\033\n\023broadcaster_steamid\030\001 \001(\006\022\031\n\021webrt"
-  "c_session_id\030\002 \001(\006\022/\n\tcandidate\030\003 \001(\0132\034."
-  "CBroadcast_WebRTC_Candidate\".\n,CBroadcas"
-  "t_WebRTCAddViewerCandidate_Response\"\202\001\n*"
-  "CBroadcast_WebRTCGetHostCandidates_Reque"
-  "st\022\033\n\023broadcaster_steamid\030\001 \001(\006\022\031\n\021webrt"
-  "c_session_id\030\002 \001(\006\022\034\n\024candidate_generati"
-  "on\030\003 \001(\r\"}\n+CBroadcast_WebRTCGetHostCand"
-  "idates_Response\022\034\n\024candidate_generation\030"
-  "\001 \001(\r\0220\n\ncandidates\030\002 \003(\0132\034.CBroadcast_W"
-  "ebRTC_Candidate\"\244\003\n*CBroadcast_GetBroadc"
-  "astUploadStats_Request\022:\n\trow_limit\030\001 \001("
-  "\r:\003100B\"\202\265\030\036How many at maximum to retur"
-  "n.\022%\n\nstart_time\030\002 \001(\r:\0010B\016\202\265\030\nStart tim"
-  "e\022P\n\tupload_id\030\003 \001(\004B=\202\265\0309Optional relay"
-  " upload ID - not compatible with session"
-  "_id\022i\n\007steamid\030\004 \001(\006BX\202\265\030TOptional the s"
-  "teamid whose stats you want, otherwise t"
-  "he user logged in - admin only\022V\n\nsessio"
-  "n_id\030\005 \001(\004BB\202\265\030>Optional broadcast sessi"
-  "on ID - not compatiable with upload_id\"\211"
-  "\t\n+CBroadcast_GetBroadcastUploadStats_Re"
-  "sponse\022N\n\014upload_stats\030\001 \003(\01328.CBroadcas"
-  "t_GetBroadcastUploadStats_Response.Uploa"
-  "dStats\032\211\010\n\013UploadStats\022\033\n\rupload_result\030"
-  "\001 \001(\rB\004\202\265\030\000\0227\n\014time_stopped\030\002 \001(\rB!\202\265\030\035t"
-  "ime broadcast upload stopped\0226\n\020seconds_"
-  "uploaded\030\003 \001(\rB\034\202\265\030\030seconds of vido uplo"
-  "aded\022/\n\013max_viewers\030\004 \001(\rB\032\202\265\030\026max concu"
-  "rrent viewers\022.\n\014resolution_x\030\005 \001(\rB\030\202\265\030"
-  "\024horizontal resultion\022,\n\014resolution_y\030\006 "
-  "\001(\rB\026\202\265\030\022vertical resultion\022\033\n\ravg_bandw"
-  "idth\030\007 \001(\rB\004\202\265\030\000\022;\n\013total_bytes\030\010 \001(\004B&\202"
-  "\265\030\"total byte uploaded by broadcaster\022$\n"
-  "\006app_id\030\t \001(\rB\024\202\265\030\020game broadcasted\022;\n\024t"
-  "otal_unique_viewers\030\n \001(\rB\035\202\265\030\031total uni"
-  "que viewers seen\022Q\n\025total_seconds_watche"
-  "d\030\013 \001(\004B2\202\265\030.total number of seconds wat"
-  "ched by all viewers\0227\n\014time_started\030\014 \001("
-  "\rB!\202\265\030\035time broadcast upload started\0220\n\t"
-  "upload_id\030\r \001(\004B\035\202\265\030\031broadcast relay upl"
-  "oad id\0223\n\rlocal_address\030\016 \001(\tB\034\202\265\030\030uploa"
-  "d to server address\0226\n\016remote_address\030\017 "
-  "\001(\tB\036\202\265\030\032upload from client address\0220\n\021f"
-  "rames_per_second\030\020 \001(\rB\025\202\265\030\021frames per s"
-  "econd\022\?\n\023num_representations\030\021 \001(\rB\"\202\265\030\036"
-  "number of video represetations\022\037\n\010app_na"
-  "me\030\022 \001(\tB\r\202\265\030\tgame name\0223\n\tis_replay\030\023 \001"
-  "(\010B \202\265\030\034replay of previous recording\022,\n\n"
-  "session_id\030\024 \001(\004B\030\202\265\030\024broadcast session "
-  "id\"\275\001\n*CBroadcast_GetBroadcastViewerStat"
-  "s_Request\0220\n\tupload_id\030\001 \001(\004B\035\202\265\030\031Get st"
-  "ats for this stream\022]\n\007steamid\030\002 \001(\006BL\202\265"
-  "\030HOptional: The steamid of the broadcast"
-  " whose details you are requesting.\"\230\003\n+C"
-  "Broadcast_GetBroadcastViewerStats_Respon"
-  "se\022N\n\014viewer_stats\030\001 \003(\01328.CBroadcast_Ge"
-  "tBroadcastViewerStats_Response.ViewerSta"
-  "ts\022P\n\rcountry_stats\030\002 \003(\01329.CBroadcast_G"
-  "etBroadcastViewerStats_Response.CountryS"
-  "tats\032c\n\013ViewerStats\022 \n\004time\030\001 \001(\rB\022\202\265\030\016t"
-  "ime of record\0222\n\013num_viewers\030\002 \001(\rB\035\202\265\030\031"
-  "current number of viewers\032b\n\014CountryStat"
-  "s\022&\n\014country_code\030\001 \001(\tB\020\202\265\030\014country cod"
-  "e\022*\n\013num_viewers\030\002 \001(\rB\025\202\265\030\021number of vi"
-  "ewers\"\360\001\n,CBroadcast_BroadcastViewerStat"
-  "e_Notification\022\017\n\007steamid\030\001 \001(\006\022_\n\005state"
-  "\030\002 \001(\0162:.CBroadcast_BroadcastViewerState"
-  "_Notification.EViewerState:\024EViewerNeeds"
-  "Approval\"N\n\014EViewerState\022\030\n\024EViewerNeeds"
-  "Approval\020\001\022\023\n\017EViewerWatching\020\002\022\017\n\013EView"
-  "erLeft\020\003\"F\n.CBroadcast_WaitingBroadcastV"
-  "iewer_Notification\022\024\n\014broadcast_id\030\001 \001(\006"
-  "\"\215\002\n.CBroadcast_BroadcastUploadStarted_N"
-  "otification\022\024\n\014broadcast_id\030\001 \001(\006\022\024\n\014upl"
-  "oad_token\030\002 \001(\t\022\026\n\016upload_address\030\003 \001(\t\022"
-  "\024\n\014http_address\030\004 \001(\t\022\033\n\023broadcast_uploa"
-  "d_id\030\005 \001(\006\022S\n\032heartbeat_interval_seconds"
-  "\030\006 \001(\rB/\202\265\030+how many seconds between ses"
-  "sion heartbeats\022\017\n\007is_rtmp\030\007 \001(\010\"\225\001\n+CBr"
-  "oadcast_StopBroadcastUpload_Notification"
-  "\022\024\n\014broadcast_id\030\001 \001(\006\022\032\n\022broadcast_rela"
-  "y_id\030\002 \001(\006\022\025\n\rupload_result\030\003 \001(\r\022\035\n\025too"
-  "_many_poor_uploads\030\004 \001(\010\"=\n%CBroadcast_S"
-  "essionClosed_Notification\022\024\n\014broadcast_i"
-  "d\030\001 \001(\006\"L\n-CBroadcast_ViewerBroadcastInv"
-  "ite_Notification\022\033\n\023broadcaster_steamid\030"
-  "\001 \001(\006\"T\n\'CBroadcast_BroadcastStatus_Noti"
-  "fication\022\024\n\014broadcast_id\030\001 \001(\006\022\023\n\013num_vi"
-  "ewers\030\002 \001(\005\"\216\001\n,CBroadcast_BroadcastChan"
-  "nelLive_Notification\022\034\n\024broadcast_channe"
-  "l_id\030\001 \001(\006\022\036\n\026broadcast_channel_name\030\002 \001"
-  "(\t\022 \n\030broadcast_channel_avatar\030\003 \001(\t\"\301\001\n"
-  ",CBroadcast_SendThumbnailToRelay_Notific"
-  "ation\022\036\n\026thumbnail_upload_token\030\001 \001(\t\022&\n"
-  "\036thumbnail_broadcast_session_id\030\002 \001(\006\022\026\n"
-  "\016thumbnail_data\030\003 \001(\014\022\027\n\017thumbnail_width"
-  "\030\004 \001(\r\022\030\n\020thumbnail_height\030\005 \001(\r\"L\n,CBro"
-  "adcast_WebRTCNeedTURNServer_Notification"
-  "\022\034\n\024broadcast_session_id\030\001 \001(\006\"\214\001\n#CBroa"
-  "dcast_WebRTCStart_Notification\022\034\n\024broadc"
-  "ast_session_id\030\001 \001(\006\022\031\n\021webrtc_session_i"
-  "d\030\002 \001(\006\022\026\n\016viewer_steamid\030\003 \001(\006\022\024\n\014viewe"
-  "r_token\030\004 \001(\006\"r\n\'CBroadcast_WebRTCSetAns"
-  "wer_Notification\022\034\n\024broadcast_session_id"
-  "\030\001 \001(\006\022\031\n\021webrtc_session_id\030\002 \001(\006\022\016\n\006ans"
-  "wer\030\003 \001(\t\"\234\001\n0CBroadcast_WebRTCAddViewer"
-  "Candidate_Notification\022\034\n\024broadcast_sess"
-  "ion_id\030\001 \001(\006\022\031\n\021webrtc_session_id\030\002 \001(\006\022"
-  "/\n\tcandidate\030\003 \001(\0132\034.CBroadcast_WebRTC_C"
-  "andidate*\210\005\n\027EBroadcastWatchLocation\022#\n\037"
-  "EBroadcastWatchLocation_Invalid\020\000\022\'\n#EBr"
-  "oadcastWatchLocation_SteamTV_Tab\020\001\022.\n*EB"
-  "roadcastWatchLocation_SteamTV_WatchParty"
-  "\020\002\022$\n EBroadcastWatchLocation_Chat_Tab\020\003"
-  "\022+\n\'EBroadcastWatchLocation_Chat_WatchPa"
-  "rty\020\004\022)\n%EBroadcastWatchLocation_Communi"
-  "tyPage\020\005\022(\n$EBroadcastWatchLocation_Stor"
-  "eAppPage\020\006\022\"\n\036EBroadcastWatchLocation_In"
-  "Game\020\007\022&\n\"EBroadcastWatchLocation_BigPic"
-  "ture\020\010\022%\n!EBroadcastWatchLocation_SalesP"
-  "age\020\t\022\'\n#EBroadcastWatchLocation_Curator"
-  "Page\020\n\022)\n%EBroadcastWatchLocation_Develo"
-  "perPage\020\013\022(\n$EBroadcastWatchLocation_Cha"
-  "t_Friends\020\014\022\'\n#EBroadcastWatchLocation_S"
-  "teamTV_Web\020\r\022-\n)EBroadcastWatchLocation_"
-  "DesktopUI_Overlay\020\016*c\n\030EBroadcastChatPer"
-  "mission\022\"\n\036EBroadcastChatPermissionPubli"
-  "c\020\000\022#\n\037EBroadcastChatPermissionOwnsApp\020\001"
-  "2\206+\n\tBroadcast\022\355\001\n\025BeginBroadcastSession"
-  "\022).CBroadcast_BeginBroadcastSession_Requ"
-  "est\032*.CBroadcast_BeginBroadcastSession_R"
-  "esponse\"}\202\265\030yRequest from client to dire"
-  "ctory to begin a broadcast session. No d"
-  "ata being sent to relay; just available "
-  "for broadcast.\022\272\001\n\023EndBroadcastSession\022\'"
-  ".CBroadcast_EndBroadcastSession_Request\032"
-  "(.CBroadcast_EndBroadcastSession_Respons"
-  "e\"P\202\265\030LRequest from client to stop a bro"
-  "adcast session. Any uploads will termina"
-  "te.\022\254\001\n\024StartBroadcastUpload\022(.CBroadcas"
-  "t_StartBroadcastUpload_Request\032).CBroadc"
-  "ast_StartBroadcastUpload_Response\"\?\202\265\030;R"
-  "equest from client to begin sending vide"
-  "o for a broadcast.\022\231\001\n\031NotifyBroadcastUp"
-  "loadStop\0222.CBroadcast_NotifyBroadcastUpl"
-  "oadStop_Notification\032\013.NoResponse\";\202\265\0307T"
-  "ells directory that client stopped uploa"
-  "ding broadcast\022\207\001\n\016WatchBroadcast\022\".CBro"
-  "adcast_WatchBroadcast_Request\032#.CBroadca"
-  "st_WatchBroadcast_Response\",\202\265\030(Request "
-  "from viewer to watch a broadcast\022\201\001\n\022Hea"
-  "rtbeatBroadcast\022+.CBroadcast_HeartbeatBr"
-  "oadcast_Notification\032\013.NoResponse\"1\202\265\030-N"
-  "otify directory that user is still watch"
-  "ing.\022\301\001\n\025StopWatchingBroadcast\022..CBroadc"
+  "er\030\003 \001(\t\"\234\001\n0CBroadcast_WebRTCAddViewerC"
+  "andidate_Notification\022\034\n\024broadcast_sessi"
+  "on_id\030\001 \001(\006\022\031\n\021webrtc_session_id\030\002 \001(\006\022/"
+  "\n\tcandidate\030\003 \001(\0132\034.CBroadcast_WebRTC_Ca"
+  "ndidate*\210\005\n\027EBroadcastWatchLocation\022#\n\037E"
+  "BroadcastWatchLocation_Invalid\020\000\022\'\n#EBro"
+  "adcastWatchLocation_SteamTV_Tab\020\001\022.\n*EBr"
+  "oadcastWatchLocation_SteamTV_WatchParty\020"
+  "\002\022$\n EBroadcastWatchLocation_Chat_Tab\020\003\022"
+  "+\n\'EBroadcastWatchLocation_Chat_WatchPar"
+  "ty\020\004\022)\n%EBroadcastWatchLocation_Communit"
+  "yPage\020\005\022(\n$EBroadcastWatchLocation_Store"
+  "AppPage\020\006\022\"\n\036EBroadcastWatchLocation_InG"
+  "ame\020\007\022&\n\"EBroadcastWatchLocation_BigPict"
+  "ure\020\010\022%\n!EBroadcastWatchLocation_SalesPa"
+  "ge\020\t\022\'\n#EBroadcastWatchLocation_CuratorP"
+  "age\020\n\022)\n%EBroadcastWatchLocation_Develop"
+  "erPage\020\013\022(\n$EBroadcastWatchLocation_Chat"
+  "_Friends\020\014\022\'\n#EBroadcastWatchLocation_St"
+  "eamTV_Web\020\r\022-\n)EBroadcastWatchLocation_D"
+  "esktopUI_Overlay\020\016*c\n\030EBroadcastChatPerm"
+  "ission\022\"\n\036EBroadcastChatPermissionPublic"
+  "\020\000\022#\n\037EBroadcastChatPermissionOwnsApp\020\0012"
+  "\267\033\n\tBroadcast\022n\n\025BeginBroadcastSession\022)"
+  ".CBroadcast_BeginBroadcastSession_Reques"
+  "t\032*.CBroadcast_BeginBroadcastSession_Res"
+  "ponse\022h\n\023EndBroadcastSession\022\'.CBroadcas"
+  "t_EndBroadcastSession_Request\032(.CBroadca"
+  "st_EndBroadcastSession_Response\022k\n\024Start"
+  "BroadcastUpload\022(.CBroadcast_StartBroadc"
+  "astUpload_Request\032).CBroadcast_StartBroa"
+  "dcastUpload_Response\022\\\n\031NotifyBroadcastU"
+  "ploadStop\0222.CBroadcast_NotifyBroadcastUp"
+  "loadStop_Notification\032\013.NoResponse\022Y\n\016Wa"
+  "tchBroadcast\022\".CBroadcast_WatchBroadcast"
+  "_Request\032#.CBroadcast_WatchBroadcast_Res"
+  "ponse\022N\n\022HeartbeatBroadcast\022+.CBroadcast"
+  "_HeartbeatBroadcast_Notification\032\013.NoRes"
+  "ponse\022T\n\025StopWatchingBroadcast\022..CBroadc"
   "ast_StopWatchingBroadcast_Notification\032\013"
-  ".NoResponse\"k\202\265\030gRequest to immediately "
-  "stop watching a broadcast. Optional Meth"
-  "od, if not called, viewer will time out."
-  "\022\226\001\n\022GetBroadcastStatus\022&.CBroadcast_Get"
-  "BroadcastStatus_Request\032\'.CBroadcast_Get"
-  "BroadcastStatus_Response\"/\202\265\030+Request fr"
-  "om viewer about broadcast details\022\227\001\n\025Ge"
+  ".NoResponse\022e\n\022GetBroadcastStatus\022&.CBro"
+  "adcast_GetBroadcastStatus_Request\032\'.CBro"
+  "adcast_GetBroadcastStatus_Response\022n\n\025Ge"
   "tBroadcastThumbnail\022).CBroadcast_GetBroa"
   "dcastThumbnail_Request\032*.CBroadcast_GetB"
-  "roadcastThumbnail_Response\"\'\202\265\030#Request "
-  "thumbnail URL for broadcast\022\242\001\n\021InviteTo"
-  "Broadcast\022%.CBroadcast_InviteToBroadcast"
-  "_Request\032&.CBroadcast_InviteToBroadcast_"
-  "Response\">\202\265\030:Invites another steam user"
-  " to watch the caller\'s broadcast\022\310\001\n\032Sen"
-  "dBroadcastStateToServer\022..CBroadcast_Sen"
-  "dBroadcastStateToServer_Request\032/.CBroad"
-  "cast_SendBroadcastStateToServer_Response"
-  "\"I\202\265\030ESends users current broadcast stat"
-  "e (permissions, game) to the server\022\242\001\n\037"
-  "NotifyBroadcastSessionHeartbeat\0228.CBroad"
-  "cast_NotifyBroadcastSessionHeartbeat_Not"
-  "ification\032\013.NoResponse\"8\202\265\0304Tells direct"
-  "ory broadcast session is still available"
-  "\022\224\001\n\024GetBroadcastChatInfo\022(.CBroadcast_G"
-  "etBroadcastChatInfo_Request\032).CBroadcast"
-  "_GetBroadcastChatInfo_Response\"\'\202\265\030#Gets"
-  " chat room info for a broadcast\022\212\001\n\017Post"
-  "ChatMessage\022#.CBroadcast_PostChatMessage"
-  "_Request\032$.CBroadcast_PostChatMessage_Re"
-  "sponse\",\202\265\030(Post chat message to specifi"
-  "ed chat room\022\253\001\n\026UpdateChatMessageFlair\022"
-  "*.CBroadcast_UpdateChatMessageFlair_Requ"
-  "est\032+.CBroadcast_UpdateChatMessageFlair_"
-  "Response\"8\202\265\0304Update chat message flair "
-  "in the specified chat room\022\226\001\n\025MuteBroad"
-  "castChatUser\022).CBroadcast_MuteBroadcastC"
-  "hatUser_Request\032*.CBroadcast_MuteBroadca"
-  "stChatUser_Response\"&\202\265\030\"Mute a user in "
-  "your broadcast chat\022\224\001\n\022RemoveUserChatTe"
-  "xt\022&.CBroadcast_RemoveUserChatText_Reque"
-  "st\032\'.CBroadcast_RemoveUserChatText_Respo"
-  "nse\"-\202\265\030)Tell all viewers to remove user"
-  " chat text\022\243\001\n\031GetBroadcastChatUserNames"
-  "\022-.CBroadcast_GetBroadcastChatUserNames_"
-  "Request\032..CBroadcast_GetBroadcastChatUse"
-  "rNames_Response\"\'\202\265\030#Get names for list "
-  "of users in chat\022~\n\016StartBuildClip\022\".CBr"
+  "roadcastThumbnail_Response\022b\n\021InviteToBr"
+  "oadcast\022%.CBroadcast_InviteToBroadcast_R"
+  "equest\032&.CBroadcast_InviteToBroadcast_Re"
+  "sponse\022}\n\032SendBroadcastStateToServer\022..C"
+  "Broadcast_SendBroadcastStateToServer_Req"
+  "uest\032/.CBroadcast_SendBroadcastStateToSe"
+  "rver_Response\022h\n\037NotifyBroadcastSessionH"
+  "eartbeat\0228.CBroadcast_NotifyBroadcastSes"
+  "sionHeartbeat_Notification\032\013.NoResponse\022"
+  "k\n\024GetBroadcastChatInfo\022(.CBroadcast_Get"
+  "BroadcastChatInfo_Request\032).CBroadcast_G"
+  "etBroadcastChatInfo_Response\022\\\n\017PostChat"
+  "Message\022#.CBroadcast_PostChatMessage_Req"
+  "uest\032$.CBroadcast_PostChatMessage_Respon"
+  "se\022q\n\026UpdateChatMessageFlair\022*.CBroadcas"
+  "t_UpdateChatMessageFlair_Request\032+.CBroa"
+  "dcast_UpdateChatMessageFlair_Response\022n\n"
+  "\025MuteBroadcastChatUser\022).CBroadcast_Mute"
+  "BroadcastChatUser_Request\032*.CBroadcast_M"
+  "uteBroadcastChatUser_Response\022e\n\022RemoveU"
+  "serChatText\022&.CBroadcast_RemoveUserChatT"
+  "ext_Request\032\'.CBroadcast_RemoveUserChatT"
+  "ext_Response\022z\n\031GetBroadcastChatUserName"
+  "s\022-.CBroadcast_GetBroadcastChatUserNames"
+  "_Request\032..CBroadcast_GetBroadcastChatUs"
+  "erNames_Response\022Y\n\016StartBuildClip\022\".CBr"
   "oadcast_StartBuildClip_Request\032#.CBroadc"
-  "ast_StartBuildClip_Response\"#\202\265\030\037Start b"
-  "uilding a broadcast clip\022\212\001\n\022GetBuildCli"
-  "pStatus\022&.CBroadcast_GetBuildClipStatus_"
-  "Request\032\'.CBroadcast_GetBuildClipStatus_"
-  "Response\"#\202\265\030\037Start building a broadcast"
-  " clip\022w\n\016SetClipDetails\022\".CBroadcast_Set"
-  "ClipDetails_Request\032#.CBroadcast_SetClip"
-  "Details_Response\"\034\202\265\030\030Updates a broadcas"
-  "t clip\022~\n\016GetClipDetails\022\".CBroadcast_Ge"
-  "tClipDetails_Request\032#.CBroadcast_GetCli"
-  "pDetails_Response\"#\202\265\030\037Get details for B"
-  "roadcast Clips\022n\n\013SetRTMPInfo\022\037.CBroadca"
-  "st_SetRTMPInfo_Request\032 .CBroadcast_SetR"
-  "TMPInfo_Response\"\034\202\265\030\030Sets RTMP broadcas"
-  "t info\022n\n\013GetRTMPInfo\022\037.CBroadcast_GetRT"
-  "MPInfo_Request\032 .CBroadcast_GetRTMPInfo_"
-  "Response\"\034\202\265\030\030Gets RTMP broadcast info\022\236"
-  "\001\n\032NotifyWebRTCHaveTURNServer\022-.CBroadca"
-  "st_WebRTCHaveTURNServer_Notification\032\013.N"
-  "oResponse\"D\202\265\030@Notification from client "
-  "to server with the client\'s TURN server\022"
-  "\254\001\n\021WebRTCStartResult\022%.CBroadcast_WebRT"
-  "CStartResult_Request\032&.CBroadcast_WebRTC"
-  "StartResult_Response\"H\202\265\030DNotify the ser"
-  "ver that a WebRTC session has been creat"
-  "ed by the host\022\240\001\n\rWebRTCStopped\022!.CBroa"
-  "dcast_WebRTCStopped_Request\032\".CBroadcast"
-  "_WebRTCStopped_Response\"H\202\265\030DNotify the "
-  "server that a WebRTC session has been st"
-  "opped by the host\022\250\001\n\017WebRTCSetAnswer\022#."
-  "CBroadcast_WebRTCSetAnswer_Request\032$.CBr"
-  "oadcast_WebRTCSetAnswer_Response\"J\202\265\030FNo"
-  "tify the server that a WebRTC session ha"
-  "s been created by the viewer\022\242\001\n\026WebRTCL"
-  "ookupTURNServer\022*.CBroadcast_WebRTCLooku"
-  "pTURNServer_Request\032+.CBroadcast_WebRTCL"
-  "ookupTURNServer_Response\"/\202\265\030+Lookup the"
-  " best TURN server for this client\022\261\001\n\026We"
-  "bRTCAddHostCandidate\022*.CBroadcast_WebRTC"
-  "AddHostCandidate_Request\032+.CBroadcast_We"
-  "bRTCAddHostCandidate_Response\">\202\265\030:Add a"
-  "n ICE candidate for the host side of a W"
-  "ebRTC session\022\271\001\n\030WebRTCAddViewerCandida"
-  "te\022,.CBroadcast_WebRTCAddViewerCandidate"
-  "_Request\032-.CBroadcast_WebRTCAddViewerCan"
-  "didate_Response\"@\202\265\030<Add an ICE candidat"
-  "e for the viewer side of a WebRTC sessio"
-  "n\022\266\001\n\027WebRTCGetHostCandidates\022+.CBroadca"
-  "st_WebRTCGetHostCandidates_Request\032,.CBr"
-  "oadcast_WebRTCGetHostCandidates_Response"
-  "\"@\202\265\030<Get the ICE candidates for the hos"
-  "t side of a WebRTC session\022\236\001\n\027GetBroadc"
-  "astUploadStats\022+.CBroadcast_GetBroadcast"
-  "UploadStats_Request\032,.CBroadcast_GetBroa"
-  "dcastUploadStats_Response\"(\202\265\030$Gets broa"
-  "dcast upload stats for user\022\237\001\n\027GetBroad"
-  "castViewerStats\022+.CBroadcast_GetBroadcas"
-  "tViewerStats_Request\032,.CBroadcast_GetBro"
-  "adcastViewerStats_Response\")\202\265\030%Gets vie"
-  "wer stats for given broadcast\032*\202\265\030&Metho"
-  "ds for Steam broadcast operations2\304\021\n\017Br"
-  "oadcastClient\022\241\001\n\032NotifyBroadcastViewerS"
-  "tate\022-.CBroadcast_BroadcastViewerState_N"
-  "otification\032\013.NoResponse\"G\202\265\030CNotificati"
-  "on from server to client that a viewers "
-  "state has changed\022\275\001\n\034NotifyWaitingBroad"
-  "castViewer\022/.CBroadcast_WaitingBroadcast"
-  "Viewer_Notification\032\013.NoResponse\"_\202\265\030[No"
-  "tification from server to client one or "
-  "more users is waiting for user to start "
-  "broadcast\022\247\001\n\034NotifyBroadcastUploadStart"
-  "ed\022/.CBroadcast_BroadcastUploadStarted_N"
-  "otification\032\013.NoResponse\"I\202\265\030ENotificati"
-  "on from server to client with informatio"
-  "n about a broadcast\022\326\001\n\031NotifyStopBroadc"
-  "astUpload\022,.CBroadcast_StopBroadcastUplo"
-  "ad_Notification\032\013.NoResponse\"~\202\265\030zNotifi"
-  "cation from server to client telling it "
-  "to stop uploading when the last viewer h"
-  "as disconnected from their broadcast\022\265\001\n"
-  "\023NotifySessionClosed\022&.CBroadcast_Sessio"
-  "nClosed_Notification\032\013.NoResponse\"i\202\265\030eN"
-  "otification from server to client tellin"
-  "g it a session has been closed unexpecte"
-  "dly by the directory\022\303\001\n\033NotifyViewerBro"
-  "adcastInvite\022..CBroadcast_ViewerBroadcas"
-  "tInvite_Notification\032\013.NoResponse\"g\202\265\030cN"
-  "otification from server to client that a"
-  " broadcaster is inviting a viewer to wat"
-  "ch their broadcast\022\225\001\n\025NotifyBroadcastSt"
-  "atus\022(.CBroadcast_BroadcastStatus_Notifi"
-  "cation\032\013.NoResponse\"E\202\265\030ANotification fr"
-  "om server to client about current broadc"
-  "ast status\022\237\001\n\032NotifyBroadcastChannelLiv"
-  "e\022-.CBroadcast_BroadcastChannelLive_Noti"
-  "fication\032\013.NoResponse\"E\202\265\030ANotification "
-  "from server to client about current broa"
-  "dcast status\022p\n\024SendThumbnailToRelay\022-.C"
-  "Broadcast_SendThumbnailToRelay_Notificat"
-  "ion\032\013.NoResponse\"\034\202\265\030\030Send thumbnails to"
-  " relay\022\247\001\n\032NotifyWebRTCNeedTURNServer\022-."
-  "CBroadcast_WebRTCNeedTURNServer_Notifica"
-  "tion\032\013.NoResponse\"M\202\265\030INotification from"
-  " server to client that it needs the clie"
-  "nt\'s TURN server\022\224\001\n\021NotifyWebRTCStart\022$"
-  ".CBroadcast_WebRTCStart_Notification\032\013.N"
-  "oResponse\"L\202\265\030HNotification from server "
-  "to client that it should start a WebRTC "
-  "session\022\237\001\n\025NotifyWebRTCSetAnswer\022(.CBro"
-  "adcast_WebRTCSetAnswer_Notification\032\013.No"
-  "Response\"O\202\265\030KNotification from server t"
-  "o client about the broadcast viewer WebR"
-  "TC answer\022\266\001\n\036NotifyWebRTCAddViewerCandi"
-  "date\0221.CBroadcast_WebRTCAddViewerCandida"
-  "te_Notification\032\013.NoResponse\"T\202\265\030PNotifi"
-  "cation from server to client about a bro"
-  "adcast viewer WebRTC ICE candidate\032\004\300\265\030\002"
-  "B\035\200\001\001\252\002\027OpenSteamworks.Protobuf"
+  "ast_StartBuildClip_Response\022e\n\022GetBuildC"
+  "lipStatus\022&.CBroadcast_GetBuildClipStatu"
+  "s_Request\032\'.CBroadcast_GetBuildClipStatu"
+  "s_Response\022Y\n\016SetClipDetails\022\".CBroadcas"
+  "t_SetClipDetails_Request\032#.CBroadcast_Se"
+  "tClipDetails_Response\022Y\n\016GetClipDetails\022"
+  "\".CBroadcast_GetClipDetails_Request\032#.CB"
+  "roadcast_GetClipDetails_Response\022P\n\013SetR"
+  "TMPInfo\022\037.CBroadcast_SetRTMPInfo_Request"
+  "\032 .CBroadcast_SetRTMPInfo_Response\022P\n\013Ge"
+  "tRTMPInfo\022\037.CBroadcast_GetRTMPInfo_Reque"
+  "st\032 .CBroadcast_GetRTMPInfo_Response\022X\n\032"
+  "NotifyWebRTCHaveTURNServer\022-.CBroadcast_"
+  "WebRTCHaveTURNServer_Notification\032\013.NoRe"
+  "sponse\022b\n\021WebRTCStartResult\022%.CBroadcast"
+  "_WebRTCStartResult_Request\032&.CBroadcast_"
+  "WebRTCStartResult_Response\022V\n\rWebRTCStop"
+  "ped\022!.CBroadcast_WebRTCStopped_Request\032\""
+  ".CBroadcast_WebRTCStopped_Response\022\\\n\017We"
+  "bRTCSetAnswer\022#.CBroadcast_WebRTCSetAnsw"
+  "er_Request\032$.CBroadcast_WebRTCSetAnswer_"
+  "Response\022q\n\026WebRTCLookupTURNServer\022*.CBr"
+  "oadcast_WebRTCLookupTURNServer_Request\032+"
+  ".CBroadcast_WebRTCLookupTURNServer_Respo"
+  "nse\022q\n\026WebRTCAddHostCandidate\022*.CBroadca"
+  "st_WebRTCAddHostCandidate_Request\032+.CBro"
+  "adcast_WebRTCAddHostCandidate_Response\022w"
+  "\n\030WebRTCAddViewerCandidate\022,.CBroadcast_"
+  "WebRTCAddViewerCandidate_Request\032-.CBroa"
+  "dcast_WebRTCAddViewerCandidate_Response\022"
+  "t\n\027WebRTCGetHostCandidates\022+.CBroadcast_"
+  "WebRTCGetHostCandidates_Request\032,.CBroad"
+  "cast_WebRTCGetHostCandidates_Response\022t\n"
+  "\027GetBroadcastUploadStats\022+.CBroadcast_Ge"
+  "tBroadcastUploadStats_Request\032,.CBroadca"
+  "st_GetBroadcastUploadStats_Response\022t\n\027G"
+  "etBroadcastViewerStats\022+.CBroadcast_GetB"
+  "roadcastViewerStats_Request\032,.CBroadcast"
+  "_GetBroadcastViewerStats_Response2\377\010\n\017Br"
+  "oadcastClient\022X\n\032NotifyBroadcastViewerSt"
+  "ate\022-.CBroadcast_BroadcastViewerState_No"
+  "tification\032\013.NoResponse\022\\\n\034NotifyWaiting"
+  "BroadcastViewer\022/.CBroadcast_WaitingBroa"
+  "dcastViewer_Notification\032\013.NoResponse\022\\\n"
+  "\034NotifyBroadcastUploadStarted\022/.CBroadca"
+  "st_BroadcastUploadStarted_Notification\032\013"
+  ".NoResponse\022V\n\031NotifyStopBroadcastUpload"
+  "\022,.CBroadcast_StopBroadcastUpload_Notifi"
+  "cation\032\013.NoResponse\022J\n\023NotifySessionClos"
+  "ed\022&.CBroadcast_SessionClosed_Notificati"
+  "on\032\013.NoResponse\022Z\n\033NotifyViewerBroadcast"
+  "Invite\022..CBroadcast_ViewerBroadcastInvit"
+  "e_Notification\032\013.NoResponse\022N\n\025NotifyBro"
+  "adcastStatus\022(.CBroadcast_BroadcastStatu"
+  "s_Notification\032\013.NoResponse\022X\n\032NotifyBro"
+  "adcastChannelLive\022-.CBroadcast_Broadcast"
+  "ChannelLive_Notification\032\013.NoResponse\022R\n"
+  "\024SendThumbnailToRelay\022-.CBroadcast_SendT"
+  "humbnailToRelay_Notification\032\013.NoRespons"
+  "e\022X\n\032NotifyWebRTCNeedTURNServer\022-.CBroad"
+  "cast_WebRTCNeedTURNServer_Notification\032\013"
+  ".NoResponse\022F\n\021NotifyWebRTCStart\022$.CBroa"
+  "dcast_WebRTCStart_Notification\032\013.NoRespo"
+  "nse\022N\n\025NotifyWebRTCSetAnswer\022(.CBroadcas"
+  "t_WebRTCSetAnswer_Notification\032\013.NoRespo"
+  "nse\022`\n\036NotifyWebRTCAddViewerCandidate\0221."
+  "CBroadcast_WebRTCAddViewerCandidate_Noti"
+  "fication\032\013.NoResponse\032\004\300\265\030\002B\035\200\001\001\252\002\027OpenS"
+  "teamworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fbroadcast_2esteamclient_2eproto_deps[3] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
@@ -2877,7 +2723,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fbroadcast_2esteamclient_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fbroadcast_2esteamclient_2eproto = {
-  false, false, 22591, descriptor_table_protodef_steammessages_5fbroadcast_2esteamclient_2eproto, "steammessages_broadcast.steamclient.proto", 
+  false, false, 16418, descriptor_table_protodef_steammessages_5fbroadcast_2esteamclient_2eproto, "steammessages_broadcast.steamclient.proto", 
   &descriptor_table_steammessages_5fbroadcast_2esteamclient_2eproto_once, descriptor_table_steammessages_5fbroadcast_2esteamclient_2eproto_deps, 3, 81,
   schemas, file_default_instances, TableStruct_steammessages_5fbroadcast_2esteamclient_2eproto::offsets,
   file_level_metadata_steammessages_5fbroadcast_2esteamclient_2eproto, file_level_enum_descriptors_steammessages_5fbroadcast_2esteamclient_2eproto, file_level_service_descriptors_steammessages_5fbroadcast_2esteamclient_2eproto,
@@ -3626,7 +3472,7 @@ const char* CBroadcast_BeginBroadcastSession_Response::_InternalParse(const char
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
         } else goto handle_unusual;
         continue;
-      // optional string thumbnail_upload_address = 2 [(.description) = "Http address to upload the thumbnail data."];
+      // optional string thumbnail_upload_address = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           auto str = _internal_mutable_thumbnail_upload_address();
@@ -3637,7 +3483,7 @@ const char* CBroadcast_BeginBroadcastSession_Response::_InternalParse(const char
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string thumbnail_upload_token = 3 [(.description) = "token to authorize as broadcaster to upload content to the relay."];
+      // optional string thumbnail_upload_token = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           auto str = _internal_mutable_thumbnail_upload_token();
@@ -3648,7 +3494,7 @@ const char* CBroadcast_BeginBroadcastSession_Response::_InternalParse(const char
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 thumbnail_interval_seconds = 4 [(.description) = "how many seconds between thumbnails"];
+      // optional uint32 thumbnail_interval_seconds = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
           _Internal::set_has_thumbnail_interval_seconds(&has_bits);
@@ -3656,7 +3502,7 @@ const char* CBroadcast_BeginBroadcastSession_Response::_InternalParse(const char
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 heartbeat_interval_seconds = 5 [(.description) = "how many seconds between session heartbeats"];
+      // optional uint32 heartbeat_interval_seconds = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
           _Internal::set_has_heartbeat_interval_seconds(&has_bits);
@@ -3700,7 +3546,7 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_broadcast_id(), target);
   }
 
-  // optional string thumbnail_upload_address = 2 [(.description) = "Http address to upload the thumbnail data."];
+  // optional string thumbnail_upload_address = 2;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_thumbnail_upload_address().data(), static_cast<int>(this->_internal_thumbnail_upload_address().length()),
@@ -3710,7 +3556,7 @@ failure:
         2, this->_internal_thumbnail_upload_address(), target);
   }
 
-  // optional string thumbnail_upload_token = 3 [(.description) = "token to authorize as broadcaster to upload content to the relay."];
+  // optional string thumbnail_upload_token = 3;
   if (cached_has_bits & 0x00000002u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_thumbnail_upload_token().data(), static_cast<int>(this->_internal_thumbnail_upload_token().length()),
@@ -3720,13 +3566,13 @@ failure:
         3, this->_internal_thumbnail_upload_token(), target);
   }
 
-  // optional uint32 thumbnail_interval_seconds = 4 [(.description) = "how many seconds between thumbnails"];
+  // optional uint32 thumbnail_interval_seconds = 4;
   if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_thumbnail_interval_seconds(), target);
   }
 
-  // optional uint32 heartbeat_interval_seconds = 5 [(.description) = "how many seconds between session heartbeats"];
+  // optional uint32 heartbeat_interval_seconds = 5;
   if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(5, this->_internal_heartbeat_interval_seconds(), target);
@@ -3750,14 +3596,14 @@ size_t CBroadcast_BeginBroadcastSession_Response::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x0000001fu) {
-    // optional string thumbnail_upload_address = 2 [(.description) = "Http address to upload the thumbnail data."];
+    // optional string thumbnail_upload_address = 2;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_thumbnail_upload_address());
     }
 
-    // optional string thumbnail_upload_token = 3 [(.description) = "token to authorize as broadcaster to upload content to the relay."];
+    // optional string thumbnail_upload_token = 3;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
@@ -3769,14 +3615,14 @@ size_t CBroadcast_BeginBroadcastSession_Response::ByteSizeLong() const {
       total_size += 1 + 8;
     }
 
-    // optional uint32 thumbnail_interval_seconds = 4 [(.description) = "how many seconds between thumbnails"];
+    // optional uint32 thumbnail_interval_seconds = 4;
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_thumbnail_interval_seconds());
     }
 
-    // optional uint32 heartbeat_interval_seconds = 5 [(.description) = "how many seconds between session heartbeats"];
+    // optional uint32 heartbeat_interval_seconds = 5;
     if (cached_has_bits & 0x00000010u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -4359,7 +4205,7 @@ const char* CBroadcast_StartBroadcastUpload_Request::_InternalParse(const char* 
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint64 rtmp_token = 5 [default = 0, (.description) = "Only set during RTMP uploads; secret key from the user."];
+      // optional uint64 rtmp_token = 5 [default = 0];
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
           _Internal::set_has_rtmp_token(&has_bits);
@@ -4445,7 +4291,7 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_delay_seconds(), target);
   }
 
-  // optional uint64 rtmp_token = 5 [default = 0, (.description) = "Only set during RTMP uploads; secret key from the user."];
+  // optional uint64 rtmp_token = 5 [default = 0];
   if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(5, this->_internal_rtmp_token(), target);
@@ -4506,7 +4352,7 @@ size_t CBroadcast_StartBroadcastUpload_Request::ByteSizeLong() const {
           this->_internal_delay_seconds());
     }
 
-    // optional uint64 rtmp_token = 5 [default = 0, (.description) = "Only set during RTMP uploads; secret key from the user."];
+    // optional uint64 rtmp_token = 5 [default = 0];
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
@@ -5355,7 +5201,7 @@ const char* CBroadcast_WatchBroadcast_Request::_InternalParse(const char* ptr, :
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional fixed64 steamid = 1 [(.description) = "broadcaster steamID."];
+      // optional fixed64 steamid = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
           _Internal::set_has_steamid(&has_bits);
@@ -5363,7 +5209,7 @@ const char* CBroadcast_WatchBroadcast_Request::_InternalParse(const char* ptr, :
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
         } else goto handle_unusual;
         continue;
-      // optional fixed64 existing_broadcast_id = 2 [(.description) = "broadcast session ID (optional, rejoin if specified)."];
+      // optional fixed64 existing_broadcast_id = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 17)) {
           _Internal::set_has_existing_broadcast_id(&has_bits);
@@ -5371,7 +5217,7 @@ const char* CBroadcast_WatchBroadcast_Request::_InternalParse(const char* ptr, :
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
         } else goto handle_unusual;
         continue;
-      // optional fixed64 viewer_token = 3 [(.description) = "viewer token received from last WatchRequest call, from browser storage."];
+      // optional fixed64 viewer_token = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 25)) {
           _Internal::set_has_viewer_token(&has_bits);
@@ -5437,19 +5283,19 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional fixed64 steamid = 1 [(.description) = "broadcaster steamID."];
+  // optional fixed64 steamid = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_steamid(), target);
   }
 
-  // optional fixed64 existing_broadcast_id = 2 [(.description) = "broadcast session ID (optional, rejoin if specified)."];
+  // optional fixed64 existing_broadcast_id = 2;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(2, this->_internal_existing_broadcast_id(), target);
   }
 
-  // optional fixed64 viewer_token = 3 [(.description) = "viewer token received from last WatchRequest call, from browser storage."];
+  // optional fixed64 viewer_token = 3;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(3, this->_internal_viewer_token(), target);
@@ -5492,17 +5338,17 @@ size_t CBroadcast_WatchBroadcast_Request::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x0000003fu) {
-    // optional fixed64 steamid = 1 [(.description) = "broadcaster steamID."];
+    // optional fixed64 steamid = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 + 8;
     }
 
-    // optional fixed64 existing_broadcast_id = 2 [(.description) = "broadcast session ID (optional, rejoin if specified)."];
+    // optional fixed64 existing_broadcast_id = 2;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 + 8;
     }
 
-    // optional fixed64 viewer_token = 3 [(.description) = "viewer token received from last WatchRequest call, from browser storage."];
+    // optional fixed64 viewer_token = 3;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 + 8;
     }
@@ -6576,7 +6422,7 @@ const char* CBroadcast_HeartbeatBroadcast_Notification::_InternalParse(const cha
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional fixed64 steamid = 1 [(.description) = "broadcaster steamID."];
+      // optional fixed64 steamid = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
           _Internal::set_has_steamid(&has_bits);
@@ -6584,7 +6430,7 @@ const char* CBroadcast_HeartbeatBroadcast_Notification::_InternalParse(const cha
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
         } else goto handle_unusual;
         continue;
-      // optional fixed64 broadcast_id = 2 [(.description) = "broadcast session ID."];
+      // optional fixed64 broadcast_id = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 17)) {
           _Internal::set_has_broadcast_id(&has_bits);
@@ -6592,7 +6438,7 @@ const char* CBroadcast_HeartbeatBroadcast_Notification::_InternalParse(const cha
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
         } else goto handle_unusual;
         continue;
-      // optional fixed64 viewer_token = 3 [(.description) = "viewer token received from last WatchRequest call, from browser storage."];
+      // optional fixed64 viewer_token = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 25)) {
           _Internal::set_has_viewer_token(&has_bits);
@@ -6600,7 +6446,7 @@ const char* CBroadcast_HeartbeatBroadcast_Notification::_InternalParse(const cha
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
         } else goto handle_unusual;
         continue;
-      // optional uint32 representation = 4 [(.description) = "video stream representation watching"];
+      // optional uint32 representation = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
           _Internal::set_has_representation(&has_bits);
@@ -6638,25 +6484,25 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional fixed64 steamid = 1 [(.description) = "broadcaster steamID."];
+  // optional fixed64 steamid = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_steamid(), target);
   }
 
-  // optional fixed64 broadcast_id = 2 [(.description) = "broadcast session ID."];
+  // optional fixed64 broadcast_id = 2;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(2, this->_internal_broadcast_id(), target);
   }
 
-  // optional fixed64 viewer_token = 3 [(.description) = "viewer token received from last WatchRequest call, from browser storage."];
+  // optional fixed64 viewer_token = 3;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(3, this->_internal_viewer_token(), target);
   }
 
-  // optional uint32 representation = 4 [(.description) = "video stream representation watching"];
+  // optional uint32 representation = 4;
   if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_representation(), target);
@@ -6680,22 +6526,22 @@ size_t CBroadcast_HeartbeatBroadcast_Notification::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x0000000fu) {
-    // optional fixed64 steamid = 1 [(.description) = "broadcaster steamID."];
+    // optional fixed64 steamid = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 + 8;
     }
 
-    // optional fixed64 broadcast_id = 2 [(.description) = "broadcast session ID."];
+    // optional fixed64 broadcast_id = 2;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 + 8;
     }
 
-    // optional fixed64 viewer_token = 3 [(.description) = "viewer token received from last WatchRequest call, from browser storage."];
+    // optional fixed64 viewer_token = 3;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 + 8;
     }
 
-    // optional uint32 representation = 4 [(.description) = "video stream representation watching"];
+    // optional uint32 representation = 4;
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -6870,7 +6716,7 @@ const char* CBroadcast_StopWatchingBroadcast_Notification::_InternalParse(const 
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional fixed64 steamid = 1 [(.description) = "broadcaster steamID."];
+      // optional fixed64 steamid = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
           _Internal::set_has_steamid(&has_bits);
@@ -6878,7 +6724,7 @@ const char* CBroadcast_StopWatchingBroadcast_Notification::_InternalParse(const 
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
         } else goto handle_unusual;
         continue;
-      // optional fixed64 broadcast_id = 2 [(.description) = "broadcast session ID."];
+      // optional fixed64 broadcast_id = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 17)) {
           _Internal::set_has_broadcast_id(&has_bits);
@@ -6886,7 +6732,7 @@ const char* CBroadcast_StopWatchingBroadcast_Notification::_InternalParse(const 
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
         } else goto handle_unusual;
         continue;
-      // optional fixed64 viewer_token = 3 [(.description) = "viewer token received from last WatchRequest call, from browser storage."];
+      // optional fixed64 viewer_token = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 25)) {
           _Internal::set_has_viewer_token(&has_bits);
@@ -6924,19 +6770,19 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional fixed64 steamid = 1 [(.description) = "broadcaster steamID."];
+  // optional fixed64 steamid = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_steamid(), target);
   }
 
-  // optional fixed64 broadcast_id = 2 [(.description) = "broadcast session ID."];
+  // optional fixed64 broadcast_id = 2;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(2, this->_internal_broadcast_id(), target);
   }
 
-  // optional fixed64 viewer_token = 3 [(.description) = "viewer token received from last WatchRequest call, from browser storage."];
+  // optional fixed64 viewer_token = 3;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(3, this->_internal_viewer_token(), target);
@@ -6960,17 +6806,17 @@ size_t CBroadcast_StopWatchingBroadcast_Notification::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000007u) {
-    // optional fixed64 steamid = 1 [(.description) = "broadcaster steamID."];
+    // optional fixed64 steamid = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 + 8;
     }
 
-    // optional fixed64 broadcast_id = 2 [(.description) = "broadcast session ID."];
+    // optional fixed64 broadcast_id = 2;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 + 8;
     }
 
-    // optional fixed64 viewer_token = 3 [(.description) = "viewer token received from last WatchRequest call, from browser storage."];
+    // optional fixed64 viewer_token = 3;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 + 8;
     }
@@ -7137,7 +6983,7 @@ const char* CBroadcast_GetBroadcastStatus_Request::_InternalParse(const char* pt
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional fixed64 steamid = 1 [(.description) = "broadcaster steamID."];
+      // optional fixed64 steamid = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
           _Internal::set_has_steamid(&has_bits);
@@ -7145,7 +6991,7 @@ const char* CBroadcast_GetBroadcastStatus_Request::_InternalParse(const char* pt
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
         } else goto handle_unusual;
         continue;
-      // optional fixed64 broadcast_id = 2 [(.description) = "broadcast session ID to proof that user is allowed to see details."];
+      // optional fixed64 broadcast_id = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 17)) {
           _Internal::set_has_broadcast_id(&has_bits);
@@ -7183,13 +7029,13 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional fixed64 steamid = 1 [(.description) = "broadcaster steamID."];
+  // optional fixed64 steamid = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_steamid(), target);
   }
 
-  // optional fixed64 broadcast_id = 2 [(.description) = "broadcast session ID to proof that user is allowed to see details."];
+  // optional fixed64 broadcast_id = 2;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(2, this->_internal_broadcast_id(), target);
@@ -7213,12 +7059,12 @@ size_t CBroadcast_GetBroadcastStatus_Request::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional fixed64 steamid = 1 [(.description) = "broadcaster steamID."];
+    // optional fixed64 steamid = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 + 8;
     }
 
-    // optional fixed64 broadcast_id = 2 [(.description) = "broadcast session ID to proof that user is allowed to see details."];
+    // optional fixed64 broadcast_id = 2;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 + 8;
     }
@@ -10341,7 +10187,7 @@ const char* CBroadcast_PostChatMessage_Request::_InternalParse(const char* ptr, 
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 language = 4 [default = 0, (.description) = "ELanguage of the user posting the message, default is english"];
+      // optional uint32 language = 4 [default = 0];
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
           _Internal::set_has_language(&has_bits);
@@ -10349,7 +10195,7 @@ const char* CBroadcast_PostChatMessage_Request::_InternalParse(const char* ptr, 
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string country_code = 5 [(.description) = "The two letter country code"];
+      // optional string country_code = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
           auto str = _internal_mutable_country_code();
@@ -10412,13 +10258,13 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_instance_id(), target);
   }
 
-  // optional uint32 language = 4 [default = 0, (.description) = "ELanguage of the user posting the message, default is english"];
+  // optional uint32 language = 4 [default = 0];
   if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_language(), target);
   }
 
-  // optional string country_code = 5 [(.description) = "The two letter country code"];
+  // optional string country_code = 5;
   if (cached_has_bits & 0x00000002u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_country_code().data(), static_cast<int>(this->_internal_country_code().length()),
@@ -10453,7 +10299,7 @@ size_t CBroadcast_PostChatMessage_Request::ByteSizeLong() const {
           this->_internal_message());
     }
 
-    // optional string country_code = 5 [(.description) = "The two letter country code"];
+    // optional string country_code = 5;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
@@ -10472,7 +10318,7 @@ size_t CBroadcast_PostChatMessage_Request::ByteSizeLong() const {
           this->_internal_instance_id());
     }
 
-    // optional uint32 language = 4 [default = 0, (.description) = "ELanguage of the user posting the message, default is english"];
+    // optional uint32 language = 4 [default = 0];
     if (cached_has_bits & 0x00000010u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -13934,7 +13780,7 @@ const char* CBroadcast_SetClipDetails_Request::_InternalParse(const char* ptr, :
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint64 broadcast_clip_id = 1 [(.description) = "Clip ID"];
+      // optional uint64 broadcast_clip_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_broadcast_clip_id(&has_bits);
@@ -13942,7 +13788,7 @@ const char* CBroadcast_SetClipDetails_Request::_InternalParse(const char* ptr, :
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 start_time = 2 [(.description) = "start time of the clip"];
+      // optional uint32 start_time = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_start_time(&has_bits);
@@ -13950,7 +13796,7 @@ const char* CBroadcast_SetClipDetails_Request::_InternalParse(const char* ptr, :
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 end_time = 3 [(.description) = "end time of the clip"];
+      // optional uint32 end_time = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           _Internal::set_has_end_time(&has_bits);
@@ -13999,19 +13845,19 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint64 broadcast_clip_id = 1 [(.description) = "Clip ID"];
+  // optional uint64 broadcast_clip_id = 1;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_broadcast_clip_id(), target);
   }
 
-  // optional uint32 start_time = 2 [(.description) = "start time of the clip"];
+  // optional uint32 start_time = 2;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_start_time(), target);
   }
 
-  // optional uint32 end_time = 3 [(.description) = "end time of the clip"];
+  // optional uint32 end_time = 3;
   if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_end_time(), target);
@@ -14052,21 +13898,21 @@ size_t CBroadcast_SetClipDetails_Request::ByteSizeLong() const {
           this->_internal_video_description());
     }
 
-    // optional uint64 broadcast_clip_id = 1 [(.description) = "Clip ID"];
+    // optional uint64 broadcast_clip_id = 1;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_broadcast_clip_id());
     }
 
-    // optional uint32 start_time = 2 [(.description) = "start time of the clip"];
+    // optional uint32 start_time = 2;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_start_time());
     }
 
-    // optional uint32 end_time = 3 [(.description) = "end time of the clip"];
+    // optional uint32 end_time = 3;
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -14383,7 +14229,7 @@ const char* CBroadcast_GetClipDetails_Request::_InternalParse(const char* ptr, :
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint64 broadcast_clip_id = 1 [(.description) = "List of clip IDs we want details for"];
+      // optional uint64 broadcast_clip_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_broadcast_clip_id(&has_bits);
@@ -14421,7 +14267,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint64 broadcast_clip_id = 1 [(.description) = "List of clip IDs we want details for"];
+  // optional uint64 broadcast_clip_id = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_broadcast_clip_id(), target);
@@ -14443,7 +14289,7 @@ size_t CBroadcast_GetClipDetails_Request::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // optional uint64 broadcast_clip_id = 1 [(.description) = "List of clip IDs we want details for"];
+  // optional uint64 broadcast_clip_id = 1;
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += 1 +
@@ -14648,7 +14494,7 @@ const char* CBroadcast_GetClipDetails_Response::_InternalParse(const char* ptr, 
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint64 broadcast_clip_id = 1 [(.description) = "broadcast clip ID"];
+      // optional uint64 broadcast_clip_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_broadcast_clip_id(&has_bits);
@@ -14656,7 +14502,7 @@ const char* CBroadcast_GetClipDetails_Response::_InternalParse(const char* ptr, 
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint64 video_id = 2 [(.description) = "matching unique video ID"];
+      // optional uint64 video_id = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_video_id(&has_bits);
@@ -14664,7 +14510,7 @@ const char* CBroadcast_GetClipDetails_Response::_InternalParse(const char* ptr, 
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint64 channel_id = 3 [(.description) = "Broadcast Channel ID"];
+      // optional uint64 channel_id = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           _Internal::set_has_channel_id(&has_bits);
@@ -14672,7 +14518,7 @@ const char* CBroadcast_GetClipDetails_Response::_InternalParse(const char* ptr, 
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 app_id = 4 [(.description) = "App ID stream is tagged with"];
+      // optional uint32 app_id = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
           _Internal::set_has_app_id(&has_bits);
@@ -14680,7 +14526,7 @@ const char* CBroadcast_GetClipDetails_Response::_InternalParse(const char* ptr, 
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 accountid_broadcaster = 5 [(.description) = "Account ID of broadcaster"];
+      // optional uint32 accountid_broadcaster = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
           _Internal::set_has_accountid_broadcaster(&has_bits);
@@ -14688,7 +14534,7 @@ const char* CBroadcast_GetClipDetails_Response::_InternalParse(const char* ptr, 
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 accountid_clipmaker = 6 [(.description) = "Account ID of clip-maker"];
+      // optional uint32 accountid_clipmaker = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
           _Internal::set_has_accountid_clipmaker(&has_bits);
@@ -14696,7 +14542,7 @@ const char* CBroadcast_GetClipDetails_Response::_InternalParse(const char* ptr, 
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string video_description = 7 [(.description) = "Short name or description of this clip"];
+      // optional string video_description = 7;
       case 7:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
           auto str = _internal_mutable_video_description();
@@ -14707,7 +14553,7 @@ const char* CBroadcast_GetClipDetails_Response::_InternalParse(const char* ptr, 
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 start_time = 8 [(.description) = "Wall time clip was broadcasted live"];
+      // optional uint32 start_time = 8;
       case 8:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 64)) {
           _Internal::set_has_start_time(&has_bits);
@@ -14715,7 +14561,7 @@ const char* CBroadcast_GetClipDetails_Response::_InternalParse(const char* ptr, 
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 length_milliseconds = 9 [(.description) = "length of video in MS"];
+      // optional uint32 length_milliseconds = 9;
       case 9:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 72)) {
           _Internal::set_has_length_milliseconds(&has_bits);
@@ -14723,7 +14569,7 @@ const char* CBroadcast_GetClipDetails_Response::_InternalParse(const char* ptr, 
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string thumbnail_path = 10 [(.description) = "Path for thumbnail URL"];
+      // optional string thumbnail_path = 10;
       case 10:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 82)) {
           auto str = _internal_mutable_thumbnail_path();
@@ -14764,43 +14610,43 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint64 broadcast_clip_id = 1 [(.description) = "broadcast clip ID"];
+  // optional uint64 broadcast_clip_id = 1;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_broadcast_clip_id(), target);
   }
 
-  // optional uint64 video_id = 2 [(.description) = "matching unique video ID"];
+  // optional uint64 video_id = 2;
   if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(2, this->_internal_video_id(), target);
   }
 
-  // optional uint64 channel_id = 3 [(.description) = "Broadcast Channel ID"];
+  // optional uint64 channel_id = 3;
   if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(3, this->_internal_channel_id(), target);
   }
 
-  // optional uint32 app_id = 4 [(.description) = "App ID stream is tagged with"];
+  // optional uint32 app_id = 4;
   if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_app_id(), target);
   }
 
-  // optional uint32 accountid_broadcaster = 5 [(.description) = "Account ID of broadcaster"];
+  // optional uint32 accountid_broadcaster = 5;
   if (cached_has_bits & 0x00000040u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(5, this->_internal_accountid_broadcaster(), target);
   }
 
-  // optional uint32 accountid_clipmaker = 6 [(.description) = "Account ID of clip-maker"];
+  // optional uint32 accountid_clipmaker = 6;
   if (cached_has_bits & 0x00000080u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(6, this->_internal_accountid_clipmaker(), target);
   }
 
-  // optional string video_description = 7 [(.description) = "Short name or description of this clip"];
+  // optional string video_description = 7;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_video_description().data(), static_cast<int>(this->_internal_video_description().length()),
@@ -14810,19 +14656,19 @@ failure:
         7, this->_internal_video_description(), target);
   }
 
-  // optional uint32 start_time = 8 [(.description) = "Wall time clip was broadcasted live"];
+  // optional uint32 start_time = 8;
   if (cached_has_bits & 0x00000100u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(8, this->_internal_start_time(), target);
   }
 
-  // optional uint32 length_milliseconds = 9 [(.description) = "length of video in MS"];
+  // optional uint32 length_milliseconds = 9;
   if (cached_has_bits & 0x00000200u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(9, this->_internal_length_milliseconds(), target);
   }
 
-  // optional string thumbnail_path = 10 [(.description) = "Path for thumbnail URL"];
+  // optional string thumbnail_path = 10;
   if (cached_has_bits & 0x00000002u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_thumbnail_path().data(), static_cast<int>(this->_internal_thumbnail_path().length()),
@@ -14850,56 +14696,56 @@ size_t CBroadcast_GetClipDetails_Response::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x000000ffu) {
-    // optional string video_description = 7 [(.description) = "Short name or description of this clip"];
+    // optional string video_description = 7;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_video_description());
     }
 
-    // optional string thumbnail_path = 10 [(.description) = "Path for thumbnail URL"];
+    // optional string thumbnail_path = 10;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_thumbnail_path());
     }
 
-    // optional uint64 broadcast_clip_id = 1 [(.description) = "broadcast clip ID"];
+    // optional uint64 broadcast_clip_id = 1;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_broadcast_clip_id());
     }
 
-    // optional uint64 video_id = 2 [(.description) = "matching unique video ID"];
+    // optional uint64 video_id = 2;
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_video_id());
     }
 
-    // optional uint64 channel_id = 3 [(.description) = "Broadcast Channel ID"];
+    // optional uint64 channel_id = 3;
     if (cached_has_bits & 0x00000010u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_channel_id());
     }
 
-    // optional uint32 app_id = 4 [(.description) = "App ID stream is tagged with"];
+    // optional uint32 app_id = 4;
     if (cached_has_bits & 0x00000020u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_app_id());
     }
 
-    // optional uint32 accountid_broadcaster = 5 [(.description) = "Account ID of broadcaster"];
+    // optional uint32 accountid_broadcaster = 5;
     if (cached_has_bits & 0x00000040u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_accountid_broadcaster());
     }
 
-    // optional uint32 accountid_clipmaker = 6 [(.description) = "Account ID of clip-maker"];
+    // optional uint32 accountid_clipmaker = 6;
     if (cached_has_bits & 0x00000080u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -14908,14 +14754,14 @@ size_t CBroadcast_GetClipDetails_Response::ByteSizeLong() const {
 
   }
   if (cached_has_bits & 0x00000300u) {
-    // optional uint32 start_time = 8 [(.description) = "Wall time clip was broadcasted live"];
+    // optional uint32 start_time = 8;
     if (cached_has_bits & 0x00000100u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_start_time());
     }
 
-    // optional uint32 length_milliseconds = 9 [(.description) = "length of video in MS"];
+    // optional uint32 length_milliseconds = 9;
     if (cached_has_bits & 0x00000200u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -15195,7 +15041,7 @@ const char* CBroadcast_SetRTMPInfo_Request::_InternalParse(const char* ptr, ::PR
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional .EBroadcastChatPermission broadcast_chat_permission = 6 [default = EBroadcastChatPermissionPublic, (.description) = "Who is permitted to send a chat message during broadcast"];
+      // optional .EBroadcastChatPermission broadcast_chat_permission = 6 [default = EBroadcastChatPermissionPublic];
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
           ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -15207,7 +15053,7 @@ const char* CBroadcast_SetRTMPInfo_Request::_InternalParse(const char* ptr, ::PR
           }
         } else goto handle_unusual;
         continue;
-      // optional int32 broadcast_buffer = 7 [(.description) = "Previous seconds we keep of the stream available"];
+      // optional int32 broadcast_buffer = 7;
       case 7:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 56)) {
           _Internal::set_has_broadcast_buffer(&has_bits);
@@ -15215,7 +15061,7 @@ const char* CBroadcast_SetRTMPInfo_Request::_InternalParse(const char* ptr, ::PR
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional fixed64 steamid = 8 [(.description) = "broadcaster steamID if not logged-in user"];
+      // optional fixed64 steamid = 8;
       case 8:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 65)) {
           _Internal::set_has_steamid(&has_bits);
@@ -15223,7 +15069,7 @@ const char* CBroadcast_SetRTMPInfo_Request::_InternalParse(const char* ptr, ::PR
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
         } else goto handle_unusual;
         continue;
-      // optional uint32 chat_rate_limit = 9 [(.description) = "Seconds required between chat messages"];
+      // optional uint32 chat_rate_limit = 9;
       case 9:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 72)) {
           _Internal::set_has_chat_rate_limit(&has_bits);
@@ -15231,7 +15077,7 @@ const char* CBroadcast_SetRTMPInfo_Request::_InternalParse(const char* ptr, ::PR
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool enable_replay = 10 [(.description) = "Enable replay of last upload"];
+      // optional bool enable_replay = 10;
       case 10:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 80)) {
           _Internal::set_has_enable_replay(&has_bits);
@@ -15239,7 +15085,7 @@ const char* CBroadcast_SetRTMPInfo_Request::_InternalParse(const char* ptr, ::PR
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool is_partner_chat_only = 11 [(.description) = "When true, then only steamwork partner can create chat messages."];
+      // optional bool is_partner_chat_only = 11;
       case 11:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 88)) {
           _Internal::set_has_is_partner_chat_only(&has_bits);
@@ -15318,38 +15164,38 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(5, this->_internal_required_app_id(), target);
   }
 
-  // optional .EBroadcastChatPermission broadcast_chat_permission = 6 [default = EBroadcastChatPermissionPublic, (.description) = "Who is permitted to send a chat message during broadcast"];
+  // optional .EBroadcastChatPermission broadcast_chat_permission = 6 [default = EBroadcastChatPermissionPublic];
   if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       6, this->_internal_broadcast_chat_permission(), target);
   }
 
-  // optional int32 broadcast_buffer = 7 [(.description) = "Previous seconds we keep of the stream available"];
+  // optional int32 broadcast_buffer = 7;
   if (cached_has_bits & 0x00000040u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(7, this->_internal_broadcast_buffer(), target);
   }
 
-  // optional fixed64 steamid = 8 [(.description) = "broadcaster steamID if not logged-in user"];
+  // optional fixed64 steamid = 8;
   if (cached_has_bits & 0x00000080u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(8, this->_internal_steamid(), target);
   }
 
-  // optional uint32 chat_rate_limit = 9 [(.description) = "Seconds required between chat messages"];
+  // optional uint32 chat_rate_limit = 9;
   if (cached_has_bits & 0x00000800u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(9, this->_internal_chat_rate_limit(), target);
   }
 
-  // optional bool enable_replay = 10 [(.description) = "Enable replay of last upload"];
+  // optional bool enable_replay = 10;
   if (cached_has_bits & 0x00000200u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(10, this->_internal_enable_replay(), target);
   }
 
-  // optional bool is_partner_chat_only = 11 [(.description) = "When true, then only steamwork partner can create chat messages."];
+  // optional bool is_partner_chat_only = 11;
   if (cached_has_bits & 0x00000400u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(11, this->_internal_is_partner_chat_only(), target);
@@ -15418,20 +15264,20 @@ size_t CBroadcast_SetRTMPInfo_Request::ByteSizeLong() const {
           this->_internal_required_app_id());
     }
 
-    // optional .EBroadcastChatPermission broadcast_chat_permission = 6 [default = EBroadcastChatPermissionPublic, (.description) = "Who is permitted to send a chat message during broadcast"];
+    // optional .EBroadcastChatPermission broadcast_chat_permission = 6 [default = EBroadcastChatPermissionPublic];
     if (cached_has_bits & 0x00000020u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_broadcast_chat_permission());
     }
 
-    // optional int32 broadcast_buffer = 7 [(.description) = "Previous seconds we keep of the stream available"];
+    // optional int32 broadcast_buffer = 7;
     if (cached_has_bits & 0x00000040u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
           this->_internal_broadcast_buffer());
     }
 
-    // optional fixed64 steamid = 8 [(.description) = "broadcaster steamID if not logged-in user"];
+    // optional fixed64 steamid = 8;
     if (cached_has_bits & 0x00000080u) {
       total_size += 1 + 8;
     }
@@ -15443,17 +15289,17 @@ size_t CBroadcast_SetRTMPInfo_Request::ByteSizeLong() const {
       total_size += 1 + 1;
     }
 
-    // optional bool enable_replay = 10 [(.description) = "Enable replay of last upload"];
+    // optional bool enable_replay = 10;
     if (cached_has_bits & 0x00000200u) {
       total_size += 1 + 1;
     }
 
-    // optional bool is_partner_chat_only = 11 [(.description) = "When true, then only steamwork partner can create chat messages."];
+    // optional bool is_partner_chat_only = 11;
     if (cached_has_bits & 0x00000400u) {
       total_size += 1 + 1;
     }
 
-    // optional uint32 chat_rate_limit = 9 [(.description) = "Seconds required between chat messages"];
+    // optional uint32 chat_rate_limit = 9;
     if (cached_has_bits & 0x00000800u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -15818,7 +15664,7 @@ const char* CBroadcast_GetRTMPInfo_Request::_InternalParse(const char* ptr, ::PR
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional fixed64 steamid = 2 [(.description) = "broadcaster steamID if not logged-in user"];
+      // optional fixed64 steamid = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 17)) {
           _Internal::set_has_steamid(&has_bits);
@@ -15862,7 +15708,7 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_ip(), target);
   }
 
-  // optional fixed64 steamid = 2 [(.description) = "broadcaster steamID if not logged-in user"];
+  // optional fixed64 steamid = 2;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(2, this->_internal_steamid(), target);
@@ -15886,7 +15732,7 @@ size_t CBroadcast_GetRTMPInfo_Request::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional fixed64 steamid = 2 [(.description) = "broadcaster steamID if not logged-in user"];
+    // optional fixed64 steamid = 2;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 + 8;
     }
@@ -16181,7 +16027,7 @@ const char* CBroadcast_GetRTMPInfo_Response::_InternalParse(const char* ptr, ::P
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional .EBroadcastChatPermission broadcast_chat_permission = 7 [default = EBroadcastChatPermissionPublic, (.description) = "Who is permitted to send a chat message during broadcast"];
+      // optional .EBroadcastChatPermission broadcast_chat_permission = 7 [default = EBroadcastChatPermissionPublic];
       case 7:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 56)) {
           ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -16193,7 +16039,7 @@ const char* CBroadcast_GetRTMPInfo_Response::_InternalParse(const char* ptr, ::P
           }
         } else goto handle_unusual;
         continue;
-      // optional int32 broadcast_buffer = 8 [(.description) = "Seconds we keep streams available"];
+      // optional int32 broadcast_buffer = 8;
       case 8:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 64)) {
           _Internal::set_has_broadcast_buffer(&has_bits);
@@ -16201,7 +16047,7 @@ const char* CBroadcast_GetRTMPInfo_Response::_InternalParse(const char* ptr, ::P
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional fixed64 steamid = 9 [(.description) = "broadcaster steamID"];
+      // optional fixed64 steamid = 9;
       case 9:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 73)) {
           _Internal::set_has_steamid(&has_bits);
@@ -16209,7 +16055,7 @@ const char* CBroadcast_GetRTMPInfo_Response::_InternalParse(const char* ptr, ::P
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
         } else goto handle_unusual;
         continue;
-      // optional uint32 chat_rate_limit = 10 [(.description) = "Seconds required between chat messages"];
+      // optional uint32 chat_rate_limit = 10;
       case 10:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 80)) {
           _Internal::set_has_chat_rate_limit(&has_bits);
@@ -16217,7 +16063,7 @@ const char* CBroadcast_GetRTMPInfo_Response::_InternalParse(const char* ptr, ::P
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool enable_replay = 11 [(.description) = "Enable replay of last upload"];
+      // optional bool enable_replay = 11;
       case 11:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 88)) {
           _Internal::set_has_enable_replay(&has_bits);
@@ -16225,7 +16071,7 @@ const char* CBroadcast_GetRTMPInfo_Response::_InternalParse(const char* ptr, ::P
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool is_partner_chat_only = 12 [(.description) = "When true, then only steamwork partner can create chat messages."];
+      // optional bool is_partner_chat_only = 12;
       case 12:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 96)) {
           _Internal::set_has_is_partner_chat_only(&has_bits);
@@ -16318,38 +16164,38 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(6, this->_internal_required_app_id(), target);
   }
 
-  // optional .EBroadcastChatPermission broadcast_chat_permission = 7 [default = EBroadcastChatPermissionPublic, (.description) = "Who is permitted to send a chat message during broadcast"];
+  // optional .EBroadcastChatPermission broadcast_chat_permission = 7 [default = EBroadcastChatPermissionPublic];
   if (cached_has_bits & 0x00000080u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       7, this->_internal_broadcast_chat_permission(), target);
   }
 
-  // optional int32 broadcast_buffer = 8 [(.description) = "Seconds we keep streams available"];
+  // optional int32 broadcast_buffer = 8;
   if (cached_has_bits & 0x00000100u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(8, this->_internal_broadcast_buffer(), target);
   }
 
-  // optional fixed64 steamid = 9 [(.description) = "broadcaster steamID"];
+  // optional fixed64 steamid = 9;
   if (cached_has_bits & 0x00000200u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(9, this->_internal_steamid(), target);
   }
 
-  // optional uint32 chat_rate_limit = 10 [(.description) = "Seconds required between chat messages"];
+  // optional uint32 chat_rate_limit = 10;
   if (cached_has_bits & 0x00000400u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(10, this->_internal_chat_rate_limit(), target);
   }
 
-  // optional bool enable_replay = 11 [(.description) = "Enable replay of last upload"];
+  // optional bool enable_replay = 11;
   if (cached_has_bits & 0x00000800u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(11, this->_internal_enable_replay(), target);
   }
 
-  // optional bool is_partner_chat_only = 12 [(.description) = "When true, then only steamwork partner can create chat messages."];
+  // optional bool is_partner_chat_only = 12;
   if (cached_has_bits & 0x00001000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(12, this->_internal_is_partner_chat_only(), target);
@@ -16432,7 +16278,7 @@ size_t CBroadcast_GetRTMPInfo_Response::ByteSizeLong() const {
           this->_internal_required_app_id());
     }
 
-    // optional .EBroadcastChatPermission broadcast_chat_permission = 7 [default = EBroadcastChatPermissionPublic, (.description) = "Who is permitted to send a chat message during broadcast"];
+    // optional .EBroadcastChatPermission broadcast_chat_permission = 7 [default = EBroadcastChatPermissionPublic];
     if (cached_has_bits & 0x00000080u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_broadcast_chat_permission());
@@ -16440,31 +16286,31 @@ size_t CBroadcast_GetRTMPInfo_Response::ByteSizeLong() const {
 
   }
   if (cached_has_bits & 0x00001f00u) {
-    // optional int32 broadcast_buffer = 8 [(.description) = "Seconds we keep streams available"];
+    // optional int32 broadcast_buffer = 8;
     if (cached_has_bits & 0x00000100u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
           this->_internal_broadcast_buffer());
     }
 
-    // optional fixed64 steamid = 9 [(.description) = "broadcaster steamID"];
+    // optional fixed64 steamid = 9;
     if (cached_has_bits & 0x00000200u) {
       total_size += 1 + 8;
     }
 
-    // optional uint32 chat_rate_limit = 10 [(.description) = "Seconds required between chat messages"];
+    // optional uint32 chat_rate_limit = 10;
     if (cached_has_bits & 0x00000400u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_chat_rate_limit());
     }
 
-    // optional bool enable_replay = 11 [(.description) = "Enable replay of last upload"];
+    // optional bool enable_replay = 11;
     if (cached_has_bits & 0x00000800u) {
       total_size += 1 + 1;
     }
 
-    // optional bool is_partner_chat_only = 12 [(.description) = "When true, then only steamwork partner can create chat messages."];
+    // optional bool is_partner_chat_only = 12;
     if (cached_has_bits & 0x00001000u) {
       total_size += 1 + 1;
     }
@@ -20341,7 +20187,7 @@ const char* CBroadcast_GetBroadcastUploadStats_Request::_InternalParse(const cha
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint32 row_limit = 1 [default = 100, (.description) = "How many at maximum to return."];
+      // optional uint32 row_limit = 1 [default = 100];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_row_limit(&has_bits);
@@ -20349,7 +20195,7 @@ const char* CBroadcast_GetBroadcastUploadStats_Request::_InternalParse(const cha
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 start_time = 2 [default = 0, (.description) = "Start time"];
+      // optional uint32 start_time = 2 [default = 0];
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_start_time(&has_bits);
@@ -20357,7 +20203,7 @@ const char* CBroadcast_GetBroadcastUploadStats_Request::_InternalParse(const cha
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint64 upload_id = 3 [(.description) = "Optional relay upload ID - not compatible with session_id"];
+      // optional uint64 upload_id = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           _Internal::set_has_upload_id(&has_bits);
@@ -20365,7 +20211,7 @@ const char* CBroadcast_GetBroadcastUploadStats_Request::_InternalParse(const cha
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional fixed64 steamid = 4 [(.description) = "Optional the steamid whose stats you want, otherwise the user logged in - admin only"];
+      // optional fixed64 steamid = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 33)) {
           _Internal::set_has_steamid(&has_bits);
@@ -20373,7 +20219,7 @@ const char* CBroadcast_GetBroadcastUploadStats_Request::_InternalParse(const cha
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
         } else goto handle_unusual;
         continue;
-      // optional uint64 session_id = 5 [(.description) = "Optional broadcast session ID - not compatiable with upload_id"];
+      // optional uint64 session_id = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
           _Internal::set_has_session_id(&has_bits);
@@ -20411,31 +20257,31 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint32 row_limit = 1 [default = 100, (.description) = "How many at maximum to return."];
+  // optional uint32 row_limit = 1 [default = 100];
   if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_row_limit(), target);
   }
 
-  // optional uint32 start_time = 2 [default = 0, (.description) = "Start time"];
+  // optional uint32 start_time = 2 [default = 0];
   if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_start_time(), target);
   }
 
-  // optional uint64 upload_id = 3 [(.description) = "Optional relay upload ID - not compatible with session_id"];
+  // optional uint64 upload_id = 3;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(3, this->_internal_upload_id(), target);
   }
 
-  // optional fixed64 steamid = 4 [(.description) = "Optional the steamid whose stats you want, otherwise the user logged in - admin only"];
+  // optional fixed64 steamid = 4;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(4, this->_internal_steamid(), target);
   }
 
-  // optional uint64 session_id = 5 [(.description) = "Optional broadcast session ID - not compatiable with upload_id"];
+  // optional uint64 session_id = 5;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(5, this->_internal_session_id(), target);
@@ -20459,33 +20305,33 @@ size_t CBroadcast_GetBroadcastUploadStats_Request::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x0000001fu) {
-    // optional uint64 upload_id = 3 [(.description) = "Optional relay upload ID - not compatible with session_id"];
+    // optional uint64 upload_id = 3;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_upload_id());
     }
 
-    // optional fixed64 steamid = 4 [(.description) = "Optional the steamid whose stats you want, otherwise the user logged in - admin only"];
+    // optional fixed64 steamid = 4;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 + 8;
     }
 
-    // optional uint64 session_id = 5 [(.description) = "Optional broadcast session ID - not compatiable with upload_id"];
+    // optional uint64 session_id = 5;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_session_id());
     }
 
-    // optional uint32 start_time = 2 [default = 0, (.description) = "Start time"];
+    // optional uint32 start_time = 2 [default = 0];
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_start_time());
     }
 
-    // optional uint32 row_limit = 1 [default = 100, (.description) = "How many at maximum to return."];
+    // optional uint32 row_limit = 1 [default = 100];
     if (cached_has_bits & 0x00000010u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -20757,7 +20603,7 @@ const char* CBroadcast_GetBroadcastUploadStats_Response_UploadStats::_InternalPa
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint32 upload_result = 1 [(.description) = ""];
+      // optional uint32 upload_result = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_upload_result(&has_bits);
@@ -20765,7 +20611,7 @@ const char* CBroadcast_GetBroadcastUploadStats_Response_UploadStats::_InternalPa
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 time_stopped = 2 [(.description) = "time broadcast upload stopped"];
+      // optional uint32 time_stopped = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_time_stopped(&has_bits);
@@ -20773,7 +20619,7 @@ const char* CBroadcast_GetBroadcastUploadStats_Response_UploadStats::_InternalPa
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 seconds_uploaded = 3 [(.description) = "seconds of vido uploaded"];
+      // optional uint32 seconds_uploaded = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           _Internal::set_has_seconds_uploaded(&has_bits);
@@ -20781,7 +20627,7 @@ const char* CBroadcast_GetBroadcastUploadStats_Response_UploadStats::_InternalPa
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 max_viewers = 4 [(.description) = "max concurrent viewers"];
+      // optional uint32 max_viewers = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
           _Internal::set_has_max_viewers(&has_bits);
@@ -20789,7 +20635,7 @@ const char* CBroadcast_GetBroadcastUploadStats_Response_UploadStats::_InternalPa
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 resolution_x = 5 [(.description) = "horizontal resultion"];
+      // optional uint32 resolution_x = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
           _Internal::set_has_resolution_x(&has_bits);
@@ -20797,7 +20643,7 @@ const char* CBroadcast_GetBroadcastUploadStats_Response_UploadStats::_InternalPa
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 resolution_y = 6 [(.description) = "vertical resultion"];
+      // optional uint32 resolution_y = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
           _Internal::set_has_resolution_y(&has_bits);
@@ -20805,7 +20651,7 @@ const char* CBroadcast_GetBroadcastUploadStats_Response_UploadStats::_InternalPa
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 avg_bandwidth = 7 [(.description) = ""];
+      // optional uint32 avg_bandwidth = 7;
       case 7:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 56)) {
           _Internal::set_has_avg_bandwidth(&has_bits);
@@ -20813,7 +20659,7 @@ const char* CBroadcast_GetBroadcastUploadStats_Response_UploadStats::_InternalPa
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint64 total_bytes = 8 [(.description) = "total byte uploaded by broadcaster"];
+      // optional uint64 total_bytes = 8;
       case 8:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 64)) {
           _Internal::set_has_total_bytes(&has_bits);
@@ -20821,7 +20667,7 @@ const char* CBroadcast_GetBroadcastUploadStats_Response_UploadStats::_InternalPa
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 app_id = 9 [(.description) = "game broadcasted"];
+      // optional uint32 app_id = 9;
       case 9:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 72)) {
           _Internal::set_has_app_id(&has_bits);
@@ -20829,7 +20675,7 @@ const char* CBroadcast_GetBroadcastUploadStats_Response_UploadStats::_InternalPa
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 total_unique_viewers = 10 [(.description) = "total unique viewers seen"];
+      // optional uint32 total_unique_viewers = 10;
       case 10:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 80)) {
           _Internal::set_has_total_unique_viewers(&has_bits);
@@ -20837,7 +20683,7 @@ const char* CBroadcast_GetBroadcastUploadStats_Response_UploadStats::_InternalPa
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint64 total_seconds_watched = 11 [(.description) = "total number of seconds watched by all viewers"];
+      // optional uint64 total_seconds_watched = 11;
       case 11:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 88)) {
           _Internal::set_has_total_seconds_watched(&has_bits);
@@ -20845,7 +20691,7 @@ const char* CBroadcast_GetBroadcastUploadStats_Response_UploadStats::_InternalPa
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 time_started = 12 [(.description) = "time broadcast upload started"];
+      // optional uint32 time_started = 12;
       case 12:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 96)) {
           _Internal::set_has_time_started(&has_bits);
@@ -20853,7 +20699,7 @@ const char* CBroadcast_GetBroadcastUploadStats_Response_UploadStats::_InternalPa
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint64 upload_id = 13 [(.description) = "broadcast relay upload id"];
+      // optional uint64 upload_id = 13;
       case 13:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 104)) {
           _Internal::set_has_upload_id(&has_bits);
@@ -20861,7 +20707,7 @@ const char* CBroadcast_GetBroadcastUploadStats_Response_UploadStats::_InternalPa
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string local_address = 14 [(.description) = "upload to server address"];
+      // optional string local_address = 14;
       case 14:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 114)) {
           auto str = _internal_mutable_local_address();
@@ -20872,7 +20718,7 @@ const char* CBroadcast_GetBroadcastUploadStats_Response_UploadStats::_InternalPa
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string remote_address = 15 [(.description) = "upload from client address"];
+      // optional string remote_address = 15;
       case 15:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 122)) {
           auto str = _internal_mutable_remote_address();
@@ -20883,7 +20729,7 @@ const char* CBroadcast_GetBroadcastUploadStats_Response_UploadStats::_InternalPa
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 frames_per_second = 16 [(.description) = "frames per second"];
+      // optional uint32 frames_per_second = 16;
       case 16:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 128)) {
           _Internal::set_has_frames_per_second(&has_bits);
@@ -20891,7 +20737,7 @@ const char* CBroadcast_GetBroadcastUploadStats_Response_UploadStats::_InternalPa
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 num_representations = 17 [(.description) = "number of video represetations"];
+      // optional uint32 num_representations = 17;
       case 17:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 136)) {
           _Internal::set_has_num_representations(&has_bits);
@@ -20899,7 +20745,7 @@ const char* CBroadcast_GetBroadcastUploadStats_Response_UploadStats::_InternalPa
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string app_name = 18 [(.description) = "game name"];
+      // optional string app_name = 18;
       case 18:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 146)) {
           auto str = _internal_mutable_app_name();
@@ -20910,7 +20756,7 @@ const char* CBroadcast_GetBroadcastUploadStats_Response_UploadStats::_InternalPa
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool is_replay = 19 [(.description) = "replay of previous recording"];
+      // optional bool is_replay = 19;
       case 19:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 152)) {
           _Internal::set_has_is_replay(&has_bits);
@@ -20918,7 +20764,7 @@ const char* CBroadcast_GetBroadcastUploadStats_Response_UploadStats::_InternalPa
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint64 session_id = 20 [(.description) = "broadcast session id"];
+      // optional uint64 session_id = 20;
       case 20:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 160)) {
           _Internal::set_has_session_id(&has_bits);
@@ -20956,85 +20802,85 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint32 upload_result = 1 [(.description) = ""];
+  // optional uint32 upload_result = 1;
   if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_upload_result(), target);
   }
 
-  // optional uint32 time_stopped = 2 [(.description) = "time broadcast upload stopped"];
+  // optional uint32 time_stopped = 2;
   if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_time_stopped(), target);
   }
 
-  // optional uint32 seconds_uploaded = 3 [(.description) = "seconds of vido uploaded"];
+  // optional uint32 seconds_uploaded = 3;
   if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_seconds_uploaded(), target);
   }
 
-  // optional uint32 max_viewers = 4 [(.description) = "max concurrent viewers"];
+  // optional uint32 max_viewers = 4;
   if (cached_has_bits & 0x00000040u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_max_viewers(), target);
   }
 
-  // optional uint32 resolution_x = 5 [(.description) = "horizontal resultion"];
+  // optional uint32 resolution_x = 5;
   if (cached_has_bits & 0x00000080u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(5, this->_internal_resolution_x(), target);
   }
 
-  // optional uint32 resolution_y = 6 [(.description) = "vertical resultion"];
+  // optional uint32 resolution_y = 6;
   if (cached_has_bits & 0x00000100u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(6, this->_internal_resolution_y(), target);
   }
 
-  // optional uint32 avg_bandwidth = 7 [(.description) = ""];
+  // optional uint32 avg_bandwidth = 7;
   if (cached_has_bits & 0x00000400u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(7, this->_internal_avg_bandwidth(), target);
   }
 
-  // optional uint64 total_bytes = 8 [(.description) = "total byte uploaded by broadcaster"];
+  // optional uint64 total_bytes = 8;
   if (cached_has_bits & 0x00000200u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(8, this->_internal_total_bytes(), target);
   }
 
-  // optional uint32 app_id = 9 [(.description) = "game broadcasted"];
+  // optional uint32 app_id = 9;
   if (cached_has_bits & 0x00000800u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(9, this->_internal_app_id(), target);
   }
 
-  // optional uint32 total_unique_viewers = 10 [(.description) = "total unique viewers seen"];
+  // optional uint32 total_unique_viewers = 10;
   if (cached_has_bits & 0x00002000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(10, this->_internal_total_unique_viewers(), target);
   }
 
-  // optional uint64 total_seconds_watched = 11 [(.description) = "total number of seconds watched by all viewers"];
+  // optional uint64 total_seconds_watched = 11;
   if (cached_has_bits & 0x00001000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(11, this->_internal_total_seconds_watched(), target);
   }
 
-  // optional uint32 time_started = 12 [(.description) = "time broadcast upload started"];
+  // optional uint32 time_started = 12;
   if (cached_has_bits & 0x00004000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(12, this->_internal_time_started(), target);
   }
 
-  // optional uint64 upload_id = 13 [(.description) = "broadcast relay upload id"];
+  // optional uint64 upload_id = 13;
   if (cached_has_bits & 0x00008000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(13, this->_internal_upload_id(), target);
   }
 
-  // optional string local_address = 14 [(.description) = "upload to server address"];
+  // optional string local_address = 14;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_local_address().data(), static_cast<int>(this->_internal_local_address().length()),
@@ -21044,7 +20890,7 @@ failure:
         14, this->_internal_local_address(), target);
   }
 
-  // optional string remote_address = 15 [(.description) = "upload from client address"];
+  // optional string remote_address = 15;
   if (cached_has_bits & 0x00000002u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_remote_address().data(), static_cast<int>(this->_internal_remote_address().length()),
@@ -21054,19 +20900,19 @@ failure:
         15, this->_internal_remote_address(), target);
   }
 
-  // optional uint32 frames_per_second = 16 [(.description) = "frames per second"];
+  // optional uint32 frames_per_second = 16;
   if (cached_has_bits & 0x00010000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(16, this->_internal_frames_per_second(), target);
   }
 
-  // optional uint32 num_representations = 17 [(.description) = "number of video represetations"];
+  // optional uint32 num_representations = 17;
   if (cached_has_bits & 0x00020000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(17, this->_internal_num_representations(), target);
   }
 
-  // optional string app_name = 18 [(.description) = "game name"];
+  // optional string app_name = 18;
   if (cached_has_bits & 0x00000004u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_app_name().data(), static_cast<int>(this->_internal_app_name().length()),
@@ -21076,13 +20922,13 @@ failure:
         18, this->_internal_app_name(), target);
   }
 
-  // optional bool is_replay = 19 [(.description) = "replay of previous recording"];
+  // optional bool is_replay = 19;
   if (cached_has_bits & 0x00080000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(19, this->_internal_is_replay(), target);
   }
 
-  // optional uint64 session_id = 20 [(.description) = "broadcast session id"];
+  // optional uint64 session_id = 20;
   if (cached_has_bits & 0x00040000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(20, this->_internal_session_id(), target);
@@ -21106,56 +20952,56 @@ size_t CBroadcast_GetBroadcastUploadStats_Response_UploadStats::ByteSizeLong() c
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x000000ffu) {
-    // optional string local_address = 14 [(.description) = "upload to server address"];
+    // optional string local_address = 14;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_local_address());
     }
 
-    // optional string remote_address = 15 [(.description) = "upload from client address"];
+    // optional string remote_address = 15;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_remote_address());
     }
 
-    // optional string app_name = 18 [(.description) = "game name"];
+    // optional string app_name = 18;
     if (cached_has_bits & 0x00000004u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_app_name());
     }
 
-    // optional uint32 upload_result = 1 [(.description) = ""];
+    // optional uint32 upload_result = 1;
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_upload_result());
     }
 
-    // optional uint32 time_stopped = 2 [(.description) = "time broadcast upload stopped"];
+    // optional uint32 time_stopped = 2;
     if (cached_has_bits & 0x00000010u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_time_stopped());
     }
 
-    // optional uint32 seconds_uploaded = 3 [(.description) = "seconds of vido uploaded"];
+    // optional uint32 seconds_uploaded = 3;
     if (cached_has_bits & 0x00000020u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_seconds_uploaded());
     }
 
-    // optional uint32 max_viewers = 4 [(.description) = "max concurrent viewers"];
+    // optional uint32 max_viewers = 4;
     if (cached_has_bits & 0x00000040u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_max_viewers());
     }
 
-    // optional uint32 resolution_x = 5 [(.description) = "horizontal resultion"];
+    // optional uint32 resolution_x = 5;
     if (cached_has_bits & 0x00000080u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -21164,56 +21010,56 @@ size_t CBroadcast_GetBroadcastUploadStats_Response_UploadStats::ByteSizeLong() c
 
   }
   if (cached_has_bits & 0x0000ff00u) {
-    // optional uint32 resolution_y = 6 [(.description) = "vertical resultion"];
+    // optional uint32 resolution_y = 6;
     if (cached_has_bits & 0x00000100u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_resolution_y());
     }
 
-    // optional uint64 total_bytes = 8 [(.description) = "total byte uploaded by broadcaster"];
+    // optional uint64 total_bytes = 8;
     if (cached_has_bits & 0x00000200u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_total_bytes());
     }
 
-    // optional uint32 avg_bandwidth = 7 [(.description) = ""];
+    // optional uint32 avg_bandwidth = 7;
     if (cached_has_bits & 0x00000400u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_avg_bandwidth());
     }
 
-    // optional uint32 app_id = 9 [(.description) = "game broadcasted"];
+    // optional uint32 app_id = 9;
     if (cached_has_bits & 0x00000800u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_app_id());
     }
 
-    // optional uint64 total_seconds_watched = 11 [(.description) = "total number of seconds watched by all viewers"];
+    // optional uint64 total_seconds_watched = 11;
     if (cached_has_bits & 0x00001000u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_total_seconds_watched());
     }
 
-    // optional uint32 total_unique_viewers = 10 [(.description) = "total unique viewers seen"];
+    // optional uint32 total_unique_viewers = 10;
     if (cached_has_bits & 0x00002000u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_total_unique_viewers());
     }
 
-    // optional uint32 time_started = 12 [(.description) = "time broadcast upload started"];
+    // optional uint32 time_started = 12;
     if (cached_has_bits & 0x00004000u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_time_started());
     }
 
-    // optional uint64 upload_id = 13 [(.description) = "broadcast relay upload id"];
+    // optional uint64 upload_id = 13;
     if (cached_has_bits & 0x00008000u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
@@ -21222,28 +21068,28 @@ size_t CBroadcast_GetBroadcastUploadStats_Response_UploadStats::ByteSizeLong() c
 
   }
   if (cached_has_bits & 0x000f0000u) {
-    // optional uint32 frames_per_second = 16 [(.description) = "frames per second"];
+    // optional uint32 frames_per_second = 16;
     if (cached_has_bits & 0x00010000u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_frames_per_second());
     }
 
-    // optional uint32 num_representations = 17 [(.description) = "number of video represetations"];
+    // optional uint32 num_representations = 17;
     if (cached_has_bits & 0x00020000u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_num_representations());
     }
 
-    // optional uint64 session_id = 20 [(.description) = "broadcast session id"];
+    // optional uint64 session_id = 20;
     if (cached_has_bits & 0x00040000u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_session_id());
     }
 
-    // optional bool is_replay = 19 [(.description) = "replay of previous recording"];
+    // optional bool is_replay = 19;
     if (cached_has_bits & 0x00080000u) {
       total_size += 2 + 1;
     }
@@ -21664,7 +21510,7 @@ const char* CBroadcast_GetBroadcastViewerStats_Request::_InternalParse(const cha
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint64 upload_id = 1 [(.description) = "Get stats for this stream"];
+      // optional uint64 upload_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_upload_id(&has_bits);
@@ -21672,7 +21518,7 @@ const char* CBroadcast_GetBroadcastViewerStats_Request::_InternalParse(const cha
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional fixed64 steamid = 2 [(.description) = "Optional: The steamid of the broadcast whose details you are requesting."];
+      // optional fixed64 steamid = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 17)) {
           _Internal::set_has_steamid(&has_bits);
@@ -21710,13 +21556,13 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint64 upload_id = 1 [(.description) = "Get stats for this stream"];
+  // optional uint64 upload_id = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_upload_id(), target);
   }
 
-  // optional fixed64 steamid = 2 [(.description) = "Optional: The steamid of the broadcast whose details you are requesting."];
+  // optional fixed64 steamid = 2;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(2, this->_internal_steamid(), target);
@@ -21740,14 +21586,14 @@ size_t CBroadcast_GetBroadcastViewerStats_Request::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional uint64 upload_id = 1 [(.description) = "Get stats for this stream"];
+    // optional uint64 upload_id = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_upload_id());
     }
 
-    // optional fixed64 steamid = 2 [(.description) = "Optional: The steamid of the broadcast whose details you are requesting."];
+    // optional fixed64 steamid = 2;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 + 8;
     }
@@ -21911,7 +21757,7 @@ const char* CBroadcast_GetBroadcastViewerStats_Response_ViewerStats::_InternalPa
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint32 time = 1 [(.description) = "time of record"];
+      // optional uint32 time = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_time(&has_bits);
@@ -21919,7 +21765,7 @@ const char* CBroadcast_GetBroadcastViewerStats_Response_ViewerStats::_InternalPa
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 num_viewers = 2 [(.description) = "current number of viewers"];
+      // optional uint32 num_viewers = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_num_viewers(&has_bits);
@@ -21957,13 +21803,13 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint32 time = 1 [(.description) = "time of record"];
+  // optional uint32 time = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_time(), target);
   }
 
-  // optional uint32 num_viewers = 2 [(.description) = "current number of viewers"];
+  // optional uint32 num_viewers = 2;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_num_viewers(), target);
@@ -21987,14 +21833,14 @@ size_t CBroadcast_GetBroadcastViewerStats_Response_ViewerStats::ByteSizeLong() c
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional uint32 time = 1 [(.description) = "time of record"];
+    // optional uint32 time = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_time());
     }
 
-    // optional uint32 num_viewers = 2 [(.description) = "current number of viewers"];
+    // optional uint32 num_viewers = 2;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -22161,7 +22007,7 @@ const char* CBroadcast_GetBroadcastViewerStats_Response_CountryStats::_InternalP
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional string country_code = 1 [(.description) = "country code"];
+      // optional string country_code = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           auto str = _internal_mutable_country_code();
@@ -22172,7 +22018,7 @@ const char* CBroadcast_GetBroadcastViewerStats_Response_CountryStats::_InternalP
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 num_viewers = 2 [(.description) = "number of viewers"];
+      // optional uint32 num_viewers = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_num_viewers(&has_bits);
@@ -22210,7 +22056,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional string country_code = 1 [(.description) = "country code"];
+  // optional string country_code = 1;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_country_code().data(), static_cast<int>(this->_internal_country_code().length()),
@@ -22220,7 +22066,7 @@ failure:
         1, this->_internal_country_code(), target);
   }
 
-  // optional uint32 num_viewers = 2 [(.description) = "number of viewers"];
+  // optional uint32 num_viewers = 2;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_num_viewers(), target);
@@ -22244,14 +22090,14 @@ size_t CBroadcast_GetBroadcastViewerStats_Response_CountryStats::ByteSizeLong() 
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional string country_code = 1 [(.description) = "country code"];
+    // optional string country_code = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_country_code());
     }
 
-    // optional uint32 num_viewers = 2 [(.description) = "number of viewers"];
+    // optional uint32 num_viewers = 2;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -23178,7 +23024,7 @@ const char* CBroadcast_BroadcastUploadStarted_Notification::_InternalParse(const
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
         } else goto handle_unusual;
         continue;
-      // optional uint32 heartbeat_interval_seconds = 6 [(.description) = "how many seconds between session heartbeats"];
+      // optional uint32 heartbeat_interval_seconds = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
           _Internal::set_has_heartbeat_interval_seconds(&has_bits);
@@ -23266,7 +23112,7 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(5, this->_internal_broadcast_upload_id(), target);
   }
 
-  // optional uint32 heartbeat_interval_seconds = 6 [(.description) = "how many seconds between session heartbeats"];
+  // optional uint32 heartbeat_interval_seconds = 6;
   if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(6, this->_internal_heartbeat_interval_seconds(), target);
@@ -23327,7 +23173,7 @@ size_t CBroadcast_BroadcastUploadStarted_Notification::ByteSizeLong() const {
       total_size += 1 + 8;
     }
 
-    // optional uint32 heartbeat_interval_seconds = 6 [(.description) = "how many seconds between session heartbeats"];
+    // optional uint32 heartbeat_interval_seconds = 6;
     if (cached_has_bits & 0x00000020u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(

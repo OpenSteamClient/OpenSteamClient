@@ -114,16 +114,13 @@ const char descriptor_table_protodef_steammessages_5fgamenetworking_2esteamclien
   "\017\n\007fake_ip\030\001 \001(\007\022\022\n\nfake_ports\030\002 \003(\r\"a\n*"
   "CGameNetworking_ReleaseFakeIP_Notificati"
   "on\022\016\n\006app_id\030\001 \001(\r\022\017\n\007fake_ip\030\002 \001(\007\022\022\n\nf"
-  "ake_ports\030\003 \003(\r2\322\002\n\016GameNetworking\022\214\001\n\016A"
-  "llocateFakeIP\022\'.CGameNetworking_Allocate"
-  "FakeIP_Request\032(.CGameNetworking_Allocat"
-  "eFakeIP_Response\"\'\202\265\030#Client is asking t"
-  "o lease a FakeIP.\022\206\001\n\023NotifyReleaseFakeI"
-  "P\022+.CGameNetworking_ReleaseFakeIP_Notifi"
-  "cation\032\013.NoResponse\"5\202\265\0301Client informs "
-  "server it is done with the FakeIP.\032(\202\265\030$"
-  "Services that support P2P networkingB\035\200\001"
-  "\001\252\002\027OpenSteamworks.Protobuf"
+  "ake_ports\030\003 \003(\r2\306\001\n\016GameNetworking\022c\n\016Al"
+  "locateFakeIP\022\'.CGameNetworking_AllocateF"
+  "akeIP_Request\032(.CGameNetworking_Allocate"
+  "FakeIP_Response\022O\n\023NotifyReleaseFakeIP\022+"
+  ".CGameNetworking_ReleaseFakeIP_Notificat"
+  "ion\032\013.NoResponseB\035\200\001\001\252\002\027OpenSteamworks.P"
+  "rotobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fgamenetworking_2esteamclient_2eproto_deps[3] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
@@ -132,7 +129,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fgamenetworking_2esteamclient_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fgamenetworking_2esteamclient_2eproto = {
-  false, false, 787, descriptor_table_protodef_steammessages_5fgamenetworking_2esteamclient_2eproto, "steammessages_gamenetworking.steamclient.proto", 
+  false, false, 647, descriptor_table_protodef_steammessages_5fgamenetworking_2esteamclient_2eproto, "steammessages_gamenetworking.steamclient.proto", 
   &descriptor_table_steammessages_5fgamenetworking_2esteamclient_2eproto_once, descriptor_table_steammessages_5fgamenetworking_2esteamclient_2eproto_deps, 3, 3,
   schemas, file_default_instances, TableStruct_steammessages_5fgamenetworking_2esteamclient_2eproto::offsets,
   file_level_metadata_steammessages_5fgamenetworking_2esteamclient_2eproto, file_level_enum_descriptors_steammessages_5fgamenetworking_2esteamclient_2eproto, file_level_service_descriptors_steammessages_5fgamenetworking_2esteamclient_2eproto,

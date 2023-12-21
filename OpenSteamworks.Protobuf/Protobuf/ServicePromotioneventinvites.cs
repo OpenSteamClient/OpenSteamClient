@@ -37,52 +37,57 @@ namespace OpenSteamworks.Protobuf.WebUI {
             "Dm5vdGlmeV9wYXJ0bmVyGA8gASgIEhgKEGFkZGl0aW9uYWxfZW1haWwYECAD",
             "KAkSFAoMcHJvbW90aW9uX2lkGBEgASgJIlsKHENQcm9tb3Rpb25FdmVudElu",
             "dml0ZVJlY2VpdmUSEQoJYWNjb3VudGlkGAEgASgNEhEKCXBhcnRuZXJpZBgC",
-            "IAEoDRIVCg1lbWFpbF9hZGRyZXNzGAMgASgJIkcKMkNQcm9tb3Rpb25FdmVu",
-            "dEludml0ZXNfR2V0QWxsQWN0aXZlSW52aXRlc19SZXF1ZXN0EhEKCXBhcnRu",
-            "ZXJpZBgBIAEoDSJiCjNDUHJvbW90aW9uRXZlbnRJbnZpdGVzX0dldEFsbEFj",
-            "dGl2ZUludml0ZXNfUmVzcG9uc2USKwoHaW52aXRlcxgBIAMoCzIaLkNQcm9t",
-            "b3Rpb25FdmVudEludml0YXRpb24iQgouQ1Byb21vdGlvbkV2ZW50SW52aXRl",
-            "c19HZXRFbWFpbFRhcmdldHNfUmVxdWVzdBIQCghpbnZpdGVpZBgBIAEoBiK3",
-            "AQovQ1Byb21vdGlvbkV2ZW50SW52aXRlc19HZXRFbWFpbFRhcmdldHNfUmVz",
-            "cG9uc2USLgoHdGFyZ2V0cxgBIAMoCzIdLkNQcm9tb3Rpb25FdmVudEludml0",
-            "ZVJlY2VpdmUSIAoYYWRkaXRpb25hbF9lbWFpbF9hZGRyZXNzGAIgAygJEhkK",
-            "EXZhbHZlX2FjY291bnRfaWRzGAMgAygNEhcKD29wZXJhdGlvbl9lbWFpbBgE",
-            "IAEoCSKZAQooQ1Byb21vdGlvbkV2ZW50SW52aXRlc19HZXRJbnZpdGVfUmVx",
-            "dWVzdBIQCghpbnZpdGVpZBgBIAEoBhINCgVhcHBpZBgCIAEoDRIRCglwYWNr",
-            "YWdlaWQYAyABKA0SEAoIYnVuZGxlaWQYBCABKA0SEQoJcGFydG5lcmlkGAUg",
-            "ASgNEhQKDHByb21vdGlvbl9pZBgGIAEoCSJYCilDUHJvbW90aW9uRXZlbnRJ",
-            "bnZpdGVzX0dldEludml0ZV9SZXNwb25zZRIrCgdpbnZpdGVzGAEgAygLMhou",
-            "Q1Byb21vdGlvbkV2ZW50SW52aXRhdGlvbiJqCjBDUHJvbW90aW9uRXZlbnRJ",
-            "bnZpdGVzX1Jlc2VuZEVtYWlsSW52aXRlX1JlcXVlc3QSEAoIaW52aXRlaWQY",
-            "ASABKAYSJAocb25seV9ub3RpZnlfYWRkaXRpb25hbF9lbWFpbBgCIAEoCCIz",
-            "CjFDUHJvbW90aW9uRXZlbnRJbnZpdGVzX1Jlc2VuZEVtYWlsSW52aXRlX1Jl",
-            "c3BvbnNlInMKKENQcm9tb3Rpb25FdmVudEludml0ZXNfU2V0SW52aXRlX1Jl",
-            "cXVlc3QSKgoGaW52aXRlGAEgASgLMhouQ1Byb21vdGlvbkV2ZW50SW52aXRh",
-            "dGlvbhIbChNxdWV1ZV9lbWFpbF90b19zZW5kGAIgASgIIj0KKUNQcm9tb3Rp",
-            "b25FdmVudEludml0ZXNfU2V0SW52aXRlX1Jlc3BvbnNlEhAKCGludml0ZWlk",
-            "GAEgASgGInkKFkNQcm9tb3Rpb25SZXF1aXJlbWVudHMSGgoSc3BvdGxpZ2h0",
-            "X2R1ZV9kYXRlGAEgASgNEiIKGm1hcmtldGluZ19tZXNzYWdlX2R1ZV9kYXRl",
-            "GAIgASgNEh8KF2Rpc2NvdW50X2V2ZW50X2R1ZV9kYXRlGAMgASgNMtQEChVQ",
-            "cm9tb3Rpb25FdmVudEludml0ZXMSgAEKE0dldEFsbEFjdGl2ZUludml0ZXMS",
-            "My5DUHJvbW90aW9uRXZlbnRJbnZpdGVzX0dldEFsbEFjdGl2ZUludml0ZXNf",
-            "UmVxdWVzdBo0LkNQcm9tb3Rpb25FdmVudEludml0ZXNfR2V0QWxsQWN0aXZl",
-            "SW52aXRlc19SZXNwb25zZRJ0Cg9HZXRFbWFpbFRhcmdldHMSLy5DUHJvbW90",
-            "aW9uRXZlbnRJbnZpdGVzX0dldEVtYWlsVGFyZ2V0c19SZXF1ZXN0GjAuQ1By",
-            "b21vdGlvbkV2ZW50SW52aXRlc19HZXRFbWFpbFRhcmdldHNfUmVzcG9uc2US",
-            "YgoJR2V0SW52aXRlEikuQ1Byb21vdGlvbkV2ZW50SW52aXRlc19HZXRJbnZp",
-            "dGVfUmVxdWVzdBoqLkNQcm9tb3Rpb25FdmVudEludml0ZXNfR2V0SW52aXRl",
-            "X1Jlc3BvbnNlEnoKEVJlc2VuZEVtYWlsSW52aXRlEjEuQ1Byb21vdGlvbkV2",
-            "ZW50SW52aXRlc19SZXNlbmRFbWFpbEludml0ZV9SZXF1ZXN0GjIuQ1Byb21v",
-            "dGlvbkV2ZW50SW52aXRlc19SZXNlbmRFbWFpbEludml0ZV9SZXNwb25zZRJi",
-            "CglTZXRJbnZpdGUSKS5DUHJvbW90aW9uRXZlbnRJbnZpdGVzX1NldEludml0",
-            "ZV9SZXF1ZXN0GiouQ1Byb21vdGlvbkV2ZW50SW52aXRlc19TZXRJbnZpdGVf",
-            "UmVzcG9uc2VCIKoCHU9wZW5TdGVhbXdvcmtzLlByb3RvYnVmLldlYlVJ"));
+            "IAEoDRIVCg1lbWFpbF9hZGRyZXNzGAMgASgJIoMBCitDUHJvbW90aW9uRXZl",
+            "bnRJbnZpdGVzX0FjY2VwdEludml0ZV9SZXF1ZXN0EhAKCGludml0ZWlkGAEg",
+            "ASgGEhQKDHJ0ZGF0ZWNob3NlbhgCIAEoDRIVCg1kaXNjb3VudF9kYXlzGAMg",
+            "ASgNEhUKDWRpc2NvdW50X2luZm8YBCABKAkiLgosQ1Byb21vdGlvbkV2ZW50",
+            "SW52aXRlc19BY2NlcHRJbnZpdGVfUmVzcG9uc2UiYgozQ1Byb21vdGlvbkV2",
+            "ZW50SW52aXRlc19HZXRBbGxBY3RpdmVJbnZpdGVzX1Jlc3BvbnNlEisKB2lu",
+            "dml0ZXMYASADKAsyGi5DUHJvbW90aW9uRXZlbnRJbnZpdGF0aW9uIkIKLkNQ",
+            "cm9tb3Rpb25FdmVudEludml0ZXNfR2V0RW1haWxUYXJnZXRzX1JlcXVlc3QS",
+            "EAoIaW52aXRlaWQYASABKAYitwEKL0NQcm9tb3Rpb25FdmVudEludml0ZXNf",
+            "R2V0RW1haWxUYXJnZXRzX1Jlc3BvbnNlEi4KB3RhcmdldHMYASADKAsyHS5D",
+            "UHJvbW90aW9uRXZlbnRJbnZpdGVSZWNlaXZlEiAKGGFkZGl0aW9uYWxfZW1h",
+            "aWxfYWRkcmVzcxgCIAMoCRIZChF2YWx2ZV9hY2NvdW50X2lkcxgDIAMoDRIX",
+            "Cg9vcGVyYXRpb25fZW1haWwYBCABKAkimQEKKENQcm9tb3Rpb25FdmVudElu",
+            "dml0ZXNfR2V0SW52aXRlX1JlcXVlc3QSEAoIaW52aXRlaWQYASABKAYSDQoF",
+            "YXBwaWQYAiABKA0SEQoJcGFja2FnZWlkGAMgASgNEhAKCGJ1bmRsZWlkGAQg",
+            "ASgNEhEKCXBhcnRuZXJpZBgFIAEoDRIUCgxwcm9tb3Rpb25faWQYBiABKAki",
+            "WAopQ1Byb21vdGlvbkV2ZW50SW52aXRlc19HZXRJbnZpdGVfUmVzcG9uc2US",
+            "KwoHaW52aXRlcxgBIAMoCzIaLkNQcm9tb3Rpb25FdmVudEludml0YXRpb24i",
+            "agowQ1Byb21vdGlvbkV2ZW50SW52aXRlc19SZXNlbmRFbWFpbEludml0ZV9S",
+            "ZXF1ZXN0EhAKCGludml0ZWlkGAEgASgGEiQKHG9ubHlfbm90aWZ5X2FkZGl0",
+            "aW9uYWxfZW1haWwYAiABKAgiMwoxQ1Byb21vdGlvbkV2ZW50SW52aXRlc19S",
+            "ZXNlbmRFbWFpbEludml0ZV9SZXNwb25zZSJzCihDUHJvbW90aW9uRXZlbnRJ",
+            "bnZpdGVzX1NldEludml0ZV9SZXF1ZXN0EioKBmludml0ZRgBIAEoCzIaLkNQ",
+            "cm9tb3Rpb25FdmVudEludml0YXRpb24SGwoTcXVldWVfZW1haWxfdG9fc2Vu",
+            "ZBgCIAEoCCI9CilDUHJvbW90aW9uRXZlbnRJbnZpdGVzX1NldEludml0ZV9S",
+            "ZXNwb25zZRIQCghpbnZpdGVpZBgBIAEoBiJ5ChZDUHJvbW90aW9uUmVxdWly",
+            "ZW1lbnRzEhoKEnNwb3RsaWdodF9kdWVfZGF0ZRgBIAEoDRIiChptYXJrZXRp",
+            "bmdfbWVzc2FnZV9kdWVfZGF0ZRgCIAEoDRIfChdkaXNjb3VudF9ldmVudF9k",
+            "dWVfZGF0ZRgDIAEoDTKcBQoVUHJvbW90aW9uRXZlbnRJbnZpdGVzEmsKDEFj",
+            "Y2VwdEludml0ZRIsLkNQcm9tb3Rpb25FdmVudEludml0ZXNfQWNjZXB0SW52",
+            "aXRlX1JlcXVlc3QaLS5DUHJvbW90aW9uRXZlbnRJbnZpdGVzX0FjY2VwdElu",
+            "dml0ZV9SZXNwb25zZRJcChNHZXRBbGxBY3RpdmVJbnZpdGVzEg8uTm90SW1w",
+            "bGVtZW50ZWQaNC5DUHJvbW90aW9uRXZlbnRJbnZpdGVzX0dldEFsbEFjdGl2",
+            "ZUludml0ZXNfUmVzcG9uc2USdAoPR2V0RW1haWxUYXJnZXRzEi8uQ1Byb21v",
+            "dGlvbkV2ZW50SW52aXRlc19HZXRFbWFpbFRhcmdldHNfUmVxdWVzdBowLkNQ",
+            "cm9tb3Rpb25FdmVudEludml0ZXNfR2V0RW1haWxUYXJnZXRzX1Jlc3BvbnNl",
+            "EmIKCUdldEludml0ZRIpLkNQcm9tb3Rpb25FdmVudEludml0ZXNfR2V0SW52",
+            "aXRlX1JlcXVlc3QaKi5DUHJvbW90aW9uRXZlbnRJbnZpdGVzX0dldEludml0",
+            "ZV9SZXNwb25zZRJ6ChFSZXNlbmRFbWFpbEludml0ZRIxLkNQcm9tb3Rpb25F",
+            "dmVudEludml0ZXNfUmVzZW5kRW1haWxJbnZpdGVfUmVxdWVzdBoyLkNQcm9t",
+            "b3Rpb25FdmVudEludml0ZXNfUmVzZW5kRW1haWxJbnZpdGVfUmVzcG9uc2US",
+            "YgoJU2V0SW52aXRlEikuQ1Byb21vdGlvbkV2ZW50SW52aXRlc19TZXRJbnZp",
+            "dGVfUmVxdWVzdBoqLkNQcm9tb3Rpb25FdmVudEludml0ZXNfU2V0SW52aXRl",
+            "X1Jlc3BvbnNlQiCqAh1PcGVuU3RlYW13b3Jrcy5Qcm90b2J1Zi5XZWJVSQ=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.Reflection.DescriptorReflection.Descriptor, global::OpenSteamworks.Protobuf.WebUI.CommonBaseReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPromotionEventInvitation), global::OpenSteamworks.Protobuf.WebUI.CPromotionEventInvitation.Parser, new[]{ "Inviteid", "Appid", "InviteAccount", "Rtinvitetime", "Rtexpiretime", "Type", "AcceptAccount", "Rtaccepttime", "Rtdatechosen", "DiscountEventid", "Packageid", "Bundleid", "PrimaryPartnerid", "Deadlines", "NotifyPartner", "AdditionalEmail", "PromotionId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPromotionEventInviteReceive), global::OpenSteamworks.Protobuf.WebUI.CPromotionEventInviteReceive.Parser, new[]{ "Accountid", "Partnerid", "EmailAddress" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPromotionEventInvites_GetAllActiveInvites_Request), global::OpenSteamworks.Protobuf.WebUI.CPromotionEventInvites_GetAllActiveInvites_Request.Parser, new[]{ "Partnerid" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPromotionEventInvites_AcceptInvite_Request), global::OpenSteamworks.Protobuf.WebUI.CPromotionEventInvites_AcceptInvite_Request.Parser, new[]{ "Inviteid", "Rtdatechosen", "DiscountDays", "DiscountInfo" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPromotionEventInvites_AcceptInvite_Response), global::OpenSteamworks.Protobuf.WebUI.CPromotionEventInvites_AcceptInvite_Response.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPromotionEventInvites_GetAllActiveInvites_Response), global::OpenSteamworks.Protobuf.WebUI.CPromotionEventInvites_GetAllActiveInvites_Response.Parser, new[]{ "Invites" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPromotionEventInvites_GetEmailTargets_Request), global::OpenSteamworks.Protobuf.WebUI.CPromotionEventInvites_GetEmailTargets_Request.Parser, new[]{ "Inviteid" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CPromotionEventInvites_GetEmailTargets_Response), global::OpenSteamworks.Protobuf.WebUI.CPromotionEventInvites_GetEmailTargets_Response.Parser, new[]{ "Targets", "AdditionalEmailAddress", "ValveAccountIds", "OperationEmail" }, null, null, null, null),
@@ -99,6 +104,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
   #region Messages
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPromotionEventInvitation : pb::IMessage<CPromotionEventInvitation>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1104,6 +1110,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPromotionEventInviteReceive : pb::IMessage<CPromotionEventInviteReceive>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1413,17 +1420,18 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
-  public sealed partial class CPromotionEventInvites_GetAllActiveInvites_Request : pb::IMessage<CPromotionEventInvites_GetAllActiveInvites_Request>
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
+  public sealed partial class CPromotionEventInvites_AcceptInvite_Request : pb::IMessage<CPromotionEventInvites_AcceptInvite_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<CPromotionEventInvites_GetAllActiveInvites_Request> _parser = new pb::MessageParser<CPromotionEventInvites_GetAllActiveInvites_Request>(() => new CPromotionEventInvites_GetAllActiveInvites_Request());
+    private static readonly pb::MessageParser<CPromotionEventInvites_AcceptInvite_Request> _parser = new pb::MessageParser<CPromotionEventInvites_AcceptInvite_Request>(() => new CPromotionEventInvites_AcceptInvite_Request());
     private pb::UnknownFieldSet _unknownFields;
     private int _hasBits0;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public static pb::MessageParser<CPromotionEventInvites_GetAllActiveInvites_Request> Parser { get { return _parser; } }
+    public static pb::MessageParser<CPromotionEventInvites_AcceptInvite_Request> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -1439,7 +1447,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CPromotionEventInvites_GetAllActiveInvites_Request() {
+    public CPromotionEventInvites_AcceptInvite_Request() {
       OnConstruction();
     }
 
@@ -1447,61 +1455,147 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CPromotionEventInvites_GetAllActiveInvites_Request(CPromotionEventInvites_GetAllActiveInvites_Request other) : this() {
+    public CPromotionEventInvites_AcceptInvite_Request(CPromotionEventInvites_AcceptInvite_Request other) : this() {
       _hasBits0 = other._hasBits0;
-      partnerid_ = other.partnerid_;
+      inviteid_ = other.inviteid_;
+      rtdatechosen_ = other.rtdatechosen_;
+      discountDays_ = other.discountDays_;
+      discountInfo_ = other.discountInfo_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public CPromotionEventInvites_GetAllActiveInvites_Request Clone() {
-      return new CPromotionEventInvites_GetAllActiveInvites_Request(this);
+    public CPromotionEventInvites_AcceptInvite_Request Clone() {
+      return new CPromotionEventInvites_AcceptInvite_Request(this);
     }
 
-    /// <summary>Field number for the "partnerid" field.</summary>
-    public const int PartneridFieldNumber = 1;
-    private readonly static uint PartneridDefaultValue = 0;
+    /// <summary>Field number for the "inviteid" field.</summary>
+    public const int InviteidFieldNumber = 1;
+    private readonly static ulong InviteidDefaultValue = 0UL;
 
-    private uint partnerid_;
+    private ulong inviteid_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public uint Partnerid {
-      get { if ((_hasBits0 & 1) != 0) { return partnerid_; } else { return PartneridDefaultValue; } }
+    public ulong Inviteid {
+      get { if ((_hasBits0 & 1) != 0) { return inviteid_; } else { return InviteidDefaultValue; } }
       set {
         _hasBits0 |= 1;
-        partnerid_ = value;
+        inviteid_ = value;
       }
     }
-    /// <summary>Gets whether the "partnerid" field is set</summary>
+    /// <summary>Gets whether the "inviteid" field is set</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool HasPartnerid {
+    public bool HasInviteid {
       get { return (_hasBits0 & 1) != 0; }
     }
-    /// <summary>Clears the value of the "partnerid" field</summary>
+    /// <summary>Clears the value of the "inviteid" field</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void ClearPartnerid() {
+    public void ClearInviteid() {
       _hasBits0 &= ~1;
+    }
+
+    /// <summary>Field number for the "rtdatechosen" field.</summary>
+    public const int RtdatechosenFieldNumber = 2;
+    private readonly static uint RtdatechosenDefaultValue = 0;
+
+    private uint rtdatechosen_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint Rtdatechosen {
+      get { if ((_hasBits0 & 2) != 0) { return rtdatechosen_; } else { return RtdatechosenDefaultValue; } }
+      set {
+        _hasBits0 |= 2;
+        rtdatechosen_ = value;
+      }
+    }
+    /// <summary>Gets whether the "rtdatechosen" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasRtdatechosen {
+      get { return (_hasBits0 & 2) != 0; }
+    }
+    /// <summary>Clears the value of the "rtdatechosen" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearRtdatechosen() {
+      _hasBits0 &= ~2;
+    }
+
+    /// <summary>Field number for the "discount_days" field.</summary>
+    public const int DiscountDaysFieldNumber = 3;
+    private readonly static uint DiscountDaysDefaultValue = 0;
+
+    private uint discountDays_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint DiscountDays {
+      get { if ((_hasBits0 & 4) != 0) { return discountDays_; } else { return DiscountDaysDefaultValue; } }
+      set {
+        _hasBits0 |= 4;
+        discountDays_ = value;
+      }
+    }
+    /// <summary>Gets whether the "discount_days" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasDiscountDays {
+      get { return (_hasBits0 & 4) != 0; }
+    }
+    /// <summary>Clears the value of the "discount_days" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearDiscountDays() {
+      _hasBits0 &= ~4;
+    }
+
+    /// <summary>Field number for the "discount_info" field.</summary>
+    public const int DiscountInfoFieldNumber = 4;
+    private readonly static string DiscountInfoDefaultValue = "";
+
+    private string discountInfo_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string DiscountInfo {
+      get { return discountInfo_ ?? DiscountInfoDefaultValue; }
+      set {
+        discountInfo_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+    /// <summary>Gets whether the "discount_info" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasDiscountInfo {
+      get { return discountInfo_ != null; }
+    }
+    /// <summary>Clears the value of the "discount_info" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearDiscountInfo() {
+      discountInfo_ = null;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
-      return Equals(other as CPromotionEventInvites_GetAllActiveInvites_Request);
+      return Equals(other as CPromotionEventInvites_AcceptInvite_Request);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool Equals(CPromotionEventInvites_GetAllActiveInvites_Request other) {
+    public bool Equals(CPromotionEventInvites_AcceptInvite_Request other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Partnerid != other.Partnerid) return false;
+      if (Inviteid != other.Inviteid) return false;
+      if (Rtdatechosen != other.Rtdatechosen) return false;
+      if (DiscountDays != other.DiscountDays) return false;
+      if (DiscountInfo != other.DiscountInfo) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1509,7 +1603,10 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (HasPartnerid) hash ^= Partnerid.GetHashCode();
+      if (HasInviteid) hash ^= Inviteid.GetHashCode();
+      if (HasRtdatechosen) hash ^= Rtdatechosen.GetHashCode();
+      if (HasDiscountDays) hash ^= DiscountDays.GetHashCode();
+      if (HasDiscountInfo) hash ^= DiscountInfo.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1528,9 +1625,21 @@ namespace OpenSteamworks.Protobuf.WebUI {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (HasPartnerid) {
-        output.WriteRawTag(8);
-        output.WriteUInt32(Partnerid);
+      if (HasInviteid) {
+        output.WriteRawTag(9);
+        output.WriteFixed64(Inviteid);
+      }
+      if (HasRtdatechosen) {
+        output.WriteRawTag(16);
+        output.WriteUInt32(Rtdatechosen);
+      }
+      if (HasDiscountDays) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(DiscountDays);
+      }
+      if (HasDiscountInfo) {
+        output.WriteRawTag(34);
+        output.WriteString(DiscountInfo);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -1542,9 +1651,21 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (HasPartnerid) {
-        output.WriteRawTag(8);
-        output.WriteUInt32(Partnerid);
+      if (HasInviteid) {
+        output.WriteRawTag(9);
+        output.WriteFixed64(Inviteid);
+      }
+      if (HasRtdatechosen) {
+        output.WriteRawTag(16);
+        output.WriteUInt32(Rtdatechosen);
+      }
+      if (HasDiscountDays) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(DiscountDays);
+      }
+      if (HasDiscountInfo) {
+        output.WriteRawTag(34);
+        output.WriteString(DiscountInfo);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -1556,8 +1677,17 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (HasPartnerid) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Partnerid);
+      if (HasInviteid) {
+        size += 1 + 8;
+      }
+      if (HasRtdatechosen) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Rtdatechosen);
+      }
+      if (HasDiscountDays) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(DiscountDays);
+      }
+      if (HasDiscountInfo) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(DiscountInfo);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -1567,12 +1697,21 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public void MergeFrom(CPromotionEventInvites_GetAllActiveInvites_Request other) {
+    public void MergeFrom(CPromotionEventInvites_AcceptInvite_Request other) {
       if (other == null) {
         return;
       }
-      if (other.HasPartnerid) {
-        Partnerid = other.Partnerid;
+      if (other.HasInviteid) {
+        Inviteid = other.Inviteid;
+      }
+      if (other.HasRtdatechosen) {
+        Rtdatechosen = other.Rtdatechosen;
+      }
+      if (other.HasDiscountDays) {
+        DiscountDays = other.DiscountDays;
+      }
+      if (other.HasDiscountInfo) {
+        DiscountInfo = other.DiscountInfo;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -1589,8 +1728,20 @@ namespace OpenSteamworks.Protobuf.WebUI {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 8: {
-            Partnerid = input.ReadUInt32();
+          case 9: {
+            Inviteid = input.ReadFixed64();
+            break;
+          }
+          case 16: {
+            Rtdatechosen = input.ReadUInt32();
+            break;
+          }
+          case 24: {
+            DiscountDays = input.ReadUInt32();
+            break;
+          }
+          case 34: {
+            DiscountInfo = input.ReadString();
             break;
           }
         }
@@ -1608,8 +1759,20 @@ namespace OpenSteamworks.Protobuf.WebUI {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 8: {
-            Partnerid = input.ReadUInt32();
+          case 9: {
+            Inviteid = input.ReadFixed64();
+            break;
+          }
+          case 16: {
+            Rtdatechosen = input.ReadUInt32();
+            break;
+          }
+          case 24: {
+            DiscountDays = input.ReadUInt32();
+            break;
+          }
+          case 34: {
+            DiscountInfo = input.ReadString();
             break;
           }
         }
@@ -1619,6 +1782,160 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
+  public sealed partial class CPromotionEventInvites_AcceptInvite_Response : pb::IMessage<CPromotionEventInvites_AcceptInvite_Response>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<CPromotionEventInvites_AcceptInvite_Response> _parser = new pb::MessageParser<CPromotionEventInvites_AcceptInvite_Response>(() => new CPromotionEventInvites_AcceptInvite_Response());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<CPromotionEventInvites_AcceptInvite_Response> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePromotioneventinvitesReflection.Descriptor.MessageTypes[3]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CPromotionEventInvites_AcceptInvite_Response() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CPromotionEventInvites_AcceptInvite_Response(CPromotionEventInvites_AcceptInvite_Response other) : this() {
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CPromotionEventInvites_AcceptInvite_Response Clone() {
+      return new CPromotionEventInvites_AcceptInvite_Response(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as CPromotionEventInvites_AcceptInvite_Response);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(CPromotionEventInvites_AcceptInvite_Response other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(CPromotionEventInvites_AcceptInvite_Response other) {
+      if (other == null) {
+        return;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+        }
+      }
+    }
+    #endif
+
+  }
+
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPromotionEventInvites_GetAllActiveInvites_Response : pb::IMessage<CPromotionEventInvites_GetAllActiveInvites_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1633,7 +1950,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePromotioneventinvitesReflection.Descriptor.MessageTypes[3]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePromotioneventinvitesReflection.Descriptor.MessageTypes[4]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1797,6 +2114,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPromotionEventInvites_GetEmailTargets_Request : pb::IMessage<CPromotionEventInvites_GetEmailTargets_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1812,7 +2130,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePromotioneventinvitesReflection.Descriptor.MessageTypes[4]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePromotioneventinvitesReflection.Descriptor.MessageTypes[5]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2003,6 +2321,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPromotionEventInvites_GetEmailTargets_Response : pb::IMessage<CPromotionEventInvites_GetEmailTargets_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2017,7 +2336,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePromotioneventinvitesReflection.Descriptor.MessageTypes[5]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePromotioneventinvitesReflection.Descriptor.MessageTypes[6]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2286,6 +2605,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPromotionEventInvites_GetInvite_Request : pb::IMessage<CPromotionEventInvites_GetInvite_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2301,7 +2621,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePromotioneventinvitesReflection.Descriptor.MessageTypes[6]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePromotioneventinvitesReflection.Descriptor.MessageTypes[7]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2751,6 +3071,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPromotionEventInvites_GetInvite_Response : pb::IMessage<CPromotionEventInvites_GetInvite_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2765,7 +3086,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePromotioneventinvitesReflection.Descriptor.MessageTypes[7]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePromotioneventinvitesReflection.Descriptor.MessageTypes[8]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2929,6 +3250,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPromotionEventInvites_ResendEmailInvite_Request : pb::IMessage<CPromotionEventInvites_ResendEmailInvite_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2944,7 +3266,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePromotioneventinvitesReflection.Descriptor.MessageTypes[8]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePromotioneventinvitesReflection.Descriptor.MessageTypes[9]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3187,6 +3509,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPromotionEventInvites_ResendEmailInvite_Response : pb::IMessage<CPromotionEventInvites_ResendEmailInvite_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -3201,7 +3524,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePromotioneventinvitesReflection.Descriptor.MessageTypes[9]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePromotioneventinvitesReflection.Descriptor.MessageTypes[10]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3339,6 +3662,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPromotionEventInvites_SetInvite_Request : pb::IMessage<CPromotionEventInvites_SetInvite_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -3354,7 +3678,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePromotioneventinvitesReflection.Descriptor.MessageTypes[10]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePromotioneventinvitesReflection.Descriptor.MessageTypes[11]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3591,6 +3915,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPromotionEventInvites_SetInvite_Response : pb::IMessage<CPromotionEventInvites_SetInvite_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -3606,7 +3931,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePromotioneventinvitesReflection.Descriptor.MessageTypes[11]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePromotioneventinvitesReflection.Descriptor.MessageTypes[12]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3797,6 +4122,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CPromotionRequirements : pb::IMessage<CPromotionRequirements>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -3812,7 +4138,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePromotioneventinvitesReflection.Descriptor.MessageTypes[12]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServicePromotioneventinvitesReflection.Descriptor.MessageTypes[13]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

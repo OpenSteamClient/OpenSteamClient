@@ -197,37 +197,30 @@ const char descriptor_table_protodef_steammessages_5funified_5ftest_2esteamclien
   "\n,steammessages_unified_test.steamclient"
   ".proto\032 google/protobuf/descriptor.proto"
   "\032\030steammessages_base.proto\032,steammessage"
-  "s_unified_base.steamclient.proto\"G\n CMsg"
-  "Test_MessageToClient_Request\022#\n\tsome_tex"
-  "t\030\001 \001(\tB\020\202\265\030\014Some string.\"H\n!CMsgTest_Me"
-  "ssageToClient_Response\022#\n\tsome_text\030\001 \001("
-  "\tB\020\202\265\030\014Some string.\"I\n\"CMsgTest_NotifyCl"
-  "ient_Notification\022#\n\tsome_text\030\001 \001(\tB\020\202\265"
-  "\030\014Some string.\"G\n CMsgTest_MessageToServ"
-  "er_Request\022#\n\tsome_text\030\001 \001(\tB\020\202\265\030\014Some "
-  "string.\"H\n!CMsgTest_MessageToServer_Resp"
-  "onse\022#\n\tsome_text\030\001 \001(\tB\020\202\265\030\014Some string"
-  ".\"I\n\"CMsgTest_NotifyServer_Notification\022"
-  "#\n\tsome_text\030\001 \001(\tB\020\202\265\030\014Some string.\"\031\n\027"
-  "CMsgTest_NoBody_Request\"1\n\034CMsgTest_Call"
-  "Client_Response\022\021\n\ttestvalue\030\001 \001(\0052\203\002\n\017T"
-  "estSteamClient\022\201\001\n\017MessageToClient\022!.CMs"
-  "gTest_MessageToClient_Request\032\".CMsgTest"
-  "_MessageToClient_Response\"\'\202\265\030#Some desc"
-  "ription - MessageToClient.\022f\n\014NotifyClie"
-  "nt\022#.CMsgTest_NotifyClient_Notification\032"
-  "\013.NoResponse\"$\202\265\030 Some description - Not"
-  "ifyClient.\032\004\300\265\030\0022\202\002\n\024TestServerFromClien"
-  "t\022\201\001\n\017MessageToServer\022!.CMsgTest_Message"
-  "ToServer_Request\032\".CMsgTest_MessageToSer"
-  "ver_Response\"\'\202\265\030#Some description - Mes"
-  "sageToServer.\022f\n\014NotifyServer\022#.CMsgTest"
-  "_NotifyServer_Notification\032\013.NoResponse\""
-  "$\202\265\030 Some description - NotifyServer.2^\n"
-  "\025TestExternalPrivilege\022E\n\nCallClient\022\030.C"
-  "MsgTest_NoBody_Request\032\035.CMsgTest_CallCl"
-  "ient_ResponseB\035\200\001\001\252\002\027OpenSteamworks.Prot"
-  "obuf"
+  "s_unified_base.steamclient.proto\"5\n CMsg"
+  "Test_MessageToClient_Request\022\021\n\tsome_tex"
+  "t\030\001 \001(\t\"6\n!CMsgTest_MessageToClient_Resp"
+  "onse\022\021\n\tsome_text\030\001 \001(\t\"7\n\"CMsgTest_Noti"
+  "fyClient_Notification\022\021\n\tsome_text\030\001 \001(\t"
+  "\"5\n CMsgTest_MessageToServer_Request\022\021\n\t"
+  "some_text\030\001 \001(\t\"6\n!CMsgTest_MessageToSer"
+  "ver_Response\022\021\n\tsome_text\030\001 \001(\t\"7\n\"CMsgT"
+  "est_NotifyServer_Notification\022\021\n\tsome_te"
+  "xt\030\001 \001(\t\"\031\n\027CMsgTest_NoBody_Request\"1\n\034C"
+  "MsgTest_CallClient_Response\022\021\n\ttestvalue"
+  "\030\001 \001(\0052\263\001\n\017TestSteamClient\022X\n\017MessageToC"
+  "lient\022!.CMsgTest_MessageToClient_Request"
+  "\032\".CMsgTest_MessageToClient_Response\022@\n\014"
+  "NotifyClient\022#.CMsgTest_NotifyClient_Not"
+  "ification\032\013.NoResponse\032\004\300\265\030\0022\262\001\n\024TestSer"
+  "verFromClient\022X\n\017MessageToServer\022!.CMsgT"
+  "est_MessageToServer_Request\032\".CMsgTest_M"
+  "essageToServer_Response\022@\n\014NotifyServer\022"
+  "#.CMsgTest_NotifyServer_Notification\032\013.N"
+  "oResponse2^\n\025TestExternalPrivilege\022E\n\nCa"
+  "llClient\022\030.CMsgTest_NoBody_Request\032\035.CMs"
+  "gTest_CallClient_ResponseB\035\200\001\001\252\002\027OpenSte"
+  "amworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5funified_5ftest_2esteamclient_2eproto_deps[3] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
@@ -236,7 +229,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5funified_5ftest_2esteamclient_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5funified_5ftest_2esteamclient_2eproto = {
-  false, false, 1324, descriptor_table_protodef_steammessages_5funified_5ftest_2esteamclient_2eproto, "steammessages_unified_test.steamclient.proto", 
+  false, false, 1056, descriptor_table_protodef_steammessages_5funified_5ftest_2esteamclient_2eproto, "steammessages_unified_test.steamclient.proto", 
   &descriptor_table_steammessages_5funified_5ftest_2esteamclient_2eproto_once, descriptor_table_steammessages_5funified_5ftest_2esteamclient_2eproto_deps, 3, 8,
   schemas, file_default_instances, TableStruct_steammessages_5funified_5ftest_2esteamclient_2eproto::offsets,
   file_level_metadata_steammessages_5funified_5ftest_2esteamclient_2eproto, file_level_enum_descriptors_steammessages_5funified_5ftest_2esteamclient_2eproto, file_level_service_descriptors_steammessages_5funified_5ftest_2esteamclient_2eproto,
@@ -325,7 +318,7 @@ const char* CMsgTest_MessageToClient_Request::_InternalParse(const char* ptr, ::
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional string some_text = 1 [(.description) = "Some string."];
+      // optional string some_text = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           auto str = _internal_mutable_some_text();
@@ -366,7 +359,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional string some_text = 1 [(.description) = "Some string."];
+  // optional string some_text = 1;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_some_text().data(), static_cast<int>(this->_internal_some_text().length()),
@@ -392,7 +385,7 @@ size_t CMsgTest_MessageToClient_Request::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // optional string some_text = 1 [(.description) = "Some string."];
+  // optional string some_text = 1;
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += 1 +
@@ -541,7 +534,7 @@ const char* CMsgTest_MessageToClient_Response::_InternalParse(const char* ptr, :
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional string some_text = 1 [(.description) = "Some string."];
+      // optional string some_text = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           auto str = _internal_mutable_some_text();
@@ -582,7 +575,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional string some_text = 1 [(.description) = "Some string."];
+  // optional string some_text = 1;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_some_text().data(), static_cast<int>(this->_internal_some_text().length()),
@@ -608,7 +601,7 @@ size_t CMsgTest_MessageToClient_Response::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // optional string some_text = 1 [(.description) = "Some string."];
+  // optional string some_text = 1;
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += 1 +
@@ -757,7 +750,7 @@ const char* CMsgTest_NotifyClient_Notification::_InternalParse(const char* ptr, 
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional string some_text = 1 [(.description) = "Some string."];
+      // optional string some_text = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           auto str = _internal_mutable_some_text();
@@ -798,7 +791,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional string some_text = 1 [(.description) = "Some string."];
+  // optional string some_text = 1;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_some_text().data(), static_cast<int>(this->_internal_some_text().length()),
@@ -824,7 +817,7 @@ size_t CMsgTest_NotifyClient_Notification::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // optional string some_text = 1 [(.description) = "Some string."];
+  // optional string some_text = 1;
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += 1 +
@@ -973,7 +966,7 @@ const char* CMsgTest_MessageToServer_Request::_InternalParse(const char* ptr, ::
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional string some_text = 1 [(.description) = "Some string."];
+      // optional string some_text = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           auto str = _internal_mutable_some_text();
@@ -1014,7 +1007,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional string some_text = 1 [(.description) = "Some string."];
+  // optional string some_text = 1;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_some_text().data(), static_cast<int>(this->_internal_some_text().length()),
@@ -1040,7 +1033,7 @@ size_t CMsgTest_MessageToServer_Request::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // optional string some_text = 1 [(.description) = "Some string."];
+  // optional string some_text = 1;
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += 1 +
@@ -1189,7 +1182,7 @@ const char* CMsgTest_MessageToServer_Response::_InternalParse(const char* ptr, :
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional string some_text = 1 [(.description) = "Some string."];
+      // optional string some_text = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           auto str = _internal_mutable_some_text();
@@ -1230,7 +1223,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional string some_text = 1 [(.description) = "Some string."];
+  // optional string some_text = 1;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_some_text().data(), static_cast<int>(this->_internal_some_text().length()),
@@ -1256,7 +1249,7 @@ size_t CMsgTest_MessageToServer_Response::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // optional string some_text = 1 [(.description) = "Some string."];
+  // optional string some_text = 1;
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += 1 +
@@ -1405,7 +1398,7 @@ const char* CMsgTest_NotifyServer_Notification::_InternalParse(const char* ptr, 
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional string some_text = 1 [(.description) = "Some string."];
+      // optional string some_text = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           auto str = _internal_mutable_some_text();
@@ -1446,7 +1439,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional string some_text = 1 [(.description) = "Some string."];
+  // optional string some_text = 1;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_some_text().data(), static_cast<int>(this->_internal_some_text().length()),
@@ -1472,7 +1465,7 @@ size_t CMsgTest_NotifyServer_Notification::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // optional string some_text = 1 [(.description) = "Some string."];
+  // optional string some_text = 1;
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += 1 +

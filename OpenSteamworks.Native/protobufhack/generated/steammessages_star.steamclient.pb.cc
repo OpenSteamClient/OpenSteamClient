@@ -247,59 +247,36 @@ const char descriptor_table_protodef_steammessages_5fstar_2esteamclient_2eproto[
   "\n$steammessages_star.steamclient.proto\032 "
   "google/protobuf/descriptor.proto\032\030steamm"
   "essages_base.proto\032,steammessages_unifie"
-  "d_base.steamclient.proto\"\306\001\n\023CSTAR_KeyVa"
-  "lueQuery\022C\n\003key\030\001 \001(\tB6\202\265\0302key to search"
-  " for in JSON path format (SQL subset)\022j\n"
-  "\005value\030\002 \001(\tB[\202\265\030Wthe value to compare a"
-  "gainst (the JSON value will be compared "
-  "for equality as a string)\"\313\001\n\026CSTAR_Glyp"
-  "hQueryParams\022s\n\tbundle_id\030\001 \001(\004B`\202\265\030\\if "
-  "provided, Bundle ID is used instead of t"
-  "he other query parameters (much faster S"
-  "QL query)\022<\n\007queries\030\002 \003(\0132\024.CSTAR_KeyVa"
-  "lueQueryB\025\202\265\030\021key value queries\"\224\002\n\033CSTA"
-  "R_ReadGlyphData_Request\022e\n\014query_params\030"
-  "\001 \001(\0132\027.CSTAR_GlyphQueryParamsB6\202\265\0302para"
-  "meters to identify the glyphs to read fr"
-  "om SQL\022\215\001\n\036last_modified_time_lower_limi"
-  "t\030\002 \001(\tBe\202\265\030aif provided, only return gl"
-  "yphs modified more recently than this ti"
-  "mestamp  (RFC 3339 UTC format)\"\354\001\n\017CSTAR"
-  "_GlyphData\022<\n\nglyph_guid\030\001 \001(\014B(\202\265\030$GUID"
-  " uniquely identifying this glyph\022e\n\023glyp"
-  "h_last_modified\030\002 \001(\tBH\202\265\030Dtimestamp of "
-  "when this glyph was last modified (RFC 3"
-  "339 UTC format)\0224\n\017glyph_json_data\030\003 \001(\t"
-  "B\033\202\265\030\027JSON encoded glyph data\"\264\001\n\034CSTAR_"
-  "WriteGlyphData_Request\022@\n\tbundle_id\030\001 \001("
-  "\004B-\202\265\030)the Bundle ID of the glyphs to be"
-  " written\022R\n\nglyph_data\030\002 \003(\0132\020.CSTAR_Gly"
-  "phDataB,\202\265\030(one or more items of glyph d"
-  "ata to write\"\177\n\rCSTAR_Request\0225\n\017read_gl"
-  "yph_data\030\001 \001(\0132\034.CSTAR_ReadGlyphData_Req"
-  "uest\0227\n\020write_glyph_data\030\002 \001(\0132\035.CSTAR_W"
-  "riteGlyphData_Request\"\361\001\n\034CSTAR_ReadGlyp"
-  "hData_Response\022|\n\tbundle_id\030\001 \001(\004Bi\202\265\030et"
-  "he Bundle ID of the returned glyphs; the"
-  " client should send this back to optimiz"
-  "e subsequent queries\022S\n\nglyph_data\030\002 \003(\013"
-  "2\020.CSTAR_GlyphDataB-\202\265\030)zero or more ite"
-  "ms of returned glyph data\"w\n\035CSTAR_Write"
-  "GlyphData_Response\022V\n\006result\030\001 \003(\0162\030.E_S"
-  "TAR_GlyphWriteResultB,\202\265\030(write result f"
-  "or each item of glyph data\"\202\001\n\016CSTAR_Res"
-  "ponse\0226\n\017read_glyph_data\030\001 \001(\0132\035.CSTAR_R"
-  "eadGlyphData_Response\0228\n\020write_glyph_dat"
-  "a\030\002 \001(\0132\036.CSTAR_WriteGlyphData_Response*"
-  "\271\001\n\027E_STAR_GlyphWriteResult\022#\n\037E_STAR_Gl"
-  "yphWriteResult_Success\020\000\022*\n&E_STAR_Glyph"
-  "WriteResult_InvalidMessage\020\001\022\'\n#E_STAR_G"
-  "lyphWriteResult_InvalidJSON\020\002\022$\n E_STAR_"
-  "GlyphWriteResult_SQLError\020\0032\205\001\n\004STAR\022R\n\016"
-  "ProcessMessage\022\016.CSTAR_Request\032\017.CSTAR_R"
-  "esponse\"\037\202\265\030\033processes a generic message"
-  "\032)\202\265\030%service for reading/writing STAR d"
-  "ataB\035\200\001\001\252\002\027OpenSteamworks.Protobuf"
+  "d_base.steamclient.proto\"1\n\023CSTAR_KeyVal"
+  "ueQuery\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\"R\n\026C"
+  "STAR_GlyphQueryParams\022\021\n\tbundle_id\030\001 \001(\004"
+  "\022%\n\007queries\030\002 \003(\0132\024.CSTAR_KeyValueQuery\""
+  "t\n\033CSTAR_ReadGlyphData_Request\022-\n\014query_"
+  "params\030\001 \001(\0132\027.CSTAR_GlyphQueryParams\022&\n"
+  "\036last_modified_time_lower_limit\030\002 \001(\t\"[\n"
+  "\017CSTAR_GlyphData\022\022\n\nglyph_guid\030\001 \001(\014\022\033\n\023"
+  "glyph_last_modified\030\002 \001(\t\022\027\n\017glyph_json_"
+  "data\030\003 \001(\t\"W\n\034CSTAR_WriteGlyphData_Reque"
+  "st\022\021\n\tbundle_id\030\001 \001(\004\022$\n\nglyph_data\030\002 \003("
+  "\0132\020.CSTAR_GlyphData\"\177\n\rCSTAR_Request\0225\n\017"
+  "read_glyph_data\030\001 \001(\0132\034.CSTAR_ReadGlyphD"
+  "ata_Request\0227\n\020write_glyph_data\030\002 \001(\0132\035."
+  "CSTAR_WriteGlyphData_Request\"W\n\034CSTAR_Re"
+  "adGlyphData_Response\022\021\n\tbundle_id\030\001 \001(\004\022"
+  "$\n\nglyph_data\030\002 \003(\0132\020.CSTAR_GlyphData\"I\n"
+  "\035CSTAR_WriteGlyphData_Response\022(\n\006result"
+  "\030\001 \003(\0162\030.E_STAR_GlyphWriteResult\"\202\001\n\016CST"
+  "AR_Response\0226\n\017read_glyph_data\030\001 \001(\0132\035.C"
+  "STAR_ReadGlyphData_Response\0228\n\020write_gly"
+  "ph_data\030\002 \001(\0132\036.CSTAR_WriteGlyphData_Res"
+  "ponse*\271\001\n\027E_STAR_GlyphWriteResult\022#\n\037E_S"
+  "TAR_GlyphWriteResult_Success\020\000\022*\n&E_STAR"
+  "_GlyphWriteResult_InvalidMessage\020\001\022\'\n#E_"
+  "STAR_GlyphWriteResult_InvalidJSON\020\002\022$\n E"
+  "_STAR_GlyphWriteResult_SQLError\020\00329\n\004STA"
+  "R\0221\n\016ProcessMessage\022\016.CSTAR_Request\032\017.CS"
+  "TAR_ResponseB\035\200\001\001\252\002\027OpenSteamworks.Proto"
+  "buf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fstar_2esteamclient_2eproto_deps[3] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
@@ -308,7 +285,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fstar_2esteamclient_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fstar_2esteamclient_2eproto = {
-  false, false, 2234, descriptor_table_protodef_steammessages_5fstar_2esteamclient_2eproto, "steammessages_star.steamclient.proto", 
+  false, false, 1283, descriptor_table_protodef_steammessages_5fstar_2esteamclient_2eproto, "steammessages_star.steamclient.proto", 
   &descriptor_table_steammessages_5fstar_2esteamclient_2eproto_once, descriptor_table_steammessages_5fstar_2esteamclient_2eproto_deps, 3, 9,
   schemas, file_default_instances, TableStruct_steammessages_5fstar_2esteamclient_2eproto::offsets,
   file_level_metadata_steammessages_5fstar_2esteamclient_2eproto, file_level_enum_descriptors_steammessages_5fstar_2esteamclient_2eproto, file_level_service_descriptors_steammessages_5fstar_2esteamclient_2eproto,
@@ -428,7 +405,7 @@ const char* CSTAR_KeyValueQuery::_InternalParse(const char* ptr, ::PROTOBUF_NAME
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional string key = 1 [(.description) = "key to search for in JSON path format (SQL subset)"];
+      // optional string key = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           auto str = _internal_mutable_key();
@@ -439,7 +416,7 @@ const char* CSTAR_KeyValueQuery::_InternalParse(const char* ptr, ::PROTOBUF_NAME
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string value = 2 [(.description) = "the value to compare against (the JSON value will be compared for equality as a string)"];
+      // optional string value = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           auto str = _internal_mutable_value();
@@ -480,7 +457,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional string key = 1 [(.description) = "key to search for in JSON path format (SQL subset)"];
+  // optional string key = 1;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_key().data(), static_cast<int>(this->_internal_key().length()),
@@ -490,7 +467,7 @@ failure:
         1, this->_internal_key(), target);
   }
 
-  // optional string value = 2 [(.description) = "the value to compare against (the JSON value will be compared for equality as a string)"];
+  // optional string value = 2;
   if (cached_has_bits & 0x00000002u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_value().data(), static_cast<int>(this->_internal_value().length()),
@@ -518,14 +495,14 @@ size_t CSTAR_KeyValueQuery::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional string key = 1 [(.description) = "key to search for in JSON path format (SQL subset)"];
+    // optional string key = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_key());
     }
 
-    // optional string value = 2 [(.description) = "the value to compare against (the JSON value will be compared for equality as a string)"];
+    // optional string value = 2;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
@@ -676,7 +653,7 @@ const char* CSTAR_GlyphQueryParams::_InternalParse(const char* ptr, ::PROTOBUF_N
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint64 bundle_id = 1 [(.description) = "if provided, Bundle ID is used instead of the other query parameters (much faster SQL query)"];
+      // optional uint64 bundle_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_bundle_id(&has_bits);
@@ -684,7 +661,7 @@ const char* CSTAR_GlyphQueryParams::_InternalParse(const char* ptr, ::PROTOBUF_N
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated .CSTAR_KeyValueQuery queries = 2 [(.description) = "key value queries"];
+      // repeated .CSTAR_KeyValueQuery queries = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           ptr -= 1;
@@ -726,13 +703,13 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint64 bundle_id = 1 [(.description) = "if provided, Bundle ID is used instead of the other query parameters (much faster SQL query)"];
+  // optional uint64 bundle_id = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_bundle_id(), target);
   }
 
-  // repeated .CSTAR_KeyValueQuery queries = 2 [(.description) = "key value queries"];
+  // repeated .CSTAR_KeyValueQuery queries = 2;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_queries_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
@@ -756,14 +733,14 @@ size_t CSTAR_GlyphQueryParams::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .CSTAR_KeyValueQuery queries = 2 [(.description) = "key value queries"];
+  // repeated .CSTAR_KeyValueQuery queries = 2;
   total_size += 1UL * this->_internal_queries_size();
   for (const auto& msg : this->queries_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  // optional uint64 bundle_id = 1 [(.description) = "if provided, Bundle ID is used instead of the other query parameters (much faster SQL query)"];
+  // optional uint64 bundle_id = 1;
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += 1 +
@@ -935,14 +912,14 @@ const char* CSTAR_ReadGlyphData_Request::_InternalParse(const char* ptr, ::PROTO
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional .CSTAR_GlyphQueryParams query_params = 1 [(.description) = "parameters to identify the glyphs to read from SQL"];
+      // optional .CSTAR_GlyphQueryParams query_params = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           ptr = ctx->ParseMessage(_internal_mutable_query_params(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string last_modified_time_lower_limit = 2 [(.description) = "if provided, only return glyphs modified more recently than this timestamp  (RFC 3339 UTC format)"];
+      // optional string last_modified_time_lower_limit = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           auto str = _internal_mutable_last_modified_time_lower_limit();
@@ -983,7 +960,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional .CSTAR_GlyphQueryParams query_params = 1 [(.description) = "parameters to identify the glyphs to read from SQL"];
+  // optional .CSTAR_GlyphQueryParams query_params = 1;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -991,7 +968,7 @@ failure:
         1, _Internal::query_params(this), target, stream);
   }
 
-  // optional string last_modified_time_lower_limit = 2 [(.description) = "if provided, only return glyphs modified more recently than this timestamp  (RFC 3339 UTC format)"];
+  // optional string last_modified_time_lower_limit = 2;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_last_modified_time_lower_limit().data(), static_cast<int>(this->_internal_last_modified_time_lower_limit().length()),
@@ -1019,14 +996,14 @@ size_t CSTAR_ReadGlyphData_Request::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional string last_modified_time_lower_limit = 2 [(.description) = "if provided, only return glyphs modified more recently than this timestamp  (RFC 3339 UTC format)"];
+    // optional string last_modified_time_lower_limit = 2;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_last_modified_time_lower_limit());
     }
 
-    // optional .CSTAR_GlyphQueryParams query_params = 1 [(.description) = "parameters to identify the glyphs to read from SQL"];
+    // optional .CSTAR_GlyphQueryParams query_params = 1;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
@@ -1210,7 +1187,7 @@ const char* CSTAR_GlyphData::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPAC
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional bytes glyph_guid = 1 [(.description) = "GUID uniquely identifying this glyph"];
+      // optional bytes glyph_guid = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           auto str = _internal_mutable_glyph_guid();
@@ -1218,7 +1195,7 @@ const char* CSTAR_GlyphData::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPAC
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string glyph_last_modified = 2 [(.description) = "timestamp of when this glyph was last modified (RFC 3339 UTC format)"];
+      // optional string glyph_last_modified = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           auto str = _internal_mutable_glyph_last_modified();
@@ -1229,7 +1206,7 @@ const char* CSTAR_GlyphData::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPAC
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string glyph_json_data = 3 [(.description) = "JSON encoded glyph data"];
+      // optional string glyph_json_data = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           auto str = _internal_mutable_glyph_json_data();
@@ -1270,13 +1247,13 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional bytes glyph_guid = 1 [(.description) = "GUID uniquely identifying this glyph"];
+  // optional bytes glyph_guid = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->WriteBytesMaybeAliased(
         1, this->_internal_glyph_guid(), target);
   }
 
-  // optional string glyph_last_modified = 2 [(.description) = "timestamp of when this glyph was last modified (RFC 3339 UTC format)"];
+  // optional string glyph_last_modified = 2;
   if (cached_has_bits & 0x00000002u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_glyph_last_modified().data(), static_cast<int>(this->_internal_glyph_last_modified().length()),
@@ -1286,7 +1263,7 @@ failure:
         2, this->_internal_glyph_last_modified(), target);
   }
 
-  // optional string glyph_json_data = 3 [(.description) = "JSON encoded glyph data"];
+  // optional string glyph_json_data = 3;
   if (cached_has_bits & 0x00000004u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_glyph_json_data().data(), static_cast<int>(this->_internal_glyph_json_data().length()),
@@ -1314,21 +1291,21 @@ size_t CSTAR_GlyphData::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000007u) {
-    // optional bytes glyph_guid = 1 [(.description) = "GUID uniquely identifying this glyph"];
+    // optional bytes glyph_guid = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
           this->_internal_glyph_guid());
     }
 
-    // optional string glyph_last_modified = 2 [(.description) = "timestamp of when this glyph was last modified (RFC 3339 UTC format)"];
+    // optional string glyph_last_modified = 2;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_glyph_last_modified());
     }
 
-    // optional string glyph_json_data = 3 [(.description) = "JSON encoded glyph data"];
+    // optional string glyph_json_data = 3;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
@@ -1483,7 +1460,7 @@ const char* CSTAR_WriteGlyphData_Request::_InternalParse(const char* ptr, ::PROT
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint64 bundle_id = 1 [(.description) = "the Bundle ID of the glyphs to be written"];
+      // optional uint64 bundle_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_bundle_id(&has_bits);
@@ -1491,7 +1468,7 @@ const char* CSTAR_WriteGlyphData_Request::_InternalParse(const char* ptr, ::PROT
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated .CSTAR_GlyphData glyph_data = 2 [(.description) = "one or more items of glyph data to write"];
+      // repeated .CSTAR_GlyphData glyph_data = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           ptr -= 1;
@@ -1533,13 +1510,13 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint64 bundle_id = 1 [(.description) = "the Bundle ID of the glyphs to be written"];
+  // optional uint64 bundle_id = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_bundle_id(), target);
   }
 
-  // repeated .CSTAR_GlyphData glyph_data = 2 [(.description) = "one or more items of glyph data to write"];
+  // repeated .CSTAR_GlyphData glyph_data = 2;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_glyph_data_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
@@ -1563,14 +1540,14 @@ size_t CSTAR_WriteGlyphData_Request::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .CSTAR_GlyphData glyph_data = 2 [(.description) = "one or more items of glyph data to write"];
+  // repeated .CSTAR_GlyphData glyph_data = 2;
   total_size += 1UL * this->_internal_glyph_data_size();
   for (const auto& msg : this->glyph_data_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  // optional uint64 bundle_id = 1 [(.description) = "the Bundle ID of the glyphs to be written"];
+  // optional uint64 bundle_id = 1;
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += 1 +
@@ -1990,7 +1967,7 @@ const char* CSTAR_ReadGlyphData_Response::_InternalParse(const char* ptr, ::PROT
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint64 bundle_id = 1 [(.description) = "the Bundle ID of the returned glyphs; the client should send this back to optimize subsequent queries"];
+      // optional uint64 bundle_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_bundle_id(&has_bits);
@@ -1998,7 +1975,7 @@ const char* CSTAR_ReadGlyphData_Response::_InternalParse(const char* ptr, ::PROT
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated .CSTAR_GlyphData glyph_data = 2 [(.description) = "zero or more items of returned glyph data"];
+      // repeated .CSTAR_GlyphData glyph_data = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           ptr -= 1;
@@ -2040,13 +2017,13 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint64 bundle_id = 1 [(.description) = "the Bundle ID of the returned glyphs; the client should send this back to optimize subsequent queries"];
+  // optional uint64 bundle_id = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_bundle_id(), target);
   }
 
-  // repeated .CSTAR_GlyphData glyph_data = 2 [(.description) = "zero or more items of returned glyph data"];
+  // repeated .CSTAR_GlyphData glyph_data = 2;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_glyph_data_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
@@ -2070,14 +2047,14 @@ size_t CSTAR_ReadGlyphData_Response::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .CSTAR_GlyphData glyph_data = 2 [(.description) = "zero or more items of returned glyph data"];
+  // repeated .CSTAR_GlyphData glyph_data = 2;
   total_size += 1UL * this->_internal_glyph_data_size();
   for (const auto& msg : this->glyph_data_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  // optional uint64 bundle_id = 1 [(.description) = "the Bundle ID of the returned glyphs; the client should send this back to optimize subsequent queries"];
+  // optional uint64 bundle_id = 1;
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += 1 +
@@ -2213,7 +2190,7 @@ const char* CSTAR_WriteGlyphData_Response::_InternalParse(const char* ptr, ::PRO
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // repeated .E_STAR_GlyphWriteResult result = 1 [(.description) = "write result for each item of glyph data"];
+      // repeated .E_STAR_GlyphWriteResult result = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           ptr -= 1;
@@ -2261,7 +2238,7 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated .E_STAR_GlyphWriteResult result = 1 [(.description) = "write result for each item of glyph data"];
+  // repeated .E_STAR_GlyphWriteResult result = 1;
   for (int i = 0, n = this->_internal_result_size(); i < n; i++) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
@@ -2284,7 +2261,7 @@ size_t CSTAR_WriteGlyphData_Response::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .E_STAR_GlyphWriteResult result = 1 [(.description) = "write result for each item of glyph data"];
+  // repeated .E_STAR_GlyphWriteResult result = 1;
   {
     size_t data_size = 0;
     unsigned int count = static_cast<unsigned int>(this->_internal_result_size());for (unsigned int i = 0; i < count; i++) {

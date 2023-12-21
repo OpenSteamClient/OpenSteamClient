@@ -54,7 +54,7 @@ struct TableStruct_steammessages_5fstorebrowse_2esteamclient_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[41]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[42]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -152,6 +152,9 @@ extern StoreItem_PurchaseOptionDefaultTypeInternal _StoreItem_PurchaseOption_def
 class StoreItem_PurchaseOption_Discount;
 struct StoreItem_PurchaseOption_DiscountDefaultTypeInternal;
 extern StoreItem_PurchaseOption_DiscountDefaultTypeInternal _StoreItem_PurchaseOption_Discount_default_instance_;
+class StoreItem_PurchaseOption_RecurrenceInfo;
+struct StoreItem_PurchaseOption_RecurrenceInfoDefaultTypeInternal;
+extern StoreItem_PurchaseOption_RecurrenceInfoDefaultTypeInternal _StoreItem_PurchaseOption_RecurrenceInfo_default_instance_;
 class StoreItem_RelatedItems;
 struct StoreItem_RelatedItemsDefaultTypeInternal;
 extern StoreItem_RelatedItemsDefaultTypeInternal _StoreItem_RelatedItems_default_instance_;
@@ -216,6 +219,7 @@ template<> ::StoreItem_Platforms* Arena::CreateMaybeMessage<::StoreItem_Platform
 template<> ::StoreItem_Platforms_VRSupport* Arena::CreateMaybeMessage<::StoreItem_Platforms_VRSupport>(Arena*);
 template<> ::StoreItem_PurchaseOption* Arena::CreateMaybeMessage<::StoreItem_PurchaseOption>(Arena*);
 template<> ::StoreItem_PurchaseOption_Discount* Arena::CreateMaybeMessage<::StoreItem_PurchaseOption_Discount>(Arena*);
+template<> ::StoreItem_PurchaseOption_RecurrenceInfo* Arena::CreateMaybeMessage<::StoreItem_PurchaseOption_RecurrenceInfo>(Arena*);
 template<> ::StoreItem_RelatedItems* Arena::CreateMaybeMessage<::StoreItem_RelatedItems>(Arena*);
 template<> ::StoreItem_ReleaseInfo* Arena::CreateMaybeMessage<::StoreItem_ReleaseInfo>(Arena*);
 template<> ::StoreItem_Reviews* Arena::CreateMaybeMessage<::StoreItem_Reviews>(Arena*);
@@ -334,6 +338,8 @@ enum EStoreCategoryType : int {
   EStoreCategoryType_MAX = 5
 };
 bool EStoreCategoryType_IsValid(int value);
+constexpr EStoreCategoryType EStoreCategoryType_MIN = EStoreCategoryType_Category;
+constexpr EStoreCategoryType EStoreCategoryType_MAX = EStoreCategoryType_MAX;
 constexpr int EStoreCategoryType_ARRAYSIZE = EStoreCategoryType_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EStoreCategoryType_descriptor();
@@ -721,7 +727,7 @@ class StoreBrowseContext PROTOBUF_FINAL :
   std::string* _internal_mutable_language();
   public:
 
-  // optional string country_code = 3 [(.description) = "2-character country code; required"];
+  // optional string country_code = 3;
   bool has_country_code() const;
   private:
   bool _internal_has_country_code() const;
@@ -741,7 +747,7 @@ class StoreBrowseContext PROTOBUF_FINAL :
   std::string* _internal_mutable_country_code();
   public:
 
-  // optional int32 elanguage = 2 [(.description) = "ELanguage"];
+  // optional int32 elanguage = 2;
   bool has_elanguage() const;
   private:
   bool _internal_has_elanguage() const;
@@ -754,7 +760,7 @@ class StoreBrowseContext PROTOBUF_FINAL :
   void _internal_set_elanguage(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
-  // optional int32 steam_realm = 4 [(.description) = "ESteamRealm"];
+  // optional int32 steam_realm = 4;
   bool has_steam_realm() const;
   private:
   bool _internal_has_steam_realm() const;
@@ -918,8 +924,9 @@ class StoreBrowseItemDataRequest PROTOBUF_FINAL :
     kIncludeSupportedLanguagesFieldNumber = 11,
     kIncludeFullDescriptionFieldNumber = 12,
     kIncludeIncludedItemsFieldNumber = 13,
+    kIncludeAssetsWithoutOverridesFieldNumber = 15,
   };
-  // optional .StoreBrowseItemDataRequest included_item_data_request = 14 [(.description) = "The data to return for included items."];
+  // optional .StoreBrowseItemDataRequest included_item_data_request = 14;
   bool has_included_item_data_request() const;
   private:
   bool _internal_has_included_item_data_request() const;
@@ -1041,7 +1048,7 @@ class StoreBrowseItemDataRequest PROTOBUF_FINAL :
   void _internal_set_include_reviews(bool value);
   public:
 
-  // optional int32 include_tag_count = 8 [(.description) = "Count of tags to return, as tagids.  Maximum 20."];
+  // optional int32 include_tag_count = 8;
   bool has_include_tag_count() const;
   private:
   bool _internal_has_include_tag_count() const;
@@ -1054,7 +1061,7 @@ class StoreBrowseItemDataRequest PROTOBUF_FINAL :
   void _internal_set_include_tag_count(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
-  // optional bool include_basic_info = 10 [(.description) = "Include short description, publisher, developers"];
+  // optional bool include_basic_info = 10;
   bool has_include_basic_info() const;
   private:
   bool _internal_has_include_basic_info() const;
@@ -1067,7 +1074,7 @@ class StoreBrowseItemDataRequest PROTOBUF_FINAL :
   void _internal_set_include_basic_info(bool value);
   public:
 
-  // optional bool include_supported_languages = 11 [(.description) = "includes the games support for languages: supported, full_audio, subtitles"];
+  // optional bool include_supported_languages = 11;
   bool has_include_supported_languages() const;
   private:
   bool _internal_has_include_supported_languages() const;
@@ -1093,7 +1100,7 @@ class StoreBrowseItemDataRequest PROTOBUF_FINAL :
   void _internal_set_include_full_description(bool value);
   public:
 
-  // optional bool include_included_items = 13 [(.description) = "For packages and bundles, return the apps and packages included as well.  Pass included_item_data_request for more details on the included items."];
+  // optional bool include_included_items = 13;
   bool has_include_included_items() const;
   private:
   bool _internal_has_include_included_items() const;
@@ -1104,6 +1111,19 @@ class StoreBrowseItemDataRequest PROTOBUF_FINAL :
   private:
   bool _internal_include_included_items() const;
   void _internal_set_include_included_items(bool value);
+  public:
+
+  // optional bool include_assets_without_overrides = 15;
+  bool has_include_assets_without_overrides() const;
+  private:
+  bool _internal_has_include_assets_without_overrides() const;
+  public:
+  void clear_include_assets_without_overrides();
+  bool include_assets_without_overrides() const;
+  void set_include_assets_without_overrides(bool value);
+  private:
+  bool _internal_include_assets_without_overrides() const;
+  void _internal_set_include_assets_without_overrides(bool value);
   public:
 
   // @@protoc_insertion_point(class_scope:StoreBrowseItemDataRequest)
@@ -1129,6 +1149,7 @@ class StoreBrowseItemDataRequest PROTOBUF_FINAL :
   bool include_supported_languages_;
   bool include_full_description_;
   bool include_included_items_;
+  bool include_assets_without_overrides_;
   friend struct ::TableStruct_steammessages_5fstorebrowse_2esteamclient_2eproto;
 };
 // -------------------------------------------------------------------
@@ -1449,7 +1470,7 @@ class StoreItem_RelatedItems PROTOBUF_FINAL :
   enum : int {
     kParentAppidFieldNumber = 1,
   };
-  // optional uint32 parent_appid = 1 [(.description) = "For DLC, Demos, etc, this is the main app."];
+  // optional uint32 parent_appid = 1;
   bool has_parent_appid() const;
   private:
   bool _internal_has_parent_appid() const;
@@ -1599,7 +1620,7 @@ class StoreItem_IncludedItems PROTOBUF_FINAL :
     kIncludedAppsFieldNumber = 1,
     kIncludedPackagesFieldNumber = 2,
   };
-  // repeated .StoreItem included_apps = 1 [(.description) = "All apps included, if this is a package or bundle"];
+  // repeated .StoreItem included_apps = 1;
   int included_apps_size() const;
   private:
   int _internal_included_apps_size() const;
@@ -1617,7 +1638,7 @@ class StoreItem_IncludedItems PROTOBUF_FINAL :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::StoreItem >&
       included_apps() const;
 
-  // repeated .StoreItem included_packages = 2 [(.description) = "All packages included, if this is a bundle"];
+  // repeated .StoreItem included_packages = 2;
   int included_packages_size() const;
   private:
   int _internal_included_packages_size() const;
@@ -1773,7 +1794,7 @@ class StoreItem_Categories PROTOBUF_FINAL :
     kFeatureCategoryidsFieldNumber = 3,
     kControllerCategoryidsFieldNumber = 4,
   };
-  // repeated uint32 supported_player_categoryids = 2 [(.description) = "Categories like Single Player, Multiplayer, MMO"];
+  // repeated uint32 supported_player_categoryids = 2;
   int supported_player_categoryids_size() const;
   private:
   int _internal_supported_player_categoryids_size() const;
@@ -1795,7 +1816,7 @@ class StoreItem_Categories PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
       mutable_supported_player_categoryids();
 
-  // repeated uint32 feature_categoryids = 3 [(.description) = "Categories indicating supported features like Steam Cloud, VAC, Achievements, etc"];
+  // repeated uint32 feature_categoryids = 3;
   int feature_categoryids_size() const;
   private:
   int _internal_feature_categoryids_size() const;
@@ -1817,7 +1838,7 @@ class StoreItem_Categories PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
       mutable_feature_categoryids();
 
-  // repeated uint32 controller_categoryids = 4 [(.description) = "Categories indicating controller support and full controller support."];
+  // repeated uint32 controller_categoryids = 4;
   int controller_categoryids_size() const;
   private:
   int _internal_controller_categoryids_size() const;
@@ -1979,7 +2000,7 @@ class StoreItem_Reviews_StoreReviewSummary PROTOBUF_FINAL :
     kPercentPositiveFieldNumber = 2,
     kReviewScoreFieldNumber = 3,
   };
-  // optional string review_score_label = 4 [(.description) = "A string like \'Mixed\', \'Negative\', \'Overwhelmingly Positive\'"];
+  // optional string review_score_label = 4;
   bool has_review_score_label() const;
   private:
   bool _internal_has_review_score_label() const;
@@ -2012,7 +2033,7 @@ class StoreItem_Reviews_StoreReviewSummary PROTOBUF_FINAL :
   void _internal_set_review_count(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional int32 percent_positive = 2 [(.description) = "0-100"];
+  // optional int32 percent_positive = 2;
   bool has_percent_positive() const;
   private:
   bool _internal_has_percent_positive() const;
@@ -2180,7 +2201,7 @@ class StoreItem_Reviews PROTOBUF_FINAL :
     kSummaryFilteredFieldNumber = 1,
     kSummaryUnfilteredFieldNumber = 2,
   };
-  // optional .StoreItem.Reviews.StoreReviewSummary summary_filtered = 1 [(.description) = "Review summary with review bombs removed (if any).  Always present (if include_reviews set in request)"];
+  // optional .StoreItem.Reviews.StoreReviewSummary summary_filtered = 1;
   bool has_summary_filtered() const;
   private:
   bool _internal_has_summary_filtered() const;
@@ -2198,7 +2219,7 @@ class StoreItem_Reviews PROTOBUF_FINAL :
       ::StoreItem_Reviews_StoreReviewSummary* summary_filtered);
   ::StoreItem_Reviews_StoreReviewSummary* unsafe_arena_release_summary_filtered();
 
-  // optional .StoreItem.Reviews.StoreReviewSummary summary_unfiltered = 2 [(.description) = "Review summary with review bombs included.  Only present if there are review bombs."];
+  // optional .StoreItem.Reviews.StoreReviewSummary summary_unfiltered = 2;
   bool has_summary_unfiltered() const;
   private:
   bool _internal_has_summary_unfiltered() const;
@@ -2374,7 +2395,7 @@ class StoreItem_BasicInfo_CreatorHomeLink PROTOBUF_FINAL :
   std::string* _internal_mutable_name();
   public:
 
-  // optional uint32 creator_clan_account_id = 2 [(.description) = "Optioanl field indicating this name is associated this the creator home via the clan account id"];
+  // optional uint32 creator_clan_account_id = 2;
   bool has_creator_clan_account_id() const;
   private:
   bool _internal_has_creator_clan_account_id() const;
@@ -2604,7 +2625,7 @@ class StoreItem_BasicInfo PROTOBUF_FINAL :
   std::string* _internal_mutable_short_description();
   public:
 
-  // optional string capsule_headline = 5 [(.description) = "A custom string specified by the partner for display on or around a capsule on the store, e.g. \'Just Updated!\'"];
+  // optional string capsule_headline = 5;
   bool has_capsule_headline() const;
   private:
   bool _internal_has_capsule_headline() const;
@@ -2941,7 +2962,7 @@ class StoreItem_Assets PROTOBUF_FINAL :
     kCommunityIconFieldNumber = 13,
     kClanAvatarFieldNumber = 14,
   };
-  // optional string asset_url_format = 1 [(.description) = "Format for URLs, should substitute the capsule name for ${FILENAME} in the URL."];
+  // optional string asset_url_format = 1;
   bool has_asset_url_format() const;
   private:
   bool _internal_has_asset_url_format() const;
@@ -3001,7 +3022,7 @@ class StoreItem_Assets PROTOBUF_FINAL :
   std::string* _internal_mutable_small_capsule();
   public:
 
-  // optional string header = 4 [(.description) = "Equivalent to GetConstantRatioHeaderImage in PHP; apps will always have this, packages and bundles may not."];
+  // optional string header = 4;
   bool has_header() const;
   private:
   bool _internal_has_header() const;
@@ -3021,7 +3042,7 @@ class StoreItem_Assets PROTOBUF_FINAL :
   std::string* _internal_mutable_header();
   public:
 
-  // optional string package_header = 5 [(.description) = "A wider header used on package/bundle pages.  Not set for apps."];
+  // optional string package_header = 5;
   bool has_package_header() const;
   private:
   bool _internal_has_package_header() const;
@@ -3061,7 +3082,7 @@ class StoreItem_Assets PROTOBUF_FINAL :
   std::string* _internal_mutable_page_background();
   public:
 
-  // optional string hero_capsule = 7 [(.description) = "374x448"];
+  // optional string hero_capsule = 7;
   bool has_hero_capsule() const;
   private:
   bool _internal_has_hero_capsule() const;
@@ -3081,7 +3102,7 @@ class StoreItem_Assets PROTOBUF_FINAL :
   std::string* _internal_mutable_hero_capsule();
   public:
 
-  // optional string hero_capsule_2x = 8 [(.description) = "748x896 version of hero capsule."];
+  // optional string hero_capsule_2x = 8;
   bool has_hero_capsule_2x() const;
   private:
   bool _internal_has_hero_capsule_2x() const;
@@ -3101,7 +3122,7 @@ class StoreItem_Assets PROTOBUF_FINAL :
   std::string* _internal_mutable_hero_capsule_2x();
   public:
 
-  // optional string library_capsule = 9 [(.description) = "300x450 - tall library asset"];
+  // optional string library_capsule = 9;
   bool has_library_capsule() const;
   private:
   bool _internal_has_library_capsule() const;
@@ -3121,7 +3142,7 @@ class StoreItem_Assets PROTOBUF_FINAL :
   std::string* _internal_mutable_library_capsule();
   public:
 
-  // optional string library_capsule_2x = 10 [(.description) = "600x900 - tall library asset"];
+  // optional string library_capsule_2x = 10;
   bool has_library_capsule_2x() const;
   private:
   bool _internal_has_library_capsule_2x() const;
@@ -3141,7 +3162,7 @@ class StoreItem_Assets PROTOBUF_FINAL :
   std::string* _internal_mutable_library_capsule_2x();
   public:
 
-  // optional string library_hero = 11 [(.description) = "960x310 or 1920x620 - library detail background asset"];
+  // optional string library_hero = 11;
   bool has_library_hero() const;
   private:
   bool _internal_has_library_hero() const;
@@ -3161,7 +3182,7 @@ class StoreItem_Assets PROTOBUF_FINAL :
   std::string* _internal_mutable_library_hero();
   public:
 
-  // optional string library_hero_2x = 12 [(.description) = "1920x620 or 3840x1240 - library detail background asset"];
+  // optional string library_hero_2x = 12;
   bool has_library_hero_2x() const;
   private:
   bool _internal_has_library_hero_2x() const;
@@ -3181,7 +3202,7 @@ class StoreItem_Assets PROTOBUF_FINAL :
   std::string* _internal_mutable_library_hero_2x();
   public:
 
-  // optional string community_icon = 13 [(.description) = "32x32 jpg uploading via steamworks under community assets"];
+  // optional string community_icon = 13;
   bool has_community_icon() const;
   private:
   bool _internal_has_community_icon() const;
@@ -3380,7 +3401,7 @@ class StoreItem_ReleaseInfo PROTOBUF_FINAL :
     kMacReleaseDateFieldNumber = 20,
     kLinuxReleaseDateFieldNumber = 21,
   };
-  // optional string custom_release_date_message = 6 [(.description) = "Custom release date string.  steam_release_date will be unset if this is set."];
+  // optional string custom_release_date_message = 6;
   bool has_custom_release_date_message() const;
   private:
   bool _internal_has_custom_release_date_message() const;
@@ -3400,7 +3421,7 @@ class StoreItem_ReleaseInfo PROTOBUF_FINAL :
   std::string* _internal_mutable_custom_release_date_message();
   public:
 
-  // optional string coming_soon_display = 8 [(.description) = "One of \'date_full\', \'date_month\', \'date_quarter\', \'date_year\', \'text_comingsoon\', \'text_tba\'"];
+  // optional string coming_soon_display = 8;
   bool has_coming_soon_display() const;
   private:
   bool _internal_has_coming_soon_display() const;
@@ -3420,7 +3441,7 @@ class StoreItem_ReleaseInfo PROTOBUF_FINAL :
   std::string* _internal_mutable_coming_soon_display();
   public:
 
-  // optional uint32 steam_release_date = 1 [(.description) = "The date this item first released on the Steam store.  For Early Access graduates, this is their graduation day."];
+  // optional uint32 steam_release_date = 1;
   bool has_steam_release_date() const;
   private:
   bool _internal_has_steam_release_date() const;
@@ -3433,7 +3454,7 @@ class StoreItem_ReleaseInfo PROTOBUF_FINAL :
   void _internal_set_steam_release_date(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 original_release_date = 2 [(.description) = "Optional; the date this item first released elsewhere, typically back catalog items."];
+  // optional uint32 original_release_date = 2;
   bool has_original_release_date() const;
   private:
   bool _internal_has_original_release_date() const;
@@ -3446,7 +3467,7 @@ class StoreItem_ReleaseInfo PROTOBUF_FINAL :
   void _internal_set_original_release_date(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 original_steam_release_date = 3 [(.description) = "For Early Access graduates, the date the game first appeared on Steam."];
+  // optional uint32 original_steam_release_date = 3;
   bool has_original_steam_release_date() const;
   private:
   bool _internal_has_original_steam_release_date() const;
@@ -3459,7 +3480,7 @@ class StoreItem_ReleaseInfo PROTOBUF_FINAL :
   void _internal_set_original_steam_release_date(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional bool is_coming_soon = 4 [(.description) = "Is the app coming soon?  This flag should be preferred to doing time comparisons against steam_release_date."];
+  // optional bool is_coming_soon = 4;
   bool has_is_coming_soon() const;
   private:
   bool _internal_has_is_coming_soon() const;
@@ -3472,7 +3493,7 @@ class StoreItem_ReleaseInfo PROTOBUF_FINAL :
   void _internal_set_is_coming_soon(bool value);
   public:
 
-  // optional bool is_preload = 5 [(.description) = "Can the app be preloaded?  Only applies to Coming Soon titles."];
+  // optional bool is_preload = 5;
   bool has_is_preload() const;
   private:
   bool _internal_has_is_preload() const;
@@ -3485,7 +3506,7 @@ class StoreItem_ReleaseInfo PROTOBUF_FINAL :
   void _internal_set_is_preload(bool value);
   public:
 
-  // optional bool is_abridged_release_date = 7 [(.description) = "Release date should be displayed as month-year only.  steam_release_date is the last day of the month."];
+  // optional bool is_abridged_release_date = 7;
   bool has_is_abridged_release_date() const;
   private:
   bool _internal_has_is_abridged_release_date() const;
@@ -4187,6 +4208,200 @@ class StoreItem_PurchaseOption_Discount PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
+class StoreItem_PurchaseOption_RecurrenceInfo PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:StoreItem.PurchaseOption.RecurrenceInfo) */ {
+ public:
+  inline StoreItem_PurchaseOption_RecurrenceInfo() : StoreItem_PurchaseOption_RecurrenceInfo(nullptr) {}
+  virtual ~StoreItem_PurchaseOption_RecurrenceInfo();
+  explicit constexpr StoreItem_PurchaseOption_RecurrenceInfo(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  StoreItem_PurchaseOption_RecurrenceInfo(const StoreItem_PurchaseOption_RecurrenceInfo& from);
+  StoreItem_PurchaseOption_RecurrenceInfo(StoreItem_PurchaseOption_RecurrenceInfo&& from) noexcept
+    : StoreItem_PurchaseOption_RecurrenceInfo() {
+    *this = ::std::move(from);
+  }
+
+  inline StoreItem_PurchaseOption_RecurrenceInfo& operator=(const StoreItem_PurchaseOption_RecurrenceInfo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline StoreItem_PurchaseOption_RecurrenceInfo& operator=(StoreItem_PurchaseOption_RecurrenceInfo&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const StoreItem_PurchaseOption_RecurrenceInfo& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const StoreItem_PurchaseOption_RecurrenceInfo* internal_default_instance() {
+    return reinterpret_cast<const StoreItem_PurchaseOption_RecurrenceInfo*>(
+               &_StoreItem_PurchaseOption_RecurrenceInfo_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    17;
+
+  friend void swap(StoreItem_PurchaseOption_RecurrenceInfo& a, StoreItem_PurchaseOption_RecurrenceInfo& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(StoreItem_PurchaseOption_RecurrenceInfo* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(StoreItem_PurchaseOption_RecurrenceInfo* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline StoreItem_PurchaseOption_RecurrenceInfo* New() const final {
+    return CreateMaybeMessage<StoreItem_PurchaseOption_RecurrenceInfo>(nullptr);
+  }
+
+  StoreItem_PurchaseOption_RecurrenceInfo* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<StoreItem_PurchaseOption_RecurrenceInfo>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const StoreItem_PurchaseOption_RecurrenceInfo& from);
+  void MergeFrom(const StoreItem_PurchaseOption_RecurrenceInfo& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(StoreItem_PurchaseOption_RecurrenceInfo* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "StoreItem.PurchaseOption.RecurrenceInfo";
+  }
+  protected:
+  explicit StoreItem_PurchaseOption_RecurrenceInfo(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    return ::descriptor_table_steammessages_5fstorebrowse_2esteamclient_2eproto_metadata_getter(kIndexInFileMessages);
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kPackageidFieldNumber = 1,
+    kBillingAgreementTypeFieldNumber = 2,
+    kRenewalTimeUnitFieldNumber = 3,
+    kRenewalTimePeriodFieldNumber = 4,
+  };
+  // optional int32 packageid = 1;
+  bool has_packageid() const;
+  private:
+  bool _internal_has_packageid() const;
+  public:
+  void clear_packageid();
+  ::PROTOBUF_NAMESPACE_ID::int32 packageid() const;
+  void set_packageid(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_packageid() const;
+  void _internal_set_packageid(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // optional int32 billing_agreement_type = 2;
+  bool has_billing_agreement_type() const;
+  private:
+  bool _internal_has_billing_agreement_type() const;
+  public:
+  void clear_billing_agreement_type();
+  ::PROTOBUF_NAMESPACE_ID::int32 billing_agreement_type() const;
+  void set_billing_agreement_type(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_billing_agreement_type() const;
+  void _internal_set_billing_agreement_type(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // optional int32 renewal_time_unit = 3;
+  bool has_renewal_time_unit() const;
+  private:
+  bool _internal_has_renewal_time_unit() const;
+  public:
+  void clear_renewal_time_unit();
+  ::PROTOBUF_NAMESPACE_ID::int32 renewal_time_unit() const;
+  void set_renewal_time_unit(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_renewal_time_unit() const;
+  void _internal_set_renewal_time_unit(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // optional int32 renewal_time_period = 4;
+  bool has_renewal_time_period() const;
+  private:
+  bool _internal_has_renewal_time_period() const;
+  public:
+  void clear_renewal_time_period();
+  ::PROTOBUF_NAMESPACE_ID::int32 renewal_time_period() const;
+  void set_renewal_time_period(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_renewal_time_period() const;
+  void _internal_set_renewal_time_period(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:StoreItem.PurchaseOption.RecurrenceInfo)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  ::PROTOBUF_NAMESPACE_ID::int32 packageid_;
+  ::PROTOBUF_NAMESPACE_ID::int32 billing_agreement_type_;
+  ::PROTOBUF_NAMESPACE_ID::int32 renewal_time_unit_;
+  ::PROTOBUF_NAMESPACE_ID::int32 renewal_time_period_;
+  friend struct ::TableStruct_steammessages_5fstorebrowse_2esteamclient_2eproto;
+};
+// -------------------------------------------------------------------
+
 class StoreItem_PurchaseOption PROTOBUF_FINAL :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:StoreItem.PurchaseOption) */ {
  public:
@@ -4237,7 +4452,7 @@ class StoreItem_PurchaseOption PROTOBUF_FINAL :
                &_StoreItem_PurchaseOption_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    18;
 
   friend void swap(StoreItem_PurchaseOption& a, StoreItem_PurchaseOption& b) {
     a.Swap(&b);
@@ -4305,6 +4520,7 @@ class StoreItem_PurchaseOption PROTOBUF_FINAL :
   // nested types ----------------------------------------------------
 
   typedef StoreItem_PurchaseOption_Discount Discount;
+  typedef StoreItem_PurchaseOption_RecurrenceInfo RecurrenceInfo;
 
   // accessors -------------------------------------------------------
 
@@ -4315,6 +4531,7 @@ class StoreItem_PurchaseOption PROTOBUF_FINAL :
     kPurchaseOptionNameFieldNumber = 3,
     kFormattedFinalPriceFieldNumber = 8,
     kFormattedOriginalPriceFieldNumber = 9,
+    kRecurrenceInfoFieldNumber = 46,
     kPackageidFieldNumber = 1,
     kBundleidFieldNumber = 2,
     kFinalPriceInCentsFieldNumber = 5,
@@ -4327,11 +4544,12 @@ class StoreItem_PurchaseOption PROTOBUF_FINAL :
     kUserCanPurchaseAsGiftFieldNumber = 31,
     kIsCommercialLicenseFieldNumber = 40,
     kShouldSuppressDiscountPctFieldNumber = 41,
-    kHideDiscountPctForComplianceFieldNumber = 42,
     kIncludedGameCountFieldNumber = 43,
+    kHideDiscountPctForComplianceFieldNumber = 42,
+    kRequiresShippingFieldNumber = 45,
     kLowestRecentPriceInCentsFieldNumber = 44,
   };
-  // repeated .StoreItem.PurchaseOption.Discount active_discounts = 20 [(.description) = "Discounts included in discounted_price_in_cents."];
+  // repeated .StoreItem.PurchaseOption.Discount active_discounts = 20;
   int active_discounts_size() const;
   private:
   int _internal_active_discounts_size() const;
@@ -4349,7 +4567,7 @@ class StoreItem_PurchaseOption PROTOBUF_FINAL :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::StoreItem_PurchaseOption_Discount >&
       active_discounts() const;
 
-  // repeated .StoreItem.PurchaseOption.Discount user_active_discounts = 21 [(.description) = "Additional discounts included in user_discounted_price_in_cents."];
+  // repeated .StoreItem.PurchaseOption.Discount user_active_discounts = 21;
   int user_active_discounts_size() const;
   private:
   int _internal_user_active_discounts_size() const;
@@ -4367,7 +4585,7 @@ class StoreItem_PurchaseOption PROTOBUF_FINAL :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::StoreItem_PurchaseOption_Discount >&
       user_active_discounts() const;
 
-  // repeated .StoreItem.PurchaseOption.Discount inactive_discounts = 22 [(.description) = "Additional user-specific discounts that do not apply to the current user."];
+  // repeated .StoreItem.PurchaseOption.Discount inactive_discounts = 22;
   int inactive_discounts_size() const;
   private:
   int _internal_inactive_discounts_size() const;
@@ -4385,7 +4603,7 @@ class StoreItem_PurchaseOption PROTOBUF_FINAL :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::StoreItem_PurchaseOption_Discount >&
       inactive_discounts() const;
 
-  // optional string purchase_option_name = 3 [(.description) = "The name of the package or bundle"];
+  // optional string purchase_option_name = 3;
   bool has_purchase_option_name() const;
   private:
   bool _internal_has_purchase_option_name() const;
@@ -4405,7 +4623,7 @@ class StoreItem_PurchaseOption PROTOBUF_FINAL :
   std::string* _internal_mutable_purchase_option_name();
   public:
 
-  // optional string formatted_final_price = 8 [(.description) = "Always set.  Formatted with currency symbol and decimal, like \'$10.00\'."];
+  // optional string formatted_final_price = 8;
   bool has_formatted_final_price() const;
   private:
   bool _internal_has_formatted_final_price() const;
@@ -4445,6 +4663,24 @@ class StoreItem_PurchaseOption PROTOBUF_FINAL :
   std::string* _internal_mutable_formatted_original_price();
   public:
 
+  // optional .StoreItem.PurchaseOption.RecurrenceInfo recurrence_info = 46;
+  bool has_recurrence_info() const;
+  private:
+  bool _internal_has_recurrence_info() const;
+  public:
+  void clear_recurrence_info();
+  const ::StoreItem_PurchaseOption_RecurrenceInfo& recurrence_info() const;
+  ::StoreItem_PurchaseOption_RecurrenceInfo* release_recurrence_info();
+  ::StoreItem_PurchaseOption_RecurrenceInfo* mutable_recurrence_info();
+  void set_allocated_recurrence_info(::StoreItem_PurchaseOption_RecurrenceInfo* recurrence_info);
+  private:
+  const ::StoreItem_PurchaseOption_RecurrenceInfo& _internal_recurrence_info() const;
+  ::StoreItem_PurchaseOption_RecurrenceInfo* _internal_mutable_recurrence_info();
+  public:
+  void unsafe_arena_set_allocated_recurrence_info(
+      ::StoreItem_PurchaseOption_RecurrenceInfo* recurrence_info);
+  ::StoreItem_PurchaseOption_RecurrenceInfo* unsafe_arena_release_recurrence_info();
+
   // optional int32 packageid = 1;
   bool has_packageid() const;
   private:
@@ -4471,7 +4707,7 @@ class StoreItem_PurchaseOption PROTOBUF_FINAL :
   void _internal_set_bundleid(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
-  // optional int64 final_price_in_cents = 5 [(.description) = "Always set.  Includes any applicable non user-specific discounts."];
+  // optional int64 final_price_in_cents = 5;
   bool has_final_price_in_cents() const;
   private:
   bool _internal_has_final_price_in_cents() const;
@@ -4484,7 +4720,7 @@ class StoreItem_PurchaseOption PROTOBUF_FINAL :
   void _internal_set_final_price_in_cents(::PROTOBUF_NAMESPACE_ID::int64 value);
   public:
 
-  // optional int64 original_price_in_cents = 6 [(.description) = "If discounted, this is the price the item would normally cost."];
+  // optional int64 original_price_in_cents = 6;
   bool has_original_price_in_cents() const;
   private:
   bool _internal_has_original_price_in_cents() const;
@@ -4510,7 +4746,7 @@ class StoreItem_PurchaseOption PROTOBUF_FINAL :
   void _internal_set_user_final_price_in_cents(::PROTOBUF_NAMESPACE_ID::int64 value);
   public:
 
-  // optional int32 discount_pct = 10 [(.description) = "If discounted, calculated from final price and original price."];
+  // optional int32 discount_pct = 10;
   bool has_discount_pct() const;
   private:
   bool _internal_has_discount_pct() const;
@@ -4536,7 +4772,7 @@ class StoreItem_PurchaseOption PROTOBUF_FINAL :
   void _internal_set_user_discount_pct(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
-  // optional int32 bundle_discount_pct = 12 [(.description) = "If this is a bundle, the savings from buying the bundle.  If no bundle items are on active discount, this will be the same as discount_pct."];
+  // optional int32 bundle_discount_pct = 12;
   bool has_bundle_discount_pct() const;
   private:
   bool _internal_has_bundle_discount_pct() const;
@@ -4575,7 +4811,7 @@ class StoreItem_PurchaseOption PROTOBUF_FINAL :
   void _internal_set_user_can_purchase_as_gift(bool value);
   public:
 
-  // optional bool is_commercial_license = 40 [(.description) = "This is a commercial license"];
+  // optional bool is_commercial_license = 40;
   bool has_is_commercial_license() const;
   private:
   bool _internal_has_is_commercial_license() const;
@@ -4588,7 +4824,7 @@ class StoreItem_PurchaseOption PROTOBUF_FINAL :
   void _internal_set_is_commercial_license(bool value);
   public:
 
-  // optional bool should_suppress_discount_pct = 41 [(.description) = "Don\'t show the discount percentage on a store capsule for this item."];
+  // optional bool should_suppress_discount_pct = 41;
   bool has_should_suppress_discount_pct() const;
   private:
   bool _internal_has_should_suppress_discount_pct() const;
@@ -4601,20 +4837,7 @@ class StoreItem_PurchaseOption PROTOBUF_FINAL :
   void _internal_set_should_suppress_discount_pct(bool value);
   public:
 
-  // optional bool hide_discount_pct_for_compliance = 42 [default = false, (.description) = "Don\'t show the discount percent because there was a discount in the last 30 days."];
-  bool has_hide_discount_pct_for_compliance() const;
-  private:
-  bool _internal_has_hide_discount_pct_for_compliance() const;
-  public:
-  void clear_hide_discount_pct_for_compliance();
-  bool hide_discount_pct_for_compliance() const;
-  void set_hide_discount_pct_for_compliance(bool value);
-  private:
-  bool _internal_hide_discount_pct_for_compliance() const;
-  void _internal_set_hide_discount_pct_for_compliance(bool value);
-  public:
-
-  // optional int32 included_game_count = 43 [(.description) = "How many games are included in this purchase option."];
+  // optional int32 included_game_count = 43;
   bool has_included_game_count() const;
   private:
   bool _internal_has_included_game_count() const;
@@ -4627,7 +4850,33 @@ class StoreItem_PurchaseOption PROTOBUF_FINAL :
   void _internal_set_included_game_count(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
-  // optional int64 lowest_recent_price_in_cents = 44 [(.description) = "Lowest recent price in cents.  If not set, then there is no data so we ignore."];
+  // optional bool hide_discount_pct_for_compliance = 42 [default = false];
+  bool has_hide_discount_pct_for_compliance() const;
+  private:
+  bool _internal_has_hide_discount_pct_for_compliance() const;
+  public:
+  void clear_hide_discount_pct_for_compliance();
+  bool hide_discount_pct_for_compliance() const;
+  void set_hide_discount_pct_for_compliance(bool value);
+  private:
+  bool _internal_hide_discount_pct_for_compliance() const;
+  void _internal_set_hide_discount_pct_for_compliance(bool value);
+  public:
+
+  // optional bool requires_shipping = 45;
+  bool has_requires_shipping() const;
+  private:
+  bool _internal_has_requires_shipping() const;
+  public:
+  void clear_requires_shipping();
+  bool requires_shipping() const;
+  void set_requires_shipping(bool value);
+  private:
+  bool _internal_requires_shipping() const;
+  void _internal_set_requires_shipping(bool value);
+  public:
+
+  // optional int64 lowest_recent_price_in_cents = 44;
   bool has_lowest_recent_price_in_cents() const;
   private:
   bool _internal_has_lowest_recent_price_in_cents() const;
@@ -4655,6 +4904,7 @@ class StoreItem_PurchaseOption PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr purchase_option_name_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr formatted_final_price_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr formatted_original_price_;
+  ::StoreItem_PurchaseOption_RecurrenceInfo* recurrence_info_;
   ::PROTOBUF_NAMESPACE_ID::int32 packageid_;
   ::PROTOBUF_NAMESPACE_ID::int32 bundleid_;
   ::PROTOBUF_NAMESPACE_ID::int64 final_price_in_cents_;
@@ -4667,8 +4917,9 @@ class StoreItem_PurchaseOption PROTOBUF_FINAL :
   bool user_can_purchase_as_gift_;
   bool is_commercial_license_;
   bool should_suppress_discount_pct_;
-  bool hide_discount_pct_for_compliance_;
   ::PROTOBUF_NAMESPACE_ID::int32 included_game_count_;
+  bool hide_discount_pct_for_compliance_;
+  bool requires_shipping_;
   ::PROTOBUF_NAMESPACE_ID::int64 lowest_recent_price_in_cents_;
   friend struct ::TableStruct_steammessages_5fstorebrowse_2esteamclient_2eproto;
 };
@@ -4724,7 +4975,7 @@ class StoreItem_Screenshots_Screenshot PROTOBUF_FINAL :
                &_StoreItem_Screenshots_Screenshot_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    18;
+    19;
 
   friend void swap(StoreItem_Screenshots_Screenshot& a, StoreItem_Screenshots_Screenshot& b) {
     a.Swap(&b);
@@ -4797,7 +5048,7 @@ class StoreItem_Screenshots_Screenshot PROTOBUF_FINAL :
     kFilenameFieldNumber = 1,
     kOrdinalFieldNumber = 2,
   };
-  // optional string filename = 1 [(.description) = "Path to file on media CDN.  Can access sized version by appending to SHA: \'.1920x1080\', \'.600x338\', \'.116x65\'"];
+  // optional string filename = 1;
   bool has_filename() const;
   private:
   bool _internal_has_filename() const;
@@ -4817,7 +5068,7 @@ class StoreItem_Screenshots_Screenshot PROTOBUF_FINAL :
   std::string* _internal_mutable_filename();
   public:
 
-  // optional int32 ordinal = 2 [(.description) = "Screenshots should be displayed in order of ascending ordinal; they are returned in-order but client may need to merge all_ages and mature_content_screenshots."];
+  // optional int32 ordinal = 2;
   bool has_ordinal() const;
   private:
   bool _internal_has_ordinal() const;
@@ -4895,7 +5146,7 @@ class StoreItem_Screenshots PROTOBUF_FINAL :
                &_StoreItem_Screenshots_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    19;
+    20;
 
   friend void swap(StoreItem_Screenshots& a, StoreItem_Screenshots& b) {
     a.Swap(&b);
@@ -4970,7 +5221,7 @@ class StoreItem_Screenshots PROTOBUF_FINAL :
     kAllAgesScreenshotsFieldNumber = 2,
     kMatureContentScreenshotsFieldNumber = 3,
   };
-  // repeated .StoreItem.Screenshots.Screenshot all_ages_screenshots = 2 [(.description) = "Screenshots suitable for all ages."];
+  // repeated .StoreItem.Screenshots.Screenshot all_ages_screenshots = 2;
   int all_ages_screenshots_size() const;
   private:
   int _internal_all_ages_screenshots_size() const;
@@ -4988,7 +5239,7 @@ class StoreItem_Screenshots PROTOBUF_FINAL :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::StoreItem_Screenshots_Screenshot >&
       all_ages_screenshots() const;
 
-  // repeated .StoreItem.Screenshots.Screenshot mature_content_screenshots = 3 [(.description) = "Screenshots that may contain mature content; these should only be shown after verifying age (age gate)."];
+  // repeated .StoreItem.Screenshots.Screenshot mature_content_screenshots = 3;
   int mature_content_screenshots_size() const;
   private:
   int _internal_mature_content_screenshots_size() const;
@@ -5070,7 +5321,7 @@ class StoreItem_Trailers_VideoSource PROTOBUF_FINAL :
                &_StoreItem_Trailers_VideoSource_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    20;
+    21;
 
   friend void swap(StoreItem_Trailers_VideoSource& a, StoreItem_Trailers_VideoSource& b) {
     a.Swap(&b);
@@ -5143,7 +5394,7 @@ class StoreItem_Trailers_VideoSource PROTOBUF_FINAL :
     kFilenameFieldNumber = 1,
     kTypeFieldNumber = 2,
   };
-  // optional string filename = 1 [(.description) = "Substitute into trailer_url_format"];
+  // optional string filename = 1;
   bool has_filename() const;
   private:
   bool _internal_has_filename() const;
@@ -5163,7 +5414,7 @@ class StoreItem_Trailers_VideoSource PROTOBUF_FINAL :
   std::string* _internal_mutable_filename();
   public:
 
-  // optional string type = 2 [(.description) = "\'video/webm\' or \'video/mp4\'; can just put this directly in to a <source> tag."];
+  // optional string type = 2;
   bool has_type() const;
   private:
   bool _internal_has_type() const;
@@ -5248,7 +5499,7 @@ class StoreItem_Trailers_Trailer PROTOBUF_FINAL :
                &_StoreItem_Trailers_Trailer_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    21;
+    22;
 
   friend void swap(StoreItem_Trailers_Trailer& a, StoreItem_Trailers_Trailer& b) {
     a.Swap(&b);
@@ -5401,7 +5652,7 @@ class StoreItem_Trailers_Trailer PROTOBUF_FINAL :
   std::string* _internal_mutable_trailer_name();
   public:
 
-  // optional string trailer_url_format = 2 [(.description) = "Format for URLs, should substitute filename for ${FILENAME} in the URL."];
+  // optional string trailer_url_format = 2;
   bool has_trailer_url_format() const;
   private:
   bool _internal_has_trailer_url_format() const;
@@ -5421,7 +5672,7 @@ class StoreItem_Trailers_Trailer PROTOBUF_FINAL :
   std::string* _internal_mutable_trailer_url_format();
   public:
 
-  // optional string screenshot_medium = 10 [(.description) = "293x165px.  Use trailer_url_format."];
+  // optional string screenshot_medium = 10;
   bool has_screenshot_medium() const;
   private:
   bool _internal_has_screenshot_medium() const;
@@ -5441,7 +5692,7 @@ class StoreItem_Trailers_Trailer PROTOBUF_FINAL :
   std::string* _internal_mutable_screenshot_medium();
   public:
 
-  // optional string screenshot_full = 11 [(.description) = "Same size as trailer_max.  Use trailer_url_format."];
+  // optional string screenshot_full = 11;
   bool has_screenshot_full() const;
   private:
   bool _internal_has_screenshot_full() const;
@@ -5461,7 +5712,7 @@ class StoreItem_Trailers_Trailer PROTOBUF_FINAL :
   std::string* _internal_mutable_screenshot_full();
   public:
 
-  // optional int32 trailer_base_id = 12 [(.description) = "Trailer ID.  For localized trailers, this will be the original trailer\'s ID"];
+  // optional int32 trailer_base_id = 12;
   bool has_trailer_base_id() const;
   private:
   bool _internal_has_trailer_base_id() const;
@@ -5545,7 +5796,7 @@ class StoreItem_Trailers PROTOBUF_FINAL :
                &_StoreItem_Trailers_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    22;
+    23;
 
   friend void swap(StoreItem_Trailers& a, StoreItem_Trailers& b) {
     a.Swap(&b);
@@ -5621,7 +5872,7 @@ class StoreItem_Trailers PROTOBUF_FINAL :
     kHighlightsFieldNumber = 1,
     kOtherTrailersFieldNumber = 2,
   };
-  // repeated .StoreItem.Trailers.Trailer highlights = 1 [(.description) = "Primary trailers for this app"];
+  // repeated .StoreItem.Trailers.Trailer highlights = 1;
   int highlights_size() const;
   private:
   int _internal_highlights_size() const;
@@ -5639,7 +5890,7 @@ class StoreItem_Trailers PROTOBUF_FINAL :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::StoreItem_Trailers_Trailer >&
       highlights() const;
 
-  // repeated .StoreItem.Trailers.Trailer other_trailers = 2 [(.description) = "Additional trailers; on the app page, these are shown after screenshots (highlights shown before)"];
+  // repeated .StoreItem.Trailers.Trailer other_trailers = 2;
   int other_trailers_size() const;
   private:
   int _internal_other_trailers_size() const;
@@ -5721,7 +5972,7 @@ class StoreItem_SupportedLanguage PROTOBUF_FINAL :
                &_StoreItem_SupportedLanguage_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    23;
+    24;
 
   friend void swap(StoreItem_SupportedLanguage& a, StoreItem_SupportedLanguage& b) {
     a.Swap(&b);
@@ -5796,7 +6047,7 @@ class StoreItem_SupportedLanguage PROTOBUF_FINAL :
     kFullAudioFieldNumber = 3,
     kSubtitlesFieldNumber = 4,
   };
-  // optional int32 elanguage = 1 [(.description) = "ELanguage"];
+  // optional int32 elanguage = 1;
   bool has_elanguage() const;
   private:
   bool _internal_has_elanguage() const;
@@ -5915,7 +6166,7 @@ class StoreItem_FreeWeekend PROTOBUF_FINAL :
                &_StoreItem_FreeWeekend_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    24;
+    25;
 
   friend void swap(StoreItem_FreeWeekend& a, StoreItem_FreeWeekend& b) {
     a.Swap(&b);
@@ -5989,7 +6240,7 @@ class StoreItem_FreeWeekend PROTOBUF_FINAL :
     kStartTimeFieldNumber = 1,
     kEndTimeFieldNumber = 2,
   };
-  // optional string text = 3 [(.description) = "Text to show as a description of the free weekend."];
+  // optional string text = 3;
   bool has_text() const;
   private:
   bool _internal_has_text() const;
@@ -6009,7 +6260,7 @@ class StoreItem_FreeWeekend PROTOBUF_FINAL :
   std::string* _internal_mutable_text();
   public:
 
-  // optional uint32 start_time = 1 [(.description) = "When the free weekend starts."];
+  // optional uint32 start_time = 1;
   bool has_start_time() const;
   private:
   bool _internal_has_start_time() const;
@@ -6022,7 +6273,7 @@ class StoreItem_FreeWeekend PROTOBUF_FINAL :
   void _internal_set_start_time(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 end_time = 2 [(.description) = "When the free weekend ends."];
+  // optional uint32 end_time = 2;
   bool has_end_time() const;
   private:
   bool _internal_has_end_time() const;
@@ -6101,7 +6352,7 @@ class StoreItem PROTOBUF_FINAL :
                &_StoreItem_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    25;
+    26;
 
   friend void swap(StoreItem& a, StoreItem& b) {
     a.Swap(&b);
@@ -6212,6 +6463,7 @@ class StoreItem PROTOBUF_FINAL :
     kScreenshotsFieldNumber = 50,
     kTrailersFieldNumber = 51,
     kFreeWeekendFieldNumber = 54,
+    kAssetsWithoutOverridesFieldNumber = 60,
     kIdFieldNumber = 2,
     kSuccessFieldNumber = 3,
     kAppidFieldNumber = 9,
@@ -6225,7 +6477,7 @@ class StoreItem PROTOBUF_FINAL :
     kIsFreeTemporarilyFieldNumber = 59,
     kItemTypeFieldNumber = 1,
   };
-  // repeated .EStoreAppType included_types = 11 [(.description) = "For packages/bundles, all types of included items"];
+  // repeated .EStoreAppType included_types = 11;
   int included_types_size() const;
   private:
   int _internal_included_types_size() const;
@@ -6242,7 +6494,7 @@ class StoreItem PROTOBUF_FINAL :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>& included_types() const;
   ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>* mutable_included_types();
 
-  // repeated uint32 included_appids = 12 [(.description) = "For packages/bundles, all included appids"];
+  // repeated uint32 included_appids = 12;
   int included_appids_size() const;
   private:
   int _internal_included_appids_size() const;
@@ -6321,7 +6573,7 @@ class StoreItem PROTOBUF_FINAL :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::StoreItem_Tag >&
       tags() const;
 
-  // repeated .StoreItem.PurchaseOption purchase_options = 41 [(.description) = "Different ways to buy this app or packages (packages can be purchased directly, but may also be included in bundles)."];
+  // repeated .StoreItem.PurchaseOption purchase_options = 41;
   int purchase_options_size() const;
   private:
   int _internal_purchase_options_size() const;
@@ -6339,7 +6591,7 @@ class StoreItem PROTOBUF_FINAL :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::StoreItem_PurchaseOption >&
       purchase_options() const;
 
-  // repeated .StoreItem.PurchaseOption accessories = 42 [(.description) = "Additional packages or bundles associated with an app, but that do not contain the app."];
+  // repeated .StoreItem.PurchaseOption accessories = 42;
   int accessories_size() const;
   private:
   int _internal_accessories_size() const;
@@ -6395,7 +6647,7 @@ class StoreItem PROTOBUF_FINAL :
   std::string* _internal_mutable_name();
   public:
 
-  // optional string store_url_path = 7 [(.description) = "The URL of this item\'s store page, to be appended to STORE_BASE_URL."];
+  // optional string store_url_path = 7;
   bool has_store_url_path() const;
   private:
   bool _internal_has_store_url_path() const;
@@ -6415,7 +6667,7 @@ class StoreItem PROTOBUF_FINAL :
   std::string* _internal_mutable_store_url_path();
   public:
 
-  // optional string store_url_path_override = 53 [(.description) = "Navigate to this URL (relative to store home) when the store capsule for this item is clicked, instead of the default /app/... URL. Used by advertising apps that point to a sale page."];
+  // optional string store_url_path_override = 53;
   bool has_store_url_path_override() const;
   private:
   bool _internal_has_store_url_path_override() const;
@@ -6435,7 +6687,7 @@ class StoreItem PROTOBUF_FINAL :
   std::string* _internal_mutable_store_url_path_override();
   public:
 
-  // optional string internal_name = 57 [(.description) = "For hub categories, the internal name (handle) of the category"];
+  // optional string internal_name = 57;
   bool has_internal_name() const;
   private:
   bool _internal_has_internal_name() const;
@@ -6455,7 +6707,7 @@ class StoreItem PROTOBUF_FINAL :
   std::string* _internal_mutable_internal_name();
   public:
 
-  // optional string full_description = 58 [(.description) = "About this game section on the store page"];
+  // optional string full_description = 58;
   bool has_full_description() const;
   private:
   bool _internal_has_full_description() const;
@@ -6493,7 +6745,7 @@ class StoreItem PROTOBUF_FINAL :
       ::StoreItem_RelatedItems* related_items);
   ::StoreItem_RelatedItems* unsafe_arena_release_related_items();
 
-  // optional .StoreItem.IncludedItems included_items = 16 [(.description) = "Items included in this package/bundle, if included_items datarequest was passed."];
+  // optional .StoreItem.IncludedItems included_items = 16;
   bool has_included_items() const;
   private:
   bool _internal_has_included_items() const;
@@ -6619,7 +6871,7 @@ class StoreItem PROTOBUF_FINAL :
       ::StoreItem_Platforms* platforms);
   ::StoreItem_Platforms* unsafe_arena_release_platforms();
 
-  // optional .StoreGameRating game_rating = 33 [(.description) = "Local ratings agency information, like ESRB or PEGI"];
+  // optional .StoreGameRating game_rating = 33;
   bool has_game_rating() const;
   private:
   bool _internal_has_game_rating() const;
@@ -6637,7 +6889,7 @@ class StoreItem PROTOBUF_FINAL :
       ::StoreGameRating* game_rating);
   ::StoreGameRating* unsafe_arena_release_game_rating();
 
-  // optional .StoreItem.PurchaseOption best_purchase_option = 40 [(.description) = "The cheapest way for the user to acquire this app or package (may be a bundle)."];
+  // optional .StoreItem.PurchaseOption best_purchase_option = 40;
   bool has_best_purchase_option() const;
   private:
   bool _internal_has_best_purchase_option() const;
@@ -6691,7 +6943,7 @@ class StoreItem PROTOBUF_FINAL :
       ::StoreItem_Trailers* trailers);
   ::StoreItem_Trailers* unsafe_arena_release_trailers();
 
-  // optional .StoreItem.FreeWeekend free_weekend = 54 [(.description) = "Information about a free weekend offer."];
+  // optional .StoreItem.FreeWeekend free_weekend = 54;
   bool has_free_weekend() const;
   private:
   bool _internal_has_free_weekend() const;
@@ -6709,6 +6961,24 @@ class StoreItem PROTOBUF_FINAL :
       ::StoreItem_FreeWeekend* free_weekend);
   ::StoreItem_FreeWeekend* unsafe_arena_release_free_weekend();
 
+  // optional .StoreItem.Assets assets_without_overrides = 60;
+  bool has_assets_without_overrides() const;
+  private:
+  bool _internal_has_assets_without_overrides() const;
+  public:
+  void clear_assets_without_overrides();
+  const ::StoreItem_Assets& assets_without_overrides() const;
+  ::StoreItem_Assets* release_assets_without_overrides();
+  ::StoreItem_Assets* mutable_assets_without_overrides();
+  void set_allocated_assets_without_overrides(::StoreItem_Assets* assets_without_overrides);
+  private:
+  const ::StoreItem_Assets& _internal_assets_without_overrides() const;
+  ::StoreItem_Assets* _internal_mutable_assets_without_overrides();
+  public:
+  void unsafe_arena_set_allocated_assets_without_overrides(
+      ::StoreItem_Assets* assets_without_overrides);
+  ::StoreItem_Assets* unsafe_arena_release_assets_without_overrides();
+
   // optional uint32 id = 2;
   bool has_id() const;
   private:
@@ -6722,7 +6992,7 @@ class StoreItem PROTOBUF_FINAL :
   void _internal_set_id(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 success = 3 [(.description) = "EResult of this lookup action"];
+  // optional uint32 success = 3;
   bool has_success() const;
   private:
   bool _internal_has_success() const;
@@ -6735,7 +7005,7 @@ class StoreItem PROTOBUF_FINAL :
   void _internal_set_success(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 appid = 9 [(.description) = "If this is an app, or a single-app package, the steamworks appid."];
+  // optional uint32 appid = 9;
   bool has_appid() const;
   private:
   bool _internal_has_appid() const;
@@ -6761,7 +7031,7 @@ class StoreItem PROTOBUF_FINAL :
   void _internal_set_visible(bool value);
   public:
 
-  // optional bool unvailable_for_country_restriction = 5 [(.description) = "Indicates this app is visible in other regions, but not the requested reagion"];
+  // optional bool unvailable_for_country_restriction = 5;
   bool has_unvailable_for_country_restriction() const;
   private:
   bool _internal_has_unvailable_for_country_restriction() const;
@@ -6800,7 +7070,7 @@ class StoreItem PROTOBUF_FINAL :
   void _internal_set_is_early_access(bool value);
   public:
 
-  // optional .EStoreAppType type = 10 [default = EStoreAppType_Game, (.description) = "Type of app (Game, Software, Music).  For packages/bundles, this will be the most interesting type (eg Game + Soundtrack bundle will have type Game)"];
+  // optional .EStoreAppType type = 10 [default = EStoreAppType_Game];
   bool has_type() const;
   private:
   bool _internal_has_type() const;
@@ -6813,7 +7083,7 @@ class StoreItem PROTOBUF_FINAL :
   void _internal_set_type(::EStoreAppType value);
   public:
 
-  // optional uint32 game_count = 56 [(.description) = "For creators and tags, how many games belong to them"];
+  // optional uint32 game_count = 56;
   bool has_game_count() const;
   private:
   bool _internal_has_game_count() const;
@@ -6826,7 +7096,7 @@ class StoreItem PROTOBUF_FINAL :
   void _internal_set_game_count(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional bool unlisted = 55 [(.description) = "If true, item is only accessible on store via a direct link"];
+  // optional bool unlisted = 55;
   bool has_unlisted() const;
   private:
   bool _internal_has_unlisted() const;
@@ -6839,7 +7109,7 @@ class StoreItem PROTOBUF_FINAL :
   void _internal_set_unlisted(bool value);
   public:
 
-  // optional bool is_free_temporarily = 59 [(.description) = "This item is free now but not permanently so."];
+  // optional bool is_free_temporarily = 59;
   bool has_is_free_temporarily() const;
   private:
   bool _internal_has_is_free_temporarily() const;
@@ -6900,6 +7170,7 @@ class StoreItem PROTOBUF_FINAL :
   ::StoreItem_Screenshots* screenshots_;
   ::StoreItem_Trailers* trailers_;
   ::StoreItem_FreeWeekend* free_weekend_;
+  ::StoreItem_Assets* assets_without_overrides_;
   ::PROTOBUF_NAMESPACE_ID::uint32 id_;
   ::PROTOBUF_NAMESPACE_ID::uint32 success_;
   ::PROTOBUF_NAMESPACE_ID::uint32 appid_;
@@ -6966,7 +7237,7 @@ class StoreGameRating PROTOBUF_FINAL :
                &_StoreGameRating_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    26;
+    27;
 
   friend void swap(StoreGameRating& a, StoreGameRating& b) {
     a.Swap(&b);
@@ -7045,7 +7316,7 @@ class StoreGameRating PROTOBUF_FINAL :
     kRequiredAgeFieldNumber = 10,
     kUseAgeGateFieldNumber = 11,
   };
-  // repeated string descriptors = 3 [(.description) = "Additional descriptors like \'Intense Violence\', \'Strong Language\',..."];
+  // repeated string descriptors = 3;
   int descriptors_size() const;
   private:
   int _internal_descriptors_size() const;
@@ -7069,7 +7340,7 @@ class StoreGameRating PROTOBUF_FINAL :
   std::string* _internal_add_descriptors();
   public:
 
-  // optional string type = 1 [(.description) = "\'esrb\', \'pegi\', ..."];
+  // optional string type = 1;
   bool has_type() const;
   private:
   bool _internal_has_type() const;
@@ -7089,7 +7360,7 @@ class StoreGameRating PROTOBUF_FINAL :
   std::string* _internal_mutable_type();
   public:
 
-  // optional string rating = 2 [(.description) = "\'t\' for teen, \'m\' for mature, ..."];
+  // optional string rating = 2;
   bool has_rating() const;
   private:
   bool _internal_has_rating() const;
@@ -7109,7 +7380,7 @@ class StoreGameRating PROTOBUF_FINAL :
   std::string* _internal_mutable_rating();
   public:
 
-  // optional string interactive_elements = 4 [(.description) = "ESRB-specific"];
+  // optional string interactive_elements = 4;
   bool has_interactive_elements() const;
   private:
   bool _internal_has_interactive_elements() const;
@@ -7129,7 +7400,7 @@ class StoreGameRating PROTOBUF_FINAL :
   std::string* _internal_mutable_interactive_elements();
   public:
 
-  // optional string image_url = 20 [(.description) = "An image corresponding to the rating."];
+  // optional string image_url = 20;
   bool has_image_url() const;
   private:
   bool _internal_has_image_url() const;
@@ -7149,7 +7420,7 @@ class StoreGameRating PROTOBUF_FINAL :
   std::string* _internal_mutable_image_url();
   public:
 
-  // optional string image_target = 21 [(.description) = "URL where the image should link for more information."];
+  // optional string image_target = 21;
   bool has_image_target() const;
   private:
   bool _internal_has_image_target() const;
@@ -7169,7 +7440,7 @@ class StoreGameRating PROTOBUF_FINAL :
   std::string* _internal_mutable_image_target();
   public:
 
-  // optional int32 required_age = 10 [(.description) = "Age in years.  Store pages will prompt with an age gate"];
+  // optional int32 required_age = 10;
   bool has_required_age() const;
   private:
   bool _internal_has_required_age() const;
@@ -7266,7 +7537,7 @@ class CStoreBrowse_GetItems_Response PROTOBUF_FINAL :
                &_CStoreBrowse_GetItems_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    27;
+    28;
 
   friend void swap(CStoreBrowse_GetItems_Response& a, CStoreBrowse_GetItems_Response& b) {
     a.Swap(&b);
@@ -7419,7 +7690,7 @@ class CStoreBrowse_GetStoreCategories_Request PROTOBUF_FINAL :
                &_CStoreBrowse_GetStoreCategories_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    28;
+    29;
 
   friend void swap(CStoreBrowse_GetStoreCategories_Request& a, CStoreBrowse_GetStoreCategories_Request& b) {
     a.Swap(&b);
@@ -7512,7 +7783,7 @@ class CStoreBrowse_GetStoreCategories_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_language();
   public:
 
-  // optional int32 elanguage = 2 [default = -1, (.description) = "ELanguage"];
+  // optional int32 elanguage = 2 [default = -1];
   bool has_elanguage() const;
   private:
   bool _internal_has_elanguage() const;
@@ -7590,7 +7861,7 @@ class CStoreBrowse_GetStoreCategories_Response_Category PROTOBUF_FINAL :
                &_CStoreBrowse_GetStoreCategories_Response_Category_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    29;
+    30;
 
   friend void swap(CStoreBrowse_GetStoreCategories_Response_Category& a, CStoreBrowse_GetStoreCategories_Response_Category& b) {
     a.Swap(&b);
@@ -7707,7 +7978,7 @@ class CStoreBrowse_GetStoreCategories_Response_Category PROTOBUF_FINAL :
   std::string* _internal_mutable_display_name();
   public:
 
-  // optional string image_url = 5 [(.description) = "Append to STORE_CDN_URL"];
+  // optional string image_url = 5;
   bool has_image_url() const;
   private:
   bool _internal_has_image_url() const;
@@ -7753,7 +8024,7 @@ class CStoreBrowse_GetStoreCategories_Response_Category PROTOBUF_FINAL :
   void _internal_set_type(::EStoreCategoryType value);
   public:
 
-  // optional bool show_in_search = 6 [(.description) = "Indicates this category can link to search results showing all items in category."];
+  // optional bool show_in_search = 6;
   bool has_show_in_search() const;
   private:
   bool _internal_has_show_in_search() const;
@@ -7835,7 +8106,7 @@ class CStoreBrowse_GetStoreCategories_Response PROTOBUF_FINAL :
                &_CStoreBrowse_GetStoreCategories_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    30;
+    31;
 
   friend void swap(CStoreBrowse_GetStoreCategories_Response& a, CStoreBrowse_GetStoreCategories_Response& b) {
     a.Swap(&b);
@@ -7990,7 +8261,7 @@ class CStoreBrowse_GetDLCForApps_Request PROTOBUF_FINAL :
                &_CStoreBrowse_GetDLCForApps_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    31;
+    32;
 
   friend void swap(CStoreBrowse_GetDLCForApps_Request& a, CStoreBrowse_GetDLCForApps_Request& b) {
     a.Swap(&b);
@@ -8065,7 +8336,7 @@ class CStoreBrowse_GetDLCForApps_Request PROTOBUF_FINAL :
     kStorePageFilterFieldNumber = 2,
     kSteamidFieldNumber = 4,
   };
-  // repeated .StoreItemID appids = 3 [(.description) = "Apps for which we want DLC information."];
+  // repeated .StoreItemID appids = 3;
   int appids_size() const;
   private:
   int _internal_appids_size() const;
@@ -8119,7 +8390,7 @@ class CStoreBrowse_GetDLCForApps_Request PROTOBUF_FINAL :
       ::CStorePageFilter* store_page_filter);
   ::CStorePageFilter* unsafe_arena_release_store_page_filter();
 
-  // optional uint64 steamid = 4 [(.description) = "If specified, we want DLC information for all apps owned by this user."];
+  // optional uint64 steamid = 4;
   bool has_steamid() const;
   private:
   bool _internal_has_steamid() const;
@@ -8199,7 +8470,7 @@ class CStoreBrowse_GetDLCForApps_Response_DLCData PROTOBUF_FINAL :
                &_CStoreBrowse_GetDLCForApps_Response_DLCData_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    32;
+    33;
 
   friend void swap(CStoreBrowse_GetDLCForApps_Response_DLCData& a, CStoreBrowse_GetDLCForApps_Response_DLCData& b) {
     a.Swap(&b);
@@ -8438,7 +8709,7 @@ class CStoreBrowse_GetDLCForApps_Response_PlaytimeForApp PROTOBUF_FINAL :
                &_CStoreBrowse_GetDLCForApps_Response_PlaytimeForApp_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    33;
+    34;
 
   friend void swap(CStoreBrowse_GetDLCForApps_Response_PlaytimeForApp& a, CStoreBrowse_GetDLCForApps_Response_PlaytimeForApp& b) {
     a.Swap(&b);
@@ -8525,7 +8796,7 @@ class CStoreBrowse_GetDLCForApps_Response_PlaytimeForApp PROTOBUF_FINAL :
   void _internal_set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 playtime = 2 [(.description) = "Total time played over all time."];
+  // optional uint32 playtime = 2;
   bool has_playtime() const;
   private:
   bool _internal_has_playtime() const;
@@ -8538,7 +8809,7 @@ class CStoreBrowse_GetDLCForApps_Response_PlaytimeForApp PROTOBUF_FINAL :
   void _internal_set_playtime(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 last_played = 3 [(.description) = "Time last played on any platform."];
+  // optional uint32 last_played = 3;
   bool has_last_played() const;
   private:
   bool _internal_has_last_played() const;
@@ -8617,7 +8888,7 @@ class CStoreBrowse_GetDLCForApps_Response PROTOBUF_FINAL :
                &_CStoreBrowse_GetDLCForApps_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    34;
+    35;
 
   friend void swap(CStoreBrowse_GetDLCForApps_Response& a, CStoreBrowse_GetDLCForApps_Response& b) {
     a.Swap(&b);
@@ -8793,7 +9064,7 @@ class CStoreBrowse_GetDLCForAppsSolr_Request PROTOBUF_FINAL :
                &_CStoreBrowse_GetDLCForAppsSolr_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    35;
+    36;
 
   friend void swap(CStoreBrowse_GetDLCForAppsSolr_Request& a, CStoreBrowse_GetDLCForAppsSolr_Request& b) {
     a.Swap(&b);
@@ -9028,7 +9299,7 @@ class CStoreBrowse_GetDLCForAppsSolr_Response_DLCList PROTOBUF_FINAL :
                &_CStoreBrowse_GetDLCForAppsSolr_Response_DLCList_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    36;
+    37;
 
   friend void swap(CStoreBrowse_GetDLCForAppsSolr_Response_DLCList& a, CStoreBrowse_GetDLCForAppsSolr_Response_DLCList& b) {
     a.Swap(&b);
@@ -9201,7 +9472,7 @@ class CStoreBrowse_GetDLCForAppsSolr_Response PROTOBUF_FINAL :
                &_CStoreBrowse_GetDLCForAppsSolr_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    37;
+    38;
 
   friend void swap(CStoreBrowse_GetDLCForAppsSolr_Response& a, CStoreBrowse_GetDLCForAppsSolr_Response& b) {
     a.Swap(&b);
@@ -9356,7 +9627,7 @@ class CStoreBrowse_GetHardwareItems_Request PROTOBUF_FINAL :
                &_CStoreBrowse_GetHardwareItems_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    38;
+    39;
 
   friend void swap(CStoreBrowse_GetHardwareItems_Request& a, CStoreBrowse_GetHardwareItems_Request& b) {
     a.Swap(&b);
@@ -9534,7 +9805,7 @@ class CHardwarePackageDetails PROTOBUF_FINAL :
                &_CHardwarePackageDetails_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    39;
+    40;
 
   friend void swap(CHardwarePackageDetails& a, CHardwarePackageDetails& b) {
     a.Swap(&b);
@@ -9613,12 +9884,15 @@ class CHardwarePackageDetails PROTOBUF_FINAL :
     kRtimeEstimatedNotificationFieldNumber = 7,
     kReservationStateFieldNumber = 9,
     kTimeExpiresFieldNumber = 11,
+    kTimeReservedFieldNumber = 12,
     kExpiredFieldNumber = 10,
     kAllowQuantityPurchaseFieldNumber = 13,
-    kTimeReservedFieldNumber = 12,
+    kAllowPurchaseInCountryFieldNumber = 15,
     kMaxQuantityPerPurchaseFieldNumber = 14,
+    kEstimatedDeliverySoonestBusinessDaysFieldNumber = 17,
+    kEstimatedDeliveryLatestBusinessDaysFieldNumber = 18,
   };
-  // optional string notificaton_token = 8 [(.description) = "How we should render the timestamp"];
+  // optional string notificaton_token = 8;
   bool has_notificaton_token() const;
   private:
   bool _internal_has_notificaton_token() const;
@@ -9703,7 +9977,7 @@ class CHardwarePackageDetails PROTOBUF_FINAL :
   void _internal_set_requires_reservation(bool value);
   public:
 
-  // optional uint32 rtime_estimated_notification = 7 [(.description) = "Latest date we think you will receive the message if you or based on your current position"];
+  // optional uint32 rtime_estimated_notification = 7;
   bool has_rtime_estimated_notification() const;
   private:
   bool _internal_has_rtime_estimated_notification() const;
@@ -9742,6 +10016,19 @@ class CHardwarePackageDetails PROTOBUF_FINAL :
   void _internal_set_time_expires(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
+  // optional uint32 time_reserved = 12;
+  bool has_time_reserved() const;
+  private:
+  bool _internal_has_time_reserved() const;
+  public:
+  void clear_time_reserved();
+  ::PROTOBUF_NAMESPACE_ID::uint32 time_reserved() const;
+  void set_time_reserved(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_time_reserved() const;
+  void _internal_set_time_reserved(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
   // optional bool expired = 10;
   bool has_expired() const;
   private:
@@ -9768,17 +10055,17 @@ class CHardwarePackageDetails PROTOBUF_FINAL :
   void _internal_set_allow_quantity_purchase(bool value);
   public:
 
-  // optional uint32 time_reserved = 12;
-  bool has_time_reserved() const;
+  // optional bool allow_purchase_in_country = 15;
+  bool has_allow_purchase_in_country() const;
   private:
-  bool _internal_has_time_reserved() const;
+  bool _internal_has_allow_purchase_in_country() const;
   public:
-  void clear_time_reserved();
-  ::PROTOBUF_NAMESPACE_ID::uint32 time_reserved() const;
-  void set_time_reserved(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  void clear_allow_purchase_in_country();
+  bool allow_purchase_in_country() const;
+  void set_allow_purchase_in_country(bool value);
   private:
-  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_time_reserved() const;
-  void _internal_set_time_reserved(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  bool _internal_allow_purchase_in_country() const;
+  void _internal_set_allow_purchase_in_country(bool value);
   public:
 
   // optional int32 max_quantity_per_purchase = 14;
@@ -9792,6 +10079,32 @@ class CHardwarePackageDetails PROTOBUF_FINAL :
   private:
   ::PROTOBUF_NAMESPACE_ID::int32 _internal_max_quantity_per_purchase() const;
   void _internal_set_max_quantity_per_purchase(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // optional uint32 estimated_delivery_soonest_business_days = 17;
+  bool has_estimated_delivery_soonest_business_days() const;
+  private:
+  bool _internal_has_estimated_delivery_soonest_business_days() const;
+  public:
+  void clear_estimated_delivery_soonest_business_days();
+  ::PROTOBUF_NAMESPACE_ID::uint32 estimated_delivery_soonest_business_days() const;
+  void set_estimated_delivery_soonest_business_days(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_estimated_delivery_soonest_business_days() const;
+  void _internal_set_estimated_delivery_soonest_business_days(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // optional uint32 estimated_delivery_latest_business_days = 18;
+  bool has_estimated_delivery_latest_business_days() const;
+  private:
+  bool _internal_has_estimated_delivery_latest_business_days() const;
+  public:
+  void clear_estimated_delivery_latest_business_days();
+  ::PROTOBUF_NAMESPACE_ID::uint32 estimated_delivery_latest_business_days() const;
+  void set_estimated_delivery_latest_business_days(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_estimated_delivery_latest_business_days() const;
+  void _internal_set_estimated_delivery_latest_business_days(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
   // @@protoc_insertion_point(class_scope:CHardwarePackageDetails)
@@ -9812,10 +10125,13 @@ class CHardwarePackageDetails PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::uint32 rtime_estimated_notification_;
   ::PROTOBUF_NAMESPACE_ID::int32 reservation_state_;
   ::PROTOBUF_NAMESPACE_ID::uint32 time_expires_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 time_reserved_;
   bool expired_;
   bool allow_quantity_purchase_;
-  ::PROTOBUF_NAMESPACE_ID::uint32 time_reserved_;
+  bool allow_purchase_in_country_;
   ::PROTOBUF_NAMESPACE_ID::int32 max_quantity_per_purchase_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 estimated_delivery_soonest_business_days_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 estimated_delivery_latest_business_days_;
   friend struct ::TableStruct_steammessages_5fstorebrowse_2esteamclient_2eproto;
 };
 // -------------------------------------------------------------------
@@ -9870,7 +10186,7 @@ class CStoreBrowse_GetHardwareItems_Response PROTOBUF_FINAL :
                &_CStoreBrowse_GetHardwareItems_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    40;
+    41;
 
   friend void swap(CStoreBrowse_GetHardwareItems_Response& a, CStoreBrowse_GetHardwareItems_Response& b) {
     a.Swap(&b);
@@ -10318,7 +10634,7 @@ inline void StoreBrowseContext::set_allocated_language(std::string* language) {
   // @@protoc_insertion_point(field_set_allocated:StoreBrowseContext.language)
 }
 
-// optional int32 elanguage = 2 [(.description) = "ELanguage"];
+// optional int32 elanguage = 2;
 inline bool StoreBrowseContext::_internal_has_elanguage() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -10346,7 +10662,7 @@ inline void StoreBrowseContext::set_elanguage(::PROTOBUF_NAMESPACE_ID::int32 val
   // @@protoc_insertion_point(field_set:StoreBrowseContext.elanguage)
 }
 
-// optional string country_code = 3 [(.description) = "2-character country code; required"];
+// optional string country_code = 3;
 inline bool StoreBrowseContext::_internal_has_country_code() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -10419,7 +10735,7 @@ inline void StoreBrowseContext::set_allocated_country_code(std::string* country_
   // @@protoc_insertion_point(field_set_allocated:StoreBrowseContext.country_code)
 }
 
-// optional int32 steam_realm = 4 [(.description) = "ESteamRealm"];
+// optional int32 steam_realm = 4;
 inline bool StoreBrowseContext::_internal_has_steam_realm() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -10647,7 +10963,7 @@ inline void StoreBrowseItemDataRequest::set_include_ratings(bool value) {
   // @@protoc_insertion_point(field_set:StoreBrowseItemDataRequest.include_ratings)
 }
 
-// optional int32 include_tag_count = 8 [(.description) = "Count of tags to return, as tagids.  Maximum 20."];
+// optional int32 include_tag_count = 8;
 inline bool StoreBrowseItemDataRequest::_internal_has_include_tag_count() const {
   bool value = (_has_bits_[0] & 0x00000200u) != 0;
   return value;
@@ -10703,7 +11019,7 @@ inline void StoreBrowseItemDataRequest::set_include_reviews(bool value) {
   // @@protoc_insertion_point(field_set:StoreBrowseItemDataRequest.include_reviews)
 }
 
-// optional bool include_basic_info = 10 [(.description) = "Include short description, publisher, developers"];
+// optional bool include_basic_info = 10;
 inline bool StoreBrowseItemDataRequest::_internal_has_include_basic_info() const {
   bool value = (_has_bits_[0] & 0x00000400u) != 0;
   return value;
@@ -10731,7 +11047,7 @@ inline void StoreBrowseItemDataRequest::set_include_basic_info(bool value) {
   // @@protoc_insertion_point(field_set:StoreBrowseItemDataRequest.include_basic_info)
 }
 
-// optional bool include_supported_languages = 11 [(.description) = "includes the games support for languages: supported, full_audio, subtitles"];
+// optional bool include_supported_languages = 11;
 inline bool StoreBrowseItemDataRequest::_internal_has_include_supported_languages() const {
   bool value = (_has_bits_[0] & 0x00000800u) != 0;
   return value;
@@ -10787,7 +11103,7 @@ inline void StoreBrowseItemDataRequest::set_include_full_description(bool value)
   // @@protoc_insertion_point(field_set:StoreBrowseItemDataRequest.include_full_description)
 }
 
-// optional bool include_included_items = 13 [(.description) = "For packages and bundles, return the apps and packages included as well.  Pass included_item_data_request for more details on the included items."];
+// optional bool include_included_items = 13;
 inline bool StoreBrowseItemDataRequest::_internal_has_include_included_items() const {
   bool value = (_has_bits_[0] & 0x00002000u) != 0;
   return value;
@@ -10815,7 +11131,7 @@ inline void StoreBrowseItemDataRequest::set_include_included_items(bool value) {
   // @@protoc_insertion_point(field_set:StoreBrowseItemDataRequest.include_included_items)
 }
 
-// optional .StoreBrowseItemDataRequest included_item_data_request = 14 [(.description) = "The data to return for included items."];
+// optional .StoreBrowseItemDataRequest included_item_data_request = 14;
 inline bool StoreBrowseItemDataRequest::_internal_has_included_item_data_request() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   PROTOBUF_ASSUME(!value || included_item_data_request_ != nullptr);
@@ -10896,6 +11212,34 @@ inline void StoreBrowseItemDataRequest::set_allocated_included_item_data_request
   }
   included_item_data_request_ = included_item_data_request;
   // @@protoc_insertion_point(field_set_allocated:StoreBrowseItemDataRequest.included_item_data_request)
+}
+
+// optional bool include_assets_without_overrides = 15;
+inline bool StoreBrowseItemDataRequest::_internal_has_include_assets_without_overrides() const {
+  bool value = (_has_bits_[0] & 0x00004000u) != 0;
+  return value;
+}
+inline bool StoreBrowseItemDataRequest::has_include_assets_without_overrides() const {
+  return _internal_has_include_assets_without_overrides();
+}
+inline void StoreBrowseItemDataRequest::clear_include_assets_without_overrides() {
+  include_assets_without_overrides_ = false;
+  _has_bits_[0] &= ~0x00004000u;
+}
+inline bool StoreBrowseItemDataRequest::_internal_include_assets_without_overrides() const {
+  return include_assets_without_overrides_;
+}
+inline bool StoreBrowseItemDataRequest::include_assets_without_overrides() const {
+  // @@protoc_insertion_point(field_get:StoreBrowseItemDataRequest.include_assets_without_overrides)
+  return _internal_include_assets_without_overrides();
+}
+inline void StoreBrowseItemDataRequest::_internal_set_include_assets_without_overrides(bool value) {
+  _has_bits_[0] |= 0x00004000u;
+  include_assets_without_overrides_ = value;
+}
+inline void StoreBrowseItemDataRequest::set_include_assets_without_overrides(bool value) {
+  _internal_set_include_assets_without_overrides(value);
+  // @@protoc_insertion_point(field_set:StoreBrowseItemDataRequest.include_assets_without_overrides)
 }
 
 // -------------------------------------------------------------------
@@ -11111,7 +11455,7 @@ inline void CStoreBrowse_GetItems_Request::set_allocated_data_request(::StoreBro
 
 // StoreItem_RelatedItems
 
-// optional uint32 parent_appid = 1 [(.description) = "For DLC, Demos, etc, this is the main app."];
+// optional uint32 parent_appid = 1;
 inline bool StoreItem_RelatedItems::_internal_has_parent_appid() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -11143,7 +11487,7 @@ inline void StoreItem_RelatedItems::set_parent_appid(::PROTOBUF_NAMESPACE_ID::ui
 
 // StoreItem_IncludedItems
 
-// repeated .StoreItem included_apps = 1 [(.description) = "All apps included, if this is a package or bundle"];
+// repeated .StoreItem included_apps = 1;
 inline int StoreItem_IncludedItems::_internal_included_apps_size() const {
   return included_apps_.size();
 }
@@ -11182,7 +11526,7 @@ StoreItem_IncludedItems::included_apps() const {
   return included_apps_;
 }
 
-// repeated .StoreItem included_packages = 2 [(.description) = "All packages included, if this is a bundle"];
+// repeated .StoreItem included_packages = 2;
 inline int StoreItem_IncludedItems::_internal_included_packages_size() const {
   return included_packages_.size();
 }
@@ -11225,7 +11569,7 @@ StoreItem_IncludedItems::included_packages() const {
 
 // StoreItem_Categories
 
-// repeated uint32 supported_player_categoryids = 2 [(.description) = "Categories like Single Player, Multiplayer, MMO"];
+// repeated uint32 supported_player_categoryids = 2;
 inline int StoreItem_Categories::_internal_supported_player_categoryids_size() const {
   return supported_player_categoryids_.size();
 }
@@ -11272,7 +11616,7 @@ StoreItem_Categories::mutable_supported_player_categoryids() {
   return _internal_mutable_supported_player_categoryids();
 }
 
-// repeated uint32 feature_categoryids = 3 [(.description) = "Categories indicating supported features like Steam Cloud, VAC, Achievements, etc"];
+// repeated uint32 feature_categoryids = 3;
 inline int StoreItem_Categories::_internal_feature_categoryids_size() const {
   return feature_categoryids_.size();
 }
@@ -11319,7 +11663,7 @@ StoreItem_Categories::mutable_feature_categoryids() {
   return _internal_mutable_feature_categoryids();
 }
 
-// repeated uint32 controller_categoryids = 4 [(.description) = "Categories indicating controller support and full controller support."];
+// repeated uint32 controller_categoryids = 4;
 inline int StoreItem_Categories::_internal_controller_categoryids_size() const {
   return controller_categoryids_.size();
 }
@@ -11398,7 +11742,7 @@ inline void StoreItem_Reviews_StoreReviewSummary::set_review_count(::PROTOBUF_NA
   // @@protoc_insertion_point(field_set:StoreItem.Reviews.StoreReviewSummary.review_count)
 }
 
-// optional int32 percent_positive = 2 [(.description) = "0-100"];
+// optional int32 percent_positive = 2;
 inline bool StoreItem_Reviews_StoreReviewSummary::_internal_has_percent_positive() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -11455,7 +11799,7 @@ inline void StoreItem_Reviews_StoreReviewSummary::set_review_score(::EUserReview
   // @@protoc_insertion_point(field_set:StoreItem.Reviews.StoreReviewSummary.review_score)
 }
 
-// optional string review_score_label = 4 [(.description) = "A string like \'Mixed\', \'Negative\', \'Overwhelmingly Positive\'"];
+// optional string review_score_label = 4;
 inline bool StoreItem_Reviews_StoreReviewSummary::_internal_has_review_score_label() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -11532,7 +11876,7 @@ inline void StoreItem_Reviews_StoreReviewSummary::set_allocated_review_score_lab
 
 // StoreItem_Reviews
 
-// optional .StoreItem.Reviews.StoreReviewSummary summary_filtered = 1 [(.description) = "Review summary with review bombs removed (if any).  Always present (if include_reviews set in request)"];
+// optional .StoreItem.Reviews.StoreReviewSummary summary_filtered = 1;
 inline bool StoreItem_Reviews::_internal_has_summary_filtered() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   PROTOBUF_ASSUME(!value || summary_filtered_ != nullptr);
@@ -11615,7 +11959,7 @@ inline void StoreItem_Reviews::set_allocated_summary_filtered(::StoreItem_Review
   // @@protoc_insertion_point(field_set_allocated:StoreItem.Reviews.summary_filtered)
 }
 
-// optional .StoreItem.Reviews.StoreReviewSummary summary_unfiltered = 2 [(.description) = "Review summary with review bombs included.  Only present if there are review bombs."];
+// optional .StoreItem.Reviews.StoreReviewSummary summary_unfiltered = 2;
 inline bool StoreItem_Reviews::_internal_has_summary_unfiltered() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   PROTOBUF_ASSUME(!value || summary_unfiltered_ != nullptr);
@@ -11775,7 +12119,7 @@ inline void StoreItem_BasicInfo_CreatorHomeLink::set_allocated_name(std::string*
   // @@protoc_insertion_point(field_set_allocated:StoreItem.BasicInfo.CreatorHomeLink.name)
 }
 
-// optional uint32 creator_clan_account_id = 2 [(.description) = "Optioanl field indicating this name is associated this the creator home via the clan account id"];
+// optional uint32 creator_clan_account_id = 2;
 inline bool StoreItem_BasicInfo_CreatorHomeLink::_internal_has_creator_clan_account_id() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -11997,7 +12341,7 @@ StoreItem_BasicInfo::franchises() const {
   return franchises_;
 }
 
-// optional string capsule_headline = 5 [(.description) = "A custom string specified by the partner for display on or around a capsule on the store, e.g. \'Just Updated!\'"];
+// optional string capsule_headline = 5;
 inline bool StoreItem_BasicInfo::_internal_has_capsule_headline() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -12134,7 +12478,7 @@ inline void StoreItem_Tag::set_weight(::PROTOBUF_NAMESPACE_ID::uint32 value) {
 
 // StoreItem_Assets
 
-// optional string asset_url_format = 1 [(.description) = "Format for URLs, should substitute the capsule name for ${FILENAME} in the URL."];
+// optional string asset_url_format = 1;
 inline bool StoreItem_Assets::_internal_has_asset_url_format() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -12353,7 +12697,7 @@ inline void StoreItem_Assets::set_allocated_small_capsule(std::string* small_cap
   // @@protoc_insertion_point(field_set_allocated:StoreItem.Assets.small_capsule)
 }
 
-// optional string header = 4 [(.description) = "Equivalent to GetConstantRatioHeaderImage in PHP; apps will always have this, packages and bundles may not."];
+// optional string header = 4;
 inline bool StoreItem_Assets::_internal_has_header() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -12426,7 +12770,7 @@ inline void StoreItem_Assets::set_allocated_header(std::string* header) {
   // @@protoc_insertion_point(field_set_allocated:StoreItem.Assets.header)
 }
 
-// optional string package_header = 5 [(.description) = "A wider header used on package/bundle pages.  Not set for apps."];
+// optional string package_header = 5;
 inline bool StoreItem_Assets::_internal_has_package_header() const {
   bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
@@ -12572,7 +12916,7 @@ inline void StoreItem_Assets::set_allocated_page_background(std::string* page_ba
   // @@protoc_insertion_point(field_set_allocated:StoreItem.Assets.page_background)
 }
 
-// optional string hero_capsule = 7 [(.description) = "374x448"];
+// optional string hero_capsule = 7;
 inline bool StoreItem_Assets::_internal_has_hero_capsule() const {
   bool value = (_has_bits_[0] & 0x00000040u) != 0;
   return value;
@@ -12645,7 +12989,7 @@ inline void StoreItem_Assets::set_allocated_hero_capsule(std::string* hero_capsu
   // @@protoc_insertion_point(field_set_allocated:StoreItem.Assets.hero_capsule)
 }
 
-// optional string hero_capsule_2x = 8 [(.description) = "748x896 version of hero capsule."];
+// optional string hero_capsule_2x = 8;
 inline bool StoreItem_Assets::_internal_has_hero_capsule_2x() const {
   bool value = (_has_bits_[0] & 0x00000080u) != 0;
   return value;
@@ -12718,7 +13062,7 @@ inline void StoreItem_Assets::set_allocated_hero_capsule_2x(std::string* hero_ca
   // @@protoc_insertion_point(field_set_allocated:StoreItem.Assets.hero_capsule_2x)
 }
 
-// optional string library_capsule = 9 [(.description) = "300x450 - tall library asset"];
+// optional string library_capsule = 9;
 inline bool StoreItem_Assets::_internal_has_library_capsule() const {
   bool value = (_has_bits_[0] & 0x00000100u) != 0;
   return value;
@@ -12791,7 +13135,7 @@ inline void StoreItem_Assets::set_allocated_library_capsule(std::string* library
   // @@protoc_insertion_point(field_set_allocated:StoreItem.Assets.library_capsule)
 }
 
-// optional string library_capsule_2x = 10 [(.description) = "600x900 - tall library asset"];
+// optional string library_capsule_2x = 10;
 inline bool StoreItem_Assets::_internal_has_library_capsule_2x() const {
   bool value = (_has_bits_[0] & 0x00000200u) != 0;
   return value;
@@ -12864,7 +13208,7 @@ inline void StoreItem_Assets::set_allocated_library_capsule_2x(std::string* libr
   // @@protoc_insertion_point(field_set_allocated:StoreItem.Assets.library_capsule_2x)
 }
 
-// optional string library_hero = 11 [(.description) = "960x310 or 1920x620 - library detail background asset"];
+// optional string library_hero = 11;
 inline bool StoreItem_Assets::_internal_has_library_hero() const {
   bool value = (_has_bits_[0] & 0x00000400u) != 0;
   return value;
@@ -12937,7 +13281,7 @@ inline void StoreItem_Assets::set_allocated_library_hero(std::string* library_he
   // @@protoc_insertion_point(field_set_allocated:StoreItem.Assets.library_hero)
 }
 
-// optional string library_hero_2x = 12 [(.description) = "1920x620 or 3840x1240 - library detail background asset"];
+// optional string library_hero_2x = 12;
 inline bool StoreItem_Assets::_internal_has_library_hero_2x() const {
   bool value = (_has_bits_[0] & 0x00000800u) != 0;
   return value;
@@ -13010,7 +13354,7 @@ inline void StoreItem_Assets::set_allocated_library_hero_2x(std::string* library
   // @@protoc_insertion_point(field_set_allocated:StoreItem.Assets.library_hero_2x)
 }
 
-// optional string community_icon = 13 [(.description) = "32x32 jpg uploading via steamworks under community assets"];
+// optional string community_icon = 13;
 inline bool StoreItem_Assets::_internal_has_community_icon() const {
   bool value = (_has_bits_[0] & 0x00001000u) != 0;
   return value;
@@ -13160,7 +13504,7 @@ inline void StoreItem_Assets::set_allocated_clan_avatar(std::string* clan_avatar
 
 // StoreItem_ReleaseInfo
 
-// optional uint32 steam_release_date = 1 [(.description) = "The date this item first released on the Steam store.  For Early Access graduates, this is their graduation day."];
+// optional uint32 steam_release_date = 1;
 inline bool StoreItem_ReleaseInfo::_internal_has_steam_release_date() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -13188,7 +13532,7 @@ inline void StoreItem_ReleaseInfo::set_steam_release_date(::PROTOBUF_NAMESPACE_I
   // @@protoc_insertion_point(field_set:StoreItem.ReleaseInfo.steam_release_date)
 }
 
-// optional uint32 original_release_date = 2 [(.description) = "Optional; the date this item first released elsewhere, typically back catalog items."];
+// optional uint32 original_release_date = 2;
 inline bool StoreItem_ReleaseInfo::_internal_has_original_release_date() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -13216,7 +13560,7 @@ inline void StoreItem_ReleaseInfo::set_original_release_date(::PROTOBUF_NAMESPAC
   // @@protoc_insertion_point(field_set:StoreItem.ReleaseInfo.original_release_date)
 }
 
-// optional uint32 original_steam_release_date = 3 [(.description) = "For Early Access graduates, the date the game first appeared on Steam."];
+// optional uint32 original_steam_release_date = 3;
 inline bool StoreItem_ReleaseInfo::_internal_has_original_steam_release_date() const {
   bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
@@ -13244,7 +13588,7 @@ inline void StoreItem_ReleaseInfo::set_original_steam_release_date(::PROTOBUF_NA
   // @@protoc_insertion_point(field_set:StoreItem.ReleaseInfo.original_steam_release_date)
 }
 
-// optional bool is_coming_soon = 4 [(.description) = "Is the app coming soon?  This flag should be preferred to doing time comparisons against steam_release_date."];
+// optional bool is_coming_soon = 4;
 inline bool StoreItem_ReleaseInfo::_internal_has_is_coming_soon() const {
   bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
@@ -13272,7 +13616,7 @@ inline void StoreItem_ReleaseInfo::set_is_coming_soon(bool value) {
   // @@protoc_insertion_point(field_set:StoreItem.ReleaseInfo.is_coming_soon)
 }
 
-// optional bool is_preload = 5 [(.description) = "Can the app be preloaded?  Only applies to Coming Soon titles."];
+// optional bool is_preload = 5;
 inline bool StoreItem_ReleaseInfo::_internal_has_is_preload() const {
   bool value = (_has_bits_[0] & 0x00000040u) != 0;
   return value;
@@ -13300,7 +13644,7 @@ inline void StoreItem_ReleaseInfo::set_is_preload(bool value) {
   // @@protoc_insertion_point(field_set:StoreItem.ReleaseInfo.is_preload)
 }
 
-// optional string custom_release_date_message = 6 [(.description) = "Custom release date string.  steam_release_date will be unset if this is set."];
+// optional string custom_release_date_message = 6;
 inline bool StoreItem_ReleaseInfo::_internal_has_custom_release_date_message() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -13373,7 +13717,7 @@ inline void StoreItem_ReleaseInfo::set_allocated_custom_release_date_message(std
   // @@protoc_insertion_point(field_set_allocated:StoreItem.ReleaseInfo.custom_release_date_message)
 }
 
-// optional bool is_abridged_release_date = 7 [(.description) = "Release date should be displayed as month-year only.  steam_release_date is the last day of the month."];
+// optional bool is_abridged_release_date = 7;
 inline bool StoreItem_ReleaseInfo::_internal_has_is_abridged_release_date() const {
   bool value = (_has_bits_[0] & 0x00000080u) != 0;
   return value;
@@ -13401,7 +13745,7 @@ inline void StoreItem_ReleaseInfo::set_is_abridged_release_date(bool value) {
   // @@protoc_insertion_point(field_set:StoreItem.ReleaseInfo.is_abridged_release_date)
 }
 
-// optional string coming_soon_display = 8 [(.description) = "One of \'date_full\', \'date_month\', \'date_quarter\', \'date_year\', \'text_comingsoon\', \'text_tba\'"];
+// optional string coming_soon_display = 8;
 inline bool StoreItem_ReleaseInfo::_internal_has_coming_soon_display() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -14065,11 +14409,127 @@ inline void StoreItem_PurchaseOption_Discount::set_discount_end_date(::PROTOBUF_
 
 // -------------------------------------------------------------------
 
+// StoreItem_PurchaseOption_RecurrenceInfo
+
+// optional int32 packageid = 1;
+inline bool StoreItem_PurchaseOption_RecurrenceInfo::_internal_has_packageid() const {
+  bool value = (_has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool StoreItem_PurchaseOption_RecurrenceInfo::has_packageid() const {
+  return _internal_has_packageid();
+}
+inline void StoreItem_PurchaseOption_RecurrenceInfo::clear_packageid() {
+  packageid_ = 0;
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 StoreItem_PurchaseOption_RecurrenceInfo::_internal_packageid() const {
+  return packageid_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 StoreItem_PurchaseOption_RecurrenceInfo::packageid() const {
+  // @@protoc_insertion_point(field_get:StoreItem.PurchaseOption.RecurrenceInfo.packageid)
+  return _internal_packageid();
+}
+inline void StoreItem_PurchaseOption_RecurrenceInfo::_internal_set_packageid(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _has_bits_[0] |= 0x00000001u;
+  packageid_ = value;
+}
+inline void StoreItem_PurchaseOption_RecurrenceInfo::set_packageid(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_packageid(value);
+  // @@protoc_insertion_point(field_set:StoreItem.PurchaseOption.RecurrenceInfo.packageid)
+}
+
+// optional int32 billing_agreement_type = 2;
+inline bool StoreItem_PurchaseOption_RecurrenceInfo::_internal_has_billing_agreement_type() const {
+  bool value = (_has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool StoreItem_PurchaseOption_RecurrenceInfo::has_billing_agreement_type() const {
+  return _internal_has_billing_agreement_type();
+}
+inline void StoreItem_PurchaseOption_RecurrenceInfo::clear_billing_agreement_type() {
+  billing_agreement_type_ = 0;
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 StoreItem_PurchaseOption_RecurrenceInfo::_internal_billing_agreement_type() const {
+  return billing_agreement_type_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 StoreItem_PurchaseOption_RecurrenceInfo::billing_agreement_type() const {
+  // @@protoc_insertion_point(field_get:StoreItem.PurchaseOption.RecurrenceInfo.billing_agreement_type)
+  return _internal_billing_agreement_type();
+}
+inline void StoreItem_PurchaseOption_RecurrenceInfo::_internal_set_billing_agreement_type(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _has_bits_[0] |= 0x00000002u;
+  billing_agreement_type_ = value;
+}
+inline void StoreItem_PurchaseOption_RecurrenceInfo::set_billing_agreement_type(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_billing_agreement_type(value);
+  // @@protoc_insertion_point(field_set:StoreItem.PurchaseOption.RecurrenceInfo.billing_agreement_type)
+}
+
+// optional int32 renewal_time_unit = 3;
+inline bool StoreItem_PurchaseOption_RecurrenceInfo::_internal_has_renewal_time_unit() const {
+  bool value = (_has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool StoreItem_PurchaseOption_RecurrenceInfo::has_renewal_time_unit() const {
+  return _internal_has_renewal_time_unit();
+}
+inline void StoreItem_PurchaseOption_RecurrenceInfo::clear_renewal_time_unit() {
+  renewal_time_unit_ = 0;
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 StoreItem_PurchaseOption_RecurrenceInfo::_internal_renewal_time_unit() const {
+  return renewal_time_unit_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 StoreItem_PurchaseOption_RecurrenceInfo::renewal_time_unit() const {
+  // @@protoc_insertion_point(field_get:StoreItem.PurchaseOption.RecurrenceInfo.renewal_time_unit)
+  return _internal_renewal_time_unit();
+}
+inline void StoreItem_PurchaseOption_RecurrenceInfo::_internal_set_renewal_time_unit(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _has_bits_[0] |= 0x00000004u;
+  renewal_time_unit_ = value;
+}
+inline void StoreItem_PurchaseOption_RecurrenceInfo::set_renewal_time_unit(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_renewal_time_unit(value);
+  // @@protoc_insertion_point(field_set:StoreItem.PurchaseOption.RecurrenceInfo.renewal_time_unit)
+}
+
+// optional int32 renewal_time_period = 4;
+inline bool StoreItem_PurchaseOption_RecurrenceInfo::_internal_has_renewal_time_period() const {
+  bool value = (_has_bits_[0] & 0x00000008u) != 0;
+  return value;
+}
+inline bool StoreItem_PurchaseOption_RecurrenceInfo::has_renewal_time_period() const {
+  return _internal_has_renewal_time_period();
+}
+inline void StoreItem_PurchaseOption_RecurrenceInfo::clear_renewal_time_period() {
+  renewal_time_period_ = 0;
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 StoreItem_PurchaseOption_RecurrenceInfo::_internal_renewal_time_period() const {
+  return renewal_time_period_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 StoreItem_PurchaseOption_RecurrenceInfo::renewal_time_period() const {
+  // @@protoc_insertion_point(field_get:StoreItem.PurchaseOption.RecurrenceInfo.renewal_time_period)
+  return _internal_renewal_time_period();
+}
+inline void StoreItem_PurchaseOption_RecurrenceInfo::_internal_set_renewal_time_period(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _has_bits_[0] |= 0x00000008u;
+  renewal_time_period_ = value;
+}
+inline void StoreItem_PurchaseOption_RecurrenceInfo::set_renewal_time_period(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_renewal_time_period(value);
+  // @@protoc_insertion_point(field_set:StoreItem.PurchaseOption.RecurrenceInfo.renewal_time_period)
+}
+
+// -------------------------------------------------------------------
+
 // StoreItem_PurchaseOption
 
 // optional int32 packageid = 1;
 inline bool StoreItem_PurchaseOption::_internal_has_packageid() const {
-  bool value = (_has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
 inline bool StoreItem_PurchaseOption::has_packageid() const {
@@ -14077,7 +14537,7 @@ inline bool StoreItem_PurchaseOption::has_packageid() const {
 }
 inline void StoreItem_PurchaseOption::clear_packageid() {
   packageid_ = 0;
-  _has_bits_[0] &= ~0x00000008u;
+  _has_bits_[0] &= ~0x00000010u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int32 StoreItem_PurchaseOption::_internal_packageid() const {
   return packageid_;
@@ -14087,7 +14547,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 StoreItem_PurchaseOption::packageid() cons
   return _internal_packageid();
 }
 inline void StoreItem_PurchaseOption::_internal_set_packageid(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _has_bits_[0] |= 0x00000008u;
+  _has_bits_[0] |= 0x00000010u;
   packageid_ = value;
 }
 inline void StoreItem_PurchaseOption::set_packageid(::PROTOBUF_NAMESPACE_ID::int32 value) {
@@ -14097,7 +14557,7 @@ inline void StoreItem_PurchaseOption::set_packageid(::PROTOBUF_NAMESPACE_ID::int
 
 // optional int32 bundleid = 2;
 inline bool StoreItem_PurchaseOption::_internal_has_bundleid() const {
-  bool value = (_has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
 }
 inline bool StoreItem_PurchaseOption::has_bundleid() const {
@@ -14105,7 +14565,7 @@ inline bool StoreItem_PurchaseOption::has_bundleid() const {
 }
 inline void StoreItem_PurchaseOption::clear_bundleid() {
   bundleid_ = 0;
-  _has_bits_[0] &= ~0x00000010u;
+  _has_bits_[0] &= ~0x00000020u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int32 StoreItem_PurchaseOption::_internal_bundleid() const {
   return bundleid_;
@@ -14115,7 +14575,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 StoreItem_PurchaseOption::bundleid() const
   return _internal_bundleid();
 }
 inline void StoreItem_PurchaseOption::_internal_set_bundleid(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _has_bits_[0] |= 0x00000010u;
+  _has_bits_[0] |= 0x00000020u;
   bundleid_ = value;
 }
 inline void StoreItem_PurchaseOption::set_bundleid(::PROTOBUF_NAMESPACE_ID::int32 value) {
@@ -14123,7 +14583,7 @@ inline void StoreItem_PurchaseOption::set_bundleid(::PROTOBUF_NAMESPACE_ID::int3
   // @@protoc_insertion_point(field_set:StoreItem.PurchaseOption.bundleid)
 }
 
-// optional string purchase_option_name = 3 [(.description) = "The name of the package or bundle"];
+// optional string purchase_option_name = 3;
 inline bool StoreItem_PurchaseOption::_internal_has_purchase_option_name() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -14196,9 +14656,9 @@ inline void StoreItem_PurchaseOption::set_allocated_purchase_option_name(std::st
   // @@protoc_insertion_point(field_set_allocated:StoreItem.PurchaseOption.purchase_option_name)
 }
 
-// optional int64 final_price_in_cents = 5 [(.description) = "Always set.  Includes any applicable non user-specific discounts."];
+// optional int64 final_price_in_cents = 5;
 inline bool StoreItem_PurchaseOption::_internal_has_final_price_in_cents() const {
-  bool value = (_has_bits_[0] & 0x00000020u) != 0;
+  bool value = (_has_bits_[0] & 0x00000040u) != 0;
   return value;
 }
 inline bool StoreItem_PurchaseOption::has_final_price_in_cents() const {
@@ -14206,7 +14666,7 @@ inline bool StoreItem_PurchaseOption::has_final_price_in_cents() const {
 }
 inline void StoreItem_PurchaseOption::clear_final_price_in_cents() {
   final_price_in_cents_ = PROTOBUF_LONGLONG(0);
-  _has_bits_[0] &= ~0x00000020u;
+  _has_bits_[0] &= ~0x00000040u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int64 StoreItem_PurchaseOption::_internal_final_price_in_cents() const {
   return final_price_in_cents_;
@@ -14216,7 +14676,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int64 StoreItem_PurchaseOption::final_price_in_c
   return _internal_final_price_in_cents();
 }
 inline void StoreItem_PurchaseOption::_internal_set_final_price_in_cents(::PROTOBUF_NAMESPACE_ID::int64 value) {
-  _has_bits_[0] |= 0x00000020u;
+  _has_bits_[0] |= 0x00000040u;
   final_price_in_cents_ = value;
 }
 inline void StoreItem_PurchaseOption::set_final_price_in_cents(::PROTOBUF_NAMESPACE_ID::int64 value) {
@@ -14224,9 +14684,9 @@ inline void StoreItem_PurchaseOption::set_final_price_in_cents(::PROTOBUF_NAMESP
   // @@protoc_insertion_point(field_set:StoreItem.PurchaseOption.final_price_in_cents)
 }
 
-// optional int64 original_price_in_cents = 6 [(.description) = "If discounted, this is the price the item would normally cost."];
+// optional int64 original_price_in_cents = 6;
 inline bool StoreItem_PurchaseOption::_internal_has_original_price_in_cents() const {
-  bool value = (_has_bits_[0] & 0x00000040u) != 0;
+  bool value = (_has_bits_[0] & 0x00000080u) != 0;
   return value;
 }
 inline bool StoreItem_PurchaseOption::has_original_price_in_cents() const {
@@ -14234,7 +14694,7 @@ inline bool StoreItem_PurchaseOption::has_original_price_in_cents() const {
 }
 inline void StoreItem_PurchaseOption::clear_original_price_in_cents() {
   original_price_in_cents_ = PROTOBUF_LONGLONG(0);
-  _has_bits_[0] &= ~0x00000040u;
+  _has_bits_[0] &= ~0x00000080u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int64 StoreItem_PurchaseOption::_internal_original_price_in_cents() const {
   return original_price_in_cents_;
@@ -14244,7 +14704,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int64 StoreItem_PurchaseOption::original_price_i
   return _internal_original_price_in_cents();
 }
 inline void StoreItem_PurchaseOption::_internal_set_original_price_in_cents(::PROTOBUF_NAMESPACE_ID::int64 value) {
-  _has_bits_[0] |= 0x00000040u;
+  _has_bits_[0] |= 0x00000080u;
   original_price_in_cents_ = value;
 }
 inline void StoreItem_PurchaseOption::set_original_price_in_cents(::PROTOBUF_NAMESPACE_ID::int64 value) {
@@ -14254,7 +14714,7 @@ inline void StoreItem_PurchaseOption::set_original_price_in_cents(::PROTOBUF_NAM
 
 // optional int64 user_final_price_in_cents = 7;
 inline bool StoreItem_PurchaseOption::_internal_has_user_final_price_in_cents() const {
-  bool value = (_has_bits_[0] & 0x00000080u) != 0;
+  bool value = (_has_bits_[0] & 0x00000100u) != 0;
   return value;
 }
 inline bool StoreItem_PurchaseOption::has_user_final_price_in_cents() const {
@@ -14262,7 +14722,7 @@ inline bool StoreItem_PurchaseOption::has_user_final_price_in_cents() const {
 }
 inline void StoreItem_PurchaseOption::clear_user_final_price_in_cents() {
   user_final_price_in_cents_ = PROTOBUF_LONGLONG(0);
-  _has_bits_[0] &= ~0x00000080u;
+  _has_bits_[0] &= ~0x00000100u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int64 StoreItem_PurchaseOption::_internal_user_final_price_in_cents() const {
   return user_final_price_in_cents_;
@@ -14272,7 +14732,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int64 StoreItem_PurchaseOption::user_final_price
   return _internal_user_final_price_in_cents();
 }
 inline void StoreItem_PurchaseOption::_internal_set_user_final_price_in_cents(::PROTOBUF_NAMESPACE_ID::int64 value) {
-  _has_bits_[0] |= 0x00000080u;
+  _has_bits_[0] |= 0x00000100u;
   user_final_price_in_cents_ = value;
 }
 inline void StoreItem_PurchaseOption::set_user_final_price_in_cents(::PROTOBUF_NAMESPACE_ID::int64 value) {
@@ -14280,7 +14740,7 @@ inline void StoreItem_PurchaseOption::set_user_final_price_in_cents(::PROTOBUF_N
   // @@protoc_insertion_point(field_set:StoreItem.PurchaseOption.user_final_price_in_cents)
 }
 
-// optional string formatted_final_price = 8 [(.description) = "Always set.  Formatted with currency symbol and decimal, like \'$10.00\'."];
+// optional string formatted_final_price = 8;
 inline bool StoreItem_PurchaseOption::_internal_has_formatted_final_price() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -14426,9 +14886,9 @@ inline void StoreItem_PurchaseOption::set_allocated_formatted_original_price(std
   // @@protoc_insertion_point(field_set_allocated:StoreItem.PurchaseOption.formatted_original_price)
 }
 
-// optional int32 discount_pct = 10 [(.description) = "If discounted, calculated from final price and original price."];
+// optional int32 discount_pct = 10;
 inline bool StoreItem_PurchaseOption::_internal_has_discount_pct() const {
-  bool value = (_has_bits_[0] & 0x00000100u) != 0;
+  bool value = (_has_bits_[0] & 0x00000200u) != 0;
   return value;
 }
 inline bool StoreItem_PurchaseOption::has_discount_pct() const {
@@ -14436,7 +14896,7 @@ inline bool StoreItem_PurchaseOption::has_discount_pct() const {
 }
 inline void StoreItem_PurchaseOption::clear_discount_pct() {
   discount_pct_ = 0;
-  _has_bits_[0] &= ~0x00000100u;
+  _has_bits_[0] &= ~0x00000200u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int32 StoreItem_PurchaseOption::_internal_discount_pct() const {
   return discount_pct_;
@@ -14446,7 +14906,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 StoreItem_PurchaseOption::discount_pct() c
   return _internal_discount_pct();
 }
 inline void StoreItem_PurchaseOption::_internal_set_discount_pct(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _has_bits_[0] |= 0x00000100u;
+  _has_bits_[0] |= 0x00000200u;
   discount_pct_ = value;
 }
 inline void StoreItem_PurchaseOption::set_discount_pct(::PROTOBUF_NAMESPACE_ID::int32 value) {
@@ -14456,7 +14916,7 @@ inline void StoreItem_PurchaseOption::set_discount_pct(::PROTOBUF_NAMESPACE_ID::
 
 // optional int32 user_discount_pct = 11;
 inline bool StoreItem_PurchaseOption::_internal_has_user_discount_pct() const {
-  bool value = (_has_bits_[0] & 0x00000200u) != 0;
+  bool value = (_has_bits_[0] & 0x00000400u) != 0;
   return value;
 }
 inline bool StoreItem_PurchaseOption::has_user_discount_pct() const {
@@ -14464,7 +14924,7 @@ inline bool StoreItem_PurchaseOption::has_user_discount_pct() const {
 }
 inline void StoreItem_PurchaseOption::clear_user_discount_pct() {
   user_discount_pct_ = 0;
-  _has_bits_[0] &= ~0x00000200u;
+  _has_bits_[0] &= ~0x00000400u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int32 StoreItem_PurchaseOption::_internal_user_discount_pct() const {
   return user_discount_pct_;
@@ -14474,7 +14934,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 StoreItem_PurchaseOption::user_discount_pc
   return _internal_user_discount_pct();
 }
 inline void StoreItem_PurchaseOption::_internal_set_user_discount_pct(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _has_bits_[0] |= 0x00000200u;
+  _has_bits_[0] |= 0x00000400u;
   user_discount_pct_ = value;
 }
 inline void StoreItem_PurchaseOption::set_user_discount_pct(::PROTOBUF_NAMESPACE_ID::int32 value) {
@@ -14482,9 +14942,9 @@ inline void StoreItem_PurchaseOption::set_user_discount_pct(::PROTOBUF_NAMESPACE
   // @@protoc_insertion_point(field_set:StoreItem.PurchaseOption.user_discount_pct)
 }
 
-// optional int32 bundle_discount_pct = 12 [(.description) = "If this is a bundle, the savings from buying the bundle.  If no bundle items are on active discount, this will be the same as discount_pct."];
+// optional int32 bundle_discount_pct = 12;
 inline bool StoreItem_PurchaseOption::_internal_has_bundle_discount_pct() const {
-  bool value = (_has_bits_[0] & 0x00000400u) != 0;
+  bool value = (_has_bits_[0] & 0x00000800u) != 0;
   return value;
 }
 inline bool StoreItem_PurchaseOption::has_bundle_discount_pct() const {
@@ -14492,7 +14952,7 @@ inline bool StoreItem_PurchaseOption::has_bundle_discount_pct() const {
 }
 inline void StoreItem_PurchaseOption::clear_bundle_discount_pct() {
   bundle_discount_pct_ = 0;
-  _has_bits_[0] &= ~0x00000400u;
+  _has_bits_[0] &= ~0x00000800u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int32 StoreItem_PurchaseOption::_internal_bundle_discount_pct() const {
   return bundle_discount_pct_;
@@ -14502,7 +14962,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 StoreItem_PurchaseOption::bundle_discount_
   return _internal_bundle_discount_pct();
 }
 inline void StoreItem_PurchaseOption::_internal_set_bundle_discount_pct(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _has_bits_[0] |= 0x00000400u;
+  _has_bits_[0] |= 0x00000800u;
   bundle_discount_pct_ = value;
 }
 inline void StoreItem_PurchaseOption::set_bundle_discount_pct(::PROTOBUF_NAMESPACE_ID::int32 value) {
@@ -14510,7 +14970,7 @@ inline void StoreItem_PurchaseOption::set_bundle_discount_pct(::PROTOBUF_NAMESPA
   // @@protoc_insertion_point(field_set:StoreItem.PurchaseOption.bundle_discount_pct)
 }
 
-// repeated .StoreItem.PurchaseOption.Discount active_discounts = 20 [(.description) = "Discounts included in discounted_price_in_cents."];
+// repeated .StoreItem.PurchaseOption.Discount active_discounts = 20;
 inline int StoreItem_PurchaseOption::_internal_active_discounts_size() const {
   return active_discounts_.size();
 }
@@ -14549,7 +15009,7 @@ StoreItem_PurchaseOption::active_discounts() const {
   return active_discounts_;
 }
 
-// repeated .StoreItem.PurchaseOption.Discount user_active_discounts = 21 [(.description) = "Additional discounts included in user_discounted_price_in_cents."];
+// repeated .StoreItem.PurchaseOption.Discount user_active_discounts = 21;
 inline int StoreItem_PurchaseOption::_internal_user_active_discounts_size() const {
   return user_active_discounts_.size();
 }
@@ -14588,7 +15048,7 @@ StoreItem_PurchaseOption::user_active_discounts() const {
   return user_active_discounts_;
 }
 
-// repeated .StoreItem.PurchaseOption.Discount inactive_discounts = 22 [(.description) = "Additional user-specific discounts that do not apply to the current user."];
+// repeated .StoreItem.PurchaseOption.Discount inactive_discounts = 22;
 inline int StoreItem_PurchaseOption::_internal_inactive_discounts_size() const {
   return inactive_discounts_.size();
 }
@@ -14629,7 +15089,7 @@ StoreItem_PurchaseOption::inactive_discounts() const {
 
 // optional bool user_can_purchase = 30;
 inline bool StoreItem_PurchaseOption::_internal_has_user_can_purchase() const {
-  bool value = (_has_bits_[0] & 0x00000800u) != 0;
+  bool value = (_has_bits_[0] & 0x00001000u) != 0;
   return value;
 }
 inline bool StoreItem_PurchaseOption::has_user_can_purchase() const {
@@ -14637,7 +15097,7 @@ inline bool StoreItem_PurchaseOption::has_user_can_purchase() const {
 }
 inline void StoreItem_PurchaseOption::clear_user_can_purchase() {
   user_can_purchase_ = false;
-  _has_bits_[0] &= ~0x00000800u;
+  _has_bits_[0] &= ~0x00001000u;
 }
 inline bool StoreItem_PurchaseOption::_internal_user_can_purchase() const {
   return user_can_purchase_;
@@ -14647,7 +15107,7 @@ inline bool StoreItem_PurchaseOption::user_can_purchase() const {
   return _internal_user_can_purchase();
 }
 inline void StoreItem_PurchaseOption::_internal_set_user_can_purchase(bool value) {
-  _has_bits_[0] |= 0x00000800u;
+  _has_bits_[0] |= 0x00001000u;
   user_can_purchase_ = value;
 }
 inline void StoreItem_PurchaseOption::set_user_can_purchase(bool value) {
@@ -14657,7 +15117,7 @@ inline void StoreItem_PurchaseOption::set_user_can_purchase(bool value) {
 
 // optional bool user_can_purchase_as_gift = 31;
 inline bool StoreItem_PurchaseOption::_internal_has_user_can_purchase_as_gift() const {
-  bool value = (_has_bits_[0] & 0x00001000u) != 0;
+  bool value = (_has_bits_[0] & 0x00002000u) != 0;
   return value;
 }
 inline bool StoreItem_PurchaseOption::has_user_can_purchase_as_gift() const {
@@ -14665,7 +15125,7 @@ inline bool StoreItem_PurchaseOption::has_user_can_purchase_as_gift() const {
 }
 inline void StoreItem_PurchaseOption::clear_user_can_purchase_as_gift() {
   user_can_purchase_as_gift_ = false;
-  _has_bits_[0] &= ~0x00001000u;
+  _has_bits_[0] &= ~0x00002000u;
 }
 inline bool StoreItem_PurchaseOption::_internal_user_can_purchase_as_gift() const {
   return user_can_purchase_as_gift_;
@@ -14675,7 +15135,7 @@ inline bool StoreItem_PurchaseOption::user_can_purchase_as_gift() const {
   return _internal_user_can_purchase_as_gift();
 }
 inline void StoreItem_PurchaseOption::_internal_set_user_can_purchase_as_gift(bool value) {
-  _has_bits_[0] |= 0x00001000u;
+  _has_bits_[0] |= 0x00002000u;
   user_can_purchase_as_gift_ = value;
 }
 inline void StoreItem_PurchaseOption::set_user_can_purchase_as_gift(bool value) {
@@ -14683,9 +15143,9 @@ inline void StoreItem_PurchaseOption::set_user_can_purchase_as_gift(bool value) 
   // @@protoc_insertion_point(field_set:StoreItem.PurchaseOption.user_can_purchase_as_gift)
 }
 
-// optional bool is_commercial_license = 40 [(.description) = "This is a commercial license"];
+// optional bool is_commercial_license = 40;
 inline bool StoreItem_PurchaseOption::_internal_has_is_commercial_license() const {
-  bool value = (_has_bits_[0] & 0x00002000u) != 0;
+  bool value = (_has_bits_[0] & 0x00004000u) != 0;
   return value;
 }
 inline bool StoreItem_PurchaseOption::has_is_commercial_license() const {
@@ -14693,7 +15153,7 @@ inline bool StoreItem_PurchaseOption::has_is_commercial_license() const {
 }
 inline void StoreItem_PurchaseOption::clear_is_commercial_license() {
   is_commercial_license_ = false;
-  _has_bits_[0] &= ~0x00002000u;
+  _has_bits_[0] &= ~0x00004000u;
 }
 inline bool StoreItem_PurchaseOption::_internal_is_commercial_license() const {
   return is_commercial_license_;
@@ -14703,7 +15163,7 @@ inline bool StoreItem_PurchaseOption::is_commercial_license() const {
   return _internal_is_commercial_license();
 }
 inline void StoreItem_PurchaseOption::_internal_set_is_commercial_license(bool value) {
-  _has_bits_[0] |= 0x00002000u;
+  _has_bits_[0] |= 0x00004000u;
   is_commercial_license_ = value;
 }
 inline void StoreItem_PurchaseOption::set_is_commercial_license(bool value) {
@@ -14711,9 +15171,9 @@ inline void StoreItem_PurchaseOption::set_is_commercial_license(bool value) {
   // @@protoc_insertion_point(field_set:StoreItem.PurchaseOption.is_commercial_license)
 }
 
-// optional bool should_suppress_discount_pct = 41 [(.description) = "Don\'t show the discount percentage on a store capsule for this item."];
+// optional bool should_suppress_discount_pct = 41;
 inline bool StoreItem_PurchaseOption::_internal_has_should_suppress_discount_pct() const {
-  bool value = (_has_bits_[0] & 0x00004000u) != 0;
+  bool value = (_has_bits_[0] & 0x00008000u) != 0;
   return value;
 }
 inline bool StoreItem_PurchaseOption::has_should_suppress_discount_pct() const {
@@ -14721,7 +15181,7 @@ inline bool StoreItem_PurchaseOption::has_should_suppress_discount_pct() const {
 }
 inline void StoreItem_PurchaseOption::clear_should_suppress_discount_pct() {
   should_suppress_discount_pct_ = false;
-  _has_bits_[0] &= ~0x00004000u;
+  _has_bits_[0] &= ~0x00008000u;
 }
 inline bool StoreItem_PurchaseOption::_internal_should_suppress_discount_pct() const {
   return should_suppress_discount_pct_;
@@ -14731,7 +15191,7 @@ inline bool StoreItem_PurchaseOption::should_suppress_discount_pct() const {
   return _internal_should_suppress_discount_pct();
 }
 inline void StoreItem_PurchaseOption::_internal_set_should_suppress_discount_pct(bool value) {
-  _has_bits_[0] |= 0x00004000u;
+  _has_bits_[0] |= 0x00008000u;
   should_suppress_discount_pct_ = value;
 }
 inline void StoreItem_PurchaseOption::set_should_suppress_discount_pct(bool value) {
@@ -14739,9 +15199,9 @@ inline void StoreItem_PurchaseOption::set_should_suppress_discount_pct(bool valu
   // @@protoc_insertion_point(field_set:StoreItem.PurchaseOption.should_suppress_discount_pct)
 }
 
-// optional bool hide_discount_pct_for_compliance = 42 [default = false, (.description) = "Don\'t show the discount percent because there was a discount in the last 30 days."];
+// optional bool hide_discount_pct_for_compliance = 42 [default = false];
 inline bool StoreItem_PurchaseOption::_internal_has_hide_discount_pct_for_compliance() const {
-  bool value = (_has_bits_[0] & 0x00008000u) != 0;
+  bool value = (_has_bits_[0] & 0x00020000u) != 0;
   return value;
 }
 inline bool StoreItem_PurchaseOption::has_hide_discount_pct_for_compliance() const {
@@ -14749,7 +15209,7 @@ inline bool StoreItem_PurchaseOption::has_hide_discount_pct_for_compliance() con
 }
 inline void StoreItem_PurchaseOption::clear_hide_discount_pct_for_compliance() {
   hide_discount_pct_for_compliance_ = false;
-  _has_bits_[0] &= ~0x00008000u;
+  _has_bits_[0] &= ~0x00020000u;
 }
 inline bool StoreItem_PurchaseOption::_internal_hide_discount_pct_for_compliance() const {
   return hide_discount_pct_for_compliance_;
@@ -14759,7 +15219,7 @@ inline bool StoreItem_PurchaseOption::hide_discount_pct_for_compliance() const {
   return _internal_hide_discount_pct_for_compliance();
 }
 inline void StoreItem_PurchaseOption::_internal_set_hide_discount_pct_for_compliance(bool value) {
-  _has_bits_[0] |= 0x00008000u;
+  _has_bits_[0] |= 0x00020000u;
   hide_discount_pct_for_compliance_ = value;
 }
 inline void StoreItem_PurchaseOption::set_hide_discount_pct_for_compliance(bool value) {
@@ -14767,7 +15227,7 @@ inline void StoreItem_PurchaseOption::set_hide_discount_pct_for_compliance(bool 
   // @@protoc_insertion_point(field_set:StoreItem.PurchaseOption.hide_discount_pct_for_compliance)
 }
 
-// optional int32 included_game_count = 43 [(.description) = "How many games are included in this purchase option."];
+// optional int32 included_game_count = 43;
 inline bool StoreItem_PurchaseOption::_internal_has_included_game_count() const {
   bool value = (_has_bits_[0] & 0x00010000u) != 0;
   return value;
@@ -14795,9 +15255,9 @@ inline void StoreItem_PurchaseOption::set_included_game_count(::PROTOBUF_NAMESPA
   // @@protoc_insertion_point(field_set:StoreItem.PurchaseOption.included_game_count)
 }
 
-// optional int64 lowest_recent_price_in_cents = 44 [(.description) = "Lowest recent price in cents.  If not set, then there is no data so we ignore."];
+// optional int64 lowest_recent_price_in_cents = 44;
 inline bool StoreItem_PurchaseOption::_internal_has_lowest_recent_price_in_cents() const {
-  bool value = (_has_bits_[0] & 0x00020000u) != 0;
+  bool value = (_has_bits_[0] & 0x00080000u) != 0;
   return value;
 }
 inline bool StoreItem_PurchaseOption::has_lowest_recent_price_in_cents() const {
@@ -14805,7 +15265,7 @@ inline bool StoreItem_PurchaseOption::has_lowest_recent_price_in_cents() const {
 }
 inline void StoreItem_PurchaseOption::clear_lowest_recent_price_in_cents() {
   lowest_recent_price_in_cents_ = PROTOBUF_LONGLONG(0);
-  _has_bits_[0] &= ~0x00020000u;
+  _has_bits_[0] &= ~0x00080000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int64 StoreItem_PurchaseOption::_internal_lowest_recent_price_in_cents() const {
   return lowest_recent_price_in_cents_;
@@ -14815,7 +15275,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int64 StoreItem_PurchaseOption::lowest_recent_pr
   return _internal_lowest_recent_price_in_cents();
 }
 inline void StoreItem_PurchaseOption::_internal_set_lowest_recent_price_in_cents(::PROTOBUF_NAMESPACE_ID::int64 value) {
-  _has_bits_[0] |= 0x00020000u;
+  _has_bits_[0] |= 0x00080000u;
   lowest_recent_price_in_cents_ = value;
 }
 inline void StoreItem_PurchaseOption::set_lowest_recent_price_in_cents(::PROTOBUF_NAMESPACE_ID::int64 value) {
@@ -14823,11 +15283,122 @@ inline void StoreItem_PurchaseOption::set_lowest_recent_price_in_cents(::PROTOBU
   // @@protoc_insertion_point(field_set:StoreItem.PurchaseOption.lowest_recent_price_in_cents)
 }
 
+// optional bool requires_shipping = 45;
+inline bool StoreItem_PurchaseOption::_internal_has_requires_shipping() const {
+  bool value = (_has_bits_[0] & 0x00040000u) != 0;
+  return value;
+}
+inline bool StoreItem_PurchaseOption::has_requires_shipping() const {
+  return _internal_has_requires_shipping();
+}
+inline void StoreItem_PurchaseOption::clear_requires_shipping() {
+  requires_shipping_ = false;
+  _has_bits_[0] &= ~0x00040000u;
+}
+inline bool StoreItem_PurchaseOption::_internal_requires_shipping() const {
+  return requires_shipping_;
+}
+inline bool StoreItem_PurchaseOption::requires_shipping() const {
+  // @@protoc_insertion_point(field_get:StoreItem.PurchaseOption.requires_shipping)
+  return _internal_requires_shipping();
+}
+inline void StoreItem_PurchaseOption::_internal_set_requires_shipping(bool value) {
+  _has_bits_[0] |= 0x00040000u;
+  requires_shipping_ = value;
+}
+inline void StoreItem_PurchaseOption::set_requires_shipping(bool value) {
+  _internal_set_requires_shipping(value);
+  // @@protoc_insertion_point(field_set:StoreItem.PurchaseOption.requires_shipping)
+}
+
+// optional .StoreItem.PurchaseOption.RecurrenceInfo recurrence_info = 46;
+inline bool StoreItem_PurchaseOption::_internal_has_recurrence_info() const {
+  bool value = (_has_bits_[0] & 0x00000008u) != 0;
+  PROTOBUF_ASSUME(!value || recurrence_info_ != nullptr);
+  return value;
+}
+inline bool StoreItem_PurchaseOption::has_recurrence_info() const {
+  return _internal_has_recurrence_info();
+}
+inline void StoreItem_PurchaseOption::clear_recurrence_info() {
+  if (recurrence_info_ != nullptr) recurrence_info_->Clear();
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline const ::StoreItem_PurchaseOption_RecurrenceInfo& StoreItem_PurchaseOption::_internal_recurrence_info() const {
+  const ::StoreItem_PurchaseOption_RecurrenceInfo* p = recurrence_info_;
+  return p != nullptr ? *p : reinterpret_cast<const ::StoreItem_PurchaseOption_RecurrenceInfo&>(
+      ::_StoreItem_PurchaseOption_RecurrenceInfo_default_instance_);
+}
+inline const ::StoreItem_PurchaseOption_RecurrenceInfo& StoreItem_PurchaseOption::recurrence_info() const {
+  // @@protoc_insertion_point(field_get:StoreItem.PurchaseOption.recurrence_info)
+  return _internal_recurrence_info();
+}
+inline void StoreItem_PurchaseOption::unsafe_arena_set_allocated_recurrence_info(
+    ::StoreItem_PurchaseOption_RecurrenceInfo* recurrence_info) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(recurrence_info_);
+  }
+  recurrence_info_ = recurrence_info;
+  if (recurrence_info) {
+    _has_bits_[0] |= 0x00000008u;
+  } else {
+    _has_bits_[0] &= ~0x00000008u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:StoreItem.PurchaseOption.recurrence_info)
+}
+inline ::StoreItem_PurchaseOption_RecurrenceInfo* StoreItem_PurchaseOption::release_recurrence_info() {
+  _has_bits_[0] &= ~0x00000008u;
+  ::StoreItem_PurchaseOption_RecurrenceInfo* temp = recurrence_info_;
+  recurrence_info_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::StoreItem_PurchaseOption_RecurrenceInfo* StoreItem_PurchaseOption::unsafe_arena_release_recurrence_info() {
+  // @@protoc_insertion_point(field_release:StoreItem.PurchaseOption.recurrence_info)
+  _has_bits_[0] &= ~0x00000008u;
+  ::StoreItem_PurchaseOption_RecurrenceInfo* temp = recurrence_info_;
+  recurrence_info_ = nullptr;
+  return temp;
+}
+inline ::StoreItem_PurchaseOption_RecurrenceInfo* StoreItem_PurchaseOption::_internal_mutable_recurrence_info() {
+  _has_bits_[0] |= 0x00000008u;
+  if (recurrence_info_ == nullptr) {
+    auto* p = CreateMaybeMessage<::StoreItem_PurchaseOption_RecurrenceInfo>(GetArena());
+    recurrence_info_ = p;
+  }
+  return recurrence_info_;
+}
+inline ::StoreItem_PurchaseOption_RecurrenceInfo* StoreItem_PurchaseOption::mutable_recurrence_info() {
+  // @@protoc_insertion_point(field_mutable:StoreItem.PurchaseOption.recurrence_info)
+  return _internal_mutable_recurrence_info();
+}
+inline void StoreItem_PurchaseOption::set_allocated_recurrence_info(::StoreItem_PurchaseOption_RecurrenceInfo* recurrence_info) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete recurrence_info_;
+  }
+  if (recurrence_info) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(recurrence_info);
+    if (message_arena != submessage_arena) {
+      recurrence_info = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, recurrence_info, submessage_arena);
+    }
+    _has_bits_[0] |= 0x00000008u;
+  } else {
+    _has_bits_[0] &= ~0x00000008u;
+  }
+  recurrence_info_ = recurrence_info;
+  // @@protoc_insertion_point(field_set_allocated:StoreItem.PurchaseOption.recurrence_info)
+}
+
 // -------------------------------------------------------------------
 
 // StoreItem_Screenshots_Screenshot
 
-// optional string filename = 1 [(.description) = "Path to file on media CDN.  Can access sized version by appending to SHA: \'.1920x1080\', \'.600x338\', \'.116x65\'"];
+// optional string filename = 1;
 inline bool StoreItem_Screenshots_Screenshot::_internal_has_filename() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -14900,7 +15471,7 @@ inline void StoreItem_Screenshots_Screenshot::set_allocated_filename(std::string
   // @@protoc_insertion_point(field_set_allocated:StoreItem.Screenshots.Screenshot.filename)
 }
 
-// optional int32 ordinal = 2 [(.description) = "Screenshots should be displayed in order of ascending ordinal; they are returned in-order but client may need to merge all_ages and mature_content_screenshots."];
+// optional int32 ordinal = 2;
 inline bool StoreItem_Screenshots_Screenshot::_internal_has_ordinal() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -14932,7 +15503,7 @@ inline void StoreItem_Screenshots_Screenshot::set_ordinal(::PROTOBUF_NAMESPACE_I
 
 // StoreItem_Screenshots
 
-// repeated .StoreItem.Screenshots.Screenshot all_ages_screenshots = 2 [(.description) = "Screenshots suitable for all ages."];
+// repeated .StoreItem.Screenshots.Screenshot all_ages_screenshots = 2;
 inline int StoreItem_Screenshots::_internal_all_ages_screenshots_size() const {
   return all_ages_screenshots_.size();
 }
@@ -14971,7 +15542,7 @@ StoreItem_Screenshots::all_ages_screenshots() const {
   return all_ages_screenshots_;
 }
 
-// repeated .StoreItem.Screenshots.Screenshot mature_content_screenshots = 3 [(.description) = "Screenshots that may contain mature content; these should only be shown after verifying age (age gate)."];
+// repeated .StoreItem.Screenshots.Screenshot mature_content_screenshots = 3;
 inline int StoreItem_Screenshots::_internal_mature_content_screenshots_size() const {
   return mature_content_screenshots_.size();
 }
@@ -15014,7 +15585,7 @@ StoreItem_Screenshots::mature_content_screenshots() const {
 
 // StoreItem_Trailers_VideoSource
 
-// optional string filename = 1 [(.description) = "Substitute into trailer_url_format"];
+// optional string filename = 1;
 inline bool StoreItem_Trailers_VideoSource::_internal_has_filename() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -15087,7 +15658,7 @@ inline void StoreItem_Trailers_VideoSource::set_allocated_filename(std::string* 
   // @@protoc_insertion_point(field_set_allocated:StoreItem.Trailers.VideoSource.filename)
 }
 
-// optional string type = 2 [(.description) = "\'video/webm\' or \'video/mp4\'; can just put this directly in to a <source> tag."];
+// optional string type = 2;
 inline bool StoreItem_Trailers_VideoSource::_internal_has_type() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -15237,7 +15808,7 @@ inline void StoreItem_Trailers_Trailer::set_allocated_trailer_name(std::string* 
   // @@protoc_insertion_point(field_set_allocated:StoreItem.Trailers.Trailer.trailer_name)
 }
 
-// optional string trailer_url_format = 2 [(.description) = "Format for URLs, should substitute filename for ${FILENAME} in the URL."];
+// optional string trailer_url_format = 2;
 inline bool StoreItem_Trailers_Trailer::_internal_has_trailer_url_format() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -15427,7 +15998,7 @@ StoreItem_Trailers_Trailer::microtrailer() const {
   return microtrailer_;
 }
 
-// optional string screenshot_medium = 10 [(.description) = "293x165px.  Use trailer_url_format."];
+// optional string screenshot_medium = 10;
 inline bool StoreItem_Trailers_Trailer::_internal_has_screenshot_medium() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -15500,7 +16071,7 @@ inline void StoreItem_Trailers_Trailer::set_allocated_screenshot_medium(std::str
   // @@protoc_insertion_point(field_set_allocated:StoreItem.Trailers.Trailer.screenshot_medium)
 }
 
-// optional string screenshot_full = 11 [(.description) = "Same size as trailer_max.  Use trailer_url_format."];
+// optional string screenshot_full = 11;
 inline bool StoreItem_Trailers_Trailer::_internal_has_screenshot_full() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -15573,7 +16144,7 @@ inline void StoreItem_Trailers_Trailer::set_allocated_screenshot_full(std::strin
   // @@protoc_insertion_point(field_set_allocated:StoreItem.Trailers.Trailer.screenshot_full)
 }
 
-// optional int32 trailer_base_id = 12 [(.description) = "Trailer ID.  For localized trailers, this will be the original trailer\'s ID"];
+// optional int32 trailer_base_id = 12;
 inline bool StoreItem_Trailers_Trailer::_internal_has_trailer_base_id() const {
   bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
@@ -15605,7 +16176,7 @@ inline void StoreItem_Trailers_Trailer::set_trailer_base_id(::PROTOBUF_NAMESPACE
 
 // StoreItem_Trailers
 
-// repeated .StoreItem.Trailers.Trailer highlights = 1 [(.description) = "Primary trailers for this app"];
+// repeated .StoreItem.Trailers.Trailer highlights = 1;
 inline int StoreItem_Trailers::_internal_highlights_size() const {
   return highlights_.size();
 }
@@ -15644,7 +16215,7 @@ StoreItem_Trailers::highlights() const {
   return highlights_;
 }
 
-// repeated .StoreItem.Trailers.Trailer other_trailers = 2 [(.description) = "Additional trailers; on the app page, these are shown after screenshots (highlights shown before)"];
+// repeated .StoreItem.Trailers.Trailer other_trailers = 2;
 inline int StoreItem_Trailers::_internal_other_trailers_size() const {
   return other_trailers_.size();
 }
@@ -15687,7 +16258,7 @@ StoreItem_Trailers::other_trailers() const {
 
 // StoreItem_SupportedLanguage
 
-// optional int32 elanguage = 1 [(.description) = "ELanguage"];
+// optional int32 elanguage = 1;
 inline bool StoreItem_SupportedLanguage::_internal_has_elanguage() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -15803,7 +16374,7 @@ inline void StoreItem_SupportedLanguage::set_subtitles(bool value) {
 
 // StoreItem_FreeWeekend
 
-// optional uint32 start_time = 1 [(.description) = "When the free weekend starts."];
+// optional uint32 start_time = 1;
 inline bool StoreItem_FreeWeekend::_internal_has_start_time() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -15831,7 +16402,7 @@ inline void StoreItem_FreeWeekend::set_start_time(::PROTOBUF_NAMESPACE_ID::uint3
   // @@protoc_insertion_point(field_set:StoreItem.FreeWeekend.start_time)
 }
 
-// optional uint32 end_time = 2 [(.description) = "When the free weekend ends."];
+// optional uint32 end_time = 2;
 inline bool StoreItem_FreeWeekend::_internal_has_end_time() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -15859,7 +16430,7 @@ inline void StoreItem_FreeWeekend::set_end_time(::PROTOBUF_NAMESPACE_ID::uint32 
   // @@protoc_insertion_point(field_set:StoreItem.FreeWeekend.end_time)
 }
 
-// optional string text = 3 [(.description) = "Text to show as a description of the free weekend."];
+// optional string text = 3;
 inline bool StoreItem_FreeWeekend::_internal_has_text() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -15938,7 +16509,7 @@ inline void StoreItem_FreeWeekend::set_allocated_text(std::string* text) {
 
 // optional .EStoreItemType item_type = 1 [default = EStoreItemType_Invalid];
 inline bool StoreItem::_internal_has_item_type() const {
-  bool value = (_has_bits_[0] & 0x20000000u) != 0;
+  bool value = (_has_bits_[0] & 0x40000000u) != 0;
   return value;
 }
 inline bool StoreItem::has_item_type() const {
@@ -15946,7 +16517,7 @@ inline bool StoreItem::has_item_type() const {
 }
 inline void StoreItem::clear_item_type() {
   item_type_ = -1;
-  _has_bits_[0] &= ~0x20000000u;
+  _has_bits_[0] &= ~0x40000000u;
 }
 inline ::EStoreItemType StoreItem::_internal_item_type() const {
   return static_cast< ::EStoreItemType >(item_type_);
@@ -15957,7 +16528,7 @@ inline ::EStoreItemType StoreItem::item_type() const {
 }
 inline void StoreItem::_internal_set_item_type(::EStoreItemType value) {
   assert(::EStoreItemType_IsValid(value));
-  _has_bits_[0] |= 0x20000000u;
+  _has_bits_[0] |= 0x40000000u;
   item_type_ = value;
 }
 inline void StoreItem::set_item_type(::EStoreItemType value) {
@@ -15967,7 +16538,7 @@ inline void StoreItem::set_item_type(::EStoreItemType value) {
 
 // optional uint32 id = 2;
 inline bool StoreItem::_internal_has_id() const {
-  bool value = (_has_bits_[0] & 0x00040000u) != 0;
+  bool value = (_has_bits_[0] & 0x00080000u) != 0;
   return value;
 }
 inline bool StoreItem::has_id() const {
@@ -15975,7 +16546,7 @@ inline bool StoreItem::has_id() const {
 }
 inline void StoreItem::clear_id() {
   id_ = 0u;
-  _has_bits_[0] &= ~0x00040000u;
+  _has_bits_[0] &= ~0x00080000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 StoreItem::_internal_id() const {
   return id_;
@@ -15985,7 +16556,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 StoreItem::id() const {
   return _internal_id();
 }
 inline void StoreItem::_internal_set_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00040000u;
+  _has_bits_[0] |= 0x00080000u;
   id_ = value;
 }
 inline void StoreItem::set_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -15993,9 +16564,9 @@ inline void StoreItem::set_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   // @@protoc_insertion_point(field_set:StoreItem.id)
 }
 
-// optional uint32 success = 3 [(.description) = "EResult of this lookup action"];
+// optional uint32 success = 3;
 inline bool StoreItem::_internal_has_success() const {
-  bool value = (_has_bits_[0] & 0x00080000u) != 0;
+  bool value = (_has_bits_[0] & 0x00100000u) != 0;
   return value;
 }
 inline bool StoreItem::has_success() const {
@@ -16003,7 +16574,7 @@ inline bool StoreItem::has_success() const {
 }
 inline void StoreItem::clear_success() {
   success_ = 0u;
-  _has_bits_[0] &= ~0x00080000u;
+  _has_bits_[0] &= ~0x00100000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 StoreItem::_internal_success() const {
   return success_;
@@ -16013,7 +16584,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 StoreItem::success() const {
   return _internal_success();
 }
 inline void StoreItem::_internal_set_success(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00080000u;
+  _has_bits_[0] |= 0x00100000u;
   success_ = value;
 }
 inline void StoreItem::set_success(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -16023,7 +16594,7 @@ inline void StoreItem::set_success(::PROTOBUF_NAMESPACE_ID::uint32 value) {
 
 // optional bool visible = 4;
 inline bool StoreItem::_internal_has_visible() const {
-  bool value = (_has_bits_[0] & 0x00200000u) != 0;
+  bool value = (_has_bits_[0] & 0x00400000u) != 0;
   return value;
 }
 inline bool StoreItem::has_visible() const {
@@ -16031,7 +16602,7 @@ inline bool StoreItem::has_visible() const {
 }
 inline void StoreItem::clear_visible() {
   visible_ = false;
-  _has_bits_[0] &= ~0x00200000u;
+  _has_bits_[0] &= ~0x00400000u;
 }
 inline bool StoreItem::_internal_visible() const {
   return visible_;
@@ -16041,7 +16612,7 @@ inline bool StoreItem::visible() const {
   return _internal_visible();
 }
 inline void StoreItem::_internal_set_visible(bool value) {
-  _has_bits_[0] |= 0x00200000u;
+  _has_bits_[0] |= 0x00400000u;
   visible_ = value;
 }
 inline void StoreItem::set_visible(bool value) {
@@ -16049,9 +16620,9 @@ inline void StoreItem::set_visible(bool value) {
   // @@protoc_insertion_point(field_set:StoreItem.visible)
 }
 
-// optional bool unvailable_for_country_restriction = 5 [(.description) = "Indicates this app is visible in other regions, but not the requested reagion"];
+// optional bool unvailable_for_country_restriction = 5;
 inline bool StoreItem::_internal_has_unvailable_for_country_restriction() const {
-  bool value = (_has_bits_[0] & 0x00400000u) != 0;
+  bool value = (_has_bits_[0] & 0x00800000u) != 0;
   return value;
 }
 inline bool StoreItem::has_unvailable_for_country_restriction() const {
@@ -16059,7 +16630,7 @@ inline bool StoreItem::has_unvailable_for_country_restriction() const {
 }
 inline void StoreItem::clear_unvailable_for_country_restriction() {
   unvailable_for_country_restriction_ = false;
-  _has_bits_[0] &= ~0x00400000u;
+  _has_bits_[0] &= ~0x00800000u;
 }
 inline bool StoreItem::_internal_unvailable_for_country_restriction() const {
   return unvailable_for_country_restriction_;
@@ -16069,7 +16640,7 @@ inline bool StoreItem::unvailable_for_country_restriction() const {
   return _internal_unvailable_for_country_restriction();
 }
 inline void StoreItem::_internal_set_unvailable_for_country_restriction(bool value) {
-  _has_bits_[0] |= 0x00400000u;
+  _has_bits_[0] |= 0x00800000u;
   unvailable_for_country_restriction_ = value;
 }
 inline void StoreItem::set_unvailable_for_country_restriction(bool value) {
@@ -16150,7 +16721,7 @@ inline void StoreItem::set_allocated_name(std::string* name) {
   // @@protoc_insertion_point(field_set_allocated:StoreItem.name)
 }
 
-// optional string store_url_path = 7 [(.description) = "The URL of this item\'s store page, to be appended to STORE_BASE_URL."];
+// optional string store_url_path = 7;
 inline bool StoreItem::_internal_has_store_url_path() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -16223,9 +16794,9 @@ inline void StoreItem::set_allocated_store_url_path(std::string* store_url_path)
   // @@protoc_insertion_point(field_set_allocated:StoreItem.store_url_path)
 }
 
-// optional uint32 appid = 9 [(.description) = "If this is an app, or a single-app package, the steamworks appid."];
+// optional uint32 appid = 9;
 inline bool StoreItem::_internal_has_appid() const {
-  bool value = (_has_bits_[0] & 0x00100000u) != 0;
+  bool value = (_has_bits_[0] & 0x00200000u) != 0;
   return value;
 }
 inline bool StoreItem::has_appid() const {
@@ -16233,7 +16804,7 @@ inline bool StoreItem::has_appid() const {
 }
 inline void StoreItem::clear_appid() {
   appid_ = 0u;
-  _has_bits_[0] &= ~0x00100000u;
+  _has_bits_[0] &= ~0x00200000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 StoreItem::_internal_appid() const {
   return appid_;
@@ -16243,7 +16814,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 StoreItem::appid() const {
   return _internal_appid();
 }
 inline void StoreItem::_internal_set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00100000u;
+  _has_bits_[0] |= 0x00200000u;
   appid_ = value;
 }
 inline void StoreItem::set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -16251,9 +16822,9 @@ inline void StoreItem::set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   // @@protoc_insertion_point(field_set:StoreItem.appid)
 }
 
-// optional .EStoreAppType type = 10 [default = EStoreAppType_Game, (.description) = "Type of app (Game, Software, Music).  For packages/bundles, this will be the most interesting type (eg Game + Soundtrack bundle will have type Game)"];
+// optional .EStoreAppType type = 10 [default = EStoreAppType_Game];
 inline bool StoreItem::_internal_has_type() const {
-  bool value = (_has_bits_[0] & 0x02000000u) != 0;
+  bool value = (_has_bits_[0] & 0x04000000u) != 0;
   return value;
 }
 inline bool StoreItem::has_type() const {
@@ -16261,7 +16832,7 @@ inline bool StoreItem::has_type() const {
 }
 inline void StoreItem::clear_type() {
   type_ = 0;
-  _has_bits_[0] &= ~0x02000000u;
+  _has_bits_[0] &= ~0x04000000u;
 }
 inline ::EStoreAppType StoreItem::_internal_type() const {
   return static_cast< ::EStoreAppType >(type_);
@@ -16272,7 +16843,7 @@ inline ::EStoreAppType StoreItem::type() const {
 }
 inline void StoreItem::_internal_set_type(::EStoreAppType value) {
   assert(::EStoreAppType_IsValid(value));
-  _has_bits_[0] |= 0x02000000u;
+  _has_bits_[0] |= 0x04000000u;
   type_ = value;
 }
 inline void StoreItem::set_type(::EStoreAppType value) {
@@ -16280,7 +16851,7 @@ inline void StoreItem::set_type(::EStoreAppType value) {
   // @@protoc_insertion_point(field_set:StoreItem.type)
 }
 
-// repeated .EStoreAppType included_types = 11 [(.description) = "For packages/bundles, all types of included items"];
+// repeated .EStoreAppType included_types = 11;
 inline int StoreItem::_internal_included_types_size() const {
   return included_types_.size();
 }
@@ -16325,7 +16896,7 @@ StoreItem::mutable_included_types() {
   return _internal_mutable_included_types();
 }
 
-// repeated uint32 included_appids = 12 [(.description) = "For packages/bundles, all included appids"];
+// repeated uint32 included_appids = 12;
 inline int StoreItem::_internal_included_appids_size() const {
   return included_appids_.size();
 }
@@ -16374,7 +16945,7 @@ StoreItem::mutable_included_appids() {
 
 // optional bool is_free = 13;
 inline bool StoreItem::_internal_has_is_free() const {
-  bool value = (_has_bits_[0] & 0x00800000u) != 0;
+  bool value = (_has_bits_[0] & 0x01000000u) != 0;
   return value;
 }
 inline bool StoreItem::has_is_free() const {
@@ -16382,7 +16953,7 @@ inline bool StoreItem::has_is_free() const {
 }
 inline void StoreItem::clear_is_free() {
   is_free_ = false;
-  _has_bits_[0] &= ~0x00800000u;
+  _has_bits_[0] &= ~0x01000000u;
 }
 inline bool StoreItem::_internal_is_free() const {
   return is_free_;
@@ -16392,7 +16963,7 @@ inline bool StoreItem::is_free() const {
   return _internal_is_free();
 }
 inline void StoreItem::_internal_set_is_free(bool value) {
-  _has_bits_[0] |= 0x00800000u;
+  _has_bits_[0] |= 0x01000000u;
   is_free_ = value;
 }
 inline void StoreItem::set_is_free(bool value) {
@@ -16402,7 +16973,7 @@ inline void StoreItem::set_is_free(bool value) {
 
 // optional bool is_early_access = 14;
 inline bool StoreItem::_internal_has_is_early_access() const {
-  bool value = (_has_bits_[0] & 0x01000000u) != 0;
+  bool value = (_has_bits_[0] & 0x02000000u) != 0;
   return value;
 }
 inline bool StoreItem::has_is_early_access() const {
@@ -16410,7 +16981,7 @@ inline bool StoreItem::has_is_early_access() const {
 }
 inline void StoreItem::clear_is_early_access() {
   is_early_access_ = false;
-  _has_bits_[0] &= ~0x01000000u;
+  _has_bits_[0] &= ~0x02000000u;
 }
 inline bool StoreItem::_internal_is_early_access() const {
   return is_early_access_;
@@ -16420,7 +16991,7 @@ inline bool StoreItem::is_early_access() const {
   return _internal_is_early_access();
 }
 inline void StoreItem::_internal_set_is_early_access(bool value) {
-  _has_bits_[0] |= 0x01000000u;
+  _has_bits_[0] |= 0x02000000u;
   is_early_access_ = value;
 }
 inline void StoreItem::set_is_early_access(bool value) {
@@ -16511,7 +17082,7 @@ inline void StoreItem::set_allocated_related_items(::StoreItem_RelatedItems* rel
   // @@protoc_insertion_point(field_set_allocated:StoreItem.related_items)
 }
 
-// optional .StoreItem.IncludedItems included_items = 16 [(.description) = "Items included in this package/bundle, if included_items datarequest was passed."];
+// optional .StoreItem.IncludedItems included_items = 16;
 inline bool StoreItem::_internal_has_included_items() const {
   bool value = (_has_bits_[0] & 0x00000040u) != 0;
   PROTOBUF_ASSUME(!value || included_items_ != nullptr);
@@ -17223,7 +17794,7 @@ inline void StoreItem::set_allocated_platforms(::StoreItem_Platforms* platforms)
   // @@protoc_insertion_point(field_set_allocated:StoreItem.platforms)
 }
 
-// optional .StoreGameRating game_rating = 33 [(.description) = "Local ratings agency information, like ESRB or PEGI"];
+// optional .StoreGameRating game_rating = 33;
 inline bool StoreItem::_internal_has_game_rating() const {
   bool value = (_has_bits_[0] & 0x00002000u) != 0;
   PROTOBUF_ASSUME(!value || game_rating_ != nullptr);
@@ -17306,7 +17877,7 @@ inline void StoreItem::set_allocated_game_rating(::StoreGameRating* game_rating)
   // @@protoc_insertion_point(field_set_allocated:StoreItem.game_rating)
 }
 
-// optional .StoreItem.PurchaseOption best_purchase_option = 40 [(.description) = "The cheapest way for the user to acquire this app or package (may be a bundle)."];
+// optional .StoreItem.PurchaseOption best_purchase_option = 40;
 inline bool StoreItem::_internal_has_best_purchase_option() const {
   bool value = (_has_bits_[0] & 0x00004000u) != 0;
   PROTOBUF_ASSUME(!value || best_purchase_option_ != nullptr);
@@ -17389,7 +17960,7 @@ inline void StoreItem::set_allocated_best_purchase_option(::StoreItem_PurchaseOp
   // @@protoc_insertion_point(field_set_allocated:StoreItem.best_purchase_option)
 }
 
-// repeated .StoreItem.PurchaseOption purchase_options = 41 [(.description) = "Different ways to buy this app or packages (packages can be purchased directly, but may also be included in bundles)."];
+// repeated .StoreItem.PurchaseOption purchase_options = 41;
 inline int StoreItem::_internal_purchase_options_size() const {
   return purchase_options_.size();
 }
@@ -17428,7 +17999,7 @@ StoreItem::purchase_options() const {
   return purchase_options_;
 }
 
-// repeated .StoreItem.PurchaseOption accessories = 42 [(.description) = "Additional packages or bundles associated with an app, but that do not contain the app."];
+// repeated .StoreItem.PurchaseOption accessories = 42;
 inline int StoreItem::_internal_accessories_size() const {
   return accessories_.size();
 }
@@ -17672,7 +18243,7 @@ StoreItem::supported_languages() const {
   return supported_languages_;
 }
 
-// optional string store_url_path_override = 53 [(.description) = "Navigate to this URL (relative to store home) when the store capsule for this item is clicked, instead of the default /app/... URL. Used by advertising apps that point to a sale page."];
+// optional string store_url_path_override = 53;
 inline bool StoreItem::_internal_has_store_url_path_override() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -17745,7 +18316,7 @@ inline void StoreItem::set_allocated_store_url_path_override(std::string* store_
   // @@protoc_insertion_point(field_set_allocated:StoreItem.store_url_path_override)
 }
 
-// optional .StoreItem.FreeWeekend free_weekend = 54 [(.description) = "Information about a free weekend offer."];
+// optional .StoreItem.FreeWeekend free_weekend = 54;
 inline bool StoreItem::_internal_has_free_weekend() const {
   bool value = (_has_bits_[0] & 0x00020000u) != 0;
   PROTOBUF_ASSUME(!value || free_weekend_ != nullptr);
@@ -17828,9 +18399,9 @@ inline void StoreItem::set_allocated_free_weekend(::StoreItem_FreeWeekend* free_
   // @@protoc_insertion_point(field_set_allocated:StoreItem.free_weekend)
 }
 
-// optional bool unlisted = 55 [(.description) = "If true, item is only accessible on store via a direct link"];
+// optional bool unlisted = 55;
 inline bool StoreItem::_internal_has_unlisted() const {
-  bool value = (_has_bits_[0] & 0x08000000u) != 0;
+  bool value = (_has_bits_[0] & 0x10000000u) != 0;
   return value;
 }
 inline bool StoreItem::has_unlisted() const {
@@ -17838,7 +18409,7 @@ inline bool StoreItem::has_unlisted() const {
 }
 inline void StoreItem::clear_unlisted() {
   unlisted_ = false;
-  _has_bits_[0] &= ~0x08000000u;
+  _has_bits_[0] &= ~0x10000000u;
 }
 inline bool StoreItem::_internal_unlisted() const {
   return unlisted_;
@@ -17848,7 +18419,7 @@ inline bool StoreItem::unlisted() const {
   return _internal_unlisted();
 }
 inline void StoreItem::_internal_set_unlisted(bool value) {
-  _has_bits_[0] |= 0x08000000u;
+  _has_bits_[0] |= 0x10000000u;
   unlisted_ = value;
 }
 inline void StoreItem::set_unlisted(bool value) {
@@ -17856,9 +18427,9 @@ inline void StoreItem::set_unlisted(bool value) {
   // @@protoc_insertion_point(field_set:StoreItem.unlisted)
 }
 
-// optional uint32 game_count = 56 [(.description) = "For creators and tags, how many games belong to them"];
+// optional uint32 game_count = 56;
 inline bool StoreItem::_internal_has_game_count() const {
-  bool value = (_has_bits_[0] & 0x04000000u) != 0;
+  bool value = (_has_bits_[0] & 0x08000000u) != 0;
   return value;
 }
 inline bool StoreItem::has_game_count() const {
@@ -17866,7 +18437,7 @@ inline bool StoreItem::has_game_count() const {
 }
 inline void StoreItem::clear_game_count() {
   game_count_ = 0u;
-  _has_bits_[0] &= ~0x04000000u;
+  _has_bits_[0] &= ~0x08000000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 StoreItem::_internal_game_count() const {
   return game_count_;
@@ -17876,7 +18447,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 StoreItem::game_count() const {
   return _internal_game_count();
 }
 inline void StoreItem::_internal_set_game_count(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x04000000u;
+  _has_bits_[0] |= 0x08000000u;
   game_count_ = value;
 }
 inline void StoreItem::set_game_count(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -17884,7 +18455,7 @@ inline void StoreItem::set_game_count(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   // @@protoc_insertion_point(field_set:StoreItem.game_count)
 }
 
-// optional string internal_name = 57 [(.description) = "For hub categories, the internal name (handle) of the category"];
+// optional string internal_name = 57;
 inline bool StoreItem::_internal_has_internal_name() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -17957,7 +18528,7 @@ inline void StoreItem::set_allocated_internal_name(std::string* internal_name) {
   // @@protoc_insertion_point(field_set_allocated:StoreItem.internal_name)
 }
 
-// optional string full_description = 58 [(.description) = "About this game section on the store page"];
+// optional string full_description = 58;
 inline bool StoreItem::_internal_has_full_description() const {
   bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
@@ -18030,9 +18601,9 @@ inline void StoreItem::set_allocated_full_description(std::string* full_descript
   // @@protoc_insertion_point(field_set_allocated:StoreItem.full_description)
 }
 
-// optional bool is_free_temporarily = 59 [(.description) = "This item is free now but not permanently so."];
+// optional bool is_free_temporarily = 59;
 inline bool StoreItem::_internal_has_is_free_temporarily() const {
-  bool value = (_has_bits_[0] & 0x10000000u) != 0;
+  bool value = (_has_bits_[0] & 0x20000000u) != 0;
   return value;
 }
 inline bool StoreItem::has_is_free_temporarily() const {
@@ -18040,7 +18611,7 @@ inline bool StoreItem::has_is_free_temporarily() const {
 }
 inline void StoreItem::clear_is_free_temporarily() {
   is_free_temporarily_ = false;
-  _has_bits_[0] &= ~0x10000000u;
+  _has_bits_[0] &= ~0x20000000u;
 }
 inline bool StoreItem::_internal_is_free_temporarily() const {
   return is_free_temporarily_;
@@ -18050,7 +18621,7 @@ inline bool StoreItem::is_free_temporarily() const {
   return _internal_is_free_temporarily();
 }
 inline void StoreItem::_internal_set_is_free_temporarily(bool value) {
-  _has_bits_[0] |= 0x10000000u;
+  _has_bits_[0] |= 0x20000000u;
   is_free_temporarily_ = value;
 }
 inline void StoreItem::set_is_free_temporarily(bool value) {
@@ -18058,11 +18629,94 @@ inline void StoreItem::set_is_free_temporarily(bool value) {
   // @@protoc_insertion_point(field_set:StoreItem.is_free_temporarily)
 }
 
+// optional .StoreItem.Assets assets_without_overrides = 60;
+inline bool StoreItem::_internal_has_assets_without_overrides() const {
+  bool value = (_has_bits_[0] & 0x00040000u) != 0;
+  PROTOBUF_ASSUME(!value || assets_without_overrides_ != nullptr);
+  return value;
+}
+inline bool StoreItem::has_assets_without_overrides() const {
+  return _internal_has_assets_without_overrides();
+}
+inline void StoreItem::clear_assets_without_overrides() {
+  if (assets_without_overrides_ != nullptr) assets_without_overrides_->Clear();
+  _has_bits_[0] &= ~0x00040000u;
+}
+inline const ::StoreItem_Assets& StoreItem::_internal_assets_without_overrides() const {
+  const ::StoreItem_Assets* p = assets_without_overrides_;
+  return p != nullptr ? *p : reinterpret_cast<const ::StoreItem_Assets&>(
+      ::_StoreItem_Assets_default_instance_);
+}
+inline const ::StoreItem_Assets& StoreItem::assets_without_overrides() const {
+  // @@protoc_insertion_point(field_get:StoreItem.assets_without_overrides)
+  return _internal_assets_without_overrides();
+}
+inline void StoreItem::unsafe_arena_set_allocated_assets_without_overrides(
+    ::StoreItem_Assets* assets_without_overrides) {
+  if (GetArena() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(assets_without_overrides_);
+  }
+  assets_without_overrides_ = assets_without_overrides;
+  if (assets_without_overrides) {
+    _has_bits_[0] |= 0x00040000u;
+  } else {
+    _has_bits_[0] &= ~0x00040000u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:StoreItem.assets_without_overrides)
+}
+inline ::StoreItem_Assets* StoreItem::release_assets_without_overrides() {
+  _has_bits_[0] &= ~0x00040000u;
+  ::StoreItem_Assets* temp = assets_without_overrides_;
+  assets_without_overrides_ = nullptr;
+  if (GetArena() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+  return temp;
+}
+inline ::StoreItem_Assets* StoreItem::unsafe_arena_release_assets_without_overrides() {
+  // @@protoc_insertion_point(field_release:StoreItem.assets_without_overrides)
+  _has_bits_[0] &= ~0x00040000u;
+  ::StoreItem_Assets* temp = assets_without_overrides_;
+  assets_without_overrides_ = nullptr;
+  return temp;
+}
+inline ::StoreItem_Assets* StoreItem::_internal_mutable_assets_without_overrides() {
+  _has_bits_[0] |= 0x00040000u;
+  if (assets_without_overrides_ == nullptr) {
+    auto* p = CreateMaybeMessage<::StoreItem_Assets>(GetArena());
+    assets_without_overrides_ = p;
+  }
+  return assets_without_overrides_;
+}
+inline ::StoreItem_Assets* StoreItem::mutable_assets_without_overrides() {
+  // @@protoc_insertion_point(field_mutable:StoreItem.assets_without_overrides)
+  return _internal_mutable_assets_without_overrides();
+}
+inline void StoreItem::set_allocated_assets_without_overrides(::StoreItem_Assets* assets_without_overrides) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
+  if (message_arena == nullptr) {
+    delete assets_without_overrides_;
+  }
+  if (assets_without_overrides) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::GetArena(assets_without_overrides);
+    if (message_arena != submessage_arena) {
+      assets_without_overrides = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, assets_without_overrides, submessage_arena);
+    }
+    _has_bits_[0] |= 0x00040000u;
+  } else {
+    _has_bits_[0] &= ~0x00040000u;
+  }
+  assets_without_overrides_ = assets_without_overrides;
+  // @@protoc_insertion_point(field_set_allocated:StoreItem.assets_without_overrides)
+}
+
 // -------------------------------------------------------------------
 
 // StoreGameRating
 
-// optional string type = 1 [(.description) = "\'esrb\', \'pegi\', ..."];
+// optional string type = 1;
 inline bool StoreGameRating::_internal_has_type() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -18135,7 +18789,7 @@ inline void StoreGameRating::set_allocated_type(std::string* type) {
   // @@protoc_insertion_point(field_set_allocated:StoreGameRating.type)
 }
 
-// optional string rating = 2 [(.description) = "\'t\' for teen, \'m\' for mature, ..."];
+// optional string rating = 2;
 inline bool StoreGameRating::_internal_has_rating() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -18208,7 +18862,7 @@ inline void StoreGameRating::set_allocated_rating(std::string* rating) {
   // @@protoc_insertion_point(field_set_allocated:StoreGameRating.rating)
 }
 
-// repeated string descriptors = 3 [(.description) = "Additional descriptors like \'Intense Violence\', \'Strong Language\',..."];
+// repeated string descriptors = 3;
 inline int StoreGameRating::_internal_descriptors_size() const {
   return descriptors_.size();
 }
@@ -18282,7 +18936,7 @@ StoreGameRating::mutable_descriptors() {
   return &descriptors_;
 }
 
-// optional string interactive_elements = 4 [(.description) = "ESRB-specific"];
+// optional string interactive_elements = 4;
 inline bool StoreGameRating::_internal_has_interactive_elements() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -18355,7 +19009,7 @@ inline void StoreGameRating::set_allocated_interactive_elements(std::string* int
   // @@protoc_insertion_point(field_set_allocated:StoreGameRating.interactive_elements)
 }
 
-// optional int32 required_age = 10 [(.description) = "Age in years.  Store pages will prompt with an age gate"];
+// optional int32 required_age = 10;
 inline bool StoreGameRating::_internal_has_required_age() const {
   bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
@@ -18411,7 +19065,7 @@ inline void StoreGameRating::set_use_age_gate(bool value) {
   // @@protoc_insertion_point(field_set:StoreGameRating.use_age_gate)
 }
 
-// optional string image_url = 20 [(.description) = "An image corresponding to the rating."];
+// optional string image_url = 20;
 inline bool StoreGameRating::_internal_has_image_url() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -18484,7 +19138,7 @@ inline void StoreGameRating::set_allocated_image_url(std::string* image_url) {
   // @@protoc_insertion_point(field_set_allocated:StoreGameRating.image_url)
 }
 
-// optional string image_target = 21 [(.description) = "URL where the image should link for more information."];
+// optional string image_target = 21;
 inline bool StoreGameRating::_internal_has_image_target() const {
   bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
@@ -18677,7 +19331,7 @@ inline void CStoreBrowse_GetStoreCategories_Request::set_allocated_language(std:
   // @@protoc_insertion_point(field_set_allocated:CStoreBrowse_GetStoreCategories_Request.language)
 }
 
-// optional int32 elanguage = 2 [default = -1, (.description) = "ELanguage"];
+// optional int32 elanguage = 2 [default = -1];
 inline bool CStoreBrowse_GetStoreCategories_Request::_internal_has_elanguage() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -18912,7 +19566,7 @@ inline void CStoreBrowse_GetStoreCategories_Response_Category::set_allocated_dis
   // @@protoc_insertion_point(field_set_allocated:CStoreBrowse_GetStoreCategories_Response.Category.display_name)
 }
 
-// optional string image_url = 5 [(.description) = "Append to STORE_CDN_URL"];
+// optional string image_url = 5;
 inline bool CStoreBrowse_GetStoreCategories_Response_Category::_internal_has_image_url() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -18985,7 +19639,7 @@ inline void CStoreBrowse_GetStoreCategories_Response_Category::set_allocated_ima
   // @@protoc_insertion_point(field_set_allocated:CStoreBrowse_GetStoreCategories_Response.Category.image_url)
 }
 
-// optional bool show_in_search = 6 [(.description) = "Indicates this category can link to search results showing all items in category."];
+// optional bool show_in_search = 6;
 inline bool CStoreBrowse_GetStoreCategories_Response_Category::_internal_has_show_in_search() const {
   bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
@@ -19222,7 +19876,7 @@ inline void CStoreBrowse_GetDLCForApps_Request::set_allocated_store_page_filter(
   // @@protoc_insertion_point(field_set_allocated:CStoreBrowse_GetDLCForApps_Request.store_page_filter)
 }
 
-// repeated .StoreItemID appids = 3 [(.description) = "Apps for which we want DLC information."];
+// repeated .StoreItemID appids = 3;
 inline int CStoreBrowse_GetDLCForApps_Request::_internal_appids_size() const {
   return appids_.size();
 }
@@ -19261,7 +19915,7 @@ CStoreBrowse_GetDLCForApps_Request::appids() const {
   return appids_;
 }
 
-// optional uint64 steamid = 4 [(.description) = "If specified, we want DLC information for all apps owned by this user."];
+// optional uint64 steamid = 4;
 inline bool CStoreBrowse_GetDLCForApps_Request::_internal_has_steamid() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -19521,7 +20175,7 @@ inline void CStoreBrowse_GetDLCForApps_Response_PlaytimeForApp::set_appid(::PROT
   // @@protoc_insertion_point(field_set:CStoreBrowse_GetDLCForApps_Response.PlaytimeForApp.appid)
 }
 
-// optional uint32 playtime = 2 [(.description) = "Total time played over all time."];
+// optional uint32 playtime = 2;
 inline bool CStoreBrowse_GetDLCForApps_Response_PlaytimeForApp::_internal_has_playtime() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -19549,7 +20203,7 @@ inline void CStoreBrowse_GetDLCForApps_Response_PlaytimeForApp::set_playtime(::P
   // @@protoc_insertion_point(field_set:CStoreBrowse_GetDLCForApps_Response.PlaytimeForApp.playtime)
 }
 
-// optional uint32 last_played = 3 [(.description) = "Time last played on any platform."];
+// optional uint32 last_played = 3;
 inline bool CStoreBrowse_GetDLCForApps_Response_PlaytimeForApp::_internal_has_last_played() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -20373,7 +21027,7 @@ inline void CHardwarePackageDetails::set_requires_reservation(bool value) {
   // @@protoc_insertion_point(field_set:CHardwarePackageDetails.requires_reservation)
 }
 
-// optional uint32 rtime_estimated_notification = 7 [(.description) = "Latest date we think you will receive the message if you or based on your current position"];
+// optional uint32 rtime_estimated_notification = 7;
 inline bool CHardwarePackageDetails::_internal_has_rtime_estimated_notification() const {
   bool value = (_has_bits_[0] & 0x00000040u) != 0;
   return value;
@@ -20401,7 +21055,7 @@ inline void CHardwarePackageDetails::set_rtime_estimated_notification(::PROTOBUF
   // @@protoc_insertion_point(field_set:CHardwarePackageDetails.rtime_estimated_notification)
 }
 
-// optional string notificaton_token = 8 [(.description) = "How we should render the timestamp"];
+// optional string notificaton_token = 8;
 inline bool CHardwarePackageDetails::_internal_has_notificaton_token() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -20504,7 +21158,7 @@ inline void CHardwarePackageDetails::set_reservation_state(::PROTOBUF_NAMESPACE_
 
 // optional bool expired = 10;
 inline bool CHardwarePackageDetails::_internal_has_expired() const {
-  bool value = (_has_bits_[0] & 0x00000200u) != 0;
+  bool value = (_has_bits_[0] & 0x00000400u) != 0;
   return value;
 }
 inline bool CHardwarePackageDetails::has_expired() const {
@@ -20512,7 +21166,7 @@ inline bool CHardwarePackageDetails::has_expired() const {
 }
 inline void CHardwarePackageDetails::clear_expired() {
   expired_ = false;
-  _has_bits_[0] &= ~0x00000200u;
+  _has_bits_[0] &= ~0x00000400u;
 }
 inline bool CHardwarePackageDetails::_internal_expired() const {
   return expired_;
@@ -20522,7 +21176,7 @@ inline bool CHardwarePackageDetails::expired() const {
   return _internal_expired();
 }
 inline void CHardwarePackageDetails::_internal_set_expired(bool value) {
-  _has_bits_[0] |= 0x00000200u;
+  _has_bits_[0] |= 0x00000400u;
   expired_ = value;
 }
 inline void CHardwarePackageDetails::set_expired(bool value) {
@@ -20560,7 +21214,7 @@ inline void CHardwarePackageDetails::set_time_expires(::PROTOBUF_NAMESPACE_ID::u
 
 // optional uint32 time_reserved = 12;
 inline bool CHardwarePackageDetails::_internal_has_time_reserved() const {
-  bool value = (_has_bits_[0] & 0x00000800u) != 0;
+  bool value = (_has_bits_[0] & 0x00000200u) != 0;
   return value;
 }
 inline bool CHardwarePackageDetails::has_time_reserved() const {
@@ -20568,7 +21222,7 @@ inline bool CHardwarePackageDetails::has_time_reserved() const {
 }
 inline void CHardwarePackageDetails::clear_time_reserved() {
   time_reserved_ = 0u;
-  _has_bits_[0] &= ~0x00000800u;
+  _has_bits_[0] &= ~0x00000200u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CHardwarePackageDetails::_internal_time_reserved() const {
   return time_reserved_;
@@ -20578,7 +21232,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CHardwarePackageDetails::time_reserved() 
   return _internal_time_reserved();
 }
 inline void CHardwarePackageDetails::_internal_set_time_reserved(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[0] |= 0x00000800u;
+  _has_bits_[0] |= 0x00000200u;
   time_reserved_ = value;
 }
 inline void CHardwarePackageDetails::set_time_reserved(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -20588,7 +21242,7 @@ inline void CHardwarePackageDetails::set_time_reserved(::PROTOBUF_NAMESPACE_ID::
 
 // optional bool allow_quantity_purchase = 13;
 inline bool CHardwarePackageDetails::_internal_has_allow_quantity_purchase() const {
-  bool value = (_has_bits_[0] & 0x00000400u) != 0;
+  bool value = (_has_bits_[0] & 0x00000800u) != 0;
   return value;
 }
 inline bool CHardwarePackageDetails::has_allow_quantity_purchase() const {
@@ -20596,7 +21250,7 @@ inline bool CHardwarePackageDetails::has_allow_quantity_purchase() const {
 }
 inline void CHardwarePackageDetails::clear_allow_quantity_purchase() {
   allow_quantity_purchase_ = false;
-  _has_bits_[0] &= ~0x00000400u;
+  _has_bits_[0] &= ~0x00000800u;
 }
 inline bool CHardwarePackageDetails::_internal_allow_quantity_purchase() const {
   return allow_quantity_purchase_;
@@ -20606,7 +21260,7 @@ inline bool CHardwarePackageDetails::allow_quantity_purchase() const {
   return _internal_allow_quantity_purchase();
 }
 inline void CHardwarePackageDetails::_internal_set_allow_quantity_purchase(bool value) {
-  _has_bits_[0] |= 0x00000400u;
+  _has_bits_[0] |= 0x00000800u;
   allow_quantity_purchase_ = value;
 }
 inline void CHardwarePackageDetails::set_allow_quantity_purchase(bool value) {
@@ -20616,7 +21270,7 @@ inline void CHardwarePackageDetails::set_allow_quantity_purchase(bool value) {
 
 // optional int32 max_quantity_per_purchase = 14;
 inline bool CHardwarePackageDetails::_internal_has_max_quantity_per_purchase() const {
-  bool value = (_has_bits_[0] & 0x00001000u) != 0;
+  bool value = (_has_bits_[0] & 0x00002000u) != 0;
   return value;
 }
 inline bool CHardwarePackageDetails::has_max_quantity_per_purchase() const {
@@ -20624,7 +21278,7 @@ inline bool CHardwarePackageDetails::has_max_quantity_per_purchase() const {
 }
 inline void CHardwarePackageDetails::clear_max_quantity_per_purchase() {
   max_quantity_per_purchase_ = 0;
-  _has_bits_[0] &= ~0x00001000u;
+  _has_bits_[0] &= ~0x00002000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int32 CHardwarePackageDetails::_internal_max_quantity_per_purchase() const {
   return max_quantity_per_purchase_;
@@ -20634,12 +21288,96 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 CHardwarePackageDetails::max_quantity_per_
   return _internal_max_quantity_per_purchase();
 }
 inline void CHardwarePackageDetails::_internal_set_max_quantity_per_purchase(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _has_bits_[0] |= 0x00001000u;
+  _has_bits_[0] |= 0x00002000u;
   max_quantity_per_purchase_ = value;
 }
 inline void CHardwarePackageDetails::set_max_quantity_per_purchase(::PROTOBUF_NAMESPACE_ID::int32 value) {
   _internal_set_max_quantity_per_purchase(value);
   // @@protoc_insertion_point(field_set:CHardwarePackageDetails.max_quantity_per_purchase)
+}
+
+// optional bool allow_purchase_in_country = 15;
+inline bool CHardwarePackageDetails::_internal_has_allow_purchase_in_country() const {
+  bool value = (_has_bits_[0] & 0x00001000u) != 0;
+  return value;
+}
+inline bool CHardwarePackageDetails::has_allow_purchase_in_country() const {
+  return _internal_has_allow_purchase_in_country();
+}
+inline void CHardwarePackageDetails::clear_allow_purchase_in_country() {
+  allow_purchase_in_country_ = false;
+  _has_bits_[0] &= ~0x00001000u;
+}
+inline bool CHardwarePackageDetails::_internal_allow_purchase_in_country() const {
+  return allow_purchase_in_country_;
+}
+inline bool CHardwarePackageDetails::allow_purchase_in_country() const {
+  // @@protoc_insertion_point(field_get:CHardwarePackageDetails.allow_purchase_in_country)
+  return _internal_allow_purchase_in_country();
+}
+inline void CHardwarePackageDetails::_internal_set_allow_purchase_in_country(bool value) {
+  _has_bits_[0] |= 0x00001000u;
+  allow_purchase_in_country_ = value;
+}
+inline void CHardwarePackageDetails::set_allow_purchase_in_country(bool value) {
+  _internal_set_allow_purchase_in_country(value);
+  // @@protoc_insertion_point(field_set:CHardwarePackageDetails.allow_purchase_in_country)
+}
+
+// optional uint32 estimated_delivery_soonest_business_days = 17;
+inline bool CHardwarePackageDetails::_internal_has_estimated_delivery_soonest_business_days() const {
+  bool value = (_has_bits_[0] & 0x00004000u) != 0;
+  return value;
+}
+inline bool CHardwarePackageDetails::has_estimated_delivery_soonest_business_days() const {
+  return _internal_has_estimated_delivery_soonest_business_days();
+}
+inline void CHardwarePackageDetails::clear_estimated_delivery_soonest_business_days() {
+  estimated_delivery_soonest_business_days_ = 0u;
+  _has_bits_[0] &= ~0x00004000u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CHardwarePackageDetails::_internal_estimated_delivery_soonest_business_days() const {
+  return estimated_delivery_soonest_business_days_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CHardwarePackageDetails::estimated_delivery_soonest_business_days() const {
+  // @@protoc_insertion_point(field_get:CHardwarePackageDetails.estimated_delivery_soonest_business_days)
+  return _internal_estimated_delivery_soonest_business_days();
+}
+inline void CHardwarePackageDetails::_internal_set_estimated_delivery_soonest_business_days(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _has_bits_[0] |= 0x00004000u;
+  estimated_delivery_soonest_business_days_ = value;
+}
+inline void CHardwarePackageDetails::set_estimated_delivery_soonest_business_days(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_estimated_delivery_soonest_business_days(value);
+  // @@protoc_insertion_point(field_set:CHardwarePackageDetails.estimated_delivery_soonest_business_days)
+}
+
+// optional uint32 estimated_delivery_latest_business_days = 18;
+inline bool CHardwarePackageDetails::_internal_has_estimated_delivery_latest_business_days() const {
+  bool value = (_has_bits_[0] & 0x00008000u) != 0;
+  return value;
+}
+inline bool CHardwarePackageDetails::has_estimated_delivery_latest_business_days() const {
+  return _internal_has_estimated_delivery_latest_business_days();
+}
+inline void CHardwarePackageDetails::clear_estimated_delivery_latest_business_days() {
+  estimated_delivery_latest_business_days_ = 0u;
+  _has_bits_[0] &= ~0x00008000u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CHardwarePackageDetails::_internal_estimated_delivery_latest_business_days() const {
+  return estimated_delivery_latest_business_days_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CHardwarePackageDetails::estimated_delivery_latest_business_days() const {
+  // @@protoc_insertion_point(field_get:CHardwarePackageDetails.estimated_delivery_latest_business_days)
+  return _internal_estimated_delivery_latest_business_days();
+}
+inline void CHardwarePackageDetails::_internal_set_estimated_delivery_latest_business_days(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _has_bits_[0] |= 0x00008000u;
+  estimated_delivery_latest_business_days_ = value;
+}
+inline void CHardwarePackageDetails::set_estimated_delivery_latest_business_days(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_estimated_delivery_latest_business_days(value);
+  // @@protoc_insertion_point(field_set:CHardwarePackageDetails.estimated_delivery_latest_business_days)
 }
 
 // -------------------------------------------------------------------
@@ -20688,6 +21426,8 @@ CStoreBrowse_GetHardwareItems_Response::details() const {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

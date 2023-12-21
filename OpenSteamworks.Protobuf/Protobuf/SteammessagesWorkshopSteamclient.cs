@@ -31,12 +31,9 @@ namespace OpenSteamworks.Protobuf {
             "ZXN0Eg0KBWFwcGlkGAEgASgNInUKIENXb3Jrc2hvcF9HZXRFVUxBU3RhdHVz",
             "X1Jlc3BvbnNlEg8KB3ZlcnNpb24YASABKA0SGAoQdGltZXN0YW1wX2FjdGlv",
             "bhgCIAEoDRIQCghhY2NlcHRlZBgDIAEoCBIUCgxuZWVkc19hY3Rpb24YBCAB",
-            "KAgyxgEKCFdvcmtzaG9wEowBCg1HZXRFVUxBU3RhdHVzEiAuQ1dvcmtzaG9w",
-            "X0dldEVVTEFTdGF0dXNfUmVxdWVzdBohLkNXb3Jrc2hvcF9HZXRFVUxBU3Rh",
-            "dHVzX1Jlc3BvbnNlIjaCtRgyUmV0cmlldmUgdGhlIHN0YXR1cyBvZiB0aGUg",
-            "dXNlcidzIEVVTEEgYWNjZXB0YW5jZS4aK4K1GCdBIHNlcnZpY2UgdG8gYWNj",
-            "ZXNzIHB1Ymxpc2hlZCBmaWxlIGRhdGFCHYABAaoCF09wZW5TdGVhbXdvcmtz",
-            "LlByb3RvYnVm"));
+            "KAgyYAoIV29ya3Nob3ASVAoNR2V0RVVMQVN0YXR1cxIgLkNXb3Jrc2hvcF9H",
+            "ZXRFVUxBU3RhdHVzX1JlcXVlc3QaIS5DV29ya3Nob3BfR2V0RVVMQVN0YXR1",
+            "c19SZXNwb25zZUIdgAEBqgIXT3BlblN0ZWFtd29ya3MuUHJvdG9idWY="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.Reflection.DescriptorReflection.Descriptor, global::OpenSteamworks.Protobuf.SteammessagesBaseReflection.Descriptor, global::OpenSteamworks.Protobuf.SteammessagesUnifiedBaseSteamclientReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -48,6 +45,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
   #region Messages
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CWorkshop_GetEULAStatus_Request : pb::IMessage<CWorkshop_GetEULAStatus_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -254,6 +252,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CWorkshop_GetEULAStatus_Response : pb::IMessage<CWorkshop_GetEULAStatus_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage

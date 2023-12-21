@@ -417,33 +417,21 @@ const char descriptor_table_protodef_steammessages_5fshader_2esteamclient_2eprot
   "stid\030\004 \001(\004\022\027\n\017source_gpu_desc\030\005 \001(\t\022\032\n\022s"
   "ource_driver_desc\030\006 \001(\t\022\021\n\tdepotsize\030\007 \001"
   "(\004\"&\n$CShader_ReportExternalBuild_Respon"
-  "se2\371\007\n\006Shader\022\273\001\n\031GetShaderReportingCade"
-  "nce\022*.CShader_GetShaderReportingCadence_"
-  "Request\032+.CShader_GetShaderReportingCade"
-  "nce_Response\"E\202\265\030AInformation about how "
-  "often a client should re-report shader h"
-  "its\022\276\001\n\016RegisterShader\022\037.CShader_Registe"
-  "rShader_Request\032 .CShader_RegisterShader"
-  "_Response\"i\202\265\030eClient just finished play"
-  "ing a game, detected new shader cache en"
-  "tries and is notifying us about them\022\217\001\n"
-  "\nSendShader\022\033.CShader_SendShader_Request"
-  "\032\034.CShader_SendShader_Response\"F\202\265\030BClie"
-  "nt is sending us actual compiled shader "
-  "code that we requested\022\255\001\n\021GetBucketMani"
-  "fest\022\".CShader_GetBucketManifest_Request"
-  "\032#.CShader_GetBucketManifest_Response\"O\202"
-  "\265\030KClient wants to know the manifest ID "
-  "to fetch (if any) for a bucket\'s depot\022\216"
-  "\001\n\016GetStaleBucket\022\037.CShader_GetStaleBuck"
-  "et_Request\032 .CShader_GetStaleBucket_Resp"
-  "onse\"9\202\265\0305Job to get a stale bucket give"
-  "n a gpu and driver desc\022\210\001\n\023ReportExtern"
-  "alBuild\022$.CShader_ReportExternalBuild_Re"
-  "quest\032%.CShader_ReportExternalBuild_Resp"
-  "onse\"$\202\265\030 Report an exernally built buck"
-  "et\032\022\202\265\030\016Shader methodsB\035\200\001\001\252\002\027OpenSteamw"
-  "orks.Protobuf"
+  "se2\263\004\n\006Shader\022t\n\031GetShaderReportingCaden"
+  "ce\022*.CShader_GetShaderReportingCadence_R"
+  "equest\032+.CShader_GetShaderReportingCaden"
+  "ce_Response\022S\n\016RegisterShader\022\037.CShader_"
+  "RegisterShader_Request\032 .CShader_Registe"
+  "rShader_Response\022G\n\nSendShader\022\033.CShader"
+  "_SendShader_Request\032\034.CShader_SendShader"
+  "_Response\022\\\n\021GetBucketManifest\022\".CShader"
+  "_GetBucketManifest_Request\032#.CShader_Get"
+  "BucketManifest_Response\022S\n\016GetStaleBucke"
+  "t\022\037.CShader_GetStaleBucket_Request\032 .CSh"
+  "ader_GetStaleBucket_Response\022b\n\023ReportEx"
+  "ternalBuild\022$.CShader_ReportExternalBuil"
+  "d_Request\032%.CShader_ReportExternalBuild_"
+  "ResponseB\035\200\001\001\252\002\027OpenSteamworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fshader_2esteamclient_2eproto_deps[3] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
@@ -452,7 +440,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fshader_2esteamclient_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fshader_2esteamclient_2eproto = {
-  false, false, 2453, descriptor_table_protodef_steammessages_5fshader_2esteamclient_2eproto, "steammessages_shader.steamclient.proto", 
+  false, false, 1999, descriptor_table_protodef_steammessages_5fshader_2esteamclient_2eproto, "steammessages_shader.steamclient.proto", 
   &descriptor_table_steammessages_5fshader_2esteamclient_2eproto_once, descriptor_table_steammessages_5fshader_2esteamclient_2eproto_deps, 3, 14,
   schemas, file_default_instances, TableStruct_steammessages_5fshader_2esteamclient_2eproto::offsets,
   file_level_metadata_steammessages_5fshader_2esteamclient_2eproto, file_level_enum_descriptors_steammessages_5fshader_2esteamclient_2eproto, file_level_service_descriptors_steammessages_5fshader_2esteamclient_2eproto,

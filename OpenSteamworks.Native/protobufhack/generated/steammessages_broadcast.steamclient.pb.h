@@ -929,7 +929,7 @@ class CBroadcast_BeginBroadcastSession_Response PROTOBUF_FINAL :
     kThumbnailIntervalSecondsFieldNumber = 4,
     kHeartbeatIntervalSecondsFieldNumber = 5,
   };
-  // optional string thumbnail_upload_address = 2 [(.description) = "Http address to upload the thumbnail data."];
+  // optional string thumbnail_upload_address = 2;
   bool has_thumbnail_upload_address() const;
   private:
   bool _internal_has_thumbnail_upload_address() const;
@@ -949,7 +949,7 @@ class CBroadcast_BeginBroadcastSession_Response PROTOBUF_FINAL :
   std::string* _internal_mutable_thumbnail_upload_address();
   public:
 
-  // optional string thumbnail_upload_token = 3 [(.description) = "token to authorize as broadcaster to upload content to the relay."];
+  // optional string thumbnail_upload_token = 3;
   bool has_thumbnail_upload_token() const;
   private:
   bool _internal_has_thumbnail_upload_token() const;
@@ -982,7 +982,7 @@ class CBroadcast_BeginBroadcastSession_Response PROTOBUF_FINAL :
   void _internal_set_broadcast_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional uint32 thumbnail_interval_seconds = 4 [(.description) = "how many seconds between thumbnails"];
+  // optional uint32 thumbnail_interval_seconds = 4;
   bool has_thumbnail_interval_seconds() const;
   private:
   bool _internal_has_thumbnail_interval_seconds() const;
@@ -995,7 +995,7 @@ class CBroadcast_BeginBroadcastSession_Response PROTOBUF_FINAL :
   void _internal_set_thumbnail_interval_seconds(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 heartbeat_interval_seconds = 5 [(.description) = "how many seconds between session heartbeats"];
+  // optional uint32 heartbeat_interval_seconds = 5;
   bool has_heartbeat_interval_seconds() const;
   private:
   bool _internal_has_heartbeat_interval_seconds() const;
@@ -1474,7 +1474,7 @@ class CBroadcast_StartBroadcastUpload_Request PROTOBUF_FINAL :
   void _internal_set_delay_seconds(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint64 rtmp_token = 5 [default = 0, (.description) = "Only set during RTMP uploads; secret key from the user."];
+  // optional uint64 rtmp_token = 5 [default = 0];
   bool has_rtmp_token() const;
   private:
   bool _internal_has_rtmp_token() const;
@@ -2081,7 +2081,7 @@ class CBroadcast_WatchBroadcast_Request PROTOBUF_FINAL :
     kWatchLocationFieldNumber = 6,
     kIsWebrtcFieldNumber = 7,
   };
-  // optional fixed64 steamid = 1 [(.description) = "broadcaster steamID."];
+  // optional fixed64 steamid = 1;
   bool has_steamid() const;
   private:
   bool _internal_has_steamid() const;
@@ -2094,7 +2094,7 @@ class CBroadcast_WatchBroadcast_Request PROTOBUF_FINAL :
   void _internal_set_steamid(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional fixed64 existing_broadcast_id = 2 [(.description) = "broadcast session ID (optional, rejoin if specified)."];
+  // optional fixed64 existing_broadcast_id = 2;
   bool has_existing_broadcast_id() const;
   private:
   bool _internal_has_existing_broadcast_id() const;
@@ -2107,7 +2107,7 @@ class CBroadcast_WatchBroadcast_Request PROTOBUF_FINAL :
   void _internal_set_existing_broadcast_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional fixed64 viewer_token = 3 [(.description) = "viewer token received from last WatchRequest call, from browser storage."];
+  // optional fixed64 viewer_token = 3;
   bool has_viewer_token() const;
   private:
   bool _internal_has_viewer_token() const;
@@ -2838,7 +2838,7 @@ class CBroadcast_HeartbeatBroadcast_Notification PROTOBUF_FINAL :
     kViewerTokenFieldNumber = 3,
     kRepresentationFieldNumber = 4,
   };
-  // optional fixed64 steamid = 1 [(.description) = "broadcaster steamID."];
+  // optional fixed64 steamid = 1;
   bool has_steamid() const;
   private:
   bool _internal_has_steamid() const;
@@ -2851,7 +2851,7 @@ class CBroadcast_HeartbeatBroadcast_Notification PROTOBUF_FINAL :
   void _internal_set_steamid(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional fixed64 broadcast_id = 2 [(.description) = "broadcast session ID."];
+  // optional fixed64 broadcast_id = 2;
   bool has_broadcast_id() const;
   private:
   bool _internal_has_broadcast_id() const;
@@ -2864,7 +2864,7 @@ class CBroadcast_HeartbeatBroadcast_Notification PROTOBUF_FINAL :
   void _internal_set_broadcast_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional fixed64 viewer_token = 3 [(.description) = "viewer token received from last WatchRequest call, from browser storage."];
+  // optional fixed64 viewer_token = 3;
   bool has_viewer_token() const;
   private:
   bool _internal_has_viewer_token() const;
@@ -2877,7 +2877,7 @@ class CBroadcast_HeartbeatBroadcast_Notification PROTOBUF_FINAL :
   void _internal_set_viewer_token(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional uint32 representation = 4 [(.description) = "video stream representation watching"];
+  // optional uint32 representation = 4;
   bool has_representation() const;
   private:
   bool _internal_has_representation() const;
@@ -3031,7 +3031,7 @@ class CBroadcast_StopWatchingBroadcast_Notification PROTOBUF_FINAL :
     kBroadcastIdFieldNumber = 2,
     kViewerTokenFieldNumber = 3,
   };
-  // optional fixed64 steamid = 1 [(.description) = "broadcaster steamID."];
+  // optional fixed64 steamid = 1;
   bool has_steamid() const;
   private:
   bool _internal_has_steamid() const;
@@ -3044,7 +3044,7 @@ class CBroadcast_StopWatchingBroadcast_Notification PROTOBUF_FINAL :
   void _internal_set_steamid(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional fixed64 broadcast_id = 2 [(.description) = "broadcast session ID."];
+  // optional fixed64 broadcast_id = 2;
   bool has_broadcast_id() const;
   private:
   bool _internal_has_broadcast_id() const;
@@ -3057,7 +3057,7 @@ class CBroadcast_StopWatchingBroadcast_Notification PROTOBUF_FINAL :
   void _internal_set_broadcast_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional fixed64 viewer_token = 3 [(.description) = "viewer token received from last WatchRequest call, from browser storage."];
+  // optional fixed64 viewer_token = 3;
   bool has_viewer_token() const;
   private:
   bool _internal_has_viewer_token() const;
@@ -3209,7 +3209,7 @@ class CBroadcast_GetBroadcastStatus_Request PROTOBUF_FINAL :
     kSteamidFieldNumber = 1,
     kBroadcastIdFieldNumber = 2,
   };
-  // optional fixed64 steamid = 1 [(.description) = "broadcaster steamID."];
+  // optional fixed64 steamid = 1;
   bool has_steamid() const;
   private:
   bool _internal_has_steamid() const;
@@ -3222,7 +3222,7 @@ class CBroadcast_GetBroadcastStatus_Request PROTOBUF_FINAL :
   void _internal_set_steamid(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional fixed64 broadcast_id = 2 [(.description) = "broadcast session ID to proof that user is allowed to see details."];
+  // optional fixed64 broadcast_id = 2;
   bool has_broadcast_id() const;
   private:
   bool _internal_has_broadcast_id() const;
@@ -5309,7 +5309,7 @@ class CBroadcast_PostChatMessage_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_message();
   public:
 
-  // optional string country_code = 5 [(.description) = "The two letter country code"];
+  // optional string country_code = 5;
   bool has_country_code() const;
   private:
   bool _internal_has_country_code() const;
@@ -5355,7 +5355,7 @@ class CBroadcast_PostChatMessage_Request PROTOBUF_FINAL :
   void _internal_set_instance_id(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 language = 4 [default = 0, (.description) = "ELanguage of the user posting the message, default is english"];
+  // optional uint32 language = 4 [default = 0];
   bool has_language() const;
   private:
   bool _internal_has_language() const;
@@ -7838,7 +7838,7 @@ class CBroadcast_SetClipDetails_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_video_description();
   public:
 
-  // optional uint64 broadcast_clip_id = 1 [(.description) = "Clip ID"];
+  // optional uint64 broadcast_clip_id = 1;
   bool has_broadcast_clip_id() const;
   private:
   bool _internal_has_broadcast_clip_id() const;
@@ -7851,7 +7851,7 @@ class CBroadcast_SetClipDetails_Request PROTOBUF_FINAL :
   void _internal_set_broadcast_clip_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional uint32 start_time = 2 [(.description) = "start time of the clip"];
+  // optional uint32 start_time = 2;
   bool has_start_time() const;
   private:
   bool _internal_has_start_time() const;
@@ -7864,7 +7864,7 @@ class CBroadcast_SetClipDetails_Request PROTOBUF_FINAL :
   void _internal_set_start_time(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 end_time = 3 [(.description) = "end time of the clip"];
+  // optional uint32 end_time = 3;
   bool has_end_time() const;
   private:
   bool _internal_has_end_time() const;
@@ -8147,7 +8147,7 @@ class CBroadcast_GetClipDetails_Request PROTOBUF_FINAL :
   enum : int {
     kBroadcastClipIdFieldNumber = 1,
   };
-  // optional uint64 broadcast_clip_id = 1 [(.description) = "List of clip IDs we want details for"];
+  // optional uint64 broadcast_clip_id = 1;
   bool has_broadcast_clip_id() const;
   private:
   bool _internal_has_broadcast_clip_id() const;
@@ -8305,7 +8305,7 @@ class CBroadcast_GetClipDetails_Response PROTOBUF_FINAL :
     kStartTimeFieldNumber = 8,
     kLengthMillisecondsFieldNumber = 9,
   };
-  // optional string video_description = 7 [(.description) = "Short name or description of this clip"];
+  // optional string video_description = 7;
   bool has_video_description() const;
   private:
   bool _internal_has_video_description() const;
@@ -8325,7 +8325,7 @@ class CBroadcast_GetClipDetails_Response PROTOBUF_FINAL :
   std::string* _internal_mutable_video_description();
   public:
 
-  // optional string thumbnail_path = 10 [(.description) = "Path for thumbnail URL"];
+  // optional string thumbnail_path = 10;
   bool has_thumbnail_path() const;
   private:
   bool _internal_has_thumbnail_path() const;
@@ -8345,7 +8345,7 @@ class CBroadcast_GetClipDetails_Response PROTOBUF_FINAL :
   std::string* _internal_mutable_thumbnail_path();
   public:
 
-  // optional uint64 broadcast_clip_id = 1 [(.description) = "broadcast clip ID"];
+  // optional uint64 broadcast_clip_id = 1;
   bool has_broadcast_clip_id() const;
   private:
   bool _internal_has_broadcast_clip_id() const;
@@ -8358,7 +8358,7 @@ class CBroadcast_GetClipDetails_Response PROTOBUF_FINAL :
   void _internal_set_broadcast_clip_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional uint64 video_id = 2 [(.description) = "matching unique video ID"];
+  // optional uint64 video_id = 2;
   bool has_video_id() const;
   private:
   bool _internal_has_video_id() const;
@@ -8371,7 +8371,7 @@ class CBroadcast_GetClipDetails_Response PROTOBUF_FINAL :
   void _internal_set_video_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional uint64 channel_id = 3 [(.description) = "Broadcast Channel ID"];
+  // optional uint64 channel_id = 3;
   bool has_channel_id() const;
   private:
   bool _internal_has_channel_id() const;
@@ -8384,7 +8384,7 @@ class CBroadcast_GetClipDetails_Response PROTOBUF_FINAL :
   void _internal_set_channel_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional uint32 app_id = 4 [(.description) = "App ID stream is tagged with"];
+  // optional uint32 app_id = 4;
   bool has_app_id() const;
   private:
   bool _internal_has_app_id() const;
@@ -8397,7 +8397,7 @@ class CBroadcast_GetClipDetails_Response PROTOBUF_FINAL :
   void _internal_set_app_id(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 accountid_broadcaster = 5 [(.description) = "Account ID of broadcaster"];
+  // optional uint32 accountid_broadcaster = 5;
   bool has_accountid_broadcaster() const;
   private:
   bool _internal_has_accountid_broadcaster() const;
@@ -8410,7 +8410,7 @@ class CBroadcast_GetClipDetails_Response PROTOBUF_FINAL :
   void _internal_set_accountid_broadcaster(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 accountid_clipmaker = 6 [(.description) = "Account ID of clip-maker"];
+  // optional uint32 accountid_clipmaker = 6;
   bool has_accountid_clipmaker() const;
   private:
   bool _internal_has_accountid_clipmaker() const;
@@ -8423,7 +8423,7 @@ class CBroadcast_GetClipDetails_Response PROTOBUF_FINAL :
   void _internal_set_accountid_clipmaker(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 start_time = 8 [(.description) = "Wall time clip was broadcasted live"];
+  // optional uint32 start_time = 8;
   bool has_start_time() const;
   private:
   bool _internal_has_start_time() const;
@@ -8436,7 +8436,7 @@ class CBroadcast_GetClipDetails_Response PROTOBUF_FINAL :
   void _internal_set_start_time(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 length_milliseconds = 9 [(.description) = "length of video in MS"];
+  // optional uint32 length_milliseconds = 9;
   bool has_length_milliseconds() const;
   private:
   bool _internal_has_length_milliseconds() const;
@@ -8677,7 +8677,7 @@ class CBroadcast_SetRTMPInfo_Request PROTOBUF_FINAL :
   void _internal_set_required_app_id(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional .EBroadcastChatPermission broadcast_chat_permission = 6 [default = EBroadcastChatPermissionPublic, (.description) = "Who is permitted to send a chat message during broadcast"];
+  // optional .EBroadcastChatPermission broadcast_chat_permission = 6 [default = EBroadcastChatPermissionPublic];
   bool has_broadcast_chat_permission() const;
   private:
   bool _internal_has_broadcast_chat_permission() const;
@@ -8690,7 +8690,7 @@ class CBroadcast_SetRTMPInfo_Request PROTOBUF_FINAL :
   void _internal_set_broadcast_chat_permission(::EBroadcastChatPermission value);
   public:
 
-  // optional int32 broadcast_buffer = 7 [(.description) = "Previous seconds we keep of the stream available"];
+  // optional int32 broadcast_buffer = 7;
   bool has_broadcast_buffer() const;
   private:
   bool _internal_has_broadcast_buffer() const;
@@ -8703,7 +8703,7 @@ class CBroadcast_SetRTMPInfo_Request PROTOBUF_FINAL :
   void _internal_set_broadcast_buffer(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
-  // optional fixed64 steamid = 8 [(.description) = "broadcaster steamID if not logged-in user"];
+  // optional fixed64 steamid = 8;
   bool has_steamid() const;
   private:
   bool _internal_has_steamid() const;
@@ -8729,7 +8729,7 @@ class CBroadcast_SetRTMPInfo_Request PROTOBUF_FINAL :
   void _internal_set_update_token(bool value);
   public:
 
-  // optional bool enable_replay = 10 [(.description) = "Enable replay of last upload"];
+  // optional bool enable_replay = 10;
   bool has_enable_replay() const;
   private:
   bool _internal_has_enable_replay() const;
@@ -8742,7 +8742,7 @@ class CBroadcast_SetRTMPInfo_Request PROTOBUF_FINAL :
   void _internal_set_enable_replay(bool value);
   public:
 
-  // optional bool is_partner_chat_only = 11 [(.description) = "When true, then only steamwork partner can create chat messages."];
+  // optional bool is_partner_chat_only = 11;
   bool has_is_partner_chat_only() const;
   private:
   bool _internal_has_is_partner_chat_only() const;
@@ -8755,7 +8755,7 @@ class CBroadcast_SetRTMPInfo_Request PROTOBUF_FINAL :
   void _internal_set_is_partner_chat_only(bool value);
   public:
 
-  // optional uint32 chat_rate_limit = 9 [(.description) = "Seconds required between chat messages"];
+  // optional uint32 chat_rate_limit = 9;
   bool has_chat_rate_limit() const;
   private:
   bool _internal_has_chat_rate_limit() const;
@@ -9047,7 +9047,7 @@ class CBroadcast_GetRTMPInfo_Request PROTOBUF_FINAL :
     kSteamidFieldNumber = 2,
     kIpFieldNumber = 1,
   };
-  // optional fixed64 steamid = 2 [(.description) = "broadcaster steamID if not logged-in user"];
+  // optional fixed64 steamid = 2;
   bool has_steamid() const;
   private:
   bool _internal_has_steamid() const;
@@ -9334,7 +9334,7 @@ class CBroadcast_GetRTMPInfo_Response PROTOBUF_FINAL :
   void _internal_set_required_app_id(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional .EBroadcastChatPermission broadcast_chat_permission = 7 [default = EBroadcastChatPermissionPublic, (.description) = "Who is permitted to send a chat message during broadcast"];
+  // optional .EBroadcastChatPermission broadcast_chat_permission = 7 [default = EBroadcastChatPermissionPublic];
   bool has_broadcast_chat_permission() const;
   private:
   bool _internal_has_broadcast_chat_permission() const;
@@ -9347,7 +9347,7 @@ class CBroadcast_GetRTMPInfo_Response PROTOBUF_FINAL :
   void _internal_set_broadcast_chat_permission(::EBroadcastChatPermission value);
   public:
 
-  // optional int32 broadcast_buffer = 8 [(.description) = "Seconds we keep streams available"];
+  // optional int32 broadcast_buffer = 8;
   bool has_broadcast_buffer() const;
   private:
   bool _internal_has_broadcast_buffer() const;
@@ -9360,7 +9360,7 @@ class CBroadcast_GetRTMPInfo_Response PROTOBUF_FINAL :
   void _internal_set_broadcast_buffer(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
-  // optional fixed64 steamid = 9 [(.description) = "broadcaster steamID"];
+  // optional fixed64 steamid = 9;
   bool has_steamid() const;
   private:
   bool _internal_has_steamid() const;
@@ -9373,7 +9373,7 @@ class CBroadcast_GetRTMPInfo_Response PROTOBUF_FINAL :
   void _internal_set_steamid(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional uint32 chat_rate_limit = 10 [(.description) = "Seconds required between chat messages"];
+  // optional uint32 chat_rate_limit = 10;
   bool has_chat_rate_limit() const;
   private:
   bool _internal_has_chat_rate_limit() const;
@@ -9386,7 +9386,7 @@ class CBroadcast_GetRTMPInfo_Response PROTOBUF_FINAL :
   void _internal_set_chat_rate_limit(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional bool enable_replay = 11 [(.description) = "Enable replay of last upload"];
+  // optional bool enable_replay = 11;
   bool has_enable_replay() const;
   private:
   bool _internal_has_enable_replay() const;
@@ -9399,7 +9399,7 @@ class CBroadcast_GetRTMPInfo_Response PROTOBUF_FINAL :
   void _internal_set_enable_replay(bool value);
   public:
 
-  // optional bool is_partner_chat_only = 12 [(.description) = "When true, then only steamwork partner can create chat messages."];
+  // optional bool is_partner_chat_only = 12;
   bool has_is_partner_chat_only() const;
   private:
   bool _internal_has_is_partner_chat_only() const;
@@ -12155,7 +12155,7 @@ class CBroadcast_GetBroadcastUploadStats_Request PROTOBUF_FINAL :
     kStartTimeFieldNumber = 2,
     kRowLimitFieldNumber = 1,
   };
-  // optional uint64 upload_id = 3 [(.description) = "Optional relay upload ID - not compatible with session_id"];
+  // optional uint64 upload_id = 3;
   bool has_upload_id() const;
   private:
   bool _internal_has_upload_id() const;
@@ -12168,7 +12168,7 @@ class CBroadcast_GetBroadcastUploadStats_Request PROTOBUF_FINAL :
   void _internal_set_upload_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional fixed64 steamid = 4 [(.description) = "Optional the steamid whose stats you want, otherwise the user logged in - admin only"];
+  // optional fixed64 steamid = 4;
   bool has_steamid() const;
   private:
   bool _internal_has_steamid() const;
@@ -12181,7 +12181,7 @@ class CBroadcast_GetBroadcastUploadStats_Request PROTOBUF_FINAL :
   void _internal_set_steamid(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional uint64 session_id = 5 [(.description) = "Optional broadcast session ID - not compatiable with upload_id"];
+  // optional uint64 session_id = 5;
   bool has_session_id() const;
   private:
   bool _internal_has_session_id() const;
@@ -12194,7 +12194,7 @@ class CBroadcast_GetBroadcastUploadStats_Request PROTOBUF_FINAL :
   void _internal_set_session_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional uint32 start_time = 2 [default = 0, (.description) = "Start time"];
+  // optional uint32 start_time = 2 [default = 0];
   bool has_start_time() const;
   private:
   bool _internal_has_start_time() const;
@@ -12207,7 +12207,7 @@ class CBroadcast_GetBroadcastUploadStats_Request PROTOBUF_FINAL :
   void _internal_set_start_time(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 row_limit = 1 [default = 100, (.description) = "How many at maximum to return."];
+  // optional uint32 row_limit = 1 [default = 100];
   bool has_row_limit() const;
   private:
   bool _internal_has_row_limit() const;
@@ -12379,7 +12379,7 @@ class CBroadcast_GetBroadcastUploadStats_Response_UploadStats PROTOBUF_FINAL :
     kSessionIdFieldNumber = 20,
     kIsReplayFieldNumber = 19,
   };
-  // optional string local_address = 14 [(.description) = "upload to server address"];
+  // optional string local_address = 14;
   bool has_local_address() const;
   private:
   bool _internal_has_local_address() const;
@@ -12399,7 +12399,7 @@ class CBroadcast_GetBroadcastUploadStats_Response_UploadStats PROTOBUF_FINAL :
   std::string* _internal_mutable_local_address();
   public:
 
-  // optional string remote_address = 15 [(.description) = "upload from client address"];
+  // optional string remote_address = 15;
   bool has_remote_address() const;
   private:
   bool _internal_has_remote_address() const;
@@ -12419,7 +12419,7 @@ class CBroadcast_GetBroadcastUploadStats_Response_UploadStats PROTOBUF_FINAL :
   std::string* _internal_mutable_remote_address();
   public:
 
-  // optional string app_name = 18 [(.description) = "game name"];
+  // optional string app_name = 18;
   bool has_app_name() const;
   private:
   bool _internal_has_app_name() const;
@@ -12439,7 +12439,7 @@ class CBroadcast_GetBroadcastUploadStats_Response_UploadStats PROTOBUF_FINAL :
   std::string* _internal_mutable_app_name();
   public:
 
-  // optional uint32 upload_result = 1 [(.description) = ""];
+  // optional uint32 upload_result = 1;
   bool has_upload_result() const;
   private:
   bool _internal_has_upload_result() const;
@@ -12452,7 +12452,7 @@ class CBroadcast_GetBroadcastUploadStats_Response_UploadStats PROTOBUF_FINAL :
   void _internal_set_upload_result(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 time_stopped = 2 [(.description) = "time broadcast upload stopped"];
+  // optional uint32 time_stopped = 2;
   bool has_time_stopped() const;
   private:
   bool _internal_has_time_stopped() const;
@@ -12465,7 +12465,7 @@ class CBroadcast_GetBroadcastUploadStats_Response_UploadStats PROTOBUF_FINAL :
   void _internal_set_time_stopped(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 seconds_uploaded = 3 [(.description) = "seconds of vido uploaded"];
+  // optional uint32 seconds_uploaded = 3;
   bool has_seconds_uploaded() const;
   private:
   bool _internal_has_seconds_uploaded() const;
@@ -12478,7 +12478,7 @@ class CBroadcast_GetBroadcastUploadStats_Response_UploadStats PROTOBUF_FINAL :
   void _internal_set_seconds_uploaded(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 max_viewers = 4 [(.description) = "max concurrent viewers"];
+  // optional uint32 max_viewers = 4;
   bool has_max_viewers() const;
   private:
   bool _internal_has_max_viewers() const;
@@ -12491,7 +12491,7 @@ class CBroadcast_GetBroadcastUploadStats_Response_UploadStats PROTOBUF_FINAL :
   void _internal_set_max_viewers(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 resolution_x = 5 [(.description) = "horizontal resultion"];
+  // optional uint32 resolution_x = 5;
   bool has_resolution_x() const;
   private:
   bool _internal_has_resolution_x() const;
@@ -12504,7 +12504,7 @@ class CBroadcast_GetBroadcastUploadStats_Response_UploadStats PROTOBUF_FINAL :
   void _internal_set_resolution_x(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 resolution_y = 6 [(.description) = "vertical resultion"];
+  // optional uint32 resolution_y = 6;
   bool has_resolution_y() const;
   private:
   bool _internal_has_resolution_y() const;
@@ -12517,7 +12517,7 @@ class CBroadcast_GetBroadcastUploadStats_Response_UploadStats PROTOBUF_FINAL :
   void _internal_set_resolution_y(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint64 total_bytes = 8 [(.description) = "total byte uploaded by broadcaster"];
+  // optional uint64 total_bytes = 8;
   bool has_total_bytes() const;
   private:
   bool _internal_has_total_bytes() const;
@@ -12530,7 +12530,7 @@ class CBroadcast_GetBroadcastUploadStats_Response_UploadStats PROTOBUF_FINAL :
   void _internal_set_total_bytes(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional uint32 avg_bandwidth = 7 [(.description) = ""];
+  // optional uint32 avg_bandwidth = 7;
   bool has_avg_bandwidth() const;
   private:
   bool _internal_has_avg_bandwidth() const;
@@ -12543,7 +12543,7 @@ class CBroadcast_GetBroadcastUploadStats_Response_UploadStats PROTOBUF_FINAL :
   void _internal_set_avg_bandwidth(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 app_id = 9 [(.description) = "game broadcasted"];
+  // optional uint32 app_id = 9;
   bool has_app_id() const;
   private:
   bool _internal_has_app_id() const;
@@ -12556,7 +12556,7 @@ class CBroadcast_GetBroadcastUploadStats_Response_UploadStats PROTOBUF_FINAL :
   void _internal_set_app_id(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint64 total_seconds_watched = 11 [(.description) = "total number of seconds watched by all viewers"];
+  // optional uint64 total_seconds_watched = 11;
   bool has_total_seconds_watched() const;
   private:
   bool _internal_has_total_seconds_watched() const;
@@ -12569,7 +12569,7 @@ class CBroadcast_GetBroadcastUploadStats_Response_UploadStats PROTOBUF_FINAL :
   void _internal_set_total_seconds_watched(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional uint32 total_unique_viewers = 10 [(.description) = "total unique viewers seen"];
+  // optional uint32 total_unique_viewers = 10;
   bool has_total_unique_viewers() const;
   private:
   bool _internal_has_total_unique_viewers() const;
@@ -12582,7 +12582,7 @@ class CBroadcast_GetBroadcastUploadStats_Response_UploadStats PROTOBUF_FINAL :
   void _internal_set_total_unique_viewers(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 time_started = 12 [(.description) = "time broadcast upload started"];
+  // optional uint32 time_started = 12;
   bool has_time_started() const;
   private:
   bool _internal_has_time_started() const;
@@ -12595,7 +12595,7 @@ class CBroadcast_GetBroadcastUploadStats_Response_UploadStats PROTOBUF_FINAL :
   void _internal_set_time_started(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint64 upload_id = 13 [(.description) = "broadcast relay upload id"];
+  // optional uint64 upload_id = 13;
   bool has_upload_id() const;
   private:
   bool _internal_has_upload_id() const;
@@ -12608,7 +12608,7 @@ class CBroadcast_GetBroadcastUploadStats_Response_UploadStats PROTOBUF_FINAL :
   void _internal_set_upload_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional uint32 frames_per_second = 16 [(.description) = "frames per second"];
+  // optional uint32 frames_per_second = 16;
   bool has_frames_per_second() const;
   private:
   bool _internal_has_frames_per_second() const;
@@ -12621,7 +12621,7 @@ class CBroadcast_GetBroadcastUploadStats_Response_UploadStats PROTOBUF_FINAL :
   void _internal_set_frames_per_second(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 num_representations = 17 [(.description) = "number of video represetations"];
+  // optional uint32 num_representations = 17;
   bool has_num_representations() const;
   private:
   bool _internal_has_num_representations() const;
@@ -12634,7 +12634,7 @@ class CBroadcast_GetBroadcastUploadStats_Response_UploadStats PROTOBUF_FINAL :
   void _internal_set_num_representations(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint64 session_id = 20 [(.description) = "broadcast session id"];
+  // optional uint64 session_id = 20;
   bool has_session_id() const;
   private:
   bool _internal_has_session_id() const;
@@ -12647,7 +12647,7 @@ class CBroadcast_GetBroadcastUploadStats_Response_UploadStats PROTOBUF_FINAL :
   void _internal_set_session_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional bool is_replay = 19 [(.description) = "replay of previous recording"];
+  // optional bool is_replay = 19;
   bool has_is_replay() const;
   private:
   bool _internal_has_is_replay() const;
@@ -12971,7 +12971,7 @@ class CBroadcast_GetBroadcastViewerStats_Request PROTOBUF_FINAL :
     kUploadIdFieldNumber = 1,
     kSteamidFieldNumber = 2,
   };
-  // optional uint64 upload_id = 1 [(.description) = "Get stats for this stream"];
+  // optional uint64 upload_id = 1;
   bool has_upload_id() const;
   private:
   bool _internal_has_upload_id() const;
@@ -12984,7 +12984,7 @@ class CBroadcast_GetBroadcastViewerStats_Request PROTOBUF_FINAL :
   void _internal_set_upload_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional fixed64 steamid = 2 [(.description) = "Optional: The steamid of the broadcast whose details you are requesting."];
+  // optional fixed64 steamid = 2;
   bool has_steamid() const;
   private:
   bool _internal_has_steamid() const;
@@ -13135,7 +13135,7 @@ class CBroadcast_GetBroadcastViewerStats_Response_ViewerStats PROTOBUF_FINAL :
     kTimeFieldNumber = 1,
     kNumViewersFieldNumber = 2,
   };
-  // optional uint32 time = 1 [(.description) = "time of record"];
+  // optional uint32 time = 1;
   bool has_time() const;
   private:
   bool _internal_has_time() const;
@@ -13148,7 +13148,7 @@ class CBroadcast_GetBroadcastViewerStats_Response_ViewerStats PROTOBUF_FINAL :
   void _internal_set_time(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 num_viewers = 2 [(.description) = "current number of viewers"];
+  // optional uint32 num_viewers = 2;
   bool has_num_viewers() const;
   private:
   bool _internal_has_num_viewers() const;
@@ -13299,7 +13299,7 @@ class CBroadcast_GetBroadcastViewerStats_Response_CountryStats PROTOBUF_FINAL :
     kCountryCodeFieldNumber = 1,
     kNumViewersFieldNumber = 2,
   };
-  // optional string country_code = 1 [(.description) = "country code"];
+  // optional string country_code = 1;
   bool has_country_code() const;
   private:
   bool _internal_has_country_code() const;
@@ -13319,7 +13319,7 @@ class CBroadcast_GetBroadcastViewerStats_Response_CountryStats PROTOBUF_FINAL :
   std::string* _internal_mutable_country_code();
   public:
 
-  // optional uint32 num_viewers = 2 [(.description) = "number of viewers"];
+  // optional uint32 num_viewers = 2;
   bool has_num_viewers() const;
   private:
   bool _internal_has_num_viewers() const;
@@ -14082,7 +14082,7 @@ class CBroadcast_BroadcastUploadStarted_Notification PROTOBUF_FINAL :
   void _internal_set_broadcast_upload_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional uint32 heartbeat_interval_seconds = 6 [(.description) = "how many seconds between session heartbeats"];
+  // optional uint32 heartbeat_interval_seconds = 6;
   bool has_heartbeat_interval_seconds() const;
   private:
   bool _internal_has_heartbeat_interval_seconds() const;
@@ -16802,7 +16802,7 @@ inline void CBroadcast_BeginBroadcastSession_Response::set_broadcast_id(::PROTOB
   // @@protoc_insertion_point(field_set:CBroadcast_BeginBroadcastSession_Response.broadcast_id)
 }
 
-// optional string thumbnail_upload_address = 2 [(.description) = "Http address to upload the thumbnail data."];
+// optional string thumbnail_upload_address = 2;
 inline bool CBroadcast_BeginBroadcastSession_Response::_internal_has_thumbnail_upload_address() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -16875,7 +16875,7 @@ inline void CBroadcast_BeginBroadcastSession_Response::set_allocated_thumbnail_u
   // @@protoc_insertion_point(field_set_allocated:CBroadcast_BeginBroadcastSession_Response.thumbnail_upload_address)
 }
 
-// optional string thumbnail_upload_token = 3 [(.description) = "token to authorize as broadcaster to upload content to the relay."];
+// optional string thumbnail_upload_token = 3;
 inline bool CBroadcast_BeginBroadcastSession_Response::_internal_has_thumbnail_upload_token() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -16948,7 +16948,7 @@ inline void CBroadcast_BeginBroadcastSession_Response::set_allocated_thumbnail_u
   // @@protoc_insertion_point(field_set_allocated:CBroadcast_BeginBroadcastSession_Response.thumbnail_upload_token)
 }
 
-// optional uint32 thumbnail_interval_seconds = 4 [(.description) = "how many seconds between thumbnails"];
+// optional uint32 thumbnail_interval_seconds = 4;
 inline bool CBroadcast_BeginBroadcastSession_Response::_internal_has_thumbnail_interval_seconds() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -16976,7 +16976,7 @@ inline void CBroadcast_BeginBroadcastSession_Response::set_thumbnail_interval_se
   // @@protoc_insertion_point(field_set:CBroadcast_BeginBroadcastSession_Response.thumbnail_interval_seconds)
 }
 
-// optional uint32 heartbeat_interval_seconds = 5 [(.description) = "how many seconds between session heartbeats"];
+// optional uint32 heartbeat_interval_seconds = 5;
 inline bool CBroadcast_BeginBroadcastSession_Response::_internal_has_heartbeat_interval_seconds() const {
   bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
@@ -17156,7 +17156,7 @@ inline void CBroadcast_StartBroadcastUpload_Request::set_delay_seconds(::PROTOBU
   // @@protoc_insertion_point(field_set:CBroadcast_StartBroadcastUpload_Request.delay_seconds)
 }
 
-// optional uint64 rtmp_token = 5 [default = 0, (.description) = "Only set during RTMP uploads; secret key from the user."];
+// optional uint64 rtmp_token = 5 [default = 0];
 inline bool CBroadcast_StartBroadcastUpload_Request::_internal_has_rtmp_token() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -17611,7 +17611,7 @@ inline void CBroadcast_NotifyBroadcastUploadStop_Notification::set_upload_result
 
 // CBroadcast_WatchBroadcast_Request
 
-// optional fixed64 steamid = 1 [(.description) = "broadcaster steamID."];
+// optional fixed64 steamid = 1;
 inline bool CBroadcast_WatchBroadcast_Request::_internal_has_steamid() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -17639,7 +17639,7 @@ inline void CBroadcast_WatchBroadcast_Request::set_steamid(::PROTOBUF_NAMESPACE_
   // @@protoc_insertion_point(field_set:CBroadcast_WatchBroadcast_Request.steamid)
 }
 
-// optional fixed64 existing_broadcast_id = 2 [(.description) = "broadcast session ID (optional, rejoin if specified)."];
+// optional fixed64 existing_broadcast_id = 2;
 inline bool CBroadcast_WatchBroadcast_Request::_internal_has_existing_broadcast_id() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -17667,7 +17667,7 @@ inline void CBroadcast_WatchBroadcast_Request::set_existing_broadcast_id(::PROTO
   // @@protoc_insertion_point(field_set:CBroadcast_WatchBroadcast_Request.existing_broadcast_id)
 }
 
-// optional fixed64 viewer_token = 3 [(.description) = "viewer token received from last WatchRequest call, from browser storage."];
+// optional fixed64 viewer_token = 3;
 inline bool CBroadcast_WatchBroadcast_Request::_internal_has_viewer_token() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -18664,7 +18664,7 @@ inline void CBroadcast_WatchBroadcast_Response::set_allocated_cdn_auth_url_param
 
 // CBroadcast_HeartbeatBroadcast_Notification
 
-// optional fixed64 steamid = 1 [(.description) = "broadcaster steamID."];
+// optional fixed64 steamid = 1;
 inline bool CBroadcast_HeartbeatBroadcast_Notification::_internal_has_steamid() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -18692,7 +18692,7 @@ inline void CBroadcast_HeartbeatBroadcast_Notification::set_steamid(::PROTOBUF_N
   // @@protoc_insertion_point(field_set:CBroadcast_HeartbeatBroadcast_Notification.steamid)
 }
 
-// optional fixed64 broadcast_id = 2 [(.description) = "broadcast session ID."];
+// optional fixed64 broadcast_id = 2;
 inline bool CBroadcast_HeartbeatBroadcast_Notification::_internal_has_broadcast_id() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -18720,7 +18720,7 @@ inline void CBroadcast_HeartbeatBroadcast_Notification::set_broadcast_id(::PROTO
   // @@protoc_insertion_point(field_set:CBroadcast_HeartbeatBroadcast_Notification.broadcast_id)
 }
 
-// optional fixed64 viewer_token = 3 [(.description) = "viewer token received from last WatchRequest call, from browser storage."];
+// optional fixed64 viewer_token = 3;
 inline bool CBroadcast_HeartbeatBroadcast_Notification::_internal_has_viewer_token() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -18748,7 +18748,7 @@ inline void CBroadcast_HeartbeatBroadcast_Notification::set_viewer_token(::PROTO
   // @@protoc_insertion_point(field_set:CBroadcast_HeartbeatBroadcast_Notification.viewer_token)
 }
 
-// optional uint32 representation = 4 [(.description) = "video stream representation watching"];
+// optional uint32 representation = 4;
 inline bool CBroadcast_HeartbeatBroadcast_Notification::_internal_has_representation() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -18780,7 +18780,7 @@ inline void CBroadcast_HeartbeatBroadcast_Notification::set_representation(::PRO
 
 // CBroadcast_StopWatchingBroadcast_Notification
 
-// optional fixed64 steamid = 1 [(.description) = "broadcaster steamID."];
+// optional fixed64 steamid = 1;
 inline bool CBroadcast_StopWatchingBroadcast_Notification::_internal_has_steamid() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -18808,7 +18808,7 @@ inline void CBroadcast_StopWatchingBroadcast_Notification::set_steamid(::PROTOBU
   // @@protoc_insertion_point(field_set:CBroadcast_StopWatchingBroadcast_Notification.steamid)
 }
 
-// optional fixed64 broadcast_id = 2 [(.description) = "broadcast session ID."];
+// optional fixed64 broadcast_id = 2;
 inline bool CBroadcast_StopWatchingBroadcast_Notification::_internal_has_broadcast_id() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -18836,7 +18836,7 @@ inline void CBroadcast_StopWatchingBroadcast_Notification::set_broadcast_id(::PR
   // @@protoc_insertion_point(field_set:CBroadcast_StopWatchingBroadcast_Notification.broadcast_id)
 }
 
-// optional fixed64 viewer_token = 3 [(.description) = "viewer token received from last WatchRequest call, from browser storage."];
+// optional fixed64 viewer_token = 3;
 inline bool CBroadcast_StopWatchingBroadcast_Notification::_internal_has_viewer_token() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -18868,7 +18868,7 @@ inline void CBroadcast_StopWatchingBroadcast_Notification::set_viewer_token(::PR
 
 // CBroadcast_GetBroadcastStatus_Request
 
-// optional fixed64 steamid = 1 [(.description) = "broadcaster steamID."];
+// optional fixed64 steamid = 1;
 inline bool CBroadcast_GetBroadcastStatus_Request::_internal_has_steamid() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -18896,7 +18896,7 @@ inline void CBroadcast_GetBroadcastStatus_Request::set_steamid(::PROTOBUF_NAMESP
   // @@protoc_insertion_point(field_set:CBroadcast_GetBroadcastStatus_Request.steamid)
 }
 
-// optional fixed64 broadcast_id = 2 [(.description) = "broadcast session ID to proof that user is allowed to see details."];
+// optional fixed64 broadcast_id = 2;
 inline bool CBroadcast_GetBroadcastStatus_Request::_internal_has_broadcast_id() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -20366,7 +20366,7 @@ inline void CBroadcast_PostChatMessage_Request::set_instance_id(::PROTOBUF_NAMES
   // @@protoc_insertion_point(field_set:CBroadcast_PostChatMessage_Request.instance_id)
 }
 
-// optional uint32 language = 4 [default = 0, (.description) = "ELanguage of the user posting the message, default is english"];
+// optional uint32 language = 4 [default = 0];
 inline bool CBroadcast_PostChatMessage_Request::_internal_has_language() const {
   bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
@@ -20394,7 +20394,7 @@ inline void CBroadcast_PostChatMessage_Request::set_language(::PROTOBUF_NAMESPAC
   // @@protoc_insertion_point(field_set:CBroadcast_PostChatMessage_Request.language)
 }
 
-// optional string country_code = 5 [(.description) = "The two letter country code"];
+// optional string country_code = 5;
 inline bool CBroadcast_PostChatMessage_Request::_internal_has_country_code() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -21510,7 +21510,7 @@ inline void CBroadcast_GetBuildClipStatus_Request::set_broadcast_clip_id(::PROTO
 
 // CBroadcast_SetClipDetails_Request
 
-// optional uint64 broadcast_clip_id = 1 [(.description) = "Clip ID"];
+// optional uint64 broadcast_clip_id = 1;
 inline bool CBroadcast_SetClipDetails_Request::_internal_has_broadcast_clip_id() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -21538,7 +21538,7 @@ inline void CBroadcast_SetClipDetails_Request::set_broadcast_clip_id(::PROTOBUF_
   // @@protoc_insertion_point(field_set:CBroadcast_SetClipDetails_Request.broadcast_clip_id)
 }
 
-// optional uint32 start_time = 2 [(.description) = "start time of the clip"];
+// optional uint32 start_time = 2;
 inline bool CBroadcast_SetClipDetails_Request::_internal_has_start_time() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -21566,7 +21566,7 @@ inline void CBroadcast_SetClipDetails_Request::set_start_time(::PROTOBUF_NAMESPA
   // @@protoc_insertion_point(field_set:CBroadcast_SetClipDetails_Request.start_time)
 }
 
-// optional uint32 end_time = 3 [(.description) = "end time of the clip"];
+// optional uint32 end_time = 3;
 inline bool CBroadcast_SetClipDetails_Request::_internal_has_end_time() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -21675,7 +21675,7 @@ inline void CBroadcast_SetClipDetails_Request::set_allocated_video_description(s
 
 // CBroadcast_GetClipDetails_Request
 
-// optional uint64 broadcast_clip_id = 1 [(.description) = "List of clip IDs we want details for"];
+// optional uint64 broadcast_clip_id = 1;
 inline bool CBroadcast_GetClipDetails_Request::_internal_has_broadcast_clip_id() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -21707,7 +21707,7 @@ inline void CBroadcast_GetClipDetails_Request::set_broadcast_clip_id(::PROTOBUF_
 
 // CBroadcast_GetClipDetails_Response
 
-// optional uint64 broadcast_clip_id = 1 [(.description) = "broadcast clip ID"];
+// optional uint64 broadcast_clip_id = 1;
 inline bool CBroadcast_GetClipDetails_Response::_internal_has_broadcast_clip_id() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -21735,7 +21735,7 @@ inline void CBroadcast_GetClipDetails_Response::set_broadcast_clip_id(::PROTOBUF
   // @@protoc_insertion_point(field_set:CBroadcast_GetClipDetails_Response.broadcast_clip_id)
 }
 
-// optional uint64 video_id = 2 [(.description) = "matching unique video ID"];
+// optional uint64 video_id = 2;
 inline bool CBroadcast_GetClipDetails_Response::_internal_has_video_id() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -21763,7 +21763,7 @@ inline void CBroadcast_GetClipDetails_Response::set_video_id(::PROTOBUF_NAMESPAC
   // @@protoc_insertion_point(field_set:CBroadcast_GetClipDetails_Response.video_id)
 }
 
-// optional uint64 channel_id = 3 [(.description) = "Broadcast Channel ID"];
+// optional uint64 channel_id = 3;
 inline bool CBroadcast_GetClipDetails_Response::_internal_has_channel_id() const {
   bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
@@ -21791,7 +21791,7 @@ inline void CBroadcast_GetClipDetails_Response::set_channel_id(::PROTOBUF_NAMESP
   // @@protoc_insertion_point(field_set:CBroadcast_GetClipDetails_Response.channel_id)
 }
 
-// optional uint32 app_id = 4 [(.description) = "App ID stream is tagged with"];
+// optional uint32 app_id = 4;
 inline bool CBroadcast_GetClipDetails_Response::_internal_has_app_id() const {
   bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
@@ -21819,7 +21819,7 @@ inline void CBroadcast_GetClipDetails_Response::set_app_id(::PROTOBUF_NAMESPACE_
   // @@protoc_insertion_point(field_set:CBroadcast_GetClipDetails_Response.app_id)
 }
 
-// optional uint32 accountid_broadcaster = 5 [(.description) = "Account ID of broadcaster"];
+// optional uint32 accountid_broadcaster = 5;
 inline bool CBroadcast_GetClipDetails_Response::_internal_has_accountid_broadcaster() const {
   bool value = (_has_bits_[0] & 0x00000040u) != 0;
   return value;
@@ -21847,7 +21847,7 @@ inline void CBroadcast_GetClipDetails_Response::set_accountid_broadcaster(::PROT
   // @@protoc_insertion_point(field_set:CBroadcast_GetClipDetails_Response.accountid_broadcaster)
 }
 
-// optional uint32 accountid_clipmaker = 6 [(.description) = "Account ID of clip-maker"];
+// optional uint32 accountid_clipmaker = 6;
 inline bool CBroadcast_GetClipDetails_Response::_internal_has_accountid_clipmaker() const {
   bool value = (_has_bits_[0] & 0x00000080u) != 0;
   return value;
@@ -21875,7 +21875,7 @@ inline void CBroadcast_GetClipDetails_Response::set_accountid_clipmaker(::PROTOB
   // @@protoc_insertion_point(field_set:CBroadcast_GetClipDetails_Response.accountid_clipmaker)
 }
 
-// optional string video_description = 7 [(.description) = "Short name or description of this clip"];
+// optional string video_description = 7;
 inline bool CBroadcast_GetClipDetails_Response::_internal_has_video_description() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -21948,7 +21948,7 @@ inline void CBroadcast_GetClipDetails_Response::set_allocated_video_description(
   // @@protoc_insertion_point(field_set_allocated:CBroadcast_GetClipDetails_Response.video_description)
 }
 
-// optional uint32 start_time = 8 [(.description) = "Wall time clip was broadcasted live"];
+// optional uint32 start_time = 8;
 inline bool CBroadcast_GetClipDetails_Response::_internal_has_start_time() const {
   bool value = (_has_bits_[0] & 0x00000100u) != 0;
   return value;
@@ -21976,7 +21976,7 @@ inline void CBroadcast_GetClipDetails_Response::set_start_time(::PROTOBUF_NAMESP
   // @@protoc_insertion_point(field_set:CBroadcast_GetClipDetails_Response.start_time)
 }
 
-// optional uint32 length_milliseconds = 9 [(.description) = "length of video in MS"];
+// optional uint32 length_milliseconds = 9;
 inline bool CBroadcast_GetClipDetails_Response::_internal_has_length_milliseconds() const {
   bool value = (_has_bits_[0] & 0x00000200u) != 0;
   return value;
@@ -22004,7 +22004,7 @@ inline void CBroadcast_GetClipDetails_Response::set_length_milliseconds(::PROTOB
   // @@protoc_insertion_point(field_set:CBroadcast_GetClipDetails_Response.length_milliseconds)
 }
 
-// optional string thumbnail_path = 10 [(.description) = "Path for thumbnail URL"];
+// optional string thumbnail_path = 10;
 inline bool CBroadcast_GetClipDetails_Response::_internal_has_thumbnail_path() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -22221,7 +22221,7 @@ inline void CBroadcast_SetRTMPInfo_Request::set_required_app_id(::PROTOBUF_NAMES
   // @@protoc_insertion_point(field_set:CBroadcast_SetRTMPInfo_Request.required_app_id)
 }
 
-// optional .EBroadcastChatPermission broadcast_chat_permission = 6 [default = EBroadcastChatPermissionPublic, (.description) = "Who is permitted to send a chat message during broadcast"];
+// optional .EBroadcastChatPermission broadcast_chat_permission = 6 [default = EBroadcastChatPermissionPublic];
 inline bool CBroadcast_SetRTMPInfo_Request::_internal_has_broadcast_chat_permission() const {
   bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
@@ -22250,7 +22250,7 @@ inline void CBroadcast_SetRTMPInfo_Request::set_broadcast_chat_permission(::EBro
   // @@protoc_insertion_point(field_set:CBroadcast_SetRTMPInfo_Request.broadcast_chat_permission)
 }
 
-// optional int32 broadcast_buffer = 7 [(.description) = "Previous seconds we keep of the stream available"];
+// optional int32 broadcast_buffer = 7;
 inline bool CBroadcast_SetRTMPInfo_Request::_internal_has_broadcast_buffer() const {
   bool value = (_has_bits_[0] & 0x00000040u) != 0;
   return value;
@@ -22278,7 +22278,7 @@ inline void CBroadcast_SetRTMPInfo_Request::set_broadcast_buffer(::PROTOBUF_NAME
   // @@protoc_insertion_point(field_set:CBroadcast_SetRTMPInfo_Request.broadcast_buffer)
 }
 
-// optional fixed64 steamid = 8 [(.description) = "broadcaster steamID if not logged-in user"];
+// optional fixed64 steamid = 8;
 inline bool CBroadcast_SetRTMPInfo_Request::_internal_has_steamid() const {
   bool value = (_has_bits_[0] & 0x00000080u) != 0;
   return value;
@@ -22306,7 +22306,7 @@ inline void CBroadcast_SetRTMPInfo_Request::set_steamid(::PROTOBUF_NAMESPACE_ID:
   // @@protoc_insertion_point(field_set:CBroadcast_SetRTMPInfo_Request.steamid)
 }
 
-// optional uint32 chat_rate_limit = 9 [(.description) = "Seconds required between chat messages"];
+// optional uint32 chat_rate_limit = 9;
 inline bool CBroadcast_SetRTMPInfo_Request::_internal_has_chat_rate_limit() const {
   bool value = (_has_bits_[0] & 0x00000800u) != 0;
   return value;
@@ -22334,7 +22334,7 @@ inline void CBroadcast_SetRTMPInfo_Request::set_chat_rate_limit(::PROTOBUF_NAMES
   // @@protoc_insertion_point(field_set:CBroadcast_SetRTMPInfo_Request.chat_rate_limit)
 }
 
-// optional bool enable_replay = 10 [(.description) = "Enable replay of last upload"];
+// optional bool enable_replay = 10;
 inline bool CBroadcast_SetRTMPInfo_Request::_internal_has_enable_replay() const {
   bool value = (_has_bits_[0] & 0x00000200u) != 0;
   return value;
@@ -22362,7 +22362,7 @@ inline void CBroadcast_SetRTMPInfo_Request::set_enable_replay(bool value) {
   // @@protoc_insertion_point(field_set:CBroadcast_SetRTMPInfo_Request.enable_replay)
 }
 
-// optional bool is_partner_chat_only = 11 [(.description) = "When true, then only steamwork partner can create chat messages."];
+// optional bool is_partner_chat_only = 11;
 inline bool CBroadcast_SetRTMPInfo_Request::_internal_has_is_partner_chat_only() const {
   bool value = (_has_bits_[0] & 0x00000400u) != 0;
   return value;
@@ -22499,7 +22499,7 @@ inline void CBroadcast_GetRTMPInfo_Request::set_ip(::PROTOBUF_NAMESPACE_ID::uint
   // @@protoc_insertion_point(field_set:CBroadcast_GetRTMPInfo_Request.ip)
 }
 
-// optional fixed64 steamid = 2 [(.description) = "broadcaster steamID if not logged-in user"];
+// optional fixed64 steamid = 2;
 inline bool CBroadcast_GetRTMPInfo_Request::_internal_has_steamid() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -22789,7 +22789,7 @@ inline void CBroadcast_GetRTMPInfo_Response::set_required_app_id(::PROTOBUF_NAME
   // @@protoc_insertion_point(field_set:CBroadcast_GetRTMPInfo_Response.required_app_id)
 }
 
-// optional .EBroadcastChatPermission broadcast_chat_permission = 7 [default = EBroadcastChatPermissionPublic, (.description) = "Who is permitted to send a chat message during broadcast"];
+// optional .EBroadcastChatPermission broadcast_chat_permission = 7 [default = EBroadcastChatPermissionPublic];
 inline bool CBroadcast_GetRTMPInfo_Response::_internal_has_broadcast_chat_permission() const {
   bool value = (_has_bits_[0] & 0x00000080u) != 0;
   return value;
@@ -22818,7 +22818,7 @@ inline void CBroadcast_GetRTMPInfo_Response::set_broadcast_chat_permission(::EBr
   // @@protoc_insertion_point(field_set:CBroadcast_GetRTMPInfo_Response.broadcast_chat_permission)
 }
 
-// optional int32 broadcast_buffer = 8 [(.description) = "Seconds we keep streams available"];
+// optional int32 broadcast_buffer = 8;
 inline bool CBroadcast_GetRTMPInfo_Response::_internal_has_broadcast_buffer() const {
   bool value = (_has_bits_[0] & 0x00000100u) != 0;
   return value;
@@ -22846,7 +22846,7 @@ inline void CBroadcast_GetRTMPInfo_Response::set_broadcast_buffer(::PROTOBUF_NAM
   // @@protoc_insertion_point(field_set:CBroadcast_GetRTMPInfo_Response.broadcast_buffer)
 }
 
-// optional fixed64 steamid = 9 [(.description) = "broadcaster steamID"];
+// optional fixed64 steamid = 9;
 inline bool CBroadcast_GetRTMPInfo_Response::_internal_has_steamid() const {
   bool value = (_has_bits_[0] & 0x00000200u) != 0;
   return value;
@@ -22874,7 +22874,7 @@ inline void CBroadcast_GetRTMPInfo_Response::set_steamid(::PROTOBUF_NAMESPACE_ID
   // @@protoc_insertion_point(field_set:CBroadcast_GetRTMPInfo_Response.steamid)
 }
 
-// optional uint32 chat_rate_limit = 10 [(.description) = "Seconds required between chat messages"];
+// optional uint32 chat_rate_limit = 10;
 inline bool CBroadcast_GetRTMPInfo_Response::_internal_has_chat_rate_limit() const {
   bool value = (_has_bits_[0] & 0x00000400u) != 0;
   return value;
@@ -22902,7 +22902,7 @@ inline void CBroadcast_GetRTMPInfo_Response::set_chat_rate_limit(::PROTOBUF_NAME
   // @@protoc_insertion_point(field_set:CBroadcast_GetRTMPInfo_Response.chat_rate_limit)
 }
 
-// optional bool enable_replay = 11 [(.description) = "Enable replay of last upload"];
+// optional bool enable_replay = 11;
 inline bool CBroadcast_GetRTMPInfo_Response::_internal_has_enable_replay() const {
   bool value = (_has_bits_[0] & 0x00000800u) != 0;
   return value;
@@ -22930,7 +22930,7 @@ inline void CBroadcast_GetRTMPInfo_Response::set_enable_replay(bool value) {
   // @@protoc_insertion_point(field_set:CBroadcast_GetRTMPInfo_Response.enable_replay)
 }
 
-// optional bool is_partner_chat_only = 12 [(.description) = "When true, then only steamwork partner can create chat messages."];
+// optional bool is_partner_chat_only = 12;
 inline bool CBroadcast_GetRTMPInfo_Response::_internal_has_is_partner_chat_only() const {
   bool value = (_has_bits_[0] & 0x00001000u) != 0;
   return value;
@@ -24246,7 +24246,7 @@ CBroadcast_WebRTCGetHostCandidates_Response::candidates() const {
 
 // CBroadcast_GetBroadcastUploadStats_Request
 
-// optional uint32 row_limit = 1 [default = 100, (.description) = "How many at maximum to return."];
+// optional uint32 row_limit = 1 [default = 100];
 inline bool CBroadcast_GetBroadcastUploadStats_Request::_internal_has_row_limit() const {
   bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
@@ -24274,7 +24274,7 @@ inline void CBroadcast_GetBroadcastUploadStats_Request::set_row_limit(::PROTOBUF
   // @@protoc_insertion_point(field_set:CBroadcast_GetBroadcastUploadStats_Request.row_limit)
 }
 
-// optional uint32 start_time = 2 [default = 0, (.description) = "Start time"];
+// optional uint32 start_time = 2 [default = 0];
 inline bool CBroadcast_GetBroadcastUploadStats_Request::_internal_has_start_time() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -24302,7 +24302,7 @@ inline void CBroadcast_GetBroadcastUploadStats_Request::set_start_time(::PROTOBU
   // @@protoc_insertion_point(field_set:CBroadcast_GetBroadcastUploadStats_Request.start_time)
 }
 
-// optional uint64 upload_id = 3 [(.description) = "Optional relay upload ID - not compatible with session_id"];
+// optional uint64 upload_id = 3;
 inline bool CBroadcast_GetBroadcastUploadStats_Request::_internal_has_upload_id() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -24330,7 +24330,7 @@ inline void CBroadcast_GetBroadcastUploadStats_Request::set_upload_id(::PROTOBUF
   // @@protoc_insertion_point(field_set:CBroadcast_GetBroadcastUploadStats_Request.upload_id)
 }
 
-// optional fixed64 steamid = 4 [(.description) = "Optional the steamid whose stats you want, otherwise the user logged in - admin only"];
+// optional fixed64 steamid = 4;
 inline bool CBroadcast_GetBroadcastUploadStats_Request::_internal_has_steamid() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -24358,7 +24358,7 @@ inline void CBroadcast_GetBroadcastUploadStats_Request::set_steamid(::PROTOBUF_N
   // @@protoc_insertion_point(field_set:CBroadcast_GetBroadcastUploadStats_Request.steamid)
 }
 
-// optional uint64 session_id = 5 [(.description) = "Optional broadcast session ID - not compatiable with upload_id"];
+// optional uint64 session_id = 5;
 inline bool CBroadcast_GetBroadcastUploadStats_Request::_internal_has_session_id() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -24390,7 +24390,7 @@ inline void CBroadcast_GetBroadcastUploadStats_Request::set_session_id(::PROTOBU
 
 // CBroadcast_GetBroadcastUploadStats_Response_UploadStats
 
-// optional uint32 upload_result = 1 [(.description) = ""];
+// optional uint32 upload_result = 1;
 inline bool CBroadcast_GetBroadcastUploadStats_Response_UploadStats::_internal_has_upload_result() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -24418,7 +24418,7 @@ inline void CBroadcast_GetBroadcastUploadStats_Response_UploadStats::set_upload_
   // @@protoc_insertion_point(field_set:CBroadcast_GetBroadcastUploadStats_Response.UploadStats.upload_result)
 }
 
-// optional uint32 time_stopped = 2 [(.description) = "time broadcast upload stopped"];
+// optional uint32 time_stopped = 2;
 inline bool CBroadcast_GetBroadcastUploadStats_Response_UploadStats::_internal_has_time_stopped() const {
   bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
@@ -24446,7 +24446,7 @@ inline void CBroadcast_GetBroadcastUploadStats_Response_UploadStats::set_time_st
   // @@protoc_insertion_point(field_set:CBroadcast_GetBroadcastUploadStats_Response.UploadStats.time_stopped)
 }
 
-// optional uint32 seconds_uploaded = 3 [(.description) = "seconds of vido uploaded"];
+// optional uint32 seconds_uploaded = 3;
 inline bool CBroadcast_GetBroadcastUploadStats_Response_UploadStats::_internal_has_seconds_uploaded() const {
   bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
@@ -24474,7 +24474,7 @@ inline void CBroadcast_GetBroadcastUploadStats_Response_UploadStats::set_seconds
   // @@protoc_insertion_point(field_set:CBroadcast_GetBroadcastUploadStats_Response.UploadStats.seconds_uploaded)
 }
 
-// optional uint32 max_viewers = 4 [(.description) = "max concurrent viewers"];
+// optional uint32 max_viewers = 4;
 inline bool CBroadcast_GetBroadcastUploadStats_Response_UploadStats::_internal_has_max_viewers() const {
   bool value = (_has_bits_[0] & 0x00000040u) != 0;
   return value;
@@ -24502,7 +24502,7 @@ inline void CBroadcast_GetBroadcastUploadStats_Response_UploadStats::set_max_vie
   // @@protoc_insertion_point(field_set:CBroadcast_GetBroadcastUploadStats_Response.UploadStats.max_viewers)
 }
 
-// optional uint32 resolution_x = 5 [(.description) = "horizontal resultion"];
+// optional uint32 resolution_x = 5;
 inline bool CBroadcast_GetBroadcastUploadStats_Response_UploadStats::_internal_has_resolution_x() const {
   bool value = (_has_bits_[0] & 0x00000080u) != 0;
   return value;
@@ -24530,7 +24530,7 @@ inline void CBroadcast_GetBroadcastUploadStats_Response_UploadStats::set_resolut
   // @@protoc_insertion_point(field_set:CBroadcast_GetBroadcastUploadStats_Response.UploadStats.resolution_x)
 }
 
-// optional uint32 resolution_y = 6 [(.description) = "vertical resultion"];
+// optional uint32 resolution_y = 6;
 inline bool CBroadcast_GetBroadcastUploadStats_Response_UploadStats::_internal_has_resolution_y() const {
   bool value = (_has_bits_[0] & 0x00000100u) != 0;
   return value;
@@ -24558,7 +24558,7 @@ inline void CBroadcast_GetBroadcastUploadStats_Response_UploadStats::set_resolut
   // @@protoc_insertion_point(field_set:CBroadcast_GetBroadcastUploadStats_Response.UploadStats.resolution_y)
 }
 
-// optional uint32 avg_bandwidth = 7 [(.description) = ""];
+// optional uint32 avg_bandwidth = 7;
 inline bool CBroadcast_GetBroadcastUploadStats_Response_UploadStats::_internal_has_avg_bandwidth() const {
   bool value = (_has_bits_[0] & 0x00000400u) != 0;
   return value;
@@ -24586,7 +24586,7 @@ inline void CBroadcast_GetBroadcastUploadStats_Response_UploadStats::set_avg_ban
   // @@protoc_insertion_point(field_set:CBroadcast_GetBroadcastUploadStats_Response.UploadStats.avg_bandwidth)
 }
 
-// optional uint64 total_bytes = 8 [(.description) = "total byte uploaded by broadcaster"];
+// optional uint64 total_bytes = 8;
 inline bool CBroadcast_GetBroadcastUploadStats_Response_UploadStats::_internal_has_total_bytes() const {
   bool value = (_has_bits_[0] & 0x00000200u) != 0;
   return value;
@@ -24614,7 +24614,7 @@ inline void CBroadcast_GetBroadcastUploadStats_Response_UploadStats::set_total_b
   // @@protoc_insertion_point(field_set:CBroadcast_GetBroadcastUploadStats_Response.UploadStats.total_bytes)
 }
 
-// optional uint32 app_id = 9 [(.description) = "game broadcasted"];
+// optional uint32 app_id = 9;
 inline bool CBroadcast_GetBroadcastUploadStats_Response_UploadStats::_internal_has_app_id() const {
   bool value = (_has_bits_[0] & 0x00000800u) != 0;
   return value;
@@ -24642,7 +24642,7 @@ inline void CBroadcast_GetBroadcastUploadStats_Response_UploadStats::set_app_id(
   // @@protoc_insertion_point(field_set:CBroadcast_GetBroadcastUploadStats_Response.UploadStats.app_id)
 }
 
-// optional uint32 total_unique_viewers = 10 [(.description) = "total unique viewers seen"];
+// optional uint32 total_unique_viewers = 10;
 inline bool CBroadcast_GetBroadcastUploadStats_Response_UploadStats::_internal_has_total_unique_viewers() const {
   bool value = (_has_bits_[0] & 0x00002000u) != 0;
   return value;
@@ -24670,7 +24670,7 @@ inline void CBroadcast_GetBroadcastUploadStats_Response_UploadStats::set_total_u
   // @@protoc_insertion_point(field_set:CBroadcast_GetBroadcastUploadStats_Response.UploadStats.total_unique_viewers)
 }
 
-// optional uint64 total_seconds_watched = 11 [(.description) = "total number of seconds watched by all viewers"];
+// optional uint64 total_seconds_watched = 11;
 inline bool CBroadcast_GetBroadcastUploadStats_Response_UploadStats::_internal_has_total_seconds_watched() const {
   bool value = (_has_bits_[0] & 0x00001000u) != 0;
   return value;
@@ -24698,7 +24698,7 @@ inline void CBroadcast_GetBroadcastUploadStats_Response_UploadStats::set_total_s
   // @@protoc_insertion_point(field_set:CBroadcast_GetBroadcastUploadStats_Response.UploadStats.total_seconds_watched)
 }
 
-// optional uint32 time_started = 12 [(.description) = "time broadcast upload started"];
+// optional uint32 time_started = 12;
 inline bool CBroadcast_GetBroadcastUploadStats_Response_UploadStats::_internal_has_time_started() const {
   bool value = (_has_bits_[0] & 0x00004000u) != 0;
   return value;
@@ -24726,7 +24726,7 @@ inline void CBroadcast_GetBroadcastUploadStats_Response_UploadStats::set_time_st
   // @@protoc_insertion_point(field_set:CBroadcast_GetBroadcastUploadStats_Response.UploadStats.time_started)
 }
 
-// optional uint64 upload_id = 13 [(.description) = "broadcast relay upload id"];
+// optional uint64 upload_id = 13;
 inline bool CBroadcast_GetBroadcastUploadStats_Response_UploadStats::_internal_has_upload_id() const {
   bool value = (_has_bits_[0] & 0x00008000u) != 0;
   return value;
@@ -24754,7 +24754,7 @@ inline void CBroadcast_GetBroadcastUploadStats_Response_UploadStats::set_upload_
   // @@protoc_insertion_point(field_set:CBroadcast_GetBroadcastUploadStats_Response.UploadStats.upload_id)
 }
 
-// optional string local_address = 14 [(.description) = "upload to server address"];
+// optional string local_address = 14;
 inline bool CBroadcast_GetBroadcastUploadStats_Response_UploadStats::_internal_has_local_address() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -24827,7 +24827,7 @@ inline void CBroadcast_GetBroadcastUploadStats_Response_UploadStats::set_allocat
   // @@protoc_insertion_point(field_set_allocated:CBroadcast_GetBroadcastUploadStats_Response.UploadStats.local_address)
 }
 
-// optional string remote_address = 15 [(.description) = "upload from client address"];
+// optional string remote_address = 15;
 inline bool CBroadcast_GetBroadcastUploadStats_Response_UploadStats::_internal_has_remote_address() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -24900,7 +24900,7 @@ inline void CBroadcast_GetBroadcastUploadStats_Response_UploadStats::set_allocat
   // @@protoc_insertion_point(field_set_allocated:CBroadcast_GetBroadcastUploadStats_Response.UploadStats.remote_address)
 }
 
-// optional uint32 frames_per_second = 16 [(.description) = "frames per second"];
+// optional uint32 frames_per_second = 16;
 inline bool CBroadcast_GetBroadcastUploadStats_Response_UploadStats::_internal_has_frames_per_second() const {
   bool value = (_has_bits_[0] & 0x00010000u) != 0;
   return value;
@@ -24928,7 +24928,7 @@ inline void CBroadcast_GetBroadcastUploadStats_Response_UploadStats::set_frames_
   // @@protoc_insertion_point(field_set:CBroadcast_GetBroadcastUploadStats_Response.UploadStats.frames_per_second)
 }
 
-// optional uint32 num_representations = 17 [(.description) = "number of video represetations"];
+// optional uint32 num_representations = 17;
 inline bool CBroadcast_GetBroadcastUploadStats_Response_UploadStats::_internal_has_num_representations() const {
   bool value = (_has_bits_[0] & 0x00020000u) != 0;
   return value;
@@ -24956,7 +24956,7 @@ inline void CBroadcast_GetBroadcastUploadStats_Response_UploadStats::set_num_rep
   // @@protoc_insertion_point(field_set:CBroadcast_GetBroadcastUploadStats_Response.UploadStats.num_representations)
 }
 
-// optional string app_name = 18 [(.description) = "game name"];
+// optional string app_name = 18;
 inline bool CBroadcast_GetBroadcastUploadStats_Response_UploadStats::_internal_has_app_name() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -25029,7 +25029,7 @@ inline void CBroadcast_GetBroadcastUploadStats_Response_UploadStats::set_allocat
   // @@protoc_insertion_point(field_set_allocated:CBroadcast_GetBroadcastUploadStats_Response.UploadStats.app_name)
 }
 
-// optional bool is_replay = 19 [(.description) = "replay of previous recording"];
+// optional bool is_replay = 19;
 inline bool CBroadcast_GetBroadcastUploadStats_Response_UploadStats::_internal_has_is_replay() const {
   bool value = (_has_bits_[0] & 0x00080000u) != 0;
   return value;
@@ -25057,7 +25057,7 @@ inline void CBroadcast_GetBroadcastUploadStats_Response_UploadStats::set_is_repl
   // @@protoc_insertion_point(field_set:CBroadcast_GetBroadcastUploadStats_Response.UploadStats.is_replay)
 }
 
-// optional uint64 session_id = 20 [(.description) = "broadcast session id"];
+// optional uint64 session_id = 20;
 inline bool CBroadcast_GetBroadcastUploadStats_Response_UploadStats::_internal_has_session_id() const {
   bool value = (_has_bits_[0] & 0x00040000u) != 0;
   return value;
@@ -25132,7 +25132,7 @@ CBroadcast_GetBroadcastUploadStats_Response::upload_stats() const {
 
 // CBroadcast_GetBroadcastViewerStats_Request
 
-// optional uint64 upload_id = 1 [(.description) = "Get stats for this stream"];
+// optional uint64 upload_id = 1;
 inline bool CBroadcast_GetBroadcastViewerStats_Request::_internal_has_upload_id() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -25160,7 +25160,7 @@ inline void CBroadcast_GetBroadcastViewerStats_Request::set_upload_id(::PROTOBUF
   // @@protoc_insertion_point(field_set:CBroadcast_GetBroadcastViewerStats_Request.upload_id)
 }
 
-// optional fixed64 steamid = 2 [(.description) = "Optional: The steamid of the broadcast whose details you are requesting."];
+// optional fixed64 steamid = 2;
 inline bool CBroadcast_GetBroadcastViewerStats_Request::_internal_has_steamid() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -25192,7 +25192,7 @@ inline void CBroadcast_GetBroadcastViewerStats_Request::set_steamid(::PROTOBUF_N
 
 // CBroadcast_GetBroadcastViewerStats_Response_ViewerStats
 
-// optional uint32 time = 1 [(.description) = "time of record"];
+// optional uint32 time = 1;
 inline bool CBroadcast_GetBroadcastViewerStats_Response_ViewerStats::_internal_has_time() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -25220,7 +25220,7 @@ inline void CBroadcast_GetBroadcastViewerStats_Response_ViewerStats::set_time(::
   // @@protoc_insertion_point(field_set:CBroadcast_GetBroadcastViewerStats_Response.ViewerStats.time)
 }
 
-// optional uint32 num_viewers = 2 [(.description) = "current number of viewers"];
+// optional uint32 num_viewers = 2;
 inline bool CBroadcast_GetBroadcastViewerStats_Response_ViewerStats::_internal_has_num_viewers() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -25252,7 +25252,7 @@ inline void CBroadcast_GetBroadcastViewerStats_Response_ViewerStats::set_num_vie
 
 // CBroadcast_GetBroadcastViewerStats_Response_CountryStats
 
-// optional string country_code = 1 [(.description) = "country code"];
+// optional string country_code = 1;
 inline bool CBroadcast_GetBroadcastViewerStats_Response_CountryStats::_internal_has_country_code() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -25325,7 +25325,7 @@ inline void CBroadcast_GetBroadcastViewerStats_Response_CountryStats::set_alloca
   // @@protoc_insertion_point(field_set_allocated:CBroadcast_GetBroadcastViewerStats_Response.CountryStats.country_code)
 }
 
-// optional uint32 num_viewers = 2 [(.description) = "number of viewers"];
+// optional uint32 num_viewers = 2;
 inline bool CBroadcast_GetBroadcastViewerStats_Response_CountryStats::_internal_has_num_viewers() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -25807,7 +25807,7 @@ inline void CBroadcast_BroadcastUploadStarted_Notification::set_broadcast_upload
   // @@protoc_insertion_point(field_set:CBroadcast_BroadcastUploadStarted_Notification.broadcast_upload_id)
 }
 
-// optional uint32 heartbeat_interval_seconds = 6 [(.description) = "how many seconds between session heartbeats"];
+// optional uint32 heartbeat_interval_seconds = 6;
 inline bool CBroadcast_BroadcastUploadStarted_Notification::_internal_has_heartbeat_interval_seconds() const {
   bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;

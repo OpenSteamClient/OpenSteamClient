@@ -55,30 +55,20 @@ namespace OpenSteamworks.Protobuf {
             "ZGVzYxgDIAEoCRISCgptYW5pZmVzdGlkGAQgASgEEhcKD3NvdXJjZV9ncHVf",
             "ZGVzYxgFIAEoCRIaChJzb3VyY2VfZHJpdmVyX2Rlc2MYBiABKAkSEQoJZGVw",
             "b3RzaXplGAcgASgEIiYKJENTaGFkZXJfUmVwb3J0RXh0ZXJuYWxCdWlsZF9S",
-            "ZXNwb25zZTL5BwoGU2hhZGVyErsBChlHZXRTaGFkZXJSZXBvcnRpbmdDYWRl",
-            "bmNlEiouQ1NoYWRlcl9HZXRTaGFkZXJSZXBvcnRpbmdDYWRlbmNlX1JlcXVl",
-            "c3QaKy5DU2hhZGVyX0dldFNoYWRlclJlcG9ydGluZ0NhZGVuY2VfUmVzcG9u",
-            "c2UiRYK1GEFJbmZvcm1hdGlvbiBhYm91dCBob3cgb2Z0ZW4gYSBjbGllbnQg",
-            "c2hvdWxkIHJlLXJlcG9ydCBzaGFkZXIgaGl0cxK+AQoOUmVnaXN0ZXJTaGFk",
-            "ZXISHy5DU2hhZGVyX1JlZ2lzdGVyU2hhZGVyX1JlcXVlc3QaIC5DU2hhZGVy",
-            "X1JlZ2lzdGVyU2hhZGVyX1Jlc3BvbnNlImmCtRhlQ2xpZW50IGp1c3QgZmlu",
-            "aXNoZWQgcGxheWluZyBhIGdhbWUsIGRldGVjdGVkIG5ldyBzaGFkZXIgY2Fj",
-            "aGUgZW50cmllcyBhbmQgaXMgbm90aWZ5aW5nIHVzIGFib3V0IHRoZW0SjwEK",
-            "ClNlbmRTaGFkZXISGy5DU2hhZGVyX1NlbmRTaGFkZXJfUmVxdWVzdBocLkNT",
-            "aGFkZXJfU2VuZFNoYWRlcl9SZXNwb25zZSJGgrUYQkNsaWVudCBpcyBzZW5k",
-            "aW5nIHVzIGFjdHVhbCBjb21waWxlZCBzaGFkZXIgY29kZSB0aGF0IHdlIHJl",
-            "cXVlc3RlZBKtAQoRR2V0QnVja2V0TWFuaWZlc3QSIi5DU2hhZGVyX0dldEJ1",
-            "Y2tldE1hbmlmZXN0X1JlcXVlc3QaIy5DU2hhZGVyX0dldEJ1Y2tldE1hbmlm",
-            "ZXN0X1Jlc3BvbnNlIk+CtRhLQ2xpZW50IHdhbnRzIHRvIGtub3cgdGhlIG1h",
-            "bmlmZXN0IElEIHRvIGZldGNoIChpZiBhbnkpIGZvciBhIGJ1Y2tldCdzIGRl",
-            "cG90Eo4BCg5HZXRTdGFsZUJ1Y2tldBIfLkNTaGFkZXJfR2V0U3RhbGVCdWNr",
-            "ZXRfUmVxdWVzdBogLkNTaGFkZXJfR2V0U3RhbGVCdWNrZXRfUmVzcG9uc2Ui",
-            "OYK1GDVKb2IgdG8gZ2V0IGEgc3RhbGUgYnVja2V0IGdpdmVuIGEgZ3B1IGFu",
-            "ZCBkcml2ZXIgZGVzYxKIAQoTUmVwb3J0RXh0ZXJuYWxCdWlsZBIkLkNTaGFk",
-            "ZXJfUmVwb3J0RXh0ZXJuYWxCdWlsZF9SZXF1ZXN0GiUuQ1NoYWRlcl9SZXBv",
-            "cnRFeHRlcm5hbEJ1aWxkX1Jlc3BvbnNlIiSCtRggUmVwb3J0IGFuIGV4ZXJu",
-            "YWxseSBidWlsdCBidWNrZXQaEoK1GA5TaGFkZXIgbWV0aG9kc0IdgAEBqgIX",
-            "T3BlblN0ZWFtd29ya3MuUHJvdG9idWY="));
+            "ZXNwb25zZTKzBAoGU2hhZGVyEnQKGUdldFNoYWRlclJlcG9ydGluZ0NhZGVu",
+            "Y2USKi5DU2hhZGVyX0dldFNoYWRlclJlcG9ydGluZ0NhZGVuY2VfUmVxdWVz",
+            "dBorLkNTaGFkZXJfR2V0U2hhZGVyUmVwb3J0aW5nQ2FkZW5jZV9SZXNwb25z",
+            "ZRJTCg5SZWdpc3RlclNoYWRlchIfLkNTaGFkZXJfUmVnaXN0ZXJTaGFkZXJf",
+            "UmVxdWVzdBogLkNTaGFkZXJfUmVnaXN0ZXJTaGFkZXJfUmVzcG9uc2USRwoK",
+            "U2VuZFNoYWRlchIbLkNTaGFkZXJfU2VuZFNoYWRlcl9SZXF1ZXN0GhwuQ1No",
+            "YWRlcl9TZW5kU2hhZGVyX1Jlc3BvbnNlElwKEUdldEJ1Y2tldE1hbmlmZXN0",
+            "EiIuQ1NoYWRlcl9HZXRCdWNrZXRNYW5pZmVzdF9SZXF1ZXN0GiMuQ1NoYWRl",
+            "cl9HZXRCdWNrZXRNYW5pZmVzdF9SZXNwb25zZRJTCg5HZXRTdGFsZUJ1Y2tl",
+            "dBIfLkNTaGFkZXJfR2V0U3RhbGVCdWNrZXRfUmVxdWVzdBogLkNTaGFkZXJf",
+            "R2V0U3RhbGVCdWNrZXRfUmVzcG9uc2USYgoTUmVwb3J0RXh0ZXJuYWxCdWls",
+            "ZBIkLkNTaGFkZXJfUmVwb3J0RXh0ZXJuYWxCdWlsZF9SZXF1ZXN0GiUuQ1No",
+            "YWRlcl9SZXBvcnRFeHRlcm5hbEJ1aWxkX1Jlc3BvbnNlQh2AAQGqAhdPcGVu",
+            "U3RlYW13b3Jrcy5Qcm90b2J1Zg=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.Reflection.DescriptorReflection.Descriptor, global::OpenSteamworks.Protobuf.SteammessagesBaseReflection.Descriptor, global::OpenSteamworks.Protobuf.SteammessagesUnifiedBaseSteamclientReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -100,6 +90,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
   #region Messages
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CShader_GetShaderReportingCadence_Request : pb::IMessage<CShader_GetShaderReportingCadence_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -252,6 +243,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CShader_GetShaderReportingCadence_Response : pb::IMessage<CShader_GetShaderReportingCadence_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -510,6 +502,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CShader_RegisterShader_Request : pb::IMessage<CShader_RegisterShader_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -847,6 +840,7 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static partial class Types {
+      [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
       public sealed partial class Shader : pb::IMessage<Shader>
       #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
           , pb::IBufferMessage
@@ -1106,6 +1100,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CShader_RegisterShader_Response : pb::IMessage<CShader_RegisterShader_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1286,6 +1281,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CShader_SendShader_Request : pb::IMessage<CShader_SendShader_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1521,6 +1517,7 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static partial class Types {
+      [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
       public sealed partial class ShaderCode : pb::IMessage<ShaderCode>
       #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
           , pb::IBufferMessage
@@ -1780,6 +1777,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CShader_SendShader_Response : pb::IMessage<CShader_SendShader_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1932,6 +1930,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CShader_GetBucketManifest_Request : pb::IMessage<CShader_GetBucketManifest_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2240,6 +2239,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CShader_GetBucketManifest_Response : pb::IMessage<CShader_GetBucketManifest_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2550,6 +2550,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CShader_GetStaleBucket_Request : pb::IMessage<CShader_GetStaleBucket_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2804,6 +2805,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CShader_GetStaleBucket_Response : pb::IMessage<CShader_GetStaleBucket_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -3267,6 +3269,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CShader_ReportExternalBuild_Request : pb::IMessage<CShader_ReportExternalBuild_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -3781,6 +3784,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CShader_ReportExternalBuild_Response : pb::IMessage<CShader_ReportExternalBuild_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage

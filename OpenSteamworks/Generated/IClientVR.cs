@@ -48,4 +48,8 @@ public unsafe interface IClientVR
     public unknown_ret BServeVRGamepadUIOverlay();  // argc: 0, index: 23
     public unknown_ret BServeTenfootOverlay();  // argc: 0, index: 24
     public unknown_ret BSuppressDesktopBPM();  // argc: 0, index: 25
+    // WARNING: Arguments are unknown!
+    public unknown_ret SetVRConnectionParams();  // argc: 1, index: 0
+    public unknown_ret GetVRConnectionParams();  // argc: 0, index: 1
+    public unknown_ret BVRDeviceSeenRecently();  // argc: 0, index: 2
 }

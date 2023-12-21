@@ -19924,7 +19924,7 @@ class CChatRoom_SetSessionActiveChatRoomGroups_Request PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint64 >*
       mutable_chat_groups_data_requested();
 
-  // optional int32 virtualize_members_threshold = 3 [(.description) = "If a chat room has more members than this threshold, we will opt in to a virtualized list"];
+  // optional int32 virtualize_members_threshold = 3;
   bool has_virtualize_members_threshold() const;
   private:
   bool _internal_has_virtualize_members_threshold() const;
@@ -21493,7 +21493,7 @@ class CChatRoom_UpdateMemberListView_Notification PROTOBUF_FINAL :
   void _internal_set_chat_group_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional uint64 view_id = 2 [(.description) = "Client-generated ID.  Should send the same value on all requests for the same view"];
+  // optional uint64 view_id = 2;
   bool has_view_id() const;
   private:
   bool _internal_has_view_id() const;
@@ -21532,7 +21532,7 @@ class CChatRoom_UpdateMemberListView_Notification PROTOBUF_FINAL :
   void _internal_set_end(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
-  // optional int32 client_changenumber = 5 [(.description) = "Any updates from this call on will have this changenumber present.  Can be used to guarantee in-order updates."];
+  // optional int32 client_changenumber = 5;
   bool has_client_changenumber() const;
   private:
   bool _internal_has_client_changenumber() const;
@@ -21545,7 +21545,7 @@ class CChatRoom_UpdateMemberListView_Notification PROTOBUF_FINAL :
   void _internal_set_client_changenumber(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
-  // optional bool delete_view = 6 [(.description) = "Indicates this view has been deleted."];
+  // optional bool delete_view = 6;
   bool has_delete_view() const;
   private:
   bool _internal_has_delete_view() const;
@@ -21737,7 +21737,7 @@ class CChatRoom_SearchMembers_Request PROTOBUF_FINAL :
   void _internal_set_chat_group_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional uint64 search_id = 2 [(.description) = "Client-supplied id.  For find-as-you-type searches, as search narrows the server will not return persona states previously returned for a given searchid."];
+  // optional uint64 search_id = 2;
   bool has_search_id() const;
   private:
   bool _internal_has_search_id() const;
@@ -23054,7 +23054,7 @@ class CClanChatRooms_GetClanChatRoomInfo_Request PROTOBUF_FINAL :
   void _internal_set_steamid(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional bool autocreate = 2 [default = true, (.description) = "Create a default chat room if none has been created before."];
+  // optional bool autocreate = 2 [default = true];
   bool has_autocreate() const;
   private:
   bool _internal_has_autocreate() const;
@@ -23908,7 +23908,7 @@ class CChatRoom_IncomingChatMessage_Notification PROTOBUF_FINAL :
   std::string* _internal_mutable_message_no_bbcode();
   public:
 
-  // optional string chat_name = 10 [(.description) = "A name to use for the chat, intended for notifications"];
+  // optional string chat_name = 10;
   bool has_chat_name() const;
   private:
   bool _internal_has_chat_name() const;
@@ -25629,7 +25629,7 @@ class CChatRoomMemberListView PROTOBUF_FINAL :
   void _internal_set_total_count(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
-  // optional int32 client_changenumber = 6 [(.description) = "Value sent by the client on the last UpdateMemberListView call. "];
+  // optional int32 client_changenumber = 6;
   bool has_client_changenumber() const;
   private:
   bool _internal_has_client_changenumber() const;
@@ -25642,7 +25642,7 @@ class CChatRoomMemberListView PROTOBUF_FINAL :
   void _internal_set_client_changenumber(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
-  // optional int32 server_changenumber = 7 [(.description) = "Value incremented by the server on each MemberListViewUpdated call. "];
+  // optional int32 server_changenumber = 7;
   bool has_server_changenumber() const;
   private:
   bool _internal_has_server_changenumber() const;
@@ -26251,7 +26251,7 @@ class CChatRoomClient_MemberListViewUpdated_Notification PROTOBUF_FINAL :
   void _internal_set_chat_group_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional uint64 view_id = 2 [(.description) = "Thew view_id supplied when the client created the view. "];
+  // optional uint64 view_id = 2;
   bool has_view_id() const;
   private:
   bool _internal_has_view_id() const;
@@ -40361,7 +40361,7 @@ CChatRoom_SetSessionActiveChatRoomGroups_Request::mutable_chat_groups_data_reque
   return _internal_mutable_chat_groups_data_requested();
 }
 
-// optional int32 virtualize_members_threshold = 3 [(.description) = "If a chat room has more members than this threshold, we will opt in to a virtualized list"];
+// optional int32 virtualize_members_threshold = 3;
 inline bool CChatRoom_SetSessionActiveChatRoomGroups_Request::_internal_has_virtualize_members_threshold() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -41040,7 +41040,7 @@ inline void CChatRoom_UpdateMemberListView_Notification::set_chat_group_id(::PRO
   // @@protoc_insertion_point(field_set:CChatRoom_UpdateMemberListView_Notification.chat_group_id)
 }
 
-// optional uint64 view_id = 2 [(.description) = "Client-generated ID.  Should send the same value on all requests for the same view"];
+// optional uint64 view_id = 2;
 inline bool CChatRoom_UpdateMemberListView_Notification::_internal_has_view_id() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -41124,7 +41124,7 @@ inline void CChatRoom_UpdateMemberListView_Notification::set_end(::PROTOBUF_NAME
   // @@protoc_insertion_point(field_set:CChatRoom_UpdateMemberListView_Notification.end)
 }
 
-// optional int32 client_changenumber = 5 [(.description) = "Any updates from this call on will have this changenumber present.  Can be used to guarantee in-order updates."];
+// optional int32 client_changenumber = 5;
 inline bool CChatRoom_UpdateMemberListView_Notification::_internal_has_client_changenumber() const {
   bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
@@ -41152,7 +41152,7 @@ inline void CChatRoom_UpdateMemberListView_Notification::set_client_changenumber
   // @@protoc_insertion_point(field_set:CChatRoom_UpdateMemberListView_Notification.client_changenumber)
 }
 
-// optional bool delete_view = 6 [(.description) = "Indicates this view has been deleted."];
+// optional bool delete_view = 6;
 inline bool CChatRoom_UpdateMemberListView_Notification::_internal_has_delete_view() const {
   bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
@@ -41306,7 +41306,7 @@ inline void CChatRoom_SearchMembers_Request::set_chat_group_id(::PROTOBUF_NAMESP
   // @@protoc_insertion_point(field_set:CChatRoom_SearchMembers_Request.chat_group_id)
 }
 
-// optional uint64 search_id = 2 [(.description) = "Client-supplied id.  For find-as-you-type searches, as search narrows the server will not return persona states previously returned for a given searchid."];
+// optional uint64 search_id = 2;
 inline bool CChatRoom_SearchMembers_Request::_internal_has_search_id() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -42224,7 +42224,7 @@ inline void CClanChatRooms_GetClanChatRoomInfo_Request::set_steamid(::PROTOBUF_N
   // @@protoc_insertion_point(field_set:CClanChatRooms_GetClanChatRoomInfo_Request.steamid)
 }
 
-// optional bool autocreate = 2 [default = true, (.description) = "Create a default chat room if none has been created before."];
+// optional bool autocreate = 2 [default = true];
 inline bool CClanChatRooms_GetClanChatRoomInfo_Request::_internal_has_autocreate() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -42994,7 +42994,7 @@ inline void CChatRoom_IncomingChatMessage_Notification::set_allocated_message_no
   // @@protoc_insertion_point(field_set_allocated:CChatRoom_IncomingChatMessage_Notification.message_no_bbcode)
 }
 
-// optional string chat_name = 10 [(.description) = "A name to use for the chat, intended for notifications"];
+// optional string chat_name = 10;
 inline bool CChatRoom_IncomingChatMessage_Notification::_internal_has_chat_name() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -44010,7 +44010,7 @@ inline void CChatRoomMemberListView::set_total_count(::PROTOBUF_NAMESPACE_ID::in
   // @@protoc_insertion_point(field_set:CChatRoomMemberListView.total_count)
 }
 
-// optional int32 client_changenumber = 6 [(.description) = "Value sent by the client on the last UpdateMemberListView call. "];
+// optional int32 client_changenumber = 6;
 inline bool CChatRoomMemberListView::_internal_has_client_changenumber() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -44038,7 +44038,7 @@ inline void CChatRoomMemberListView::set_client_changenumber(::PROTOBUF_NAMESPAC
   // @@protoc_insertion_point(field_set:CChatRoomMemberListView.client_changenumber)
 }
 
-// optional int32 server_changenumber = 7 [(.description) = "Value incremented by the server on each MemberListViewUpdated call. "];
+// optional int32 server_changenumber = 7;
 inline bool CChatRoomMemberListView::_internal_has_server_changenumber() const {
   bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
@@ -44325,7 +44325,7 @@ inline void CChatRoomClient_MemberListViewUpdated_Notification::set_chat_group_i
   // @@protoc_insertion_point(field_set:CChatRoomClient_MemberListViewUpdated_Notification.chat_group_id)
 }
 
-// optional uint64 view_id = 2 [(.description) = "Thew view_id supplied when the client created the view. "];
+// optional uint64 view_id = 2;
 inline bool CChatRoomClient_MemberListViewUpdated_Notification::_internal_has_view_id() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;

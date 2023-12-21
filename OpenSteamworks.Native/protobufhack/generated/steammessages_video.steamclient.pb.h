@@ -222,7 +222,7 @@ class CVideo_ClientGetVideoURL_Request PROTOBUF_FINAL :
     kVideoIdFieldNumber = 1,
     kClientCellidFieldNumber = 2,
   };
-  // optional uint64 video_id = 1 [(.description) = "Video ID"];
+  // optional uint64 video_id = 1;
   bool has_video_id() const;
   private:
   bool _internal_has_video_id() const;
@@ -235,7 +235,7 @@ class CVideo_ClientGetVideoURL_Request PROTOBUF_FINAL :
   void _internal_set_video_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional uint32 client_cellid = 2 [(.description) = "Cell ID of client, zero if unknown"];
+  // optional uint32 client_cellid = 2;
   bool has_client_cellid() const;
   private:
   bool _internal_has_client_cellid() const;
@@ -386,7 +386,7 @@ class CVideo_ClientGetVideoURL_Response PROTOBUF_FINAL :
     kVideoUrlFieldNumber = 2,
     kVideoIdFieldNumber = 1,
   };
-  // optional string video_url = 2 [(.description) = "URL for video manifest"];
+  // optional string video_url = 2;
   bool has_video_url() const;
   private:
   bool _internal_has_video_url() const;
@@ -406,7 +406,7 @@ class CVideo_ClientGetVideoURL_Response PROTOBUF_FINAL :
   std::string* _internal_mutable_video_url();
   public:
 
-  // optional uint64 video_id = 1 [(.description) = "Video ID"];
+  // optional uint64 video_id = 1;
   bool has_video_id() const;
   private:
   bool _internal_has_video_id() const;
@@ -563,7 +563,7 @@ class VideoBookmark PROTOBUF_FINAL :
     kHideFromWatchHistoryFieldNumber = 7,
     kHideFromLibraryFieldNumber = 8,
   };
-  // optional uint32 app_id = 1 [(.description) = "App ID"];
+  // optional uint32 app_id = 1;
   bool has_app_id() const;
   private:
   bool _internal_has_app_id() const;
@@ -576,7 +576,7 @@ class VideoBookmark PROTOBUF_FINAL :
   void _internal_set_app_id(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 playbacposition_in_seconds = 2 [(.description) = "How many seconds into the video the bookmark is for"];
+  // optional uint32 playbacposition_in_seconds = 2;
   bool has_playbacposition_in_seconds() const;
   private:
   bool _internal_has_playbacposition_in_seconds() const;
@@ -589,7 +589,7 @@ class VideoBookmark PROTOBUF_FINAL :
   void _internal_set_playbacposition_in_seconds(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint64 video_tracid = 3 [(.description) = "video track choice."];
+  // optional uint64 video_tracid = 3;
   bool has_video_tracid() const;
   private:
   bool _internal_has_video_tracid() const;
@@ -602,7 +602,7 @@ class VideoBookmark PROTOBUF_FINAL :
   void _internal_set_video_tracid(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional uint64 audio_tracid = 4 [(.description) = "audio track choice."];
+  // optional uint64 audio_tracid = 4;
   bool has_audio_tracid() const;
   private:
   bool _internal_has_audio_tracid() const;
@@ -615,7 +615,7 @@ class VideoBookmark PROTOBUF_FINAL :
   void _internal_set_audio_tracid(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional uint64 timedtext_tracid = 5 [(.description) = "timedtimed or subtitle track choice"];
+  // optional uint64 timedtext_tracid = 5;
   bool has_timedtext_tracid() const;
   private:
   bool _internal_has_timedtext_tracid() const;
@@ -628,7 +628,7 @@ class VideoBookmark PROTOBUF_FINAL :
   void _internal_set_timedtext_tracid(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional uint32 last_modified = 6 [(.description) = "when we recorded it was last modified. Not settable."];
+  // optional uint32 last_modified = 6;
   bool has_last_modified() const;
   private:
   bool _internal_has_last_modified() const;
@@ -641,7 +641,7 @@ class VideoBookmark PROTOBUF_FINAL :
   void _internal_set_last_modified(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional bool hide_from_watch_history = 7 [default = false, (.description) = "Whether I want to show this in my history"];
+  // optional bool hide_from_watch_history = 7 [default = false];
   bool has_hide_from_watch_history() const;
   private:
   bool _internal_has_hide_from_watch_history() const;
@@ -654,7 +654,7 @@ class VideoBookmark PROTOBUF_FINAL :
   void _internal_set_hide_from_watch_history(bool value);
   public:
 
-  // optional bool hide_from_library = 8 [default = false, (.description) = "Whether I want to show this in my library"];
+  // optional bool hide_from_library = 8 [default = false];
   bool has_hide_from_library() const;
   private:
   bool _internal_has_hide_from_library() const;
@@ -810,7 +810,7 @@ class CVideo_SetVideoBookmarNotification PROTOBUF_FINAL :
   enum : int {
     kBookmarksFieldNumber = 1,
   };
-  // repeated .VideoBookmark bookmarks = 1 [(.description) = "list of bookmarks we want to store."];
+  // repeated .VideoBookmark bookmarks = 1;
   int bookmarks_size() const;
   private:
   int _internal_bookmarks_size() const;
@@ -964,7 +964,7 @@ class CVideo_GetVideoBookmarks_Request PROTOBUF_FINAL :
     kAppidsFieldNumber = 1,
     kUpdatedSinceFieldNumber = 2,
   };
-  // repeated uint32 appids = 1 [(.description) = "List of App IDs to grab bookmarks for. Can be empty if using updated_since."];
+  // repeated uint32 appids = 1;
   int appids_size() const;
   private:
   int _internal_appids_size() const;
@@ -986,7 +986,7 @@ class CVideo_GetVideoBookmarks_Request PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::uint32 >*
       mutable_appids();
 
-  // optional uint32 updated_since = 2 [(.description) = "Only return results after time. Min value is 1. (seconds since epoch January 1st, 1970 Unix Time)"];
+  // optional uint32 updated_since = 2;
   bool has_updated_since() const;
   private:
   bool _internal_has_updated_since() const;
@@ -1136,7 +1136,7 @@ class CVideo_GetVideoBookmarks_Response PROTOBUF_FINAL :
   enum : int {
     kBookmarksFieldNumber = 1,
   };
-  // repeated .VideoBookmark bookmarks = 1 [(.description) = "List of bookmarks we found. Can be empty."];
+  // repeated .VideoBookmark bookmarks = 1;
   int bookmarks_size() const;
   private:
   int _internal_bookmarks_size() const;
@@ -1446,7 +1446,7 @@ class CFovasVideo_ClientGetOPFSettings_Request PROTOBUF_FINAL :
     kAppIdFieldNumber = 1,
     kClientCellidFieldNumber = 2,
   };
-  // optional uint32 app_id = 1 [(.description) = "App ID"];
+  // optional uint32 app_id = 1;
   bool has_app_id() const;
   private:
   bool _internal_has_app_id() const;
@@ -1459,7 +1459,7 @@ class CFovasVideo_ClientGetOPFSettings_Request PROTOBUF_FINAL :
   void _internal_set_app_id(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 client_cellid = 2 [(.description) = "Cell ID of client, zero if unknown"];
+  // optional uint32 client_cellid = 2;
   bool has_client_cellid() const;
   private:
   bool _internal_has_client_cellid() const;
@@ -1610,7 +1610,7 @@ class CFovasVideo_ClientGetOPFSettings_Response PROTOBUF_FINAL :
     kOpfSettingsFieldNumber = 2,
     kAppIdFieldNumber = 1,
   };
-  // optional string opf_settings = 2 [(.description) = "JSON blob of OPF Settings"];
+  // optional string opf_settings = 2;
   bool has_opf_settings() const;
   private:
   bool _internal_has_opf_settings() const;
@@ -1630,7 +1630,7 @@ class CFovasVideo_ClientGetOPFSettings_Response PROTOBUF_FINAL :
   std::string* _internal_mutable_opf_settings();
   public:
 
-  // optional uint32 app_id = 1 [(.description) = "App ID"];
+  // optional uint32 app_id = 1;
   bool has_app_id() const;
   private:
   bool _internal_has_app_id() const;
@@ -1860,7 +1860,7 @@ class FovasVideo_Stub : public FovasVideo {
 #endif  // __GNUC__
 // CVideo_ClientGetVideoURL_Request
 
-// optional uint64 video_id = 1 [(.description) = "Video ID"];
+// optional uint64 video_id = 1;
 inline bool CVideo_ClientGetVideoURL_Request::_internal_has_video_id() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -1888,7 +1888,7 @@ inline void CVideo_ClientGetVideoURL_Request::set_video_id(::PROTOBUF_NAMESPACE_
   // @@protoc_insertion_point(field_set:CVideo_ClientGetVideoURL_Request.video_id)
 }
 
-// optional uint32 client_cellid = 2 [(.description) = "Cell ID of client, zero if unknown"];
+// optional uint32 client_cellid = 2;
 inline bool CVideo_ClientGetVideoURL_Request::_internal_has_client_cellid() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -1920,7 +1920,7 @@ inline void CVideo_ClientGetVideoURL_Request::set_client_cellid(::PROTOBUF_NAMES
 
 // CVideo_ClientGetVideoURL_Response
 
-// optional uint64 video_id = 1 [(.description) = "Video ID"];
+// optional uint64 video_id = 1;
 inline bool CVideo_ClientGetVideoURL_Response::_internal_has_video_id() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -1948,7 +1948,7 @@ inline void CVideo_ClientGetVideoURL_Response::set_video_id(::PROTOBUF_NAMESPACE
   // @@protoc_insertion_point(field_set:CVideo_ClientGetVideoURL_Response.video_id)
 }
 
-// optional string video_url = 2 [(.description) = "URL for video manifest"];
+// optional string video_url = 2;
 inline bool CVideo_ClientGetVideoURL_Response::_internal_has_video_url() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -2025,7 +2025,7 @@ inline void CVideo_ClientGetVideoURL_Response::set_allocated_video_url(std::stri
 
 // VideoBookmark
 
-// optional uint32 app_id = 1 [(.description) = "App ID"];
+// optional uint32 app_id = 1;
 inline bool VideoBookmark::_internal_has_app_id() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -2053,7 +2053,7 @@ inline void VideoBookmark::set_app_id(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   // @@protoc_insertion_point(field_set:VideoBookmark.app_id)
 }
 
-// optional uint32 playbacposition_in_seconds = 2 [(.description) = "How many seconds into the video the bookmark is for"];
+// optional uint32 playbacposition_in_seconds = 2;
 inline bool VideoBookmark::_internal_has_playbacposition_in_seconds() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -2081,7 +2081,7 @@ inline void VideoBookmark::set_playbacposition_in_seconds(::PROTOBUF_NAMESPACE_I
   // @@protoc_insertion_point(field_set:VideoBookmark.playbacposition_in_seconds)
 }
 
-// optional uint64 video_tracid = 3 [(.description) = "video track choice."];
+// optional uint64 video_tracid = 3;
 inline bool VideoBookmark::_internal_has_video_tracid() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -2109,7 +2109,7 @@ inline void VideoBookmark::set_video_tracid(::PROTOBUF_NAMESPACE_ID::uint64 valu
   // @@protoc_insertion_point(field_set:VideoBookmark.video_tracid)
 }
 
-// optional uint64 audio_tracid = 4 [(.description) = "audio track choice."];
+// optional uint64 audio_tracid = 4;
 inline bool VideoBookmark::_internal_has_audio_tracid() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -2137,7 +2137,7 @@ inline void VideoBookmark::set_audio_tracid(::PROTOBUF_NAMESPACE_ID::uint64 valu
   // @@protoc_insertion_point(field_set:VideoBookmark.audio_tracid)
 }
 
-// optional uint64 timedtext_tracid = 5 [(.description) = "timedtimed or subtitle track choice"];
+// optional uint64 timedtext_tracid = 5;
 inline bool VideoBookmark::_internal_has_timedtext_tracid() const {
   bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
@@ -2165,7 +2165,7 @@ inline void VideoBookmark::set_timedtext_tracid(::PROTOBUF_NAMESPACE_ID::uint64 
   // @@protoc_insertion_point(field_set:VideoBookmark.timedtext_tracid)
 }
 
-// optional uint32 last_modified = 6 [(.description) = "when we recorded it was last modified. Not settable."];
+// optional uint32 last_modified = 6;
 inline bool VideoBookmark::_internal_has_last_modified() const {
   bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
@@ -2193,7 +2193,7 @@ inline void VideoBookmark::set_last_modified(::PROTOBUF_NAMESPACE_ID::uint32 val
   // @@protoc_insertion_point(field_set:VideoBookmark.last_modified)
 }
 
-// optional bool hide_from_watch_history = 7 [default = false, (.description) = "Whether I want to show this in my history"];
+// optional bool hide_from_watch_history = 7 [default = false];
 inline bool VideoBookmark::_internal_has_hide_from_watch_history() const {
   bool value = (_has_bits_[0] & 0x00000040u) != 0;
   return value;
@@ -2221,7 +2221,7 @@ inline void VideoBookmark::set_hide_from_watch_history(bool value) {
   // @@protoc_insertion_point(field_set:VideoBookmark.hide_from_watch_history)
 }
 
-// optional bool hide_from_library = 8 [default = false, (.description) = "Whether I want to show this in my library"];
+// optional bool hide_from_library = 8 [default = false];
 inline bool VideoBookmark::_internal_has_hide_from_library() const {
   bool value = (_has_bits_[0] & 0x00000080u) != 0;
   return value;
@@ -2253,7 +2253,7 @@ inline void VideoBookmark::set_hide_from_library(bool value) {
 
 // CVideo_SetVideoBookmarNotification
 
-// repeated .VideoBookmark bookmarks = 1 [(.description) = "list of bookmarks we want to store."];
+// repeated .VideoBookmark bookmarks = 1;
 inline int CVideo_SetVideoBookmarNotification::_internal_bookmarks_size() const {
   return bookmarks_.size();
 }
@@ -2296,7 +2296,7 @@ CVideo_SetVideoBookmarNotification::bookmarks() const {
 
 // CVideo_GetVideoBookmarks_Request
 
-// repeated uint32 appids = 1 [(.description) = "List of App IDs to grab bookmarks for. Can be empty if using updated_since."];
+// repeated uint32 appids = 1;
 inline int CVideo_GetVideoBookmarks_Request::_internal_appids_size() const {
   return appids_.size();
 }
@@ -2343,7 +2343,7 @@ CVideo_GetVideoBookmarks_Request::mutable_appids() {
   return _internal_mutable_appids();
 }
 
-// optional uint32 updated_since = 2 [(.description) = "Only return results after time. Min value is 1. (seconds since epoch January 1st, 1970 Unix Time)"];
+// optional uint32 updated_since = 2;
 inline bool CVideo_GetVideoBookmarks_Request::_internal_has_updated_since() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -2375,7 +2375,7 @@ inline void CVideo_GetVideoBookmarks_Request::set_updated_since(::PROTOBUF_NAMES
 
 // CVideo_GetVideoBookmarks_Response
 
-// repeated .VideoBookmark bookmarks = 1 [(.description) = "List of bookmarks we found. Can be empty."];
+// repeated .VideoBookmark bookmarks = 1;
 inline int CVideo_GetVideoBookmarks_Response::_internal_bookmarks_size() const {
   return bookmarks_.size();
 }
@@ -2495,7 +2495,7 @@ inline void CVideo_UnlockedH264_Notification::set_allocated_encryption_key(std::
 
 // CFovasVideo_ClientGetOPFSettings_Request
 
-// optional uint32 app_id = 1 [(.description) = "App ID"];
+// optional uint32 app_id = 1;
 inline bool CFovasVideo_ClientGetOPFSettings_Request::_internal_has_app_id() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -2523,7 +2523,7 @@ inline void CFovasVideo_ClientGetOPFSettings_Request::set_app_id(::PROTOBUF_NAME
   // @@protoc_insertion_point(field_set:CFovasVideo_ClientGetOPFSettings_Request.app_id)
 }
 
-// optional uint32 client_cellid = 2 [(.description) = "Cell ID of client, zero if unknown"];
+// optional uint32 client_cellid = 2;
 inline bool CFovasVideo_ClientGetOPFSettings_Request::_internal_has_client_cellid() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -2555,7 +2555,7 @@ inline void CFovasVideo_ClientGetOPFSettings_Request::set_client_cellid(::PROTOB
 
 // CFovasVideo_ClientGetOPFSettings_Response
 
-// optional uint32 app_id = 1 [(.description) = "App ID"];
+// optional uint32 app_id = 1;
 inline bool CFovasVideo_ClientGetOPFSettings_Response::_internal_has_app_id() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -2583,7 +2583,7 @@ inline void CFovasVideo_ClientGetOPFSettings_Response::set_app_id(::PROTOBUF_NAM
   // @@protoc_insertion_point(field_set:CFovasVideo_ClientGetOPFSettings_Response.app_id)
 }
 
-// optional string opf_settings = 2 [(.description) = "JSON blob of OPF Settings"];
+// optional string opf_settings = 2;
 inline bool CFovasVideo_ClientGetOPFSettings_Response::_internal_has_opf_settings() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;

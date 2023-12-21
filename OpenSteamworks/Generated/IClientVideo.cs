@@ -107,9 +107,13 @@ public unsafe interface IClientVideo
     // WARNING: Arguments are unknown!
     public unknown_ret AddTimelineTimestamp();  // argc: 1, index: 10
     // WARNING: Arguments are unknown!
-    public unknown_ret AddTimelineRangeStart();  // argc: 2, index: 11
-    // WARNING: Arguments are unknown!
-    public unknown_ret AddTimelineRangeEnd();  // argc: 1, index: 12
+    public unknown_ret AddTimelineRange();  // argc: 7, index: 11
     // WARNING: Arguments are unknown!
     public unknown_ret SetTimelineGameMode();  // argc: 1, index: 13
+    // WARNING: Arguments are unknown!
+    public unknown_ret AddUserMarkerForGame();  // argc: 1, index: 13
+    // WARNING: Arguments are unknown!
+    public unknown_ret ToggleVideoRecordingForGame();  // argc: 1, index: 14
+    // WARNING: Arguments are unknown!
+    public unknown_ret CreateVideoManagerClip();  // argc: 23, index: 15
 }

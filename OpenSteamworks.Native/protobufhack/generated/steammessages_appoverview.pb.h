@@ -120,11 +120,12 @@ enum EDisplayStatus : int {
   EDisplayStatusNotLaunchable = 33,
   EDisplayStatusCloudError = 34,
   EDisplayStatusCloudOutOfDate = 35,
-  EDisplayStatusTerminating = 36
+  EDisplayStatusTerminating = 36,
+  EDisplayStatusOwnerLocked = 37
 };
 bool EDisplayStatus_IsValid(int value);
 constexpr EDisplayStatus EDisplayStatus_MIN = EDisplayStatusInvalid;
-constexpr EDisplayStatus EDisplayStatus_MAX = EDisplayStatusTerminating;
+constexpr EDisplayStatus EDisplayStatus_MAX = EDisplayStatusOwnerLocked;
 constexpr int EDisplayStatus_ARRAYSIZE = EDisplayStatus_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EDisplayStatus_descriptor();
@@ -287,6 +288,32 @@ inline bool EAppGamepadGyroTrackpadSupportLevel_Parse(
     ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, EAppGamepadGyroTrackpadSupportLevel* value) {
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<EAppGamepadGyroTrackpadSupportLevel>(
     EAppGamepadGyroTrackpadSupportLevel_descriptor(), name, value);
+}
+enum EAppHDRSupport : int {
+  EHDRSupport_Unknown = 0,
+  EHDRSupport_SDR = 1,
+  EHDRSupport_HDR = 2,
+  EHDRSupport_HDR_Broken = 3,
+  EHDRSupport_HDR_RequiresUserAction = 4
+};
+bool EAppHDRSupport_IsValid(int value);
+constexpr EAppHDRSupport EAppHDRSupport_MIN = EHDRSupport_Unknown;
+constexpr EAppHDRSupport EAppHDRSupport_MAX = EHDRSupport_HDR_RequiresUserAction;
+constexpr int EAppHDRSupport_ARRAYSIZE = EAppHDRSupport_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EAppHDRSupport_descriptor();
+template<typename T>
+inline const std::string& EAppHDRSupport_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, EAppHDRSupport>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function EAppHDRSupport_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    EAppHDRSupport_descriptor(), enum_t_value);
+}
+inline bool EAppHDRSupport_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, EAppHDRSupport* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<EAppHDRSupport>(
+    EAppHDRSupport_descriptor(), name, value);
 }
 // ===================================================================
 
@@ -984,11 +1011,10 @@ class CAppOverview PROTOBUF_FINAL :
     kMastersubAppidFieldNumber = 59,
     kShortcutOverrideAppidFieldNumber = 63,
     kSteamDeccompatCategoryFieldNumber = 64,
-    kRtLastTimeLocallyPlayedFieldNumber = 65,
-    kRtPurchasedTimeFieldNumber = 66,
     kVrOnlyFieldNumber = 58,
     kGamepadPreferredFieldNumber = 71,
-    kGamepadRequiredFieldNumber = 72,
+    kRtLastTimeLocallyPlayedFieldNumber = 65,
+    kRtPurchasedTimeFieldNumber = 66,
     kLocalCacheVersionFieldNumber = 68,
     kPs4ControllerSupportFieldNumber = 69,
   };
@@ -1682,32 +1708,6 @@ class CAppOverview PROTOBUF_FINAL :
   void _internal_set_steam_deccompat_category(::ESteamDeckCompatibilityCategory value);
   public:
 
-  // optional uint32 rt_last_time_locally_played = 65;
-  bool has_rt_last_time_locally_played() const;
-  private:
-  bool _internal_has_rt_last_time_locally_played() const;
-  public:
-  void clear_rt_last_time_locally_played();
-  ::PROTOBUF_NAMESPACE_ID::uint32 rt_last_time_locally_played() const;
-  void set_rt_last_time_locally_played(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_rt_last_time_locally_played() const;
-  void _internal_set_rt_last_time_locally_played(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  public:
-
-  // optional uint32 rt_purchased_time = 66;
-  bool has_rt_purchased_time() const;
-  private:
-  bool _internal_has_rt_purchased_time() const;
-  public:
-  void clear_rt_purchased_time();
-  ::PROTOBUF_NAMESPACE_ID::uint32 rt_purchased_time() const;
-  void set_rt_purchased_time(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_rt_purchased_time() const;
-  void _internal_set_rt_purchased_time(::PROTOBUF_NAMESPACE_ID::uint32 value);
-  public:
-
   // optional bool vr_only = 58;
   bool has_vr_only() const;
   private:
@@ -1734,17 +1734,30 @@ class CAppOverview PROTOBUF_FINAL :
   void _internal_set_gamepad_preferred(bool value);
   public:
 
-  // optional bool gamepad_required = 72;
-  bool has_gamepad_required() const;
+  // optional uint32 rt_last_time_locally_played = 65;
+  bool has_rt_last_time_locally_played() const;
   private:
-  bool _internal_has_gamepad_required() const;
+  bool _internal_has_rt_last_time_locally_played() const;
   public:
-  void clear_gamepad_required();
-  bool gamepad_required() const;
-  void set_gamepad_required(bool value);
+  void clear_rt_last_time_locally_played();
+  ::PROTOBUF_NAMESPACE_ID::uint32 rt_last_time_locally_played() const;
+  void set_rt_last_time_locally_played(::PROTOBUF_NAMESPACE_ID::uint32 value);
   private:
-  bool _internal_gamepad_required() const;
-  void _internal_set_gamepad_required(bool value);
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_rt_last_time_locally_played() const;
+  void _internal_set_rt_last_time_locally_played(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // optional uint32 rt_purchased_time = 66;
+  bool has_rt_purchased_time() const;
+  private:
+  bool _internal_has_rt_purchased_time() const;
+  public:
+  void clear_rt_purchased_time();
+  ::PROTOBUF_NAMESPACE_ID::uint32 rt_purchased_time() const;
+  void set_rt_purchased_time(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_rt_purchased_time() const;
+  void _internal_set_rt_purchased_time(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
   // optional uint32 local_cache_version = 68;
@@ -1827,11 +1840,10 @@ class CAppOverview PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::uint32 mastersub_appid_;
   ::PROTOBUF_NAMESPACE_ID::uint32 shortcut_override_appid_;
   int steam_deccompat_category_;
-  ::PROTOBUF_NAMESPACE_ID::uint32 rt_last_time_locally_played_;
-  ::PROTOBUF_NAMESPACE_ID::uint32 rt_purchased_time_;
   bool vr_only_;
   bool gamepad_preferred_;
-  bool gamepad_required_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 rt_last_time_locally_played_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 rt_purchased_time_;
   ::PROTOBUF_NAMESPACE_ID::uint32 local_cache_version_;
   int ps4_controller_support_;
   friend struct ::TableStruct_steammessages_5fappoverview_2eproto;
@@ -4480,7 +4492,7 @@ inline void CAppOverview::set_allocated_library_id(std::string* library_id) {
 
 // optional bool vr_only = 58;
 inline bool CAppOverview::_internal_has_vr_only() const {
-  bool value = (_has_bits_[1] & 0x00000800u) != 0;
+  bool value = (_has_bits_[1] & 0x00000200u) != 0;
   return value;
 }
 inline bool CAppOverview::has_vr_only() const {
@@ -4488,7 +4500,7 @@ inline bool CAppOverview::has_vr_only() const {
 }
 inline void CAppOverview::clear_vr_only() {
   vr_only_ = false;
-  _has_bits_[1] &= ~0x00000800u;
+  _has_bits_[1] &= ~0x00000200u;
 }
 inline bool CAppOverview::_internal_vr_only() const {
   return vr_only_;
@@ -4498,7 +4510,7 @@ inline bool CAppOverview::vr_only() const {
   return _internal_vr_only();
 }
 inline void CAppOverview::_internal_set_vr_only(bool value) {
-  _has_bits_[1] |= 0x00000800u;
+  _has_bits_[1] |= 0x00000200u;
   vr_only_ = value;
 }
 inline void CAppOverview::set_vr_only(bool value) {
@@ -4739,7 +4751,7 @@ inline void CAppOverview::set_steam_deccompat_category(::ESteamDeckCompatibility
 
 // optional uint32 rt_last_time_locally_played = 65;
 inline bool CAppOverview::_internal_has_rt_last_time_locally_played() const {
-  bool value = (_has_bits_[1] & 0x00000200u) != 0;
+  bool value = (_has_bits_[1] & 0x00000800u) != 0;
   return value;
 }
 inline bool CAppOverview::has_rt_last_time_locally_played() const {
@@ -4747,7 +4759,7 @@ inline bool CAppOverview::has_rt_last_time_locally_played() const {
 }
 inline void CAppOverview::clear_rt_last_time_locally_played() {
   rt_last_time_locally_played_ = 0u;
-  _has_bits_[1] &= ~0x00000200u;
+  _has_bits_[1] &= ~0x00000800u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::_internal_rt_last_time_locally_played() const {
   return rt_last_time_locally_played_;
@@ -4757,7 +4769,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::rt_last_time_locally_played
   return _internal_rt_last_time_locally_played();
 }
 inline void CAppOverview::_internal_set_rt_last_time_locally_played(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[1] |= 0x00000200u;
+  _has_bits_[1] |= 0x00000800u;
   rt_last_time_locally_played_ = value;
 }
 inline void CAppOverview::set_rt_last_time_locally_played(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -4767,7 +4779,7 @@ inline void CAppOverview::set_rt_last_time_locally_played(::PROTOBUF_NAMESPACE_I
 
 // optional uint32 rt_purchased_time = 66;
 inline bool CAppOverview::_internal_has_rt_purchased_time() const {
-  bool value = (_has_bits_[1] & 0x00000400u) != 0;
+  bool value = (_has_bits_[1] & 0x00001000u) != 0;
   return value;
 }
 inline bool CAppOverview::has_rt_purchased_time() const {
@@ -4775,7 +4787,7 @@ inline bool CAppOverview::has_rt_purchased_time() const {
 }
 inline void CAppOverview::clear_rt_purchased_time() {
   rt_purchased_time_ = 0u;
-  _has_bits_[1] &= ~0x00000400u;
+  _has_bits_[1] &= ~0x00001000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::_internal_rt_purchased_time() const {
   return rt_purchased_time_;
@@ -4785,7 +4797,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::rt_purchased_time() const {
   return _internal_rt_purchased_time();
 }
 inline void CAppOverview::_internal_set_rt_purchased_time(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[1] |= 0x00000400u;
+  _has_bits_[1] |= 0x00001000u;
   rt_purchased_time_ = value;
 }
 inline void CAppOverview::set_rt_purchased_time(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -4868,7 +4880,7 @@ inline void CAppOverview::set_allocated_header_filename(std::string* header_file
 
 // optional uint32 local_cache_version = 68;
 inline bool CAppOverview::_internal_has_local_cache_version() const {
-  bool value = (_has_bits_[1] & 0x00004000u) != 0;
+  bool value = (_has_bits_[1] & 0x00002000u) != 0;
   return value;
 }
 inline bool CAppOverview::has_local_cache_version() const {
@@ -4876,7 +4888,7 @@ inline bool CAppOverview::has_local_cache_version() const {
 }
 inline void CAppOverview::clear_local_cache_version() {
   local_cache_version_ = 0u;
-  _has_bits_[1] &= ~0x00004000u;
+  _has_bits_[1] &= ~0x00002000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::_internal_local_cache_version() const {
   return local_cache_version_;
@@ -4886,7 +4898,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 CAppOverview::local_cache_version() const
   return _internal_local_cache_version();
 }
 inline void CAppOverview::_internal_set_local_cache_version(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  _has_bits_[1] |= 0x00004000u;
+  _has_bits_[1] |= 0x00002000u;
   local_cache_version_ = value;
 }
 inline void CAppOverview::set_local_cache_version(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -4896,7 +4908,7 @@ inline void CAppOverview::set_local_cache_version(::PROTOBUF_NAMESPACE_ID::uint3
 
 // optional .EAppControllerSupportLevel ps4_controller_support = 69 [default = EAppControllerSupportLevelNone];
 inline bool CAppOverview::_internal_has_ps4_controller_support() const {
-  bool value = (_has_bits_[1] & 0x00008000u) != 0;
+  bool value = (_has_bits_[1] & 0x00004000u) != 0;
   return value;
 }
 inline bool CAppOverview::has_ps4_controller_support() const {
@@ -4904,7 +4916,7 @@ inline bool CAppOverview::has_ps4_controller_support() const {
 }
 inline void CAppOverview::clear_ps4_controller_support() {
   ps4_controller_support_ = 0;
-  _has_bits_[1] &= ~0x00008000u;
+  _has_bits_[1] &= ~0x00004000u;
 }
 inline ::EAppControllerSupportLevel CAppOverview::_internal_ps4_controller_support() const {
   return static_cast< ::EAppControllerSupportLevel >(ps4_controller_support_);
@@ -4915,7 +4927,7 @@ inline ::EAppControllerSupportLevel CAppOverview::ps4_controller_support() const
 }
 inline void CAppOverview::_internal_set_ps4_controller_support(::EAppControllerSupportLevel value) {
   assert(::EAppControllerSupportLevel_IsValid(value));
-  _has_bits_[1] |= 0x00008000u;
+  _has_bits_[1] |= 0x00004000u;
   ps4_controller_support_ = value;
 }
 inline void CAppOverview::set_ps4_controller_support(::EAppControllerSupportLevel value) {
@@ -4954,7 +4966,7 @@ inline void CAppOverview::set_ps5_controller_support(::EAppControllerSupportLeve
 
 // optional bool gamepad_preferred = 71;
 inline bool CAppOverview::_internal_has_gamepad_preferred() const {
-  bool value = (_has_bits_[1] & 0x00001000u) != 0;
+  bool value = (_has_bits_[1] & 0x00000400u) != 0;
   return value;
 }
 inline bool CAppOverview::has_gamepad_preferred() const {
@@ -4962,7 +4974,7 @@ inline bool CAppOverview::has_gamepad_preferred() const {
 }
 inline void CAppOverview::clear_gamepad_preferred() {
   gamepad_preferred_ = false;
-  _has_bits_[1] &= ~0x00001000u;
+  _has_bits_[1] &= ~0x00000400u;
 }
 inline bool CAppOverview::_internal_gamepad_preferred() const {
   return gamepad_preferred_;
@@ -4972,40 +4984,12 @@ inline bool CAppOverview::gamepad_preferred() const {
   return _internal_gamepad_preferred();
 }
 inline void CAppOverview::_internal_set_gamepad_preferred(bool value) {
-  _has_bits_[1] |= 0x00001000u;
+  _has_bits_[1] |= 0x00000400u;
   gamepad_preferred_ = value;
 }
 inline void CAppOverview::set_gamepad_preferred(bool value) {
   _internal_set_gamepad_preferred(value);
   // @@protoc_insertion_point(field_set:CAppOverview.gamepad_preferred)
-}
-
-// optional bool gamepad_required = 72;
-inline bool CAppOverview::_internal_has_gamepad_required() const {
-  bool value = (_has_bits_[1] & 0x00002000u) != 0;
-  return value;
-}
-inline bool CAppOverview::has_gamepad_required() const {
-  return _internal_has_gamepad_required();
-}
-inline void CAppOverview::clear_gamepad_required() {
-  gamepad_required_ = false;
-  _has_bits_[1] &= ~0x00002000u;
-}
-inline bool CAppOverview::_internal_gamepad_required() const {
-  return gamepad_required_;
-}
-inline bool CAppOverview::gamepad_required() const {
-  // @@protoc_insertion_point(field_get:CAppOverview.gamepad_required)
-  return _internal_gamepad_required();
-}
-inline void CAppOverview::_internal_set_gamepad_required(bool value) {
-  _has_bits_[1] |= 0x00002000u;
-  gamepad_required_ = value;
-}
-inline void CAppOverview::set_gamepad_required(bool value) {
-  _internal_set_gamepad_required(value);
-  // @@protoc_insertion_point(field_set:CAppOverview.gamepad_required)
 }
 
 // -------------------------------------------------------------------
@@ -5379,6 +5363,11 @@ template <> struct is_proto_enum< ::EAppGamepadGyroTrackpadSupportLevel> : ::std
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::EAppGamepadGyroTrackpadSupportLevel>() {
   return ::EAppGamepadGyroTrackpadSupportLevel_descriptor();
+}
+template <> struct is_proto_enum< ::EAppHDRSupport> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::EAppHDRSupport>() {
+  return ::EAppHDRSupport_descriptor();
 }
 
 PROTOBUF_NAMESPACE_CLOSE

@@ -626,206 +626,105 @@ const char descriptor_table_protodef_steammessages_5ftwofactor_2esteamclient_2ep
   "\n)steammessages_twofactor.steamclient.pr"
   "oto\032 google/protobuf/descriptor.proto\032\030s"
   "teammessages_base.proto\032,steammessages_u"
-  "nified_base.steamclient.proto\"l\n\027CTwoFac"
-  "tor_Time_Request\022Q\n\013sender_time\030\001 \001(\004B<\202"
-  "\265\0308Current time on the sender (for stats"
-  ", don\'t trust this)\"\351\005\n\030CTwoFactor_Time_"
-  "Response\022,\n\013server_time\030\001 \001(\004B\027\202\265\030\023Curre"
-  "nt server time\022Z\n\026skew_tolerance_seconds"
-  "\030\002 \001(\004B:\202\265\0306Time skew we\'ll tolerate bef"
-  "ore applying an adjustment\022G\n\017large_time"
-  "_jink\030\003 \001(\004B.\202\265\030*Re-sync if local time j"
-  "itters by this much\022W\n\027probe_frequency_s"
-  "econds\030\004 \001(\rB6\202\265\0302Time probe frequency i"
-  "f phone time is synchronized\022i\n%adjusted"
-  "_time_probe_frequency_seconds\030\005 \001(\rB:\202\265\030"
-  "6Time probe frequency if phone time is n"
-  "ot synchronized\022R\n\034hint_probe_frequency_"
-  "seconds\030\006 \001(\rB,\202\265\030(Floor of probe freque"
-  "ncy, no matter what\022M\n\014sync_timeout\030\007 \001("
-  "\rB7\202\265\0303More than this, and we call the c"
-  "urrent sync failed\022G\n\021try_again_seconds\030"
-  "\010 \001(\rB,\202\265\030(Seconds to try again after a "
-  "failed sync\022J\n\014max_attempts\030\t \001(\rB4\202\265\0300#"
-  " times we\'ll ask for server time before "
-  "we bail\"@\n\031CTwoFactor_Status_Request\022#\n\007"
-  "steamid\030\001 \001(\006B\022\202\265\030\016steamid to use\"\362\007\n\032CT"
-  "woFactor_Status_Response\022&\n\005state\030\001 \001(\rB"
-  "\027\202\265\030\023Authenticator state\022=\n\023inactivation"
-  "_reason\030\002 \001(\rB \202\265\030\034Inactivation reason ("
-  "if any)\0225\n\022authenticator_type\030\003 \001(\rB\031\202\265\030"
-  "\025Type of authenticator\022L\n\025authenticator_"
-  "allowed\030\004 \001(\010B-\202\265\030)Account allowed to ha"
-  "ve an authenticator\?\022;\n\021steamguard_schem"
-  "e\030\005 \001(\rB \202\265\030\034Steam Guard scheme in effec"
-  "t\022A\n\ttoken_gid\030\006 \001(\tB.\202\265\030*String rep of "
-  "token GID assigned by server\022B\n\017email_va"
-  "lidated\030\007 \001(\010B)\202\265\030%Account has verified "
-  "email capability\022\?\n\021device_identifier\030\010 "
-  "\001(\tB$\202\265\030 Authenticator (phone) identifie"
-  "r\0224\n\014time_created\030\t \001(\rB\036\202\265\030\032When the to"
-  "ken was created\022W\n\035revocation_attempts_r"
-  "emaining\030\n \001(\rB0\202\265\030,Number of revocation"
-  " code attempts remaining\022^\n\020classified_a"
-  "gent\030\013 \001(\tBD\202\265\030@Agent that added the aut"
-  "henticator (e.g., ios / android / other)"
-  "\022g\n\034allow_external_authenticator\030\014 \001(\010BA"
-  "\202\265\030=Allow a third-party authenticator (i"
-  "n addition to two-factor)\022_\n\020time_transf"
-  "erred\030\r \001(\rBE\202\265\030AWhen the token was tran"
-  "sferred from another device, if applicab"
-  "le\022*\n\007version\030\016 \001(\rB\031\202\265\030\025Current token v"
-  "ersion\"\260\003\n#CTwoFactor_AddAuthenticator_R"
-  "equest\022#\n\007steamid\030\001 \001(\006B\022\202\265\030\016steamid to "
-  "use\022:\n\022authenticator_time\030\002 \001(\004B\036\202\265\030\032Cur"
-  "rent authenticator time\022\?\n\rserial_number"
-  "\030\003 \001(\006B(\202\265\030$locally computed serial (dep"
-  "recated)\0222\n\022authenticator_type\030\004 \001(\rB\026\202\265"
-  "\030\022Authenticator type\0227\n\021device_identifie"
-  "r\030\005 \001(\tB\034\202\265\030\030Authenticator identifier\0229\n"
-  "\014http_headers\030\007 \003(\tB#\202\265\030\037HTTP headers al"
-  "ternating by K/V\022\?\n\007version\030\010 \001(\r:\0011B+\202\265"
-  "\030\'What the version of our token should b"
-  "e\"\227\006\n$CTwoFactor_AddAuthenticator_Respon"
-  "se\022I\n\rshared_secret\030\001 \001(\014B2\202\265\030.Shared se"
-  "cret between server and authenticator\022I\n"
-  "\rserial_number\030\002 \001(\006B2\202\265\030.Authenticator "
-  "serial number (unique per token)\022>\n\017revo"
-  "cation_code\030\003 \001(\tB%\202\265\030!code used to revo"
-  "ke authenticator\022+\n\003uri\030\004 \001(\tB\036\202\265\030\032URI f"
-  "or QR code generation\022,\n\013server_time\030\005 \001"
-  "(\004B\027\202\265\030\023Current server time\022A\n\014account_n"
-  "ame\030\006 \001(\tB+\202\265\030\'Account name to display o"
-  "n token client\0223\n\ttoken_gid\030\007 \001(\tB \202\265\030\034T"
-  "oken GID assigned by server\022V\n\017identity_"
-  "secret\030\010 \001(\014B=\202\265\0309Secret used for identi"
-  "ty attestation (e.g., for eventing)\022)\n\010s"
-  "ecret_1\030\t \001(\014B\027\202\265\030\023Spare shared secret\022\037"
-  "\n\006status\030\n \001(\005B\017\202\265\030\013Result code\022U\n\021phone"
-  "_number_hint\030\013 \001(\tB:\202\265\0306a portion of the"
-  " phone number the SMS code was sent to\022K"
-  "\n\014confirm_type\030\014 \001(\005B5\202\265\0301how we expect "
-  "to confirm adding the authenticator\"\335\001\n\034"
-  "CTwoFactor_SendEmail_Request\022#\n\007steamid\030"
-  "\001 \001(\006B\022\202\265\030\016Steamid to use\022F\n\nemail_type\030"
-  "\002 \001(\rB2\202\265\030.Type of email to send (ETwoFa"
-  "ctorEmailType::*)\022P\n\027include_activation_"
-  "code\030\003 \001(\010B/\202\265\030+Include activation code "
-  "in email parameters\"\037\n\035CTwoFactor_SendEm"
-  "ail_Response\"\307\003\n+CTwoFactor_FinalizeAddA"
-  "uthenticator_Request\022#\n\007steamid\030\001 \001(\006B\022\202"
-  "\265\030\016steamid to use\0221\n\022authenticator_code\030"
-  "\002 \001(\tB\025\202\265\030\021Current auth code\022:\n\022authenti"
-  "cator_time\030\003 \001(\004B\036\202\265\030\032Current authentica"
-  "tor time\022E\n\017activation_code\030\004 \001(\tB,\202\265\030(A"
-  "ctivation code from out-of-band message\022"
-  "9\n\014http_headers\030\005 \003(\tB#\202\265\030\037HTTP headers "
-  "alternating by K/V\022\201\001\n\021validate_sms_code"
-  "\030\006 \001(\010Bf\202\265\030bWhen finalizing with an SMS "
-  "code, pass the request on to the PhoneSe"
-  "rvice to update its state too.\"\271\001\n,CTwoF"
+  "nified_base.steamclient.proto\".\n\027CTwoFac"
+  "tor_Time_Request\022\023\n\013sender_time\030\001 \001(\004\"\245\002"
+  "\n\030CTwoFactor_Time_Response\022\023\n\013server_tim"
+  "e\030\001 \001(\004\022\036\n\026skew_tolerance_seconds\030\002 \001(\004\022"
+  "\027\n\017large_time_jink\030\003 \001(\004\022\037\n\027probe_freque"
+  "ncy_seconds\030\004 \001(\r\022-\n%adjusted_time_probe"
+  "_frequency_seconds\030\005 \001(\r\022$\n\034hint_probe_f"
+  "requency_seconds\030\006 \001(\r\022\024\n\014sync_timeout\030\007"
+  " \001(\r\022\031\n\021try_again_seconds\030\010 \001(\r\022\024\n\014max_a"
+  "ttempts\030\t \001(\r\",\n\031CTwoFactor_Status_Reque"
+  "st\022\017\n\007steamid\030\001 \001(\006\"\215\003\n\032CTwoFactor_Statu"
+  "s_Response\022\r\n\005state\030\001 \001(\r\022\033\n\023inactivatio"
+  "n_reason\030\002 \001(\r\022\032\n\022authenticator_type\030\003 \001"
+  "(\r\022\035\n\025authenticator_allowed\030\004 \001(\010\022\031\n\021ste"
+  "amguard_scheme\030\005 \001(\r\022\021\n\ttoken_gid\030\006 \001(\t\022"
+  "\027\n\017email_validated\030\007 \001(\010\022\031\n\021device_ident"
+  "ifier\030\010 \001(\t\022\024\n\014time_created\030\t \001(\r\022%\n\035rev"
+  "ocation_attempts_remaining\030\n \001(\r\022\030\n\020clas"
+  "sified_agent\030\013 \001(\t\022$\n\034allow_external_aut"
+  "henticator\030\014 \001(\010\022\030\n\020time_transferred\030\r \001"
+  "(\r\022\017\n\007version\030\016 \001(\r\"\312\001\n#CTwoFactor_AddAu"
+  "thenticator_Request\022\017\n\007steamid\030\001 \001(\006\022\032\n\022"
+  "authenticator_time\030\002 \001(\004\022\025\n\rserial_numbe"
+  "r\030\003 \001(\006\022\032\n\022authenticator_type\030\004 \001(\r\022\031\n\021d"
+  "evice_identifier\030\005 \001(\t\022\024\n\014http_headers\030\007"
+  " \003(\t\022\022\n\007version\030\010 \001(\r:\0011\"\244\002\n$CTwoFactor_"
+  "AddAuthenticator_Response\022\025\n\rshared_secr"
+  "et\030\001 \001(\014\022\025\n\rserial_number\030\002 \001(\006\022\027\n\017revoc"
+  "ation_code\030\003 \001(\t\022\013\n\003uri\030\004 \001(\t\022\023\n\013server_"
+  "time\030\005 \001(\004\022\024\n\014account_name\030\006 \001(\t\022\021\n\ttoke"
+  "n_gid\030\007 \001(\t\022\027\n\017identity_secret\030\010 \001(\014\022\020\n\010"
+  "secret_1\030\t \001(\014\022\016\n\006status\030\n \001(\005\022\031\n\021phone_"
+  "number_hint\030\013 \001(\t\022\024\n\014confirm_type\030\014 \001(\005\""
+  "d\n\034CTwoFactor_SendEmail_Request\022\017\n\007steam"
+  "id\030\001 \001(\006\022\022\n\nemail_type\030\002 \001(\r\022\037\n\027include_"
+  "activation_code\030\003 \001(\010\"\037\n\035CTwoFactor_Send"
+  "Email_Response\"\300\001\n+CTwoFactor_FinalizeAd"
+  "dAuthenticator_Request\022\017\n\007steamid\030\001 \001(\006\022"
+  "\032\n\022authenticator_code\030\002 \001(\t\022\032\n\022authentic"
+  "ator_time\030\003 \001(\004\022\027\n\017activation_code\030\004 \001(\t"
+  "\022\024\n\014http_headers\030\005 \003(\t\022\031\n\021validate_sms_c"
+  "ode\030\006 \001(\010\"d\n,CTwoFactor_FinalizeAddAuthe"
+  "nticator_Response\022\017\n\007success\030\001 \001(\010\022\023\n\013se"
+  "rver_time\030\003 \001(\004\022\016\n\006status\030\004 \001(\005\"\\\n%CTwoF"
+  "actor_UpdateTokenVersion_Request\022\017\n\007stea"
+  "mid\030\001 \001(\006\022\017\n\007version\030\002 \001(\r\022\021\n\tsignature\030"
+  "\003 \001(\014\"(\n&CTwoFactor_UpdateTokenVersion_R"
+  "esponse\"\236\001\n&CTwoFactor_RemoveAuthenticat"
+  "or_Request\022\027\n\017revocation_code\030\002 \001(\t\022\031\n\021r"
+  "evocation_reason\030\005 \001(\r\022\031\n\021steamguard_sch"
+  "eme\030\006 \001(\r\022%\n\035remove_all_steamguard_cooki"
+  "es\030\007 \001(\010\"v\n\'CTwoFactor_RemoveAuthenticat"
+  "or_Response\022\017\n\007success\030\001 \001(\010\022\023\n\013server_t"
+  "ime\030\003 \001(\004\022%\n\035revocation_attempts_remaini"
+  "ng\030\005 \001(\r\"9\n7CTwoFactor_RemoveAuthenticat"
+  "orViaChallengeStart_Request\"K\n8CTwoFacto"
+  "r_RemoveAuthenticatorViaChallengeStart_R"
+  "esponse\022\017\n\007success\030\001 \001(\010\"~\n:CTwoFactor_R"
+  "emoveAuthenticatorViaChallengeContinue_R"
+  "equest\022\020\n\010sms_code\030\001 \001(\t\022\032\n\022generate_new"
+  "_token\030\002 \001(\010\022\022\n\007version\030\003 \001(\r:\0011\"\265\002\n:CRe"
+  "moveAuthenticatorViaChallengeContinue_Re"
+  "placement_Token\022\025\n\rshared_secret\030\001 \001(\014\022\025"
+  "\n\rserial_number\030\002 \001(\006\022\027\n\017revocation_code"
+  "\030\003 \001(\t\022\013\n\003uri\030\004 \001(\t\022\023\n\013server_time\030\005 \001(\004"
+  "\022\024\n\014account_name\030\006 \001(\t\022\021\n\ttoken_gid\030\007 \001("
+  "\t\022\027\n\017identity_secret\030\010 \001(\014\022\020\n\010secret_1\030\t"
+  " \001(\014\022\016\n\006status\030\n \001(\005\022\031\n\021steamguard_schem"
+  "e\030\013 \001(\r\022\017\n\007steamid\030\014 \001(\006\"\246\001\n;CTwoFactor_"
+  "RemoveAuthenticatorViaChallengeContinue_"
+  "Response\022\017\n\007success\030\001 \001(\010\022V\n\021replacement"
+  "_token\030\002 \001(\0132;.CRemoveAuthenticatorViaCh"
+  "allengeContinue_Replacement_Token2\321\007\n\tTw"
+  "oFactor\022@\n\tQueryTime\022\030.CTwoFactor_Time_R"
+  "equest\032\031.CTwoFactor_Time_Response\022F\n\013Que"
+  "ryStatus\022\032.CTwoFactor_Status_Request\032\033.C"
+  "TwoFactor_Status_Response\022_\n\020AddAuthenti"
+  "cator\022$.CTwoFactor_AddAuthenticator_Requ"
+  "est\032%.CTwoFactor_AddAuthenticator_Respon"
+  "se\022J\n\tSendEmail\022\035.CTwoFactor_SendEmail_R"
+  "equest\032\036.CTwoFactor_SendEmail_Response\022w"
+  "\n\030FinalizeAddAuthenticator\022,.CTwoFactor_"
+  "FinalizeAddAuthenticator_Request\032-.CTwoF"
   "actor_FinalizeAddAuthenticator_Response\022"
-  ":\n\007success\030\001 \001(\010B)\202\265\030%True if succeeded,"
-  " or want more tries\022,\n\013server_time\030\003 \001(\004"
-  "B\027\202\265\030\023Current server time\022\037\n\006status\030\004 \001("
-  "\005B\017\202\265\030\013Result code\"\262\001\n%CTwoFactor_Update"
-  "TokenVersion_Request\022\017\n\007steamid\030\001 \001(\006\022<\n"
-  "\007version\030\002 \001(\rB+\202\265\030\'What the version of "
-  "our token should be\022:\n\tsignature\030\003 \001(\014B\'"
-  "\202\265\030#HMAC digest over user\'s private key\""
-  "(\n&CTwoFactor_UpdateTokenVersion_Respons"
-  "e\"\313\002\n&CTwoFactor_RemoveAuthenticator_Req"
-  "uest\022<\n\017revocation_code\030\002 \001(\tB#\202\265\030\037Passw"
-  "ord needed to remove token\022H\n\021revocation"
-  "_reason\030\005 \001(\rB-\202\265\030)Reason the authentica"
-  "tor is being removed\022O\n\021steamguard_schem"
-  "e\030\006 \001(\rB4\202\265\0300Type of Steam Guard to use "
-  "once token is removed\022H\n\035remove_all_stea"
-  "mguard_cookies\030\007 \001(\010B!\202\265\030\035Remove all ste"
-  "amguard cookies\"\376\001\n\'CTwoFactor_RemoveAut"
-  "henticator_Response\022L\n\007success\030\001 \001(\010B;\202\265"
-  "\0307True if request succeeeded. The mobile"
-  " app checks this.\022,\n\013server_time\030\003 \001(\004B\027"
-  "\202\265\030\023Current server time\022W\n\035revocation_at"
-  "tempts_remaining\030\005 \001(\rB0\202\265\030,Number of re"
-  "vocation code attempts remaining\"9\n7CTwo"
-  "Factor_RemoveAuthenticatorViaChallengeSt"
-  "art_Request\"\221\001\n8CTwoFactor_RemoveAuthent"
-  "icatorViaChallengeStart_Response\022U\n\007succ"
-  "ess\030\001 \001(\010BD\202\265\030@True if succeeded, or wan"
-  "t more tries with an authenticator_code\""
-  "\364\001\n:CTwoFactor_RemoveAuthenticatorViaCha"
-  "llengeContinue_Request\022#\n\010sms_code\030\001 \001(\t"
-  "B\021\202\265\030\rCode from SMS\022P\n\022generate_new_toke"
-  "n\030\002 \001(\010B4\202\265\0300Generate new token (instead"
-  " of removing old one)\022\?\n\007version\030\003 \001(\r:\001"
-  "1B+\202\265\030\'What the version of our token sho"
-  "uld be\"\215\006\n:CRemoveAuthenticatorViaChalle"
-  "ngeContinue_Replacement_Token\022I\n\rshared_"
-  "secret\030\001 \001(\014B2\202\265\030.Shared secret between "
-  "server and authenticator\022I\n\rserial_numbe"
-  "r\030\002 \001(\006B2\202\265\030.Authenticator serial number"
-  " (unique per token)\022>\n\017revocation_code\030\003"
-  " \001(\tB%\202\265\030!code used to revoke authentica"
-  "tor\022+\n\003uri\030\004 \001(\tB\036\202\265\030\032URI for QR code ge"
-  "neration\022,\n\013server_time\030\005 \001(\004B\027\202\265\030\023Curre"
-  "nt server time\022A\n\014account_name\030\006 \001(\tB+\202\265"
-  "\030\'Account name to display on token clien"
-  "t\0223\n\ttoken_gid\030\007 \001(\tB \202\265\030\034Token GID assi"
-  "gned by server\022V\n\017identity_secret\030\010 \001(\014B"
-  "=\202\265\0309Secret used for identity attestatio"
-  "n (e.g., for eventing)\022)\n\010secret_1\030\t \001(\014"
-  "B\027\202\265\030\023Spare shared secret\022\037\n\006status\030\n \001("
-  "\005B\017\202\265\030\013Result code\022O\n\021steamguard_scheme\030"
-  "\013 \001(\rB4\202\265\0300Type of Steam Guard to use on"
-  "ce token is removed\0221\n\007steamid\030\014 \001(\006B \202\265"
-  "\030\034steamid that owns the secret\"\211\002\n;CTwoF"
-  "actor_RemoveAuthenticatorViaChallengeCon"
-  "tinue_Response\022U\n\007success\030\001 \001(\010BD\202\265\030@Tru"
-  "e if succeeded, or want more tries with "
-  "an authenticator_code\022s\n\021replacement_tok"
-  "en\030\002 \001(\0132;.CRemoveAuthenticatorViaChalle"
-  "ngeContinue_Replacement_TokenB\033\202\265\030\027Fresh"
-  " secret to install2\346\013\n\tTwoFactor\022k\n\tQuer"
-  "yTime\022\030.CTwoFactor_Time_Request\032\031.CTwoFa"
-  "ctor_Time_Response\")\202\265\030%Get server\'s ide"
-  "a of the current time\022\214\001\n\013QueryStatus\022\032."
-  "CTwoFactor_Status_Request\032\033.CTwoFactor_S"
-  "tatus_Response\"D\202\265\030@Get two-factor authe"
-  "ntication settings for the logged-in acc"
-  "ount\022\232\001\n\020AddAuthenticator\022$.CTwoFactor_A"
-  "ddAuthenticator_Request\032%.CTwoFactor_Add"
-  "Authenticator_Response\"9\202\265\0305Add two-fact"
-  "or authenticator to the logged-in accoun"
-  "t\022i\n\tSendEmail\022\035.CTwoFactor_SendEmail_Re"
-  "quest\032\036.CTwoFactor_SendEmail_Response\"\035\202"
-  "\265\030\031Send email to the account\022\301\001\n\030Finaliz"
-  "eAddAuthenticator\022,.CTwoFactor_FinalizeA"
-  "ddAuthenticator_Request\032-.CTwoFactor_Fin"
-  "alizeAddAuthenticator_Response\"H\202\265\030DFina"
-  "lize two-factor authentication addition "
-  "to the logged-in account\022\212\001\n\022UpdateToken"
-  "Version\022&.CTwoFactor_UpdateTokenVersion_"
-  "Request\032\'.CTwoFactor_UpdateTokenVersion_"
-  "Response\"#\202\265\030\037Update the version for my "
-  "token\022\262\001\n\023RemoveAuthenticator\022\'.CTwoFact"
-  "or_RemoveAuthenticator_Request\032(.CTwoFac"
-  "tor_RemoveAuthenticator_Response\"H\202\265\030DRe"
-  "move two-factor authentication addition "
-  "from the logged-in account\022\314\001\n$RemoveAut"
-  "henticatorViaChallengeStart\0228.CTwoFactor"
+  "e\n\022UpdateTokenVersion\022&.CTwoFactor_Updat"
+  "eTokenVersion_Request\032\'.CTwoFactor_Updat"
+  "eTokenVersion_Response\022h\n\023RemoveAuthenti"
+  "cator\022\'.CTwoFactor_RemoveAuthenticator_R"
+  "equest\032(.CTwoFactor_RemoveAuthenticator_"
+  "Response\022\233\001\n$RemoveAuthenticatorViaChall"
+  "engeStart\0228.CTwoFactor_RemoveAuthenticat"
+  "orViaChallengeStart_Request\0329.CTwoFactor"
   "_RemoveAuthenticatorViaChallengeStart_Re"
-  "quest\0329.CTwoFactor_RemoveAuthenticatorVi"
-  "aChallengeStart_Response\"/\202\265\030+Start chal"
-  "lenge-based authenticator removal\022\330\001\n\'Re"
-  "moveAuthenticatorViaChallengeContinue\022;."
-  "CTwoFactor_RemoveAuthenticatorViaChallen"
-  "geContinue_Request\032<.CTwoFactor_RemoveAu"
-  "thenticatorViaChallengeContinue_Response"
-  "\"2\202\265\030.Continue challenge-based authentic"
-  "ator removal\032%\202\265\030!Two Factor Authenticat"
-  "ion ServiceB\035\200\001\001\252\002\027OpenSteamworks.Protob"
-  "uf"
+  "sponse\022\244\001\n\'RemoveAuthenticatorViaChallen"
+  "geContinue\022;.CTwoFactor_RemoveAuthentica"
+  "torViaChallengeContinue_Request\032<.CTwoFa"
+  "ctor_RemoveAuthenticatorViaChallengeCont"
+  "inue_ResponseB\035\200\001\001\252\002\027OpenSteamworks.Prot"
+  "obuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5ftwofactor_2esteamclient_2eproto_deps[3] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
@@ -834,7 +733,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5ftwofactor_2esteamclient_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5ftwofactor_2esteamclient_2eproto = {
-  false, false, 8082, descriptor_table_protodef_steammessages_5ftwofactor_2esteamclient_2eproto, "steammessages_twofactor.steamclient.proto", 
+  false, false, 4044, descriptor_table_protodef_steammessages_5ftwofactor_2esteamclient_2eproto, "steammessages_twofactor.steamclient.proto", 
   &descriptor_table_steammessages_5ftwofactor_2esteamclient_2eproto_once, descriptor_table_steammessages_5ftwofactor_2esteamclient_2eproto_deps, 3, 19,
   schemas, file_default_instances, TableStruct_steammessages_5ftwofactor_2esteamclient_2eproto::offsets,
   file_level_metadata_steammessages_5ftwofactor_2esteamclient_2eproto, file_level_enum_descriptors_steammessages_5ftwofactor_2esteamclient_2eproto, file_level_service_descriptors_steammessages_5ftwofactor_2esteamclient_2eproto,
@@ -915,7 +814,7 @@ const char* CTwoFactor_Time_Request::_InternalParse(const char* ptr, ::PROTOBUF_
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint64 sender_time = 1 [(.description) = "Current time on the sender (for stats, don\'t trust this)"];
+      // optional uint64 sender_time = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_sender_time(&has_bits);
@@ -953,7 +852,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint64 sender_time = 1 [(.description) = "Current time on the sender (for stats, don\'t trust this)"];
+  // optional uint64 sender_time = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_sender_time(), target);
@@ -975,7 +874,7 @@ size_t CTwoFactor_Time_Request::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // optional uint64 sender_time = 1 [(.description) = "Current time on the sender (for stats, don\'t trust this)"];
+  // optional uint64 sender_time = 1;
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += 1 +
@@ -1151,7 +1050,7 @@ const char* CTwoFactor_Time_Response::_InternalParse(const char* ptr, ::PROTOBUF
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint64 server_time = 1 [(.description) = "Current server time"];
+      // optional uint64 server_time = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_server_time(&has_bits);
@@ -1159,7 +1058,7 @@ const char* CTwoFactor_Time_Response::_InternalParse(const char* ptr, ::PROTOBUF
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint64 skew_tolerance_seconds = 2 [(.description) = "Time skew we\'ll tolerate before applying an adjustment"];
+      // optional uint64 skew_tolerance_seconds = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_skew_tolerance_seconds(&has_bits);
@@ -1167,7 +1066,7 @@ const char* CTwoFactor_Time_Response::_InternalParse(const char* ptr, ::PROTOBUF
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint64 large_time_jink = 3 [(.description) = "Re-sync if local time jitters by this much"];
+      // optional uint64 large_time_jink = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           _Internal::set_has_large_time_jink(&has_bits);
@@ -1175,7 +1074,7 @@ const char* CTwoFactor_Time_Response::_InternalParse(const char* ptr, ::PROTOBUF
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 probe_frequency_seconds = 4 [(.description) = "Time probe frequency if phone time is synchronized"];
+      // optional uint32 probe_frequency_seconds = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
           _Internal::set_has_probe_frequency_seconds(&has_bits);
@@ -1183,7 +1082,7 @@ const char* CTwoFactor_Time_Response::_InternalParse(const char* ptr, ::PROTOBUF
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 adjusted_time_probe_frequency_seconds = 5 [(.description) = "Time probe frequency if phone time is not synchronized"];
+      // optional uint32 adjusted_time_probe_frequency_seconds = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
           _Internal::set_has_adjusted_time_probe_frequency_seconds(&has_bits);
@@ -1191,7 +1090,7 @@ const char* CTwoFactor_Time_Response::_InternalParse(const char* ptr, ::PROTOBUF
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 hint_probe_frequency_seconds = 6 [(.description) = "Floor of probe frequency, no matter what"];
+      // optional uint32 hint_probe_frequency_seconds = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
           _Internal::set_has_hint_probe_frequency_seconds(&has_bits);
@@ -1199,7 +1098,7 @@ const char* CTwoFactor_Time_Response::_InternalParse(const char* ptr, ::PROTOBUF
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 sync_timeout = 7 [(.description) = "More than this, and we call the current sync failed"];
+      // optional uint32 sync_timeout = 7;
       case 7:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 56)) {
           _Internal::set_has_sync_timeout(&has_bits);
@@ -1207,7 +1106,7 @@ const char* CTwoFactor_Time_Response::_InternalParse(const char* ptr, ::PROTOBUF
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 try_again_seconds = 8 [(.description) = "Seconds to try again after a failed sync"];
+      // optional uint32 try_again_seconds = 8;
       case 8:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 64)) {
           _Internal::set_has_try_again_seconds(&has_bits);
@@ -1215,7 +1114,7 @@ const char* CTwoFactor_Time_Response::_InternalParse(const char* ptr, ::PROTOBUF
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 max_attempts = 9 [(.description) = "# times we\'ll ask for server time before we bail"];
+      // optional uint32 max_attempts = 9;
       case 9:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 72)) {
           _Internal::set_has_max_attempts(&has_bits);
@@ -1253,55 +1152,55 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint64 server_time = 1 [(.description) = "Current server time"];
+  // optional uint64 server_time = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_server_time(), target);
   }
 
-  // optional uint64 skew_tolerance_seconds = 2 [(.description) = "Time skew we\'ll tolerate before applying an adjustment"];
+  // optional uint64 skew_tolerance_seconds = 2;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(2, this->_internal_skew_tolerance_seconds(), target);
   }
 
-  // optional uint64 large_time_jink = 3 [(.description) = "Re-sync if local time jitters by this much"];
+  // optional uint64 large_time_jink = 3;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(3, this->_internal_large_time_jink(), target);
   }
 
-  // optional uint32 probe_frequency_seconds = 4 [(.description) = "Time probe frequency if phone time is synchronized"];
+  // optional uint32 probe_frequency_seconds = 4;
   if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_probe_frequency_seconds(), target);
   }
 
-  // optional uint32 adjusted_time_probe_frequency_seconds = 5 [(.description) = "Time probe frequency if phone time is not synchronized"];
+  // optional uint32 adjusted_time_probe_frequency_seconds = 5;
   if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(5, this->_internal_adjusted_time_probe_frequency_seconds(), target);
   }
 
-  // optional uint32 hint_probe_frequency_seconds = 6 [(.description) = "Floor of probe frequency, no matter what"];
+  // optional uint32 hint_probe_frequency_seconds = 6;
   if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(6, this->_internal_hint_probe_frequency_seconds(), target);
   }
 
-  // optional uint32 sync_timeout = 7 [(.description) = "More than this, and we call the current sync failed"];
+  // optional uint32 sync_timeout = 7;
   if (cached_has_bits & 0x00000040u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(7, this->_internal_sync_timeout(), target);
   }
 
-  // optional uint32 try_again_seconds = 8 [(.description) = "Seconds to try again after a failed sync"];
+  // optional uint32 try_again_seconds = 8;
   if (cached_has_bits & 0x00000080u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(8, this->_internal_try_again_seconds(), target);
   }
 
-  // optional uint32 max_attempts = 9 [(.description) = "# times we\'ll ask for server time before we bail"];
+  // optional uint32 max_attempts = 9;
   if (cached_has_bits & 0x00000100u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(9, this->_internal_max_attempts(), target);
@@ -1325,56 +1224,56 @@ size_t CTwoFactor_Time_Response::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x000000ffu) {
-    // optional uint64 server_time = 1 [(.description) = "Current server time"];
+    // optional uint64 server_time = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_server_time());
     }
 
-    // optional uint64 skew_tolerance_seconds = 2 [(.description) = "Time skew we\'ll tolerate before applying an adjustment"];
+    // optional uint64 skew_tolerance_seconds = 2;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_skew_tolerance_seconds());
     }
 
-    // optional uint64 large_time_jink = 3 [(.description) = "Re-sync if local time jitters by this much"];
+    // optional uint64 large_time_jink = 3;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_large_time_jink());
     }
 
-    // optional uint32 probe_frequency_seconds = 4 [(.description) = "Time probe frequency if phone time is synchronized"];
+    // optional uint32 probe_frequency_seconds = 4;
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_probe_frequency_seconds());
     }
 
-    // optional uint32 adjusted_time_probe_frequency_seconds = 5 [(.description) = "Time probe frequency if phone time is not synchronized"];
+    // optional uint32 adjusted_time_probe_frequency_seconds = 5;
     if (cached_has_bits & 0x00000010u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_adjusted_time_probe_frequency_seconds());
     }
 
-    // optional uint32 hint_probe_frequency_seconds = 6 [(.description) = "Floor of probe frequency, no matter what"];
+    // optional uint32 hint_probe_frequency_seconds = 6;
     if (cached_has_bits & 0x00000020u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_hint_probe_frequency_seconds());
     }
 
-    // optional uint32 sync_timeout = 7 [(.description) = "More than this, and we call the current sync failed"];
+    // optional uint32 sync_timeout = 7;
     if (cached_has_bits & 0x00000040u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_sync_timeout());
     }
 
-    // optional uint32 try_again_seconds = 8 [(.description) = "Seconds to try again after a failed sync"];
+    // optional uint32 try_again_seconds = 8;
     if (cached_has_bits & 0x00000080u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -1382,7 +1281,7 @@ size_t CTwoFactor_Time_Response::ByteSizeLong() const {
     }
 
   }
-  // optional uint32 max_attempts = 9 [(.description) = "# times we\'ll ask for server time before we bail"];
+  // optional uint32 max_attempts = 9;
   if (cached_has_bits & 0x00000100u) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -1555,7 +1454,7 @@ const char* CTwoFactor_Status_Request::_InternalParse(const char* ptr, ::PROTOBU
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional fixed64 steamid = 1 [(.description) = "steamid to use"];
+      // optional fixed64 steamid = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
           _Internal::set_has_steamid(&has_bits);
@@ -1593,7 +1492,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional fixed64 steamid = 1 [(.description) = "steamid to use"];
+  // optional fixed64 steamid = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_steamid(), target);
@@ -1615,7 +1514,7 @@ size_t CTwoFactor_Status_Request::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // optional fixed64 steamid = 1 [(.description) = "steamid to use"];
+  // optional fixed64 steamid = 1;
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += 1 + 8;
@@ -1840,7 +1739,7 @@ const char* CTwoFactor_Status_Response::_InternalParse(const char* ptr, ::PROTOB
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint32 state = 1 [(.description) = "Authenticator state"];
+      // optional uint32 state = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_state(&has_bits);
@@ -1848,7 +1747,7 @@ const char* CTwoFactor_Status_Response::_InternalParse(const char* ptr, ::PROTOB
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 inactivation_reason = 2 [(.description) = "Inactivation reason (if any)"];
+      // optional uint32 inactivation_reason = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_inactivation_reason(&has_bits);
@@ -1856,7 +1755,7 @@ const char* CTwoFactor_Status_Response::_InternalParse(const char* ptr, ::PROTOB
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 authenticator_type = 3 [(.description) = "Type of authenticator"];
+      // optional uint32 authenticator_type = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           _Internal::set_has_authenticator_type(&has_bits);
@@ -1864,7 +1763,7 @@ const char* CTwoFactor_Status_Response::_InternalParse(const char* ptr, ::PROTOB
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool authenticator_allowed = 4 [(.description) = "Account allowed to have an authenticator?"];
+      // optional bool authenticator_allowed = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
           _Internal::set_has_authenticator_allowed(&has_bits);
@@ -1872,7 +1771,7 @@ const char* CTwoFactor_Status_Response::_InternalParse(const char* ptr, ::PROTOB
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 steamguard_scheme = 5 [(.description) = "Steam Guard scheme in effect"];
+      // optional uint32 steamguard_scheme = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
           _Internal::set_has_steamguard_scheme(&has_bits);
@@ -1880,7 +1779,7 @@ const char* CTwoFactor_Status_Response::_InternalParse(const char* ptr, ::PROTOB
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string token_gid = 6 [(.description) = "String rep of token GID assigned by server"];
+      // optional string token_gid = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
           auto str = _internal_mutable_token_gid();
@@ -1891,7 +1790,7 @@ const char* CTwoFactor_Status_Response::_InternalParse(const char* ptr, ::PROTOB
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool email_validated = 7 [(.description) = "Account has verified email capability"];
+      // optional bool email_validated = 7;
       case 7:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 56)) {
           _Internal::set_has_email_validated(&has_bits);
@@ -1899,7 +1798,7 @@ const char* CTwoFactor_Status_Response::_InternalParse(const char* ptr, ::PROTOB
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string device_identifier = 8 [(.description) = "Authenticator (phone) identifier"];
+      // optional string device_identifier = 8;
       case 8:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 66)) {
           auto str = _internal_mutable_device_identifier();
@@ -1910,7 +1809,7 @@ const char* CTwoFactor_Status_Response::_InternalParse(const char* ptr, ::PROTOB
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 time_created = 9 [(.description) = "When the token was created"];
+      // optional uint32 time_created = 9;
       case 9:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 72)) {
           _Internal::set_has_time_created(&has_bits);
@@ -1918,7 +1817,7 @@ const char* CTwoFactor_Status_Response::_InternalParse(const char* ptr, ::PROTOB
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 revocation_attempts_remaining = 10 [(.description) = "Number of revocation code attempts remaining"];
+      // optional uint32 revocation_attempts_remaining = 10;
       case 10:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 80)) {
           _Internal::set_has_revocation_attempts_remaining(&has_bits);
@@ -1926,7 +1825,7 @@ const char* CTwoFactor_Status_Response::_InternalParse(const char* ptr, ::PROTOB
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string classified_agent = 11 [(.description) = "Agent that added the authenticator (e.g., ios / android / other)"];
+      // optional string classified_agent = 11;
       case 11:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 90)) {
           auto str = _internal_mutable_classified_agent();
@@ -1937,7 +1836,7 @@ const char* CTwoFactor_Status_Response::_InternalParse(const char* ptr, ::PROTOB
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool allow_external_authenticator = 12 [(.description) = "Allow a third-party authenticator (in addition to two-factor)"];
+      // optional bool allow_external_authenticator = 12;
       case 12:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 96)) {
           _Internal::set_has_allow_external_authenticator(&has_bits);
@@ -1945,7 +1844,7 @@ const char* CTwoFactor_Status_Response::_InternalParse(const char* ptr, ::PROTOB
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 time_transferred = 13 [(.description) = "When the token was transferred from another device, if applicable"];
+      // optional uint32 time_transferred = 13;
       case 13:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 104)) {
           _Internal::set_has_time_transferred(&has_bits);
@@ -1953,7 +1852,7 @@ const char* CTwoFactor_Status_Response::_InternalParse(const char* ptr, ::PROTOB
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 version = 14 [(.description) = "Current token version"];
+      // optional uint32 version = 14;
       case 14:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 112)) {
           _Internal::set_has_version(&has_bits);
@@ -1991,37 +1890,37 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint32 state = 1 [(.description) = "Authenticator state"];
+  // optional uint32 state = 1;
   if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_state(), target);
   }
 
-  // optional uint32 inactivation_reason = 2 [(.description) = "Inactivation reason (if any)"];
+  // optional uint32 inactivation_reason = 2;
   if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_inactivation_reason(), target);
   }
 
-  // optional uint32 authenticator_type = 3 [(.description) = "Type of authenticator"];
+  // optional uint32 authenticator_type = 3;
   if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_authenticator_type(), target);
   }
 
-  // optional bool authenticator_allowed = 4 [(.description) = "Account allowed to have an authenticator?"];
+  // optional bool authenticator_allowed = 4;
   if (cached_has_bits & 0x00000080u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(4, this->_internal_authenticator_allowed(), target);
   }
 
-  // optional uint32 steamguard_scheme = 5 [(.description) = "Steam Guard scheme in effect"];
+  // optional uint32 steamguard_scheme = 5;
   if (cached_has_bits & 0x00000040u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(5, this->_internal_steamguard_scheme(), target);
   }
 
-  // optional string token_gid = 6 [(.description) = "String rep of token GID assigned by server"];
+  // optional string token_gid = 6;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_token_gid().data(), static_cast<int>(this->_internal_token_gid().length()),
@@ -2031,13 +1930,13 @@ failure:
         6, this->_internal_token_gid(), target);
   }
 
-  // optional bool email_validated = 7 [(.description) = "Account has verified email capability"];
+  // optional bool email_validated = 7;
   if (cached_has_bits & 0x00000100u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(7, this->_internal_email_validated(), target);
   }
 
-  // optional string device_identifier = 8 [(.description) = "Authenticator (phone) identifier"];
+  // optional string device_identifier = 8;
   if (cached_has_bits & 0x00000002u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_device_identifier().data(), static_cast<int>(this->_internal_device_identifier().length()),
@@ -2047,19 +1946,19 @@ failure:
         8, this->_internal_device_identifier(), target);
   }
 
-  // optional uint32 time_created = 9 [(.description) = "When the token was created"];
+  // optional uint32 time_created = 9;
   if (cached_has_bits & 0x00000400u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(9, this->_internal_time_created(), target);
   }
 
-  // optional uint32 revocation_attempts_remaining = 10 [(.description) = "Number of revocation code attempts remaining"];
+  // optional uint32 revocation_attempts_remaining = 10;
   if (cached_has_bits & 0x00000800u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(10, this->_internal_revocation_attempts_remaining(), target);
   }
 
-  // optional string classified_agent = 11 [(.description) = "Agent that added the authenticator (e.g., ios / android / other)"];
+  // optional string classified_agent = 11;
   if (cached_has_bits & 0x00000004u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_classified_agent().data(), static_cast<int>(this->_internal_classified_agent().length()),
@@ -2069,19 +1968,19 @@ failure:
         11, this->_internal_classified_agent(), target);
   }
 
-  // optional bool allow_external_authenticator = 12 [(.description) = "Allow a third-party authenticator (in addition to two-factor)"];
+  // optional bool allow_external_authenticator = 12;
   if (cached_has_bits & 0x00000200u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(12, this->_internal_allow_external_authenticator(), target);
   }
 
-  // optional uint32 time_transferred = 13 [(.description) = "When the token was transferred from another device, if applicable"];
+  // optional uint32 time_transferred = 13;
   if (cached_has_bits & 0x00001000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(13, this->_internal_time_transferred(), target);
   }
 
-  // optional uint32 version = 14 [(.description) = "Current token version"];
+  // optional uint32 version = 14;
   if (cached_has_bits & 0x00002000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(14, this->_internal_version(), target);
@@ -2105,94 +2004,94 @@ size_t CTwoFactor_Status_Response::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x000000ffu) {
-    // optional string token_gid = 6 [(.description) = "String rep of token GID assigned by server"];
+    // optional string token_gid = 6;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_token_gid());
     }
 
-    // optional string device_identifier = 8 [(.description) = "Authenticator (phone) identifier"];
+    // optional string device_identifier = 8;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_device_identifier());
     }
 
-    // optional string classified_agent = 11 [(.description) = "Agent that added the authenticator (e.g., ios / android / other)"];
+    // optional string classified_agent = 11;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_classified_agent());
     }
 
-    // optional uint32 state = 1 [(.description) = "Authenticator state"];
+    // optional uint32 state = 1;
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_state());
     }
 
-    // optional uint32 inactivation_reason = 2 [(.description) = "Inactivation reason (if any)"];
+    // optional uint32 inactivation_reason = 2;
     if (cached_has_bits & 0x00000010u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_inactivation_reason());
     }
 
-    // optional uint32 authenticator_type = 3 [(.description) = "Type of authenticator"];
+    // optional uint32 authenticator_type = 3;
     if (cached_has_bits & 0x00000020u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_authenticator_type());
     }
 
-    // optional uint32 steamguard_scheme = 5 [(.description) = "Steam Guard scheme in effect"];
+    // optional uint32 steamguard_scheme = 5;
     if (cached_has_bits & 0x00000040u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_steamguard_scheme());
     }
 
-    // optional bool authenticator_allowed = 4 [(.description) = "Account allowed to have an authenticator?"];
+    // optional bool authenticator_allowed = 4;
     if (cached_has_bits & 0x00000080u) {
       total_size += 1 + 1;
     }
 
   }
   if (cached_has_bits & 0x00003f00u) {
-    // optional bool email_validated = 7 [(.description) = "Account has verified email capability"];
+    // optional bool email_validated = 7;
     if (cached_has_bits & 0x00000100u) {
       total_size += 1 + 1;
     }
 
-    // optional bool allow_external_authenticator = 12 [(.description) = "Allow a third-party authenticator (in addition to two-factor)"];
+    // optional bool allow_external_authenticator = 12;
     if (cached_has_bits & 0x00000200u) {
       total_size += 1 + 1;
     }
 
-    // optional uint32 time_created = 9 [(.description) = "When the token was created"];
+    // optional uint32 time_created = 9;
     if (cached_has_bits & 0x00000400u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_time_created());
     }
 
-    // optional uint32 revocation_attempts_remaining = 10 [(.description) = "Number of revocation code attempts remaining"];
+    // optional uint32 revocation_attempts_remaining = 10;
     if (cached_has_bits & 0x00000800u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_revocation_attempts_remaining());
     }
 
-    // optional uint32 time_transferred = 13 [(.description) = "When the token was transferred from another device, if applicable"];
+    // optional uint32 time_transferred = 13;
     if (cached_has_bits & 0x00001000u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_time_transferred());
     }
 
-    // optional uint32 version = 14 [(.description) = "Current token version"];
+    // optional uint32 version = 14;
     if (cached_has_bits & 0x00002000u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -2427,7 +2326,7 @@ const char* CTwoFactor_AddAuthenticator_Request::_InternalParse(const char* ptr,
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional fixed64 steamid = 1 [(.description) = "steamid to use"];
+      // optional fixed64 steamid = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
           _Internal::set_has_steamid(&has_bits);
@@ -2435,7 +2334,7 @@ const char* CTwoFactor_AddAuthenticator_Request::_InternalParse(const char* ptr,
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
         } else goto handle_unusual;
         continue;
-      // optional uint64 authenticator_time = 2 [(.description) = "Current authenticator time"];
+      // optional uint64 authenticator_time = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_authenticator_time(&has_bits);
@@ -2443,7 +2342,7 @@ const char* CTwoFactor_AddAuthenticator_Request::_InternalParse(const char* ptr,
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional fixed64 serial_number = 3 [(.description) = "locally computed serial (deprecated)"];
+      // optional fixed64 serial_number = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 25)) {
           _Internal::set_has_serial_number(&has_bits);
@@ -2451,7 +2350,7 @@ const char* CTwoFactor_AddAuthenticator_Request::_InternalParse(const char* ptr,
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
         } else goto handle_unusual;
         continue;
-      // optional uint32 authenticator_type = 4 [(.description) = "Authenticator type"];
+      // optional uint32 authenticator_type = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
           _Internal::set_has_authenticator_type(&has_bits);
@@ -2459,7 +2358,7 @@ const char* CTwoFactor_AddAuthenticator_Request::_InternalParse(const char* ptr,
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string device_identifier = 5 [(.description) = "Authenticator identifier"];
+      // optional string device_identifier = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
           auto str = _internal_mutable_device_identifier();
@@ -2470,7 +2369,7 @@ const char* CTwoFactor_AddAuthenticator_Request::_InternalParse(const char* ptr,
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated string http_headers = 7 [(.description) = "HTTP headers alternating by K/V"];
+      // repeated string http_headers = 7;
       case 7:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
           ptr -= 1;
@@ -2486,7 +2385,7 @@ const char* CTwoFactor_AddAuthenticator_Request::_InternalParse(const char* ptr,
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<58>(ptr));
         } else goto handle_unusual;
         continue;
-      // optional uint32 version = 8 [default = 1, (.description) = "What the version of our token should be"];
+      // optional uint32 version = 8 [default = 1];
       case 8:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 64)) {
           _Internal::set_has_version(&has_bits);
@@ -2524,31 +2423,31 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional fixed64 steamid = 1 [(.description) = "steamid to use"];
+  // optional fixed64 steamid = 1;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_steamid(), target);
   }
 
-  // optional uint64 authenticator_time = 2 [(.description) = "Current authenticator time"];
+  // optional uint64 authenticator_time = 2;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(2, this->_internal_authenticator_time(), target);
   }
 
-  // optional fixed64 serial_number = 3 [(.description) = "locally computed serial (deprecated)"];
+  // optional fixed64 serial_number = 3;
   if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(3, this->_internal_serial_number(), target);
   }
 
-  // optional uint32 authenticator_type = 4 [(.description) = "Authenticator type"];
+  // optional uint32 authenticator_type = 4;
   if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_authenticator_type(), target);
   }
 
-  // optional string device_identifier = 5 [(.description) = "Authenticator identifier"];
+  // optional string device_identifier = 5;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_device_identifier().data(), static_cast<int>(this->_internal_device_identifier().length()),
@@ -2558,7 +2457,7 @@ failure:
         5, this->_internal_device_identifier(), target);
   }
 
-  // repeated string http_headers = 7 [(.description) = "HTTP headers alternating by K/V"];
+  // repeated string http_headers = 7;
   for (int i = 0, n = this->_internal_http_headers_size(); i < n; i++) {
     const auto& s = this->_internal_http_headers(i);
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
@@ -2568,7 +2467,7 @@ failure:
     target = stream->WriteString(7, s, target);
   }
 
-  // optional uint32 version = 8 [default = 1, (.description) = "What the version of our token should be"];
+  // optional uint32 version = 8 [default = 1];
   if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(8, this->_internal_version(), target);
@@ -2590,7 +2489,7 @@ size_t CTwoFactor_AddAuthenticator_Request::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated string http_headers = 7 [(.description) = "HTTP headers alternating by K/V"];
+  // repeated string http_headers = 7;
   total_size += 1 *
       ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(http_headers_.size());
   for (int i = 0, n = http_headers_.size(); i < n; i++) {
@@ -2600,38 +2499,38 @@ size_t CTwoFactor_AddAuthenticator_Request::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x0000003fu) {
-    // optional string device_identifier = 5 [(.description) = "Authenticator identifier"];
+    // optional string device_identifier = 5;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_device_identifier());
     }
 
-    // optional fixed64 steamid = 1 [(.description) = "steamid to use"];
+    // optional fixed64 steamid = 1;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 + 8;
     }
 
-    // optional uint64 authenticator_time = 2 [(.description) = "Current authenticator time"];
+    // optional uint64 authenticator_time = 2;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_authenticator_time());
     }
 
-    // optional fixed64 serial_number = 3 [(.description) = "locally computed serial (deprecated)"];
+    // optional fixed64 serial_number = 3;
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 + 8;
     }
 
-    // optional uint32 authenticator_type = 4 [(.description) = "Authenticator type"];
+    // optional uint32 authenticator_type = 4;
     if (cached_has_bits & 0x00000010u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_authenticator_type());
     }
 
-    // optional uint32 version = 8 [default = 1, (.description) = "What the version of our token should be"];
+    // optional uint32 version = 8 [default = 1];
     if (cached_has_bits & 0x00000020u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -2925,7 +2824,7 @@ const char* CTwoFactor_AddAuthenticator_Response::_InternalParse(const char* ptr
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional bytes shared_secret = 1 [(.description) = "Shared secret between server and authenticator"];
+      // optional bytes shared_secret = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           auto str = _internal_mutable_shared_secret();
@@ -2933,7 +2832,7 @@ const char* CTwoFactor_AddAuthenticator_Response::_InternalParse(const char* ptr
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional fixed64 serial_number = 2 [(.description) = "Authenticator serial number (unique per token)"];
+      // optional fixed64 serial_number = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 17)) {
           _Internal::set_has_serial_number(&has_bits);
@@ -2941,7 +2840,7 @@ const char* CTwoFactor_AddAuthenticator_Response::_InternalParse(const char* ptr
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
         } else goto handle_unusual;
         continue;
-      // optional string revocation_code = 3 [(.description) = "code used to revoke authenticator"];
+      // optional string revocation_code = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           auto str = _internal_mutable_revocation_code();
@@ -2952,7 +2851,7 @@ const char* CTwoFactor_AddAuthenticator_Response::_InternalParse(const char* ptr
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string uri = 4 [(.description) = "URI for QR code generation"];
+      // optional string uri = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
           auto str = _internal_mutable_uri();
@@ -2963,7 +2862,7 @@ const char* CTwoFactor_AddAuthenticator_Response::_InternalParse(const char* ptr
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint64 server_time = 5 [(.description) = "Current server time"];
+      // optional uint64 server_time = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
           _Internal::set_has_server_time(&has_bits);
@@ -2971,7 +2870,7 @@ const char* CTwoFactor_AddAuthenticator_Response::_InternalParse(const char* ptr
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string account_name = 6 [(.description) = "Account name to display on token client"];
+      // optional string account_name = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
           auto str = _internal_mutable_account_name();
@@ -2982,7 +2881,7 @@ const char* CTwoFactor_AddAuthenticator_Response::_InternalParse(const char* ptr
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string token_gid = 7 [(.description) = "Token GID assigned by server"];
+      // optional string token_gid = 7;
       case 7:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
           auto str = _internal_mutable_token_gid();
@@ -2993,7 +2892,7 @@ const char* CTwoFactor_AddAuthenticator_Response::_InternalParse(const char* ptr
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bytes identity_secret = 8 [(.description) = "Secret used for identity attestation (e.g., for eventing)"];
+      // optional bytes identity_secret = 8;
       case 8:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 66)) {
           auto str = _internal_mutable_identity_secret();
@@ -3001,7 +2900,7 @@ const char* CTwoFactor_AddAuthenticator_Response::_InternalParse(const char* ptr
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bytes secret_1 = 9 [(.description) = "Spare shared secret"];
+      // optional bytes secret_1 = 9;
       case 9:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 74)) {
           auto str = _internal_mutable_secret_1();
@@ -3009,7 +2908,7 @@ const char* CTwoFactor_AddAuthenticator_Response::_InternalParse(const char* ptr
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional int32 status = 10 [(.description) = "Result code"];
+      // optional int32 status = 10;
       case 10:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 80)) {
           _Internal::set_has_status(&has_bits);
@@ -3017,7 +2916,7 @@ const char* CTwoFactor_AddAuthenticator_Response::_InternalParse(const char* ptr
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string phone_number_hint = 11 [(.description) = "a portion of the phone number the SMS code was sent to"];
+      // optional string phone_number_hint = 11;
       case 11:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 90)) {
           auto str = _internal_mutable_phone_number_hint();
@@ -3028,7 +2927,7 @@ const char* CTwoFactor_AddAuthenticator_Response::_InternalParse(const char* ptr
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional int32 confirm_type = 12 [(.description) = "how we expect to confirm adding the authenticator"];
+      // optional int32 confirm_type = 12;
       case 12:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 96)) {
           _Internal::set_has_confirm_type(&has_bits);
@@ -3066,19 +2965,19 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional bytes shared_secret = 1 [(.description) = "Shared secret between server and authenticator"];
+  // optional bytes shared_secret = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->WriteBytesMaybeAliased(
         1, this->_internal_shared_secret(), target);
   }
 
-  // optional fixed64 serial_number = 2 [(.description) = "Authenticator serial number (unique per token)"];
+  // optional fixed64 serial_number = 2;
   if (cached_has_bits & 0x00000100u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(2, this->_internal_serial_number(), target);
   }
 
-  // optional string revocation_code = 3 [(.description) = "code used to revoke authenticator"];
+  // optional string revocation_code = 3;
   if (cached_has_bits & 0x00000002u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_revocation_code().data(), static_cast<int>(this->_internal_revocation_code().length()),
@@ -3088,7 +2987,7 @@ failure:
         3, this->_internal_revocation_code(), target);
   }
 
-  // optional string uri = 4 [(.description) = "URI for QR code generation"];
+  // optional string uri = 4;
   if (cached_has_bits & 0x00000004u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_uri().data(), static_cast<int>(this->_internal_uri().length()),
@@ -3098,13 +2997,13 @@ failure:
         4, this->_internal_uri(), target);
   }
 
-  // optional uint64 server_time = 5 [(.description) = "Current server time"];
+  // optional uint64 server_time = 5;
   if (cached_has_bits & 0x00000200u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(5, this->_internal_server_time(), target);
   }
 
-  // optional string account_name = 6 [(.description) = "Account name to display on token client"];
+  // optional string account_name = 6;
   if (cached_has_bits & 0x00000008u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_account_name().data(), static_cast<int>(this->_internal_account_name().length()),
@@ -3114,7 +3013,7 @@ failure:
         6, this->_internal_account_name(), target);
   }
 
-  // optional string token_gid = 7 [(.description) = "Token GID assigned by server"];
+  // optional string token_gid = 7;
   if (cached_has_bits & 0x00000010u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_token_gid().data(), static_cast<int>(this->_internal_token_gid().length()),
@@ -3124,25 +3023,25 @@ failure:
         7, this->_internal_token_gid(), target);
   }
 
-  // optional bytes identity_secret = 8 [(.description) = "Secret used for identity attestation (e.g., for eventing)"];
+  // optional bytes identity_secret = 8;
   if (cached_has_bits & 0x00000020u) {
     target = stream->WriteBytesMaybeAliased(
         8, this->_internal_identity_secret(), target);
   }
 
-  // optional bytes secret_1 = 9 [(.description) = "Spare shared secret"];
+  // optional bytes secret_1 = 9;
   if (cached_has_bits & 0x00000040u) {
     target = stream->WriteBytesMaybeAliased(
         9, this->_internal_secret_1(), target);
   }
 
-  // optional int32 status = 10 [(.description) = "Result code"];
+  // optional int32 status = 10;
   if (cached_has_bits & 0x00000400u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(10, this->_internal_status(), target);
   }
 
-  // optional string phone_number_hint = 11 [(.description) = "a portion of the phone number the SMS code was sent to"];
+  // optional string phone_number_hint = 11;
   if (cached_has_bits & 0x00000080u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_phone_number_hint().data(), static_cast<int>(this->_internal_phone_number_hint().length()),
@@ -3152,7 +3051,7 @@ failure:
         11, this->_internal_phone_number_hint(), target);
   }
 
-  // optional int32 confirm_type = 12 [(.description) = "how we expect to confirm adding the authenticator"];
+  // optional int32 confirm_type = 12;
   if (cached_has_bits & 0x00000800u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(12, this->_internal_confirm_type(), target);
@@ -3176,56 +3075,56 @@ size_t CTwoFactor_AddAuthenticator_Response::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x000000ffu) {
-    // optional bytes shared_secret = 1 [(.description) = "Shared secret between server and authenticator"];
+    // optional bytes shared_secret = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
           this->_internal_shared_secret());
     }
 
-    // optional string revocation_code = 3 [(.description) = "code used to revoke authenticator"];
+    // optional string revocation_code = 3;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_revocation_code());
     }
 
-    // optional string uri = 4 [(.description) = "URI for QR code generation"];
+    // optional string uri = 4;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_uri());
     }
 
-    // optional string account_name = 6 [(.description) = "Account name to display on token client"];
+    // optional string account_name = 6;
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_account_name());
     }
 
-    // optional string token_gid = 7 [(.description) = "Token GID assigned by server"];
+    // optional string token_gid = 7;
     if (cached_has_bits & 0x00000010u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_token_gid());
     }
 
-    // optional bytes identity_secret = 8 [(.description) = "Secret used for identity attestation (e.g., for eventing)"];
+    // optional bytes identity_secret = 8;
     if (cached_has_bits & 0x00000020u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
           this->_internal_identity_secret());
     }
 
-    // optional bytes secret_1 = 9 [(.description) = "Spare shared secret"];
+    // optional bytes secret_1 = 9;
     if (cached_has_bits & 0x00000040u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
           this->_internal_secret_1());
     }
 
-    // optional string phone_number_hint = 11 [(.description) = "a portion of the phone number the SMS code was sent to"];
+    // optional string phone_number_hint = 11;
     if (cached_has_bits & 0x00000080u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
@@ -3234,26 +3133,26 @@ size_t CTwoFactor_AddAuthenticator_Response::ByteSizeLong() const {
 
   }
   if (cached_has_bits & 0x00000f00u) {
-    // optional fixed64 serial_number = 2 [(.description) = "Authenticator serial number (unique per token)"];
+    // optional fixed64 serial_number = 2;
     if (cached_has_bits & 0x00000100u) {
       total_size += 1 + 8;
     }
 
-    // optional uint64 server_time = 5 [(.description) = "Current server time"];
+    // optional uint64 server_time = 5;
     if (cached_has_bits & 0x00000200u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_server_time());
     }
 
-    // optional int32 status = 10 [(.description) = "Result code"];
+    // optional int32 status = 10;
     if (cached_has_bits & 0x00000400u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
           this->_internal_status());
     }
 
-    // optional int32 confirm_type = 12 [(.description) = "how we expect to confirm adding the authenticator"];
+    // optional int32 confirm_type = 12;
     if (cached_has_bits & 0x00000800u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
@@ -3462,7 +3361,7 @@ const char* CTwoFactor_SendEmail_Request::_InternalParse(const char* ptr, ::PROT
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional fixed64 steamid = 1 [(.description) = "Steamid to use"];
+      // optional fixed64 steamid = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
           _Internal::set_has_steamid(&has_bits);
@@ -3470,7 +3369,7 @@ const char* CTwoFactor_SendEmail_Request::_InternalParse(const char* ptr, ::PROT
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
         } else goto handle_unusual;
         continue;
-      // optional uint32 email_type = 2 [(.description) = "Type of email to send (ETwoFactorEmailType::*)"];
+      // optional uint32 email_type = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_email_type(&has_bits);
@@ -3478,7 +3377,7 @@ const char* CTwoFactor_SendEmail_Request::_InternalParse(const char* ptr, ::PROT
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool include_activation_code = 3 [(.description) = "Include activation code in email parameters"];
+      // optional bool include_activation_code = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           _Internal::set_has_include_activation_code(&has_bits);
@@ -3516,19 +3415,19 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional fixed64 steamid = 1 [(.description) = "Steamid to use"];
+  // optional fixed64 steamid = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_steamid(), target);
   }
 
-  // optional uint32 email_type = 2 [(.description) = "Type of email to send (ETwoFactorEmailType::*)"];
+  // optional uint32 email_type = 2;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_email_type(), target);
   }
 
-  // optional bool include_activation_code = 3 [(.description) = "Include activation code in email parameters"];
+  // optional bool include_activation_code = 3;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(3, this->_internal_include_activation_code(), target);
@@ -3552,19 +3451,19 @@ size_t CTwoFactor_SendEmail_Request::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000007u) {
-    // optional fixed64 steamid = 1 [(.description) = "Steamid to use"];
+    // optional fixed64 steamid = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 + 8;
     }
 
-    // optional uint32 email_type = 2 [(.description) = "Type of email to send (ETwoFactorEmailType::*)"];
+    // optional uint32 email_type = 2;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_email_type());
     }
 
-    // optional bool include_activation_code = 3 [(.description) = "Include activation code in email parameters"];
+    // optional bool include_activation_code = 3;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 + 1;
     }
@@ -3922,7 +3821,7 @@ const char* CTwoFactor_FinalizeAddAuthenticator_Request::_InternalParse(const ch
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional fixed64 steamid = 1 [(.description) = "steamid to use"];
+      // optional fixed64 steamid = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
           _Internal::set_has_steamid(&has_bits);
@@ -3930,7 +3829,7 @@ const char* CTwoFactor_FinalizeAddAuthenticator_Request::_InternalParse(const ch
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
         } else goto handle_unusual;
         continue;
-      // optional string authenticator_code = 2 [(.description) = "Current auth code"];
+      // optional string authenticator_code = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           auto str = _internal_mutable_authenticator_code();
@@ -3941,7 +3840,7 @@ const char* CTwoFactor_FinalizeAddAuthenticator_Request::_InternalParse(const ch
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint64 authenticator_time = 3 [(.description) = "Current authenticator time"];
+      // optional uint64 authenticator_time = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           _Internal::set_has_authenticator_time(&has_bits);
@@ -3949,7 +3848,7 @@ const char* CTwoFactor_FinalizeAddAuthenticator_Request::_InternalParse(const ch
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string activation_code = 4 [(.description) = "Activation code from out-of-band message"];
+      // optional string activation_code = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
           auto str = _internal_mutable_activation_code();
@@ -3960,7 +3859,7 @@ const char* CTwoFactor_FinalizeAddAuthenticator_Request::_InternalParse(const ch
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated string http_headers = 5 [(.description) = "HTTP headers alternating by K/V"];
+      // repeated string http_headers = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
           ptr -= 1;
@@ -3976,7 +3875,7 @@ const char* CTwoFactor_FinalizeAddAuthenticator_Request::_InternalParse(const ch
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<42>(ptr));
         } else goto handle_unusual;
         continue;
-      // optional bool validate_sms_code = 6 [(.description) = "When finalizing with an SMS code, pass the request on to the PhoneService to update its state too."];
+      // optional bool validate_sms_code = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
           _Internal::set_has_validate_sms_code(&has_bits);
@@ -4014,13 +3913,13 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional fixed64 steamid = 1 [(.description) = "steamid to use"];
+  // optional fixed64 steamid = 1;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_steamid(), target);
   }
 
-  // optional string authenticator_code = 2 [(.description) = "Current auth code"];
+  // optional string authenticator_code = 2;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_authenticator_code().data(), static_cast<int>(this->_internal_authenticator_code().length()),
@@ -4030,13 +3929,13 @@ failure:
         2, this->_internal_authenticator_code(), target);
   }
 
-  // optional uint64 authenticator_time = 3 [(.description) = "Current authenticator time"];
+  // optional uint64 authenticator_time = 3;
   if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(3, this->_internal_authenticator_time(), target);
   }
 
-  // optional string activation_code = 4 [(.description) = "Activation code from out-of-band message"];
+  // optional string activation_code = 4;
   if (cached_has_bits & 0x00000002u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_activation_code().data(), static_cast<int>(this->_internal_activation_code().length()),
@@ -4046,7 +3945,7 @@ failure:
         4, this->_internal_activation_code(), target);
   }
 
-  // repeated string http_headers = 5 [(.description) = "HTTP headers alternating by K/V"];
+  // repeated string http_headers = 5;
   for (int i = 0, n = this->_internal_http_headers_size(); i < n; i++) {
     const auto& s = this->_internal_http_headers(i);
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
@@ -4056,7 +3955,7 @@ failure:
     target = stream->WriteString(5, s, target);
   }
 
-  // optional bool validate_sms_code = 6 [(.description) = "When finalizing with an SMS code, pass the request on to the PhoneService to update its state too."];
+  // optional bool validate_sms_code = 6;
   if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(6, this->_internal_validate_sms_code(), target);
@@ -4078,7 +3977,7 @@ size_t CTwoFactor_FinalizeAddAuthenticator_Request::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated string http_headers = 5 [(.description) = "HTTP headers alternating by K/V"];
+  // repeated string http_headers = 5;
   total_size += 1 *
       ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(http_headers_.size());
   for (int i = 0, n = http_headers_.size(); i < n; i++) {
@@ -4088,33 +3987,33 @@ size_t CTwoFactor_FinalizeAddAuthenticator_Request::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x0000001fu) {
-    // optional string authenticator_code = 2 [(.description) = "Current auth code"];
+    // optional string authenticator_code = 2;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_authenticator_code());
     }
 
-    // optional string activation_code = 4 [(.description) = "Activation code from out-of-band message"];
+    // optional string activation_code = 4;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_activation_code());
     }
 
-    // optional fixed64 steamid = 1 [(.description) = "steamid to use"];
+    // optional fixed64 steamid = 1;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 + 8;
     }
 
-    // optional uint64 authenticator_time = 3 [(.description) = "Current authenticator time"];
+    // optional uint64 authenticator_time = 3;
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_authenticator_time());
     }
 
-    // optional bool validate_sms_code = 6 [(.description) = "When finalizing with an SMS code, pass the request on to the PhoneService to update its state too."];
+    // optional bool validate_sms_code = 6;
     if (cached_has_bits & 0x00000010u) {
       total_size += 1 + 1;
     }
@@ -4294,7 +4193,7 @@ const char* CTwoFactor_FinalizeAddAuthenticator_Response::_InternalParse(const c
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional bool success = 1 [(.description) = "True if succeeded, or want more tries"];
+      // optional bool success = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_success(&has_bits);
@@ -4302,7 +4201,7 @@ const char* CTwoFactor_FinalizeAddAuthenticator_Response::_InternalParse(const c
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint64 server_time = 3 [(.description) = "Current server time"];
+      // optional uint64 server_time = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           _Internal::set_has_server_time(&has_bits);
@@ -4310,7 +4209,7 @@ const char* CTwoFactor_FinalizeAddAuthenticator_Response::_InternalParse(const c
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional int32 status = 4 [(.description) = "Result code"];
+      // optional int32 status = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
           _Internal::set_has_status(&has_bits);
@@ -4348,19 +4247,19 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional bool success = 1 [(.description) = "True if succeeded, or want more tries"];
+  // optional bool success = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(1, this->_internal_success(), target);
   }
 
-  // optional uint64 server_time = 3 [(.description) = "Current server time"];
+  // optional uint64 server_time = 3;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(3, this->_internal_server_time(), target);
   }
 
-  // optional int32 status = 4 [(.description) = "Result code"];
+  // optional int32 status = 4;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(4, this->_internal_status(), target);
@@ -4384,19 +4283,19 @@ size_t CTwoFactor_FinalizeAddAuthenticator_Response::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000007u) {
-    // optional bool success = 1 [(.description) = "True if succeeded, or want more tries"];
+    // optional bool success = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 + 1;
     }
 
-    // optional int32 status = 4 [(.description) = "Result code"];
+    // optional int32 status = 4;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
           this->_internal_status());
     }
 
-    // optional uint64 server_time = 3 [(.description) = "Current server time"];
+    // optional uint64 server_time = 3;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
@@ -4586,7 +4485,7 @@ const char* CTwoFactor_UpdateTokenVersion_Request::_InternalParse(const char* pt
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
         } else goto handle_unusual;
         continue;
-      // optional uint32 version = 2 [(.description) = "What the version of our token should be"];
+      // optional uint32 version = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_version(&has_bits);
@@ -4594,7 +4493,7 @@ const char* CTwoFactor_UpdateTokenVersion_Request::_InternalParse(const char* pt
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bytes signature = 3 [(.description) = "HMAC digest over user\'s private key"];
+      // optional bytes signature = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           auto str = _internal_mutable_signature();
@@ -4638,13 +4537,13 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_steamid(), target);
   }
 
-  // optional uint32 version = 2 [(.description) = "What the version of our token should be"];
+  // optional uint32 version = 2;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_version(), target);
   }
 
-  // optional bytes signature = 3 [(.description) = "HMAC digest over user\'s private key"];
+  // optional bytes signature = 3;
   if (cached_has_bits & 0x00000001u) {
     target = stream->WriteBytesMaybeAliased(
         3, this->_internal_signature(), target);
@@ -4668,7 +4567,7 @@ size_t CTwoFactor_UpdateTokenVersion_Request::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000007u) {
-    // optional bytes signature = 3 [(.description) = "HMAC digest over user\'s private key"];
+    // optional bytes signature = 3;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
@@ -4680,7 +4579,7 @@ size_t CTwoFactor_UpdateTokenVersion_Request::ByteSizeLong() const {
       total_size += 1 + 8;
     }
 
-    // optional uint32 version = 2 [(.description) = "What the version of our token should be"];
+    // optional uint32 version = 2;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -5023,7 +4922,7 @@ const char* CTwoFactor_RemoveAuthenticator_Request::_InternalParse(const char* p
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional string revocation_code = 2 [(.description) = "Password needed to remove token"];
+      // optional string revocation_code = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           auto str = _internal_mutable_revocation_code();
@@ -5034,7 +4933,7 @@ const char* CTwoFactor_RemoveAuthenticator_Request::_InternalParse(const char* p
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 revocation_reason = 5 [(.description) = "Reason the authenticator is being removed"];
+      // optional uint32 revocation_reason = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
           _Internal::set_has_revocation_reason(&has_bits);
@@ -5042,7 +4941,7 @@ const char* CTwoFactor_RemoveAuthenticator_Request::_InternalParse(const char* p
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 steamguard_scheme = 6 [(.description) = "Type of Steam Guard to use once token is removed"];
+      // optional uint32 steamguard_scheme = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
           _Internal::set_has_steamguard_scheme(&has_bits);
@@ -5050,7 +4949,7 @@ const char* CTwoFactor_RemoveAuthenticator_Request::_InternalParse(const char* p
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool remove_all_steamguard_cookies = 7 [(.description) = "Remove all steamguard cookies"];
+      // optional bool remove_all_steamguard_cookies = 7;
       case 7:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 56)) {
           _Internal::set_has_remove_all_steamguard_cookies(&has_bits);
@@ -5088,7 +4987,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional string revocation_code = 2 [(.description) = "Password needed to remove token"];
+  // optional string revocation_code = 2;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_revocation_code().data(), static_cast<int>(this->_internal_revocation_code().length()),
@@ -5098,19 +4997,19 @@ failure:
         2, this->_internal_revocation_code(), target);
   }
 
-  // optional uint32 revocation_reason = 5 [(.description) = "Reason the authenticator is being removed"];
+  // optional uint32 revocation_reason = 5;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(5, this->_internal_revocation_reason(), target);
   }
 
-  // optional uint32 steamguard_scheme = 6 [(.description) = "Type of Steam Guard to use once token is removed"];
+  // optional uint32 steamguard_scheme = 6;
   if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(6, this->_internal_steamguard_scheme(), target);
   }
 
-  // optional bool remove_all_steamguard_cookies = 7 [(.description) = "Remove all steamguard cookies"];
+  // optional bool remove_all_steamguard_cookies = 7;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(7, this->_internal_remove_all_steamguard_cookies(), target);
@@ -5134,26 +5033,26 @@ size_t CTwoFactor_RemoveAuthenticator_Request::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x0000000fu) {
-    // optional string revocation_code = 2 [(.description) = "Password needed to remove token"];
+    // optional string revocation_code = 2;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_revocation_code());
     }
 
-    // optional bool remove_all_steamguard_cookies = 7 [(.description) = "Remove all steamguard cookies"];
+    // optional bool remove_all_steamguard_cookies = 7;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 + 1;
     }
 
-    // optional uint32 revocation_reason = 5 [(.description) = "Reason the authenticator is being removed"];
+    // optional uint32 revocation_reason = 5;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_revocation_reason());
     }
 
-    // optional uint32 steamguard_scheme = 6 [(.description) = "Type of Steam Guard to use once token is removed"];
+    // optional uint32 steamguard_scheme = 6;
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -5329,7 +5228,7 @@ const char* CTwoFactor_RemoveAuthenticator_Response::_InternalParse(const char* 
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional bool success = 1 [(.description) = "True if request succeeeded. The mobile app checks this."];
+      // optional bool success = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_success(&has_bits);
@@ -5337,7 +5236,7 @@ const char* CTwoFactor_RemoveAuthenticator_Response::_InternalParse(const char* 
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint64 server_time = 3 [(.description) = "Current server time"];
+      // optional uint64 server_time = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           _Internal::set_has_server_time(&has_bits);
@@ -5345,7 +5244,7 @@ const char* CTwoFactor_RemoveAuthenticator_Response::_InternalParse(const char* 
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 revocation_attempts_remaining = 5 [(.description) = "Number of revocation code attempts remaining"];
+      // optional uint32 revocation_attempts_remaining = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
           _Internal::set_has_revocation_attempts_remaining(&has_bits);
@@ -5383,19 +5282,19 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional bool success = 1 [(.description) = "True if request succeeeded. The mobile app checks this."];
+  // optional bool success = 1;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(1, this->_internal_success(), target);
   }
 
-  // optional uint64 server_time = 3 [(.description) = "Current server time"];
+  // optional uint64 server_time = 3;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(3, this->_internal_server_time(), target);
   }
 
-  // optional uint32 revocation_attempts_remaining = 5 [(.description) = "Number of revocation code attempts remaining"];
+  // optional uint32 revocation_attempts_remaining = 5;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(5, this->_internal_revocation_attempts_remaining(), target);
@@ -5419,19 +5318,19 @@ size_t CTwoFactor_RemoveAuthenticator_Response::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000007u) {
-    // optional uint64 server_time = 3 [(.description) = "Current server time"];
+    // optional uint64 server_time = 3;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_server_time());
     }
 
-    // optional bool success = 1 [(.description) = "True if request succeeeded. The mobile app checks this."];
+    // optional bool success = 1;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 + 1;
     }
 
-    // optional uint32 revocation_attempts_remaining = 5 [(.description) = "Number of revocation code attempts remaining"];
+    // optional uint32 revocation_attempts_remaining = 5;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -5744,7 +5643,7 @@ const char* CTwoFactor_RemoveAuthenticatorViaChallengeStart_Response::_InternalP
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional bool success = 1 [(.description) = "True if succeeded, or want more tries with an authenticator_code"];
+      // optional bool success = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_success(&has_bits);
@@ -5782,7 +5681,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional bool success = 1 [(.description) = "True if succeeded, or want more tries with an authenticator_code"];
+  // optional bool success = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(1, this->_internal_success(), target);
@@ -5804,7 +5703,7 @@ size_t CTwoFactor_RemoveAuthenticatorViaChallengeStart_Response::ByteSizeLong() 
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // optional bool success = 1 [(.description) = "True if succeeded, or want more tries with an authenticator_code"];
+  // optional bool success = 1;
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += 1 + 1;
@@ -5966,7 +5865,7 @@ const char* CTwoFactor_RemoveAuthenticatorViaChallengeContinue_Request::_Interna
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional string sms_code = 1 [(.description) = "Code from SMS"];
+      // optional string sms_code = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           auto str = _internal_mutable_sms_code();
@@ -5977,7 +5876,7 @@ const char* CTwoFactor_RemoveAuthenticatorViaChallengeContinue_Request::_Interna
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool generate_new_token = 2 [(.description) = "Generate new token (instead of removing old one)"];
+      // optional bool generate_new_token = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_generate_new_token(&has_bits);
@@ -5985,7 +5884,7 @@ const char* CTwoFactor_RemoveAuthenticatorViaChallengeContinue_Request::_Interna
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 version = 3 [default = 1, (.description) = "What the version of our token should be"];
+      // optional uint32 version = 3 [default = 1];
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           _Internal::set_has_version(&has_bits);
@@ -6023,7 +5922,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional string sms_code = 1 [(.description) = "Code from SMS"];
+  // optional string sms_code = 1;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_sms_code().data(), static_cast<int>(this->_internal_sms_code().length()),
@@ -6033,13 +5932,13 @@ failure:
         1, this->_internal_sms_code(), target);
   }
 
-  // optional bool generate_new_token = 2 [(.description) = "Generate new token (instead of removing old one)"];
+  // optional bool generate_new_token = 2;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(2, this->_internal_generate_new_token(), target);
   }
 
-  // optional uint32 version = 3 [default = 1, (.description) = "What the version of our token should be"];
+  // optional uint32 version = 3 [default = 1];
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_version(), target);
@@ -6063,19 +5962,19 @@ size_t CTwoFactor_RemoveAuthenticatorViaChallengeContinue_Request::ByteSizeLong(
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000007u) {
-    // optional string sms_code = 1 [(.description) = "Code from SMS"];
+    // optional string sms_code = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_sms_code());
     }
 
-    // optional bool generate_new_token = 2 [(.description) = "Generate new token (instead of removing old one)"];
+    // optional bool generate_new_token = 2;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 + 1;
     }
 
-    // optional uint32 version = 3 [default = 1, (.description) = "What the version of our token should be"];
+    // optional uint32 version = 3 [default = 1];
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -6344,7 +6243,7 @@ const char* CRemoveAuthenticatorViaChallengeContinue_Replacement_Token::_Interna
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional bytes shared_secret = 1 [(.description) = "Shared secret between server and authenticator"];
+      // optional bytes shared_secret = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           auto str = _internal_mutable_shared_secret();
@@ -6352,7 +6251,7 @@ const char* CRemoveAuthenticatorViaChallengeContinue_Replacement_Token::_Interna
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional fixed64 serial_number = 2 [(.description) = "Authenticator serial number (unique per token)"];
+      // optional fixed64 serial_number = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 17)) {
           _Internal::set_has_serial_number(&has_bits);
@@ -6360,7 +6259,7 @@ const char* CRemoveAuthenticatorViaChallengeContinue_Replacement_Token::_Interna
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
         } else goto handle_unusual;
         continue;
-      // optional string revocation_code = 3 [(.description) = "code used to revoke authenticator"];
+      // optional string revocation_code = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           auto str = _internal_mutable_revocation_code();
@@ -6371,7 +6270,7 @@ const char* CRemoveAuthenticatorViaChallengeContinue_Replacement_Token::_Interna
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string uri = 4 [(.description) = "URI for QR code generation"];
+      // optional string uri = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
           auto str = _internal_mutable_uri();
@@ -6382,7 +6281,7 @@ const char* CRemoveAuthenticatorViaChallengeContinue_Replacement_Token::_Interna
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint64 server_time = 5 [(.description) = "Current server time"];
+      // optional uint64 server_time = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
           _Internal::set_has_server_time(&has_bits);
@@ -6390,7 +6289,7 @@ const char* CRemoveAuthenticatorViaChallengeContinue_Replacement_Token::_Interna
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string account_name = 6 [(.description) = "Account name to display on token client"];
+      // optional string account_name = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
           auto str = _internal_mutable_account_name();
@@ -6401,7 +6300,7 @@ const char* CRemoveAuthenticatorViaChallengeContinue_Replacement_Token::_Interna
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string token_gid = 7 [(.description) = "Token GID assigned by server"];
+      // optional string token_gid = 7;
       case 7:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
           auto str = _internal_mutable_token_gid();
@@ -6412,7 +6311,7 @@ const char* CRemoveAuthenticatorViaChallengeContinue_Replacement_Token::_Interna
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bytes identity_secret = 8 [(.description) = "Secret used for identity attestation (e.g., for eventing)"];
+      // optional bytes identity_secret = 8;
       case 8:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 66)) {
           auto str = _internal_mutable_identity_secret();
@@ -6420,7 +6319,7 @@ const char* CRemoveAuthenticatorViaChallengeContinue_Replacement_Token::_Interna
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bytes secret_1 = 9 [(.description) = "Spare shared secret"];
+      // optional bytes secret_1 = 9;
       case 9:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 74)) {
           auto str = _internal_mutable_secret_1();
@@ -6428,7 +6327,7 @@ const char* CRemoveAuthenticatorViaChallengeContinue_Replacement_Token::_Interna
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional int32 status = 10 [(.description) = "Result code"];
+      // optional int32 status = 10;
       case 10:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 80)) {
           _Internal::set_has_status(&has_bits);
@@ -6436,7 +6335,7 @@ const char* CRemoveAuthenticatorViaChallengeContinue_Replacement_Token::_Interna
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 steamguard_scheme = 11 [(.description) = "Type of Steam Guard to use once token is removed"];
+      // optional uint32 steamguard_scheme = 11;
       case 11:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 88)) {
           _Internal::set_has_steamguard_scheme(&has_bits);
@@ -6444,7 +6343,7 @@ const char* CRemoveAuthenticatorViaChallengeContinue_Replacement_Token::_Interna
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional fixed64 steamid = 12 [(.description) = "steamid that owns the secret"];
+      // optional fixed64 steamid = 12;
       case 12:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 97)) {
           _Internal::set_has_steamid(&has_bits);
@@ -6482,19 +6381,19 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional bytes shared_secret = 1 [(.description) = "Shared secret between server and authenticator"];
+  // optional bytes shared_secret = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->WriteBytesMaybeAliased(
         1, this->_internal_shared_secret(), target);
   }
 
-  // optional fixed64 serial_number = 2 [(.description) = "Authenticator serial number (unique per token)"];
+  // optional fixed64 serial_number = 2;
   if (cached_has_bits & 0x00000080u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(2, this->_internal_serial_number(), target);
   }
 
-  // optional string revocation_code = 3 [(.description) = "code used to revoke authenticator"];
+  // optional string revocation_code = 3;
   if (cached_has_bits & 0x00000002u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_revocation_code().data(), static_cast<int>(this->_internal_revocation_code().length()),
@@ -6504,7 +6403,7 @@ failure:
         3, this->_internal_revocation_code(), target);
   }
 
-  // optional string uri = 4 [(.description) = "URI for QR code generation"];
+  // optional string uri = 4;
   if (cached_has_bits & 0x00000004u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_uri().data(), static_cast<int>(this->_internal_uri().length()),
@@ -6514,13 +6413,13 @@ failure:
         4, this->_internal_uri(), target);
   }
 
-  // optional uint64 server_time = 5 [(.description) = "Current server time"];
+  // optional uint64 server_time = 5;
   if (cached_has_bits & 0x00000100u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(5, this->_internal_server_time(), target);
   }
 
-  // optional string account_name = 6 [(.description) = "Account name to display on token client"];
+  // optional string account_name = 6;
   if (cached_has_bits & 0x00000008u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_account_name().data(), static_cast<int>(this->_internal_account_name().length()),
@@ -6530,7 +6429,7 @@ failure:
         6, this->_internal_account_name(), target);
   }
 
-  // optional string token_gid = 7 [(.description) = "Token GID assigned by server"];
+  // optional string token_gid = 7;
   if (cached_has_bits & 0x00000010u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_token_gid().data(), static_cast<int>(this->_internal_token_gid().length()),
@@ -6540,31 +6439,31 @@ failure:
         7, this->_internal_token_gid(), target);
   }
 
-  // optional bytes identity_secret = 8 [(.description) = "Secret used for identity attestation (e.g., for eventing)"];
+  // optional bytes identity_secret = 8;
   if (cached_has_bits & 0x00000020u) {
     target = stream->WriteBytesMaybeAliased(
         8, this->_internal_identity_secret(), target);
   }
 
-  // optional bytes secret_1 = 9 [(.description) = "Spare shared secret"];
+  // optional bytes secret_1 = 9;
   if (cached_has_bits & 0x00000040u) {
     target = stream->WriteBytesMaybeAliased(
         9, this->_internal_secret_1(), target);
   }
 
-  // optional int32 status = 10 [(.description) = "Result code"];
+  // optional int32 status = 10;
   if (cached_has_bits & 0x00000200u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(10, this->_internal_status(), target);
   }
 
-  // optional uint32 steamguard_scheme = 11 [(.description) = "Type of Steam Guard to use once token is removed"];
+  // optional uint32 steamguard_scheme = 11;
   if (cached_has_bits & 0x00000400u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(11, this->_internal_steamguard_scheme(), target);
   }
 
-  // optional fixed64 steamid = 12 [(.description) = "steamid that owns the secret"];
+  // optional fixed64 steamid = 12;
   if (cached_has_bits & 0x00000800u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(12, this->_internal_steamid(), target);
@@ -6588,84 +6487,84 @@ size_t CRemoveAuthenticatorViaChallengeContinue_Replacement_Token::ByteSizeLong(
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x000000ffu) {
-    // optional bytes shared_secret = 1 [(.description) = "Shared secret between server and authenticator"];
+    // optional bytes shared_secret = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
           this->_internal_shared_secret());
     }
 
-    // optional string revocation_code = 3 [(.description) = "code used to revoke authenticator"];
+    // optional string revocation_code = 3;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_revocation_code());
     }
 
-    // optional string uri = 4 [(.description) = "URI for QR code generation"];
+    // optional string uri = 4;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_uri());
     }
 
-    // optional string account_name = 6 [(.description) = "Account name to display on token client"];
+    // optional string account_name = 6;
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_account_name());
     }
 
-    // optional string token_gid = 7 [(.description) = "Token GID assigned by server"];
+    // optional string token_gid = 7;
     if (cached_has_bits & 0x00000010u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_token_gid());
     }
 
-    // optional bytes identity_secret = 8 [(.description) = "Secret used for identity attestation (e.g., for eventing)"];
+    // optional bytes identity_secret = 8;
     if (cached_has_bits & 0x00000020u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
           this->_internal_identity_secret());
     }
 
-    // optional bytes secret_1 = 9 [(.description) = "Spare shared secret"];
+    // optional bytes secret_1 = 9;
     if (cached_has_bits & 0x00000040u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
           this->_internal_secret_1());
     }
 
-    // optional fixed64 serial_number = 2 [(.description) = "Authenticator serial number (unique per token)"];
+    // optional fixed64 serial_number = 2;
     if (cached_has_bits & 0x00000080u) {
       total_size += 1 + 8;
     }
 
   }
   if (cached_has_bits & 0x00000f00u) {
-    // optional uint64 server_time = 5 [(.description) = "Current server time"];
+    // optional uint64 server_time = 5;
     if (cached_has_bits & 0x00000100u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_server_time());
     }
 
-    // optional int32 status = 10 [(.description) = "Result code"];
+    // optional int32 status = 10;
     if (cached_has_bits & 0x00000200u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
           this->_internal_status());
     }
 
-    // optional uint32 steamguard_scheme = 11 [(.description) = "Type of Steam Guard to use once token is removed"];
+    // optional uint32 steamguard_scheme = 11;
     if (cached_has_bits & 0x00000400u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_steamguard_scheme());
     }
 
-    // optional fixed64 steamid = 12 [(.description) = "steamid that owns the secret"];
+    // optional fixed64 steamid = 12;
     if (cached_has_bits & 0x00000800u) {
       total_size += 1 + 8;
     }
@@ -6878,7 +6777,7 @@ const char* CTwoFactor_RemoveAuthenticatorViaChallengeContinue_Response::_Intern
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional bool success = 1 [(.description) = "True if succeeded, or want more tries with an authenticator_code"];
+      // optional bool success = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_success(&has_bits);
@@ -6886,7 +6785,7 @@ const char* CTwoFactor_RemoveAuthenticatorViaChallengeContinue_Response::_Intern
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional .CRemoveAuthenticatorViaChallengeContinue_Replacement_Token replacement_token = 2 [(.description) = "Fresh secret to install"];
+      // optional .CRemoveAuthenticatorViaChallengeContinue_Replacement_Token replacement_token = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           ptr = ctx->ParseMessage(_internal_mutable_replacement_token(), ptr);
@@ -6923,13 +6822,13 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional bool success = 1 [(.description) = "True if succeeded, or want more tries with an authenticator_code"];
+  // optional bool success = 1;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(1, this->_internal_success(), target);
   }
 
-  // optional .CRemoveAuthenticatorViaChallengeContinue_Replacement_Token replacement_token = 2 [(.description) = "Fresh secret to install"];
+  // optional .CRemoveAuthenticatorViaChallengeContinue_Replacement_Token replacement_token = 2;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -6955,14 +6854,14 @@ size_t CTwoFactor_RemoveAuthenticatorViaChallengeContinue_Response::ByteSizeLong
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional .CRemoveAuthenticatorViaChallengeContinue_Replacement_Token replacement_token = 2 [(.description) = "Fresh secret to install"];
+    // optional .CRemoveAuthenticatorViaChallengeContinue_Replacement_Token replacement_token = 2;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
           *replacement_token_);
     }
 
-    // optional bool success = 1 [(.description) = "True if succeeded, or want more tries with an authenticator_code"];
+    // optional bool success = 1;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 + 1;
     }

@@ -76,6 +76,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
   #region Messages
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CWebRTC_WebRTCSessionConnected_Notification : pb::IMessage<CWebRTC_WebRTCSessionConnected_Notification>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -490,6 +491,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CWebRTC_WebRTCUpdateRemoteDescription_Notification : pb::IMessage<CWebRTC_WebRTCUpdateRemoteDescription_Notification>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -773,6 +775,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CWebRTC_WebRTCUpdateRemoteDescription_Notification_CSSRCToAccountIDMapping : pb::IMessage<CWebRTC_WebRTCUpdateRemoteDescription_Notification_CSSRCToAccountIDMapping>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1031,6 +1034,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CWebRTCClient_AcknowledgeUpdatedRemoteDescription_Request : pb::IMessage<CWebRTCClient_AcknowledgeUpdatedRemoteDescription_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1445,6 +1449,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CWebRTCClient_AcknowledgeUpdatedRemoteDescription_Response : pb::IMessage<CWebRTCClient_AcknowledgeUpdatedRemoteDescription_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1597,6 +1602,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CWebRTCClient_InitiateWebRTCConnection_Request : pb::IMessage<CWebRTCClient_InitiateWebRTCConnection_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1902,6 +1908,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CWebRTCClient_InitiateWebRTCConnection_Response : pb::IMessage<CWebRTCClient_InitiateWebRTCConnection_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage

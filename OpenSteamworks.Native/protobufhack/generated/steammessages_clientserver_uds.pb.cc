@@ -78,6 +78,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CMsgClientGetClientDetailsRespo
 constexpr CMsgClientGetClientDetailsResponse::CMsgClientGetClientDetailsResponse(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : games_running_()
+  , local_users_()
   , os_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , machine_name_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , ip_public_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
@@ -341,6 +342,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fclientserver_5
   PROTOBUF_FIELD_OFFSET(::CMsgClientGetClientDetailsResponse, bytes_available_),
   PROTOBUF_FIELD_OFFSET(::CMsgClientGetClientDetailsResponse, protocol_version_),
   PROTOBUF_FIELD_OFFSET(::CMsgClientGetClientDetailsResponse, clientcomm_version_),
+  PROTOBUF_FIELD_OFFSET(::CMsgClientGetClientDetailsResponse, local_users_),
   4,
   0,
   1,
@@ -350,6 +352,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fclientserver_5
   6,
   5,
   7,
+  ~0u,
   PROTOBUF_FIELD_OFFSET(::CMsgClientGetClientAppList, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CMsgClientGetClientAppList, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -506,19 +509,19 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 9, 24, sizeof(::CMsgClientUDSP2PSessionEnded)},
   { 34, -1, sizeof(::CMsgClientGetClientDetails)},
   { 39, 47, sizeof(::CMsgClientGetClientDetailsResponse_Game)},
-  { 50, 64, sizeof(::CMsgClientGetClientDetailsResponse)},
-  { 73, 85, sizeof(::CMsgClientGetClientAppList)},
-  { 92, 99, sizeof(::CMsgClientGetClientAppListResponse_App_DLC)},
-  { 101, 130, sizeof(::CMsgClientGetClientAppListResponse_App)},
-  { 154, 162, sizeof(::CMsgClientGetClientAppListResponse)},
-  { 165, 171, sizeof(::CMsgClientInstallClientApp)},
-  { 172, 178, sizeof(::CMsgClientInstallClientAppResponse)},
-  { 179, 185, sizeof(::CMsgClientUninstallClientApp)},
-  { 186, 192, sizeof(::CMsgClientUninstallClientAppResponse)},
-  { 193, 200, sizeof(::CMsgClientSetClientAppUpdateState)},
-  { 202, 208, sizeof(::CMsgClientSetClientAppUpdateStateResponse)},
-  { 209, 215, sizeof(::CMsgClientEnableOrDisableDownloads)},
-  { 216, 222, sizeof(::CMsgClientEnableOrDisableDownloadsResponse)},
+  { 50, 65, sizeof(::CMsgClientGetClientDetailsResponse)},
+  { 75, 87, sizeof(::CMsgClientGetClientAppList)},
+  { 94, 101, sizeof(::CMsgClientGetClientAppListResponse_App_DLC)},
+  { 103, 132, sizeof(::CMsgClientGetClientAppListResponse_App)},
+  { 156, 164, sizeof(::CMsgClientGetClientAppListResponse)},
+  { 167, 173, sizeof(::CMsgClientInstallClientApp)},
+  { 174, 180, sizeof(::CMsgClientInstallClientAppResponse)},
+  { 181, 187, sizeof(::CMsgClientUninstallClientApp)},
+  { 188, 194, sizeof(::CMsgClientUninstallClientAppResponse)},
+  { 195, 202, sizeof(::CMsgClientSetClientAppUpdateState)},
+  { 204, 210, sizeof(::CMsgClientSetClientAppUpdateStateResponse)},
+  { 211, 217, sizeof(::CMsgClientEnableOrDisableDownloads)},
+  { 218, 224, sizeof(::CMsgClientEnableOrDisableDownloadsResponse)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -553,53 +556,53 @@ const char descriptor_table_protodef_steammessages_5fclientserver_5fuds_2eproto[
   "_recv\030\006 \001(\005\022\022\n\nbytes_sent\030\007 \001(\005\022\030\n\020bytes"
   "_sent_relay\030\010 \001(\005\022\030\n\020bytes_recv_relay\030\t "
   "\001(\005\022\032\n\022time_to_connect_ms\030\n \001(\005\"\034\n\032CMsgC"
-  "lientGetClientDetails\"\333\002\n\"CMsgClientGetC"
+  "lientGetClientDetails\"\360\002\n\"CMsgClientGetC"
   "lientDetailsResponse\022\027\n\017package_version\030"
   "\001 \001(\r\022\n\n\002os\030\002 \001(\t\022\024\n\014machine_name\030\003 \001(\t\022"
   "\021\n\tip_public\030\004 \001(\t\022\022\n\nip_private\030\005 \001(\t\022\?"
   "\n\rgames_running\030\006 \003(\0132(.CMsgClientGetCli"
   "entDetailsResponse.Game\022\027\n\017bytes_availab"
   "le\030\007 \001(\004\022\030\n\020protocol_version\030\010 \001(\r\022\032\n\022cl"
-  "ientcomm_version\030\t \001(\r\032C\n\004Game\022\r\n\005appid\030"
-  "\001 \001(\r\022\022\n\nextra_info\030\002 \001(\t\022\030\n\020time_runnin"
-  "g_sec\030\003 \001(\r\"\245\001\n\032CMsgClientGetClientAppLi"
-  "st\022\r\n\005media\030\001 \001(\010\022\r\n\005tools\030\002 \001(\010\022\r\n\005game"
-  "s\030\003 \001(\010\022\026\n\016only_installed\030\004 \001(\010\022\025\n\ronly_"
-  "changing\030\005 \001(\010\022\016\n\006comics\030\006 \001(\010\022\033\n\023includ"
-  "e_client_info\030\007 \001(\010\"\264\006\n\"CMsgClientGetCli"
-  "entAppListResponse\0225\n\004apps\030\001 \003(\0132\'.CMsgC"
-  "lientGetClientAppListResponse.App\022\027\n\017byt"
-  "es_available\030\002 \001(\004\0228\n\013client_info\030\003 \001(\0132"
-  "#.CMsgClientGetClientDetailsResponse\032\203\005\n"
-  "\003App\022\r\n\005appid\030\001 \001(\r\022\020\n\010category\030\002 \001(\t\022\020\n"
-  "\010app_type\030\n \001(\t\022\020\n\010favorite\030\003 \001(\010\022\021\n\tins"
-  "talled\030\004 \001(\010\022\023\n\013auto_update\030\005 \001(\010\022\030\n\020byt"
-  "es_downloaded\030\006 \001(\004\022\031\n\021bytes_to_download"
-  "\030\007 \001(\004\022\033\n\023bytes_download_rate\030\010 \001(\r\0229\n\004d"
-  "lcs\030\t \003(\0132+.CMsgClientGetClientAppListRe"
-  "sponse.App.DLC\022\027\n\017download_paused\030\013 \001(\010\022"
-  "\027\n\017num_downloading\030\014 \001(\r\022\022\n\nnum_paused\030\r"
-  " \001(\r\022\020\n\010changing\030\016 \001(\010\022\035\n\025available_on_p"
-  "latform\030\017 \001(\010\022\024\n\014bytes_staged\030\020 \001(\004\022\026\n\016b"
-  "ytes_to_stage\030\021 \001(\004\022\026\n\016bytes_required\030\022 "
-  "\001(\004\022\026\n\016source_buildid\030\023 \001(\r\022\026\n\016target_bu"
-  "ildid\030\024 \001(\r\022#\n\033estimated_seconds_remaini"
-  "ng\030\025 \001(\r\022\026\n\016queue_position\030\026 \001(\005\022\024\n\014unin"
-  "stalling\030\027 \001(\010\022\031\n\021rt_time_scheduled\030\030 \001("
-  "\r\032\'\n\003DLC\022\r\n\005appid\030\001 \001(\r\022\021\n\tinstalled\030\002 \001"
-  "(\010\"+\n\032CMsgClientInstallClientApp\022\r\n\005appi"
-  "d\030\001 \001(\r\"4\n\"CMsgClientInstallClientAppRes"
-  "ponse\022\016\n\006result\030\001 \001(\r\"-\n\034CMsgClientUnins"
-  "tallClientApp\022\r\n\005appid\030\001 \001(\r\"6\n$CMsgClie"
-  "ntUninstallClientAppResponse\022\016\n\006result\030\001"
-  " \001(\r\"B\n!CMsgClientSetClientAppUpdateStat"
-  "e\022\r\n\005appid\030\001 \001(\r\022\016\n\006update\030\002 \001(\010\";\n)CMsg"
-  "ClientSetClientAppUpdateStateResponse\022\016\n"
-  "\006result\030\001 \001(\r\"4\n\"CMsgClientEnableOrDisab"
-  "leDownloads\022\016\n\006enable\030\001 \001(\010\"<\n*CMsgClien"
-  "tEnableOrDisableDownloadsResponse\022\016\n\006res"
-  "ult\030\001 \001(\rB\037H\001\200\001\000\252\002\027OpenSteamworks.Protob"
-  "uf"
+  "ientcomm_version\030\t \001(\r\022\023\n\013local_users\030\n "
+  "\003(\r\032C\n\004Game\022\r\n\005appid\030\001 \001(\r\022\022\n\nextra_info"
+  "\030\002 \001(\t\022\030\n\020time_running_sec\030\003 \001(\r\"\245\001\n\032CMs"
+  "gClientGetClientAppList\022\r\n\005media\030\001 \001(\010\022\r"
+  "\n\005tools\030\002 \001(\010\022\r\n\005games\030\003 \001(\010\022\026\n\016only_ins"
+  "talled\030\004 \001(\010\022\025\n\ronly_changing\030\005 \001(\010\022\016\n\006c"
+  "omics\030\006 \001(\010\022\033\n\023include_client_info\030\007 \001(\010"
+  "\"\264\006\n\"CMsgClientGetClientAppListResponse\022"
+  "5\n\004apps\030\001 \003(\0132\'.CMsgClientGetClientAppLi"
+  "stResponse.App\022\027\n\017bytes_available\030\002 \001(\004\022"
+  "8\n\013client_info\030\003 \001(\0132#.CMsgClientGetClie"
+  "ntDetailsResponse\032\203\005\n\003App\022\r\n\005appid\030\001 \001(\r"
+  "\022\020\n\010category\030\002 \001(\t\022\020\n\010app_type\030\n \001(\t\022\020\n\010"
+  "favorite\030\003 \001(\010\022\021\n\tinstalled\030\004 \001(\010\022\023\n\013aut"
+  "o_update\030\005 \001(\010\022\030\n\020bytes_downloaded\030\006 \001(\004"
+  "\022\031\n\021bytes_to_download\030\007 \001(\004\022\033\n\023bytes_dow"
+  "nload_rate\030\010 \001(\r\0229\n\004dlcs\030\t \003(\0132+.CMsgCli"
+  "entGetClientAppListResponse.App.DLC\022\027\n\017d"
+  "ownload_paused\030\013 \001(\010\022\027\n\017num_downloading\030"
+  "\014 \001(\r\022\022\n\nnum_paused\030\r \001(\r\022\020\n\010changing\030\016 "
+  "\001(\010\022\035\n\025available_on_platform\030\017 \001(\010\022\024\n\014by"
+  "tes_staged\030\020 \001(\004\022\026\n\016bytes_to_stage\030\021 \001(\004"
+  "\022\026\n\016bytes_required\030\022 \001(\004\022\026\n\016source_build"
+  "id\030\023 \001(\r\022\026\n\016target_buildid\030\024 \001(\r\022#\n\033esti"
+  "mated_seconds_remaining\030\025 \001(\r\022\026\n\016queue_p"
+  "osition\030\026 \001(\005\022\024\n\014uninstalling\030\027 \001(\010\022\031\n\021r"
+  "t_time_scheduled\030\030 \001(\r\032\'\n\003DLC\022\r\n\005appid\030\001"
+  " \001(\r\022\021\n\tinstalled\030\002 \001(\010\"+\n\032CMsgClientIns"
+  "tallClientApp\022\r\n\005appid\030\001 \001(\r\"4\n\"CMsgClie"
+  "ntInstallClientAppResponse\022\016\n\006result\030\001 \001"
+  "(\r\"-\n\034CMsgClientUninstallClientApp\022\r\n\005ap"
+  "pid\030\001 \001(\r\"6\n$CMsgClientUninstallClientAp"
+  "pResponse\022\016\n\006result\030\001 \001(\r\"B\n!CMsgClientS"
+  "etClientAppUpdateState\022\r\n\005appid\030\001 \001(\r\022\016\n"
+  "\006update\030\002 \001(\010\";\n)CMsgClientSetClientAppU"
+  "pdateStateResponse\022\016\n\006result\030\001 \001(\r\"4\n\"CM"
+  "sgClientEnableOrDisableDownloads\022\016\n\006enab"
+  "le\030\001 \001(\010\"<\n*CMsgClientEnableOrDisableDow"
+  "nloadsResponse\022\016\n\006result\030\001 \001(\rB\037H\001\200\001\000\252\002\027"
+  "OpenSteamworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fclientserver_5fuds_2eproto_deps[2] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
@@ -607,7 +610,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fclientserver_5fuds_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fclientserver_5fuds_2eproto = {
-  false, false, 2282, descriptor_table_protodef_steammessages_5fclientserver_5fuds_2eproto, "steammessages_clientserver_uds.proto", 
+  false, false, 2303, descriptor_table_protodef_steammessages_5fclientserver_5fuds_2eproto, "steammessages_clientserver_uds.proto", 
   &descriptor_table_steammessages_5fclientserver_5fuds_2eproto_once, descriptor_table_steammessages_5fclientserver_5fuds_2eproto_deps, 2, 17,
   schemas, file_default_instances, TableStruct_steammessages_5fclientserver_5fuds_2eproto::offsets,
   file_level_metadata_steammessages_5fclientserver_5fuds_2eproto, file_level_enum_descriptors_steammessages_5fclientserver_5fuds_2eproto, file_level_service_descriptors_steammessages_5fclientserver_5fuds_2eproto,
@@ -1825,7 +1828,8 @@ class CMsgClientGetClientDetailsResponse::_Internal {
 
 CMsgClientGetClientDetailsResponse::CMsgClientGetClientDetailsResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena),
-  games_running_(arena) {
+  games_running_(arena),
+  local_users_(arena) {
   SharedCtor();
   RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:CMsgClientGetClientDetailsResponse)
@@ -1833,7 +1837,8 @@ CMsgClientGetClientDetailsResponse::CMsgClientGetClientDetailsResponse(::PROTOBU
 CMsgClientGetClientDetailsResponse::CMsgClientGetClientDetailsResponse(const CMsgClientGetClientDetailsResponse& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
       _has_bits_(from._has_bits_),
-      games_running_(from.games_running_) {
+      games_running_(from.games_running_),
+      local_users_(from.local_users_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   os_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (from._internal_has_os()) {
@@ -1903,6 +1908,7 @@ void CMsgClientGetClientDetailsResponse::Clear() {
   (void) cached_has_bits;
 
   games_running_.Clear();
+  local_users_.Clear();
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x0000000fu) {
     if (cached_has_bits & 0x00000001u) {
@@ -2023,6 +2029,21 @@ const char* CMsgClientGetClientDetailsResponse::_InternalParse(const char* ptr, 
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
+      // repeated uint32 local_users = 10;
+      case 10:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 80)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            _internal_add_local_users(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr));
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<80>(ptr));
+        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 82) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedUInt32Parser(_internal_mutable_local_users(), ptr, ctx);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
       default: {
       handle_unusual:
         if ((tag & 7) == 4 || tag == 0) {
@@ -2125,6 +2146,12 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(9, this->_internal_clientcomm_version(), target);
   }
 
+  // repeated uint32 local_users = 10;
+  for (int i = 0, n = this->_internal_local_users_size(); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(10, this->_internal_local_users(i), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -2146,6 +2173,15 @@ size_t CMsgClientGetClientDetailsResponse::ByteSizeLong() const {
   for (const auto& msg : this->games_running_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // repeated uint32 local_users = 10;
+  {
+    size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      UInt32Size(this->local_users_);
+    total_size += 1 *
+                  ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_local_users_size());
+    total_size += data_size;
   }
 
   cached_has_bits = _has_bits_[0];
@@ -2239,6 +2275,7 @@ void CMsgClientGetClientDetailsResponse::MergeFrom(const CMsgClientGetClientDeta
   (void) cached_has_bits;
 
   games_running_.MergeFrom(from.games_running_);
+  local_users_.MergeFrom(from.local_users_);
   cached_has_bits = from._has_bits_[0];
   if (cached_has_bits & 0x000000ffu) {
     if (cached_has_bits & 0x00000001u) {
@@ -2292,6 +2329,7 @@ void CMsgClientGetClientDetailsResponse::InternalSwap(CMsgClientGetClientDetails
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   swap(_has_bits_[0], other->_has_bits_[0]);
   games_running_.InternalSwap(&other->games_running_);
+  local_users_.InternalSwap(&other->local_users_);
   os_.Swap(&other->os_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   machine_name_.Swap(&other->machine_name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   ip_public_.Swap(&other->ip_public_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());

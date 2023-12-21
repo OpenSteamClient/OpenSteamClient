@@ -557,6 +557,32 @@ struct CStore_MigratePartnerLinkTracking_NotificationDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CStore_MigratePartnerLinkTracking_NotificationDefaultTypeInternal _CStore_MigratePartnerLinkTracking_Notification_default_instance_;
+constexpr CStore_UpdatePackageReservations_Request::CStore_UpdatePackageReservations_Request(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : packages_to_reserve_()
+  , packages_to_unreserve_()
+  , country_code_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string){}
+struct CStore_UpdatePackageReservations_RequestDefaultTypeInternal {
+  constexpr CStore_UpdatePackageReservations_RequestDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CStore_UpdatePackageReservations_RequestDefaultTypeInternal() {}
+  union {
+    CStore_UpdatePackageReservations_Request _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CStore_UpdatePackageReservations_RequestDefaultTypeInternal _CStore_UpdatePackageReservations_Request_default_instance_;
+constexpr CStore_UpdatePackageReservations_Response::CStore_UpdatePackageReservations_Response(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : reservation_status_(){}
+struct CStore_UpdatePackageReservations_ResponseDefaultTypeInternal {
+  constexpr CStore_UpdatePackageReservations_ResponseDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CStore_UpdatePackageReservations_ResponseDefaultTypeInternal() {}
+  union {
+    CStore_UpdatePackageReservations_Response _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CStore_UpdatePackageReservations_ResponseDefaultTypeInternal _CStore_UpdatePackageReservations_Response_default_instance_;
 constexpr CReservationPositionMessage::CReservationPositionMessage(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : product_identifier_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
@@ -723,7 +749,7 @@ struct CStore_StorePreferencesChanged_NotificationDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CStore_StorePreferencesChanged_NotificationDefaultTypeInternal _CStore_StorePreferencesChanged_Notification_default_instance_;
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_steammessages_5fstore_2esteamclient_2eproto[49];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_steammessages_5fstore_2esteamclient_2eproto[51];
 static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_steammessages_5fstore_2esteamclient_2eproto[5];
 static const ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor* file_level_service_descriptors_steammessages_5fstore_2esteamclient_2eproto[2];
 
@@ -1173,6 +1199,23 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fstore_2esteamc
   1,
   0,
   2,
+  PROTOBUF_FIELD_OFFSET(::CStore_UpdatePackageReservations_Request, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CStore_UpdatePackageReservations_Request, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::CStore_UpdatePackageReservations_Request, packages_to_reserve_),
+  PROTOBUF_FIELD_OFFSET(::CStore_UpdatePackageReservations_Request, packages_to_unreserve_),
+  PROTOBUF_FIELD_OFFSET(::CStore_UpdatePackageReservations_Request, country_code_),
+  ~0u,
+  ~0u,
+  0,
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::CStore_UpdatePackageReservations_Response, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::CStore_UpdatePackageReservations_Response, reservation_status_),
   PROTOBUF_FIELD_OFFSET(::CReservationPositionMessage, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CReservationPositionMessage, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1316,19 +1359,21 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 417, 425, sizeof(::CStore_GetTrendingAppsAmongFriends_Response_TrendingAppData)},
   { 428, -1, sizeof(::CStore_GetTrendingAppsAmongFriends_Response)},
   { 434, 442, sizeof(::CStore_MigratePartnerLinkTracking_Notification)},
-  { 445, 457, sizeof(::CReservationPositionMessage)},
-  { 464, -1, sizeof(::CStore_SetReservationPositionMessage_Request)},
-  { 470, -1, sizeof(::CStore_SetReservationPositionMessage_Response)},
-  { 475, 483, sizeof(::CStore_DeleteReservationPositionMessage_Request)},
-  { 486, -1, sizeof(::CStore_DeleteReservationPositionMessage_Response)},
-  { 491, -1, sizeof(::CStore_GetAllReservationPositionMessages_Request)},
-  { 496, -1, sizeof(::CStore_GetAllReservationPositionMessages_Response)},
-  { 502, -1, sizeof(::CStore_ReloadAllReservationPositionMessages_Notification)},
-  { 507, 514, sizeof(::CSteamDeckCompatibility_SetFeedbacRequest)},
-  { 516, -1, sizeof(::CSteamDeckCompatibility_SetFeedbacResponse)},
-  { 521, 527, sizeof(::CSteamDeckCompatibility_ShouldPrompt_Request)},
-  { 528, 536, sizeof(::CSteamDeckCompatibility_ShouldPrompt_Response)},
-  { 539, 547, sizeof(::CStore_StorePreferencesChanged_Notification)},
+  { 445, 453, sizeof(::CStore_UpdatePackageReservations_Request)},
+  { 456, -1, sizeof(::CStore_UpdatePackageReservations_Response)},
+  { 462, 474, sizeof(::CReservationPositionMessage)},
+  { 481, -1, sizeof(::CStore_SetReservationPositionMessage_Request)},
+  { 487, -1, sizeof(::CStore_SetReservationPositionMessage_Response)},
+  { 492, 500, sizeof(::CStore_DeleteReservationPositionMessage_Request)},
+  { 503, -1, sizeof(::CStore_DeleteReservationPositionMessage_Response)},
+  { 508, -1, sizeof(::CStore_GetAllReservationPositionMessages_Request)},
+  { 513, -1, sizeof(::CStore_GetAllReservationPositionMessages_Response)},
+  { 519, -1, sizeof(::CStore_ReloadAllReservationPositionMessages_Notification)},
+  { 524, 531, sizeof(::CSteamDeckCompatibility_SetFeedbacRequest)},
+  { 533, -1, sizeof(::CSteamDeckCompatibility_SetFeedbacResponse)},
+  { 538, 544, sizeof(::CSteamDeckCompatibility_ShouldPrompt_Request)},
+  { 545, 553, sizeof(::CSteamDeckCompatibility_ShouldPrompt_Response)},
+  { 556, 564, sizeof(::CStore_StorePreferencesChanged_Notification)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -1368,6 +1413,8 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CStore_GetTrendingAppsAmongFriends_Response_TrendingAppData_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CStore_GetTrendingAppsAmongFriends_Response_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CStore_MigratePartnerLinkTracking_Notification_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CStore_UpdatePackageReservations_Request_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CStore_UpdatePackageReservations_Response_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CReservationPositionMessage_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CStore_SetReservationPositionMessage_Request_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CStore_SetReservationPositionMessage_Response_default_instance_),
@@ -1388,347 +1435,285 @@ const char descriptor_table_protodef_steammessages_5fstore_2esteamclient_2eproto
   " google/protobuf/descriptor.proto\032\030steam"
   "messages_base.proto\032,steammessages_unifi"
   "ed_base.steamclient.proto\032\021contenthubs.p"
-  "roto\032\013enums.proto\"\241\002\n\034CStore_RegisterCDK"
-  "ey_Request\022S\n\017activation_code\030\001 \001(\tB:\202\265\030"
-  "6Key string to register on the logged in"
-  " user\'s account\022H\n\021purchase_platform\030\002 \001"
-  "(\005B-\202\265\030)EPurchasePlatform for platform o"
-  "f request\022b\n\026is_request_from_client\030\003 \001("
-  "\010BB\202\265\030>True if the request was initiated"
-  " from inside the Steam client\"\227\004\n\032CStore"
-  "_PurchaseReceiptInfo\022\025\n\rtransactionid\030\001 "
-  "\001(\004\022\021\n\tpackageid\030\002 \001(\r\022\027\n\017purchase_statu"
-  "s\030\003 \001(\r\022\025\n\rresult_detail\030\004 \001(\r\022\030\n\020transa"
-  "ction_time\030\005 \001(\r\022\026\n\016payment_method\030\006 \001(\r"
-  "\022\022\n\nbase_price\030\007 \001(\004\022\026\n\016total_discount\030\010"
-  " \001(\004\022\013\n\003tax\030\t \001(\004\022\020\n\010shipping\030\n \001(\004\022\025\n\rc"
-  "urrency_code\030\013 \001(\r\022\024\n\014country_code\030\014 \001(\t"
-  "\022\026\n\016error_headline\030\r \001(\t\022\024\n\014error_string"
-  "\030\016 \001(\t\022\025\n\rerror_lintext\030\017 \001(\t\022\024\n\014error_l"
-  "inurl\030\020 \001(\t\022\023\n\013error_appid\030\021 \001(\r\0228\n\nline"
-  "_items\030\022 \003(\0132$.CStore_PurchaseReceiptInf"
-  "o.LineItem\032K\n\010LineItem\022\021\n\tpackageid\030\001 \001("
-  "\r\022\r\n\005appid\030\002 \001(\r\022\035\n\025line_item_descriptio"
-  "n\030\003 \001(\t\"\307\001\n\035CStore_RegisterCDKey_Respons"
-  "e\022O\n\027purchase_result_details\030\001 \001(\005B.\202\265\030*"
-  "EPurchaseResultDetails from key activati"
-  "on\022U\n\025purchase_receipt_info\030\002 \001(\0132\033.CSto"
-  "re_PurchaseReceiptInfoB\031\202\265\030\025Purchase rec"
-  "eipt info\"5\n!CStore_GetMostPopularTags_R"
-  "equest\022\020\n\010language\030\001 \001(\t\"\177\n\"CStore_GetMo"
-  "stPopularTags_Response\0225\n\004tags\030\001 \003(\0132\'.C"
-  "Store_GetMostPopularTags_Response.Tag\032\"\n"
-  "\003Tag\022\r\n\005tagid\030\001 \001(\r\022\014\n\004name\030\002 \001(\t\"J\n&CSt"
-  "ore_GetLocalizedNameForTags_Request\022\020\n\010l"
-  "anguage\030\001 \001(\t\022\016\n\006tagids\030\002 \003(\r\"\231\002\n\'CStore"
-  "_GetLocalizedNameForTags_Response\022:\n\004tag"
-  "s\030\001 \003(\0132,.CStore_GetLocalizedNameForTags"
-  "_Response.Tag\032\261\001\n\003Tag\022\r\n\005tagid\030\001 \001(\r\022\024\n\014"
-  "english_name\030\002 \001(\t\022\014\n\004name\030\003 \001(\t\022w\n\017norm"
-  "alized_name\030\004 \001(\tB^\202\265\030Zenglish_name, low"
-  "ercase, with homoglyphs replaced and spa"
-  "ces and some punctuation removed.\"\245\001\n\031CS"
-  "tore_GetTagList_Request\022\020\n\010language\030\001 \001("
-  "\t\022v\n\021have_version_hash\030\002 \001(\tB[\202\265\030WThe ha"
-  "sh returned in the last call.  Will retu"
-  "rn no results if the list hasn\'t changed"
-  ".\"\347\001\n\032CStore_GetTagList_Response\022v\n\014vers"
-  "ion_hash\030\001 \001(\tB`\202\265\030\\Pass in future calls"
-  ", server will only return data if it has"
-  " changed (hash is per-language).\022-\n\004tags"
-  "\030\002 \003(\0132\037.CStore_GetTagList_Response.Tag\032"
-  "\"\n\003Tag\022\r\n\005tagid\030\001 \001(\r\022\014\n\004name\030\002 \001(\t\"\342\003\n\034"
-  "CStoreDiscoveryQueueSettings\022\016\n\006os_win\030\004"
-  " \001(\010\022\016\n\006os_mac\030\005 \001(\010\022\020\n\010os_linux\030\006 \001(\010\022\037"
-  "\n\027full_controller_support\030\007 \001(\010\022\037\n\027nativ"
-  "e_steam_controller\030\010 \001(\010\022\033\n\023include_comi"
-  "ng_soon\030\t \001(\010\022D\n\017excluded_tagids\030\n \003(\rB+"
-  "\202\265\030\'Don\'t return any games with these ta"
-  "gs.\022\034\n\024exclude_early_access\030\013 \001(\010\022\026\n\016exc"
-  "lude_videos\030\014 \001(\010\022\030\n\020exclude_software\030\r "
-  "\001(\010\022\023\n\013exclude_dlc\030\016 \001(\010\022\033\n\023exclude_soun"
-  "dtracks\030\017 \001(\010\022i\n\017featured_tagids\030\020 \003(\rBP"
-  "\202\265\030LMust be marked with one of these fea"
-  "tured tagids (for sale pages and events)"
-  "\"\261\003\n CStore_GetDiscoveryQueue_Request\022J\n"
-  "\nqueue_type\030\001 \001(\0162\031.EStoreDiscoveryQueue"
-  "Type:\033EStoreDiscoveryQueueTypeNew\022\024\n\014cou"
-  "ntry_code\030\002 \001(\t\022\025\n\rrebuild_queue\030\003 \001(\010\022\030"
-  "\n\020settings_changed\030\004 \001(\010\022/\n\010settings\030\005 \001"
-  "(\0132\035.CStoreDiscoveryQueueSettings\022\036\n\026reb"
-  "uild_queue_if_stale\030\006 \001(\010\022\037\n\027ignore_user"
-  "_preferences\030\010 \001(\010\022\037\n\027no_experimental_re"
-  "sults\030\t \001(\010\022\033\n\023experimental_cohort\030\n \001(\r"
-  "\022\034\n\024debug_get_solr_query\030\013 \001(\010\022,\n\021store_"
-  "page_filter\030\014 \001(\0132\021.CStorePageFilter\"\325\001\n"
-  "!CStore_GetDiscoveryQueue_Response\022\016\n\006ap"
-  "pids\030\001 \003(\r\022\024\n\014country_code\030\002 \001(\t\022/\n\010sett"
-  "ings\030\003 \001(\0132\035.CStoreDiscoveryQueueSetting"
-  "s\022\017\n\007skipped\030\004 \001(\005\022\021\n\texhausted\030\005 \001(\010\022\033\n"
-  "\023experimental_cohort\030\006 \001(\r\022\030\n\020debug_solr"
-  "_query\030\007 \001(\t\"\244\001\n(CStore_GetDiscoveryQueu"
-  "eSettings_Request\022J\n\nqueue_type\030\001 \001(\0162\031."
-  "EStoreDiscoveryQueueType:\033EStoreDiscover"
-  "yQueueTypeNew\022,\n\021store_page_filter\030\002 \001(\013"
-  "2\021.CStorePageFilter\"r\n)CStore_GetDiscove"
-  "ryQueueSettings_Response\022\024\n\014country_code"
-  "\030\001 \001(\t\022/\n\010settings\030\002 \001(\0132\035.CStoreDiscove"
-  "ryQueueSettings\"\260\001\n%CStore_SkipDiscovery"
-  "QueueItem_Request\022J\n\nqueue_type\030\001 \001(\0162\031."
-  "EStoreDiscoveryQueueType:\033EStoreDiscover"
-  "yQueueTypeNew\022\r\n\005appid\030\002 \001(\r\022,\n\021store_pa"
-  "ge_filter\030\003 \001(\0132\021.CStorePageFilter\"(\n&CS"
-  "tore_SkipDiscoveryQueueItem_Response\"a\n\'"
-  "CStore_GetUserGameInterestState_Request\022"
-  "\r\n\005appid\030\001 \001(\r\022\023\n\013store_appid\030\002 \001(\r\022\022\n\nb"
-  "eta_appid\030\003 \001(\r\"\231\010\n(CStore_GetUserGameIn"
-  "terestState_Response\022\r\n\005owned\030\001 \001(\010\022\020\n\010w"
-  "ishlist\030\002 \001(\010\022\017\n\007ignored\030\003 \001(\010\022\021\n\tfollow"
-  "ing\030\004 \001(\010\022,\n\tin_queues\030\005 \003(\0162\031.EStoreDis"
-  "coveryQueueType\022t\n\020queues_with_skip\030\006 \003("
-  "\0162\031.EStoreDiscoveryQueueTypeB\?\202\265\030;Discov"
-  "ery queue types where the user has skipp"
-  "ed this game.\022t\n\025queue_items_remaining\030\007"
-  " \003(\005BU\202\265\030Q# of items remaining in the di"
-  "scovery queue - matches the same order a"
-  "s in_queues\022e\n\026queue_items_next_appid\030\010 "
-  "\003(\rBE\202\265\030Athe next appid in the queue - m"
-  "atches the same order as in_queues\022^\n\021te"
-  "mporarily_owned\030\t \001(\010BC\202\265\030\?The user owns"
-  " the game temporarily, eg a rental or fr"
-  "ee weekend\022A\n\006queues\030\n \003(\01321.CStore_GetU"
-  "serGameInterestState_Response.InQueue\022X\n"
-  "\016ignored_reason\030\013 \001(\005B@\202\265\030<The ERecommen"
-  "dationIgnoreReason why the user ignored "
-  "the app\022}\n\013beta_status\030\014 \001(\0162\020.EPlaytest"
-  "Status:\021ETesterStatusNoneBC\202\265\030\?User inte"
-  "rest or membership in the playtest for t"
-  "his app if any\032\252\001\n\007InQueue\022D\n\004type\030\001 \001(\016"
-  "2\031.EStoreDiscoveryQueueType:\033EStoreDisco"
-  "veryQueueTypeNew\022\017\n\007skipped\030\002 \001(\010\022\027\n\017ite"
-  "ms_remaining\030\003 \001(\005\022\022\n\nnext_appid\030\004 \001(\r\022\033"
-  "\n\023experimental_cohort\030\005 \001(\r\"\270\001\n+CStore_G"
-  "etDiscoveryQueueSkippedApps_Request\022\017\n\007s"
-  "teamid\030\001 \001(\006\022J\n\nqueue_type\030\002 \001(\0162\031.EStor"
-  "eDiscoveryQueueType:\033EStoreDiscoveryQueu"
-  "eTypeNew\022,\n\021store_page_filter\030\003 \001(\0132\021.CS"
-  "torePageFilter\">\n,CStore_GetDiscoveryQue"
-  "ueSkippedApps_Response\022\016\n\006appids\030\001 \003(\r\"w"
-  "\n\030CStore_ReportApp_Request\022\r\n\005appid\030\001 \001("
-  "\r\022<\n\013report_type\030\002 \001(\0162\017.EAppReportType:"
-  "\026EAppReportType_Invalid\022\016\n\006report\030\003 \001(\t\""
-  "\033\n\031CStore_ReportApp_Response\"$\n\"CStore_G"
-  "etStorePreferences_Request\"\354\003\n\026CStore_Us"
-  "erPreferences\022\030\n\020primary_language\030\001 \001(\005\022"
-  "\033\n\023secondary_languages\030\002 \001(\r\022\030\n\020platform"
-  "_windows\030\003 \001(\010\022\024\n\014platform_mac\030\004 \001(\010\022\026\n\016"
-  "platform_linux\030\005 \001(\010\022\031\n\021timestamp_update"
-  "d\030\010 \001(\r\022\034\n\024hide_store_broadcast\030\t \001(\010\022^\n"
-  "\027review_score_preference\030\n \001(\0162\033.EUserRe"
-  "viewScorePreference: EUserReviewScorePre"
-  "ference_Unset\0228\n0timestamp_content_descr"
-  "iptor_preferences_updated\030\013 \001(\005\022b\n\023provi"
-  "de_decfeedback\030\014 \001(\0162\037.EProvideDeckFeedb"
-  "ackPreference:$EProvideDeckFeedbackPrefe"
-  "rence_Unset\022\034\n\024additional_languages\030\r \001("
-  "\t\"\221\001\n\031CStore_UserTagPreferences\0227\n\017tags_"
-  "to_exclude\030\001 \003(\0132\036.CStore_UserTagPrefere"
-  "nces.Tag\032;\n\003Tag\022\r\n\005tagid\030\001 \001(\r\022\014\n\004name\030\002"
-  " \001(\t\022\027\n\017timestamp_added\030\003 \001(\r\"\323\001\n#CStore"
-  "_GetStorePreferences_Response\022,\n\013prefere"
-  "nces\030\001 \001(\0132\027.CStore_UserPreferences\0223\n\017t"
-  "ag_preferences\030\002 \001(\0132\032.CStore_UserTagPre"
-  "ferences\022I\n\036content_descriptor_preferenc"
-  "es\030\003 \001(\0132!.UserContentDescriptorPreferen"
-  "ces\"W\n*CStore_GetTrendingAppsAmongFriend"
-  "s_Request\022\020\n\010num_apps\030\001 \001(\r\022\027\n\017num_top_f"
-  "riends\030\002 \001(\r\"\331\001\n+CStore_GetTrendingAppsA"
-  "mongFriends_Response\022S\n\rtrending_apps\030\001 "
-  "\003(\0132<.CStore_GetTrendingAppsAmongFriends"
-  "_Response.TrendingAppData\032U\n\017TrendingApp"
-  "Data\022\r\n\005appid\030\001 \001(\r\022\034\n\024steamids_top_frie"
-  "nds\030\002 \003(\004\022\025\n\rtotal_friends\030\003 \001(\r\"\275\001\n.CSt"
-  "ore_MigratePartnerLinkTracking_Notificat"
-  "ion\022\021\n\taccountid\030\001 \001(\r\022\021\n\tbrowserid\030\002 \001("
-  "\004\022e\n\017backfill_source\030\003 \001(\0162#.EPartnerLin"
-  "kTrackingBackfillSource:\'EPartnerLinkTra"
-  "ckingBackfillSource_None\"\234\003\n\033CReservatio"
-  "nPositionMessage\022\024\n\014edistributor\030\001 \001(\r\022\032"
-  "\n\022product_identifier\030\002 \001(\t\022\034\n\024start_queu"
-  "e_position\030\003 \001(\r\022^\n\034rtime_estimated_noti"
-  "fication\030\004 \001(\rB8\202\265\0304When we estimate the"
-  " users will receive a message by\022a\n\022loca"
-  "lization_token\030\005 \001(\tBE\202\265\030ALocalization t"
-  "oken that we want to use to format the a"
-  "bove number\0222\n\taccountid\030\006 \001(\rB\037\202\265\030\033User"
-  " who created this entry\0226\n\rrtime_created"
-  "\030\007 \001(\rB\037\202\265\030\033When this entry was created\""
-  "^\n,CStore_SetReservationPositionMessage_"
-  "Request\022.\n\010settings\030\001 \003(\0132\034.CReservation"
-  "PositionMessage\"/\n-CStore_SetReservation"
-  "PositionMessage_Response\"\201\001\n/CStore_Dele"
-  "teReservationPositionMessage_Request\022\024\n\014"
-  "edistributor\030\001 \001(\r\022\032\n\022product_identifier"
-  "\030\002 \001(\t\022\034\n\024start_queue_position\030\003 \001(\r\"2\n0"
-  "CStore_DeleteReservationPositionMessage_"
-  "Response\"2\n0CStore_GetAllReservationPosi"
-  "tionMessages_Request\"c\n1CStore_GetAllRes"
-  "ervationPositionMessages_Response\022.\n\010set"
-  "tings\030\001 \003(\0132\034.CReservationPositionMessag"
-  "e\":\n8CStore_ReloadAllReservationPosition"
-  "Messages_Notification\"\223\001\n)CSteamDeckComp"
-  "atibility_SetFeedbacRequest\022\r\n\005appid\030\001 \001"
-  "(\r\022W\n\010feedback\030\002 \001(\0162 .ESteamDeckCompati"
-  "bilityFeedback:#ESteamDeckCompatibilityF"
-  "eedbacUnset\",\n*CSteamDeckCompatibility_S"
-  "etFeedbacResponse\"=\n,CSteamDeckCompatibi"
-  "lity_ShouldPrompt_Request\022\r\n\005appid\030\001 \001(\r"
-  "\"\272\001\n-CSteamDeckCompatibility_ShouldPromp"
-  "t_Response\022\016\n\006prompt\030\001 \001(\010\022\027\n\017feedbaceli"
-  "gible\030\002 \001(\010\022`\n\021existing_feedback\030\003 \001(\0162 "
-  ".ESteamDeckCompatibilityFeedback:#ESteam"
-  "DeckCompatibilityFeedbacUnset\"\333\001\n+CStore"
-  "_StorePreferencesChanged_Notification\022,\n"
-  "\013preferences\030\001 \001(\0132\027.CStore_UserPreferen"
-  "ces\0223\n\017tag_preferences\030\002 \001(\0132\032.CStore_Us"
-  "erTagPreferences\022I\n\036content_descriptor_p"
-  "references\030\003 \001(\0132!.UserContentDescriptor"
-  "Preferences*\215\005\n\030EStoreDiscoveryQueueType"
-  "\022\037\n\033EStoreDiscoveryQueueTypeNew\020\000\022&\n\"ESt"
-  "oreDiscoveryQueueTypeComingSoon\020\001\022\'\n#ESt"
-  "oreDiscoveryQueueTypeRecommended\020\002\022+\n\'ES"
-  "toreDiscoveryQueueTypeEveryNewRelease\020\003\022"
-  ")\n%EStoreDiscoveryQueueTypeMLRecommender"
-  "\020\005\022*\n&EStoreDiscoveryQueueTypeWishlistOn"
-  "Sale\020\006\022\037\n\033EStoreDiscoveryQueueTypeDLC\020\007\022"
-  "%\n!EStoreDiscoveryQueueTypeDLCOnSale\020\010\0221"
-  "\n-EStoreDiscoveryQueueTypeRecommendedCom"
-  "ingSoon\020\t\022+\n\'EStoreDiscoveryQueueTypeRec"
-  "ommendedFree\020\n\022-\n)EStoreDiscoveryQueueTy"
-  "peRecommendedOnSale\020\013\022,\n(EStoreDiscovery"
-  "QueueTypeRecommendedDemos\020\014\022*\n&EStoreDis"
-  "coveryQueueTypeDLCNewReleases\020\r\022)\n%EStor"
-  "eDiscoveryQueueTypeDLCTopSellers\020\016\022\037\n\033ES"
-  "toreDiscoveryQueueTypeMAX\020\017*v\n\017EPlaytest"
-  "Status\022\025\n\021ETesterStatusNone\020\000\022\030\n\024ETester"
-  "StatusPending\020\001\022\030\n\024ETesterStatusInvited\020"
-  "\002\022\030\n\024ETesterStatusGranted\020\003*\204\004\n\016EAppRepo"
-  "rtType\022\032\n\026EAppReportType_Invalid\020\000\022\027\n\023EA"
-  "ppReportType_Scam\020\001\022\032\n\026EAppReportType_Ma"
-  "lware\020\002\022\035\n\031EAppReportType_HateSpeech\020\003\022\036"
-  "\n\032EAppReportType_Pornography\020\004\022)\n%EAppRe"
-  "portType_NonLabeledAdultContent\020\005\022\033\n\027EAp"
-  "pReportType_Libelous\020\006\022\034\n\030EAppReportType"
-  "_Offensive\020\007\022#\n\037EAppReportType_ExploitsC"
-  "hildren\020\010\0226\n2EAppReportType_MtxWithNonSt"
-  "eamWalletPaymentMethods\020\t\022%\n!EAppReportT"
-  "ype_CopyrightViolation\020\n\022\037\n\033EAppReportTy"
-  "pe_ViolatesLaws\020\013\022\030\n\024EAppReportType_Othe"
-  "r\020\014\022\031\n\025EAppReportType_Broken\020\r\022\"\n\036EAppRe"
-  "portType_AIContentReport\020\016*\232\001\n\032EUserRevi"
-  "ewScorePreference\022$\n EUserReviewScorePre"
-  "ference_Unset\020\000\022)\n%EUserReviewScorePrefe"
-  "rence_IncludeAll\020\001\022+\n\'EUserReviewScorePr"
-  "eference_ExcludeBombs\020\002*\334\001\n\"EPartnerLink"
-  "TrackingBackfillSource\022+\n\'EPartnerLinkTr"
-  "ackingBackfillSource_None\020\000\022*\n&EPartnerL"
-  "inkTrackingBackfillSource_Web\020\001\022-\n)EPart"
-  "nerLinkTrackingBackfillSource_Mobile\020\002\022."
-  "\n*EPartnerLinkTrackingBackfillSource_Des"
-  "ktop\020\0032\372\032\n\005Store\022\221\001\n\rRegisterCDKey\022\035.CSt"
-  "ore_RegisterCDKey_Request\032\036.CStore_Regis"
-  "terCDKey_Response\"A\202\265\030=Registers a CD ke"
-  "y with Steam on the logged in user\'s acc"
-  "ount\022\222\001\n\022GetMostPopularTags\022\".CStore_Get"
-  "MostPopularTags_Request\032#.CStore_GetMost"
-  "PopularTags_Response\"3\202\265\030/Get all whitel"
-  "isted tags, with localized names.\022\230\001\n\027Ge"
-  "tLocalizedNameForTags\022\'.CStore_GetLocali"
-  "zedNameForTags_Request\032(.CStore_GetLocal"
-  "izedNameForTags_Response\"*\202\265\030&Gets tag n"
-  "ames in a different language\022j\n\nGetTagLi"
-  "st\022\032.CStore_GetTagList_Request\032\033.CStore_"
-  "GetTagList_Response\"#\202\265\030\037Get the list of"
-  " tags, localized\022\231\001\n\021GetDiscoveryQueue\022!"
-  ".CStore_GetDiscoveryQueue_Request\032\".CSto"
-  "re_GetDiscoveryQueue_Response\"=\202\265\0309Get a"
-  " list of games for the user to explore o"
-  "n the store.\022\275\001\n\031GetDiscoveryQueueSettin"
-  "gs\022).CStore_GetDiscoveryQueueSettings_Re"
-  "quest\032*.CStore_GetDiscoveryQueueSettings"
-  "_Response\"I\202\265\030EGet the settings that wer"
-  "e used to generate a user\'s discovery qu"
-  "eue.\022\220\001\n\026SkipDiscoveryQueueItem\022&.CStore"
-  "_SkipDiscoveryQueueItem_Request\032\'.CStore"
-  "_SkipDiscoveryQueueItem_Response\"%\202\265\030!Sk"
-  "ip an item in the user\'s queue.\022\335\001\n\030GetU"
-  "serGameInterestState\022(.CStore_GetUserGam"
-  "eInterestState_Request\032).CStore_GetUserG"
-  "ameInterestState_Response\"l\202\265\030hGet infor"
-  "mation about a user\'s relationship to a "
-  "game - ownership, wishlist, discovery qu"
-  "eue state, etc.\022\325\001\n\034GetDiscoveryQueueSki"
-  "ppedApps\022,.CStore_GetDiscoveryQueueSkipp"
-  "edApps_Request\032-.CStore_GetDiscoveryQueu"
-  "eSkippedApps_Response\"X\202\265\030TReturns all t"
-  "he apps skipped so far in the given disc"
-  "overy queue for the given user.\022a\n\tRepor"
-  "tApp\022\031.CStore_ReportApp_Request\032\032.CStore"
-  "_ReportApp_Response\"\035\202\265\030\031User is reporti"
-  "ng the app\022\257\001\n\023GetStorePreferences\022#.CSt"
-  "ore_GetStorePreferences_Request\032$.CStore"
-  "_GetStorePreferences_Response\"M\202\265\030IRetur"
-  "ns the desired ratings board and maximum"
-  " rating to show on the store\022\235\001\n\033GetTren"
-  "dingAppsAmongFriends\022+.CStore_GetTrendin"
-  "gAppsAmongFriends_Request\032,.CStore_GetTr"
-  "endingAppsAmongFriends_Response\"#\202\265\030\037Get"
-  " trending apps among friends\022\305\001\n\032Migrate"
-  "PartnerLinkTracking\022/.CStore_MigratePart"
-  "nerLinkTracking_Notification\032\013.NoRespons"
-  "e\"i\202\265\030eMove UTM data from the PartnerLin"
-  "kTrackingLogNoUser table to the PartnerL"
-  "inkTrackingLogWithUser table\022\374\001\n\035SetRese"
-  "rvationPositionMessage\022-.CStore_SetReser"
-  "vationPositionMessage_Request\032..CStore_S"
-  "etReservationPositionMessage_Response\"|\202"
-  "\265\030xCreates/Update a reservation position"
-  " message for people in the queue or next"
-  " queue position for people deciding to j"
-  "oin\022\307\001\n DeleteReservationPositionMessage"
-  "\0220.CStore_DeleteReservationPositionMessa"
-  "ge_Request\0321.CStore_DeleteReservationPos"
-  "itionMessage_Response\">\202\265\030:Marks a posit"
-  "ion is deleted and will no longer be sur"
-  "faced\022\312\001\n!GetAllReservationPositionMessa"
-  "ges\0221.CStore_GetAllReservationPositionMe"
-  "ssages_Request\0322.CStore_GetAllReservatio"
-  "nPositionMessages_Response\">\202\265\030:Marks a "
-  "position is deleted and will no longer b"
-  "e surfaced\022\262\001\n$ReloadAllReservationPosit"
-  "ionMessages\0229.CStore_ReloadAllReservatio"
-  "nPositionMessages_Notification\032\013.NoRespo"
-  "nse\"B\202\265\030>Refreshes all of the caches thr"
-  "ough the store features servers\022\321\001\n\030SetC"
-  "ompatibilityFeedback\022*.CSteamDeckCompati"
-  "bility_SetFeedbacRequest\032+.CSteamDeckCom"
-  "patibility_SetFeedbacResponse\"\\\202\265\030XUpser"
-  "ts user feedback regarding the published"
-  " Steam Deck Compatibility rating for a g"
-  "ame\022\330\001\n$ShouldPromptForCompatibilityFeed"
-  "back\022-.CSteamDeckCompatibility_ShouldPro"
-  "mpt_Request\032..CSteamDeckCompatibility_Sh"
-  "ouldPrompt_Response\"Q\202\265\030MReturns whether"
-  " we should ask the user if the compatibi"
-  "lity rating is correct\032#\202\265\030\037A service to"
-  " access store data.2\356\001\n\013StoreClient\022\261\001\n\035"
-  "NotifyStorePreferencesChanged\022,.CStore_S"
-  "torePreferencesChanged_Notification\032\013.No"
-  "Response\"U\202\265\030QNotification from server t"
-  "o client that the user\'s store preferenc"
-  "es have changed\032+\202\265\030#Steam store to clie"
-  "nt notifications\300\265\030\002B\035\200\001\001\252\002\027OpenSteamwor"
-  "ks.Protobuf"
+  "roto\032\013enums.proto\"r\n\034CStore_RegisterCDKe"
+  "y_Request\022\027\n\017activation_code\030\001 \001(\t\022\031\n\021pu"
+  "rchase_platform\030\002 \001(\005\022\036\n\026is_request_from"
+  "_client\030\003 \001(\010\"\227\004\n\032CStore_PurchaseReceipt"
+  "Info\022\025\n\rtransactionid\030\001 \001(\004\022\021\n\tpackageid"
+  "\030\002 \001(\r\022\027\n\017purchase_status\030\003 \001(\r\022\025\n\rresul"
+  "t_detail\030\004 \001(\r\022\030\n\020transaction_time\030\005 \001(\r"
+  "\022\026\n\016payment_method\030\006 \001(\r\022\022\n\nbase_price\030\007"
+  " \001(\004\022\026\n\016total_discount\030\010 \001(\004\022\013\n\003tax\030\t \001("
+  "\004\022\020\n\010shipping\030\n \001(\004\022\025\n\rcurrency_code\030\013 \001"
+  "(\r\022\024\n\014country_code\030\014 \001(\t\022\026\n\016error_headli"
+  "ne\030\r \001(\t\022\024\n\014error_string\030\016 \001(\t\022\025\n\rerror_"
+  "lintext\030\017 \001(\t\022\024\n\014error_linurl\030\020 \001(\t\022\023\n\013e"
+  "rror_appid\030\021 \001(\r\0228\n\nline_items\030\022 \003(\0132$.C"
+  "Store_PurchaseReceiptInfo.LineItem\032K\n\010Li"
+  "neItem\022\021\n\tpackageid\030\001 \001(\r\022\r\n\005appid\030\002 \001(\r"
+  "\022\035\n\025line_item_description\030\003 \001(\t\"|\n\035CStor"
+  "e_RegisterCDKey_Response\022\037\n\027purchase_res"
+  "ult_details\030\001 \001(\005\022:\n\025purchase_receipt_in"
+  "fo\030\002 \001(\0132\033.CStore_PurchaseReceiptInfo\"5\n"
+  "!CStore_GetMostPopularTags_Request\022\020\n\010la"
+  "nguage\030\001 \001(\t\"\177\n\"CStore_GetMostPopularTag"
+  "s_Response\0225\n\004tags\030\001 \003(\0132\'.CStore_GetMos"
+  "tPopularTags_Response.Tag\032\"\n\003Tag\022\r\n\005tagi"
+  "d\030\001 \001(\r\022\014\n\004name\030\002 \001(\t\"J\n&CStore_GetLocal"
+  "izedNameForTags_Request\022\020\n\010language\030\001 \001("
+  "\t\022\016\n\006tagids\030\002 \003(\r\"\270\001\n\'CStore_GetLocalize"
+  "dNameForTags_Response\022:\n\004tags\030\001 \003(\0132,.CS"
+  "tore_GetLocalizedNameForTags_Response.Ta"
+  "g\032Q\n\003Tag\022\r\n\005tagid\030\001 \001(\r\022\024\n\014english_name\030"
+  "\002 \001(\t\022\014\n\004name\030\003 \001(\t\022\027\n\017normalized_name\030\004"
+  " \001(\t\"H\n\031CStore_GetTagList_Request\022\020\n\010lan"
+  "guage\030\001 \001(\t\022\031\n\021have_version_hash\030\002 \001(\t\"\205"
+  "\001\n\032CStore_GetTagList_Response\022\024\n\014version"
+  "_hash\030\001 \001(\t\022-\n\004tags\030\002 \003(\0132\037.CStore_GetTa"
+  "gList_Response.Tag\032\"\n\003Tag\022\r\n\005tagid\030\001 \001(\r"
+  "\022\014\n\004name\030\002 \001(\t\"\343\002\n\034CStoreDiscoveryQueueS"
+  "ettings\022\016\n\006os_win\030\004 \001(\010\022\016\n\006os_mac\030\005 \001(\010\022"
+  "\020\n\010os_linux\030\006 \001(\010\022\037\n\027full_controller_sup"
+  "port\030\007 \001(\010\022\037\n\027native_steam_controller\030\010 "
+  "\001(\010\022\033\n\023include_coming_soon\030\t \001(\010\022\027\n\017excl"
+  "uded_tagids\030\n \003(\r\022\034\n\024exclude_early_acces"
+  "s\030\013 \001(\010\022\026\n\016exclude_videos\030\014 \001(\010\022\030\n\020exclu"
+  "de_software\030\r \001(\010\022\023\n\013exclude_dlc\030\016 \001(\010\022\033"
+  "\n\023exclude_soundtracks\030\017 \001(\010\022\027\n\017featured_"
+  "tagids\030\020 \003(\r\"\261\003\n CStore_GetDiscoveryQueu"
+  "e_Request\022J\n\nqueue_type\030\001 \001(\0162\031.EStoreDi"
+  "scoveryQueueType:\033EStoreDiscoveryQueueTy"
+  "peNew\022\024\n\014country_code\030\002 \001(\t\022\025\n\rrebuild_q"
+  "ueue\030\003 \001(\010\022\030\n\020settings_changed\030\004 \001(\010\022/\n\010"
+  "settings\030\005 \001(\0132\035.CStoreDiscoveryQueueSet"
+  "tings\022\036\n\026rebuild_queue_if_stale\030\006 \001(\010\022\037\n"
+  "\027ignore_user_preferences\030\010 \001(\010\022\037\n\027no_exp"
+  "erimental_results\030\t \001(\010\022\033\n\023experimental_"
+  "cohort\030\n \001(\r\022\034\n\024debug_get_solr_query\030\013 \001"
+  "(\010\022,\n\021store_page_filter\030\014 \001(\0132\021.CStorePa"
+  "geFilter\"\325\001\n!CStore_GetDiscoveryQueue_Re"
+  "sponse\022\016\n\006appids\030\001 \003(\r\022\024\n\014country_code\030\002"
+  " \001(\t\022/\n\010settings\030\003 \001(\0132\035.CStoreDiscovery"
+  "QueueSettings\022\017\n\007skipped\030\004 \001(\005\022\021\n\texhaus"
+  "ted\030\005 \001(\010\022\033\n\023experimental_cohort\030\006 \001(\r\022\030"
+  "\n\020debug_solr_query\030\007 \001(\t\"\244\001\n(CStore_GetD"
+  "iscoveryQueueSettings_Request\022J\n\nqueue_t"
+  "ype\030\001 \001(\0162\031.EStoreDiscoveryQueueType:\033ES"
+  "toreDiscoveryQueueTypeNew\022,\n\021store_page_"
+  "filter\030\002 \001(\0132\021.CStorePageFilter\"r\n)CStor"
+  "e_GetDiscoveryQueueSettings_Response\022\024\n\014"
+  "country_code\030\001 \001(\t\022/\n\010settings\030\002 \001(\0132\035.C"
+  "StoreDiscoveryQueueSettings\"\260\001\n%CStore_S"
+  "kipDiscoveryQueueItem_Request\022J\n\nqueue_t"
+  "ype\030\001 \001(\0162\031.EStoreDiscoveryQueueType:\033ES"
+  "toreDiscoveryQueueTypeNew\022\r\n\005appid\030\002 \001(\r"
+  "\022,\n\021store_page_filter\030\003 \001(\0132\021.CStorePage"
+  "Filter\"(\n&CStore_SkipDiscoveryQueueItem_"
+  "Response\"a\n\'CStore_GetUserGameInterestSt"
+  "ate_Request\022\r\n\005appid\030\001 \001(\r\022\023\n\013store_appi"
+  "d\030\002 \001(\r\022\022\n\nbeta_appid\030\003 \001(\r\"\356\004\n(CStore_G"
+  "etUserGameInterestState_Response\022\r\n\005owne"
+  "d\030\001 \001(\010\022\020\n\010wishlist\030\002 \001(\010\022\017\n\007ignored\030\003 \001"
+  "(\010\022\021\n\tfollowing\030\004 \001(\010\022,\n\tin_queues\030\005 \003(\016"
+  "2\031.EStoreDiscoveryQueueType\0223\n\020queues_wi"
+  "th_skip\030\006 \003(\0162\031.EStoreDiscoveryQueueType"
+  "\022\035\n\025queue_items_remaining\030\007 \003(\005\022\036\n\026queue"
+  "_items_next_appid\030\010 \003(\r\022\031\n\021temporarily_o"
+  "wned\030\t \001(\010\022A\n\006queues\030\n \003(\01321.CStore_GetU"
+  "serGameInterestState_Response.InQueue\022\026\n"
+  "\016ignored_reason\030\013 \001(\005\0228\n\013beta_status\030\014 \001"
+  "(\0162\020.EPlaytestStatus:\021ETesterStatusNone\032"
+  "\252\001\n\007InQueue\022D\n\004type\030\001 \001(\0162\031.EStoreDiscov"
+  "eryQueueType:\033EStoreDiscoveryQueueTypeNe"
+  "w\022\017\n\007skipped\030\002 \001(\010\022\027\n\017items_remaining\030\003 "
+  "\001(\005\022\022\n\nnext_appid\030\004 \001(\r\022\033\n\023experimental_"
+  "cohort\030\005 \001(\r\"\270\001\n+CStore_GetDiscoveryQueu"
+  "eSkippedApps_Request\022\017\n\007steamid\030\001 \001(\006\022J\n"
+  "\nqueue_type\030\002 \001(\0162\031.EStoreDiscoveryQueue"
+  "Type:\033EStoreDiscoveryQueueTypeNew\022,\n\021sto"
+  "re_page_filter\030\003 \001(\0132\021.CStorePageFilter\""
+  ">\n,CStore_GetDiscoveryQueueSkippedApps_R"
+  "esponse\022\016\n\006appids\030\001 \003(\r\"w\n\030CStore_Report"
+  "App_Request\022\r\n\005appid\030\001 \001(\r\022<\n\013report_typ"
+  "e\030\002 \001(\0162\017.EAppReportType:\026EAppReportType"
+  "_Invalid\022\016\n\006report\030\003 \001(\t\"\033\n\031CStore_Repor"
+  "tApp_Response\"$\n\"CStore_GetStorePreferen"
+  "ces_Request\"\354\003\n\026CStore_UserPreferences\022\030"
+  "\n\020primary_language\030\001 \001(\005\022\033\n\023secondary_la"
+  "nguages\030\002 \001(\r\022\030\n\020platform_windows\030\003 \001(\010\022"
+  "\024\n\014platform_mac\030\004 \001(\010\022\026\n\016platform_linux\030"
+  "\005 \001(\010\022\031\n\021timestamp_updated\030\010 \001(\r\022\034\n\024hide"
+  "_store_broadcast\030\t \001(\010\022^\n\027review_score_p"
+  "reference\030\n \001(\0162\033.EUserReviewScorePrefer"
+  "ence: EUserReviewScorePreference_Unset\0228"
+  "\n0timestamp_content_descriptor_preferenc"
+  "es_updated\030\013 \001(\005\022b\n\023provide_decfeedback\030"
+  "\014 \001(\0162\037.EProvideDeckFeedbackPreference:$"
+  "EProvideDeckFeedbackPreference_Unset\022\034\n\024"
+  "additional_languages\030\r \001(\t\"\221\001\n\031CStore_Us"
+  "erTagPreferences\0227\n\017tags_to_exclude\030\001 \003("
+  "\0132\036.CStore_UserTagPreferences.Tag\032;\n\003Tag"
+  "\022\r\n\005tagid\030\001 \001(\r\022\014\n\004name\030\002 \001(\t\022\027\n\017timesta"
+  "mp_added\030\003 \001(\r\"\323\001\n#CStore_GetStorePrefer"
+  "ences_Response\022,\n\013preferences\030\001 \001(\0132\027.CS"
+  "tore_UserPreferences\0223\n\017tag_preferences\030"
+  "\002 \001(\0132\032.CStore_UserTagPreferences\022I\n\036con"
+  "tent_descriptor_preferences\030\003 \001(\0132!.User"
+  "ContentDescriptorPreferences\"W\n*CStore_G"
+  "etTrendingAppsAmongFriends_Request\022\020\n\010nu"
+  "m_apps\030\001 \001(\r\022\027\n\017num_top_friends\030\002 \001(\r\"\331\001"
+  "\n+CStore_GetTrendingAppsAmongFriends_Res"
+  "ponse\022S\n\rtrending_apps\030\001 \003(\0132<.CStore_Ge"
+  "tTrendingAppsAmongFriends_Response.Trend"
+  "ingAppData\032U\n\017TrendingAppData\022\r\n\005appid\030\001"
+  " \001(\r\022\034\n\024steamids_top_friends\030\002 \003(\004\022\025\n\rto"
+  "tal_friends\030\003 \001(\r\"\275\001\n.CStore_MigratePart"
+  "nerLinkTracking_Notification\022\021\n\taccounti"
+  "d\030\001 \001(\r\022\021\n\tbrowserid\030\002 \001(\004\022e\n\017backfill_s"
+  "ource\030\003 \001(\0162#.EPartnerLinkTrackingBackfi"
+  "llSource:\'EPartnerLinkTrackingBackfillSo"
+  "urce_None\"|\n(CStore_UpdatePackageReserva"
+  "tions_Request\022\033\n\023packages_to_reserve\030\001 \003"
+  "(\r\022\035\n\025packages_to_unreserve\030\002 \003(\r\022\024\n\014cou"
+  "ntry_code\030\003 \001(\t\"c\n)CStore_UpdatePackageR"
+  "eservations_Response\0226\n\022reservation_stat"
+  "us\030\001 \003(\0132\032.CPackageReservationStatus\"\331\001\n"
+  "\033CReservationPositionMessage\022\024\n\014edistrib"
+  "utor\030\001 \001(\r\022\032\n\022product_identifier\030\002 \001(\t\022\034"
+  "\n\024start_queue_position\030\003 \001(\r\022$\n\034rtime_es"
+  "timated_notification\030\004 \001(\r\022\032\n\022localizati"
+  "on_token\030\005 \001(\t\022\021\n\taccountid\030\006 \001(\r\022\025\n\rrti"
+  "me_created\030\007 \001(\r\"^\n,CStore_SetReservatio"
+  "nPositionMessage_Request\022.\n\010settings\030\001 \003"
+  "(\0132\034.CReservationPositionMessage\"/\n-CSto"
+  "re_SetReservationPositionMessage_Respons"
+  "e\"\201\001\n/CStore_DeleteReservationPositionMe"
+  "ssage_Request\022\024\n\014edistributor\030\001 \001(\r\022\032\n\022p"
+  "roduct_identifier\030\002 \001(\t\022\034\n\024start_queue_p"
+  "osition\030\003 \001(\r\"2\n0CStore_DeleteReservatio"
+  "nPositionMessage_Response\"2\n0CStore_GetA"
+  "llReservationPositionMessages_Request\"c\n"
+  "1CStore_GetAllReservationPositionMessage"
+  "s_Response\022.\n\010settings\030\001 \003(\0132\034.CReservat"
+  "ionPositionMessage\":\n8CStore_ReloadAllRe"
+  "servationPositionMessages_Notification\"\223"
+  "\001\n)CSteamDeckCompatibility_SetFeedbacReq"
+  "uest\022\r\n\005appid\030\001 \001(\r\022W\n\010feedback\030\002 \001(\0162 ."
+  "ESteamDeckCompatibilityFeedback:#ESteamD"
+  "eckCompatibilityFeedbacUnset\",\n*CSteamDe"
+  "ckCompatibility_SetFeedbacResponse\"=\n,CS"
+  "teamDeckCompatibility_ShouldPrompt_Reque"
+  "st\022\r\n\005appid\030\001 \001(\r\"\272\001\n-CSteamDeckCompatib"
+  "ility_ShouldPrompt_Response\022\016\n\006prompt\030\001 "
+  "\001(\010\022\027\n\017feedbaceligible\030\002 \001(\010\022`\n\021existing"
+  "_feedback\030\003 \001(\0162 .ESteamDeckCompatibilit"
+  "yFeedback:#ESteamDeckCompatibilityFeedba"
+  "cUnset\"\333\001\n+CStore_StorePreferencesChange"
+  "d_Notification\022,\n\013preferences\030\001 \001(\0132\027.CS"
+  "tore_UserPreferences\0223\n\017tag_preferences\030"
+  "\002 \001(\0132\032.CStore_UserTagPreferences\022I\n\036con"
+  "tent_descriptor_preferences\030\003 \001(\0132!.User"
+  "ContentDescriptorPreferences*\215\005\n\030EStoreD"
+  "iscoveryQueueType\022\037\n\033EStoreDiscoveryQueu"
+  "eTypeNew\020\000\022&\n\"EStoreDiscoveryQueueTypeCo"
+  "mingSoon\020\001\022\'\n#EStoreDiscoveryQueueTypeRe"
+  "commended\020\002\022+\n\'EStoreDiscoveryQueueTypeE"
+  "veryNewRelease\020\003\022)\n%EStoreDiscoveryQueue"
+  "TypeMLRecommender\020\005\022*\n&EStoreDiscoveryQu"
+  "eueTypeWishlistOnSale\020\006\022\037\n\033EStoreDiscove"
+  "ryQueueTypeDLC\020\007\022%\n!EStoreDiscoveryQueue"
+  "TypeDLCOnSale\020\010\0221\n-EStoreDiscoveryQueueT"
+  "ypeRecommendedComingSoon\020\t\022+\n\'EStoreDisc"
+  "overyQueueTypeRecommendedFree\020\n\022-\n)EStor"
+  "eDiscoveryQueueTypeRecommendedOnSale\020\013\022,"
+  "\n(EStoreDiscoveryQueueTypeRecommendedDem"
+  "os\020\014\022*\n&EStoreDiscoveryQueueTypeDLCNewRe"
+  "leases\020\r\022)\n%EStoreDiscoveryQueueTypeDLCT"
+  "opSellers\020\016\022\037\n\033EStoreDiscoveryQueueTypeM"
+  "AX\020\017*v\n\017EPlaytestStatus\022\025\n\021ETesterStatus"
+  "None\020\000\022\030\n\024ETesterStatusPending\020\001\022\030\n\024ETes"
+  "terStatusInvited\020\002\022\030\n\024ETesterStatusGrant"
+  "ed\020\003*\204\004\n\016EAppReportType\022\032\n\026EAppReportTyp"
+  "e_Invalid\020\000\022\027\n\023EAppReportType_Scam\020\001\022\032\n\026"
+  "EAppReportType_Malware\020\002\022\035\n\031EAppReportTy"
+  "pe_HateSpeech\020\003\022\036\n\032EAppReportType_Pornog"
+  "raphy\020\004\022)\n%EAppReportType_NonLabeledAdul"
+  "tContent\020\005\022\033\n\027EAppReportType_Libelous\020\006\022"
+  "\034\n\030EAppReportType_Offensive\020\007\022#\n\037EAppRep"
+  "ortType_ExploitsChildren\020\010\0226\n2EAppReport"
+  "Type_MtxWithNonSteamWalletPaymentMethods"
+  "\020\t\022%\n!EAppReportType_CopyrightViolation\020"
+  "\n\022\037\n\033EAppReportType_ViolatesLaws\020\013\022\030\n\024EA"
+  "ppReportType_Other\020\014\022\031\n\025EAppReportType_B"
+  "roken\020\r\022\"\n\036EAppReportType_AIContentRepor"
+  "t\020\016*\232\001\n\032EUserReviewScorePreference\022$\n EU"
+  "serReviewScorePreference_Unset\020\000\022)\n%EUse"
+  "rReviewScorePreference_IncludeAll\020\001\022+\n\'E"
+  "UserReviewScorePreference_ExcludeBombs\020\002"
+  "*\334\001\n\"EPartnerLinkTrackingBackfillSource\022"
+  "+\n\'EPartnerLinkTrackingBackfillSource_No"
+  "ne\020\000\022*\n&EPartnerLinkTrackingBackfillSour"
+  "ce_Web\020\001\022-\n)EPartnerLinkTrackingBackfill"
+  "Source_Mobile\020\002\022.\n*EPartnerLinkTrackingB"
+  "ackfillSource_Desktop\020\0032\210\021\n\005Store\022N\n\rReg"
+  "isterCDKey\022\035.CStore_RegisterCDKey_Reques"
+  "t\032\036.CStore_RegisterCDKey_Response\022]\n\022Get"
+  "MostPopularTags\022\".CStore_GetMostPopularT"
+  "ags_Request\032#.CStore_GetMostPopularTags_"
+  "Response\022l\n\027GetLocalizedNameForTags\022\'.CS"
+  "tore_GetLocalizedNameForTags_Request\032(.C"
+  "Store_GetLocalizedNameForTags_Response\022E"
+  "\n\nGetTagList\022\032.CStore_GetTagList_Request"
+  "\032\033.CStore_GetTagList_Response\022Z\n\021GetDisc"
+  "overyQueue\022!.CStore_GetDiscoveryQueue_Re"
+  "quest\032\".CStore_GetDiscoveryQueue_Respons"
+  "e\022r\n\031GetDiscoveryQueueSettings\022).CStore_"
+  "GetDiscoveryQueueSettings_Request\032*.CSto"
+  "re_GetDiscoveryQueueSettings_Response\022i\n"
+  "\026SkipDiscoveryQueueItem\022&.CStore_SkipDis"
+  "coveryQueueItem_Request\032\'.CStore_SkipDis"
+  "coveryQueueItem_Response\022o\n\030GetUserGameI"
+  "nterestState\022(.CStore_GetUserGameInteres"
+  "tState_Request\032).CStore_GetUserGameInter"
+  "estState_Response\022{\n\034GetDiscoveryQueueSk"
+  "ippedApps\022,.CStore_GetDiscoveryQueueSkip"
+  "pedApps_Request\032-.CStore_GetDiscoveryQue"
+  "ueSkippedApps_Response\022B\n\tReportApp\022\031.CS"
+  "tore_ReportApp_Request\032\032.CStore_ReportAp"
+  "p_Response\022`\n\023GetStorePreferences\022#.CSto"
+  "re_GetStorePreferences_Request\032$.CStore_"
+  "GetStorePreferences_Response\022x\n\033GetTrend"
+  "ingAppsAmongFriends\022+.CStore_GetTrending"
+  "AppsAmongFriends_Request\032,.CStore_GetTre"
+  "ndingAppsAmongFriends_Response\022Z\n\032Migrat"
+  "ePartnerLinkTracking\022/.CStore_MigratePar"
+  "tnerLinkTracking_Notification\032\013.NoRespon"
+  "se\022r\n\031UpdatePackageReservations\022).CStore"
+  "_UpdatePackageReservations_Request\032*.CSt"
+  "ore_UpdatePackageReservations_Response\022~"
+  "\n\035SetReservationPositionMessage\022-.CStore"
+  "_SetReservationPositionMessage_Request\032."
+  ".CStore_SetReservationPositionMessage_Re"
+  "sponse\022\207\001\n DeleteReservationPositionMess"
+  "age\0220.CStore_DeleteReservationPositionMe"
+  "ssage_Request\0321.CStore_DeleteReservation"
+  "PositionMessage_Response\022\212\001\n!GetAllReser"
+  "vationPositionMessages\0221.CStore_GetAllRe"
+  "servationPositionMessages_Request\0322.CSto"
+  "re_GetAllReservationPositionMessages_Res"
+  "ponse\022n\n$ReloadAllReservationPositionMes"
+  "sages\0229.CStore_ReloadAllReservationPosit"
+  "ionMessages_Notification\032\013.NoResponse\022s\n"
+  "\030SetCompatibilityFeedback\022*.CSteamDeckCo"
+  "mpatibility_SetFeedbacRequest\032+.CSteamDe"
+  "ckCompatibility_SetFeedbacResponse\022\205\001\n$S"
+  "houldPromptForCompatibilityFeedback\022-.CS"
+  "teamDeckCompatibility_ShouldPrompt_Reque"
+  "st\032..CSteamDeckCompatibility_ShouldPromp"
+  "t_Response2o\n\013StoreClient\022Z\n\035NotifyStore"
+  "PreferencesChanged\022,.CStore_StorePrefere"
+  "ncesChanged_Notification\032\013.NoResponse\032\004\300"
+  "\265\030\002B\035\200\001\001\252\002\027OpenSteamworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fstore_2esteamclient_2eproto_deps[5] = {
   &::descriptor_table_contenthubs_2eproto,
@@ -1739,8 +1724,8 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fstore_2esteamclient_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fstore_2esteamclient_2eproto = {
-  false, false, 13771, descriptor_table_protodef_steammessages_5fstore_2esteamclient_2eproto, "steammessages_store.steamclient.proto", 
-  &descriptor_table_steammessages_5fstore_2esteamclient_2eproto_once, descriptor_table_steammessages_5fstore_2esteamclient_2eproto_deps, 5, 49,
+  false, false, 11314, descriptor_table_protodef_steammessages_5fstore_2esteamclient_2eproto, "steammessages_store.steamclient.proto", 
+  &descriptor_table_steammessages_5fstore_2esteamclient_2eproto_once, descriptor_table_steammessages_5fstore_2esteamclient_2eproto_deps, 5, 51,
   schemas, file_default_instances, TableStruct_steammessages_5fstore_2esteamclient_2eproto::offsets,
   file_level_metadata_steammessages_5fstore_2esteamclient_2eproto, file_level_enum_descriptors_steammessages_5fstore_2esteamclient_2eproto, file_level_service_descriptors_steammessages_5fstore_2esteamclient_2eproto,
 };
@@ -1947,7 +1932,7 @@ const char* CStore_RegisterCDKey_Request::_InternalParse(const char* ptr, ::PROT
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional string activation_code = 1 [(.description) = "Key string to register on the logged in user\'s account"];
+      // optional string activation_code = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           auto str = _internal_mutable_activation_code();
@@ -1958,7 +1943,7 @@ const char* CStore_RegisterCDKey_Request::_InternalParse(const char* ptr, ::PROT
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional int32 purchase_platform = 2 [(.description) = "EPurchasePlatform for platform of request"];
+      // optional int32 purchase_platform = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_purchase_platform(&has_bits);
@@ -1966,7 +1951,7 @@ const char* CStore_RegisterCDKey_Request::_InternalParse(const char* ptr, ::PROT
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool is_request_from_client = 3 [(.description) = "True if the request was initiated from inside the Steam client"];
+      // optional bool is_request_from_client = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           _Internal::set_has_is_request_from_client(&has_bits);
@@ -2004,7 +1989,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional string activation_code = 1 [(.description) = "Key string to register on the logged in user\'s account"];
+  // optional string activation_code = 1;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_activation_code().data(), static_cast<int>(this->_internal_activation_code().length()),
@@ -2014,13 +1999,13 @@ failure:
         1, this->_internal_activation_code(), target);
   }
 
-  // optional int32 purchase_platform = 2 [(.description) = "EPurchasePlatform for platform of request"];
+  // optional int32 purchase_platform = 2;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(2, this->_internal_purchase_platform(), target);
   }
 
-  // optional bool is_request_from_client = 3 [(.description) = "True if the request was initiated from inside the Steam client"];
+  // optional bool is_request_from_client = 3;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(3, this->_internal_is_request_from_client(), target);
@@ -2044,21 +2029,21 @@ size_t CStore_RegisterCDKey_Request::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000007u) {
-    // optional string activation_code = 1 [(.description) = "Key string to register on the logged in user\'s account"];
+    // optional string activation_code = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_activation_code());
     }
 
-    // optional int32 purchase_platform = 2 [(.description) = "EPurchasePlatform for platform of request"];
+    // optional int32 purchase_platform = 2;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
           this->_internal_purchase_platform());
     }
 
-    // optional bool is_request_from_client = 3 [(.description) = "True if the request was initiated from inside the Steam client"];
+    // optional bool is_request_from_client = 3;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 + 1;
     }
@@ -3318,7 +3303,7 @@ const char* CStore_RegisterCDKey_Response::_InternalParse(const char* ptr, ::PRO
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional int32 purchase_result_details = 1 [(.description) = "EPurchaseResultDetails from key activation"];
+      // optional int32 purchase_result_details = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_purchase_result_details(&has_bits);
@@ -3326,7 +3311,7 @@ const char* CStore_RegisterCDKey_Response::_InternalParse(const char* ptr, ::PRO
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional .CStore_PurchaseReceiptInfo purchase_receipt_info = 2 [(.description) = "Purchase receipt info"];
+      // optional .CStore_PurchaseReceiptInfo purchase_receipt_info = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           ptr = ctx->ParseMessage(_internal_mutable_purchase_receipt_info(), ptr);
@@ -3363,13 +3348,13 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional int32 purchase_result_details = 1 [(.description) = "EPurchaseResultDetails from key activation"];
+  // optional int32 purchase_result_details = 1;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_purchase_result_details(), target);
   }
 
-  // optional .CStore_PurchaseReceiptInfo purchase_receipt_info = 2 [(.description) = "Purchase receipt info"];
+  // optional .CStore_PurchaseReceiptInfo purchase_receipt_info = 2;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -3395,14 +3380,14 @@ size_t CStore_RegisterCDKey_Response::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional .CStore_PurchaseReceiptInfo purchase_receipt_info = 2 [(.description) = "Purchase receipt info"];
+    // optional .CStore_PurchaseReceiptInfo purchase_receipt_info = 2;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
           *purchase_receipt_info_);
     }
 
-    // optional int32 purchase_result_details = 1 [(.description) = "EPurchaseResultDetails from key activation"];
+    // optional int32 purchase_result_details = 1;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
@@ -4541,7 +4526,7 @@ const char* CStore_GetLocalizedNameForTags_Response_Tag::_InternalParse(const ch
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string normalized_name = 4 [(.description) = "english_name, lowercase, with homoglyphs replaced and spaces and some punctuation removed."];
+      // optional string normalized_name = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
           auto str = _internal_mutable_normalized_name();
@@ -4608,7 +4593,7 @@ failure:
         3, this->_internal_name(), target);
   }
 
-  // optional string normalized_name = 4 [(.description) = "english_name, lowercase, with homoglyphs replaced and spaces and some punctuation removed."];
+  // optional string normalized_name = 4;
   if (cached_has_bits & 0x00000004u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_normalized_name().data(), static_cast<int>(this->_internal_normalized_name().length()),
@@ -4650,7 +4635,7 @@ size_t CStore_GetLocalizedNameForTags_Response_Tag::ByteSizeLong() const {
           this->_internal_name());
     }
 
-    // optional string normalized_name = 4 [(.description) = "english_name, lowercase, with homoglyphs replaced and spaces and some punctuation removed."];
+    // optional string normalized_name = 4;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
@@ -5042,7 +5027,7 @@ const char* CStore_GetTagList_Request::_InternalParse(const char* ptr, ::PROTOBU
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string have_version_hash = 2 [(.description) = "The hash returned in the last call.  Will return no results if the list hasn\'t changed."];
+      // optional string have_version_hash = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           auto str = _internal_mutable_have_version_hash();
@@ -5093,7 +5078,7 @@ failure:
         1, this->_internal_language(), target);
   }
 
-  // optional string have_version_hash = 2 [(.description) = "The hash returned in the last call.  Will return no results if the list hasn\'t changed."];
+  // optional string have_version_hash = 2;
   if (cached_has_bits & 0x00000002u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_have_version_hash().data(), static_cast<int>(this->_internal_have_version_hash().length()),
@@ -5128,7 +5113,7 @@ size_t CStore_GetTagList_Request::ByteSizeLong() const {
           this->_internal_language());
     }
 
-    // optional string have_version_hash = 2 [(.description) = "The hash returned in the last call.  Will return no results if the list hasn\'t changed."];
+    // optional string have_version_hash = 2;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
@@ -5540,7 +5525,7 @@ const char* CStore_GetTagList_Response::_InternalParse(const char* ptr, ::PROTOB
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional string version_hash = 1 [(.description) = "Pass in future calls, server will only return data if it has changed (hash is per-language)."];
+      // optional string version_hash = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           auto str = _internal_mutable_version_hash();
@@ -5593,7 +5578,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional string version_hash = 1 [(.description) = "Pass in future calls, server will only return data if it has changed (hash is per-language)."];
+  // optional string version_hash = 1;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_version_hash().data(), static_cast<int>(this->_internal_version_hash().length()),
@@ -5634,7 +5619,7 @@ size_t CStore_GetTagList_Response::ByteSizeLong() const {
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  // optional string version_hash = 1 [(.description) = "Pass in future calls, server will only return data if it has changed (hash is per-language)."];
+  // optional string version_hash = 1;
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += 1 +
@@ -5876,7 +5861,7 @@ const char* CStoreDiscoveryQueueSettings::_InternalParse(const char* ptr, ::PROT
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated uint32 excluded_tagids = 10 [(.description) = "Don\'t return any games with these tags."];
+      // repeated uint32 excluded_tagids = 10;
       case 10:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 80)) {
           ptr -= 1;
@@ -5931,7 +5916,7 @@ const char* CStoreDiscoveryQueueSettings::_InternalParse(const char* ptr, ::PROT
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated uint32 featured_tagids = 16 [(.description) = "Must be marked with one of these featured tagids (for sale pages and events)"];
+      // repeated uint32 featured_tagids = 16;
       case 16:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 128)) {
           ptr -= 2;
@@ -6012,7 +5997,7 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(9, this->_internal_include_coming_soon(), target);
   }
 
-  // repeated uint32 excluded_tagids = 10 [(.description) = "Don\'t return any games with these tags."];
+  // repeated uint32 excluded_tagids = 10;
   for (int i = 0, n = this->_internal_excluded_tagids_size(); i < n; i++) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(10, this->_internal_excluded_tagids(i), target);
@@ -6048,7 +6033,7 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(15, this->_internal_exclude_soundtracks(), target);
   }
 
-  // repeated uint32 featured_tagids = 16 [(.description) = "Must be marked with one of these featured tagids (for sale pages and events)"];
+  // repeated uint32 featured_tagids = 16;
   for (int i = 0, n = this->_internal_featured_tagids_size(); i < n; i++) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(16, this->_internal_featured_tagids(i), target);
@@ -6070,7 +6055,7 @@ size_t CStoreDiscoveryQueueSettings::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated uint32 excluded_tagids = 10 [(.description) = "Don\'t return any games with these tags."];
+  // repeated uint32 excluded_tagids = 10;
   {
     size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       UInt32Size(this->excluded_tagids_);
@@ -6079,7 +6064,7 @@ size_t CStoreDiscoveryQueueSettings::ByteSizeLong() const {
     total_size += data_size;
   }
 
-  // repeated uint32 featured_tagids = 16 [(.description) = "Must be marked with one of these featured tagids (for sale pages and events)"];
+  // repeated uint32 featured_tagids = 16;
   {
     size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       UInt32Size(this->featured_tagids_);
@@ -9016,7 +9001,7 @@ const char* CStore_GetUserGameInterestState_Response::_InternalParse(const char*
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated .EStoreDiscoveryQueueType queues_with_skip = 6 [(.description) = "Discovery queue types where the user has skipped this game."];
+      // repeated .EStoreDiscoveryQueueType queues_with_skip = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
           ptr -= 1;
@@ -9036,7 +9021,7 @@ const char* CStore_GetUserGameInterestState_Response::_InternalParse(const char*
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated int32 queue_items_remaining = 7 [(.description) = "# of items remaining in the discovery queue - matches the same order as in_queues"];
+      // repeated int32 queue_items_remaining = 7;
       case 7:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 56)) {
           ptr -= 1;
@@ -9051,7 +9036,7 @@ const char* CStore_GetUserGameInterestState_Response::_InternalParse(const char*
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated uint32 queue_items_next_appid = 8 [(.description) = "the next appid in the queue - matches the same order as in_queues"];
+      // repeated uint32 queue_items_next_appid = 8;
       case 8:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 64)) {
           ptr -= 1;
@@ -9066,7 +9051,7 @@ const char* CStore_GetUserGameInterestState_Response::_InternalParse(const char*
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool temporarily_owned = 9 [(.description) = "The user owns the game temporarily, eg a rental or free weekend"];
+      // optional bool temporarily_owned = 9;
       case 9:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 72)) {
           _Internal::set_has_temporarily_owned(&has_bits);
@@ -9086,7 +9071,7 @@ const char* CStore_GetUserGameInterestState_Response::_InternalParse(const char*
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<82>(ptr));
         } else goto handle_unusual;
         continue;
-      // optional int32 ignored_reason = 11 [(.description) = "The ERecommendationIgnoreReason why the user ignored the app"];
+      // optional int32 ignored_reason = 11;
       case 11:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 88)) {
           _Internal::set_has_ignored_reason(&has_bits);
@@ -9094,7 +9079,7 @@ const char* CStore_GetUserGameInterestState_Response::_InternalParse(const char*
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional .EPlaytestStatus beta_status = 12 [default = ETesterStatusNone, (.description) = "User interest or membership in the playtest for this app if any"];
+      // optional .EPlaytestStatus beta_status = 12 [default = ETesterStatusNone];
       case 12:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 96)) {
           ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -9167,26 +9152,26 @@ failure:
         5, this->_internal_in_queues(i), target);
   }
 
-  // repeated .EStoreDiscoveryQueueType queues_with_skip = 6 [(.description) = "Discovery queue types where the user has skipped this game."];
+  // repeated .EStoreDiscoveryQueueType queues_with_skip = 6;
   for (int i = 0, n = this->_internal_queues_with_skip_size(); i < n; i++) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
         6, this->_internal_queues_with_skip(i), target);
   }
 
-  // repeated int32 queue_items_remaining = 7 [(.description) = "# of items remaining in the discovery queue - matches the same order as in_queues"];
+  // repeated int32 queue_items_remaining = 7;
   for (int i = 0, n = this->_internal_queue_items_remaining_size(); i < n; i++) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(7, this->_internal_queue_items_remaining(i), target);
   }
 
-  // repeated uint32 queue_items_next_appid = 8 [(.description) = "the next appid in the queue - matches the same order as in_queues"];
+  // repeated uint32 queue_items_next_appid = 8;
   for (int i = 0, n = this->_internal_queue_items_next_appid_size(); i < n; i++) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(8, this->_internal_queue_items_next_appid(i), target);
   }
 
-  // optional bool temporarily_owned = 9 [(.description) = "The user owns the game temporarily, eg a rental or free weekend"];
+  // optional bool temporarily_owned = 9;
   if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(9, this->_internal_temporarily_owned(), target);
@@ -9200,13 +9185,13 @@ failure:
       InternalWriteMessage(10, this->_internal_queues(i), target, stream);
   }
 
-  // optional int32 ignored_reason = 11 [(.description) = "The ERecommendationIgnoreReason why the user ignored the app"];
+  // optional int32 ignored_reason = 11;
   if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(11, this->_internal_ignored_reason(), target);
   }
 
-  // optional .EPlaytestStatus beta_status = 12 [default = ETesterStatusNone, (.description) = "User interest or membership in the playtest for this app if any"];
+  // optional .EPlaytestStatus beta_status = 12 [default = ETesterStatusNone];
   if (cached_has_bits & 0x00000040u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
@@ -9239,7 +9224,7 @@ size_t CStore_GetUserGameInterestState_Response::ByteSizeLong() const {
     total_size += (1UL * count) + data_size;
   }
 
-  // repeated .EStoreDiscoveryQueueType queues_with_skip = 6 [(.description) = "Discovery queue types where the user has skipped this game."];
+  // repeated .EStoreDiscoveryQueueType queues_with_skip = 6;
   {
     size_t data_size = 0;
     unsigned int count = static_cast<unsigned int>(this->_internal_queues_with_skip_size());for (unsigned int i = 0; i < count; i++) {
@@ -9249,7 +9234,7 @@ size_t CStore_GetUserGameInterestState_Response::ByteSizeLong() const {
     total_size += (1UL * count) + data_size;
   }
 
-  // repeated int32 queue_items_remaining = 7 [(.description) = "# of items remaining in the discovery queue - matches the same order as in_queues"];
+  // repeated int32 queue_items_remaining = 7;
   {
     size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       Int32Size(this->queue_items_remaining_);
@@ -9258,7 +9243,7 @@ size_t CStore_GetUserGameInterestState_Response::ByteSizeLong() const {
     total_size += data_size;
   }
 
-  // repeated uint32 queue_items_next_appid = 8 [(.description) = "the next appid in the queue - matches the same order as in_queues"];
+  // repeated uint32 queue_items_next_appid = 8;
   {
     size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       UInt32Size(this->queue_items_next_appid_);
@@ -9296,19 +9281,19 @@ size_t CStore_GetUserGameInterestState_Response::ByteSizeLong() const {
       total_size += 1 + 1;
     }
 
-    // optional bool temporarily_owned = 9 [(.description) = "The user owns the game temporarily, eg a rental or free weekend"];
+    // optional bool temporarily_owned = 9;
     if (cached_has_bits & 0x00000010u) {
       total_size += 1 + 1;
     }
 
-    // optional int32 ignored_reason = 11 [(.description) = "The ERecommendationIgnoreReason why the user ignored the app"];
+    // optional int32 ignored_reason = 11;
     if (cached_has_bits & 0x00000020u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
           this->_internal_ignored_reason());
     }
 
-    // optional .EPlaytestStatus beta_status = 12 [default = ETesterStatusNone, (.description) = "User interest or membership in the playtest for this app if any"];
+    // optional .EPlaytestStatus beta_status = 12 [default = ETesterStatusNone];
     if (cached_has_bits & 0x00000040u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_beta_status());
@@ -12863,6 +12848,489 @@ void CStore_MigratePartnerLinkTracking_Notification::InternalSwap(CStore_Migrate
 
 // ===================================================================
 
+class CStore_UpdatePackageReservations_Request::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CStore_UpdatePackageReservations_Request>()._has_bits_);
+  static void set_has_country_code(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+};
+
+CStore_UpdatePackageReservations_Request::CStore_UpdatePackageReservations_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+  packages_to_reserve_(arena),
+  packages_to_unreserve_(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CStore_UpdatePackageReservations_Request)
+}
+CStore_UpdatePackageReservations_Request::CStore_UpdatePackageReservations_Request(const CStore_UpdatePackageReservations_Request& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _has_bits_(from._has_bits_),
+      packages_to_reserve_(from.packages_to_reserve_),
+      packages_to_unreserve_(from.packages_to_unreserve_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  country_code_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (from._internal_has_country_code()) {
+    country_code_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_country_code(), 
+      GetArena());
+  }
+  // @@protoc_insertion_point(copy_constructor:CStore_UpdatePackageReservations_Request)
+}
+
+void CStore_UpdatePackageReservations_Request::SharedCtor() {
+country_code_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+CStore_UpdatePackageReservations_Request::~CStore_UpdatePackageReservations_Request() {
+  // @@protoc_insertion_point(destructor:CStore_UpdatePackageReservations_Request)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CStore_UpdatePackageReservations_Request::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  country_code_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+void CStore_UpdatePackageReservations_Request::ArenaDtor(void* object) {
+  CStore_UpdatePackageReservations_Request* _this = reinterpret_cast< CStore_UpdatePackageReservations_Request* >(object);
+  (void)_this;
+}
+void CStore_UpdatePackageReservations_Request::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CStore_UpdatePackageReservations_Request::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CStore_UpdatePackageReservations_Request::Clear() {
+// @@protoc_insertion_point(message_clear_start:CStore_UpdatePackageReservations_Request)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  packages_to_reserve_.Clear();
+  packages_to_unreserve_.Clear();
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    country_code_.ClearNonDefaultToEmpty();
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CStore_UpdatePackageReservations_Request::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // repeated uint32 packages_to_reserve = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            _internal_add_packages_to_reserve(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr));
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<8>(ptr));
+        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedUInt32Parser(_internal_mutable_packages_to_reserve(), ptr, ctx);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // repeated uint32 packages_to_unreserve = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            _internal_add_packages_to_unreserve(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr));
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<16>(ptr));
+        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedUInt32Parser(_internal_mutable_packages_to_unreserve(), ptr, ctx);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional string country_code = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+          auto str = _internal_mutable_country_code();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          #ifndef NDEBUG
+          ::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "CStore_UpdatePackageReservations_Request.country_code");
+          #endif  // !NDEBUG
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  _has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CStore_UpdatePackageReservations_Request::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CStore_UpdatePackageReservations_Request)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated uint32 packages_to_reserve = 1;
+  for (int i = 0, n = this->_internal_packages_to_reserve_size(); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_packages_to_reserve(i), target);
+  }
+
+  // repeated uint32 packages_to_unreserve = 2;
+  for (int i = 0, n = this->_internal_packages_to_unreserve_size(); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_packages_to_unreserve(i), target);
+  }
+
+  cached_has_bits = _has_bits_[0];
+  // optional string country_code = 3;
+  if (cached_has_bits & 0x00000001u) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->_internal_country_code().data(), static_cast<int>(this->_internal_country_code().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
+      "CStore_UpdatePackageReservations_Request.country_code");
+    target = stream->WriteStringMaybeAliased(
+        3, this->_internal_country_code(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CStore_UpdatePackageReservations_Request)
+  return target;
+}
+
+size_t CStore_UpdatePackageReservations_Request::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CStore_UpdatePackageReservations_Request)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated uint32 packages_to_reserve = 1;
+  {
+    size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      UInt32Size(this->packages_to_reserve_);
+    total_size += 1 *
+                  ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_packages_to_reserve_size());
+    total_size += data_size;
+  }
+
+  // repeated uint32 packages_to_unreserve = 2;
+  {
+    size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      UInt32Size(this->packages_to_unreserve_);
+    total_size += 1 *
+                  ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_packages_to_unreserve_size());
+    total_size += data_size;
+  }
+
+  // optional string country_code = 3;
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_country_code());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CStore_UpdatePackageReservations_Request::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CStore_UpdatePackageReservations_Request)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CStore_UpdatePackageReservations_Request* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CStore_UpdatePackageReservations_Request>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CStore_UpdatePackageReservations_Request)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CStore_UpdatePackageReservations_Request)
+    MergeFrom(*source);
+  }
+}
+
+void CStore_UpdatePackageReservations_Request::MergeFrom(const CStore_UpdatePackageReservations_Request& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CStore_UpdatePackageReservations_Request)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  packages_to_reserve_.MergeFrom(from.packages_to_reserve_);
+  packages_to_unreserve_.MergeFrom(from.packages_to_unreserve_);
+  if (from._internal_has_country_code()) {
+    _internal_set_country_code(from._internal_country_code());
+  }
+}
+
+void CStore_UpdatePackageReservations_Request::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CStore_UpdatePackageReservations_Request)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CStore_UpdatePackageReservations_Request::CopyFrom(const CStore_UpdatePackageReservations_Request& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CStore_UpdatePackageReservations_Request)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CStore_UpdatePackageReservations_Request::IsInitialized() const {
+  return true;
+}
+
+void CStore_UpdatePackageReservations_Request::InternalSwap(CStore_UpdatePackageReservations_Request* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  packages_to_reserve_.InternalSwap(&other->packages_to_reserve_);
+  packages_to_unreserve_.InternalSwap(&other->packages_to_unreserve_);
+  country_code_.Swap(&other->country_code_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CStore_UpdatePackageReservations_Request::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class CStore_UpdatePackageReservations_Response::_Internal {
+ public:
+};
+
+void CStore_UpdatePackageReservations_Response::clear_reservation_status() {
+  reservation_status_.Clear();
+}
+CStore_UpdatePackageReservations_Response::CStore_UpdatePackageReservations_Response(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+  reservation_status_(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CStore_UpdatePackageReservations_Response)
+}
+CStore_UpdatePackageReservations_Response::CStore_UpdatePackageReservations_Response(const CStore_UpdatePackageReservations_Response& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      reservation_status_(from.reservation_status_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:CStore_UpdatePackageReservations_Response)
+}
+
+void CStore_UpdatePackageReservations_Response::SharedCtor() {
+}
+
+CStore_UpdatePackageReservations_Response::~CStore_UpdatePackageReservations_Response() {
+  // @@protoc_insertion_point(destructor:CStore_UpdatePackageReservations_Response)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CStore_UpdatePackageReservations_Response::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void CStore_UpdatePackageReservations_Response::ArenaDtor(void* object) {
+  CStore_UpdatePackageReservations_Response* _this = reinterpret_cast< CStore_UpdatePackageReservations_Response* >(object);
+  (void)_this;
+}
+void CStore_UpdatePackageReservations_Response::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CStore_UpdatePackageReservations_Response::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CStore_UpdatePackageReservations_Response::Clear() {
+// @@protoc_insertion_point(message_clear_start:CStore_UpdatePackageReservations_Response)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  reservation_status_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CStore_UpdatePackageReservations_Response::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // repeated .CPackageReservationStatus reservation_status = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_reservation_status(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CStore_UpdatePackageReservations_Response::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CStore_UpdatePackageReservations_Response)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated .CPackageReservationStatus reservation_status = 1;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->_internal_reservation_status_size()); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(1, this->_internal_reservation_status(i), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CStore_UpdatePackageReservations_Response)
+  return target;
+}
+
+size_t CStore_UpdatePackageReservations_Response::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CStore_UpdatePackageReservations_Response)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .CPackageReservationStatus reservation_status = 1;
+  total_size += 1UL * this->_internal_reservation_status_size();
+  for (const auto& msg : this->reservation_status_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CStore_UpdatePackageReservations_Response::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CStore_UpdatePackageReservations_Response)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CStore_UpdatePackageReservations_Response* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CStore_UpdatePackageReservations_Response>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CStore_UpdatePackageReservations_Response)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CStore_UpdatePackageReservations_Response)
+    MergeFrom(*source);
+  }
+}
+
+void CStore_UpdatePackageReservations_Response::MergeFrom(const CStore_UpdatePackageReservations_Response& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CStore_UpdatePackageReservations_Response)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  reservation_status_.MergeFrom(from.reservation_status_);
+}
+
+void CStore_UpdatePackageReservations_Response::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CStore_UpdatePackageReservations_Response)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CStore_UpdatePackageReservations_Response::CopyFrom(const CStore_UpdatePackageReservations_Response& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CStore_UpdatePackageReservations_Response)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CStore_UpdatePackageReservations_Response::IsInitialized() const {
+  return true;
+}
+
+void CStore_UpdatePackageReservations_Response::InternalSwap(CStore_UpdatePackageReservations_Response* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  reservation_status_.InternalSwap(&other->reservation_status_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CStore_UpdatePackageReservations_Response::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
 class CReservationPositionMessage::_Internal {
  public:
   using HasBits = decltype(std::declval<CReservationPositionMessage>()._has_bits_);
@@ -13005,7 +13473,7 @@ const char* CReservationPositionMessage::_InternalParse(const char* ptr, ::PROTO
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 rtime_estimated_notification = 4 [(.description) = "When we estimate the users will receive a message by"];
+      // optional uint32 rtime_estimated_notification = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
           _Internal::set_has_rtime_estimated_notification(&has_bits);
@@ -13013,7 +13481,7 @@ const char* CReservationPositionMessage::_InternalParse(const char* ptr, ::PROTO
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string localization_token = 5 [(.description) = "Localization token that we want to use to format the above number"];
+      // optional string localization_token = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
           auto str = _internal_mutable_localization_token();
@@ -13024,7 +13492,7 @@ const char* CReservationPositionMessage::_InternalParse(const char* ptr, ::PROTO
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 accountid = 6 [(.description) = "User who created this entry"];
+      // optional uint32 accountid = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
           _Internal::set_has_accountid(&has_bits);
@@ -13032,7 +13500,7 @@ const char* CReservationPositionMessage::_InternalParse(const char* ptr, ::PROTO
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 rtime_created = 7 [(.description) = "When this entry was created"];
+      // optional uint32 rtime_created = 7;
       case 7:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 56)) {
           _Internal::set_has_rtime_created(&has_bits);
@@ -13092,13 +13560,13 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_start_queue_position(), target);
   }
 
-  // optional uint32 rtime_estimated_notification = 4 [(.description) = "When we estimate the users will receive a message by"];
+  // optional uint32 rtime_estimated_notification = 4;
   if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_rtime_estimated_notification(), target);
   }
 
-  // optional string localization_token = 5 [(.description) = "Localization token that we want to use to format the above number"];
+  // optional string localization_token = 5;
   if (cached_has_bits & 0x00000002u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_localization_token().data(), static_cast<int>(this->_internal_localization_token().length()),
@@ -13108,13 +13576,13 @@ failure:
         5, this->_internal_localization_token(), target);
   }
 
-  // optional uint32 accountid = 6 [(.description) = "User who created this entry"];
+  // optional uint32 accountid = 6;
   if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(6, this->_internal_accountid(), target);
   }
 
-  // optional uint32 rtime_created = 7 [(.description) = "When this entry was created"];
+  // optional uint32 rtime_created = 7;
   if (cached_has_bits & 0x00000040u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(7, this->_internal_rtime_created(), target);
@@ -13145,7 +13613,7 @@ size_t CReservationPositionMessage::ByteSizeLong() const {
           this->_internal_product_identifier());
     }
 
-    // optional string localization_token = 5 [(.description) = "Localization token that we want to use to format the above number"];
+    // optional string localization_token = 5;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
@@ -13166,21 +13634,21 @@ size_t CReservationPositionMessage::ByteSizeLong() const {
           this->_internal_start_queue_position());
     }
 
-    // optional uint32 rtime_estimated_notification = 4 [(.description) = "When we estimate the users will receive a message by"];
+    // optional uint32 rtime_estimated_notification = 4;
     if (cached_has_bits & 0x00000010u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_rtime_estimated_notification());
     }
 
-    // optional uint32 accountid = 6 [(.description) = "User who created this entry"];
+    // optional uint32 accountid = 6;
     if (cached_has_bits & 0x00000020u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_accountid());
     }
 
-    // optional uint32 rtime_created = 7 [(.description) = "When this entry was created"];
+    // optional uint32 rtime_created = 7;
     if (cached_has_bits & 0x00000040u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -15918,6 +16386,14 @@ void Store::MigratePartnerLinkTracking(::PROTOBUF_NAMESPACE_ID::RpcController* c
   done->Run();
 }
 
+void Store::UpdatePackageReservations(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                         const ::CStore_UpdatePackageReservations_Request*,
+                         ::CStore_UpdatePackageReservations_Response*,
+                         ::google::protobuf::Closure* done) {
+  controller->SetFailed("Method UpdatePackageReservations() not implemented.");
+  done->Run();
+}
+
 void Store::SetReservationPositionMessage(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                          const ::CStore_SetReservationPositionMessage_Request*,
                          ::CStore_SetReservationPositionMessage_Response*,
@@ -16078,6 +16554,14 @@ void Store::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* method,
              done);
       break;
     case 13:
+      UpdatePackageReservations(controller,
+             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CStore_UpdatePackageReservations_Request*>(
+                 request),
+             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<::CStore_UpdatePackageReservations_Response*>(
+                 response),
+             done);
+      break;
+    case 14:
       SetReservationPositionMessage(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CStore_SetReservationPositionMessage_Request*>(
                  request),
@@ -16085,7 +16569,7 @@ void Store::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* method,
                  response),
              done);
       break;
-    case 14:
+    case 15:
       DeleteReservationPositionMessage(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CStore_DeleteReservationPositionMessage_Request*>(
                  request),
@@ -16093,7 +16577,7 @@ void Store::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* method,
                  response),
              done);
       break;
-    case 15:
+    case 16:
       GetAllReservationPositionMessages(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CStore_GetAllReservationPositionMessages_Request*>(
                  request),
@@ -16101,7 +16585,7 @@ void Store::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* method,
                  response),
              done);
       break;
-    case 16:
+    case 17:
       ReloadAllReservationPositionMessages(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CStore_ReloadAllReservationPositionMessages_Notification*>(
                  request),
@@ -16109,7 +16593,7 @@ void Store::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* method,
                  response),
              done);
       break;
-    case 17:
+    case 18:
       SetCompatibilityFeedback(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CSteamDeckCompatibility_SetFeedbacRequest*>(
                  request),
@@ -16117,7 +16601,7 @@ void Store::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* method,
                  response),
              done);
       break;
-    case 18:
+    case 19:
       ShouldPromptForCompatibilityFeedback(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CSteamDeckCompatibility_ShouldPrompt_Request*>(
                  request),
@@ -16162,16 +16646,18 @@ const ::PROTOBUF_NAMESPACE_ID::Message& Store::GetRequestPrototype(
     case 12:
       return ::CStore_MigratePartnerLinkTracking_Notification::default_instance();
     case 13:
-      return ::CStore_SetReservationPositionMessage_Request::default_instance();
+      return ::CStore_UpdatePackageReservations_Request::default_instance();
     case 14:
-      return ::CStore_DeleteReservationPositionMessage_Request::default_instance();
+      return ::CStore_SetReservationPositionMessage_Request::default_instance();
     case 15:
-      return ::CStore_GetAllReservationPositionMessages_Request::default_instance();
+      return ::CStore_DeleteReservationPositionMessage_Request::default_instance();
     case 16:
-      return ::CStore_ReloadAllReservationPositionMessages_Notification::default_instance();
+      return ::CStore_GetAllReservationPositionMessages_Request::default_instance();
     case 17:
-      return ::CSteamDeckCompatibility_SetFeedbacRequest::default_instance();
+      return ::CStore_ReloadAllReservationPositionMessages_Notification::default_instance();
     case 18:
+      return ::CSteamDeckCompatibility_SetFeedbacRequest::default_instance();
+    case 19:
       return ::CSteamDeckCompatibility_ShouldPrompt_Request::default_instance();
     default:
       GOOGLE_LOG(FATAL) << "Bad method index; this should never happen.";
@@ -16211,16 +16697,18 @@ const ::PROTOBUF_NAMESPACE_ID::Message& Store::GetResponsePrototype(
     case 12:
       return ::NoResponse::default_instance();
     case 13:
-      return ::CStore_SetReservationPositionMessage_Response::default_instance();
+      return ::CStore_UpdatePackageReservations_Response::default_instance();
     case 14:
-      return ::CStore_DeleteReservationPositionMessage_Response::default_instance();
+      return ::CStore_SetReservationPositionMessage_Response::default_instance();
     case 15:
-      return ::CStore_GetAllReservationPositionMessages_Response::default_instance();
+      return ::CStore_DeleteReservationPositionMessage_Response::default_instance();
     case 16:
-      return ::NoResponse::default_instance();
+      return ::CStore_GetAllReservationPositionMessages_Response::default_instance();
     case 17:
-      return ::CSteamDeckCompatibility_SetFeedbacResponse::default_instance();
+      return ::NoResponse::default_instance();
     case 18:
+      return ::CSteamDeckCompatibility_SetFeedbacResponse::default_instance();
+    case 19:
       return ::CSteamDeckCompatibility_ShouldPrompt_Response::default_instance();
     default:
       GOOGLE_LOG(FATAL) << "Bad method index; this should never happen.";
@@ -16331,46 +16819,53 @@ void Store_Stub::MigratePartnerLinkTracking(::PROTOBUF_NAMESPACE_ID::RpcControll
   channel_->CallMethod(descriptor()->method(12),
                        controller, request, response, done);
 }
+void Store_Stub::UpdatePackageReservations(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                              const ::CStore_UpdatePackageReservations_Request* request,
+                              ::CStore_UpdatePackageReservations_Response* response,
+                              ::google::protobuf::Closure* done) {
+  channel_->CallMethod(descriptor()->method(13),
+                       controller, request, response, done);
+}
 void Store_Stub::SetReservationPositionMessage(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CStore_SetReservationPositionMessage_Request* request,
                               ::CStore_SetReservationPositionMessage_Response* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(13),
+  channel_->CallMethod(descriptor()->method(14),
                        controller, request, response, done);
 }
 void Store_Stub::DeleteReservationPositionMessage(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CStore_DeleteReservationPositionMessage_Request* request,
                               ::CStore_DeleteReservationPositionMessage_Response* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(14),
+  channel_->CallMethod(descriptor()->method(15),
                        controller, request, response, done);
 }
 void Store_Stub::GetAllReservationPositionMessages(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CStore_GetAllReservationPositionMessages_Request* request,
                               ::CStore_GetAllReservationPositionMessages_Response* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(15),
+  channel_->CallMethod(descriptor()->method(16),
                        controller, request, response, done);
 }
 void Store_Stub::ReloadAllReservationPositionMessages(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CStore_ReloadAllReservationPositionMessages_Notification* request,
                               ::NoResponse* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(16),
+  channel_->CallMethod(descriptor()->method(17),
                        controller, request, response, done);
 }
 void Store_Stub::SetCompatibilityFeedback(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CSteamDeckCompatibility_SetFeedbacRequest* request,
                               ::CSteamDeckCompatibility_SetFeedbacResponse* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(17),
+  channel_->CallMethod(descriptor()->method(18),
                        controller, request, response, done);
 }
 void Store_Stub::ShouldPromptForCompatibilityFeedback(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CSteamDeckCompatibility_ShouldPrompt_Request* request,
                               ::CSteamDeckCompatibility_ShouldPrompt_Response* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(18),
+  channel_->CallMethod(descriptor()->method(19),
                        controller, request, response, done);
 }
 // ===================================================================
@@ -16569,6 +17064,12 @@ template<> PROTOBUF_NOINLINE ::CStore_GetTrendingAppsAmongFriends_Response* Aren
 }
 template<> PROTOBUF_NOINLINE ::CStore_MigratePartnerLinkTracking_Notification* Arena::CreateMaybeMessage< ::CStore_MigratePartnerLinkTracking_Notification >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CStore_MigratePartnerLinkTracking_Notification >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CStore_UpdatePackageReservations_Request* Arena::CreateMaybeMessage< ::CStore_UpdatePackageReservations_Request >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CStore_UpdatePackageReservations_Request >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CStore_UpdatePackageReservations_Response* Arena::CreateMaybeMessage< ::CStore_UpdatePackageReservations_Response >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CStore_UpdatePackageReservations_Response >(arena);
 }
 template<> PROTOBUF_NOINLINE ::CReservationPositionMessage* Arena::CreateMaybeMessage< ::CReservationPositionMessage >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CReservationPositionMessage >(arena);

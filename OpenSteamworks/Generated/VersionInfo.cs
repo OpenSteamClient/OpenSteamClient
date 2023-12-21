@@ -2,5 +2,5 @@
 namespace OpenSteamworks.Generated;
 
 public static class VersionInfo {
-   public const uint STEAM_MANIFEST_VERSION = 1696019606;
+   public const uint STEAM_MANIFEST_VERSION = 1702079146;
 }

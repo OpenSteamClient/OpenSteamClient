@@ -25,43 +25,52 @@ namespace OpenSteamworks.Protobuf.WebUI {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChtzZXJ2aWNlX3VzZXJnYW1lbm90ZXMucHJvdG8aIGdvb2dsZS9wcm90b2J1",
-            "Zi9kZXNjcmlwdG9yLnByb3RvGhFjb21tb25fYmFzZS5wcm90byKzAQoNQ1Vz",
-            "ZXJHYW1lTm90ZRIKCgJpZBgBIAEoCRINCgVhcHBpZBgCIAEoDRIVCg1zaG9y",
-            "dGN1dF9uYW1lGAMgASgJEhIKCnNob3J0Y3V0aWQYBCABKA0SDwoHb3JkaW5h",
-            "bBgFIAEoDRIUCgx0aW1lX2NyZWF0ZWQYBiABKA0SFQoNdGltZV9tb2RpZmll",
-            "ZBgHIAEoDRINCgV0aXRsZRgIIAEoCRIPCgdjb250ZW50GAkgASgJIiQKIkNV",
-            "c2VyR2FtZU5vdGVzX0RlbGV0ZU5vdGVfUmVzcG9uc2UiKgooQ1VzZXJHYW1l",
-            "Tm90ZXNfR2V0R2FtZXNXaXRoTm90ZXNfUmVxdWVzdCJ/CilDVXNlckdhbWVO",
-            "b3Rlc19HZXRHYW1lc1dpdGhOb3Rlc19SZXNwb25zZRJSChBnYW1lc193aXRo",
-            "X25vdGVzGAEgAygLMjguQ1VzZXJHYW1lTm90ZXNfR2V0R2FtZXNXaXRoTm90",
-            "ZXNfUmVzcG9uc2VfR2FtZVdpdGhOb3RlcyKeAQo3Q1VzZXJHYW1lTm90ZXNf",
-            "R2V0R2FtZXNXaXRoTm90ZXNfUmVzcG9uc2VfR2FtZVdpdGhOb3RlcxINCgVh",
-            "cHBpZBgBIAEoDRISCgpzaG9ydGN1dGlkGAIgASgNEhUKDXNob3J0Y3V0X25h",
-            "bWUYAyABKAkSFQoNbGFzdF9tb2RpZmllZBgEIAEoDRISCgpub3RlX2NvdW50",
-            "GAUgASgNImIKJkNVc2VyR2FtZU5vdGVzX0dldE5vdGVzRm9yR2FtZV9SZXF1",
-            "ZXN0Eg0KBWFwcGlkGAEgASgNEhUKDXNob3J0Y3V0X25hbWUYAiABKAkSEgoK",
-            "c2hvcnRjdXRpZBgDIAEoDSJICidDVXNlckdhbWVOb3Rlc19HZXROb3Rlc0Zv",
-            "ckdhbWVfUmVzcG9uc2USHQoFbm90ZXMYASADKAsyDi5DVXNlckdhbWVOb3Rl",
-            "IjMKIENVc2VyR2FtZU5vdGVzX1NhdmVOb3RlX1Jlc3BvbnNlEg8KB25vdGVf",
-            "aWQYASABKAky5QIKDVVzZXJHYW1lTm90ZXMSQgoKRGVsZXRlTm90ZRIPLk5v",
-            "dEltcGxlbWVudGVkGiMuQ1VzZXJHYW1lTm90ZXNfRGVsZXRlTm90ZV9SZXNw",
-            "b25zZRJqChFHZXRHYW1lc1dpdGhOb3RlcxIpLkNVc2VyR2FtZU5vdGVzX0dl",
-            "dEdhbWVzV2l0aE5vdGVzX1JlcXVlc3QaKi5DVXNlckdhbWVOb3Rlc19HZXRH",
-            "YW1lc1dpdGhOb3Rlc19SZXNwb25zZRJkCg9HZXROb3Rlc0ZvckdhbWUSJy5D",
-            "VXNlckdhbWVOb3Rlc19HZXROb3Rlc0ZvckdhbWVfUmVxdWVzdBooLkNVc2Vy",
-            "R2FtZU5vdGVzX0dldE5vdGVzRm9yR2FtZV9SZXNwb25zZRI+CghTYXZlTm90",
-            "ZRIPLk5vdEltcGxlbWVudGVkGiEuQ1VzZXJHYW1lTm90ZXNfU2F2ZU5vdGVf",
-            "UmVzcG9uc2VCIKoCHU9wZW5TdGVhbXdvcmtzLlByb3RvYnVmLldlYlVJ"));
+            "Zi9kZXNjcmlwdG9yLnByb3RvIrMBCg1DVXNlckdhbWVOb3RlEgoKAmlkGAEg",
+            "ASgJEg0KBWFwcGlkGAIgASgNEhUKDXNob3J0Y3V0X25hbWUYAyABKAkSEgoK",
+            "c2hvcnRjdXRpZBgEIAEoDRIPCgdvcmRpbmFsGAUgASgNEhQKDHRpbWVfY3Jl",
+            "YXRlZBgGIAEoDRIVCg10aW1lX21vZGlmaWVkGAcgASgNEg0KBXRpdGxlGAgg",
+            "ASgJEg8KB2NvbnRlbnQYCSABKAkibgohQ1VzZXJHYW1lTm90ZXNfRGVsZXRl",
+            "Tm90ZV9SZXF1ZXN0Eg0KBWFwcGlkGAEgASgNEhUKDXNob3J0Y3V0X25hbWUY",
+            "AiABKAkSEgoKc2hvcnRjdXRpZBgDIAEoDRIPCgdub3RlX2lkGAQgASgJIiQK",
+            "IkNVc2VyR2FtZU5vdGVzX0RlbGV0ZU5vdGVfUmVzcG9uc2UiKgooQ1VzZXJH",
+            "YW1lTm90ZXNfR2V0R2FtZXNXaXRoTm90ZXNfUmVxdWVzdCJ/CilDVXNlckdh",
+            "bWVOb3Rlc19HZXRHYW1lc1dpdGhOb3Rlc19SZXNwb25zZRJSChBnYW1lc193",
+            "aXRoX25vdGVzGAEgAygLMjguQ1VzZXJHYW1lTm90ZXNfR2V0R2FtZXNXaXRo",
+            "Tm90ZXNfUmVzcG9uc2VfR2FtZVdpdGhOb3RlcyKeAQo3Q1VzZXJHYW1lTm90",
+            "ZXNfR2V0R2FtZXNXaXRoTm90ZXNfUmVzcG9uc2VfR2FtZVdpdGhOb3RlcxIN",
+            "CgVhcHBpZBgBIAEoDRISCgpzaG9ydGN1dGlkGAIgASgNEhUKDXNob3J0Y3V0",
+            "X25hbWUYAyABKAkSFQoNbGFzdF9tb2RpZmllZBgEIAEoDRISCgpub3RlX2Nv",
+            "dW50GAUgASgNInsKJkNVc2VyR2FtZU5vdGVzX0dldE5vdGVzRm9yR2FtZV9S",
+            "ZXF1ZXN0Eg0KBWFwcGlkGAEgASgNEhUKDXNob3J0Y3V0X25hbWUYAiABKAkS",
+            "EgoKc2hvcnRjdXRpZBgDIAEoDRIXCg9pbmNsdWRlX2NvbnRlbnQYBCABKAgi",
+            "SAonQ1VzZXJHYW1lTm90ZXNfR2V0Tm90ZXNGb3JHYW1lX1Jlc3BvbnNlEh0K",
+            "BW5vdGVzGAEgAygLMg4uQ1VzZXJHYW1lTm90ZSKgAQofQ1VzZXJHYW1lTm90",
+            "ZXNfU2F2ZU5vdGVfUmVxdWVzdBINCgVhcHBpZBgBIAEoDRIVCg1zaG9ydGN1",
+            "dF9uYW1lGAIgASgJEhIKCnNob3J0Y3V0aWQYAyABKA0SDwoHbm90ZV9pZBgE",
+            "IAEoCRISCgpjcmVhdGVfbmV3GAUgASgIEg0KBXRpdGxlGAYgASgJEg8KB2Nv",
+            "bnRlbnQYByABKAkiMwogQ1VzZXJHYW1lTm90ZXNfU2F2ZU5vdGVfUmVzcG9u",
+            "c2USDwoHbm90ZV9pZBgBIAEoCTKJAwoNVXNlckdhbWVOb3RlcxJVCgpEZWxl",
+            "dGVOb3RlEiIuQ1VzZXJHYW1lTm90ZXNfRGVsZXRlTm90ZV9SZXF1ZXN0GiMu",
+            "Q1VzZXJHYW1lTm90ZXNfRGVsZXRlTm90ZV9SZXNwb25zZRJqChFHZXRHYW1l",
+            "c1dpdGhOb3RlcxIpLkNVc2VyR2FtZU5vdGVzX0dldEdhbWVzV2l0aE5vdGVz",
+            "X1JlcXVlc3QaKi5DVXNlckdhbWVOb3Rlc19HZXRHYW1lc1dpdGhOb3Rlc19S",
+            "ZXNwb25zZRJkCg9HZXROb3Rlc0ZvckdhbWUSJy5DVXNlckdhbWVOb3Rlc19H",
+            "ZXROb3Rlc0ZvckdhbWVfUmVxdWVzdBooLkNVc2VyR2FtZU5vdGVzX0dldE5v",
+            "dGVzRm9yR2FtZV9SZXNwb25zZRJPCghTYXZlTm90ZRIgLkNVc2VyR2FtZU5v",
+            "dGVzX1NhdmVOb3RlX1JlcXVlc3QaIS5DVXNlckdhbWVOb3Rlc19TYXZlTm90",
+            "ZV9SZXNwb25zZUIgqgIdT3BlblN0ZWFtd29ya3MuUHJvdG9idWYuV2ViVUk="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::Google.Protobuf.Reflection.DescriptorReflection.Descriptor, global::OpenSteamworks.Protobuf.WebUI.CommonBaseReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::Google.Protobuf.Reflection.DescriptorReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CUserGameNote), global::OpenSteamworks.Protobuf.WebUI.CUserGameNote.Parser, new[]{ "Id", "Appid", "ShortcutName", "Shortcutid", "Ordinal", "TimeCreated", "TimeModified", "Title", "Content" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CUserGameNotes_DeleteNote_Request), global::OpenSteamworks.Protobuf.WebUI.CUserGameNotes_DeleteNote_Request.Parser, new[]{ "Appid", "ShortcutName", "Shortcutid", "NoteId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CUserGameNotes_DeleteNote_Response), global::OpenSteamworks.Protobuf.WebUI.CUserGameNotes_DeleteNote_Response.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CUserGameNotes_GetGamesWithNotes_Request), global::OpenSteamworks.Protobuf.WebUI.CUserGameNotes_GetGamesWithNotes_Request.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CUserGameNotes_GetGamesWithNotes_Response), global::OpenSteamworks.Protobuf.WebUI.CUserGameNotes_GetGamesWithNotes_Response.Parser, new[]{ "GamesWithNotes" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CUserGameNotes_GetGamesWithNotes_Response_GameWithNotes), global::OpenSteamworks.Protobuf.WebUI.CUserGameNotes_GetGamesWithNotes_Response_GameWithNotes.Parser, new[]{ "Appid", "Shortcutid", "ShortcutName", "LastModified", "NoteCount" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CUserGameNotes_GetNotesForGame_Request), global::OpenSteamworks.Protobuf.WebUI.CUserGameNotes_GetNotesForGame_Request.Parser, new[]{ "Appid", "ShortcutName", "Shortcutid" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CUserGameNotes_GetNotesForGame_Request), global::OpenSteamworks.Protobuf.WebUI.CUserGameNotes_GetNotesForGame_Request.Parser, new[]{ "Appid", "ShortcutName", "Shortcutid", "IncludeContent" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CUserGameNotes_GetNotesForGame_Response), global::OpenSteamworks.Protobuf.WebUI.CUserGameNotes_GetNotesForGame_Response.Parser, new[]{ "Notes" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CUserGameNotes_SaveNote_Request), global::OpenSteamworks.Protobuf.WebUI.CUserGameNotes_SaveNote_Request.Parser, new[]{ "Appid", "ShortcutName", "Shortcutid", "NoteId", "CreateNew", "Title", "Content" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CUserGameNotes_SaveNote_Response), global::OpenSteamworks.Protobuf.WebUI.CUserGameNotes_SaveNote_Response.Parser, new[]{ "NoteId" }, null, null, null, null)
           }));
     }
@@ -69,6 +78,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
   #region Messages
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CUserGameNote : pb::IMessage<CUserGameNote>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -687,6 +697,368 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
+  public sealed partial class CUserGameNotes_DeleteNote_Request : pb::IMessage<CUserGameNotes_DeleteNote_Request>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<CUserGameNotes_DeleteNote_Request> _parser = new pb::MessageParser<CUserGameNotes_DeleteNote_Request>(() => new CUserGameNotes_DeleteNote_Request());
+    private pb::UnknownFieldSet _unknownFields;
+    private int _hasBits0;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<CUserGameNotes_DeleteNote_Request> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceUsergamenotesReflection.Descriptor.MessageTypes[1]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CUserGameNotes_DeleteNote_Request() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CUserGameNotes_DeleteNote_Request(CUserGameNotes_DeleteNote_Request other) : this() {
+      _hasBits0 = other._hasBits0;
+      appid_ = other.appid_;
+      shortcutName_ = other.shortcutName_;
+      shortcutid_ = other.shortcutid_;
+      noteId_ = other.noteId_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CUserGameNotes_DeleteNote_Request Clone() {
+      return new CUserGameNotes_DeleteNote_Request(this);
+    }
+
+    /// <summary>Field number for the "appid" field.</summary>
+    public const int AppidFieldNumber = 1;
+    private readonly static uint AppidDefaultValue = 0;
+
+    private uint appid_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint Appid {
+      get { if ((_hasBits0 & 1) != 0) { return appid_; } else { return AppidDefaultValue; } }
+      set {
+        _hasBits0 |= 1;
+        appid_ = value;
+      }
+    }
+    /// <summary>Gets whether the "appid" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasAppid {
+      get { return (_hasBits0 & 1) != 0; }
+    }
+    /// <summary>Clears the value of the "appid" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearAppid() {
+      _hasBits0 &= ~1;
+    }
+
+    /// <summary>Field number for the "shortcut_name" field.</summary>
+    public const int ShortcutNameFieldNumber = 2;
+    private readonly static string ShortcutNameDefaultValue = "";
+
+    private string shortcutName_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string ShortcutName {
+      get { return shortcutName_ ?? ShortcutNameDefaultValue; }
+      set {
+        shortcutName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+    /// <summary>Gets whether the "shortcut_name" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasShortcutName {
+      get { return shortcutName_ != null; }
+    }
+    /// <summary>Clears the value of the "shortcut_name" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearShortcutName() {
+      shortcutName_ = null;
+    }
+
+    /// <summary>Field number for the "shortcutid" field.</summary>
+    public const int ShortcutidFieldNumber = 3;
+    private readonly static uint ShortcutidDefaultValue = 0;
+
+    private uint shortcutid_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint Shortcutid {
+      get { if ((_hasBits0 & 2) != 0) { return shortcutid_; } else { return ShortcutidDefaultValue; } }
+      set {
+        _hasBits0 |= 2;
+        shortcutid_ = value;
+      }
+    }
+    /// <summary>Gets whether the "shortcutid" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasShortcutid {
+      get { return (_hasBits0 & 2) != 0; }
+    }
+    /// <summary>Clears the value of the "shortcutid" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearShortcutid() {
+      _hasBits0 &= ~2;
+    }
+
+    /// <summary>Field number for the "note_id" field.</summary>
+    public const int NoteIdFieldNumber = 4;
+    private readonly static string NoteIdDefaultValue = "";
+
+    private string noteId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string NoteId {
+      get { return noteId_ ?? NoteIdDefaultValue; }
+      set {
+        noteId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+    /// <summary>Gets whether the "note_id" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasNoteId {
+      get { return noteId_ != null; }
+    }
+    /// <summary>Clears the value of the "note_id" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearNoteId() {
+      noteId_ = null;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as CUserGameNotes_DeleteNote_Request);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(CUserGameNotes_DeleteNote_Request other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Appid != other.Appid) return false;
+      if (ShortcutName != other.ShortcutName) return false;
+      if (Shortcutid != other.Shortcutid) return false;
+      if (NoteId != other.NoteId) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (HasAppid) hash ^= Appid.GetHashCode();
+      if (HasShortcutName) hash ^= ShortcutName.GetHashCode();
+      if (HasShortcutid) hash ^= Shortcutid.GetHashCode();
+      if (HasNoteId) hash ^= NoteId.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (HasAppid) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(Appid);
+      }
+      if (HasShortcutName) {
+        output.WriteRawTag(18);
+        output.WriteString(ShortcutName);
+      }
+      if (HasShortcutid) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(Shortcutid);
+      }
+      if (HasNoteId) {
+        output.WriteRawTag(34);
+        output.WriteString(NoteId);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (HasAppid) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(Appid);
+      }
+      if (HasShortcutName) {
+        output.WriteRawTag(18);
+        output.WriteString(ShortcutName);
+      }
+      if (HasShortcutid) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(Shortcutid);
+      }
+      if (HasNoteId) {
+        output.WriteRawTag(34);
+        output.WriteString(NoteId);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (HasAppid) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Appid);
+      }
+      if (HasShortcutName) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(ShortcutName);
+      }
+      if (HasShortcutid) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Shortcutid);
+      }
+      if (HasNoteId) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(NoteId);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(CUserGameNotes_DeleteNote_Request other) {
+      if (other == null) {
+        return;
+      }
+      if (other.HasAppid) {
+        Appid = other.Appid;
+      }
+      if (other.HasShortcutName) {
+        ShortcutName = other.ShortcutName;
+      }
+      if (other.HasShortcutid) {
+        Shortcutid = other.Shortcutid;
+      }
+      if (other.HasNoteId) {
+        NoteId = other.NoteId;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            Appid = input.ReadUInt32();
+            break;
+          }
+          case 18: {
+            ShortcutName = input.ReadString();
+            break;
+          }
+          case 24: {
+            Shortcutid = input.ReadUInt32();
+            break;
+          }
+          case 34: {
+            NoteId = input.ReadString();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            Appid = input.ReadUInt32();
+            break;
+          }
+          case 18: {
+            ShortcutName = input.ReadString();
+            break;
+          }
+          case 24: {
+            Shortcutid = input.ReadUInt32();
+            break;
+          }
+          case 34: {
+            NoteId = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CUserGameNotes_DeleteNote_Response : pb::IMessage<CUserGameNotes_DeleteNote_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -701,7 +1073,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceUsergamenotesReflection.Descriptor.MessageTypes[1]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceUsergamenotesReflection.Descriptor.MessageTypes[2]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -839,6 +1211,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CUserGameNotes_GetGamesWithNotes_Request : pb::IMessage<CUserGameNotes_GetGamesWithNotes_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -853,7 +1226,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceUsergamenotesReflection.Descriptor.MessageTypes[2]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceUsergamenotesReflection.Descriptor.MessageTypes[3]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -991,6 +1364,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CUserGameNotes_GetGamesWithNotes_Response : pb::IMessage<CUserGameNotes_GetGamesWithNotes_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1005,7 +1379,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceUsergamenotesReflection.Descriptor.MessageTypes[3]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceUsergamenotesReflection.Descriptor.MessageTypes[4]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1169,6 +1543,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CUserGameNotes_GetGamesWithNotes_Response_GameWithNotes : pb::IMessage<CUserGameNotes_GetGamesWithNotes_Response_GameWithNotes>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1184,7 +1559,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceUsergamenotesReflection.Descriptor.MessageTypes[4]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceUsergamenotesReflection.Descriptor.MessageTypes[5]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1582,6 +1957,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CUserGameNotes_GetNotesForGame_Request : pb::IMessage<CUserGameNotes_GetNotesForGame_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1597,7 +1973,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceUsergamenotesReflection.Descriptor.MessageTypes[5]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceUsergamenotesReflection.Descriptor.MessageTypes[6]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1621,6 +1997,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
       appid_ = other.appid_;
       shortcutName_ = other.shortcutName_;
       shortcutid_ = other.shortcutid_;
+      includeContent_ = other.includeContent_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -1710,6 +2087,33 @@ namespace OpenSteamworks.Protobuf.WebUI {
       _hasBits0 &= ~2;
     }
 
+    /// <summary>Field number for the "include_content" field.</summary>
+    public const int IncludeContentFieldNumber = 4;
+    private readonly static bool IncludeContentDefaultValue = false;
+
+    private bool includeContent_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool IncludeContent {
+      get { if ((_hasBits0 & 4) != 0) { return includeContent_; } else { return IncludeContentDefaultValue; } }
+      set {
+        _hasBits0 |= 4;
+        includeContent_ = value;
+      }
+    }
+    /// <summary>Gets whether the "include_content" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasIncludeContent {
+      get { return (_hasBits0 & 4) != 0; }
+    }
+    /// <summary>Clears the value of the "include_content" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearIncludeContent() {
+      _hasBits0 &= ~4;
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -1728,6 +2132,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
       if (Appid != other.Appid) return false;
       if (ShortcutName != other.ShortcutName) return false;
       if (Shortcutid != other.Shortcutid) return false;
+      if (IncludeContent != other.IncludeContent) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1738,6 +2143,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
       if (HasAppid) hash ^= Appid.GetHashCode();
       if (HasShortcutName) hash ^= ShortcutName.GetHashCode();
       if (HasShortcutid) hash ^= Shortcutid.GetHashCode();
+      if (HasIncludeContent) hash ^= IncludeContent.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1768,6 +2174,10 @@ namespace OpenSteamworks.Protobuf.WebUI {
         output.WriteRawTag(24);
         output.WriteUInt32(Shortcutid);
       }
+      if (HasIncludeContent) {
+        output.WriteRawTag(32);
+        output.WriteBool(IncludeContent);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1790,6 +2200,10 @@ namespace OpenSteamworks.Protobuf.WebUI {
         output.WriteRawTag(24);
         output.WriteUInt32(Shortcutid);
       }
+      if (HasIncludeContent) {
+        output.WriteRawTag(32);
+        output.WriteBool(IncludeContent);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -1808,6 +2222,9 @@ namespace OpenSteamworks.Protobuf.WebUI {
       }
       if (HasShortcutid) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Shortcutid);
+      }
+      if (HasIncludeContent) {
+        size += 1 + 1;
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -1829,6 +2246,9 @@ namespace OpenSteamworks.Protobuf.WebUI {
       }
       if (other.HasShortcutid) {
         Shortcutid = other.Shortcutid;
+      }
+      if (other.HasIncludeContent) {
+        IncludeContent = other.IncludeContent;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -1855,6 +2275,10 @@ namespace OpenSteamworks.Protobuf.WebUI {
           }
           case 24: {
             Shortcutid = input.ReadUInt32();
+            break;
+          }
+          case 32: {
+            IncludeContent = input.ReadBool();
             break;
           }
         }
@@ -1884,6 +2308,10 @@ namespace OpenSteamworks.Protobuf.WebUI {
             Shortcutid = input.ReadUInt32();
             break;
           }
+          case 32: {
+            IncludeContent = input.ReadBool();
+            break;
+          }
         }
       }
     }
@@ -1891,6 +2319,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CUserGameNotes_GetNotesForGame_Response : pb::IMessage<CUserGameNotes_GetNotesForGame_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1905,7 +2334,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceUsergamenotesReflection.Descriptor.MessageTypes[6]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceUsergamenotesReflection.Descriptor.MessageTypes[7]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2069,6 +2498,522 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
+  public sealed partial class CUserGameNotes_SaveNote_Request : pb::IMessage<CUserGameNotes_SaveNote_Request>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<CUserGameNotes_SaveNote_Request> _parser = new pb::MessageParser<CUserGameNotes_SaveNote_Request>(() => new CUserGameNotes_SaveNote_Request());
+    private pb::UnknownFieldSet _unknownFields;
+    private int _hasBits0;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<CUserGameNotes_SaveNote_Request> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceUsergamenotesReflection.Descriptor.MessageTypes[8]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CUserGameNotes_SaveNote_Request() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CUserGameNotes_SaveNote_Request(CUserGameNotes_SaveNote_Request other) : this() {
+      _hasBits0 = other._hasBits0;
+      appid_ = other.appid_;
+      shortcutName_ = other.shortcutName_;
+      shortcutid_ = other.shortcutid_;
+      noteId_ = other.noteId_;
+      createNew_ = other.createNew_;
+      title_ = other.title_;
+      content_ = other.content_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public CUserGameNotes_SaveNote_Request Clone() {
+      return new CUserGameNotes_SaveNote_Request(this);
+    }
+
+    /// <summary>Field number for the "appid" field.</summary>
+    public const int AppidFieldNumber = 1;
+    private readonly static uint AppidDefaultValue = 0;
+
+    private uint appid_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint Appid {
+      get { if ((_hasBits0 & 1) != 0) { return appid_; } else { return AppidDefaultValue; } }
+      set {
+        _hasBits0 |= 1;
+        appid_ = value;
+      }
+    }
+    /// <summary>Gets whether the "appid" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasAppid {
+      get { return (_hasBits0 & 1) != 0; }
+    }
+    /// <summary>Clears the value of the "appid" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearAppid() {
+      _hasBits0 &= ~1;
+    }
+
+    /// <summary>Field number for the "shortcut_name" field.</summary>
+    public const int ShortcutNameFieldNumber = 2;
+    private readonly static string ShortcutNameDefaultValue = "";
+
+    private string shortcutName_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string ShortcutName {
+      get { return shortcutName_ ?? ShortcutNameDefaultValue; }
+      set {
+        shortcutName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+    /// <summary>Gets whether the "shortcut_name" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasShortcutName {
+      get { return shortcutName_ != null; }
+    }
+    /// <summary>Clears the value of the "shortcut_name" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearShortcutName() {
+      shortcutName_ = null;
+    }
+
+    /// <summary>Field number for the "shortcutid" field.</summary>
+    public const int ShortcutidFieldNumber = 3;
+    private readonly static uint ShortcutidDefaultValue = 0;
+
+    private uint shortcutid_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public uint Shortcutid {
+      get { if ((_hasBits0 & 2) != 0) { return shortcutid_; } else { return ShortcutidDefaultValue; } }
+      set {
+        _hasBits0 |= 2;
+        shortcutid_ = value;
+      }
+    }
+    /// <summary>Gets whether the "shortcutid" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasShortcutid {
+      get { return (_hasBits0 & 2) != 0; }
+    }
+    /// <summary>Clears the value of the "shortcutid" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearShortcutid() {
+      _hasBits0 &= ~2;
+    }
+
+    /// <summary>Field number for the "note_id" field.</summary>
+    public const int NoteIdFieldNumber = 4;
+    private readonly static string NoteIdDefaultValue = "";
+
+    private string noteId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string NoteId {
+      get { return noteId_ ?? NoteIdDefaultValue; }
+      set {
+        noteId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+    /// <summary>Gets whether the "note_id" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasNoteId {
+      get { return noteId_ != null; }
+    }
+    /// <summary>Clears the value of the "note_id" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearNoteId() {
+      noteId_ = null;
+    }
+
+    /// <summary>Field number for the "create_new" field.</summary>
+    public const int CreateNewFieldNumber = 5;
+    private readonly static bool CreateNewDefaultValue = false;
+
+    private bool createNew_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool CreateNew {
+      get { if ((_hasBits0 & 4) != 0) { return createNew_; } else { return CreateNewDefaultValue; } }
+      set {
+        _hasBits0 |= 4;
+        createNew_ = value;
+      }
+    }
+    /// <summary>Gets whether the "create_new" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasCreateNew {
+      get { return (_hasBits0 & 4) != 0; }
+    }
+    /// <summary>Clears the value of the "create_new" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearCreateNew() {
+      _hasBits0 &= ~4;
+    }
+
+    /// <summary>Field number for the "title" field.</summary>
+    public const int TitleFieldNumber = 6;
+    private readonly static string TitleDefaultValue = "";
+
+    private string title_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Title {
+      get { return title_ ?? TitleDefaultValue; }
+      set {
+        title_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+    /// <summary>Gets whether the "title" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasTitle {
+      get { return title_ != null; }
+    }
+    /// <summary>Clears the value of the "title" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearTitle() {
+      title_ = null;
+    }
+
+    /// <summary>Field number for the "content" field.</summary>
+    public const int ContentFieldNumber = 7;
+    private readonly static string ContentDefaultValue = "";
+
+    private string content_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public string Content {
+      get { return content_ ?? ContentDefaultValue; }
+      set {
+        content_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+    /// <summary>Gets whether the "content" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasContent {
+      get { return content_ != null; }
+    }
+    /// <summary>Clears the value of the "content" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearContent() {
+      content_ = null;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as CUserGameNotes_SaveNote_Request);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(CUserGameNotes_SaveNote_Request other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Appid != other.Appid) return false;
+      if (ShortcutName != other.ShortcutName) return false;
+      if (Shortcutid != other.Shortcutid) return false;
+      if (NoteId != other.NoteId) return false;
+      if (CreateNew != other.CreateNew) return false;
+      if (Title != other.Title) return false;
+      if (Content != other.Content) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (HasAppid) hash ^= Appid.GetHashCode();
+      if (HasShortcutName) hash ^= ShortcutName.GetHashCode();
+      if (HasShortcutid) hash ^= Shortcutid.GetHashCode();
+      if (HasNoteId) hash ^= NoteId.GetHashCode();
+      if (HasCreateNew) hash ^= CreateNew.GetHashCode();
+      if (HasTitle) hash ^= Title.GetHashCode();
+      if (HasContent) hash ^= Content.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (HasAppid) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(Appid);
+      }
+      if (HasShortcutName) {
+        output.WriteRawTag(18);
+        output.WriteString(ShortcutName);
+      }
+      if (HasShortcutid) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(Shortcutid);
+      }
+      if (HasNoteId) {
+        output.WriteRawTag(34);
+        output.WriteString(NoteId);
+      }
+      if (HasCreateNew) {
+        output.WriteRawTag(40);
+        output.WriteBool(CreateNew);
+      }
+      if (HasTitle) {
+        output.WriteRawTag(50);
+        output.WriteString(Title);
+      }
+      if (HasContent) {
+        output.WriteRawTag(58);
+        output.WriteString(Content);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (HasAppid) {
+        output.WriteRawTag(8);
+        output.WriteUInt32(Appid);
+      }
+      if (HasShortcutName) {
+        output.WriteRawTag(18);
+        output.WriteString(ShortcutName);
+      }
+      if (HasShortcutid) {
+        output.WriteRawTag(24);
+        output.WriteUInt32(Shortcutid);
+      }
+      if (HasNoteId) {
+        output.WriteRawTag(34);
+        output.WriteString(NoteId);
+      }
+      if (HasCreateNew) {
+        output.WriteRawTag(40);
+        output.WriteBool(CreateNew);
+      }
+      if (HasTitle) {
+        output.WriteRawTag(50);
+        output.WriteString(Title);
+      }
+      if (HasContent) {
+        output.WriteRawTag(58);
+        output.WriteString(Content);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (HasAppid) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Appid);
+      }
+      if (HasShortcutName) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(ShortcutName);
+      }
+      if (HasShortcutid) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Shortcutid);
+      }
+      if (HasNoteId) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(NoteId);
+      }
+      if (HasCreateNew) {
+        size += 1 + 1;
+      }
+      if (HasTitle) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Title);
+      }
+      if (HasContent) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Content);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(CUserGameNotes_SaveNote_Request other) {
+      if (other == null) {
+        return;
+      }
+      if (other.HasAppid) {
+        Appid = other.Appid;
+      }
+      if (other.HasShortcutName) {
+        ShortcutName = other.ShortcutName;
+      }
+      if (other.HasShortcutid) {
+        Shortcutid = other.Shortcutid;
+      }
+      if (other.HasNoteId) {
+        NoteId = other.NoteId;
+      }
+      if (other.HasCreateNew) {
+        CreateNew = other.CreateNew;
+      }
+      if (other.HasTitle) {
+        Title = other.Title;
+      }
+      if (other.HasContent) {
+        Content = other.Content;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            Appid = input.ReadUInt32();
+            break;
+          }
+          case 18: {
+            ShortcutName = input.ReadString();
+            break;
+          }
+          case 24: {
+            Shortcutid = input.ReadUInt32();
+            break;
+          }
+          case 34: {
+            NoteId = input.ReadString();
+            break;
+          }
+          case 40: {
+            CreateNew = input.ReadBool();
+            break;
+          }
+          case 50: {
+            Title = input.ReadString();
+            break;
+          }
+          case 58: {
+            Content = input.ReadString();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            Appid = input.ReadUInt32();
+            break;
+          }
+          case 18: {
+            ShortcutName = input.ReadString();
+            break;
+          }
+          case 24: {
+            Shortcutid = input.ReadUInt32();
+            break;
+          }
+          case 34: {
+            NoteId = input.ReadString();
+            break;
+          }
+          case 40: {
+            CreateNew = input.ReadBool();
+            break;
+          }
+          case 50: {
+            Title = input.ReadString();
+            break;
+          }
+          case 58: {
+            Content = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CUserGameNotes_SaveNote_Response : pb::IMessage<CUserGameNotes_SaveNote_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2083,7 +3028,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceUsergamenotesReflection.Descriptor.MessageTypes[7]; }
+      get { return global::OpenSteamworks.Protobuf.WebUI.ServiceUsergamenotesReflection.Descriptor.MessageTypes[9]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

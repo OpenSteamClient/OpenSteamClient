@@ -261,7 +261,7 @@ class CTwoFactor_Time_Request PROTOBUF_FINAL :
   enum : int {
     kSenderTimeFieldNumber = 1,
   };
-  // optional uint64 sender_time = 1 [(.description) = "Current time on the sender (for stats, don\'t trust this)"];
+  // optional uint64 sender_time = 1;
   bool has_sender_time() const;
   private:
   bool _internal_has_sender_time() const;
@@ -418,7 +418,7 @@ class CTwoFactor_Time_Response PROTOBUF_FINAL :
     kTryAgainSecondsFieldNumber = 8,
     kMaxAttemptsFieldNumber = 9,
   };
-  // optional uint64 server_time = 1 [(.description) = "Current server time"];
+  // optional uint64 server_time = 1;
   bool has_server_time() const;
   private:
   bool _internal_has_server_time() const;
@@ -431,7 +431,7 @@ class CTwoFactor_Time_Response PROTOBUF_FINAL :
   void _internal_set_server_time(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional uint64 skew_tolerance_seconds = 2 [(.description) = "Time skew we\'ll tolerate before applying an adjustment"];
+  // optional uint64 skew_tolerance_seconds = 2;
   bool has_skew_tolerance_seconds() const;
   private:
   bool _internal_has_skew_tolerance_seconds() const;
@@ -444,7 +444,7 @@ class CTwoFactor_Time_Response PROTOBUF_FINAL :
   void _internal_set_skew_tolerance_seconds(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional uint64 large_time_jink = 3 [(.description) = "Re-sync if local time jitters by this much"];
+  // optional uint64 large_time_jink = 3;
   bool has_large_time_jink() const;
   private:
   bool _internal_has_large_time_jink() const;
@@ -457,7 +457,7 @@ class CTwoFactor_Time_Response PROTOBUF_FINAL :
   void _internal_set_large_time_jink(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional uint32 probe_frequency_seconds = 4 [(.description) = "Time probe frequency if phone time is synchronized"];
+  // optional uint32 probe_frequency_seconds = 4;
   bool has_probe_frequency_seconds() const;
   private:
   bool _internal_has_probe_frequency_seconds() const;
@@ -470,7 +470,7 @@ class CTwoFactor_Time_Response PROTOBUF_FINAL :
   void _internal_set_probe_frequency_seconds(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 adjusted_time_probe_frequency_seconds = 5 [(.description) = "Time probe frequency if phone time is not synchronized"];
+  // optional uint32 adjusted_time_probe_frequency_seconds = 5;
   bool has_adjusted_time_probe_frequency_seconds() const;
   private:
   bool _internal_has_adjusted_time_probe_frequency_seconds() const;
@@ -483,7 +483,7 @@ class CTwoFactor_Time_Response PROTOBUF_FINAL :
   void _internal_set_adjusted_time_probe_frequency_seconds(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 hint_probe_frequency_seconds = 6 [(.description) = "Floor of probe frequency, no matter what"];
+  // optional uint32 hint_probe_frequency_seconds = 6;
   bool has_hint_probe_frequency_seconds() const;
   private:
   bool _internal_has_hint_probe_frequency_seconds() const;
@@ -496,7 +496,7 @@ class CTwoFactor_Time_Response PROTOBUF_FINAL :
   void _internal_set_hint_probe_frequency_seconds(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 sync_timeout = 7 [(.description) = "More than this, and we call the current sync failed"];
+  // optional uint32 sync_timeout = 7;
   bool has_sync_timeout() const;
   private:
   bool _internal_has_sync_timeout() const;
@@ -509,7 +509,7 @@ class CTwoFactor_Time_Response PROTOBUF_FINAL :
   void _internal_set_sync_timeout(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 try_again_seconds = 8 [(.description) = "Seconds to try again after a failed sync"];
+  // optional uint32 try_again_seconds = 8;
   bool has_try_again_seconds() const;
   private:
   bool _internal_has_try_again_seconds() const;
@@ -522,7 +522,7 @@ class CTwoFactor_Time_Response PROTOBUF_FINAL :
   void _internal_set_try_again_seconds(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 max_attempts = 9 [(.description) = "# times we\'ll ask for server time before we bail"];
+  // optional uint32 max_attempts = 9;
   bool has_max_attempts() const;
   private:
   bool _internal_has_max_attempts() const;
@@ -679,7 +679,7 @@ class CTwoFactor_Status_Request PROTOBUF_FINAL :
   enum : int {
     kSteamidFieldNumber = 1,
   };
-  // optional fixed64 steamid = 1 [(.description) = "steamid to use"];
+  // optional fixed64 steamid = 1;
   bool has_steamid() const;
   private:
   bool _internal_has_steamid() const;
@@ -841,7 +841,7 @@ class CTwoFactor_Status_Response PROTOBUF_FINAL :
     kTimeTransferredFieldNumber = 13,
     kVersionFieldNumber = 14,
   };
-  // optional string token_gid = 6 [(.description) = "String rep of token GID assigned by server"];
+  // optional string token_gid = 6;
   bool has_token_gid() const;
   private:
   bool _internal_has_token_gid() const;
@@ -861,7 +861,7 @@ class CTwoFactor_Status_Response PROTOBUF_FINAL :
   std::string* _internal_mutable_token_gid();
   public:
 
-  // optional string device_identifier = 8 [(.description) = "Authenticator (phone) identifier"];
+  // optional string device_identifier = 8;
   bool has_device_identifier() const;
   private:
   bool _internal_has_device_identifier() const;
@@ -881,7 +881,7 @@ class CTwoFactor_Status_Response PROTOBUF_FINAL :
   std::string* _internal_mutable_device_identifier();
   public:
 
-  // optional string classified_agent = 11 [(.description) = "Agent that added the authenticator (e.g., ios / android / other)"];
+  // optional string classified_agent = 11;
   bool has_classified_agent() const;
   private:
   bool _internal_has_classified_agent() const;
@@ -901,7 +901,7 @@ class CTwoFactor_Status_Response PROTOBUF_FINAL :
   std::string* _internal_mutable_classified_agent();
   public:
 
-  // optional uint32 state = 1 [(.description) = "Authenticator state"];
+  // optional uint32 state = 1;
   bool has_state() const;
   private:
   bool _internal_has_state() const;
@@ -914,7 +914,7 @@ class CTwoFactor_Status_Response PROTOBUF_FINAL :
   void _internal_set_state(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 inactivation_reason = 2 [(.description) = "Inactivation reason (if any)"];
+  // optional uint32 inactivation_reason = 2;
   bool has_inactivation_reason() const;
   private:
   bool _internal_has_inactivation_reason() const;
@@ -927,7 +927,7 @@ class CTwoFactor_Status_Response PROTOBUF_FINAL :
   void _internal_set_inactivation_reason(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 authenticator_type = 3 [(.description) = "Type of authenticator"];
+  // optional uint32 authenticator_type = 3;
   bool has_authenticator_type() const;
   private:
   bool _internal_has_authenticator_type() const;
@@ -940,7 +940,7 @@ class CTwoFactor_Status_Response PROTOBUF_FINAL :
   void _internal_set_authenticator_type(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 steamguard_scheme = 5 [(.description) = "Steam Guard scheme in effect"];
+  // optional uint32 steamguard_scheme = 5;
   bool has_steamguard_scheme() const;
   private:
   bool _internal_has_steamguard_scheme() const;
@@ -953,7 +953,7 @@ class CTwoFactor_Status_Response PROTOBUF_FINAL :
   void _internal_set_steamguard_scheme(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional bool authenticator_allowed = 4 [(.description) = "Account allowed to have an authenticator?"];
+  // optional bool authenticator_allowed = 4;
   bool has_authenticator_allowed() const;
   private:
   bool _internal_has_authenticator_allowed() const;
@@ -966,7 +966,7 @@ class CTwoFactor_Status_Response PROTOBUF_FINAL :
   void _internal_set_authenticator_allowed(bool value);
   public:
 
-  // optional bool email_validated = 7 [(.description) = "Account has verified email capability"];
+  // optional bool email_validated = 7;
   bool has_email_validated() const;
   private:
   bool _internal_has_email_validated() const;
@@ -979,7 +979,7 @@ class CTwoFactor_Status_Response PROTOBUF_FINAL :
   void _internal_set_email_validated(bool value);
   public:
 
-  // optional bool allow_external_authenticator = 12 [(.description) = "Allow a third-party authenticator (in addition to two-factor)"];
+  // optional bool allow_external_authenticator = 12;
   bool has_allow_external_authenticator() const;
   private:
   bool _internal_has_allow_external_authenticator() const;
@@ -992,7 +992,7 @@ class CTwoFactor_Status_Response PROTOBUF_FINAL :
   void _internal_set_allow_external_authenticator(bool value);
   public:
 
-  // optional uint32 time_created = 9 [(.description) = "When the token was created"];
+  // optional uint32 time_created = 9;
   bool has_time_created() const;
   private:
   bool _internal_has_time_created() const;
@@ -1005,7 +1005,7 @@ class CTwoFactor_Status_Response PROTOBUF_FINAL :
   void _internal_set_time_created(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 revocation_attempts_remaining = 10 [(.description) = "Number of revocation code attempts remaining"];
+  // optional uint32 revocation_attempts_remaining = 10;
   bool has_revocation_attempts_remaining() const;
   private:
   bool _internal_has_revocation_attempts_remaining() const;
@@ -1018,7 +1018,7 @@ class CTwoFactor_Status_Response PROTOBUF_FINAL :
   void _internal_set_revocation_attempts_remaining(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 time_transferred = 13 [(.description) = "When the token was transferred from another device, if applicable"];
+  // optional uint32 time_transferred = 13;
   bool has_time_transferred() const;
   private:
   bool _internal_has_time_transferred() const;
@@ -1031,7 +1031,7 @@ class CTwoFactor_Status_Response PROTOBUF_FINAL :
   void _internal_set_time_transferred(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 version = 14 [(.description) = "Current token version"];
+  // optional uint32 version = 14;
   bool has_version() const;
   private:
   bool _internal_has_version() const;
@@ -1199,7 +1199,7 @@ class CTwoFactor_AddAuthenticator_Request PROTOBUF_FINAL :
     kAuthenticatorTypeFieldNumber = 4,
     kVersionFieldNumber = 8,
   };
-  // repeated string http_headers = 7 [(.description) = "HTTP headers alternating by K/V"];
+  // repeated string http_headers = 7;
   int http_headers_size() const;
   private:
   int _internal_http_headers_size() const;
@@ -1223,7 +1223,7 @@ class CTwoFactor_AddAuthenticator_Request PROTOBUF_FINAL :
   std::string* _internal_add_http_headers();
   public:
 
-  // optional string device_identifier = 5 [(.description) = "Authenticator identifier"];
+  // optional string device_identifier = 5;
   bool has_device_identifier() const;
   private:
   bool _internal_has_device_identifier() const;
@@ -1243,7 +1243,7 @@ class CTwoFactor_AddAuthenticator_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_device_identifier();
   public:
 
-  // optional fixed64 steamid = 1 [(.description) = "steamid to use"];
+  // optional fixed64 steamid = 1;
   bool has_steamid() const;
   private:
   bool _internal_has_steamid() const;
@@ -1256,7 +1256,7 @@ class CTwoFactor_AddAuthenticator_Request PROTOBUF_FINAL :
   void _internal_set_steamid(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional uint64 authenticator_time = 2 [(.description) = "Current authenticator time"];
+  // optional uint64 authenticator_time = 2;
   bool has_authenticator_time() const;
   private:
   bool _internal_has_authenticator_time() const;
@@ -1269,7 +1269,7 @@ class CTwoFactor_AddAuthenticator_Request PROTOBUF_FINAL :
   void _internal_set_authenticator_time(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional fixed64 serial_number = 3 [(.description) = "locally computed serial (deprecated)"];
+  // optional fixed64 serial_number = 3;
   bool has_serial_number() const;
   private:
   bool _internal_has_serial_number() const;
@@ -1282,7 +1282,7 @@ class CTwoFactor_AddAuthenticator_Request PROTOBUF_FINAL :
   void _internal_set_serial_number(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional uint32 authenticator_type = 4 [(.description) = "Authenticator type"];
+  // optional uint32 authenticator_type = 4;
   bool has_authenticator_type() const;
   private:
   bool _internal_has_authenticator_type() const;
@@ -1295,7 +1295,7 @@ class CTwoFactor_AddAuthenticator_Request PROTOBUF_FINAL :
   void _internal_set_authenticator_type(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 version = 8 [default = 1, (.description) = "What the version of our token should be"];
+  // optional uint32 version = 8 [default = 1];
   bool has_version() const;
   private:
   bool _internal_has_version() const;
@@ -1461,7 +1461,7 @@ class CTwoFactor_AddAuthenticator_Response PROTOBUF_FINAL :
     kStatusFieldNumber = 10,
     kConfirmTypeFieldNumber = 12,
   };
-  // optional bytes shared_secret = 1 [(.description) = "Shared secret between server and authenticator"];
+  // optional bytes shared_secret = 1;
   bool has_shared_secret() const;
   private:
   bool _internal_has_shared_secret() const;
@@ -1481,7 +1481,7 @@ class CTwoFactor_AddAuthenticator_Response PROTOBUF_FINAL :
   std::string* _internal_mutable_shared_secret();
   public:
 
-  // optional string revocation_code = 3 [(.description) = "code used to revoke authenticator"];
+  // optional string revocation_code = 3;
   bool has_revocation_code() const;
   private:
   bool _internal_has_revocation_code() const;
@@ -1501,7 +1501,7 @@ class CTwoFactor_AddAuthenticator_Response PROTOBUF_FINAL :
   std::string* _internal_mutable_revocation_code();
   public:
 
-  // optional string uri = 4 [(.description) = "URI for QR code generation"];
+  // optional string uri = 4;
   bool has_uri() const;
   private:
   bool _internal_has_uri() const;
@@ -1521,7 +1521,7 @@ class CTwoFactor_AddAuthenticator_Response PROTOBUF_FINAL :
   std::string* _internal_mutable_uri();
   public:
 
-  // optional string account_name = 6 [(.description) = "Account name to display on token client"];
+  // optional string account_name = 6;
   bool has_account_name() const;
   private:
   bool _internal_has_account_name() const;
@@ -1541,7 +1541,7 @@ class CTwoFactor_AddAuthenticator_Response PROTOBUF_FINAL :
   std::string* _internal_mutable_account_name();
   public:
 
-  // optional string token_gid = 7 [(.description) = "Token GID assigned by server"];
+  // optional string token_gid = 7;
   bool has_token_gid() const;
   private:
   bool _internal_has_token_gid() const;
@@ -1561,7 +1561,7 @@ class CTwoFactor_AddAuthenticator_Response PROTOBUF_FINAL :
   std::string* _internal_mutable_token_gid();
   public:
 
-  // optional bytes identity_secret = 8 [(.description) = "Secret used for identity attestation (e.g., for eventing)"];
+  // optional bytes identity_secret = 8;
   bool has_identity_secret() const;
   private:
   bool _internal_has_identity_secret() const;
@@ -1581,7 +1581,7 @@ class CTwoFactor_AddAuthenticator_Response PROTOBUF_FINAL :
   std::string* _internal_mutable_identity_secret();
   public:
 
-  // optional bytes secret_1 = 9 [(.description) = "Spare shared secret"];
+  // optional bytes secret_1 = 9;
   bool has_secret_1() const;
   private:
   bool _internal_has_secret_1() const;
@@ -1601,7 +1601,7 @@ class CTwoFactor_AddAuthenticator_Response PROTOBUF_FINAL :
   std::string* _internal_mutable_secret_1();
   public:
 
-  // optional string phone_number_hint = 11 [(.description) = "a portion of the phone number the SMS code was sent to"];
+  // optional string phone_number_hint = 11;
   bool has_phone_number_hint() const;
   private:
   bool _internal_has_phone_number_hint() const;
@@ -1621,7 +1621,7 @@ class CTwoFactor_AddAuthenticator_Response PROTOBUF_FINAL :
   std::string* _internal_mutable_phone_number_hint();
   public:
 
-  // optional fixed64 serial_number = 2 [(.description) = "Authenticator serial number (unique per token)"];
+  // optional fixed64 serial_number = 2;
   bool has_serial_number() const;
   private:
   bool _internal_has_serial_number() const;
@@ -1634,7 +1634,7 @@ class CTwoFactor_AddAuthenticator_Response PROTOBUF_FINAL :
   void _internal_set_serial_number(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional uint64 server_time = 5 [(.description) = "Current server time"];
+  // optional uint64 server_time = 5;
   bool has_server_time() const;
   private:
   bool _internal_has_server_time() const;
@@ -1647,7 +1647,7 @@ class CTwoFactor_AddAuthenticator_Response PROTOBUF_FINAL :
   void _internal_set_server_time(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional int32 status = 10 [(.description) = "Result code"];
+  // optional int32 status = 10;
   bool has_status() const;
   private:
   bool _internal_has_status() const;
@@ -1660,7 +1660,7 @@ class CTwoFactor_AddAuthenticator_Response PROTOBUF_FINAL :
   void _internal_set_status(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
-  // optional int32 confirm_type = 12 [(.description) = "how we expect to confirm adding the authenticator"];
+  // optional int32 confirm_type = 12;
   bool has_confirm_type() const;
   private:
   bool _internal_has_confirm_type() const;
@@ -1822,7 +1822,7 @@ class CTwoFactor_SendEmail_Request PROTOBUF_FINAL :
     kEmailTypeFieldNumber = 2,
     kIncludeActivationCodeFieldNumber = 3,
   };
-  // optional fixed64 steamid = 1 [(.description) = "Steamid to use"];
+  // optional fixed64 steamid = 1;
   bool has_steamid() const;
   private:
   bool _internal_has_steamid() const;
@@ -1835,7 +1835,7 @@ class CTwoFactor_SendEmail_Request PROTOBUF_FINAL :
   void _internal_set_steamid(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional uint32 email_type = 2 [(.description) = "Type of email to send (ETwoFactorEmailType::*)"];
+  // optional uint32 email_type = 2;
   bool has_email_type() const;
   private:
   bool _internal_has_email_type() const;
@@ -1848,7 +1848,7 @@ class CTwoFactor_SendEmail_Request PROTOBUF_FINAL :
   void _internal_set_email_type(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional bool include_activation_code = 3 [(.description) = "Include activation code in email parameters"];
+  // optional bool include_activation_code = 3;
   bool has_include_activation_code() const;
   private:
   bool _internal_has_include_activation_code() const;
@@ -2135,7 +2135,7 @@ class CTwoFactor_FinalizeAddAuthenticator_Request PROTOBUF_FINAL :
     kAuthenticatorTimeFieldNumber = 3,
     kValidateSmsCodeFieldNumber = 6,
   };
-  // repeated string http_headers = 5 [(.description) = "HTTP headers alternating by K/V"];
+  // repeated string http_headers = 5;
   int http_headers_size() const;
   private:
   int _internal_http_headers_size() const;
@@ -2159,7 +2159,7 @@ class CTwoFactor_FinalizeAddAuthenticator_Request PROTOBUF_FINAL :
   std::string* _internal_add_http_headers();
   public:
 
-  // optional string authenticator_code = 2 [(.description) = "Current auth code"];
+  // optional string authenticator_code = 2;
   bool has_authenticator_code() const;
   private:
   bool _internal_has_authenticator_code() const;
@@ -2179,7 +2179,7 @@ class CTwoFactor_FinalizeAddAuthenticator_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_authenticator_code();
   public:
 
-  // optional string activation_code = 4 [(.description) = "Activation code from out-of-band message"];
+  // optional string activation_code = 4;
   bool has_activation_code() const;
   private:
   bool _internal_has_activation_code() const;
@@ -2199,7 +2199,7 @@ class CTwoFactor_FinalizeAddAuthenticator_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_activation_code();
   public:
 
-  // optional fixed64 steamid = 1 [(.description) = "steamid to use"];
+  // optional fixed64 steamid = 1;
   bool has_steamid() const;
   private:
   bool _internal_has_steamid() const;
@@ -2212,7 +2212,7 @@ class CTwoFactor_FinalizeAddAuthenticator_Request PROTOBUF_FINAL :
   void _internal_set_steamid(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional uint64 authenticator_time = 3 [(.description) = "Current authenticator time"];
+  // optional uint64 authenticator_time = 3;
   bool has_authenticator_time() const;
   private:
   bool _internal_has_authenticator_time() const;
@@ -2225,7 +2225,7 @@ class CTwoFactor_FinalizeAddAuthenticator_Request PROTOBUF_FINAL :
   void _internal_set_authenticator_time(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional bool validate_sms_code = 6 [(.description) = "When finalizing with an SMS code, pass the request on to the PhoneService to update its state too."];
+  // optional bool validate_sms_code = 6;
   bool has_validate_sms_code() const;
   private:
   bool _internal_has_validate_sms_code() const;
@@ -2381,7 +2381,7 @@ class CTwoFactor_FinalizeAddAuthenticator_Response PROTOBUF_FINAL :
     kStatusFieldNumber = 4,
     kServerTimeFieldNumber = 3,
   };
-  // optional bool success = 1 [(.description) = "True if succeeded, or want more tries"];
+  // optional bool success = 1;
   bool has_success() const;
   private:
   bool _internal_has_success() const;
@@ -2394,7 +2394,7 @@ class CTwoFactor_FinalizeAddAuthenticator_Response PROTOBUF_FINAL :
   void _internal_set_success(bool value);
   public:
 
-  // optional int32 status = 4 [(.description) = "Result code"];
+  // optional int32 status = 4;
   bool has_status() const;
   private:
   bool _internal_has_status() const;
@@ -2407,7 +2407,7 @@ class CTwoFactor_FinalizeAddAuthenticator_Response PROTOBUF_FINAL :
   void _internal_set_status(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
-  // optional uint64 server_time = 3 [(.description) = "Current server time"];
+  // optional uint64 server_time = 3;
   bool has_server_time() const;
   private:
   bool _internal_has_server_time() const;
@@ -2560,7 +2560,7 @@ class CTwoFactor_UpdateTokenVersion_Request PROTOBUF_FINAL :
     kSteamidFieldNumber = 1,
     kVersionFieldNumber = 2,
   };
-  // optional bytes signature = 3 [(.description) = "HMAC digest over user\'s private key"];
+  // optional bytes signature = 3;
   bool has_signature() const;
   private:
   bool _internal_has_signature() const;
@@ -2593,7 +2593,7 @@ class CTwoFactor_UpdateTokenVersion_Request PROTOBUF_FINAL :
   void _internal_set_steamid(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional uint32 version = 2 [(.description) = "What the version of our token should be"];
+  // optional uint32 version = 2;
   bool has_version() const;
   private:
   bool _internal_has_version() const;
@@ -2878,7 +2878,7 @@ class CTwoFactor_RemoveAuthenticator_Request PROTOBUF_FINAL :
     kRevocationReasonFieldNumber = 5,
     kSteamguardSchemeFieldNumber = 6,
   };
-  // optional string revocation_code = 2 [(.description) = "Password needed to remove token"];
+  // optional string revocation_code = 2;
   bool has_revocation_code() const;
   private:
   bool _internal_has_revocation_code() const;
@@ -2898,7 +2898,7 @@ class CTwoFactor_RemoveAuthenticator_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_revocation_code();
   public:
 
-  // optional bool remove_all_steamguard_cookies = 7 [(.description) = "Remove all steamguard cookies"];
+  // optional bool remove_all_steamguard_cookies = 7;
   bool has_remove_all_steamguard_cookies() const;
   private:
   bool _internal_has_remove_all_steamguard_cookies() const;
@@ -2911,7 +2911,7 @@ class CTwoFactor_RemoveAuthenticator_Request PROTOBUF_FINAL :
   void _internal_set_remove_all_steamguard_cookies(bool value);
   public:
 
-  // optional uint32 revocation_reason = 5 [(.description) = "Reason the authenticator is being removed"];
+  // optional uint32 revocation_reason = 5;
   bool has_revocation_reason() const;
   private:
   bool _internal_has_revocation_reason() const;
@@ -2924,7 +2924,7 @@ class CTwoFactor_RemoveAuthenticator_Request PROTOBUF_FINAL :
   void _internal_set_revocation_reason(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 steamguard_scheme = 6 [(.description) = "Type of Steam Guard to use once token is removed"];
+  // optional uint32 steamguard_scheme = 6;
   bool has_steamguard_scheme() const;
   private:
   bool _internal_has_steamguard_scheme() const;
@@ -3078,7 +3078,7 @@ class CTwoFactor_RemoveAuthenticator_Response PROTOBUF_FINAL :
     kSuccessFieldNumber = 1,
     kRevocationAttemptsRemainingFieldNumber = 5,
   };
-  // optional uint64 server_time = 3 [(.description) = "Current server time"];
+  // optional uint64 server_time = 3;
   bool has_server_time() const;
   private:
   bool _internal_has_server_time() const;
@@ -3091,7 +3091,7 @@ class CTwoFactor_RemoveAuthenticator_Response PROTOBUF_FINAL :
   void _internal_set_server_time(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional bool success = 1 [(.description) = "True if request succeeeded. The mobile app checks this."];
+  // optional bool success = 1;
   bool has_success() const;
   private:
   bool _internal_has_success() const;
@@ -3104,7 +3104,7 @@ class CTwoFactor_RemoveAuthenticator_Response PROTOBUF_FINAL :
   void _internal_set_success(bool value);
   public:
 
-  // optional uint32 revocation_attempts_remaining = 5 [(.description) = "Number of revocation code attempts remaining"];
+  // optional uint32 revocation_attempts_remaining = 5;
   bool has_revocation_attempts_remaining() const;
   private:
   bool _internal_has_revocation_attempts_remaining() const;
@@ -3386,7 +3386,7 @@ class CTwoFactor_RemoveAuthenticatorViaChallengeStart_Response PROTOBUF_FINAL :
   enum : int {
     kSuccessFieldNumber = 1,
   };
-  // optional bool success = 1 [(.description) = "True if succeeded, or want more tries with an authenticator_code"];
+  // optional bool success = 1;
   bool has_success() const;
   private:
   bool _internal_has_success() const;
@@ -3537,7 +3537,7 @@ class CTwoFactor_RemoveAuthenticatorViaChallengeContinue_Request PROTOBUF_FINAL 
     kGenerateNewTokenFieldNumber = 2,
     kVersionFieldNumber = 3,
   };
-  // optional string sms_code = 1 [(.description) = "Code from SMS"];
+  // optional string sms_code = 1;
   bool has_sms_code() const;
   private:
   bool _internal_has_sms_code() const;
@@ -3557,7 +3557,7 @@ class CTwoFactor_RemoveAuthenticatorViaChallengeContinue_Request PROTOBUF_FINAL 
   std::string* _internal_mutable_sms_code();
   public:
 
-  // optional bool generate_new_token = 2 [(.description) = "Generate new token (instead of removing old one)"];
+  // optional bool generate_new_token = 2;
   bool has_generate_new_token() const;
   private:
   bool _internal_has_generate_new_token() const;
@@ -3570,7 +3570,7 @@ class CTwoFactor_RemoveAuthenticatorViaChallengeContinue_Request PROTOBUF_FINAL 
   void _internal_set_generate_new_token(bool value);
   public:
 
-  // optional uint32 version = 3 [default = 1, (.description) = "What the version of our token should be"];
+  // optional uint32 version = 3 [default = 1];
   bool has_version() const;
   private:
   bool _internal_has_version() const;
@@ -3732,7 +3732,7 @@ class CRemoveAuthenticatorViaChallengeContinue_Replacement_Token PROTOBUF_FINAL 
     kSteamguardSchemeFieldNumber = 11,
     kSteamidFieldNumber = 12,
   };
-  // optional bytes shared_secret = 1 [(.description) = "Shared secret between server and authenticator"];
+  // optional bytes shared_secret = 1;
   bool has_shared_secret() const;
   private:
   bool _internal_has_shared_secret() const;
@@ -3752,7 +3752,7 @@ class CRemoveAuthenticatorViaChallengeContinue_Replacement_Token PROTOBUF_FINAL 
   std::string* _internal_mutable_shared_secret();
   public:
 
-  // optional string revocation_code = 3 [(.description) = "code used to revoke authenticator"];
+  // optional string revocation_code = 3;
   bool has_revocation_code() const;
   private:
   bool _internal_has_revocation_code() const;
@@ -3772,7 +3772,7 @@ class CRemoveAuthenticatorViaChallengeContinue_Replacement_Token PROTOBUF_FINAL 
   std::string* _internal_mutable_revocation_code();
   public:
 
-  // optional string uri = 4 [(.description) = "URI for QR code generation"];
+  // optional string uri = 4;
   bool has_uri() const;
   private:
   bool _internal_has_uri() const;
@@ -3792,7 +3792,7 @@ class CRemoveAuthenticatorViaChallengeContinue_Replacement_Token PROTOBUF_FINAL 
   std::string* _internal_mutable_uri();
   public:
 
-  // optional string account_name = 6 [(.description) = "Account name to display on token client"];
+  // optional string account_name = 6;
   bool has_account_name() const;
   private:
   bool _internal_has_account_name() const;
@@ -3812,7 +3812,7 @@ class CRemoveAuthenticatorViaChallengeContinue_Replacement_Token PROTOBUF_FINAL 
   std::string* _internal_mutable_account_name();
   public:
 
-  // optional string token_gid = 7 [(.description) = "Token GID assigned by server"];
+  // optional string token_gid = 7;
   bool has_token_gid() const;
   private:
   bool _internal_has_token_gid() const;
@@ -3832,7 +3832,7 @@ class CRemoveAuthenticatorViaChallengeContinue_Replacement_Token PROTOBUF_FINAL 
   std::string* _internal_mutable_token_gid();
   public:
 
-  // optional bytes identity_secret = 8 [(.description) = "Secret used for identity attestation (e.g., for eventing)"];
+  // optional bytes identity_secret = 8;
   bool has_identity_secret() const;
   private:
   bool _internal_has_identity_secret() const;
@@ -3852,7 +3852,7 @@ class CRemoveAuthenticatorViaChallengeContinue_Replacement_Token PROTOBUF_FINAL 
   std::string* _internal_mutable_identity_secret();
   public:
 
-  // optional bytes secret_1 = 9 [(.description) = "Spare shared secret"];
+  // optional bytes secret_1 = 9;
   bool has_secret_1() const;
   private:
   bool _internal_has_secret_1() const;
@@ -3872,7 +3872,7 @@ class CRemoveAuthenticatorViaChallengeContinue_Replacement_Token PROTOBUF_FINAL 
   std::string* _internal_mutable_secret_1();
   public:
 
-  // optional fixed64 serial_number = 2 [(.description) = "Authenticator serial number (unique per token)"];
+  // optional fixed64 serial_number = 2;
   bool has_serial_number() const;
   private:
   bool _internal_has_serial_number() const;
@@ -3885,7 +3885,7 @@ class CRemoveAuthenticatorViaChallengeContinue_Replacement_Token PROTOBUF_FINAL 
   void _internal_set_serial_number(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional uint64 server_time = 5 [(.description) = "Current server time"];
+  // optional uint64 server_time = 5;
   bool has_server_time() const;
   private:
   bool _internal_has_server_time() const;
@@ -3898,7 +3898,7 @@ class CRemoveAuthenticatorViaChallengeContinue_Replacement_Token PROTOBUF_FINAL 
   void _internal_set_server_time(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional int32 status = 10 [(.description) = "Result code"];
+  // optional int32 status = 10;
   bool has_status() const;
   private:
   bool _internal_has_status() const;
@@ -3911,7 +3911,7 @@ class CRemoveAuthenticatorViaChallengeContinue_Replacement_Token PROTOBUF_FINAL 
   void _internal_set_status(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
-  // optional uint32 steamguard_scheme = 11 [(.description) = "Type of Steam Guard to use once token is removed"];
+  // optional uint32 steamguard_scheme = 11;
   bool has_steamguard_scheme() const;
   private:
   bool _internal_has_steamguard_scheme() const;
@@ -3924,7 +3924,7 @@ class CRemoveAuthenticatorViaChallengeContinue_Replacement_Token PROTOBUF_FINAL 
   void _internal_set_steamguard_scheme(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional fixed64 steamid = 12 [(.description) = "steamid that owns the secret"];
+  // optional fixed64 steamid = 12;
   bool has_steamid() const;
   private:
   bool _internal_has_steamid() const;
@@ -4085,7 +4085,7 @@ class CTwoFactor_RemoveAuthenticatorViaChallengeContinue_Response PROTOBUF_FINAL
     kReplacementTokenFieldNumber = 2,
     kSuccessFieldNumber = 1,
   };
-  // optional .CRemoveAuthenticatorViaChallengeContinue_Replacement_Token replacement_token = 2 [(.description) = "Fresh secret to install"];
+  // optional .CRemoveAuthenticatorViaChallengeContinue_Replacement_Token replacement_token = 2;
   bool has_replacement_token() const;
   private:
   bool _internal_has_replacement_token() const;
@@ -4103,7 +4103,7 @@ class CTwoFactor_RemoveAuthenticatorViaChallengeContinue_Response PROTOBUF_FINAL
       ::CRemoveAuthenticatorViaChallengeContinue_Replacement_Token* replacement_token);
   ::CRemoveAuthenticatorViaChallengeContinue_Replacement_Token* unsafe_arena_release_replacement_token();
 
-  // optional bool success = 1 [(.description) = "True if succeeded, or want more tries with an authenticator_code"];
+  // optional bool success = 1;
   bool has_success() const;
   private:
   bool _internal_has_success() const;
@@ -4263,7 +4263,7 @@ class TwoFactor_Stub : public TwoFactor {
 #endif  // __GNUC__
 // CTwoFactor_Time_Request
 
-// optional uint64 sender_time = 1 [(.description) = "Current time on the sender (for stats, don\'t trust this)"];
+// optional uint64 sender_time = 1;
 inline bool CTwoFactor_Time_Request::_internal_has_sender_time() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -4295,7 +4295,7 @@ inline void CTwoFactor_Time_Request::set_sender_time(::PROTOBUF_NAMESPACE_ID::ui
 
 // CTwoFactor_Time_Response
 
-// optional uint64 server_time = 1 [(.description) = "Current server time"];
+// optional uint64 server_time = 1;
 inline bool CTwoFactor_Time_Response::_internal_has_server_time() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -4323,7 +4323,7 @@ inline void CTwoFactor_Time_Response::set_server_time(::PROTOBUF_NAMESPACE_ID::u
   // @@protoc_insertion_point(field_set:CTwoFactor_Time_Response.server_time)
 }
 
-// optional uint64 skew_tolerance_seconds = 2 [(.description) = "Time skew we\'ll tolerate before applying an adjustment"];
+// optional uint64 skew_tolerance_seconds = 2;
 inline bool CTwoFactor_Time_Response::_internal_has_skew_tolerance_seconds() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -4351,7 +4351,7 @@ inline void CTwoFactor_Time_Response::set_skew_tolerance_seconds(::PROTOBUF_NAME
   // @@protoc_insertion_point(field_set:CTwoFactor_Time_Response.skew_tolerance_seconds)
 }
 
-// optional uint64 large_time_jink = 3 [(.description) = "Re-sync if local time jitters by this much"];
+// optional uint64 large_time_jink = 3;
 inline bool CTwoFactor_Time_Response::_internal_has_large_time_jink() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -4379,7 +4379,7 @@ inline void CTwoFactor_Time_Response::set_large_time_jink(::PROTOBUF_NAMESPACE_I
   // @@protoc_insertion_point(field_set:CTwoFactor_Time_Response.large_time_jink)
 }
 
-// optional uint32 probe_frequency_seconds = 4 [(.description) = "Time probe frequency if phone time is synchronized"];
+// optional uint32 probe_frequency_seconds = 4;
 inline bool CTwoFactor_Time_Response::_internal_has_probe_frequency_seconds() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -4407,7 +4407,7 @@ inline void CTwoFactor_Time_Response::set_probe_frequency_seconds(::PROTOBUF_NAM
   // @@protoc_insertion_point(field_set:CTwoFactor_Time_Response.probe_frequency_seconds)
 }
 
-// optional uint32 adjusted_time_probe_frequency_seconds = 5 [(.description) = "Time probe frequency if phone time is not synchronized"];
+// optional uint32 adjusted_time_probe_frequency_seconds = 5;
 inline bool CTwoFactor_Time_Response::_internal_has_adjusted_time_probe_frequency_seconds() const {
   bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
@@ -4435,7 +4435,7 @@ inline void CTwoFactor_Time_Response::set_adjusted_time_probe_frequency_seconds(
   // @@protoc_insertion_point(field_set:CTwoFactor_Time_Response.adjusted_time_probe_frequency_seconds)
 }
 
-// optional uint32 hint_probe_frequency_seconds = 6 [(.description) = "Floor of probe frequency, no matter what"];
+// optional uint32 hint_probe_frequency_seconds = 6;
 inline bool CTwoFactor_Time_Response::_internal_has_hint_probe_frequency_seconds() const {
   bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
@@ -4463,7 +4463,7 @@ inline void CTwoFactor_Time_Response::set_hint_probe_frequency_seconds(::PROTOBU
   // @@protoc_insertion_point(field_set:CTwoFactor_Time_Response.hint_probe_frequency_seconds)
 }
 
-// optional uint32 sync_timeout = 7 [(.description) = "More than this, and we call the current sync failed"];
+// optional uint32 sync_timeout = 7;
 inline bool CTwoFactor_Time_Response::_internal_has_sync_timeout() const {
   bool value = (_has_bits_[0] & 0x00000040u) != 0;
   return value;
@@ -4491,7 +4491,7 @@ inline void CTwoFactor_Time_Response::set_sync_timeout(::PROTOBUF_NAMESPACE_ID::
   // @@protoc_insertion_point(field_set:CTwoFactor_Time_Response.sync_timeout)
 }
 
-// optional uint32 try_again_seconds = 8 [(.description) = "Seconds to try again after a failed sync"];
+// optional uint32 try_again_seconds = 8;
 inline bool CTwoFactor_Time_Response::_internal_has_try_again_seconds() const {
   bool value = (_has_bits_[0] & 0x00000080u) != 0;
   return value;
@@ -4519,7 +4519,7 @@ inline void CTwoFactor_Time_Response::set_try_again_seconds(::PROTOBUF_NAMESPACE
   // @@protoc_insertion_point(field_set:CTwoFactor_Time_Response.try_again_seconds)
 }
 
-// optional uint32 max_attempts = 9 [(.description) = "# times we\'ll ask for server time before we bail"];
+// optional uint32 max_attempts = 9;
 inline bool CTwoFactor_Time_Response::_internal_has_max_attempts() const {
   bool value = (_has_bits_[0] & 0x00000100u) != 0;
   return value;
@@ -4551,7 +4551,7 @@ inline void CTwoFactor_Time_Response::set_max_attempts(::PROTOBUF_NAMESPACE_ID::
 
 // CTwoFactor_Status_Request
 
-// optional fixed64 steamid = 1 [(.description) = "steamid to use"];
+// optional fixed64 steamid = 1;
 inline bool CTwoFactor_Status_Request::_internal_has_steamid() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -4583,7 +4583,7 @@ inline void CTwoFactor_Status_Request::set_steamid(::PROTOBUF_NAMESPACE_ID::uint
 
 // CTwoFactor_Status_Response
 
-// optional uint32 state = 1 [(.description) = "Authenticator state"];
+// optional uint32 state = 1;
 inline bool CTwoFactor_Status_Response::_internal_has_state() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -4611,7 +4611,7 @@ inline void CTwoFactor_Status_Response::set_state(::PROTOBUF_NAMESPACE_ID::uint3
   // @@protoc_insertion_point(field_set:CTwoFactor_Status_Response.state)
 }
 
-// optional uint32 inactivation_reason = 2 [(.description) = "Inactivation reason (if any)"];
+// optional uint32 inactivation_reason = 2;
 inline bool CTwoFactor_Status_Response::_internal_has_inactivation_reason() const {
   bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
@@ -4639,7 +4639,7 @@ inline void CTwoFactor_Status_Response::set_inactivation_reason(::PROTOBUF_NAMES
   // @@protoc_insertion_point(field_set:CTwoFactor_Status_Response.inactivation_reason)
 }
 
-// optional uint32 authenticator_type = 3 [(.description) = "Type of authenticator"];
+// optional uint32 authenticator_type = 3;
 inline bool CTwoFactor_Status_Response::_internal_has_authenticator_type() const {
   bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
@@ -4667,7 +4667,7 @@ inline void CTwoFactor_Status_Response::set_authenticator_type(::PROTOBUF_NAMESP
   // @@protoc_insertion_point(field_set:CTwoFactor_Status_Response.authenticator_type)
 }
 
-// optional bool authenticator_allowed = 4 [(.description) = "Account allowed to have an authenticator?"];
+// optional bool authenticator_allowed = 4;
 inline bool CTwoFactor_Status_Response::_internal_has_authenticator_allowed() const {
   bool value = (_has_bits_[0] & 0x00000080u) != 0;
   return value;
@@ -4695,7 +4695,7 @@ inline void CTwoFactor_Status_Response::set_authenticator_allowed(bool value) {
   // @@protoc_insertion_point(field_set:CTwoFactor_Status_Response.authenticator_allowed)
 }
 
-// optional uint32 steamguard_scheme = 5 [(.description) = "Steam Guard scheme in effect"];
+// optional uint32 steamguard_scheme = 5;
 inline bool CTwoFactor_Status_Response::_internal_has_steamguard_scheme() const {
   bool value = (_has_bits_[0] & 0x00000040u) != 0;
   return value;
@@ -4723,7 +4723,7 @@ inline void CTwoFactor_Status_Response::set_steamguard_scheme(::PROTOBUF_NAMESPA
   // @@protoc_insertion_point(field_set:CTwoFactor_Status_Response.steamguard_scheme)
 }
 
-// optional string token_gid = 6 [(.description) = "String rep of token GID assigned by server"];
+// optional string token_gid = 6;
 inline bool CTwoFactor_Status_Response::_internal_has_token_gid() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -4796,7 +4796,7 @@ inline void CTwoFactor_Status_Response::set_allocated_token_gid(std::string* tok
   // @@protoc_insertion_point(field_set_allocated:CTwoFactor_Status_Response.token_gid)
 }
 
-// optional bool email_validated = 7 [(.description) = "Account has verified email capability"];
+// optional bool email_validated = 7;
 inline bool CTwoFactor_Status_Response::_internal_has_email_validated() const {
   bool value = (_has_bits_[0] & 0x00000100u) != 0;
   return value;
@@ -4824,7 +4824,7 @@ inline void CTwoFactor_Status_Response::set_email_validated(bool value) {
   // @@protoc_insertion_point(field_set:CTwoFactor_Status_Response.email_validated)
 }
 
-// optional string device_identifier = 8 [(.description) = "Authenticator (phone) identifier"];
+// optional string device_identifier = 8;
 inline bool CTwoFactor_Status_Response::_internal_has_device_identifier() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -4897,7 +4897,7 @@ inline void CTwoFactor_Status_Response::set_allocated_device_identifier(std::str
   // @@protoc_insertion_point(field_set_allocated:CTwoFactor_Status_Response.device_identifier)
 }
 
-// optional uint32 time_created = 9 [(.description) = "When the token was created"];
+// optional uint32 time_created = 9;
 inline bool CTwoFactor_Status_Response::_internal_has_time_created() const {
   bool value = (_has_bits_[0] & 0x00000400u) != 0;
   return value;
@@ -4925,7 +4925,7 @@ inline void CTwoFactor_Status_Response::set_time_created(::PROTOBUF_NAMESPACE_ID
   // @@protoc_insertion_point(field_set:CTwoFactor_Status_Response.time_created)
 }
 
-// optional uint32 revocation_attempts_remaining = 10 [(.description) = "Number of revocation code attempts remaining"];
+// optional uint32 revocation_attempts_remaining = 10;
 inline bool CTwoFactor_Status_Response::_internal_has_revocation_attempts_remaining() const {
   bool value = (_has_bits_[0] & 0x00000800u) != 0;
   return value;
@@ -4953,7 +4953,7 @@ inline void CTwoFactor_Status_Response::set_revocation_attempts_remaining(::PROT
   // @@protoc_insertion_point(field_set:CTwoFactor_Status_Response.revocation_attempts_remaining)
 }
 
-// optional string classified_agent = 11 [(.description) = "Agent that added the authenticator (e.g., ios / android / other)"];
+// optional string classified_agent = 11;
 inline bool CTwoFactor_Status_Response::_internal_has_classified_agent() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -5026,7 +5026,7 @@ inline void CTwoFactor_Status_Response::set_allocated_classified_agent(std::stri
   // @@protoc_insertion_point(field_set_allocated:CTwoFactor_Status_Response.classified_agent)
 }
 
-// optional bool allow_external_authenticator = 12 [(.description) = "Allow a third-party authenticator (in addition to two-factor)"];
+// optional bool allow_external_authenticator = 12;
 inline bool CTwoFactor_Status_Response::_internal_has_allow_external_authenticator() const {
   bool value = (_has_bits_[0] & 0x00000200u) != 0;
   return value;
@@ -5054,7 +5054,7 @@ inline void CTwoFactor_Status_Response::set_allow_external_authenticator(bool va
   // @@protoc_insertion_point(field_set:CTwoFactor_Status_Response.allow_external_authenticator)
 }
 
-// optional uint32 time_transferred = 13 [(.description) = "When the token was transferred from another device, if applicable"];
+// optional uint32 time_transferred = 13;
 inline bool CTwoFactor_Status_Response::_internal_has_time_transferred() const {
   bool value = (_has_bits_[0] & 0x00001000u) != 0;
   return value;
@@ -5082,7 +5082,7 @@ inline void CTwoFactor_Status_Response::set_time_transferred(::PROTOBUF_NAMESPAC
   // @@protoc_insertion_point(field_set:CTwoFactor_Status_Response.time_transferred)
 }
 
-// optional uint32 version = 14 [(.description) = "Current token version"];
+// optional uint32 version = 14;
 inline bool CTwoFactor_Status_Response::_internal_has_version() const {
   bool value = (_has_bits_[0] & 0x00002000u) != 0;
   return value;
@@ -5114,7 +5114,7 @@ inline void CTwoFactor_Status_Response::set_version(::PROTOBUF_NAMESPACE_ID::uin
 
 // CTwoFactor_AddAuthenticator_Request
 
-// optional fixed64 steamid = 1 [(.description) = "steamid to use"];
+// optional fixed64 steamid = 1;
 inline bool CTwoFactor_AddAuthenticator_Request::_internal_has_steamid() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -5142,7 +5142,7 @@ inline void CTwoFactor_AddAuthenticator_Request::set_steamid(::PROTOBUF_NAMESPAC
   // @@protoc_insertion_point(field_set:CTwoFactor_AddAuthenticator_Request.steamid)
 }
 
-// optional uint64 authenticator_time = 2 [(.description) = "Current authenticator time"];
+// optional uint64 authenticator_time = 2;
 inline bool CTwoFactor_AddAuthenticator_Request::_internal_has_authenticator_time() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -5170,7 +5170,7 @@ inline void CTwoFactor_AddAuthenticator_Request::set_authenticator_time(::PROTOB
   // @@protoc_insertion_point(field_set:CTwoFactor_AddAuthenticator_Request.authenticator_time)
 }
 
-// optional fixed64 serial_number = 3 [(.description) = "locally computed serial (deprecated)"];
+// optional fixed64 serial_number = 3;
 inline bool CTwoFactor_AddAuthenticator_Request::_internal_has_serial_number() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -5198,7 +5198,7 @@ inline void CTwoFactor_AddAuthenticator_Request::set_serial_number(::PROTOBUF_NA
   // @@protoc_insertion_point(field_set:CTwoFactor_AddAuthenticator_Request.serial_number)
 }
 
-// optional uint32 authenticator_type = 4 [(.description) = "Authenticator type"];
+// optional uint32 authenticator_type = 4;
 inline bool CTwoFactor_AddAuthenticator_Request::_internal_has_authenticator_type() const {
   bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
@@ -5226,7 +5226,7 @@ inline void CTwoFactor_AddAuthenticator_Request::set_authenticator_type(::PROTOB
   // @@protoc_insertion_point(field_set:CTwoFactor_AddAuthenticator_Request.authenticator_type)
 }
 
-// optional string device_identifier = 5 [(.description) = "Authenticator identifier"];
+// optional string device_identifier = 5;
 inline bool CTwoFactor_AddAuthenticator_Request::_internal_has_device_identifier() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -5299,7 +5299,7 @@ inline void CTwoFactor_AddAuthenticator_Request::set_allocated_device_identifier
   // @@protoc_insertion_point(field_set_allocated:CTwoFactor_AddAuthenticator_Request.device_identifier)
 }
 
-// repeated string http_headers = 7 [(.description) = "HTTP headers alternating by K/V"];
+// repeated string http_headers = 7;
 inline int CTwoFactor_AddAuthenticator_Request::_internal_http_headers_size() const {
   return http_headers_.size();
 }
@@ -5373,7 +5373,7 @@ CTwoFactor_AddAuthenticator_Request::mutable_http_headers() {
   return &http_headers_;
 }
 
-// optional uint32 version = 8 [default = 1, (.description) = "What the version of our token should be"];
+// optional uint32 version = 8 [default = 1];
 inline bool CTwoFactor_AddAuthenticator_Request::_internal_has_version() const {
   bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
@@ -5405,7 +5405,7 @@ inline void CTwoFactor_AddAuthenticator_Request::set_version(::PROTOBUF_NAMESPAC
 
 // CTwoFactor_AddAuthenticator_Response
 
-// optional bytes shared_secret = 1 [(.description) = "Shared secret between server and authenticator"];
+// optional bytes shared_secret = 1;
 inline bool CTwoFactor_AddAuthenticator_Response::_internal_has_shared_secret() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -5478,7 +5478,7 @@ inline void CTwoFactor_AddAuthenticator_Response::set_allocated_shared_secret(st
   // @@protoc_insertion_point(field_set_allocated:CTwoFactor_AddAuthenticator_Response.shared_secret)
 }
 
-// optional fixed64 serial_number = 2 [(.description) = "Authenticator serial number (unique per token)"];
+// optional fixed64 serial_number = 2;
 inline bool CTwoFactor_AddAuthenticator_Response::_internal_has_serial_number() const {
   bool value = (_has_bits_[0] & 0x00000100u) != 0;
   return value;
@@ -5506,7 +5506,7 @@ inline void CTwoFactor_AddAuthenticator_Response::set_serial_number(::PROTOBUF_N
   // @@protoc_insertion_point(field_set:CTwoFactor_AddAuthenticator_Response.serial_number)
 }
 
-// optional string revocation_code = 3 [(.description) = "code used to revoke authenticator"];
+// optional string revocation_code = 3;
 inline bool CTwoFactor_AddAuthenticator_Response::_internal_has_revocation_code() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -5579,7 +5579,7 @@ inline void CTwoFactor_AddAuthenticator_Response::set_allocated_revocation_code(
   // @@protoc_insertion_point(field_set_allocated:CTwoFactor_AddAuthenticator_Response.revocation_code)
 }
 
-// optional string uri = 4 [(.description) = "URI for QR code generation"];
+// optional string uri = 4;
 inline bool CTwoFactor_AddAuthenticator_Response::_internal_has_uri() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -5652,7 +5652,7 @@ inline void CTwoFactor_AddAuthenticator_Response::set_allocated_uri(std::string*
   // @@protoc_insertion_point(field_set_allocated:CTwoFactor_AddAuthenticator_Response.uri)
 }
 
-// optional uint64 server_time = 5 [(.description) = "Current server time"];
+// optional uint64 server_time = 5;
 inline bool CTwoFactor_AddAuthenticator_Response::_internal_has_server_time() const {
   bool value = (_has_bits_[0] & 0x00000200u) != 0;
   return value;
@@ -5680,7 +5680,7 @@ inline void CTwoFactor_AddAuthenticator_Response::set_server_time(::PROTOBUF_NAM
   // @@protoc_insertion_point(field_set:CTwoFactor_AddAuthenticator_Response.server_time)
 }
 
-// optional string account_name = 6 [(.description) = "Account name to display on token client"];
+// optional string account_name = 6;
 inline bool CTwoFactor_AddAuthenticator_Response::_internal_has_account_name() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -5753,7 +5753,7 @@ inline void CTwoFactor_AddAuthenticator_Response::set_allocated_account_name(std
   // @@protoc_insertion_point(field_set_allocated:CTwoFactor_AddAuthenticator_Response.account_name)
 }
 
-// optional string token_gid = 7 [(.description) = "Token GID assigned by server"];
+// optional string token_gid = 7;
 inline bool CTwoFactor_AddAuthenticator_Response::_internal_has_token_gid() const {
   bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
@@ -5826,7 +5826,7 @@ inline void CTwoFactor_AddAuthenticator_Response::set_allocated_token_gid(std::s
   // @@protoc_insertion_point(field_set_allocated:CTwoFactor_AddAuthenticator_Response.token_gid)
 }
 
-// optional bytes identity_secret = 8 [(.description) = "Secret used for identity attestation (e.g., for eventing)"];
+// optional bytes identity_secret = 8;
 inline bool CTwoFactor_AddAuthenticator_Response::_internal_has_identity_secret() const {
   bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
@@ -5899,7 +5899,7 @@ inline void CTwoFactor_AddAuthenticator_Response::set_allocated_identity_secret(
   // @@protoc_insertion_point(field_set_allocated:CTwoFactor_AddAuthenticator_Response.identity_secret)
 }
 
-// optional bytes secret_1 = 9 [(.description) = "Spare shared secret"];
+// optional bytes secret_1 = 9;
 inline bool CTwoFactor_AddAuthenticator_Response::_internal_has_secret_1() const {
   bool value = (_has_bits_[0] & 0x00000040u) != 0;
   return value;
@@ -5972,7 +5972,7 @@ inline void CTwoFactor_AddAuthenticator_Response::set_allocated_secret_1(std::st
   // @@protoc_insertion_point(field_set_allocated:CTwoFactor_AddAuthenticator_Response.secret_1)
 }
 
-// optional int32 status = 10 [(.description) = "Result code"];
+// optional int32 status = 10;
 inline bool CTwoFactor_AddAuthenticator_Response::_internal_has_status() const {
   bool value = (_has_bits_[0] & 0x00000400u) != 0;
   return value;
@@ -6000,7 +6000,7 @@ inline void CTwoFactor_AddAuthenticator_Response::set_status(::PROTOBUF_NAMESPAC
   // @@protoc_insertion_point(field_set:CTwoFactor_AddAuthenticator_Response.status)
 }
 
-// optional string phone_number_hint = 11 [(.description) = "a portion of the phone number the SMS code was sent to"];
+// optional string phone_number_hint = 11;
 inline bool CTwoFactor_AddAuthenticator_Response::_internal_has_phone_number_hint() const {
   bool value = (_has_bits_[0] & 0x00000080u) != 0;
   return value;
@@ -6073,7 +6073,7 @@ inline void CTwoFactor_AddAuthenticator_Response::set_allocated_phone_number_hin
   // @@protoc_insertion_point(field_set_allocated:CTwoFactor_AddAuthenticator_Response.phone_number_hint)
 }
 
-// optional int32 confirm_type = 12 [(.description) = "how we expect to confirm adding the authenticator"];
+// optional int32 confirm_type = 12;
 inline bool CTwoFactor_AddAuthenticator_Response::_internal_has_confirm_type() const {
   bool value = (_has_bits_[0] & 0x00000800u) != 0;
   return value;
@@ -6105,7 +6105,7 @@ inline void CTwoFactor_AddAuthenticator_Response::set_confirm_type(::PROTOBUF_NA
 
 // CTwoFactor_SendEmail_Request
 
-// optional fixed64 steamid = 1 [(.description) = "Steamid to use"];
+// optional fixed64 steamid = 1;
 inline bool CTwoFactor_SendEmail_Request::_internal_has_steamid() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -6133,7 +6133,7 @@ inline void CTwoFactor_SendEmail_Request::set_steamid(::PROTOBUF_NAMESPACE_ID::u
   // @@protoc_insertion_point(field_set:CTwoFactor_SendEmail_Request.steamid)
 }
 
-// optional uint32 email_type = 2 [(.description) = "Type of email to send (ETwoFactorEmailType::*)"];
+// optional uint32 email_type = 2;
 inline bool CTwoFactor_SendEmail_Request::_internal_has_email_type() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -6161,7 +6161,7 @@ inline void CTwoFactor_SendEmail_Request::set_email_type(::PROTOBUF_NAMESPACE_ID
   // @@protoc_insertion_point(field_set:CTwoFactor_SendEmail_Request.email_type)
 }
 
-// optional bool include_activation_code = 3 [(.description) = "Include activation code in email parameters"];
+// optional bool include_activation_code = 3;
 inline bool CTwoFactor_SendEmail_Request::_internal_has_include_activation_code() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -6197,7 +6197,7 @@ inline void CTwoFactor_SendEmail_Request::set_include_activation_code(bool value
 
 // CTwoFactor_FinalizeAddAuthenticator_Request
 
-// optional fixed64 steamid = 1 [(.description) = "steamid to use"];
+// optional fixed64 steamid = 1;
 inline bool CTwoFactor_FinalizeAddAuthenticator_Request::_internal_has_steamid() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -6225,7 +6225,7 @@ inline void CTwoFactor_FinalizeAddAuthenticator_Request::set_steamid(::PROTOBUF_
   // @@protoc_insertion_point(field_set:CTwoFactor_FinalizeAddAuthenticator_Request.steamid)
 }
 
-// optional string authenticator_code = 2 [(.description) = "Current auth code"];
+// optional string authenticator_code = 2;
 inline bool CTwoFactor_FinalizeAddAuthenticator_Request::_internal_has_authenticator_code() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -6298,7 +6298,7 @@ inline void CTwoFactor_FinalizeAddAuthenticator_Request::set_allocated_authentic
   // @@protoc_insertion_point(field_set_allocated:CTwoFactor_FinalizeAddAuthenticator_Request.authenticator_code)
 }
 
-// optional uint64 authenticator_time = 3 [(.description) = "Current authenticator time"];
+// optional uint64 authenticator_time = 3;
 inline bool CTwoFactor_FinalizeAddAuthenticator_Request::_internal_has_authenticator_time() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -6326,7 +6326,7 @@ inline void CTwoFactor_FinalizeAddAuthenticator_Request::set_authenticator_time(
   // @@protoc_insertion_point(field_set:CTwoFactor_FinalizeAddAuthenticator_Request.authenticator_time)
 }
 
-// optional string activation_code = 4 [(.description) = "Activation code from out-of-band message"];
+// optional string activation_code = 4;
 inline bool CTwoFactor_FinalizeAddAuthenticator_Request::_internal_has_activation_code() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -6399,7 +6399,7 @@ inline void CTwoFactor_FinalizeAddAuthenticator_Request::set_allocated_activatio
   // @@protoc_insertion_point(field_set_allocated:CTwoFactor_FinalizeAddAuthenticator_Request.activation_code)
 }
 
-// repeated string http_headers = 5 [(.description) = "HTTP headers alternating by K/V"];
+// repeated string http_headers = 5;
 inline int CTwoFactor_FinalizeAddAuthenticator_Request::_internal_http_headers_size() const {
   return http_headers_.size();
 }
@@ -6473,7 +6473,7 @@ CTwoFactor_FinalizeAddAuthenticator_Request::mutable_http_headers() {
   return &http_headers_;
 }
 
-// optional bool validate_sms_code = 6 [(.description) = "When finalizing with an SMS code, pass the request on to the PhoneService to update its state too."];
+// optional bool validate_sms_code = 6;
 inline bool CTwoFactor_FinalizeAddAuthenticator_Request::_internal_has_validate_sms_code() const {
   bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
@@ -6505,7 +6505,7 @@ inline void CTwoFactor_FinalizeAddAuthenticator_Request::set_validate_sms_code(b
 
 // CTwoFactor_FinalizeAddAuthenticator_Response
 
-// optional bool success = 1 [(.description) = "True if succeeded, or want more tries"];
+// optional bool success = 1;
 inline bool CTwoFactor_FinalizeAddAuthenticator_Response::_internal_has_success() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -6533,7 +6533,7 @@ inline void CTwoFactor_FinalizeAddAuthenticator_Response::set_success(bool value
   // @@protoc_insertion_point(field_set:CTwoFactor_FinalizeAddAuthenticator_Response.success)
 }
 
-// optional uint64 server_time = 3 [(.description) = "Current server time"];
+// optional uint64 server_time = 3;
 inline bool CTwoFactor_FinalizeAddAuthenticator_Response::_internal_has_server_time() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -6561,7 +6561,7 @@ inline void CTwoFactor_FinalizeAddAuthenticator_Response::set_server_time(::PROT
   // @@protoc_insertion_point(field_set:CTwoFactor_FinalizeAddAuthenticator_Response.server_time)
 }
 
-// optional int32 status = 4 [(.description) = "Result code"];
+// optional int32 status = 4;
 inline bool CTwoFactor_FinalizeAddAuthenticator_Response::_internal_has_status() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -6621,7 +6621,7 @@ inline void CTwoFactor_UpdateTokenVersion_Request::set_steamid(::PROTOBUF_NAMESP
   // @@protoc_insertion_point(field_set:CTwoFactor_UpdateTokenVersion_Request.steamid)
 }
 
-// optional uint32 version = 2 [(.description) = "What the version of our token should be"];
+// optional uint32 version = 2;
 inline bool CTwoFactor_UpdateTokenVersion_Request::_internal_has_version() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -6649,7 +6649,7 @@ inline void CTwoFactor_UpdateTokenVersion_Request::set_version(::PROTOBUF_NAMESP
   // @@protoc_insertion_point(field_set:CTwoFactor_UpdateTokenVersion_Request.version)
 }
 
-// optional bytes signature = 3 [(.description) = "HMAC digest over user\'s private key"];
+// optional bytes signature = 3;
 inline bool CTwoFactor_UpdateTokenVersion_Request::_internal_has_signature() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -6730,7 +6730,7 @@ inline void CTwoFactor_UpdateTokenVersion_Request::set_allocated_signature(std::
 
 // CTwoFactor_RemoveAuthenticator_Request
 
-// optional string revocation_code = 2 [(.description) = "Password needed to remove token"];
+// optional string revocation_code = 2;
 inline bool CTwoFactor_RemoveAuthenticator_Request::_internal_has_revocation_code() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -6803,7 +6803,7 @@ inline void CTwoFactor_RemoveAuthenticator_Request::set_allocated_revocation_cod
   // @@protoc_insertion_point(field_set_allocated:CTwoFactor_RemoveAuthenticator_Request.revocation_code)
 }
 
-// optional uint32 revocation_reason = 5 [(.description) = "Reason the authenticator is being removed"];
+// optional uint32 revocation_reason = 5;
 inline bool CTwoFactor_RemoveAuthenticator_Request::_internal_has_revocation_reason() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -6831,7 +6831,7 @@ inline void CTwoFactor_RemoveAuthenticator_Request::set_revocation_reason(::PROT
   // @@protoc_insertion_point(field_set:CTwoFactor_RemoveAuthenticator_Request.revocation_reason)
 }
 
-// optional uint32 steamguard_scheme = 6 [(.description) = "Type of Steam Guard to use once token is removed"];
+// optional uint32 steamguard_scheme = 6;
 inline bool CTwoFactor_RemoveAuthenticator_Request::_internal_has_steamguard_scheme() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -6859,7 +6859,7 @@ inline void CTwoFactor_RemoveAuthenticator_Request::set_steamguard_scheme(::PROT
   // @@protoc_insertion_point(field_set:CTwoFactor_RemoveAuthenticator_Request.steamguard_scheme)
 }
 
-// optional bool remove_all_steamguard_cookies = 7 [(.description) = "Remove all steamguard cookies"];
+// optional bool remove_all_steamguard_cookies = 7;
 inline bool CTwoFactor_RemoveAuthenticator_Request::_internal_has_remove_all_steamguard_cookies() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -6891,7 +6891,7 @@ inline void CTwoFactor_RemoveAuthenticator_Request::set_remove_all_steamguard_co
 
 // CTwoFactor_RemoveAuthenticator_Response
 
-// optional bool success = 1 [(.description) = "True if request succeeeded. The mobile app checks this."];
+// optional bool success = 1;
 inline bool CTwoFactor_RemoveAuthenticator_Response::_internal_has_success() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -6919,7 +6919,7 @@ inline void CTwoFactor_RemoveAuthenticator_Response::set_success(bool value) {
   // @@protoc_insertion_point(field_set:CTwoFactor_RemoveAuthenticator_Response.success)
 }
 
-// optional uint64 server_time = 3 [(.description) = "Current server time"];
+// optional uint64 server_time = 3;
 inline bool CTwoFactor_RemoveAuthenticator_Response::_internal_has_server_time() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -6947,7 +6947,7 @@ inline void CTwoFactor_RemoveAuthenticator_Response::set_server_time(::PROTOBUF_
   // @@protoc_insertion_point(field_set:CTwoFactor_RemoveAuthenticator_Response.server_time)
 }
 
-// optional uint32 revocation_attempts_remaining = 5 [(.description) = "Number of revocation code attempts remaining"];
+// optional uint32 revocation_attempts_remaining = 5;
 inline bool CTwoFactor_RemoveAuthenticator_Response::_internal_has_revocation_attempts_remaining() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -6983,7 +6983,7 @@ inline void CTwoFactor_RemoveAuthenticator_Response::set_revocation_attempts_rem
 
 // CTwoFactor_RemoveAuthenticatorViaChallengeStart_Response
 
-// optional bool success = 1 [(.description) = "True if succeeded, or want more tries with an authenticator_code"];
+// optional bool success = 1;
 inline bool CTwoFactor_RemoveAuthenticatorViaChallengeStart_Response::_internal_has_success() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -7015,7 +7015,7 @@ inline void CTwoFactor_RemoveAuthenticatorViaChallengeStart_Response::set_succes
 
 // CTwoFactor_RemoveAuthenticatorViaChallengeContinue_Request
 
-// optional string sms_code = 1 [(.description) = "Code from SMS"];
+// optional string sms_code = 1;
 inline bool CTwoFactor_RemoveAuthenticatorViaChallengeContinue_Request::_internal_has_sms_code() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -7088,7 +7088,7 @@ inline void CTwoFactor_RemoveAuthenticatorViaChallengeContinue_Request::set_allo
   // @@protoc_insertion_point(field_set_allocated:CTwoFactor_RemoveAuthenticatorViaChallengeContinue_Request.sms_code)
 }
 
-// optional bool generate_new_token = 2 [(.description) = "Generate new token (instead of removing old one)"];
+// optional bool generate_new_token = 2;
 inline bool CTwoFactor_RemoveAuthenticatorViaChallengeContinue_Request::_internal_has_generate_new_token() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -7116,7 +7116,7 @@ inline void CTwoFactor_RemoveAuthenticatorViaChallengeContinue_Request::set_gene
   // @@protoc_insertion_point(field_set:CTwoFactor_RemoveAuthenticatorViaChallengeContinue_Request.generate_new_token)
 }
 
-// optional uint32 version = 3 [default = 1, (.description) = "What the version of our token should be"];
+// optional uint32 version = 3 [default = 1];
 inline bool CTwoFactor_RemoveAuthenticatorViaChallengeContinue_Request::_internal_has_version() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -7148,7 +7148,7 @@ inline void CTwoFactor_RemoveAuthenticatorViaChallengeContinue_Request::set_vers
 
 // CRemoveAuthenticatorViaChallengeContinue_Replacement_Token
 
-// optional bytes shared_secret = 1 [(.description) = "Shared secret between server and authenticator"];
+// optional bytes shared_secret = 1;
 inline bool CRemoveAuthenticatorViaChallengeContinue_Replacement_Token::_internal_has_shared_secret() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -7221,7 +7221,7 @@ inline void CRemoveAuthenticatorViaChallengeContinue_Replacement_Token::set_allo
   // @@protoc_insertion_point(field_set_allocated:CRemoveAuthenticatorViaChallengeContinue_Replacement_Token.shared_secret)
 }
 
-// optional fixed64 serial_number = 2 [(.description) = "Authenticator serial number (unique per token)"];
+// optional fixed64 serial_number = 2;
 inline bool CRemoveAuthenticatorViaChallengeContinue_Replacement_Token::_internal_has_serial_number() const {
   bool value = (_has_bits_[0] & 0x00000080u) != 0;
   return value;
@@ -7249,7 +7249,7 @@ inline void CRemoveAuthenticatorViaChallengeContinue_Replacement_Token::set_seri
   // @@protoc_insertion_point(field_set:CRemoveAuthenticatorViaChallengeContinue_Replacement_Token.serial_number)
 }
 
-// optional string revocation_code = 3 [(.description) = "code used to revoke authenticator"];
+// optional string revocation_code = 3;
 inline bool CRemoveAuthenticatorViaChallengeContinue_Replacement_Token::_internal_has_revocation_code() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -7322,7 +7322,7 @@ inline void CRemoveAuthenticatorViaChallengeContinue_Replacement_Token::set_allo
   // @@protoc_insertion_point(field_set_allocated:CRemoveAuthenticatorViaChallengeContinue_Replacement_Token.revocation_code)
 }
 
-// optional string uri = 4 [(.description) = "URI for QR code generation"];
+// optional string uri = 4;
 inline bool CRemoveAuthenticatorViaChallengeContinue_Replacement_Token::_internal_has_uri() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -7395,7 +7395,7 @@ inline void CRemoveAuthenticatorViaChallengeContinue_Replacement_Token::set_allo
   // @@protoc_insertion_point(field_set_allocated:CRemoveAuthenticatorViaChallengeContinue_Replacement_Token.uri)
 }
 
-// optional uint64 server_time = 5 [(.description) = "Current server time"];
+// optional uint64 server_time = 5;
 inline bool CRemoveAuthenticatorViaChallengeContinue_Replacement_Token::_internal_has_server_time() const {
   bool value = (_has_bits_[0] & 0x00000100u) != 0;
   return value;
@@ -7423,7 +7423,7 @@ inline void CRemoveAuthenticatorViaChallengeContinue_Replacement_Token::set_serv
   // @@protoc_insertion_point(field_set:CRemoveAuthenticatorViaChallengeContinue_Replacement_Token.server_time)
 }
 
-// optional string account_name = 6 [(.description) = "Account name to display on token client"];
+// optional string account_name = 6;
 inline bool CRemoveAuthenticatorViaChallengeContinue_Replacement_Token::_internal_has_account_name() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -7496,7 +7496,7 @@ inline void CRemoveAuthenticatorViaChallengeContinue_Replacement_Token::set_allo
   // @@protoc_insertion_point(field_set_allocated:CRemoveAuthenticatorViaChallengeContinue_Replacement_Token.account_name)
 }
 
-// optional string token_gid = 7 [(.description) = "Token GID assigned by server"];
+// optional string token_gid = 7;
 inline bool CRemoveAuthenticatorViaChallengeContinue_Replacement_Token::_internal_has_token_gid() const {
   bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
@@ -7569,7 +7569,7 @@ inline void CRemoveAuthenticatorViaChallengeContinue_Replacement_Token::set_allo
   // @@protoc_insertion_point(field_set_allocated:CRemoveAuthenticatorViaChallengeContinue_Replacement_Token.token_gid)
 }
 
-// optional bytes identity_secret = 8 [(.description) = "Secret used for identity attestation (e.g., for eventing)"];
+// optional bytes identity_secret = 8;
 inline bool CRemoveAuthenticatorViaChallengeContinue_Replacement_Token::_internal_has_identity_secret() const {
   bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
@@ -7642,7 +7642,7 @@ inline void CRemoveAuthenticatorViaChallengeContinue_Replacement_Token::set_allo
   // @@protoc_insertion_point(field_set_allocated:CRemoveAuthenticatorViaChallengeContinue_Replacement_Token.identity_secret)
 }
 
-// optional bytes secret_1 = 9 [(.description) = "Spare shared secret"];
+// optional bytes secret_1 = 9;
 inline bool CRemoveAuthenticatorViaChallengeContinue_Replacement_Token::_internal_has_secret_1() const {
   bool value = (_has_bits_[0] & 0x00000040u) != 0;
   return value;
@@ -7715,7 +7715,7 @@ inline void CRemoveAuthenticatorViaChallengeContinue_Replacement_Token::set_allo
   // @@protoc_insertion_point(field_set_allocated:CRemoveAuthenticatorViaChallengeContinue_Replacement_Token.secret_1)
 }
 
-// optional int32 status = 10 [(.description) = "Result code"];
+// optional int32 status = 10;
 inline bool CRemoveAuthenticatorViaChallengeContinue_Replacement_Token::_internal_has_status() const {
   bool value = (_has_bits_[0] & 0x00000200u) != 0;
   return value;
@@ -7743,7 +7743,7 @@ inline void CRemoveAuthenticatorViaChallengeContinue_Replacement_Token::set_stat
   // @@protoc_insertion_point(field_set:CRemoveAuthenticatorViaChallengeContinue_Replacement_Token.status)
 }
 
-// optional uint32 steamguard_scheme = 11 [(.description) = "Type of Steam Guard to use once token is removed"];
+// optional uint32 steamguard_scheme = 11;
 inline bool CRemoveAuthenticatorViaChallengeContinue_Replacement_Token::_internal_has_steamguard_scheme() const {
   bool value = (_has_bits_[0] & 0x00000400u) != 0;
   return value;
@@ -7771,7 +7771,7 @@ inline void CRemoveAuthenticatorViaChallengeContinue_Replacement_Token::set_stea
   // @@protoc_insertion_point(field_set:CRemoveAuthenticatorViaChallengeContinue_Replacement_Token.steamguard_scheme)
 }
 
-// optional fixed64 steamid = 12 [(.description) = "steamid that owns the secret"];
+// optional fixed64 steamid = 12;
 inline bool CRemoveAuthenticatorViaChallengeContinue_Replacement_Token::_internal_has_steamid() const {
   bool value = (_has_bits_[0] & 0x00000800u) != 0;
   return value;
@@ -7803,7 +7803,7 @@ inline void CRemoveAuthenticatorViaChallengeContinue_Replacement_Token::set_stea
 
 // CTwoFactor_RemoveAuthenticatorViaChallengeContinue_Response
 
-// optional bool success = 1 [(.description) = "True if succeeded, or want more tries with an authenticator_code"];
+// optional bool success = 1;
 inline bool CTwoFactor_RemoveAuthenticatorViaChallengeContinue_Response::_internal_has_success() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -7831,7 +7831,7 @@ inline void CTwoFactor_RemoveAuthenticatorViaChallengeContinue_Response::set_suc
   // @@protoc_insertion_point(field_set:CTwoFactor_RemoveAuthenticatorViaChallengeContinue_Response.success)
 }
 
-// optional .CRemoveAuthenticatorViaChallengeContinue_Replacement_Token replacement_token = 2 [(.description) = "Fresh secret to install"];
+// optional .CRemoveAuthenticatorViaChallengeContinue_Replacement_Token replacement_token = 2;
 inline bool CTwoFactor_RemoveAuthenticatorViaChallengeContinue_Response::_internal_has_replacement_token() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   PROTOBUF_ASSUME(!value || replacement_token_ != nullptr);

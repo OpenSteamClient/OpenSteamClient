@@ -799,7 +799,7 @@ const char descriptor_table_protodef_steammessages_5fclientmetrics_2esteamclient
   "e_Invalid\020\000\022&\n\"ESteamPipeOperationType_D"
   "ecryptCPU\020\001\022$\n ESteamPipeOperationType_D"
   "iskRead\020\002\022%\n!ESteamPipeOperationType_Dis"
-  "kWrite\020\0032\216\010\n\rClientMetrics\022\\\n\035ClientAppI"
+  "kWrite\020\0032\343\007\n\rClientMetrics\022\\\n\035ClientAppI"
   "nterfaceStatsReport\022..CClientMetrics_App"
   "InterfaceStats_Notification\032\013.NoResponse"
   "\022Z\n\034ClientIPv6ConnectivityReport\022-.CClie"
@@ -824,8 +824,7 @@ const char descriptor_table_protodef_steammessages_5fclientmetrics_2esteamclient
   "nloadResponse_Counts_Notification\032\013.NoRe"
   "sponse\022N\n\020ReportClientArgs\022-.CClientMetr"
   "ics_ReportClientArgs_Notification\032\013.NoRe"
-  "sponse\032)\202\265\030%A service for client-reporte"
-  "d metricsB\035\200\001\001\252\002\027OpenSteamworks.Protobuf"
+  "sponseB\035\200\001\001\252\002\027OpenSteamworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fclientmetrics_2esteamclient_2eproto_deps[4] = {
   &::descriptor_table_clientmetrics_2eproto,
@@ -835,7 +834,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fclientmetrics_2esteamclient_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fclientmetrics_2esteamclient_2eproto = {
-  false, false, 5280, descriptor_table_protodef_steammessages_5fclientmetrics_2esteamclient_2eproto, "steammessages_clientmetrics.steamclient.proto", 
+  false, false, 5237, descriptor_table_protodef_steammessages_5fclientmetrics_2esteamclient_2eproto, "steammessages_clientmetrics.steamclient.proto", 
   &descriptor_table_steammessages_5fclientmetrics_2esteamclient_2eproto_once, descriptor_table_steammessages_5fclientmetrics_2esteamclient_2eproto_deps, 4, 20,
   schemas, file_default_instances, TableStruct_steammessages_5fclientmetrics_2esteamclient_2eproto::offsets,
   file_level_metadata_steammessages_5fclientmetrics_2esteamclient_2eproto, file_level_enum_descriptors_steammessages_5fclientmetrics_2esteamclient_2eproto, file_level_service_descriptors_steammessages_5fclientmetrics_2esteamclient_2eproto,

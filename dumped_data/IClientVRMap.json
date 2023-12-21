@@ -1,131 +1,146 @@
 {
     "name": "IClientVRMap",
-    "found_at": "0x23a8f2c",
+    "found_at": "0x2403c68",
     "functions": [ 
         {
             "name": "GetCurrentHmd",
             "argc": "1",
-            "addr": "0x6042a0"
+            "addr": "0x6228f0"
         },
         {
             "name": "GetCompositor",
             "argc": "1",
-            "addr": "0x605b50"
+            "addr": "0x6245a0"
         },
         {
             "name": "GetOverlay",
             "argc": "1",
-            "addr": "0x605cd0"
+            "addr": "0x624720"
         },
         {
             "name": "GetChaperone",
             "argc": "1",
-            "addr": "0x605e50"
+            "addr": "0x6248a0"
         },
         {
             "name": "GetSettings",
             "argc": "1",
-            "addr": "0x605fd0"
+            "addr": "0x624a20"
         },
         {
             "name": "GetProperties",
             "argc": "1",
-            "addr": "0x606150"
+            "addr": "0x624ba0"
         },
         {
             "name": "GetPaths",
             "argc": "1",
-            "addr": "0x6062d0"
+            "addr": "0x624d20"
         },
         {
             "name": "GetOverlayHandle",
             "argc": "1",
-            "addr": "0x604420"
+            "addr": "0x622a70"
         },
         {
             "name": "IsHmdPresent",
             "argc": "1",
-            "addr": "0x6045a0"
+            "addr": "0x622bf0"
         },
         {
             "name": "UpdateHmdStatus",
             "argc": "1",
-            "addr": "0x604700"
+            "addr": "0x622d50"
         },
         {
             "name": "IsVRModeActive",
             "argc": "1",
-            "addr": "0x604830"
+            "addr": "0x622e80"
         },
         {
             "name": "InitVR",
             "argc": "4",
-            "addr": "0x606450"
+            "addr": "0x624ea0"
         },
         {
             "name": "StartSteamVR",
             "argc": "2",
-            "addr": "0x604990"
+            "addr": "0x622fe0"
         },
         {
             "name": "CleanupVR",
             "argc": "1",
-            "addr": "0x604b00"
+            "addr": "0x623150"
         },
         {
             "name": "QuitAllVR",
             "argc": "1",
-            "addr": "0x604c30"
+            "addr": "0x623280"
         },
         {
             "name": "QuitApplication",
             "argc": "2",
-            "addr": "0x604d60"
+            "addr": "0x6233b0"
         },
         {
             "name": "GetStringForHmdError",
             "argc": "2",
-            "addr": "0x604eb0"
+            "addr": "0x623500"
         },
         {
             "name": "LaunchApplication",
             "argc": "2",
-            "addr": "0x605020"
+            "addr": "0x623670"
         },
         {
             "name": "GetSteamVRAppId",
             "argc": "1",
-            "addr": "0x605190"
+            "addr": "0x6237e0"
         },
         {
             "name": "GetSteamVRPid",
             "argc": "1",
-            "addr": "0x6052f0"
+            "addr": "0x623940"
         },
         {
             "name": "GetWebSecret",
             "argc": "1",
-            "addr": "0x605450"
+            "addr": "0x623aa0"
         },
         {
             "name": "BSteamCanMakeVROverlays",
             "argc": "1",
-            "addr": "0x6055d0"
+            "addr": "0x623c20"
         },
         {
             "name": "BServeVRGamepadUIOverlay",
             "argc": "1",
-            "addr": "0x605730"
+            "addr": "0x623d80"
         },
         {
             "name": "BServeTenfootOverlay",
             "argc": "1",
-            "addr": "0x605890"
+            "addr": "0x623ee0"
         },
         {
             "name": "BSuppressDesktopBPM",
             "argc": "1",
-            "addr": "0x6059f0"
+            "addr": "0x624040"
+        },
+        {
+            "name": "SetVRConnectionParams",
+            "argc": "2",
+            "addr": "0x6241a0"
+        },
+        {
+            "name": "GetVRConnectionParams",
+            "argc": "1",
+            "addr": "0x6242e0"
+        },
+        {
+            "name": "BVRDeviceSeenRecently",
+            "argc": "1",
+            "addr": "0x624440"
         }
     ]
 }

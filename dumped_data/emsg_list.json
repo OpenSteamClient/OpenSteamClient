@@ -498,12 +498,6 @@
         "name": "k_EMsgClientServiceCallResponse"
     },
     {
-        "emsg": 839,
-        "flags": 2,
-        "server_type": -1,
-        "name": "k_EMsgClientNatTraversalStatEvent"
-    },
-    {
         "emsg": 842,
         "flags": 6,
         "server_type": 17,
@@ -2716,12 +2710,6 @@
         "flags": 6,
         "server_type": 41,
         "name": "k_EMsgClientEnableOrDisableDownloadsResponse"
-    },
-    {
-        "emsg": 9808,
-        "flags": 2,
-        "server_type": -1,
-        "name": "k_EMsgClientFeatureGroupInfo"
     },
     {
         "emsg": 9900,

@@ -37,17 +37,14 @@ namespace OpenSteamworks.Protobuf {
             "bmVfT2ZmbGluZUxvZ29uVGlja2V0EhEKCWFjY291bnRpZBgBIAEoDRIdChVy",
             "dGltZTMyX2NyZWF0aW9uX3RpbWUYAiABKAciXwovQ09mZmxpbmVfR2V0VW5z",
             "aWduZWRPZmZsaW5lTG9nb25UaWNrZXRfUmVzcG9uc2USLAoGdGlja2V0GAEg",
-            "ASgLMhwuQ09mZmxpbmVfT2ZmbGluZUxvZ29uVGlja2V0MqMDCgdPZmZsaW5l",
-            "ErUBChVHZXRPZmZsaW5lTG9nb25UaWNrZXQSJy5DT2ZmbGluZV9HZXRPZmZs",
-            "aW5lTG9nb25UaWNrZXRfUmVxdWVzdBooLkNPZmZsaW5lX0dldE9mZmxpbmVM",
-            "b2dvblRpY2tldF9SZXNwb25zZSJJgrUYRUdldCBhIHNlcmlhbGl6ZWQgYW5k",
-            "IHNpZ25lZCBvZmZsaW5lIGxvZ29uIHRpY2tldCBmb3IgdGhlIGN1cnJlbnQg",
-            "dXNlchLBAQodR2V0VW5zaWduZWRPZmZsaW5lTG9nb25UaWNrZXQSLy5DT2Zm",
-            "bGluZV9HZXRVbnNpZ25lZE9mZmxpbmVMb2dvblRpY2tldF9SZXF1ZXN0GjAu",
-            "Q09mZmxpbmVfR2V0VW5zaWduZWRPZmZsaW5lTG9nb25UaWNrZXRfUmVzcG9u",
-            "c2UiPYK1GDlHZXQgYW4gdW5zaWduZWQgb2ZmbGluZSBsb2dvbiB0aWNrZXQg",
-            "Zm9yIHRoZSBjdXJyZW50IHVzZXIaHIK1GBhPZmZsaW5lIHNldHRpbmdzIHNl",
-            "cnZpY2VCHYABAaoCF09wZW5TdGVhbXdvcmtzLlByb3RvYnVm"));
+            "ASgLMhwuQ09mZmxpbmVfT2ZmbGluZUxvZ29uVGlja2V0MvoBCgdPZmZsaW5l",
+            "EmoKFUdldE9mZmxpbmVMb2dvblRpY2tldBInLkNPZmZsaW5lX0dldE9mZmxp",
+            "bmVMb2dvblRpY2tldF9SZXF1ZXN0GiguQ09mZmxpbmVfR2V0T2ZmbGluZUxv",
+            "Z29uVGlja2V0X1Jlc3BvbnNlEoIBCh1HZXRVbnNpZ25lZE9mZmxpbmVMb2dv",
+            "blRpY2tldBIvLkNPZmZsaW5lX0dldFVuc2lnbmVkT2ZmbGluZUxvZ29uVGlj",
+            "a2V0X1JlcXVlc3QaMC5DT2ZmbGluZV9HZXRVbnNpZ25lZE9mZmxpbmVMb2dv",
+            "blRpY2tldF9SZXNwb25zZUIdgAEBqgIXT3BlblN0ZWFtd29ya3MuUHJvdG9i",
+            "dWY="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.Reflection.DescriptorReflection.Descriptor, global::OpenSteamworks.Protobuf.SteammessagesBaseReflection.Descriptor, global::OpenSteamworks.Protobuf.SteammessagesUnifiedBaseSteamclientReflection.Descriptor, global::OpenSteamworks.Protobuf.OfflineTicketReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -62,6 +59,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
   #region Messages
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class COffline_GetOfflineLogonTicket_Request : pb::IMessage<COffline_GetOfflineLogonTicket_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -320,6 +318,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class COffline_GetOfflineLogonTicket_Response : pb::IMessage<COffline_GetOfflineLogonTicket_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -620,6 +619,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class COffline_GetUnsignedOfflineLogonTicket_Request : pb::IMessage<COffline_GetUnsignedOfflineLogonTicket_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -772,6 +772,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class COffline_OfflineLogonTicket : pb::IMessage<COffline_OfflineLogonTicket>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1030,6 +1031,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class COffline_GetUnsignedOfflineLogonTicket_Response : pb::IMessage<COffline_GetUnsignedOfflineLogonTicket_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage

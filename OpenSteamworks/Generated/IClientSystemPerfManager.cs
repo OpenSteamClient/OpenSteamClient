@@ -19,4 +19,6 @@ public unsafe interface IClientSystemPerfManager
     public unknown_ret GetState();  // argc: 1, index: 3
     // WARNING: Arguments are unknown!
     public unknown_ret UpdateSettings();  // argc: 1, index: 4
+    // WARNING: Arguments are unknown!
+    public unknown_ret SetRefreshRateExternallyManaged();  // argc: 1, index: 3
 }

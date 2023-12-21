@@ -37,12 +37,10 @@ namespace OpenSteamworks.Protobuf {
             "YnlTdGF0dXNJbnZhbGlkKnkKDEVMb2JieVN0YXR1cxIXChNFTG9iYnlTdGF0",
             "dXNJbnZhbGlkEAASFgoSRUxvYmJ5U3RhdHVzRXhpc3RzEAESHAoYRUxvYmJ5",
             "U3RhdHVzRG9lc05vdEV4aXN0EAISGgoWRUxvYmJ5U3RhdHVzTm90QU1lbWJl",
-            "chADMsYBChZMb2JieU1hdGNobWFraW5nTGVnYWN5EoUBCg5HZXRMb2JieVN0",
-            "YXR1cxIuLkxvYmJ5TWF0Y2htYWtpbmdMZWdhY3lfR2V0TG9iYnlTdGF0dXNf",
-            "UmVxdWVzdBovLkxvYmJ5TWF0Y2htYWtpbmdMZWdhY3lfR2V0TG9iYnlTdGF0",
-            "dXNfUmVzcG9uc2UiEoK1GA5HZXRMb2JieVN0YXR1cxokgrUYIExvYmJ5IG1h",
-            "dGNobWFraW5nIGxlZ2FjeSBzZXJ2aWNlQh2AAQGqAhdPcGVuU3RlYW13b3Jr",
-            "cy5Qcm90b2J1Zg=="));
+            "chADMosBChZMb2JieU1hdGNobWFraW5nTGVnYWN5EnEKDkdldExvYmJ5U3Rh",
+            "dHVzEi4uTG9iYnlNYXRjaG1ha2luZ0xlZ2FjeV9HZXRMb2JieVN0YXR1c19S",
+            "ZXF1ZXN0Gi8uTG9iYnlNYXRjaG1ha2luZ0xlZ2FjeV9HZXRMb2JieVN0YXR1",
+            "c19SZXNwb25zZUIdgAEBqgIXT3BlblN0ZWFtd29ya3MuUHJvdG9idWY="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.Reflection.DescriptorReflection.Descriptor, global::OpenSteamworks.Protobuf.SteammessagesBaseReflection.Descriptor, global::OpenSteamworks.Protobuf.SteammessagesUnifiedBaseSteamclientReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::OpenSteamworks.Protobuf.ELobbyStatus), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -64,6 +62,7 @@ namespace OpenSteamworks.Protobuf {
   #endregion
 
   #region Messages
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class LobbyMatchmakingLegacy_GetLobbyStatus_Request : pb::IMessage<LobbyMatchmakingLegacy_GetLobbyStatus_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -478,6 +477,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class LobbyMatchmakingLegacy_GetLobbyStatus_Response : pb::IMessage<LobbyMatchmakingLegacy_GetLobbyStatus_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage

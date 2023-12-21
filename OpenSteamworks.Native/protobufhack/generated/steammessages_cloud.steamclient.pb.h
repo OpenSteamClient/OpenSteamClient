@@ -736,7 +736,7 @@ class CCloud_GetUploadServerInfo_Request PROTOBUF_FINAL :
   enum : int {
     kAppidFieldNumber = 1,
   };
-  // optional uint32 appid = 1 [(.description) = "App ID to which a file will be uploaded to."];
+  // optional uint32 appid = 1;
   bool has_appid() const;
   private:
   bool _internal_has_appid() const;
@@ -1049,7 +1049,7 @@ class CCloud_BeginHTTPUpload_Request PROTOBUF_FINAL :
     kUploadBatchIdFieldNumber = 9,
     kIsPublicFieldNumber = 5,
   };
-  // repeated string platforms_to_sync = 6 [(.description) = "Array of string specifying which platforms to sync; value values: all, Windows, MacOS, linux, Switch, iPhoneOS, Android."];
+  // repeated string platforms_to_sync = 6;
   int platforms_to_sync_size() const;
   private:
   int _internal_platforms_to_sync_size() const;
@@ -1073,7 +1073,7 @@ class CCloud_BeginHTTPUpload_Request PROTOBUF_FINAL :
   std::string* _internal_add_platforms_to_sync();
   public:
 
-  // repeated string request_headers_names = 7 [(.description) = "Names for headers you\'ll want to set on your upload request. May be left blank."];
+  // repeated string request_headers_names = 7;
   int request_headers_names_size() const;
   private:
   int _internal_request_headers_names_size() const;
@@ -1097,7 +1097,7 @@ class CCloud_BeginHTTPUpload_Request PROTOBUF_FINAL :
   std::string* _internal_add_request_headers_names();
   public:
 
-  // repeated string request_headers_values = 8 [(.description) = "Values for headers you\'ll want to set on your upload request. The number of names must equal the number of values."];
+  // repeated string request_headers_values = 8;
   int request_headers_values_size() const;
   private:
   int _internal_request_headers_values_size() const;
@@ -1121,7 +1121,7 @@ class CCloud_BeginHTTPUpload_Request PROTOBUF_FINAL :
   std::string* _internal_add_request_headers_values();
   public:
 
-  // optional string filename = 3 [(.description) = "Name of the file to store in the cloud."];
+  // optional string filename = 3;
   bool has_filename() const;
   private:
   bool _internal_has_filename() const;
@@ -1141,7 +1141,7 @@ class CCloud_BeginHTTPUpload_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_filename();
   public:
 
-  // optional string file_sha = 4 [(.description) = "Hex string (40 digits) representing the SHA1 digest of the file."];
+  // optional string file_sha = 4;
   bool has_file_sha() const;
   private:
   bool _internal_has_file_sha() const;
@@ -1161,7 +1161,7 @@ class CCloud_BeginHTTPUpload_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_file_sha();
   public:
 
-  // optional uint32 appid = 1 [(.description) = "App ID for which the file is being uploaded."];
+  // optional uint32 appid = 1;
   bool has_appid() const;
   private:
   bool _internal_has_appid() const;
@@ -1174,7 +1174,7 @@ class CCloud_BeginHTTPUpload_Request PROTOBUF_FINAL :
   void _internal_set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 file_size = 2 [(.description) = "Original file size in bytes."];
+  // optional uint32 file_size = 2;
   bool has_file_size() const;
   private:
   bool _internal_has_file_size() const;
@@ -1187,7 +1187,7 @@ class CCloud_BeginHTTPUpload_Request PROTOBUF_FINAL :
   void _internal_set_file_size(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint64 upload_batch_id = 9 [(.description) = "ID of this batch returned by prior BeginAppUploadBatch call."];
+  // optional uint64 upload_batch_id = 9;
   bool has_upload_batch_id() const;
   private:
   bool _internal_has_upload_batch_id() const;
@@ -1200,7 +1200,7 @@ class CCloud_BeginHTTPUpload_Request PROTOBUF_FINAL :
   void _internal_set_upload_batch_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional bool is_public = 5 [(.description) = "True if the file should be marked public on the UFS, false otherwise."];
+  // optional bool is_public = 5;
   bool has_is_public() const;
   private:
   bool _internal_has_is_public() const;
@@ -1542,7 +1542,7 @@ class CCloud_BeginHTTPUpload_Response PROTOBUF_FINAL :
     kTimestampFieldNumber = 2,
     kUseHttpsFieldNumber = 5,
   };
-  // repeated .CCloud_BeginHTTPUpload_Response.HTTPHeaders request_headers = 6 [(.description) = "Name-value pairs to be sent in HTTP PUT request."];
+  // repeated .CCloud_BeginHTTPUpload_Response.HTTPHeaders request_headers = 6;
   int request_headers_size() const;
   private:
   int _internal_request_headers_size() const;
@@ -1560,7 +1560,7 @@ class CCloud_BeginHTTPUpload_Response PROTOBUF_FINAL :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CCloud_BeginHTTPUpload_Response_HTTPHeaders >&
       request_headers() const;
 
-  // optional string url_host = 3 [(.description) = "Host name of server to which file should be uploaded via HTTP PUT."];
+  // optional string url_host = 3;
   bool has_url_host() const;
   private:
   bool _internal_has_url_host() const;
@@ -1580,7 +1580,7 @@ class CCloud_BeginHTTPUpload_Response PROTOBUF_FINAL :
   std::string* _internal_mutable_url_host();
   public:
 
-  // optional string url_path = 4 [(.description) = "Relative path on server to which file should be uploaded."];
+  // optional string url_path = 4;
   bool has_url_path() const;
   private:
   bool _internal_has_url_path() const;
@@ -1600,7 +1600,7 @@ class CCloud_BeginHTTPUpload_Response PROTOBUF_FINAL :
   std::string* _internal_mutable_url_path();
   public:
 
-  // optional fixed64 ugcid = 1 [(.description) = "UGC ID of the uploaded file."];
+  // optional fixed64 ugcid = 1;
   bool has_ugcid() const;
   private:
   bool _internal_has_ugcid() const;
@@ -1613,7 +1613,7 @@ class CCloud_BeginHTTPUpload_Response PROTOBUF_FINAL :
   void _internal_set_ugcid(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional fixed32 timestamp = 2 [(.description) = "Server timestamp of file."];
+  // optional fixed32 timestamp = 2;
   bool has_timestamp() const;
   private:
   bool _internal_has_timestamp() const;
@@ -1626,7 +1626,7 @@ class CCloud_BeginHTTPUpload_Response PROTOBUF_FINAL :
   void _internal_set_timestamp(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional bool use_https = 5 [(.description) = "If true, use https, otherwise use http."];
+  // optional bool use_https = 5;
   bool has_use_https() const;
   private:
   bool _internal_has_use_https() const;
@@ -1783,7 +1783,7 @@ class CCloud_CommitHTTPUpload_Request PROTOBUF_FINAL :
     kTransferSucceededFieldNumber = 1,
     kAppidFieldNumber = 2,
   };
-  // optional string file_sha = 3 [(.description) = "Hex string (40 digits) representing the SHA1 digest of the file. Must match the SHA1 digest provided to Cloud.BeginHTTPUpload."];
+  // optional string file_sha = 3;
   bool has_file_sha() const;
   private:
   bool _internal_has_file_sha() const;
@@ -1803,7 +1803,7 @@ class CCloud_CommitHTTPUpload_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_file_sha();
   public:
 
-  // optional string filename = 4 [(.description) = "Filename as specified in the Cloud.BeginHTTPUpload request."];
+  // optional string filename = 4;
   bool has_filename() const;
   private:
   bool _internal_has_filename() const;
@@ -1823,7 +1823,7 @@ class CCloud_CommitHTTPUpload_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_filename();
   public:
 
-  // optional bool transfer_succeeded = 1 [(.description) = "True if the HTTP PUT to the upload URL succeeded (URL provided in response to Cloud.BeginHTTPUpload), false if a failure occurred."];
+  // optional bool transfer_succeeded = 1;
   bool has_transfer_succeeded() const;
   private:
   bool _internal_has_transfer_succeeded() const;
@@ -1836,7 +1836,7 @@ class CCloud_CommitHTTPUpload_Request PROTOBUF_FINAL :
   void _internal_set_transfer_succeeded(bool value);
   public:
 
-  // optional uint32 appid = 2 [(.description) = "App ID for which the file is being uploaded. Must match the app ID provided to Cloud.BeginHTTPUpload."];
+  // optional uint32 appid = 2;
   bool has_appid() const;
   private:
   bool _internal_has_appid() const;
@@ -1988,7 +1988,7 @@ class CCloud_CommitHTTPUpload_Response PROTOBUF_FINAL :
   enum : int {
     kFileCommittedFieldNumber = 1,
   };
-  // optional bool file_committed = 1 [(.description) = "True if the file was successfully committed, false otherwise."];
+  // optional bool file_committed = 1;
   bool has_file_committed() const;
   private:
   bool _internal_has_file_committed() const;
@@ -2141,7 +2141,7 @@ class CCloud_BeginUGCUpload_Request PROTOBUF_FINAL :
     kAppidFieldNumber = 1,
     kFileSizeFieldNumber = 2,
   };
-  // optional string filename = 3 [(.description) = "Name of the file."];
+  // optional string filename = 3;
   bool has_filename() const;
   private:
   bool _internal_has_filename() const;
@@ -2161,7 +2161,7 @@ class CCloud_BeginUGCUpload_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_filename();
   public:
 
-  // optional string file_sha = 4 [(.description) = "Hex string (40 digits) representing the SHA1 digest of the file."];
+  // optional string file_sha = 4;
   bool has_file_sha() const;
   private:
   bool _internal_has_file_sha() const;
@@ -2181,7 +2181,7 @@ class CCloud_BeginUGCUpload_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_file_sha();
   public:
 
-  // optional string content_type = 5 [(.description) = "MIME content type of the file"];
+  // optional string content_type = 5;
   bool has_content_type() const;
   private:
   bool _internal_has_content_type() const;
@@ -2201,7 +2201,7 @@ class CCloud_BeginUGCUpload_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_content_type();
   public:
 
-  // optional uint32 appid = 1 [(.description) = "App ID this UGC belongs to."];
+  // optional uint32 appid = 1;
   bool has_appid() const;
   private:
   bool _internal_has_appid() const;
@@ -2214,7 +2214,7 @@ class CCloud_BeginUGCUpload_Request PROTOBUF_FINAL :
   void _internal_set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 file_size = 2 [(.description) = "File size in bytes."];
+  // optional uint32 file_size = 2;
   bool has_file_size() const;
   private:
   bool _internal_has_file_size() const;
@@ -2553,7 +2553,7 @@ class CCloud_BeginUGCUpload_Response PROTOBUF_FINAL :
     kTimestampFieldNumber = 3,
     kUseHttpsFieldNumber = 6,
   };
-  // repeated .CCloud_BeginUGCUpload_Response.HTTPHeaders request_headers = 7 [(.description) = "Name-value pairs to be sent in HTTP PUT request."];
+  // repeated .CCloud_BeginUGCUpload_Response.HTTPHeaders request_headers = 7;
   int request_headers_size() const;
   private:
   int _internal_request_headers_size() const;
@@ -2571,7 +2571,7 @@ class CCloud_BeginUGCUpload_Response PROTOBUF_FINAL :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CCloud_BeginUGCUpload_Response_HTTPHeaders >&
       request_headers() const;
 
-  // optional string url_host = 4 [(.description) = "Host name of server to which file should be uploaded via HTTP PUT."];
+  // optional string url_host = 4;
   bool has_url_host() const;
   private:
   bool _internal_has_url_host() const;
@@ -2591,7 +2591,7 @@ class CCloud_BeginUGCUpload_Response PROTOBUF_FINAL :
   std::string* _internal_mutable_url_host();
   public:
 
-  // optional string url_path = 5 [(.description) = "Relative path on server to which file should be uploaded."];
+  // optional string url_path = 5;
   bool has_url_path() const;
   private:
   bool _internal_has_url_path() const;
@@ -2611,7 +2611,7 @@ class CCloud_BeginUGCUpload_Response PROTOBUF_FINAL :
   std::string* _internal_mutable_url_path();
   public:
 
-  // optional fixed64 ugcid = 2 [(.description) = "UGC ID of the uploaded file."];
+  // optional fixed64 ugcid = 2;
   bool has_ugcid() const;
   private:
   bool _internal_has_ugcid() const;
@@ -2624,7 +2624,7 @@ class CCloud_BeginUGCUpload_Response PROTOBUF_FINAL :
   void _internal_set_ugcid(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional .EPublishedFileStorageSystem storage_system = 1 [default = EPublishedFileStorageSystemInvalid, (.description) = "UGC Storage system chosen for this file"];
+  // optional .EPublishedFileStorageSystem storage_system = 1 [default = EPublishedFileStorageSystemInvalid];
   bool has_storage_system() const;
   private:
   bool _internal_has_storage_system() const;
@@ -2637,7 +2637,7 @@ class CCloud_BeginUGCUpload_Response PROTOBUF_FINAL :
   void _internal_set_storage_system(::EPublishedFileStorageSystem value);
   public:
 
-  // optional fixed32 timestamp = 3 [(.description) = "Server timestamp of file."];
+  // optional fixed32 timestamp = 3;
   bool has_timestamp() const;
   private:
   bool _internal_has_timestamp() const;
@@ -2650,7 +2650,7 @@ class CCloud_BeginUGCUpload_Response PROTOBUF_FINAL :
   void _internal_set_timestamp(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional bool use_https = 6 [(.description) = "If true, use https, otherwise use http."];
+  // optional bool use_https = 6;
   bool has_use_https() const;
   private:
   bool _internal_has_use_https() const;
@@ -2807,7 +2807,7 @@ class CCloud_CommitUGCUpload_Request PROTOBUF_FINAL :
     kAppidFieldNumber = 2,
     kUgcidFieldNumber = 3,
   };
-  // optional bool transfer_succeeded = 1 [(.description) = "True if the HTTP PUT to the upload URL succeeded (URL provided in response to Cloud.BeginUGCUpload), false if a failure occurred."];
+  // optional bool transfer_succeeded = 1;
   bool has_transfer_succeeded() const;
   private:
   bool _internal_has_transfer_succeeded() const;
@@ -2820,7 +2820,7 @@ class CCloud_CommitUGCUpload_Request PROTOBUF_FINAL :
   void _internal_set_transfer_succeeded(bool value);
   public:
 
-  // optional uint32 appid = 2 [(.description) = "App ID for which the file is being uploaded. Must match the app ID provided to Cloud.BeginUGCUpload."];
+  // optional uint32 appid = 2;
   bool has_appid() const;
   private:
   bool _internal_has_appid() const;
@@ -2833,7 +2833,7 @@ class CCloud_CommitUGCUpload_Request PROTOBUF_FINAL :
   void _internal_set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional fixed64 ugcid = 3 [(.description) = "UGC ID of the uploaded file."];
+  // optional fixed64 ugcid = 3;
   bool has_ugcid() const;
   private:
   bool _internal_has_ugcid() const;
@@ -2984,7 +2984,7 @@ class CCloud_CommitUGCUpload_Response PROTOBUF_FINAL :
   enum : int {
     kFileCommittedFieldNumber = 1,
   };
-  // optional bool file_committed = 1 [(.description) = "True if the file was successfully committed, false otherwise."];
+  // optional bool file_committed = 1;
   bool has_file_committed() const;
   private:
   bool _internal_has_file_committed() const;
@@ -3134,7 +3134,7 @@ class CCloud_GetFileDetails_Request PROTOBUF_FINAL :
     kUgcidFieldNumber = 1,
     kAppidFieldNumber = 2,
   };
-  // optional uint64 ugcid = 1 [(.description) = "ID of the Cloud file to get details for."];
+  // optional uint64 ugcid = 1;
   bool has_ugcid() const;
   private:
   bool _internal_has_ugcid() const;
@@ -3147,7 +3147,7 @@ class CCloud_GetFileDetails_Request PROTOBUF_FINAL :
   void _internal_set_ugcid(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional uint32 appid = 2 [(.description) = "App ID the file belongs to."];
+  // optional uint32 appid = 2;
   bool has_appid() const;
   private:
   bool _internal_has_appid() const;
@@ -3306,7 +3306,7 @@ class CCloud_UserFile PROTOBUF_FINAL :
     kSteamidCreatorFieldNumber = 7,
     kFlagsFieldNumber = 8,
   };
-  // repeated string platforms_to_sync = 9 [(.description) = "Array of string specifying which platforms to sync; value values: all, Windows, MacOS, linux, Switch, iPhoneOS, Android."];
+  // repeated string platforms_to_sync = 9;
   int platforms_to_sync_size() const;
   private:
   int _internal_platforms_to_sync_size() const;
@@ -3370,7 +3370,7 @@ class CCloud_UserFile PROTOBUF_FINAL :
   std::string* _internal_mutable_url();
   public:
 
-  // optional string file_sha = 10 [(.description) = "Hex string (40 digits) representing the SHA1 digest of the file."];
+  // optional string file_sha = 10;
   bool has_file_sha() const;
   private:
   bool _internal_has_file_sha() const;
@@ -3770,7 +3770,7 @@ class CCloud_EnumerateUserFiles_Request PROTOBUF_FINAL :
     kCountFieldNumber = 3,
     kStartIndexFieldNumber = 4,
   };
-  // optional uint32 appid = 1 [(.description) = "App ID to enumerate the files of."];
+  // optional uint32 appid = 1;
   bool has_appid() const;
   private:
   bool _internal_has_appid() const;
@@ -3783,7 +3783,7 @@ class CCloud_EnumerateUserFiles_Request PROTOBUF_FINAL :
   void _internal_set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional bool extended_details = 2 [(.description) = "(Optional) Get extended details back on the files found. Defaults to only returned the app Id and UGC Id of the files found."];
+  // optional bool extended_details = 2;
   bool has_extended_details() const;
   private:
   bool _internal_has_extended_details() const;
@@ -3796,7 +3796,7 @@ class CCloud_EnumerateUserFiles_Request PROTOBUF_FINAL :
   void _internal_set_extended_details(bool value);
   public:
 
-  // optional uint32 count = 3 [(.description) = "(Optional) Maximum number of results to return on this call. Defaults to a maximum of 500 files returned."];
+  // optional uint32 count = 3;
   bool has_count() const;
   private:
   bool _internal_has_count() const;
@@ -3809,7 +3809,7 @@ class CCloud_EnumerateUserFiles_Request PROTOBUF_FINAL :
   void _internal_set_count(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 start_index = 4 [(.description) = "(Optional) Starting index to begin enumeration at. Defaults to the beginning of the list."];
+  // optional uint32 start_index = 4;
   bool has_start_index() const;
   private:
   bool _internal_has_start_index() const;
@@ -4152,7 +4152,7 @@ class CCloud_Delete_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_filename();
   public:
 
-  // optional uint64 upload_batch_id = 3 [(.description) = "ID of this batch returned by prior BeginAppUploadBatch call."];
+  // optional uint64 upload_batch_id = 3;
   bool has_upload_batch_id() const;
   private:
   bool _internal_has_upload_batch_id() const;
@@ -4165,7 +4165,7 @@ class CCloud_Delete_Request PROTOBUF_FINAL :
   void _internal_set_upload_batch_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional uint32 appid = 2 [(.description) = "App ID the file belongs to."];
+  // optional uint32 appid = 2;
   bool has_appid() const;
   private:
   bool _internal_has_appid() const;
@@ -4579,7 +4579,7 @@ class CCloud_GetClientEncryptionKey_Response PROTOBUF_FINAL :
     kKeyFieldNumber = 1,
     kCrcFieldNumber = 2,
   };
-  // optional bytes key = 1 [(.description) = "AES-256 encryption key"];
+  // optional bytes key = 1;
   bool has_key() const;
   private:
   bool _internal_has_key() const;
@@ -4599,7 +4599,7 @@ class CCloud_GetClientEncryptionKey_Response PROTOBUF_FINAL :
   std::string* _internal_mutable_key();
   public:
 
-  // optional int32 crc = 2 [(.description) = "CRC of key"];
+  // optional int32 crc = 2;
   bool has_crc() const;
   private:
   bool _internal_has_crc() const;
@@ -5388,7 +5388,7 @@ class CCloud_BeginAppUploadBatch_Request PROTOBUF_FINAL :
     kAppBuildIdFieldNumber = 6,
     kAppidFieldNumber = 1,
   };
-  // repeated string files_to_upload = 3 [(.description) = "Filenames of files to upload in this batch"];
+  // repeated string files_to_upload = 3;
   int files_to_upload_size() const;
   private:
   int _internal_files_to_upload_size() const;
@@ -5412,7 +5412,7 @@ class CCloud_BeginAppUploadBatch_Request PROTOBUF_FINAL :
   std::string* _internal_add_files_to_upload();
   public:
 
-  // repeated string files_to_delete = 4 [(.description) = "Filenames of files to delete in this batch"];
+  // repeated string files_to_delete = 4;
   int files_to_delete_size() const;
   private:
   int _internal_files_to_delete_size() const;
@@ -5436,7 +5436,7 @@ class CCloud_BeginAppUploadBatch_Request PROTOBUF_FINAL :
   std::string* _internal_add_files_to_delete();
   public:
 
-  // optional string machine_name = 2 [(.description) = "Client machine name (may be user\'s alias)."];
+  // optional string machine_name = 2;
   bool has_machine_name() const;
   private:
   bool _internal_has_machine_name() const;
@@ -5456,7 +5456,7 @@ class CCloud_BeginAppUploadBatch_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_machine_name();
   public:
 
-  // optional uint64 client_id = 5 [(.description) = "Client ID number"];
+  // optional uint64 client_id = 5;
   bool has_client_id() const;
   private:
   bool _internal_has_client_id() const;
@@ -5469,7 +5469,7 @@ class CCloud_BeginAppUploadBatch_Request PROTOBUF_FINAL :
   void _internal_set_client_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional uint64 app_build_id = 6 [(.description) = "Current local build of the app which made these changes"];
+  // optional uint64 app_build_id = 6;
   bool has_app_build_id() const;
   private:
   bool _internal_has_app_build_id() const;
@@ -5482,7 +5482,7 @@ class CCloud_BeginAppUploadBatch_Request PROTOBUF_FINAL :
   void _internal_set_app_build_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional uint32 appid = 1 [(.description) = "App ID for this batch is for."];
+  // optional uint32 appid = 1;
   bool has_appid() const;
   private:
   bool _internal_has_appid() const;
@@ -5637,7 +5637,7 @@ class CCloud_BeginAppUploadBatch_Response PROTOBUF_FINAL :
     kBatchIdFieldNumber = 1,
     kAppChangeNumberFieldNumber = 4,
   };
-  // optional uint64 batch_id = 1 [(.description) = "ID of this batch."];
+  // optional uint64 batch_id = 1;
   bool has_batch_id() const;
   private:
   bool _internal_has_batch_id() const;
@@ -5650,7 +5650,7 @@ class CCloud_BeginAppUploadBatch_Response PROTOBUF_FINAL :
   void _internal_set_batch_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional uint64 app_change_number = 4 [(.description) = "New App Change Number"];
+  // optional uint64 app_change_number = 4;
   bool has_app_change_number() const;
   private:
   bool _internal_has_app_change_number() const;
@@ -5802,7 +5802,7 @@ class CCloud_CompleteAppUploadBatch_Notification PROTOBUF_FINAL :
     kAppidFieldNumber = 1,
     kBatchEresultFieldNumber = 3,
   };
-  // optional uint64 batch_id = 2 [(.description) = "ID of this batch."];
+  // optional uint64 batch_id = 2;
   bool has_batch_id() const;
   private:
   bool _internal_has_batch_id() const;
@@ -5815,7 +5815,7 @@ class CCloud_CompleteAppUploadBatch_Notification PROTOBUF_FINAL :
   void _internal_set_batch_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional uint32 appid = 1 [(.description) = "App ID for this batch is for."];
+  // optional uint32 appid = 1;
   bool has_appid() const;
   private:
   bool _internal_has_appid() const;
@@ -5828,7 +5828,7 @@ class CCloud_CompleteAppUploadBatch_Notification PROTOBUF_FINAL :
   void _internal_set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 batch_eresult = 3 [(.description) = "result of this batch."];
+  // optional uint32 batch_eresult = 3;
   bool has_batch_eresult() const;
   private:
   bool _internal_has_batch_eresult() const;
@@ -5981,7 +5981,7 @@ class CCloud_CompleteAppUploadBatch_Request PROTOBUF_FINAL :
     kAppidFieldNumber = 1,
     kBatchEresultFieldNumber = 3,
   };
-  // optional uint64 batch_id = 2 [(.description) = "ID of this batch."];
+  // optional uint64 batch_id = 2;
   bool has_batch_id() const;
   private:
   bool _internal_has_batch_id() const;
@@ -5994,7 +5994,7 @@ class CCloud_CompleteAppUploadBatch_Request PROTOBUF_FINAL :
   void _internal_set_batch_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional uint32 appid = 1 [(.description) = "App ID for this batch is for."];
+  // optional uint32 appid = 1;
   bool has_appid() const;
   private:
   bool _internal_has_appid() const;
@@ -6007,7 +6007,7 @@ class CCloud_CompleteAppUploadBatch_Request PROTOBUF_FINAL :
   void _internal_set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 batch_eresult = 3 [(.description) = "result of this batch."];
+  // optional uint32 batch_eresult = 3;
   bool has_batch_eresult() const;
   private:
   bool _internal_has_batch_eresult() const;
@@ -6300,7 +6300,7 @@ class CCloud_ClientBeginFileUpload_Request PROTOBUF_FINAL :
     kUploadBatchIdFieldNumber = 13,
     kPlatformsToSyncFieldNumber = 7,
   };
-  // optional bytes file_sha = 4 [(.description) = "SHA-1 of raw file."];
+  // optional bytes file_sha = 4;
   bool has_file_sha() const;
   private:
   bool _internal_has_file_sha() const;
@@ -6320,7 +6320,7 @@ class CCloud_ClientBeginFileUpload_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_file_sha();
   public:
 
-  // optional string filename = 6 [(.description) = "Name of the file to store in the cloud."];
+  // optional string filename = 6;
   bool has_filename() const;
   private:
   bool _internal_has_filename() const;
@@ -6340,7 +6340,7 @@ class CCloud_ClientBeginFileUpload_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_filename();
   public:
 
-  // optional uint32 appid = 1 [(.description) = "App ID for which the file is being uploaded."];
+  // optional uint32 appid = 1;
   bool has_appid() const;
   private:
   bool _internal_has_appid() const;
@@ -6353,7 +6353,7 @@ class CCloud_ClientBeginFileUpload_Request PROTOBUF_FINAL :
   void _internal_set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 file_size = 2 [(.description) = "file size as transmitted and stored in Cloud."];
+  // optional uint32 file_size = 2;
   bool has_file_size() const;
   private:
   bool _internal_has_file_size() const;
@@ -6366,7 +6366,7 @@ class CCloud_ClientBeginFileUpload_Request PROTOBUF_FINAL :
   void _internal_set_file_size(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint64 time_stamp = 5 [(.description) = "Timestamp of file."];
+  // optional uint64 time_stamp = 5;
   bool has_time_stamp() const;
   private:
   bool _internal_has_time_stamp() const;
@@ -6379,7 +6379,7 @@ class CCloud_ClientBeginFileUpload_Request PROTOBUF_FINAL :
   void _internal_set_time_stamp(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional uint32 raw_file_size = 3 [(.description) = "file size before any compression and/or encryption."];
+  // optional uint32 raw_file_size = 3;
   bool has_raw_file_size() const;
   private:
   bool _internal_has_raw_file_size() const;
@@ -6392,7 +6392,7 @@ class CCloud_ClientBeginFileUpload_Request PROTOBUF_FINAL :
   void _internal_set_raw_file_size(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 cell_id = 9 [(.description) = "Client\'s cell ID so we can pick storage location."];
+  // optional uint32 cell_id = 9;
   bool has_cell_id() const;
   private:
   bool _internal_has_cell_id() const;
@@ -6405,7 +6405,7 @@ class CCloud_ClientBeginFileUpload_Request PROTOBUF_FINAL :
   void _internal_set_cell_id(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional bool can_encrypt = 10 [(.description) = "if true, client can encrypt the file before uploading it"];
+  // optional bool can_encrypt = 10;
   bool has_can_encrypt() const;
   private:
   bool _internal_has_can_encrypt() const;
@@ -6418,7 +6418,7 @@ class CCloud_ClientBeginFileUpload_Request PROTOBUF_FINAL :
   void _internal_set_can_encrypt(bool value);
   public:
 
-  // optional bool is_shared_file = 11 [(.description) = "if true, this is going to be UGC or a screenshot or some other shared file"];
+  // optional bool is_shared_file = 11;
   bool has_is_shared_file() const;
   private:
   bool _internal_has_is_shared_file() const;
@@ -6431,7 +6431,7 @@ class CCloud_ClientBeginFileUpload_Request PROTOBUF_FINAL :
   void _internal_set_is_shared_file(bool value);
   public:
 
-  // optional uint32 deprecated_realm = 12 [(.description) = "unused"];
+  // optional uint32 deprecated_realm = 12;
   bool has_deprecated_realm() const;
   private:
   bool _internal_has_deprecated_realm() const;
@@ -6444,7 +6444,7 @@ class CCloud_ClientBeginFileUpload_Request PROTOBUF_FINAL :
   void _internal_set_deprecated_realm(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint64 upload_batch_id = 13 [(.description) = "ID of this batch."];
+  // optional uint64 upload_batch_id = 13;
   bool has_upload_batch_id() const;
   private:
   bool _internal_has_upload_batch_id() const;
@@ -6805,7 +6805,7 @@ class ClientCloudFileUploadBlockDetails PROTOBUF_FINAL :
     kBlocoffsetFieldNumber = 6,
     kBloclengthFieldNumber = 7,
   };
-  // repeated .ClientCloudFileUploadBlockDetails.HTTPHeaders request_headers = 5 [(.description) = "Name-value pairs to be sent in HTTP PUT request."];
+  // repeated .ClientCloudFileUploadBlockDetails.HTTPHeaders request_headers = 5;
   int request_headers_size() const;
   private:
   int _internal_request_headers_size() const;
@@ -6823,7 +6823,7 @@ class ClientCloudFileUploadBlockDetails PROTOBUF_FINAL :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ClientCloudFileUploadBlockDetails_HTTPHeaders >&
       request_headers() const;
 
-  // optional string url_host = 1 [(.description) = "Host name of server to which file should be uploaded via HTTP PUT."];
+  // optional string url_host = 1;
   bool has_url_host() const;
   private:
   bool _internal_has_url_host() const;
@@ -6843,7 +6843,7 @@ class ClientCloudFileUploadBlockDetails PROTOBUF_FINAL :
   std::string* _internal_mutable_url_host();
   public:
 
-  // optional string url_path = 2 [(.description) = "Relative path on server to which file should be uploaded."];
+  // optional string url_path = 2;
   bool has_url_path() const;
   private:
   bool _internal_has_url_path() const;
@@ -6863,7 +6863,7 @@ class ClientCloudFileUploadBlockDetails PROTOBUF_FINAL :
   std::string* _internal_mutable_url_path();
   public:
 
-  // optional bytes explicit_body_data = 8 [(.description) = "explicit body data to use, instead of file data, for this block"];
+  // optional bytes explicit_body_data = 8;
   bool has_explicit_body_data() const;
   private:
   bool _internal_has_explicit_body_data() const;
@@ -6883,7 +6883,7 @@ class ClientCloudFileUploadBlockDetails PROTOBUF_FINAL :
   std::string* _internal_mutable_explicit_body_data();
   public:
 
-  // optional int32 http_method = 4 [(.description) = "EHTTPMethod to use for this block."];
+  // optional int32 http_method = 4;
   bool has_http_method() const;
   private:
   bool _internal_has_http_method() const;
@@ -6896,7 +6896,7 @@ class ClientCloudFileUploadBlockDetails PROTOBUF_FINAL :
   void _internal_set_http_method(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
-  // optional bool use_https = 3 [(.description) = "If true, use https, otherwise use http."];
+  // optional bool use_https = 3;
   bool has_use_https() const;
   private:
   bool _internal_has_use_https() const;
@@ -6909,7 +6909,7 @@ class ClientCloudFileUploadBlockDetails PROTOBUF_FINAL :
   void _internal_set_use_https(bool value);
   public:
 
-  // optional bool may_parallelize = 9 [(.description) = "if true, this request may be done in parallel with other similarly-marked requests"];
+  // optional bool may_parallelize = 9;
   bool has_may_parallelize() const;
   private:
   bool _internal_has_may_parallelize() const;
@@ -6922,7 +6922,7 @@ class ClientCloudFileUploadBlockDetails PROTOBUF_FINAL :
   void _internal_set_may_parallelize(bool value);
   public:
 
-  // optional uint64 blocoffset = 6 [(.description) = "offset of file block to upload"];
+  // optional uint64 blocoffset = 6;
   bool has_blocoffset() const;
   private:
   bool _internal_has_blocoffset() const;
@@ -6935,7 +6935,7 @@ class ClientCloudFileUploadBlockDetails PROTOBUF_FINAL :
   void _internal_set_blocoffset(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional uint32 bloclength = 7 [(.description) = "length of file block to upload - if zero, no part of the file is part of this block"];
+  // optional uint32 bloclength = 7;
   bool has_bloclength() const;
   private:
   bool _internal_has_bloclength() const;
@@ -7093,7 +7093,7 @@ class CCloud_ClientBeginFileUpload_Response PROTOBUF_FINAL :
     kBlocrequestsFieldNumber = 2,
     kEncryptFileFieldNumber = 1,
   };
-  // repeated .ClientCloudFileUploadBlockDetails blocrequests = 2 [(.description) = "HTTP requests to make to perform upload"];
+  // repeated .ClientCloudFileUploadBlockDetails blocrequests = 2;
   int blocrequests_size() const;
   private:
   int _internal_blocrequests_size() const;
@@ -7111,7 +7111,7 @@ class CCloud_ClientBeginFileUpload_Response PROTOBUF_FINAL :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::ClientCloudFileUploadBlockDetails >&
       blocrequests() const;
 
-  // optional bool encrypt_file = 1 [(.description) = "If true, the file should be encrypted by the client before upload"];
+  // optional bool encrypt_file = 1;
   bool has_encrypt_file() const;
   private:
   bool _internal_has_encrypt_file() const;
@@ -7264,7 +7264,7 @@ class CCloud_ClientCommitFileUpload_Request PROTOBUF_FINAL :
     kTransferSucceededFieldNumber = 1,
     kAppidFieldNumber = 2,
   };
-  // optional bytes file_sha = 3 [(.description) = "SHA1 digest of the raw file. Must match the SHA1 digest provided to Cloud.BeginFileUpload."];
+  // optional bytes file_sha = 3;
   bool has_file_sha() const;
   private:
   bool _internal_has_file_sha() const;
@@ -7284,7 +7284,7 @@ class CCloud_ClientCommitFileUpload_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_file_sha();
   public:
 
-  // optional string filename = 4 [(.description) = "Filename as specified in the Cloud.BeginFileUpload request."];
+  // optional string filename = 4;
   bool has_filename() const;
   private:
   bool _internal_has_filename() const;
@@ -7304,7 +7304,7 @@ class CCloud_ClientCommitFileUpload_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_filename();
   public:
 
-  // optional bool transfer_succeeded = 1 [(.description) = "True if all block uploads succeeded, false if any of them failed."];
+  // optional bool transfer_succeeded = 1;
   bool has_transfer_succeeded() const;
   private:
   bool _internal_has_transfer_succeeded() const;
@@ -7317,7 +7317,7 @@ class CCloud_ClientCommitFileUpload_Request PROTOBUF_FINAL :
   void _internal_set_transfer_succeeded(bool value);
   public:
 
-  // optional uint32 appid = 2 [(.description) = "App ID for which the file is being uploaded. Must match the app ID provided to Cloud.BeginFileUpload."];
+  // optional uint32 appid = 2;
   bool has_appid() const;
   private:
   bool _internal_has_appid() const;
@@ -7469,7 +7469,7 @@ class CCloud_ClientCommitFileUpload_Response PROTOBUF_FINAL :
   enum : int {
     kFileCommittedFieldNumber = 1,
   };
-  // optional bool file_committed = 1 [(.description) = "True if the file was successfully committed, false otherwise."];
+  // optional bool file_committed = 1;
   bool has_file_committed() const;
   private:
   bool _internal_has_file_committed() const;
@@ -7620,7 +7620,7 @@ class CCloud_ClientFileDownload_Request PROTOBUF_FINAL :
     kAppidFieldNumber = 1,
     kRealmFieldNumber = 3,
   };
-  // optional string filename = 2 [(.description) = "Filename of the file."];
+  // optional string filename = 2;
   bool has_filename() const;
   private:
   bool _internal_has_filename() const;
@@ -7640,7 +7640,7 @@ class CCloud_ClientFileDownload_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_filename();
   public:
 
-  // optional uint32 appid = 1 [(.description) = "App ID the file is part of."];
+  // optional uint32 appid = 1;
   bool has_appid() const;
   private:
   bool _internal_has_appid() const;
@@ -7653,7 +7653,7 @@ class CCloud_ClientFileDownload_Request PROTOBUF_FINAL :
   void _internal_set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 realm = 3 [(.description) = "Steam Realm"];
+  // optional uint32 realm = 3;
   bool has_realm() const;
   private:
   bool _internal_has_realm() const;
@@ -7994,7 +7994,7 @@ class CCloud_ClientFileDownload_Response PROTOBUF_FINAL :
     kUseHttpsFieldNumber = 9,
     kEncryptedFieldNumber = 11,
   };
-  // repeated .CCloud_ClientFileDownload_Response.HTTPHeaders request_headers = 10 [(.description) = "Name-value pairs to be sent in HTTP GET request."];
+  // repeated .CCloud_ClientFileDownload_Response.HTTPHeaders request_headers = 10;
   int request_headers_size() const;
   private:
   int _internal_request_headers_size() const;
@@ -8012,7 +8012,7 @@ class CCloud_ClientFileDownload_Response PROTOBUF_FINAL :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CCloud_ClientFileDownload_Response_HTTPHeaders >&
       request_headers() const;
 
-  // optional bytes sha_file = 4 [(.description) = "SHA of file"];
+  // optional bytes sha_file = 4;
   bool has_sha_file() const;
   private:
   bool _internal_has_sha_file() const;
@@ -8032,7 +8032,7 @@ class CCloud_ClientFileDownload_Response PROTOBUF_FINAL :
   std::string* _internal_mutable_sha_file();
   public:
 
-  // optional string url_host = 7 [(.description) = "Host to GET the file from"];
+  // optional string url_host = 7;
   bool has_url_host() const;
   private:
   bool _internal_has_url_host() const;
@@ -8052,7 +8052,7 @@ class CCloud_ClientFileDownload_Response PROTOBUF_FINAL :
   std::string* _internal_mutable_url_host();
   public:
 
-  // optional string url_path = 8 [(.description) = "Path on that host to use, including URL parameters if any"];
+  // optional string url_path = 8;
   bool has_url_path() const;
   private:
   bool _internal_has_url_path() const;
@@ -8072,7 +8072,7 @@ class CCloud_ClientFileDownload_Response PROTOBUF_FINAL :
   std::string* _internal_mutable_url_path();
   public:
 
-  // optional uint32 appid = 1 [(.description) = "Application the file belongs to"];
+  // optional uint32 appid = 1;
   bool has_appid() const;
   private:
   bool _internal_has_appid() const;
@@ -8085,7 +8085,7 @@ class CCloud_ClientFileDownload_Response PROTOBUF_FINAL :
   void _internal_set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 file_size = 2 [(.description) = "file size as transmitted and stored in the Cloud"];
+  // optional uint32 file_size = 2;
   bool has_file_size() const;
   private:
   bool _internal_has_file_size() const;
@@ -8098,7 +8098,7 @@ class CCloud_ClientFileDownload_Response PROTOBUF_FINAL :
   void _internal_set_file_size(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint64 time_stamp = 5 [(.description) = "Timestamp of file"];
+  // optional uint64 time_stamp = 5;
   bool has_time_stamp() const;
   private:
   bool _internal_has_time_stamp() const;
@@ -8111,7 +8111,7 @@ class CCloud_ClientFileDownload_Response PROTOBUF_FINAL :
   void _internal_set_time_stamp(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional uint32 raw_file_size = 3 [(.description) = "file size when decompressed and/or decrypted"];
+  // optional uint32 raw_file_size = 3;
   bool has_raw_file_size() const;
   private:
   bool _internal_has_raw_file_size() const;
@@ -8124,7 +8124,7 @@ class CCloud_ClientFileDownload_Response PROTOBUF_FINAL :
   void _internal_set_raw_file_size(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional bool is_explicit_delete = 6 [(.description) = "True if this is an explicitly deleted file"];
+  // optional bool is_explicit_delete = 6;
   bool has_is_explicit_delete() const;
   private:
   bool _internal_has_is_explicit_delete() const;
@@ -8137,7 +8137,7 @@ class CCloud_ClientFileDownload_Response PROTOBUF_FINAL :
   void _internal_set_is_explicit_delete(bool value);
   public:
 
-  // optional bool use_https = 9 [(.description) = "If set, use HTTPS, else use HTTP"];
+  // optional bool use_https = 9;
   bool has_use_https() const;
   private:
   bool _internal_has_use_https() const;
@@ -8312,7 +8312,7 @@ class CCloud_ClientDeleteFile_Request PROTOBUF_FINAL :
     kIsExplicitDeleteFieldNumber = 3,
     kUploadBatchIdFieldNumber = 4,
   };
-  // optional string filename = 2 [(.description) = "Filename of file."];
+  // optional string filename = 2;
   bool has_filename() const;
   private:
   bool _internal_has_filename() const;
@@ -8332,7 +8332,7 @@ class CCloud_ClientDeleteFile_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_filename();
   public:
 
-  // optional uint32 appid = 1 [(.description) = "App ID for which the file is being deleted."];
+  // optional uint32 appid = 1;
   bool has_appid() const;
   private:
   bool _internal_has_appid() const;
@@ -8345,7 +8345,7 @@ class CCloud_ClientDeleteFile_Request PROTOBUF_FINAL :
   void _internal_set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional bool is_explicit_delete = 3 [(.description) = "If true, this is a \'delete\'; if false, it is a \'forget\'"];
+  // optional bool is_explicit_delete = 3;
   bool has_is_explicit_delete() const;
   private:
   bool _internal_has_is_explicit_delete() const;
@@ -8358,7 +8358,7 @@ class CCloud_ClientDeleteFile_Request PROTOBUF_FINAL :
   void _internal_set_is_explicit_delete(bool value);
   public:
 
-  // optional uint64 upload_batch_id = 4 [(.description) = "ID of this batch."];
+  // optional uint64 upload_batch_id = 4;
   bool has_upload_batch_id() const;
   private:
   bool _internal_has_upload_batch_id() const;
@@ -8642,7 +8642,7 @@ class CCloud_ClientConflictResolution_Notification PROTOBUF_FINAL :
     kAppidFieldNumber = 1,
     kChoseLocalFilesFieldNumber = 2,
   };
-  // optional uint32 appid = 1 [(.description) = "App ID for which the conflict was resolved."];
+  // optional uint32 appid = 1;
   bool has_appid() const;
   private:
   bool _internal_has_appid() const;
@@ -8655,7 +8655,7 @@ class CCloud_ClientConflictResolution_Notification PROTOBUF_FINAL :
   void _internal_set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional bool chose_local_files = 2 [(.description) = "Did the user choose to keep the files local to the machine they are on right now?"];
+  // optional bool chose_local_files = 2;
   bool has_chose_local_files() const;
   private:
   bool _internal_has_chose_local_files() const;
@@ -9271,7 +9271,7 @@ class CCloud_GetAppFileChangelist_Request PROTOBUF_FINAL :
     kSyncedChangeNumberFieldNumber = 2,
     kAppidFieldNumber = 1,
   };
-  // optional uint64 synced_change_number = 2 [(.description) = "Change Number to which local machine was last successfully synced"];
+  // optional uint64 synced_change_number = 2;
   bool has_synced_change_number() const;
   private:
   bool _internal_has_synced_change_number() const;
@@ -9284,7 +9284,7 @@ class CCloud_GetAppFileChangelist_Request PROTOBUF_FINAL :
   void _internal_set_synced_change_number(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional uint32 appid = 1 [(.description) = "App ID"];
+  // optional uint32 appid = 1;
   bool has_appid() const;
   private:
   bool _internal_has_appid() const;
@@ -9441,7 +9441,7 @@ class CCloud_AppFileInfo PROTOBUF_FINAL :
     kPathPrefixIndexFieldNumber = 7,
     kMachineNameIndexFieldNumber = 8,
   };
-  // optional string file_name = 1 [(.description) = "unqualified filename"];
+  // optional string file_name = 1;
   bool has_file_name() const;
   private:
   bool _internal_has_file_name() const;
@@ -9461,7 +9461,7 @@ class CCloud_AppFileInfo PROTOBUF_FINAL :
   std::string* _internal_mutable_file_name();
   public:
 
-  // optional bytes sha_file = 2 [(.description) = "SHA of file"];
+  // optional bytes sha_file = 2;
   bool has_sha_file() const;
   private:
   bool _internal_has_sha_file() const;
@@ -9481,7 +9481,7 @@ class CCloud_AppFileInfo PROTOBUF_FINAL :
   std::string* _internal_mutable_sha_file();
   public:
 
-  // optional uint64 time_stamp = 3 [(.description) = "server timestamp of last modification"];
+  // optional uint64 time_stamp = 3;
   bool has_time_stamp() const;
   private:
   bool _internal_has_time_stamp() const;
@@ -9494,7 +9494,7 @@ class CCloud_AppFileInfo PROTOBUF_FINAL :
   void _internal_set_time_stamp(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional uint32 raw_file_size = 4 [(.description) = "size of raw file"];
+  // optional uint32 raw_file_size = 4;
   bool has_raw_file_size() const;
   private:
   bool _internal_has_raw_file_size() const;
@@ -9507,7 +9507,7 @@ class CCloud_AppFileInfo PROTOBUF_FINAL :
   void _internal_set_raw_file_size(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional .ECloudStoragePersistState persist_state = 5 [default = ECloudStoragePersistStatePersisted, (.description) = "current persist state of the file"];
+  // optional .ECloudStoragePersistState persist_state = 5 [default = ECloudStoragePersistStatePersisted];
   bool has_persist_state() const;
   private:
   bool _internal_has_persist_state() const;
@@ -9520,7 +9520,7 @@ class CCloud_AppFileInfo PROTOBUF_FINAL :
   void _internal_set_persist_state(::ECloudStoragePersistState value);
   public:
 
-  // optional uint32 platforms_to_sync = 6 [(.description) = "ERemoteStoragePlatform bits"];
+  // optional uint32 platforms_to_sync = 6;
   bool has_platforms_to_sync() const;
   private:
   bool _internal_has_platforms_to_sync() const;
@@ -9533,7 +9533,7 @@ class CCloud_AppFileInfo PROTOBUF_FINAL :
   void _internal_set_platforms_to_sync(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 path_prefix_index = 7 [(.description) = "index into string table of path prefixes"];
+  // optional uint32 path_prefix_index = 7;
   bool has_path_prefix_index() const;
   private:
   bool _internal_has_path_prefix_index() const;
@@ -9546,7 +9546,7 @@ class CCloud_AppFileInfo PROTOBUF_FINAL :
   void _internal_set_path_prefix_index(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 machine_name_index = 8 [(.description) = "what machine last modified this file"];
+  // optional uint32 machine_name_index = 8;
   bool has_machine_name_index() const;
   private:
   bool _internal_has_machine_name_index() const;
@@ -9707,7 +9707,7 @@ class CCloud_GetAppFileChangelist_Response PROTOBUF_FINAL :
     kAppBuildidHwmFieldNumber = 6,
     kIsOnlyDeltaFieldNumber = 3,
   };
-  // repeated .CCloud_AppFileInfo files = 2 [(.description) = "List of files; may be the full list of extant/deleted files, or just a delta from the client list"];
+  // repeated .CCloud_AppFileInfo files = 2;
   int files_size() const;
   private:
   int _internal_files_size() const;
@@ -9725,7 +9725,7 @@ class CCloud_GetAppFileChangelist_Response PROTOBUF_FINAL :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CCloud_AppFileInfo >&
       files() const;
 
-  // repeated string path_prefixes = 4 [(.description) = "string table of path prefixes"];
+  // repeated string path_prefixes = 4;
   int path_prefixes_size() const;
   private:
   int _internal_path_prefixes_size() const;
@@ -9749,7 +9749,7 @@ class CCloud_GetAppFileChangelist_Response PROTOBUF_FINAL :
   std::string* _internal_add_path_prefixes();
   public:
 
-  // repeated string machine_names = 5 [(.description) = "string table of machine names"];
+  // repeated string machine_names = 5;
   int machine_names_size() const;
   private:
   int _internal_machine_names_size() const;
@@ -9773,7 +9773,7 @@ class CCloud_GetAppFileChangelist_Response PROTOBUF_FINAL :
   std::string* _internal_add_machine_names();
   public:
 
-  // optional uint64 current_change_number = 1 [(.description) = "Change Number current on server"];
+  // optional uint64 current_change_number = 1;
   bool has_current_change_number() const;
   private:
   bool _internal_has_current_change_number() const;
@@ -9786,7 +9786,7 @@ class CCloud_GetAppFileChangelist_Response PROTOBUF_FINAL :
   void _internal_set_current_change_number(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional uint64 app_buildid_hwm = 6 [(.description) = "highest app build ID which has uploaded data"];
+  // optional uint64 app_buildid_hwm = 6;
   bool has_app_buildid_hwm() const;
   private:
   bool _internal_has_app_buildid_hwm() const;
@@ -9799,7 +9799,7 @@ class CCloud_GetAppFileChangelist_Response PROTOBUF_FINAL :
   void _internal_set_app_buildid_hwm(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional bool is_only_delta = 3 [(.description) = "If true, \'files\' omits any files that have not changed since client\'s change ID"];
+  // optional bool is_only_delta = 3;
   bool has_is_only_delta() const;
   private:
   bool _internal_has_is_only_delta() const;
@@ -10781,7 +10781,7 @@ class CCloud_AppLaunchIntent_Response PROTOBUF_FINAL :
   enum : int {
     kPendingRemoteOperationsFieldNumber = 1,
   };
-  // repeated .CCloud_PendingRemoteOperation pending_remote_operations = 1 [(.description) = "pending remote operations you should be aware of"];
+  // repeated .CCloud_PendingRemoteOperation pending_remote_operations = 1;
   int pending_remote_operations_size() const;
   private:
   int _internal_pending_remote_operations_size() const;
@@ -11472,7 +11472,7 @@ class CCloud_AppCloudStateChange_Notification PROTOBUF_FINAL :
     kAppChangeNumberFieldNumber = 2,
     kAppidFieldNumber = 1,
   };
-  // optional uint64 app_change_number = 2 [(.description) = "New App Change Number"];
+  // optional uint64 app_change_number = 2;
   bool has_app_change_number() const;
   private:
   bool _internal_has_app_change_number() const;
@@ -11485,7 +11485,7 @@ class CCloud_AppCloudStateChange_Notification PROTOBUF_FINAL :
   void _internal_set_app_change_number(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional uint32 appid = 1 [(.description) = "App which has had a change in cloud state"];
+  // optional uint32 appid = 1;
   bool has_appid() const;
   private:
   bool _internal_has_appid() const;
@@ -12105,7 +12105,7 @@ inline void CCloud_ClientLogUploadComplete_Notification::set_request_id(::PROTOB
 
 // CCloud_GetUploadServerInfo_Request
 
-// optional uint32 appid = 1 [(.description) = "App ID to which a file will be uploaded to."];
+// optional uint32 appid = 1;
 inline bool CCloud_GetUploadServerInfo_Request::_internal_has_appid() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -12214,7 +12214,7 @@ inline void CCloud_GetUploadServerInfo_Response::set_allocated_server_url(std::s
 
 // CCloud_BeginHTTPUpload_Request
 
-// optional uint32 appid = 1 [(.description) = "App ID for which the file is being uploaded."];
+// optional uint32 appid = 1;
 inline bool CCloud_BeginHTTPUpload_Request::_internal_has_appid() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -12242,7 +12242,7 @@ inline void CCloud_BeginHTTPUpload_Request::set_appid(::PROTOBUF_NAMESPACE_ID::u
   // @@protoc_insertion_point(field_set:CCloud_BeginHTTPUpload_Request.appid)
 }
 
-// optional uint32 file_size = 2 [(.description) = "Original file size in bytes."];
+// optional uint32 file_size = 2;
 inline bool CCloud_BeginHTTPUpload_Request::_internal_has_file_size() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -12270,7 +12270,7 @@ inline void CCloud_BeginHTTPUpload_Request::set_file_size(::PROTOBUF_NAMESPACE_I
   // @@protoc_insertion_point(field_set:CCloud_BeginHTTPUpload_Request.file_size)
 }
 
-// optional string filename = 3 [(.description) = "Name of the file to store in the cloud."];
+// optional string filename = 3;
 inline bool CCloud_BeginHTTPUpload_Request::_internal_has_filename() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -12343,7 +12343,7 @@ inline void CCloud_BeginHTTPUpload_Request::set_allocated_filename(std::string* 
   // @@protoc_insertion_point(field_set_allocated:CCloud_BeginHTTPUpload_Request.filename)
 }
 
-// optional string file_sha = 4 [(.description) = "Hex string (40 digits) representing the SHA1 digest of the file."];
+// optional string file_sha = 4;
 inline bool CCloud_BeginHTTPUpload_Request::_internal_has_file_sha() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -12416,7 +12416,7 @@ inline void CCloud_BeginHTTPUpload_Request::set_allocated_file_sha(std::string* 
   // @@protoc_insertion_point(field_set_allocated:CCloud_BeginHTTPUpload_Request.file_sha)
 }
 
-// optional bool is_public = 5 [(.description) = "True if the file should be marked public on the UFS, false otherwise."];
+// optional bool is_public = 5;
 inline bool CCloud_BeginHTTPUpload_Request::_internal_has_is_public() const {
   bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
@@ -12444,7 +12444,7 @@ inline void CCloud_BeginHTTPUpload_Request::set_is_public(bool value) {
   // @@protoc_insertion_point(field_set:CCloud_BeginHTTPUpload_Request.is_public)
 }
 
-// repeated string platforms_to_sync = 6 [(.description) = "Array of string specifying which platforms to sync; value values: all, Windows, MacOS, linux, Switch, iPhoneOS, Android."];
+// repeated string platforms_to_sync = 6;
 inline int CCloud_BeginHTTPUpload_Request::_internal_platforms_to_sync_size() const {
   return platforms_to_sync_.size();
 }
@@ -12518,7 +12518,7 @@ CCloud_BeginHTTPUpload_Request::mutable_platforms_to_sync() {
   return &platforms_to_sync_;
 }
 
-// repeated string request_headers_names = 7 [(.description) = "Names for headers you\'ll want to set on your upload request. May be left blank."];
+// repeated string request_headers_names = 7;
 inline int CCloud_BeginHTTPUpload_Request::_internal_request_headers_names_size() const {
   return request_headers_names_.size();
 }
@@ -12592,7 +12592,7 @@ CCloud_BeginHTTPUpload_Request::mutable_request_headers_names() {
   return &request_headers_names_;
 }
 
-// repeated string request_headers_values = 8 [(.description) = "Values for headers you\'ll want to set on your upload request. The number of names must equal the number of values."];
+// repeated string request_headers_values = 8;
 inline int CCloud_BeginHTTPUpload_Request::_internal_request_headers_values_size() const {
   return request_headers_values_.size();
 }
@@ -12666,7 +12666,7 @@ CCloud_BeginHTTPUpload_Request::mutable_request_headers_values() {
   return &request_headers_values_;
 }
 
-// optional uint64 upload_batch_id = 9 [(.description) = "ID of this batch returned by prior BeginAppUploadBatch call."];
+// optional uint64 upload_batch_id = 9;
 inline bool CCloud_BeginHTTPUpload_Request::_internal_has_upload_batch_id() const {
   bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
@@ -12848,7 +12848,7 @@ inline void CCloud_BeginHTTPUpload_Response_HTTPHeaders::set_allocated_value(std
 
 // CCloud_BeginHTTPUpload_Response
 
-// optional fixed64 ugcid = 1 [(.description) = "UGC ID of the uploaded file."];
+// optional fixed64 ugcid = 1;
 inline bool CCloud_BeginHTTPUpload_Response::_internal_has_ugcid() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -12876,7 +12876,7 @@ inline void CCloud_BeginHTTPUpload_Response::set_ugcid(::PROTOBUF_NAMESPACE_ID::
   // @@protoc_insertion_point(field_set:CCloud_BeginHTTPUpload_Response.ugcid)
 }
 
-// optional fixed32 timestamp = 2 [(.description) = "Server timestamp of file."];
+// optional fixed32 timestamp = 2;
 inline bool CCloud_BeginHTTPUpload_Response::_internal_has_timestamp() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -12904,7 +12904,7 @@ inline void CCloud_BeginHTTPUpload_Response::set_timestamp(::PROTOBUF_NAMESPACE_
   // @@protoc_insertion_point(field_set:CCloud_BeginHTTPUpload_Response.timestamp)
 }
 
-// optional string url_host = 3 [(.description) = "Host name of server to which file should be uploaded via HTTP PUT."];
+// optional string url_host = 3;
 inline bool CCloud_BeginHTTPUpload_Response::_internal_has_url_host() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -12977,7 +12977,7 @@ inline void CCloud_BeginHTTPUpload_Response::set_allocated_url_host(std::string*
   // @@protoc_insertion_point(field_set_allocated:CCloud_BeginHTTPUpload_Response.url_host)
 }
 
-// optional string url_path = 4 [(.description) = "Relative path on server to which file should be uploaded."];
+// optional string url_path = 4;
 inline bool CCloud_BeginHTTPUpload_Response::_internal_has_url_path() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -13050,7 +13050,7 @@ inline void CCloud_BeginHTTPUpload_Response::set_allocated_url_path(std::string*
   // @@protoc_insertion_point(field_set_allocated:CCloud_BeginHTTPUpload_Response.url_path)
 }
 
-// optional bool use_https = 5 [(.description) = "If true, use https, otherwise use http."];
+// optional bool use_https = 5;
 inline bool CCloud_BeginHTTPUpload_Response::_internal_has_use_https() const {
   bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
@@ -13078,7 +13078,7 @@ inline void CCloud_BeginHTTPUpload_Response::set_use_https(bool value) {
   // @@protoc_insertion_point(field_set:CCloud_BeginHTTPUpload_Response.use_https)
 }
 
-// repeated .CCloud_BeginHTTPUpload_Response.HTTPHeaders request_headers = 6 [(.description) = "Name-value pairs to be sent in HTTP PUT request."];
+// repeated .CCloud_BeginHTTPUpload_Response.HTTPHeaders request_headers = 6;
 inline int CCloud_BeginHTTPUpload_Response::_internal_request_headers_size() const {
   return request_headers_.size();
 }
@@ -13121,7 +13121,7 @@ CCloud_BeginHTTPUpload_Response::request_headers() const {
 
 // CCloud_CommitHTTPUpload_Request
 
-// optional bool transfer_succeeded = 1 [(.description) = "True if the HTTP PUT to the upload URL succeeded (URL provided in response to Cloud.BeginHTTPUpload), false if a failure occurred."];
+// optional bool transfer_succeeded = 1;
 inline bool CCloud_CommitHTTPUpload_Request::_internal_has_transfer_succeeded() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -13149,7 +13149,7 @@ inline void CCloud_CommitHTTPUpload_Request::set_transfer_succeeded(bool value) 
   // @@protoc_insertion_point(field_set:CCloud_CommitHTTPUpload_Request.transfer_succeeded)
 }
 
-// optional uint32 appid = 2 [(.description) = "App ID for which the file is being uploaded. Must match the app ID provided to Cloud.BeginHTTPUpload."];
+// optional uint32 appid = 2;
 inline bool CCloud_CommitHTTPUpload_Request::_internal_has_appid() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -13177,7 +13177,7 @@ inline void CCloud_CommitHTTPUpload_Request::set_appid(::PROTOBUF_NAMESPACE_ID::
   // @@protoc_insertion_point(field_set:CCloud_CommitHTTPUpload_Request.appid)
 }
 
-// optional string file_sha = 3 [(.description) = "Hex string (40 digits) representing the SHA1 digest of the file. Must match the SHA1 digest provided to Cloud.BeginHTTPUpload."];
+// optional string file_sha = 3;
 inline bool CCloud_CommitHTTPUpload_Request::_internal_has_file_sha() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -13250,7 +13250,7 @@ inline void CCloud_CommitHTTPUpload_Request::set_allocated_file_sha(std::string*
   // @@protoc_insertion_point(field_set_allocated:CCloud_CommitHTTPUpload_Request.file_sha)
 }
 
-// optional string filename = 4 [(.description) = "Filename as specified in the Cloud.BeginHTTPUpload request."];
+// optional string filename = 4;
 inline bool CCloud_CommitHTTPUpload_Request::_internal_has_filename() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -13327,7 +13327,7 @@ inline void CCloud_CommitHTTPUpload_Request::set_allocated_filename(std::string*
 
 // CCloud_CommitHTTPUpload_Response
 
-// optional bool file_committed = 1 [(.description) = "True if the file was successfully committed, false otherwise."];
+// optional bool file_committed = 1;
 inline bool CCloud_CommitHTTPUpload_Response::_internal_has_file_committed() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -13359,7 +13359,7 @@ inline void CCloud_CommitHTTPUpload_Response::set_file_committed(bool value) {
 
 // CCloud_BeginUGCUpload_Request
 
-// optional uint32 appid = 1 [(.description) = "App ID this UGC belongs to."];
+// optional uint32 appid = 1;
 inline bool CCloud_BeginUGCUpload_Request::_internal_has_appid() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -13387,7 +13387,7 @@ inline void CCloud_BeginUGCUpload_Request::set_appid(::PROTOBUF_NAMESPACE_ID::ui
   // @@protoc_insertion_point(field_set:CCloud_BeginUGCUpload_Request.appid)
 }
 
-// optional uint32 file_size = 2 [(.description) = "File size in bytes."];
+// optional uint32 file_size = 2;
 inline bool CCloud_BeginUGCUpload_Request::_internal_has_file_size() const {
   bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
@@ -13415,7 +13415,7 @@ inline void CCloud_BeginUGCUpload_Request::set_file_size(::PROTOBUF_NAMESPACE_ID
   // @@protoc_insertion_point(field_set:CCloud_BeginUGCUpload_Request.file_size)
 }
 
-// optional string filename = 3 [(.description) = "Name of the file."];
+// optional string filename = 3;
 inline bool CCloud_BeginUGCUpload_Request::_internal_has_filename() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -13488,7 +13488,7 @@ inline void CCloud_BeginUGCUpload_Request::set_allocated_filename(std::string* f
   // @@protoc_insertion_point(field_set_allocated:CCloud_BeginUGCUpload_Request.filename)
 }
 
-// optional string file_sha = 4 [(.description) = "Hex string (40 digits) representing the SHA1 digest of the file."];
+// optional string file_sha = 4;
 inline bool CCloud_BeginUGCUpload_Request::_internal_has_file_sha() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -13561,7 +13561,7 @@ inline void CCloud_BeginUGCUpload_Request::set_allocated_file_sha(std::string* f
   // @@protoc_insertion_point(field_set_allocated:CCloud_BeginUGCUpload_Request.file_sha)
 }
 
-// optional string content_type = 5 [(.description) = "MIME content type of the file"];
+// optional string content_type = 5;
 inline bool CCloud_BeginUGCUpload_Request::_internal_has_content_type() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -13788,7 +13788,7 @@ inline void CCloud_BeginUGCUpload_Response_HTTPHeaders::set_allocated_value(std:
 
 // CCloud_BeginUGCUpload_Response
 
-// optional .EPublishedFileStorageSystem storage_system = 1 [default = EPublishedFileStorageSystemInvalid, (.description) = "UGC Storage system chosen for this file"];
+// optional .EPublishedFileStorageSystem storage_system = 1 [default = EPublishedFileStorageSystemInvalid];
 inline bool CCloud_BeginUGCUpload_Response::_internal_has_storage_system() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -13817,7 +13817,7 @@ inline void CCloud_BeginUGCUpload_Response::set_storage_system(::EPublishedFileS
   // @@protoc_insertion_point(field_set:CCloud_BeginUGCUpload_Response.storage_system)
 }
 
-// optional fixed64 ugcid = 2 [(.description) = "UGC ID of the uploaded file."];
+// optional fixed64 ugcid = 2;
 inline bool CCloud_BeginUGCUpload_Response::_internal_has_ugcid() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -13845,7 +13845,7 @@ inline void CCloud_BeginUGCUpload_Response::set_ugcid(::PROTOBUF_NAMESPACE_ID::u
   // @@protoc_insertion_point(field_set:CCloud_BeginUGCUpload_Response.ugcid)
 }
 
-// optional fixed32 timestamp = 3 [(.description) = "Server timestamp of file."];
+// optional fixed32 timestamp = 3;
 inline bool CCloud_BeginUGCUpload_Response::_internal_has_timestamp() const {
   bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
@@ -13873,7 +13873,7 @@ inline void CCloud_BeginUGCUpload_Response::set_timestamp(::PROTOBUF_NAMESPACE_I
   // @@protoc_insertion_point(field_set:CCloud_BeginUGCUpload_Response.timestamp)
 }
 
-// optional string url_host = 4 [(.description) = "Host name of server to which file should be uploaded via HTTP PUT."];
+// optional string url_host = 4;
 inline bool CCloud_BeginUGCUpload_Response::_internal_has_url_host() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -13946,7 +13946,7 @@ inline void CCloud_BeginUGCUpload_Response::set_allocated_url_host(std::string* 
   // @@protoc_insertion_point(field_set_allocated:CCloud_BeginUGCUpload_Response.url_host)
 }
 
-// optional string url_path = 5 [(.description) = "Relative path on server to which file should be uploaded."];
+// optional string url_path = 5;
 inline bool CCloud_BeginUGCUpload_Response::_internal_has_url_path() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -14019,7 +14019,7 @@ inline void CCloud_BeginUGCUpload_Response::set_allocated_url_path(std::string* 
   // @@protoc_insertion_point(field_set_allocated:CCloud_BeginUGCUpload_Response.url_path)
 }
 
-// optional bool use_https = 6 [(.description) = "If true, use https, otherwise use http."];
+// optional bool use_https = 6;
 inline bool CCloud_BeginUGCUpload_Response::_internal_has_use_https() const {
   bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
@@ -14047,7 +14047,7 @@ inline void CCloud_BeginUGCUpload_Response::set_use_https(bool value) {
   // @@protoc_insertion_point(field_set:CCloud_BeginUGCUpload_Response.use_https)
 }
 
-// repeated .CCloud_BeginUGCUpload_Response.HTTPHeaders request_headers = 7 [(.description) = "Name-value pairs to be sent in HTTP PUT request."];
+// repeated .CCloud_BeginUGCUpload_Response.HTTPHeaders request_headers = 7;
 inline int CCloud_BeginUGCUpload_Response::_internal_request_headers_size() const {
   return request_headers_.size();
 }
@@ -14090,7 +14090,7 @@ CCloud_BeginUGCUpload_Response::request_headers() const {
 
 // CCloud_CommitUGCUpload_Request
 
-// optional bool transfer_succeeded = 1 [(.description) = "True if the HTTP PUT to the upload URL succeeded (URL provided in response to Cloud.BeginUGCUpload), false if a failure occurred."];
+// optional bool transfer_succeeded = 1;
 inline bool CCloud_CommitUGCUpload_Request::_internal_has_transfer_succeeded() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -14118,7 +14118,7 @@ inline void CCloud_CommitUGCUpload_Request::set_transfer_succeeded(bool value) {
   // @@protoc_insertion_point(field_set:CCloud_CommitUGCUpload_Request.transfer_succeeded)
 }
 
-// optional uint32 appid = 2 [(.description) = "App ID for which the file is being uploaded. Must match the app ID provided to Cloud.BeginUGCUpload."];
+// optional uint32 appid = 2;
 inline bool CCloud_CommitUGCUpload_Request::_internal_has_appid() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -14146,7 +14146,7 @@ inline void CCloud_CommitUGCUpload_Request::set_appid(::PROTOBUF_NAMESPACE_ID::u
   // @@protoc_insertion_point(field_set:CCloud_CommitUGCUpload_Request.appid)
 }
 
-// optional fixed64 ugcid = 3 [(.description) = "UGC ID of the uploaded file."];
+// optional fixed64 ugcid = 3;
 inline bool CCloud_CommitUGCUpload_Request::_internal_has_ugcid() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -14178,7 +14178,7 @@ inline void CCloud_CommitUGCUpload_Request::set_ugcid(::PROTOBUF_NAMESPACE_ID::u
 
 // CCloud_CommitUGCUpload_Response
 
-// optional bool file_committed = 1 [(.description) = "True if the file was successfully committed, false otherwise."];
+// optional bool file_committed = 1;
 inline bool CCloud_CommitUGCUpload_Response::_internal_has_file_committed() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -14210,7 +14210,7 @@ inline void CCloud_CommitUGCUpload_Response::set_file_committed(bool value) {
 
 // CCloud_GetFileDetails_Request
 
-// optional uint64 ugcid = 1 [(.description) = "ID of the Cloud file to get details for."];
+// optional uint64 ugcid = 1;
 inline bool CCloud_GetFileDetails_Request::_internal_has_ugcid() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -14238,7 +14238,7 @@ inline void CCloud_GetFileDetails_Request::set_ugcid(::PROTOBUF_NAMESPACE_ID::ui
   // @@protoc_insertion_point(field_set:CCloud_GetFileDetails_Request.ugcid)
 }
 
-// optional uint32 appid = 2 [(.description) = "App ID the file belongs to."];
+// optional uint32 appid = 2;
 inline bool CCloud_GetFileDetails_Request::_internal_has_appid() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -14584,7 +14584,7 @@ inline void CCloud_UserFile::set_flags(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   // @@protoc_insertion_point(field_set:CCloud_UserFile.flags)
 }
 
-// repeated string platforms_to_sync = 9 [(.description) = "Array of string specifying which platforms to sync; value values: all, Windows, MacOS, linux, Switch, iPhoneOS, Android."];
+// repeated string platforms_to_sync = 9;
 inline int CCloud_UserFile::_internal_platforms_to_sync_size() const {
   return platforms_to_sync_.size();
 }
@@ -14658,7 +14658,7 @@ CCloud_UserFile::mutable_platforms_to_sync() {
   return &platforms_to_sync_;
 }
 
-// optional string file_sha = 10 [(.description) = "Hex string (40 digits) representing the SHA1 digest of the file."];
+// optional string file_sha = 10;
 inline bool CCloud_UserFile::_internal_has_file_sha() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -14822,7 +14822,7 @@ inline void CCloud_GetFileDetails_Response::set_allocated_details(::CCloud_UserF
 
 // CCloud_EnumerateUserFiles_Request
 
-// optional uint32 appid = 1 [(.description) = "App ID to enumerate the files of."];
+// optional uint32 appid = 1;
 inline bool CCloud_EnumerateUserFiles_Request::_internal_has_appid() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -14850,7 +14850,7 @@ inline void CCloud_EnumerateUserFiles_Request::set_appid(::PROTOBUF_NAMESPACE_ID
   // @@protoc_insertion_point(field_set:CCloud_EnumerateUserFiles_Request.appid)
 }
 
-// optional bool extended_details = 2 [(.description) = "(Optional) Get extended details back on the files found. Defaults to only returned the app Id and UGC Id of the files found."];
+// optional bool extended_details = 2;
 inline bool CCloud_EnumerateUserFiles_Request::_internal_has_extended_details() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -14878,7 +14878,7 @@ inline void CCloud_EnumerateUserFiles_Request::set_extended_details(bool value) 
   // @@protoc_insertion_point(field_set:CCloud_EnumerateUserFiles_Request.extended_details)
 }
 
-// optional uint32 count = 3 [(.description) = "(Optional) Maximum number of results to return on this call. Defaults to a maximum of 500 files returned."];
+// optional uint32 count = 3;
 inline bool CCloud_EnumerateUserFiles_Request::_internal_has_count() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -14906,7 +14906,7 @@ inline void CCloud_EnumerateUserFiles_Request::set_count(::PROTOBUF_NAMESPACE_ID
   // @@protoc_insertion_point(field_set:CCloud_EnumerateUserFiles_Request.count)
 }
 
-// optional uint32 start_index = 4 [(.description) = "(Optional) Starting index to begin enumeration at. Defaults to the beginning of the list."];
+// optional uint32 start_index = 4;
 inline bool CCloud_EnumerateUserFiles_Request::_internal_has_start_index() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -15082,7 +15082,7 @@ inline void CCloud_Delete_Request::set_allocated_filename(std::string* filename)
   // @@protoc_insertion_point(field_set_allocated:CCloud_Delete_Request.filename)
 }
 
-// optional uint32 appid = 2 [(.description) = "App ID the file belongs to."];
+// optional uint32 appid = 2;
 inline bool CCloud_Delete_Request::_internal_has_appid() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -15110,7 +15110,7 @@ inline void CCloud_Delete_Request::set_appid(::PROTOBUF_NAMESPACE_ID::uint32 val
   // @@protoc_insertion_point(field_set:CCloud_Delete_Request.appid)
 }
 
-// optional uint64 upload_batch_id = 3 [(.description) = "ID of this batch returned by prior BeginAppUploadBatch call."];
+// optional uint64 upload_batch_id = 3;
 inline bool CCloud_Delete_Request::_internal_has_upload_batch_id() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -15150,7 +15150,7 @@ inline void CCloud_Delete_Request::set_upload_batch_id(::PROTOBUF_NAMESPACE_ID::
 
 // CCloud_GetClientEncryptionKey_Response
 
-// optional bytes key = 1 [(.description) = "AES-256 encryption key"];
+// optional bytes key = 1;
 inline bool CCloud_GetClientEncryptionKey_Response::_internal_has_key() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -15223,7 +15223,7 @@ inline void CCloud_GetClientEncryptionKey_Response::set_allocated_key(std::strin
   // @@protoc_insertion_point(field_set_allocated:CCloud_GetClientEncryptionKey_Response.key)
 }
 
-// optional int32 crc = 2 [(.description) = "CRC of key"];
+// optional int32 crc = 2;
 inline bool CCloud_GetClientEncryptionKey_Response::_internal_has_crc() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -16042,7 +16042,7 @@ inline void CCloud_ExternalStorageTransferReport_Notification::set_time_to_last_
 
 // CCloud_BeginAppUploadBatch_Request
 
-// optional uint32 appid = 1 [(.description) = "App ID for this batch is for."];
+// optional uint32 appid = 1;
 inline bool CCloud_BeginAppUploadBatch_Request::_internal_has_appid() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -16070,7 +16070,7 @@ inline void CCloud_BeginAppUploadBatch_Request::set_appid(::PROTOBUF_NAMESPACE_I
   // @@protoc_insertion_point(field_set:CCloud_BeginAppUploadBatch_Request.appid)
 }
 
-// optional string machine_name = 2 [(.description) = "Client machine name (may be user\'s alias)."];
+// optional string machine_name = 2;
 inline bool CCloud_BeginAppUploadBatch_Request::_internal_has_machine_name() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -16143,7 +16143,7 @@ inline void CCloud_BeginAppUploadBatch_Request::set_allocated_machine_name(std::
   // @@protoc_insertion_point(field_set_allocated:CCloud_BeginAppUploadBatch_Request.machine_name)
 }
 
-// repeated string files_to_upload = 3 [(.description) = "Filenames of files to upload in this batch"];
+// repeated string files_to_upload = 3;
 inline int CCloud_BeginAppUploadBatch_Request::_internal_files_to_upload_size() const {
   return files_to_upload_.size();
 }
@@ -16217,7 +16217,7 @@ CCloud_BeginAppUploadBatch_Request::mutable_files_to_upload() {
   return &files_to_upload_;
 }
 
-// repeated string files_to_delete = 4 [(.description) = "Filenames of files to delete in this batch"];
+// repeated string files_to_delete = 4;
 inline int CCloud_BeginAppUploadBatch_Request::_internal_files_to_delete_size() const {
   return files_to_delete_.size();
 }
@@ -16291,7 +16291,7 @@ CCloud_BeginAppUploadBatch_Request::mutable_files_to_delete() {
   return &files_to_delete_;
 }
 
-// optional uint64 client_id = 5 [(.description) = "Client ID number"];
+// optional uint64 client_id = 5;
 inline bool CCloud_BeginAppUploadBatch_Request::_internal_has_client_id() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -16319,7 +16319,7 @@ inline void CCloud_BeginAppUploadBatch_Request::set_client_id(::PROTOBUF_NAMESPA
   // @@protoc_insertion_point(field_set:CCloud_BeginAppUploadBatch_Request.client_id)
 }
 
-// optional uint64 app_build_id = 6 [(.description) = "Current local build of the app which made these changes"];
+// optional uint64 app_build_id = 6;
 inline bool CCloud_BeginAppUploadBatch_Request::_internal_has_app_build_id() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -16351,7 +16351,7 @@ inline void CCloud_BeginAppUploadBatch_Request::set_app_build_id(::PROTOBUF_NAME
 
 // CCloud_BeginAppUploadBatch_Response
 
-// optional uint64 batch_id = 1 [(.description) = "ID of this batch."];
+// optional uint64 batch_id = 1;
 inline bool CCloud_BeginAppUploadBatch_Response::_internal_has_batch_id() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -16379,7 +16379,7 @@ inline void CCloud_BeginAppUploadBatch_Response::set_batch_id(::PROTOBUF_NAMESPA
   // @@protoc_insertion_point(field_set:CCloud_BeginAppUploadBatch_Response.batch_id)
 }
 
-// optional uint64 app_change_number = 4 [(.description) = "New App Change Number"];
+// optional uint64 app_change_number = 4;
 inline bool CCloud_BeginAppUploadBatch_Response::_internal_has_app_change_number() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -16411,7 +16411,7 @@ inline void CCloud_BeginAppUploadBatch_Response::set_app_change_number(::PROTOBU
 
 // CCloud_CompleteAppUploadBatch_Notification
 
-// optional uint32 appid = 1 [(.description) = "App ID for this batch is for."];
+// optional uint32 appid = 1;
 inline bool CCloud_CompleteAppUploadBatch_Notification::_internal_has_appid() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -16439,7 +16439,7 @@ inline void CCloud_CompleteAppUploadBatch_Notification::set_appid(::PROTOBUF_NAM
   // @@protoc_insertion_point(field_set:CCloud_CompleteAppUploadBatch_Notification.appid)
 }
 
-// optional uint64 batch_id = 2 [(.description) = "ID of this batch."];
+// optional uint64 batch_id = 2;
 inline bool CCloud_CompleteAppUploadBatch_Notification::_internal_has_batch_id() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -16467,7 +16467,7 @@ inline void CCloud_CompleteAppUploadBatch_Notification::set_batch_id(::PROTOBUF_
   // @@protoc_insertion_point(field_set:CCloud_CompleteAppUploadBatch_Notification.batch_id)
 }
 
-// optional uint32 batch_eresult = 3 [(.description) = "result of this batch."];
+// optional uint32 batch_eresult = 3;
 inline bool CCloud_CompleteAppUploadBatch_Notification::_internal_has_batch_eresult() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -16499,7 +16499,7 @@ inline void CCloud_CompleteAppUploadBatch_Notification::set_batch_eresult(::PROT
 
 // CCloud_CompleteAppUploadBatch_Request
 
-// optional uint32 appid = 1 [(.description) = "App ID for this batch is for."];
+// optional uint32 appid = 1;
 inline bool CCloud_CompleteAppUploadBatch_Request::_internal_has_appid() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -16527,7 +16527,7 @@ inline void CCloud_CompleteAppUploadBatch_Request::set_appid(::PROTOBUF_NAMESPAC
   // @@protoc_insertion_point(field_set:CCloud_CompleteAppUploadBatch_Request.appid)
 }
 
-// optional uint64 batch_id = 2 [(.description) = "ID of this batch."];
+// optional uint64 batch_id = 2;
 inline bool CCloud_CompleteAppUploadBatch_Request::_internal_has_batch_id() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -16555,7 +16555,7 @@ inline void CCloud_CompleteAppUploadBatch_Request::set_batch_id(::PROTOBUF_NAMES
   // @@protoc_insertion_point(field_set:CCloud_CompleteAppUploadBatch_Request.batch_id)
 }
 
-// optional uint32 batch_eresult = 3 [(.description) = "result of this batch."];
+// optional uint32 batch_eresult = 3;
 inline bool CCloud_CompleteAppUploadBatch_Request::_internal_has_batch_eresult() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -16591,7 +16591,7 @@ inline void CCloud_CompleteAppUploadBatch_Request::set_batch_eresult(::PROTOBUF_
 
 // CCloud_ClientBeginFileUpload_Request
 
-// optional uint32 appid = 1 [(.description) = "App ID for which the file is being uploaded."];
+// optional uint32 appid = 1;
 inline bool CCloud_ClientBeginFileUpload_Request::_internal_has_appid() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -16619,7 +16619,7 @@ inline void CCloud_ClientBeginFileUpload_Request::set_appid(::PROTOBUF_NAMESPACE
   // @@protoc_insertion_point(field_set:CCloud_ClientBeginFileUpload_Request.appid)
 }
 
-// optional uint32 file_size = 2 [(.description) = "file size as transmitted and stored in Cloud."];
+// optional uint32 file_size = 2;
 inline bool CCloud_ClientBeginFileUpload_Request::_internal_has_file_size() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -16647,7 +16647,7 @@ inline void CCloud_ClientBeginFileUpload_Request::set_file_size(::PROTOBUF_NAMES
   // @@protoc_insertion_point(field_set:CCloud_ClientBeginFileUpload_Request.file_size)
 }
 
-// optional uint32 raw_file_size = 3 [(.description) = "file size before any compression and/or encryption."];
+// optional uint32 raw_file_size = 3;
 inline bool CCloud_ClientBeginFileUpload_Request::_internal_has_raw_file_size() const {
   bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
@@ -16675,7 +16675,7 @@ inline void CCloud_ClientBeginFileUpload_Request::set_raw_file_size(::PROTOBUF_N
   // @@protoc_insertion_point(field_set:CCloud_ClientBeginFileUpload_Request.raw_file_size)
 }
 
-// optional bytes file_sha = 4 [(.description) = "SHA-1 of raw file."];
+// optional bytes file_sha = 4;
 inline bool CCloud_ClientBeginFileUpload_Request::_internal_has_file_sha() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -16748,7 +16748,7 @@ inline void CCloud_ClientBeginFileUpload_Request::set_allocated_file_sha(std::st
   // @@protoc_insertion_point(field_set_allocated:CCloud_ClientBeginFileUpload_Request.file_sha)
 }
 
-// optional uint64 time_stamp = 5 [(.description) = "Timestamp of file."];
+// optional uint64 time_stamp = 5;
 inline bool CCloud_ClientBeginFileUpload_Request::_internal_has_time_stamp() const {
   bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
@@ -16776,7 +16776,7 @@ inline void CCloud_ClientBeginFileUpload_Request::set_time_stamp(::PROTOBUF_NAME
   // @@protoc_insertion_point(field_set:CCloud_ClientBeginFileUpload_Request.time_stamp)
 }
 
-// optional string filename = 6 [(.description) = "Name of the file to store in the cloud."];
+// optional string filename = 6;
 inline bool CCloud_ClientBeginFileUpload_Request::_internal_has_filename() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -16877,7 +16877,7 @@ inline void CCloud_ClientBeginFileUpload_Request::set_platforms_to_sync(::PROTOB
   // @@protoc_insertion_point(field_set:CCloud_ClientBeginFileUpload_Request.platforms_to_sync)
 }
 
-// optional uint32 cell_id = 9 [(.description) = "Client\'s cell ID so we can pick storage location."];
+// optional uint32 cell_id = 9;
 inline bool CCloud_ClientBeginFileUpload_Request::_internal_has_cell_id() const {
   bool value = (_has_bits_[0] & 0x00000040u) != 0;
   return value;
@@ -16905,7 +16905,7 @@ inline void CCloud_ClientBeginFileUpload_Request::set_cell_id(::PROTOBUF_NAMESPA
   // @@protoc_insertion_point(field_set:CCloud_ClientBeginFileUpload_Request.cell_id)
 }
 
-// optional bool can_encrypt = 10 [(.description) = "if true, client can encrypt the file before uploading it"];
+// optional bool can_encrypt = 10;
 inline bool CCloud_ClientBeginFileUpload_Request::_internal_has_can_encrypt() const {
   bool value = (_has_bits_[0] & 0x00000080u) != 0;
   return value;
@@ -16933,7 +16933,7 @@ inline void CCloud_ClientBeginFileUpload_Request::set_can_encrypt(bool value) {
   // @@protoc_insertion_point(field_set:CCloud_ClientBeginFileUpload_Request.can_encrypt)
 }
 
-// optional bool is_shared_file = 11 [(.description) = "if true, this is going to be UGC or a screenshot or some other shared file"];
+// optional bool is_shared_file = 11;
 inline bool CCloud_ClientBeginFileUpload_Request::_internal_has_is_shared_file() const {
   bool value = (_has_bits_[0] & 0x00000100u) != 0;
   return value;
@@ -16961,7 +16961,7 @@ inline void CCloud_ClientBeginFileUpload_Request::set_is_shared_file(bool value)
   // @@protoc_insertion_point(field_set:CCloud_ClientBeginFileUpload_Request.is_shared_file)
 }
 
-// optional uint32 deprecated_realm = 12 [(.description) = "unused"];
+// optional uint32 deprecated_realm = 12;
 inline bool CCloud_ClientBeginFileUpload_Request::_internal_has_deprecated_realm() const {
   bool value = (_has_bits_[0] & 0x00000200u) != 0;
   return value;
@@ -16989,7 +16989,7 @@ inline void CCloud_ClientBeginFileUpload_Request::set_deprecated_realm(::PROTOBU
   // @@protoc_insertion_point(field_set:CCloud_ClientBeginFileUpload_Request.deprecated_realm)
 }
 
-// optional uint64 upload_batch_id = 13 [(.description) = "ID of this batch."];
+// optional uint64 upload_batch_id = 13;
 inline bool CCloud_ClientBeginFileUpload_Request::_internal_has_upload_batch_id() const {
   bool value = (_has_bits_[0] & 0x00000400u) != 0;
   return value;
@@ -17171,7 +17171,7 @@ inline void ClientCloudFileUploadBlockDetails_HTTPHeaders::set_allocated_value(s
 
 // ClientCloudFileUploadBlockDetails
 
-// optional string url_host = 1 [(.description) = "Host name of server to which file should be uploaded via HTTP PUT."];
+// optional string url_host = 1;
 inline bool ClientCloudFileUploadBlockDetails::_internal_has_url_host() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -17244,7 +17244,7 @@ inline void ClientCloudFileUploadBlockDetails::set_allocated_url_host(std::strin
   // @@protoc_insertion_point(field_set_allocated:ClientCloudFileUploadBlockDetails.url_host)
 }
 
-// optional string url_path = 2 [(.description) = "Relative path on server to which file should be uploaded."];
+// optional string url_path = 2;
 inline bool ClientCloudFileUploadBlockDetails::_internal_has_url_path() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -17317,7 +17317,7 @@ inline void ClientCloudFileUploadBlockDetails::set_allocated_url_path(std::strin
   // @@protoc_insertion_point(field_set_allocated:ClientCloudFileUploadBlockDetails.url_path)
 }
 
-// optional bool use_https = 3 [(.description) = "If true, use https, otherwise use http."];
+// optional bool use_https = 3;
 inline bool ClientCloudFileUploadBlockDetails::_internal_has_use_https() const {
   bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
@@ -17345,7 +17345,7 @@ inline void ClientCloudFileUploadBlockDetails::set_use_https(bool value) {
   // @@protoc_insertion_point(field_set:ClientCloudFileUploadBlockDetails.use_https)
 }
 
-// optional int32 http_method = 4 [(.description) = "EHTTPMethod to use for this block."];
+// optional int32 http_method = 4;
 inline bool ClientCloudFileUploadBlockDetails::_internal_has_http_method() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -17373,7 +17373,7 @@ inline void ClientCloudFileUploadBlockDetails::set_http_method(::PROTOBUF_NAMESP
   // @@protoc_insertion_point(field_set:ClientCloudFileUploadBlockDetails.http_method)
 }
 
-// repeated .ClientCloudFileUploadBlockDetails.HTTPHeaders request_headers = 5 [(.description) = "Name-value pairs to be sent in HTTP PUT request."];
+// repeated .ClientCloudFileUploadBlockDetails.HTTPHeaders request_headers = 5;
 inline int ClientCloudFileUploadBlockDetails::_internal_request_headers_size() const {
   return request_headers_.size();
 }
@@ -17412,7 +17412,7 @@ ClientCloudFileUploadBlockDetails::request_headers() const {
   return request_headers_;
 }
 
-// optional uint64 blocoffset = 6 [(.description) = "offset of file block to upload"];
+// optional uint64 blocoffset = 6;
 inline bool ClientCloudFileUploadBlockDetails::_internal_has_blocoffset() const {
   bool value = (_has_bits_[0] & 0x00000040u) != 0;
   return value;
@@ -17440,7 +17440,7 @@ inline void ClientCloudFileUploadBlockDetails::set_blocoffset(::PROTOBUF_NAMESPA
   // @@protoc_insertion_point(field_set:ClientCloudFileUploadBlockDetails.blocoffset)
 }
 
-// optional uint32 bloclength = 7 [(.description) = "length of file block to upload - if zero, no part of the file is part of this block"];
+// optional uint32 bloclength = 7;
 inline bool ClientCloudFileUploadBlockDetails::_internal_has_bloclength() const {
   bool value = (_has_bits_[0] & 0x00000080u) != 0;
   return value;
@@ -17468,7 +17468,7 @@ inline void ClientCloudFileUploadBlockDetails::set_bloclength(::PROTOBUF_NAMESPA
   // @@protoc_insertion_point(field_set:ClientCloudFileUploadBlockDetails.bloclength)
 }
 
-// optional bytes explicit_body_data = 8 [(.description) = "explicit body data to use, instead of file data, for this block"];
+// optional bytes explicit_body_data = 8;
 inline bool ClientCloudFileUploadBlockDetails::_internal_has_explicit_body_data() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -17541,7 +17541,7 @@ inline void ClientCloudFileUploadBlockDetails::set_allocated_explicit_body_data(
   // @@protoc_insertion_point(field_set_allocated:ClientCloudFileUploadBlockDetails.explicit_body_data)
 }
 
-// optional bool may_parallelize = 9 [(.description) = "if true, this request may be done in parallel with other similarly-marked requests"];
+// optional bool may_parallelize = 9;
 inline bool ClientCloudFileUploadBlockDetails::_internal_has_may_parallelize() const {
   bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
@@ -17573,7 +17573,7 @@ inline void ClientCloudFileUploadBlockDetails::set_may_parallelize(bool value) {
 
 // CCloud_ClientBeginFileUpload_Response
 
-// optional bool encrypt_file = 1 [(.description) = "If true, the file should be encrypted by the client before upload"];
+// optional bool encrypt_file = 1;
 inline bool CCloud_ClientBeginFileUpload_Response::_internal_has_encrypt_file() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -17601,7 +17601,7 @@ inline void CCloud_ClientBeginFileUpload_Response::set_encrypt_file(bool value) 
   // @@protoc_insertion_point(field_set:CCloud_ClientBeginFileUpload_Response.encrypt_file)
 }
 
-// repeated .ClientCloudFileUploadBlockDetails blocrequests = 2 [(.description) = "HTTP requests to make to perform upload"];
+// repeated .ClientCloudFileUploadBlockDetails blocrequests = 2;
 inline int CCloud_ClientBeginFileUpload_Response::_internal_blocrequests_size() const {
   return blocrequests_.size();
 }
@@ -17644,7 +17644,7 @@ CCloud_ClientBeginFileUpload_Response::blocrequests() const {
 
 // CCloud_ClientCommitFileUpload_Request
 
-// optional bool transfer_succeeded = 1 [(.description) = "True if all block uploads succeeded, false if any of them failed."];
+// optional bool transfer_succeeded = 1;
 inline bool CCloud_ClientCommitFileUpload_Request::_internal_has_transfer_succeeded() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -17672,7 +17672,7 @@ inline void CCloud_ClientCommitFileUpload_Request::set_transfer_succeeded(bool v
   // @@protoc_insertion_point(field_set:CCloud_ClientCommitFileUpload_Request.transfer_succeeded)
 }
 
-// optional uint32 appid = 2 [(.description) = "App ID for which the file is being uploaded. Must match the app ID provided to Cloud.BeginFileUpload."];
+// optional uint32 appid = 2;
 inline bool CCloud_ClientCommitFileUpload_Request::_internal_has_appid() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -17700,7 +17700,7 @@ inline void CCloud_ClientCommitFileUpload_Request::set_appid(::PROTOBUF_NAMESPAC
   // @@protoc_insertion_point(field_set:CCloud_ClientCommitFileUpload_Request.appid)
 }
 
-// optional bytes file_sha = 3 [(.description) = "SHA1 digest of the raw file. Must match the SHA1 digest provided to Cloud.BeginFileUpload."];
+// optional bytes file_sha = 3;
 inline bool CCloud_ClientCommitFileUpload_Request::_internal_has_file_sha() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -17773,7 +17773,7 @@ inline void CCloud_ClientCommitFileUpload_Request::set_allocated_file_sha(std::s
   // @@protoc_insertion_point(field_set_allocated:CCloud_ClientCommitFileUpload_Request.file_sha)
 }
 
-// optional string filename = 4 [(.description) = "Filename as specified in the Cloud.BeginFileUpload request."];
+// optional string filename = 4;
 inline bool CCloud_ClientCommitFileUpload_Request::_internal_has_filename() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -17850,7 +17850,7 @@ inline void CCloud_ClientCommitFileUpload_Request::set_allocated_filename(std::s
 
 // CCloud_ClientCommitFileUpload_Response
 
-// optional bool file_committed = 1 [(.description) = "True if the file was successfully committed, false otherwise."];
+// optional bool file_committed = 1;
 inline bool CCloud_ClientCommitFileUpload_Response::_internal_has_file_committed() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -17882,7 +17882,7 @@ inline void CCloud_ClientCommitFileUpload_Response::set_file_committed(bool valu
 
 // CCloud_ClientFileDownload_Request
 
-// optional uint32 appid = 1 [(.description) = "App ID the file is part of."];
+// optional uint32 appid = 1;
 inline bool CCloud_ClientFileDownload_Request::_internal_has_appid() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -17910,7 +17910,7 @@ inline void CCloud_ClientFileDownload_Request::set_appid(::PROTOBUF_NAMESPACE_ID
   // @@protoc_insertion_point(field_set:CCloud_ClientFileDownload_Request.appid)
 }
 
-// optional string filename = 2 [(.description) = "Filename of the file."];
+// optional string filename = 2;
 inline bool CCloud_ClientFileDownload_Request::_internal_has_filename() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -17983,7 +17983,7 @@ inline void CCloud_ClientFileDownload_Request::set_allocated_filename(std::strin
   // @@protoc_insertion_point(field_set_allocated:CCloud_ClientFileDownload_Request.filename)
 }
 
-// optional uint32 realm = 3 [(.description) = "Steam Realm"];
+// optional uint32 realm = 3;
 inline bool CCloud_ClientFileDownload_Request::_internal_has_realm() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -18165,7 +18165,7 @@ inline void CCloud_ClientFileDownload_Response_HTTPHeaders::set_allocated_value(
 
 // CCloud_ClientFileDownload_Response
 
-// optional uint32 appid = 1 [(.description) = "Application the file belongs to"];
+// optional uint32 appid = 1;
 inline bool CCloud_ClientFileDownload_Response::_internal_has_appid() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -18193,7 +18193,7 @@ inline void CCloud_ClientFileDownload_Response::set_appid(::PROTOBUF_NAMESPACE_I
   // @@protoc_insertion_point(field_set:CCloud_ClientFileDownload_Response.appid)
 }
 
-// optional uint32 file_size = 2 [(.description) = "file size as transmitted and stored in the Cloud"];
+// optional uint32 file_size = 2;
 inline bool CCloud_ClientFileDownload_Response::_internal_has_file_size() const {
   bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
@@ -18221,7 +18221,7 @@ inline void CCloud_ClientFileDownload_Response::set_file_size(::PROTOBUF_NAMESPA
   // @@protoc_insertion_point(field_set:CCloud_ClientFileDownload_Response.file_size)
 }
 
-// optional uint32 raw_file_size = 3 [(.description) = "file size when decompressed and/or decrypted"];
+// optional uint32 raw_file_size = 3;
 inline bool CCloud_ClientFileDownload_Response::_internal_has_raw_file_size() const {
   bool value = (_has_bits_[0] & 0x00000040u) != 0;
   return value;
@@ -18249,7 +18249,7 @@ inline void CCloud_ClientFileDownload_Response::set_raw_file_size(::PROTOBUF_NAM
   // @@protoc_insertion_point(field_set:CCloud_ClientFileDownload_Response.raw_file_size)
 }
 
-// optional bytes sha_file = 4 [(.description) = "SHA of file"];
+// optional bytes sha_file = 4;
 inline bool CCloud_ClientFileDownload_Response::_internal_has_sha_file() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -18322,7 +18322,7 @@ inline void CCloud_ClientFileDownload_Response::set_allocated_sha_file(std::stri
   // @@protoc_insertion_point(field_set_allocated:CCloud_ClientFileDownload_Response.sha_file)
 }
 
-// optional uint64 time_stamp = 5 [(.description) = "Timestamp of file"];
+// optional uint64 time_stamp = 5;
 inline bool CCloud_ClientFileDownload_Response::_internal_has_time_stamp() const {
   bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
@@ -18350,7 +18350,7 @@ inline void CCloud_ClientFileDownload_Response::set_time_stamp(::PROTOBUF_NAMESP
   // @@protoc_insertion_point(field_set:CCloud_ClientFileDownload_Response.time_stamp)
 }
 
-// optional bool is_explicit_delete = 6 [(.description) = "True if this is an explicitly deleted file"];
+// optional bool is_explicit_delete = 6;
 inline bool CCloud_ClientFileDownload_Response::_internal_has_is_explicit_delete() const {
   bool value = (_has_bits_[0] & 0x00000080u) != 0;
   return value;
@@ -18378,7 +18378,7 @@ inline void CCloud_ClientFileDownload_Response::set_is_explicit_delete(bool valu
   // @@protoc_insertion_point(field_set:CCloud_ClientFileDownload_Response.is_explicit_delete)
 }
 
-// optional string url_host = 7 [(.description) = "Host to GET the file from"];
+// optional string url_host = 7;
 inline bool CCloud_ClientFileDownload_Response::_internal_has_url_host() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -18451,7 +18451,7 @@ inline void CCloud_ClientFileDownload_Response::set_allocated_url_host(std::stri
   // @@protoc_insertion_point(field_set_allocated:CCloud_ClientFileDownload_Response.url_host)
 }
 
-// optional string url_path = 8 [(.description) = "Path on that host to use, including URL parameters if any"];
+// optional string url_path = 8;
 inline bool CCloud_ClientFileDownload_Response::_internal_has_url_path() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -18524,7 +18524,7 @@ inline void CCloud_ClientFileDownload_Response::set_allocated_url_path(std::stri
   // @@protoc_insertion_point(field_set_allocated:CCloud_ClientFileDownload_Response.url_path)
 }
 
-// optional bool use_https = 9 [(.description) = "If set, use HTTPS, else use HTTP"];
+// optional bool use_https = 9;
 inline bool CCloud_ClientFileDownload_Response::_internal_has_use_https() const {
   bool value = (_has_bits_[0] & 0x00000100u) != 0;
   return value;
@@ -18552,7 +18552,7 @@ inline void CCloud_ClientFileDownload_Response::set_use_https(bool value) {
   // @@protoc_insertion_point(field_set:CCloud_ClientFileDownload_Response.use_https)
 }
 
-// repeated .CCloud_ClientFileDownload_Response.HTTPHeaders request_headers = 10 [(.description) = "Name-value pairs to be sent in HTTP GET request."];
+// repeated .CCloud_ClientFileDownload_Response.HTTPHeaders request_headers = 10;
 inline int CCloud_ClientFileDownload_Response::_internal_request_headers_size() const {
   return request_headers_.size();
 }
@@ -18623,7 +18623,7 @@ inline void CCloud_ClientFileDownload_Response::set_encrypted(bool value) {
 
 // CCloud_ClientDeleteFile_Request
 
-// optional uint32 appid = 1 [(.description) = "App ID for which the file is being deleted."];
+// optional uint32 appid = 1;
 inline bool CCloud_ClientDeleteFile_Request::_internal_has_appid() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -18651,7 +18651,7 @@ inline void CCloud_ClientDeleteFile_Request::set_appid(::PROTOBUF_NAMESPACE_ID::
   // @@protoc_insertion_point(field_set:CCloud_ClientDeleteFile_Request.appid)
 }
 
-// optional string filename = 2 [(.description) = "Filename of file."];
+// optional string filename = 2;
 inline bool CCloud_ClientDeleteFile_Request::_internal_has_filename() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -18724,7 +18724,7 @@ inline void CCloud_ClientDeleteFile_Request::set_allocated_filename(std::string*
   // @@protoc_insertion_point(field_set_allocated:CCloud_ClientDeleteFile_Request.filename)
 }
 
-// optional bool is_explicit_delete = 3 [(.description) = "If true, this is a \'delete\'; if false, it is a \'forget\'"];
+// optional bool is_explicit_delete = 3;
 inline bool CCloud_ClientDeleteFile_Request::_internal_has_is_explicit_delete() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -18752,7 +18752,7 @@ inline void CCloud_ClientDeleteFile_Request::set_is_explicit_delete(bool value) 
   // @@protoc_insertion_point(field_set:CCloud_ClientDeleteFile_Request.is_explicit_delete)
 }
 
-// optional uint64 upload_batch_id = 4 [(.description) = "ID of this batch."];
+// optional uint64 upload_batch_id = 4;
 inline bool CCloud_ClientDeleteFile_Request::_internal_has_upload_batch_id() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -18788,7 +18788,7 @@ inline void CCloud_ClientDeleteFile_Request::set_upload_batch_id(::PROTOBUF_NAME
 
 // CCloud_ClientConflictResolution_Notification
 
-// optional uint32 appid = 1 [(.description) = "App ID for which the conflict was resolved."];
+// optional uint32 appid = 1;
 inline bool CCloud_ClientConflictResolution_Notification::_internal_has_appid() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -18816,7 +18816,7 @@ inline void CCloud_ClientConflictResolution_Notification::set_appid(::PROTOBUF_N
   // @@protoc_insertion_point(field_set:CCloud_ClientConflictResolution_Notification.appid)
 }
 
-// optional bool chose_local_files = 2 [(.description) = "Did the user choose to keep the files local to the machine they are on right now?"];
+// optional bool chose_local_files = 2;
 inline bool CCloud_ClientConflictResolution_Notification::_internal_has_chose_local_files() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -18983,7 +18983,7 @@ CCloud_EnumerateUserApps_Response::apps() const {
 
 // CCloud_GetAppFileChangelist_Request
 
-// optional uint32 appid = 1 [(.description) = "App ID"];
+// optional uint32 appid = 1;
 inline bool CCloud_GetAppFileChangelist_Request::_internal_has_appid() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -19011,7 +19011,7 @@ inline void CCloud_GetAppFileChangelist_Request::set_appid(::PROTOBUF_NAMESPACE_
   // @@protoc_insertion_point(field_set:CCloud_GetAppFileChangelist_Request.appid)
 }
 
-// optional uint64 synced_change_number = 2 [(.description) = "Change Number to which local machine was last successfully synced"];
+// optional uint64 synced_change_number = 2;
 inline bool CCloud_GetAppFileChangelist_Request::_internal_has_synced_change_number() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -19043,7 +19043,7 @@ inline void CCloud_GetAppFileChangelist_Request::set_synced_change_number(::PROT
 
 // CCloud_AppFileInfo
 
-// optional string file_name = 1 [(.description) = "unqualified filename"];
+// optional string file_name = 1;
 inline bool CCloud_AppFileInfo::_internal_has_file_name() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -19116,7 +19116,7 @@ inline void CCloud_AppFileInfo::set_allocated_file_name(std::string* file_name) 
   // @@protoc_insertion_point(field_set_allocated:CCloud_AppFileInfo.file_name)
 }
 
-// optional bytes sha_file = 2 [(.description) = "SHA of file"];
+// optional bytes sha_file = 2;
 inline bool CCloud_AppFileInfo::_internal_has_sha_file() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -19189,7 +19189,7 @@ inline void CCloud_AppFileInfo::set_allocated_sha_file(std::string* sha_file) {
   // @@protoc_insertion_point(field_set_allocated:CCloud_AppFileInfo.sha_file)
 }
 
-// optional uint64 time_stamp = 3 [(.description) = "server timestamp of last modification"];
+// optional uint64 time_stamp = 3;
 inline bool CCloud_AppFileInfo::_internal_has_time_stamp() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -19217,7 +19217,7 @@ inline void CCloud_AppFileInfo::set_time_stamp(::PROTOBUF_NAMESPACE_ID::uint64 v
   // @@protoc_insertion_point(field_set:CCloud_AppFileInfo.time_stamp)
 }
 
-// optional uint32 raw_file_size = 4 [(.description) = "size of raw file"];
+// optional uint32 raw_file_size = 4;
 inline bool CCloud_AppFileInfo::_internal_has_raw_file_size() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -19245,7 +19245,7 @@ inline void CCloud_AppFileInfo::set_raw_file_size(::PROTOBUF_NAMESPACE_ID::uint3
   // @@protoc_insertion_point(field_set:CCloud_AppFileInfo.raw_file_size)
 }
 
-// optional .ECloudStoragePersistState persist_state = 5 [default = ECloudStoragePersistStatePersisted, (.description) = "current persist state of the file"];
+// optional .ECloudStoragePersistState persist_state = 5 [default = ECloudStoragePersistStatePersisted];
 inline bool CCloud_AppFileInfo::_internal_has_persist_state() const {
   bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
@@ -19274,7 +19274,7 @@ inline void CCloud_AppFileInfo::set_persist_state(::ECloudStoragePersistState va
   // @@protoc_insertion_point(field_set:CCloud_AppFileInfo.persist_state)
 }
 
-// optional uint32 platforms_to_sync = 6 [(.description) = "ERemoteStoragePlatform bits"];
+// optional uint32 platforms_to_sync = 6;
 inline bool CCloud_AppFileInfo::_internal_has_platforms_to_sync() const {
   bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
@@ -19302,7 +19302,7 @@ inline void CCloud_AppFileInfo::set_platforms_to_sync(::PROTOBUF_NAMESPACE_ID::u
   // @@protoc_insertion_point(field_set:CCloud_AppFileInfo.platforms_to_sync)
 }
 
-// optional uint32 path_prefix_index = 7 [(.description) = "index into string table of path prefixes"];
+// optional uint32 path_prefix_index = 7;
 inline bool CCloud_AppFileInfo::_internal_has_path_prefix_index() const {
   bool value = (_has_bits_[0] & 0x00000040u) != 0;
   return value;
@@ -19330,7 +19330,7 @@ inline void CCloud_AppFileInfo::set_path_prefix_index(::PROTOBUF_NAMESPACE_ID::u
   // @@protoc_insertion_point(field_set:CCloud_AppFileInfo.path_prefix_index)
 }
 
-// optional uint32 machine_name_index = 8 [(.description) = "what machine last modified this file"];
+// optional uint32 machine_name_index = 8;
 inline bool CCloud_AppFileInfo::_internal_has_machine_name_index() const {
   bool value = (_has_bits_[0] & 0x00000080u) != 0;
   return value;
@@ -19362,7 +19362,7 @@ inline void CCloud_AppFileInfo::set_machine_name_index(::PROTOBUF_NAMESPACE_ID::
 
 // CCloud_GetAppFileChangelist_Response
 
-// optional uint64 current_change_number = 1 [(.description) = "Change Number current on server"];
+// optional uint64 current_change_number = 1;
 inline bool CCloud_GetAppFileChangelist_Response::_internal_has_current_change_number() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -19390,7 +19390,7 @@ inline void CCloud_GetAppFileChangelist_Response::set_current_change_number(::PR
   // @@protoc_insertion_point(field_set:CCloud_GetAppFileChangelist_Response.current_change_number)
 }
 
-// repeated .CCloud_AppFileInfo files = 2 [(.description) = "List of files; may be the full list of extant/deleted files, or just a delta from the client list"];
+// repeated .CCloud_AppFileInfo files = 2;
 inline int CCloud_GetAppFileChangelist_Response::_internal_files_size() const {
   return files_.size();
 }
@@ -19429,7 +19429,7 @@ CCloud_GetAppFileChangelist_Response::files() const {
   return files_;
 }
 
-// optional bool is_only_delta = 3 [(.description) = "If true, \'files\' omits any files that have not changed since client\'s change ID"];
+// optional bool is_only_delta = 3;
 inline bool CCloud_GetAppFileChangelist_Response::_internal_has_is_only_delta() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -19457,7 +19457,7 @@ inline void CCloud_GetAppFileChangelist_Response::set_is_only_delta(bool value) 
   // @@protoc_insertion_point(field_set:CCloud_GetAppFileChangelist_Response.is_only_delta)
 }
 
-// repeated string path_prefixes = 4 [(.description) = "string table of path prefixes"];
+// repeated string path_prefixes = 4;
 inline int CCloud_GetAppFileChangelist_Response::_internal_path_prefixes_size() const {
   return path_prefixes_.size();
 }
@@ -19531,7 +19531,7 @@ CCloud_GetAppFileChangelist_Response::mutable_path_prefixes() {
   return &path_prefixes_;
 }
 
-// repeated string machine_names = 5 [(.description) = "string table of machine names"];
+// repeated string machine_names = 5;
 inline int CCloud_GetAppFileChangelist_Response::_internal_machine_names_size() const {
   return machine_names_.size();
 }
@@ -19605,7 +19605,7 @@ CCloud_GetAppFileChangelist_Response::mutable_machine_names() {
   return &machine_names_;
 }
 
-// optional uint64 app_buildid_hwm = 6 [(.description) = "highest app build ID which has uploaded data"];
+// optional uint64 app_buildid_hwm = 6;
 inline bool CCloud_GetAppFileChangelist_Response::_internal_has_app_buildid_hwm() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -20027,7 +20027,7 @@ inline void CCloud_AppLaunchIntent_Request::set_ignore_pending_operations(bool v
 
 // CCloud_AppLaunchIntent_Response
 
-// repeated .CCloud_PendingRemoteOperation pending_remote_operations = 1 [(.description) = "pending remote operations you should be aware of"];
+// repeated .CCloud_PendingRemoteOperation pending_remote_operations = 1;
 inline int CCloud_AppLaunchIntent_Response::_internal_pending_remote_operations_size() const {
   return pending_remote_operations_.size();
 }
@@ -20331,7 +20331,7 @@ inline void CCloud_ClientGetAppQuotaUsage_Response::set_max_num_bytes(::PROTOBUF
 
 // CCloud_AppCloudStateChange_Notification
 
-// optional uint32 appid = 1 [(.description) = "App which has had a change in cloud state"];
+// optional uint32 appid = 1;
 inline bool CCloud_AppCloudStateChange_Notification::_internal_has_appid() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -20359,7 +20359,7 @@ inline void CCloud_AppCloudStateChange_Notification::set_appid(::PROTOBUF_NAMESP
   // @@protoc_insertion_point(field_set:CCloud_AppCloudStateChange_Notification.appid)
 }
 
-// optional uint64 app_change_number = 2 [(.description) = "New App Change Number"];
+// optional uint64 app_change_number = 2;
 inline bool CCloud_AppCloudStateChange_Notification::_internal_has_app_change_number() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;

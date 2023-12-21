@@ -49,59 +49,61 @@ namespace OpenSteamworks.Protobuf.WebUI {
             "GAMgASgLMhkuQ1Nob3BwaW5nQ2FydF9Qb3RlbnRpYWxzImsKGENTaG9wcGlu",
             "Z0NhcnRfQ291cG9uSXRlbRIQCghjb3Vwb25pZBgBIAEoDRIXCg9naWRjb3Vw",
             "b250YXJnZXQYAiABKAQSEQoJcGFja2FnZWlkGAMgASgNEhEKCWdpZGNvdXBv",
-            "bhgEIAEoBCI8Ch9DU2hvcHBpbmdDYXJ0X0NyZWF0ZU5ld19SZXF1ZXN0EhkK",
-            "EXN0ZWFtaWRfcmVxdWVzdGVyGAEgASgGIjsKIENTaG9wcGluZ0NhcnRfQ3Jl",
-            "YXRlTmV3X1Jlc3BvbnNlEhcKD2dpZHNob3BwaW5nY2FydBgBIAEoBCI8CiFD",
-            "U2hvcHBpbmdDYXJ0X0dldENvbnRlbnRzX1JlcXVlc3QSFwoPZ2lkc2hvcHBp",
-            "bmdjYXJ0GAEgASgEIrsBCiJDU2hvcHBpbmdDYXJ0X0dldENvbnRlbnRzX1Jl",
-            "c3BvbnNlEhcKD2dpZHNob3BwaW5nY2FydBgBIAEoBBIpCghjb250ZW50cxgC",
-            "IAEoCzIXLkNTaG9wcGluZ0NhcnRfQ29udGVudHMSFAoMdGltZV9jcmVhdGVk",
-            "GAMgASgNEiAKGG1lcmdlZF9pbnRvX2FjY291bnRfY2FydBgEIAEoCBIZChFz",
-            "dGVhbWlkX3JlcXVlc3RlchgFIAEoBiLiAgoSQ1Nob3BwaW5nQ2FydF9JdGVt",
-            "EhMKC2dpZGxpbmVpdGVtGAEgASgEEjAKDHBhY2thZ2VfaXRlbRgCIAEoCzIa",
-            "LkNTaG9wcGluZ0NhcnRfUGFja2FnZUl0ZW0SOwoSd2FsbGV0X2NyZWRpdF9p",
-            "dGVtGAMgASgLMh8uQ1Nob3BwaW5nQ2FydF9XYWxsZXRDcmVkaXRJdGVtEi4K",
-            "C2NvdXBvbl9pdGVtGAQgASgLMhkuQ1Nob3BwaW5nQ2FydF9Db3Vwb25JdGVt",
-            "EjAKCm1pY3JvX2l0ZW0YBSABKAsyHC5DU2hvcHBpbmdDYXJ0X01pY3JvVHhu",
-            "QXNzZXQSLgoLYnVuZGxlX2l0ZW0YByABKAsyGS5DU2hvcHBpbmdDYXJ0X0J1",
-            "bmRsZUl0ZW0SNgoMbG95YWx0eV9pdGVtGAggASgLMiAuQ1Nob3BwaW5nQ2Fy",
-            "dF9Mb3lhbHR5UmV3YXJkSXRlbSI0Ch9DU2hvcHBpbmdDYXJ0X0xveWFsdHlS",
-            "ZXdhcmRJdGVtEhEKCXJld2FyZF9pZBgBIAEoBSJSChtDU2hvcHBpbmdDYXJ0",
-            "X01pY3JvVHhuQXNzZXQSFQoNbWljcm90eG5hcHBpZBgBIAEoDRIcChRtaWNy",
-            "b3R4bmFzc2V0Y2xhc3NpZBgCIAEoBCKSAQoZQ1Nob3BwaW5nQ2FydF9QYWNr",
-            "YWdlSXRlbRIRCglwYWNrYWdlaWQYASABKA0SLAoNY29zdHdoZW5hZGRlZBgC",
-            "IAEoCzIVLkNTaG9wcGluZ0NhcnRfQW1vdW50Eg8KB2lzX2dpZnQYAyABKAgS",
-            "EQoJZ2lkYnVuZGxlGAQgASgEEhAKCHF1YW50aXR5GAUgASgNIksKGENTaG9w",
-            "cGluZ0NhcnRfUG90ZW50aWFscxIvCgdjb3Vwb25zGAEgAygLMh4uQ1Nob3Bw",
-            "aW5nQ2FydF9BdmFpbGFibGVDb3Vwb24iXgoaQ1Nob3BwaW5nQ2FydF9SZWxh",
-            "dGlvblNoaXASEQoJZ2lkcGFyZW50GAEgASgEEi0KCGNoaWxkcmVuGAIgAygL",
-            "MhsuQ1Nob3BwaW5nQ2FydF9SZWxhdGlvblNoaXAiaQolQ1Nob3BwaW5nQ2Fy",
-            "dF9SZW1vdmVMaW5lSXRlbXNfUmVxdWVzdBIXCg9naWRzaG9wcGluZ2NhcnQY",
-            "ASABKAQSFAoMZ2lkbGluZWl0ZW1zGAIgAygEEhEKCWJyb3dzZXJpZBgDIAEo",
-            "BCJrCiZDU2hvcHBpbmdDYXJ0X1JlbW92ZUxpbmVJdGVtc19SZXNwb25zZRIp",
-            "Cghjb250ZW50cxgBIAEoCzIXLkNTaG9wcGluZ0NhcnRfQ29udGVudHMSFgoO",
-            "cmVzdWx0X2RldGFpbHMYAiADKA0ibQorQ1Nob3BwaW5nQ2FydF9VcGRhdGVQ",
-            "YWNrYWdlUXVhbnRpdHlfUmVxdWVzdBIXCg9naWRzaG9wcGluZ2NhcnQYASAB",
-            "KAQSEwoLZ2lkbGluZWl0ZW0YAiABKAQSEAoIcXVhbnRpdHkYAyABKA0iigEK",
-            "LENTaG9wcGluZ0NhcnRfVXBkYXRlUGFja2FnZVF1YW50aXR5X1Jlc3BvbnNl",
-            "EhcKD2dpZHNob3BwaW5nY2FydBgBIAEoBBIpCghjb250ZW50cxgCIAEoCzIX",
-            "LkNTaG9wcGluZ0NhcnRfQ29udGVudHMSFgoOcmVzdWx0X2RldGFpbHMYAyAD",
-            "KA0iTQoeQ1Nob3BwaW5nQ2FydF9XYWxsZXRDcmVkaXRJdGVtEisKDHdhbGxl",
-            "dGNyZWRpdBgBIAEoCzIVLkNTaG9wcGluZ0NhcnRfQW1vdW50MtQECgxTaG9w",
-            "cGluZ0NhcnQSUAoJQWRkQnVuZGxlEiAuQ1Nob3BwaW5nQ2FydF9BZGRCdW5k",
-            "bGVfUmVxdWVzdBohLkNTaG9wcGluZ0NhcnRfQWRkQnVuZGxlX1Jlc3BvbnNl",
-            "ElYKC0FkZFBhY2thZ2VzEiIuQ1Nob3BwaW5nQ2FydF9BZGRQYWNrYWdlc19S",
-            "ZXF1ZXN0GiMuQ1Nob3BwaW5nQ2FydF9BZGRQYWNrYWdlc19SZXNwb25zZRJc",
-            "ChVDcmVhdGVOZXdTaG9wcGluZ0NhcnQSIC5DU2hvcHBpbmdDYXJ0X0NyZWF0",
-            "ZU5ld19SZXF1ZXN0GiEuQ1Nob3BwaW5nQ2FydF9DcmVhdGVOZXdfUmVzcG9u",
-            "c2USYgoXR2V0U2hvcHBpbmdDYXJ0Q29udGVudHMSIi5DU2hvcHBpbmdDYXJ0",
-            "X0dldENvbnRlbnRzX1JlcXVlc3QaIy5DU2hvcHBpbmdDYXJ0X0dldENvbnRl",
-            "bnRzX1Jlc3BvbnNlEmIKD1JlbW92ZUxpbmVJdGVtcxImLkNTaG9wcGluZ0Nh",
-            "cnRfUmVtb3ZlTGluZUl0ZW1zX1JlcXVlc3QaJy5DU2hvcHBpbmdDYXJ0X1Jl",
-            "bW92ZUxpbmVJdGVtc19SZXNwb25zZRJ0ChVVcGRhdGVQYWNrYWdlUXVhbnRp",
-            "dHkSLC5DU2hvcHBpbmdDYXJ0X1VwZGF0ZVBhY2thZ2VRdWFudGl0eV9SZXF1",
-            "ZXN0Gi0uQ1Nob3BwaW5nQ2FydF9VcGRhdGVQYWNrYWdlUXVhbnRpdHlfUmVz",
-            "cG9uc2VCIKoCHU9wZW5TdGVhbXdvcmtzLlByb3RvYnVmLldlYlVJ"));
+            "bhgEIAEoBCJZCh9DU2hvcHBpbmdDYXJ0X0NyZWF0ZU5ld19SZXF1ZXN0EhkK",
+            "EXN0ZWFtaWRfcmVxdWVzdGVyGAEgASgGEhsKE3B1cmNoYXNlX3JlcXVlc3Rf",
+            "aWQYAiABKAQiOwogQ1Nob3BwaW5nQ2FydF9DcmVhdGVOZXdfUmVzcG9uc2US",
+            "FwoPZ2lkc2hvcHBpbmdjYXJ0GAEgASgEIjwKIUNTaG9wcGluZ0NhcnRfR2V0",
+            "Q29udGVudHNfUmVxdWVzdBIXCg9naWRzaG9wcGluZ2NhcnQYASABKAQi2AEK",
+            "IkNTaG9wcGluZ0NhcnRfR2V0Q29udGVudHNfUmVzcG9uc2USFwoPZ2lkc2hv",
+            "cHBpbmdjYXJ0GAEgASgEEikKCGNvbnRlbnRzGAIgASgLMhcuQ1Nob3BwaW5n",
+            "Q2FydF9Db250ZW50cxIUCgx0aW1lX2NyZWF0ZWQYAyABKA0SIAoYbWVyZ2Vk",
+            "X2ludG9fYWNjb3VudF9jYXJ0GAQgASgIEhkKEXN0ZWFtaWRfcmVxdWVzdGVy",
+            "GAUgASgGEhsKE3B1cmNoYXNlX3JlcXVlc3RfaWQYBiABKAQi4gIKEkNTaG9w",
+            "cGluZ0NhcnRfSXRlbRITCgtnaWRsaW5laXRlbRgBIAEoBBIwCgxwYWNrYWdl",
+            "X2l0ZW0YAiABKAsyGi5DU2hvcHBpbmdDYXJ0X1BhY2thZ2VJdGVtEjsKEndh",
+            "bGxldF9jcmVkaXRfaXRlbRgDIAEoCzIfLkNTaG9wcGluZ0NhcnRfV2FsbGV0",
+            "Q3JlZGl0SXRlbRIuCgtjb3Vwb25faXRlbRgEIAEoCzIZLkNTaG9wcGluZ0Nh",
+            "cnRfQ291cG9uSXRlbRIwCgptaWNyb19pdGVtGAUgASgLMhwuQ1Nob3BwaW5n",
+            "Q2FydF9NaWNyb1R4bkFzc2V0Ei4KC2J1bmRsZV9pdGVtGAcgASgLMhkuQ1No",
+            "b3BwaW5nQ2FydF9CdW5kbGVJdGVtEjYKDGxveWFsdHlfaXRlbRgIIAEoCzIg",
+            "LkNTaG9wcGluZ0NhcnRfTG95YWx0eVJld2FyZEl0ZW0iNAofQ1Nob3BwaW5n",
+            "Q2FydF9Mb3lhbHR5UmV3YXJkSXRlbRIRCglyZXdhcmRfaWQYASABKAUiUgob",
+            "Q1Nob3BwaW5nQ2FydF9NaWNyb1R4bkFzc2V0EhUKDW1pY3JvdHhuYXBwaWQY",
+            "ASABKA0SHAoUbWljcm90eG5hc3NldGNsYXNzaWQYAiABKAQikgEKGUNTaG9w",
+            "cGluZ0NhcnRfUGFja2FnZUl0ZW0SEQoJcGFja2FnZWlkGAEgASgNEiwKDWNv",
+            "c3R3aGVuYWRkZWQYAiABKAsyFS5DU2hvcHBpbmdDYXJ0X0Ftb3VudBIPCgdp",
+            "c19naWZ0GAMgASgIEhEKCWdpZGJ1bmRsZRgEIAEoBBIQCghxdWFudGl0eRgF",
+            "IAEoDSJLChhDU2hvcHBpbmdDYXJ0X1BvdGVudGlhbHMSLwoHY291cG9ucxgB",
+            "IAMoCzIeLkNTaG9wcGluZ0NhcnRfQXZhaWxhYmxlQ291cG9uIl4KGkNTaG9w",
+            "cGluZ0NhcnRfUmVsYXRpb25TaGlwEhEKCWdpZHBhcmVudBgBIAEoBBItCghj",
+            "aGlsZHJlbhgCIAMoCzIbLkNTaG9wcGluZ0NhcnRfUmVsYXRpb25TaGlwImkK",
+            "JUNTaG9wcGluZ0NhcnRfUmVtb3ZlTGluZUl0ZW1zX1JlcXVlc3QSFwoPZ2lk",
+            "c2hvcHBpbmdjYXJ0GAEgASgEEhQKDGdpZGxpbmVpdGVtcxgCIAMoBBIRCgli",
+            "cm93c2VyaWQYAyABKAQiawomQ1Nob3BwaW5nQ2FydF9SZW1vdmVMaW5lSXRl",
+            "bXNfUmVzcG9uc2USKQoIY29udGVudHMYASABKAsyFy5DU2hvcHBpbmdDYXJ0",
+            "X0NvbnRlbnRzEhYKDnJlc3VsdF9kZXRhaWxzGAIgAygNIm0KK0NTaG9wcGlu",
+            "Z0NhcnRfVXBkYXRlUGFja2FnZVF1YW50aXR5X1JlcXVlc3QSFwoPZ2lkc2hv",
+            "cHBpbmdjYXJ0GAEgASgEEhMKC2dpZGxpbmVpdGVtGAIgASgEEhAKCHF1YW50",
+            "aXR5GAMgASgNIooBCixDU2hvcHBpbmdDYXJ0X1VwZGF0ZVBhY2thZ2VRdWFu",
+            "dGl0eV9SZXNwb25zZRIXCg9naWRzaG9wcGluZ2NhcnQYASABKAQSKQoIY29u",
+            "dGVudHMYAiABKAsyFy5DU2hvcHBpbmdDYXJ0X0NvbnRlbnRzEhYKDnJlc3Vs",
+            "dF9kZXRhaWxzGAMgAygNIk0KHkNTaG9wcGluZ0NhcnRfV2FsbGV0Q3JlZGl0",
+            "SXRlbRIrCgx3YWxsZXRjcmVkaXQYASABKAsyFS5DU2hvcHBpbmdDYXJ0X0Ft",
+            "b3VudDLUBAoMU2hvcHBpbmdDYXJ0ElAKCUFkZEJ1bmRsZRIgLkNTaG9wcGlu",
+            "Z0NhcnRfQWRkQnVuZGxlX1JlcXVlc3QaIS5DU2hvcHBpbmdDYXJ0X0FkZEJ1",
+            "bmRsZV9SZXNwb25zZRJWCgtBZGRQYWNrYWdlcxIiLkNTaG9wcGluZ0NhcnRf",
+            "QWRkUGFja2FnZXNfUmVxdWVzdBojLkNTaG9wcGluZ0NhcnRfQWRkUGFja2Fn",
+            "ZXNfUmVzcG9uc2USXAoVQ3JlYXRlTmV3U2hvcHBpbmdDYXJ0EiAuQ1Nob3Bw",
+            "aW5nQ2FydF9DcmVhdGVOZXdfUmVxdWVzdBohLkNTaG9wcGluZ0NhcnRfQ3Jl",
+            "YXRlTmV3X1Jlc3BvbnNlEmIKF0dldFNob3BwaW5nQ2FydENvbnRlbnRzEiIu",
+            "Q1Nob3BwaW5nQ2FydF9HZXRDb250ZW50c19SZXF1ZXN0GiMuQ1Nob3BwaW5n",
+            "Q2FydF9HZXRDb250ZW50c19SZXNwb25zZRJiCg9SZW1vdmVMaW5lSXRlbXMS",
+            "Ji5DU2hvcHBpbmdDYXJ0X1JlbW92ZUxpbmVJdGVtc19SZXF1ZXN0GicuQ1No",
+            "b3BwaW5nQ2FydF9SZW1vdmVMaW5lSXRlbXNfUmVzcG9uc2USdAoVVXBkYXRl",
+            "UGFja2FnZVF1YW50aXR5EiwuQ1Nob3BwaW5nQ2FydF9VcGRhdGVQYWNrYWdl",
+            "UXVhbnRpdHlfUmVxdWVzdBotLkNTaG9wcGluZ0NhcnRfVXBkYXRlUGFja2Fn",
+            "ZVF1YW50aXR5X1Jlc3BvbnNlQiCqAh1PcGVuU3RlYW13b3Jrcy5Qcm90b2J1",
+            "Zi5XZWJVSQ=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.Reflection.DescriptorReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -114,10 +116,10 @@ namespace OpenSteamworks.Protobuf.WebUI {
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_BundleItem), global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_BundleItem.Parser, new[]{ "Bundleid", "Quantity" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_Contents), global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_Contents.Parser, new[]{ "Lineitems", "Treeview", "Potentials" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_CouponItem), global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_CouponItem.Parser, new[]{ "Couponid", "Gidcoupontarget", "Packageid", "Gidcoupon" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_CreateNew_Request), global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_CreateNew_Request.Parser, new[]{ "SteamidRequester" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_CreateNew_Request), global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_CreateNew_Request.Parser, new[]{ "SteamidRequester", "PurchaseRequestId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_CreateNew_Response), global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_CreateNew_Response.Parser, new[]{ "Gidshoppingcart" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_GetContents_Request), global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_GetContents_Request.Parser, new[]{ "Gidshoppingcart" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_GetContents_Response), global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_GetContents_Response.Parser, new[]{ "Gidshoppingcart", "Contents", "TimeCreated", "MergedIntoAccountCart", "SteamidRequester" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_GetContents_Response), global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_GetContents_Response.Parser, new[]{ "Gidshoppingcart", "Contents", "TimeCreated", "MergedIntoAccountCart", "SteamidRequester", "PurchaseRequestId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_Item), global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_Item.Parser, new[]{ "Gidlineitem", "PackageItem", "WalletCreditItem", "CouponItem", "MicroItem", "BundleItem", "LoyaltyItem" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_LoyaltyRewardItem), global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_LoyaltyRewardItem.Parser, new[]{ "RewardId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_MicroTxnAsset), global::OpenSteamworks.Protobuf.WebUI.CShoppingCart_MicroTxnAsset.Parser, new[]{ "Microtxnappid", "Microtxnassetclassid" }, null, null, null, null),
@@ -135,6 +137,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
   #region Messages
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CShoppingCart_AddBundle_Request : pb::IMessage<CShoppingCart_AddBundle_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -600,6 +603,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CShoppingCart_AddBundle_Response : pb::IMessage<CShoppingCart_AddBundle_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -826,6 +830,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CShoppingCart_AddPackages_Request : pb::IMessage<CShoppingCart_AddPackages_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1213,6 +1218,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CShoppingCart_AddPackages_Response : pb::IMessage<CShoppingCart_AddPackages_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1493,6 +1499,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CShoppingCart_Amount : pb::IMessage<CShoppingCart_Amount>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1751,6 +1758,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CShoppingCart_AvailableCoupon : pb::IMessage<CShoppingCart_AvailableCoupon>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2061,6 +2069,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CShoppingCart_BundleItem : pb::IMessage<CShoppingCart_BundleItem>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2319,6 +2328,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CShoppingCart_Contents : pb::IMessage<CShoppingCart_Contents>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2569,6 +2579,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CShoppingCart_CouponItem : pb::IMessage<CShoppingCart_CouponItem>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2931,6 +2942,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CShoppingCart_CreateNew_Request : pb::IMessage<CShoppingCart_CreateNew_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2968,6 +2980,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     public CShoppingCart_CreateNew_Request(CShoppingCart_CreateNew_Request other) : this() {
       _hasBits0 = other._hasBits0;
       steamidRequester_ = other.steamidRequester_;
+      purchaseRequestId_ = other.purchaseRequestId_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -3004,6 +3017,33 @@ namespace OpenSteamworks.Protobuf.WebUI {
       _hasBits0 &= ~1;
     }
 
+    /// <summary>Field number for the "purchase_request_id" field.</summary>
+    public const int PurchaseRequestIdFieldNumber = 2;
+    private readonly static ulong PurchaseRequestIdDefaultValue = 0UL;
+
+    private ulong purchaseRequestId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ulong PurchaseRequestId {
+      get { if ((_hasBits0 & 2) != 0) { return purchaseRequestId_; } else { return PurchaseRequestIdDefaultValue; } }
+      set {
+        _hasBits0 |= 2;
+        purchaseRequestId_ = value;
+      }
+    }
+    /// <summary>Gets whether the "purchase_request_id" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasPurchaseRequestId {
+      get { return (_hasBits0 & 2) != 0; }
+    }
+    /// <summary>Clears the value of the "purchase_request_id" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearPurchaseRequestId() {
+      _hasBits0 &= ~2;
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -3020,6 +3060,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
         return true;
       }
       if (SteamidRequester != other.SteamidRequester) return false;
+      if (PurchaseRequestId != other.PurchaseRequestId) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -3028,6 +3069,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
     public override int GetHashCode() {
       int hash = 1;
       if (HasSteamidRequester) hash ^= SteamidRequester.GetHashCode();
+      if (HasPurchaseRequestId) hash ^= PurchaseRequestId.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -3050,6 +3092,10 @@ namespace OpenSteamworks.Protobuf.WebUI {
         output.WriteRawTag(9);
         output.WriteFixed64(SteamidRequester);
       }
+      if (HasPurchaseRequestId) {
+        output.WriteRawTag(16);
+        output.WriteUInt64(PurchaseRequestId);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -3064,6 +3110,10 @@ namespace OpenSteamworks.Protobuf.WebUI {
         output.WriteRawTag(9);
         output.WriteFixed64(SteamidRequester);
       }
+      if (HasPurchaseRequestId) {
+        output.WriteRawTag(16);
+        output.WriteUInt64(PurchaseRequestId);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -3076,6 +3126,9 @@ namespace OpenSteamworks.Protobuf.WebUI {
       int size = 0;
       if (HasSteamidRequester) {
         size += 1 + 8;
+      }
+      if (HasPurchaseRequestId) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(PurchaseRequestId);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -3091,6 +3144,9 @@ namespace OpenSteamworks.Protobuf.WebUI {
       }
       if (other.HasSteamidRequester) {
         SteamidRequester = other.SteamidRequester;
+      }
+      if (other.HasPurchaseRequestId) {
+        PurchaseRequestId = other.PurchaseRequestId;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -3109,6 +3165,10 @@ namespace OpenSteamworks.Protobuf.WebUI {
             break;
           case 9: {
             SteamidRequester = input.ReadFixed64();
+            break;
+          }
+          case 16: {
+            PurchaseRequestId = input.ReadUInt64();
             break;
           }
         }
@@ -3130,6 +3190,10 @@ namespace OpenSteamworks.Protobuf.WebUI {
             SteamidRequester = input.ReadFixed64();
             break;
           }
+          case 16: {
+            PurchaseRequestId = input.ReadUInt64();
+            break;
+          }
         }
       }
     }
@@ -3137,6 +3201,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CShoppingCart_CreateNew_Response : pb::IMessage<CShoppingCart_CreateNew_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -3343,6 +3408,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CShoppingCart_GetContents_Request : pb::IMessage<CShoppingCart_GetContents_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -3549,6 +3615,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CShoppingCart_GetContents_Response : pb::IMessage<CShoppingCart_GetContents_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -3590,6 +3657,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
       timeCreated_ = other.timeCreated_;
       mergedIntoAccountCart_ = other.mergedIntoAccountCart_;
       steamidRequester_ = other.steamidRequester_;
+      purchaseRequestId_ = other.purchaseRequestId_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -3719,6 +3787,33 @@ namespace OpenSteamworks.Protobuf.WebUI {
       _hasBits0 &= ~8;
     }
 
+    /// <summary>Field number for the "purchase_request_id" field.</summary>
+    public const int PurchaseRequestIdFieldNumber = 6;
+    private readonly static ulong PurchaseRequestIdDefaultValue = 0UL;
+
+    private ulong purchaseRequestId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ulong PurchaseRequestId {
+      get { if ((_hasBits0 & 16) != 0) { return purchaseRequestId_; } else { return PurchaseRequestIdDefaultValue; } }
+      set {
+        _hasBits0 |= 16;
+        purchaseRequestId_ = value;
+      }
+    }
+    /// <summary>Gets whether the "purchase_request_id" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasPurchaseRequestId {
+      get { return (_hasBits0 & 16) != 0; }
+    }
+    /// <summary>Clears the value of the "purchase_request_id" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearPurchaseRequestId() {
+      _hasBits0 &= ~16;
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -3739,6 +3834,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
       if (TimeCreated != other.TimeCreated) return false;
       if (MergedIntoAccountCart != other.MergedIntoAccountCart) return false;
       if (SteamidRequester != other.SteamidRequester) return false;
+      if (PurchaseRequestId != other.PurchaseRequestId) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -3751,6 +3847,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
       if (HasTimeCreated) hash ^= TimeCreated.GetHashCode();
       if (HasMergedIntoAccountCart) hash ^= MergedIntoAccountCart.GetHashCode();
       if (HasSteamidRequester) hash ^= SteamidRequester.GetHashCode();
+      if (HasPurchaseRequestId) hash ^= PurchaseRequestId.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -3789,6 +3886,10 @@ namespace OpenSteamworks.Protobuf.WebUI {
         output.WriteRawTag(41);
         output.WriteFixed64(SteamidRequester);
       }
+      if (HasPurchaseRequestId) {
+        output.WriteRawTag(48);
+        output.WriteUInt64(PurchaseRequestId);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -3819,6 +3920,10 @@ namespace OpenSteamworks.Protobuf.WebUI {
         output.WriteRawTag(41);
         output.WriteFixed64(SteamidRequester);
       }
+      if (HasPurchaseRequestId) {
+        output.WriteRawTag(48);
+        output.WriteUInt64(PurchaseRequestId);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -3843,6 +3948,9 @@ namespace OpenSteamworks.Protobuf.WebUI {
       }
       if (HasSteamidRequester) {
         size += 1 + 8;
+      }
+      if (HasPurchaseRequestId) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(PurchaseRequestId);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -3873,6 +3981,9 @@ namespace OpenSteamworks.Protobuf.WebUI {
       }
       if (other.HasSteamidRequester) {
         SteamidRequester = other.SteamidRequester;
+      }
+      if (other.HasPurchaseRequestId) {
+        PurchaseRequestId = other.PurchaseRequestId;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -3910,6 +4021,10 @@ namespace OpenSteamworks.Protobuf.WebUI {
           }
           case 41: {
             SteamidRequester = input.ReadFixed64();
+            break;
+          }
+          case 48: {
+            PurchaseRequestId = input.ReadUInt64();
             break;
           }
         }
@@ -3950,6 +4065,10 @@ namespace OpenSteamworks.Protobuf.WebUI {
             SteamidRequester = input.ReadFixed64();
             break;
           }
+          case 48: {
+            PurchaseRequestId = input.ReadUInt64();
+            break;
+          }
         }
       }
     }
@@ -3957,6 +4076,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CShoppingCart_Item : pb::IMessage<CShoppingCart_Item>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -4439,6 +4559,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CShoppingCart_LoyaltyRewardItem : pb::IMessage<CShoppingCart_LoyaltyRewardItem>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -4645,6 +4766,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CShoppingCart_MicroTxnAsset : pb::IMessage<CShoppingCart_MicroTxnAsset>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -4903,6 +5025,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CShoppingCart_PackageItem : pb::IMessage<CShoppingCart_PackageItem>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -5311,6 +5434,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CShoppingCart_Potentials : pb::IMessage<CShoppingCart_Potentials>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -5489,6 +5613,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CShoppingCart_RelationShip : pb::IMessage<CShoppingCart_RelationShip>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -5721,6 +5846,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CShoppingCart_RemoveLineItems_Request : pb::IMessage<CShoppingCart_RemoveLineItems_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -6007,6 +6133,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CShoppingCart_RemoveLineItems_Response : pb::IMessage<CShoppingCart_RemoveLineItems_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -6233,6 +6360,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CShoppingCart_UpdatePackageQuantity_Request : pb::IMessage<CShoppingCart_UpdatePackageQuantity_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -6543,6 +6671,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CShoppingCart_UpdatePackageQuantity_Response : pb::IMessage<CShoppingCart_UpdatePackageQuantity_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -6823,6 +6952,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CShoppingCart_WalletCreditItem : pb::IMessage<CShoppingCart_WalletCreditItem>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage

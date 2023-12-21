@@ -1331,468 +1331,275 @@ const char descriptor_table_protodef_steammessages_5fauth_2esteamclient_2eproto[
   "\n$steammessages_auth.steamclient.proto\032 "
   "google/protobuf/descriptor.proto\032\030steamm"
   "essages_base.proto\032,steammessages_unifie"
-  "d_base.steamclient.proto\032\013enums.proto\"}\n"
+  "d_base.steamclient.proto\032\013enums.proto\"G\n"
   "/CAuthentication_GetPasswordRSAPublicKey"
-  "_Request\022J\n\014account_name\030\001 \001(\tB4\202\265\0300user"
-  "-provided account name to get an RSA key"
-  " for\"\325\001\n0CAuthentication_GetPasswordRSAP"
-  "ublicKey_Response\0221\n\rpublickey_mod\030\001 \001(\t"
-  "B\032\202\265\030\026the public key modulus\0222\n\rpublicke"
-  "y_exp\030\002 \001(\tB\033\202\265\030\027the public key exponent"
-  "\022:\n\ttimestamp\030\003 \001(\004B\'\202\265\030#the timestamp t"
-  "he key was generated\"\262\004\n\035CAuthentication"
-  "_DeviceDetails\022\\\n\024device_friendly_name\030\001"
-  " \001(\tB>\202\265\030:User-supplied, or client-suppl"
-  "ied, friendly name of device\022~\n\rplatform"
-  "_type\030\002 \001(\0162\027.EAuthTokenPlatformType:\036EA"
-  "uthTokenPlatformType_UnknownB.\202\265\030*EAuthT"
-  "okenPlatformType, claimed, of device\022;\n\007"
-  "os_type\030\003 \001(\005B*\202\265\030&EOSType, claimed, of "
-  "authorized device\022n\n\022gaming_device_type\030"
-  "\004 \001(\rBR\202\265\030NEGamingDeviceType, claimed, o"
-  "f authorized device for steam client-typ"
-  "e devices\022S\n\014client_count\030\005 \001(\rB=\202\265\0309For"
-  " desktop clients, quantized number of us"
-  "ers in history\0221\n\nmachine_id\030\006 \001(\014B\035\202\265\030\031"
-  "Additional device context\"\366\002\n-CAuthentic"
-  "ation_BeginAuthSessionViaQR_Request\022\034\n\024d"
-  "evice_friendly_name\030\001 \001(\t\022N\n\rplatform_ty"
-  "pe\030\002 \001(\0162\027.EAuthTokenPlatformType:\036EAuth"
-  "TokenPlatformType_Unknown\022x\n\016device_deta"
-  "ils\030\003 \001(\0132\036.CAuthentication_DeviceDetail"
-  "sB@\202\265\030<User-supplied details about the d"
-  "evice attempting to sign in\022]\n\nwebsite_i"
-  "d\030\004 \001(\t:\007UnknownB@\202\265\030<(EMachineAuthWebDo"
-  "main) identifier of client requesting au"
-  "th\"\360\002\n#CAuthentication_AllowedConfirmati"
-  "on\022\214\001\n\021confirmation_type\030\001 \001(\0162\026.EAuthSe"
-  "ssionGuardType:\035EAuthSessionGuardType_Un"
-  "knownB:\202\265\0306authentication can proceed wi"
-  "th this confirmation type\022\271\001\n\022associated"
-  "_message\030\002 \001(\tB\234\001\202\265\030\227\001message to be inte"
-  "rpreted depending on the confirmation ty"
-  "pe. for email confirmation, this might b"
-  "e the redacted email address to which em"
-  "ail was sent.\"\361\004\n.CAuthentication_BeginA"
-  "uthSessionViaQR_Response\022`\n\tclient_id\030\001 "
-  "\001(\004BM\202\265\030Iunique identifier of requestor,"
-  " also used for routing, portion of QR co"
-  "de\022T\n\rchallenge_url\030\002 \001(\tB=\202\265\0309URL based"
-  " on client ID, which will be rendered as"
-  " QR code\022p\n\nrequest_id\030\003 \001(\014B\\\202\265\030Xunique"
-  " request ID to be presented by requestor"
-  " at poll time - must not be rendered in "
-  "QR\022]\n\010interval\030\004 \001(\002BK\202\265\030Grefresh interv"
-  "al with which requestor should call Poll"
-  "AuthSessionStatus\022\210\001\n\025allowed_confirmati"
-  "ons\030\005 \003(\0132$.CAuthentication_AllowedConfi"
-  "rmationBC\202\265\030\?the confirmation types that"
-  " will be able to confirm the request\022+\n\007"
-  "version\030\006 \001(\005B\032\202\265\030\026version of the QR dat"
-  "a\"\376\006\n6CAuthentication_BeginAuthSessionVi"
-  "aCredentials_Request\022\034\n\024device_friendly_"
-  "name\030\001 \001(\t\022\024\n\014account_name\030\002 \001(\t\022C\n\022encr"
-  "ypted_password\030\003 \001(\tB\'\202\265\030#password, RSA "
-  "encrypted client side\022C\n\024encryption_time"
-  "stamp\030\004 \001(\004B%\202\265\030!timestamp to map to a k"
-  "ey - STime\022&\n\016remember_login\030\005 \001(\010B\016\202\265\030\n"
-  "deprecated\022N\n\rplatform_type\030\006 \001(\0162\027.EAut"
-  "hTokenPlatformType:\036EAuthTokenPlatformTy"
-  "pe_Unknown\022\215\001\n\013persistence\030\007 \001(\0162\024.ESess"
-  "ionPersistence:\036ESessionPersistence_Pers"
-  "istentBB\202\265\030>whether we are requesting a "
-  "persistent or an ephemeral session\022]\n\nwe"
-  "bsite_id\030\010 \001(\t:\007UnknownB@\202\265\030<(EMachineAu"
-  "thWebDomain) identifier of client reques"
-  "ting auth\022x\n\016device_details\030\t \001(\0132\036.CAut"
-  "hentication_DeviceDetailsB@\202\265\030<User-supp"
-  "lied details about the device attempting"
-  " to sign in\0229\n\nguard_data\030\n \001(\tB%\202\265\030!ste"
-  "am guard data for client login\022\020\n\010langua"
-  "ge\030\013 \001(\r\022X\n\tqos_level\030\014 \001(\005:\0012BB\202\265\030>[ENe"
-  "tQOSLevel] client-specified priority for"
-  " this auth attempt\"\370\006\n7CAuthentication_B"
-  "eginAuthSessionViaCredentials_Response\022L"
-  "\n\tclient_id\030\001 \001(\004B9\202\265\0305unique identifier"
-  " of requestor, also used for routing\022z\n\n"
-  "request_id\030\002 \001(\014Bf\202\265\030bunique request ID "
-  "to be presented by requestor at poll tim"
-  "e - must not be transferred or displayed"
-  "\022]\n\010interval\030\003 \001(\002BK\202\265\030Grefresh interval"
-  " with which requestor should call PollAu"
-  "thSessionStatus\022\210\001\n\025allowed_confirmation"
-  "s\030\004 \003(\0132$.CAuthentication_AllowedConfirm"
-  "ationBC\202\265\030\?the confirmation types that w"
-  "ill be able to confirm the request\022n\n\007st"
-  "eamid\030\005 \001(\004B]\202\265\030Ysteamid of the account "
-  "logging in - will only be included if th"
-  "e credentials were correct\022x\n\010weatoken\030\006"
-  " \001(\tBf\202\265\030bpartial-authentication token -"
-  " limited lifetime and scope, included on"
-  "ly if credentials were valid\022G\n\025agreemen"
-  "t_session_url\030\007 \001(\tB(\202\265\030$agreement the u"
-  "ser needs to agree to\022V\n\026extended_error_"
-  "message\030\010 \001(\tB6\202\265\0302error string to displ"
-  "ay if supported by the client\"\275\001\n-CAuthe"
-  "ntication_PollAuthSessionStatus_Request\022"
-  "\021\n\tclient_id\030\001 \001(\004\022\022\n\nrequest_id\030\002 \001(\014\022e"
-  "\n\017token_to_revoke\030\003 \001(\006BL\202\265\030HIf this is "
-  "set to a token owned by this user, that "
-  "token will be retired\"\323\006\n.CAuthenticatio"
-  "n_PollAuthSessionStatus_Response\022I\n\rnew_"
-  "client_id\030\001 \001(\004B2\202\265\030.if challenge is old"
-  ", this is the new client id\022u\n\021new_chall"
-  "enge_url\030\002 \001(\tBZ\202\265\030Vif challenge is old,"
-  " this is the new challenge ID to re-rend"
-  "er for mobile confirmation\022a\n\rrefresh_to"
-  "ken\030\003 \001(\tBJ\202\265\030Fif login has been confirm"
-  "ed, this is the requestor\'s new refresh "
-  "token\022g\n\014access_token\030\004 \001(\tBQ\202\265\030Mif logi"
-  "n has been confirmed, this is a new toke"
-  "n subordinate to refresh_token\022\205\001\n\026had_r"
-  "emote_interaction\030\005 \001(\010Be\202\265\030awhether or "
-  "not the auth session appears to have had"
-  " remote interaction from a potential con"
-  "firmer\022U\n\014account_name\030\006 \001(\tB\?\202\265\030;accoun"
-  "t name of authenticating account, for us"
-  "e by UI layer\022k\n\016new_guard_data\030\007 \001(\tBS\202"
-  "\265\030Oif login has been confirmed, may cont"
-  "ain remembered machine ID for future log"
-  "in\022G\n\025agreement_session_url\030\010 \001(\tB(\202\265\030$a"
-  "greement the user needs to agree to\"u\n*C"
-  "Authentication_GetAuthSessionInfo_Reques"
-  "t\022G\n\tclient_id\030\001 \001(\004B4\202\265\0300client ID from"
-  " scanned QR Code, used for routing\"\265\007\n+C"
-  "Authentication_GetAuthSessionInfo_Respon"
-  "se\022\'\n\002ip\030\001 \001(\tB\033\202\265\030\027IP address of reques"
-  "tor\022,\n\006geoloc\030\002 \001(\tB\034\202\265\030\030geoloc info of "
-  "requestor\022#\n\004city\030\003 \001(\tB\025\202\265\030\021city of req"
-  "uestor\022%\n\005state\030\004 \001(\tB\026\202\265\030\022state of requ"
-  "estor\022)\n\007country\030\005 \001(\tB\030\202\265\030\024country of r"
-  "equestor\022n\n\rplatform_type\030\006 \001(\0162\027.EAuthT"
-  "okenPlatformType:\036EAuthTokenPlatformType"
-  "_UnknownB\036\202\265\030\032platform type of requestor"
-  "\022:\n\024device_friendly_name\030\007 \001(\tB\034\202\265\030\030name"
-  " of requestor device\022\"\n\007version\030\010 \001(\005B\021\202"
-  "\265\030\rversion field\022\242\001\n\rlogin_history\030\t \001(\016"
-  "2\034.EAuthSessionSecurityHistory:#EAuthSes"
-  "sionSecurityHistory_InvalidBH\202\265\030Dwhether"
-  " the ip has previuously been used on the"
-  " account successfully\022f\n\033requestor_locat"
-  "ion_mismatch\030\n \001(\010BA\202\265\030=whether the requ"
-  "estor location matches this requests loc"
-  "ation\022M\n\020high_usage_login\030\013 \001(\010B3\202\265\030/whe"
-  "ther this login has seen high usage rece"
-  "ntly\022\213\001\n\025requested_persistence\030\014 \001(\0162\024.E"
-  "SessionPersistence:\033ESessionPersistence_"
-  "InvalidB9\202\265\0305session persistence request"
-  "or has indicated they want\"\232\004\n\?CAuthenti"
-  "cation_UpdateAuthSessionWithMobileConfir"
-  "mation_Request\022\"\n\007version\030\001 \001(\005B\021\202\265\030\rver"
-  "sion field\022>\n\tclient_id\030\002 \001(\004B+\202\265\030\'pendi"
-  "ng client ID, from scanned QR Code\022,\n\007st"
-  "eamid\030\003 \001(\006B\033\202\265\030\027user who wants to login"
-  "\022Z\n\tsignature\030\004 \001(\014BG\202\265\030CHMAC digest ove"
-  "r {version,client_id,steamid} via user\'s"
-  " private key\022Y\n\007confirm\030\005 \001(\010:\005falseBA\202\265"
-  "\030=Whether to confirm the login (true) or"
-  " deny the login (false)\022\215\001\n\013persistence\030"
-  "\006 \001(\0162\024.ESessionPersistence:\036ESessionPer"
-  "sistence_PersistentBB\202\265\030>whether we are "
-  "requesting a persistent or an ephemeral "
-  "session\"B\n@CAuthentication_UpdateAuthSes"
-  "sionWithMobileConfirmation_Response\"\275\002\n;"
-  "CAuthentication_UpdateAuthSessionWithSte"
-  "amGuardCode_Request\022B\n\tclient_id\030\001 \001(\004B/"
-  "\202\265\030+pending client ID, from initialized "
-  "session\022,\n\007steamid\030\002 \001(\006B\033\202\265\030\027user who w"
-  "ants to login\022#\n\004code\030\003 \001(\tB\025\202\265\030\021confirm"
-  "ation code\022g\n\tcode_type\030\004 \001(\0162\026.EAuthSes"
-  "sionGuardType:\035EAuthSessionGuardType_Unk"
-  "nownB\035\202\265\030\031type of confirmation code\"\207\001\n<"
-  "CAuthentication_UpdateAuthSessionWithSte"
-  "amGuardCode_Response\022G\n\025agreement_sessio"
-  "n_url\030\007 \001(\tB(\202\265\030$agreement the user need"
-  "s to agree to\"\236\001\n2CAuthentication_Access"
-  "Token_GenerateForApp_Request\022\025\n\rrefresh_"
-  "token\030\001 \001(\t\022\017\n\007steamid\030\002 \001(\006\022@\n\014renewal_"
-  "type\030\003 \001(\0162\022.ETokenRenewalType:\026ETokenRe"
-  "newalType_None\"b\n3CAuthentication_Access"
-  "Token_GenerateForApp_Response\022\024\n\014access_"
-  "token\030\001 \001(\t\022\025\n\rrefresh_token\030\002 \001(\t\"0\n.CA"
-  "uthentication_RefreshToken_Enumerate_Req"
-  "uest\"\250\r\n/CAuthentication_RefreshToken_En"
-  "umerate_Response\022`\n\016refresh_tokens\030\001 \003(\013"
-  "2H.CAuthentication_RefreshToken_Enumerat"
-  "e_Response.RefreshTokenDescription\022\030\n\020re"
-  "questing_token\030\002 \001(\006\032\223\003\n\017TokenUsageEvent"
-  "\022[\n\004time\030\001 \001(\rBM\202\265\030IApproximate time of "
-  "history event (may be deliberately fuzze"
-  "d or omitted)\022>\n\002ip\030\002 \001(\0132\016.CMsgIPAddres"
-  "sB\"\202\265\030\036IP at which event was observed\022\016\n"
-  "\006locale\030\003 \001(\t\022J\n\007country\030\004 \001(\tB9\202\265\0305Loca"
-  "tion (country code) of event, as inferre"
-  "d from IP\022F\n\005state\030\005 \001(\tB7\202\265\0303Location ("
-  "state code) of event, as inferred from I"
-  "P\022\?\n\004city\030\006 \001(\tB1\202\265\030-Location (city) of "
-  "event, as inferred from IP\032\342\010\n\027RefreshTo"
-  "kenDescription\0228\n\010token_id\030\001 \001(\006B&\202\265\030\"Pe"
-  "rsistent token/device identifier\022K\n\021toke"
-  "n_description\030\002 \001(\tB0\202\265\030,client-supplied"
-  " friendly name for the device\022\024\n\014time_up"
-  "dated\030\003 \001(\r\022\177\n\rplatform_type\030\004 \001(\0162\027.EAu"
+  "_Request\022\024\n\014account_name\030\001 \001(\t\"s\n0CAuthe"
+  "ntication_GetPasswordRSAPublicKey_Respon"
+  "se\022\025\n\rpublickey_mod\030\001 \001(\t\022\025\n\rpublickey_e"
+  "xp\030\002 \001(\t\022\021\n\ttimestamp\030\003 \001(\004\"\344\001\n\035CAuthent"
+  "ication_DeviceDetails\022\034\n\024device_friendly"
+  "_name\030\001 \001(\t\022N\n\rplatform_type\030\002 \001(\0162\027.EAu"
   "thTokenPlatformType:\036EAuthTokenPlatformT"
-  "ype_UnknownB/\202\265\030+gross platform type (mo"
-  "bile/client/browser)\022\224\001\n\tlogged_in\030\005 \001(\010"
-  "B\200\001\202\265\030|If true, this token is currently "
-  "valid. False indicates it is a machine t"
-  "oken - ok for steamguard if you know the"
-  " credential\022T\n\013os_platform\030\006 \001(\rB\?\202\265\030;EP"
-  "latformType - rough classification of de"
-  "vice OS, if known\022U\n\tauth_type\030\007 \001(\rBB\202\265"
-  "\030>EAuthTokenGuardType - device authoriza"
-  "tion mechanism, if known\022\202\001\n\022gaming_devi"
-  "ce_type\030\010 \001(\rBf\202\265\030bEGamingDeviceType - c"
-  "lassify console/PC/SteamDeck, if known; "
-  "applies only for Steam Client devices\022\210\001"
-  "\n\nfirst_seen\030\t \001(\0132@.CAuthentication_Ref"
-  "reshToken_Enumerate_Response.TokenUsageE"
-  "ventB2\202\265\030.Information about original aut"
-  "horization event\022\227\001\n\tlast_seen\030\n \001(\0132@.C"
-  "Authentication_RefreshToken_Enumerate_Re"
-  "sponse.TokenUsageEventBB\202\265\030>Information "
-  "about most-recently seen, if known for t"
-  "his device\022;\n\007os_type\030\013 \001(\005B*\202\265\030&EOSType"
-  " - specific device OS, if known\"3\n1CAuth"
-  "entication_GetAuthSessionsForAccount_Req"
-  "uest\"\203\001\n2CAuthentication_GetAuthSessions"
-  "ForAccount_Response\022M\n\nclient_ids\030\001 \003(\004B"
-  "9\202\265\0305unique identifier of requestor, als"
-  "o used for routing\"\333\001\n,CAuthentication_M"
-  "igrateMobileSession_Request\0224\n\007steamid\030\001"
-  " \001(\006B#\202\265\030\037Steam ID of the user to migrat"
-  "e\022&\n\005token\030\002 \001(\tB\027\202\265\030\023WG Token to migrat"
-  "e\022M\n\tsignature\030\003 \001(\tB:\202\265\0306Signature over"
-  " the wg token using the user\'s 2FA token"
+  "ype_Unknown\022\017\n\007os_type\030\003 \001(\005\022\032\n\022gaming_d"
+  "evice_type\030\004 \001(\r\022\024\n\014client_count\030\005 \001(\r\022\022"
+  "\n\nmachine_id\030\006 \001(\014\"\362\001\n-CAuthentication_B"
+  "eginAuthSessionViaQR_Request\022\034\n\024device_f"
+  "riendly_name\030\001 \001(\t\022N\n\rplatform_type\030\002 \001("
+  "\0162\027.EAuthTokenPlatformType:\036EAuthTokenPl"
+  "atformType_Unknown\0226\n\016device_details\030\003 \001"
+  "(\0132\036.CAuthentication_DeviceDetails\022\033\n\nwe"
+  "bsite_id\030\004 \001(\t:\007Unknown\"\223\001\n#CAuthenticat"
+  "ion_AllowedConfirmation\022P\n\021confirmation_"
+  "type\030\001 \001(\0162\026.EAuthSessionGuardType:\035EAut"
+  "hSessionGuardType_Unknown\022\032\n\022associated_"
+  "message\030\002 \001(\t\"\326\001\n.CAuthentication_BeginA"
+  "uthSessionViaQR_Response\022\021\n\tclient_id\030\001 "
+  "\001(\004\022\025\n\rchallenge_url\030\002 \001(\t\022\022\n\nrequest_id"
+  "\030\003 \001(\014\022\020\n\010interval\030\004 \001(\002\022C\n\025allowed_conf"
+  "irmations\030\005 \003(\0132$.CAuthentication_Allowe"
+  "dConfirmation\022\017\n\007version\030\006 \001(\005\"\352\003\n6CAuth"
+  "entication_BeginAuthSessionViaCredential"
+  "s_Request\022\034\n\024device_friendly_name\030\001 \001(\t\022"
+  "\024\n\014account_name\030\002 \001(\t\022\032\n\022encrypted_passw"
+  "ord\030\003 \001(\t\022\034\n\024encryption_timestamp\030\004 \001(\004\022"
+  "\026\n\016remember_login\030\005 \001(\010\022N\n\rplatform_type"
+  "\030\006 \001(\0162\027.EAuthTokenPlatformType:\036EAuthTo"
+  "kenPlatformType_Unknown\022I\n\013persistence\030\007"
+  " \001(\0162\024.ESessionPersistence:\036ESessionPers"
+  "istence_Persistent\022\033\n\nwebsite_id\030\010 \001(\t:\007"
+  "Unknown\0226\n\016device_details\030\t \001(\0132\036.CAuthe"
+  "ntication_DeviceDetails\022\022\n\nguard_data\030\n "
+  "\001(\t\022\020\n\010language\030\013 \001(\r\022\024\n\tqos_level\030\014 \001(\005"
+  ":\0012\"\231\002\n7CAuthentication_BeginAuthSession"
+  "ViaCredentials_Response\022\021\n\tclient_id\030\001 \001"
+  "(\004\022\022\n\nrequest_id\030\002 \001(\014\022\020\n\010interval\030\003 \001(\002"
+  "\022C\n\025allowed_confirmations\030\004 \003(\0132$.CAuthe"
+  "ntication_AllowedConfirmation\022\017\n\007steamid"
+  "\030\005 \001(\004\022\020\n\010weatoken\030\006 \001(\t\022\035\n\025agreement_se"
+  "ssion_url\030\007 \001(\t\022\036\n\026extended_error_messag"
+  "e\030\010 \001(\t\"o\n-CAuthentication_PollAuthSessi"
+  "onStatus_Request\022\021\n\tclient_id\030\001 \001(\004\022\022\n\nr"
+  "equest_id\030\002 \001(\014\022\027\n\017token_to_revoke\030\003 \001(\006"
+  "\"\374\001\n.CAuthentication_PollAuthSessionStat"
+  "us_Response\022\025\n\rnew_client_id\030\001 \001(\004\022\031\n\021ne"
+  "w_challenge_url\030\002 \001(\t\022\025\n\rrefresh_token\030\003"
+  " \001(\t\022\024\n\014access_token\030\004 \001(\t\022\036\n\026had_remote"
+  "_interaction\030\005 \001(\010\022\024\n\014account_name\030\006 \001(\t"
+  "\022\026\n\016new_guard_data\030\007 \001(\t\022\035\n\025agreement_se"
+  "ssion_url\030\010 \001(\t\"\?\n*CAuthentication_GetAu"
+  "thSessionInfo_Request\022\021\n\tclient_id\030\001 \001(\004"
+  "\"\341\003\n+CAuthentication_GetAuthSessionInfo_"
+  "Response\022\n\n\002ip\030\001 \001(\t\022\016\n\006geoloc\030\002 \001(\t\022\014\n\004"
+  "city\030\003 \001(\t\022\r\n\005state\030\004 \001(\t\022\017\n\007country\030\005 \001"
+  "(\t\022N\n\rplatform_type\030\006 \001(\0162\027.EAuthTokenPl"
+  "atformType:\036EAuthTokenPlatformType_Unkno"
+  "wn\022\034\n\024device_friendly_name\030\007 \001(\t\022\017\n\007vers"
+  "ion\030\010 \001(\005\022X\n\rlogin_history\030\t \001(\0162\034.EAuth"
+  "SessionSecurityHistory:#EAuthSessionSecu"
+  "rityHistory_Invalid\022#\n\033requestor_locatio"
+  "n_mismatch\030\n \001(\010\022\030\n\020high_usage_login\030\013 \001"
+  "(\010\022P\n\025requested_persistence\030\014 \001(\0162\024.ESes"
+  "sionPersistence:\033ESessionPersistence_Inv"
+  "alid\"\354\001\n\?CAuthentication_UpdateAuthSessi"
+  "onWithMobileConfirmation_Request\022\017\n\007vers"
+  "ion\030\001 \001(\005\022\021\n\tclient_id\030\002 \001(\004\022\017\n\007steamid\030"
+  "\003 \001(\006\022\021\n\tsignature\030\004 \001(\014\022\026\n\007confirm\030\005 \001("
+  "\010:\005false\022I\n\013persistence\030\006 \001(\0162\024.ESession"
+  "Persistence:\036ESessionPersistence_Persist"
+  "ent\"B\n@CAuthentication_UpdateAuthSession"
+  "WithMobileConfirmation_Response\"\271\001\n;CAut"
+  "hentication_UpdateAuthSessionWithSteamGu"
+  "ardCode_Request\022\021\n\tclient_id\030\001 \001(\004\022\017\n\007st"
+  "eamid\030\002 \001(\006\022\014\n\004code\030\003 \001(\t\022H\n\tcode_type\030\004"
+  " \001(\0162\026.EAuthSessionGuardType:\035EAuthSessi"
+  "onGuardType_Unknown\"]\n<CAuthentication_U"
+  "pdateAuthSessionWithSteamGuardCode_Respo"
+  "nse\022\035\n\025agreement_session_url\030\007 \001(\t\"\236\001\n2C"
+  "Authentication_AccessToken_GenerateForAp"
+  "p_Request\022\025\n\rrefresh_token\030\001 \001(\t\022\017\n\007stea"
+  "mid\030\002 \001(\006\022@\n\014renewal_type\030\003 \001(\0162\022.EToken"
+  "RenewalType:\026ETokenRenewalType_None\"b\n3C"
+  "Authentication_AccessToken_GenerateForAp"
+  "p_Response\022\024\n\014access_token\030\001 \001(\t\022\025\n\rrefr"
+  "esh_token\030\002 \001(\t\"0\n.CAuthentication_Refre"
+  "shToken_Enumerate_Request\"\352\005\n/CAuthentic"
+  "ation_RefreshToken_Enumerate_Response\022`\n"
+  "\016refresh_tokens\030\001 \003(\0132H.CAuthentication_"
+  "RefreshToken_Enumerate_Response.RefreshT"
+  "okenDescription\022\030\n\020requesting_token\030\002 \001("
+  "\006\032y\n\017TokenUsageEvent\022\014\n\004time\030\001 \001(\r\022\032\n\002ip"
+  "\030\002 \001(\0132\016.CMsgIPAddress\022\016\n\006locale\030\003 \001(\t\022\017"
+  "\n\007country\030\004 \001(\t\022\r\n\005state\030\005 \001(\t\022\014\n\004city\030\006"
+  " \001(\t\032\277\003\n\027RefreshTokenDescription\022\020\n\010toke"
+  "n_id\030\001 \001(\006\022\031\n\021token_description\030\002 \001(\t\022\024\n"
+  "\014time_updated\030\003 \001(\r\022N\n\rplatform_type\030\004 \001"
+  "(\0162\027.EAuthTokenPlatformType:\036EAuthTokenP"
+  "latformType_Unknown\022\021\n\tlogged_in\030\005 \001(\010\022\023"
+  "\n\013os_platform\030\006 \001(\r\022\021\n\tauth_type\030\007 \001(\r\022\032"
+  "\n\022gaming_device_type\030\010 \001(\r\022T\n\nfirst_seen"
+  "\030\t \001(\0132@.CAuthentication_RefreshToken_En"
+  "umerate_Response.TokenUsageEvent\022S\n\tlast"
+  "_seen\030\n \001(\0132@.CAuthentication_RefreshTok"
+  "en_Enumerate_Response.TokenUsageEvent\022\017\n"
+  "\007os_type\030\013 \001(\005\"3\n1CAuthentication_GetAut"
+  "hSessionsForAccount_Request\"H\n2CAuthenti"
+  "cation_GetAuthSessionsForAccount_Respons"
+  "e\022\022\n\nclient_ids\030\001 \003(\004\"a\n,CAuthentication"
+  "_MigrateMobileSession_Request\022\017\n\007steamid"
+  "\030\001 \001(\006\022\r\n\005token\030\002 \001(\t\022\021\n\tsignature\030\003 \001(\t"
   "\"\\\n-CAuthentication_MigrateMobileSession"
   "_Response\022\025\n\rrefresh_token\030\001 \001(\t\022\024\n\014acce"
-  "ss_token\030\002 \001(\t\"\272\001\n$CAuthentication_Token"
-  "_Revoke_Request\022\r\n\005token\030\001 \001(\t\022\202\001\n\rrevok"
-  "e_action\030\002 \001(\0162\027.EAuthTokenRevokeAction:"
-  "\031EAuthTokenRevokePermanentB7\202\265\0303Select b"
-  "etween logout and logout-and-forget-mach"
-  "ine\"\'\n%CAuthentication_Token_Revoke_Resp"
-  "onse\"\315\002\n+CAuthentication_RefreshToken_Re"
-  "voke_Request\022\020\n\010token_id\030\001 \001(\006\022N\n\007steami"
-  "d\030\002 \001(\006B=\202\265\0309Token holder if an admin ac"
-  "tion on behalf of another user\022\202\001\n\rrevok"
-  "e_action\030\003 \001(\0162\027.EAuthTokenRevokeAction:"
-  "\031EAuthTokenRevokePermanentB7\202\265\0303Select b"
-  "etween logout and logout-and-forget-mach"
-  "ine\0227\n\tsignature\030\004 \001(\014B$\202\265\030 required sig"
-  "nature over token_id\".\n,CAuthentication_"
-  "RefreshToken_Revoke_Response\"\333\001\n:CAuthen"
-  "ticationSupport_QueryRefreshTokensByAcco"
-  "unt_Request\022\?\n\007steamid\030\001 \001(\006B.\202\265\030*SteamI"
-  "D of the account to query (required)\022\\\n\026"
-  "include_revoked_tokens\030\002 \001(\010B<\202\265\0308Includ"
-  "es tokens that are revoked or expired in"
-  " the query\"\204\n\n\037CSupportRefreshTokenDescr"
-  "iption\022\020\n\010token_id\030\001 \001(\006\022\031\n\021token_descri"
-  "ption\030\002 \001(\t\022\024\n\014time_updated\030\003 \001(\r\022N\n\rpla"
-  "tform_type\030\004 \001(\0162\027.EAuthTokenPlatformTyp"
-  "e:\036EAuthTokenPlatformType_Unknown\022>\n\013tok"
-  "en_state\030\005 \001(\0162\020.EAuthTokenState:\027EAuthT"
-  "okenState_Invalid\022\025\n\rowner_steamid\030\006 \001(\006"
-  "\022T\n\013os_platform\030\007 \001(\rB\?\202\265\030;EPlatformType"
-  " - rough classification of device OS, if"
-  " known\022;\n\007os_type\030\010 \001(\005B*\202\265\030&EOSType - s"
-  "pecific device OS, if known\022U\n\tauth_type"
-  "\030\t \001(\rBB\202\265\030>EAuthTokenGuardType - device"
-  " authorization mechanism, if known\022\202\001\n\022g"
-  "aming_device_type\030\n \001(\rBf\202\265\030bEGamingDevi"
-  "ceType - classify console/PC/SteamDeck, "
-  "if known; applies only for Steam Client "
-  "devices\022x\n\nfirst_seen\030\013 \001(\01320.CSupportRe"
-  "freshTokenDescription.TokenUsageEventB2\202"
-  "\265\030.Information about original authorizat"
-  "ion event\022\207\001\n\tlast_seen\030\014 \001(\01320.CSupport"
-  "RefreshTokenDescription.TokenUsageEventB"
-  "B\202\265\030>Information about most-recently see"
-  "n, if known for this device\032\203\003\n\017TokenUsa"
-  "geEvent\022[\n\004time\030\001 \001(\rBM\202\265\030IApproximate t"
-  "ime of history event (may be deliberatel"
-  "y fuzzed or omitted)\022>\n\002ip\030\002 \001(\0132\016.CMsgI"
-  "PAddressB\"\202\265\030\036IP at which event was obse"
-  "rved\022J\n\007country\030\003 \001(\tB9\202\265\0305Location (cou"
-  "ntry code) of event, as inferred from IP"
-  "\022F\n\005state\030\004 \001(\tB7\202\265\0303Location (state cod"
-  "e) of event, as inferred from IP\022\?\n\004city"
-  "\030\005 \001(\tB1\202\265\030-Location (city) of event, as"
-  " inferred from IP\"\221\001\n;CAuthenticationSup"
-  "port_QueryRefreshTokensByAccount_Respons"
-  "e\0228\n\016refresh_tokens\030\001 \003(\0132 .CSupportRefr"
-  "eshTokenDescription\022\030\n\020last_token_reset\030"
-  "\002 \001(\005\"y\n4CAuthenticationSupport_QueryRef"
-  "reshTokenByID_Request\022A\n\010token_id\030\001 \001(\006B"
-  "/\202\265\030+Token ID of the token to look up (r"
-  "equired)\"q\n5CAuthenticationSupport_Query"
-  "RefreshTokenByID_Response\0228\n\016refresh_tok"
-  "ens\030\001 \003(\0132 .CSupportRefreshTokenDescript"
-  "ion\"\263\001\n*CAuthenticationSupport_RevokeTok"
-  "en_Request\022@\n\010token_id\030\001 \001(\006B.\202\265\030*Token "
-  "ID of the token to revoke (required)\022C\n\007"
-  "steamid\030\002 \001(\006B2\202\265\030.Steam ID of the owner"
-  " of that token (required)\"-\n+CAuthentica"
-  "tionSupport_RevokeToken_Response\"{\n.CAut"
-  "henticationSupport_GetTokenHistory_Reque"
-  "st\022I\n\010token_id\030\001 \001(\006B7\202\265\0303Token ID of th"
-  "e token to get history for (required)\"d\n"
-  "\031CSupportRefreshTokenAudit\022\016\n\006action\030\001 \001"
-  "(\005\022\014\n\004time\030\002 \001(\r\022\032\n\002ip\030\003 \001(\0132\016.CMsgIPAdd"
-  "ress\022\r\n\005actor\030\004 \001(\006\"^\n/CAuthenticationSu"
-  "pport_GetTokenHistory_Response\022+\n\007histor"
-  "y\030\001 \003(\0132\032.CSupportRefreshTokenAudit\"C\n C"
-  "CloudGaming_CreateNonce_Request\022\020\n\010platf"
-  "orm\030\001 \001(\t\022\r\n\005appid\030\002 \001(\r\"B\n!CCloudGaming"
-  "_CreateNonce_Response\022\r\n\005nonce\030\001 \001(\t\022\016\n\006"
-  "expiry\030\002 \001(\r\"M\n%CCloudGaming_GetTimeRema"
-  "ining_Request\022\020\n\010platform\030\001 \001(\t\022\022\n\nappid"
-  "_list\030\002 \003(\r\"F\n\032CCloudGaming_TimeRemainin"
-  "g\022\r\n\005appid\030\001 \001(\r\022\031\n\021minutes_remaining\030\002 "
-  "\001(\r\"V\n&CCloudGaming_GetTimeRemaining_Res"
-  "ponse\022,\n\007entries\030\002 \003(\0132\033.CCloudGaming_Ti"
-  "meRemaining*\261\001\n\026EAuthTokenPlatformType\022\""
-  "\n\036EAuthTokenPlatformType_Unknown\020\000\022&\n\"EA"
-  "uthTokenPlatformType_SteamClient\020\001\022%\n!EA"
-  "uthTokenPlatformType_WebBrowser\020\002\022$\n EAu"
-  "thTokenPlatformType_MobileApp\020\003*\325\002\n\025EAut"
-  "hSessionGuardType\022!\n\035EAuthSessionGuardTy"
-  "pe_Unknown\020\000\022\036\n\032EAuthSessionGuardType_No"
-  "ne\020\001\022#\n\037EAuthSessionGuardType_EmailCode\020"
-  "\002\022$\n EAuthSessionGuardType_DeviceCode\020\003\022"
-  ",\n(EAuthSessionGuardType_DeviceConfirmat"
-  "ion\020\004\022+\n\'EAuthSessionGuardType_EmailConf"
-  "irmation\020\005\022&\n\"EAuthSessionGuardType_Mach"
-  "ineToken\020\006\022+\n\'EAuthSessionGuardType_Lega"
-  "cyMachineAuth\020\007*\246\001\n\033EAuthSessionSecurity"
-  "History\022\'\n#EAuthSessionSecurityHistory_I"
-  "nvalid\020\000\022.\n*EAuthSessionSecurityHistory_"
-  "UsedPreviously\020\001\022.\n*EAuthSessionSecurity"
-  "History_NoPriorHistory\020\002*L\n\021ETokenRenewa"
-  "lType\022\032\n\026ETokenRenewalType_None\020\000\022\033\n\027ETo"
-  "kenRenewalType_Allow\020\001*\237\002\n\026EAuthTokenRev"
-  "okeAction\022\032\n\026EAuthTokenRevokeLogout\020\000\022\035\n"
-  "\031EAuthTokenRevokePermanent\020\001\022\034\n\030EAuthTok"
-  "enRevokeReplaced\020\002\022\033\n\027EAuthTokenRevokeSu"
-  "pport\020\003\022\033\n\027EAuthTokenRevokeConsume\020\004\022\'\n#"
-  "EAuthTokenRevokeNonRememberedLogout\020\005\022*\n"
-  "&EAuthTokenRevokeNonRememberedPermanent\020"
-  "\006\022\035\n\031EAuthTokenRevokeAutomatic\020\007*\370\001\n\017EAu"
-  "thTokenState\022\033\n\027EAuthTokenState_Invalid\020"
-  "\000\022\027\n\023EAuthTokenState_New\020\001\022\035\n\031EAuthToken"
-  "State_Confirmed\020\002\022\032\n\026EAuthTokenState_Iss"
-  "ued\020\003\022\032\n\026EAuthTokenState_Denied\020\004\022\035\n\031EAu"
-  "thTokenState_LoggedOut\020\005\022\034\n\030EAuthTokenSt"
-  "ate_Consumed\020\006\022\033\n\027EAuthTokenState_Revoke"
-  "d\020c2\352\024\n\016Authentication\022\317\001\n\027GetPasswordRS"
-  "APublicKey\0220.CAuthentication_GetPassword"
-  "RSAPublicKey_Request\0321.CAuthentication_G"
-  "etPasswordRSAPublicKey_Response\"O\202\265\030KFet"
-  "ches RSA public key to use to encrypt pa"
-  "sswords for a given account name\022\232\001\n\025Beg"
-  "inAuthSessionViaQR\022..CAuthentication_Beg"
-  "inAuthSessionViaQR_Request\032/.CAuthentica"
-  "tion_BeginAuthSessionViaQR_Response\" \202\265\030"
-  "\034start authentication process\022\265\001\n\036BeginA"
-  "uthSessionViaCredentials\0227.CAuthenticati"
-  "on_BeginAuthSessionViaCredentials_Reques"
-  "t\0328.CAuthentication_BeginAuthSessionViaC"
-  "redentials_Response\" \202\265\030\034start authentic"
-  "ation process\022\240\001\n\025PollAuthSessionStatus\022"
-  "..CAuthentication_PollAuthSessionStatus_"
-  "Request\032/.CAuthentication_PollAuthSessio"
-  "nStatus_Response\"&\202\265\030\"poll during authen"
-  "tication process\022\316\001\n\022GetAuthSessionInfo\022"
-  "+.CAuthentication_GetAuthSessionInfo_Req"
-  "uest\032,.CAuthentication_GetAuthSessionInf"
-  "o_Response\"]\202\265\030Yget metadata of specific"
-  " auth session, this will also implicitly"
-  " bind the calling account\022\344\001\n\'UpdateAuth"
-  "SessionWithMobileConfirmation\022@.CAuthent"
-  "ication_UpdateAuthSessionWithMobileConfi"
-  "rmation_Request\032A.CAuthentication_Update"
-  "AuthSessionWithMobileConfirmation_Respon"
-  "se\"4\202\265\0300approve an authentication sessio"
-  "n via mobile 2fa\022\336\001\n#UpdateAuthSessionWi"
-  "thSteamGuardCode\022<.CAuthentication_Updat"
-  "eAuthSessionWithSteamGuardCode_Request\032="
-  ".CAuthentication_UpdateAuthSessionWithSt"
-  "eamGuardCode_Response\":\202\265\0306approve an au"
-  "thentication session via steam guard cod"
-  "e\022\373\001\n\031GenerateAccessTokenForApp\0223.CAuthe"
-  "ntication_AccessToken_GenerateForApp_Req"
-  "uest\0324.CAuthentication_AccessToken_Gener"
-  "ateForApp_Response\"s\202\265\030oGiven a refresh "
-  "token for a client app audience (e.g. de"
-  "sktop client / mobile client), generate "
-  "an access token\022\272\001\n\017EnumerateTokens\022/.CA"
-  "uthentication_RefreshToken_Enumerate_Req"
-  "uest\0320.CAuthentication_RefreshToken_Enum"
-  "erate_Response\"D\202\265\030@Enumerate durable (r"
-  "efresh) tokens for the given subject acc"
-  "ount\022\326\001\n\031GetAuthSessionsForAccount\0222.CAu"
-  "thentication_GetAuthSessionsForAccount_R"
-  "equest\0323.CAuthentication_GetAuthSessions"
-  "ForAccount_Response\"P\202\265\030LGets all active"
-  " auth sessions for an account for refere"
-  "nce by the mobile app\022\344\001\n\024MigrateMobileS"
-  "ession\022-.CAuthentication_MigrateMobileSe"
-  "ssion_Request\032..CAuthentication_MigrateM"
-  "obileSession_Response\"m\202\265\030iMigrates a WG"
-  " token to an access and refresh token us"
-  "ing a signature generated with the user\'"
-  "s 2FA secret\022\274\001\n\013RevokeToken\022%.CAuthenti"
-  "cation_Token_Revoke_Request\032&.CAuthentic"
-  "ation_Token_Revoke_Response\"^\202\265\030ZRevoke "
-  "a single token immediately, making it un"
-  "able to renew or generate new access tok"
-  "ens\022\236\001\n\022RevokeRefreshToken\022,.CAuthentica"
-  "tion_RefreshToken_Revoke_Request\032-.CAuth"
-  "entication_RefreshToken_Revoke_Response\""
-  "+\202\265\030\'Mark the given refresh token as rev"
-  "oked\032\032\202\265\030\026Authentication Service2\260\006\n\025Aut"
-  "henticationSupport\022\345\001\n\033QueryRefreshToken"
-  "sByAccount\022;.CAuthenticationSupport_Quer"
-  "yRefreshTokensByAccount_Request\032<.CAuthe"
-  "nticationSupport_QueryRefreshTokensByAcc"
-  "ount_Response\"K\202\265\030GAsks the server for a"
-  " list of refresh tokens associated with "
-  "an account\022\323\001\n\025QueryRefreshTokenByID\0225.C"
-  "AuthenticationSupport_QueryRefreshTokenB"
-  "yID_Request\0326.CAuthenticationSupport_Que"
-  "ryRefreshTokenByID_Response\"K\202\265\030GAsks th"
-  "e server for a list of refresh tokens as"
-  "sociated with an account\022\211\001\n\013RevokeToken"
-  "\022+.CAuthenticationSupport_RevokeToken_Re"
-  "quest\032,.CAuthenticationSupport_RevokeTok"
-  "en_Response\"\037\202\265\030\033Revokes a user\'s auth t"
-  "oken\022\250\001\n\017GetTokenHistory\022/.CAuthenticati"
-  "onSupport_GetTokenHistory_Request\0320.CAut"
-  "henticationSupport_GetTokenHistory_Respo"
-  "nse\"2\202\265\030.Gets the audit history for a us"
-  "er\'s auth token\032\"\202\265\030\036Authentication Supp"
-  "ort Service2\362\002\n\013CloudGaming\022\213\001\n\013CreateNo"
-  "nce\022!.CCloudGaming_CreateNonce_Request\032\""
-  ".CCloudGaming_CreateNonce_Response\"5\202\265\0301"
-  "Create a nonce for a cloud gaming servic"
-  "e session\022\245\001\n\020GetTimeRemaining\022&.CCloudG"
-  "aming_GetTimeRemaining_Request\032\'.CCloudG"
-  "aming_GetTimeRemaining_Response\"@\202\265\030<Get"
-  " the amount of streaming time remaining "
-  "for a set of apps\032-\202\265\030)Methods for Steam"
-  " cloud gaming operationsB\035\200\001\001\252\002\027OpenStea"
-  "mworks.Protobuf"
+  "ss_token\030\002 \001(\t\"\200\001\n$CAuthentication_Token"
+  "_Revoke_Request\022\r\n\005token\030\001 \001(\t\022I\n\rrevoke"
+  "_action\030\002 \001(\0162\027.EAuthTokenRevokeAction:\031"
+  "EAuthTokenRevokePermanent\"\'\n%CAuthentica"
+  "tion_Token_Revoke_Response\"\256\001\n+CAuthenti"
+  "cation_RefreshToken_Revoke_Request\022\020\n\010to"
+  "ken_id\030\001 \001(\006\022\017\n\007steamid\030\002 \001(\006\022I\n\rrevoke_"
+  "action\030\003 \001(\0162\027.EAuthTokenRevokeAction:\031E"
+  "AuthTokenRevokePermanent\022\021\n\tsignature\030\004 "
+  "\001(\014\".\n,CAuthentication_RefreshToken_Revo"
+  "ke_Response\"m\n:CAuthenticationSupport_Qu"
+  "eryRefreshTokensByAccount_Request\022\017\n\007ste"
+  "amid\030\001 \001(\006\022\036\n\026include_revoked_tokens\030\002 \001"
+  "(\010\"\326\004\n\037CSupportRefreshTokenDescription\022\020"
+  "\n\010token_id\030\001 \001(\006\022\031\n\021token_description\030\002 "
+  "\001(\t\022\024\n\014time_updated\030\003 \001(\r\022N\n\rplatform_ty"
+  "pe\030\004 \001(\0162\027.EAuthTokenPlatformType:\036EAuth"
+  "TokenPlatformType_Unknown\022>\n\013token_state"
+  "\030\005 \001(\0162\020.EAuthTokenState:\027EAuthTokenStat"
+  "e_Invalid\022\025\n\rowner_steamid\030\006 \001(\006\022\023\n\013os_p"
+  "latform\030\007 \001(\r\022\017\n\007os_type\030\010 \001(\005\022\021\n\tauth_t"
+  "ype\030\t \001(\r\022\032\n\022gaming_device_type\030\n \001(\r\022D\n"
+  "\nfirst_seen\030\013 \001(\01320.CSupportRefreshToken"
+  "Description.TokenUsageEvent\022C\n\tlast_seen"
+  "\030\014 \001(\01320.CSupportRefreshTokenDescription"
+  ".TokenUsageEvent\032i\n\017TokenUsageEvent\022\014\n\004t"
+  "ime\030\001 \001(\r\022\032\n\002ip\030\002 \001(\0132\016.CMsgIPAddress\022\017\n"
+  "\007country\030\003 \001(\t\022\r\n\005state\030\004 \001(\t\022\014\n\004city\030\005 "
+  "\001(\t\"\221\001\n;CAuthenticationSupport_QueryRefr"
+  "eshTokensByAccount_Response\0228\n\016refresh_t"
+  "okens\030\001 \003(\0132 .CSupportRefreshTokenDescri"
+  "ption\022\030\n\020last_token_reset\030\002 \001(\005\"H\n4CAuth"
+  "enticationSupport_QueryRefreshTokenByID_"
+  "Request\022\020\n\010token_id\030\001 \001(\006\"q\n5CAuthentica"
+  "tionSupport_QueryRefreshTokenByID_Respon"
+  "se\0228\n\016refresh_tokens\030\001 \003(\0132 .CSupportRef"
+  "reshTokenDescription\"O\n*CAuthenticationS"
+  "upport_RevokeToken_Request\022\020\n\010token_id\030\001"
+  " \001(\006\022\017\n\007steamid\030\002 \001(\006\"-\n+CAuthentication"
+  "Support_RevokeToken_Response\"B\n.CAuthent"
+  "icationSupport_GetTokenHistory_Request\022\020"
+  "\n\010token_id\030\001 \001(\006\"d\n\031CSupportRefreshToken"
+  "Audit\022\016\n\006action\030\001 \001(\005\022\014\n\004time\030\002 \001(\r\022\032\n\002i"
+  "p\030\003 \001(\0132\016.CMsgIPAddress\022\r\n\005actor\030\004 \001(\006\"^"
+  "\n/CAuthenticationSupport_GetTokenHistory"
+  "_Response\022+\n\007history\030\001 \003(\0132\032.CSupportRef"
+  "reshTokenAudit\"C\n CCloudGaming_CreateNon"
+  "ce_Request\022\020\n\010platform\030\001 \001(\t\022\r\n\005appid\030\002 "
+  "\001(\r\"B\n!CCloudGaming_CreateNonce_Response"
+  "\022\r\n\005nonce\030\001 \001(\t\022\016\n\006expiry\030\002 \001(\r\"M\n%CClou"
+  "dGaming_GetTimeRemaining_Request\022\020\n\010plat"
+  "form\030\001 \001(\t\022\022\n\nappid_list\030\002 \003(\r\"F\n\032CCloud"
+  "Gaming_TimeRemaining\022\r\n\005appid\030\001 \001(\r\022\031\n\021m"
+  "inutes_remaining\030\002 \001(\r\"V\n&CCloudGaming_G"
+  "etTimeRemaining_Response\022,\n\007entries\030\002 \003("
+  "\0132\033.CCloudGaming_TimeRemaining*\261\001\n\026EAuth"
+  "TokenPlatformType\022\"\n\036EAuthTokenPlatformT"
+  "ype_Unknown\020\000\022&\n\"EAuthTokenPlatformType_"
+  "SteamClient\020\001\022%\n!EAuthTokenPlatformType_"
+  "WebBrowser\020\002\022$\n EAuthTokenPlatformType_M"
+  "obileApp\020\003*\325\002\n\025EAuthSessionGuardType\022!\n\035"
+  "EAuthSessionGuardType_Unknown\020\000\022\036\n\032EAuth"
+  "SessionGuardType_None\020\001\022#\n\037EAuthSessionG"
+  "uardType_EmailCode\020\002\022$\n EAuthSessionGuar"
+  "dType_DeviceCode\020\003\022,\n(EAuthSessionGuardT"
+  "ype_DeviceConfirmation\020\004\022+\n\'EAuthSession"
+  "GuardType_EmailConfirmation\020\005\022&\n\"EAuthSe"
+  "ssionGuardType_MachineToken\020\006\022+\n\'EAuthSe"
+  "ssionGuardType_LegacyMachineAuth\020\007*\246\001\n\033E"
+  "AuthSessionSecurityHistory\022\'\n#EAuthSessi"
+  "onSecurityHistory_Invalid\020\000\022.\n*EAuthSess"
+  "ionSecurityHistory_UsedPreviously\020\001\022.\n*E"
+  "AuthSessionSecurityHistory_NoPriorHistor"
+  "y\020\002*L\n\021ETokenRenewalType\022\032\n\026ETokenRenewa"
+  "lType_None\020\000\022\033\n\027ETokenRenewalType_Allow\020"
+  "\001*\237\002\n\026EAuthTokenRevokeAction\022\032\n\026EAuthTok"
+  "enRevokeLogout\020\000\022\035\n\031EAuthTokenRevokePerm"
+  "anent\020\001\022\034\n\030EAuthTokenRevokeReplaced\020\002\022\033\n"
+  "\027EAuthTokenRevokeSupport\020\003\022\033\n\027EAuthToken"
+  "RevokeConsume\020\004\022\'\n#EAuthTokenRevokeNonRe"
+  "memberedLogout\020\005\022*\n&EAuthTokenRevokeNonR"
+  "ememberedPermanent\020\006\022\035\n\031EAuthTokenRevoke"
+  "Automatic\020\007*\370\001\n\017EAuthTokenState\022\033\n\027EAuth"
+  "TokenState_Invalid\020\000\022\027\n\023EAuthTokenState_"
+  "New\020\001\022\035\n\031EAuthTokenState_Confirmed\020\002\022\032\n\026"
+  "EAuthTokenState_Issued\020\003\022\032\n\026EAuthTokenSt"
+  "ate_Denied\020\004\022\035\n\031EAuthTokenState_LoggedOu"
+  "t\020\005\022\034\n\030EAuthTokenState_Consumed\020\006\022\033\n\027EAu"
+  "thTokenState_Revoked\020c2\257\r\n\016Authenticatio"
+  "n\022~\n\027GetPasswordRSAPublicKey\0220.CAuthenti"
+  "cation_GetPasswordRSAPublicKey_Request\0321"
+  ".CAuthentication_GetPasswordRSAPublicKey"
+  "_Response\022x\n\025BeginAuthSessionViaQR\022..CAu"
+  "thentication_BeginAuthSessionViaQR_Reque"
+  "st\032/.CAuthentication_BeginAuthSessionVia"
+  "QR_Response\022\223\001\n\036BeginAuthSessionViaCrede"
+  "ntials\0227.CAuthentication_BeginAuthSessio"
+  "nViaCredentials_Request\0328.CAuthenticatio"
+  "n_BeginAuthSessionViaCredentials_Respons"
+  "e\022x\n\025PollAuthSessionStatus\022..CAuthentica"
+  "tion_PollAuthSessionStatus_Request\032/.CAu"
+  "thentication_PollAuthSessionStatus_Respo"
+  "nse\022o\n\022GetAuthSessionInfo\022+.CAuthenticat"
+  "ion_GetAuthSessionInfo_Request\032,.CAuthen"
+  "tication_GetAuthSessionInfo_Response\022\256\001\n"
+  "\'UpdateAuthSessionWithMobileConfirmation"
+  "\022@.CAuthentication_UpdateAuthSessionWith"
+  "MobileConfirmation_Request\032A.CAuthentica"
+  "tion_UpdateAuthSessionWithMobileConfirma"
+  "tion_Response\022\242\001\n#UpdateAuthSessionWithS"
+  "teamGuardCode\022<.CAuthentication_UpdateAu"
+  "thSessionWithSteamGuardCode_Request\032=.CA"
+  "uthentication_UpdateAuthSessionWithSteam"
+  "GuardCode_Response\022\206\001\n\031GenerateAccessTok"
+  "enForApp\0223.CAuthentication_AccessToken_G"
+  "enerateForApp_Request\0324.CAuthentication_"
+  "AccessToken_GenerateForApp_Response\022t\n\017E"
+  "numerateTokens\022/.CAuthentication_Refresh"
+  "Token_Enumerate_Request\0320.CAuthenticatio"
+  "n_RefreshToken_Enumerate_Response\022\204\001\n\031Ge"
+  "tAuthSessionsForAccount\0222.CAuthenticatio"
+  "n_GetAuthSessionsForAccount_Request\0323.CA"
+  "uthentication_GetAuthSessionsForAccount_"
+  "Response\022u\n\024MigrateMobileSession\022-.CAuth"
+  "entication_MigrateMobileSession_Request\032"
+  "..CAuthentication_MigrateMobileSession_R"
+  "esponse\022\\\n\013RevokeToken\022%.CAuthentication"
+  "_Token_Revoke_Request\032&.CAuthentication_"
+  "Token_Revoke_Response\022q\n\022RevokeRefreshTo"
+  "ken\022,.CAuthentication_RefreshToken_Revok"
+  "e_Request\032-.CAuthentication_RefreshToken"
+  "_Revoke_Response2\233\004\n\025AuthenticationSuppo"
+  "rt\022\230\001\n\033QueryRefreshTokensByAccount\022;.CAu"
+  "thenticationSupport_QueryRefreshTokensBy"
+  "Account_Request\032<.CAuthenticationSupport"
+  "_QueryRefreshTokensByAccount_Response\022\206\001"
+  "\n\025QueryRefreshTokenByID\0225.CAuthenticatio"
+  "nSupport_QueryRefreshTokenByID_Request\0326"
+  ".CAuthenticationSupport_QueryRefreshToke"
+  "nByID_Response\022h\n\013RevokeToken\022+.CAuthent"
+  "icationSupport_RevokeToken_Request\032,.CAu"
+  "thenticationSupport_RevokeToken_Response"
+  "\022t\n\017GetTokenHistory\022/.CAuthenticationSup"
+  "port_GetTokenHistory_Request\0320.CAuthenti"
+  "cationSupport_GetTokenHistory_Response2\310"
+  "\001\n\013CloudGaming\022T\n\013CreateNonce\022!.CCloudGa"
+  "ming_CreateNonce_Request\032\".CCloudGaming_"
+  "CreateNonce_Response\022c\n\020GetTimeRemaining"
+  "\022&.CCloudGaming_GetTimeRemaining_Request"
+  "\032\'.CCloudGaming_GetTimeRemaining_Respons"
+  "eB\035\200\001\001\252\002\027OpenSteamworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fauth_2esteamclient_2eproto_deps[4] = {
   &::descriptor_table_enums_2eproto,
@@ -1802,7 +1609,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fauth_2esteamclient_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fauth_2esteamclient_2eproto = {
-  false, false, 18575, descriptor_table_protodef_steammessages_5fauth_2esteamclient_2eproto, "steammessages_auth.steamclient.proto", 
+  false, false, 10872, descriptor_table_protodef_steammessages_5fauth_2esteamclient_2eproto, "steammessages_auth.steamclient.proto", 
   &descriptor_table_steammessages_5fauth_2esteamclient_2eproto_once, descriptor_table_steammessages_5fauth_2esteamclient_2eproto_deps, 4, 46,
   schemas, file_default_instances, TableStruct_steammessages_5fauth_2esteamclient_2eproto::offsets,
   file_level_metadata_steammessages_5fauth_2esteamclient_2eproto, file_level_enum_descriptors_steammessages_5fauth_2esteamclient_2eproto, file_level_service_descriptors_steammessages_5fauth_2esteamclient_2eproto,
@@ -1996,7 +1803,7 @@ const char* CAuthentication_GetPasswordRSAPublicKey_Request::_InternalParse(cons
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional string account_name = 1 [(.description) = "user-provided account name to get an RSA key for"];
+      // optional string account_name = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           auto str = _internal_mutable_account_name();
@@ -2037,7 +1844,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional string account_name = 1 [(.description) = "user-provided account name to get an RSA key for"];
+  // optional string account_name = 1;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_account_name().data(), static_cast<int>(this->_internal_account_name().length()),
@@ -2063,7 +1870,7 @@ size_t CAuthentication_GetPasswordRSAPublicKey_Request::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // optional string account_name = 1 [(.description) = "user-provided account name to get an RSA key for"];
+  // optional string account_name = 1;
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += 1 +
@@ -2233,7 +2040,7 @@ const char* CAuthentication_GetPasswordRSAPublicKey_Response::_InternalParse(con
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional string publickey_mod = 1 [(.description) = "the public key modulus"];
+      // optional string publickey_mod = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           auto str = _internal_mutable_publickey_mod();
@@ -2244,7 +2051,7 @@ const char* CAuthentication_GetPasswordRSAPublicKey_Response::_InternalParse(con
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string publickey_exp = 2 [(.description) = "the public key exponent"];
+      // optional string publickey_exp = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           auto str = _internal_mutable_publickey_exp();
@@ -2255,7 +2062,7 @@ const char* CAuthentication_GetPasswordRSAPublicKey_Response::_InternalParse(con
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint64 timestamp = 3 [(.description) = "the timestamp the key was generated"];
+      // optional uint64 timestamp = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           _Internal::set_has_timestamp(&has_bits);
@@ -2293,7 +2100,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional string publickey_mod = 1 [(.description) = "the public key modulus"];
+  // optional string publickey_mod = 1;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_publickey_mod().data(), static_cast<int>(this->_internal_publickey_mod().length()),
@@ -2303,7 +2110,7 @@ failure:
         1, this->_internal_publickey_mod(), target);
   }
 
-  // optional string publickey_exp = 2 [(.description) = "the public key exponent"];
+  // optional string publickey_exp = 2;
   if (cached_has_bits & 0x00000002u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_publickey_exp().data(), static_cast<int>(this->_internal_publickey_exp().length()),
@@ -2313,7 +2120,7 @@ failure:
         2, this->_internal_publickey_exp(), target);
   }
 
-  // optional uint64 timestamp = 3 [(.description) = "the timestamp the key was generated"];
+  // optional uint64 timestamp = 3;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(3, this->_internal_timestamp(), target);
@@ -2337,21 +2144,21 @@ size_t CAuthentication_GetPasswordRSAPublicKey_Response::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000007u) {
-    // optional string publickey_mod = 1 [(.description) = "the public key modulus"];
+    // optional string publickey_mod = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_publickey_mod());
     }
 
-    // optional string publickey_exp = 2 [(.description) = "the public key exponent"];
+    // optional string publickey_exp = 2;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_publickey_exp());
     }
 
-    // optional uint64 timestamp = 3 [(.description) = "the timestamp the key was generated"];
+    // optional uint64 timestamp = 3;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
@@ -2551,7 +2358,7 @@ const char* CAuthentication_DeviceDetails::_InternalParse(const char* ptr, ::PRO
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional string device_friendly_name = 1 [(.description) = "User-supplied, or client-supplied, friendly name of device"];
+      // optional string device_friendly_name = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           auto str = _internal_mutable_device_friendly_name();
@@ -2562,7 +2369,7 @@ const char* CAuthentication_DeviceDetails::_InternalParse(const char* ptr, ::PRO
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional .EAuthTokenPlatformType platform_type = 2 [default = EAuthTokenPlatformType_Unknown, (.description) = "EAuthTokenPlatformType, claimed, of device"];
+      // optional .EAuthTokenPlatformType platform_type = 2 [default = EAuthTokenPlatformType_Unknown];
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -2574,7 +2381,7 @@ const char* CAuthentication_DeviceDetails::_InternalParse(const char* ptr, ::PRO
           }
         } else goto handle_unusual;
         continue;
-      // optional int32 os_type = 3 [(.description) = "EOSType, claimed, of authorized device"];
+      // optional int32 os_type = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           _Internal::set_has_os_type(&has_bits);
@@ -2582,7 +2389,7 @@ const char* CAuthentication_DeviceDetails::_InternalParse(const char* ptr, ::PRO
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 gaming_device_type = 4 [(.description) = "EGamingDeviceType, claimed, of authorized device for steam client-type devices"];
+      // optional uint32 gaming_device_type = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
           _Internal::set_has_gaming_device_type(&has_bits);
@@ -2590,7 +2397,7 @@ const char* CAuthentication_DeviceDetails::_InternalParse(const char* ptr, ::PRO
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 client_count = 5 [(.description) = "For desktop clients, quantized number of users in history"];
+      // optional uint32 client_count = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
           _Internal::set_has_client_count(&has_bits);
@@ -2598,7 +2405,7 @@ const char* CAuthentication_DeviceDetails::_InternalParse(const char* ptr, ::PRO
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bytes machine_id = 6 [(.description) = "Additional device context"];
+      // optional bytes machine_id = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
           auto str = _internal_mutable_machine_id();
@@ -2636,7 +2443,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional string device_friendly_name = 1 [(.description) = "User-supplied, or client-supplied, friendly name of device"];
+  // optional string device_friendly_name = 1;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_device_friendly_name().data(), static_cast<int>(this->_internal_device_friendly_name().length()),
@@ -2646,32 +2453,32 @@ failure:
         1, this->_internal_device_friendly_name(), target);
   }
 
-  // optional .EAuthTokenPlatformType platform_type = 2 [default = EAuthTokenPlatformType_Unknown, (.description) = "EAuthTokenPlatformType, claimed, of device"];
+  // optional .EAuthTokenPlatformType platform_type = 2 [default = EAuthTokenPlatformType_Unknown];
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       2, this->_internal_platform_type(), target);
   }
 
-  // optional int32 os_type = 3 [(.description) = "EOSType, claimed, of authorized device"];
+  // optional int32 os_type = 3;
   if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(3, this->_internal_os_type(), target);
   }
 
-  // optional uint32 gaming_device_type = 4 [(.description) = "EGamingDeviceType, claimed, of authorized device for steam client-type devices"];
+  // optional uint32 gaming_device_type = 4;
   if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_gaming_device_type(), target);
   }
 
-  // optional uint32 client_count = 5 [(.description) = "For desktop clients, quantized number of users in history"];
+  // optional uint32 client_count = 5;
   if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(5, this->_internal_client_count(), target);
   }
 
-  // optional bytes machine_id = 6 [(.description) = "Additional device context"];
+  // optional bytes machine_id = 6;
   if (cached_has_bits & 0x00000002u) {
     target = stream->WriteBytesMaybeAliased(
         6, this->_internal_machine_id(), target);
@@ -2695,41 +2502,41 @@ size_t CAuthentication_DeviceDetails::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x0000003fu) {
-    // optional string device_friendly_name = 1 [(.description) = "User-supplied, or client-supplied, friendly name of device"];
+    // optional string device_friendly_name = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_device_friendly_name());
     }
 
-    // optional bytes machine_id = 6 [(.description) = "Additional device context"];
+    // optional bytes machine_id = 6;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
           this->_internal_machine_id());
     }
 
-    // optional .EAuthTokenPlatformType platform_type = 2 [default = EAuthTokenPlatformType_Unknown, (.description) = "EAuthTokenPlatformType, claimed, of device"];
+    // optional .EAuthTokenPlatformType platform_type = 2 [default = EAuthTokenPlatformType_Unknown];
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_platform_type());
     }
 
-    // optional int32 os_type = 3 [(.description) = "EOSType, claimed, of authorized device"];
+    // optional int32 os_type = 3;
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
           this->_internal_os_type());
     }
 
-    // optional uint32 gaming_device_type = 4 [(.description) = "EGamingDeviceType, claimed, of authorized device for steam client-type devices"];
+    // optional uint32 gaming_device_type = 4;
     if (cached_has_bits & 0x00000010u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_gaming_device_type());
     }
 
-    // optional uint32 client_count = 5 [(.description) = "For desktop clients, quantized number of users in history"];
+    // optional uint32 client_count = 5;
     if (cached_has_bits & 0x00000020u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -2970,14 +2777,14 @@ const char* CAuthentication_BeginAuthSessionViaQR_Request::_InternalParse(const 
           }
         } else goto handle_unusual;
         continue;
-      // optional .CAuthentication_DeviceDetails device_details = 3 [(.description) = "User-supplied details about the device attempting to sign in"];
+      // optional .CAuthentication_DeviceDetails device_details = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           ptr = ctx->ParseMessage(_internal_mutable_device_details(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string website_id = 4 [default = "Unknown", (.description) = "(EMachineAuthWebDomain) identifier of client requesting auth"];
+      // optional string website_id = 4 [default = "Unknown"];
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
           auto str = _internal_mutable_website_id();
@@ -3035,7 +2842,7 @@ failure:
       2, this->_internal_platform_type(), target);
   }
 
-  // optional .CAuthentication_DeviceDetails device_details = 3 [(.description) = "User-supplied details about the device attempting to sign in"];
+  // optional .CAuthentication_DeviceDetails device_details = 3;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -3043,7 +2850,7 @@ failure:
         3, _Internal::device_details(this), target, stream);
   }
 
-  // optional string website_id = 4 [default = "Unknown", (.description) = "(EMachineAuthWebDomain) identifier of client requesting auth"];
+  // optional string website_id = 4 [default = "Unknown"];
   if (cached_has_bits & 0x00000002u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_website_id().data(), static_cast<int>(this->_internal_website_id().length()),
@@ -3078,14 +2885,14 @@ size_t CAuthentication_BeginAuthSessionViaQR_Request::ByteSizeLong() const {
           this->_internal_device_friendly_name());
     }
 
-    // optional string website_id = 4 [default = "Unknown", (.description) = "(EMachineAuthWebDomain) identifier of client requesting auth"];
+    // optional string website_id = 4 [default = "Unknown"];
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_website_id());
     }
 
-    // optional .CAuthentication_DeviceDetails device_details = 3 [(.description) = "User-supplied details about the device attempting to sign in"];
+    // optional .CAuthentication_DeviceDetails device_details = 3;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
@@ -3266,7 +3073,7 @@ const char* CAuthentication_AllowedConfirmation::_InternalParse(const char* ptr,
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional .EAuthSessionGuardType confirmation_type = 1 [default = EAuthSessionGuardType_Unknown, (.description) = "authentication can proceed with this confirmation type"];
+      // optional .EAuthSessionGuardType confirmation_type = 1 [default = EAuthSessionGuardType_Unknown];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -3278,7 +3085,7 @@ const char* CAuthentication_AllowedConfirmation::_InternalParse(const char* ptr,
           }
         } else goto handle_unusual;
         continue;
-      // optional string associated_message = 2 [(.description) = "message to be interpreted depending on the confirmation type. for email confirmation, this might be the redacted email address to which email was sent."];
+      // optional string associated_message = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           auto str = _internal_mutable_associated_message();
@@ -3319,14 +3126,14 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional .EAuthSessionGuardType confirmation_type = 1 [default = EAuthSessionGuardType_Unknown, (.description) = "authentication can proceed with this confirmation type"];
+  // optional .EAuthSessionGuardType confirmation_type = 1 [default = EAuthSessionGuardType_Unknown];
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       1, this->_internal_confirmation_type(), target);
   }
 
-  // optional string associated_message = 2 [(.description) = "message to be interpreted depending on the confirmation type. for email confirmation, this might be the redacted email address to which email was sent."];
+  // optional string associated_message = 2;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_associated_message().data(), static_cast<int>(this->_internal_associated_message().length()),
@@ -3354,14 +3161,14 @@ size_t CAuthentication_AllowedConfirmation::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional string associated_message = 2 [(.description) = "message to be interpreted depending on the confirmation type. for email confirmation, this might be the redacted email address to which email was sent."];
+    // optional string associated_message = 2;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_associated_message());
     }
 
-    // optional .EAuthSessionGuardType confirmation_type = 1 [default = EAuthSessionGuardType_Unknown, (.description) = "authentication can proceed with this confirmation type"];
+    // optional .EAuthSessionGuardType confirmation_type = 1 [default = EAuthSessionGuardType_Unknown];
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_confirmation_type());
@@ -3556,7 +3363,7 @@ const char* CAuthentication_BeginAuthSessionViaQR_Response::_InternalParse(const
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint64 client_id = 1 [(.description) = "unique identifier of requestor, also used for routing, portion of QR code"];
+      // optional uint64 client_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_client_id(&has_bits);
@@ -3564,7 +3371,7 @@ const char* CAuthentication_BeginAuthSessionViaQR_Response::_InternalParse(const
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string challenge_url = 2 [(.description) = "URL based on client ID, which will be rendered as QR code"];
+      // optional string challenge_url = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           auto str = _internal_mutable_challenge_url();
@@ -3575,7 +3382,7 @@ const char* CAuthentication_BeginAuthSessionViaQR_Response::_InternalParse(const
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bytes request_id = 3 [(.description) = "unique request ID to be presented by requestor at poll time - must not be rendered in QR"];
+      // optional bytes request_id = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           auto str = _internal_mutable_request_id();
@@ -3583,7 +3390,7 @@ const char* CAuthentication_BeginAuthSessionViaQR_Response::_InternalParse(const
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional float interval = 4 [(.description) = "refresh interval with which requestor should call PollAuthSessionStatus"];
+      // optional float interval = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 37)) {
           _Internal::set_has_interval(&has_bits);
@@ -3591,7 +3398,7 @@ const char* CAuthentication_BeginAuthSessionViaQR_Response::_InternalParse(const
           ptr += sizeof(float);
         } else goto handle_unusual;
         continue;
-      // repeated .CAuthentication_AllowedConfirmation allowed_confirmations = 5 [(.description) = "the confirmation types that will be able to confirm the request"];
+      // repeated .CAuthentication_AllowedConfirmation allowed_confirmations = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
           ptr -= 1;
@@ -3603,7 +3410,7 @@ const char* CAuthentication_BeginAuthSessionViaQR_Response::_InternalParse(const
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<42>(ptr));
         } else goto handle_unusual;
         continue;
-      // optional int32 version = 6 [(.description) = "version of the QR data"];
+      // optional int32 version = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
           _Internal::set_has_version(&has_bits);
@@ -3641,13 +3448,13 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint64 client_id = 1 [(.description) = "unique identifier of requestor, also used for routing, portion of QR code"];
+  // optional uint64 client_id = 1;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_client_id(), target);
   }
 
-  // optional string challenge_url = 2 [(.description) = "URL based on client ID, which will be rendered as QR code"];
+  // optional string challenge_url = 2;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_challenge_url().data(), static_cast<int>(this->_internal_challenge_url().length()),
@@ -3657,19 +3464,19 @@ failure:
         2, this->_internal_challenge_url(), target);
   }
 
-  // optional bytes request_id = 3 [(.description) = "unique request ID to be presented by requestor at poll time - must not be rendered in QR"];
+  // optional bytes request_id = 3;
   if (cached_has_bits & 0x00000002u) {
     target = stream->WriteBytesMaybeAliased(
         3, this->_internal_request_id(), target);
   }
 
-  // optional float interval = 4 [(.description) = "refresh interval with which requestor should call PollAuthSessionStatus"];
+  // optional float interval = 4;
   if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(4, this->_internal_interval(), target);
   }
 
-  // repeated .CAuthentication_AllowedConfirmation allowed_confirmations = 5 [(.description) = "the confirmation types that will be able to confirm the request"];
+  // repeated .CAuthentication_AllowedConfirmation allowed_confirmations = 5;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_allowed_confirmations_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
@@ -3677,7 +3484,7 @@ failure:
       InternalWriteMessage(5, this->_internal_allowed_confirmations(i), target, stream);
   }
 
-  // optional int32 version = 6 [(.description) = "version of the QR data"];
+  // optional int32 version = 6;
   if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(6, this->_internal_version(), target);
@@ -3699,7 +3506,7 @@ size_t CAuthentication_BeginAuthSessionViaQR_Response::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .CAuthentication_AllowedConfirmation allowed_confirmations = 5 [(.description) = "the confirmation types that will be able to confirm the request"];
+  // repeated .CAuthentication_AllowedConfirmation allowed_confirmations = 5;
   total_size += 1UL * this->_internal_allowed_confirmations_size();
   for (const auto& msg : this->allowed_confirmations_) {
     total_size +=
@@ -3708,33 +3515,33 @@ size_t CAuthentication_BeginAuthSessionViaQR_Response::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x0000001fu) {
-    // optional string challenge_url = 2 [(.description) = "URL based on client ID, which will be rendered as QR code"];
+    // optional string challenge_url = 2;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_challenge_url());
     }
 
-    // optional bytes request_id = 3 [(.description) = "unique request ID to be presented by requestor at poll time - must not be rendered in QR"];
+    // optional bytes request_id = 3;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
           this->_internal_request_id());
     }
 
-    // optional uint64 client_id = 1 [(.description) = "unique identifier of requestor, also used for routing, portion of QR code"];
+    // optional uint64 client_id = 1;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_client_id());
     }
 
-    // optional float interval = 4 [(.description) = "refresh interval with which requestor should call PollAuthSessionStatus"];
+    // optional float interval = 4;
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 + 4;
     }
 
-    // optional int32 version = 6 [(.description) = "version of the QR data"];
+    // optional int32 version = 6;
     if (cached_has_bits & 0x00000010u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
@@ -4042,7 +3849,7 @@ const char* CAuthentication_BeginAuthSessionViaCredentials_Request::_InternalPar
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string encrypted_password = 3 [(.description) = "password, RSA encrypted client side"];
+      // optional string encrypted_password = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           auto str = _internal_mutable_encrypted_password();
@@ -4053,7 +3860,7 @@ const char* CAuthentication_BeginAuthSessionViaCredentials_Request::_InternalPar
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint64 encryption_timestamp = 4 [(.description) = "timestamp to map to a key - STime"];
+      // optional uint64 encryption_timestamp = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
           _Internal::set_has_encryption_timestamp(&has_bits);
@@ -4061,7 +3868,7 @@ const char* CAuthentication_BeginAuthSessionViaCredentials_Request::_InternalPar
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool remember_login = 5 [(.description) = "deprecated"];
+      // optional bool remember_login = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
           _Internal::set_has_remember_login(&has_bits);
@@ -4081,7 +3888,7 @@ const char* CAuthentication_BeginAuthSessionViaCredentials_Request::_InternalPar
           }
         } else goto handle_unusual;
         continue;
-      // optional .ESessionPersistence persistence = 7 [default = ESessionPersistence_Persistent, (.description) = "whether we are requesting a persistent or an ephemeral session"];
+      // optional .ESessionPersistence persistence = 7 [default = ESessionPersistence_Persistent];
       case 7:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 56)) {
           ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -4093,7 +3900,7 @@ const char* CAuthentication_BeginAuthSessionViaCredentials_Request::_InternalPar
           }
         } else goto handle_unusual;
         continue;
-      // optional string website_id = 8 [default = "Unknown", (.description) = "(EMachineAuthWebDomain) identifier of client requesting auth"];
+      // optional string website_id = 8 [default = "Unknown"];
       case 8:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 66)) {
           auto str = _internal_mutable_website_id();
@@ -4104,14 +3911,14 @@ const char* CAuthentication_BeginAuthSessionViaCredentials_Request::_InternalPar
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional .CAuthentication_DeviceDetails device_details = 9 [(.description) = "User-supplied details about the device attempting to sign in"];
+      // optional .CAuthentication_DeviceDetails device_details = 9;
       case 9:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 74)) {
           ptr = ctx->ParseMessage(_internal_mutable_device_details(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string guard_data = 10 [(.description) = "steam guard data for client login"];
+      // optional string guard_data = 10;
       case 10:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 82)) {
           auto str = _internal_mutable_guard_data();
@@ -4130,7 +3937,7 @@ const char* CAuthentication_BeginAuthSessionViaCredentials_Request::_InternalPar
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional int32 qos_level = 12 [default = 2, (.description) = "[ENetQOSLevel] client-specified priority for this auth attempt"];
+      // optional int32 qos_level = 12 [default = 2];
       case 12:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 96)) {
           _Internal::set_has_qos_level(&has_bits);
@@ -4188,7 +3995,7 @@ failure:
         2, this->_internal_account_name(), target);
   }
 
-  // optional string encrypted_password = 3 [(.description) = "password, RSA encrypted client side"];
+  // optional string encrypted_password = 3;
   if (cached_has_bits & 0x00000004u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_encrypted_password().data(), static_cast<int>(this->_internal_encrypted_password().length()),
@@ -4198,13 +4005,13 @@ failure:
         3, this->_internal_encrypted_password(), target);
   }
 
-  // optional uint64 encryption_timestamp = 4 [(.description) = "timestamp to map to a key - STime"];
+  // optional uint64 encryption_timestamp = 4;
   if (cached_has_bits & 0x00000040u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(4, this->_internal_encryption_timestamp(), target);
   }
 
-  // optional bool remember_login = 5 [(.description) = "deprecated"];
+  // optional bool remember_login = 5;
   if (cached_has_bits & 0x00000080u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(5, this->_internal_remember_login(), target);
@@ -4217,14 +4024,14 @@ failure:
       6, this->_internal_platform_type(), target);
   }
 
-  // optional .ESessionPersistence persistence = 7 [default = ESessionPersistence_Persistent, (.description) = "whether we are requesting a persistent or an ephemeral session"];
+  // optional .ESessionPersistence persistence = 7 [default = ESessionPersistence_Persistent];
   if (cached_has_bits & 0x00000400u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       7, this->_internal_persistence(), target);
   }
 
-  // optional string website_id = 8 [default = "Unknown", (.description) = "(EMachineAuthWebDomain) identifier of client requesting auth"];
+  // optional string website_id = 8 [default = "Unknown"];
   if (cached_has_bits & 0x00000008u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_website_id().data(), static_cast<int>(this->_internal_website_id().length()),
@@ -4234,7 +4041,7 @@ failure:
         8, this->_internal_website_id(), target);
   }
 
-  // optional .CAuthentication_DeviceDetails device_details = 9 [(.description) = "User-supplied details about the device attempting to sign in"];
+  // optional .CAuthentication_DeviceDetails device_details = 9;
   if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -4242,7 +4049,7 @@ failure:
         9, _Internal::device_details(this), target, stream);
   }
 
-  // optional string guard_data = 10 [(.description) = "steam guard data for client login"];
+  // optional string guard_data = 10;
   if (cached_has_bits & 0x00000010u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_guard_data().data(), static_cast<int>(this->_internal_guard_data().length()),
@@ -4258,7 +4065,7 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(11, this->_internal_language(), target);
   }
 
-  // optional int32 qos_level = 12 [default = 2, (.description) = "[ENetQOSLevel] client-specified priority for this auth attempt"];
+  // optional int32 qos_level = 12 [default = 2];
   if (cached_has_bits & 0x00000800u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(12, this->_internal_qos_level(), target);
@@ -4296,42 +4103,42 @@ size_t CAuthentication_BeginAuthSessionViaCredentials_Request::ByteSizeLong() co
           this->_internal_account_name());
     }
 
-    // optional string encrypted_password = 3 [(.description) = "password, RSA encrypted client side"];
+    // optional string encrypted_password = 3;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_encrypted_password());
     }
 
-    // optional string website_id = 8 [default = "Unknown", (.description) = "(EMachineAuthWebDomain) identifier of client requesting auth"];
+    // optional string website_id = 8 [default = "Unknown"];
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_website_id());
     }
 
-    // optional string guard_data = 10 [(.description) = "steam guard data for client login"];
+    // optional string guard_data = 10;
     if (cached_has_bits & 0x00000010u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_guard_data());
     }
 
-    // optional .CAuthentication_DeviceDetails device_details = 9 [(.description) = "User-supplied details about the device attempting to sign in"];
+    // optional .CAuthentication_DeviceDetails device_details = 9;
     if (cached_has_bits & 0x00000020u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
           *device_details_);
     }
 
-    // optional uint64 encryption_timestamp = 4 [(.description) = "timestamp to map to a key - STime"];
+    // optional uint64 encryption_timestamp = 4;
     if (cached_has_bits & 0x00000040u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_encryption_timestamp());
     }
 
-    // optional bool remember_login = 5 [(.description) = "deprecated"];
+    // optional bool remember_login = 5;
     if (cached_has_bits & 0x00000080u) {
       total_size += 1 + 1;
     }
@@ -4351,13 +4158,13 @@ size_t CAuthentication_BeginAuthSessionViaCredentials_Request::ByteSizeLong() co
           this->_internal_language());
     }
 
-    // optional .ESessionPersistence persistence = 7 [default = ESessionPersistence_Persistent, (.description) = "whether we are requesting a persistent or an ephemeral session"];
+    // optional .ESessionPersistence persistence = 7 [default = ESessionPersistence_Persistent];
     if (cached_has_bits & 0x00000400u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_persistence());
     }
 
-    // optional int32 qos_level = 12 [default = 2, (.description) = "[ENetQOSLevel] client-specified priority for this auth attempt"];
+    // optional int32 qos_level = 12 [default = 2];
     if (cached_has_bits & 0x00000800u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
@@ -4623,7 +4430,7 @@ const char* CAuthentication_BeginAuthSessionViaCredentials_Response::_InternalPa
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint64 client_id = 1 [(.description) = "unique identifier of requestor, also used for routing"];
+      // optional uint64 client_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_client_id(&has_bits);
@@ -4631,7 +4438,7 @@ const char* CAuthentication_BeginAuthSessionViaCredentials_Response::_InternalPa
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bytes request_id = 2 [(.description) = "unique request ID to be presented by requestor at poll time - must not be transferred or displayed"];
+      // optional bytes request_id = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           auto str = _internal_mutable_request_id();
@@ -4639,7 +4446,7 @@ const char* CAuthentication_BeginAuthSessionViaCredentials_Response::_InternalPa
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional float interval = 3 [(.description) = "refresh interval with which requestor should call PollAuthSessionStatus"];
+      // optional float interval = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 29)) {
           _Internal::set_has_interval(&has_bits);
@@ -4647,7 +4454,7 @@ const char* CAuthentication_BeginAuthSessionViaCredentials_Response::_InternalPa
           ptr += sizeof(float);
         } else goto handle_unusual;
         continue;
-      // repeated .CAuthentication_AllowedConfirmation allowed_confirmations = 4 [(.description) = "the confirmation types that will be able to confirm the request"];
+      // repeated .CAuthentication_AllowedConfirmation allowed_confirmations = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
           ptr -= 1;
@@ -4659,7 +4466,7 @@ const char* CAuthentication_BeginAuthSessionViaCredentials_Response::_InternalPa
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<34>(ptr));
         } else goto handle_unusual;
         continue;
-      // optional uint64 steamid = 5 [(.description) = "steamid of the account logging in - will only be included if the credentials were correct"];
+      // optional uint64 steamid = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
           _Internal::set_has_steamid(&has_bits);
@@ -4667,7 +4474,7 @@ const char* CAuthentication_BeginAuthSessionViaCredentials_Response::_InternalPa
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string weatoken = 6 [(.description) = "partial-authentication token - limited lifetime and scope, included only if credentials were valid"];
+      // optional string weatoken = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
           auto str = _internal_mutable_weatoken();
@@ -4678,7 +4485,7 @@ const char* CAuthentication_BeginAuthSessionViaCredentials_Response::_InternalPa
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string agreement_session_url = 7 [(.description) = "agreement the user needs to agree to"];
+      // optional string agreement_session_url = 7;
       case 7:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
           auto str = _internal_mutable_agreement_session_url();
@@ -4689,7 +4496,7 @@ const char* CAuthentication_BeginAuthSessionViaCredentials_Response::_InternalPa
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string extended_error_message = 8 [(.description) = "error string to display if supported by the client"];
+      // optional string extended_error_message = 8;
       case 8:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 66)) {
           auto str = _internal_mutable_extended_error_message();
@@ -4730,25 +4537,25 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint64 client_id = 1 [(.description) = "unique identifier of requestor, also used for routing"];
+  // optional uint64 client_id = 1;
   if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_client_id(), target);
   }
 
-  // optional bytes request_id = 2 [(.description) = "unique request ID to be presented by requestor at poll time - must not be transferred or displayed"];
+  // optional bytes request_id = 2;
   if (cached_has_bits & 0x00000001u) {
     target = stream->WriteBytesMaybeAliased(
         2, this->_internal_request_id(), target);
   }
 
-  // optional float interval = 3 [(.description) = "refresh interval with which requestor should call PollAuthSessionStatus"];
+  // optional float interval = 3;
   if (cached_has_bits & 0x00000040u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(3, this->_internal_interval(), target);
   }
 
-  // repeated .CAuthentication_AllowedConfirmation allowed_confirmations = 4 [(.description) = "the confirmation types that will be able to confirm the request"];
+  // repeated .CAuthentication_AllowedConfirmation allowed_confirmations = 4;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_allowed_confirmations_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
@@ -4756,13 +4563,13 @@ failure:
       InternalWriteMessage(4, this->_internal_allowed_confirmations(i), target, stream);
   }
 
-  // optional uint64 steamid = 5 [(.description) = "steamid of the account logging in - will only be included if the credentials were correct"];
+  // optional uint64 steamid = 5;
   if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(5, this->_internal_steamid(), target);
   }
 
-  // optional string weatoken = 6 [(.description) = "partial-authentication token - limited lifetime and scope, included only if credentials were valid"];
+  // optional string weatoken = 6;
   if (cached_has_bits & 0x00000002u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_weatoken().data(), static_cast<int>(this->_internal_weatoken().length()),
@@ -4772,7 +4579,7 @@ failure:
         6, this->_internal_weatoken(), target);
   }
 
-  // optional string agreement_session_url = 7 [(.description) = "agreement the user needs to agree to"];
+  // optional string agreement_session_url = 7;
   if (cached_has_bits & 0x00000004u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_agreement_session_url().data(), static_cast<int>(this->_internal_agreement_session_url().length()),
@@ -4782,7 +4589,7 @@ failure:
         7, this->_internal_agreement_session_url(), target);
   }
 
-  // optional string extended_error_message = 8 [(.description) = "error string to display if supported by the client"];
+  // optional string extended_error_message = 8;
   if (cached_has_bits & 0x00000008u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_extended_error_message().data(), static_cast<int>(this->_internal_extended_error_message().length()),
@@ -4808,7 +4615,7 @@ size_t CAuthentication_BeginAuthSessionViaCredentials_Response::ByteSizeLong() c
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .CAuthentication_AllowedConfirmation allowed_confirmations = 4 [(.description) = "the confirmation types that will be able to confirm the request"];
+  // repeated .CAuthentication_AllowedConfirmation allowed_confirmations = 4;
   total_size += 1UL * this->_internal_allowed_confirmations_size();
   for (const auto& msg : this->allowed_confirmations_) {
     total_size +=
@@ -4817,49 +4624,49 @@ size_t CAuthentication_BeginAuthSessionViaCredentials_Response::ByteSizeLong() c
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x0000007fu) {
-    // optional bytes request_id = 2 [(.description) = "unique request ID to be presented by requestor at poll time - must not be transferred or displayed"];
+    // optional bytes request_id = 2;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
           this->_internal_request_id());
     }
 
-    // optional string weatoken = 6 [(.description) = "partial-authentication token - limited lifetime and scope, included only if credentials were valid"];
+    // optional string weatoken = 6;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_weatoken());
     }
 
-    // optional string agreement_session_url = 7 [(.description) = "agreement the user needs to agree to"];
+    // optional string agreement_session_url = 7;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_agreement_session_url());
     }
 
-    // optional string extended_error_message = 8 [(.description) = "error string to display if supported by the client"];
+    // optional string extended_error_message = 8;
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_extended_error_message());
     }
 
-    // optional uint64 client_id = 1 [(.description) = "unique identifier of requestor, also used for routing"];
+    // optional uint64 client_id = 1;
     if (cached_has_bits & 0x00000010u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_client_id());
     }
 
-    // optional uint64 steamid = 5 [(.description) = "steamid of the account logging in - will only be included if the credentials were correct"];
+    // optional uint64 steamid = 5;
     if (cached_has_bits & 0x00000020u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_steamid());
     }
 
-    // optional float interval = 3 [(.description) = "refresh interval with which requestor should call PollAuthSessionStatus"];
+    // optional float interval = 3;
     if (cached_has_bits & 0x00000040u) {
       total_size += 1 + 4;
     }
@@ -5073,7 +4880,7 @@ const char* CAuthentication_PollAuthSessionStatus_Request::_InternalParse(const 
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional fixed64 token_to_revoke = 3 [(.description) = "If this is set to a token owned by this user, that token will be retired"];
+      // optional fixed64 token_to_revoke = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 25)) {
           _Internal::set_has_token_to_revoke(&has_bits);
@@ -5123,7 +4930,7 @@ failure:
         2, this->_internal_request_id(), target);
   }
 
-  // optional fixed64 token_to_revoke = 3 [(.description) = "If this is set to a token owned by this user, that token will be retired"];
+  // optional fixed64 token_to_revoke = 3;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(3, this->_internal_token_to_revoke(), target);
@@ -5161,7 +4968,7 @@ size_t CAuthentication_PollAuthSessionStatus_Request::ByteSizeLong() const {
           this->_internal_client_id());
     }
 
-    // optional fixed64 token_to_revoke = 3 [(.description) = "If this is set to a token owned by this user, that token will be retired"];
+    // optional fixed64 token_to_revoke = 3;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 + 8;
     }
@@ -5409,7 +5216,7 @@ const char* CAuthentication_PollAuthSessionStatus_Response::_InternalParse(const
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint64 new_client_id = 1 [(.description) = "if challenge is old, this is the new client id"];
+      // optional uint64 new_client_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_new_client_id(&has_bits);
@@ -5417,7 +5224,7 @@ const char* CAuthentication_PollAuthSessionStatus_Response::_InternalParse(const
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string new_challenge_url = 2 [(.description) = "if challenge is old, this is the new challenge ID to re-render for mobile confirmation"];
+      // optional string new_challenge_url = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           auto str = _internal_mutable_new_challenge_url();
@@ -5428,7 +5235,7 @@ const char* CAuthentication_PollAuthSessionStatus_Response::_InternalParse(const
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string refresh_token = 3 [(.description) = "if login has been confirmed, this is the requestor\'s new refresh token"];
+      // optional string refresh_token = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           auto str = _internal_mutable_refresh_token();
@@ -5439,7 +5246,7 @@ const char* CAuthentication_PollAuthSessionStatus_Response::_InternalParse(const
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string access_token = 4 [(.description) = "if login has been confirmed, this is a new token subordinate to refresh_token"];
+      // optional string access_token = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
           auto str = _internal_mutable_access_token();
@@ -5450,7 +5257,7 @@ const char* CAuthentication_PollAuthSessionStatus_Response::_InternalParse(const
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool had_remote_interaction = 5 [(.description) = "whether or not the auth session appears to have had remote interaction from a potential confirmer"];
+      // optional bool had_remote_interaction = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
           _Internal::set_has_had_remote_interaction(&has_bits);
@@ -5458,7 +5265,7 @@ const char* CAuthentication_PollAuthSessionStatus_Response::_InternalParse(const
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string account_name = 6 [(.description) = "account name of authenticating account, for use by UI layer"];
+      // optional string account_name = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
           auto str = _internal_mutable_account_name();
@@ -5469,7 +5276,7 @@ const char* CAuthentication_PollAuthSessionStatus_Response::_InternalParse(const
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string new_guard_data = 7 [(.description) = "if login has been confirmed, may contain remembered machine ID for future login"];
+      // optional string new_guard_data = 7;
       case 7:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
           auto str = _internal_mutable_new_guard_data();
@@ -5480,7 +5287,7 @@ const char* CAuthentication_PollAuthSessionStatus_Response::_InternalParse(const
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string agreement_session_url = 8 [(.description) = "agreement the user needs to agree to"];
+      // optional string agreement_session_url = 8;
       case 8:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 66)) {
           auto str = _internal_mutable_agreement_session_url();
@@ -5521,13 +5328,13 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint64 new_client_id = 1 [(.description) = "if challenge is old, this is the new client id"];
+  // optional uint64 new_client_id = 1;
   if (cached_has_bits & 0x00000040u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_new_client_id(), target);
   }
 
-  // optional string new_challenge_url = 2 [(.description) = "if challenge is old, this is the new challenge ID to re-render for mobile confirmation"];
+  // optional string new_challenge_url = 2;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_new_challenge_url().data(), static_cast<int>(this->_internal_new_challenge_url().length()),
@@ -5537,7 +5344,7 @@ failure:
         2, this->_internal_new_challenge_url(), target);
   }
 
-  // optional string refresh_token = 3 [(.description) = "if login has been confirmed, this is the requestor\'s new refresh token"];
+  // optional string refresh_token = 3;
   if (cached_has_bits & 0x00000002u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_refresh_token().data(), static_cast<int>(this->_internal_refresh_token().length()),
@@ -5547,7 +5354,7 @@ failure:
         3, this->_internal_refresh_token(), target);
   }
 
-  // optional string access_token = 4 [(.description) = "if login has been confirmed, this is a new token subordinate to refresh_token"];
+  // optional string access_token = 4;
   if (cached_has_bits & 0x00000004u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_access_token().data(), static_cast<int>(this->_internal_access_token().length()),
@@ -5557,13 +5364,13 @@ failure:
         4, this->_internal_access_token(), target);
   }
 
-  // optional bool had_remote_interaction = 5 [(.description) = "whether or not the auth session appears to have had remote interaction from a potential confirmer"];
+  // optional bool had_remote_interaction = 5;
   if (cached_has_bits & 0x00000080u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(5, this->_internal_had_remote_interaction(), target);
   }
 
-  // optional string account_name = 6 [(.description) = "account name of authenticating account, for use by UI layer"];
+  // optional string account_name = 6;
   if (cached_has_bits & 0x00000008u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_account_name().data(), static_cast<int>(this->_internal_account_name().length()),
@@ -5573,7 +5380,7 @@ failure:
         6, this->_internal_account_name(), target);
   }
 
-  // optional string new_guard_data = 7 [(.description) = "if login has been confirmed, may contain remembered machine ID for future login"];
+  // optional string new_guard_data = 7;
   if (cached_has_bits & 0x00000010u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_new_guard_data().data(), static_cast<int>(this->_internal_new_guard_data().length()),
@@ -5583,7 +5390,7 @@ failure:
         7, this->_internal_new_guard_data(), target);
   }
 
-  // optional string agreement_session_url = 8 [(.description) = "agreement the user needs to agree to"];
+  // optional string agreement_session_url = 8;
   if (cached_has_bits & 0x00000020u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_agreement_session_url().data(), static_cast<int>(this->_internal_agreement_session_url().length()),
@@ -5611,56 +5418,56 @@ size_t CAuthentication_PollAuthSessionStatus_Response::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x000000ffu) {
-    // optional string new_challenge_url = 2 [(.description) = "if challenge is old, this is the new challenge ID to re-render for mobile confirmation"];
+    // optional string new_challenge_url = 2;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_new_challenge_url());
     }
 
-    // optional string refresh_token = 3 [(.description) = "if login has been confirmed, this is the requestor\'s new refresh token"];
+    // optional string refresh_token = 3;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_refresh_token());
     }
 
-    // optional string access_token = 4 [(.description) = "if login has been confirmed, this is a new token subordinate to refresh_token"];
+    // optional string access_token = 4;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_access_token());
     }
 
-    // optional string account_name = 6 [(.description) = "account name of authenticating account, for use by UI layer"];
+    // optional string account_name = 6;
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_account_name());
     }
 
-    // optional string new_guard_data = 7 [(.description) = "if login has been confirmed, may contain remembered machine ID for future login"];
+    // optional string new_guard_data = 7;
     if (cached_has_bits & 0x00000010u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_new_guard_data());
     }
 
-    // optional string agreement_session_url = 8 [(.description) = "agreement the user needs to agree to"];
+    // optional string agreement_session_url = 8;
     if (cached_has_bits & 0x00000020u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_agreement_session_url());
     }
 
-    // optional uint64 new_client_id = 1 [(.description) = "if challenge is old, this is the new client id"];
+    // optional uint64 new_client_id = 1;
     if (cached_has_bits & 0x00000040u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_new_client_id());
     }
 
-    // optional bool had_remote_interaction = 5 [(.description) = "whether or not the auth session appears to have had remote interaction from a potential confirmer"];
+    // optional bool had_remote_interaction = 5;
     if (cached_has_bits & 0x00000080u) {
       total_size += 1 + 1;
     }
@@ -5835,7 +5642,7 @@ const char* CAuthentication_GetAuthSessionInfo_Request::_InternalParse(const cha
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint64 client_id = 1 [(.description) = "client ID from scanned QR Code, used for routing"];
+      // optional uint64 client_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_client_id(&has_bits);
@@ -5873,7 +5680,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint64 client_id = 1 [(.description) = "client ID from scanned QR Code, used for routing"];
+  // optional uint64 client_id = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_client_id(), target);
@@ -5895,7 +5702,7 @@ size_t CAuthentication_GetAuthSessionInfo_Request::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // optional uint64 client_id = 1 [(.description) = "client ID from scanned QR Code, used for routing"];
+  // optional uint64 client_id = 1;
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += 1 +
@@ -6148,7 +5955,7 @@ const char* CAuthentication_GetAuthSessionInfo_Response::_InternalParse(const ch
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional string ip = 1 [(.description) = "IP address of requestor"];
+      // optional string ip = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           auto str = _internal_mutable_ip();
@@ -6159,7 +5966,7 @@ const char* CAuthentication_GetAuthSessionInfo_Response::_InternalParse(const ch
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string geoloc = 2 [(.description) = "geoloc info of requestor"];
+      // optional string geoloc = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           auto str = _internal_mutable_geoloc();
@@ -6170,7 +5977,7 @@ const char* CAuthentication_GetAuthSessionInfo_Response::_InternalParse(const ch
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string city = 3 [(.description) = "city of requestor"];
+      // optional string city = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           auto str = _internal_mutable_city();
@@ -6181,7 +5988,7 @@ const char* CAuthentication_GetAuthSessionInfo_Response::_InternalParse(const ch
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string state = 4 [(.description) = "state of requestor"];
+      // optional string state = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
           auto str = _internal_mutable_state();
@@ -6192,7 +5999,7 @@ const char* CAuthentication_GetAuthSessionInfo_Response::_InternalParse(const ch
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string country = 5 [(.description) = "country of requestor"];
+      // optional string country = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
           auto str = _internal_mutable_country();
@@ -6203,7 +6010,7 @@ const char* CAuthentication_GetAuthSessionInfo_Response::_InternalParse(const ch
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional .EAuthTokenPlatformType platform_type = 6 [default = EAuthTokenPlatformType_Unknown, (.description) = "platform type of requestor"];
+      // optional .EAuthTokenPlatformType platform_type = 6 [default = EAuthTokenPlatformType_Unknown];
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
           ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -6215,7 +6022,7 @@ const char* CAuthentication_GetAuthSessionInfo_Response::_InternalParse(const ch
           }
         } else goto handle_unusual;
         continue;
-      // optional string device_friendly_name = 7 [(.description) = "name of requestor device"];
+      // optional string device_friendly_name = 7;
       case 7:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
           auto str = _internal_mutable_device_friendly_name();
@@ -6226,7 +6033,7 @@ const char* CAuthentication_GetAuthSessionInfo_Response::_InternalParse(const ch
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional int32 version = 8 [(.description) = "version field"];
+      // optional int32 version = 8;
       case 8:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 64)) {
           _Internal::set_has_version(&has_bits);
@@ -6234,7 +6041,7 @@ const char* CAuthentication_GetAuthSessionInfo_Response::_InternalParse(const ch
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional .EAuthSessionSecurityHistory login_history = 9 [default = EAuthSessionSecurityHistory_Invalid, (.description) = "whether the ip has previuously been used on the account successfully"];
+      // optional .EAuthSessionSecurityHistory login_history = 9 [default = EAuthSessionSecurityHistory_Invalid];
       case 9:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 72)) {
           ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -6246,7 +6053,7 @@ const char* CAuthentication_GetAuthSessionInfo_Response::_InternalParse(const ch
           }
         } else goto handle_unusual;
         continue;
-      // optional bool requestor_location_mismatch = 10 [(.description) = "whether the requestor location matches this requests location"];
+      // optional bool requestor_location_mismatch = 10;
       case 10:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 80)) {
           _Internal::set_has_requestor_location_mismatch(&has_bits);
@@ -6254,7 +6061,7 @@ const char* CAuthentication_GetAuthSessionInfo_Response::_InternalParse(const ch
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool high_usage_login = 11 [(.description) = "whether this login has seen high usage recently"];
+      // optional bool high_usage_login = 11;
       case 11:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 88)) {
           _Internal::set_has_high_usage_login(&has_bits);
@@ -6262,7 +6069,7 @@ const char* CAuthentication_GetAuthSessionInfo_Response::_InternalParse(const ch
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional .ESessionPersistence requested_persistence = 12 [default = ESessionPersistence_Invalid, (.description) = "session persistence requestor has indicated they want"];
+      // optional .ESessionPersistence requested_persistence = 12 [default = ESessionPersistence_Invalid];
       case 12:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 96)) {
           ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -6304,7 +6111,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional string ip = 1 [(.description) = "IP address of requestor"];
+  // optional string ip = 1;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_ip().data(), static_cast<int>(this->_internal_ip().length()),
@@ -6314,7 +6121,7 @@ failure:
         1, this->_internal_ip(), target);
   }
 
-  // optional string geoloc = 2 [(.description) = "geoloc info of requestor"];
+  // optional string geoloc = 2;
   if (cached_has_bits & 0x00000002u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_geoloc().data(), static_cast<int>(this->_internal_geoloc().length()),
@@ -6324,7 +6131,7 @@ failure:
         2, this->_internal_geoloc(), target);
   }
 
-  // optional string city = 3 [(.description) = "city of requestor"];
+  // optional string city = 3;
   if (cached_has_bits & 0x00000004u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_city().data(), static_cast<int>(this->_internal_city().length()),
@@ -6334,7 +6141,7 @@ failure:
         3, this->_internal_city(), target);
   }
 
-  // optional string state = 4 [(.description) = "state of requestor"];
+  // optional string state = 4;
   if (cached_has_bits & 0x00000008u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_state().data(), static_cast<int>(this->_internal_state().length()),
@@ -6344,7 +6151,7 @@ failure:
         4, this->_internal_state(), target);
   }
 
-  // optional string country = 5 [(.description) = "country of requestor"];
+  // optional string country = 5;
   if (cached_has_bits & 0x00000010u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_country().data(), static_cast<int>(this->_internal_country().length()),
@@ -6354,14 +6161,14 @@ failure:
         5, this->_internal_country(), target);
   }
 
-  // optional .EAuthTokenPlatformType platform_type = 6 [default = EAuthTokenPlatformType_Unknown, (.description) = "platform type of requestor"];
+  // optional .EAuthTokenPlatformType platform_type = 6 [default = EAuthTokenPlatformType_Unknown];
   if (cached_has_bits & 0x00000040u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       6, this->_internal_platform_type(), target);
   }
 
-  // optional string device_friendly_name = 7 [(.description) = "name of requestor device"];
+  // optional string device_friendly_name = 7;
   if (cached_has_bits & 0x00000020u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_device_friendly_name().data(), static_cast<int>(this->_internal_device_friendly_name().length()),
@@ -6371,32 +6178,32 @@ failure:
         7, this->_internal_device_friendly_name(), target);
   }
 
-  // optional int32 version = 8 [(.description) = "version field"];
+  // optional int32 version = 8;
   if (cached_has_bits & 0x00000080u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(8, this->_internal_version(), target);
   }
 
-  // optional .EAuthSessionSecurityHistory login_history = 9 [default = EAuthSessionSecurityHistory_Invalid, (.description) = "whether the ip has previuously been used on the account successfully"];
+  // optional .EAuthSessionSecurityHistory login_history = 9 [default = EAuthSessionSecurityHistory_Invalid];
   if (cached_has_bits & 0x00000100u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       9, this->_internal_login_history(), target);
   }
 
-  // optional bool requestor_location_mismatch = 10 [(.description) = "whether the requestor location matches this requests location"];
+  // optional bool requestor_location_mismatch = 10;
   if (cached_has_bits & 0x00000200u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(10, this->_internal_requestor_location_mismatch(), target);
   }
 
-  // optional bool high_usage_login = 11 [(.description) = "whether this login has seen high usage recently"];
+  // optional bool high_usage_login = 11;
   if (cached_has_bits & 0x00000400u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(11, this->_internal_high_usage_login(), target);
   }
 
-  // optional .ESessionPersistence requested_persistence = 12 [default = ESessionPersistence_Invalid, (.description) = "session persistence requestor has indicated they want"];
+  // optional .ESessionPersistence requested_persistence = 12 [default = ESessionPersistence_Invalid];
   if (cached_has_bits & 0x00000800u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
@@ -6421,55 +6228,55 @@ size_t CAuthentication_GetAuthSessionInfo_Response::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x000000ffu) {
-    // optional string ip = 1 [(.description) = "IP address of requestor"];
+    // optional string ip = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_ip());
     }
 
-    // optional string geoloc = 2 [(.description) = "geoloc info of requestor"];
+    // optional string geoloc = 2;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_geoloc());
     }
 
-    // optional string city = 3 [(.description) = "city of requestor"];
+    // optional string city = 3;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_city());
     }
 
-    // optional string state = 4 [(.description) = "state of requestor"];
+    // optional string state = 4;
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_state());
     }
 
-    // optional string country = 5 [(.description) = "country of requestor"];
+    // optional string country = 5;
     if (cached_has_bits & 0x00000010u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_country());
     }
 
-    // optional string device_friendly_name = 7 [(.description) = "name of requestor device"];
+    // optional string device_friendly_name = 7;
     if (cached_has_bits & 0x00000020u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_device_friendly_name());
     }
 
-    // optional .EAuthTokenPlatformType platform_type = 6 [default = EAuthTokenPlatformType_Unknown, (.description) = "platform type of requestor"];
+    // optional .EAuthTokenPlatformType platform_type = 6 [default = EAuthTokenPlatformType_Unknown];
     if (cached_has_bits & 0x00000040u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_platform_type());
     }
 
-    // optional int32 version = 8 [(.description) = "version field"];
+    // optional int32 version = 8;
     if (cached_has_bits & 0x00000080u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
@@ -6478,23 +6285,23 @@ size_t CAuthentication_GetAuthSessionInfo_Response::ByteSizeLong() const {
 
   }
   if (cached_has_bits & 0x00000f00u) {
-    // optional .EAuthSessionSecurityHistory login_history = 9 [default = EAuthSessionSecurityHistory_Invalid, (.description) = "whether the ip has previuously been used on the account successfully"];
+    // optional .EAuthSessionSecurityHistory login_history = 9 [default = EAuthSessionSecurityHistory_Invalid];
     if (cached_has_bits & 0x00000100u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_login_history());
     }
 
-    // optional bool requestor_location_mismatch = 10 [(.description) = "whether the requestor location matches this requests location"];
+    // optional bool requestor_location_mismatch = 10;
     if (cached_has_bits & 0x00000200u) {
       total_size += 1 + 1;
     }
 
-    // optional bool high_usage_login = 11 [(.description) = "whether this login has seen high usage recently"];
+    // optional bool high_usage_login = 11;
     if (cached_has_bits & 0x00000400u) {
       total_size += 1 + 1;
     }
 
-    // optional .ESessionPersistence requested_persistence = 12 [default = ESessionPersistence_Invalid, (.description) = "session persistence requestor has indicated they want"];
+    // optional .ESessionPersistence requested_persistence = 12 [default = ESessionPersistence_Invalid];
     if (cached_has_bits & 0x00000800u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_requested_persistence());
@@ -6723,7 +6530,7 @@ const char* CAuthentication_UpdateAuthSessionWithMobileConfirmation_Request::_In
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional int32 version = 1 [(.description) = "version field"];
+      // optional int32 version = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_version(&has_bits);
@@ -6731,7 +6538,7 @@ const char* CAuthentication_UpdateAuthSessionWithMobileConfirmation_Request::_In
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint64 client_id = 2 [(.description) = "pending client ID, from scanned QR Code"];
+      // optional uint64 client_id = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_client_id(&has_bits);
@@ -6739,7 +6546,7 @@ const char* CAuthentication_UpdateAuthSessionWithMobileConfirmation_Request::_In
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional fixed64 steamid = 3 [(.description) = "user who wants to login"];
+      // optional fixed64 steamid = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 25)) {
           _Internal::set_has_steamid(&has_bits);
@@ -6747,7 +6554,7 @@ const char* CAuthentication_UpdateAuthSessionWithMobileConfirmation_Request::_In
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
         } else goto handle_unusual;
         continue;
-      // optional bytes signature = 4 [(.description) = "HMAC digest over {version,client_id,steamid} via user\'s private key"];
+      // optional bytes signature = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
           auto str = _internal_mutable_signature();
@@ -6755,7 +6562,7 @@ const char* CAuthentication_UpdateAuthSessionWithMobileConfirmation_Request::_In
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool confirm = 5 [default = false, (.description) = "Whether to confirm the login (true) or deny the login (false)"];
+      // optional bool confirm = 5 [default = false];
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
           _Internal::set_has_confirm(&has_bits);
@@ -6763,7 +6570,7 @@ const char* CAuthentication_UpdateAuthSessionWithMobileConfirmation_Request::_In
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional .ESessionPersistence persistence = 6 [default = ESessionPersistence_Persistent, (.description) = "whether we are requesting a persistent or an ephemeral session"];
+      // optional .ESessionPersistence persistence = 6 [default = ESessionPersistence_Persistent];
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
           ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -6805,37 +6612,37 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional int32 version = 1 [(.description) = "version field"];
+  // optional int32 version = 1;
   if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_version(), target);
   }
 
-  // optional uint64 client_id = 2 [(.description) = "pending client ID, from scanned QR Code"];
+  // optional uint64 client_id = 2;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(2, this->_internal_client_id(), target);
   }
 
-  // optional fixed64 steamid = 3 [(.description) = "user who wants to login"];
+  // optional fixed64 steamid = 3;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(3, this->_internal_steamid(), target);
   }
 
-  // optional bytes signature = 4 [(.description) = "HMAC digest over {version,client_id,steamid} via user\'s private key"];
+  // optional bytes signature = 4;
   if (cached_has_bits & 0x00000001u) {
     target = stream->WriteBytesMaybeAliased(
         4, this->_internal_signature(), target);
   }
 
-  // optional bool confirm = 5 [default = false, (.description) = "Whether to confirm the login (true) or deny the login (false)"];
+  // optional bool confirm = 5 [default = false];
   if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(5, this->_internal_confirm(), target);
   }
 
-  // optional .ESessionPersistence persistence = 6 [default = ESessionPersistence_Persistent, (.description) = "whether we are requesting a persistent or an ephemeral session"];
+  // optional .ESessionPersistence persistence = 6 [default = ESessionPersistence_Persistent];
   if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
@@ -6860,38 +6667,38 @@ size_t CAuthentication_UpdateAuthSessionWithMobileConfirmation_Request::ByteSize
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x0000003fu) {
-    // optional bytes signature = 4 [(.description) = "HMAC digest over {version,client_id,steamid} via user\'s private key"];
+    // optional bytes signature = 4;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
           this->_internal_signature());
     }
 
-    // optional uint64 client_id = 2 [(.description) = "pending client ID, from scanned QR Code"];
+    // optional uint64 client_id = 2;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_client_id());
     }
 
-    // optional fixed64 steamid = 3 [(.description) = "user who wants to login"];
+    // optional fixed64 steamid = 3;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 + 8;
     }
 
-    // optional int32 version = 1 [(.description) = "version field"];
+    // optional int32 version = 1;
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
           this->_internal_version());
     }
 
-    // optional bool confirm = 5 [default = false, (.description) = "Whether to confirm the login (true) or deny the login (false)"];
+    // optional bool confirm = 5 [default = false];
     if (cached_has_bits & 0x00000010u) {
       total_size += 1 + 1;
     }
 
-    // optional .ESessionPersistence persistence = 6 [default = ESessionPersistence_Persistent, (.description) = "whether we are requesting a persistent or an ephemeral session"];
+    // optional .ESessionPersistence persistence = 6 [default = ESessionPersistence_Persistent];
     if (cached_has_bits & 0x00000020u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_persistence());
@@ -7243,7 +7050,7 @@ const char* CAuthentication_UpdateAuthSessionWithSteamGuardCode_Request::_Intern
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint64 client_id = 1 [(.description) = "pending client ID, from initialized session"];
+      // optional uint64 client_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_client_id(&has_bits);
@@ -7251,7 +7058,7 @@ const char* CAuthentication_UpdateAuthSessionWithSteamGuardCode_Request::_Intern
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional fixed64 steamid = 2 [(.description) = "user who wants to login"];
+      // optional fixed64 steamid = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 17)) {
           _Internal::set_has_steamid(&has_bits);
@@ -7259,7 +7066,7 @@ const char* CAuthentication_UpdateAuthSessionWithSteamGuardCode_Request::_Intern
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
         } else goto handle_unusual;
         continue;
-      // optional string code = 3 [(.description) = "confirmation code"];
+      // optional string code = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           auto str = _internal_mutable_code();
@@ -7270,7 +7077,7 @@ const char* CAuthentication_UpdateAuthSessionWithSteamGuardCode_Request::_Intern
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional .EAuthSessionGuardType code_type = 4 [default = EAuthSessionGuardType_Unknown, (.description) = "type of confirmation code"];
+      // optional .EAuthSessionGuardType code_type = 4 [default = EAuthSessionGuardType_Unknown];
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
           ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -7312,19 +7119,19 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint64 client_id = 1 [(.description) = "pending client ID, from initialized session"];
+  // optional uint64 client_id = 1;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_client_id(), target);
   }
 
-  // optional fixed64 steamid = 2 [(.description) = "user who wants to login"];
+  // optional fixed64 steamid = 2;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(2, this->_internal_steamid(), target);
   }
 
-  // optional string code = 3 [(.description) = "confirmation code"];
+  // optional string code = 3;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_code().data(), static_cast<int>(this->_internal_code().length()),
@@ -7334,7 +7141,7 @@ failure:
         3, this->_internal_code(), target);
   }
 
-  // optional .EAuthSessionGuardType code_type = 4 [default = EAuthSessionGuardType_Unknown, (.description) = "type of confirmation code"];
+  // optional .EAuthSessionGuardType code_type = 4 [default = EAuthSessionGuardType_Unknown];
   if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
@@ -7359,26 +7166,26 @@ size_t CAuthentication_UpdateAuthSessionWithSteamGuardCode_Request::ByteSizeLong
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x0000000fu) {
-    // optional string code = 3 [(.description) = "confirmation code"];
+    // optional string code = 3;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_code());
     }
 
-    // optional uint64 client_id = 1 [(.description) = "pending client ID, from initialized session"];
+    // optional uint64 client_id = 1;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_client_id());
     }
 
-    // optional fixed64 steamid = 2 [(.description) = "user who wants to login"];
+    // optional fixed64 steamid = 2;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 + 8;
     }
 
-    // optional .EAuthSessionGuardType code_type = 4 [default = EAuthSessionGuardType_Unknown, (.description) = "type of confirmation code"];
+    // optional .EAuthSessionGuardType code_type = 4 [default = EAuthSessionGuardType_Unknown];
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_code_type());
@@ -7545,7 +7352,7 @@ const char* CAuthentication_UpdateAuthSessionWithSteamGuardCode_Response::_Inter
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional string agreement_session_url = 7 [(.description) = "agreement the user needs to agree to"];
+      // optional string agreement_session_url = 7;
       case 7:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
           auto str = _internal_mutable_agreement_session_url();
@@ -7586,7 +7393,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional string agreement_session_url = 7 [(.description) = "agreement the user needs to agree to"];
+  // optional string agreement_session_url = 7;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_agreement_session_url().data(), static_cast<int>(this->_internal_agreement_session_url().length()),
@@ -7612,7 +7419,7 @@ size_t CAuthentication_UpdateAuthSessionWithSteamGuardCode_Response::ByteSizeLon
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // optional string agreement_session_url = 7 [(.description) = "agreement the user needs to agree to"];
+  // optional string agreement_session_url = 7;
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += 1 +
@@ -8554,7 +8361,7 @@ const char* CAuthentication_RefreshToken_Enumerate_Response_TokenUsageEvent::_In
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint32 time = 1 [(.description) = "Approximate time of history event (may be deliberately fuzzed or omitted)"];
+      // optional uint32 time = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_time(&has_bits);
@@ -8562,7 +8369,7 @@ const char* CAuthentication_RefreshToken_Enumerate_Response_TokenUsageEvent::_In
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional .CMsgIPAddress ip = 2 [(.description) = "IP at which event was observed"];
+      // optional .CMsgIPAddress ip = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           ptr = ctx->ParseMessage(_internal_mutable_ip(), ptr);
@@ -8580,7 +8387,7 @@ const char* CAuthentication_RefreshToken_Enumerate_Response_TokenUsageEvent::_In
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string country = 4 [(.description) = "Location (country code) of event, as inferred from IP"];
+      // optional string country = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
           auto str = _internal_mutable_country();
@@ -8591,7 +8398,7 @@ const char* CAuthentication_RefreshToken_Enumerate_Response_TokenUsageEvent::_In
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string state = 5 [(.description) = "Location (state code) of event, as inferred from IP"];
+      // optional string state = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
           auto str = _internal_mutable_state();
@@ -8602,7 +8409,7 @@ const char* CAuthentication_RefreshToken_Enumerate_Response_TokenUsageEvent::_In
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string city = 6 [(.description) = "Location (city) of event, as inferred from IP"];
+      // optional string city = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
           auto str = _internal_mutable_city();
@@ -8643,13 +8450,13 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint32 time = 1 [(.description) = "Approximate time of history event (may be deliberately fuzzed or omitted)"];
+  // optional uint32 time = 1;
   if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_time(), target);
   }
 
-  // optional .CMsgIPAddress ip = 2 [(.description) = "IP at which event was observed"];
+  // optional .CMsgIPAddress ip = 2;
   if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -8667,7 +8474,7 @@ failure:
         3, this->_internal_locale(), target);
   }
 
-  // optional string country = 4 [(.description) = "Location (country code) of event, as inferred from IP"];
+  // optional string country = 4;
   if (cached_has_bits & 0x00000002u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_country().data(), static_cast<int>(this->_internal_country().length()),
@@ -8677,7 +8484,7 @@ failure:
         4, this->_internal_country(), target);
   }
 
-  // optional string state = 5 [(.description) = "Location (state code) of event, as inferred from IP"];
+  // optional string state = 5;
   if (cached_has_bits & 0x00000004u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_state().data(), static_cast<int>(this->_internal_state().length()),
@@ -8687,7 +8494,7 @@ failure:
         5, this->_internal_state(), target);
   }
 
-  // optional string city = 6 [(.description) = "Location (city) of event, as inferred from IP"];
+  // optional string city = 6;
   if (cached_has_bits & 0x00000008u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_city().data(), static_cast<int>(this->_internal_city().length()),
@@ -8722,35 +8529,35 @@ size_t CAuthentication_RefreshToken_Enumerate_Response_TokenUsageEvent::ByteSize
           this->_internal_locale());
     }
 
-    // optional string country = 4 [(.description) = "Location (country code) of event, as inferred from IP"];
+    // optional string country = 4;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_country());
     }
 
-    // optional string state = 5 [(.description) = "Location (state code) of event, as inferred from IP"];
+    // optional string state = 5;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_state());
     }
 
-    // optional string city = 6 [(.description) = "Location (city) of event, as inferred from IP"];
+    // optional string city = 6;
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_city());
     }
 
-    // optional .CMsgIPAddress ip = 2 [(.description) = "IP at which event was observed"];
+    // optional .CMsgIPAddress ip = 2;
     if (cached_has_bits & 0x00000010u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
           *ip_);
     }
 
-    // optional uint32 time = 1 [(.description) = "Approximate time of history event (may be deliberately fuzzed or omitted)"];
+    // optional uint32 time = 1;
     if (cached_has_bits & 0x00000020u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -9006,7 +8813,7 @@ const char* CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescript
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional fixed64 token_id = 1 [(.description) = "Persistent token/device identifier"];
+      // optional fixed64 token_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
           _Internal::set_has_token_id(&has_bits);
@@ -9014,7 +8821,7 @@ const char* CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescript
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
         } else goto handle_unusual;
         continue;
-      // optional string token_description = 2 [(.description) = "client-supplied friendly name for the device"];
+      // optional string token_description = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           auto str = _internal_mutable_token_description();
@@ -9033,7 +8840,7 @@ const char* CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescript
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional .EAuthTokenPlatformType platform_type = 4 [default = EAuthTokenPlatformType_Unknown, (.description) = "gross platform type (mobile/client/browser)"];
+      // optional .EAuthTokenPlatformType platform_type = 4 [default = EAuthTokenPlatformType_Unknown];
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
           ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -9045,7 +8852,7 @@ const char* CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescript
           }
         } else goto handle_unusual;
         continue;
-      // optional bool logged_in = 5 [(.description) = "If true, this token is currently valid. False indicates it is a machine token - ok for steamguard if you know the credential"];
+      // optional bool logged_in = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
           _Internal::set_has_logged_in(&has_bits);
@@ -9053,7 +8860,7 @@ const char* CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescript
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 os_platform = 6 [(.description) = "EPlatformType - rough classification of device OS, if known"];
+      // optional uint32 os_platform = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
           _Internal::set_has_os_platform(&has_bits);
@@ -9061,7 +8868,7 @@ const char* CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescript
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 auth_type = 7 [(.description) = "EAuthTokenGuardType - device authorization mechanism, if known"];
+      // optional uint32 auth_type = 7;
       case 7:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 56)) {
           _Internal::set_has_auth_type(&has_bits);
@@ -9069,7 +8876,7 @@ const char* CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescript
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 gaming_device_type = 8 [(.description) = "EGamingDeviceType - classify console/PC/SteamDeck, if known; applies only for Steam Client devices"];
+      // optional uint32 gaming_device_type = 8;
       case 8:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 64)) {
           _Internal::set_has_gaming_device_type(&has_bits);
@@ -9077,21 +8884,21 @@ const char* CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescript
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional .CAuthentication_RefreshToken_Enumerate_Response.TokenUsageEvent first_seen = 9 [(.description) = "Information about original authorization event"];
+      // optional .CAuthentication_RefreshToken_Enumerate_Response.TokenUsageEvent first_seen = 9;
       case 9:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 74)) {
           ptr = ctx->ParseMessage(_internal_mutable_first_seen(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional .CAuthentication_RefreshToken_Enumerate_Response.TokenUsageEvent last_seen = 10 [(.description) = "Information about most-recently seen, if known for this device"];
+      // optional .CAuthentication_RefreshToken_Enumerate_Response.TokenUsageEvent last_seen = 10;
       case 10:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 82)) {
           ptr = ctx->ParseMessage(_internal_mutable_last_seen(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional int32 os_type = 11 [(.description) = "EOSType - specific device OS, if known"];
+      // optional int32 os_type = 11;
       case 11:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 88)) {
           _Internal::set_has_os_type(&has_bits);
@@ -9129,13 +8936,13 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional fixed64 token_id = 1 [(.description) = "Persistent token/device identifier"];
+  // optional fixed64 token_id = 1;
   if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_token_id(), target);
   }
 
-  // optional string token_description = 2 [(.description) = "client-supplied friendly name for the device"];
+  // optional string token_description = 2;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_token_description().data(), static_cast<int>(this->_internal_token_description().length()),
@@ -9151,38 +8958,38 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_time_updated(), target);
   }
 
-  // optional .EAuthTokenPlatformType platform_type = 4 [default = EAuthTokenPlatformType_Unknown, (.description) = "gross platform type (mobile/client/browser)"];
+  // optional .EAuthTokenPlatformType platform_type = 4 [default = EAuthTokenPlatformType_Unknown];
   if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       4, this->_internal_platform_type(), target);
   }
 
-  // optional bool logged_in = 5 [(.description) = "If true, this token is currently valid. False indicates it is a machine token - ok for steamguard if you know the credential"];
+  // optional bool logged_in = 5;
   if (cached_has_bits & 0x00000040u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(5, this->_internal_logged_in(), target);
   }
 
-  // optional uint32 os_platform = 6 [(.description) = "EPlatformType - rough classification of device OS, if known"];
+  // optional uint32 os_platform = 6;
   if (cached_has_bits & 0x00000080u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(6, this->_internal_os_platform(), target);
   }
 
-  // optional uint32 auth_type = 7 [(.description) = "EAuthTokenGuardType - device authorization mechanism, if known"];
+  // optional uint32 auth_type = 7;
   if (cached_has_bits & 0x00000100u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(7, this->_internal_auth_type(), target);
   }
 
-  // optional uint32 gaming_device_type = 8 [(.description) = "EGamingDeviceType - classify console/PC/SteamDeck, if known; applies only for Steam Client devices"];
+  // optional uint32 gaming_device_type = 8;
   if (cached_has_bits & 0x00000200u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(8, this->_internal_gaming_device_type(), target);
   }
 
-  // optional .CAuthentication_RefreshToken_Enumerate_Response.TokenUsageEvent first_seen = 9 [(.description) = "Information about original authorization event"];
+  // optional .CAuthentication_RefreshToken_Enumerate_Response.TokenUsageEvent first_seen = 9;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -9190,7 +8997,7 @@ failure:
         9, _Internal::first_seen(this), target, stream);
   }
 
-  // optional .CAuthentication_RefreshToken_Enumerate_Response.TokenUsageEvent last_seen = 10 [(.description) = "Information about most-recently seen, if known for this device"];
+  // optional .CAuthentication_RefreshToken_Enumerate_Response.TokenUsageEvent last_seen = 10;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -9198,7 +9005,7 @@ failure:
         10, _Internal::last_seen(this), target, stream);
   }
 
-  // optional int32 os_type = 11 [(.description) = "EOSType - specific device OS, if known"];
+  // optional int32 os_type = 11;
   if (cached_has_bits & 0x00000400u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(11, this->_internal_os_type(), target);
@@ -9222,28 +9029,28 @@ size_t CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescription::
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x000000ffu) {
-    // optional string token_description = 2 [(.description) = "client-supplied friendly name for the device"];
+    // optional string token_description = 2;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_token_description());
     }
 
-    // optional .CAuthentication_RefreshToken_Enumerate_Response.TokenUsageEvent first_seen = 9 [(.description) = "Information about original authorization event"];
+    // optional .CAuthentication_RefreshToken_Enumerate_Response.TokenUsageEvent first_seen = 9;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
           *first_seen_);
     }
 
-    // optional .CAuthentication_RefreshToken_Enumerate_Response.TokenUsageEvent last_seen = 10 [(.description) = "Information about most-recently seen, if known for this device"];
+    // optional .CAuthentication_RefreshToken_Enumerate_Response.TokenUsageEvent last_seen = 10;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
           *last_seen_);
     }
 
-    // optional fixed64 token_id = 1 [(.description) = "Persistent token/device identifier"];
+    // optional fixed64 token_id = 1;
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 + 8;
     }
@@ -9255,18 +9062,18 @@ size_t CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescription::
           this->_internal_time_updated());
     }
 
-    // optional .EAuthTokenPlatformType platform_type = 4 [default = EAuthTokenPlatformType_Unknown, (.description) = "gross platform type (mobile/client/browser)"];
+    // optional .EAuthTokenPlatformType platform_type = 4 [default = EAuthTokenPlatformType_Unknown];
     if (cached_has_bits & 0x00000020u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_platform_type());
     }
 
-    // optional bool logged_in = 5 [(.description) = "If true, this token is currently valid. False indicates it is a machine token - ok for steamguard if you know the credential"];
+    // optional bool logged_in = 5;
     if (cached_has_bits & 0x00000040u) {
       total_size += 1 + 1;
     }
 
-    // optional uint32 os_platform = 6 [(.description) = "EPlatformType - rough classification of device OS, if known"];
+    // optional uint32 os_platform = 6;
     if (cached_has_bits & 0x00000080u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -9275,21 +9082,21 @@ size_t CAuthentication_RefreshToken_Enumerate_Response_RefreshTokenDescription::
 
   }
   if (cached_has_bits & 0x00000700u) {
-    // optional uint32 auth_type = 7 [(.description) = "EAuthTokenGuardType - device authorization mechanism, if known"];
+    // optional uint32 auth_type = 7;
     if (cached_has_bits & 0x00000100u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_auth_type());
     }
 
-    // optional uint32 gaming_device_type = 8 [(.description) = "EGamingDeviceType - classify console/PC/SteamDeck, if known; applies only for Steam Client devices"];
+    // optional uint32 gaming_device_type = 8;
     if (cached_has_bits & 0x00000200u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_gaming_device_type());
     }
 
-    // optional int32 os_type = 11 [(.description) = "EOSType - specific device OS, if known"];
+    // optional int32 os_type = 11;
     if (cached_has_bits & 0x00000400u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
@@ -9854,7 +9661,7 @@ const char* CAuthentication_GetAuthSessionsForAccount_Response::_InternalParse(c
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // repeated uint64 client_ids = 1 [(.description) = "unique identifier of requestor, also used for routing"];
+      // repeated uint64 client_ids = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           ptr -= 1;
@@ -9897,7 +9704,7 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated uint64 client_ids = 1 [(.description) = "unique identifier of requestor, also used for routing"];
+  // repeated uint64 client_ids = 1;
   for (int i = 0, n = this->_internal_client_ids_size(); i < n; i++) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_client_ids(i), target);
@@ -9919,7 +9726,7 @@ size_t CAuthentication_GetAuthSessionsForAccount_Response::ByteSizeLong() const 
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated uint64 client_ids = 1 [(.description) = "unique identifier of requestor, also used for routing"];
+  // repeated uint64 client_ids = 1;
   {
     size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       UInt64Size(this->client_ids_);
@@ -10087,7 +9894,7 @@ const char* CAuthentication_MigrateMobileSession_Request::_InternalParse(const c
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional fixed64 steamid = 1 [(.description) = "Steam ID of the user to migrate"];
+      // optional fixed64 steamid = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
           _Internal::set_has_steamid(&has_bits);
@@ -10095,7 +9902,7 @@ const char* CAuthentication_MigrateMobileSession_Request::_InternalParse(const c
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
         } else goto handle_unusual;
         continue;
-      // optional string token = 2 [(.description) = "WG Token to migrate"];
+      // optional string token = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           auto str = _internal_mutable_token();
@@ -10106,7 +9913,7 @@ const char* CAuthentication_MigrateMobileSession_Request::_InternalParse(const c
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string signature = 3 [(.description) = "Signature over the wg token using the user\'s 2FA token"];
+      // optional string signature = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           auto str = _internal_mutable_signature();
@@ -10147,13 +9954,13 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional fixed64 steamid = 1 [(.description) = "Steam ID of the user to migrate"];
+  // optional fixed64 steamid = 1;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_steamid(), target);
   }
 
-  // optional string token = 2 [(.description) = "WG Token to migrate"];
+  // optional string token = 2;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_token().data(), static_cast<int>(this->_internal_token().length()),
@@ -10163,7 +9970,7 @@ failure:
         2, this->_internal_token(), target);
   }
 
-  // optional string signature = 3 [(.description) = "Signature over the wg token using the user\'s 2FA token"];
+  // optional string signature = 3;
   if (cached_has_bits & 0x00000002u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_signature().data(), static_cast<int>(this->_internal_signature().length()),
@@ -10191,21 +9998,21 @@ size_t CAuthentication_MigrateMobileSession_Request::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000007u) {
-    // optional string token = 2 [(.description) = "WG Token to migrate"];
+    // optional string token = 2;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_token());
     }
 
-    // optional string signature = 3 [(.description) = "Signature over the wg token using the user\'s 2FA token"];
+    // optional string signature = 3;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_signature());
     }
 
-    // optional fixed64 steamid = 1 [(.description) = "Steam ID of the user to migrate"];
+    // optional fixed64 steamid = 1;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 + 8;
     }
@@ -10651,7 +10458,7 @@ const char* CAuthentication_Token_Revoke_Request::_InternalParse(const char* ptr
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional .EAuthTokenRevokeAction revoke_action = 2 [default = EAuthTokenRevokePermanent, (.description) = "Select between logout and logout-and-forget-machine"];
+      // optional .EAuthTokenRevokeAction revoke_action = 2 [default = EAuthTokenRevokePermanent];
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -10703,7 +10510,7 @@ failure:
         1, this->_internal_token(), target);
   }
 
-  // optional .EAuthTokenRevokeAction revoke_action = 2 [default = EAuthTokenRevokePermanent, (.description) = "Select between logout and logout-and-forget-machine"];
+  // optional .EAuthTokenRevokeAction revoke_action = 2 [default = EAuthTokenRevokePermanent];
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
@@ -10735,7 +10542,7 @@ size_t CAuthentication_Token_Revoke_Request::ByteSizeLong() const {
           this->_internal_token());
     }
 
-    // optional .EAuthTokenRevokeAction revoke_action = 2 [default = EAuthTokenRevokePermanent, (.description) = "Select between logout and logout-and-forget-machine"];
+    // optional .EAuthTokenRevokeAction revoke_action = 2 [default = EAuthTokenRevokePermanent];
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_revoke_action());
@@ -11079,7 +10886,7 @@ const char* CAuthentication_RefreshToken_Revoke_Request::_InternalParse(const ch
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
         } else goto handle_unusual;
         continue;
-      // optional fixed64 steamid = 2 [(.description) = "Token holder if an admin action on behalf of another user"];
+      // optional fixed64 steamid = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 17)) {
           _Internal::set_has_steamid(&has_bits);
@@ -11087,7 +10894,7 @@ const char* CAuthentication_RefreshToken_Revoke_Request::_InternalParse(const ch
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
         } else goto handle_unusual;
         continue;
-      // optional .EAuthTokenRevokeAction revoke_action = 3 [default = EAuthTokenRevokePermanent, (.description) = "Select between logout and logout-and-forget-machine"];
+      // optional .EAuthTokenRevokeAction revoke_action = 3 [default = EAuthTokenRevokePermanent];
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -11099,7 +10906,7 @@ const char* CAuthentication_RefreshToken_Revoke_Request::_InternalParse(const ch
           }
         } else goto handle_unusual;
         continue;
-      // optional bytes signature = 4 [(.description) = "required signature over token_id"];
+      // optional bytes signature = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
           auto str = _internal_mutable_signature();
@@ -11143,20 +10950,20 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_token_id(), target);
   }
 
-  // optional fixed64 steamid = 2 [(.description) = "Token holder if an admin action on behalf of another user"];
+  // optional fixed64 steamid = 2;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(2, this->_internal_steamid(), target);
   }
 
-  // optional .EAuthTokenRevokeAction revoke_action = 3 [default = EAuthTokenRevokePermanent, (.description) = "Select between logout and logout-and-forget-machine"];
+  // optional .EAuthTokenRevokeAction revoke_action = 3 [default = EAuthTokenRevokePermanent];
   if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       3, this->_internal_revoke_action(), target);
   }
 
-  // optional bytes signature = 4 [(.description) = "required signature over token_id"];
+  // optional bytes signature = 4;
   if (cached_has_bits & 0x00000001u) {
     target = stream->WriteBytesMaybeAliased(
         4, this->_internal_signature(), target);
@@ -11180,7 +10987,7 @@ size_t CAuthentication_RefreshToken_Revoke_Request::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x0000000fu) {
-    // optional bytes signature = 4 [(.description) = "required signature over token_id"];
+    // optional bytes signature = 4;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
@@ -11192,12 +10999,12 @@ size_t CAuthentication_RefreshToken_Revoke_Request::ByteSizeLong() const {
       total_size += 1 + 8;
     }
 
-    // optional fixed64 steamid = 2 [(.description) = "Token holder if an admin action on behalf of another user"];
+    // optional fixed64 steamid = 2;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 + 8;
     }
 
-    // optional .EAuthTokenRevokeAction revoke_action = 3 [default = EAuthTokenRevokePermanent, (.description) = "Select between logout and logout-and-forget-machine"];
+    // optional .EAuthTokenRevokeAction revoke_action = 3 [default = EAuthTokenRevokePermanent];
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_revoke_action());
@@ -11527,7 +11334,7 @@ const char* CAuthenticationSupport_QueryRefreshTokensByAccount_Request::_Interna
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional fixed64 steamid = 1 [(.description) = "SteamID of the account to query (required)"];
+      // optional fixed64 steamid = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
           _Internal::set_has_steamid(&has_bits);
@@ -11535,7 +11342,7 @@ const char* CAuthenticationSupport_QueryRefreshTokensByAccount_Request::_Interna
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
         } else goto handle_unusual;
         continue;
-      // optional bool include_revoked_tokens = 2 [(.description) = "Includes tokens that are revoked or expired in the query"];
+      // optional bool include_revoked_tokens = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_include_revoked_tokens(&has_bits);
@@ -11573,13 +11380,13 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional fixed64 steamid = 1 [(.description) = "SteamID of the account to query (required)"];
+  // optional fixed64 steamid = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_steamid(), target);
   }
 
-  // optional bool include_revoked_tokens = 2 [(.description) = "Includes tokens that are revoked or expired in the query"];
+  // optional bool include_revoked_tokens = 2;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(2, this->_internal_include_revoked_tokens(), target);
@@ -11603,12 +11410,12 @@ size_t CAuthenticationSupport_QueryRefreshTokensByAccount_Request::ByteSizeLong(
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional fixed64 steamid = 1 [(.description) = "SteamID of the account to query (required)"];
+    // optional fixed64 steamid = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 + 8;
     }
 
-    // optional bool include_revoked_tokens = 2 [(.description) = "Includes tokens that are revoked or expired in the query"];
+    // optional bool include_revoked_tokens = 2;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 + 1;
     }
@@ -11826,7 +11633,7 @@ const char* CSupportRefreshTokenDescription_TokenUsageEvent::_InternalParse(cons
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint32 time = 1 [(.description) = "Approximate time of history event (may be deliberately fuzzed or omitted)"];
+      // optional uint32 time = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_time(&has_bits);
@@ -11834,14 +11641,14 @@ const char* CSupportRefreshTokenDescription_TokenUsageEvent::_InternalParse(cons
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional .CMsgIPAddress ip = 2 [(.description) = "IP at which event was observed"];
+      // optional .CMsgIPAddress ip = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           ptr = ctx->ParseMessage(_internal_mutable_ip(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string country = 3 [(.description) = "Location (country code) of event, as inferred from IP"];
+      // optional string country = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           auto str = _internal_mutable_country();
@@ -11852,7 +11659,7 @@ const char* CSupportRefreshTokenDescription_TokenUsageEvent::_InternalParse(cons
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string state = 4 [(.description) = "Location (state code) of event, as inferred from IP"];
+      // optional string state = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
           auto str = _internal_mutable_state();
@@ -11863,7 +11670,7 @@ const char* CSupportRefreshTokenDescription_TokenUsageEvent::_InternalParse(cons
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string city = 5 [(.description) = "Location (city) of event, as inferred from IP"];
+      // optional string city = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
           auto str = _internal_mutable_city();
@@ -11904,13 +11711,13 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint32 time = 1 [(.description) = "Approximate time of history event (may be deliberately fuzzed or omitted)"];
+  // optional uint32 time = 1;
   if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_time(), target);
   }
 
-  // optional .CMsgIPAddress ip = 2 [(.description) = "IP at which event was observed"];
+  // optional .CMsgIPAddress ip = 2;
   if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -11918,7 +11725,7 @@ failure:
         2, _Internal::ip(this), target, stream);
   }
 
-  // optional string country = 3 [(.description) = "Location (country code) of event, as inferred from IP"];
+  // optional string country = 3;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_country().data(), static_cast<int>(this->_internal_country().length()),
@@ -11928,7 +11735,7 @@ failure:
         3, this->_internal_country(), target);
   }
 
-  // optional string state = 4 [(.description) = "Location (state code) of event, as inferred from IP"];
+  // optional string state = 4;
   if (cached_has_bits & 0x00000002u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_state().data(), static_cast<int>(this->_internal_state().length()),
@@ -11938,7 +11745,7 @@ failure:
         4, this->_internal_state(), target);
   }
 
-  // optional string city = 5 [(.description) = "Location (city) of event, as inferred from IP"];
+  // optional string city = 5;
   if (cached_has_bits & 0x00000004u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_city().data(), static_cast<int>(this->_internal_city().length()),
@@ -11966,35 +11773,35 @@ size_t CSupportRefreshTokenDescription_TokenUsageEvent::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x0000001fu) {
-    // optional string country = 3 [(.description) = "Location (country code) of event, as inferred from IP"];
+    // optional string country = 3;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_country());
     }
 
-    // optional string state = 4 [(.description) = "Location (state code) of event, as inferred from IP"];
+    // optional string state = 4;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_state());
     }
 
-    // optional string city = 5 [(.description) = "Location (city) of event, as inferred from IP"];
+    // optional string city = 5;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_city());
     }
 
-    // optional .CMsgIPAddress ip = 2 [(.description) = "IP at which event was observed"];
+    // optional .CMsgIPAddress ip = 2;
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
           *ip_);
     }
 
-    // optional uint32 time = 1 [(.description) = "Approximate time of history event (may be deliberately fuzzed or omitted)"];
+    // optional uint32 time = 1;
     if (cached_has_bits & 0x00000010u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -12308,7 +12115,7 @@ const char* CSupportRefreshTokenDescription::_InternalParse(const char* ptr, ::P
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
         } else goto handle_unusual;
         continue;
-      // optional uint32 os_platform = 7 [(.description) = "EPlatformType - rough classification of device OS, if known"];
+      // optional uint32 os_platform = 7;
       case 7:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 56)) {
           _Internal::set_has_os_platform(&has_bits);
@@ -12316,7 +12123,7 @@ const char* CSupportRefreshTokenDescription::_InternalParse(const char* ptr, ::P
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional int32 os_type = 8 [(.description) = "EOSType - specific device OS, if known"];
+      // optional int32 os_type = 8;
       case 8:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 64)) {
           _Internal::set_has_os_type(&has_bits);
@@ -12324,7 +12131,7 @@ const char* CSupportRefreshTokenDescription::_InternalParse(const char* ptr, ::P
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 auth_type = 9 [(.description) = "EAuthTokenGuardType - device authorization mechanism, if known"];
+      // optional uint32 auth_type = 9;
       case 9:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 72)) {
           _Internal::set_has_auth_type(&has_bits);
@@ -12332,7 +12139,7 @@ const char* CSupportRefreshTokenDescription::_InternalParse(const char* ptr, ::P
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 gaming_device_type = 10 [(.description) = "EGamingDeviceType - classify console/PC/SteamDeck, if known; applies only for Steam Client devices"];
+      // optional uint32 gaming_device_type = 10;
       case 10:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 80)) {
           _Internal::set_has_gaming_device_type(&has_bits);
@@ -12340,14 +12147,14 @@ const char* CSupportRefreshTokenDescription::_InternalParse(const char* ptr, ::P
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional .CSupportRefreshTokenDescription.TokenUsageEvent first_seen = 11 [(.description) = "Information about original authorization event"];
+      // optional .CSupportRefreshTokenDescription.TokenUsageEvent first_seen = 11;
       case 11:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 90)) {
           ptr = ctx->ParseMessage(_internal_mutable_first_seen(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional .CSupportRefreshTokenDescription.TokenUsageEvent last_seen = 12 [(.description) = "Information about most-recently seen, if known for this device"];
+      // optional .CSupportRefreshTokenDescription.TokenUsageEvent last_seen = 12;
       case 12:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 98)) {
           ptr = ctx->ParseMessage(_internal_mutable_last_seen(), ptr);
@@ -12426,31 +12233,31 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(6, this->_internal_owner_steamid(), target);
   }
 
-  // optional uint32 os_platform = 7 [(.description) = "EPlatformType - rough classification of device OS, if known"];
+  // optional uint32 os_platform = 7;
   if (cached_has_bits & 0x00000100u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(7, this->_internal_os_platform(), target);
   }
 
-  // optional int32 os_type = 8 [(.description) = "EOSType - specific device OS, if known"];
+  // optional int32 os_type = 8;
   if (cached_has_bits & 0x00000200u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(8, this->_internal_os_type(), target);
   }
 
-  // optional uint32 auth_type = 9 [(.description) = "EAuthTokenGuardType - device authorization mechanism, if known"];
+  // optional uint32 auth_type = 9;
   if (cached_has_bits & 0x00000400u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(9, this->_internal_auth_type(), target);
   }
 
-  // optional uint32 gaming_device_type = 10 [(.description) = "EGamingDeviceType - classify console/PC/SteamDeck, if known; applies only for Steam Client devices"];
+  // optional uint32 gaming_device_type = 10;
   if (cached_has_bits & 0x00000800u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(10, this->_internal_gaming_device_type(), target);
   }
 
-  // optional .CSupportRefreshTokenDescription.TokenUsageEvent first_seen = 11 [(.description) = "Information about original authorization event"];
+  // optional .CSupportRefreshTokenDescription.TokenUsageEvent first_seen = 11;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -12458,7 +12265,7 @@ failure:
         11, _Internal::first_seen(this), target, stream);
   }
 
-  // optional .CSupportRefreshTokenDescription.TokenUsageEvent last_seen = 12 [(.description) = "Information about most-recently seen, if known for this device"];
+  // optional .CSupportRefreshTokenDescription.TokenUsageEvent last_seen = 12;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -12491,14 +12298,14 @@ size_t CSupportRefreshTokenDescription::ByteSizeLong() const {
           this->_internal_token_description());
     }
 
-    // optional .CSupportRefreshTokenDescription.TokenUsageEvent first_seen = 11 [(.description) = "Information about original authorization event"];
+    // optional .CSupportRefreshTokenDescription.TokenUsageEvent first_seen = 11;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
           *first_seen_);
     }
 
-    // optional .CSupportRefreshTokenDescription.TokenUsageEvent last_seen = 12 [(.description) = "Information about most-recently seen, if known for this device"];
+    // optional .CSupportRefreshTokenDescription.TokenUsageEvent last_seen = 12;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
@@ -12536,28 +12343,28 @@ size_t CSupportRefreshTokenDescription::ByteSizeLong() const {
 
   }
   if (cached_has_bits & 0x00000f00u) {
-    // optional uint32 os_platform = 7 [(.description) = "EPlatformType - rough classification of device OS, if known"];
+    // optional uint32 os_platform = 7;
     if (cached_has_bits & 0x00000100u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_os_platform());
     }
 
-    // optional int32 os_type = 8 [(.description) = "EOSType - specific device OS, if known"];
+    // optional int32 os_type = 8;
     if (cached_has_bits & 0x00000200u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
           this->_internal_os_type());
     }
 
-    // optional uint32 auth_type = 9 [(.description) = "EAuthTokenGuardType - device authorization mechanism, if known"];
+    // optional uint32 auth_type = 9;
     if (cached_has_bits & 0x00000400u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_auth_type());
     }
 
-    // optional uint32 gaming_device_type = 10 [(.description) = "EGamingDeviceType - classify console/PC/SteamDeck, if known; applies only for Steam Client devices"];
+    // optional uint32 gaming_device_type = 10;
     if (cached_has_bits & 0x00000800u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -12977,7 +12784,7 @@ const char* CAuthenticationSupport_QueryRefreshTokenByID_Request::_InternalParse
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional fixed64 token_id = 1 [(.description) = "Token ID of the token to look up (required)"];
+      // optional fixed64 token_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
           _Internal::set_has_token_id(&has_bits);
@@ -13015,7 +12822,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional fixed64 token_id = 1 [(.description) = "Token ID of the token to look up (required)"];
+  // optional fixed64 token_id = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_token_id(), target);
@@ -13037,7 +12844,7 @@ size_t CAuthenticationSupport_QueryRefreshTokenByID_Request::ByteSizeLong() cons
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // optional fixed64 token_id = 1 [(.description) = "Token ID of the token to look up (required)"];
+  // optional fixed64 token_id = 1;
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += 1 + 8;
@@ -13383,7 +13190,7 @@ const char* CAuthenticationSupport_RevokeToken_Request::_InternalParse(const cha
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional fixed64 token_id = 1 [(.description) = "Token ID of the token to revoke (required)"];
+      // optional fixed64 token_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
           _Internal::set_has_token_id(&has_bits);
@@ -13391,7 +13198,7 @@ const char* CAuthenticationSupport_RevokeToken_Request::_InternalParse(const cha
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
         } else goto handle_unusual;
         continue;
-      // optional fixed64 steamid = 2 [(.description) = "Steam ID of the owner of that token (required)"];
+      // optional fixed64 steamid = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 17)) {
           _Internal::set_has_steamid(&has_bits);
@@ -13429,13 +13236,13 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional fixed64 token_id = 1 [(.description) = "Token ID of the token to revoke (required)"];
+  // optional fixed64 token_id = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_token_id(), target);
   }
 
-  // optional fixed64 steamid = 2 [(.description) = "Steam ID of the owner of that token (required)"];
+  // optional fixed64 steamid = 2;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(2, this->_internal_steamid(), target);
@@ -13459,12 +13266,12 @@ size_t CAuthenticationSupport_RevokeToken_Request::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional fixed64 token_id = 1 [(.description) = "Token ID of the token to revoke (required)"];
+    // optional fixed64 token_id = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 + 8;
     }
 
-    // optional fixed64 steamid = 2 [(.description) = "Steam ID of the owner of that token (required)"];
+    // optional fixed64 steamid = 2;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 + 8;
     }
@@ -13772,7 +13579,7 @@ const char* CAuthenticationSupport_GetTokenHistory_Request::_InternalParse(const
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional fixed64 token_id = 1 [(.description) = "Token ID of the token to get history for (required)"];
+      // optional fixed64 token_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
           _Internal::set_has_token_id(&has_bits);
@@ -13810,7 +13617,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional fixed64 token_id = 1 [(.description) = "Token ID of the token to get history for (required)"];
+  // optional fixed64 token_id = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_token_id(), target);
@@ -13832,7 +13639,7 @@ size_t CAuthenticationSupport_GetTokenHistory_Request::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // optional fixed64 token_id = 1 [(.description) = "Token ID of the token to get history for (required)"];
+  // optional fixed64 token_id = 1;
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += 1 + 8;

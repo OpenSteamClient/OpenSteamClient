@@ -43,12 +43,16 @@ public unsafe interface IClientUtils
     public AppId_t GetAppID();  // argc: 0, index: 19
     public void SetAPIDebuggingActive(bool active, bool verbose);  // argc: 2, index: 20
     public SteamAPICall_t AllocPendingAPICallHandle();  // argc: 0, index: 21
+    // WARNING: Arguments are unknown!
     public bool IsAPICallCompleted(SteamAPICall_t handle, ref bool failed);  // argc: 3, index: 22
+    // WARNING: Arguments are unknown!
     public ESteamAPICallFailure GetAPICallFailureReason(SteamAPICall_t handle);  // argc: 2, index: 23
     /// <summary>
     /// Gets a result for an api call.
     /// </summary>
+    // WARNING: Arguments are unknown!
     public bool GetAPICallResult(SteamAPICall_t handle, void* callbackData, int callbackDataMax, int expectedCallbackID, out bool failed);  // argc: 6, index: 24
+    // WARNING: Arguments are unknown!
     public unknown_ret SetAPICallResultWithoutPostingCallback(SteamAPICall_t handle, byte[] responseData, int responseDataLen, int responseCallbackID);  // argc: 5, index: 25
     public unknown_ret SignalAppsToShutDown();  // argc: 0, index: 26
     public unknown_ret SignalServiceAppsToDisconnect();  // argc: 0, index: 27
@@ -145,6 +149,7 @@ public unsafe interface IClientUtils
     // WARNING: Arguments are unknown!
     public bool NeedsSteamChinaWorkshop(AppId_t app);  // argc: 1, index: 82
     public bool InitFilterText(AppId_t appid, uint filterOptions = 0);  // argc: 2, index: 83
+    // WARNING: Arguments are unknown!
     public int FilterText(AppId_t appid, ETextFilteringContext context, CSteamID senderSteamID, string msg, StringBuilder msgOut, int maxMsgOut);  // argc: 7, index: 84
     // WARNING: Arguments are unknown!
     public unknown_ret GetIPv6ConnectivityState(ESteamIPv6ConnectivityProtocol protocol);  // argc: 1, index: 85
@@ -190,4 +195,5 @@ public unsafe interface IClientUtils
     // WARNING: Arguments are unknown!
     public unknown_ret BGetMachineID();  // argc: 1, index: 108
     public unknown_ret NotifyMissingInterface(string interfaceName);  // argc: 1, index: 6
+    public unknown_ret IsSteamInTournamentMode();  // argc: 0, index: 7
 }

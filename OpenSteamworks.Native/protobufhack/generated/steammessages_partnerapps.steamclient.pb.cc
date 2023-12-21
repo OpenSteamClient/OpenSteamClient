@@ -448,82 +448,65 @@ const char descriptor_table_protodef_steammessages_5fpartnerapps_2esteamclient_2
   "_Request\022\024\n\014upload_token\030\001 \001(\004\022\022\n\nroutin"
   "g_id\030\002 \001(\004\022\016\n\006app_id\030\003 \001(\r\"H\n(CPartnerAp"
   "ps_FinishUploadKVSign_Response\022\034\n\024signed"
-  "_installscript\030\001 \001(\t\"\314\001\n*CPartnerApps_Fi"
+  "_installscript\030\001 \001(\t\"\242\001\n*CPartnerApps_Fi"
   "nishUploadLegacyDRM_Request\022\024\n\014upload_to"
   "ken\030\001 \001(\004\022\022\n\nrouting_id\030\002 \001(\004\022\016\n\006app_id\030"
   "\003 \001(\r\022\r\n\005flags\030\004 \001(\r\022\021\n\ttool_name\030\005 \001(\t\022"
-  "B\n\tuse_cloud\030\006 \001(\010:\005falseB(\202\265\030$use cloud"
-  " storage for build products\">\n+CPartnerA"
-  "pps_FinishUploadLegacyDRM_Response\022\017\n\007fi"
-  "le_id\030\001 \001(\t\"$\n\"CPartnerApps_FinishUpload"
-  "_Response\"\211\001\n&CPartnerApps_FinishUploadD"
-  "epot_Request\022\024\n\014upload_token\030\001 \001(\004\022\022\n\nro"
-  "uting_id\030\002 \001(\004\022\016\n\006app_id\030\003 \001(\r\022\020\n\010depot_"
-  "id\030\004 \001(\r\022\023\n\013build_flags\030\005 \001(\r\"C\n\'CPartne"
-  "rApps_FinishUploadDepot_Response\022\030\n\020buil"
-  "d_routing_id\030\001 \001(\004\"T\n(CPartnerApps_GetDe"
-  "potBuildResult_Request\022\024\n\014upload_token\030\001"
-  " \001(\004\022\022\n\nrouting_id\030\002 \001(\004\"S\n)CPartnerApps"
-  "_GetDepotBuildResult_Response\022\023\n\013manifes"
-  "t_id\030\001 \001(\004\022\021\n\terror_msg\030\002 \001(\t\"5\n#CPartne"
-  "rApps_FindDRMUploads_Request\022\016\n\006app_id\030\001"
-  " \001(\005\"\264\001\n\036CPartnerApps_ExistingDRMUpload\022"
-  "\017\n\007file_id\030\001 \001(\t\022\016\n\006app_id\030\002 \001(\r\022\020\n\010acto"
-  "r_id\030\003 \001(\005\022\025\n\rsupplied_name\030\005 \001(\t\022\r\n\005fla"
-  "gs\030\006 \001(\r\022\020\n\010mod_type\030\007 \001(\t\022\021\n\ttimestamp\030"
-  "\010 \001(\007\022\024\n\014orig_file_id\030\t \001(\t\"X\n$CPartnerA"
-  "pps_FindDRMUploads_Response\0220\n\007uploads\030\001"
-  " \003(\0132\037.CPartnerApps_ExistingDRMUpload\"@\n"
-  "\035CPartnerApps_Download_Request\022\017\n\007file_i"
-  "d\030\001 \001(\t\022\016\n\006app_id\030\002 \001(\005\"F\n\036CPartnerApps_"
-  "Download_Response\022\024\n\014download_url\030\001 \001(\t\022"
-  "\016\n\006app_id\030\002 \001(\0052\241\016\n\013PartnerApps\022\261\001\n\030Requ"
-  "estKVSignUploadToken\022(.CPartnerApps_Requ"
-  "estUploadToken_Request\032).CPartnerApps_Re"
-  "questUploadToken_Response\"@\202\265\030<Request u"
-  "pload token for installscript file uploa"
-  "d / signing\022\256\001\n\025RequestDRMUploadToken\022(."
+  "\030\n\tuse_cloud\030\006 \001(\010:\005false\">\n+CPartnerApp"
+  "s_FinishUploadLegacyDRM_Response\022\017\n\007file"
+  "_id\030\001 \001(\t\"$\n\"CPartnerApps_FinishUpload_R"
+  "esponse\"\211\001\n&CPartnerApps_FinishUploadDep"
+  "ot_Request\022\024\n\014upload_token\030\001 \001(\004\022\022\n\nrout"
+  "ing_id\030\002 \001(\004\022\016\n\006app_id\030\003 \001(\r\022\020\n\010depot_id"
+  "\030\004 \001(\r\022\023\n\013build_flags\030\005 \001(\r\"C\n\'CPartnerA"
+  "pps_FinishUploadDepot_Response\022\030\n\020build_"
+  "routing_id\030\001 \001(\004\"T\n(CPartnerApps_GetDepo"
+  "tBuildResult_Request\022\024\n\014upload_token\030\001 \001"
+  "(\004\022\022\n\nrouting_id\030\002 \001(\004\"S\n)CPartnerApps_G"
+  "etDepotBuildResult_Response\022\023\n\013manifest_"
+  "id\030\001 \001(\004\022\021\n\terror_msg\030\002 \001(\t\"5\n#CPartnerA"
+  "pps_FindDRMUploads_Request\022\016\n\006app_id\030\001 \001"
+  "(\005\"\264\001\n\036CPartnerApps_ExistingDRMUpload\022\017\n"
+  "\007file_id\030\001 \001(\t\022\016\n\006app_id\030\002 \001(\r\022\020\n\010actor_"
+  "id\030\003 \001(\005\022\025\n\rsupplied_name\030\005 \001(\t\022\r\n\005flags"
+  "\030\006 \001(\r\022\020\n\010mod_type\030\007 \001(\t\022\021\n\ttimestamp\030\010 "
+  "\001(\007\022\024\n\014orig_file_id\030\t \001(\t\"X\n$CPartnerApp"
+  "s_FindDRMUploads_Response\0220\n\007uploads\030\001 \003"
+  "(\0132\037.CPartnerApps_ExistingDRMUpload\"@\n\035C"
+  "PartnerApps_Download_Request\022\017\n\007file_id\030"
+  "\001 \001(\t\022\016\n\006app_id\030\002 \001(\005\"F\n\036CPartnerApps_Do"
+  "wnload_Response\022\024\n\014download_url\030\001 \001(\t\022\016\n"
+  "\006app_id\030\002 \001(\0052\215\t\n\013PartnerApps\022o\n\030Request"
+  "KVSignUploadToken\022(.CPartnerApps_Request"
+  "UploadToken_Request\032).CPartnerApps_Reque"
+  "stUploadToken_Response\022l\n\025RequestDRMUplo"
+  "adToken\022(.CPartnerApps_RequestUploadToke"
+  "n_Request\032).CPartnerApps_RequestUploadTo"
+  "ken_Response\022l\n\025RequestCEGUploadToken\022(."
   "CPartnerApps_RequestUploadToken_Request\032"
   ").CPartnerApps_RequestUploadToken_Respon"
-  "se\"@\202\265\030<Request upload token for executa"
-  "ble file upload / processing\022\265\001\n\025Request"
-  "CEGUploadToken\022(.CPartnerApps_RequestUpl"
-  "oadToken_Request\032).CPartnerApps_RequestU"
-  "ploadToken_Response\"G\202\265\030CRequest upload "
-  "token for custom executable file upload "
-  "/ processing\022\243\001\n\027RequestDepotUploadToken"
-  "\022(.CPartnerApps_RequestUploadToken_Reque"
-  "st\032).CPartnerApps_RequestUploadToken_Res"
-  "ponse\"3\202\265\030/Request upload token for stea"
-  "mpipe depot upload\022\253\001\n\022FinishUploadKVSig"
-  "n\022\".CPartnerApps_FinishUpload_Request\032)."
-  "CPartnerApps_FinishUploadKVSign_Response"
-  "\"F\202\265\030BCommit method to sign an installsc"
-  "ript after an upload is complete\022\244\001\n\025Fin"
-  "ishUploadDRMUpload\022+.CPartnerApps_Finish"
-  "UploadLegacyDRM_Request\032,.CPartnerApps_F"
-  "inishUploadLegacyDRM_Response\"0\202\265\030,Commi"
-  "t method for executable file processing\022"
-  "\231\001\n\025FinishUploadCEGUpload\022\".CPartnerApps"
-  "_FinishUpload_Request\032#.CPartnerApps_Fin"
-  "ishUpload_Response\"7\202\265\0303Commit method fo"
-  "r custom executable file processing\022\245\001\n\027"
-  "FinishUploadDepotUpload\022\'.CPartnerApps_F"
-  "inishUploadDepot_Request\032(.CPartnerApps_"
-  "FinishUploadDepot_Response\"7\202\265\0303Commit m"
-  "ethod for custom executable file process"
-  "ing\022\244\001\n\023GetDepotBuildResult\022).CPartnerAp"
-  "ps_GetDepotBuildResult_Request\032*.CPartne"
-  "rApps_GetDepotBuildResult_Response\"6\202\265\0302"
-  "Get build status for previously uploaded"
-  " depot ZIP\022\215\001\n\016FindDRMUploads\022$.CPartner"
-  "Apps_FindDRMUploads_Request\032%.CPartnerAp"
-  "ps_FindDRMUploads_Response\".\202\265\030*Finds N "
-  "most recent prior uploads by appid\022K\n\010Do"
-  "wnload\022\036.CPartnerApps_Download_Request\032\037"
-  ".CPartnerApps_Download_Response\0322\202\265\030.Ser"
-  "vice methods for app management by partn"
-  "ersB\035\200\001\001\252\002\027OpenSteamworks.Protobuf"
+  "se\022n\n\027RequestDepotUploadToken\022(.CPartner"
+  "Apps_RequestUploadToken_Request\032).CPartn"
+  "erApps_RequestUploadToken_Response\022c\n\022Fi"
+  "nishUploadKVSign\022\".CPartnerApps_FinishUp"
+  "load_Request\032).CPartnerApps_FinishUpload"
+  "KVSign_Response\022r\n\025FinishUploadDRMUpload"
+  "\022+.CPartnerApps_FinishUploadLegacyDRM_Re"
+  "quest\032,.CPartnerApps_FinishUploadLegacyD"
+  "RM_Response\022`\n\025FinishUploadCEGUpload\022\".C"
+  "PartnerApps_FinishUpload_Request\032#.CPart"
+  "nerApps_FinishUpload_Response\022l\n\027FinishU"
+  "ploadDepotUpload\022\'.CPartnerApps_FinishUp"
+  "loadDepot_Request\032(.CPartnerApps_FinishU"
+  "ploadDepot_Response\022l\n\023GetDepotBuildResu"
+  "lt\022).CPartnerApps_GetDepotBuildResult_Re"
+  "quest\032*.CPartnerApps_GetDepotBuildResult"
+  "_Response\022]\n\016FindDRMUploads\022$.CPartnerAp"
+  "ps_FindDRMUploads_Request\032%.CPartnerApps"
+  "_FindDRMUploads_Response\022K\n\010Download\022\036.C"
+  "PartnerApps_Download_Request\032\037.CPartnerA"
+  "pps_Download_ResponseB\035\200\001\001\252\002\027OpenSteamwo"
+  "rks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fpartnerapps_2esteamclient_2eproto_deps[3] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
@@ -532,7 +515,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fpartnerapps_2esteamclient_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fpartnerapps_2esteamclient_2eproto = {
-  false, false, 3514, descriptor_table_protodef_steammessages_5fpartnerapps_2esteamclient_2eproto, "steammessages_partnerapps.steamclient.proto", 
+  false, false, 2812, descriptor_table_protodef_steammessages_5fpartnerapps_2esteamclient_2eproto, "steammessages_partnerapps.steamclient.proto", 
   &descriptor_table_steammessages_5fpartnerapps_2esteamclient_2eproto_once, descriptor_table_steammessages_5fpartnerapps_2esteamclient_2eproto_deps, 3, 16,
   schemas, file_default_instances, TableStruct_steammessages_5fpartnerapps_2esteamclient_2eproto::offsets,
   file_level_metadata_steammessages_5fpartnerapps_2esteamclient_2eproto, file_level_enum_descriptors_steammessages_5fpartnerapps_2esteamclient_2eproto, file_level_service_descriptors_steammessages_5fpartnerapps_2esteamclient_2eproto,
@@ -1730,7 +1713,7 @@ const char* CPartnerApps_FinishUploadLegacyDRM_Request::_InternalParse(const cha
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool use_cloud = 6 [default = false, (.description) = "use cloud storage for build products"];
+      // optional bool use_cloud = 6 [default = false];
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
           _Internal::set_has_use_cloud(&has_bits);
@@ -1802,7 +1785,7 @@ failure:
         5, this->_internal_tool_name(), target);
   }
 
-  // optional bool use_cloud = 6 [default = false, (.description) = "use cloud storage for build products"];
+  // optional bool use_cloud = 6 [default = false];
   if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(6, this->_internal_use_cloud(), target);
@@ -1861,7 +1844,7 @@ size_t CPartnerApps_FinishUploadLegacyDRM_Request::ByteSizeLong() const {
           this->_internal_flags());
     }
 
-    // optional bool use_cloud = 6 [default = false, (.description) = "use cloud storage for build products"];
+    // optional bool use_cloud = 6 [default = false];
     if (cached_has_bits & 0x00000020u) {
       total_size += 1 + 1;
     }

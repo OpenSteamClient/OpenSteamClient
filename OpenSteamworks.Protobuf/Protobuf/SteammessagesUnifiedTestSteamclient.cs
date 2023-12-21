@@ -27,33 +27,27 @@ namespace OpenSteamworks.Protobuf {
             "CixzdGVhbW1lc3NhZ2VzX3VuaWZpZWRfdGVzdC5zdGVhbWNsaWVudC5wcm90",
             "bxogZ29vZ2xlL3Byb3RvYnVmL2Rlc2NyaXB0b3IucHJvdG8aGHN0ZWFtbWVz",
             "c2FnZXNfYmFzZS5wcm90bxosc3RlYW1tZXNzYWdlc191bmlmaWVkX2Jhc2Uu",
-            "c3RlYW1jbGllbnQucHJvdG8iRwogQ01zZ1Rlc3RfTWVzc2FnZVRvQ2xpZW50",
-            "X1JlcXVlc3QSIwoJc29tZV90ZXh0GAEgASgJQhCCtRgMU29tZSBzdHJpbmcu",
-            "IkgKIUNNc2dUZXN0X01lc3NhZ2VUb0NsaWVudF9SZXNwb25zZRIjCglzb21l",
-            "X3RleHQYASABKAlCEIK1GAxTb21lIHN0cmluZy4iSQoiQ01zZ1Rlc3RfTm90",
-            "aWZ5Q2xpZW50X05vdGlmaWNhdGlvbhIjCglzb21lX3RleHQYASABKAlCEIK1",
-            "GAxTb21lIHN0cmluZy4iRwogQ01zZ1Rlc3RfTWVzc2FnZVRvU2VydmVyX1Jl",
-            "cXVlc3QSIwoJc29tZV90ZXh0GAEgASgJQhCCtRgMU29tZSBzdHJpbmcuIkgK",
-            "IUNNc2dUZXN0X01lc3NhZ2VUb1NlcnZlcl9SZXNwb25zZRIjCglzb21lX3Rl",
-            "eHQYASABKAlCEIK1GAxTb21lIHN0cmluZy4iSQoiQ01zZ1Rlc3RfTm90aWZ5",
-            "U2VydmVyX05vdGlmaWNhdGlvbhIjCglzb21lX3RleHQYASABKAlCEIK1GAxT",
-            "b21lIHN0cmluZy4iGQoXQ01zZ1Rlc3RfTm9Cb2R5X1JlcXVlc3QiMQocQ01z",
-            "Z1Rlc3RfQ2FsbENsaWVudF9SZXNwb25zZRIRCgl0ZXN0dmFsdWUYASABKAUy",
-            "gwIKD1Rlc3RTdGVhbUNsaWVudBKBAQoPTWVzc2FnZVRvQ2xpZW50EiEuQ01z",
-            "Z1Rlc3RfTWVzc2FnZVRvQ2xpZW50X1JlcXVlc3QaIi5DTXNnVGVzdF9NZXNz",
-            "YWdlVG9DbGllbnRfUmVzcG9uc2UiJ4K1GCNTb21lIGRlc2NyaXB0aW9uIC0g",
-            "TWVzc2FnZVRvQ2xpZW50LhJmCgxOb3RpZnlDbGllbnQSIy5DTXNnVGVzdF9O",
-            "b3RpZnlDbGllbnRfTm90aWZpY2F0aW9uGgsuTm9SZXNwb25zZSIkgrUYIFNv",
-            "bWUgZGVzY3JpcHRpb24gLSBOb3RpZnlDbGllbnQuGgTAtRgCMoICChRUZXN0",
-            "U2VydmVyRnJvbUNsaWVudBKBAQoPTWVzc2FnZVRvU2VydmVyEiEuQ01zZ1Rl",
-            "c3RfTWVzc2FnZVRvU2VydmVyX1JlcXVlc3QaIi5DTXNnVGVzdF9NZXNzYWdl",
-            "VG9TZXJ2ZXJfUmVzcG9uc2UiJ4K1GCNTb21lIGRlc2NyaXB0aW9uIC0gTWVz",
-            "c2FnZVRvU2VydmVyLhJmCgxOb3RpZnlTZXJ2ZXISIy5DTXNnVGVzdF9Ob3Rp",
-            "ZnlTZXJ2ZXJfTm90aWZpY2F0aW9uGgsuTm9SZXNwb25zZSIkgrUYIFNvbWUg",
-            "ZGVzY3JpcHRpb24gLSBOb3RpZnlTZXJ2ZXIuMl4KFVRlc3RFeHRlcm5hbFBy",
-            "aXZpbGVnZRJFCgpDYWxsQ2xpZW50EhguQ01zZ1Rlc3RfTm9Cb2R5X1JlcXVl",
-            "c3QaHS5DTXNnVGVzdF9DYWxsQ2xpZW50X1Jlc3BvbnNlQh2AAQGqAhdPcGVu",
-            "U3RlYW13b3Jrcy5Qcm90b2J1Zg=="));
+            "c3RlYW1jbGllbnQucHJvdG8iNQogQ01zZ1Rlc3RfTWVzc2FnZVRvQ2xpZW50",
+            "X1JlcXVlc3QSEQoJc29tZV90ZXh0GAEgASgJIjYKIUNNc2dUZXN0X01lc3Nh",
+            "Z2VUb0NsaWVudF9SZXNwb25zZRIRCglzb21lX3RleHQYASABKAkiNwoiQ01z",
+            "Z1Rlc3RfTm90aWZ5Q2xpZW50X05vdGlmaWNhdGlvbhIRCglzb21lX3RleHQY",
+            "ASABKAkiNQogQ01zZ1Rlc3RfTWVzc2FnZVRvU2VydmVyX1JlcXVlc3QSEQoJ",
+            "c29tZV90ZXh0GAEgASgJIjYKIUNNc2dUZXN0X01lc3NhZ2VUb1NlcnZlcl9S",
+            "ZXNwb25zZRIRCglzb21lX3RleHQYASABKAkiNwoiQ01zZ1Rlc3RfTm90aWZ5",
+            "U2VydmVyX05vdGlmaWNhdGlvbhIRCglzb21lX3RleHQYASABKAkiGQoXQ01z",
+            "Z1Rlc3RfTm9Cb2R5X1JlcXVlc3QiMQocQ01zZ1Rlc3RfQ2FsbENsaWVudF9S",
+            "ZXNwb25zZRIRCgl0ZXN0dmFsdWUYASABKAUyswEKD1Rlc3RTdGVhbUNsaWVu",
+            "dBJYCg9NZXNzYWdlVG9DbGllbnQSIS5DTXNnVGVzdF9NZXNzYWdlVG9DbGll",
+            "bnRfUmVxdWVzdBoiLkNNc2dUZXN0X01lc3NhZ2VUb0NsaWVudF9SZXNwb25z",
+            "ZRJACgxOb3RpZnlDbGllbnQSIy5DTXNnVGVzdF9Ob3RpZnlDbGllbnRfTm90",
+            "aWZpY2F0aW9uGgsuTm9SZXNwb25zZRoEwLUYAjKyAQoUVGVzdFNlcnZlckZy",
+            "b21DbGllbnQSWAoPTWVzc2FnZVRvU2VydmVyEiEuQ01zZ1Rlc3RfTWVzc2Fn",
+            "ZVRvU2VydmVyX1JlcXVlc3QaIi5DTXNnVGVzdF9NZXNzYWdlVG9TZXJ2ZXJf",
+            "UmVzcG9uc2USQAoMTm90aWZ5U2VydmVyEiMuQ01zZ1Rlc3RfTm90aWZ5U2Vy",
+            "dmVyX05vdGlmaWNhdGlvbhoLLk5vUmVzcG9uc2UyXgoVVGVzdEV4dGVybmFs",
+            "UHJpdmlsZWdlEkUKCkNhbGxDbGllbnQSGC5DTXNnVGVzdF9Ob0JvZHlfUmVx",
+            "dWVzdBodLkNNc2dUZXN0X0NhbGxDbGllbnRfUmVzcG9uc2VCHYABAaoCF09w",
+            "ZW5TdGVhbXdvcmtzLlByb3RvYnVm"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.Reflection.DescriptorReflection.Descriptor, global::OpenSteamworks.Protobuf.SteammessagesBaseReflection.Descriptor, global::OpenSteamworks.Protobuf.SteammessagesUnifiedBaseSteamclientReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -71,6 +65,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
   #region Messages
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CMsgTest_MessageToClient_Request : pb::IMessage<CMsgTest_MessageToClient_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -274,6 +269,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CMsgTest_MessageToClient_Response : pb::IMessage<CMsgTest_MessageToClient_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -477,6 +473,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CMsgTest_NotifyClient_Notification : pb::IMessage<CMsgTest_NotifyClient_Notification>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -680,6 +677,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CMsgTest_MessageToServer_Request : pb::IMessage<CMsgTest_MessageToServer_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -883,6 +881,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CMsgTest_MessageToServer_Response : pb::IMessage<CMsgTest_MessageToServer_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1086,6 +1085,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CMsgTest_NotifyServer_Notification : pb::IMessage<CMsgTest_NotifyServer_Notification>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1289,6 +1289,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CMsgTest_NoBody_Request : pb::IMessage<CMsgTest_NoBody_Request>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1441,6 +1442,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CMsgTest_CallClient_Response : pb::IMessage<CMsgTest_CallClient_Response>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage

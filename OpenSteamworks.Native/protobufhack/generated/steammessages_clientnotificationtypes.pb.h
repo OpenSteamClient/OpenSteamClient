@@ -252,11 +252,12 @@ enum EClientNotificationType : int {
   EClientNotificationType_PlaytimeWarning = 45,
   EClientNotificationType_FamilyPurchaseRequest = 46,
   EClientNotificationType_FamilyPurchaseRequestResponse = 47,
-  EClientNotificationType_ParentalFeatureRequest = 48
+  EClientNotificationType_ParentalFeatureRequest = 48,
+  EClientNotificationType_ParentalPlaytimeRequest = 49
 };
 bool EClientNotificationType_IsValid(int value);
 constexpr EClientNotificationType EClientNotificationType_MIN = EClientNotificationType_Invalid;
-constexpr EClientNotificationType EClientNotificationType_MAX = EClientNotificationType_ParentalFeatureRequest;
+constexpr EClientNotificationType EClientNotificationType_MAX = EClientNotificationType_ParentalPlaytimeRequest;
 constexpr int EClientNotificationType_ARRAYSIZE = EClientNotificationType_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EClientNotificationType_descriptor();
@@ -3081,6 +3082,7 @@ class CClientNotificationFamilySharingStopPlaying PROTOBUF_FINAL :
   enum : int {
     kAccountidOwnerFieldNumber = 1,
     kSecondsRemainingFieldNumber = 2,
+    kAppidFieldNumber = 3,
   };
   // optional uint32 accountid_owner = 1;
   bool has_accountid_owner() const;
@@ -3108,6 +3110,19 @@ class CClientNotificationFamilySharingStopPlaying PROTOBUF_FINAL :
   void _internal_set_seconds_remaining(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
+  // optional uint32 appid = 3;
+  bool has_appid() const;
+  private:
+  bool _internal_has_appid() const;
+  public:
+  void clear_appid();
+  ::PROTOBUF_NAMESPACE_ID::uint32 appid() const;
+  void set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_appid() const;
+  void _internal_set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CClientNotificationFamilySharingStopPlaying)
  private:
   class _Internal;
@@ -3119,6 +3134,7 @@ class CClientNotificationFamilySharingStopPlaying PROTOBUF_FINAL :
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::uint32 accountid_owner_;
   ::PROTOBUF_NAMESPACE_ID::uint32 seconds_remaining_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 appid_;
   friend struct ::TableStruct_steammessages_5fclientnotificationtypes_2eproto;
 };
 // -------------------------------------------------------------------
@@ -8702,6 +8718,34 @@ inline void CClientNotificationFamilySharingStopPlaying::_internal_set_seconds_r
 inline void CClientNotificationFamilySharingStopPlaying::set_seconds_remaining(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   _internal_set_seconds_remaining(value);
   // @@protoc_insertion_point(field_set:CClientNotificationFamilySharingStopPlaying.seconds_remaining)
+}
+
+// optional uint32 appid = 3;
+inline bool CClientNotificationFamilySharingStopPlaying::_internal_has_appid() const {
+  bool value = (_has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CClientNotificationFamilySharingStopPlaying::has_appid() const {
+  return _internal_has_appid();
+}
+inline void CClientNotificationFamilySharingStopPlaying::clear_appid() {
+  appid_ = 0u;
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CClientNotificationFamilySharingStopPlaying::_internal_appid() const {
+  return appid_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 CClientNotificationFamilySharingStopPlaying::appid() const {
+  // @@protoc_insertion_point(field_get:CClientNotificationFamilySharingStopPlaying.appid)
+  return _internal_appid();
+}
+inline void CClientNotificationFamilySharingStopPlaying::_internal_set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _has_bits_[0] |= 0x00000004u;
+  appid_ = value;
+}
+inline void CClientNotificationFamilySharingStopPlaying::set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_appid(value);
+  // @@protoc_insertion_point(field_set:CClientNotificationFamilySharingStopPlaying.appid)
 }
 
 // -------------------------------------------------------------------

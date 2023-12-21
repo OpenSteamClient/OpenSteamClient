@@ -548,7 +548,7 @@ class CInventory_Response PROTOBUF_FINAL :
   std::string* _internal_mutable_ticket();
   public:
 
-  // optional bool replayed = 6 [(.description) = "If true, the requestid given was processed earlier."];
+  // optional bool replayed = 6;
   bool has_replayed() const;
   private:
   bool _internal_has_replayed() const;
@@ -1329,7 +1329,7 @@ class CInventory_AddItem_Request PROTOBUF_FINAL :
   void _internal_set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional bool notify = 5 [(.description) = "Should notify the user that the item was added to their Steam Inventory."];
+  // optional bool notify = 5;
   bool has_notify() const;
   private:
   bool _internal_has_notify() const;
@@ -1342,7 +1342,7 @@ class CInventory_AddItem_Request PROTOBUF_FINAL :
   void _internal_set_notify(bool value);
   public:
 
-  // optional bool trade_restriction = 7 [(.description) = "If true, apply the default trade and market restriction times to this item."];
+  // optional bool trade_restriction = 7;
   bool has_trade_restriction() const;
   private:
   bool _internal_has_trade_restriction() const;
@@ -1355,7 +1355,7 @@ class CInventory_AddItem_Request PROTOBUF_FINAL :
   void _internal_set_trade_restriction(bool value);
   public:
 
-  // optional bool is_purchase = 8 [default = false, (.description) = "If set, treat requestid as a txnid and create this item as a result of user microtransaction purchase."];
+  // optional bool is_purchase = 8 [default = false];
   bool has_is_purchase() const;
   private:
   bool _internal_has_is_purchase() const;
@@ -5134,7 +5134,7 @@ inline void CInventory_Response::set_allocated_ticket(std::string* ticket) {
   // @@protoc_insertion_point(field_set_allocated:CInventory_Response.ticket)
 }
 
-// optional bool replayed = 6 [(.description) = "If true, the requestid given was processed earlier."];
+// optional bool replayed = 6;
 inline bool CInventory_Response::_internal_has_replayed() const {
   bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
@@ -5636,7 +5636,7 @@ inline void CInventory_AddItem_Request::set_steamid(::PROTOBUF_NAMESPACE_ID::uin
   // @@protoc_insertion_point(field_set:CInventory_AddItem_Request.steamid)
 }
 
-// optional bool notify = 5 [(.description) = "Should notify the user that the item was added to their Steam Inventory."];
+// optional bool notify = 5;
 inline bool CInventory_AddItem_Request::_internal_has_notify() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -5692,7 +5692,7 @@ inline void CInventory_AddItem_Request::set_requestid(::PROTOBUF_NAMESPACE_ID::u
   // @@protoc_insertion_point(field_set:CInventory_AddItem_Request.requestid)
 }
 
-// optional bool trade_restriction = 7 [(.description) = "If true, apply the default trade and market restriction times to this item."];
+// optional bool trade_restriction = 7;
 inline bool CInventory_AddItem_Request::_internal_has_trade_restriction() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -5720,7 +5720,7 @@ inline void CInventory_AddItem_Request::set_trade_restriction(bool value) {
   // @@protoc_insertion_point(field_set:CInventory_AddItem_Request.trade_restriction)
 }
 
-// optional bool is_purchase = 8 [default = false, (.description) = "If set, treat requestid as a txnid and create this item as a result of user microtransaction purchase."];
+// optional bool is_purchase = 8 [default = false];
 inline bool CInventory_AddItem_Request::_internal_has_is_purchase() const {
   bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;

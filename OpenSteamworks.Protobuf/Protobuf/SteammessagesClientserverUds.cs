@@ -34,54 +34,55 @@ namespace OpenSteamworks.Protobuf {
             "Ynl0ZXNfcmVjdhgGIAEoBRISCgpieXRlc19zZW50GAcgASgFEhgKEGJ5dGVz",
             "X3NlbnRfcmVsYXkYCCABKAUSGAoQYnl0ZXNfcmVjdl9yZWxheRgJIAEoBRIa",
             "ChJ0aW1lX3RvX2Nvbm5lY3RfbXMYCiABKAUiHAoaQ01zZ0NsaWVudEdldENs",
-            "aWVudERldGFpbHMi2wIKIkNNc2dDbGllbnRHZXRDbGllbnREZXRhaWxzUmVz",
+            "aWVudERldGFpbHMi8AIKIkNNc2dDbGllbnRHZXRDbGllbnREZXRhaWxzUmVz",
             "cG9uc2USFwoPcGFja2FnZV92ZXJzaW9uGAEgASgNEgoKAm9zGAIgASgJEhQK",
             "DG1hY2hpbmVfbmFtZRgDIAEoCRIRCglpcF9wdWJsaWMYBCABKAkSEgoKaXBf",
             "cHJpdmF0ZRgFIAEoCRI/Cg1nYW1lc19ydW5uaW5nGAYgAygLMiguQ01zZ0Ns",
             "aWVudEdldENsaWVudERldGFpbHNSZXNwb25zZS5HYW1lEhcKD2J5dGVzX2F2",
             "YWlsYWJsZRgHIAEoBBIYChBwcm90b2NvbF92ZXJzaW9uGAggASgNEhoKEmNs",
-            "aWVudGNvbW1fdmVyc2lvbhgJIAEoDRpDCgRHYW1lEg0KBWFwcGlkGAEgASgN",
-            "EhIKCmV4dHJhX2luZm8YAiABKAkSGAoQdGltZV9ydW5uaW5nX3NlYxgDIAEo",
-            "DSKlAQoaQ01zZ0NsaWVudEdldENsaWVudEFwcExpc3QSDQoFbWVkaWEYASAB",
-            "KAgSDQoFdG9vbHMYAiABKAgSDQoFZ2FtZXMYAyABKAgSFgoOb25seV9pbnN0",
-            "YWxsZWQYBCABKAgSFQoNb25seV9jaGFuZ2luZxgFIAEoCBIOCgZjb21pY3MY",
-            "BiABKAgSGwoTaW5jbHVkZV9jbGllbnRfaW5mbxgHIAEoCCK0BgoiQ01zZ0Ns",
-            "aWVudEdldENsaWVudEFwcExpc3RSZXNwb25zZRI1CgRhcHBzGAEgAygLMicu",
-            "Q01zZ0NsaWVudEdldENsaWVudEFwcExpc3RSZXNwb25zZS5BcHASFwoPYnl0",
-            "ZXNfYXZhaWxhYmxlGAIgASgEEjgKC2NsaWVudF9pbmZvGAMgASgLMiMuQ01z",
-            "Z0NsaWVudEdldENsaWVudERldGFpbHNSZXNwb25zZRqDBQoDQXBwEg0KBWFw",
-            "cGlkGAEgASgNEhAKCGNhdGVnb3J5GAIgASgJEhAKCGFwcF90eXBlGAogASgJ",
-            "EhAKCGZhdm9yaXRlGAMgASgIEhEKCWluc3RhbGxlZBgEIAEoCBITCgthdXRv",
-            "X3VwZGF0ZRgFIAEoCBIYChBieXRlc19kb3dubG9hZGVkGAYgASgEEhkKEWJ5",
-            "dGVzX3RvX2Rvd25sb2FkGAcgASgEEhsKE2J5dGVzX2Rvd25sb2FkX3JhdGUY",
-            "CCABKA0SOQoEZGxjcxgJIAMoCzIrLkNNc2dDbGllbnRHZXRDbGllbnRBcHBM",
-            "aXN0UmVzcG9uc2UuQXBwLkRMQxIXCg9kb3dubG9hZF9wYXVzZWQYCyABKAgS",
-            "FwoPbnVtX2Rvd25sb2FkaW5nGAwgASgNEhIKCm51bV9wYXVzZWQYDSABKA0S",
-            "EAoIY2hhbmdpbmcYDiABKAgSHQoVYXZhaWxhYmxlX29uX3BsYXRmb3JtGA8g",
-            "ASgIEhQKDGJ5dGVzX3N0YWdlZBgQIAEoBBIWCg5ieXRlc190b19zdGFnZRgR",
-            "IAEoBBIWCg5ieXRlc19yZXF1aXJlZBgSIAEoBBIWCg5zb3VyY2VfYnVpbGRp",
-            "ZBgTIAEoDRIWCg50YXJnZXRfYnVpbGRpZBgUIAEoDRIjChtlc3RpbWF0ZWRf",
-            "c2Vjb25kc19yZW1haW5pbmcYFSABKA0SFgoOcXVldWVfcG9zaXRpb24YFiAB",
-            "KAUSFAoMdW5pbnN0YWxsaW5nGBcgASgIEhkKEXJ0X3RpbWVfc2NoZWR1bGVk",
-            "GBggASgNGicKA0RMQxINCgVhcHBpZBgBIAEoDRIRCglpbnN0YWxsZWQYAiAB",
-            "KAgiKwoaQ01zZ0NsaWVudEluc3RhbGxDbGllbnRBcHASDQoFYXBwaWQYASAB",
-            "KA0iNAoiQ01zZ0NsaWVudEluc3RhbGxDbGllbnRBcHBSZXNwb25zZRIOCgZy",
-            "ZXN1bHQYASABKA0iLQocQ01zZ0NsaWVudFVuaW5zdGFsbENsaWVudEFwcBIN",
-            "CgVhcHBpZBgBIAEoDSI2CiRDTXNnQ2xpZW50VW5pbnN0YWxsQ2xpZW50QXBw",
-            "UmVzcG9uc2USDgoGcmVzdWx0GAEgASgNIkIKIUNNc2dDbGllbnRTZXRDbGll",
-            "bnRBcHBVcGRhdGVTdGF0ZRINCgVhcHBpZBgBIAEoDRIOCgZ1cGRhdGUYAiAB",
-            "KAgiOwopQ01zZ0NsaWVudFNldENsaWVudEFwcFVwZGF0ZVN0YXRlUmVzcG9u",
-            "c2USDgoGcmVzdWx0GAEgASgNIjQKIkNNc2dDbGllbnRFbmFibGVPckRpc2Fi",
-            "bGVEb3dubG9hZHMSDgoGZW5hYmxlGAEgASgIIjwKKkNNc2dDbGllbnRFbmFi",
-            "bGVPckRpc2FibGVEb3dubG9hZHNSZXNwb25zZRIOCgZyZXN1bHQYASABKA1C",
-            "H0gBgAEAqgIXT3BlblN0ZWFtd29ya3MuUHJvdG9idWY="));
+            "aWVudGNvbW1fdmVyc2lvbhgJIAEoDRITCgtsb2NhbF91c2VycxgKIAMoDRpD",
+            "CgRHYW1lEg0KBWFwcGlkGAEgASgNEhIKCmV4dHJhX2luZm8YAiABKAkSGAoQ",
+            "dGltZV9ydW5uaW5nX3NlYxgDIAEoDSKlAQoaQ01zZ0NsaWVudEdldENsaWVu",
+            "dEFwcExpc3QSDQoFbWVkaWEYASABKAgSDQoFdG9vbHMYAiABKAgSDQoFZ2Ft",
+            "ZXMYAyABKAgSFgoOb25seV9pbnN0YWxsZWQYBCABKAgSFQoNb25seV9jaGFu",
+            "Z2luZxgFIAEoCBIOCgZjb21pY3MYBiABKAgSGwoTaW5jbHVkZV9jbGllbnRf",
+            "aW5mbxgHIAEoCCK0BgoiQ01zZ0NsaWVudEdldENsaWVudEFwcExpc3RSZXNw",
+            "b25zZRI1CgRhcHBzGAEgAygLMicuQ01zZ0NsaWVudEdldENsaWVudEFwcExp",
+            "c3RSZXNwb25zZS5BcHASFwoPYnl0ZXNfYXZhaWxhYmxlGAIgASgEEjgKC2Ns",
+            "aWVudF9pbmZvGAMgASgLMiMuQ01zZ0NsaWVudEdldENsaWVudERldGFpbHNS",
+            "ZXNwb25zZRqDBQoDQXBwEg0KBWFwcGlkGAEgASgNEhAKCGNhdGVnb3J5GAIg",
+            "ASgJEhAKCGFwcF90eXBlGAogASgJEhAKCGZhdm9yaXRlGAMgASgIEhEKCWlu",
+            "c3RhbGxlZBgEIAEoCBITCgthdXRvX3VwZGF0ZRgFIAEoCBIYChBieXRlc19k",
+            "b3dubG9hZGVkGAYgASgEEhkKEWJ5dGVzX3RvX2Rvd25sb2FkGAcgASgEEhsK",
+            "E2J5dGVzX2Rvd25sb2FkX3JhdGUYCCABKA0SOQoEZGxjcxgJIAMoCzIrLkNN",
+            "c2dDbGllbnRHZXRDbGllbnRBcHBMaXN0UmVzcG9uc2UuQXBwLkRMQxIXCg9k",
+            "b3dubG9hZF9wYXVzZWQYCyABKAgSFwoPbnVtX2Rvd25sb2FkaW5nGAwgASgN",
+            "EhIKCm51bV9wYXVzZWQYDSABKA0SEAoIY2hhbmdpbmcYDiABKAgSHQoVYXZh",
+            "aWxhYmxlX29uX3BsYXRmb3JtGA8gASgIEhQKDGJ5dGVzX3N0YWdlZBgQIAEo",
+            "BBIWCg5ieXRlc190b19zdGFnZRgRIAEoBBIWCg5ieXRlc19yZXF1aXJlZBgS",
+            "IAEoBBIWCg5zb3VyY2VfYnVpbGRpZBgTIAEoDRIWCg50YXJnZXRfYnVpbGRp",
+            "ZBgUIAEoDRIjChtlc3RpbWF0ZWRfc2Vjb25kc19yZW1haW5pbmcYFSABKA0S",
+            "FgoOcXVldWVfcG9zaXRpb24YFiABKAUSFAoMdW5pbnN0YWxsaW5nGBcgASgI",
+            "EhkKEXJ0X3RpbWVfc2NoZWR1bGVkGBggASgNGicKA0RMQxINCgVhcHBpZBgB",
+            "IAEoDRIRCglpbnN0YWxsZWQYAiABKAgiKwoaQ01zZ0NsaWVudEluc3RhbGxD",
+            "bGllbnRBcHASDQoFYXBwaWQYASABKA0iNAoiQ01zZ0NsaWVudEluc3RhbGxD",
+            "bGllbnRBcHBSZXNwb25zZRIOCgZyZXN1bHQYASABKA0iLQocQ01zZ0NsaWVu",
+            "dFVuaW5zdGFsbENsaWVudEFwcBINCgVhcHBpZBgBIAEoDSI2CiRDTXNnQ2xp",
+            "ZW50VW5pbnN0YWxsQ2xpZW50QXBwUmVzcG9uc2USDgoGcmVzdWx0GAEgASgN",
+            "IkIKIUNNc2dDbGllbnRTZXRDbGllbnRBcHBVcGRhdGVTdGF0ZRINCgVhcHBp",
+            "ZBgBIAEoDRIOCgZ1cGRhdGUYAiABKAgiOwopQ01zZ0NsaWVudFNldENsaWVu",
+            "dEFwcFVwZGF0ZVN0YXRlUmVzcG9uc2USDgoGcmVzdWx0GAEgASgNIjQKIkNN",
+            "c2dDbGllbnRFbmFibGVPckRpc2FibGVEb3dubG9hZHMSDgoGZW5hYmxlGAEg",
+            "ASgIIjwKKkNNc2dDbGllbnRFbmFibGVPckRpc2FibGVEb3dubG9hZHNSZXNw",
+            "b25zZRIOCgZyZXN1bHQYASABKA1CH0gBgAEAqgIXT3BlblN0ZWFtd29ya3Mu",
+            "UHJvdG9idWY="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.Reflection.DescriptorReflection.Descriptor, global::OpenSteamworks.Protobuf.SteammessagesBaseReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CMsgClientUDSP2PSessionStarted), global::OpenSteamworks.Protobuf.CMsgClientUDSP2PSessionStarted.Parser, new[]{ "SteamidRemote", "Appid" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CMsgClientUDSP2PSessionEnded), global::OpenSteamworks.Protobuf.CMsgClientUDSP2PSessionEnded.Parser, new[]{ "SteamidRemote", "Appid", "SessionLengthSec", "SessionError", "Nattype", "BytesRecv", "BytesSent", "BytesSentRelay", "BytesRecvRelay", "TimeToConnectMs" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CMsgClientGetClientDetails), global::OpenSteamworks.Protobuf.CMsgClientGetClientDetails.Parser, null, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CMsgClientGetClientDetailsResponse), global::OpenSteamworks.Protobuf.CMsgClientGetClientDetailsResponse.Parser, new[]{ "PackageVersion", "Os", "MachineName", "IpPublic", "IpPrivate", "GamesRunning", "BytesAvailable", "ProtocolVersion", "ClientcommVersion" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CMsgClientGetClientDetailsResponse.Types.Game), global::OpenSteamworks.Protobuf.CMsgClientGetClientDetailsResponse.Types.Game.Parser, new[]{ "Appid", "ExtraInfo", "TimeRunningSec" }, null, null, null, null)}),
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CMsgClientGetClientDetailsResponse), global::OpenSteamworks.Protobuf.CMsgClientGetClientDetailsResponse.Parser, new[]{ "PackageVersion", "Os", "MachineName", "IpPublic", "IpPrivate", "GamesRunning", "BytesAvailable", "ProtocolVersion", "ClientcommVersion", "LocalUsers" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CMsgClientGetClientDetailsResponse.Types.Game), global::OpenSteamworks.Protobuf.CMsgClientGetClientDetailsResponse.Types.Game.Parser, new[]{ "Appid", "ExtraInfo", "TimeRunningSec" }, null, null, null, null)}),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CMsgClientGetClientAppList), global::OpenSteamworks.Protobuf.CMsgClientGetClientAppList.Parser, new[]{ "Media", "Tools", "Games", "OnlyInstalled", "OnlyChanging", "Comics", "IncludeClientInfo" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CMsgClientGetClientAppListResponse), global::OpenSteamworks.Protobuf.CMsgClientGetClientAppListResponse.Parser, new[]{ "Apps", "BytesAvailable", "ClientInfo" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CMsgClientGetClientAppListResponse.Types.App), global::OpenSteamworks.Protobuf.CMsgClientGetClientAppListResponse.Types.App.Parser, new[]{ "Appid", "Category", "AppType", "Favorite", "Installed", "AutoUpdate", "BytesDownloaded", "BytesToDownload", "BytesDownloadRate", "Dlcs", "DownloadPaused", "NumDownloading", "NumPaused", "Changing", "AvailableOnPlatform", "BytesStaged", "BytesToStage", "BytesRequired", "SourceBuildid", "TargetBuildid", "EstimatedSecondsRemaining", "QueuePosition", "Uninstalling", "RtTimeScheduled" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CMsgClientGetClientAppListResponse.Types.App.Types.DLC), global::OpenSteamworks.Protobuf.CMsgClientGetClientAppListResponse.Types.App.Types.DLC.Parser, new[]{ "Appid", "Installed" }, null, null, null, null)})}),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CMsgClientInstallClientApp), global::OpenSteamworks.Protobuf.CMsgClientInstallClientApp.Parser, new[]{ "Appid" }, null, null, null, null),
@@ -98,6 +99,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
   #region Messages
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CMsgClientUDSP2PSessionStarted : pb::IMessage<CMsgClientUDSP2PSessionStarted>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -356,6 +358,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CMsgClientUDSP2PSessionEnded : pb::IMessage<CMsgClientUDSP2PSessionEnded>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1030,6 +1033,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CMsgClientGetClientDetails : pb::IMessage<CMsgClientGetClientDetails>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1182,6 +1186,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CMsgClientGetClientDetailsResponse : pb::IMessage<CMsgClientGetClientDetailsResponse>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1227,6 +1232,7 @@ namespace OpenSteamworks.Protobuf {
       bytesAvailable_ = other.bytesAvailable_;
       protocolVersion_ = other.protocolVersion_;
       clientcommVersion_ = other.clientcommVersion_;
+      localUsers_ = other.localUsers_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -1459,6 +1465,17 @@ namespace OpenSteamworks.Protobuf {
       _hasBits0 &= ~8;
     }
 
+    /// <summary>Field number for the "local_users" field.</summary>
+    public const int LocalUsersFieldNumber = 10;
+    private static readonly pb::FieldCodec<uint> _repeated_localUsers_codec
+        = pb::FieldCodec.ForUInt32(80);
+    private readonly pbc::RepeatedField<uint> localUsers_ = new pbc::RepeatedField<uint>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<uint> LocalUsers {
+      get { return localUsers_; }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -1483,6 +1500,7 @@ namespace OpenSteamworks.Protobuf {
       if (BytesAvailable != other.BytesAvailable) return false;
       if (ProtocolVersion != other.ProtocolVersion) return false;
       if (ClientcommVersion != other.ClientcommVersion) return false;
+      if(!localUsers_.Equals(other.localUsers_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1499,6 +1517,7 @@ namespace OpenSteamworks.Protobuf {
       if (HasBytesAvailable) hash ^= BytesAvailable.GetHashCode();
       if (HasProtocolVersion) hash ^= ProtocolVersion.GetHashCode();
       if (HasClientcommVersion) hash ^= ClientcommVersion.GetHashCode();
+      hash ^= localUsers_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1550,6 +1569,7 @@ namespace OpenSteamworks.Protobuf {
         output.WriteRawTag(72);
         output.WriteUInt32(ClientcommVersion);
       }
+      localUsers_.WriteTo(output, _repeated_localUsers_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1593,6 +1613,7 @@ namespace OpenSteamworks.Protobuf {
         output.WriteRawTag(72);
         output.WriteUInt32(ClientcommVersion);
       }
+      localUsers_.WriteTo(ref output, _repeated_localUsers_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -1628,6 +1649,7 @@ namespace OpenSteamworks.Protobuf {
       if (HasClientcommVersion) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(ClientcommVersion);
       }
+      size += localUsers_.CalculateSize(_repeated_localUsers_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -1665,6 +1687,7 @@ namespace OpenSteamworks.Protobuf {
       if (other.HasClientcommVersion) {
         ClientcommVersion = other.ClientcommVersion;
       }
+      localUsers_.Add(other.localUsers_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -1714,6 +1737,11 @@ namespace OpenSteamworks.Protobuf {
           }
           case 72: {
             ClientcommVersion = input.ReadUInt32();
+            break;
+          }
+          case 82:
+          case 80: {
+            localUsers_.AddEntriesFrom(input, _repeated_localUsers_codec);
             break;
           }
         }
@@ -1767,6 +1795,11 @@ namespace OpenSteamworks.Protobuf {
             ClientcommVersion = input.ReadUInt32();
             break;
           }
+          case 82:
+          case 80: {
+            localUsers_.AddEntriesFrom(ref input, _repeated_localUsers_codec);
+            break;
+          }
         }
       }
     }
@@ -1777,6 +1810,7 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static partial class Types {
+      [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
       public sealed partial class Game : pb::IMessage<Game>
       #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
           , pb::IBufferMessage
@@ -2091,6 +2125,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CMsgClientGetClientAppList : pb::IMessage<CMsgClientGetClientAppList>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2609,6 +2644,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CMsgClientGetClientAppListResponse : pb::IMessage<CMsgClientGetClientAppListResponse>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2890,6 +2926,7 @@ namespace OpenSteamworks.Protobuf {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static partial class Types {
+      [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
       public sealed partial class App : pb::IMessage<App>
       #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
           , pb::IBufferMessage
@@ -4267,6 +4304,7 @@ namespace OpenSteamworks.Protobuf {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
         [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
         public static partial class Types {
+          [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
           public sealed partial class DLC : pb::IMessage<DLC>
           #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
               , pb::IBufferMessage
@@ -4535,6 +4573,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CMsgClientInstallClientApp : pb::IMessage<CMsgClientInstallClientApp>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -4741,6 +4780,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CMsgClientInstallClientAppResponse : pb::IMessage<CMsgClientInstallClientAppResponse>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -4947,6 +4987,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CMsgClientUninstallClientApp : pb::IMessage<CMsgClientUninstallClientApp>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -5153,6 +5194,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CMsgClientUninstallClientAppResponse : pb::IMessage<CMsgClientUninstallClientAppResponse>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -5359,6 +5401,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CMsgClientSetClientAppUpdateState : pb::IMessage<CMsgClientSetClientAppUpdateState>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -5617,6 +5660,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CMsgClientSetClientAppUpdateStateResponse : pb::IMessage<CMsgClientSetClientAppUpdateStateResponse>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -5823,6 +5867,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CMsgClientEnableOrDisableDownloads : pb::IMessage<CMsgClientEnableOrDisableDownloads>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -6029,6 +6074,7 @@ namespace OpenSteamworks.Protobuf {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CMsgClientEnableOrDisableDownloadsResponse : pb::IMessage<CMsgClientEnableOrDisableDownloadsResponse>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage

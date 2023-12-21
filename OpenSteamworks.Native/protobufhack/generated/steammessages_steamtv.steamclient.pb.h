@@ -630,7 +630,7 @@ class CSteamTV_CreateBroadcastChannel_Request PROTOBUF_FINAL :
   enum : int {
     kUniqueNameFieldNumber = 1,
   };
-  // optional string unique_name = 1 [(.description) = "Unique short broadcast channel name, part of Steam.TV URL"];
+  // optional string unique_name = 1;
   bool has_unique_name() const;
   private:
   bool _internal_has_unique_name() const;
@@ -786,7 +786,7 @@ class CSteamTV_CreateBroadcastChannel_Response PROTOBUF_FINAL :
   enum : int {
     kBroadcastChannelIdFieldNumber = 1,
   };
-  // optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID or 0"];
+  // optional fixed64 broadcast_channel_id = 1;
   bool has_broadcast_channel_id() const;
   private:
   bool _internal_has_broadcast_channel_id() const;
@@ -935,7 +935,7 @@ class CSteamTV_GetBroadcastChannelID_Request PROTOBUF_FINAL :
   enum : int {
     kUniqueNameFieldNumber = 1,
   };
-  // optional string unique_name = 1 [(.description) = "Channel short name)"];
+  // optional string unique_name = 1;
   bool has_unique_name() const;
   private:
   bool _internal_has_unique_name() const;
@@ -1093,7 +1093,7 @@ class CSteamTV_GetBroadcastChannelID_Response PROTOBUF_FINAL :
     kBroadcastChannelIdFieldNumber = 1,
     kSteamidFieldNumber = 3,
   };
-  // optional string unique_name = 2 [(.description) = "Broadcast channel name"];
+  // optional string unique_name = 2;
   bool has_unique_name() const;
   private:
   bool _internal_has_unique_name() const;
@@ -1113,7 +1113,7 @@ class CSteamTV_GetBroadcastChannelID_Response PROTOBUF_FINAL :
   std::string* _internal_mutable_unique_name();
   public:
 
-  // optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID or 0"];
+  // optional fixed64 broadcast_channel_id = 1;
   bool has_broadcast_channel_id() const;
   private:
   bool _internal_has_broadcast_channel_id() const;
@@ -1126,7 +1126,7 @@ class CSteamTV_GetBroadcastChannelID_Response PROTOBUF_FINAL :
   void _internal_set_broadcast_channel_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional fixed64 steamid = 3 [(.description) = "Broadcast channel owner"];
+  // optional fixed64 steamid = 3;
   bool has_steamid() const;
   private:
   bool _internal_has_steamid() const;
@@ -1285,7 +1285,7 @@ class CSteamTV_SetBroadcastChannelProfile_Request PROTOBUF_FINAL :
     kPanelsFieldNumber = 9,
     kBroadcastChannelIdFieldNumber = 1,
   };
-  // optional string name = 2 [(.description) = "long channel name"];
+  // optional string name = 2;
   bool has_name() const;
   private:
   bool _internal_has_name() const;
@@ -1305,7 +1305,7 @@ class CSteamTV_SetBroadcastChannelProfile_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_name();
   public:
 
-  // optional string language = 3 [(.description) = "primary channel language (Steam shortname)"];
+  // optional string language = 3;
   bool has_language() const;
   private:
   bool _internal_has_language() const;
@@ -1325,7 +1325,7 @@ class CSteamTV_SetBroadcastChannelProfile_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_language();
   public:
 
-  // optional string headline = 4 [(.description) = "short channel desciption"];
+  // optional string headline = 4;
   bool has_headline() const;
   private:
   bool _internal_has_headline() const;
@@ -1345,7 +1345,7 @@ class CSteamTV_SetBroadcastChannelProfile_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_headline();
   public:
 
-  // optional string summary = 5 [(.description) = "long channel desciption"];
+  // optional string summary = 5;
   bool has_summary() const;
   private:
   bool _internal_has_summary() const;
@@ -1365,7 +1365,7 @@ class CSteamTV_SetBroadcastChannelProfile_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_summary();
   public:
 
-  // optional string avatar_hash = 6 [(.description) = "community avatar hash"];
+  // optional string avatar_hash = 6;
   bool has_avatar_hash() const;
   private:
   bool _internal_has_avatar_hash() const;
@@ -1385,7 +1385,7 @@ class CSteamTV_SetBroadcastChannelProfile_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_avatar_hash();
   public:
 
-  // optional string schedule = 7 [(.description) = "broadcast channel schedule"];
+  // optional string schedule = 7;
   bool has_schedule() const;
   private:
   bool _internal_has_schedule() const;
@@ -1405,7 +1405,7 @@ class CSteamTV_SetBroadcastChannelProfile_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_schedule();
   public:
 
-  // optional string rules = 8 [(.description) = "broadcast channel rules"];
+  // optional string rules = 8;
   bool has_rules() const;
   private:
   bool _internal_has_rules() const;
@@ -1425,7 +1425,7 @@ class CSteamTV_SetBroadcastChannelProfile_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_rules();
   public:
 
-  // optional string panels = 9 [(.description) = "JSON data representing the channel panel layout"];
+  // optional string panels = 9;
   bool has_panels() const;
   private:
   bool _internal_has_panels() const;
@@ -1445,7 +1445,7 @@ class CSteamTV_SetBroadcastChannelProfile_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_panels();
   public:
 
-  // optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID"];
+  // optional fixed64 broadcast_channel_id = 1;
   bool has_broadcast_channel_id() const;
   private:
   bool _internal_has_broadcast_channel_id() const;
@@ -1733,7 +1733,7 @@ class CSteamTV_GetBroadcastChannelProfile_Request PROTOBUF_FINAL :
   enum : int {
     kBroadcastChannelIdFieldNumber = 1,
   };
-  // optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID"];
+  // optional fixed64 broadcast_channel_id = 1;
   bool has_broadcast_channel_id() const;
   private:
   bool _internal_has_broadcast_channel_id() const;
@@ -1891,7 +1891,7 @@ class CSteamTV_GetBroadcastChannelProfile_Response PROTOBUF_FINAL :
     kOwnerSteamidFieldNumber = 2,
     kIsPartneredFieldNumber = 10,
   };
-  // optional string unique_name = 1 [(.description) = "Unique short broadcast channel name, part of Steam.TV URL"];
+  // optional string unique_name = 1;
   bool has_unique_name() const;
   private:
   bool _internal_has_unique_name() const;
@@ -1911,7 +1911,7 @@ class CSteamTV_GetBroadcastChannelProfile_Response PROTOBUF_FINAL :
   std::string* _internal_mutable_unique_name();
   public:
 
-  // optional string name = 3 [(.description) = "long channel name"];
+  // optional string name = 3;
   bool has_name() const;
   private:
   bool _internal_has_name() const;
@@ -1931,7 +1931,7 @@ class CSteamTV_GetBroadcastChannelProfile_Response PROTOBUF_FINAL :
   std::string* _internal_mutable_name();
   public:
 
-  // optional string language = 4 [(.description) = "primary channel language (Steam shortname)"];
+  // optional string language = 4;
   bool has_language() const;
   private:
   bool _internal_has_language() const;
@@ -1951,7 +1951,7 @@ class CSteamTV_GetBroadcastChannelProfile_Response PROTOBUF_FINAL :
   std::string* _internal_mutable_language();
   public:
 
-  // optional string headline = 5 [(.description) = "short channel description"];
+  // optional string headline = 5;
   bool has_headline() const;
   private:
   bool _internal_has_headline() const;
@@ -1971,7 +1971,7 @@ class CSteamTV_GetBroadcastChannelProfile_Response PROTOBUF_FINAL :
   std::string* _internal_mutable_headline();
   public:
 
-  // optional string summary = 6 [(.description) = "long channel description"];
+  // optional string summary = 6;
   bool has_summary() const;
   private:
   bool _internal_has_summary() const;
@@ -1991,7 +1991,7 @@ class CSteamTV_GetBroadcastChannelProfile_Response PROTOBUF_FINAL :
   std::string* _internal_mutable_summary();
   public:
 
-  // optional string schedule = 7 [(.description) = "broadcast channel schedule"];
+  // optional string schedule = 7;
   bool has_schedule() const;
   private:
   bool _internal_has_schedule() const;
@@ -2011,7 +2011,7 @@ class CSteamTV_GetBroadcastChannelProfile_Response PROTOBUF_FINAL :
   std::string* _internal_mutable_schedule();
   public:
 
-  // optional string rules = 8 [(.description) = "broadcast channel rules"];
+  // optional string rules = 8;
   bool has_rules() const;
   private:
   bool _internal_has_rules() const;
@@ -2031,7 +2031,7 @@ class CSteamTV_GetBroadcastChannelProfile_Response PROTOBUF_FINAL :
   std::string* _internal_mutable_rules();
   public:
 
-  // optional string panels = 9 [(.description) = "JSON data representing the channel panel layout"];
+  // optional string panels = 9;
   bool has_panels() const;
   private:
   bool _internal_has_panels() const;
@@ -2051,7 +2051,7 @@ class CSteamTV_GetBroadcastChannelProfile_Response PROTOBUF_FINAL :
   std::string* _internal_mutable_panels();
   public:
 
-  // optional fixed64 owner_steamid = 2 [(.description) = "Broadcast channel owner"];
+  // optional fixed64 owner_steamid = 2;
   bool has_owner_steamid() const;
   private:
   bool _internal_has_owner_steamid() const;
@@ -2230,7 +2230,7 @@ class CSteamTV_SetBroadcastChannelImage_Request PROTOBUF_FINAL :
     kFileSizeFieldNumber = 6,
     kUndoFieldNumber = 9,
   };
-  // optional string file_extension = 7 [(.description) = "eg .jpg"];
+  // optional string file_extension = 7;
   bool has_file_extension() const;
   private:
   bool _internal_has_file_extension() const;
@@ -2250,7 +2250,7 @@ class CSteamTV_SetBroadcastChannelImage_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_file_extension();
   public:
 
-  // optional string file_hash = 8 [(.description) = "image SHA"];
+  // optional string file_hash = 8;
   bool has_file_hash() const;
   private:
   bool _internal_has_file_hash() const;
@@ -2270,7 +2270,7 @@ class CSteamTV_SetBroadcastChannelImage_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_file_hash();
   public:
 
-  // optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID"];
+  // optional fixed64 broadcast_channel_id = 1;
   bool has_broadcast_channel_id() const;
   private:
   bool _internal_has_broadcast_channel_id() const;
@@ -2283,7 +2283,7 @@ class CSteamTV_SetBroadcastChannelImage_Request PROTOBUF_FINAL :
   void _internal_set_broadcast_channel_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional .EBroadcastImageType image_type = 2 [default = EBroadcastImageType_None, (.description) = "EBroadcastImage"];
+  // optional .EBroadcastImageType image_type = 2 [default = EBroadcastImageType_None];
   bool has_image_type() const;
   private:
   bool _internal_has_image_type() const;
@@ -2296,7 +2296,7 @@ class CSteamTV_SetBroadcastChannelImage_Request PROTOBUF_FINAL :
   void _internal_set_image_type(::EBroadcastImageType value);
   public:
 
-  // optional uint32 image_index = 3 [(.description) = "Index of the image (for supporting multiple uploads of the same type"];
+  // optional uint32 image_index = 3;
   bool has_image_index() const;
   private:
   bool _internal_has_image_index() const;
@@ -2309,7 +2309,7 @@ class CSteamTV_SetBroadcastChannelImage_Request PROTOBUF_FINAL :
   void _internal_set_image_index(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 image_width = 4 [(.description) = "width in pixels"];
+  // optional uint32 image_width = 4;
   bool has_image_width() const;
   private:
   bool _internal_has_image_width() const;
@@ -2322,7 +2322,7 @@ class CSteamTV_SetBroadcastChannelImage_Request PROTOBUF_FINAL :
   void _internal_set_image_width(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 image_height = 5 [(.description) = "height in pixels"];
+  // optional uint32 image_height = 5;
   bool has_image_height() const;
   private:
   bool _internal_has_image_height() const;
@@ -2335,7 +2335,7 @@ class CSteamTV_SetBroadcastChannelImage_Request PROTOBUF_FINAL :
   void _internal_set_image_height(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 file_size = 6 [(.description) = "in bytes"];
+  // optional uint32 file_size = 6;
   bool has_file_size() const;
   private:
   bool _internal_has_file_size() const;
@@ -2348,7 +2348,7 @@ class CSteamTV_SetBroadcastChannelImage_Request PROTOBUF_FINAL :
   void _internal_set_file_size(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional bool undo = 9 [(.description) = "indicates this is a delete request"];
+  // optional bool undo = 9;
   bool has_undo() const;
   private:
   bool _internal_has_undo() const;
@@ -2505,7 +2505,7 @@ class CSteamTV_SetBroadcastChannelImage_Response PROTOBUF_FINAL :
   enum : int {
     kReplaceImageHashFieldNumber = 1,
   };
-  // optional string replace_image_hash = 1 [(.description) = "set if caller should remove previous SHA file from cache"];
+  // optional string replace_image_hash = 1;
   bool has_replace_image_hash() const;
   private:
   bool _internal_has_replace_image_hash() const;
@@ -2662,7 +2662,7 @@ class CSteamTV_GetBroadcastChannelImages_Request PROTOBUF_FINAL :
     kImageTypesFieldNumber = 2,
     kBroadcastChannelIdFieldNumber = 1,
   };
-  // repeated .EBroadcastImageType image_types = 2 [(.description) = "list of EBroadcastImage"];
+  // repeated .EBroadcastImageType image_types = 2;
   int image_types_size() const;
   private:
   int _internal_image_types_size() const;
@@ -2679,7 +2679,7 @@ class CSteamTV_GetBroadcastChannelImages_Request PROTOBUF_FINAL :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>& image_types() const;
   ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>* mutable_image_types();
 
-  // optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID"];
+  // optional fixed64 broadcast_channel_id = 1;
   bool has_broadcast_channel_id() const;
   private:
   bool _internal_has_broadcast_channel_id() const;
@@ -2831,7 +2831,7 @@ class CSteamTV_GetBroadcastChannelImages_Response_Images PROTOBUF_FINAL :
     kImageTypeFieldNumber = 1,
     kImageIndexFieldNumber = 3,
   };
-  // optional string image_path = 2 [(.description) = "Path to the uploaded image"];
+  // optional string image_path = 2;
   bool has_image_path() const;
   private:
   bool _internal_has_image_path() const;
@@ -2851,7 +2851,7 @@ class CSteamTV_GetBroadcastChannelImages_Response_Images PROTOBUF_FINAL :
   std::string* _internal_mutable_image_path();
   public:
 
-  // optional .EBroadcastImageType image_type = 1 [default = EBroadcastImageType_None, (.description) = "Type of the image"];
+  // optional .EBroadcastImageType image_type = 1 [default = EBroadcastImageType_None];
   bool has_image_type() const;
   private:
   bool _internal_has_image_type() const;
@@ -2864,7 +2864,7 @@ class CSteamTV_GetBroadcastChannelImages_Response_Images PROTOBUF_FINAL :
   void _internal_set_image_type(::EBroadcastImageType value);
   public:
 
-  // optional uint32 image_index = 3 [(.description) = "Index of the image"];
+  // optional uint32 image_index = 3;
   bool has_image_index() const;
   private:
   bool _internal_has_image_index() const;
@@ -3176,7 +3176,7 @@ class CSteamTV_SetBroadcastChannelLinkRegions_Request_Links PROTOBUF_FINAL :
     kWidthFieldNumber = 6,
     kHeightFieldNumber = 7,
   };
-  // optional string url = 2 [(.description) = "URL "];
+  // optional string url = 2;
   bool has_url() const;
   private:
   bool _internal_has_url() const;
@@ -3196,7 +3196,7 @@ class CSteamTV_SetBroadcastChannelLinkRegions_Request_Links PROTOBUF_FINAL :
   std::string* _internal_mutable_url();
   public:
 
-  // optional string lindescription = 3 [(.description) = "URL description that will show in the link region"];
+  // optional string lindescription = 3;
   bool has_lindescription() const;
   private:
   bool _internal_has_lindescription() const;
@@ -3216,7 +3216,7 @@ class CSteamTV_SetBroadcastChannelLinkRegions_Request_Links PROTOBUF_FINAL :
   std::string* _internal_mutable_lindescription();
   public:
 
-  // optional uint32 linindex = 1 [(.description) = "Index of the link (lower number has higher priority)"];
+  // optional uint32 linindex = 1;
   bool has_linindex() const;
   private:
   bool _internal_has_linindex() const;
@@ -3229,7 +3229,7 @@ class CSteamTV_SetBroadcastChannelLinkRegions_Request_Links PROTOBUF_FINAL :
   void _internal_set_linindex(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 left = 4 [(.description) = "Left X position in 100th of a % of the video width"];
+  // optional uint32 left = 4;
   bool has_left() const;
   private:
   bool _internal_has_left() const;
@@ -3242,7 +3242,7 @@ class CSteamTV_SetBroadcastChannelLinkRegions_Request_Links PROTOBUF_FINAL :
   void _internal_set_left(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 top = 5 [(.description) = "Top Y position in 100th of a % of the video height"];
+  // optional uint32 top = 5;
   bool has_top() const;
   private:
   bool _internal_has_top() const;
@@ -3255,7 +3255,7 @@ class CSteamTV_SetBroadcastChannelLinkRegions_Request_Links PROTOBUF_FINAL :
   void _internal_set_top(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 width = 6 [(.description) = "Region Width in 100th of a % of the video width"];
+  // optional uint32 width = 6;
   bool has_width() const;
   private:
   bool _internal_has_width() const;
@@ -3268,7 +3268,7 @@ class CSteamTV_SetBroadcastChannelLinkRegions_Request_Links PROTOBUF_FINAL :
   void _internal_set_width(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 height = 7 [(.description) = "Region Height in 100th of a % of the video height"];
+  // optional uint32 height = 7;
   bool has_height() const;
   private:
   bool _internal_has_height() const;
@@ -3444,7 +3444,7 @@ class CSteamTV_SetBroadcastChannelLinkRegions_Request PROTOBUF_FINAL :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CSteamTV_SetBroadcastChannelLinkRegions_Request_Links >&
       links() const;
 
-  // optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID"];
+  // optional fixed64 broadcast_channel_id = 1;
   bool has_broadcast_channel_id() const;
   private:
   bool _internal_has_broadcast_channel_id() const;
@@ -3725,7 +3725,7 @@ class CSteamTV_GetBroadcastChannelLinks_Request PROTOBUF_FINAL :
   enum : int {
     kBroadcastChannelIdFieldNumber = 1,
   };
-  // optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID"];
+  // optional fixed64 broadcast_channel_id = 1;
   bool has_broadcast_channel_id() const;
   private:
   bool _internal_has_broadcast_channel_id() const;
@@ -3880,7 +3880,7 @@ class CSteamTV_GetBroadcastChannelLinks_Response_Links PROTOBUF_FINAL :
     kWidthFieldNumber = 6,
     kHeightFieldNumber = 7,
   };
-  // optional string url = 2 [(.description) = "URL "];
+  // optional string url = 2;
   bool has_url() const;
   private:
   bool _internal_has_url() const;
@@ -3900,7 +3900,7 @@ class CSteamTV_GetBroadcastChannelLinks_Response_Links PROTOBUF_FINAL :
   std::string* _internal_mutable_url();
   public:
 
-  // optional string lindescription = 3 [(.description) = "URL description that will show in the link region"];
+  // optional string lindescription = 3;
   bool has_lindescription() const;
   private:
   bool _internal_has_lindescription() const;
@@ -3920,7 +3920,7 @@ class CSteamTV_GetBroadcastChannelLinks_Response_Links PROTOBUF_FINAL :
   std::string* _internal_mutable_lindescription();
   public:
 
-  // optional uint32 linindex = 1 [(.description) = "Index of the link (lower number has higher priority)"];
+  // optional uint32 linindex = 1;
   bool has_linindex() const;
   private:
   bool _internal_has_linindex() const;
@@ -3933,7 +3933,7 @@ class CSteamTV_GetBroadcastChannelLinks_Response_Links PROTOBUF_FINAL :
   void _internal_set_linindex(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 left = 4 [(.description) = "Left X position in 100th of a % of the video width"];
+  // optional uint32 left = 4;
   bool has_left() const;
   private:
   bool _internal_has_left() const;
@@ -3946,7 +3946,7 @@ class CSteamTV_GetBroadcastChannelLinks_Response_Links PROTOBUF_FINAL :
   void _internal_set_left(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 top = 5 [(.description) = "Top Y position in 100th of a % of the video height"];
+  // optional uint32 top = 5;
   bool has_top() const;
   private:
   bool _internal_has_top() const;
@@ -3959,7 +3959,7 @@ class CSteamTV_GetBroadcastChannelLinks_Response_Links PROTOBUF_FINAL :
   void _internal_set_top(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 width = 6 [(.description) = "Region Width in 100th of a % of the video width"];
+  // optional uint32 width = 6;
   bool has_width() const;
   private:
   bool _internal_has_width() const;
@@ -3972,7 +3972,7 @@ class CSteamTV_GetBroadcastChannelLinks_Response_Links PROTOBUF_FINAL :
   void _internal_set_width(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 height = 7 [(.description) = "Region Height in 100th of a % of the video height"];
+  // optional uint32 height = 7;
   bool has_height() const;
   private:
   bool _internal_has_height() const;
@@ -4282,7 +4282,7 @@ class CSteamTV_GetBroadcastChannelBroadcasters_Request PROTOBUF_FINAL :
   enum : int {
     kBroadcastChannelIdFieldNumber = 1,
   };
-  // optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID"];
+  // optional fixed64 broadcast_channel_id = 1;
   bool has_broadcast_channel_id() const;
   private:
   bool _internal_has_broadcast_channel_id() const;
@@ -4433,7 +4433,7 @@ class CSteamTV_GetBroadcastChannelBroadcasters_Response_Broadcaster PROTOBUF_FIN
     kRtmpTokenFieldNumber = 3,
     kSteamidFieldNumber = 1,
   };
-  // optional string name = 2 [(.description) = "Broadcaster name"];
+  // optional string name = 2;
   bool has_name() const;
   private:
   bool _internal_has_name() const;
@@ -4453,7 +4453,7 @@ class CSteamTV_GetBroadcastChannelBroadcasters_Response_Broadcaster PROTOBUF_FIN
   std::string* _internal_mutable_name();
   public:
 
-  // optional string rtmp_token = 3 [(.description) = "Broadcaster upload token"];
+  // optional string rtmp_token = 3;
   bool has_rtmp_token() const;
   private:
   bool _internal_has_rtmp_token() const;
@@ -4473,7 +4473,7 @@ class CSteamTV_GetBroadcastChannelBroadcasters_Response_Broadcaster PROTOBUF_FIN
   std::string* _internal_mutable_rtmp_token();
   public:
 
-  // optional fixed64 steamid = 1 [(.description) = "Broadcaster Steam ID"];
+  // optional fixed64 steamid = 1;
   bool has_steamid() const;
   private:
   bool _internal_has_steamid() const;
@@ -4928,7 +4928,7 @@ class GetBroadcastChannelEntry PROTOBUF_FINAL :
     kIsPartneredFieldNumber = 19,
     kReportsFieldNumber = 18,
   };
-  // optional string unique_name = 2 [(.description) = "Unique broadcast channel name for URL"];
+  // optional string unique_name = 2;
   bool has_unique_name() const;
   private:
   bool _internal_has_unique_name() const;
@@ -4948,7 +4948,7 @@ class GetBroadcastChannelEntry PROTOBUF_FINAL :
   std::string* _internal_mutable_unique_name();
   public:
 
-  // optional string name = 3 [(.description) = "Long broadcast channel name"];
+  // optional string name = 3;
   bool has_name() const;
   private:
   bool _internal_has_name() const;
@@ -4968,7 +4968,7 @@ class GetBroadcastChannelEntry PROTOBUF_FINAL :
   std::string* _internal_mutable_name();
   public:
 
-  // optional string thumbnail_url = 7 [(.description) = "Current thumbnail URL"];
+  // optional string thumbnail_url = 7;
   bool has_thumbnail_url() const;
   private:
   bool _internal_has_thumbnail_url() const;
@@ -4988,7 +4988,7 @@ class GetBroadcastChannelEntry PROTOBUF_FINAL :
   std::string* _internal_mutable_thumbnail_url();
   public:
 
-  // optional string headline = 9 [(.description) = "short channel description"];
+  // optional string headline = 9;
   bool has_headline() const;
   private:
   bool _internal_has_headline() const;
@@ -5008,7 +5008,7 @@ class GetBroadcastChannelEntry PROTOBUF_FINAL :
   std::string* _internal_mutable_headline();
   public:
 
-  // optional string avatar_url = 10 [(.description) = "community avatar url"];
+  // optional string avatar_url = 10;
   bool has_avatar_url() const;
   private:
   bool _internal_has_avatar_url() const;
@@ -5028,7 +5028,7 @@ class GetBroadcastChannelEntry PROTOBUF_FINAL :
   std::string* _internal_mutable_avatar_url();
   public:
 
-  // optional string background_url = 13 [(.description) = "Background image url"];
+  // optional string background_url = 13;
   bool has_background_url() const;
   private:
   bool _internal_has_background_url() const;
@@ -5048,7 +5048,7 @@ class GetBroadcastChannelEntry PROTOBUF_FINAL :
   std::string* _internal_mutable_background_url();
   public:
 
-  // optional string language = 17 [(.description) = "The language the stream is in"];
+  // optional string language = 17;
   bool has_language() const;
   private:
   bool _internal_has_language() const;
@@ -5068,7 +5068,7 @@ class GetBroadcastChannelEntry PROTOBUF_FINAL :
   std::string* _internal_mutable_language();
   public:
 
-  // optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID or 0"];
+  // optional fixed64 broadcast_channel_id = 1;
   bool has_broadcast_channel_id() const;
   private:
   bool _internal_has_broadcast_channel_id() const;
@@ -5081,7 +5081,7 @@ class GetBroadcastChannelEntry PROTOBUF_FINAL :
   void _internal_set_broadcast_channel_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional uint64 viewers = 5 [(.description) = "Number of viewers currently watching"];
+  // optional uint64 viewers = 5;
   bool has_viewers() const;
   private:
   bool _internal_has_viewers() const;
@@ -5094,7 +5094,7 @@ class GetBroadcastChannelEntry PROTOBUF_FINAL :
   void _internal_set_viewers(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional uint64 views = 6 [(.description) = "Number of total views of this channel"];
+  // optional uint64 views = 6;
   bool has_views() const;
   private:
   bool _internal_has_views() const;
@@ -5107,7 +5107,7 @@ class GetBroadcastChannelEntry PROTOBUF_FINAL :
   void _internal_set_views(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional uint64 followers = 8 [(.description) = "Number of followers of this channel"];
+  // optional uint64 followers = 8;
   bool has_followers() const;
   private:
   bool _internal_has_followers() const;
@@ -5120,7 +5120,7 @@ class GetBroadcastChannelEntry PROTOBUF_FINAL :
   void _internal_set_followers(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional fixed64 broadcaster_steamid = 11 [(.description) = "Current broadcaster streaming"];
+  // optional fixed64 broadcaster_steamid = 11;
   bool has_broadcaster_steamid() const;
   private:
   bool _internal_has_broadcaster_steamid() const;
@@ -5133,7 +5133,7 @@ class GetBroadcastChannelEntry PROTOBUF_FINAL :
   void _internal_set_broadcaster_steamid(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional uint64 subscribers = 12 [(.description) = "Number of subscribers of this channel"];
+  // optional uint64 subscribers = 12;
   bool has_subscribers() const;
   private:
   bool _internal_has_subscribers() const;
@@ -5146,7 +5146,7 @@ class GetBroadcastChannelEntry PROTOBUF_FINAL :
   void _internal_set_subscribers(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional uint32 appid = 4 [(.description) = "The game ID the requested broadcaster is playing"];
+  // optional uint32 appid = 4;
   bool has_appid() const;
   private:
   bool _internal_has_appid() const;
@@ -5159,7 +5159,7 @@ class GetBroadcastChannelEntry PROTOBUF_FINAL :
   void _internal_set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional bool is_featured = 14 [(.description) = "Whether the channel is featured"];
+  // optional bool is_featured = 14;
   bool has_is_featured() const;
   private:
   bool _internal_has_is_featured() const;
@@ -5172,7 +5172,7 @@ class GetBroadcastChannelEntry PROTOBUF_FINAL :
   void _internal_set_is_featured(bool value);
   public:
 
-  // optional bool is_disabled = 15 [(.description) = "Whether the channel is disabled"];
+  // optional bool is_disabled = 15;
   bool has_is_disabled() const;
   private:
   bool _internal_has_is_disabled() const;
@@ -5185,7 +5185,7 @@ class GetBroadcastChannelEntry PROTOBUF_FINAL :
   void _internal_set_is_disabled(bool value);
   public:
 
-  // optional bool is_live = 16 [(.description) = "Whether the channel is streaming"];
+  // optional bool is_live = 16;
   bool has_is_live() const;
   private:
   bool _internal_has_is_live() const;
@@ -5211,7 +5211,7 @@ class GetBroadcastChannelEntry PROTOBUF_FINAL :
   void _internal_set_is_partnered(bool value);
   public:
 
-  // optional uint32 reports = 18 [(.description) = "The number of reports the channel has"];
+  // optional uint32 reports = 18;
   bool has_reports() const;
   private:
   bool _internal_has_reports() const;
@@ -5378,7 +5378,7 @@ class CSteamTV_GetFollowedChannels_Response PROTOBUF_FINAL :
   enum : int {
     kResultsFieldNumber = 1,
   };
-  // repeated .GetBroadcastChannelEntry results = 1 [(.description) = "The list of broadcasters"];
+  // repeated .GetBroadcastChannelEntry results = 1;
   int results_size() const;
   private:
   int _internal_results_size() const;
@@ -5662,7 +5662,7 @@ class CSteamTV_GetSubscribedChannels_Response PROTOBUF_FINAL :
   enum : int {
     kResultsFieldNumber = 1,
   };
-  // repeated .GetBroadcastChannelEntry results = 1 [(.description) = "The list of broadcasters"];
+  // repeated .GetBroadcastChannelEntry results = 1;
   int results_size() const;
   private:
   int _internal_results_size() const;
@@ -5815,7 +5815,7 @@ class CSteamTV_GetBroadcastChannelStatus_Request PROTOBUF_FINAL :
   enum : int {
     kBroadcastChannelIdFieldNumber = 1,
   };
-  // optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID"];
+  // optional fixed64 broadcast_channel_id = 1;
   bool has_broadcast_channel_id() const;
   private:
   bool _internal_has_broadcast_channel_id() const;
@@ -5974,7 +5974,7 @@ class CSteamTV_GetBroadcastChannelStatus_Response PROTOBUF_FINAL :
     kSubscribersFieldNumber = 9,
     kBroadcastSessionIdFieldNumber = 11,
   };
-  // optional string thumbnail_url = 7 [(.description) = "Current thumbnail URL"];
+  // optional string thumbnail_url = 7;
   bool has_thumbnail_url() const;
   private:
   bool _internal_has_thumbnail_url() const;
@@ -6014,7 +6014,7 @@ class CSteamTV_GetBroadcastChannelStatus_Response PROTOBUF_FINAL :
   std::string* _internal_mutable_unique_name();
   public:
 
-  // optional bool is_live = 1 [(.description) = "Indicates whether the channel is streaming"];
+  // optional bool is_live = 1;
   bool has_is_live() const;
   private:
   bool _internal_has_is_live() const;
@@ -6027,7 +6027,7 @@ class CSteamTV_GetBroadcastChannelStatus_Response PROTOBUF_FINAL :
   void _internal_set_is_live(bool value);
   public:
 
-  // optional bool is_disabled = 2 [(.description) = "Indicates whether the channel has been disabled"];
+  // optional bool is_disabled = 2;
   bool has_is_disabled() const;
   private:
   bool _internal_has_is_disabled() const;
@@ -6040,7 +6040,7 @@ class CSteamTV_GetBroadcastChannelStatus_Response PROTOBUF_FINAL :
   void _internal_set_is_disabled(bool value);
   public:
 
-  // optional uint32 appid = 3 [(.description) = "The game ID the requested broadcaster is playing"];
+  // optional uint32 appid = 3;
   bool has_appid() const;
   private:
   bool _internal_has_appid() const;
@@ -6053,7 +6053,7 @@ class CSteamTV_GetBroadcastChannelStatus_Response PROTOBUF_FINAL :
   void _internal_set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint64 viewers = 4 [(.description) = "Number of viewers currently watching"];
+  // optional uint64 viewers = 4;
   bool has_viewers() const;
   private:
   bool _internal_has_viewers() const;
@@ -6066,7 +6066,7 @@ class CSteamTV_GetBroadcastChannelStatus_Response PROTOBUF_FINAL :
   void _internal_set_viewers(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional uint64 views = 5 [(.description) = "Number of total views of this channel"];
+  // optional uint64 views = 5;
   bool has_views() const;
   private:
   bool _internal_has_views() const;
@@ -6079,7 +6079,7 @@ class CSteamTV_GetBroadcastChannelStatus_Response PROTOBUF_FINAL :
   void _internal_set_views(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional fixed64 broadcaster_steamid = 6 [(.description) = "Current broadcaster streaming"];
+  // optional fixed64 broadcaster_steamid = 6;
   bool has_broadcaster_steamid() const;
   private:
   bool _internal_has_broadcaster_steamid() const;
@@ -6092,7 +6092,7 @@ class CSteamTV_GetBroadcastChannelStatus_Response PROTOBUF_FINAL :
   void _internal_set_broadcaster_steamid(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional uint64 followers = 8 [(.description) = "Number of followers of this channel"];
+  // optional uint64 followers = 8;
   bool has_followers() const;
   private:
   bool _internal_has_followers() const;
@@ -6105,7 +6105,7 @@ class CSteamTV_GetBroadcastChannelStatus_Response PROTOBUF_FINAL :
   void _internal_set_followers(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional uint64 subscribers = 9 [(.description) = "Number of subscribers of this channel"];
+  // optional uint64 subscribers = 9;
   bool has_subscribers() const;
   private:
   bool _internal_has_subscribers() const;
@@ -6278,7 +6278,7 @@ class CSteamTV_FollowBroadcastChannel_Request PROTOBUF_FINAL :
     kBroadcastChannelIdFieldNumber = 1,
     kUndoFieldNumber = 2,
   };
-  // optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID"];
+  // optional fixed64 broadcast_channel_id = 1;
   bool has_broadcast_channel_id() const;
   private:
   bool _internal_has_broadcast_channel_id() const;
@@ -6291,7 +6291,7 @@ class CSteamTV_FollowBroadcastChannel_Request PROTOBUF_FINAL :
   void _internal_set_broadcast_channel_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional bool undo = 2 [(.description) = "Indicates this is an unfollow request"];
+  // optional bool undo = 2;
   bool has_undo() const;
   private:
   bool _internal_has_undo() const;
@@ -6441,7 +6441,7 @@ class CSteamTV_FollowBroadcastChannel_Response PROTOBUF_FINAL :
   enum : int {
     kIsFollowedFieldNumber = 1,
   };
-  // optional bool is_followed = 1 [(.description) = "Whether the user is now following"];
+  // optional bool is_followed = 1;
   bool has_is_followed() const;
   private:
   bool _internal_has_is_followed() const;
@@ -6590,7 +6590,7 @@ class CSteamTV_SubscribeBroadcastChannel_Request PROTOBUF_FINAL :
   enum : int {
     kBroadcastChannelIdFieldNumber = 1,
   };
-  // optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID"];
+  // optional fixed64 broadcast_channel_id = 1;
   bool has_broadcast_channel_id() const;
   private:
   bool _internal_has_broadcast_channel_id() const;
@@ -6739,7 +6739,7 @@ class CSteamTV_SubscribeBroadcastChannel_Response PROTOBUF_FINAL :
   enum : int {
     kIsSubscribedFieldNumber = 1,
   };
-  // optional bool is_subscribed = 1 [(.description) = "Whether the user is now subscribed"];
+  // optional bool is_subscribed = 1;
   bool has_is_subscribed() const;
   private:
   bool _internal_has_is_subscribed() const;
@@ -7045,7 +7045,7 @@ class CSteamTV_BroadcastClipInfo PROTOBUF_FINAL :
     kLiveTimeFieldNumber = 7,
     kLengthMsFieldNumber = 8,
   };
-  // optional string video_description = 6 [(.description) = "Short name or description of this clip"];
+  // optional string video_description = 6;
   bool has_video_description() const;
   private:
   bool _internal_has_video_description() const;
@@ -7065,7 +7065,7 @@ class CSteamTV_BroadcastClipInfo PROTOBUF_FINAL :
   std::string* _internal_mutable_video_description();
   public:
 
-  // optional string thumbnail_path = 9 [(.description) = "relative path for thumbnail URL on host"];
+  // optional string thumbnail_path = 9;
   bool has_thumbnail_path() const;
   private:
   bool _internal_has_thumbnail_path() const;
@@ -7085,7 +7085,7 @@ class CSteamTV_BroadcastClipInfo PROTOBUF_FINAL :
   std::string* _internal_mutable_thumbnail_path();
   public:
 
-  // optional uint64 broadcast_clip_id = 1 [(.description) = "broadcast clip ID"];
+  // optional uint64 broadcast_clip_id = 1;
   bool has_broadcast_clip_id() const;
   private:
   bool _internal_has_broadcast_clip_id() const;
@@ -7098,7 +7098,7 @@ class CSteamTV_BroadcastClipInfo PROTOBUF_FINAL :
   void _internal_set_broadcast_clip_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional uint64 channel_id = 2 [(.description) = "Broadcast Channel ID"];
+  // optional uint64 channel_id = 2;
   bool has_channel_id() const;
   private:
   bool _internal_has_channel_id() const;
@@ -7111,7 +7111,7 @@ class CSteamTV_BroadcastClipInfo PROTOBUF_FINAL :
   void _internal_set_channel_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional fixed64 broadcaster_steamid = 4 [(.description) = "Broadcaster SteamID"];
+  // optional fixed64 broadcaster_steamid = 4;
   bool has_broadcaster_steamid() const;
   private:
   bool _internal_has_broadcaster_steamid() const;
@@ -7124,7 +7124,7 @@ class CSteamTV_BroadcastClipInfo PROTOBUF_FINAL :
   void _internal_set_broadcaster_steamid(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional fixed64 creator_steamid = 5 [(.description) = "Clip-maker SteamID"];
+  // optional fixed64 creator_steamid = 5;
   bool has_creator_steamid() const;
   private:
   bool _internal_has_creator_steamid() const;
@@ -7137,7 +7137,7 @@ class CSteamTV_BroadcastClipInfo PROTOBUF_FINAL :
   void _internal_set_creator_steamid(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional uint32 app_id = 3 [(.description) = "App ID stream is tagged with"];
+  // optional uint32 app_id = 3;
   bool has_app_id() const;
   private:
   bool _internal_has_app_id() const;
@@ -7150,7 +7150,7 @@ class CSteamTV_BroadcastClipInfo PROTOBUF_FINAL :
   void _internal_set_app_id(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 live_time = 7 [(.description) = "GMT time clip was broadcasted live"];
+  // optional uint32 live_time = 7;
   bool has_live_time() const;
   private:
   bool _internal_has_live_time() const;
@@ -7163,7 +7163,7 @@ class CSteamTV_BroadcastClipInfo PROTOBUF_FINAL :
   void _internal_set_live_time(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 length_ms = 8 [(.description) = "length of video in MS"];
+  // optional uint32 length_ms = 8;
   bool has_length_ms() const;
   private:
   bool _internal_has_length_ms() const;
@@ -7497,7 +7497,7 @@ class CSteamTV_ReportBroadcastChannel_Request PROTOBUF_FINAL :
     kReasonFieldNumber = 2,
     kBroadcastChannelIdFieldNumber = 1,
   };
-  // optional string reason = 2 [(.description) = "The reason for the report"];
+  // optional string reason = 2;
   bool has_reason() const;
   private:
   bool _internal_has_reason() const;
@@ -7517,7 +7517,7 @@ class CSteamTV_ReportBroadcastChannel_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_reason();
   public:
 
-  // optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID"];
+  // optional fixed64 broadcast_channel_id = 1;
   bool has_broadcast_channel_id() const;
   private:
   bool _internal_has_broadcast_channel_id() const;
@@ -7798,7 +7798,7 @@ class CSteamTV_GetBroadcastChannelInteraction_Request PROTOBUF_FINAL :
   enum : int {
     kBroadcastChannelIdFieldNumber = 1,
   };
-  // optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID"];
+  // optional fixed64 broadcast_channel_id = 1;
   bool has_broadcast_channel_id() const;
   private:
   bool _internal_has_broadcast_channel_id() const;
@@ -7948,7 +7948,7 @@ class CSteamTV_GetBroadcastChannelInteraction_Response PROTOBUF_FINAL :
     kIsFollowedFieldNumber = 1,
     kIsSubscribedFieldNumber = 2,
   };
-  // optional bool is_followed = 1 [(.description) = "Whether the user has followed this channel"];
+  // optional bool is_followed = 1;
   bool has_is_followed() const;
   private:
   bool _internal_has_is_followed() const;
@@ -7961,7 +7961,7 @@ class CSteamTV_GetBroadcastChannelInteraction_Response PROTOBUF_FINAL :
   void _internal_set_is_followed(bool value);
   public:
 
-  // optional bool is_subscribed = 2 [(.description) = "Whether the user has subscribed to this channel"];
+  // optional bool is_subscribed = 2;
   bool has_is_subscribed() const;
   private:
   bool _internal_has_is_subscribed() const;
@@ -8113,7 +8113,7 @@ class CSteamTV_GetGames_Request PROTOBUF_FINAL :
     kCountFieldNumber = 3,
     kAlgorithmFieldNumber = 2,
   };
-  // optional uint32 appid = 1 [(.description) = "The ID for the game"];
+  // optional uint32 appid = 1;
   bool has_appid() const;
   private:
   bool _internal_has_appid() const;
@@ -8126,7 +8126,7 @@ class CSteamTV_GetGames_Request PROTOBUF_FINAL :
   void _internal_set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 count = 3 [(.description) = "The maximum number of results to return"];
+  // optional uint32 count = 3;
   bool has_count() const;
   private:
   bool _internal_has_count() const;
@@ -8139,7 +8139,7 @@ class CSteamTV_GetGames_Request PROTOBUF_FINAL :
   void _internal_set_count(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional .EGetGamesAlgorithm algorithm = 2 [default = EGetGamesAlgorithm_Default, (.description) = "The algorithm to use when picking games to return"];
+  // optional .EGetGamesAlgorithm algorithm = 2 [default = EGetGamesAlgorithm_Default];
   bool has_algorithm() const;
   private:
   bool _internal_has_algorithm() const;
@@ -8297,7 +8297,7 @@ class CSteamTV_Game PROTOBUF_FINAL :
     kViewersFieldNumber = 4,
     kAppidFieldNumber = 1,
   };
-  // repeated .GetBroadcastChannelEntry channels = 5 [(.description) = "Live channels streaming this game"];
+  // repeated .GetBroadcastChannelEntry channels = 5;
   int channels_size() const;
   private:
   int _internal_channels_size() const;
@@ -8315,7 +8315,7 @@ class CSteamTV_Game PROTOBUF_FINAL :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::GetBroadcastChannelEntry >&
       channels() const;
 
-  // optional string name = 2 [(.description) = "The name for the game"];
+  // optional string name = 2;
   bool has_name() const;
   private:
   bool _internal_has_name() const;
@@ -8335,7 +8335,7 @@ class CSteamTV_Game PROTOBUF_FINAL :
   std::string* _internal_mutable_name();
   public:
 
-  // optional string image = 3 [(.description) = "The image for the game"];
+  // optional string image = 3;
   bool has_image() const;
   private:
   bool _internal_has_image() const;
@@ -8415,7 +8415,7 @@ class CSteamTV_Game PROTOBUF_FINAL :
   std::string* _internal_mutable_publisher();
   public:
 
-  // optional uint64 viewers = 4 [(.description) = "Number of people watching this game"];
+  // optional uint64 viewers = 4;
   bool has_viewers() const;
   private:
   bool _internal_has_viewers() const;
@@ -8428,7 +8428,7 @@ class CSteamTV_Game PROTOBUF_FINAL :
   void _internal_set_viewers(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional uint32 appid = 1 [(.description) = "The ID for the game"];
+  // optional uint32 appid = 1;
   bool has_appid() const;
   private:
   bool _internal_has_appid() const;
@@ -8584,7 +8584,7 @@ class CSteamTV_GetGames_Response PROTOBUF_FINAL :
   enum : int {
     kResultsFieldNumber = 1,
   };
-  // repeated .CSteamTV_Game results = 1 [(.description) = "The list of games"];
+  // repeated .CSteamTV_Game results = 1;
   int results_size() const;
   private:
   int _internal_results_size() const;
@@ -8739,7 +8739,7 @@ class CSteamTV_GetChannels_Request PROTOBUF_FINAL :
     kAppidFieldNumber = 3,
     kAlgorithmFieldNumber = 1,
   };
-  // optional uint32 count = 2 [(.description) = "The maximum number of results to return"];
+  // optional uint32 count = 2;
   bool has_count() const;
   private:
   bool _internal_has_count() const;
@@ -8752,7 +8752,7 @@ class CSteamTV_GetChannels_Request PROTOBUF_FINAL :
   void _internal_set_count(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 appid = 3 [(.description) = "Filter results to only this appid"];
+  // optional uint32 appid = 3;
   bool has_appid() const;
   private:
   bool _internal_has_appid() const;
@@ -8765,7 +8765,7 @@ class CSteamTV_GetChannels_Request PROTOBUF_FINAL :
   void _internal_set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional .EGetChannelsAlgorithm algorithm = 1 [default = EGetChannelsAlgorithm_Default, (.description) = "The algorithm to use when picking channels to return"];
+  // optional .EGetChannelsAlgorithm algorithm = 1 [default = EGetChannelsAlgorithm_Default];
   bool has_algorithm() const;
   private:
   bool _internal_has_algorithm() const;
@@ -8916,7 +8916,7 @@ class CSteamTV_GetChannels_Response PROTOBUF_FINAL :
   enum : int {
     kResultsFieldNumber = 1,
   };
-  // repeated .GetBroadcastChannelEntry results = 1 [(.description) = "The list of featured broadcasters"];
+  // repeated .GetBroadcastChannelEntry results = 1;
   int results_size() const;
   private:
   int _internal_results_size() const;
@@ -9781,7 +9781,7 @@ class CSteamTV_GetChatBans_Response PROTOBUF_FINAL :
   enum : int {
     kResultsFieldNumber = 1,
   };
-  // repeated .CSteamTV_ChatBan results = 1 [(.description) = "The list of bans"];
+  // repeated .CSteamTV_ChatBan results = 1;
   int results_size() const;
   private:
   int _internal_results_size() const;
@@ -10564,7 +10564,7 @@ class CSteamTV_GetChatModerators_Response PROTOBUF_FINAL :
   enum : int {
     kResultsFieldNumber = 1,
   };
-  // repeated .CSteamTV_ChatModerator results = 1 [(.description) = "The list of moderators"];
+  // repeated .CSteamTV_ChatModerator results = 1;
   int results_size() const;
   private:
   int _internal_results_size() const;
@@ -11183,7 +11183,7 @@ class CSteamTV_GetWordBans_Response PROTOBUF_FINAL :
   enum : int {
     kResultsFieldNumber = 1,
   };
-  // repeated string results = 1 [(.description) = "The list of banned words"];
+  // repeated string results = 1;
   int results_size() const;
   private:
   int _internal_results_size() const;
@@ -11842,7 +11842,7 @@ class CSteamTV_Search_Response PROTOBUF_FINAL :
   enum : int {
     kResultsFieldNumber = 1,
   };
-  // repeated .GetBroadcastChannelEntry results = 1 [(.description) = "The list of broadcasters"];
+  // repeated .GetBroadcastChannelEntry results = 1;
   int results_size() const;
   private:
   int _internal_results_size() const;
@@ -12127,7 +12127,7 @@ class CSteamTV_GetSteamTVUserSettings_Response PROTOBUF_FINAL :
     kStreamLiveEmailFieldNumber = 1,
     kStreamLiveNotificationFieldNumber = 2,
   };
-  // optional bool stream_live_email = 1 [(.description) = "Send email when followed stream starts"];
+  // optional bool stream_live_email = 1;
   bool has_stream_live_email() const;
   private:
   bool _internal_has_stream_live_email() const;
@@ -12140,7 +12140,7 @@ class CSteamTV_GetSteamTVUserSettings_Response PROTOBUF_FINAL :
   void _internal_set_stream_live_email(bool value);
   public:
 
-  // optional bool stream_live_notification = 2 [(.description) = "Send Steam notification when followed stream starts"];
+  // optional bool stream_live_notification = 2;
   bool has_stream_live_notification() const;
   private:
   bool _internal_has_stream_live_notification() const;
@@ -12291,7 +12291,7 @@ class CSteamTV_SetSteamTVUserSettings_Request PROTOBUF_FINAL :
     kStreamLiveEmailFieldNumber = 1,
     kStreamLiveNotificationFieldNumber = 2,
   };
-  // optional bool stream_live_email = 1 [(.description) = "Send email when followed stream starts"];
+  // optional bool stream_live_email = 1;
   bool has_stream_live_email() const;
   private:
   bool _internal_has_stream_live_email() const;
@@ -12304,7 +12304,7 @@ class CSteamTV_SetSteamTVUserSettings_Request PROTOBUF_FINAL :
   void _internal_set_stream_live_email(bool value);
   public:
 
-  // optional bool stream_live_notification = 2 [(.description) = "Send Steam notification when followed stream starts"];
+  // optional bool stream_live_notification = 2;
   bool has_stream_live_notification() const;
   private:
   bool _internal_has_stream_live_notification() const;
@@ -12716,7 +12716,7 @@ class CSteamTV_GetMyBroadcastChannels_Response PROTOBUF_FINAL :
   enum : int {
     kResultsFieldNumber = 1,
   };
-  // repeated .GetBroadcastChannelEntry results = 1 [(.description) = "The list of broadcasters"];
+  // repeated .GetBroadcastChannelEntry results = 1;
   int results_size() const;
   private:
   int _internal_results_size() const;
@@ -15049,7 +15049,7 @@ class CSteamTV_AppCheer_SingleCheerType PROTOBUF_FINAL :
     kCheerTypeFieldNumber = 1,
     kCheerAmountFieldNumber = 2,
   };
-  // optional uint32 cheer_type = 1 [(.description) = "The type of cheer. App dependent (different teams, heroes, players, etc)"];
+  // optional uint32 cheer_type = 1;
   bool has_cheer_type() const;
   private:
   bool _internal_has_cheer_type() const;
@@ -15062,7 +15062,7 @@ class CSteamTV_AppCheer_SingleCheerType PROTOBUF_FINAL :
   void _internal_set_cheer_type(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 cheer_amount = 2 [(.description) = "The amount of cheers."];
+  // optional uint32 cheer_amount = 2;
   bool has_cheer_amount() const;
   private:
   bool _internal_has_cheer_amount() const;
@@ -15214,7 +15214,7 @@ class CSteamTV_AppCheer_Request PROTOBUF_FINAL :
     kCheerTargetIdFieldNumber = 2,
     kAppIdFieldNumber = 1,
   };
-  // repeated .CSteamTV_AppCheer_SingleCheerType cheers = 3 [(.description) = "The set of cheers this request represents (could be multiple of different types)."];
+  // repeated .CSteamTV_AppCheer_SingleCheerType cheers = 3;
   int cheers_size() const;
   private:
   int _internal_cheers_size() const;
@@ -15232,7 +15232,7 @@ class CSteamTV_AppCheer_Request PROTOBUF_FINAL :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CSteamTV_AppCheer_SingleCheerType >&
       cheers() const;
 
-  // optional fixed64 cheer_target_id = 2 [(.description) = "The thing being cheered on. ID is app dependent (could be steam id, match id, lobby id, server id, etc)."];
+  // optional fixed64 cheer_target_id = 2;
   bool has_cheer_target_id() const;
   private:
   bool _internal_has_cheer_target_id() const;
@@ -15245,7 +15245,7 @@ class CSteamTV_AppCheer_Request PROTOBUF_FINAL :
   void _internal_set_cheer_target_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional uint32 app_id = 1 [(.description) = "App ID this cheer is for."];
+  // optional uint32 app_id = 1;
   bool has_app_id() const;
   private:
   bool _internal_has_app_id() const;
@@ -15396,7 +15396,7 @@ class CSteamTV_AppCheer_Response PROTOBUF_FINAL :
   enum : int {
     kAggregationDelayMsFieldNumber = 1,
   };
-  // optional uint32 aggregation_delay_ms = 1 [(.description) = "The amount of time in milliseconds that the client should aggregate cheers before sending them. The server can control this dynamically to ask clients to slow down sending."];
+  // optional uint32 aggregation_delay_ms = 1;
   bool has_aggregation_delay_ms() const;
   private:
   bool _internal_has_aggregation_delay_ms() const;
@@ -15739,7 +15739,7 @@ class SteamTV_Stub : public SteamTV {
 #endif  // __GNUC__
 // CSteamTV_CreateBroadcastChannel_Request
 
-// optional string unique_name = 1 [(.description) = "Unique short broadcast channel name, part of Steam.TV URL"];
+// optional string unique_name = 1;
 inline bool CSteamTV_CreateBroadcastChannel_Request::_internal_has_unique_name() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -15816,7 +15816,7 @@ inline void CSteamTV_CreateBroadcastChannel_Request::set_allocated_unique_name(s
 
 // CSteamTV_CreateBroadcastChannel_Response
 
-// optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID or 0"];
+// optional fixed64 broadcast_channel_id = 1;
 inline bool CSteamTV_CreateBroadcastChannel_Response::_internal_has_broadcast_channel_id() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -15848,7 +15848,7 @@ inline void CSteamTV_CreateBroadcastChannel_Response::set_broadcast_channel_id(:
 
 // CSteamTV_GetBroadcastChannelID_Request
 
-// optional string unique_name = 1 [(.description) = "Channel short name)"];
+// optional string unique_name = 1;
 inline bool CSteamTV_GetBroadcastChannelID_Request::_internal_has_unique_name() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -15925,7 +15925,7 @@ inline void CSteamTV_GetBroadcastChannelID_Request::set_allocated_unique_name(st
 
 // CSteamTV_GetBroadcastChannelID_Response
 
-// optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID or 0"];
+// optional fixed64 broadcast_channel_id = 1;
 inline bool CSteamTV_GetBroadcastChannelID_Response::_internal_has_broadcast_channel_id() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -15953,7 +15953,7 @@ inline void CSteamTV_GetBroadcastChannelID_Response::set_broadcast_channel_id(::
   // @@protoc_insertion_point(field_set:CSteamTV_GetBroadcastChannelID_Response.broadcast_channel_id)
 }
 
-// optional string unique_name = 2 [(.description) = "Broadcast channel name"];
+// optional string unique_name = 2;
 inline bool CSteamTV_GetBroadcastChannelID_Response::_internal_has_unique_name() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -16026,7 +16026,7 @@ inline void CSteamTV_GetBroadcastChannelID_Response::set_allocated_unique_name(s
   // @@protoc_insertion_point(field_set_allocated:CSteamTV_GetBroadcastChannelID_Response.unique_name)
 }
 
-// optional fixed64 steamid = 3 [(.description) = "Broadcast channel owner"];
+// optional fixed64 steamid = 3;
 inline bool CSteamTV_GetBroadcastChannelID_Response::_internal_has_steamid() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -16058,7 +16058,7 @@ inline void CSteamTV_GetBroadcastChannelID_Response::set_steamid(::PROTOBUF_NAME
 
 // CSteamTV_SetBroadcastChannelProfile_Request
 
-// optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID"];
+// optional fixed64 broadcast_channel_id = 1;
 inline bool CSteamTV_SetBroadcastChannelProfile_Request::_internal_has_broadcast_channel_id() const {
   bool value = (_has_bits_[0] & 0x00000100u) != 0;
   return value;
@@ -16086,7 +16086,7 @@ inline void CSteamTV_SetBroadcastChannelProfile_Request::set_broadcast_channel_i
   // @@protoc_insertion_point(field_set:CSteamTV_SetBroadcastChannelProfile_Request.broadcast_channel_id)
 }
 
-// optional string name = 2 [(.description) = "long channel name"];
+// optional string name = 2;
 inline bool CSteamTV_SetBroadcastChannelProfile_Request::_internal_has_name() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -16159,7 +16159,7 @@ inline void CSteamTV_SetBroadcastChannelProfile_Request::set_allocated_name(std:
   // @@protoc_insertion_point(field_set_allocated:CSteamTV_SetBroadcastChannelProfile_Request.name)
 }
 
-// optional string language = 3 [(.description) = "primary channel language (Steam shortname)"];
+// optional string language = 3;
 inline bool CSteamTV_SetBroadcastChannelProfile_Request::_internal_has_language() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -16232,7 +16232,7 @@ inline void CSteamTV_SetBroadcastChannelProfile_Request::set_allocated_language(
   // @@protoc_insertion_point(field_set_allocated:CSteamTV_SetBroadcastChannelProfile_Request.language)
 }
 
-// optional string headline = 4 [(.description) = "short channel desciption"];
+// optional string headline = 4;
 inline bool CSteamTV_SetBroadcastChannelProfile_Request::_internal_has_headline() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -16305,7 +16305,7 @@ inline void CSteamTV_SetBroadcastChannelProfile_Request::set_allocated_headline(
   // @@protoc_insertion_point(field_set_allocated:CSteamTV_SetBroadcastChannelProfile_Request.headline)
 }
 
-// optional string summary = 5 [(.description) = "long channel desciption"];
+// optional string summary = 5;
 inline bool CSteamTV_SetBroadcastChannelProfile_Request::_internal_has_summary() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -16378,7 +16378,7 @@ inline void CSteamTV_SetBroadcastChannelProfile_Request::set_allocated_summary(s
   // @@protoc_insertion_point(field_set_allocated:CSteamTV_SetBroadcastChannelProfile_Request.summary)
 }
 
-// optional string avatar_hash = 6 [(.description) = "community avatar hash"];
+// optional string avatar_hash = 6;
 inline bool CSteamTV_SetBroadcastChannelProfile_Request::_internal_has_avatar_hash() const {
   bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
@@ -16451,7 +16451,7 @@ inline void CSteamTV_SetBroadcastChannelProfile_Request::set_allocated_avatar_ha
   // @@protoc_insertion_point(field_set_allocated:CSteamTV_SetBroadcastChannelProfile_Request.avatar_hash)
 }
 
-// optional string schedule = 7 [(.description) = "broadcast channel schedule"];
+// optional string schedule = 7;
 inline bool CSteamTV_SetBroadcastChannelProfile_Request::_internal_has_schedule() const {
   bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
@@ -16524,7 +16524,7 @@ inline void CSteamTV_SetBroadcastChannelProfile_Request::set_allocated_schedule(
   // @@protoc_insertion_point(field_set_allocated:CSteamTV_SetBroadcastChannelProfile_Request.schedule)
 }
 
-// optional string rules = 8 [(.description) = "broadcast channel rules"];
+// optional string rules = 8;
 inline bool CSteamTV_SetBroadcastChannelProfile_Request::_internal_has_rules() const {
   bool value = (_has_bits_[0] & 0x00000040u) != 0;
   return value;
@@ -16597,7 +16597,7 @@ inline void CSteamTV_SetBroadcastChannelProfile_Request::set_allocated_rules(std
   // @@protoc_insertion_point(field_set_allocated:CSteamTV_SetBroadcastChannelProfile_Request.rules)
 }
 
-// optional string panels = 9 [(.description) = "JSON data representing the channel panel layout"];
+// optional string panels = 9;
 inline bool CSteamTV_SetBroadcastChannelProfile_Request::_internal_has_panels() const {
   bool value = (_has_bits_[0] & 0x00000080u) != 0;
   return value;
@@ -16678,7 +16678,7 @@ inline void CSteamTV_SetBroadcastChannelProfile_Request::set_allocated_panels(st
 
 // CSteamTV_GetBroadcastChannelProfile_Request
 
-// optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID"];
+// optional fixed64 broadcast_channel_id = 1;
 inline bool CSteamTV_GetBroadcastChannelProfile_Request::_internal_has_broadcast_channel_id() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -16710,7 +16710,7 @@ inline void CSteamTV_GetBroadcastChannelProfile_Request::set_broadcast_channel_i
 
 // CSteamTV_GetBroadcastChannelProfile_Response
 
-// optional string unique_name = 1 [(.description) = "Unique short broadcast channel name, part of Steam.TV URL"];
+// optional string unique_name = 1;
 inline bool CSteamTV_GetBroadcastChannelProfile_Response::_internal_has_unique_name() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -16783,7 +16783,7 @@ inline void CSteamTV_GetBroadcastChannelProfile_Response::set_allocated_unique_n
   // @@protoc_insertion_point(field_set_allocated:CSteamTV_GetBroadcastChannelProfile_Response.unique_name)
 }
 
-// optional fixed64 owner_steamid = 2 [(.description) = "Broadcast channel owner"];
+// optional fixed64 owner_steamid = 2;
 inline bool CSteamTV_GetBroadcastChannelProfile_Response::_internal_has_owner_steamid() const {
   bool value = (_has_bits_[0] & 0x00000100u) != 0;
   return value;
@@ -16811,7 +16811,7 @@ inline void CSteamTV_GetBroadcastChannelProfile_Response::set_owner_steamid(::PR
   // @@protoc_insertion_point(field_set:CSteamTV_GetBroadcastChannelProfile_Response.owner_steamid)
 }
 
-// optional string name = 3 [(.description) = "long channel name"];
+// optional string name = 3;
 inline bool CSteamTV_GetBroadcastChannelProfile_Response::_internal_has_name() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -16884,7 +16884,7 @@ inline void CSteamTV_GetBroadcastChannelProfile_Response::set_allocated_name(std
   // @@protoc_insertion_point(field_set_allocated:CSteamTV_GetBroadcastChannelProfile_Response.name)
 }
 
-// optional string language = 4 [(.description) = "primary channel language (Steam shortname)"];
+// optional string language = 4;
 inline bool CSteamTV_GetBroadcastChannelProfile_Response::_internal_has_language() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -16957,7 +16957,7 @@ inline void CSteamTV_GetBroadcastChannelProfile_Response::set_allocated_language
   // @@protoc_insertion_point(field_set_allocated:CSteamTV_GetBroadcastChannelProfile_Response.language)
 }
 
-// optional string headline = 5 [(.description) = "short channel description"];
+// optional string headline = 5;
 inline bool CSteamTV_GetBroadcastChannelProfile_Response::_internal_has_headline() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -17030,7 +17030,7 @@ inline void CSteamTV_GetBroadcastChannelProfile_Response::set_allocated_headline
   // @@protoc_insertion_point(field_set_allocated:CSteamTV_GetBroadcastChannelProfile_Response.headline)
 }
 
-// optional string summary = 6 [(.description) = "long channel description"];
+// optional string summary = 6;
 inline bool CSteamTV_GetBroadcastChannelProfile_Response::_internal_has_summary() const {
   bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
@@ -17103,7 +17103,7 @@ inline void CSteamTV_GetBroadcastChannelProfile_Response::set_allocated_summary(
   // @@protoc_insertion_point(field_set_allocated:CSteamTV_GetBroadcastChannelProfile_Response.summary)
 }
 
-// optional string schedule = 7 [(.description) = "broadcast channel schedule"];
+// optional string schedule = 7;
 inline bool CSteamTV_GetBroadcastChannelProfile_Response::_internal_has_schedule() const {
   bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
@@ -17176,7 +17176,7 @@ inline void CSteamTV_GetBroadcastChannelProfile_Response::set_allocated_schedule
   // @@protoc_insertion_point(field_set_allocated:CSteamTV_GetBroadcastChannelProfile_Response.schedule)
 }
 
-// optional string rules = 8 [(.description) = "broadcast channel rules"];
+// optional string rules = 8;
 inline bool CSteamTV_GetBroadcastChannelProfile_Response::_internal_has_rules() const {
   bool value = (_has_bits_[0] & 0x00000040u) != 0;
   return value;
@@ -17249,7 +17249,7 @@ inline void CSteamTV_GetBroadcastChannelProfile_Response::set_allocated_rules(st
   // @@protoc_insertion_point(field_set_allocated:CSteamTV_GetBroadcastChannelProfile_Response.rules)
 }
 
-// optional string panels = 9 [(.description) = "JSON data representing the channel panel layout"];
+// optional string panels = 9;
 inline bool CSteamTV_GetBroadcastChannelProfile_Response::_internal_has_panels() const {
   bool value = (_has_bits_[0] & 0x00000080u) != 0;
   return value;
@@ -17354,7 +17354,7 @@ inline void CSteamTV_GetBroadcastChannelProfile_Response::set_is_partnered(bool 
 
 // CSteamTV_SetBroadcastChannelImage_Request
 
-// optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID"];
+// optional fixed64 broadcast_channel_id = 1;
 inline bool CSteamTV_SetBroadcastChannelImage_Request::_internal_has_broadcast_channel_id() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -17382,7 +17382,7 @@ inline void CSteamTV_SetBroadcastChannelImage_Request::set_broadcast_channel_id(
   // @@protoc_insertion_point(field_set:CSteamTV_SetBroadcastChannelImage_Request.broadcast_channel_id)
 }
 
-// optional .EBroadcastImageType image_type = 2 [default = EBroadcastImageType_None, (.description) = "EBroadcastImage"];
+// optional .EBroadcastImageType image_type = 2 [default = EBroadcastImageType_None];
 inline bool CSteamTV_SetBroadcastChannelImage_Request::_internal_has_image_type() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -17411,7 +17411,7 @@ inline void CSteamTV_SetBroadcastChannelImage_Request::set_image_type(::EBroadca
   // @@protoc_insertion_point(field_set:CSteamTV_SetBroadcastChannelImage_Request.image_type)
 }
 
-// optional uint32 image_index = 3 [(.description) = "Index of the image (for supporting multiple uploads of the same type"];
+// optional uint32 image_index = 3;
 inline bool CSteamTV_SetBroadcastChannelImage_Request::_internal_has_image_index() const {
   bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
@@ -17439,7 +17439,7 @@ inline void CSteamTV_SetBroadcastChannelImage_Request::set_image_index(::PROTOBU
   // @@protoc_insertion_point(field_set:CSteamTV_SetBroadcastChannelImage_Request.image_index)
 }
 
-// optional uint32 image_width = 4 [(.description) = "width in pixels"];
+// optional uint32 image_width = 4;
 inline bool CSteamTV_SetBroadcastChannelImage_Request::_internal_has_image_width() const {
   bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
@@ -17467,7 +17467,7 @@ inline void CSteamTV_SetBroadcastChannelImage_Request::set_image_width(::PROTOBU
   // @@protoc_insertion_point(field_set:CSteamTV_SetBroadcastChannelImage_Request.image_width)
 }
 
-// optional uint32 image_height = 5 [(.description) = "height in pixels"];
+// optional uint32 image_height = 5;
 inline bool CSteamTV_SetBroadcastChannelImage_Request::_internal_has_image_height() const {
   bool value = (_has_bits_[0] & 0x00000040u) != 0;
   return value;
@@ -17495,7 +17495,7 @@ inline void CSteamTV_SetBroadcastChannelImage_Request::set_image_height(::PROTOB
   // @@protoc_insertion_point(field_set:CSteamTV_SetBroadcastChannelImage_Request.image_height)
 }
 
-// optional uint32 file_size = 6 [(.description) = "in bytes"];
+// optional uint32 file_size = 6;
 inline bool CSteamTV_SetBroadcastChannelImage_Request::_internal_has_file_size() const {
   bool value = (_has_bits_[0] & 0x00000080u) != 0;
   return value;
@@ -17523,7 +17523,7 @@ inline void CSteamTV_SetBroadcastChannelImage_Request::set_file_size(::PROTOBUF_
   // @@protoc_insertion_point(field_set:CSteamTV_SetBroadcastChannelImage_Request.file_size)
 }
 
-// optional string file_extension = 7 [(.description) = "eg .jpg"];
+// optional string file_extension = 7;
 inline bool CSteamTV_SetBroadcastChannelImage_Request::_internal_has_file_extension() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -17596,7 +17596,7 @@ inline void CSteamTV_SetBroadcastChannelImage_Request::set_allocated_file_extens
   // @@protoc_insertion_point(field_set_allocated:CSteamTV_SetBroadcastChannelImage_Request.file_extension)
 }
 
-// optional string file_hash = 8 [(.description) = "image SHA"];
+// optional string file_hash = 8;
 inline bool CSteamTV_SetBroadcastChannelImage_Request::_internal_has_file_hash() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -17669,7 +17669,7 @@ inline void CSteamTV_SetBroadcastChannelImage_Request::set_allocated_file_hash(s
   // @@protoc_insertion_point(field_set_allocated:CSteamTV_SetBroadcastChannelImage_Request.file_hash)
 }
 
-// optional bool undo = 9 [(.description) = "indicates this is a delete request"];
+// optional bool undo = 9;
 inline bool CSteamTV_SetBroadcastChannelImage_Request::_internal_has_undo() const {
   bool value = (_has_bits_[0] & 0x00000100u) != 0;
   return value;
@@ -17701,7 +17701,7 @@ inline void CSteamTV_SetBroadcastChannelImage_Request::set_undo(bool value) {
 
 // CSteamTV_SetBroadcastChannelImage_Response
 
-// optional string replace_image_hash = 1 [(.description) = "set if caller should remove previous SHA file from cache"];
+// optional string replace_image_hash = 1;
 inline bool CSteamTV_SetBroadcastChannelImage_Response::_internal_has_replace_image_hash() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -17778,7 +17778,7 @@ inline void CSteamTV_SetBroadcastChannelImage_Response::set_allocated_replace_im
 
 // CSteamTV_GetBroadcastChannelImages_Request
 
-// optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID"];
+// optional fixed64 broadcast_channel_id = 1;
 inline bool CSteamTV_GetBroadcastChannelImages_Request::_internal_has_broadcast_channel_id() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -17806,7 +17806,7 @@ inline void CSteamTV_GetBroadcastChannelImages_Request::set_broadcast_channel_id
   // @@protoc_insertion_point(field_set:CSteamTV_GetBroadcastChannelImages_Request.broadcast_channel_id)
 }
 
-// repeated .EBroadcastImageType image_types = 2 [(.description) = "list of EBroadcastImage"];
+// repeated .EBroadcastImageType image_types = 2;
 inline int CSteamTV_GetBroadcastChannelImages_Request::_internal_image_types_size() const {
   return image_types_.size();
 }
@@ -17855,7 +17855,7 @@ CSteamTV_GetBroadcastChannelImages_Request::mutable_image_types() {
 
 // CSteamTV_GetBroadcastChannelImages_Response_Images
 
-// optional .EBroadcastImageType image_type = 1 [default = EBroadcastImageType_None, (.description) = "Type of the image"];
+// optional .EBroadcastImageType image_type = 1 [default = EBroadcastImageType_None];
 inline bool CSteamTV_GetBroadcastChannelImages_Response_Images::_internal_has_image_type() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -17884,7 +17884,7 @@ inline void CSteamTV_GetBroadcastChannelImages_Response_Images::set_image_type(:
   // @@protoc_insertion_point(field_set:CSteamTV_GetBroadcastChannelImages_Response.Images.image_type)
 }
 
-// optional string image_path = 2 [(.description) = "Path to the uploaded image"];
+// optional string image_path = 2;
 inline bool CSteamTV_GetBroadcastChannelImages_Response_Images::_internal_has_image_path() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -17957,7 +17957,7 @@ inline void CSteamTV_GetBroadcastChannelImages_Response_Images::set_allocated_im
   // @@protoc_insertion_point(field_set_allocated:CSteamTV_GetBroadcastChannelImages_Response.Images.image_path)
 }
 
-// optional uint32 image_index = 3 [(.description) = "Index of the image"];
+// optional uint32 image_index = 3;
 inline bool CSteamTV_GetBroadcastChannelImages_Response_Images::_internal_has_image_index() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -18032,7 +18032,7 @@ CSteamTV_GetBroadcastChannelImages_Response::images() const {
 
 // CSteamTV_SetBroadcastChannelLinkRegions_Request_Links
 
-// optional uint32 linindex = 1 [(.description) = "Index of the link (lower number has higher priority)"];
+// optional uint32 linindex = 1;
 inline bool CSteamTV_SetBroadcastChannelLinkRegions_Request_Links::_internal_has_linindex() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -18060,7 +18060,7 @@ inline void CSteamTV_SetBroadcastChannelLinkRegions_Request_Links::set_linindex(
   // @@protoc_insertion_point(field_set:CSteamTV_SetBroadcastChannelLinkRegions_Request.Links.linindex)
 }
 
-// optional string url = 2 [(.description) = "URL "];
+// optional string url = 2;
 inline bool CSteamTV_SetBroadcastChannelLinkRegions_Request_Links::_internal_has_url() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -18133,7 +18133,7 @@ inline void CSteamTV_SetBroadcastChannelLinkRegions_Request_Links::set_allocated
   // @@protoc_insertion_point(field_set_allocated:CSteamTV_SetBroadcastChannelLinkRegions_Request.Links.url)
 }
 
-// optional string lindescription = 3 [(.description) = "URL description that will show in the link region"];
+// optional string lindescription = 3;
 inline bool CSteamTV_SetBroadcastChannelLinkRegions_Request_Links::_internal_has_lindescription() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -18206,7 +18206,7 @@ inline void CSteamTV_SetBroadcastChannelLinkRegions_Request_Links::set_allocated
   // @@protoc_insertion_point(field_set_allocated:CSteamTV_SetBroadcastChannelLinkRegions_Request.Links.lindescription)
 }
 
-// optional uint32 left = 4 [(.description) = "Left X position in 100th of a % of the video width"];
+// optional uint32 left = 4;
 inline bool CSteamTV_SetBroadcastChannelLinkRegions_Request_Links::_internal_has_left() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -18234,7 +18234,7 @@ inline void CSteamTV_SetBroadcastChannelLinkRegions_Request_Links::set_left(::PR
   // @@protoc_insertion_point(field_set:CSteamTV_SetBroadcastChannelLinkRegions_Request.Links.left)
 }
 
-// optional uint32 top = 5 [(.description) = "Top Y position in 100th of a % of the video height"];
+// optional uint32 top = 5;
 inline bool CSteamTV_SetBroadcastChannelLinkRegions_Request_Links::_internal_has_top() const {
   bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
@@ -18262,7 +18262,7 @@ inline void CSteamTV_SetBroadcastChannelLinkRegions_Request_Links::set_top(::PRO
   // @@protoc_insertion_point(field_set:CSteamTV_SetBroadcastChannelLinkRegions_Request.Links.top)
 }
 
-// optional uint32 width = 6 [(.description) = "Region Width in 100th of a % of the video width"];
+// optional uint32 width = 6;
 inline bool CSteamTV_SetBroadcastChannelLinkRegions_Request_Links::_internal_has_width() const {
   bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
@@ -18290,7 +18290,7 @@ inline void CSteamTV_SetBroadcastChannelLinkRegions_Request_Links::set_width(::P
   // @@protoc_insertion_point(field_set:CSteamTV_SetBroadcastChannelLinkRegions_Request.Links.width)
 }
 
-// optional uint32 height = 7 [(.description) = "Region Height in 100th of a % of the video height"];
+// optional uint32 height = 7;
 inline bool CSteamTV_SetBroadcastChannelLinkRegions_Request_Links::_internal_has_height() const {
   bool value = (_has_bits_[0] & 0x00000040u) != 0;
   return value;
@@ -18322,7 +18322,7 @@ inline void CSteamTV_SetBroadcastChannelLinkRegions_Request_Links::set_height(::
 
 // CSteamTV_SetBroadcastChannelLinkRegions_Request
 
-// optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID"];
+// optional fixed64 broadcast_channel_id = 1;
 inline bool CSteamTV_SetBroadcastChannelLinkRegions_Request::_internal_has_broadcast_channel_id() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -18397,7 +18397,7 @@ CSteamTV_SetBroadcastChannelLinkRegions_Request::links() const {
 
 // CSteamTV_GetBroadcastChannelLinks_Request
 
-// optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID"];
+// optional fixed64 broadcast_channel_id = 1;
 inline bool CSteamTV_GetBroadcastChannelLinks_Request::_internal_has_broadcast_channel_id() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -18429,7 +18429,7 @@ inline void CSteamTV_GetBroadcastChannelLinks_Request::set_broadcast_channel_id(
 
 // CSteamTV_GetBroadcastChannelLinks_Response_Links
 
-// optional uint32 linindex = 1 [(.description) = "Index of the link (lower number has higher priority)"];
+// optional uint32 linindex = 1;
 inline bool CSteamTV_GetBroadcastChannelLinks_Response_Links::_internal_has_linindex() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -18457,7 +18457,7 @@ inline void CSteamTV_GetBroadcastChannelLinks_Response_Links::set_linindex(::PRO
   // @@protoc_insertion_point(field_set:CSteamTV_GetBroadcastChannelLinks_Response.Links.linindex)
 }
 
-// optional string url = 2 [(.description) = "URL "];
+// optional string url = 2;
 inline bool CSteamTV_GetBroadcastChannelLinks_Response_Links::_internal_has_url() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -18530,7 +18530,7 @@ inline void CSteamTV_GetBroadcastChannelLinks_Response_Links::set_allocated_url(
   // @@protoc_insertion_point(field_set_allocated:CSteamTV_GetBroadcastChannelLinks_Response.Links.url)
 }
 
-// optional string lindescription = 3 [(.description) = "URL description that will show in the link region"];
+// optional string lindescription = 3;
 inline bool CSteamTV_GetBroadcastChannelLinks_Response_Links::_internal_has_lindescription() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -18603,7 +18603,7 @@ inline void CSteamTV_GetBroadcastChannelLinks_Response_Links::set_allocated_lind
   // @@protoc_insertion_point(field_set_allocated:CSteamTV_GetBroadcastChannelLinks_Response.Links.lindescription)
 }
 
-// optional uint32 left = 4 [(.description) = "Left X position in 100th of a % of the video width"];
+// optional uint32 left = 4;
 inline bool CSteamTV_GetBroadcastChannelLinks_Response_Links::_internal_has_left() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -18631,7 +18631,7 @@ inline void CSteamTV_GetBroadcastChannelLinks_Response_Links::set_left(::PROTOBU
   // @@protoc_insertion_point(field_set:CSteamTV_GetBroadcastChannelLinks_Response.Links.left)
 }
 
-// optional uint32 top = 5 [(.description) = "Top Y position in 100th of a % of the video height"];
+// optional uint32 top = 5;
 inline bool CSteamTV_GetBroadcastChannelLinks_Response_Links::_internal_has_top() const {
   bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
@@ -18659,7 +18659,7 @@ inline void CSteamTV_GetBroadcastChannelLinks_Response_Links::set_top(::PROTOBUF
   // @@protoc_insertion_point(field_set:CSteamTV_GetBroadcastChannelLinks_Response.Links.top)
 }
 
-// optional uint32 width = 6 [(.description) = "Region Width in 100th of a % of the video width"];
+// optional uint32 width = 6;
 inline bool CSteamTV_GetBroadcastChannelLinks_Response_Links::_internal_has_width() const {
   bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
@@ -18687,7 +18687,7 @@ inline void CSteamTV_GetBroadcastChannelLinks_Response_Links::set_width(::PROTOB
   // @@protoc_insertion_point(field_set:CSteamTV_GetBroadcastChannelLinks_Response.Links.width)
 }
 
-// optional uint32 height = 7 [(.description) = "Region Height in 100th of a % of the video height"];
+// optional uint32 height = 7;
 inline bool CSteamTV_GetBroadcastChannelLinks_Response_Links::_internal_has_height() const {
   bool value = (_has_bits_[0] & 0x00000040u) != 0;
   return value;
@@ -18762,7 +18762,7 @@ CSteamTV_GetBroadcastChannelLinks_Response::links() const {
 
 // CSteamTV_GetBroadcastChannelBroadcasters_Request
 
-// optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID"];
+// optional fixed64 broadcast_channel_id = 1;
 inline bool CSteamTV_GetBroadcastChannelBroadcasters_Request::_internal_has_broadcast_channel_id() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -18794,7 +18794,7 @@ inline void CSteamTV_GetBroadcastChannelBroadcasters_Request::set_broadcast_chan
 
 // CSteamTV_GetBroadcastChannelBroadcasters_Response_Broadcaster
 
-// optional fixed64 steamid = 1 [(.description) = "Broadcaster Steam ID"];
+// optional fixed64 steamid = 1;
 inline bool CSteamTV_GetBroadcastChannelBroadcasters_Response_Broadcaster::_internal_has_steamid() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -18822,7 +18822,7 @@ inline void CSteamTV_GetBroadcastChannelBroadcasters_Response_Broadcaster::set_s
   // @@protoc_insertion_point(field_set:CSteamTV_GetBroadcastChannelBroadcasters_Response.Broadcaster.steamid)
 }
 
-// optional string name = 2 [(.description) = "Broadcaster name"];
+// optional string name = 2;
 inline bool CSteamTV_GetBroadcastChannelBroadcasters_Response_Broadcaster::_internal_has_name() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -18895,7 +18895,7 @@ inline void CSteamTV_GetBroadcastChannelBroadcasters_Response_Broadcaster::set_a
   // @@protoc_insertion_point(field_set_allocated:CSteamTV_GetBroadcastChannelBroadcasters_Response.Broadcaster.name)
 }
 
-// optional string rtmp_token = 3 [(.description) = "Broadcaster upload token"];
+// optional string rtmp_token = 3;
 inline bool CSteamTV_GetBroadcastChannelBroadcasters_Response_Broadcaster::_internal_has_rtmp_token() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -19019,7 +19019,7 @@ CSteamTV_GetBroadcastChannelBroadcasters_Response::broadcasters() const {
 
 // GetBroadcastChannelEntry
 
-// optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID or 0"];
+// optional fixed64 broadcast_channel_id = 1;
 inline bool GetBroadcastChannelEntry::_internal_has_broadcast_channel_id() const {
   bool value = (_has_bits_[0] & 0x00000080u) != 0;
   return value;
@@ -19047,7 +19047,7 @@ inline void GetBroadcastChannelEntry::set_broadcast_channel_id(::PROTOBUF_NAMESP
   // @@protoc_insertion_point(field_set:GetBroadcastChannelEntry.broadcast_channel_id)
 }
 
-// optional string unique_name = 2 [(.description) = "Unique broadcast channel name for URL"];
+// optional string unique_name = 2;
 inline bool GetBroadcastChannelEntry::_internal_has_unique_name() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -19120,7 +19120,7 @@ inline void GetBroadcastChannelEntry::set_allocated_unique_name(std::string* uni
   // @@protoc_insertion_point(field_set_allocated:GetBroadcastChannelEntry.unique_name)
 }
 
-// optional string name = 3 [(.description) = "Long broadcast channel name"];
+// optional string name = 3;
 inline bool GetBroadcastChannelEntry::_internal_has_name() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -19193,7 +19193,7 @@ inline void GetBroadcastChannelEntry::set_allocated_name(std::string* name) {
   // @@protoc_insertion_point(field_set_allocated:GetBroadcastChannelEntry.name)
 }
 
-// optional uint32 appid = 4 [(.description) = "The game ID the requested broadcaster is playing"];
+// optional uint32 appid = 4;
 inline bool GetBroadcastChannelEntry::_internal_has_appid() const {
   bool value = (_has_bits_[0] & 0x00002000u) != 0;
   return value;
@@ -19221,7 +19221,7 @@ inline void GetBroadcastChannelEntry::set_appid(::PROTOBUF_NAMESPACE_ID::uint32 
   // @@protoc_insertion_point(field_set:GetBroadcastChannelEntry.appid)
 }
 
-// optional uint64 viewers = 5 [(.description) = "Number of viewers currently watching"];
+// optional uint64 viewers = 5;
 inline bool GetBroadcastChannelEntry::_internal_has_viewers() const {
   bool value = (_has_bits_[0] & 0x00000100u) != 0;
   return value;
@@ -19249,7 +19249,7 @@ inline void GetBroadcastChannelEntry::set_viewers(::PROTOBUF_NAMESPACE_ID::uint6
   // @@protoc_insertion_point(field_set:GetBroadcastChannelEntry.viewers)
 }
 
-// optional uint64 views = 6 [(.description) = "Number of total views of this channel"];
+// optional uint64 views = 6;
 inline bool GetBroadcastChannelEntry::_internal_has_views() const {
   bool value = (_has_bits_[0] & 0x00000200u) != 0;
   return value;
@@ -19277,7 +19277,7 @@ inline void GetBroadcastChannelEntry::set_views(::PROTOBUF_NAMESPACE_ID::uint64 
   // @@protoc_insertion_point(field_set:GetBroadcastChannelEntry.views)
 }
 
-// optional string thumbnail_url = 7 [(.description) = "Current thumbnail URL"];
+// optional string thumbnail_url = 7;
 inline bool GetBroadcastChannelEntry::_internal_has_thumbnail_url() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -19350,7 +19350,7 @@ inline void GetBroadcastChannelEntry::set_allocated_thumbnail_url(std::string* t
   // @@protoc_insertion_point(field_set_allocated:GetBroadcastChannelEntry.thumbnail_url)
 }
 
-// optional uint64 followers = 8 [(.description) = "Number of followers of this channel"];
+// optional uint64 followers = 8;
 inline bool GetBroadcastChannelEntry::_internal_has_followers() const {
   bool value = (_has_bits_[0] & 0x00000400u) != 0;
   return value;
@@ -19378,7 +19378,7 @@ inline void GetBroadcastChannelEntry::set_followers(::PROTOBUF_NAMESPACE_ID::uin
   // @@protoc_insertion_point(field_set:GetBroadcastChannelEntry.followers)
 }
 
-// optional string headline = 9 [(.description) = "short channel description"];
+// optional string headline = 9;
 inline bool GetBroadcastChannelEntry::_internal_has_headline() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -19451,7 +19451,7 @@ inline void GetBroadcastChannelEntry::set_allocated_headline(std::string* headli
   // @@protoc_insertion_point(field_set_allocated:GetBroadcastChannelEntry.headline)
 }
 
-// optional string avatar_url = 10 [(.description) = "community avatar url"];
+// optional string avatar_url = 10;
 inline bool GetBroadcastChannelEntry::_internal_has_avatar_url() const {
   bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
@@ -19524,7 +19524,7 @@ inline void GetBroadcastChannelEntry::set_allocated_avatar_url(std::string* avat
   // @@protoc_insertion_point(field_set_allocated:GetBroadcastChannelEntry.avatar_url)
 }
 
-// optional fixed64 broadcaster_steamid = 11 [(.description) = "Current broadcaster streaming"];
+// optional fixed64 broadcaster_steamid = 11;
 inline bool GetBroadcastChannelEntry::_internal_has_broadcaster_steamid() const {
   bool value = (_has_bits_[0] & 0x00000800u) != 0;
   return value;
@@ -19552,7 +19552,7 @@ inline void GetBroadcastChannelEntry::set_broadcaster_steamid(::PROTOBUF_NAMESPA
   // @@protoc_insertion_point(field_set:GetBroadcastChannelEntry.broadcaster_steamid)
 }
 
-// optional uint64 subscribers = 12 [(.description) = "Number of subscribers of this channel"];
+// optional uint64 subscribers = 12;
 inline bool GetBroadcastChannelEntry::_internal_has_subscribers() const {
   bool value = (_has_bits_[0] & 0x00001000u) != 0;
   return value;
@@ -19580,7 +19580,7 @@ inline void GetBroadcastChannelEntry::set_subscribers(::PROTOBUF_NAMESPACE_ID::u
   // @@protoc_insertion_point(field_set:GetBroadcastChannelEntry.subscribers)
 }
 
-// optional string background_url = 13 [(.description) = "Background image url"];
+// optional string background_url = 13;
 inline bool GetBroadcastChannelEntry::_internal_has_background_url() const {
   bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
@@ -19653,7 +19653,7 @@ inline void GetBroadcastChannelEntry::set_allocated_background_url(std::string* 
   // @@protoc_insertion_point(field_set_allocated:GetBroadcastChannelEntry.background_url)
 }
 
-// optional bool is_featured = 14 [(.description) = "Whether the channel is featured"];
+// optional bool is_featured = 14;
 inline bool GetBroadcastChannelEntry::_internal_has_is_featured() const {
   bool value = (_has_bits_[0] & 0x00004000u) != 0;
   return value;
@@ -19681,7 +19681,7 @@ inline void GetBroadcastChannelEntry::set_is_featured(bool value) {
   // @@protoc_insertion_point(field_set:GetBroadcastChannelEntry.is_featured)
 }
 
-// optional bool is_disabled = 15 [(.description) = "Whether the channel is disabled"];
+// optional bool is_disabled = 15;
 inline bool GetBroadcastChannelEntry::_internal_has_is_disabled() const {
   bool value = (_has_bits_[0] & 0x00008000u) != 0;
   return value;
@@ -19709,7 +19709,7 @@ inline void GetBroadcastChannelEntry::set_is_disabled(bool value) {
   // @@protoc_insertion_point(field_set:GetBroadcastChannelEntry.is_disabled)
 }
 
-// optional bool is_live = 16 [(.description) = "Whether the channel is streaming"];
+// optional bool is_live = 16;
 inline bool GetBroadcastChannelEntry::_internal_has_is_live() const {
   bool value = (_has_bits_[0] & 0x00010000u) != 0;
   return value;
@@ -19737,7 +19737,7 @@ inline void GetBroadcastChannelEntry::set_is_live(bool value) {
   // @@protoc_insertion_point(field_set:GetBroadcastChannelEntry.is_live)
 }
 
-// optional string language = 17 [(.description) = "The language the stream is in"];
+// optional string language = 17;
 inline bool GetBroadcastChannelEntry::_internal_has_language() const {
   bool value = (_has_bits_[0] & 0x00000040u) != 0;
   return value;
@@ -19810,7 +19810,7 @@ inline void GetBroadcastChannelEntry::set_allocated_language(std::string* langua
   // @@protoc_insertion_point(field_set_allocated:GetBroadcastChannelEntry.language)
 }
 
-// optional uint32 reports = 18 [(.description) = "The number of reports the channel has"];
+// optional uint32 reports = 18;
 inline bool GetBroadcastChannelEntry::_internal_has_reports() const {
   bool value = (_has_bits_[0] & 0x00040000u) != 0;
   return value;
@@ -19870,7 +19870,7 @@ inline void GetBroadcastChannelEntry::set_is_partnered(bool value) {
 
 // CSteamTV_GetFollowedChannels_Response
 
-// repeated .GetBroadcastChannelEntry results = 1 [(.description) = "The list of broadcasters"];
+// repeated .GetBroadcastChannelEntry results = 1;
 inline int CSteamTV_GetFollowedChannels_Response::_internal_results_size() const {
   return results_.size();
 }
@@ -19917,7 +19917,7 @@ CSteamTV_GetFollowedChannels_Response::results() const {
 
 // CSteamTV_GetSubscribedChannels_Response
 
-// repeated .GetBroadcastChannelEntry results = 1 [(.description) = "The list of broadcasters"];
+// repeated .GetBroadcastChannelEntry results = 1;
 inline int CSteamTV_GetSubscribedChannels_Response::_internal_results_size() const {
   return results_.size();
 }
@@ -19960,7 +19960,7 @@ CSteamTV_GetSubscribedChannels_Response::results() const {
 
 // CSteamTV_GetBroadcastChannelStatus_Request
 
-// optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID"];
+// optional fixed64 broadcast_channel_id = 1;
 inline bool CSteamTV_GetBroadcastChannelStatus_Request::_internal_has_broadcast_channel_id() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -19992,7 +19992,7 @@ inline void CSteamTV_GetBroadcastChannelStatus_Request::set_broadcast_channel_id
 
 // CSteamTV_GetBroadcastChannelStatus_Response
 
-// optional bool is_live = 1 [(.description) = "Indicates whether the channel is streaming"];
+// optional bool is_live = 1;
 inline bool CSteamTV_GetBroadcastChannelStatus_Response::_internal_has_is_live() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -20020,7 +20020,7 @@ inline void CSteamTV_GetBroadcastChannelStatus_Response::set_is_live(bool value)
   // @@protoc_insertion_point(field_set:CSteamTV_GetBroadcastChannelStatus_Response.is_live)
 }
 
-// optional bool is_disabled = 2 [(.description) = "Indicates whether the channel has been disabled"];
+// optional bool is_disabled = 2;
 inline bool CSteamTV_GetBroadcastChannelStatus_Response::_internal_has_is_disabled() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -20048,7 +20048,7 @@ inline void CSteamTV_GetBroadcastChannelStatus_Response::set_is_disabled(bool va
   // @@protoc_insertion_point(field_set:CSteamTV_GetBroadcastChannelStatus_Response.is_disabled)
 }
 
-// optional uint32 appid = 3 [(.description) = "The game ID the requested broadcaster is playing"];
+// optional uint32 appid = 3;
 inline bool CSteamTV_GetBroadcastChannelStatus_Response::_internal_has_appid() const {
   bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
@@ -20076,7 +20076,7 @@ inline void CSteamTV_GetBroadcastChannelStatus_Response::set_appid(::PROTOBUF_NA
   // @@protoc_insertion_point(field_set:CSteamTV_GetBroadcastChannelStatus_Response.appid)
 }
 
-// optional uint64 viewers = 4 [(.description) = "Number of viewers currently watching"];
+// optional uint64 viewers = 4;
 inline bool CSteamTV_GetBroadcastChannelStatus_Response::_internal_has_viewers() const {
   bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
@@ -20104,7 +20104,7 @@ inline void CSteamTV_GetBroadcastChannelStatus_Response::set_viewers(::PROTOBUF_
   // @@protoc_insertion_point(field_set:CSteamTV_GetBroadcastChannelStatus_Response.viewers)
 }
 
-// optional uint64 views = 5 [(.description) = "Number of total views of this channel"];
+// optional uint64 views = 5;
 inline bool CSteamTV_GetBroadcastChannelStatus_Response::_internal_has_views() const {
   bool value = (_has_bits_[0] & 0x00000040u) != 0;
   return value;
@@ -20132,7 +20132,7 @@ inline void CSteamTV_GetBroadcastChannelStatus_Response::set_views(::PROTOBUF_NA
   // @@protoc_insertion_point(field_set:CSteamTV_GetBroadcastChannelStatus_Response.views)
 }
 
-// optional fixed64 broadcaster_steamid = 6 [(.description) = "Current broadcaster streaming"];
+// optional fixed64 broadcaster_steamid = 6;
 inline bool CSteamTV_GetBroadcastChannelStatus_Response::_internal_has_broadcaster_steamid() const {
   bool value = (_has_bits_[0] & 0x00000080u) != 0;
   return value;
@@ -20160,7 +20160,7 @@ inline void CSteamTV_GetBroadcastChannelStatus_Response::set_broadcaster_steamid
   // @@protoc_insertion_point(field_set:CSteamTV_GetBroadcastChannelStatus_Response.broadcaster_steamid)
 }
 
-// optional string thumbnail_url = 7 [(.description) = "Current thumbnail URL"];
+// optional string thumbnail_url = 7;
 inline bool CSteamTV_GetBroadcastChannelStatus_Response::_internal_has_thumbnail_url() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -20233,7 +20233,7 @@ inline void CSteamTV_GetBroadcastChannelStatus_Response::set_allocated_thumbnail
   // @@protoc_insertion_point(field_set_allocated:CSteamTV_GetBroadcastChannelStatus_Response.thumbnail_url)
 }
 
-// optional uint64 followers = 8 [(.description) = "Number of followers of this channel"];
+// optional uint64 followers = 8;
 inline bool CSteamTV_GetBroadcastChannelStatus_Response::_internal_has_followers() const {
   bool value = (_has_bits_[0] & 0x00000100u) != 0;
   return value;
@@ -20261,7 +20261,7 @@ inline void CSteamTV_GetBroadcastChannelStatus_Response::set_followers(::PROTOBU
   // @@protoc_insertion_point(field_set:CSteamTV_GetBroadcastChannelStatus_Response.followers)
 }
 
-// optional uint64 subscribers = 9 [(.description) = "Number of subscribers of this channel"];
+// optional uint64 subscribers = 9;
 inline bool CSteamTV_GetBroadcastChannelStatus_Response::_internal_has_subscribers() const {
   bool value = (_has_bits_[0] & 0x00000200u) != 0;
   return value;
@@ -20394,7 +20394,7 @@ inline void CSteamTV_GetBroadcastChannelStatus_Response::set_broadcast_session_i
 
 // CSteamTV_FollowBroadcastChannel_Request
 
-// optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID"];
+// optional fixed64 broadcast_channel_id = 1;
 inline bool CSteamTV_FollowBroadcastChannel_Request::_internal_has_broadcast_channel_id() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -20422,7 +20422,7 @@ inline void CSteamTV_FollowBroadcastChannel_Request::set_broadcast_channel_id(::
   // @@protoc_insertion_point(field_set:CSteamTV_FollowBroadcastChannel_Request.broadcast_channel_id)
 }
 
-// optional bool undo = 2 [(.description) = "Indicates this is an unfollow request"];
+// optional bool undo = 2;
 inline bool CSteamTV_FollowBroadcastChannel_Request::_internal_has_undo() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -20454,7 +20454,7 @@ inline void CSteamTV_FollowBroadcastChannel_Request::set_undo(bool value) {
 
 // CSteamTV_FollowBroadcastChannel_Response
 
-// optional bool is_followed = 1 [(.description) = "Whether the user is now following"];
+// optional bool is_followed = 1;
 inline bool CSteamTV_FollowBroadcastChannel_Response::_internal_has_is_followed() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -20486,7 +20486,7 @@ inline void CSteamTV_FollowBroadcastChannel_Response::set_is_followed(bool value
 
 // CSteamTV_SubscribeBroadcastChannel_Request
 
-// optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID"];
+// optional fixed64 broadcast_channel_id = 1;
 inline bool CSteamTV_SubscribeBroadcastChannel_Request::_internal_has_broadcast_channel_id() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -20518,7 +20518,7 @@ inline void CSteamTV_SubscribeBroadcastChannel_Request::set_broadcast_channel_id
 
 // CSteamTV_SubscribeBroadcastChannel_Response
 
-// optional bool is_subscribed = 1 [(.description) = "Whether the user is now subscribed"];
+// optional bool is_subscribed = 1;
 inline bool CSteamTV_SubscribeBroadcastChannel_Response::_internal_has_is_subscribed() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -20582,7 +20582,7 @@ inline void CSteamTV_GetBroadcastChannelClips_Request::set_broadcast_channel_id(
 
 // CSteamTV_BroadcastClipInfo
 
-// optional uint64 broadcast_clip_id = 1 [(.description) = "broadcast clip ID"];
+// optional uint64 broadcast_clip_id = 1;
 inline bool CSteamTV_BroadcastClipInfo::_internal_has_broadcast_clip_id() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -20610,7 +20610,7 @@ inline void CSteamTV_BroadcastClipInfo::set_broadcast_clip_id(::PROTOBUF_NAMESPA
   // @@protoc_insertion_point(field_set:CSteamTV_BroadcastClipInfo.broadcast_clip_id)
 }
 
-// optional uint64 channel_id = 2 [(.description) = "Broadcast Channel ID"];
+// optional uint64 channel_id = 2;
 inline bool CSteamTV_BroadcastClipInfo::_internal_has_channel_id() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -20638,7 +20638,7 @@ inline void CSteamTV_BroadcastClipInfo::set_channel_id(::PROTOBUF_NAMESPACE_ID::
   // @@protoc_insertion_point(field_set:CSteamTV_BroadcastClipInfo.channel_id)
 }
 
-// optional uint32 app_id = 3 [(.description) = "App ID stream is tagged with"];
+// optional uint32 app_id = 3;
 inline bool CSteamTV_BroadcastClipInfo::_internal_has_app_id() const {
   bool value = (_has_bits_[0] & 0x00000040u) != 0;
   return value;
@@ -20666,7 +20666,7 @@ inline void CSteamTV_BroadcastClipInfo::set_app_id(::PROTOBUF_NAMESPACE_ID::uint
   // @@protoc_insertion_point(field_set:CSteamTV_BroadcastClipInfo.app_id)
 }
 
-// optional fixed64 broadcaster_steamid = 4 [(.description) = "Broadcaster SteamID"];
+// optional fixed64 broadcaster_steamid = 4;
 inline bool CSteamTV_BroadcastClipInfo::_internal_has_broadcaster_steamid() const {
   bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
@@ -20694,7 +20694,7 @@ inline void CSteamTV_BroadcastClipInfo::set_broadcaster_steamid(::PROTOBUF_NAMES
   // @@protoc_insertion_point(field_set:CSteamTV_BroadcastClipInfo.broadcaster_steamid)
 }
 
-// optional fixed64 creator_steamid = 5 [(.description) = "Clip-maker SteamID"];
+// optional fixed64 creator_steamid = 5;
 inline bool CSteamTV_BroadcastClipInfo::_internal_has_creator_steamid() const {
   bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
@@ -20722,7 +20722,7 @@ inline void CSteamTV_BroadcastClipInfo::set_creator_steamid(::PROTOBUF_NAMESPACE
   // @@protoc_insertion_point(field_set:CSteamTV_BroadcastClipInfo.creator_steamid)
 }
 
-// optional string video_description = 6 [(.description) = "Short name or description of this clip"];
+// optional string video_description = 6;
 inline bool CSteamTV_BroadcastClipInfo::_internal_has_video_description() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -20795,7 +20795,7 @@ inline void CSteamTV_BroadcastClipInfo::set_allocated_video_description(std::str
   // @@protoc_insertion_point(field_set_allocated:CSteamTV_BroadcastClipInfo.video_description)
 }
 
-// optional uint32 live_time = 7 [(.description) = "GMT time clip was broadcasted live"];
+// optional uint32 live_time = 7;
 inline bool CSteamTV_BroadcastClipInfo::_internal_has_live_time() const {
   bool value = (_has_bits_[0] & 0x00000080u) != 0;
   return value;
@@ -20823,7 +20823,7 @@ inline void CSteamTV_BroadcastClipInfo::set_live_time(::PROTOBUF_NAMESPACE_ID::u
   // @@protoc_insertion_point(field_set:CSteamTV_BroadcastClipInfo.live_time)
 }
 
-// optional uint32 length_ms = 8 [(.description) = "length of video in MS"];
+// optional uint32 length_ms = 8;
 inline bool CSteamTV_BroadcastClipInfo::_internal_has_length_ms() const {
   bool value = (_has_bits_[0] & 0x00000100u) != 0;
   return value;
@@ -20851,7 +20851,7 @@ inline void CSteamTV_BroadcastClipInfo::set_length_ms(::PROTOBUF_NAMESPACE_ID::u
   // @@protoc_insertion_point(field_set:CSteamTV_BroadcastClipInfo.length_ms)
 }
 
-// optional string thumbnail_path = 9 [(.description) = "relative path for thumbnail URL on host"];
+// optional string thumbnail_path = 9;
 inline bool CSteamTV_BroadcastClipInfo::_internal_has_thumbnail_path() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -21044,7 +21044,7 @@ inline void CSteamTV_GetBroadcastChannelClips_Response::set_allocated_thumbnail_
 
 // CSteamTV_ReportBroadcastChannel_Request
 
-// optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID"];
+// optional fixed64 broadcast_channel_id = 1;
 inline bool CSteamTV_ReportBroadcastChannel_Request::_internal_has_broadcast_channel_id() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -21072,7 +21072,7 @@ inline void CSteamTV_ReportBroadcastChannel_Request::set_broadcast_channel_id(::
   // @@protoc_insertion_point(field_set:CSteamTV_ReportBroadcastChannel_Request.broadcast_channel_id)
 }
 
-// optional string reason = 2 [(.description) = "The reason for the report"];
+// optional string reason = 2;
 inline bool CSteamTV_ReportBroadcastChannel_Request::_internal_has_reason() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -21153,7 +21153,7 @@ inline void CSteamTV_ReportBroadcastChannel_Request::set_allocated_reason(std::s
 
 // CSteamTV_GetBroadcastChannelInteraction_Request
 
-// optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID"];
+// optional fixed64 broadcast_channel_id = 1;
 inline bool CSteamTV_GetBroadcastChannelInteraction_Request::_internal_has_broadcast_channel_id() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -21185,7 +21185,7 @@ inline void CSteamTV_GetBroadcastChannelInteraction_Request::set_broadcast_chann
 
 // CSteamTV_GetBroadcastChannelInteraction_Response
 
-// optional bool is_followed = 1 [(.description) = "Whether the user has followed this channel"];
+// optional bool is_followed = 1;
 inline bool CSteamTV_GetBroadcastChannelInteraction_Response::_internal_has_is_followed() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -21213,7 +21213,7 @@ inline void CSteamTV_GetBroadcastChannelInteraction_Response::set_is_followed(bo
   // @@protoc_insertion_point(field_set:CSteamTV_GetBroadcastChannelInteraction_Response.is_followed)
 }
 
-// optional bool is_subscribed = 2 [(.description) = "Whether the user has subscribed to this channel"];
+// optional bool is_subscribed = 2;
 inline bool CSteamTV_GetBroadcastChannelInteraction_Response::_internal_has_is_subscribed() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -21245,7 +21245,7 @@ inline void CSteamTV_GetBroadcastChannelInteraction_Response::set_is_subscribed(
 
 // CSteamTV_GetGames_Request
 
-// optional uint32 appid = 1 [(.description) = "The ID for the game"];
+// optional uint32 appid = 1;
 inline bool CSteamTV_GetGames_Request::_internal_has_appid() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -21273,7 +21273,7 @@ inline void CSteamTV_GetGames_Request::set_appid(::PROTOBUF_NAMESPACE_ID::uint32
   // @@protoc_insertion_point(field_set:CSteamTV_GetGames_Request.appid)
 }
 
-// optional .EGetGamesAlgorithm algorithm = 2 [default = EGetGamesAlgorithm_Default, (.description) = "The algorithm to use when picking games to return"];
+// optional .EGetGamesAlgorithm algorithm = 2 [default = EGetGamesAlgorithm_Default];
 inline bool CSteamTV_GetGames_Request::_internal_has_algorithm() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -21302,7 +21302,7 @@ inline void CSteamTV_GetGames_Request::set_algorithm(::EGetGamesAlgorithm value)
   // @@protoc_insertion_point(field_set:CSteamTV_GetGames_Request.algorithm)
 }
 
-// optional uint32 count = 3 [(.description) = "The maximum number of results to return"];
+// optional uint32 count = 3;
 inline bool CSteamTV_GetGames_Request::_internal_has_count() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -21334,7 +21334,7 @@ inline void CSteamTV_GetGames_Request::set_count(::PROTOBUF_NAMESPACE_ID::uint32
 
 // CSteamTV_Game
 
-// optional uint32 appid = 1 [(.description) = "The ID for the game"];
+// optional uint32 appid = 1;
 inline bool CSteamTV_Game::_internal_has_appid() const {
   bool value = (_has_bits_[0] & 0x00000040u) != 0;
   return value;
@@ -21362,7 +21362,7 @@ inline void CSteamTV_Game::set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   // @@protoc_insertion_point(field_set:CSteamTV_Game.appid)
 }
 
-// optional string name = 2 [(.description) = "The name for the game"];
+// optional string name = 2;
 inline bool CSteamTV_Game::_internal_has_name() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -21435,7 +21435,7 @@ inline void CSteamTV_Game::set_allocated_name(std::string* name) {
   // @@protoc_insertion_point(field_set_allocated:CSteamTV_Game.name)
 }
 
-// optional string image = 3 [(.description) = "The image for the game"];
+// optional string image = 3;
 inline bool CSteamTV_Game::_internal_has_image() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -21508,7 +21508,7 @@ inline void CSteamTV_Game::set_allocated_image(std::string* image) {
   // @@protoc_insertion_point(field_set_allocated:CSteamTV_Game.image)
 }
 
-// optional uint64 viewers = 4 [(.description) = "Number of people watching this game"];
+// optional uint64 viewers = 4;
 inline bool CSteamTV_Game::_internal_has_viewers() const {
   bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;
@@ -21536,7 +21536,7 @@ inline void CSteamTV_Game::set_viewers(::PROTOBUF_NAMESPACE_ID::uint64 value) {
   // @@protoc_insertion_point(field_set:CSteamTV_Game.viewers)
 }
 
-// repeated .GetBroadcastChannelEntry channels = 5 [(.description) = "Live channels streaming this game"];
+// repeated .GetBroadcastChannelEntry channels = 5;
 inline int CSteamTV_Game::_internal_channels_size() const {
   return channels_.size();
 }
@@ -21798,7 +21798,7 @@ inline void CSteamTV_Game::set_allocated_publisher(std::string* publisher) {
 
 // CSteamTV_GetGames_Response
 
-// repeated .CSteamTV_Game results = 1 [(.description) = "The list of games"];
+// repeated .CSteamTV_Game results = 1;
 inline int CSteamTV_GetGames_Response::_internal_results_size() const {
   return results_.size();
 }
@@ -21841,7 +21841,7 @@ CSteamTV_GetGames_Response::results() const {
 
 // CSteamTV_GetChannels_Request
 
-// optional .EGetChannelsAlgorithm algorithm = 1 [default = EGetChannelsAlgorithm_Default, (.description) = "The algorithm to use when picking channels to return"];
+// optional .EGetChannelsAlgorithm algorithm = 1 [default = EGetChannelsAlgorithm_Default];
 inline bool CSteamTV_GetChannels_Request::_internal_has_algorithm() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -21870,7 +21870,7 @@ inline void CSteamTV_GetChannels_Request::set_algorithm(::EGetChannelsAlgorithm 
   // @@protoc_insertion_point(field_set:CSteamTV_GetChannels_Request.algorithm)
 }
 
-// optional uint32 count = 2 [(.description) = "The maximum number of results to return"];
+// optional uint32 count = 2;
 inline bool CSteamTV_GetChannels_Request::_internal_has_count() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -21898,7 +21898,7 @@ inline void CSteamTV_GetChannels_Request::set_count(::PROTOBUF_NAMESPACE_ID::uin
   // @@protoc_insertion_point(field_set:CSteamTV_GetChannels_Request.count)
 }
 
-// optional uint32 appid = 3 [(.description) = "Filter results to only this appid"];
+// optional uint32 appid = 3;
 inline bool CSteamTV_GetChannels_Request::_internal_has_appid() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -21930,7 +21930,7 @@ inline void CSteamTV_GetChannels_Request::set_appid(::PROTOBUF_NAMESPACE_ID::uin
 
 // CSteamTV_GetChannels_Response
 
-// repeated .GetBroadcastChannelEntry results = 1 [(.description) = "The list of featured broadcasters"];
+// repeated .GetBroadcastChannelEntry results = 1;
 inline int CSteamTV_GetChannels_Response::_internal_results_size() const {
   return results_.size();
 }
@@ -22387,7 +22387,7 @@ inline void CSteamTV_ChatBan::set_allocated_name(std::string* name) {
 
 // CSteamTV_GetChatBans_Response
 
-// repeated .CSteamTV_ChatBan results = 1 [(.description) = "The list of bans"];
+// repeated .CSteamTV_ChatBan results = 1;
 inline int CSteamTV_GetChatBans_Response::_internal_results_size() const {
   return results_.size();
 }
@@ -22659,7 +22659,7 @@ inline void CSteamTV_ChatModerator::set_allocated_name(std::string* name) {
 
 // CSteamTV_GetChatModerators_Response
 
-// repeated .CSteamTV_ChatModerator results = 1 [(.description) = "The list of moderators"];
+// repeated .CSteamTV_ChatModerator results = 1;
 inline int CSteamTV_GetChatModerators_Response::_internal_results_size() const {
   return results_.size();
 }
@@ -22871,7 +22871,7 @@ inline void CSteamTV_GetWordBans_Request::set_broadcast_channel_id(::PROTOBUF_NA
 
 // CSteamTV_GetWordBans_Response
 
-// repeated string results = 1 [(.description) = "The list of banned words"];
+// repeated string results = 1;
 inline int CSteamTV_GetWordBans_Response::_internal_results_size() const {
   return results_.size();
 }
@@ -23210,7 +23210,7 @@ inline void CSteamTV_Search_Request::set_allocated_term(std::string* term) {
 
 // CSteamTV_Search_Response
 
-// repeated .GetBroadcastChannelEntry results = 1 [(.description) = "The list of broadcasters"];
+// repeated .GetBroadcastChannelEntry results = 1;
 inline int CSteamTV_Search_Response::_internal_results_size() const {
   return results_.size();
 }
@@ -23257,7 +23257,7 @@ CSteamTV_Search_Response::results() const {
 
 // CSteamTV_GetSteamTVUserSettings_Response
 
-// optional bool stream_live_email = 1 [(.description) = "Send email when followed stream starts"];
+// optional bool stream_live_email = 1;
 inline bool CSteamTV_GetSteamTVUserSettings_Response::_internal_has_stream_live_email() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -23285,7 +23285,7 @@ inline void CSteamTV_GetSteamTVUserSettings_Response::set_stream_live_email(bool
   // @@protoc_insertion_point(field_set:CSteamTV_GetSteamTVUserSettings_Response.stream_live_email)
 }
 
-// optional bool stream_live_notification = 2 [(.description) = "Send Steam notification when followed stream starts"];
+// optional bool stream_live_notification = 2;
 inline bool CSteamTV_GetSteamTVUserSettings_Response::_internal_has_stream_live_notification() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -23317,7 +23317,7 @@ inline void CSteamTV_GetSteamTVUserSettings_Response::set_stream_live_notificati
 
 // CSteamTV_SetSteamTVUserSettings_Request
 
-// optional bool stream_live_email = 1 [(.description) = "Send email when followed stream starts"];
+// optional bool stream_live_email = 1;
 inline bool CSteamTV_SetSteamTVUserSettings_Request::_internal_has_stream_live_email() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -23345,7 +23345,7 @@ inline void CSteamTV_SetSteamTVUserSettings_Request::set_stream_live_email(bool 
   // @@protoc_insertion_point(field_set:CSteamTV_SetSteamTVUserSettings_Request.stream_live_email)
 }
 
-// optional bool stream_live_notification = 2 [(.description) = "Send Steam notification when followed stream starts"];
+// optional bool stream_live_notification = 2;
 inline bool CSteamTV_SetSteamTVUserSettings_Request::_internal_has_stream_live_notification() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -23385,7 +23385,7 @@ inline void CSteamTV_SetSteamTVUserSettings_Request::set_stream_live_notificatio
 
 // CSteamTV_GetMyBroadcastChannels_Response
 
-// repeated .GetBroadcastChannelEntry results = 1 [(.description) = "The list of broadcasters"];
+// repeated .GetBroadcastChannelEntry results = 1;
 inline int CSteamTV_GetMyBroadcastChannels_Response::_internal_results_size() const {
   return results_.size();
 }
@@ -25320,7 +25320,7 @@ CSteamTV_GetHomePageContents_Response::rows() const {
 
 // CSteamTV_AppCheer_SingleCheerType
 
-// optional uint32 cheer_type = 1 [(.description) = "The type of cheer. App dependent (different teams, heroes, players, etc)"];
+// optional uint32 cheer_type = 1;
 inline bool CSteamTV_AppCheer_SingleCheerType::_internal_has_cheer_type() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -25348,7 +25348,7 @@ inline void CSteamTV_AppCheer_SingleCheerType::set_cheer_type(::PROTOBUF_NAMESPA
   // @@protoc_insertion_point(field_set:CSteamTV_AppCheer_SingleCheerType.cheer_type)
 }
 
-// optional uint32 cheer_amount = 2 [(.description) = "The amount of cheers."];
+// optional uint32 cheer_amount = 2;
 inline bool CSteamTV_AppCheer_SingleCheerType::_internal_has_cheer_amount() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -25380,7 +25380,7 @@ inline void CSteamTV_AppCheer_SingleCheerType::set_cheer_amount(::PROTOBUF_NAMES
 
 // CSteamTV_AppCheer_Request
 
-// optional uint32 app_id = 1 [(.description) = "App ID this cheer is for."];
+// optional uint32 app_id = 1;
 inline bool CSteamTV_AppCheer_Request::_internal_has_app_id() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -25408,7 +25408,7 @@ inline void CSteamTV_AppCheer_Request::set_app_id(::PROTOBUF_NAMESPACE_ID::uint3
   // @@protoc_insertion_point(field_set:CSteamTV_AppCheer_Request.app_id)
 }
 
-// optional fixed64 cheer_target_id = 2 [(.description) = "The thing being cheered on. ID is app dependent (could be steam id, match id, lobby id, server id, etc)."];
+// optional fixed64 cheer_target_id = 2;
 inline bool CSteamTV_AppCheer_Request::_internal_has_cheer_target_id() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -25436,7 +25436,7 @@ inline void CSteamTV_AppCheer_Request::set_cheer_target_id(::PROTOBUF_NAMESPACE_
   // @@protoc_insertion_point(field_set:CSteamTV_AppCheer_Request.cheer_target_id)
 }
 
-// repeated .CSteamTV_AppCheer_SingleCheerType cheers = 3 [(.description) = "The set of cheers this request represents (could be multiple of different types)."];
+// repeated .CSteamTV_AppCheer_SingleCheerType cheers = 3;
 inline int CSteamTV_AppCheer_Request::_internal_cheers_size() const {
   return cheers_.size();
 }
@@ -25479,7 +25479,7 @@ CSteamTV_AppCheer_Request::cheers() const {
 
 // CSteamTV_AppCheer_Response
 
-// optional uint32 aggregation_delay_ms = 1 [(.description) = "The amount of time in milliseconds that the client should aggregate cheers before sending them. The server can control this dynamically to ask clients to slow down sending."];
+// optional uint32 aggregation_delay_ms = 1;
 inline bool CSteamTV_AppCheer_Response::_internal_has_aggregation_delay_ms() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;

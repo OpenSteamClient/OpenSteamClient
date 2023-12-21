@@ -2153,504 +2153,331 @@ const char descriptor_table_protodef_steammessages_5fsteamtv_2esteamclient_2epro
   "\n\'steammessages_steamtv.steamclient.prot"
   "o\032 google/protobuf/descriptor.proto\032\030ste"
   "ammessages_base.proto\032,steammessages_uni"
-  "fied_base.steamclient.proto\"}\n\'CSteamTV_"
-  "CreateBroadcastChannel_Request\022R\n\013unique"
-  "_name\030\001 \001(\tB=\202\265\0309Unique short broadcast "
-  "channel name, part of Steam.TV URL\"g\n(CS"
-  "teamTV_CreateBroadcastChannel_Response\022;"
-  "\n\024broadcast_channel_id\030\001 \001(\006B\035\202\265\030\031Broadc"
-  "ast channel ID or 0\"V\n&CSteamTV_GetBroad"
-  "castChannelID_Request\022,\n\013unique_name\030\001 \001"
-  "(\tB\027\202\265\030\023Channel short name)\"\305\001\n\'CSteamTV"
-  "_GetBroadcastChannelID_Response\022;\n\024broad"
-  "cast_channel_id\030\001 \001(\006B\035\202\265\030\031Broadcast cha"
-  "nnel ID or 0\022/\n\013unique_name\030\002 \001(\tB\032\202\265\030\026B"
-  "roadcast channel name\022,\n\007steamid\030\003 \001(\006B\033"
-  "\202\265\030\027Broadcast channel owner\"\375\003\n+CSteamTV"
-  "_SetBroadcastChannelProfile_Request\0226\n\024b"
-  "roadcast_channel_id\030\001 \001(\006B\030\202\265\030\024Broadcast"
-  " channel ID\022#\n\004name\030\002 \001(\tB\025\202\265\030\021long chan"
-  "nel name\022@\n\010language\030\003 \001(\tB.\202\265\030*primary "
-  "channel language (Steam shortname)\022.\n\010he"
-  "adline\030\004 \001(\tB\034\202\265\030\030short channel descipti"
-  "on\022,\n\007summary\030\005 \001(\tB\033\202\265\030\027long channel de"
-  "sciption\022.\n\013avatar_hash\030\006 \001(\tB\031\202\265\030\025commu"
-  "nity avatar hash\0220\n\010schedule\030\007 \001(\tB\036\202\265\030\032"
-  "broadcast channel schedule\022*\n\005rules\030\010 \001("
-  "\tB\033\202\265\030\027broadcast channel rules\022C\n\006panels"
-  "\030\t \001(\tB3\202\265\030/JSON data representing the c"
-  "hannel panel layout\".\n,CSteamTV_SetBroad"
-  "castChannelProfile_Response\"e\n+CSteamTV_"
-  "GetBroadcastChannelProfile_Request\0226\n\024br"
-  "oadcast_channel_id\030\001 \001(\006B\030\202\265\030\024Broadcast "
-  "channel ID\"\266\004\n,CSteamTV_GetBroadcastChan"
-  "nelProfile_Response\022R\n\013unique_name\030\001 \001(\t"
-  "B=\202\265\0309Unique short broadcast channel nam"
-  "e, part of Steam.TV URL\0222\n\rowner_steamid"
-  "\030\002 \001(\006B\033\202\265\030\027Broadcast channel owner\022#\n\004n"
-  "ame\030\003 \001(\tB\025\202\265\030\021long channel name\022@\n\010lang"
-  "uage\030\004 \001(\tB.\202\265\030*primary channel language"
-  " (Steam shortname)\022/\n\010headline\030\005 \001(\tB\035\202\265"
-  "\030\031short channel description\022-\n\007summary\030\006"
-  " \001(\tB\034\202\265\030\030long channel description\0220\n\010sc"
-  "hedule\030\007 \001(\tB\036\202\265\030\032broadcast channel sche"
-  "dule\022*\n\005rules\030\010 \001(\tB\033\202\265\030\027broadcast chann"
-  "el rules\022C\n\006panels\030\t \001(\tB3\202\265\030/JSON data "
-  "representing the channel panel layout\022\024\n"
-  "\014is_partnered\030\n \001(\010\"\217\004\n)CSteamTV_SetBroa"
-  "dcastChannelImage_Request\0226\n\024broadcast_c"
-  "hannel_id\030\001 \001(\006B\030\202\265\030\024Broadcast channel I"
-  "D\022W\n\nimage_type\030\002 \001(\0162\024.EBroadcastImageT"
-  "ype:\030EBroadcastImageType_NoneB\023\202\265\030\017EBroa"
-  "dcastImage\022]\n\013image_index\030\003 \001(\rBH\202\265\030DInd"
-  "ex of the image (for supporting multiple"
-  " uploads of the same type\022(\n\013image_width"
-  "\030\004 \001(\rB\023\202\265\030\017width in pixels\022*\n\014image_hei"
-  "ght\030\005 \001(\rB\024\202\265\030\020height in pixels\022\037\n\tfile_"
-  "size\030\006 \001(\rB\014\202\265\030\010in bytes\022#\n\016file_extensi"
-  "on\030\007 \001(\tB\013\202\265\030\007eg .jpg\022 \n\tfile_hash\030\010 \001(\t"
-  "B\r\202\265\030\timage SHA\0224\n\004undo\030\t \001(\010B&\202\265\030\"indic"
-  "ates this is a delete request\"\206\001\n*CSteam"
-  "TV_SetBroadcastChannelImage_Response\022X\n\022"
-  "replace_image_hash\030\001 \001(\tB<\202\265\0308set if cal"
-  "ler should remove previous SHA file from"
-  " cache\"\254\001\n*CSteamTV_GetBroadcastChannelI"
-  "mages_Request\0226\n\024broadcast_channel_id\030\001 "
-  "\001(\006B\030\202\265\030\024Broadcast channel ID\022F\n\013image_t"
-  "ypes\030\002 \003(\0162\024.EBroadcastImageTypeB\033\202\265\030\027li"
-  "st of EBroadcastImage\"\271\002\n+CSteamTV_GetBr"
-  "oadcastChannelImages_Response\022C\n\006images\030"
-  "\001 \003(\01323.CSteamTV_GetBroadcastChannelImag"
-  "es_Response.Images\032\304\001\n\006Images\022Y\n\nimage_t"
-  "ype\030\001 \001(\0162\024.EBroadcastImageType:\030EBroadc"
-  "astImageType_NoneB\025\202\265\030\021Type of the image"
-  "\0222\n\nimage_path\030\002 \001(\tB\036\202\265\030\032Path to the up"
-  "loaded image\022+\n\013image_index\030\003 \001(\rB\026\202\265\030\022I"
-  "ndex of the image\"\202\005\n/CSteamTV_SetBroadc"
-  "astChannelLinkRegions_Request\0226\n\024broadca"
-  "st_channel_id\030\001 \001(\006B\030\202\265\030\024Broadcast chann"
-  "el ID\022E\n\005links\030\002 \003(\01326.CSteamTV_SetBroad"
-  "castChannelLinkRegions_Request.Links\032\317\003\n"
-  "\005Links\022J\n\010linindex\030\001 \001(\rB8\202\265\0304Index of t"
-  "he link (lower number has higher priorit"
-  "y)\022\025\n\003url\030\002 \001(\tB\010\202\265\030\004URL \022M\n\016lindescript"
-  "ion\030\003 \001(\tB5\202\265\0301URL description that will"
-  " show in the link region\022D\n\004left\030\004 \001(\rB6"
-  "\202\265\0302Left X position in 100th of a % of t"
-  "he video width\022C\n\003top\030\005 \001(\rB6\202\265\0302Top Y p"
-  "osition in 100th of a % of the video hei"
-  "ght\022B\n\005width\030\006 \001(\rB3\202\265\030/Region Width in "
-  "100th of a % of the video width\022E\n\006heigh"
-  "t\030\007 \001(\rB5\202\265\0301Region Height in 100th of a"
-  " % of the video height\"2\n0CSteamTV_SetBr"
-  "oadcastChannelLinkRegions_Response\"c\n)CS"
-  "teamTV_GetBroadcastChannelLinks_Request\022"
-  "6\n\024broadcast_channel_id\030\001 \001(\006B\030\202\265\030\024Broad"
-  "cast channel ID\"\300\004\n*CSteamTV_GetBroadcas"
-  "tChannelLinks_Response\022@\n\005links\030\001 \003(\01321."
-  "CSteamTV_GetBroadcastChannelLinks_Respon"
-  "se.Links\032\317\003\n\005Links\022J\n\010linindex\030\001 \001(\rB8\202\265"
-  "\0304Index of the link (lower number has hi"
-  "gher priority)\022\025\n\003url\030\002 \001(\tB\010\202\265\030\004URL \022M\n"
-  "\016lindescription\030\003 \001(\tB5\202\265\0301URL descripti"
-  "on that will show in the link region\022D\n\004"
-  "left\030\004 \001(\rB6\202\265\0302Left X position in 100th"
-  " of a % of the video width\022C\n\003top\030\005 \001(\rB"
-  "6\202\265\0302Top Y position in 100th of a % of t"
-  "he video height\022B\n\005width\030\006 \001(\rB3\202\265\030/Regi"
-  "on Width in 100th of a % of the video wi"
-  "dth\022E\n\006height\030\007 \001(\rB5\202\265\0301Region Height i"
-  "n 100th of a % of the video height\"j\n0CS"
-  "teamTV_GetBroadcastChannelBroadcasters_R"
-  "equest\0226\n\024broadcast_channel_id\030\001 \001(\006B\030\202\265"
-  "\030\024Broadcast channel ID\"\232\002\n1CSteamTV_GetB"
+  "fied_base.steamclient.proto\">\n\'CSteamTV_"
+  "CreateBroadcastChannel_Request\022\023\n\013unique"
+  "_name\030\001 \001(\t\"H\n(CSteamTV_CreateBroadcastC"
+  "hannel_Response\022\034\n\024broadcast_channel_id\030"
+  "\001 \001(\006\"=\n&CSteamTV_GetBroadcastChannelID_"
+  "Request\022\023\n\013unique_name\030\001 \001(\t\"m\n\'CSteamTV"
+  "_GetBroadcastChannelID_Response\022\034\n\024broad"
+  "cast_channel_id\030\001 \001(\006\022\023\n\013unique_name\030\002 \001"
+  "(\t\022\017\n\007steamid\030\003 \001(\006\"\324\001\n+CSteamTV_SetBroa"
+  "dcastChannelProfile_Request\022\034\n\024broadcast"
+  "_channel_id\030\001 \001(\006\022\014\n\004name\030\002 \001(\t\022\020\n\010langu"
+  "age\030\003 \001(\t\022\020\n\010headline\030\004 \001(\t\022\017\n\007summary\030\005"
+  " \001(\t\022\023\n\013avatar_hash\030\006 \001(\t\022\020\n\010schedule\030\007 "
+  "\001(\t\022\r\n\005rules\030\010 \001(\t\022\016\n\006panels\030\t \001(\t\".\n,CS"
+  "teamTV_SetBroadcastChannelProfile_Respon"
+  "se\"K\n+CSteamTV_GetBroadcastChannelProfil"
+  "e_Request\022\034\n\024broadcast_channel_id\030\001 \001(\006\""
+  "\344\001\n,CSteamTV_GetBroadcastChannelProfile_"
+  "Response\022\023\n\013unique_name\030\001 \001(\t\022\025\n\rowner_s"
+  "teamid\030\002 \001(\006\022\014\n\004name\030\003 \001(\t\022\020\n\010language\030\004"
+  " \001(\t\022\020\n\010headline\030\005 \001(\t\022\017\n\007summary\030\006 \001(\t\022"
+  "\020\n\010schedule\030\007 \001(\t\022\r\n\005rules\030\010 \001(\t\022\016\n\006pane"
+  "ls\030\t \001(\t\022\024\n\014is_partnered\030\n \001(\010\"\231\002\n)CStea"
+  "mTV_SetBroadcastChannelImage_Request\022\034\n\024"
+  "broadcast_channel_id\030\001 \001(\006\022B\n\nimage_type"
+  "\030\002 \001(\0162\024.EBroadcastImageType:\030EBroadcast"
+  "ImageType_None\022\023\n\013image_index\030\003 \001(\r\022\023\n\013i"
+  "mage_width\030\004 \001(\r\022\024\n\014image_height\030\005 \001(\r\022\021"
+  "\n\tfile_size\030\006 \001(\r\022\026\n\016file_extension\030\007 \001("
+  "\t\022\021\n\tfile_hash\030\010 \001(\t\022\014\n\004undo\030\t \001(\010\"H\n*CS"
+  "teamTV_SetBroadcastChannelImage_Response"
+  "\022\032\n\022replace_image_hash\030\001 \001(\t\"u\n*CSteamTV"
+  "_GetBroadcastChannelImages_Request\022\034\n\024br"
+  "oadcast_channel_id\030\001 \001(\006\022)\n\013image_types\030"
+  "\002 \003(\0162\024.EBroadcastImageType\"\351\001\n+CSteamTV"
+  "_GetBroadcastChannelImages_Response\022C\n\006i"
+  "mages\030\001 \003(\01323.CSteamTV_GetBroadcastChann"
+  "elImages_Response.Images\032u\n\006Images\022B\n\nim"
+  "age_type\030\001 \001(\0162\024.EBroadcastImageType:\030EB"
+  "roadcastImageType_None\022\022\n\nimage_path\030\002 \001"
+  "(\t\022\023\n\013image_index\030\003 \001(\r\"\220\002\n/CSteamTV_Set"
+  "BroadcastChannelLinkRegions_Request\022\034\n\024b"
+  "roadcast_channel_id\030\001 \001(\006\022E\n\005links\030\002 \003(\013"
+  "26.CSteamTV_SetBroadcastChannelLinkRegio"
+  "ns_Request.Links\032x\n\005Links\022\020\n\010linindex\030\001 "
+  "\001(\r\022\013\n\003url\030\002 \001(\t\022\026\n\016lindescription\030\003 \001(\t"
+  "\022\014\n\004left\030\004 \001(\r\022\013\n\003top\030\005 \001(\r\022\r\n\005width\030\006 \001"
+  "(\r\022\016\n\006height\030\007 \001(\r\"2\n0CSteamTV_SetBroadc"
+  "astChannelLinkRegions_Response\"I\n)CSteam"
+  "TV_GetBroadcastChannelLinks_Request\022\034\n\024b"
+  "roadcast_channel_id\030\001 \001(\006\"\350\001\n*CSteamTV_G"
+  "etBroadcastChannelLinks_Response\022@\n\005link"
+  "s\030\001 \003(\01321.CSteamTV_GetBroadcastChannelLi"
+  "nks_Response.Links\032x\n\005Links\022\020\n\010linindex\030"
+  "\001 \001(\r\022\013\n\003url\030\002 \001(\t\022\026\n\016lindescription\030\003 \001"
+  "(\t\022\014\n\004left\030\004 \001(\r\022\013\n\003top\030\005 \001(\r\022\r\n\005width\030\006"
+  " \001(\r\022\016\n\006height\030\007 \001(\r\"P\n0CSteamTV_GetBroa"
+  "dcastChannelBroadcasters_Request\022\034\n\024broa"
+  "dcast_channel_id\030\001 \001(\006\"\313\001\n1CSteamTV_GetB"
   "roadcastChannelBroadcasters_Response\022T\n\014"
   "broadcasters\030\001 \003(\0132>.CSteamTV_GetBroadca"
   "stChannelBroadcasters_Response.Broadcast"
-  "er\032\216\001\n\013Broadcaster\022)\n\007steamid\030\001 \001(\006B\030\202\265\030"
-  "\024Broadcaster Steam ID\022\"\n\004name\030\002 \001(\tB\024\202\265\030"
-  "\020Broadcaster name\0220\n\nrtmp_token\030\003 \001(\tB\034\202"
-  "\265\030\030Broadcaster upload token\"&\n$CSteamTV_"
-  "GetFollowedChannels_Request\"\261\010\n\030GetBroad"
-  "castChannelEntry\022;\n\024broadcast_channel_id"
-  "\030\001 \001(\006B\035\202\265\030\031Broadcast channel ID or 0\022>\n"
-  "\013unique_name\030\002 \001(\tB)\202\265\030%Unique broadcast"
-  " channel name for URL\022-\n\004name\030\003 \001(\tB\037\202\265\030"
-  "\033Long broadcast channel name\022C\n\005appid\030\004 "
-  "\001(\rB4\202\265\0300The game ID the requested broad"
-  "caster is playing\0229\n\007viewers\030\005 \001(\004B(\202\265\030$"
-  "Number of viewers currently watching\0228\n\005"
-  "views\030\006 \001(\004B)\202\265\030%Number of total views o"
-  "f this channel\0220\n\rthumbnail_url\030\007 \001(\tB\031\202"
-  "\265\030\025Current thumbnail URL\022:\n\tfollowers\030\010 "
-  "\001(\004B\'\202\265\030#Number of followers of this cha"
-  "nnel\022/\n\010headline\030\t \001(\tB\035\202\265\030\031short channe"
-  "l description\022,\n\navatar_url\030\n \001(\tB\030\202\265\030\024c"
-  "ommunity avatar url\022>\n\023broadcaster_steam"
-  "id\030\013 \001(\006B!\202\265\030\035Current broadcaster stream"
-  "ing\022>\n\013subscribers\030\014 \001(\004B)\202\265\030%Number of "
-  "subscribers of this channel\0220\n\016backgroun"
-  "d_url\030\r \001(\tB\030\202\265\030\024Background image url\0228\n"
-  "\013is_featured\030\016 \001(\010B#\202\265\030\037Whether the chan"
-  "nel is featured\0228\n\013is_disabled\030\017 \001(\010B#\202\265"
-  "\030\037Whether the channel is disabled\0225\n\007is_"
-  "live\030\020 \001(\010B$\202\265\030 Whether the channel is s"
-  "treaming\0223\n\010language\030\021 \001(\tB!\202\265\030\035The lang"
-  "uage the stream is in\022:\n\007reports\030\022 \001(\rB)"
-  "\202\265\030%The number of reports the channel ha"
-  "s\022\024\n\014is_partnered\030\023 \001(\010\"q\n%CSteamTV_GetF"
-  "ollowedChannels_Response\022H\n\007results\030\001 \003("
-  "\0132\031.GetBroadcastChannelEntryB\034\202\265\030\030The li"
-  "st of broadcasters\"(\n&CSteamTV_GetSubscr"
-  "ibedChannels_Request\"s\n\'CSteamTV_GetSubs"
-  "cribedChannels_Response\022H\n\007results\030\001 \003(\013"
-  "2\031.GetBroadcastChannelEntryB\034\202\265\030\030The lis"
-  "t of broadcasters\"d\n*CSteamTV_GetBroadca"
-  "stChannelStatus_Request\0226\n\024broadcast_cha"
-  "nnel_id\030\001 \001(\006B\030\202\265\030\024Broadcast channel ID\""
-  "\223\005\n+CSteamTV_GetBroadcastChannelStatus_R"
-  "esponse\022\?\n\007is_live\030\001 \001(\010B.\202\265\030*Indicates "
-  "whether the channel is streaming\022H\n\013is_d"
-  "isabled\030\002 \001(\010B3\202\265\030/Indicates whether the"
-  " channel has been disabled\022C\n\005appid\030\003 \001("
-  "\rB4\202\265\0300The game ID the requested broadca"
-  "ster is playing\0229\n\007viewers\030\004 \001(\004B(\202\265\030$Nu"
-  "mber of viewers currently watching\0228\n\005vi"
-  "ews\030\005 \001(\004B)\202\265\030%Number of total views of "
-  "this channel\022>\n\023broadcaster_steamid\030\006 \001("
-  "\006B!\202\265\030\035Current broadcaster streaming\0220\n\r"
-  "thumbnail_url\030\007 \001(\tB\031\202\265\030\025Current thumbna"
-  "il URL\022:\n\tfollowers\030\010 \001(\004B\'\202\265\030#Number of"
-  " followers of this channel\022>\n\013subscriber"
-  "s\030\t \001(\004B)\202\265\030%Number of subscribers of th"
-  "is channel\022\023\n\013unique_name\030\n \001(\t\022\034\n\024broad"
-  "cast_session_id\030\013 \001(\004\"\232\001\n\'CSteamTV_Follo"
-  "wBroadcastChannel_Request\0226\n\024broadcast_c"
-  "hannel_id\030\001 \001(\006B\030\202\265\030\024Broadcast channel I"
-  "D\0227\n\004undo\030\002 \001(\010B)\202\265\030%Indicates this is a"
-  "n unfollow request\"f\n(CSteamTV_FollowBro"
-  "adcastChannel_Response\022:\n\013is_followed\030\001 "
-  "\001(\010B%\202\265\030!Whether the user is now followi"
-  "ng\"d\n*CSteamTV_SubscribeBroadcastChannel"
-  "_Request\0226\n\024broadcast_channel_id\030\001 \001(\006B\030"
-  "\202\265\030\024Broadcast channel ID\"l\n+CSteamTV_Sub"
-  "scribeBroadcastChannel_Response\022=\n\ris_su"
-  "bscribed\030\001 \001(\010B&\202\265\030\"Whether the user is "
-  "now subscribed\"I\n)CSteamTV_GetBroadcastC"
-  "hannelClips_Request\022\034\n\024broadcast_channel"
-  "_id\030\001 \001(\006\"\212\004\n\032CSteamTV_BroadcastClipInfo"
-  "\0220\n\021broadcast_clip_id\030\001 \001(\004B\025\202\265\030\021broadca"
-  "st clip ID\022,\n\nchannel_id\030\002 \001(\004B\030\202\265\030\024Broa"
-  "dcast Channel ID\0220\n\006app_id\030\003 \001(\rB \202\265\030\034Ap"
-  "p ID stream is tagged with\0224\n\023broadcaste"
-  "r_steamid\030\004 \001(\006B\027\202\265\030\023Broadcaster SteamID"
-  "\022/\n\017creator_steamid\030\005 \001(\006B\026\202\265\030\022Clip-make"
-  "r SteamID\022E\n\021video_description\030\006 \001(\tB*\202\265"
-  "\030&Short name or description of this clip"
-  "\0229\n\tlive_time\030\007 \001(\rB&\202\265\030\"GMT time clip w"
-  "as broadcasted live\022,\n\tlength_ms\030\010 \001(\rB\031"
-  "\202\265\030\025length of video in MS\022C\n\016thumbnail_p"
-  "ath\030\t \001(\tB+\202\265\030\'relative path for thumbna"
-  "il URL on host\"p\n*CSteamTV_GetBroadcastC"
-  "hannelClips_Response\022*\n\005clips\030\001 \003(\0132\033.CS"
-  "teamTV_BroadcastClipInfo\022\026\n\016thumbnail_ho"
-  "st\030\002 \001(\t\"\220\001\n\'CSteamTV_ReportBroadcastCha"
-  "nnel_Request\0226\n\024broadcast_channel_id\030\001 \001"
-  "(\006B\030\202\265\030\024Broadcast channel ID\022-\n\006reason\030\002"
-  " \001(\tB\035\202\265\030\031The reason for the report\"*\n(C"
-  "SteamTV_ReportBroadcastChannel_Response\""
-  "i\n/CSteamTV_GetBroadcastChannelInteracti"
-  "on_Request\0226\n\024broadcast_channel_id\030\001 \001(\006"
-  "B\030\202\265\030\024Broadcast channel ID\"\303\001\n0CSteamTV_"
-  "GetBroadcastChannelInteraction_Response\022"
-  "C\n\013is_followed\030\001 \001(\010B.\202\265\030*Whether the us"
-  "er has followed this channel\022J\n\ris_subsc"
-  "ribed\030\002 \001(\010B3\202\265\030/Whether the user has su"
-  "bscribed to this channel\"\372\001\n\031CSteamTV_Ge"
-  "tGames_Request\022&\n\005appid\030\001 \001(\rB\027\202\265\030\023The I"
-  "D for the game\022y\n\talgorithm\030\002 \001(\0162\023.EGet"
-  "GamesAlgorithm:\032EGetGamesAlgorithm_Defau"
-  "ltB5\202\265\0301The algorithm to use when pickin"
-  "g games to return\022:\n\005count\030\003 \001(\rB+\202\265\030\'Th"
-  "e maximum number of results to return\"\325\002"
-  "\n\rCSteamTV_Game\022&\n\005appid\030\001 \001(\rB\027\202\265\030\023The "
-  "ID for the game\022\'\n\004name\030\002 \001(\tB\031\202\265\030\025The n"
-  "ame for the game\022)\n\005image\030\003 \001(\tB\032\202\265\030\026The"
-  " image for the game\0228\n\007viewers\030\004 \001(\004B\'\202\265"
-  "\030#Number of people watching this game\022R\n"
-  "\010channels\030\005 \003(\0132\031.GetBroadcastChannelEnt"
-  "ryB%\202\265\030!Live channels streaming this gam"
-  "e\022\024\n\014release_date\030\006 \001(\t\022\021\n\tdeveloper\030\007 \001"
-  "(\t\022\021\n\tpublisher\030\010 \001(\t\"T\n\032CSteamTV_GetGam"
-  "es_Response\0226\n\007results\030\001 \003(\0132\016.CSteamTV_"
-  "GameB\025\202\265\030\021The list of games\"\225\002\n\034CSteamTV"
-  "_GetChannels_Request\022\202\001\n\talgorithm\030\001 \001(\016"
-  "2\026.EGetChannelsAlgorithm:\035EGetChannelsAl"
-  "gorithm_DefaultB8\202\265\0304The algorithm to us"
-  "e when picking channels to return\022:\n\005cou"
-  "nt\030\002 \001(\rB+\202\265\030\'The maximum number of resu"
-  "lts to return\0224\n\005appid\030\003 \001(\rB%\202\265\030!Filter"
-  " results to only this appid\"r\n\035CSteamTV_"
-  "GetChannels_Response\022Q\n\007results\030\001 \003(\0132\031."
-  "GetBroadcastChannelEntryB%\202\265\030!The list o"
-  "f featured broadcasters\"\207\001\n\033CSteamTV_Add"
-  "ChatBan_Request\022\034\n\024broadcast_channel_id\030"
-  "\001 \001(\006\022\027\n\017chatter_steamid\030\002 \001(\006\022\020\n\010durati"
-  "on\030\003 \001(\r\022\021\n\tpermanent\030\004 \001(\010\022\014\n\004undo\030\005 \001("
-  "\010\"\036\n\034CSteamTV_AddChatBan_Response\"<\n\034CSt"
-  "eamTV_GetChatBans_Request\022\034\n\024broadcast_c"
-  "hannel_id\030\001 \001(\006\"z\n\020CSteamTV_ChatBan\022\026\n\016i"
-  "ssuer_steamid\030\001 \001(\006\022\027\n\017chatter_steamid\030\002"
-  " \001(\006\022\024\n\014time_expires\030\003 \001(\t\022\021\n\tpermanent\030"
-  "\004 \001(\010\022\014\n\004name\030\005 \001(\t\"Y\n\035CSteamTV_GetChatB"
-  "ans_Response\0228\n\007results\030\001 \003(\0132\021.CSteamTV"
-  "_ChatBanB\024\202\265\030\020The list of bans\"j\n!CSteam"
-  "TV_AddChatModerator_Request\022\034\n\024broadcast"
-  "_channel_id\030\001 \001(\006\022\031\n\021moderator_steamid\030\002"
-  " \001(\006\022\014\n\004undo\030\003 \001(\010\"$\n\"CSteamTV_AddChatMo"
-  "derator_Response\"B\n\"CSteamTV_GetChatMode"
-  "rators_Request\022\034\n\024broadcast_channel_id\030\001"
-  " \001(\006\"7\n\026CSteamTV_ChatModerator\022\017\n\007steami"
-  "d\030\001 \001(\006\022\014\n\004name\030\002 \001(\t\"k\n#CSteamTV_GetCha"
-  "tModerators_Response\022D\n\007results\030\001 \003(\0132\027."
-  "CSteamTV_ChatModeratorB\032\202\265\030\026The list of "
-  "moderators\"W\n\033CSteamTV_AddWordBan_Reques"
-  "t\022\034\n\024broadcast_channel_id\030\001 \001(\006\022\014\n\004word\030"
-  "\002 \001(\t\022\014\n\004undo\030\003 \001(\010\"\036\n\034CSteamTV_AddWordB"
-  "an_Response\"<\n\034CSteamTV_GetWordBans_Requ"
-  "est\022\034\n\024broadcast_channel_id\030\001 \001(\006\"N\n\035CSt"
-  "eamTV_GetWordBans_Response\022-\n\007results\030\001 "
-  "\003(\tB\034\202\265\030\030The list of banned words\"9\n\031CSt"
-  "eamTV_JoinChat_Request\022\034\n\024broadcast_chan"
-  "nel_id\030\001 \001(\006\"a\n\032CSteamTV_JoinChat_Respon"
-  "se\022\017\n\007chat_id\030\001 \001(\006\022\031\n\021view_url_template"
-  "\030\002 \001(\t\022\027\n\017flair_group_ids\030\003 \003(\004\"\'\n\027CStea"
-  "mTV_Search_Request\022\014\n\004term\030\001 \001(\t\"d\n\030CSte"
-  "amTV_Search_Response\022H\n\007results\030\001 \003(\0132\031."
-  "GetBroadcastChannelEntryB\034\202\265\030\030The list o"
-  "f broadcasters\")\n\'CSteamTV_GetSteamTVUse"
-  "rSettings_Request\"\314\001\n(CSteamTV_GetSteamT"
-  "VUserSettings_Response\022E\n\021stream_live_em"
-  "ail\030\001 \001(\010B*\202\265\030&Send email when followed "
-  "stream starts\022Y\n\030stream_live_notificatio"
-  "n\030\002 \001(\010B7\202\265\0303Send Steam notification whe"
-  "n followed stream starts\"\313\001\n\'CSteamTV_Se"
-  "tSteamTVUserSettings_Request\022E\n\021stream_l"
-  "ive_email\030\001 \001(\010B*\202\265\030&Send email when fol"
-  "lowed stream starts\022Y\n\030stream_live_notif"
-  "ication\030\002 \001(\010B7\202\265\0303Send Steam notificati"
-  "on when followed stream starts\"*\n(CSteam"
-  "TV_SetSteamTVUserSettings_Response\")\n\'CS"
-  "teamTV_GetMyBroadcastChannels_Request\"t\n"
-  "(CSteamTV_GetMyBroadcastChannels_Respons"
-  "e\022H\n\007results\030\001 \003(\0132\031.GetBroadcastChannel"
-  "EntryB\034\202\265\030\030The list of broadcasters\"&\n$C"
-  "SteamTV_GetHomePageContents_Request\"S\n\"C"
-  "SteamTV_HomePageTemplate_Takeover\022-\n\nbro"
-  "adcasts\030\001 \003(\0132\031.GetBroadcastChannelEntry"
-  "\"s\n$CSteamTV_HomePageTemplate_SingleGame"
-  "\022-\n\nbroadcasts\030\001 \003(\0132\031.GetBroadcastChann"
-  "elEntry\022\r\n\005appid\030\002 \001(\r\022\r\n\005title\030\003 \001(\t\"_\n"
-  "\rGameListEntry\022\r\n\005appid\030\001 \001(\r\022\021\n\tgame_na"
-  "me\030\002 \001(\t\022,\n\tbroadcast\030\003 \001(\0132\031.GetBroadca"
-  "stChannelEntry\"T\n\"CSteamTV_HomePageTempl"
-  "ate_GameList\022\037\n\007entries\030\001 \003(\0132\016.GameList"
-  "Entry\022\r\n\005title\030\002 \001(\t\"f\n&CSteamTV_HomePag"
-  "eTemplate_QuickExplore\022-\n\nbroadcasts\030\001 \003"
-  "(\0132\031.GetBroadcastChannelEntry\022\r\n\005title\030\002"
-  " \001(\t\"f\n&CSteamTV_HomePageTemplate_Convey"
-  "orBelt\022-\n\nbroadcasts\030\001 \003(\0132\031.GetBroadcas"
-  "tChannelEntry\022\r\n\005title\030\002 \001(\t\"z\n$CSteamTV"
-  "_HomePageTemplate_WatchParty\022,\n\tbroadcas"
-  "t\030\001 \001(\0132\031.GetBroadcastChannelEntry\022\r\n\005ti"
-  "tle\030\002 \001(\t\022\025\n\rchat_group_id\030\003 \001(\004\"b\n#CSte"
-  "amTV_HomePageTemplate_Developer\022,\n\tbroad"
-  "cast\030\001 \001(\0132\031.GetBroadcastChannelEntry\022\r\n"
-  "\005title\030\002 \001(\t\"0\n\037CSteamTV_HomePageTemplat"
-  "e_Event\022\r\n\005title\030\001 \001(\t\"\276\004\n\033CSteamTV_Home"
-  "PageContentRow\022P\n\rtemplate_type\030\001 \001(\0162\030."
-  "ESteamTVContentTemplate:\037ESteamTVContent"
-  "Template_Invalid\0225\n\010takeover\030\002 \001(\0132#.CSt"
-  "eamTV_HomePageTemplate_Takeover\022:\n\013singl"
-  "e_game\030\003 \001(\0132%.CSteamTV_HomePageTemplate"
-  "_SingleGame\0226\n\tgame_list\030\004 \001(\0132#.CSteamT"
-  "V_HomePageTemplate_GameList\022<\n\013quicexplo"
-  "re\030\005 \001(\0132\'.CSteamTV_HomePageTemplate_Qui"
-  "ckExplore\022>\n\rconveyor_belt\030\006 \001(\0132\'.CStea"
-  "mTV_HomePageTemplate_ConveyorBelt\022:\n\013wat"
-  "ch_party\030\007 \001(\0132%.CSteamTV_HomePageTempla"
-  "te_WatchParty\0227\n\tdeveloper\030\010 \001(\0132$.CStea"
-  "mTV_HomePageTemplate_Developer\022/\n\005event\030"
-  "\t \001(\0132 .CSteamTV_HomePageTemplate_Event\""
-  "S\n%CSteamTV_GetHomePageContents_Response"
-  "\022*\n\004rows\030\001 \003(\0132\034.CSteamTV_HomePageConten"
-  "tRow\"\266\001\n!CSteamTV_AppCheer_SingleCheerTy"
-  "pe\022`\n\ncheer_type\030\001 \001(\rBL\202\265\030HThe type of "
-  "cheer. App dependent (different teams, h"
-  "eroes, players, etc)\022/\n\014cheer_amount\030\002 \001"
-  "(\rB\031\202\265\030\025The amount of cheers.\"\336\002\n\031CSteam"
-  "TV_AppCheer_Request\022-\n\006app_id\030\001 \001(\rB\035\202\265\030"
-  "\031App ID this cheer is for.\022\205\001\n\017cheer_tar"
-  "get_id\030\002 \001(\006Bl\202\265\030hThe thing being cheere"
-  "d on. ID is app dependent (could be stea"
-  "m id, match id, lobby id, server id, etc"
-  ").\022\211\001\n\006cheers\030\003 \003(\0132\".CSteamTV_AppCheer_"
-  "SingleCheerTypeBU\202\265\030QThe set of cheers t"
-  "his request represents (could be multipl"
-  "e of different types).\"\357\001\n\032CSteamTV_AppC"
-  "heer_Response\022\320\001\n\024aggregation_delay_ms\030\001"
-  " \001(\rB\261\001\202\265\030\254\001The amount of time in millis"
-  "econds that the client should aggregate "
-  "cheers before sending them. The server c"
-  "an control this dynamically to ask clien"
-  "ts to slow down sending.*\374\001\n\023EBroadcastI"
-  "mageType\022\034\n\030EBroadcastImageType_None\020\000\022\037"
-  "\n\033EBroadcastImageType_Offline\020\001\022\037\n\033EBroa"
-  "dcastImageType_Standby\020\002\022\036\n\032EBroadcastIm"
-  "ageType_Avatar\020\003\022\037\n\033EBroadcastImageType_"
-  "Summary\020\004\022\"\n\036EBroadcastImageType_Backgro"
-  "und\020\005\022 \n\034EBroadcastImageType_Emoticon\020\006*"
-  "z\n\022EGetGamesAlgorithm\022\036\n\032EGetGamesAlgori"
-  "thm_Default\020\001\022!\n\035EGetGamesAlgorithm_Most"
-  "Played\020\002\022!\n\035EGetGamesAlgorithm_PopularNe"
-  "w\020\003*\313\001\n\025EGetChannelsAlgorithm\022!\n\035EGetCha"
-  "nnelsAlgorithm_Default\020\001\022!\n\035EGetChannels"
-  "Algorithm_Friends\020\002\022\"\n\036EGetChannelsAlgor"
-  "ithm_Featured\020\003\022#\n\037EGetChannelsAlgorithm"
-  "_Developer\020\004\022#\n\037EGetChannelsAlgorithm_Fo"
-  "llowing\020\005*\370\002\n\027ESteamTVContentTemplate\022#\n"
-  "\037ESteamTVContentTemplate_Invalid\020\000\022$\n ES"
-  "teamTVContentTemplate_Takeover\020\001\022&\n\"ESte"
-  "amTVContentTemplate_SingleGame\020\002\022$\n ESte"
-  "amTVContentTemplate_GameList\020\003\022(\n$ESteam"
-  "TVContentTemplate_QuickExplore\020\004\022(\n$ESte"
-  "amTVContentTemplate_ConveyorBelt\020\005\022&\n\"ES"
-  "teamTVContentTemplate_WatchParty\020\006\022%\n!ES"
-  "teamTVContentTemplate_Developer\020\007\022!\n\035ESt"
-  "eamTVContentTemplate_Event\020\0102\277&\n\007SteamTV"
-  "\022\216\001\n\026CreateBroadcastChannel\022(.CSteamTV_C"
-  "reateBroadcastChannel_Request\032).CSteamTV"
-  "_CreateBroadcastChannel_Response\"\037\202\265\030\033Cr"
-  "eate a channel on SteamTV\022\261\001\n\025GetBroadca"
-  "stChannelID\022\'.CSteamTV_GetBroadcastChann"
-  "elID_Request\032(.CSteamTV_GetBroadcastChan"
-  "nelID_Response\"E\202\265\030AGet a broadcast chan"
-  "nel ID for a channel by name or owner St"
-  "eamID\022\241\001\n\032SetBroadcastChannelProfile\022,.C"
-  "SteamTV_SetBroadcastChannelProfile_Reque"
-  "st\032-.CSteamTV_SetBroadcastChannelProfile"
-  "_Response\"&\202\265\030\"Set broadcast channel pro"
-  "file data\022\241\001\n\032GetBroadcastChannelProfile"
-  "\022,.CSteamTV_GetBroadcastChannelProfile_R"
-  "equest\032-.CSteamTV_GetBroadcastChannelPro"
-  "file_Response\"&\202\265\030\"Get broadcast channel"
-  " profile data\022\231\001\n\030SetBroadcastChannelIma"
-  "ge\022*.CSteamTV_SetBroadcastChannelImage_R"
-  "equest\032+.CSteamTV_SetBroadcastChannelIma"
-  "ge_Response\"$\202\265\030 Set broadcast channel i"
-  "mage hash\022\230\001\n\031GetBroadcastChannelImages\022"
-  "+.CSteamTV_GetBroadcastChannelImages_Req"
-  "uest\032,.CSteamTV_GetBroadcastChannelImage"
-  "s_Response\" \202\265\030\034Get broadcast channel im"
-  "ages\022\255\001\n\036SetBroadcastChannelLinkRegions\022"
-  "0.CSteamTV_SetBroadcastChannelLinkRegion"
-  "s_Request\0321.CSteamTV_SetBroadcastChannel"
-  "LinkRegions_Response\"&\202\265\030\"Set broadcast "
-  "channel link regions\022\233\001\n\030GetBroadcastCha"
-  "nnelLinks\022*.CSteamTV_GetBroadcastChannel"
-  "Links_Request\032+.CSteamTV_GetBroadcastCha"
-  "nnelLinks_Response\"&\202\265\030\"Get broadcast ch"
-  "annel link regions\022\273\001\n\037GetBroadcastChann"
-  "elBroadcasters\0221.CSteamTV_GetBroadcastCh"
-  "annelBroadcasters_Request\0322.CSteamTV_Get"
-  "BroadcastChannelBroadcasters_Response\"1\202"
-  "\265\030-Get list of broadcaster info for this"
-  " channel\022\223\001\n\023GetFollowedChannels\022%.CStea"
-  "mTV_GetFollowedChannels_Request\032&.CSteam"
-  "TV_GetFollowedChannels_Response\"-\202\265\030)Get"
-  " list of followed channels by a viewer\022\234"
-  "\001\n\025GetSubscribedChannels\022\'.CSteamTV_GetS"
-  "ubscribedChannels_Request\032(.CSteamTV_Get"
-  "SubscribedChannels_Response\"0\202\265\030,Get lis"
-  "t of channels a user is subscribed to\022\235\001"
-  "\n\031GetBroadcastChannelStatus\022+.CSteamTV_G"
-  "etBroadcastChannelStatus_Request\032,.CStea"
-  "mTV_GetBroadcastChannelStatus_Response\"%"
-  "\202\265\030!Get broadcast channel live status\022\215\001"
-  "\n\026FollowBroadcastChannel\022(.CSteamTV_Foll"
-  "owBroadcastChannel_Request\032).CSteamTV_Fo"
-  "llowBroadcastChannel_Response\"\036\202\265\030\032Follo"
-  "w a broadcast channel\022\234\001\n\031SubscribeBroad"
-  "castChannel\022+.CSteamTV_SubscribeBroadcas"
-  "tChannel_Request\032,.CSteamTV_SubscribeBro"
-  "adcastChannel_Response\"$\202\265\030 Subscribe to"
-  " a broadcast channel\022\224\001\n\030GetBroadcastCha"
-  "nnelClips\022*.CSteamTV_GetBroadcastChannel"
-  "Clips_Request\032+.CSteamTV_GetBroadcastCha"
-  "nnelClips_Response\"\037\202\265\030\033Get broadcast ch"
-  "annel clips\022\215\001\n\026ReportBroadcastChannel\022("
-  ".CSteamTV_ReportBroadcastChannel_Request"
-  "\032).CSteamTV_ReportBroadcastChannel_Respo"
-  "nse\"\036\202\265\030\032Report a broadcast channel\022\301\001\n\036"
-  "GetBroadcastChannelInteraction\0220.CSteamT"
-  "V_GetBroadcastChannelInteraction_Request"
-  "\0321.CSteamTV_GetBroadcastChannelInteracti"
-  "on_Response\":\202\265\0306Get user\'s interaction "
-  "status with a broadcast channel\022s\n\010GetGa"
-  "mes\022\032.CSteamTV_GetGames_Request\032\033.CSteam"
-  "TV_GetGames_Response\".\202\265\030*Get list of ga"
-  "mes with active broadcasters\022}\n\013GetChann"
-  "els\022\035.CSteamTV_GetChannels_Request\032\036.CSt"
-  "eamTV_GetChannels_Response\"/\202\265\030+Get the "
-  "list of featured broadcast channels\022\240\001\n\n"
-  "AddChatBan\022\034.CSteamTV_AddChatBan_Request"
-  "\032\035.CSteamTV_AddChatBan_Response\"U\202\265\030QSet"
-  " the ban for a specific broadcaster. The"
-  " issuer is the logged in steam account\022\177"
-  "\n\013GetChatBans\022\035.CSteamTV_GetChatBans_Req"
-  "uest\032\036.CSteamTV_GetChatBans_Response\"1\202\265"
-  "\030-Get list of bans for a specific broadc"
-  "aster. \022\225\001\n\020AddChatModerator\022\".CSteamTV_"
-  "AddChatModerator_Request\032#.CSteamTV_AddC"
-  "hatModerator_Response\"8\202\265\0304Add or remove"
-  " a moderator for this broadcast channel\022"
-  "\235\001\n\021GetChatModerators\022#.CSteamTV_GetChat"
-  "Moderators_Request\032$.CSteamTV_GetChatMod"
-  "erators_Response\"=\202\265\0309Returns the list o"
-  "f moderators for this broadcast channel\022"
-  "\214\001\n\nAddWordBan\022\034.CSteamTV_AddWordBan_Req"
-  "uest\032\035.CSteamTV_AddWordBan_Response\"A\202\265\030"
-  "=Add or remove a banned keyword in this "
-  "broadcast channel chat\022\220\001\n\013GetWordBans\022\035"
-  ".CSteamTV_GetWordBans_Request\032\036.CSteamTV"
-  "_GetWordBans_Response\"B\202\265\030>Returns the l"
-  "ist of banned keywords for this broadcas"
-  "t channel\022o\n\010JoinChat\022\032.CSteamTV_JoinCha"
-  "t_Request\032\033.CSteamTV_JoinChat_Response\"*"
-  "\202\265\030&Joins the chat channel for a broadca"
-  "st\022z\n\006Search\022\030.CSteamTV_Search_Request\032\031"
-  ".CSteamTV_Search_Response\";\202\265\0307Searches "
-  "for broadcast channels based on input ke"
-  "ywords\022\224\001\n\026GetSteamTVUserSettings\022(.CSte"
-  "amTV_GetSteamTVUserSettings_Request\032).CS"
-  "teamTV_GetSteamTVUserSettings_Response\"%"
-  "\202\265\030!Returns a user\'s SteamTV settings\022\221\001"
-  "\n\026SetSteamTVUserSettings\022(.CSteamTV_SetS"
-  "teamTVUserSettings_Request\032).CSteamTV_Se"
-  "tSteamTVUserSettings_Response\"\"\202\265\030\036Sets "
-  "a user\'s SteamTV settings\022\251\001\n\026GetMyBroad"
-  "castChannels\022(.CSteamTV_GetMyBroadcastCh"
-  "annels_Request\032).CSteamTV_GetMyBroadcast"
-  "Channels_Response\":\202\265\0306Gets the broadcas"
-  "t channels that the current user owns\022\214\001"
-  "\n\023GetHomePageContents\022%.CSteamTV_GetHome"
-  "PageContents_Request\032&.CSteamTV_GetHomeP"
-  "ageContents_Response\"&\202\265\030\"Returns homepa"
-  "ge contents for user\022\212\001\n\010AppCheer\022\032.CSte"
-  "amTV_AppCheer_Request\032\033.CSteamTV_AppChee"
-  "r_Response\"E\202\265\030AThe user is cheering for"
-  " a specific broadcast for a specific app"
-  ".\032#\202\265\030\037Methods for Steam TV operationsB\035"
+  "er\032@\n\013Broadcaster\022\017\n\007steamid\030\001 \001(\006\022\014\n\004na"
+  "me\030\002 \001(\t\022\022\n\nrtmp_token\030\003 \001(\t\"&\n$CSteamTV"
+  "_GetFollowedChannels_Request\"\230\003\n\030GetBroa"
+  "dcastChannelEntry\022\034\n\024broadcast_channel_i"
+  "d\030\001 \001(\006\022\023\n\013unique_name\030\002 \001(\t\022\014\n\004name\030\003 \001"
+  "(\t\022\r\n\005appid\030\004 \001(\r\022\017\n\007viewers\030\005 \001(\004\022\r\n\005vi"
+  "ews\030\006 \001(\004\022\025\n\rthumbnail_url\030\007 \001(\t\022\021\n\tfoll"
+  "owers\030\010 \001(\004\022\020\n\010headline\030\t \001(\t\022\022\n\navatar_"
+  "url\030\n \001(\t\022\033\n\023broadcaster_steamid\030\013 \001(\006\022\023"
+  "\n\013subscribers\030\014 \001(\004\022\026\n\016background_url\030\r "
+  "\001(\t\022\023\n\013is_featured\030\016 \001(\010\022\023\n\013is_disabled\030"
+  "\017 \001(\010\022\017\n\007is_live\030\020 \001(\010\022\020\n\010language\030\021 \001(\t"
+  "\022\017\n\007reports\030\022 \001(\r\022\024\n\014is_partnered\030\023 \001(\010\""
+  "S\n%CSteamTV_GetFollowedChannels_Response"
+  "\022*\n\007results\030\001 \003(\0132\031.GetBroadcastChannelE"
+  "ntry\"(\n&CSteamTV_GetSubscribedChannels_R"
+  "equest\"U\n\'CSteamTV_GetSubscribedChannels"
+  "_Response\022*\n\007results\030\001 \003(\0132\031.GetBroadcas"
+  "tChannelEntry\"J\n*CSteamTV_GetBroadcastCh"
+  "annelStatus_Request\022\034\n\024broadcast_channel"
+  "_id\030\001 \001(\006\"\221\002\n+CSteamTV_GetBroadcastChann"
+  "elStatus_Response\022\017\n\007is_live\030\001 \001(\010\022\023\n\013is"
+  "_disabled\030\002 \001(\010\022\r\n\005appid\030\003 \001(\r\022\017\n\007viewer"
+  "s\030\004 \001(\004\022\r\n\005views\030\005 \001(\004\022\033\n\023broadcaster_st"
+  "eamid\030\006 \001(\006\022\025\n\rthumbnail_url\030\007 \001(\t\022\021\n\tfo"
+  "llowers\030\010 \001(\004\022\023\n\013subscribers\030\t \001(\004\022\023\n\013un"
+  "ique_name\030\n \001(\t\022\034\n\024broadcast_session_id\030"
+  "\013 \001(\004\"U\n\'CSteamTV_FollowBroadcastChannel"
+  "_Request\022\034\n\024broadcast_channel_id\030\001 \001(\006\022\014"
+  "\n\004undo\030\002 \001(\010\"\?\n(CSteamTV_FollowBroadcast"
+  "Channel_Response\022\023\n\013is_followed\030\001 \001(\010\"J\n"
+  "*CSteamTV_SubscribeBroadcastChannel_Requ"
+  "est\022\034\n\024broadcast_channel_id\030\001 \001(\006\"D\n+CSt"
+  "eamTV_SubscribeBroadcastChannel_Response"
+  "\022\025\n\ris_subscribed\030\001 \001(\010\"I\n)CSteamTV_GetB"
+  "roadcastChannelClips_Request\022\034\n\024broadcas"
+  "t_channel_id\030\001 \001(\006\"\352\001\n\032CSteamTV_Broadcas"
+  "tClipInfo\022\031\n\021broadcast_clip_id\030\001 \001(\004\022\022\n\n"
+  "channel_id\030\002 \001(\004\022\016\n\006app_id\030\003 \001(\r\022\033\n\023broa"
+  "dcaster_steamid\030\004 \001(\006\022\027\n\017creator_steamid"
+  "\030\005 \001(\006\022\031\n\021video_description\030\006 \001(\t\022\021\n\tliv"
+  "e_time\030\007 \001(\r\022\021\n\tlength_ms\030\010 \001(\r\022\026\n\016thumb"
+  "nail_path\030\t \001(\t\"p\n*CSteamTV_GetBroadcast"
+  "ChannelClips_Response\022*\n\005clips\030\001 \003(\0132\033.C"
+  "SteamTV_BroadcastClipInfo\022\026\n\016thumbnail_h"
+  "ost\030\002 \001(\t\"W\n\'CSteamTV_ReportBroadcastCha"
+  "nnel_Request\022\034\n\024broadcast_channel_id\030\001 \001"
+  "(\006\022\016\n\006reason\030\002 \001(\t\"*\n(CSteamTV_ReportBro"
+  "adcastChannel_Response\"O\n/CSteamTV_GetBr"
+  "oadcastChannelInteraction_Request\022\034\n\024bro"
+  "adcast_channel_id\030\001 \001(\006\"^\n0CSteamTV_GetB"
+  "roadcastChannelInteraction_Response\022\023\n\013i"
+  "s_followed\030\001 \001(\010\022\025\n\ris_subscribed\030\002 \001(\010\""
+  "}\n\031CSteamTV_GetGames_Request\022\r\n\005appid\030\001 "
+  "\001(\r\022B\n\talgorithm\030\002 \001(\0162\023.EGetGamesAlgori"
+  "thm:\032EGetGamesAlgorithm_Default\022\r\n\005count"
+  "\030\003 \001(\r\"\265\001\n\rCSteamTV_Game\022\r\n\005appid\030\001 \001(\r\022"
+  "\014\n\004name\030\002 \001(\t\022\r\n\005image\030\003 \001(\t\022\017\n\007viewers\030"
+  "\004 \001(\004\022+\n\010channels\030\005 \003(\0132\031.GetBroadcastCh"
+  "annelEntry\022\024\n\014release_date\030\006 \001(\t\022\021\n\tdeve"
+  "loper\030\007 \001(\t\022\021\n\tpublisher\030\010 \001(\t\"=\n\032CSteam"
+  "TV_GetGames_Response\022\037\n\007results\030\001 \003(\0132\016."
+  "CSteamTV_Game\"\206\001\n\034CSteamTV_GetChannels_R"
+  "equest\022H\n\talgorithm\030\001 \001(\0162\026.EGetChannels"
+  "Algorithm:\035EGetChannelsAlgorithm_Default"
+  "\022\r\n\005count\030\002 \001(\r\022\r\n\005appid\030\003 \001(\r\"K\n\035CSteam"
+  "TV_GetChannels_Response\022*\n\007results\030\001 \003(\013"
+  "2\031.GetBroadcastChannelEntry\"\207\001\n\033CSteamTV"
+  "_AddChatBan_Request\022\034\n\024broadcast_channel"
+  "_id\030\001 \001(\006\022\027\n\017chatter_steamid\030\002 \001(\006\022\020\n\010du"
+  "ration\030\003 \001(\r\022\021\n\tpermanent\030\004 \001(\010\022\014\n\004undo\030"
+  "\005 \001(\010\"\036\n\034CSteamTV_AddChatBan_Response\"<\n"
+  "\034CSteamTV_GetChatBans_Request\022\034\n\024broadca"
+  "st_channel_id\030\001 \001(\006\"z\n\020CSteamTV_ChatBan\022"
+  "\026\n\016issuer_steamid\030\001 \001(\006\022\027\n\017chatter_steam"
+  "id\030\002 \001(\006\022\024\n\014time_expires\030\003 \001(\t\022\021\n\tperman"
+  "ent\030\004 \001(\010\022\014\n\004name\030\005 \001(\t\"C\n\035CSteamTV_GetC"
+  "hatBans_Response\022\"\n\007results\030\001 \003(\0132\021.CSte"
+  "amTV_ChatBan\"j\n!CSteamTV_AddChatModerato"
+  "r_Request\022\034\n\024broadcast_channel_id\030\001 \001(\006\022"
+  "\031\n\021moderator_steamid\030\002 \001(\006\022\014\n\004undo\030\003 \001(\010"
+  "\"$\n\"CSteamTV_AddChatModerator_Response\"B"
+  "\n\"CSteamTV_GetChatModerators_Request\022\034\n\024"
+  "broadcast_channel_id\030\001 \001(\006\"7\n\026CSteamTV_C"
+  "hatModerator\022\017\n\007steamid\030\001 \001(\006\022\014\n\004name\030\002 "
+  "\001(\t\"O\n#CSteamTV_GetChatModerators_Respon"
+  "se\022(\n\007results\030\001 \003(\0132\027.CSteamTV_ChatModer"
+  "ator\"W\n\033CSteamTV_AddWordBan_Request\022\034\n\024b"
+  "roadcast_channel_id\030\001 \001(\006\022\014\n\004word\030\002 \001(\t\022"
+  "\014\n\004undo\030\003 \001(\010\"\036\n\034CSteamTV_AddWordBan_Res"
+  "ponse\"<\n\034CSteamTV_GetWordBans_Request\022\034\n"
+  "\024broadcast_channel_id\030\001 \001(\006\"0\n\035CSteamTV_"
+  "GetWordBans_Response\022\017\n\007results\030\001 \003(\t\"9\n"
+  "\031CSteamTV_JoinChat_Request\022\034\n\024broadcast_"
+  "channel_id\030\001 \001(\006\"a\n\032CSteamTV_JoinChat_Re"
+  "sponse\022\017\n\007chat_id\030\001 \001(\006\022\031\n\021view_url_temp"
+  "late\030\002 \001(\t\022\027\n\017flair_group_ids\030\003 \003(\004\"\'\n\027C"
+  "SteamTV_Search_Request\022\014\n\004term\030\001 \001(\t\"F\n\030"
+  "CSteamTV_Search_Response\022*\n\007results\030\001 \003("
+  "\0132\031.GetBroadcastChannelEntry\")\n\'CSteamTV"
+  "_GetSteamTVUserSettings_Request\"g\n(CStea"
+  "mTV_GetSteamTVUserSettings_Response\022\031\n\021s"
+  "tream_live_email\030\001 \001(\010\022 \n\030stream_live_no"
+  "tification\030\002 \001(\010\"f\n\'CSteamTV_SetSteamTVU"
+  "serSettings_Request\022\031\n\021stream_live_email"
+  "\030\001 \001(\010\022 \n\030stream_live_notification\030\002 \001(\010"
+  "\"*\n(CSteamTV_SetSteamTVUserSettings_Resp"
+  "onse\")\n\'CSteamTV_GetMyBroadcastChannels_"
+  "Request\"V\n(CSteamTV_GetMyBroadcastChanne"
+  "ls_Response\022*\n\007results\030\001 \003(\0132\031.GetBroadc"
+  "astChannelEntry\"&\n$CSteamTV_GetHomePageC"
+  "ontents_Request\"S\n\"CSteamTV_HomePageTemp"
+  "late_Takeover\022-\n\nbroadcasts\030\001 \003(\0132\031.GetB"
+  "roadcastChannelEntry\"s\n$CSteamTV_HomePag"
+  "eTemplate_SingleGame\022-\n\nbroadcasts\030\001 \003(\013"
+  "2\031.GetBroadcastChannelEntry\022\r\n\005appid\030\002 \001"
+  "(\r\022\r\n\005title\030\003 \001(\t\"_\n\rGameListEntry\022\r\n\005ap"
+  "pid\030\001 \001(\r\022\021\n\tgame_name\030\002 \001(\t\022,\n\tbroadcas"
+  "t\030\003 \001(\0132\031.GetBroadcastChannelEntry\"T\n\"CS"
+  "teamTV_HomePageTemplate_GameList\022\037\n\007entr"
+  "ies\030\001 \003(\0132\016.GameListEntry\022\r\n\005title\030\002 \001(\t"
+  "\"f\n&CSteamTV_HomePageTemplate_QuickExplo"
+  "re\022-\n\nbroadcasts\030\001 \003(\0132\031.GetBroadcastCha"
+  "nnelEntry\022\r\n\005title\030\002 \001(\t\"f\n&CSteamTV_Hom"
+  "ePageTemplate_ConveyorBelt\022-\n\nbroadcasts"
+  "\030\001 \003(\0132\031.GetBroadcastChannelEntry\022\r\n\005tit"
+  "le\030\002 \001(\t\"z\n$CSteamTV_HomePageTemplate_Wa"
+  "tchParty\022,\n\tbroadcast\030\001 \001(\0132\031.GetBroadca"
+  "stChannelEntry\022\r\n\005title\030\002 \001(\t\022\025\n\rchat_gr"
+  "oup_id\030\003 \001(\004\"b\n#CSteamTV_HomePageTemplat"
+  "e_Developer\022,\n\tbroadcast\030\001 \001(\0132\031.GetBroa"
+  "dcastChannelEntry\022\r\n\005title\030\002 \001(\t\"0\n\037CSte"
+  "amTV_HomePageTemplate_Event\022\r\n\005title\030\001 \001"
+  "(\t\"\276\004\n\033CSteamTV_HomePageContentRow\022P\n\rte"
+  "mplate_type\030\001 \001(\0162\030.ESteamTVContentTempl"
+  "ate:\037ESteamTVContentTemplate_Invalid\0225\n\010"
+  "takeover\030\002 \001(\0132#.CSteamTV_HomePageTempla"
+  "te_Takeover\022:\n\013single_game\030\003 \001(\0132%.CStea"
+  "mTV_HomePageTemplate_SingleGame\0226\n\tgame_"
+  "list\030\004 \001(\0132#.CSteamTV_HomePageTemplate_G"
+  "ameList\022<\n\013quicexplore\030\005 \001(\0132\'.CSteamTV_"
+  "HomePageTemplate_QuickExplore\022>\n\rconveyo"
+  "r_belt\030\006 \001(\0132\'.CSteamTV_HomePageTemplate"
+  "_ConveyorBelt\022:\n\013watch_party\030\007 \001(\0132%.CSt"
+  "eamTV_HomePageTemplate_WatchParty\0227\n\tdev"
+  "eloper\030\010 \001(\0132$.CSteamTV_HomePageTemplate"
+  "_Developer\022/\n\005event\030\t \001(\0132 .CSteamTV_Hom"
+  "ePageTemplate_Event\"S\n%CSteamTV_GetHomeP"
+  "ageContents_Response\022*\n\004rows\030\001 \003(\0132\034.CSt"
+  "eamTV_HomePageContentRow\"M\n!CSteamTV_App"
+  "Cheer_SingleCheerType\022\022\n\ncheer_type\030\001 \001("
+  "\r\022\024\n\014cheer_amount\030\002 \001(\r\"x\n\031CSteamTV_AppC"
+  "heer_Request\022\016\n\006app_id\030\001 \001(\r\022\027\n\017cheer_ta"
+  "rget_id\030\002 \001(\006\0222\n\006cheers\030\003 \003(\0132\".CSteamTV"
+  "_AppCheer_SingleCheerType\":\n\032CSteamTV_Ap"
+  "pCheer_Response\022\034\n\024aggregation_delay_ms\030"
+  "\001 \001(\r*\374\001\n\023EBroadcastImageType\022\034\n\030EBroadc"
+  "astImageType_None\020\000\022\037\n\033EBroadcastImageTy"
+  "pe_Offline\020\001\022\037\n\033EBroadcastImageType_Stan"
+  "dby\020\002\022\036\n\032EBroadcastImageType_Avatar\020\003\022\037\n"
+  "\033EBroadcastImageType_Summary\020\004\022\"\n\036EBroad"
+  "castImageType_Background\020\005\022 \n\034EBroadcast"
+  "ImageType_Emoticon\020\006*z\n\022EGetGamesAlgorit"
+  "hm\022\036\n\032EGetGamesAlgorithm_Default\020\001\022!\n\035EG"
+  "etGamesAlgorithm_MostPlayed\020\002\022!\n\035EGetGam"
+  "esAlgorithm_PopularNew\020\003*\313\001\n\025EGetChannel"
+  "sAlgorithm\022!\n\035EGetChannelsAlgorithm_Defa"
+  "ult\020\001\022!\n\035EGetChannelsAlgorithm_Friends\020\002"
+  "\022\"\n\036EGetChannelsAlgorithm_Featured\020\003\022#\n\037"
+  "EGetChannelsAlgorithm_Developer\020\004\022#\n\037EGe"
+  "tChannelsAlgorithm_Following\020\005*\370\002\n\027EStea"
+  "mTVContentTemplate\022#\n\037ESteamTVContentTem"
+  "plate_Invalid\020\000\022$\n ESteamTVContentTempla"
+  "te_Takeover\020\001\022&\n\"ESteamTVContentTemplate"
+  "_SingleGame\020\002\022$\n ESteamTVContentTemplate"
+  "_GameList\020\003\022(\n$ESteamTVContentTemplate_Q"
+  "uickExplore\020\004\022(\n$ESteamTVContentTemplate"
+  "_ConveyorBelt\020\005\022&\n\"ESteamTVContentTempla"
+  "te_WatchParty\020\006\022%\n!ESteamTVContentTempla"
+  "te_Developer\020\007\022!\n\035ESteamTVContentTemplat"
+  "e_Event\020\0102\352\031\n\007SteamTV\022m\n\026CreateBroadcast"
+  "Channel\022(.CSteamTV_CreateBroadcastChanne"
+  "l_Request\032).CSteamTV_CreateBroadcastChan"
+  "nel_Response\022j\n\025GetBroadcastChannelID\022\'."
+  "CSteamTV_GetBroadcastChannelID_Request\032("
+  ".CSteamTV_GetBroadcastChannelID_Response"
+  "\022y\n\032SetBroadcastChannelProfile\022,.CSteamT"
+  "V_SetBroadcastChannelProfile_Request\032-.C"
+  "SteamTV_SetBroadcastChannelProfile_Respo"
+  "nse\022y\n\032GetBroadcastChannelProfile\022,.CSte"
+  "amTV_GetBroadcastChannelProfile_Request\032"
+  "-.CSteamTV_GetBroadcastChannelProfile_Re"
+  "sponse\022s\n\030SetBroadcastChannelImage\022*.CSt"
+  "eamTV_SetBroadcastChannelImage_Request\032+"
+  ".CSteamTV_SetBroadcastChannelImage_Respo"
+  "nse\022v\n\031GetBroadcastChannelImages\022+.CStea"
+  "mTV_GetBroadcastChannelImages_Request\032,."
+  "CSteamTV_GetBroadcastChannelImages_Respo"
+  "nse\022\205\001\n\036SetBroadcastChannelLinkRegions\0220"
+  ".CSteamTV_SetBroadcastChannelLinkRegions"
+  "_Request\0321.CSteamTV_SetBroadcastChannelL"
+  "inkRegions_Response\022s\n\030GetBroadcastChann"
+  "elLinks\022*.CSteamTV_GetBroadcastChannelLi"
+  "nks_Request\032+.CSteamTV_GetBroadcastChann"
+  "elLinks_Response\022\210\001\n\037GetBroadcastChannel"
+  "Broadcasters\0221.CSteamTV_GetBroadcastChan"
+  "nelBroadcasters_Request\0322.CSteamTV_GetBr"
+  "oadcastChannelBroadcasters_Response\022d\n\023G"
+  "etFollowedChannels\022%.CSteamTV_GetFollowe"
+  "dChannels_Request\032&.CSteamTV_GetFollowed"
+  "Channels_Response\022j\n\025GetSubscribedChanne"
+  "ls\022\'.CSteamTV_GetSubscribedChannels_Requ"
+  "est\032(.CSteamTV_GetSubscribedChannels_Res"
+  "ponse\022v\n\031GetBroadcastChannelStatus\022+.CSt"
+  "eamTV_GetBroadcastChannelStatus_Request\032"
+  ",.CSteamTV_GetBroadcastChannelStatus_Res"
+  "ponse\022m\n\026FollowBroadcastChannel\022(.CSteam"
+  "TV_FollowBroadcastChannel_Request\032).CSte"
+  "amTV_FollowBroadcastChannel_Response\022v\n\031"
+  "SubscribeBroadcastChannel\022+.CSteamTV_Sub"
+  "scribeBroadcastChannel_Request\032,.CSteamT"
+  "V_SubscribeBroadcastChannel_Response\022s\n\030"
+  "GetBroadcastChannelClips\022*.CSteamTV_GetB"
+  "roadcastChannelClips_Request\032+.CSteamTV_"
+  "GetBroadcastChannelClips_Response\022m\n\026Rep"
+  "ortBroadcastChannel\022(.CSteamTV_ReportBro"
+  "adcastChannel_Request\032).CSteamTV_ReportB"
+  "roadcastChannel_Response\022\205\001\n\036GetBroadcas"
+  "tChannelInteraction\0220.CSteamTV_GetBroadc"
+  "astChannelInteraction_Request\0321.CSteamTV"
+  "_GetBroadcastChannelInteraction_Response"
+  "\022C\n\010GetGames\022\032.CSteamTV_GetGames_Request"
+  "\032\033.CSteamTV_GetGames_Response\022L\n\013GetChan"
+  "nels\022\035.CSteamTV_GetChannels_Request\032\036.CS"
+  "teamTV_GetChannels_Response\022I\n\nAddChatBa"
+  "n\022\034.CSteamTV_AddChatBan_Request\032\035.CSteam"
+  "TV_AddChatBan_Response\022L\n\013GetChatBans\022\035."
+  "CSteamTV_GetChatBans_Request\032\036.CSteamTV_"
+  "GetChatBans_Response\022[\n\020AddChatModerator"
+  "\022\".CSteamTV_AddChatModerator_Request\032#.C"
+  "SteamTV_AddChatModerator_Response\022^\n\021Get"
+  "ChatModerators\022#.CSteamTV_GetChatModerat"
+  "ors_Request\032$.CSteamTV_GetChatModerators"
+  "_Response\022I\n\nAddWordBan\022\034.CSteamTV_AddWo"
+  "rdBan_Request\032\035.CSteamTV_AddWordBan_Resp"
+  "onse\022L\n\013GetWordBans\022\035.CSteamTV_GetWordBa"
+  "ns_Request\032\036.CSteamTV_GetWordBans_Respon"
+  "se\022C\n\010JoinChat\022\032.CSteamTV_JoinChat_Reque"
+  "st\032\033.CSteamTV_JoinChat_Response\022=\n\006Searc"
+  "h\022\030.CSteamTV_Search_Request\032\031.CSteamTV_S"
+  "earch_Response\022m\n\026GetSteamTVUserSettings"
+  "\022(.CSteamTV_GetSteamTVUserSettings_Reque"
+  "st\032).CSteamTV_GetSteamTVUserSettings_Res"
+  "ponse\022m\n\026SetSteamTVUserSettings\022(.CSteam"
+  "TV_SetSteamTVUserSettings_Request\032).CSte"
+  "amTV_SetSteamTVUserSettings_Response\022m\n\026"
+  "GetMyBroadcastChannels\022(.CSteamTV_GetMyB"
+  "roadcastChannels_Request\032).CSteamTV_GetM"
+  "yBroadcastChannels_Response\022d\n\023GetHomePa"
+  "geContents\022%.CSteamTV_GetHomePageContent"
+  "s_Request\032&.CSteamTV_GetHomePageContents"
+  "_Response\022C\n\010AppCheer\022\032.CSteamTV_AppChee"
+  "r_Request\032\033.CSteamTV_AppCheer_ResponseB\035"
   "\200\001\001\252\002\027OpenSteamworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fsteamtv_2esteamclient_2eproto_deps[3] = {
@@ -2660,7 +2487,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fsteamtv_2esteamclient_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fsteamtv_2esteamclient_2eproto = {
-  false, false, 20069, descriptor_table_protodef_steammessages_5fsteamtv_2esteamclient_2eproto, "steammessages_steamtv.steamclient.proto", 
+  false, false, 13149, descriptor_table_protodef_steammessages_5fsteamtv_2esteamclient_2eproto, "steammessages_steamtv.steamclient.proto", 
   &descriptor_table_steammessages_5fsteamtv_2esteamclient_2eproto_once, descriptor_table_steammessages_5fsteamtv_2esteamclient_2eproto_deps, 3, 84,
   schemas, file_default_instances, TableStruct_steammessages_5fsteamtv_2esteamclient_2eproto::offsets,
   file_level_metadata_steammessages_5fsteamtv_2esteamclient_2eproto, file_level_enum_descriptors_steammessages_5fsteamtv_2esteamclient_2eproto, file_level_service_descriptors_steammessages_5fsteamtv_2esteamclient_2eproto,
@@ -2821,7 +2648,7 @@ const char* CSteamTV_CreateBroadcastChannel_Request::_InternalParse(const char* 
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional string unique_name = 1 [(.description) = "Unique short broadcast channel name, part of Steam.TV URL"];
+      // optional string unique_name = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           auto str = _internal_mutable_unique_name();
@@ -2862,7 +2689,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional string unique_name = 1 [(.description) = "Unique short broadcast channel name, part of Steam.TV URL"];
+  // optional string unique_name = 1;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_unique_name().data(), static_cast<int>(this->_internal_unique_name().length()),
@@ -2888,7 +2715,7 @@ size_t CSteamTV_CreateBroadcastChannel_Request::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // optional string unique_name = 1 [(.description) = "Unique short broadcast channel name, part of Steam.TV URL"];
+  // optional string unique_name = 1;
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += 1 +
@@ -3029,7 +2856,7 @@ const char* CSteamTV_CreateBroadcastChannel_Response::_InternalParse(const char*
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID or 0"];
+      // optional fixed64 broadcast_channel_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
           _Internal::set_has_broadcast_channel_id(&has_bits);
@@ -3067,7 +2894,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID or 0"];
+  // optional fixed64 broadcast_channel_id = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_broadcast_channel_id(), target);
@@ -3089,7 +2916,7 @@ size_t CSteamTV_CreateBroadcastChannel_Response::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID or 0"];
+  // optional fixed64 broadcast_channel_id = 1;
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += 1 + 8;
@@ -3236,7 +3063,7 @@ const char* CSteamTV_GetBroadcastChannelID_Request::_InternalParse(const char* p
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional string unique_name = 1 [(.description) = "Channel short name)"];
+      // optional string unique_name = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           auto str = _internal_mutable_unique_name();
@@ -3277,7 +3104,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional string unique_name = 1 [(.description) = "Channel short name)"];
+  // optional string unique_name = 1;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_unique_name().data(), static_cast<int>(this->_internal_unique_name().length()),
@@ -3303,7 +3130,7 @@ size_t CSteamTV_GetBroadcastChannelID_Request::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // optional string unique_name = 1 [(.description) = "Channel short name)"];
+  // optional string unique_name = 1;
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += 1 +
@@ -3470,7 +3297,7 @@ const char* CSteamTV_GetBroadcastChannelID_Response::_InternalParse(const char* 
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID or 0"];
+      // optional fixed64 broadcast_channel_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
           _Internal::set_has_broadcast_channel_id(&has_bits);
@@ -3478,7 +3305,7 @@ const char* CSteamTV_GetBroadcastChannelID_Response::_InternalParse(const char* 
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
         } else goto handle_unusual;
         continue;
-      // optional string unique_name = 2 [(.description) = "Broadcast channel name"];
+      // optional string unique_name = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           auto str = _internal_mutable_unique_name();
@@ -3489,7 +3316,7 @@ const char* CSteamTV_GetBroadcastChannelID_Response::_InternalParse(const char* 
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional fixed64 steamid = 3 [(.description) = "Broadcast channel owner"];
+      // optional fixed64 steamid = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 25)) {
           _Internal::set_has_steamid(&has_bits);
@@ -3527,13 +3354,13 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID or 0"];
+  // optional fixed64 broadcast_channel_id = 1;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_broadcast_channel_id(), target);
   }
 
-  // optional string unique_name = 2 [(.description) = "Broadcast channel name"];
+  // optional string unique_name = 2;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_unique_name().data(), static_cast<int>(this->_internal_unique_name().length()),
@@ -3543,7 +3370,7 @@ failure:
         2, this->_internal_unique_name(), target);
   }
 
-  // optional fixed64 steamid = 3 [(.description) = "Broadcast channel owner"];
+  // optional fixed64 steamid = 3;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(3, this->_internal_steamid(), target);
@@ -3567,19 +3394,19 @@ size_t CSteamTV_GetBroadcastChannelID_Response::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000007u) {
-    // optional string unique_name = 2 [(.description) = "Broadcast channel name"];
+    // optional string unique_name = 2;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_unique_name());
     }
 
-    // optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID or 0"];
+    // optional fixed64 broadcast_channel_id = 1;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 + 8;
     }
 
-    // optional fixed64 steamid = 3 [(.description) = "Broadcast channel owner"];
+    // optional fixed64 steamid = 3;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 + 8;
     }
@@ -3841,7 +3668,7 @@ const char* CSteamTV_SetBroadcastChannelProfile_Request::_InternalParse(const ch
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID"];
+      // optional fixed64 broadcast_channel_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
           _Internal::set_has_broadcast_channel_id(&has_bits);
@@ -3849,7 +3676,7 @@ const char* CSteamTV_SetBroadcastChannelProfile_Request::_InternalParse(const ch
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
         } else goto handle_unusual;
         continue;
-      // optional string name = 2 [(.description) = "long channel name"];
+      // optional string name = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           auto str = _internal_mutable_name();
@@ -3860,7 +3687,7 @@ const char* CSteamTV_SetBroadcastChannelProfile_Request::_InternalParse(const ch
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string language = 3 [(.description) = "primary channel language (Steam shortname)"];
+      // optional string language = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           auto str = _internal_mutable_language();
@@ -3871,7 +3698,7 @@ const char* CSteamTV_SetBroadcastChannelProfile_Request::_InternalParse(const ch
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string headline = 4 [(.description) = "short channel desciption"];
+      // optional string headline = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
           auto str = _internal_mutable_headline();
@@ -3882,7 +3709,7 @@ const char* CSteamTV_SetBroadcastChannelProfile_Request::_InternalParse(const ch
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string summary = 5 [(.description) = "long channel desciption"];
+      // optional string summary = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
           auto str = _internal_mutable_summary();
@@ -3893,7 +3720,7 @@ const char* CSteamTV_SetBroadcastChannelProfile_Request::_InternalParse(const ch
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string avatar_hash = 6 [(.description) = "community avatar hash"];
+      // optional string avatar_hash = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
           auto str = _internal_mutable_avatar_hash();
@@ -3904,7 +3731,7 @@ const char* CSteamTV_SetBroadcastChannelProfile_Request::_InternalParse(const ch
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string schedule = 7 [(.description) = "broadcast channel schedule"];
+      // optional string schedule = 7;
       case 7:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
           auto str = _internal_mutable_schedule();
@@ -3915,7 +3742,7 @@ const char* CSteamTV_SetBroadcastChannelProfile_Request::_InternalParse(const ch
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string rules = 8 [(.description) = "broadcast channel rules"];
+      // optional string rules = 8;
       case 8:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 66)) {
           auto str = _internal_mutable_rules();
@@ -3926,7 +3753,7 @@ const char* CSteamTV_SetBroadcastChannelProfile_Request::_InternalParse(const ch
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string panels = 9 [(.description) = "JSON data representing the channel panel layout"];
+      // optional string panels = 9;
       case 9:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 74)) {
           auto str = _internal_mutable_panels();
@@ -3967,13 +3794,13 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID"];
+  // optional fixed64 broadcast_channel_id = 1;
   if (cached_has_bits & 0x00000100u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_broadcast_channel_id(), target);
   }
 
-  // optional string name = 2 [(.description) = "long channel name"];
+  // optional string name = 2;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
@@ -3983,7 +3810,7 @@ failure:
         2, this->_internal_name(), target);
   }
 
-  // optional string language = 3 [(.description) = "primary channel language (Steam shortname)"];
+  // optional string language = 3;
   if (cached_has_bits & 0x00000002u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_language().data(), static_cast<int>(this->_internal_language().length()),
@@ -3993,7 +3820,7 @@ failure:
         3, this->_internal_language(), target);
   }
 
-  // optional string headline = 4 [(.description) = "short channel desciption"];
+  // optional string headline = 4;
   if (cached_has_bits & 0x00000004u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_headline().data(), static_cast<int>(this->_internal_headline().length()),
@@ -4003,7 +3830,7 @@ failure:
         4, this->_internal_headline(), target);
   }
 
-  // optional string summary = 5 [(.description) = "long channel desciption"];
+  // optional string summary = 5;
   if (cached_has_bits & 0x00000008u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_summary().data(), static_cast<int>(this->_internal_summary().length()),
@@ -4013,7 +3840,7 @@ failure:
         5, this->_internal_summary(), target);
   }
 
-  // optional string avatar_hash = 6 [(.description) = "community avatar hash"];
+  // optional string avatar_hash = 6;
   if (cached_has_bits & 0x00000010u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_avatar_hash().data(), static_cast<int>(this->_internal_avatar_hash().length()),
@@ -4023,7 +3850,7 @@ failure:
         6, this->_internal_avatar_hash(), target);
   }
 
-  // optional string schedule = 7 [(.description) = "broadcast channel schedule"];
+  // optional string schedule = 7;
   if (cached_has_bits & 0x00000020u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_schedule().data(), static_cast<int>(this->_internal_schedule().length()),
@@ -4033,7 +3860,7 @@ failure:
         7, this->_internal_schedule(), target);
   }
 
-  // optional string rules = 8 [(.description) = "broadcast channel rules"];
+  // optional string rules = 8;
   if (cached_has_bits & 0x00000040u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_rules().data(), static_cast<int>(this->_internal_rules().length()),
@@ -4043,7 +3870,7 @@ failure:
         8, this->_internal_rules(), target);
   }
 
-  // optional string panels = 9 [(.description) = "JSON data representing the channel panel layout"];
+  // optional string panels = 9;
   if (cached_has_bits & 0x00000080u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_panels().data(), static_cast<int>(this->_internal_panels().length()),
@@ -4071,56 +3898,56 @@ size_t CSteamTV_SetBroadcastChannelProfile_Request::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x000000ffu) {
-    // optional string name = 2 [(.description) = "long channel name"];
+    // optional string name = 2;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_name());
     }
 
-    // optional string language = 3 [(.description) = "primary channel language (Steam shortname)"];
+    // optional string language = 3;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_language());
     }
 
-    // optional string headline = 4 [(.description) = "short channel desciption"];
+    // optional string headline = 4;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_headline());
     }
 
-    // optional string summary = 5 [(.description) = "long channel desciption"];
+    // optional string summary = 5;
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_summary());
     }
 
-    // optional string avatar_hash = 6 [(.description) = "community avatar hash"];
+    // optional string avatar_hash = 6;
     if (cached_has_bits & 0x00000010u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_avatar_hash());
     }
 
-    // optional string schedule = 7 [(.description) = "broadcast channel schedule"];
+    // optional string schedule = 7;
     if (cached_has_bits & 0x00000020u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_schedule());
     }
 
-    // optional string rules = 8 [(.description) = "broadcast channel rules"];
+    // optional string rules = 8;
     if (cached_has_bits & 0x00000040u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_rules());
     }
 
-    // optional string panels = 9 [(.description) = "JSON data representing the channel panel layout"];
+    // optional string panels = 9;
     if (cached_has_bits & 0x00000080u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
@@ -4128,7 +3955,7 @@ size_t CSteamTV_SetBroadcastChannelProfile_Request::ByteSizeLong() const {
     }
 
   }
-  // optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID"];
+  // optional fixed64 broadcast_channel_id = 1;
   if (cached_has_bits & 0x00000100u) {
     total_size += 1 + 8;
   }
@@ -4458,7 +4285,7 @@ const char* CSteamTV_GetBroadcastChannelProfile_Request::_InternalParse(const ch
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID"];
+      // optional fixed64 broadcast_channel_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
           _Internal::set_has_broadcast_channel_id(&has_bits);
@@ -4496,7 +4323,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID"];
+  // optional fixed64 broadcast_channel_id = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_broadcast_channel_id(), target);
@@ -4518,7 +4345,7 @@ size_t CSteamTV_GetBroadcastChannelProfile_Request::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID"];
+  // optional fixed64 broadcast_channel_id = 1;
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += 1 + 8;
@@ -4776,7 +4603,7 @@ const char* CSteamTV_GetBroadcastChannelProfile_Response::_InternalParse(const c
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional string unique_name = 1 [(.description) = "Unique short broadcast channel name, part of Steam.TV URL"];
+      // optional string unique_name = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           auto str = _internal_mutable_unique_name();
@@ -4787,7 +4614,7 @@ const char* CSteamTV_GetBroadcastChannelProfile_Response::_InternalParse(const c
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional fixed64 owner_steamid = 2 [(.description) = "Broadcast channel owner"];
+      // optional fixed64 owner_steamid = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 17)) {
           _Internal::set_has_owner_steamid(&has_bits);
@@ -4795,7 +4622,7 @@ const char* CSteamTV_GetBroadcastChannelProfile_Response::_InternalParse(const c
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
         } else goto handle_unusual;
         continue;
-      // optional string name = 3 [(.description) = "long channel name"];
+      // optional string name = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           auto str = _internal_mutable_name();
@@ -4806,7 +4633,7 @@ const char* CSteamTV_GetBroadcastChannelProfile_Response::_InternalParse(const c
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string language = 4 [(.description) = "primary channel language (Steam shortname)"];
+      // optional string language = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
           auto str = _internal_mutable_language();
@@ -4817,7 +4644,7 @@ const char* CSteamTV_GetBroadcastChannelProfile_Response::_InternalParse(const c
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string headline = 5 [(.description) = "short channel description"];
+      // optional string headline = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
           auto str = _internal_mutable_headline();
@@ -4828,7 +4655,7 @@ const char* CSteamTV_GetBroadcastChannelProfile_Response::_InternalParse(const c
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string summary = 6 [(.description) = "long channel description"];
+      // optional string summary = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
           auto str = _internal_mutable_summary();
@@ -4839,7 +4666,7 @@ const char* CSteamTV_GetBroadcastChannelProfile_Response::_InternalParse(const c
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string schedule = 7 [(.description) = "broadcast channel schedule"];
+      // optional string schedule = 7;
       case 7:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
           auto str = _internal_mutable_schedule();
@@ -4850,7 +4677,7 @@ const char* CSteamTV_GetBroadcastChannelProfile_Response::_InternalParse(const c
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string rules = 8 [(.description) = "broadcast channel rules"];
+      // optional string rules = 8;
       case 8:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 66)) {
           auto str = _internal_mutable_rules();
@@ -4861,7 +4688,7 @@ const char* CSteamTV_GetBroadcastChannelProfile_Response::_InternalParse(const c
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string panels = 9 [(.description) = "JSON data representing the channel panel layout"];
+      // optional string panels = 9;
       case 9:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 74)) {
           auto str = _internal_mutable_panels();
@@ -4910,7 +4737,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional string unique_name = 1 [(.description) = "Unique short broadcast channel name, part of Steam.TV URL"];
+  // optional string unique_name = 1;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_unique_name().data(), static_cast<int>(this->_internal_unique_name().length()),
@@ -4920,13 +4747,13 @@ failure:
         1, this->_internal_unique_name(), target);
   }
 
-  // optional fixed64 owner_steamid = 2 [(.description) = "Broadcast channel owner"];
+  // optional fixed64 owner_steamid = 2;
   if (cached_has_bits & 0x00000100u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(2, this->_internal_owner_steamid(), target);
   }
 
-  // optional string name = 3 [(.description) = "long channel name"];
+  // optional string name = 3;
   if (cached_has_bits & 0x00000002u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
@@ -4936,7 +4763,7 @@ failure:
         3, this->_internal_name(), target);
   }
 
-  // optional string language = 4 [(.description) = "primary channel language (Steam shortname)"];
+  // optional string language = 4;
   if (cached_has_bits & 0x00000004u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_language().data(), static_cast<int>(this->_internal_language().length()),
@@ -4946,7 +4773,7 @@ failure:
         4, this->_internal_language(), target);
   }
 
-  // optional string headline = 5 [(.description) = "short channel description"];
+  // optional string headline = 5;
   if (cached_has_bits & 0x00000008u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_headline().data(), static_cast<int>(this->_internal_headline().length()),
@@ -4956,7 +4783,7 @@ failure:
         5, this->_internal_headline(), target);
   }
 
-  // optional string summary = 6 [(.description) = "long channel description"];
+  // optional string summary = 6;
   if (cached_has_bits & 0x00000010u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_summary().data(), static_cast<int>(this->_internal_summary().length()),
@@ -4966,7 +4793,7 @@ failure:
         6, this->_internal_summary(), target);
   }
 
-  // optional string schedule = 7 [(.description) = "broadcast channel schedule"];
+  // optional string schedule = 7;
   if (cached_has_bits & 0x00000020u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_schedule().data(), static_cast<int>(this->_internal_schedule().length()),
@@ -4976,7 +4803,7 @@ failure:
         7, this->_internal_schedule(), target);
   }
 
-  // optional string rules = 8 [(.description) = "broadcast channel rules"];
+  // optional string rules = 8;
   if (cached_has_bits & 0x00000040u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_rules().data(), static_cast<int>(this->_internal_rules().length()),
@@ -4986,7 +4813,7 @@ failure:
         8, this->_internal_rules(), target);
   }
 
-  // optional string panels = 9 [(.description) = "JSON data representing the channel panel layout"];
+  // optional string panels = 9;
   if (cached_has_bits & 0x00000080u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_panels().data(), static_cast<int>(this->_internal_panels().length()),
@@ -5020,56 +4847,56 @@ size_t CSteamTV_GetBroadcastChannelProfile_Response::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x000000ffu) {
-    // optional string unique_name = 1 [(.description) = "Unique short broadcast channel name, part of Steam.TV URL"];
+    // optional string unique_name = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_unique_name());
     }
 
-    // optional string name = 3 [(.description) = "long channel name"];
+    // optional string name = 3;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_name());
     }
 
-    // optional string language = 4 [(.description) = "primary channel language (Steam shortname)"];
+    // optional string language = 4;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_language());
     }
 
-    // optional string headline = 5 [(.description) = "short channel description"];
+    // optional string headline = 5;
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_headline());
     }
 
-    // optional string summary = 6 [(.description) = "long channel description"];
+    // optional string summary = 6;
     if (cached_has_bits & 0x00000010u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_summary());
     }
 
-    // optional string schedule = 7 [(.description) = "broadcast channel schedule"];
+    // optional string schedule = 7;
     if (cached_has_bits & 0x00000020u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_schedule());
     }
 
-    // optional string rules = 8 [(.description) = "broadcast channel rules"];
+    // optional string rules = 8;
     if (cached_has_bits & 0x00000040u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_rules());
     }
 
-    // optional string panels = 9 [(.description) = "JSON data representing the channel panel layout"];
+    // optional string panels = 9;
     if (cached_has_bits & 0x00000080u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
@@ -5078,7 +4905,7 @@ size_t CSteamTV_GetBroadcastChannelProfile_Response::ByteSizeLong() const {
 
   }
   if (cached_has_bits & 0x00000300u) {
-    // optional fixed64 owner_steamid = 2 [(.description) = "Broadcast channel owner"];
+    // optional fixed64 owner_steamid = 2;
     if (cached_has_bits & 0x00000100u) {
       total_size += 1 + 8;
     }
@@ -5325,7 +5152,7 @@ const char* CSteamTV_SetBroadcastChannelImage_Request::_InternalParse(const char
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID"];
+      // optional fixed64 broadcast_channel_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
           _Internal::set_has_broadcast_channel_id(&has_bits);
@@ -5333,7 +5160,7 @@ const char* CSteamTV_SetBroadcastChannelImage_Request::_InternalParse(const char
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
         } else goto handle_unusual;
         continue;
-      // optional .EBroadcastImageType image_type = 2 [default = EBroadcastImageType_None, (.description) = "EBroadcastImage"];
+      // optional .EBroadcastImageType image_type = 2 [default = EBroadcastImageType_None];
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -5345,7 +5172,7 @@ const char* CSteamTV_SetBroadcastChannelImage_Request::_InternalParse(const char
           }
         } else goto handle_unusual;
         continue;
-      // optional uint32 image_index = 3 [(.description) = "Index of the image (for supporting multiple uploads of the same type"];
+      // optional uint32 image_index = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           _Internal::set_has_image_index(&has_bits);
@@ -5353,7 +5180,7 @@ const char* CSteamTV_SetBroadcastChannelImage_Request::_InternalParse(const char
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 image_width = 4 [(.description) = "width in pixels"];
+      // optional uint32 image_width = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
           _Internal::set_has_image_width(&has_bits);
@@ -5361,7 +5188,7 @@ const char* CSteamTV_SetBroadcastChannelImage_Request::_InternalParse(const char
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 image_height = 5 [(.description) = "height in pixels"];
+      // optional uint32 image_height = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
           _Internal::set_has_image_height(&has_bits);
@@ -5369,7 +5196,7 @@ const char* CSteamTV_SetBroadcastChannelImage_Request::_InternalParse(const char
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 file_size = 6 [(.description) = "in bytes"];
+      // optional uint32 file_size = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
           _Internal::set_has_file_size(&has_bits);
@@ -5377,7 +5204,7 @@ const char* CSteamTV_SetBroadcastChannelImage_Request::_InternalParse(const char
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string file_extension = 7 [(.description) = "eg .jpg"];
+      // optional string file_extension = 7;
       case 7:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
           auto str = _internal_mutable_file_extension();
@@ -5388,7 +5215,7 @@ const char* CSteamTV_SetBroadcastChannelImage_Request::_InternalParse(const char
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string file_hash = 8 [(.description) = "image SHA"];
+      // optional string file_hash = 8;
       case 8:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 66)) {
           auto str = _internal_mutable_file_hash();
@@ -5399,7 +5226,7 @@ const char* CSteamTV_SetBroadcastChannelImage_Request::_InternalParse(const char
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool undo = 9 [(.description) = "indicates this is a delete request"];
+      // optional bool undo = 9;
       case 9:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 72)) {
           _Internal::set_has_undo(&has_bits);
@@ -5437,44 +5264,44 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID"];
+  // optional fixed64 broadcast_channel_id = 1;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_broadcast_channel_id(), target);
   }
 
-  // optional .EBroadcastImageType image_type = 2 [default = EBroadcastImageType_None, (.description) = "EBroadcastImage"];
+  // optional .EBroadcastImageType image_type = 2 [default = EBroadcastImageType_None];
   if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       2, this->_internal_image_type(), target);
   }
 
-  // optional uint32 image_index = 3 [(.description) = "Index of the image (for supporting multiple uploads of the same type"];
+  // optional uint32 image_index = 3;
   if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_image_index(), target);
   }
 
-  // optional uint32 image_width = 4 [(.description) = "width in pixels"];
+  // optional uint32 image_width = 4;
   if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_image_width(), target);
   }
 
-  // optional uint32 image_height = 5 [(.description) = "height in pixels"];
+  // optional uint32 image_height = 5;
   if (cached_has_bits & 0x00000040u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(5, this->_internal_image_height(), target);
   }
 
-  // optional uint32 file_size = 6 [(.description) = "in bytes"];
+  // optional uint32 file_size = 6;
   if (cached_has_bits & 0x00000080u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(6, this->_internal_file_size(), target);
   }
 
-  // optional string file_extension = 7 [(.description) = "eg .jpg"];
+  // optional string file_extension = 7;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_file_extension().data(), static_cast<int>(this->_internal_file_extension().length()),
@@ -5484,7 +5311,7 @@ failure:
         7, this->_internal_file_extension(), target);
   }
 
-  // optional string file_hash = 8 [(.description) = "image SHA"];
+  // optional string file_hash = 8;
   if (cached_has_bits & 0x00000002u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_file_hash().data(), static_cast<int>(this->_internal_file_hash().length()),
@@ -5494,7 +5321,7 @@ failure:
         8, this->_internal_file_hash(), target);
   }
 
-  // optional bool undo = 9 [(.description) = "indicates this is a delete request"];
+  // optional bool undo = 9;
   if (cached_has_bits & 0x00000100u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(9, this->_internal_undo(), target);
@@ -5518,53 +5345,53 @@ size_t CSteamTV_SetBroadcastChannelImage_Request::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x000000ffu) {
-    // optional string file_extension = 7 [(.description) = "eg .jpg"];
+    // optional string file_extension = 7;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_file_extension());
     }
 
-    // optional string file_hash = 8 [(.description) = "image SHA"];
+    // optional string file_hash = 8;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_file_hash());
     }
 
-    // optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID"];
+    // optional fixed64 broadcast_channel_id = 1;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 + 8;
     }
 
-    // optional .EBroadcastImageType image_type = 2 [default = EBroadcastImageType_None, (.description) = "EBroadcastImage"];
+    // optional .EBroadcastImageType image_type = 2 [default = EBroadcastImageType_None];
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_image_type());
     }
 
-    // optional uint32 image_index = 3 [(.description) = "Index of the image (for supporting multiple uploads of the same type"];
+    // optional uint32 image_index = 3;
     if (cached_has_bits & 0x00000010u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_image_index());
     }
 
-    // optional uint32 image_width = 4 [(.description) = "width in pixels"];
+    // optional uint32 image_width = 4;
     if (cached_has_bits & 0x00000020u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_image_width());
     }
 
-    // optional uint32 image_height = 5 [(.description) = "height in pixels"];
+    // optional uint32 image_height = 5;
     if (cached_has_bits & 0x00000040u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_image_height());
     }
 
-    // optional uint32 file_size = 6 [(.description) = "in bytes"];
+    // optional uint32 file_size = 6;
     if (cached_has_bits & 0x00000080u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -5572,7 +5399,7 @@ size_t CSteamTV_SetBroadcastChannelImage_Request::ByteSizeLong() const {
     }
 
   }
-  // optional bool undo = 9 [(.description) = "indicates this is a delete request"];
+  // optional bool undo = 9;
   if (cached_has_bits & 0x00000100u) {
     total_size += 1 + 1;
   }
@@ -5753,7 +5580,7 @@ const char* CSteamTV_SetBroadcastChannelImage_Response::_InternalParse(const cha
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional string replace_image_hash = 1 [(.description) = "set if caller should remove previous SHA file from cache"];
+      // optional string replace_image_hash = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           auto str = _internal_mutable_replace_image_hash();
@@ -5794,7 +5621,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional string replace_image_hash = 1 [(.description) = "set if caller should remove previous SHA file from cache"];
+  // optional string replace_image_hash = 1;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_replace_image_hash().data(), static_cast<int>(this->_internal_replace_image_hash().length()),
@@ -5820,7 +5647,7 @@ size_t CSteamTV_SetBroadcastChannelImage_Response::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // optional string replace_image_hash = 1 [(.description) = "set if caller should remove previous SHA file from cache"];
+  // optional string replace_image_hash = 1;
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += 1 +
@@ -5964,7 +5791,7 @@ const char* CSteamTV_GetBroadcastChannelImages_Request::_InternalParse(const cha
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID"];
+      // optional fixed64 broadcast_channel_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
           _Internal::set_has_broadcast_channel_id(&has_bits);
@@ -5972,7 +5799,7 @@ const char* CSteamTV_GetBroadcastChannelImages_Request::_InternalParse(const cha
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
         } else goto handle_unusual;
         continue;
-      // repeated .EBroadcastImageType image_types = 2 [(.description) = "list of EBroadcastImage"];
+      // repeated .EBroadcastImageType image_types = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           ptr -= 1;
@@ -6022,13 +5849,13 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID"];
+  // optional fixed64 broadcast_channel_id = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_broadcast_channel_id(), target);
   }
 
-  // repeated .EBroadcastImageType image_types = 2 [(.description) = "list of EBroadcastImage"];
+  // repeated .EBroadcastImageType image_types = 2;
   for (int i = 0, n = this->_internal_image_types_size(); i < n; i++) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
@@ -6051,7 +5878,7 @@ size_t CSteamTV_GetBroadcastChannelImages_Request::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .EBroadcastImageType image_types = 2 [(.description) = "list of EBroadcastImage"];
+  // repeated .EBroadcastImageType image_types = 2;
   {
     size_t data_size = 0;
     unsigned int count = static_cast<unsigned int>(this->_internal_image_types_size());for (unsigned int i = 0; i < count; i++) {
@@ -6061,7 +5888,7 @@ size_t CSteamTV_GetBroadcastChannelImages_Request::ByteSizeLong() const {
     total_size += (1UL * count) + data_size;
   }
 
-  // optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID"];
+  // optional fixed64 broadcast_channel_id = 1;
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += 1 + 8;
@@ -6228,7 +6055,7 @@ const char* CSteamTV_GetBroadcastChannelImages_Response_Images::_InternalParse(c
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional .EBroadcastImageType image_type = 1 [default = EBroadcastImageType_None, (.description) = "Type of the image"];
+      // optional .EBroadcastImageType image_type = 1 [default = EBroadcastImageType_None];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -6240,7 +6067,7 @@ const char* CSteamTV_GetBroadcastChannelImages_Response_Images::_InternalParse(c
           }
         } else goto handle_unusual;
         continue;
-      // optional string image_path = 2 [(.description) = "Path to the uploaded image"];
+      // optional string image_path = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           auto str = _internal_mutable_image_path();
@@ -6251,7 +6078,7 @@ const char* CSteamTV_GetBroadcastChannelImages_Response_Images::_InternalParse(c
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 image_index = 3 [(.description) = "Index of the image"];
+      // optional uint32 image_index = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           _Internal::set_has_image_index(&has_bits);
@@ -6289,14 +6116,14 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional .EBroadcastImageType image_type = 1 [default = EBroadcastImageType_None, (.description) = "Type of the image"];
+  // optional .EBroadcastImageType image_type = 1 [default = EBroadcastImageType_None];
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       1, this->_internal_image_type(), target);
   }
 
-  // optional string image_path = 2 [(.description) = "Path to the uploaded image"];
+  // optional string image_path = 2;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_image_path().data(), static_cast<int>(this->_internal_image_path().length()),
@@ -6306,7 +6133,7 @@ failure:
         2, this->_internal_image_path(), target);
   }
 
-  // optional uint32 image_index = 3 [(.description) = "Index of the image"];
+  // optional uint32 image_index = 3;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_image_index(), target);
@@ -6330,20 +6157,20 @@ size_t CSteamTV_GetBroadcastChannelImages_Response_Images::ByteSizeLong() const 
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000007u) {
-    // optional string image_path = 2 [(.description) = "Path to the uploaded image"];
+    // optional string image_path = 2;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_image_path());
     }
 
-    // optional .EBroadcastImageType image_type = 1 [default = EBroadcastImageType_None, (.description) = "Type of the image"];
+    // optional .EBroadcastImageType image_type = 1 [default = EBroadcastImageType_None];
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_image_type());
     }
 
-    // optional uint32 image_index = 3 [(.description) = "Index of the image"];
+    // optional uint32 image_index = 3;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -6744,7 +6571,7 @@ const char* CSteamTV_SetBroadcastChannelLinkRegions_Request_Links::_InternalPars
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint32 linindex = 1 [(.description) = "Index of the link (lower number has higher priority)"];
+      // optional uint32 linindex = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_linindex(&has_bits);
@@ -6752,7 +6579,7 @@ const char* CSteamTV_SetBroadcastChannelLinkRegions_Request_Links::_InternalPars
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string url = 2 [(.description) = "URL "];
+      // optional string url = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           auto str = _internal_mutable_url();
@@ -6763,7 +6590,7 @@ const char* CSteamTV_SetBroadcastChannelLinkRegions_Request_Links::_InternalPars
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string lindescription = 3 [(.description) = "URL description that will show in the link region"];
+      // optional string lindescription = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           auto str = _internal_mutable_lindescription();
@@ -6774,7 +6601,7 @@ const char* CSteamTV_SetBroadcastChannelLinkRegions_Request_Links::_InternalPars
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 left = 4 [(.description) = "Left X position in 100th of a % of the video width"];
+      // optional uint32 left = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
           _Internal::set_has_left(&has_bits);
@@ -6782,7 +6609,7 @@ const char* CSteamTV_SetBroadcastChannelLinkRegions_Request_Links::_InternalPars
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 top = 5 [(.description) = "Top Y position in 100th of a % of the video height"];
+      // optional uint32 top = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
           _Internal::set_has_top(&has_bits);
@@ -6790,7 +6617,7 @@ const char* CSteamTV_SetBroadcastChannelLinkRegions_Request_Links::_InternalPars
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 width = 6 [(.description) = "Region Width in 100th of a % of the video width"];
+      // optional uint32 width = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
           _Internal::set_has_width(&has_bits);
@@ -6798,7 +6625,7 @@ const char* CSteamTV_SetBroadcastChannelLinkRegions_Request_Links::_InternalPars
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 height = 7 [(.description) = "Region Height in 100th of a % of the video height"];
+      // optional uint32 height = 7;
       case 7:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 56)) {
           _Internal::set_has_height(&has_bits);
@@ -6836,13 +6663,13 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint32 linindex = 1 [(.description) = "Index of the link (lower number has higher priority)"];
+  // optional uint32 linindex = 1;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_linindex(), target);
   }
 
-  // optional string url = 2 [(.description) = "URL "];
+  // optional string url = 2;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_url().data(), static_cast<int>(this->_internal_url().length()),
@@ -6852,7 +6679,7 @@ failure:
         2, this->_internal_url(), target);
   }
 
-  // optional string lindescription = 3 [(.description) = "URL description that will show in the link region"];
+  // optional string lindescription = 3;
   if (cached_has_bits & 0x00000002u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_lindescription().data(), static_cast<int>(this->_internal_lindescription().length()),
@@ -6862,25 +6689,25 @@ failure:
         3, this->_internal_lindescription(), target);
   }
 
-  // optional uint32 left = 4 [(.description) = "Left X position in 100th of a % of the video width"];
+  // optional uint32 left = 4;
   if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_left(), target);
   }
 
-  // optional uint32 top = 5 [(.description) = "Top Y position in 100th of a % of the video height"];
+  // optional uint32 top = 5;
   if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(5, this->_internal_top(), target);
   }
 
-  // optional uint32 width = 6 [(.description) = "Region Width in 100th of a % of the video width"];
+  // optional uint32 width = 6;
   if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(6, this->_internal_width(), target);
   }
 
-  // optional uint32 height = 7 [(.description) = "Region Height in 100th of a % of the video height"];
+  // optional uint32 height = 7;
   if (cached_has_bits & 0x00000040u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(7, this->_internal_height(), target);
@@ -6904,49 +6731,49 @@ size_t CSteamTV_SetBroadcastChannelLinkRegions_Request_Links::ByteSizeLong() con
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x0000007fu) {
-    // optional string url = 2 [(.description) = "URL "];
+    // optional string url = 2;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_url());
     }
 
-    // optional string lindescription = 3 [(.description) = "URL description that will show in the link region"];
+    // optional string lindescription = 3;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_lindescription());
     }
 
-    // optional uint32 linindex = 1 [(.description) = "Index of the link (lower number has higher priority)"];
+    // optional uint32 linindex = 1;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_linindex());
     }
 
-    // optional uint32 left = 4 [(.description) = "Left X position in 100th of a % of the video width"];
+    // optional uint32 left = 4;
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_left());
     }
 
-    // optional uint32 top = 5 [(.description) = "Top Y position in 100th of a % of the video height"];
+    // optional uint32 top = 5;
     if (cached_has_bits & 0x00000010u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_top());
     }
 
-    // optional uint32 width = 6 [(.description) = "Region Width in 100th of a % of the video width"];
+    // optional uint32 width = 6;
     if (cached_has_bits & 0x00000020u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_width());
     }
 
-    // optional uint32 height = 7 [(.description) = "Region Height in 100th of a % of the video height"];
+    // optional uint32 height = 7;
     if (cached_has_bits & 0x00000040u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -7119,7 +6946,7 @@ const char* CSteamTV_SetBroadcastChannelLinkRegions_Request::_InternalParse(cons
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID"];
+      // optional fixed64 broadcast_channel_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
           _Internal::set_has_broadcast_channel_id(&has_bits);
@@ -7169,7 +6996,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID"];
+  // optional fixed64 broadcast_channel_id = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_broadcast_channel_id(), target);
@@ -7206,7 +7033,7 @@ size_t CSteamTV_SetBroadcastChannelLinkRegions_Request::ByteSizeLong() const {
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  // optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID"];
+  // optional fixed64 broadcast_channel_id = 1;
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += 1 + 8;
@@ -7504,7 +7331,7 @@ const char* CSteamTV_GetBroadcastChannelLinks_Request::_InternalParse(const char
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID"];
+      // optional fixed64 broadcast_channel_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
           _Internal::set_has_broadcast_channel_id(&has_bits);
@@ -7542,7 +7369,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID"];
+  // optional fixed64 broadcast_channel_id = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_broadcast_channel_id(), target);
@@ -7564,7 +7391,7 @@ size_t CSteamTV_GetBroadcastChannelLinks_Request::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID"];
+  // optional fixed64 broadcast_channel_id = 1;
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += 1 + 8;
@@ -7753,7 +7580,7 @@ const char* CSteamTV_GetBroadcastChannelLinks_Response_Links::_InternalParse(con
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint32 linindex = 1 [(.description) = "Index of the link (lower number has higher priority)"];
+      // optional uint32 linindex = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_linindex(&has_bits);
@@ -7761,7 +7588,7 @@ const char* CSteamTV_GetBroadcastChannelLinks_Response_Links::_InternalParse(con
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string url = 2 [(.description) = "URL "];
+      // optional string url = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           auto str = _internal_mutable_url();
@@ -7772,7 +7599,7 @@ const char* CSteamTV_GetBroadcastChannelLinks_Response_Links::_InternalParse(con
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string lindescription = 3 [(.description) = "URL description that will show in the link region"];
+      // optional string lindescription = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           auto str = _internal_mutable_lindescription();
@@ -7783,7 +7610,7 @@ const char* CSteamTV_GetBroadcastChannelLinks_Response_Links::_InternalParse(con
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 left = 4 [(.description) = "Left X position in 100th of a % of the video width"];
+      // optional uint32 left = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
           _Internal::set_has_left(&has_bits);
@@ -7791,7 +7618,7 @@ const char* CSteamTV_GetBroadcastChannelLinks_Response_Links::_InternalParse(con
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 top = 5 [(.description) = "Top Y position in 100th of a % of the video height"];
+      // optional uint32 top = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
           _Internal::set_has_top(&has_bits);
@@ -7799,7 +7626,7 @@ const char* CSteamTV_GetBroadcastChannelLinks_Response_Links::_InternalParse(con
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 width = 6 [(.description) = "Region Width in 100th of a % of the video width"];
+      // optional uint32 width = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
           _Internal::set_has_width(&has_bits);
@@ -7807,7 +7634,7 @@ const char* CSteamTV_GetBroadcastChannelLinks_Response_Links::_InternalParse(con
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 height = 7 [(.description) = "Region Height in 100th of a % of the video height"];
+      // optional uint32 height = 7;
       case 7:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 56)) {
           _Internal::set_has_height(&has_bits);
@@ -7845,13 +7672,13 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint32 linindex = 1 [(.description) = "Index of the link (lower number has higher priority)"];
+  // optional uint32 linindex = 1;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_linindex(), target);
   }
 
-  // optional string url = 2 [(.description) = "URL "];
+  // optional string url = 2;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_url().data(), static_cast<int>(this->_internal_url().length()),
@@ -7861,7 +7688,7 @@ failure:
         2, this->_internal_url(), target);
   }
 
-  // optional string lindescription = 3 [(.description) = "URL description that will show in the link region"];
+  // optional string lindescription = 3;
   if (cached_has_bits & 0x00000002u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_lindescription().data(), static_cast<int>(this->_internal_lindescription().length()),
@@ -7871,25 +7698,25 @@ failure:
         3, this->_internal_lindescription(), target);
   }
 
-  // optional uint32 left = 4 [(.description) = "Left X position in 100th of a % of the video width"];
+  // optional uint32 left = 4;
   if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_left(), target);
   }
 
-  // optional uint32 top = 5 [(.description) = "Top Y position in 100th of a % of the video height"];
+  // optional uint32 top = 5;
   if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(5, this->_internal_top(), target);
   }
 
-  // optional uint32 width = 6 [(.description) = "Region Width in 100th of a % of the video width"];
+  // optional uint32 width = 6;
   if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(6, this->_internal_width(), target);
   }
 
-  // optional uint32 height = 7 [(.description) = "Region Height in 100th of a % of the video height"];
+  // optional uint32 height = 7;
   if (cached_has_bits & 0x00000040u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(7, this->_internal_height(), target);
@@ -7913,49 +7740,49 @@ size_t CSteamTV_GetBroadcastChannelLinks_Response_Links::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x0000007fu) {
-    // optional string url = 2 [(.description) = "URL "];
+    // optional string url = 2;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_url());
     }
 
-    // optional string lindescription = 3 [(.description) = "URL description that will show in the link region"];
+    // optional string lindescription = 3;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_lindescription());
     }
 
-    // optional uint32 linindex = 1 [(.description) = "Index of the link (lower number has higher priority)"];
+    // optional uint32 linindex = 1;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_linindex());
     }
 
-    // optional uint32 left = 4 [(.description) = "Left X position in 100th of a % of the video width"];
+    // optional uint32 left = 4;
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_left());
     }
 
-    // optional uint32 top = 5 [(.description) = "Top Y position in 100th of a % of the video height"];
+    // optional uint32 top = 5;
     if (cached_has_bits & 0x00000010u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_top());
     }
 
-    // optional uint32 width = 6 [(.description) = "Region Width in 100th of a % of the video width"];
+    // optional uint32 width = 6;
     if (cached_has_bits & 0x00000020u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_width());
     }
 
-    // optional uint32 height = 7 [(.description) = "Region Height in 100th of a % of the video height"];
+    // optional uint32 height = 7;
     if (cached_has_bits & 0x00000040u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -8319,7 +8146,7 @@ const char* CSteamTV_GetBroadcastChannelBroadcasters_Request::_InternalParse(con
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID"];
+      // optional fixed64 broadcast_channel_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
           _Internal::set_has_broadcast_channel_id(&has_bits);
@@ -8357,7 +8184,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID"];
+  // optional fixed64 broadcast_channel_id = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_broadcast_channel_id(), target);
@@ -8379,7 +8206,7 @@ size_t CSteamTV_GetBroadcastChannelBroadcasters_Request::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID"];
+  // optional fixed64 broadcast_channel_id = 1;
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += 1 + 8;
@@ -8547,7 +8374,7 @@ const char* CSteamTV_GetBroadcastChannelBroadcasters_Response_Broadcaster::_Inte
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional fixed64 steamid = 1 [(.description) = "Broadcaster Steam ID"];
+      // optional fixed64 steamid = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
           _Internal::set_has_steamid(&has_bits);
@@ -8555,7 +8382,7 @@ const char* CSteamTV_GetBroadcastChannelBroadcasters_Response_Broadcaster::_Inte
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
         } else goto handle_unusual;
         continue;
-      // optional string name = 2 [(.description) = "Broadcaster name"];
+      // optional string name = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           auto str = _internal_mutable_name();
@@ -8566,7 +8393,7 @@ const char* CSteamTV_GetBroadcastChannelBroadcasters_Response_Broadcaster::_Inte
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string rtmp_token = 3 [(.description) = "Broadcaster upload token"];
+      // optional string rtmp_token = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           auto str = _internal_mutable_rtmp_token();
@@ -8607,13 +8434,13 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional fixed64 steamid = 1 [(.description) = "Broadcaster Steam ID"];
+  // optional fixed64 steamid = 1;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_steamid(), target);
   }
 
-  // optional string name = 2 [(.description) = "Broadcaster name"];
+  // optional string name = 2;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
@@ -8623,7 +8450,7 @@ failure:
         2, this->_internal_name(), target);
   }
 
-  // optional string rtmp_token = 3 [(.description) = "Broadcaster upload token"];
+  // optional string rtmp_token = 3;
   if (cached_has_bits & 0x00000002u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_rtmp_token().data(), static_cast<int>(this->_internal_rtmp_token().length()),
@@ -8651,21 +8478,21 @@ size_t CSteamTV_GetBroadcastChannelBroadcasters_Response_Broadcaster::ByteSizeLo
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000007u) {
-    // optional string name = 2 [(.description) = "Broadcaster name"];
+    // optional string name = 2;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_name());
     }
 
-    // optional string rtmp_token = 3 [(.description) = "Broadcaster upload token"];
+    // optional string rtmp_token = 3;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_rtmp_token());
     }
 
-    // optional fixed64 steamid = 1 [(.description) = "Broadcaster Steam ID"];
+    // optional fixed64 steamid = 1;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 + 8;
     }
@@ -9309,7 +9136,7 @@ const char* GetBroadcastChannelEntry::_InternalParse(const char* ptr, ::PROTOBUF
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID or 0"];
+      // optional fixed64 broadcast_channel_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
           _Internal::set_has_broadcast_channel_id(&has_bits);
@@ -9317,7 +9144,7 @@ const char* GetBroadcastChannelEntry::_InternalParse(const char* ptr, ::PROTOBUF
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
         } else goto handle_unusual;
         continue;
-      // optional string unique_name = 2 [(.description) = "Unique broadcast channel name for URL"];
+      // optional string unique_name = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           auto str = _internal_mutable_unique_name();
@@ -9328,7 +9155,7 @@ const char* GetBroadcastChannelEntry::_InternalParse(const char* ptr, ::PROTOBUF
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string name = 3 [(.description) = "Long broadcast channel name"];
+      // optional string name = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           auto str = _internal_mutable_name();
@@ -9339,7 +9166,7 @@ const char* GetBroadcastChannelEntry::_InternalParse(const char* ptr, ::PROTOBUF
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 appid = 4 [(.description) = "The game ID the requested broadcaster is playing"];
+      // optional uint32 appid = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
           _Internal::set_has_appid(&has_bits);
@@ -9347,7 +9174,7 @@ const char* GetBroadcastChannelEntry::_InternalParse(const char* ptr, ::PROTOBUF
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint64 viewers = 5 [(.description) = "Number of viewers currently watching"];
+      // optional uint64 viewers = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
           _Internal::set_has_viewers(&has_bits);
@@ -9355,7 +9182,7 @@ const char* GetBroadcastChannelEntry::_InternalParse(const char* ptr, ::PROTOBUF
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint64 views = 6 [(.description) = "Number of total views of this channel"];
+      // optional uint64 views = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
           _Internal::set_has_views(&has_bits);
@@ -9363,7 +9190,7 @@ const char* GetBroadcastChannelEntry::_InternalParse(const char* ptr, ::PROTOBUF
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string thumbnail_url = 7 [(.description) = "Current thumbnail URL"];
+      // optional string thumbnail_url = 7;
       case 7:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
           auto str = _internal_mutable_thumbnail_url();
@@ -9374,7 +9201,7 @@ const char* GetBroadcastChannelEntry::_InternalParse(const char* ptr, ::PROTOBUF
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint64 followers = 8 [(.description) = "Number of followers of this channel"];
+      // optional uint64 followers = 8;
       case 8:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 64)) {
           _Internal::set_has_followers(&has_bits);
@@ -9382,7 +9209,7 @@ const char* GetBroadcastChannelEntry::_InternalParse(const char* ptr, ::PROTOBUF
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string headline = 9 [(.description) = "short channel description"];
+      // optional string headline = 9;
       case 9:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 74)) {
           auto str = _internal_mutable_headline();
@@ -9393,7 +9220,7 @@ const char* GetBroadcastChannelEntry::_InternalParse(const char* ptr, ::PROTOBUF
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string avatar_url = 10 [(.description) = "community avatar url"];
+      // optional string avatar_url = 10;
       case 10:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 82)) {
           auto str = _internal_mutable_avatar_url();
@@ -9404,7 +9231,7 @@ const char* GetBroadcastChannelEntry::_InternalParse(const char* ptr, ::PROTOBUF
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional fixed64 broadcaster_steamid = 11 [(.description) = "Current broadcaster streaming"];
+      // optional fixed64 broadcaster_steamid = 11;
       case 11:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 89)) {
           _Internal::set_has_broadcaster_steamid(&has_bits);
@@ -9412,7 +9239,7 @@ const char* GetBroadcastChannelEntry::_InternalParse(const char* ptr, ::PROTOBUF
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
         } else goto handle_unusual;
         continue;
-      // optional uint64 subscribers = 12 [(.description) = "Number of subscribers of this channel"];
+      // optional uint64 subscribers = 12;
       case 12:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 96)) {
           _Internal::set_has_subscribers(&has_bits);
@@ -9420,7 +9247,7 @@ const char* GetBroadcastChannelEntry::_InternalParse(const char* ptr, ::PROTOBUF
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string background_url = 13 [(.description) = "Background image url"];
+      // optional string background_url = 13;
       case 13:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 106)) {
           auto str = _internal_mutable_background_url();
@@ -9431,7 +9258,7 @@ const char* GetBroadcastChannelEntry::_InternalParse(const char* ptr, ::PROTOBUF
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool is_featured = 14 [(.description) = "Whether the channel is featured"];
+      // optional bool is_featured = 14;
       case 14:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 112)) {
           _Internal::set_has_is_featured(&has_bits);
@@ -9439,7 +9266,7 @@ const char* GetBroadcastChannelEntry::_InternalParse(const char* ptr, ::PROTOBUF
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool is_disabled = 15 [(.description) = "Whether the channel is disabled"];
+      // optional bool is_disabled = 15;
       case 15:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 120)) {
           _Internal::set_has_is_disabled(&has_bits);
@@ -9447,7 +9274,7 @@ const char* GetBroadcastChannelEntry::_InternalParse(const char* ptr, ::PROTOBUF
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool is_live = 16 [(.description) = "Whether the channel is streaming"];
+      // optional bool is_live = 16;
       case 16:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 128)) {
           _Internal::set_has_is_live(&has_bits);
@@ -9455,7 +9282,7 @@ const char* GetBroadcastChannelEntry::_InternalParse(const char* ptr, ::PROTOBUF
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string language = 17 [(.description) = "The language the stream is in"];
+      // optional string language = 17;
       case 17:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 138)) {
           auto str = _internal_mutable_language();
@@ -9466,7 +9293,7 @@ const char* GetBroadcastChannelEntry::_InternalParse(const char* ptr, ::PROTOBUF
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 reports = 18 [(.description) = "The number of reports the channel has"];
+      // optional uint32 reports = 18;
       case 18:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 144)) {
           _Internal::set_has_reports(&has_bits);
@@ -9512,13 +9339,13 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID or 0"];
+  // optional fixed64 broadcast_channel_id = 1;
   if (cached_has_bits & 0x00000080u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_broadcast_channel_id(), target);
   }
 
-  // optional string unique_name = 2 [(.description) = "Unique broadcast channel name for URL"];
+  // optional string unique_name = 2;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_unique_name().data(), static_cast<int>(this->_internal_unique_name().length()),
@@ -9528,7 +9355,7 @@ failure:
         2, this->_internal_unique_name(), target);
   }
 
-  // optional string name = 3 [(.description) = "Long broadcast channel name"];
+  // optional string name = 3;
   if (cached_has_bits & 0x00000002u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
@@ -9538,25 +9365,25 @@ failure:
         3, this->_internal_name(), target);
   }
 
-  // optional uint32 appid = 4 [(.description) = "The game ID the requested broadcaster is playing"];
+  // optional uint32 appid = 4;
   if (cached_has_bits & 0x00002000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_appid(), target);
   }
 
-  // optional uint64 viewers = 5 [(.description) = "Number of viewers currently watching"];
+  // optional uint64 viewers = 5;
   if (cached_has_bits & 0x00000100u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(5, this->_internal_viewers(), target);
   }
 
-  // optional uint64 views = 6 [(.description) = "Number of total views of this channel"];
+  // optional uint64 views = 6;
   if (cached_has_bits & 0x00000200u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(6, this->_internal_views(), target);
   }
 
-  // optional string thumbnail_url = 7 [(.description) = "Current thumbnail URL"];
+  // optional string thumbnail_url = 7;
   if (cached_has_bits & 0x00000004u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_thumbnail_url().data(), static_cast<int>(this->_internal_thumbnail_url().length()),
@@ -9566,13 +9393,13 @@ failure:
         7, this->_internal_thumbnail_url(), target);
   }
 
-  // optional uint64 followers = 8 [(.description) = "Number of followers of this channel"];
+  // optional uint64 followers = 8;
   if (cached_has_bits & 0x00000400u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(8, this->_internal_followers(), target);
   }
 
-  // optional string headline = 9 [(.description) = "short channel description"];
+  // optional string headline = 9;
   if (cached_has_bits & 0x00000008u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_headline().data(), static_cast<int>(this->_internal_headline().length()),
@@ -9582,7 +9409,7 @@ failure:
         9, this->_internal_headline(), target);
   }
 
-  // optional string avatar_url = 10 [(.description) = "community avatar url"];
+  // optional string avatar_url = 10;
   if (cached_has_bits & 0x00000010u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_avatar_url().data(), static_cast<int>(this->_internal_avatar_url().length()),
@@ -9592,19 +9419,19 @@ failure:
         10, this->_internal_avatar_url(), target);
   }
 
-  // optional fixed64 broadcaster_steamid = 11 [(.description) = "Current broadcaster streaming"];
+  // optional fixed64 broadcaster_steamid = 11;
   if (cached_has_bits & 0x00000800u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(11, this->_internal_broadcaster_steamid(), target);
   }
 
-  // optional uint64 subscribers = 12 [(.description) = "Number of subscribers of this channel"];
+  // optional uint64 subscribers = 12;
   if (cached_has_bits & 0x00001000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(12, this->_internal_subscribers(), target);
   }
 
-  // optional string background_url = 13 [(.description) = "Background image url"];
+  // optional string background_url = 13;
   if (cached_has_bits & 0x00000020u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_background_url().data(), static_cast<int>(this->_internal_background_url().length()),
@@ -9614,25 +9441,25 @@ failure:
         13, this->_internal_background_url(), target);
   }
 
-  // optional bool is_featured = 14 [(.description) = "Whether the channel is featured"];
+  // optional bool is_featured = 14;
   if (cached_has_bits & 0x00004000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(14, this->_internal_is_featured(), target);
   }
 
-  // optional bool is_disabled = 15 [(.description) = "Whether the channel is disabled"];
+  // optional bool is_disabled = 15;
   if (cached_has_bits & 0x00008000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(15, this->_internal_is_disabled(), target);
   }
 
-  // optional bool is_live = 16 [(.description) = "Whether the channel is streaming"];
+  // optional bool is_live = 16;
   if (cached_has_bits & 0x00010000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(16, this->_internal_is_live(), target);
   }
 
-  // optional string language = 17 [(.description) = "The language the stream is in"];
+  // optional string language = 17;
   if (cached_has_bits & 0x00000040u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_language().data(), static_cast<int>(this->_internal_language().length()),
@@ -9642,7 +9469,7 @@ failure:
         17, this->_internal_language(), target);
   }
 
-  // optional uint32 reports = 18 [(.description) = "The number of reports the channel has"];
+  // optional uint32 reports = 18;
   if (cached_has_bits & 0x00040000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(18, this->_internal_reports(), target);
@@ -9672,115 +9499,115 @@ size_t GetBroadcastChannelEntry::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x000000ffu) {
-    // optional string unique_name = 2 [(.description) = "Unique broadcast channel name for URL"];
+    // optional string unique_name = 2;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_unique_name());
     }
 
-    // optional string name = 3 [(.description) = "Long broadcast channel name"];
+    // optional string name = 3;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_name());
     }
 
-    // optional string thumbnail_url = 7 [(.description) = "Current thumbnail URL"];
+    // optional string thumbnail_url = 7;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_thumbnail_url());
     }
 
-    // optional string headline = 9 [(.description) = "short channel description"];
+    // optional string headline = 9;
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_headline());
     }
 
-    // optional string avatar_url = 10 [(.description) = "community avatar url"];
+    // optional string avatar_url = 10;
     if (cached_has_bits & 0x00000010u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_avatar_url());
     }
 
-    // optional string background_url = 13 [(.description) = "Background image url"];
+    // optional string background_url = 13;
     if (cached_has_bits & 0x00000020u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_background_url());
     }
 
-    // optional string language = 17 [(.description) = "The language the stream is in"];
+    // optional string language = 17;
     if (cached_has_bits & 0x00000040u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_language());
     }
 
-    // optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID or 0"];
+    // optional fixed64 broadcast_channel_id = 1;
     if (cached_has_bits & 0x00000080u) {
       total_size += 1 + 8;
     }
 
   }
   if (cached_has_bits & 0x0000ff00u) {
-    // optional uint64 viewers = 5 [(.description) = "Number of viewers currently watching"];
+    // optional uint64 viewers = 5;
     if (cached_has_bits & 0x00000100u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_viewers());
     }
 
-    // optional uint64 views = 6 [(.description) = "Number of total views of this channel"];
+    // optional uint64 views = 6;
     if (cached_has_bits & 0x00000200u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_views());
     }
 
-    // optional uint64 followers = 8 [(.description) = "Number of followers of this channel"];
+    // optional uint64 followers = 8;
     if (cached_has_bits & 0x00000400u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_followers());
     }
 
-    // optional fixed64 broadcaster_steamid = 11 [(.description) = "Current broadcaster streaming"];
+    // optional fixed64 broadcaster_steamid = 11;
     if (cached_has_bits & 0x00000800u) {
       total_size += 1 + 8;
     }
 
-    // optional uint64 subscribers = 12 [(.description) = "Number of subscribers of this channel"];
+    // optional uint64 subscribers = 12;
     if (cached_has_bits & 0x00001000u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_subscribers());
     }
 
-    // optional uint32 appid = 4 [(.description) = "The game ID the requested broadcaster is playing"];
+    // optional uint32 appid = 4;
     if (cached_has_bits & 0x00002000u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_appid());
     }
 
-    // optional bool is_featured = 14 [(.description) = "Whether the channel is featured"];
+    // optional bool is_featured = 14;
     if (cached_has_bits & 0x00004000u) {
       total_size += 1 + 1;
     }
 
-    // optional bool is_disabled = 15 [(.description) = "Whether the channel is disabled"];
+    // optional bool is_disabled = 15;
     if (cached_has_bits & 0x00008000u) {
       total_size += 1 + 1;
     }
 
   }
   if (cached_has_bits & 0x00070000u) {
-    // optional bool is_live = 16 [(.description) = "Whether the channel is streaming"];
+    // optional bool is_live = 16;
     if (cached_has_bits & 0x00010000u) {
       total_size += 2 + 1;
     }
@@ -9790,7 +9617,7 @@ size_t GetBroadcastChannelEntry::ByteSizeLong() const {
       total_size += 2 + 1;
     }
 
-    // optional uint32 reports = 18 [(.description) = "The number of reports the channel has"];
+    // optional uint32 reports = 18;
     if (cached_has_bits & 0x00040000u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -10000,7 +9827,7 @@ const char* CSteamTV_GetFollowedChannels_Response::_InternalParse(const char* pt
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // repeated .GetBroadcastChannelEntry results = 1 [(.description) = "The list of broadcasters"];
+      // repeated .GetBroadcastChannelEntry results = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           ptr -= 1;
@@ -10040,7 +9867,7 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated .GetBroadcastChannelEntry results = 1 [(.description) = "The list of broadcasters"];
+  // repeated .GetBroadcastChannelEntry results = 1;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_results_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
@@ -10064,7 +9891,7 @@ size_t CSteamTV_GetFollowedChannels_Response::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .GetBroadcastChannelEntry results = 1 [(.description) = "The list of broadcasters"];
+  // repeated .GetBroadcastChannelEntry results = 1;
   total_size += 1UL * this->_internal_results_size();
   for (const auto& msg : this->results_) {
     total_size +=
@@ -10351,7 +10178,7 @@ const char* CSteamTV_GetSubscribedChannels_Response::_InternalParse(const char* 
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // repeated .GetBroadcastChannelEntry results = 1 [(.description) = "The list of broadcasters"];
+      // repeated .GetBroadcastChannelEntry results = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           ptr -= 1;
@@ -10391,7 +10218,7 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated .GetBroadcastChannelEntry results = 1 [(.description) = "The list of broadcasters"];
+  // repeated .GetBroadcastChannelEntry results = 1;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_results_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
@@ -10415,7 +10242,7 @@ size_t CSteamTV_GetSubscribedChannels_Response::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .GetBroadcastChannelEntry results = 1 [(.description) = "The list of broadcasters"];
+  // repeated .GetBroadcastChannelEntry results = 1;
   total_size += 1UL * this->_internal_results_size();
   for (const auto& msg : this->results_) {
     total_size +=
@@ -10552,7 +10379,7 @@ const char* CSteamTV_GetBroadcastChannelStatus_Request::_InternalParse(const cha
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID"];
+      // optional fixed64 broadcast_channel_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
           _Internal::set_has_broadcast_channel_id(&has_bits);
@@ -10590,7 +10417,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID"];
+  // optional fixed64 broadcast_channel_id = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_broadcast_channel_id(), target);
@@ -10612,7 +10439,7 @@ size_t CSteamTV_GetBroadcastChannelStatus_Request::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID"];
+  // optional fixed64 broadcast_channel_id = 1;
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += 1 + 8;
@@ -10818,7 +10645,7 @@ const char* CSteamTV_GetBroadcastChannelStatus_Response::_InternalParse(const ch
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional bool is_live = 1 [(.description) = "Indicates whether the channel is streaming"];
+      // optional bool is_live = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_is_live(&has_bits);
@@ -10826,7 +10653,7 @@ const char* CSteamTV_GetBroadcastChannelStatus_Response::_InternalParse(const ch
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool is_disabled = 2 [(.description) = "Indicates whether the channel has been disabled"];
+      // optional bool is_disabled = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_is_disabled(&has_bits);
@@ -10834,7 +10661,7 @@ const char* CSteamTV_GetBroadcastChannelStatus_Response::_InternalParse(const ch
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 appid = 3 [(.description) = "The game ID the requested broadcaster is playing"];
+      // optional uint32 appid = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           _Internal::set_has_appid(&has_bits);
@@ -10842,7 +10669,7 @@ const char* CSteamTV_GetBroadcastChannelStatus_Response::_InternalParse(const ch
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint64 viewers = 4 [(.description) = "Number of viewers currently watching"];
+      // optional uint64 viewers = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
           _Internal::set_has_viewers(&has_bits);
@@ -10850,7 +10677,7 @@ const char* CSteamTV_GetBroadcastChannelStatus_Response::_InternalParse(const ch
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint64 views = 5 [(.description) = "Number of total views of this channel"];
+      // optional uint64 views = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
           _Internal::set_has_views(&has_bits);
@@ -10858,7 +10685,7 @@ const char* CSteamTV_GetBroadcastChannelStatus_Response::_InternalParse(const ch
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional fixed64 broadcaster_steamid = 6 [(.description) = "Current broadcaster streaming"];
+      // optional fixed64 broadcaster_steamid = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 49)) {
           _Internal::set_has_broadcaster_steamid(&has_bits);
@@ -10866,7 +10693,7 @@ const char* CSteamTV_GetBroadcastChannelStatus_Response::_InternalParse(const ch
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
         } else goto handle_unusual;
         continue;
-      // optional string thumbnail_url = 7 [(.description) = "Current thumbnail URL"];
+      // optional string thumbnail_url = 7;
       case 7:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
           auto str = _internal_mutable_thumbnail_url();
@@ -10877,7 +10704,7 @@ const char* CSteamTV_GetBroadcastChannelStatus_Response::_InternalParse(const ch
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint64 followers = 8 [(.description) = "Number of followers of this channel"];
+      // optional uint64 followers = 8;
       case 8:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 64)) {
           _Internal::set_has_followers(&has_bits);
@@ -10885,7 +10712,7 @@ const char* CSteamTV_GetBroadcastChannelStatus_Response::_InternalParse(const ch
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint64 subscribers = 9 [(.description) = "Number of subscribers of this channel"];
+      // optional uint64 subscribers = 9;
       case 9:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 72)) {
           _Internal::set_has_subscribers(&has_bits);
@@ -10942,43 +10769,43 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional bool is_live = 1 [(.description) = "Indicates whether the channel is streaming"];
+  // optional bool is_live = 1;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(1, this->_internal_is_live(), target);
   }
 
-  // optional bool is_disabled = 2 [(.description) = "Indicates whether the channel has been disabled"];
+  // optional bool is_disabled = 2;
   if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(2, this->_internal_is_disabled(), target);
   }
 
-  // optional uint32 appid = 3 [(.description) = "The game ID the requested broadcaster is playing"];
+  // optional uint32 appid = 3;
   if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_appid(), target);
   }
 
-  // optional uint64 viewers = 4 [(.description) = "Number of viewers currently watching"];
+  // optional uint64 viewers = 4;
   if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(4, this->_internal_viewers(), target);
   }
 
-  // optional uint64 views = 5 [(.description) = "Number of total views of this channel"];
+  // optional uint64 views = 5;
   if (cached_has_bits & 0x00000040u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(5, this->_internal_views(), target);
   }
 
-  // optional fixed64 broadcaster_steamid = 6 [(.description) = "Current broadcaster streaming"];
+  // optional fixed64 broadcaster_steamid = 6;
   if (cached_has_bits & 0x00000080u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(6, this->_internal_broadcaster_steamid(), target);
   }
 
-  // optional string thumbnail_url = 7 [(.description) = "Current thumbnail URL"];
+  // optional string thumbnail_url = 7;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_thumbnail_url().data(), static_cast<int>(this->_internal_thumbnail_url().length()),
@@ -10988,13 +10815,13 @@ failure:
         7, this->_internal_thumbnail_url(), target);
   }
 
-  // optional uint64 followers = 8 [(.description) = "Number of followers of this channel"];
+  // optional uint64 followers = 8;
   if (cached_has_bits & 0x00000100u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(8, this->_internal_followers(), target);
   }
 
-  // optional uint64 subscribers = 9 [(.description) = "Number of subscribers of this channel"];
+  // optional uint64 subscribers = 9;
   if (cached_has_bits & 0x00000200u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(9, this->_internal_subscribers(), target);
@@ -11034,7 +10861,7 @@ size_t CSteamTV_GetBroadcastChannelStatus_Response::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x000000ffu) {
-    // optional string thumbnail_url = 7 [(.description) = "Current thumbnail URL"];
+    // optional string thumbnail_url = 7;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
@@ -11048,52 +10875,52 @@ size_t CSteamTV_GetBroadcastChannelStatus_Response::ByteSizeLong() const {
           this->_internal_unique_name());
     }
 
-    // optional bool is_live = 1 [(.description) = "Indicates whether the channel is streaming"];
+    // optional bool is_live = 1;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 + 1;
     }
 
-    // optional bool is_disabled = 2 [(.description) = "Indicates whether the channel has been disabled"];
+    // optional bool is_disabled = 2;
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 + 1;
     }
 
-    // optional uint32 appid = 3 [(.description) = "The game ID the requested broadcaster is playing"];
+    // optional uint32 appid = 3;
     if (cached_has_bits & 0x00000010u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_appid());
     }
 
-    // optional uint64 viewers = 4 [(.description) = "Number of viewers currently watching"];
+    // optional uint64 viewers = 4;
     if (cached_has_bits & 0x00000020u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_viewers());
     }
 
-    // optional uint64 views = 5 [(.description) = "Number of total views of this channel"];
+    // optional uint64 views = 5;
     if (cached_has_bits & 0x00000040u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_views());
     }
 
-    // optional fixed64 broadcaster_steamid = 6 [(.description) = "Current broadcaster streaming"];
+    // optional fixed64 broadcaster_steamid = 6;
     if (cached_has_bits & 0x00000080u) {
       total_size += 1 + 8;
     }
 
   }
   if (cached_has_bits & 0x00000700u) {
-    // optional uint64 followers = 8 [(.description) = "Number of followers of this channel"];
+    // optional uint64 followers = 8;
     if (cached_has_bits & 0x00000100u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_followers());
     }
 
-    // optional uint64 subscribers = 9 [(.description) = "Number of subscribers of this channel"];
+    // optional uint64 subscribers = 9;
     if (cached_has_bits & 0x00000200u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
@@ -11298,7 +11125,7 @@ const char* CSteamTV_FollowBroadcastChannel_Request::_InternalParse(const char* 
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID"];
+      // optional fixed64 broadcast_channel_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
           _Internal::set_has_broadcast_channel_id(&has_bits);
@@ -11306,7 +11133,7 @@ const char* CSteamTV_FollowBroadcastChannel_Request::_InternalParse(const char* 
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
         } else goto handle_unusual;
         continue;
-      // optional bool undo = 2 [(.description) = "Indicates this is an unfollow request"];
+      // optional bool undo = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_undo(&has_bits);
@@ -11344,13 +11171,13 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID"];
+  // optional fixed64 broadcast_channel_id = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_broadcast_channel_id(), target);
   }
 
-  // optional bool undo = 2 [(.description) = "Indicates this is an unfollow request"];
+  // optional bool undo = 2;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(2, this->_internal_undo(), target);
@@ -11374,12 +11201,12 @@ size_t CSteamTV_FollowBroadcastChannel_Request::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID"];
+    // optional fixed64 broadcast_channel_id = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 + 8;
     }
 
-    // optional bool undo = 2 [(.description) = "Indicates this is an unfollow request"];
+    // optional bool undo = 2;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 + 1;
     }
@@ -11530,7 +11357,7 @@ const char* CSteamTV_FollowBroadcastChannel_Response::_InternalParse(const char*
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional bool is_followed = 1 [(.description) = "Whether the user is now following"];
+      // optional bool is_followed = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_is_followed(&has_bits);
@@ -11568,7 +11395,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional bool is_followed = 1 [(.description) = "Whether the user is now following"];
+  // optional bool is_followed = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(1, this->_internal_is_followed(), target);
@@ -11590,7 +11417,7 @@ size_t CSteamTV_FollowBroadcastChannel_Response::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // optional bool is_followed = 1 [(.description) = "Whether the user is now following"];
+  // optional bool is_followed = 1;
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += 1 + 1;
@@ -11729,7 +11556,7 @@ const char* CSteamTV_SubscribeBroadcastChannel_Request::_InternalParse(const cha
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID"];
+      // optional fixed64 broadcast_channel_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
           _Internal::set_has_broadcast_channel_id(&has_bits);
@@ -11767,7 +11594,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID"];
+  // optional fixed64 broadcast_channel_id = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_broadcast_channel_id(), target);
@@ -11789,7 +11616,7 @@ size_t CSteamTV_SubscribeBroadcastChannel_Request::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID"];
+  // optional fixed64 broadcast_channel_id = 1;
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += 1 + 8;
@@ -11928,7 +11755,7 @@ const char* CSteamTV_SubscribeBroadcastChannel_Response::_InternalParse(const ch
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional bool is_subscribed = 1 [(.description) = "Whether the user is now subscribed"];
+      // optional bool is_subscribed = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_is_subscribed(&has_bits);
@@ -11966,7 +11793,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional bool is_subscribed = 1 [(.description) = "Whether the user is now subscribed"];
+  // optional bool is_subscribed = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(1, this->_internal_is_subscribed(), target);
@@ -11988,7 +11815,7 @@ size_t CSteamTV_SubscribeBroadcastChannel_Response::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // optional bool is_subscribed = 1 [(.description) = "Whether the user is now subscribed"];
+  // optional bool is_subscribed = 1;
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += 1 + 1;
@@ -12383,7 +12210,7 @@ const char* CSteamTV_BroadcastClipInfo::_InternalParse(const char* ptr, ::PROTOB
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint64 broadcast_clip_id = 1 [(.description) = "broadcast clip ID"];
+      // optional uint64 broadcast_clip_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_broadcast_clip_id(&has_bits);
@@ -12391,7 +12218,7 @@ const char* CSteamTV_BroadcastClipInfo::_InternalParse(const char* ptr, ::PROTOB
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint64 channel_id = 2 [(.description) = "Broadcast Channel ID"];
+      // optional uint64 channel_id = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_channel_id(&has_bits);
@@ -12399,7 +12226,7 @@ const char* CSteamTV_BroadcastClipInfo::_InternalParse(const char* ptr, ::PROTOB
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 app_id = 3 [(.description) = "App ID stream is tagged with"];
+      // optional uint32 app_id = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           _Internal::set_has_app_id(&has_bits);
@@ -12407,7 +12234,7 @@ const char* CSteamTV_BroadcastClipInfo::_InternalParse(const char* ptr, ::PROTOB
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional fixed64 broadcaster_steamid = 4 [(.description) = "Broadcaster SteamID"];
+      // optional fixed64 broadcaster_steamid = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 33)) {
           _Internal::set_has_broadcaster_steamid(&has_bits);
@@ -12415,7 +12242,7 @@ const char* CSteamTV_BroadcastClipInfo::_InternalParse(const char* ptr, ::PROTOB
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
         } else goto handle_unusual;
         continue;
-      // optional fixed64 creator_steamid = 5 [(.description) = "Clip-maker SteamID"];
+      // optional fixed64 creator_steamid = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 41)) {
           _Internal::set_has_creator_steamid(&has_bits);
@@ -12423,7 +12250,7 @@ const char* CSteamTV_BroadcastClipInfo::_InternalParse(const char* ptr, ::PROTOB
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
         } else goto handle_unusual;
         continue;
-      // optional string video_description = 6 [(.description) = "Short name or description of this clip"];
+      // optional string video_description = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
           auto str = _internal_mutable_video_description();
@@ -12434,7 +12261,7 @@ const char* CSteamTV_BroadcastClipInfo::_InternalParse(const char* ptr, ::PROTOB
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 live_time = 7 [(.description) = "GMT time clip was broadcasted live"];
+      // optional uint32 live_time = 7;
       case 7:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 56)) {
           _Internal::set_has_live_time(&has_bits);
@@ -12442,7 +12269,7 @@ const char* CSteamTV_BroadcastClipInfo::_InternalParse(const char* ptr, ::PROTOB
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 length_ms = 8 [(.description) = "length of video in MS"];
+      // optional uint32 length_ms = 8;
       case 8:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 64)) {
           _Internal::set_has_length_ms(&has_bits);
@@ -12450,7 +12277,7 @@ const char* CSteamTV_BroadcastClipInfo::_InternalParse(const char* ptr, ::PROTOB
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string thumbnail_path = 9 [(.description) = "relative path for thumbnail URL on host"];
+      // optional string thumbnail_path = 9;
       case 9:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 74)) {
           auto str = _internal_mutable_thumbnail_path();
@@ -12491,37 +12318,37 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint64 broadcast_clip_id = 1 [(.description) = "broadcast clip ID"];
+  // optional uint64 broadcast_clip_id = 1;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_broadcast_clip_id(), target);
   }
 
-  // optional uint64 channel_id = 2 [(.description) = "Broadcast Channel ID"];
+  // optional uint64 channel_id = 2;
   if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(2, this->_internal_channel_id(), target);
   }
 
-  // optional uint32 app_id = 3 [(.description) = "App ID stream is tagged with"];
+  // optional uint32 app_id = 3;
   if (cached_has_bits & 0x00000040u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_app_id(), target);
   }
 
-  // optional fixed64 broadcaster_steamid = 4 [(.description) = "Broadcaster SteamID"];
+  // optional fixed64 broadcaster_steamid = 4;
   if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(4, this->_internal_broadcaster_steamid(), target);
   }
 
-  // optional fixed64 creator_steamid = 5 [(.description) = "Clip-maker SteamID"];
+  // optional fixed64 creator_steamid = 5;
   if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(5, this->_internal_creator_steamid(), target);
   }
 
-  // optional string video_description = 6 [(.description) = "Short name or description of this clip"];
+  // optional string video_description = 6;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_video_description().data(), static_cast<int>(this->_internal_video_description().length()),
@@ -12531,19 +12358,19 @@ failure:
         6, this->_internal_video_description(), target);
   }
 
-  // optional uint32 live_time = 7 [(.description) = "GMT time clip was broadcasted live"];
+  // optional uint32 live_time = 7;
   if (cached_has_bits & 0x00000080u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(7, this->_internal_live_time(), target);
   }
 
-  // optional uint32 length_ms = 8 [(.description) = "length of video in MS"];
+  // optional uint32 length_ms = 8;
   if (cached_has_bits & 0x00000100u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(8, this->_internal_length_ms(), target);
   }
 
-  // optional string thumbnail_path = 9 [(.description) = "relative path for thumbnail URL on host"];
+  // optional string thumbnail_path = 9;
   if (cached_has_bits & 0x00000002u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_thumbnail_path().data(), static_cast<int>(this->_internal_thumbnail_path().length()),
@@ -12571,52 +12398,52 @@ size_t CSteamTV_BroadcastClipInfo::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x000000ffu) {
-    // optional string video_description = 6 [(.description) = "Short name or description of this clip"];
+    // optional string video_description = 6;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_video_description());
     }
 
-    // optional string thumbnail_path = 9 [(.description) = "relative path for thumbnail URL on host"];
+    // optional string thumbnail_path = 9;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_thumbnail_path());
     }
 
-    // optional uint64 broadcast_clip_id = 1 [(.description) = "broadcast clip ID"];
+    // optional uint64 broadcast_clip_id = 1;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_broadcast_clip_id());
     }
 
-    // optional uint64 channel_id = 2 [(.description) = "Broadcast Channel ID"];
+    // optional uint64 channel_id = 2;
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_channel_id());
     }
 
-    // optional fixed64 broadcaster_steamid = 4 [(.description) = "Broadcaster SteamID"];
+    // optional fixed64 broadcaster_steamid = 4;
     if (cached_has_bits & 0x00000010u) {
       total_size += 1 + 8;
     }
 
-    // optional fixed64 creator_steamid = 5 [(.description) = "Clip-maker SteamID"];
+    // optional fixed64 creator_steamid = 5;
     if (cached_has_bits & 0x00000020u) {
       total_size += 1 + 8;
     }
 
-    // optional uint32 app_id = 3 [(.description) = "App ID stream is tagged with"];
+    // optional uint32 app_id = 3;
     if (cached_has_bits & 0x00000040u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_app_id());
     }
 
-    // optional uint32 live_time = 7 [(.description) = "GMT time clip was broadcasted live"];
+    // optional uint32 live_time = 7;
     if (cached_has_bits & 0x00000080u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -12624,7 +12451,7 @@ size_t CSteamTV_BroadcastClipInfo::ByteSizeLong() const {
     }
 
   }
-  // optional uint32 length_ms = 8 [(.description) = "length of video in MS"];
+  // optional uint32 length_ms = 8;
   if (cached_has_bits & 0x00000100u) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -13061,7 +12888,7 @@ const char* CSteamTV_ReportBroadcastChannel_Request::_InternalParse(const char* 
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID"];
+      // optional fixed64 broadcast_channel_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
           _Internal::set_has_broadcast_channel_id(&has_bits);
@@ -13069,7 +12896,7 @@ const char* CSteamTV_ReportBroadcastChannel_Request::_InternalParse(const char* 
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
         } else goto handle_unusual;
         continue;
-      // optional string reason = 2 [(.description) = "The reason for the report"];
+      // optional string reason = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           auto str = _internal_mutable_reason();
@@ -13110,13 +12937,13 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID"];
+  // optional fixed64 broadcast_channel_id = 1;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_broadcast_channel_id(), target);
   }
 
-  // optional string reason = 2 [(.description) = "The reason for the report"];
+  // optional string reason = 2;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_reason().data(), static_cast<int>(this->_internal_reason().length()),
@@ -13144,14 +12971,14 @@ size_t CSteamTV_ReportBroadcastChannel_Request::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional string reason = 2 [(.description) = "The reason for the report"];
+    // optional string reason = 2;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_reason());
     }
 
-    // optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID"];
+    // optional fixed64 broadcast_channel_id = 1;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 + 8;
     }
@@ -13455,7 +13282,7 @@ const char* CSteamTV_GetBroadcastChannelInteraction_Request::_InternalParse(cons
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID"];
+      // optional fixed64 broadcast_channel_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
           _Internal::set_has_broadcast_channel_id(&has_bits);
@@ -13493,7 +13320,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID"];
+  // optional fixed64 broadcast_channel_id = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_broadcast_channel_id(), target);
@@ -13515,7 +13342,7 @@ size_t CSteamTV_GetBroadcastChannelInteraction_Request::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // optional fixed64 broadcast_channel_id = 1 [(.description) = "Broadcast channel ID"];
+  // optional fixed64 broadcast_channel_id = 1;
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += 1 + 8;
@@ -13664,7 +13491,7 @@ const char* CSteamTV_GetBroadcastChannelInteraction_Response::_InternalParse(con
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional bool is_followed = 1 [(.description) = "Whether the user has followed this channel"];
+      // optional bool is_followed = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_is_followed(&has_bits);
@@ -13672,7 +13499,7 @@ const char* CSteamTV_GetBroadcastChannelInteraction_Response::_InternalParse(con
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool is_subscribed = 2 [(.description) = "Whether the user has subscribed to this channel"];
+      // optional bool is_subscribed = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_is_subscribed(&has_bits);
@@ -13710,13 +13537,13 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional bool is_followed = 1 [(.description) = "Whether the user has followed this channel"];
+  // optional bool is_followed = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(1, this->_internal_is_followed(), target);
   }
 
-  // optional bool is_subscribed = 2 [(.description) = "Whether the user has subscribed to this channel"];
+  // optional bool is_subscribed = 2;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(2, this->_internal_is_subscribed(), target);
@@ -13740,12 +13567,12 @@ size_t CSteamTV_GetBroadcastChannelInteraction_Response::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional bool is_followed = 1 [(.description) = "Whether the user has followed this channel"];
+    // optional bool is_followed = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 + 1;
     }
 
-    // optional bool is_subscribed = 2 [(.description) = "Whether the user has subscribed to this channel"];
+    // optional bool is_subscribed = 2;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 + 1;
     }
@@ -13914,7 +13741,7 @@ const char* CSteamTV_GetGames_Request::_InternalParse(const char* ptr, ::PROTOBU
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint32 appid = 1 [(.description) = "The ID for the game"];
+      // optional uint32 appid = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_appid(&has_bits);
@@ -13922,7 +13749,7 @@ const char* CSteamTV_GetGames_Request::_InternalParse(const char* ptr, ::PROTOBU
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional .EGetGamesAlgorithm algorithm = 2 [default = EGetGamesAlgorithm_Default, (.description) = "The algorithm to use when picking games to return"];
+      // optional .EGetGamesAlgorithm algorithm = 2 [default = EGetGamesAlgorithm_Default];
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -13934,7 +13761,7 @@ const char* CSteamTV_GetGames_Request::_InternalParse(const char* ptr, ::PROTOBU
           }
         } else goto handle_unusual;
         continue;
-      // optional uint32 count = 3 [(.description) = "The maximum number of results to return"];
+      // optional uint32 count = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           _Internal::set_has_count(&has_bits);
@@ -13972,20 +13799,20 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint32 appid = 1 [(.description) = "The ID for the game"];
+  // optional uint32 appid = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_appid(), target);
   }
 
-  // optional .EGetGamesAlgorithm algorithm = 2 [default = EGetGamesAlgorithm_Default, (.description) = "The algorithm to use when picking games to return"];
+  // optional .EGetGamesAlgorithm algorithm = 2 [default = EGetGamesAlgorithm_Default];
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       2, this->_internal_algorithm(), target);
   }
 
-  // optional uint32 count = 3 [(.description) = "The maximum number of results to return"];
+  // optional uint32 count = 3;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_count(), target);
@@ -14009,21 +13836,21 @@ size_t CSteamTV_GetGames_Request::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000007u) {
-    // optional uint32 appid = 1 [(.description) = "The ID for the game"];
+    // optional uint32 appid = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_appid());
     }
 
-    // optional uint32 count = 3 [(.description) = "The maximum number of results to return"];
+    // optional uint32 count = 3;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_count());
     }
 
-    // optional .EGetGamesAlgorithm algorithm = 2 [default = EGetGamesAlgorithm_Default, (.description) = "The algorithm to use when picking games to return"];
+    // optional .EGetGamesAlgorithm algorithm = 2 [default = EGetGamesAlgorithm_Default];
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_algorithm());
@@ -14262,7 +14089,7 @@ const char* CSteamTV_Game::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint32 appid = 1 [(.description) = "The ID for the game"];
+      // optional uint32 appid = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_appid(&has_bits);
@@ -14270,7 +14097,7 @@ const char* CSteamTV_Game::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string name = 2 [(.description) = "The name for the game"];
+      // optional string name = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           auto str = _internal_mutable_name();
@@ -14281,7 +14108,7 @@ const char* CSteamTV_Game::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string image = 3 [(.description) = "The image for the game"];
+      // optional string image = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           auto str = _internal_mutable_image();
@@ -14292,7 +14119,7 @@ const char* CSteamTV_Game::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint64 viewers = 4 [(.description) = "Number of people watching this game"];
+      // optional uint64 viewers = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
           _Internal::set_has_viewers(&has_bits);
@@ -14300,7 +14127,7 @@ const char* CSteamTV_Game::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated .GetBroadcastChannelEntry channels = 5 [(.description) = "Live channels streaming this game"];
+      // repeated .GetBroadcastChannelEntry channels = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
           ptr -= 1;
@@ -14375,13 +14202,13 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint32 appid = 1 [(.description) = "The ID for the game"];
+  // optional uint32 appid = 1;
   if (cached_has_bits & 0x00000040u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_appid(), target);
   }
 
-  // optional string name = 2 [(.description) = "The name for the game"];
+  // optional string name = 2;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
@@ -14391,7 +14218,7 @@ failure:
         2, this->_internal_name(), target);
   }
 
-  // optional string image = 3 [(.description) = "The image for the game"];
+  // optional string image = 3;
   if (cached_has_bits & 0x00000002u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_image().data(), static_cast<int>(this->_internal_image().length()),
@@ -14401,13 +14228,13 @@ failure:
         3, this->_internal_image(), target);
   }
 
-  // optional uint64 viewers = 4 [(.description) = "Number of people watching this game"];
+  // optional uint64 viewers = 4;
   if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(4, this->_internal_viewers(), target);
   }
 
-  // repeated .GetBroadcastChannelEntry channels = 5 [(.description) = "Live channels streaming this game"];
+  // repeated .GetBroadcastChannelEntry channels = 5;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_channels_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
@@ -14461,7 +14288,7 @@ size_t CSteamTV_Game::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .GetBroadcastChannelEntry channels = 5 [(.description) = "Live channels streaming this game"];
+  // repeated .GetBroadcastChannelEntry channels = 5;
   total_size += 1UL * this->_internal_channels_size();
   for (const auto& msg : this->channels_) {
     total_size +=
@@ -14470,14 +14297,14 @@ size_t CSteamTV_Game::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x0000007fu) {
-    // optional string name = 2 [(.description) = "The name for the game"];
+    // optional string name = 2;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_name());
     }
 
-    // optional string image = 3 [(.description) = "The image for the game"];
+    // optional string image = 3;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
@@ -14505,14 +14332,14 @@ size_t CSteamTV_Game::ByteSizeLong() const {
           this->_internal_publisher());
     }
 
-    // optional uint64 viewers = 4 [(.description) = "Number of people watching this game"];
+    // optional uint64 viewers = 4;
     if (cached_has_bits & 0x00000020u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_viewers());
     }
 
-    // optional uint32 appid = 1 [(.description) = "The ID for the game"];
+    // optional uint32 appid = 1;
     if (cached_has_bits & 0x00000040u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -14680,7 +14507,7 @@ const char* CSteamTV_GetGames_Response::_InternalParse(const char* ptr, ::PROTOB
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // repeated .CSteamTV_Game results = 1 [(.description) = "The list of games"];
+      // repeated .CSteamTV_Game results = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           ptr -= 1;
@@ -14720,7 +14547,7 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated .CSteamTV_Game results = 1 [(.description) = "The list of games"];
+  // repeated .CSteamTV_Game results = 1;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_results_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
@@ -14744,7 +14571,7 @@ size_t CSteamTV_GetGames_Response::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .CSteamTV_Game results = 1 [(.description) = "The list of games"];
+  // repeated .CSteamTV_Game results = 1;
   total_size += 1UL * this->_internal_results_size();
   for (const auto& msg : this->results_) {
     total_size +=
@@ -14899,7 +14726,7 @@ const char* CSteamTV_GetChannels_Request::_InternalParse(const char* ptr, ::PROT
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional .EGetChannelsAlgorithm algorithm = 1 [default = EGetChannelsAlgorithm_Default, (.description) = "The algorithm to use when picking channels to return"];
+      // optional .EGetChannelsAlgorithm algorithm = 1 [default = EGetChannelsAlgorithm_Default];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -14911,7 +14738,7 @@ const char* CSteamTV_GetChannels_Request::_InternalParse(const char* ptr, ::PROT
           }
         } else goto handle_unusual;
         continue;
-      // optional uint32 count = 2 [(.description) = "The maximum number of results to return"];
+      // optional uint32 count = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_count(&has_bits);
@@ -14919,7 +14746,7 @@ const char* CSteamTV_GetChannels_Request::_InternalParse(const char* ptr, ::PROT
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 appid = 3 [(.description) = "Filter results to only this appid"];
+      // optional uint32 appid = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           _Internal::set_has_appid(&has_bits);
@@ -14957,20 +14784,20 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional .EGetChannelsAlgorithm algorithm = 1 [default = EGetChannelsAlgorithm_Default, (.description) = "The algorithm to use when picking channels to return"];
+  // optional .EGetChannelsAlgorithm algorithm = 1 [default = EGetChannelsAlgorithm_Default];
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       1, this->_internal_algorithm(), target);
   }
 
-  // optional uint32 count = 2 [(.description) = "The maximum number of results to return"];
+  // optional uint32 count = 2;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_count(), target);
   }
 
-  // optional uint32 appid = 3 [(.description) = "Filter results to only this appid"];
+  // optional uint32 appid = 3;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_appid(), target);
@@ -14994,21 +14821,21 @@ size_t CSteamTV_GetChannels_Request::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000007u) {
-    // optional uint32 count = 2 [(.description) = "The maximum number of results to return"];
+    // optional uint32 count = 2;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_count());
     }
 
-    // optional uint32 appid = 3 [(.description) = "Filter results to only this appid"];
+    // optional uint32 appid = 3;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_appid());
     }
 
-    // optional .EGetChannelsAlgorithm algorithm = 1 [default = EGetChannelsAlgorithm_Default, (.description) = "The algorithm to use when picking channels to return"];
+    // optional .EGetChannelsAlgorithm algorithm = 1 [default = EGetChannelsAlgorithm_Default];
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_algorithm());
@@ -15157,7 +14984,7 @@ const char* CSteamTV_GetChannels_Response::_InternalParse(const char* ptr, ::PRO
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // repeated .GetBroadcastChannelEntry results = 1 [(.description) = "The list of featured broadcasters"];
+      // repeated .GetBroadcastChannelEntry results = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           ptr -= 1;
@@ -15197,7 +15024,7 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated .GetBroadcastChannelEntry results = 1 [(.description) = "The list of featured broadcasters"];
+  // repeated .GetBroadcastChannelEntry results = 1;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_results_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
@@ -15221,7 +15048,7 @@ size_t CSteamTV_GetChannels_Response::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .GetBroadcastChannelEntry results = 1 [(.description) = "The list of featured broadcasters"];
+  // repeated .GetBroadcastChannelEntry results = 1;
   total_size += 1UL * this->_internal_results_size();
   for (const auto& msg : this->results_) {
     total_size +=
@@ -16391,7 +16218,7 @@ const char* CSteamTV_GetChatBans_Response::_InternalParse(const char* ptr, ::PRO
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // repeated .CSteamTV_ChatBan results = 1 [(.description) = "The list of bans"];
+      // repeated .CSteamTV_ChatBan results = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           ptr -= 1;
@@ -16431,7 +16258,7 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated .CSteamTV_ChatBan results = 1 [(.description) = "The list of bans"];
+  // repeated .CSteamTV_ChatBan results = 1;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_results_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
@@ -16455,7 +16282,7 @@ size_t CSteamTV_GetChatBans_Response::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .CSteamTV_ChatBan results = 1 [(.description) = "The list of bans"];
+  // repeated .CSteamTV_ChatBan results = 1;
   total_size += 1UL * this->_internal_results_size();
   for (const auto& msg : this->results_) {
     total_size +=
@@ -17462,7 +17289,7 @@ const char* CSteamTV_GetChatModerators_Response::_InternalParse(const char* ptr,
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // repeated .CSteamTV_ChatModerator results = 1 [(.description) = "The list of moderators"];
+      // repeated .CSteamTV_ChatModerator results = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           ptr -= 1;
@@ -17502,7 +17329,7 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated .CSteamTV_ChatModerator results = 1 [(.description) = "The list of moderators"];
+  // repeated .CSteamTV_ChatModerator results = 1;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_results_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
@@ -17526,7 +17353,7 @@ size_t CSteamTV_GetChatModerators_Response::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .CSteamTV_ChatModerator results = 1 [(.description) = "The list of moderators"];
+  // repeated .CSteamTV_ChatModerator results = 1;
   total_size += 1UL * this->_internal_results_size();
   for (const auto& msg : this->results_) {
     total_size +=
@@ -18302,7 +18129,7 @@ const char* CSteamTV_GetWordBans_Response::_InternalParse(const char* ptr, ::PRO
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // repeated string results = 1 [(.description) = "The list of banned words"];
+      // repeated string results = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           ptr -= 1;
@@ -18346,7 +18173,7 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated string results = 1 [(.description) = "The list of banned words"];
+  // repeated string results = 1;
   for (int i = 0, n = this->_internal_results_size(); i < n; i++) {
     const auto& s = this->_internal_results(i);
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
@@ -18372,7 +18199,7 @@ size_t CSteamTV_GetWordBans_Response::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated string results = 1 [(.description) = "The list of banned words"];
+  // repeated string results = 1;
   total_size += 1 *
       ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(results_.size());
   for (int i = 0, n = results_.size(); i < n; i++) {
@@ -19204,7 +19031,7 @@ const char* CSteamTV_Search_Response::_InternalParse(const char* ptr, ::PROTOBUF
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // repeated .GetBroadcastChannelEntry results = 1 [(.description) = "The list of broadcasters"];
+      // repeated .GetBroadcastChannelEntry results = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           ptr -= 1;
@@ -19244,7 +19071,7 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated .GetBroadcastChannelEntry results = 1 [(.description) = "The list of broadcasters"];
+  // repeated .GetBroadcastChannelEntry results = 1;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_results_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
@@ -19268,7 +19095,7 @@ size_t CSteamTV_Search_Response::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .GetBroadcastChannelEntry results = 1 [(.description) = "The list of broadcasters"];
+  // repeated .GetBroadcastChannelEntry results = 1;
   total_size += 1UL * this->_internal_results_size();
   for (const auto& msg : this->results_) {
     total_size +=
@@ -19572,7 +19399,7 @@ const char* CSteamTV_GetSteamTVUserSettings_Response::_InternalParse(const char*
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional bool stream_live_email = 1 [(.description) = "Send email when followed stream starts"];
+      // optional bool stream_live_email = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_stream_live_email(&has_bits);
@@ -19580,7 +19407,7 @@ const char* CSteamTV_GetSteamTVUserSettings_Response::_InternalParse(const char*
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool stream_live_notification = 2 [(.description) = "Send Steam notification when followed stream starts"];
+      // optional bool stream_live_notification = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_stream_live_notification(&has_bits);
@@ -19618,13 +19445,13 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional bool stream_live_email = 1 [(.description) = "Send email when followed stream starts"];
+  // optional bool stream_live_email = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(1, this->_internal_stream_live_email(), target);
   }
 
-  // optional bool stream_live_notification = 2 [(.description) = "Send Steam notification when followed stream starts"];
+  // optional bool stream_live_notification = 2;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(2, this->_internal_stream_live_notification(), target);
@@ -19648,12 +19475,12 @@ size_t CSteamTV_GetSteamTVUserSettings_Response::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional bool stream_live_email = 1 [(.description) = "Send email when followed stream starts"];
+    // optional bool stream_live_email = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 + 1;
     }
 
-    // optional bool stream_live_notification = 2 [(.description) = "Send Steam notification when followed stream starts"];
+    // optional bool stream_live_notification = 2;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 + 1;
     }
@@ -19814,7 +19641,7 @@ const char* CSteamTV_SetSteamTVUserSettings_Request::_InternalParse(const char* 
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional bool stream_live_email = 1 [(.description) = "Send email when followed stream starts"];
+      // optional bool stream_live_email = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_stream_live_email(&has_bits);
@@ -19822,7 +19649,7 @@ const char* CSteamTV_SetSteamTVUserSettings_Request::_InternalParse(const char* 
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool stream_live_notification = 2 [(.description) = "Send Steam notification when followed stream starts"];
+      // optional bool stream_live_notification = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_stream_live_notification(&has_bits);
@@ -19860,13 +19687,13 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional bool stream_live_email = 1 [(.description) = "Send email when followed stream starts"];
+  // optional bool stream_live_email = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(1, this->_internal_stream_live_email(), target);
   }
 
-  // optional bool stream_live_notification = 2 [(.description) = "Send Steam notification when followed stream starts"];
+  // optional bool stream_live_notification = 2;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(2, this->_internal_stream_live_notification(), target);
@@ -19890,12 +19717,12 @@ size_t CSteamTV_SetSteamTVUserSettings_Request::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional bool stream_live_email = 1 [(.description) = "Send email when followed stream starts"];
+    // optional bool stream_live_email = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 + 1;
     }
 
-    // optional bool stream_live_notification = 2 [(.description) = "Send Steam notification when followed stream starts"];
+    // optional bool stream_live_notification = 2;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 + 1;
     }
@@ -20353,7 +20180,7 @@ const char* CSteamTV_GetMyBroadcastChannels_Response::_InternalParse(const char*
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // repeated .GetBroadcastChannelEntry results = 1 [(.description) = "The list of broadcasters"];
+      // repeated .GetBroadcastChannelEntry results = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           ptr -= 1;
@@ -20393,7 +20220,7 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated .GetBroadcastChannelEntry results = 1 [(.description) = "The list of broadcasters"];
+  // repeated .GetBroadcastChannelEntry results = 1;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_results_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
@@ -20417,7 +20244,7 @@ size_t CSteamTV_GetMyBroadcastChannels_Response::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .GetBroadcastChannelEntry results = 1 [(.description) = "The list of broadcasters"];
+  // repeated .GetBroadcastChannelEntry results = 1;
   total_size += 1UL * this->_internal_results_size();
   for (const auto& msg : this->results_) {
     total_size +=
@@ -23802,7 +23629,7 @@ const char* CSteamTV_AppCheer_SingleCheerType::_InternalParse(const char* ptr, :
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint32 cheer_type = 1 [(.description) = "The type of cheer. App dependent (different teams, heroes, players, etc)"];
+      // optional uint32 cheer_type = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_cheer_type(&has_bits);
@@ -23810,7 +23637,7 @@ const char* CSteamTV_AppCheer_SingleCheerType::_InternalParse(const char* ptr, :
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 cheer_amount = 2 [(.description) = "The amount of cheers."];
+      // optional uint32 cheer_amount = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_cheer_amount(&has_bits);
@@ -23848,13 +23675,13 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint32 cheer_type = 1 [(.description) = "The type of cheer. App dependent (different teams, heroes, players, etc)"];
+  // optional uint32 cheer_type = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_cheer_type(), target);
   }
 
-  // optional uint32 cheer_amount = 2 [(.description) = "The amount of cheers."];
+  // optional uint32 cheer_amount = 2;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_cheer_amount(), target);
@@ -23878,14 +23705,14 @@ size_t CSteamTV_AppCheer_SingleCheerType::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional uint32 cheer_type = 1 [(.description) = "The type of cheer. App dependent (different teams, heroes, players, etc)"];
+    // optional uint32 cheer_type = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_cheer_type());
     }
 
-    // optional uint32 cheer_amount = 2 [(.description) = "The amount of cheers."];
+    // optional uint32 cheer_amount = 2;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -24054,7 +23881,7 @@ const char* CSteamTV_AppCheer_Request::_InternalParse(const char* ptr, ::PROTOBU
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint32 app_id = 1 [(.description) = "App ID this cheer is for."];
+      // optional uint32 app_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_app_id(&has_bits);
@@ -24062,7 +23889,7 @@ const char* CSteamTV_AppCheer_Request::_InternalParse(const char* ptr, ::PROTOBU
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional fixed64 cheer_target_id = 2 [(.description) = "The thing being cheered on. ID is app dependent (could be steam id, match id, lobby id, server id, etc)."];
+      // optional fixed64 cheer_target_id = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 17)) {
           _Internal::set_has_cheer_target_id(&has_bits);
@@ -24070,7 +23897,7 @@ const char* CSteamTV_AppCheer_Request::_InternalParse(const char* ptr, ::PROTOBU
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
         } else goto handle_unusual;
         continue;
-      // repeated .CSteamTV_AppCheer_SingleCheerType cheers = 3 [(.description) = "The set of cheers this request represents (could be multiple of different types)."];
+      // repeated .CSteamTV_AppCheer_SingleCheerType cheers = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           ptr -= 1;
@@ -24112,19 +23939,19 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint32 app_id = 1 [(.description) = "App ID this cheer is for."];
+  // optional uint32 app_id = 1;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_app_id(), target);
   }
 
-  // optional fixed64 cheer_target_id = 2 [(.description) = "The thing being cheered on. ID is app dependent (could be steam id, match id, lobby id, server id, etc)."];
+  // optional fixed64 cheer_target_id = 2;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(2, this->_internal_cheer_target_id(), target);
   }
 
-  // repeated .CSteamTV_AppCheer_SingleCheerType cheers = 3 [(.description) = "The set of cheers this request represents (could be multiple of different types)."];
+  // repeated .CSteamTV_AppCheer_SingleCheerType cheers = 3;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_cheers_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
@@ -24148,7 +23975,7 @@ size_t CSteamTV_AppCheer_Request::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .CSteamTV_AppCheer_SingleCheerType cheers = 3 [(.description) = "The set of cheers this request represents (could be multiple of different types)."];
+  // repeated .CSteamTV_AppCheer_SingleCheerType cheers = 3;
   total_size += 1UL * this->_internal_cheers_size();
   for (const auto& msg : this->cheers_) {
     total_size +=
@@ -24157,12 +23984,12 @@ size_t CSteamTV_AppCheer_Request::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional fixed64 cheer_target_id = 2 [(.description) = "The thing being cheered on. ID is app dependent (could be steam id, match id, lobby id, server id, etc)."];
+    // optional fixed64 cheer_target_id = 2;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 + 8;
     }
 
-    // optional uint32 app_id = 1 [(.description) = "App ID this cheer is for."];
+    // optional uint32 app_id = 1;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -24317,7 +24144,7 @@ const char* CSteamTV_AppCheer_Response::_InternalParse(const char* ptr, ::PROTOB
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint32 aggregation_delay_ms = 1 [(.description) = "The amount of time in milliseconds that the client should aggregate cheers before sending them. The server can control this dynamically to ask clients to slow down sending."];
+      // optional uint32 aggregation_delay_ms = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_aggregation_delay_ms(&has_bits);
@@ -24355,7 +24182,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint32 aggregation_delay_ms = 1 [(.description) = "The amount of time in milliseconds that the client should aggregate cheers before sending them. The server can control this dynamically to ask clients to slow down sending."];
+  // optional uint32 aggregation_delay_ms = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_aggregation_delay_ms(), target);
@@ -24377,7 +24204,7 @@ size_t CSteamTV_AppCheer_Response::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // optional uint32 aggregation_delay_ms = 1 [(.description) = "The amount of time in milliseconds that the client should aggregate cheers before sending them. The server can control this dynamically to ask clients to slow down sending."];
+  // optional uint32 aggregation_delay_ms = 1;
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += 1 +

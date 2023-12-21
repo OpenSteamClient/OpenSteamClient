@@ -625,6 +625,7 @@ class CMsgClientSettings PROTOBUF_FINAL :
     kGamescopeAppTargetFramerateFieldNumber = 21002,
     kGamescopeEnableAppTargetFramerateFieldNumber = 21003,
     kGamescopeDisableFramelimitFieldNumber = 21004,
+    kGamescopeUseGameRefreshRateInSteamFieldNumber = 21006,
   };
   // optional string preferred_monitor = 5 [(.setting_store) = EClientSettingStore_ConfigStore_Install, (.setting_name) = "BigPicture/Monitor"];
   bool has_preferred_monitor() const;
@@ -2333,7 +2334,7 @@ class CMsgClientSettings PROTOBUF_FINAL :
   void _internal_set_force_fake_mandatory_update(bool value);
   public:
 
-  // optional .EHDRVisualization gamescope_hdr_visualization = 21001 [default = EHDRVisualization_None, (.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "Gamescope/HDRVisualization"];
+  // optional .EHDRVisualization gamescope_hdr_visualization = 21001 [default = EHDRVisualization_None, (.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "Gamescope/HDRVisualization2"];
   bool has_gamescope_hdr_visualization() const;
   private:
   bool _internal_has_gamescope_hdr_visualization() const;
@@ -2385,6 +2386,19 @@ class CMsgClientSettings PROTOBUF_FINAL :
   void _internal_set_gamescope_disable_framelimit(bool value);
   public:
 
+  // optional bool gamescope_use_game_refresh_rate_in_steam = 21006 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "Developer/DynamicRefreshRateInSteam", (.setting_default_bool) = true];
+  bool has_gamescope_use_game_refresh_rate_in_steam() const;
+  private:
+  bool _internal_has_gamescope_use_game_refresh_rate_in_steam() const;
+  public:
+  void clear_gamescope_use_game_refresh_rate_in_steam();
+  bool gamescope_use_game_refresh_rate_in_steam() const;
+  void set_gamescope_use_game_refresh_rate_in_steam(bool value);
+  private:
+  bool _internal_gamescope_use_game_refresh_rate_in_steam() const;
+  void _internal_set_gamescope_use_game_refresh_rate_in_steam(bool value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CMsgClientSettings)
  private:
   class _Internal;
@@ -2392,7 +2406,7 @@ class CMsgClientSettings PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<4> _has_bits_;
+  ::PROTOBUF_NAMESPACE_ID::internal::HasBits<5> _has_bits_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr preferred_monitor_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr display_name_;
@@ -2522,6 +2536,7 @@ class CMsgClientSettings PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::int32 gamescope_app_target_framerate_;
   bool gamescope_enable_app_target_framerate_;
   bool gamescope_disable_framelimit_;
+  bool gamescope_use_game_refresh_rate_in_steam_;
   friend struct ::TableStruct_steammessages_5fclientsettings_2eproto;
 };
 // ===================================================================
@@ -6967,7 +6982,7 @@ inline void CMsgClientSettings::set_force_fake_mandatory_update(bool value) {
   // @@protoc_insertion_point(field_set:CMsgClientSettings.force_fake_mandatory_update)
 }
 
-// optional .EHDRVisualization gamescope_hdr_visualization = 21001 [default = EHDRVisualization_None, (.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "Gamescope/HDRVisualization"];
+// optional .EHDRVisualization gamescope_hdr_visualization = 21001 [default = EHDRVisualization_None, (.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "Gamescope/HDRVisualization2"];
 inline bool CMsgClientSettings::_internal_has_gamescope_hdr_visualization() const {
   bool value = (_has_bits_[3] & 0x10000000u) != 0;
   return value;
@@ -7106,6 +7121,34 @@ inline void CMsgClientSettings::_internal_set_gamescope_display_refresh_rate(::P
 inline void CMsgClientSettings::set_gamescope_display_refresh_rate(::PROTOBUF_NAMESPACE_ID::int32 value) {
   _internal_set_gamescope_display_refresh_rate(value);
   // @@protoc_insertion_point(field_set:CMsgClientSettings.gamescope_display_refresh_rate)
+}
+
+// optional bool gamescope_use_game_refresh_rate_in_steam = 21006 [(.setting_store) = EClientSettingStore_ConfigStore_UserLocal, (.setting_name) = "Developer/DynamicRefreshRateInSteam", (.setting_default_bool) = true];
+inline bool CMsgClientSettings::_internal_has_gamescope_use_game_refresh_rate_in_steam() const {
+  bool value = (_has_bits_[4] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgClientSettings::has_gamescope_use_game_refresh_rate_in_steam() const {
+  return _internal_has_gamescope_use_game_refresh_rate_in_steam();
+}
+inline void CMsgClientSettings::clear_gamescope_use_game_refresh_rate_in_steam() {
+  gamescope_use_game_refresh_rate_in_steam_ = false;
+  _has_bits_[4] &= ~0x00000001u;
+}
+inline bool CMsgClientSettings::_internal_gamescope_use_game_refresh_rate_in_steam() const {
+  return gamescope_use_game_refresh_rate_in_steam_;
+}
+inline bool CMsgClientSettings::gamescope_use_game_refresh_rate_in_steam() const {
+  // @@protoc_insertion_point(field_get:CMsgClientSettings.gamescope_use_game_refresh_rate_in_steam)
+  return _internal_gamescope_use_game_refresh_rate_in_steam();
+}
+inline void CMsgClientSettings::_internal_set_gamescope_use_game_refresh_rate_in_steam(bool value) {
+  _has_bits_[4] |= 0x00000001u;
+  gamescope_use_game_refresh_rate_in_steam_ = value;
+}
+inline void CMsgClientSettings::set_gamescope_use_game_refresh_rate_in_steam(bool value) {
+  _internal_set_gamescope_use_game_refresh_rate_in_steam(value);
+  // @@protoc_insertion_point(field_set:CMsgClientSettings.gamescope_use_game_refresh_rate_in_steam)
 }
 
 #ifdef __GNUC__

@@ -388,102 +388,69 @@ const char descriptor_table_protodef_steammessages_5fdatapublisher_2esteamclient
   "\n-steammessages_datapublisher.steamclien"
   "t.proto\032 google/protobuf/descriptor.prot"
   "o\032\030steammessages_base.proto\032,steammessag"
-  "es_unified_base.steamclient.proto\"\375\003\n9CD"
+  "es_unified_base.steamclient.proto\"\210\002\n9CD"
   "ataPublisher_ClientContentCorruptionRepo"
   "rt_Notification\022\r\n\005appid\030\001 \001(\r\022\017\n\007depoti"
-  "d\030\002 \001(\r\0229\n\017download_source\030\003 \001(\tB \202\265\030\034ho"
-  "st name of download source\022.\n\010objectid\030\004"
-  " \001(\tB\034\202\265\030\030Chunk SHA or Manifest ID\022\"\n\006ce"
-  "llid\030\005 \001(\rB\022\202\265\030\016Client Cell ID\022>\n\013is_man"
-  "ifest\030\006 \001(\010B)\202\265\030%The object is a manifes"
-  "t, not a chunk\022-\n\013object_size\030\007 \001(\004B\030\202\265\030"
-  "\024object size in bytes\0227\n\017corruption_type"
-  "\030\010 \001(\rB\036\202\265\030\032See EContentCorruptionType\022-"
-  "\n\nused_https\030\t \001(\010B\031\202\265\030\025the request was "
-  "HTTPS\022:\n\021oc_proxy_detected\030\n \001(\010B\037\202\265\030\033de"
-  "tected an OpenCache proxy\"\264\004\n.CDataPubli"
-  "sher_ClientUpdateAppJob_Notification\022\016\n\006"
-  "app_id\030\001 \001(\r\022\021\n\tdepot_ids\030\002 \003(\r\022\021\n\tapp_s"
-  "tate\030\003 \001(\r\022\025\n\rjob_app_error\030\004 \001(\r\022\025\n\rerr"
-  "or_details\030\005 \001(\t\022\024\n\014job_duration\030\006 \001(\r\022\037"
-  "\n\027files_validation_failed\030\007 \001(\r\022\034\n\024job_b"
-  "ytes_downloaded\030\010 \001(\004\022\030\n\020job_bytes_stage"
-  "d\030\t \001(\004\022\026\n\016bytes_comitted\030\n \001(\004\022\027\n\017start"
-  "_app_state\030\013 \001(\r\022\030\n\020stats_machine_id\030\014 \001"
-  "(\006\022\023\n\013branch_name\030\r \001(\t\022\036\n\026total_bytes_d"
-  "ownloaded\030\016 \001(\004\022\032\n\022total_bytes_staged\030\017 "
-  "\001(\004\022\034\n\024total_bytes_restored\030\020 \001(\004\022\023\n\013is_"
-  "borrowed\030\021 \001(\010\022\027\n\017is_free_weekend\030\022 \001(\010\022"
-  "\033\n\023total_bytes_patched\030\024 \001(\004\022\031\n\021total_by"
-  "tes_saved\030\025 \001(\004\022\017\n\007cell_id\030\026 \001(\r\"r\n&CDat"
-  "aPublisher_GetVRDeviceInfo_Request\022H\n\013mo"
-  "nth_count\030\001 \001(\rB3\202\265\030/Number of months fo"
-  "r which to generate a report\"\361\003\n\'CDataPu"
-  "blisher_GetVRDeviceInfo_Response\022S\n\006devi"
-  "ce\030\001 \003(\0132/.CDataPublisher_GetVRDeviceInf"
-  "o_Response.DeviceB\022\202\265\030\016Result devices\032\360\002"
-  "\n\006Device\022.\n\004name\030\001 \001(\tB \202\265\030\034Name to show"
-  " for this device\0221\n\003ref\030\002 \001(\rB$\202\265\030 Refer"
-  "ence number for this device\022L\n\017aggregati"
-  "on_ref\030\003 \001(\rB3\202\265\030/Reference number to ag"
-  "gregate this device under\022(\n\005total\030\004 \001(\r"
-  "B\031\202\265\030\025Sum of all the counts\0224\n\006driver\030\005 "
-  "\001(\tB$\202\265\030 driver name reported by the use"
-  "r\022U\n\014device_class\030\006 \001(\005B\?\202\265\030;Class of th"
-  "e device. HMD=1, controller=2, tracker=3"
-  ", base=4\"\314\001\n:CDataPublisher_SetVRDeviceI"
-  "nfoAggregationReference_Request\022P\n\003ref\030\001"
-  " \001(\rBC\202\265\030\?Reference number in the VRDevi"
-  "ceInfo table for the entry to set\022<\n\017agg"
-  "regation_ref\030\002 \001(\rB#\202\265\030\037Aggregation to s"
-  "et the entry to\"b\n;CDataPublisher_SetVRD"
-  "eviceInfoAggregationReference_Response\022#"
-  "\n\006result\030\001 \001(\rB\023\202\265\030\017EResultOK, etc.\"\266\003\n&"
-  "CDataPublisher_AddVRDeviceInfo_Request\0229"
-  "\n\014manufacturer\030\001 \001(\tB#\202\265\030\037Manufacturer f"
-  "or the new device\022+\n\005model\030\002 \001(\tB\034\202\265\030\030Mo"
-  "del for the new device\022]\n\006driver\030\003 \001(\tBM"
-  "\202\265\030Idriver name (not including driver_)."
-  " e.g. lighthouse, oculus, holographic\022n\n"
-  "\017controller_type\030\004 \001(\tBU\202\265\030Qcontroller t"
-  "ype for the device. Can be an empty stri"
-  "ng for devices with no inputs\022U\n\014device_"
-  "class\030\005 \001(\005B\?\202\265\030;Class of the device. HM"
-  "D=1, controller=2, tracker=3, base=4\"\214\001\n"
-  "\'CDataPublisher_AddVRDeviceInfo_Response"
-  "\022#\n\006result\030\001 \001(\rB\023\202\265\030\017EResultOK, etc.\022<\n"
-  "\003ref\030\002 \001(\rB/\202\265\030+The reference number of "
-  "the inserted device\"c\n(CValveHWSurvey_Ge"
-  "tSurveySchedule_Request\022\027\n\017surveydatetok"
-  "en\030\001 \001(\t\022\036\n\026surveydatetokenversion\030\002 \001(\006"
-  "\"d\n)CValveHWSurvey_GetSurveySchedule_Res"
-  "ponse\022\027\n\017surveydatetoken\030\001 \001(\r\022\036\n\026survey"
-  "datetokenversion\030\002 \001(\0062\245\006\n\rDataPublisher"
-  "\022h\n\035ClientContentCorruptionReport\022:.CDat"
-  "aPublisher_ClientContentCorruptionReport"
-  "_Notification\032\013.NoResponse\022X\n\030ClientUpda"
-  "teAppJobReport\022/.CDataPublisher_ClientUp"
-  "dateAppJob_Notification\032\013.NoResponse\022\243\001\n"
-  "\017GetVRDeviceInfo\022\'.CDataPublisher_GetVRD"
-  "eviceInfo_Request\032(.CDataPublisher_GetVR"
-  "DeviceInfo_Response\"=\202\265\0309Generate a debu"
-  "g report of what devices are in the surv"
-  "ey\022\324\001\n#SetVRDeviceInfoAggregationReferen"
-  "ce\022;.CDataPublisher_SetVRDeviceInfoAggre"
-  "gationReference_Request\032<.CDataPublisher"
-  "_SetVRDeviceInfoAggregationReference_Res"
-  "ponse\"2\202\265\030.Set the rollup reference of a"
-  " single VR device\022\251\001\n\017AddVRDeviceInfo\022\'."
-  "CDataPublisher_AddVRDeviceInfo_Request\032("
-  ".CDataPublisher_AddVRDeviceInfo_Response"
-  "\"C\202\265\030\?Adds a device to the VRDeviceInfo "
-  "table for the hardware survey\032\'\202\265\030#Data "
-  "Publisher (DP) server services2\254\001\n\rValve"
-  "HWSurvey\022\207\001\n\021GetSurveySchedule\022).CValveH"
-  "WSurvey_GetSurveySchedule_Request\032*.CVal"
-  "veHWSurvey_GetSurveySchedule_Response\"\033\202"
-  "\265\030\027Should I run the survey\032\021\202\265\030\rValveHWS"
-  "urveyB\035\200\001\001\252\002\027OpenSteamworks.Protobuf"
+  "d\030\002 \001(\r\022\027\n\017download_source\030\003 \001(\t\022\020\n\010obje"
+  "ctid\030\004 \001(\t\022\016\n\006cellid\030\005 \001(\r\022\023\n\013is_manifes"
+  "t\030\006 \001(\010\022\023\n\013object_size\030\007 \001(\004\022\027\n\017corrupti"
+  "on_type\030\010 \001(\r\022\022\n\nused_https\030\t \001(\010\022\031\n\021oc_"
+  "proxy_detected\030\n \001(\010\"\264\004\n.CDataPublisher_"
+  "ClientUpdateAppJob_Notification\022\016\n\006app_i"
+  "d\030\001 \001(\r\022\021\n\tdepot_ids\030\002 \003(\r\022\021\n\tapp_state\030"
+  "\003 \001(\r\022\025\n\rjob_app_error\030\004 \001(\r\022\025\n\rerror_de"
+  "tails\030\005 \001(\t\022\024\n\014job_duration\030\006 \001(\r\022\037\n\027fil"
+  "es_validation_failed\030\007 \001(\r\022\034\n\024job_bytes_"
+  "downloaded\030\010 \001(\004\022\030\n\020job_bytes_staged\030\t \001"
+  "(\004\022\026\n\016bytes_comitted\030\n \001(\004\022\027\n\017start_app_"
+  "state\030\013 \001(\r\022\030\n\020stats_machine_id\030\014 \001(\006\022\023\n"
+  "\013branch_name\030\r \001(\t\022\036\n\026total_bytes_downlo"
+  "aded\030\016 \001(\004\022\032\n\022total_bytes_staged\030\017 \001(\004\022\034"
+  "\n\024total_bytes_restored\030\020 \001(\004\022\023\n\013is_borro"
+  "wed\030\021 \001(\010\022\027\n\017is_free_weekend\030\022 \001(\010\022\033\n\023to"
+  "tal_bytes_patched\030\024 \001(\004\022\031\n\021total_bytes_s"
+  "aved\030\025 \001(\004\022\017\n\007cell_id\030\026 \001(\r\"=\n&CDataPubl"
+  "isher_GetVRDeviceInfo_Request\022\023\n\013month_c"
+  "ount\030\001 \001(\r\"\335\001\n\'CDataPublisher_GetVRDevic"
+  "eInfo_Response\022\?\n\006device\030\001 \003(\0132/.CDataPu"
+  "blisher_GetVRDeviceInfo_Response.Device\032"
+  "q\n\006Device\022\014\n\004name\030\001 \001(\t\022\013\n\003ref\030\002 \001(\r\022\027\n\017"
+  "aggregation_ref\030\003 \001(\r\022\r\n\005total\030\004 \001(\r\022\016\n\006"
+  "driver\030\005 \001(\t\022\024\n\014device_class\030\006 \001(\005\"b\n:CD"
+  "ataPublisher_SetVRDeviceInfoAggregationR"
+  "eference_Request\022\013\n\003ref\030\001 \001(\r\022\027\n\017aggrega"
+  "tion_ref\030\002 \001(\r\"M\n;CDataPublisher_SetVRDe"
+  "viceInfoAggregationReference_Response\022\016\n"
+  "\006result\030\001 \001(\r\"\214\001\n&CDataPublisher_AddVRDe"
+  "viceInfo_Request\022\024\n\014manufacturer\030\001 \001(\t\022\r"
+  "\n\005model\030\002 \001(\t\022\016\n\006driver\030\003 \001(\t\022\027\n\017control"
+  "ler_type\030\004 \001(\t\022\024\n\014device_class\030\005 \001(\005\"F\n\'"
+  "CDataPublisher_AddVRDeviceInfo_Response\022"
+  "\016\n\006result\030\001 \001(\r\022\013\n\003ref\030\002 \001(\r\"c\n(CValveHW"
+  "Survey_GetSurveySchedule_Request\022\027\n\017surv"
+  "eydatetoken\030\001 \001(\t\022\036\n\026surveydatetokenvers"
+  "ion\030\002 \001(\006\"d\n)CValveHWSurvey_GetSurveySch"
+  "edule_Response\022\027\n\017surveydatetoken\030\001 \001(\r\022"
+  "\036\n\026surveydatetokenversion\030\002 \001(\0062\302\004\n\rData"
+  "Publisher\022h\n\035ClientContentCorruptionRepo"
+  "rt\022:.CDataPublisher_ClientContentCorrupt"
+  "ionReport_Notification\032\013.NoResponse\022X\n\030C"
+  "lientUpdateAppJobReport\022/.CDataPublisher"
+  "_ClientUpdateAppJob_Notification\032\013.NoRes"
+  "ponse\022d\n\017GetVRDeviceInfo\022\'.CDataPublishe"
+  "r_GetVRDeviceInfo_Request\032(.CDataPublish"
+  "er_GetVRDeviceInfo_Response\022\240\001\n#SetVRDev"
+  "iceInfoAggregationReference\022;.CDataPubli"
+  "sher_SetVRDeviceInfoAggregationReference"
+  "_Request\032<.CDataPublisher_SetVRDeviceInf"
+  "oAggregationReference_Response\022d\n\017AddVRD"
+  "eviceInfo\022\'.CDataPublisher_AddVRDeviceIn"
+  "fo_Request\032(.CDataPublisher_AddVRDeviceI"
+  "nfo_Response2{\n\rValveHWSurvey\022j\n\021GetSurv"
+  "eySchedule\022).CValveHWSurvey_GetSurveySch"
+  "edule_Request\032*.CValveHWSurvey_GetSurvey"
+  "Schedule_ResponseB\035\200\001\001\252\002\027OpenSteamworks."
+  "Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fdatapublisher_2esteamclient_2eproto_deps[3] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
@@ -492,7 +459,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fdatapublisher_2esteamclient_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fdatapublisher_2esteamclient_2eproto = {
-  false, false, 3956, descriptor_table_protodef_steammessages_5fdatapublisher_2esteamclient_2eproto, "steammessages_datapublisher.steamclient.proto", 
+  false, false, 2608, descriptor_table_protodef_steammessages_5fdatapublisher_2esteamclient_2eproto, "steammessages_datapublisher.steamclient.proto", 
   &descriptor_table_steammessages_5fdatapublisher_2esteamclient_2eproto_once, descriptor_table_steammessages_5fdatapublisher_2esteamclient_2eproto_deps, 3, 11,
   schemas, file_default_instances, TableStruct_steammessages_5fdatapublisher_2esteamclient_2eproto::offsets,
   file_level_metadata_steammessages_5fdatapublisher_2esteamclient_2eproto, file_level_enum_descriptors_steammessages_5fdatapublisher_2esteamclient_2eproto, file_level_service_descriptors_steammessages_5fdatapublisher_2esteamclient_2eproto,
@@ -653,7 +620,7 @@ const char* CDataPublisher_ClientContentCorruptionReport_Notification::_Internal
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string download_source = 3 [(.description) = "host name of download source"];
+      // optional string download_source = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           auto str = _internal_mutable_download_source();
@@ -664,7 +631,7 @@ const char* CDataPublisher_ClientContentCorruptionReport_Notification::_Internal
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string objectid = 4 [(.description) = "Chunk SHA or Manifest ID"];
+      // optional string objectid = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
           auto str = _internal_mutable_objectid();
@@ -675,7 +642,7 @@ const char* CDataPublisher_ClientContentCorruptionReport_Notification::_Internal
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 cellid = 5 [(.description) = "Client Cell ID"];
+      // optional uint32 cellid = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
           _Internal::set_has_cellid(&has_bits);
@@ -683,7 +650,7 @@ const char* CDataPublisher_ClientContentCorruptionReport_Notification::_Internal
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool is_manifest = 6 [(.description) = "The object is a manifest, not a chunk"];
+      // optional bool is_manifest = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
           _Internal::set_has_is_manifest(&has_bits);
@@ -691,7 +658,7 @@ const char* CDataPublisher_ClientContentCorruptionReport_Notification::_Internal
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint64 object_size = 7 [(.description) = "object size in bytes"];
+      // optional uint64 object_size = 7;
       case 7:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 56)) {
           _Internal::set_has_object_size(&has_bits);
@@ -699,7 +666,7 @@ const char* CDataPublisher_ClientContentCorruptionReport_Notification::_Internal
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 corruption_type = 8 [(.description) = "See EContentCorruptionType"];
+      // optional uint32 corruption_type = 8;
       case 8:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 64)) {
           _Internal::set_has_corruption_type(&has_bits);
@@ -707,7 +674,7 @@ const char* CDataPublisher_ClientContentCorruptionReport_Notification::_Internal
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool used_https = 9 [(.description) = "the request was HTTPS"];
+      // optional bool used_https = 9;
       case 9:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 72)) {
           _Internal::set_has_used_https(&has_bits);
@@ -715,7 +682,7 @@ const char* CDataPublisher_ClientContentCorruptionReport_Notification::_Internal
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool oc_proxy_detected = 10 [(.description) = "detected an OpenCache proxy"];
+      // optional bool oc_proxy_detected = 10;
       case 10:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 80)) {
           _Internal::set_has_oc_proxy_detected(&has_bits);
@@ -765,7 +732,7 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_depotid(), target);
   }
 
-  // optional string download_source = 3 [(.description) = "host name of download source"];
+  // optional string download_source = 3;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_download_source().data(), static_cast<int>(this->_internal_download_source().length()),
@@ -775,7 +742,7 @@ failure:
         3, this->_internal_download_source(), target);
   }
 
-  // optional string objectid = 4 [(.description) = "Chunk SHA or Manifest ID"];
+  // optional string objectid = 4;
   if (cached_has_bits & 0x00000002u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_objectid().data(), static_cast<int>(this->_internal_objectid().length()),
@@ -785,37 +752,37 @@ failure:
         4, this->_internal_objectid(), target);
   }
 
-  // optional uint32 cellid = 5 [(.description) = "Client Cell ID"];
+  // optional uint32 cellid = 5;
   if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(5, this->_internal_cellid(), target);
   }
 
-  // optional bool is_manifest = 6 [(.description) = "The object is a manifest, not a chunk"];
+  // optional bool is_manifest = 6;
   if (cached_has_bits & 0x00000080u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(6, this->_internal_is_manifest(), target);
   }
 
-  // optional uint64 object_size = 7 [(.description) = "object size in bytes"];
+  // optional uint64 object_size = 7;
   if (cached_has_bits & 0x00000040u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(7, this->_internal_object_size(), target);
   }
 
-  // optional uint32 corruption_type = 8 [(.description) = "See EContentCorruptionType"];
+  // optional uint32 corruption_type = 8;
   if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(8, this->_internal_corruption_type(), target);
   }
 
-  // optional bool used_https = 9 [(.description) = "the request was HTTPS"];
+  // optional bool used_https = 9;
   if (cached_has_bits & 0x00000100u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(9, this->_internal_used_https(), target);
   }
 
-  // optional bool oc_proxy_detected = 10 [(.description) = "detected an OpenCache proxy"];
+  // optional bool oc_proxy_detected = 10;
   if (cached_has_bits & 0x00000200u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(10, this->_internal_oc_proxy_detected(), target);
@@ -839,14 +806,14 @@ size_t CDataPublisher_ClientContentCorruptionReport_Notification::ByteSizeLong()
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x000000ffu) {
-    // optional string download_source = 3 [(.description) = "host name of download source"];
+    // optional string download_source = 3;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_download_source());
     }
 
-    // optional string objectid = 4 [(.description) = "Chunk SHA or Manifest ID"];
+    // optional string objectid = 4;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
@@ -867,40 +834,40 @@ size_t CDataPublisher_ClientContentCorruptionReport_Notification::ByteSizeLong()
           this->_internal_depotid());
     }
 
-    // optional uint32 cellid = 5 [(.description) = "Client Cell ID"];
+    // optional uint32 cellid = 5;
     if (cached_has_bits & 0x00000010u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_cellid());
     }
 
-    // optional uint32 corruption_type = 8 [(.description) = "See EContentCorruptionType"];
+    // optional uint32 corruption_type = 8;
     if (cached_has_bits & 0x00000020u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_corruption_type());
     }
 
-    // optional uint64 object_size = 7 [(.description) = "object size in bytes"];
+    // optional uint64 object_size = 7;
     if (cached_has_bits & 0x00000040u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_object_size());
     }
 
-    // optional bool is_manifest = 6 [(.description) = "The object is a manifest, not a chunk"];
+    // optional bool is_manifest = 6;
     if (cached_has_bits & 0x00000080u) {
       total_size += 1 + 1;
     }
 
   }
   if (cached_has_bits & 0x00000300u) {
-    // optional bool used_https = 9 [(.description) = "the request was HTTPS"];
+    // optional bool used_https = 9;
     if (cached_has_bits & 0x00000100u) {
       total_size += 1 + 1;
     }
 
-    // optional bool oc_proxy_detected = 10 [(.description) = "detected an OpenCache proxy"];
+    // optional bool oc_proxy_detected = 10;
     if (cached_has_bits & 0x00000200u) {
       total_size += 1 + 1;
     }
@@ -1902,7 +1869,7 @@ const char* CDataPublisher_GetVRDeviceInfo_Request::_InternalParse(const char* p
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint32 month_count = 1 [(.description) = "Number of months for which to generate a report"];
+      // optional uint32 month_count = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_month_count(&has_bits);
@@ -1940,7 +1907,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint32 month_count = 1 [(.description) = "Number of months for which to generate a report"];
+  // optional uint32 month_count = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_month_count(), target);
@@ -1962,7 +1929,7 @@ size_t CDataPublisher_GetVRDeviceInfo_Request::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // optional uint32 month_count = 1 [(.description) = "Number of months for which to generate a report"];
+  // optional uint32 month_count = 1;
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += 1 +
@@ -2150,7 +2117,7 @@ const char* CDataPublisher_GetVRDeviceInfo_Response_Device::_InternalParse(const
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional string name = 1 [(.description) = "Name to show for this device"];
+      // optional string name = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           auto str = _internal_mutable_name();
@@ -2161,7 +2128,7 @@ const char* CDataPublisher_GetVRDeviceInfo_Response_Device::_InternalParse(const
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 ref = 2 [(.description) = "Reference number for this device"];
+      // optional uint32 ref = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_ref(&has_bits);
@@ -2169,7 +2136,7 @@ const char* CDataPublisher_GetVRDeviceInfo_Response_Device::_InternalParse(const
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 aggregation_ref = 3 [(.description) = "Reference number to aggregate this device under"];
+      // optional uint32 aggregation_ref = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           _Internal::set_has_aggregation_ref(&has_bits);
@@ -2177,7 +2144,7 @@ const char* CDataPublisher_GetVRDeviceInfo_Response_Device::_InternalParse(const
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 total = 4 [(.description) = "Sum of all the counts"];
+      // optional uint32 total = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
           _Internal::set_has_total(&has_bits);
@@ -2185,7 +2152,7 @@ const char* CDataPublisher_GetVRDeviceInfo_Response_Device::_InternalParse(const
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string driver = 5 [(.description) = "driver name reported by the user"];
+      // optional string driver = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
           auto str = _internal_mutable_driver();
@@ -2196,7 +2163,7 @@ const char* CDataPublisher_GetVRDeviceInfo_Response_Device::_InternalParse(const
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional int32 device_class = 6 [(.description) = "Class of the device. HMD=1, controller=2, tracker=3, base=4"];
+      // optional int32 device_class = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
           _Internal::set_has_device_class(&has_bits);
@@ -2234,7 +2201,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional string name = 1 [(.description) = "Name to show for this device"];
+  // optional string name = 1;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
@@ -2244,25 +2211,25 @@ failure:
         1, this->_internal_name(), target);
   }
 
-  // optional uint32 ref = 2 [(.description) = "Reference number for this device"];
+  // optional uint32 ref = 2;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_ref(), target);
   }
 
-  // optional uint32 aggregation_ref = 3 [(.description) = "Reference number to aggregate this device under"];
+  // optional uint32 aggregation_ref = 3;
   if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_aggregation_ref(), target);
   }
 
-  // optional uint32 total = 4 [(.description) = "Sum of all the counts"];
+  // optional uint32 total = 4;
   if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_total(), target);
   }
 
-  // optional string driver = 5 [(.description) = "driver name reported by the user"];
+  // optional string driver = 5;
   if (cached_has_bits & 0x00000002u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_driver().data(), static_cast<int>(this->_internal_driver().length()),
@@ -2272,7 +2239,7 @@ failure:
         5, this->_internal_driver(), target);
   }
 
-  // optional int32 device_class = 6 [(.description) = "Class of the device. HMD=1, controller=2, tracker=3, base=4"];
+  // optional int32 device_class = 6;
   if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(6, this->_internal_device_class(), target);
@@ -2296,42 +2263,42 @@ size_t CDataPublisher_GetVRDeviceInfo_Response_Device::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x0000003fu) {
-    // optional string name = 1 [(.description) = "Name to show for this device"];
+    // optional string name = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_name());
     }
 
-    // optional string driver = 5 [(.description) = "driver name reported by the user"];
+    // optional string driver = 5;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_driver());
     }
 
-    // optional uint32 ref = 2 [(.description) = "Reference number for this device"];
+    // optional uint32 ref = 2;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_ref());
     }
 
-    // optional uint32 aggregation_ref = 3 [(.description) = "Reference number to aggregate this device under"];
+    // optional uint32 aggregation_ref = 3;
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_aggregation_ref());
     }
 
-    // optional uint32 total = 4 [(.description) = "Sum of all the counts"];
+    // optional uint32 total = 4;
     if (cached_has_bits & 0x00000010u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_total());
     }
 
-    // optional int32 device_class = 6 [(.description) = "Class of the device. HMD=1, controller=2, tracker=3, base=4"];
+    // optional int32 device_class = 6;
     if (cached_has_bits & 0x00000020u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
@@ -2491,7 +2458,7 @@ const char* CDataPublisher_GetVRDeviceInfo_Response::_InternalParse(const char* 
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // repeated .CDataPublisher_GetVRDeviceInfo_Response.Device device = 1 [(.description) = "Result devices"];
+      // repeated .CDataPublisher_GetVRDeviceInfo_Response.Device device = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           ptr -= 1;
@@ -2531,7 +2498,7 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated .CDataPublisher_GetVRDeviceInfo_Response.Device device = 1 [(.description) = "Result devices"];
+  // repeated .CDataPublisher_GetVRDeviceInfo_Response.Device device = 1;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_device_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
@@ -2555,7 +2522,7 @@ size_t CDataPublisher_GetVRDeviceInfo_Response::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .CDataPublisher_GetVRDeviceInfo_Response.Device device = 1 [(.description) = "Result devices"];
+  // repeated .CDataPublisher_GetVRDeviceInfo_Response.Device device = 1;
   total_size += 1UL * this->_internal_device_size();
   for (const auto& msg : this->device_) {
     total_size +=
@@ -2705,7 +2672,7 @@ const char* CDataPublisher_SetVRDeviceInfoAggregationReference_Request::_Interna
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint32 ref = 1 [(.description) = "Reference number in the VRDeviceInfo table for the entry to set"];
+      // optional uint32 ref = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_ref(&has_bits);
@@ -2713,7 +2680,7 @@ const char* CDataPublisher_SetVRDeviceInfoAggregationReference_Request::_Interna
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 aggregation_ref = 2 [(.description) = "Aggregation to set the entry to"];
+      // optional uint32 aggregation_ref = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_aggregation_ref(&has_bits);
@@ -2751,13 +2718,13 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint32 ref = 1 [(.description) = "Reference number in the VRDeviceInfo table for the entry to set"];
+  // optional uint32 ref = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_ref(), target);
   }
 
-  // optional uint32 aggregation_ref = 2 [(.description) = "Aggregation to set the entry to"];
+  // optional uint32 aggregation_ref = 2;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_aggregation_ref(), target);
@@ -2781,14 +2748,14 @@ size_t CDataPublisher_SetVRDeviceInfoAggregationReference_Request::ByteSizeLong(
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional uint32 ref = 1 [(.description) = "Reference number in the VRDeviceInfo table for the entry to set"];
+    // optional uint32 ref = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_ref());
     }
 
-    // optional uint32 aggregation_ref = 2 [(.description) = "Aggregation to set the entry to"];
+    // optional uint32 aggregation_ref = 2;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -2941,7 +2908,7 @@ const char* CDataPublisher_SetVRDeviceInfoAggregationReference_Response::_Intern
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint32 result = 1 [(.description) = "EResultOK, etc."];
+      // optional uint32 result = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_result(&has_bits);
@@ -2979,7 +2946,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint32 result = 1 [(.description) = "EResultOK, etc."];
+  // optional uint32 result = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_result(), target);
@@ -3001,7 +2968,7 @@ size_t CDataPublisher_SetVRDeviceInfoAggregationReference_Response::ByteSizeLong
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // optional uint32 result = 1 [(.description) = "EResultOK, etc."];
+  // optional uint32 result = 1;
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += 1 +
@@ -3197,7 +3164,7 @@ const char* CDataPublisher_AddVRDeviceInfo_Request::_InternalParse(const char* p
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional string manufacturer = 1 [(.description) = "Manufacturer for the new device"];
+      // optional string manufacturer = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           auto str = _internal_mutable_manufacturer();
@@ -3208,7 +3175,7 @@ const char* CDataPublisher_AddVRDeviceInfo_Request::_InternalParse(const char* p
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string model = 2 [(.description) = "Model for the new device"];
+      // optional string model = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           auto str = _internal_mutable_model();
@@ -3219,7 +3186,7 @@ const char* CDataPublisher_AddVRDeviceInfo_Request::_InternalParse(const char* p
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string driver = 3 [(.description) = "driver name (not including driver_). e.g. lighthouse, oculus, holographic"];
+      // optional string driver = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           auto str = _internal_mutable_driver();
@@ -3230,7 +3197,7 @@ const char* CDataPublisher_AddVRDeviceInfo_Request::_InternalParse(const char* p
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string controller_type = 4 [(.description) = "controller type for the device. Can be an empty string for devices with no inputs"];
+      // optional string controller_type = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
           auto str = _internal_mutable_controller_type();
@@ -3241,7 +3208,7 @@ const char* CDataPublisher_AddVRDeviceInfo_Request::_InternalParse(const char* p
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional int32 device_class = 5 [(.description) = "Class of the device. HMD=1, controller=2, tracker=3, base=4"];
+      // optional int32 device_class = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
           _Internal::set_has_device_class(&has_bits);
@@ -3279,7 +3246,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional string manufacturer = 1 [(.description) = "Manufacturer for the new device"];
+  // optional string manufacturer = 1;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_manufacturer().data(), static_cast<int>(this->_internal_manufacturer().length()),
@@ -3289,7 +3256,7 @@ failure:
         1, this->_internal_manufacturer(), target);
   }
 
-  // optional string model = 2 [(.description) = "Model for the new device"];
+  // optional string model = 2;
   if (cached_has_bits & 0x00000002u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_model().data(), static_cast<int>(this->_internal_model().length()),
@@ -3299,7 +3266,7 @@ failure:
         2, this->_internal_model(), target);
   }
 
-  // optional string driver = 3 [(.description) = "driver name (not including driver_). e.g. lighthouse, oculus, holographic"];
+  // optional string driver = 3;
   if (cached_has_bits & 0x00000004u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_driver().data(), static_cast<int>(this->_internal_driver().length()),
@@ -3309,7 +3276,7 @@ failure:
         3, this->_internal_driver(), target);
   }
 
-  // optional string controller_type = 4 [(.description) = "controller type for the device. Can be an empty string for devices with no inputs"];
+  // optional string controller_type = 4;
   if (cached_has_bits & 0x00000008u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_controller_type().data(), static_cast<int>(this->_internal_controller_type().length()),
@@ -3319,7 +3286,7 @@ failure:
         4, this->_internal_controller_type(), target);
   }
 
-  // optional int32 device_class = 5 [(.description) = "Class of the device. HMD=1, controller=2, tracker=3, base=4"];
+  // optional int32 device_class = 5;
   if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(5, this->_internal_device_class(), target);
@@ -3343,35 +3310,35 @@ size_t CDataPublisher_AddVRDeviceInfo_Request::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x0000001fu) {
-    // optional string manufacturer = 1 [(.description) = "Manufacturer for the new device"];
+    // optional string manufacturer = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_manufacturer());
     }
 
-    // optional string model = 2 [(.description) = "Model for the new device"];
+    // optional string model = 2;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_model());
     }
 
-    // optional string driver = 3 [(.description) = "driver name (not including driver_). e.g. lighthouse, oculus, holographic"];
+    // optional string driver = 3;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_driver());
     }
 
-    // optional string controller_type = 4 [(.description) = "controller type for the device. Can be an empty string for devices with no inputs"];
+    // optional string controller_type = 4;
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_controller_type());
     }
 
-    // optional int32 device_class = 5 [(.description) = "Class of the device. HMD=1, controller=2, tracker=3, base=4"];
+    // optional int32 device_class = 5;
     if (cached_has_bits & 0x00000010u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
@@ -3545,7 +3512,7 @@ const char* CDataPublisher_AddVRDeviceInfo_Response::_InternalParse(const char* 
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint32 result = 1 [(.description) = "EResultOK, etc."];
+      // optional uint32 result = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_result(&has_bits);
@@ -3553,7 +3520,7 @@ const char* CDataPublisher_AddVRDeviceInfo_Response::_InternalParse(const char* 
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 ref = 2 [(.description) = "The reference number of the inserted device"];
+      // optional uint32 ref = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_ref(&has_bits);
@@ -3591,13 +3558,13 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint32 result = 1 [(.description) = "EResultOK, etc."];
+  // optional uint32 result = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_result(), target);
   }
 
-  // optional uint32 ref = 2 [(.description) = "The reference number of the inserted device"];
+  // optional uint32 ref = 2;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_ref(), target);
@@ -3621,14 +3588,14 @@ size_t CDataPublisher_AddVRDeviceInfo_Response::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional uint32 result = 1 [(.description) = "EResultOK, etc."];
+    // optional uint32 result = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_result());
     }
 
-    // optional uint32 ref = 2 [(.description) = "The reference number of the inserted device"];
+    // optional uint32 ref = 2;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(

@@ -92,36 +92,18 @@ const char descriptor_table_protodef_steammessages_5fmarket_2esteamclient_2eprot
   "\n&steammessages_market.steamclient.proto"
   "\032 google/protobuf/descriptor.proto\032\030stea"
   "mmessages_base.proto\032,steammessages_unif"
-  "ied_base.steamclient.proto\"n\n(CEconMarke"
-  "t_IsMarketplaceAllowed_Request\022B\n\twebcoo"
-  "kie\030\001 \001(\tB/\202\265\030+The user\'s Steam Guard ma"
-  "chine auth cookie.\"\365\005\n)CEconMarket_IsMar"
-  "ketplaceAllowed_Response\022I\n\007allowed\030\001 \001("
-  "\010B8\202\265\0304Whether or not the user is allowe"
-  "d to use the market\022K\n\006reason\030\002 \001(\rB;\202\265\030"
-  "7The reason the user can\'t use the marke"
-  "t, if applicable\022P\n\017allowed_at_time\030\003 \001("
-  "\rB7\202\265\0303The time the user will be allowed"
-  " to use the market\022\204\001\n\030steamguard_requir"
-  "ed_days\030\004 \001(\rBb\202\265\030^The number of days an"
-  "y user is required to have had Steam Gua"
-  "rd before they can use the market\022W\n\017for"
-  "ms_requested\030\007 \001(\010B>\202\265\030:Whether or not w"
-  "e\'ve requested the user fill out tax for"
-  "ms\022h\n\032forms_require_verification\030\010 \001(\010BD"
-  "\202\265\030@True if we\'ve received forms but the"
-  "y require verification first\022\223\001\n\030new_dev"
-  "ice_cooldown_days\030\t \001(\rBq\202\265\030mThe number "
-  "of days after initial device authorizati"
-  "on a user must wait before using the mar"
-  "ket on that device2\356\001\n\nEconMarket\022\270\001\n\024Is"
-  "MarketplaceAllowed\022).CEconMarket_IsMarke"
-  "tplaceAllowed_Request\032*.CEconMarket_IsMa"
-  "rketplaceAllowed_Response\"I\202\265\030EChecks wh"
-  "ether or not the authed account is allow"
-  "ed to use the market\032%\202\265\030!A service to u"
-  "se market functionsB\035\200\001\001\252\002\027OpenSteamwork"
-  "s.Protobuf"
+  "ied_base.steamclient.proto\"=\n(CEconMarke"
+  "t_IsMarketplaceAllowed_Request\022\021\n\twebcoo"
+  "kie\030\001 \001(\t\"\346\001\n)CEconMarket_IsMarketplaceA"
+  "llowed_Response\022\017\n\007allowed\030\001 \001(\010\022\016\n\006reas"
+  "on\030\002 \001(\r\022\027\n\017allowed_at_time\030\003 \001(\r\022 \n\030ste"
+  "amguard_required_days\030\004 \001(\r\022\027\n\017forms_req"
+  "uested\030\007 \001(\010\022\"\n\032forms_require_verificati"
+  "on\030\010 \001(\010\022 \n\030new_device_cooldown_days\030\t \001"
+  "(\r2{\n\nEconMarket\022m\n\024IsMarketplaceAllowed"
+  "\022).CEconMarket_IsMarketplaceAllowed_Requ"
+  "est\032*.CEconMarket_IsMarketplaceAllowed_R"
+  "esponseB\035\200\001\001\252\002\027OpenSteamworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fmarket_2esteamclient_2eproto_deps[3] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
@@ -130,7 +112,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fmarket_2esteamclient_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fmarket_2esteamclient_2eproto = {
-  false, false, 1290, descriptor_table_protodef_steammessages_5fmarket_2esteamclient_2eproto, "steammessages_market.steamclient.proto", 
+  false, false, 598, descriptor_table_protodef_steammessages_5fmarket_2esteamclient_2eproto, "steammessages_market.steamclient.proto", 
   &descriptor_table_steammessages_5fmarket_2esteamclient_2eproto_once, descriptor_table_steammessages_5fmarket_2esteamclient_2eproto_deps, 3, 2,
   schemas, file_default_instances, TableStruct_steammessages_5fmarket_2esteamclient_2eproto::offsets,
   file_level_metadata_steammessages_5fmarket_2esteamclient_2eproto, file_level_enum_descriptors_steammessages_5fmarket_2esteamclient_2eproto, file_level_service_descriptors_steammessages_5fmarket_2esteamclient_2eproto,
@@ -219,7 +201,7 @@ const char* CEconMarket_IsMarketplaceAllowed_Request::_InternalParse(const char*
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional string webcookie = 1 [(.description) = "The user\'s Steam Guard machine auth cookie."];
+      // optional string webcookie = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           auto str = _internal_mutable_webcookie();
@@ -260,7 +242,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional string webcookie = 1 [(.description) = "The user\'s Steam Guard machine auth cookie."];
+  // optional string webcookie = 1;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_webcookie().data(), static_cast<int>(this->_internal_webcookie().length()),
@@ -286,7 +268,7 @@ size_t CEconMarket_IsMarketplaceAllowed_Request::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // optional string webcookie = 1 [(.description) = "The user\'s Steam Guard machine auth cookie."];
+  // optional string webcookie = 1;
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += 1 +
@@ -455,7 +437,7 @@ const char* CEconMarket_IsMarketplaceAllowed_Response::_InternalParse(const char
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional bool allowed = 1 [(.description) = "Whether or not the user is allowed to use the market"];
+      // optional bool allowed = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_allowed(&has_bits);
@@ -463,7 +445,7 @@ const char* CEconMarket_IsMarketplaceAllowed_Response::_InternalParse(const char
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 reason = 2 [(.description) = "The reason the user can\'t use the market, if applicable"];
+      // optional uint32 reason = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_reason(&has_bits);
@@ -471,7 +453,7 @@ const char* CEconMarket_IsMarketplaceAllowed_Response::_InternalParse(const char
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 allowed_at_time = 3 [(.description) = "The time the user will be allowed to use the market"];
+      // optional uint32 allowed_at_time = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           _Internal::set_has_allowed_at_time(&has_bits);
@@ -479,7 +461,7 @@ const char* CEconMarket_IsMarketplaceAllowed_Response::_InternalParse(const char
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 steamguard_required_days = 4 [(.description) = "The number of days any user is required to have had Steam Guard before they can use the market"];
+      // optional uint32 steamguard_required_days = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
           _Internal::set_has_steamguard_required_days(&has_bits);
@@ -487,7 +469,7 @@ const char* CEconMarket_IsMarketplaceAllowed_Response::_InternalParse(const char
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool forms_requested = 7 [(.description) = "Whether or not we\'ve requested the user fill out tax forms"];
+      // optional bool forms_requested = 7;
       case 7:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 56)) {
           _Internal::set_has_forms_requested(&has_bits);
@@ -495,7 +477,7 @@ const char* CEconMarket_IsMarketplaceAllowed_Response::_InternalParse(const char
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool forms_require_verification = 8 [(.description) = "True if we\'ve received forms but they require verification first"];
+      // optional bool forms_require_verification = 8;
       case 8:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 64)) {
           _Internal::set_has_forms_require_verification(&has_bits);
@@ -503,7 +485,7 @@ const char* CEconMarket_IsMarketplaceAllowed_Response::_InternalParse(const char
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 new_device_cooldown_days = 9 [(.description) = "The number of days after initial device authorization a user must wait before using the market on that device"];
+      // optional uint32 new_device_cooldown_days = 9;
       case 9:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 72)) {
           _Internal::set_has_new_device_cooldown_days(&has_bits);
@@ -541,43 +523,43 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional bool allowed = 1 [(.description) = "Whether or not the user is allowed to use the market"];
+  // optional bool allowed = 1;
   if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(1, this->_internal_allowed(), target);
   }
 
-  // optional uint32 reason = 2 [(.description) = "The reason the user can\'t use the market, if applicable"];
+  // optional uint32 reason = 2;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_reason(), target);
   }
 
-  // optional uint32 allowed_at_time = 3 [(.description) = "The time the user will be allowed to use the market"];
+  // optional uint32 allowed_at_time = 3;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_allowed_at_time(), target);
   }
 
-  // optional uint32 steamguard_required_days = 4 [(.description) = "The number of days any user is required to have had Steam Guard before they can use the market"];
+  // optional uint32 steamguard_required_days = 4;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_steamguard_required_days(), target);
   }
 
-  // optional bool forms_requested = 7 [(.description) = "Whether or not we\'ve requested the user fill out tax forms"];
+  // optional bool forms_requested = 7;
   if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(7, this->_internal_forms_requested(), target);
   }
 
-  // optional bool forms_require_verification = 8 [(.description) = "True if we\'ve received forms but they require verification first"];
+  // optional bool forms_require_verification = 8;
   if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(8, this->_internal_forms_require_verification(), target);
   }
 
-  // optional uint32 new_device_cooldown_days = 9 [(.description) = "The number of days after initial device authorization a user must wait before using the market on that device"];
+  // optional uint32 new_device_cooldown_days = 9;
   if (cached_has_bits & 0x00000040u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(9, this->_internal_new_device_cooldown_days(), target);
@@ -601,43 +583,43 @@ size_t CEconMarket_IsMarketplaceAllowed_Response::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x0000007fu) {
-    // optional uint32 reason = 2 [(.description) = "The reason the user can\'t use the market, if applicable"];
+    // optional uint32 reason = 2;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_reason());
     }
 
-    // optional uint32 allowed_at_time = 3 [(.description) = "The time the user will be allowed to use the market"];
+    // optional uint32 allowed_at_time = 3;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_allowed_at_time());
     }
 
-    // optional uint32 steamguard_required_days = 4 [(.description) = "The number of days any user is required to have had Steam Guard before they can use the market"];
+    // optional uint32 steamguard_required_days = 4;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_steamguard_required_days());
     }
 
-    // optional bool allowed = 1 [(.description) = "Whether or not the user is allowed to use the market"];
+    // optional bool allowed = 1;
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 + 1;
     }
 
-    // optional bool forms_requested = 7 [(.description) = "Whether or not we\'ve requested the user fill out tax forms"];
+    // optional bool forms_requested = 7;
     if (cached_has_bits & 0x00000010u) {
       total_size += 1 + 1;
     }
 
-    // optional bool forms_require_verification = 8 [(.description) = "True if we\'ve received forms but they require verification first"];
+    // optional bool forms_require_verification = 8;
     if (cached_has_bits & 0x00000020u) {
       total_size += 1 + 1;
     }
 
-    // optional uint32 new_device_cooldown_days = 9 [(.description) = "The number of days after initial device authorization a user must wait before using the market on that device"];
+    // optional uint32 new_device_cooldown_days = 9;
     if (cached_has_bits & 0x00000040u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(

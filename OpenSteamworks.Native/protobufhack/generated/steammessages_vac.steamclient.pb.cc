@@ -166,16 +166,13 @@ const char descriptor_table_protodef_steammessages_5fvac_2esteamclient_2eproto[]
   "r_type\030\004 \001(\r\022\017\n\007os_type\030\005 \001(\r\022\026\n\016service"
   "_repair\030\006 \001(\r\"D\n*CFileVerification_Steam"
   "ServiceChecResponse\022\026\n\016attempt_repair\030\001 "
-  "\001(\0102\326\002\n\020FileVerification\022\213\001\n\016SignatureCh"
-  "eck\022\'.CFileVerification_SignatureChecReq"
-  "uest\032(.CFileVerification_SignatureChecRe"
-  "sponse\"&\202\265\030\"File signature check was per"
-  "formed\022\223\001\n\021SteamServiceCheck\022*.CFileVeri"
-  "fication_SteamServiceChecRequest\032+.CFile"
-  "Verification_SteamServiceChecResponse\"%\202"
-  "\265\030!Steam Service check was performed\032\036\202\265"
-  "\030\032File verification servicesB\035\200\001\001\252\002\027Open"
-  "Steamworks.Protobuf"
+  "\001(\0102\345\001\n\020FileVerification\022c\n\016SignatureChe"
+  "ck\022\'.CFileVerification_SignatureChecRequ"
+  "est\032(.CFileVerification_SignatureChecRes"
+  "ponse\022l\n\021SteamServiceCheck\022*.CFileVerifi"
+  "cation_SteamServiceChecRequest\032+.CFileVe"
+  "rification_SteamServiceChecResponseB\035\200\001\001"
+  "\252\002\027OpenSteamworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fvac_2esteamclient_2eproto_deps[3] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
@@ -184,7 +181,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fvac_2esteamclient_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fvac_2esteamclient_2eproto = {
-  false, false, 1059, descriptor_table_protodef_steammessages_5fvac_2esteamclient_2eproto, "steammessages_vac.steamclient.proto", 
+  false, false, 946, descriptor_table_protodef_steammessages_5fvac_2esteamclient_2eproto, "steammessages_vac.steamclient.proto", 
   &descriptor_table_steammessages_5fvac_2esteamclient_2eproto_once, descriptor_table_steammessages_5fvac_2esteamclient_2eproto_deps, 3, 4,
   schemas, file_default_instances, TableStruct_steammessages_5fvac_2esteamclient_2eproto::offsets,
   file_level_metadata_steammessages_5fvac_2esteamclient_2eproto, file_level_enum_descriptors_steammessages_5fvac_2esteamclient_2eproto, file_level_service_descriptors_steammessages_5fvac_2esteamclient_2eproto,

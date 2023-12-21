@@ -1018,7 +1018,7 @@ class CPartnerApps_FinishUploadLegacyDRM_Request PROTOBUF_FINAL :
   void _internal_set_flags(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional bool use_cloud = 6 [default = false, (.description) = "use cloud storage for build products"];
+  // optional bool use_cloud = 6 [default = false];
   bool has_use_cloud() const;
   private:
   bool _internal_has_use_cloud() const;
@@ -3692,7 +3692,7 @@ inline void CPartnerApps_FinishUploadLegacyDRM_Request::set_allocated_tool_name(
   // @@protoc_insertion_point(field_set_allocated:CPartnerApps_FinishUploadLegacyDRM_Request.tool_name)
 }
 
-// optional bool use_cloud = 6 [default = false, (.description) = "use cloud storage for build products"];
+// optional bool use_cloud = 6 [default = false];
 inline bool CPartnerApps_FinishUploadLegacyDRM_Request::_internal_has_use_cloud() const {
   bool value = (_has_bits_[0] & 0x00000020u) != 0;
   return value;

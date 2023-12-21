@@ -4343,7 +4343,7 @@ class CAccountLinking_GetLinkedAccountInfo_Request PROTOBUF_FINAL :
     kReturnAccessTokenFieldNumber = 4,
     kAccountTypeFieldNumber = 1,
   };
-  // optional uint64 account_id = 2 [(.description) = "Internal account ID"];
+  // optional uint64 account_id = 2;
   bool has_account_id() const;
   private:
   bool _internal_has_account_id() const;
@@ -4356,7 +4356,7 @@ class CAccountLinking_GetLinkedAccountInfo_Request PROTOBUF_FINAL :
   void _internal_set_account_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // optional .EExternalAccountType filter = 3 [default = EExternalNone, (.description) = "if specified then only return this external account type"];
+  // optional .EExternalAccountType filter = 3 [default = EExternalNone];
   bool has_filter() const;
   private:
   bool _internal_has_filter() const;
@@ -4369,7 +4369,7 @@ class CAccountLinking_GetLinkedAccountInfo_Request PROTOBUF_FINAL :
   void _internal_set_filter(::EExternalAccountType value);
   public:
 
-  // optional bool return_access_token = 4 [(.description) = "if provided and true, then returns valid access token if available. It may refresh the token. "];
+  // optional bool return_access_token = 4;
   bool has_return_access_token() const;
   private:
   bool _internal_has_return_access_token() const;
@@ -4540,7 +4540,7 @@ class CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Respon
     kExternalTypeFieldNumber = 1,
     kIsValidFieldNumber = 7,
   };
-  // optional string external_id = 2 [(.description) = "unique external account identifier"];
+  // optional string external_id = 2;
   bool has_external_id() const;
   private:
   bool _internal_has_external_id() const;
@@ -4560,7 +4560,7 @@ class CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Respon
   std::string* _internal_mutable_external_id();
   public:
 
-  // optional string external_user_name = 3 [(.description) = "user readable; best effort"];
+  // optional string external_user_name = 3;
   bool has_external_user_name() const;
   private:
   bool _internal_has_external_user_name() const;
@@ -4580,7 +4580,7 @@ class CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Respon
   std::string* _internal_mutable_external_user_name();
   public:
 
-  // optional string external_url = 4 [(.description) = "required for all, can be a sentinal to verify correctness"];
+  // optional string external_url = 4;
   bool has_external_url() const;
   private:
   bool _internal_has_external_url() const;
@@ -4600,7 +4600,7 @@ class CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Respon
   std::string* _internal_mutable_external_url();
   public:
 
-  // optional string access_token = 5 [(.description) = "provided if requeest and it was valid."];
+  // optional string access_token = 5;
   bool has_access_token() const;
   private:
   bool _internal_has_access_token() const;
@@ -4620,7 +4620,7 @@ class CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Respon
   std::string* _internal_mutable_access_token();
   public:
 
-  // optional string access_token_secret = 6 [(.description) = "required for OAuth v1 and signing the message, provided with access token."];
+  // optional string access_token_secret = 6;
   bool has_access_token_secret() const;
   private:
   bool _internal_has_access_token_secret() const;
@@ -4653,7 +4653,7 @@ class CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Respon
   void _internal_set_external_type(::EExternalAccountType value);
   public:
 
-  // optional bool is_valid = 7 [(.description) = "If false, it means access token no longer work (expired, disconnected) and the link is now broken. Inform user to refresh."];
+  // optional bool is_valid = 7;
   bool has_is_valid() const;
   private:
   bool _internal_has_is_valid() const;
@@ -7937,7 +7937,7 @@ inline void CAccountLinking_GetLinkedAccountInfo_Request::set_account_type(::EIn
   // @@protoc_insertion_point(field_set:CAccountLinking_GetLinkedAccountInfo_Request.account_type)
 }
 
-// optional uint64 account_id = 2 [(.description) = "Internal account ID"];
+// optional uint64 account_id = 2;
 inline bool CAccountLinking_GetLinkedAccountInfo_Request::_internal_has_account_id() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -7965,7 +7965,7 @@ inline void CAccountLinking_GetLinkedAccountInfo_Request::set_account_id(::PROTO
   // @@protoc_insertion_point(field_set:CAccountLinking_GetLinkedAccountInfo_Request.account_id)
 }
 
-// optional .EExternalAccountType filter = 3 [default = EExternalNone, (.description) = "if specified then only return this external account type"];
+// optional .EExternalAccountType filter = 3 [default = EExternalNone];
 inline bool CAccountLinking_GetLinkedAccountInfo_Request::_internal_has_filter() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -7994,7 +7994,7 @@ inline void CAccountLinking_GetLinkedAccountInfo_Request::set_filter(::EExternal
   // @@protoc_insertion_point(field_set:CAccountLinking_GetLinkedAccountInfo_Request.filter)
 }
 
-// optional bool return_access_token = 4 [(.description) = "if provided and true, then returns valid access token if available. It may refresh the token. "];
+// optional bool return_access_token = 4;
 inline bool CAccountLinking_GetLinkedAccountInfo_Request::_internal_has_return_access_token() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -8055,7 +8055,7 @@ inline void CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_
   // @@protoc_insertion_point(field_set:CAccountLinking_GetLinkedAccountInfo_Response.CExternalAccountTuple_Response.external_type)
 }
 
-// optional string external_id = 2 [(.description) = "unique external account identifier"];
+// optional string external_id = 2;
 inline bool CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response::_internal_has_external_id() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -8128,7 +8128,7 @@ inline void CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_
   // @@protoc_insertion_point(field_set_allocated:CAccountLinking_GetLinkedAccountInfo_Response.CExternalAccountTuple_Response.external_id)
 }
 
-// optional string external_user_name = 3 [(.description) = "user readable; best effort"];
+// optional string external_user_name = 3;
 inline bool CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response::_internal_has_external_user_name() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -8201,7 +8201,7 @@ inline void CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_
   // @@protoc_insertion_point(field_set_allocated:CAccountLinking_GetLinkedAccountInfo_Response.CExternalAccountTuple_Response.external_user_name)
 }
 
-// optional string external_url = 4 [(.description) = "required for all, can be a sentinal to verify correctness"];
+// optional string external_url = 4;
 inline bool CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response::_internal_has_external_url() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -8274,7 +8274,7 @@ inline void CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_
   // @@protoc_insertion_point(field_set_allocated:CAccountLinking_GetLinkedAccountInfo_Response.CExternalAccountTuple_Response.external_url)
 }
 
-// optional string access_token = 5 [(.description) = "provided if requeest and it was valid."];
+// optional string access_token = 5;
 inline bool CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response::_internal_has_access_token() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;
@@ -8347,7 +8347,7 @@ inline void CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_
   // @@protoc_insertion_point(field_set_allocated:CAccountLinking_GetLinkedAccountInfo_Response.CExternalAccountTuple_Response.access_token)
 }
 
-// optional string access_token_secret = 6 [(.description) = "required for OAuth v1 and signing the message, provided with access token."];
+// optional string access_token_secret = 6;
 inline bool CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response::_internal_has_access_token_secret() const {
   bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
@@ -8420,7 +8420,7 @@ inline void CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_
   // @@protoc_insertion_point(field_set_allocated:CAccountLinking_GetLinkedAccountInfo_Response.CExternalAccountTuple_Response.access_token_secret)
 }
 
-// optional bool is_valid = 7 [(.description) = "If false, it means access token no longer work (expired, disconnected) and the link is now broken. Inform user to refresh."];
+// optional bool is_valid = 7;
 inline bool CAccountLinking_GetLinkedAccountInfo_Response_CExternalAccountTuple_Response::_internal_has_is_valid() const {
   bool value = (_has_bits_[0] & 0x00000040u) != 0;
   return value;

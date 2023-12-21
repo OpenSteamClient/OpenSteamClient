@@ -45,7 +45,8 @@ constexpr CPublishedFile_Subscribe_Request::CPublishedFile_Subscribe_Request(
   : publishedfileid_(PROTOBUF_ULONGLONG(0))
   , list_type_(0u)
   , appid_(0)
-  , notify_client_(false){}
+  , notify_client_(false)
+  , include_dependencies_(false){}
 struct CPublishedFile_Subscribe_RequestDefaultTypeInternal {
   constexpr CPublishedFile_Subscribe_RequestDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -418,7 +419,8 @@ constexpr PublishedFileDetails::PublishedFileDetails(
 
   , ban_text_checresult_(0)
 
-  , search_score_(0){}
+  , search_score_(0)
+  , external_asset_id_(PROTOBUF_ULONGLONG(0)){}
 struct PublishedFileDetailsDefaultTypeInternal {
   constexpr PublishedFileDetailsDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -1195,6 +1197,57 @@ struct CPublishedFile_RemoveChild_ResponseDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CPublishedFile_RemoveChild_ResponseDefaultTypeInternal _CPublishedFile_RemoveChild_Response_default_instance_;
+constexpr CPublishedFile_SetCollectionChildren_Request::CPublishedFile_SetCollectionChildren_Request(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : children_()
+  , publishedfileid_(PROTOBUF_ULONGLONG(0))
+  , appid_(0u){}
+struct CPublishedFile_SetCollectionChildren_RequestDefaultTypeInternal {
+  constexpr CPublishedFile_SetCollectionChildren_RequestDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CPublishedFile_SetCollectionChildren_RequestDefaultTypeInternal() {}
+  union {
+    CPublishedFile_SetCollectionChildren_Request _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CPublishedFile_SetCollectionChildren_RequestDefaultTypeInternal _CPublishedFile_SetCollectionChildren_Request_default_instance_;
+constexpr CPublishedFile_SetCollectionChildren_Response::CPublishedFile_SetCollectionChildren_Response(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized){}
+struct CPublishedFile_SetCollectionChildren_ResponseDefaultTypeInternal {
+  constexpr CPublishedFile_SetCollectionChildren_ResponseDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CPublishedFile_SetCollectionChildren_ResponseDefaultTypeInternal() {}
+  union {
+    CPublishedFile_SetCollectionChildren_Response _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CPublishedFile_SetCollectionChildren_ResponseDefaultTypeInternal _CPublishedFile_SetCollectionChildren_Response_default_instance_;
+constexpr CPublishedFile_SetSubscriptionListFromCollection_Request::CPublishedFile_SetSubscriptionListFromCollection_Request(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : appid_(0u)
+  , list_type_(0u)
+  , publishedfileid_(PROTOBUF_ULONGLONG(0))
+  , add_only_(false){}
+struct CPublishedFile_SetSubscriptionListFromCollection_RequestDefaultTypeInternal {
+  constexpr CPublishedFile_SetSubscriptionListFromCollection_RequestDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CPublishedFile_SetSubscriptionListFromCollection_RequestDefaultTypeInternal() {}
+  union {
+    CPublishedFile_SetSubscriptionListFromCollection_Request _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CPublishedFile_SetSubscriptionListFromCollection_RequestDefaultTypeInternal _CPublishedFile_SetSubscriptionListFromCollection_Request_default_instance_;
+constexpr CPublishedFile_SetSubscriptionListFromCollection_Response::CPublishedFile_SetSubscriptionListFromCollection_Response(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized){}
+struct CPublishedFile_SetSubscriptionListFromCollection_ResponseDefaultTypeInternal {
+  constexpr CPublishedFile_SetSubscriptionListFromCollection_ResponseDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CPublishedFile_SetSubscriptionListFromCollection_ResponseDefaultTypeInternal() {}
+  union {
+    CPublishedFile_SetSubscriptionListFromCollection_Response _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CPublishedFile_SetSubscriptionListFromCollection_ResponseDefaultTypeInternal _CPublishedFile_SetSubscriptionListFromCollection_Response_default_instance_;
 constexpr CPublishedFile_GetUserVoteSummary_Request::CPublishedFile_GetUserVoteSummary_Request(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : publishedfileids_(){}
@@ -1401,7 +1454,7 @@ struct CPublishedFile_FileDeleted_Client_NotificationDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CPublishedFile_FileDeleted_Client_NotificationDefaultTypeInternal _CPublishedFile_FileDeleted_Client_Notification_default_instance_;
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_steammessages_5fpublishedfile_2esteamclient_2eproto[91];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_steammessages_5fpublishedfile_2esteamclient_2eproto[95];
 static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_steammessages_5fpublishedfile_2esteamclient_2eproto[2];
 static const ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor* file_level_service_descriptors_steammessages_5fpublishedfile_2esteamclient_2eproto[2];
 
@@ -1429,10 +1482,12 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fpublishedfile_
   PROTOBUF_FIELD_OFFSET(::CPublishedFile_Subscribe_Request, list_type_),
   PROTOBUF_FIELD_OFFSET(::CPublishedFile_Subscribe_Request, appid_),
   PROTOBUF_FIELD_OFFSET(::CPublishedFile_Subscribe_Request, notify_client_),
+  PROTOBUF_FIELD_OFFSET(::CPublishedFile_Subscribe_Request, include_dependencies_),
   0,
   1,
   2,
   3,
+  4,
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::CPublishedFile_Subscribe_Response, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1757,6 +1812,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fpublishedfile_
   PROTOBUF_FIELD_OFFSET(::PublishedFileDetails, reactions_),
   PROTOBUF_FIELD_OFFSET(::PublishedFileDetails, ban_text_checresult_),
   PROTOBUF_FIELD_OFFSET(::PublishedFileDetails, search_score_),
+  PROTOBUF_FIELD_OFFSET(::PublishedFileDetails, external_asset_id_),
   17,
   16,
   19,
@@ -1828,6 +1884,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fpublishedfile_
   ~0u,
   62,
   63,
+  64,
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::CPublishedFile_GetDetails_Response, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -2447,6 +2504,40 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fpublishedfile_
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::CPublishedFile_SetCollectionChildren_Request, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CPublishedFile_SetCollectionChildren_Request, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::CPublishedFile_SetCollectionChildren_Request, appid_),
+  PROTOBUF_FIELD_OFFSET(::CPublishedFile_SetCollectionChildren_Request, publishedfileid_),
+  PROTOBUF_FIELD_OFFSET(::CPublishedFile_SetCollectionChildren_Request, children_),
+  1,
+  0,
+  ~0u,
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::CPublishedFile_SetCollectionChildren_Response, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::CPublishedFile_SetSubscriptionListFromCollection_Request, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CPublishedFile_SetSubscriptionListFromCollection_Request, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::CPublishedFile_SetSubscriptionListFromCollection_Request, appid_),
+  PROTOBUF_FIELD_OFFSET(::CPublishedFile_SetSubscriptionListFromCollection_Request, list_type_),
+  PROTOBUF_FIELD_OFFSET(::CPublishedFile_SetSubscriptionListFromCollection_Request, publishedfileid_),
+  PROTOBUF_FIELD_OFFSET(::CPublishedFile_SetSubscriptionListFromCollection_Request, add_only_),
+  0,
+  1,
+  2,
+  3,
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::CPublishedFile_SetSubscriptionListFromCollection_Response, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::CPublishedFile_GetUserVoteSummary_Request, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -2601,95 +2692,99 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fpublishedfile_
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, 7, sizeof(::CPublishedFile_Vote_Request)},
   { 9, -1, sizeof(::CPublishedFile_Vote_Response)},
-  { 14, 23, sizeof(::CPublishedFile_Subscribe_Request)},
-  { 27, -1, sizeof(::CPublishedFile_Subscribe_Response)},
-  { 32, 41, sizeof(::CPublishedFile_Unsubscribe_Request)},
-  { 45, -1, sizeof(::CPublishedFile_Unsubscribe_Response)},
-  { 50, 56, sizeof(::CPublishedFile_CanSubscribe_Request)},
-  { 57, 63, sizeof(::CPublishedFile_CanSubscribe_Response)},
-  { 64, 73, sizeof(::CPublishedFile_GetSubSectionData_Request)},
-  { 77, 86, sizeof(::PublishedFileSubSection)},
-  { 90, -1, sizeof(::CPublishedFile_GetSubSectionData_Response)},
-  { 96, 117, sizeof(::CPublishedFile_Publish_Request)},
-  { 133, 140, sizeof(::CPublishedFile_Publish_Response)},
-  { 142, 162, sizeof(::CPublishedFile_GetDetails_Request)},
-  { 177, 185, sizeof(::PublishedFileDetails_Tag)},
-  { 188, 201, sizeof(::PublishedFileDetails_Preview)},
-  { 209, 217, sizeof(::PublishedFileDetails_Child)},
-  { 220, 227, sizeof(::PublishedFileDetails_KVTag)},
-  { 229, 237, sizeof(::PublishedFileDetails_VoteData)},
-  { 240, 251, sizeof(::PublishedFileDetails_ForSaleData)},
-  { 257, 264, sizeof(::PublishedFileDetails_PlaytimeStats)},
-  { 266, 273, sizeof(::PublishedFileDetails_Reaction)},
-  { 275, 351, sizeof(::PublishedFileDetails)},
-  { 422, -1, sizeof(::CPublishedFile_GetDetails_Response)},
-  { 428, 436, sizeof(::CPublishedFile_GetItemInfo_Request_WorkshopItem)},
-  { 439, 447, sizeof(::CPublishedFile_GetItemInfo_Request)},
-  { 450, 459, sizeof(::CPublishedFile_GetItemInfo_Response_WorkshopItemInfo)},
-  { 463, 471, sizeof(::CPublishedFile_GetItemInfo_Response)},
-  { 474, 481, sizeof(::CPublishedFile_GetUserFiles_Request_KVTag)},
-  { 483, -1, sizeof(::CPublishedFile_GetUserFiles_Request_TagGroup)},
-  { 489, 528, sizeof(::CPublishedFile_GetUserFiles_Request)},
-  { 562, 571, sizeof(::CPublishedFile_GetUserFiles_Response_App)},
-  { 575, 584, sizeof(::CPublishedFile_GetUserFiles_Response)},
-  { 588, 598, sizeof(::CPublishedFile_AreFilesInSubscriptionList_Request)},
-  { 603, 610, sizeof(::CPublishedFile_AreFilesInSubscriptionList_Response_InList)},
-  { 612, -1, sizeof(::CPublishedFile_AreFilesInSubscriptionList_Response)},
-  { 618, 635, sizeof(::CPublishedFile_Update_Request)},
-  { 647, -1, sizeof(::CPublishedFile_Update_Response)},
-  { 652, 659, sizeof(::CPublishedFile_Delete_Request)},
-  { 661, -1, sizeof(::CPublishedFile_Delete_Response)},
-  { 666, 674, sizeof(::CPublishedFile_GetChangeHistoryEntry_Request)},
-  { 677, 684, sizeof(::CPublishedFile_GetChangeHistoryEntry_Response)},
-  { 686, 696, sizeof(::CPublishedFile_GetChangeHistory_Request)},
-  { 701, 709, sizeof(::CPublishedFile_GetChangeHistory_Response_ChangeLog)},
-  { 712, 719, sizeof(::CPublishedFile_GetChangeHistory_Response)},
-  { 721, 733, sizeof(::CPublishedFile_RefreshVotingQueue_Request)},
-  { 740, -1, sizeof(::CPublishedFile_RefreshVotingQueue_Response)},
-  { 745, 752, sizeof(::CPublishedFile_QueryFiles_Request_KVTag)},
-  { 754, -1, sizeof(::CPublishedFile_QueryFiles_Request_TagGroup)},
-  { 760, 767, sizeof(::CPublishedFile_QueryFiles_Request_DateRange)},
-  { 769, 812, sizeof(::CPublishedFile_QueryFiles_Request)},
-  { 850, 858, sizeof(::CPublishedFile_QueryFiles_Response)},
-  { 861, 869, sizeof(::CPublishedFile_AddAppRelationship_Request)},
-  { 872, -1, sizeof(::CPublishedFile_AddAppRelationship_Response)},
-  { 877, 885, sizeof(::CPublishedFile_RemoveAppRelationship_Request)},
-  { 888, -1, sizeof(::CPublishedFile_RemoveAppRelationship_Response)},
-  { 893, 899, sizeof(::CPublishedFile_GetAppRelationships_Request)},
-  { 900, 907, sizeof(::CPublishedFile_GetAppRelationships_Response_AppRelationship)},
-  { 909, -1, sizeof(::CPublishedFile_GetAppRelationships_Response)},
-  { 915, 922, sizeof(::CPublishedFile_GetAppRelationshipsBatched_Request)},
-  { 924, 931, sizeof(::CPublishedFile_GetAppRelationshipsBatched_Response_AppRelationship)},
-  { 933, 941, sizeof(::CPublishedFile_GetAppRelationshipsBatched_Response_PublishedFileAppRelationship)},
-  { 944, -1, sizeof(::CPublishedFile_GetAppRelationshipsBatched_Response)},
-  { 950, 957, sizeof(::CPublishedFile_StartPlaytimeTracking_Request)},
-  { 959, -1, sizeof(::CPublishedFile_StartPlaytimeTracking_Response)},
-  { 964, 971, sizeof(::CPublishedFile_StopPlaytimeTracking_Request)},
-  { 973, -1, sizeof(::CPublishedFile_StopPlaytimeTracking_Response)},
-  { 978, 984, sizeof(::CPublishedFile_StopPlaytimeTrackingForAllAppItems_Request)},
-  { 985, -1, sizeof(::CPublishedFile_StopPlaytimeTrackingForAllAppItems_Response)},
-  { 990, 997, sizeof(::CPublishedFile_SetPlaytimeForControllerConfigs_Request_ControllerConfigUsage)},
-  { 999, 1006, sizeof(::CPublishedFile_SetPlaytimeForControllerConfigs_Request)},
-  { 1008, -1, sizeof(::CPublishedFile_SetPlaytimeForControllerConfigs_Response)},
-  { 1013, 1020, sizeof(::CPublishedFile_AddChild_Request)},
-  { 1022, -1, sizeof(::CPublishedFile_AddChild_Response)},
-  { 1027, 1034, sizeof(::CPublishedFile_RemoveChild_Request)},
-  { 1036, -1, sizeof(::CPublishedFile_RemoveChild_Response)},
-  { 1041, -1, sizeof(::CPublishedFile_GetUserVoteSummary_Request)},
-  { 1047, 1056, sizeof(::CPublishedFile_GetUserVoteSummary_Response_VoteSummary)},
-  { 1060, -1, sizeof(::CPublishedFile_GetUserVoteSummary_Response)},
-  { 1066, 1074, sizeof(::CPublishedFile_GetItemChanges_Request)},
-  { 1077, 1085, sizeof(::CPublishedFile_GetItemChanges_Response_WorkshopItemInfo)},
-  { 1088, 1095, sizeof(::CPublishedFile_GetItemChanges_Response)},
-  { 1097, 1103, sizeof(::CPublishedFile_GetContentDescriptors_Request)},
-  { 1104, 1113, sizeof(::CPublishedFile_GetContentDescriptors_Response_ContentDescriptor)},
-  { 1117, -1, sizeof(::CPublishedFile_GetContentDescriptors_Response)},
-  { 1123, 1131, sizeof(::CPublishedFile_UpdateContentDescriptors_Request)},
-  { 1134, 1140, sizeof(::CPublishedFile_UpdateContentDescriptors_Response)},
-  { 1141, 1149, sizeof(::CPublishedFile_FileSubscribed_Notification_RevisionData)},
-  { 1152, 1165, sizeof(::CPublishedFile_FileSubscribed_Notification)},
-  { 1173, 1180, sizeof(::CPublishedFile_FileUnsubscribed_Notification)},
-  { 1182, 1189, sizeof(::CPublishedFile_FileDeleted_Client_Notification)},
+  { 14, 24, sizeof(::CPublishedFile_Subscribe_Request)},
+  { 29, -1, sizeof(::CPublishedFile_Subscribe_Response)},
+  { 34, 43, sizeof(::CPublishedFile_Unsubscribe_Request)},
+  { 47, -1, sizeof(::CPublishedFile_Unsubscribe_Response)},
+  { 52, 58, sizeof(::CPublishedFile_CanSubscribe_Request)},
+  { 59, 65, sizeof(::CPublishedFile_CanSubscribe_Response)},
+  { 66, 75, sizeof(::CPublishedFile_GetSubSectionData_Request)},
+  { 79, 88, sizeof(::PublishedFileSubSection)},
+  { 92, -1, sizeof(::CPublishedFile_GetSubSectionData_Response)},
+  { 98, 119, sizeof(::CPublishedFile_Publish_Request)},
+  { 135, 142, sizeof(::CPublishedFile_Publish_Response)},
+  { 144, 164, sizeof(::CPublishedFile_GetDetails_Request)},
+  { 179, 187, sizeof(::PublishedFileDetails_Tag)},
+  { 190, 203, sizeof(::PublishedFileDetails_Preview)},
+  { 211, 219, sizeof(::PublishedFileDetails_Child)},
+  { 222, 229, sizeof(::PublishedFileDetails_KVTag)},
+  { 231, 239, sizeof(::PublishedFileDetails_VoteData)},
+  { 242, 253, sizeof(::PublishedFileDetails_ForSaleData)},
+  { 259, 266, sizeof(::PublishedFileDetails_PlaytimeStats)},
+  { 268, 275, sizeof(::PublishedFileDetails_Reaction)},
+  { 277, 354, sizeof(::PublishedFileDetails)},
+  { 426, -1, sizeof(::CPublishedFile_GetDetails_Response)},
+  { 432, 440, sizeof(::CPublishedFile_GetItemInfo_Request_WorkshopItem)},
+  { 443, 451, sizeof(::CPublishedFile_GetItemInfo_Request)},
+  { 454, 463, sizeof(::CPublishedFile_GetItemInfo_Response_WorkshopItemInfo)},
+  { 467, 475, sizeof(::CPublishedFile_GetItemInfo_Response)},
+  { 478, 485, sizeof(::CPublishedFile_GetUserFiles_Request_KVTag)},
+  { 487, -1, sizeof(::CPublishedFile_GetUserFiles_Request_TagGroup)},
+  { 493, 532, sizeof(::CPublishedFile_GetUserFiles_Request)},
+  { 566, 575, sizeof(::CPublishedFile_GetUserFiles_Response_App)},
+  { 579, 588, sizeof(::CPublishedFile_GetUserFiles_Response)},
+  { 592, 602, sizeof(::CPublishedFile_AreFilesInSubscriptionList_Request)},
+  { 607, 614, sizeof(::CPublishedFile_AreFilesInSubscriptionList_Response_InList)},
+  { 616, -1, sizeof(::CPublishedFile_AreFilesInSubscriptionList_Response)},
+  { 622, 639, sizeof(::CPublishedFile_Update_Request)},
+  { 651, -1, sizeof(::CPublishedFile_Update_Response)},
+  { 656, 663, sizeof(::CPublishedFile_Delete_Request)},
+  { 665, -1, sizeof(::CPublishedFile_Delete_Response)},
+  { 670, 678, sizeof(::CPublishedFile_GetChangeHistoryEntry_Request)},
+  { 681, 688, sizeof(::CPublishedFile_GetChangeHistoryEntry_Response)},
+  { 690, 700, sizeof(::CPublishedFile_GetChangeHistory_Request)},
+  { 705, 713, sizeof(::CPublishedFile_GetChangeHistory_Response_ChangeLog)},
+  { 716, 723, sizeof(::CPublishedFile_GetChangeHistory_Response)},
+  { 725, 737, sizeof(::CPublishedFile_RefreshVotingQueue_Request)},
+  { 744, -1, sizeof(::CPublishedFile_RefreshVotingQueue_Response)},
+  { 749, 756, sizeof(::CPublishedFile_QueryFiles_Request_KVTag)},
+  { 758, -1, sizeof(::CPublishedFile_QueryFiles_Request_TagGroup)},
+  { 764, 771, sizeof(::CPublishedFile_QueryFiles_Request_DateRange)},
+  { 773, 816, sizeof(::CPublishedFile_QueryFiles_Request)},
+  { 854, 862, sizeof(::CPublishedFile_QueryFiles_Response)},
+  { 865, 873, sizeof(::CPublishedFile_AddAppRelationship_Request)},
+  { 876, -1, sizeof(::CPublishedFile_AddAppRelationship_Response)},
+  { 881, 889, sizeof(::CPublishedFile_RemoveAppRelationship_Request)},
+  { 892, -1, sizeof(::CPublishedFile_RemoveAppRelationship_Response)},
+  { 897, 903, sizeof(::CPublishedFile_GetAppRelationships_Request)},
+  { 904, 911, sizeof(::CPublishedFile_GetAppRelationships_Response_AppRelationship)},
+  { 913, -1, sizeof(::CPublishedFile_GetAppRelationships_Response)},
+  { 919, 926, sizeof(::CPublishedFile_GetAppRelationshipsBatched_Request)},
+  { 928, 935, sizeof(::CPublishedFile_GetAppRelationshipsBatched_Response_AppRelationship)},
+  { 937, 945, sizeof(::CPublishedFile_GetAppRelationshipsBatched_Response_PublishedFileAppRelationship)},
+  { 948, -1, sizeof(::CPublishedFile_GetAppRelationshipsBatched_Response)},
+  { 954, 961, sizeof(::CPublishedFile_StartPlaytimeTracking_Request)},
+  { 963, -1, sizeof(::CPublishedFile_StartPlaytimeTracking_Response)},
+  { 968, 975, sizeof(::CPublishedFile_StopPlaytimeTracking_Request)},
+  { 977, -1, sizeof(::CPublishedFile_StopPlaytimeTracking_Response)},
+  { 982, 988, sizeof(::CPublishedFile_StopPlaytimeTrackingForAllAppItems_Request)},
+  { 989, -1, sizeof(::CPublishedFile_StopPlaytimeTrackingForAllAppItems_Response)},
+  { 994, 1001, sizeof(::CPublishedFile_SetPlaytimeForControllerConfigs_Request_ControllerConfigUsage)},
+  { 1003, 1010, sizeof(::CPublishedFile_SetPlaytimeForControllerConfigs_Request)},
+  { 1012, -1, sizeof(::CPublishedFile_SetPlaytimeForControllerConfigs_Response)},
+  { 1017, 1024, sizeof(::CPublishedFile_AddChild_Request)},
+  { 1026, -1, sizeof(::CPublishedFile_AddChild_Response)},
+  { 1031, 1038, sizeof(::CPublishedFile_RemoveChild_Request)},
+  { 1040, -1, sizeof(::CPublishedFile_RemoveChild_Response)},
+  { 1045, 1053, sizeof(::CPublishedFile_SetCollectionChildren_Request)},
+  { 1056, -1, sizeof(::CPublishedFile_SetCollectionChildren_Response)},
+  { 1061, 1070, sizeof(::CPublishedFile_SetSubscriptionListFromCollection_Request)},
+  { 1074, -1, sizeof(::CPublishedFile_SetSubscriptionListFromCollection_Response)},
+  { 1079, -1, sizeof(::CPublishedFile_GetUserVoteSummary_Request)},
+  { 1085, 1094, sizeof(::CPublishedFile_GetUserVoteSummary_Response_VoteSummary)},
+  { 1098, -1, sizeof(::CPublishedFile_GetUserVoteSummary_Response)},
+  { 1104, 1112, sizeof(::CPublishedFile_GetItemChanges_Request)},
+  { 1115, 1123, sizeof(::CPublishedFile_GetItemChanges_Response_WorkshopItemInfo)},
+  { 1126, 1133, sizeof(::CPublishedFile_GetItemChanges_Response)},
+  { 1135, 1141, sizeof(::CPublishedFile_GetContentDescriptors_Request)},
+  { 1142, 1151, sizeof(::CPublishedFile_GetContentDescriptors_Response_ContentDescriptor)},
+  { 1155, -1, sizeof(::CPublishedFile_GetContentDescriptors_Response)},
+  { 1161, 1169, sizeof(::CPublishedFile_UpdateContentDescriptors_Request)},
+  { 1172, 1178, sizeof(::CPublishedFile_UpdateContentDescriptors_Response)},
+  { 1179, 1187, sizeof(::CPublishedFile_FileSubscribed_Notification_RevisionData)},
+  { 1190, 1203, sizeof(::CPublishedFile_FileSubscribed_Notification)},
+  { 1211, 1218, sizeof(::CPublishedFile_FileUnsubscribed_Notification)},
+  { 1220, 1227, sizeof(::CPublishedFile_FileDeleted_Client_Notification)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -2769,6 +2864,10 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CPublishedFile_AddChild_Response_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CPublishedFile_RemoveChild_Request_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CPublishedFile_RemoveChild_Response_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CPublishedFile_SetCollectionChildren_Request_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CPublishedFile_SetCollectionChildren_Response_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CPublishedFile_SetSubscriptionListFromCollection_Request_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CPublishedFile_SetSubscriptionListFromCollection_Response_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CPublishedFile_GetUserVoteSummary_Request_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CPublishedFile_GetUserVoteSummary_Response_VoteSummary_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CPublishedFile_GetUserVoteSummary_Response_default_instance_),
@@ -2794,740 +2893,469 @@ const char descriptor_table_protodef_steammessages_5fpublishedfile_2esteamclient
   "_productinfo.proto\"G\n\033CPublishedFile_Vot"
   "e_Request\022\027\n\017publishedfileid\030\001 \001(\004\022\017\n\007vo"
   "te_up\030\002 \001(\010\"\036\n\034CPublishedFile_Vote_Respo"
-  "nse\"t\n CPublishedFile_Subscribe_Request\022"
-  "\027\n\017publishedfileid\030\001 \001(\004\022\021\n\tlist_type\030\002 "
-  "\001(\r\022\r\n\005appid\030\003 \001(\005\022\025\n\rnotify_client\030\004 \001("
-  "\010\"#\n!CPublishedFile_Subscribe_Response\"v"
-  "\n\"CPublishedFile_Unsubscribe_Request\022\027\n\017"
-  "publishedfileid\030\001 \001(\004\022\021\n\tlist_type\030\002 \001(\r"
-  "\022\r\n\005appid\030\003 \001(\005\022\025\n\rnotify_client\030\004 \001(\010\"%"
-  "\n#CPublishedFile_Unsubscribe_Response\">\n"
-  "#CPublishedFile_CanSubscribe_Request\022\027\n\017"
-  "publishedfileid\030\001 \001(\004\"=\n$CPublishedFile_"
-  "CanSubscribe_Response\022\025\n\rcan_subscribe\030\001"
-  " \001(\010\"\203\002\n(CPublishedFile_GetSubSectionDat"
-  "a_Request\022\027\n\017publishedfileid\030\001 \001(\004\022\035\n\025fo"
-  "r_table_of_contents\030\002 \001(\010\022\032\n\022specific_se"
-  "ctionid\030\003 \001(\004\022\202\001\n\020desired_revision\030\004 \001(\016"
-  "2\027.EPublishedFileRevision:\036EPublishedFil"
-  "eRevision_DefaultB/\202\265\030+Return the data f"
-  "or the specified revision.\"i\n\027PublishedF"
-  "ileSubSection\022\021\n\tsectionid\030\001 \001(\004\022\r\n\005titl"
-  "e\030\002 \001(\t\022\030\n\020description_text\030\003 \001(\t\022\022\n\nsor"
-  "t_order\030\004 \001(\r\"[\n)CPublishedFile_GetSubSe"
-  "ctionData_Response\022.\n\014sub_sections\030\001 \003(\013"
-  "2\030.PublishedFileSubSection\"\314\n\n\036CPublishe"
-  "dFile_Publish_Request\022<\n\005appid\030\001 \001(\rB-\202\265"
-  "\030)App Id this file is being published FR"
-  "OM.\022C\n\016consumer_appid\030\002 \001(\rB+\202\265\030\'App Id "
-  "this file is being published TO.\022K\n\rclou"
-  "dfilename\030\003 \001(\tB4\202\265\0300Name of the file to"
-  " publish in the user\'s cloud.\022[\n\025preview"
-  "_cloudfilename\030\004 \001(\tB<\202\265\0308Name of the fi"
-  "le to use as the published file\'s previe"
-  "w.\0225\n\005title\030\005 \001(\tB&\202\265\030\"Text title for th"
-  "e published file.\022F\n\020file_description\030\006 "
-  "\001(\tB,\202\265\030(Text description for the publis"
-  "hed file.\022L\n\tfile_type\030\007 \001(\rB9\202\265\0305(EWork"
-  "shopFileType) Type of Workshop file to p"
-  "ublish.\022I\n\026consumer_shortcut_name\030\010 \001(\tB"
-  ")\202\265\030%Shortcut name for the published fil"
-  "e.\022I\n\020youtube_username\030\t \001(\tB/\202\265\030+(Optio"
-  "nal) User\'s YouTube account username.\022\\\n"
-  "\017youtube_videoid\030\n \001(\tBC\202\265\030\?(Optional) V"
-  "ideo Id of a YouTube video for this publ"
-  "ished file.\022\201\001\n\nvisibility\030\013 \001(\rBm\202\265\030i(E"
-  "RemoteStoragePublishedFileVisibility) Vi"
-  "sibility of the published file (private,"
-  " friends, public, etc.)\022k\n\014redirect_uri\030"
-  "\014 \001(\tBU\202\265\030Q(Optional) If supplied, the r"
-  "esulting published file\'s Id is appended"
-  " to the URI.\022D\n\004tags\030\r \003(\tB6\202\265\0302Array of"
-  " text tags to apply to the published fil"
-  "e.\022Y\n\017collection_type\030\016 \001(\tB@\202\265\030<(Option"
-  "al) Type of collection the published fil"
-  "e represents.\022M\n\tgame_type\030\017 \001(\tB:\202\265\0306(O"
-  "ptional) Type of game the published file"
-  " represents.\022[\n\003url\030\020 \001(\tBN\202\265\030J(Optional"
-  ") If this represents a game, this is the"
-  " URL to that game\'s page.\"P\n\037CPublishedF"
-  "ile_Publish_Response\022\027\n\017publishedfileid\030"
-  "\001 \001(\004\022\024\n\014redirect_uri\030\002 \001(\t\"\213\n\n!CPublish"
-  "edFile_GetDetails_Request\022P\n\020publishedfi"
-  "leids\030\001 \003(\006B6\202\265\0302Set of published file I"
-  "ds to retrieve details for.\022Q\n\013includeta"
-  "gs\030\002 \001(\010B<\202\265\0308If true, return tag inform"
-  "ation in the returned details.\022c\n\031includ"
-  "eadditionalpreviews\030\003 \001(\010B@\202\265\030<If true, "
-  "return preview information in the return"
-  "ed details.\022N\n\017includechildren\030\004 \001(\010B5\202\265"
-  "\0301If true, return children in the return"
-  "ed details.\022R\n\rincludekvtags\030\005 \001(\010B;\202\265\0307"
-  "If true, return key value tags in the re"
-  "turned details.\022L\n\014includevotes\030\006 \001(\010B6\202"
-  "\265\0302If true, return vote data in the retu"
-  "rned details.\022c\n\021short_description\030\010 \001(\010"
-  "BH\202\265\030DIf true, return a short descriptio"
-  "n instead of the full description.\022L\n\022in"
-  "cludeforsaledata\030\n \001(\010B0\202\265\030,If true, ret"
-  "urn pricing data, if applicable.\022B\n\017incl"
-  "udemetadata\030\013 \001(\010B)\202\265\030%If true, populate"
-  " the metadata field.\022U\n\010language\030\014 \001(\005:\001"
-  "0B@\202\265\030<Specifies the localized text to r"
-  "eturn. Defaults to English.\022g\n\025return_pl"
-  "aytime_stats\030\r \001(\rBH\202\265\030DReturn playtime "
-  "stats for the specified number of days b"
-  "efore today.\022\r\n\005appid\030\016 \001(\r\022F\n\030strip_des"
-  "cription_bbcode\030\017 \001(\010B$\202\265\030 Strips BBCode"
-  " from descriptions.\022\202\001\n\020desired_revision"
-  "\030\020 \001(\0162\027.EPublishedFileRevision:\036EPublis"
-  "hedFileRevision_DefaultB/\202\265\030+Return the "
-  "data for the specified revision.\022W\n\020incl"
-  "udereactions\030\021 \001(\010:\005falseB6\202\265\0302If true, "
-  "then reactions to items will be returned"
-  ".\"\322\031\n\024PublishedFileDetails\022\016\n\006result\030\001 \001"
-  "(\r\022\027\n\017publishedfileid\030\002 \001(\004\022\017\n\007creator\030\003"
-  " \001(\006\022\025\n\rcreator_appid\030\004 \001(\r\022\026\n\016consumer_"
-  "appid\030\005 \001(\r\022\033\n\023consumer_shortcutid\030\006 \001(\r"
-  "\022\020\n\010filename\030\007 \001(\t\022\021\n\tfile_size\030\010 \001(\004\022\031\n"
-  "\021preview_file_size\030\t \001(\004\022\020\n\010file_url\030\n \001"
-  "(\t\022\023\n\013preview_url\030\013 \001(\t\022\026\n\016youtubevideoi"
-  "d\030\014 \001(\t\022\013\n\003url\030\r \001(\t\022\025\n\rhcontent_file\030\016 "
-  "\001(\006\022\030\n\020hcontent_preview\030\017 \001(\006\022\r\n\005title\030\020"
-  " \001(\t\022\030\n\020file_description\030\021 \001(\t\022\031\n\021short_"
-  "description\030\022 \001(\t\022\024\n\014time_created\030\023 \001(\r\022"
-  "\024\n\014time_updated\030\024 \001(\r\022\022\n\nvisibility\030\025 \001("
-  "\r\022\r\n\005flags\030\026 \001(\r\022\025\n\rworkshop_file\030\027 \001(\010\022"
-  "\031\n\021workshop_accepted\030\030 \001(\010\022\032\n\022show_subsc"
-  "ribe_all\030\031 \001(\010\022\036\n\026num_comments_developer"
-  "\030\032 \001(\005\022\033\n\023num_comments_public\030\033 \001(\005\022\016\n\006b"
-  "anned\030\034 \001(\010\022\022\n\nban_reason\030\035 \001(\t\022\016\n\006banne"
-  "r\030\036 \001(\006\022\026\n\016can_be_deleted\030\037 \001(\010\022\024\n\014incom"
-  "patible\030  \001(\010\022\020\n\010app_name\030! \001(\t\022\021\n\tfile_"
-  "type\030\" \001(\r\022\025\n\rcan_subscribe\030# \001(\010\022\025\n\rsub"
-  "scriptions\030$ \001(\r\022\021\n\tfavorited\030% \001(\r\022\021\n\tf"
-  "ollowers\030& \001(\r\022\036\n\026lifetime_subscriptions"
-  "\030\' \001(\r\022\032\n\022lifetime_favorited\030( \001(\r\022\032\n\022li"
-  "fetime_followers\030) \001(\r\022\031\n\021lifetime_playt"
-  "ime\030> \001(\004\022\"\n\032lifetime_playtime_sessions\030"
-  "\? \001(\004\022\r\n\005views\030* \001(\r\022\023\n\013image_width\030+ \001("
-  "\r\022\024\n\014image_height\030, \001(\r\022\021\n\timage_url\030- \001"
-  "(\t\022\023\n\013spoiler_tag\030. \001(\010\022\022\n\nshortcutid\030/ "
-  "\001(\r\022\024\n\014shortcutname\0300 \001(\t\022\024\n\014num_childre"
-  "n\0301 \001(\r\022\023\n\013num_reports\0302 \001(\r\022/\n\010previews"
-  "\0303 \003(\0132\035.PublishedFileDetails.Preview\022\'\n"
-  "\004tags\0304 \003(\0132\031.PublishedFileDetails.Tag\022-"
-  "\n\010children\0305 \003(\0132\033.PublishedFileDetails."
-  "Child\022+\n\006kvtags\0306 \003(\0132\033.PublishedFileDet"
-  "ails.KVTag\0221\n\tvote_data\0307 \001(\0132\036.Publishe"
-  "dFileDetails.VoteData\022;\n\016playtime_stats\030"
-  "@ \001(\0132#.PublishedFileDetails.PlaytimeSta"
-  "ts\022r\n\017time_subscribed\0308 \001(\rBY\202\265\030UOnly va"
-  "lid in PublishedFile.GetUserFiles and no"
-  "t normal PublishedFile.GetDetail calls\022a"
-  "\n\rfor_sale_data\0309 \001(\0132!.PublishedFileDet"
-  "ails.ForSaleDataB\'\202\265\030#Pricing informatio"
-  "n, if applicable.\0227\n\010metadata\030: \001(\tB%\202\265\030"
-  "!Metadata associated with the item\022C\n\010la"
-  "nguage\030= \001(\005:\0010B.\202\265\030*The language of the"
-  " title and description.\022\037\n\027maybe_inappro"
-  "priate_sex\030A \001(\010\022$\n\034maybe_inappropriate_"
-  "violence\030B \001(\010\0224\n\025content_descriptorids\030"
-  "H \003(\0162\025.EContentDescriptorID\022Q\n\026revision"
-  "_change_number\030C \001(\004B1\202\265\030-The change num"
-  "ber for the specified revision.\022\330\001\n\010revi"
-  "sion\030D \001(\0162\027.EPublishedFileRevision:\036EPu"
-  "blishedFileRevision_DefaultB\214\001\202\265\030\207\001The r"
-  "evision of the data returned, usually EP"
-  "ublishedFileRevision_Latest, but can be "
-  "another revision/snapshot depending on t"
-  "he caller.\022M\n\023available_revisions\030E \003(\0162"
-  "\027.EPublishedFileRevisionB\027\202\265\030\023Available "
-  "revisions\022M\n\treactions\030F \003(\0132\036.Published"
-  "FileDetails.ReactionB\032\202\265\030\026Reactions to t"
-  "his item\022W\n\023ban_text_checresult\030G \001(\0162\027."
-  "EBanContentCheckResult:!EBanContentCheck"
-  "Result_NotScanned\0222\n\014search_score\030I \001(\002B"
-  "\034\202\265\030\030Search score, admin only\032;\n\003Tag\022\013\n\003"
-  "tag\030\001 \001(\t\022\021\n\tadminonly\030\002 \001(\010\022\024\n\014display_"
-  "name\030\003 \001(\t\032\246\001\n\007Preview\022\021\n\tpreviewid\030\001 \001("
-  "\004\022\021\n\tsortorder\030\002 \001(\r\022\013\n\003url\030\003 \001(\t\022\014\n\004siz"
-  "e\030\004 \001(\r\022\020\n\010filename\030\005 \001(\t\022\026\n\016youtubevide"
-  "oid\030\006 \001(\t\022\024\n\014preview_type\030\007 \001(\r\022\032\n\022exter"
-  "nal_reference\030\010 \001(\t\032F\n\005Child\022\027\n\017publishe"
-  "dfileid\030\001 \001(\004\022\021\n\tsortorder\030\002 \001(\r\022\021\n\tfile"
-  "_type\030\003 \001(\r\032#\n\005KVTag\022\013\n\003key\030\001 \001(\t\022\r\n\005val"
-  "ue\030\002 \001(\t\032\?\n\010VoteData\022\r\n\005score\030\001 \001(\002\022\020\n\010v"
-  "otes_up\030\002 \001(\r\022\022\n\nvotes_down\030\003 \001(\r\032\332\001\n\013Fo"
-  "rSaleData\022\023\n\013is_for_sale\030\001 \001(\010\022\026\n\016price_"
-  "category\030\002 \001(\r\022\?\n\007estatus\030\003 \001(\0162\034.EPubli"
-  "shedFileForSaleStatus:\020PFFSS_NotForSale\022"
-  "\034\n\024price_category_floor\030\004 \001(\r\022\"\n\032price_i"
-  "s_pay_what_you_want\030\005 \001(\010\022\033\n\023discount_pe"
-  "rcentage\030\006 \001(\r\032\?\n\rPlaytimeStats\022\030\n\020playt"
-  "ime_seconds\030\001 \001(\004\022\024\n\014num_sessions\030\002 \001(\004\032"
-  "-\n\010Reaction\022\022\n\nreactionid\030\001 \001(\r\022\r\n\005count"
-  "\030\002 \001(\r\"Y\n\"CPublishedFile_GetDetails_Resp"
-  "onse\0223\n\024publishedfiledetails\030\001 \003(\0132\025.Pub"
-  "lishedFileDetails\"\337\002\n\"CPublishedFile_Get"
-  "ItemInfo_Request\022\r\n\005appid\030\001 \001(\r\022\031\n\021last_"
-  "time_updated\030\002 \001(\r\022H\n\016workshop_items\030\003 \003"
-  "(\01320.CPublishedFile_GetItemInfo_Request."
-  "WorkshopItem\032\304\001\n\014WorkshopItem\022\031\n\021publish"
-  "ed_file_id\030\001 \001(\006\022\024\n\014time_updated\030\002 \001(\r\022\202"
-  "\001\n\020desired_revision\030\003 \001(\0162\027.EPublishedFi"
-  "leRevision:\036EPublishedFileRevision_Defau"
-  "ltB/\202\265\030+Return the data for the specifie"
-  "d revision.\"\211\002\n#CPublishedFile_GetItemIn"
-  "fo_Response\022\023\n\013update_time\030\001 \001(\r\022M\n\016work"
-  "shop_items\030\002 \003(\01325.CPublishedFile_GetIte"
-  "mInfo_Response.WorkshopItemInfo\022\025\n\rpriva"
-  "te_items\030\003 \003(\006\032g\n\020WorkshopItemInfo\022\031\n\021pu"
-  "blished_file_id\030\001 \001(\006\022\024\n\014time_updated\030\002 "
-  "\001(\r\022\023\n\013manifest_id\030\003 \001(\006\022\r\n\005flags\030\004 \001(\r\""
-  "\244\030\n#CPublishedFile_GetUserFiles_Request\022"
-  "J\n\007steamid\030\001 \001(\006B9\202\265\0305Steam ID of the us"
-  "er whose files are being requested.\022F\n\005a"
-  "ppid\030\002 \001(\rB7\202\265\0303App Id of the app that t"
-  "he files were published to.\022P\n\nshortcuti"
-  "d\030\003 \001(\rB<\202\265\0308(Optional) Shortcut Id to r"
-  "etrieve published files from.\022:\n\004page\030\004 "
-  "\001(\r:\0011B)\202\265\030%(Optional) Starting page for"
-  " results.\022P\n\nnumperpage\030\005 \001(\r:\0011B9\202\265\0305(O"
-  "ptional) The number of results, per page"
-  " to return.\022C\n\004type\030\006 \001(\t:\007myfilesB,\202\265\030("
-  "(Optional) Type of files to be returned."
-  "\022Y\n\nsortmethod\030\007 \001(\t:\013lastupdatedB8\202\265\0304("
-  "Optional) Sorting method to use on retur"
-  "ned values.\022;\n\007privacy\030\t \001(\rB*\202\265\030&(optio"
-  "nal) Filter by privacy settings.\022h\n\014requ"
-  "iredtags\030\n \003(\tBR\202\265\030N(Optional) Tags that"
-  " must be present on a published file to "
-  "satisfy the query.\022l\n\014excludedtags\030\013 \003(\t"
-  "BV\202\265\030R(Optional) Tags that must NOT be p"
-  "resent on a published file to satisfy th"
-  "e query.\022n\n\020required_kv_tags\030\036 \003(\0132*.CPu"
-  "blishedFile_GetUserFiles_Request.KVTagB("
-  "\202\265\030$Required key-value tags to match on."
-  "\022=\n\010filetype\030\016 \001(\rB+\202\265\030\'(Optional) File "
-  "type to match files to.\022a\n\rcreator_appid"
-  "\030\017 \001(\rBJ\202\265\030FApp Id of the app that publi"
-  "shed the files, only matched if specifie"
-  "d.\022I\n\024match_cloud_filename\030\020 \001(\tB+\202\265\030\'Ma"
-  "tch this cloud filename if specified.\022j\n"
-  "\025cache_max_age_seconds\030\033 \001(\r:\0010BH\202\265\030DAll"
-  "ow stale data to be returned for the spe"
-  "cified number of seconds.\022U\n\010language\030\035 "
-  "\001(\005:\0010B@\202\265\030<Specifies the localized text"
-  " to return. Defaults to English.\022\243\001\n\ttag"
-  "groups\030\" \003(\0132-.CPublishedFile_GetUserFil"
-  "es_Request.TagGroupBa\202\265\030](Optional) At l"
-  "east one of the tags must be present on "
-  "a published file to satisfy the query.\022\201"
-  "\001\n\034excluded_content_descriptors\030% \003(\0162\025."
-  "EContentDescriptorIDBD\202\265\030@(Optional) Fil"
-  "ter out items that have these content de"
-  "scriptors.\022i\n\ttotalonly\030\021 \001(\010BV\202\265\030R(Opti"
-  "onal) If true, only return the total num"
-  "ber of files that satisfy this query.\022n\n"
-  "\010ids_only\030\022 \001(\010B\\\202\265\030X(Optional) If true,"
-  " only return the published file ids of f"
-  "iles that satisfy this query.\0224\n\020return_"
-  "vote_data\030\023 \001(\010:\004trueB\024\202\265\030\020Return vote d"
-  "ata\0228\n\013return_tags\030\024 \001(\010B#\202\265\030\037Return tag"
-  "s in the file details\022K\n\016return_kv_tags\030"
-  "\025 \001(\010:\004trueB-\202\265\030)Return key-value tags i"
-  "n the file details\022W\n\017return_previews\030\026 "
-  "\001(\010B>\202\265\030:Return preview image and video "
-  "details in the file details\022F\n\017return_ch"
-  "ildren\030\027 \001(\010B-\202\265\030)Return child item ids "
-  "in the file details\022l\n\030return_short_desc"
-  "ription\030\030 \001(\010:\004trueBD\202\265\030@Populate the sh"
-  "ort_description field instead of file_de"
-  "scription\022K\n\024return_for_sale_data\030\032 \001(\010B"
-  "-\202\265\030)Return pricing information, if appl"
-  "icable\022\?\n\017return_metadata\030\034 \001(\010:\005falseB\037"
-  "\202\265\030\033Populate the metadata field\022g\n\025retur"
-  "n_playtime_stats\030\037 \001(\rBH\202\265\030DReturn playt"
-  "ime stats for the specified number of da"
-  "ys before today.\022F\n\030strip_description_bb"
-  "code\030  \001(\010B$\202\265\030 Strips BBCode from descr"
-  "iptions.\022W\n\020return_reactions\030# \001(\010:\005fals"
-  "eB6\202\265\0302If true, then reactions to items "
-  "will be returned.\022E\n\023startindex_override"
-  "\030\031 \001(\rB(\202\265\030$Backwards compatible for the"
-  " client.\022\202\001\n\020desired_revision\030! \001(\0162\027.EP"
+  "nse\"\222\001\n CPublishedFile_Subscribe_Request"
+  "\022\027\n\017publishedfileid\030\001 \001(\004\022\021\n\tlist_type\030\002"
+  " \001(\r\022\r\n\005appid\030\003 \001(\005\022\025\n\rnotify_client\030\004 \001"
+  "(\010\022\034\n\024include_dependencies\030\005 \001(\010\"#\n!CPub"
+  "lishedFile_Subscribe_Response\"v\n\"CPublis"
+  "hedFile_Unsubscribe_Request\022\027\n\017published"
+  "fileid\030\001 \001(\004\022\021\n\tlist_type\030\002 \001(\r\022\r\n\005appid"
+  "\030\003 \001(\005\022\025\n\rnotify_client\030\004 \001(\010\"%\n#CPublis"
+  "hedFile_Unsubscribe_Response\">\n#CPublish"
+  "edFile_CanSubscribe_Request\022\027\n\017published"
+  "fileid\030\001 \001(\004\"=\n$CPublishedFile_CanSubscr"
+  "ibe_Response\022\025\n\rcan_subscribe\030\001 \001(\010\"\321\001\n("
+  "CPublishedFile_GetSubSectionData_Request"
+  "\022\027\n\017publishedfileid\030\001 \001(\004\022\035\n\025for_table_o"
+  "f_contents\030\002 \001(\010\022\032\n\022specific_sectionid\030\003"
+  " \001(\004\022Q\n\020desired_revision\030\004 \001(\0162\027.EPublis"
+  "hedFileRevision:\036EPublishedFileRevision_"
+  "Default\"i\n\027PublishedFileSubSection\022\021\n\tse"
+  "ctionid\030\001 \001(\004\022\r\n\005title\030\002 \001(\t\022\030\n\020descript"
+  "ion_text\030\003 \001(\t\022\022\n\nsort_order\030\004 \001(\r\"[\n)CP"
+  "ublishedFile_GetSubSectionData_Response\022"
+  ".\n\014sub_sections\030\001 \003(\0132\030.PublishedFileSub"
+  "Section\"\375\002\n\036CPublishedFile_Publish_Reque"
+  "st\022\r\n\005appid\030\001 \001(\r\022\026\n\016consumer_appid\030\002 \001("
+  "\r\022\025\n\rcloudfilename\030\003 \001(\t\022\035\n\025preview_clou"
+  "dfilename\030\004 \001(\t\022\r\n\005title\030\005 \001(\t\022\030\n\020file_d"
+  "escription\030\006 \001(\t\022\021\n\tfile_type\030\007 \001(\r\022\036\n\026c"
+  "onsumer_shortcut_name\030\010 \001(\t\022\030\n\020youtube_u"
+  "sername\030\t \001(\t\022\027\n\017youtube_videoid\030\n \001(\t\022\022"
+  "\n\nvisibility\030\013 \001(\r\022\024\n\014redirect_uri\030\014 \001(\t"
+  "\022\014\n\004tags\030\r \003(\t\022\027\n\017collection_type\030\016 \001(\t\022"
+  "\021\n\tgame_type\030\017 \001(\t\022\013\n\003url\030\020 \001(\t\"P\n\037CPubl"
+  "ishedFile_Publish_Response\022\027\n\017publishedf"
+  "ileid\030\001 \001(\004\022\024\n\014redirect_uri\030\002 \001(\t\"\344\003\n!CP"
+  "ublishedFile_GetDetails_Request\022\030\n\020publi"
+  "shedfileids\030\001 \003(\006\022\023\n\013includetags\030\002 \001(\010\022!"
+  "\n\031includeadditionalpreviews\030\003 \001(\010\022\027\n\017inc"
+  "ludechildren\030\004 \001(\010\022\025\n\rincludekvtags\030\005 \001("
+  "\010\022\024\n\014includevotes\030\006 \001(\010\022\031\n\021short_descrip"
+  "tion\030\010 \001(\010\022\032\n\022includeforsaledata\030\n \001(\010\022\027"
+  "\n\017includemetadata\030\013 \001(\010\022\023\n\010language\030\014 \001("
+  "\005:\0010\022\035\n\025return_playtime_stats\030\r \001(\r\022\r\n\005a"
+  "ppid\030\016 \001(\r\022 \n\030strip_description_bbcode\030\017"
+  " \001(\010\022Q\n\020desired_revision\030\020 \001(\0162\027.EPublis"
+  "hedFileRevision:\036EPublishedFileRevision_"
+  "Default\022\037\n\020includereactions\030\021 \001(\010:\005false"
+  "\"\374\025\n\024PublishedFileDetails\022\016\n\006result\030\001 \001("
+  "\r\022\027\n\017publishedfileid\030\002 \001(\004\022\017\n\007creator\030\003 "
+  "\001(\006\022\025\n\rcreator_appid\030\004 \001(\r\022\026\n\016consumer_a"
+  "ppid\030\005 \001(\r\022\033\n\023consumer_shortcutid\030\006 \001(\r\022"
+  "\020\n\010filename\030\007 \001(\t\022\021\n\tfile_size\030\010 \001(\004\022\031\n\021"
+  "preview_file_size\030\t \001(\004\022\020\n\010file_url\030\n \001("
+  "\t\022\023\n\013preview_url\030\013 \001(\t\022\026\n\016youtubevideoid"
+  "\030\014 \001(\t\022\013\n\003url\030\r \001(\t\022\025\n\rhcontent_file\030\016 \001"
+  "(\006\022\030\n\020hcontent_preview\030\017 \001(\006\022\r\n\005title\030\020 "
+  "\001(\t\022\030\n\020file_description\030\021 \001(\t\022\031\n\021short_d"
+  "escription\030\022 \001(\t\022\024\n\014time_created\030\023 \001(\r\022\024"
+  "\n\014time_updated\030\024 \001(\r\022\022\n\nvisibility\030\025 \001(\r"
+  "\022\r\n\005flags\030\026 \001(\r\022\025\n\rworkshop_file\030\027 \001(\010\022\031"
+  "\n\021workshop_accepted\030\030 \001(\010\022\032\n\022show_subscr"
+  "ibe_all\030\031 \001(\010\022\036\n\026num_comments_developer\030"
+  "\032 \001(\005\022\033\n\023num_comments_public\030\033 \001(\005\022\016\n\006ba"
+  "nned\030\034 \001(\010\022\022\n\nban_reason\030\035 \001(\t\022\016\n\006banner"
+  "\030\036 \001(\006\022\026\n\016can_be_deleted\030\037 \001(\010\022\024\n\014incomp"
+  "atible\030  \001(\010\022\020\n\010app_name\030! \001(\t\022\021\n\tfile_t"
+  "ype\030\" \001(\r\022\025\n\rcan_subscribe\030# \001(\010\022\025\n\rsubs"
+  "criptions\030$ \001(\r\022\021\n\tfavorited\030% \001(\r\022\021\n\tfo"
+  "llowers\030& \001(\r\022\036\n\026lifetime_subscriptions\030"
+  "\' \001(\r\022\032\n\022lifetime_favorited\030( \001(\r\022\032\n\022lif"
+  "etime_followers\030) \001(\r\022\031\n\021lifetime_playti"
+  "me\030> \001(\004\022\"\n\032lifetime_playtime_sessions\030\?"
+  " \001(\004\022\r\n\005views\030* \001(\r\022\023\n\013image_width\030+ \001(\r"
+  "\022\024\n\014image_height\030, \001(\r\022\021\n\timage_url\030- \001("
+  "\t\022\023\n\013spoiler_tag\030. \001(\010\022\022\n\nshortcutid\030/ \001"
+  "(\r\022\024\n\014shortcutname\0300 \001(\t\022\024\n\014num_children"
+  "\0301 \001(\r\022\023\n\013num_reports\0302 \001(\r\022/\n\010previews\030"
+  "3 \003(\0132\035.PublishedFileDetails.Preview\022\'\n\004"
+  "tags\0304 \003(\0132\031.PublishedFileDetails.Tag\022-\n"
+  "\010children\0305 \003(\0132\033.PublishedFileDetails.C"
+  "hild\022+\n\006kvtags\0306 \003(\0132\033.PublishedFileDeta"
+  "ils.KVTag\0221\n\tvote_data\0307 \001(\0132\036.Published"
+  "FileDetails.VoteData\022;\n\016playtime_stats\030@"
+  " \001(\0132#.PublishedFileDetails.PlaytimeStat"
+  "s\022\027\n\017time_subscribed\0308 \001(\r\0228\n\rfor_sale_d"
+  "ata\0309 \001(\0132!.PublishedFileDetails.ForSale"
+  "Data\022\020\n\010metadata\030: \001(\t\022\023\n\010language\030= \001(\005"
+  ":\0010\022\037\n\027maybe_inappropriate_sex\030A \001(\010\022$\n\034"
+  "maybe_inappropriate_violence\030B \001(\010\0224\n\025co"
+  "ntent_descriptorids\030H \003(\0162\025.EContentDesc"
+  "riptorID\022\036\n\026revision_change_number\030C \001(\004"
+  "\022I\n\010revision\030D \001(\0162\027.EPublishedFileRevis"
+  "ion:\036EPublishedFileRevision_Default\0224\n\023a"
+  "vailable_revisions\030E \003(\0162\027.EPublishedFil"
+  "eRevision\0221\n\treactions\030F \003(\0132\036.Published"
+  "FileDetails.Reaction\022W\n\023ban_text_checres"
+  "ult\030G \001(\0162\027.EBanContentCheckResult:!EBan"
+  "ContentCheckResult_NotScanned\022\024\n\014search_"
+  "score\030I \001(\002\022\031\n\021external_asset_id\030J \001(\004\032;"
+  "\n\003Tag\022\013\n\003tag\030\001 \001(\t\022\021\n\tadminonly\030\002 \001(\010\022\024\n"
+  "\014display_name\030\003 \001(\t\032\246\001\n\007Preview\022\021\n\tprevi"
+  "ewid\030\001 \001(\004\022\021\n\tsortorder\030\002 \001(\r\022\013\n\003url\030\003 \001"
+  "(\t\022\014\n\004size\030\004 \001(\r\022\020\n\010filename\030\005 \001(\t\022\026\n\016yo"
+  "utubevideoid\030\006 \001(\t\022\024\n\014preview_type\030\007 \001(\r"
+  "\022\032\n\022external_reference\030\010 \001(\t\032F\n\005Child\022\027\n"
+  "\017publishedfileid\030\001 \001(\004\022\021\n\tsortorder\030\002 \001("
+  "\r\022\021\n\tfile_type\030\003 \001(\r\032#\n\005KVTag\022\013\n\003key\030\001 \001"
+  "(\t\022\r\n\005value\030\002 \001(\t\032\?\n\010VoteData\022\r\n\005score\030\001"
+  " \001(\002\022\020\n\010votes_up\030\002 \001(\r\022\022\n\nvotes_down\030\003 \001"
+  "(\r\032\332\001\n\013ForSaleData\022\023\n\013is_for_sale\030\001 \001(\010\022"
+  "\026\n\016price_category\030\002 \001(\r\022\?\n\007estatus\030\003 \001(\016"
+  "2\034.EPublishedFileForSaleStatus:\020PFFSS_No"
+  "tForSale\022\034\n\024price_category_floor\030\004 \001(\r\022\""
+  "\n\032price_is_pay_what_you_want\030\005 \001(\010\022\033\n\023di"
+  "scount_percentage\030\006 \001(\r\032\?\n\rPlaytimeStats"
+  "\022\030\n\020playtime_seconds\030\001 \001(\004\022\024\n\014num_sessio"
+  "ns\030\002 \001(\004\032-\n\010Reaction\022\022\n\nreactionid\030\001 \001(\r"
+  "\022\r\n\005count\030\002 \001(\r\"Y\n\"CPublishedFile_GetDet"
+  "ails_Response\0223\n\024publishedfiledetails\030\001 "
+  "\003(\0132\025.PublishedFileDetails\"\255\002\n\"CPublishe"
+  "dFile_GetItemInfo_Request\022\r\n\005appid\030\001 \001(\r"
+  "\022\031\n\021last_time_updated\030\002 \001(\r\022H\n\016workshop_"
+  "items\030\003 \003(\01320.CPublishedFile_GetItemInfo"
+  "_Request.WorkshopItem\032\222\001\n\014WorkshopItem\022\031"
+  "\n\021published_file_id\030\001 \001(\006\022\024\n\014time_update"
+  "d\030\002 \001(\r\022Q\n\020desired_revision\030\003 \001(\0162\027.EPub"
+  "lishedFileRevision:\036EPublishedFileRevisi"
+  "on_Default\"\211\002\n#CPublishedFile_GetItemInf"
+  "o_Response\022\023\n\013update_time\030\001 \001(\r\022M\n\016works"
+  "hop_items\030\002 \003(\01325.CPublishedFile_GetItem"
+  "Info_Response.WorkshopItemInfo\022\025\n\rprivat"
+  "e_items\030\003 \003(\006\032g\n\020WorkshopItemInfo\022\031\n\021pub"
+  "lished_file_id\030\001 \001(\006\022\024\n\014time_updated\030\002 \001"
+  "(\r\022\023\n\013manifest_id\030\003 \001(\006\022\r\n\005flags\030\004 \001(\r\"\357"
+  "\010\n#CPublishedFile_GetUserFiles_Request\022\017"
+  "\n\007steamid\030\001 \001(\006\022\r\n\005appid\030\002 \001(\r\022\022\n\nshortc"
+  "utid\030\003 \001(\r\022\017\n\004page\030\004 \001(\r:\0011\022\025\n\nnumperpag"
+  "e\030\005 \001(\r:\0011\022\025\n\004type\030\006 \001(\t:\007myfiles\022\037\n\nsor"
+  "tmethod\030\007 \001(\t:\013lastupdated\022\017\n\007privacy\030\t "
+  "\001(\r\022\024\n\014requiredtags\030\n \003(\t\022\024\n\014excludedtag"
+  "s\030\013 \003(\t\022D\n\020required_kv_tags\030\036 \003(\0132*.CPub"
+  "lishedFile_GetUserFiles_Request.KVTag\022\020\n"
+  "\010filetype\030\016 \001(\r\022\025\n\rcreator_appid\030\017 \001(\r\022\034"
+  "\n\024match_cloud_filename\030\020 \001(\t\022 \n\025cache_ma"
+  "x_age_seconds\030\033 \001(\r:\0010\022\023\n\010language\030\035 \001(\005"
+  ":\0010\022@\n\ttaggroups\030\" \003(\0132-.CPublishedFile_"
+  "GetUserFiles_Request.TagGroup\022;\n\034exclude"
+  "d_content_descriptors\030% \003(\0162\025.EContentDe"
+  "scriptorID\022\021\n\ttotalonly\030\021 \001(\010\022\020\n\010ids_onl"
+  "y\030\022 \001(\010\022\036\n\020return_vote_data\030\023 \001(\010:\004true\022"
+  "\023\n\013return_tags\030\024 \001(\010\022\034\n\016return_kv_tags\030\025"
+  " \001(\010:\004true\022\027\n\017return_previews\030\026 \001(\010\022\027\n\017r"
+  "eturn_children\030\027 \001(\010\022&\n\030return_short_des"
+  "cription\030\030 \001(\010:\004true\022\034\n\024return_for_sale_"
+  "data\030\032 \001(\010\022\036\n\017return_metadata\030\034 \001(\010:\005fal"
+  "se\022\035\n\025return_playtime_stats\030\037 \001(\r\022 \n\030str"
+  "ip_description_bbcode\030  \001(\010\022\037\n\020return_re"
+  "actions\030# \001(\010:\005false\022\033\n\023startindex_overr"
+  "ide\030\031 \001(\r\022Q\n\020desired_revision\030! \001(\0162\027.EP"
   "ublishedFileRevision:\036EPublishedFileRevi"
-  "sion_DefaultB/\202\265\030+Return the data for th"
-  "e specified revision.\022@\n\013return_apps\030$ \001"
-  "(\010B+\202\265\030\'Return list of apps the items be"
-  "long to\032#\n\005KVTag\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002"
-  " \001(\t\032\030\n\010TagGroup\022\014\n\004tags\030\001 \003(\t\"\200\002\n$CPubl"
-  "ishedFile_GetUserFiles_Response\022\r\n\005total"
-  "\030\001 \001(\r\022\022\n\nstartindex\030\002 \001(\r\0223\n\024publishedf"
-  "iledetails\030\003 \003(\0132\025.PublishedFileDetails\022"
-  "7\n\004apps\030\004 \003(\0132).CPublishedFile_GetUserFi"
-  "les_Response.App\032G\n\003App\022\r\n\005appid\030\001 \001(\r\022\014"
-  "\n\004name\030\002 \001(\t\022\022\n\nshortcutid\030\003 \001(\r\022\017\n\007priv"
-  "ate\030\004 \001(\010\"\232\002\n1CPublishedFile_AreFilesInS"
-  "ubscriptionList_Request\022\r\n\005appid\030\001 \001(\r\022\030"
-  "\n\020publishedfileids\030\002 \003(\006\022&\n\010listtype\030\003 \001"
-  "(\rB\024\202\265\030\020See EUCMListType\022<\n\010filetype\030\004 \001"
-  "(\rB*\202\265\030&See EPublishedFileInfoMatchingFi"
-  "leType\022V\n\020workshopfiletype\030\005 \001(\rB<\202\265\0308Se"
-  "e EWorkshopFileType.  If specified, over"
-  "rides filetype\"\262\001\n2CPublishedFile_AreFil"
-  "esInSubscriptionList_Response\022I\n\005files\030\001"
-  " \003(\0132:.CPublishedFile_AreFilesInSubscrip"
-  "tionList_Response.InList\0321\n\006InList\022\027\n\017pu"
-  "blishedfileid\030\001 \001(\006\022\016\n\006inlist\030\002 \001(\010\"\326\007\n\035"
-  "CPublishedFile_Update_Request\0229\n\005appid\030\001"
-  " \001(\rB*\202\265\030&App Id this published file bel"
-  "ongs to.\022O\n\017publishedfileid\030\002 \001(\006B6\202\265\0302P"
-  "ublished file id of the file we\'d like t"
-  "o update.\022:\n\005title\030\003 \001(\tB+\202\265\030\'(Optional)"
-  " Title of the published file.\022K\n\020file_de"
-  "scription\030\004 \001(\tB1\202\265\030-(Optional) Descript"
-  "ion of the published file.\022D\n\nvisibility"
-  "\030\005 \001(\rB0\202\265\030,(Optional) Visibility of the"
-  " published file.\022@\n\004tags\030\006 \003(\tB2\202\265\030.(Opt"
-  "ional) Set of tags for the published fil"
-  "e.\022A\n\010filename\030\007 \001(\tB/\202\265\030+(Optional) Fil"
-  "ename for the published file.\022Q\n\020preview"
-  "_filename\030\010 \001(\tB7\202\265\0303(Optional) Preview "
-  "filename for the published file.\022i\n\013spoi"
-  "ler_tag\030\n \001(\010BT\202\265\030P(Optional) Whether th"
-  "is published file should have a spoiler "
-  "tag attached to it.\022^\n\013image_width\030\017 \001(\r"
-  "BI\202\265\030E(Optional) If this is an image fil"
-  "e, you can specify the image width.\022`\n\014i"
-  "mage_height\030\020 \001(\rBJ\202\265\030F(Optional) If thi"
-  "s is an image file, you can specify the "
-  "image height.\022U\n\010language\030\021 \001(\005BC\202\265\030\?(Op"
-  "tional) If setting title & description, "
-  "what language to set\" \n\036CPublishedFile_U"
-  "pdate_Response\"\177\n\035CPublishedFile_Delete_"
-  "Request\022O\n\017publishedfileid\030\001 \001(\006B6\202\265\0302Pu"
-  "blished file id of the file we\'d like to"
-  " delete.\022\r\n\005appid\030\005 \001(\r\" \n\036CPublishedFil"
-  "e_Delete_Response\"\270\001\n,CPublishedFile_Get"
-  "ChangeHistoryEntry_Request\022c\n\017publishedf"
-  "ileid\030\001 \001(\006BJ\202\265\030FPublished file id of th"
-  "e file we\'d like to get the change histo"
-  "ry for.\022\021\n\ttimestamp\030\002 \001(\r\022\020\n\010language\030\003"
-  " \001(\005\"]\n-CPublishedFile_GetChangeHistoryE"
-  "ntry_Response\022\032\n\022change_description\030\001 \001("
-  "\t\022\020\n\010language\030\002 \001(\005\"\236\002\n\'CPublishedFile_G"
-  "etChangeHistory_Request\022c\n\017publishedfile"
-  "id\030\001 \001(\006BJ\202\265\030FPublished file id of the f"
-  "ile we\'d like to get the change history "
-  "for.\022@\n\ntotal_only\030\002 \001(\010B,\202\265\030(Return the"
-  " total number of changes only.\022\022\n\nstarti"
-  "ndex\030\003 \001(\r\022\r\n\005count\030\004 \001(\r\022)\n\010language\030\005 "
-  "\001(\005:\0010B\024\202\265\030\020Desired language\"\315\001\n(CPublis"
-  "hedFile_GetChangeHistory_Response\022D\n\007cha"
-  "nges\030\001 \003(\01323.CPublishedFile_GetChangeHis"
-  "tory_Response.ChangeLog\022\r\n\005total\030\002 \001(\r\032L"
-  "\n\tChangeLog\022\021\n\ttimestamp\030\001 \001(\r\022\032\n\022change"
-  "_description\030\002 \001(\t\022\020\n\010language\030\003 \001(\005\"\317\005\n"
-  ")CPublishedFile_RefreshVotingQueue_Reque"
-  "st\022\r\n\005appid\030\001 \001(\r\022B\n\022matching_file_type\030"
-  "\002 \001(\rB&\202\265\030\"EPublishedFileInfoMatchingFil"
-  "eType\022l\n\004tags\030\003 \003(\tB^\202\265\030ZInclude files t"
-  "hat have all the tags or any of the tags"
-  " if match_all_tags is set to false.\022\225\001\n\016"
-  "match_all_tags\030\004 \001(\010:\004trueBw\202\265\030sIf true,"
-  " then files must have all the tags speci"
-  "fied.  If false, then must have at least"
-  " one of the tags specified.\022I\n\rexcluded_"
-  "tags\030\005 \003(\tB2\202\265\030.Exclude any files that h"
-  "ave any of these tags.\022j\n\022desired_queue_"
-  "size\030\006 \001(\rBN\202\265\030JDesired number of items "
-  "in the voting queue.  May be clamped by "
-  "the server\022\221\001\n\020desired_revision\030\010 \001(\0162\027."
+  "sion_Default\022\023\n\013return_apps\030$ \001(\010\032#\n\005KVT"
+  "ag\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\032\030\n\010TagGro"
+  "up\022\014\n\004tags\030\001 \003(\t\"\200\002\n$CPublishedFile_GetU"
+  "serFiles_Response\022\r\n\005total\030\001 \001(\r\022\022\n\nstar"
+  "tindex\030\002 \001(\r\0223\n\024publishedfiledetails\030\003 \003"
+  "(\0132\025.PublishedFileDetails\0227\n\004apps\030\004 \003(\0132"
+  ").CPublishedFile_GetUserFiles_Response.A"
+  "pp\032G\n\003App\022\r\n\005appid\030\001 \001(\r\022\014\n\004name\030\002 \001(\t\022\022"
+  "\n\nshortcutid\030\003 \001(\r\022\017\n\007private\030\004 \001(\010\"\232\001\n1"
+  "CPublishedFile_AreFilesInSubscriptionLis"
+  "t_Request\022\r\n\005appid\030\001 \001(\r\022\030\n\020publishedfil"
+  "eids\030\002 \003(\006\022\020\n\010listtype\030\003 \001(\r\022\020\n\010filetype"
+  "\030\004 \001(\r\022\030\n\020workshopfiletype\030\005 \001(\r\"\262\001\n2CPu"
+  "blishedFile_AreFilesInSubscriptionList_R"
+  "esponse\022I\n\005files\030\001 \003(\0132:.CPublishedFile_"
+  "AreFilesInSubscriptionList_Response.InLi"
+  "st\0321\n\006InList\022\027\n\017publishedfileid\030\001 \001(\006\022\016\n"
+  "\006inlist\030\002 \001(\010\"\220\002\n\035CPublishedFile_Update_"
+  "Request\022\r\n\005appid\030\001 \001(\r\022\027\n\017publishedfilei"
+  "d\030\002 \001(\006\022\r\n\005title\030\003 \001(\t\022\030\n\020file_descripti"
+  "on\030\004 \001(\t\022\022\n\nvisibility\030\005 \001(\r\022\014\n\004tags\030\006 \003"
+  "(\t\022\020\n\010filename\030\007 \001(\t\022\030\n\020preview_filename"
+  "\030\010 \001(\t\022\023\n\013spoiler_tag\030\n \001(\010\022\023\n\013image_wid"
+  "th\030\017 \001(\r\022\024\n\014image_height\030\020 \001(\r\022\020\n\010langua"
+  "ge\030\021 \001(\005\" \n\036CPublishedFile_Update_Respon"
+  "se\"G\n\035CPublishedFile_Delete_Request\022\027\n\017p"
+  "ublishedfileid\030\001 \001(\006\022\r\n\005appid\030\005 \001(\r\" \n\036C"
+  "PublishedFile_Delete_Response\"l\n,CPublis"
+  "hedFile_GetChangeHistoryEntry_Request\022\027\n"
+  "\017publishedfileid\030\001 \001(\006\022\021\n\ttimestamp\030\002 \001("
+  "\r\022\020\n\010language\030\003 \001(\005\"]\n-CPublishedFile_Ge"
+  "tChangeHistoryEntry_Response\022\032\n\022change_d"
+  "escription\030\001 \001(\t\022\020\n\010language\030\002 \001(\005\"\216\001\n\'C"
+  "PublishedFile_GetChangeHistory_Request\022\027"
+  "\n\017publishedfileid\030\001 \001(\006\022\022\n\ntotal_only\030\002 "
+  "\001(\010\022\022\n\nstartindex\030\003 \001(\r\022\r\n\005count\030\004 \001(\r\022\023"
+  "\n\010language\030\005 \001(\005:\0010\"\315\001\n(CPublishedFile_G"
+  "etChangeHistory_Response\022D\n\007changes\030\001 \003("
+  "\01323.CPublishedFile_GetChangeHistory_Resp"
+  "onse.ChangeLog\022\r\n\005total\030\002 \001(\r\032L\n\tChangeL"
+  "og\022\021\n\ttimestamp\030\001 \001(\r\022\032\n\022change_descript"
+  "ion\030\002 \001(\t\022\020\n\010language\030\003 \001(\005\"\210\002\n)CPublish"
+  "edFile_RefreshVotingQueue_Request\022\r\n\005app"
+  "id\030\001 \001(\r\022\032\n\022matching_file_type\030\002 \001(\r\022\014\n\004"
+  "tags\030\003 \003(\t\022\034\n\016match_all_tags\030\004 \001(\010:\004true"
+  "\022\025\n\rexcluded_tags\030\005 \003(\t\022\032\n\022desired_queue"
+  "_size\030\006 \001(\r\022Q\n\020desired_revision\030\010 \001(\0162\027."
   "EPublishedFileRevision:\036EPublishedFileRe"
-  "vision_DefaultB>\202\265\030:Filter to items that"
-  " have data for the specified revision.\","
-  "\n*CPublishedFile_RefreshVotingQueue_Resp"
-  "onse\"\231 \n!CPublishedFile_QueryFiles_Reque"
-  "st\022L\n\nquery_type\030\001 \001(\rB8\202\265\0304enumeration "
-  "EPublishedFileQueryType in clientenums.h"
-  "\022\036\n\004page\030\002 \001(\rB\020\202\265\030\014Current page\022\350\001\n\006cur"
-  "sor\030\' \001(\tB\327\001\202\265\030\322\001Cursor to paginate thro"
-  "ugh the results (set to \'*\' for the firs"
-  "t request).  Prefer this over using the "
-  "page parameter, as it will allow you to "
-  "do deep pagination.  When used, the page"
-  " parameter will be ignored.\022P\n\nnumperpag"
-  "e\030\003 \001(\r:\0011B9\202\265\0305(Optional) The number of"
-  " results, per page to return.\0225\n\rcreator"
-  "_appid\030\004 \001(\rB\036\202\265\030\032App that created the f"
-  "iles\022.\n\005appid\030\005 \001(\rB\037\202\265\030\033App that consum"
-  "es the files\022N\n\014requiredtags\030\006 \003(\tB8\202\265\0304"
-  "Tags to match on. See match_all_tags par"
-  "ameter below\022l\n\014excludedtags\030\007 \003(\tBV\202\265\030R"
-  "(Optional) Tags that must NOT be present"
-  " on a published file to satisfy the quer"
-  "y.\022\212\001\n\016match_all_tags\030\010 \001(\010:\004trueBl\202\265\030hI"
-  "f true, then items must have all the tag"
-  "s specified, otherwise they must have at"
-  " least one of the tags.\022Q\n\016required_flag"
-  "s\030\t \003(\tB9\202\265\0305Required flags that must be"
-  " set on any returned items\022K\n\romitted_fl"
-  "ags\030\n \003(\tB4\202\265\0300Flags that must not be se"
-  "t on any returned items\022I\n\013search_text\030\013"
-  " \001(\tB4\202\265\0300Text to match in the item\'s ti"
-  "tle or description\0228\n\010filetype\030\014 \001(\rB&\202\265"
-  "\030\"EPublishedFileInfoMatchingFileType\022P\n\025"
-  "child_publishedfileid\030\r \001(\006B1\202\265\030-Find al"
-  "l items that reference the given item.\022\200"
-  "\001\n\004days\030\016 \001(\rBr\202\265\030nIf query_type is Publ"
-  "ishedFileQueryType_RankedByTrend, then t"
-  "his is the number of days to get votes f"
-  "or [1,7].\022\256\001\n\031include_recent_votes_only\030"
-  "\017 \001(\010B\212\001\202\265\030\205\001If query_type is PublishedF"
-  "ileQueryType_RankedByTrend, then limit r"
-  "esult set just to items that have votes "
-  "within the day range given\022j\n\025cache_max_"
-  "age_seconds\030\037 \001(\r:\0010BH\202\265\030DAllow stale da"
-  "ta to be returned for the specified numb"
-  "er of seconds.\022`\n\010language\030! \001(\005:\0010BK\202\265\030"
-  "GLanguage to search in and also what get"
-  "s returned. Defaults to English.\022l\n\020requ"
-  "ired_kv_tags\030\" \003(\0132(.CPublishedFile_Quer"
-  "yFiles_Request.KVTagB(\202\265\030$Required key-v"
-  "alue tags to match on.\022\241\001\n\ttaggroups\030* \003"
-  "(\0132+.CPublishedFile_QueryFiles_Request.T"
-  "agGroupBa\202\265\030](Optional) At least one of "
-  "the tags must be present on a published "
-  "file to satisfy the query.\022\203\001\n\022date_rang"
-  "e_created\030, \001(\0132,.CPublishedFile_QueryFi"
-  "les_Request.DateRangeB9\202\265\0305(Optional) Fi"
-  "lter to items created within this range."
-  "\022\203\001\n\022date_range_updated\030- \001(\0132,.CPublish"
-  "edFile_QueryFiles_Request.DateRangeB9\202\265\030"
-  "5(Optional) Filter to items updated with"
-  "in this range.\022\201\001\n\034excluded_content_desc"
-  "riptors\030. \003(\0162\025.EContentDescriptorIDBD\202\265"
-  "\030@(Optional) Filter out items that have "
-  "these content descriptors.\022i\n\ttotalonly\030"
-  "\020 \001(\010BV\202\265\030R(Optional) If true, only retu"
-  "rn the total number of files that satisf"
-  "y this query.\022n\n\010ids_only\030# \001(\010B\\\202\265\030X(Op"
-  "tional) If true, only return the publish"
-  "ed file ids of files that satisfy this q"
-  "uery.\022.\n\020return_vote_data\030\021 \001(\010B\024\202\265\030\020Ret"
-  "urn vote data\0228\n\013return_tags\030\022 \001(\010B#\202\265\030\037"
-  "Return tags in the file details\022E\n\016retur"
-  "n_kv_tags\030\023 \001(\010B-\202\265\030)Return key-value ta"
-  "gs in the file details\022W\n\017return_preview"
-  "s\030\024 \001(\010B>\202\265\030:Return preview image and vi"
-  "deo details in the file details\022F\n\017retur"
-  "n_children\030\025 \001(\010B-\202\265\030)Return child item "
-  "ids in the file details\022f\n\030return_short_"
-  "description\030\026 \001(\010BD\202\265\030@Populate the shor"
-  "t_description field instead of file_desc"
-  "ription\022K\n\024return_for_sale_data\030\036 \001(\010B-\202"
-  "\265\030)Return pricing information, if applic"
-  "able\0229\n\017return_metadata\030  \001(\010:\005falseB\031\202\265"
-  "\030\025Populate the metadata\022g\n\025return_playti"
-  "me_stats\030$ \001(\rBH\202\265\030DReturn playtime stat"
-  "s for the specified number of days befor"
-  "e today.\022\267\001\n\016return_details\030% \001(\010B\236\001\202\265\030\231"
-  "\001By default, if none of the other \'retur"
-  "n_*\' fields are set, only some voting de"
-  "tails are returned. Set this to true to "
-  "return the default set of details.\022F\n\030st"
-  "rip_description_bbcode\030& \001(\010B$\202\265\030 Strips"
-  " BBCode from descriptions.\022\202\001\n\020desired_r"
-  "evision\030( \001(\0162\027.EPublishedFileRevision:\036"
-  "EPublishedFileRevision_DefaultB/\202\265\030+Retu"
-  "rn the data for the specified revision.\022"
-  "W\n\020return_reactions\030+ \001(\010:\005falseB6\202\265\0302If"
-  " true, then reactions to items will be r"
-  "eturned.\032#\n\005KVTag\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030"
-  "\002 \001(\t\032\030\n\010TagGroup\022\014\n\004tags\030\001 \003(\t\032\326\001\n\tDate"
-  "Range\022d\n\017timestamp_start\030\001 \001(\rBK\202\265\030G(Opt"
-  "ional) Include items with the relevant d"
-  "ate field after this value.\022c\n\rtimestamp"
-  "_end\030\002 \001(\rBL\202\265\030H(Optional) Include items"
-  " with the relevant date field before thi"
-  "s value.\"\205\003\n\"CPublishedFile_QueryFiles_R"
-  "esponse\022T\n\005total\030\001 \001(\rBE\202\265\030ANumber of ma"
-  "tches found, not necessarily number of i"
-  "tems returned\022\215\001\n\024publishedfiledetails\030\002"
-  " \003(\0132\025.PublishedFileDetailsBX\202\265\030TEach fi"
-  "le details will be populated, depending "
-  "on what return values were requested.\022y\n"
-  "\013next_cursor\030\003 \001(\tBd\202\265\030`If a paging curs"
-  "or was used, then this will be the next "
-  "cursor to use for paging through results"
-  "\"i\n)CPublishedFile_AddAppRelationship_Re"
-  "quest\022\027\n\017publishedfileid\030\001 \001(\004\022\r\n\005appid\030"
-  "\002 \001(\r\022\024\n\014relationship\030\003 \001(\r\",\n*CPublishe"
-  "dFile_AddAppRelationship_Response\"l\n,CPu"
-  "blishedFile_RemoveAppRelationship_Reques"
-  "t\022\027\n\017publishedfileid\030\001 \001(\004\022\r\n\005appid\030\002 \001("
-  "\r\022\024\n\014relationship\030\003 \001(\r\"/\n-CPublishedFil"
-  "e_RemoveAppRelationship_Response\"E\n*CPub"
-  "lishedFile_GetAppRelationships_Request\022\027"
-  "\n\017publishedfileid\030\001 \001(\004\"\276\001\n+CPublishedFi"
-  "le_GetAppRelationships_Response\022W\n\021app_r"
-  "elationships\030\003 \003(\0132<.CPublishedFile_GetA"
-  "ppRelationships_Response.AppRelationship"
-  "\0326\n\017AppRelationship\022\r\n\005appid\030\001 \001(\r\022\024\n\014re"
-  "lationship\030\002 \001(\r\"j\n1CPublishedFile_GetAp"
-  "pRelationshipsBatched_Request\022\030\n\020publish"
-  "edfileids\030\001 \003(\004\022\033\n\023filter_relationship\030\002"
-  " \001(\r\"\377\002\n2CPublishedFile_GetAppRelationsh"
-  "ipsBatched_Response\022g\n\rrelationships\030\001 \003"
-  "(\0132P.CPublishedFile_GetAppRelationshipsB"
-  "atched_Response.PublishedFileAppRelation"
-  "ship\0326\n\017AppRelationship\022\r\n\005appid\030\001 \001(\r\022\024"
-  "\n\014relationship\030\002 \001(\r\032\247\001\n\034PublishedFileAp"
-  "pRelationship\022\027\n\017publishedfileid\030\001 \001(\004\022\016"
-  "\n\006result\030\002 \001(\r\022^\n\021app_relationships\030\003 \003("
-  "\0132C.CPublishedFile_GetAppRelationshipsBa"
-  "tched_Response.AppRelationship\"W\n,CPubli"
-  "shedFile_StartPlaytimeTracking_Request\022\r"
-  "\n\005appid\030\001 \001(\r\022\030\n\020publishedfileids\030\002 \003(\004\""
-  "/\n-CPublishedFile_StartPlaytimeTracking_"
-  "Response\"V\n+CPublishedFile_StopPlaytimeT"
-  "racking_Request\022\r\n\005appid\030\001 \001(\r\022\030\n\020publis"
-  "hedfileids\030\002 \003(\004\".\n,CPublishedFile_StopP"
-  "laytimeTracking_Response\"J\n9CPublishedFi"
-  "le_StopPlaytimeTrackingForAllAppItems_Re"
-  "quest\022\r\n\005appid\030\001 \001(\r\"<\n:CPublishedFile_S"
-  "topPlaytimeTrackingForAllAppItems_Respon"
-  "se\"\201\002\n6CPublishedFile_SetPlaytimeForCont"
-  "rollerConfigs_Request\022\r\n\005appid\030\001 \001(\r\022n\n\027"
-  "controller_config_usage\030\002 \003(\0132M.CPublish"
-  "edFile_SetPlaytimeForControllerConfigs_R"
-  "equest.ControllerConfigUsage\032H\n\025Controll"
-  "erConfigUsage\022\027\n\017publishedfileid\030\001 \001(\004\022\026"
-  "\n\016seconds_active\030\002 \001(\002\"9\n7CPublishedFile"
-  "_SetPlaytimeForControllerConfigs_Respons"
-  "e\"Y\n\037CPublishedFile_AddChild_Request\022\027\n\017"
-  "publishedfileid\030\001 \001(\004\022\035\n\025child_published"
-  "fileid\030\002 \001(\004\"\"\n CPublishedFile_AddChild_"
-  "Response\"\\\n\"CPublishedFile_RemoveChild_R"
-  "equest\022\027\n\017publishedfileid\030\001 \001(\004\022\035\n\025child"
-  "_publishedfileid\030\002 \001(\004\"%\n#CPublishedFile"
-  "_RemoveChild_Response\"E\n)CPublishedFile_"
-  "GetUserVoteSummary_Request\022\030\n\020publishedf"
-  "ileids\030\001 \003(\006\"\332\001\n*CPublishedFile_GetUserV"
-  "oteSummary_Response\022J\n\tsummaries\030\001 \003(\01327"
-  ".CPublishedFile_GetUserVoteSummary_Respo"
-  "nse.VoteSummary\032`\n\013VoteSummary\022\027\n\017publis"
-  "hedfileid\030\001 \001(\006\022\020\n\010vote_for\030\002 \001(\010\022\024\n\014vot"
-  "e_against\030\003 \001(\010\022\020\n\010reported\030\004 \001(\010\"h\n%CPu"
-  "blishedFile_GetItemChanges_Request\022\r\n\005ap"
-  "pid\030\001 \001(\r\022\031\n\021last_time_updated\030\002 \001(\r\022\025\n\r"
-  "num_items_max\030\003 \001(\r\"\351\001\n&CPublishedFile_G"
-  "etItemChanges_Response\022\023\n\013update_time\030\001 "
-  "\001(\r\022P\n\016workshop_items\030\002 \003(\01328.CPublished"
-  "File_GetItemChanges_Response.WorkshopIte"
-  "mInfo\032X\n\020WorkshopItemInfo\022\031\n\021published_f"
-  "ile_id\030\001 \001(\006\022\024\n\014time_updated\030\002 \001(\r\022\023\n\013ma"
-  "nifest_id\030\003 \001(\006\"G\n,CPublishedFile_GetCon"
-  "tentDescriptors_Request\022\027\n\017publishedfile"
-  "id\030\001 \001(\006\"\270\002\n-CPublishedFile_GetContentDe"
-  "scriptors_Response\022]\n\023content_descriptor"
-  "s\030\001 \003(\0132@.CPublishedFile_GetContentDescr"
-  "iptors_Response.ContentDescriptor\032\247\001\n\021Co"
-  "ntentDescriptor\022U\n\014descriptorid\030\001 \001(\0162\025."
-  "EContentDescriptorID:(EContentDescriptor"
-  "_NudityOrSexualContent\022\021\n\taccountid\030\002 \001("
-  "\r\022\021\n\ttimestamp\030\003 \001(\r\022\025\n\rmoderator_set\030\004 "
-  "\001(\010\"\263\001\n/CPublishedFile_UpdateContentDesc"
-  "riptors_Request\022\027\n\017publishedfileid\030\001 \001(\006"
-  "\0221\n\022descriptors_to_add\030\002 \003(\0162\025.EContentD"
-  "escriptorID\0224\n\025descriptors_to_remove\030\003 \003"
-  "(\0162\025.EContentDescriptorID\"M\n0CPublishedF"
-  "ile_UpdateContentDescriptors_Response\022\031\n"
-  "\021timestamp_updated\030\001 \001(\r\"\255\005\n*CPublishedF"
-  "ile_FileSubscribed_Notification\022@\n\021publi"
-  "shed_file_id\030\001 \001(\006B%\202\265\030!PublishedFileID_"
-  "t for the content\022\016\n\006app_id\030\002 \001(\r\022:\n\rfil"
-  "e_hcontent\030\003 \001(\006B#\202\265\030\037UGC file handle or"
-  " manifest GID\022\021\n\tfile_size\030\004 \001(\r\022\030\n\020rtim"
-  "e_subscribed\030\005 \001(\r\022N\n\020is_depot_content\030\006"
-  " \001(\010B4\202\265\0300True if workshop item is deliv"
-  "ered via Steampipe\0224\n\rrtime_updated\030\007 \001("
-  "\rB\035\202\265\030\031Last time content updated\022\202\001\n\trev"
-  "isions\030\010 \003(\01328.CPublishedFile_FileSubscr"
-  "ibed_Notification.RevisionDataB5\202\265\0301Data"
-  " for each of the revisions that this ite"
-  "m has\032\270\001\n\014RevisionData\022I\n\010revision\030\001 \001(\016"
-  "2\027.EPublishedFileRevision:\036EPublishedFil"
-  "eRevision_Default\022\'\n\rfile_hcontent\030\002 \001(\006"
-  "B\020\202\265\030\014Manifest GID\0224\n\rrtime_updated\030\003 \001("
-  "\rB\035\202\265\030\031Last time content updated\"\200\001\n,CPu"
-  "blishedFile_FileUnsubscribed_Notificatio"
-  "n\022@\n\021published_file_id\030\001 \001(\006B%\202\265\030!Publis"
-  "hedFileID_t for the content\022\016\n\006app_id\030\002 "
-  "\001(\r\"\202\001\n.CPublishedFile_FileDeleted_Clien"
-  "t_Notification\022@\n\021published_file_id\030\001 \001("
-  "\006B%\202\265\030!PublishedFileID_t for the content"
-  "\022\016\n\006app_id\030\002 \001(\r*\237\002\n\026EPublishedFileRevis"
-  "ion\022\"\n\036EPublishedFileRevision_Default\020\000\022"
-  "!\n\035EPublishedFileRevision_Latest\020\001\022+\n\'EP"
-  "ublishedFileRevision_ApprovedSnapshot\020\002\022"
-  "1\n-EPublishedFileRevision_ApprovedSnapsh"
-  "ot_China\020\003\022+\n\'EPublishedFileRevision_Rej"
-  "ectedSnapshot\020\004\0221\n-EPublishedFileRevisio"
-  "n_RejectedSnapshot_China\020\005*\274\001\n\033EPublishe"
-  "dFileForSaleStatus\022\024\n\020PFFSS_NotForSale\020\000"
-  "\022\031\n\025PFFSS_PendingApproval\020\001\022\031\n\025PFFSS_App"
-  "rovedForSale\020\002\022\031\n\025PFFSS_RejectedForSale\020"
-  "\003\022\031\n\025PFFSS_NoLongerForSale\020\004\022\033\n\027PFFSS_Te"
-  "ntativeApproval\020\0052\257)\n\rPublishedFile\022g\n\004V"
-  "ote\022\034.CPublishedFile_Vote_Request\032\035.CPub"
-  "lishedFile_Vote_Response\"\"\202\265\030\036User wants"
-  " to vote on the item\022\201\001\n\tSubscribe\022!.CPu"
-  "blishedFile_Subscribe_Request\032\".CPublish"
-  "edFile_Subscribe_Response\"-\202\265\030)Subscribe"
-  "s the user to the published file\022\213\001\n\013Uns"
-  "ubscribe\022#.CPublishedFile_Unsubscribe_Re"
-  "quest\032$.CPublishedFile_Unsubscribe_Respo"
-  "nse\"1\202\265\030-Unsubscribes the user from the "
-  "published file\022\226\001\n\014CanSubscribe\022$.CPubli"
-  "shedFile_CanSubscribe_Request\032%.CPublish"
-  "edFile_CanSubscribe_Response\"9\202\265\0305Check "
-  "if the user can subscribe to the publish"
-  "ed file\022\270\001\n\021GetSubSectionData\022).CPublish"
-  "edFile_GetSubSectionData_Request\032*.CPubl"
-  "ishedFile_GetSubSectionData_Response\"L\202\265"
-  "\030HGet sub section data (for table of con"
-  "tents, a specific section, or all)\022\200\001\n\007P"
-  "ublish\022\037.CPublishedFile_Publish_Request\032"
-  " .CPublishedFile_Publish_Response\"2\202\265\030.P"
-  "ublishes a clouded user file to the Work"
-  "shop.\022\220\001\n\nGetDetails\022\".CPublishedFile_Ge"
-  "tDetails_Request\032#.CPublishedFile_GetDet"
-  "ails_Response\"9\202\265\0305Retrieves information"
-  " about a set of published files.\022\223\001\n\013Get"
-  "ItemInfo\022#.CPublishedFile_GetItemInfo_Re"
-  "quest\032$.CPublishedFile_GetItemInfo_Respo"
-  "nse\"9\202\265\0305Retrieves information about a s"
-  "et of published files.\022\205\001\n\014GetUserFiles\022"
-  "$.CPublishedFile_GetUserFiles_Request\032%."
-  "CPublishedFile_GetUserFiles_Response\"(\202\265"
-  "\030$Retrieves files published by a user.\022\327"
-  "\001\n\020GetUserFileCount\022$.CPublishedFile_Get"
-  "UserFiles_Request\032%.CPublishedFile_GetUs"
-  "erFiles_Response\"v\202\265\030rRetrieves a count "
-  "of files published by a user. Uses the s"
-  "ame messages as GetUserFiles but totalon"
-  "ly must be true.\022\325\001\n\032AreFilesInSubscript"
-  "ionList\0222.CPublishedFile_AreFilesInSubsc"
-  "riptionList_Request\0323.CPublishedFile_Are"
-  "FilesInSubscriptionList_Response\"N\202\265\030JDe"
-  "termines which files in the given list a"
-  "re in a user\'s subscription list\022z\n\006Upda"
-  "te\022\036.CPublishedFile_Update_Request\032\037.CPu"
-  "blishedFile_Update_Response\"/\202\265\030+Updates"
-  " information about a published file.\022h\n\006"
-  "Delete\022\036.CPublishedFile_Delete_Request\032\037"
-  ".CPublishedFile_Delete_Response\"\035\202\265\030\031Del"
-  "etes a published file.\022\300\001\n\025GetChangeHist"
-  "oryEntry\022-.CPublishedFile_GetChangeHisto"
-  "ryEntry_Request\032..CPublishedFile_GetChan"
-  "geHistoryEntry_Response\"H\202\265\030DReturns dat"
-  "a on a specific change history entry for"
-  " a published file\022\244\001\n\020GetChangeHistory\022("
-  ".CPublishedFile_GetChangeHistory_Request"
-  "\032).CPublishedFile_GetChangeHistory_Respo"
-  "nse\";\202\265\0307Returns data on the change hist"
-  "ory for a published file\022\230\001\n\022RefreshVoti"
-  "ngQueue\022*.CPublishedFile_RefreshVotingQu"
-  "eue_Request\032+.CPublishedFile_RefreshVoti"
-  "ngQueue_Response\")\202\265\030%Refresh the voting"
-  " queue for the user\022\206\001\n\nQueryFiles\022\".CPu"
-  "blishedFile_QueryFiles_Request\032#.CPublis"
-  "hedFile_QueryFiles_Response\"/\202\265\030+Perform"
-  "s a search query for published files\022\263\001\n"
-  "\022AddAppRelationship\022*.CPublishedFile_Add"
-  "AppRelationship_Request\032+.CPublishedFile"
-  "_AddAppRelationship_Response\"D\202\265\030@Adds a"
-  " relationship between the published file"
-  " and the given app\022\276\001\n\025RemoveAppRelation"
-  "ship\022-.CPublishedFile_RemoveAppRelations"
-  "hip_Request\032..CPublishedFile_RemoveAppRe"
-  "lationship_Response\"F\202\265\030BRemove a relati"
-  "onship between the published file and th"
-  "e given app\022\263\001\n\023GetAppRelationships\022+.CP"
-  "ublishedFile_GetAppRelationships_Request"
-  "\032,.CPublishedFile_GetAppRelationships_Re"
-  "sponse\"A\202\265\030=Returns the list of app rela"
-  "tionships for this published file\022\313\001\n\032Ge"
-  "tAppRelationshipsBatched\0222.CPublishedFil"
-  "e_GetAppRelationshipsBatched_Request\0323.C"
+  "vision_Default\",\n*CPublishedFile_Refresh"
+  "VotingQueue_Response\"\325\n\n!CPublishedFile_"
+  "QueryFiles_Request\022\022\n\nquery_type\030\001 \001(\r\022\014"
+  "\n\004page\030\002 \001(\r\022\016\n\006cursor\030\' \001(\t\022\025\n\nnumperpa"
+  "ge\030\003 \001(\r:\0011\022\025\n\rcreator_appid\030\004 \001(\r\022\r\n\005ap"
+  "pid\030\005 \001(\r\022\024\n\014requiredtags\030\006 \003(\t\022\024\n\014exclu"
+  "dedtags\030\007 \003(\t\022\034\n\016match_all_tags\030\010 \001(\010:\004t"
+  "rue\022\026\n\016required_flags\030\t \003(\t\022\025\n\romitted_f"
+  "lags\030\n \003(\t\022\023\n\013search_text\030\013 \001(\t\022\020\n\010filet"
+  "ype\030\014 \001(\r\022\035\n\025child_publishedfileid\030\r \001(\006"
+  "\022\014\n\004days\030\016 \001(\r\022!\n\031include_recent_votes_o"
+  "nly\030\017 \001(\010\022 \n\025cache_max_age_seconds\030\037 \001(\r"
+  ":\0010\022\023\n\010language\030! \001(\005:\0010\022B\n\020required_kv_"
+  "tags\030\" \003(\0132(.CPublishedFile_QueryFiles_R"
+  "equest.KVTag\022>\n\ttaggroups\030* \003(\0132+.CPubli"
+  "shedFile_QueryFiles_Request.TagGroup\022H\n\022"
+  "date_range_created\030, \001(\0132,.CPublishedFil"
+  "e_QueryFiles_Request.DateRange\022H\n\022date_r"
+  "ange_updated\030- \001(\0132,.CPublishedFile_Quer"
+  "yFiles_Request.DateRange\022;\n\034excluded_con"
+  "tent_descriptors\030. \003(\0162\025.EContentDescrip"
+  "torID\022\021\n\ttotalonly\030\020 \001(\010\022\020\n\010ids_only\030# \001"
+  "(\010\022\030\n\020return_vote_data\030\021 \001(\010\022\023\n\013return_t"
+  "ags\030\022 \001(\010\022\026\n\016return_kv_tags\030\023 \001(\010\022\027\n\017ret"
+  "urn_previews\030\024 \001(\010\022\027\n\017return_children\030\025 "
+  "\001(\010\022 \n\030return_short_description\030\026 \001(\010\022\034\n"
+  "\024return_for_sale_data\030\036 \001(\010\022\036\n\017return_me"
+  "tadata\030  \001(\010:\005false\022\035\n\025return_playtime_s"
+  "tats\030$ \001(\r\022\026\n\016return_details\030% \001(\010\022 \n\030st"
+  "rip_description_bbcode\030& \001(\010\022Q\n\020desired_"
+  "revision\030( \001(\0162\027.EPublishedFileRevision:"
+  "\036EPublishedFileRevision_Default\022\037\n\020retur"
+  "n_reactions\030+ \001(\010:\005false\032#\n\005KVTag\022\013\n\003key"
+  "\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\032\030\n\010TagGroup\022\014\n\004tag"
+  "s\030\001 \003(\t\032;\n\tDateRange\022\027\n\017timestamp_start\030"
+  "\001 \001(\r\022\025\n\rtimestamp_end\030\002 \001(\r\"}\n\"CPublish"
+  "edFile_QueryFiles_Response\022\r\n\005total\030\001 \001("
+  "\r\0223\n\024publishedfiledetails\030\002 \003(\0132\025.Publis"
+  "hedFileDetails\022\023\n\013next_cursor\030\003 \001(\t\"i\n)C"
+  "PublishedFile_AddAppRelationship_Request"
+  "\022\027\n\017publishedfileid\030\001 \001(\004\022\r\n\005appid\030\002 \001(\r"
+  "\022\024\n\014relationship\030\003 \001(\r\",\n*CPublishedFile"
+  "_AddAppRelationship_Response\"l\n,CPublish"
+  "edFile_RemoveAppRelationship_Request\022\027\n\017"
+  "publishedfileid\030\001 \001(\004\022\r\n\005appid\030\002 \001(\r\022\024\n\014"
+  "relationship\030\003 \001(\r\"/\n-CPublishedFile_Rem"
+  "oveAppRelationship_Response\"E\n*CPublishe"
+  "dFile_GetAppRelationships_Request\022\027\n\017pub"
+  "lishedfileid\030\001 \001(\004\"\276\001\n+CPublishedFile_Ge"
+  "tAppRelationships_Response\022W\n\021app_relati"
+  "onships\030\003 \003(\0132<.CPublishedFile_GetAppRel"
+  "ationships_Response.AppRelationship\0326\n\017A"
+  "ppRelationship\022\r\n\005appid\030\001 \001(\r\022\024\n\014relatio"
+  "nship\030\002 \001(\r\"j\n1CPublishedFile_GetAppRela"
+  "tionshipsBatched_Request\022\030\n\020publishedfil"
+  "eids\030\001 \003(\004\022\033\n\023filter_relationship\030\002 \001(\r\""
+  "\377\002\n2CPublishedFile_GetAppRelationshipsBa"
+  "tched_Response\022g\n\rrelationships\030\001 \003(\0132P."
+  "CPublishedFile_GetAppRelationshipsBatche"
+  "d_Response.PublishedFileAppRelationship\032"
+  "6\n\017AppRelationship\022\r\n\005appid\030\001 \001(\r\022\024\n\014rel"
+  "ationship\030\002 \001(\r\032\247\001\n\034PublishedFileAppRela"
+  "tionship\022\027\n\017publishedfileid\030\001 \001(\004\022\016\n\006res"
+  "ult\030\002 \001(\r\022^\n\021app_relationships\030\003 \003(\0132C.C"
   "PublishedFile_GetAppRelationshipsBatched"
-  "_Response\"D\202\265\030@Returns the list of app r"
-  "elationships for set of published files\022"
-  "\263\001\n\025StartPlaytimeTracking\022-.CPublishedFi"
-  "le_StartPlaytimeTracking_Request\032..CPubl"
-  "ishedFile_StartPlaytimeTracking_Response"
-  "\";\202\265\0307Start usage tracking for a given s"
-  "et of published files\022\260\001\n\024StopPlaytimeTr"
-  "acking\022,.CPublishedFile_StopPlaytimeTrac"
-  "king_Request\032-.CPublishedFile_StopPlayti"
-  "meTracking_Response\";\202\265\0307Stops usage tra"
-  "cking for a given set of published files"
-  "\022\355\001\n\"StopPlaytimeTrackingForAllAppItems\022"
-  ":.CPublishedFile_StopPlaytimeTrackingFor"
-  "AllAppItems_Request\032;.CPublishedFile_Sto"
-  "pPlaytimeTrackingForAllAppItems_Response"
-  "\"N\202\265\030JStops usage tracking for all items"
-  " currently tracked for the specified app"
-  "\022\230\002\n\037SetPlaytimeForControllerConfigs\0227.C"
-  "PublishedFile_SetPlaytimeForControllerCo"
-  "nfigs_Request\0328.CPublishedFile_SetPlayti"
-  "meForControllerConfigs_Response\"\201\001\202\265\030}St"
-  "ops usage tracking all controller config"
-  "s for the given app and set the usage ti"
-  "me for the for the given controller conf"
-  "igs\022\217\001\n\010AddChild\022 .CPublishedFile_AddChi"
-  "ld_Request\032!.CPublishedFile_AddChild_Res"
-  "ponse\">\202\265\030:Adds a parent->child relation"
-  "ship between the given items.\022\231\001\n\013Remove"
-  "Child\022#.CPublishedFile_RemoveChild_Reque"
-  "st\032$.CPublishedFile_RemoveChild_Response"
-  "\"\?\202\265\030;Removes parent->child relationship"
-  " between the given items.\022\210\001\n\022GetUserVot"
-  "eSummary\022*.CPublishedFile_GetUserVoteSum"
-  "mary_Request\032+.CPublishedFile_GetUserVot"
-  "eSummary_Response\"\031\202\265\030\025Get user vote sum"
-  "mary\022\221\001\n\016GetItemChanges\022&.CPublishedFile"
-  "_GetItemChanges_Request\032\'.CPublishedFile"
-  "_GetItemChanges_Response\".\202\265\030*Get list o"
-  "f updated items since given date\022\322\001\n\025Get"
-  "ContentDescriptors\022-.CPublishedFile_GetC"
-  "ontentDescriptors_Request\032..CPublishedFi"
-  "le_GetContentDescriptors_Response\"Z\202\265\030VR"
-  "eturns more detailed information about t"
-  "he content descriptors for the published"
-  " file\022\266\001\n\030UpdateContentDescriptors\0220.CPu"
+  "_Response.AppRelationship\"W\n,CPublishedF"
+  "ile_StartPlaytimeTracking_Request\022\r\n\005app"
+  "id\030\001 \001(\r\022\030\n\020publishedfileids\030\002 \003(\004\"/\n-CP"
+  "ublishedFile_StartPlaytimeTracking_Respo"
+  "nse\"V\n+CPublishedFile_StopPlaytimeTracki"
+  "ng_Request\022\r\n\005appid\030\001 \001(\r\022\030\n\020publishedfi"
+  "leids\030\002 \003(\004\".\n,CPublishedFile_StopPlayti"
+  "meTracking_Response\"J\n9CPublishedFile_St"
+  "opPlaytimeTrackingForAllAppItems_Request"
+  "\022\r\n\005appid\030\001 \001(\r\"<\n:CPublishedFile_StopPl"
+  "aytimeTrackingForAllAppItems_Response\"\201\002"
+  "\n6CPublishedFile_SetPlaytimeForControlle"
+  "rConfigs_Request\022\r\n\005appid\030\001 \001(\r\022n\n\027contr"
+  "oller_config_usage\030\002 \003(\0132M.CPublishedFil"
+  "e_SetPlaytimeForControllerConfigs_Reques"
+  "t.ControllerConfigUsage\032H\n\025ControllerCon"
+  "figUsage\022\027\n\017publishedfileid\030\001 \001(\004\022\026\n\016sec"
+  "onds_active\030\002 \001(\002\"9\n7CPublishedFile_SetP"
+  "laytimeForControllerConfigs_Response\"Y\n\037"
+  "CPublishedFile_AddChild_Request\022\027\n\017publi"
+  "shedfileid\030\001 \001(\004\022\035\n\025child_publishedfilei"
+  "d\030\002 \001(\004\"\"\n CPublishedFile_AddChild_Respo"
+  "nse\"\\\n\"CPublishedFile_RemoveChild_Reques"
+  "t\022\027\n\017publishedfileid\030\001 \001(\004\022\035\n\025child_publ"
+  "ishedfileid\030\002 \001(\004\"%\n#CPublishedFile_Remo"
+  "veChild_Response\"h\n,CPublishedFile_SetCo"
+  "llectionChildren_Request\022\r\n\005appid\030\001 \001(\r\022"
+  "\027\n\017publishedfileid\030\002 \001(\004\022\020\n\010children\030\003 \003"
+  "(\004\"/\n-CPublishedFile_SetCollectionChildr"
+  "en_Response\"\207\001\n8CPublishedFile_SetSubscr"
+  "iptionListFromCollection_Request\022\r\n\005appi"
+  "d\030\001 \001(\r\022\021\n\tlist_type\030\002 \001(\r\022\027\n\017publishedf"
+  "ileid\030\003 \001(\004\022\020\n\010add_only\030\004 \001(\010\";\n9CPublis"
+  "hedFile_SetSubscriptionListFromCollectio"
+  "n_Response\"E\n)CPublishedFile_GetUserVote"
+  "Summary_Request\022\030\n\020publishedfileids\030\001 \003("
+  "\006\"\332\001\n*CPublishedFile_GetUserVoteSummary_"
+  "Response\022J\n\tsummaries\030\001 \003(\01327.CPublished"
+  "File_GetUserVoteSummary_Response.VoteSum"
+  "mary\032`\n\013VoteSummary\022\027\n\017publishedfileid\030\001"
+  " \001(\006\022\020\n\010vote_for\030\002 \001(\010\022\024\n\014vote_against\030\003"
+  " \001(\010\022\020\n\010reported\030\004 \001(\010\"h\n%CPublishedFile"
+  "_GetItemChanges_Request\022\r\n\005appid\030\001 \001(\r\022\031"
+  "\n\021last_time_updated\030\002 \001(\r\022\025\n\rnum_items_m"
+  "ax\030\003 \001(\r\"\351\001\n&CPublishedFile_GetItemChang"
+  "es_Response\022\023\n\013update_time\030\001 \001(\r\022P\n\016work"
+  "shop_items\030\002 \003(\01328.CPublishedFile_GetIte"
+  "mChanges_Response.WorkshopItemInfo\032X\n\020Wo"
+  "rkshopItemInfo\022\031\n\021published_file_id\030\001 \001("
+  "\006\022\024\n\014time_updated\030\002 \001(\r\022\023\n\013manifest_id\030\003"
+  " \001(\006\"G\n,CPublishedFile_GetContentDescrip"
+  "tors_Request\022\027\n\017publishedfileid\030\001 \001(\006\"\270\002"
+  "\n-CPublishedFile_GetContentDescriptors_R"
+  "esponse\022]\n\023content_descriptors\030\001 \003(\0132@.C"
+  "PublishedFile_GetContentDescriptors_Resp"
+  "onse.ContentDescriptor\032\247\001\n\021ContentDescri"
+  "ptor\022U\n\014descriptorid\030\001 \001(\0162\025.EContentDes"
+  "criptorID:(EContentDescriptor_NudityOrSe"
+  "xualContent\022\021\n\taccountid\030\002 \001(\r\022\021\n\ttimest"
+  "amp\030\003 \001(\r\022\025\n\rmoderator_set\030\004 \001(\010\"\263\001\n/CPu"
   "blishedFile_UpdateContentDescriptors_Req"
-  "uest\0321.CPublishedFile_UpdateContentDescr"
-  "iptors_Response\"5\202\265\0301Updates content des"
-  "criptors on the published file\032+\202\265\030\'A se"
-  "rvice to access published file data2\215\004\n\023"
-  "PublishedFileClient\022\223\001\n\024NotifyFileSubscr"
-  "ibed\022+.CPublishedFile_FileSubscribed_Not"
-  "ification\032\013.NoResponse\"A\202\265\030=Notification"
-  " from the server when a user subscribes "
-  "to a file\022\233\001\n\026NotifyFileUnsubscribed\022-.C"
+  "uest\022\027\n\017publishedfileid\030\001 \001(\006\0221\n\022descrip"
+  "tors_to_add\030\002 \003(\0162\025.EContentDescriptorID"
+  "\0224\n\025descriptors_to_remove\030\003 \003(\0162\025.EConte"
+  "ntDescriptorID\"M\n0CPublishedFile_UpdateC"
+  "ontentDescriptors_Response\022\031\n\021timestamp_"
+  "updated\030\001 \001(\r\"\243\003\n*CPublishedFile_FileSub"
+  "scribed_Notification\022\031\n\021published_file_i"
+  "d\030\001 \001(\006\022\016\n\006app_id\030\002 \001(\r\022\025\n\rfile_hcontent"
+  "\030\003 \001(\006\022\021\n\tfile_size\030\004 \001(\r\022\030\n\020rtime_subsc"
+  "ribed\030\005 \001(\r\022\030\n\020is_depot_content\030\006 \001(\010\022\025\n"
+  "\rrtime_updated\030\007 \001(\r\022K\n\trevisions\030\010 \003(\0132"
+  "8.CPublishedFile_FileSubscribed_Notifica"
+  "tion.RevisionData\032\207\001\n\014RevisionData\022I\n\010re"
+  "vision\030\001 \001(\0162\027.EPublishedFileRevision:\036E"
+  "PublishedFileRevision_Default\022\025\n\rfile_hc"
+  "ontent\030\002 \001(\006\022\025\n\rrtime_updated\030\003 \001(\r\"Y\n,C"
   "PublishedFile_FileUnsubscribed_Notificat"
-  "ion\032\013.NoResponse\"E\202\265\030ANotification from "
-  "the server when a user unsubscribes from"
-  " a file\022\224\001\n\021NotifyFileDeleted\022/.CPublish"
-  "edFile_FileDeleted_Client_Notification\032\013"
-  ".NoResponse\"A\202\265\030=Notification from the s"
-  "erver when a published file is deleted\032+"
-  "\202\265\030#Published file client notifications\300"
-  "\265\030\002B\035\200\001\001\252\002\027OpenSteamworks.Protobuf"
+  "ion\022\031\n\021published_file_id\030\001 \001(\006\022\016\n\006app_id"
+  "\030\002 \001(\r\"[\n.CPublishedFile_FileDeleted_Cli"
+  "ent_Notification\022\031\n\021published_file_id\030\001 "
+  "\001(\006\022\016\n\006app_id\030\002 \001(\r*\237\002\n\026EPublishedFileRe"
+  "vision\022\"\n\036EPublishedFileRevision_Default"
+  "\020\000\022!\n\035EPublishedFileRevision_Latest\020\001\022+\n"
+  "\'EPublishedFileRevision_ApprovedSnapshot"
+  "\020\002\0221\n-EPublishedFileRevision_ApprovedSna"
+  "pshot_China\020\003\022+\n\'EPublishedFileRevision_"
+  "RejectedSnapshot\020\004\0221\n-EPublishedFileRevi"
+  "sion_RejectedSnapshot_China\020\005*\274\001\n\033EPubli"
+  "shedFileForSaleStatus\022\024\n\020PFFSS_NotForSal"
+  "e\020\000\022\031\n\025PFFSS_PendingApproval\020\001\022\031\n\025PFFSS_"
+  "ApprovedForSale\020\002\022\031\n\025PFFSS_RejectedForSa"
+  "le\020\003\022\031\n\025PFFSS_NoLongerForSale\020\004\022\033\n\027PFFSS"
+  "_TentativeApproval\020\0052\335\033\n\rPublishedFile\022C"
+  "\n\004Vote\022\034.CPublishedFile_Vote_Request\032\035.C"
+  "PublishedFile_Vote_Response\022R\n\tSubscribe"
+  "\022!.CPublishedFile_Subscribe_Request\032\".CP"
+  "ublishedFile_Subscribe_Response\022X\n\013Unsub"
+  "scribe\022#.CPublishedFile_Unsubscribe_Requ"
+  "est\032$.CPublishedFile_Unsubscribe_Respons"
+  "e\022[\n\014CanSubscribe\022$.CPublishedFile_CanSu"
+  "bscribe_Request\032%.CPublishedFile_CanSubs"
+  "cribe_Response\022j\n\021GetSubSectionData\022).CP"
+  "ublishedFile_GetSubSectionData_Request\032*"
+  ".CPublishedFile_GetSubSectionData_Respon"
+  "se\022L\n\007Publish\022\037.CPublishedFile_Publish_R"
+  "equest\032 .CPublishedFile_Publish_Response"
+  "\022U\n\nGetDetails\022\".CPublishedFile_GetDetai"
+  "ls_Request\032#.CPublishedFile_GetDetails_R"
+  "esponse\022X\n\013GetItemInfo\022#.CPublishedFile_"
+  "GetItemInfo_Request\032$.CPublishedFile_Get"
+  "ItemInfo_Response\022[\n\014GetUserFiles\022$.CPub"
+  "lishedFile_GetUserFiles_Request\032%.CPubli"
+  "shedFile_GetUserFiles_Response\022_\n\020GetUse"
+  "rFileCount\022$.CPublishedFile_GetUserFiles"
+  "_Request\032%.CPublishedFile_GetUserFiles_R"
+  "esponse\022\205\001\n\032AreFilesInSubscriptionList\0222"
+  ".CPublishedFile_AreFilesInSubscriptionLi"
+  "st_Request\0323.CPublishedFile_AreFilesInSu"
+  "bscriptionList_Response\022I\n\006Update\022\036.CPub"
+  "lishedFile_Update_Request\032\037.CPublishedFi"
+  "le_Update_Response\022I\n\006Delete\022\036.CPublishe"
+  "dFile_Delete_Request\032\037.CPublishedFile_De"
+  "lete_Response\022v\n\025GetChangeHistoryEntry\022-"
+  ".CPublishedFile_GetChangeHistoryEntry_Re"
+  "quest\032..CPublishedFile_GetChangeHistoryE"
+  "ntry_Response\022g\n\020GetChangeHistory\022(.CPub"
+  "lishedFile_GetChangeHistory_Request\032).CP"
+  "ublishedFile_GetChangeHistory_Response\022m"
+  "\n\022RefreshVotingQueue\022*.CPublishedFile_Re"
+  "freshVotingQueue_Request\032+.CPublishedFil"
+  "e_RefreshVotingQueue_Response\022U\n\nQueryFi"
+  "les\022\".CPublishedFile_QueryFiles_Request\032"
+  "#.CPublishedFile_QueryFiles_Response\022m\n\022"
+  "AddAppRelationship\022*.CPublishedFile_AddA"
+  "ppRelationship_Request\032+.CPublishedFile_"
+  "AddAppRelationship_Response\022v\n\025RemoveApp"
+  "Relationship\022-.CPublishedFile_RemoveAppR"
+  "elationship_Request\032..CPublishedFile_Rem"
+  "oveAppRelationship_Response\022p\n\023GetAppRel"
+  "ationships\022+.CPublishedFile_GetAppRelati"
+  "onships_Request\032,.CPublishedFile_GetAppR"
+  "elationships_Response\022\205\001\n\032GetAppRelation"
+  "shipsBatched\0222.CPublishedFile_GetAppRela"
+  "tionshipsBatched_Request\0323.CPublishedFil"
+  "e_GetAppRelationshipsBatched_Response\022v\n"
+  "\025StartPlaytimeTracking\022-.CPublishedFile_"
+  "StartPlaytimeTracking_Request\032..CPublish"
+  "edFile_StartPlaytimeTracking_Response\022s\n"
+  "\024StopPlaytimeTracking\022,.CPublishedFile_S"
+  "topPlaytimeTracking_Request\032-.CPublished"
+  "File_StopPlaytimeTracking_Response\022\235\001\n\"S"
+  "topPlaytimeTrackingForAllAppItems\022:.CPub"
+  "lishedFile_StopPlaytimeTrackingForAllApp"
+  "Items_Request\032;.CPublishedFile_StopPlayt"
+  "imeTrackingForAllAppItems_Response\022\224\001\n\037S"
+  "etPlaytimeForControllerConfigs\0227.CPublis"
+  "hedFile_SetPlaytimeForControllerConfigs_"
+  "Request\0328.CPublishedFile_SetPlaytimeForC"
+  "ontrollerConfigs_Response\022O\n\010AddChild\022 ."
+  "CPublishedFile_AddChild_Request\032!.CPubli"
+  "shedFile_AddChild_Response\022X\n\013RemoveChil"
+  "d\022#.CPublishedFile_RemoveChild_Request\032$"
+  ".CPublishedFile_RemoveChild_Response\022v\n\025"
+  "SetCollectionChildren\022-.CPublishedFile_S"
+  "etCollectionChildren_Request\032..CPublishe"
+  "dFile_SetCollectionChildren_Response\022\232\001\n"
+  "!SetSubscriptionListFromCollection\0229.CPu"
+  "blishedFile_SetSubscriptionListFromColle"
+  "ction_Request\032:.CPublishedFile_SetSubscr"
+  "iptionListFromCollection_Response\022m\n\022Get"
+  "UserVoteSummary\022*.CPublishedFile_GetUser"
+  "VoteSummary_Request\032+.CPublishedFile_Get"
+  "UserVoteSummary_Response\022a\n\016GetItemChang"
+  "es\022&.CPublishedFile_GetItemChanges_Reque"
+  "st\032\'.CPublishedFile_GetItemChanges_Respo"
+  "nse\022v\n\025GetContentDescriptors\022-.CPublishe"
+  "dFile_GetContentDescriptors_Request\032..CP"
+  "ublishedFile_GetContentDescriptors_Respo"
+  "nse\022\177\n\030UpdateContentDescriptors\0220.CPubli"
+  "shedFile_UpdateContentDescriptors_Reques"
+  "t\0321.CPublishedFile_UpdateContentDescript"
+  "ors_Response2\226\002\n\023PublishedFileClient\022P\n\024"
+  "NotifyFileSubscribed\022+.CPublishedFile_Fi"
+  "leSubscribed_Notification\032\013.NoResponse\022T"
+  "\n\026NotifyFileUnsubscribed\022-.CPublishedFil"
+  "e_FileUnsubscribed_Notification\032\013.NoResp"
+  "onse\022Q\n\021NotifyFileDeleted\022/.CPublishedFi"
+  "le_FileDeleted_Client_Notification\032\013.NoR"
+  "esponse\032\004\300\265\030\002B\035\200\001\001\252\002\027OpenSteamworks.Prot"
+  "obuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fpublishedfile_2esteamclient_2eproto_deps[4] = {
   &::descriptor_table_enums_5fproductinfo_2eproto,
@@ -3537,8 +3365,8 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fpublishedfile_2esteamclient_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fpublishedfile_2esteamclient_2eproto = {
-  false, false, 29634, descriptor_table_protodef_steammessages_5fpublishedfile_2esteamclient_2eproto, "steammessages_publishedfile.steamclient.proto", 
-  &descriptor_table_steammessages_5fpublishedfile_2esteamclient_2eproto_once, descriptor_table_steammessages_5fpublishedfile_2esteamclient_2eproto_deps, 4, 91,
+  false, false, 18764, descriptor_table_protodef_steammessages_5fpublishedfile_2esteamclient_2eproto, "steammessages_publishedfile.steamclient.proto", 
+  &descriptor_table_steammessages_5fpublishedfile_2esteamclient_2eproto_once, descriptor_table_steammessages_5fpublishedfile_2esteamclient_2eproto_deps, 4, 95,
   schemas, file_default_instances, TableStruct_steammessages_5fpublishedfile_2esteamclient_2eproto::offsets,
   file_level_metadata_steammessages_5fpublishedfile_2esteamclient_2eproto, file_level_enum_descriptors_steammessages_5fpublishedfile_2esteamclient_2eproto, file_level_service_descriptors_steammessages_5fpublishedfile_2esteamclient_2eproto,
 };
@@ -4008,6 +3836,9 @@ class CPublishedFile_Subscribe_Request::_Internal {
   static void set_has_notify_client(HasBits* has_bits) {
     (*has_bits)[0] |= 8u;
   }
+  static void set_has_include_dependencies(HasBits* has_bits) {
+    (*has_bits)[0] |= 16u;
+  }
 };
 
 CPublishedFile_Subscribe_Request::CPublishedFile_Subscribe_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena)
@@ -4021,16 +3852,16 @@ CPublishedFile_Subscribe_Request::CPublishedFile_Subscribe_Request(const CPublis
       _has_bits_(from._has_bits_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::memcpy(&publishedfileid_, &from.publishedfileid_,
-    static_cast<size_t>(reinterpret_cast<char*>(&notify_client_) -
-    reinterpret_cast<char*>(&publishedfileid_)) + sizeof(notify_client_));
+    static_cast<size_t>(reinterpret_cast<char*>(&include_dependencies_) -
+    reinterpret_cast<char*>(&publishedfileid_)) + sizeof(include_dependencies_));
   // @@protoc_insertion_point(copy_constructor:CPublishedFile_Subscribe_Request)
 }
 
 void CPublishedFile_Subscribe_Request::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&publishedfileid_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&notify_client_) -
-    reinterpret_cast<char*>(&publishedfileid_)) + sizeof(notify_client_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&include_dependencies_) -
+    reinterpret_cast<char*>(&publishedfileid_)) + sizeof(include_dependencies_));
 }
 
 CPublishedFile_Subscribe_Request::~CPublishedFile_Subscribe_Request() {
@@ -4060,10 +3891,10 @@ void CPublishedFile_Subscribe_Request::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x0000000fu) {
+  if (cached_has_bits & 0x0000001fu) {
     ::memset(&publishedfileid_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&notify_client_) -
-        reinterpret_cast<char*>(&publishedfileid_)) + sizeof(notify_client_));
+        reinterpret_cast<char*>(&include_dependencies_) -
+        reinterpret_cast<char*>(&publishedfileid_)) + sizeof(include_dependencies_));
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -4106,6 +3937,14 @@ const char* CPublishedFile_Subscribe_Request::_InternalParse(const char* ptr, ::
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
           _Internal::set_has_notify_client(&has_bits);
           notify_client_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional bool include_dependencies = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
+          _Internal::set_has_include_dependencies(&has_bits);
+          include_dependencies_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -4163,6 +4002,12 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(4, this->_internal_notify_client(), target);
   }
 
+  // optional bool include_dependencies = 5;
+  if (cached_has_bits & 0x00000010u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(5, this->_internal_include_dependencies(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -4180,7 +4025,7 @@ size_t CPublishedFile_Subscribe_Request::ByteSizeLong() const {
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x0000000fu) {
+  if (cached_has_bits & 0x0000001fu) {
     // optional uint64 publishedfileid = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
@@ -4204,6 +4049,11 @@ size_t CPublishedFile_Subscribe_Request::ByteSizeLong() const {
 
     // optional bool notify_client = 4;
     if (cached_has_bits & 0x00000008u) {
+      total_size += 1 + 1;
+    }
+
+    // optional bool include_dependencies = 5;
+    if (cached_has_bits & 0x00000010u) {
       total_size += 1 + 1;
     }
 
@@ -4240,7 +4090,7 @@ void CPublishedFile_Subscribe_Request::MergeFrom(const CPublishedFile_Subscribe_
   (void) cached_has_bits;
 
   cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 0x0000000fu) {
+  if (cached_has_bits & 0x0000001fu) {
     if (cached_has_bits & 0x00000001u) {
       publishedfileid_ = from.publishedfileid_;
     }
@@ -4252,6 +4102,9 @@ void CPublishedFile_Subscribe_Request::MergeFrom(const CPublishedFile_Subscribe_
     }
     if (cached_has_bits & 0x00000008u) {
       notify_client_ = from.notify_client_;
+    }
+    if (cached_has_bits & 0x00000010u) {
+      include_dependencies_ = from.include_dependencies_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
@@ -4280,8 +4133,8 @@ void CPublishedFile_Subscribe_Request::InternalSwap(CPublishedFile_Subscribe_Req
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   swap(_has_bits_[0], other->_has_bits_[0]);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CPublishedFile_Subscribe_Request, notify_client_)
-      + sizeof(CPublishedFile_Subscribe_Request::notify_client_)
+      PROTOBUF_FIELD_OFFSET(CPublishedFile_Subscribe_Request, include_dependencies_)
+      + sizeof(CPublishedFile_Subscribe_Request::include_dependencies_)
       - PROTOBUF_FIELD_OFFSET(CPublishedFile_Subscribe_Request, publishedfileid_)>(
           reinterpret_cast<char*>(&publishedfileid_),
           reinterpret_cast<char*>(&other->publishedfileid_));
@@ -5417,7 +5270,7 @@ const char* CPublishedFile_GetSubSectionData_Request::_InternalParse(const char*
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional .EPublishedFileRevision desired_revision = 4 [default = EPublishedFileRevision_Default, (.description) = "Return the data for the specified revision."];
+      // optional .EPublishedFileRevision desired_revision = 4 [default = EPublishedFileRevision_Default];
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
           ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -5477,7 +5330,7 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(3, this->_internal_specific_sectionid(), target);
   }
 
-  // optional .EPublishedFileRevision desired_revision = 4 [default = EPublishedFileRevision_Default, (.description) = "Return the data for the specified revision."];
+  // optional .EPublishedFileRevision desired_revision = 4 [default = EPublishedFileRevision_Default];
   if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
@@ -5521,7 +5374,7 @@ size_t CPublishedFile_GetSubSectionData_Request::ByteSizeLong() const {
       total_size += 1 + 1;
     }
 
-    // optional .EPublishedFileRevision desired_revision = 4 [default = EPublishedFileRevision_Default, (.description) = "Return the data for the specified revision."];
+    // optional .EPublishedFileRevision desired_revision = 4 [default = EPublishedFileRevision_Default];
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_desired_revision());
@@ -6383,7 +6236,7 @@ const char* CPublishedFile_Publish_Request::_InternalParse(const char* ptr, ::PR
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint32 appid = 1 [(.description) = "App Id this file is being published FROM."];
+      // optional uint32 appid = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_appid(&has_bits);
@@ -6391,7 +6244,7 @@ const char* CPublishedFile_Publish_Request::_InternalParse(const char* ptr, ::PR
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 consumer_appid = 2 [(.description) = "App Id this file is being published TO."];
+      // optional uint32 consumer_appid = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_consumer_appid(&has_bits);
@@ -6399,7 +6252,7 @@ const char* CPublishedFile_Publish_Request::_InternalParse(const char* ptr, ::PR
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string cloudfilename = 3 [(.description) = "Name of the file to publish in the user\'s cloud."];
+      // optional string cloudfilename = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           auto str = _internal_mutable_cloudfilename();
@@ -6410,7 +6263,7 @@ const char* CPublishedFile_Publish_Request::_InternalParse(const char* ptr, ::PR
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string preview_cloudfilename = 4 [(.description) = "Name of the file to use as the published file\'s preview."];
+      // optional string preview_cloudfilename = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
           auto str = _internal_mutable_preview_cloudfilename();
@@ -6421,7 +6274,7 @@ const char* CPublishedFile_Publish_Request::_InternalParse(const char* ptr, ::PR
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string title = 5 [(.description) = "Text title for the published file."];
+      // optional string title = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
           auto str = _internal_mutable_title();
@@ -6432,7 +6285,7 @@ const char* CPublishedFile_Publish_Request::_InternalParse(const char* ptr, ::PR
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string file_description = 6 [(.description) = "Text description for the published file."];
+      // optional string file_description = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
           auto str = _internal_mutable_file_description();
@@ -6443,7 +6296,7 @@ const char* CPublishedFile_Publish_Request::_InternalParse(const char* ptr, ::PR
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 file_type = 7 [(.description) = "(EWorkshopFileType) Type of Workshop file to publish."];
+      // optional uint32 file_type = 7;
       case 7:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 56)) {
           _Internal::set_has_file_type(&has_bits);
@@ -6451,7 +6304,7 @@ const char* CPublishedFile_Publish_Request::_InternalParse(const char* ptr, ::PR
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string consumer_shortcut_name = 8 [(.description) = "Shortcut name for the published file."];
+      // optional string consumer_shortcut_name = 8;
       case 8:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 66)) {
           auto str = _internal_mutable_consumer_shortcut_name();
@@ -6462,7 +6315,7 @@ const char* CPublishedFile_Publish_Request::_InternalParse(const char* ptr, ::PR
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string youtube_username = 9 [(.description) = "(Optional) User\'s YouTube account username."];
+      // optional string youtube_username = 9;
       case 9:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 74)) {
           auto str = _internal_mutable_youtube_username();
@@ -6473,7 +6326,7 @@ const char* CPublishedFile_Publish_Request::_InternalParse(const char* ptr, ::PR
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string youtube_videoid = 10 [(.description) = "(Optional) Video Id of a YouTube video for this published file."];
+      // optional string youtube_videoid = 10;
       case 10:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 82)) {
           auto str = _internal_mutable_youtube_videoid();
@@ -6484,7 +6337,7 @@ const char* CPublishedFile_Publish_Request::_InternalParse(const char* ptr, ::PR
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 visibility = 11 [(.description) = "(ERemoteStoragePublishedFileVisibility) Visibility of the published file (private, friends, public, etc.)"];
+      // optional uint32 visibility = 11;
       case 11:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 88)) {
           _Internal::set_has_visibility(&has_bits);
@@ -6492,7 +6345,7 @@ const char* CPublishedFile_Publish_Request::_InternalParse(const char* ptr, ::PR
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string redirect_uri = 12 [(.description) = "(Optional) If supplied, the resulting published file\'s Id is appended to the URI."];
+      // optional string redirect_uri = 12;
       case 12:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 98)) {
           auto str = _internal_mutable_redirect_uri();
@@ -6503,7 +6356,7 @@ const char* CPublishedFile_Publish_Request::_InternalParse(const char* ptr, ::PR
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated string tags = 13 [(.description) = "Array of text tags to apply to the published file."];
+      // repeated string tags = 13;
       case 13:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 106)) {
           ptr -= 1;
@@ -6519,7 +6372,7 @@ const char* CPublishedFile_Publish_Request::_InternalParse(const char* ptr, ::PR
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<106>(ptr));
         } else goto handle_unusual;
         continue;
-      // optional string collection_type = 14 [(.description) = "(Optional) Type of collection the published file represents."];
+      // optional string collection_type = 14;
       case 14:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 114)) {
           auto str = _internal_mutable_collection_type();
@@ -6530,7 +6383,7 @@ const char* CPublishedFile_Publish_Request::_InternalParse(const char* ptr, ::PR
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string game_type = 15 [(.description) = "(Optional) Type of game the published file represents."];
+      // optional string game_type = 15;
       case 15:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 122)) {
           auto str = _internal_mutable_game_type();
@@ -6541,7 +6394,7 @@ const char* CPublishedFile_Publish_Request::_InternalParse(const char* ptr, ::PR
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string url = 16 [(.description) = "(Optional) If this represents a game, this is the URL to that game\'s page."];
+      // optional string url = 16;
       case 16:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 130)) {
           auto str = _internal_mutable_url();
@@ -6582,19 +6435,19 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint32 appid = 1 [(.description) = "App Id this file is being published FROM."];
+  // optional uint32 appid = 1;
   if (cached_has_bits & 0x00000800u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_appid(), target);
   }
 
-  // optional uint32 consumer_appid = 2 [(.description) = "App Id this file is being published TO."];
+  // optional uint32 consumer_appid = 2;
   if (cached_has_bits & 0x00001000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_consumer_appid(), target);
   }
 
-  // optional string cloudfilename = 3 [(.description) = "Name of the file to publish in the user\'s cloud."];
+  // optional string cloudfilename = 3;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_cloudfilename().data(), static_cast<int>(this->_internal_cloudfilename().length()),
@@ -6604,7 +6457,7 @@ failure:
         3, this->_internal_cloudfilename(), target);
   }
 
-  // optional string preview_cloudfilename = 4 [(.description) = "Name of the file to use as the published file\'s preview."];
+  // optional string preview_cloudfilename = 4;
   if (cached_has_bits & 0x00000002u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_preview_cloudfilename().data(), static_cast<int>(this->_internal_preview_cloudfilename().length()),
@@ -6614,7 +6467,7 @@ failure:
         4, this->_internal_preview_cloudfilename(), target);
   }
 
-  // optional string title = 5 [(.description) = "Text title for the published file."];
+  // optional string title = 5;
   if (cached_has_bits & 0x00000004u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_title().data(), static_cast<int>(this->_internal_title().length()),
@@ -6624,7 +6477,7 @@ failure:
         5, this->_internal_title(), target);
   }
 
-  // optional string file_description = 6 [(.description) = "Text description for the published file."];
+  // optional string file_description = 6;
   if (cached_has_bits & 0x00000008u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_file_description().data(), static_cast<int>(this->_internal_file_description().length()),
@@ -6634,13 +6487,13 @@ failure:
         6, this->_internal_file_description(), target);
   }
 
-  // optional uint32 file_type = 7 [(.description) = "(EWorkshopFileType) Type of Workshop file to publish."];
+  // optional uint32 file_type = 7;
   if (cached_has_bits & 0x00002000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(7, this->_internal_file_type(), target);
   }
 
-  // optional string consumer_shortcut_name = 8 [(.description) = "Shortcut name for the published file."];
+  // optional string consumer_shortcut_name = 8;
   if (cached_has_bits & 0x00000010u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_consumer_shortcut_name().data(), static_cast<int>(this->_internal_consumer_shortcut_name().length()),
@@ -6650,7 +6503,7 @@ failure:
         8, this->_internal_consumer_shortcut_name(), target);
   }
 
-  // optional string youtube_username = 9 [(.description) = "(Optional) User\'s YouTube account username."];
+  // optional string youtube_username = 9;
   if (cached_has_bits & 0x00000020u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_youtube_username().data(), static_cast<int>(this->_internal_youtube_username().length()),
@@ -6660,7 +6513,7 @@ failure:
         9, this->_internal_youtube_username(), target);
   }
 
-  // optional string youtube_videoid = 10 [(.description) = "(Optional) Video Id of a YouTube video for this published file."];
+  // optional string youtube_videoid = 10;
   if (cached_has_bits & 0x00000040u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_youtube_videoid().data(), static_cast<int>(this->_internal_youtube_videoid().length()),
@@ -6670,13 +6523,13 @@ failure:
         10, this->_internal_youtube_videoid(), target);
   }
 
-  // optional uint32 visibility = 11 [(.description) = "(ERemoteStoragePublishedFileVisibility) Visibility of the published file (private, friends, public, etc.)"];
+  // optional uint32 visibility = 11;
   if (cached_has_bits & 0x00004000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(11, this->_internal_visibility(), target);
   }
 
-  // optional string redirect_uri = 12 [(.description) = "(Optional) If supplied, the resulting published file\'s Id is appended to the URI."];
+  // optional string redirect_uri = 12;
   if (cached_has_bits & 0x00000080u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_redirect_uri().data(), static_cast<int>(this->_internal_redirect_uri().length()),
@@ -6686,7 +6539,7 @@ failure:
         12, this->_internal_redirect_uri(), target);
   }
 
-  // repeated string tags = 13 [(.description) = "Array of text tags to apply to the published file."];
+  // repeated string tags = 13;
   for (int i = 0, n = this->_internal_tags_size(); i < n; i++) {
     const auto& s = this->_internal_tags(i);
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
@@ -6696,7 +6549,7 @@ failure:
     target = stream->WriteString(13, s, target);
   }
 
-  // optional string collection_type = 14 [(.description) = "(Optional) Type of collection the published file represents."];
+  // optional string collection_type = 14;
   if (cached_has_bits & 0x00000100u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_collection_type().data(), static_cast<int>(this->_internal_collection_type().length()),
@@ -6706,7 +6559,7 @@ failure:
         14, this->_internal_collection_type(), target);
   }
 
-  // optional string game_type = 15 [(.description) = "(Optional) Type of game the published file represents."];
+  // optional string game_type = 15;
   if (cached_has_bits & 0x00000200u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_game_type().data(), static_cast<int>(this->_internal_game_type().length()),
@@ -6716,7 +6569,7 @@ failure:
         15, this->_internal_game_type(), target);
   }
 
-  // optional string url = 16 [(.description) = "(Optional) If this represents a game, this is the URL to that game\'s page."];
+  // optional string url = 16;
   if (cached_has_bits & 0x00000400u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_url().data(), static_cast<int>(this->_internal_url().length()),
@@ -6742,7 +6595,7 @@ size_t CPublishedFile_Publish_Request::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated string tags = 13 [(.description) = "Array of text tags to apply to the published file."];
+  // repeated string tags = 13;
   total_size += 1 *
       ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(tags_.size());
   for (int i = 0, n = tags_.size(); i < n; i++) {
@@ -6752,56 +6605,56 @@ size_t CPublishedFile_Publish_Request::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x000000ffu) {
-    // optional string cloudfilename = 3 [(.description) = "Name of the file to publish in the user\'s cloud."];
+    // optional string cloudfilename = 3;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_cloudfilename());
     }
 
-    // optional string preview_cloudfilename = 4 [(.description) = "Name of the file to use as the published file\'s preview."];
+    // optional string preview_cloudfilename = 4;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_preview_cloudfilename());
     }
 
-    // optional string title = 5 [(.description) = "Text title for the published file."];
+    // optional string title = 5;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_title());
     }
 
-    // optional string file_description = 6 [(.description) = "Text description for the published file."];
+    // optional string file_description = 6;
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_file_description());
     }
 
-    // optional string consumer_shortcut_name = 8 [(.description) = "Shortcut name for the published file."];
+    // optional string consumer_shortcut_name = 8;
     if (cached_has_bits & 0x00000010u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_consumer_shortcut_name());
     }
 
-    // optional string youtube_username = 9 [(.description) = "(Optional) User\'s YouTube account username."];
+    // optional string youtube_username = 9;
     if (cached_has_bits & 0x00000020u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_youtube_username());
     }
 
-    // optional string youtube_videoid = 10 [(.description) = "(Optional) Video Id of a YouTube video for this published file."];
+    // optional string youtube_videoid = 10;
     if (cached_has_bits & 0x00000040u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_youtube_videoid());
     }
 
-    // optional string redirect_uri = 12 [(.description) = "(Optional) If supplied, the resulting published file\'s Id is appended to the URI."];
+    // optional string redirect_uri = 12;
     if (cached_has_bits & 0x00000080u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
@@ -6810,49 +6663,49 @@ size_t CPublishedFile_Publish_Request::ByteSizeLong() const {
 
   }
   if (cached_has_bits & 0x00007f00u) {
-    // optional string collection_type = 14 [(.description) = "(Optional) Type of collection the published file represents."];
+    // optional string collection_type = 14;
     if (cached_has_bits & 0x00000100u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_collection_type());
     }
 
-    // optional string game_type = 15 [(.description) = "(Optional) Type of game the published file represents."];
+    // optional string game_type = 15;
     if (cached_has_bits & 0x00000200u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_game_type());
     }
 
-    // optional string url = 16 [(.description) = "(Optional) If this represents a game, this is the URL to that game\'s page."];
+    // optional string url = 16;
     if (cached_has_bits & 0x00000400u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_url());
     }
 
-    // optional uint32 appid = 1 [(.description) = "App Id this file is being published FROM."];
+    // optional uint32 appid = 1;
     if (cached_has_bits & 0x00000800u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_appid());
     }
 
-    // optional uint32 consumer_appid = 2 [(.description) = "App Id this file is being published TO."];
+    // optional uint32 consumer_appid = 2;
     if (cached_has_bits & 0x00001000u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_consumer_appid());
     }
 
-    // optional uint32 file_type = 7 [(.description) = "(EWorkshopFileType) Type of Workshop file to publish."];
+    // optional uint32 file_type = 7;
     if (cached_has_bits & 0x00002000u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_file_type());
     }
 
-    // optional uint32 visibility = 11 [(.description) = "(ERemoteStoragePublishedFileVisibility) Visibility of the published file (private, friends, public, etc.)"];
+    // optional uint32 visibility = 11;
     if (cached_has_bits & 0x00004000u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -7369,7 +7222,7 @@ const char* CPublishedFile_GetDetails_Request::_InternalParse(const char* ptr, :
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // repeated fixed64 publishedfileids = 1 [(.description) = "Set of published file Ids to retrieve details for."];
+      // repeated fixed64 publishedfileids = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
           ptr -= 1;
@@ -7384,7 +7237,7 @@ const char* CPublishedFile_GetDetails_Request::_InternalParse(const char* ptr, :
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool includetags = 2 [(.description) = "If true, return tag information in the returned details."];
+      // optional bool includetags = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_includetags(&has_bits);
@@ -7392,7 +7245,7 @@ const char* CPublishedFile_GetDetails_Request::_InternalParse(const char* ptr, :
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool includeadditionalpreviews = 3 [(.description) = "If true, return preview information in the returned details."];
+      // optional bool includeadditionalpreviews = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           _Internal::set_has_includeadditionalpreviews(&has_bits);
@@ -7400,7 +7253,7 @@ const char* CPublishedFile_GetDetails_Request::_InternalParse(const char* ptr, :
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool includechildren = 4 [(.description) = "If true, return children in the returned details."];
+      // optional bool includechildren = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
           _Internal::set_has_includechildren(&has_bits);
@@ -7408,7 +7261,7 @@ const char* CPublishedFile_GetDetails_Request::_InternalParse(const char* ptr, :
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool includekvtags = 5 [(.description) = "If true, return key value tags in the returned details."];
+      // optional bool includekvtags = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
           _Internal::set_has_includekvtags(&has_bits);
@@ -7416,7 +7269,7 @@ const char* CPublishedFile_GetDetails_Request::_InternalParse(const char* ptr, :
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool includevotes = 6 [(.description) = "If true, return vote data in the returned details."];
+      // optional bool includevotes = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
           _Internal::set_has_includevotes(&has_bits);
@@ -7424,7 +7277,7 @@ const char* CPublishedFile_GetDetails_Request::_InternalParse(const char* ptr, :
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool short_description = 8 [(.description) = "If true, return a short description instead of the full description."];
+      // optional bool short_description = 8;
       case 8:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 64)) {
           _Internal::set_has_short_description(&has_bits);
@@ -7432,7 +7285,7 @@ const char* CPublishedFile_GetDetails_Request::_InternalParse(const char* ptr, :
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool includeforsaledata = 10 [(.description) = "If true, return pricing data, if applicable."];
+      // optional bool includeforsaledata = 10;
       case 10:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 80)) {
           _Internal::set_has_includeforsaledata(&has_bits);
@@ -7440,7 +7293,7 @@ const char* CPublishedFile_GetDetails_Request::_InternalParse(const char* ptr, :
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool includemetadata = 11 [(.description) = "If true, populate the metadata field."];
+      // optional bool includemetadata = 11;
       case 11:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 88)) {
           _Internal::set_has_includemetadata(&has_bits);
@@ -7448,7 +7301,7 @@ const char* CPublishedFile_GetDetails_Request::_InternalParse(const char* ptr, :
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional int32 language = 12 [default = 0, (.description) = "Specifies the localized text to return. Defaults to English."];
+      // optional int32 language = 12 [default = 0];
       case 12:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 96)) {
           _Internal::set_has_language(&has_bits);
@@ -7456,7 +7309,7 @@ const char* CPublishedFile_GetDetails_Request::_InternalParse(const char* ptr, :
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 return_playtime_stats = 13 [(.description) = "Return playtime stats for the specified number of days before today."];
+      // optional uint32 return_playtime_stats = 13;
       case 13:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 104)) {
           _Internal::set_has_return_playtime_stats(&has_bits);
@@ -7472,7 +7325,7 @@ const char* CPublishedFile_GetDetails_Request::_InternalParse(const char* ptr, :
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool strip_description_bbcode = 15 [(.description) = "Strips BBCode from descriptions."];
+      // optional bool strip_description_bbcode = 15;
       case 15:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 120)) {
           _Internal::set_has_strip_description_bbcode(&has_bits);
@@ -7480,7 +7333,7 @@ const char* CPublishedFile_GetDetails_Request::_InternalParse(const char* ptr, :
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional .EPublishedFileRevision desired_revision = 16 [default = EPublishedFileRevision_Default, (.description) = "Return the data for the specified revision."];
+      // optional .EPublishedFileRevision desired_revision = 16 [default = EPublishedFileRevision_Default];
       case 16:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 128)) {
           ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -7492,7 +7345,7 @@ const char* CPublishedFile_GetDetails_Request::_InternalParse(const char* ptr, :
           }
         } else goto handle_unusual;
         continue;
-      // optional bool includereactions = 17 [default = false, (.description) = "If true, then reactions to items will be returned."];
+      // optional bool includereactions = 17 [default = false];
       case 17:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 136)) {
           _Internal::set_has_includereactions(&has_bits);
@@ -7529,68 +7382,68 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated fixed64 publishedfileids = 1 [(.description) = "Set of published file Ids to retrieve details for."];
+  // repeated fixed64 publishedfileids = 1;
   for (int i = 0, n = this->_internal_publishedfileids_size(); i < n; i++) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_publishedfileids(i), target);
   }
 
   cached_has_bits = _has_bits_[0];
-  // optional bool includetags = 2 [(.description) = "If true, return tag information in the returned details."];
+  // optional bool includetags = 2;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(2, this->_internal_includetags(), target);
   }
 
-  // optional bool includeadditionalpreviews = 3 [(.description) = "If true, return preview information in the returned details."];
+  // optional bool includeadditionalpreviews = 3;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(3, this->_internal_includeadditionalpreviews(), target);
   }
 
-  // optional bool includechildren = 4 [(.description) = "If true, return children in the returned details."];
+  // optional bool includechildren = 4;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(4, this->_internal_includechildren(), target);
   }
 
-  // optional bool includekvtags = 5 [(.description) = "If true, return key value tags in the returned details."];
+  // optional bool includekvtags = 5;
   if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(5, this->_internal_includekvtags(), target);
   }
 
-  // optional bool includevotes = 6 [(.description) = "If true, return vote data in the returned details."];
+  // optional bool includevotes = 6;
   if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(6, this->_internal_includevotes(), target);
   }
 
-  // optional bool short_description = 8 [(.description) = "If true, return a short description instead of the full description."];
+  // optional bool short_description = 8;
   if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(8, this->_internal_short_description(), target);
   }
 
-  // optional bool includeforsaledata = 10 [(.description) = "If true, return pricing data, if applicable."];
+  // optional bool includeforsaledata = 10;
   if (cached_has_bits & 0x00000040u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(10, this->_internal_includeforsaledata(), target);
   }
 
-  // optional bool includemetadata = 11 [(.description) = "If true, populate the metadata field."];
+  // optional bool includemetadata = 11;
   if (cached_has_bits & 0x00000080u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(11, this->_internal_includemetadata(), target);
   }
 
-  // optional int32 language = 12 [default = 0, (.description) = "Specifies the localized text to return. Defaults to English."];
+  // optional int32 language = 12 [default = 0];
   if (cached_has_bits & 0x00000100u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(12, this->_internal_language(), target);
   }
 
-  // optional uint32 return_playtime_stats = 13 [(.description) = "Return playtime stats for the specified number of days before today."];
+  // optional uint32 return_playtime_stats = 13;
   if (cached_has_bits & 0x00000200u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(13, this->_internal_return_playtime_stats(), target);
@@ -7602,20 +7455,20 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(14, this->_internal_appid(), target);
   }
 
-  // optional bool strip_description_bbcode = 15 [(.description) = "Strips BBCode from descriptions."];
+  // optional bool strip_description_bbcode = 15;
   if (cached_has_bits & 0x00001000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(15, this->_internal_strip_description_bbcode(), target);
   }
 
-  // optional .EPublishedFileRevision desired_revision = 16 [default = EPublishedFileRevision_Default, (.description) = "Return the data for the specified revision."];
+  // optional .EPublishedFileRevision desired_revision = 16 [default = EPublishedFileRevision_Default];
   if (cached_has_bits & 0x00000800u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       16, this->_internal_desired_revision(), target);
   }
 
-  // optional bool includereactions = 17 [default = false, (.description) = "If true, then reactions to items will be returned."];
+  // optional bool includereactions = 17 [default = false];
   if (cached_has_bits & 0x00002000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(17, this->_internal_includereactions(), target);
@@ -7637,7 +7490,7 @@ size_t CPublishedFile_GetDetails_Request::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated fixed64 publishedfileids = 1 [(.description) = "Set of published file Ids to retrieve details for."];
+  // repeated fixed64 publishedfileids = 1;
   {
     unsigned int count = static_cast<unsigned int>(this->_internal_publishedfileids_size());
     size_t data_size = 8UL * count;
@@ -7648,56 +7501,56 @@ size_t CPublishedFile_GetDetails_Request::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x000000ffu) {
-    // optional bool includetags = 2 [(.description) = "If true, return tag information in the returned details."];
+    // optional bool includetags = 2;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 + 1;
     }
 
-    // optional bool includeadditionalpreviews = 3 [(.description) = "If true, return preview information in the returned details."];
+    // optional bool includeadditionalpreviews = 3;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 + 1;
     }
 
-    // optional bool includechildren = 4 [(.description) = "If true, return children in the returned details."];
+    // optional bool includechildren = 4;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 + 1;
     }
 
-    // optional bool includekvtags = 5 [(.description) = "If true, return key value tags in the returned details."];
+    // optional bool includekvtags = 5;
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 + 1;
     }
 
-    // optional bool includevotes = 6 [(.description) = "If true, return vote data in the returned details."];
+    // optional bool includevotes = 6;
     if (cached_has_bits & 0x00000010u) {
       total_size += 1 + 1;
     }
 
-    // optional bool short_description = 8 [(.description) = "If true, return a short description instead of the full description."];
+    // optional bool short_description = 8;
     if (cached_has_bits & 0x00000020u) {
       total_size += 1 + 1;
     }
 
-    // optional bool includeforsaledata = 10 [(.description) = "If true, return pricing data, if applicable."];
+    // optional bool includeforsaledata = 10;
     if (cached_has_bits & 0x00000040u) {
       total_size += 1 + 1;
     }
 
-    // optional bool includemetadata = 11 [(.description) = "If true, populate the metadata field."];
+    // optional bool includemetadata = 11;
     if (cached_has_bits & 0x00000080u) {
       total_size += 1 + 1;
     }
 
   }
   if (cached_has_bits & 0x00003f00u) {
-    // optional int32 language = 12 [default = 0, (.description) = "Specifies the localized text to return. Defaults to English."];
+    // optional int32 language = 12 [default = 0];
     if (cached_has_bits & 0x00000100u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
           this->_internal_language());
     }
 
-    // optional uint32 return_playtime_stats = 13 [(.description) = "Return playtime stats for the specified number of days before today."];
+    // optional uint32 return_playtime_stats = 13;
     if (cached_has_bits & 0x00000200u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -7711,18 +7564,18 @@ size_t CPublishedFile_GetDetails_Request::ByteSizeLong() const {
           this->_internal_appid());
     }
 
-    // optional .EPublishedFileRevision desired_revision = 16 [default = EPublishedFileRevision_Default, (.description) = "Return the data for the specified revision."];
+    // optional .EPublishedFileRevision desired_revision = 16 [default = EPublishedFileRevision_Default];
     if (cached_has_bits & 0x00000800u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_desired_revision());
     }
 
-    // optional bool strip_description_bbcode = 15 [(.description) = "Strips BBCode from descriptions."];
+    // optional bool strip_description_bbcode = 15;
     if (cached_has_bits & 0x00001000u) {
       total_size += 1 + 1;
     }
 
-    // optional bool includereactions = 17 [default = false, (.description) = "If true, then reactions to items will be returned."];
+    // optional bool includereactions = 17 [default = false];
     if (cached_has_bits & 0x00002000u) {
       total_size += 2 + 1;
     }
@@ -10503,6 +10356,9 @@ class PublishedFileDetails::_Internal {
   static void set_has_search_score(HasBits* has_bits) {
     (*has_bits)[1] |= 2147483648u;
   }
+  static void set_has_external_asset_id(HasBits* has_bits) {
+    (*has_bits)[2] |= 1u;
+  }
 };
 
 const ::PublishedFileDetails_VoteData&
@@ -10622,8 +10478,8 @@ PublishedFileDetails::PublishedFileDetails(const PublishedFileDetails& from)
     playtime_stats_ = nullptr;
   }
   ::memcpy(&publishedfileid_, &from.publishedfileid_,
-    static_cast<size_t>(reinterpret_cast<char*>(&search_score_) -
-    reinterpret_cast<char*>(&publishedfileid_)) + sizeof(search_score_));
+    static_cast<size_t>(reinterpret_cast<char*>(&external_asset_id_) -
+    reinterpret_cast<char*>(&publishedfileid_)) + sizeof(external_asset_id_));
   // @@protoc_insertion_point(copy_constructor:PublishedFileDetails)
 }
 
@@ -10643,8 +10499,8 @@ shortcutname_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStrin
 metadata_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&vote_data_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&search_score_) -
-    reinterpret_cast<char*>(&vote_data_)) + sizeof(search_score_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&external_asset_id_) -
+    reinterpret_cast<char*>(&vote_data_)) + sizeof(external_asset_id_));
 }
 
 PublishedFileDetails::~PublishedFileDetails() {
@@ -10783,6 +10639,7 @@ void PublishedFileDetails::Clear() {
         reinterpret_cast<char*>(&search_score_) -
         reinterpret_cast<char*>(&lifetime_playtime_sessions_)) + sizeof(search_score_));
   }
+  external_asset_id_ = PROTOBUF_ULONGLONG(0);
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -11285,7 +11142,7 @@ const char* PublishedFileDetails::_InternalParse(const char* ptr, ::PROTOBUF_NAM
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 time_subscribed = 56 [(.description) = "Only valid in PublishedFile.GetUserFiles and not normal PublishedFile.GetDetail calls"];
+      // optional uint32 time_subscribed = 56;
       case 56:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 192)) {
           _Internal::set_has_time_subscribed(&_has_bits_);
@@ -11293,14 +11150,14 @@ const char* PublishedFileDetails::_InternalParse(const char* ptr, ::PROTOBUF_NAM
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional .PublishedFileDetails.ForSaleData for_sale_data = 57 [(.description) = "Pricing information, if applicable."];
+      // optional .PublishedFileDetails.ForSaleData for_sale_data = 57;
       case 57:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 202)) {
           ptr = ctx->ParseMessage(_internal_mutable_for_sale_data(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string metadata = 58 [(.description) = "Metadata associated with the item"];
+      // optional string metadata = 58;
       case 58:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 210)) {
           auto str = _internal_mutable_metadata();
@@ -11311,7 +11168,7 @@ const char* PublishedFileDetails::_InternalParse(const char* ptr, ::PROTOBUF_NAM
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional int32 language = 61 [default = 0, (.description) = "The language of the title and description."];
+      // optional int32 language = 61 [default = 0];
       case 61:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 232)) {
           _Internal::set_has_language(&_has_bits_);
@@ -11358,7 +11215,7 @@ const char* PublishedFileDetails::_InternalParse(const char* ptr, ::PROTOBUF_NAM
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint64 revision_change_number = 67 [(.description) = "The change number for the specified revision."];
+      // optional uint64 revision_change_number = 67;
       case 67:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           _Internal::set_has_revision_change_number(&_has_bits_);
@@ -11366,7 +11223,7 @@ const char* PublishedFileDetails::_InternalParse(const char* ptr, ::PROTOBUF_NAM
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional .EPublishedFileRevision revision = 68 [default = EPublishedFileRevision_Default, (.description) = "The revision of the data returned, usually EPublishedFileRevision_Latest, but can be another revision/snapshot depending on the caller."];
+      // optional .EPublishedFileRevision revision = 68 [default = EPublishedFileRevision_Default];
       case 68:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
           ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -11378,7 +11235,7 @@ const char* PublishedFileDetails::_InternalParse(const char* ptr, ::PROTOBUF_NAM
           }
         } else goto handle_unusual;
         continue;
-      // repeated .EPublishedFileRevision available_revisions = 69 [(.description) = "Available revisions"];
+      // repeated .EPublishedFileRevision available_revisions = 69;
       case 69:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
           ptr -= 2;
@@ -11398,7 +11255,7 @@ const char* PublishedFileDetails::_InternalParse(const char* ptr, ::PROTOBUF_NAM
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated .PublishedFileDetails.Reaction reactions = 70 [(.description) = "Reactions to this item"];
+      // repeated .PublishedFileDetails.Reaction reactions = 70;
       case 70:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
           ptr -= 2;
@@ -11442,12 +11299,20 @@ const char* PublishedFileDetails::_InternalParse(const char* ptr, ::PROTOBUF_NAM
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional float search_score = 73 [(.description) = "Search score, admin only"];
+      // optional float search_score = 73;
       case 73:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 77)) {
           _Internal::set_has_search_score(&_has_bits_);
           search_score_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
           ptr += sizeof(float);
+        } else goto handle_unusual;
+        continue;
+      // optional uint64 external_asset_id = 74;
+      case 74:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 80)) {
+          _Internal::set_has_external_asset_id(&_has_bits_);
+          external_asset_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
         } else goto handle_unusual;
         continue;
       default: {
@@ -11878,14 +11743,14 @@ failure:
   }
 
   cached_has_bits = _has_bits_[1];
-  // optional uint32 time_subscribed = 56 [(.description) = "Only valid in PublishedFile.GetUserFiles and not normal PublishedFile.GetDetail calls"];
+  // optional uint32 time_subscribed = 56;
   if (cached_has_bits & 0x00400000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(56, this->_internal_time_subscribed(), target);
   }
 
   cached_has_bits = _has_bits_[0];
-  // optional .PublishedFileDetails.ForSaleData for_sale_data = 57 [(.description) = "Pricing information, if applicable."];
+  // optional .PublishedFileDetails.ForSaleData for_sale_data = 57;
   if (cached_has_bits & 0x00004000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -11893,7 +11758,7 @@ failure:
         57, _Internal::for_sale_data(this), target, stream);
   }
 
-  // optional string metadata = 58 [(.description) = "Metadata associated with the item"];
+  // optional string metadata = 58;
   if (cached_has_bits & 0x00001000u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_metadata().data(), static_cast<int>(this->_internal_metadata().length()),
@@ -11904,7 +11769,7 @@ failure:
   }
 
   cached_has_bits = _has_bits_[1];
-  // optional int32 language = 61 [default = 0, (.description) = "The language of the title and description."];
+  // optional int32 language = 61 [default = 0];
   if (cached_has_bits & 0x02000000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(61, this->_internal_language(), target);
@@ -11944,27 +11809,27 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(66, this->_internal_maybe_inappropriate_violence(), target);
   }
 
-  // optional uint64 revision_change_number = 67 [(.description) = "The change number for the specified revision."];
+  // optional uint64 revision_change_number = 67;
   if (cached_has_bits & 0x10000000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(67, this->_internal_revision_change_number(), target);
   }
 
-  // optional .EPublishedFileRevision revision = 68 [default = EPublishedFileRevision_Default, (.description) = "The revision of the data returned, usually EPublishedFileRevision_Latest, but can be another revision/snapshot depending on the caller."];
+  // optional .EPublishedFileRevision revision = 68 [default = EPublishedFileRevision_Default];
   if (cached_has_bits & 0x20000000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       68, this->_internal_revision(), target);
   }
 
-  // repeated .EPublishedFileRevision available_revisions = 69 [(.description) = "Available revisions"];
+  // repeated .EPublishedFileRevision available_revisions = 69;
   for (int i = 0, n = this->_internal_available_revisions_size(); i < n; i++) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
         69, this->_internal_available_revisions(i), target);
   }
 
-  // repeated .PublishedFileDetails.Reaction reactions = 70 [(.description) = "Reactions to this item"];
+  // repeated .PublishedFileDetails.Reaction reactions = 70;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_reactions_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
@@ -11986,10 +11851,17 @@ failure:
         72, this->_internal_content_descriptorids(i), target);
   }
 
-  // optional float search_score = 73 [(.description) = "Search score, admin only"];
+  // optional float search_score = 73;
   if (cached_has_bits & 0x80000000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(73, this->_internal_search_score(), target);
+  }
+
+  cached_has_bits = _has_bits_[2];
+  // optional uint64 external_asset_id = 74;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(74, this->_internal_external_asset_id(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -12036,7 +11908,7 @@ size_t PublishedFileDetails::ByteSizeLong() const {
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  // repeated .EPublishedFileRevision available_revisions = 69 [(.description) = "Available revisions"];
+  // repeated .EPublishedFileRevision available_revisions = 69;
   {
     size_t data_size = 0;
     unsigned int count = static_cast<unsigned int>(this->_internal_available_revisions_size());for (unsigned int i = 0; i < count; i++) {
@@ -12046,7 +11918,7 @@ size_t PublishedFileDetails::ByteSizeLong() const {
     total_size += (2UL * count) + data_size;
   }
 
-  // repeated .PublishedFileDetails.Reaction reactions = 70 [(.description) = "Reactions to this item"];
+  // repeated .PublishedFileDetails.Reaction reactions = 70;
   total_size += 2UL * this->_internal_reactions_size();
   for (const auto& msg : this->reactions_) {
     total_size +=
@@ -12151,7 +12023,7 @@ size_t PublishedFileDetails::ByteSizeLong() const {
           this->_internal_shortcutname());
     }
 
-    // optional string metadata = 58 [(.description) = "Metadata associated with the item"];
+    // optional string metadata = 58;
     if (cached_has_bits & 0x00001000u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
@@ -12165,7 +12037,7 @@ size_t PublishedFileDetails::ByteSizeLong() const {
           *vote_data_);
     }
 
-    // optional .PublishedFileDetails.ForSaleData for_sale_data = 57 [(.description) = "Pricing information, if applicable."];
+    // optional .PublishedFileDetails.ForSaleData for_sale_data = 57;
     if (cached_has_bits & 0x00004000u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
@@ -12432,7 +12304,7 @@ size_t PublishedFileDetails::ByteSizeLong() const {
           this->_internal_num_reports());
     }
 
-    // optional uint32 time_subscribed = 56 [(.description) = "Only valid in PublishedFile.GetUserFiles and not normal PublishedFile.GetDetail calls"];
+    // optional uint32 time_subscribed = 56;
     if (cached_has_bits & 0x00400000u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -12455,7 +12327,7 @@ size_t PublishedFileDetails::ByteSizeLong() const {
           this->_internal_lifetime_playtime_sessions());
     }
 
-    // optional int32 language = 61 [default = 0, (.description) = "The language of the title and description."];
+    // optional int32 language = 61 [default = 0];
     if (cached_has_bits & 0x02000000u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
@@ -12472,14 +12344,14 @@ size_t PublishedFileDetails::ByteSizeLong() const {
       total_size += 2 + 1;
     }
 
-    // optional uint64 revision_change_number = 67 [(.description) = "The change number for the specified revision."];
+    // optional uint64 revision_change_number = 67;
     if (cached_has_bits & 0x10000000u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
           this->_internal_revision_change_number());
     }
 
-    // optional .EPublishedFileRevision revision = 68 [default = EPublishedFileRevision_Default, (.description) = "The revision of the data returned, usually EPublishedFileRevision_Latest, but can be another revision/snapshot depending on the caller."];
+    // optional .EPublishedFileRevision revision = 68 [default = EPublishedFileRevision_Default];
     if (cached_has_bits & 0x20000000u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_revision());
@@ -12491,12 +12363,20 @@ size_t PublishedFileDetails::ByteSizeLong() const {
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_ban_text_checresult());
     }
 
-    // optional float search_score = 73 [(.description) = "Search score, admin only"];
+    // optional float search_score = 73;
     if (cached_has_bits & 0x80000000u) {
       total_size += 2 + 4;
     }
 
   }
+  // optional uint64 external_asset_id = 74;
+  cached_has_bits = _has_bits_[2];
+  if (cached_has_bits & 0x00000001u) {
+    total_size += 2 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
+        this->_internal_external_asset_id());
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
         _internal_metadata_, total_size, &_cached_size_);
@@ -12751,6 +12631,9 @@ void PublishedFileDetails::MergeFrom(const PublishedFileDetails& from) {
     }
     _has_bits_[1] |= cached_has_bits;
   }
+  if (from._internal_has_external_asset_id()) {
+    _internal_set_external_asset_id(from._internal_external_asset_id());
+  }
 }
 
 void PublishedFileDetails::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
@@ -12776,6 +12659,7 @@ void PublishedFileDetails::InternalSwap(PublishedFileDetails* other) {
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   swap(_has_bits_[0], other->_has_bits_[0]);
   swap(_has_bits_[1], other->_has_bits_[1]);
+  swap(_has_bits_[2], other->_has_bits_[2]);
   previews_.InternalSwap(&other->previews_);
   tags_.InternalSwap(&other->tags_);
   children_.InternalSwap(&other->children_);
@@ -12797,8 +12681,8 @@ void PublishedFileDetails::InternalSwap(PublishedFileDetails* other) {
   shortcutname_.Swap(&other->shortcutname_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   metadata_.Swap(&other->metadata_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(PublishedFileDetails, search_score_)
-      + sizeof(PublishedFileDetails::search_score_)
+      PROTOBUF_FIELD_OFFSET(PublishedFileDetails, external_asset_id_)
+      + sizeof(PublishedFileDetails::external_asset_id_)
       - PROTOBUF_FIELD_OFFSET(PublishedFileDetails, vote_data_)>(
           reinterpret_cast<char*>(&vote_data_),
           reinterpret_cast<char*>(&other->vote_data_));
@@ -13102,7 +12986,7 @@ const char* CPublishedFile_GetItemInfo_Request_WorkshopItem::_InternalParse(cons
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional .EPublishedFileRevision desired_revision = 3 [default = EPublishedFileRevision_Default, (.description) = "Return the data for the specified revision."];
+      // optional .EPublishedFileRevision desired_revision = 3 [default = EPublishedFileRevision_Default];
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -13156,7 +13040,7 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_time_updated(), target);
   }
 
-  // optional .EPublishedFileRevision desired_revision = 3 [default = EPublishedFileRevision_Default, (.description) = "Return the data for the specified revision."];
+  // optional .EPublishedFileRevision desired_revision = 3 [default = EPublishedFileRevision_Default];
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
@@ -13193,7 +13077,7 @@ size_t CPublishedFile_GetItemInfo_Request_WorkshopItem::ByteSizeLong() const {
           this->_internal_time_updated());
     }
 
-    // optional .EPublishedFileRevision desired_revision = 3 [default = EPublishedFileRevision_Default, (.description) = "Return the data for the specified revision."];
+    // optional .EPublishedFileRevision desired_revision = 3 [default = EPublishedFileRevision_Default];
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_desired_revision());
@@ -14830,7 +14714,7 @@ const char* CPublishedFile_GetUserFiles_Request::_InternalParse(const char* ptr,
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional fixed64 steamid = 1 [(.description) = "Steam ID of the user whose files are being requested."];
+      // optional fixed64 steamid = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
           _Internal::set_has_steamid(&has_bits);
@@ -14838,7 +14722,7 @@ const char* CPublishedFile_GetUserFiles_Request::_InternalParse(const char* ptr,
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
         } else goto handle_unusual;
         continue;
-      // optional uint32 appid = 2 [(.description) = "App Id of the app that the files were published to."];
+      // optional uint32 appid = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_appid(&has_bits);
@@ -14846,7 +14730,7 @@ const char* CPublishedFile_GetUserFiles_Request::_InternalParse(const char* ptr,
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 shortcutid = 3 [(.description) = "(Optional) Shortcut Id to retrieve published files from."];
+      // optional uint32 shortcutid = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           _Internal::set_has_shortcutid(&has_bits);
@@ -14854,7 +14738,7 @@ const char* CPublishedFile_GetUserFiles_Request::_InternalParse(const char* ptr,
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 page = 4 [default = 1, (.description) = "(Optional) Starting page for results."];
+      // optional uint32 page = 4 [default = 1];
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
           _Internal::set_has_page(&has_bits);
@@ -14862,7 +14746,7 @@ const char* CPublishedFile_GetUserFiles_Request::_InternalParse(const char* ptr,
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 numperpage = 5 [default = 1, (.description) = "(Optional) The number of results, per page to return."];
+      // optional uint32 numperpage = 5 [default = 1];
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
           _Internal::set_has_numperpage(&has_bits);
@@ -14870,7 +14754,7 @@ const char* CPublishedFile_GetUserFiles_Request::_InternalParse(const char* ptr,
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string type = 6 [default = "myfiles", (.description) = "(Optional) Type of files to be returned."];
+      // optional string type = 6 [default = "myfiles"];
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
           auto str = _internal_mutable_type();
@@ -14881,7 +14765,7 @@ const char* CPublishedFile_GetUserFiles_Request::_InternalParse(const char* ptr,
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string sortmethod = 7 [default = "lastupdated", (.description) = "(Optional) Sorting method to use on returned values."];
+      // optional string sortmethod = 7 [default = "lastupdated"];
       case 7:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
           auto str = _internal_mutable_sortmethod();
@@ -14892,7 +14776,7 @@ const char* CPublishedFile_GetUserFiles_Request::_InternalParse(const char* ptr,
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 privacy = 9 [(.description) = "(optional) Filter by privacy settings."];
+      // optional uint32 privacy = 9;
       case 9:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 72)) {
           _Internal::set_has_privacy(&has_bits);
@@ -14900,7 +14784,7 @@ const char* CPublishedFile_GetUserFiles_Request::_InternalParse(const char* ptr,
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated string requiredtags = 10 [(.description) = "(Optional) Tags that must be present on a published file to satisfy the query."];
+      // repeated string requiredtags = 10;
       case 10:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 82)) {
           ptr -= 1;
@@ -14916,7 +14800,7 @@ const char* CPublishedFile_GetUserFiles_Request::_InternalParse(const char* ptr,
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<82>(ptr));
         } else goto handle_unusual;
         continue;
-      // repeated string excludedtags = 11 [(.description) = "(Optional) Tags that must NOT be present on a published file to satisfy the query."];
+      // repeated string excludedtags = 11;
       case 11:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 90)) {
           ptr -= 1;
@@ -14932,7 +14816,7 @@ const char* CPublishedFile_GetUserFiles_Request::_InternalParse(const char* ptr,
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<90>(ptr));
         } else goto handle_unusual;
         continue;
-      // optional uint32 filetype = 14 [(.description) = "(Optional) File type to match files to."];
+      // optional uint32 filetype = 14;
       case 14:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 112)) {
           _Internal::set_has_filetype(&has_bits);
@@ -14940,7 +14824,7 @@ const char* CPublishedFile_GetUserFiles_Request::_InternalParse(const char* ptr,
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 creator_appid = 15 [(.description) = "App Id of the app that published the files, only matched if specified."];
+      // optional uint32 creator_appid = 15;
       case 15:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 120)) {
           _Internal::set_has_creator_appid(&has_bits);
@@ -14948,7 +14832,7 @@ const char* CPublishedFile_GetUserFiles_Request::_InternalParse(const char* ptr,
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string match_cloud_filename = 16 [(.description) = "Match this cloud filename if specified."];
+      // optional string match_cloud_filename = 16;
       case 16:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 130)) {
           auto str = _internal_mutable_match_cloud_filename();
@@ -14959,7 +14843,7 @@ const char* CPublishedFile_GetUserFiles_Request::_InternalParse(const char* ptr,
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool totalonly = 17 [(.description) = "(Optional) If true, only return the total number of files that satisfy this query."];
+      // optional bool totalonly = 17;
       case 17:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 136)) {
           _Internal::set_has_totalonly(&has_bits);
@@ -14967,7 +14851,7 @@ const char* CPublishedFile_GetUserFiles_Request::_InternalParse(const char* ptr,
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool ids_only = 18 [(.description) = "(Optional) If true, only return the published file ids of files that satisfy this query."];
+      // optional bool ids_only = 18;
       case 18:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 144)) {
           _Internal::set_has_ids_only(&has_bits);
@@ -14975,7 +14859,7 @@ const char* CPublishedFile_GetUserFiles_Request::_InternalParse(const char* ptr,
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool return_vote_data = 19 [default = true, (.description) = "Return vote data"];
+      // optional bool return_vote_data = 19 [default = true];
       case 19:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 152)) {
           _Internal::set_has_return_vote_data(&has_bits);
@@ -14983,7 +14867,7 @@ const char* CPublishedFile_GetUserFiles_Request::_InternalParse(const char* ptr,
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool return_tags = 20 [(.description) = "Return tags in the file details"];
+      // optional bool return_tags = 20;
       case 20:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 160)) {
           _Internal::set_has_return_tags(&has_bits);
@@ -14991,7 +14875,7 @@ const char* CPublishedFile_GetUserFiles_Request::_InternalParse(const char* ptr,
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool return_kv_tags = 21 [default = true, (.description) = "Return key-value tags in the file details"];
+      // optional bool return_kv_tags = 21 [default = true];
       case 21:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 168)) {
           _Internal::set_has_return_kv_tags(&has_bits);
@@ -14999,7 +14883,7 @@ const char* CPublishedFile_GetUserFiles_Request::_InternalParse(const char* ptr,
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool return_previews = 22 [(.description) = "Return preview image and video details in the file details"];
+      // optional bool return_previews = 22;
       case 22:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 176)) {
           _Internal::set_has_return_previews(&has_bits);
@@ -15007,7 +14891,7 @@ const char* CPublishedFile_GetUserFiles_Request::_InternalParse(const char* ptr,
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool return_children = 23 [(.description) = "Return child item ids in the file details"];
+      // optional bool return_children = 23;
       case 23:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 184)) {
           _Internal::set_has_return_children(&has_bits);
@@ -15015,7 +14899,7 @@ const char* CPublishedFile_GetUserFiles_Request::_InternalParse(const char* ptr,
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool return_short_description = 24 [default = true, (.description) = "Populate the short_description field instead of file_description"];
+      // optional bool return_short_description = 24 [default = true];
       case 24:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 192)) {
           _Internal::set_has_return_short_description(&has_bits);
@@ -15023,7 +14907,7 @@ const char* CPublishedFile_GetUserFiles_Request::_InternalParse(const char* ptr,
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 startindex_override = 25 [(.description) = "Backwards compatible for the client."];
+      // optional uint32 startindex_override = 25;
       case 25:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 200)) {
           _Internal::set_has_startindex_override(&has_bits);
@@ -15031,7 +14915,7 @@ const char* CPublishedFile_GetUserFiles_Request::_InternalParse(const char* ptr,
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool return_for_sale_data = 26 [(.description) = "Return pricing information, if applicable"];
+      // optional bool return_for_sale_data = 26;
       case 26:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 208)) {
           _Internal::set_has_return_for_sale_data(&has_bits);
@@ -15039,7 +14923,7 @@ const char* CPublishedFile_GetUserFiles_Request::_InternalParse(const char* ptr,
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 cache_max_age_seconds = 27 [default = 0, (.description) = "Allow stale data to be returned for the specified number of seconds."];
+      // optional uint32 cache_max_age_seconds = 27 [default = 0];
       case 27:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 216)) {
           _Internal::set_has_cache_max_age_seconds(&has_bits);
@@ -15047,7 +14931,7 @@ const char* CPublishedFile_GetUserFiles_Request::_InternalParse(const char* ptr,
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool return_metadata = 28 [default = false, (.description) = "Populate the metadata field"];
+      // optional bool return_metadata = 28 [default = false];
       case 28:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 224)) {
           _Internal::set_has_return_metadata(&has_bits);
@@ -15055,7 +14939,7 @@ const char* CPublishedFile_GetUserFiles_Request::_InternalParse(const char* ptr,
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional int32 language = 29 [default = 0, (.description) = "Specifies the localized text to return. Defaults to English."];
+      // optional int32 language = 29 [default = 0];
       case 29:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 232)) {
           _Internal::set_has_language(&has_bits);
@@ -15063,7 +14947,7 @@ const char* CPublishedFile_GetUserFiles_Request::_InternalParse(const char* ptr,
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated .CPublishedFile_GetUserFiles_Request.KVTag required_kv_tags = 30 [(.description) = "Required key-value tags to match on."];
+      // repeated .CPublishedFile_GetUserFiles_Request.KVTag required_kv_tags = 30;
       case 30:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 242)) {
           ptr -= 2;
@@ -15075,7 +14959,7 @@ const char* CPublishedFile_GetUserFiles_Request::_InternalParse(const char* ptr,
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<242>(ptr));
         } else goto handle_unusual;
         continue;
-      // optional uint32 return_playtime_stats = 31 [(.description) = "Return playtime stats for the specified number of days before today."];
+      // optional uint32 return_playtime_stats = 31;
       case 31:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 248)) {
           _Internal::set_has_return_playtime_stats(&has_bits);
@@ -15083,7 +14967,7 @@ const char* CPublishedFile_GetUserFiles_Request::_InternalParse(const char* ptr,
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool strip_description_bbcode = 32 [(.description) = "Strips BBCode from descriptions."];
+      // optional bool strip_description_bbcode = 32;
       case 32:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 0)) {
           _Internal::set_has_strip_description_bbcode(&has_bits);
@@ -15091,7 +14975,7 @@ const char* CPublishedFile_GetUserFiles_Request::_InternalParse(const char* ptr,
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional .EPublishedFileRevision desired_revision = 33 [default = EPublishedFileRevision_Default, (.description) = "Return the data for the specified revision."];
+      // optional .EPublishedFileRevision desired_revision = 33 [default = EPublishedFileRevision_Default];
       case 33:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -15103,7 +14987,7 @@ const char* CPublishedFile_GetUserFiles_Request::_InternalParse(const char* ptr,
           }
         } else goto handle_unusual;
         continue;
-      // repeated .CPublishedFile_GetUserFiles_Request.TagGroup taggroups = 34 [(.description) = "(Optional) At least one of the tags must be present on a published file to satisfy the query."];
+      // repeated .CPublishedFile_GetUserFiles_Request.TagGroup taggroups = 34;
       case 34:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           ptr -= 2;
@@ -15115,7 +14999,7 @@ const char* CPublishedFile_GetUserFiles_Request::_InternalParse(const char* ptr,
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<274>(ptr));
         } else goto handle_unusual;
         continue;
-      // optional bool return_reactions = 35 [default = false, (.description) = "If true, then reactions to items will be returned."];
+      // optional bool return_reactions = 35 [default = false];
       case 35:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           _Internal::set_has_return_reactions(&has_bits);
@@ -15123,7 +15007,7 @@ const char* CPublishedFile_GetUserFiles_Request::_InternalParse(const char* ptr,
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool return_apps = 36 [(.description) = "Return list of apps the items belong to"];
+      // optional bool return_apps = 36;
       case 36:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
           _Internal::set_has_return_apps(&has_bits);
@@ -15131,7 +15015,7 @@ const char* CPublishedFile_GetUserFiles_Request::_InternalParse(const char* ptr,
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated .EContentDescriptorID excluded_content_descriptors = 37 [(.description) = "(Optional) Filter out items that have these content descriptors."];
+      // repeated .EContentDescriptorID excluded_content_descriptors = 37;
       case 37:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
           ptr -= 2;
@@ -15181,37 +15065,37 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional fixed64 steamid = 1 [(.description) = "Steam ID of the user whose files are being requested."];
+  // optional fixed64 steamid = 1;
   if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_steamid(), target);
   }
 
-  // optional uint32 appid = 2 [(.description) = "App Id of the app that the files were published to."];
+  // optional uint32 appid = 2;
   if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_appid(), target);
   }
 
-  // optional uint32 shortcutid = 3 [(.description) = "(Optional) Shortcut Id to retrieve published files from."];
+  // optional uint32 shortcutid = 3;
   if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_shortcutid(), target);
   }
 
-  // optional uint32 page = 4 [default = 1, (.description) = "(Optional) Starting page for results."];
+  // optional uint32 page = 4 [default = 1];
   if (cached_has_bits & 0x08000000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_page(), target);
   }
 
-  // optional uint32 numperpage = 5 [default = 1, (.description) = "(Optional) The number of results, per page to return."];
+  // optional uint32 numperpage = 5 [default = 1];
   if (cached_has_bits & 0x10000000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(5, this->_internal_numperpage(), target);
   }
 
-  // optional string type = 6 [default = "myfiles", (.description) = "(Optional) Type of files to be returned."];
+  // optional string type = 6 [default = "myfiles"];
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_type().data(), static_cast<int>(this->_internal_type().length()),
@@ -15221,7 +15105,7 @@ failure:
         6, this->_internal_type(), target);
   }
 
-  // optional string sortmethod = 7 [default = "lastupdated", (.description) = "(Optional) Sorting method to use on returned values."];
+  // optional string sortmethod = 7 [default = "lastupdated"];
   if (cached_has_bits & 0x00000002u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_sortmethod().data(), static_cast<int>(this->_internal_sortmethod().length()),
@@ -15231,13 +15115,13 @@ failure:
         7, this->_internal_sortmethod(), target);
   }
 
-  // optional uint32 privacy = 9 [(.description) = "(optional) Filter by privacy settings."];
+  // optional uint32 privacy = 9;
   if (cached_has_bits & 0x00000040u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(9, this->_internal_privacy(), target);
   }
 
-  // repeated string requiredtags = 10 [(.description) = "(Optional) Tags that must be present on a published file to satisfy the query."];
+  // repeated string requiredtags = 10;
   for (int i = 0, n = this->_internal_requiredtags_size(); i < n; i++) {
     const auto& s = this->_internal_requiredtags(i);
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
@@ -15247,7 +15131,7 @@ failure:
     target = stream->WriteString(10, s, target);
   }
 
-  // repeated string excludedtags = 11 [(.description) = "(Optional) Tags that must NOT be present on a published file to satisfy the query."];
+  // repeated string excludedtags = 11;
   for (int i = 0, n = this->_internal_excludedtags_size(); i < n; i++) {
     const auto& s = this->_internal_excludedtags(i);
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
@@ -15257,19 +15141,19 @@ failure:
     target = stream->WriteString(11, s, target);
   }
 
-  // optional uint32 filetype = 14 [(.description) = "(Optional) File type to match files to."];
+  // optional uint32 filetype = 14;
   if (cached_has_bits & 0x00000080u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(14, this->_internal_filetype(), target);
   }
 
-  // optional uint32 creator_appid = 15 [(.description) = "App Id of the app that published the files, only matched if specified."];
+  // optional uint32 creator_appid = 15;
   if (cached_has_bits & 0x00000100u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(15, this->_internal_creator_appid(), target);
   }
 
-  // optional string match_cloud_filename = 16 [(.description) = "Match this cloud filename if specified."];
+  // optional string match_cloud_filename = 16;
   if (cached_has_bits & 0x00000004u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_match_cloud_filename().data(), static_cast<int>(this->_internal_match_cloud_filename().length()),
@@ -15279,85 +15163,85 @@ failure:
         16, this->_internal_match_cloud_filename(), target);
   }
 
-  // optional bool totalonly = 17 [(.description) = "(Optional) If true, only return the total number of files that satisfy this query."];
+  // optional bool totalonly = 17;
   if (cached_has_bits & 0x00000200u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(17, this->_internal_totalonly(), target);
   }
 
-  // optional bool ids_only = 18 [(.description) = "(Optional) If true, only return the published file ids of files that satisfy this query."];
+  // optional bool ids_only = 18;
   if (cached_has_bits & 0x00000400u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(18, this->_internal_ids_only(), target);
   }
 
-  // optional bool return_vote_data = 19 [default = true, (.description) = "Return vote data"];
+  // optional bool return_vote_data = 19 [default = true];
   if (cached_has_bits & 0x01000000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(19, this->_internal_return_vote_data(), target);
   }
 
-  // optional bool return_tags = 20 [(.description) = "Return tags in the file details"];
+  // optional bool return_tags = 20;
   if (cached_has_bits & 0x00000800u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(20, this->_internal_return_tags(), target);
   }
 
-  // optional bool return_kv_tags = 21 [default = true, (.description) = "Return key-value tags in the file details"];
+  // optional bool return_kv_tags = 21 [default = true];
   if (cached_has_bits & 0x02000000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(21, this->_internal_return_kv_tags(), target);
   }
 
-  // optional bool return_previews = 22 [(.description) = "Return preview image and video details in the file details"];
+  // optional bool return_previews = 22;
   if (cached_has_bits & 0x00001000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(22, this->_internal_return_previews(), target);
   }
 
-  // optional bool return_children = 23 [(.description) = "Return child item ids in the file details"];
+  // optional bool return_children = 23;
   if (cached_has_bits & 0x00008000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(23, this->_internal_return_children(), target);
   }
 
-  // optional bool return_short_description = 24 [default = true, (.description) = "Populate the short_description field instead of file_description"];
+  // optional bool return_short_description = 24 [default = true];
   if (cached_has_bits & 0x04000000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(24, this->_internal_return_short_description(), target);
   }
 
-  // optional uint32 startindex_override = 25 [(.description) = "Backwards compatible for the client."];
+  // optional uint32 startindex_override = 25;
   if (cached_has_bits & 0x00002000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(25, this->_internal_startindex_override(), target);
   }
 
-  // optional bool return_for_sale_data = 26 [(.description) = "Return pricing information, if applicable"];
+  // optional bool return_for_sale_data = 26;
   if (cached_has_bits & 0x00010000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(26, this->_internal_return_for_sale_data(), target);
   }
 
-  // optional uint32 cache_max_age_seconds = 27 [default = 0, (.description) = "Allow stale data to be returned for the specified number of seconds."];
+  // optional uint32 cache_max_age_seconds = 27 [default = 0];
   if (cached_has_bits & 0x00004000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(27, this->_internal_cache_max_age_seconds(), target);
   }
 
-  // optional bool return_metadata = 28 [default = false, (.description) = "Populate the metadata field"];
+  // optional bool return_metadata = 28 [default = false];
   if (cached_has_bits & 0x00020000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(28, this->_internal_return_metadata(), target);
   }
 
-  // optional int32 language = 29 [default = 0, (.description) = "Specifies the localized text to return. Defaults to English."];
+  // optional int32 language = 29 [default = 0];
   if (cached_has_bits & 0x00080000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(29, this->_internal_language(), target);
   }
 
-  // repeated .CPublishedFile_GetUserFiles_Request.KVTag required_kv_tags = 30 [(.description) = "Required key-value tags to match on."];
+  // repeated .CPublishedFile_GetUserFiles_Request.KVTag required_kv_tags = 30;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_required_kv_tags_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
@@ -15365,26 +15249,26 @@ failure:
       InternalWriteMessage(30, this->_internal_required_kv_tags(i), target, stream);
   }
 
-  // optional uint32 return_playtime_stats = 31 [(.description) = "Return playtime stats for the specified number of days before today."];
+  // optional uint32 return_playtime_stats = 31;
   if (cached_has_bits & 0x00100000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(31, this->_internal_return_playtime_stats(), target);
   }
 
-  // optional bool strip_description_bbcode = 32 [(.description) = "Strips BBCode from descriptions."];
+  // optional bool strip_description_bbcode = 32;
   if (cached_has_bits & 0x00040000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(32, this->_internal_strip_description_bbcode(), target);
   }
 
-  // optional .EPublishedFileRevision desired_revision = 33 [default = EPublishedFileRevision_Default, (.description) = "Return the data for the specified revision."];
+  // optional .EPublishedFileRevision desired_revision = 33 [default = EPublishedFileRevision_Default];
   if (cached_has_bits & 0x00200000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       33, this->_internal_desired_revision(), target);
   }
 
-  // repeated .CPublishedFile_GetUserFiles_Request.TagGroup taggroups = 34 [(.description) = "(Optional) At least one of the tags must be present on a published file to satisfy the query."];
+  // repeated .CPublishedFile_GetUserFiles_Request.TagGroup taggroups = 34;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_taggroups_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
@@ -15392,19 +15276,19 @@ failure:
       InternalWriteMessage(34, this->_internal_taggroups(i), target, stream);
   }
 
-  // optional bool return_reactions = 35 [default = false, (.description) = "If true, then reactions to items will be returned."];
+  // optional bool return_reactions = 35 [default = false];
   if (cached_has_bits & 0x00400000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(35, this->_internal_return_reactions(), target);
   }
 
-  // optional bool return_apps = 36 [(.description) = "Return list of apps the items belong to"];
+  // optional bool return_apps = 36;
   if (cached_has_bits & 0x00800000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(36, this->_internal_return_apps(), target);
   }
 
-  // repeated .EContentDescriptorID excluded_content_descriptors = 37 [(.description) = "(Optional) Filter out items that have these content descriptors."];
+  // repeated .EContentDescriptorID excluded_content_descriptors = 37;
   for (int i = 0, n = this->_internal_excluded_content_descriptors_size(); i < n; i++) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
@@ -15427,7 +15311,7 @@ size_t CPublishedFile_GetUserFiles_Request::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated string requiredtags = 10 [(.description) = "(Optional) Tags that must be present on a published file to satisfy the query."];
+  // repeated string requiredtags = 10;
   total_size += 1 *
       ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(requiredtags_.size());
   for (int i = 0, n = requiredtags_.size(); i < n; i++) {
@@ -15435,7 +15319,7 @@ size_t CPublishedFile_GetUserFiles_Request::ByteSizeLong() const {
       requiredtags_.Get(i));
   }
 
-  // repeated string excludedtags = 11 [(.description) = "(Optional) Tags that must NOT be present on a published file to satisfy the query."];
+  // repeated string excludedtags = 11;
   total_size += 1 *
       ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(excludedtags_.size());
   for (int i = 0, n = excludedtags_.size(); i < n; i++) {
@@ -15443,21 +15327,21 @@ size_t CPublishedFile_GetUserFiles_Request::ByteSizeLong() const {
       excludedtags_.Get(i));
   }
 
-  // repeated .CPublishedFile_GetUserFiles_Request.KVTag required_kv_tags = 30 [(.description) = "Required key-value tags to match on."];
+  // repeated .CPublishedFile_GetUserFiles_Request.KVTag required_kv_tags = 30;
   total_size += 2UL * this->_internal_required_kv_tags_size();
   for (const auto& msg : this->required_kv_tags_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  // repeated .CPublishedFile_GetUserFiles_Request.TagGroup taggroups = 34 [(.description) = "(Optional) At least one of the tags must be present on a published file to satisfy the query."];
+  // repeated .CPublishedFile_GetUserFiles_Request.TagGroup taggroups = 34;
   total_size += 2UL * this->_internal_taggroups_size();
   for (const auto& msg : this->taggroups_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  // repeated .EContentDescriptorID excluded_content_descriptors = 37 [(.description) = "(Optional) Filter out items that have these content descriptors."];
+  // repeated .EContentDescriptorID excluded_content_descriptors = 37;
   {
     size_t data_size = 0;
     unsigned int count = static_cast<unsigned int>(this->_internal_excluded_content_descriptors_size());for (unsigned int i = 0; i < count; i++) {
@@ -15469,54 +15353,54 @@ size_t CPublishedFile_GetUserFiles_Request::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x000000ffu) {
-    // optional string type = 6 [default = "myfiles", (.description) = "(Optional) Type of files to be returned."];
+    // optional string type = 6 [default = "myfiles"];
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_type());
     }
 
-    // optional string sortmethod = 7 [default = "lastupdated", (.description) = "(Optional) Sorting method to use on returned values."];
+    // optional string sortmethod = 7 [default = "lastupdated"];
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_sortmethod());
     }
 
-    // optional string match_cloud_filename = 16 [(.description) = "Match this cloud filename if specified."];
+    // optional string match_cloud_filename = 16;
     if (cached_has_bits & 0x00000004u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_match_cloud_filename());
     }
 
-    // optional fixed64 steamid = 1 [(.description) = "Steam ID of the user whose files are being requested."];
+    // optional fixed64 steamid = 1;
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 + 8;
     }
 
-    // optional uint32 appid = 2 [(.description) = "App Id of the app that the files were published to."];
+    // optional uint32 appid = 2;
     if (cached_has_bits & 0x00000010u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_appid());
     }
 
-    // optional uint32 shortcutid = 3 [(.description) = "(Optional) Shortcut Id to retrieve published files from."];
+    // optional uint32 shortcutid = 3;
     if (cached_has_bits & 0x00000020u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_shortcutid());
     }
 
-    // optional uint32 privacy = 9 [(.description) = "(optional) Filter by privacy settings."];
+    // optional uint32 privacy = 9;
     if (cached_has_bits & 0x00000040u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_privacy());
     }
 
-    // optional uint32 filetype = 14 [(.description) = "(Optional) File type to match files to."];
+    // optional uint32 filetype = 14;
     if (cached_has_bits & 0x00000080u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -15525,124 +15409,124 @@ size_t CPublishedFile_GetUserFiles_Request::ByteSizeLong() const {
 
   }
   if (cached_has_bits & 0x0000ff00u) {
-    // optional uint32 creator_appid = 15 [(.description) = "App Id of the app that published the files, only matched if specified."];
+    // optional uint32 creator_appid = 15;
     if (cached_has_bits & 0x00000100u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_creator_appid());
     }
 
-    // optional bool totalonly = 17 [(.description) = "(Optional) If true, only return the total number of files that satisfy this query."];
+    // optional bool totalonly = 17;
     if (cached_has_bits & 0x00000200u) {
       total_size += 2 + 1;
     }
 
-    // optional bool ids_only = 18 [(.description) = "(Optional) If true, only return the published file ids of files that satisfy this query."];
+    // optional bool ids_only = 18;
     if (cached_has_bits & 0x00000400u) {
       total_size += 2 + 1;
     }
 
-    // optional bool return_tags = 20 [(.description) = "Return tags in the file details"];
+    // optional bool return_tags = 20;
     if (cached_has_bits & 0x00000800u) {
       total_size += 2 + 1;
     }
 
-    // optional bool return_previews = 22 [(.description) = "Return preview image and video details in the file details"];
+    // optional bool return_previews = 22;
     if (cached_has_bits & 0x00001000u) {
       total_size += 2 + 1;
     }
 
-    // optional uint32 startindex_override = 25 [(.description) = "Backwards compatible for the client."];
+    // optional uint32 startindex_override = 25;
     if (cached_has_bits & 0x00002000u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_startindex_override());
     }
 
-    // optional uint32 cache_max_age_seconds = 27 [default = 0, (.description) = "Allow stale data to be returned for the specified number of seconds."];
+    // optional uint32 cache_max_age_seconds = 27 [default = 0];
     if (cached_has_bits & 0x00004000u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_cache_max_age_seconds());
     }
 
-    // optional bool return_children = 23 [(.description) = "Return child item ids in the file details"];
+    // optional bool return_children = 23;
     if (cached_has_bits & 0x00008000u) {
       total_size += 2 + 1;
     }
 
   }
   if (cached_has_bits & 0x00ff0000u) {
-    // optional bool return_for_sale_data = 26 [(.description) = "Return pricing information, if applicable"];
+    // optional bool return_for_sale_data = 26;
     if (cached_has_bits & 0x00010000u) {
       total_size += 2 + 1;
     }
 
-    // optional bool return_metadata = 28 [default = false, (.description) = "Populate the metadata field"];
+    // optional bool return_metadata = 28 [default = false];
     if (cached_has_bits & 0x00020000u) {
       total_size += 2 + 1;
     }
 
-    // optional bool strip_description_bbcode = 32 [(.description) = "Strips BBCode from descriptions."];
+    // optional bool strip_description_bbcode = 32;
     if (cached_has_bits & 0x00040000u) {
       total_size += 2 + 1;
     }
 
-    // optional int32 language = 29 [default = 0, (.description) = "Specifies the localized text to return. Defaults to English."];
+    // optional int32 language = 29 [default = 0];
     if (cached_has_bits & 0x00080000u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
           this->_internal_language());
     }
 
-    // optional uint32 return_playtime_stats = 31 [(.description) = "Return playtime stats for the specified number of days before today."];
+    // optional uint32 return_playtime_stats = 31;
     if (cached_has_bits & 0x00100000u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_return_playtime_stats());
     }
 
-    // optional .EPublishedFileRevision desired_revision = 33 [default = EPublishedFileRevision_Default, (.description) = "Return the data for the specified revision."];
+    // optional .EPublishedFileRevision desired_revision = 33 [default = EPublishedFileRevision_Default];
     if (cached_has_bits & 0x00200000u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_desired_revision());
     }
 
-    // optional bool return_reactions = 35 [default = false, (.description) = "If true, then reactions to items will be returned."];
+    // optional bool return_reactions = 35 [default = false];
     if (cached_has_bits & 0x00400000u) {
       total_size += 2 + 1;
     }
 
-    // optional bool return_apps = 36 [(.description) = "Return list of apps the items belong to"];
+    // optional bool return_apps = 36;
     if (cached_has_bits & 0x00800000u) {
       total_size += 2 + 1;
     }
 
   }
   if (cached_has_bits & 0x1f000000u) {
-    // optional bool return_vote_data = 19 [default = true, (.description) = "Return vote data"];
+    // optional bool return_vote_data = 19 [default = true];
     if (cached_has_bits & 0x01000000u) {
       total_size += 2 + 1;
     }
 
-    // optional bool return_kv_tags = 21 [default = true, (.description) = "Return key-value tags in the file details"];
+    // optional bool return_kv_tags = 21 [default = true];
     if (cached_has_bits & 0x02000000u) {
       total_size += 2 + 1;
     }
 
-    // optional bool return_short_description = 24 [default = true, (.description) = "Populate the short_description field instead of file_description"];
+    // optional bool return_short_description = 24 [default = true];
     if (cached_has_bits & 0x04000000u) {
       total_size += 2 + 1;
     }
 
-    // optional uint32 page = 4 [default = 1, (.description) = "(Optional) Starting page for results."];
+    // optional uint32 page = 4 [default = 1];
     if (cached_has_bits & 0x08000000u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_page());
     }
 
-    // optional uint32 numperpage = 5 [default = 1, (.description) = "(Optional) The number of results, per page to return."];
+    // optional uint32 numperpage = 5 [default = 1];
     if (cached_has_bits & 0x10000000u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -16580,7 +16464,7 @@ const char* CPublishedFile_AreFilesInSubscriptionList_Request::_InternalParse(co
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 listtype = 3 [(.description) = "See EUCMListType"];
+      // optional uint32 listtype = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           _Internal::set_has_listtype(&has_bits);
@@ -16588,7 +16472,7 @@ const char* CPublishedFile_AreFilesInSubscriptionList_Request::_InternalParse(co
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 filetype = 4 [(.description) = "See EPublishedFileInfoMatchingFileType"];
+      // optional uint32 filetype = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
           _Internal::set_has_filetype(&has_bits);
@@ -16596,7 +16480,7 @@ const char* CPublishedFile_AreFilesInSubscriptionList_Request::_InternalParse(co
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 workshopfiletype = 5 [(.description) = "See EWorkshopFileType.  If specified, overrides filetype"];
+      // optional uint32 workshopfiletype = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
           _Internal::set_has_workshopfiletype(&has_bits);
@@ -16646,19 +16530,19 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(2, this->_internal_publishedfileids(i), target);
   }
 
-  // optional uint32 listtype = 3 [(.description) = "See EUCMListType"];
+  // optional uint32 listtype = 3;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_listtype(), target);
   }
 
-  // optional uint32 filetype = 4 [(.description) = "See EPublishedFileInfoMatchingFileType"];
+  // optional uint32 filetype = 4;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_filetype(), target);
   }
 
-  // optional uint32 workshopfiletype = 5 [(.description) = "See EWorkshopFileType.  If specified, overrides filetype"];
+  // optional uint32 workshopfiletype = 5;
   if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(5, this->_internal_workshopfiletype(), target);
@@ -16698,21 +16582,21 @@ size_t CPublishedFile_AreFilesInSubscriptionList_Request::ByteSizeLong() const {
           this->_internal_appid());
     }
 
-    // optional uint32 listtype = 3 [(.description) = "See EUCMListType"];
+    // optional uint32 listtype = 3;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_listtype());
     }
 
-    // optional uint32 filetype = 4 [(.description) = "See EPublishedFileInfoMatchingFileType"];
+    // optional uint32 filetype = 4;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_filetype());
     }
 
-    // optional uint32 workshopfiletype = 5 [(.description) = "See EWorkshopFileType.  If specified, overrides filetype"];
+    // optional uint32 workshopfiletype = 5;
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -17402,7 +17286,7 @@ const char* CPublishedFile_Update_Request::_InternalParse(const char* ptr, ::PRO
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint32 appid = 1 [(.description) = "App Id this published file belongs to."];
+      // optional uint32 appid = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_appid(&has_bits);
@@ -17410,7 +17294,7 @@ const char* CPublishedFile_Update_Request::_InternalParse(const char* ptr, ::PRO
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional fixed64 publishedfileid = 2 [(.description) = "Published file id of the file we\'d like to update."];
+      // optional fixed64 publishedfileid = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 17)) {
           _Internal::set_has_publishedfileid(&has_bits);
@@ -17418,7 +17302,7 @@ const char* CPublishedFile_Update_Request::_InternalParse(const char* ptr, ::PRO
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
         } else goto handle_unusual;
         continue;
-      // optional string title = 3 [(.description) = "(Optional) Title of the published file."];
+      // optional string title = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           auto str = _internal_mutable_title();
@@ -17429,7 +17313,7 @@ const char* CPublishedFile_Update_Request::_InternalParse(const char* ptr, ::PRO
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string file_description = 4 [(.description) = "(Optional) Description of the published file."];
+      // optional string file_description = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
           auto str = _internal_mutable_file_description();
@@ -17440,7 +17324,7 @@ const char* CPublishedFile_Update_Request::_InternalParse(const char* ptr, ::PRO
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 visibility = 5 [(.description) = "(Optional) Visibility of the published file."];
+      // optional uint32 visibility = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
           _Internal::set_has_visibility(&has_bits);
@@ -17448,7 +17332,7 @@ const char* CPublishedFile_Update_Request::_InternalParse(const char* ptr, ::PRO
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated string tags = 6 [(.description) = "(Optional) Set of tags for the published file."];
+      // repeated string tags = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
           ptr -= 1;
@@ -17464,7 +17348,7 @@ const char* CPublishedFile_Update_Request::_InternalParse(const char* ptr, ::PRO
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<50>(ptr));
         } else goto handle_unusual;
         continue;
-      // optional string filename = 7 [(.description) = "(Optional) Filename for the published file."];
+      // optional string filename = 7;
       case 7:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
           auto str = _internal_mutable_filename();
@@ -17475,7 +17359,7 @@ const char* CPublishedFile_Update_Request::_InternalParse(const char* ptr, ::PRO
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string preview_filename = 8 [(.description) = "(Optional) Preview filename for the published file."];
+      // optional string preview_filename = 8;
       case 8:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 66)) {
           auto str = _internal_mutable_preview_filename();
@@ -17486,7 +17370,7 @@ const char* CPublishedFile_Update_Request::_InternalParse(const char* ptr, ::PRO
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool spoiler_tag = 10 [(.description) = "(Optional) Whether this published file should have a spoiler tag attached to it."];
+      // optional bool spoiler_tag = 10;
       case 10:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 80)) {
           _Internal::set_has_spoiler_tag(&has_bits);
@@ -17494,7 +17378,7 @@ const char* CPublishedFile_Update_Request::_InternalParse(const char* ptr, ::PRO
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 image_width = 15 [(.description) = "(Optional) If this is an image file, you can specify the image width."];
+      // optional uint32 image_width = 15;
       case 15:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 120)) {
           _Internal::set_has_image_width(&has_bits);
@@ -17502,7 +17386,7 @@ const char* CPublishedFile_Update_Request::_InternalParse(const char* ptr, ::PRO
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 image_height = 16 [(.description) = "(Optional) If this is an image file, you can specify the image height."];
+      // optional uint32 image_height = 16;
       case 16:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 128)) {
           _Internal::set_has_image_height(&has_bits);
@@ -17510,7 +17394,7 @@ const char* CPublishedFile_Update_Request::_InternalParse(const char* ptr, ::PRO
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional int32 language = 17 [(.description) = "(Optional) If setting title & description, what language to set"];
+      // optional int32 language = 17;
       case 17:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 136)) {
           _Internal::set_has_language(&has_bits);
@@ -17548,19 +17432,19 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint32 appid = 1 [(.description) = "App Id this published file belongs to."];
+  // optional uint32 appid = 1;
   if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_appid(), target);
   }
 
-  // optional fixed64 publishedfileid = 2 [(.description) = "Published file id of the file we\'d like to update."];
+  // optional fixed64 publishedfileid = 2;
   if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(2, this->_internal_publishedfileid(), target);
   }
 
-  // optional string title = 3 [(.description) = "(Optional) Title of the published file."];
+  // optional string title = 3;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_title().data(), static_cast<int>(this->_internal_title().length()),
@@ -17570,7 +17454,7 @@ failure:
         3, this->_internal_title(), target);
   }
 
-  // optional string file_description = 4 [(.description) = "(Optional) Description of the published file."];
+  // optional string file_description = 4;
   if (cached_has_bits & 0x00000002u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_file_description().data(), static_cast<int>(this->_internal_file_description().length()),
@@ -17580,13 +17464,13 @@ failure:
         4, this->_internal_file_description(), target);
   }
 
-  // optional uint32 visibility = 5 [(.description) = "(Optional) Visibility of the published file."];
+  // optional uint32 visibility = 5;
   if (cached_has_bits & 0x00000040u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(5, this->_internal_visibility(), target);
   }
 
-  // repeated string tags = 6 [(.description) = "(Optional) Set of tags for the published file."];
+  // repeated string tags = 6;
   for (int i = 0, n = this->_internal_tags_size(); i < n; i++) {
     const auto& s = this->_internal_tags(i);
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
@@ -17596,7 +17480,7 @@ failure:
     target = stream->WriteString(6, s, target);
   }
 
-  // optional string filename = 7 [(.description) = "(Optional) Filename for the published file."];
+  // optional string filename = 7;
   if (cached_has_bits & 0x00000004u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_filename().data(), static_cast<int>(this->_internal_filename().length()),
@@ -17606,7 +17490,7 @@ failure:
         7, this->_internal_filename(), target);
   }
 
-  // optional string preview_filename = 8 [(.description) = "(Optional) Preview filename for the published file."];
+  // optional string preview_filename = 8;
   if (cached_has_bits & 0x00000008u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_preview_filename().data(), static_cast<int>(this->_internal_preview_filename().length()),
@@ -17616,25 +17500,25 @@ failure:
         8, this->_internal_preview_filename(), target);
   }
 
-  // optional bool spoiler_tag = 10 [(.description) = "(Optional) Whether this published file should have a spoiler tag attached to it."];
+  // optional bool spoiler_tag = 10;
   if (cached_has_bits & 0x00000080u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(10, this->_internal_spoiler_tag(), target);
   }
 
-  // optional uint32 image_width = 15 [(.description) = "(Optional) If this is an image file, you can specify the image width."];
+  // optional uint32 image_width = 15;
   if (cached_has_bits & 0x00000100u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(15, this->_internal_image_width(), target);
   }
 
-  // optional uint32 image_height = 16 [(.description) = "(Optional) If this is an image file, you can specify the image height."];
+  // optional uint32 image_height = 16;
   if (cached_has_bits & 0x00000200u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(16, this->_internal_image_height(), target);
   }
 
-  // optional int32 language = 17 [(.description) = "(Optional) If setting title & description, what language to set"];
+  // optional int32 language = 17;
   if (cached_has_bits & 0x00000400u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(17, this->_internal_language(), target);
@@ -17656,7 +17540,7 @@ size_t CPublishedFile_Update_Request::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated string tags = 6 [(.description) = "(Optional) Set of tags for the published file."];
+  // repeated string tags = 6;
   total_size += 1 *
       ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(tags_.size());
   for (int i = 0, n = tags_.size(); i < n; i++) {
@@ -17666,75 +17550,75 @@ size_t CPublishedFile_Update_Request::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x000000ffu) {
-    // optional string title = 3 [(.description) = "(Optional) Title of the published file."];
+    // optional string title = 3;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_title());
     }
 
-    // optional string file_description = 4 [(.description) = "(Optional) Description of the published file."];
+    // optional string file_description = 4;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_file_description());
     }
 
-    // optional string filename = 7 [(.description) = "(Optional) Filename for the published file."];
+    // optional string filename = 7;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_filename());
     }
 
-    // optional string preview_filename = 8 [(.description) = "(Optional) Preview filename for the published file."];
+    // optional string preview_filename = 8;
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_preview_filename());
     }
 
-    // optional fixed64 publishedfileid = 2 [(.description) = "Published file id of the file we\'d like to update."];
+    // optional fixed64 publishedfileid = 2;
     if (cached_has_bits & 0x00000010u) {
       total_size += 1 + 8;
     }
 
-    // optional uint32 appid = 1 [(.description) = "App Id this published file belongs to."];
+    // optional uint32 appid = 1;
     if (cached_has_bits & 0x00000020u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_appid());
     }
 
-    // optional uint32 visibility = 5 [(.description) = "(Optional) Visibility of the published file."];
+    // optional uint32 visibility = 5;
     if (cached_has_bits & 0x00000040u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_visibility());
     }
 
-    // optional bool spoiler_tag = 10 [(.description) = "(Optional) Whether this published file should have a spoiler tag attached to it."];
+    // optional bool spoiler_tag = 10;
     if (cached_has_bits & 0x00000080u) {
       total_size += 1 + 1;
     }
 
   }
   if (cached_has_bits & 0x00000700u) {
-    // optional uint32 image_width = 15 [(.description) = "(Optional) If this is an image file, you can specify the image width."];
+    // optional uint32 image_width = 15;
     if (cached_has_bits & 0x00000100u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_image_width());
     }
 
-    // optional uint32 image_height = 16 [(.description) = "(Optional) If this is an image file, you can specify the image height."];
+    // optional uint32 image_height = 16;
     if (cached_has_bits & 0x00000200u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_image_height());
     }
 
-    // optional int32 language = 17 [(.description) = "(Optional) If setting title & description, what language to set"];
+    // optional int32 language = 17;
     if (cached_has_bits & 0x00000400u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
@@ -18093,7 +17977,7 @@ const char* CPublishedFile_Delete_Request::_InternalParse(const char* ptr, ::PRO
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional fixed64 publishedfileid = 1 [(.description) = "Published file id of the file we\'d like to delete."];
+      // optional fixed64 publishedfileid = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
           _Internal::set_has_publishedfileid(&has_bits);
@@ -18139,7 +18023,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional fixed64 publishedfileid = 1 [(.description) = "Published file id of the file we\'d like to delete."];
+  // optional fixed64 publishedfileid = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_publishedfileid(), target);
@@ -18169,7 +18053,7 @@ size_t CPublishedFile_Delete_Request::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional fixed64 publishedfileid = 1 [(.description) = "Published file id of the file we\'d like to delete."];
+    // optional fixed64 publishedfileid = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 + 8;
     }
@@ -18500,7 +18384,7 @@ const char* CPublishedFile_GetChangeHistoryEntry_Request::_InternalParse(const c
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional fixed64 publishedfileid = 1 [(.description) = "Published file id of the file we\'d like to get the change history for."];
+      // optional fixed64 publishedfileid = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
           _Internal::set_has_publishedfileid(&has_bits);
@@ -18554,7 +18438,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional fixed64 publishedfileid = 1 [(.description) = "Published file id of the file we\'d like to get the change history for."];
+  // optional fixed64 publishedfileid = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_publishedfileid(), target);
@@ -18590,7 +18474,7 @@ size_t CPublishedFile_GetChangeHistoryEntry_Request::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000007u) {
-    // optional fixed64 publishedfileid = 1 [(.description) = "Published file id of the file we\'d like to get the change history for."];
+    // optional fixed64 publishedfileid = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 + 8;
     }
@@ -19033,7 +18917,7 @@ const char* CPublishedFile_GetChangeHistory_Request::_InternalParse(const char* 
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional fixed64 publishedfileid = 1 [(.description) = "Published file id of the file we\'d like to get the change history for."];
+      // optional fixed64 publishedfileid = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
           _Internal::set_has_publishedfileid(&has_bits);
@@ -19041,7 +18925,7 @@ const char* CPublishedFile_GetChangeHistory_Request::_InternalParse(const char* 
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
         } else goto handle_unusual;
         continue;
-      // optional bool total_only = 2 [(.description) = "Return the total number of changes only."];
+      // optional bool total_only = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_total_only(&has_bits);
@@ -19065,7 +18949,7 @@ const char* CPublishedFile_GetChangeHistory_Request::_InternalParse(const char* 
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional int32 language = 5 [default = 0, (.description) = "Desired language"];
+      // optional int32 language = 5 [default = 0];
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
           _Internal::set_has_language(&has_bits);
@@ -19103,13 +18987,13 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional fixed64 publishedfileid = 1 [(.description) = "Published file id of the file we\'d like to get the change history for."];
+  // optional fixed64 publishedfileid = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_publishedfileid(), target);
   }
 
-  // optional bool total_only = 2 [(.description) = "Return the total number of changes only."];
+  // optional bool total_only = 2;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(2, this->_internal_total_only(), target);
@@ -19127,7 +19011,7 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_count(), target);
   }
 
-  // optional int32 language = 5 [default = 0, (.description) = "Desired language"];
+  // optional int32 language = 5 [default = 0];
   if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(5, this->_internal_language(), target);
@@ -19151,12 +19035,12 @@ size_t CPublishedFile_GetChangeHistory_Request::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x0000001fu) {
-    // optional fixed64 publishedfileid = 1 [(.description) = "Published file id of the file we\'d like to get the change history for."];
+    // optional fixed64 publishedfileid = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 + 8;
     }
 
-    // optional bool total_only = 2 [(.description) = "Return the total number of changes only."];
+    // optional bool total_only = 2;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 + 1;
     }
@@ -19175,7 +19059,7 @@ size_t CPublishedFile_GetChangeHistory_Request::ByteSizeLong() const {
           this->_internal_count());
     }
 
-    // optional int32 language = 5 [default = 0, (.description) = "Desired language"];
+    // optional int32 language = 5 [default = 0];
     if (cached_has_bits & 0x00000010u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
@@ -19902,7 +19786,7 @@ const char* CPublishedFile_RefreshVotingQueue_Request::_InternalParse(const char
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 matching_file_type = 2 [(.description) = "EPublishedFileInfoMatchingFileType"];
+      // optional uint32 matching_file_type = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_matching_file_type(&has_bits);
@@ -19910,7 +19794,7 @@ const char* CPublishedFile_RefreshVotingQueue_Request::_InternalParse(const char
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated string tags = 3 [(.description) = "Include files that have all the tags or any of the tags if match_all_tags is set to false."];
+      // repeated string tags = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           ptr -= 1;
@@ -19926,7 +19810,7 @@ const char* CPublishedFile_RefreshVotingQueue_Request::_InternalParse(const char
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<26>(ptr));
         } else goto handle_unusual;
         continue;
-      // optional bool match_all_tags = 4 [default = true, (.description) = "If true, then files must have all the tags specified.  If false, then must have at least one of the tags specified."];
+      // optional bool match_all_tags = 4 [default = true];
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
           _Internal::set_has_match_all_tags(&has_bits);
@@ -19934,7 +19818,7 @@ const char* CPublishedFile_RefreshVotingQueue_Request::_InternalParse(const char
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated string excluded_tags = 5 [(.description) = "Exclude any files that have any of these tags."];
+      // repeated string excluded_tags = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
           ptr -= 1;
@@ -19950,7 +19834,7 @@ const char* CPublishedFile_RefreshVotingQueue_Request::_InternalParse(const char
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<42>(ptr));
         } else goto handle_unusual;
         continue;
-      // optional uint32 desired_queue_size = 6 [(.description) = "Desired number of items in the voting queue.  May be clamped by the server"];
+      // optional uint32 desired_queue_size = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
           _Internal::set_has_desired_queue_size(&has_bits);
@@ -19958,7 +19842,7 @@ const char* CPublishedFile_RefreshVotingQueue_Request::_InternalParse(const char
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional .EPublishedFileRevision desired_revision = 8 [default = EPublishedFileRevision_Default, (.description) = "Filter to items that have data for the specified revision."];
+      // optional .EPublishedFileRevision desired_revision = 8 [default = EPublishedFileRevision_Default];
       case 8:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 64)) {
           ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -20006,13 +19890,13 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_appid(), target);
   }
 
-  // optional uint32 matching_file_type = 2 [(.description) = "EPublishedFileInfoMatchingFileType"];
+  // optional uint32 matching_file_type = 2;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_matching_file_type(), target);
   }
 
-  // repeated string tags = 3 [(.description) = "Include files that have all the tags or any of the tags if match_all_tags is set to false."];
+  // repeated string tags = 3;
   for (int i = 0, n = this->_internal_tags_size(); i < n; i++) {
     const auto& s = this->_internal_tags(i);
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
@@ -20022,13 +19906,13 @@ failure:
     target = stream->WriteString(3, s, target);
   }
 
-  // optional bool match_all_tags = 4 [default = true, (.description) = "If true, then files must have all the tags specified.  If false, then must have at least one of the tags specified."];
+  // optional bool match_all_tags = 4 [default = true];
   if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(4, this->_internal_match_all_tags(), target);
   }
 
-  // repeated string excluded_tags = 5 [(.description) = "Exclude any files that have any of these tags."];
+  // repeated string excluded_tags = 5;
   for (int i = 0, n = this->_internal_excluded_tags_size(); i < n; i++) {
     const auto& s = this->_internal_excluded_tags(i);
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
@@ -20038,13 +19922,13 @@ failure:
     target = stream->WriteString(5, s, target);
   }
 
-  // optional uint32 desired_queue_size = 6 [(.description) = "Desired number of items in the voting queue.  May be clamped by the server"];
+  // optional uint32 desired_queue_size = 6;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(6, this->_internal_desired_queue_size(), target);
   }
 
-  // optional .EPublishedFileRevision desired_revision = 8 [default = EPublishedFileRevision_Default, (.description) = "Filter to items that have data for the specified revision."];
+  // optional .EPublishedFileRevision desired_revision = 8 [default = EPublishedFileRevision_Default];
   if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
@@ -20067,7 +19951,7 @@ size_t CPublishedFile_RefreshVotingQueue_Request::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated string tags = 3 [(.description) = "Include files that have all the tags or any of the tags if match_all_tags is set to false."];
+  // repeated string tags = 3;
   total_size += 1 *
       ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(tags_.size());
   for (int i = 0, n = tags_.size(); i < n; i++) {
@@ -20075,7 +19959,7 @@ size_t CPublishedFile_RefreshVotingQueue_Request::ByteSizeLong() const {
       tags_.Get(i));
   }
 
-  // repeated string excluded_tags = 5 [(.description) = "Exclude any files that have any of these tags."];
+  // repeated string excluded_tags = 5;
   total_size += 1 *
       ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(excluded_tags_.size());
   for (int i = 0, n = excluded_tags_.size(); i < n; i++) {
@@ -20092,27 +19976,27 @@ size_t CPublishedFile_RefreshVotingQueue_Request::ByteSizeLong() const {
           this->_internal_appid());
     }
 
-    // optional uint32 matching_file_type = 2 [(.description) = "EPublishedFileInfoMatchingFileType"];
+    // optional uint32 matching_file_type = 2;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_matching_file_type());
     }
 
-    // optional uint32 desired_queue_size = 6 [(.description) = "Desired number of items in the voting queue.  May be clamped by the server"];
+    // optional uint32 desired_queue_size = 6;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_desired_queue_size());
     }
 
-    // optional .EPublishedFileRevision desired_revision = 8 [default = EPublishedFileRevision_Default, (.description) = "Filter to items that have data for the specified revision."];
+    // optional .EPublishedFileRevision desired_revision = 8 [default = EPublishedFileRevision_Default];
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_desired_revision());
     }
 
-    // optional bool match_all_tags = 4 [default = true, (.description) = "If true, then files must have all the tags specified.  If false, then must have at least one of the tags specified."];
+    // optional bool match_all_tags = 4 [default = true];
     if (cached_has_bits & 0x00000010u) {
       total_size += 1 + 1;
     }
@@ -20916,7 +20800,7 @@ const char* CPublishedFile_QueryFiles_Request_DateRange::_InternalParse(const ch
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint32 timestamp_start = 1 [(.description) = "(Optional) Include items with the relevant date field after this value."];
+      // optional uint32 timestamp_start = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_timestamp_start(&has_bits);
@@ -20924,7 +20808,7 @@ const char* CPublishedFile_QueryFiles_Request_DateRange::_InternalParse(const ch
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 timestamp_end = 2 [(.description) = "(Optional) Include items with the relevant date field before this value."];
+      // optional uint32 timestamp_end = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_timestamp_end(&has_bits);
@@ -20962,13 +20846,13 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint32 timestamp_start = 1 [(.description) = "(Optional) Include items with the relevant date field after this value."];
+  // optional uint32 timestamp_start = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_timestamp_start(), target);
   }
 
-  // optional uint32 timestamp_end = 2 [(.description) = "(Optional) Include items with the relevant date field before this value."];
+  // optional uint32 timestamp_end = 2;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_timestamp_end(), target);
@@ -20992,14 +20876,14 @@ size_t CPublishedFile_QueryFiles_Request_DateRange::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional uint32 timestamp_start = 1 [(.description) = "(Optional) Include items with the relevant date field after this value."];
+    // optional uint32 timestamp_start = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_timestamp_start());
     }
 
-    // optional uint32 timestamp_end = 2 [(.description) = "(Optional) Include items with the relevant date field before this value."];
+    // optional uint32 timestamp_end = 2;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -21344,7 +21228,7 @@ const char* CPublishedFile_QueryFiles_Request::_InternalParse(const char* ptr, :
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint32 query_type = 1 [(.description) = "enumeration EPublishedFileQueryType in clientenums.h"];
+      // optional uint32 query_type = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_query_type(&has_bits);
@@ -21352,7 +21236,7 @@ const char* CPublishedFile_QueryFiles_Request::_InternalParse(const char* ptr, :
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 page = 2 [(.description) = "Current page"];
+      // optional uint32 page = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_page(&has_bits);
@@ -21360,7 +21244,7 @@ const char* CPublishedFile_QueryFiles_Request::_InternalParse(const char* ptr, :
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 numperpage = 3 [default = 1, (.description) = "(Optional) The number of results, per page to return."];
+      // optional uint32 numperpage = 3 [default = 1];
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           _Internal::set_has_numperpage(&has_bits);
@@ -21368,7 +21252,7 @@ const char* CPublishedFile_QueryFiles_Request::_InternalParse(const char* ptr, :
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 creator_appid = 4 [(.description) = "App that created the files"];
+      // optional uint32 creator_appid = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
           _Internal::set_has_creator_appid(&has_bits);
@@ -21376,7 +21260,7 @@ const char* CPublishedFile_QueryFiles_Request::_InternalParse(const char* ptr, :
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 appid = 5 [(.description) = "App that consumes the files"];
+      // optional uint32 appid = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
           _Internal::set_has_appid(&has_bits);
@@ -21384,7 +21268,7 @@ const char* CPublishedFile_QueryFiles_Request::_InternalParse(const char* ptr, :
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated string requiredtags = 6 [(.description) = "Tags to match on. See match_all_tags parameter below"];
+      // repeated string requiredtags = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
           ptr -= 1;
@@ -21400,7 +21284,7 @@ const char* CPublishedFile_QueryFiles_Request::_InternalParse(const char* ptr, :
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<50>(ptr));
         } else goto handle_unusual;
         continue;
-      // repeated string excludedtags = 7 [(.description) = "(Optional) Tags that must NOT be present on a published file to satisfy the query."];
+      // repeated string excludedtags = 7;
       case 7:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
           ptr -= 1;
@@ -21416,7 +21300,7 @@ const char* CPublishedFile_QueryFiles_Request::_InternalParse(const char* ptr, :
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<58>(ptr));
         } else goto handle_unusual;
         continue;
-      // optional bool match_all_tags = 8 [default = true, (.description) = "If true, then items must have all the tags specified, otherwise they must have at least one of the tags."];
+      // optional bool match_all_tags = 8 [default = true];
       case 8:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 64)) {
           _Internal::set_has_match_all_tags(&has_bits);
@@ -21424,7 +21308,7 @@ const char* CPublishedFile_QueryFiles_Request::_InternalParse(const char* ptr, :
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated string required_flags = 9 [(.description) = "Required flags that must be set on any returned items"];
+      // repeated string required_flags = 9;
       case 9:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 74)) {
           ptr -= 1;
@@ -21440,7 +21324,7 @@ const char* CPublishedFile_QueryFiles_Request::_InternalParse(const char* ptr, :
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<74>(ptr));
         } else goto handle_unusual;
         continue;
-      // repeated string omitted_flags = 10 [(.description) = "Flags that must not be set on any returned items"];
+      // repeated string omitted_flags = 10;
       case 10:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 82)) {
           ptr -= 1;
@@ -21456,7 +21340,7 @@ const char* CPublishedFile_QueryFiles_Request::_InternalParse(const char* ptr, :
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<82>(ptr));
         } else goto handle_unusual;
         continue;
-      // optional string search_text = 11 [(.description) = "Text to match in the item\'s title or description"];
+      // optional string search_text = 11;
       case 11:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 90)) {
           auto str = _internal_mutable_search_text();
@@ -21467,7 +21351,7 @@ const char* CPublishedFile_QueryFiles_Request::_InternalParse(const char* ptr, :
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 filetype = 12 [(.description) = "EPublishedFileInfoMatchingFileType"];
+      // optional uint32 filetype = 12;
       case 12:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 96)) {
           _Internal::set_has_filetype(&has_bits);
@@ -21475,7 +21359,7 @@ const char* CPublishedFile_QueryFiles_Request::_InternalParse(const char* ptr, :
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional fixed64 child_publishedfileid = 13 [(.description) = "Find all items that reference the given item."];
+      // optional fixed64 child_publishedfileid = 13;
       case 13:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 105)) {
           _Internal::set_has_child_publishedfileid(&has_bits);
@@ -21483,7 +21367,7 @@ const char* CPublishedFile_QueryFiles_Request::_InternalParse(const char* ptr, :
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
         } else goto handle_unusual;
         continue;
-      // optional uint32 days = 14 [(.description) = "If query_type is PublishedFileQueryType_RankedByTrend, then this is the number of days to get votes for [1,7]."];
+      // optional uint32 days = 14;
       case 14:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 112)) {
           _Internal::set_has_days(&has_bits);
@@ -21491,7 +21375,7 @@ const char* CPublishedFile_QueryFiles_Request::_InternalParse(const char* ptr, :
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool include_recent_votes_only = 15 [(.description) = "If query_type is PublishedFileQueryType_RankedByTrend, then limit result set just to items that have votes within the day range given"];
+      // optional bool include_recent_votes_only = 15;
       case 15:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 120)) {
           _Internal::set_has_include_recent_votes_only(&has_bits);
@@ -21499,7 +21383,7 @@ const char* CPublishedFile_QueryFiles_Request::_InternalParse(const char* ptr, :
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool totalonly = 16 [(.description) = "(Optional) If true, only return the total number of files that satisfy this query."];
+      // optional bool totalonly = 16;
       case 16:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 128)) {
           _Internal::set_has_totalonly(&has_bits);
@@ -21507,7 +21391,7 @@ const char* CPublishedFile_QueryFiles_Request::_InternalParse(const char* ptr, :
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool return_vote_data = 17 [(.description) = "Return vote data"];
+      // optional bool return_vote_data = 17;
       case 17:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 136)) {
           _Internal::set_has_return_vote_data(&has_bits);
@@ -21515,7 +21399,7 @@ const char* CPublishedFile_QueryFiles_Request::_InternalParse(const char* ptr, :
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool return_tags = 18 [(.description) = "Return tags in the file details"];
+      // optional bool return_tags = 18;
       case 18:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 144)) {
           _Internal::set_has_return_tags(&has_bits);
@@ -21523,7 +21407,7 @@ const char* CPublishedFile_QueryFiles_Request::_InternalParse(const char* ptr, :
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool return_kv_tags = 19 [(.description) = "Return key-value tags in the file details"];
+      // optional bool return_kv_tags = 19;
       case 19:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 152)) {
           _Internal::set_has_return_kv_tags(&has_bits);
@@ -21531,7 +21415,7 @@ const char* CPublishedFile_QueryFiles_Request::_InternalParse(const char* ptr, :
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool return_previews = 20 [(.description) = "Return preview image and video details in the file details"];
+      // optional bool return_previews = 20;
       case 20:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 160)) {
           _Internal::set_has_return_previews(&has_bits);
@@ -21539,7 +21423,7 @@ const char* CPublishedFile_QueryFiles_Request::_InternalParse(const char* ptr, :
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool return_children = 21 [(.description) = "Return child item ids in the file details"];
+      // optional bool return_children = 21;
       case 21:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 168)) {
           _Internal::set_has_return_children(&has_bits);
@@ -21547,7 +21431,7 @@ const char* CPublishedFile_QueryFiles_Request::_InternalParse(const char* ptr, :
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool return_short_description = 22 [(.description) = "Populate the short_description field instead of file_description"];
+      // optional bool return_short_description = 22;
       case 22:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 176)) {
           _Internal::set_has_return_short_description(&has_bits);
@@ -21555,7 +21439,7 @@ const char* CPublishedFile_QueryFiles_Request::_InternalParse(const char* ptr, :
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool return_for_sale_data = 30 [(.description) = "Return pricing information, if applicable"];
+      // optional bool return_for_sale_data = 30;
       case 30:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 240)) {
           _Internal::set_has_return_for_sale_data(&has_bits);
@@ -21563,7 +21447,7 @@ const char* CPublishedFile_QueryFiles_Request::_InternalParse(const char* ptr, :
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 cache_max_age_seconds = 31 [default = 0, (.description) = "Allow stale data to be returned for the specified number of seconds."];
+      // optional uint32 cache_max_age_seconds = 31 [default = 0];
       case 31:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 248)) {
           _Internal::set_has_cache_max_age_seconds(&has_bits);
@@ -21571,7 +21455,7 @@ const char* CPublishedFile_QueryFiles_Request::_InternalParse(const char* ptr, :
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool return_metadata = 32 [default = false, (.description) = "Populate the metadata"];
+      // optional bool return_metadata = 32 [default = false];
       case 32:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 0)) {
           _Internal::set_has_return_metadata(&has_bits);
@@ -21579,7 +21463,7 @@ const char* CPublishedFile_QueryFiles_Request::_InternalParse(const char* ptr, :
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional int32 language = 33 [default = 0, (.description) = "Language to search in and also what gets returned. Defaults to English."];
+      // optional int32 language = 33 [default = 0];
       case 33:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_language(&has_bits);
@@ -21587,7 +21471,7 @@ const char* CPublishedFile_QueryFiles_Request::_InternalParse(const char* ptr, :
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated .CPublishedFile_QueryFiles_Request.KVTag required_kv_tags = 34 [(.description) = "Required key-value tags to match on."];
+      // repeated .CPublishedFile_QueryFiles_Request.KVTag required_kv_tags = 34;
       case 34:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           ptr -= 2;
@@ -21599,7 +21483,7 @@ const char* CPublishedFile_QueryFiles_Request::_InternalParse(const char* ptr, :
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<274>(ptr));
         } else goto handle_unusual;
         continue;
-      // optional bool ids_only = 35 [(.description) = "(Optional) If true, only return the published file ids of files that satisfy this query."];
+      // optional bool ids_only = 35;
       case 35:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           _Internal::set_has_ids_only(&has_bits);
@@ -21607,7 +21491,7 @@ const char* CPublishedFile_QueryFiles_Request::_InternalParse(const char* ptr, :
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 return_playtime_stats = 36 [(.description) = "Return playtime stats for the specified number of days before today."];
+      // optional uint32 return_playtime_stats = 36;
       case 36:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
           _Internal::set_has_return_playtime_stats(&has_bits);
@@ -21615,7 +21499,7 @@ const char* CPublishedFile_QueryFiles_Request::_InternalParse(const char* ptr, :
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool return_details = 37 [(.description) = "By default, if none of the other \'return_*\' fields are set, only some voting details are returned. Set this to true to return the default set of details."];
+      // optional bool return_details = 37;
       case 37:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
           _Internal::set_has_return_details(&has_bits);
@@ -21623,7 +21507,7 @@ const char* CPublishedFile_QueryFiles_Request::_InternalParse(const char* ptr, :
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool strip_description_bbcode = 38 [(.description) = "Strips BBCode from descriptions."];
+      // optional bool strip_description_bbcode = 38;
       case 38:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
           _Internal::set_has_strip_description_bbcode(&has_bits);
@@ -21631,7 +21515,7 @@ const char* CPublishedFile_QueryFiles_Request::_InternalParse(const char* ptr, :
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string cursor = 39 [(.description) = "Cursor to paginate through the results (set to \'*\' for the first request).  Prefer this over using the page parameter, as it will allow you to do deep pagination.  When used, the page parameter will be ignored."];
+      // optional string cursor = 39;
       case 39:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
           auto str = _internal_mutable_cursor();
@@ -21642,7 +21526,7 @@ const char* CPublishedFile_QueryFiles_Request::_InternalParse(const char* ptr, :
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional .EPublishedFileRevision desired_revision = 40 [default = EPublishedFileRevision_Default, (.description) = "Return the data for the specified revision."];
+      // optional .EPublishedFileRevision desired_revision = 40 [default = EPublishedFileRevision_Default];
       case 40:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 64)) {
           ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -21654,7 +21538,7 @@ const char* CPublishedFile_QueryFiles_Request::_InternalParse(const char* ptr, :
           }
         } else goto handle_unusual;
         continue;
-      // repeated .CPublishedFile_QueryFiles_Request.TagGroup taggroups = 42 [(.description) = "(Optional) At least one of the tags must be present on a published file to satisfy the query."];
+      // repeated .CPublishedFile_QueryFiles_Request.TagGroup taggroups = 42;
       case 42:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 82)) {
           ptr -= 2;
@@ -21666,7 +21550,7 @@ const char* CPublishedFile_QueryFiles_Request::_InternalParse(const char* ptr, :
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<338>(ptr));
         } else goto handle_unusual;
         continue;
-      // optional bool return_reactions = 43 [default = false, (.description) = "If true, then reactions to items will be returned."];
+      // optional bool return_reactions = 43 [default = false];
       case 43:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 88)) {
           _Internal::set_has_return_reactions(&has_bits);
@@ -21674,21 +21558,21 @@ const char* CPublishedFile_QueryFiles_Request::_InternalParse(const char* ptr, :
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional .CPublishedFile_QueryFiles_Request.DateRange date_range_created = 44 [(.description) = "(Optional) Filter to items created within this range."];
+      // optional .CPublishedFile_QueryFiles_Request.DateRange date_range_created = 44;
       case 44:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 98)) {
           ptr = ctx->ParseMessage(_internal_mutable_date_range_created(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional .CPublishedFile_QueryFiles_Request.DateRange date_range_updated = 45 [(.description) = "(Optional) Filter to items updated within this range."];
+      // optional .CPublishedFile_QueryFiles_Request.DateRange date_range_updated = 45;
       case 45:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 106)) {
           ptr = ctx->ParseMessage(_internal_mutable_date_range_updated(), ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated .EContentDescriptorID excluded_content_descriptors = 46 [(.description) = "(Optional) Filter out items that have these content descriptors."];
+      // repeated .EContentDescriptorID excluded_content_descriptors = 46;
       case 46:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 112)) {
           ptr -= 2;
@@ -21738,37 +21622,37 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint32 query_type = 1 [(.description) = "enumeration EPublishedFileQueryType in clientenums.h"];
+  // optional uint32 query_type = 1;
   if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_query_type(), target);
   }
 
-  // optional uint32 page = 2 [(.description) = "Current page"];
+  // optional uint32 page = 2;
   if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_page(), target);
   }
 
-  // optional uint32 numperpage = 3 [default = 1, (.description) = "(Optional) The number of results, per page to return."];
+  // optional uint32 numperpage = 3 [default = 1];
   if (cached_has_bits & 0x20000000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_numperpage(), target);
   }
 
-  // optional uint32 creator_appid = 4 [(.description) = "App that created the files"];
+  // optional uint32 creator_appid = 4;
   if (cached_has_bits & 0x00000040u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_creator_appid(), target);
   }
 
-  // optional uint32 appid = 5 [(.description) = "App that consumes the files"];
+  // optional uint32 appid = 5;
   if (cached_has_bits & 0x00000080u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(5, this->_internal_appid(), target);
   }
 
-  // repeated string requiredtags = 6 [(.description) = "Tags to match on. See match_all_tags parameter below"];
+  // repeated string requiredtags = 6;
   for (int i = 0, n = this->_internal_requiredtags_size(); i < n; i++) {
     const auto& s = this->_internal_requiredtags(i);
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
@@ -21778,7 +21662,7 @@ failure:
     target = stream->WriteString(6, s, target);
   }
 
-  // repeated string excludedtags = 7 [(.description) = "(Optional) Tags that must NOT be present on a published file to satisfy the query."];
+  // repeated string excludedtags = 7;
   for (int i = 0, n = this->_internal_excludedtags_size(); i < n; i++) {
     const auto& s = this->_internal_excludedtags(i);
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
@@ -21788,13 +21672,13 @@ failure:
     target = stream->WriteString(7, s, target);
   }
 
-  // optional bool match_all_tags = 8 [default = true, (.description) = "If true, then items must have all the tags specified, otherwise they must have at least one of the tags."];
+  // optional bool match_all_tags = 8 [default = true];
   if (cached_has_bits & 0x40000000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(8, this->_internal_match_all_tags(), target);
   }
 
-  // repeated string required_flags = 9 [(.description) = "Required flags that must be set on any returned items"];
+  // repeated string required_flags = 9;
   for (int i = 0, n = this->_internal_required_flags_size(); i < n; i++) {
     const auto& s = this->_internal_required_flags(i);
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
@@ -21804,7 +21688,7 @@ failure:
     target = stream->WriteString(9, s, target);
   }
 
-  // repeated string omitted_flags = 10 [(.description) = "Flags that must not be set on any returned items"];
+  // repeated string omitted_flags = 10;
   for (int i = 0, n = this->_internal_omitted_flags_size(); i < n; i++) {
     const auto& s = this->_internal_omitted_flags(i);
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
@@ -21814,7 +21698,7 @@ failure:
     target = stream->WriteString(10, s, target);
   }
 
-  // optional string search_text = 11 [(.description) = "Text to match in the item\'s title or description"];
+  // optional string search_text = 11;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_search_text().data(), static_cast<int>(this->_internal_search_text().length()),
@@ -21824,97 +21708,97 @@ failure:
         11, this->_internal_search_text(), target);
   }
 
-  // optional uint32 filetype = 12 [(.description) = "EPublishedFileInfoMatchingFileType"];
+  // optional uint32 filetype = 12;
   if (cached_has_bits & 0x00000200u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(12, this->_internal_filetype(), target);
   }
 
-  // optional fixed64 child_publishedfileid = 13 [(.description) = "Find all items that reference the given item."];
+  // optional fixed64 child_publishedfileid = 13;
   if (cached_has_bits & 0x00000100u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(13, this->_internal_child_publishedfileid(), target);
   }
 
-  // optional uint32 days = 14 [(.description) = "If query_type is PublishedFileQueryType_RankedByTrend, then this is the number of days to get votes for [1,7]."];
+  // optional uint32 days = 14;
   if (cached_has_bits & 0x00000400u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(14, this->_internal_days(), target);
   }
 
-  // optional bool include_recent_votes_only = 15 [(.description) = "If query_type is PublishedFileQueryType_RankedByTrend, then limit result set just to items that have votes within the day range given"];
+  // optional bool include_recent_votes_only = 15;
   if (cached_has_bits & 0x00008000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(15, this->_internal_include_recent_votes_only(), target);
   }
 
-  // optional bool totalonly = 16 [(.description) = "(Optional) If true, only return the total number of files that satisfy this query."];
+  // optional bool totalonly = 16;
   if (cached_has_bits & 0x00010000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(16, this->_internal_totalonly(), target);
   }
 
-  // optional bool return_vote_data = 17 [(.description) = "Return vote data"];
+  // optional bool return_vote_data = 17;
   if (cached_has_bits & 0x00040000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(17, this->_internal_return_vote_data(), target);
   }
 
-  // optional bool return_tags = 18 [(.description) = "Return tags in the file details"];
+  // optional bool return_tags = 18;
   if (cached_has_bits & 0x00000800u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(18, this->_internal_return_tags(), target);
   }
 
-  // optional bool return_kv_tags = 19 [(.description) = "Return key-value tags in the file details"];
+  // optional bool return_kv_tags = 19;
   if (cached_has_bits & 0x00001000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(19, this->_internal_return_kv_tags(), target);
   }
 
-  // optional bool return_previews = 20 [(.description) = "Return preview image and video details in the file details"];
+  // optional bool return_previews = 20;
   if (cached_has_bits & 0x00002000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(20, this->_internal_return_previews(), target);
   }
 
-  // optional bool return_children = 21 [(.description) = "Return child item ids in the file details"];
+  // optional bool return_children = 21;
   if (cached_has_bits & 0x00004000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(21, this->_internal_return_children(), target);
   }
 
-  // optional bool return_short_description = 22 [(.description) = "Populate the short_description field instead of file_description"];
+  // optional bool return_short_description = 22;
   if (cached_has_bits & 0x00080000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(22, this->_internal_return_short_description(), target);
   }
 
-  // optional bool return_for_sale_data = 30 [(.description) = "Return pricing information, if applicable"];
+  // optional bool return_for_sale_data = 30;
   if (cached_has_bits & 0x00100000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(30, this->_internal_return_for_sale_data(), target);
   }
 
-  // optional uint32 cache_max_age_seconds = 31 [default = 0, (.description) = "Allow stale data to be returned for the specified number of seconds."];
+  // optional uint32 cache_max_age_seconds = 31 [default = 0];
   if (cached_has_bits & 0x00800000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(31, this->_internal_cache_max_age_seconds(), target);
   }
 
-  // optional bool return_metadata = 32 [default = false, (.description) = "Populate the metadata"];
+  // optional bool return_metadata = 32 [default = false];
   if (cached_has_bits & 0x00200000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(32, this->_internal_return_metadata(), target);
   }
 
-  // optional int32 language = 33 [default = 0, (.description) = "Language to search in and also what gets returned. Defaults to English."];
+  // optional int32 language = 33 [default = 0];
   if (cached_has_bits & 0x01000000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(33, this->_internal_language(), target);
   }
 
-  // repeated .CPublishedFile_QueryFiles_Request.KVTag required_kv_tags = 34 [(.description) = "Required key-value tags to match on."];
+  // repeated .CPublishedFile_QueryFiles_Request.KVTag required_kv_tags = 34;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_required_kv_tags_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
@@ -21922,31 +21806,31 @@ failure:
       InternalWriteMessage(34, this->_internal_required_kv_tags(i), target, stream);
   }
 
-  // optional bool ids_only = 35 [(.description) = "(Optional) If true, only return the published file ids of files that satisfy this query."];
+  // optional bool ids_only = 35;
   if (cached_has_bits & 0x00020000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(35, this->_internal_ids_only(), target);
   }
 
-  // optional uint32 return_playtime_stats = 36 [(.description) = "Return playtime stats for the specified number of days before today."];
+  // optional uint32 return_playtime_stats = 36;
   if (cached_has_bits & 0x02000000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(36, this->_internal_return_playtime_stats(), target);
   }
 
-  // optional bool return_details = 37 [(.description) = "By default, if none of the other \'return_*\' fields are set, only some voting details are returned. Set this to true to return the default set of details."];
+  // optional bool return_details = 37;
   if (cached_has_bits & 0x00400000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(37, this->_internal_return_details(), target);
   }
 
-  // optional bool strip_description_bbcode = 38 [(.description) = "Strips BBCode from descriptions."];
+  // optional bool strip_description_bbcode = 38;
   if (cached_has_bits & 0x08000000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(38, this->_internal_strip_description_bbcode(), target);
   }
 
-  // optional string cursor = 39 [(.description) = "Cursor to paginate through the results (set to \'*\' for the first request).  Prefer this over using the page parameter, as it will allow you to do deep pagination.  When used, the page parameter will be ignored."];
+  // optional string cursor = 39;
   if (cached_has_bits & 0x00000002u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_cursor().data(), static_cast<int>(this->_internal_cursor().length()),
@@ -21956,14 +21840,14 @@ failure:
         39, this->_internal_cursor(), target);
   }
 
-  // optional .EPublishedFileRevision desired_revision = 40 [default = EPublishedFileRevision_Default, (.description) = "Return the data for the specified revision."];
+  // optional .EPublishedFileRevision desired_revision = 40 [default = EPublishedFileRevision_Default];
   if (cached_has_bits & 0x04000000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       40, this->_internal_desired_revision(), target);
   }
 
-  // repeated .CPublishedFile_QueryFiles_Request.TagGroup taggroups = 42 [(.description) = "(Optional) At least one of the tags must be present on a published file to satisfy the query."];
+  // repeated .CPublishedFile_QueryFiles_Request.TagGroup taggroups = 42;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_taggroups_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
@@ -21971,13 +21855,13 @@ failure:
       InternalWriteMessage(42, this->_internal_taggroups(i), target, stream);
   }
 
-  // optional bool return_reactions = 43 [default = false, (.description) = "If true, then reactions to items will be returned."];
+  // optional bool return_reactions = 43 [default = false];
   if (cached_has_bits & 0x10000000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(43, this->_internal_return_reactions(), target);
   }
 
-  // optional .CPublishedFile_QueryFiles_Request.DateRange date_range_created = 44 [(.description) = "(Optional) Filter to items created within this range."];
+  // optional .CPublishedFile_QueryFiles_Request.DateRange date_range_created = 44;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -21985,7 +21869,7 @@ failure:
         44, _Internal::date_range_created(this), target, stream);
   }
 
-  // optional .CPublishedFile_QueryFiles_Request.DateRange date_range_updated = 45 [(.description) = "(Optional) Filter to items updated within this range."];
+  // optional .CPublishedFile_QueryFiles_Request.DateRange date_range_updated = 45;
   if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
@@ -21993,7 +21877,7 @@ failure:
         45, _Internal::date_range_updated(this), target, stream);
   }
 
-  // repeated .EContentDescriptorID excluded_content_descriptors = 46 [(.description) = "(Optional) Filter out items that have these content descriptors."];
+  // repeated .EContentDescriptorID excluded_content_descriptors = 46;
   for (int i = 0, n = this->_internal_excluded_content_descriptors_size(); i < n; i++) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
@@ -22016,7 +21900,7 @@ size_t CPublishedFile_QueryFiles_Request::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated string requiredtags = 6 [(.description) = "Tags to match on. See match_all_tags parameter below"];
+  // repeated string requiredtags = 6;
   total_size += 1 *
       ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(requiredtags_.size());
   for (int i = 0, n = requiredtags_.size(); i < n; i++) {
@@ -22024,7 +21908,7 @@ size_t CPublishedFile_QueryFiles_Request::ByteSizeLong() const {
       requiredtags_.Get(i));
   }
 
-  // repeated string excludedtags = 7 [(.description) = "(Optional) Tags that must NOT be present on a published file to satisfy the query."];
+  // repeated string excludedtags = 7;
   total_size += 1 *
       ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(excludedtags_.size());
   for (int i = 0, n = excludedtags_.size(); i < n; i++) {
@@ -22032,7 +21916,7 @@ size_t CPublishedFile_QueryFiles_Request::ByteSizeLong() const {
       excludedtags_.Get(i));
   }
 
-  // repeated string required_flags = 9 [(.description) = "Required flags that must be set on any returned items"];
+  // repeated string required_flags = 9;
   total_size += 1 *
       ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(required_flags_.size());
   for (int i = 0, n = required_flags_.size(); i < n; i++) {
@@ -22040,7 +21924,7 @@ size_t CPublishedFile_QueryFiles_Request::ByteSizeLong() const {
       required_flags_.Get(i));
   }
 
-  // repeated string omitted_flags = 10 [(.description) = "Flags that must not be set on any returned items"];
+  // repeated string omitted_flags = 10;
   total_size += 1 *
       ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(omitted_flags_.size());
   for (int i = 0, n = omitted_flags_.size(); i < n; i++) {
@@ -22048,21 +21932,21 @@ size_t CPublishedFile_QueryFiles_Request::ByteSizeLong() const {
       omitted_flags_.Get(i));
   }
 
-  // repeated .CPublishedFile_QueryFiles_Request.KVTag required_kv_tags = 34 [(.description) = "Required key-value tags to match on."];
+  // repeated .CPublishedFile_QueryFiles_Request.KVTag required_kv_tags = 34;
   total_size += 2UL * this->_internal_required_kv_tags_size();
   for (const auto& msg : this->required_kv_tags_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  // repeated .CPublishedFile_QueryFiles_Request.TagGroup taggroups = 42 [(.description) = "(Optional) At least one of the tags must be present on a published file to satisfy the query."];
+  // repeated .CPublishedFile_QueryFiles_Request.TagGroup taggroups = 42;
   total_size += 2UL * this->_internal_taggroups_size();
   for (const auto& msg : this->taggroups_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  // repeated .EContentDescriptorID excluded_content_descriptors = 46 [(.description) = "(Optional) Filter out items that have these content descriptors."];
+  // repeated .EContentDescriptorID excluded_content_descriptors = 46;
   {
     size_t data_size = 0;
     unsigned int count = static_cast<unsigned int>(this->_internal_excluded_content_descriptors_size());for (unsigned int i = 0; i < count; i++) {
@@ -22074,56 +21958,56 @@ size_t CPublishedFile_QueryFiles_Request::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x000000ffu) {
-    // optional string search_text = 11 [(.description) = "Text to match in the item\'s title or description"];
+    // optional string search_text = 11;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_search_text());
     }
 
-    // optional string cursor = 39 [(.description) = "Cursor to paginate through the results (set to \'*\' for the first request).  Prefer this over using the page parameter, as it will allow you to do deep pagination.  When used, the page parameter will be ignored."];
+    // optional string cursor = 39;
     if (cached_has_bits & 0x00000002u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_cursor());
     }
 
-    // optional .CPublishedFile_QueryFiles_Request.DateRange date_range_created = 44 [(.description) = "(Optional) Filter to items created within this range."];
+    // optional .CPublishedFile_QueryFiles_Request.DateRange date_range_created = 44;
     if (cached_has_bits & 0x00000004u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
           *date_range_created_);
     }
 
-    // optional .CPublishedFile_QueryFiles_Request.DateRange date_range_updated = 45 [(.description) = "(Optional) Filter to items updated within this range."];
+    // optional .CPublishedFile_QueryFiles_Request.DateRange date_range_updated = 45;
     if (cached_has_bits & 0x00000008u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
           *date_range_updated_);
     }
 
-    // optional uint32 query_type = 1 [(.description) = "enumeration EPublishedFileQueryType in clientenums.h"];
+    // optional uint32 query_type = 1;
     if (cached_has_bits & 0x00000010u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_query_type());
     }
 
-    // optional uint32 page = 2 [(.description) = "Current page"];
+    // optional uint32 page = 2;
     if (cached_has_bits & 0x00000020u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_page());
     }
 
-    // optional uint32 creator_appid = 4 [(.description) = "App that created the files"];
+    // optional uint32 creator_appid = 4;
     if (cached_has_bits & 0x00000040u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_creator_appid());
     }
 
-    // optional uint32 appid = 5 [(.description) = "App that consumes the files"];
+    // optional uint32 appid = 5;
     if (cached_has_bits & 0x00000080u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -22132,88 +22016,88 @@ size_t CPublishedFile_QueryFiles_Request::ByteSizeLong() const {
 
   }
   if (cached_has_bits & 0x0000ff00u) {
-    // optional fixed64 child_publishedfileid = 13 [(.description) = "Find all items that reference the given item."];
+    // optional fixed64 child_publishedfileid = 13;
     if (cached_has_bits & 0x00000100u) {
       total_size += 1 + 8;
     }
 
-    // optional uint32 filetype = 12 [(.description) = "EPublishedFileInfoMatchingFileType"];
+    // optional uint32 filetype = 12;
     if (cached_has_bits & 0x00000200u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_filetype());
     }
 
-    // optional uint32 days = 14 [(.description) = "If query_type is PublishedFileQueryType_RankedByTrend, then this is the number of days to get votes for [1,7]."];
+    // optional uint32 days = 14;
     if (cached_has_bits & 0x00000400u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_days());
     }
 
-    // optional bool return_tags = 18 [(.description) = "Return tags in the file details"];
+    // optional bool return_tags = 18;
     if (cached_has_bits & 0x00000800u) {
       total_size += 2 + 1;
     }
 
-    // optional bool return_kv_tags = 19 [(.description) = "Return key-value tags in the file details"];
+    // optional bool return_kv_tags = 19;
     if (cached_has_bits & 0x00001000u) {
       total_size += 2 + 1;
     }
 
-    // optional bool return_previews = 20 [(.description) = "Return preview image and video details in the file details"];
+    // optional bool return_previews = 20;
     if (cached_has_bits & 0x00002000u) {
       total_size += 2 + 1;
     }
 
-    // optional bool return_children = 21 [(.description) = "Return child item ids in the file details"];
+    // optional bool return_children = 21;
     if (cached_has_bits & 0x00004000u) {
       total_size += 2 + 1;
     }
 
-    // optional bool include_recent_votes_only = 15 [(.description) = "If query_type is PublishedFileQueryType_RankedByTrend, then limit result set just to items that have votes within the day range given"];
+    // optional bool include_recent_votes_only = 15;
     if (cached_has_bits & 0x00008000u) {
       total_size += 1 + 1;
     }
 
   }
   if (cached_has_bits & 0x00ff0000u) {
-    // optional bool totalonly = 16 [(.description) = "(Optional) If true, only return the total number of files that satisfy this query."];
+    // optional bool totalonly = 16;
     if (cached_has_bits & 0x00010000u) {
       total_size += 2 + 1;
     }
 
-    // optional bool ids_only = 35 [(.description) = "(Optional) If true, only return the published file ids of files that satisfy this query."];
+    // optional bool ids_only = 35;
     if (cached_has_bits & 0x00020000u) {
       total_size += 2 + 1;
     }
 
-    // optional bool return_vote_data = 17 [(.description) = "Return vote data"];
+    // optional bool return_vote_data = 17;
     if (cached_has_bits & 0x00040000u) {
       total_size += 2 + 1;
     }
 
-    // optional bool return_short_description = 22 [(.description) = "Populate the short_description field instead of file_description"];
+    // optional bool return_short_description = 22;
     if (cached_has_bits & 0x00080000u) {
       total_size += 2 + 1;
     }
 
-    // optional bool return_for_sale_data = 30 [(.description) = "Return pricing information, if applicable"];
+    // optional bool return_for_sale_data = 30;
     if (cached_has_bits & 0x00100000u) {
       total_size += 2 + 1;
     }
 
-    // optional bool return_metadata = 32 [default = false, (.description) = "Populate the metadata"];
+    // optional bool return_metadata = 32 [default = false];
     if (cached_has_bits & 0x00200000u) {
       total_size += 2 + 1;
     }
 
-    // optional bool return_details = 37 [(.description) = "By default, if none of the other \'return_*\' fields are set, only some voting details are returned. Set this to true to return the default set of details."];
+    // optional bool return_details = 37;
     if (cached_has_bits & 0x00400000u) {
       total_size += 2 + 1;
     }
 
-    // optional uint32 cache_max_age_seconds = 31 [default = 0, (.description) = "Allow stale data to be returned for the specified number of seconds."];
+    // optional uint32 cache_max_age_seconds = 31 [default = 0];
     if (cached_has_bits & 0x00800000u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -22222,44 +22106,44 @@ size_t CPublishedFile_QueryFiles_Request::ByteSizeLong() const {
 
   }
   if (cached_has_bits & 0x7f000000u) {
-    // optional int32 language = 33 [default = 0, (.description) = "Language to search in and also what gets returned. Defaults to English."];
+    // optional int32 language = 33 [default = 0];
     if (cached_has_bits & 0x01000000u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
           this->_internal_language());
     }
 
-    // optional uint32 return_playtime_stats = 36 [(.description) = "Return playtime stats for the specified number of days before today."];
+    // optional uint32 return_playtime_stats = 36;
     if (cached_has_bits & 0x02000000u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_return_playtime_stats());
     }
 
-    // optional .EPublishedFileRevision desired_revision = 40 [default = EPublishedFileRevision_Default, (.description) = "Return the data for the specified revision."];
+    // optional .EPublishedFileRevision desired_revision = 40 [default = EPublishedFileRevision_Default];
     if (cached_has_bits & 0x04000000u) {
       total_size += 2 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_desired_revision());
     }
 
-    // optional bool strip_description_bbcode = 38 [(.description) = "Strips BBCode from descriptions."];
+    // optional bool strip_description_bbcode = 38;
     if (cached_has_bits & 0x08000000u) {
       total_size += 2 + 1;
     }
 
-    // optional bool return_reactions = 43 [default = false, (.description) = "If true, then reactions to items will be returned."];
+    // optional bool return_reactions = 43 [default = false];
     if (cached_has_bits & 0x10000000u) {
       total_size += 2 + 1;
     }
 
-    // optional uint32 numperpage = 3 [default = 1, (.description) = "(Optional) The number of results, per page to return."];
+    // optional uint32 numperpage = 3 [default = 1];
     if (cached_has_bits & 0x20000000u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_numperpage());
     }
 
-    // optional bool match_all_tags = 8 [default = true, (.description) = "If true, then items must have all the tags specified, otherwise they must have at least one of the tags."];
+    // optional bool match_all_tags = 8 [default = true];
     if (cached_has_bits & 0x40000000u) {
       total_size += 1 + 1;
     }
@@ -22541,7 +22425,7 @@ const char* CPublishedFile_QueryFiles_Response::_InternalParse(const char* ptr, 
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint32 total = 1 [(.description) = "Number of matches found, not necessarily number of items returned"];
+      // optional uint32 total = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_total(&has_bits);
@@ -22549,7 +22433,7 @@ const char* CPublishedFile_QueryFiles_Response::_InternalParse(const char* ptr, 
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated .PublishedFileDetails publishedfiledetails = 2 [(.description) = "Each file details will be populated, depending on what return values were requested."];
+      // repeated .PublishedFileDetails publishedfiledetails = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           ptr -= 1;
@@ -22561,7 +22445,7 @@ const char* CPublishedFile_QueryFiles_Response::_InternalParse(const char* ptr, 
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
         } else goto handle_unusual;
         continue;
-      // optional string next_cursor = 3 [(.description) = "If a paging cursor was used, then this will be the next cursor to use for paging through results"];
+      // optional string next_cursor = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           auto str = _internal_mutable_next_cursor();
@@ -22602,13 +22486,13 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint32 total = 1 [(.description) = "Number of matches found, not necessarily number of items returned"];
+  // optional uint32 total = 1;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_total(), target);
   }
 
-  // repeated .PublishedFileDetails publishedfiledetails = 2 [(.description) = "Each file details will be populated, depending on what return values were requested."];
+  // repeated .PublishedFileDetails publishedfiledetails = 2;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_publishedfiledetails_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
@@ -22616,7 +22500,7 @@ failure:
       InternalWriteMessage(2, this->_internal_publishedfiledetails(i), target, stream);
   }
 
-  // optional string next_cursor = 3 [(.description) = "If a paging cursor was used, then this will be the next cursor to use for paging through results"];
+  // optional string next_cursor = 3;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_next_cursor().data(), static_cast<int>(this->_internal_next_cursor().length()),
@@ -22642,7 +22526,7 @@ size_t CPublishedFile_QueryFiles_Response::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .PublishedFileDetails publishedfiledetails = 2 [(.description) = "Each file details will be populated, depending on what return values were requested."];
+  // repeated .PublishedFileDetails publishedfiledetails = 2;
   total_size += 1UL * this->_internal_publishedfiledetails_size();
   for (const auto& msg : this->publishedfiledetails_) {
     total_size +=
@@ -22651,14 +22535,14 @@ size_t CPublishedFile_QueryFiles_Response::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional string next_cursor = 3 [(.description) = "If a paging cursor was used, then this will be the next cursor to use for paging through results"];
+    // optional string next_cursor = 3;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_next_cursor());
     }
 
-    // optional uint32 total = 1 [(.description) = "Number of matches found, not necessarily number of items returned"];
+    // optional uint32 total = 1;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -27807,6 +27691,905 @@ void CPublishedFile_RemoveChild_Response::InternalSwap(CPublishedFile_RemoveChil
 
 // ===================================================================
 
+class CPublishedFile_SetCollectionChildren_Request::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CPublishedFile_SetCollectionChildren_Request>()._has_bits_);
+  static void set_has_appid(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static void set_has_publishedfileid(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+};
+
+CPublishedFile_SetCollectionChildren_Request::CPublishedFile_SetCollectionChildren_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+  children_(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CPublishedFile_SetCollectionChildren_Request)
+}
+CPublishedFile_SetCollectionChildren_Request::CPublishedFile_SetCollectionChildren_Request(const CPublishedFile_SetCollectionChildren_Request& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _has_bits_(from._has_bits_),
+      children_(from.children_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&publishedfileid_, &from.publishedfileid_,
+    static_cast<size_t>(reinterpret_cast<char*>(&appid_) -
+    reinterpret_cast<char*>(&publishedfileid_)) + sizeof(appid_));
+  // @@protoc_insertion_point(copy_constructor:CPublishedFile_SetCollectionChildren_Request)
+}
+
+void CPublishedFile_SetCollectionChildren_Request::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&publishedfileid_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&appid_) -
+    reinterpret_cast<char*>(&publishedfileid_)) + sizeof(appid_));
+}
+
+CPublishedFile_SetCollectionChildren_Request::~CPublishedFile_SetCollectionChildren_Request() {
+  // @@protoc_insertion_point(destructor:CPublishedFile_SetCollectionChildren_Request)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CPublishedFile_SetCollectionChildren_Request::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void CPublishedFile_SetCollectionChildren_Request::ArenaDtor(void* object) {
+  CPublishedFile_SetCollectionChildren_Request* _this = reinterpret_cast< CPublishedFile_SetCollectionChildren_Request* >(object);
+  (void)_this;
+}
+void CPublishedFile_SetCollectionChildren_Request::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CPublishedFile_SetCollectionChildren_Request::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CPublishedFile_SetCollectionChildren_Request::Clear() {
+// @@protoc_insertion_point(message_clear_start:CPublishedFile_SetCollectionChildren_Request)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  children_.Clear();
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    ::memset(&publishedfileid_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&appid_) -
+        reinterpret_cast<char*>(&publishedfileid_)) + sizeof(appid_));
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CPublishedFile_SetCollectionChildren_Request::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // optional uint32 appid = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          _Internal::set_has_appid(&has_bits);
+          appid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional uint64 publishedfileid = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          _Internal::set_has_publishedfileid(&has_bits);
+          publishedfileid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // repeated uint64 children = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            _internal_add_children(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<24>(ptr));
+        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedUInt64Parser(_internal_mutable_children(), ptr, ctx);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  _has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CPublishedFile_SetCollectionChildren_Request::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CPublishedFile_SetCollectionChildren_Request)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // optional uint32 appid = 1;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_appid(), target);
+  }
+
+  // optional uint64 publishedfileid = 2;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(2, this->_internal_publishedfileid(), target);
+  }
+
+  // repeated uint64 children = 3;
+  for (int i = 0, n = this->_internal_children_size(); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(3, this->_internal_children(i), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CPublishedFile_SetCollectionChildren_Request)
+  return target;
+}
+
+size_t CPublishedFile_SetCollectionChildren_Request::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CPublishedFile_SetCollectionChildren_Request)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated uint64 children = 3;
+  {
+    size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      UInt64Size(this->children_);
+    total_size += 1 *
+                  ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->_internal_children_size());
+    total_size += data_size;
+  }
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    // optional uint64 publishedfileid = 2;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
+          this->_internal_publishedfileid());
+    }
+
+    // optional uint32 appid = 1;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+          this->_internal_appid());
+    }
+
+  }
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CPublishedFile_SetCollectionChildren_Request::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CPublishedFile_SetCollectionChildren_Request)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CPublishedFile_SetCollectionChildren_Request* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CPublishedFile_SetCollectionChildren_Request>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CPublishedFile_SetCollectionChildren_Request)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CPublishedFile_SetCollectionChildren_Request)
+    MergeFrom(*source);
+  }
+}
+
+void CPublishedFile_SetCollectionChildren_Request::MergeFrom(const CPublishedFile_SetCollectionChildren_Request& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CPublishedFile_SetCollectionChildren_Request)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  children_.MergeFrom(from.children_);
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      publishedfileid_ = from.publishedfileid_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      appid_ = from.appid_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void CPublishedFile_SetCollectionChildren_Request::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CPublishedFile_SetCollectionChildren_Request)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CPublishedFile_SetCollectionChildren_Request::CopyFrom(const CPublishedFile_SetCollectionChildren_Request& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CPublishedFile_SetCollectionChildren_Request)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CPublishedFile_SetCollectionChildren_Request::IsInitialized() const {
+  return true;
+}
+
+void CPublishedFile_SetCollectionChildren_Request::InternalSwap(CPublishedFile_SetCollectionChildren_Request* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  children_.InternalSwap(&other->children_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CPublishedFile_SetCollectionChildren_Request, appid_)
+      + sizeof(CPublishedFile_SetCollectionChildren_Request::appid_)
+      - PROTOBUF_FIELD_OFFSET(CPublishedFile_SetCollectionChildren_Request, publishedfileid_)>(
+          reinterpret_cast<char*>(&publishedfileid_),
+          reinterpret_cast<char*>(&other->publishedfileid_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CPublishedFile_SetCollectionChildren_Request::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class CPublishedFile_SetCollectionChildren_Response::_Internal {
+ public:
+};
+
+CPublishedFile_SetCollectionChildren_Response::CPublishedFile_SetCollectionChildren_Response(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CPublishedFile_SetCollectionChildren_Response)
+}
+CPublishedFile_SetCollectionChildren_Response::CPublishedFile_SetCollectionChildren_Response(const CPublishedFile_SetCollectionChildren_Response& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:CPublishedFile_SetCollectionChildren_Response)
+}
+
+void CPublishedFile_SetCollectionChildren_Response::SharedCtor() {
+}
+
+CPublishedFile_SetCollectionChildren_Response::~CPublishedFile_SetCollectionChildren_Response() {
+  // @@protoc_insertion_point(destructor:CPublishedFile_SetCollectionChildren_Response)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CPublishedFile_SetCollectionChildren_Response::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void CPublishedFile_SetCollectionChildren_Response::ArenaDtor(void* object) {
+  CPublishedFile_SetCollectionChildren_Response* _this = reinterpret_cast< CPublishedFile_SetCollectionChildren_Response* >(object);
+  (void)_this;
+}
+void CPublishedFile_SetCollectionChildren_Response::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CPublishedFile_SetCollectionChildren_Response::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CPublishedFile_SetCollectionChildren_Response::Clear() {
+// @@protoc_insertion_point(message_clear_start:CPublishedFile_SetCollectionChildren_Response)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CPublishedFile_SetCollectionChildren_Response::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CPublishedFile_SetCollectionChildren_Response::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CPublishedFile_SetCollectionChildren_Response)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CPublishedFile_SetCollectionChildren_Response)
+  return target;
+}
+
+size_t CPublishedFile_SetCollectionChildren_Response::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CPublishedFile_SetCollectionChildren_Response)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CPublishedFile_SetCollectionChildren_Response::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CPublishedFile_SetCollectionChildren_Response)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CPublishedFile_SetCollectionChildren_Response* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CPublishedFile_SetCollectionChildren_Response>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CPublishedFile_SetCollectionChildren_Response)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CPublishedFile_SetCollectionChildren_Response)
+    MergeFrom(*source);
+  }
+}
+
+void CPublishedFile_SetCollectionChildren_Response::MergeFrom(const CPublishedFile_SetCollectionChildren_Response& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CPublishedFile_SetCollectionChildren_Response)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+}
+
+void CPublishedFile_SetCollectionChildren_Response::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CPublishedFile_SetCollectionChildren_Response)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CPublishedFile_SetCollectionChildren_Response::CopyFrom(const CPublishedFile_SetCollectionChildren_Response& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CPublishedFile_SetCollectionChildren_Response)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CPublishedFile_SetCollectionChildren_Response::IsInitialized() const {
+  return true;
+}
+
+void CPublishedFile_SetCollectionChildren_Response::InternalSwap(CPublishedFile_SetCollectionChildren_Response* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CPublishedFile_SetCollectionChildren_Response::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class CPublishedFile_SetSubscriptionListFromCollection_Request::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CPublishedFile_SetSubscriptionListFromCollection_Request>()._has_bits_);
+  static void set_has_appid(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_list_type(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static void set_has_publishedfileid(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+  static void set_has_add_only(HasBits* has_bits) {
+    (*has_bits)[0] |= 8u;
+  }
+};
+
+CPublishedFile_SetSubscriptionListFromCollection_Request::CPublishedFile_SetSubscriptionListFromCollection_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CPublishedFile_SetSubscriptionListFromCollection_Request)
+}
+CPublishedFile_SetSubscriptionListFromCollection_Request::CPublishedFile_SetSubscriptionListFromCollection_Request(const CPublishedFile_SetSubscriptionListFromCollection_Request& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _has_bits_(from._has_bits_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&appid_, &from.appid_,
+    static_cast<size_t>(reinterpret_cast<char*>(&add_only_) -
+    reinterpret_cast<char*>(&appid_)) + sizeof(add_only_));
+  // @@protoc_insertion_point(copy_constructor:CPublishedFile_SetSubscriptionListFromCollection_Request)
+}
+
+void CPublishedFile_SetSubscriptionListFromCollection_Request::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&appid_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&add_only_) -
+    reinterpret_cast<char*>(&appid_)) + sizeof(add_only_));
+}
+
+CPublishedFile_SetSubscriptionListFromCollection_Request::~CPublishedFile_SetSubscriptionListFromCollection_Request() {
+  // @@protoc_insertion_point(destructor:CPublishedFile_SetSubscriptionListFromCollection_Request)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CPublishedFile_SetSubscriptionListFromCollection_Request::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void CPublishedFile_SetSubscriptionListFromCollection_Request::ArenaDtor(void* object) {
+  CPublishedFile_SetSubscriptionListFromCollection_Request* _this = reinterpret_cast< CPublishedFile_SetSubscriptionListFromCollection_Request* >(object);
+  (void)_this;
+}
+void CPublishedFile_SetSubscriptionListFromCollection_Request::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CPublishedFile_SetSubscriptionListFromCollection_Request::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CPublishedFile_SetSubscriptionListFromCollection_Request::Clear() {
+// @@protoc_insertion_point(message_clear_start:CPublishedFile_SetSubscriptionListFromCollection_Request)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x0000000fu) {
+    ::memset(&appid_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&add_only_) -
+        reinterpret_cast<char*>(&appid_)) + sizeof(add_only_));
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CPublishedFile_SetSubscriptionListFromCollection_Request::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // optional uint32 appid = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          _Internal::set_has_appid(&has_bits);
+          appid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional uint32 list_type = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          _Internal::set_has_list_type(&has_bits);
+          list_type_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional uint64 publishedfileid = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+          _Internal::set_has_publishedfileid(&has_bits);
+          publishedfileid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional bool add_only = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
+          _Internal::set_has_add_only(&has_bits);
+          add_only_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  _has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CPublishedFile_SetSubscriptionListFromCollection_Request::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CPublishedFile_SetSubscriptionListFromCollection_Request)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // optional uint32 appid = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_appid(), target);
+  }
+
+  // optional uint32 list_type = 2;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_list_type(), target);
+  }
+
+  // optional uint64 publishedfileid = 3;
+  if (cached_has_bits & 0x00000004u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(3, this->_internal_publishedfileid(), target);
+  }
+
+  // optional bool add_only = 4;
+  if (cached_has_bits & 0x00000008u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(4, this->_internal_add_only(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CPublishedFile_SetSubscriptionListFromCollection_Request)
+  return target;
+}
+
+size_t CPublishedFile_SetSubscriptionListFromCollection_Request::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CPublishedFile_SetSubscriptionListFromCollection_Request)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x0000000fu) {
+    // optional uint32 appid = 1;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+          this->_internal_appid());
+    }
+
+    // optional uint32 list_type = 2;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+          this->_internal_list_type());
+    }
+
+    // optional uint64 publishedfileid = 3;
+    if (cached_has_bits & 0x00000004u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
+          this->_internal_publishedfileid());
+    }
+
+    // optional bool add_only = 4;
+    if (cached_has_bits & 0x00000008u) {
+      total_size += 1 + 1;
+    }
+
+  }
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CPublishedFile_SetSubscriptionListFromCollection_Request::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CPublishedFile_SetSubscriptionListFromCollection_Request)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CPublishedFile_SetSubscriptionListFromCollection_Request* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CPublishedFile_SetSubscriptionListFromCollection_Request>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CPublishedFile_SetSubscriptionListFromCollection_Request)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CPublishedFile_SetSubscriptionListFromCollection_Request)
+    MergeFrom(*source);
+  }
+}
+
+void CPublishedFile_SetSubscriptionListFromCollection_Request::MergeFrom(const CPublishedFile_SetSubscriptionListFromCollection_Request& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CPublishedFile_SetSubscriptionListFromCollection_Request)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 0x0000000fu) {
+    if (cached_has_bits & 0x00000001u) {
+      appid_ = from.appid_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      list_type_ = from.list_type_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      publishedfileid_ = from.publishedfileid_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      add_only_ = from.add_only_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void CPublishedFile_SetSubscriptionListFromCollection_Request::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CPublishedFile_SetSubscriptionListFromCollection_Request)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CPublishedFile_SetSubscriptionListFromCollection_Request::CopyFrom(const CPublishedFile_SetSubscriptionListFromCollection_Request& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CPublishedFile_SetSubscriptionListFromCollection_Request)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CPublishedFile_SetSubscriptionListFromCollection_Request::IsInitialized() const {
+  return true;
+}
+
+void CPublishedFile_SetSubscriptionListFromCollection_Request::InternalSwap(CPublishedFile_SetSubscriptionListFromCollection_Request* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CPublishedFile_SetSubscriptionListFromCollection_Request, add_only_)
+      + sizeof(CPublishedFile_SetSubscriptionListFromCollection_Request::add_only_)
+      - PROTOBUF_FIELD_OFFSET(CPublishedFile_SetSubscriptionListFromCollection_Request, appid_)>(
+          reinterpret_cast<char*>(&appid_),
+          reinterpret_cast<char*>(&other->appid_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CPublishedFile_SetSubscriptionListFromCollection_Request::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class CPublishedFile_SetSubscriptionListFromCollection_Response::_Internal {
+ public:
+};
+
+CPublishedFile_SetSubscriptionListFromCollection_Response::CPublishedFile_SetSubscriptionListFromCollection_Response(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CPublishedFile_SetSubscriptionListFromCollection_Response)
+}
+CPublishedFile_SetSubscriptionListFromCollection_Response::CPublishedFile_SetSubscriptionListFromCollection_Response(const CPublishedFile_SetSubscriptionListFromCollection_Response& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:CPublishedFile_SetSubscriptionListFromCollection_Response)
+}
+
+void CPublishedFile_SetSubscriptionListFromCollection_Response::SharedCtor() {
+}
+
+CPublishedFile_SetSubscriptionListFromCollection_Response::~CPublishedFile_SetSubscriptionListFromCollection_Response() {
+  // @@protoc_insertion_point(destructor:CPublishedFile_SetSubscriptionListFromCollection_Response)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CPublishedFile_SetSubscriptionListFromCollection_Response::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void CPublishedFile_SetSubscriptionListFromCollection_Response::ArenaDtor(void* object) {
+  CPublishedFile_SetSubscriptionListFromCollection_Response* _this = reinterpret_cast< CPublishedFile_SetSubscriptionListFromCollection_Response* >(object);
+  (void)_this;
+}
+void CPublishedFile_SetSubscriptionListFromCollection_Response::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CPublishedFile_SetSubscriptionListFromCollection_Response::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CPublishedFile_SetSubscriptionListFromCollection_Response::Clear() {
+// @@protoc_insertion_point(message_clear_start:CPublishedFile_SetSubscriptionListFromCollection_Response)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CPublishedFile_SetSubscriptionListFromCollection_Response::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CPublishedFile_SetSubscriptionListFromCollection_Response::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CPublishedFile_SetSubscriptionListFromCollection_Response)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CPublishedFile_SetSubscriptionListFromCollection_Response)
+  return target;
+}
+
+size_t CPublishedFile_SetSubscriptionListFromCollection_Response::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CPublishedFile_SetSubscriptionListFromCollection_Response)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CPublishedFile_SetSubscriptionListFromCollection_Response::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CPublishedFile_SetSubscriptionListFromCollection_Response)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CPublishedFile_SetSubscriptionListFromCollection_Response* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CPublishedFile_SetSubscriptionListFromCollection_Response>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CPublishedFile_SetSubscriptionListFromCollection_Response)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CPublishedFile_SetSubscriptionListFromCollection_Response)
+    MergeFrom(*source);
+  }
+}
+
+void CPublishedFile_SetSubscriptionListFromCollection_Response::MergeFrom(const CPublishedFile_SetSubscriptionListFromCollection_Response& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CPublishedFile_SetSubscriptionListFromCollection_Response)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+}
+
+void CPublishedFile_SetSubscriptionListFromCollection_Response::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CPublishedFile_SetSubscriptionListFromCollection_Response)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CPublishedFile_SetSubscriptionListFromCollection_Response::CopyFrom(const CPublishedFile_SetSubscriptionListFromCollection_Response& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CPublishedFile_SetSubscriptionListFromCollection_Response)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CPublishedFile_SetSubscriptionListFromCollection_Response::IsInitialized() const {
+  return true;
+}
+
+void CPublishedFile_SetSubscriptionListFromCollection_Response::InternalSwap(CPublishedFile_SetSubscriptionListFromCollection_Response* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CPublishedFile_SetSubscriptionListFromCollection_Response::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
 class CPublishedFile_GetUserVoteSummary_Request::_Internal {
  public:
 };
@@ -30552,7 +31335,7 @@ const char* CPublishedFile_FileSubscribed_Notification_RevisionData::_InternalPa
           }
         } else goto handle_unusual;
         continue;
-      // optional fixed64 file_hcontent = 2 [(.description) = "Manifest GID"];
+      // optional fixed64 file_hcontent = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 17)) {
           _Internal::set_has_file_hcontent(&has_bits);
@@ -30560,7 +31343,7 @@ const char* CPublishedFile_FileSubscribed_Notification_RevisionData::_InternalPa
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
         } else goto handle_unusual;
         continue;
-      // optional uint32 rtime_updated = 3 [(.description) = "Last time content updated"];
+      // optional uint32 rtime_updated = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           _Internal::set_has_rtime_updated(&has_bits);
@@ -30605,13 +31388,13 @@ failure:
       1, this->_internal_revision(), target);
   }
 
-  // optional fixed64 file_hcontent = 2 [(.description) = "Manifest GID"];
+  // optional fixed64 file_hcontent = 2;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(2, this->_internal_file_hcontent(), target);
   }
 
-  // optional uint32 rtime_updated = 3 [(.description) = "Last time content updated"];
+  // optional uint32 rtime_updated = 3;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_rtime_updated(), target);
@@ -30635,7 +31418,7 @@ size_t CPublishedFile_FileSubscribed_Notification_RevisionData::ByteSizeLong() c
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000007u) {
-    // optional fixed64 file_hcontent = 2 [(.description) = "Manifest GID"];
+    // optional fixed64 file_hcontent = 2;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 + 8;
     }
@@ -30646,7 +31429,7 @@ size_t CPublishedFile_FileSubscribed_Notification_RevisionData::ByteSizeLong() c
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_revision());
     }
 
-    // optional uint32 rtime_updated = 3 [(.description) = "Last time content updated"];
+    // optional uint32 rtime_updated = 3;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -30833,7 +31616,7 @@ const char* CPublishedFile_FileSubscribed_Notification::_InternalParse(const cha
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional fixed64 published_file_id = 1 [(.description) = "PublishedFileID_t for the content"];
+      // optional fixed64 published_file_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
           _Internal::set_has_published_file_id(&has_bits);
@@ -30849,7 +31632,7 @@ const char* CPublishedFile_FileSubscribed_Notification::_InternalParse(const cha
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional fixed64 file_hcontent = 3 [(.description) = "UGC file handle or manifest GID"];
+      // optional fixed64 file_hcontent = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 25)) {
           _Internal::set_has_file_hcontent(&has_bits);
@@ -30873,7 +31656,7 @@ const char* CPublishedFile_FileSubscribed_Notification::_InternalParse(const cha
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool is_depot_content = 6 [(.description) = "True if workshop item is delivered via Steampipe"];
+      // optional bool is_depot_content = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
           _Internal::set_has_is_depot_content(&has_bits);
@@ -30881,7 +31664,7 @@ const char* CPublishedFile_FileSubscribed_Notification::_InternalParse(const cha
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 rtime_updated = 7 [(.description) = "Last time content updated"];
+      // optional uint32 rtime_updated = 7;
       case 7:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 56)) {
           _Internal::set_has_rtime_updated(&has_bits);
@@ -30889,7 +31672,7 @@ const char* CPublishedFile_FileSubscribed_Notification::_InternalParse(const cha
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated .CPublishedFile_FileSubscribed_Notification.RevisionData revisions = 8 [(.description) = "Data for each of the revisions that this item has"];
+      // repeated .CPublishedFile_FileSubscribed_Notification.RevisionData revisions = 8;
       case 8:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 66)) {
           ptr -= 1;
@@ -30931,7 +31714,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional fixed64 published_file_id = 1 [(.description) = "PublishedFileID_t for the content"];
+  // optional fixed64 published_file_id = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_published_file_id(), target);
@@ -30943,7 +31726,7 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_app_id(), target);
   }
 
-  // optional fixed64 file_hcontent = 3 [(.description) = "UGC file handle or manifest GID"];
+  // optional fixed64 file_hcontent = 3;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(3, this->_internal_file_hcontent(), target);
@@ -30961,19 +31744,19 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(5, this->_internal_rtime_subscribed(), target);
   }
 
-  // optional bool is_depot_content = 6 [(.description) = "True if workshop item is delivered via Steampipe"];
+  // optional bool is_depot_content = 6;
   if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(6, this->_internal_is_depot_content(), target);
   }
 
-  // optional uint32 rtime_updated = 7 [(.description) = "Last time content updated"];
+  // optional uint32 rtime_updated = 7;
   if (cached_has_bits & 0x00000040u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(7, this->_internal_rtime_updated(), target);
   }
 
-  // repeated .CPublishedFile_FileSubscribed_Notification.RevisionData revisions = 8 [(.description) = "Data for each of the revisions that this item has"];
+  // repeated .CPublishedFile_FileSubscribed_Notification.RevisionData revisions = 8;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_revisions_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
@@ -30997,7 +31780,7 @@ size_t CPublishedFile_FileSubscribed_Notification::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .CPublishedFile_FileSubscribed_Notification.RevisionData revisions = 8 [(.description) = "Data for each of the revisions that this item has"];
+  // repeated .CPublishedFile_FileSubscribed_Notification.RevisionData revisions = 8;
   total_size += 1UL * this->_internal_revisions_size();
   for (const auto& msg : this->revisions_) {
     total_size +=
@@ -31006,12 +31789,12 @@ size_t CPublishedFile_FileSubscribed_Notification::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x0000007fu) {
-    // optional fixed64 published_file_id = 1 [(.description) = "PublishedFileID_t for the content"];
+    // optional fixed64 published_file_id = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 + 8;
     }
 
-    // optional fixed64 file_hcontent = 3 [(.description) = "UGC file handle or manifest GID"];
+    // optional fixed64 file_hcontent = 3;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 + 8;
     }
@@ -31037,12 +31820,12 @@ size_t CPublishedFile_FileSubscribed_Notification::ByteSizeLong() const {
           this->_internal_rtime_subscribed());
     }
 
-    // optional bool is_depot_content = 6 [(.description) = "True if workshop item is delivered via Steampipe"];
+    // optional bool is_depot_content = 6;
     if (cached_has_bits & 0x00000020u) {
       total_size += 1 + 1;
     }
 
-    // optional uint32 rtime_updated = 7 [(.description) = "Last time content updated"];
+    // optional uint32 rtime_updated = 7;
     if (cached_has_bits & 0x00000040u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -31225,7 +32008,7 @@ const char* CPublishedFile_FileUnsubscribed_Notification::_InternalParse(const c
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional fixed64 published_file_id = 1 [(.description) = "PublishedFileID_t for the content"];
+      // optional fixed64 published_file_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
           _Internal::set_has_published_file_id(&has_bits);
@@ -31271,7 +32054,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional fixed64 published_file_id = 1 [(.description) = "PublishedFileID_t for the content"];
+  // optional fixed64 published_file_id = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_published_file_id(), target);
@@ -31301,7 +32084,7 @@ size_t CPublishedFile_FileUnsubscribed_Notification::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional fixed64 published_file_id = 1 [(.description) = "PublishedFileID_t for the content"];
+    // optional fixed64 published_file_id = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 + 8;
     }
@@ -31472,7 +32255,7 @@ const char* CPublishedFile_FileDeleted_Client_Notification::_InternalParse(const
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional fixed64 published_file_id = 1 [(.description) = "PublishedFileID_t for the content"];
+      // optional fixed64 published_file_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 9)) {
           _Internal::set_has_published_file_id(&has_bits);
@@ -31518,7 +32301,7 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional fixed64 published_file_id = 1 [(.description) = "PublishedFileID_t for the content"];
+  // optional fixed64 published_file_id = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(1, this->_internal_published_file_id(), target);
@@ -31548,7 +32331,7 @@ size_t CPublishedFile_FileDeleted_Client_Notification::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional fixed64 published_file_id = 1 [(.description) = "PublishedFileID_t for the content"];
+    // optional fixed64 published_file_id = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 + 8;
     }
@@ -31868,6 +32651,22 @@ void PublishedFile::RemoveChild(::PROTOBUF_NAMESPACE_ID::RpcController* controll
   done->Run();
 }
 
+void PublishedFile::SetCollectionChildren(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                         const ::CPublishedFile_SetCollectionChildren_Request*,
+                         ::CPublishedFile_SetCollectionChildren_Response*,
+                         ::google::protobuf::Closure* done) {
+  controller->SetFailed("Method SetCollectionChildren() not implemented.");
+  done->Run();
+}
+
+void PublishedFile::SetSubscriptionListFromCollection(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                         const ::CPublishedFile_SetSubscriptionListFromCollection_Request*,
+                         ::CPublishedFile_SetSubscriptionListFromCollection_Response*,
+                         ::google::protobuf::Closure* done) {
+  controller->SetFailed("Method SetSubscriptionListFromCollection() not implemented.");
+  done->Run();
+}
+
 void PublishedFile::GetUserVoteSummary(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                          const ::CPublishedFile_GetUserVoteSummary_Request*,
                          ::CPublishedFile_GetUserVoteSummary_Response*,
@@ -32124,6 +32923,22 @@ void PublishedFile::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* 
              done);
       break;
     case 27:
+      SetCollectionChildren(controller,
+             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CPublishedFile_SetCollectionChildren_Request*>(
+                 request),
+             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<::CPublishedFile_SetCollectionChildren_Response*>(
+                 response),
+             done);
+      break;
+    case 28:
+      SetSubscriptionListFromCollection(controller,
+             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CPublishedFile_SetSubscriptionListFromCollection_Request*>(
+                 request),
+             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<::CPublishedFile_SetSubscriptionListFromCollection_Response*>(
+                 response),
+             done);
+      break;
+    case 29:
       GetUserVoteSummary(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CPublishedFile_GetUserVoteSummary_Request*>(
                  request),
@@ -32131,7 +32946,7 @@ void PublishedFile::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* 
                  response),
              done);
       break;
-    case 28:
+    case 30:
       GetItemChanges(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CPublishedFile_GetItemChanges_Request*>(
                  request),
@@ -32139,7 +32954,7 @@ void PublishedFile::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* 
                  response),
              done);
       break;
-    case 29:
+    case 31:
       GetContentDescriptors(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CPublishedFile_GetContentDescriptors_Request*>(
                  request),
@@ -32147,7 +32962,7 @@ void PublishedFile::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* 
                  response),
              done);
       break;
-    case 30:
+    case 32:
       UpdateContentDescriptors(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CPublishedFile_UpdateContentDescriptors_Request*>(
                  request),
@@ -32220,12 +33035,16 @@ const ::PROTOBUF_NAMESPACE_ID::Message& PublishedFile::GetRequestPrototype(
     case 26:
       return ::CPublishedFile_RemoveChild_Request::default_instance();
     case 27:
-      return ::CPublishedFile_GetUserVoteSummary_Request::default_instance();
+      return ::CPublishedFile_SetCollectionChildren_Request::default_instance();
     case 28:
-      return ::CPublishedFile_GetItemChanges_Request::default_instance();
+      return ::CPublishedFile_SetSubscriptionListFromCollection_Request::default_instance();
     case 29:
-      return ::CPublishedFile_GetContentDescriptors_Request::default_instance();
+      return ::CPublishedFile_GetUserVoteSummary_Request::default_instance();
     case 30:
+      return ::CPublishedFile_GetItemChanges_Request::default_instance();
+    case 31:
+      return ::CPublishedFile_GetContentDescriptors_Request::default_instance();
+    case 32:
       return ::CPublishedFile_UpdateContentDescriptors_Request::default_instance();
     default:
       GOOGLE_LOG(FATAL) << "Bad method index; this should never happen.";
@@ -32293,12 +33112,16 @@ const ::PROTOBUF_NAMESPACE_ID::Message& PublishedFile::GetResponsePrototype(
     case 26:
       return ::CPublishedFile_RemoveChild_Response::default_instance();
     case 27:
-      return ::CPublishedFile_GetUserVoteSummary_Response::default_instance();
+      return ::CPublishedFile_SetCollectionChildren_Response::default_instance();
     case 28:
-      return ::CPublishedFile_GetItemChanges_Response::default_instance();
+      return ::CPublishedFile_SetSubscriptionListFromCollection_Response::default_instance();
     case 29:
-      return ::CPublishedFile_GetContentDescriptors_Response::default_instance();
+      return ::CPublishedFile_GetUserVoteSummary_Response::default_instance();
     case 30:
+      return ::CPublishedFile_GetItemChanges_Response::default_instance();
+    case 31:
+      return ::CPublishedFile_GetContentDescriptors_Response::default_instance();
+    case 32:
       return ::CPublishedFile_UpdateContentDescriptors_Response::default_instance();
     default:
       GOOGLE_LOG(FATAL) << "Bad method index; this should never happen.";
@@ -32507,32 +33330,46 @@ void PublishedFile_Stub::RemoveChild(::PROTOBUF_NAMESPACE_ID::RpcController* con
   channel_->CallMethod(descriptor()->method(26),
                        controller, request, response, done);
 }
+void PublishedFile_Stub::SetCollectionChildren(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                              const ::CPublishedFile_SetCollectionChildren_Request* request,
+                              ::CPublishedFile_SetCollectionChildren_Response* response,
+                              ::google::protobuf::Closure* done) {
+  channel_->CallMethod(descriptor()->method(27),
+                       controller, request, response, done);
+}
+void PublishedFile_Stub::SetSubscriptionListFromCollection(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                              const ::CPublishedFile_SetSubscriptionListFromCollection_Request* request,
+                              ::CPublishedFile_SetSubscriptionListFromCollection_Response* response,
+                              ::google::protobuf::Closure* done) {
+  channel_->CallMethod(descriptor()->method(28),
+                       controller, request, response, done);
+}
 void PublishedFile_Stub::GetUserVoteSummary(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CPublishedFile_GetUserVoteSummary_Request* request,
                               ::CPublishedFile_GetUserVoteSummary_Response* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(27),
+  channel_->CallMethod(descriptor()->method(29),
                        controller, request, response, done);
 }
 void PublishedFile_Stub::GetItemChanges(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CPublishedFile_GetItemChanges_Request* request,
                               ::CPublishedFile_GetItemChanges_Response* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(28),
+  channel_->CallMethod(descriptor()->method(30),
                        controller, request, response, done);
 }
 void PublishedFile_Stub::GetContentDescriptors(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CPublishedFile_GetContentDescriptors_Request* request,
                               ::CPublishedFile_GetContentDescriptors_Response* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(29),
+  channel_->CallMethod(descriptor()->method(31),
                        controller, request, response, done);
 }
 void PublishedFile_Stub::UpdateContentDescriptors(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                               const ::CPublishedFile_UpdateContentDescriptors_Request* request,
                               ::CPublishedFile_UpdateContentDescriptors_Response* response,
                               ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(30),
+  channel_->CallMethod(descriptor()->method(32),
                        controller, request, response, done);
 }
 // ===================================================================
@@ -32905,6 +33742,18 @@ template<> PROTOBUF_NOINLINE ::CPublishedFile_RemoveChild_Request* Arena::Create
 }
 template<> PROTOBUF_NOINLINE ::CPublishedFile_RemoveChild_Response* Arena::CreateMaybeMessage< ::CPublishedFile_RemoveChild_Response >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CPublishedFile_RemoveChild_Response >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CPublishedFile_SetCollectionChildren_Request* Arena::CreateMaybeMessage< ::CPublishedFile_SetCollectionChildren_Request >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CPublishedFile_SetCollectionChildren_Request >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CPublishedFile_SetCollectionChildren_Response* Arena::CreateMaybeMessage< ::CPublishedFile_SetCollectionChildren_Response >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CPublishedFile_SetCollectionChildren_Response >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CPublishedFile_SetSubscriptionListFromCollection_Request* Arena::CreateMaybeMessage< ::CPublishedFile_SetSubscriptionListFromCollection_Request >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CPublishedFile_SetSubscriptionListFromCollection_Request >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CPublishedFile_SetSubscriptionListFromCollection_Response* Arena::CreateMaybeMessage< ::CPublishedFile_SetSubscriptionListFromCollection_Response >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CPublishedFile_SetSubscriptionListFromCollection_Response >(arena);
 }
 template<> PROTOBUF_NOINLINE ::CPublishedFile_GetUserVoteSummary_Request* Arena::CreateMaybeMessage< ::CPublishedFile_GetUserVoteSummary_Request >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CPublishedFile_GetUserVoteSummary_Request >(arena);

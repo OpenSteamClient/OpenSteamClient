@@ -143,13 +143,10 @@ const char descriptor_table_protodef_steammessages_5fsecrets_2esteamclient_2epro
   "rial\030\010 \001(\t\022\036\n\026device_provisioning_id\030\t \001"
   "(\r\"9\n\023CKeyEscrow_Response\022\"\n\006ticket\030\001 \001("
   "\0132\022.CKeyEscrow_Ticket*5\n\017EKeyEscrowUsage"
-  "\022\"\n\036EKeyEscrowUsageStreamingDevice\020\0002\310\001\n"
-  "\007Secrets\022\200\001\n\tKeyEscrow\022\023.CKeyEscrow_Requ"
-  "est\032\024.CKeyEscrow_Response\"H\202\265\030DService t"
-  "o perform authenticated key-exchange inv"
-  "olving Steam Client\032:\202\265\0306Service for acc"
-  "essing credentials and guarding secretsB"
-  "\035\200\001\001\252\002\027OpenSteamworks.Protobuf"
+  "\022\"\n\036EKeyEscrowUsageStreamingDevice\020\0002A\n\007"
+  "Secrets\0226\n\tKeyEscrow\022\023.CKeyEscrow_Reques"
+  "t\032\024.CKeyEscrow_ResponseB\035\200\001\001\252\002\027OpenSteam"
+  "works.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fsecrets_2esteamclient_2eproto_deps[3] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
@@ -158,7 +155,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fsecrets_2esteamclient_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fsecrets_2esteamclient_2eproto = {
-  false, false, 910, descriptor_table_protodef_steammessages_5fsecrets_2esteamclient_2eproto, "steammessages_secrets.steamclient.proto", 
+  false, false, 774, descriptor_table_protodef_steammessages_5fsecrets_2esteamclient_2eproto, "steammessages_secrets.steamclient.proto", 
   &descriptor_table_steammessages_5fsecrets_2esteamclient_2eproto_once, descriptor_table_steammessages_5fsecrets_2esteamclient_2eproto_deps, 3, 3,
   schemas, file_default_instances, TableStruct_steammessages_5fsecrets_2esteamclient_2eproto::offsets,
   file_level_metadata_steammessages_5fsecrets_2esteamclient_2eproto, file_level_enum_descriptors_steammessages_5fsecrets_2esteamclient_2eproto, file_level_service_descriptors_steammessages_5fsecrets_2esteamclient_2eproto,

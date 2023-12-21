@@ -118,6 +118,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
   #region Messages
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CChatUsability_ClientUsabilityMetrics_Notification : pb::IMessage<CChatUsability_ClientUsabilityMetrics_Notification>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -664,6 +665,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CChatUsability_ClientUsabilityMetrics_Notification_Metrics : pb::IMessage<CChatUsability_ClientUsabilityMetrics_Notification_Metrics>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1338,6 +1340,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CChatUsability_ClientUsabilityMetrics_Notification_Settings : pb::IMessage<CChatUsability_ClientUsabilityMetrics_Notification_Settings>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -2792,6 +2795,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CChatUsability_ClientUsabilityMetrics_Notification_UIState : pb::IMessage<CChatUsability_ClientUsabilityMetrics_Notification_UIState>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -3772,6 +3776,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CChatUsability_ClientUsabilityMetrics_Notification_UIState_CategoryCollapseState : pb::IMessage<CChatUsability_ClientUsabilityMetrics_Notification_UIState_CategoryCollapseState>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -4186,6 +4191,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CChatUsability_ClientUsabilityMetrics_Notification_VoiceSettings : pb::IMessage<CChatUsability_ClientUsabilityMetrics_Notification_VoiceSettings>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -4912,6 +4918,7 @@ namespace OpenSteamworks.Protobuf.WebUI {
 
   }
 
+  [global::System.Diagnostics.DebuggerDisplayAttribute("{ToString(),nq}")]
   public sealed partial class CChatUsability_RequestClientUsabilityMetrics_Notification : pb::IMessage<CChatUsability_RequestClientUsabilityMetrics_Notification>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage

@@ -520,134 +520,97 @@ const char descriptor_table_protodef_steammessages_5ffriendmessages_2esteamclien
   "\n.steammessages_friendmessages.steamclie"
   "nt.proto\032 google/protobuf/descriptor.pro"
   "to\032\030steammessages_base.proto\032,steammessa"
-  "ges_unified_base.steamclient.proto\"\361\005\n)C"
+  "ges_unified_base.steamclient.proto\"\363\001\n)C"
   "FriendMessages_GetRecentMessages_Request"
-  "\022\020\n\010steamid1\030\001 \001(\006\022\020\n\010steamid2\030\002 \001(\006\022L\n\005"
-  "count\030\003 \001(\rB=\202\265\0309If non-zero, cap the nu"
-  "mber of recent messages to return.\022s\n\030mo"
-  "st_recent_conversation\030\004 \001(\010BQ\202\265\030MGrab t"
-  "he block of chat from the most recent co"
-  "nversation (a ~5 minute period)\022\251\001\n\022rtim"
-  "e32_start_time\030\005 \001(\007B\214\001\202\265\030\207\001If non-zero,"
-  " return only messages with timestamps gr"
-  "eater or equal to this. If zero, we only"
-  " return messages from a recent time cuto"
-  "ff.\022E\n\rbbcode_format\030\006 \001(\010B.\202\265\030*Return t"
-  "he results with bbcode formatting.\022\204\001\n\rs"
-  "tart_ordinal\030\007 \001(\rBm\202\265\030iCombined with st"
-  "art time, only messages after this ordin"
-  "al are returned (dedupes messages in sam"
-  "e second)\022M\n\ttime_last\030\010 \001(\rB:\202\265\0306if pre"
-  "sent/non-zero, return only messages befo"
-  "re this.\022\024\n\014ordinal_last\030\t \001(\r\"\200\004\n*CFrie"
-  "ndMessages_GetRecentMessages_Response\022~\n"
-  "\010messages\030\001 \003(\01329.CFriendMessages_GetRec"
-  "entMessages_Response.FriendMessageB1\202\265\030-"
-  "Array of messages, returned newest to ol"
-  "dest.\022\026\n\016more_available\030\004 \001(\010\032\271\002\n\rFriend"
-  "Message\022\021\n\taccountid\030\001 \001(\r\022\021\n\ttimestamp\030"
-  "\002 \001(\r\022\017\n\007message\030\003 \001(\t\022\017\n\007ordinal\030\004 \001(\r\022"
-  "\\\n\treactions\030\005 \003(\0132I.CFriendMessages_Get"
-  "RecentMessages_Response.FriendMessage.Me"
-  "ssageReaction\032\201\001\n\017MessageReaction\022J\n\rrea"
-  "ction_type\030\001 \001(\0162\025.EMessageReactionType:"
-  "\034EMessageReactionType_Invalid\022\020\n\010reactio"
-  "n\030\002 \001(\t\022\020\n\010reactors\030\003 \003(\r\"\337\002\n1CFriendsMe"
-  "ssages_GetActiveMessageSessions_Request\022"
-  "\177\n\021lastmessage_since\030\001 \001(\rBd\202\265\030`return o"
-  "nly session information where a chat mes"
-  "sage has been sent since this time (for "
-  "polling)\022\250\001\n\033only_sessions_with_messages"
-  "\030\002 \001(\010B\202\001\202\265\030~If non-zero, return only me"
-  "ssage sessions that have messages since "
-  "our message cutoff. If zero, we return a"
-  "ll active sessions.\"\374\002\n2CFriendsMessages"
-  "_GetActiveMessageSessions_Response\022b\n\020me"
-  "ssage_sessions\030\001 \003(\0132H.CFriendsMessages_"
-  "GetActiveMessageSessions_Response.Friend"
-  "MessageSession\022i\n\ttimestamp\030\002 \001(\rBV\202\265\030RT"
-  "his should be passed in the next request"
-  " as lastmessage_since to poll for update"
-  "s\032w\n\024FriendMessageSession\022\030\n\020accountid_f"
-  "riend\030\001 \001(\r\022\024\n\014last_message\030\002 \001(\r\022\021\n\tlas"
-  "t_view\030\003 \001(\r\022\034\n\024unread_message_count\030\004 \001"
-  "(\r\"\302\001\n#CFriendMessages_SendMessage_Reque"
-  "st\022\017\n\007steamid\030\001 \001(\006\022\027\n\017chat_entry_type\030\002"
-  " \001(\005\022\017\n\007message\030\003 \001(\t\022\027\n\017contains_bbcode"
-  "\030\004 \001(\010\022\026\n\016echo_to_sender\030\005 \001(\010\022\024\n\014low_pr"
-  "iority\030\006 \001(\010\022\031\n\021client_message_id\030\010 \001(\t\""
-  "\214\001\n$CFriendMessages_SendMessage_Response"
-  "\022\030\n\020modified_message\030\001 \001(\t\022\030\n\020server_tim"
-  "estamp\030\002 \001(\r\022\017\n\007ordinal\030\003 \001(\r\022\037\n\027message"
-  "_without_bb_code\030\004 \001(\t\"U\n\'CFriendMessage"
-  "s_AckMessage_Notification\022\027\n\017steamid_par"
-  "tner\030\001 \001(\006\022\021\n\ttimestamp\030\002 \001(\r\"<\n)CFriend"
-  "Messages_IsInFriendsUIBeta_Request\022\017\n\007st"
-  "eamid\030\001 \001(\006\"e\n*CFriendMessages_IsInFrien"
-  "dsUIBeta_Response\022\033\n\023online_in_friendsui"
-  "\030\001 \001(\010\022\032\n\022has_used_friendsui\030\002 \001(\010\"\331\001\n-C"
-  "FriendMessages_UpdateMessageReaction_Req"
-  "uest\022\017\n\007steamid\030\001 \001(\006\022\030\n\020server_timestam"
-  "p\030\002 \001(\r\022\017\n\007ordinal\030\003 \001(\r\022J\n\rreaction_typ"
-  "e\030\004 \001(\0162\025.EMessageReactionType:\034EMessage"
-  "ReactionType_Invalid\022\020\n\010reaction\030\005 \001(\t\022\016"
-  "\n\006is_add\030\006 \001(\010\"B\n.CFriendMessages_Update"
-  "MessageReaction_Response\022\020\n\010reactors\030\001 \003"
-  "(\r\"\206\002\n,CFriendMessages_IncomingMessage_N"
-  "otification\022\026\n\016steamid_friend\030\001 \001(\006\022\027\n\017c"
-  "hat_entry_type\030\002 \001(\005\022\034\n\024from_limited_acc"
-  "ount\030\003 \001(\010\022\017\n\007message\030\004 \001(\t\022 \n\030rtime32_s"
-  "erver_timestamp\030\005 \001(\007\022\017\n\007ordinal\030\006 \001(\r\022\022"
-  "\n\nlocal_echo\030\007 \001(\010\022\031\n\021message_no_bbcode\030"
-  "\010 \001(\t\022\024\n\014low_priority\030\t \001(\010\"\360\001\n,CFriendM"
-  "essages_MessageReaction_Notification\022\026\n\016"
-  "steamid_friend\030\001 \001(\006\022\030\n\020server_timestamp"
-  "\030\002 \001(\r\022\017\n\007ordinal\030\003 \001(\r\022\017\n\007reactor\030\004 \001(\006"
-  "\022J\n\rreaction_type\030\005 \001(\0162\025.EMessageReacti"
-  "onType:\034EMessageReactionType_Invalid\022\020\n\010"
-  "reaction\030\006 \001(\t\022\016\n\006is_add\030\007 \001(\010*}\n\024EMessa"
-  "geReactionType\022 \n\034EMessageReactionType_I"
-  "nvalid\020\000\022!\n\035EMessageReactionType_Emotico"
-  "n\020\001\022 \n\034EMessageReactionType_Sticker\020\0022\275\010"
-  "\n\016FriendMessages\022\245\001\n\021GetRecentMessages\022*"
-  ".CFriendMessages_GetRecentMessages_Reque"
-  "st\032+.CFriendMessages_GetRecentMessages_R"
-  "esponse\"7\202\265\0303Get a log of recent chat me"
-  "ssages between two users\022\300\001\n\030GetActiveMe"
-  "ssageSessions\0222.CFriendsMessages_GetActi"
-  "veMessageSessions_Request\0323.CFriendsMess"
-  "ages_GetActiveMessageSessions_Response\";"
-  "\202\265\0307Get information about recent offline"
-  " messages and chats\022\177\n\013SendMessage\022$.CFr"
-  "iendMessages_SendMessage_Request\032%.CFrie"
-  "ndMessages_SendMessage_Response\"#\202\265\030\037Sen"
-  "d a chat message to a friend\022\214\001\n\nAckMess"
-  "age\022(.CFriendMessages_AckMessage_Notific"
-  "ation\032\013.NoResponse\"G\202\265\030CAcknowledge that"
-  " we have seen the most recent message fr"
-  "om a friend\022\233\001\n\021IsInFriendsUIBeta\022*.CFri"
-  "endMessages_IsInFriendsUIBeta_Request\032+."
-  "CFriendMessages_IsInFriendsUIBeta_Respon"
-  "se\"-\202\265\030)See if a friend is in the friend"
-  "sui beta.\022\256\001\n\025UpdateMessageReaction\022..CF"
-  "riendMessages_UpdateMessageReaction_Requ"
-  "est\032/.CFriendMessages_UpdateMessageReact"
-  "ion_Response\"4\202\265\0300Adds/removes a reactio"
-  "n to/from a friend message\032a\202\265\030]A servic"
-  "e for relaying and logging friend messag"
-  "es (user-to-user chats and offline messa"
-  "ging)2\230\003\n\024FriendMessagesClient\022r\n\017Incomi"
-  "ngMessage\022-.CFriendMessages_IncomingMess"
-  "age_Notification\032\013.NoResponse\"#\202\265\030\037New c"
-  "hat message from a friend.\022\215\001\n\024NotifyAck"
-  "MessageEcho\022(.CFriendMessages_AckMessage"
-  "_Notification\032\013.NoResponse\">\202\265\030:A sessio"
-  "n acked an unread message, echo to other"
-  " sessions.\022v\n\017MessageReaction\022-.CFriendM"
-  "essages_MessageReaction_Notification\032\013.N"
-  "oResponse\"\'\202\265\030#New message reaction from"
-  " a friend.\032\004\300\265\030\002B\035\200\001\001\252\002\027OpenSteamworks.P"
-  "rotobuf"
+  "\022\020\n\010steamid1\030\001 \001(\006\022\020\n\010steamid2\030\002 \001(\006\022\r\n\005"
+  "count\030\003 \001(\r\022 \n\030most_recent_conversation\030"
+  "\004 \001(\010\022\032\n\022rtime32_start_time\030\005 \001(\007\022\025\n\rbbc"
+  "ode_format\030\006 \001(\010\022\025\n\rstart_ordinal\030\007 \001(\r\022"
+  "\021\n\ttime_last\030\010 \001(\r\022\024\n\014ordinal_last\030\t \001(\r"
+  "\"\315\003\n*CFriendMessages_GetRecentMessages_R"
+  "esponse\022K\n\010messages\030\001 \003(\01329.CFriendMessa"
+  "ges_GetRecentMessages_Response.FriendMes"
+  "sage\022\026\n\016more_available\030\004 \001(\010\032\271\002\n\rFriendM"
+  "essage\022\021\n\taccountid\030\001 \001(\r\022\021\n\ttimestamp\030\002"
+  " \001(\r\022\017\n\007message\030\003 \001(\t\022\017\n\007ordinal\030\004 \001(\r\022\\"
+  "\n\treactions\030\005 \003(\0132I.CFriendMessages_GetR"
+  "ecentMessages_Response.FriendMessage.Mes"
+  "sageReaction\032\201\001\n\017MessageReaction\022J\n\rreac"
+  "tion_type\030\001 \001(\0162\025.EMessageReactionType:\034"
+  "EMessageReactionType_Invalid\022\020\n\010reaction"
+  "\030\002 \001(\t\022\020\n\010reactors\030\003 \003(\r\"s\n1CFriendsMess"
+  "ages_GetActiveMessageSessions_Request\022\031\n"
+  "\021lastmessage_since\030\001 \001(\r\022#\n\033only_session"
+  "s_with_messages\030\002 \001(\010\"\244\002\n2CFriendsMessag"
+  "es_GetActiveMessageSessions_Response\022b\n\020"
+  "message_sessions\030\001 \003(\0132H.CFriendsMessage"
+  "s_GetActiveMessageSessions_Response.Frie"
+  "ndMessageSession\022\021\n\ttimestamp\030\002 \001(\r\032w\n\024F"
+  "riendMessageSession\022\030\n\020accountid_friend\030"
+  "\001 \001(\r\022\024\n\014last_message\030\002 \001(\r\022\021\n\tlast_view"
+  "\030\003 \001(\r\022\034\n\024unread_message_count\030\004 \001(\r\"\302\001\n"
+  "#CFriendMessages_SendMessage_Request\022\017\n\007"
+  "steamid\030\001 \001(\006\022\027\n\017chat_entry_type\030\002 \001(\005\022\017"
+  "\n\007message\030\003 \001(\t\022\027\n\017contains_bbcode\030\004 \001(\010"
+  "\022\026\n\016echo_to_sender\030\005 \001(\010\022\024\n\014low_priority"
+  "\030\006 \001(\010\022\031\n\021client_message_id\030\010 \001(\t\"\214\001\n$CF"
+  "riendMessages_SendMessage_Response\022\030\n\020mo"
+  "dified_message\030\001 \001(\t\022\030\n\020server_timestamp"
+  "\030\002 \001(\r\022\017\n\007ordinal\030\003 \001(\r\022\037\n\027message_witho"
+  "ut_bb_code\030\004 \001(\t\"U\n\'CFriendMessages_AckM"
+  "essage_Notification\022\027\n\017steamid_partner\030\001"
+  " \001(\006\022\021\n\ttimestamp\030\002 \001(\r\"<\n)CFriendMessag"
+  "es_IsInFriendsUIBeta_Request\022\017\n\007steamid\030"
+  "\001 \001(\006\"e\n*CFriendMessages_IsInFriendsUIBe"
+  "ta_Response\022\033\n\023online_in_friendsui\030\001 \001(\010"
+  "\022\032\n\022has_used_friendsui\030\002 \001(\010\"\331\001\n-CFriend"
+  "Messages_UpdateMessageReaction_Request\022\017"
+  "\n\007steamid\030\001 \001(\006\022\030\n\020server_timestamp\030\002 \001("
+  "\r\022\017\n\007ordinal\030\003 \001(\r\022J\n\rreaction_type\030\004 \001("
+  "\0162\025.EMessageReactionType:\034EMessageReacti"
+  "onType_Invalid\022\020\n\010reaction\030\005 \001(\t\022\016\n\006is_a"
+  "dd\030\006 \001(\010\"B\n.CFriendMessages_UpdateMessag"
+  "eReaction_Response\022\020\n\010reactors\030\001 \003(\r\"\206\002\n"
+  ",CFriendMessages_IncomingMessage_Notific"
+  "ation\022\026\n\016steamid_friend\030\001 \001(\006\022\027\n\017chat_en"
+  "try_type\030\002 \001(\005\022\034\n\024from_limited_account\030\003"
+  " \001(\010\022\017\n\007message\030\004 \001(\t\022 \n\030rtime32_server_"
+  "timestamp\030\005 \001(\007\022\017\n\007ordinal\030\006 \001(\r\022\022\n\nloca"
+  "l_echo\030\007 \001(\010\022\031\n\021message_no_bbcode\030\010 \001(\t\022"
+  "\024\n\014low_priority\030\t \001(\010\"\360\001\n,CFriendMessage"
+  "s_MessageReaction_Notification\022\026\n\016steami"
+  "d_friend\030\001 \001(\006\022\030\n\020server_timestamp\030\002 \001(\r"
+  "\022\017\n\007ordinal\030\003 \001(\r\022\017\n\007reactor\030\004 \001(\006\022J\n\rre"
+  "action_type\030\005 \001(\0162\025.EMessageReactionType"
+  ":\034EMessageReactionType_Invalid\022\020\n\010reacti"
+  "on\030\006 \001(\t\022\016\n\006is_add\030\007 \001(\010*}\n\024EMessageReac"
+  "tionType\022 \n\034EMessageReactionType_Invalid"
+  "\020\000\022!\n\035EMessageReactionType_Emoticon\020\001\022 \n"
+  "\034EMessageReactionType_Sticker\020\0022\215\005\n\016Frie"
+  "ndMessages\022l\n\021GetRecentMessages\022*.CFrien"
+  "dMessages_GetRecentMessages_Request\032+.CF"
+  "riendMessages_GetRecentMessages_Response"
+  "\022\203\001\n\030GetActiveMessageSessions\0222.CFriends"
+  "Messages_GetActiveMessageSessions_Reques"
+  "t\0323.CFriendsMessages_GetActiveMessageSes"
+  "sions_Response\022Z\n\013SendMessage\022$.CFriendM"
+  "essages_SendMessage_Request\032%.CFriendMes"
+  "sages_SendMessage_Response\022C\n\nAckMessage"
+  "\022(.CFriendMessages_AckMessage_Notificati"
+  "on\032\013.NoResponse\022l\n\021IsInFriendsUIBeta\022*.C"
+  "FriendMessages_IsInFriendsUIBeta_Request"
+  "\032+.CFriendMessages_IsInFriendsUIBeta_Res"
+  "ponse\022x\n\025UpdateMessageReaction\022..CFriend"
+  "Messages_UpdateMessageReaction_Request\032/"
+  ".CFriendMessages_UpdateMessageReaction_R"
+  "esponse2\211\002\n\024FriendMessagesClient\022M\n\017Inco"
+  "mingMessage\022-.CFriendMessages_IncomingMe"
+  "ssage_Notification\032\013.NoResponse\022M\n\024Notif"
+  "yAckMessageEcho\022(.CFriendMessages_AckMes"
+  "sage_Notification\032\013.NoResponse\022M\n\017Messag"
+  "eReaction\022-.CFriendMessages_MessageReact"
+  "ion_Notification\032\013.NoResponse\032\004\300\265\030\002B\035\200\001\001"
+  "\252\002\027OpenSteamworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5ffriendmessages_2esteamclient_2eproto_deps[3] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
@@ -656,7 +619,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5ffriendmessages_2esteamclient_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5ffriendmessages_2esteamclient_2eproto = {
-  false, false, 5207, descriptor_table_protodef_steammessages_5ffriendmessages_2esteamclient_2eproto, "steammessages_friendmessages.steamclient.proto", 
+  false, false, 3746, descriptor_table_protodef_steammessages_5ffriendmessages_2esteamclient_2eproto, "steammessages_friendmessages.steamclient.proto", 
   &descriptor_table_steammessages_5ffriendmessages_2esteamclient_2eproto_once, descriptor_table_steammessages_5ffriendmessages_2esteamclient_2eproto_deps, 3, 16,
   schemas, file_default_instances, TableStruct_steammessages_5ffriendmessages_2esteamclient_2eproto::offsets,
   file_level_metadata_steammessages_5ffriendmessages_2esteamclient_2eproto, file_level_enum_descriptors_steammessages_5ffriendmessages_2esteamclient_2eproto, file_level_service_descriptors_steammessages_5ffriendmessages_2esteamclient_2eproto,
@@ -803,7 +766,7 @@ const char* CFriendMessages_GetRecentMessages_Request::_InternalParse(const char
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint64);
         } else goto handle_unusual;
         continue;
-      // optional uint32 count = 3 [(.description) = "If non-zero, cap the number of recent messages to return."];
+      // optional uint32 count = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           _Internal::set_has_count(&has_bits);
@@ -811,7 +774,7 @@ const char* CFriendMessages_GetRecentMessages_Request::_InternalParse(const char
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool most_recent_conversation = 4 [(.description) = "Grab the block of chat from the most recent conversation (a ~5 minute period)"];
+      // optional bool most_recent_conversation = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
           _Internal::set_has_most_recent_conversation(&has_bits);
@@ -819,7 +782,7 @@ const char* CFriendMessages_GetRecentMessages_Request::_InternalParse(const char
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional fixed32 rtime32_start_time = 5 [(.description) = "If non-zero, return only messages with timestamps greater or equal to this. If zero, we only return messages from a recent time cutoff."];
+      // optional fixed32 rtime32_start_time = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 45)) {
           _Internal::set_has_rtime32_start_time(&has_bits);
@@ -827,7 +790,7 @@ const char* CFriendMessages_GetRecentMessages_Request::_InternalParse(const char
           ptr += sizeof(::PROTOBUF_NAMESPACE_ID::uint32);
         } else goto handle_unusual;
         continue;
-      // optional bool bbcode_format = 6 [(.description) = "Return the results with bbcode formatting."];
+      // optional bool bbcode_format = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
           _Internal::set_has_bbcode_format(&has_bits);
@@ -835,7 +798,7 @@ const char* CFriendMessages_GetRecentMessages_Request::_InternalParse(const char
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 start_ordinal = 7 [(.description) = "Combined with start time, only messages after this ordinal are returned (dedupes messages in same second)"];
+      // optional uint32 start_ordinal = 7;
       case 7:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 56)) {
           _Internal::set_has_start_ordinal(&has_bits);
@@ -843,7 +806,7 @@ const char* CFriendMessages_GetRecentMessages_Request::_InternalParse(const char
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 time_last = 8 [(.description) = "if present/non-zero, return only messages before this."];
+      // optional uint32 time_last = 8;
       case 8:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 64)) {
           _Internal::set_has_time_last(&has_bits);
@@ -901,37 +864,37 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed64ToArray(2, this->_internal_steamid2(), target);
   }
 
-  // optional uint32 count = 3 [(.description) = "If non-zero, cap the number of recent messages to return."];
+  // optional uint32 count = 3;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_count(), target);
   }
 
-  // optional bool most_recent_conversation = 4 [(.description) = "Grab the block of chat from the most recent conversation (a ~5 minute period)"];
+  // optional bool most_recent_conversation = 4;
   if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(4, this->_internal_most_recent_conversation(), target);
   }
 
-  // optional fixed32 rtime32_start_time = 5 [(.description) = "If non-zero, return only messages with timestamps greater or equal to this. If zero, we only return messages from a recent time cutoff."];
+  // optional fixed32 rtime32_start_time = 5;
   if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFixed32ToArray(5, this->_internal_rtime32_start_time(), target);
   }
 
-  // optional bool bbcode_format = 6 [(.description) = "Return the results with bbcode formatting."];
+  // optional bool bbcode_format = 6;
   if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(6, this->_internal_bbcode_format(), target);
   }
 
-  // optional uint32 start_ordinal = 7 [(.description) = "Combined with start time, only messages after this ordinal are returned (dedupes messages in same second)"];
+  // optional uint32 start_ordinal = 7;
   if (cached_has_bits & 0x00000040u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(7, this->_internal_start_ordinal(), target);
   }
 
-  // optional uint32 time_last = 8 [(.description) = "if present/non-zero, return only messages before this."];
+  // optional uint32 time_last = 8;
   if (cached_has_bits & 0x00000080u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(8, this->_internal_time_last(), target);
@@ -971,36 +934,36 @@ size_t CFriendMessages_GetRecentMessages_Request::ByteSizeLong() const {
       total_size += 1 + 8;
     }
 
-    // optional uint32 count = 3 [(.description) = "If non-zero, cap the number of recent messages to return."];
+    // optional uint32 count = 3;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_count());
     }
 
-    // optional fixed32 rtime32_start_time = 5 [(.description) = "If non-zero, return only messages with timestamps greater or equal to this. If zero, we only return messages from a recent time cutoff."];
+    // optional fixed32 rtime32_start_time = 5;
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 + 4;
     }
 
-    // optional bool most_recent_conversation = 4 [(.description) = "Grab the block of chat from the most recent conversation (a ~5 minute period)"];
+    // optional bool most_recent_conversation = 4;
     if (cached_has_bits & 0x00000010u) {
       total_size += 1 + 1;
     }
 
-    // optional bool bbcode_format = 6 [(.description) = "Return the results with bbcode formatting."];
+    // optional bool bbcode_format = 6;
     if (cached_has_bits & 0x00000020u) {
       total_size += 1 + 1;
     }
 
-    // optional uint32 start_ordinal = 7 [(.description) = "Combined with start time, only messages after this ordinal are returned (dedupes messages in same second)"];
+    // optional uint32 start_ordinal = 7;
     if (cached_has_bits & 0x00000040u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_start_ordinal());
     }
 
-    // optional uint32 time_last = 8 [(.description) = "if present/non-zero, return only messages before this."];
+    // optional uint32 time_last = 8;
     if (cached_has_bits & 0x00000080u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -1829,7 +1792,7 @@ const char* CFriendMessages_GetRecentMessages_Response::_InternalParse(const cha
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // repeated .CFriendMessages_GetRecentMessages_Response.FriendMessage messages = 1 [(.description) = "Array of messages, returned newest to oldest."];
+      // repeated .CFriendMessages_GetRecentMessages_Response.FriendMessage messages = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           ptr -= 1;
@@ -1878,7 +1841,7 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated .CFriendMessages_GetRecentMessages_Response.FriendMessage messages = 1 [(.description) = "Array of messages, returned newest to oldest."];
+  // repeated .CFriendMessages_GetRecentMessages_Response.FriendMessage messages = 1;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_messages_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
@@ -1909,7 +1872,7 @@ size_t CFriendMessages_GetRecentMessages_Response::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .CFriendMessages_GetRecentMessages_Response.FriendMessage messages = 1 [(.description) = "Array of messages, returned newest to oldest."];
+  // repeated .CFriendMessages_GetRecentMessages_Response.FriendMessage messages = 1;
   total_size += 1UL * this->_internal_messages_size();
   for (const auto& msg : this->messages_) {
     total_size +=
@@ -2070,7 +2033,7 @@ const char* CFriendsMessages_GetActiveMessageSessions_Request::_InternalParse(co
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint32 lastmessage_since = 1 [(.description) = "return only session information where a chat message has been sent since this time (for polling)"];
+      // optional uint32 lastmessage_since = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_lastmessage_since(&has_bits);
@@ -2078,7 +2041,7 @@ const char* CFriendsMessages_GetActiveMessageSessions_Request::_InternalParse(co
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional bool only_sessions_with_messages = 2 [(.description) = "If non-zero, return only message sessions that have messages since our message cutoff. If zero, we return all active sessions."];
+      // optional bool only_sessions_with_messages = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_only_sessions_with_messages(&has_bits);
@@ -2116,13 +2079,13 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint32 lastmessage_since = 1 [(.description) = "return only session information where a chat message has been sent since this time (for polling)"];
+  // optional uint32 lastmessage_since = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_lastmessage_since(), target);
   }
 
-  // optional bool only_sessions_with_messages = 2 [(.description) = "If non-zero, return only message sessions that have messages since our message cutoff. If zero, we return all active sessions."];
+  // optional bool only_sessions_with_messages = 2;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(2, this->_internal_only_sessions_with_messages(), target);
@@ -2146,14 +2109,14 @@ size_t CFriendsMessages_GetActiveMessageSessions_Request::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional uint32 lastmessage_since = 1 [(.description) = "return only session information where a chat message has been sent since this time (for polling)"];
+    // optional uint32 lastmessage_since = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
           this->_internal_lastmessage_since());
     }
 
-    // optional bool only_sessions_with_messages = 2 [(.description) = "If non-zero, return only message sessions that have messages since our message cutoff. If zero, we return all active sessions."];
+    // optional bool only_sessions_with_messages = 2;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 + 1;
     }
@@ -2622,7 +2585,7 @@ const char* CFriendsMessages_GetActiveMessageSessions_Response::_InternalParse(c
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
         } else goto handle_unusual;
         continue;
-      // optional uint32 timestamp = 2 [(.description) = "This should be passed in the next request as lastmessage_since to poll for updates"];
+      // optional uint32 timestamp = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           _Internal::set_has_timestamp(&has_bits);
@@ -2668,7 +2631,7 @@ failure:
   }
 
   cached_has_bits = _has_bits_[0];
-  // optional uint32 timestamp = 2 [(.description) = "This should be passed in the next request as lastmessage_since to poll for updates"];
+  // optional uint32 timestamp = 2;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_timestamp(), target);
@@ -2697,7 +2660,7 @@ size_t CFriendsMessages_GetActiveMessageSessions_Response::ByteSizeLong() const 
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  // optional uint32 timestamp = 2 [(.description) = "This should be passed in the next request as lastmessage_since to poll for updates"];
+  // optional uint32 timestamp = 2;
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += 1 +

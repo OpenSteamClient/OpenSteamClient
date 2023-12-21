@@ -216,6 +216,31 @@ inline bool ERemoteClientService_Parse(
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<ERemoteClientService>(
     ERemoteClientService_descriptor(), name, value);
 }
+enum EVRLinkCaps : int {
+  EVRLinkCapsUnknown = 0,
+  EVRLinkCapsAvailable = 1,
+  EVRLinkCapsUnimplemented = 2,
+  EVRLinkCapsMissingHardwareEncoding = 3
+};
+bool EVRLinkCaps_IsValid(int value);
+constexpr EVRLinkCaps EVRLinkCaps_MIN = EVRLinkCapsUnknown;
+constexpr EVRLinkCaps EVRLinkCaps_MAX = EVRLinkCapsMissingHardwareEncoding;
+constexpr int EVRLinkCaps_ARRAYSIZE = EVRLinkCaps_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EVRLinkCaps_descriptor();
+template<typename T>
+inline const std::string& EVRLinkCaps_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, EVRLinkCaps>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function EVRLinkCaps_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    EVRLinkCaps_descriptor(), enum_t_value);
+}
+inline bool EVRLinkCaps_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, EVRLinkCaps* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<EVRLinkCaps>(
+    EVRLinkCaps_descriptor(), name, value);
+}
 enum ERemoteDeviceAuthorizationResult : int {
   ERemoteDeviceAuthorizationSuccess = 0,
   ERemoteDeviceAuthorizationDenied = 1,
@@ -891,6 +916,7 @@ class CMsgRemoteClientBroadcastStatus PROTOBUF_FINAL :
     kSteamDeckFieldNumber = 24,
     kSupportedServicesFieldNumber = 23,
     kSteamVersionFieldNumber = 25,
+    kVrLincapsFieldNumber = 26,
   };
   // repeated .CMsgRemoteClientBroadcastStatus.User users = 9;
   int users_size() const;
@@ -1232,6 +1258,19 @@ class CMsgRemoteClientBroadcastStatus PROTOBUF_FINAL :
   void _internal_set_steam_version(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
+  // optional .EVRLinkCaps vr_lincaps = 26 [default = EVRLinkCapsUnknown];
+  bool has_vr_lincaps() const;
+  private:
+  bool _internal_has_vr_lincaps() const;
+  public:
+  void clear_vr_lincaps();
+  ::EVRLinkCaps vr_lincaps() const;
+  void set_vr_lincaps(::EVRLinkCaps value);
+  private:
+  ::EVRLinkCaps _internal_vr_lincaps() const;
+  void _internal_set_vr_lincaps(::EVRLinkCaps value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CMsgRemoteClientBroadcastStatus)
  private:
   class _Internal;
@@ -1264,6 +1303,7 @@ class CMsgRemoteClientBroadcastStatus PROTOBUF_FINAL :
   bool steam_deck_;
   ::PROTOBUF_NAMESPACE_ID::uint32 supported_services_;
   ::PROTOBUF_NAMESPACE_ID::uint64 steam_version_;
+  int vr_lincaps_;
   friend struct ::TableStruct_steammessages_5fremoteclient_5fdiscovery_2eproto;
 };
 // -------------------------------------------------------------------
@@ -5497,6 +5537,35 @@ inline void CMsgRemoteClientBroadcastStatus::set_steam_version(::PROTOBUF_NAMESP
   // @@protoc_insertion_point(field_set:CMsgRemoteClientBroadcastStatus.steam_version)
 }
 
+// optional .EVRLinkCaps vr_lincaps = 26 [default = EVRLinkCapsUnknown];
+inline bool CMsgRemoteClientBroadcastStatus::_internal_has_vr_lincaps() const {
+  bool value = (_has_bits_[0] & 0x00100000u) != 0;
+  return value;
+}
+inline bool CMsgRemoteClientBroadcastStatus::has_vr_lincaps() const {
+  return _internal_has_vr_lincaps();
+}
+inline void CMsgRemoteClientBroadcastStatus::clear_vr_lincaps() {
+  vr_lincaps_ = 0;
+  _has_bits_[0] &= ~0x00100000u;
+}
+inline ::EVRLinkCaps CMsgRemoteClientBroadcastStatus::_internal_vr_lincaps() const {
+  return static_cast< ::EVRLinkCaps >(vr_lincaps_);
+}
+inline ::EVRLinkCaps CMsgRemoteClientBroadcastStatus::vr_lincaps() const {
+  // @@protoc_insertion_point(field_get:CMsgRemoteClientBroadcastStatus.vr_lincaps)
+  return _internal_vr_lincaps();
+}
+inline void CMsgRemoteClientBroadcastStatus::_internal_set_vr_lincaps(::EVRLinkCaps value) {
+  assert(::EVRLinkCaps_IsValid(value));
+  _has_bits_[0] |= 0x00100000u;
+  vr_lincaps_ = value;
+}
+inline void CMsgRemoteClientBroadcastStatus::set_vr_lincaps(::EVRLinkCaps value) {
+  _internal_set_vr_lincaps(value);
+  // @@protoc_insertion_point(field_set:CMsgRemoteClientBroadcastStatus.vr_lincaps)
+}
+
 // -------------------------------------------------------------------
 
 // CMsgRemoteClientBroadcastDiscovery
@@ -8340,6 +8409,11 @@ template <> struct is_proto_enum< ::ERemoteClientService> : ::std::true_type {};
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::ERemoteClientService>() {
   return ::ERemoteClientService_descriptor();
+}
+template <> struct is_proto_enum< ::EVRLinkCaps> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::EVRLinkCaps>() {
+  return ::EVRLinkCaps_descriptor();
 }
 template <> struct is_proto_enum< ::ERemoteDeviceAuthorizationResult> : ::std::true_type {};
 template <>

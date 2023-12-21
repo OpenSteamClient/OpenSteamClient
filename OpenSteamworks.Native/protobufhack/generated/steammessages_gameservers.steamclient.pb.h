@@ -276,7 +276,7 @@ class CGameServers_GetServerList_Request PROTOBUF_FINAL :
     kFilterFieldNumber = 1,
     kLimitFieldNumber = 2,
   };
-  // optional string filter = 1 [(.description) = "Query filter string."];
+  // optional string filter = 1;
   bool has_filter() const;
   private:
   bool _internal_has_filter() const;
@@ -296,7 +296,7 @@ class CGameServers_GetServerList_Request PROTOBUF_FINAL :
   std::string* _internal_mutable_filter();
   public:
 
-  // optional uint32 limit = 2 [default = 100, (.description) = "The maximum number of servers to return in the response"];
+  // optional uint32 limit = 2 [default = 100];
   bool has_limit() const;
   private:
   bool _internal_has_limit() const;
@@ -463,7 +463,7 @@ class CGameServers_GetServerList_Response_Server PROTOBUF_FINAL :
     kSecureFieldNumber = 15,
     kDedicatedFieldNumber = 16,
   };
-  // optional string addr = 1 [(.description) = "The server\'s IP and query port"];
+  // optional string addr = 1;
   bool has_addr() const;
   private:
   bool _internal_has_addr() const;
@@ -908,7 +908,7 @@ class CGameServers_GetServerList_Response PROTOBUF_FINAL :
   enum : int {
     kServersFieldNumber = 1,
   };
-  // repeated .CGameServers_GetServerList_Response.Server servers = 1 [(.description) = "List of servers matching the filter"];
+  // repeated .CGameServers_GetServerList_Response.Server servers = 1;
   int servers_size() const;
   private:
   int _internal_servers_size() const;
@@ -1740,7 +1740,7 @@ class CGameServers_QueryByFakeIP_Request PROTOBUF_FINAL :
     kAppIdFieldNumber = 3,
     kQueryTypeFieldNumber = 4,
   };
-  // optional uint32 fake_ip = 1 [(.description) = "FakeIP of server to query."];
+  // optional uint32 fake_ip = 1;
   bool has_fake_ip() const;
   private:
   bool _internal_has_fake_ip() const;
@@ -1753,7 +1753,7 @@ class CGameServers_QueryByFakeIP_Request PROTOBUF_FINAL :
   void _internal_set_fake_ip(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 fake_port = 2 [(.description) = "Fake port of server to query."];
+  // optional uint32 fake_port = 2;
   bool has_fake_port() const;
   private:
   bool _internal_has_fake_port() const;
@@ -1766,7 +1766,7 @@ class CGameServers_QueryByFakeIP_Request PROTOBUF_FINAL :
   void _internal_set_fake_port(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional uint32 app_id = 3 [(.description) = "AppID to use.  Each AppID has its own FakeIP address."];
+  // optional uint32 app_id = 3;
   bool has_app_id() const;
   private:
   bool _internal_has_app_id() const;
@@ -1779,7 +1779,7 @@ class CGameServers_QueryByFakeIP_Request PROTOBUF_FINAL :
   void _internal_set_app_id(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // optional .CGameServers_QueryByFakeIP_Request.EQueryType query_type = 4 [default = Query_Invalid, (.description) = "What type of query?"];
+  // optional .CGameServers_QueryByFakeIP_Request.EQueryType query_type = 4 [default = Query_Invalid];
   bool has_query_type() const;
   private:
   bool _internal_has_query_type() const;
@@ -3663,7 +3663,7 @@ class GameServerClient_Stub : public GameServerClient {
 #endif  // __GNUC__
 // CGameServers_GetServerList_Request
 
-// optional string filter = 1 [(.description) = "Query filter string."];
+// optional string filter = 1;
 inline bool CGameServers_GetServerList_Request::_internal_has_filter() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -3736,7 +3736,7 @@ inline void CGameServers_GetServerList_Request::set_allocated_filter(std::string
   // @@protoc_insertion_point(field_set_allocated:CGameServers_GetServerList_Request.filter)
 }
 
-// optional uint32 limit = 2 [default = 100, (.description) = "The maximum number of servers to return in the response"];
+// optional uint32 limit = 2 [default = 100];
 inline bool CGameServers_GetServerList_Request::_internal_has_limit() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -3768,7 +3768,7 @@ inline void CGameServers_GetServerList_Request::set_limit(::PROTOBUF_NAMESPACE_I
 
 // CGameServers_GetServerList_Response_Server
 
-// optional string addr = 1 [(.description) = "The server\'s IP and query port"];
+// optional string addr = 1;
 inline bool CGameServers_GetServerList_Response_Server::_internal_has_addr() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -4636,7 +4636,7 @@ inline void CGameServers_GetServerList_Response_Server::set_allocated_gametype(s
 
 // CGameServers_GetServerList_Response
 
-// repeated .CGameServers_GetServerList_Response.Server servers = 1 [(.description) = "List of servers matching the filter"];
+// repeated .CGameServers_GetServerList_Response.Server servers = 1;
 inline int CGameServers_GetServerList_Response::_internal_servers_size() const {
   return servers_.size();
 }
@@ -4956,7 +4956,7 @@ CGameServers_GetServerIPsBySteamID_Request::mutable_server_steamids() {
 
 // CGameServers_QueryByFakeIP_Request
 
-// optional uint32 fake_ip = 1 [(.description) = "FakeIP of server to query."];
+// optional uint32 fake_ip = 1;
 inline bool CGameServers_QueryByFakeIP_Request::_internal_has_fake_ip() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -4984,7 +4984,7 @@ inline void CGameServers_QueryByFakeIP_Request::set_fake_ip(::PROTOBUF_NAMESPACE
   // @@protoc_insertion_point(field_set:CGameServers_QueryByFakeIP_Request.fake_ip)
 }
 
-// optional uint32 fake_port = 2 [(.description) = "Fake port of server to query."];
+// optional uint32 fake_port = 2;
 inline bool CGameServers_QueryByFakeIP_Request::_internal_has_fake_port() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -5012,7 +5012,7 @@ inline void CGameServers_QueryByFakeIP_Request::set_fake_port(::PROTOBUF_NAMESPA
   // @@protoc_insertion_point(field_set:CGameServers_QueryByFakeIP_Request.fake_port)
 }
 
-// optional uint32 app_id = 3 [(.description) = "AppID to use.  Each AppID has its own FakeIP address."];
+// optional uint32 app_id = 3;
 inline bool CGameServers_QueryByFakeIP_Request::_internal_has_app_id() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -5040,7 +5040,7 @@ inline void CGameServers_QueryByFakeIP_Request::set_app_id(::PROTOBUF_NAMESPACE_
   // @@protoc_insertion_point(field_set:CGameServers_QueryByFakeIP_Request.app_id)
 }
 
-// optional .CGameServers_QueryByFakeIP_Request.EQueryType query_type = 4 [default = Query_Invalid, (.description) = "What type of query?"];
+// optional .CGameServers_QueryByFakeIP_Request.EQueryType query_type = 4 [default = Query_Invalid];
 inline bool CGameServers_QueryByFakeIP_Request::_internal_has_query_type() const {
   bool value = (_has_bits_[0] & 0x00000008u) != 0;
   return value;

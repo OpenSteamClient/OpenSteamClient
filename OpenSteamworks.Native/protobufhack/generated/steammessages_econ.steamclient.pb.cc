@@ -554,92 +554,73 @@ const char descriptor_table_protodef_steammessages_5fecon_2esteamclient_2eproto[
   "terOptions\022\025\n\rstart_assetid\030\010 \001(\004\022\r\n\005cou"
   "nt\030\t \001(\005\032f\n\rFilterOptions\022\020\n\010assetids\030\001 "
   "\003(\004\022\023\n\013currencyids\030\002 \003(\r\022\025\n\rtradable_onl"
-  "y\030\003 \001(\010\022\027\n\017marketable_only\030\004 \001(\010\"\347\001\n\013CEc"
+  "y\030\003 \001(\010\022\027\n\017marketable_only\030\004 \001(\010\"\253\001\n\013CEc"
   "on_Asset\022\r\n\005appid\030\001 \001(\r\022\021\n\tcontextid\030\002 \001"
   "(\004\022\017\n\007assetid\030\003 \001(\004\022\017\n\007classid\030\004 \001(\004\022\022\n\n"
-  "instanceid\030\005 \001(\004\022N\n\ncurrencyid\030\006 \001(\rB:\202\265"
-  "\0306Set currencyid if it\'s a currency, ass"
-  "etid for an item\022\016\n\006amount\030\007 \001(\003\022\017\n\007miss"
-  "ing\030\010 \001(\010\022\017\n\007est_usd\030\t \001(\003\"V\n\031CEconItem_"
-  "DescriptionLine\022\014\n\004type\030\001 \001(\t\022\r\n\005value\030\002"
-  " \001(\t\022\r\n\005color\030\003 \001(\t\022\r\n\005label\030\004 \001(\t\".\n\020CE"
-  "conItem_Action\022\014\n\004link\030\001 \001(\t\022\014\n\004name\030\002 \001"
-  "(\t\"\343\006\n\025CEconItem_Description\022\r\n\005appid\030\001 "
-  "\001(\005\022\017\n\007classid\030\002 \001(\004\022\022\n\ninstanceid\030\003 \001(\004"
-  "\022\020\n\010currency\030\004 \001(\010\022\030\n\020background_color\030\005"
-  " \001(\t\022\020\n\010icon_url\030\006 \001(\t\022\026\n\016icon_url_large"
-  "\030\007 \001(\t\0220\n\014descriptions\030\010 \003(\0132\032.CEconItem"
-  "_DescriptionLine\022\020\n\010tradable\030\t \001(\010\022\"\n\007ac"
-  "tions\030\n \003(\0132\021.CEconItem_Action\0226\n\022owner_"
-  "descriptions\030\013 \003(\0132\032.CEconItem_Descripti"
-  "onLine\022(\n\rowner_actions\030\014 \003(\0132\021.CEconIte"
-  "m_Action\022\025\n\rfraudwarnings\030\r \003(\t\022\014\n\004name\030"
-  "\016 \001(\t\022\022\n\nname_color\030\017 \001(\t\022\014\n\004type\030\020 \001(\t\022"
-  "\023\n\013market_name\030\021 \001(\t\022\030\n\020market_hash_name"
-  "\030\022 \001(\t\022\022\n\nmarket_fee\030\023 \001(\t\022\026\n\016market_fee"
-  "_app\030\034 \001(\005\022.\n\016contained_item\030\024 \001(\0132\026.CEc"
-  "onItem_Description\022)\n\016market_actions\030\025 \003"
-  "(\0132\021.CEconItem_Action\022\021\n\tcommodity\030\026 \001(\010"
-  "\022#\n\033market_tradable_restriction\030\027 \001(\005\022%\n"
-  "\035market_marketable_restriction\030\030 \001(\005\022\022\n\n"
-  "marketable\030\031 \001(\010\022\034\n\004tags\030\032 \003(\0132\016.CEconIt"
-  "em_Tag\022\027\n\017item_expiration\030\033 \001(\t\022&\n\036marke"
-  "t_buy_country_restriction\030\036 \001(\t\022\'\n\037marke"
-  "t_sell_country_restriction\030\037 \001(\t\"\230\003\n\rCEc"
-  "onItem_Tag\0221\n\005appid\030\001 \001(\rB\"\202\265\030\036The app t"
-  "hat contains the item\022J\n\010category\030\002 \001(\tB"
-  "8\202\265\0304The internal name of the category t"
-  "he tag belongs to\0227\n\rinternal_name\030\003 \001(\t"
-  "B \202\265\030\034The internal name of the tag\022G\n\027lo"
-  "calized_category_name\030\004 \001(\tB&\202\265\030\"The loc"
-  "alized name of the category\022=\n\022localized"
-  "_tag_name\030\005 \001(\tB!\202\265\030\035The localized name "
-  "of the tag\022G\n\005color\030\006 \001(\tB8\202\265\0304The color"
-  " to use when displaying the tag to the u"
-  "ser\"\304\002\n0CEcon_GetInventoryItemsWithDescr"
-  "iptions_Response\022\034\n\006assets\030\001 \003(\0132\014.CEcon"
-  "_Asset\022,\n\014descriptions\030\002 \003(\0132\026.CEconItem"
-  "_Description\022{\n\016missing_assets\030\003 \003(\0132\014.C"
-  "Econ_AssetBU\202\265\030QThis list of assets in t"
-  "he original list we could not find in th"
-  "e users inventory\022\022\n\nmore_items\030\004 \001(\010\022\024\n"
-  "\014last_assetid\030\005 \001(\004\022\035\n\025total_inventory_c"
-  "ount\030\006 \001(\r\"D\n&CEcon_GetTradeOfferAccessT"
-  "oken_Request\022\032\n\022generate_new_token\030\001 \001(\010"
-  "\"K\n\'CEcon_GetTradeOfferAccessToken_Respo"
-  "nse\022 \n\030trade_offer_access_token\030\001 \001(\t\"C\n"
-  "-CEcon_ClientGetItemShopOverlayAuthURL_R"
-  "equest\022\022\n\nreturn_url\030\001 \001(\t\"=\n.CEcon_Clie"
-  "ntGetItemShopOverlayAuthURL_Response\022\013\n\003"
-  "url\030\001 \001(\t\"\273\001\n\037CEcon_GetAssetClassInfo_Re"
-  "quest\022\020\n\010language\030\001 \001(\t\022\r\n\005appid\030\002 \001(\r\0227"
-  "\n\007classes\030\003 \003(\0132&.CEcon_GetAssetClassInf"
-  "o_Request.Class\022\020\n\010high_pri\030\004 \001(\010\032,\n\005Cla"
-  "ss\022\017\n\007classid\030\001 \001(\004\022\022\n\ninstanceid\030\002 \001(\004\""
-  "P\n CEcon_GetAssetClassInfo_Response\022,\n\014d"
-  "escriptions\030\001 \003(\0132\026.CEconItem_Descriptio"
-  "n2\266\006\n\004Econ\022\321\001\n!GetInventoryItemsWithDesc"
-  "riptions\0220.CEcon_GetInventoryItemsWithDe"
-  "scriptions_Request\0321.CEcon_GetInventoryI"
-  "temsWithDescriptions_Response\"G\202\265\030CGets "
-  "a set of items from a users inventory, a"
-  "long with descriptions\022\232\001\n\030GetTradeOffer"
-  "AccessToken\022\'.CEcon_GetTradeOfferAccessT"
-  "oken_Request\032(.CEcon_GetTradeOfferAccess"
-  "Token_Response\"+\202\265\030\'Get the user\'s trade"
-  " offer access token\022\331\001\n\037ClientGetItemSho"
-  "pOverlayAuthURL\022..CEcon_ClientGetItemSho"
-  "pOverlayAuthURL_Request\032/.CEcon_ClientGe"
-  "tItemShopOverlayAuthURL_Response\"U\202\265\030QGe"
-  "nerates a URL which sets a secure cookie"
-  " for in-game-browser itemshop purchases\022"
-  "\237\001\n\021GetAssetClassInfo\022 .CEcon_GetAssetCl"
-  "assInfo_Request\032!.CEcon_GetAssetClassInf"
-  "o_Response\"E\202\265\030AReturns description info"
-  "rmation about the passed in asset classe"
-  "s\032\?\202\265\030;A service that provides communica"
-  "tion with the econ serversB\035\200\001\001\252\002\027OpenSt"
-  "eamworks.Protobuf"
+  "instanceid\030\005 \001(\004\022\022\n\ncurrencyid\030\006 \001(\r\022\016\n\006"
+  "amount\030\007 \001(\003\022\017\n\007missing\030\010 \001(\010\022\017\n\007est_usd"
+  "\030\t \001(\003\"V\n\031CEconItem_DescriptionLine\022\014\n\004t"
+  "ype\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\022\r\n\005color\030\003 \001(\t\022"
+  "\r\n\005label\030\004 \001(\t\".\n\020CEconItem_Action\022\014\n\004li"
+  "nk\030\001 \001(\t\022\014\n\004name\030\002 \001(\t\"\343\006\n\025CEconItem_Des"
+  "cription\022\r\n\005appid\030\001 \001(\005\022\017\n\007classid\030\002 \001(\004"
+  "\022\022\n\ninstanceid\030\003 \001(\004\022\020\n\010currency\030\004 \001(\010\022\030"
+  "\n\020background_color\030\005 \001(\t\022\020\n\010icon_url\030\006 \001"
+  "(\t\022\026\n\016icon_url_large\030\007 \001(\t\0220\n\014descriptio"
+  "ns\030\010 \003(\0132\032.CEconItem_DescriptionLine\022\020\n\010"
+  "tradable\030\t \001(\010\022\"\n\007actions\030\n \003(\0132\021.CEconI"
+  "tem_Action\0226\n\022owner_descriptions\030\013 \003(\0132\032"
+  ".CEconItem_DescriptionLine\022(\n\rowner_acti"
+  "ons\030\014 \003(\0132\021.CEconItem_Action\022\025\n\rfraudwar"
+  "nings\030\r \003(\t\022\014\n\004name\030\016 \001(\t\022\022\n\nname_color\030"
+  "\017 \001(\t\022\014\n\004type\030\020 \001(\t\022\023\n\013market_name\030\021 \001(\t"
+  "\022\030\n\020market_hash_name\030\022 \001(\t\022\022\n\nmarket_fee"
+  "\030\023 \001(\t\022\026\n\016market_fee_app\030\034 \001(\005\022.\n\016contai"
+  "ned_item\030\024 \001(\0132\026.CEconItem_Description\022)"
+  "\n\016market_actions\030\025 \003(\0132\021.CEconItem_Actio"
+  "n\022\021\n\tcommodity\030\026 \001(\010\022#\n\033market_tradable_"
+  "restriction\030\027 \001(\005\022%\n\035market_marketable_r"
+  "estriction\030\030 \001(\005\022\022\n\nmarketable\030\031 \001(\010\022\034\n\004"
+  "tags\030\032 \003(\0132\016.CEconItem_Tag\022\027\n\017item_expir"
+  "ation\030\033 \001(\t\022&\n\036market_buy_country_restri"
+  "ction\030\036 \001(\t\022\'\n\037market_sell_country_restr"
+  "iction\030\037 \001(\t\"\223\001\n\rCEconItem_Tag\022\r\n\005appid\030"
+  "\001 \001(\r\022\020\n\010category\030\002 \001(\t\022\025\n\rinternal_name"
+  "\030\003 \001(\t\022\037\n\027localized_category_name\030\004 \001(\t\022"
+  "\032\n\022localized_tag_name\030\005 \001(\t\022\r\n\005color\030\006 \001"
+  "(\t\"\355\001\n0CEcon_GetInventoryItemsWithDescri"
+  "ptions_Response\022\034\n\006assets\030\001 \003(\0132\014.CEcon_"
+  "Asset\022,\n\014descriptions\030\002 \003(\0132\026.CEconItem_"
+  "Description\022$\n\016missing_assets\030\003 \003(\0132\014.CE"
+  "con_Asset\022\022\n\nmore_items\030\004 \001(\010\022\024\n\014last_as"
+  "setid\030\005 \001(\004\022\035\n\025total_inventory_count\030\006 \001"
+  "(\r\"D\n&CEcon_GetTradeOfferAccessToken_Req"
+  "uest\022\032\n\022generate_new_token\030\001 \001(\010\"K\n\'CEco"
+  "n_GetTradeOfferAccessToken_Response\022 \n\030t"
+  "rade_offer_access_token\030\001 \001(\t\"C\n-CEcon_C"
+  "lientGetItemShopOverlayAuthURL_Request\022\022"
+  "\n\nreturn_url\030\001 \001(\t\"=\n.CEcon_ClientGetIte"
+  "mShopOverlayAuthURL_Response\022\013\n\003url\030\001 \001("
+  "\t\"\273\001\n\037CEcon_GetAssetClassInfo_Request\022\020\n"
+  "\010language\030\001 \001(\t\022\r\n\005appid\030\002 \001(\r\0227\n\007classe"
+  "s\030\003 \003(\0132&.CEcon_GetAssetClassInfo_Reques"
+  "t.Class\022\020\n\010high_pri\030\004 \001(\010\032,\n\005Class\022\017\n\007cl"
+  "assid\030\001 \001(\004\022\022\n\ninstanceid\030\002 \001(\004\"P\n CEcon"
+  "_GetAssetClassInfo_Response\022,\n\014descripti"
+  "ons\030\001 \003(\0132\026.CEconItem_Description2\337\003\n\004Ec"
+  "on\022\210\001\n!GetInventoryItemsWithDescriptions"
+  "\0220.CEcon_GetInventoryItemsWithDescriptio"
+  "ns_Request\0321.CEcon_GetInventoryItemsWith"
+  "Descriptions_Response\022m\n\030GetTradeOfferAc"
+  "cessToken\022\'.CEcon_GetTradeOfferAccessTok"
+  "en_Request\032(.CEcon_GetTradeOfferAccessTo"
+  "ken_Response\022\202\001\n\037ClientGetItemShopOverla"
+  "yAuthURL\022..CEcon_ClientGetItemShopOverla"
+  "yAuthURL_Request\032/.CEcon_ClientGetItemSh"
+  "opOverlayAuthURL_Response\022X\n\021GetAssetCla"
+  "ssInfo\022 .CEcon_GetAssetClassInfo_Request"
+  "\032!.CEcon_GetAssetClassInfo_ResponseB\035\200\001\001"
+  "\252\002\027OpenSteamworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fecon_2esteamclient_2eproto_deps[3] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
@@ -648,7 +629,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fecon_2esteamclient_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fecon_2esteamclient_2eproto = {
-  false, false, 3937, descriptor_table_protodef_steammessages_5fecon_2esteamclient_2eproto, "steammessages_econ.steamclient.proto", 
+  false, false, 3186, descriptor_table_protodef_steammessages_5fecon_2esteamclient_2eproto, "steammessages_econ.steamclient.proto", 
   &descriptor_table_steammessages_5fecon_2esteamclient_2eproto_once, descriptor_table_steammessages_5fecon_2esteamclient_2eproto_deps, 3, 15,
   schemas, file_default_instances, TableStruct_steammessages_5fecon_2esteamclient_2eproto::offsets,
   file_level_metadata_steammessages_5fecon_2esteamclient_2eproto, file_level_enum_descriptors_steammessages_5fecon_2esteamclient_2eproto, file_level_service_descriptors_steammessages_5fecon_2esteamclient_2eproto,
@@ -1585,7 +1566,7 @@ const char* CEcon_Asset::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional uint32 currencyid = 6 [(.description) = "Set currencyid if it\'s a currency, assetid for an item"];
+      // optional uint32 currencyid = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
           _Internal::set_has_currencyid(&has_bits);
@@ -1677,7 +1658,7 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(5, this->_internal_instanceid(), target);
   }
 
-  // optional uint32 currencyid = 6 [(.description) = "Set currencyid if it\'s a currency, assetid for an item"];
+  // optional uint32 currencyid = 6;
   if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(6, this->_internal_currencyid(), target);
@@ -1740,7 +1721,7 @@ size_t CEcon_Asset::ByteSizeLong() const {
           this->_internal_appid());
     }
 
-    // optional uint32 currencyid = 6 [(.description) = "Set currencyid if it\'s a currency, assetid for an item"];
+    // optional uint32 currencyid = 6;
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -3930,7 +3911,7 @@ const char* CEconItem_Tag::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // optional uint32 appid = 1 [(.description) = "The app that contains the item"];
+      // optional uint32 appid = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_appid(&has_bits);
@@ -3938,7 +3919,7 @@ const char* CEconItem_Tag::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string category = 2 [(.description) = "The internal name of the category the tag belongs to"];
+      // optional string category = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           auto str = _internal_mutable_category();
@@ -3949,7 +3930,7 @@ const char* CEconItem_Tag::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string internal_name = 3 [(.description) = "The internal name of the tag"];
+      // optional string internal_name = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           auto str = _internal_mutable_internal_name();
@@ -3960,7 +3941,7 @@ const char* CEconItem_Tag::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string localized_category_name = 4 [(.description) = "The localized name of the category"];
+      // optional string localized_category_name = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
           auto str = _internal_mutable_localized_category_name();
@@ -3971,7 +3952,7 @@ const char* CEconItem_Tag::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string localized_tag_name = 5 [(.description) = "The localized name of the tag"];
+      // optional string localized_tag_name = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
           auto str = _internal_mutable_localized_tag_name();
@@ -3982,7 +3963,7 @@ const char* CEconItem_Tag::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // optional string color = 6 [(.description) = "The color to use when displaying the tag to the user"];
+      // optional string color = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
           auto str = _internal_mutable_color();
@@ -4023,13 +4004,13 @@ failure:
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint32 appid = 1 [(.description) = "The app that contains the item"];
+  // optional uint32 appid = 1;
   if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_appid(), target);
   }
 
-  // optional string category = 2 [(.description) = "The internal name of the category the tag belongs to"];
+  // optional string category = 2;
   if (cached_has_bits & 0x00000001u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_category().data(), static_cast<int>(this->_internal_category().length()),
@@ -4039,7 +4020,7 @@ failure:
         2, this->_internal_category(), target);
   }
 
-  // optional string internal_name = 3 [(.description) = "The internal name of the tag"];
+  // optional string internal_name = 3;
   if (cached_has_bits & 0x00000002u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_internal_name().data(), static_cast<int>(this->_internal_internal_name().length()),
@@ -4049,7 +4030,7 @@ failure:
         3, this->_internal_internal_name(), target);
   }
 
-  // optional string localized_category_name = 4 [(.description) = "The localized name of the category"];
+  // optional string localized_category_name = 4;
   if (cached_has_bits & 0x00000004u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_localized_category_name().data(), static_cast<int>(this->_internal_localized_category_name().length()),
@@ -4059,7 +4040,7 @@ failure:
         4, this->_internal_localized_category_name(), target);
   }
 
-  // optional string localized_tag_name = 5 [(.description) = "The localized name of the tag"];
+  // optional string localized_tag_name = 5;
   if (cached_has_bits & 0x00000008u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_localized_tag_name().data(), static_cast<int>(this->_internal_localized_tag_name().length()),
@@ -4069,7 +4050,7 @@ failure:
         5, this->_internal_localized_tag_name(), target);
   }
 
-  // optional string color = 6 [(.description) = "The color to use when displaying the tag to the user"];
+  // optional string color = 6;
   if (cached_has_bits & 0x00000010u) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
       this->_internal_color().data(), static_cast<int>(this->_internal_color().length()),
@@ -4097,42 +4078,42 @@ size_t CEconItem_Tag::ByteSizeLong() const {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x0000003fu) {
-    // optional string category = 2 [(.description) = "The internal name of the category the tag belongs to"];
+    // optional string category = 2;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_category());
     }
 
-    // optional string internal_name = 3 [(.description) = "The internal name of the tag"];
+    // optional string internal_name = 3;
     if (cached_has_bits & 0x00000002u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_internal_name());
     }
 
-    // optional string localized_category_name = 4 [(.description) = "The localized name of the category"];
+    // optional string localized_category_name = 4;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_localized_category_name());
     }
 
-    // optional string localized_tag_name = 5 [(.description) = "The localized name of the tag"];
+    // optional string localized_tag_name = 5;
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_localized_tag_name());
     }
 
-    // optional string color = 6 [(.description) = "The color to use when displaying the tag to the user"];
+    // optional string color = 6;
     if (cached_has_bits & 0x00000010u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
           this->_internal_color());
     }
 
-    // optional uint32 appid = 1 [(.description) = "The app that contains the item"];
+    // optional uint32 appid = 1;
     if (cached_has_bits & 0x00000020u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
@@ -4346,7 +4327,7 @@ const char* CEcon_GetInventoryItemsWithDescriptions_Response::_InternalParse(con
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
         } else goto handle_unusual;
         continue;
-      // repeated .CEcon_Asset missing_assets = 3 [(.description) = "This list of assets in the original list we could not find in the users inventory"];
+      // repeated .CEcon_Asset missing_assets = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           ptr -= 1;
@@ -4427,7 +4408,7 @@ failure:
       InternalWriteMessage(2, this->_internal_descriptions(i), target, stream);
   }
 
-  // repeated .CEcon_Asset missing_assets = 3 [(.description) = "This list of assets in the original list we could not find in the users inventory"];
+  // repeated .CEcon_Asset missing_assets = 3;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_missing_assets_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
@@ -4484,7 +4465,7 @@ size_t CEcon_GetInventoryItemsWithDescriptions_Response::ByteSizeLong() const {
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  // repeated .CEcon_Asset missing_assets = 3 [(.description) = "This list of assets in the original list we could not find in the users inventory"];
+  // repeated .CEcon_Asset missing_assets = 3;
   total_size += 1UL * this->_internal_missing_assets_size();
   for (const auto& msg : this->missing_assets_) {
     total_size +=

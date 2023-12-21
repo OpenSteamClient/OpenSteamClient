@@ -431,7 +431,6 @@ public unsafe interface IClientFriends
     public unknown_ret GetFriendProfileInfo();  // argc: 3, index: 219
     // WARNING: Arguments are unknown!
     public unknown_ret InviteUserToGame();  // argc: 4, index: 220
-    public unknown_ret GetOnlineConsoleFriendCount();  // argc: 0, index: 221
     // WARNING: Arguments are unknown!
     public unknown_ret RequestTrade();  // argc: 2, index: 222
     // WARNING: Arguments are unknown!

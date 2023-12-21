@@ -456,6 +456,8 @@ public unsafe interface IClientControllerSerialized
     // WARNING: Arguments are unknown!
     public unknown_ret SetControllerHapticsSetting();  // argc: 2, index: 207
     // WARNING: Arguments are unknown!
+    public unknown_ret SetControllerName();  // argc: 2, index: 7
+    // WARNING: Arguments are unknown!
     public unknown_ret SetControllerRumbleSetting();  // argc: 2, index: 208
     // WARNING: Arguments are unknown!
     public unknown_ret SetControllerNintendoLayoutSetting();  // argc: 2, index: 209

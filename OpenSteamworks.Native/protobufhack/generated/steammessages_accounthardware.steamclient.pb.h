@@ -3773,7 +3773,7 @@ class CAccountHardware_VRCompatibilityChecRequest PROTOBUF_FINAL :
     kValuesFieldNumber = 2,
     kProductNameFieldNumber = 1,
   };
-  // repeated .CAccountHardware_VRCompatibilityChecRequest.Pair values = 2 [(.description) = "Values from client system probe"];
+  // repeated .CAccountHardware_VRCompatibilityChecRequest.Pair values = 2;
   int values_size() const;
   private:
   int _internal_values_size() const;
@@ -3791,7 +3791,7 @@ class CAccountHardware_VRCompatibilityChecRequest PROTOBUF_FINAL :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CAccountHardware_VRCompatibilityChecRequest_Pair >&
       values() const;
 
-  // optional string product_name = 1 [(.description) = "Name of product we\'re checking"];
+  // optional string product_name = 1;
   bool has_product_name() const;
   private:
   bool _internal_has_product_name() const;
@@ -4128,7 +4128,7 @@ class CAccountHardware_VRCompatibilityChecResponse_ComponentDisplay PROTOBUF_FIN
     kImageFieldNumber = 2,
     kValueFieldNumber = 3,
   };
-  // optional string name = 1 [(.description) = "Name of component (OS, RAM, GPU, etc.)"];
+  // optional string name = 1;
   bool has_name() const;
   private:
   bool _internal_has_name() const;
@@ -4148,7 +4148,7 @@ class CAccountHardware_VRCompatibilityChecResponse_ComponentDisplay PROTOBUF_FIN
   std::string* _internal_mutable_name();
   public:
 
-  // optional string image = 2 [(.description) = "Name of icon to use"];
+  // optional string image = 2;
   bool has_image() const;
   private:
   bool _internal_has_image() const;
@@ -4168,7 +4168,7 @@ class CAccountHardware_VRCompatibilityChecResponse_ComponentDisplay PROTOBUF_FIN
   std::string* _internal_mutable_image();
   public:
 
-  // optional string value = 3 [(.description) = "String value to report"];
+  // optional string value = 3;
   bool has_value() const;
   private:
   bool _internal_has_value() const;
@@ -4330,7 +4330,7 @@ class CAccountHardware_VRCompatibilityChecResponse PROTOBUF_FINAL :
     kValuesFieldNumber = 1,
     kComponentsFieldNumber = 2,
   };
-  // repeated .CAccountHardware_VRCompatibilityChecResponse.Pair values = 1 [(.description) = "Top-level values reported to client"];
+  // repeated .CAccountHardware_VRCompatibilityChecResponse.Pair values = 1;
   int values_size() const;
   private:
   int _internal_values_size() const;
@@ -4348,7 +4348,7 @@ class CAccountHardware_VRCompatibilityChecResponse PROTOBUF_FINAL :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CAccountHardware_VRCompatibilityChecResponse_Pair >&
       values() const;
 
-  // repeated .CAccountHardware_VRCompatibilityChecResponse.ComponentDisplay components = 2 [(.description) = "Specific values to display"];
+  // repeated .CAccountHardware_VRCompatibilityChecResponse.ComponentDisplay components = 2;
   int components_size() const;
   private:
   int _internal_components_size() const;
@@ -7474,7 +7474,7 @@ inline void CAccountHardware_VRCompatibilityChecRequest_Pair::set_allocated_valu
 
 // CAccountHardware_VRCompatibilityChecRequest
 
-// optional string product_name = 1 [(.description) = "Name of product we\'re checking"];
+// optional string product_name = 1;
 inline bool CAccountHardware_VRCompatibilityChecRequest::_internal_has_product_name() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -7547,7 +7547,7 @@ inline void CAccountHardware_VRCompatibilityChecRequest::set_allocated_product_n
   // @@protoc_insertion_point(field_set_allocated:CAccountHardware_VRCompatibilityChecRequest.product_name)
 }
 
-// repeated .CAccountHardware_VRCompatibilityChecRequest.Pair values = 2 [(.description) = "Values from client system probe"];
+// repeated .CAccountHardware_VRCompatibilityChecRequest.Pair values = 2;
 inline int CAccountHardware_VRCompatibilityChecRequest::_internal_values_size() const {
   return values_.size();
 }
@@ -7740,7 +7740,7 @@ inline void CAccountHardware_VRCompatibilityChecResponse_Pair::set_allocated_val
 
 // CAccountHardware_VRCompatibilityChecResponse_ComponentDisplay
 
-// optional string name = 1 [(.description) = "Name of component (OS, RAM, GPU, etc.)"];
+// optional string name = 1;
 inline bool CAccountHardware_VRCompatibilityChecResponse_ComponentDisplay::_internal_has_name() const {
   bool value = (_has_bits_[0] & 0x00000001u) != 0;
   return value;
@@ -7813,7 +7813,7 @@ inline void CAccountHardware_VRCompatibilityChecResponse_ComponentDisplay::set_a
   // @@protoc_insertion_point(field_set_allocated:CAccountHardware_VRCompatibilityChecResponse.ComponentDisplay.name)
 }
 
-// optional string image = 2 [(.description) = "Name of icon to use"];
+// optional string image = 2;
 inline bool CAccountHardware_VRCompatibilityChecResponse_ComponentDisplay::_internal_has_image() const {
   bool value = (_has_bits_[0] & 0x00000002u) != 0;
   return value;
@@ -7886,7 +7886,7 @@ inline void CAccountHardware_VRCompatibilityChecResponse_ComponentDisplay::set_a
   // @@protoc_insertion_point(field_set_allocated:CAccountHardware_VRCompatibilityChecResponse.ComponentDisplay.image)
 }
 
-// optional string value = 3 [(.description) = "String value to report"];
+// optional string value = 3;
 inline bool CAccountHardware_VRCompatibilityChecResponse_ComponentDisplay::_internal_has_value() const {
   bool value = (_has_bits_[0] & 0x00000004u) != 0;
   return value;
@@ -7963,7 +7963,7 @@ inline void CAccountHardware_VRCompatibilityChecResponse_ComponentDisplay::set_a
 
 // CAccountHardware_VRCompatibilityChecResponse
 
-// repeated .CAccountHardware_VRCompatibilityChecResponse.Pair values = 1 [(.description) = "Top-level values reported to client"];
+// repeated .CAccountHardware_VRCompatibilityChecResponse.Pair values = 1;
 inline int CAccountHardware_VRCompatibilityChecResponse::_internal_values_size() const {
   return values_.size();
 }
@@ -8002,7 +8002,7 @@ CAccountHardware_VRCompatibilityChecResponse::values() const {
   return values_;
 }
 
-// repeated .CAccountHardware_VRCompatibilityChecResponse.ComponentDisplay components = 2 [(.description) = "Specific values to display"];
+// repeated .CAccountHardware_VRCompatibilityChecResponse.ComponentDisplay components = 2;
 inline int CAccountHardware_VRCompatibilityChecResponse::_internal_components_size() const {
   return components_.size();
 }
