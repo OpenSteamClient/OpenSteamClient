@@ -1,76 +1,76 @@
 {
     "name": "IClientGameSearchMap",
-    "found_at": "0x2402ae0",
+    "found_at": "0x2448b04",
     "functions": [ 
         {
             "name": "AddGameSearchParams",
             "argc": "3",
-            "addr": "0x5bb620"
+            "addr": "0x5c87e0"
         },
         {
             "name": "SearchForGameWithLobby",
             "argc": "5",
-            "addr": "0x5bb790"
+            "addr": "0x5c8950"
         },
         {
             "name": "SearchForGameSolo",
             "argc": "3",
-            "addr": "0x5bb920"
+            "addr": "0x5c8ae0"
         },
         {
             "name": "AcceptGame",
             "argc": "1",
-            "addr": "0x5bbab0"
+            "addr": "0x5c8c70"
         },
         {
             "name": "DeclineGame",
             "argc": "1",
-            "addr": "0x5bbc10"
+            "addr": "0x5c8dd0"
         },
         {
             "name": "RetrieveConnectionDetails",
             "argc": "5",
-            "addr": "0x5bbd70"
+            "addr": "0x5c8f30"
         },
         {
             "name": "EndGameSearch",
             "argc": "1",
-            "addr": "0x5bbf10"
+            "addr": "0x5c90d0"
         },
         {
             "name": "SetGameHostParams",
             "argc": "3",
-            "addr": "0x5bc070"
+            "addr": "0x5c9230"
         },
         {
             "name": "SetConnectionDetails",
             "argc": "3",
-            "addr": "0x5bc1e0"
+            "addr": "0x5c93a0"
         },
         {
             "name": "RequestPlayersForGame",
             "argc": "4",
-            "addr": "0x5bc360"
+            "addr": "0x5c9520"
         },
         {
             "name": "HostConfirmGameStart",
             "argc": "3",
-            "addr": "0x5bc500"
+            "addr": "0x5c96c0"
         },
         {
             "name": "CancelRequestPlayersForGame",
             "argc": "1",
-            "addr": "0x5bc680"
+            "addr": "0x5c9840"
         },
         {
             "name": "SubmitPlayerResult",
             "argc": "6",
-            "addr": "0x5bc960"
+            "addr": "0x5c9b20"
         },
         {
             "name": "EndGame",
             "argc": "3",
-            "addr": "0x5bc7e0"
+            "addr": "0x5c99a0"
         }
     ]
 }

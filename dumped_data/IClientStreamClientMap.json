@@ -1,81 +1,81 @@
 {
     "name": "IClientStreamClientMap",
-    "found_at": "0x2403a6c",
+    "found_at": "0x2449aa4",
     "functions": [ 
         {
             "name": "Launched",
             "argc": "2",
-            "addr": "0x617fd0"
+            "addr": "0x6259b0"
         },
         {
             "name": "FocusGained",
             "argc": "3",
-            "addr": "0x618120"
+            "addr": "0x625b00"
         },
         {
             "name": "FocusLost",
             "argc": "2",
-            "addr": "0x618290"
+            "addr": "0x625c70"
         },
         {
             "name": "Finished",
             "argc": "3",
-            "addr": "0x6183e0"
+            "addr": "0x625dc0"
         },
         {
             "name": "BGetStreamingClientConfig",
             "argc": "2",
-            "addr": "0x618540"
+            "addr": "0x625f20"
         },
         {
             "name": "BSaveStreamingClientConfig",
             "argc": "2",
-            "addr": "0x6186c0"
+            "addr": "0x6260a0"
         },
         {
             "name": "SetQualityOverride",
             "argc": "2",
-            "addr": "0x618830"
+            "addr": "0x626210"
         },
         {
             "name": "SetBitrateOverride",
             "argc": "2",
-            "addr": "0x618980"
+            "addr": "0x626360"
         },
         {
             "name": "ShowOnScreenKeyboard",
             "argc": "1",
-            "addr": "0x618ad0"
+            "addr": "0x6264b0"
         },
         {
             "name": "BQueueControllerConfigMessageForLocal",
             "argc": "2",
-            "addr": "0x618c00"
+            "addr": "0x6265e0"
         },
         {
             "name": "BGetControllerConfigMessageForRemote",
             "argc": "2",
-            "addr": "0x618d70"
+            "addr": "0x626750"
         },
         {
             "name": "GetSystemInfo",
             "argc": "1",
-            "addr": "0x618ef0"
+            "addr": "0x6268d0"
         },
         {
             "name": "StartStreamingSession",
             "argc": "2",
-            "addr": "0x619050"
+            "addr": "0x626a30"
         },
         {
             "name": "ReportStreamingSessionEvent",
             "argc": "3",
-            "addr": "0x6191a0"
+            "addr": "0x626b80"
         },
         {
             "name": "FinishStreamingSession",
             "argc": "4",
-            "addr": "0x619300"
+            "addr": "0x626ce0"
         }
     ]
 }

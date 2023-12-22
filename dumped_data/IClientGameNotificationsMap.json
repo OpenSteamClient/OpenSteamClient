@@ -1,31 +1,31 @@
 {
     "name": "IClientGameNotificationsMap",
-    "found_at": "0x2403b54",
+    "found_at": "0x2449b8c",
     "functions": [ 
         {
             "name": "EnumerateNotifications",
             "argc": "2",
-            "addr": "0x61c970"
+            "addr": "0x62a350"
         },
         {
             "name": "GetNotificationCount",
             "argc": "2",
-            "addr": "0x61cb00"
+            "addr": "0x62a4e0"
         },
         {
             "name": "GetNotification",
             "argc": "4",
-            "addr": "0x61cc70"
+            "addr": "0x62a650"
         },
         {
             "name": "RemoveSession",
             "argc": "4",
-            "addr": "0x61ce20"
+            "addr": "0x62a800"
         },
         {
             "name": "UpdateSession",
             "argc": "4",
-            "addr": "0x61cf90"
+            "addr": "0x62a970"
         }
     ]
 }

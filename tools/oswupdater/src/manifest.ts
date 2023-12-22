@@ -97,12 +97,17 @@ export class ClientManifest {
         return this.LoadFromString(fs.readFileSync(path).toString());
     }
 
-    static UseNewest(platform: string): Promise<ClientManifest> {
+    static UseNewest(platform: string, beta: string = "publicbeta"): Promise<ClientManifest> {
         return new Promise<ClientManifest>((resolve, reject) => {
 
             // This function is a sin against everything javascript
             var downloadPromise = new Promise<Buffer>((resolve, reject) => {
-                https.get("https://media.steampowered.com/client/steam_client_"+platform, (res) => {
+                var betastr = "";
+                if (beta) {
+                    betastr = beta + "_";
+                }
+
+                https.get("https://media.steampowered.com/client/steam_client_"+betastr+platform, (res) => {
                     const data: any = [];
                     res.on('data', (chunk) => {
                     data.push(chunk);

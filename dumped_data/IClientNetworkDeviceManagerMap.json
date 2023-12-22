@@ -1,221 +1,221 @@
 {
     "name": "IClientNetworkDeviceManagerMap",
-    "found_at": "0x2402d8c",
+    "found_at": "0x2448db0",
     "functions": [ 
         {
             "name": "IsInterfaceValid",
             "argc": "1",
-            "addr": "0x5cb0c0"
+            "addr": "0x5d8280"
         },
         {
             "name": "RefreshDevices",
             "argc": "1",
-            "addr": "0x5cb220"
+            "addr": "0x5d83e0"
         },
         {
             "name": "GetNetworkDevicesData",
             "argc": "2",
-            "addr": "0x5cde40"
+            "addr": "0x5db000"
         },
         {
             "name": "ConnectToDevice",
             "argc": "2",
-            "addr": "0x5cd440"
+            "addr": "0x5da600"
         },
         {
             "name": "DisconnectFromDevice",
             "argc": "2",
-            "addr": "0x5cd0e0"
+            "addr": "0x5da2a0"
         },
         {
             "name": "SetWifiEnabled",
             "argc": "2",
-            "addr": "0x5cdfc0"
+            "addr": "0x5db180"
         },
         {
             "name": "SetWifiScanningEnabled",
             "argc": "2",
-            "addr": "0x5ce160"
+            "addr": "0x5db320"
         },
         {
             "name": "ForgetWirelessEndpoint",
             "argc": "3",
-            "addr": "0x5cd920"
+            "addr": "0x5daae0"
         },
         {
             "name": "SetWirelessEndpointAutoconnect",
             "argc": "4",
-            "addr": "0x5cd760"
+            "addr": "0x5da920"
         },
         {
             "name": "SetCustomIPSettings",
             "argc": "7",
-            "addr": "0x5cd270"
+            "addr": "0x5da430"
         },
         {
             "name": "GetCustomIPSettings",
             "argc": "7",
-            "addr": "0x5cdc50"
+            "addr": "0x5dae10"
         },
         {
             "name": "SetProxyInfo",
             "argc": "5",
-            "addr": "0x5cef40"
+            "addr": "0x5dc100"
         },
         {
             "name": "GetProxyInfo",
             "argc": "6",
-            "addr": "0x5cf100"
+            "addr": "0x5dc2c0"
         },
         {
             "name": "GetObviousConnectivityProblem",
             "argc": "1",
-            "addr": "0x5ce2b0"
+            "addr": "0x5db470"
         },
         {
             "name": "TEST_SetFakeLocalSystemStateSetting",
             "argc": "2",
-            "addr": "0x5ce410"
+            "addr": "0x5db5d0"
         },
         {
             "name": "TEST_GetFakeLocalSystemStateSetting",
             "argc": "1",
-            "addr": "0x5ce560"
+            "addr": "0x5db720"
         },
         {
             "name": "TEST_GetFakeLocalSystemEffectiveState",
             "argc": "1",
-            "addr": "0x5ce6c0"
+            "addr": "0x5db880"
         },
         {
             "name": "TEST_SetEmulateSingleWirelessDevice",
             "argc": "2",
-            "addr": "0x5ce820"
+            "addr": "0x5db9e0"
         },
         {
             "name": "TEST_GetEmulateSingleWirelessDevice",
             "argc": "1",
-            "addr": "0x5ce970"
+            "addr": "0x5dbb30"
         },
         {
             "name": "LEGACY_EnumerateNetworkDevices",
             "argc": "3",
-            "addr": "0x5cb350"
+            "addr": "0x5d8510"
         },
         {
             "name": "LEGACY_GetDeviceType",
             "argc": "2",
-            "addr": "0x5cead0"
+            "addr": "0x5dbc90"
         },
         {
             "name": "LEGACY_IsCurrentDevice",
             "argc": "2",
-            "addr": "0x5cb4f0"
+            "addr": "0x5d86b0"
         },
         {
             "name": "LEGACY_IsCurrentlyConnected",
             "argc": "2",
-            "addr": "0x5cb670"
+            "addr": "0x5d8830"
         },
         {
             "name": "LEGACY_GetDeviceIP4",
             "argc": "4",
-            "addr": "0x5cb7f0"
+            "addr": "0x5d89b0"
         },
         {
             "name": "LEGACY_GetDeviceBroadcastIP4",
             "argc": "4",
-            "addr": "0x5cb9a0"
+            "addr": "0x5d8b60"
         },
         {
             "name": "LEGACY_GetDeviceIPV6InterfaceIndex",
             "argc": "2",
-            "addr": "0x5cbb50"
+            "addr": "0x5d8d10"
         },
         {
             "name": "LEGACY_GetDeviceVendor",
             "argc": "2",
-            "addr": "0x5cbcc0"
+            "addr": "0x5d8e80"
         },
         {
             "name": "LEGACY_GetDeviceProduct",
             "argc": "2",
-            "addr": "0x5cbe30"
+            "addr": "0x5d8ff0"
         },
         {
             "name": "LEGACY_GetMacAddress",
             "argc": "2",
-            "addr": "0x5cbfa0"
+            "addr": "0x5d9160"
         },
         {
             "name": "LEGACY_GetSubnetMaskBitCount",
             "argc": "4",
-            "addr": "0x5cc110"
+            "addr": "0x5d92d0"
         },
         {
             "name": "LEGACY_GetRouterAddressIP4",
             "argc": "4",
-            "addr": "0x5cc2c0"
+            "addr": "0x5d9480"
         },
         {
             "name": "LEGACY_GetDNSResolversIP4",
             "argc": "4",
-            "addr": "0x5cc470"
+            "addr": "0x5d9630"
         },
         {
             "name": "LEGACY_GetDeviceState",
             "argc": "2",
-            "addr": "0x5cec40"
+            "addr": "0x5dbe00"
         },
         {
             "name": "LEGACY_GetDevicePluggedState",
             "argc": "2",
-            "addr": "0x5cc620"
+            "addr": "0x5d97e0"
         },
         {
             "name": "LEGACY_EnumerateWirelessEndpoints",
             "argc": "4",
-            "addr": "0x5cc7a0"
+            "addr": "0x5d9960"
         },
         {
             "name": "LEGACY_GetConnectedWirelessEndpointSSID",
             "argc": "2",
-            "addr": "0x5cc950"
+            "addr": "0x5d9b10"
         },
         {
             "name": "LEGACY_GetWirelessSecurityCapabilities",
             "argc": "2",
-            "addr": "0x5ccac0"
+            "addr": "0x5d9c80"
         },
         {
             "name": "LEGACY_GetWirelessEndpointSSIDUserDisplayString",
             "argc": "3",
-            "addr": "0x5ccc30"
+            "addr": "0x5d9df0"
         },
         {
             "name": "LEGACY_GetWirelessEndpointStrength",
             "argc": "3",
-            "addr": "0x5cedb0"
+            "addr": "0x5dbf70"
         },
         {
             "name": "LEGACY_IsSecurityRequired",
             "argc": "3",
-            "addr": "0x5ccdc0"
+            "addr": "0x5d9f80"
         },
         {
             "name": "LEGACY_GetCachedWirelessCredentials",
             "argc": "3",
-            "addr": "0x5ccf50"
+            "addr": "0x5da110"
         },
         {
             "name": "LEGACY_IsWirelessEndpointForgettable",
             "argc": "3",
-            "addr": "0x5cd5d0"
+            "addr": "0x5da790"
         },
         {
             "name": "LEGACY_IsUsingDHCP",
             "argc": "2",
-            "addr": "0x5cdad0"
+            "addr": "0x5dac90"
         }
     ]
 }

@@ -463,6 +463,8 @@ public unsafe interface IClientUser
     public unknown_ret UpdateGameVrDllState(CGameID gameid, bool unk, bool unk2);  // argc: 3, index: 245
     // WARNING: Arguments are unknown!
     public unknown_ret KillVRTheaterPancakeGame(CGameID gameid);  // argc: 1, index: 246
+    // WARNING: Arguments are unknown!
+    public unknown_ret SetVRIsHMDAwake();  // argc: 1, index: 2
     public bool BIsAnyGameOrServiceAppRunning();  // argc: 0, index: 247
     [BlacklistedInCrossProcessIPC]
     public bool BGetAppPlaytimeMap(CUtlMap<AppId_t, AppPlaytime_t>* vec);  // argc: 1, index: 248
@@ -506,4 +508,13 @@ public unsafe interface IClientUser
     public bool BDoNotDisturb();  // argc: 0, index: 265
     // WARNING: Arguments are unknown!
     public unknown_ret SetAdditionalClientArgData(string data);  // argc: 1, index: 266
+    public unknown_ret GetFamilyGroupID();  // argc: 0, index: 1
+    public unknown_ret GetFamilyGroupName();  // argc: 0, index: 2
+    public unknown_ret GetFamilyGroupRole();  // argc: 0, index: 3
+    // WARNING: Arguments are unknown!
+    public unknown_ret GetFamilyGroupMembers();  // argc: 2, index: 4
+    // WARNING: Arguments are unknown!
+    public unknown_ret NotifyPendingGameLaunch_FetchSteamStreamingEncoderConfig();  // argc: 1, index: 5
+    // WARNING: Arguments are unknown!
+    public unknown_ret BShouldWaitForSteamStreamingEncoderConfig();  // argc: 1, index: 6
 }

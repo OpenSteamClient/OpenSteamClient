@@ -1,36 +1,36 @@
 {
     "name": "IClientDepotBuilderMap",
-    "found_at": "0x2402d6c",
+    "found_at": "0x2448d90",
     "functions": [ 
         {
             "name": "BGetDepotBuildStatus",
             "argc": "6",
-            "addr": "0x5ca500"
+            "addr": "0x5d76c0"
         },
         {
             "name": "VerifyChunkStore",
             "argc": "4",
-            "addr": "0x5ca6d0"
+            "addr": "0x5d7890"
         },
         {
             "name": "Unknown_2",
             "argc": "0",
-            "addr": "0x5ca880"
+            "addr": "0x5d7a40"
         },
         {
             "name": "DownloadChunk",
             "argc": "4",
-            "addr": "0x5caed0"
+            "addr": "0x5d8090"
         },
         {
             "name": "StartDepotBuild",
             "argc": "5",
-            "addr": "0x5cab20"
+            "addr": "0x5d7ce0"
         },
         {
             "name": "CommitAppBuild",
             "argc": "7",
-            "addr": "0x5cacf0"
+            "addr": "0x5d7eb0"
         }
     ]
 }

@@ -175,6 +175,8 @@ public unsafe interface IClientUtils
     public unknown_ret ShowFloatingGamepadTextInput();  // argc: 6, index: 96
     // WARNING: Arguments are unknown!
     public unknown_ret DismissFloatingGamepadTextInput();  // argc: 1, index: 97
+    // WARNING: Arguments are unknown!
+    public unknown_ret DismissGamepadTextInput();  // argc: 1, index: 7
     public unknown_ret FloatingGamepadTextInputDismissed();  // argc: 0, index: 98
     // WARNING: Arguments are unknown!
     public unknown_ret SetGameLauncherMode();  // argc: 2, index: 99

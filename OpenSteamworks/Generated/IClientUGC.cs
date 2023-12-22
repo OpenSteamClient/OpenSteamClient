@@ -141,6 +141,8 @@ public unsafe interface IClientUGC
     // WARNING: Arguments are unknown!
     public unknown_ret RemoveContentDescriptor();  // argc: 3, index: 64
     // WARNING: Arguments are unknown!
+    public unknown_ret SetExternalAssetID();  // argc: 4, index: 65
+    // WARNING: Arguments are unknown!
     public unknown_ret SubmitItemUpdate();  // argc: 3, index: 65
     // WARNING: Arguments are unknown!
     public unknown_ret GetItemUpdateProgress();  // argc: 4, index: 66
@@ -160,6 +162,14 @@ public unsafe interface IClientUGC
     public unknown_ret GetNumSubscribedItems();  // argc: 1, index: 73
     // WARNING: Arguments are unknown!
     public unknown_ret GetSubscribedItems();  // argc: 3, index: 74
+    // WARNING: Arguments are unknown!
+    public unknown_ret GetSubscribedItemsInternal();  // argc: 2, index: 76
+    // WARNING: Arguments are unknown!
+    public unknown_ret SetWorkshopItemsDisabledLocally();  // argc: 3, index: 77
+    // WARNING: Arguments are unknown!
+    public unknown_ret SetSubscriptionsLoadOrder();  // argc: 2, index: 78
+    // WARNING: Arguments are unknown!
+    public unknown_ret MoveSubscriptionsLoadOrder();  // argc: 3, index: 79
     // WARNING: Arguments are unknown!
     public unknown_ret GetItemState();  // argc: 3, index: 75
     // WARNING: Arguments are unknown!

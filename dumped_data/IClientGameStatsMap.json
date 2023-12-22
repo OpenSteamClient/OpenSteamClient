@@ -1,71 +1,71 @@
 {
     "name": "IClientGameStatsMap",
-    "found_at": "0x24032c8",
+    "found_at": "0x24492ec",
     "functions": [ 
         {
             "name": "GetNewSession",
             "argc": "6",
-            "addr": "0x5ea530"
+            "addr": "0x5f76f0"
         },
         {
             "name": "EndSession",
             "argc": "5",
-            "addr": "0x5ea740"
+            "addr": "0x5f7900"
         },
         {
             "name": "AddSessionAttributeInt",
             "argc": "5",
-            "addr": "0x5ea940"
+            "addr": "0x5f7b00"
         },
         {
             "name": "AddSessionAttributeString",
             "argc": "5",
-            "addr": "0x5eaae0"
+            "addr": "0x5f7ca0"
         },
         {
             "name": "AddSessionAttributeFloat",
             "argc": "5",
-            "addr": "0x5eac80"
+            "addr": "0x5f7e40"
         },
         {
             "name": "AddNewRow",
             "argc": "5",
-            "addr": "0x5eb300"
+            "addr": "0x5f84c0"
         },
         {
             "name": "CommitRow",
             "argc": "3",
-            "addr": "0x5eb4b0"
+            "addr": "0x5f8670"
         },
         {
             "name": "CommitOutstandingRows",
             "argc": "3",
-            "addr": "0x5eb630"
+            "addr": "0x5f87f0"
         },
         {
             "name": "AddRowAttributeInt",
             "argc": "5",
-            "addr": "0x5eae20"
+            "addr": "0x5f7fe0"
         },
         {
             "name": "AddRowAttributeString",
             "argc": "5",
-            "addr": "0x5eafc0"
+            "addr": "0x5f8180"
         },
         {
             "name": "AddRowAttributeFloat",
             "argc": "5",
-            "addr": "0x5eb160"
+            "addr": "0x5f8320"
         },
         {
             "name": "AddSessionAttributeInt64",
             "argc": "6",
-            "addr": "0x5eb9a0"
+            "addr": "0x5f8b60"
         },
         {
             "name": "AddRowAttributeInt64",
             "argc": "6",
-            "addr": "0x5eb7b0"
+            "addr": "0x5f8970"
         }
     ]
 }

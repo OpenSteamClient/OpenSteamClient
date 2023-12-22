@@ -1,66 +1,66 @@
 {
     "name": "IClientInstallUtilsMap",
-    "found_at": "0x240b9b0",
+    "found_at": "0x2451950",
     "functions": [ 
         {
             "name": "SetUniverse",
             "argc": "2",
-            "addr": "0xf8b120"
+            "addr": "0xfb4370"
         },
         {
             "name": "AddShortcut",
             "argc": "6",
-            "addr": "0xf8b8a0"
+            "addr": "0xfb4af0"
         },
         {
             "name": "RemoveShortcut",
             "argc": "2",
-            "addr": "0xf8b730"
+            "addr": "0xfb4980"
         },
         {
             "name": "AddUninstallEntry",
             "argc": "8",
-            "addr": "0xf8b570"
+            "addr": "0xfb47c0"
         },
         {
             "name": "RemoveUninstallEntry",
             "argc": "2",
-            "addr": "0xf8b3f0"
+            "addr": "0xfb4640"
         },
         {
             "name": "AddToFirewall",
             "argc": "3",
-            "addr": "0xf8b270"
+            "addr": "0xfb44c0"
         },
         {
             "name": "RemoveFromFirewall",
             "argc": "3",
-            "addr": "0xf8ba40"
+            "addr": "0xfb4c90"
         },
         {
             "name": "RegisterSteamProtocolHandler",
             "argc": "3",
-            "addr": "0xf8bbd0"
+            "addr": "0xfb4e20"
         },
         {
             "name": "AddInstallScriptToWhiteList",
             "argc": "3",
-            "addr": "0xf8bed0"
+            "addr": "0xfb5120"
         },
         {
             "name": "RunInstallScript",
             "argc": "4",
-            "addr": "0xf8c250"
+            "addr": "0xfb54a0"
         },
         {
             "name": "GetInstallScriptExitCode",
             "argc": "1",
-            "addr": "0xf8bd60"
+            "addr": "0xfb4fb0"
         },
         {
             "name": "ConfigureNetworDeviceIPAddresses",
             "argc": "8",
-            "addr": "0xf8c050"
+            "addr": "0xfb52a0"
         }
     ]
 }

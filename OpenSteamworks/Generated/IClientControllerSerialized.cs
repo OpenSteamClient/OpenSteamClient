@@ -72,8 +72,6 @@ public unsafe interface IClientControllerSerialized
     // WARNING: Arguments are unknown!
     public unknown_ret GetControllerDetails();  // argc: 1, index: 29
     // WARNING: Arguments are unknown!
-    public unknown_ret FactoryReset();  // argc: 1, index: 30
-    // WARNING: Arguments are unknown!
     public unknown_ret SetDefaultConfig();  // argc: 1, index: 31
     // WARNING: Arguments are unknown!
     public unknown_ret CalibrateTrackpads();  // argc: 1, index: 32
@@ -115,8 +113,6 @@ public unsafe interface IClientControllerSerialized
     // WARNING: Arguments are unknown!
     public unknown_ret GetCurrentActionSetHandleForRunningApp();  // argc: 2, index: 50
     // WARNING: Arguments are unknown!
-    public unknown_ret BAnyControllerOptedInAndAvailable();  // argc: 1, index: 51
-    // WARNING: Arguments are unknown!
     public unknown_ret GetGamepadIndexForControllerIndex();  // argc: 1, index: 52
     // WARNING: Arguments are unknown!
     [BlacklistedInCrossProcessIPC]
@@ -155,82 +151,7 @@ public unsafe interface IClientControllerSerialized
     // WARNING: Arguments are unknown!
     public unknown_ret GetLocalizedString();  // argc: 2, index: 69
     // WARNING: Arguments are unknown!
-    [BlacklistedInCrossProcessIPC]
-    public unknown_ret GetBindingSetting();  // argc: 3, index: 70
-    // WARNING: Arguments are unknown!
-    public unknown_ret SetBindingSetting();  // argc: 3, index: 71
-    // WARNING: Arguments are unknown!
     public unknown_ret GetBindingVDFString();  // argc: 1, index: 72
-    // WARNING: Arguments are unknown!
-    public unknown_ret GetSourceGroupBindingCount();  // argc: 2, index: 73
-    // WARNING: Arguments are unknown!
-    [BlacklistedInCrossProcessIPC]
-    public unknown_ret GetSourceGroupBindingInfo();  // argc: 5, index: 74
-    // WARNING: Arguments are unknown!
-    public unknown_ret SetSourceGroupBindingActive();  // argc: 5, index: 75
-    // WARNING: Arguments are unknown!
-    public unknown_ret CreateSourceGroupBinding();  // argc: 6, index: 76
-    // WARNING: Arguments are unknown!
-    public unknown_ret BAreLayerAndParentModesEquivalent();  // argc: 3, index: 77
-    // WARNING: Arguments are unknown!
-    [BlacklistedInCrossProcessIPC]
-    public unknown_ret GetGroupSetting();  // argc: 4, index: 78
-    // WARNING: Arguments are unknown!
-    public unknown_ret SetGroupSetting();  // argc: 4, index: 79
-    // WARNING: Arguments are unknown!
-    [BlacklistedInCrossProcessIPC]
-    public unknown_ret GetGroupSettingDefault();  // argc: 4, index: 80
-    // WARNING: Arguments are unknown!
-    [BlacklistedInCrossProcessIPC]
-    public unknown_ret GetGroupSettingUIRange();  // argc: 5, index: 81
-    // WARNING: Arguments are unknown!
-    [BlacklistedInCrossProcessIPC]
-    public unknown_ret GetActivatorSetting();  // argc: 6, index: 82
-    // WARNING: Arguments are unknown!
-    public unknown_ret SetActivatorSetting();  // argc: 6, index: 83
-    // WARNING: Arguments are unknown!
-    [BlacklistedInCrossProcessIPC]
-    public unknown_ret GetActivatorSettingDefault();  // argc: 6, index: 84
-    // WARNING: Arguments are unknown!
-    [BlacklistedInCrossProcessIPC]
-    public unknown_ret SetGroupBinding();  // argc: 7, index: 85
-    // WARNING: Arguments are unknown!
-    [BlacklistedInCrossProcessIPC]
-    public unknown_ret GetGroupBinding();  // argc: 7, index: 86
-    // WARNING: Arguments are unknown!
-    public unknown_ret RemoveGroupBinding();  // argc: 4, index: 87
-    // WARNING: Arguments are unknown!
-    public unknown_ret GetParentGroupForLayerGroup();  // argc: 3, index: 88
-    // WARNING: Arguments are unknown!
-    public unknown_ret GetParentPresetForLayerPreset();  // argc: 3, index: 89
-    // WARNING: Arguments are unknown!
-    [BlacklistedInCrossProcessIPC]
-    public unknown_ret GetGroupActivatorsForInput();  // argc: 4, index: 90
-    // WARNING: Arguments are unknown!
-    public unknown_ret ReplaceActivator();  // argc: 5, index: 91
-    // WARNING: Arguments are unknown!
-    public unknown_ret AddActivator();  // argc: 3, index: 92
-    // WARNING: Arguments are unknown!
-    public unknown_ret RemoveActivator();  // argc: 4, index: 93
-    // WARNING: Arguments are unknown!
-    public unknown_ret CopyActivator();  // argc: 5, index: 94
-    // WARNING: Arguments are unknown!
-    public unknown_ret IsActivatorSettingsDefault();  // argc: 4, index: 95
-    // WARNING: Arguments are unknown!
-    [BlacklistedInCrossProcessIPC]
-    public unknown_ret SetModeShiftBinding();  // argc: 5, index: 96
-    // WARNING: Arguments are unknown!
-    [BlacklistedInCrossProcessIPC]
-    public unknown_ret GetModeShiftBinding();  // argc: 6, index: 97
-    // WARNING: Arguments are unknown!
-    [BlacklistedInCrossProcessIPC]
-    public unknown_ret AddActionSet();  // argc: 2, index: 98
-    // WARNING: Arguments are unknown!
-    [BlacklistedInCrossProcessIPC]
-    public unknown_ret RenameActionSet();  // argc: 2, index: 99
-    // WARNING: Arguments are unknown!
-    [BlacklistedInCrossProcessIPC]
-    public unknown_ret DeleteActionSet();  // argc: 2, index: 100
     // WARNING: Arguments are unknown!
     public unknown_ret GetBindingTitle();  // argc: 2, index: 101
     // WARNING: Arguments are unknown!
@@ -243,12 +164,6 @@ public unsafe interface IClientControllerSerialized
     public unknown_ret BBindingMajorRevisionMismatch();  // argc: 1, index: 105
     // WARNING: Arguments are unknown!
     public unknown_ret SetBindingDescription();  // argc: 2, index: 106
-    // WARNING: Arguments are unknown!
-    public unknown_ret GetBindingTitleForIndex();  // argc: 4, index: 107
-    // WARNING: Arguments are unknown!
-    public unknown_ret GetBindingDescForIndex();  // argc: 4, index: 108
-    // WARNING: Arguments are unknown!
-    public unknown_ret GetBindingTypeForIndex();  // argc: 2, index: 109
     // WARNING: Arguments are unknown!
     [BlacklistedInCrossProcessIPC]
     public unknown_ret GetConfigBindingInfo();  // argc: 2, index: 110
@@ -276,9 +191,6 @@ public unsafe interface IClientControllerSerialized
     [BlacklistedInCrossProcessIPC]
     public unknown_ret GetConfigFeatures();  // argc: 2, index: 121
     // WARNING: Arguments are unknown!
-    [BlacklistedInCrossProcessIPC]
-    public unknown_ret GetAllBindings();  // argc: 3, index: 122
-    // WARNING: Arguments are unknown!
     public unknown_ret BIsXInputActiveForController();  // argc: 1, index: 123
     // WARNING: Arguments are unknown!
     public unknown_ret PS4SettingsChanged();  // argc: 1, index: 124
@@ -292,8 +204,6 @@ public unsafe interface IClientControllerSerialized
     public unknown_ret SetDefaultNintendoButtonLayout();  // argc: 1, index: 128
     // WARNING: Arguments are unknown!
     public unknown_ret IsControllerConnected();  // argc: 2, index: 129
-    // WARNING: Arguments are unknown!
-    public unknown_ret GetControllerState();  // argc: 2, index: 130
     // WARNING: Arguments are unknown!
     public unknown_ret TriggerHapticPulse();  // argc: 6, index: 131
     // WARNING: Arguments are unknown!
@@ -340,18 +250,6 @@ public unsafe interface IClientControllerSerialized
     // WARNING: Arguments are unknown!
     public unknown_ret BHapticsEnabledByUser();  // argc: 1, index: 153
     // WARNING: Arguments are unknown!
-    public unknown_ret GetControllerSerialNumber();  // argc: 3, index: 154
-    // WARNING: Arguments are unknown!
-    public unknown_ret GetControllerChipID();  // argc: 3, index: 155
-    // WARNING: Arguments are unknown!
-    public unknown_ret BSupportsControllerLEDBrightness();  // argc: 1, index: 156
-    // WARNING: Arguments are unknown!
-    public unknown_ret BSupportsControllerLEDColor();  // argc: 1, index: 157
-    // WARNING: Arguments are unknown!
-    public unknown_ret BSupportsControllerRumble();  // argc: 1, index: 158
-    // WARNING: Arguments are unknown!
-    public unknown_ret BSupportsControllerHaptics();  // argc: 1, index: 159
-    // WARNING: Arguments are unknown!
     public unknown_ret SetControllerPairingConnectionState();  // argc: 2, index: 160
     // WARNING: Arguments are unknown!
     public unknown_ret SetControllerKeyboardMouseState();  // argc: 2, index: 161
@@ -362,18 +260,6 @@ public unsafe interface IClientControllerSerialized
     public unknown_ret PopupMenuTouchKeyClicked();  // argc: 3, index: 163
     // WARNING: Arguments are unknown!
     public unknown_ret AccessControllerInputGeneratorMouseButton();  // argc: 3, index: 164
-    // WARNING: Arguments are unknown!
-    [BlacklistedInCrossProcessIPC]
-    public unknown_ret GetGameActionSets();  // argc: 2, index: 165
-    // WARNING: Arguments are unknown!
-    [BlacklistedInCrossProcessIPC]
-    public unknown_ret GetBaseGameActionSets();  // argc: 2, index: 166
-    // WARNING: Arguments are unknown!
-    [BlacklistedInCrossProcessIPC]
-    public unknown_ret GetLayerGameActionSets();  // argc: 2, index: 167
-    // WARNING: Arguments are unknown!
-    [BlacklistedInCrossProcessIPC]
-    public unknown_ret GetGameActionSetById();  // argc: 2, index: 168
     // WARNING: Arguments are unknown!
     [BlacklistedInCrossProcessIPC]
     public unknown_ret SetControllerSetting();  // argc: 2, index: 169
@@ -400,9 +286,6 @@ public unsafe interface IClientControllerSerialized
     public unknown_ret GetGamepadIndexForXInputIndex();  // argc: 1, index: 179
     // WARNING: Arguments are unknown!
     public unknown_ret GetControllerIndexForGamepadIndex();  // argc: 1, index: 180
-    public unknown_ret GetNumControllersWithDetails();  // argc: 0, index: 181
-    // WARNING: Arguments are unknown!
-    public unknown_ret ConvertBindingToNewControllerType();  // argc: 2, index: 182
     // WARNING: Arguments are unknown!
     public unknown_ret SetControllerActiveAccount();  // argc: 2, index: 183
     // WARNING: Arguments are unknown!

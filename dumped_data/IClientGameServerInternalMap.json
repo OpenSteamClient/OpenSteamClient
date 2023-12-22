@@ -1,341 +1,341 @@
 {
     "name": "IClientGameServerInternalMap",
-    "found_at": "0x243de3c",
+    "found_at": "0x2485d4c",
     "functions": [ 
         {
             "name": "Unknown_0",
             "argc": "0",
-            "addr": "0x57b060"
+            "addr": "0x5876a0"
         },
         {
             "name": "Unknown_1",
             "argc": "0",
-            "addr": "0x57aff0"
+            "addr": "0x587630"
         },
         {
             "name": "SetSDRLogin",
             "argc": "2",
-            "addr": "0x643a90"
+            "addr": "0x64bde0"
         },
         {
             "name": "Unknown_3",
             "argc": "0",
-            "addr": "0x50e100"
+            "addr": "0x51a720"
         },
         {
             "name": "InitGameServerSerialized",
             "argc": "9",
-            "addr": "0x643870"
+            "addr": "0x64bbc0"
         },
         {
             "name": "SetProduct",
             "argc": "2",
-            "addr": "0x643d10"
+            "addr": "0x64c060"
         },
         {
             "name": "SetGameDescription",
             "argc": "2",
-            "addr": "0x6462c0"
+            "addr": "0x6504e0"
         },
         {
             "name": "SetModDir",
             "argc": "2",
-            "addr": "0x643bd0"
+            "addr": "0x64bf20"
         },
         {
             "name": "SetDedicatedServer",
             "argc": "2",
-            "addr": "0x646030"
+            "addr": "0x64fe30"
         },
         {
             "name": "LogOn",
             "argc": "2",
-            "addr": "0x646180"
+            "addr": "0x650620"
         },
         {
             "name": "LogOnAnonymous",
             "argc": "1",
-            "addr": "0x645560"
+            "addr": "0x64f4d0"
         },
         {
             "name": "LogOff",
             "argc": "1",
-            "addr": "0x645690"
+            "addr": "0x64f600"
         },
         {
             "name": "GetSteamID",
             "argc": "2",
-            "addr": "0x6457c0"
+            "addr": "0x64f730"
         },
         {
             "name": "BLoggedOn",
             "argc": "1",
-            "addr": "0x645950"
+            "addr": "0x64f8c0"
         },
         {
             "name": "BSecure",
             "argc": "1",
-            "addr": "0x645ab0"
+            "addr": "0x64fa20"
         },
         {
             "name": "WasRestartRequested",
             "argc": "1",
-            "addr": "0x645ed0"
+            "addr": "0x650380"
         },
         {
             "name": "SetMaxPlayerCount",
             "argc": "2",
-            "addr": "0x644000"
+            "addr": "0x64c510"
         },
         {
             "name": "SetBotPlayerCount",
             "argc": "2",
-            "addr": "0x644150"
+            "addr": "0x64c660"
         },
         {
             "name": "SetServerName",
             "argc": "2",
-            "addr": "0x6442a0"
+            "addr": "0x651140"
         },
         {
             "name": "SetMapName",
             "argc": "2",
-            "addr": "0x6443e0"
+            "addr": "0x6514f0"
         },
         {
             "name": "SetPasswordProtected",
             "argc": "2",
-            "addr": "0x644520"
+            "addr": "0x64ff80"
         },
         {
             "name": "SetSpectatorPort",
             "argc": "2",
-            "addr": "0x644670"
+            "addr": "0x6500d0"
         },
         {
             "name": "SetSpectatorServerName",
             "argc": "2",
-            "addr": "0x6447c0"
+            "addr": "0x651280"
         },
         {
             "name": "ClearAllKeyValues",
             "argc": "1",
-            "addr": "0x644900"
+            "addr": "0x6513c0"
         },
         {
             "name": "SetKeyValue",
             "argc": "3",
-            "addr": "0x644a30"
+            "addr": "0x64fce0"
         },
         {
             "name": "SetGameTags",
             "argc": "2",
-            "addr": "0x644b80"
+            "addr": "0x651000"
         },
         {
             "name": "SetGameData",
             "argc": "2",
-            "addr": "0x644cc0"
+            "addr": "0x650d80"
         },
         {
             "name": "SetRegion",
             "argc": "2",
-            "addr": "0x645420"
+            "addr": "0x650ec0"
         },
         {
             "name": "SendUserConnectAndAuthenticate",
             "argc": "5",
-            "addr": "0x644e00"
+            "addr": "0x650760"
         },
         {
             "name": "CreateUnauthenticatedUserConnection",
             "argc": "2",
-            "addr": "0x644fc0"
+            "addr": "0x650920"
         },
         {
             "name": "SendUserDisconnect",
             "argc": "3",
-            "addr": "0x645150"
+            "addr": "0x650ab0"
         },
         {
             "name": "BUpdateUserData",
             "argc": "5",
-            "addr": "0x645290"
+            "addr": "0x650bf0"
         },
         {
             "name": "GetAuthSessionTicket",
             "argc": "4",
-            "addr": "0x643e50"
+            "addr": "0x64c1a0"
         },
         {
             "name": "GetAuthSessionTicketV2",
             "argc": "5",
-            "addr": "0x648900"
+            "addr": "0x64c350"
         },
         {
             "name": "BeginAuthSession",
             "argc": "5",
-            "addr": "0x648630"
+            "addr": "0x64edd0"
         },
         {
             "name": "EndAuthSession",
             "argc": "3",
-            "addr": "0x6487c0"
+            "addr": "0x64ef60"
         },
         {
             "name": "CancelAuthTicket",
             "argc": "2",
-            "addr": "0x6480b0"
+            "addr": "0x64ec80"
         },
         {
             "name": "IsUserSubscribedAppInTicket",
             "argc": "4",
-            "addr": "0x648200"
+            "addr": "0x64f350"
         },
         {
             "name": "RequestUserGroupStatus",
             "argc": "5",
-            "addr": "0x648380"
+            "addr": "0x64f0a0"
         },
         {
             "name": "GetGameplayStats",
             "argc": "1",
-            "addr": "0x648500"
+            "addr": "0x64f220"
         },
         {
             "name": "GetServerReputation",
             "argc": "1",
-            "addr": "0x647210"
+            "addr": "0x64e130"
         },
         {
             "name": "GetPublicIP",
             "argc": "2",
-            "addr": "0x647390"
+            "addr": "0x64e2b0"
         },
         {
             "name": "EnableHeartbeats",
             "argc": "2",
-            "addr": "0x647580"
+            "addr": "0x64e4a0"
         },
         {
             "name": "SetHeartbeatInterval",
             "argc": "2",
-            "addr": "0x6476d0"
+            "addr": "0x64e5f0"
         },
         {
             "name": "ForceHeartbeat",
             "argc": "1",
-            "addr": "0x647820"
+            "addr": "0x64e740"
         },
         {
             "name": "GetLogonState",
             "argc": "1",
-            "addr": "0x645d70"
+            "addr": "0x64fb80"
         },
         {
             "name": "BConnected",
             "argc": "1",
-            "addr": "0x645c10"
+            "addr": "0x650220"
         },
         {
             "name": "RaiseConnectionPriority",
             "argc": "2",
-            "addr": "0x647950"
+            "addr": "0x64e870"
         },
         {
             "name": "ResetConnectionPriority",
             "argc": "2",
-            "addr": "0x647ac0"
+            "addr": "0x64e9e0"
         },
         {
             "name": "SetCellID",
             "argc": "2",
-            "addr": "0x647c10"
+            "addr": "0x64eb30"
         },
         {
             "name": "TrackSteamUsageEvent",
             "argc": "4",
-            "addr": "0x646400"
+            "addr": "0x64c7b0"
         },
         {
             "name": "SetCountOfSimultaneousGuestUsersPerSteamAccount",
             "argc": "2",
-            "addr": "0x646570"
+            "addr": "0x64c920"
         },
         {
             "name": "EnumerateConnectedUsers",
             "argc": "3",
-            "addr": "0x6466c0"
+            "addr": "0x64ca70"
         },
         {
             "name": "AssociateWithClan",
             "argc": "3",
-            "addr": "0x646850"
+            "addr": "0x64cc00"
         },
         {
             "name": "ComputeNewPlayerCompatibility",
             "argc": "3",
-            "addr": "0x6469e0"
+            "addr": "0x64cd90"
         },
         {
             "name": "_BGetUserAchievementStatus",
             "argc": "4",
-            "addr": "0x649160"
+            "addr": "0x64cf20"
         },
         {
             "name": "_GSSetSpawnCount",
             "argc": "2",
-            "addr": "0x648e20"
+            "addr": "0x64d0a0"
         },
         {
             "name": "_GSGetSteam2GetEncryptionKeyToSendToNewClient",
             "argc": "4",
-            "addr": "0x646ea0"
+            "addr": "0x64d710"
         },
         {
             "name": "_GSSendSteam2UserConnect",
             "argc": "8",
-            "addr": "0x648f70"
+            "addr": "0x64d1f0"
         },
         {
             "name": "_GSSendSteam3UserConnect",
             "argc": "6",
-            "addr": "0x646cf0"
+            "addr": "0x64d560"
         },
         {
             "name": "_GSSendUserConnect",
             "argc": "6",
-            "addr": "0x647ee0"
+            "addr": "0x64dc00"
         },
         {
             "name": "_GSRemoveUserConnect",
             "argc": "2",
-            "addr": "0x646b70"
+            "addr": "0x64d3e0"
         },
         {
             "name": "_GSUpdateStatus",
             "argc": "7",
-            "addr": "0x647050"
+            "addr": "0x64d8c0"
         },
         {
             "name": "_GSCreateUnauthenticatedUser",
             "argc": "2",
-            "addr": "0x647d60"
+            "addr": "0x64da80"
         },
         {
             "name": "_GSSetServerType",
             "argc": "10",
-            "addr": "0x643620"
+            "addr": "0x64b970"
         },
         {
             "name": "_SetBasicServerData",
             "argc": "8",
-            "addr": "0x648ac0"
+            "addr": "0x64ddd0"
         },
         {
             "name": "_GSSendUserDisconnect",
             "argc": "4",
-            "addr": "0x648c90"
+            "addr": "0x64dfa0"
         }
     ]
 }
