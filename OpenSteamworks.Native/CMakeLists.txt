@@ -4,7 +4,7 @@ project(opensteamclient LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 20)
 
 if (NOT DEFINED IDE_BUILD)
-    set(CMAKE_BUILD_TYPE MinSizeRel)
+    set(CMAKE_BUILD_TYPE Release)
     if ("${BUILD_PLATFORM_TARGET}" STREQUAL "") 
         message( FATAL_ERROR "BUILD_PLATFORM_TARGET not set. Do not build this project manually outside of dotnet build." )
     endif()
@@ -69,7 +69,8 @@ if (BUILD_PLATFORM_TARGET STREQUAL "linux")
 
         include("cmake/protobuf_external.cmake")
         add_library(protobufhack SHARED ${protobufhack_include_cc} ${protobufhack_sources})
-        set_target_properties(protobufhack PROPERTIES BUILD_TYPE Release)
+        # Another CMake L. Can't actually even set the release type per project. Why???????
+        #set_target_properties(protobufhack PROPERTIES BUILD_TYPE Release)
         set_target_properties(protobufhack PROPERTIES CXX_STANDARD 14)
         target_include_directories(protobufhack PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
         target_link_libraries(protobufhack ${Protobuf_LIBRARIES})

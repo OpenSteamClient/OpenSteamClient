@@ -339,7 +339,6 @@ enum EStoreCategoryType : int {
 };
 bool EStoreCategoryType_IsValid(int value);
 constexpr EStoreCategoryType EStoreCategoryType_MIN = EStoreCategoryType_Category;
-constexpr EStoreCategoryType EStoreCategoryType_MAX = EStoreCategoryType_MAX;
 constexpr int EStoreCategoryType_ARRAYSIZE = EStoreCategoryType_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EStoreCategoryType_descriptor();

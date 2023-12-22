@@ -118,16 +118,6 @@ public class ClientApps {
         return this.nativeClientAppManager.GetAppLibraryFolder(appid);
     }
 
-    public string GetAppConfigValue(AppId_t appid, string key) {
-        IncrementingStringBuilder builder = new();
-        builder.RunUntilFits(() => this.nativeClientAppManager.GetAppConfigValue(appid, key, builder.Data, builder.Length));
-        return builder.ToString();
-    }
-
-    public void SetAppConfigValue(AppId_t appid, string key, string value) {
-        this.nativeClientAppManager.SetAppConfigValue(appid, key, value);
-    }
-
     public string GetAppBeta(AppId_t appid) {
         IncrementingStringBuilder builder = new();
         builder.RunUntilFits(() => this.nativeClientAppManager.GetActiveBeta(appid, builder.Data, builder.Length));
@@ -135,6 +125,6 @@ public class ClientApps {
     }
 
     public void SetAppBeta(AppId_t appid, string betaname) {
-        SetAppConfigValue(appid, "betakey", betaname);
+        this.nativeClientAppManager.SetActiveBeta(appid, betaname);
     }
 }

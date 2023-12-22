@@ -254,7 +254,6 @@ enum EFamilyGroupRole : int {
 };
 bool EFamilyGroupRole_IsValid(int value);
 constexpr EFamilyGroupRole EFamilyGroupRole_MIN = EFamilyGroupRole_None;
-constexpr EFamilyGroupRole EFamilyGroupRole_MAX = EFamilyGroupRole_MAX;
 constexpr int EFamilyGroupRole_ARRAYSIZE = EFamilyGroupRole_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EFamilyGroupRole_descriptor();
@@ -281,7 +280,6 @@ enum EPurchaseRequestAction : int {
 };
 bool EPurchaseRequestAction_IsValid(int value);
 constexpr EPurchaseRequestAction EPurchaseRequestAction_MIN = EPurchaseRequestAction_None;
-constexpr EPurchaseRequestAction EPurchaseRequestAction_MAX = EPurchaseRequestAction_MAX;
 constexpr int EPurchaseRequestAction_ARRAYSIZE = EPurchaseRequestAction_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EPurchaseRequestAction_descriptor();

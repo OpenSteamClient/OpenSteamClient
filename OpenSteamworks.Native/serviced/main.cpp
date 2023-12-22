@@ -12,6 +12,10 @@
 #define STEAMSERVICE_LIB "ubuntu12_32/steamservice.so"
 #include <link.h>
 #include <sys/prctl.h>
+#include <sys/mman.h>
+#include <string.h>
+#include <sys/stat.h>
+#include <fcntl.h>
 #endif 
 
 #if _WIN32
@@ -62,36 +66,103 @@ void WaitForControlSignalToContinue() {
 void *servicePtr = nullptr;
 
 #if __linux__
-uintptr_t EvilLinuxHack(void* dl_handle) {
-    Dl_info info;
+link_map* getLinkMap(void* handle)
+{
+    link_map* map = nullptr;
+    dlinfo(handle, RTLD_DI_LINKMAP, &map);
+    return map;
+}
 
-    // Init is (always?) the first function exported in an ELF (libraries and executables).
-    void *initPtr = dlsym(dl_handle, "_init");
+Elf32_Shdr getSection(void* handle, const char* sectionName, void** base, Elf32_Ehdr* ehdrOut) {
+    std::size_t size = 0;
+    Elf32_Shdr sect;
 
-    // 0047e20
-    // 0x47e20 (addr of SteamServiceInternal_StartThread) - 0x10000(base of steamservice.so)
-    // 0x5ee50
-    uintptr_t offset = 0x47e20 - 0x10000;
-    if (initPtr == nullptr) {
-        std::cerr << "InitPtr == nullptr!!!" << std::endl;
-        return 1;
+    const auto linkMap = getLinkMap(handle);
+    if (!linkMap) {
+        throw std::runtime_error("Failed to get link map");
     }
 
-    std::cout << "SteamService _init is at " << (void *)(initPtr) << std::endl;
-    // get info (including base address) of steamservice loaded in memory
-    dladdr((void *)initPtr, &info);
+    if (const auto fd = open(linkMap->l_name, O_RDONLY); fd >= 0) {
+        struct stat st;
+        if (fstat(fd, &st) == 0) {
+            if (const auto map = mmap(nullptr, st.st_size, PROT_READ, MAP_PRIVATE, fd, 0); map != MAP_FAILED) {
+                const auto ehdr = (Elf32_Ehdr*)map;
+                const auto shdrs = (Elf32_Shdr*)(uintptr_t(ehdr) + ehdr->e_shoff);
+                const auto strTab = (const char*)(uintptr_t(ehdr) + shdrs[ehdr->e_shstrndx].sh_offset);
+                
+                for (auto i = 0; i < ehdr->e_shnum; ++i) {
+                    const auto shdr = (Elf32_Shdr*)(uintptr_t(shdrs) + i * ehdr->e_shentsize);
 
-    // calculate the location of SteamServiceInternal_StartThread
-    uintptr_t internalStartPtr = ((uintptr_t)info.dli_fbase + offset);
+                    if (strcmp(strTab + shdr->sh_name, sectionName) != 0)
+                        continue;
 
-    // here to aid in debugging (if info is 0 the lookup failed)
-    std::cout << "dladdr returned  " << (void *)(&info) << std::endl;
+                    *base = (void*)(linkMap->l_addr + shdr->sh_addr);
+                    size = shdr->sh_size;
+                    sect = *shdr;
+                    *ehdrOut = *ehdr;
 
-    std::cout << "SteamService fbase is at " << (void *)(info.dli_fbase) << std::endl;
+                    munmap(map, st.st_size);
+                    close(fd);
+                    break;
+                }
+                munmap(map, st.st_size);
+            } else {
+                throw std::runtime_error("Failed to mmap");
+            }
+        }
+        close(fd);
+    }
+
+    return sect;
+}
+
+uintptr_t FindSignature(void* handle, const char* t_sign, const char* t_mask)
+{
+    auto map = getLinkMap(handle);
+    void *base = nullptr;
+    Elf32_Ehdr ehdr;
+    Elf32_Shdr sect = getSection(handle, ".text", &base, &ehdr);
+    auto size = sect.sh_size;
+    size_t signLen = strlen(t_mask);
+    if(signLen == 0)
+    {
+        throw std::runtime_error("empty signature");
+    }
+
+    const char *baseAddress = (char *)base;
+    const char *searchBase = baseAddress;
+    const char* searchEnd = (char*)(searchBase + size - signLen);
+
+    while (searchBase < searchEnd)
+    {
+        int i;
+
+        for(i = 0; i < signLen; ++i)
+        {
+            if(t_mask[i] != '?' && t_sign[i] != searchBase[i])
+            {
+                break;
+            }
+        }
+
+        if(i == signLen)
+        {
+            return (uintptr_t)searchBase;
+        }
+
+        ++searchBase;
+    }
+
+    throw std::runtime_error("failed to find signature");
+}
+
+uintptr_t EvilLinuxHack(void* dl_handle) {
+    uintptr_t internalStartPtr = FindSignature(dl_handle, "\x55\x89\xE5\x57\x56\x53\xE8\x00\x00\x00\x00\x81\xC3\x00\x00\x00\x00\x83\xEC\x00\x8B\x00\x00\x6A\x00\x8B", "xxxxxxx????xx????xx?x??x?x");
     std::cout << "SteamServiceInternal_StartThread is at " << (void *)internalStartPtr << std::endl;
 
     return internalStartPtr;
 }
+
 #endif
 
 //TODO: This is really fishy and could potentially be VAC bannable (we don't have .valvesig section or a Windows signature)

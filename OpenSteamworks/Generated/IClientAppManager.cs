@@ -61,8 +61,7 @@ public unsafe interface IClientAppManager
     // WARNING: Arguments are unknown!
     public int GetAvailableBetas(AppId_t appid);  // argc: 5, index: 35
     public bool CheckBetaPassword(AppId_t appid, string betaPassword);  // argc: 2, index: 36
-    // WARNING: Arguments are unknown!
-    public unknown_ret SetActiveBeta();  // argc: 2, index: 17
+    public SteamAPICall_t SetActiveBeta(AppId_t appid, string beta);  // argc: 2, index: 17
     public int GetActiveBeta(AppId_t appid, StringBuilder betaOut, int betaOutLen);  // argc: 3, index: 38
     [BlacklistedInCrossProcessIPC]
     public bool BGetActiveBetaForApps(CUtlVector<AppId_t>* apps, CUtlStringList* betas);  // argc: 2, index: 39
