@@ -35,6 +35,7 @@ A partially open-source Steam client for Windows and Linux
 - [x] Windows support
 - [x] Custom SDL lib
 - [ ] Future:
+  - [ ] Download additional depots (example: CS2 workshop tools with proton needs Windows CS2 binaries)
   - [ ] UI Animations
   - [ ] VAC support on Windows
   - [ ] ProtonDB integration
