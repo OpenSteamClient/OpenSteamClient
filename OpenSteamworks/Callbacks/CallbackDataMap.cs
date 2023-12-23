@@ -63,8 +63,7 @@ internal static partial class CallbackConstants {
         {typeof(StreamClientRaiseWindow_t), 1300001},
         {typeof(OverlayGameWindowFocusChange_t), 1020105},
         {typeof(WebAuthRequestCallback_t), 1020042},
-        {typeof(AppStartedProcess_t), 1020078}
-
+        {typeof(AppStartedProcess_t), 1020078},
     };
     public readonly static Dictionary<int, Type> IDToType = TypeToID.ToDictionary(x => x.Value, x => x.Key);
 }

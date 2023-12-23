@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics.CodeAnalysis;
+using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
@@ -14,6 +15,7 @@ using ClientUI.Translation;
 using ClientUI.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
 using OpenSteamworks;
+using OpenSteamworks.Callbacks;
 using OpenSteamworks.Callbacks.Structs;
 using OpenSteamworks.Client;
 using OpenSteamworks.Client.Apps;
@@ -66,6 +68,9 @@ public partial class MainWindowViewModel : ViewModelBase
         this.openSettingsWindow = openSettingsWindowAction;
         this.appsManager = appsManager;
 
+        this.client.CallbackManager.RegisterHandler(1210004, OnCGameNetworkingUI_AppSummary);
+        this.client.CallbackManager.RegisterHandler(1210001, OnClientNetworking_ConnectionStateChanged);
+
         PageList.Add(new(this, "Store", typeof(StorePage), typeof(StorePageViewModel)));
         PageList.Add(new(this, "Library", typeof(LibraryPage), typeof(LibraryPageViewModel)));
         PageList.Add(new(this, "Community", typeof(CommunityPage), typeof(CommunityPageViewModel)));
@@ -114,6 +119,48 @@ public partial class MainWindowViewModel : ViewModelBase
 
     public void DBG_Crash() {
         throw new Exception("test");
+    }
+
+    private unsafe void OnCGameNetworkingUI_AppSummary(CallbackManager.CallbackHandler handler, byte[] data) {
+        try
+        {
+            File.WriteAllBytes("/tmp/networkingui_appsummary.bin", data);
+            byte[] dataoffset = data[8..];
+            var parsed = CGameNetworkingUI_AppSummary.Parser.ParseFrom(dataoffset);
+            Console.WriteLine("appid: " + parsed.Appid);
+            Console.WriteLine("connections: " + parsed.ActiveConnections);
+            Console.WriteLine("loss: " + parsed.MainCxn.PacketLoss);
+            Console.WriteLine("ping: " + parsed.MainCxn.PingMs);
+        }
+        catch (System.Exception e)
+        {
+            Logger.GetLogger("MainWindowViewModel").Error(e);
+        }
+    }
+        
+    private unsafe void OnClientNetworking_ConnectionStateChanged(CallbackManager.CallbackHandler handler, byte[] data) {
+        try
+        {
+            File.WriteAllBytes("/tmp/networkingui_connectionstate.bin", data);
+
+            byte[] dataoffset = data[4..];
+            
+            var state = CGameNetworkingUI_ConnectionState.Parser.ParseFrom(dataoffset);
+            Logger.GetLogger("MainWindowViewModel").Info("AddressRemote: " + state.AddressRemote);
+            Logger.GetLogger("MainWindowViewModel").Info("state: " + state.ConnectionState);
+            Logger.GetLogger("MainWindowViewModel").Info("appid: " + state.Appid);
+            Logger.GetLogger("MainWindowViewModel").Info("relay: " + state.SdrpopidLocal);
+            Logger.GetLogger("MainWindowViewModel").Info("datacenter: " + state.SdrpopidRemote);
+            Logger.GetLogger("MainWindowViewModel").Info("statustoken: " + state.StatusLocToken);
+            Logger.GetLogger("MainWindowViewModel").Info("server identity: " + state.IdentityRemote);
+            Logger.GetLogger("MainWindowViewModel").Info("local identity: " + state.IdentityLocal);
+            Logger.GetLogger("MainWindowViewModel").Info("ping: " + state.PingDefaultInternetRoute);
+            Logger.GetLogger("MainWindowViewModel").Info("connected for: " + state.E2EQualityLocal.Lifetime.ConnectedSeconds);
+        }
+        catch (System.Exception e)
+        {
+            Logger.GetLogger("MainWindowViewModel").Error(e);
+        }
     }
 
     public async void DBG_LaunchFactorio() {

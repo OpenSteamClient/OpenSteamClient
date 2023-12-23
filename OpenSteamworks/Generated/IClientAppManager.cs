@@ -88,12 +88,15 @@ public unsafe interface IClientAppManager
     public int GetAppDownloadQueueIndex(AppId_t appid);  // argc: 1, index: 57
     // WARNING: Arguments are unknown!
     public unknown_ret GetAppAutoUpdateDelayedUntilTime();  // argc: 1, index: 58
-    public unknown_ret GetNumAppsInDownloadQueue();  // argc: 0, index: 59
-    public unknown_ret BHasLocalContentServer();  // argc: 0, index: 60
+    public int GetNumAppsInDownloadQueue();  // argc: 0, index: 59
+    public bool BHasLocalContentServer();  // argc: 0, index: 60
+    /// <summary>
+    /// Builds a backup at the specified path. Does not create a subdirectory.
+    /// Creates various Disk_XXXX numbered folders, according to ullMaxFileSize, which dictates the maximum size of one disk.
+    /// </summary>
+    public EAppUpdateError BuildBackup(AppId_t unAppID, UInt64 ullMaxFileSize, string cszBackupPath);  // argc: 4, index: 61
     // WARNING: Arguments are unknown!
-    public EAppUpdateError BuildBackup();  // argc: 4, index: 61
-    // WARNING: Arguments are unknown!
-    public unknown_ret BuildInstaller();  // argc: 4, index: 62
+    public unknown_ret BuildInstaller(string projectFile, string backupPath, string unk, string unk2);  // argc: 4, index: 62
     public bool CancelBackup();  // argc: 0, index: 63
     public EAppUpdateError RestoreAppFromBackup(AppId_t appid, string pathToBackup);  // argc: 2, index: 64
     public EAppUpdateError RecoverAppFromFolder(AppId_t appid, string folder);  // argc: 2, index: 65

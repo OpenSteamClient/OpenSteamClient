@@ -30,23 +30,63 @@ public class CallResult<T> where T: struct {
     }
 }
 
-//TODO: The code in this class is pretty terrible
+//TODO: The code in this class is (still) pretty terrible
 public class CallbackManager
 {
     public interface ICallbackHandler {
+        /// <summary>
+        /// The callback id's this handler should be invoked for
+        /// </summary>
         public int CallbackID { get; init; }
         public void Invoke(object obj);
-    }
-
-    public class CallbackHandler<T> : ICallbackHandler {
-        public int CallbackID { get; init; }
-        private readonly Action<CallbackHandler<T>, T> func;
 
         /// <summary>
         /// If the handler should be removed after executing.
         /// </summary>
+        public bool OneShot { get; }
+    }
+
+    public class CallbackHandler : ICallbackHandler {
+        /// <inheritdoc/>
+        public int CallbackID { get; init; }
+
+        /// <inheritdoc/>
         public bool OneShot { get; private set; }
-        internal CallbackHandler(Action<CallbackHandler<T>, T> func, bool oneShot) {
+
+        private readonly Action<CallbackHandler, byte[]> func;
+        private readonly CallbackManager manager;
+
+        internal CallbackHandler(CallbackManager manager, int callbackID, Action<CallbackHandler, byte[]> func, bool oneShot) {
+            this.manager = manager;
+            this.CallbackID = callbackID;
+            this.func = func;
+            this.OneShot = oneShot;
+        }
+
+        /// <inheritdoc/>
+        public void Invoke(object obj) {
+            this.func(this, (byte[])obj);
+            if (OneShot) {
+                lock (manager.handlersLock)
+                {
+                    manager.Handlers.Remove(this);
+                }
+            }
+        }
+    }
+
+    public class CallbackHandler<T> : ICallbackHandler {
+        /// <inheritdoc/>
+        public int CallbackID { get; init; }
+
+        /// <inheritdoc/>
+        public bool OneShot { get; private set; }
+
+        private readonly Action<CallbackHandler<T>, T> func;
+        private readonly CallbackManager manager;
+
+        internal CallbackHandler(CallbackManager manager, Action<CallbackHandler<T>, T> func, bool oneShot) {
+            this.manager = manager;
             this.CallbackID = GetCallbackID(typeof(T));
             this.func = func;
             this.OneShot = oneShot;
@@ -55,13 +95,14 @@ public class CallbackManager
         private void InvokeTyped(T obj) {
             this.func(this, obj);
             if (OneShot) {
-                lock (handlersLock)
+                lock (manager.handlersLock)
                 {
-                    Handlers.Remove(this);
+                    manager.Handlers.Remove(this);
                 }
             }
         }
 
+        /// <inheritdoc/>
         public void Invoke(object obj) {
             this.InvokeTyped((T)obj);
         }
@@ -72,8 +113,8 @@ public class CallbackManager
     private bool pausePoll = false;
     private bool didPoll = true;
     private readonly Thread pollThread;
-    private static readonly object handlersLock = new();
-    private static readonly HashSet<ICallbackHandler> Handlers = new();
+    private readonly object handlersLock = new();
+    private readonly HashSet<ICallbackHandler> Handlers = new();
 
     internal CallbackManager(SteamClient client) {
         this.client = client;
@@ -290,43 +331,50 @@ public class CallbackManager
                     logCallbackTime.Stop();
                 }
 
-                if (hasType && type != null) {
-                    try
-                    {
-                        ptrToStructureTime.Start();
-                        var obj = Marshal.PtrToStructure((IntPtr)msg.m_pubParam, type);
-                        ptrToStructureTime.Stop();
+                try
+                {
+                    ptrToStructureTime.Start();
+                    object? obj;
+                    if (!hasType) {
+                        // Copy length of data from untyped callbacks and give it to them for processing
+                        byte[] data = new byte[msg.m_cubParam];
+                        Marshal.Copy((IntPtr)msg.m_pubParam, data, 0, msg.m_cubParam);
+                        obj = data;
+                    } else {
+                        obj = Marshal.PtrToStructure((IntPtr)msg.m_pubParam, type!);
+                    }
 
-                        if (obj != null) {
-                            if (loggable) {
-                                logCallbackDataTime.Start();
-                                LogCallbackData(obj, type);
-                                logCallbackDataTime.Stop();
-                            }
+                    ptrToStructureTime.Stop();
 
-                            // Send to listeners if any exist
-                            getHandlersTime.Start();
-                            if (GetHandlersForId(msg.m_iCallback, out List<ICallbackHandler>? handlers)) {
-                                getHandlersTime.Stop();
-                                executeHandlersTime.Start();
-                                foreach (var handler in handlers)
-                                {
-                                    handler.Invoke(obj);
-                                }
-                                executeHandlersTime.Stop();
-                            }
-                            
-                            getHandlersTime.Stop();
-
-                        } else {
-                            SteamClient.CallbackLogger.Error("PtrToStructure returned null. Message skipped.");
+                    if (obj != null) {
+                        if (hasType && loggable) {
+                            logCallbackDataTime.Start();
+                            LogCallbackData(obj, type!);
+                            logCallbackDataTime.Stop();
                         }
+
+                        // Send to listeners if any exist
+                        getHandlersTime.Start();
+                        if (GetHandlersForId(msg.m_iCallback, out List<ICallbackHandler>? handlers)) {
+                            getHandlersTime.Stop();
+                            executeHandlersTime.Start();
+                            foreach (var handler in handlers)
+                            {
+                                handler.Invoke(obj);
+                            }
+                            executeHandlersTime.Stop();
+                        }
+                        
+                        getHandlersTime.Stop();
+
+                    } else {
+                        SteamClient.CallbackLogger.Error("PtrToStructure returned null. Message skipped.");
                     }
-                    catch (System.Exception e)
-                    {
-                        SteamClient.CallbackLogger.Error("Message handling threw an exception. Message skipped.");
-                        SteamClient.CallbackLogger.Error(e);
-                    }
+                }
+                catch (System.Exception e)
+                {
+                    SteamClient.CallbackLogger.Error("Message handling threw an exception. Message skipped.");
+                    SteamClient.CallbackLogger.Error(e);
                 }
 
                 this.client.NativeClient.native_Steam_FreeLastCallback(client.NativeClient.Pipe);
@@ -426,8 +474,17 @@ public class CallbackManager
         return id;
     }
 
+    public CallbackHandler RegisterHandler(int callbackID, Action<CallbackHandler, byte[]> func, bool oneShot = false) {
+        CallbackHandler _handler = new(this, callbackID, func, oneShot);
+        lock (handlersLock)
+        {
+            Handlers.Add(_handler);
+        }
+        return _handler;
+    }
+
     public CallbackHandler<T> RegisterHandler<T>(Action<CallbackHandler<T>, T> func, bool oneShot = false) where T : struct {
-        CallbackHandler<T> _handler = new(func, oneShot);
+        CallbackHandler<T> _handler = new(this, func, oneShot);
         lock (handlersLock)
         {
             Handlers.Add(_handler);

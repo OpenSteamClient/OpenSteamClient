@@ -42,7 +42,7 @@ public unsafe static class ProtobufHack {
             this.deserializer = (delegate* unmanaged[Cdecl]<void*, int, IntPtr>)lib.GetExport(nativename + "_Deserialize");
             
             if (this.constructor == null || this.deletor == null | this.deserializer == null) {
-                throw new InvalidOperationException("This type is not supported in protobuf hack native lib");
+                throw new InvalidOperationException("This type is not supported in protobufhack native lib");
             }
 
             this.ptr = constructor();
@@ -80,6 +80,39 @@ public unsafe static class ProtobufHack {
 
     [DllImport("protobufhack")]
     public static extern bool Protobuf_SerializeToArray(IntPtr ptr, void* buffer, size_t maxLen);
+
+    public static T GetFromPointer<T>(IntPtr ptr) where T: IMessage<T>, new() {
+        var parser = new MessageParser<T>(() => new T());
+        var length = Protobuf_ByteSizeLong((nint)ptr);
+        var bytes = new byte[length];
+        fixed (byte* bptr = bytes) {
+            if (!Protobuf_SerializeToArray((nint)ptr, bptr, length)) {
+                throw new Exception("Failed to serialize in native code!");
+            }
+        }
+        
+        return parser.ParseFrom(bytes);
+    }
+
+    public static T GetFromPointer<T>(IntPtr ptr, uint length) where T: IMessage<T>, new() {
+        var parser = new MessageParser<T>(() => new T());
+        var bytes = new byte[length];
+        fixed (byte* bptr = bytes) {
+            if (!Protobuf_SerializeToArray((nint)ptr, bptr, length)) {
+                throw new Exception("Failed to serialize in native code!");
+            }
+        }
+        
+        return parser.ParseFrom(bytes);
+    }
+
+    public unsafe static T GetFromPointer<T>(void* ptr, uint length) where T: IMessage<T>, new() {
+        return GetFromPointer<T>((IntPtr)ptr, length);
+    }
+
+    public unsafe static T GetFromPointer<T>(void* ptr) where T: IMessage<T>, new() {
+        return GetFromPointer<T>((IntPtr)ptr);
+    }
 
     public static Proto_Disposable<T> Create<T>() where T: IMessage<T>, new() {
         return Proto_Disposable<T>.Create();
