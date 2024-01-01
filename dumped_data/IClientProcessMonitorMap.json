@@ -5,26 +5,41 @@
         {
             "name": "RegisterProcess",
             "argc": "2",
+            "interfaceid": "4",
+            "functionid": "2891296069",
+            "fencepost": "2894619151",
             "addr": "0xfb77f0"
         },
         {
             "name": "UnregisterProcess",
             "argc": "2",
+            "interfaceid": "4",
+            "functionid": "854938746",
+            "fencepost": "858277957",
             "addr": "0xfb76a0"
         },
         {
             "name": "TerminateProcess",
             "argc": "3",
+            "interfaceid": "4",
+            "functionid": "1112128066",
+            "fencepost": "1115483406",
             "addr": "0xfb7510"
         },
         {
             "name": "SuspendProcess",
             "argc": "2",
+            "interfaceid": "4",
+            "functionid": "1298266394",
+            "fencepost": "1301637863",
             "addr": "0xfb73c0"
         },
         {
             "name": "ResumeProcess",
             "argc": "2",
+            "interfaceid": "4",
+            "functionid": "2261222343",
+            "fencepost": "2264609941",
             "addr": "0xfb7270"
         }
     ]

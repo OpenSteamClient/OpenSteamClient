@@ -5,146 +5,233 @@
         {
             "name": "GetUniqueLocalAppId",
             "argc": "1",
+            "interfaceid": "35",
+            "functionid": "2065244742",
+            "fencepost": "2151990949",
             "addr": "0x6279d0"
         },
         {
             "name": "GetGameIDForAppID",
             "argc": "3",
+            "interfaceid": "35",
+            "functionid": "3693350699",
+            "fencepost": "3780113035",
             "addr": "0x627b30"
         },
         {
             "name": "GetAppIDForGameID",
             "argc": "2",
+            "interfaceid": "35",
+            "functionid": "3414714608",
+            "fencepost": "3501493073",
             "addr": "0x627cd0"
         },
         {
             "name": "GetDevkitAppIDByDevkitGameID",
             "argc": "2",
+            "interfaceid": "35",
+            "functionid": "3535268534",
+            "fencepost": "3622740546",
             "addr": "0x629ce0"
         },
         {
             "name": "GetShortcutAppIds",
             "argc": "2",
+            "interfaceid": "35",
+            "functionid": "1065376140",
+            "fencepost": "1152202992",
             "addr": "0x627e50"
         },
         {
             "name": "GetShortcutInfoByIndex",
             "argc": "3",
+            "interfaceid": "35",
+            "functionid": "3726801244",
+            "fencepost": "3813724870",
             "addr": "0x627fd0"
         },
         {
             "name": "GetShortcutInfoByAppID",
             "argc": "3",
+            "interfaceid": "35",
+            "functionid": "3722361075",
+            "fencepost": "3809381475",
             "addr": "0x628160"
         },
         {
             "name": "AddShortcut",
             "argc": "6",
+            "interfaceid": "35",
+            "functionid": "3644156470",
+            "fencepost": "3731225257",
             "addr": "0x6282f0"
         },
         {
             "name": "AddTemporaryShortcut",
             "argc": "4",
+            "interfaceid": "35",
+            "functionid": "3516028680",
+            "fencepost": "3603113596",
             "addr": "0x628480"
         },
         {
             "name": "AddOpenVRShortcut",
             "argc": "4",
+            "interfaceid": "35",
+            "functionid": "2255265224",
+            "fencepost": "2342366269",
             "addr": "0x628600"
         },
         {
             "name": "SetShortcutFromFullpath",
             "argc": "3",
+            "interfaceid": "35",
+            "functionid": "1774127118",
+            "fencepost": "1861244292",
             "addr": "0x628780"
         },
         {
             "name": "SetShortcutAppName",
             "argc": "3",
+            "interfaceid": "35",
+            "functionid": "1547906321",
+            "fencepost": "1635039624",
             "addr": "0x6288d0"
         },
         {
             "name": "SetShortcutExe",
             "argc": "4",
+            "interfaceid": "35",
+            "functionid": "606011280",
+            "fencepost": "693176841",
             "addr": "0x629fd0"
         },
         {
             "name": "SetShortcutStartDir",
             "argc": "3",
+            "interfaceid": "35",
+            "functionid": "871637323",
+            "fencepost": "958819013",
             "addr": "0x628b70"
         },
         {
             "name": "SetShortcutIcon",
             "argc": "3",
+            "interfaceid": "35",
+            "functionid": "3387174678",
+            "fencepost": "3474372497",
             "addr": "0x628cc0"
         },
         {
             "name": "SetShortcutCommandLine",
             "argc": "3",
+            "interfaceid": "35",
+            "functionid": "3957048667",
+            "fencepost": "4044198099",
             "addr": "0x628a20"
         },
         {
             "name": "ClearShortcutUserTags",
             "argc": "2",
+            "interfaceid": "35",
+            "functionid": "3638035668",
+            "fencepost": "3725249616",
             "addr": "0x628e10"
         },
         {
             "name": "AddShortcutUserTag",
             "argc": "3",
+            "interfaceid": "35",
+            "functionid": "117056495",
+            "fencepost": "204286572",
             "addr": "0x628f60"
         },
         {
             "name": "RemoveShortcutUserTag",
             "argc": "3",
+            "interfaceid": "35",
+            "functionid": "1309693501",
+            "fencepost": "1396939707",
             "addr": "0x6290b0"
         },
         {
             "name": "ClearAndSetShortcutUserTags",
             "argc": "3",
+            "interfaceid": "35",
+            "functionid": "3401786459",
+            "fencepost": "3489097181",
             "addr": "0x629200"
         },
         {
             "name": "SetShortcutHidden",
             "argc": "3",
+            "interfaceid": "35",
+            "functionid": "3159557347",
+            "fencepost": "3246900327",
             "addr": "0x629350"
         },
         {
             "name": "SetAllowDesktopConfig",
             "argc": "3",
+            "interfaceid": "35",
+            "functionid": "3398946915",
+            "fencepost": "3486306024",
             "addr": "0x6294b0"
         },
         {
             "name": "SetAllowOverlay",
             "argc": "3",
+            "interfaceid": "35",
+            "functionid": "732951796",
+            "fencepost": "820327034",
             "addr": "0x629610"
         },
         {
             "name": "SetOpenVRShortcut",
             "argc": "3",
+            "interfaceid": "35",
+            "functionid": "2322607962",
+            "fencepost": "2409999329",
             "addr": "0x629770"
         },
         {
             "name": "SetDevkitShortcut",
             "argc": "4",
+            "interfaceid": "35",
+            "functionid": "950806643",
+            "fencepost": "1038262526",
             "addr": "0x62a190"
         },
         {
             "name": "SetFlatpakAppID",
             "argc": "3",
+            "interfaceid": "35",
+            "functionid": "1376806144",
+            "fencepost": "1464294285",
             "addr": "0x629e50"
         },
         {
             "name": "RemoveShortcut",
             "argc": "2",
+            "interfaceid": "35",
+            "functionid": "584562613",
+            "fencepost": "671970109",
             "addr": "0x6298d0"
         },
         {
             "name": "RemoveAllTemporaryShortcuts",
             "argc": "1",
+            "interfaceid": "35",
+            "functionid": "2537285100",
+            "fencepost": "2624708725",
             "addr": "0x629a20"
         },
         {
             "name": "LaunchShortcut",
             "argc": "3",
+            "interfaceid": "35",
+            "functionid": "4230940974",
+            "fencepost": "23413432",
             "addr": "0x629b50"
         }
     ]

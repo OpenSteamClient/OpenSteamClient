@@ -5,11 +5,17 @@
         {
             "name": "StartStreaming",
             "argc": "2",
+            "interfaceid": "26",
+            "functionid": "953502382",
+            "fencepost": "1026215216",
             "addr": "0x60bd50"
         },
         {
             "name": "StopStreaming",
             "argc": "1",
+            "interfaceid": "26",
+            "functionid": "2311542130",
+            "fencepost": "2384271093",
             "addr": "0x60bec0"
         }
     ]

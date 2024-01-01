@@ -5,536 +5,857 @@
         {
             "name": "InstallApp",
             "argc": "4",
+            "interfaceid": "17",
+            "functionid": "3717918985",
+            "fencepost": "3754517845",
             "addr": "0x5cd5e0"
         },
         {
             "name": "UninstallApp",
             "argc": "2",
+            "interfaceid": "17",
+            "functionid": "1158013676",
+            "fencepost": "1194983503",
             "addr": "0x5cde40"
         },
         {
             "name": "LaunchApp",
             "argc": "5",
+            "interfaceid": "17",
+            "functionid": "4144233183",
+            "fencepost": "4180444947",
             "addr": "0x5ccd70"
         },
         {
             "name": "ShutdownApp",
             "argc": "3",
+            "interfaceid": "17",
+            "functionid": "91016583",
+            "fencepost": "127244476",
             "addr": "0x5ccf20"
         },
         {
             "name": "GetAppInstallState",
             "argc": "2",
+            "interfaceid": "17",
+            "functionid": "3941753302",
+            "fencepost": "3977997324",
             "addr": "0x5cd0c0"
         },
         {
             "name": "GetAppInstallDir",
             "argc": "4",
+            "interfaceid": "17",
+            "functionid": "916084976",
+            "fencepost": "953006416",
             "addr": "0x5cdc90"
         },
         {
             "name": "GetAppContentInfo",
             "argc": "7",
+            "interfaceid": "17",
+            "functionid": "4089831302",
+            "fencepost": "4126204356",
             "addr": "0x5cd230"
         },
         {
             "name": "GetAppStagingInfo",
             "argc": "4",
+            "interfaceid": "17",
+            "functionid": "651713583",
+            "fencepost": "688247927",
             "addr": "0x5cd430"
         },
         {
             "name": "IsAppDlcInstalled",
             "argc": "3",
+            "interfaceid": "17",
+            "functionid": "3451751517",
+            "fencepost": "3488592312",
             "addr": "0x5cdb00"
         },
         {
             "name": "GetDlcDownloadProgress",
             "argc": "5",
+            "interfaceid": "17",
+            "functionid": "3684262428",
+            "fencepost": "3722070963",
             "addr": "0x5cf5c0"
         },
         {
             "name": "BIsDlcEnabled",
             "argc": "4",
+            "interfaceid": "17",
+            "functionid": "339559605",
+            "fencepost": "377206850",
             "addr": "0x5cf100"
         },
         {
             "name": "SetDlcEnabled",
             "argc": "4",
+            "interfaceid": "17",
+            "functionid": "247712126",
+            "fencepost": "285407758",
             "addr": "0x5cf2b0"
         },
         {
             "name": "SetDlcContext",
             "argc": "3",
+            "interfaceid": "17",
+            "functionid": "3677868833",
+            "fencepost": "3715580594",
             "addr": "0x5cf430"
         },
         {
             "name": "GetDlcSizes",
             "argc": "5",
+            "interfaceid": "17",
+            "functionid": "2438415398",
+            "fencepost": "2476369094",
             "addr": "0x5cf780"
         },
         {
             "name": "GetNumInstalledApps",
             "argc": "1",
+            "interfaceid": "17",
+            "functionid": "3728766722",
+            "fencepost": "3765752678",
             "addr": "0x5cdfb0"
         },
         {
             "name": "GetInstalledApps",
             "argc": "3",
+            "interfaceid": "17",
+            "functionid": "1236285368",
+            "fencepost": "1273335840",
             "addr": "0x5ce110"
         },
         {
             "name": "BIsWaitingForInstalledApps",
             "argc": "1",
+            "interfaceid": "17",
+            "functionid": "832924785",
+            "fencepost": "870023644",
             "addr": "0x5ce2b0"
         },
         {
             "name": "GetAppDependencies",
             "argc": "4",
+            "interfaceid": "17",
+            "functionid": "2672409607",
+            "fencepost": "2709089112",
             "addr": "0x5cd780"
         },
         {
             "name": "GetDependentApps",
             "argc": "4",
+            "interfaceid": "17",
+            "functionid": "2086506219",
+            "fencepost": "2123298627",
             "addr": "0x5cd940"
         },
         {
             "name": "GetUpdateInfo",
             "argc": "3",
+            "interfaceid": "17",
+            "functionid": "666346639",
+            "fencepost": "703880981",
             "addr": "0x5cef70"
         },
         {
             "name": "BIsAppUpToDate",
             "argc": "2",
+            "interfaceid": "17",
+            "functionid": "1343665215",
+            "fencepost": "1381667298",
             "addr": "0x5cf950"
         },
         {
             "name": "GetAvailableLanguages",
             "argc": "5",
+            "interfaceid": "17",
+            "functionid": "1577620733",
+            "fencepost": "1614816366",
             "addr": "0x5ce410"
         },
         {
             "name": "GetCurrentLanguage",
             "argc": "4",
+            "interfaceid": "17",
+            "functionid": "892810834",
+            "fencepost": "933216138",
             "addr": "0x5d53f0"
         },
         {
             "name": "GetCurrentLanguage",
             "argc": "2",
+            "interfaceid": "17",
+            "functionid": "1611311475",
+            "fencepost": "1651620005",
             "addr": "0x5d50f0"
         },
         {
             "name": "GetFallbackLanguage",
             "argc": "3",
+            "interfaceid": "17",
+            "functionid": "172063402",
+            "fencepost": "212388061",
             "addr": "0x5d5260"
         },
         {
             "name": "SetCurrentLanguage",
             "argc": "3",
+            "interfaceid": "17",
+            "functionid": "2152782243",
+            "fencepost": "2193235934",
             "addr": "0x5d55a0"
         },
         {
             "name": "StartValidatingApp",
             "argc": "2",
+            "interfaceid": "17",
+            "functionid": "1350042167",
+            "fencepost": "1387286187",
             "addr": "0x5ce5e0"
         },
         {
             "name": "CancelValidation",
             "argc": "2",
+            "interfaceid": "17",
+            "functionid": "2571750293",
+            "fencepost": "2609010442",
             "addr": "0x5ce760"
         },
         {
             "name": "MarkContentCorrupt",
             "argc": "3",
+            "interfaceid": "17",
+            "functionid": "171813210",
+            "fencepost": "209089488",
             "addr": "0x5ce8e0"
         },
         {
             "name": "GetInstalledDepots",
             "argc": "4",
+            "interfaceid": "17",
+            "functionid": "2358133174",
+            "fencepost": "2395570742",
             "addr": "0x5cedb0"
         },
         {
             "name": "GetFileDetails",
             "argc": "3",
+            "interfaceid": "17",
+            "functionid": "556257733",
+            "fencepost": "593566269",
             "addr": "0x5cea80"
         },
         {
             "name": "VerifySignedFiles",
             "argc": "2",
+            "interfaceid": "17",
+            "functionid": "2254356324",
+            "fencepost": "2291697118",
             "addr": "0x5cec20"
         },
         {
             "name": "GetAvailableBetas",
             "argc": "6",
+            "interfaceid": "17",
+            "functionid": "3274443156",
+            "fencepost": "3312574271",
             "addr": "0x5cfc50"
         },
         {
             "name": "CheckBetaPassword",
             "argc": "3",
+            "interfaceid": "17",
+            "functionid": "1965128719",
+            "fencepost": "2003146931",
             "addr": "0x5cfad0"
         },
         {
             "name": "SetActiveBeta",
             "argc": "3",
+            "interfaceid": "17",
+            "functionid": "1292574889",
+            "fencepost": "1330899552",
             "addr": "0x5cffe0"
         },
         {
             "name": "GetActiveBeta",
             "argc": "4",
+            "interfaceid": "17",
+            "functionid": "1348640828",
+            "fencepost": "1386917104",
             "addr": "0x5cfe30"
         },
         {
             "name": "BGetActiveBetaForApps",
             "argc": "3",
+            "interfaceid": "17",
+            "functionid": "4045532726",
+            "fencepost": "4085792869",
             "addr": "0x5d6f10"
         },
         {
             "name": "SetDownloadingEnabled",
             "argc": "2",
+            "interfaceid": "17",
+            "functionid": "3317716919",
+            "fencepost": "3356057711",
             "addr": "0x5d0160"
         },
         {
             "name": "BIsDownloadingEnabled",
             "argc": "1",
+            "interfaceid": "17",
+            "functionid": "691451510",
+            "fencepost": "729808431",
             "addr": "0x5d02e0"
         },
         {
             "name": "GetDownloadStats",
             "argc": "2",
+            "interfaceid": "17",
+            "functionid": "1525892946",
+            "fencepost": "1564298254",
             "addr": "0x5d0440"
         },
         {
             "name": "GetDownloadingAppID",
             "argc": "1",
+            "interfaceid": "17",
+            "functionid": "2928079490",
+            "fencepost": "2966533185",
             "addr": "0x5d05c0"
         },
         {
             "name": "GetAutoUpdateTimeRestrictionEnabled",
             "argc": "1",
+            "interfaceid": "17",
+            "functionid": "1262953811",
+            "fencepost": "1301439764",
             "addr": "0x5d0720"
         },
         {
             "name": "SetAutoUpdateTimeRestrictionEnabled",
             "argc": "2",
+            "interfaceid": "17",
+            "functionid": "3123034980",
+            "fencepost": "3161537062",
             "addr": "0x5d0880"
         },
         {
             "name": "GetAutoUpdateTimeRestrictionHours",
             "argc": "3",
+            "interfaceid": "17",
+            "functionid": "3810015689",
+            "fencepost": "3848566158",
             "addr": "0x5d09d0"
         },
         {
             "name": "SetAutoUpdateTimeRestrictionStartHour",
             "argc": "2",
+            "interfaceid": "17",
+            "functionid": "3861440493",
+            "fencepost": "3900055478",
             "addr": "0x5d0b70"
         },
         {
             "name": "SetAutoUpdateTimeRestrictionEndHour",
             "argc": "2",
+            "interfaceid": "17",
+            "functionid": "1750764377",
+            "fencepost": "1789395491",
             "addr": "0x5d0cf0"
         },
         {
             "name": "GetAppAutoUpdateBehavior",
             "argc": "2",
+            "interfaceid": "17",
+            "functionid": "887710922",
+            "fencepost": "926374294",
             "addr": "0x5d0e70"
         },
         {
             "name": "SetAppAutoUpdateBehavior",
             "argc": "3",
+            "interfaceid": "17",
+            "functionid": "3319195061",
+            "fencepost": "3357939078",
             "addr": "0x5d1590"
         },
         {
             "name": "SetAppAllowDownloadsWhileRunningBehavior",
             "argc": "3",
+            "interfaceid": "17",
+            "functionid": "4268892461",
+            "fencepost": "12604666",
             "addr": "0x5d0fe0"
         },
         {
             "name": "GetAppAllowDownloadsWhileRunningBehavior",
             "argc": "2",
+            "interfaceid": "17",
+            "functionid": "1900398624",
+            "fencepost": "1939094254",
             "addr": "0x5d1170"
         },
         {
             "name": "SetAllowDownloadsWhileAnyAppRunning",
             "argc": "2",
+            "interfaceid": "17",
+            "functionid": "2803266700",
+            "fencepost": "2841978459",
             "addr": "0x5d12e0"
         },
         {
             "name": "BAllowDownloadsWhileAnyAppRunning",
             "argc": "1",
+            "interfaceid": "17",
+            "functionid": "2454019373",
+            "fencepost": "2492747261",
             "addr": "0x5d1430"
         },
         {
             "name": "ChangeAppDownloadQueuePlacement",
             "argc": "3",
+            "interfaceid": "17",
+            "functionid": "2614707078",
+            "fencepost": "2653467224",
             "addr": "0x5d68e0"
         },
         {
             "name": "SetAppDownloadQueueIndex",
             "argc": "3",
+            "interfaceid": "17",
+            "functionid": "3065632295",
+            "fencepost": "3104408570",
             "addr": "0x5d1720"
         },
         {
             "name": "GetAppDownloadQueueIndex",
             "argc": "2",
+            "interfaceid": "17",
+            "functionid": "2374699622",
+            "fencepost": "2413492026",
             "addr": "0x5d18b0"
         },
         {
             "name": "GetAppAutoUpdateDelayedUntilTime",
             "argc": "2",
+            "interfaceid": "17",
+            "functionid": "2486650695",
+            "fencepost": "2525475357",
             "addr": "0x5d1b80"
         },
         {
             "name": "GetNumAppsInDownloadQueue",
             "argc": "1",
+            "interfaceid": "17",
+            "functionid": "3692776600",
+            "fencepost": "3731585133",
             "addr": "0x5d1a20"
         },
         {
             "name": "BHasLocalContentServer",
             "argc": "1",
+            "interfaceid": "17",
+            "functionid": "2798338208",
+            "fencepost": "2837178999",
             "addr": "0x5d1cf0"
         },
         {
             "name": "BuildBackup",
             "argc": "5",
+            "interfaceid": "17",
+            "functionid": "2896422041",
+            "fencepost": "2935278961",
             "addr": "0x5d1e50"
         },
         {
             "name": "BuildInstaller",
             "argc": "5",
+            "interfaceid": "17",
+            "functionid": "3209107134",
+            "fencepost": "3247980183",
             "addr": "0x5d1ff0"
         },
         {
             "name": "CancelBackup",
             "argc": "1",
+            "interfaceid": "17",
+            "functionid": "3107396928",
+            "fencepost": "3146286106",
             "addr": "0x5d2180"
         },
         {
             "name": "RestoreAppFromBackup",
             "argc": "3",
+            "interfaceid": "17",
+            "functionid": "4098321247",
+            "fencepost": "4137226554",
             "addr": "0x5d22e0"
         },
         {
             "name": "RecoverAppFromFolder",
             "argc": "3",
+            "interfaceid": "17",
+            "functionid": "3827439656",
+            "fencepost": "3866361092",
             "addr": "0x5d2460"
         },
         {
             "name": "CanMoveApp",
             "argc": "3",
+            "interfaceid": "17",
+            "functionid": "1756559712",
+            "fencepost": "1795545664",
             "addr": "0x5d25e0"
         },
         {
             "name": "MoveApp",
             "argc": "3",
+            "interfaceid": "17",
+            "functionid": "1199590076",
+            "fencepost": "1238624415",
             "addr": "0x5d2770"
         },
         {
             "name": "GetMoveAppProgress",
             "argc": "5",
+            "interfaceid": "17",
+            "functionid": "1428384641",
+            "fencepost": "1467515754",
             "addr": "0x5d2900"
         },
         {
             "name": "CancelMoveApp",
             "argc": "2",
+            "interfaceid": "17",
+            "functionid": "1124666877",
+            "fencepost": "1163878635",
             "addr": "0x5d2ac0"
         },
         {
             "name": "GetAppStateInfo",
             "argc": "3",
+            "interfaceid": "17",
+            "functionid": "3614279924",
+            "fencepost": "3653556198",
             "addr": "0x5d2c40"
         },
         {
             "name": "BGetAppStateInfoForApps",
             "argc": "3",
+            "interfaceid": "17",
+            "functionid": "1220555932",
+            "fencepost": "1259928980",
             "addr": "0x5d6a70"
         },
         {
             "name": "BCanRemotePlayTogether",
             "argc": "2",
+            "interfaceid": "17",
+            "functionid": "588483503",
+            "fencepost": "627888809",
             "addr": "0x5d2dd0"
         },
         {
             "name": "BIsLocalMultiplayerApp",
             "argc": "2",
+            "interfaceid": "17",
+            "functionid": "1708016184",
+            "fencepost": "1747437619",
             "addr": "0x5d2f50"
         },
         {
             "name": "GetNumLibraryFolders",
             "argc": "1",
+            "interfaceid": "17",
+            "functionid": "2874207191",
+            "fencepost": "2913644755",
             "addr": "0x5d30d0"
         },
         {
             "name": "GetLibraryFolderPath",
             "argc": "4",
+            "interfaceid": "17",
+            "functionid": "4068236720",
+            "fencepost": "4107754929",
             "addr": "0x5d3230"
         },
         {
             "name": "AddLibraryFolder",
             "argc": "2",
+            "interfaceid": "17",
+            "functionid": "379669744",
+            "fencepost": "419236340",
             "addr": "0x5d33f0"
         },
         {
             "name": "SetLibraryFolderLabel",
             "argc": "3",
+            "interfaceid": "17",
+            "functionid": "2425075040",
+            "fencepost": "2464690023",
             "addr": "0x5d3710"
         },
         {
             "name": "GetLibraryFolderLabel",
             "argc": "4",
+            "interfaceid": "17",
+            "functionid": "1823623030",
+            "fencepost": "1863318658",
             "addr": "0x5d3860"
         },
         {
             "name": "RemoveLibraryFolder",
             "argc": "4",
+            "interfaceid": "17",
+            "functionid": "3154856504",
+            "fencepost": "3194439229",
             "addr": "0x5d3560"
         },
         {
             "name": "BGetLibraryFolderInfo",
             "argc": "5",
+            "interfaceid": "17",
+            "functionid": "3528324166",
+            "fencepost": "3567923020",
             "addr": "0x5d6ce0"
         },
         {
             "name": "GetAppLibraryFolder",
             "argc": "2",
+            "interfaceid": "17",
+            "functionid": "376355465",
+            "fencepost": "416099480",
             "addr": "0x5d3a20"
         },
         {
             "name": "RefreshLibraryFolders",
             "argc": "1",
+            "interfaceid": "17",
+            "functionid": "1430032551",
+            "fencepost": "1469792695",
             "addr": "0x5d3b90"
         },
         {
             "name": "GetNumAppsInFolder",
             "argc": "2",
+            "interfaceid": "17",
+            "functionid": "2453572203",
+            "fencepost": "2493348476",
             "addr": "0x5d3cc0"
         },
         {
             "name": "GetAppsInFolder",
             "argc": "4",
+            "interfaceid": "17",
+            "functionid": "3357124051",
+            "fencepost": "3396980969",
             "addr": "0x5d3e30"
         },
         {
             "name": "ForceInstallDirOverride",
             "argc": "2",
+            "interfaceid": "17",
+            "functionid": "1627378603",
+            "fencepost": "1667283908",
             "addr": "0x5d3ff0"
         },
         {
             "name": "SetDownloadThrottleRateKbps",
             "argc": "3",
+            "interfaceid": "17",
+            "functionid": "2078089361",
+            "fencepost": "2118010795",
             "addr": "0x5d4130"
         },
         {
             "name": "GetDownloadThrottleRateKbps",
             "argc": "2",
+            "interfaceid": "17",
+            "functionid": "525885186",
+            "fencepost": "565822749",
             "addr": "0x5d42d0"
         },
         {
             "name": "SuspendDownloadThrottling",
             "argc": "2",
+            "interfaceid": "17",
+            "functionid": "3639519399",
+            "fencepost": "3679473091",
             "addr": "0x5d4450"
         },
         {
             "name": "SetThrottleDownloadsWhileStreaming",
             "argc": "2",
+            "interfaceid": "17",
+            "functionid": "2047509901",
+            "fencepost": "2087479722",
             "addr": "0x5d45a0"
         },
         {
             "name": "BThrottleDownloadsWhileStreaming",
             "argc": "1",
+            "interfaceid": "17",
+            "functionid": "180428376",
+            "fencepost": "220414326",
             "addr": "0x5d46f0"
         },
         {
             "name": "GetLaunchQueryParam",
             "argc": "3",
+            "interfaceid": "17",
+            "functionid": "1910621016",
+            "fencepost": "1950623095",
             "addr": "0x5d4850"
         },
         {
             "name": "BeginLaunchQueryParams",
             "argc": "2",
+            "interfaceid": "17",
+            "functionid": "3351370725",
+            "fencepost": "3391388933",
             "addr": "0x5d49d0"
         },
         {
             "name": "SetLaunchQueryParam",
             "argc": "4",
+            "interfaceid": "17",
+            "functionid": "2132206650",
+            "fencepost": "2172240987",
             "addr": "0x5d4b20"
         },
         {
             "name": "CommitLaunchQueryParams",
             "argc": "3",
+            "interfaceid": "17",
+            "functionid": "126078918",
+            "fencepost": "166129384",
             "addr": "0x5d4c80"
         },
         {
             "name": "GetLaunchCommandLine",
             "argc": "4",
+            "interfaceid": "17",
+            "functionid": "1099767025",
+            "fencepost": "1139914265",
             "addr": "0x5d4f40"
         },
         {
             "name": "AddContentLogLine",
             "argc": "2",
+            "interfaceid": "17",
+            "functionid": "454543131",
+            "fencepost": "494609726",
             "addr": "0x5d4e00"
         },
         {
             "name": "SetUseHTTPSForDownloads",
             "argc": "2",
+            "interfaceid": "17",
+            "functionid": "1483693501",
+            "fencepost": "1524179450",
             "addr": "0x5d5730"
         },
         {
             "name": "GetUseHTTPSForDownloads",
             "argc": "1",
+            "interfaceid": "17",
+            "functionid": "330856370",
+            "fencepost": "371358448",
             "addr": "0x5d5880"
         },
         {
             "name": "SetPeerContentServerMode",
             "argc": "2",
+            "interfaceid": "17",
+            "functionid": "653266443",
+            "fencepost": "693800779",
             "addr": "0x5d59e0"
         },
         {
             "name": "SetPeerContentClientMode",
             "argc": "2",
+            "interfaceid": "17",
+            "functionid": "1061113140",
+            "fencepost": "1101663605",
             "addr": "0x5d5b30"
         },
         {
             "name": "GetPeerContentServerMode",
             "argc": "1",
+            "interfaceid": "17",
+            "functionid": "4115279907",
+            "fencepost": "4155846501",
             "addr": "0x5d5c80"
         },
         {
             "name": "GetPeerContentClientMode",
             "argc": "1",
+            "interfaceid": "17",
+            "functionid": "3961027656",
+            "fencepost": "4001610379",
             "addr": "0x5d5de0"
         },
         {
             "name": "GetPeerContentServerStats",
             "argc": "2",
+            "interfaceid": "17",
+            "functionid": "4200150865",
+            "fencepost": "4240798104",
             "addr": "0x5d5f40"
         },
         {
             "name": "SuspendPeerContentClient",
             "argc": "2",
+            "interfaceid": "17",
+            "functionid": "2117362755",
+            "fencepost": "2158074510",
             "addr": "0x5d60c0"
         },
         {
             "name": "SuspendPeerContentServer",
             "argc": "2",
+            "interfaceid": "17",
+            "functionid": "878564310",
+            "fencepost": "919292194",
             "addr": "0x5d6210"
         },
         {
             "name": "GetPeerContentServerForApp",
             "argc": "4",
+            "interfaceid": "17",
+            "functionid": "1396344335",
+            "fencepost": "1437152864",
             "addr": "0x5d6360"
         },
         {
             "name": "NotifyDriveAdded",
             "argc": "2",
+            "interfaceid": "17",
+            "functionid": "2460665798",
+            "fencepost": "2501554972",
             "addr": "0x5d6510"
         },
         {
             "name": "NotifyDriveRemoved",
             "argc": "2",
+            "interfaceid": "17",
+            "functionid": "3352393099",
+            "fencepost": "3393298402",
             "addr": "0x5d6650"
         },
         {
             "name": "SetAudioDownloadQuality",
             "argc": "2",
+            "interfaceid": "17",
+            "functionid": "1073533848",
+            "fencepost": "1114471409",
             "addr": "0x5d6790"
         }
     ]

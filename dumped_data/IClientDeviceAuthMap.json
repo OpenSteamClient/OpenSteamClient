@@ -5,56 +5,89 @@
         {
             "name": "AuthorizeLocalDevice",
             "argc": "3",
+            "interfaceid": "28",
+            "functionid": "737163871",
+            "fencepost": "810022120",
             "addr": "0x60bff0"
         },
         {
             "name": "DeauthorizeDevice",
             "argc": "3",
+            "interfaceid": "28",
+            "functionid": "2368639976",
+            "fencepost": "2441514354",
             "addr": "0x60c190"
         },
         {
             "name": "RequestAuthorizationInfos",
             "argc": "1",
+            "interfaceid": "28",
+            "functionid": "1856542151",
+            "fencepost": "1930255237",
             "addr": "0x60cc80"
         },
         {
             "name": "GetDeviceAuthorizations",
             "argc": "4",
+            "interfaceid": "28",
+            "functionid": "4064381150",
+            "fencepost": "4137336173",
             "addr": "0x60c330"
         },
         {
             "name": "GetDeviceAuthorizationInfo",
             "argc": "14",
+            "interfaceid": "28",
+            "functionid": "3706533398",
+            "fencepost": "3779746485",
             "addr": "0x60c4f0"
         },
         {
             "name": "GetAuthorizedBorrowers",
             "argc": "3",
+            "interfaceid": "28",
+            "functionid": "913741925",
+            "fencepost": "987164689",
             "addr": "0x60c780"
         },
         {
             "name": "GetLocalUsers",
             "argc": "3",
+            "interfaceid": "28",
+            "functionid": "1356911058",
+            "fencepost": "1430430596",
             "addr": "0x60c920"
         },
         {
             "name": "GetBorrowerInfo",
             "argc": "5",
+            "interfaceid": "28",
+            "functionid": "1571807252",
+            "fencepost": "1645455822",
             "addr": "0x60cac0"
         },
         {
             "name": "UpdateAuthorizedBorrowers",
             "argc": "4",
+            "interfaceid": "28",
+            "functionid": "3677156211",
+            "fencepost": "3750966071",
             "addr": "0x60ce00"
         },
         {
             "name": "GetSharedLibraryLockedBy",
             "argc": "2",
+            "interfaceid": "28",
+            "functionid": "2410671203",
+            "fencepost": "2484529450",
             "addr": "0x60cfc0"
         },
         {
             "name": "GetSharedLibraryOwners",
             "argc": "3",
+            "interfaceid": "28",
+            "functionid": "4175163080",
+            "fencepost": "4249085843",
             "addr": "0x60d130"
         }
     ]

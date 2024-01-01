@@ -5,11 +5,17 @@
         {
             "name": "SendSerializedMessage",
             "argc": "3",
+            "interfaceid": "51",
+            "functionid": "2299850076",
+            "fencepost": "2397775712",
             "addr": "0x648ef0"
         },
         {
             "name": "GetMessageResponse",
             "argc": "5",
+            "interfaceid": "51",
+            "functionid": "1952057308",
+            "fencepost": "2050079718",
             "addr": "0x649090"
         }
     ]

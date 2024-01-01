@@ -5,26 +5,41 @@
         {
             "name": "SendMethod",
             "argc": "6",
+            "interfaceid": "25",
+            "functionid": "981623511",
+            "fencepost": "1053287833",
             "addr": "0x60a780"
         },
         {
             "name": "GetMethodResponseInfo",
             "argc": "5",
+            "interfaceid": "25",
+            "functionid": "772621820",
+            "fencepost": "844399045",
             "addr": "0x60a970"
         },
         {
             "name": "GetMethodResponseData",
             "argc": "6",
+            "interfaceid": "25",
+            "functionid": "278951439",
+            "fencepost": "350889954",
             "addr": "0x60ab30"
         },
         {
             "name": "ReleaseMethod",
             "argc": "3",
+            "interfaceid": "25",
+            "functionid": "2788112413",
+            "fencepost": "2860115444",
             "addr": "0x60ad00"
         },
         {
             "name": "SendNotification",
             "argc": "4",
+            "interfaceid": "25",
+            "functionid": "72229671",
+            "fencepost": "144329476",
             "addr": "0x60ae90"
         }
     ]

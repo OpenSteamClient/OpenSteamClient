@@ -5,66 +5,105 @@
         {
             "name": "GetNewSession",
             "argc": "6",
+            "interfaceid": "21",
+            "functionid": "2976233523",
+            "fencepost": "3037655422",
             "addr": "0x5f76f0"
         },
         {
             "name": "EndSession",
             "argc": "5",
+            "interfaceid": "21",
+            "functionid": "1994798728",
+            "fencepost": "2056236756",
             "addr": "0x5f7900"
         },
         {
             "name": "AddSessionAttributeInt",
             "argc": "5",
+            "interfaceid": "21",
+            "functionid": "2358452150",
+            "fencepost": "2419906307",
             "addr": "0x5f7b00"
         },
         {
             "name": "AddSessionAttributeString",
             "argc": "5",
+            "interfaceid": "21",
+            "functionid": "2118974010",
+            "fencepost": "2180444296",
             "addr": "0x5f7ca0"
         },
         {
             "name": "AddSessionAttributeFloat",
             "argc": "5",
+            "interfaceid": "21",
+            "functionid": "3310815195",
+            "fencepost": "3372301610",
             "addr": "0x5f7e40"
         },
         {
             "name": "AddNewRow",
             "argc": "5",
+            "interfaceid": "21",
+            "functionid": "2766611083",
+            "fencepost": "2828226530",
             "addr": "0x5f84c0"
         },
         {
             "name": "CommitRow",
             "argc": "3",
+            "interfaceid": "21",
+            "functionid": "2450362903",
+            "fencepost": "2512026737",
             "addr": "0x5f8670"
         },
         {
             "name": "CommitOutstandingRows",
             "argc": "3",
+            "interfaceid": "21",
+            "functionid": "191135653",
+            "fencepost": "252815616",
             "addr": "0x5f87f0"
         },
         {
             "name": "AddRowAttributeInt",
             "argc": "5",
+            "interfaceid": "21",
+            "functionid": "274344785",
+            "fencepost": "335847329",
             "addr": "0x5f7fe0"
         },
         {
             "name": "AddRowAttributeString",
             "argc": "5",
+            "interfaceid": "21",
+            "functionid": "4184975327",
+            "fencepost": "4246494000",
             "addr": "0x5f8180"
         },
         {
             "name": "AddRowAttributeFloat",
             "argc": "5",
+            "interfaceid": "21",
+            "functionid": "2397086968",
+            "fencepost": "2458621770",
             "addr": "0x5f8320"
         },
         {
             "name": "AddSessionAttributeInt64",
             "argc": "6",
+            "interfaceid": "21",
+            "functionid": "3358827457",
+            "fencepost": "3420539678",
             "addr": "0x5f8b60"
         },
         {
             "name": "AddRowAttributeInt64",
             "argc": "6",
+            "interfaceid": "21",
+            "functionid": "2554807650",
+            "fencepost": "2616503742",
             "addr": "0x5f8970"
         }
     ]

@@ -5,36 +5,57 @@
         {
             "name": "GetNetworkConfigJSON_DEPRECATED",
             "argc": "4",
+            "interfaceid": "50",
+            "functionid": "687842924",
+            "fencepost": "785397466",
             "addr": "0x6485c0"
         },
         {
             "name": "GetLauncherType",
             "argc": "1",
+            "interfaceid": "50",
+            "functionid": "2850033597",
+            "fencepost": "2947636526",
             "addr": "0x648760"
         },
         {
             "name": "TEST_ClearCachedNetworkConfig",
             "argc": "1",
+            "interfaceid": "50",
+            "functionid": "3061613554",
+            "fencepost": "3159313257",
             "addr": "0x648a20"
         },
         {
             "name": "PostConnectionStateMsg",
             "argc": "3",
+            "interfaceid": "50",
+            "functionid": "3774977801",
+            "fencepost": "3872645246",
             "addr": "0x6488c0"
         },
         {
             "name": "PostConnectionStateUpdatesForAllConnections",
             "argc": "1",
+            "interfaceid": "50",
+            "functionid": "2261759103",
+            "fencepost": "2359474935",
             "addr": "0x648b50"
         },
         {
             "name": "PostAppSummaryUpdates",
             "argc": "1",
+            "interfaceid": "50",
+            "functionid": "37822513",
+            "fencepost": "135554474",
             "addr": "0x648c80"
         },
         {
             "name": "GotLocationString",
             "argc": "2",
+            "interfaceid": "50",
+            "functionid": "2020165378",
+            "fencepost": "2117913468",
             "addr": "0x648db0"
         }
     ]

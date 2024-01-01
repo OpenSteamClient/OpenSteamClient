@@ -5,61 +5,97 @@
         {
             "name": "SetUniverse",
             "argc": "2",
+            "interfaceid": "1",
+            "functionid": "3240382694",
+            "fencepost": "3240592498",
             "addr": "0xfb4370"
         },
         {
             "name": "AddShortcut",
             "argc": "6",
+            "interfaceid": "1",
+            "functionid": "163116249",
+            "fencepost": "163342182",
             "addr": "0xfb4af0"
         },
         {
             "name": "RemoveShortcut",
             "argc": "2",
+            "interfaceid": "1",
+            "functionid": "1613638140",
+            "fencepost": "1613880202",
             "addr": "0xfb4980"
         },
         {
             "name": "AddUninstallEntry",
             "argc": "8",
+            "interfaceid": "1",
+            "functionid": "2147697011",
+            "fencepost": "2148568104",
             "addr": "0xfb47c0"
         },
         {
             "name": "RemoveUninstallEntry",
             "argc": "2",
+            "interfaceid": "1",
+            "functionid": "777092380",
+            "fencepost": "777979602",
             "addr": "0xfb4640"
         },
         {
             "name": "AddToFirewall",
             "argc": "3",
+            "interfaceid": "1",
+            "functionid": "726868793",
+            "fencepost": "727788273",
             "addr": "0xfb44c0"
         },
         {
             "name": "RemoveFromFirewall",
             "argc": "3",
+            "interfaceid": "1",
+            "functionid": "4117910897",
+            "fencepost": "4118846506",
             "addr": "0xfb4c90"
         },
         {
             "name": "RegisterSteamProtocolHandler",
             "argc": "3",
+            "interfaceid": "1",
+            "functionid": "632155144",
+            "fencepost": "633123011",
             "addr": "0xfb4e20"
         },
         {
             "name": "AddInstallScriptToWhiteList",
             "argc": "3",
+            "interfaceid": "1",
+            "functionid": "460605893",
+            "fencepost": "461606018",
             "addr": "0xfb5120"
         },
         {
             "name": "RunInstallScript",
             "argc": "4",
+            "interfaceid": "1",
+            "functionid": "2984775929",
+            "fencepost": "2985808312",
             "addr": "0xfb54a0"
         },
         {
             "name": "GetInstallScriptExitCode",
             "argc": "1",
+            "interfaceid": "1",
+            "functionid": "1419581919",
+            "fencepost": "1420630431",
             "addr": "0xfb4fb0"
         },
         {
             "name": "ConfigureNetworDeviceIPAddresses",
             "argc": "8",
+            "interfaceid": "1",
+            "functionid": "4247011103",
+            "fencepost": "4248075744",
             "addr": "0xfb52a0"
         }
     ]

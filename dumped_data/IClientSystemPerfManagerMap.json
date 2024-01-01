@@ -5,26 +5,41 @@
         {
             "name": "IsInterfaceValid",
             "argc": "1",
+            "interfaceid": "57",
+            "functionid": "862246374",
+            "fencepost": "906318041",
             "addr": "0x5dc510"
         },
         {
             "name": "GetDiagnosticInfo",
             "argc": "2",
+            "interfaceid": "57",
+            "functionid": "3335933333",
+            "fencepost": "3380069516",
             "addr": "0x5dc670"
         },
         {
             "name": "GetState",
             "argc": "2",
+            "interfaceid": "57",
+            "functionid": "3491444281",
+            "fencepost": "3535677238",
             "addr": "0x5dc7f0"
         },
         {
             "name": "UpdateSettings",
             "argc": "2",
+            "interfaceid": "57",
+            "functionid": "3086517373",
+            "fencepost": "3130847104",
             "addr": "0x5dc970"
         },
         {
             "name": "SetRefreshRateExternallyManaged",
             "argc": "2",
+            "interfaceid": "57",
+            "functionid": "3999721230",
+            "fencepost": "4044099348",
             "addr": "0x5dcb00"
         }
     ]

@@ -5,46 +5,73 @@
         {
             "name": "IsInterfaceValid",
             "argc": "1",
+            "interfaceid": "43",
+            "functionid": "862242927",
+            "fencepost": "957812713",
             "addr": "0x642670"
         },
         {
             "name": "GetBluetoothDevicesData",
             "argc": "2",
+            "interfaceid": "43",
+            "functionid": "140762000",
+            "fencepost": "236396302",
             "addr": "0x6427d0"
         },
         {
             "name": "SetEnabled",
             "argc": "2",
+            "interfaceid": "43",
+            "functionid": "2077551232",
+            "fencepost": "2173250050",
             "addr": "0x642950"
         },
         {
             "name": "SetDiscovering",
             "argc": "3",
+            "interfaceid": "43",
+            "functionid": "1041711639",
+            "fencepost": "1137426586",
             "addr": "0x642af0"
         },
         {
             "name": "Pair",
             "argc": "3",
+            "interfaceid": "43",
+            "functionid": "1670907992",
+            "fencepost": "1766639068",
             "addr": "0x642ca0"
         },
         {
             "name": "CancelPairing",
             "argc": "3",
+            "interfaceid": "43",
+            "functionid": "1677458739",
+            "fencepost": "1773205944",
             "addr": "0x642e50"
         },
         {
             "name": "UnPair",
             "argc": "3",
+            "interfaceid": "43",
+            "functionid": "1218045101",
+            "fencepost": "1313808435",
             "addr": "0x643000"
         },
         {
             "name": "Connect",
             "argc": "3",
+            "interfaceid": "43",
+            "functionid": "4220175085",
+            "fencepost": "20987252",
             "addr": "0x6431b0"
         },
         {
             "name": "Disconnect",
             "argc": "3",
+            "interfaceid": "43",
+            "functionid": "1811507610",
+            "fencepost": "1907303202",
             "addr": "0x643360"
         }
     ]

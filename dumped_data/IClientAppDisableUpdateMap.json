@@ -5,6 +5,9 @@
         {
             "name": "SetAppUpdateDisabledSecondsRemaining",
             "argc": "3",
+            "interfaceid": "42",
+            "functionid": "2352927115",
+            "fencepost": "2448367742",
             "addr": "0x642510"
         }
     ]

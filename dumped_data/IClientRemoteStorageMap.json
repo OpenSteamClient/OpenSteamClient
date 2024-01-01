@@ -5,491 +5,785 @@
         {
             "name": "FileWrite",
             "argc": "6",
+            "interfaceid": "13",
+            "functionid": "2700541389",
+            "fencepost": "2753317128",
             "addr": "0x5e7b00"
         },
         {
             "name": "GetFileSize",
             "argc": "4",
+            "interfaceid": "13",
+            "functionid": "929989606",
+            "fencepost": "983152441",
             "addr": "0x5e83f0"
         },
         {
             "name": "FileWriteAsync",
             "argc": "5",
+            "interfaceid": "13",
+            "functionid": "659251194",
+            "fencepost": "712268868",
             "addr": "0x5e7e80"
         },
         {
             "name": "FileReadAsync",
             "argc": "6",
+            "interfaceid": "13",
+            "functionid": "3827258861",
+            "fencepost": "3880308793",
             "addr": "0x5e8040"
         },
         {
             "name": "FileReadAsyncComplete",
             "argc": "6",
+            "interfaceid": "13",
+            "functionid": "3218415737",
+            "fencepost": "3271546314",
             "addr": "0x5e8220"
         },
         {
             "name": "FileRead",
             "argc": "6",
+            "interfaceid": "13",
+            "functionid": "3953858527",
+            "fencepost": "4006747169",
             "addr": "0x5e7cb0"
         },
         {
             "name": "FileForget",
             "argc": "4",
+            "interfaceid": "13",
+            "functionid": "904109729",
+            "fencepost": "957933853",
             "addr": "0x5e9970"
         },
         {
             "name": "FileDelete",
             "argc": "4",
+            "interfaceid": "13",
+            "functionid": "2134857656",
+            "fencepost": "2188697909",
             "addr": "0x5e9b10"
         },
         {
             "name": "FileShare",
             "argc": "4",
+            "interfaceid": "13",
+            "functionid": "1495076212",
+            "fencepost": "1548932594",
             "addr": "0x5e9cb0"
         },
         {
             "name": "FileExists",
             "argc": "4",
+            "interfaceid": "13",
+            "functionid": "1344823225",
+            "fencepost": "1398050576",
             "addr": "0x5e88d0"
         },
         {
             "name": "FilePersisted",
             "argc": "4",
+            "interfaceid": "13",
+            "functionid": "605665991",
+            "fencepost": "658909471",
             "addr": "0x5e8a70"
         },
         {
             "name": "GetFileTimestamp",
             "argc": "4",
+            "interfaceid": "13",
+            "functionid": "3895187445",
+            "fencepost": "3948366409",
             "addr": "0x5e8580"
         },
         {
             "name": "SetSyncPlatforms",
             "argc": "5",
+            "interfaceid": "13",
+            "functionid": "2672076135",
+            "fencepost": "2727142192",
             "addr": "0x5ebfe0"
         },
         {
             "name": "GetSyncPlatforms",
             "argc": "4",
+            "interfaceid": "13",
+            "functionid": "4248611316",
+            "fencepost": "8726206",
             "addr": "0x5ec190"
         },
         {
             "name": "FileWriteStreamOpen",
             "argc": "4",
+            "interfaceid": "13",
+            "functionid": "2221485669",
+            "fencepost": "2276616242",
             "addr": "0x5ec4a0"
         },
         {
             "name": "FileWriteStreamClose",
             "argc": "3",
+            "interfaceid": "13",
+            "functionid": "3500488034",
+            "fencepost": "3555634736",
             "addr": "0x5ec650"
         },
         {
             "name": "FileWriteStreamCancel",
             "argc": "3",
+            "interfaceid": "13",
+            "functionid": "404870019",
+            "fencepost": "460032850",
             "addr": "0x5ec7d0"
         },
         {
             "name": "FileWriteStreamWriteChunk",
             "argc": "5",
+            "interfaceid": "13",
+            "functionid": "2266160475",
+            "fencepost": "2321403951",
             "addr": "0x5ec950"
         },
         {
             "name": "GetFileCount",
             "argc": "3",
+            "interfaceid": "13",
+            "functionid": "3332007869",
+            "fencepost": "3385267478",
             "addr": "0x5e8c10"
         },
         {
             "name": "GetFileNameAndSize",
             "argc": "6",
+            "interfaceid": "13",
+            "functionid": "1572106921",
+            "fencepost": "1625479433",
             "addr": "0x5e8da0"
         },
         {
             "name": "GetQuota",
             "argc": "4",
+            "interfaceid": "13",
+            "functionid": "3269932447",
+            "fencepost": "3323433991",
             "addr": "0x5e8f80"
         },
         {
             "name": "GetUGCQuotaUsage",
             "argc": "6",
+            "interfaceid": "13",
+            "functionid": "79208997",
+            "fencepost": "132871831",
             "addr": "0x5e9130"
         },
         {
             "name": "InitializeUGCQuotaUsage",
             "argc": "2",
+            "interfaceid": "13",
+            "functionid": "3720482841",
+            "fencepost": "3774242449",
             "addr": "0x5e9310"
         },
         {
             "name": "IsCloudEnabledForAccount",
             "argc": "1",
+            "interfaceid": "13",
+            "functionid": "2257906070",
+            "fencepost": "2311923742",
             "addr": "0x5ea030"
         },
         {
             "name": "IsCloudEnabledForApp",
             "argc": "2",
+            "interfaceid": "13",
+            "functionid": "2292656001",
+            "fencepost": "2346705931",
             "addr": "0x5ea2e0"
         },
         {
             "name": "SetCloudEnabledForApp",
             "argc": "3",
+            "interfaceid": "13",
+            "functionid": "782948867",
+            "fencepost": "837611699",
             "addr": "0x5eb150"
         },
         {
             "name": "IsCloudSyncOnSuspendAvailableForApp",
             "argc": "2",
+            "interfaceid": "13",
+            "functionid": "3163779002",
+            "fencepost": "3217845061",
             "addr": "0x5ea460"
         },
         {
             "name": "IsCloudSyncOnSuspendEnabledForApp",
             "argc": "2",
+            "interfaceid": "13",
+            "functionid": "2453336821",
+            "fencepost": "2507419009",
             "addr": "0x5ea5e0"
         },
         {
             "name": "SetCloudSyncOnSuspendEnabledForApp",
             "argc": "3",
+            "interfaceid": "13",
+            "functionid": "940591418",
+            "fencepost": "994689735",
             "addr": "0x5ea760"
         },
         {
             "name": "UGCDownload",
             "argc": "5",
+            "interfaceid": "13",
+            "functionid": "944243093",
+            "fencepost": "998357539",
             "addr": "0x5ea8c0"
         },
         {
             "name": "UGCDownloadToLocation",
             "argc": "5",
+            "interfaceid": "13",
+            "functionid": "1241125849",
+            "fencepost": "1295256424",
             "addr": "0x5eaac0"
         },
         {
             "name": "GetUGCDownloadProgress",
             "argc": "5",
+            "interfaceid": "13",
+            "functionid": "2468205066",
+            "fencepost": "2522416286",
             "addr": "0x5eaca0"
         },
         {
             "name": "GetUGCDetails",
             "argc": "7",
+            "interfaceid": "13",
+            "functionid": "2373018376",
+            "fencepost": "2427390886",
             "addr": "0x64b3a0"
         },
         {
             "name": "UGCRead",
             "argc": "7",
+            "interfaceid": "13",
+            "functionid": "264919006",
+            "fencepost": "319485064",
             "addr": "0x5efc30"
         },
         {
             "name": "GetCachedUGCCount",
             "argc": "1",
+            "interfaceid": "13",
+            "functionid": "962819811",
+            "fencepost": "1017434256",
             "addr": "0x5eae60"
         },
         {
             "name": "GetCachedUGCHandle",
             "argc": "2",
+            "interfaceid": "13",
+            "functionid": "1440107511",
+            "fencepost": "1494738085",
             "addr": "0x5eafc0"
         },
         {
             "name": "PublishFile",
             "argc": "11",
+            "interfaceid": "13",
+            "functionid": "3938173186",
+            "fencepost": "3993642468",
             "addr": "0x5f0670"
         },
         {
             "name": "PublishVideo",
             "argc": "12",
+            "interfaceid": "13",
+            "functionid": "3237332741",
+            "fencepost": "3293253635",
             "addr": "0x5f0890"
         },
         {
             "name": "PublishVideoFromURL",
             "argc": "10",
+            "interfaceid": "13",
+            "functionid": "3585284386",
+            "fencepost": "3640963345",
             "addr": "0x5f02c0"
         },
         {
             "name": "CreatePublishedFileUpdateRequest",
             "argc": "4",
+            "interfaceid": "13",
+            "functionid": "2602621202",
+            "fencepost": "2658590483",
             "addr": "0x5ecaf0"
         },
         {
             "name": "UpdatePublishedFileFile",
             "argc": "4",
+            "interfaceid": "13",
+            "functionid": "2724019156",
+            "fencepost": "2780004566",
             "addr": "0x5eccd0"
         },
         {
             "name": "UpdatePublishedFilePreviewFile",
             "argc": "4",
+            "interfaceid": "13",
+            "functionid": "2199189551",
+            "fencepost": "2255191090",
             "addr": "0x5ece60"
         },
         {
             "name": "UpdatePublishedFileTitle",
             "argc": "4",
+            "interfaceid": "13",
+            "functionid": "298776138",
+            "fencepost": "354793806",
             "addr": "0x5ecff0"
         },
         {
             "name": "UpdatePublishedFileDescription",
             "argc": "4",
+            "interfaceid": "13",
+            "functionid": "1889033061",
+            "fencepost": "1945066858",
             "addr": "0x5ed180"
         },
         {
             "name": "UpdatePublishedFileSetChangeDescription",
             "argc": "4",
+            "interfaceid": "13",
+            "functionid": "2441620948",
+            "fencepost": "2497799906",
             "addr": "0x5ed4a0"
         },
         {
             "name": "UpdatePublishedFileVisibility",
             "argc": "4",
+            "interfaceid": "13",
+            "functionid": "139469993",
+            "fencepost": "195519919",
             "addr": "0x5f04d0"
         },
         {
             "name": "UpdatePublishedFileTags",
             "argc": "4",
+            "interfaceid": "13",
+            "functionid": "3676573911",
+            "fencepost": "3732704482",
             "addr": "0x5ed310"
         },
         {
             "name": "UpdatePublishedFileURL",
             "argc": "4",
+            "interfaceid": "13",
+            "functionid": "183023584",
+            "fencepost": "239218671",
             "addr": "0x5ed630"
         },
         {
             "name": "CommitPublishedFileUpdate",
             "argc": "5",
+            "interfaceid": "13",
+            "functionid": "1123480698",
+            "fencepost": "1179691914",
             "addr": "0x5ed7c0"
         },
         {
             "name": "GetPublishedFileDetails",
             "argc": "5",
+            "interfaceid": "13",
+            "functionid": "2422896541",
+            "fencepost": "2479123886",
             "addr": "0x5ed9b0"
         },
         {
             "name": "DeletePublishedFile",
             "argc": "3",
+            "interfaceid": "13",
+            "functionid": "2547507692",
+            "fencepost": "2603751166",
             "addr": "0x5edbb0"
         },
         {
             "name": "EnumerateUserPublishedFiles",
             "argc": "4",
+            "interfaceid": "13",
+            "functionid": "2480137886",
+            "fencepost": "2536397489",
             "addr": "0x5f0ac0"
         },
         {
             "name": "SubscribePublishedFile",
             "argc": "4",
+            "interfaceid": "13",
+            "functionid": "2771620088",
+            "fencepost": "2827895820",
             "addr": "0x5edd50"
         },
         {
             "name": "EnumerateUserSubscribedFiles",
             "argc": "5",
+            "interfaceid": "13",
+            "functionid": "2356712142",
+            "fencepost": "2413004003",
             "addr": "0x5f0c80"
         },
         {
             "name": "UnsubscribePublishedFile",
             "argc": "4",
+            "interfaceid": "13",
+            "functionid": "2217145263",
+            "fencepost": "2273453253",
             "addr": "0x5edf30"
         },
         {
             "name": "SetUserPublishedFileAction",
             "argc": "5",
+            "interfaceid": "13",
+            "functionid": "921031316",
+            "fencepost": "977581241",
             "addr": "0x5f0e60"
         },
         {
             "name": "EnumeratePublishedFilesByUserAction",
             "argc": "4",
+            "interfaceid": "13",
+            "functionid": "334559698",
+            "fencepost": "391125752",
             "addr": "0x5f1050"
         },
         {
             "name": "EnumerateUserSubscribedFilesWithUpdates",
             "argc": "4",
+            "interfaceid": "13",
+            "functionid": "3417870729",
+            "fencepost": "3474662589",
             "addr": "0x5ee930"
         },
         {
             "name": "GetCREItemVoteSummary",
             "argc": "3",
+            "interfaceid": "13",
+            "functionid": "1973024279",
+            "fencepost": "2029348398",
             "addr": "0x5ee110"
         },
         {
             "name": "UpdateUserPublishedItemVote",
             "argc": "4",
+            "interfaceid": "13",
+            "functionid": "3401381796",
+            "fencepost": "3457722044",
             "addr": "0x5ee2b0"
         },
         {
             "name": "GetUserPublishedItemVoteDetails",
             "argc": "3",
+            "interfaceid": "13",
+            "functionid": "2119609218",
+            "fencepost": "2175965595",
             "addr": "0x5ee470"
         },
         {
             "name": "EnumerateUserSharedWorkshopFiles",
             "argc": "7",
+            "interfaceid": "13",
+            "functionid": "1244284266",
+            "fencepost": "1300769675",
             "addr": "0x5ee610"
         },
         {
             "name": "EnumeratePublishedWorkshopFiles",
             "argc": "9",
+            "interfaceid": "13",
+            "functionid": "3834643864",
+            "fencepost": "3891387337",
             "addr": "0x5f1210"
         },
         {
             "name": "EGetFileSyncState",
             "argc": "4",
+            "interfaceid": "13",
+            "functionid": "3704668774",
+            "fencepost": "3757863867",
             "addr": "0x5efaa0"
         },
         {
             "name": "BIsFileSyncing",
             "argc": "4",
+            "interfaceid": "13",
+            "functionid": "2268063837",
+            "fencepost": "2321275059",
             "addr": "0x5e8730"
         },
         {
             "name": "FilePersist",
             "argc": "4",
+            "interfaceid": "13",
+            "functionid": "406332973",
+            "fencepost": "460108710",
             "addr": "0x5e9490"
         },
         {
             "name": "FileFetch",
             "argc": "4",
+            "interfaceid": "13",
+            "functionid": "3170103019",
+            "fencepost": "3223911014",
             "addr": "0x5e97d0"
         },
         {
             "name": "ResolvePath",
             "argc": "6",
+            "interfaceid": "13",
+            "functionid": "2425933519",
+            "fencepost": "2479902804",
             "addr": "0x5e9e60"
         },
         {
             "name": "FileTouch",
             "argc": "5",
+            "interfaceid": "13",
+            "functionid": "3440726901",
+            "fencepost": "3494518767",
             "addr": "0x5e9620"
         },
         {
             "name": "SetCloudEnabledForAccount",
             "argc": "2",
+            "interfaceid": "13",
+            "functionid": "4119076361",
+            "fencepost": "4173110162",
             "addr": "0x5ea190"
         },
         {
             "name": "LoadLocalFileInfoCache",
             "argc": "2",
+            "interfaceid": "13",
+            "functionid": "3479012139",
+            "fencepost": "3533691100",
             "addr": "0x5eb2b0"
         },
         {
             "name": "EvaluateRemoteStorageSyncState",
             "argc": "3",
+            "interfaceid": "13",
+            "functionid": "1491205541",
+            "fencepost": "1545900631",
             "addr": "0x5eb400"
         },
         {
             "name": "GetLastKnownSyncState",
             "argc": "2",
+            "interfaceid": "13",
+            "functionid": "2456948891",
+            "fencepost": "2511982690",
             "addr": "0x5effe0"
         },
         {
             "name": "GetRemoteStorageSyncState",
             "argc": "2",
+            "interfaceid": "13",
+            "functionid": "167981226",
+            "fencepost": "223031154",
             "addr": "0x5f0150"
         },
         {
             "name": "HaveLatestFilesLocally",
             "argc": "2",
+            "interfaceid": "13",
+            "functionid": "247100242",
+            "fencepost": "301875977",
             "addr": "0x5eb9a0"
         },
         {
             "name": "GetConflictingFileTimestamps",
             "argc": "4",
+            "interfaceid": "13",
+            "functionid": "2818229850",
+            "fencepost": "2873086230",
             "addr": "0x5ebb20"
         },
         {
             "name": "GetPendingRemoteOperationInfo",
             "argc": "3",
+            "interfaceid": "13",
+            "functionid": "830589067",
+            "fencepost": "885558350",
             "addr": "0x5ebcd0"
         },
         {
             "name": "ResolveSyncConflict",
             "argc": "3",
+            "interfaceid": "13",
+            "functionid": "1305994769",
+            "fencepost": "1360705988",
             "addr": "0x5eb560"
         },
         {
             "name": "SynchronizeApp",
             "argc": "5",
+            "interfaceid": "13",
+            "functionid": "2065888836",
+            "fencepost": "2120616184",
             "addr": "0x5efe30"
         },
         {
             "name": "IsAppSyncInProgress",
             "argc": "2",
+            "interfaceid": "13",
+            "functionid": "3554676419",
+            "fencepost": "3609694089",
             "addr": "0x5ebe60"
         },
         {
             "name": "RunAutoCloudOnAppLaunch",
             "argc": "2",
+            "interfaceid": "13",
+            "functionid": "3089248670",
+            "fencepost": "3143992147",
             "addr": "0x5eb700"
         },
         {
             "name": "RunAutoCloudOnAppExit",
             "argc": "2",
+            "interfaceid": "13",
+            "functionid": "2117638192",
+            "fencepost": "2172397798",
             "addr": "0x5eb850"
         },
         {
             "name": "ResetFileRequestState",
             "argc": "2",
+            "interfaceid": "13",
+            "functionid": "847979003",
+            "fencepost": "903077318",
             "addr": "0x5ec320"
         },
         {
             "name": "ClearPublishFileUpdateRequests",
             "argc": "2",
+            "interfaceid": "13",
+            "functionid": "3586349732",
+            "fencepost": "3642883528",
             "addr": "0x5ee7e0"
         },
         {
             "name": "GetSubscribedFileDownloadCount",
             "argc": "1",
+            "interfaceid": "13",
+            "functionid": "2522406292",
+            "fencepost": "2579230410",
             "addr": "0x5eeaf0"
         },
         {
             "name": "BGetSubscribedFileDownloadInfo",
             "argc": "6",
+            "interfaceid": "13",
+            "functionid": "26159779",
+            "fencepost": "83112929",
             "addr": "0x5eec50"
         },
         {
             "name": "BGetSubscribedFileDownloadInfo",
             "argc": "6",
+            "interfaceid": "13",
+            "functionid": "1527689585",
+            "fencepost": "1584836283",
             "addr": "0x5eee30"
         },
         {
             "name": "PauseSubscribedFileDownloadsForApp",
             "argc": "2",
+            "interfaceid": "13",
+            "functionid": "2474993819",
+            "fencepost": "2532221162",
             "addr": "0x5ef000"
         },
         {
             "name": "ResumeSubscribedFileDownloadsForApp",
             "argc": "2",
+            "interfaceid": "13",
+            "functionid": "3246838239",
+            "fencepost": "3304081711",
             "addr": "0x5ef150"
         },
         {
             "name": "PauseAllSubscribedFileDownloads",
             "argc": "1",
+            "interfaceid": "13",
+            "functionid": "3701411613",
+            "fencepost": "3758671214",
             "addr": "0x5ef2a0"
         },
         {
             "name": "ResumeAllSubscribedFileDownloads",
             "argc": "1",
+            "interfaceid": "13",
+            "functionid": "978120329",
+            "fencepost": "1035396059",
             "addr": "0x5ef3d0"
         },
         {
             "name": "CancelCurrentAndPendingOperations",
             "argc": "1",
+            "interfaceid": "13",
+            "functionid": "360336100",
+            "fencepost": "417627959",
             "addr": "0x5ef500"
         },
         {
             "name": "GetLocalFileChangeCount",
             "argc": "2",
+            "interfaceid": "13",
+            "functionid": "2496721515",
+            "fencepost": "2554029503",
             "addr": "0x5ef630"
         },
         {
             "name": "GetLocalFileChange",
             "argc": "5",
+            "interfaceid": "13",
+            "functionid": "1242871065",
+            "fencepost": "1300275827",
             "addr": "0x5f1420"
         },
         {
             "name": "BeginFileWriteBatch",
             "argc": "2",
+            "interfaceid": "13",
+            "functionid": "1300059905",
+            "fencepost": "1357529183",
             "addr": "0x5ef7a0"
         },
         {
             "name": "EndFileWriteBatch",
             "argc": "2",
+            "interfaceid": "13",
+            "functionid": "781866338",
+            "fencepost": "839351745",
             "addr": "0x5ef920"
         },
         {
             "name": "GetCloudEnabledForAppMap",
             "argc": "2",
+            "interfaceid": "13",
+            "functionid": "552952409",
+            "fencepost": "610453945",
             "addr": "0x5f15e0"
         },
         {
             "name": "GetLastKnownSyncStateMap",
             "argc": "3",
+            "interfaceid": "13",
+            "functionid": "3256526154",
+            "fencepost": "3314092206",
             "addr": "0x5f1750"
         }
     ]

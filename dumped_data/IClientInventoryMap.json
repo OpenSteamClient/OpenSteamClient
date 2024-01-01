@@ -5,181 +5,289 @@
         {
             "name": "GetResultStatus",
             "argc": "2",
+            "interfaceid": "39",
+            "functionid": "3432977045",
+            "fencepost": "3515126995",
             "addr": "0x621c80"
         },
         {
             "name": "DestroyResult",
             "argc": "2",
+            "interfaceid": "39",
+            "functionid": "1377882285",
+            "fencepost": "1460419331",
             "addr": "0x6224c0"
         },
         {
             "name": "GetResultItems",
             "argc": "5",
+            "interfaceid": "39",
+            "functionid": "961557900",
+            "fencepost": "1043836882",
             "addr": "0x6220f0"
         },
         {
             "name": "GetResultItemProperty",
             "argc": "7",
+            "interfaceid": "39",
+            "functionid": "2208352581",
+            "fencepost": "2290808982",
             "addr": "0x6222c0"
         },
         {
             "name": "GetResultTimestamp",
             "argc": "2",
+            "interfaceid": "39",
+            "functionid": "961033541",
+            "fencepost": "1043199620",
             "addr": "0x621df0"
         },
         {
             "name": "CheckResultSteamID",
             "argc": "4",
+            "interfaceid": "39",
+            "functionid": "2482282362",
+            "fencepost": "2564464570",
             "addr": "0x621f60"
         },
         {
             "name": "SerializeResult",
             "argc": "5",
+            "interfaceid": "39",
+            "functionid": "3778090606",
+            "fencepost": "3860724426",
             "addr": "0x622610"
         },
         {
             "name": "DeserializeResult",
             "argc": "5",
+            "interfaceid": "39",
+            "functionid": "22895032",
+            "fencepost": "105674013",
             "addr": "0x6227d0"
         },
         {
             "name": "GetAllItems",
             "argc": "2",
+            "interfaceid": "39",
+            "functionid": "2610988313",
+            "fencepost": "2693847939",
             "addr": "0x622990"
         },
         {
             "name": "GetItemsByID",
             "argc": "4",
+            "interfaceid": "39",
+            "functionid": "3716660039",
+            "fencepost": "3799632568",
             "addr": "0x622b10"
         },
         {
             "name": "GenerateItems",
             "argc": "6",
+            "interfaceid": "39",
+            "functionid": "1143531533",
+            "fencepost": "1226649223",
             "addr": "0x622cc0"
         },
         {
             "name": "AddPromoItems",
             "argc": "4",
+            "interfaceid": "39",
+            "functionid": "1970571486",
+            "fencepost": "2053802079",
             "addr": "0x622e90"
         },
         {
             "name": "ConsumeItem",
             "argc": "5",
+            "interfaceid": "39",
+            "functionid": "3033307556",
+            "fencepost": "3116651052",
             "addr": "0x623040"
         },
         {
             "name": "ExchangeItems",
             "argc": "10",
+            "interfaceid": "39",
+            "functionid": "3137621741",
+            "fencepost": "3221174914",
             "addr": "0x623200"
         },
         {
             "name": "TransferItemQuantity",
             "argc": "7",
+            "interfaceid": "39",
+            "functionid": "3828749322",
+            "fencepost": "3912431527",
             "addr": "0x623420"
         },
         {
             "name": "SendItemDropHeartbeat",
             "argc": "1",
+            "interfaceid": "39",
+            "functionid": "4127559932",
+            "fencepost": "4211290524",
             "addr": "0x623630"
         },
         {
             "name": "TriggerItemDrop",
             "argc": "3",
+            "interfaceid": "39",
+            "functionid": "2833949900",
+            "fencepost": "2917745008",
             "addr": "0x623760"
         },
         {
             "name": "TradeItems",
             "argc": "12",
+            "interfaceid": "39",
+            "functionid": "1792013943",
+            "fencepost": "1876034857",
             "addr": "0x6238f0"
         },
         {
             "name": "LoadItemDefinitions",
             "argc": "1",
+            "interfaceid": "39",
+            "functionid": "3900443068",
+            "fencepost": "3984512369",
             "addr": "0x623b20"
         },
         {
             "name": "GetItemDefinitionIDs",
             "argc": "4",
+            "interfaceid": "39",
+            "functionid": "2906019965",
+            "fencepost": "2990169911",
             "addr": "0x623c80"
         },
         {
             "name": "GetItemDefinitionProperty",
             "argc": "6",
+            "interfaceid": "39",
+            "functionid": "2315462631",
+            "fencepost": "2399773867",
             "addr": "0x623e30"
         },
         {
             "name": "RequestEligiblePromoItemDefinitionsIDs",
             "argc": "3",
+            "interfaceid": "39",
+            "functionid": "1215518292",
+            "fencepost": "1299910173",
             "addr": "0x624000"
         },
         {
             "name": "GetEligiblePromoItemDefinitionIDs",
             "argc": "6",
+            "interfaceid": "39",
+            "functionid": "1069802521",
+            "fencepost": "1154291176",
             "addr": "0x624190"
         },
         {
             "name": "StartPurchase",
             "argc": "5",
+            "interfaceid": "39",
+            "functionid": "2330478138",
+            "fencepost": "2415128083",
             "addr": "0x624350"
         },
         {
             "name": "RequestPrices",
             "argc": "1",
+            "interfaceid": "39",
+            "functionid": "249416074",
+            "fencepost": "334114406",
             "addr": "0x624520"
         },
         {
             "name": "GetNumItemsWithPrices",
             "argc": "1",
+            "interfaceid": "39",
+            "functionid": "1651506685",
+            "fencepost": "1736237275",
             "addr": "0x6246a0"
         },
         {
             "name": "GetItemsWithPrices",
             "argc": "5",
+            "interfaceid": "39",
+            "functionid": "550875860",
+            "fencepost": "635719353",
             "addr": "0x624800"
         },
         {
             "name": "GetItemPrice",
             "argc": "4",
+            "interfaceid": "39",
+            "functionid": "4035302490",
+            "fencepost": "4120307273",
             "addr": "0x6249d0"
         },
         {
             "name": "StartUpdateProperties",
             "argc": "1",
+            "interfaceid": "39",
+            "functionid": "2789650030",
+            "fencepost": "2874735458",
             "addr": "0x624b80"
         },
         {
             "name": "RemoveProperty",
             "argc": "6",
+            "interfaceid": "39",
+            "functionid": "3812604095",
+            "fencepost": "3897705652",
             "addr": "0x624d00"
         },
         {
             "name": "SetProperty",
             "argc": "7",
+            "interfaceid": "39",
+            "functionid": "2498292497",
+            "fencepost": "2583410183",
             "addr": "0x624ec0"
         },
         {
             "name": "SetProperty",
             "argc": "7",
+            "interfaceid": "39",
+            "functionid": "1967050943",
+            "fencepost": "2052184758",
             "addr": "0x625090"
         },
         {
             "name": "Unknown_32",
             "argc": "0",
+            "interfaceid": "0",
+            "functionid": "0",
+            "fencepost": "0",
             "addr": "0x625270"
         },
         {
             "name": "SetProperty",
             "argc": "7",
+            "interfaceid": "39",
+            "functionid": "3102948049",
+            "fencepost": "3188114122",
             "addr": "0x625480"
         },
         {
             "name": "SubmitUpdateProperties",
             "argc": "4",
+            "interfaceid": "39",
+            "functionid": "350099958",
+            "fencepost": "435330547",
             "addr": "0x625680"
         },
         {
             "name": "InspectItem",
             "argc": "3",
+            "interfaceid": "39",
+            "functionid": "3009566697",
+            "fencepost": "3094910189",
             "addr": "0x625820"
         }
     ]

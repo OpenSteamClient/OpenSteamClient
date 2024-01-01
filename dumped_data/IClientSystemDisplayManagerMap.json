@@ -5,26 +5,41 @@
         {
             "name": "IsInterfaceValid",
             "argc": "1",
+            "interfaceid": "60",
+            "functionid": "862246311",
+            "fencepost": "907366744",
             "addr": "0x5dd6a0"
         },
         {
             "name": "GetState",
             "argc": "2",
+            "interfaceid": "60",
+            "functionid": "2169954186",
+            "fencepost": "2215139135",
             "addr": "0x5dd800"
         },
         {
             "name": "SetMode",
             "argc": "2",
+            "interfaceid": "60",
+            "functionid": "2139887982",
+            "fencepost": "2185169705",
             "addr": "0x5dd980"
         },
         {
             "name": "ClearModeOverride",
             "argc": "2",
+            "interfaceid": "60",
+            "functionid": "3934404376",
+            "fencepost": "3979734486",
             "addr": "0x5ddb10"
         },
         {
             "name": "SetCompatibilityMode",
             "argc": "2",
+            "interfaceid": "60",
+            "functionid": "206061294",
+            "fencepost": "251407533",
             "addr": "0x5ddc80"
         }
     ]

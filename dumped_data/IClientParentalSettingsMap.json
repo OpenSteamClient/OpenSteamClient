@@ -5,46 +5,73 @@
         {
             "name": "BIsParentalLockEnabled",
             "argc": "1",
+            "interfaceid": "27",
+            "functionid": "1037289508",
+            "fencepost": "1109550857",
             "addr": "0x60b020"
         },
         {
             "name": "BIsParentalLockLocked",
             "argc": "1",
+            "interfaceid": "27",
+            "functionid": "1743084858",
+            "fencepost": "1815362336",
             "addr": "0x60b180"
         },
         {
             "name": "BIsAppBlocked",
             "argc": "2",
+            "interfaceid": "27",
+            "functionid": "3328855105",
+            "fencepost": "3401148712",
             "addr": "0x60b2e0"
         },
         {
             "name": "BIsAppInBlockList",
             "argc": "2",
+            "interfaceid": "27",
+            "functionid": "460900072",
+            "fencepost": "533209808",
             "addr": "0x60b460"
         },
         {
             "name": "BIsFeatureBlocked",
             "argc": "2",
+            "interfaceid": "27",
+            "functionid": "1806474481",
+            "fencepost": "1878800346",
             "addr": "0x60b5e0"
         },
         {
             "name": "BIsFeatureInBlockList",
             "argc": "2",
+            "interfaceid": "27",
+            "functionid": "2637634336",
+            "fencepost": "2709976330",
             "addr": "0x60b760"
         },
         {
             "name": "BGetSerializedParentalSettings",
             "argc": "2",
+            "interfaceid": "27",
+            "functionid": "3905112005",
+            "fencepost": "3977502386",
             "addr": "0x60b8e0"
         },
         {
             "name": "BGetRecoveryEmail",
             "argc": "3",
+            "interfaceid": "27",
+            "functionid": "2386796345",
+            "fencepost": "2459299629",
             "addr": "0x60ba60"
         },
         {
             "name": "BIsLockFromSiteLicense",
             "argc": "1",
+            "interfaceid": "27",
+            "functionid": "1829347367",
+            "fencepost": "1901915167",
             "addr": "0x60bbf0"
         }
     ]

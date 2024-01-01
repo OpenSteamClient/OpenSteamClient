@@ -5,176 +5,281 @@
         {
             "name": "GetShortcutDisplayName",
             "argc": "2",
+            "interfaceid": "23",
+            "functionid": "2094781124",
+            "fencepost": "2153671024",
             "addr": "0x5f38b0"
         },
         {
             "name": "SetShortcutDisplayName",
             "argc": "3",
+            "interfaceid": "23",
+            "functionid": "2240540207",
+            "fencepost": "2299446236",
             "addr": "0x5f3a30"
         },
         {
             "name": "WriteScreenshot",
             "argc": "6",
+            "interfaceid": "23",
+            "functionid": "569227356",
+            "fencepost": "628326933",
             "addr": "0x5f3b90"
         },
         {
             "name": "AddScreenshotToLibrary",
             "argc": "8",
+            "interfaceid": "23",
+            "functionid": "1823090504",
+            "fencepost": "1882222339",
             "addr": "0x5f3d60"
         },
         {
             "name": "TriggerScreenshot",
             "argc": "2",
+            "interfaceid": "23",
+            "functionid": "2954246912",
+            "fencepost": "3013394876",
             "addr": "0x5f3f50"
         },
         {
             "name": "RequestScreenshotFromGame",
             "argc": "2",
+            "interfaceid": "23",
+            "functionid": "3775109089",
+            "fencepost": "3834273182",
             "addr": "0x5f40a0"
         },
         {
             "name": "SetLocation",
             "argc": "4",
+            "interfaceid": "23",
+            "functionid": "599106079",
+            "fencepost": "658431462",
             "addr": "0x5f41f0"
         },
         {
             "name": "TagUser",
             "argc": "5",
+            "interfaceid": "23",
+            "functionid": "3168743253",
+            "fencepost": "3228084765",
             "addr": "0x5f4390"
         },
         {
             "name": "TagPublishedFile",
             "argc": "5",
+            "interfaceid": "23",
+            "functionid": "3009192381",
+            "fencepost": "3068550022",
             "addr": "0x5f4540"
         },
         {
             "name": "ResolvePath",
             "argc": "6",
+            "interfaceid": "23",
+            "functionid": "879595689",
+            "fencepost": "938872685",
             "addr": "0x5f6d90"
         },
         {
             "name": "GetSizeOnDisk",
             "argc": "3",
+            "interfaceid": "23",
+            "functionid": "1428812058",
+            "fencepost": "1488185828",
             "addr": "0x5f4700"
         },
         {
             "name": "GetSizeInCloud",
             "argc": "3",
+            "interfaceid": "23",
+            "functionid": "1939222485",
+            "fencepost": "1998612384",
             "addr": "0x5f4890"
         },
         {
             "name": "IsPersisted",
             "argc": "3",
+            "interfaceid": "23",
+            "functionid": "2982744261",
+            "fencepost": "3042150289",
             "addr": "0x5f4a20"
         },
         {
             "name": "GetNumGamesWithLocalScreenshots",
             "argc": "1",
+            "interfaceid": "23",
+            "functionid": "333991047",
+            "fencepost": "393413204",
             "addr": "0x5f4bc0"
         },
         {
             "name": "GetGameWithLocalScreenshots",
             "argc": "3",
+            "interfaceid": "23",
+            "functionid": "3184840763",
+            "fencepost": "3244279049",
             "addr": "0x5f4d20"
         },
         {
             "name": "GetLocalScreenshotCount",
             "argc": "2",
+            "interfaceid": "23",
+            "functionid": "187845586",
+            "fencepost": "247300001",
             "addr": "0x5f4ec0"
         },
         {
             "name": "GetLocalScreenshot",
             "argc": "12",
+            "interfaceid": "23",
+            "functionid": "4000351971",
+            "fencepost": "4060016063",
             "addr": "0x5f5040"
         },
         {
             "name": "GetLocalScreenshotByHandle",
             "argc": "11",
+            "interfaceid": "23",
+            "functionid": "4018991639",
+            "fencepost": "4078994440",
             "addr": "0x5f6f70"
         },
         {
             "name": "SetLocalScreenshotCaption",
             "argc": "4",
+            "interfaceid": "23",
+            "functionid": "2646597911",
+            "fencepost": "2706762002",
             "addr": "0x5f52a0"
         },
         {
             "name": "SetLocalScreenshotPrivacy",
             "argc": "4",
+            "interfaceid": "23",
+            "functionid": "3253669746",
+            "fencepost": "3313849966",
             "addr": "0x5f5440"
         },
         {
             "name": "SetLocalScreenshotSpoiler",
             "argc": "4",
+            "interfaceid": "23",
+            "functionid": "3487342112",
+            "fencepost": "3547538461",
             "addr": "0x5f55f0"
         },
         {
             "name": "GetLocalLastScreenshot",
             "argc": "3",
+            "interfaceid": "23",
+            "functionid": "3514520116",
+            "fencepost": "3574797110",
             "addr": "0x5f57a0"
         },
         {
             "name": "StartBatch",
             "argc": "2",
+            "interfaceid": "23",
+            "functionid": "1644355357",
+            "fencepost": "1704712996",
             "addr": "0x5f5940"
         },
         {
             "name": "AddToBatch",
             "argc": "2",
+            "interfaceid": "23",
+            "functionid": "2149043800",
+            "fencepost": "2209417568",
             "addr": "0x5f5ac0"
         },
         {
             "name": "UploadBatch",
             "argc": "2",
+            "interfaceid": "23",
+            "functionid": "3495609990",
+            "fencepost": "3555999887",
             "addr": "0x5f5c40"
         },
         {
             "name": "DeleteBatch",
             "argc": "2",
+            "interfaceid": "23",
+            "functionid": "727756374",
+            "fencepost": "788162400",
             "addr": "0x5f5dd0"
         },
         {
             "name": "CancelBatch",
             "argc": "1",
+            "interfaceid": "23",
+            "functionid": "4241007245",
+            "fencepost": "6462104",
             "addr": "0x5f5f70"
         },
         {
             "name": "RecoverOldScreenshots",
             "argc": "1",
+            "interfaceid": "23",
+            "functionid": "3567732378",
+            "fencepost": "3628170662",
             "addr": "0x5f60d0"
         },
         {
             "name": "GetTaggedUserCount",
             "argc": "3",
+            "interfaceid": "23",
+            "functionid": "2558819538",
+            "fencepost": "2619290080",
             "addr": "0x5f6200"
         },
         {
             "name": "GetTaggedUser",
             "argc": "5",
+            "interfaceid": "23",
+            "functionid": "660849423",
+            "fencepost": "721336094",
             "addr": "0x5f6390"
         },
         {
             "name": "GetLocation",
             "argc": "5",
+            "interfaceid": "23",
+            "functionid": "692548399",
+            "fencepost": "753164102",
             "addr": "0x5f68b0"
         },
         {
             "name": "GetTaggedPublishedFileCount",
             "argc": "3",
+            "interfaceid": "23",
+            "functionid": "3809293979",
+            "fencepost": "3869796779",
             "addr": "0x5f6560"
         },
         {
             "name": "GetTaggedPublishedFile",
             "argc": "4",
+            "interfaceid": "23",
+            "functionid": "2326780880",
+            "fencepost": "2387299809",
             "addr": "0x5f66f0"
         },
         {
             "name": "GetScreenshotVRType",
             "argc": "3",
+            "interfaceid": "23",
+            "functionid": "184860746",
+            "fencepost": "245637739",
             "addr": "0x5f6c00"
         },
         {
             "name": "BGetUserScreenshotDirectory",
             "argc": "3",
+            "interfaceid": "23",
+            "functionid": "887106676",
+            "fencepost": "947835282",
             "addr": "0x5f6a70"
         }
     ]

@@ -5,41 +5,65 @@
         {
             "name": "AllocateSharedConnection",
             "argc": "1",
+            "interfaceid": "44",
+            "functionid": "815678846",
+            "fencepost": "901781036",
             "addr": "0x626e40"
         },
         {
             "name": "ReleaseSharedConnection",
             "argc": "2",
+            "interfaceid": "44",
+            "functionid": "1808646749",
+            "fencepost": "1894765068",
             "addr": "0x626fa0"
         },
         {
             "name": "SendMessage",
             "argc": "4",
+            "interfaceid": "44",
+            "functionid": "2329349393",
+            "fencepost": "2415580615",
             "addr": "0x6270f0"
         },
         {
             "name": "SendMessageAndAwaitResponse",
             "argc": "4",
+            "interfaceid": "44",
+            "functionid": "2048660093",
+            "fencepost": "2135004218",
             "addr": "0x627290"
         },
         {
             "name": "RegisterEMsgHandler",
             "argc": "3",
+            "interfaceid": "44",
+            "functionid": "2709394784",
+            "fencepost": "2795787296",
             "addr": "0x627420"
         },
         {
             "name": "RegisterServiceMethodHandler",
             "argc": "3",
+            "interfaceid": "44",
+            "functionid": "3444980086",
+            "fencepost": "3531404856",
             "addr": "0x627580"
         },
         {
             "name": "BPopReceivedMessage",
             "argc": "4",
+            "interfaceid": "44",
+            "functionid": "3279629464",
+            "fencepost": "3366151008",
             "addr": "0x6276d0"
         },
         {
             "name": "InitiateConnection",
             "argc": "2",
+            "interfaceid": "44",
+            "functionid": "2265053268",
+            "fencepost": "2351655457",
             "addr": "0x627880"
         }
     ]

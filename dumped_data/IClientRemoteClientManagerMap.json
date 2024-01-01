@@ -5,516 +5,825 @@
         {
             "name": "SetUIReadyForStream",
             "argc": "2",
+            "interfaceid": "31",
+            "functionid": "284368409",
+            "fencepost": "358468972",
             "addr": "0x60d2d0"
         },
         {
             "name": "StreamingAudioPreparationComplete",
             "argc": "2",
+            "interfaceid": "31",
+            "functionid": "1925911952",
+            "fencepost": "2000028644",
             "addr": "0x60d420"
         },
         {
             "name": "StreamingAudioFinished",
             "argc": "1",
+            "interfaceid": "31",
+            "functionid": "2965257421",
+            "fencepost": "3039390242",
             "addr": "0x60d570"
         },
         {
             "name": "ProcessStreamAvailable",
             "argc": "3",
+            "interfaceid": "31",
+            "functionid": "3659168668",
+            "fencepost": "3733317618",
             "addr": "0x60d6a0"
         },
         {
             "name": "ProcessStreamShutdown",
             "argc": "2",
+            "interfaceid": "31",
+            "functionid": "999124824",
+            "fencepost": "1073289903",
             "addr": "0x60d800"
         },
         {
             "name": "UpdateStreamClientResolution",
             "argc": "4",
+            "interfaceid": "31",
+            "functionid": "1637645552",
+            "fencepost": "1711826760",
             "addr": "0x60d950"
         },
         {
             "name": "ProcessStreamClientConnected",
             "argc": "12",
+            "interfaceid": "31",
+            "functionid": "3794819478",
+            "fencepost": "3869016815",
             "addr": "0x60dac0"
         },
         {
             "name": "GetStreamClientPlayer",
             "argc": "3",
+            "interfaceid": "31",
+            "functionid": "2023218359",
+            "fencepost": "2097431825",
             "addr": "0x64b5a0"
         },
         {
             "name": "GetStreamClientFormFactor",
             "argc": "2",
+            "interfaceid": "31",
+            "functionid": "1162816",
+            "fencepost": "75392411",
             "addr": "0x60dcc0"
         },
         {
             "name": "UpdateStreamClientNetworkUtilization",
             "argc": "4",
+            "interfaceid": "31",
+            "functionid": "3641812941",
+            "fencepost": "3716058665",
             "addr": "0x60de30"
         },
         {
             "name": "ProcessStreamClientDisconnected",
             "argc": "2",
+            "interfaceid": "31",
+            "functionid": "3741267732",
+            "fencepost": "3815529585",
             "addr": "0x60dfa0"
         },
         {
             "name": "BGetStreamTransportSignal",
             "argc": "3",
+            "interfaceid": "31",
+            "functionid": "1635575258",
+            "fencepost": "1709901627",
             "addr": "0x60e0f0"
         },
         {
             "name": "SendStreamTransportSignal",
             "argc": "3",
+            "interfaceid": "31",
+            "functionid": "1804426273",
+            "fencepost": "1878801029",
             "addr": "0x615c60"
         },
         {
             "name": "ConnectToRemote",
             "argc": "3",
+            "interfaceid": "31",
+            "functionid": "1473147282",
+            "fencepost": "1547538167",
             "addr": "0x60e280"
         },
         {
             "name": "ConnectToRemoteAddress",
             "argc": "2",
+            "interfaceid": "31",
+            "functionid": "1416567884",
+            "fencepost": "1490974898",
             "addr": "0x60e3e0"
         },
         {
             "name": "RefreshRemoteClients",
             "argc": "2",
+            "interfaceid": "31",
+            "functionid": "2746921038",
+            "fencepost": "2821344181",
             "addr": "0x60e520"
         },
         {
             "name": "GetClientPlatformTypes",
             "argc": "1",
+            "interfaceid": "31",
+            "functionid": "4006363852",
+            "fencepost": "4080803124",
             "addr": "0x60e670"
         },
         {
             "name": "GetRemoteClientCount",
             "argc": "1",
+            "interfaceid": "31",
+            "functionid": "3709923571",
+            "fencepost": "3784378972",
             "addr": "0x60e7d0"
         },
         {
             "name": "GetRemoteClientIDByIndex",
             "argc": "2",
+            "interfaceid": "31",
+            "functionid": "2918732381",
+            "fencepost": "2993203911",
             "addr": "0x60e930"
         },
         {
             "name": "GetRemoteClientNameByIndex",
             "argc": "2",
+            "interfaceid": "31",
+            "functionid": "2689402639",
+            "fencepost": "2763954814",
             "addr": "0x60ef50"
         },
         {
             "name": "GetRemoteClientConnectStateByIndex",
             "argc": "2",
+            "interfaceid": "31",
+            "functionid": "3501352721",
+            "fencepost": "3575840380",
             "addr": "0x615de0"
         },
         {
             "name": "BRemoteClientHasStreamingSupportedByIndex",
             "argc": "2",
+            "interfaceid": "31",
+            "functionid": "3058365572",
+            "fencepost": "3132869360",
             "addr": "0x60eac0"
         },
         {
             "name": "BRemoteClientHasStreamingEnabledByIndex",
             "argc": "2",
+            "interfaceid": "31",
+            "functionid": "1994916612",
+            "fencepost": "2069436529",
             "addr": "0x60ec40"
         },
         {
             "name": "GetRemoteClientAppStateByIndex",
             "argc": "3",
+            "interfaceid": "31",
+            "functionid": "2198321059",
+            "fencepost": "2272857105",
             "addr": "0x60edc0"
         },
         {
             "name": "GetRemoteClientConnectedCount",
             "argc": "1",
+            "interfaceid": "31",
+            "functionid": "2578396308",
+            "fencepost": "2653109773",
             "addr": "0x60fb90"
         },
         {
             "name": "GetRemoteClientStreamingEnabledCount",
             "argc": "1",
+            "interfaceid": "31",
+            "functionid": "651172439",
+            "fencepost": "725902033",
             "addr": "0x60fcf0"
         },
         {
             "name": "GetRemoteClientName",
             "argc": "3",
+            "interfaceid": "31",
+            "functionid": "3667000695",
+            "fencepost": "3741568999",
             "addr": "0x60f0c0"
         },
         {
             "name": "BRemoteClientStreaming",
             "argc": "3",
+            "interfaceid": "31",
+            "functionid": "574853370",
+            "fencepost": "649437803",
             "addr": "0x60f240"
         },
         {
             "name": "GetRemoteClientStreamingSession",
             "argc": "3",
+            "interfaceid": "31",
+            "functionid": "2180688610",
+            "fencepost": "2255289172",
             "addr": "0x60f3d0"
         },
         {
             "name": "GetRemoteClientFormFactor",
             "argc": "3",
+            "interfaceid": "31",
+            "functionid": "1791213115",
+            "fencepost": "1865829806",
             "addr": "0x60f550"
         },
         {
             "name": "GetRemoteClientConnectState",
             "argc": "3",
+            "interfaceid": "31",
+            "functionid": "1670592859",
+            "fencepost": "1745225679",
             "addr": "0x615f50"
         },
         {
             "name": "BRemoteClientHasStreamingSupported",
             "argc": "3",
+            "interfaceid": "31",
+            "functionid": "824100892",
+            "fencepost": "898749841",
             "addr": "0x60f6d0"
         },
         {
             "name": "BRemoteClientHasStreamingEnabled",
             "argc": "3",
+            "interfaceid": "31",
+            "functionid": "1419732652",
+            "fencepost": "1494397730",
             "addr": "0x60f860"
         },
         {
             "name": "GetRemoteClientAppAvailability",
             "argc": "4",
+            "interfaceid": "31",
+            "functionid": "597153807",
+            "fencepost": "671835014",
             "addr": "0x6160d0"
         },
         {
             "name": "GetRemoteClientAppState",
             "argc": "4",
+            "interfaceid": "31",
+            "functionid": "266431932",
+            "fencepost": "341129268",
             "addr": "0x60f9f0"
         },
         {
             "name": "GetRemoteDeviceCount",
             "argc": "1",
+            "interfaceid": "31",
+            "functionid": "81371936",
+            "fencepost": "156117659",
             "addr": "0x60fe50"
         },
         {
             "name": "GetRemoteDeviceIDByIndex",
             "argc": "2",
+            "interfaceid": "31",
+            "functionid": "2539482146",
+            "fencepost": "2614243998",
             "addr": "0x60ffb0"
         },
         {
             "name": "GetRemoteDeviceNameByIndex",
             "argc": "2",
+            "interfaceid": "31",
+            "functionid": "1119877140",
+            "fencepost": "1194655121",
             "addr": "0x610140"
         },
         {
             "name": "GetRemoteDeviceName",
             "argc": "3",
+            "interfaceid": "31",
+            "functionid": "1250438790",
+            "fencepost": "1325232900",
             "addr": "0x6102b0"
         },
         {
             "name": "BRemoteDeviceStreaming",
             "argc": "3",
+            "interfaceid": "31",
+            "functionid": "1533555325",
+            "fencepost": "1608365564",
             "addr": "0x610430"
         },
         {
             "name": "GetRemoteDeviceStreamingSession",
             "argc": "3",
+            "interfaceid": "31",
+            "functionid": "1590352707",
+            "fencepost": "1665179075",
             "addr": "0x6105c0"
         },
         {
             "name": "GetRemoteDeviceFormFactor",
             "argc": "3",
+            "interfaceid": "31",
+            "functionid": "2430536410",
+            "fencepost": "2505378907",
             "addr": "0x610740"
         },
         {
             "name": "UnpairRemoteDevices",
             "argc": "1",
+            "interfaceid": "31",
+            "functionid": "3873453950",
+            "fencepost": "3948312576",
             "addr": "0x6108c0"
         },
         {
             "name": "BIsStreamingSupported",
             "argc": "1",
+            "interfaceid": "31",
+            "functionid": "2949229819",
+            "fencepost": "3024104574",
             "addr": "0x6109f0"
         },
         {
             "name": "BIsStreamingEnabled",
             "argc": "1",
+            "interfaceid": "31",
+            "functionid": "1526363731",
+            "fencepost": "1601254615",
             "addr": "0x610b50"
         },
         {
             "name": "SetStreamingEnabled",
             "argc": "2",
+            "interfaceid": "31",
+            "functionid": "267297964",
+            "fencepost": "342204977",
             "addr": "0x610cb0"
         },
         {
             "name": "StartStream",
             "argc": "8",
+            "interfaceid": "31",
+            "functionid": "1011236749",
+            "fencepost": "1086272794",
             "addr": "0x616270"
         },
         {
             "name": "BIsRemoteLaunch",
             "argc": "2",
+            "interfaceid": "31",
+            "functionid": "2605567360",
+            "fencepost": "2680635663",
             "addr": "0x610e00"
         },
         {
             "name": "BIsBigPictureActiveForStreaming",
             "argc": "1",
+            "interfaceid": "31",
+            "functionid": "2935873489",
+            "fencepost": "3010957921",
             "addr": "0x610f80"
         },
         {
             "name": "BIsStreamingSessionActive",
             "argc": "1",
+            "interfaceid": "31",
+            "functionid": "3111449841",
+            "fencepost": "3186550402",
             "addr": "0x6110e0"
         },
         {
             "name": "BIsStreamingSessionActiveForGame",
             "argc": "2",
+            "interfaceid": "31",
+            "functionid": "82888067",
+            "fencepost": "158004757",
             "addr": "0x611240"
         },
         {
             "name": "BIsStreamingClientConnected",
             "argc": "1",
+            "interfaceid": "31",
+            "functionid": "930690583",
+            "fencepost": "1005823402",
             "addr": "0x6113c0"
         },
         {
             "name": "BStreamingClientWantsRecentGames",
             "argc": "1",
+            "interfaceid": "31",
+            "functionid": "4084443342",
+            "fencepost": "4159592290",
             "addr": "0x611520"
         },
         {
             "name": "StopStreamingSession",
             "argc": "2",
+            "interfaceid": "31",
+            "functionid": "2564415177",
+            "fencepost": "2639580254",
             "addr": "0x611680"
         },
         {
             "name": "LaunchAppProgress",
             "argc": "6",
+            "interfaceid": "31",
+            "functionid": "2452120688",
+            "fencepost": "2527301894",
             "addr": "0x6117d0"
         },
         {
             "name": "LaunchAppResult",
             "argc": "3",
+            "interfaceid": "31",
+            "functionid": "4053892909",
+            "fencepost": "4129090244",
             "addr": "0x6164a0"
         },
         {
             "name": "BIsStreamStartInProgress",
             "argc": "4",
+            "interfaceid": "31",
+            "functionid": "2503774821",
+            "fencepost": "2578988285",
             "addr": "0x611960"
         },
         {
             "name": "LaunchAppResultRequestLaunchOption",
             "argc": "4",
+            "interfaceid": "31",
+            "functionid": "1320409680",
+            "fencepost": "1395703789",
             "addr": "0x611b00"
         },
         {
             "name": "AcceptEULA",
             "argc": "6",
+            "interfaceid": "31",
+            "functionid": "2478375165",
+            "fencepost": "2553701532",
             "addr": "0x611c70"
         },
         {
             "name": "GetRemoteClientPlatformName",
             "argc": "4",
+            "interfaceid": "31",
+            "functionid": "1907838512",
+            "fencepost": "1983229395",
             "addr": "0x611e30"
         },
         {
             "name": "BIsStreamClientRunning",
             "argc": "1",
+            "interfaceid": "31",
+            "functionid": "3069204138",
+            "fencepost": "3144643408",
             "addr": "0x611fd0"
         },
         {
             "name": "BIsStreamClientRunningConnectedToClient",
             "argc": "4",
+            "interfaceid": "31",
+            "functionid": "2727593024",
+            "fencepost": "2803048423",
             "addr": "0x612130"
         },
         {
             "name": "BIsStreamClientRemotePlayTogether",
             "argc": "1",
+            "interfaceid": "31",
+            "functionid": "2786813163",
+            "fencepost": "2862284691",
             "addr": "0x6122e0"
         },
         {
             "name": "GetStreamClientRemoteSteamVersion",
             "argc": "1",
+            "interfaceid": "31",
+            "functionid": "904191196",
+            "fencepost": "979678853",
             "addr": "0x612440"
         },
         {
             "name": "BGetStreamingClientConfig",
             "argc": "2",
+            "interfaceid": "31",
+            "functionid": "657325333",
+            "fencepost": "732861377",
             "addr": "0x6125c0"
         },
         {
             "name": "BSetStreamingClientConfig",
             "argc": "2",
+            "interfaceid": "31",
+            "functionid": "340275166",
+            "fencepost": "415907984",
             "addr": "0x612740"
         },
         {
             "name": "BQueueControllerConfigMessageForRemote",
             "argc": "2",
+            "interfaceid": "31",
+            "functionid": "1578284450",
+            "fencepost": "1654207590",
             "addr": "0x612de0"
         },
         {
             "name": "BGetControllerConfigMessageForLocal",
             "argc": "2",
+            "interfaceid": "31",
+            "functionid": "3100041313",
+            "fencepost": "3176028969",
             "addr": "0x612f50"
         },
         {
             "name": "RequestControllerConfig",
             "argc": "5",
+            "interfaceid": "31",
+            "functionid": "3298650110",
+            "fencepost": "3374315186",
             "addr": "0x6128b0"
         },
         {
             "name": "PostControllerConfig",
             "argc": "5",
+            "interfaceid": "31",
+            "functionid": "4168497382",
+            "fencepost": "4244243103",
             "addr": "0x612aa0"
         },
         {
             "name": "GetControllerConfig",
             "argc": "5",
+            "interfaceid": "31",
+            "functionid": "183935631",
+            "fencepost": "259778126",
             "addr": "0x612c20"
         },
         {
             "name": "SetRemoteDeviceAuthorized",
             "argc": "3",
+            "interfaceid": "31",
+            "functionid": "2244147559",
+            "fencepost": "2320183602",
             "addr": "0x6130d0"
         },
         {
             "name": "SetStreamingDriversInstalled",
             "argc": "2",
+            "interfaceid": "31",
+            "functionid": "227284259",
+            "fencepost": "303336431",
             "addr": "0x613230"
         },
         {
             "name": "SetStreamingPIN",
             "argc": "2",
+            "interfaceid": "31",
+            "functionid": "1018827899",
+            "fencepost": "1094896200",
             "addr": "0x613380"
         },
         {
             "name": "GetStreamingPINSize",
             "argc": "2",
+            "interfaceid": "31",
+            "functionid": "2584317395",
+            "fencepost": "2660401825",
             "addr": "0x6134c0"
         },
         {
             "name": "UsedVideoX264",
             "argc": "1",
+            "interfaceid": "31",
+            "functionid": "3149429361",
+            "fencepost": "3225529920",
             "addr": "0x613630"
         },
         {
             "name": "UsedVideoH264",
             "argc": "1",
+            "interfaceid": "31",
+            "functionid": "2495771872",
+            "fencepost": "2571888560",
             "addr": "0x613760"
         },
         {
             "name": "UsedVideoHEVC",
             "argc": "1",
+            "interfaceid": "31",
+            "functionid": "853272235",
+            "fencepost": "929405052",
             "addr": "0x613890"
         },
         {
             "name": "SetRemotePlayTogetherQualityOverride",
             "argc": "2",
+            "interfaceid": "31",
+            "functionid": "108644786",
+            "fencepost": "184793732",
             "addr": "0x6139c0"
         },
         {
             "name": "SetRemotePlayTogetherBitrateOverride",
             "argc": "2",
+            "interfaceid": "31",
+            "functionid": "2394061581",
+            "fencepost": "2470226656",
             "addr": "0x613b10"
         },
         {
             "name": "BHasRemotePlayInviteAndSession",
             "argc": "10",
+            "interfaceid": "31",
+            "functionid": "1335133398",
+            "fencepost": "1411314602",
             "addr": "0x613c60"
         },
         {
             "name": "BCreateRemotePlayGroup",
             "argc": "2",
+            "interfaceid": "31",
+            "functionid": "1655435995",
+            "fencepost": "1731633328",
             "addr": "0x613e70"
         },
         {
             "name": "BCreateRemotePlayInviteAndSession",
             "argc": "11",
+            "interfaceid": "31",
+            "functionid": "3688147475",
+            "fencepost": "3764360937",
             "addr": "0x613ff0"
         },
         {
             "name": "CancelRemotePlayInviteAndSession",
             "argc": "10",
+            "interfaceid": "31",
+            "functionid": "2167845053",
+            "fencepost": "2244074644",
             "addr": "0x614220"
         },
         {
             "name": "JoinRemotePlaySession",
             "argc": "4",
+            "interfaceid": "31",
+            "functionid": "1171891319",
+            "fencepost": "1248137039",
             "addr": "0x6143f0"
         },
         {
             "name": "BStreamingDesktopToRemotePlayTogetherEnabled",
             "argc": "1",
+            "interfaceid": "31",
+            "functionid": "3049017481",
+            "fencepost": "3125279330",
             "addr": "0x614540"
         },
         {
             "name": "SetStreamingDesktopToRemotePlayTogetherEnabled",
             "argc": "2",
+            "interfaceid": "31",
+            "functionid": "3124752968",
+            "fencepost": "3201030946",
             "addr": "0x6146a0"
         },
         {
             "name": "GetStreamingSessionForRemotePlayer",
             "argc": "10",
+            "interfaceid": "31",
+            "functionid": "3709149680",
+            "fencepost": "3785443787",
             "addr": "0x6147f0"
         },
         {
             "name": "SetPerUserKeyboardInputEnabled",
             "argc": "11",
+            "interfaceid": "31",
+            "functionid": "1878701652",
+            "fencepost": "1955011888",
             "addr": "0x614a00"
         },
         {
             "name": "SetPerUserMouseInputEnabled",
             "argc": "11",
+            "interfaceid": "31",
+            "functionid": "340578435",
+            "fencepost": "416904800",
             "addr": "0x614bf0"
         },
         {
             "name": "SetPerUserControllerInputEnabled",
             "argc": "11",
+            "interfaceid": "31",
+            "functionid": "117700337",
+            "fencepost": "194042831",
             "addr": "0x614de0"
         },
         {
             "name": "GetPerUserInputSettings",
             "argc": "11",
+            "interfaceid": "31",
+            "functionid": "990800727",
+            "fencepost": "1067159350",
             "addr": "0x616600"
         },
         {
             "name": "GetClientInputSettings",
             "argc": "11",
+            "interfaceid": "31",
+            "functionid": "1603626237",
+            "fencepost": "1680000989",
             "addr": "0x616860"
         },
         {
             "name": "OnClientUsedInput",
             "argc": "11",
+            "interfaceid": "31",
+            "functionid": "4259813823",
+            "fencepost": "41237408",
             "addr": "0x616ac0"
         },
         {
             "name": "OnPlaceholderStateChanged",
             "argc": "2",
+            "interfaceid": "31",
+            "functionid": "3351349965",
+            "fencepost": "3427756975",
             "addr": "0x614fd0"
         },
         {
             "name": "OnRemoteClientRemotePlayClearControllers",
             "argc": "1",
+            "interfaceid": "31",
+            "functionid": "2081862217",
+            "fencepost": "2158285356",
             "addr": "0x615120"
         },
         {
             "name": "OnRemoteClientRemotePlayControllerIndexSet",
             "argc": "12",
+            "interfaceid": "31",
+            "functionid": "2788335345",
+            "fencepost": "2864774613",
             "addr": "0x615250"
         },
         {
             "name": "UpdateRemotePlayTogetherGroup",
             "argc": "1",
+            "interfaceid": "31",
+            "functionid": "2651166381",
+            "fencepost": "2727621778",
             "addr": "0x615450"
         },
         {
             "name": "DisbandRemotePlayTogetherGroup",
             "argc": "1",
+            "interfaceid": "31",
+            "functionid": "232354840",
+            "fencepost": "308826366",
             "addr": "0x615580"
         },
         {
             "name": "OnRemotePlayUIMovedController",
             "argc": "1",
+            "interfaceid": "31",
+            "functionid": "174370707",
+            "fencepost": "250858362",
             "addr": "0x6156b0"
         },
         {
             "name": "OnSendRemotePlayTogetherInvite",
             "argc": "4",
+            "interfaceid": "31",
+            "functionid": "2078302811",
+            "fencepost": "2154806595",
             "addr": "0x6157e0"
         },
         {
             "name": "GetCloudGameTimeRemaining",
             "argc": "4",
+            "interfaceid": "31",
+            "functionid": "88120736",
+            "fencepost": "164640649",
             "addr": "0x615970"
         },
         {
             "name": "ShutdownStreamClients",
             "argc": "2",
+            "interfaceid": "31",
+            "functionid": "3047891752",
+            "fencepost": "3124427794",
             "addr": "0x615b10"
         }
     ]

@@ -5,31 +5,49 @@
         {
             "name": "BGetDepotBuildStatus",
             "argc": "6",
+            "interfaceid": "16",
+            "functionid": "4119065422",
+            "fencepost": "4160357694",
             "addr": "0x5d76c0"
         },
         {
             "name": "VerifyChunkStore",
             "argc": "4",
+            "interfaceid": "16",
+            "functionid": "3857174069",
+            "fencepost": "3898546986",
             "addr": "0x5d7890"
         },
         {
             "name": "Unknown_2",
             "argc": "0",
+            "interfaceid": "0",
+            "functionid": "0",
+            "fencepost": "0",
             "addr": "0x5d7a40"
         },
         {
             "name": "DownloadChunk",
             "argc": "4",
+            "interfaceid": "16",
+            "functionid": "4125622613",
+            "fencepost": "4167027788",
             "addr": "0x5d8090"
         },
         {
             "name": "StartDepotBuild",
             "argc": "5",
+            "interfaceid": "16",
+            "functionid": "3870246543",
+            "fencepost": "3911748492",
             "addr": "0x5d7ce0"
         },
         {
             "name": "CommitAppBuild",
             "argc": "7",
+            "interfaceid": "16",
+            "functionid": "297107503",
+            "fencepost": "338754613",
             "addr": "0x5d7eb0"
         }
     ]

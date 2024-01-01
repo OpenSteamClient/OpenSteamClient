@@ -5,141 +5,225 @@
         {
             "name": "GetCurrentHmd",
             "argc": "1",
+            "interfaceid": "40",
+            "functionid": "3314327991",
+            "fencepost": "3404526439",
             "addr": "0x6302d0"
         },
         {
             "name": "GetCompositor",
             "argc": "1",
+            "interfaceid": "40",
+            "functionid": "3044474287",
+            "fencepost": "3134688864",
             "addr": "0x631f80"
         },
         {
             "name": "GetOverlay",
             "argc": "1",
+            "interfaceid": "40",
+            "functionid": "3792889392",
+            "fencepost": "3883120098",
             "addr": "0x632100"
         },
         {
             "name": "GetChaperone",
             "argc": "1",
+            "interfaceid": "40",
+            "functionid": "1910764849",
+            "fencepost": "2001011684",
             "addr": "0x632280"
         },
         {
             "name": "GetSettings",
             "argc": "1",
+            "interfaceid": "40",
+            "functionid": "4117869954",
+            "fencepost": "4208132918",
             "addr": "0x632400"
         },
         {
             "name": "GetProperties",
             "argc": "1",
+            "interfaceid": "40",
+            "functionid": "1343219900",
+            "fencepost": "1433498993",
             "addr": "0x632580"
         },
         {
             "name": "GetPaths",
             "argc": "1",
+            "interfaceid": "40",
+            "functionid": "2947276530",
+            "fencepost": "3037571752",
             "addr": "0x632700"
         },
         {
             "name": "GetOverlayHandle",
             "argc": "1",
+            "interfaceid": "40",
+            "functionid": "3917187603",
+            "fencepost": "4007498954",
             "addr": "0x630450"
         },
         {
             "name": "IsHmdPresent",
             "argc": "1",
+            "interfaceid": "40",
+            "functionid": "2488294515",
+            "fencepost": "2578621995",
             "addr": "0x6305d0"
         },
         {
             "name": "UpdateHmdStatus",
             "argc": "1",
+            "interfaceid": "40",
+            "functionid": "150170362",
+            "fencepost": "240513971",
             "addr": "0x630730"
         },
         {
             "name": "IsVRModeActive",
             "argc": "1",
+            "interfaceid": "40",
+            "functionid": "1755772746",
+            "fencepost": "1846132484",
             "addr": "0x630860"
         },
         {
             "name": "InitVR",
             "argc": "4",
+            "interfaceid": "40",
+            "functionid": "3006200163",
+            "fencepost": "3096640546",
             "addr": "0x632880"
         },
         {
             "name": "StartSteamVR",
             "argc": "2",
+            "interfaceid": "40",
+            "functionid": "63094933",
+            "fencepost": "153599832",
             "addr": "0x6309c0"
         },
         {
             "name": "CleanupVR",
             "argc": "1",
+            "interfaceid": "40",
+            "functionid": "1294881751",
+            "fencepost": "1385402779",
             "addr": "0x630b30"
         },
         {
             "name": "QuitAllVR",
             "argc": "1",
+            "interfaceid": "40",
+            "functionid": "3315846196",
+            "fencepost": "3406383353",
             "addr": "0x630c60"
         },
         {
             "name": "QuitApplication",
             "argc": "2",
+            "interfaceid": "40",
+            "functionid": "1631735102",
+            "fencepost": "1722288388",
             "addr": "0x630d90"
         },
         {
             "name": "GetStringForHmdError",
             "argc": "2",
+            "interfaceid": "40",
+            "functionid": "45218061",
+            "fencepost": "135787476",
             "addr": "0x630ee0"
         },
         {
             "name": "LaunchApplication",
             "argc": "2",
+            "interfaceid": "40",
+            "functionid": "2921129045",
+            "fencepost": "3011714589",
             "addr": "0x631050"
         },
         {
             "name": "GetSteamVRAppId",
             "argc": "1",
+            "interfaceid": "40",
+            "functionid": "772582175",
+            "fencepost": "863183848",
             "addr": "0x6311c0"
         },
         {
             "name": "GetSteamVRPid",
             "argc": "1",
+            "interfaceid": "40",
+            "functionid": "4212766003",
+            "fencepost": "8416509",
             "addr": "0x631320"
         },
         {
             "name": "GetWebSecret",
             "argc": "1",
+            "interfaceid": "40",
+            "functionid": "1497598900",
+            "fencepost": "1588232831",
             "addr": "0x631480"
         },
         {
             "name": "BSteamCanMakeVROverlays",
             "argc": "1",
+            "interfaceid": "40",
+            "functionid": "319465960",
+            "fencepost": "410116020",
             "addr": "0x631600"
         },
         {
             "name": "BServeVRGamepadUIOverlay",
             "argc": "1",
+            "interfaceid": "40",
+            "functionid": "3953199192",
+            "fencepost": "4043865381",
             "addr": "0x631760"
         },
         {
             "name": "BServeTenfootOverlay",
             "argc": "1",
+            "interfaceid": "40",
+            "functionid": "4142723613",
+            "fencepost": "4233405931",
             "addr": "0x6318c0"
         },
         {
             "name": "BSuppressDesktopBPM",
             "argc": "1",
+            "interfaceid": "40",
+            "functionid": "1809538130",
+            "fencepost": "1900236577",
             "addr": "0x631a20"
         },
         {
             "name": "SetVRConnectionParams",
             "argc": "2",
+            "interfaceid": "40",
+            "functionid": "94558012",
+            "fencepost": "185272588",
             "addr": "0x631b80"
         },
         {
             "name": "GetVRConnectionParams",
             "argc": "1",
+            "interfaceid": "40",
+            "functionid": "4019831343",
+            "fencepost": "4110562048",
             "addr": "0x631cc0"
         },
         {
             "name": "BVRDeviceSeenRecently",
             "argc": "1",
+            "interfaceid": "40",
+            "functionid": "3564967946",
+            "fencepost": "3655714780",
             "addr": "0x631e20"
         }
     ]

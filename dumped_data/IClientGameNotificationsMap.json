@@ -5,26 +5,41 @@
         {
             "name": "EnumerateNotifications",
             "argc": "2",
+            "interfaceid": "37",
+            "functionid": "1374609515",
+            "fencepost": "1462226942",
             "addr": "0x62a350"
         },
         {
             "name": "GetNotificationCount",
             "argc": "2",
+            "interfaceid": "37",
+            "functionid": "2971933116",
+            "fencepost": "3059566672",
             "addr": "0x62a4e0"
         },
         {
             "name": "GetNotification",
             "argc": "4",
+            "interfaceid": "37",
+            "functionid": "2154781800",
+            "fencepost": "2242496001",
             "addr": "0x62a650"
         },
         {
             "name": "RemoveSession",
             "argc": "4",
+            "interfaceid": "37",
+            "functionid": "1416988465",
+            "fencepost": "1504751053",
             "addr": "0x62a800"
         },
         {
             "name": "UpdateSession",
             "argc": "4",
+            "interfaceid": "37",
+            "functionid": "138145709",
+            "fencepost": "225924426",
             "addr": "0x62a970"
         }
     ]

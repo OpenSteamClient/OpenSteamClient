@@ -5,141 +5,225 @@
         {
             "name": "CreateHTTPRequest",
             "argc": "3",
+            "interfaceid": "22",
+            "functionid": "3777882152",
+            "fencepost": "3839723532",
             "addr": "0x5f8d50"
         },
         {
             "name": "SetHTTPRequestContextValue",
             "argc": "4",
+            "interfaceid": "22",
+            "functionid": "738463856",
+            "fencepost": "800321365",
             "addr": "0x5f8ed0"
         },
         {
             "name": "SetHTTPRequestNetworkActivityTimeout",
             "argc": "3",
+            "interfaceid": "22",
+            "functionid": "1921525664",
+            "fencepost": "1983399302",
             "addr": "0x5f9070"
         },
         {
             "name": "SetHTTPRequestHeaderValue",
             "argc": "4",
+            "interfaceid": "22",
+            "functionid": "111620638",
+            "fencepost": "173510405",
             "addr": "0x5f9200"
         },
         {
             "name": "SetHTTPRequestGetOrPostParameter",
             "argc": "4",
+            "interfaceid": "22",
+            "functionid": "1660034013",
+            "fencepost": "1721939909",
             "addr": "0x5f9390"
         },
         {
             "name": "SendHTTPRequest",
             "argc": "3",
+            "interfaceid": "22",
+            "functionid": "2839236505",
+            "fencepost": "2901206917",
             "addr": "0x5f9520"
         },
         {
             "name": "SendHTTPRequestAndStreamResponse",
             "argc": "3",
+            "interfaceid": "22",
+            "functionid": "1037219909",
+            "fencepost": "1099287095",
             "addr": "0x5f96b0"
         },
         {
             "name": "DeferHTTPRequest",
             "argc": "2",
+            "interfaceid": "22",
+            "functionid": "1172958850",
+            "fencepost": "1235074423",
             "addr": "0x5f9840"
         },
         {
             "name": "PrioritizeHTTPRequest",
             "argc": "2",
+            "interfaceid": "22",
+            "functionid": "2561431848",
+            "fencepost": "2623563550",
             "addr": "0x5f99c0"
         },
         {
             "name": "CancelHTTPRequest",
             "argc": "2",
+            "interfaceid": "22",
+            "functionid": "3005003492",
+            "fencepost": "3067151323",
             "addr": "0x5f9b40"
         },
         {
             "name": "GetHTTPResponseHeaderSize",
             "argc": "4",
+            "interfaceid": "22",
+            "functionid": "3132675531",
+            "fencepost": "3194904007",
             "addr": "0x5f9cc0"
         },
         {
             "name": "GetHTTPResponseHeaderValue",
             "argc": "5",
+            "interfaceid": "22",
+            "functionid": "3380395410",
+            "fencepost": "3442752918",
             "addr": "0x5f9e60"
         },
         {
             "name": "GetHTTPResponseBodySize",
             "argc": "3",
+            "interfaceid": "22",
+            "functionid": "909111916",
+            "fencepost": "971566198",
             "addr": "0x5fa010"
         },
         {
             "name": "GetHTTPResponseBodyData",
             "argc": "4",
+            "interfaceid": "22",
+            "functionid": "4229402797",
+            "fencepost": "4291969982",
             "addr": "0x5fa1a0"
         },
         {
             "name": "GetHTTPStreamingResponseBodyData",
             "argc": "5",
+            "interfaceid": "22",
+            "functionid": "2652836691",
+            "fencepost": "2715532908",
             "addr": "0x5fa350"
         },
         {
             "name": "ReleaseHTTPRequest",
             "argc": "2",
+            "interfaceid": "22",
+            "functionid": "2287950096",
+            "fencepost": "2350694700",
             "addr": "0x5fa510"
         },
         {
             "name": "GetHTTPDownloadProgressPct",
             "argc": "3",
+            "interfaceid": "22",
+            "functionid": "3243634741",
+            "fencepost": "3306443861",
             "addr": "0x5fa690"
         },
         {
             "name": "SetHTTPRequestRawPostBody",
             "argc": "5",
+            "interfaceid": "22",
+            "functionid": "944994572",
+            "fencepost": "1007932724",
             "addr": "0x5fa820"
         },
         {
             "name": "CreateCookieContainer",
             "argc": "2",
+            "interfaceid": "22",
+            "functionid": "920902675",
+            "fencepost": "983873085",
             "addr": "0x5fa9d0"
         },
         {
             "name": "ReleaseCookieContainer",
             "argc": "2",
+            "interfaceid": "22",
+            "functionid": "1270800303",
+            "fencepost": "1333786842",
             "addr": "0x5fab50"
         },
         {
             "name": "SetCookie",
             "argc": "5",
+            "interfaceid": "22",
+            "functionid": "1062507903",
+            "fencepost": "1125510571",
             "addr": "0x5facd0"
         },
         {
             "name": "SetHTTPRequestCookieContainer",
             "argc": "3",
+            "interfaceid": "22",
+            "functionid": "200557394",
+            "fencepost": "263576191",
             "addr": "0x5fae70"
         },
         {
             "name": "SetHTTPRequestUserAgentInfo",
             "argc": "3",
+            "interfaceid": "22",
+            "functionid": "4252929040",
+            "fencepost": "20996670",
             "addr": "0x5fb000"
         },
         {
             "name": "SetHTTPRequestRequiresVerifiedCertificate",
             "argc": "3",
+            "interfaceid": "22",
+            "functionid": "2708386443",
+            "fencepost": "2771437498",
             "addr": "0x5fb180"
         },
         {
             "name": "SetHTTPRequestAbsoluteTimeoutMS",
             "argc": "3",
+            "interfaceid": "22",
+            "functionid": "2040528888",
+            "fencepost": "2103596072",
             "addr": "0x5fb320"
         },
         {
             "name": "GetHTTPRequestWasTimedOut",
             "argc": "3",
+            "interfaceid": "22",
+            "functionid": "3697595760",
+            "fencepost": "3760727460",
             "addr": "0x5fb4b0"
         },
         {
             "name": "SetHTTPRequestRedirectsEnabled",
             "argc": "3",
+            "interfaceid": "22",
+            "functionid": "218237062",
+            "fencepost": "281417149",
             "addr": "0x5fb640"
         },
         {
             "name": "SaveHTTPResponseBodyToDisk",
             "argc": "4",
+            "interfaceid": "22",
+            "functionid": "1739046386",
+            "fencepost": "1802307118",
             "addr": "0x5fb7e0"
         }
     ]

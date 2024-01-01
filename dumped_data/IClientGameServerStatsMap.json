@@ -5,56 +5,89 @@
         {
             "name": "RequestUserStats",
             "argc": "4",
+            "interfaceid": "20",
+            "functionid": "4286444729",
+            "fencepost": "9060583",
             "addr": "0x5a1010"
         },
         {
             "name": "GetUserStat",
             "argc": "6",
+            "interfaceid": "20",
+            "functionid": "1255083839",
+            "fencepost": "1272779892",
             "addr": "0x5a11c0"
         },
         {
             "name": "GetUserStat",
             "argc": "6",
+            "interfaceid": "20",
+            "functionid": "2919882724",
+            "fencepost": "2937723938",
             "addr": "0x5a1370"
         },
         {
             "name": "GetUserAchievement",
             "argc": "7",
+            "interfaceid": "20",
+            "functionid": "3299260759",
+            "fencepost": "3317263263",
             "addr": "0x5a1520"
         },
         {
             "name": "SetUserStat",
             "argc": "6",
+            "interfaceid": "20",
+            "functionid": "3205090940",
+            "fencepost": "3223174089",
             "addr": "0x5a16f0"
         },
         {
             "name": "SetUserStat",
             "argc": "6",
+            "interfaceid": "20",
+            "functionid": "1792940461",
+            "fencepost": "1811039739",
             "addr": "0x5a18a0"
         },
         {
             "name": "UpdateUserAvgRateStat",
             "argc": "7",
+            "interfaceid": "20",
+            "functionid": "3675028810",
+            "fencepost": "3693144217",
             "addr": "0x5a1a50"
         },
         {
             "name": "SetUserAchievement",
             "argc": "5",
+            "interfaceid": "20",
+            "functionid": "4021600214",
+            "fencepost": "4039731750",
             "addr": "0x5a1c20"
         },
         {
             "name": "ClearUserAchievement",
             "argc": "5",
+            "interfaceid": "20",
+            "functionid": "2754240080",
+            "fencepost": "2772387745",
             "addr": "0x5a1dc0"
         },
         {
             "name": "StoreUserStats",
             "argc": "4",
+            "interfaceid": "20",
+            "functionid": "2660856865",
+            "fencepost": "2679020659",
             "addr": "0x5a1f60"
         },
         {
             "name": "SetMaxStatsLoaded",
             "argc": "2",
+            "interfaceid": "20",
+            "functionid": "2833452848",
+            "fencepost": "2851648900",
             "addr": "0x5a2110"
         }
     ]

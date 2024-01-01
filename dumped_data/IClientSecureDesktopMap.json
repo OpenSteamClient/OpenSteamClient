@@ -5,16 +5,25 @@
         {
             "name": "BStartStreaming",
             "argc": "1",
+            "interfaceid": "5",
+            "functionid": "4144364299",
+            "fencepost": "4147897185",
             "addr": "0xfb7bc0"
         },
         {
             "name": "StopStreaming",
             "argc": "1",
+            "interfaceid": "5",
+            "functionid": "2311537903",
+            "fencepost": "2315086918",
             "addr": "0xfb7a80"
         },
         {
             "name": "SendSAS",
             "argc": "1",
+            "interfaceid": "5",
+            "functionid": "4154536306",
+            "fencepost": "4158101450",
             "addr": "0xfb7940"
         }
     ]

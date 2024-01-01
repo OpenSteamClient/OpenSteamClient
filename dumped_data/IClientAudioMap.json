@@ -5,56 +5,89 @@
         {
             "name": "StartVoiceRecording",
             "argc": "1",
+            "interfaceid": "24",
+            "functionid": "196600220",
+            "fencepost": "260022496",
             "addr": "0x5fb980"
         },
         {
             "name": "StopVoiceRecording",
             "argc": "1",
+            "interfaceid": "24",
+            "functionid": "800767795",
+            "fencepost": "864206200",
             "addr": "0x5fbab0"
         },
         {
             "name": "ResetVoiceRecording",
             "argc": "1",
+            "interfaceid": "24",
+            "functionid": "3411068511",
+            "fencepost": "3474523045",
             "addr": "0x5fbbe0"
         },
         {
             "name": "GetAvailableVoice",
             "argc": "4",
+            "interfaceid": "24",
+            "functionid": "1699851810",
+            "fencepost": "1763499892",
             "addr": "0x5fc2f0"
         },
         {
             "name": "GetVoice",
             "argc": "10",
+            "interfaceid": "24",
+            "functionid": "4197387139",
+            "fencepost": "4261228769",
             "addr": "0x5fc4a0"
         },
         {
             "name": "GetCompressedVoice",
             "argc": "4",
+            "interfaceid": "24",
+            "functionid": "3599373695",
+            "fencepost": "3662892745",
             "addr": "0x5fc140"
         },
         {
             "name": "DecompressVoice",
             "argc": "7",
+            "interfaceid": "24",
+            "functionid": "3124153051",
+            "fencepost": "3188252745",
             "addr": "0x5fc700"
         },
         {
             "name": "GetVoiceOptimalSampleRate",
             "argc": "1",
+            "interfaceid": "24",
+            "functionid": "2366627117",
+            "fencepost": "2430807456",
             "addr": "0x64b010"
         },
         {
             "name": "BAppUsesVoice",
             "argc": "2",
+            "interfaceid": "24",
+            "functionid": "3319740920",
+            "fencepost": "3383953517",
             "addr": "0x5fbd10"
         },
         {
             "name": "GetGameSystemVolume",
             "argc": "1",
+            "interfaceid": "24",
+            "functionid": "622953451",
+            "fencepost": "687198306",
             "addr": "0x5fbe90"
         },
         {
             "name": "SetGameSystemVolume",
             "argc": "2",
+            "interfaceid": "24",
+            "functionid": "1008938587",
+            "fencepost": "1073215700",
             "addr": "0x5fbff0"
         }
     ]

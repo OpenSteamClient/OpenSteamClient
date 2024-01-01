@@ -5,81 +5,129 @@
         {
             "name": "GetAppData",
             "argc": "5",
+            "interfaceid": "8",
+            "functionid": "2278710631",
+            "fencepost": "2313518029",
             "addr": "0x5cb230"
         },
         {
             "name": "SetLocalAppConfig",
             "argc": "4",
+            "interfaceid": "8",
+            "functionid": "1219106037",
+            "fencepost": "1254026338",
             "addr": "0x5cb400"
         },
         {
             "name": "GetInternalAppIDFromGameID",
             "argc": "2",
+            "interfaceid": "8",
+            "functionid": "3178165973",
+            "fencepost": "3213699176",
             "addr": "0x5cbd20"
         },
         {
             "name": "GetAllOwnedMultiplayerApps",
             "argc": "3",
+            "interfaceid": "8",
+            "functionid": "2949451228",
+            "fencepost": "2984919915",
             "addr": "0x5cbb80"
         },
         {
             "name": "GetAvailableLaunchOptions",
             "argc": "4",
+            "interfaceid": "8",
+            "functionid": "4215770359",
+            "fencepost": "4250787434",
             "addr": "0x5cb5a0"
         },
         {
             "name": "GetAppDataSection",
             "argc": "6",
+            "interfaceid": "8",
+            "functionid": "1406045698",
+            "fencepost": "1441207934",
             "addr": "0x5cb760"
         },
         {
             "name": "GetMultipleAppDataSections",
             "argc": "8",
+            "interfaceid": "8",
+            "functionid": "4247916916",
+            "fencepost": "4283256571",
             "addr": "0x5cb960"
         },
         {
             "name": "RequestAppInfoUpdate",
             "argc": "3",
+            "interfaceid": "8",
+            "functionid": "2905656743",
+            "fencepost": "2941254462",
             "addr": "0x5cbea0"
         },
         {
             "name": "GetDLCCount",
             "argc": "2",
+            "interfaceid": "8",
+            "functionid": "1862251394",
+            "fencepost": "1897881371",
             "addr": "0x5cc030"
         },
         {
             "name": "BGetDLCDataByIndex",
             "argc": "7",
+            "interfaceid": "8",
+            "functionid": "2793970925",
+            "fencepost": "2829697676",
             "addr": "0x5cc1a0"
         },
         {
             "name": "GetAppType",
             "argc": "2",
+            "interfaceid": "8",
+            "functionid": "3688353583",
+            "fencepost": "3724160979",
             "addr": "0x5cc970"
         },
         {
             "name": "GetStoreTagLocalization",
             "argc": "6",
+            "interfaceid": "8",
+            "functionid": "4178335320",
+            "fencepost": "4214255619",
             "addr": "0x5cc390"
         },
         {
             "name": "TakeUpdateLock",
             "argc": "1",
+            "interfaceid": "8",
+            "functionid": "925337966",
+            "fencepost": "961306652",
             "addr": "0x5cc580"
         },
         {
             "name": "GetAppKVRaw",
             "argc": "4",
+            "interfaceid": "8",
+            "functionid": "3485268429",
+            "fencepost": "3521317760",
             "addr": "0x5ccae0"
         },
         {
             "name": "ReleaseUpdateLock",
             "argc": "1",
+            "interfaceid": "8",
+            "functionid": "135024931",
+            "fencepost": "171106520",
             "addr": "0x5cc6e0"
         },
         {
             "name": "GetLastChangeNumberReceived",
             "argc": "1",
+            "interfaceid": "8",
+            "functionid": "3817211222",
+            "fencepost": "3853308940",
             "addr": "0x5cc810"
         }
     ]

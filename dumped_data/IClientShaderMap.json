@@ -5,121 +5,193 @@
         {
             "name": "BIsShaderManagementEnabled",
             "argc": "1",
+            "interfaceid": "45",
+            "functionid": "3307265299",
+            "fencepost": "3403190177",
             "addr": "0x643510"
         },
         {
             "name": "BIsShaderBackgroundProcessingEnabled",
             "argc": "1",
+            "interfaceid": "45",
+            "functionid": "2895967464",
+            "fencepost": "2991908471",
             "addr": "0x643670"
         },
         {
             "name": "EnableShaderManagement",
             "argc": "2",
+            "interfaceid": "45",
+            "functionid": "1673802331",
+            "fencepost": "1769759467",
             "addr": "0x6437d0"
         },
         {
             "name": "EnableShaderBackgroundProcessing",
             "argc": "2",
+            "interfaceid": "45",
+            "functionid": "1839618228",
+            "fencepost": "1935591493",
             "addr": "0x643920"
         },
         {
             "name": "GetShaderDepotsTotalDiskUsage",
             "argc": "1",
+            "interfaceid": "45",
+            "functionid": "3076023868",
+            "fencepost": "3172013262",
             "addr": "0x643a70"
         },
         {
             "name": "GetShaderCacheDiskSize",
             "argc": "4",
+            "interfaceid": "45",
+            "functionid": "3732311208",
+            "fencepost": "3828316731",
             "addr": "0x643bf0"
         },
         {
             "name": "StartShaderScan",
             "argc": "3",
+            "interfaceid": "45",
+            "functionid": "433933230",
+            "fencepost": "529954882",
             "addr": "0x643de0"
         },
         {
             "name": "StartPipelineBuild",
             "argc": "3",
+            "interfaceid": "45",
+            "functionid": "3246759215",
+            "fencepost": "3342796996",
             "addr": "0x643f30"
         },
         {
             "name": "StartShaderConversion",
             "argc": "5",
+            "interfaceid": "45",
+            "functionid": "3747612306",
+            "fencepost": "3843666216",
             "addr": "0x644090"
         },
         {
             "name": "StartShaderPruning",
             "argc": "1",
+            "interfaceid": "45",
+            "functionid": "3583147501",
+            "fencepost": "3679217540",
             "addr": "0x644270"
         },
         {
             "name": "ProcessShaderCache",
             "argc": "2",
+            "interfaceid": "45",
+            "functionid": "3854325245",
+            "fencepost": "3950411413",
             "addr": "0x6443a0"
         },
         {
             "name": "GetShaderCacheProcessingCompletion",
             "argc": "1",
+            "interfaceid": "45",
+            "functionid": "1473017793",
+            "fencepost": "1569120090",
             "addr": "0x644520"
         },
         {
             "name": "GetShaderCacheProcessingAppID",
             "argc": "1",
+            "interfaceid": "45",
+            "functionid": "3879571319",
+            "fencepost": "3975689745",
             "addr": "0x644680"
         },
         {
             "name": "SkipShaderProcessing",
             "argc": "2",
+            "interfaceid": "45",
+            "functionid": "4097072485",
+            "fencepost": "4193207040",
             "addr": "0x6447e0"
         },
         {
             "name": "BAppHasPendingShaderContentDownload",
             "argc": "2",
+            "interfaceid": "45",
+            "functionid": "2473002809",
+            "fencepost": "2569153493",
             "addr": "0x644930"
         },
         {
             "name": "GetAppPendingShaderDownloadSize",
             "argc": "2",
+            "interfaceid": "45",
+            "functionid": "3001655318",
+            "fencepost": "3097822131",
             "addr": "0x644ab0"
         },
         {
             "name": "GetBucketManifest",
             "argc": "4",
+            "interfaceid": "45",
+            "functionid": "3529087343",
+            "fencepost": "3625270285",
             "addr": "0x644c40"
         },
         {
             "name": "GetStaleBucket",
             "argc": "3",
+            "interfaceid": "45",
+            "functionid": "3968324171",
+            "fencepost": "4064523242",
             "addr": "0x644df0"
         },
         {
             "name": "ReportExternalBuild",
             "argc": "10",
+            "interfaceid": "45",
+            "functionid": "2279256030",
+            "fencepost": "2375471230",
             "addr": "0x644f80"
         },
         {
             "name": "PrepopulatePrecompiledCache",
             "argc": "8",
+            "interfaceid": "45",
+            "functionid": "283527725",
+            "fencepost": "379775183",
             "addr": "0x645390"
         },
         {
             "name": "WritePrecompiledCache",
             "argc": "5",
+            "interfaceid": "45",
+            "functionid": "3324214357",
+            "fencepost": "3420477944",
             "addr": "0x645570"
         },
         {
             "name": "CompileShaders",
             "argc": "5",
+            "interfaceid": "45",
+            "functionid": "2708257153",
+            "fencepost": "2804488482",
             "addr": "0x6451d0"
         },
         {
             "name": "GetShaderBucketForGraphicsAPI",
             "argc": "3",
+            "interfaceid": "45",
+            "functionid": "566476143",
+            "fencepost": "662755859",
             "addr": "0x645870"
         },
         {
             "name": "EnableShaderManagementSystem",
             "argc": "2",
+            "interfaceid": "45",
+            "functionid": "3546554467",
+            "fencepost": "3642850312",
             "addr": "0x645720"
         }
     ]

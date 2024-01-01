@@ -5,66 +5,105 @@
         {
             "name": "SendP2PRendezvous",
             "argc": "6",
+            "interfaceid": "46",
+            "functionid": "2018205852",
+            "fencepost": "2115114726",
             "addr": "0x647440"
         },
         {
             "name": "SendP2PConnectionFailureLegacy",
             "argc": "6",
+            "interfaceid": "46",
+            "functionid": "3482682975",
+            "fencepost": "3579624107",
             "addr": "0x6475c0"
         },
         {
             "name": "GetCertAsync",
             "argc": "1",
+            "interfaceid": "46",
+            "functionid": "454130255",
+            "fencepost": "551087516",
             "addr": "0x647740"
         },
         {
             "name": "CacheRelayTicket",
             "argc": "3",
+            "interfaceid": "46",
+            "functionid": "3019481460",
+            "fencepost": "3116503237",
             "addr": "0x6478c0"
         },
         {
             "name": "GetCachedRelayTicketCount",
             "argc": "1",
+            "interfaceid": "46",
+            "functionid": "3434652173",
+            "fencepost": "3531706208",
             "addr": "0x647a20"
         },
         {
             "name": "GetCachedRelayTicket",
             "argc": "4",
+            "interfaceid": "46",
+            "functionid": "1457228591",
+            "fencepost": "1554363271",
             "addr": "0x647b80"
         },
         {
             "name": "GetSTUNServer",
             "argc": "4",
+            "interfaceid": "46",
+            "functionid": "2946442155",
+            "fencepost": "3043689738",
             "addr": "0x647d30"
         },
         {
             "name": "AllowDirectConnectToPeerString",
             "argc": "2",
+            "interfaceid": "46",
+            "functionid": "1638831733",
+            "fencepost": "1736127703",
             "addr": "0x647ee0"
         },
         {
             "name": "BeginAsyncRequestFakeIP",
             "argc": "2",
+            "interfaceid": "46",
+            "functionid": "3084408982",
+            "fencepost": "3181721081",
             "addr": "0x648050"
         },
         {
             "name": "AllowDirectConnectToPeerString",
             "argc": "2",
+            "interfaceid": "46",
+            "functionid": "1638831733",
+            "fencepost": "1736127703",
             "addr": "0x651e10"
         },
         {
             "name": "SetAllowShareIPUserSetting",
             "argc": "2",
+            "interfaceid": "46",
+            "functionid": "919731740",
+            "fencepost": "1017059968",
             "addr": "0x6481e0"
         },
         {
             "name": "GetAllowShareIPUserSetting",
             "argc": "1",
+            "interfaceid": "46",
+            "functionid": "893414715",
+            "fencepost": "990759072",
             "addr": "0x648330"
         },
         {
             "name": "TEST_ClearInMemoryCachedCredentials",
             "argc": "1",
+            "interfaceid": "46",
+            "functionid": "3336951685",
+            "fencepost": "3434312171",
             "addr": "0x648490"
         }
     ]

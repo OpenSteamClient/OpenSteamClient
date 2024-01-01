@@ -5,21 +5,33 @@
         {
             "name": "IsInterfaceValid",
             "argc": "1",
+            "interfaceid": "58",
+            "functionid": "862246284",
+            "fencepost": "906737432",
             "addr": "0x5dcc50"
         },
         {
             "name": "GetState",
             "argc": "2",
+            "interfaceid": "58",
+            "functionid": "724788077",
+            "fencepost": "769343741",
             "addr": "0x5dcdb0"
         },
         {
             "name": "UpdateFirmware",
             "argc": "2",
+            "interfaceid": "58",
+            "functionid": "1231225197",
+            "fencepost": "1275877635",
             "addr": "0x5dcf30"
         },
         {
             "name": "DisarmSafetyNet",
             "argc": "1",
+            "interfaceid": "58",
+            "functionid": "874836135",
+            "fencepost": "919536960",
             "addr": "0x5dd0c0"
         }
     ]

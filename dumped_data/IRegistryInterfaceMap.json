@@ -1,0 +1,110 @@
+{
+    "name": "IRegistryInterfaceMap",
+    "found_at": "0x24519a8",
+    "functions": [ 
+        {
+            "name": "BGetValueStr",
+            "argc": "6",
+            "interfaceid": "3",
+            "functionid": "2264710066",
+            "fencepost": "2266887862",
+            "addr": "0xfb6ea0"
+        },
+        {
+            "name": "BGetValueUint",
+            "argc": "5",
+            "interfaceid": "3",
+            "functionid": "603467504",
+            "fencepost": "605790461",
+            "addr": "0xfb6ce0"
+        },
+        {
+            "name": "BGetValueBin",
+            "argc": "6",
+            "interfaceid": "3",
+            "functionid": "1272740833",
+            "fencepost": "1275241209",
+            "addr": "0xfb8170"
+        },
+        {
+            "name": "BSetValueStr",
+            "argc": "5",
+            "interfaceid": "3",
+            "functionid": "70183469",
+            "fencepost": "72764490",
+            "addr": "0xfb6b40"
+        },
+        {
+            "name": "BSetValueUint",
+            "argc": "5",
+            "interfaceid": "3",
+            "functionid": "2447989518",
+            "fencepost": "2450586668",
+            "addr": "0xfb6990"
+        },
+        {
+            "name": "BSetValueBin",
+            "argc": "6",
+            "interfaceid": "3",
+            "functionid": "3324523034",
+            "fencepost": "3327249216",
+            "addr": "0xfb67d0"
+        },
+        {
+            "name": "BDeleteValue",
+            "argc": "4",
+            "interfaceid": "3",
+            "functionid": "2027218725",
+            "fencepost": "2029993294",
+            "addr": "0xfb6640"
+        },
+        {
+            "name": "BDeleteKey",
+            "argc": "3",
+            "interfaceid": "3",
+            "functionid": "1819075803",
+            "fencepost": "1821866501",
+            "addr": "0xfb64b0"
+        },
+        {
+            "name": "BKeyExists",
+            "argc": "3",
+            "interfaceid": "3",
+            "functionid": "650693338",
+            "fencepost": "653500165",
+            "addr": "0xfb6320"
+        },
+        {
+            "name": "BGetSubKeys",
+            "argc": "5",
+            "interfaceid": "3",
+            "functionid": "2533634413",
+            "fencepost": "2536457369",
+            "addr": "0xfb7f70"
+        },
+        {
+            "name": "BGetValues",
+            "argc": "6",
+            "interfaceid": "3",
+            "functionid": "506629117",
+            "fencepost": "509468202",
+            "addr": "0xfb7d30"
+        },
+        {
+            "name": "BEnumerateKey",
+            "argc": "6",
+            "interfaceid": "3",
+            "functionid": "55374828",
+            "fencepost": "58342945",
+            "addr": "0xfb6140"
+        },
+        {
+            "name": "BEnumerateValue",
+            "argc": "7",
+            "interfaceid": "3",
+            "functionid": "2844596996",
+            "fencepost": "2847726403",
+            "addr": "0xfb7070"
+        }
+    ]
+}

@@ -5,96 +5,153 @@
         {
             "name": "IsSet",
             "argc": "3",
+            "interfaceid": "18",
+            "functionid": "763466759",
+            "fencepost": "821146349",
             "addr": "0x5f19a0"
         },
         {
             "name": "GetBool",
             "argc": "4",
+            "interfaceid": "18",
+            "functionid": "644953006",
+            "fencepost": "702648725",
             "addr": "0x5f1b20"
         },
         {
             "name": "GetInt",
             "argc": "4",
+            "interfaceid": "18",
+            "functionid": "4275332772",
+            "fencepost": "38077324",
             "addr": "0x5f1cc0"
         },
         {
             "name": "GetUint64",
             "argc": "5",
+            "interfaceid": "18",
+            "functionid": "357972334",
+            "fencepost": "415700311",
             "addr": "0x5f1e50"
         },
         {
             "name": "GetFloat",
             "argc": "4",
+            "interfaceid": "18",
+            "functionid": "346805779",
+            "fencepost": "404549885",
             "addr": "0x5f2030"
         },
         {
             "name": "GetString",
             "argc": "4",
+            "interfaceid": "18",
+            "functionid": "1373135884",
+            "fencepost": "1430896119",
             "addr": "0x5f21c0"
         },
         {
             "name": "GetBinary",
             "argc": "5",
+            "interfaceid": "18",
+            "functionid": "1340134011",
+            "fencepost": "1398007149",
             "addr": "0x5f2350"
         },
         {
             "name": "GetBinary",
             "argc": "4",
+            "interfaceid": "18",
+            "functionid": "2252190707",
+            "fencepost": "2310192877",
             "addr": "0x5f2510"
         },
         {
             "name": "GetBinaryWatermarked",
             "argc": "5",
+            "interfaceid": "18",
+            "functionid": "964528257",
+            "fencepost": "1022691717",
             "addr": "0x5f26b0"
         },
         {
             "name": "SetBool",
             "argc": "4",
+            "interfaceid": "18",
+            "functionid": "1815054649",
+            "fencepost": "1873282625",
             "addr": "0x5f2870"
         },
         {
             "name": "SetInt",
             "argc": "4",
+            "interfaceid": "18",
+            "functionid": "2644871534",
+            "fencepost": "2703115639",
             "addr": "0x5f2a10"
         },
         {
             "name": "SetUint64",
             "argc": "5",
+            "interfaceid": "18",
+            "functionid": "884759731",
+            "fencepost": "943019965",
             "addr": "0x5f2bb0"
         },
         {
             "name": "SetFloat",
             "argc": "4",
+            "interfaceid": "18",
+            "functionid": "672446278",
+            "fencepost": "730722641",
             "addr": "0x5f2d60"
         },
         {
             "name": "SetString",
             "argc": "4",
+            "interfaceid": "18",
+            "functionid": "3108763854",
+            "fencepost": "3167056346",
             "addr": "0x5f2f00"
         },
         {
             "name": "SetBinary",
             "argc": "5",
+            "interfaceid": "18",
+            "functionid": "3274042996",
+            "fencepost": "3332448391",
             "addr": "0x5f3090"
         },
         {
             "name": "SetBinaryWatermarked",
             "argc": "5",
+            "interfaceid": "18",
+            "functionid": "3965166129",
+            "fencepost": "4023700556",
             "addr": "0x5f3240"
         },
         {
             "name": "RemoveKey",
             "argc": "3",
+            "interfaceid": "18",
+            "functionid": "2461762826",
+            "fencepost": "2520345640",
             "addr": "0x5f33f0"
         },
         {
             "name": "GetKeySerialized",
             "argc": "5",
+            "interfaceid": "18",
+            "functionid": "1994832251",
+            "fencepost": "2053527968",
             "addr": "0x5f3570"
         },
         {
             "name": "FlushToDisk",
             "argc": "2",
+            "interfaceid": "18",
+            "functionid": "1231293513",
+            "fencepost": "1290037617",
             "addr": "0x5f3730"
         }
     ]

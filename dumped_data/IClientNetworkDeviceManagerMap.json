@@ -5,216 +5,345 @@
         {
             "name": "IsInterfaceValid",
             "argc": "1",
+            "interfaceid": "29",
+            "functionid": "862246229",
+            "fencepost": "904040151",
             "addr": "0x5d8280"
         },
         {
             "name": "RefreshDevices",
             "argc": "1",
+            "interfaceid": "29",
+            "functionid": "204270106",
+            "fencepost": "246096286",
             "addr": "0x5d83e0"
         },
         {
             "name": "GetNetworkDevicesData",
             "argc": "2",
+            "interfaceid": "29",
+            "functionid": "1605408283",
+            "fencepost": "1648960266",
             "addr": "0x5db000"
         },
         {
             "name": "ConnectToDevice",
             "argc": "2",
+            "interfaceid": "29",
+            "functionid": "3466733605",
+            "fencepost": "3509866234",
             "addr": "0x5da600"
         },
         {
             "name": "DisconnectFromDevice",
             "argc": "2",
+            "interfaceid": "29",
+            "functionid": "1937755331",
+            "fencepost": "1980807315",
             "addr": "0x5da2a0"
         },
         {
             "name": "SetWifiEnabled",
             "argc": "2",
+            "interfaceid": "29",
+            "functionid": "4056239312",
+            "fencepost": "4099855811",
             "addr": "0x5db180"
         },
         {
             "name": "SetWifiScanningEnabled",
             "argc": "2",
+            "interfaceid": "29",
+            "functionid": "2864475829",
+            "fencepost": "2908108457",
             "addr": "0x5db320"
         },
         {
             "name": "ForgetWirelessEndpoint",
             "argc": "3",
+            "interfaceid": "29",
+            "functionid": "2990506125",
+            "fencepost": "3033719399",
             "addr": "0x5daae0"
         },
         {
             "name": "SetWirelessEndpointAutoconnect",
             "argc": "4",
+            "interfaceid": "29",
+            "functionid": "3433173964",
+            "fencepost": "3476371109",
             "addr": "0x5da920"
         },
         {
             "name": "SetCustomIPSettings",
             "argc": "7",
+            "interfaceid": "29",
+            "functionid": "4224139859",
+            "fencepost": "4267207972",
             "addr": "0x5da430"
         },
         {
             "name": "GetCustomIPSettings",
             "argc": "7",
+            "interfaceid": "29",
+            "functionid": "2232493490",
+            "fencepost": "2275884183",
             "addr": "0x5dae10"
         },
         {
             "name": "SetProxyInfo",
             "argc": "5",
+            "interfaceid": "29",
+            "functionid": "2125554977",
+            "fencepost": "2169203734",
             "addr": "0x5dc100"
         },
         {
             "name": "GetProxyInfo",
             "argc": "6",
+            "interfaceid": "29",
+            "functionid": "1753516415",
+            "fencepost": "1797278075",
             "addr": "0x5dc2c0"
         },
         {
             "name": "GetObviousConnectivityProblem",
             "argc": "1",
+            "interfaceid": "29",
+            "functionid": "2486180424",
+            "fencepost": "2530006600",
             "addr": "0x5db470"
         },
         {
             "name": "TEST_SetFakeLocalSystemStateSetting",
             "argc": "2",
+            "interfaceid": "29",
+            "functionid": "3124155137",
+            "fencepost": "3168013571",
             "addr": "0x5db5d0"
         },
         {
             "name": "TEST_GetFakeLocalSystemStateSetting",
             "argc": "1",
+            "interfaceid": "29",
+            "functionid": "3991147060",
+            "fencepost": "4035021623",
             "addr": "0x5db720"
         },
         {
             "name": "TEST_GetFakeLocalSystemEffectiveState",
             "argc": "1",
+            "interfaceid": "29",
+            "functionid": "2827969642",
+            "fencepost": "2871860334",
             "addr": "0x5db880"
         },
         {
             "name": "TEST_SetEmulateSingleWirelessDevice",
             "argc": "2",
+            "interfaceid": "29",
+            "functionid": "4281374487",
+            "fencepost": "30314012",
             "addr": "0x5db9e0"
         },
         {
             "name": "TEST_GetEmulateSingleWirelessDevice",
             "argc": "1",
+            "interfaceid": "29",
+            "functionid": "1505303260",
+            "fencepost": "1549226210",
             "addr": "0x5dbb30"
         },
         {
             "name": "LEGACY_EnumerateNetworkDevices",
             "argc": "3",
+            "interfaceid": "29",
+            "functionid": "540232267",
+            "fencepost": "582139092",
             "addr": "0x5d8510"
         },
         {
             "name": "LEGACY_GetDeviceType",
             "argc": "2",
+            "interfaceid": "29",
+            "functionid": "1329109029",
+            "fencepost": "1371080370",
             "addr": "0x5dbc90"
         },
         {
             "name": "LEGACY_IsCurrentDevice",
             "argc": "2",
+            "interfaceid": "29",
+            "functionid": "999423165",
+            "fencepost": "1041410635",
             "addr": "0x5d86b0"
         },
         {
             "name": "LEGACY_IsCurrentlyConnected",
             "argc": "2",
+            "interfaceid": "29",
+            "functionid": "1416212362",
+            "fencepost": "1458215961",
             "addr": "0x5d8830"
         },
         {
             "name": "LEGACY_GetDeviceIP4",
             "argc": "4",
+            "interfaceid": "29",
+            "functionid": "2397138005",
+            "fencepost": "2439238378",
             "addr": "0x5d89b0"
         },
         {
             "name": "LEGACY_GetDeviceBroadcastIP4",
             "argc": "4",
+            "interfaceid": "29",
+            "functionid": "2446937412",
+            "fencepost": "2489166817",
             "addr": "0x5d8b60"
         },
         {
             "name": "LEGACY_GetDeviceIPV6InterfaceIndex",
             "argc": "2",
+            "interfaceid": "29",
+            "functionid": "1074849849",
+            "fencepost": "1117127641",
             "addr": "0x5d8d10"
         },
         {
             "name": "LEGACY_GetDeviceVendor",
             "argc": "2",
+            "interfaceid": "29",
+            "functionid": "882809109",
+            "fencepost": "925119159",
             "addr": "0x5d8e80"
         },
         {
             "name": "LEGACY_GetDeviceProduct",
             "argc": "2",
+            "interfaceid": "29",
+            "functionid": "3274063239",
+            "fencepost": "3316389418",
             "addr": "0x5d8ff0"
         },
         {
             "name": "LEGACY_GetMacAddress",
             "argc": "2",
+            "interfaceid": "29",
+            "functionid": "106361560",
+            "fencepost": "148703868",
             "addr": "0x5d9160"
         },
         {
             "name": "LEGACY_GetSubnetMaskBitCount",
             "argc": "4",
+            "interfaceid": "29",
+            "functionid": "620703032",
+            "fencepost": "663142114",
             "addr": "0x5d92d0"
         },
         {
             "name": "LEGACY_GetRouterAddressIP4",
             "argc": "4",
+            "interfaceid": "29",
+            "functionid": "832177883",
+            "fencepost": "874745997",
             "addr": "0x5d9480"
         },
         {
             "name": "LEGACY_GetDNSResolversIP4",
             "argc": "4",
+            "interfaceid": "29",
+            "functionid": "1813144660",
+            "fencepost": "1855841806",
             "addr": "0x5d9630"
         },
         {
             "name": "LEGACY_GetDeviceState",
             "argc": "2",
+            "interfaceid": "29",
+            "functionid": "1920544153",
+            "fencepost": "1963305815",
             "addr": "0x5dbe00"
         },
         {
             "name": "LEGACY_GetDevicePluggedState",
             "argc": "2",
+            "interfaceid": "29",
+            "functionid": "1721739878",
+            "fencepost": "1764517669",
             "addr": "0x5d97e0"
         },
         {
             "name": "LEGACY_EnumerateWirelessEndpoints",
             "argc": "4",
+            "interfaceid": "29",
+            "functionid": "2767202329",
+            "fencepost": "2810076894",
             "addr": "0x5d9960"
         },
         {
             "name": "LEGACY_GetConnectedWirelessEndpointSSID",
             "argc": "2",
+            "interfaceid": "29",
+            "functionid": "4250432272",
+            "fencepost": "4293371353",
             "addr": "0x5d9b10"
         },
         {
             "name": "LEGACY_GetWirelessSecurityCapabilities",
             "argc": "2",
+            "interfaceid": "29",
+            "functionid": "1667146947",
+            "fencepost": "1710102157",
             "addr": "0x5d9c80"
         },
         {
             "name": "LEGACY_GetWirelessEndpointSSIDUserDisplayString",
             "argc": "3",
+            "interfaceid": "29",
+            "functionid": "3848320164",
+            "fencepost": "3891291503",
             "addr": "0x5d9df0"
         },
         {
             "name": "LEGACY_GetWirelessEndpointStrength",
             "argc": "3",
+            "interfaceid": "29",
+            "functionid": "3194434153",
+            "fencepost": "3237421621",
             "addr": "0x5dbf70"
         },
         {
             "name": "LEGACY_IsSecurityRequired",
             "argc": "3",
+            "interfaceid": "29",
+            "functionid": "3582894822",
+            "fencepost": "3625898419",
             "addr": "0x5d9f80"
         },
         {
             "name": "LEGACY_GetCachedWirelessCredentials",
             "argc": "3",
+            "interfaceid": "29",
+            "functionid": "3372568399",
+            "fencepost": "3415588125",
             "addr": "0x5da110"
         },
         {
             "name": "LEGACY_IsWirelessEndpointForgettable",
             "argc": "3",
+            "interfaceid": "29",
+            "functionid": "2348980998",
+            "fencepost": "2392162014",
             "addr": "0x5da790"
         },
         {
             "name": "LEGACY_IsUsingDHCP",
             "argc": "2",
+            "interfaceid": "29",
+            "functionid": "1533064803",
+            "fencepost": "1576310335",
             "addr": "0x5dac90"
         }
     ]

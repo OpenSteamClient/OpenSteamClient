@@ -5,31 +5,49 @@
         {
             "name": "LoadModule",
             "argc": "4",
+            "interfaceid": "2",
+            "functionid": "618599951",
+            "fencepost": "619874396",
             "addr": "0xfb5920"
         },
         {
             "name": "UnloadModule",
             "argc": "2",
+            "interfaceid": "2",
+            "functionid": "3536520701",
+            "fencepost": "3537843533",
             "addr": "0xfb57a0"
         },
         {
             "name": "CallFunction",
             "argc": "9",
+            "interfaceid": "2",
+            "functionid": "4258773877",
+            "fencepost": "4260257999",
             "addr": "0xfb5f10"
         },
         {
             "name": "CallFunctionAsync",
             "argc": "10",
+            "interfaceid": "2",
+            "functionid": "2100241721",
+            "fencepost": "2101967778",
             "addr": "0xfb5cb0"
         },
         {
             "name": "PollResponseAsync",
             "argc": "6",
+            "interfaceid": "2",
+            "functionid": "1500915701",
+            "fencepost": "1502770790",
             "addr": "0xfb5ac0"
         },
         {
             "name": "SetProtonEnvironment",
             "argc": "3",
+            "interfaceid": "2",
+            "functionid": "4265860916",
+            "fencepost": "4267796650",
             "addr": "0xfb5640"
         }
     ]

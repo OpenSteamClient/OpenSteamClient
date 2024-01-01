@@ -5,561 +5,897 @@
         {
             "name": "GetInstallPath",
             "argc": "1",
+            "interfaceid": "4",
+            "functionid": "2876389069",
+            "fencepost": "2903212104",
             "addr": "0x5b9bd0"
         },
         {
             "name": "GetUserBaseFolderInstallImage",
             "argc": "1",
+            "interfaceid": "4",
+            "functionid": "2535255534",
+            "fencepost": "2562094698",
             "addr": "0x5b9f70"
         },
         {
             "name": "GetUserBaseFolderPersistentStorage",
             "argc": "1",
+            "interfaceid": "4",
+            "functionid": "2581012523",
+            "fencepost": "2607867816",
             "addr": "0x5ba310"
         },
         {
             "name": "GetManagedContentRoot",
             "argc": "1",
+            "interfaceid": "4",
+            "functionid": "107079476",
+            "fencepost": "133950898",
             "addr": "0x5ba6b0"
         },
         {
             "name": "GetSecondsSinceAppActive",
             "argc": "1",
+            "interfaceid": "4",
+            "functionid": "186799165",
+            "fencepost": "213686716",
             "addr": "0x5baa50"
         },
         {
             "name": "GetSecondsSinceComputerActive",
             "argc": "1",
+            "interfaceid": "4",
+            "functionid": "2963661296",
+            "fencepost": "2990564976",
             "addr": "0x5babb0"
         },
         {
             "name": "SetComputerActive",
             "argc": "1",
+            "interfaceid": "4",
+            "functionid": "4235691935",
+            "fencepost": "4262611744",
             "addr": "0x5bad10"
         },
         {
             "name": "GetConnectedUniverse",
             "argc": "1",
+            "interfaceid": "4",
+            "functionid": "2103134015",
+            "fencepost": "2130069953",
             "addr": "0x649e40"
         },
         {
             "name": "GetSteamRealm",
             "argc": "1",
+            "interfaceid": "4",
+            "functionid": "4178563775",
+            "fencepost": "4205515842",
             "addr": "0x64a1d0"
         },
         {
             "name": "GetServerRealTime",
             "argc": "1",
+            "interfaceid": "4",
+            "functionid": "2354534120",
+            "fencepost": "2381502316",
             "addr": "0x5bae40"
         },
         {
             "name": "GetIPCountry",
             "argc": "1",
+            "interfaceid": "4",
+            "functionid": "310213108",
+            "fencepost": "337197433",
             "addr": "0x5bafa0"
         },
         {
             "name": "GetImageSize",
             "argc": "4",
+            "interfaceid": "4",
+            "functionid": "302370864",
+            "fencepost": "329419705",
             "addr": "0x5bb100"
         },
         {
             "name": "GetImageRGBA",
             "argc": "4",
+            "interfaceid": "4",
+            "functionid": "3937822385",
+            "fencepost": "3965000258",
             "addr": "0x5bb2b0"
         },
         {
             "name": "GetNumRunningApps",
             "argc": "1",
+            "interfaceid": "4",
+            "functionid": "1840968063",
+            "fencepost": "1868194323",
             "addr": "0x5bb460"
         },
         {
             "name": "GetCurrentBatteryPower",
             "argc": "1",
+            "interfaceid": "4",
+            "functionid": "4146673851",
+            "fencepost": "4173916240",
             "addr": "0x5bb5c0"
         },
         {
             "name": "GetBatteryInformation",
             "argc": "3",
+            "interfaceid": "4",
+            "functionid": "3677118587",
+            "fencepost": "3704409363",
             "addr": "0x5bb720"
         },
         {
             "name": "SetOfflineMode",
             "argc": "2",
+            "interfaceid": "4",
+            "functionid": "2724656357",
+            "fencepost": "2752011649",
             "addr": "0x5bb8c0"
         },
         {
             "name": "GetOfflineMode",
             "argc": "1",
+            "interfaceid": "4",
+            "functionid": "3520256510",
+            "fencepost": "3547627931",
             "addr": "0x5bba10"
         },
         {
             "name": "SetAppIDForCurrentPipe",
             "argc": "3",
+            "interfaceid": "4",
+            "functionid": "863535119",
+            "fencepost": "890922669",
             "addr": "0x5bbb70"
         },
         {
             "name": "GetAppID",
             "argc": "1",
+            "interfaceid": "4",
+            "functionid": "157318901",
+            "fencepost": "184722580",
             "addr": "0x5bbd00"
         },
         {
             "name": "SetAPIDebuggingActive",
             "argc": "3",
+            "interfaceid": "4",
+            "functionid": "1655367149",
+            "fencepost": "1682786957",
             "addr": "0x5bbe60"
         },
         {
             "name": "AllocPendingAPICallHandle",
             "argc": "1",
+            "interfaceid": "4",
+            "functionid": "3353856051",
+            "fencepost": "3381614568",
             "addr": "0x5bc350"
         },
         {
             "name": "IsAPICallCompleted",
             "argc": "4",
+            "interfaceid": "4",
+            "functionid": "1979378145",
+            "fencepost": "2006878598",
             "addr": "0x5bbfd0"
         },
         {
             "name": "GetAPICallFailureReason",
             "argc": "3",
+            "interfaceid": "4",
+            "functionid": "1150418154",
+            "fencepost": "1177983123",
             "addr": "0x5c2f40"
         },
         {
             "name": "GetAPICallResult",
             "argc": "7",
+            "interfaceid": "4",
+            "functionid": "758987126",
+            "fencepost": "786664998",
             "addr": "0x5bc170"
         },
         {
             "name": "SetAPICallResultWithoutPostingCallback",
             "argc": "6",
+            "interfaceid": "4",
+            "functionid": "3404200707",
+            "fencepost": "3432055998",
             "addr": "0x5bc4d0"
         },
         {
             "name": "SignalAppsToShutDown",
             "argc": "1",
+            "interfaceid": "4",
+            "functionid": "2994232352",
+            "fencepost": "3022136030",
             "addr": "0x5bc660"
         },
         {
             "name": "SignalServiceAppsToDisconnect",
             "argc": "1",
+            "interfaceid": "4",
+            "functionid": "1838543778",
+            "fencepost": "1866463585",
             "addr": "0x5bc7c0"
         },
         {
             "name": "TerminateAllApps",
             "argc": "2",
+            "interfaceid": "4",
+            "functionid": "3860476901",
+            "fencepost": "3888412837",
             "addr": "0x5bc920"
         },
         {
             "name": "GetCellID",
             "argc": "1",
+            "interfaceid": "4",
+            "functionid": "978454325",
+            "fencepost": "1006406390",
             "addr": "0x5bcaa0"
         },
         {
             "name": "BIsGlobalInstance",
             "argc": "1",
+            "interfaceid": "4",
+            "functionid": "3790783036",
+            "fencepost": "3818767359",
             "addr": "0x5bcc00"
         },
         {
             "name": "CheckFileSignature",
             "argc": "2",
+            "interfaceid": "4",
+            "functionid": "1637128610",
+            "fencepost": "1665145191",
             "addr": "0x5bcd60"
         },
         {
             "name": "GetBuildID",
             "argc": "1",
+            "interfaceid": "4",
+            "functionid": "1166945717",
+            "fencepost": "1194994556",
             "addr": "0x5bcef0"
         },
         {
             "name": "SetCurrentUIMode",
             "argc": "2",
+            "interfaceid": "4",
+            "functionid": "2139024180",
+            "fencepost": "2167105277",
             "addr": "0x5bd070"
         },
         {
             "name": "GetCurrentUIMode",
             "argc": "1",
+            "interfaceid": "4",
+            "functionid": "2927230969",
+            "fencepost": "2955328195",
             "addr": "0x5bd1c0"
         },
         {
             "name": "BIsWebBasedUIMode",
             "argc": "1",
+            "interfaceid": "4",
+            "functionid": "242215484",
+            "fencepost": "270328839",
             "addr": "0x5bd320"
         },
         {
             "name": "SetDisableOverlayScaling",
             "argc": "2",
+            "interfaceid": "4",
+            "functionid": "3416083542",
+            "fencepost": "3444213026",
             "addr": "0x5bd480"
         },
         {
             "name": "ShutdownLauncher",
             "argc": "3",
+            "interfaceid": "4",
+            "functionid": "4196579032",
+            "fencepost": "4225208515",
             "addr": "0x5be4a0"
         },
         {
             "name": "SetLauncherType",
             "argc": "2",
+            "interfaceid": "4",
+            "functionid": "4102057195",
+            "fencepost": "4130622162",
             "addr": "0x5be350"
         },
         {
             "name": "GetLauncherType",
             "argc": "1",
+            "interfaceid": "4",
+            "functionid": "2850037491",
+            "fencepost": "2878634716",
             "addr": "0x64a560"
         },
         {
             "name": "ShowGamepadTextInput",
             "argc": "6",
+            "interfaceid": "4",
+            "functionid": "3757019743",
+            "fencepost": "3785181485",
             "addr": "0x5c30c0"
         },
         {
             "name": "GetEnteredGamepadTextLength",
             "argc": "1",
+            "interfaceid": "4",
+            "functionid": "1696532454",
+            "fencepost": "1724710325",
             "addr": "0x5bd5d0"
         },
         {
             "name": "GetEnteredGamepadTextInput",
             "argc": "3",
+            "interfaceid": "4",
+            "functionid": "2004926195",
+            "fencepost": "2033168582",
             "addr": "0x5bd730"
         },
         {
             "name": "GamepadTextInputClosed",
             "argc": "4",
+            "interfaceid": "4",
+            "functionid": "2967697723",
+            "fencepost": "2996004626",
             "addr": "0x5bd8c0"
         },
         {
             "name": "ShowControllerLayoutPreview",
             "argc": "4",
+            "interfaceid": "4",
+            "functionid": "1085244579",
+            "fencepost": "1116245025",
             "addr": "0x5c22c0"
         },
         {
             "name": "SetSpew",
             "argc": "4",
+            "interfaceid": "4",
+            "functionid": "3365546362",
+            "fencepost": "3393885523",
             "addr": "0x5bda30"
         },
         {
             "name": "BDownloadsDisabled",
             "argc": "1",
+            "interfaceid": "4",
+            "functionid": "1700804561",
+            "fencepost": "1729175980",
             "addr": "0x5bdba0"
         },
         {
             "name": "SetFocusedWindow",
             "argc": "5",
+            "interfaceid": "4",
+            "functionid": "4095371374",
+            "fencepost": "4123775051",
             "addr": "0x5bdd00"
         },
         {
             "name": "GetSteamUILanguage",
             "argc": "1",
+            "interfaceid": "4",
+            "functionid": "1018533377",
+            "fencepost": "1046969312",
             "addr": "0x5bdea0"
         },
         {
             "name": "CheckSteamReachable",
             "argc": "1",
+            "interfaceid": "4",
+            "functionid": "437232852",
+            "fencepost": "465701045",
             "addr": "0x5be000"
         },
         {
             "name": "SetLastGameLaunchMethod",
             "argc": "2",
+            "interfaceid": "4",
+            "functionid": "760473907",
+            "fencepost": "788974358",
             "addr": "0x5c3280"
         },
         {
             "name": "SetVideoAdapterInfo",
             "argc": "8",
+            "interfaceid": "4",
+            "functionid": "1923016859",
+            "fencepost": "1951549568",
             "addr": "0x5be180"
         },
         {
             "name": "SetOverlayWindowFocusForPipe",
             "argc": "4",
+            "interfaceid": "4",
+            "functionid": "2189279227",
+            "fencepost": "2217940968",
             "addr": "0x5be610"
         },
         {
             "name": "GetGameOverlayUIInstanceFocusGameID",
             "argc": "4",
+            "interfaceid": "4",
+            "functionid": "2263306396",
+            "fencepost": "2292048782",
             "addr": "0x5be7a0"
         },
         {
             "name": "GetFocusedGameWindow",
             "argc": "4",
+            "interfaceid": "4",
+            "functionid": "167705775",
+            "fencepost": "196577193",
             "addr": "0x5be960"
         },
         {
             "name": "SetControllerConfigFileForAppID",
             "argc": "3",
+            "interfaceid": "4",
+            "functionid": "1914272841",
+            "fencepost": "1943224904",
             "addr": "0x5beb20"
         },
         {
             "name": "GetControllerConfigFileForAppID",
             "argc": "4",
+            "interfaceid": "4",
+            "functionid": "3228043247",
+            "fencepost": "3257092084",
             "addr": "0x5beca0"
         },
         {
             "name": "IsSteamRunningInVR",
             "argc": "1",
+            "interfaceid": "4",
+            "functionid": "4032123270",
+            "fencepost": "4061236623",
             "addr": "0x5bee50"
         },
         {
             "name": "StartVRDashboard",
             "argc": "1",
+            "interfaceid": "4",
+            "functionid": "1969112771",
+            "fencepost": "1998242253",
             "addr": "0x5befb0"
         },
         {
             "name": "IsVRHeadsetStreamingEnabled",
             "argc": "2",
+            "interfaceid": "4",
+            "functionid": "3726147816",
+            "fencepost": "3755293427",
             "addr": "0x5bf0e0"
         },
         {
             "name": "SetVRHeadsetStreamingEnabled",
             "argc": "3",
+            "interfaceid": "4",
+            "functionid": "3239428559",
+            "fencepost": "3268590299",
             "addr": "0x5bf260"
         },
         {
             "name": "GenerateSupportSystemReport",
             "argc": "1",
+            "interfaceid": "4",
+            "functionid": "1610560945",
+            "fencepost": "1639754943",
             "addr": "0x5bf3c0"
         },
         {
             "name": "GetSupportSystemReport",
             "argc": "5",
+            "interfaceid": "4",
+            "functionid": "3613483013",
+            "fencepost": "3642789914",
             "addr": "0x5bf540"
         },
         {
             "name": "GetAppIdForPid",
             "argc": "3",
+            "interfaceid": "4",
+            "functionid": "1527712773",
+            "fencepost": "1557100319",
             "addr": "0x5bf710"
         },
         {
             "name": "SetClientUIProcess",
             "argc": "1",
+            "interfaceid": "4",
+            "functionid": "506227846",
+            "fencepost": "535663779",
             "addr": "0x5bfb50"
         },
         {
             "name": "BIsClientUIInForeground",
             "argc": "1",
+            "interfaceid": "4",
+            "functionid": "3236069481",
+            "fencepost": "3265473156",
             "addr": "0x5bf8a0"
         },
         {
             "name": "AllowSetForegroundThroughWebhelper",
             "argc": "2",
+            "interfaceid": "4",
+            "functionid": "1219049256",
+            "fencepost": "1248469060",
             "addr": "0x5bfa00"
         },
         {
             "name": "SetOverlayBrowserInfo",
             "argc": "9",
+            "interfaceid": "4",
+            "functionid": "1863893583",
+            "fencepost": "1893361774",
             "addr": "0x5c33d0"
         },
         {
             "name": "ClearOverlayBrowserInfo",
             "argc": "2",
+            "interfaceid": "4",
+            "functionid": "1955977839",
+            "fencepost": "1985462159",
             "addr": "0x5bfc80"
         },
         {
             "name": "GetOverlayBrowserInfo",
             "argc": "4",
+            "interfaceid": "4",
+            "functionid": "4256481157",
+            "fencepost": "4286046122",
             "addr": "0x5bfdd0"
         },
         {
             "name": "SetOverlayNotificationPosition",
             "argc": "3",
+            "interfaceid": "4",
+            "functionid": "953576208",
+            "fencepost": "983205689",
             "addr": "0x5c35c0"
         },
         {
             "name": "SetOverlayNotificationInset",
             "argc": "4",
+            "interfaceid": "4",
+            "functionid": "1525448466",
+            "fencepost": "1555094076",
             "addr": "0x5bff80"
         },
         {
             "name": "DispatchClientUINotification",
             "argc": "4",
+            "interfaceid": "4",
+            "functionid": "1837939188",
+            "fencepost": "1867617056",
             "addr": "0x5c3720"
         },
         {
             "name": "RespondToClientUINotification",
             "argc": "4",
+            "interfaceid": "4",
+            "functionid": "3082622048",
+            "fencepost": "3112316045",
             "addr": "0x5c00f0"
         },
         {
             "name": "DispatchClientUICommand",
             "argc": "3",
+            "interfaceid": "4",
+            "functionid": "3162236974",
+            "fencepost": "3191963229",
             "addr": "0x5c0270"
         },
         {
             "name": "DispatchComputerActiveStateChange",
             "argc": "1",
+            "interfaceid": "4",
+            "functionid": "887751333",
+            "fencepost": "917493717",
             "addr": "0x5c03c0"
         },
         {
             "name": "DispatchOpenURLInClient",
             "argc": "4",
+            "interfaceid": "4",
+            "functionid": "3890775557",
+            "fencepost": "3920534070",
             "addr": "0x5c04f0"
         },
         {
             "name": "UpdateWideVineCDM",
             "argc": "2",
+            "interfaceid": "4",
+            "functionid": "1828743070",
+            "fencepost": "1858533841",
             "addr": "0x5c0660"
         },
         {
             "name": "DispatchClearAllBrowsingData",
             "argc": "1",
+            "interfaceid": "4",
+            "functionid": "263144648",
+            "fencepost": "292951548",
             "addr": "0x5c07f0"
         },
         {
             "name": "DispatchClientSettingsChanged",
             "argc": "1",
+            "interfaceid": "4",
+            "functionid": "703397690",
+            "fencepost": "733220719",
             "addr": "0x5c0920"
         },
         {
             "name": "DispatchClientPostMessage",
             "argc": "4",
+            "interfaceid": "4",
+            "functionid": "4273193133",
+            "fencepost": "8081124",
             "addr": "0x5c0a50"
         },
         {
             "name": "IsSteamChina",
             "argc": "1",
+            "interfaceid": "4",
+            "functionid": "1834901559",
+            "fencepost": "1864789104",
             "addr": "0x64a8f0"
         },
         {
             "name": "NeedsSteamChinaWorkshop",
             "argc": "2",
+            "interfaceid": "4",
+            "functionid": "4192099393",
+            "fencepost": "4222003067",
             "addr": "0x5c0bd0"
         },
         {
             "name": "InitFilterText",
             "argc": "3",
+            "interfaceid": "4",
+            "functionid": "303805214",
+            "fencepost": "333741146",
             "addr": "0x5c0d50"
         },
         {
             "name": "FilterText",
             "argc": "8",
+            "interfaceid": "4",
+            "functionid": "1431911897",
+            "fencepost": "1461992990",
             "addr": "0x5c38c0"
         },
         {
             "name": "GetIPv6ConnectivityState",
             "argc": "2",
+            "interfaceid": "4",
+            "functionid": "4112987894",
+            "fencepost": "4143133503",
             "addr": "0x5c3aa0"
         },
         {
             "name": "ScheduleConnectivityTest",
             "argc": "3",
+            "interfaceid": "4",
+            "functionid": "246746960",
+            "fencepost": "277618374",
             "addr": "0x5c1ed0"
         },
         {
             "name": "GetConnectivityTestState",
             "argc": "2",
+            "interfaceid": "4",
+            "functionid": "2185266760",
+            "fencepost": "2216186561",
             "addr": "0x5c3f60"
         },
         {
             "name": "GetCaptivePortalURL",
             "argc": "1",
+            "interfaceid": "4",
+            "functionid": "632893055",
+            "fencepost": "663861243",
             "addr": "0x5c2030"
         },
         {
             "name": "RecordSteamInterfaceCreation",
             "argc": "3",
+            "interfaceid": "4",
+            "functionid": "277497711",
+            "fencepost": "307675578",
             "addr": "0x5c0ee0"
         },
         {
             "name": "GetCloudGamingPlatform",
             "argc": "1",
+            "interfaceid": "4",
+            "functionid": "2806853869",
+            "fencepost": "2837063994",
             "addr": "0x5c3c10"
         },
         {
             "name": "BGetMacAddresses",
             "argc": "4",
+            "interfaceid": "4",
+            "functionid": "3133936097",
+            "fencepost": "3164404286",
             "addr": "0x5c1450"
         },
         {
             "name": "BGetDiskSerialNumber",
             "argc": "3",
+            "interfaceid": "4",
+            "functionid": "601003058",
+            "fencepost": "631600279",
             "addr": "0x5c1600"
         },
         {
             "name": "GetSteamEnvironmentForApp",
             "argc": "4",
+            "interfaceid": "4",
+            "functionid": "3641711581",
+            "fencepost": "3672437834",
             "addr": "0x5c1790"
         },
         {
             "name": "TestHTTP",
             "argc": "2",
+            "interfaceid": "4",
+            "functionid": "1988245087",
+            "fencepost": "2018487470",
             "addr": "0x5c1030"
         },
         {
             "name": "DumpJobs",
             "argc": "2",
+            "interfaceid": "4",
+            "functionid": "492396635",
+            "fencepost": "522671276",
             "addr": "0x5c1170"
         },
         {
             "name": "ShowFloatingGamepadTextInput",
             "argc": "7",
+            "interfaceid": "4",
+            "functionid": "1937900334",
+            "fencepost": "1968691103",
             "addr": "0x5c3d70"
         },
         {
             "name": "DismissFloatingGamepadTextInput",
             "argc": "2",
+            "interfaceid": "4",
+            "functionid": "2328588156",
+            "fencepost": "2359395054",
             "addr": "0x5c1940"
         },
         {
             "name": "DismissGamepadTextInput",
             "argc": "2",
+            "interfaceid": "4",
+            "functionid": "1136709211",
+            "fencepost": "1167532238",
             "addr": "0x5c1ac0"
         },
         {
             "name": "FloatingGamepadTextInputDismissed",
             "argc": "1",
+            "interfaceid": "4",
+            "functionid": "2412604006",
+            "fencepost": "2443443162",
             "addr": "0x5c1c40"
         },
         {
             "name": "SetGameLauncherMode",
             "argc": "3",
+            "interfaceid": "4",
+            "functionid": "898443514",
+            "fencepost": "929298799",
             "addr": "0x5c1d70"
         },
         {
             "name": "ClearAllHTTPCaches",
             "argc": "1",
+            "interfaceid": "4",
+            "functionid": "2495758465",
+            "fencepost": "2526742782",
             "addr": "0x5c2190"
         },
         {
             "name": "GetFocusedGameID",
             "argc": "2",
+            "interfaceid": "4",
+            "functionid": "4018164698",
+            "fencepost": "4049181273",
             "addr": "0x5c2430"
         },
         {
             "name": "GetFocusedWindowPID",
             "argc": "1",
+            "interfaceid": "4",
+            "functionid": "3289045564",
+            "fencepost": "3320078268",
             "addr": "0x5c25c0"
         },
         {
             "name": "SetWebUITransportWebhelperPID",
             "argc": "2",
+            "interfaceid": "4",
+            "functionid": "2428608986",
+            "fencepost": "2459690077",
             "addr": "0x5c2860"
         },
         {
             "name": "GetWebUITransportInfo",
             "argc": "2",
+            "interfaceid": "4",
+            "functionid": "1831729253",
+            "fencepost": "1862858731",
             "addr": "0x5c29b0"
         },
         {
             "name": "RecordFakeReactRouteMetric",
             "argc": "2",
+            "interfaceid": "4",
+            "functionid": "3897379625",
+            "fencepost": "3928428458",
             "addr": "0x5c2720"
         },
         {
             "name": "SteamRuntimeSystemInfo",
             "argc": "2",
+            "interfaceid": "4",
+            "functionid": "2858840818",
+            "fencepost": "2889179975",
             "addr": "0x5c12b0"
         },
         {
             "name": "DumpHTTPClients",
             "argc": "2",
+            "interfaceid": "4",
+            "functionid": "837938234",
+            "fencepost": "869132228",
             "addr": "0x5c2b30"
         },
         {
             "name": "BGetMachineID",
             "argc": "2",
+            "interfaceid": "4",
+            "functionid": "2456640783",
+            "fencepost": "2487899293",
             "addr": "0x5c2c80"
         },
         {
             "name": "NotifyMissingInterface",
             "argc": "2",
+            "interfaceid": "4",
+            "functionid": "2596873240",
+            "fencepost": "2628196266",
             "addr": "0x5c2e00"
         },
         {
             "name": "IsSteamInTournamentMode",
             "argc": "1",
+            "interfaceid": "4",
+            "functionid": "2135072676",
+            "fencepost": "2166427960",
             "addr": "0x64ac80"
         }
     ]

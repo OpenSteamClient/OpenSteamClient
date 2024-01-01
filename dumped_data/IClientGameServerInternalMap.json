@@ -5,336 +5,537 @@
         {
             "name": "Unknown_0",
             "argc": "0",
+            "interfaceid": "0",
+            "functionid": "0",
+            "fencepost": "0",
             "addr": "0x5876a0"
         },
         {
             "name": "Unknown_1",
             "argc": "0",
+            "interfaceid": "0",
+            "functionid": "0",
+            "fencepost": "0",
             "addr": "0x587630"
         },
         {
             "name": "SetSDRLogin",
             "argc": "2",
+            "interfaceid": "2",
+            "functionid": "848240741",
+            "fencepost": "862773224",
             "addr": "0x64bde0"
         },
         {
             "name": "Unknown_3",
             "argc": "0",
+            "interfaceid": "0",
+            "functionid": "0",
+            "fencepost": "0",
             "addr": "0x51a720"
         },
         {
             "name": "InitGameServerSerialized",
             "argc": "9",
+            "interfaceid": "2",
+            "functionid": "252698485",
+            "fencepost": "267134194",
             "addr": "0x64bbc0"
         },
         {
             "name": "SetProduct",
             "argc": "2",
+            "interfaceid": "2",
+            "functionid": "2681551308",
+            "fencepost": "2696148307",
             "addr": "0x64c060"
         },
         {
             "name": "SetGameDescription",
             "argc": "2",
+            "interfaceid": "2",
+            "functionid": "1912037558",
+            "fencepost": "1926650686",
             "addr": "0x6504e0"
         },
         {
             "name": "SetModDir",
             "argc": "2",
+            "interfaceid": "2",
+            "functionid": "852289195",
+            "fencepost": "866870065",
             "addr": "0x64bf20"
         },
         {
             "name": "SetDedicatedServer",
             "argc": "2",
+            "interfaceid": "2",
+            "functionid": "2029504916",
+            "fencepost": "2044134173",
             "addr": "0x64fe30"
         },
         {
             "name": "LogOn",
             "argc": "2",
+            "interfaceid": "2",
+            "functionid": "3321939627",
+            "fencepost": "3336585013",
             "addr": "0x650620"
         },
         {
             "name": "LogOnAnonymous",
             "argc": "1",
+            "interfaceid": "2",
+            "functionid": "2948629204",
+            "fencepost": "2963290719",
             "addr": "0x64f4d0"
         },
         {
             "name": "LogOff",
             "argc": "1",
+            "interfaceid": "2",
+            "functionid": "1264943862",
+            "fencepost": "1279621506",
             "addr": "0x64f600"
         },
         {
             "name": "GetSteamID",
             "argc": "2",
+            "interfaceid": "2",
+            "functionid": "3606852009",
+            "fencepost": "3621545782",
             "addr": "0x64f730"
         },
         {
             "name": "BLoggedOn",
             "argc": "1",
+            "interfaceid": "2",
+            "functionid": "1703215798",
+            "fencepost": "1717925700",
             "addr": "0x64f8c0"
         },
         {
             "name": "BSecure",
             "argc": "1",
+            "interfaceid": "2",
+            "functionid": "2148671105",
+            "fencepost": "2163397136",
             "addr": "0x64fa20"
         },
         {
             "name": "WasRestartRequested",
             "argc": "1",
+            "interfaceid": "2",
+            "functionid": "2777263377",
+            "fencepost": "2792037795",
             "addr": "0x650380"
         },
         {
             "name": "SetMaxPlayerCount",
             "argc": "2",
+            "interfaceid": "2",
+            "functionid": "1361226897",
+            "fencepost": "1376017444",
             "addr": "0x64c510"
         },
         {
             "name": "SetBotPlayerCount",
             "argc": "2",
+            "interfaceid": "2",
+            "functionid": "3618134691",
+            "fencepost": "3632941367",
             "addr": "0x64c660"
         },
         {
             "name": "SetServerName",
             "argc": "2",
+            "interfaceid": "2",
+            "functionid": "199438605",
+            "fencepost": "214261410",
             "addr": "0x651140"
         },
         {
             "name": "SetMapName",
             "argc": "2",
+            "interfaceid": "2",
+            "functionid": "2438250563",
+            "fencepost": "2453089497",
             "addr": "0x6514f0"
         },
         {
             "name": "SetPasswordProtected",
             "argc": "2",
+            "interfaceid": "2",
+            "functionid": "1661475507",
+            "fencepost": "1676330570",
             "addr": "0x64ff80"
         },
         {
             "name": "SetSpectatorPort",
             "argc": "2",
+            "interfaceid": "2",
+            "functionid": "4247042832",
+            "fencepost": "4261914024",
             "addr": "0x6500d0"
         },
         {
             "name": "SetSpectatorServerName",
             "argc": "2",
+            "interfaceid": "2",
+            "functionid": "201896100",
+            "fencepost": "216783421",
             "addr": "0x651280"
         },
         {
             "name": "ClearAllKeyValues",
             "argc": "1",
+            "interfaceid": "2",
+            "functionid": "369569508",
+            "fencepost": "384472958",
             "addr": "0x6513c0"
         },
         {
             "name": "SetKeyValue",
             "argc": "3",
+            "interfaceid": "2",
+            "functionid": "1234045002",
+            "fencepost": "1248964581",
             "addr": "0x64fce0"
         },
         {
             "name": "SetGameTags",
             "argc": "2",
+            "interfaceid": "2",
+            "functionid": "3572024697",
+            "fencepost": "3586960405",
             "addr": "0x651000"
         },
         {
             "name": "SetGameData",
             "argc": "2",
+            "interfaceid": "2",
+            "functionid": "1327526543",
+            "fencepost": "1342478380",
             "addr": "0x650d80"
         },
         {
             "name": "SetRegion",
             "argc": "2",
+            "interfaceid": "2",
+            "functionid": "1687366834",
+            "fencepost": "1702334800",
             "addr": "0x650ec0"
         },
         {
             "name": "SendUserConnectAndAuthenticate",
             "argc": "5",
+            "interfaceid": "2",
+            "functionid": "3985372134",
+            "fencepost": "4000436874",
             "addr": "0x650760"
         },
         {
             "name": "CreateUnauthenticatedUserConnection",
             "argc": "2",
+            "interfaceid": "2",
+            "functionid": "2185578485",
+            "fencepost": "2200691612",
             "addr": "0x650920"
         },
         {
             "name": "SendUserDisconnect",
             "argc": "3",
+            "interfaceid": "2",
+            "functionid": "4151857868",
+            "fencepost": "4166987124",
             "addr": "0x650ab0"
         },
         {
             "name": "BUpdateUserData",
             "argc": "5",
+            "interfaceid": "2",
+            "functionid": "1794128642",
+            "fencepost": "1809274027",
             "addr": "0x650bf0"
         },
         {
             "name": "GetAuthSessionTicket",
             "argc": "4",
+            "interfaceid": "2",
+            "functionid": "3383734077",
+            "fencepost": "3398943978",
             "addr": "0x64c1a0"
         },
         {
             "name": "GetAuthSessionTicketV2",
             "argc": "5",
+            "interfaceid": "2",
+            "functionid": "789781899",
+            "fencepost": "805120832",
             "addr": "0x64c350"
         },
         {
             "name": "BeginAuthSession",
             "argc": "5",
+            "interfaceid": "2",
+            "functionid": "2255415876",
+            "fencepost": "2270883841",
             "addr": "0x64edd0"
         },
         {
             "name": "EndAuthSession",
             "argc": "3",
+            "interfaceid": "2",
+            "functionid": "2596259081",
+            "fencepost": "2611759304",
             "addr": "0x64ef60"
         },
         {
             "name": "CancelAuthTicket",
             "argc": "2",
+            "interfaceid": "2",
+            "functionid": "1265212975",
+            "fencepost": "1280729327",
             "addr": "0x64ec80"
         },
         {
             "name": "IsUserSubscribedAppInTicket",
             "argc": "4",
+            "interfaceid": "2",
+            "functionid": "2470779488",
+            "fencepost": "2486311969",
             "addr": "0x64f350"
         },
         {
             "name": "RequestUserGroupStatus",
             "argc": "5",
+            "interfaceid": "2",
+            "functionid": "2524837822",
+            "fencepost": "2540386432",
             "addr": "0x64f0a0"
         },
         {
             "name": "GetGameplayStats",
             "argc": "1",
+            "interfaceid": "2",
+            "functionid": "2514232045",
+            "fencepost": "2529796784",
             "addr": "0x64f220"
         },
         {
             "name": "GetServerReputation",
             "argc": "1",
+            "interfaceid": "2",
+            "functionid": "1750005602",
+            "fencepost": "1765586470",
             "addr": "0x64e130"
         },
         {
             "name": "GetPublicIP",
             "argc": "2",
+            "interfaceid": "2",
+            "functionid": "836182102",
+            "fencepost": "851779099",
             "addr": "0x64e2b0"
         },
         {
             "name": "EnableHeartbeats",
             "argc": "2",
+            "interfaceid": "2",
+            "functionid": "2901081303",
+            "fencepost": "2916694429",
             "addr": "0x64e4a0"
         },
         {
             "name": "SetHeartbeatInterval",
             "argc": "2",
+            "interfaceid": "2",
+            "functionid": "1665608276",
+            "fencepost": "1681237531",
             "addr": "0x64e5f0"
         },
         {
             "name": "ForceHeartbeat",
             "argc": "1",
+            "interfaceid": "2",
+            "functionid": "2769745056",
+            "fencepost": "2785390440",
             "addr": "0x64e740"
         },
         {
             "name": "GetLogonState",
             "argc": "1",
+            "interfaceid": "2",
+            "functionid": "3009909648",
+            "fencepost": "3024651808",
             "addr": "0x64fb80"
         },
         {
             "name": "BConnected",
             "argc": "1",
+            "interfaceid": "2",
+            "functionid": "416045571",
+            "fencepost": "430803860",
             "addr": "0x650220"
         },
         {
             "name": "RaiseConnectionPriority",
             "argc": "2",
+            "interfaceid": "2",
+            "functionid": "1783790061",
+            "fencepost": "1799467703",
             "addr": "0x64e870"
         },
         {
             "name": "ResetConnectionPriority",
             "argc": "2",
+            "interfaceid": "2",
+            "functionid": "8074148",
+            "fencepost": "23767919",
             "addr": "0x64e9e0"
         },
         {
             "name": "SetCellID",
             "argc": "2",
+            "interfaceid": "2",
+            "functionid": "2589721053",
+            "fencepost": "2605447082",
             "addr": "0x64eb30"
         },
         {
             "name": "TrackSteamUsageEvent",
             "argc": "4",
+            "interfaceid": "2",
+            "functionid": "3722709677",
+            "fencepost": "3738532480",
             "addr": "0x64c7b0"
         },
         {
             "name": "SetCountOfSimultaneousGuestUsersPerSteamAccount",
             "argc": "2",
+            "interfaceid": "2",
+            "functionid": "1175073173",
+            "fencepost": "1190960492",
             "addr": "0x64c920"
         },
         {
             "name": "EnumerateConnectedUsers",
             "argc": "3",
+            "interfaceid": "2",
+            "functionid": "3388699949",
+            "fencepost": "3404651784",
             "addr": "0x64ca70"
         },
         {
             "name": "AssociateWithClan",
             "argc": "3",
+            "interfaceid": "2",
+            "functionid": "2315000004",
+            "fencepost": "2331000226",
             "addr": "0x64cc00"
         },
         {
             "name": "ComputeNewPlayerCompatibility",
             "argc": "3",
+            "interfaceid": "2",
+            "functionid": "2162986283",
+            "fencepost": "2179002634",
             "addr": "0x64cd90"
         },
         {
             "name": "_BGetUserAchievementStatus",
             "argc": "4",
+            "interfaceid": "2",
+            "functionid": "3495569146",
+            "fencepost": "3511714529",
             "addr": "0x64cf20"
         },
         {
             "name": "_GSSetSpawnCount",
             "argc": "2",
+            "interfaceid": "2",
+            "functionid": "3072768280",
+            "fencepost": "3088945921",
             "addr": "0x64d0a0"
         },
         {
             "name": "_GSGetSteam2GetEncryptionKeyToSendToNewClient",
             "argc": "4",
+            "interfaceid": "2",
+            "functionid": "2874681322",
+            "fencepost": "2891229930",
             "addr": "0x64d710"
         },
         {
             "name": "_GSSendSteam2UserConnect",
             "argc": "8",
+            "interfaceid": "2",
+            "functionid": "86838648",
+            "fencepost": "103161450",
             "addr": "0x64d1f0"
         },
         {
             "name": "_GSSendSteam3UserConnect",
             "argc": "6",
+            "interfaceid": "2",
+            "functionid": "3566358728",
+            "fencepost": "3582810562",
             "addr": "0x64d560"
         },
         {
             "name": "_GSSendUserConnect",
             "argc": "6",
+            "interfaceid": "2",
+            "functionid": "3289429435",
+            "fencepost": "3306252236",
             "addr": "0x64dc00"
         },
         {
             "name": "_GSRemoveUserConnect",
             "argc": "2",
+            "interfaceid": "2",
+            "functionid": "775705916",
+            "fencepost": "792060976",
             "addr": "0x64d3e0"
         },
         {
             "name": "_GSUpdateStatus",
             "argc": "7",
+            "interfaceid": "2",
+            "functionid": "1534974732",
+            "fencepost": "1551603985",
             "addr": "0x64d8c0"
         },
         {
             "name": "_GSCreateUnauthenticatedUser",
             "argc": "2",
+            "interfaceid": "2",
+            "functionid": "2109956193",
+            "fencepost": "2126633833",
             "addr": "0x64da80"
         },
         {
             "name": "_GSSetServerType",
             "argc": "10",
+            "interfaceid": "2",
+            "functionid": "1735495886",
+            "fencepost": "1752463848",
             "addr": "0x64b970"
         },
         {
             "name": "_SetBasicServerData",
             "argc": "8",
+            "interfaceid": "2",
+            "functionid": "3201027874",
+            "fencepost": "3217931320",
             "addr": "0x64ddd0"
         },
         {
             "name": "_GSSendUserDisconnect",
             "argc": "4",
+            "interfaceid": "2",
+            "functionid": "2465847910",
+            "fencepost": "2482783614",
             "addr": "0x64dfa0"
         }
     ]

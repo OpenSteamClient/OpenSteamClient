@@ -5,11 +5,17 @@
         {
             "name": "HandleIncomingPacket",
             "argc": "5",
+            "interfaceid": "53",
+            "functionid": "1084551790",
+            "fencepost": "1101816551",
             "addr": "0x5a0c80"
         },
         {
             "name": "GetNextOutgoingPacket",
             "argc": "5",
+            "interfaceid": "53",
+            "functionid": "4015585516",
+            "fencepost": "4032995438",
             "addr": "0x5a0e40"
         }
     ]

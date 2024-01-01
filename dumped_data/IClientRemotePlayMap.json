@@ -5,41 +5,65 @@
         {
             "name": "GetSessionCount",
             "argc": "1",
+            "interfaceid": "52",
+            "functionid": "2794248700",
+            "fencepost": "2892432527",
             "addr": "0x649250"
         },
         {
             "name": "GetSessionID",
             "argc": "2",
+            "interfaceid": "52",
+            "functionid": "1973243909",
+            "fencepost": "2071443865",
             "addr": "0x6493b0"
         },
         {
             "name": "GetSessionSteamID",
             "argc": "3",
+            "interfaceid": "52",
+            "functionid": "2908162459",
+            "fencepost": "3006378544",
             "addr": "0x649520"
         },
         {
             "name": "GetSessionClientName",
             "argc": "2",
+            "interfaceid": "52",
+            "functionid": "787084674",
+            "fencepost": "885316888",
             "addr": "0x6496c0"
         },
         {
             "name": "GetSessionClientFormFactor",
             "argc": "2",
+            "interfaceid": "52",
+            "functionid": "4060454936",
+            "fencepost": "4158703279",
             "addr": "0x649830"
         },
         {
             "name": "BGetSessionClientResolution",
             "argc": "4",
+            "interfaceid": "52",
+            "functionid": "2408322032",
+            "fencepost": "2506651020",
             "addr": "0x6499a0"
         },
         {
             "name": "BStartRemotePlayTogether",
             "argc": "2",
+            "interfaceid": "52",
+            "functionid": "1922132895",
+            "fencepost": "2020526399",
             "addr": "0x649b50"
         },
         {
             "name": "BSendRemotePlayTogetherInvite",
             "argc": "3",
+            "interfaceid": "52",
+            "functionid": "1483307303",
+            "fencepost": "1581716936",
             "addr": "0x649cd0"
         }
     ]

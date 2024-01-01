@@ -5,16 +5,25 @@
         {
             "name": "IsInterfaceValid",
             "argc": "1",
+            "interfaceid": "59",
+            "functionid": "862246288",
+            "fencepost": "907060143",
             "addr": "0x5dd220"
         },
         {
             "name": "GetState",
             "argc": "3",
+            "interfaceid": "59",
+            "functionid": "3936378811",
+            "fencepost": "3981273311",
             "addr": "0x5dd380"
         },
         {
             "name": "UpdateSomething",
             "argc": "2",
+            "interfaceid": "59",
+            "functionid": "3365237348",
+            "fencepost": "3410228622",
             "addr": "0x5dd510"
         }
     ]

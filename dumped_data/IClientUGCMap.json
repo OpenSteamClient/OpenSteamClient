@@ -5,516 +5,825 @@
         {
             "name": "CreateQueryUserUGCRequest",
             "argc": "8",
+            "interfaceid": "32",
+            "functionid": "2448984157",
+            "fencepost": "2525649358",
             "addr": "0x616cb0"
         },
         {
             "name": "CreateQueryAllUGCRequest",
             "argc": "6",
+            "interfaceid": "32",
+            "functionid": "3131833005",
+            "fencepost": "3208514335",
             "addr": "0x620960"
         },
         {
             "name": "CreateQueryAllUGCRequest",
             "argc": "6",
+            "interfaceid": "32",
+            "functionid": "1757583172",
+            "fencepost": "1834280631",
             "addr": "0x620b50"
         },
         {
             "name": "CreateQueryUGCDetailsRequest",
             "argc": "3",
+            "interfaceid": "32",
+            "functionid": "834538048",
+            "fencepost": "911300023",
             "addr": "0x616f00"
         },
         {
             "name": "SendQueryUGCRequest",
             "argc": "3",
+            "interfaceid": "32",
+            "functionid": "2550392520",
+            "fencepost": "2627202882",
             "addr": "0x6170a0"
         },
         {
             "name": "GetQueryUGCResult",
             "argc": "5",
+            "interfaceid": "32",
+            "functionid": "1955442863",
+            "fencepost": "2032333870",
             "addr": "0x620d30"
         },
         {
             "name": "GetQueryUGCNumTags",
             "argc": "4",
+            "interfaceid": "32",
+            "functionid": "420829012",
+            "fencepost": "497784535",
             "addr": "0x617240"
         },
         {
             "name": "GetQueryUGCTag",
             "argc": "7",
+            "interfaceid": "32",
+            "functionid": "1068034484",
+            "fencepost": "1145119039",
             "addr": "0x6173e0"
         },
         {
             "name": "GetQueryUGCTagDisplayName",
             "argc": "7",
+            "interfaceid": "32",
+            "functionid": "256135119",
+            "fencepost": "333380964",
             "addr": "0x6175e0"
         },
         {
             "name": "GetQueryUGCPreviewURL",
             "argc": "6",
+            "interfaceid": "32",
+            "functionid": "129785424",
+            "fencepost": "207176430",
             "addr": "0x6177e0"
         },
         {
             "name": "GetQueryUGCImageURL",
             "argc": "8",
+            "interfaceid": "32",
+            "functionid": "3953813550",
+            "fencepost": "4031349717",
             "addr": "0x6179b0"
         },
         {
             "name": "GetQueryUGCMetadata",
             "argc": "6",
+            "interfaceid": "32",
+            "functionid": "391036444",
+            "fencepost": "468750030",
             "addr": "0x617ba0"
         },
         {
             "name": "GetQueryUGCChildren",
             "argc": "6",
+            "interfaceid": "32",
+            "functionid": "839816692",
+            "fencepost": "917675439",
             "addr": "0x617d70"
         },
         {
             "name": "GetQueryUGCStatistic",
             "argc": "6",
+            "interfaceid": "32",
+            "functionid": "508250098",
+            "fencepost": "586254006",
             "addr": "0x620ef0"
         },
         {
             "name": "GetQueryUGCNumAdditionalPreviews",
             "argc": "4",
+            "interfaceid": "32",
+            "functionid": "253800812",
+            "fencepost": "331869236",
             "addr": "0x617f40"
         },
         {
             "name": "GetQueryUGCAdditionalPreview",
             "argc": "10",
+            "interfaceid": "32",
+            "functionid": "2197523169",
+            "fencepost": "2275769012",
             "addr": "0x6180e0"
         },
         {
             "name": "GetQueryUGCNumKeyValueTags",
             "argc": "4",
+            "interfaceid": "32",
+            "functionid": "725684458",
+            "fencepost": "804027075",
             "addr": "0x618330"
         },
         {
             "name": "GetQueryUGCKeyValueTag",
             "argc": "9",
+            "interfaceid": "32",
+            "functionid": "2345080645",
+            "fencepost": "2423584552",
             "addr": "0x6184d0"
         },
         {
             "name": "GetQueryUGCKeyValueTag",
             "argc": "7",
+            "interfaceid": "32",
+            "functionid": "316921951",
+            "fencepost": "395603277",
             "addr": "0x618700"
         },
         {
             "name": "GetQueryUGCContentDescriptors",
             "argc": "6",
+            "interfaceid": "32",
+            "functionid": "1482438505",
+            "fencepost": "1561264992",
             "addr": "0x6188e0"
         },
         {
             "name": "GetQueryUGCIsDepotBuild",
             "argc": "5",
+            "interfaceid": "32",
+            "functionid": "1636087416",
+            "fencepost": "1715042935",
             "addr": "0x618ac0"
         },
         {
             "name": "ReleaseQueryUGCRequest",
             "argc": "3",
+            "interfaceid": "32",
+            "functionid": "2312255621",
+            "fencepost": "2391275656",
             "addr": "0x618c80"
         },
         {
             "name": "AddRequiredTag",
             "argc": "4",
+            "interfaceid": "32",
+            "functionid": "1675448147",
+            "fencepost": "1754500440",
             "addr": "0x618e10"
         },
         {
             "name": "AddRequiredTagGroup",
             "argc": "4",
+            "interfaceid": "32",
+            "functionid": "74644981",
+            "fencepost": "153761790",
             "addr": "0x618fa0"
         },
         {
             "name": "AddExcludedTag",
             "argc": "4",
+            "interfaceid": "32",
+            "functionid": "124043066",
+            "fencepost": "203192133",
             "addr": "0x619130"
         },
         {
             "name": "SetReturnOnlyIDs",
             "argc": "4",
+            "interfaceid": "32",
+            "functionid": "429495355",
+            "fencepost": "508660551",
             "addr": "0x6192c0"
         },
         {
             "name": "SetReturnKeyValueTags",
             "argc": "4",
+            "interfaceid": "32",
+            "functionid": "2051081931",
+            "fencepost": "2130263256",
             "addr": "0x619470"
         },
         {
             "name": "SetReturnLongDescription",
             "argc": "4",
+            "interfaceid": "32",
+            "functionid": "4235071981",
+            "fencepost": "19302139",
             "addr": "0x619620"
         },
         {
             "name": "SetReturnMetadata",
             "argc": "4",
+            "interfaceid": "32",
+            "functionid": "1733065849",
+            "fencepost": "1812279432",
             "addr": "0x6197d0"
         },
         {
             "name": "SetReturnChildren",
             "argc": "4",
+            "interfaceid": "32",
+            "functionid": "286465264",
+            "fencepost": "365694976",
             "addr": "0x619980"
         },
         {
             "name": "SetReturnAdditionalPreviews",
             "argc": "4",
+            "interfaceid": "32",
+            "functionid": "2509645140",
+            "fencepost": "2588890981",
             "addr": "0x619b30"
         },
         {
             "name": "SetReturnTotalOnly",
             "argc": "4",
+            "interfaceid": "32",
+            "functionid": "2727430809",
+            "fencepost": "2806692779",
             "addr": "0x619ce0"
         },
         {
             "name": "SetReturnPlaytimeStats",
             "argc": "4",
+            "interfaceid": "32",
+            "functionid": "1742708585",
+            "fencepost": "1821986684",
             "addr": "0x619e90"
         },
         {
             "name": "SetLanguage",
             "argc": "4",
+            "interfaceid": "32",
+            "functionid": "3574721916",
+            "fencepost": "3654016144",
             "addr": "0x61a030"
         },
         {
             "name": "SetAllowCachedResponse",
             "argc": "4",
+            "interfaceid": "32",
+            "functionid": "2920594483",
+            "fencepost": "2999904840",
             "addr": "0x61a1c0"
         },
         {
             "name": "SetCloudFileNameFilter",
             "argc": "4",
+            "interfaceid": "32",
+            "functionid": "2889679605",
+            "fencepost": "2969022220",
             "addr": "0x61a360"
         },
         {
             "name": "SetMatchAnyTag",
             "argc": "4",
+            "interfaceid": "32",
+            "functionid": "1580510057",
+            "fencepost": "1659884930",
             "addr": "0x61a4f0"
         },
         {
             "name": "SetSearchText",
             "argc": "4",
+            "interfaceid": "32",
+            "functionid": "1519079525",
+            "fencepost": "1598470527",
             "addr": "0x61a6a0"
         },
         {
             "name": "SetRankedByTrendDays",
             "argc": "4",
+            "interfaceid": "32",
+            "functionid": "2861789531",
+            "fencepost": "2941196662",
             "addr": "0x61a830"
         },
         {
             "name": "SetTimeCreatedDateRange",
             "argc": "5",
+            "interfaceid": "32",
+            "functionid": "1735152171",
+            "fencepost": "1814575431",
             "addr": "0x61a9d0"
         },
         {
             "name": "SetTimeUpdatedDateRange",
             "argc": "5",
+            "interfaceid": "32",
+            "functionid": "3307646745",
+            "fencepost": "3387086134",
             "addr": "0x61ab80"
         },
         {
             "name": "AddRequiredKeyValueTag",
             "argc": "5",
+            "interfaceid": "32",
+            "functionid": "1320780309",
+            "fencepost": "1400235827",
             "addr": "0x61ad30"
         },
         {
             "name": "RequestUGCDetails",
             "argc": "4",
+            "interfaceid": "32",
+            "functionid": "377727657",
+            "fencepost": "457215433",
             "addr": "0x61aed0"
         },
         {
             "name": "CreateItem",
             "argc": "3",
+            "interfaceid": "32",
+            "functionid": "3831872972",
+            "fencepost": "3911393006",
             "addr": "0x61b0b0"
         },
         {
             "name": "StartItemUpdate",
             "argc": "4",
+            "interfaceid": "32",
+            "functionid": "990378849",
+            "fencepost": "1069931141",
             "addr": "0x61b260"
         },
         {
             "name": "SetItemTitle",
             "argc": "4",
+            "interfaceid": "32",
+            "functionid": "4179224257",
+            "fencepost": "4258792678",
             "addr": "0x61b440"
         },
         {
             "name": "SetItemDescription",
             "argc": "4",
+            "interfaceid": "32",
+            "functionid": "1228482614",
+            "fencepost": "1308067164",
             "addr": "0x61b5d0"
         },
         {
             "name": "SetItemUpdateLanguage",
             "argc": "4",
+            "interfaceid": "32",
+            "functionid": "3170053618",
+            "fencepost": "3249654297",
             "addr": "0x61b760"
         },
         {
             "name": "SetItemMetadata",
             "argc": "4",
+            "interfaceid": "32",
+            "functionid": "1605596027",
+            "fencepost": "1685212835",
             "addr": "0x61b8f0"
         },
         {
             "name": "SetItemVisibility",
             "argc": "4",
+            "interfaceid": "32",
+            "functionid": "3574282478",
+            "fencepost": "3653915415",
             "addr": "0x61ba80"
         },
         {
             "name": "SetItemTags",
             "argc": "5",
+            "interfaceid": "32",
+            "functionid": "2594889031",
+            "fencepost": "2674602613",
             "addr": "0x61bc20"
         },
         {
             "name": "SetItemContent",
             "argc": "4",
+            "interfaceid": "32",
+            "functionid": "1773426883",
+            "fencepost": "1853172723",
             "addr": "0x61bdd0"
         },
         {
             "name": "SetItemPreview",
             "argc": "4",
+            "interfaceid": "32",
+            "functionid": "681535595",
+            "fencepost": "761297564",
             "addr": "0x61bf60"
         },
         {
             "name": "SetAllowLegacyUpload",
             "argc": "4",
+            "interfaceid": "32",
+            "functionid": "3591742023",
+            "fencepost": "3671520121",
             "addr": "0x61c0f0"
         },
         {
             "name": "RemoveAllItemKeyValueTags",
             "argc": "3",
+            "interfaceid": "32",
+            "functionid": "1700735986",
+            "fencepost": "1780530213",
             "addr": "0x61c2a0"
         },
         {
             "name": "RemoveItemKeyValueTags",
             "argc": "4",
+            "interfaceid": "32",
+            "functionid": "1289764393",
+            "fencepost": "1369574749",
             "addr": "0x61c430"
         },
         {
             "name": "AddItemKeyValueTag",
             "argc": "5",
+            "interfaceid": "32",
+            "functionid": "1176223571",
+            "fencepost": "1256050056",
             "addr": "0x61c5c0"
         },
         {
             "name": "AddItemPreviewFile",
             "argc": "5",
+            "interfaceid": "32",
+            "functionid": "717213723",
+            "fencepost": "797056337",
             "addr": "0x61c760"
         },
         {
             "name": "AddItemPreviewVideo",
             "argc": "4",
+            "interfaceid": "32",
+            "functionid": "2403306921",
+            "fencepost": "2483165664",
             "addr": "0x61c910"
         },
         {
             "name": "UpdateItemPreviewFile",
             "argc": "5",
+            "interfaceid": "32",
+            "functionid": "329666306",
+            "fencepost": "409541178",
             "addr": "0x61caa0"
         },
         {
             "name": "UpdateItemPreviewVideo",
             "argc": "5",
+            "interfaceid": "32",
+            "functionid": "3874337944",
+            "fencepost": "3954228945",
             "addr": "0x61cc50"
         },
         {
             "name": "RemoveItemPreview",
             "argc": "4",
+            "interfaceid": "32",
+            "functionid": "155228724",
+            "fencepost": "235135854",
             "addr": "0x61ce00"
         },
         {
             "name": "AddContentDescriptor",
             "argc": "4",
+            "interfaceid": "32",
+            "functionid": "222857533",
+            "fencepost": "302780792",
             "addr": "0x6210c0"
         },
         {
             "name": "RemoveContentDescriptor",
             "argc": "4",
+            "interfaceid": "32",
+            "functionid": "747560683",
+            "fencepost": "827500071",
             "addr": "0x621260"
         },
         {
             "name": "SetExternalAssetID",
             "argc": "5",
+            "interfaceid": "32",
+            "functionid": "3122701629",
+            "fencepost": "3202657146",
             "addr": "0x61cfa0"
         },
         {
             "name": "SubmitItemUpdate",
             "argc": "4",
+            "interfaceid": "32",
+            "functionid": "354098360",
+            "fencepost": "434070006",
             "addr": "0x61d150"
         },
         {
             "name": "GetItemUpdateProgress",
             "argc": "5",
+            "interfaceid": "32",
+            "functionid": "3925407574",
+            "fencepost": "4005475994",
             "addr": "0x621400"
         },
         {
             "name": "SetUserItemVote",
             "argc": "4",
+            "interfaceid": "32",
+            "functionid": "1909591759",
+            "fencepost": "1989740824",
             "addr": "0x61d300"
         },
         {
             "name": "GetUserItemVote",
             "argc": "3",
+            "interfaceid": "32",
+            "functionid": "3521432868",
+            "fencepost": "3601598062",
             "addr": "0x61d4c0"
         },
         {
             "name": "AddItemToFavorites",
             "argc": "4",
+            "interfaceid": "32",
+            "functionid": "4005570791",
+            "fencepost": "4085768243",
             "addr": "0x61d660"
         },
         {
             "name": "RemoveItemFromFavorites",
             "argc": "4",
+            "interfaceid": "32",
+            "functionid": "3345592522",
+            "fencepost": "3425806103",
             "addr": "0x61d840"
         },
         {
             "name": "SubscribeItem",
             "argc": "5",
+            "interfaceid": "32",
+            "functionid": "1920788785",
+            "fencepost": "2001034624",
             "addr": "0x61da20"
         },
         {
             "name": "UnsubscribeItem",
             "argc": "4",
+            "interfaceid": "32",
+            "functionid": "3550987297",
+            "fencepost": "3631249265",
             "addr": "0x61dc20"
         },
         {
             "name": "GetNumSubscribedItems",
             "argc": "2",
+            "interfaceid": "32",
+            "functionid": "3513348895",
+            "fencepost": "3593643121",
             "addr": "0x61de00"
         },
         {
             "name": "GetSubscribedItems",
             "argc": "4",
+            "interfaceid": "32",
+            "functionid": "4272387261",
+            "fencepost": "57794836",
             "addr": "0x61df70"
         },
         {
             "name": "GetSubscribedItemsInternal",
             "argc": "3",
+            "interfaceid": "32",
+            "functionid": "3433768747",
+            "fencepost": "3514192005",
             "addr": "0x6215c0"
         },
         {
             "name": "SetWorkshopItemsDisabledLocally",
             "argc": "4",
+            "interfaceid": "32",
+            "functionid": "231035868",
+            "fencepost": "311475255",
             "addr": "0x621770"
         },
         {
             "name": "SetSubscriptionsLoadOrder",
             "argc": "3",
+            "interfaceid": "32",
+            "functionid": "126810468",
+            "fencepost": "207265984",
             "addr": "0x621940"
         },
         {
             "name": "MoveSubscriptionsLoadOrder",
             "argc": "4",
+            "interfaceid": "32",
+            "functionid": "925788684",
+            "fencepost": "1006260329",
             "addr": "0x61e120"
         },
         {
             "name": "GetItemState",
             "argc": "4",
+            "interfaceid": "32",
+            "functionid": "537926630",
+            "fencepost": "618591823",
             "addr": "0x61e5b0"
         },
         {
             "name": "GetItemInstallInfo",
             "argc": "8",
+            "interfaceid": "32",
+            "functionid": "2644076057",
+            "fencepost": "2724886411",
             "addr": "0x61e750"
         },
         {
             "name": "GetItemDownloadInfo",
             "argc": "6",
+            "interfaceid": "32",
+            "functionid": "2399573503",
+            "fencepost": "2480561276",
             "addr": "0x61e940"
         },
         {
             "name": "DownloadItem",
             "argc": "5",
+            "interfaceid": "32",
+            "functionid": "2630048479",
+            "fencepost": "2711116897",
             "addr": "0x61eb10"
         },
         {
             "name": "GetAppItemsStatus",
             "argc": "4",
+            "interfaceid": "32",
+            "functionid": "1887780327",
+            "fencepost": "1968945519",
             "addr": "0x61ecd0"
         },
         {
             "name": "BInitWorkshopForGameServer",
             "argc": "4",
+            "interfaceid": "32",
+            "functionid": "1224312413",
+            "fencepost": "1305558250",
             "addr": "0x61ee80"
         },
         {
             "name": "SuspendDownloads",
             "argc": "3",
+            "interfaceid": "32",
+            "functionid": "3715810642",
+            "fencepost": "3797088737",
             "addr": "0x61f020"
         },
         {
             "name": "GetAllItemsSizeOnDisk",
             "argc": "2",
+            "interfaceid": "32",
+            "functionid": "3905052887",
+            "fencepost": "3986363240",
             "addr": "0x61f180"
         },
         {
             "name": "StartPlaytimeTracking",
             "argc": "4",
+            "interfaceid": "32",
+            "functionid": "276627161",
+            "fencepost": "358034288",
             "addr": "0x61f310"
         },
         {
             "name": "StopPlaytimeTracking",
             "argc": "4",
+            "interfaceid": "32",
+            "functionid": "2820122886",
+            "fencepost": "2901642916",
             "addr": "0x61f4d0"
         },
         {
             "name": "StopPlaytimeTrackingForAllItems",
             "argc": "2",
+            "interfaceid": "32",
+            "functionid": "1392882758",
+            "fencepost": "1474451175",
             "addr": "0x61f690"
         },
         {
             "name": "AddDependency",
             "argc": "5",
+            "interfaceid": "32",
+            "functionid": "3317314929",
+            "fencepost": "3398915604",
             "addr": "0x61f820"
         },
         {
             "name": "RemoveDependency",
             "argc": "5",
+            "interfaceid": "32",
+            "functionid": "3335722609",
+            "fencepost": "3417339413",
             "addr": "0x61fa30"
         },
         {
             "name": "AddAppDependency",
             "argc": "4",
+            "interfaceid": "32",
+            "functionid": "3896536072",
+            "fencepost": "3978185134",
             "addr": "0x61fc40"
         },
         {
             "name": "RemoveAppDependency",
             "argc": "4",
+            "interfaceid": "32",
+            "functionid": "2661685972",
+            "fencepost": "2743351163",
             "addr": "0x61fe20"
         },
         {
             "name": "GetAppDependencies",
             "argc": "3",
+            "interfaceid": "32",
+            "functionid": "2683405994",
+            "fencepost": "2765087314",
             "addr": "0x620000"
         },
         {
             "name": "DeleteItem",
             "argc": "3",
+            "interfaceid": "32",
+            "functionid": "872400706",
+            "fencepost": "954114284",
             "addr": "0x6201a0"
         },
         {
             "name": "ShowWorkshopEULA",
             "argc": "1",
+            "interfaceid": "32",
+            "functionid": "1725891667",
+            "fencepost": "1807621374",
             "addr": "0x620340"
         },
         {
             "name": "GetWorkshopEULAStatus",
             "argc": "1",
+            "interfaceid": "32",
+            "functionid": "3943552598",
+            "fencepost": "4025298434",
             "addr": "0x6204a0"
         },
         {
             "name": "GetUserContentDescriptorPreferences",
             "argc": "3",
+            "interfaceid": "32",
+            "functionid": "2441956491",
+            "fencepost": "2523782972",
             "addr": "0x620620"
         },
         {
             "name": "GetNumDownloadedItems",
             "argc": "2",
+            "interfaceid": "32",
+            "functionid": "3675414745",
+            "fencepost": "3755918648",
             "addr": "0x61e290"
         },
         {
             "name": "GetDownloadedItems",
             "argc": "4",
+            "interfaceid": "32",
+            "functionid": "3907354234",
+            "fencepost": "3987954911",
             "addr": "0x61e400"
         },
         {
             "name": "GetFullQueryUGCResponse",
             "argc": "4",
+            "interfaceid": "32",
+            "functionid": "965682572",
+            "fencepost": "1047573569",
             "addr": "0x621ac0"
         },
         {
             "name": "GetSerializedQueryUGCResponse",
             "argc": "4",
+            "interfaceid": "32",
+            "functionid": "3284591799",
+            "fencepost": "3366547312",
             "addr": "0x6207c0"
         }
     ]

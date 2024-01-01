@@ -5,71 +5,113 @@
         {
             "name": "AddGameSearchParams",
             "argc": "3",
+            "interfaceid": "47",
+            "functionid": "2323601599",
+            "fencepost": "2356994598",
             "addr": "0x5c87e0"
         },
         {
             "name": "SearchForGameWithLobby",
             "argc": "5",
+            "interfaceid": "47",
+            "functionid": "3739264436",
+            "fencepost": "3772673564",
             "addr": "0x5c8950"
         },
         {
             "name": "SearchForGameSolo",
             "argc": "3",
+            "interfaceid": "47",
+            "functionid": "352636216",
+            "fencepost": "386061473",
             "addr": "0x5c8ae0"
         },
         {
             "name": "AcceptGame",
             "argc": "1",
+            "interfaceid": "47",
+            "functionid": "2318510021",
+            "fencepost": "2351951407",
             "addr": "0x5c8c70"
         },
         {
             "name": "DeclineGame",
             "argc": "1",
+            "interfaceid": "47",
+            "functionid": "4287724694",
+            "fencepost": "26214913",
             "addr": "0x5c8dd0"
         },
         {
             "name": "RetrieveConnectionDetails",
             "argc": "5",
+            "interfaceid": "47",
+            "functionid": "2232289438",
+            "fencepost": "2265827598",
             "addr": "0x5c8f30"
         },
         {
             "name": "EndGameSearch",
             "argc": "1",
+            "interfaceid": "47",
+            "functionid": "2360115827",
+            "fencepost": "2393702374",
             "addr": "0x5c90d0"
         },
         {
             "name": "SetGameHostParams",
             "argc": "3",
+            "interfaceid": "47",
+            "functionid": "802555102",
+            "fencepost": "836173907",
             "addr": "0x5c9230"
         },
         {
             "name": "SetConnectionDetails",
             "argc": "3",
+            "interfaceid": "47",
+            "functionid": "1677742509",
+            "fencepost": "1711377443",
             "addr": "0x5c93a0"
         },
         {
             "name": "RequestPlayersForGame",
             "argc": "4",
+            "interfaceid": "47",
+            "functionid": "3791324473",
+            "fencepost": "3824975536",
             "addr": "0x5c9520"
         },
         {
             "name": "HostConfirmGameStart",
             "argc": "3",
+            "interfaceid": "47",
+            "functionid": "2261344911",
+            "fencepost": "2295012103",
             "addr": "0x5c96c0"
         },
         {
             "name": "CancelRequestPlayersForGame",
             "argc": "1",
+            "interfaceid": "47",
+            "functionid": "3598059408",
+            "fencepost": "3631742729",
             "addr": "0x5c9840"
         },
         {
             "name": "SubmitPlayerResult",
             "argc": "6",
+            "interfaceid": "47",
+            "functionid": "532140807",
+            "fencepost": "565840257",
             "addr": "0x5c9b20"
         },
         {
             "name": "EndGame",
             "argc": "3",
+            "interfaceid": "47",
+            "functionid": "1234683165",
+            "fencepost": "1268398744",
             "addr": "0x5c99a0"
         }
     ]

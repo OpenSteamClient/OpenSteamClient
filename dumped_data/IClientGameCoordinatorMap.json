@@ -5,16 +5,25 @@
         {
             "name": "SendMessage",
             "argc": "5",
+            "interfaceid": "19",
+            "functionid": "3499677205",
+            "fencepost": "3560663367",
             "addr": "0x5f71d0"
         },
         {
             "name": "IsMessageAvailable",
             "argc": "3",
+            "interfaceid": "19",
+            "functionid": "1188771612",
+            "fencepost": "1249838419",
             "addr": "0x5f7380"
         },
         {
             "name": "RetrieveMessage",
             "argc": "6",
+            "interfaceid": "19",
+            "functionid": "1763933754",
+            "fencepost": "1825145722",
             "addr": "0x5f7510"
         }
     ]

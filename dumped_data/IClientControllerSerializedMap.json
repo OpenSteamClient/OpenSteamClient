@@ -5,831 +5,1329 @@
         {
             "name": "Unknown_0",
             "argc": "0",
+            "interfaceid": "0",
+            "functionid": "0",
+            "fencepost": "0",
             "addr": "0x587690"
         },
         {
             "name": "Unknown_1",
             "argc": "0",
+            "interfaceid": "0",
+            "functionid": "0",
+            "fencepost": "0",
             "addr": "0x64b580"
         },
         {
             "name": "ShowBindingPanel",
             "argc": "4",
+            "interfaceid": "41",
+            "functionid": "1683742348",
+            "fencepost": "1774602212",
             "addr": "0x632a30"
         },
         {
             "name": "GetControllerTypeForHandle",
             "argc": "3",
+            "interfaceid": "41",
+            "functionid": "3862712772",
+            "fencepost": "3953588765",
             "addr": "0x632bd0"
         },
         {
             "name": "GetGamepadIndexForHandle",
             "argc": "3",
+            "interfaceid": "41",
+            "functionid": "97868736",
+            "fencepost": "188760858",
             "addr": "0x632d50"
         },
         {
             "name": "GetHandleForGamepadIndex",
             "argc": "2",
+            "interfaceid": "41",
+            "functionid": "2574468915",
+            "fencepost": "2665377166",
             "addr": "0x632ed0"
         },
         {
             "name": "GetActionSetHandle",
             "argc": "3",
+            "interfaceid": "41",
+            "functionid": "682883387",
+            "fencepost": "773807767",
             "addr": "0x633060"
         },
         {
             "name": "GetActionSetHandleByTitle",
             "argc": "3",
+            "interfaceid": "41",
+            "functionid": "3368385709",
+            "fencepost": "3459326218",
             "addr": "0x633200"
         },
         {
             "name": "ActivateActionSet",
             "argc": "6",
+            "interfaceid": "41",
+            "functionid": "3468977154",
+            "fencepost": "3559933792",
             "addr": "0x6333a0"
         },
         {
             "name": "ActivateActionSetLayer",
             "argc": "6",
+            "interfaceid": "41",
+            "functionid": "514817138",
+            "fencepost": "605789905",
             "addr": "0x633540"
         },
         {
             "name": "DeactivateActionSetLayer",
             "argc": "6",
+            "interfaceid": "41",
+            "functionid": "42465186",
+            "fencepost": "133454082",
             "addr": "0x6336e0"
         },
         {
             "name": "DeactivateAllActionSetLayers",
             "argc": "4",
+            "interfaceid": "41",
+            "functionid": "4229022798",
+            "fencepost": "25060527",
             "addr": "0x633880"
         },
         {
             "name": "GetActiveActionSetLayers",
             "argc": "5",
+            "interfaceid": "41",
+            "functionid": "1964497508",
+            "fencepost": "2055518662",
             "addr": "0x6339f0"
         },
         {
             "name": "GetDigitalActionHandle",
             "argc": "4",
+            "interfaceid": "41",
+            "functionid": "2528304502",
+            "fencepost": "2619341785",
             "addr": "0x633be0"
         },
         {
             "name": "GetAnalogActionHandle",
             "argc": "4",
+            "interfaceid": "41",
+            "functionid": "971374483",
+            "fencepost": "1062427895",
             "addr": "0x633da0"
         },
         {
             "name": "StopAnalogActionMomentum",
             "argc": "5",
+            "interfaceid": "41",
+            "functionid": "2524571753",
+            "fencepost": "2615641294",
             "addr": "0x633f60"
         },
         {
             "name": "EnableDeviceCallbacks",
             "argc": "2",
+            "interfaceid": "41",
+            "functionid": "2094688479",
+            "fencepost": "2189435432",
             "addr": "0x63db80"
         },
         {
             "name": "GetStringForDigitalActionName",
             "argc": "6",
+            "interfaceid": "41",
+            "functionid": "399399804",
+            "fencepost": "494243531",
             "addr": "0x63dcd0"
         },
         {
             "name": "GetStringForAnalogActionName",
             "argc": "6",
+            "interfaceid": "41",
+            "functionid": "1767600500",
+            "fencepost": "1862573259",
             "addr": "0x63dea0"
         },
         {
             "name": "BCheckGameDirectoryAndReloadConfigIfNecessary",
             "argc": "4",
+            "interfaceid": "41",
+            "functionid": "2851694637",
+            "fencepost": "2946780299",
             "addr": "0x63e070"
         },
         {
             "name": "GetActionManifestPath",
             "argc": "2",
+            "interfaceid": "41",
+            "functionid": "3396521526",
+            "fencepost": "3491639446",
             "addr": "0x63e210"
         },
         {
             "name": "GetActionManifestPath",
             "argc": "3",
+            "interfaceid": "41",
+            "functionid": "1349347327",
+            "fencepost": "1444481376",
             "addr": "0x63e380"
         },
         {
             "name": "DumpConfigurationToDisk",
             "argc": "2",
+            "interfaceid": "41",
+            "functionid": "2047882675",
+            "fencepost": "2143032853",
             "addr": "0x63e530"
         },
         {
             "name": "FlushCloudedConfigFilesToDisk",
             "argc": "1",
+            "interfaceid": "41",
+            "functionid": "4127927218",
+            "fencepost": "4223093525",
             "addr": "0x63e6b0"
         },
         {
             "name": "StartBindingVisualization",
             "argc": "4",
+            "interfaceid": "41",
+            "functionid": "7268221",
+            "fencepost": "102547431",
             "addr": "0x6423a0"
         },
         {
             "name": "StopBindingVisualization",
             "argc": "3",
+            "interfaceid": "41",
+            "functionid": "1330584530",
+            "fencepost": "1425879869",
             "addr": "0x63f030"
         },
         {
             "name": "GetNumConnectedControllers",
             "argc": "1",
+            "interfaceid": "41",
+            "functionid": "2602479183",
+            "fencepost": "2693564853",
             "addr": "0x6340f0"
         },
         {
             "name": "GetAllControllersStatus",
             "argc": "2",
+            "interfaceid": "41",
+            "functionid": "497450979",
+            "fencepost": "588552778",
             "addr": "0x63f2e0"
         },
         {
             "name": "GetControllerDetails",
             "argc": "2",
+            "interfaceid": "41",
+            "functionid": "2356235901",
+            "fencepost": "2447434474",
             "addr": "0x634960"
         },
         {
             "name": "SetDefaultConfig",
             "argc": "2",
+            "interfaceid": "41",
+            "functionid": "3326106398",
+            "fencepost": "3417321100",
             "addr": "0x634af0"
         },
         {
             "name": "CalibrateTrackpads",
             "argc": "2",
+            "interfaceid": "41",
+            "functionid": "2603582682",
+            "fencepost": "2694813513",
             "addr": "0x634c70"
         },
         {
             "name": "CalibrateJoystick",
             "argc": "2",
+            "interfaceid": "41",
+            "functionid": "23538966",
+            "fencepost": "114785926",
             "addr": "0x634df0"
         },
         {
             "name": "CalibrateIMU",
             "argc": "2",
+            "interfaceid": "41",
+            "functionid": "2918722164",
+            "fencepost": "3009985253",
             "addr": "0x634f70"
         },
         {
             "name": "SetAudioMapping",
             "argc": "3",
+            "interfaceid": "41",
+            "functionid": "2918268668",
+            "fencepost": "3009547886",
             "addr": "0x63f450"
         },
         {
             "name": "PlayAudio",
             "argc": "3",
+            "interfaceid": "41",
+            "functionid": "693564349",
+            "fencepost": "784859696",
             "addr": "0x6350f0"
         },
         {
             "name": "ResetStickExtents",
             "argc": "2",
+            "interfaceid": "41",
+            "functionid": "2997401541",
+            "fencepost": "3088713017",
             "addr": "0x635280"
         },
         {
             "name": "BIsStreamingController",
             "argc": "2",
+            "interfaceid": "41",
+            "functionid": "1779230580",
+            "fencepost": "1870558185",
             "addr": "0x635400"
         },
         {
             "name": "SetUserLedColor",
             "argc": "5",
+            "interfaceid": "41",
+            "functionid": "1068319182",
+            "fencepost": "1159662916",
             "addr": "0x635580"
         },
         {
             "name": "SetRumble",
             "argc": "6",
+            "interfaceid": "41",
+            "functionid": "3075422183",
+            "fencepost": "3166782046",
             "addr": "0x635750"
         },
         {
             "name": "SetRumbleExtended",
             "argc": "8",
+            "interfaceid": "41",
+            "functionid": "2166554409",
+            "fencepost": "2257930401",
             "addr": "0x635930"
         },
         {
             "name": "IdentifyControllerRumbleEffect",
             "argc": "2",
+            "interfaceid": "41",
+            "functionid": "1285403162",
+            "fencepost": "1376795283",
             "addr": "0x635b60"
         },
         {
             "name": "SetGyroAutoCalibrate",
             "argc": "3",
+            "interfaceid": "41",
+            "functionid": "3973676868",
+            "fencepost": "4065085118",
             "addr": "0x635ce0"
         },
         {
             "name": "RequestGyroActive",
             "argc": "4",
+            "interfaceid": "41",
+            "functionid": "1333163459",
+            "fencepost": "1424587838",
             "addr": "0x635e80"
         },
         {
             "name": "SetGyroCalibrating",
             "argc": "3",
+            "interfaceid": "41",
+            "functionid": "555866902",
+            "fencepost": "647307410",
             "addr": "0x636000"
         },
         {
             "name": "LoadConfigFromVDFString",
             "argc": "8",
+            "interfaceid": "41",
+            "functionid": "895579877",
+            "fencepost": "987052643",
             "addr": "0x63f610"
         },
         {
             "name": "InvalidateBindingCache",
             "argc": "1",
+            "interfaceid": "41",
+            "functionid": "1993858575",
+            "fencepost": "2085315212",
             "addr": "0x636160"
         },
         {
             "name": "ActivateConfig",
             "argc": "3",
+            "interfaceid": "41",
+            "functionid": "809290747",
+            "fencepost": "900795771",
             "addr": "0x636440"
         },
         {
             "name": "WarmOptInStatus",
             "argc": "3",
+            "interfaceid": "41",
+            "functionid": "1533356994",
+            "fencepost": "1624878147",
             "addr": "0x6365a0"
         },
         {
             "name": "GetCurrentActionSetHandleForRunningApp",
             "argc": "3",
+            "interfaceid": "41",
+            "functionid": "1965559284",
+            "fencepost": "2057048179",
             "addr": "0x636290"
         },
         {
             "name": "GetGamepadIndexForControllerIndex",
             "argc": "2",
+            "interfaceid": "41",
+            "functionid": "3284147975",
+            "fencepost": "3378152994",
             "addr": "0x63ad90"
         },
         {
             "name": "CreateBindingInstanceFromVDFString",
             "argc": "2",
+            "interfaceid": "41",
+            "functionid": "2134325626",
+            "fencepost": "2225862908",
             "addr": "0x63f830"
         },
         {
             "name": "FreeBindingInstance",
             "argc": "2",
+            "interfaceid": "41",
+            "functionid": "855572118",
+            "fencepost": "947125529",
             "addr": "0x636700"
         },
         {
             "name": "GetControllerConfiguration",
             "argc": "3",
+            "interfaceid": "41",
+            "functionid": "3877942606",
+            "fencepost": "3969560533",
             "addr": "0x63f9d0"
         },
         {
             "name": "SetControllerActionSet",
             "argc": "4",
+            "interfaceid": "41",
+            "functionid": "3691197471",
+            "fencepost": "3782928301",
             "addr": "0x63fb60"
         },
         {
             "name": "SetControllerSourceMode",
             "argc": "4",
+            "interfaceid": "41",
+            "functionid": "1976127900",
+            "fencepost": "2067971633",
             "addr": "0x63fd00"
         },
         {
             "name": "DuplicateControllerSourceMode",
             "argc": "4",
+            "interfaceid": "41",
+            "functionid": "3745541422",
+            "fencepost": "3837498058",
             "addr": "0x63fea0"
         },
         {
             "name": "SetControllerInputActivator",
             "argc": "4",
+            "interfaceid": "41",
+            "functionid": "2070664550",
+            "fencepost": "2162734089",
             "addr": "0x640040"
         },
         {
             "name": "SetControllerInputBinding",
             "argc": "4",
+            "interfaceid": "41",
+            "functionid": "457596181",
+            "fencepost": "549778623",
             "addr": "0x6401e0"
         },
         {
             "name": "SetControllerInputActivatorEnabled",
             "argc": "4",
+            "interfaceid": "41",
+            "functionid": "4259145822",
+            "fencepost": "56473871",
             "addr": "0x640380"
         },
         {
             "name": "SetControllerMiscMappingSettings",
             "argc": "4",
+            "interfaceid": "41",
+            "functionid": "1874323905",
+            "fencepost": "1966732153",
             "addr": "0x640520"
         },
         {
             "name": "SwapControllerModeInputBindings",
             "argc": "4",
+            "interfaceid": "41",
+            "functionid": "145896386",
+            "fencepost": "238417537",
             "addr": "0x6406c0"
         },
         {
             "name": "SetControllerModeShiftBinding",
             "argc": "4",
+            "interfaceid": "41",
+            "functionid": "2843300494",
+            "fencepost": "2935934548",
             "addr": "0x640860"
         },
         {
             "name": "IsModified",
             "argc": "2",
+            "interfaceid": "41",
+            "functionid": "3636598109",
+            "fencepost": "3729280550",
             "addr": "0x636880"
         },
         {
             "name": "ClearModified",
             "argc": "2",
+            "interfaceid": "41",
+            "functionid": "1733256185",
+            "fencepost": "1825954755",
             "addr": "0x636a00"
         },
         {
             "name": "GetLocalizationTokenCount",
             "argc": "2",
+            "interfaceid": "41",
+            "functionid": "3740622438",
+            "fencepost": "3833337137",
             "addr": "0x636b50"
         },
         {
             "name": "GetLocalizationToken",
             "argc": "4",
+            "interfaceid": "41",
+            "functionid": "3952479269",
+            "fencepost": "4045210097",
             "addr": "0x636cc0"
         },
         {
             "name": "GetLocalizedString",
             "argc": "3",
+            "interfaceid": "41",
+            "functionid": "1435321268",
+            "fencepost": "1528068225",
             "addr": "0x636e90"
         },
         {
             "name": "GetBindingVDFString",
             "argc": "2",
+            "interfaceid": "41",
+            "functionid": "2033767488",
+            "fencepost": "2126530574",
             "addr": "0x637010"
         },
         {
             "name": "GetBindingTitle",
             "argc": "3",
+            "interfaceid": "41",
+            "functionid": "3896692128",
+            "fencepost": "3989471343",
             "addr": "0x637180"
         },
         {
             "name": "SetBindingTitle",
             "argc": "3",
+            "interfaceid": "41",
+            "functionid": "4122021845",
+            "fencepost": "4214817189",
             "addr": "0x637310"
         },
         {
             "name": "GetBindingDescription",
             "argc": "3",
+            "interfaceid": "41",
+            "functionid": "356116904",
+            "fencepost": "448960635",
             "addr": "0x637760"
         },
         {
             "name": "GetBindingRevision",
             "argc": "4",
+            "interfaceid": "41",
+            "functionid": "192875910",
+            "fencepost": "285816415",
             "addr": "0x6378f0"
         },
         {
             "name": "BBindingMajorRevisionMismatch",
             "argc": "2",
+            "interfaceid": "41",
+            "functionid": "468698177",
+            "fencepost": "561703198",
             "addr": "0x637aa0"
         },
         {
             "name": "SetBindingDescription",
             "argc": "3",
+            "interfaceid": "41",
+            "functionid": "718710112",
+            "fencepost": "811747391",
             "addr": "0x637c20"
         },
         {
             "name": "GetConfigBindingInfo",
             "argc": "3",
+            "interfaceid": "41",
+            "functionid": "3916033664",
+            "fencepost": "4008893524",
             "addr": "0x640a00"
         },
         {
             "name": "SetBindingControllerType",
             "argc": "3",
+            "interfaceid": "41",
+            "functionid": "2265722033",
+            "fencepost": "2358775441",
             "addr": "0x637d70"
         },
         {
             "name": "GetBindingControllerType",
             "argc": "2",
+            "interfaceid": "41",
+            "functionid": "1430379576",
+            "fencepost": "1523449113",
             "addr": "0x637ed0"
         },
         {
             "name": "SetBindingCreator",
             "argc": "4",
+            "interfaceid": "41",
+            "functionid": "1426367362",
+            "fencepost": "1519194964",
             "addr": "0x6375f0"
         },
         {
             "name": "GetBindingCreator",
             "argc": "2",
+            "interfaceid": "41",
+            "functionid": "401005945",
+            "fencepost": "493817418",
             "addr": "0x637460"
         },
         {
             "name": "GetBindingProgenitor",
             "argc": "2",
+            "interfaceid": "41",
+            "functionid": "2593366028",
+            "fencepost": "2688548464",
             "addr": "0x63e7e0"
         },
         {
             "name": "SetBindingProgenitor",
             "argc": "3",
+            "interfaceid": "41",
+            "functionid": "689786855",
+            "fencepost": "784985420",
             "addr": "0x63e950"
         },
         {
             "name": "GetBindingURL",
             "argc": "2",
+            "interfaceid": "41",
+            "functionid": "1752286068",
+            "fencepost": "1847500762",
             "addr": "0x63eaa0"
         },
         {
             "name": "SetBindingURL",
             "argc": "3",
+            "interfaceid": "41",
+            "functionid": "783988859",
+            "fencepost": "879219682",
             "addr": "0x63ec10"
         },
         {
             "name": "GetBindingExportType",
             "argc": "2",
+            "interfaceid": "41",
+            "functionid": "3136768137",
+            "fencepost": "3232015089",
             "addr": "0x63ed60"
         },
         {
             "name": "SetBindingExportType",
             "argc": "3",
+            "interfaceid": "41",
+            "functionid": "2158232924",
+            "fencepost": "2253496005",
             "addr": "0x63eed0"
         },
         {
             "name": "GetConfigFeatures",
             "argc": "3",
+            "interfaceid": "41",
+            "functionid": "998144282",
+            "fencepost": "1091165432",
             "addr": "0x640b80"
         },
         {
             "name": "BIsXInputActiveForController",
             "argc": "2",
+            "interfaceid": "41",
+            "functionid": "1600870136",
+            "fencepost": "1691988064",
             "addr": "0x634250"
         },
         {
             "name": "PS4SettingsChanged",
             "argc": "2",
+            "interfaceid": "41",
+            "functionid": "2351692989",
+            "fencepost": "2442827046",
             "addr": "0x6343d0"
         },
         {
             "name": "SwitchSettingsChanged",
             "argc": "2",
+            "interfaceid": "41",
+            "functionid": "2975372201",
+            "fencepost": "3066522387",
             "addr": "0x634520"
         },
         {
             "name": "ControllerSettingsChanged",
             "argc": "2",
+            "interfaceid": "41",
+            "functionid": "1205455305",
+            "fencepost": "1296621620",
             "addr": "0x634670"
         },
         {
             "name": "SetTrackpadPressureCurve",
             "argc": "4",
+            "interfaceid": "41",
+            "functionid": "4159176869",
+            "fencepost": "4254488337",
             "addr": "0x640ed0"
         },
         {
             "name": "SetDefaultNintendoButtonLayout",
             "argc": "2",
+            "interfaceid": "41",
+            "functionid": "3418363709",
+            "fencepost": "3513691306",
             "addr": "0x63f190"
         },
         {
             "name": "IsControllerConnected",
             "argc": "3",
+            "interfaceid": "41",
+            "functionid": "2589608938",
+            "fencepost": "2680791382",
             "addr": "0x6347c0"
         },
         {
             "name": "TriggerHapticPulse",
             "argc": "7",
+            "interfaceid": "41",
+            "functionid": "1327986918",
+            "fencepost": "1421072584",
             "addr": "0x640d00"
         },
         {
             "name": "TriggerSimpleHapticEvent",
             "argc": "6",
+            "interfaceid": "41",
+            "functionid": "2246165465",
+            "fencepost": "2339267260",
             "addr": "0x638040"
         },
         {
             "name": "TriggerVibration",
             "argc": "5",
+            "interfaceid": "41",
+            "functionid": "3148376547",
+            "fencepost": "3241510600",
             "addr": "0x6383e0"
         },
         {
             "name": "TriggerVibrationExtended",
             "argc": "7",
+            "interfaceid": "41",
+            "functionid": "1517468435",
+            "fencepost": "1610618617",
             "addr": "0x638580"
         },
         {
             "name": "SetLEDColor",
             "argc": "6",
+            "interfaceid": "41",
+            "functionid": "125532382",
+            "fencepost": "218698693",
             "addr": "0x638760"
         },
         {
             "name": "SetDonglePairingMode",
             "argc": "3",
+            "interfaceid": "41",
+            "functionid": "44834662",
+            "fencepost": "138033231",
             "addr": "0x638a80"
         },
         {
             "name": "ReserveSteamController",
             "argc": "1",
+            "interfaceid": "41",
+            "functionid": "1516890830",
+            "fencepost": "1610105528",
             "addr": "0x638be0"
         },
         {
             "name": "CancelSteamControllerReservations",
             "argc": "1",
+            "interfaceid": "41",
+            "functionid": "3809300676",
+            "fencepost": "3902531503",
             "addr": "0x638d10"
         },
         {
             "name": "OpenStreamingSession",
             "argc": "3",
+            "interfaceid": "41",
+            "functionid": "2655525085",
+            "fencepost": "2748772041",
             "addr": "0x638e40"
         },
         {
             "name": "CloseStreamingSession",
             "argc": "3",
+            "interfaceid": "41",
+            "functionid": "3471554760",
+            "fencepost": "3564817845",
             "addr": "0x638fa0"
         },
         {
             "name": "UpdateStreamingSessionInputPermissions",
             "argc": "2",
+            "interfaceid": "41",
+            "functionid": "226731541",
+            "fencepost": "320010755",
             "addr": "0x639100"
         },
         {
             "name": "InitiateISPFirmwareUpdate",
             "argc": "2",
+            "interfaceid": "41",
+            "functionid": "3088980760",
+            "fencepost": "3182276103",
             "addr": "0x639250"
         },
         {
             "name": "InitiateBootloaderFirmwareUpdate",
             "argc": "2",
+            "interfaceid": "41",
+            "functionid": "2263484356",
+            "fencepost": "2356795828",
             "addr": "0x6393e0"
         },
         {
             "name": "FlashControllerFirmware",
             "argc": "5",
+            "interfaceid": "41",
+            "functionid": "2173026325",
+            "fencepost": "2266450700",
             "addr": "0x639570"
         },
         {
             "name": "TurnOffController",
             "argc": "2",
+            "interfaceid": "41",
+            "functionid": "1027728518",
+            "fencepost": "1121185151",
             "addr": "0x639730"
         },
         {
             "name": "EnumerateControllers",
             "argc": "1",
+            "interfaceid": "41",
+            "functionid": "2529691131",
+            "fencepost": "2623163893",
             "addr": "0x639880"
         },
         {
             "name": "GetControllerStatusEvent",
             "argc": "3",
+            "interfaceid": "41",
+            "functionid": "2399577872",
+            "fencepost": "2493115150",
             "addr": "0x641040"
         },
         {
             "name": "GetActualControllerDetails",
             "argc": "3",
+            "interfaceid": "41",
+            "functionid": "3288237821",
+            "fencepost": "3381871873",
             "addr": "0x6411d0"
         },
         {
             "name": "GetControllerIdentity",
             "argc": "3",
+            "interfaceid": "41",
+            "functionid": "4279503783",
+            "fencepost": "78218926",
             "addr": "0x641360"
         },
         {
             "name": "GetControllerPersonalization",
             "argc": "3",
+            "interfaceid": "41",
+            "functionid": "3137914800",
+            "fencepost": "3231613368",
             "addr": "0x6416f0"
         },
         {
             "name": "GetControllerReverseDiamondLayout",
             "argc": "2",
+            "interfaceid": "41",
+            "functionid": "780236232",
+            "fencepost": "873950929",
             "addr": "0x6399b0"
         },
         {
             "name": "BRumbleEnabledByUser",
             "argc": "2",
+            "interfaceid": "41",
+            "functionid": "93954745",
+            "fencepost": "187685571",
             "addr": "0x639b30"
         },
         {
             "name": "BHapticsEnabledByUser",
             "argc": "2",
+            "interfaceid": "41",
+            "functionid": "3368184917",
+            "fencepost": "3461931872",
             "addr": "0x639cb0"
         },
         {
             "name": "SetControllerPairingConnectionState",
             "argc": "3",
+            "interfaceid": "41",
+            "functionid": "3291302206",
+            "fencepost": "3385065290",
             "addr": "0x639e30"
         },
         {
             "name": "SetControllerKeyboardMouseState",
             "argc": "3",
+            "interfaceid": "41",
+            "functionid": "1954160797",
+            "fencepost": "2047940010",
             "addr": "0x639f90"
         },
         {
             "name": "GetTouchKeysForPopupMenu",
             "argc": "5",
+            "interfaceid": "41",
+            "functionid": "3991872969",
+            "fencepost": "4085668311",
             "addr": "0x641a50"
         },
         {
             "name": "PopupMenuTouchKeyClicked",
             "argc": "4",
+            "interfaceid": "41",
+            "functionid": "622259230",
+            "fencepost": "716070701",
             "addr": "0x63a0f0"
         },
         {
             "name": "AccessControllerInputGeneratorMouseButton",
             "argc": "4",
+            "interfaceid": "41",
+            "functionid": "577570386",
+            "fencepost": "671397986",
             "addr": "0x641c30"
         },
         {
             "name": "SetControllerSetting",
             "argc": "3",
+            "interfaceid": "41",
+            "functionid": "1782993357",
+            "fencepost": "1876837086",
             "addr": "0x641db0"
         },
         {
             "name": "GetEmulatedOutputState",
             "argc": "1",
+            "interfaceid": "41",
+            "functionid": "2909708775",
+            "fencepost": "3003568633",
             "addr": "0x641f30"
         },
         {
             "name": "SetSelectedConfigForApp",
             "argc": "8",
+            "interfaceid": "41",
+            "functionid": "1251758379",
+            "fencepost": "1345634366",
             "addr": "0x63a260"
         },
         {
             "name": "BControllerHasUniqueConfigForAppID",
             "argc": "3",
+            "interfaceid": "41",
+            "functionid": "1747243964",
+            "fencepost": "1841136080",
             "addr": "0x63a4b0"
         },
         {
             "name": "DeRegisterController",
             "argc": "3",
+            "interfaceid": "41",
+            "functionid": "3273570885",
+            "fencepost": "3367704936",
             "addr": "0x63b7f0"
         },
         {
             "name": "SendOSKeyboardEvent",
             "argc": "2",
+            "interfaceid": "41",
+            "functionid": "2411579957",
+            "fencepost": "2505488202",
             "addr": "0x63a670"
         },
         {
             "name": "SetOSKeyboardKey",
             "argc": "3",
+            "interfaceid": "41",
+            "functionid": "1867825025",
+            "fencepost": "1961749399",
             "addr": "0x6420b0"
         },
         {
             "name": "SetMousePosition",
             "argc": "4",
+            "interfaceid": "41",
+            "functionid": "1668683056",
+            "fencepost": "1762623559",
             "addr": "0x63a7b0"
         },
         {
             "name": "GetGamepadIndexChangeCounter",
             "argc": "1",
+            "interfaceid": "41",
+            "functionid": "2657519925",
+            "fencepost": "2751476557",
             "addr": "0x63a920"
         },
         {
             "name": "BSwapGamepadIndex",
             "argc": "4",
+            "interfaceid": "41",
+            "functionid": "3913162375",
+            "fencepost": "4007135136",
             "addr": "0x63aa80"
         },
         {
             "name": "GetGamepadIndexForXInputIndex",
             "argc": "2",
+            "interfaceid": "41",
+            "functionid": "3683185980",
+            "fencepost": "3777174870",
             "addr": "0x63ac20"
         },
         {
             "name": "GetControllerIndexForGamepadIndex",
             "argc": "2",
+            "interfaceid": "41",
+            "functionid": "359072504",
+            "fencepost": "453093652",
             "addr": "0x63af00"
         },
         {
             "name": "SetControllerActiveAccount",
             "argc": "3",
+            "interfaceid": "41",
+            "functionid": "1969431026",
+            "fencepost": "2063468303",
             "addr": "0x63b070"
         },
         {
             "name": "StartControllerRegistrationToAccount",
             "argc": "3",
+            "interfaceid": "41",
+            "functionid": "2230807421",
+            "fencepost": "2324860827",
             "addr": "0x63b1d0"
         },
         {
             "name": "CompleteControllerRegistrationToAccount",
             "argc": "3",
+            "interfaceid": "41",
+            "functionid": "1032619525",
+            "fencepost": "1126689060",
             "addr": "0x63b330"
         },
         {
             "name": "AutoRegisterControllerRegistrationToAccount",
             "argc": "3",
+            "interfaceid": "41",
+            "functionid": "464658323",
+            "fencepost": "558743987",
             "addr": "0x63b490"
         },
         {
             "name": "GetConfigForAppAndController",
             "argc": "5",
+            "interfaceid": "41",
+            "functionid": "339447769",
+            "fencepost": "433549562",
             "addr": "0x63b5f0"
         },
         {
             "name": "SetControllerPersonalization",
             "argc": "4",
+            "interfaceid": "41",
+            "functionid": "2650225038",
+            "fencepost": "2744342960",
             "addr": "0x6418b0"
         },
         {
             "name": "SetPersonalizationFile",
             "argc": "5",
+            "interfaceid": "41",
+            "functionid": "3693963378",
+            "fencepost": "3788113558",
             "addr": "0x63b950"
         },
         {
             "name": "SetGameWindowPos",
             "argc": "5",
+            "interfaceid": "41",
+            "functionid": "642050639",
+            "fencepost": "736216948",
             "addr": "0x63bad0"
         },
         {
             "name": "GetGameWindowPos",
             "argc": "5",
+            "interfaceid": "41",
+            "functionid": "597756494",
+            "fencepost": "691938932",
             "addr": "0x63bc60"
         },
         {
             "name": "HasGameMapping",
             "argc": "2",
+            "interfaceid": "41",
+            "functionid": "901972770",
+            "fencepost": "996171337",
             "addr": "0x63be80"
         },
         {
             "name": "GetControllerUsageData",
             "argc": "3",
+            "interfaceid": "41",
+            "functionid": "929059379",
+            "fencepost": "1023274075",
             "addr": "0x651630"
         },
         {
             "name": "BAllowAppConfigForController",
             "argc": "3",
+            "interfaceid": "41",
+            "functionid": "4168029964",
+            "fencepost": "4262260789",
             "addr": "0x63c000"
         },
         {
             "name": "ResetControllerEnableCache",
             "argc": "1",
+            "interfaceid": "41",
+            "functionid": "2652765628",
+            "fencepost": "2747012582",
             "addr": "0x63c190"
         },
         {
             "name": "GetControllerEnableSupport",
             "argc": "2",
+            "interfaceid": "41",
+            "functionid": "3313121501",
+            "fencepost": "3407384584",
             "addr": "0x63c2c0"
         },
         {
             "name": "BInputGenerated",
             "argc": "1",
+            "interfaceid": "41",
+            "functionid": "196250021",
+            "fencepost": "290529233",
             "addr": "0x63c430"
         },
         {
             "name": "GetControllerActivityByType",
             "argc": "2",
+            "interfaceid": "41",
+            "functionid": "3553371462",
+            "fencepost": "3647666803",
             "addr": "0x63c590"
         },
         {
             "name": "GetLastActiveControllerVID",
             "argc": "1",
+            "interfaceid": "41",
+            "functionid": "3347534599",
+            "fencepost": "3441846069",
             "addr": "0x63c700"
         },
         {
             "name": "GetLastActiveControllerPID",
             "argc": "1",
+            "interfaceid": "41",
+            "functionid": "2691826846",
+            "fencepost": "2786154445",
             "addr": "0x63c870"
         },
         {
             "name": "LoadControllerPersonalizationFile",
             "argc": "5",
+            "interfaceid": "41",
+            "functionid": "117449010",
+            "fencepost": "211792738",
             "addr": "0x63c9e0"
         },
         {
             "name": "SaveControllerPersonalizationFile",
             "argc": "4",
+            "interfaceid": "41",
+            "functionid": "2790533927",
+            "fencepost": "2884893784",
             "addr": "0x641520"
         },
         {
             "name": "LoadRemotePlayControllerPersonalizationVDF",
             "argc": "3",
+            "interfaceid": "41",
+            "functionid": "1335051010",
+            "fencepost": "1429426996",
             "addr": "0x63cb70"
         },
         {
             "name": "FindControllerByPath",
             "argc": "2",
+            "interfaceid": "41",
+            "functionid": "1722554494",
+            "fencepost": "1816946609",
             "addr": "0x63ccc0"
         },
         {
             "name": "GetControllerPath",
             "argc": "3",
+            "interfaceid": "41",
+            "functionid": "433793951",
+            "fencepost": "528202195",
             "addr": "0x63ce30"
         },
         {
             "name": "GetControllerProductName",
             "argc": "3",
+            "interfaceid": "41",
+            "functionid": "1537039867",
+            "fencepost": "1631464240",
             "addr": "0x63cff0"
         },
         {
             "name": "SetControllerHapticsSetting",
             "argc": "3",
+            "interfaceid": "41",
+            "functionid": "1707688025",
+            "fencepost": "1802128527",
             "addr": "0x63d1b0"
         },
         {
             "name": "SetControllerName",
             "argc": "3",
+            "interfaceid": "41",
+            "functionid": "3210692890",
+            "fencepost": "3305149521",
             "addr": "0x63d350"
         },
         {
             "name": "SetControllerRumbleSetting",
             "argc": "3",
+            "interfaceid": "41",
+            "functionid": "3909018382",
+            "fencepost": "4003491142",
             "addr": "0x642210"
         },
         {
             "name": "SetControllerNintendoLayoutSetting",
             "argc": "3",
+            "interfaceid": "41",
+            "functionid": "180136369",
+            "fencepost": "274625258",
             "addr": "0x63d4d0"
         },
         {
             "name": "BGetTouchConfigData",
             "argc": "7",
+            "interfaceid": "41",
+            "functionid": "2646734232",
+            "fencepost": "2741352153",
             "addr": "0x63d670"
         },
         {
             "name": "BSaveTouchConfigLayout",
             "argc": "4",
+            "interfaceid": "41",
+            "functionid": "226187478",
+            "fencepost": "320902173",
             "addr": "0x63d860"
         },
         {
             "name": "SetGyroOn",
             "argc": "4",
+            "interfaceid": "41",
+            "functionid": "987653238",
+            "fencepost": "1080835678",
             "addr": "0x638910"
         },
         {
             "name": "CursorVisibilityChanged",
             "argc": "2",
+            "interfaceid": "41",
+            "functionid": "2257249124",
+            "fencepost": "2351979948",
             "addr": "0x63da30"
         },
         {
             "name": "ForceSimpleHapticEvent",
             "argc": "6",
+            "interfaceid": "41",
+            "functionid": "2399785449",
+            "fencepost": "2492903373",
             "addr": "0x638210"
         }
     ]
