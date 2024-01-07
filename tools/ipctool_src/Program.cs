@@ -11,9 +11,9 @@ using System.Text.Json;
 public class Program
 {
 
+    private static IPCClient? anyClient;
     public static void Main(string[] args)
     {
-        IPCClient? anyClient = null;
         if (args.Length < 1 || args[0] == "client") {
             IPCClient client = new("127.0.0.1:57343", IPCClient.IPCConnectionType.Client);
             anyClient = client;
@@ -29,8 +29,16 @@ public class Program
             // }
 
             // Console.WriteLine("BLoggedOn: " + client.CallIPCFunctionClient<bool>(1, 0x6585013d, 0x658ba6d7));
-            GetFunctionInfoFromDump("IClientUser", "GetSteamID", out byte interfaceid, out uint functionid, out uint fencepost, out uint argc);
-            Console.WriteLine("GetSteamID: " + client.CallIPCFunctionClient<ulong>(interfaceid, functionid, fencepost));
+            {
+                GetFunctionInfoFromDump("IClientUser", "GetSteamID", out byte interfaceid, out uint functionid, out uint fencepost, out uint argc);
+                Console.WriteLine("GetSteamID: " + client.CallIPCFunction<ulong>(anyClient.HSteamUser, interfaceid, functionid, fencepost, Array.Empty<object>()));
+            }
+
+            {
+                StringBuilder builder = new(1024);
+                GetAccountName(builder, 1024);
+            }
+
             // Console.WriteLine("GetInstallPath: " + client.CallIPCFunctionClient<string>(4, 0xab7236cd, 0xad0b8048));
             // // AppId_t appid, DepotId_t depotId, uint workshopItemID, uint unk2, ulong targetManifestID, ulong deltaManifestID, string? targetInstallPath
             // Console.WriteLine("DownloadDepot: " + client.CallIPCFunctionClient<ulong>(16, 0x279a7a09, 0x2a1205ff, (uint)730, (uint)2347771, (ulong)0, (ulong)0, (ulong)0, (uint)0, "/mnt/deathclaw/test"));
@@ -46,6 +54,20 @@ public class Program
         Console.WriteLine("Press any key to exit");
         Console.ReadKey();
         anyClient?.Shutdown();
+    }
+
+    public static void CreateArrayFromParams(int steamuser, string language) {
+        var jaapo = new object[] { steamuser, language };
+    }
+
+    public static void SetLanguage(string language) {
+        //GetFunctionInfoFromDump("IClientUser", "SetLanguage", out byte interfaceid, out uint functionid, out uint fencepost, out uint _);
+        anyClient!.CallIPCFunction<bool>(anyClient.HSteamUser, 1, 1453699815, 1455458003, new object[] { language });
+    }
+
+    public static bool GetAccountName(StringBuilder accountNameOut, int maxOut) {
+        //GetFunctionInfoFromDump("IClientUser", "GetAccountName", out byte interfaceid, out uint functionid, out uint fencepost, out uint _);
+        return anyClient!.CallIPCFunction<bool>(anyClient.HSteamUser, 1, 2474308366, 2478937516, new object[] { accountNameOut, maxOut });
     }
 
     public static void GetFunctionInfoFromDump(string interfaceName, string functionName, out byte interfaceid, out uint functionid, out uint fencepost, out uint argc) {

@@ -1,6 +1,6 @@
 {
     "name": "IClientUserStatsMap",
-    "found_at": "0x2448f20",
+    "found_at": "0x2449f20",
     "functions": [ 
         {
             "name": "GetNumStats",
@@ -8,7 +8,15 @@
             "interfaceid": "11",
             "functionid": "4148505815",
             "fencepost": "4194958732",
-            "addr": "0x5dfb60"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5dfd30",
+            "serializedargs": [
+                "bytes8"
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "GetStatName",
@@ -16,7 +24,16 @@
             "interfaceid": "11",
             "functionid": "3169986086",
             "fencepost": "3216471261",
-            "addr": "0x5dfce0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5dfeb0",
+            "serializedargs": [
+                "bytes8",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "string"
+            ]
         },
         {
             "name": "GetStatType",
@@ -24,7 +41,16 @@
             "interfaceid": "11",
             "functionid": "2709961941",
             "fencepost": "2756463245",
-            "addr": "0x5e4b00"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5e4cd0",
+            "serializedargs": [
+                "bytes8",
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "GetNumAchievements",
@@ -32,7 +58,15 @@
             "interfaceid": "11",
             "functionid": "1805937886",
             "fencepost": "1852455319",
-            "addr": "0x5dfe70"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5e0040",
+            "serializedargs": [
+                "bytes8"
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "GetAchievementName",
@@ -40,7 +74,16 @@
             "interfaceid": "11",
             "functionid": "2812559762",
             "fencepost": "2859093324",
-            "addr": "0x5dfff0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5e01c0",
+            "serializedargs": [
+                "bytes8",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "string"
+            ]
         },
         {
             "name": "RequestCurrentStats",
@@ -48,7 +91,15 @@
             "interfaceid": "11",
             "functionid": "3958340731",
             "fencepost": "4004906551",
-            "addr": "0x5e0180"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5e0350",
+            "serializedargs": [
+                "bytes8"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "GetStat",
@@ -56,7 +107,17 @@
             "interfaceid": "11",
             "functionid": "2187667429",
             "fencepost": "2234330023",
-            "addr": "0x5e0300"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5e04d0",
+            "serializedargs": [
+                "bytes8",
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes4"
+            ]
         },
         {
             "name": "GetStat",
@@ -64,7 +125,17 @@
             "interfaceid": "11",
             "functionid": "2758091687",
             "fencepost": "2804883313",
-            "addr": "0x5e04b0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5e0680",
+            "serializedargs": [
+                "bytes8",
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes4"
+            ]
         },
         {
             "name": "SetStat",
@@ -72,7 +143,17 @@
             "interfaceid": "11",
             "functionid": "1591534499",
             "fencepost": "1638390641",
-            "addr": "0x5e0660"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5e0830",
+            "serializedargs": [
+                "bytes8",
+                "string",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "SetStat",
@@ -80,7 +161,17 @@
             "interfaceid": "11",
             "functionid": "1963367226",
             "fencepost": "2010239497",
-            "addr": "0x5e0800"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5e09d0",
+            "serializedargs": [
+                "bytes8",
+                "string",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "UpdateAvgRateStat",
@@ -88,7 +179,18 @@
             "interfaceid": "11",
             "functionid": "3611043767",
             "fencepost": "3657932167",
-            "addr": "0x5e09a0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5e0b70",
+            "serializedargs": [
+                "bytes8",
+                "string",
+                "bytes4",
+                "bytes8"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "GetAchievement",
@@ -96,7 +198,18 @@
             "interfaceid": "11",
             "functionid": "1831446857",
             "fencepost": "1878480418",
-            "addr": "0x5e0ce0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5e0eb0",
+            "serializedargs": [
+                "bytes8",
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes1",
+                "bytes4"
+            ]
         },
         {
             "name": "SetAchievement",
@@ -104,7 +217,16 @@
             "interfaceid": "11",
             "functionid": "4187073644",
             "fencepost": "4234187850",
-            "addr": "0x5e0ea0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5e1070",
+            "serializedargs": [
+                "bytes8",
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "ClearAchievement",
@@ -112,7 +234,16 @@
             "interfaceid": "11",
             "functionid": "1703242093",
             "fencepost": "1750388557",
-            "addr": "0x5e1030"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5e1200",
+            "serializedargs": [
+                "bytes8",
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "GetAchievementProgress",
@@ -120,7 +251,19 @@
             "interfaceid": "11",
             "functionid": "3345468507",
             "fencepost": "3392744003",
-            "addr": "0x5e11c0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5e1390",
+            "serializedargs": [
+                "bytes8",
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes4",
+                "bytes4",
+                "bytes4"
+            ]
         },
         {
             "name": "StoreStats",
@@ -128,7 +271,15 @@
             "interfaceid": "11",
             "functionid": "1956106066",
             "fencepost": "2003026724",
-            "addr": "0x5e0b60"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5e0d30",
+            "serializedargs": [
+                "bytes8"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "GetAchievementIcon",
@@ -136,7 +287,17 @@
             "interfaceid": "11",
             "functionid": "4189709232",
             "fencepost": "4237291179",
-            "addr": "0x5e4c80"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5e4e50",
+            "serializedargs": [
+                "bytes8",
+                "string",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "BGetAchievementIconURL",
@@ -144,7 +305,19 @@
             "interfaceid": "11",
             "functionid": "251528280",
             "fencepost": "299239259",
-            "addr": "0x5e4e20"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5e4ff0",
+            "serializedargs": [
+                "bytes8",
+                "string",
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "boolean",
+                "bytes_length_from_mem"
+            ]
         },
         {
             "name": "GetAchievementDisplayAttribute",
@@ -152,7 +325,18 @@
             "interfaceid": "11",
             "functionid": "1881467579",
             "fencepost": "1929243074",
-            "addr": "0x5e1580"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5e1750",
+            "serializedargs": [
+                "bytes8",
+                "string",
+                "string",
+                "bytes1"
+            ],
+            "serializedreturns": [
+                "string"
+            ]
         },
         {
             "name": "IndicateAchievementProgress",
@@ -160,7 +344,18 @@
             "interfaceid": "11",
             "functionid": "2495046641",
             "fencepost": "2542854394",
-            "addr": "0x5e1730"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5e1900",
+            "serializedargs": [
+                "bytes8",
+                "string",
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "SetMaxStatsLoaded",
@@ -168,7 +363,14 @@
             "interfaceid": "11",
             "functionid": "2833449166",
             "fencepost": "2881289177",
-            "addr": "0x5e18f0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5e1ac0",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "RequestUserStats",
@@ -176,7 +378,16 @@
             "interfaceid": "11",
             "functionid": "4286446435",
             "fencepost": "39351408",
-            "addr": "0x5e1a40"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5e1c10",
+            "serializedargs": [
+                "uint64",
+                "bytes8"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "GetUserStat",
@@ -184,7 +395,18 @@
             "interfaceid": "11",
             "functionid": "1255080161",
             "fencepost": "1303065333",
-            "addr": "0x5e1bf0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5e1dc0",
+            "serializedargs": [
+                "uint64",
+                "bytes8",
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes4"
+            ]
         },
         {
             "name": "GetUserStat",
@@ -192,7 +414,18 @@
             "interfaceid": "11",
             "functionid": "2919878666",
             "fencepost": "2968008999",
-            "addr": "0x5e1da0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5e1f70",
+            "serializedargs": [
+                "uint64",
+                "bytes8",
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes4"
+            ]
         },
         {
             "name": "GetUserAchievement",
@@ -200,7 +433,19 @@
             "interfaceid": "11",
             "functionid": "3299260077",
             "fencepost": "3347551700",
-            "addr": "0x5e1f50"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5e2120",
+            "serializedargs": [
+                "uint64",
+                "bytes8",
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes1",
+                "bytes4"
+            ]
         },
         {
             "name": "GetUserAchievementProgress",
@@ -208,7 +453,20 @@
             "interfaceid": "11",
             "functionid": "2272093570",
             "fencepost": "2319578743",
-            "addr": "0x5e13a0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5e1570",
+            "serializedargs": [
+                "uint64",
+                "bytes8",
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes4",
+                "bytes4",
+                "bytes4"
+            ]
         },
         {
             "name": "ResetAllStats",
@@ -216,7 +474,16 @@
             "interfaceid": "11",
             "functionid": "1725141459",
             "fencepost": "1773513727",
-            "addr": "0x5e2120"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5e22f0",
+            "serializedargs": [
+                "bytes8",
+                "bytes1"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "FindOrCreateLeaderboard",
@@ -224,7 +491,17 @@
             "interfaceid": "11",
             "functionid": "2230180920",
             "fencepost": "2278585446",
-            "addr": "0x5e22c0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5e2490",
+            "serializedargs": [
+                "string",
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "FindLeaderboard",
@@ -232,7 +509,15 @@
             "interfaceid": "11",
             "functionid": "509056213",
             "fencepost": "557476868",
-            "addr": "0x5e2470"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5e2640",
+            "serializedargs": [
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "GetLeaderboardName",
@@ -240,7 +525,15 @@
             "interfaceid": "11",
             "functionid": "4090231081",
             "fencepost": "4138667865",
-            "addr": "0x5e2600"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5e27d0",
+            "serializedargs": [
+                "bytes8"
+            ],
+            "serializedreturns": [
+                "string"
+            ]
         },
         {
             "name": "GetLeaderboardEntryCount",
@@ -248,7 +541,15 @@
             "interfaceid": "11",
             "functionid": "2246432286",
             "fencepost": "2294885199",
-            "addr": "0x5e2780"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5e2950",
+            "serializedargs": [
+                "bytes8"
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "GetLeaderboardSortMethod",
@@ -256,7 +557,15 @@
             "interfaceid": "11",
             "functionid": "2678849825",
             "fencepost": "2727318867",
-            "addr": "0x5e2900"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5e2ad0",
+            "serializedargs": [
+                "bytes8"
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "GetLeaderboardDisplayType",
@@ -264,7 +573,15 @@
             "interfaceid": "11",
             "functionid": "3738408890",
             "fencepost": "3786894061",
-            "addr": "0x5e2a80"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5e2c50",
+            "serializedargs": [
+                "bytes8"
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "DownloadLeaderboardEntries",
@@ -272,7 +589,18 @@
             "interfaceid": "11",
             "functionid": "870134571",
             "fencepost": "918635871",
-            "addr": "0x5e4ff0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5e51c0",
+            "serializedargs": [
+                "bytes8",
+                "bytes4",
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "DownloadLeaderboardEntriesForUsers",
@@ -280,7 +608,17 @@
             "interfaceid": "11",
             "functionid": "2528302865",
             "fencepost": "2576884810",
-            "addr": "0x5e2c00"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5e2dd0",
+            "serializedargs": [
+                "bytes8",
+                "bytes4",
+                "bytes_length_from_reg"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "GetDownloadedLeaderboardEntry",
@@ -288,7 +626,19 @@
             "interfaceid": "11",
             "functionid": "2075367003",
             "fencepost": "2124077980",
-            "addr": "0x5e51f0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5e53c0",
+            "serializedargs": [
+                "bytes8",
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes28",
+                "bytes_length_from_reg"
+            ]
         },
         {
             "name": "AttachLeaderboardUGC",
@@ -296,7 +646,16 @@
             "interfaceid": "11",
             "functionid": "942824022",
             "fencepost": "991744676",
-            "addr": "0x5e2df0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5e2fc0",
+            "serializedargs": [
+                "bytes8",
+                "bytes8"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "UploadLeaderboardScore",
@@ -304,7 +663,19 @@
             "interfaceid": "11",
             "functionid": "2743891196",
             "fencepost": "2792763463",
-            "addr": "0x5e53e0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5e55b0",
+            "serializedargs": [
+                "bytes8",
+                "bytes4",
+                "bytes4",
+                "bytes4",
+                "bytes_length_from_reg"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "GetNumberOfCurrentPlayers",
@@ -312,7 +683,14 @@
             "interfaceid": "11",
             "functionid": "1739715208",
             "fencepost": "1788668120",
-            "addr": "0x5e3000"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5e31d0",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "GetNumAchievedAchievements",
@@ -320,7 +698,15 @@
             "interfaceid": "11",
             "functionid": "593155490",
             "fencepost": "642140660",
-            "addr": "0x5e3180"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5e3350",
+            "serializedargs": [
+                "bytes8"
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "GetLastAchievementUnlocked",
@@ -328,7 +714,15 @@
             "interfaceid": "11",
             "functionid": "2597872941",
             "fencepost": "2646890369",
-            "addr": "0x5e3300"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5e34d0",
+            "serializedargs": [
+                "bytes8"
+            ],
+            "serializedreturns": [
+                "string"
+            ]
         },
         {
             "name": "GetMostRecentAchievementUnlocked",
@@ -336,7 +730,16 @@
             "interfaceid": "11",
             "functionid": "2813950213",
             "fencepost": "2862983770",
-            "addr": "0x5e3480"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5e3650",
+            "serializedargs": [
+                "bytes8",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "string"
+            ]
         },
         {
             "name": "RequestGlobalAchievementPercentages",
@@ -344,7 +747,15 @@
             "interfaceid": "11",
             "functionid": "2245931878",
             "fencepost": "2294997693",
-            "addr": "0x5e3610"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5e37e0",
+            "serializedargs": [
+                "bytes8"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "GetMostAchievedAchievementInfo",
@@ -352,7 +763,19 @@
             "interfaceid": "11",
             "functionid": "1487799636",
             "fencepost": "1536994483",
-            "addr": "0x5e37b0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5e3980",
+            "serializedargs": [
+                "bytes8",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes4",
+                "bytes_length_from_mem",
+                "bytes4",
+                "bytes1"
+            ]
         },
         {
             "name": "GetNextMostAchievedAchievementInfo",
@@ -360,7 +783,20 @@
             "interfaceid": "11",
             "functionid": "1302066046",
             "fencepost": "1351470570",
-            "addr": "0x5e3990"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5e3b60",
+            "serializedargs": [
+                "bytes8",
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes4",
+                "bytes_length_from_mem",
+                "bytes4",
+                "bytes1"
+            ]
         },
         {
             "name": "GetAchievementAchievedPercent",
@@ -368,7 +804,17 @@
             "interfaceid": "11",
             "functionid": "39067484",
             "fencepost": "88633298",
-            "addr": "0x5e3b90"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5e3d60",
+            "serializedargs": [
+                "bytes8",
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes4"
+            ]
         },
         {
             "name": "RequestGlobalStats",
@@ -376,7 +822,16 @@
             "interfaceid": "11",
             "functionid": "3137234433",
             "fencepost": "3186864763",
-            "addr": "0x5e3d40"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5e3f10",
+            "serializedargs": [
+                "bytes8",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "GetGlobalStat",
@@ -384,7 +839,17 @@
             "interfaceid": "11",
             "functionid": "2773922115",
             "fencepost": "2823649219",
-            "addr": "0x5e3ef0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5e40c0",
+            "serializedargs": [
+                "bytes8",
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes8"
+            ]
         },
         {
             "name": "GetGlobalStat",
@@ -392,7 +857,17 @@
             "interfaceid": "11",
             "functionid": "934276923",
             "fencepost": "984133059",
-            "addr": "0x5e40a0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5e4270",
+            "serializedargs": [
+                "bytes8",
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes8"
+            ]
         },
         {
             "name": "GetGlobalStatHistory",
@@ -400,7 +875,18 @@
             "interfaceid": "11",
             "functionid": "3133197991",
             "fencepost": "3183199288",
-            "addr": "0x5e4250"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5e4420",
+            "serializedargs": [
+                "bytes8",
+                "string",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes4",
+                "bytes_length_from_mem"
+            ]
         },
         {
             "name": "GetGlobalStatHistory",
@@ -408,7 +894,18 @@
             "interfaceid": "11",
             "functionid": "4287951526",
             "fencepost": "43130688",
-            "addr": "0x5e4410"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5e45e0",
+            "serializedargs": [
+                "bytes8",
+                "string",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes4",
+                "bytes_length_from_mem"
+            ]
         },
         {
             "name": "GetAchievementProgressLimits",
@@ -416,7 +913,18 @@
             "interfaceid": "11",
             "functionid": "46322395",
             "fencepost": "96597885",
-            "addr": "0x5e45d0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5e47a0",
+            "serializedargs": [
+                "bytes8",
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes4",
+                "bytes4"
+            ]
         },
         {
             "name": "GetAchievementProgressLimits",
@@ -424,7 +932,18 @@
             "interfaceid": "11",
             "functionid": "2405345800",
             "fencepost": "2455766451",
-            "addr": "0x5e4790"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5e4960",
+            "serializedargs": [
+                "bytes8",
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes4",
+                "bytes4"
+            ]
         },
         {
             "name": "BAchievementIconLoaded",
@@ -432,7 +951,17 @@
             "interfaceid": "11",
             "functionid": "1372343944",
             "fencepost": "1422845240",
-            "addr": "0x5e4950"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5e4b20",
+            "serializedargs": [
+                "bytes8",
+                "string",
+                "bytes1"
+            ],
+            "serializedreturns": [
+                "boolean"
+            ]
         }
     ]
 }

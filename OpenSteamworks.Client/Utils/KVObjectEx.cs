@@ -128,6 +128,11 @@ public abstract class KVObjectEx {
     }
     
     protected bool TryGetKey(string key, [NotNullWhen(true)] out KVValue? kv) {
+        if (!this.kv.Children.Any()) {
+            kv = null;
+            return false;
+        }
+
         string[]? keys;
         if (key.Contains('/')) {
             keys = key.Split('/');

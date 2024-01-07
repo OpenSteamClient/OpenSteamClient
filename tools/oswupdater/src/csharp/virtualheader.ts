@@ -9,6 +9,7 @@ export interface VirtualFunction {
     args: string[];
     precedingLines: string[];
     postBody?: string;
+    blacklistedInCrossProcessIPC: boolean;
 }
 
 //const DEBUG_LOG = console.log;
@@ -16,9 +17,21 @@ const DEBUG_LOG = (...args: any) => { };
 
 function VirtualFunction_ToString(func: VirtualFunction, indent: string): string {
     var asStr = "";
+    var hadblacklistedattribute = false;
     for (let line = 0; line < func.precedingLines.length; line++) {
         const text = func.precedingLines[line];
+        if (text.trim() == "[BlacklistedInCrossProcessIPC]") {
+            hadblacklistedattribute = true;
+            if (!func.blacklistedInCrossProcessIPC) {
+                continue;
+            }
+        }
+
         asStr += indent+text + "\n"
+    }
+
+    if (!hadblacklistedattribute && func.blacklistedInCrossProcessIPC) {
+        asStr += indent+"[BlacklistedInCrossProcessIPC]\n"
     }
 
     if (!(func.returnType.endsWith(" "))) {
@@ -60,7 +73,6 @@ export class VirtualHeader {
         fullText += "// If functions are removed, your changes to that function will be lost.\n"
         fullText += "// Parameter types and names however are preserved if the function stays unchanged.\n"
         fullText += "// Feel free to change parameters to be more accurate. \n"
-        fullText += "// Do not use C#s unsafe features in these files. It breaks JIT.\n"
         fullText += "//\n"
         fullText += "//=============================================================================\n"
         fullText += "\n"
@@ -172,11 +184,16 @@ export class VirtualHeader {
 
         for (const dumpfunc of dump.functions) {
             var oldfunc: VirtualFunction | undefined = undefined;
+            var skipUnknownWarning: boolean = false;
             for (const thisfunc of this.functions) {
                 // Should we also do "thisfunc.args.length == Number(dumpfunc.argc)"?
-                if (thisfunc.name == dumpfunc.name && !usedFuncs.includes(thisfunc)) {
+                // Allows functions like DownloadDepot that don't correctly get dumped
+                if (((thisfunc.name == dumpfunc.name) || (!thisfunc.name.endsWith("_DONTUSE") && dumpfunc.name.endsWith("_DONTUSE"))) && !usedFuncs.includes(thisfunc)) {
                     usedFuncs.push(thisfunc);
                     oldfunc = thisfunc;
+                    if (!thisfunc.name.endsWith("_DONTUSE") && dumpfunc.name.endsWith("_DONTUSE")) {
+                        skipUnknownWarning = true;
+                    }
                     break;
                 }
             }
@@ -184,33 +201,19 @@ export class VirtualHeader {
             var funcToAdd: VirtualFunction;
             var addWarning: boolean = false;
             if (oldfunc != undefined) {
-                if (oldfunc.postBody) {
-                    var indexOfArgc = oldfunc.postBody.indexOf("argc: ");
-                    if (oldfunc.postBody.includes("argc: ")) {            
-                        replaceRange(oldfunc.postBody, indexOfArgc, indexOfArgc+6, `argc: ${dumpfunc.argc}`)
-                    }
-
-                    var indexOfIndex = oldfunc.postBody.indexOf("index: ", indexOfArgc);
-                    if (oldfunc.postBody.includes("index: ", indexOfArgc)) {
-                        replaceRange(oldfunc.postBody, indexOfIndex, indexOfIndex+7, `index: ${index}`)
-                    }
-
-                } else {
-                    oldfunc.postBody = ` // argc: ${dumpfunc.argc}, index: ${index}`; 
-                }
-                
-
+                oldfunc.postBody = this.GeneratePostBody(dumpfunc, index);
+                oldfunc.blacklistedInCrossProcessIPC = (dumpfunc.cannotcallincrossprocess == "1");
                 addWarning = (Number(dumpfunc.argc) != oldfunc.args.length);
                 
                 funcToAdd = oldfunc;
             } else {
                 addWarning = (Number(dumpfunc.argc) != 0);
-                funcToAdd = { name: dumpfunc.name, args: [], postBody: ` // argc: ${dumpfunc.argc}, index: ${index}`, returnType: "unknown_ret", precedingLines: [] };
+                funcToAdd = { name: dumpfunc.name, args: [], blacklistedInCrossProcessIPC: (dumpfunc.cannotcallincrossprocess == "1"), postBody: this.GeneratePostBody(dumpfunc, index), returnType: "unknown_ret", precedingLines: [] };
             }
 
             const unknownBehaviourWarning = "// WARNING: Do not use this function! Unknown behaviour will occur!";
             const argcCountNotMatchWarning = "// WARNING: Arguments are unknown!"
-            if (funcToAdd.name.endsWith("_DONTUSE")) {
+            if (funcToAdd.name.endsWith("_DONTUSE") && !skipUnknownWarning) {
                 if (!funcToAdd.precedingLines.includes(unknownBehaviourWarning))
                 funcToAdd.precedingLines.push(unknownBehaviourWarning)
             } else if (addWarning) {
@@ -225,6 +228,7 @@ export class VirtualHeader {
                     // Func has 0 argc so it should have no args
                     funcToAdd.args = [];
                 }
+
                 if ((Number(dumpfunc.argc) != 0) && !funcToAdd.precedingLines.includes(argcCountNotMatchWarning)) {
                     funcToAdd.precedingLines.push(argcCountNotMatchWarning)
                 }
@@ -235,6 +239,10 @@ export class VirtualHeader {
             index++;
         }
         this.functions = newFuncs;
+    }
+
+    GeneratePostBody(dumpfunc: ClientFunction, index: number) {
+        return ` // argc: ${dumpfunc.argc}, index: ${index}, ipc args: [${dumpfunc.serializedargs.join(", ")}], ipc returns: [${dumpfunc.serializedreturns.join(", ")}]`;
     }
     
     // Writes a full file, including include guards.
@@ -298,7 +306,7 @@ export class VirtualHeader {
                 continue;
             }
 
-            var func: VirtualFunction = { returnType: "", name: "", args: [], precedingLines: [], postBody: undefined };
+            var func: VirtualFunction = { returnType: "", name: "", args: [], precedingLines: [], postBody: undefined, blacklistedInCrossProcessIPC: false };
             var realText = text;
             realText = realText.replace("public ", "").trimStart();
 

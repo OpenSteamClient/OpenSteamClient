@@ -1,6 +1,6 @@
 {
     "name": "IClientModuleManagerMap",
-    "found_at": "0x2451988",
+    "found_at": "0x2452988",
     "functions": [ 
         {
             "name": "LoadModule",
@@ -8,7 +8,17 @@
             "interfaceid": "2",
             "functionid": "618599951",
             "fencepost": "619874396",
-            "addr": "0xfb5920"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0xfb5d20",
+            "serializedargs": [
+                "bytes4",
+                "bytes4",
+                "bytes_length_from_mem"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "UnloadModule",
@@ -16,7 +26,15 @@
             "interfaceid": "2",
             "functionid": "3536520701",
             "fencepost": "3537843533",
-            "addr": "0xfb57a0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0xfb5ba0",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "CallFunction",
@@ -24,7 +42,22 @@
             "interfaceid": "2",
             "functionid": "4258773877",
             "fencepost": "4260257999",
-            "addr": "0xfb5f10"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0xfb6310",
+            "serializedargs": [
+                "bytes4",
+                "bytes4",
+                "bytes4",
+                "bytes4",
+                "bytes_length_from_mem",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes4",
+                "bytes_length_from_mem",
+                "bytes4"
+            ]
         },
         {
             "name": "CallFunctionAsync",
@@ -32,7 +65,23 @@
             "interfaceid": "2",
             "functionid": "2100241721",
             "fencepost": "2101967778",
-            "addr": "0xfb5cb0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0xfb60b0",
+            "serializedargs": [
+                "bytes4",
+                "bytes4",
+                "bytes4",
+                "bytes4",
+                "bytes4",
+                "bytes4",
+                "bytes4",
+                "bytes_length_from_mem",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "PollResponseAsync",
@@ -40,7 +89,19 @@
             "interfaceid": "2",
             "functionid": "1500915701",
             "fencepost": "1502770790",
-            "addr": "0xfb5ac0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0xfb5ec0",
+            "serializedargs": [
+                "bytes4",
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes4",
+                "bytes_length_from_mem",
+                "bytes4"
+            ]
         },
         {
             "name": "SetProtonEnvironment",
@@ -48,7 +109,17 @@
             "interfaceid": "2",
             "functionid": "4265860916",
             "fencepost": "4267796650",
-            "addr": "0xfb5640"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0xfb5a40",
+            "serializedargs": [
+                "bytes4",
+                "string"
+            ],
+            "serializedreturns": [
+                "unknown",
+                "unknown"
+            ]
         }
     ]
 }

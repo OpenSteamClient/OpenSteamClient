@@ -17,7 +17,8 @@
     </Design.DataContext>
 
     <StackPanel>
-        <!-- <Image Margin="0" Height="200" HorizontalAlignment="Stretch" Source="{Binding HeroImage}"/>
-        <Button Command="{Binding PlayButtonClick}"/> -->
+        <Image Margin="0" Height="200" HorizontalAlignment="Stretch" Source="{Binding Hero}"/>
+        <TextBlock Text="{Binding Name}"/>
+        <Button c:Translatable.TranslationKey="{Binding PlayButtonLocalizationToken}" Command="{Binding PlayButtonAction}"/>
     </StackPanel>
 </UserControl>

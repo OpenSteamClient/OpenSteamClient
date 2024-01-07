@@ -1,6 +1,6 @@
 {
     "name": "IClientSharedConnectionMap",
-    "found_at": "0x2449ae8",
+    "found_at": "0x244aae8",
     "functions": [ 
         {
             "name": "AllocateSharedConnection",
@@ -8,7 +8,14 @@
             "interfaceid": "44",
             "functionid": "815678846",
             "fencepost": "901781036",
-            "addr": "0x626e40"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x627010",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "ReleaseSharedConnection",
@@ -16,7 +23,14 @@
             "interfaceid": "44",
             "functionid": "1808646749",
             "fencepost": "1894765068",
-            "addr": "0x626fa0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x627170",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "SendMessage",
@@ -24,7 +38,17 @@
             "interfaceid": "44",
             "functionid": "2329349393",
             "fencepost": "2415580615",
-            "addr": "0x6270f0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6272c0",
+            "serializedargs": [
+                "bytes4",
+                "bytes4",
+                "bytes_length_from_mem"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "SendMessageAndAwaitResponse",
@@ -32,7 +56,17 @@
             "interfaceid": "44",
             "functionid": "2048660093",
             "fencepost": "2135004218",
-            "addr": "0x627290"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x627460",
+            "serializedargs": [
+                "bytes4",
+                "bytes4",
+                "bytes_length_from_mem"
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "RegisterEMsgHandler",
@@ -40,7 +74,15 @@
             "interfaceid": "44",
             "functionid": "2709394784",
             "fencepost": "2795787296",
-            "addr": "0x627420"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6275f0",
+            "serializedargs": [
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "RegisterServiceMethodHandler",
@@ -48,7 +90,15 @@
             "interfaceid": "44",
             "functionid": "3444980086",
             "fencepost": "3531404856",
-            "addr": "0x627580"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x627750",
+            "serializedargs": [
+                "bytes4",
+                "string"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "BPopReceivedMessage",
@@ -56,7 +106,17 @@
             "interfaceid": "44",
             "functionid": "3279629464",
             "fencepost": "3366151008",
-            "addr": "0x6276d0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6278a0",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "boolean",
+                "unknown",
+                "bytes4"
+            ]
         },
         {
             "name": "InitiateConnection",
@@ -64,7 +124,14 @@
             "interfaceid": "44",
             "functionid": "2265053268",
             "fencepost": "2351655457",
-            "addr": "0x627880"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x627a50",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+            ]
         }
     ]
 }

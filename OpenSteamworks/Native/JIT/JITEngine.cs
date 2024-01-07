@@ -23,7 +23,7 @@ namespace OpenSteamworks.Native.JIT
         private static ModuleBuilder moduleBuilder;
 
         /// <summary>
-        /// Maps a list of interfaces to a list of our generated implementors for it
+        /// Maps a list of interfaces to a list of our generated implementations of it
         /// </summary>
         private static Dictionary<Type, Type> generatedTypes = new();
 
@@ -335,7 +335,7 @@ namespace OpenSteamworks.Native.JIT
                 ilgen.Call(typeof(InteropHelp).GetMethod(nameof(InteropHelp.FreeString))!);
             }
 
-        if (method.ReturnType.IsCreatableClass)
+            if (method.ReturnType.IsCreatableClass)
             {
                 if (method.ReturnType.IsGeneric)
                 {
@@ -363,6 +363,9 @@ namespace OpenSteamworks.Native.JIT
             }
 
             ilgen.Return();
+            if (method.Name.Contains("GetInstalledApps")) {
+                Console.WriteLine(ilgen.ToString());
+            }
         }
     }
 }

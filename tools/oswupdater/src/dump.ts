@@ -5,6 +5,12 @@ export interface ClientFunction {
     name: string;
     argc: string;
     addr?: string;
+    interfaceid: string;
+    functionid: string;
+    fencepost: string;
+    cannotcallincrossprocess: string;
+    serializedargs: string[];
+    serializedreturns: string[];
 }
 
 export interface ClientInterface {
@@ -64,7 +70,13 @@ export class ClientDump {
                     iface.functions.push({
                         name: funcAsJson.name,
                         argc: funcAsJson.argc,
-                        addr: funcAsJson.addr
+                        addr: funcAsJson.addr,
+                        interfaceid: funcAsJson.interfaceid,
+                        functionid: funcAsJson.functionid,
+                        fencepost: funcAsJson.fencepost,
+                        cannotcallincrossprocess: funcAsJson.cannotcallincrossprocess,
+                        serializedargs: funcAsJson.serializedargs,
+                        serializedreturns: funcAsJson.serializedreturns
                     });
                 }
 
@@ -111,13 +123,13 @@ export class ClientDump {
             
             for (const iface of this.interfaces) {
                 for (const func of iface.functions) {
-                    thisfuncs.push({ name: `${iface.name}::${func.name}`, argc: func.argc });
+                    thisfuncs.push({ ...func, name: `${iface.name}::${func.name}` });
                 }
             }
 
             for (const iface of other.interfaces) {
                 for (const func of iface.functions) {
-                    otherfuncs.push({ name: `${iface.name}::${func.name}`, argc: func.argc });
+                    otherfuncs.push({ ...func, name: `${iface.name}::${func.name}` });
                 }
             }
 

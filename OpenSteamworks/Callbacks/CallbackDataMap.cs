@@ -64,6 +64,8 @@ internal static partial class CallbackConstants {
         {typeof(OverlayGameWindowFocusChange_t), 1020105},
         {typeof(WebAuthRequestCallback_t), 1020042},
         {typeof(AppStartedProcess_t), 1020078},
+        {typeof(DeauthorizeDeviceResult_t), 1080002},
+        {typeof(DeviceAuthChanged_t), 1080007}
     };
     public readonly static Dictionary<int, Type> IDToType = TypeToID.ToDictionary(x => x.Value, x => x.Key);
 }

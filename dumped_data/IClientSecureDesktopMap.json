@@ -1,6 +1,6 @@
 {
     "name": "IClientSecureDesktopMap",
-    "found_at": "0x2451a00",
+    "found_at": "0x2452a00",
     "functions": [ 
         {
             "name": "BStartStreaming",
@@ -8,7 +8,14 @@
             "interfaceid": "5",
             "functionid": "4144364299",
             "fencepost": "4147897185",
-            "addr": "0xfb7bc0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0xfb7fc0",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "boolean"
+            ]
         },
         {
             "name": "StopStreaming",
@@ -16,7 +23,15 @@
             "interfaceid": "5",
             "functionid": "2311537903",
             "fencepost": "2315086918",
-            "addr": "0xfb7a80"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0xfb7e80",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "unknown",
+                "unknown"
+            ]
         },
         {
             "name": "SendSAS",
@@ -24,7 +39,15 @@
             "interfaceid": "5",
             "functionid": "4154536306",
             "fencepost": "4158101450",
-            "addr": "0xfb7940"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0xfb7d40",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "unknown",
+                "unknown"
+            ]
         }
     ]
 }

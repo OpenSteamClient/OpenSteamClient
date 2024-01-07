@@ -75,7 +75,7 @@ public partial class InterfaceList : Window
         debugger.Show();
     }
     private bool HasFieldInClientNative(Type iface) {
-        var implementorFields = typeof(OpenSteamworks.Native.ClientNative).GetFields().Where(f => f.FieldType == iface);
+        var implementorFields = typeof(OpenSteamworks.Native.ClientNative).GetProperties().Where(f => f.PropertyType == iface);
         return implementorFields.Count() != 0;
     }
     

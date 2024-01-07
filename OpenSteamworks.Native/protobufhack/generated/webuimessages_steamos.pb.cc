@@ -21,6 +21,7 @@ constexpr CSteamOSManagerState::CSteamOSManagerState(
   : os_version_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , is_service_available_(false)
   , is_mandatory_update_available_(false)
+  , is_status_led_control_available_(false)
   , startup_movie_variant_(0)
 {}
 struct CSteamOSManagerStateDefaultTypeInternal {
@@ -260,9 +261,11 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_webuimessages_5fsteamos_2eprot
   PROTOBUF_FIELD_OFFSET(::CSteamOSManagerState, os_version_),
   PROTOBUF_FIELD_OFFSET(::CSteamOSManagerState, is_mandatory_update_available_),
   PROTOBUF_FIELD_OFFSET(::CSteamOSManagerState, startup_movie_variant_),
+  PROTOBUF_FIELD_OFFSET(::CSteamOSManagerState, is_status_led_control_available_),
   1,
   0,
   2,
+  4,
   3,
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::CSteamOSManager_GetState_Request, _internal_metadata_),
@@ -382,25 +385,25 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_webuimessages_5fsteamos_2eprot
   ~0u,  // no _weak_field_map_
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, 9, sizeof(::CSteamOSManagerState)},
-  { 13, -1, sizeof(::CSteamOSManager_GetState_Request)},
-  { 18, 24, sizeof(::CSteamOSManager_GetState_Response)},
-  { 25, -1, sizeof(::CSteamOSManager_StateChanged_Notification)},
-  { 30, 36, sizeof(::CSteamOSManager_IsTelemetryHelperAvailable_Request)},
-  { 37, 43, sizeof(::CSteamOSManager_IsTelemetryHelperAvailable_Response)},
-  { 44, -1, sizeof(::CSteamOSManager_OptOutOfSideloadedClient_Request)},
-  { 49, -1, sizeof(::CSteamOSManager_OptOutOfSideloadedClient_Response)},
-  { 54, -1, sizeof(::CSteamOSManager_ApplyMandatoryUpdate_Request)},
-  { 59, -1, sizeof(::CSteamOSManager_ApplyMandatoryUpdate_Response)},
-  { 64, 72, sizeof(::CSteamOSSLSPlugin)},
-  { 75, 83, sizeof(::CSteamOSSLSState)},
-  { 86, -1, sizeof(::CSteamOSSLS_GetState_Request)},
-  { 91, 97, sizeof(::CSteamOSSLS_GetState_Response)},
-  { 98, -1, sizeof(::CSteamOSSLS_StateChanged_Notification)},
-  { 103, 109, sizeof(::CSteamOSSLS_SetEnabled_Request)},
-  { 110, -1, sizeof(::CSteamOSSLS_SetEnabled_Response)},
-  { 115, 122, sizeof(::CSteamOSSLS_SetPluginEnabled_Request)},
-  { 124, -1, sizeof(::CSteamOSSLS_SetPluginEnabled_Response)},
+  { 0, 10, sizeof(::CSteamOSManagerState)},
+  { 15, -1, sizeof(::CSteamOSManager_GetState_Request)},
+  { 20, 26, sizeof(::CSteamOSManager_GetState_Response)},
+  { 27, -1, sizeof(::CSteamOSManager_StateChanged_Notification)},
+  { 32, 38, sizeof(::CSteamOSManager_IsTelemetryHelperAvailable_Request)},
+  { 39, 45, sizeof(::CSteamOSManager_IsTelemetryHelperAvailable_Response)},
+  { 46, -1, sizeof(::CSteamOSManager_OptOutOfSideloadedClient_Request)},
+  { 51, -1, sizeof(::CSteamOSManager_OptOutOfSideloadedClient_Response)},
+  { 56, -1, sizeof(::CSteamOSManager_ApplyMandatoryUpdate_Request)},
+  { 61, -1, sizeof(::CSteamOSManager_ApplyMandatoryUpdate_Response)},
+  { 66, 74, sizeof(::CSteamOSSLSPlugin)},
+  { 77, 85, sizeof(::CSteamOSSLSState)},
+  { 88, -1, sizeof(::CSteamOSSLS_GetState_Request)},
+  { 93, 99, sizeof(::CSteamOSSLS_GetState_Response)},
+  { 100, -1, sizeof(::CSteamOSSLS_StateChanged_Notification)},
+  { 105, 111, sizeof(::CSteamOSSLS_SetEnabled_Request)},
+  { 112, -1, sizeof(::CSteamOSSLS_SetEnabled_Response)},
+  { 117, 124, sizeof(::CSteamOSSLS_SetPluginEnabled_Request)},
+  { 126, -1, sizeof(::CSteamOSSLS_SetPluginEnabled_Response)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -429,60 +432,61 @@ const char descriptor_table_protodef_webuimessages_5fsteamos_2eproto[] PROTOBUF_
   "\n\033webuimessages_steamos.proto\032 google/pr"
   "otobuf/descriptor.proto\032\013enums.proto\032\030st"
   "eammessages_base.proto\032\030webuimessages_ba"
-  "se.proto\"\303\001\n\024CSteamOSManagerState\022\034\n\024is_"
+  "se.proto\"\354\001\n\024CSteamOSManagerState\022\034\n\024is_"
   "service_available\030\001 \001(\010\022\022\n\nos_version\030\002 "
   "\001(\t\022%\n\035is_mandatory_update_available\030\003 \001"
   "(\010\022R\n\025startup_movie_variant\030\004 \001(\0162\025.ESta"
   "rtupMovieVariant:\034EStartupMovieVariant_I"
-  "nvalid\"\"\n CSteamOSManager_GetState_Reque"
-  "st\"I\n!CSteamOSManager_GetState_Response\022"
-  "$\n\005state\030\001 \001(\0132\025.CSteamOSManagerState\"+\n"
-  ")CSteamOSManager_StateChanged_Notificati"
-  "on\"d\n2CSteamOSManager_IsTelemetryHelperA"
-  "vailable_Request\022.\n\005etype\030\001 \001(\0162\013.ESLSHe"
-  "lper:\022ESLSHelper_Invalid\"H\n3CSteamOSMana"
-  "ger_IsTelemetryHelperAvailable_Response\022"
-  "\021\n\tavailable\030\001 \001(\010\"2\n0CSteamOSManager_Op"
-  "tOutOfSideloadedClient_Request\"3\n1CSteam"
-  "OSManager_OptOutOfSideloadedClient_Respo"
-  "nse\".\n,CSteamOSManager_ApplyMandatoryUpd"
-  "ate_Request\"/\n-CSteamOSManager_ApplyMand"
-  "atoryUpdate_Response\"m\n\021CSteamOSSLSPlugi"
-  "n\022.\n\005etype\030\001 \001(\0162\013.ESLSHelper:\022ESLSHelpe"
-  "r_Invalid\022\024\n\014is_available\030\002 \001(\010\022\022\n\nis_en"
-  "abled\030\003 \001(\010\"a\n\020CSteamOSSLSState\022\024\n\014is_av"
-  "ailable\030\001 \001(\010\022\022\n\nis_enabled\030\002 \001(\010\022#\n\007plu"
-  "gins\030\003 \003(\0132\022.CSteamOSSLSPlugin\"\036\n\034CSteam"
-  "OSSLS_GetState_Request\"A\n\035CSteamOSSLS_Ge"
-  "tState_Response\022 \n\005state\030\001 \001(\0132\021.CSteamO"
-  "SSLSState\"\'\n%CSteamOSSLS_StateChanged_No"
-  "tification\"1\n\036CSteamOSSLS_SetEnabled_Req"
-  "uest\022\017\n\007enabled\030\001 \001(\010\"!\n\037CSteamOSSLS_Set"
-  "Enabled_Response\"g\n$CSteamOSSLS_SetPlugi"
-  "nEnabled_Request\022.\n\005etype\030\001 \001(\0162\013.ESLSHe"
-  "lper:\022ESLSHelper_Invalid\022\017\n\007enabled\030\002 \001("
-  "\010\"\'\n%CSteamOSSLS_SetPluginEnabled_Respon"
-  "se2\270\003\n\016SteamOSManager\022Q\n\010GetState\022!.CSte"
-  "amOSManager_GetState_Request\032\".CSteamOSM"
-  "anager_GetState_Response\022R\n\022NotifyStateC"
-  "hanged\022*.CSteamOSManager_StateChanged_No"
-  "tification\032\020.WebUINoResponse\022\201\001\n\030OptOutO"
-  "fSideloadedClient\0221.CSteamOSManager_OptO"
-  "utOfSideloadedClient_Request\0322.CSteamOSM"
-  "anager_OptOutOfSideloadedClient_Response"
-  "\022u\n\024ApplyMandatoryUpdate\022-.CSteamOSManag"
-  "er_ApplyMandatoryUpdate_Request\032..CSteam"
-  "OSManager_ApplyMandatoryUpdate_Response\032"
-  "\004\200\227\"\0012\341\002\n\nSteamOSSLS\022I\n\010GetState\022\035.CStea"
-  "mOSSLS_GetState_Request\032\036.CSteamOSSLS_Ge"
-  "tState_Response\022N\n\022NotifyStateChanged\022&."
-  "CSteamOSSLS_StateChanged_Notification\032\020."
-  "WebUINoResponse\022O\n\nSetEnabled\022\037.CSteamOS"
-  "SLS_SetEnabled_Request\032 .CSteamOSSLS_Set"
-  "Enabled_Response\022a\n\020SetPluginEnabled\022%.C"
-  "SteamOSSLS_SetPluginEnabled_Request\032&.CS"
-  "teamOSSLS_SetPluginEnabled_Response\032\004\200\227\""
-  "\001B\037H\001\200\001\001\252\002\027OpenSteamworks.Protobuf"
+  "nvalid\022\'\n\037is_status_led_control_availabl"
+  "e\030\005 \001(\010\"\"\n CSteamOSManager_GetState_Requ"
+  "est\"I\n!CSteamOSManager_GetState_Response"
+  "\022$\n\005state\030\001 \001(\0132\025.CSteamOSManagerState\"+"
+  "\n)CSteamOSManager_StateChanged_Notificat"
+  "ion\"d\n2CSteamOSManager_IsTelemetryHelper"
+  "Available_Request\022.\n\005etype\030\001 \001(\0162\013.ESLSH"
+  "elper:\022ESLSHelper_Invalid\"H\n3CSteamOSMan"
+  "ager_IsTelemetryHelperAvailable_Response"
+  "\022\021\n\tavailable\030\001 \001(\010\"2\n0CSteamOSManager_O"
+  "ptOutOfSideloadedClient_Request\"3\n1CStea"
+  "mOSManager_OptOutOfSideloadedClient_Resp"
+  "onse\".\n,CSteamOSManager_ApplyMandatoryUp"
+  "date_Request\"/\n-CSteamOSManager_ApplyMan"
+  "datoryUpdate_Response\"m\n\021CSteamOSSLSPlug"
+  "in\022.\n\005etype\030\001 \001(\0162\013.ESLSHelper:\022ESLSHelp"
+  "er_Invalid\022\024\n\014is_available\030\002 \001(\010\022\022\n\nis_e"
+  "nabled\030\003 \001(\010\"a\n\020CSteamOSSLSState\022\024\n\014is_a"
+  "vailable\030\001 \001(\010\022\022\n\nis_enabled\030\002 \001(\010\022#\n\007pl"
+  "ugins\030\003 \003(\0132\022.CSteamOSSLSPlugin\"\036\n\034CStea"
+  "mOSSLS_GetState_Request\"A\n\035CSteamOSSLS_G"
+  "etState_Response\022 \n\005state\030\001 \001(\0132\021.CSteam"
+  "OSSLSState\"\'\n%CSteamOSSLS_StateChanged_N"
+  "otification\"1\n\036CSteamOSSLS_SetEnabled_Re"
+  "quest\022\017\n\007enabled\030\001 \001(\010\"!\n\037CSteamOSSLS_Se"
+  "tEnabled_Response\"g\n$CSteamOSSLS_SetPlug"
+  "inEnabled_Request\022.\n\005etype\030\001 \001(\0162\013.ESLSH"
+  "elper:\022ESLSHelper_Invalid\022\017\n\007enabled\030\002 \001"
+  "(\010\"\'\n%CSteamOSSLS_SetPluginEnabled_Respo"
+  "nse2\270\003\n\016SteamOSManager\022Q\n\010GetState\022!.CSt"
+  "eamOSManager_GetState_Request\032\".CSteamOS"
+  "Manager_GetState_Response\022R\n\022NotifyState"
+  "Changed\022*.CSteamOSManager_StateChanged_N"
+  "otification\032\020.WebUINoResponse\022\201\001\n\030OptOut"
+  "OfSideloadedClient\0221.CSteamOSManager_Opt"
+  "OutOfSideloadedClient_Request\0322.CSteamOS"
+  "Manager_OptOutOfSideloadedClient_Respons"
+  "e\022u\n\024ApplyMandatoryUpdate\022-.CSteamOSMana"
+  "ger_ApplyMandatoryUpdate_Request\032..CStea"
+  "mOSManager_ApplyMandatoryUpdate_Response"
+  "\032\004\200\227\"\0012\341\002\n\nSteamOSSLS\022I\n\010GetState\022\035.CSte"
+  "amOSSLS_GetState_Request\032\036.CSteamOSSLS_G"
+  "etState_Response\022N\n\022NotifyStateChanged\022&"
+  ".CSteamOSSLS_StateChanged_Notification\032\020"
+  ".WebUINoResponse\022O\n\nSetEnabled\022\037.CSteamO"
+  "SSLS_SetEnabled_Request\032 .CSteamOSSLS_Se"
+  "tEnabled_Response\022a\n\020SetPluginEnabled\022%."
+  "CSteamOSSLS_SetPluginEnabled_Request\032&.C"
+  "SteamOSSLS_SetPluginEnabled_Response\032\004\200\227"
+  "\"\001B\037H\001\200\001\001\252\002\027OpenSteamworks.Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_webuimessages_5fsteamos_2eproto_deps[4] = {
   &::descriptor_table_enums_2eproto,
@@ -492,7 +496,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_webuimessages_5fsteamos_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_webuimessages_5fsteamos_2eproto = {
-  false, false, 2274, descriptor_table_protodef_webuimessages_5fsteamos_2eproto, "webuimessages_steamos.proto", 
+  false, false, 2315, descriptor_table_protodef_webuimessages_5fsteamos_2eproto, "webuimessages_steamos.proto", 
   &descriptor_table_webuimessages_5fsteamos_2eproto_once, descriptor_table_webuimessages_5fsteamos_2eproto_deps, 4, 19,
   schemas, file_default_instances, TableStruct_webuimessages_5fsteamos_2eproto::offsets,
   file_level_metadata_webuimessages_5fsteamos_2eproto, file_level_enum_descriptors_webuimessages_5fsteamos_2eproto, file_level_service_descriptors_webuimessages_5fsteamos_2eproto,
@@ -521,6 +525,9 @@ class CSteamOSManagerState::_Internal {
     (*has_bits)[0] |= 4u;
   }
   static void set_has_startup_movie_variant(HasBits* has_bits) {
+    (*has_bits)[0] |= 16u;
+  }
+  static void set_has_is_status_led_control_available(HasBits* has_bits) {
     (*has_bits)[0] |= 8u;
   }
 };
@@ -585,7 +592,7 @@ void CSteamOSManagerState::Clear() {
   if (cached_has_bits & 0x00000001u) {
     os_version_.ClearNonDefaultToEmpty();
   }
-  if (cached_has_bits & 0x0000000eu) {
+  if (cached_has_bits & 0x0000001eu) {
     ::memset(&is_service_available_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&startup_movie_variant_) -
         reinterpret_cast<char*>(&is_service_available_)) + sizeof(startup_movie_variant_));
@@ -641,6 +648,14 @@ const char* CSteamOSManagerState::_InternalParse(const char* ptr, ::PROTOBUF_NAM
           }
         } else goto handle_unusual;
         continue;
+      // optional bool is_status_led_control_available = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
+          _Internal::set_has_is_status_led_control_available(&has_bits);
+          is_status_led_control_available_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
       default: {
       handle_unusual:
         if ((tag & 7) == 4 || tag == 0) {
@@ -694,10 +709,16 @@ failure:
   }
 
   // optional .EStartupMovieVariant startup_movie_variant = 4 [default = EStartupMovieVariant_Invalid];
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000010u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       4, this->_internal_startup_movie_variant(), target);
+  }
+
+  // optional bool is_status_led_control_available = 5;
+  if (cached_has_bits & 0x00000008u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(5, this->_internal_is_status_led_control_available(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -717,7 +738,7 @@ size_t CSteamOSManagerState::ByteSizeLong() const {
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x0000000fu) {
+  if (cached_has_bits & 0x0000001fu) {
     // optional string os_version = 2;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
@@ -735,8 +756,13 @@ size_t CSteamOSManagerState::ByteSizeLong() const {
       total_size += 1 + 1;
     }
 
-    // optional .EStartupMovieVariant startup_movie_variant = 4 [default = EStartupMovieVariant_Invalid];
+    // optional bool is_status_led_control_available = 5;
     if (cached_has_bits & 0x00000008u) {
+      total_size += 1 + 1;
+    }
+
+    // optional .EStartupMovieVariant startup_movie_variant = 4 [default = EStartupMovieVariant_Invalid];
+    if (cached_has_bits & 0x00000010u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_startup_movie_variant());
     }
@@ -774,7 +800,7 @@ void CSteamOSManagerState::MergeFrom(const CSteamOSManagerState& from) {
   (void) cached_has_bits;
 
   cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 0x0000000fu) {
+  if (cached_has_bits & 0x0000001fu) {
     if (cached_has_bits & 0x00000001u) {
       _internal_set_os_version(from._internal_os_version());
     }
@@ -785,6 +811,9 @@ void CSteamOSManagerState::MergeFrom(const CSteamOSManagerState& from) {
       is_mandatory_update_available_ = from.is_mandatory_update_available_;
     }
     if (cached_has_bits & 0x00000008u) {
+      is_status_led_control_available_ = from.is_status_led_control_available_;
+    }
+    if (cached_has_bits & 0x00000010u) {
       startup_movie_variant_ = from.startup_movie_variant_;
     }
     _has_bits_[0] |= cached_has_bits;

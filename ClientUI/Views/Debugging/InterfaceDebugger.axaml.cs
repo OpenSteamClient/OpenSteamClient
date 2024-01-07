@@ -184,25 +184,14 @@ public partial class InterfaceDebugger : Window
     }
 
     private static object GetInterfaceImpl(Type iface) {
-        var client = AvaloniaApp.Container.Get<SteamClient>();
+        var client = AvaloniaApp.Container.Get<ISteamClient>();
         UtilityFunctions.AssertNotNull(client);
-        var jitAssembly = GetJITAssembly();
-        var implementorFields = typeof(OpenSteamworks.Native.ClientNative).GetFields().Where(f => f.FieldType == iface);
+        var implementorFields = typeof(ISteamClient).GetProperties().Where(f => f.PropertyType == iface);
         if (!implementorFields.Any()) {
-            throw new NotSupportedException("This interface is not implemented in ClientNative");
+            throw new NotSupportedException("This interface is not implemented in ISteamClient");
         }
         var implementorField = implementorFields.First();
         
-        return UtilityFunctions.AssertNotNull(implementorField.GetValue(client.NativeClient));
-    }
-
-    private static Assembly GetJITAssembly()
-    {
-        var jitAssembly = AppDomain.CurrentDomain.GetAssemblies().
-            SingleOrDefault(assembly => assembly.GetName().Name == "OpenSteamworksJIT");
-        
-        UtilityFunctions.AssertNotNull(jitAssembly);
-
-        return jitAssembly;
+        return UtilityFunctions.AssertNotNull(implementorField.GetValue(client));
     }
 }

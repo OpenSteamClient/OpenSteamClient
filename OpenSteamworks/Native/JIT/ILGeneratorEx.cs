@@ -110,6 +110,23 @@ public class ILGeneratorEx {
         this.Emit(OpCodes.Ldtoken, typeToMakeToken);
     }
 
+    public void Ldc_I4(int val) {
+        switch (val)
+        {
+            case 0: this.Emit(OpCodes.Ldc_I4_0); break;
+            case 1: this.Emit(OpCodes.Ldc_I4_1); break;
+            case 2: this.Emit(OpCodes.Ldc_I4_2); break;
+            case 3: this.Emit(OpCodes.Ldc_I4_3); break;
+            case 4: this.Emit(OpCodes.Ldc_I4_4); break;
+            case 5: this.Emit(OpCodes.Ldc_I4_5); break;
+            case 6: this.Emit(OpCodes.Ldc_I4_6); break;
+            case 7: this.Emit(OpCodes.Ldc_I4_7); break;
+            case 8: this.Emit(OpCodes.Ldc_I4_8); break;
+            case -1: this.Emit(OpCodes.Ldc_I4_M1); break;
+            default: this.Emit(OpCodes.Ldc_I4, val); break;
+        }
+    }
+
     public void Return() {
         this.Emit(OpCodes.Ret);
     }

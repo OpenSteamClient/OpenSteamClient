@@ -5,20 +5,22 @@ namespace OpenSteamworks.Utils;
 public abstract class IncrementingBase<T> {
     public abstract T Data { get; set; }
     public abstract int Length { get; }
+    public uint UIntLength => (uint)Length;
+
     public abstract T Allocate(int size);
 
     /// <summary>
     /// Runs a function until our buffer fits it's output. <br/>
     /// </summary>
     /// <param name="func"></param>
-    public void RunUntilFits(Func<int> func) {
+    public int RunUntilFits(Func<int> func) {
         int lastResult;
         while (true)
         {
             lastResult = func();
 
             if (lastResult == 0) {
-                throw new ZeroLengthResultException();
+                return 0;
             }
 
             if (lastResult < Length) {
@@ -29,20 +31,22 @@ public abstract class IncrementingBase<T> {
                 Data = Allocate(Length * 2);
             }
         }
+
+        return lastResult;
     }
 
     /// <summary>
     /// Runs a function until our buffer fits it's output. <br/>
     /// </summary>
     /// <param name="func"></param>
-    public void RunUntilFits(Func<uint> func) {
+    public uint RunUntilFits(Func<uint> func) {
         uint lastResult;
         while (true)
         {
             lastResult = func();
 
             if (lastResult == 0) {
-                throw new ZeroLengthResultException();
+                return 0;
             }
 
             if (lastResult < Length) {
@@ -53,20 +57,22 @@ public abstract class IncrementingBase<T> {
                 Data = Allocate(Length * 2);
             }
         }
+
+        return lastResult;
     }
 
     /// <summary>
     /// Runs a function and resizes our buffer to it's outputted length.
     /// </summary>
     /// <param name="func"></param>
-    public void RunToFit(Func<int> func) {
+    public int RunToFit(Func<int> func) {
         int lastResult;
         while (true)
         {
             lastResult = func();
 
             if (lastResult == 0) {
-                throw new ZeroLengthResultException();
+                return 0;
             }
             
             if (Length >= lastResult) {
@@ -77,5 +83,36 @@ public abstract class IncrementingBase<T> {
                 Data = Allocate(lastResult);
             }
         }
+
+        return lastResult;
+    }
+
+    /// <summary>
+    /// Runs a function and resizes our buffer to it's outputted length.
+    /// </summary>
+    /// <param name="func"></param>
+    public uint RunToFit(Func<uint> func) {
+        uint lastResult;
+        while (true)
+        {
+            lastResult = func();
+
+            if (lastResult == 0) {
+                return 0;
+            }
+            
+            if (Length >= lastResult) {
+                break;
+            }
+
+            if (lastResult > Length) {
+                checked
+                {
+                    Data = Allocate((int)lastResult);
+                }
+            }
+        }
+
+        return lastResult;
     }
 }

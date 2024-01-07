@@ -1,7 +1,8 @@
 using System;
 using System.Runtime.InteropServices;
+using OpenSteamworks;
 
-namespace OpenSteamworks.NativeTypes;
+
 
 [StructLayout(LayoutKind.Sequential)]
 public unsafe struct CUtlMemory<T> where T : unmanaged {
@@ -14,13 +15,13 @@ public unsafe struct CUtlMemory<T> where T : unmanaged {
         this.m_nAllocationCount = nInitSize;
         this.m_unSizeOfElements = (uint)sizeof(T);
         nuint size = (nuint)(this.m_unSizeOfElements * this.m_nAllocationCount);
-        SteamClient.CUtlLogger.Debug("Allocating CUtlMemory of size " + size);
+        Logging.CUtlLogger.Debug("Allocating CUtlMemory of size " + size);
         this.m_pMemory = NativeMemory.AllocZeroed(size);
         this.m_nGrowSize = growSize;
     }
 
     public void Free() {
-        SteamClient.CUtlLogger.Debug("Freeing CUtlMemory");
+        Logging.CUtlLogger.Debug("Freeing CUtlMemory");
         NativeMemory.Free(this.m_pMemory);
     }
 
@@ -54,7 +55,7 @@ public unsafe struct CUtlMemory<T> where T : unmanaged {
                     // Should be impossible, but if hit try to grow an amount that may be large
                     // enough for most cases and thus avoid both divide by zero above as well as
                     // likely memory corruption afterwards.
-                    SteamClient.CUtlLogger.Debug("nBytesItem is " + nBytesItem + "in UtlMemory_CalcNewAllocationCount");
+                    Logging.CUtlLogger.Debug("nBytesItem is " + nBytesItem + "in UtlMemory_CalcNewAllocationCount");
                     nAllocationCount = 256;
                 }
             }
@@ -99,5 +100,15 @@ public unsafe struct CUtlMemory<T> where T : unmanaged {
         public static Iterator_t InvalidIterator() {
             return new Iterator_t() { index = -1 };
         }
+    }
+
+    public readonly int NumAllocated()
+    {
+        return m_nAllocationCount;
+    }
+
+    public T this[int i] {
+        get => Base()[i];
+        set => Base()[i] = value;
     }
 }

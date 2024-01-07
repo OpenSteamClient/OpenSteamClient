@@ -71,7 +71,7 @@ public unsafe interface IClientEngine {
     /// <param name="iCallbackExpected">k_iCallback number that you expected back</param>
     /// <param name="pbFailed">A bool that tells you if the callback failed</param>
     /// <returns>If the callback is finished or not</returns>
-	public bool GetAPICallResult( HSteamPipe hSteamPipe, SteamAPICall_t hSteamAPICall, byte[] pCallback, int cubCallback, int iCallbackExpected, ref bool pbFailed );
+	public bool GetAPICallResult( HSteamPipe hSteamPipe, SteamAPICall_t hSteamAPICall, void* pCallback, int cubCallback, int iCallbackExpected, ref bool pbFailed );
 	public IClientProductBuilder GetIClientProductBuilder( HSteamUser hSteamUser, HSteamPipe hSteamPipe );
 	public IClientDepotBuilder GetIClientDepotBuilder( HSteamUser hSteamUser, HSteamPipe hSteamPipe );
 	public IClientNetworkDeviceManager GetIClientNetworkDeviceManager( HSteamPipe hSteamPipe );

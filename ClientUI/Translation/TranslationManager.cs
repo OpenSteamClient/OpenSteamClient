@@ -176,6 +176,12 @@ public class TranslationManager : ILogonLifetime {
                     isEmptyOrNull = string.IsNullOrEmpty(str);
                 }
 
+                if (!translationKey.StartsWith('#')) {
+                    // User probably meant to set the text directly. 
+                    obj.SetValue(property, translationKey);
+                    return;
+                }
+
                 // Don't replace text with TRANSLATION FAILED if there's pre-existing text in the control
                 if (translationFailed && !isEmptyOrNull) {
                     return;
@@ -183,6 +189,7 @@ public class TranslationManager : ILogonLifetime {
                     // And if there's no pre existing text, but the translation failed, show the default string if it is not empty
                     if (!string.IsNullOrEmpty(defaultStr)) {
                         obj.SetValue(property, defaultStr);
+                        return;
                     }
                 }
 

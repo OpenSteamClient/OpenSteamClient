@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-namespace OpenSteamworks.NativeTypes;
+
 
 [StructLayout(LayoutKind.Sequential)]
 public unsafe struct CUtlVector<T> where T : unmanaged {

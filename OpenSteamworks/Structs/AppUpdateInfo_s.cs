@@ -1,10 +1,11 @@
 using System;
 using System.Runtime.InteropServices;
 using OpenSteamworks.Enums;
-using OpenSteamworks.NativeTypes;
+
 
 namespace OpenSteamworks.Structs;
 
+// This struct is 120 long
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
 public struct AppUpdateInfo_s {
     /// <summary>
@@ -32,10 +33,5 @@ public struct AppUpdateInfo_s {
 	public UInt64 m_uUn8; // is possibly UInt32 (value is 16777216 most of the time)
 	public UInt64 m_targetBuildID; // Installing buildid
 	public UInt64 m_uUnk10;
-	public UInt64 m_uUnk11;
-	public UInt64 m_uUnk12;
-	public UInt64 m_uUnk13;
-	public UInt64 m_uUnk14;
-	public UInt64 m_uUnk15;
-	public UInt64 m_uUnk16;
+	public UInt32 m_uUnk11;
 }

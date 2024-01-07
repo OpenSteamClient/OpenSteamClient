@@ -1,7 +1,7 @@
 using System;
 using System.Runtime.InteropServices;
 
-namespace OpenSteamworks.NativeTypes;
+
 
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
 public struct AppPlaytime_t {

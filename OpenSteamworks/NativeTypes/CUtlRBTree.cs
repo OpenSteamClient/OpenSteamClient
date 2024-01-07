@@ -2,9 +2,6 @@ using System;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-namespace OpenSteamworks.NativeTypes;
-
-
 [StructLayout(LayoutKind.Sequential)]
 public unsafe struct UtlRBTreeNode_t<T, I> where I : unmanaged where T : unmanaged
 {

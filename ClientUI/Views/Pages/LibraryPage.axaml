@@ -16,43 +16,54 @@
         <vm:LibraryPageViewModel/>
     </Design.DataContext>
 
-    <DockPanel>
-        <!-- Downloads section -->
-        <StackPanel DockPanel.Dock="Bottom" Background="Red" HorizontalAlignment="Center">
-            <TextBlock Text="Downloads section" />
-        </StackPanel>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" MinWidth="64" />
+            <ColumnDefinition Width="2"/>
+            <ColumnDefinition Width="4*" MinWidth="64" />
+        </Grid.ColumnDefinitions>
 
-        <!-- Bulk of the library content -->
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*" MinWidth="64" />
-                <ColumnDefinition Width="2"/>
-                <ColumnDefinition Width="4*" MinWidth="64" />
-            </Grid.ColumnDefinitions>
+        <!-- Games list
+        <Border BorderThickness="1" BorderBrush="Black">
+            <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+                <ItemsRepeater Items="{Binding Nodes}">
+                    <ItemsRepeater.ItemTemplate>
+                        <DataTemplate>
+                            <Border Padding="{Binding Padding}">
+                                <StackPanel Orientation="Horizontal">
+                                    <Canvas Height="20" Width="20" Top="0" Left="0" Margin="0,0,4,0" IsVisible="{Binding IsApp}" Background="{Binding StatusIcon}"/>
+                                    <Canvas Height="20" Width="20" Top="0" Left="0" Margin="0,0,4,0" IsVisible="{Binding IsApp}" Background="{Binding Icon}"/>
+                                    <CheckBox IsVisible="{Binding !HasIcon}" IsChecked="{Binding IsExpanded}"/>
+                                    <TextBlock Focusable="True" Text="{Binding Name}" Margin="5 0 0 0"/>
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsRepeater.ItemTemplate>
+                </ItemsRepeater>
+            </ScrollViewer>
+        </Border> -->
 
-            <!-- Games list -->
-            <TreeView SelectedItems="{Binding SelectedNodes}" ItemsSource="{Binding Nodes}">
+        <TreeView SelectedItems="{Binding SelectedNodes}" ItemsSource="{Binding Nodes}">
 
-                <!-- To set properties in the constructed TreeItem, do this -->
-                <TreeView.Styles>
-                    <Style Selector="TreeViewItem" x:DataType="vml:INode">
-                        <Setter Property="ShowExpandCollapseChevron" Value="{Binding !IsApp}"/>
-                    </Style>
-                </TreeView.Styles>
+            <!-- To set properties in the constructed TreeItem, do this -->
+            <TreeView.Styles>
+                <Style Selector="TreeViewItem" x:DataType="vml:Node">
+                    <Setter Property="ShowExpandCollapseChevron" Value="{Binding !IsApp}"/>
+                </Style>
+            </TreeView.Styles>
 
-                <TreeView.ItemTemplate>
-                    <TreeDataTemplate ItemsSource="{Binding Children}">
-                        <StackPanel Orientation="Horizontal">
-                            <Canvas Height="20" Width="20" Top="0" Left="0" Margin="0,0,4,0" IsVisible="{Binding HasIcon}" Background="{Binding Icon}"/>
-                            <TextBlock Text="{Binding Name}"/>
-                        </StackPanel>
-                    </TreeDataTemplate>
-                </TreeView.ItemTemplate>
-            </TreeView>
-            <GridSplitter Grid.Column="1" ResizeDirection="Columns"/>
+            <TreeView.ItemTemplate>
+                <TreeDataTemplate ItemsSource="{Binding Children}">
+                    <StackPanel Orientation="Horizontal">
+                        <Canvas Height="20" Width="20" Top="0" Left="0" Margin="0,0,4,0" IsVisible="{Binding HasIcon}" Background="{Binding Icon}"/>
+                        <TextBlock Text="{Binding Name}"/>
+                    </StackPanel>
+                </TreeDataTemplate>
+            </TreeView.ItemTemplate>
+        </TreeView>
+        <GridSplitter Grid.Column="1" ResizeDirection="Columns"/>
 
-            <!-- Side content (game detail view, "big coverart" view) -->
-            <ContentControl Grid.Column="2" Content="{Binding SideContent}" />
-        </Grid>
-    </DockPanel>
+        <!-- Side content (game detail view, "big coverart" view) -->
+        <ContentControl Grid.Column="2" Content="{Binding SideContent}" />
+    </Grid>
 </c:BasePage>

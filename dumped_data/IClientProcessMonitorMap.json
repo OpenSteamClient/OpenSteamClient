@@ -1,6 +1,6 @@
 {
     "name": "IClientProcessMonitorMap",
-    "found_at": "0x24519e4",
+    "found_at": "0x24529e4",
     "functions": [ 
         {
             "name": "RegisterProcess",
@@ -8,7 +8,16 @@
             "interfaceid": "4",
             "functionid": "2891296069",
             "fencepost": "2894619151",
-            "addr": "0xfb77f0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0xfb7bf0",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "unknown",
+                "unknown"
+            ]
         },
         {
             "name": "UnregisterProcess",
@@ -16,7 +25,16 @@
             "interfaceid": "4",
             "functionid": "854938746",
             "fencepost": "858277957",
-            "addr": "0xfb76a0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0xfb7aa0",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "unknown",
+                "unknown"
+            ]
         },
         {
             "name": "TerminateProcess",
@@ -24,7 +42,16 @@
             "interfaceid": "4",
             "functionid": "1112128066",
             "fencepost": "1115483406",
-            "addr": "0xfb7510"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0xfb7910",
+            "serializedargs": [
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "SuspendProcess",
@@ -32,7 +59,16 @@
             "interfaceid": "4",
             "functionid": "1298266394",
             "fencepost": "1301637863",
-            "addr": "0xfb73c0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0xfb77c0",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "unknown",
+                "unknown"
+            ]
         },
         {
             "name": "ResumeProcess",
@@ -40,7 +76,16 @@
             "interfaceid": "4",
             "functionid": "2261222343",
             "fencepost": "2264609941",
-            "addr": "0xfb7270"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0xfb7670",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "unknown",
+                "unknown"
+            ]
         }
     ]
 }

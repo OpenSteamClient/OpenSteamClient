@@ -12,21 +12,21 @@ namespace OpenSteamworks.Generated;
 
 public unsafe interface IClientAudio
 {
-    public unknown_ret StartVoiceRecording();  // argc: 0, index: 1
-    public unknown_ret StopVoiceRecording();  // argc: 0, index: 2
-    public unknown_ret ResetVoiceRecording();  // argc: 0, index: 3
+    public unknown_ret StartVoiceRecording();  // argc: 0, index: 1, ipc args: [], ipc returns: []
+    public unknown_ret StopVoiceRecording();  // argc: 0, index: 0, ipc args: [], ipc returns: []
+    public unknown_ret ResetVoiceRecording();  // argc: 0, index: 0, ipc args: [], ipc returns: []
     // WARNING: Arguments are unknown!
-    public unknown_ret GetAvailableVoice();  // argc: 3, index: 4
+    public unknown_ret GetAvailableVoice();  // argc: 3, index: 0, ipc args: [bytes4], ipc returns: [bytes4, bytes4, bytes4]
     // WARNING: Arguments are unknown!
-    public unknown_ret GetVoice();  // argc: 9, index: 5
+    public unknown_ret GetVoice();  // argc: 9, index: 1, ipc args: [bytes1, bytes4, bytes1, bytes4, bytes4], ipc returns: [bytes4, bytes4]
     // WARNING: Arguments are unknown!
-    public unknown_ret GetCompressedVoice();  // argc: 3, index: 6
+    public unknown_ret GetCompressedVoice();  // argc: 3, index: 2, ipc args: [bytes4], ipc returns: [bytes4, bytes4, bytes_length_from_mem]
     // WARNING: Arguments are unknown!
-    public unknown_ret DecompressVoice();  // argc: 6, index: 7
-    public unknown_ret GetVoiceOptimalSampleRate();  // argc: 0, index: 8
+    public unknown_ret DecompressVoice();  // argc: 6, index: 3, ipc args: [bytes4, bytes_length_from_mem, bytes4, bytes4], ipc returns: [bytes4, bytes4]
+    public unknown_ret GetVoiceOptimalSampleRate();  // argc: 0, index: 4, ipc args: [], ipc returns: [bytes4]
     // WARNING: Arguments are unknown!
-    public unknown_ret BAppUsesVoice();  // argc: 1, index: 9
-    public unknown_ret GetGameSystemVolume();  // argc: 0, index: 10
+    public unknown_ret BAppUsesVoice();  // argc: 1, index: 0, ipc args: [bytes4], ipc returns: [boolean]
+    public unknown_ret GetGameSystemVolume();  // argc: 0, index: 1, ipc args: [], ipc returns: [bytes4]
     // WARNING: Arguments are unknown!
-    public unknown_ret SetGameSystemVolume();  // argc: 1, index: 11
+    public unknown_ret SetGameSystemVolume();  // argc: 1, index: 0, ipc args: [bytes4], ipc returns: []
 }

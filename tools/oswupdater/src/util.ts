@@ -14,6 +14,7 @@ export function rm(path: string): void {
     }
 }
 
+//TODO: this doesn't wait for the process to finish executing, even though it should
 export function execWrap(command: string, options: ExecOptions): Promise<string> {
     return new Promise<string>((resolve, reject) => {
         var exechandle = exec(command, options, ((error, stdout, stderr) => {

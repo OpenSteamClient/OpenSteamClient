@@ -8,6 +8,7 @@
 
 using System;
 using System.Text;
+using OpenSteamworks.Attributes;
 using OpenSteamworks.Enums;
 using OpenSteamworks.Structs;
 
@@ -15,37 +16,37 @@ namespace OpenSteamworks.Generated;
 
 public unsafe interface IClientApps
 {
-    public int GetAppData(AppId_t unAppID, string pchKey, StringBuilder pchValue, int cchValueMax);  // argc: 4, index: 1
-    public bool SetLocalAppConfig(AppId_t unAppID, void* pchBuffer, int cbBuffer);  // argc: 3, index: 2
-    public AppId_t GetInternalAppIDFromGameID(in CGameID id);  // argc: 1, index: 3
-    public unknown_ret GetAllOwnedMultiplayerApps(uint[] punAppIDs, int cAppIDsMax);  // argc: 2, index: 4
-    public unknown_ret GetAvailableLaunchOptions(AppId_t unAppID, uint[] options, uint cuOptionsMax);  // argc: 3, index: 5
-    public unknown_ret GetAppDataSection(AppId_t unAppID, EAppInfoSection eSection, byte[] pchBuffer, int cbBufferMax, bool bSharedKVSymbols);  // argc: 5, index: 6
+    public int GetAppData(AppId_t unAppID, string pchKey, StringBuilder pchValue, int cchValueMax);  // argc: 4, index: 1, ipc args: [bytes4, string, bytes4], ipc returns: [bytes4]
+    public bool SetLocalAppConfig(AppId_t unAppID, void* pchBuffer, int cbBuffer);  // argc: 3, index: 2, ipc args: [bytes4, bytes4, bytes_length_from_mem], ipc returns: [bytes1]
+    public AppId_t GetInternalAppIDFromGameID(in CGameID id);  // argc: 1, index: 3, ipc args: [bytes8], ipc returns: [bytes4]
+    public unknown_ret GetAllOwnedMultiplayerApps(AppId_t* punAppIDs, int cAppIDsMax);  // argc: 2, index: 4, ipc args: [bytes4], ipc returns: [bytes4, bytes_length_from_reg]
+    public unknown_ret GetAvailableLaunchOptions(AppId_t unAppID, uint[] options, uint cuOptionsMax);  // argc: 3, index: 5, ipc args: [bytes4, bytes4], ipc returns: [bytes4, bytes_length_from_reg]
+    public unknown_ret GetAppDataSection(AppId_t unAppID, EAppInfoSection eSection, byte[] pchBuffer, int cbBufferMax, bool bSharedKVSymbols);  // argc: 5, index: 6, ipc args: [bytes4, bytes4, bytes4, bytes1], ipc returns: [bytes4]
     /// <summary>
     /// Called by ValveSteam 444 times.
     /// </summary>
     /// <returns></returns>
-    public unknown_ret GetMultipleAppDataSections(AppId_t unAppID, EAppInfoSection[] sections, int sectionsCount, byte[] pchBuffer, int cbBufferMax, bool bSharedKVSymbols, int[] sectionLengths);  // argc: 7, index: 7
-    public bool RequestAppInfoUpdate(AppId_t[] appIds, int appIdsLength);  // argc: 2, index: 8
-    public int GetDLCCount(AppId_t app);  // argc: 1, index: 9
-    public unknown_ret BGetDLCDataByIndex(AppId_t app, int iDLC, AppId_t[] pAppID, ref bool pbAvailable, string pchName, int cchNameBufferSize);  // argc: 6, index: 10
-    public EAppType GetAppType(AppId_t app);  // argc: 1, index: 11
+    public unknown_ret GetMultipleAppDataSections(AppId_t unAppID, EAppInfoSection[] sections, int sectionsCount, byte[] pchBuffer, int cbBufferMax, bool bSharedKVSymbols, int[] sectionLengths);  // argc: 7, index: 7, ipc args: [bytes4, bytes4, bytes_length_from_reg, bytes4, bytes1], ipc returns: [bytes4]
+    public bool RequestAppInfoUpdate(AppId_t[] appIds, int appIdsLength);  // argc: 2, index: 8, ipc args: [bytes4, bytes_length_from_reg], ipc returns: [bytes1]
+    public int GetDLCCount(AppId_t app);  // argc: 1, index: 9, ipc args: [bytes4], ipc returns: [bytes4]
+    public unknown_ret BGetDLCDataByIndex(AppId_t app, int iDLC, AppId_t* pAppID, ref bool pbAvailable, string pchName, int cchNameBufferSize);  // argc: 6, index: 10, ipc args: [bytes4, bytes4, bytes4], ipc returns: [boolean, bytes4, boolean, bytes_length_from_mem]
+    public EAppType GetAppType(AppId_t app);  // argc: 1, index: 11, ipc args: [bytes4], ipc returns: [bytes4]
     // WARNING: Arguments are unknown!
-    public unknown_ret GetStoreTagLocalization(ELanguage language, uint* unk1, int unk2, void* unk3, int unk3Max);  // argc: 5, index: 12
+    public unknown_ret GetStoreTagLocalization(ELanguage language, uint* unk1, int unk2, void* unk3, int unk3Max);  // argc: 5, index: 12, ipc args: [bytes4, bytes4, bytes_length_from_reg, bytes4], ipc returns: [bytes4]
     /// <summary>
     /// Locks the app info cache from changes. Required when calling GetAppKVRaw.
     /// </summary>
     /// <returns>True if locked successfully, false if locking failed or a lock is already in use</returns>
-    public bool TakeUpdateLock();  // argc: 0, index: 13
-    [BlacklistedInCrossProcessIPC]
+    public bool TakeUpdateLock();  // argc: 0, index: 13, ipc args: [], ipc returns: [bytes1]
     // Called by ValveSteam for each appid you own. Should we?
-    public unknown_ret GetAppKVRaw(AppId_t app, byte[] pchBuffer, int cbBufferMax);  // argc: 3, index: 14
+    [BlacklistedInCrossProcessIPC]
+    public unknown_ret GetAppKVRaw(AppId_t app, [IPCOut] byte[] pchBuffer, int cbBufferMax);  // argc: 3, index: 0, ipc args: [bytes4, bytes4, bytes4], ipc returns: [bytes1]
     /// <summary>
     /// Unlocks the app info cache.
     /// </summary>
-    public void ReleaseUpdateLock();  // argc: 0, index: 15
+    public void ReleaseUpdateLock();  // argc: 0, index: 1, ipc args: [], ipc returns: []
     /// <summary>
     /// Gets the current user's AppInfoChangeNumber.
     /// </summary>
-    public uint GetLastChangeNumberReceived();  // argc: 0, index: 16
+    public uint GetLastChangeNumberReceived();  // argc: 0, index: 0, ipc args: [], ipc returns: [bytes4]
 }

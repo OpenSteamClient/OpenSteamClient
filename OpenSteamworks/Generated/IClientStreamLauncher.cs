@@ -13,6 +13,6 @@ namespace OpenSteamworks.Generated;
 public unsafe interface IClientStreamLauncher
 {
     // WARNING: Arguments are unknown!
-    public unknown_ret StartStreaming();  // argc: 1, index: 1
-    public unknown_ret StopStreaming();  // argc: 0, index: 2
+    public unknown_ret StartStreaming();  // argc: 1, index: 1, ipc args: [string], ipc returns: [bytes4]
+    public unknown_ret StopStreaming();  // argc: 0, index: 2, ipc args: [], ipc returns: []
 }

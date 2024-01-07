@@ -21,7 +21,7 @@ public partial class LoginWindow : Window
     public void ShowSecondFactorDialog(SecondFactorNeededEventArgs e) {
         SecondFactorNeededDialog dialog = new()
         {
-            DataContext = AvaloniaApp.Container.ConstructOnly<SecondFactorNeededDialogViewModel>(new object[1] {e}),
+            DataContext = AvaloniaApp.Container.ConstructOnly<SecondFactorNeededDialogViewModel>(e),
         };
         dialog.ShowDialog(this);
     }

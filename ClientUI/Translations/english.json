@@ -43,6 +43,17 @@
         "#MainWindow_Header_Games": "Games",
         "#MainWindow_Header_Help": "Help",
         "#MainWindow_Header_Debug_OpenInterfaceList": "Open interface list",
-        "#App_Tray_OpenSteamVR": "Open SteamVR"
+        "#App_Tray_OpenSteamVR": "Open SteamVR",
+        "#App_PlayApp": "Play",
+        "#App_LaunchApp": "Launch",
+        "#App_ListenApp": "Listen",
+        "#App_WatchApp": "Watch",
+        "#App_UninstallApp": "Uninstall",
+        "#App_InstallApp": "Install",
+        "#App_UpdateApp": "Update",
+        "#App_PauseAppUpdate": "Pause",
+        "#App_StopApp": "Stop",
+        "#App_StoppingApp": "Stopping",
+        "#App_CancelAppLaunch": "Cancel"
     }
 }

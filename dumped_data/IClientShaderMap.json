@@ -1,6 +1,6 @@
 {
     "name": "IClientShaderMap",
-    "found_at": "0x2449ff0",
+    "found_at": "0x244aff0",
     "functions": [ 
         {
             "name": "BIsShaderManagementEnabled",
@@ -8,7 +8,14 @@
             "interfaceid": "45",
             "functionid": "3307265299",
             "fencepost": "3403190177",
-            "addr": "0x643510"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6436e0",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "boolean"
+            ]
         },
         {
             "name": "BIsShaderBackgroundProcessingEnabled",
@@ -16,7 +23,14 @@
             "interfaceid": "45",
             "functionid": "2895967464",
             "fencepost": "2991908471",
-            "addr": "0x643670"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x643840",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "boolean"
+            ]
         },
         {
             "name": "EnableShaderManagement",
@@ -24,7 +38,14 @@
             "interfaceid": "45",
             "functionid": "1673802331",
             "fencepost": "1769759467",
-            "addr": "0x6437d0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6439a0",
+            "serializedargs": [
+                "bytes1"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "EnableShaderBackgroundProcessing",
@@ -32,7 +53,14 @@
             "interfaceid": "45",
             "functionid": "1839618228",
             "fencepost": "1935591493",
-            "addr": "0x643920"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x643af0",
+            "serializedargs": [
+                "bytes1"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "GetShaderDepotsTotalDiskUsage",
@@ -40,7 +68,14 @@
             "interfaceid": "45",
             "functionid": "3076023868",
             "fencepost": "3172013262",
-            "addr": "0x643a70"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x643c40",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "GetShaderCacheDiskSize",
@@ -48,7 +83,17 @@
             "interfaceid": "45",
             "functionid": "3732311208",
             "fencepost": "3828316731",
-            "addr": "0x643bf0"
+            "cannotcallincrossprocess": "1",
+            "serializedreturn": "",
+            "addr": "0x643dc0",
+            "serializedargs": [
+                "bytes4",
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "StartShaderScan",
@@ -56,7 +101,15 @@
             "interfaceid": "45",
             "functionid": "433933230",
             "fencepost": "529954882",
-            "addr": "0x643de0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x643fb0",
+            "serializedargs": [
+                "bytes4",
+                "string"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "StartPipelineBuild",
@@ -64,7 +117,15 @@
             "interfaceid": "45",
             "functionid": "3246759215",
             "fencepost": "3342796996",
-            "addr": "0x643f30"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x644100",
+            "serializedargs": [
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "StartShaderConversion",
@@ -72,7 +133,17 @@
             "interfaceid": "45",
             "functionid": "3747612306",
             "fencepost": "3843666216",
-            "addr": "0x644090"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x644260",
+            "serializedargs": [
+                "bytes4",
+                "bytes8",
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "StartShaderPruning",
@@ -80,7 +151,13 @@
             "interfaceid": "45",
             "functionid": "3583147501",
             "fencepost": "3679217540",
-            "addr": "0x644270"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x644440",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "ProcessShaderCache",
@@ -88,7 +165,15 @@
             "interfaceid": "45",
             "functionid": "3854325245",
             "fencepost": "3950411413",
-            "addr": "0x6443a0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x644570",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "GetShaderCacheProcessingCompletion",
@@ -96,7 +181,14 @@
             "interfaceid": "45",
             "functionid": "1473017793",
             "fencepost": "1569120090",
-            "addr": "0x644520"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6446f0",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "GetShaderCacheProcessingAppID",
@@ -104,7 +196,14 @@
             "interfaceid": "45",
             "functionid": "3879571319",
             "fencepost": "3975689745",
-            "addr": "0x644680"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x644850",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "SkipShaderProcessing",
@@ -112,7 +211,14 @@
             "interfaceid": "45",
             "functionid": "4097072485",
             "fencepost": "4193207040",
-            "addr": "0x6447e0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6449b0",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "BAppHasPendingShaderContentDownload",
@@ -120,7 +226,15 @@
             "interfaceid": "45",
             "functionid": "2473002809",
             "fencepost": "2569153493",
-            "addr": "0x644930"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x644b00",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "boolean"
+            ]
         },
         {
             "name": "GetAppPendingShaderDownloadSize",
@@ -128,7 +242,15 @@
             "interfaceid": "45",
             "functionid": "3001655318",
             "fencepost": "3097822131",
-            "addr": "0x644ab0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x644c80",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "GetBucketManifest",
@@ -136,7 +258,17 @@
             "interfaceid": "45",
             "functionid": "3529087343",
             "fencepost": "3625270285",
-            "addr": "0x644c40"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x644e10",
+            "serializedargs": [
+                "bytes4",
+                "string",
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "GetStaleBucket",
@@ -144,7 +276,16 @@
             "interfaceid": "45",
             "functionid": "3968324171",
             "fencepost": "4064523242",
-            "addr": "0x644df0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x644fc0",
+            "serializedargs": [
+                "string",
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "ReportExternalBuild",
@@ -152,7 +293,21 @@
             "interfaceid": "45",
             "functionid": "2279256030",
             "fencepost": "2375471230",
-            "addr": "0x644f80"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x645150",
+            "serializedargs": [
+                "bytes4",
+                "string",
+                "string",
+                "bytes8",
+                "string",
+                "string",
+                "bytes8"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "PrepopulatePrecompiledCache",
@@ -160,7 +315,21 @@
             "interfaceid": "45",
             "functionid": "283527725",
             "fencepost": "379775183",
-            "addr": "0x645390"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x645560",
+            "serializedargs": [
+                "bytes4",
+                "bytes4",
+                "string",
+                "string",
+                "string",
+                "string",
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "WritePrecompiledCache",
@@ -168,7 +337,18 @@
             "interfaceid": "45",
             "functionid": "3324214357",
             "fencepost": "3420477944",
-            "addr": "0x645570"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x645740",
+            "serializedargs": [
+                "bytes4",
+                "string",
+                "string",
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "CompileShaders",
@@ -176,7 +356,18 @@
             "interfaceid": "45",
             "functionid": "2708257153",
             "fencepost": "2804488482",
-            "addr": "0x6451d0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6453a0",
+            "serializedargs": [
+                "bytes4",
+                "bytes4",
+                "string",
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "GetShaderBucketForGraphicsAPI",
@@ -184,7 +375,16 @@
             "interfaceid": "45",
             "functionid": "566476143",
             "fencepost": "662755859",
-            "addr": "0x645870"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x645a40",
+            "serializedargs": [
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "EnableShaderManagementSystem",
@@ -192,7 +392,14 @@
             "interfaceid": "45",
             "functionid": "3546554467",
             "fencepost": "3642850312",
-            "addr": "0x645720"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6458f0",
+            "serializedargs": [
+                "bytes1"
+            ],
+            "serializedreturns": [
+            ]
         }
     ]
 }

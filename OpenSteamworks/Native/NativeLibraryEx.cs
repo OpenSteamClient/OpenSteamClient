@@ -38,19 +38,19 @@ public class NativeLibraryEx {
                 if (OperatingSystem.IsLinux()) {
                     previousSecurity = LinuxNative.PROT_READ + LinuxNative.PROT_EXEC;
                     if (LinuxNative.mprotect((nint)StartAddress, (nuint)this.Length, LinuxNative.PROT_READ + LinuxNative.PROT_WRITE + LinuxNative.PROT_EXEC) != 0) {
-                        SteamClient.GeneralLogger.Warning($"Failed to widen {this.Name} security, errno: " + Marshal.GetLastWin32Error());
+                        Logging.GeneralLogger.Warning($"Failed to widen {this.Name} security, errno: " + Marshal.GetLastWin32Error());
                     }
                 } else if (OperatingSystem.IsWindows()) {
                     unsafe {
                         uint oldProtect = 0;
                         if (!WindowsNative.VirtualProtect((void*)StartAddress, (nuint)this.Length, WindowsNative.PAGE_READWRITE, &oldProtect)) {
-                            SteamClient.GeneralLogger.Warning($"Failed to widen {this.Name} security, errno: " + Marshal.GetLastWin32Error());
+                            Logging.GeneralLogger.Warning($"Failed to widen {this.Name} security, errno: " + Marshal.GetLastWin32Error());
                         } else {
                             previousSecurity = (int)oldProtect;
                         }
                     }
                 } else {
-                    SteamClient.GeneralLogger.Error($"Failed to widen {this.Name} security, not implemented on your OS");
+                    Logging.GeneralLogger.Error($"Failed to widen {this.Name} security, not implemented on your OS");
                 }
             }
         }
@@ -62,19 +62,19 @@ public class NativeLibraryEx {
             if (widenedSecurityRefCount.Decrement()) {
                 if (OperatingSystem.IsLinux()) {
                     if(LinuxNative.mprotect((nint)StartAddress, (UIntPtr)Length, previousSecurity) != 0) {
-                        SteamClient.GeneralLogger.Warning($"Failed to restore {this.Name} security, errno: " + Marshal.GetLastWin32Error());
+                        Logging.GeneralLogger.Warning($"Failed to restore {this.Name} security, errno: " + Marshal.GetLastWin32Error());
                     }
                 } else if (OperatingSystem.IsWindows()) {
                     unsafe {
                         uint oldProtect = 0;
                         if (!WindowsNative.VirtualProtect((void*)StartAddress, (nuint)this.Length, (uint)previousSecurity, &oldProtect)) {
-                            SteamClient.GeneralLogger.Warning($"Failed to restore {this.Name} security, errno: " + Marshal.GetLastWin32Error());
+                            Logging.GeneralLogger.Warning($"Failed to restore {this.Name} security, errno: " + Marshal.GetLastWin32Error());
                         } else {
                             previousSecurity = (int)oldProtect;
                         }
                     }
                 } else {
-                    SteamClient.GeneralLogger.Error($"Failed to restore {this.Name} security, not implemented on your OS");
+                    Logging.GeneralLogger.Error($"Failed to restore {this.Name} security, not implemented on your OS");
                 }
             }
         }
@@ -112,7 +112,7 @@ public class NativeLibraryEx {
 
     public unsafe void HookFunction(IntPtr functionToHook, IntPtr jmpTargetFunction) {
         checked {
-            SteamClient.GeneralLogger.Debug("Hooking function " + functionToHook);
+            Logging.GeneralLogger.Debug("Hooking function " + functionToHook);
             TextSection.WidenSecurity();
             if (!hookedFunctions.ContainsKey(functionToHook)) {
                 byte[] saved_buffer = new byte[5];
@@ -120,7 +120,7 @@ public class NativeLibraryEx {
                 {
                     Buffer.MemoryCopy((void*)functionToHook, p, 5, 5);
                 }
-                SteamClient.GeneralLogger.Debug("Copied old data");
+                Logging.GeneralLogger.Debug("Copied old data");
                 hookedFunctions[functionToHook] = saved_buffer;
             }
 
@@ -141,15 +141,15 @@ public class NativeLibraryEx {
             patch_mov.CopyTo(finalPatch, 0);
             patch_jmp.CopyTo(finalPatch, 10);
 
-            SteamClient.GeneralLogger.Debug("Created hook, copying");
+            Logging.GeneralLogger.Debug("Created hook, copying");
             fixed (byte* p = finalPatch)
             {
                 Buffer.MemoryCopy(p, (void*)functionToHook, 13, 13);
             }
 
-            SteamClient.GeneralLogger.Debug("Final patch: '" + Convert.ToHexString(finalPatch) + "'");
+            Logging.GeneralLogger.Debug("Final patch: '" + Convert.ToHexString(finalPatch) + "'");
 
-            SteamClient.GeneralLogger.Debug("Overwrote function");
+            Logging.GeneralLogger.Debug("Overwrote function");
             TextSection.RestoreSecurity();
         }
     }
@@ -231,7 +231,7 @@ public class NativeLibraryEx {
             
 
             byte[] arrPattern = ParsePatternString(szPattern, signatureMask);
-            SteamClient.GeneralLogger.Debug("Search starts at " + (nint)memoryPtr + " and ends at " + TextSection.EndAddress + ", offset is " + offset + ", length of signature " + szPattern.Length + ", length of mask " + signatureMask.Length + ", length of memory region " + memoryLen);
+            Logging.GeneralLogger.Debug("Search starts at " + (nint)memoryPtr + " and ends at " + TextSection.EndAddress + ", offset is " + offset + ", length of signature " + szPattern.Length + ", length of mask " + signatureMask.Length + ", length of memory region " + memoryLen);
             for (int nModuleIndex = 0; nModuleIndex < memoryLen; nModuleIndex++)
             {
                 if (memoryPtr[nModuleIndex] != arrPattern[0])
@@ -306,10 +306,10 @@ public class NativeLibraryEx {
                 var sectionName = Marshal.PtrToStringUTF8((IntPtr)(shstrtab + shdr.sh_name));
                 if (string.IsNullOrEmpty(sectionName))
                 {
-                    SteamClient.GeneralLogger.Warning($"Detected empty section name for section at idx {j}, skipping");
+                    Logging.GeneralLogger.Warning($"Detected empty section name for section at idx {j}, skipping");
                     continue;
                 }
-                SteamClient.GeneralLogger.Debug($"Found section " + sectionName + ", which is " + shdr.sh_size + " bytes");
+                Logging.GeneralLogger.Debug($"Found section " + sectionName + ", which is " + shdr.sh_size + " bytes");
                 Section sect = new Section(sectionName, (UIntPtr)(linkMap->l_addr + shdr.sh_addr), shdr.sh_size, this);
                 this.sections.Add(sect);
             }
@@ -340,7 +340,7 @@ public class NativeLibraryEx {
                 {
                     int len = strnlen(section.Name, 8);
                     var sectionName = System.Text.Encoding.UTF8.GetString(section.Name, len);
-                    SteamClient.GeneralLogger.Debug($"Found section " + sectionName + ", which is " + section.PhysicalAddressOrVirtualSize + " bytes");
+                    Logging.GeneralLogger.Debug($"Found section " + sectionName + ", which is " + section.PhysicalAddressOrVirtualSize + " bytes");
                     Section sect = new Section(sectionName, (UIntPtr)(loadedLibraryHandle + section.VirtualAddress), section.PhysicalAddressOrVirtualSize, this);
                     this.sections.Add(sect);
                 }

@@ -1,6 +1,6 @@
 {
     "name": "IClientSystemManagerMap",
-    "found_at": "0x2448ec8",
+    "found_at": "0x2449ec8",
     "functions": [ 
         {
             "name": "GetSettings",
@@ -8,7 +8,15 @@
             "interfaceid": "54",
             "functionid": "269706473",
             "fencepost": "315229369",
-            "addr": "0x5dddf0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5ddfc0",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "unknown"
+            ]
         },
         {
             "name": "UpdateSettings",
@@ -16,7 +24,15 @@
             "interfaceid": "54",
             "functionid": "3082982022",
             "fencepost": "3128601692",
-            "addr": "0x5ddf70"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5de140",
+            "serializedargs": [
+                "protobuf"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "ShutdownSystem",
@@ -24,7 +40,13 @@
             "interfaceid": "54",
             "functionid": "3166312667",
             "fencepost": "3211980724",
-            "addr": "0x5de100"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5de2d0",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "SuspendSystem",
@@ -32,7 +54,13 @@
             "interfaceid": "54",
             "functionid": "300782796",
             "fencepost": "346466982",
-            "addr": "0x5de230"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5de400",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "RestartSystem",
@@ -40,7 +68,13 @@
             "interfaceid": "54",
             "functionid": "2114332476",
             "fencepost": "2160032791",
-            "addr": "0x5de360"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5de530",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "FactoryReset",
@@ -48,7 +82,14 @@
             "interfaceid": "54",
             "functionid": "3486353643",
             "fencepost": "3532086216",
-            "addr": "0x5de490"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5de660",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "RebootToFactoryTestImage",
@@ -56,7 +97,15 @@
             "interfaceid": "54",
             "functionid": "1594716643",
             "fencepost": "1640465345",
-            "addr": "0x5de5f0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5de7c0",
+            "serializedargs": [
+                "bytes1"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "GetDisplayBrightness",
@@ -64,7 +113,15 @@
             "interfaceid": "54",
             "functionid": "206143615",
             "fencepost": "252360058",
-            "addr": "0x5df6d0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5df8a0",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes4"
+            ]
         },
         {
             "name": "SetDisplayBrightness",
@@ -72,7 +129,15 @@
             "interfaceid": "54",
             "functionid": "1881352451",
             "fencepost": "1927633410",
-            "addr": "0x5df850"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5dfa20",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "FormatRemovableStorage",
@@ -80,7 +145,15 @@
             "interfaceid": "54",
             "functionid": "1954135283",
             "fencepost": "1999916243",
-            "addr": "0x5de790"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5de960",
+            "serializedargs": [
+                "bytes1"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "GetOSBranchList",
@@ -88,7 +161,14 @@
             "interfaceid": "54",
             "functionid": "4188327746",
             "fencepost": "4234140964",
-            "addr": "0x5de930"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5deb00",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "GetCurrentOSBranch",
@@ -96,7 +176,14 @@
             "interfaceid": "54",
             "functionid": "4148133882",
             "fencepost": "4193963229",
-            "addr": "0x5deab0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5dec80",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "SelectOSBranch",
@@ -104,7 +191,15 @@
             "interfaceid": "54",
             "functionid": "2442597582",
             "fencepost": "2488475316",
-            "addr": "0x5dec30"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5dee00",
+            "serializedargs": [
+                "protobuf"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "GetUpdateState",
@@ -112,7 +207,15 @@
             "interfaceid": "54",
             "functionid": "1810812215",
             "fencepost": "1856770594",
-            "addr": "0x5dedc0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5def90",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "unknown"
+            ]
         },
         {
             "name": "CheckForUpdate",
@@ -120,7 +223,14 @@
             "interfaceid": "54",
             "functionid": "1498690140",
             "fencepost": "1544696906",
-            "addr": "0x5def40"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5df110",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "ApplyUpdate",
@@ -128,7 +238,15 @@
             "interfaceid": "54",
             "functionid": "1177851262",
             "fencepost": "1223906415",
-            "addr": "0x5df0c0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5df290",
+            "serializedargs": [
+                "protobuf"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "SetBackgroundUpdateCheckInterval",
@@ -136,7 +254,15 @@
             "interfaceid": "54",
             "functionid": "1714818809",
             "fencepost": "1760906220",
-            "addr": "0x5df250"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5df420",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "ClearAudioDefaults",
@@ -144,7 +270,15 @@
             "interfaceid": "54",
             "functionid": "1605650158",
             "fencepost": "1651769827",
-            "addr": "0x5df9d0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5dfba0",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "RunDeckMicEnableHack",
@@ -152,7 +286,14 @@
             "interfaceid": "54",
             "functionid": "1592227957",
             "fencepost": "1638363755",
-            "addr": "0x5df3d0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5df5a0",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "RunDeckEchoCancellationHack",
@@ -160,7 +301,14 @@
             "interfaceid": "54",
             "functionid": "4242245704",
             "fencepost": "4288397631",
-            "addr": "0x5df550"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5df720",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         }
     ]
 }

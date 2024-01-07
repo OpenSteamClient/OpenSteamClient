@@ -19,10 +19,10 @@ public abstract class AppBase
         public string Description { get; }
     }
 
+    public abstract EAppState State { get; }
+    public abstract EAppType Type { get; }
     public abstract IEnumerable<ILaunchOption> LaunchOptions { get; }
     public abstract int? DefaultLaunchOptionID { get; }
-    // For easier calling of correct Launch method
-    public Task<EAppUpdateError> Launch(string userLaunchOptions, ILaunchOption option) => this.Launch(userLaunchOptions, option.ID);
     public abstract Task<EAppUpdateError> Launch(string userLaunchOptions, int launchOptionID);
 
     protected abstract string ActualName { get; }
@@ -109,6 +109,9 @@ public abstract class AppBase
         LibraryAssetsUpdated?.Invoke(this, EventArgs.Empty);
     }
 
+    public abstract void PauseUpdate();
+    public abstract void Update();
+
     public event EventHandler? LibraryAssetsUpdated;
     public bool IsMod => this.GameID.IsMod();
     public bool IsShortcut => this.GameID.IsShortcut();
@@ -118,6 +121,10 @@ public abstract class AppBase
     public AppBase(AppsManager appsManager)
     {
         AppsManager = appsManager;
+    }
+
+    public void Kill() {
+        AppsManager.Kill(GameID);
     }
 
     protected static string GetValueOverride(string? overridestr, string? valuestr)

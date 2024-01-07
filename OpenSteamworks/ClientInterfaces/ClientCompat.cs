@@ -4,8 +4,8 @@ namespace OpenSteamworks.ClientInterfaces;
 
 public class ClientCompat
 {
-    private SteamClient client;
-    public ClientCompat(SteamClient client)
+    private ISteamClient client;
+    public ClientCompat(ISteamClient client)
     {
         this.client = client;
     }

@@ -13,22 +13,8 @@ using OpenSteamworks.Structs;
 
 namespace ClientUI.ViewModels.Library;
 
-public partial class LibraryAppViewModel : ViewModelBase, INode {
-    [ObservableProperty]
-    private string name = "";
-
-    [ObservableProperty]
-    private IBrush icon;
-
-    [ObservableProperty]
-    private bool hasIcon;
-
-    [ObservableProperty]
-    private bool isApp;
-    
-    public ObservableCollection<INode> Children { get; } = new();
+public partial class LibraryAppViewModel : Node {    
     public AppBase App { get; init; }
-    public CGameID GameID { get; init; }
 
     public LibraryAppViewModel(LibraryPageViewModel page, AppId_t appid) {
         this.HasIcon = true;
@@ -39,15 +25,10 @@ public partial class LibraryAppViewModel : ViewModelBase, INode {
         this.GameID = App.GameID;
 
         SetLibraryAssets();
+        SetStatusIcon();
         App.LibraryAssetsUpdated += OnLibraryAssetsUpdated;
     }
 
-
-
-#pragma warning disable MVVMTK0034
-    [MemberNotNull(nameof(icon))]
-    [MemberNotNull(nameof(Icon))]
-#pragma warning restore MVVMTK0034
     private void SetLibraryAssets() {
         if (App.LocalIconPath != null)
         {
@@ -57,6 +38,13 @@ public partial class LibraryAppViewModel : ViewModelBase, INode {
             };
         } else {
             this.Icon = Brushes.DarkGray;
+        }
+    }
+
+    private void SetStatusIcon() {
+        StatusIcon = Brushes.Transparent;
+        if (App is SteamApp SApp) {
+            
         }
     }
 

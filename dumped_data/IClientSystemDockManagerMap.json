@@ -1,6 +1,6 @@
 {
     "name": "IClientSystemDockManagerMap",
-    "found_at": "0x2448e80",
+    "found_at": "0x2449e80",
     "functions": [ 
         {
             "name": "IsInterfaceValid",
@@ -8,7 +8,14 @@
             "interfaceid": "58",
             "functionid": "862246284",
             "fencepost": "906737432",
-            "addr": "0x5dcc50"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5dce20",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "boolean"
+            ]
         },
         {
             "name": "GetState",
@@ -16,7 +23,15 @@
             "interfaceid": "58",
             "functionid": "724788077",
             "fencepost": "769343741",
-            "addr": "0x5dcdb0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5dcf80",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "unknown"
+            ]
         },
         {
             "name": "UpdateFirmware",
@@ -24,7 +39,15 @@
             "interfaceid": "58",
             "functionid": "1231225197",
             "fencepost": "1275877635",
-            "addr": "0x5dcf30"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5dd100",
+            "serializedargs": [
+                "protobuf"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "DisarmSafetyNet",
@@ -32,7 +55,14 @@
             "interfaceid": "58",
             "functionid": "874836135",
             "fencepost": "919536960",
-            "addr": "0x5dd0c0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5dd290",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         }
     ]
 }

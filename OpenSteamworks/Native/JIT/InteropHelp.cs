@@ -58,39 +58,8 @@ namespace OpenSteamworks.Native.JIT
         }
 
         public static void ThrowIfRemotePipe() {
-            if (SteamClient.instance != null && SteamClient.instance.NativeClient.ConnectedWith == SteamClient.ConnectionType.ExistingClient) {
+            if (SteamClient.instance != null && SteamClient.IsIPCCrossProcess) {
                 throw new InvalidOperationException("This function cannot be called in cross-process contexts.");
-            }
-        }
-
-        public class BitVector64
-        {
-            private UInt64 data;
-
-            public BitVector64()
-            {
-            }
-            public BitVector64(UInt64 value)
-            {
-                data = value;
-            }
-
-            public UInt64 Data
-            {
-                get { return data; }
-                set { data = value; }
-            }
-
-            public UInt64 this[uint bitoffset, UInt64 valuemask]
-            {
-                get
-                {
-                    return (data >> (ushort)bitoffset) & valuemask;
-                }
-                set
-                {
-                    data = (data & ~(valuemask << (ushort)bitoffset)) | ((value & valuemask) << (ushort)bitoffset);
-                }
             }
         }
     }

@@ -1,7 +1,7 @@
 using System;
 using System.Numerics;
 using System.Runtime.InteropServices;
-using OpenSteamworks.NativeTypes;
+
 
 [OpenSteamworks.Attributes.CustomValueType]
 public struct GID_t : System.Numerics.IComparisonOperators<GID_t, GID_t, bool> {

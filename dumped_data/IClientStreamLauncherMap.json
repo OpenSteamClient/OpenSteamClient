@@ -1,6 +1,6 @@
 {
     "name": "IClientStreamLauncherMap",
-    "found_at": "0x2449680",
+    "found_at": "0x244a680",
     "functions": [ 
         {
             "name": "StartStreaming",
@@ -8,7 +8,15 @@
             "interfaceid": "26",
             "functionid": "953502382",
             "fencepost": "1026215216",
-            "addr": "0x60bd50"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x60bf20",
+            "serializedargs": [
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "StopStreaming",
@@ -16,7 +24,13 @@
             "interfaceid": "26",
             "functionid": "2311542130",
             "fencepost": "2384271093",
-            "addr": "0x60bec0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x60c090",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+            ]
         }
     ]
 }

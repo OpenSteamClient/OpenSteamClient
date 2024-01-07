@@ -2,11 +2,14 @@ using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using Avalonia.Media;
 using Avalonia.Media.Imaging;
 using ClientUI.ViewModels.Library;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using OpenSteamworks.Client.Apps;
+using OpenSteamworks.Enums;
 using OpenSteamworks.Structs;
 
 namespace ClientUI.ViewModels.Library;
@@ -21,6 +24,12 @@ public partial class FocusedAppPaneViewModel : ViewModelBase {
     [ObservableProperty]
     private IBrush logo;
 
+    [ObservableProperty]
+    private string playButtonLocalizationToken;
+
+    [ObservableProperty]
+    private ICommand playButtonAction;
+
     private readonly AppBase app;
     public FocusedAppPaneViewModel(CGameID gameid) {
         app = AvaloniaApp.Container.Get<AppsManager>().GetApp(gameid);
@@ -28,6 +37,40 @@ public partial class FocusedAppPaneViewModel : ViewModelBase {
         SetLibraryAssets();
 
         app.LibraryAssetsUpdated += OnLibraryAssetsUpdated;
+        UpdatePlayButton();
+    }
+
+#pragma warning disable MVVMTK0034
+    [MemberNotNull(nameof(playButtonAction))]
+    [MemberNotNull(nameof(PlayButtonAction))]
+    [MemberNotNull(nameof(playButtonLocalizationToken))]
+    [MemberNotNull(nameof(PlayButtonLocalizationToken))]
+#pragma warning restore MVVMTK0034
+    private void UpdatePlayButton() {
+        if (app.State.HasFlag(EAppState.AppRunning)) {
+            PlayButtonLocalizationToken = "#App_StopApp";
+            PlayButtonAction = new RelayCommand(KillApp);
+        } else if (app.State.HasFlag(EAppState.Terminating)) {
+            PlayButtonLocalizationToken = "#App_StoppingApp";
+            PlayButtonAction = new RelayCommand(InvalidAction);
+        } else if (app.State.HasFlag(EAppState.UpdateRunning)) {
+            PlayButtonLocalizationToken = "#App_PauseAppUpdate";
+            PlayButtonAction = new RelayCommand(PauseUpdate);
+        } else if (app.State.HasFlag(EAppState.UpdateRequired) || app.State.HasFlag(EAppState.UpdatePaused) || app.State.HasFlag(EAppState.UpdateQueued)) {
+            PlayButtonLocalizationToken = "#App_UpdateApp";
+            PlayButtonAction = new RelayCommand(Update);
+        } else if (app.State == EAppState.FullyInstalled) {
+            if (app.Type == EAppType.Game) {
+                PlayButtonLocalizationToken = "#App_PlayApp";
+                PlayButtonAction = new RelayCommand(Launch);
+            } else {
+                PlayButtonLocalizationToken = "#App_LaunchApp";
+                PlayButtonAction = new RelayCommand(Launch);
+            }
+        } else {
+            PlayButtonLocalizationToken = "Unknown state: " + app.State.ToString();
+            PlayButtonAction = new RelayCommand(InvalidAction);
+        }
     }
 
 #pragma warning disable MVVMTK0034
@@ -60,5 +103,27 @@ public partial class FocusedAppPaneViewModel : ViewModelBase {
 
     public void OnLibraryAssetsUpdated(object? sender, EventArgs e) {
         SetLibraryAssets();
+    }
+
+    private void InvalidAction() {
+        throw new InvalidOperationException("Nothing to do");
+    }
+
+    private void PauseUpdate() {
+        this.app.PauseUpdate();
+    }
+
+    private void Update() {
+        this.app.Update();
+    }
+
+    private void KillApp() {
+        this.app.Kill();
+    }
+    
+    private void Launch() {
+        if (this.app.DefaultLaunchOptionID != null) {
+            this.app.Launch("", this.app.DefaultLaunchOptionID.Value);
+        }
     }
 }

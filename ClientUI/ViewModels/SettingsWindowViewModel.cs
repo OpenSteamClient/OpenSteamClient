@@ -14,9 +14,9 @@ namespace ClientUI.ViewModels;
 public partial class SettingsWindowViewModel : ViewModelBase
 {
     private TranslationManager tm;
-    private SteamClient client;
+    private ISteamClient client;
     private LoginManager loginManager;
-    public SettingsWindowViewModel(SteamClient client, TranslationManager tm, LoginManager loginManager) {
+    public SettingsWindowViewModel(ISteamClient client, TranslationManager tm, LoginManager loginManager) {
         this.client = client;
         this.tm = tm;
         this.loginManager = loginManager;

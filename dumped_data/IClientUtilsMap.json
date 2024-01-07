@@ -1,6 +1,6 @@
 {
     "name": "IClientUtilsMap",
-    "found_at": "0x244887c",
+    "found_at": "0x244987c",
     "functions": [ 
         {
             "name": "GetInstallPath",
@@ -8,7 +8,14 @@
             "interfaceid": "4",
             "functionid": "2876389069",
             "fencepost": "2903212104",
-            "addr": "0x5b9bd0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5b9da0",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "string"
+            ]
         },
         {
             "name": "GetUserBaseFolderInstallImage",
@@ -16,7 +23,14 @@
             "interfaceid": "4",
             "functionid": "2535255534",
             "fencepost": "2562094698",
-            "addr": "0x5b9f70"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5ba140",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "string"
+            ]
         },
         {
             "name": "GetUserBaseFolderPersistentStorage",
@@ -24,7 +38,14 @@
             "interfaceid": "4",
             "functionid": "2581012523",
             "fencepost": "2607867816",
-            "addr": "0x5ba310"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5ba4e0",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "string"
+            ]
         },
         {
             "name": "GetManagedContentRoot",
@@ -32,7 +53,14 @@
             "interfaceid": "4",
             "functionid": "107079476",
             "fencepost": "133950898",
-            "addr": "0x5ba6b0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5ba880",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "string"
+            ]
         },
         {
             "name": "GetSecondsSinceAppActive",
@@ -40,7 +68,14 @@
             "interfaceid": "4",
             "functionid": "186799165",
             "fencepost": "213686716",
-            "addr": "0x5baa50"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5bac20",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "GetSecondsSinceComputerActive",
@@ -48,7 +83,14 @@
             "interfaceid": "4",
             "functionid": "2963661296",
             "fencepost": "2990564976",
-            "addr": "0x5babb0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5bad80",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "SetComputerActive",
@@ -56,7 +98,13 @@
             "interfaceid": "4",
             "functionid": "4235691935",
             "fencepost": "4262611744",
-            "addr": "0x5bad10"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5baee0",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "GetConnectedUniverse",
@@ -64,7 +112,14 @@
             "interfaceid": "4",
             "functionid": "2103134015",
             "fencepost": "2130069953",
-            "addr": "0x649e40"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x64a010",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "GetSteamRealm",
@@ -72,7 +127,14 @@
             "interfaceid": "4",
             "functionid": "4178563775",
             "fencepost": "4205515842",
-            "addr": "0x64a1d0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x64a3a0",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "GetServerRealTime",
@@ -80,7 +142,14 @@
             "interfaceid": "4",
             "functionid": "2354534120",
             "fencepost": "2381502316",
-            "addr": "0x5bae40"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5bb010",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "GetIPCountry",
@@ -88,7 +157,14 @@
             "interfaceid": "4",
             "functionid": "310213108",
             "fencepost": "337197433",
-            "addr": "0x5bafa0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5bb170",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "string"
+            ]
         },
         {
             "name": "GetImageSize",
@@ -96,7 +172,17 @@
             "interfaceid": "4",
             "functionid": "302370864",
             "fencepost": "329419705",
-            "addr": "0x5bb100"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5bb2d0",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes4",
+                "bytes4"
+            ]
         },
         {
             "name": "GetImageRGBA",
@@ -104,7 +190,17 @@
             "interfaceid": "4",
             "functionid": "3937822385",
             "fencepost": "3965000258",
-            "addr": "0x5bb2b0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5bb480",
+            "serializedargs": [
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes_length_from_mem"
+            ]
         },
         {
             "name": "GetNumRunningApps",
@@ -112,7 +208,14 @@
             "interfaceid": "4",
             "functionid": "1840968063",
             "fencepost": "1868194323",
-            "addr": "0x5bb460"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5bb630",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "GetCurrentBatteryPower",
@@ -120,7 +223,14 @@
             "interfaceid": "4",
             "functionid": "4146673851",
             "fencepost": "4173916240",
-            "addr": "0x5bb5c0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5bb790",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "GetBatteryInformation",
@@ -128,7 +238,16 @@
             "interfaceid": "4",
             "functionid": "3677118587",
             "fencepost": "3704409363",
-            "addr": "0x5bb720"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5bb8f0",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes4",
+                "bytes1"
+            ]
         },
         {
             "name": "SetOfflineMode",
@@ -136,7 +255,14 @@
             "interfaceid": "4",
             "functionid": "2724656357",
             "fencepost": "2752011649",
-            "addr": "0x5bb8c0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5bba90",
+            "serializedargs": [
+                "bytes1"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "GetOfflineMode",
@@ -144,7 +270,14 @@
             "interfaceid": "4",
             "functionid": "3520256510",
             "fencepost": "3547627931",
-            "addr": "0x5bba10"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5bbbe0",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "SetAppIDForCurrentPipe",
@@ -152,7 +285,16 @@
             "interfaceid": "4",
             "functionid": "863535119",
             "fencepost": "890922669",
-            "addr": "0x5bbb70"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5bbd40",
+            "serializedargs": [
+                "bytes4",
+                "bytes1"
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "GetAppID",
@@ -160,7 +302,14 @@
             "interfaceid": "4",
             "functionid": "157318901",
             "fencepost": "184722580",
-            "addr": "0x5bbd00"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5bbed0",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "SetAPIDebuggingActive",
@@ -168,7 +317,15 @@
             "interfaceid": "4",
             "functionid": "1655367149",
             "fencepost": "1682786957",
-            "addr": "0x5bbe60"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5bc030",
+            "serializedargs": [
+                "bytes1",
+                "bytes1"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "AllocPendingAPICallHandle",
@@ -176,7 +333,14 @@
             "interfaceid": "4",
             "functionid": "3353856051",
             "fencepost": "3381614568",
-            "addr": "0x5bc350"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5bc520",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "IsAPICallCompleted",
@@ -184,7 +348,16 @@
             "interfaceid": "4",
             "functionid": "1979378145",
             "fencepost": "2006878598",
-            "addr": "0x5bbfd0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5bc1a0",
+            "serializedargs": [
+                "bytes8"
+            ],
+            "serializedreturns": [
+                "boolean",
+                "boolean"
+            ]
         },
         {
             "name": "GetAPICallFailureReason",
@@ -192,7 +365,15 @@
             "interfaceid": "4",
             "functionid": "1150418154",
             "fencepost": "1177983123",
-            "addr": "0x5c2f40"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5c3110",
+            "serializedargs": [
+                "bytes8"
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "GetAPICallResult",
@@ -200,7 +381,19 @@
             "interfaceid": "4",
             "functionid": "758987126",
             "fencepost": "786664998",
-            "addr": "0x5bc170"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5bc340",
+            "serializedargs": [
+                "bytes8",
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes_length_from_mem",
+                "bytes1"
+            ]
         },
         {
             "name": "SetAPICallResultWithoutPostingCallback",
@@ -208,7 +401,17 @@
             "interfaceid": "4",
             "functionid": "3404200707",
             "fencepost": "3432055998",
-            "addr": "0x5bc4d0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5bc6a0",
+            "serializedargs": [
+                "bytes8",
+                "bytes4",
+                "bytes4",
+                "bytes_length_from_mem"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "SignalAppsToShutDown",
@@ -216,7 +419,14 @@
             "interfaceid": "4",
             "functionid": "2994232352",
             "fencepost": "3022136030",
-            "addr": "0x5bc660"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5bc830",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "SignalServiceAppsToDisconnect",
@@ -224,7 +434,14 @@
             "interfaceid": "4",
             "functionid": "1838543778",
             "fencepost": "1866463585",
-            "addr": "0x5bc7c0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5bc990",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "TerminateAllApps",
@@ -232,7 +449,15 @@
             "interfaceid": "4",
             "functionid": "3860476901",
             "fencepost": "3888412837",
-            "addr": "0x5bc920"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5bcaf0",
+            "serializedargs": [
+                "bytes1"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "GetCellID",
@@ -240,7 +465,14 @@
             "interfaceid": "4",
             "functionid": "978454325",
             "fencepost": "1006406390",
-            "addr": "0x5bcaa0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5bcc70",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "BIsGlobalInstance",
@@ -248,7 +480,14 @@
             "interfaceid": "4",
             "functionid": "3790783036",
             "fencepost": "3818767359",
-            "addr": "0x5bcc00"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5bcdd0",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "boolean"
+            ]
         },
         {
             "name": "CheckFileSignature",
@@ -256,7 +495,15 @@
             "interfaceid": "4",
             "functionid": "1637128610",
             "fencepost": "1665145191",
-            "addr": "0x5bcd60"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5bcf30",
+            "serializedargs": [
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "GetBuildID",
@@ -264,7 +511,14 @@
             "interfaceid": "4",
             "functionid": "1166945717",
             "fencepost": "1194994556",
-            "addr": "0x5bcef0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5bd0c0",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "SetCurrentUIMode",
@@ -272,7 +526,14 @@
             "interfaceid": "4",
             "functionid": "2139024180",
             "fencepost": "2167105277",
-            "addr": "0x5bd070"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5bd240",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "GetCurrentUIMode",
@@ -280,7 +541,14 @@
             "interfaceid": "4",
             "functionid": "2927230969",
             "fencepost": "2955328195",
-            "addr": "0x5bd1c0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5bd390",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "BIsWebBasedUIMode",
@@ -288,7 +556,14 @@
             "interfaceid": "4",
             "functionid": "242215484",
             "fencepost": "270328839",
-            "addr": "0x5bd320"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5bd4f0",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "boolean"
+            ]
         },
         {
             "name": "SetDisableOverlayScaling",
@@ -296,7 +571,14 @@
             "interfaceid": "4",
             "functionid": "3416083542",
             "fencepost": "3444213026",
-            "addr": "0x5bd480"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5bd650",
+            "serializedargs": [
+                "bytes1"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "ShutdownLauncher",
@@ -304,7 +586,15 @@
             "interfaceid": "4",
             "functionid": "4196579032",
             "fencepost": "4225208515",
-            "addr": "0x5be4a0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5be670",
+            "serializedargs": [
+                "bytes1",
+                "bytes1"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "SetLauncherType",
@@ -312,7 +602,14 @@
             "interfaceid": "4",
             "functionid": "4102057195",
             "fencepost": "4130622162",
-            "addr": "0x5be350"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5be520",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "GetLauncherType",
@@ -320,7 +617,14 @@
             "interfaceid": "4",
             "functionid": "2850037491",
             "fencepost": "2878634716",
-            "addr": "0x64a560"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x64a730",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "ShowGamepadTextInput",
@@ -328,7 +632,19 @@
             "interfaceid": "4",
             "functionid": "3757019743",
             "fencepost": "3785181485",
-            "addr": "0x5c30c0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5c3290",
+            "serializedargs": [
+                "bytes4",
+                "bytes4",
+                "string",
+                "bytes4",
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "GetEnteredGamepadTextLength",
@@ -336,7 +652,14 @@
             "interfaceid": "4",
             "functionid": "1696532454",
             "fencepost": "1724710325",
-            "addr": "0x5bd5d0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5bd7a0",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "GetEnteredGamepadTextInput",
@@ -344,7 +667,16 @@
             "interfaceid": "4",
             "functionid": "2004926195",
             "fencepost": "2033168582",
-            "addr": "0x5bd730"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5bd900",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes_length_from_mem"
+            ]
         },
         {
             "name": "GamepadTextInputClosed",
@@ -352,7 +684,16 @@
             "interfaceid": "4",
             "functionid": "2967697723",
             "fencepost": "2996004626",
-            "addr": "0x5bd8c0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5bda90",
+            "serializedargs": [
+                "bytes4",
+                "bytes1",
+                "string"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "ShowControllerLayoutPreview",
@@ -360,7 +701,15 @@
             "interfaceid": "4",
             "functionid": "1085244579",
             "fencepost": "1116245025",
-            "addr": "0x5c22c0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5c2490",
+            "serializedargs": [
+                "bytes4",
+                "bytes8"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "SetSpew",
@@ -368,7 +717,16 @@
             "interfaceid": "4",
             "functionid": "3365546362",
             "fencepost": "3393885523",
-            "addr": "0x5bda30"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5bdc00",
+            "serializedargs": [
+                "bytes4",
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "BDownloadsDisabled",
@@ -376,7 +734,14 @@
             "interfaceid": "4",
             "functionid": "1700804561",
             "fencepost": "1729175980",
-            "addr": "0x5bdba0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5bdd70",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "boolean"
+            ]
         },
         {
             "name": "SetFocusedWindow",
@@ -384,7 +749,17 @@
             "interfaceid": "4",
             "functionid": "4095371374",
             "fencepost": "4123775051",
-            "addr": "0x5bdd00"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5bded0",
+            "serializedargs": [
+                "bytes8",
+                "bytes1",
+                "bytes1",
+                "bytes4"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "GetSteamUILanguage",
@@ -392,7 +767,14 @@
             "interfaceid": "4",
             "functionid": "1018533377",
             "fencepost": "1046969312",
-            "addr": "0x5bdea0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5be070",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "string"
+            ]
         },
         {
             "name": "CheckSteamReachable",
@@ -400,7 +782,14 @@
             "interfaceid": "4",
             "functionid": "437232852",
             "fencepost": "465701045",
-            "addr": "0x5be000"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5be1d0",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "SetLastGameLaunchMethod",
@@ -408,7 +797,14 @@
             "interfaceid": "4",
             "functionid": "760473907",
             "fencepost": "788974358",
-            "addr": "0x5c3280"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5c3450",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "SetVideoAdapterInfo",
@@ -416,7 +812,20 @@
             "interfaceid": "4",
             "functionid": "1923016859",
             "fencepost": "1951549568",
-            "addr": "0x5be180"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5be350",
+            "serializedargs": [
+                "bytes4",
+                "bytes4",
+                "bytes4",
+                "bytes4",
+                "bytes4",
+                "bytes4",
+                "string"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "SetOverlayWindowFocusForPipe",
@@ -424,7 +833,16 @@
             "interfaceid": "4",
             "functionid": "2189279227",
             "fencepost": "2217940968",
-            "addr": "0x5be610"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5be7e0",
+            "serializedargs": [
+                "bytes1",
+                "bytes1",
+                "bytes8"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "GetGameOverlayUIInstanceFocusGameID",
@@ -432,7 +850,16 @@
             "interfaceid": "4",
             "functionid": "2263306396",
             "fencepost": "2292048782",
-            "addr": "0x5be7a0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5be970",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes8",
+                "bytes1",
+                "bytes4"
+            ]
         },
         {
             "name": "GetFocusedGameWindow",
@@ -440,7 +867,16 @@
             "interfaceid": "4",
             "functionid": "167705775",
             "fencepost": "196577193",
-            "addr": "0x5be960"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5beb30",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes8",
+                "bytes1",
+                "bytes4"
+            ]
         },
         {
             "name": "SetControllerConfigFileForAppID",
@@ -448,7 +884,16 @@
             "interfaceid": "4",
             "functionid": "1914272841",
             "fencepost": "1943224904",
-            "addr": "0x5beb20"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5becf0",
+            "serializedargs": [
+                "bytes4",
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "GetControllerConfigFileForAppID",
@@ -456,7 +901,17 @@
             "interfaceid": "4",
             "functionid": "3228043247",
             "fencepost": "3257092084",
-            "addr": "0x5beca0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5bee70",
+            "serializedargs": [
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes_length_from_mem"
+            ]
         },
         {
             "name": "IsSteamRunningInVR",
@@ -464,7 +919,14 @@
             "interfaceid": "4",
             "functionid": "4032123270",
             "fencepost": "4061236623",
-            "addr": "0x5bee50"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5bf020",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "boolean"
+            ]
         },
         {
             "name": "StartVRDashboard",
@@ -472,7 +934,13 @@
             "interfaceid": "4",
             "functionid": "1969112771",
             "fencepost": "1998242253",
-            "addr": "0x5befb0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5bf180",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "IsVRHeadsetStreamingEnabled",
@@ -480,7 +948,15 @@
             "interfaceid": "4",
             "functionid": "3726147816",
             "fencepost": "3755293427",
-            "addr": "0x5bf0e0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5bf2b0",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "boolean"
+            ]
         },
         {
             "name": "SetVRHeadsetStreamingEnabled",
@@ -488,7 +964,15 @@
             "interfaceid": "4",
             "functionid": "3239428559",
             "fencepost": "3268590299",
-            "addr": "0x5bf260"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5bf430",
+            "serializedargs": [
+                "bytes4",
+                "bytes1"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "GenerateSupportSystemReport",
@@ -496,7 +980,14 @@
             "interfaceid": "4",
             "functionid": "1610560945",
             "fencepost": "1639754943",
-            "addr": "0x5bf3c0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5bf590",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "GetSupportSystemReport",
@@ -504,7 +995,18 @@
             "interfaceid": "4",
             "functionid": "3613483013",
             "fencepost": "3642789914",
-            "addr": "0x5bf540"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5bf710",
+            "serializedargs": [
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes_length_from_mem",
+                "bytes_length_from_mem"
+            ]
         },
         {
             "name": "GetAppIdForPid",
@@ -512,7 +1014,16 @@
             "interfaceid": "4",
             "functionid": "1527712773",
             "fencepost": "1557100319",
-            "addr": "0x5bf710"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5bf8e0",
+            "serializedargs": [
+                "bytes4",
+                "bytes1"
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "SetClientUIProcess",
@@ -520,7 +1031,13 @@
             "interfaceid": "4",
             "functionid": "506227846",
             "fencepost": "535663779",
-            "addr": "0x5bfb50"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5bfd20",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "BIsClientUIInForeground",
@@ -528,7 +1045,14 @@
             "interfaceid": "4",
             "functionid": "3236069481",
             "fencepost": "3265473156",
-            "addr": "0x5bf8a0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5bfa70",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "boolean"
+            ]
         },
         {
             "name": "AllowSetForegroundThroughWebhelper",
@@ -536,7 +1060,14 @@
             "interfaceid": "4",
             "functionid": "1219049256",
             "fencepost": "1248469060",
-            "addr": "0x5bfa00"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5bfbd0",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "SetOverlayBrowserInfo",
@@ -544,7 +1075,21 @@
             "interfaceid": "4",
             "functionid": "1863893583",
             "fencepost": "1893361774",
-            "addr": "0x5c33d0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5c35a0",
+            "serializedargs": [
+                "bytes4",
+                "bytes4",
+                "bytes8",
+                "bytes4",
+                "bytes4",
+                "bytes4",
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "ClearOverlayBrowserInfo",
@@ -552,7 +1097,14 @@
             "interfaceid": "4",
             "functionid": "1955977839",
             "fencepost": "1985462159",
-            "addr": "0x5bfc80"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5bfe50",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "GetOverlayBrowserInfo",
@@ -560,7 +1112,17 @@
             "interfaceid": "4",
             "functionid": "4256481157",
             "fencepost": "4286046122",
-            "addr": "0x5bfdd0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5bffa0",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes_length_from_reg",
+                "bytes4"
+            ]
         },
         {
             "name": "SetOverlayNotificationPosition",
@@ -568,7 +1130,15 @@
             "interfaceid": "4",
             "functionid": "953576208",
             "fencepost": "983205689",
-            "addr": "0x5c35c0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5c3790",
+            "serializedargs": [
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "SetOverlayNotificationInset",
@@ -576,7 +1146,16 @@
             "interfaceid": "4",
             "functionid": "1525448466",
             "fencepost": "1555094076",
-            "addr": "0x5bff80"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5c0150",
+            "serializedargs": [
+                "bytes4",
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "DispatchClientUINotification",
@@ -584,7 +1163,17 @@
             "interfaceid": "4",
             "functionid": "1837939188",
             "fencepost": "1867617056",
-            "addr": "0x5c3720"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5c38f0",
+            "serializedargs": [
+                "bytes4",
+                "string",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "RespondToClientUINotification",
@@ -592,7 +1181,16 @@
             "interfaceid": "4",
             "functionid": "3082622048",
             "fencepost": "3112316045",
-            "addr": "0x5c00f0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5c02c0",
+            "serializedargs": [
+                "bytes4",
+                "bytes1",
+                "bytes4"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "DispatchClientUICommand",
@@ -600,7 +1198,15 @@
             "interfaceid": "4",
             "functionid": "3162236974",
             "fencepost": "3191963229",
-            "addr": "0x5c0270"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5c0440",
+            "serializedargs": [
+                "string",
+                "bytes4"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "DispatchComputerActiveStateChange",
@@ -608,7 +1214,13 @@
             "interfaceid": "4",
             "functionid": "887751333",
             "fencepost": "917493717",
-            "addr": "0x5c03c0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5c0590",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "DispatchOpenURLInClient",
@@ -616,7 +1228,16 @@
             "interfaceid": "4",
             "functionid": "3890775557",
             "fencepost": "3920534070",
-            "addr": "0x5c04f0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5c06c0",
+            "serializedargs": [
+                "string",
+                "bytes4",
+                "bytes1"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "UpdateWideVineCDM",
@@ -624,7 +1245,15 @@
             "interfaceid": "4",
             "functionid": "1828743070",
             "fencepost": "1858533841",
-            "addr": "0x5c0660"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5c0830",
+            "serializedargs": [
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "DispatchClearAllBrowsingData",
@@ -632,7 +1261,13 @@
             "interfaceid": "4",
             "functionid": "263144648",
             "fencepost": "292951548",
-            "addr": "0x5c07f0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5c09c0",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "DispatchClientSettingsChanged",
@@ -640,7 +1275,13 @@
             "interfaceid": "4",
             "functionid": "703397690",
             "fencepost": "733220719",
-            "addr": "0x5c0920"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5c0af0",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "DispatchClientPostMessage",
@@ -648,7 +1289,17 @@
             "interfaceid": "4",
             "functionid": "4273193133",
             "fencepost": "8081124",
-            "addr": "0x5c0a50"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5c0c20",
+            "serializedargs": [
+                "string",
+                "string",
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "IsSteamChina",
@@ -656,7 +1307,14 @@
             "interfaceid": "4",
             "functionid": "1834901559",
             "fencepost": "1864789104",
-            "addr": "0x64a8f0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x64aac0",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "boolean"
+            ]
         },
         {
             "name": "NeedsSteamChinaWorkshop",
@@ -664,7 +1322,15 @@
             "interfaceid": "4",
             "functionid": "4192099393",
             "fencepost": "4222003067",
-            "addr": "0x5c0bd0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5c0da0",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "InitFilterText",
@@ -672,7 +1338,16 @@
             "interfaceid": "4",
             "functionid": "303805214",
             "fencepost": "333741146",
-            "addr": "0x5c0d50"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5c0f20",
+            "serializedargs": [
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "FilterText",
@@ -680,7 +1355,20 @@
             "interfaceid": "4",
             "functionid": "1431911897",
             "fencepost": "1461992990",
-            "addr": "0x5c38c0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5c3a90",
+            "serializedargs": [
+                "bytes4",
+                "bytes4",
+                "uint64",
+                "string",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes4",
+                "bytes_length_from_mem"
+            ]
         },
         {
             "name": "GetIPv6ConnectivityState",
@@ -688,7 +1376,15 @@
             "interfaceid": "4",
             "functionid": "4112987894",
             "fencepost": "4143133503",
-            "addr": "0x5c3aa0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5c3c70",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "ScheduleConnectivityTest",
@@ -696,7 +1392,15 @@
             "interfaceid": "4",
             "functionid": "246746960",
             "fencepost": "277618374",
-            "addr": "0x5c1ed0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5c20a0",
+            "serializedargs": [
+                "bytes4",
+                "bytes1"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "GetConnectivityTestState",
@@ -704,7 +1408,15 @@
             "interfaceid": "4",
             "functionid": "2185266760",
             "fencepost": "2216186561",
-            "addr": "0x5c3f60"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5c4130",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes4",
+                "bytes16"
+            ]
         },
         {
             "name": "GetCaptivePortalURL",
@@ -712,7 +1424,14 @@
             "interfaceid": "4",
             "functionid": "632893055",
             "fencepost": "663861243",
-            "addr": "0x5c2030"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5c2200",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "string"
+            ]
         },
         {
             "name": "RecordSteamInterfaceCreation",
@@ -720,7 +1439,15 @@
             "interfaceid": "4",
             "functionid": "277497711",
             "fencepost": "307675578",
-            "addr": "0x5c0ee0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5c10b0",
+            "serializedargs": [
+                "string",
+                "string"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "GetCloudGamingPlatform",
@@ -728,7 +1455,14 @@
             "interfaceid": "4",
             "functionid": "2806853869",
             "fencepost": "2837063994",
-            "addr": "0x5c3c10"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5c3de0",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "BGetMacAddresses",
@@ -736,7 +1470,17 @@
             "interfaceid": "4",
             "functionid": "3133936097",
             "fencepost": "3164404286",
-            "addr": "0x5c1450"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5c1620",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "boolean",
+                "bytes_length_from_reg",
+                "bytes4"
+            ]
         },
         {
             "name": "BGetDiskSerialNumber",
@@ -744,7 +1488,16 @@
             "interfaceid": "4",
             "functionid": "601003058",
             "fencepost": "631600279",
-            "addr": "0x5c1600"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5c17d0",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "boolean",
+                "bytes_length_from_mem"
+            ]
         },
         {
             "name": "GetSteamEnvironmentForApp",
@@ -752,7 +1505,17 @@
             "interfaceid": "4",
             "functionid": "3641711581",
             "fencepost": "3672437834",
-            "addr": "0x5c1790"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5c1960",
+            "serializedargs": [
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes4",
+                "bytes_length_from_mem"
+            ]
         },
         {
             "name": "TestHTTP",
@@ -760,7 +1523,14 @@
             "interfaceid": "4",
             "functionid": "1988245087",
             "fencepost": "2018487470",
-            "addr": "0x5c1030"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5c1200",
+            "serializedargs": [
+                "string"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "DumpJobs",
@@ -768,7 +1538,14 @@
             "interfaceid": "4",
             "functionid": "492396635",
             "fencepost": "522671276",
-            "addr": "0x5c1170"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5c1340",
+            "serializedargs": [
+                "string"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "ShowFloatingGamepadTextInput",
@@ -776,7 +1553,20 @@
             "interfaceid": "4",
             "functionid": "1937900334",
             "fencepost": "1968691103",
-            "addr": "0x5c3d70"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5c3f40",
+            "serializedargs": [
+                "bytes4",
+                "bytes4",
+                "bytes4",
+                "bytes4",
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "DismissFloatingGamepadTextInput",
@@ -784,7 +1574,15 @@
             "interfaceid": "4",
             "functionid": "2328588156",
             "fencepost": "2359395054",
-            "addr": "0x5c1940"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5c1b10",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "DismissGamepadTextInput",
@@ -792,7 +1590,15 @@
             "interfaceid": "4",
             "functionid": "1136709211",
             "fencepost": "1167532238",
-            "addr": "0x5c1ac0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5c1c90",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "FloatingGamepadTextInputDismissed",
@@ -800,7 +1606,13 @@
             "interfaceid": "4",
             "functionid": "2412604006",
             "fencepost": "2443443162",
-            "addr": "0x5c1c40"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5c1e10",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "SetGameLauncherMode",
@@ -808,7 +1620,15 @@
             "interfaceid": "4",
             "functionid": "898443514",
             "fencepost": "929298799",
-            "addr": "0x5c1d70"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5c1f40",
+            "serializedargs": [
+                "bytes4",
+                "bytes1"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "ClearAllHTTPCaches",
@@ -816,7 +1636,13 @@
             "interfaceid": "4",
             "functionid": "2495758465",
             "fencepost": "2526742782",
-            "addr": "0x5c2190"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5c2360",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "GetFocusedGameID",
@@ -824,7 +1650,14 @@
             "interfaceid": "4",
             "functionid": "4018164698",
             "fencepost": "4049181273",
-            "addr": "0x5c2430"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5c2600",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "GetFocusedWindowPID",
@@ -832,7 +1665,14 @@
             "interfaceid": "4",
             "functionid": "3289045564",
             "fencepost": "3320078268",
-            "addr": "0x5c25c0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5c2790",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "SetWebUITransportWebhelperPID",
@@ -840,7 +1680,14 @@
             "interfaceid": "4",
             "functionid": "2428608986",
             "fencepost": "2459690077",
-            "addr": "0x5c2860"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5c2a30",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "GetWebUITransportInfo",
@@ -848,7 +1695,15 @@
             "interfaceid": "4",
             "functionid": "1831729253",
             "fencepost": "1862858731",
-            "addr": "0x5c29b0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5c2b80",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "unknown"
+            ]
         },
         {
             "name": "RecordFakeReactRouteMetric",
@@ -856,7 +1711,14 @@
             "interfaceid": "4",
             "functionid": "3897379625",
             "fencepost": "3928428458",
-            "addr": "0x5c2720"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5c28f0",
+            "serializedargs": [
+                "string"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "SteamRuntimeSystemInfo",
@@ -864,7 +1726,15 @@
             "interfaceid": "4",
             "functionid": "2858840818",
             "fencepost": "2889179975",
-            "addr": "0x5c12b0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5c1480",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes8",
+                "unknown"
+            ]
         },
         {
             "name": "DumpHTTPClients",
@@ -872,7 +1742,14 @@
             "interfaceid": "4",
             "functionid": "837938234",
             "fencepost": "869132228",
-            "addr": "0x5c2b30"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5c2d00",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "BGetMachineID",
@@ -880,7 +1757,15 @@
             "interfaceid": "4",
             "functionid": "2456640783",
             "fencepost": "2487899293",
-            "addr": "0x5c2c80"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5c2e50",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "boolean",
+                "unknown"
+            ]
         },
         {
             "name": "NotifyMissingInterface",
@@ -888,7 +1773,14 @@
             "interfaceid": "4",
             "functionid": "2596873240",
             "fencepost": "2628196266",
-            "addr": "0x5c2e00"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5c2fd0",
+            "serializedargs": [
+                "string"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "IsSteamInTournamentMode",
@@ -896,7 +1788,14 @@
             "interfaceid": "4",
             "functionid": "2135072676",
             "fencepost": "2166427960",
-            "addr": "0x64ac80"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x64ae50",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "boolean"
+            ]
         }
     ]
 }

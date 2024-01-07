@@ -52,6 +52,10 @@ allClasses.forEach(c => {
     lines.push("    return msg;");
     lines.push("}");
     lines.push("");
+    lines.push(`EXPORT bool ${c}_DeserializeInto(${c} *target, void* buffer, int len) {`);
+    lines.push("    return target->ParseFromArray(buffer, len);");
+    lines.push("}");
+    lines.push("");
     lines.push(`EXPORT void ${c}_Delete(${c}* ptr) {`);
     lines.push("    delete ptr;");
     lines.push("}");

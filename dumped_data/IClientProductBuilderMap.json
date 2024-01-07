@@ -1,6 +1,6 @@
 {
     "name": "IClientProductBuilderMap",
-    "found_at": "0x2448d7c",
+    "found_at": "0x2449d7c",
     "functions": [ 
         {
             "name": "SignInstallScript",
@@ -8,7 +8,17 @@
             "interfaceid": "34",
             "functionid": "3980647611",
             "fencepost": "4021732492",
-            "addr": "0x5d7180"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5d7350",
+            "serializedargs": [
+                "bytes4",
+                "string",
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "DRMWrap",
@@ -16,7 +26,20 @@
             "interfaceid": "34",
             "functionid": "437430657",
             "fencepost": "478531667",
-            "addr": "0x5d74e0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5d76b0",
+            "serializedargs": [
+                "bytes4",
+                "string",
+                "string",
+                "string",
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "CEGWrap",
@@ -24,7 +47,18 @@
             "interfaceid": "34",
             "functionid": "1355770434",
             "fencepost": "1396887573",
-            "addr": "0x5d7330"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5d7500",
+            "serializedargs": [
+                "bytes4",
+                "string",
+                "string",
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         }
     ]
 }

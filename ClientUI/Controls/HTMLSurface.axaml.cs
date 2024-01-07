@@ -270,7 +270,7 @@ public partial class HTMLSurface : UserControl
 
     private readonly HTMLBufferImg htmlImgBuffer;
     private readonly IClientHTMLSurface surface;
-    private readonly SteamClient client;
+    private readonly ISteamClient client;
     private readonly SteamHTML htmlHost;
     private static readonly Encoding utfEncoder = new UTF32Encoding(false, true, false);
     public HHTMLBrowser BrowserHandle { get; private set; } = 0;
@@ -282,7 +282,7 @@ public partial class HTMLSurface : UserControl
     
     public HTMLSurface() : base()
     {
-        this.client = AvaloniaApp.Container.Get<SteamClient>();
+        this.client = AvaloniaApp.Container.Get<ISteamClient>();
         this.htmlHost = AvaloniaApp.Container.Get<SteamHTML>();
 
         InitializeComponent();
@@ -291,7 +291,7 @@ public partial class HTMLSurface : UserControl
         this.htmlImgBuffer = new HTMLBufferImg(SKColorType.Bgra8888, SKAlphaType.Unpremul, 720, 1080);
         this.Focusable = true;
         
-        this.surface = client.NativeClient.IClientHTMLSurface;
+        this.surface = client.IClientHTMLSurface;
         client.CallbackManager.RegisterHandler<HTML_NeedsPaint_t>(this.OnHTML_NeedsPaint);
         client.CallbackManager.RegisterHandler<HTML_SetCursor_t>(this.OnHTML_SetCursor);
         client.CallbackManager.RegisterHandler<HTML_ShowToolTip_t>(this.OnHTML_ShowToolTip_t);
@@ -403,10 +403,10 @@ public partial class HTMLSurface : UserControl
     public async Task SetSteamCookies() {
         string[] domains = new string[] {"https://store.steampowered.com", "https://help.steampowered.com", "https://steamcommunity.com"};
         StringBuilder language = new(128);
-        this.client.NativeClient.IClientUser.GetLanguage(language, language.Capacity);
+        this.client.IClientUser.GetLanguage(language, language.Capacity);
 
         string vractiveStr = "0";
-        if (this.client.NativeClient.IClientUtils.IsSteamRunningInVR()) {
+        if (this.client.IClientUtils.IsSteamRunningInVR()) {
             vractiveStr = "1";
         }
 
@@ -424,10 +424,10 @@ public partial class HTMLSurface : UserControl
         // No need to use incrementing stringbuilder here, since the webauth tokens are always this size
         StringBuilder sb = new(1024);
         string token;
-        if (!this.client.NativeClient.IClientUser.GetCurrentWebAuthToken(sb, (uint)sb.Capacity)) {
+        if (!this.client.IClientUser.GetCurrentWebAuthToken(sb, (uint)sb.Capacity)) {
             await this.client.CallbackManager.PauseThreadAsync();
 
-            var callHandle = this.client.NativeClient.IClientUser.RequestWebAuthToken();
+            var callHandle = this.client.IClientUser.RequestWebAuthToken();
             if (callHandle == 0) {
                 throw new InvalidOperationException("SetWebAuthToken failed due to no call handle being returned.");
             }

@@ -8,6 +8,7 @@ import { ClientDifference, ClientDump } from './dump';
 import { VirtualHeader } from './csharp/virtualheader';
 import { VersionInfo } from './csharp/versioninfo';
 import { ProcessProtobuf } from './protobuf/processprotobuf';
+import { InterfaceConsts } from './csharp/interfaceconsts';
     
 export async function Main(protobufonly: boolean = false): Promise<number> {
     console.info("Starting OSWUpdater");
@@ -145,7 +146,7 @@ export async function Main(protobufonly: boolean = false): Promise<number> {
         var oldDumpedDataPath: string = `${projectDir}/dumped_data/`;
         oldDump = await ClientDump.ReadFromDirectory(oldDumpedDataPath);
         
-        if (fs.existsSync(`${versionedWorkDir}/dumped_data/emsg_list.json`)) {
+        if (fs.existsSync(`${versionedWorkDir}/dumped_data/callbacks.json`)) {
             console.info("Not dumping new steamclient, files already exist.")
         } else {
             console.info("Dumping new steamclient...");
@@ -207,12 +208,20 @@ export async function Main(protobufonly: boolean = false): Promise<number> {
         
         console.info("Generating new VersionInfo.cs")
         var versionFilePath = `${projectDir}/OpenSteamworks/Generated/VersionInfo.cs`;
+
+        console.info("Generating new InterfaceConsts.cs")
+        var interfaceConstsFilePath = `${projectDir}/OpenSteamworks/IPCClient_EXCLUDED_FROM_BUILD/Interfaces/InterfaceConsts.cs`;
         
         if (fs.existsSync(versionFilePath)) {
             fs.rmSync(versionFilePath);
         }
 
+        if (fs.existsSync(interfaceConstsFilePath)) {
+            fs.rmSync(interfaceConstsFilePath);
+        }
+
         VersionInfo.CreateVersionFileFromManifest(versionFilePath, newManifest);
+        InterfaceConsts.CreateInterfaceConstsFileFromManifest(interfaceConstsFilePath, newDump.interfaces);
     } else {
         console.info("Skipping most operations due to protobufonly")
     }

@@ -263,6 +263,7 @@ class CSteamOSManagerState PROTOBUF_FINAL :
     kOsVersionFieldNumber = 2,
     kIsServiceAvailableFieldNumber = 1,
     kIsMandatoryUpdateAvailableFieldNumber = 3,
+    kIsStatusLedControlAvailableFieldNumber = 5,
     kStartupMovieVariantFieldNumber = 4,
   };
   // optional string os_version = 2;
@@ -311,6 +312,19 @@ class CSteamOSManagerState PROTOBUF_FINAL :
   void _internal_set_is_mandatory_update_available(bool value);
   public:
 
+  // optional bool is_status_led_control_available = 5;
+  bool has_is_status_led_control_available() const;
+  private:
+  bool _internal_has_is_status_led_control_available() const;
+  public:
+  void clear_is_status_led_control_available();
+  bool is_status_led_control_available() const;
+  void set_is_status_led_control_available(bool value);
+  private:
+  bool _internal_is_status_led_control_available() const;
+  void _internal_set_is_status_led_control_available(bool value);
+  public:
+
   // optional .EStartupMovieVariant startup_movie_variant = 4 [default = EStartupMovieVariant_Invalid];
   bool has_startup_movie_variant() const;
   private:
@@ -336,6 +350,7 @@ class CSteamOSManagerState PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr os_version_;
   bool is_service_available_;
   bool is_mandatory_update_available_;
+  bool is_status_led_control_available_;
   int startup_movie_variant_;
   friend struct ::TableStruct_webuimessages_5fsteamos_2eproto;
 };
@@ -3239,7 +3254,7 @@ inline void CSteamOSManagerState::set_is_mandatory_update_available(bool value) 
 
 // optional .EStartupMovieVariant startup_movie_variant = 4 [default = EStartupMovieVariant_Invalid];
 inline bool CSteamOSManagerState::_internal_has_startup_movie_variant() const {
-  bool value = (_has_bits_[0] & 0x00000008u) != 0;
+  bool value = (_has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
 inline bool CSteamOSManagerState::has_startup_movie_variant() const {
@@ -3247,7 +3262,7 @@ inline bool CSteamOSManagerState::has_startup_movie_variant() const {
 }
 inline void CSteamOSManagerState::clear_startup_movie_variant() {
   startup_movie_variant_ = 0;
-  _has_bits_[0] &= ~0x00000008u;
+  _has_bits_[0] &= ~0x00000010u;
 }
 inline ::EStartupMovieVariant CSteamOSManagerState::_internal_startup_movie_variant() const {
   return static_cast< ::EStartupMovieVariant >(startup_movie_variant_);
@@ -3258,12 +3273,40 @@ inline ::EStartupMovieVariant CSteamOSManagerState::startup_movie_variant() cons
 }
 inline void CSteamOSManagerState::_internal_set_startup_movie_variant(::EStartupMovieVariant value) {
   assert(::EStartupMovieVariant_IsValid(value));
-  _has_bits_[0] |= 0x00000008u;
+  _has_bits_[0] |= 0x00000010u;
   startup_movie_variant_ = value;
 }
 inline void CSteamOSManagerState::set_startup_movie_variant(::EStartupMovieVariant value) {
   _internal_set_startup_movie_variant(value);
   // @@protoc_insertion_point(field_set:CSteamOSManagerState.startup_movie_variant)
+}
+
+// optional bool is_status_led_control_available = 5;
+inline bool CSteamOSManagerState::_internal_has_is_status_led_control_available() const {
+  bool value = (_has_bits_[0] & 0x00000008u) != 0;
+  return value;
+}
+inline bool CSteamOSManagerState::has_is_status_led_control_available() const {
+  return _internal_has_is_status_led_control_available();
+}
+inline void CSteamOSManagerState::clear_is_status_led_control_available() {
+  is_status_led_control_available_ = false;
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline bool CSteamOSManagerState::_internal_is_status_led_control_available() const {
+  return is_status_led_control_available_;
+}
+inline bool CSteamOSManagerState::is_status_led_control_available() const {
+  // @@protoc_insertion_point(field_get:CSteamOSManagerState.is_status_led_control_available)
+  return _internal_is_status_led_control_available();
+}
+inline void CSteamOSManagerState::_internal_set_is_status_led_control_available(bool value) {
+  _has_bits_[0] |= 0x00000008u;
+  is_status_led_control_available_ = value;
+}
+inline void CSteamOSManagerState::set_is_status_led_control_available(bool value) {
+  _internal_set_is_status_led_control_available(value);
+  // @@protoc_insertion_point(field_set:CSteamOSManagerState.is_status_led_control_available)
 }
 
 // -------------------------------------------------------------------

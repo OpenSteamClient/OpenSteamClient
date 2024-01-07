@@ -12,9 +12,9 @@ namespace OpenSteamworks.Generated;
 
 public unsafe interface IClientSystemAudioManager
 {
-    public unknown_ret IsInterfaceValid();  // argc: 0, index: 1
+    public unknown_ret IsInterfaceValid();  // argc: 0, index: 1, ipc args: [], ipc returns: [boolean]
     // WARNING: Arguments are unknown!
-    public unknown_ret GetState();  // argc: 2, index: 2
+    public unknown_ret GetState();  // argc: 2, index: 0, ipc args: [bytes4], ipc returns: [bytes1, unknown]
     // WARNING: Arguments are unknown!
-    public unknown_ret UpdateSomething();  // argc: 1, index: 3
+    public unknown_ret UpdateSomething();  // argc: 1, index: 1, ipc args: [protobuf], ipc returns: [bytes8]
 }

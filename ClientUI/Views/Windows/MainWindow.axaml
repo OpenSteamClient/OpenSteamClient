@@ -54,6 +54,11 @@
             </MenuItem>
         </Menu>
 
+        <!-- Downloads section -->
+        <StackPanel DockPanel.Dock="Bottom" Background="Red" HorizontalAlignment="Center">
+            <TextBlock Text="Downloads section" />
+        </StackPanel>
+        
         <!-- Header buttons -->
         <ItemsControl ItemsSource="{Binding PageList}" DockPanel.Dock="Top">
             <ItemsControl.ItemsPanel>

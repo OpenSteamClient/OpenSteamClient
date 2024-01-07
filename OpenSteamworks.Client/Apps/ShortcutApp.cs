@@ -31,6 +31,11 @@ public class ShortcutApp : AppBase {
     /// </summary>
     public AppId_t UserSetAppID { get; set; } = 0;
 
+    /// <summary>
+    /// We allow the user to set a custom app type. If unset, defaults to Application and not Game.
+    /// </summary>
+    public EAppType UserSetAppType { get; set; } = EAppType.Application;
+
     public AppBase? UserSetApp {
         get {
             if (UserSetAppID == 0) {
@@ -43,16 +48,28 @@ public class ShortcutApp : AppBase {
 
     public override IEnumerable<LaunchOption> LaunchOptions => new List<LaunchOption>() { new(0, "", "") };
     public override int? DefaultLaunchOptionID => 0;
-
+    public override EAppType Type => UserSetAppType;
     public override int ChangeNumber => 0;
-    
+
+    public override EAppState State => EAppState.FullyInstalled;
+
     internal ShortcutApp(AppsManager appsManager, string name, string exe, string workingDir) : base(appsManager) {
         this.GameID = new CGameID(Path.Combine(workingDir, exe), name);
         this.shortcutName = name;
     }
 
-    public override Task<EAppUpdateError> Launch(string userLaunchOptions, int launchOption)
+    public override async Task<EAppUpdateError> Launch(string userLaunchOptions, int launchOption)
     {
-        throw new NotImplementedException();
+        return EAppUpdateError.NoError;
+    }
+
+    public override void PauseUpdate()
+    {
+        
+    }
+
+    public override void Update()
+    {
+        
     }
 }

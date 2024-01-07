@@ -37,19 +37,36 @@ public class SourcemodApp : AppBase {
     protected override string ActualLogoURL => this.ParentApp?.LogoURL ?? "";
     protected override string ActualIconURL => this.ParentApp?.IconURL ?? "";
     protected override string ActualPortraitURL => this.ParentApp?.PortraitURL ?? "";
+    public override EAppType Type => EAppType.Game;
 
     public override IEnumerable<LaunchOption> LaunchOptions => new List<LaunchOption>() { new(0, "Play " + this.Name, "") };
     public override int? DefaultLaunchOptionID => 0;
 
     public override int ChangeNumber => 0;
 
+    private EAppState state;
+    public override EAppState State => state;
+
     internal SourcemodApp(AppsManager appsManager, string sourcemodDir, uint modid) : base(appsManager) {
         SourcemodGameInfo = new SourcemodGameInfo(SourcemodApp.kvserializer.Deserialize(File.OpenRead(Path.Combine(sourcemodDir, "gameinfo.txt"))));
         this.GameID = new CGameID(SourcemodGameInfo.SteamAppID, modid);
+        state = EAppState.FullyInstalled;
     }
 
-    public override Task<EAppUpdateError> Launch(string userLaunchOptions, int launchOptionID)
+    public override async Task<EAppUpdateError> Launch(string userLaunchOptions, int launchOptionID)
     {
-        throw new NotImplementedException();
+        //state |= EAppState.AppRunning;
+        //this.ParentApp.Launch("-game ")
+        return EAppUpdateError.NoError;
+    }
+
+    public override void PauseUpdate()
+    {
+        
+    }
+
+    public override void Update()
+    {
+        
     }
 }

@@ -204,7 +204,7 @@ public class CloudConfigStore : ILogonLifetime {
     }
 
     internal static string GetNamespaceFilename(CSteamID belongsToUser, EUserConfigStoreNamespace @namespace) {
-        return $"U-{belongsToUser.GetAccountId()}-cloudconfigstore-namespace-{(uint)@namespace}";
+        return $"U-{belongsToUser.AccountID}-cloudconfigstore-namespace-{(uint)@namespace}";
     }
 
     /// <summary>
@@ -279,7 +279,7 @@ public class CloudConfigStore : ILogonLifetime {
         CCloudConfigStore_NamespaceData resp;
         NamespaceData nsData;
         string filename = GetNamespaceFilename(loginManager.CurrentUser.SteamID, @namespace);
-        string loggerName = "Namespace-N" + ((int)@namespace) + "-U-" + loginManager.CurrentUser.SteamID.GetAccountId();
+        string loggerName = "Namespace-N" + ((int)@namespace) + "-U-" + loginManager.CurrentUser.SteamID.AccountID;
         if (loginManager.IsOffline()) {
             if (File.Exists(filename)) {
                 try {

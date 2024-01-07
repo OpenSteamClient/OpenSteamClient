@@ -52,13 +52,13 @@ public class ClientNative {
     /// Always defined on Windows, null on other platforms
     /// </summary>
     [SupportedOSPlatform("windows")]
-    public NativeLibraryEx? Tier0Lib;
+    public readonly NativeLibraryEx? Tier0Lib;
     /// <summary>
     /// Always defined on Windows, null on other platforms
     /// </summary>
 
     [SupportedOSPlatform("windows")]
-    public NativeLibraryEx? VStdLib;
+    public readonly NativeLibraryEx? VStdLib;
     internal NativeFuncs.CreateInterface native_CreateInterface;
     internal NativeFuncs.Steam_CreateSteamPipe native_Steam_CreateSteamPipe;
     internal NativeFuncs.Steam_ConnectToGlobalUser native_Steam_ConnectToGlobalUser;
@@ -91,32 +91,69 @@ public class ClientNative {
 
     public ConnectionType ConnectedWith { get; private set; }
 
-    public IClientEngine IClientEngine;
-    public IClientAudio IClientAudio;
-    public IClientAppDisableUpdate IClientAppDisableUpdate;
-    public IClientApps IClientApps;
-    public IClientAppManager IClientAppManager;
-    public IClientBilling IClientBilling;
-    public IClientCompat IClientCompat;
-    public IClientConfigStore IClientConfigStore;
-    public IClientDeviceAuth IClientDeviceAuth;
-    public IClientFriends IClientFriends;
-    public IClientGameStats IClientGameStats;
-    public IClientHTMLSurface IClientHTMLSurface;
-    public IClientNetworking IClientNetworking;
-    public IClientMatchmaking IClientMatchmaking;
-    public IClientMusic IClientMusic;
-    public IClientRemoteStorage IClientRemoteStorage;
-    public IClientScreenshots IClientScreenshots;
-    public IClientShader IClientShader;
-    public IClientSharedConnection IClientSharedConnection;
-    public IClientShortcuts IClientShortcuts;
-    public IClientUnifiedMessages IClientUnifiedMessages;
-    public IClientUGC IClientUGC;
-    public IClientUser IClientUser;
-    public IClientUserStats IClientUserStats;
-    public IClientUtils IClientUtils;
-    public IClientVR IClientVR;
+    public IClientEngine IClientEngine { get; private set; }
+    public IClientAppDisableUpdate IClientAppDisableUpdate { get; private set; }
+    public IClientAppManager IClientAppManager { get; private set; }
+    public IClientApps IClientApps { get; private set; }
+    public IClientAudio IClientAudio { get; private set; }
+    public IClientBilling IClientBilling { get; private set; }
+    public IClientBluetoothManager IClientBluetoothManager { get; private set; }
+    public IClientCompat IClientCompat { get; private set; }
+    public IClientConfigStore IClientConfigStore { get; private set; }
+    public IClientController IClientController { get; private set; }
+    public IClientControllerSerialized IClientControllerSerialized { get; private set; }
+    public IClientDepotBuilder IClientDepotBuilder { get; private set; }
+    public IClientDeviceAuth IClientDeviceAuth { get; private set; }
+    public IClientFriends IClientFriends { get; private set; }
+    public IClientGameCoordinator IClientGameCoordinator { get; private set; }
+    public IClientGameNotifications IClientGameNotifications { get; private set; }
+    public IClientGameSearch IClientGameSearch { get; private set; }
+    //public IClientGameServerInternal IClientGameServerInternal { get; private set; }
+    //public IClientGameServerPacketHandler IClientGameServerPacketHandler { get; private set; }
+    //public IClientGameServerStats IClientGameServerStats { get; private set; }
+    public IClientGameStats IClientGameStats { get; private set; }
+    public IClientHTMLSurface IClientHTMLSurface { get; private set; }
+    public IClientHTTP IClientHTTP { get; private set; }
+    //public IClientInstallUtils IClientInstallUtils { get; private set; }
+    public IClientInventory IClientInventory { get; private set; }
+    public IClientMatchmaking IClientMatchmaking { get; private set; }
+    public IClientMatchmakingServers IClientMatchmakingServers { get; private set; }
+    //public IClientModuleManager IClientModuleManager { get; private set; }
+    public IClientMusic IClientMusic { get; private set; }
+    public IClientNetworkDeviceManager IClientNetworkDeviceManager { get; private set; }
+    public IClientNetworking IClientNetworking { get; private set; }
+    //public IClientNetworkingMessages IClientNetworkingMessages { get; private set; }
+    public IClientNetworkingSockets IClientNetworkingSockets { get; private set; }
+    public IClientNetworkingSocketsSerialized IClientNetworkingSocketsSerialized { get; private set; }
+    public IClientNetworkingUtils IClientNetworkingUtils { get; private set; }
+    public IClientNetworkingUtilsSerialized IClientNetworkingUtilsSerialized { get; private set; }
+    public IClientParentalSettings IClientParentalSettings { get; private set; }
+    public IClientParties IClientParties { get; private set; }
+    //public IClientProcessMonitor IClientProcessMonitor { get; private set; }
+    public IClientProductBuilder IClientProductBuilder { get; private set; }
+    public IClientRemoteClientManager IClientRemoteClientManager { get; private set; }
+    public IClientRemotePlay IClientRemotePlay { get; private set; }
+    public IClientRemoteStorage IClientRemoteStorage { get; private set; }
+    public IClientScreenshots IClientScreenshots { get; private set; }
+    //public IClientSecureDesktop IClientSecureDesktop { get; private set; }
+    public IClientShader IClientShader { get; private set; }
+    public IClientSharedConnection IClientSharedConnection { get; private set; }
+    public IClientShortcuts IClientShortcuts { get; private set; }
+    public IClientSTARInternal IClientSTARInternal { get; private set; }
+    public IClientStreamClient IClientStreamClient { get; private set; }
+    public IClientStreamLauncher IClientStreamLauncher { get; private set; }
+    public IClientSystemAudioManager IClientSystemAudioManager { get; private set; }
+    public IClientSystemDisplayManager IClientSystemDisplayManager { get; private set; }
+    public IClientSystemDockManager IClientSystemDockManager { get; private set; }
+    public IClientSystemManager IClientSystemManager { get; private set; }
+    public IClientSystemPerfManager IClientSystemPerfManager { get; private set; }
+    public IClientUGC IClientUGC { get; private set; }
+    public IClientUnifiedMessages IClientUnifiedMessages { get; private set; }
+    public IClientUser IClientUser { get; private set; }
+    public IClientUserStats IClientUserStats { get; private set; }
+    public IClientUtils IClientUtils { get; private set; }
+    public IClientVideo IClientVideo { get; private set; }
+    public IClientVR IClientVR { get; private set; }
 
     public ConCommands.ConsoleNative consoleNative;
 
@@ -157,62 +194,137 @@ public class ClientNative {
         this.Pipe = this.IClientEngine.CreateSteamPipe();
     }
 
-    [MemberNotNull(nameof(IClientAudio))]
+    
     [MemberNotNull(nameof(IClientAppDisableUpdate))]
-    [MemberNotNull(nameof(IClientApps))]
     [MemberNotNull(nameof(IClientAppManager))]
+    [MemberNotNull(nameof(IClientApps))]
+    [MemberNotNull(nameof(IClientAudio))]
     [MemberNotNull(nameof(IClientBilling))]
+    [MemberNotNull(nameof(IClientBluetoothManager))]
     [MemberNotNull(nameof(IClientCompat))]
     [MemberNotNull(nameof(IClientConfigStore))]
+    [MemberNotNull(nameof(IClientController))]
+    [MemberNotNull(nameof(IClientControllerSerialized))]
+    [MemberNotNull(nameof(IClientDepotBuilder))]
     [MemberNotNull(nameof(IClientDeviceAuth))]
     [MemberNotNull(nameof(IClientFriends))]
+    [MemberNotNull(nameof(IClientGameCoordinator))]
+    [MemberNotNull(nameof(IClientGameNotifications))]
+    [MemberNotNull(nameof(IClientGameSearch))]
+    //[MemberNotNull(nameof(IClientGameServerInternal))]
+    //[MemberNotNull(nameof(IClientGameServerPacketHandler))]
+    //[MemberNotNull(nameof(IClientGameServerStats))]
     [MemberNotNull(nameof(IClientGameStats))]
     [MemberNotNull(nameof(IClientHTMLSurface))]
-    [MemberNotNull(nameof(IClientNetworking))]
+    [MemberNotNull(nameof(IClientHTTP))]
+    //[MemberNotNull(nameof(IClientInstallUtils))]
+    [MemberNotNull(nameof(IClientInventory))]
     [MemberNotNull(nameof(IClientMatchmaking))]
+    [MemberNotNull(nameof(IClientMatchmakingServers))]
+    //[MemberNotNull(nameof(IClientModuleManager))]
     [MemberNotNull(nameof(IClientMusic))]
+    [MemberNotNull(nameof(IClientNetworkDeviceManager))]
+    [MemberNotNull(nameof(IClientNetworking))]
+    //[MemberNotNull(nameof(IClientNetworkingMessages))]
+    [MemberNotNull(nameof(IClientNetworkingSockets))]
+    [MemberNotNull(nameof(IClientNetworkingSocketsSerialized))]
+    [MemberNotNull(nameof(IClientNetworkingUtils))]
+    [MemberNotNull(nameof(IClientNetworkingUtilsSerialized))]
+    [MemberNotNull(nameof(IClientParentalSettings))]
+    [MemberNotNull(nameof(IClientParties))]
+    //[MemberNotNull(nameof(IClientProcessMonitor))]
+    [MemberNotNull(nameof(IClientProductBuilder))]
+    [MemberNotNull(nameof(IClientRemoteClientManager))]
+    [MemberNotNull(nameof(IClientRemotePlay))]
     [MemberNotNull(nameof(IClientRemoteStorage))]
     [MemberNotNull(nameof(IClientScreenshots))]
+    //[MemberNotNull(nameof(IClientSecureDesktop))]
     [MemberNotNull(nameof(IClientShader))]
     [MemberNotNull(nameof(IClientSharedConnection))]
     [MemberNotNull(nameof(IClientShortcuts))]
-    [MemberNotNull(nameof(IClientUnifiedMessages))]
+    [MemberNotNull(nameof(IClientSTARInternal))]
+    [MemberNotNull(nameof(IClientStreamClient))]
+    [MemberNotNull(nameof(IClientStreamLauncher))]
+    [MemberNotNull(nameof(IClientSystemAudioManager))]
+    [MemberNotNull(nameof(IClientSystemDisplayManager))]
+    [MemberNotNull(nameof(IClientSystemDockManager))]
+    [MemberNotNull(nameof(IClientSystemManager))]
+    [MemberNotNull(nameof(IClientSystemPerfManager))]
     [MemberNotNull(nameof(IClientUGC))]
+    [MemberNotNull(nameof(IClientUnifiedMessages))]
     [MemberNotNull(nameof(IClientUser))]
     [MemberNotNull(nameof(IClientUserStats))]
     [MemberNotNull(nameof(IClientUtils))]
+    [MemberNotNull(nameof(IClientVideo))]
     [MemberNotNull(nameof(IClientVR))]
     private void LoadInterfaces() {
-        this.IClientAudio = this.IClientEngine.GetIClientAudio(this.User, this.Pipe);
         this.IClientAppDisableUpdate = this.IClientEngine.GetIClientAppDisableUpdate(this.User, this.Pipe);
-        this.IClientApps = this.IClientEngine.GetIClientApps(this.User, this.Pipe);
         this.IClientAppManager = this.IClientEngine.GetIClientAppManager(this.User, this.Pipe);
+        this.IClientApps = this.IClientEngine.GetIClientApps(this.User, this.Pipe);
+        this.IClientAudio = this.IClientEngine.GetIClientAudio(this.User, this.Pipe);
         this.IClientBilling = this.IClientEngine.GetIClientBilling(this.User, this.Pipe);
+        this.IClientBluetoothManager = this.IClientEngine.GetIClientBluetoothManager(this.Pipe);
         this.IClientCompat = this.IClientEngine.GetIClientCompat(this.User, this.Pipe);
         this.IClientConfigStore = this.IClientEngine.GetIClientConfigStore(this.User, this.Pipe);
+        this.IClientController = this.IClientEngine.GetIClientController(this.Pipe);
+        this.IClientControllerSerialized = this.IClientEngine.GetIClientControllerSerialized(this.Pipe);
+        this.IClientDepotBuilder = this.IClientEngine.GetIClientDepotBuilder(this.User, this.Pipe);
         this.IClientDeviceAuth = this.IClientEngine.GetIClientDeviceAuth(this.User, this.Pipe);
         this.IClientFriends = this.IClientEngine.GetIClientFriends(this.User, this.Pipe);
+        this.IClientGameCoordinator = this.IClientEngine.GetIClientGameCoordinator(this.User, this.Pipe);
+        this.IClientGameNotifications = this.IClientEngine.GetIClientGameNotifications(this.User, this.Pipe);
+        this.IClientGameSearch = this.IClientEngine.GetIClientGameSearch(this.User, this.Pipe);
+        //this.IClientGameServerInternal = this.IClientEngine.GetIClientGameServerInternal(this.User, this.Pipe);
+        //this.IClientGameServerPacketHandler = this.IClientEngine.GetIClientGameServerPacketHandler(this.User, this.Pipe);
+        //this.IClientGameServerStats = this.IClientEngine.GetIClientGameServerStats(this.User, this.Pipe);
         this.IClientGameStats = this.IClientEngine.GetIClientGameStats(this.User, this.Pipe);
         this.IClientHTMLSurface = this.IClientEngine.GetIClientHTMLSurface(this.User, this.Pipe);
-        this.IClientNetworking = this.IClientEngine.GetIClientNetworking(this.User, this.Pipe);
+        this.IClientHTTP = this.IClientEngine.GetIClientHTTP(this.User, this.Pipe);
+        //this.IClientInstallUtils = this.IClientEngine.GetIClientInstallUtils(this.Pipe);
+        this.IClientInventory = this.IClientEngine.GetIClientInventory(this.User, this.Pipe);
         this.IClientMatchmaking = this.IClientEngine.GetIClientMatchmaking(this.User, this.Pipe);
+        this.IClientMatchmakingServers = this.IClientEngine.GetIClientMatchmakingServers(this.User, this.Pipe);
+        //this.IClientModuleManager = this.IClientEngine.GetIClientModuleManager(this.Pipe);
         this.IClientMusic = this.IClientEngine.GetIClientMusic(this.User, this.Pipe);
+        this.IClientNetworkDeviceManager = this.IClientEngine.GetIClientNetworkDeviceManager(this.Pipe);
+        this.IClientNetworking = this.IClientEngine.GetIClientNetworking(this.User, this.Pipe);
+        //this.IClientNetworkingMessages = this.IClientEngine.GetIClientNetworkingMessages(this.User, this.Pipe);
+        this.IClientNetworkingSockets = this.IClientEngine.GetIClientNetworkingSockets(this.User, this.Pipe);
+        this.IClientNetworkingSocketsSerialized = this.IClientEngine.GetIClientNetworkingSocketsSerialized(this.User, this.Pipe);
+        this.IClientNetworkingUtils = this.IClientEngine.GetIClientNetworkingUtils(this.Pipe);
+        this.IClientNetworkingUtilsSerialized = this.IClientEngine.GetIClientNetworkingUtilsSerialized(this.Pipe);
+        this.IClientParentalSettings = this.IClientEngine.GetIClientParentalSettings(this.User, this.Pipe);
+        this.IClientParties = this.IClientEngine.GetIClientParties(this.User, this.Pipe);
+        //this.IClientProcessMonitor = this.IClientEngine.GetIClientProcessMonitor(this.User, this.Pipe);
+        this.IClientProductBuilder = this.IClientEngine.GetIClientProductBuilder(this.User, this.Pipe);
+        this.IClientRemoteClientManager = this.IClientEngine.GetIClientRemoteClientManager(this.Pipe);
+        this.IClientRemotePlay = this.IClientEngine.GetIClientRemotePlay(this.User, this.Pipe);
         this.IClientRemoteStorage = this.IClientEngine.GetIClientRemoteStorage(this.User, this.Pipe);
         this.IClientScreenshots = this.IClientEngine.GetIClientScreenshots(this.User, this.Pipe);
+        //this.IClientSecureDesktop = this.IClientEngine.GetIClientSecureDesktop(this.Pipe);
         this.IClientShader = this.IClientEngine.GetIClientShader(this.User, this.Pipe);
         this.IClientSharedConnection = this.IClientEngine.GetIClientSharedConnection(this.User, this.Pipe);
         this.IClientShortcuts = this.IClientEngine.GetIClientShortcuts(this.User, this.Pipe);
-        this.IClientUnifiedMessages = this.IClientEngine.GetIClientUnifiedMessages(this.User, this.Pipe);
+        this.IClientSTARInternal = this.IClientEngine.GetIClientSTARInternal(this.User, this.Pipe);
+        this.IClientStreamClient = this.IClientEngine.GetIClientStreamClient(this.User, this.Pipe);
+        this.IClientStreamLauncher = this.IClientEngine.GetIClientStreamLauncher(this.User, this.Pipe);
+        this.IClientSystemAudioManager = this.IClientEngine.GetIClientSystemAudioManager(this.Pipe);
+        this.IClientSystemDisplayManager = this.IClientEngine.GetIClientSystemDisplayManager(this.Pipe);
+        this.IClientSystemDockManager = this.IClientEngine.GetIClientSystemDockManager(this.Pipe);
+        this.IClientSystemManager = this.IClientEngine.GetIClientSystemManager(this.Pipe);
+        this.IClientSystemPerfManager = this.IClientEngine.GetIClientSystemPerfManager(this.Pipe);
         this.IClientUGC = this.IClientEngine.GetIClientUGC(this.User, this.Pipe);
+        this.IClientUnifiedMessages = this.IClientEngine.GetIClientUnifiedMessages(this.User, this.Pipe);
         this.IClientUser = this.IClientEngine.GetIClientUser(this.User, this.Pipe);
         this.IClientUserStats = this.IClientEngine.GetIClientUserStats(this.User, this.Pipe);
         this.IClientUtils = this.IClientEngine.GetIClientUtils(this.Pipe);
+        this.IClientVideo = this.IClientEngine.GetIClientVideo(this.User, this.Pipe);
         this.IClientVR = this.IClientEngine.GetIClientVR(this.Pipe);
     }
 
     private bool TryConnectToGlobalUser() {
         HSteamUser user = this.IClientEngine.ConnectToGlobalUser(this._pipe);
-        SteamClient.GeneralLogger.Debug("ConnectToGlobalUser returned " + user);
+        Logging.GeneralLogger.Debug("ConnectToGlobalUser returned " + user);
         if (user == 0) {
             return false;
         }
@@ -224,7 +336,7 @@ public class ClientNative {
     private void CreateGlobalUser() {
         var oldPipe = this._pipe;
         this.User = this.IClientEngine.CreateGlobalUser(ref this._pipe);
-        SteamClient.GeneralLogger.Debug("CreateGlobalUser returned " + User + " with new pipe " + this._pipe + ", old pipe was: " + oldPipe);
+        Logging.GeneralLogger.Debug("CreateGlobalUser returned " + User + " with new pipe " + this._pipe + ", old pipe was: " + oldPipe);
     }
 
     [UnmanagedCallersOnly(CallConvs = new[] { typeof(CallConvCdecl) })]
@@ -238,18 +350,18 @@ public class ClientNative {
             switch (pSeverity)
             {
                 case SpewType_t.SPEW_WARNING:
-                    NativeClientLogger.Warning(toPrint);
+                    Logging.NativeClientLogger.Warning(toPrint);
                     break;
                 case SpewType_t.SPEW_ERROR:
-                    NativeClientLogger.Error(toPrint);
+                    Logging.NativeClientLogger.Error(toPrint);
                     break;
                 case SpewType_t.SPEW_ASSERT:
-                    NativeClientLogger.Warning(toPrint);
+                    Logging.NativeClientLogger.Warning(toPrint);
                     break;
                 case SpewType_t.SPEW_MESSAGE:
                 case SpewType_t.SPEW_LOG:
                 default:
-                    NativeClientLogger.Info(toPrint);
+                    Logging.NativeClientLogger.Info(toPrint);
                     break;
             }
         }
@@ -274,7 +386,7 @@ public class ClientNative {
         for (int i = 0; i < modules.Count; i++)
         {
             var module = modules[i];
-            SteamClient.GeneralLogger.Debug("Have loaded module " + module.ModuleName + ", path: " + module.FileName);
+            Logging.GeneralLogger.Debug("Have loaded module " + module.ModuleName + ", path: " + module.FileName);
         }
 
         if (OperatingSystem.IsWindows()) {
@@ -300,6 +412,8 @@ public class ClientNative {
             succeededConnecting = TryConnectToGlobalUser();
             if (succeededConnecting) {
                 ConnectedWith = ConnectionType.ExistingClient;
+                // No way to determine this, but let's assume yes
+                SteamClient.IsIPCCrossProcess = true;
             }
         }
 

@@ -1,6 +1,6 @@
 {
     "name": "IClientSystemAudioManagerMap",
-    "found_at": "0x2448e98",
+    "found_at": "0x2449e98",
     "functions": [ 
         {
             "name": "IsInterfaceValid",
@@ -8,7 +8,14 @@
             "interfaceid": "59",
             "functionid": "862246288",
             "fencepost": "907060143",
-            "addr": "0x5dd220"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5dd3f0",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "boolean"
+            ]
         },
         {
             "name": "GetState",
@@ -16,7 +23,16 @@
             "interfaceid": "59",
             "functionid": "3936378811",
             "fencepost": "3981273311",
-            "addr": "0x5dd380"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5dd550",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "unknown"
+            ]
         },
         {
             "name": "UpdateSomething",
@@ -24,7 +40,15 @@
             "interfaceid": "59",
             "functionid": "3365237348",
             "fencepost": "3410228622",
-            "addr": "0x5dd510"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5dd6e0",
+            "serializedargs": [
+                "protobuf"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         }
     ]
 }

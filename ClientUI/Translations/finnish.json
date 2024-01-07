@@ -43,6 +43,17 @@
         "#MainWindow_Header_Games": "Pelit",
         "#MainWindow_Header_Help": "Tuki",
         "#MainWindow_Header_Debug_OpenInterfaceList": "Avaa rajapintalista",
-        "#App_Tray_OpenSteamVR": "Avaa SteamVR"
+        "#App_Tray_OpenSteamVR": "Avaa SteamVR",
+        "#App_PlayApp": "Pelaa",
+        "#App_LaunchApp": "Käynnistä",
+        "#App_ListenApp": "Kuuntele",
+        "#App_WatchApp": "Katso",
+        "#App_UninstallApp": "Poista asennus",
+        "#App_InstallApp": "Asenna",
+        "#App_UpdateApp": "Päivitä",
+        "#App_PauseAppUpdate": "Keskeytä",
+        "#App_StopApp": "Lopeta",
+        "#App_StoppingApp": "Lopetetaan",
+        "#App_CancelAppLaunch": "Peruuta"
     }
 }

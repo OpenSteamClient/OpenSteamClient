@@ -1,6 +1,6 @@
 {
     "name": "IClientNetworkingSocketsSerializedMap",
-    "found_at": "0x244a0a8",
+    "found_at": "0x244b0a8",
     "functions": [ 
         {
             "name": "SendP2PRendezvous",
@@ -8,7 +8,17 @@
             "interfaceid": "46",
             "functionid": "2018205852",
             "fencepost": "2115114726",
-            "addr": "0x647440"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x647610",
+            "serializedargs": [
+                "uint64",
+                "bytes4",
+                "bytes4",
+                "bytes_length_from_mem"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "SendP2PConnectionFailureLegacy",
@@ -16,7 +26,17 @@
             "interfaceid": "46",
             "functionid": "3482682975",
             "fencepost": "3579624107",
-            "addr": "0x6475c0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x647790",
+            "serializedargs": [
+                "uint64",
+                "bytes4",
+                "bytes4",
+                "string"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "GetCertAsync",
@@ -24,7 +44,14 @@
             "interfaceid": "46",
             "functionid": "454130255",
             "fencepost": "551087516",
-            "addr": "0x647740"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x647910",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "CacheRelayTicket",
@@ -32,7 +59,15 @@
             "interfaceid": "46",
             "functionid": "3019481460",
             "fencepost": "3116503237",
-            "addr": "0x6478c0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x647a90",
+            "serializedargs": [
+                "bytes4",
+                "bytes_length_from_mem"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "GetCachedRelayTicketCount",
@@ -40,7 +75,14 @@
             "interfaceid": "46",
             "functionid": "3434652173",
             "fencepost": "3531706208",
-            "addr": "0x647a20"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x647bf0",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "GetCachedRelayTicket",
@@ -48,7 +90,17 @@
             "interfaceid": "46",
             "functionid": "1457228591",
             "fencepost": "1554363271",
-            "addr": "0x647b80"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x647d50",
+            "serializedargs": [
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes4",
+                "bytes_length_from_mem"
+            ]
         },
         {
             "name": "GetSTUNServer",
@@ -56,7 +108,17 @@
             "interfaceid": "46",
             "functionid": "2946442155",
             "fencepost": "3043689738",
-            "addr": "0x647d30"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x647f00",
+            "serializedargs": [
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes_length_from_mem"
+            ]
         },
         {
             "name": "AllowDirectConnectToPeerString",
@@ -64,7 +126,15 @@
             "interfaceid": "46",
             "functionid": "1638831733",
             "fencepost": "1736127703",
-            "addr": "0x647ee0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6480b0",
+            "serializedargs": [
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "BeginAsyncRequestFakeIP",
@@ -72,7 +142,15 @@
             "interfaceid": "46",
             "functionid": "3084408982",
             "fencepost": "3181721081",
-            "addr": "0x648050"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x648220",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "AllowDirectConnectToPeerString",
@@ -80,7 +158,16 @@
             "interfaceid": "46",
             "functionid": "1638831733",
             "fencepost": "1736127703",
-            "addr": "0x651e10"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x651fe0",
+            "serializedargs": [
+                "string"
+            ],
+            "serializedreturns": [
+                "unknown",
+                "bytes4"
+            ]
         },
         {
             "name": "SetAllowShareIPUserSetting",
@@ -88,7 +175,14 @@
             "interfaceid": "46",
             "functionid": "919731740",
             "fencepost": "1017059968",
-            "addr": "0x6481e0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6483b0",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "GetAllowShareIPUserSetting",
@@ -96,7 +190,14 @@
             "interfaceid": "46",
             "functionid": "893414715",
             "fencepost": "990759072",
-            "addr": "0x648330"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x648500",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "TEST_ClearInMemoryCachedCredentials",
@@ -104,7 +205,13 @@
             "interfaceid": "46",
             "functionid": "3336951685",
             "fencepost": "3434312171",
-            "addr": "0x648490"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x648660",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+            ]
         }
     ]
 }

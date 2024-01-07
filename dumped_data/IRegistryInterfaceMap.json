@@ -1,6 +1,6 @@
 {
     "name": "IRegistryInterfaceMap",
-    "found_at": "0x24519a8",
+    "found_at": "0x24529a8",
     "functions": [ 
         {
             "name": "BGetValueStr",
@@ -8,7 +8,19 @@
             "interfaceid": "3",
             "functionid": "2264710066",
             "fencepost": "2266887862",
-            "addr": "0xfb6ea0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0xfb72a0",
+            "serializedargs": [
+                "bytes4",
+                "string",
+                "string",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "boolean",
+                "bytes_length_from_mem"
+            ]
         },
         {
             "name": "BGetValueUint",
@@ -16,7 +28,18 @@
             "interfaceid": "3",
             "functionid": "603467504",
             "fencepost": "605790461",
-            "addr": "0xfb6ce0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0xfb70e0",
+            "serializedargs": [
+                "bytes4",
+                "string",
+                "string"
+            ],
+            "serializedreturns": [
+                "boolean",
+                "bytes4"
+            ]
         },
         {
             "name": "BGetValueBin",
@@ -24,7 +47,20 @@
             "interfaceid": "3",
             "functionid": "1272740833",
             "fencepost": "1275241209",
-            "addr": "0xfb8170"
+            "cannotcallincrossprocess": "1",
+            "serializedreturn": "",
+            "addr": "0xfb8570",
+            "serializedargs": [
+                "bytes4",
+                "string",
+                "string",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "boolean",
+                "bytes4",
+                "bytes_length_from_mem"
+            ]
         },
         {
             "name": "BSetValueStr",
@@ -32,7 +68,18 @@
             "interfaceid": "3",
             "functionid": "70183469",
             "fencepost": "72764490",
-            "addr": "0xfb6b40"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0xfb6f40",
+            "serializedargs": [
+                "bytes4",
+                "string",
+                "string",
+                "string"
+            ],
+            "serializedreturns": [
+                "boolean"
+            ]
         },
         {
             "name": "BSetValueUint",
@@ -40,7 +87,18 @@
             "interfaceid": "3",
             "functionid": "2447989518",
             "fencepost": "2450586668",
-            "addr": "0xfb6990"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0xfb6d90",
+            "serializedargs": [
+                "bytes4",
+                "string",
+                "string",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "boolean"
+            ]
         },
         {
             "name": "BSetValueBin",
@@ -48,7 +106,19 @@
             "interfaceid": "3",
             "functionid": "3324523034",
             "fencepost": "3327249216",
-            "addr": "0xfb67d0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0xfb6bd0",
+            "serializedargs": [
+                "bytes4",
+                "string",
+                "string",
+                "bytes4",
+                "bytes_length_from_mem"
+            ],
+            "serializedreturns": [
+                "boolean"
+            ]
         },
         {
             "name": "BDeleteValue",
@@ -56,7 +126,17 @@
             "interfaceid": "3",
             "functionid": "2027218725",
             "fencepost": "2029993294",
-            "addr": "0xfb6640"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0xfb6a40",
+            "serializedargs": [
+                "bytes4",
+                "string",
+                "string"
+            ],
+            "serializedreturns": [
+                "boolean"
+            ]
         },
         {
             "name": "BDeleteKey",
@@ -64,7 +144,16 @@
             "interfaceid": "3",
             "functionid": "1819075803",
             "fencepost": "1821866501",
-            "addr": "0xfb64b0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0xfb68b0",
+            "serializedargs": [
+                "bytes4",
+                "string"
+            ],
+            "serializedreturns": [
+                "boolean"
+            ]
         },
         {
             "name": "BKeyExists",
@@ -72,7 +161,16 @@
             "interfaceid": "3",
             "functionid": "650693338",
             "fencepost": "653500165",
-            "addr": "0xfb6320"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0xfb6720",
+            "serializedargs": [
+                "bytes4",
+                "string"
+            ],
+            "serializedreturns": [
+                "boolean"
+            ]
         },
         {
             "name": "BGetSubKeys",
@@ -80,7 +178,18 @@
             "interfaceid": "3",
             "functionid": "2533634413",
             "fencepost": "2536457369",
-            "addr": "0xfb7f70"
+            "cannotcallincrossprocess": "1",
+            "serializedreturn": "",
+            "addr": "0xfb8370",
+            "serializedargs": [
+                "bytes4",
+                "string",
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "boolean"
+            ]
         },
         {
             "name": "BGetValues",
@@ -88,7 +197,19 @@
             "interfaceid": "3",
             "functionid": "506629117",
             "fencepost": "509468202",
-            "addr": "0xfb7d30"
+            "cannotcallincrossprocess": "1",
+            "serializedreturn": "",
+            "addr": "0xfb8130",
+            "serializedargs": [
+                "bytes4",
+                "string",
+                "bytes4",
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "boolean"
+            ]
         },
         {
             "name": "BEnumerateKey",
@@ -96,7 +217,19 @@
             "interfaceid": "3",
             "functionid": "55374828",
             "fencepost": "58342945",
-            "addr": "0xfb6140"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0xfb6540",
+            "serializedargs": [
+                "bytes4",
+                "string",
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes4",
+                "bytes_length_from_mem"
+            ]
         },
         {
             "name": "BEnumerateValue",
@@ -104,7 +237,20 @@
             "interfaceid": "3",
             "functionid": "2844596996",
             "fencepost": "2847726403",
-            "addr": "0xfb7070"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0xfb7470",
+            "serializedargs": [
+                "bytes4",
+                "string",
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes4",
+                "boolean",
+                "bytes4"
+            ]
         }
     ]
 }

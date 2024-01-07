@@ -15,14 +15,14 @@ public class SteamHTML : IClientLifetime {
     public object CurrentHTMLHostLock = new();
     public Process? CurrentHTMLHost;
     public Thread? WatcherThread;
-    private readonly SteamClient steamClient;
+    private readonly ISteamClient steamClient;
     private readonly InstallManager installManager;
     private readonly GlobalSettings globalSettings;
     private readonly Logger logger;
     private bool hasCopiedFiles = false;
     private static RefCount initCount = new();
 
-    public SteamHTML(SteamClient steamClient, InstallManager installManager, GlobalSettings globalSettings) {
+    public SteamHTML(ISteamClient steamClient, InstallManager installManager, GlobalSettings globalSettings) {
         this.logger = Logger.GetLogger("SteamHTMLManager", installManager.GetLogPath("SteamHTMLManager"));
         this.steamClient = steamClient;
         this.installManager = installManager;
@@ -60,12 +60,12 @@ public class SteamHTML : IClientLifetime {
             // [cachedir, steampath, universe, realm, language, uimode, enablegpuacceleration, enablesmoothscrolling, enablegpuvideodecode, enablehighdpi, proxyserver, bypassproxyforlocalhost, composermode, ignoregpublocklist, allowworkarounds]
             CurrentHTMLHost.StartInfo.ArgumentList.Add(cacheDir);
             CurrentHTMLHost.StartInfo.ArgumentList.Add(steampath);
-            CurrentHTMLHost.StartInfo.ArgumentList.Add(((int)this.steamClient.NativeClient.IClientUtils.GetConnectedUniverse()).ToString());
-            CurrentHTMLHost.StartInfo.ArgumentList.Add(((int)this.steamClient.NativeClient.IClientUtils.GetSteamRealm()).ToString());
+            CurrentHTMLHost.StartInfo.ArgumentList.Add(((int)this.steamClient.IClientUtils.GetConnectedUniverse()).ToString());
+            CurrentHTMLHost.StartInfo.ArgumentList.Add(((int)this.steamClient.IClientUtils.GetSteamRealm()).ToString());
             StringBuilder builder = new(128);
-            this.steamClient.NativeClient.IClientUser.GetLanguage(builder, 128);
+            this.steamClient.IClientUser.GetLanguage(builder, 128);
             CurrentHTMLHost.StartInfo.ArgumentList.Add(((int)ELanguageConversion.ELanguageFromAPIName(builder.ToString())).ToString());
-            CurrentHTMLHost.StartInfo.ArgumentList.Add(((int)this.steamClient.NativeClient.IClientUtils.GetCurrentUIMode()).ToString());
+            CurrentHTMLHost.StartInfo.ArgumentList.Add(((int)this.steamClient.IClientUtils.GetCurrentUIMode()).ToString());
             CurrentHTMLHost.StartInfo.ArgumentList.Add(Convert.ToInt32(this.globalSettings.WebhelperGPUAcceleration).ToString());
             CurrentHTMLHost.StartInfo.ArgumentList.Add(Convert.ToInt32(this.globalSettings.WebhelperSmoothScrolling).ToString());
             CurrentHTMLHost.StartInfo.ArgumentList.Add(Convert.ToInt32(this.globalSettings.WebhelperGPUVideoDecode).ToString());
@@ -113,7 +113,7 @@ public class SteamHTML : IClientLifetime {
         Console.WriteLine("pre: " + initCount.Count);
         if (initCount.Decrement()) {
             logger.Info("Freeing IClientHTMLSurface, no surfaces left");
-            this.steamClient.NativeClient.IClientHTMLSurface.Shutdown();
+            this.steamClient.IClientHTMLSurface.Shutdown();
 
             logger.Info("Killing HTMLHost");
             StopThread();
@@ -153,7 +153,7 @@ public class SteamHTML : IClientLifetime {
             
             if (CurrentHTMLHost != null && !CurrentHTMLHost.HasExited) {
                 logger.Info("Not running SteamHTML due to it already running");
-            } else if (steamClient.NativeClient.ConnectedWith == SteamClient.ConnectionType.ExistingClient) {
+            } else if (steamClient.ConnectedWith == ConnectionType.ExistingClient) {
                 //TODO: check for existing steamwebhelper here
                 logger.Info("Not rerunning SteamHTML due to existing client connection");
             } else {
@@ -182,7 +182,7 @@ public class SteamHTML : IClientLifetime {
             }
 
             logger.Info("Initializing IClientHTMLSurface");
-            while (!this.steamClient.NativeClient.IClientHTMLSurface.Init())
+            while (!this.steamClient.IClientHTMLSurface.Init())
             {
                 logger.Warning("Init failed. Retrying");
                 Thread.Sleep(50);

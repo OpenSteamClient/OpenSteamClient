@@ -1,7 +1,7 @@
 using System;
 using System.Runtime.InteropServices;
 using OpenSteamworks.Enums;
-using OpenSteamworks.NativeTypes;
+
 
 namespace OpenSteamworks.Structs;
 

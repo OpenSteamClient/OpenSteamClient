@@ -12,7 +12,7 @@ public class AdvancedConfig : IConfigFile
     [ConfigName("Connection Type", "#AdvancedConfig_EnabledConnectionTypes")]
     [ConfigDescription("Sets the ways to connect to Steam. If ExistingClient is specified, you can run ValveSteam in the background and OpenSteamClient will connect to it.", "#AdvancedConfig_EnabledConnectionTypesDesc")]
     [ConfigCategory("Misc", "#AdvancedConfig_Category_Misc")]
-    public OpenSteamworks.SteamClient.ConnectionType EnabledConnectionTypes { get; set; } = OpenSteamworks.SteamClient.ConnectionType.ExistingClient | OpenSteamworks.SteamClient.ConnectionType.NewClient;
+    public ConnectionType EnabledConnectionTypes { get; set; } = ConnectionType.ExistingClient | ConnectionType.NewClient;
 
     [ConfigName("Steam Service", "#AdvancedConfig_EnableSteamService")]
     [ConfigDescription("If the Steam Client Service should be enabled. Disabling this may cause stuff to break, so you should keep it on.", "#AdvancedConfig_EnableSteamServiceDesc")]

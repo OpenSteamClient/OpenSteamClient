@@ -9,7 +9,7 @@ namespace OpenSteamworks.Client.Apps.Library;
 public class LibraryManager : ILogonLifetime
 {
     private readonly CloudConfigStore cloudConfigStore;
-    private readonly SteamClient steamClient;
+    private readonly ISteamClient steamClient;
     private readonly ClientMessaging clientMessaging;
     private readonly Logger logger;
     private readonly InstallManager installManager;
@@ -17,7 +17,7 @@ public class LibraryManager : ILogonLifetime
     private readonly AppsManager appsManager;
     private Library? currentUserLibrary;
 
-    public LibraryManager(SteamClient steamClient, CloudConfigStore cloudConfigStore, ClientMessaging clientMessaging, LoginManager loginManager, InstallManager installManager, AppsManager appsManager) {
+    public LibraryManager(ISteamClient steamClient, CloudConfigStore cloudConfigStore, ClientMessaging clientMessaging, LoginManager loginManager, InstallManager installManager, AppsManager appsManager) {
         this.logger = Logger.GetLogger("LibraryManager", installManager.GetLogPath("LibraryManager"));
         this.installManager = installManager;
         this.steamClient = steamClient;

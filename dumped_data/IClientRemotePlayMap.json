@@ -1,6 +1,6 @@
 {
     "name": "IClientRemotePlayMap",
-    "found_at": "0x244a118",
+    "found_at": "0x244b118",
     "functions": [ 
         {
             "name": "GetSessionCount",
@@ -8,7 +8,14 @@
             "interfaceid": "52",
             "functionid": "2794248700",
             "fencepost": "2892432527",
-            "addr": "0x649250"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x649420",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "GetSessionID",
@@ -16,7 +23,15 @@
             "interfaceid": "52",
             "functionid": "1973243909",
             "fencepost": "2071443865",
-            "addr": "0x6493b0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x649580",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "GetSessionSteamID",
@@ -24,7 +39,15 @@
             "interfaceid": "52",
             "functionid": "2908162459",
             "fencepost": "3006378544",
-            "addr": "0x649520"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6496f0",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "uint64"
+            ]
         },
         {
             "name": "GetSessionClientName",
@@ -32,7 +55,15 @@
             "interfaceid": "52",
             "functionid": "787084674",
             "fencepost": "885316888",
-            "addr": "0x6496c0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x649890",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "string"
+            ]
         },
         {
             "name": "GetSessionClientFormFactor",
@@ -40,7 +71,15 @@
             "interfaceid": "52",
             "functionid": "4060454936",
             "fencepost": "4158703279",
-            "addr": "0x649830"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x649a00",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "BGetSessionClientResolution",
@@ -48,7 +87,17 @@
             "interfaceid": "52",
             "functionid": "2408322032",
             "fencepost": "2506651020",
-            "addr": "0x6499a0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x649b70",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "boolean",
+                "bytes4",
+                "bytes4"
+            ]
         },
         {
             "name": "BStartRemotePlayTogether",
@@ -56,7 +105,15 @@
             "interfaceid": "52",
             "functionid": "1922132895",
             "fencepost": "2020526399",
-            "addr": "0x649b50"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x649d20",
+            "serializedargs": [
+                "bytes1"
+            ],
+            "serializedreturns": [
+                "boolean"
+            ]
         },
         {
             "name": "BSendRemotePlayTogetherInvite",
@@ -64,7 +121,15 @@
             "interfaceid": "52",
             "functionid": "1483307303",
             "fencepost": "1581716936",
-            "addr": "0x649cd0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x649ea0",
+            "serializedargs": [
+                "uint64"
+            ],
+            "serializedreturns": [
+                "boolean"
+            ]
         }
     ]
 }

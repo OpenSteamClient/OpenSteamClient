@@ -26,59 +26,60 @@ namespace OpenSteamworks.Protobuf {
           string.Concat(
             "Cht3ZWJ1aW1lc3NhZ2VzX3N0ZWFtb3MucHJvdG8aIGdvb2dsZS9wcm90b2J1",
             "Zi9kZXNjcmlwdG9yLnByb3RvGgtlbnVtcy5wcm90bxoYc3RlYW1tZXNzYWdl",
-            "c19iYXNlLnByb3RvGhh3ZWJ1aW1lc3NhZ2VzX2Jhc2UucHJvdG8iwwEKFENT",
+            "c19iYXNlLnByb3RvGhh3ZWJ1aW1lc3NhZ2VzX2Jhc2UucHJvdG8i7AEKFENT",
             "dGVhbU9TTWFuYWdlclN0YXRlEhwKFGlzX3NlcnZpY2VfYXZhaWxhYmxlGAEg",
             "ASgIEhIKCm9zX3ZlcnNpb24YAiABKAkSJQodaXNfbWFuZGF0b3J5X3VwZGF0",
             "ZV9hdmFpbGFibGUYAyABKAgSUgoVc3RhcnR1cF9tb3ZpZV92YXJpYW50GAQg",
             "ASgOMhUuRVN0YXJ0dXBNb3ZpZVZhcmlhbnQ6HEVTdGFydHVwTW92aWVWYXJp",
-            "YW50X0ludmFsaWQiIgogQ1N0ZWFtT1NNYW5hZ2VyX0dldFN0YXRlX1JlcXVl",
-            "c3QiSQohQ1N0ZWFtT1NNYW5hZ2VyX0dldFN0YXRlX1Jlc3BvbnNlEiQKBXN0",
-            "YXRlGAEgASgLMhUuQ1N0ZWFtT1NNYW5hZ2VyU3RhdGUiKwopQ1N0ZWFtT1NN",
-            "YW5hZ2VyX1N0YXRlQ2hhbmdlZF9Ob3RpZmljYXRpb24iZAoyQ1N0ZWFtT1NN",
-            "YW5hZ2VyX0lzVGVsZW1ldHJ5SGVscGVyQXZhaWxhYmxlX1JlcXVlc3QSLgoF",
-            "ZXR5cGUYASABKA4yCy5FU0xTSGVscGVyOhJFU0xTSGVscGVyX0ludmFsaWQi",
-            "SAozQ1N0ZWFtT1NNYW5hZ2VyX0lzVGVsZW1ldHJ5SGVscGVyQXZhaWxhYmxl",
-            "X1Jlc3BvbnNlEhEKCWF2YWlsYWJsZRgBIAEoCCIyCjBDU3RlYW1PU01hbmFn",
-            "ZXJfT3B0T3V0T2ZTaWRlbG9hZGVkQ2xpZW50X1JlcXVlc3QiMwoxQ1N0ZWFt",
-            "T1NNYW5hZ2VyX09wdE91dE9mU2lkZWxvYWRlZENsaWVudF9SZXNwb25zZSIu",
-            "CixDU3RlYW1PU01hbmFnZXJfQXBwbHlNYW5kYXRvcnlVcGRhdGVfUmVxdWVz",
-            "dCIvCi1DU3RlYW1PU01hbmFnZXJfQXBwbHlNYW5kYXRvcnlVcGRhdGVfUmVz",
-            "cG9uc2UibQoRQ1N0ZWFtT1NTTFNQbHVnaW4SLgoFZXR5cGUYASABKA4yCy5F",
-            "U0xTSGVscGVyOhJFU0xTSGVscGVyX0ludmFsaWQSFAoMaXNfYXZhaWxhYmxl",
-            "GAIgASgIEhIKCmlzX2VuYWJsZWQYAyABKAgiYQoQQ1N0ZWFtT1NTTFNTdGF0",
-            "ZRIUCgxpc19hdmFpbGFibGUYASABKAgSEgoKaXNfZW5hYmxlZBgCIAEoCBIj",
-            "CgdwbHVnaW5zGAMgAygLMhIuQ1N0ZWFtT1NTTFNQbHVnaW4iHgocQ1N0ZWFt",
-            "T1NTTFNfR2V0U3RhdGVfUmVxdWVzdCJBCh1DU3RlYW1PU1NMU19HZXRTdGF0",
-            "ZV9SZXNwb25zZRIgCgVzdGF0ZRgBIAEoCzIRLkNTdGVhbU9TU0xTU3RhdGUi",
-            "JwolQ1N0ZWFtT1NTTFNfU3RhdGVDaGFuZ2VkX05vdGlmaWNhdGlvbiIxCh5D",
-            "U3RlYW1PU1NMU19TZXRFbmFibGVkX1JlcXVlc3QSDwoHZW5hYmxlZBgBIAEo",
-            "CCIhCh9DU3RlYW1PU1NMU19TZXRFbmFibGVkX1Jlc3BvbnNlImcKJENTdGVh",
-            "bU9TU0xTX1NldFBsdWdpbkVuYWJsZWRfUmVxdWVzdBIuCgVldHlwZRgBIAEo",
-            "DjILLkVTTFNIZWxwZXI6EkVTTFNIZWxwZXJfSW52YWxpZBIPCgdlbmFibGVk",
-            "GAIgASgIIicKJUNTdGVhbU9TU0xTX1NldFBsdWdpbkVuYWJsZWRfUmVzcG9u",
-            "c2UyuAMKDlN0ZWFtT1NNYW5hZ2VyElEKCEdldFN0YXRlEiEuQ1N0ZWFtT1NN",
-            "YW5hZ2VyX0dldFN0YXRlX1JlcXVlc3QaIi5DU3RlYW1PU01hbmFnZXJfR2V0",
-            "U3RhdGVfUmVzcG9uc2USUgoSTm90aWZ5U3RhdGVDaGFuZ2VkEiouQ1N0ZWFt",
-            "T1NNYW5hZ2VyX1N0YXRlQ2hhbmdlZF9Ob3RpZmljYXRpb24aEC5XZWJVSU5v",
-            "UmVzcG9uc2USgQEKGE9wdE91dE9mU2lkZWxvYWRlZENsaWVudBIxLkNTdGVh",
-            "bU9TTWFuYWdlcl9PcHRPdXRPZlNpZGVsb2FkZWRDbGllbnRfUmVxdWVzdBoy",
-            "LkNTdGVhbU9TTWFuYWdlcl9PcHRPdXRPZlNpZGVsb2FkZWRDbGllbnRfUmVz",
-            "cG9uc2USdQoUQXBwbHlNYW5kYXRvcnlVcGRhdGUSLS5DU3RlYW1PU01hbmFn",
-            "ZXJfQXBwbHlNYW5kYXRvcnlVcGRhdGVfUmVxdWVzdBouLkNTdGVhbU9TTWFu",
-            "YWdlcl9BcHBseU1hbmRhdG9yeVVwZGF0ZV9SZXNwb25zZRoEgJciATLhAgoK",
-            "U3RlYW1PU1NMUxJJCghHZXRTdGF0ZRIdLkNTdGVhbU9TU0xTX0dldFN0YXRl",
-            "X1JlcXVlc3QaHi5DU3RlYW1PU1NMU19HZXRTdGF0ZV9SZXNwb25zZRJOChJO",
-            "b3RpZnlTdGF0ZUNoYW5nZWQSJi5DU3RlYW1PU1NMU19TdGF0ZUNoYW5nZWRf",
-            "Tm90aWZpY2F0aW9uGhAuV2ViVUlOb1Jlc3BvbnNlEk8KClNldEVuYWJsZWQS",
-            "Hy5DU3RlYW1PU1NMU19TZXRFbmFibGVkX1JlcXVlc3QaIC5DU3RlYW1PU1NM",
-            "U19TZXRFbmFibGVkX1Jlc3BvbnNlEmEKEFNldFBsdWdpbkVuYWJsZWQSJS5D",
-            "U3RlYW1PU1NMU19TZXRQbHVnaW5FbmFibGVkX1JlcXVlc3QaJi5DU3RlYW1P",
-            "U1NMU19TZXRQbHVnaW5FbmFibGVkX1Jlc3BvbnNlGgSAlyIBQh9IAYABAaoC",
-            "F09wZW5TdGVhbXdvcmtzLlByb3RvYnVm"));
+            "YW50X0ludmFsaWQSJwofaXNfc3RhdHVzX2xlZF9jb250cm9sX2F2YWlsYWJs",
+            "ZRgFIAEoCCIiCiBDU3RlYW1PU01hbmFnZXJfR2V0U3RhdGVfUmVxdWVzdCJJ",
+            "CiFDU3RlYW1PU01hbmFnZXJfR2V0U3RhdGVfUmVzcG9uc2USJAoFc3RhdGUY",
+            "ASABKAsyFS5DU3RlYW1PU01hbmFnZXJTdGF0ZSIrCilDU3RlYW1PU01hbmFn",
+            "ZXJfU3RhdGVDaGFuZ2VkX05vdGlmaWNhdGlvbiJkCjJDU3RlYW1PU01hbmFn",
+            "ZXJfSXNUZWxlbWV0cnlIZWxwZXJBdmFpbGFibGVfUmVxdWVzdBIuCgVldHlw",
+            "ZRgBIAEoDjILLkVTTFNIZWxwZXI6EkVTTFNIZWxwZXJfSW52YWxpZCJICjND",
+            "U3RlYW1PU01hbmFnZXJfSXNUZWxlbWV0cnlIZWxwZXJBdmFpbGFibGVfUmVz",
+            "cG9uc2USEQoJYXZhaWxhYmxlGAEgASgIIjIKMENTdGVhbU9TTWFuYWdlcl9P",
+            "cHRPdXRPZlNpZGVsb2FkZWRDbGllbnRfUmVxdWVzdCIzCjFDU3RlYW1PU01h",
+            "bmFnZXJfT3B0T3V0T2ZTaWRlbG9hZGVkQ2xpZW50X1Jlc3BvbnNlIi4KLENT",
+            "dGVhbU9TTWFuYWdlcl9BcHBseU1hbmRhdG9yeVVwZGF0ZV9SZXF1ZXN0Ii8K",
+            "LUNTdGVhbU9TTWFuYWdlcl9BcHBseU1hbmRhdG9yeVVwZGF0ZV9SZXNwb25z",
+            "ZSJtChFDU3RlYW1PU1NMU1BsdWdpbhIuCgVldHlwZRgBIAEoDjILLkVTTFNI",
+            "ZWxwZXI6EkVTTFNIZWxwZXJfSW52YWxpZBIUCgxpc19hdmFpbGFibGUYAiAB",
+            "KAgSEgoKaXNfZW5hYmxlZBgDIAEoCCJhChBDU3RlYW1PU1NMU1N0YXRlEhQK",
+            "DGlzX2F2YWlsYWJsZRgBIAEoCBISCgppc19lbmFibGVkGAIgASgIEiMKB3Bs",
+            "dWdpbnMYAyADKAsyEi5DU3RlYW1PU1NMU1BsdWdpbiIeChxDU3RlYW1PU1NM",
+            "U19HZXRTdGF0ZV9SZXF1ZXN0IkEKHUNTdGVhbU9TU0xTX0dldFN0YXRlX1Jl",
+            "c3BvbnNlEiAKBXN0YXRlGAEgASgLMhEuQ1N0ZWFtT1NTTFNTdGF0ZSInCiVD",
+            "U3RlYW1PU1NMU19TdGF0ZUNoYW5nZWRfTm90aWZpY2F0aW9uIjEKHkNTdGVh",
+            "bU9TU0xTX1NldEVuYWJsZWRfUmVxdWVzdBIPCgdlbmFibGVkGAEgASgIIiEK",
+            "H0NTdGVhbU9TU0xTX1NldEVuYWJsZWRfUmVzcG9uc2UiZwokQ1N0ZWFtT1NT",
+            "TFNfU2V0UGx1Z2luRW5hYmxlZF9SZXF1ZXN0Ei4KBWV0eXBlGAEgASgOMgsu",
+            "RVNMU0hlbHBlcjoSRVNMU0hlbHBlcl9JbnZhbGlkEg8KB2VuYWJsZWQYAiAB",
+            "KAgiJwolQ1N0ZWFtT1NTTFNfU2V0UGx1Z2luRW5hYmxlZF9SZXNwb25zZTK4",
+            "AwoOU3RlYW1PU01hbmFnZXISUQoIR2V0U3RhdGUSIS5DU3RlYW1PU01hbmFn",
+            "ZXJfR2V0U3RhdGVfUmVxdWVzdBoiLkNTdGVhbU9TTWFuYWdlcl9HZXRTdGF0",
+            "ZV9SZXNwb25zZRJSChJOb3RpZnlTdGF0ZUNoYW5nZWQSKi5DU3RlYW1PU01h",
+            "bmFnZXJfU3RhdGVDaGFuZ2VkX05vdGlmaWNhdGlvbhoQLldlYlVJTm9SZXNw",
+            "b25zZRKBAQoYT3B0T3V0T2ZTaWRlbG9hZGVkQ2xpZW50EjEuQ1N0ZWFtT1NN",
+            "YW5hZ2VyX09wdE91dE9mU2lkZWxvYWRlZENsaWVudF9SZXF1ZXN0GjIuQ1N0",
+            "ZWFtT1NNYW5hZ2VyX09wdE91dE9mU2lkZWxvYWRlZENsaWVudF9SZXNwb25z",
+            "ZRJ1ChRBcHBseU1hbmRhdG9yeVVwZGF0ZRItLkNTdGVhbU9TTWFuYWdlcl9B",
+            "cHBseU1hbmRhdG9yeVVwZGF0ZV9SZXF1ZXN0Gi4uQ1N0ZWFtT1NNYW5hZ2Vy",
+            "X0FwcGx5TWFuZGF0b3J5VXBkYXRlX1Jlc3BvbnNlGgSAlyIBMuECCgpTdGVh",
+            "bU9TU0xTEkkKCEdldFN0YXRlEh0uQ1N0ZWFtT1NTTFNfR2V0U3RhdGVfUmVx",
+            "dWVzdBoeLkNTdGVhbU9TU0xTX0dldFN0YXRlX1Jlc3BvbnNlEk4KEk5vdGlm",
+            "eVN0YXRlQ2hhbmdlZBImLkNTdGVhbU9TU0xTX1N0YXRlQ2hhbmdlZF9Ob3Rp",
+            "ZmljYXRpb24aEC5XZWJVSU5vUmVzcG9uc2USTwoKU2V0RW5hYmxlZBIfLkNT",
+            "dGVhbU9TU0xTX1NldEVuYWJsZWRfUmVxdWVzdBogLkNTdGVhbU9TU0xTX1Nl",
+            "dEVuYWJsZWRfUmVzcG9uc2USYQoQU2V0UGx1Z2luRW5hYmxlZBIlLkNTdGVh",
+            "bU9TU0xTX1NldFBsdWdpbkVuYWJsZWRfUmVxdWVzdBomLkNTdGVhbU9TU0xT",
+            "X1NldFBsdWdpbkVuYWJsZWRfUmVzcG9uc2UaBICXIgFCH0gBgAEBqgIXT3Bl",
+            "blN0ZWFtd29ya3MuUHJvdG9idWY="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.Reflection.DescriptorReflection.Descriptor, global::OpenSteamworks.Protobuf.EnumsReflection.Descriptor, global::OpenSteamworks.Protobuf.SteammessagesBaseReflection.Descriptor, global::OpenSteamworks.Protobuf.WebuimessagesBaseReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CSteamOSManagerState), global::OpenSteamworks.Protobuf.CSteamOSManagerState.Parser, new[]{ "IsServiceAvailable", "OsVersion", "IsMandatoryUpdateAvailable", "StartupMovieVariant" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CSteamOSManagerState), global::OpenSteamworks.Protobuf.CSteamOSManagerState.Parser, new[]{ "IsServiceAvailable", "OsVersion", "IsMandatoryUpdateAvailable", "StartupMovieVariant", "IsStatusLedControlAvailable" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CSteamOSManager_GetState_Request), global::OpenSteamworks.Protobuf.CSteamOSManager_GetState_Request.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CSteamOSManager_GetState_Response), global::OpenSteamworks.Protobuf.CSteamOSManager_GetState_Response.Parser, new[]{ "State" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CSteamOSManager_StateChanged_Notification), global::OpenSteamworks.Protobuf.CSteamOSManager_StateChanged_Notification.Parser, null, null, null, null, null),
@@ -144,6 +145,7 @@ namespace OpenSteamworks.Protobuf {
       osVersion_ = other.osVersion_;
       isMandatoryUpdateAvailable_ = other.isMandatoryUpdateAvailable_;
       startupMovieVariant_ = other.startupMovieVariant_;
+      isStatusLedControlAvailable_ = other.isStatusLedControlAvailable_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -260,6 +262,33 @@ namespace OpenSteamworks.Protobuf {
       _hasBits0 &= ~4;
     }
 
+    /// <summary>Field number for the "is_status_led_control_available" field.</summary>
+    public const int IsStatusLedControlAvailableFieldNumber = 5;
+    private readonly static bool IsStatusLedControlAvailableDefaultValue = false;
+
+    private bool isStatusLedControlAvailable_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool IsStatusLedControlAvailable {
+      get { if ((_hasBits0 & 8) != 0) { return isStatusLedControlAvailable_; } else { return IsStatusLedControlAvailableDefaultValue; } }
+      set {
+        _hasBits0 |= 8;
+        isStatusLedControlAvailable_ = value;
+      }
+    }
+    /// <summary>Gets whether the "is_status_led_control_available" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasIsStatusLedControlAvailable {
+      get { return (_hasBits0 & 8) != 0; }
+    }
+    /// <summary>Clears the value of the "is_status_led_control_available" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearIsStatusLedControlAvailable() {
+      _hasBits0 &= ~8;
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -279,6 +308,7 @@ namespace OpenSteamworks.Protobuf {
       if (OsVersion != other.OsVersion) return false;
       if (IsMandatoryUpdateAvailable != other.IsMandatoryUpdateAvailable) return false;
       if (StartupMovieVariant != other.StartupMovieVariant) return false;
+      if (IsStatusLedControlAvailable != other.IsStatusLedControlAvailable) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -290,6 +320,7 @@ namespace OpenSteamworks.Protobuf {
       if (HasOsVersion) hash ^= OsVersion.GetHashCode();
       if (HasIsMandatoryUpdateAvailable) hash ^= IsMandatoryUpdateAvailable.GetHashCode();
       if (HasStartupMovieVariant) hash ^= StartupMovieVariant.GetHashCode();
+      if (HasIsStatusLedControlAvailable) hash ^= IsStatusLedControlAvailable.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -324,6 +355,10 @@ namespace OpenSteamworks.Protobuf {
         output.WriteRawTag(32);
         output.WriteEnum((int) StartupMovieVariant);
       }
+      if (HasIsStatusLedControlAvailable) {
+        output.WriteRawTag(40);
+        output.WriteBool(IsStatusLedControlAvailable);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -350,6 +385,10 @@ namespace OpenSteamworks.Protobuf {
         output.WriteRawTag(32);
         output.WriteEnum((int) StartupMovieVariant);
       }
+      if (HasIsStatusLedControlAvailable) {
+        output.WriteRawTag(40);
+        output.WriteBool(IsStatusLedControlAvailable);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -371,6 +410,9 @@ namespace OpenSteamworks.Protobuf {
       }
       if (HasStartupMovieVariant) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) StartupMovieVariant);
+      }
+      if (HasIsStatusLedControlAvailable) {
+        size += 1 + 1;
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -395,6 +437,9 @@ namespace OpenSteamworks.Protobuf {
       }
       if (other.HasStartupMovieVariant) {
         StartupMovieVariant = other.StartupMovieVariant;
+      }
+      if (other.HasIsStatusLedControlAvailable) {
+        IsStatusLedControlAvailable = other.IsStatusLedControlAvailable;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -427,6 +472,10 @@ namespace OpenSteamworks.Protobuf {
             StartupMovieVariant = (global::OpenSteamworks.Protobuf.EStartupMovieVariant) input.ReadEnum();
             break;
           }
+          case 40: {
+            IsStatusLedControlAvailable = input.ReadBool();
+            break;
+          }
         }
       }
     #endif
@@ -456,6 +505,10 @@ namespace OpenSteamworks.Protobuf {
           }
           case 32: {
             StartupMovieVariant = (global::OpenSteamworks.Protobuf.EStartupMovieVariant) input.ReadEnum();
+            break;
+          }
+          case 40: {
+            IsStatusLedControlAvailable = input.ReadBool();
             break;
           }
         }

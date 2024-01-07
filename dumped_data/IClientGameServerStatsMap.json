@@ -1,6 +1,6 @@
 {
     "name": "IClientGameServerStatsMap",
-    "found_at": "0x2448438",
+    "found_at": "0x2449438",
     "functions": [ 
         {
             "name": "RequestUserStats",
@@ -8,7 +8,16 @@
             "interfaceid": "20",
             "functionid": "4286444729",
             "fencepost": "9060583",
-            "addr": "0x5a1010"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5a11e0",
+            "serializedargs": [
+                "uint64",
+                "bytes8"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "GetUserStat",
@@ -16,7 +25,18 @@
             "interfaceid": "20",
             "functionid": "1255083839",
             "fencepost": "1272779892",
-            "addr": "0x5a11c0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5a1390",
+            "serializedargs": [
+                "uint64",
+                "bytes8",
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes4"
+            ]
         },
         {
             "name": "GetUserStat",
@@ -24,7 +44,18 @@
             "interfaceid": "20",
             "functionid": "2919882724",
             "fencepost": "2937723938",
-            "addr": "0x5a1370"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5a1540",
+            "serializedargs": [
+                "uint64",
+                "bytes8",
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes4"
+            ]
         },
         {
             "name": "GetUserAchievement",
@@ -32,7 +63,19 @@
             "interfaceid": "20",
             "functionid": "3299260759",
             "fencepost": "3317263263",
-            "addr": "0x5a1520"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5a16f0",
+            "serializedargs": [
+                "uint64",
+                "bytes8",
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes1",
+                "bytes4"
+            ]
         },
         {
             "name": "SetUserStat",
@@ -40,7 +83,18 @@
             "interfaceid": "20",
             "functionid": "3205090940",
             "fencepost": "3223174089",
-            "addr": "0x5a16f0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5a18c0",
+            "serializedargs": [
+                "uint64",
+                "bytes8",
+                "string",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "SetUserStat",
@@ -48,7 +102,18 @@
             "interfaceid": "20",
             "functionid": "1792940461",
             "fencepost": "1811039739",
-            "addr": "0x5a18a0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5a1a70",
+            "serializedargs": [
+                "uint64",
+                "bytes8",
+                "string",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "UpdateUserAvgRateStat",
@@ -56,7 +121,19 @@
             "interfaceid": "20",
             "functionid": "3675028810",
             "fencepost": "3693144217",
-            "addr": "0x5a1a50"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5a1c20",
+            "serializedargs": [
+                "uint64",
+                "bytes8",
+                "string",
+                "bytes4",
+                "bytes8"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "SetUserAchievement",
@@ -64,7 +141,17 @@
             "interfaceid": "20",
             "functionid": "4021600214",
             "fencepost": "4039731750",
-            "addr": "0x5a1c20"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5a1df0",
+            "serializedargs": [
+                "uint64",
+                "bytes8",
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "ClearUserAchievement",
@@ -72,7 +159,17 @@
             "interfaceid": "20",
             "functionid": "2754240080",
             "fencepost": "2772387745",
-            "addr": "0x5a1dc0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5a1f90",
+            "serializedargs": [
+                "uint64",
+                "bytes8",
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "StoreUserStats",
@@ -80,7 +177,16 @@
             "interfaceid": "20",
             "functionid": "2660856865",
             "fencepost": "2679020659",
-            "addr": "0x5a1f60"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5a2130",
+            "serializedargs": [
+                "uint64",
+                "bytes8"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "SetMaxStatsLoaded",
@@ -88,7 +194,14 @@
             "interfaceid": "20",
             "functionid": "2833452848",
             "fencepost": "2851648900",
-            "addr": "0x5a2110"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5a22e0",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+            ]
         }
     ]
 }

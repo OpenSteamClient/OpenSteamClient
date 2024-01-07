@@ -1,9 +1,11 @@
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Linq;
 using Avalonia.Controls;
 using ClientUI.ViewModels.Library;
+using ClientUI.Views.Library;
 using CommunityToolkit.Mvvm.ComponentModel;
 using OpenSteamworks.Client.Apps;
 using OpenSteamworks.Client.Apps.Library;
@@ -13,8 +15,8 @@ namespace ClientUI.ViewModels;
 
 public partial class LibraryPageViewModel : ViewModelBase
 {
-    public ObservableCollection<INode> Nodes { get; } = new();
-    public ObservableCollection<INode> SelectedNodes { get; } = new();
+    public ObservableCollection<Node> Nodes { get; init; }
+    public ObservableCollection<Node> SelectedNodes { get; } = new();
 
 
     [ObservableProperty]
@@ -22,14 +24,18 @@ public partial class LibraryPageViewModel : ViewModelBase
     
     public LibraryPageViewModel(AppsManager appsManager, LibraryManager libraryManager) {
         var library = libraryManager.GetLibrary();
+        
+        //TODO: this is a temp hack to sort collections properly. We (once again) need to make a proper sortable array.
+        List<Node> nodes = new();
         foreach (var collection in library.Collections)
         {
-            var collectionviewmodel = this.GetOrCreateCategory(library, collection);
-            foreach (var app in library.GetAppsInCollection(collection))
+            var collectionviewmodel = this.GetOrCreateCategory(ref nodes, library, collection);
+            foreach (var app in library.GetAppsInCollection(collection.ID))
             {
                 collectionviewmodel.Children.Add(new LibraryAppViewModel(this, app));
             }
         }
+        Nodes = new(nodes);
 
         this.SelectedNodes.CollectionChanged += SelectionChanged;
     }
@@ -43,30 +49,25 @@ public partial class LibraryPageViewModel : ViewModelBase
             return; 
         }
 
-        SideContent = new TextBlock() {
-            Text = "Content for app " + SelectedNodes[0].GameID,
+        SideContent = new FocusedAppPane()
+        {
+            DataContext = AvaloniaApp.Container.ConstructOnly<FocusedAppPaneViewModel>(SelectedNodes[0].GameID),
         };
     }
-
-    public void OnAppClicked(LibraryAppViewModel appvm) {
-        SideContent = new TextBlock() {
-            Text = "Content for app " + appvm.App.GameID,
-        };
-    }
-
     
-    private CollectionItemViewModel GetOrCreateCategory(OpenSteamworks.Client.Apps.Library.Library library, Collection collection) {
-        foreach (var item in this.Nodes)
+    private CollectionItemViewModel GetOrCreateCategory(ref List<Node> nodes, OpenSteamworks.Client.Apps.Library.Library library, Collection collection) {
+        foreach (var item in nodes)
         {
             if (item is CollectionItemViewModel cvm) {
-                if (cvm.Id == collection.ID) {
+                if (cvm.ID == collection.ID) {
                     return cvm;
                 }
             }
         }
 
         CollectionItemViewModel vm = new(library, collection);
-        this.Nodes.Add(vm);
+        nodes.Add(vm);
+        nodes.Sort();
         return vm;
     }
 }

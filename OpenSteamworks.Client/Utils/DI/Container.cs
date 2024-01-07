@@ -137,7 +137,7 @@ public class Container
                 {
                     if (withOptionals)
                     {
-                        constructorDependencies.Add(null);
+                        constructorDependencies.Add(Type.Missing);
                     }
                 }
                 else
@@ -221,19 +221,19 @@ public class Container
         return GetConstructorFor(typeof(T));
     }
 
-    public object ConstructOnly(Type type, object[]? extraArgs = null)
+    public object ConstructOnly(Type type, params object[] extraArgs)
     {
         logger.Debug("Attempting to construct type '" + type.Name + "'");
         ConstructorInfo ctor = GetConstructorFor(type);
-        var dependencies = FillArrayWithDependencies(ctor.GetParameters(), extraArgs == null, extraArgs);
+        var dependencies = FillArrayWithDependencies(ctor.GetParameters(), !extraArgs.Any(), extraArgs);
         return ctor.Invoke(dependencies);
     }
 
-    public T ConstructOnly<T>(object[]? extraArgs = null)
+    public T ConstructOnly<T>(params object[] extraArgs)
     {
         logger.Debug("Attempting to construct type '" + typeof(T).Name + "'");
         ConstructorInfo ctor = GetConstructorFor<T>();
-        var dependencies = FillArrayWithDependencies(ctor.GetParameters(), extraArgs == null, extraArgs);
+        var dependencies = FillArrayWithDependencies(ctor.GetParameters(), !extraArgs.Any(), extraArgs);
         return (T)ctor.Invoke(dependencies);
     }
 

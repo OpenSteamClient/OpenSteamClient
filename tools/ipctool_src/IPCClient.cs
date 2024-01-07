@@ -107,42 +107,9 @@ public class IPCClient {
             
             Console.WriteLine();
         }
-
-        // Console.WriteLine("CB");
-        // pauseLoop = true;
-        // using (var stream = new MemoryStream()) {
-        //     var writer = new StreamWriter(stream);
-        //     // writer.Write(HSteamPipe);
-        //     // writer.Write(HSteamUser);
-        //     // writer.Write((UInt32)Environment.ProcessId);
-        //     // writer.Write((UInt32)Environment.CurrentManagedThreadId);
-        //     var resp2 = SendAndWaitForResponse(IPCCommandCode.SerializeCallbacks, stream.ToArray());
-        //     using (var response = new MemoryStream(resp2)) {
-        //         var reader = new EndianAwareBinaryReader(response);
-        //         var unk1 = reader.ReadUInt32();
-        //         //var unk2 = reader.ReadUInt32();
-        //         Console.WriteLine($"unk1: {unk1}");
-        //     }
-        // }
-        
-        // Console.WriteLine();
     }
 
-    /// <summary>
-    /// Call a service IPC Function. Needs the fencepost, since it cannot be calculated (no second 254 condition)
-    /// </summary>
-    public TRet CallIPCFunctionClient<TRet>(byte interfaceid, uint functionid, uint fencepost, params object[] args) {
-        return CallIPCFunctionInternal<TRet>(interfaceid, functionid, fencepost, args);
-    }
-
-    /// <summary>
-    /// Call a service IPC Function. Does not need the fencepost, since it can be calculated.
-    /// </summary>
-    public TRet CallIPCFunctionService<TRet>(byte interfaceid, uint functionid, params object[] args) {
-        return CallIPCFunctionInternal<TRet>(interfaceid, functionid, (uint)functionid + 254, args);
-    }
-
-    private TRet CallIPCFunctionInternal<TRet>(byte interfaceid, uint functionid, uint fencepost, object[] args) {
+    public TRet CallIPCFunction<TRet>(uint steamuser, byte interfaceid, uint functionid, uint fencepost, object[] args) {
         using (var stream = new MemoryStream()) {
             var writer = new EndianAwareBinaryWriter(stream, Encoding.UTF8);
 
@@ -150,17 +117,18 @@ public class IPCClient {
 
             uint userToUse = 0;
             if (connectionType == IPCConnectionType.Client && !InterfaceMap.ClientInterfacesNoUser.Contains(interfaceid)) {
-                userToUse = HSteamUser;
+                userToUse = steamuser;
             }
 
-            Console.WriteLine("USER: " + HSteamUser);
-            writer.Write(HSteamUser);
+            Console.WriteLine("USER: " + steamuser);
+            writer.Write(steamuser);
             writer.Flush();
 
             Console.WriteLine("Function ID: " + functionid);
             writer.Write(functionid);
             writer.Flush();
 
+            List<int> changeableArgs = new();
             foreach (var arg in args)
             {
                 var argtype = arg.GetType();
@@ -197,7 +165,9 @@ public class IPCClient {
                         writer.Write(byte.MaxValue);
                     }
                     writer.Write(Encoding.UTF8.GetBytes((string)arg + "\0"));
-
+                } else if (argtype == typeof(StringBuilder)) {
+                    // No-op
+                    changeableArgs.Add(Array.IndexOf(args, arg));
                 } else {
                     throw new InvalidOperationException("Type " + argtype.Name + " is unsupported in IPC function calls");
                 }
@@ -212,46 +182,68 @@ public class IPCClient {
 
             var responseBytes = SendAndWaitForResponse(IPCCommandCode.Interface, stream.ToArray());
             Console.WriteLine("RESPONSE:" + string.Join(" ", responseBytes));
-            
+
+            TRet returnValue;
             using (var responseStream = new MemoryStream(responseBytes)) {
-                var reader = new EndianAwareBinaryReader(responseStream, Encoding.UTF8);
-                var rettype = typeof(TRet);
-                if (rettype == typeof(int)) {
-                    return (TRet)(object)reader.ReadInt32();
-                } else if (rettype == typeof(uint)) {
-                    return (TRet)(object)reader.ReadUInt32();
-                } else if (rettype == typeof(long)) {
-                    return (TRet)(object)reader.ReadInt64();
-                } else if (rettype == typeof(ulong)) {
-                    return (TRet)(object)reader.ReadUInt64();
-                } else if (rettype == typeof(bool)) {
-                    return (TRet)(object)reader.ReadBoolean();
-                } else if (rettype == typeof(char)) {
-                    // This is terrible
-                    return (TRet)(object)reader.ReadChar();
-                } else if (rettype == typeof(byte)) {
-                    return (TRet)(object)reader.ReadByte();
-                } else if (rettype == typeof(sbyte)) {
-                    return (TRet)(object)reader.ReadSByte();
-                } else if (rettype == typeof(short)) {
-                    return (TRet)(object)reader.ReadInt16();
-                } else if (rettype == typeof(ushort)) {
-                    return (TRet)(object)reader.ReadUInt16();
-                } else if (rettype == typeof(nint)) {
-                    return (TRet)(object)(nint)reader.ReadInt64();
-                } else if (rettype == typeof(nuint)) {
-                    return (TRet)(object)(nuint)reader.ReadUInt64();
-                } else if (rettype == typeof(string)) {
-                    // Skip a byte
-                    reader.ReadByte();
-                    return (TRet)(object)reader.ReadNullTerminatedString();
-                } else {
-                    throw new InvalidOperationException("Type " + rettype.Name + " is unsupported in IPC function returns");
+                returnValue = ReadFromResponse<TRet>(responseStream);
+
+                // Handle changeable arguments
+                foreach (var argi in changeableArgs)
+                {
+                    var argtype = args[argi].GetType();
+                    var maxLen = (int)args[argi + 1];
+                    if (argtype == typeof(StringBuilder)) {
+                        (args[argi] as StringBuilder)!.Append(ReadStringOfLengthFromResponse(responseStream, maxLen));
+                    }
                 }
             }
+
+            return returnValue;
         }
     }
 
+    private static string ReadStringOfLengthFromResponse(MemoryStream responseStream, int length) {
+        var reader = new EndianAwareBinaryReader(responseStream, Encoding.UTF8);
+        return Encoding.Default.GetString(reader.ReadBytes(length));
+    }
+    
+    private static TRet ReadFromResponse<TRet>(MemoryStream responseStream) {
+        var reader = new EndianAwareBinaryReader(responseStream, Encoding.UTF8);
+        var rettype = typeof(TRet);
+        if (rettype == typeof(int)) {
+            return (TRet)(object)reader.ReadInt32();
+        } else if (rettype == typeof(uint)) {
+            return (TRet)(object)reader.ReadUInt32();
+        } else if (rettype == typeof(long)) {
+            return (TRet)(object)reader.ReadInt64();
+        } else if (rettype == typeof(ulong)) {
+            return (TRet)(object)reader.ReadUInt64();
+        } else if (rettype == typeof(bool)) {
+            return (TRet)(object)reader.ReadBoolean();
+        } else if (rettype == typeof(char)) {
+            // This is terrible
+            return (TRet)(object)reader.ReadChar();
+        } else if (rettype == typeof(byte)) {
+            return (TRet)(object)reader.ReadByte();
+        } else if (rettype == typeof(sbyte)) {
+            return (TRet)(object)reader.ReadSByte();
+        } else if (rettype == typeof(short)) {
+            return (TRet)(object)reader.ReadInt16();
+        } else if (rettype == typeof(ushort)) {
+            return (TRet)(object)reader.ReadUInt16();
+        } else if (rettype == typeof(nint)) {
+            return (TRet)(object)(nint)reader.ReadInt64();
+        } else if (rettype == typeof(nuint)) {
+            return (TRet)(object)(nuint)reader.ReadUInt64();
+        } else if (rettype == typeof(string)) {
+            // Skip a byte
+            reader.ReadByte();
+            return (TRet)(object)reader.ReadNullTerminatedString();
+        } else {
+            throw new InvalidOperationException("Type " + rettype.Name + " is unsupported in IPC function returns");
+        }
+    }
+    
     public unsafe byte[] SendAndWaitForResponse(IPCCommandCode command, byte[] data) {
         pauseHandling = true;
         var serialized = Serialize(command, data);

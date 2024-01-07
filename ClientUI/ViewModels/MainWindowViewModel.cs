@@ -27,10 +27,11 @@ using OpenSteamworks.ClientInterfaces;
 using OpenSteamworks.Enums;
 using OpenSteamworks.Generated;
 using OpenSteamworks.Messaging;
-using OpenSteamworks.NativeTypes;
+
 using OpenSteamworks.Protobuf;
 using OpenSteamworks.Protobuf.WebUI;
 using OpenSteamworks.Structs;
+using OpenSteamworks.Utils;
 
 namespace ClientUI.ViewModels;
 
@@ -49,16 +50,16 @@ public partial class MainWindowViewModel : ViewModelBase
     private readonly Dictionary<Type, BasePage> LoadedPages = new();
     public ObservableCollection<PageHeaderViewModel> PageList { get; } = new() { };
     
-    public bool CanLogonOffline => client.NativeClient.IClientUser.CanLogonOffline() == 1;
-    public bool IsOfflineMode => client.NativeClient.IClientUtils.GetOfflineMode();
+    public bool CanLogonOffline => client.IClientUser.CanLogonOffline() == 1;
+    public bool IsOfflineMode => client.IClientUtils.GetOfflineMode();
     private readonly Action openSettingsWindow;
     private readonly TranslationManager tm;
-    private readonly SteamClient client;
+    private readonly ISteamClient client;
     private readonly LoginManager loginManager;
     private readonly AppsManager appsManager;
     private readonly MainWindow mainWindow;
 
-    public MainWindowViewModel(MainWindow mainWindow, SteamClient client, AppsManager appsManager, TranslationManager tm, LoginManager loginManager, Action openSettingsWindowAction) {
+    public MainWindowViewModel(MainWindow mainWindow, ISteamClient client, AppsManager appsManager, TranslationManager tm, LoginManager loginManager, Action openSettingsWindowAction) {
         this.mainWindow = mainWindow;
         this.client = client;
         this.tm = tm;
@@ -245,13 +246,13 @@ public partial class MainWindowViewModel : ViewModelBase
         uint[] owners3 = new uint[10];
         Console.WriteLine("ret3: " + devauth.GetLocalUsers(owners3, 10));
         StringBuilder builder = new(256);
-        bool isSharingLibrary = false;
         foreach (var item in owners3)
         {
             Console.WriteLine("i3: " + item);
-            Console.WriteLine("ret i3: " + devauth.GetBorrowerInfo(item, builder, builder.Capacity, out isSharingLibrary));
+            Console.WriteLine("ret i3: " + devauth.GetBorrowerInfo(item, builder, builder.Capacity, out bool isSharingLibrary));
             Console.WriteLine("info: " + builder.ToString());
             Console.WriteLine("isSharingLibrary: " + isSharingLibrary);
+            Console.WriteLine("");
         }
 
         //await this.appsManager.LaunchApp(730, 1, "gamemoderun %command% -dev -sdlaudiodriver pipewire");
@@ -327,12 +328,12 @@ public partial class MainWindowViewModel : ViewModelBase
     }
 
     public void GoOffline() {
-        client.NativeClient.IClientUtils.SetOfflineMode(true);
+        client.IClientUtils.SetOfflineMode(true);
         this.ShowGoOffline = CanLogonOffline && !IsOfflineMode;
         this.ShowGoOnline = CanLogonOffline && IsOfflineMode;
     }
     public void GoOnline() {
-        client.NativeClient.IClientUtils.SetOfflineMode(false);
+        client.IClientUtils.SetOfflineMode(false);
         this.ShowGoOffline = CanLogonOffline && !IsOfflineMode;
         this.ShowGoOnline = CanLogonOffline && IsOfflineMode;
     }

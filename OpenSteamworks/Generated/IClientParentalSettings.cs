@@ -7,24 +7,23 @@
 //=============================================================================
 
 using System;
+using OpenSteamworks.Attributes;
 
 namespace OpenSteamworks.Generated;
 
 public unsafe interface IClientParentalSettings
 {
-    public unknown_ret BIsParentalLockEnabled();  // argc: 0, index: 1
-    public unknown_ret BIsParentalLockLocked();  // argc: 0, index: 2
+    public bool BIsParentalLockEnabled();  // argc: 0, index: 1, ipc args: [], ipc returns: [boolean]
+    public bool BIsParentalLockLocked();  // argc: 0, index: 0, ipc args: [], ipc returns: [boolean]
+    public bool BIsAppBlocked(AppId_t appid);  // argc: 1, index: 0, ipc args: [bytes4], ipc returns: [boolean]
+    public bool BIsAppInBlockList(AppId_t appid);  // argc: 1, index: 1, ipc args: [bytes4], ipc returns: [boolean]
     // WARNING: Arguments are unknown!
-    public unknown_ret BIsAppBlocked();  // argc: 1, index: 3
+    public bool BIsFeatureBlocked();  // argc: 1, index: 2, ipc args: [bytes4], ipc returns: [boolean]
     // WARNING: Arguments are unknown!
-    public unknown_ret BIsAppInBlockList();  // argc: 1, index: 4
+    public bool BIsFeatureInBlockList();  // argc: 1, index: 3, ipc args: [bytes4], ipc returns: [boolean]
     // WARNING: Arguments are unknown!
-    public unknown_ret BIsFeatureBlocked();  // argc: 1, index: 5
+    public bool BGetSerializedParentalSettings([IPCOut] CUtlBuffer* data);  // argc: 1, index: 4, ipc args: [], ipc returns: [boolean, unknown]
     // WARNING: Arguments are unknown!
-    public unknown_ret BIsFeatureInBlockList();  // argc: 1, index: 6
-    // WARNING: Arguments are unknown!
-    public unknown_ret BGetSerializedParentalSettings();  // argc: 1, index: 7
-    // WARNING: Arguments are unknown!
-    public unknown_ret BGetRecoveryEmail();  // argc: 2, index: 8
-    public unknown_ret BIsLockFromSiteLicense();  // argc: 0, index: 9
+    public bool BGetRecoveryEmail();  // argc: 2, index: 5, ipc args: [bytes4], ipc returns: [boolean, bytes_length_from_mem]
+    public bool BIsLockFromSiteLicense();  // argc: 0, index: 6, ipc args: [], ipc returns: [boolean]
 }

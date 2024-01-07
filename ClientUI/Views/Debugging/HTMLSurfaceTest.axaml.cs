@@ -14,12 +14,12 @@ namespace ClientUI.Views;
 public partial class HTMLSurfaceTest : Window
 {
     private Controls.HTMLSurface surfaceControl;
-    private SteamClient client;
+    private ISteamClient client;
     public HTMLSurfaceTest() : base()
     {
         InitializeComponent();
 
-        this.client = AvaloniaApp.Container.Get<SteamClient>();
+        this.client = AvaloniaApp.Container.Get<ISteamClient>();
         surfaceControl = new();
         this.FindControl<DockPanel>("webviewContainer")!.Children.Add(surfaceControl);
 
@@ -33,7 +33,7 @@ public partial class HTMLSurfaceTest : Window
 
     public async Task Init(string userAgent, string url) {
         var handle = await this.surfaceControl.CreateBrowserAsync(userAgent, "");
-        this.client.NativeClient.IClientHTMLSurface.LoadURL(handle, url, null);
+        this.client.IClientHTMLSurface.LoadURL(handle, url, null);
     }
 
     private void OnHTML_ChangedTitle_t(CallbackHandler<HTML_ChangedTitle_t> handler, HTML_ChangedTitle_t data) {

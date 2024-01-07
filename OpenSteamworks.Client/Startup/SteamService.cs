@@ -18,12 +18,12 @@ public class SteamService : IClientLifetime {
     public Process? CurrentServiceHost;
     public ServiceController? CurrentWindowsService;
     public Thread? WatcherThread;
-    private readonly SteamClient steamClient;
+    private readonly ISteamClient steamClient;
     private readonly InstallManager installManager;
     private readonly AdvancedConfig advancedConfig;
     private readonly Logger logger;
 
-    public SteamService(SteamClient steamClient, InstallManager installManager, AdvancedConfig advancedConfig) {
+    public SteamService(ISteamClient steamClient, InstallManager installManager, AdvancedConfig advancedConfig) {
         this.logger = Logger.GetLogger("SteamServiceManager", installManager.GetLogPath("SteamServiceManager"));
         this.steamClient = steamClient;
         this.installManager = installManager;
@@ -92,7 +92,7 @@ public class SteamService : IClientLifetime {
     public async Task RunStartup()
     {
         if (advancedConfig.EnableSteamService) {
-            if (steamClient.NativeClient.ConnectedWith == SteamClient.ConnectionType.NewClient) {
+            if (steamClient.ConnectedWith == ConnectionType.NewClient) {
                 if (OperatingSystem.IsLinux()) {
                     try
                     {

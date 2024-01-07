@@ -33,17 +33,17 @@ export class SteamworksDumper {
     async setup(): Promise<void> {
         if (fs.existsSync("steamworks_dumper")) {
             if (fs.existsSync("steamworks_dumper/build/steamworks_dumper")) {
-                throw "SteamworksDumper already setup.";
+                fs.rmSync("steamworks_dumper/", { recursive: true, force: true})
             }  
-        } else {
-            console.info("Downloading Rosentti/steamworks_dumper git repo")
-            try {
-                await clone("https://github.com/Rosentti/steamworks_dumper.git", "steamworks_dumper");
-            } catch (e) {
-                throw "Failed to download Rosentti/steamworks_dumper " + e;
-            } finally {
-                console.log("Downloaded Rosentti/steamworks_dumper successfully");
-            }
+        }
+        
+        console.info("Downloading Rosentti/steamworks_dumper git repo")
+        try {
+            await clone("https://github.com/Rosentti/steamworks_dumper.git", "steamworks_dumper");
+        } catch (e) {
+            throw "Failed to download Rosentti/steamworks_dumper " + e;
+        } finally {
+            console.log("Downloaded Rosentti/steamworks_dumper successfully");
         }
 
         console.info("Compiling steamworks_dumper")

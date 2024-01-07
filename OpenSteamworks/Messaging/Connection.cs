@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using OpenSteamworks.Generated;
-using OpenSteamworks.NativeTypes;
+
 using OpenSteamworks.Protobuf;
 
 namespace OpenSteamworks.Messaging;
@@ -28,7 +28,7 @@ public class Connection : IDisposable {
 
                     // Read the header
                     var header_size = reader.ReadUInt32();
-                    SteamClient.MessagingLogger.Debug("header_size: " + header_size);
+                    Logging.MessagingLogger.Debug("header_size: " + header_size);
                     byte[] header_binary = reader.ReadBytes((int)header_size);
 
                     // Parse the header
@@ -174,7 +174,6 @@ public class Connection : IDisposable {
             //TODO: Resizing a CUtlBuffer should work. It doesn't, and it will crash if forced to resize (never worked in C++ version either, why?).
             CUtlBuffer buffer = new(100000);
 
-            uint callOut = 0;
             double secondsWaited = 0;
             bool hasMessage = false;
 
@@ -182,10 +181,10 @@ public class Connection : IDisposable {
             {
                 unsafe
                 {
-                    hasMessage = this.iSharedConnection.BPopReceivedMessage(this.nativeConnection, &buffer, ref callOut);
+                    hasMessage = this.iSharedConnection.BPopReceivedMessage(this.nativeConnection, &buffer, out uint callOut);
                     if (hasMessage)
                     {
-                        SteamClient.MessagingLogger.Debug("Got message: " + callOut + ", size: " + buffer.m_Put + ", waited " + secondsWaited + "ms");
+                        Logging.MessagingLogger.Debug("Got message: " + callOut + ", size: " + buffer.m_Put + ", waited " + secondsWaited + "ms");
                         var sm = new StoredMessage(buffer.ToManaged());
                         if (eMsgHandlers.ContainsKey(sm.eMsg)) {
                             eMsgHandlers[sm.eMsg].DynamicInvoke(sm);

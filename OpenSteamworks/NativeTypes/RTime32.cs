@@ -1,6 +1,6 @@
 using System;
 using System.Runtime.InteropServices;
-using OpenSteamworks.NativeTypes;
+
 
 [OpenSteamworks.Attributes.CustomValueType]
 public struct RTime32 {

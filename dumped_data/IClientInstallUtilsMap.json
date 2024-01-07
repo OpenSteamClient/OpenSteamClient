@@ -1,6 +1,6 @@
 {
     "name": "IClientInstallUtilsMap",
-    "found_at": "0x2451950",
+    "found_at": "0x2452950",
     "functions": [ 
         {
             "name": "SetUniverse",
@@ -8,7 +8,16 @@
             "interfaceid": "1",
             "functionid": "3240382694",
             "fencepost": "3240592498",
-            "addr": "0xfb4370"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0xfb4770",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "unknown",
+                "unknown"
+            ]
         },
         {
             "name": "AddShortcut",
@@ -16,7 +25,19 @@
             "interfaceid": "1",
             "functionid": "163116249",
             "fencepost": "163342182",
-            "addr": "0xfb4af0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0xfb4ef0",
+            "serializedargs": [
+                "string",
+                "string",
+                "string",
+                "string",
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "RemoveShortcut",
@@ -24,7 +45,15 @@
             "interfaceid": "1",
             "functionid": "1613638140",
             "fencepost": "1613880202",
-            "addr": "0xfb4980"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0xfb4d80",
+            "serializedargs": [
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "AddUninstallEntry",
@@ -32,7 +61,21 @@
             "interfaceid": "1",
             "functionid": "2147697011",
             "fencepost": "2148568104",
-            "addr": "0xfb47c0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0xfb4bc0",
+            "serializedargs": [
+                "bytes4",
+                "string",
+                "string",
+                "string",
+                "string",
+                "string",
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "RemoveUninstallEntry",
@@ -40,7 +83,15 @@
             "interfaceid": "1",
             "functionid": "777092380",
             "fencepost": "777979602",
-            "addr": "0xfb4640"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0xfb4a40",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "AddToFirewall",
@@ -48,7 +99,16 @@
             "interfaceid": "1",
             "functionid": "726868793",
             "fencepost": "727788273",
-            "addr": "0xfb44c0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0xfb48c0",
+            "serializedargs": [
+                "string",
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "RemoveFromFirewall",
@@ -56,7 +116,16 @@
             "interfaceid": "1",
             "functionid": "4117910897",
             "fencepost": "4118846506",
-            "addr": "0xfb4c90"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0xfb5090",
+            "serializedargs": [
+                "string",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "RegisterSteamProtocolHandler",
@@ -64,7 +133,16 @@
             "interfaceid": "1",
             "functionid": "632155144",
             "fencepost": "633123011",
-            "addr": "0xfb4e20"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0xfb5220",
+            "serializedargs": [
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "AddInstallScriptToWhiteList",
@@ -72,7 +150,16 @@
             "interfaceid": "1",
             "functionid": "460605893",
             "fencepost": "461606018",
-            "addr": "0xfb5120"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0xfb5520",
+            "serializedargs": [
+                "string",
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "RunInstallScript",
@@ -80,7 +167,17 @@
             "interfaceid": "1",
             "functionid": "2984775929",
             "fencepost": "2985808312",
-            "addr": "0xfb54a0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0xfb58a0",
+            "serializedargs": [
+                "string",
+                "bytes4",
+                "bytes1"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "GetInstallScriptExitCode",
@@ -88,7 +185,14 @@
             "interfaceid": "1",
             "functionid": "1419581919",
             "fencepost": "1420630431",
-            "addr": "0xfb4fb0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0xfb53b0",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "ConfigureNetworDeviceIPAddresses",
@@ -96,7 +200,21 @@
             "interfaceid": "1",
             "functionid": "4247011103",
             "fencepost": "4248075744",
-            "addr": "0xfb52a0"
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0xfb56a0",
+            "serializedargs": [
+                "string",
+                "bytes1",
+                "bytes4",
+                "bytes4",
+                "bytes4",
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         }
     ]
 }

@@ -42,7 +42,6 @@ public static class GitInfo
 
   <ItemGroup>
     <ProjectReference Include="..\OpenSteamworks\OpenSteamworks.csproj" />
-    <ProjectReference Include="..\OpenSteamworks.Native\OpenSteamworks.Native.csproj" Targets="Build" />
   </ItemGroup>
 
   <ItemGroup>

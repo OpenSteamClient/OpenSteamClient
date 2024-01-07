@@ -9,7 +9,20 @@
 
   <ItemGroup>
     <ProjectReference Include="..\OpenSteamworks.Protobuf\OpenSteamworks.Protobuf.csproj" />
+    <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="7.0.8" />
     <PackageReference Include="ValveKeyValue" Version="0.9.0.267" />
+  </ItemGroup>
+
+  <!-- Exclude the undone IPC stuff from build; read the README.md inside the folder for details -->
+  <ItemGroup>
+    <Content Remove="IPCClient_EXCLUDED_FROM_BUILD\**" />
+    <Compile Remove="IPCClient_EXCLUDED_FROM_BUILD\**" />
+    <EmbeddedResource Remove="IPCClient_EXCLUDED_FROM_BUILD\**" />
+    <None Remove="IPCClient_EXCLUDED_FROM_BUILD\**" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\OpenSteamworks.Native\OpenSteamworks.Native.csproj" Targets="Build" />
   </ItemGroup>
 
   <!-- This is dumb and makes the code not portable. Microsoft, pls fix (by allowing non-const values in struct packing). Also we now use this for some edge case destructors that don't exist on Windows -->
@@ -17,5 +30,8 @@
     <DefineConstants>_WINDOWS</DefineConstants>
   </PropertyGroup>
 
-
+  <ItemGroup>
+    <!-- For usage by IPCClient -->
+    <EmbeddedResource Include="..\dumped_data\*.json" />
+  </ItemGroup>
 </Project>

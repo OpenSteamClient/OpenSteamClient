@@ -10,35 +10,17 @@ using OpenSteamworks.Structs;
 
 namespace ClientUI.ViewModels;
 
-public partial class CollectionItemViewModel : ViewModelBase, INode {
-    [ObservableProperty]
-    private string name = "";
-
-    [ObservableProperty]
-    private string id = "";
-
-    [ObservableProperty]
-    private IBrush icon;
-
-    [ObservableProperty]
-    private bool hasIcon;
-
-    [ObservableProperty]
-    private bool isApp;
+public partial class CollectionItemViewModel : Node {
+    public string ID => collection.ID;
     
-    public CGameID GameID => CGameID.Zero;
-
-
     private readonly Collection collection;
     private readonly OpenSteamworks.Client.Apps.Library.Library library;
-
-    public ObservableCollection<INode> Children { get; } = new();
     public CollectionItemViewModel(OpenSteamworks.Client.Apps.Library.Library library, Collection collection) {
         this.library = library;
         this.collection = collection;
-        this.Id = collection.ID;
-        this.Name = $"{collection.Name} ({library.GetAppsInCollection(collection).Count})";
+        this.Name = $"{collection.Name} ({library.GetAppsInCollection(collection.ID).Count})";
         this.Icon = Brushes.Transparent;
+        this.StatusIcon = Brushes.Transparent;
         this.HasIcon = false;
         this.IsApp = false;
     }

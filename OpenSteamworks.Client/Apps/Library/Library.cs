@@ -4,7 +4,8 @@ using OpenSteamworks.Client.Config;
 using OpenSteamworks.Client.Enums;
 using OpenSteamworks.Client.Managers;
 using OpenSteamworks.Client.Utils;
-using OpenSteamworks.NativeTypes;
+using OpenSteamworks.Enums;
+
 using OpenSteamworks.Structs;
 using OpenSteamworks.Utils;
 
@@ -17,7 +18,7 @@ namespace OpenSteamworks.Client.Apps.Library;
 public class Library
 {
     public List<Collection> Collections { get; init; } = new();
-    private readonly SteamClient steamClient;
+    private readonly ISteamClient steamClient;
     private readonly CloudConfigStore cloudConfigStore;
     private NamespaceData? namespaceData;
     private readonly AppsManager appsManager;
@@ -25,7 +26,7 @@ public class Library
     private readonly InstallManager installManager;
     private readonly Logger logger;
 
-    internal Library(SteamClient steamClient, CloudConfigStore cloudConfigStore, LoginManager loginManager, AppsManager appsManager, InstallManager installManager)
+    internal Library(ISteamClient steamClient, CloudConfigStore cloudConfigStore, LoginManager loginManager, AppsManager appsManager, InstallManager installManager)
     {
         this.installManager = installManager;
         this.logger = Logger.GetLogger("Library", installManager.GetLogPath("Library"));
@@ -47,6 +48,7 @@ public class Library
             var keyValues = namespaceData.GetKeysStartingWith("user-collections.");
             foreach (var entry in keyValues)
             {
+                logger.Trace("Attempting to deserialize: " + entry.Value);
                 JSONCollection? json = System.Text.Json.JsonSerializer.Deserialize<JSONCollection>(entry.Value);
                 if (json == null)
                 {
@@ -69,7 +71,7 @@ public class Library
 
         // Add all apps not in any categories to Uncategorized
         var uncategorized = GetCollectionByID("uncategorized");
-        HashSet<AppId_t> uncategorizedAppIDs = new(this.appsManager.OwnedAppIDs);
+        HashSet<AppId_t> uncategorizedAppIDs = new(this.appsManager.OwnedApps);
         uncategorizedAppIDs.SymmetricExceptWith(AppIDsInCollections);
         foreach (var item in uncategorizedAppIDs)
         {
@@ -103,7 +105,7 @@ public class Library
             logger.Info("Have filters " + string.Join(",", collection.StateFilter.FilterOptions));
         } else {
             // Begin by adding all apps the user has
-            apps.UnionWith(this.appsManager.OwnedAppIDs);
+            apps.UnionWith(this.appsManager.OwnedApps);
         }
 
         foreach (ELibraryAppStateFilter opt in collection.StateFilter.FilterOptions)
@@ -151,40 +153,12 @@ public class Library
             logger.Warning("Dynamic collections support is still incomplete.");
             apps = RunStateFilterAndGetInitialApps(collection);
 
-            if (collection.StateFilter.FilterOptions.Count == 1) {
-                logger.Info("Have filters " + string.Join(",", collection.StateFilter.FilterOptions));
-                foreach (ELibraryAppStateFilter opt in collection.StateFilter.FilterOptions)
-                {
-                    switch (opt)
-                    {
-                        case ELibraryAppStateFilter.InstalledLocally:
-                            apps.UnionWith(appsManager.InstalledApps);
-                            break;
-                        case ELibraryAppStateFilter.ReadyToPlay:
-                            apps.UnionWith(appsManager.ReadyToPlayApps);
-                            break;
-                        case ELibraryAppStateFilter.Played:
-                            apps.UnionWith(appsManager.PlayedApps);
-                            break;
-                        case ELibraryAppStateFilter.Unplayed:
-                            apps.UnionWith(appsManager.UnplayedApps);
-                            break;
-
-                        default:
-                            throw new NotSupportedException();
-                    }
-                }
-            } else {
-                // Begin by adding all apps the user has
-                apps.UnionWith(this.appsManager.OwnedAppIDs);
-            }
-
             // Remove apps not in common with friends if in online mode
             if (this.loginManager.IsOnline())
             {
                 foreach (var friendAccountID in collection.FriendsInCommonFilter.FilterOptions)
                 {
-                    CSteamID steamid = CSteamID.FromAccountID(friendAccountID);
+                    CSteamID steamid = new(friendAccountID, EUniverse.Public, EAccountType.Individual);
                     var appsFriendOwnsTask = await appsManager.GetAppsForSteamID(steamid);
 
                     // An intersection takes the common elements of both arrays and returns them, abandoning all that weren't mentioned in both lists.
@@ -290,9 +264,10 @@ public class Library
     /// <summary>
     /// Gets the apps in a collection. Dynamic collections will run through the filters at library init time.
     /// </summary>
-    public HashSet<AppId_t> GetAppsInCollection(Collection collection)
+    private HashSet<AppId_t> GetAppsInCollection(Collection collection)
     {
         HashSet<AppId_t> apps = new();
+        Console.WriteLine(collection.Name + " d: " + collection.dynamicCollectionAppsCached.Count + " ea: " + collection.explicitlyAddedApps.Count + " er: " + collection.explicitlyRemovedApps.Count);
 
         foreach (var item in collection.dynamicCollectionAppsCached)
         {

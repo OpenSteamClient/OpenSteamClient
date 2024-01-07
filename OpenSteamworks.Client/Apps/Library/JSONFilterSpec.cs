@@ -28,5 +28,5 @@ public class JSONFilterSpec
     /// <summary>
     /// This is unused. 
     /// </summary>
-    public List<object>? setSuggestions { get; set; } = new();
+    public object? setSuggestions { get; set; } = new();
 }

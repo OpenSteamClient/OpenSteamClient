@@ -115,7 +115,7 @@ public class AvaloniaApp : Application
             });
         };
 
-        if (Container.Get<SteamClient>().NativeClient.ConnectedWith == SteamClient.ConnectionType.ExistingClient) {
+        if (Container.Get<ISteamClient>().ConnectedWith == ConnectionType.ExistingClient) {
             var loginManager = Container.Get<LoginManager>();
             var clientUser = Container.Get<IClientUser>();
             if (loginManager.IsLoggedOn()) {
@@ -155,7 +155,7 @@ public class AvaloniaApp : Application
     /// </summary>
     public void ForceMainWindow() {
         var window = ForceWindow(new MainWindow());
-        window.DataContext = AvaloniaApp.Container.ConstructOnly<MainWindowViewModel>(new object[] { (Action)OpenSettingsWindow, window });
+        window.DataContext = AvaloniaApp.Container.ConstructOnly<MainWindowViewModel>((Action)OpenSettingsWindow, window);
     }
 
     private SettingsWindow? CurrentSettingsWindow;
@@ -222,7 +222,7 @@ public class AvaloniaApp : Application
         if (user == null) {
             vm = AvaloniaApp.Container.ConstructOnly<LoginWindowViewModel>();
         } else {
-            vm = AvaloniaApp.Container.ConstructOnly<LoginWindowViewModel>(new object[1] { user });
+            vm = AvaloniaApp.Container.ConstructOnly<LoginWindowViewModel>(user);
         }
 
         var window = new LoginWindow();

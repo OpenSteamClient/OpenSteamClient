@@ -40,7 +40,7 @@ public class SteamApp : AppBase
 
     public AppBase? ParentApp => GetAppIfValidGameID(new CGameID(this.Common.ParentAppID));
     protected readonly Logger logger;
-
+    
     public AppDataCommonSection Common { get; private set; }
     public AppDataConfigSection Config { get; private set; }
     public AppDataExtendedSection Extended { get; private set; }
@@ -48,7 +48,7 @@ public class SteamApp : AppBase
     public AppDataDepotsSection Depots { get; private set; }
     public AppDataCommunitySection Community { get; private set; }
     public AppDataLocalizationSection Localization { get; private set; }
-    public EAppType Type
+    public override EAppType Type
     {
         get
         {
@@ -89,6 +89,7 @@ public class SteamApp : AppBase
             };
         }
     }
+    
 
     internal SteamApp(AppsManager appsManager, AppId_t appid) : base(appsManager)
     {
@@ -116,6 +117,11 @@ public class SteamApp : AppBase
         else
         {
             this.GameID = new CGameID(appid);
+        }
+
+        // Get default launch option if there's only one (actual processing for multiple platforms, user selected, etc is done later)'
+        if (Config.LaunchOptions.Count() == 1) {
+            defaultLaunchOptionId = 0;
         }
     }
 
@@ -204,18 +210,42 @@ public class SteamApp : AppBase
     private readonly List<LaunchOption> launchOptions = new();
     public override IEnumerable<LaunchOption> LaunchOptions => launchOptions;
     public override int? DefaultLaunchOptionID => defaultLaunchOptionId;
-    
+
+    public override EAppState State => this.AppsManager.ClientApps.NativeClientAppManager.GetAppInstallState(AppID);
+
     public override async Task<EAppUpdateError> Launch(string userLaunchOptions, int launchOptionID)
     {
         if (this.Config.CheckForUpdatesBeforeLaunch) {
             logger.Info("Checking for updates (due to CheckForUpdatesBeforeLaunch)");
-            if (!this.AppsManager.ClientApps.BIsAppUpToDate(this.AppID)) {
+            await this.AppsManager.ClientApps.UpdateAppInfo(AppID);
+            if (!this.AppsManager.ClientApps.BIsAppUpToDate(AppID)) {
                 return EAppUpdateError.UpdateRequired;
             }
         }
 
+        logger.Info("Running install scripts");
         await AppsManager.RunInstallScriptAsync(AppID);
 
+        logger.Info("Synchronizing cloud");
+        await AppsManager.ClientApps.SyncCloud(AppID);
+
+        logger.Info("Site license seat checkout");
+        //TODO: should we use the result of this somehow?
+        this.AppsManager.ClientApps.NativeClientUser.CheckoutSiteLicenseSeat(this.AppID);
+
+        logger.Info("Creating process");
+        this.AppsManager.ClientApps.NativeClientAppManager.LaunchApp(this.GameID, (uint)launchOptionID, ELaunchSource._2ftLibraryDetails, 0);
+
         return EAppUpdateError.NoError;
+    }
+
+    public override void PauseUpdate()
+    {
+        this.AppsManager.ClientApps.NativeClientAppManager.SetDownloadingEnabled(false);
+    }
+
+    public override void Update()
+    {
+        this.AppsManager.ClientApps.NativeClientAppManager.ChangeAppDownloadQueuePlacement(this.AppID, EAppDownloadQueuePlacement.PriorityUserInitiated);
     }
 }

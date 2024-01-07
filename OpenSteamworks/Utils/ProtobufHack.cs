@@ -1,9 +1,10 @@
+using System;
 using System.Runtime.InteropServices;
 using Google.Protobuf;
 using OpenSteamworks.Native;
 using OpenSteamworks.Protobuf;
 
-namespace OpenSteamworks.Client.Utils;
+namespace OpenSteamworks.Utils;
 
 /// <summary>
 /// This is terrible. Absolutely nothing about this should work.
@@ -120,6 +121,14 @@ public unsafe static class ProtobufHack {
 
     public static Proto_Disposable<T> CreateWithName<T>(string name) where T: IMessage<T>, new() {
         return Proto_Disposable<T>.CreateWithName(name);
+    }
+
+    public static bool CopyToNative<T>(T managed, nint unmanaged) where T: IMessage<T>, new() {
+        var deserializer = (delegate* unmanaged[Cdecl]<void*, void*, int, byte>)GetProtobufHackLib().GetExport(typeof(T).Name + "_DeserializeInto");
+        var bytes = managed.ToByteArray();
+        fixed (byte* bptr = bytes) {
+            return deserializer((void*)unmanaged, bptr, bytes.Length) == 1;
+        }
     }
 
     private static NativeLibraryEx? loadedLibrary;

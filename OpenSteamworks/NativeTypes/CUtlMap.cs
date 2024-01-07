@@ -4,8 +4,9 @@ using System.Linq;
 using System.Numerics;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using OpenSteamworks;
 
-namespace OpenSteamworks.NativeTypes;
+
 
 /// <summary>
 /// Creates a LessFunc for an IComparisonOperators value.
@@ -40,7 +41,7 @@ public class LessFuncFactory {
 
 		GCHandle handle = GCHandle.Alloc(func);
 		IntPtr ptr = Marshal.GetFunctionPointerForDelegate<LessFunc>(func);
-		SteamClient.CUtlLogger.Debug("Allocated LessFunc " + ptr);
+		Logging.CUtlLogger.Debug("Allocated LessFunc " + ptr);
 		usedFuncs.Add(ptr, handle);
 		return ptr;
 	}
@@ -49,7 +50,7 @@ public class LessFuncFactory {
 			throw new ArgumentException("Func not found in usedFuncs");
 		}
 
-		SteamClient.CUtlLogger.Debug("Freeing LessFunc " + func);
+		Logging.CUtlLogger.Debug("Freeing LessFunc " + func);
 
 		usedFuncs[func].Free();
 		usedFuncs.Remove(func);
@@ -76,7 +77,7 @@ public unsafe struct CUtlMap<KeyType_t, ElemType_t> where KeyType_t : unmanaged,
 			var node = Node(i);
 			// Dictionaries are meant to be unique. Maps are meant to be unique. Are CUtlMaps? They can sometimes contain two of the same element though...
 			if (dict.ContainsKey(node.key)) {
-                SteamClient.CUtlLogger.Warning("Skipping duplicate key " + node.key + " in CUtlMap.ToManaged. Incorrect datatype lengths?");
+                Logging.CUtlLogger.Warning("Skipping duplicate key " + node.key + " in CUtlMap.ToManaged. Incorrect datatype lengths?");
                 continue;
             }
 			dict.Add(node.key, node.elem);

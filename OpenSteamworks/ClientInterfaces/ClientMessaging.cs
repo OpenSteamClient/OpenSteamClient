@@ -12,7 +12,7 @@ namespace OpenSteamworks.ClientInterfaces;
 
 public class ClientMessaging
 {
-    private SteamClient client;
+    private ISteamClient client;
     private IClientSharedConnection iSharedConnection;
     private IClientUnifiedMessages iUnifiedMessages;
     private IClientUser clientUser;
@@ -24,12 +24,12 @@ public class ClientMessaging
         return conn;
     }
 
-    public ClientMessaging(SteamClient client)
+    public ClientMessaging(ISteamClient client)
     {
         this.client = client;
-        this.iSharedConnection = client.NativeClient.IClientSharedConnection;
-        this.iUnifiedMessages = client.NativeClient.IClientUnifiedMessages;
-        this.clientUser = client.NativeClient.IClientUser;
+        this.iSharedConnection = client.IClientSharedConnection;
+        this.iUnifiedMessages = client.IClientUnifiedMessages;
+        this.clientUser = client.IClientUser;
     }
     
     internal void Shutdown()

@@ -7,8 +7,8 @@ namespace OpenSteamworks.ClientInterfaces;
 
 public class ClientConfigStore {
     private IClientConfigStore nativeClientConfigStore;
-    public ClientConfigStore(SteamClient client) {
-        this.nativeClientConfigStore = client.NativeClient.IClientConfigStore;
+    public ClientConfigStore(ISteamClient client) {
+        this.nativeClientConfigStore = client.IClientConfigStore;
     }
     
     public bool IsSet( EConfigStore configStore, string key ) {
