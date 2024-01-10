@@ -34,4 +34,26 @@ public struct AppUpdateInfo_s {
 	public UInt64 m_targetBuildID; // Installing buildid
 	public UInt64 m_uUnk10;
 	public UInt32 m_uUnk11;
+
+    public override readonly string ToString()
+    {
+        return $"m_timeUpdateStart: {m_timeUpdateStart}, " +
+               $"m_eAppUpdateState: {m_eAppUpdateState}, " +
+               $"m_unBytesToDownload: {m_unBytesToDownload}, " +
+               $"m_unBytesDownloaded: {m_unBytesDownloaded}, " +
+               $"m_unBytesToProcess: {m_unBytesToProcess}, " +
+               $"m_unBytesProcessed: {m_unBytesProcessed}, " +
+               $"m_unBytesToProcess2: {m_unBytesToProcess2}, " +
+               $"m_unBytesProcessed2: {m_unBytesProcessed2}, " +
+               $"m_uUnk3: {m_uUnk3}, " +
+               $"m_uUnk4: {m_uUnk4}, " +
+               $"m_uUnk5: {m_uUnk5}, " +
+               $"m_someError: {m_someError}, " +
+               $"m_uUnk6: {m_uUnk6}, " +
+               $"m_uUnk7: {m_uUnk7}, " +
+               $"m_uUn8: {m_uUn8}, " +
+               $"m_targetBuildID: {m_targetBuildID}, " +
+               $"m_uUnk10: {m_uUnk10}, " +
+               $"m_uUnk11: {m_uUnk11}"; 
+    }
 }

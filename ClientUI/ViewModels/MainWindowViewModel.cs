@@ -78,6 +78,8 @@ public partial class MainWindowViewModel : ViewModelBase
         PageList.Add(new(this, "Console", typeof(ConsolePage), typeof(ConsolePageViewModel)));
 
         SwitchToPage(typeof(LibraryPage));
+        this.client.IClientAppManager.GetUpdateInfo(1281930, out AppUpdateInfo_s updateInfo);
+        Console.WriteLine(updateInfo.ToString());
     }
 
 #pragma warning disable MVVMTK0034

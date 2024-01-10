@@ -28394,13 +28394,13 @@ EXPORT void CFamilyGroups_GetSharedLibraryApps_Response_Delete(CFamilyGroups_Get
     delete ptr;
 }
 
-// Begin CFamilyGroupsClient_GroupStatus_Notification_PlayingMember
-EXPORT CFamilyGroupsClient_GroupStatus_Notification_PlayingMember *CFamilyGroupsClient_GroupStatus_Notification_PlayingMember_Construct() {
-    return new CFamilyGroupsClient_GroupStatus_Notification_PlayingMember();
+// Begin CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember
+EXPORT CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember *CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember_Construct() {
+    return new CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember();
 }
 
-EXPORT CFamilyGroupsClient_GroupStatus_Notification_PlayingMember *CFamilyGroupsClient_GroupStatus_Notification_PlayingMember_Deserialize(void* buffer, int len) {
-    CFamilyGroupsClient_GroupStatus_Notification_PlayingMember *msg = new CFamilyGroupsClient_GroupStatus_Notification_PlayingMember();
+EXPORT CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember *CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember_Deserialize(void* buffer, int len) {
+    CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember *msg = new CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember();
     if (!msg->ParseFromArray(buffer, len)) {
         return nullptr;
     }
@@ -28408,21 +28408,21 @@ EXPORT CFamilyGroupsClient_GroupStatus_Notification_PlayingMember *CFamilyGroups
     return msg;
 }
 
-EXPORT bool CFamilyGroupsClient_GroupStatus_Notification_PlayingMember_DeserializeInto(CFamilyGroupsClient_GroupStatus_Notification_PlayingMember *target, void* buffer, int len) {
+EXPORT bool CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember_DeserializeInto(CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember *target, void* buffer, int len) {
     return target->ParseFromArray(buffer, len);
 }
 
-EXPORT void CFamilyGroupsClient_GroupStatus_Notification_PlayingMember_Delete(CFamilyGroupsClient_GroupStatus_Notification_PlayingMember* ptr) {
+EXPORT void CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember_Delete(CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember* ptr) {
     delete ptr;
 }
 
-// Begin CFamilyGroupsClient_GroupStatus_Notification_RunningApp
-EXPORT CFamilyGroupsClient_GroupStatus_Notification_RunningApp *CFamilyGroupsClient_GroupStatus_Notification_RunningApp_Construct() {
-    return new CFamilyGroupsClient_GroupStatus_Notification_RunningApp();
+// Begin CFamilyGroupsClient_NotifyRunningApps_Notification_RunningApp
+EXPORT CFamilyGroupsClient_NotifyRunningApps_Notification_RunningApp *CFamilyGroupsClient_NotifyRunningApps_Notification_RunningApp_Construct() {
+    return new CFamilyGroupsClient_NotifyRunningApps_Notification_RunningApp();
 }
 
-EXPORT CFamilyGroupsClient_GroupStatus_Notification_RunningApp *CFamilyGroupsClient_GroupStatus_Notification_RunningApp_Deserialize(void* buffer, int len) {
-    CFamilyGroupsClient_GroupStatus_Notification_RunningApp *msg = new CFamilyGroupsClient_GroupStatus_Notification_RunningApp();
+EXPORT CFamilyGroupsClient_NotifyRunningApps_Notification_RunningApp *CFamilyGroupsClient_NotifyRunningApps_Notification_RunningApp_Deserialize(void* buffer, int len) {
+    CFamilyGroupsClient_NotifyRunningApps_Notification_RunningApp *msg = new CFamilyGroupsClient_NotifyRunningApps_Notification_RunningApp();
     if (!msg->ParseFromArray(buffer, len)) {
         return nullptr;
     }
@@ -28430,21 +28430,21 @@ EXPORT CFamilyGroupsClient_GroupStatus_Notification_RunningApp *CFamilyGroupsCli
     return msg;
 }
 
-EXPORT bool CFamilyGroupsClient_GroupStatus_Notification_RunningApp_DeserializeInto(CFamilyGroupsClient_GroupStatus_Notification_RunningApp *target, void* buffer, int len) {
+EXPORT bool CFamilyGroupsClient_NotifyRunningApps_Notification_RunningApp_DeserializeInto(CFamilyGroupsClient_NotifyRunningApps_Notification_RunningApp *target, void* buffer, int len) {
     return target->ParseFromArray(buffer, len);
 }
 
-EXPORT void CFamilyGroupsClient_GroupStatus_Notification_RunningApp_Delete(CFamilyGroupsClient_GroupStatus_Notification_RunningApp* ptr) {
+EXPORT void CFamilyGroupsClient_NotifyRunningApps_Notification_RunningApp_Delete(CFamilyGroupsClient_NotifyRunningApps_Notification_RunningApp* ptr) {
     delete ptr;
 }
 
-// Begin CFamilyGroupsClient_GroupStatus_Notification
-EXPORT CFamilyGroupsClient_GroupStatus_Notification *CFamilyGroupsClient_GroupStatus_Notification_Construct() {
-    return new CFamilyGroupsClient_GroupStatus_Notification();
+// Begin CFamilyGroupsClient_NotifyRunningApps_Notification
+EXPORT CFamilyGroupsClient_NotifyRunningApps_Notification *CFamilyGroupsClient_NotifyRunningApps_Notification_Construct() {
+    return new CFamilyGroupsClient_NotifyRunningApps_Notification();
 }
 
-EXPORT CFamilyGroupsClient_GroupStatus_Notification *CFamilyGroupsClient_GroupStatus_Notification_Deserialize(void* buffer, int len) {
-    CFamilyGroupsClient_GroupStatus_Notification *msg = new CFamilyGroupsClient_GroupStatus_Notification();
+EXPORT CFamilyGroupsClient_NotifyRunningApps_Notification *CFamilyGroupsClient_NotifyRunningApps_Notification_Deserialize(void* buffer, int len) {
+    CFamilyGroupsClient_NotifyRunningApps_Notification *msg = new CFamilyGroupsClient_NotifyRunningApps_Notification();
     if (!msg->ParseFromArray(buffer, len)) {
         return nullptr;
     }
@@ -28452,11 +28452,11 @@ EXPORT CFamilyGroupsClient_GroupStatus_Notification *CFamilyGroupsClient_GroupSt
     return msg;
 }
 
-EXPORT bool CFamilyGroupsClient_GroupStatus_Notification_DeserializeInto(CFamilyGroupsClient_GroupStatus_Notification *target, void* buffer, int len) {
+EXPORT bool CFamilyGroupsClient_NotifyRunningApps_Notification_DeserializeInto(CFamilyGroupsClient_NotifyRunningApps_Notification *target, void* buffer, int len) {
     return target->ParseFromArray(buffer, len);
 }
 
-EXPORT void CFamilyGroupsClient_GroupStatus_Notification_Delete(CFamilyGroupsClient_GroupStatus_Notification* ptr) {
+EXPORT void CFamilyGroupsClient_NotifyRunningApps_Notification_Delete(CFamilyGroupsClient_NotifyRunningApps_Notification* ptr) {
     delete ptr;
 }
 
@@ -28479,6 +28479,28 @@ EXPORT bool CFamilyGroupsClient_InviteStatus_Notification_DeserializeInto(CFamil
 }
 
 EXPORT void CFamilyGroupsClient_InviteStatus_Notification_Delete(CFamilyGroupsClient_InviteStatus_Notification* ptr) {
+    delete ptr;
+}
+
+// Begin CFamilyGroupsClient_GroupChanged_Notification
+EXPORT CFamilyGroupsClient_GroupChanged_Notification *CFamilyGroupsClient_GroupChanged_Notification_Construct() {
+    return new CFamilyGroupsClient_GroupChanged_Notification();
+}
+
+EXPORT CFamilyGroupsClient_GroupChanged_Notification *CFamilyGroupsClient_GroupChanged_Notification_Deserialize(void* buffer, int len) {
+    CFamilyGroupsClient_GroupChanged_Notification *msg = new CFamilyGroupsClient_GroupChanged_Notification();
+    if (!msg->ParseFromArray(buffer, len)) {
+        return nullptr;
+    }
+
+    return msg;
+}
+
+EXPORT bool CFamilyGroupsClient_GroupChanged_Notification_DeserializeInto(CFamilyGroupsClient_GroupChanged_Notification *target, void* buffer, int len) {
+    return target->ParseFromArray(buffer, len);
+}
+
+EXPORT void CFamilyGroupsClient_GroupChanged_Notification_Delete(CFamilyGroupsClient_GroupChanged_Notification* ptr) {
     delete ptr;
 }
 
