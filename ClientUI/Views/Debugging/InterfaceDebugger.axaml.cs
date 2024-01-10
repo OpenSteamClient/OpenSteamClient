@@ -77,9 +77,9 @@ public partial class InterfaceDebugger : Window
         UtilityFunctions.AssertNotNull(info);
         string funcidentifier = ifaceName + "_" + info.Item2.Name + info.Item2.GetParameters().Length;
         var implementer = GetInterfaceImpl(info.Item1);
-        List<object?> paramArr = new();
         Dictionary<int, ParameterInfo> refParams = new();
         var paramInfos = info.Item2.GetParameters();
+        object?[] paramArr = new object[paramInfos.Length];
         for (int i = 0; i < paramInfos.Length; i++)
         {
             var paramInfo = paramInfos[i];
@@ -118,7 +118,7 @@ public partial class InterfaceDebugger : Window
                 }
 
                 if (paramInfo.IsOut || paramInfo.ParameterType.IsByRef) {
-                    refParams.Add(paramArr.Count, paramInfo);
+                    refParams.Add(i, paramInfo);
                 }
 
                 if (pierceType.IsValueType && !pierceType.IsPrimitive && !pierceType.IsEnum) {
@@ -126,13 +126,13 @@ public partial class InterfaceDebugger : Window
                 }
 
                 if (paramInfo.IsOut) {
-                    paramArr.Add(null);
+                    paramArr[i] = null;
                     continue;
                 }
 
                 if (isCustomValueType) {
                     // Custom value type, convert to int and then run implicit operator
-                    paramArr.Add(UtilityFunctions.AssertNotNull(pierceType.GetMethod("op_Implicit", new [] {customValueType!})).Invoke(null, new [] { Convert.ChangeType(paramCurrentText, customValueType!) }));
+                    paramArr[i] = UtilityFunctions.AssertNotNull(pierceType.GetMethod("op_Implicit", new [] {customValueType!})).Invoke(null, new [] { Convert.ChangeType(paramCurrentText, customValueType!) });
                     continue;
                 }
 
@@ -145,7 +145,7 @@ public partial class InterfaceDebugger : Window
 
                     if (ci != null)
                     {
-                        paramArr.Add(ci.Invoke(null, new object[1] { paramCurrentText }));
+                        paramArr[i] = ci.Invoke(null, new object[1] { paramCurrentText });
                         continue;
                     }
 
@@ -155,29 +155,30 @@ public partial class InterfaceDebugger : Window
                 if (pierceType == typeof(StringBuilder)) {
                     UtilityFunctions.AssertNotNull(nextParamTextbox);
                     UtilityFunctions.AssertNotNull(nextParamTextbox.Text);
-                    refParams.Add(paramArr.Count, paramInfo);
-                    paramArr.Add(new StringBuilder(int.Parse(nextParamTextbox.Text)));
+                    refParams.Add(i, paramInfo);
+                    paramArr[i] = new StringBuilder(int.Parse(nextParamTextbox.Text));
                     continue;
                 }
 
                 // Enums need special handling...
                 if (pierceType.IsEnum) {
-                    paramArr.Add(Enum.Parse(pierceType, paramCurrentText));
+                    paramArr[i] = Enum.Parse(pierceType, paramCurrentText);
                     continue;
                 }
 
-                paramArr.Add(Convert.ChangeType(paramCurrentText, pierceType));
+                paramArr[i] = Convert.ChangeType(paramCurrentText, pierceType);
             } catch (Exception e) {
                 MessageBox.Error("Function execution failed", "Failed to execute " + funcidentifier + ": Conversion failed with param " + paramInfo.Name + Environment.NewLine + e.ToString());
                 return;
             }
         }
 
-        object? ret = info.Item2.Invoke(implementer, paramArr.ToArray());
+        object? ret = info.Item2.Invoke(implementer, paramArr);
         string refParamsAsStr = "";
         foreach (var tuple in refParams)
         {
-            refParamsAsStr += tuple.Value.Name + ": " + paramArr[tuple.Key] + Environment.NewLine;
+            object? val = paramArr[tuple.Key];
+            refParamsAsStr += tuple.Value.Name + ": " + (val == null ? "null" : val.ToString()) + Environment.NewLine;
         }
 
         MessageBox.Show("Function executed successfully", info.Item2.Name + " returned " + ret + Environment.NewLine + refParamsAsStr);

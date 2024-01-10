@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using Avalonia.Controls;
 using CommunityToolkit.Mvvm.Input;
+using OpenSteamworks;
 using OpenSteamworks.Utils;
 
 namespace ClientUI.Views;
@@ -25,7 +26,7 @@ public partial class InterfaceList : Window
         UtilityFunctions.AssertNotNull(osw);
         UtilityFunctions.AssertNotNull(jit);
 
-        var validInterfaces = osw.GetTypes().Where(type => (type.Name.StartsWith("IClient") || type.Name.StartsWith("ISteam")) && type.IsInterface);
+        var validInterfaces = osw.GetTypes().Where(type => (type.Name.StartsWith("IClient") || type.Name.StartsWith("ISteam")) && type.IsInterface && type != typeof(ISteamClient));
         List<Button> buttons = new();
         foreach (var type in validInterfaces)
         {
