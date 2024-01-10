@@ -1,6 +1,6 @@
 {
     "name": "IClientNetworkingUtilsSerializedMap",
-    "found_at": "0x244b0e4",
+    "found_at": "0x244bfa4",
     "functions": [ 
         {
             "name": "GetNetworkConfigJSON_DEPRECATED",
@@ -10,7 +10,7 @@
             "fencepost": "785397466",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x648790",
+            "addr": "0x648e40",
             "serializedargs": [
                 "bytes4",
                 "string"
@@ -28,7 +28,7 @@
             "fencepost": "2947636526",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x648930",
+            "addr": "0x648fe0",
             "serializedargs": [
             ],
             "serializedreturns": [
@@ -43,7 +43,7 @@
             "fencepost": "3159313257",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x648bf0",
+            "addr": "0x6492a0",
             "serializedargs": [
             ],
             "serializedreturns": [
@@ -57,7 +57,7 @@
             "fencepost": "3872645246",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x648a90",
+            "addr": "0x649140",
             "serializedargs": [
                 "bytes4",
                 "bytes_length_from_mem"
@@ -73,7 +73,7 @@
             "fencepost": "2359474935",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x648d20",
+            "addr": "0x6493d0",
             "serializedargs": [
             ],
             "serializedreturns": [
@@ -87,7 +87,7 @@
             "fencepost": "135554474",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x648e50",
+            "addr": "0x649500",
             "serializedargs": [
             ],
             "serializedreturns": [
@@ -101,7 +101,7 @@
             "fencepost": "2117913468",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x648f80",
+            "addr": "0x649630",
             "serializedargs": [
                 "string"
             ],

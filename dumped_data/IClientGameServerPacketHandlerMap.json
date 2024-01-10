@@ -1,6 +1,6 @@
 {
     "name": "IClientGameServerPacketHandlerMap",
-    "found_at": "0x2449428",
+    "found_at": "0x244a2e8",
     "functions": [ 
         {
             "name": "HandleIncomingPacket",
@@ -10,7 +10,7 @@
             "fencepost": "1101816551",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x5a0e50",
+            "addr": "0x5a1500",
             "serializedargs": [
                 "bytes4",
                 "bytes_length_from_mem",
@@ -29,7 +29,7 @@
             "fencepost": "4032995438",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x5a1010",
+            "addr": "0x5a16c0",
             "serializedargs": [
                 "bytes4"
             ],

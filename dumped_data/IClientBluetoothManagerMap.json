@@ -1,6 +1,6 @@
 {
     "name": "IClientBluetoothManagerMap",
-    "found_at": "0x244afc4",
+    "found_at": "0x244be84",
     "functions": [ 
         {
             "name": "IsInterfaceValid",
@@ -10,7 +10,7 @@
             "fencepost": "957812713",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x642840",
+            "addr": "0x642ef0",
             "serializedargs": [
             ],
             "serializedreturns": [
@@ -25,12 +25,12 @@
             "fencepost": "236396302",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x6429a0",
+            "addr": "0x643050",
             "serializedargs": [
             ],
             "serializedreturns": [
                 "bytes4",
-                "unknown"
+                "protobuf"
             ]
         },
         {
@@ -41,7 +41,7 @@
             "fencepost": "2173250050",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x642b20",
+            "addr": "0x6431d0",
             "serializedargs": [
                 "bytes1"
             ],
@@ -57,7 +57,7 @@
             "fencepost": "1137426586",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x642cc0",
+            "addr": "0x643370",
             "serializedargs": [
                 "bytes4",
                 "bytes1"
@@ -74,7 +74,7 @@
             "fencepost": "1766639068",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x642e70",
+            "addr": "0x643520",
             "serializedargs": [
                 "bytes4",
                 "bytes4"
@@ -91,7 +91,7 @@
             "fencepost": "1773205944",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x643020",
+            "addr": "0x6436d0",
             "serializedargs": [
                 "bytes4",
                 "bytes4"
@@ -108,7 +108,7 @@
             "fencepost": "1313808435",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x6431d0",
+            "addr": "0x643880",
             "serializedargs": [
                 "bytes4",
                 "bytes4"
@@ -125,7 +125,7 @@
             "fencepost": "20987252",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x643380",
+            "addr": "0x643a30",
             "serializedargs": [
                 "bytes4",
                 "bytes4"
@@ -142,7 +142,7 @@
             "fencepost": "1907303202",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x643530",
+            "addr": "0x643be0",
             "serializedargs": [
                 "bytes4",
                 "bytes4"

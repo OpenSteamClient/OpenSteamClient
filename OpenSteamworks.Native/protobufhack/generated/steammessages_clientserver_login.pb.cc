@@ -176,6 +176,7 @@ constexpr CMsgClientLogonResponse::CMsgClientLogonResponse(
   , ogs_data_report_time_window_(0)
   , client_instance_id_(PROTOBUF_ULONGLONG(0))
   , token_id_(PROTOBUF_ULONGLONG(0))
+  , family_group_id_(PROTOBUF_ULONGLONG(0))
   , eresult_(2){}
 struct CMsgClientLogonResponseDefaultTypeInternal {
   constexpr CMsgClientLogonResponseDefaultTypeInternal()
@@ -506,7 +507,8 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fclientserver_5
   PROTOBUF_FIELD_OFFSET(::CMsgClientLogonResponse, force_client_update_check_),
   PROTOBUF_FIELD_OFFSET(::CMsgClientLogonResponse, agreement_session_url_),
   PROTOBUF_FIELD_OFFSET(::CMsgClientLogonResponse, token_id_),
-  25,
+  PROTOBUF_FIELD_OFFSET(::CMsgClientLogonResponse, family_group_id_),
+  26,
   9,
   10,
   11,
@@ -532,6 +534,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5fclientserver_5
   19,
   7,
   24,
+  25,
   PROTOBUF_FIELD_OFFSET(::CMsgClientRequestWebAPIAuthenticateUserNonce, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::CMsgClientRequestWebAPIAuthenticateUserNonce, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -627,16 +630,16 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 23, 33, sizeof(::CMsgClientSecret)},
   { 38, 44, sizeof(::CMsgClientHello)},
   { 45, 107, sizeof(::CMsgClientLogon)},
-  { 164, 195, sizeof(::CMsgClientLogonResponse)},
-  { 221, 227, sizeof(::CMsgClientRequestWebAPIAuthenticateUserNonce)},
-  { 228, 236, sizeof(::CMsgClientRequestWebAPIAuthenticateUserNonceResponse)},
-  { 239, -1, sizeof(::CMsgClientLogOff)},
-  { 244, 250, sizeof(::CMsgClientLoggedOff)},
-  { 251, 258, sizeof(::CMsgClientNewLoginKey)},
-  { 260, 266, sizeof(::CMsgClientNewLoginKeyAccepted)},
-  { 267, 283, sizeof(::CMsgClientAccountInfo)},
-  { 294, 300, sizeof(::CMsgClientChallengeRequest)},
-  { 301, 307, sizeof(::CMsgClientChallengeResponse)},
+  { 164, 196, sizeof(::CMsgClientLogonResponse)},
+  { 223, 229, sizeof(::CMsgClientRequestWebAPIAuthenticateUserNonce)},
+  { 230, 238, sizeof(::CMsgClientRequestWebAPIAuthenticateUserNonceResponse)},
+  { 241, -1, sizeof(::CMsgClientLogOff)},
+  { 246, 252, sizeof(::CMsgClientLoggedOff)},
+  { 253, 260, sizeof(::CMsgClientNewLoginKey)},
+  { 262, 268, sizeof(::CMsgClientNewLoginKeyAccepted)},
+  { 269, 285, sizeof(::CMsgClientAccountInfo)},
+  { 296, 302, sizeof(::CMsgClientChallengeRequest)},
+  { 303, 309, sizeof(::CMsgClientChallengeResponse)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -711,7 +714,7 @@ const char descriptor_table_protodef_steammessages_5fclientserver_5flogin_2eprot
   "\n\032disable_partner_autogrants\030j \001(\010\022\025\n\ris"
   "_steam_deck\030k \001(\010\022\024\n\014access_token\030l \001(\t\022"
   "\024\n\014is_chrome_os\030m \001(\010\022\020\n\010is_tesla\030n \001(\010\""
-  "\206\006\n\027CMsgClientLogonResponse\022\022\n\007eresult\030\001"
+  "\237\006\n\027CMsgClientLogonResponse\022\022\n\007eresult\030\001"
   " \001(\005:\0012\022,\n$legacy_out_of_game_heartbeat_"
   "seconds\030\002 \001(\005\022\031\n\021heartbeat_seconds\030\003 \001(\005"
   "\022\034\n\024deprecated_public_ip\030\004 \001(\r\022\033\n\023rtime3"
@@ -730,28 +733,29 @@ const char descriptor_table_protodef_steammessages_5fclientserver_5flogin_2eprot
   "report_time_window\030\032 \001(\005\022\032\n\022client_insta"
   "nce_id\030\033 \001(\004\022!\n\031force_client_update_chec"
   "k\030\034 \001(\010\022\035\n\025agreement_session_url\030\035 \001(\t\022\020"
-  "\n\010token_id\030\036 \001(\004\"F\n,CMsgClientRequestWeb"
-  "APIAuthenticateUserNonce\022\026\n\ntoken_type\030\001"
-  " \001(\005:\002-1\"\212\001\n4CMsgClientRequestWebAPIAuth"
-  "enticateUserNonceResponse\022\022\n\007eresult\030\001 \001"
-  "(\005:\0012\022&\n\036webapi_authenticate_user_nonce\030"
-  "\013 \001(\t\022\026\n\ntoken_type\030\003 \001(\005:\002-1\"\022\n\020CMsgCli"
-  "entLogOff\")\n\023CMsgClientLoggedOff\022\022\n\007eres"
-  "ult\030\001 \001(\005:\0012\"=\n\025CMsgClientNewLoginKey\022\021\n"
-  "\tunique_id\030\001 \001(\r\022\021\n\tlogin_key\030\002 \001(\t\"2\n\035C"
-  "MsgClientNewLoginKeyAccepted\022\021\n\tunique_i"
-  "d\030\001 \001(\r\"\303\002\n\025CMsgClientAccountInfo\022\024\n\014per"
-  "sona_name\030\001 \001(\t\022\022\n\nip_country\030\002 \001(\t\022\036\n\026c"
-  "ount_authed_computers\030\005 \001(\005\022\025\n\raccount_f"
-  "lags\030\007 \001(\r\022\021\n\tfacebooid\030\010 \001(\004\022\023\n\013faceboo"
-  "name\030\t \001(\t\022+\n#steamguard_machine_name_us"
-  "er_chosen\030\017 \001(\t\022\031\n\021is_phone_verified\030\020 \001"
-  "(\010\022\030\n\020two_factor_state\030\021 \001(\r\022\034\n\024is_phone"
-  "_identifying\030\022 \001(\010\022!\n\031is_phone_needing_r"
-  "everify\030\023 \001(\010\"-\n\032CMsgClientChallengeRequ"
-  "est\022\017\n\007steamid\030\001 \001(\006\"0\n\033CMsgClientChalle"
-  "ngeResponse\022\021\n\tchallenge\030\001 \001(\006B\037H\001\200\001\000\252\002\027"
-  "OpenSteamworks.Protobuf"
+  "\n\010token_id\030\036 \001(\004\022\027\n\017family_group_id\030\037 \001("
+  "\004\"F\n,CMsgClientRequestWebAPIAuthenticate"
+  "UserNonce\022\026\n\ntoken_type\030\001 \001(\005:\002-1\"\212\001\n4CM"
+  "sgClientRequestWebAPIAuthenticateUserNon"
+  "ceResponse\022\022\n\007eresult\030\001 \001(\005:\0012\022&\n\036webapi"
+  "_authenticate_user_nonce\030\013 \001(\t\022\026\n\ntoken_"
+  "type\030\003 \001(\005:\002-1\"\022\n\020CMsgClientLogOff\")\n\023CM"
+  "sgClientLoggedOff\022\022\n\007eresult\030\001 \001(\005:\0012\"=\n"
+  "\025CMsgClientNewLoginKey\022\021\n\tunique_id\030\001 \001("
+  "\r\022\021\n\tlogin_key\030\002 \001(\t\"2\n\035CMsgClientNewLog"
+  "inKeyAccepted\022\021\n\tunique_id\030\001 \001(\r\"\303\002\n\025CMs"
+  "gClientAccountInfo\022\024\n\014persona_name\030\001 \001(\t"
+  "\022\022\n\nip_country\030\002 \001(\t\022\036\n\026count_authed_com"
+  "puters\030\005 \001(\005\022\025\n\raccount_flags\030\007 \001(\r\022\021\n\tf"
+  "acebooid\030\010 \001(\004\022\023\n\013facebooname\030\t \001(\t\022+\n#s"
+  "teamguard_machine_name_user_chosen\030\017 \001(\t"
+  "\022\031\n\021is_phone_verified\030\020 \001(\010\022\030\n\020two_facto"
+  "r_state\030\021 \001(\r\022\034\n\024is_phone_identifying\030\022 "
+  "\001(\010\022!\n\031is_phone_needing_reverify\030\023 \001(\010\"-"
+  "\n\032CMsgClientChallengeRequest\022\017\n\007steamid\030"
+  "\001 \001(\006\"0\n\033CMsgClientChallengeResponse\022\021\n\t"
+  "challenge\030\001 \001(\006B\037H\001\200\001\000\252\002\027OpenSteamworks."
+  "Protobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5fclientserver_5flogin_2eproto_deps[2] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
@@ -759,7 +763,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5fclientserver_5flogin_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5fclientserver_5flogin_2eproto = {
-  false, false, 3703, descriptor_table_protodef_steammessages_5fclientserver_5flogin_2eproto, "steammessages_clientserver_login.proto", 
+  false, false, 3728, descriptor_table_protodef_steammessages_5fclientserver_5flogin_2eproto, "steammessages_clientserver_login.proto", 
   &descriptor_table_steammessages_5fclientserver_5flogin_2eproto_once, descriptor_table_steammessages_5fclientserver_5flogin_2eproto_deps, 2, 16,
   schemas, file_default_instances, TableStruct_steammessages_5fclientserver_5flogin_2eproto::offsets,
   file_level_metadata_steammessages_5fclientserver_5flogin_2eproto, file_level_enum_descriptors_steammessages_5fclientserver_5flogin_2eproto, file_level_service_descriptors_steammessages_5fclientserver_5flogin_2eproto,
@@ -4178,7 +4182,7 @@ class CMsgClientLogonResponse::_Internal {
  public:
   using HasBits = decltype(std::declval<CMsgClientLogonResponse>()._has_bits_);
   static void set_has_eresult(HasBits* has_bits) {
-    (*has_bits)[0] |= 33554432u;
+    (*has_bits)[0] |= 67108864u;
   }
   static void set_has_legacy_out_of_game_heartbeat_seconds(HasBits* has_bits) {
     (*has_bits)[0] |= 512u;
@@ -4255,6 +4259,9 @@ class CMsgClientLogonResponse::_Internal {
   }
   static void set_has_token_id(HasBits* has_bits) {
     (*has_bits)[0] |= 16777216u;
+  }
+  static void set_has_family_group_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 33554432u;
   }
 };
 
@@ -4338,8 +4345,8 @@ parental_setting_signature_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal:
 agreement_session_url_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&public_ip_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&token_id_) -
-    reinterpret_cast<char*>(&public_ip_)) + sizeof(token_id_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&family_group_id_) -
+    reinterpret_cast<char*>(&public_ip_)) + sizeof(family_group_id_));
 eresult_ = 2;
 }
 
@@ -4419,8 +4426,10 @@ void CMsgClientLogonResponse::Clear() {
         reinterpret_cast<char*>(&client_instance_id_) -
         reinterpret_cast<char*>(&cell_id_ping_threshold_)) + sizeof(client_instance_id_));
   }
-  if (cached_has_bits & 0x03000000u) {
-    token_id_ = PROTOBUF_ULONGLONG(0);
+  if (cached_has_bits & 0x07000000u) {
+    ::memset(&token_id_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&family_group_id_) -
+        reinterpret_cast<char*>(&token_id_)) + sizeof(family_group_id_));
     eresult_ = 2;
   }
   _has_bits_.Clear();
@@ -4657,6 +4666,14 @@ const char* CMsgClientLogonResponse::_InternalParse(const char* ptr, ::PROTOBUF_
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
+      // optional uint64 family_group_id = 31;
+      case 31:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 248)) {
+          _Internal::set_has_family_group_id(&has_bits);
+          family_group_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
       default: {
       handle_unusual:
         if ((tag & 7) == 4 || tag == 0) {
@@ -4688,7 +4705,7 @@ failure:
 
   cached_has_bits = _has_bits_[0];
   // optional int32 eresult = 1 [default = 2];
-  if (cached_has_bits & 0x02000000u) {
+  if (cached_has_bits & 0x04000000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_eresult(), target);
   }
@@ -4863,6 +4880,12 @@ failure:
   if (cached_has_bits & 0x01000000u) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(30, this->_internal_token_id(), target);
+  }
+
+  // optional uint64 family_group_id = 31;
+  if (cached_has_bits & 0x02000000u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(31, this->_internal_family_group_id(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -5048,7 +5071,7 @@ size_t CMsgClientLogonResponse::ByteSizeLong() const {
     }
 
   }
-  if (cached_has_bits & 0x03000000u) {
+  if (cached_has_bits & 0x07000000u) {
     // optional uint64 token_id = 30;
     if (cached_has_bits & 0x01000000u) {
       total_size += 2 +
@@ -5056,8 +5079,15 @@ size_t CMsgClientLogonResponse::ByteSizeLong() const {
           this->_internal_token_id());
     }
 
-    // optional int32 eresult = 1 [default = 2];
+    // optional uint64 family_group_id = 31;
     if (cached_has_bits & 0x02000000u) {
+      total_size += 2 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
+          this->_internal_family_group_id());
+    }
+
+    // optional int32 eresult = 1 [default = 2];
+    if (cached_has_bits & 0x04000000u) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
           this->_internal_eresult());
@@ -5176,11 +5206,14 @@ void CMsgClientLogonResponse::MergeFrom(const CMsgClientLogonResponse& from) {
     }
     _has_bits_[0] |= cached_has_bits;
   }
-  if (cached_has_bits & 0x03000000u) {
+  if (cached_has_bits & 0x07000000u) {
     if (cached_has_bits & 0x01000000u) {
       token_id_ = from.token_id_;
     }
     if (cached_has_bits & 0x02000000u) {
+      family_group_id_ = from.family_group_id_;
+    }
+    if (cached_has_bits & 0x04000000u) {
       eresult_ = from.eresult_;
     }
     _has_bits_[0] |= cached_has_bits;
@@ -5218,8 +5251,8 @@ void CMsgClientLogonResponse::InternalSwap(CMsgClientLogonResponse* other) {
   parental_setting_signature_.Swap(&other->parental_setting_signature_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   agreement_session_url_.Swap(&other->agreement_session_url_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CMsgClientLogonResponse, token_id_)
-      + sizeof(CMsgClientLogonResponse::token_id_)
+      PROTOBUF_FIELD_OFFSET(CMsgClientLogonResponse, family_group_id_)
+      + sizeof(CMsgClientLogonResponse::family_group_id_)
       - PROTOBUF_FIELD_OFFSET(CMsgClientLogonResponse, public_ip_)>(
           reinterpret_cast<char*>(&public_ip_),
           reinterpret_cast<char*>(&other->public_ip_));

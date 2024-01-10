@@ -1,6 +1,6 @@
 {
     "name": "IClientSystemDockManagerMap",
-    "found_at": "0x2449e80",
+    "found_at": "0x244ad40",
     "functions": [ 
         {
             "name": "IsInterfaceValid",
@@ -10,7 +10,7 @@
             "fencepost": "906737432",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x5dce20",
+            "addr": "0x5dd4d0",
             "serializedargs": [
             ],
             "serializedreturns": [
@@ -25,12 +25,12 @@
             "fencepost": "769343741",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x5dcf80",
+            "addr": "0x5dd630",
             "serializedargs": [
             ],
             "serializedreturns": [
                 "bytes1",
-                "unknown"
+                "protobuf"
             ]
         },
         {
@@ -41,7 +41,7 @@
             "fencepost": "1275877635",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x5dd100",
+            "addr": "0x5dd7b0",
             "serializedargs": [
                 "protobuf"
             ],
@@ -57,7 +57,7 @@
             "fencepost": "919536960",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x5dd290",
+            "addr": "0x5dd940",
             "serializedargs": [
             ],
             "serializedreturns": [

@@ -70,7 +70,7 @@ namespace OpenSteamworks.Protobuf {
             "IAEoCzIRLkNNc2dDbGllbnRTZWNyZXQSIgoaZGlzYWJsZV9wYXJ0bmVyX2F1",
             "dG9ncmFudHMYaiABKAgSFQoNaXNfc3RlYW1fZGVjaxhrIAEoCBIUCgxhY2Nl",
             "c3NfdG9rZW4YbCABKAkSFAoMaXNfY2hyb21lX29zGG0gASgIEhAKCGlzX3Rl",
-            "c2xhGG4gASgIIoYGChdDTXNnQ2xpZW50TG9nb25SZXNwb25zZRISCgdlcmVz",
+            "c2xhGG4gASgIIp8GChdDTXNnQ2xpZW50TG9nb25SZXNwb25zZRISCgdlcmVz",
             "dWx0GAEgASgFOgEyEiwKJGxlZ2FjeV9vdXRfb2ZfZ2FtZV9oZWFydGJlYXRf",
             "c2Vjb25kcxgCIAEoBRIZChFoZWFydGJlYXRfc2Vjb25kcxgDIAEoBRIcChRk",
             "ZXByZWNhdGVkX3B1YmxpY19pcBgEIAEoDRIbChNydGltZTMyX3NlcnZlcl90",
@@ -87,26 +87,26 @@ namespace OpenSteamworks.Protobuf {
             "ZRgZIAEoBRIjChtvZ3NfZGF0YV9yZXBvcnRfdGltZV93aW5kb3cYGiABKAUS",
             "GgoSY2xpZW50X2luc3RhbmNlX2lkGBsgASgEEiEKGWZvcmNlX2NsaWVudF91",
             "cGRhdGVfY2hlY2sYHCABKAgSHQoVYWdyZWVtZW50X3Nlc3Npb25fdXJsGB0g",
-            "ASgJEhAKCHRva2VuX2lkGB4gASgEIkYKLENNc2dDbGllbnRSZXF1ZXN0V2Vi",
-            "QVBJQXV0aGVudGljYXRlVXNlck5vbmNlEhYKCnRva2VuX3R5cGUYASABKAU6",
-            "Ai0xIooBCjRDTXNnQ2xpZW50UmVxdWVzdFdlYkFQSUF1dGhlbnRpY2F0ZVVz",
-            "ZXJOb25jZVJlc3BvbnNlEhIKB2VyZXN1bHQYASABKAU6ATISJgoed2ViYXBp",
-            "X2F1dGhlbnRpY2F0ZV91c2VyX25vbmNlGAsgASgJEhYKCnRva2VuX3R5cGUY",
-            "AyABKAU6Ai0xIhIKEENNc2dDbGllbnRMb2dPZmYiKQoTQ01zZ0NsaWVudExv",
-            "Z2dlZE9mZhISCgdlcmVzdWx0GAEgASgFOgEyIj0KFUNNc2dDbGllbnROZXdM",
-            "b2dpbktleRIRCgl1bmlxdWVfaWQYASABKA0SEQoJbG9naW5fa2V5GAIgASgJ",
-            "IjIKHUNNc2dDbGllbnROZXdMb2dpbktleUFjY2VwdGVkEhEKCXVuaXF1ZV9p",
-            "ZBgBIAEoDSLDAgoVQ01zZ0NsaWVudEFjY291bnRJbmZvEhQKDHBlcnNvbmFf",
-            "bmFtZRgBIAEoCRISCgppcF9jb3VudHJ5GAIgASgJEh4KFmNvdW50X2F1dGhl",
-            "ZF9jb21wdXRlcnMYBSABKAUSFQoNYWNjb3VudF9mbGFncxgHIAEoDRIRCglm",
-            "YWNlYm9vaWQYCCABKAQSEwoLZmFjZWJvb25hbWUYCSABKAkSKwojc3RlYW1n",
-            "dWFyZF9tYWNoaW5lX25hbWVfdXNlcl9jaG9zZW4YDyABKAkSGQoRaXNfcGhv",
-            "bmVfdmVyaWZpZWQYECABKAgSGAoQdHdvX2ZhY3Rvcl9zdGF0ZRgRIAEoDRIc",
-            "ChRpc19waG9uZV9pZGVudGlmeWluZxgSIAEoCBIhChlpc19waG9uZV9uZWVk",
-            "aW5nX3JldmVyaWZ5GBMgASgIIi0KGkNNc2dDbGllbnRDaGFsbGVuZ2VSZXF1",
-            "ZXN0Eg8KB3N0ZWFtaWQYASABKAYiMAobQ01zZ0NsaWVudENoYWxsZW5nZVJl",
-            "c3BvbnNlEhEKCWNoYWxsZW5nZRgBIAEoBkIfSAGAAQCqAhdPcGVuU3RlYW13",
-            "b3Jrcy5Qcm90b2J1Zg=="));
+            "ASgJEhAKCHRva2VuX2lkGB4gASgEEhcKD2ZhbWlseV9ncm91cF9pZBgfIAEo",
+            "BCJGCixDTXNnQ2xpZW50UmVxdWVzdFdlYkFQSUF1dGhlbnRpY2F0ZVVzZXJO",
+            "b25jZRIWCgp0b2tlbl90eXBlGAEgASgFOgItMSKKAQo0Q01zZ0NsaWVudFJl",
+            "cXVlc3RXZWJBUElBdXRoZW50aWNhdGVVc2VyTm9uY2VSZXNwb25zZRISCgdl",
+            "cmVzdWx0GAEgASgFOgEyEiYKHndlYmFwaV9hdXRoZW50aWNhdGVfdXNlcl9u",
+            "b25jZRgLIAEoCRIWCgp0b2tlbl90eXBlGAMgASgFOgItMSISChBDTXNnQ2xp",
+            "ZW50TG9nT2ZmIikKE0NNc2dDbGllbnRMb2dnZWRPZmYSEgoHZXJlc3VsdBgB",
+            "IAEoBToBMiI9ChVDTXNnQ2xpZW50TmV3TG9naW5LZXkSEQoJdW5pcXVlX2lk",
+            "GAEgASgNEhEKCWxvZ2luX2tleRgCIAEoCSIyCh1DTXNnQ2xpZW50TmV3TG9n",
+            "aW5LZXlBY2NlcHRlZBIRCgl1bmlxdWVfaWQYASABKA0iwwIKFUNNc2dDbGll",
+            "bnRBY2NvdW50SW5mbxIUCgxwZXJzb25hX25hbWUYASABKAkSEgoKaXBfY291",
+            "bnRyeRgCIAEoCRIeChZjb3VudF9hdXRoZWRfY29tcHV0ZXJzGAUgASgFEhUK",
+            "DWFjY291bnRfZmxhZ3MYByABKA0SEQoJZmFjZWJvb2lkGAggASgEEhMKC2Zh",
+            "Y2Vib29uYW1lGAkgASgJEisKI3N0ZWFtZ3VhcmRfbWFjaGluZV9uYW1lX3Vz",
+            "ZXJfY2hvc2VuGA8gASgJEhkKEWlzX3Bob25lX3ZlcmlmaWVkGBAgASgIEhgK",
+            "EHR3b19mYWN0b3Jfc3RhdGUYESABKA0SHAoUaXNfcGhvbmVfaWRlbnRpZnlp",
+            "bmcYEiABKAgSIQoZaXNfcGhvbmVfbmVlZGluZ19yZXZlcmlmeRgTIAEoCCIt",
+            "ChpDTXNnQ2xpZW50Q2hhbGxlbmdlUmVxdWVzdBIPCgdzdGVhbWlkGAEgASgG",
+            "IjAKG0NNc2dDbGllbnRDaGFsbGVuZ2VSZXNwb25zZRIRCgljaGFsbGVuZ2UY",
+            "ASABKAZCH0gBgAEAqgIXT3BlblN0ZWFtd29ya3MuUHJvdG9idWY="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.Reflection.DescriptorReflection.Descriptor, global::OpenSteamworks.Protobuf.SteammessagesBaseReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -116,7 +116,7 @@ namespace OpenSteamworks.Protobuf {
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CMsgClientSecret), global::OpenSteamworks.Protobuf.CMsgClientSecret.Parser, new[]{ "Version", "Appid", "Deviceid", "Nonce", "Hmac" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CMsgClientHello), global::OpenSteamworks.Protobuf.CMsgClientHello.Parser, new[]{ "ProtocolVersion" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CMsgClientLogon), global::OpenSteamworks.Protobuf.CMsgClientLogon.Parser, new[]{ "ProtocolVersion", "DeprecatedObfustucatedPrivateIp", "CellId", "LastSessionId", "ClientPackageVersion", "ClientLanguage", "ClientOsType", "ShouldRememberPassword", "WineVersion", "Deprecated10", "ObfuscatedPrivateIp", "DeprecatedPublicIp", "QosLevel", "ClientSuppliedSteamId", "PublicIp", "MachineId", "LauncherType", "UiMode", "ChatMode", "Steam2AuthTicket", "EmailAddress", "Rtime32AccountCreation", "AccountName", "Password", "GameServerToken", "LoginKey", "WasConvertedDeprecatedMsg", "AnonUserTargetAccountName", "ResolvedUserSteamId", "EresultSentryfile", "ShaSentryfile", "AuthCode", "OtpType", "OtpValue", "OtpIdentifier", "Steam2TicketRequest", "SonyPsnTicket", "SonyPsnServiceId", "CreateNewPsnLinkedAccountIfNeeded", "SonyPsnName", "GameServerAppId", "SteamguardDontRememberComputer", "MachineName", "MachineNameUserchosen", "CountryOverride", "IsSteamBox", "ClientInstanceId", "TwoFactorCode", "SupportsRateLimitResponse", "WebLogonNonce", "PriorityReason", "EmbeddedClientSecret", "DisablePartnerAutogrants", "IsSteamDeck", "AccessToken", "IsChromeOs", "IsTesla" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CMsgClientLogonResponse), global::OpenSteamworks.Protobuf.CMsgClientLogonResponse.Parser, new[]{ "Eresult", "LegacyOutOfGameHeartbeatSeconds", "HeartbeatSeconds", "DeprecatedPublicIp", "Rtime32ServerTime", "AccountFlags", "CellId", "EmailDomain", "Steam2Ticket", "EresultExtended", "CellIdPingThreshold", "DeprecatedUsePics", "VanityUrl", "PublicIp", "UserCountry", "ClientSuppliedSteamid", "IpCountryCode", "ParentalSettings", "ParentalSettingSignature", "CountLoginfailuresToMigrate", "CountDisconnectsToMigrate", "OgsDataReportTimeWindow", "ClientInstanceId", "ForceClientUpdateCheck", "AgreementSessionUrl", "TokenId" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CMsgClientLogonResponse), global::OpenSteamworks.Protobuf.CMsgClientLogonResponse.Parser, new[]{ "Eresult", "LegacyOutOfGameHeartbeatSeconds", "HeartbeatSeconds", "DeprecatedPublicIp", "Rtime32ServerTime", "AccountFlags", "CellId", "EmailDomain", "Steam2Ticket", "EresultExtended", "CellIdPingThreshold", "DeprecatedUsePics", "VanityUrl", "PublicIp", "UserCountry", "ClientSuppliedSteamid", "IpCountryCode", "ParentalSettings", "ParentalSettingSignature", "CountLoginfailuresToMigrate", "CountDisconnectsToMigrate", "OgsDataReportTimeWindow", "ClientInstanceId", "ForceClientUpdateCheck", "AgreementSessionUrl", "TokenId", "FamilyGroupId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CMsgClientRequestWebAPIAuthenticateUserNonce), global::OpenSteamworks.Protobuf.CMsgClientRequestWebAPIAuthenticateUserNonce.Parser, new[]{ "TokenType" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CMsgClientRequestWebAPIAuthenticateUserNonceResponse), global::OpenSteamworks.Protobuf.CMsgClientRequestWebAPIAuthenticateUserNonceResponse.Parser, new[]{ "Eresult", "WebapiAuthenticateUserNonce", "TokenType" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::OpenSteamworks.Protobuf.CMsgClientLogOff), global::OpenSteamworks.Protobuf.CMsgClientLogOff.Parser, null, null, null, null, null),
@@ -4570,6 +4570,7 @@ namespace OpenSteamworks.Protobuf {
       forceClientUpdateCheck_ = other.forceClientUpdateCheck_;
       agreementSessionUrl_ = other.agreementSessionUrl_;
       tokenId_ = other.tokenId_;
+      familyGroupId_ = other.familyGroupId_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -5258,6 +5259,33 @@ namespace OpenSteamworks.Protobuf {
       _hasBits0 &= ~65536;
     }
 
+    /// <summary>Field number for the "family_group_id" field.</summary>
+    public const int FamilyGroupIdFieldNumber = 31;
+    private readonly static ulong FamilyGroupIdDefaultValue = 0UL;
+
+    private ulong familyGroupId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public ulong FamilyGroupId {
+      get { if ((_hasBits0 & 131072) != 0) { return familyGroupId_; } else { return FamilyGroupIdDefaultValue; } }
+      set {
+        _hasBits0 |= 131072;
+        familyGroupId_ = value;
+      }
+    }
+    /// <summary>Gets whether the "family_group_id" field is set</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool HasFamilyGroupId {
+      get { return (_hasBits0 & 131072) != 0; }
+    }
+    /// <summary>Clears the value of the "family_group_id" field</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void ClearFamilyGroupId() {
+      _hasBits0 &= ~131072;
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -5299,6 +5327,7 @@ namespace OpenSteamworks.Protobuf {
       if (ForceClientUpdateCheck != other.ForceClientUpdateCheck) return false;
       if (AgreementSessionUrl != other.AgreementSessionUrl) return false;
       if (TokenId != other.TokenId) return false;
+      if (FamilyGroupId != other.FamilyGroupId) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -5332,6 +5361,7 @@ namespace OpenSteamworks.Protobuf {
       if (HasForceClientUpdateCheck) hash ^= ForceClientUpdateCheck.GetHashCode();
       if (HasAgreementSessionUrl) hash ^= AgreementSessionUrl.GetHashCode();
       if (HasTokenId) hash ^= TokenId.GetHashCode();
+      if (HasFamilyGroupId) hash ^= FamilyGroupId.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -5454,6 +5484,10 @@ namespace OpenSteamworks.Protobuf {
         output.WriteRawTag(240, 1);
         output.WriteUInt64(TokenId);
       }
+      if (HasFamilyGroupId) {
+        output.WriteRawTag(248, 1);
+        output.WriteUInt64(FamilyGroupId);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -5568,6 +5602,10 @@ namespace OpenSteamworks.Protobuf {
         output.WriteRawTag(240, 1);
         output.WriteUInt64(TokenId);
       }
+      if (HasFamilyGroupId) {
+        output.WriteRawTag(248, 1);
+        output.WriteUInt64(FamilyGroupId);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -5655,6 +5693,9 @@ namespace OpenSteamworks.Protobuf {
       }
       if (HasTokenId) {
         size += 2 + pb::CodedOutputStream.ComputeUInt64Size(TokenId);
+      }
+      if (HasFamilyGroupId) {
+        size += 2 + pb::CodedOutputStream.ComputeUInt64Size(FamilyGroupId);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -5748,6 +5789,9 @@ namespace OpenSteamworks.Protobuf {
       }
       if (other.HasTokenId) {
         TokenId = other.TokenId;
+      }
+      if (other.HasFamilyGroupId) {
+        FamilyGroupId = other.FamilyGroupId;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -5871,6 +5915,10 @@ namespace OpenSteamworks.Protobuf {
             TokenId = input.ReadUInt64();
             break;
           }
+          case 248: {
+            FamilyGroupId = input.ReadUInt64();
+            break;
+          }
         }
       }
     #endif
@@ -5991,6 +6039,10 @@ namespace OpenSteamworks.Protobuf {
           }
           case 240: {
             TokenId = input.ReadUInt64();
+            break;
+          }
+          case 248: {
+            FamilyGroupId = input.ReadUInt64();
             break;
           }
         }

@@ -1,6 +1,6 @@
 {
     "name": "IClientSystemDisplayManagerMap",
-    "found_at": "0x2449eac",
+    "found_at": "0x244ad6c",
     "functions": [ 
         {
             "name": "IsInterfaceValid",
@@ -10,7 +10,7 @@
             "fencepost": "907366744",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x5dd870",
+            "addr": "0x5ddf20",
             "serializedargs": [
             ],
             "serializedreturns": [
@@ -25,12 +25,12 @@
             "fencepost": "2215139135",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x5dd9d0",
+            "addr": "0x5de080",
             "serializedargs": [
             ],
             "serializedreturns": [
                 "bytes4",
-                "unknown"
+                "protobuf"
             ]
         },
         {
@@ -41,7 +41,7 @@
             "fencepost": "2185169705",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x5ddb50",
+            "addr": "0x5de200",
             "serializedargs": [
                 "protobuf"
             ],
@@ -57,7 +57,7 @@
             "fencepost": "3979734486",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x5ddce0",
+            "addr": "0x5de390",
             "serializedargs": [
                 "bytes4"
             ],
@@ -73,7 +73,7 @@
             "fencepost": "251407533",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x5dde50",
+            "addr": "0x5de500",
             "serializedargs": [
                 "bytes4"
             ],

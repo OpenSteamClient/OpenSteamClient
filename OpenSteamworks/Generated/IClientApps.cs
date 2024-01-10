@@ -40,13 +40,13 @@ public unsafe interface IClientApps
     public bool TakeUpdateLock();  // argc: 0, index: 13, ipc args: [], ipc returns: [bytes1]
     // Called by ValveSteam for each appid you own. Should we?
     [BlacklistedInCrossProcessIPC]
-    public unknown_ret GetAppKVRaw(AppId_t app, [IPCOut] byte[] pchBuffer, int cbBufferMax);  // argc: 3, index: 0, ipc args: [bytes4, bytes4, bytes4], ipc returns: [bytes1]
+    public unknown_ret GetAppKVRaw(AppId_t app, [IPCOut] byte[] pchBuffer, int cbBufferMax);  // argc: 3, index: 14, ipc args: [bytes4, bytes4, bytes4], ipc returns: [bytes1]
     /// <summary>
     /// Unlocks the app info cache.
     /// </summary>
-    public void ReleaseUpdateLock();  // argc: 0, index: 1, ipc args: [], ipc returns: []
+    public void ReleaseUpdateLock();  // argc: 0, index: 15, ipc args: [], ipc returns: []
     /// <summary>
     /// Gets the current user's AppInfoChangeNumber.
     /// </summary>
-    public uint GetLastChangeNumberReceived();  // argc: 0, index: 0, ipc args: [], ipc returns: [bytes4]
+    public uint GetLastChangeNumberReceived();  // argc: 0, index: 16, ipc args: [], ipc returns: [bytes4]
 }

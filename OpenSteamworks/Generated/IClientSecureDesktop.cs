@@ -13,6 +13,6 @@ namespace OpenSteamworks.Generated;
 public unsafe interface IClientSecureDesktop
 {
     public unknown_ret BStartStreaming();  // argc: 0, index: 1, ipc args: [], ipc returns: [boolean]
-    public unknown_ret StopStreaming();  // argc: 0, index: 0, ipc args: [], ipc returns: [unknown, unknown]
-    public unknown_ret SendSAS();  // argc: 0, index: 0, ipc args: [], ipc returns: [unknown, unknown]
+    public unknown_ret StopStreaming();  // argc: 0, index: 2, ipc args: [], ipc returns: [unknown, unknown]
+    public unknown_ret SendSAS();  // argc: 0, index: 3, ipc args: [], ipc returns: [unknown, unknown]
 }

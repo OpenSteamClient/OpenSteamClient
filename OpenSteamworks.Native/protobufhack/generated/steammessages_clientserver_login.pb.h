@@ -2255,6 +2255,7 @@ class CMsgClientLogonResponse PROTOBUF_FINAL :
     kOgsDataReportTimeWindowFieldNumber = 26,
     kClientInstanceIdFieldNumber = 27,
     kTokenIdFieldNumber = 30,
+    kFamilyGroupIdFieldNumber = 31,
     kEresultFieldNumber = 1,
   };
   // optional string email_domain = 8;
@@ -2643,6 +2644,19 @@ class CMsgClientLogonResponse PROTOBUF_FINAL :
   void _internal_set_token_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
+  // optional uint64 family_group_id = 31;
+  bool has_family_group_id() const;
+  private:
+  bool _internal_has_family_group_id() const;
+  public:
+  void clear_family_group_id();
+  ::PROTOBUF_NAMESPACE_ID::uint64 family_group_id() const;
+  void set_family_group_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_family_group_id() const;
+  void _internal_set_family_group_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
   // optional int32 eresult = 1 [default = 2];
   bool has_eresult() const;
   private:
@@ -2690,6 +2704,7 @@ class CMsgClientLogonResponse PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::int32 ogs_data_report_time_window_;
   ::PROTOBUF_NAMESPACE_ID::uint64 client_instance_id_;
   ::PROTOBUF_NAMESPACE_ID::uint64 token_id_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 family_group_id_;
   ::PROTOBUF_NAMESPACE_ID::int32 eresult_;
   friend struct ::TableStruct_steammessages_5fclientserver_5flogin_2eproto;
 };
@@ -7358,7 +7373,7 @@ inline void CMsgClientLogon::set_is_tesla(bool value) {
 
 // optional int32 eresult = 1 [default = 2];
 inline bool CMsgClientLogonResponse::_internal_has_eresult() const {
-  bool value = (_has_bits_[0] & 0x02000000u) != 0;
+  bool value = (_has_bits_[0] & 0x04000000u) != 0;
   return value;
 }
 inline bool CMsgClientLogonResponse::has_eresult() const {
@@ -7366,7 +7381,7 @@ inline bool CMsgClientLogonResponse::has_eresult() const {
 }
 inline void CMsgClientLogonResponse::clear_eresult() {
   eresult_ = 2;
-  _has_bits_[0] &= ~0x02000000u;
+  _has_bits_[0] &= ~0x04000000u;
 }
 inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgClientLogonResponse::_internal_eresult() const {
   return eresult_;
@@ -7376,7 +7391,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 CMsgClientLogonResponse::eresult() const {
   return _internal_eresult();
 }
 inline void CMsgClientLogonResponse::_internal_set_eresult(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _has_bits_[0] |= 0x02000000u;
+  _has_bits_[0] |= 0x04000000u;
   eresult_ = value;
 }
 inline void CMsgClientLogonResponse::set_eresult(::PROTOBUF_NAMESPACE_ID::int32 value) {
@@ -8493,6 +8508,34 @@ inline void CMsgClientLogonResponse::_internal_set_token_id(::PROTOBUF_NAMESPACE
 inline void CMsgClientLogonResponse::set_token_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
   _internal_set_token_id(value);
   // @@protoc_insertion_point(field_set:CMsgClientLogonResponse.token_id)
+}
+
+// optional uint64 family_group_id = 31;
+inline bool CMsgClientLogonResponse::_internal_has_family_group_id() const {
+  bool value = (_has_bits_[0] & 0x02000000u) != 0;
+  return value;
+}
+inline bool CMsgClientLogonResponse::has_family_group_id() const {
+  return _internal_has_family_group_id();
+}
+inline void CMsgClientLogonResponse::clear_family_group_id() {
+  family_group_id_ = PROTOBUF_ULONGLONG(0);
+  _has_bits_[0] &= ~0x02000000u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgClientLogonResponse::_internal_family_group_id() const {
+  return family_group_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 CMsgClientLogonResponse::family_group_id() const {
+  // @@protoc_insertion_point(field_get:CMsgClientLogonResponse.family_group_id)
+  return _internal_family_group_id();
+}
+inline void CMsgClientLogonResponse::_internal_set_family_group_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _has_bits_[0] |= 0x02000000u;
+  family_group_id_ = value;
+}
+inline void CMsgClientLogonResponse::set_family_group_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_family_group_id(value);
+  // @@protoc_insertion_point(field_set:CMsgClientLogonResponse.family_group_id)
 }
 
 // -------------------------------------------------------------------

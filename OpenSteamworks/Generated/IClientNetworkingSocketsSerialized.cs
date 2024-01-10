@@ -18,20 +18,20 @@ public unsafe interface IClientNetworkingSocketsSerialized
     public unknown_ret SendP2PConnectionFailureLegacy();  // argc: 5, index: 2, ipc args: [uint64, bytes4, bytes4, string], ipc returns: []
     public unknown_ret GetCertAsync();  // argc: 0, index: 3, ipc args: [], ipc returns: [bytes8]
     // WARNING: Arguments are unknown!
-    public unknown_ret CacheRelayTicket();  // argc: 2, index: 0, ipc args: [bytes4, bytes_length_from_mem], ipc returns: []
-    public unknown_ret GetCachedRelayTicketCount();  // argc: 0, index: 1, ipc args: [], ipc returns: [bytes4]
+    public unknown_ret CacheRelayTicket();  // argc: 2, index: 4, ipc args: [bytes4, bytes_length_from_mem], ipc returns: []
+    public unknown_ret GetCachedRelayTicketCount();  // argc: 0, index: 5, ipc args: [], ipc returns: [bytes4]
     // WARNING: Arguments are unknown!
-    public unknown_ret GetCachedRelayTicket();  // argc: 3, index: 0, ipc args: [bytes4, bytes4], ipc returns: [bytes4, bytes_length_from_mem]
+    public unknown_ret GetCachedRelayTicket();  // argc: 3, index: 6, ipc args: [bytes4, bytes4], ipc returns: [bytes4, bytes_length_from_mem]
     // WARNING: Arguments are unknown!
-    public unknown_ret GetSTUNServer();  // argc: 3, index: 1, ipc args: [bytes4, bytes4], ipc returns: [bytes1, bytes_length_from_mem]
+    public unknown_ret GetSTUNServer();  // argc: 3, index: 7, ipc args: [bytes4, bytes4], ipc returns: [bytes1, bytes_length_from_mem]
     // WARNING: Arguments are unknown!
-    public unknown_ret AllowDirectConnectToPeerString(bool unk1);  // argc: 1, index: 2, ipc args: [string], ipc returns: [bytes4]
+    public unknown_ret AllowDirectConnectToPeerString(bool unk1);  // argc: 1, index: 8, ipc args: [string], ipc returns: [bytes4]
     // WARNING: Arguments are unknown!
-    public unknown_ret BeginAsyncRequestFakeIP();  // argc: 1, index: 3, ipc args: [bytes4], ipc returns: [bytes8]
+    public unknown_ret BeginAsyncRequestFakeIP();  // argc: 1, index: 9, ipc args: [bytes4], ipc returns: [bytes8]
     // WARNING: Arguments are unknown!
-    public unknown_ret AllowDirectConnectToPeerString(double unk1, bool unk2);  // argc: 1, index: 4, ipc args: [string], ipc returns: [unknown, bytes4]
+    public unknown_ret AllowDirectConnectToPeerString(double unk1, bool unk2);  // argc: 1, index: 10, ipc args: [string], ipc returns: [unknown, bytes4]
     // WARNING: Arguments are unknown!
-    public unknown_ret SetAllowShareIPUserSetting();  // argc: 1, index: 5, ipc args: [bytes4], ipc returns: []
-    public unknown_ret GetAllowShareIPUserSetting();  // argc: 0, index: 6, ipc args: [], ipc returns: [bytes4]
-    public unknown_ret TEST_ClearInMemoryCachedCredentials();  // argc: 0, index: 0, ipc args: [], ipc returns: []
+    public unknown_ret SetAllowShareIPUserSetting();  // argc: 1, index: 11, ipc args: [bytes4], ipc returns: []
+    public unknown_ret GetAllowShareIPUserSetting();  // argc: 0, index: 12, ipc args: [], ipc returns: [bytes4]
+    public unknown_ret TEST_ClearInMemoryCachedCredentials();  // argc: 0, index: 13, ipc args: [], ipc returns: []
 }

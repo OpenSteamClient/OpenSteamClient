@@ -1,6 +1,6 @@
 {
     "name": "IClientGameNotificationsMap",
-    "found_at": "0x244ab8c",
+    "found_at": "0x244ba4c",
     "functions": [ 
         {
             "name": "EnumerateNotifications",
@@ -10,7 +10,7 @@
             "fencepost": "1462226942",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x62a520",
+            "addr": "0x62abd0",
             "serializedargs": [
                 "bytes4"
             ],
@@ -26,7 +26,7 @@
             "fencepost": "3059566672",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x62a6b0",
+            "addr": "0x62ad60",
             "serializedargs": [
                 "bytes4"
             ],
@@ -42,7 +42,7 @@
             "fencepost": "2242496001",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x62a820",
+            "addr": "0x62aed0",
             "serializedargs": [
                 "bytes4",
                 "bytes4"
@@ -60,7 +60,7 @@
             "fencepost": "1504751053",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x62a9d0",
+            "addr": "0x62b080",
             "serializedargs": [
                 "bytes4",
                 "bytes8"
@@ -76,7 +76,7 @@
             "fencepost": "225924426",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x62ab40",
+            "addr": "0x62b1f0",
             "serializedargs": [
                 "bytes4",
                 "bytes8"

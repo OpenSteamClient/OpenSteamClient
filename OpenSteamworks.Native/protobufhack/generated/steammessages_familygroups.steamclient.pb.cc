@@ -43,7 +43,8 @@ struct CFamilyGroups_CreateFamilyGroup_ResponseDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CFamilyGroups_CreateFamilyGroup_ResponseDefaultTypeInternal _CFamilyGroups_CreateFamilyGroup_Response_default_instance_;
 constexpr CFamilyGroups_GetFamilyGroup_Request::CFamilyGroups_GetFamilyGroup_Request(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : family_groupid_(PROTOBUF_ULONGLONG(0)){}
+  : family_groupid_(PROTOBUF_ULONGLONG(0))
+  , send_running_apps_(false){}
 struct CFamilyGroups_GetFamilyGroup_RequestDefaultTypeInternal {
   constexpr CFamilyGroups_GetFamilyGroup_RequestDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -582,46 +583,46 @@ struct CFamilyGroups_GetSharedLibraryApps_ResponseDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CFamilyGroups_GetSharedLibraryApps_ResponseDefaultTypeInternal _CFamilyGroups_GetSharedLibraryApps_Response_default_instance_;
-constexpr CFamilyGroupsClient_GroupStatus_Notification_PlayingMember::CFamilyGroupsClient_GroupStatus_Notification_PlayingMember(
+constexpr CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember::CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : member_steamid_(PROTOBUF_ULONGLONG(0))
   , owner_steamid_(PROTOBUF_ULONGLONG(0)){}
-struct CFamilyGroupsClient_GroupStatus_Notification_PlayingMemberDefaultTypeInternal {
-  constexpr CFamilyGroupsClient_GroupStatus_Notification_PlayingMemberDefaultTypeInternal()
+struct CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMemberDefaultTypeInternal {
+  constexpr CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMemberDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~CFamilyGroupsClient_GroupStatus_Notification_PlayingMemberDefaultTypeInternal() {}
+  ~CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMemberDefaultTypeInternal() {}
   union {
-    CFamilyGroupsClient_GroupStatus_Notification_PlayingMember _instance;
+    CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CFamilyGroupsClient_GroupStatus_Notification_PlayingMemberDefaultTypeInternal _CFamilyGroupsClient_GroupStatus_Notification_PlayingMember_default_instance_;
-constexpr CFamilyGroupsClient_GroupStatus_Notification_RunningApp::CFamilyGroupsClient_GroupStatus_Notification_RunningApp(
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMemberDefaultTypeInternal _CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember_default_instance_;
+constexpr CFamilyGroupsClient_NotifyRunningApps_Notification_RunningApp::CFamilyGroupsClient_NotifyRunningApps_Notification_RunningApp(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : playing_members_()
   , appid_(0u)
   , is_locked_(false){}
-struct CFamilyGroupsClient_GroupStatus_Notification_RunningAppDefaultTypeInternal {
-  constexpr CFamilyGroupsClient_GroupStatus_Notification_RunningAppDefaultTypeInternal()
+struct CFamilyGroupsClient_NotifyRunningApps_Notification_RunningAppDefaultTypeInternal {
+  constexpr CFamilyGroupsClient_NotifyRunningApps_Notification_RunningAppDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~CFamilyGroupsClient_GroupStatus_Notification_RunningAppDefaultTypeInternal() {}
+  ~CFamilyGroupsClient_NotifyRunningApps_Notification_RunningAppDefaultTypeInternal() {}
   union {
-    CFamilyGroupsClient_GroupStatus_Notification_RunningApp _instance;
+    CFamilyGroupsClient_NotifyRunningApps_Notification_RunningApp _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CFamilyGroupsClient_GroupStatus_Notification_RunningAppDefaultTypeInternal _CFamilyGroupsClient_GroupStatus_Notification_RunningApp_default_instance_;
-constexpr CFamilyGroupsClient_GroupStatus_Notification::CFamilyGroupsClient_GroupStatus_Notification(
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CFamilyGroupsClient_NotifyRunningApps_Notification_RunningAppDefaultTypeInternal _CFamilyGroupsClient_NotifyRunningApps_Notification_RunningApp_default_instance_;
+constexpr CFamilyGroupsClient_NotifyRunningApps_Notification::CFamilyGroupsClient_NotifyRunningApps_Notification(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : running_apps_()
   , family_groupid_(PROTOBUF_ULONGLONG(0)){}
-struct CFamilyGroupsClient_GroupStatus_NotificationDefaultTypeInternal {
-  constexpr CFamilyGroupsClient_GroupStatus_NotificationDefaultTypeInternal()
+struct CFamilyGroupsClient_NotifyRunningApps_NotificationDefaultTypeInternal {
+  constexpr CFamilyGroupsClient_NotifyRunningApps_NotificationDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~CFamilyGroupsClient_GroupStatus_NotificationDefaultTypeInternal() {}
+  ~CFamilyGroupsClient_NotifyRunningApps_NotificationDefaultTypeInternal() {}
   union {
-    CFamilyGroupsClient_GroupStatus_Notification _instance;
+    CFamilyGroupsClient_NotifyRunningApps_Notification _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CFamilyGroupsClient_GroupStatus_NotificationDefaultTypeInternal _CFamilyGroupsClient_GroupStatus_Notification_default_instance_;
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CFamilyGroupsClient_NotifyRunningApps_NotificationDefaultTypeInternal _CFamilyGroupsClient_NotifyRunningApps_Notification_default_instance_;
 constexpr CFamilyGroupsClient_InviteStatus_Notification::CFamilyGroupsClient_InviteStatus_Notification(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized){}
 struct CFamilyGroupsClient_InviteStatus_NotificationDefaultTypeInternal {
@@ -633,7 +634,19 @@ struct CFamilyGroupsClient_InviteStatus_NotificationDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CFamilyGroupsClient_InviteStatus_NotificationDefaultTypeInternal _CFamilyGroupsClient_InviteStatus_Notification_default_instance_;
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_steammessages_5ffamilygroups_2esteamclient_2eproto[46];
+constexpr CFamilyGroupsClient_GroupChanged_Notification::CFamilyGroupsClient_GroupChanged_Notification(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : family_groupid_(PROTOBUF_ULONGLONG(0)){}
+struct CFamilyGroupsClient_GroupChanged_NotificationDefaultTypeInternal {
+  constexpr CFamilyGroupsClient_GroupChanged_NotificationDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~CFamilyGroupsClient_GroupChanged_NotificationDefaultTypeInternal() {}
+  union {
+    CFamilyGroupsClient_GroupChanged_Notification _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT CFamilyGroupsClient_GroupChanged_NotificationDefaultTypeInternal _CFamilyGroupsClient_GroupChanged_Notification_default_instance_;
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_steammessages_5ffamilygroups_2esteamclient_2eproto[47];
 static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_steammessages_5ffamilygroups_2esteamclient_2eproto[4];
 static const ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor* file_level_service_descriptors_steammessages_5ffamilygroups_2esteamclient_2eproto[2];
 
@@ -660,7 +673,9 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5ffamilygroups_2
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::CFamilyGroups_GetFamilyGroup_Request, family_groupid_),
+  PROTOBUF_FIELD_OFFSET(::CFamilyGroups_GetFamilyGroup_Request, send_running_apps_),
   0,
+  1,
   PROTOBUF_FIELD_OFFSET(::FamilyGroupMember, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::FamilyGroupMember, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1035,33 +1050,33 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5ffamilygroups_2
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::CFamilyGroups_GetSharedLibraryApps_Response, apps_),
-  PROTOBUF_FIELD_OFFSET(::CFamilyGroupsClient_GroupStatus_Notification_PlayingMember, _has_bits_),
-  PROTOBUF_FIELD_OFFSET(::CFamilyGroupsClient_GroupStatus_Notification_PlayingMember, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::CFamilyGroupsClient_GroupStatus_Notification_PlayingMember, member_steamid_),
-  PROTOBUF_FIELD_OFFSET(::CFamilyGroupsClient_GroupStatus_Notification_PlayingMember, owner_steamid_),
+  PROTOBUF_FIELD_OFFSET(::CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember, member_steamid_),
+  PROTOBUF_FIELD_OFFSET(::CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember, owner_steamid_),
   0,
   1,
-  PROTOBUF_FIELD_OFFSET(::CFamilyGroupsClient_GroupStatus_Notification_RunningApp, _has_bits_),
-  PROTOBUF_FIELD_OFFSET(::CFamilyGroupsClient_GroupStatus_Notification_RunningApp, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::CFamilyGroupsClient_NotifyRunningApps_Notification_RunningApp, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CFamilyGroupsClient_NotifyRunningApps_Notification_RunningApp, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::CFamilyGroupsClient_GroupStatus_Notification_RunningApp, appid_),
-  PROTOBUF_FIELD_OFFSET(::CFamilyGroupsClient_GroupStatus_Notification_RunningApp, is_locked_),
-  PROTOBUF_FIELD_OFFSET(::CFamilyGroupsClient_GroupStatus_Notification_RunningApp, playing_members_),
+  PROTOBUF_FIELD_OFFSET(::CFamilyGroupsClient_NotifyRunningApps_Notification_RunningApp, appid_),
+  PROTOBUF_FIELD_OFFSET(::CFamilyGroupsClient_NotifyRunningApps_Notification_RunningApp, is_locked_),
+  PROTOBUF_FIELD_OFFSET(::CFamilyGroupsClient_NotifyRunningApps_Notification_RunningApp, playing_members_),
   0,
   1,
   ~0u,
-  PROTOBUF_FIELD_OFFSET(::CFamilyGroupsClient_GroupStatus_Notification, _has_bits_),
-  PROTOBUF_FIELD_OFFSET(::CFamilyGroupsClient_GroupStatus_Notification, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::CFamilyGroupsClient_NotifyRunningApps_Notification, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CFamilyGroupsClient_NotifyRunningApps_Notification, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::CFamilyGroupsClient_GroupStatus_Notification, family_groupid_),
-  PROTOBUF_FIELD_OFFSET(::CFamilyGroupsClient_GroupStatus_Notification, running_apps_),
+  PROTOBUF_FIELD_OFFSET(::CFamilyGroupsClient_NotifyRunningApps_Notification, family_groupid_),
+  PROTOBUF_FIELD_OFFSET(::CFamilyGroupsClient_NotifyRunningApps_Notification, running_apps_),
   0,
   ~0u,
   ~0u,  // no _has_bits_
@@ -1069,54 +1084,62 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_steammessages_5ffamilygroups_2
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::CFamilyGroupsClient_GroupChanged_Notification, _has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CFamilyGroupsClient_GroupChanged_Notification, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::CFamilyGroupsClient_GroupChanged_Notification, family_groupid_),
+  0,
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, 7, sizeof(::CFamilyGroups_CreateFamilyGroup_Request)},
   { 9, 15, sizeof(::CFamilyGroups_CreateFamilyGroup_Response)},
-  { 16, 22, sizeof(::CFamilyGroups_GetFamilyGroup_Request)},
-  { 23, 31, sizeof(::FamilyGroupMember)},
-  { 34, 41, sizeof(::FamilyGroupPendingInvite)},
-  { 43, 49, sizeof(::FamilyGroupFormerMember)},
-  { 50, 63, sizeof(::CFamilyGroups_GetFamilyGroup_Response)},
-  { 71, 77, sizeof(::CFamilyGroups_GetFamilyGroupForUser_Request)},
-  { 78, 86, sizeof(::FamilyGroupPendingInviteForUser)},
-  { 89, 101, sizeof(::CFamilyGroups_GetFamilyGroupForUser_Response)},
-  { 108, 115, sizeof(::CFamilyGroups_ModifyFamilyGroupDetails_Request)},
-  { 117, -1, sizeof(::CFamilyGroups_ModifyFamilyGroupDetails_Response)},
-  { 122, 130, sizeof(::CFamilyGroups_InviteToFamilyGroup_Request)},
-  { 133, -1, sizeof(::CFamilyGroups_InviteToFamilyGroup_Response)},
-  { 138, 144, sizeof(::CFamilyGroups_JoinFamilyGroup_Request)},
-  { 145, -1, sizeof(::CFamilyGroups_JoinFamilyGroup_Response)},
-  { 150, 157, sizeof(::CFamilyGroups_RemoveFromFamilyGroup_Request)},
-  { 159, -1, sizeof(::CFamilyGroups_RemoveFromFamilyGroup_Response)},
-  { 164, 171, sizeof(::CFamilyGroups_CancelFamilyGroupInvite_Request)},
-  { 173, -1, sizeof(::CFamilyGroups_CancelFamilyGroupInvite_Response)},
-  { 178, 185, sizeof(::CFamilyGroups_GetUsersSharingDevice_Request)},
-  { 187, -1, sizeof(::CFamilyGroups_GetUsersSharingDevice_Response)},
-  { 193, 199, sizeof(::CFamilyGroups_DeleteFamilyGroup_Request)},
-  { 200, -1, sizeof(::CFamilyGroups_DeleteFamilyGroup_Response)},
-  { 205, 211, sizeof(::CFamilyGroups_GetPlaytimeSummary_Request)},
-  { 212, 222, sizeof(::CFamilyGroups_PlaytimeEntry)},
-  { 227, -1, sizeof(::CFamilyGroups_GetPlaytimeSummary_Response)},
-  { 233, 242, sizeof(::CFamilyGroups_RequestPurchase_Request)},
-  { 246, 253, sizeof(::CFamilyGroups_RequestPurchase_Response)},
-  { 255, 262, sizeof(::CFamilyGroups_GetPurchaseRequests_Request)},
-  { 264, 277, sizeof(::PurchaseRequest)},
-  { 285, -1, sizeof(::CFamilyGroups_GetPurchaseRequests_Response)},
-  { 291, 300, sizeof(::CFamilyGroups_RespondToRequestedPurchase_Request)},
-  { 304, -1, sizeof(::CFamilyGroups_RespondToRequestedPurchase_Response)},
-  { 309, 315, sizeof(::CFamilyGroups_GetChangeLog_Request)},
-  { 316, 326, sizeof(::CFamilyGroups_GetChangeLog_Response_Change)},
-  { 331, -1, sizeof(::CFamilyGroups_GetChangeLog_Response)},
-  { 337, 344, sizeof(::CFamilyGroups_SetFamilyCooldownOverrides_Request)},
-  { 346, -1, sizeof(::CFamilyGroups_SetFamilyCooldownOverrides_Response)},
-  { 351, 362, sizeof(::CFamilyGroups_GetSharedLibraryApps_Request)},
-  { 368, 382, sizeof(::CFamilyGroups_GetSharedLibraryApps_Response_SharedApp)},
-  { 391, -1, sizeof(::CFamilyGroups_GetSharedLibraryApps_Response)},
-  { 397, 404, sizeof(::CFamilyGroupsClient_GroupStatus_Notification_PlayingMember)},
-  { 406, 414, sizeof(::CFamilyGroupsClient_GroupStatus_Notification_RunningApp)},
-  { 417, 424, sizeof(::CFamilyGroupsClient_GroupStatus_Notification)},
-  { 426, -1, sizeof(::CFamilyGroupsClient_InviteStatus_Notification)},
+  { 16, 23, sizeof(::CFamilyGroups_GetFamilyGroup_Request)},
+  { 25, 33, sizeof(::FamilyGroupMember)},
+  { 36, 43, sizeof(::FamilyGroupPendingInvite)},
+  { 45, 51, sizeof(::FamilyGroupFormerMember)},
+  { 52, 65, sizeof(::CFamilyGroups_GetFamilyGroup_Response)},
+  { 73, 79, sizeof(::CFamilyGroups_GetFamilyGroupForUser_Request)},
+  { 80, 88, sizeof(::FamilyGroupPendingInviteForUser)},
+  { 91, 103, sizeof(::CFamilyGroups_GetFamilyGroupForUser_Response)},
+  { 110, 117, sizeof(::CFamilyGroups_ModifyFamilyGroupDetails_Request)},
+  { 119, -1, sizeof(::CFamilyGroups_ModifyFamilyGroupDetails_Response)},
+  { 124, 132, sizeof(::CFamilyGroups_InviteToFamilyGroup_Request)},
+  { 135, -1, sizeof(::CFamilyGroups_InviteToFamilyGroup_Response)},
+  { 140, 146, sizeof(::CFamilyGroups_JoinFamilyGroup_Request)},
+  { 147, -1, sizeof(::CFamilyGroups_JoinFamilyGroup_Response)},
+  { 152, 159, sizeof(::CFamilyGroups_RemoveFromFamilyGroup_Request)},
+  { 161, -1, sizeof(::CFamilyGroups_RemoveFromFamilyGroup_Response)},
+  { 166, 173, sizeof(::CFamilyGroups_CancelFamilyGroupInvite_Request)},
+  { 175, -1, sizeof(::CFamilyGroups_CancelFamilyGroupInvite_Response)},
+  { 180, 187, sizeof(::CFamilyGroups_GetUsersSharingDevice_Request)},
+  { 189, -1, sizeof(::CFamilyGroups_GetUsersSharingDevice_Response)},
+  { 195, 201, sizeof(::CFamilyGroups_DeleteFamilyGroup_Request)},
+  { 202, -1, sizeof(::CFamilyGroups_DeleteFamilyGroup_Response)},
+  { 207, 213, sizeof(::CFamilyGroups_GetPlaytimeSummary_Request)},
+  { 214, 224, sizeof(::CFamilyGroups_PlaytimeEntry)},
+  { 229, -1, sizeof(::CFamilyGroups_GetPlaytimeSummary_Response)},
+  { 235, 244, sizeof(::CFamilyGroups_RequestPurchase_Request)},
+  { 248, 255, sizeof(::CFamilyGroups_RequestPurchase_Response)},
+  { 257, 264, sizeof(::CFamilyGroups_GetPurchaseRequests_Request)},
+  { 266, 279, sizeof(::PurchaseRequest)},
+  { 287, -1, sizeof(::CFamilyGroups_GetPurchaseRequests_Response)},
+  { 293, 302, sizeof(::CFamilyGroups_RespondToRequestedPurchase_Request)},
+  { 306, -1, sizeof(::CFamilyGroups_RespondToRequestedPurchase_Response)},
+  { 311, 317, sizeof(::CFamilyGroups_GetChangeLog_Request)},
+  { 318, 328, sizeof(::CFamilyGroups_GetChangeLog_Response_Change)},
+  { 333, -1, sizeof(::CFamilyGroups_GetChangeLog_Response)},
+  { 339, 346, sizeof(::CFamilyGroups_SetFamilyCooldownOverrides_Request)},
+  { 348, -1, sizeof(::CFamilyGroups_SetFamilyCooldownOverrides_Response)},
+  { 353, 364, sizeof(::CFamilyGroups_GetSharedLibraryApps_Request)},
+  { 370, 384, sizeof(::CFamilyGroups_GetSharedLibraryApps_Response_SharedApp)},
+  { 393, -1, sizeof(::CFamilyGroups_GetSharedLibraryApps_Response)},
+  { 399, 406, sizeof(::CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember)},
+  { 408, 416, sizeof(::CFamilyGroupsClient_NotifyRunningApps_Notification_RunningApp)},
+  { 419, 426, sizeof(::CFamilyGroupsClient_NotifyRunningApps_Notification)},
+  { 428, -1, sizeof(::CFamilyGroupsClient_InviteStatus_Notification)},
+  { 433, 439, sizeof(::CFamilyGroupsClient_GroupChanged_Notification)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -1162,10 +1185,11 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CFamilyGroups_GetSharedLibraryApps_Request_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CFamilyGroups_GetSharedLibraryApps_Response_SharedApp_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CFamilyGroups_GetSharedLibraryApps_Response_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CFamilyGroupsClient_GroupStatus_Notification_PlayingMember_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CFamilyGroupsClient_GroupStatus_Notification_RunningApp_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CFamilyGroupsClient_GroupStatus_Notification_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CFamilyGroupsClient_NotifyRunningApps_Notification_RunningApp_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CFamilyGroupsClient_NotifyRunningApps_Notification_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CFamilyGroupsClient_InviteStatus_Notification_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_CFamilyGroupsClient_GroupChanged_Notification_default_instance_),
 };
 
 const char descriptor_table_protodef_steammessages_5ffamilygroups_2esteamclient_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -1176,209 +1200,215 @@ const char descriptor_table_protodef_steammessages_5ffamilygroups_2esteamclient_
   "ilyGroups_CreateFamilyGroup_Request\022\014\n\004n"
   "ame\030\001 \001(\t\022\017\n\007steamid\030\002 \001(\006\"B\n(CFamilyGro"
   "ups_CreateFamilyGroup_Response\022\026\n\016family"
-  "_groupid\030\001 \001(\004\">\n$CFamilyGroups_GetFamil"
-  "yGroup_Request\022\026\n\016family_groupid\030\001 \001(\004\"q"
-  "\n\021FamilyGroupMember\022\017\n\007steamid\030\001 \001(\006\0226\n\004"
-  "role\030\002 \001(\0162\021.EFamilyGroupRole:\025EFamilyGr"
-  "oupRole_None\022\023\n\013time_joined\030\003 \001(\r\"c\n\030Fam"
-  "ilyGroupPendingInvite\022\017\n\007steamid\030\001 \001(\006\0226"
-  "\n\004role\030\002 \001(\0162\021.EFamilyGroupRole:\025EFamily"
-  "GroupRole_None\"*\n\027FamilyGroupFormerMembe"
-  "r\022\017\n\007steamid\030\001 \001(\006\"\257\002\n%CFamilyGroups_Get"
-  "FamilyGroup_Response\022\014\n\004name\030\001 \001(\t\022#\n\007me"
-  "mbers\030\002 \003(\0132\022.FamilyGroupMember\0222\n\017pendi"
-  "ng_invites\030\003 \003(\0132\031.FamilyGroupPendingInv"
-  "ite\022\022\n\nfree_spots\030\004 \001(\r\022\017\n\007country\030\005 \001(\t"
-  "\022\'\n\037slot_cooldown_remaining_seconds\030\006 \001("
-  "\r\0220\n\016former_members\030\007 \003(\0132\030.FamilyGroupF"
-  "ormerMember\022\037\n\027slot_cooldown_overrides\030\010"
-  " \001(\r\">\n+CFamilyGroups_GetFamilyGroupForU"
-  "ser_Request\022\017\n\007steamid\030\001 \001(\004\"\212\001\n\037FamilyG"
-  "roupPendingInviteForUser\022\026\n\016family_group"
-  "id\030\001 \001(\004\0226\n\004role\030\002 \001(\0162\021.EFamilyGroupRol"
-  "e:\025EFamilyGroupRole_None\022\027\n\017inviter_stea"
-  "mid\030\003 \001(\006\"\237\002\n,CFamilyGroups_GetFamilyGro"
-  "upForUser_Response\022\026\n\016family_groupid\030\001 \001"
-  "(\004\022\"\n\032is_not_member_of_any_group\030\002 \001(\010\022\032"
-  "\n\022latest_time_joined\030\003 \001(\r\022$\n\034latest_joi"
-  "ned_family_groupid\030\004 \001(\004\022\?\n\025pending_grou"
-  "p_invites\030\005 \003(\0132 .FamilyGroupPendingInvi"
-  "teForUser\022\014\n\004role\030\006 \001(\r\022\"\n\032cooldown_seco"
-  "nds_remaining\030\007 \001(\r\"V\n.CFamilyGroups_Mod"
-  "ifyFamilyGroupDetails_Request\022\026\n\016family_"
-  "groupid\030\001 \001(\004\022\014\n\004name\030\002 \001(\t\"1\n/CFamilyGr"
-  "oups_ModifyFamilyGroupDetails_Response\"\236"
-  "\001\n)CFamilyGroups_InviteToFamilyGroup_Req"
-  "uest\022\026\n\016family_groupid\030\001 \001(\004\022\030\n\020receiver"
-  "_steamid\030\002 \001(\006\022\?\n\rreceiver_role\030\003 \001(\0162\021."
-  "EFamilyGroupRole:\025EFamilyGroupRole_None\""
-  ",\n*CFamilyGroups_InviteToFamilyGroup_Res"
-  "ponse\"\?\n%CFamilyGroups_JoinFamilyGroup_R"
-  "equest\022\026\n\016family_groupid\030\001 \001(\004\"(\n&CFamil"
-  "yGroups_JoinFamilyGroup_Response\"`\n+CFam"
-  "ilyGroups_RemoveFromFamilyGroup_Request\022"
-  "\026\n\016family_groupid\030\001 \001(\004\022\031\n\021steamid_to_re"
-  "move\030\002 \001(\006\".\n,CFamilyGroups_RemoveFromFa"
-  "milyGroup_Response\"b\n-CFamilyGroups_Canc"
-  "elFamilyGroupInvite_Request\022\026\n\016family_gr"
-  "oupid\030\001 \001(\004\022\031\n\021steamid_to_cancel\030\002 \001(\006\"0"
-  "\n.CFamilyGroups_CancelFamilyGroupInvite_"
-  "Response\"a\n+CFamilyGroups_GetUsersSharin"
-  "gDevice_Request\022\026\n\016family_groupid\030\001 \001(\004\022"
-  "\032\n\022client_instance_id\030\002 \001(\004\"=\n,CFamilyGr"
-  "oups_GetUsersSharingDevice_Response\022\r\n\005u"
-  "sers\030\001 \003(\006\"A\n\'CFamilyGroups_DeleteFamily"
-  "Group_Request\022\026\n\016family_groupid\030\001 \001(\004\"*\n"
-  "(CFamilyGroups_DeleteFamilyGroup_Respons"
-  "e\"B\n(CFamilyGroups_GetPlaytimeSummary_Re"
-  "quest\022\026\n\016family_groupid\030\001 \001(\006\"\202\001\n\033CFamil"
-  "yGroups_PlaytimeEntry\022\017\n\007steamid\030\001 \001(\006\022\r"
-  "\n\005appid\030\002 \001(\r\022\024\n\014first_played\030\003 \001(\r\022\025\n\rl"
-  "atest_played\030\004 \001(\r\022\026\n\016seconds_played\030\005 \001"
-  "(\r\"Z\n)CFamilyGroups_GetPlaytimeSummary_R"
-  "esponse\022-\n\007entries\030\001 \003(\0132\034.CFamilyGroups"
-  "_PlaytimeEntry\"\216\001\n%CFamilyGroups_Request"
-  "Purchase_Request\022\026\n\016family_groupid\030\001 \001(\004"
-  "\022\027\n\017gidshoppingcart\030\002 \001(\004\022\032\n\022store_count"
-  "ry_code\030\003 \001(\t\022\030\n\020use_account_cart\030\004 \001(\010\""
-  "U\n&CFamilyGroups_RequestPurchase_Respons"
-  "e\022\027\n\017gidshoppingcart\030\001 \001(\004\022\022\n\nrequest_id"
-  "\030\002 \001(\004\"^\n)CFamilyGroups_GetPurchaseReque"
-  "sts_Request\022\026\n\016family_groupid\030\001 \001(\004\022\031\n\021i"
-  "nclude_completed\030\002 \001(\010\"\211\002\n\017PurchaseReque"
-  "st\022\031\n\021requester_steamid\030\001 \001(\006\022\027\n\017gidshop"
-  "pingcart\030\002 \001(\004\022\026\n\016time_requested\030\003 \001(\r\022\026"
-  "\n\016time_responded\030\004 \001(\r\022\031\n\021responder_stea"
-  "mid\030\005 \001(\006\022M\n\017response_action\030\006 \001(\0162\027.EPu"
-  "rchaseRequestAction:\033EPurchaseRequestAct"
-  "ion_None\022\024\n\014is_completed\030\007 \001(\010\022\022\n\nreques"
-  "t_id\030\010 \001(\004\"P\n*CFamilyGroups_GetPurchaseR"
-  "equests_Response\022\"\n\010requests\030\001 \003(\0132\020.Pur"
-  "chaseRequest\"\310\001\n0CFamilyGroups_RespondTo"
-  "RequestedPurchase_Request\022\026\n\016family_grou"
-  "pid\030\001 \001(\004\022\"\n\032purchase_requester_steamid\030"
-  "\002 \001(\006\022D\n\006action\030\003 \001(\0162\027.EPurchaseRequest"
-  "Action:\033EPurchaseRequestAction_None\022\022\n\nr"
-  "equest_id\030\004 \001(\004\"3\n1CFamilyGroups_Respond"
-  "ToRequestedPurchase_Response\"<\n\"CFamilyG"
-  "roups_GetChangeLog_Request\022\026\n\016family_gro"
-  "upid\030\001 \001(\004\"\367\001\n#CFamilyGroups_GetChangeLo"
-  "g_Response\022<\n\007changes\030\001 \003(\0132+.CFamilyGro"
-  "ups_GetChangeLog_Response.Change\032\221\001\n\006Cha"
-  "nge\022\021\n\ttimestamp\030\001 \001(\006\022\025\n\ractor_steamid\030"
-  "\002 \001(\006\022;\n\004type\030\003 \001(\0162\032.EFamilyGroupChange"
-  "LogType:\021InvalidChangeType\022\014\n\004body\030\004 \001(\t"
-  "\022\022\n\nby_support\030\005 \001(\010\"b\n0CFamilyGroups_Se"
-  "tFamilyCooldownOverrides_Request\022\026\n\016fami"
-  "ly_groupid\030\001 \001(\004\022\026\n\016cooldown_count\030\002 \001(\r"
-  "\"3\n1CFamilyGroups_SetFamilyCooldownOverr"
-  "ides_Response\"\255\001\n*CFamilyGroups_GetShare"
-  "dLibraryApps_Request\022\026\n\016family_groupid\030\001"
-  " \001(\006\022\023\n\013include_own\030\002 \001(\010\022\030\n\020include_exc"
-  "luded\030\003 \001(\010\022\024\n\014include_free\030\004 \001(\010\022\020\n\010lan"
-  "guage\030\005 \001(\t\022\020\n\010max_apps\030\006 \001(\r\"\362\002\n+CFamil"
-  "yGroups_GetSharedLibraryApps_Response\022D\n"
-  "\004apps\030\001 \003(\01326.CFamilyGroups_GetSharedLib"
-  "raryApps_Response.SharedApp\032\374\001\n\tSharedAp"
-  "p\022\r\n\005appid\030\001 \001(\r\022\026\n\016owner_steamids\030\002 \003(\006"
-  "\022\020\n\010free_app\030\005 \001(\010\022\014\n\004name\030\006 \001(\t\022\017\n\007sort"
-  "_as\030\007 \001(\t\022\030\n\020capsule_filename\030\010 \001(\t\022\024\n\014i"
-  "mg_icon_url\030\t \001(\t\022M\n\016exclude_reason\030\n \001("
-  "\0162\034.ESharedLibraryExcludeReason:\027EShared"
-  "Library_Included\022\030\n\020rt_time_acquired\030\013 \001"
-  "(\r\"\335\002\n,CFamilyGroupsClient_GroupStatus_N"
-  "otification\022\026\n\016family_groupid\030\001 \001(\004\022N\n\014r"
-  "unning_apps\030\002 \003(\01328.CFamilyGroupsClient_"
-  "GroupStatus_Notification.RunningApp\032>\n\rP"
-  "layingMember\022\026\n\016member_steamid\030\001 \001(\006\022\025\n\r"
-  "owner_steamid\030\002 \001(\006\032\204\001\n\nRunningApp\022\r\n\005ap"
-  "pid\030\001 \001(\r\022\021\n\tis_locked\030\002 \001(\010\022T\n\017playing_"
-  "members\030\003 \003(\0132;.CFamilyGroupsClient_Grou"
-  "pStatus_Notification.PlayingMember\"/\n-CF"
-  "amilyGroupsClient_InviteStatus_Notificat"
-  "ion*\177\n\020EFamilyGroupRole\022\031\n\025EFamilyGroupR"
-  "ole_None\020\000\022\032\n\026EFamilyGroupRole_Adult\020\001\022\032"
-  "\n\026EFamilyGroupRole_Child\020\002\022\030\n\024EFamilyGro"
-  "upRole_MAX\020\003*\354\001\n\026EPurchaseRequestAction\022"
-  "\037\n\033EPurchaseRequestAction_None\020\000\022\"\n\036EPur"
-  "chaseRequestAction_Decline\020\001\022$\n EPurchas"
-  "eRequestAction_Purchased\020\002\022$\n EPurchaseR"
-  "equestAction_Abandoned\020\003\022!\n\035EPurchaseReq"
-  "uestAction_Cancel\020\004\022\036\n\032EPurchaseRequestA"
-  "ction_MAX\020\005*\361\004\n\031EFamilyGroupChangeLogTyp"
-  "e\022\025\n\021InvalidChangeType\020\000\022\026\n\022FamilyGroupC"
-  "reated\020\001\022\027\n\023FamilyGroupModified\020\002\022\026\n\022Fam"
-  "ilyGroupDeleted\020\003\022\022\n\016AccountInvited\020\004\022\033\n"
-  "\027InviteDeniedByGroupSize\020\005\022\025\n\021JoinedFami"
-  "lyGroup\020\006\022\036\n\032JoinDeniedByRegionMismatch\020"
-  "\007\022 \n\034JoinDeniedByMissingIpAddress\020\010\022\036\n\032J"
-  "oinDeniedByFamilyCooldown\020\t\022\034\n\030JoinDenie"
-  "dByUserCooldown\020\n\022\032\n\026JoinDeniedByOtherGr"
-  "oup\020\013\022\022\n\016AccountRemoved\020\014\022\022\n\016InviteCance"
-  "led\020\r\022\025\n\021PurchaseRequested\020\016\022\033\n\027Parental"
-  "SettingsEnabled\020\017\022\034\n\030ParentalSettingsDis"
-  "abled\020\020\022\033\n\027ParentalSettingsChanged\020\021\022\"\n\036"
-  "FamilyCooldownOverridesChanged\020\022\022\033\n\027Purc"
-  "haseRequestCanceled\020\023\022\033\n\027PurchaseRequest"
-  "Approved\020\024\022\033\n\027PurchaseRequestDeclined\020\025*"
-  "\233\001\n\033ESharedLibraryExcludeReason\022\033\n\027EShar"
-  "edLibrary_Included\020\000\022\036\n\032ESharedLibrary_A"
-  "ppExcluded\020\001\022\"\n\036ESharedLibrary_LicenseEx"
-  "cluded\020\002\022\033\n\027ESharedLibrary_FreeGame\020\0032\217\017"
-  "\n\014FamilyGroups\022h\n\021CreateFamilyGroup\022(.CF"
-  "amilyGroups_CreateFamilyGroup_Request\032)."
-  "CFamilyGroups_CreateFamilyGroup_Response"
-  "\022_\n\016GetFamilyGroup\022%.CFamilyGroups_GetFa"
-  "milyGroup_Request\032&.CFamilyGroups_GetFam"
-  "ilyGroup_Response\022t\n\025GetFamilyGroupForUs"
-  "er\022,.CFamilyGroups_GetFamilyGroupForUser"
-  "_Request\032-.CFamilyGroups_GetFamilyGroupF"
-  "orUser_Response\022}\n\030ModifyFamilyGroupDeta"
-  "ils\022/.CFamilyGroups_ModifyFamilyGroupDet"
-  "ails_Request\0320.CFamilyGroups_ModifyFamil"
-  "yGroupDetails_Response\022n\n\023InviteToFamily"
-  "Group\022*.CFamilyGroups_InviteToFamilyGrou"
-  "p_Request\032+.CFamilyGroups_InviteToFamily"
-  "Group_Response\022b\n\017JoinFamilyGroup\022&.CFam"
-  "ilyGroups_JoinFamilyGroup_Request\032\'.CFam"
-  "ilyGroups_JoinFamilyGroup_Response\022t\n\025Re"
-  "moveFromFamilyGroup\022,.CFamilyGroups_Remo"
-  "veFromFamilyGroup_Request\032-.CFamilyGroup"
-  "s_RemoveFromFamilyGroup_Response\022z\n\027Canc"
-  "elFamilyGroupInvite\022..CFamilyGroups_Canc"
-  "elFamilyGroupInvite_Request\032/.CFamilyGro"
-  "ups_CancelFamilyGroupInvite_Response\022t\n\025"
-  "GetUsersSharingDevice\022,.CFamilyGroups_Ge"
-  "tUsersSharingDevice_Request\032-.CFamilyGro"
-  "ups_GetUsersSharingDevice_Response\022h\n\021De"
-  "leteFamilyGroup\022(.CFamilyGroups_DeleteFa"
-  "milyGroup_Request\032).CFamilyGroups_Delete"
-  "FamilyGroup_Response\022k\n\022GetPlaytimeSumma"
-  "ry\022).CFamilyGroups_GetPlaytimeSummary_Re"
-  "quest\032*.CFamilyGroups_GetPlaytimeSummary"
-  "_Response\022b\n\017RequestPurchase\022&.CFamilyGr"
-  "oups_RequestPurchase_Request\032\'.CFamilyGr"
-  "oups_RequestPurchase_Response\022n\n\023GetPurc"
-  "haseRequests\022*.CFamilyGroups_GetPurchase"
-  "Requests_Request\032+.CFamilyGroups_GetPurc"
-  "haseRequests_Response\022\203\001\n\032RespondToReque"
-  "stedPurchase\0221.CFamilyGroups_RespondToRe"
-  "questedPurchase_Request\0322.CFamilyGroups_"
-  "RespondToRequestedPurchase_Response\022Y\n\014G"
-  "etChangeLog\022#.CFamilyGroups_GetChangeLog"
-  "_Request\032$.CFamilyGroups_GetChangeLog_Re"
-  "sponse\022\203\001\n\032SetFamilyCooldownOverrides\0221."
-  "CFamilyGroups_SetFamilyCooldownOverrides"
-  "_Request\0322.CFamilyGroups_SetFamilyCooldo"
-  "wnOverrides_Response\022q\n\024GetSharedLibrary"
-  "Apps\022+.CFamilyGroups_GetSharedLibraryApp"
-  "s_Request\032,.CFamilyGroups_GetSharedLibra"
-  "ryApps_Response2\276\001\n\022FamilyGroupsClient\022O"
-  "\n\021NotifyGroupStatus\022-.CFamilyGroupsClien"
-  "t_GroupStatus_Notification\032\013.NoResponse\022"
-  "Q\n\022NotifyInviteStatus\022..CFamilyGroupsCli"
-  "ent_InviteStatus_Notification\032\013.NoRespon"
-  "se\032\004\300\265\030\002B\035\200\001\001\252\002\027OpenSteamworks.Protobuf"
+  "_groupid\030\001 \001(\004\"Y\n$CFamilyGroups_GetFamil"
+  "yGroup_Request\022\026\n\016family_groupid\030\001 \001(\004\022\031"
+  "\n\021send_running_apps\030\002 \001(\010\"q\n\021FamilyGroup"
+  "Member\022\017\n\007steamid\030\001 \001(\006\0226\n\004role\030\002 \001(\0162\021."
+  "EFamilyGroupRole:\025EFamilyGroupRole_None\022"
+  "\023\n\013time_joined\030\003 \001(\r\"c\n\030FamilyGroupPendi"
+  "ngInvite\022\017\n\007steamid\030\001 \001(\006\0226\n\004role\030\002 \001(\0162"
+  "\021.EFamilyGroupRole:\025EFamilyGroupRole_Non"
+  "e\"*\n\027FamilyGroupFormerMember\022\017\n\007steamid\030"
+  "\001 \001(\006\"\257\002\n%CFamilyGroups_GetFamilyGroup_R"
+  "esponse\022\014\n\004name\030\001 \001(\t\022#\n\007members\030\002 \003(\0132\022"
+  ".FamilyGroupMember\0222\n\017pending_invites\030\003 "
+  "\003(\0132\031.FamilyGroupPendingInvite\022\022\n\nfree_s"
+  "pots\030\004 \001(\r\022\017\n\007country\030\005 \001(\t\022\'\n\037slot_cool"
+  "down_remaining_seconds\030\006 \001(\r\0220\n\016former_m"
+  "embers\030\007 \003(\0132\030.FamilyGroupFormerMember\022\037"
+  "\n\027slot_cooldown_overrides\030\010 \001(\r\">\n+CFami"
+  "lyGroups_GetFamilyGroupForUser_Request\022\017"
+  "\n\007steamid\030\001 \001(\004\"\212\001\n\037FamilyGroupPendingIn"
+  "viteForUser\022\026\n\016family_groupid\030\001 \001(\004\0226\n\004r"
+  "ole\030\002 \001(\0162\021.EFamilyGroupRole:\025EFamilyGro"
+  "upRole_None\022\027\n\017inviter_steamid\030\003 \001(\006\"\237\002\n"
+  ",CFamilyGroups_GetFamilyGroupForUser_Res"
+  "ponse\022\026\n\016family_groupid\030\001 \001(\004\022\"\n\032is_not_"
+  "member_of_any_group\030\002 \001(\010\022\032\n\022latest_time"
+  "_joined\030\003 \001(\r\022$\n\034latest_joined_family_gr"
+  "oupid\030\004 \001(\004\022\?\n\025pending_group_invites\030\005 \003"
+  "(\0132 .FamilyGroupPendingInviteForUser\022\014\n\004"
+  "role\030\006 \001(\r\022\"\n\032cooldown_seconds_remaining"
+  "\030\007 \001(\r\"V\n.CFamilyGroups_ModifyFamilyGrou"
+  "pDetails_Request\022\026\n\016family_groupid\030\001 \001(\004"
+  "\022\014\n\004name\030\002 \001(\t\"1\n/CFamilyGroups_ModifyFa"
+  "milyGroupDetails_Response\"\236\001\n)CFamilyGro"
+  "ups_InviteToFamilyGroup_Request\022\026\n\016famil"
+  "y_groupid\030\001 \001(\004\022\030\n\020receiver_steamid\030\002 \001("
+  "\006\022\?\n\rreceiver_role\030\003 \001(\0162\021.EFamilyGroupR"
+  "ole:\025EFamilyGroupRole_None\",\n*CFamilyGro"
+  "ups_InviteToFamilyGroup_Response\"\?\n%CFam"
+  "ilyGroups_JoinFamilyGroup_Request\022\026\n\016fam"
+  "ily_groupid\030\001 \001(\004\"(\n&CFamilyGroups_JoinF"
+  "amilyGroup_Response\"`\n+CFamilyGroups_Rem"
+  "oveFromFamilyGroup_Request\022\026\n\016family_gro"
+  "upid\030\001 \001(\004\022\031\n\021steamid_to_remove\030\002 \001(\006\".\n"
+  ",CFamilyGroups_RemoveFromFamilyGroup_Res"
+  "ponse\"b\n-CFamilyGroups_CancelFamilyGroup"
+  "Invite_Request\022\026\n\016family_groupid\030\001 \001(\004\022\031"
+  "\n\021steamid_to_cancel\030\002 \001(\006\"0\n.CFamilyGrou"
+  "ps_CancelFamilyGroupInvite_Response\"a\n+C"
+  "FamilyGroups_GetUsersSharingDevice_Reque"
+  "st\022\026\n\016family_groupid\030\001 \001(\004\022\032\n\022client_ins"
+  "tance_id\030\002 \001(\004\"=\n,CFamilyGroups_GetUsers"
+  "SharingDevice_Response\022\r\n\005users\030\001 \003(\006\"A\n"
+  "\'CFamilyGroups_DeleteFamilyGroup_Request"
+  "\022\026\n\016family_groupid\030\001 \001(\004\"*\n(CFamilyGroup"
+  "s_DeleteFamilyGroup_Response\"B\n(CFamilyG"
+  "roups_GetPlaytimeSummary_Request\022\026\n\016fami"
+  "ly_groupid\030\001 \001(\006\"\202\001\n\033CFamilyGroups_Playt"
+  "imeEntry\022\017\n\007steamid\030\001 \001(\006\022\r\n\005appid\030\002 \001(\r"
+  "\022\024\n\014first_played\030\003 \001(\r\022\025\n\rlatest_played\030"
+  "\004 \001(\r\022\026\n\016seconds_played\030\005 \001(\r\"Z\n)CFamily"
+  "Groups_GetPlaytimeSummary_Response\022-\n\007en"
+  "tries\030\001 \003(\0132\034.CFamilyGroups_PlaytimeEntr"
+  "y\"\216\001\n%CFamilyGroups_RequestPurchase_Requ"
+  "est\022\026\n\016family_groupid\030\001 \001(\004\022\027\n\017gidshoppi"
+  "ngcart\030\002 \001(\004\022\032\n\022store_country_code\030\003 \001(\t"
+  "\022\030\n\020use_account_cart\030\004 \001(\010\"U\n&CFamilyGro"
+  "ups_RequestPurchase_Response\022\027\n\017gidshopp"
+  "ingcart\030\001 \001(\004\022\022\n\nrequest_id\030\002 \001(\004\"^\n)CFa"
+  "milyGroups_GetPurchaseRequests_Request\022\026"
+  "\n\016family_groupid\030\001 \001(\004\022\031\n\021include_comple"
+  "ted\030\002 \001(\010\"\211\002\n\017PurchaseRequest\022\031\n\021request"
+  "er_steamid\030\001 \001(\006\022\027\n\017gidshoppingcart\030\002 \001("
+  "\004\022\026\n\016time_requested\030\003 \001(\r\022\026\n\016time_respon"
+  "ded\030\004 \001(\r\022\031\n\021responder_steamid\030\005 \001(\006\022M\n\017"
+  "response_action\030\006 \001(\0162\027.EPurchaseRequest"
+  "Action:\033EPurchaseRequestAction_None\022\024\n\014i"
+  "s_completed\030\007 \001(\010\022\022\n\nrequest_id\030\010 \001(\004\"P\n"
+  "*CFamilyGroups_GetPurchaseRequests_Respo"
+  "nse\022\"\n\010requests\030\001 \003(\0132\020.PurchaseRequest\""
+  "\310\001\n0CFamilyGroups_RespondToRequestedPurc"
+  "hase_Request\022\026\n\016family_groupid\030\001 \001(\004\022\"\n\032"
+  "purchase_requester_steamid\030\002 \001(\006\022D\n\006acti"
+  "on\030\003 \001(\0162\027.EPurchaseRequestAction:\033EPurc"
+  "haseRequestAction_None\022\022\n\nrequest_id\030\004 \001"
+  "(\004\"3\n1CFamilyGroups_RespondToRequestedPu"
+  "rchase_Response\"<\n\"CFamilyGroups_GetChan"
+  "geLog_Request\022\026\n\016family_groupid\030\001 \001(\004\"\367\001"
+  "\n#CFamilyGroups_GetChangeLog_Response\022<\n"
+  "\007changes\030\001 \003(\0132+.CFamilyGroups_GetChange"
+  "Log_Response.Change\032\221\001\n\006Change\022\021\n\ttimest"
+  "amp\030\001 \001(\006\022\025\n\ractor_steamid\030\002 \001(\006\022;\n\004type"
+  "\030\003 \001(\0162\032.EFamilyGroupChangeLogType:\021Inva"
+  "lidChangeType\022\014\n\004body\030\004 \001(\t\022\022\n\nby_suppor"
+  "t\030\005 \001(\010\"b\n0CFamilyGroups_SetFamilyCooldo"
+  "wnOverrides_Request\022\026\n\016family_groupid\030\001 "
+  "\001(\004\022\026\n\016cooldown_count\030\002 \001(\r\"3\n1CFamilyGr"
+  "oups_SetFamilyCooldownOverrides_Response"
+  "\"\255\001\n*CFamilyGroups_GetSharedLibraryApps_"
+  "Request\022\026\n\016family_groupid\030\001 \001(\006\022\023\n\013inclu"
+  "de_own\030\002 \001(\010\022\030\n\020include_excluded\030\003 \001(\010\022\024"
+  "\n\014include_free\030\004 \001(\010\022\020\n\010language\030\005 \001(\t\022\020"
+  "\n\010max_apps\030\006 \001(\r\"\362\002\n+CFamilyGroups_GetSh"
+  "aredLibraryApps_Response\022D\n\004apps\030\001 \003(\01326"
+  ".CFamilyGroups_GetSharedLibraryApps_Resp"
+  "onse.SharedApp\032\374\001\n\tSharedApp\022\r\n\005appid\030\001 "
+  "\001(\r\022\026\n\016owner_steamids\030\002 \003(\006\022\020\n\010free_app\030"
+  "\005 \001(\010\022\014\n\004name\030\006 \001(\t\022\017\n\007sort_as\030\007 \001(\t\022\030\n\020"
+  "capsule_filename\030\010 \001(\t\022\024\n\014img_icon_url\030\t"
+  " \001(\t\022M\n\016exclude_reason\030\n \001(\0162\034.ESharedLi"
+  "braryExcludeReason:\027ESharedLibrary_Inclu"
+  "ded\022\030\n\020rt_time_acquired\030\013 \001(\r\"\357\002\n2CFamil"
+  "yGroupsClient_NotifyRunningApps_Notifica"
+  "tion\022\026\n\016family_groupid\030\001 \001(\004\022T\n\014running_"
+  "apps\030\002 \003(\0132>.CFamilyGroupsClient_NotifyR"
+  "unningApps_Notification.RunningApp\032>\n\rPl"
+  "ayingMember\022\026\n\016member_steamid\030\001 \001(\006\022\025\n\ro"
+  "wner_steamid\030\002 \001(\006\032\212\001\n\nRunningApp\022\r\n\005app"
+  "id\030\001 \001(\r\022\021\n\tis_locked\030\002 \001(\010\022Z\n\017playing_m"
+  "embers\030\003 \003(\0132A.CFamilyGroupsClient_Notif"
+  "yRunningApps_Notification.PlayingMember\""
+  "/\n-CFamilyGroupsClient_InviteStatus_Noti"
+  "fication\"G\n-CFamilyGroupsClient_GroupCha"
+  "nged_Notification\022\026\n\016family_groupid\030\001 \001("
+  "\004*\177\n\020EFamilyGroupRole\022\031\n\025EFamilyGroupRol"
+  "e_None\020\000\022\032\n\026EFamilyGroupRole_Adult\020\001\022\032\n\026"
+  "EFamilyGroupRole_Child\020\002\022\030\n\024EFamilyGroup"
+  "Role_MAX\020\003*\354\001\n\026EPurchaseRequestAction\022\037\n"
+  "\033EPurchaseRequestAction_None\020\000\022\"\n\036EPurch"
+  "aseRequestAction_Decline\020\001\022$\n EPurchaseR"
+  "equestAction_Purchased\020\002\022$\n EPurchaseReq"
+  "uestAction_Abandoned\020\003\022!\n\035EPurchaseReque"
+  "stAction_Cancel\020\004\022\036\n\032EPurchaseRequestAct"
+  "ion_MAX\020\005*\361\004\n\031EFamilyGroupChangeLogType\022"
+  "\025\n\021InvalidChangeType\020\000\022\026\n\022FamilyGroupCre"
+  "ated\020\001\022\027\n\023FamilyGroupModified\020\002\022\026\n\022Famil"
+  "yGroupDeleted\020\003\022\022\n\016AccountInvited\020\004\022\033\n\027I"
+  "nviteDeniedByGroupSize\020\005\022\025\n\021JoinedFamily"
+  "Group\020\006\022\036\n\032JoinDeniedByRegionMismatch\020\007\022"
+  " \n\034JoinDeniedByMissingIpAddress\020\010\022\036\n\032Joi"
+  "nDeniedByFamilyCooldown\020\t\022\034\n\030JoinDeniedB"
+  "yUserCooldown\020\n\022\032\n\026JoinDeniedByOtherGrou"
+  "p\020\013\022\022\n\016AccountRemoved\020\014\022\022\n\016InviteCancele"
+  "d\020\r\022\025\n\021PurchaseRequested\020\016\022\033\n\027ParentalSe"
+  "ttingsEnabled\020\017\022\034\n\030ParentalSettingsDisab"
+  "led\020\020\022\033\n\027ParentalSettingsChanged\020\021\022\"\n\036Fa"
+  "milyCooldownOverridesChanged\020\022\022\033\n\027Purcha"
+  "seRequestCanceled\020\023\022\033\n\027PurchaseRequestAp"
+  "proved\020\024\022\033\n\027PurchaseRequestDeclined\020\025*\233\001"
+  "\n\033ESharedLibraryExcludeReason\022\033\n\027EShared"
+  "Library_Included\020\000\022\036\n\032ESharedLibrary_App"
+  "Excluded\020\001\022\"\n\036ESharedLibrary_LicenseExcl"
+  "uded\020\002\022\033\n\027ESharedLibrary_FreeGame\020\0032\217\017\n\014"
+  "FamilyGroups\022h\n\021CreateFamilyGroup\022(.CFam"
+  "ilyGroups_CreateFamilyGroup_Request\032).CF"
+  "amilyGroups_CreateFamilyGroup_Response\022_"
+  "\n\016GetFamilyGroup\022%.CFamilyGroups_GetFami"
+  "lyGroup_Request\032&.CFamilyGroups_GetFamil"
+  "yGroup_Response\022t\n\025GetFamilyGroupForUser"
+  "\022,.CFamilyGroups_GetFamilyGroupForUser_R"
+  "equest\032-.CFamilyGroups_GetFamilyGroupFor"
+  "User_Response\022}\n\030ModifyFamilyGroupDetail"
+  "s\022/.CFamilyGroups_ModifyFamilyGroupDetai"
+  "ls_Request\0320.CFamilyGroups_ModifyFamilyG"
+  "roupDetails_Response\022n\n\023InviteToFamilyGr"
+  "oup\022*.CFamilyGroups_InviteToFamilyGroup_"
+  "Request\032+.CFamilyGroups_InviteToFamilyGr"
+  "oup_Response\022b\n\017JoinFamilyGroup\022&.CFamil"
+  "yGroups_JoinFamilyGroup_Request\032\'.CFamil"
+  "yGroups_JoinFamilyGroup_Response\022t\n\025Remo"
+  "veFromFamilyGroup\022,.CFamilyGroups_Remove"
+  "FromFamilyGroup_Request\032-.CFamilyGroups_"
+  "RemoveFromFamilyGroup_Response\022z\n\027Cancel"
+  "FamilyGroupInvite\022..CFamilyGroups_Cancel"
+  "FamilyGroupInvite_Request\032/.CFamilyGroup"
+  "s_CancelFamilyGroupInvite_Response\022t\n\025Ge"
+  "tUsersSharingDevice\022,.CFamilyGroups_GetU"
+  "sersSharingDevice_Request\032-.CFamilyGroup"
+  "s_GetUsersSharingDevice_Response\022h\n\021Dele"
+  "teFamilyGroup\022(.CFamilyGroups_DeleteFami"
+  "lyGroup_Request\032).CFamilyGroups_DeleteFa"
+  "milyGroup_Response\022k\n\022GetPlaytimeSummary"
+  "\022).CFamilyGroups_GetPlaytimeSummary_Requ"
+  "est\032*.CFamilyGroups_GetPlaytimeSummary_R"
+  "esponse\022b\n\017RequestPurchase\022&.CFamilyGrou"
+  "ps_RequestPurchase_Request\032\'.CFamilyGrou"
+  "ps_RequestPurchase_Response\022n\n\023GetPurcha"
+  "seRequests\022*.CFamilyGroups_GetPurchaseRe"
+  "quests_Request\032+.CFamilyGroups_GetPurcha"
+  "seRequests_Response\022\203\001\n\032RespondToRequest"
+  "edPurchase\0221.CFamilyGroups_RespondToRequ"
+  "estedPurchase_Request\0322.CFamilyGroups_Re"
+  "spondToRequestedPurchase_Response\022Y\n\014Get"
+  "ChangeLog\022#.CFamilyGroups_GetChangeLog_R"
+  "equest\032$.CFamilyGroups_GetChangeLog_Resp"
+  "onse\022\203\001\n\032SetFamilyCooldownOverrides\0221.CF"
+  "amilyGroups_SetFamilyCooldownOverrides_R"
+  "equest\0322.CFamilyGroups_SetFamilyCooldown"
+  "Overrides_Response\022q\n\024GetSharedLibraryAp"
+  "ps\022+.CFamilyGroups_GetSharedLibraryApps_"
+  "Request\032,.CFamilyGroups_GetSharedLibrary"
+  "Apps_Response2\227\002\n\022FamilyGroupsClient\022U\n\021"
+  "NotifyRunningApps\0223.CFamilyGroupsClient_"
+  "NotifyRunningApps_Notification\032\013.NoRespo"
+  "nse\022Q\n\022NotifyInviteStatus\022..CFamilyGroup"
+  "sClient_InviteStatus_Notification\032\013.NoRe"
+  "sponse\022Q\n\022NotifyGroupChanged\022..CFamilyGr"
+  "oupsClient_GroupChanged_Notification\032\013.N"
+  "oResponse\032\004\300\265\030\002B\035\200\001\001\252\002\027OpenSteamworks.Pr"
+  "otobuf"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_steammessages_5ffamilygroups_2esteamclient_2eproto_deps[3] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
@@ -1387,8 +1417,8 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_steammessages_5ffamilygroups_2esteamclient_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_steammessages_5ffamilygroups_2esteamclient_2eproto = {
-  false, false, 8399, descriptor_table_protodef_steammessages_5ffamilygroups_2esteamclient_2eproto, "steammessages_familygroups.steamclient.proto", 
-  &descriptor_table_steammessages_5ffamilygroups_2esteamclient_2eproto_once, descriptor_table_steammessages_5ffamilygroups_2esteamclient_2eproto_deps, 3, 46,
+  false, false, 8606, descriptor_table_protodef_steammessages_5ffamilygroups_2esteamclient_2eproto, "steammessages_familygroups.steamclient.proto", 
+  &descriptor_table_steammessages_5ffamilygroups_2esteamclient_2eproto_once, descriptor_table_steammessages_5ffamilygroups_2esteamclient_2eproto_deps, 3, 47,
   schemas, file_default_instances, TableStruct_steammessages_5ffamilygroups_2esteamclient_2eproto::offsets,
   file_level_metadata_steammessages_5ffamilygroups_2esteamclient_2eproto, file_level_enum_descriptors_steammessages_5ffamilygroups_2esteamclient_2eproto, file_level_service_descriptors_steammessages_5ffamilygroups_2esteamclient_2eproto,
 };
@@ -1945,6 +1975,9 @@ class CFamilyGroups_GetFamilyGroup_Request::_Internal {
   static void set_has_family_groupid(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
   }
+  static void set_has_send_running_apps(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
 };
 
 CFamilyGroups_GetFamilyGroup_Request::CFamilyGroups_GetFamilyGroup_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena)
@@ -1957,12 +1990,17 @@ CFamilyGroups_GetFamilyGroup_Request::CFamilyGroups_GetFamilyGroup_Request(const
   : ::PROTOBUF_NAMESPACE_ID::Message(),
       _has_bits_(from._has_bits_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  family_groupid_ = from.family_groupid_;
+  ::memcpy(&family_groupid_, &from.family_groupid_,
+    static_cast<size_t>(reinterpret_cast<char*>(&send_running_apps_) -
+    reinterpret_cast<char*>(&family_groupid_)) + sizeof(send_running_apps_));
   // @@protoc_insertion_point(copy_constructor:CFamilyGroups_GetFamilyGroup_Request)
 }
 
 void CFamilyGroups_GetFamilyGroup_Request::SharedCtor() {
-family_groupid_ = PROTOBUF_ULONGLONG(0);
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&family_groupid_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&send_running_apps_) -
+    reinterpret_cast<char*>(&family_groupid_)) + sizeof(send_running_apps_));
 }
 
 CFamilyGroups_GetFamilyGroup_Request::~CFamilyGroups_GetFamilyGroup_Request() {
@@ -1991,7 +2029,12 @@ void CFamilyGroups_GetFamilyGroup_Request::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  family_groupid_ = PROTOBUF_ULONGLONG(0);
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    ::memset(&family_groupid_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&send_running_apps_) -
+        reinterpret_cast<char*>(&family_groupid_)) + sizeof(send_running_apps_));
+  }
   _has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -2009,6 +2052,14 @@ const char* CFamilyGroups_GetFamilyGroup_Request::_InternalParse(const char* ptr
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           _Internal::set_has_family_groupid(&has_bits);
           family_groupid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // optional bool send_running_apps = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          _Internal::set_has_send_running_apps(&has_bits);
+          send_running_apps_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -2048,6 +2099,12 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_family_groupid(), target);
   }
 
+  // optional bool send_running_apps = 2;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(2, this->_internal_send_running_apps(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -2064,14 +2121,21 @@ size_t CFamilyGroups_GetFamilyGroup_Request::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // optional uint64 family_groupid = 1;
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
-        this->_internal_family_groupid());
-  }
+  if (cached_has_bits & 0x00000003u) {
+    // optional uint64 family_groupid = 1;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
+          this->_internal_family_groupid());
+    }
 
+    // optional bool send_running_apps = 2;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 + 1;
+    }
+
+  }
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
         _internal_metadata_, total_size, &_cached_size_);
@@ -2103,8 +2167,15 @@ void CFamilyGroups_GetFamilyGroup_Request::MergeFrom(const CFamilyGroups_GetFami
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from._internal_has_family_groupid()) {
-    _internal_set_family_groupid(from._internal_family_groupid());
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      family_groupid_ = from.family_groupid_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      send_running_apps_ = from.send_running_apps_;
+    }
+    _has_bits_[0] |= cached_has_bits;
   }
 }
 
@@ -2130,7 +2201,12 @@ void CFamilyGroups_GetFamilyGroup_Request::InternalSwap(CFamilyGroups_GetFamilyG
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   swap(_has_bits_[0], other->_has_bits_[0]);
-  swap(family_groupid_, other->family_groupid_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CFamilyGroups_GetFamilyGroup_Request, send_running_apps_)
+      + sizeof(CFamilyGroups_GetFamilyGroup_Request::send_running_apps_)
+      - PROTOBUF_FIELD_OFFSET(CFamilyGroups_GetFamilyGroup_Request, family_groupid_)>(
+          reinterpret_cast<char*>(&family_groupid_),
+          reinterpret_cast<char*>(&other->family_groupid_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CFamilyGroups_GetFamilyGroup_Request::GetMetadata() const {
@@ -11844,9 +11920,9 @@ void CFamilyGroups_GetSharedLibraryApps_Response::InternalSwap(CFamilyGroups_Get
 
 // ===================================================================
 
-class CFamilyGroupsClient_GroupStatus_Notification_PlayingMember::_Internal {
+class CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember::_Internal {
  public:
-  using HasBits = decltype(std::declval<CFamilyGroupsClient_GroupStatus_Notification_PlayingMember>()._has_bits_);
+  using HasBits = decltype(std::declval<CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember>()._has_bits_);
   static void set_has_member_steamid(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
   }
@@ -11855,51 +11931,51 @@ class CFamilyGroupsClient_GroupStatus_Notification_PlayingMember::_Internal {
   }
 };
 
-CFamilyGroupsClient_GroupStatus_Notification_PlayingMember::CFamilyGroupsClient_GroupStatus_Notification_PlayingMember(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember::CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
   SharedCtor();
   RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:CFamilyGroupsClient_GroupStatus_Notification.PlayingMember)
+  // @@protoc_insertion_point(arena_constructor:CFamilyGroupsClient_NotifyRunningApps_Notification.PlayingMember)
 }
-CFamilyGroupsClient_GroupStatus_Notification_PlayingMember::CFamilyGroupsClient_GroupStatus_Notification_PlayingMember(const CFamilyGroupsClient_GroupStatus_Notification_PlayingMember& from)
+CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember::CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember(const CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
       _has_bits_(from._has_bits_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::memcpy(&member_steamid_, &from.member_steamid_,
     static_cast<size_t>(reinterpret_cast<char*>(&owner_steamid_) -
     reinterpret_cast<char*>(&member_steamid_)) + sizeof(owner_steamid_));
-  // @@protoc_insertion_point(copy_constructor:CFamilyGroupsClient_GroupStatus_Notification.PlayingMember)
+  // @@protoc_insertion_point(copy_constructor:CFamilyGroupsClient_NotifyRunningApps_Notification.PlayingMember)
 }
 
-void CFamilyGroupsClient_GroupStatus_Notification_PlayingMember::SharedCtor() {
+void CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&member_steamid_) - reinterpret_cast<char*>(this)),
     0, static_cast<size_t>(reinterpret_cast<char*>(&owner_steamid_) -
     reinterpret_cast<char*>(&member_steamid_)) + sizeof(owner_steamid_));
 }
 
-CFamilyGroupsClient_GroupStatus_Notification_PlayingMember::~CFamilyGroupsClient_GroupStatus_Notification_PlayingMember() {
-  // @@protoc_insertion_point(destructor:CFamilyGroupsClient_GroupStatus_Notification.PlayingMember)
+CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember::~CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember() {
+  // @@protoc_insertion_point(destructor:CFamilyGroupsClient_NotifyRunningApps_Notification.PlayingMember)
   SharedDtor();
   _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void CFamilyGroupsClient_GroupStatus_Notification_PlayingMember::SharedDtor() {
+void CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember::SharedDtor() {
   GOOGLE_DCHECK(GetArena() == nullptr);
 }
 
-void CFamilyGroupsClient_GroupStatus_Notification_PlayingMember::ArenaDtor(void* object) {
-  CFamilyGroupsClient_GroupStatus_Notification_PlayingMember* _this = reinterpret_cast< CFamilyGroupsClient_GroupStatus_Notification_PlayingMember* >(object);
+void CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember::ArenaDtor(void* object) {
+  CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember* _this = reinterpret_cast< CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember* >(object);
   (void)_this;
 }
-void CFamilyGroupsClient_GroupStatus_Notification_PlayingMember::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+void CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
 }
-void CFamilyGroupsClient_GroupStatus_Notification_PlayingMember::SetCachedSize(int size) const {
+void CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
 
-void CFamilyGroupsClient_GroupStatus_Notification_PlayingMember::Clear() {
-// @@protoc_insertion_point(message_clear_start:CFamilyGroupsClient_GroupStatus_Notification.PlayingMember)
+void CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember::Clear() {
+// @@protoc_insertion_point(message_clear_start:CFamilyGroupsClient_NotifyRunningApps_Notification.PlayingMember)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -11914,7 +11990,7 @@ void CFamilyGroupsClient_GroupStatus_Notification_PlayingMember::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* CFamilyGroupsClient_GroupStatus_Notification_PlayingMember::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   _Internal::HasBits has_bits{};
   while (!ctx->Done(&ptr)) {
@@ -11961,9 +12037,9 @@ failure:
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* CFamilyGroupsClient_GroupStatus_Notification_PlayingMember::_InternalSerialize(
+::PROTOBUF_NAMESPACE_ID::uint8* CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember::_InternalSerialize(
     ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:CFamilyGroupsClient_GroupStatus_Notification.PlayingMember)
+  // @@protoc_insertion_point(serialize_to_array_start:CFamilyGroupsClient_NotifyRunningApps_Notification.PlayingMember)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -11984,12 +12060,12 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:CFamilyGroupsClient_GroupStatus_Notification.PlayingMember)
+  // @@protoc_insertion_point(serialize_to_array_end:CFamilyGroupsClient_NotifyRunningApps_Notification.PlayingMember)
   return target;
 }
 
-size_t CFamilyGroupsClient_GroupStatus_Notification_PlayingMember::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:CFamilyGroupsClient_GroupStatus_Notification.PlayingMember)
+size_t CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CFamilyGroupsClient_NotifyRunningApps_Notification.PlayingMember)
   size_t total_size = 0;
 
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -12018,23 +12094,23 @@ size_t CFamilyGroupsClient_GroupStatus_Notification_PlayingMember::ByteSizeLong(
   return total_size;
 }
 
-void CFamilyGroupsClient_GroupStatus_Notification_PlayingMember::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:CFamilyGroupsClient_GroupStatus_Notification.PlayingMember)
+void CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CFamilyGroupsClient_NotifyRunningApps_Notification.PlayingMember)
   GOOGLE_DCHECK_NE(&from, this);
-  const CFamilyGroupsClient_GroupStatus_Notification_PlayingMember* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CFamilyGroupsClient_GroupStatus_Notification_PlayingMember>(
+  const CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember>(
           &from);
   if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CFamilyGroupsClient_GroupStatus_Notification.PlayingMember)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CFamilyGroupsClient_NotifyRunningApps_Notification.PlayingMember)
     ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:CFamilyGroupsClient_GroupStatus_Notification.PlayingMember)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CFamilyGroupsClient_NotifyRunningApps_Notification.PlayingMember)
     MergeFrom(*source);
   }
 }
 
-void CFamilyGroupsClient_GroupStatus_Notification_PlayingMember::MergeFrom(const CFamilyGroupsClient_GroupStatus_Notification_PlayingMember& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:CFamilyGroupsClient_GroupStatus_Notification.PlayingMember)
+void CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember::MergeFrom(const CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CFamilyGroupsClient_NotifyRunningApps_Notification.PlayingMember)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -12052,46 +12128,46 @@ void CFamilyGroupsClient_GroupStatus_Notification_PlayingMember::MergeFrom(const
   }
 }
 
-void CFamilyGroupsClient_GroupStatus_Notification_PlayingMember::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:CFamilyGroupsClient_GroupStatus_Notification.PlayingMember)
+void CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CFamilyGroupsClient_NotifyRunningApps_Notification.PlayingMember)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void CFamilyGroupsClient_GroupStatus_Notification_PlayingMember::CopyFrom(const CFamilyGroupsClient_GroupStatus_Notification_PlayingMember& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:CFamilyGroupsClient_GroupStatus_Notification.PlayingMember)
+void CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember::CopyFrom(const CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CFamilyGroupsClient_NotifyRunningApps_Notification.PlayingMember)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool CFamilyGroupsClient_GroupStatus_Notification_PlayingMember::IsInitialized() const {
+bool CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember::IsInitialized() const {
   return true;
 }
 
-void CFamilyGroupsClient_GroupStatus_Notification_PlayingMember::InternalSwap(CFamilyGroupsClient_GroupStatus_Notification_PlayingMember* other) {
+void CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember::InternalSwap(CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   swap(_has_bits_[0], other->_has_bits_[0]);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CFamilyGroupsClient_GroupStatus_Notification_PlayingMember, owner_steamid_)
-      + sizeof(CFamilyGroupsClient_GroupStatus_Notification_PlayingMember::owner_steamid_)
-      - PROTOBUF_FIELD_OFFSET(CFamilyGroupsClient_GroupStatus_Notification_PlayingMember, member_steamid_)>(
+      PROTOBUF_FIELD_OFFSET(CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember, owner_steamid_)
+      + sizeof(CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember::owner_steamid_)
+      - PROTOBUF_FIELD_OFFSET(CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember, member_steamid_)>(
           reinterpret_cast<char*>(&member_steamid_),
           reinterpret_cast<char*>(&other->member_steamid_));
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata CFamilyGroupsClient_GroupStatus_Notification_PlayingMember::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember::GetMetadata() const {
   return GetMetadataStatic();
 }
 
 
 // ===================================================================
 
-class CFamilyGroupsClient_GroupStatus_Notification_RunningApp::_Internal {
+class CFamilyGroupsClient_NotifyRunningApps_Notification_RunningApp::_Internal {
  public:
-  using HasBits = decltype(std::declval<CFamilyGroupsClient_GroupStatus_Notification_RunningApp>()._has_bits_);
+  using HasBits = decltype(std::declval<CFamilyGroupsClient_NotifyRunningApps_Notification_RunningApp>()._has_bits_);
   static void set_has_appid(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
   }
@@ -12100,14 +12176,14 @@ class CFamilyGroupsClient_GroupStatus_Notification_RunningApp::_Internal {
   }
 };
 
-CFamilyGroupsClient_GroupStatus_Notification_RunningApp::CFamilyGroupsClient_GroupStatus_Notification_RunningApp(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+CFamilyGroupsClient_NotifyRunningApps_Notification_RunningApp::CFamilyGroupsClient_NotifyRunningApps_Notification_RunningApp(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena),
   playing_members_(arena) {
   SharedCtor();
   RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:CFamilyGroupsClient_GroupStatus_Notification.RunningApp)
+  // @@protoc_insertion_point(arena_constructor:CFamilyGroupsClient_NotifyRunningApps_Notification.RunningApp)
 }
-CFamilyGroupsClient_GroupStatus_Notification_RunningApp::CFamilyGroupsClient_GroupStatus_Notification_RunningApp(const CFamilyGroupsClient_GroupStatus_Notification_RunningApp& from)
+CFamilyGroupsClient_NotifyRunningApps_Notification_RunningApp::CFamilyGroupsClient_NotifyRunningApps_Notification_RunningApp(const CFamilyGroupsClient_NotifyRunningApps_Notification_RunningApp& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
       _has_bits_(from._has_bits_),
       playing_members_(from.playing_members_) {
@@ -12115,38 +12191,38 @@ CFamilyGroupsClient_GroupStatus_Notification_RunningApp::CFamilyGroupsClient_Gro
   ::memcpy(&appid_, &from.appid_,
     static_cast<size_t>(reinterpret_cast<char*>(&is_locked_) -
     reinterpret_cast<char*>(&appid_)) + sizeof(is_locked_));
-  // @@protoc_insertion_point(copy_constructor:CFamilyGroupsClient_GroupStatus_Notification.RunningApp)
+  // @@protoc_insertion_point(copy_constructor:CFamilyGroupsClient_NotifyRunningApps_Notification.RunningApp)
 }
 
-void CFamilyGroupsClient_GroupStatus_Notification_RunningApp::SharedCtor() {
+void CFamilyGroupsClient_NotifyRunningApps_Notification_RunningApp::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&appid_) - reinterpret_cast<char*>(this)),
     0, static_cast<size_t>(reinterpret_cast<char*>(&is_locked_) -
     reinterpret_cast<char*>(&appid_)) + sizeof(is_locked_));
 }
 
-CFamilyGroupsClient_GroupStatus_Notification_RunningApp::~CFamilyGroupsClient_GroupStatus_Notification_RunningApp() {
-  // @@protoc_insertion_point(destructor:CFamilyGroupsClient_GroupStatus_Notification.RunningApp)
+CFamilyGroupsClient_NotifyRunningApps_Notification_RunningApp::~CFamilyGroupsClient_NotifyRunningApps_Notification_RunningApp() {
+  // @@protoc_insertion_point(destructor:CFamilyGroupsClient_NotifyRunningApps_Notification.RunningApp)
   SharedDtor();
   _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void CFamilyGroupsClient_GroupStatus_Notification_RunningApp::SharedDtor() {
+void CFamilyGroupsClient_NotifyRunningApps_Notification_RunningApp::SharedDtor() {
   GOOGLE_DCHECK(GetArena() == nullptr);
 }
 
-void CFamilyGroupsClient_GroupStatus_Notification_RunningApp::ArenaDtor(void* object) {
-  CFamilyGroupsClient_GroupStatus_Notification_RunningApp* _this = reinterpret_cast< CFamilyGroupsClient_GroupStatus_Notification_RunningApp* >(object);
+void CFamilyGroupsClient_NotifyRunningApps_Notification_RunningApp::ArenaDtor(void* object) {
+  CFamilyGroupsClient_NotifyRunningApps_Notification_RunningApp* _this = reinterpret_cast< CFamilyGroupsClient_NotifyRunningApps_Notification_RunningApp* >(object);
   (void)_this;
 }
-void CFamilyGroupsClient_GroupStatus_Notification_RunningApp::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+void CFamilyGroupsClient_NotifyRunningApps_Notification_RunningApp::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
 }
-void CFamilyGroupsClient_GroupStatus_Notification_RunningApp::SetCachedSize(int size) const {
+void CFamilyGroupsClient_NotifyRunningApps_Notification_RunningApp::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
 
-void CFamilyGroupsClient_GroupStatus_Notification_RunningApp::Clear() {
-// @@protoc_insertion_point(message_clear_start:CFamilyGroupsClient_GroupStatus_Notification.RunningApp)
+void CFamilyGroupsClient_NotifyRunningApps_Notification_RunningApp::Clear() {
+// @@protoc_insertion_point(message_clear_start:CFamilyGroupsClient_NotifyRunningApps_Notification.RunningApp)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -12162,7 +12238,7 @@ void CFamilyGroupsClient_GroupStatus_Notification_RunningApp::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* CFamilyGroupsClient_GroupStatus_Notification_RunningApp::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* CFamilyGroupsClient_NotifyRunningApps_Notification_RunningApp::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   _Internal::HasBits has_bits{};
   while (!ctx->Done(&ptr)) {
@@ -12186,7 +12262,7 @@ const char* CFamilyGroupsClient_GroupStatus_Notification_RunningApp::_InternalPa
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated .CFamilyGroupsClient_GroupStatus_Notification.PlayingMember playing_members = 3;
+      // repeated .CFamilyGroupsClient_NotifyRunningApps_Notification.PlayingMember playing_members = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           ptr -= 1;
@@ -12221,9 +12297,9 @@ failure:
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* CFamilyGroupsClient_GroupStatus_Notification_RunningApp::_InternalSerialize(
+::PROTOBUF_NAMESPACE_ID::uint8* CFamilyGroupsClient_NotifyRunningApps_Notification_RunningApp::_InternalSerialize(
     ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:CFamilyGroupsClient_GroupStatus_Notification.RunningApp)
+  // @@protoc_insertion_point(serialize_to_array_start:CFamilyGroupsClient_NotifyRunningApps_Notification.RunningApp)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -12240,7 +12316,7 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(2, this->_internal_is_locked(), target);
   }
 
-  // repeated .CFamilyGroupsClient_GroupStatus_Notification.PlayingMember playing_members = 3;
+  // repeated .CFamilyGroupsClient_NotifyRunningApps_Notification.PlayingMember playing_members = 3;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_playing_members_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
@@ -12252,19 +12328,19 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:CFamilyGroupsClient_GroupStatus_Notification.RunningApp)
+  // @@protoc_insertion_point(serialize_to_array_end:CFamilyGroupsClient_NotifyRunningApps_Notification.RunningApp)
   return target;
 }
 
-size_t CFamilyGroupsClient_GroupStatus_Notification_RunningApp::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:CFamilyGroupsClient_GroupStatus_Notification.RunningApp)
+size_t CFamilyGroupsClient_NotifyRunningApps_Notification_RunningApp::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CFamilyGroupsClient_NotifyRunningApps_Notification.RunningApp)
   size_t total_size = 0;
 
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .CFamilyGroupsClient_GroupStatus_Notification.PlayingMember playing_members = 3;
+  // repeated .CFamilyGroupsClient_NotifyRunningApps_Notification.PlayingMember playing_members = 3;
   total_size += 1UL * this->_internal_playing_members_size();
   for (const auto& msg : this->playing_members_) {
     total_size +=
@@ -12295,23 +12371,23 @@ size_t CFamilyGroupsClient_GroupStatus_Notification_RunningApp::ByteSizeLong() c
   return total_size;
 }
 
-void CFamilyGroupsClient_GroupStatus_Notification_RunningApp::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:CFamilyGroupsClient_GroupStatus_Notification.RunningApp)
+void CFamilyGroupsClient_NotifyRunningApps_Notification_RunningApp::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CFamilyGroupsClient_NotifyRunningApps_Notification.RunningApp)
   GOOGLE_DCHECK_NE(&from, this);
-  const CFamilyGroupsClient_GroupStatus_Notification_RunningApp* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CFamilyGroupsClient_GroupStatus_Notification_RunningApp>(
+  const CFamilyGroupsClient_NotifyRunningApps_Notification_RunningApp* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CFamilyGroupsClient_NotifyRunningApps_Notification_RunningApp>(
           &from);
   if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CFamilyGroupsClient_GroupStatus_Notification.RunningApp)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CFamilyGroupsClient_NotifyRunningApps_Notification.RunningApp)
     ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:CFamilyGroupsClient_GroupStatus_Notification.RunningApp)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CFamilyGroupsClient_NotifyRunningApps_Notification.RunningApp)
     MergeFrom(*source);
   }
 }
 
-void CFamilyGroupsClient_GroupStatus_Notification_RunningApp::MergeFrom(const CFamilyGroupsClient_GroupStatus_Notification_RunningApp& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:CFamilyGroupsClient_GroupStatus_Notification.RunningApp)
+void CFamilyGroupsClient_NotifyRunningApps_Notification_RunningApp::MergeFrom(const CFamilyGroupsClient_NotifyRunningApps_Notification_RunningApp& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CFamilyGroupsClient_NotifyRunningApps_Notification.RunningApp)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -12330,94 +12406,94 @@ void CFamilyGroupsClient_GroupStatus_Notification_RunningApp::MergeFrom(const CF
   }
 }
 
-void CFamilyGroupsClient_GroupStatus_Notification_RunningApp::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:CFamilyGroupsClient_GroupStatus_Notification.RunningApp)
+void CFamilyGroupsClient_NotifyRunningApps_Notification_RunningApp::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CFamilyGroupsClient_NotifyRunningApps_Notification.RunningApp)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void CFamilyGroupsClient_GroupStatus_Notification_RunningApp::CopyFrom(const CFamilyGroupsClient_GroupStatus_Notification_RunningApp& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:CFamilyGroupsClient_GroupStatus_Notification.RunningApp)
+void CFamilyGroupsClient_NotifyRunningApps_Notification_RunningApp::CopyFrom(const CFamilyGroupsClient_NotifyRunningApps_Notification_RunningApp& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CFamilyGroupsClient_NotifyRunningApps_Notification.RunningApp)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool CFamilyGroupsClient_GroupStatus_Notification_RunningApp::IsInitialized() const {
+bool CFamilyGroupsClient_NotifyRunningApps_Notification_RunningApp::IsInitialized() const {
   return true;
 }
 
-void CFamilyGroupsClient_GroupStatus_Notification_RunningApp::InternalSwap(CFamilyGroupsClient_GroupStatus_Notification_RunningApp* other) {
+void CFamilyGroupsClient_NotifyRunningApps_Notification_RunningApp::InternalSwap(CFamilyGroupsClient_NotifyRunningApps_Notification_RunningApp* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   swap(_has_bits_[0], other->_has_bits_[0]);
   playing_members_.InternalSwap(&other->playing_members_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CFamilyGroupsClient_GroupStatus_Notification_RunningApp, is_locked_)
-      + sizeof(CFamilyGroupsClient_GroupStatus_Notification_RunningApp::is_locked_)
-      - PROTOBUF_FIELD_OFFSET(CFamilyGroupsClient_GroupStatus_Notification_RunningApp, appid_)>(
+      PROTOBUF_FIELD_OFFSET(CFamilyGroupsClient_NotifyRunningApps_Notification_RunningApp, is_locked_)
+      + sizeof(CFamilyGroupsClient_NotifyRunningApps_Notification_RunningApp::is_locked_)
+      - PROTOBUF_FIELD_OFFSET(CFamilyGroupsClient_NotifyRunningApps_Notification_RunningApp, appid_)>(
           reinterpret_cast<char*>(&appid_),
           reinterpret_cast<char*>(&other->appid_));
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata CFamilyGroupsClient_GroupStatus_Notification_RunningApp::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata CFamilyGroupsClient_NotifyRunningApps_Notification_RunningApp::GetMetadata() const {
   return GetMetadataStatic();
 }
 
 
 // ===================================================================
 
-class CFamilyGroupsClient_GroupStatus_Notification::_Internal {
+class CFamilyGroupsClient_NotifyRunningApps_Notification::_Internal {
  public:
-  using HasBits = decltype(std::declval<CFamilyGroupsClient_GroupStatus_Notification>()._has_bits_);
+  using HasBits = decltype(std::declval<CFamilyGroupsClient_NotifyRunningApps_Notification>()._has_bits_);
   static void set_has_family_groupid(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
   }
 };
 
-CFamilyGroupsClient_GroupStatus_Notification::CFamilyGroupsClient_GroupStatus_Notification(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+CFamilyGroupsClient_NotifyRunningApps_Notification::CFamilyGroupsClient_NotifyRunningApps_Notification(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena),
   running_apps_(arena) {
   SharedCtor();
   RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:CFamilyGroupsClient_GroupStatus_Notification)
+  // @@protoc_insertion_point(arena_constructor:CFamilyGroupsClient_NotifyRunningApps_Notification)
 }
-CFamilyGroupsClient_GroupStatus_Notification::CFamilyGroupsClient_GroupStatus_Notification(const CFamilyGroupsClient_GroupStatus_Notification& from)
+CFamilyGroupsClient_NotifyRunningApps_Notification::CFamilyGroupsClient_NotifyRunningApps_Notification(const CFamilyGroupsClient_NotifyRunningApps_Notification& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
       _has_bits_(from._has_bits_),
       running_apps_(from.running_apps_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   family_groupid_ = from.family_groupid_;
-  // @@protoc_insertion_point(copy_constructor:CFamilyGroupsClient_GroupStatus_Notification)
+  // @@protoc_insertion_point(copy_constructor:CFamilyGroupsClient_NotifyRunningApps_Notification)
 }
 
-void CFamilyGroupsClient_GroupStatus_Notification::SharedCtor() {
+void CFamilyGroupsClient_NotifyRunningApps_Notification::SharedCtor() {
 family_groupid_ = PROTOBUF_ULONGLONG(0);
 }
 
-CFamilyGroupsClient_GroupStatus_Notification::~CFamilyGroupsClient_GroupStatus_Notification() {
-  // @@protoc_insertion_point(destructor:CFamilyGroupsClient_GroupStatus_Notification)
+CFamilyGroupsClient_NotifyRunningApps_Notification::~CFamilyGroupsClient_NotifyRunningApps_Notification() {
+  // @@protoc_insertion_point(destructor:CFamilyGroupsClient_NotifyRunningApps_Notification)
   SharedDtor();
   _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void CFamilyGroupsClient_GroupStatus_Notification::SharedDtor() {
+void CFamilyGroupsClient_NotifyRunningApps_Notification::SharedDtor() {
   GOOGLE_DCHECK(GetArena() == nullptr);
 }
 
-void CFamilyGroupsClient_GroupStatus_Notification::ArenaDtor(void* object) {
-  CFamilyGroupsClient_GroupStatus_Notification* _this = reinterpret_cast< CFamilyGroupsClient_GroupStatus_Notification* >(object);
+void CFamilyGroupsClient_NotifyRunningApps_Notification::ArenaDtor(void* object) {
+  CFamilyGroupsClient_NotifyRunningApps_Notification* _this = reinterpret_cast< CFamilyGroupsClient_NotifyRunningApps_Notification* >(object);
   (void)_this;
 }
-void CFamilyGroupsClient_GroupStatus_Notification::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+void CFamilyGroupsClient_NotifyRunningApps_Notification::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
 }
-void CFamilyGroupsClient_GroupStatus_Notification::SetCachedSize(int size) const {
+void CFamilyGroupsClient_NotifyRunningApps_Notification::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
 
-void CFamilyGroupsClient_GroupStatus_Notification::Clear() {
-// @@protoc_insertion_point(message_clear_start:CFamilyGroupsClient_GroupStatus_Notification)
+void CFamilyGroupsClient_NotifyRunningApps_Notification::Clear() {
+// @@protoc_insertion_point(message_clear_start:CFamilyGroupsClient_NotifyRunningApps_Notification)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -12428,7 +12504,7 @@ void CFamilyGroupsClient_GroupStatus_Notification::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* CFamilyGroupsClient_GroupStatus_Notification::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* CFamilyGroupsClient_NotifyRunningApps_Notification::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   _Internal::HasBits has_bits{};
   while (!ctx->Done(&ptr)) {
@@ -12444,7 +12520,7 @@ const char* CFamilyGroupsClient_GroupStatus_Notification::_InternalParse(const c
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated .CFamilyGroupsClient_GroupStatus_Notification.RunningApp running_apps = 2;
+      // repeated .CFamilyGroupsClient_NotifyRunningApps_Notification.RunningApp running_apps = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           ptr -= 1;
@@ -12479,9 +12555,9 @@ failure:
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* CFamilyGroupsClient_GroupStatus_Notification::_InternalSerialize(
+::PROTOBUF_NAMESPACE_ID::uint8* CFamilyGroupsClient_NotifyRunningApps_Notification::_InternalSerialize(
     ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:CFamilyGroupsClient_GroupStatus_Notification)
+  // @@protoc_insertion_point(serialize_to_array_start:CFamilyGroupsClient_NotifyRunningApps_Notification)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -12492,7 +12568,7 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_family_groupid(), target);
   }
 
-  // repeated .CFamilyGroupsClient_GroupStatus_Notification.RunningApp running_apps = 2;
+  // repeated .CFamilyGroupsClient_NotifyRunningApps_Notification.RunningApp running_apps = 2;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_running_apps_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
@@ -12504,19 +12580,19 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:CFamilyGroupsClient_GroupStatus_Notification)
+  // @@protoc_insertion_point(serialize_to_array_end:CFamilyGroupsClient_NotifyRunningApps_Notification)
   return target;
 }
 
-size_t CFamilyGroupsClient_GroupStatus_Notification::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:CFamilyGroupsClient_GroupStatus_Notification)
+size_t CFamilyGroupsClient_NotifyRunningApps_Notification::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CFamilyGroupsClient_NotifyRunningApps_Notification)
   size_t total_size = 0;
 
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .CFamilyGroupsClient_GroupStatus_Notification.RunningApp running_apps = 2;
+  // repeated .CFamilyGroupsClient_NotifyRunningApps_Notification.RunningApp running_apps = 2;
   total_size += 1UL * this->_internal_running_apps_size();
   for (const auto& msg : this->running_apps_) {
     total_size +=
@@ -12540,23 +12616,23 @@ size_t CFamilyGroupsClient_GroupStatus_Notification::ByteSizeLong() const {
   return total_size;
 }
 
-void CFamilyGroupsClient_GroupStatus_Notification::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:CFamilyGroupsClient_GroupStatus_Notification)
+void CFamilyGroupsClient_NotifyRunningApps_Notification::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CFamilyGroupsClient_NotifyRunningApps_Notification)
   GOOGLE_DCHECK_NE(&from, this);
-  const CFamilyGroupsClient_GroupStatus_Notification* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CFamilyGroupsClient_GroupStatus_Notification>(
+  const CFamilyGroupsClient_NotifyRunningApps_Notification* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CFamilyGroupsClient_NotifyRunningApps_Notification>(
           &from);
   if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CFamilyGroupsClient_GroupStatus_Notification)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CFamilyGroupsClient_NotifyRunningApps_Notification)
     ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:CFamilyGroupsClient_GroupStatus_Notification)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CFamilyGroupsClient_NotifyRunningApps_Notification)
     MergeFrom(*source);
   }
 }
 
-void CFamilyGroupsClient_GroupStatus_Notification::MergeFrom(const CFamilyGroupsClient_GroupStatus_Notification& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:CFamilyGroupsClient_GroupStatus_Notification)
+void CFamilyGroupsClient_NotifyRunningApps_Notification::MergeFrom(const CFamilyGroupsClient_NotifyRunningApps_Notification& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CFamilyGroupsClient_NotifyRunningApps_Notification)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -12568,25 +12644,25 @@ void CFamilyGroupsClient_GroupStatus_Notification::MergeFrom(const CFamilyGroups
   }
 }
 
-void CFamilyGroupsClient_GroupStatus_Notification::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:CFamilyGroupsClient_GroupStatus_Notification)
+void CFamilyGroupsClient_NotifyRunningApps_Notification::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CFamilyGroupsClient_NotifyRunningApps_Notification)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void CFamilyGroupsClient_GroupStatus_Notification::CopyFrom(const CFamilyGroupsClient_GroupStatus_Notification& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:CFamilyGroupsClient_GroupStatus_Notification)
+void CFamilyGroupsClient_NotifyRunningApps_Notification::CopyFrom(const CFamilyGroupsClient_NotifyRunningApps_Notification& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CFamilyGroupsClient_NotifyRunningApps_Notification)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool CFamilyGroupsClient_GroupStatus_Notification::IsInitialized() const {
+bool CFamilyGroupsClient_NotifyRunningApps_Notification::IsInitialized() const {
   return true;
 }
 
-void CFamilyGroupsClient_GroupStatus_Notification::InternalSwap(CFamilyGroupsClient_GroupStatus_Notification* other) {
+void CFamilyGroupsClient_NotifyRunningApps_Notification::InternalSwap(CFamilyGroupsClient_NotifyRunningApps_Notification* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   swap(_has_bits_[0], other->_has_bits_[0]);
@@ -12594,7 +12670,7 @@ void CFamilyGroupsClient_GroupStatus_Notification::InternalSwap(CFamilyGroupsCli
   swap(family_groupid_, other->family_groupid_);
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata CFamilyGroupsClient_GroupStatus_Notification::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata CFamilyGroupsClient_NotifyRunningApps_Notification::GetMetadata() const {
   return GetMetadataStatic();
 }
 
@@ -12752,6 +12828,207 @@ void CFamilyGroupsClient_InviteStatus_Notification::InternalSwap(CFamilyGroupsCl
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CFamilyGroupsClient_InviteStatus_Notification::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class CFamilyGroupsClient_GroupChanged_Notification::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CFamilyGroupsClient_GroupChanged_Notification>()._has_bits_);
+  static void set_has_family_groupid(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+};
+
+CFamilyGroupsClient_GroupChanged_Notification::CFamilyGroupsClient_GroupChanged_Notification(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:CFamilyGroupsClient_GroupChanged_Notification)
+}
+CFamilyGroupsClient_GroupChanged_Notification::CFamilyGroupsClient_GroupChanged_Notification(const CFamilyGroupsClient_GroupChanged_Notification& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      _has_bits_(from._has_bits_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  family_groupid_ = from.family_groupid_;
+  // @@protoc_insertion_point(copy_constructor:CFamilyGroupsClient_GroupChanged_Notification)
+}
+
+void CFamilyGroupsClient_GroupChanged_Notification::SharedCtor() {
+family_groupid_ = PROTOBUF_ULONGLONG(0);
+}
+
+CFamilyGroupsClient_GroupChanged_Notification::~CFamilyGroupsClient_GroupChanged_Notification() {
+  // @@protoc_insertion_point(destructor:CFamilyGroupsClient_GroupChanged_Notification)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void CFamilyGroupsClient_GroupChanged_Notification::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+}
+
+void CFamilyGroupsClient_GroupChanged_Notification::ArenaDtor(void* object) {
+  CFamilyGroupsClient_GroupChanged_Notification* _this = reinterpret_cast< CFamilyGroupsClient_GroupChanged_Notification* >(object);
+  (void)_this;
+}
+void CFamilyGroupsClient_GroupChanged_Notification::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void CFamilyGroupsClient_GroupChanged_Notification::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void CFamilyGroupsClient_GroupChanged_Notification::Clear() {
+// @@protoc_insertion_point(message_clear_start:CFamilyGroupsClient_GroupChanged_Notification)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  family_groupid_ = PROTOBUF_ULONGLONG(0);
+  _has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CFamilyGroupsClient_GroupChanged_Notification::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // optional uint64 family_groupid = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          _Internal::set_has_family_groupid(&has_bits);
+          family_groupid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  _has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* CFamilyGroupsClient_GroupChanged_Notification::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CFamilyGroupsClient_GroupChanged_Notification)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // optional uint64 family_groupid = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_family_groupid(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CFamilyGroupsClient_GroupChanged_Notification)
+  return target;
+}
+
+size_t CFamilyGroupsClient_GroupChanged_Notification::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CFamilyGroupsClient_GroupChanged_Notification)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // optional uint64 family_groupid = 1;
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
+        this->_internal_family_groupid());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void CFamilyGroupsClient_GroupChanged_Notification::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:CFamilyGroupsClient_GroupChanged_Notification)
+  GOOGLE_DCHECK_NE(&from, this);
+  const CFamilyGroupsClient_GroupChanged_Notification* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<CFamilyGroupsClient_GroupChanged_Notification>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:CFamilyGroupsClient_GroupChanged_Notification)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:CFamilyGroupsClient_GroupChanged_Notification)
+    MergeFrom(*source);
+  }
+}
+
+void CFamilyGroupsClient_GroupChanged_Notification::MergeFrom(const CFamilyGroupsClient_GroupChanged_Notification& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:CFamilyGroupsClient_GroupChanged_Notification)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_has_family_groupid()) {
+    _internal_set_family_groupid(from._internal_family_groupid());
+  }
+}
+
+void CFamilyGroupsClient_GroupChanged_Notification::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:CFamilyGroupsClient_GroupChanged_Notification)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CFamilyGroupsClient_GroupChanged_Notification::CopyFrom(const CFamilyGroupsClient_GroupChanged_Notification& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CFamilyGroupsClient_GroupChanged_Notification)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CFamilyGroupsClient_GroupChanged_Notification::IsInitialized() const {
+  return true;
+}
+
+void CFamilyGroupsClient_GroupChanged_Notification::InternalSwap(CFamilyGroupsClient_GroupChanged_Notification* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  swap(family_groupid_, other->family_groupid_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CFamilyGroupsClient_GroupChanged_Notification::GetMetadata() const {
   return GetMetadataStatic();
 }
 
@@ -13287,11 +13564,11 @@ const ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor* FamilyGroupsClient::GetDescrip
   return descriptor();
 }
 
-void FamilyGroupsClient::NotifyGroupStatus(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
-                         const ::CFamilyGroupsClient_GroupStatus_Notification*,
+void FamilyGroupsClient::NotifyRunningApps(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                         const ::CFamilyGroupsClient_NotifyRunningApps_Notification*,
                          ::NoResponse*,
                          ::google::protobuf::Closure* done) {
-  controller->SetFailed("Method NotifyGroupStatus() not implemented.");
+  controller->SetFailed("Method NotifyRunningApps() not implemented.");
   done->Run();
 }
 
@@ -13303,6 +13580,14 @@ void FamilyGroupsClient::NotifyInviteStatus(::PROTOBUF_NAMESPACE_ID::RpcControll
   done->Run();
 }
 
+void FamilyGroupsClient::NotifyGroupChanged(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                         const ::CFamilyGroupsClient_GroupChanged_Notification*,
+                         ::NoResponse*,
+                         ::google::protobuf::Closure* done) {
+  controller->SetFailed("Method NotifyGroupChanged() not implemented.");
+  done->Run();
+}
+
 void FamilyGroupsClient::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescriptor* method,
                              ::PROTOBUF_NAMESPACE_ID::RpcController* controller,
                              const ::PROTOBUF_NAMESPACE_ID::Message* request,
@@ -13311,8 +13596,8 @@ void FamilyGroupsClient::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescrip
   GOOGLE_DCHECK_EQ(method->service(), file_level_service_descriptors_steammessages_5ffamilygroups_2esteamclient_2eproto[1]);
   switch(method->index()) {
     case 0:
-      NotifyGroupStatus(controller,
-             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CFamilyGroupsClient_GroupStatus_Notification*>(
+      NotifyRunningApps(controller,
+             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CFamilyGroupsClient_NotifyRunningApps_Notification*>(
                  request),
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<::NoResponse*>(
                  response),
@@ -13321,6 +13606,14 @@ void FamilyGroupsClient::CallMethod(const ::PROTOBUF_NAMESPACE_ID::MethodDescrip
     case 1:
       NotifyInviteStatus(controller,
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CFamilyGroupsClient_InviteStatus_Notification*>(
+                 request),
+             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<::NoResponse*>(
+                 response),
+             done);
+      break;
+    case 2:
+      NotifyGroupChanged(controller,
+             ::PROTOBUF_NAMESPACE_ID::internal::DownCast<const ::CFamilyGroupsClient_GroupChanged_Notification*>(
                  request),
              ::PROTOBUF_NAMESPACE_ID::internal::DownCast<::NoResponse*>(
                  response),
@@ -13337,9 +13630,11 @@ const ::PROTOBUF_NAMESPACE_ID::Message& FamilyGroupsClient::GetRequestPrototype(
   GOOGLE_DCHECK_EQ(method->service(), descriptor());
   switch(method->index()) {
     case 0:
-      return ::CFamilyGroupsClient_GroupStatus_Notification::default_instance();
+      return ::CFamilyGroupsClient_NotifyRunningApps_Notification::default_instance();
     case 1:
       return ::CFamilyGroupsClient_InviteStatus_Notification::default_instance();
+    case 2:
+      return ::CFamilyGroupsClient_GroupChanged_Notification::default_instance();
     default:
       GOOGLE_LOG(FATAL) << "Bad method index; this should never happen.";
       return *::PROTOBUF_NAMESPACE_ID::MessageFactory::generated_factory()
@@ -13354,6 +13649,8 @@ const ::PROTOBUF_NAMESPACE_ID::Message& FamilyGroupsClient::GetResponsePrototype
     case 0:
       return ::NoResponse::default_instance();
     case 1:
+      return ::NoResponse::default_instance();
+    case 2:
       return ::NoResponse::default_instance();
     default:
       GOOGLE_LOG(FATAL) << "Bad method index; this should never happen.";
@@ -13373,8 +13670,8 @@ FamilyGroupsClient_Stub::~FamilyGroupsClient_Stub() {
   if (owns_channel_) delete channel_;
 }
 
-void FamilyGroupsClient_Stub::NotifyGroupStatus(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
-                              const ::CFamilyGroupsClient_GroupStatus_Notification* request,
+void FamilyGroupsClient_Stub::NotifyRunningApps(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                              const ::CFamilyGroupsClient_NotifyRunningApps_Notification* request,
                               ::NoResponse* response,
                               ::google::protobuf::Closure* done) {
   channel_->CallMethod(descriptor()->method(0),
@@ -13385,6 +13682,13 @@ void FamilyGroupsClient_Stub::NotifyInviteStatus(::PROTOBUF_NAMESPACE_ID::RpcCon
                               ::NoResponse* response,
                               ::google::protobuf::Closure* done) {
   channel_->CallMethod(descriptor()->method(1),
+                       controller, request, response, done);
+}
+void FamilyGroupsClient_Stub::NotifyGroupChanged(::PROTOBUF_NAMESPACE_ID::RpcController* controller,
+                              const ::CFamilyGroupsClient_GroupChanged_Notification* request,
+                              ::NoResponse* response,
+                              ::google::protobuf::Closure* done) {
+  channel_->CallMethod(descriptor()->method(2),
                        controller, request, response, done);
 }
 
@@ -13516,17 +13820,20 @@ template<> PROTOBUF_NOINLINE ::CFamilyGroups_GetSharedLibraryApps_Response_Share
 template<> PROTOBUF_NOINLINE ::CFamilyGroups_GetSharedLibraryApps_Response* Arena::CreateMaybeMessage< ::CFamilyGroups_GetSharedLibraryApps_Response >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CFamilyGroups_GetSharedLibraryApps_Response >(arena);
 }
-template<> PROTOBUF_NOINLINE ::CFamilyGroupsClient_GroupStatus_Notification_PlayingMember* Arena::CreateMaybeMessage< ::CFamilyGroupsClient_GroupStatus_Notification_PlayingMember >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::CFamilyGroupsClient_GroupStatus_Notification_PlayingMember >(arena);
+template<> PROTOBUF_NOINLINE ::CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember* Arena::CreateMaybeMessage< ::CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CFamilyGroupsClient_NotifyRunningApps_Notification_PlayingMember >(arena);
 }
-template<> PROTOBUF_NOINLINE ::CFamilyGroupsClient_GroupStatus_Notification_RunningApp* Arena::CreateMaybeMessage< ::CFamilyGroupsClient_GroupStatus_Notification_RunningApp >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::CFamilyGroupsClient_GroupStatus_Notification_RunningApp >(arena);
+template<> PROTOBUF_NOINLINE ::CFamilyGroupsClient_NotifyRunningApps_Notification_RunningApp* Arena::CreateMaybeMessage< ::CFamilyGroupsClient_NotifyRunningApps_Notification_RunningApp >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CFamilyGroupsClient_NotifyRunningApps_Notification_RunningApp >(arena);
 }
-template<> PROTOBUF_NOINLINE ::CFamilyGroupsClient_GroupStatus_Notification* Arena::CreateMaybeMessage< ::CFamilyGroupsClient_GroupStatus_Notification >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::CFamilyGroupsClient_GroupStatus_Notification >(arena);
+template<> PROTOBUF_NOINLINE ::CFamilyGroupsClient_NotifyRunningApps_Notification* Arena::CreateMaybeMessage< ::CFamilyGroupsClient_NotifyRunningApps_Notification >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CFamilyGroupsClient_NotifyRunningApps_Notification >(arena);
 }
 template<> PROTOBUF_NOINLINE ::CFamilyGroupsClient_InviteStatus_Notification* Arena::CreateMaybeMessage< ::CFamilyGroupsClient_InviteStatus_Notification >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CFamilyGroupsClient_InviteStatus_Notification >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CFamilyGroupsClient_GroupChanged_Notification* Arena::CreateMaybeMessage< ::CFamilyGroupsClient_GroupChanged_Notification >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CFamilyGroupsClient_GroupChanged_Notification >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

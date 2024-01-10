@@ -1,6 +1,6 @@
 {
     "name": "IClientDepotBuilderMap",
-    "found_at": "0x2449d90",
+    "found_at": "0x244ac50",
     "functions": [ 
         {
             "name": "BGetDepotBuildStatus",
@@ -10,7 +10,7 @@
             "fencepost": "4160357694",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x5d7890",
+            "addr": "0x5d7f40",
             "serializedargs": [
                 "bytes8"
             ],
@@ -29,7 +29,7 @@
             "fencepost": "3898546986",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x5d7a60",
+            "addr": "0x5d8110",
             "serializedargs": [
                 "bytes4",
                 "bytes4",
@@ -47,7 +47,7 @@
             "fencepost": "0",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x5d7c10",
+            "addr": "0x5d82c0",
             "serializedargs": [
             ],
             "serializedreturns": [
@@ -61,7 +61,7 @@
             "fencepost": "4167027788",
             "cannotcallincrossprocess": "1",
             "serializedreturn": "",
-            "addr": "0x5d8260",
+            "addr": "0x5d8910",
             "serializedargs": [
                 "bytes4",
                 "bytes4",
@@ -79,7 +79,7 @@
             "fencepost": "3911748492",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x5d7eb0",
+            "addr": "0x5d8560",
             "serializedargs": [
                 "bytes4",
                 "bytes4",
@@ -98,7 +98,7 @@
             "fencepost": "338754613",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x5d8080",
+            "addr": "0x5d8730",
             "serializedargs": [
                 "bytes4",
                 "bytes4",

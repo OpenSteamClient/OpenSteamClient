@@ -1,6 +1,6 @@
 {
     "name": "IClientRemotePlayMap",
-    "found_at": "0x244b118",
+    "found_at": "0x244bfd8",
     "functions": [ 
         {
             "name": "GetSessionCount",
@@ -10,7 +10,7 @@
             "fencepost": "2892432527",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x649420",
+            "addr": "0x649ad0",
             "serializedargs": [
             ],
             "serializedreturns": [
@@ -25,7 +25,7 @@
             "fencepost": "2071443865",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x649580",
+            "addr": "0x649c30",
             "serializedargs": [
                 "bytes4"
             ],
@@ -41,7 +41,7 @@
             "fencepost": "3006378544",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x6496f0",
+            "addr": "0x649da0",
             "serializedargs": [
                 "bytes4"
             ],
@@ -57,7 +57,7 @@
             "fencepost": "885316888",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x649890",
+            "addr": "0x649f40",
             "serializedargs": [
                 "bytes4"
             ],
@@ -73,7 +73,7 @@
             "fencepost": "4158703279",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x649a00",
+            "addr": "0x64a0b0",
             "serializedargs": [
                 "bytes4"
             ],
@@ -89,7 +89,7 @@
             "fencepost": "2506651020",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x649b70",
+            "addr": "0x64a220",
             "serializedargs": [
                 "bytes4"
             ],
@@ -107,7 +107,7 @@
             "fencepost": "2020526399",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x649d20",
+            "addr": "0x64a3d0",
             "serializedargs": [
                 "bytes1"
             ],
@@ -123,7 +123,7 @@
             "fencepost": "1581716936",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x649ea0",
+            "addr": "0x64a550",
             "serializedargs": [
                 "uint64"
             ],

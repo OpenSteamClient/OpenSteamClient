@@ -1,6 +1,6 @@
 {
     "name": "IClientUnifiedMessagesMap",
-    "found_at": "0x244a638",
+    "found_at": "0x244b4f8",
     "functions": [ 
         {
             "name": "SendMethod",
@@ -10,7 +10,7 @@
             "fencepost": "1053287833",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x60a950",
+            "addr": "0x60b000",
             "serializedargs": [
                 "string",
                 "bytes4",
@@ -29,7 +29,7 @@
             "fencepost": "844399045",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x60ab40",
+            "addr": "0x60b1f0",
             "serializedargs": [
                 "bytes8"
             ],
@@ -47,7 +47,7 @@
             "fencepost": "350889954",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x60ad00",
+            "addr": "0x60b3b0",
             "serializedargs": [
                 "bytes8",
                 "bytes4",
@@ -66,7 +66,7 @@
             "fencepost": "2860115444",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x60aed0",
+            "addr": "0x60b580",
             "serializedargs": [
                 "bytes8"
             ],
@@ -82,7 +82,7 @@
             "fencepost": "144329476",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x60b060",
+            "addr": "0x60b710",
             "serializedargs": [
                 "string",
                 "bytes4",

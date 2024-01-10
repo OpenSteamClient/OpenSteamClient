@@ -1,6 +1,6 @@
 {
     "name": "IClientProductBuilderMap",
-    "found_at": "0x2449d7c",
+    "found_at": "0x244ac3c",
     "functions": [ 
         {
             "name": "SignInstallScript",
@@ -10,7 +10,7 @@
             "fencepost": "4021732492",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x5d7350",
+            "addr": "0x5d7a00",
             "serializedargs": [
                 "bytes4",
                 "string",
@@ -28,7 +28,7 @@
             "fencepost": "478531667",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x5d76b0",
+            "addr": "0x5d7d60",
             "serializedargs": [
                 "bytes4",
                 "string",
@@ -49,7 +49,7 @@
             "fencepost": "1396887573",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x5d7500",
+            "addr": "0x5d7bb0",
             "serializedargs": [
                 "bytes4",
                 "string",

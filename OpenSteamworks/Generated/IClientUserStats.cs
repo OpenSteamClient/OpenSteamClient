@@ -85,33 +85,33 @@ public unsafe interface IClientUserStats
     public unknown_ret UploadLeaderboardScore();  // argc: 6, index: 38, ipc args: [bytes8, bytes4, bytes4, bytes4, bytes_length_from_reg], ipc returns: [bytes8]
     public unknown_ret GetNumberOfCurrentPlayers();  // argc: 0, index: 39, ipc args: [], ipc returns: [bytes8]
     // WARNING: Arguments are unknown!
-    public unknown_ret GetNumAchievedAchievements();  // argc: 1, index: 0, ipc args: [bytes8], ipc returns: [bytes4]
+    public unknown_ret GetNumAchievedAchievements();  // argc: 1, index: 40, ipc args: [bytes8], ipc returns: [bytes4]
     // WARNING: Arguments are unknown!
-    public unknown_ret GetLastAchievementUnlocked();  // argc: 1, index: 1, ipc args: [bytes8], ipc returns: [string]
+    public unknown_ret GetLastAchievementUnlocked();  // argc: 1, index: 41, ipc args: [bytes8], ipc returns: [string]
     // WARNING: Arguments are unknown!
-    public unknown_ret GetMostRecentAchievementUnlocked();  // argc: 2, index: 2, ipc args: [bytes8, bytes4], ipc returns: [string]
+    public unknown_ret GetMostRecentAchievementUnlocked();  // argc: 2, index: 42, ipc args: [bytes8, bytes4], ipc returns: [string]
     // WARNING: Arguments are unknown!
-    public unknown_ret RequestGlobalAchievementPercentages();  // argc: 1, index: 3, ipc args: [bytes8], ipc returns: [bytes8]
+    public unknown_ret RequestGlobalAchievementPercentages();  // argc: 1, index: 43, ipc args: [bytes8], ipc returns: [bytes8]
     // WARNING: Arguments are unknown!
-    public unknown_ret GetMostAchievedAchievementInfo();  // argc: 5, index: 4, ipc args: [bytes8, bytes4], ipc returns: [bytes4, bytes_length_from_mem, bytes4, bytes1]
+    public unknown_ret GetMostAchievedAchievementInfo();  // argc: 5, index: 44, ipc args: [bytes8, bytes4], ipc returns: [bytes4, bytes_length_from_mem, bytes4, bytes1]
     // WARNING: Arguments are unknown!
-    public unknown_ret GetNextMostAchievedAchievementInfo();  // argc: 6, index: 5, ipc args: [bytes8, bytes4, bytes4], ipc returns: [bytes4, bytes_length_from_mem, bytes4, bytes1]
+    public unknown_ret GetNextMostAchievedAchievementInfo();  // argc: 6, index: 45, ipc args: [bytes8, bytes4, bytes4], ipc returns: [bytes4, bytes_length_from_mem, bytes4, bytes1]
     // WARNING: Arguments are unknown!
-    public unknown_ret GetAchievementAchievedPercent();  // argc: 3, index: 6, ipc args: [bytes8, string], ipc returns: [bytes1, bytes4]
+    public unknown_ret GetAchievementAchievedPercent();  // argc: 3, index: 46, ipc args: [bytes8, string], ipc returns: [bytes1, bytes4]
     // WARNING: Arguments are unknown!
-    public unknown_ret RequestGlobalStats();  // argc: 2, index: 7, ipc args: [bytes8, bytes4], ipc returns: [bytes8]
+    public unknown_ret RequestGlobalStats();  // argc: 2, index: 47, ipc args: [bytes8, bytes4], ipc returns: [bytes8]
     // WARNING: Arguments are unknown!
-    public unknown_ret GetGlobalStat(in CGameID nGameID, string pchName, ref Int64 pData);  // argc: 3, index: 8, ipc args: [bytes8, string], ipc returns: [bytes1, bytes8]
+    public unknown_ret GetGlobalStat(in CGameID nGameID, string pchName, ref Int64 pData);  // argc: 3, index: 48, ipc args: [bytes8, string], ipc returns: [bytes1, bytes8]
     // WARNING: Arguments are unknown!
-    public unknown_ret GetGlobalStat(in CGameID nGameID, string pchName, ref double pData);  // argc: 3, index: 9, ipc args: [bytes8, string], ipc returns: [bytes1, bytes8]
+    public unknown_ret GetGlobalStat(in CGameID nGameID, string pchName, ref double pData);  // argc: 3, index: 49, ipc args: [bytes8, string], ipc returns: [bytes1, bytes8]
     // WARNING: Arguments are unknown!
-    public unknown_ret GetGlobalStatHistory(in CGameID nGameID, string pchName, ref Int64 pData, UInt32 cubData);  // argc: 4, index: 10, ipc args: [bytes8, string, bytes4], ipc returns: [bytes4, bytes_length_from_mem]
+    public unknown_ret GetGlobalStatHistory(in CGameID nGameID, string pchName, ref Int64 pData, UInt32 cubData);  // argc: 4, index: 50, ipc args: [bytes8, string, bytes4], ipc returns: [bytes4, bytes_length_from_mem]
     // WARNING: Arguments are unknown!
-    public unknown_ret GetGlobalStatHistory(in CGameID nGameID, string pchName, ref double pData, UInt32 cubData);  // argc: 4, index: 11, ipc args: [bytes8, string, bytes4], ipc returns: [bytes4, bytes_length_from_mem]
+    public unknown_ret GetGlobalStatHistory(in CGameID nGameID, string pchName, ref double pData, UInt32 cubData);  // argc: 4, index: 51, ipc args: [bytes8, string, bytes4], ipc returns: [bytes4, bytes_length_from_mem]
     // WARNING: Arguments are unknown!
-    public unknown_ret GetAchievementProgressLimits(in CGameID nGameID, string pchName, ref Int64 pData, UInt32 cubData);  // argc: 4, index: 12, ipc args: [bytes8, string], ipc returns: [bytes1, bytes4, bytes4]
+    public unknown_ret GetAchievementProgressLimits(in CGameID nGameID, string pchName, ref Int64 pData, UInt32 cubData);  // argc: 4, index: 52, ipc args: [bytes8, string], ipc returns: [bytes1, bytes4, bytes4]
     // WARNING: Arguments are unknown!
-    public unknown_ret GetAchievementProgressLimits(in CGameID nGameID, string pchName, ref double pData, UInt32 cubData);  // argc: 4, index: 13, ipc args: [bytes8, string], ipc returns: [bytes1, bytes4, bytes4]
+    public unknown_ret GetAchievementProgressLimits(in CGameID nGameID, string pchName, ref double pData, UInt32 cubData);  // argc: 4, index: 53, ipc args: [bytes8, string], ipc returns: [bytes1, bytes4, bytes4]
     // WARNING: Arguments are unknown!
-    public unknown_ret BAchievementIconLoaded();  // argc: 3, index: 14, ipc args: [bytes8, string, bytes1], ipc returns: [boolean]
+    public unknown_ret BAchievementIconLoaded();  // argc: 3, index: 54, ipc args: [bytes8, string, bytes1], ipc returns: [boolean]
 }

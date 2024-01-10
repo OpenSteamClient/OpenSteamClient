@@ -1,6 +1,6 @@
 {
     "name": "IClientParentalSettingsMap",
-    "found_at": "0x244a654",
+    "found_at": "0x244b514",
     "functions": [ 
         {
             "name": "BIsParentalLockEnabled",
@@ -10,7 +10,7 @@
             "fencepost": "1109550857",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x60b1f0",
+            "addr": "0x60b8a0",
             "serializedargs": [
             ],
             "serializedreturns": [
@@ -25,7 +25,7 @@
             "fencepost": "1815362336",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x60b350",
+            "addr": "0x60ba00",
             "serializedargs": [
             ],
             "serializedreturns": [
@@ -40,7 +40,7 @@
             "fencepost": "3401148712",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x60b4b0",
+            "addr": "0x60bb60",
             "serializedargs": [
                 "bytes4"
             ],
@@ -56,7 +56,7 @@
             "fencepost": "533209808",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x60b630",
+            "addr": "0x60bce0",
             "serializedargs": [
                 "bytes4"
             ],
@@ -72,7 +72,7 @@
             "fencepost": "1878800346",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x60b7b0",
+            "addr": "0x60be60",
             "serializedargs": [
                 "bytes4"
             ],
@@ -88,7 +88,7 @@
             "fencepost": "2709976330",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x60b930",
+            "addr": "0x60bfe0",
             "serializedargs": [
                 "bytes4"
             ],
@@ -104,12 +104,12 @@
             "fencepost": "3977502386",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x60bab0",
+            "addr": "0x60c160",
             "serializedargs": [
             ],
             "serializedreturns": [
                 "boolean",
-                "unknown"
+                "utlbuffer"
             ]
         },
         {
@@ -120,7 +120,7 @@
             "fencepost": "2459299629",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x60bc30",
+            "addr": "0x60c2e0",
             "serializedargs": [
                 "bytes4"
             ],
@@ -137,7 +137,7 @@
             "fencepost": "1901915167",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x60bdc0",
+            "addr": "0x60c470",
             "serializedargs": [
             ],
             "serializedreturns": [

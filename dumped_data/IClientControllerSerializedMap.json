@@ -1,6 +1,6 @@
 {
     "name": "IClientControllerSerializedMap",
-    "found_at": "0x244ad18",
+    "found_at": "0x244bbd8",
     "functions": [ 
         {
             "name": "Unknown_0",
@@ -10,7 +10,7 @@
             "fencepost": "0",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x587860",
+            "addr": "0x587f10",
             "serializedargs": [
             ],
             "serializedreturns": [
@@ -24,7 +24,7 @@
             "fencepost": "0",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x64b750",
+            "addr": "0x64be00",
             "serializedargs": [
             ],
             "serializedreturns": [
@@ -38,7 +38,7 @@
             "fencepost": "1774602212",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x632c00",
+            "addr": "0x6332b0",
             "serializedargs": [
                 "bytes4",
                 "bytes8"
@@ -55,7 +55,7 @@
             "fencepost": "3953588765",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x632da0",
+            "addr": "0x633450",
             "serializedargs": [
                 "bytes8"
             ],
@@ -71,7 +71,7 @@
             "fencepost": "188760858",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x632f20",
+            "addr": "0x6335d0",
             "serializedargs": [
                 "bytes8"
             ],
@@ -87,7 +87,7 @@
             "fencepost": "2665377166",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x6330a0",
+            "addr": "0x633750",
             "serializedargs": [
                 "bytes4"
             ],
@@ -103,7 +103,7 @@
             "fencepost": "773807767",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x633230",
+            "addr": "0x6338e0",
             "serializedargs": [
                 "bytes4",
                 "string"
@@ -120,7 +120,7 @@
             "fencepost": "3459326218",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x6333d0",
+            "addr": "0x633a80",
             "serializedargs": [
                 "bytes4",
                 "string"
@@ -137,7 +137,7 @@
             "fencepost": "3559933792",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x633570",
+            "addr": "0x633c20",
             "serializedargs": [
                 "bytes4",
                 "bytes8",
@@ -154,7 +154,7 @@
             "fencepost": "605789905",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x633710",
+            "addr": "0x633dc0",
             "serializedargs": [
                 "bytes4",
                 "bytes8",
@@ -171,7 +171,7 @@
             "fencepost": "133454082",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x6338b0",
+            "addr": "0x633f60",
             "serializedargs": [
                 "bytes4",
                 "bytes8",
@@ -188,7 +188,7 @@
             "fencepost": "25060527",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x633a50",
+            "addr": "0x634100",
             "serializedargs": [
                 "bytes4",
                 "bytes8"
@@ -204,7 +204,7 @@
             "fencepost": "2055518662",
             "cannotcallincrossprocess": "1",
             "serializedreturn": "",
-            "addr": "0x633bc0",
+            "addr": "0x634270",
             "serializedargs": [
                 "bytes4",
                 "bytes8",
@@ -222,7 +222,7 @@
             "fencepost": "2619341785",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x633db0",
+            "addr": "0x634460",
             "serializedargs": [
                 "bytes4",
                 "string",
@@ -240,7 +240,7 @@
             "fencepost": "1062427895",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x633f70",
+            "addr": "0x634620",
             "serializedargs": [
                 "bytes4",
                 "string",
@@ -258,7 +258,7 @@
             "fencepost": "2615641294",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x634130",
+            "addr": "0x6347e0",
             "serializedargs": [
                 "bytes8",
                 "bytes8"
@@ -274,7 +274,7 @@
             "fencepost": "2189435432",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x63dd50",
+            "addr": "0x63e400",
             "serializedargs": [
                 "bytes4"
             ],
@@ -289,7 +289,7 @@
             "fencepost": "494243531",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x63dea0",
+            "addr": "0x63e550",
             "serializedargs": [
                 "bytes4",
                 "bytes8",
@@ -308,7 +308,7 @@
             "fencepost": "1862573259",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x63e070",
+            "addr": "0x63e720",
             "serializedargs": [
                 "bytes4",
                 "bytes8",
@@ -327,7 +327,7 @@
             "fencepost": "2946780299",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x63e240",
+            "addr": "0x63e8f0",
             "serializedargs": [
                 "bytes4",
                 "bytes4",
@@ -345,7 +345,7 @@
             "fencepost": "3491639446",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x63e3e0",
+            "addr": "0x63ea90",
             "serializedargs": [
                 "bytes4"
             ],
@@ -361,7 +361,7 @@
             "fencepost": "1444481376",
             "cannotcallincrossprocess": "1",
             "serializedreturn": "",
-            "addr": "0x63e550",
+            "addr": "0x63ec00",
             "serializedargs": [
                 "bytes4",
                 "bytes4"
@@ -378,7 +378,7 @@
             "fencepost": "2143032853",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x63e700",
+            "addr": "0x63edb0",
             "serializedargs": [
                 "bytes4"
             ],
@@ -394,7 +394,7 @@
             "fencepost": "4223093525",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x63e880",
+            "addr": "0x63ef30",
             "serializedargs": [
             ],
             "serializedreturns": [
@@ -408,7 +408,7 @@
             "fencepost": "102547431",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x642570",
+            "addr": "0x642c20",
             "serializedargs": [
                 "bytes4",
                 "bytes4",
@@ -425,7 +425,7 @@
             "fencepost": "1425879869",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x63f200",
+            "addr": "0x63f8b0",
             "serializedargs": [
                 "bytes4",
                 "bytes4"
@@ -441,7 +441,7 @@
             "fencepost": "2693564853",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x6342c0",
+            "addr": "0x634970",
             "serializedargs": [
             ],
             "serializedreturns": [
@@ -456,7 +456,7 @@
             "fencepost": "588552778",
             "cannotcallincrossprocess": "1",
             "serializedreturn": "",
-            "addr": "0x63f4b0",
+            "addr": "0x63fb60",
             "serializedargs": [
                 "bytes4"
             ],
@@ -471,7 +471,7 @@
             "fencepost": "2447434474",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x634b30",
+            "addr": "0x6351e0",
             "serializedargs": [
                 "bytes4"
             ],
@@ -487,7 +487,7 @@
             "fencepost": "3417321100",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x634cc0",
+            "addr": "0x635370",
             "serializedargs": [
                 "bytes4"
             ],
@@ -503,7 +503,7 @@
             "fencepost": "2694813513",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x634e40",
+            "addr": "0x6354f0",
             "serializedargs": [
                 "bytes4"
             ],
@@ -519,7 +519,7 @@
             "fencepost": "114785926",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x634fc0",
+            "addr": "0x635670",
             "serializedargs": [
                 "bytes4"
             ],
@@ -535,7 +535,7 @@
             "fencepost": "3009985253",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x635140",
+            "addr": "0x6357f0",
             "serializedargs": [
                 "bytes4"
             ],
@@ -551,7 +551,7 @@
             "fencepost": "3009547886",
             "cannotcallincrossprocess": "1",
             "serializedreturn": "",
-            "addr": "0x63f620",
+            "addr": "0x63fcd0",
             "serializedargs": [
                 "bytes4",
                 "bytes4"
@@ -568,7 +568,7 @@
             "fencepost": "784859696",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x6352c0",
+            "addr": "0x635970",
             "serializedargs": [
                 "bytes4",
                 "bytes4"
@@ -585,7 +585,7 @@
             "fencepost": "3088713017",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x635450",
+            "addr": "0x635b00",
             "serializedargs": [
                 "bytes4"
             ],
@@ -601,7 +601,7 @@
             "fencepost": "1870558185",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x6355d0",
+            "addr": "0x635c80",
             "serializedargs": [
                 "bytes4"
             ],
@@ -617,7 +617,7 @@
             "fencepost": "1159662916",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x635750",
+            "addr": "0x635e00",
             "serializedargs": [
                 "bytes4",
                 "bytes1",
@@ -636,7 +636,7 @@
             "fencepost": "3166782046",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x635920",
+            "addr": "0x635fd0",
             "serializedargs": [
                 "bytes4",
                 "bytes4",
@@ -656,7 +656,7 @@
             "fencepost": "2257930401",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x635b00",
+            "addr": "0x6361b0",
             "serializedargs": [
                 "bytes4",
                 "bytes4",
@@ -678,7 +678,7 @@
             "fencepost": "1376795283",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x635d30",
+            "addr": "0x6363e0",
             "serializedargs": [
                 "bytes4"
             ],
@@ -694,7 +694,7 @@
             "fencepost": "4065085118",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x635eb0",
+            "addr": "0x636560",
             "serializedargs": [
                 "bytes4",
                 "bytes1"
@@ -711,7 +711,7 @@
             "fencepost": "1424587838",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x636050",
+            "addr": "0x636700",
             "serializedargs": [
                 "bytes4",
                 "bytes4",
@@ -728,7 +728,7 @@
             "fencepost": "647307410",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x6361d0",
+            "addr": "0x636880",
             "serializedargs": [
                 "bytes4",
                 "bytes1"
@@ -744,7 +744,7 @@
             "fencepost": "987052643",
             "cannotcallincrossprocess": "1",
             "serializedreturn": "",
-            "addr": "0x63f7e0",
+            "addr": "0x63fe90",
             "serializedargs": [
                 "bytes4",
                 "bytes4",
@@ -764,7 +764,7 @@
             "fencepost": "2085315212",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x636330",
+            "addr": "0x6369e0",
             "serializedargs": [
             ],
             "serializedreturns": [
@@ -778,7 +778,7 @@
             "fencepost": "900795771",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x636610",
+            "addr": "0x636cc0",
             "serializedargs": [
                 "bytes4",
                 "bytes4"
@@ -794,7 +794,7 @@
             "fencepost": "1624878147",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x636770",
+            "addr": "0x636e20",
             "serializedargs": [
                 "bytes4",
                 "bytes4"
@@ -810,7 +810,7 @@
             "fencepost": "2057048179",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x636460",
+            "addr": "0x636b10",
             "serializedargs": [
                 "bytes4",
                 "bytes4"
@@ -827,7 +827,7 @@
             "fencepost": "3378152994",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x63af60",
+            "addr": "0x63b610",
             "serializedargs": [
                 "bytes4"
             ],
@@ -843,7 +843,7 @@
             "fencepost": "2225862908",
             "cannotcallincrossprocess": "1",
             "serializedreturn": "",
-            "addr": "0x63fa00",
+            "addr": "0x6400b0",
             "serializedargs": [
                 "bytes4"
             ],
@@ -859,7 +859,7 @@
             "fencepost": "947125529",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x6368d0",
+            "addr": "0x636f80",
             "serializedargs": [
                 "bytes4"
             ],
@@ -875,13 +875,13 @@
             "fencepost": "3969560533",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x63fba0",
+            "addr": "0x640250",
             "serializedargs": [
                 "bytes4"
             ],
             "serializedreturns": [
                 "bytes4",
-                "unknown"
+                "protobuf"
             ]
         },
         {
@@ -892,14 +892,14 @@
             "fencepost": "3782928301",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x63fd30",
+            "addr": "0x6403e0",
             "serializedargs": [
                 "bytes4",
                 "protobuf"
             ],
             "serializedreturns": [
                 "bytes4",
-                "unknown"
+                "protobuf"
             ]
         },
         {
@@ -910,14 +910,14 @@
             "fencepost": "2067971633",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x63fed0",
+            "addr": "0x640580",
             "serializedargs": [
                 "bytes4",
                 "protobuf"
             ],
             "serializedreturns": [
                 "bytes4",
-                "unknown"
+                "protobuf"
             ]
         },
         {
@@ -928,14 +928,14 @@
             "fencepost": "3837498058",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x640070",
+            "addr": "0x640720",
             "serializedargs": [
                 "bytes4",
                 "protobuf"
             ],
             "serializedreturns": [
                 "bytes4",
-                "unknown"
+                "protobuf"
             ]
         },
         {
@@ -946,14 +946,14 @@
             "fencepost": "2162734089",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x640210",
+            "addr": "0x6408c0",
             "serializedargs": [
                 "bytes4",
                 "protobuf"
             ],
             "serializedreturns": [
                 "bytes4",
-                "unknown"
+                "protobuf"
             ]
         },
         {
@@ -964,14 +964,14 @@
             "fencepost": "549778623",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x6403b0",
+            "addr": "0x640a60",
             "serializedargs": [
                 "bytes4",
                 "protobuf"
             ],
             "serializedreturns": [
                 "bytes4",
-                "unknown"
+                "protobuf"
             ]
         },
         {
@@ -982,14 +982,14 @@
             "fencepost": "56473871",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x640550",
+            "addr": "0x640c00",
             "serializedargs": [
                 "bytes4",
                 "protobuf"
             ],
             "serializedreturns": [
                 "bytes4",
-                "unknown"
+                "protobuf"
             ]
         },
         {
@@ -1000,14 +1000,14 @@
             "fencepost": "1966732153",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x6406f0",
+            "addr": "0x640da0",
             "serializedargs": [
                 "bytes4",
                 "protobuf"
             ],
             "serializedreturns": [
                 "bytes4",
-                "unknown"
+                "protobuf"
             ]
         },
         {
@@ -1018,14 +1018,14 @@
             "fencepost": "238417537",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x640890",
+            "addr": "0x640f40",
             "serializedargs": [
                 "bytes4",
                 "protobuf"
             ],
             "serializedreturns": [
                 "bytes4",
-                "unknown"
+                "protobuf"
             ]
         },
         {
@@ -1036,14 +1036,14 @@
             "fencepost": "2935934548",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x640a30",
+            "addr": "0x6410e0",
             "serializedargs": [
                 "bytes4",
                 "protobuf"
             ],
             "serializedreturns": [
                 "bytes4",
-                "unknown"
+                "protobuf"
             ]
         },
         {
@@ -1054,7 +1054,7 @@
             "fencepost": "3729280550",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x636a50",
+            "addr": "0x637100",
             "serializedargs": [
                 "bytes4"
             ],
@@ -1070,7 +1070,7 @@
             "fencepost": "1825954755",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x636bd0",
+            "addr": "0x637280",
             "serializedargs": [
                 "bytes4"
             ],
@@ -1085,7 +1085,7 @@
             "fencepost": "3833337137",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x636d20",
+            "addr": "0x6373d0",
             "serializedargs": [
                 "bytes4"
             ],
@@ -1101,7 +1101,7 @@
             "fencepost": "4045210097",
             "cannotcallincrossprocess": "1",
             "serializedreturn": "",
-            "addr": "0x636e90",
+            "addr": "0x637540",
             "serializedargs": [
                 "bytes4",
                 "bytes4",
@@ -1119,7 +1119,7 @@
             "fencepost": "1528068225",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x637060",
+            "addr": "0x637710",
             "serializedargs": [
                 "bytes4",
                 "string"
@@ -1136,7 +1136,7 @@
             "fencepost": "2126530574",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x6371e0",
+            "addr": "0x637890",
             "serializedargs": [
                 "bytes4"
             ],
@@ -1152,7 +1152,7 @@
             "fencepost": "3989471343",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x637350",
+            "addr": "0x637a00",
             "serializedargs": [
                 "bytes4",
                 "bytes1"
@@ -1169,7 +1169,7 @@
             "fencepost": "4214817189",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x6374e0",
+            "addr": "0x637b90",
             "serializedargs": [
                 "bytes4",
                 "string"
@@ -1185,7 +1185,7 @@
             "fencepost": "448960635",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x637930",
+            "addr": "0x637fe0",
             "serializedargs": [
                 "bytes4",
                 "bytes1"
@@ -1202,7 +1202,7 @@
             "fencepost": "285816415",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x637ac0",
+            "addr": "0x638170",
             "serializedargs": [
                 "bytes4"
             ],
@@ -1220,7 +1220,7 @@
             "fencepost": "561703198",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x637c70",
+            "addr": "0x638320",
             "serializedargs": [
                 "bytes4"
             ],
@@ -1236,7 +1236,7 @@
             "fencepost": "811747391",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x637df0",
+            "addr": "0x6384a0",
             "serializedargs": [
                 "bytes4",
                 "string"
@@ -1252,7 +1252,7 @@
             "fencepost": "4008893524",
             "cannotcallincrossprocess": "1",
             "serializedreturn": "",
-            "addr": "0x640bd0",
+            "addr": "0x641280",
             "serializedargs": [
                 "bytes4",
                 "bytes4"
@@ -1268,7 +1268,7 @@
             "fencepost": "2358775441",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x637f40",
+            "addr": "0x6385f0",
             "serializedargs": [
                 "bytes4",
                 "bytes4"
@@ -1284,7 +1284,7 @@
             "fencepost": "1523449113",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x6380a0",
+            "addr": "0x638750",
             "serializedargs": [
                 "bytes4"
             ],
@@ -1300,7 +1300,7 @@
             "fencepost": "1519194964",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x6377c0",
+            "addr": "0x637e70",
             "serializedargs": [
                 "bytes4",
                 "bytes8"
@@ -1316,7 +1316,7 @@
             "fencepost": "493817418",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x637630",
+            "addr": "0x637ce0",
             "serializedargs": [
                 "bytes4"
             ],
@@ -1332,7 +1332,7 @@
             "fencepost": "2688548464",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x63e9b0",
+            "addr": "0x63f060",
             "serializedargs": [
                 "bytes4"
             ],
@@ -1348,7 +1348,7 @@
             "fencepost": "784985420",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x63eb20",
+            "addr": "0x63f1d0",
             "serializedargs": [
                 "bytes4",
                 "string"
@@ -1364,7 +1364,7 @@
             "fencepost": "1847500762",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x63ec70",
+            "addr": "0x63f320",
             "serializedargs": [
                 "bytes4"
             ],
@@ -1380,7 +1380,7 @@
             "fencepost": "879219682",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x63ede0",
+            "addr": "0x63f490",
             "serializedargs": [
                 "bytes4",
                 "string"
@@ -1396,7 +1396,7 @@
             "fencepost": "3232015089",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x63ef30",
+            "addr": "0x63f5e0",
             "serializedargs": [
                 "bytes4"
             ],
@@ -1412,7 +1412,7 @@
             "fencepost": "2253496005",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x63f0a0",
+            "addr": "0x63f750",
             "serializedargs": [
                 "bytes4",
                 "bytes4"
@@ -1428,7 +1428,7 @@
             "fencepost": "1091165432",
             "cannotcallincrossprocess": "1",
             "serializedreturn": "",
-            "addr": "0x640d50",
+            "addr": "0x641400",
             "serializedargs": [
                 "bytes4",
                 "bytes4"
@@ -1444,7 +1444,7 @@
             "fencepost": "1691988064",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x634420",
+            "addr": "0x634ad0",
             "serializedargs": [
                 "bytes4"
             ],
@@ -1460,7 +1460,7 @@
             "fencepost": "2442827046",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x6345a0",
+            "addr": "0x634c50",
             "serializedargs": [
                 "bytes1"
             ],
@@ -1475,7 +1475,7 @@
             "fencepost": "3066522387",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x6346f0",
+            "addr": "0x634da0",
             "serializedargs": [
                 "bytes1"
             ],
@@ -1490,7 +1490,7 @@
             "fencepost": "1296621620",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x634840",
+            "addr": "0x634ef0",
             "serializedargs": [
                 "bytes4"
             ],
@@ -1505,7 +1505,7 @@
             "fencepost": "4254488337",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x6410a0",
+            "addr": "0x641750",
             "serializedargs": [
                 "bytes4",
                 "bytes4",
@@ -1522,7 +1522,7 @@
             "fencepost": "3513691306",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x63f360",
+            "addr": "0x63fa10",
             "serializedargs": [
                 "bytes1"
             ],
@@ -1537,7 +1537,7 @@
             "fencepost": "2680791382",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x634990",
+            "addr": "0x635040",
             "serializedargs": [
                 "bytes4",
                 "bytes1"
@@ -1554,7 +1554,7 @@
             "fencepost": "1421072584",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x640ed0",
+            "addr": "0x641580",
             "serializedargs": [
                 "bytes4",
                 "bytes4",
@@ -1574,7 +1574,7 @@
             "fencepost": "2339267260",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x638210",
+            "addr": "0x6388c0",
             "serializedargs": [
                 "bytes4",
                 "bytes1",
@@ -1593,7 +1593,7 @@
             "fencepost": "3241510600",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x6385b0",
+            "addr": "0x638c60",
             "serializedargs": [
                 "bytes4",
                 "bytes4",
@@ -1611,7 +1611,7 @@
             "fencepost": "1610618617",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x638750",
+            "addr": "0x638e00",
             "serializedargs": [
                 "bytes4",
                 "bytes4",
@@ -1631,7 +1631,7 @@
             "fencepost": "218698693",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x638930",
+            "addr": "0x638fe0",
             "serializedargs": [
                 "bytes4",
                 "bytes1",
@@ -1650,7 +1650,7 @@
             "fencepost": "138033231",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x638c50",
+            "addr": "0x639300",
             "serializedargs": [
                 "bytes1",
                 "bytes4"
@@ -1666,7 +1666,7 @@
             "fencepost": "1610105528",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x638db0",
+            "addr": "0x639460",
             "serializedargs": [
             ],
             "serializedreturns": [
@@ -1680,7 +1680,7 @@
             "fencepost": "3902531503",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x638ee0",
+            "addr": "0x639590",
             "serializedargs": [
             ],
             "serializedreturns": [
@@ -1694,7 +1694,7 @@
             "fencepost": "2748772041",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x639010",
+            "addr": "0x6396c0",
             "serializedargs": [
                 "bytes4",
                 "bytes4"
@@ -1710,7 +1710,7 @@
             "fencepost": "3564817845",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x639170",
+            "addr": "0x639820",
             "serializedargs": [
                 "bytes4",
                 "bytes4"
@@ -1726,7 +1726,7 @@
             "fencepost": "320010755",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x6392d0",
+            "addr": "0x639980",
             "serializedargs": [
                 "bytes4"
             ],
@@ -1741,7 +1741,7 @@
             "fencepost": "3182276103",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x639420",
+            "addr": "0x639ad0",
             "serializedargs": [
                 "bytes4"
             ],
@@ -1757,7 +1757,7 @@
             "fencepost": "2356795828",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x6395b0",
+            "addr": "0x639c60",
             "serializedargs": [
                 "bytes4"
             ],
@@ -1773,7 +1773,7 @@
             "fencepost": "2266450700",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x639740",
+            "addr": "0x639df0",
             "serializedargs": [
                 "bytes4",
                 "unknown",
@@ -1792,7 +1792,7 @@
             "fencepost": "1121185151",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x639900",
+            "addr": "0x639fb0",
             "serializedargs": [
                 "bytes4"
             ],
@@ -1807,7 +1807,7 @@
             "fencepost": "2623163893",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x639a50",
+            "addr": "0x63a100",
             "serializedargs": [
             ],
             "serializedreturns": [
@@ -1821,7 +1821,7 @@
             "fencepost": "2493115150",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x641210",
+            "addr": "0x6418c0",
             "serializedargs": [
                 "bytes4"
             ],
@@ -1838,7 +1838,7 @@
             "fencepost": "3381871873",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x6413a0",
+            "addr": "0x641a50",
             "serializedargs": [
                 "bytes4"
             ],
@@ -1855,7 +1855,7 @@
             "fencepost": "78218926",
             "cannotcallincrossprocess": "1",
             "serializedreturn": "",
-            "addr": "0x641530",
+            "addr": "0x641be0",
             "serializedargs": [
                 "bytes4",
                 "bytes4"
@@ -1872,7 +1872,7 @@
             "fencepost": "3231613368",
             "cannotcallincrossprocess": "1",
             "serializedreturn": "",
-            "addr": "0x6418c0",
+            "addr": "0x641f70",
             "serializedargs": [
                 "bytes4",
                 "bytes4"
@@ -1889,7 +1889,7 @@
             "fencepost": "873950929",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x639b80",
+            "addr": "0x63a230",
             "serializedargs": [
                 "bytes4"
             ],
@@ -1905,7 +1905,7 @@
             "fencepost": "187685571",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x639d00",
+            "addr": "0x63a3b0",
             "serializedargs": [
                 "bytes4"
             ],
@@ -1921,7 +1921,7 @@
             "fencepost": "3461931872",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x639e80",
+            "addr": "0x63a530",
             "serializedargs": [
                 "bytes4"
             ],
@@ -1937,7 +1937,7 @@
             "fencepost": "3385065290",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x63a000",
+            "addr": "0x63a6b0",
             "serializedargs": [
                 "bytes4",
                 "bytes1"
@@ -1953,7 +1953,7 @@
             "fencepost": "2047940010",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x63a160",
+            "addr": "0x63a810",
             "serializedargs": [
                 "bytes4",
                 "bytes1"
@@ -1969,7 +1969,7 @@
             "fencepost": "4085668311",
             "cannotcallincrossprocess": "1",
             "serializedreturn": "",
-            "addr": "0x641c20",
+            "addr": "0x6422d0",
             "serializedargs": [
                 "bytes4",
                 "bytes4",
@@ -1988,7 +1988,7 @@
             "fencepost": "716070701",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x63a2c0",
+            "addr": "0x63a970",
             "serializedargs": [
                 "bytes4",
                 "bytes4",
@@ -2005,7 +2005,7 @@
             "fencepost": "671397986",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x641e00",
+            "addr": "0x6424b0",
             "serializedargs": [
                 "bytes4",
                 "bytes4",
@@ -2022,7 +2022,7 @@
             "fencepost": "1876837086",
             "cannotcallincrossprocess": "1",
             "serializedreturn": "",
-            "addr": "0x641f80",
+            "addr": "0x642630",
             "serializedargs": [
                 "bytes4",
                 "bytes4"
@@ -2038,7 +2038,7 @@
             "fencepost": "3003568633",
             "cannotcallincrossprocess": "1",
             "serializedreturn": "",
-            "addr": "0x642100",
+            "addr": "0x6427b0",
             "serializedargs": [
             ],
             "serializedreturns": [
@@ -2053,7 +2053,7 @@
             "fencepost": "1345634366",
             "cannotcallincrossprocess": "1",
             "serializedreturn": "",
-            "addr": "0x63a430",
+            "addr": "0x63aae0",
             "serializedargs": [
                 "bytes4",
                 "bytes4",
@@ -2073,7 +2073,7 @@
             "fencepost": "1841136080",
             "cannotcallincrossprocess": "1",
             "serializedreturn": "",
-            "addr": "0x63a680",
+            "addr": "0x63ad30",
             "serializedargs": [
                 "bytes4",
                 "bytes4"
@@ -2090,7 +2090,7 @@
             "fencepost": "3367704936",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x63b9c0",
+            "addr": "0x63c070",
             "serializedargs": [
                 "bytes4",
                 "bytes4"
@@ -2106,7 +2106,7 @@
             "fencepost": "2505488202",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x63a840",
+            "addr": "0x63aef0",
             "serializedargs": [
                 "string"
             ],
@@ -2121,7 +2121,7 @@
             "fencepost": "1961749399",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x642280",
+            "addr": "0x642930",
             "serializedargs": [
                 "bytes4",
                 "bytes1"
@@ -2137,7 +2137,7 @@
             "fencepost": "1762623559",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x63a980",
+            "addr": "0x63b030",
             "serializedargs": [
                 "bytes4",
                 "bytes4",
@@ -2154,7 +2154,7 @@
             "fencepost": "2751476557",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x63aaf0",
+            "addr": "0x63b1a0",
             "serializedargs": [
             ],
             "serializedreturns": [
@@ -2169,7 +2169,7 @@
             "fencepost": "4007135136",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x63ac50",
+            "addr": "0x63b300",
             "serializedargs": [
                 "bytes4",
                 "bytes4",
@@ -2187,7 +2187,7 @@
             "fencepost": "3777174870",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x63adf0",
+            "addr": "0x63b4a0",
             "serializedargs": [
                 "bytes4"
             ],
@@ -2203,7 +2203,7 @@
             "fencepost": "453093652",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x63b0d0",
+            "addr": "0x63b780",
             "serializedargs": [
                 "bytes4"
             ],
@@ -2219,7 +2219,7 @@
             "fencepost": "2063468303",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x63b240",
+            "addr": "0x63b8f0",
             "serializedargs": [
                 "bytes4",
                 "bytes4"
@@ -2235,7 +2235,7 @@
             "fencepost": "2324860827",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x63b3a0",
+            "addr": "0x63ba50",
             "serializedargs": [
                 "bytes4",
                 "bytes4"
@@ -2251,7 +2251,7 @@
             "fencepost": "1126689060",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x63b500",
+            "addr": "0x63bbb0",
             "serializedargs": [
                 "bytes4",
                 "bytes4"
@@ -2267,7 +2267,7 @@
             "fencepost": "558743987",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x63b660",
+            "addr": "0x63bd10",
             "serializedargs": [
                 "bytes4",
                 "bytes4"
@@ -2283,7 +2283,7 @@
             "fencepost": "433549562",
             "cannotcallincrossprocess": "1",
             "serializedreturn": "",
-            "addr": "0x63b7c0",
+            "addr": "0x63be70",
             "serializedargs": [
                 "bytes4",
                 "string",
@@ -2302,7 +2302,7 @@
             "fencepost": "2744342960",
             "cannotcallincrossprocess": "1",
             "serializedreturn": "",
-            "addr": "0x641a80",
+            "addr": "0x642130",
             "serializedargs": [
                 "bytes4",
                 "bytes4",
@@ -2319,7 +2319,7 @@
             "fencepost": "3788113558",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x63bb20",
+            "addr": "0x63c1d0",
             "serializedargs": [
                 "bytes4",
                 "bytes4",
@@ -2336,7 +2336,7 @@
             "fencepost": "736216948",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x63bca0",
+            "addr": "0x63c350",
             "serializedargs": [
                 "bytes4",
                 "bytes4",
@@ -2354,7 +2354,7 @@
             "fencepost": "691938932",
             "cannotcallincrossprocess": "1",
             "serializedreturn": "",
-            "addr": "0x63be30",
+            "addr": "0x63c4e0",
             "serializedargs": [
                 "bytes4",
                 "bytes4",
@@ -2372,7 +2372,7 @@
             "fencepost": "996171337",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x63c050",
+            "addr": "0x63c700",
             "serializedargs": [
                 "bytes4"
             ],
@@ -2388,7 +2388,7 @@
             "fencepost": "1023274075",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x651800",
+            "addr": "0x651eb0",
             "serializedargs": [
                 "bytes4"
             ],
@@ -2403,7 +2403,7 @@
             "fencepost": "4262260789",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x63c1d0",
+            "addr": "0x63c880",
             "serializedargs": [
                 "bytes4",
                 "bytes4"
@@ -2420,7 +2420,7 @@
             "fencepost": "2747012582",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x63c360",
+            "addr": "0x63ca10",
             "serializedargs": [
             ],
             "serializedreturns": [
@@ -2434,7 +2434,7 @@
             "fencepost": "3407384584",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x63c490",
+            "addr": "0x63cb40",
             "serializedargs": [
                 "bytes4"
             ],
@@ -2450,7 +2450,7 @@
             "fencepost": "290529233",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x63c600",
+            "addr": "0x63ccb0",
             "serializedargs": [
             ],
             "serializedreturns": [
@@ -2465,7 +2465,7 @@
             "fencepost": "3647666803",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x63c760",
+            "addr": "0x63ce10",
             "serializedargs": [
                 "bytes4"
             ],
@@ -2481,7 +2481,7 @@
             "fencepost": "3441846069",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x63c8d0",
+            "addr": "0x63cf80",
             "serializedargs": [
             ],
             "serializedreturns": [
@@ -2496,7 +2496,7 @@
             "fencepost": "2786154445",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x63ca40",
+            "addr": "0x63d0f0",
             "serializedargs": [
             ],
             "serializedreturns": [
@@ -2511,7 +2511,7 @@
             "fencepost": "211792738",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x63cbb0",
+            "addr": "0x63d260",
             "serializedargs": [
                 "bytes4",
                 "string",
@@ -2529,7 +2529,7 @@
             "fencepost": "2884893784",
             "cannotcallincrossprocess": "1",
             "serializedreturn": "",
-            "addr": "0x6416f0",
+            "addr": "0x641da0",
             "serializedargs": [
                 "bytes4",
                 "bytes4",
@@ -2547,7 +2547,7 @@
             "fencepost": "1429426996",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x63cd40",
+            "addr": "0x63d3f0",
             "serializedargs": [
                 "string",
                 "string"
@@ -2563,7 +2563,7 @@
             "fencepost": "1816946609",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x63ce90",
+            "addr": "0x63d540",
             "serializedargs": [
                 "string"
             ],
@@ -2579,7 +2579,7 @@
             "fencepost": "528202195",
             "cannotcallincrossprocess": "1",
             "serializedreturn": "",
-            "addr": "0x63d000",
+            "addr": "0x63d6b0",
             "serializedargs": [
                 "bytes4",
                 "bytes4"
@@ -2596,7 +2596,7 @@
             "fencepost": "1631464240",
             "cannotcallincrossprocess": "1",
             "serializedreturn": "",
-            "addr": "0x63d1c0",
+            "addr": "0x63d870",
             "serializedargs": [
                 "bytes4",
                 "bytes4"
@@ -2613,7 +2613,7 @@
             "fencepost": "1802128527",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x63d380",
+            "addr": "0x63da30",
             "serializedargs": [
                 "bytes4",
                 "bytes1"
@@ -2630,7 +2630,7 @@
             "fencepost": "3305149521",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x63d520",
+            "addr": "0x63dbd0",
             "serializedargs": [
                 "bytes4",
                 "string"
@@ -2647,7 +2647,7 @@
             "fencepost": "4003491142",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x6423e0",
+            "addr": "0x642a90",
             "serializedargs": [
                 "bytes4",
                 "bytes4"
@@ -2664,7 +2664,7 @@
             "fencepost": "274625258",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x63d6a0",
+            "addr": "0x63dd50",
             "serializedargs": [
                 "bytes4",
                 "bytes1"
@@ -2681,7 +2681,7 @@
             "fencepost": "2741352153",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x63d840",
+            "addr": "0x63def0",
             "serializedargs": [
                 "bytes4",
                 "bytes4"
@@ -2690,8 +2690,8 @@
                 "boolean",
                 "bytes8",
                 "bytes4",
-                "unknown",
-                "unknown"
+                "utlbuffer",
+                "utlbuffer"
             ]
         },
         {
@@ -2702,7 +2702,7 @@
             "fencepost": "320902173",
             "cannotcallincrossprocess": "1",
             "serializedreturn": "",
-            "addr": "0x63da30",
+            "addr": "0x63e0e0",
             "serializedargs": [
                 "bytes4",
                 "bytes4",
@@ -2720,7 +2720,7 @@
             "fencepost": "1080835678",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x638ae0",
+            "addr": "0x639190",
             "serializedargs": [
                 "bytes4",
                 "bytes8"
@@ -2736,7 +2736,7 @@
             "fencepost": "2351979948",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x63dc00",
+            "addr": "0x63e2b0",
             "serializedargs": [
                 "bytes1"
             ],
@@ -2751,7 +2751,7 @@
             "fencepost": "2492903373",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x6383e0",
+            "addr": "0x638a90",
             "serializedargs": [
                 "bytes4",
                 "bytes1",

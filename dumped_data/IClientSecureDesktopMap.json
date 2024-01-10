@@ -1,6 +1,6 @@
 {
     "name": "IClientSecureDesktopMap",
-    "found_at": "0x2452a00",
+    "found_at": "0x24538c0",
     "functions": [ 
         {
             "name": "BStartStreaming",
@@ -10,7 +10,7 @@
             "fencepost": "4147897185",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0xfb7fc0",
+            "addr": "0xfb8e40",
             "serializedargs": [
             ],
             "serializedreturns": [
@@ -25,7 +25,7 @@
             "fencepost": "2315086918",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0xfb7e80",
+            "addr": "0xfb8d00",
             "serializedargs": [
             ],
             "serializedreturns": [
@@ -41,7 +41,7 @@
             "fencepost": "4158101450",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0xfb7d40",
+            "addr": "0xfb8bc0",
             "serializedargs": [
             ],
             "serializedreturns": [

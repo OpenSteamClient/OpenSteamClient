@@ -1,6 +1,6 @@
 {
     "name": "IClientStreamLauncherMap",
-    "found_at": "0x244a680",
+    "found_at": "0x244b540",
     "functions": [ 
         {
             "name": "StartStreaming",
@@ -10,7 +10,7 @@
             "fencepost": "1026215216",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x60bf20",
+            "addr": "0x60c5d0",
             "serializedargs": [
                 "string"
             ],
@@ -26,7 +26,7 @@
             "fencepost": "2384271093",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x60c090",
+            "addr": "0x60c740",
             "serializedargs": [
             ],
             "serializedreturns": [

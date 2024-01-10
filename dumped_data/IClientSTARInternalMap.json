@@ -1,6 +1,6 @@
 {
     "name": "IClientSTARInternalMap",
-    "found_at": "0x244b108",
+    "found_at": "0x244bfc8",
     "functions": [ 
         {
             "name": "SendSerializedMessage",
@@ -10,7 +10,7 @@
             "fencepost": "2397775712",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x6490c0",
+            "addr": "0x649770",
             "serializedargs": [
                 "bytes4",
                 "bytes_length_from_mem"
@@ -27,7 +27,7 @@
             "fencepost": "2050079718",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x649260",
+            "addr": "0x649910",
             "serializedargs": [
                 "bytes8",
                 "bytes4"

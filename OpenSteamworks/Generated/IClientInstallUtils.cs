@@ -34,5 +34,5 @@ public unsafe interface IClientInstallUtils
     public unknown_ret RunInstallScript();  // argc: 3, index: 10, ipc args: [string, bytes4, bytes1], ipc returns: [bytes1]
     public unknown_ret GetInstallScriptExitCode();  // argc: 0, index: 11, ipc args: [], ipc returns: [bytes4]
     // WARNING: Arguments are unknown!
-    public unknown_ret ConfigureNetworDeviceIPAddresses();  // argc: 7, index: 0, ipc args: [string, bytes1, bytes4, bytes4, bytes4, bytes4, bytes4], ipc returns: [bytes1]
+    public unknown_ret ConfigureNetworDeviceIPAddresses();  // argc: 7, index: 12, ipc args: [string, bytes1, bytes4, bytes4, bytes4, bytes4, bytes4], ipc returns: [bytes1]
 }

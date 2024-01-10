@@ -1,6 +1,6 @@
 {
     "name": "IClientProcessMonitorMap",
-    "found_at": "0x24529e4",
+    "found_at": "0x24538a4",
     "functions": [ 
         {
             "name": "RegisterProcess",
@@ -10,7 +10,7 @@
             "fencepost": "2894619151",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0xfb7bf0",
+            "addr": "0xfb8a70",
             "serializedargs": [
                 "bytes4"
             ],
@@ -27,7 +27,7 @@
             "fencepost": "858277957",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0xfb7aa0",
+            "addr": "0xfb8920",
             "serializedargs": [
                 "bytes4"
             ],
@@ -44,7 +44,7 @@
             "fencepost": "1115483406",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0xfb7910",
+            "addr": "0xfb8790",
             "serializedargs": [
                 "bytes4",
                 "bytes4"
@@ -61,7 +61,7 @@
             "fencepost": "1301637863",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0xfb77c0",
+            "addr": "0xfb8640",
             "serializedargs": [
                 "bytes4"
             ],
@@ -78,7 +78,7 @@
             "fencepost": "2264609941",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0xfb7670",
+            "addr": "0xfb84f0",
             "serializedargs": [
                 "bytes4"
             ],

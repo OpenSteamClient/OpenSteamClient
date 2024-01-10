@@ -209,16 +209,16 @@ public unsafe interface IClientUGC
     // WARNING: Arguments are unknown!
     public unknown_ret DeleteItem();  // argc: 2, index: 96, ipc args: [bytes8], ipc returns: [bytes8]
     public unknown_ret ShowWorkshopEULA();  // argc: 0, index: 97, ipc args: [], ipc returns: [bytes1]
-    public unknown_ret GetWorkshopEULAStatus();  // argc: 0, index: 0, ipc args: [], ipc returns: [bytes8]
+    public unknown_ret GetWorkshopEULAStatus();  // argc: 0, index: 98, ipc args: [], ipc returns: [bytes8]
     // WARNING: Arguments are unknown!
-    public unknown_ret GetUserContentDescriptorPreferences();  // argc: 2, index: 0, ipc args: [bytes4], ipc returns: [bytes4, bytes_length_from_reg]
+    public unknown_ret GetUserContentDescriptorPreferences();  // argc: 2, index: 99, ipc args: [bytes4], ipc returns: [bytes4, bytes_length_from_reg]
     // WARNING: Arguments are unknown!
-    public unknown_ret GetNumDownloadedItems();  // argc: 1, index: 1, ipc args: [bytes4], ipc returns: [bytes4]
+    public unknown_ret GetNumDownloadedItems();  // argc: 1, index: 100, ipc args: [bytes4], ipc returns: [bytes4]
     // WARNING: Arguments are unknown!
-    public unknown_ret GetDownloadedItems();  // argc: 3, index: 2, ipc args: [bytes4, bytes4], ipc returns: [bytes4, bytes_length_from_reg]
+    public unknown_ret GetDownloadedItems();  // argc: 3, index: 101, ipc args: [bytes4, bytes4], ipc returns: [bytes4, bytes_length_from_reg]
     // WARNING: Arguments are unknown!
     [BlacklistedInCrossProcessIPC]
-    public unknown_ret GetFullQueryUGCResponse();  // argc: 3, index: 3, ipc args: [bytes8, bytes4], ipc returns: [bytes4]
+    public unknown_ret GetFullQueryUGCResponse();  // argc: 3, index: 102, ipc args: [bytes8, bytes4], ipc returns: [bytes4]
     // WARNING: Arguments are unknown!
-    public uint GetSerializedQueryUGCResponse(UInt64 unk, [IPCOut] CUtlBuffer* data);  // argc: 3, index: 4, ipc args: [bytes8], ipc returns: [bytes4, unknown]
+    public uint GetSerializedQueryUGCResponse(UInt64 unk, [IPCOut] CUtlBuffer* data);  // argc: 3, index: 103, ipc args: [bytes8], ipc returns: [bytes4, utlbuffer]
 }

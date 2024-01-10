@@ -1,6 +1,6 @@
 {
     "name": "IClientModuleManagerMap",
-    "found_at": "0x2452988",
+    "found_at": "0x2453848",
     "functions": [ 
         {
             "name": "LoadModule",
@@ -10,7 +10,7 @@
             "fencepost": "619874396",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0xfb5d20",
+            "addr": "0xfb6ba0",
             "serializedargs": [
                 "bytes4",
                 "bytes4",
@@ -28,7 +28,7 @@
             "fencepost": "3537843533",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0xfb5ba0",
+            "addr": "0xfb6a20",
             "serializedargs": [
                 "bytes4"
             ],
@@ -44,7 +44,7 @@
             "fencepost": "4260257999",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0xfb6310",
+            "addr": "0xfb7190",
             "serializedargs": [
                 "bytes4",
                 "bytes4",
@@ -67,7 +67,7 @@
             "fencepost": "2101967778",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0xfb60b0",
+            "addr": "0xfb6f30",
             "serializedargs": [
                 "bytes4",
                 "bytes4",
@@ -91,7 +91,7 @@
             "fencepost": "1502770790",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0xfb5ec0",
+            "addr": "0xfb6d40",
             "serializedargs": [
                 "bytes4",
                 "bytes4",
@@ -111,7 +111,7 @@
             "fencepost": "4267796650",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0xfb5a40",
+            "addr": "0xfb68c0",
             "serializedargs": [
                 "bytes4",
                 "string"

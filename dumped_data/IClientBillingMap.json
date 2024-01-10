@@ -1,6 +1,6 @@
 {
     "name": "IClientBillingMap",
-    "found_at": "0x2449858",
+    "found_at": "0x244a718",
     "functions": [ 
         {
             "name": "PurchaseWithActivationCode",
@@ -10,7 +10,7 @@
             "fencepost": "2447983595",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x5b9410",
+            "addr": "0x5b9ac0",
             "serializedargs": [
                 "string"
             ],
@@ -26,7 +26,7 @@
             "fencepost": "2310777691",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x5b9290",
+            "addr": "0x5b9940",
             "serializedargs": [
                 "bytes4"
             ],
@@ -42,7 +42,7 @@
             "fencepost": "1636668808",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x5b9b70",
+            "addr": "0x5ba220",
             "serializedargs": [
                 "bytes4"
             ],
@@ -66,7 +66,7 @@
             "fencepost": "3700503408",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x5b9580",
+            "addr": "0x5b9c30",
             "serializedargs": [
                 "bytes4"
             ],
@@ -81,7 +81,7 @@
             "fencepost": "3913678503",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x5b96d0",
+            "addr": "0x5b9d80",
             "serializedargs": [
                 "bytes4"
             ],
@@ -96,7 +96,7 @@
             "fencepost": "3864444237",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x5b9820",
+            "addr": "0x5b9ed0",
             "serializedargs": [
                 "bytes4",
                 "bytes4"
@@ -114,7 +114,7 @@
             "fencepost": "3827259611",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x5b99d0",
+            "addr": "0x5ba080",
             "serializedargs": [
                 "bytes4",
                 "bytes_length_from_reg"

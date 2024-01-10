@@ -1,6 +1,6 @@
 {
     "name": "IClientGameCoordinatorMap",
-    "found_at": "0x244a2d8",
+    "found_at": "0x244b198",
     "functions": [ 
         {
             "name": "SendMessage",
@@ -10,7 +10,7 @@
             "fencepost": "3560663367",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x5f73a0",
+            "addr": "0x5f7a50",
             "serializedargs": [
                 "bytes4",
                 "bytes4",
@@ -29,7 +29,7 @@
             "fencepost": "1249838419",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x5f7550",
+            "addr": "0x5f7c00",
             "serializedargs": [
                 "bytes4"
             ],
@@ -46,7 +46,7 @@
             "fencepost": "1825145722",
             "cannotcallincrossprocess": "0",
             "serializedreturn": "",
-            "addr": "0x5f76e0",
+            "addr": "0x5f7d90",
             "serializedargs": [
                 "bytes4",
                 "bytes4"

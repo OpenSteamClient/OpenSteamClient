@@ -219,9 +219,9 @@ export class VirtualHeader {
             } else if (addWarning) {
                 // Remove leftover warnings
                 if (Number(dumpfunc.argc) == 0) {
-                    var index = funcToAdd.precedingLines.indexOf(argcCountNotMatchWarning);
-                    if (index !== -1) {
-                        funcToAdd.precedingLines.splice(index, 1);
+                    var index2 = funcToAdd.precedingLines.indexOf(argcCountNotMatchWarning);
+                    if (index2 !== -1) {
+                        funcToAdd.precedingLines.splice(index2, 1);
                     }
                     
                     // Clear the args array just in case
@@ -242,6 +242,9 @@ export class VirtualHeader {
     }
 
     GeneratePostBody(dumpfunc: ClientFunction, index: number) {
+        if (index == 0) {
+            throw "INDEX SHOULD NEVER BE 0";
+        }
         return ` // argc: ${dumpfunc.argc}, index: ${index}, ipc args: [${dumpfunc.serializedargs.join(", ")}], ipc returns: [${dumpfunc.serializedreturns.join(", ")}]`;
     }
     
