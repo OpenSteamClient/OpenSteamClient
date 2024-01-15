@@ -15,15 +15,9 @@
         <vm:ConsolePageViewModel/>
     </Design.DataContext>
 
-    <DockPanel Background="PowderBlue">
-        <!-- Downloads section -->
-        <StackPanel DockPanel.Dock="Bottom" Background="Red" HorizontalAlignment="Center">
-            <TextBox Text="{Binding CurrentCommandText}"/>
-        </StackPanel>
-
-        <!-- Bulk of the library content -->
-        <TextBox AcceptsReturn="true" Text="{Binding OutputText}" IsEnabled="false" TextWrapping="Wrap">
-            
-        </TextBox>
+    <DockPanel>
+        <!-- Items="{Binding AutocompleteNames}" -->
+        <AutoCompleteBox DockPanel.Dock="Bottom" FilterMode="StartsWith" HorizontalAlignment="Stretch" Text="{Binding CurrentCommandText}"/>
+        <TextBox AcceptsReturn="true" Text="{Binding OutputText}" IsReadOnly="true" TextWrapping="Wrap"/>
     </DockPanel>
 </c:BasePage>

@@ -61,7 +61,7 @@
                 </TreeDataTemplate>
             </TreeView.ItemTemplate>
         </TreeView>
-        <GridSplitter Grid.Column="1" ResizeDirection="Columns"/>
+        <GridSplitter Grid.Column="1" ResizeDirection="Columns" Background="White"/>
 
         <!-- Side content (game detail view, "big coverart" view) -->
         <ContentControl Grid.Column="2" Content="{Binding SideContent}" />

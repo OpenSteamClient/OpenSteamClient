@@ -37,6 +37,13 @@ public unsafe struct CUtlBuffer {
 		BIG_ENDIAN_BUFFER = 0x40,	// ensures that data is stored in big endian format
 	};
 
+    public enum SeekType_t : byte
+	{
+		SEEK_HEAD = 0,
+		SEEK_CURRENT,
+		SEEK_TAIL
+	};
+
     public CUtlBuffer(int length, int growSize = 0) {
         this.m_Memory = new CUtlMemory<UInt8>(growSize, length);
         this.m_Error = 0;
@@ -46,6 +53,33 @@ public unsafe struct CUtlBuffer {
         this.m_Flags = 0;
 
         this.m_nMaxPut = -1;
+
+        unsafe {
+            this.m_GetOverflowFunc = &GetOverflow;
+            this.m_PutOverflowFunc = &PutOverflow;
+        }
+    }
+
+    public CUtlBuffer(IntPtr pBuffer, int nSize, BufferFlags_t nFlags)
+    {
+        UtilityFunctions.Assert( nSize != 0 );
+        this.m_Memory = new CUtlMemory<UInt8>(pBuffer, nSize);
+
+        m_Error = 0;
+        m_Get = 0;
+        m_Put = 0;
+        m_nTab = 0;
+        m_Flags = nFlags;
+        if ( IsReadOnly() )
+        {
+            m_nMaxPut = nSize;
+            m_Put = nSize;
+        }
+        else
+        {
+            m_nMaxPut = -1;
+            AddNullTermination();
+        }
 
         unsafe {
             this.m_GetOverflowFunc = &GetOverflow;
@@ -165,5 +199,245 @@ public unsafe struct CUtlBuffer {
     public readonly bool IsText()
     {
         return m_Flags.HasFlag(BufferFlags_t.TEXT_BUFFER);
+    }
+
+    public readonly bool IsValid()
+    { 
+        return m_Error == 0; 
+    }
+
+    public void EatWhiteSpace()
+    {
+        if ( IsText() && IsValid() )
+        {
+            while ( CheckGet( sizeof(byte) ) )
+            {
+                if ( !char.IsWhiteSpace((char)*(byte*)PeekGet()))
+                    break;
+                m_Get += sizeof(byte);
+            }
+        }
+    }
+
+    public readonly int TellMaxPut()
+    {
+        return m_nMaxPut;
+    }
+
+    /// <summary>
+    /// Checks if a get is ok
+    /// </summary>
+    public bool CheckGet( int nSize )
+    {
+        if ( nSize < 0 )
+            return false;
+
+        if (m_Error.HasFlag(ErrorFlags_t.GET_OVERFLOW))
+            return false;
+
+        if ( TellMaxPut() < m_Get + nSize )
+        {
+            m_Error |= ErrorFlags_t.GET_OVERFLOW;
+            return false;
+        }
+
+        if ( ( m_Get < 0 ) || (	m_Memory.NumAllocated() < m_Get + nSize ) )
+        {
+            if ( !OnGetOverflow( nSize ) )
+            {
+                m_Error |= ErrorFlags_t.GET_OVERFLOW;
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    /// <summary>
+    /// Eats C++ style comments
+    /// </summary>
+    public bool EatCPPComment()
+    {
+        if ( IsText() && IsValid() )
+        {
+            // If we don't have a a c++ style comment next, we're done
+            byte *pPeek = (byte*)PeekGet( 2 * sizeof(byte), 0 );
+            if ( pPeek == null || ( pPeek[0] != '/' ) || ( pPeek[1] != '/' ) )
+                return false;
+
+            // Deal with c++ style comments
+            m_Get += 2;
+
+            // read complete line
+            for ( byte c = GetByte(); IsValid(); c = GetByte() )
+            {
+                if ( c == '\n' )
+                    break;
+            }
+            return true;
+        }
+        return false;
+    }
+
+    /// <summary>
+    /// Checks if a peek get is ok
+    /// </summary>
+    public bool CheckPeekGet(int nOffset, int nSize)
+    {
+        if (m_Error.HasFlag(ErrorFlags_t.GET_OVERFLOW))
+            return false;
+
+        // Checking for peek can't set the overflow flag
+        bool bOk = CheckGet( nOffset + nSize );
+        m_Error &= ~ErrorFlags_t.GET_OVERFLOW;
+        return bOk;
+    }
+
+    /// <summary>
+    /// Peek part of the butt
+    /// </summary>
+    public unsafe void* PeekGet( int nMaxSize, int nOffset )
+    {
+        if ( !CheckPeekGet( nOffset, nMaxSize ) )
+            return null;
+        return &m_Memory.Base()[m_Get + nOffset];
+    }
+
+    public byte GetByte()
+    {
+        byte c = 0;
+        if ( CheckGet( 1 ) ) // sets get overflow error bit on failure
+        {
+            c = *(byte*) PeekGet();
+            m_Get += 1;
+        }
+        return c;
+    }
+
+    public unsafe void* PeekGet()
+    {
+        return &m_Memory.Base()[ m_Get ];
+    }
+
+    /// <summary>
+    /// Change where I'm reading
+    /// </summary>
+    public unsafe bool SeekGet( SeekType_t type, int offset )	
+    {
+        switch( type )
+        {
+            case SeekType_t.SEEK_HEAD:						 
+                m_Get = offset; 
+                break;
+
+            case SeekType_t.SEEK_CURRENT:
+                m_Get += offset;
+                break;
+
+            case SeekType_t.SEEK_TAIL:
+                m_Get = m_nMaxPut - offset;
+                break;
+        }
+
+        if ( m_Get > m_nMaxPut )
+        {
+            m_Error |= ErrorFlags_t.GET_OVERFLOW;
+            return false;
+        }
+        else
+        {
+            m_Error &= ~ErrorFlags_t.GET_OVERFLOW;
+            return true;
+        }
+    }
+
+    public readonly int TellGet() {
+        return m_Get;
+    }
+
+    public unsafe int ParseToken( characterset_t *pBreaks, byte *pTokenBuf, int nMaxLen, bool bParseComments )
+    {
+        UtilityFunctions.Assert( nMaxLen > 0 );
+        pTokenBuf[0] = 0;
+
+        // skip whitespace + comments
+        while ( true )
+        {
+            if ( !IsValid() )
+                return -1;
+            EatWhiteSpace();
+            if ( bParseComments )
+            {
+                if ( !EatCPPComment() )	
+                    break;
+            }
+            else
+            {
+                break;
+            }
+        }
+        
+        byte c = GetByte();
+        
+        // End of buffer
+        if ( c == 0 )
+            return -1;
+
+        // handle quoted strings specially
+        if ( c == '\"' )
+        {
+            int nLen = 0;
+            while( IsValid() )
+            {
+                c = GetByte();
+                if ( c == '\"' || c != 0 )
+                {
+                    pTokenBuf[nLen] = 0;
+                    return nLen;
+                }
+                pTokenBuf[nLen] = c;
+                if ( ++nLen == nMaxLen )
+                {
+                    pTokenBuf[nLen-1] = 0;
+                    return nMaxLen;
+                }
+            }
+
+            // In this case, we hit the end of the buffer before hitting the end qoute
+            pTokenBuf[nLen] = 0;
+            return nLen;
+        }
+
+        // parse single characters
+        if (pBreaks->InCharacterset(c))
+        {
+            pTokenBuf[0] = c;
+            pTokenBuf[1] = 0;
+            return 1;
+        }
+
+        // parse a regular word
+        int nLen2 = 0;
+        while ( true )
+        {
+            pTokenBuf[nLen2] = c;
+            if ( ++nLen2 == nMaxLen )
+            {
+                pTokenBuf[nLen2-1] = 0;
+                return nMaxLen;
+            }
+            c = GetByte();
+            if ( !IsValid() )
+                break;
+
+            if (pBreaks->InCharacterset(c) || c == '\"' || c <= ' ' )
+            {
+                SeekGet( SeekType_t.SEEK_CURRENT, -1 );
+                break;
+            }
+        }
+        
+        pTokenBuf[nLen2] = 0;
+        return nLen2;
     }
 }

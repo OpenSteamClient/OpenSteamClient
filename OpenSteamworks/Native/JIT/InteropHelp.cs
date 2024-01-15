@@ -13,7 +13,7 @@ namespace OpenSteamworks.Native.JIT
         /// <summary>
         /// Decodes IntPtr as if it were a UTF-8 string
         /// </summary>
-        public static string? DecodeUTF8String(IntPtr ptr)
+        public unsafe static string? DecodeUTF8String(IntPtr ptr)
         {
             if (ptr == IntPtr.Zero)
                 return null;
@@ -27,6 +27,7 @@ namespace OpenSteamworks.Native.JIT
             byte[] buffer = new byte[len];
             Marshal.Copy(ptr, buffer, 0, buffer.Length);
             return Encoding.UTF8.GetString(buffer);
+            //return Marshal.PtrToStringUTF8(ptr);
         }
 
         /// <summary>

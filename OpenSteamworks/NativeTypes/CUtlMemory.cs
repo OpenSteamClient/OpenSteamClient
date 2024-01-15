@@ -6,10 +6,10 @@ using OpenSteamworks;
 
 [StructLayout(LayoutKind.Sequential)]
 public unsafe struct CUtlMemory<T> where T : unmanaged {
-    public UInt32 m_unSizeOfElements;
-	public void* m_pMemory;
-	public int m_nAllocationCount;
-	public int m_nGrowSize;
+    public UInt32 m_unSizeOfElements = 0;
+	public void* m_pMemory = null;
+	public int m_nAllocationCount = 0;
+	public int m_nGrowSize = 0;
 
     public CUtlMemory(int growSize = 0, int nInitSize = 0) {
         this.m_nAllocationCount = nInitSize;
@@ -18,6 +18,12 @@ public unsafe struct CUtlMemory<T> where T : unmanaged {
         Logging.CUtlLogger.Debug("Allocating CUtlMemory of size " + size);
         this.m_pMemory = NativeMemory.AllocZeroed(size);
         this.m_nGrowSize = growSize;
+    }
+
+    public CUtlMemory(IntPtr pBuffer, int nSize) {
+        this.m_unSizeOfElements = (uint)sizeof(T);
+        this.m_pMemory = (void*)pBuffer;
+        this.m_nAllocationCount = nSize;
     }
 
     public void Free() {

@@ -72,7 +72,10 @@ namespace OpenSteamworks.Native.JIT
                                                     TypeAttributes.Class, null, new Type[] { targetInterface });
             
 
-            FieldBuilder fbuilder = builder.DefineField("ObjectAddress", typeof(IntPtr), FieldAttributes.Public);
+            // I don't know what the AddressAssistant is supposed to achieve. Let's keep it anyway.
+            FieldBuilder fbuilder = builder.DefineField("AddressAssistant", typeof(IntPtr), FieldAttributes.Public);
+
+            FieldBuilder objectptrbuilder = builder.DefineField("ObjectPointer", typeof(nint), FieldAttributes.Public);
 
             ClassJITInfo classInfo = new(targetInterface);
 
@@ -80,7 +83,7 @@ namespace OpenSteamworks.Native.JIT
             {
                 IntPtr vtableMethod = Marshal.ReadIntPtr(vtable_ptr, IntPtr.Size * classInfo.Methods[i].VTableSlot);
                 MethodJITInfo methodInfo = classInfo.Methods[i];
-                EmitClassMethod(methodInfo, classptr, vtableMethod, builder, fbuilder);
+                EmitClassMethod(methodInfo, vtableMethod, builder, fbuilder, objectptrbuilder);
             }
 
             Type implClass = builder.CreateType();
@@ -88,14 +91,25 @@ namespace OpenSteamworks.Native.JIT
             return (TClass)GenerateClassForImplementor(implClass, classptr);
         }
 
-        private static object GenerateClassForImplementor(Type implClass, IntPtr classptr) {
+        private static object GenerateClassForImplementor(Type implClass, nint classptr) {
             object? instClass = Activator.CreateInstance(implClass);
             if (instClass == null) {
                 throw new JITEngineException("Failed to CreateInstance of implClass");
             }
 
-            FieldInfo addressField = implClass.GetField("ObjectAddress", BindingFlags.Public | BindingFlags.Instance)!;
+            FieldInfo? addressField = implClass.GetField("AddressAssistant", BindingFlags.Public | BindingFlags.Instance);
+            if (addressField == null) {
+                throw new JITEngineException("Failed to GetField of AddressAssistant");
+            }
+
             addressField.SetValue(instClass, classptr);
+
+            FieldInfo? objectPtrField = implClass.GetField("ObjectPointer", BindingFlags.Public | BindingFlags.Instance);
+            if (objectPtrField == null) {
+                throw new JITEngineException("Failed to GetField of ObjectPointer");
+            }
+
+            objectPtrField.SetValue(instClass, classptr);
 
             return instClass;
         }
@@ -129,7 +143,7 @@ namespace OpenSteamworks.Native.JIT
             public List<RefArgLocal> refargLocals;
         }
 
-        private static void EmitClassMethod(MethodJITInfo method, IntPtr objectptr, IntPtr methodptr, TypeBuilder builder, FieldBuilder addressAssistant)
+        private static void EmitClassMethod(MethodJITInfo method, IntPtr methodptr, TypeBuilder builder, FieldBuilder addressAssistant, FieldBuilder objectptr)
         {
             MethodState state = new(method);
 
@@ -194,7 +208,11 @@ namespace OpenSteamworks.Native.JIT
 
             // load object pointer
             ilgen.AddComment("Load native object pointer");
-            ilgen.EmitPlatformLoad(objectptr);
+            ilgen.Ldarg(0);
+            ilgen.Emit(OpCodes.Ldfld, objectptr);
+            //ilgen.Emit(OpCodes.Conv_I);
+            
+            //ilgen.EmitPlatformLoad(objectptr);
 
             int argindex = 0;
             foreach (TypeJITInfo typeInfo in method.Args)
@@ -363,7 +381,7 @@ namespace OpenSteamworks.Native.JIT
             }
 
             ilgen.Return();
-            if (method.Name.Contains("GetInstalledApps")) {
+            if (method.Name.Contains("CreateSteamPipe")) {
                 Console.WriteLine(ilgen.ToString());
             }
         }

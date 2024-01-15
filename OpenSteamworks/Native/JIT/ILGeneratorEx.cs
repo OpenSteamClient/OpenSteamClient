@@ -82,6 +82,9 @@ public class ILGeneratorEx {
                 } else {
                     argStr = ((int)args).ToString();
                 }
+            } else if (opcode == OpCodes.Ldfld || opcode == OpCodes.Ldflda) {
+                FieldInfo fieldInfo = (FieldInfo)args;
+                argStr = fieldInfo.FieldType.Name + " " + (fieldInfo.DeclaringType != null ? fieldInfo.DeclaringType.Name + "::" : "") + fieldInfo.Name;
             } else {
                 argStr = "<args not available: unsupported opcode " + opcode.ToString() + ">";
             }
@@ -157,7 +160,7 @@ public class ILGeneratorEx {
         this.Emit(OpCodes.Ldstr, value);
     }
 
-    public void Ldfld(FieldBuilder field) {
+    public void Ldfld(FieldInfo field) {
         this.Emit(OpCodes.Ldfld, field);
     }
 

@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using OpenSteamworks.Native.JIT;
@@ -13,40 +14,55 @@ public unsafe class ConsoleNative {
         accessor.accessorFunc = &ptr;
 
         clientNative.IClientEngine.ConCommandInit(&accessor);
+        throw new Exception("temporary breakpoint for concommand debugging");
     }
 
     [UnmanagedCallersOnly(CallConvs = new[] { typeof(CallConvCdecl) })]
     public static unsafe byte RegisterConCommandBase(IConCommandBaseAccessor *acc, ConCommandBase *pVar)
     {
-        //NOTE: I don't know if the steam client contains ConVars as well as ConCommands
-        Logging.ConCommandsLogger.Debug("ConCommand added: " + Marshal.PtrToStringAuto(pVar->m_pszName) + " : " + Marshal.PtrToStringAuto(pVar->m_pszHelpString) + ", flags: " + (int)pVar->m_nFlags + "(" + pVar->m_nFlags + ")");
-        Logging.ConCommandsLogger.Debug("s_pConCommandBases: " + (IntPtr)pVar->s_pConCommandBases + ", s_pAccessor: " + (IntPtr)pVar->s_pAccessor);
-        // ConCommandBase_Funcs funcs = JITEngine.GenerateUniqueClass<ConCommandBase_Funcs>((IntPtr)pVar);
-        // Logging.ConCommandsLogger.Debug("IsCommand: " + funcs.IsCommand());
-        // Logging.ConCommandsLogger.Debug("Unk2: " + funcs.Unk2());
-        // //Logging.ConCommandsLogger.Debug("Unk3: " + funcs.Unk3());
-        //Logging.ConCommandsLogger.Debug("Flags: " + );
-
-        // Logging.ConCommandsLogger.Debug("IsCommand2: " + funcs.IsCommand2() + " pVar->m_bRegistered " +  pVar->m_bRegistered);
-        pVar->m_bRegistered = true;
+        if (!File.Exists("/tmp/concommand.bin") && Marshal.PtrToStringAuto(pVar->m_pszName) == "package_info_print") {
+            Span<byte> bytes = new(pVar, 100);
+            System.IO.File.WriteAllBytes("/tmp/concommand.bin", bytes.ToArray());
+        }
         
-        // Logging.ConCommandsLogger.Debug("IsCommand2: " + funcs.IsCommand2() + " pVar->m_bRegistered " +  pVar->m_bRegistered);
-        // Logging.ConCommandsLogger.Debug("GetName: " + funcs.GetName());
-        // Logging.ConCommandsLogger.Debug("GetDescription: " + funcs.GetHelpText());
-        // Logging.ConCommandsLogger.Debug("ReturnsABool: " + funcs.ReturnsABool());
-        // //Logging.ConCommandsLogger.Debug("IsCommand6: " + printPtr(funcs.IsCommand6()));
-        // Logging.ConCommandsLogger.Debug("ReturnsABool2: " + funcs.ReturnsABool2());
-        // Logging.ConCommandsLogger.Debug("IsCommand8: " + funcs.IsCommand8());
-        
-        // Logging.ConCommandsLogger.Debug("IsCommand9: " + funcs.IsCommand9());
-        // Logging.ConCommandsLogger.Debug("IsCommand10: " + funcs.IsCommand10());
-        // Logging.ConCommandsLogger.Debug("IsCommand11: " + funcs.IsCommand11());
-        // Logging.ConCommandsLogger.Debug("IsCommand12: " + funcs.IsCommand12());
-        // Logging.ConCommandsLogger.Debug("IsCommand13: " + funcs.IsCommand13());
+        ConCommandBase_Funcs basefuncs = JITEngine.GenerateClass<ConCommandBase_Funcs>((IntPtr)pVar);
+        Logging.ConCommandsLogger.Info("");
+        Logging.ConCommandsLogger.Info("PName: " + Marshal.PtrToStringAuto(pVar->m_pszName));
+        Logging.ConCommandsLogger.Info("m_bRegistered: " + pVar->m_bRegistered);
+        Logging.ConCommandsLogger.Info("IsCommand: " + basefuncs.IsCommand());
+        Logging.ConCommandsLogger.Info("m_nFlags: " + pVar->m_nFlags);
+        Logging.ConCommandsLogger.Info("IsFlagSet 0: " + basefuncs.IsFlagSet(0));
+        Logging.ConCommandsLogger.Info("IsFlagSet 1: " + basefuncs.IsFlagSet(1));
+        Logging.ConCommandsLogger.Info("IsFlagSet 2: " + basefuncs.IsFlagSet(2));
+        Logging.ConCommandsLogger.Info("IsFlagSet 3: " + basefuncs.IsFlagSet(3));
+        Logging.ConCommandsLogger.Info("IsFlagSet 4: " + basefuncs.IsFlagSet(4));
+        Logging.ConCommandsLogger.Info("hasCompletionCallback: " + pVar->hasCompletionCallback);
+        Logging.ConCommandsLogger.Info("usingNewCommandCallback: " + pVar->usingNewCommandCallback);
+        Logging.ConCommandsLogger.Info("usingCommandCallbackInterface: " + pVar->usingCommandCallbackInterface);
+        Logging.ConCommandsLogger.Info("pCommandCallback: " + (nint)pVar->pCommandCallback);
+        Logging.ConCommandsLogger.Info("completionCallback: " + (nint)pVar->completionCallback);
+        Logging.ConCommandsLogger.Info("unknownPointer: " + (nint)pVar->unknownPointer);
 
-        //Logging.ConCommandsLogger.Debug("ConCommand re-read: " + Marshal.PtrToStringAuto(pVar->m_pszName) + " : " + Marshal.PtrToStringAuto(pVar->m_pszHelpString) + ", flags: " + pVar->m_nFlags);
+        // if (basefuncs.IsCommand()) {
+        //     Logging.ConCommandsLogger.Info("CanAutoComplete: " + basefuncs.CanAutoComplete());
+        // }
+
+        if (basefuncs.IsCommand() && Marshal.PtrToStringAuto(pVar->m_pszName) == "app_status") {
+            var ccommand = new CCommand("app_status 730");
+            Logging.ConCommandsLogger.Info("m_nArgc " + ccommand.m_nArgc);
+            basefuncs.Dispatch(&ccommand, &ccommand);
+        }
+
+        if (basefuncs.IsCommand() && Marshal.PtrToStringAuto(pVar->m_pszName) == "apps_installed") {
+            var ccommand = new CCommand("apps_installed");
+            Logging.ConCommandsLogger.Info("m_nArgc " + ccommand.m_nArgc);
+            //Logging.ConCommandsLogger.Info("m_pArgSBuffer" + ccommand.m_pArgSBuffer);
+            basefuncs.Dispatch(&ccommand, &ccommand);
+        }
+
         return 1;
     }
+
     private unsafe static string printPtr(void* ptr) {
         return string.Format("0x{0:x}", (IntPtr)ptr);
     }
