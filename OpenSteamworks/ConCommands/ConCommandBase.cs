@@ -35,17 +35,59 @@ public unsafe struct ConCommandBase
     public IntPtr m_pszHelpString; 
     public ConCommandFlags m_nFlags; 
     public uint unk;
-    public void* pCommandCallback;
+    public delegate* unmanaged[Stdcall]<CCommand*, CCommand*, ConCommandBase*, void> pCommandCallback;
     public UInt64 unk1;
     public void* completionCallback;
     public UInt64 hasCompletionCallback;
     public UInt64 usingNewCommandCallback;
     public UInt32 usingCommandCallbackInterface;
-    public byte padding;
-    public byte padding2;
-    public byte padding3;
-    public byte padding4;    
-    public byte padding5;
+    public uint padding;  
+    // This padding doesn't exist for concommands
+    public byte extrapadding;
+    public void* unknownPointer;
+};
+
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct ConCommand
+{
+    public void* vtable;
+    public ConCommandBase* m_pNext; 
+    public UInt64 m_bRegistered;
+    public IntPtr m_pszName;
+    public IntPtr m_pszHelpString; 
+    public ConCommandFlags m_nFlags; 
+    public uint unk;
+    public delegate* unmanaged[Stdcall]<CCommand*, CCommand*, ConCommand*, void> pCommandCallback;
+    public UInt64 unk1;
+    public void* completionCallback;
+    public UInt64 hasCompletionCallback;
+    public UInt64 usingNewCommandCallback;
+    public UInt32 usingCommandCallbackInterface;
+    public uint padding;  
+    // This padding doesn't exist for concommands
+    public byte extrapadding;
+    public void* unknownPointer;
+};
+
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+public unsafe struct ConVar
+{
+    public void* vtable;
+    public ConCommandBase* m_pNext; 
+    public UInt64 m_bRegistered;
+    public IntPtr m_pszName;
+    public IntPtr m_pszHelpString; 
+    public ConCommandFlags m_nFlags; 
+    public uint unk;
+    public delegate* unmanaged[Stdcall]<CCommand*, CCommand*, ConCommandBase*, void> pCommandCallback;
+    public UInt64 unk1;
+    public void* completionCallback;
+    public UInt64 hasCompletionCallback;
+    public UInt64 usingNewCommandCallback;
+    public UInt32 usingCommandCallbackInterface;
+    public uint padding;  
+    // This padding doesn't exist for concommands
+    public byte extrapadding;
     public void* unknownPointer;
 };
 
@@ -264,16 +306,19 @@ public unsafe interface ConCommandBase_Funcs {
     // public string? GetHelpText();
     public bool IsCommand();
     public ConCommandBase* GetNext();
-    public bool ReturnsABool();
-    public CVarDLLIdentifier_t GetDLLIdentifier();
-    public void Create(string name, string? helpString = null, int flags = 0);
-    public void Init();
-    public void Init1();
-    public void Init2();
-    public void Init3();
-    public void Init4();
-    public bool CanAutoComplete();
     public int AutoCompleteSuggest(string partial, CUtlStringList* commands);
+    public int AutoCompleteSuggest1(string partial, CUtlStringList* commands);
+    public bool ReturnsABool();
+
+    //public CVarDLLIdentifier_t GetDLLIdentifier();
+    // public void Create(string name, string? helpString = null, int flags = 0);
+    // public void Init();
+    // public void Init1();
+    // public void Init2();
+    // public void Init3();
+    //public void Init4();
+    //public bool CanAutoComplete();
+    //public int AutoCompleteSuggest(string partial, CUtlStringList* commands);
     public void Dispatch(CCommand* command1, CCommand* command);
 }
 

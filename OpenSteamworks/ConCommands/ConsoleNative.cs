@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
@@ -7,7 +8,6 @@ using OpenSteamworks.Native.JIT;
 namespace OpenSteamworks.ConCommands;
 
 public unsafe class ConsoleNative {
-
     public ConsoleNative(Native.ClientNative clientNative) {
         IConCommandBaseAccessor accessor;
         delegate* unmanaged[Cdecl]<IConCommandBaseAccessor*, ConCommandBase*, byte> ptr = &RegisterConCommandBase;
@@ -47,17 +47,22 @@ public unsafe class ConsoleNative {
         //     Logging.ConCommandsLogger.Info("CanAutoComplete: " + basefuncs.CanAutoComplete());
         // }
 
-        if (basefuncs.IsCommand() && Marshal.PtrToStringAuto(pVar->m_pszName) == "app_status") {
-            var ccommand = new CCommand("app_status 730");
-            Logging.ConCommandsLogger.Info("m_nArgc " + ccommand.m_nArgc);
-            basefuncs.Dispatch(&ccommand, &ccommand);
-        }
+        if (basefuncs.IsCommand()) {
+            ConCommand* concommand = (ConCommand*)pVar;
+            if (Marshal.PtrToStringAuto(concommand->m_pszName) == "app_status") {
+                var ccommand = new CCommand("app_status 730");
+                Logging.ConCommandsLogger.Info("m_nArgc " + ccommand.m_nArgc);
+                concommand->pCommandCallback(&ccommand, &ccommand, concommand);
+                //basefuncs.Dispatch2(&ccommand, &ccommand);
+            }
 
-        if (basefuncs.IsCommand() && Marshal.PtrToStringAuto(pVar->m_pszName) == "apps_installed") {
-            var ccommand = new CCommand("apps_installed");
-            Logging.ConCommandsLogger.Info("m_nArgc " + ccommand.m_nArgc);
-            //Logging.ConCommandsLogger.Info("m_pArgSBuffer" + ccommand.m_pArgSBuffer);
-            basefuncs.Dispatch(&ccommand, &ccommand);
+            if (Marshal.PtrToStringAuto(pVar->m_pszName) == "apps_installed") {
+                var ccommand = new CCommand("apps_installed");
+                Logging.ConCommandsLogger.Info("m_nArgc " + ccommand.m_nArgc);
+                concommand->pCommandCallback(&ccommand, &ccommand, concommand);
+                //Logging.ConCommandsLogger.Info("m_pArgSBuffer" + ccommand.m_pArgSBuffer);
+                //basefuncs.Dispatch(&ccommand, &ccommand);
+            }
         }
 
         return 1;
