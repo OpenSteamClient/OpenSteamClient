@@ -5,8 +5,10 @@ using Avalonia.VisualTree;
 
 namespace ClientUI.Extensions;
 
-public static class VisualExtensions {
-    public static IEnumerable<Visual> GetAllVisualChildrenTree(this Visual visual) {
+public static class VisualExtensions
+{
+    public static IEnumerable<Visual> GetAllVisualChildrenTree(this Visual visual)
+    {
         List<Visual> allVisuals = new()
         {
             visual
@@ -16,7 +18,8 @@ public static class VisualExtensions {
         foreach (var item in visual.GetLogicalChildren())
         {
             // Then try to cast them to Visual (most of the time should be valid)
-            if (item is Visual) {
+            if (item is Visual)
+            {
                 allVisuals.AddRange(GetAllVisualChildrenTree((Visual)item!));
             }
         }

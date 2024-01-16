@@ -31,13 +31,16 @@ public partial class HTMLSurfaceTest : Window
         this.client.CallbackManager.RegisterHandler<HTML_ChangedTitle_t>(OnHTML_ChangedTitle_t);
     }
 
-    public async Task Init(string userAgent, string url) {
+    public async Task Init(string userAgent, string url)
+    {
         var handle = await this.surfaceControl.CreateBrowserAsync(userAgent, "");
         this.client.IClientHTMLSurface.LoadURL(handle, url, null);
     }
 
-    private void OnHTML_ChangedTitle_t(CallbackHandler<HTML_ChangedTitle_t> handler, HTML_ChangedTitle_t data) {
-        if (surfaceControl.BrowserHandle == data.unBrowserHandle) {
+    private void OnHTML_ChangedTitle_t(CallbackHandler<HTML_ChangedTitle_t> handler, HTML_ChangedTitle_t data)
+    {
+        if (surfaceControl.BrowserHandle == data.unBrowserHandle)
+        {
             Dispatcher.UIThread.InvokeAsync(() =>
             {
                 this.Title = data.pchTitle;

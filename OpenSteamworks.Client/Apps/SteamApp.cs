@@ -89,7 +89,6 @@ public class SteamApp : AppBase
             };
         }
     }
-    
 
     internal SteamApp(AppsManager appsManager, AppId_t appid) : base(appsManager)
     {

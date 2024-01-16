@@ -15,8 +15,12 @@ public partial class ConsolePageViewModel : ViewModelBase
     private string outputText = "Some output here\nAnother line";
 
     public ObservableCollection<string> AutocompleteNames = new();
-    private readonly ConsoleNative conCommandSystem;
-    public ConsolePageViewModel(ConsoleNative conCommandSystem) {
-        this.conCommandSystem = conCommandSystem;
+    public ConsolePageViewModel()
+    {
+        
+    }
+
+    public void SendCommand() {
+        ConCommandHandler.ExecuteConsoleCommand(CurrentCommandText);
     }
 }

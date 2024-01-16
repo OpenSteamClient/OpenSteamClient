@@ -22,18 +22,18 @@ public enum ConCommandFlags : uint
 
 public unsafe interface ICommandCompletionCallback
 {
-	public int CommandCompletionCallback(string pPartial, CUtlStringList* commands);
+    public int CommandCompletionCallback(string pPartial, CUtlStringList* commands);
 };
- 
+
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
 public unsafe struct ConCommandBase
 {
     public void* vtable;
-    public ConCommandBase* m_pNext; 
+    public ConCommandBase* m_pNext;
     public UInt64 m_bRegistered;
     public IntPtr m_pszName;
-    public IntPtr m_pszHelpString; 
-    public ConCommandFlags m_nFlags; 
+    public IntPtr m_pszHelpString;
+    public ConCommandFlags m_nFlags;
     public uint unk;
     public delegate* unmanaged[Stdcall]<CCommand*, CCommand*, ConCommandBase*, void> pCommandCallback;
     public UInt64 unk1;
@@ -41,7 +41,7 @@ public unsafe struct ConCommandBase
     public UInt64 hasCompletionCallback;
     public UInt64 usingNewCommandCallback;
     public UInt32 usingCommandCallbackInterface;
-    public uint padding;  
+    public uint padding;
     // This padding doesn't exist for concommands
     public byte extrapadding;
     public void* unknownPointer;
@@ -51,11 +51,11 @@ public unsafe struct ConCommandBase
 public unsafe struct ConCommand
 {
     public void* vtable;
-    public ConCommandBase* m_pNext; 
+    public ConCommandBase* m_pNext;
     public UInt64 m_bRegistered;
     public IntPtr m_pszName;
-    public IntPtr m_pszHelpString; 
-    public ConCommandFlags m_nFlags; 
+    public IntPtr m_pszHelpString;
+    public ConCommandFlags m_nFlags;
     public uint unk;
     public delegate* unmanaged[Stdcall]<CCommand*, CCommand*, ConCommand*, void> pCommandCallback;
     public UInt64 unk1;
@@ -63,7 +63,7 @@ public unsafe struct ConCommand
     public UInt64 hasCompletionCallback;
     public UInt64 usingNewCommandCallback;
     public UInt32 usingCommandCallbackInterface;
-    public uint padding;  
+    public uint padding;
     // This padding doesn't exist for concommands
     public byte extrapadding;
     public void* unknownPointer;
@@ -73,11 +73,11 @@ public unsafe struct ConCommand
 public unsafe struct ConVar
 {
     public void* vtable;
-    public ConCommandBase* m_pNext; 
+    public ConCommandBase* m_pNext;
     public UInt64 m_bRegistered;
     public IntPtr m_pszName;
-    public IntPtr m_pszHelpString; 
-    public ConCommandFlags m_nFlags; 
+    public IntPtr m_pszHelpString;
+    public ConCommandFlags m_nFlags;
     public uint unk;
     public delegate* unmanaged[Stdcall]<CCommand*, CCommand*, ConCommandBase*, void> pCommandCallback;
     public UInt64 unk1;
@@ -85,15 +85,16 @@ public unsafe struct ConVar
     public UInt64 hasCompletionCallback;
     public UInt64 usingNewCommandCallback;
     public UInt32 usingCommandCallbackInterface;
-    public uint padding;  
+    public uint padding;
     // This padding doesn't exist for concommands
     public byte extrapadding;
     public void* unknownPointer;
 };
 
-public unsafe struct CCommand_Funcs {
+public unsafe struct CCommand_Funcs
+{
     public CCommand_Funcs(
-    delegate* unmanaged[Thiscall]<CCommand*, byte*, int, characterset_t*, byte> tokenize, 
+    delegate* unmanaged[Thiscall]<CCommand*, byte*, int, characterset_t*, byte> tokenize,
     delegate* unmanaged[Thiscall]<CCommand*, void> reset
     // delegate* unmanaged[Thiscall]<CCommand*, int> argc, 
     // delegate* unmanaged[Thiscall]<CCommand*, byte**> argv, 
@@ -103,7 +104,8 @@ public unsafe struct CCommand_Funcs {
     // delegate* unmanaged[Thiscall]<CCommand*, int> source,
     // delegate* unmanaged[Thiscall]<CCommand*, byte*, byte*> findArg,
     // delegate* unmanaged[Thiscall]<CCommand*, byte*, int, int> findArgInt
-    ) {
+    )
+    {
         this.tokenize = tokenize;
         this.reset = reset;
         // this.argc = argc;
@@ -147,9 +149,10 @@ public unsafe struct CCommand_Funcs {
 [StructLayout(LayoutKind.Sequential)]
 public unsafe struct CCommand
 {
-    static CCommand() {
+    static CCommand()
+    {
         s_vtable = new CCommand_Funcs(&Tokenize, &Reset);
-        // Is this bad?
+        // Is this bad? 
         GCHandle handle = GCHandle.Alloc(s_vtable, GCHandleType.Pinned);
         s_pVtable = (CCommand_Funcs*)handle.AddrOfPinnedObject();
     }
@@ -157,31 +160,55 @@ public unsafe struct CCommand
     public const int COMMAND_MAX_LENGTH = 512;
     public const int COMMAND_MAX_ARGC = 64;
 
-    private static characterset_t* defaultCharSet = characterset_t.AllocateCharset(new byte[] {(byte)'{', (byte)'}', (byte)'(', (byte)')', (byte)'\'', (byte)':'});
+    private static characterset_t* defaultCharSet = characterset_t.AllocateCharset(new byte[] { (byte)'{', (byte)'}', (byte)'(', (byte)')', (byte)'\'', (byte)':' });
     private static CCommand_Funcs s_vtable;
     private static CCommand_Funcs* s_pVtable;
     public CCommand_Funcs* vtable = null;
-    public int		m_nArgc;
-	public int		m_nArgv0Size;
+    public int m_nArgc;
+    public int m_nArgv0Size;
     // char*
-	public fixed byte m_pArgSBuffer[COMMAND_MAX_LENGTH];
+    public fixed byte m_pArgSBuffer[COMMAND_MAX_LENGTH];
     // char*
     public fixed byte m_pArgvBuffer[COMMAND_MAX_LENGTH];
     // char**
-	public fixed ulong m_ppArgv[COMMAND_MAX_ARGC];
-	public int m_source = 0;
+    public fixed ulong m_ppArgv[COMMAND_MAX_ARGC];
+    public int m_source = 0;
 
     public CCommand(string fullCmd)
     {
         this.vtable = s_pVtable;
         unsafe
         {
-            fixed (byte* chars = Encoding.UTF8.GetBytes(fullCmd + "\0")) {
-                fixed (CCommand* thiz = &this) {
+            fixed (byte* chars = Encoding.UTF8.GetBytes(fullCmd + "\0"))
+            {
+                fixed (CCommand* thiz = &this)
+                {
                     this.vtable->tokenize(thiz, chars, 0, null);
                 }
             }
         }
+    }
+
+    public string GetCommandName()
+    {
+        return GetArgAtIndex(0);
+    }
+
+    public unsafe string GetArgAtIndex(int index)
+    {
+        if (index > COMMAND_MAX_ARGC)
+        {
+            throw new IndexOutOfRangeException($"Attempted to get arg at index {index}, which is outside the range of {COMMAND_MAX_ARGC} args!");
+        }
+
+        if (index > m_nArgc)
+        {
+            throw new IndexOutOfRangeException($"Attempted to get arg at index {index}, but we only have {m_nArgc} args!");
+        }
+
+        byte* strptr = (byte*)m_ppArgv[index];
+        UtilityFunctions.AssertValidStringPtr((nint)strptr);
+        return Marshal.PtrToStringUTF8((nint)strptr)!;
     }
 
     [UnmanagedCallersOnly(CallConvs = new[] { typeof(CallConvThiscall) })]
@@ -190,74 +217,77 @@ public unsafe struct CCommand
         string? pCommand = Marshal.PtrToStringUTF8((nint)_pCommand);
 
         Logging.ConCommandsLogger.Info("Tokenize called with string " + pCommand);
-        
-        if (charset == null) {
+
+        if (charset == null)
+        {
             charset = defaultCharSet;
         }
 
         thiz->vtable->reset(thiz);
         thiz->m_source = source;
 
-        if (pCommand == null) {
+        if (pCommand == null)
+        {
             Logging.ConCommandsLogger.Error("Tokenize: pCommand is null");
             return 0;
         }
 
-        if (pCommand.Length > COMMAND_MAX_LENGTH-1) {
+        if (pCommand.Length > COMMAND_MAX_LENGTH - 1)
+        {
             Logging.ConCommandsLogger.Error("Tokenize: Encountered command which overflows the tokenizer buffer.. Skipping!");
             return 0;
         }
 
         NativeMemory.Copy(_pCommand, thiz->m_pArgSBuffer, (nuint)(pCommand.Length + 1));
 
-        CUtlBuffer bufParse = new((nint)thiz->m_pArgSBuffer, pCommand.Length, CUtlBuffer.BufferFlags_t.TEXT_BUFFER | CUtlBuffer.BufferFlags_t.READ_ONLY ); 
+        CUtlBuffer bufParse = new((nint)thiz->m_pArgSBuffer, pCommand.Length, CUtlBuffer.BufferFlags_t.TEXT_BUFFER | CUtlBuffer.BufferFlags_t.READ_ONLY);
         int nArgvBufferSize = 0;
-        while ( bufParse.IsValid() && ( thiz->m_nArgc < COMMAND_MAX_ARGC ) )
+        while (bufParse.IsValid() && (thiz->m_nArgc < COMMAND_MAX_ARGC))
         {
-            byte *pArgvBuf = &thiz->m_pArgvBuffer[nArgvBufferSize];
+            byte* pArgvBuf = &thiz->m_pArgvBuffer[nArgvBufferSize];
             int nMaxLen = COMMAND_MAX_LENGTH - nArgvBufferSize;
             int nStartGet = bufParse.TellGet();
             int nSize = bufParse.ParseToken(charset, pArgvBuf, nMaxLen, false);
-            if ( nSize < 0 )
+            if (nSize < 0)
                 break;
 
             // Check for overflow condition
-            if ( nMaxLen == nSize )
+            if (nMaxLen == nSize)
             {
                 thiz->vtable->reset(thiz);
                 return 0;
             }
 
-            if ( thiz->m_nArgc == 1 )
+            if (thiz->m_nArgc == 1)
             {
                 // Deal with the case where the arguments were quoted
                 thiz->m_nArgv0Size = bufParse.TellGet();
-                bool bFoundEndQuote = thiz->m_pArgSBuffer[thiz->m_nArgv0Size-1] == '\"';
-                if ( bFoundEndQuote )
+                bool bFoundEndQuote = thiz->m_pArgSBuffer[thiz->m_nArgv0Size - 1] == '\"';
+                if (bFoundEndQuote)
                 {
                     thiz->m_nArgv0Size--;
                 }
                 thiz->m_nArgv0Size -= nSize;
-                UtilityFunctions.Assert( thiz->m_nArgv0Size != 0 );
+                UtilityFunctions.Assert(thiz->m_nArgv0Size != 0);
 
                 // The StartGet check is to handle this case: "foo"bar
                 // which will parse into 2 different args. ArgS should point to bar.
-                bool bFoundStartQuote = ( thiz->m_nArgv0Size > nStartGet ) && ( thiz->m_pArgSBuffer[thiz->m_nArgv0Size-1] == '\"' );
-                UtilityFunctions.Assert( bFoundEndQuote == bFoundStartQuote );
-                if ( bFoundStartQuote )
+                bool bFoundStartQuote = (thiz->m_nArgv0Size > nStartGet) && (thiz->m_pArgSBuffer[thiz->m_nArgv0Size - 1] == '\"');
+                UtilityFunctions.Assert(bFoundEndQuote == bFoundStartQuote);
+                if (bFoundStartQuote)
                 {
                     thiz->m_nArgv0Size--;
                 }
             }
 
             thiz->m_ppArgv[thiz->m_nArgc++] = (ulong)pArgvBuf;
-            if(thiz->m_nArgc >= COMMAND_MAX_ARGC)
+            if (thiz->m_nArgc >= COMMAND_MAX_ARGC)
             {
-                Logging.ConCommandsLogger.Warning( "CCommand::Tokenize: Encountered command which overflows the argument buffer.. Clamped!\n" );
+                Logging.ConCommandsLogger.Warning("CCommand::Tokenize: Encountered command which overflows the argument buffer.. Clamped!\n");
             }
 
             nArgvBufferSize += nSize + 1;
-            UtilityFunctions.Assert( nArgvBufferSize <= COMMAND_MAX_LENGTH );
+            UtilityFunctions.Assert(nArgvBufferSize <= COMMAND_MAX_LENGTH);
         }
 
         return 1;
@@ -286,7 +316,8 @@ public unsafe struct CCommand
 }
 
 //NOTE: Since we don't support inheritance in JITEngine, make sure all inheriting classes contain the same functions!
-public unsafe interface ConCommandBase_Funcs {
+public unsafe interface ConCommandBase_Funcs
+{
     public void Destructor1();
     public void Destructor2();
     public unknown_ret Unk();
@@ -322,7 +353,8 @@ public unsafe interface ConCommandBase_Funcs {
     public void Dispatch(CCommand* command1, CCommand* command);
 }
 
-public unsafe interface ConCommand_Funcs {
+public unsafe interface ConCommand_Funcs
+{
     public void Destructor();
     public void Destructor1();
     public bool IsCommand();
@@ -344,7 +376,8 @@ public unsafe interface ConCommand_Funcs {
     public void Dispatch(CCommand* command);
 }
 
-public unsafe interface ConVar_Funcs {
+public unsafe interface ConVar_Funcs
+{
     public void Destructor();
     public void Destructor1();
     public bool IsCommand();

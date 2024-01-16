@@ -27,7 +27,8 @@ public partial class SecondFactorNeededDialogViewModel : ViewModelBase
     private string steamGuardEmailCode = "";
 
     private LoginManager loginManager;
-    public SecondFactorNeededDialogViewModel(TranslationManager tm, LoginManager loginManager, SecondFactorNeededEventArgs e) {
+    public SecondFactorNeededDialogViewModel(TranslationManager tm, LoginManager loginManager, SecondFactorNeededEventArgs e)
+    {
         this.loginManager = loginManager;
         foreach (var confirmation in e.AllowedConfirmations)
         {
@@ -51,12 +52,14 @@ public partial class SecondFactorNeededDialogViewModel : ViewModelBase
         }
     }
 
-    public async void LoginSteamGuardCode() {
+    public async void LoginSteamGuardCode()
+    {
         var result = await this.loginManager.UpdateAuthSessionWithTwoFactor(SteamGuardCode, EAuthSessionGuardType.DeviceCode);
         MessageBox.Show("result", result.ToString());
     }
 
-    public async void LoginSteamGuardEmailCode() {
+    public async void LoginSteamGuardEmailCode()
+    {
         var result = await this.loginManager.UpdateAuthSessionWithTwoFactor(SteamGuardEmailCode, EAuthSessionGuardType.EmailCode);
         MessageBox.Show("result", result.ToString());
     }

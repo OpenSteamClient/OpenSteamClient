@@ -26,8 +26,10 @@ public partial class PageHeaderViewModel : ViewModelBase
     public Func<object> ViewModelCtor { get; init; }
     public Action SwitchPageAction { get; init; }
     public ObservableCollection<MenuItem> ContextMenuItems { get; } = new() { };
-    public bool HasContextMenu {
-        get {
+    public bool HasContextMenu
+    {
+        get
+        {
             return ContextMenuItems.Any();
         }
     }
@@ -43,7 +45,8 @@ public partial class PageHeaderViewModel : ViewModelBase
     [ObservableProperty]
     private bool canUse;
 
-    public PageHeaderViewModel(MainWindowViewModel mainWindowViewModel, string name, Type pageType, Type viewModelType) {
+    public PageHeaderViewModel(MainWindowViewModel mainWindowViewModel, string name, Type pageType, Type viewModelType)
+    {
         this.PageName = name;
         this.PageType = pageType;
         this.IsWebPage = pageType.IsAssignableTo(typeof(BaseWebPage));
@@ -69,7 +72,8 @@ public partial class PageHeaderViewModel : ViewModelBase
         this.ButtonBackground = AvaloniaApp.Theme!.ButtonBackground;
         this.ButtonForeground = AvaloniaApp.Theme!.ButtonForeground;
 
-        if (this.IsWebPage) {
+        if (this.IsWebPage)
+        {
             // Unload page action
             this.ContextMenuItems.Add(AvaloniaApp.Container.Get<TranslationManager>().CreateTranslated(new MenuItem()
             {
@@ -80,7 +84,9 @@ public partial class PageHeaderViewModel : ViewModelBase
             }, "#PageHeader_UnloadPage", "Unload page"));
 
             this.CanUse = AvaloniaApp.Container.Get<SteamHTML>().CanRun();
-        } else {
+        }
+        else
+        {
             this.CanUse = true;
         }
     }

@@ -54,6 +54,7 @@
         "#App_PauseAppUpdate": "Pause",
         "#App_StopApp": "Stop",
         "#App_StoppingApp": "Stopping",
-        "#App_CancelAppLaunch": "Cancel"
+        "#App_CancelAppLaunch": "Cancel",
+        "#Console_Send": "Send"
     }
 }

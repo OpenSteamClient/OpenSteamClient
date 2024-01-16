@@ -133,9 +133,9 @@ public static class X11KeyTransform
 
     private static readonly Dictionary<Key, X11Key> internalKeyToX11KeyMap = keyFromX11Key.ToDictionary(x => x.Value, x => x.Key);
 
-    public static Key KeyFromX11Key(X11Key key) 
+    public static Key KeyFromX11Key(X11Key key)
         => keyFromX11Key.TryGetValue(key, out var result) ? result : Key.None;
-        
+
     public static X11Key X11KeyFromKey(Key key)
         // we use the notsign to indicate an unsupported key.
         => internalKeyToX11KeyMap.TryGetValue(key, out var result) ? result : X11Key.notsign;

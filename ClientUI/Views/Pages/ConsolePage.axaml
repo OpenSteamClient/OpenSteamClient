@@ -19,5 +19,6 @@
         <!-- Items="{Binding AutocompleteNames}" -->
         <AutoCompleteBox DockPanel.Dock="Bottom" FilterMode="StartsWith" HorizontalAlignment="Stretch" Text="{Binding CurrentCommandText}"/>
         <TextBox AcceptsReturn="true" Text="{Binding OutputText}" IsReadOnly="true" TextWrapping="Wrap"/>
+        <Button IsDefault="True" Command="{Binding SendCommand}" c:Translatable.TranslationKey="#Console_Send"/>
     </DockPanel>
 </c:BasePage>

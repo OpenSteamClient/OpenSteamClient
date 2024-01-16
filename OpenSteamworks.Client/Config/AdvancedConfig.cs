@@ -37,5 +37,5 @@ public class AdvancedConfig : IConfigFile
     [ConfigName("Log callback data", "#AdvancedConfig_LogCallbackContents")]
     [ConfigDescription("Logs all incoming callback's data. Will leak private info like login tokens. Do not share or show logs if you have this setting enabled!", "#AdvancedConfig_LogCallbackContentsDesc")]
     [ConfigCategory("Logging", "#AdvancedConfig_Category_Logging")]
-    public bool LogCallbackContents { get; set; } = false;
+    public bool LogCallbackContents { get; set; } = true;
 }

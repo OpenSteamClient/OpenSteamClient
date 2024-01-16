@@ -4,11 +4,13 @@ using ClientUI.Views;
 
 namespace ClientUI.ViewModels;
 
-public class AvaloniaAppViewModel : ViewModelBase {
+public class AvaloniaAppViewModel : ViewModelBase
+{
     public bool IsDebug => AvaloniaApp.DebugEnabled;
     //TODO
     public bool IsSteamVRInstalled => false;
-    public void ExitEventually() {
+    public void ExitEventually()
+    {
         AvaloniaApp.Current?.ExitEventually();
     }
 
@@ -21,7 +23,8 @@ public class AvaloniaAppViewModel : ViewModelBase {
         //TODO
     }
 
-    public void OpenSteamVR() {
+    public void OpenSteamVR()
+    {
         //TODO
     }
 }

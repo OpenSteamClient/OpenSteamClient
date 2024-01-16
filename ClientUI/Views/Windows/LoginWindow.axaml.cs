@@ -13,12 +13,14 @@ public partial class LoginWindow : Window
         this.TranslatableInit();
     }
 
-    protected override void OnClosing(WindowClosingEventArgs e) {
+    protected override void OnClosing(WindowClosingEventArgs e)
+    {
         AvaloniaApp.Container.Get<LoginManager>().StopQRAuthLoop();
         base.OnClosing(e);
     }
 
-    public void ShowSecondFactorDialog(SecondFactorNeededEventArgs e) {
+    public void ShowSecondFactorDialog(SecondFactorNeededEventArgs e)
+    {
         SecondFactorNeededDialog dialog = new()
         {
             DataContext = AvaloniaApp.Container.ConstructOnly<SecondFactorNeededDialogViewModel>(e),

@@ -9,8 +9,9 @@ public class ViewLocator : IDataTemplate
 {
     public Control Build(object? data)
     {
-        if (data == null) {
-            return new TextBlock { Text = "No 'data' object"};
+        if (data == null)
+        {
+            return new TextBlock { Text = "No 'data' object" };
         }
 
         var name = data.GetType().FullName!.Replace("ViewModel", "View");
@@ -20,7 +21,7 @@ public class ViewLocator : IDataTemplate
         {
             return (Control)Activator.CreateInstance(type)!;
         }
-        
+
         return new TextBlock { Text = "Not Found: " + name };
     }
 

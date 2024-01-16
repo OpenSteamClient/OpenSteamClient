@@ -23,13 +23,15 @@ using OpenSteamworks.Utils;
 
 namespace ClientUI.Translation;
 
-public class Translation {
+public class Translation
+{
     public ELanguage Language { get; set; } = ELanguage.None;
     public string LanguageFriendlyName { get; set; } = "";
     public Dictionary<string, string> TranslationKeys { get; set; } = new();
 }
 
-public class TranslationManager : ILogonLifetime {
+public class TranslationManager : ILogonLifetime
+{
     public Translation CurrentTranslation = new();
     private readonly List<AvaloniaObject> RefreshableObjects = new();
     private readonly IClientUser clientUser;
@@ -39,13 +41,16 @@ public class TranslationManager : ILogonLifetime {
     private readonly ConfigManager configManager;
     private readonly Logger logger;
 
-    private UserSettings userSettings {
-        get {
+    private UserSettings userSettings
+    {
+        get
+        {
             return container.Get<UserSettings>();
         }
     }
 
-    public TranslationManager(IClientUser clientUser, IClientUtils clientUtils, InstallManager installManager, Container container, ConfigManager configManager) {
+    public TranslationManager(IClientUser clientUser, IClientUtils clientUtils, InstallManager installManager, Container container, ConfigManager configManager)
+    {
         this.logger = Logger.GetLogger("TranslationManager", installManager.GetLogPath("TranslationManager"));
         this.clientUser = clientUser;
         this.clientUtils = clientUtils;
@@ -53,10 +58,12 @@ public class TranslationManager : ILogonLifetime {
         this.container = container;
         this.configManager = configManager;
     }
-    
-    public void SetLanguage(ELanguage language, bool save = true) {
+
+    public void SetLanguage(ELanguage language, bool save = true)
+    {
         var lang = ELanguageToString(language);
-        if (lang == null) {
+        if (lang == null)
+        {
             throw new ArgumentException($"Language {language} was not valid.");
         }
 
@@ -65,9 +72,12 @@ public class TranslationManager : ILogonLifetime {
 
         // Even if we don't have a GUI translation
         var newTranslation = GetForLanguage(language, out bool failed);
-        if (failed) {
+        if (failed)
+        {
             logger.Warning("Attempted to switch to unsupported language " + language + ", still switching steamclient");
-        } else {
+        }
+        else
+        {
             CurrentTranslation = newTranslation;
 
             Dispatcher.UIThread.Invoke(() =>
@@ -79,31 +89,38 @@ public class TranslationManager : ILogonLifetime {
             });
         }
 
-        if (save) {
+        if (save)
+        {
             userSettings.Language = language;
             configManager.Save(userSettings);
         }
     }
 
-    public string GetTranslationForKey(string key) {
+    public string GetTranslationForKey(string key)
+    {
         this.CurrentTranslation.TranslationKeys.TryGetValue(key, out string? val);
-        if (val == null) {
+        if (val == null)
+        {
             throw new ArgumentException("Key " + key + " is not valid or not specified in current translation.");
         }
-        
+
         return val;
     }
-    
-    private Translation GetForLanguage(ELanguage language, out bool failed) {
+
+    private Translation GetForLanguage(ELanguage language, out bool failed)
+    {
         failed = false;
         string? filename = ELanguageToString(language);
-        if (filename == null) {
+        if (filename == null)
+        {
             throw new ArgumentOutOfRangeException("Invalid ELanguage " + language + " specified.");
         }
 
-        string fullPath = Path.Combine(installManager.AssemblyDirectory, "Translations", filename+".json");
-        if (!File.Exists(fullPath)) {
-            if (language == ELanguage.English) {
+        string fullPath = Path.Combine(installManager.AssemblyDirectory, "Translations", filename + ".json");
+        if (!File.Exists(fullPath))
+        {
+            if (language == ELanguage.English)
+            {
                 throw new Exception("Base language not found!");
             }
 
@@ -112,32 +129,36 @@ public class TranslationManager : ILogonLifetime {
         }
 
         return UtilityFunctions.AssertNotNull(JsonSerializer.Deserialize<Translation>(File.ReadAllText(fullPath)));
-    } 
+    }
 
     /// <summary>
     /// This function is for creating and translating elements in code behind
     /// </summary>
-    public T CreateTranslated<T>(T visualCreated, string translationKey, string? defaultStr = null) where T: Visual {
+    public T CreateTranslated<T>(T visualCreated, string translationKey, string? defaultStr = null) where T : Visual
+    {
         visualCreated[Controls.Translatable.TranslationKeyProperty] = translationKey;
         visualCreated[Controls.Translatable.DefaultTextProperty] = defaultStr;
         TranslateVisual(visualCreated);
         return visualCreated;
     }
 
-    public void TranslateVisual(Visual visual) {
+    public void TranslateVisual(Visual visual)
+    {
         foreach (var vis in visual.GetAllVisualChildrenTree())
         {
             TranslateAvaloniaObject(vis);
         }
     }
-    
-    public void TranslateTrayIcon(TrayIcon icon) {
+
+    public void TranslateTrayIcon(TrayIcon icon)
+    {
         List<AvaloniaObject> objs = new()
         {
             icon
         };
 
-        if (icon.Menu != null) {
+        if (icon.Menu != null)
+        {
             objs.Add(icon.Menu);
             foreach (var item in icon.Menu.Items)
             {
@@ -150,44 +171,59 @@ public class TranslationManager : ILogonLifetime {
             TranslateAvaloniaObject(item);
         }
     }
-    public void TranslateAvaloniaObject(AvaloniaObject obj) {
-        if (!RefreshableObjects.Contains(obj)) {
+    public void TranslateAvaloniaObject(AvaloniaObject obj)
+    {
+        if (!RefreshableObjects.Contains(obj))
+        {
             RefreshableObjects.Add(obj);
         }
-        
+
         string? translationKey = (string?)obj[Controls.Translatable.TranslationKeyProperty];
         string? defaultStr = (string?)obj[Controls.Translatable.DefaultTextProperty];
-        if (!string.IsNullOrEmpty(translationKey)) {
+        if (!string.IsNullOrEmpty(translationKey))
+        {
             bool translationFailed = false;
             string translatedText = "TRANSLATION FAILED";
-            if (!this.CurrentTranslation.TranslationKeys.ContainsKey(translationKey)) {
+            if (!this.CurrentTranslation.TranslationKeys.ContainsKey(translationKey))
+            {
                 translationFailed = true;
                 Console.WriteLine("Cannot translate " + translationKey + ", no key!");
-            } else {
+            }
+            else
+            {
                 translatedText = this.CurrentTranslation.TranslationKeys[translationKey];
             }
 
-            void TranslateTextInternal<T>(StyledProperty<T> property) {
+            void TranslateTextInternal<T>(StyledProperty<T> property)
+            {
                 bool isEmptyOrNull = false;
                 T val = obj.GetValue(property);
-                if (val == null) {
+                if (val == null)
+                {
                     isEmptyOrNull = true;
-                } else if (val is string str) {
+                }
+                else if (val is string str)
+                {
                     isEmptyOrNull = string.IsNullOrEmpty(str);
                 }
 
-                if (!translationKey.StartsWith('#')) {
+                if (!translationKey.StartsWith('#'))
+                {
                     // User probably meant to set the text directly. 
                     obj.SetValue(property, translationKey);
                     return;
                 }
 
                 // Don't replace text with TRANSLATION FAILED if there's pre-existing text in the control
-                if (translationFailed && !isEmptyOrNull) {
+                if (translationFailed && !isEmptyOrNull)
+                {
                     return;
-                } else {
+                }
+                else
+                {
                     // And if there's no pre existing text, but the translation failed, show the default string if it is not empty
-                    if (!string.IsNullOrEmpty(defaultStr)) {
+                    if (!string.IsNullOrEmpty(defaultStr))
+                    {
                         obj.SetValue(property, defaultStr);
                         return;
                     }
@@ -197,25 +233,39 @@ public class TranslationManager : ILogonLifetime {
             }
 
             // Window eventually inherits from ContentControl, as do lots of other controls. We don't want to override a window's content...
-            if (obj is Window) {
+            if (obj is Window)
+            {
                 TranslateTextInternal(Window.TitleProperty);
-            } else if (obj is MenuItem) {
+            }
+            else if (obj is MenuItem)
+            {
                 TranslateTextInternal(MenuItem.HeaderProperty);
-            } else if (obj is TextBox) {
+            }
+            else if (obj is TextBox)
+            {
                 TranslateTextInternal(TextBox.WatermarkProperty);
-            } else if (obj is ContentControl) {
+            }
+            else if (obj is ContentControl)
+            {
                 TranslateTextInternal(ContentControl.ContentProperty);
-            } else if (obj is TextBlock) {
+            }
+            else if (obj is TextBlock)
+            {
                 TranslateTextInternal(TextBlock.TextProperty);
-            } else if (obj is NativeMenuItem) {
+            }
+            else if (obj is NativeMenuItem)
+            {
                 TranslateTextInternal(NativeMenuItem.HeaderProperty);
-            } else if (obj is TrayIcon) {
+            }
+            else if (obj is TrayIcon)
+            {
                 TranslateTextInternal(TrayIcon.ToolTipTextProperty);
             }
         }
     }
-    
-    public static string? ELanguageToString(ELanguage lang) {
+
+    public static string? ELanguageToString(ELanguage lang)
+    {
         try
         {
             return ELanguageConversion.APINameFromELanguage(lang);

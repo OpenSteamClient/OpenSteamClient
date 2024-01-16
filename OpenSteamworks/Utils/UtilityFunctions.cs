@@ -45,6 +45,14 @@ public static class UtilityFunctions {
         return val;
     }
 
+    public static unsafe void AssertValidStringPtr(IntPtr ptr,
+    [CallerArgumentExpression(nameof(ptr))] string valStr = "", 
+    [CallerFilePath] string sourceFilePath = "",
+    [CallerLineNumber] int sourceLineNumber = 0) {
+        Assert(ptr != IntPtr.Zero, $"{valStr} != IntPtr.Zero", sourceFilePath, sourceLineNumber);
+        Assert(((byte*)ptr)[0] != 0, $"{valStr}[0] != 0", sourceFilePath, sourceLineNumber);
+    }
+
     private static readonly Random random = new();
     public static string GenerateRandomString(int length)
     {

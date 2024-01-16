@@ -6,7 +6,8 @@ using OpenSteamworks.Client.Login;
 
 namespace ClientUI.ViewModels;
 
-public partial class SavedAccountViewModel : ViewModelBase {
+public partial class SavedAccountViewModel : ViewModelBase
+{
     [ObservableProperty]
     private string loginName = "";
 
@@ -21,8 +22,9 @@ public partial class SavedAccountViewModel : ViewModelBase {
 
     public LoginUser user;
 
-    public SavedAccountViewModel(LoginUser user) {
+    public SavedAccountViewModel(LoginUser user)
+    {
         this.user = user;
         this.LoginName = user.AccountName;
-    } 
+    }
 }

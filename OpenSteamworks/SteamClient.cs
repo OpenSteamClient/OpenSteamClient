@@ -160,11 +160,12 @@ public class SteamClient : ISteamClient
         {
             for (int i = 0; i < (int)ESpewGroup.k_ESpew_ArraySize; i++)
             {
+                var e = (ESpewGroup)i;
                 // These are really noisy and don't provide much value, so don't enable them
-                if ((ESpewGroup)i == ESpewGroup.Httpclient) {
+                if (e == ESpewGroup.Svcm || e == ESpewGroup.Network) {
                     continue;
                 }
-                this.IClientUtils.SetSpew((ESpewGroup)i, 9, 9);
+                this.IClientUtils.SetSpew(e, 9, 9);
             }
         }
 

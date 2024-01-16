@@ -14,7 +14,6 @@ public unsafe class ConsoleNative {
         accessor.accessorFunc = &ptr;
 
         clientNative.IClientEngine.ConCommandInit(&accessor);
-        throw new Exception("temporary breakpoint for concommand debugging");
     }
 
     [UnmanagedCallersOnly(CallConvs = new[] { typeof(CallConvCdecl) })]
@@ -48,24 +47,33 @@ public unsafe class ConsoleNative {
         // }
 
         if (basefuncs.IsCommand()) {
-            ConCommand* concommand = (ConCommand*)pVar;
-            if (Marshal.PtrToStringAuto(concommand->m_pszName) == "app_status") {
-                var ccommand = new CCommand("app_status 730");
-                Logging.ConCommandsLogger.Info("m_nArgc " + ccommand.m_nArgc);
-                concommand->pCommandCallback(&ccommand, &ccommand, concommand);
-                //basefuncs.Dispatch2(&ccommand, &ccommand);
-            }
+            // if (Marshal.PtrToStringAuto(pVar->m_pszName) == "apps_installed") {
+            //     var concommand = (ConCommand*)pVar;
+            //     var ccommand = new CCommand("apps_installed");
+            //     Logging.ConCommandsLogger.Info("m_nArgc " + ccommand.m_nArgc);
+            //     concommand->pCommandCallback(&ccommand, &ccommand, concommand);
+            //     //Logging.ConCommandsLogger.Info("m_pArgSBuffer" + ccommand.m_pArgSBuffer);
+            //     //basefuncs.Dispatch(&ccommand, &ccommand);
+            // }
 
-            if (Marshal.PtrToStringAuto(pVar->m_pszName) == "apps_installed") {
-                var ccommand = new CCommand("apps_installed");
-                Logging.ConCommandsLogger.Info("m_nArgc " + ccommand.m_nArgc);
-                concommand->pCommandCallback(&ccommand, &ccommand, concommand);
-                //Logging.ConCommandsLogger.Info("m_pArgSBuffer" + ccommand.m_pArgSBuffer);
-                //basefuncs.Dispatch(&ccommand, &ccommand);
-            }
+            // if (Marshal.PtrToStringAuto(pVar->m_pszName) == "app_status") {
+            //     var concommand = (ConCommand*)pVar;
+            //     var ccommand = new CCommand("app_status 730");
+            //     Logging.ConCommandsLogger.Info("m_nArgc " + ccommand.m_nArgc);
+            //     concommand->pCommandCallback(&ccommand, &ccommand, concommand);
+            //     //basefuncs.Dispatch2(&ccommand, &ccommand);
+            // }
+
+            return Convert.ToByte(ConCommandHandler.RegisterNativeConCommand((ConCommand*)pVar));
+            // if (Marshal.PtrToStringAuto(concommand->m_pszName) == "app_status") {
+            //     var ccommand = new CCommand("app_status 730");
+            //     Logging.ConCommandsLogger.Info("m_nArgc " + ccommand.m_nArgc);
+            //     concommand->pCommandCallback(&ccommand, &ccommand, concommand);
+            //     //basefuncs.Dispatch2(&ccommand, &ccommand);
+            // }
+        } else {
+            return Convert.ToByte(ConCommandHandler.RegisterNativeConVar((ConVar*)pVar));
         }
-
-        return 1;
     }
 
     private unsafe static string printPtr(void* ptr) {

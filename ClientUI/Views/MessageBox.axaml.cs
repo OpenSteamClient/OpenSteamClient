@@ -21,7 +21,8 @@ public partial class MessageBox : Window
     public void Copy()
     {
         MessageBoxViewModel? viewModel = (this.DataContext as MessageBoxViewModel);
-        if (viewModel == null) {
+        if (viewModel == null)
+        {
             Console.WriteLine("DataContext failed to cast to MessageBoxViewModel! Copy failed!");
             return;
         }
@@ -32,7 +33,8 @@ public partial class MessageBox : Window
         fullTextToCopy += viewModel.Content + "\n";
         fullTextToCopy += viewModel.EnabledButtons.ToString();
 
-        if (this.Clipboard == null) {
+        if (this.Clipboard == null)
+        {
             Console.WriteLine("this.Clipboard is null! Copy failed!");
             return;
         }
@@ -42,7 +44,8 @@ public partial class MessageBox : Window
 
     public void QueueClose()
     {
-        if (AvaloniaApp.Container.IsShuttingDown) {
+        if (AvaloniaApp.Container.IsShuttingDown)
+        {
             Console.WriteLine("Cannot hide messagebox during shutdown");
             return;
         }
@@ -89,20 +92,26 @@ public partial class MessageBox : Window
         return Show(title, header, message, MessageBoxIcon.INFORMATION);
     }
 
-    public static MessageBoxButton? Show(string title, string header, string message, MessageBoxIcon icon = MessageBoxIcon.INFORMATION, MessageBoxButton buttons = MessageBoxButton.Ok) {
-        if (AvaloniaApp.Container.IsShuttingDown) {
+    public static MessageBoxButton? Show(string title, string header, string message, MessageBoxIcon icon = MessageBoxIcon.INFORMATION, MessageBoxButton buttons = MessageBoxButton.Ok)
+    {
+        if (AvaloniaApp.Container.IsShuttingDown)
+        {
             Console.WriteLine("Cannot show messagebox during shutdown");
             return null;
         }
 
-        if (!Dispatcher.UIThread.CheckAccess()) {
+        if (!Dispatcher.UIThread.CheckAccess())
+        {
             return Dispatcher.UIThread.Invoke<MessageBoxButton?>(() => ShowInternal(title, header, message, icon, buttons));
-        } else {
+        }
+        else
+        {
             return ShowInternal(title, header, message, icon, buttons);
         }
     }
 
-    private static MessageBoxButton? ShowInternal(string title, string header, string message, MessageBoxIcon icon, MessageBoxButton buttons) {
+    private static MessageBoxButton? ShowInternal(string title, string header, string message, MessageBoxIcon icon, MessageBoxButton buttons)
+    {
         var messageBoxViewModel = new MessageBoxViewModel(icon, buttons)
         {
             Title = title,
@@ -122,7 +131,7 @@ public partial class MessageBox : Window
             };
 
             messageBox.Show();
-            
+
             tcs.Task.ContinueWith(t => source.Cancel(), TaskScheduler.FromCurrentSynchronizationContext());
             Dispatcher.UIThread.MainLoop(source.Token);
             return tcs.Task.Result;

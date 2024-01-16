@@ -49,7 +49,7 @@ public partial class MainWindowViewModel : ViewModelBase
     private PageHeaderViewModel? CurrentPageHeader;
     private readonly Dictionary<Type, BasePage> LoadedPages = new();
     public ObservableCollection<PageHeaderViewModel> PageList { get; } = new() { };
-    
+
     public bool CanLogonOffline => client.IClientUser.CanLogonOffline() == 1;
     public bool IsOfflineMode => client.IClientUtils.GetOfflineMode();
     private readonly Action openSettingsWindow;
@@ -59,7 +59,8 @@ public partial class MainWindowViewModel : ViewModelBase
     private readonly AppsManager appsManager;
     private readonly MainWindow mainWindow;
 
-    public MainWindowViewModel(MainWindow mainWindow, ISteamClient client, AppsManager appsManager, TranslationManager tm, LoginManager loginManager, Action openSettingsWindowAction) {
+    public MainWindowViewModel(MainWindow mainWindow, ISteamClient client, AppsManager appsManager, TranslationManager tm, LoginManager loginManager, Action openSettingsWindowAction)
+    {
         this.mainWindow = mainWindow;
         this.client = client;
         this.tm = tm;
@@ -86,10 +87,12 @@ public partial class MainWindowViewModel : ViewModelBase
     [MemberNotNull(nameof(currentPage))]
     [MemberNotNull(nameof(CurrentPage))]
 #pragma warning restore MVVMTK0034
-    internal void SwitchToPage(Type pageType) {
+    internal void SwitchToPage(Type pageType)
+    {
         PageHeaderViewModel model = this.PageList.Where(item => item.PageType == pageType).First();
         var (type, page) = LoadedPages.Where(item => item.Key == model.PageType).FirstOrDefault();
-        if (page == null) {
+        if (page == null)
+        {
             page = model.PageCtor();
             page.DataContext = model.ViewModelCtor();
             LoadedPages.Add(model.PageType, page);
@@ -97,9 +100,11 @@ public partial class MainWindowViewModel : ViewModelBase
 
         // Set selected button
         model.ButtonBackground = Brushes.Green;
-        if (CurrentPageHeader != null) {
+        if (CurrentPageHeader != null)
+        {
             CurrentPageHeader.ButtonBackground = AvaloniaApp.Theme!.ButtonBackground;
-            if (CurrentPageHeader.IsWebPage) {
+            if (CurrentPageHeader.IsWebPage)
+            {
                 CurrentPageHeader.ButtonBackground = AvaloniaApp.Theme!.AccentButtonBackground;
             }
         }
@@ -108,8 +113,10 @@ public partial class MainWindowViewModel : ViewModelBase
         CurrentPageHeader = model;
     }
 
-    internal void UnloadPage(Type pageType) {
-        if (!LoadedPages.ContainsKey(pageType)) {
+    internal void UnloadPage(Type pageType)
+    {
+        if (!LoadedPages.ContainsKey(pageType))
+        {
             return;
         }
 
@@ -120,11 +127,13 @@ public partial class MainWindowViewModel : ViewModelBase
         LoadedPages.Remove(pageType);
     }
 
-    public void DBG_Crash() {
+    public void DBG_Crash()
+    {
         throw new Exception("test");
     }
 
-    private unsafe void OnCGameNetworkingUI_AppSummary(CallbackManager.CallbackHandler handler, byte[] data) {
+    private unsafe void OnCGameNetworkingUI_AppSummary(CallbackManager.CallbackHandler handler, byte[] data)
+    {
         try
         {
             File.WriteAllBytes("/tmp/networkingui_appsummary.bin", data);
@@ -140,14 +149,15 @@ public partial class MainWindowViewModel : ViewModelBase
             Logger.GetLogger("MainWindowViewModel").Error(e);
         }
     }
-        
-    private unsafe void OnClientNetworking_ConnectionStateChanged(CallbackManager.CallbackHandler handler, byte[] data) {
+
+    private unsafe void OnClientNetworking_ConnectionStateChanged(CallbackManager.CallbackHandler handler, byte[] data)
+    {
         try
         {
             File.WriteAllBytes("/tmp/networkingui_connectionstate.bin", data);
 
             byte[] dataoffset = data[4..];
-            
+
             var state = CGameNetworkingUI_ConnectionState.Parser.ParseFrom(dataoffset);
             Logger.GetLogger("MainWindowViewModel").Info("AddressRemote: " + state.AddressRemote);
             Logger.GetLogger("MainWindowViewModel").Info("state: " + state.ConnectionState);
@@ -166,7 +176,8 @@ public partial class MainWindowViewModel : ViewModelBase
         }
     }
 
-    public async void DBG_LaunchFactorio() {
+    public async void DBG_LaunchFactorio()
+    {
         IClientShortcuts shortcuts = AvaloniaApp.Container.Get<IClientShortcuts>();
         //CUtlVector<AppId_t> appids = new(1024, 0);
         //shortcuts.AddShortcut("wtf", "name", "exe", "workingdir", "unk");
@@ -180,7 +191,8 @@ public partial class MainWindowViewModel : ViewModelBase
         {
             bool shouldRun = true;
             int idex = 0;
-            using (var disp = ProtobufHack.Create<CMsgShortcutInfo>()) {
+            using (var disp = ProtobufHack.Create<CMsgShortcutInfo>())
+            {
                 while (shouldRun)
                 {
                     shouldRun = shortcuts.GetShortcutInfoByIndex(idex, disp.ptr);
@@ -194,7 +206,8 @@ public partial class MainWindowViewModel : ViewModelBase
 
         {
             bool succeeded;
-            using (var disp = ProtobufHack.Create<CMsgShortcutAppIds>()) {
+            using (var disp = ProtobufHack.Create<CMsgShortcutAppIds>())
+            {
                 succeeded = shortcuts.GetShortcutAppIds(disp.ptr);
                 Console.WriteLine("succeeded:" + succeeded);
                 var managed = disp.GetManaged();
@@ -219,11 +232,12 @@ public partial class MainWindowViewModel : ViewModelBase
         // {
         //     Console.WriteLine("Item: " + item);
         // }
-        
+
         //await this.appsManager.LaunchApp(427520, 3, "gamemoderun %command%");
     }
 
-    public async void DBG_LaunchCS2() {
+    public async void DBG_LaunchCS2()
+    {
         // ClientApps apps = AvaloniaApp.Container.Get<ClientApps>();
         // foreach (var item in apps.GetMultipleAppDataSectionsSync(730, new [] { EAppInfoSection.Common, EAppInfoSection.Extended, EAppInfoSection.Config }))
         // {
@@ -260,10 +274,12 @@ public partial class MainWindowViewModel : ViewModelBase
         //await this.appsManager.LaunchApp(730, 1, "gamemoderun %command% -dev -sdlaudiodriver pipewire");
     }
 
-    public async void DBG_LaunchSpel2() {
+    public async void DBG_LaunchSpel2()
+    {
         //await this.appsManager.LaunchApp(418530, 0, "");
         IClientUser user = AvaloniaApp.Container.Get<IClientUser>();
-        unsafe {
+        unsafe
+        {
             CMsgCellList list;
             using (var hack = ProtobufHack.Create<CMsgCellList>())
             {
@@ -294,7 +310,7 @@ public partial class MainWindowViewModel : ViewModelBase
             //     }
             // }
             // list = CMsgCellList.Parser.ParseFrom(bytes);
-            
+
             // foreach (var item in list.Cells)
             // {
             //     Console.WriteLine("i: " + item.CellId + " n: " + item.LocName);
@@ -303,50 +319,61 @@ public partial class MainWindowViewModel : ViewModelBase
     }
 
     public void DBG_OpenInterfaceList() => AvaloniaApp.Current?.OpenInterfaceList();
-    public void DBG_ChangeLanguage() {
+    public void DBG_ChangeLanguage()
+    {
         // Very simple logic, just switches between english and finnish. 
         var tm = AvaloniaApp.Container.Get<TranslationManager>();
 
         ELanguage lang = tm.CurrentTranslation.Language;
         Console.WriteLine(string.Format(tm.GetTranslationForKey("#SettingsWindow_YourCurrentLanguage"), tm.GetTranslationForKey("#LanguageNameTranslated"), tm.CurrentTranslation.LanguageFriendlyName));
-        if (lang == ELanguage.English) {
+        if (lang == ELanguage.English)
+        {
             tm.SetLanguage(ELanguage.Finnish);
-        } else {
+        }
+        else
+        {
             tm.SetLanguage(ELanguage.English);
         }
     }
-    public async void DBG_TestHTMLSurface() {
+    public async void DBG_TestHTMLSurface()
+    {
         HTMLSurfaceTest testWnd = new();
         testWnd.Show();
         await testWnd.Init("Valve Steam Client", "https://google.com/");
     }
 
-    public void Quit() {
+    public void Quit()
+    {
         AvaloniaApp.Current?.ExitEventually();
     }
 
-    public void OpenSettings() {
+    public void OpenSettings()
+    {
         this.openSettingsWindow?.Invoke();
     }
 
-    public void GoOffline() {
+    public void GoOffline()
+    {
         client.IClientUtils.SetOfflineMode(true);
         this.ShowGoOffline = CanLogonOffline && !IsOfflineMode;
         this.ShowGoOnline = CanLogonOffline && IsOfflineMode;
     }
-    public void GoOnline() {
+    public void GoOnline()
+    {
         client.IClientUtils.SetOfflineMode(false);
         this.ShowGoOffline = CanLogonOffline && !IsOfflineMode;
         this.ShowGoOnline = CanLogonOffline && IsOfflineMode;
     }
 
-    public async void SignOut() {
+    public async void SignOut()
+    {
         ExtendedProgress<int> progress = new(0, 100, "Logging off");
         AvaloniaApp.Current?.ForceProgressWindow(new ProgressWindowViewModel(progress, "Logging off"));
         await this.loginManager.LogoutAsync(progress, true);
     }
 
-    public async void ChangeAccount() {
+    public async void ChangeAccount()
+    {
         await this.loginManager.LogoutAsync();
     }
 }

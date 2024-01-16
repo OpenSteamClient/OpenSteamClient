@@ -14,7 +14,8 @@ using OpenSteamworks.Structs;
 
 namespace ClientUI.ViewModels.Library;
 
-public partial class FocusedAppPaneViewModel : ViewModelBase {
+public partial class FocusedAppPaneViewModel : ViewModelBase
+{
     [ObservableProperty]
     private string name = "";
 
@@ -31,7 +32,8 @@ public partial class FocusedAppPaneViewModel : ViewModelBase {
     private ICommand playButtonAction;
 
     private readonly AppBase app;
-    public FocusedAppPaneViewModel(CGameID gameid) {
+    public FocusedAppPaneViewModel(CGameID gameid)
+    {
         app = AvaloniaApp.Container.Get<AppsManager>().GetApp(gameid);
         this.Name = app.Name;
         SetLibraryAssets();
@@ -46,28 +48,43 @@ public partial class FocusedAppPaneViewModel : ViewModelBase {
     [MemberNotNull(nameof(playButtonLocalizationToken))]
     [MemberNotNull(nameof(PlayButtonLocalizationToken))]
 #pragma warning restore MVVMTK0034
-    private void UpdatePlayButton() {
-        if (app.State.HasFlag(EAppState.AppRunning)) {
+    private void UpdatePlayButton()
+    {
+        if (app.State.HasFlag(EAppState.AppRunning))
+        {
             PlayButtonLocalizationToken = "#App_StopApp";
             PlayButtonAction = new RelayCommand(KillApp);
-        } else if (app.State.HasFlag(EAppState.Terminating)) {
+        }
+        else if (app.State.HasFlag(EAppState.Terminating))
+        {
             PlayButtonLocalizationToken = "#App_StoppingApp";
             PlayButtonAction = new RelayCommand(InvalidAction);
-        } else if (app.State.HasFlag(EAppState.UpdateRunning)) {
+        }
+        else if (app.State.HasFlag(EAppState.UpdateRunning))
+        {
             PlayButtonLocalizationToken = "#App_PauseAppUpdate";
             PlayButtonAction = new RelayCommand(PauseUpdate);
-        } else if (app.State.HasFlag(EAppState.UpdateRequired) || app.State.HasFlag(EAppState.UpdatePaused) || app.State.HasFlag(EAppState.UpdateQueued)) {
+        }
+        else if (app.State.HasFlag(EAppState.UpdateRequired) || app.State.HasFlag(EAppState.UpdatePaused) || app.State.HasFlag(EAppState.UpdateQueued))
+        {
             PlayButtonLocalizationToken = "#App_UpdateApp";
             PlayButtonAction = new RelayCommand(Update);
-        } else if (app.State == EAppState.FullyInstalled) {
-            if (app.Type == EAppType.Game) {
+        }
+        else if (app.State == EAppState.FullyInstalled)
+        {
+            if (app.Type == EAppType.Game)
+            {
                 PlayButtonLocalizationToken = "#App_PlayApp";
                 PlayButtonAction = new RelayCommand(Launch);
-            } else {
+            }
+            else
+            {
                 PlayButtonLocalizationToken = "#App_LaunchApp";
                 PlayButtonAction = new RelayCommand(Launch);
             }
-        } else {
+        }
+        else
+        {
             PlayButtonLocalizationToken = "Unknown state: " + app.State.ToString();
             PlayButtonAction = new RelayCommand(InvalidAction);
         }
@@ -79,14 +96,17 @@ public partial class FocusedAppPaneViewModel : ViewModelBase {
     [MemberNotNull(nameof(logo))]
     [MemberNotNull(nameof(Logo))]
 #pragma warning restore MVVMTK0034
-    private void SetLibraryAssets() {
+    private void SetLibraryAssets()
+    {
         if (app.LocalHeroPath != null)
         {
             this.Hero = new ImageBrush()
             {
                 Source = new Bitmap(app.LocalHeroPath),
             };
-        } else {
+        }
+        else
+        {
             this.Hero = Brushes.DarkGray;
         }
 
@@ -96,33 +116,42 @@ public partial class FocusedAppPaneViewModel : ViewModelBase {
             {
                 Source = new Bitmap(app.LocalLogoPath),
             };
-        } else {
+        }
+        else
+        {
             this.Logo = Brushes.Transparent;
         }
     }
 
-    public void OnLibraryAssetsUpdated(object? sender, EventArgs e) {
+    public void OnLibraryAssetsUpdated(object? sender, EventArgs e)
+    {
         SetLibraryAssets();
     }
 
-    private void InvalidAction() {
+    private void InvalidAction()
+    {
         throw new InvalidOperationException("Nothing to do");
     }
 
-    private void PauseUpdate() {
+    private void PauseUpdate()
+    {
         this.app.PauseUpdate();
     }
 
-    private void Update() {
+    private void Update()
+    {
         this.app.Update();
     }
 
-    private void KillApp() {
+    private void KillApp()
+    {
         this.app.Kill();
     }
-    
-    private void Launch() {
-        if (this.app.DefaultLaunchOptionID != null) {
+
+    private void Launch()
+    {
+        if (this.app.DefaultLaunchOptionID != null)
+        {
             this.app.Launch("", this.app.DefaultLaunchOptionID.Value);
         }
     }

@@ -372,23 +372,27 @@ public class LoginManager : IClientLifetime
     }
 
 
-    private bool _logonStateHasStartedLoading = false;
+    //private bool _logonStateHasStartedLoading = false;
     public void OnPostLogonState(CallbackHandler<PostLogonState_t> handler, PostLogonState_t stateUpdate) {
         if (isLoggingOn) {
-            if (!_logonStateHasStartedLoading && stateUpdate.isLoading) {
-                _logonStateHasStartedLoading = true;
-            } else if (_logonStateHasStartedLoading && !stateUpdate.isLoading) {
-                // loading has finished
-                _logonStateHasStartedLoading = false;
+            // if (!_logonStateHasStartedLoading && stateUpdate.isLoading) {
+            //     _logonStateHasStartedLoading = true;
+            // } else if (_logonStateHasStartedLoading && !stateUpdate.isLoading) {
+            //     // loading has finished
+            //     _logonStateHasStartedLoading = false;
 
-                if (loginProgress != null) {
-                    loginProgress.SetProgress(100);
-                    //TODO: figure out the correct field to use for progress updates (or is it guessed?)
-                }
+            //     if (loginProgress != null) {
+            //         loginProgress.SetProgress(100);
+            //         //TODO: figure out the correct field to use for progress updates (or is it guessed?)
+            //     }
                 
-                if (isLoggingOn) {
-                    loginFinishResult = EResult.OK;
-                }
+            //     if (isLoggingOn) {
+            //         loginFinishResult = EResult.OK;
+            //     }
+            // }
+            if (stateUpdate.unk9 == 1 && stateUpdate.connectedToCMs == 1) {
+                loginProgress?.SetProgress(100);
+                loginFinishResult = EResult.OK;
             }
         }
     }
@@ -497,7 +501,8 @@ public class LoginManager : IClientLifetime
             
             logger.Info("Waiting for logon to finish");
             EResult result = await WaitForLogonToFinish();
-            logger.Info("Logon finished with " + result);
+            logger.Info("Logon finished with " + result + ", waiting for appinfo completion");
+            await steamClient.CallbackManager.WaitForCallback<AppInfoUpdateComplete_t>();
 
             if (result == EResult.OK)
             {

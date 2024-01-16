@@ -2,6 +2,7 @@ using System;
 using System.Runtime.InteropServices;
 using OpenSteamworks.Enums;
 using OpenSteamworks.Structs;
+using OpenSteamworks.Utils;
 
 namespace OpenSteamworks.Callbacks.Structs;
 
@@ -11,14 +12,21 @@ namespace OpenSteamworks.Callbacks.Structs;
 /// </summary>
 public struct PostLogonState_t 
 {
+	static PostLogonState_t() {
+		unsafe
+		{
+			UtilityFunctions.Assert(sizeof(PostLogonState_t) == 10);
+		}
+    }
+
 	public byte unk1;         // 1 byte
-	public byte maybeABoolUnk2;         // 1 byte
-	public byte maybeABoolUnk3;         // 1 byte
+	public byte unk2;         // 1 byte
+	public byte unk3;         // 1 byte
 	public byte unk4;         // 1 byte
 	public byte unk5;         // 1 byte
 	public byte unk6;         // 1 byte
-    public bool connectedToCMs; // 1 byte
-    public bool ifFalseDoSomething; // 1 byte
-	public bool isLoading;         // 1 byte
-	public byte unk7;
+    public byte connectedToCMs; // 1 byte
+    public byte unk8; // 1 byte
+	public byte unk9;         // 1 byte
+	public byte unk10;
 }; // 10 bytes

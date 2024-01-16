@@ -6,7 +6,8 @@ using OpenSteamworks.Structs;
 
 namespace ClientUI.ViewModels.Library;
 
-public partial class Node : ViewModelBase, IComparable<Node> {
+public partial class Node : ViewModelBase, IComparable<Node>
+{
     [ObservableProperty]
     private string name = "";
 

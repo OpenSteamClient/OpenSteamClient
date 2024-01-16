@@ -48,7 +48,8 @@ public partial class MessageBoxViewModel : ViewModelBase
     public Action? EnterPressed { get; set; }
     public Action? EscPressed { get; set; }
     private MessageBox? messageBox;
-    public MessageBoxViewModel(MessageBoxIcon icon, MessageBoxButton enabledButtons) {
+    public MessageBoxViewModel(MessageBoxIcon icon, MessageBoxButton enabledButtons)
+    {
 
         this.enabledButtons = enabledButtons;
         this.EnterPressed = PressDefaultIfPossible;
@@ -58,13 +59,15 @@ public partial class MessageBoxViewModel : ViewModelBase
     }
 
     // Clipboard isn't accessible from App, instead it's available from every Control, so do this hack which is totally against mvvm principles
-    public void SetMessageBox(MessageBox messageBox) {
+    public void SetMessageBox(MessageBox messageBox)
+    {
         this.messageBox = messageBox;
         this.Copy = messageBox.Copy;
         this.EscPressed = messageBox.Close;
     }
 
-    public void PressDefaultIfPossible() {
+    public void PressDefaultIfPossible()
+    {
         // If there's only one button enabled, then click it
         switch (EnabledButtons)
         {
@@ -76,29 +79,34 @@ public partial class MessageBoxViewModel : ViewModelBase
                 break;
             case MessageBoxButton.Cancel:
                 CancelClicked();
-            break;
+                break;
             case MessageBoxButton.Ok:
                 OkClicked();
-            break;
+                break;
         }
         // If there's multiple, try to cancel, never take a yes action automatically
-        if (EnabledButtons.HasFlag(MessageBoxButton.Cancel)) {
+        if (EnabledButtons.HasFlag(MessageBoxButton.Cancel))
+        {
             CancelClicked();
         }
     }
-    public void OkClicked() {
+    public void OkClicked()
+    {
         ButtonClicked = MessageBoxButton.Ok;
         messageBox?.QueueClose();
     }
-    public void YesClicked() {
+    public void YesClicked()
+    {
         ButtonClicked = MessageBoxButton.Yes;
         messageBox?.QueueClose();
     }
-    public void NoClicked() {
+    public void NoClicked()
+    {
         ButtonClicked = MessageBoxButton.No;
         messageBox?.QueueClose();
     }
-    public void CancelClicked() {
+    public void CancelClicked()
+    {
         ButtonClicked = MessageBoxButton.Cancel;
         messageBox?.QueueClose();
     }

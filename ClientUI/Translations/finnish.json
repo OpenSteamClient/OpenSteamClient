@@ -54,6 +54,7 @@
         "#App_PauseAppUpdate": "Keskeytä",
         "#App_StopApp": "Lopeta",
         "#App_StoppingApp": "Lopetetaan",
-        "#App_CancelAppLaunch": "Peruuta"
+        "#App_CancelAppLaunch": "Peruuta",
+        "#Console_Send": "Lähetä"
     }
 }

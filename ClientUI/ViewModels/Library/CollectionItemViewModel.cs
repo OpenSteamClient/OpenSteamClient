@@ -10,12 +10,14 @@ using OpenSteamworks.Structs;
 
 namespace ClientUI.ViewModels;
 
-public partial class CollectionItemViewModel : Node {
+public partial class CollectionItemViewModel : Node
+{
     public string ID => collection.ID;
-    
+
     private readonly Collection collection;
     private readonly OpenSteamworks.Client.Apps.Library.Library library;
-    public CollectionItemViewModel(OpenSteamworks.Client.Apps.Library.Library library, Collection collection) {
+    public CollectionItemViewModel(OpenSteamworks.Client.Apps.Library.Library library, Collection collection)
+    {
         this.library = library;
         this.collection = collection;
         this.Name = $"{collection.Name} ({library.GetAppsInCollection(collection.ID).Count})";

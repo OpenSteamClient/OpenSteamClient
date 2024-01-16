@@ -15,21 +15,26 @@ public static class Program
     public static void Main(string[] args)
     {
         //TODO: single instance and pipe logic
-        try {
+        try
+        {
             //TODO: better command line args system (maybe in OpenSteamworks.Client to hook into various steamclient things)
-            if (args.Contains("-debug")) {
+            if (args.Contains("-debug"))
+            {
                 AvaloniaApp.DebugEnabled = true;
             }
 #if DEBUG
             Console.WriteLine("Running DEBUG build, debug mode forced on");
             AvaloniaApp.DebugEnabled = true;
 #endif
-            BuildAvaloniaApp().StartWithClassicDesktopLifetime(args, Avalonia.Controls.ShutdownMode.OnExplicitShutdown); 
-        } catch (Exception e) {
-            if (Debugger.IsAttached) {
+            BuildAvaloniaApp().StartWithClassicDesktopLifetime(args, Avalonia.Controls.ShutdownMode.OnExplicitShutdown);
+        }
+        catch (Exception e)
+        {
+            if (Debugger.IsAttached)
+            {
                 throw;
             }
-            
+
             MessageBox.Error("OpenSteamClient needs to close", "OpenSteamClient has encountered a fatal exception. Exception message: " + e.Message, e.ToString());
             Console.WriteLine(e.ToString());
             Environment.Exit(1);

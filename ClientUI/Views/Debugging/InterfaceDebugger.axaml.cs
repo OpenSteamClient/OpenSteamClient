@@ -40,12 +40,12 @@ public partial class InterfaceDebugger : Window
                 RowDefinitions = RowDefinitions.Parse("*"),
             };
 
-            grid.Children.Add(new Button() 
+            grid.Children.Add(new Button()
             {
                 Name = funcidentifier,
                 Content = funcs[i].Name,
-                Command = new RelayCommand<Tuple<Type,MethodInfo>>(this.MethodCalled),
-                CommandParameter = new Tuple<Type,MethodInfo>(iface,  funcs[i]),
+                Command = new RelayCommand<Tuple<Type, MethodInfo>>(this.MethodCalled),
+                CommandParameter = new Tuple<Type, MethodInfo>(iface, funcs[i]),
                 [Grid.ColumnProperty] = 0
             });
             i++;
@@ -55,25 +55,27 @@ public partial class InterfaceDebugger : Window
             {
                 grid.Children.Add(new TextBox()
                 {
-                    Name = funcidentifier + "_Arg"+addedargs,
-                    [Grid.ColumnProperty] = addedargs+1,
+                    Name = funcidentifier + "_Arg" + addedargs,
+                    [Grid.ColumnProperty] = addedargs + 1,
                     Watermark = param.ParameterType.Name + " " + param.Name
                 });
                 addedargs++;
             }
-            
+
             stackpanel.Children.Add(grid);
         }
     }
-    private string CalculateDefinitions(int count) {
+    private string CalculateDefinitions(int count)
+    {
         string columndef = "";
         for (int y = 0; y < count; y++)
         {
-            columndef += "*" + (y+1 < count ? "," : "");
+            columndef += "*" + (y + 1 < count ? "," : "");
         }
         return columndef;
     }
-    public void MethodCalled(Tuple<Type,MethodInfo>? info) {
+    public void MethodCalled(Tuple<Type, MethodInfo>? info)
+    {
         UtilityFunctions.AssertNotNull(info);
         string funcidentifier = ifaceName + "_" + info.Item2.Name + info.Item2.GetParameters().Length;
         var implementer = GetInterfaceImpl(info.Item1);
@@ -84,12 +86,13 @@ public partial class InterfaceDebugger : Window
         {
             var paramInfo = paramInfos[i];
             ParameterInfo? nextParamInfo = null;
-            if (i+1 < paramInfos.Length) {
-                nextParamInfo = paramInfos[i+1];
+            if (i + 1 < paramInfos.Length)
+            {
+                nextParamInfo = paramInfos[i + 1];
             }
 
             var paramIdentifier = funcidentifier + "_Arg" + i;
-            var nextParamIdentifier = funcidentifier + "_Arg" + (i+1);
+            var nextParamIdentifier = funcidentifier + "_Arg" + (i + 1);
             Console.WriteLine("trying to find " + paramIdentifier);
             Console.WriteLine("next identifier" + nextParamIdentifier);
             var paramTextbox = this.FindControlNested<TextBox>(paramIdentifier);
@@ -98,45 +101,56 @@ public partial class InterfaceDebugger : Window
 
             var paramCurrentText = paramTextbox.Text;
 
-            try {
+            try
+            {
                 bool isStruct = false;
                 Type pierceType = paramInfo.ParameterType.IsByRef ? paramInfo.ParameterType.GetElementType()! : paramInfo.ParameterType;
                 bool isCustomValueType = pierceType.GetCustomAttribute<CustomValueTypeAttribute>() != null;
                 Type? customValueType = null;
 
-                if (isCustomValueType) {
+                if (isCustomValueType)
+                {
                     customValueType = UtilityFunctions.AssertNotNull(pierceType.GetField("_value", BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance)).FieldType;
                 }
 
-                if (string.IsNullOrEmpty(paramCurrentText)) {
-                    if (pierceType == typeof(string) || pierceType == typeof(StringBuilder) || paramInfo.IsOut) {
+                if (string.IsNullOrEmpty(paramCurrentText))
+                {
+                    if (pierceType == typeof(string) || pierceType == typeof(StringBuilder) || paramInfo.IsOut)
+                    {
                         paramCurrentText = "";
-                    } else {
+                    }
+                    else
+                    {
                         MessageBox.Error("Function execution failed", "Failed to execute " + funcidentifier + "\n" + "Required argument " + paramInfo.Name + " missing!");
                         return;
                     }
                 }
 
-                if (paramInfo.IsOut || paramInfo.ParameterType.IsByRef) {
+                if (paramInfo.IsOut || paramInfo.ParameterType.IsByRef)
+                {
                     refParams.Add(i, paramInfo);
                 }
 
-                if (pierceType.IsValueType && !pierceType.IsPrimitive && !pierceType.IsEnum) {
+                if (pierceType.IsValueType && !pierceType.IsPrimitive && !pierceType.IsEnum)
+                {
                     isStruct = true;
                 }
 
-                if (paramInfo.IsOut) {
+                if (paramInfo.IsOut)
+                {
                     paramArr[i] = null;
                     continue;
                 }
 
-                if (isCustomValueType) {
+                if (isCustomValueType)
+                {
                     // Custom value type, convert to int and then run implicit operator
-                    paramArr[i] = UtilityFunctions.AssertNotNull(pierceType.GetMethod("op_Implicit", new [] {customValueType!})).Invoke(null, new [] { Convert.ChangeType(paramCurrentText, customValueType!) });
+                    paramArr[i] = UtilityFunctions.AssertNotNull(pierceType.GetMethod("op_Implicit", new[] { customValueType! })).Invoke(null, new[] { Convert.ChangeType(paramCurrentText, customValueType!) });
                     continue;
                 }
 
-                if (isStruct && !isCustomValueType) {
+                if (isStruct && !isCustomValueType)
+                {
                     // This is a struct, find InterfaceDebuggerSupport and run it
                     MethodInfo? ci;
                     ci = pierceType.GetMethod("InterfaceDebuggerSupport", BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.Public, new Type[1] {
@@ -152,7 +166,8 @@ public partial class InterfaceDebugger : Window
                     throw new NullReferenceException(pierceType.Name + "doesn't take a string");
                 }
 
-                if (pierceType == typeof(StringBuilder)) {
+                if (pierceType == typeof(StringBuilder))
+                {
                     UtilityFunctions.AssertNotNull(nextParamTextbox);
                     UtilityFunctions.AssertNotNull(nextParamTextbox.Text);
                     refParams.Add(i, paramInfo);
@@ -161,13 +176,16 @@ public partial class InterfaceDebugger : Window
                 }
 
                 // Enums need special handling...
-                if (pierceType.IsEnum) {
+                if (pierceType.IsEnum)
+                {
                     paramArr[i] = Enum.Parse(pierceType, paramCurrentText);
                     continue;
                 }
 
                 paramArr[i] = Convert.ChangeType(paramCurrentText, pierceType);
-            } catch (Exception e) {
+            }
+            catch (Exception e)
+            {
                 MessageBox.Error("Function execution failed", "Failed to execute " + funcidentifier + ": Conversion failed with param " + paramInfo.Name + Environment.NewLine + e.ToString());
                 return;
             }
@@ -184,15 +202,17 @@ public partial class InterfaceDebugger : Window
         MessageBox.Show("Function executed successfully", info.Item2.Name + " returned " + ret + Environment.NewLine + refParamsAsStr);
     }
 
-    private static object GetInterfaceImpl(Type iface) {
+    private static object GetInterfaceImpl(Type iface)
+    {
         var client = AvaloniaApp.Container.Get<ISteamClient>();
         UtilityFunctions.AssertNotNull(client);
         var implementorFields = typeof(ISteamClient).GetProperties().Where(f => f.PropertyType == iface);
-        if (!implementorFields.Any()) {
+        if (!implementorFields.Any())
+        {
             throw new NotSupportedException("This interface is not implemented in ISteamClient");
         }
         var implementorField = implementorFields.First();
-        
+
         return UtilityFunctions.AssertNotNull(implementorField.GetValue(client));
     }
 }

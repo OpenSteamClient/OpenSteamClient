@@ -16,7 +16,8 @@ public partial class SettingsWindowViewModel : ViewModelBase
     private TranslationManager tm;
     private ISteamClient client;
     private LoginManager loginManager;
-    public SettingsWindowViewModel(ISteamClient client, TranslationManager tm, LoginManager loginManager) {
+    public SettingsWindowViewModel(ISteamClient client, TranslationManager tm, LoginManager loginManager)
+    {
         this.client = client;
         this.tm = tm;
         this.loginManager = loginManager;

@@ -69,7 +69,7 @@ public class ClientApps {
         return objects.AsReadOnly();
     }
 
-    public async Task UpdateAppInfo(AppId_t[] apps) {
+    public async Task UpdateAppInfo(AppId_t[] apps, IProgress<int> prog) {
         this.NativeClientApps.RequestAppInfoUpdate(apps, apps.Length);
         await this.callbackManager.WaitForCallback<AppInfoUpdateComplete_t>();
     }
@@ -81,10 +81,6 @@ public class ClientApps {
 
     public async Task SyncCloud(AppId_t app) {
         await Task.Run(() => NativeClientRemoteStorage.RunAutoCloudOnAppLaunch(app));
-    }
-
-    public async Task LaunchSteamApp(CGameID gameid, uint launchOptionID, ELaunchSource launchSource, string userLaunchOptions = "") {
-        
     }
 
     public bool IsAppInstalled(AppId_t app) {

@@ -10,9 +10,10 @@ namespace ClientUI.Controls;
 
 public class BasePage : UserControl
 {
-    public BasePage() : base() {} 
+    public BasePage() : base() { }
 
-    public virtual void Free() {
+    public virtual void Free()
+    {
         // No-op in BasePage
     }
 }

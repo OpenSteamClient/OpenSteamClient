@@ -3,7 +3,8 @@ using System;
 namespace ClientUI.Enums;
 
 [Flags]
-public enum MessageBoxButton {
+public enum MessageBoxButton
+{
     No = 1,
     Yes = 2,
     Ok = 4,

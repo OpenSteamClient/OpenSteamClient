@@ -40,14 +40,15 @@ public partial class InterfaceList : Window
                 IsEnabled = hasField
             });
         }
-        
+
         int i = 0;
         do
         {
             Button button1 = buttons[i];
             i++;
             Button? button2 = null;
-            if (buttons.Count > i) {
+            if (buttons.Count > i)
+            {
                 button2 = buttons[i];
                 i++;
             }
@@ -57,29 +58,32 @@ public partial class InterfaceList : Window
                 ColumnDefinitions = ColumnDefinitions.Parse("*,*"),
                 RowDefinitions = RowDefinitions.Parse("*"),
             };
-            
+
             stackpanel.Children.Add(grid);
-            
+
             button1[Grid.ColumnProperty] = 0;
             grid.Children.Add(button1);
 
-            if (button2 != null) {
+            if (button2 != null)
+            {
                 button2[Grid.ColumnProperty] = 1;
                 grid.Children.Add(button2);
             }
         } while (i < buttons.Count);
     }
-    public void ButtonClicked(string? interfacename) {
+    public void ButtonClicked(string? interfacename)
+    {
         UtilityFunctions.AssertNotNull(interfacename);
         Type iface = knownInterfaces[interfacename];
         var debugger = new InterfaceDebugger(iface);
         debugger.Show();
     }
-    private bool HasFieldInClientNative(Type iface) {
+    private bool HasFieldInClientNative(Type iface)
+    {
         var implementorFields = typeof(OpenSteamworks.Native.ClientNative).GetProperties().Where(f => f.PropertyType == iface);
         return implementorFields.Count() != 0;
     }
-    
+
     private Assembly? GetAssemblyByName(string name)
     {
         return AppDomain.CurrentDomain.GetAssemblies().

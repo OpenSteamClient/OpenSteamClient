@@ -65,7 +65,10 @@ internal static partial class CallbackConstants {
         {typeof(WebAuthRequestCallback_t), 1020042},
         {typeof(AppStartedProcess_t), 1020078},
         {typeof(DeauthorizeDeviceResult_t), 1080002},
-        {typeof(DeviceAuthChanged_t), 1080007}
+        {typeof(DeviceAuthChanged_t), 1080007},
+        {typeof(AppInfoUpdateComplete_t), 1280003},
+        {typeof(AppInfoUpdateProgress_t), 1280001},
+        {typeof(AppInfoUpdateStarted_t), 1280017}
     };
     public readonly static Dictionary<int, Type> IDToType = TypeToID.ToDictionary(x => x.Value, x => x.Key);
 }

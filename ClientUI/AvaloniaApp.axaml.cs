@@ -35,7 +35,8 @@ public class AvaloniaApp : Application
     public static Theme? Theme;
     public new IClassicDesktopStyleApplicationLifetime ApplicationLifetime => (base.ApplicationLifetime as IClassicDesktopStyleApplicationLifetime)!;
     public static bool DebugEnabled = false;
-    static AvaloniaApp() {
+    static AvaloniaApp()
+    {
         var installManager = new InstallManager();
         Container = new Container(installManager);
     }
@@ -46,8 +47,10 @@ public class AvaloniaApp : Application
         this.DataContext = new AvaloniaAppViewModel();
     }
 
-    private static void InvokeOnUIThread(Action callback) {
-        if (!Container.IsShuttingDown) {
+    private static void InvokeOnUIThread(Action callback)
+    {
+        if (!Container.IsShuttingDown)
+        {
             Avalonia.Threading.Dispatcher.UIThread.Invoke(callback);
         }
     }
@@ -56,7 +59,7 @@ public class AvaloniaApp : Application
     public override async void OnFrameworkInitializationCompleted()
     {
         Theme = new Theme(this);
-        
+
         ExtendedProgress<int> bootstrapperProgress = new ExtendedProgress<int>(0, 100);
         var progVm = new ProgressWindowViewModel(bootstrapperProgress, "Bootstrapper progress");
         ForceProgressWindow(progVm);
@@ -79,16 +82,19 @@ public class AvaloniaApp : Application
 
         Container.Get<LoginManager>().LogOnFailed += (object sender, LogOnFailedEventArgs e) =>
         {
-            InvokeOnUIThread(() => {
+            InvokeOnUIThread(() =>
+            {
                 MessageBox.Show("Failed to log on", "Failed with result code: " + e.Error.ToString());
                 ForceAccountPickerWindow();
             });
         };
-        
+
         Container.Get<LoginManager>().LoggedOff += (object sender, LoggedOffEventArgs e) =>
         {
-            InvokeOnUIThread(() => {
-                if (e.Error != OpenSteamworks.Enums.EResult.OK) {
+            InvokeOnUIThread(() =>
+            {
+                if (e.Error != OpenSteamworks.Enums.EResult.OK)
+                {
                     // What can cause a sudden log off?
                     MessageBox.Show("Session terminated", "You were forcibly logged off with an error code: " + e.Error.ToString());
                 }
@@ -115,18 +121,23 @@ public class AvaloniaApp : Application
             });
         };
 
-        if (Container.Get<ISteamClient>().ConnectedWith == ConnectionType.ExistingClient) {
+        if (Container.Get<ISteamClient>().ConnectedWith == ConnectionType.ExistingClient)
+        {
             var loginManager = Container.Get<LoginManager>();
             var clientUser = Container.Get<IClientUser>();
-            if (loginManager.IsLoggedOn()) {
+            if (loginManager.IsLoggedOn())
+            {
                 StringBuilder username = new StringBuilder(256);
                 clientUser.GetAccountName(username, username.Capacity);
 
                 await Container.Get<LoginManager>().OnLoggedOn(new LoggedOnEventArgs(new LoginUser() { AccountName = username.ToString(), SteamID = clientUser.GetSteamID() }));
                 ForceMainWindow();
             }
-        } else {
-            if (!Container.Get<LoginManager>().TryAutologin()) {
+        }
+        else
+        {
+            if (!Container.Get<LoginManager>().TryAutologin())
+            {
                 ForceAccountPickerWindow();
             }
         }
@@ -143,7 +154,8 @@ public class AvaloniaApp : Application
     /// <summary>
     /// Closes the current MainWindow (if exists) and replaces it with the account picker
     /// </summary>
-    public void ForceAccountPickerWindow() {
+    public void ForceAccountPickerWindow()
+    {
         ForceWindow(new AccountPickerWindow
         {
             DataContext = AvaloniaApp.Container.ConstructOnly<AccountPickerWindowViewModel>()
@@ -153,15 +165,19 @@ public class AvaloniaApp : Application
     /// <summary>
     /// Closes the current MainWindow (if exists) and replaces it with a new MainWindow
     /// </summary>
-    public void ForceMainWindow() {
+    public void ForceMainWindow()
+    {
         var window = ForceWindow(new MainWindow());
         window.DataContext = AvaloniaApp.Container.ConstructOnly<MainWindowViewModel>((Action)OpenSettingsWindow, window);
     }
 
     private SettingsWindow? CurrentSettingsWindow;
-    public void OpenSettingsWindow() {
-        if (CurrentSettingsWindow != null) {
-            if (CurrentSettingsWindow.PlatformImpl != null) {
+    public void OpenSettingsWindow()
+    {
+        if (CurrentSettingsWindow != null)
+        {
+            if (CurrentSettingsWindow.PlatformImpl != null)
+            {
                 // Not closed but maybe hidden, maybe shown in background
                 CurrentSettingsWindow.Show();
                 CurrentSettingsWindow.Activate();
@@ -182,9 +198,12 @@ public class AvaloniaApp : Application
     }
 
     private InterfaceList? CurrentInterfaceListWindow;
-    public void OpenInterfaceList() {
-        if (CurrentInterfaceListWindow != null) {
-            if (CurrentInterfaceListWindow.PlatformImpl != null) {
+    public void OpenInterfaceList()
+    {
+        if (CurrentInterfaceListWindow != null)
+        {
+            if (CurrentInterfaceListWindow.PlatformImpl != null)
+            {
                 // Not closed but maybe hidden, maybe shown in background
                 CurrentInterfaceListWindow.Show();
                 CurrentInterfaceListWindow.Activate();
@@ -201,9 +220,12 @@ public class AvaloniaApp : Application
         };
     }
 
-    public void OpenMainWindow() {
-        if (ApplicationLifetime.MainWindow != null) {
-            if (ApplicationLifetime.MainWindow.IsActive) {
+    public void OpenMainWindow()
+    {
+        if (ApplicationLifetime.MainWindow != null)
+        {
+            if (ApplicationLifetime.MainWindow.IsActive)
+            {
                 // Not closed but maybe hidden, maybe shown in background
                 ApplicationLifetime.MainWindow.Show();
                 ApplicationLifetime.MainWindow.Activate();
@@ -217,11 +239,15 @@ public class AvaloniaApp : Application
     /// <summary>
     /// Closes the current MainWindow (if exists) and replaces it with the login screen
     /// </summary>
-    public void ForceLoginWindow(LoginUser? user) {
+    public void ForceLoginWindow(LoginUser? user)
+    {
         LoginWindowViewModel vm;
-        if (user == null) {
+        if (user == null)
+        {
             vm = AvaloniaApp.Container.ConstructOnly<LoginWindowViewModel>();
-        } else {
+        }
+        else
+        {
             vm = AvaloniaApp.Container.ConstructOnly<LoginWindowViewModel>(user);
         }
 
@@ -236,15 +262,18 @@ public class AvaloniaApp : Application
     /// <summary>
     /// Closes the current MainWindow (if exists) and replaces it with a new Progress Window, with the user specified ProgressWindowViewModel
     /// </summary>
-    public void ForceProgressWindow(ProgressWindowViewModel progVm) {
+    public void ForceProgressWindow(ProgressWindowViewModel progVm)
+    {
         ForceWindow(new ProgressWindow(progVm));
     }
 
     /// <summary>
     /// Closes the current MainWindow (if exists) and replaces it with a user specified window
     /// </summary>
-    public T ForceWindow<T>(T window) where T: Window {
-        if (!Container.IsShuttingDown) {
+    public T ForceWindow<T>(T window) where T : Window
+    {
+        if (!Container.IsShuttingDown)
+        {
             ApplicationLifetime.MainWindow?.Close();
             ApplicationLifetime.MainWindow = window;
             ApplicationLifetime.MainWindow.Show();
@@ -262,7 +291,8 @@ public class AvaloniaApp : Application
     /// <summary>
     /// Async exit function. Will hang in certain cases for some unknown reason.
     /// </summary>
-    public async Task Exit(int exitCode = 0) {
+    public async Task Exit(int exitCode = 0)
+    {
         await Container.RunClientShutdown();
         Console.WriteLine("Shutting down Avalonia");
         ApplicationLifetime.Shutdown(exitCode);
@@ -271,7 +301,8 @@ public class AvaloniaApp : Application
     /// <summary>
     /// A synchronous exit function. Simply calls Task.Run. 
     /// </summary>
-    public void ExitEventually(int exitCode = 0) {
+    public void ExitEventually(int exitCode = 0)
+    {
         Task.Run(async () => await this.Exit(exitCode));
     }
 }

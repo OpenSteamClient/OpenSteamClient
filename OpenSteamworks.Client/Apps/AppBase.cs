@@ -94,16 +94,39 @@ public abstract class AppBase
                 lastAssetsChangeNumber = int.Parse(await File.ReadAllTextAsync(oldPath));
             }
 
-            //TODO: this isn't the most efficient way to do this. Too bad!
+            //TODO: how should we check for the correct version of the assets without redownloading each time
             if (!File.Exists(targetPath) || ChangeNumber > lastAssetsChangeNumber) {
-                using (var response = await Client.HttpClient.GetStreamAsync(HeroURL))
+                using (var response = await Client.HttpClient.GetStreamAsync(HeroURI))
                 {
                     using var file = File.OpenWrite(targetPath);
                     await response.CopyToAsync(file);
                 }
-            } else {
-                LocalHeroPath = targetPath;
             }
+
+            LocalHeroPath = targetPath;
+        }
+
+        var IconURI = new Uri(IconURL);
+        if (IconURI.IsFile) {
+            LocalHeroPath = IconURI.LocalPath;
+        } else {
+            int lastAssetsChangeNumber = 0;
+            string oldPath = Path.Combine(this.AppsManager.LibraryAssetsPath, $"{this.AppID}_change");
+            string targetPath = Path.Combine(this.AppsManager.LibraryAssetsPath, $"{this.AppID}_Icon");
+            if (File.Exists(oldPath)) {
+                lastAssetsChangeNumber = int.Parse(await File.ReadAllTextAsync(oldPath));
+            }
+
+            //TODO: how should we check for the correct version of the assets without redownloading each time 
+            if (!File.Exists(targetPath) || ChangeNumber > lastAssetsChangeNumber) {
+                using (var response = await Client.HttpClient.GetStreamAsync(IconURI))
+                {
+                    using var file = File.OpenWrite(targetPath);
+                    await response.CopyToAsync(file);
+                }
+            }
+            
+            LocalIconPath = targetPath;
         }
 
         LibraryAssetsUpdated?.Invoke(this, EventArgs.Empty);

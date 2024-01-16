@@ -54,6 +54,9 @@ public class AppsManager : ILogonLifetime
 
     // These apps cause issues. They have no appinfo sections, so they're blacklisted. Apps that fail to initialize during startup are also added to this list.
     private static readonly HashSet<AppId_t> appsFilter = new() { 5, 3482, 346790, 375350, 470950, 472500, 483470, 503590, 561370, 957691, 957692, 972340, 977941, 1275680, 1331320, 2130210, 2596140 };
+    /// <summary>
+    /// Gets ALL owned AppIDs of the current user. Includes all configs. Will probably show 1000+ apps.
+    /// </summary>
     public HashSet<AppId_t> OwnedApps {
         get {
             IncrementingUIntArray iua = new(256);
@@ -113,6 +116,7 @@ public class AppsManager : ILogonLifetime
         this.clientMessaging = clientMessaging;
         this.installManager = installManager;
         this.LibraryAssetsPath = Path.Combine(this.installManager.CacheDir, "librarycache");
+        Directory.CreateDirectory(this.LibraryAssetsPath);
         steamClient.CallbackManager.RegisterHandler<AppMinutesPlayedDataNotice_t>(OnAppMinutesPlayedDataNotice);
         steamClient.CallbackManager.RegisterHandler<AppLastPlayedTimeChanged_t>(OnAppLastPlayedTimeChanged);
     }
@@ -168,11 +172,12 @@ public class AppsManager : ILogonLifetime
             }
         }
 
+        List<AppBase> createdApps = new();
         foreach (var item in OwnedApps)
         {
             try
             {
-                GetApp(new CGameID(item));
+                createdApps.Add(GetApp(new CGameID(item)));
             }
             catch (System.Exception e2)
             {
@@ -181,6 +186,24 @@ public class AppsManager : ILogonLifetime
                 logger.Warning(e2);
             }
         }
+
+        new Thread(async () =>
+        {
+            foreach (var item in createdApps)
+            {
+                if (item.Type == EAppType.Game || item.Type == EAppType.Application || item.Type == EAppType.Music || item.Type == EAppType.Beta) {
+                    try
+                    {
+                        await item.UpdateLibraryAssets();
+                    }
+                    catch (System.Exception e)
+                    {
+                        logger.Error("Got error while updating library assets for " + item.AppID + ": ");
+                        logger.Error(e);
+                    }
+                }
+            }
+        }).Start();
     }
 
     private List<AppBase> apps = new();
