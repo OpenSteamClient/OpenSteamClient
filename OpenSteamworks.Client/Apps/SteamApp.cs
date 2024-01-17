@@ -36,7 +36,7 @@ public class SteamApp : AppBase
     protected override string ActualIconURL => $"https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/apps/{this.AppID}/{this.Common.Icon}.jpg";
     protected override string ActualPortraitURL => $"https://cdn.cloudflare.steamstatic.com/steam/apps/{this.AppID}/library_600x900.jpg?t={this.Common.StoreAssetModificationTime}";
 
-    public override int ChangeNumber => int.Parse(this.Common.StoreAssetModificationTime);
+    public override uint LibraryAssetChangeNumber => uint.Parse(this.Common.StoreAssetModificationTime);
 
     public AppBase? ParentApp => GetAppIfValidGameID(new CGameID(this.Common.ParentAppID));
     protected readonly Logger logger;
@@ -84,6 +84,7 @@ public class SteamApp : AppBase
                 // These are videos, which should just popup in the user's browser. TODO: eventually support this as well, but maybe not
                 "video" => EAppType.Video,
                 "media" => EAppType.Media,
+                "series" => EAppType.Series,
 
                 _ => throw new InvalidOperationException("Unknown app type " + this.Common.Type.ToLowerInvariant()),
             };
@@ -126,7 +127,7 @@ public class SteamApp : AppBase
 
     private static T TryCreateSection<T>(KVObject? obj, string sectionName, Func<KVObject, T> factory) where T: KVObjectEx {
         if (obj == null) {
-            return factory(new KVObject(sectionName, ""));
+            return factory(new KVObject(sectionName, new List<KVObject>()));
         }
 
         return factory(obj);

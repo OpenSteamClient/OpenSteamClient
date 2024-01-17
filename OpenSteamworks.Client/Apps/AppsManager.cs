@@ -136,6 +136,8 @@ public class AppsManager : ILogonLifetime
     }
 
     private bool hasLogOnFinished = false;
+    private readonly object libraryAssetsFileLock = new();
+    private LibraryAssetsFile libraryAssetsFile = new(new KVObject("", new List<KVObject>()));
     public async Task OnLoggedOn(IExtendedProgress<int> progress, LoggedOnEventArgs e) {
         hasLogOnFinished = true;
 
@@ -188,40 +190,38 @@ public class AppsManager : ILogonLifetime
             }
         }
 
-        //NOTE: It doesn't really matter if you use async or sync code here.
-        new Thread(async () =>
-        {
-            LibraryAssetsFile libraryAssetsFile;
-            string libraryAssetsFilePath = Path.Combine(LibraryAssetsPath, "assets.vdf");
-            if (File.Exists(libraryAssetsFilePath)) {
-                try
-                {
-                    KVSerializer serializer = KVSerializer.Create(KVSerializationFormat.KeyValues1Binary);
-                    using (var stream = File.OpenRead(libraryAssetsFilePath))
-                    {
-                        libraryAssetsFile = new(serializer.Deserialize(stream));
-                    }
-                }
-                catch (System.Exception e)
-                {
-                    logger.Error("Failed to load cached asset metadata. Starting from scratch.");
-                    logger.Error(e);
-                }
-            } 
-            else
+        string libraryAssetsFilePath = Path.Combine(LibraryAssetsPath, "assets.vdf");
+        KVSerializer serializer = KVSerializer.Create(KVSerializationFormat.KeyValues1Binary);
+        if (File.Exists(libraryAssetsFilePath)) {
+            try
             {
-                libraryAssetsFile = new(new KVObject("", ""));
+                using (var stream = File.OpenRead(libraryAssetsFilePath))
+                {
+                    libraryAssetsFile = new(serializer.Deserialize(stream));
+                }
             }
+            catch (System.Exception e2)
+            {
+                logger.Error("Failed to load cached asset metadata. Starting from scratch.");
+                logger.Error(e2);
+                libraryAssetsFile = new(new KVObject("", new List<KVObject>()));
+            }
+        } 
+        else
+        {
+            logger.Info("No cached asset metadata. Starting from scratch.");
+            libraryAssetsFile = new(new KVObject("", new List<KVObject>()));
+        }
 
-            List<AppBase> appsWithAssetUpdates = new();
+        //NOTE: It doesn't really matter if you use async or sync code here.
+        new Thread(() =>
+        {
             foreach (var item in createdApps)
             {
                 try
                 {
                     if (item.Type == EAppType.Game || item.Type == EAppType.Application || item.Type == EAppType.Music || item.Type == EAppType.Beta) {
-                        if (!await item.TryLoadLocalLibraryAssets()) {
-                            appsWithAssetUpdates.Add(item);
-                        }
+                        TryLoadLocalLibraryAssets(item);
                     }
                 }
                 catch (System.Exception e)
@@ -231,54 +231,67 @@ public class AppsManager : ILogonLifetime
                 }
             }
 
-            foreach (var item in appsWithAssetUpdates)
+            // Allow 15 max download tasks at a time
+            SemaphoreSlim semaphore = new(15);
+            List<Task> processingTasks = new();
+            foreach (var item in createdApps)
             {
-                try
-                {
-                    await item.UpdateLibraryAssets();
+                if (!item.NeedsLibraryAssetUpdate) {
+                    continue;
                 }
-                catch (System.Exception e)
+
+                processingTasks.Add(new Task(async () =>
                 {
-                    logger.Error("Got error while updating library assets for " + item.AppID + ": ");
-                    logger.Error(e);
-                }
+                    Console.WriteLine("Waiting for semaphore");
+                    await semaphore.WaitAsync();
+                    Console.WriteLine("Got semaphore");
+                    try
+                    {
+                        await UpdateLibraryAssets(item);
+                    }
+                    finally {
+                        semaphore.Release();
+                    }
+                }));
+            }
+
+            foreach (var item in processingTasks)
+            {
+                item.Start();
+            }
+            
+            Task.WaitAll(processingTasks.ToArray());
+            using (var writeStream = File.OpenWrite(libraryAssetsFilePath))
+            {
+                serializer.Serialize(writeStream, libraryAssetsFile.UnderlyingObject, "");
             }
         }).Start();
     }
 
-    private enum ELibraryAssetType {
+    public enum ELibraryAssetType {
         Icon,
         Logo,
         Hero,
         Portrait
     }
 
-    public void TryLoadLibraryAssets(AppBase app, ref LibraryAssetsFile libraryAssetsFile) {
-        TryLoadLibraryAsset(app, app.IconURL, ELibraryAssetType.Icon, ref libraryAssetsFile, out string? iconPath);
-        TryLoadLibraryAsset(app, app.LogoURL, ELibraryAssetType.Logo, ref libraryAssetsFile, out string? logoPath);
-        TryLoadLibraryAsset(app, app.HeroURL, ELibraryAssetType.Hero, ref libraryAssetsFile, out string? heroPath);
-        TryLoadLibraryAsset(app, app.PortraitURL, ELibraryAssetType.Portrait, ref libraryAssetsFile, out string? portraitPath);
+    public void TryLoadLocalLibraryAssets(AppBase app) {
+        TryLoadLocalLibraryAsset(app, ELibraryAssetType.Icon, out string? iconPath);
+        TryLoadLocalLibraryAsset(app, ELibraryAssetType.Logo, out string? logoPath);
+        TryLoadLocalLibraryAsset(app, ELibraryAssetType.Hero, out string? heroPath);
+        TryLoadLocalLibraryAsset(app, ELibraryAssetType.Portrait, out string? portraitPath);
         app.SetLibraryAssetPaths(iconPath, logoPath, heroPath, portraitPath);
     }
 
-    private void TryLoadLibraryAsset(AppBase app, string url, ELibraryAssetType assetType, ref LibraryAssetsFile libraryAssetsFile, out string? localPathOut) {
-        string suffix = assetType switch
-        {
-            ELibraryAssetType.Icon => "icon.jpg",
-            ELibraryAssetType.Logo => "logo.png",
-            ELibraryAssetType.Hero => "library_hero.jpg",
-            ELibraryAssetType.Portrait => "library_600x900.jpg",
-            _ => throw new ArgumentOutOfRangeException(nameof(assetType)),
-        };
-
-        var uri = new Uri(url);
+    private void TryLoadLocalLibraryAsset(AppBase app, ELibraryAssetType assetType, out string? localPathOut) {
+        var uri = new Uri(GetURLForAssetType(app, assetType));
         if (uri.IsFile) {
             localPathOut = uri.LocalPath;
             return;
         } else {
             // Check if our library assets are up to date
             bool upToDate = false;
-            if (libraryAssetsFile.Assets.TryGetValue(app.AppID, out LibraryAssetsFile.LibraryAsset? assetData)) {
+            if (libraryAssetsFile.Assets.TryGetValue(app.AppID.ToString(), out LibraryAssetsFile.LibraryAsset? assetData)) {
                 if (assetType == ELibraryAssetType.Icon) {
                     //TODO: support other app types
                     if ((app as SteamApp)?.Common.Icon == assetData.IconHash) {
@@ -297,63 +310,123 @@ public class AppsManager : ILogonLifetime
                         upToDate = true;
                     }
                 }
+
+                // If these don't match, always redownload
+                if (assetData.LastChangeNumber < app.LibraryAssetChangeNumber) {
+                    upToDate = false;
+                }
             }
 
-            string targetPath = Path.Combine(this.LibraryAssetsPath, $"{app.AppID}_{suffix}");
+            string targetPath = LibraryAssetToFilename(app.AppID, assetType);
             
+            if (upToDate) {
+                localPathOut = targetPath;
+                return;
+            }
+
+            localPathOut = null;
+            return;
         }
     }
 
-    public async Task UpdateLibraryAssets() {
-        var HeroURI = new Uri(HeroURL);
-        if (HeroURI.IsFile) {
-            LocalHeroPath = HeroURI.LocalPath;
+    private static string GetURLForAssetType(AppBase app, ELibraryAssetType assetType) {
+        return assetType switch
+        {
+            ELibraryAssetType.Icon => app.IconURL,
+            ELibraryAssetType.Logo => app.LogoURL,
+            ELibraryAssetType.Hero => app.HeroURL,
+            ELibraryAssetType.Portrait => app.PortraitURL,
+            _ => throw new ArgumentOutOfRangeException(nameof(assetType)),
+        };
+    }
+
+    private string LibraryAssetToFilename(AppId_t appid, ELibraryAssetType assetType) {
+        var suffix = assetType switch
+        {
+            ELibraryAssetType.Icon => "icon.jpg",
+            ELibraryAssetType.Logo => "logo.png",
+            ELibraryAssetType.Hero => "library_hero.jpg",
+            ELibraryAssetType.Portrait => "library_600x900.jpg",
+            _ => throw new ArgumentOutOfRangeException(nameof(assetType)),
+        };
+
+        return Path.Combine(this.LibraryAssetsPath, $"{appid}_{suffix}");
+    }
+
+    public async Task UpdateLibraryAssets(AppBase app) {
+        string iconPath = await UpdateLibraryAsset(app, ELibraryAssetType.Icon, true);
+        string logoPath = await UpdateLibraryAsset(app, ELibraryAssetType.Logo, true);
+        string heroPath = await UpdateLibraryAsset(app, ELibraryAssetType.Hero, true);
+        string portraitPath = await UpdateLibraryAsset(app, ELibraryAssetType.Portrait, true);
+        app.SetLibraryAssetPaths(iconPath, logoPath, heroPath, portraitPath);
+    }
+
+    public async Task<string> UpdateLibraryAsset(AppBase app, ELibraryAssetType assetType, bool suppressSet = false) {
+        LibraryAssetsFile.LibraryAsset? asset;
+        //Console.WriteLine("Waiting for libraryAssetsFileLock");
+        libraryAssetsFile.Assets.TryGetValue(app.AppID.ToString(), out asset);
+
+        if (asset == null) {
+            asset = new(new("", ""));
+        }
+
+        string targetPath;
+        var uri = new Uri(GetURLForAssetType(app, assetType));
+        if (uri.IsFile) {
+            return uri.LocalPath;
         } else {
-            int lastAssetsChangeNumber = 0;
-            string changePath = Path.Combine(this.AppsManager.LibraryAssetsPath, $"{this.AppID}_change");
-            string targetPath = Path.Combine(this.AppsManager.LibraryAssetsPath, $"{this.AppID}_hero");
-            if (File.Exists(changePath)) {
-                lastAssetsChangeNumber = int.Parse(await File.ReadAllTextAsync(changePath));
-            }
+            targetPath = LibraryAssetToFilename(app.AppID, assetType);
 
             //TODO: how should we check for the correct version of the assets without redownloading each time
-            if (!File.Exists(targetPath) || ChangeNumber > lastAssetsChangeNumber) {
-                using (var response = await Client.HttpClient.GetStreamAsync(HeroURI))
+            if (!File.Exists(targetPath) || app.LibraryAssetChangeNumber > asset.LastChangeNumber) {
+                using (var response = await Client.HttpClient.GetAsync(uri))
                 {
-                    using var file = File.OpenWrite(targetPath);
-                    await response.CopyToAsync(file);
-                }
+                    if (response.IsSuccessStatusCode) {
+                        using var file = File.OpenWrite(targetPath);
+                        response.Content.ReadAsStream().CopyTo(file);
+                    }
 
-                await File.WriteAllBytesAsync(changePath, BitConverter.GetBytes(ChangeNumber));
-            }
-            
-            LocalHeroPath = targetPath;
-        }
-
-        var IconURI = new Uri(IconURL);
-        if (IconURI.IsFile) {
-            LocalHeroPath = IconURI.LocalPath;
-        } else {
-            int lastAssetsChangeNumber = 0;
-            string oldPath = Path.Combine(this.AppsManager.LibraryAssetsPath, $"{this.AppID}_change");
-            string targetPath = Path.Combine(this.AppsManager.LibraryAssetsPath, $"{this.AppID}_Icon");
-            if (File.Exists(oldPath)) {
-                lastAssetsChangeNumber = int.Parse(await File.ReadAllTextAsync(oldPath));
-            }
-
-            //TODO: how should we check for the correct version of the assets without redownloading each time 
-            if (!File.Exists(targetPath) || ChangeNumber > lastAssetsChangeNumber) {
-                using (var response = await Client.HttpClient.GetStreamAsync(IconURI))
-                {
-                    using var file = File.OpenWrite(targetPath);
-                    await response.CopyToAsync(file);
+                    if (response.Headers.TryGetValues("Last-Modified", out IEnumerable<string>? lastModifiedMulti)) {
+                        if (!lastModifiedMulti.Any() || lastModifiedMulti.Count() > 1) {
+                            logger.Warning("Got 0 or >1 Last-Modified headers.");
+                        } else {
+                            string headerContent = lastModifiedMulti.First();
+                            asset.SetLastModified(headerContent, assetType);
+                        }
+                    }
                 }
             }
             
-            LocalIconPath = targetPath;
+            if (!suppressSet) {
+                switch (assetType)
+                {
+                    case ELibraryAssetType.Icon:
+                        app.SetLibraryAssetPaths(targetPath, null, null, null);
+                        break;
+                    case ELibraryAssetType.Logo:
+                        app.SetLibraryAssetPaths(null, targetPath, null, null);
+                        break;
+                    case ELibraryAssetType.Hero:
+                        app.SetLibraryAssetPaths(null, null, targetPath, null);
+                        break;
+                    case ELibraryAssetType.Portrait:
+                        app.SetLibraryAssetPaths(null, null, null, targetPath);
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException(nameof(assetType));
+                }
+            }
         }
 
-        
+        //Console.WriteLine("Waiting for libraryAssetsFileLock");
+        // lock (libraryAssetsFileLock)
+        // {
+            //Console.WriteLine("Got lock");
+            libraryAssetsFile.Assets[app.AppID.ToString()] = asset;
+        // }
+        //Console.WriteLine("Free'd lock");
+
+        return targetPath;
     }
 
     private List<AppBase> apps = new();

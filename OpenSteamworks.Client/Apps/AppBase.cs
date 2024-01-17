@@ -37,7 +37,7 @@ public abstract class AppBase
     public string IconURL => GetValueOverride(IconOverrideURL, ActualIconURL);
     public string PortraitURL => GetValueOverride(PortraitOverrideURL, ActualPortraitURL);
 
-    public abstract int ChangeNumber { get; }
+    public abstract uint LibraryAssetChangeNumber { get; }
     public CGameID GameID { get; protected set; } = CGameID.Zero;
     public AppId_t AppID
     {
@@ -81,12 +81,26 @@ public abstract class AppBase
     public string? LocalLogoPath { get; protected set; }
     public string? LocalHeroPath { get; protected set; }
     public string? LocalPortraitPath { get; protected set; }
-
+    internal bool NeedsLibraryAssetUpdate { get; private set; }
+    
     internal void SetLibraryAssetPaths(string? iconPath, string? logoPath, string? heroPath, string? portraitPath) {
-        this.LocalIconPath = iconPath;
-        this.LocalLogoPath = logoPath;
-        this.LocalHeroPath = heroPath;
-        this.LocalPortraitPath = portraitPath;
+        NeedsLibraryAssetUpdate = (string.IsNullOrEmpty(iconPath) && string.IsNullOrEmpty(this.LocalIconPath)) || (string.IsNullOrEmpty(logoPath) && string.IsNullOrEmpty(this.LocalLogoPath)) || (string.IsNullOrEmpty(heroPath) && string.IsNullOrEmpty(this.LocalHeroPath)) || (string.IsNullOrEmpty(portraitPath) && string.IsNullOrEmpty(this.LocalPortraitPath));
+        if (!string.IsNullOrEmpty(iconPath)) {
+            this.LocalIconPath = iconPath;
+        }
+        
+        if (!string.IsNullOrEmpty(logoPath)) {
+            this.LocalLogoPath = logoPath;
+        }
+        
+        if (!string.IsNullOrEmpty(heroPath)) {
+            this.LocalHeroPath = heroPath;
+        }
+
+        if (!string.IsNullOrEmpty(portraitPath)) {
+            this.LocalPortraitPath = portraitPath;
+        }
+
         LibraryAssetsUpdated?.Invoke(this, EventArgs.Empty);
     }
 
