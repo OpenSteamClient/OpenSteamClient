@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Avalonia.Media;
 using Avalonia.Media.Imaging;
+using Avalonia.Threading;
 using ClientUI.ViewModels.Library;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -125,7 +126,7 @@ public partial class FocusedAppPaneViewModel : ViewModelBase
 
     public void OnLibraryAssetsUpdated(object? sender, EventArgs e)
     {
-        SetLibraryAssets();
+        Dispatcher.UIThread.Invoke(SetLibraryAssets);
     }
 
     private void InvalidAction()

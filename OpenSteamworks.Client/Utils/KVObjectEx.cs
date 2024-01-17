@@ -99,6 +99,34 @@ public abstract class KVObjectEx {
         return list;
     }
 
+    protected IDictionary<string, TValue> EmptyDictionaryIfUnset<TValue>(string key, Func<KVObject, TValue> ctor) {
+        Dictionary<string, TValue> dict = new();
+        if (!TryGetKey(key, out KVValue? kv)) {
+            return dict;
+        }
+
+        foreach (var item in kv.GetChildrenAsKVObjects())
+        {
+            dict.Add(item.Name, ctor(item));
+        }
+
+        return dict;
+    }
+
+    protected IDictionary<uint, TValue> EmptyDictionaryIfUnsetUInt<TValue>(string key, Func<KVObject, TValue> ctor) {
+        Dictionary<uint, TValue> dict = new();
+        if (!TryGetKey(key, out KVValue? kv)) {
+            return dict;
+        }
+
+        foreach (var item in kv.GetChildrenAsKVObjects())
+        {
+            dict.Add(uint.Parse(item.Name), ctor(item));
+        }
+
+        return dict;
+    }
+
     protected IDictionary<string, string> EmptyStringDictionaryIfUnset(string key) {
         Dictionary<string, string> dict = new();
         if (!TryGetKey(key, out KVValue? kv)) {

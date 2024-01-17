@@ -75,8 +75,4 @@ public unsafe class ConsoleNative {
             return Convert.ToByte(ConCommandHandler.RegisterNativeConVar((ConVar*)pVar));
         }
     }
-
-    private unsafe static string printPtr(void* ptr) {
-        return string.Format("0x{0:x}", (IntPtr)ptr);
-    }
 }

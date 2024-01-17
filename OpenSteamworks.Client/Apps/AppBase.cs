@@ -82,53 +82,11 @@ public abstract class AppBase
     public string? LocalHeroPath { get; protected set; }
     public string? LocalPortraitPath { get; protected set; }
 
-    public async Task UpdateLibraryAssets() {
-        var HeroURI = new Uri(HeroURL);
-        if (HeroURI.IsFile) {
-            LocalHeroPath = HeroURI.LocalPath;
-        } else {
-            int lastAssetsChangeNumber = 0;
-            string oldPath = Path.Combine(this.AppsManager.LibraryAssetsPath, $"{this.AppID}_change");
-            string targetPath = Path.Combine(this.AppsManager.LibraryAssetsPath, $"{this.AppID}_Hero");
-            if (File.Exists(oldPath)) {
-                lastAssetsChangeNumber = int.Parse(await File.ReadAllTextAsync(oldPath));
-            }
-
-            //TODO: how should we check for the correct version of the assets without redownloading each time
-            if (!File.Exists(targetPath) || ChangeNumber > lastAssetsChangeNumber) {
-                using (var response = await Client.HttpClient.GetStreamAsync(HeroURI))
-                {
-                    using var file = File.OpenWrite(targetPath);
-                    await response.CopyToAsync(file);
-                }
-            }
-
-            LocalHeroPath = targetPath;
-        }
-
-        var IconURI = new Uri(IconURL);
-        if (IconURI.IsFile) {
-            LocalHeroPath = IconURI.LocalPath;
-        } else {
-            int lastAssetsChangeNumber = 0;
-            string oldPath = Path.Combine(this.AppsManager.LibraryAssetsPath, $"{this.AppID}_change");
-            string targetPath = Path.Combine(this.AppsManager.LibraryAssetsPath, $"{this.AppID}_Icon");
-            if (File.Exists(oldPath)) {
-                lastAssetsChangeNumber = int.Parse(await File.ReadAllTextAsync(oldPath));
-            }
-
-            //TODO: how should we check for the correct version of the assets without redownloading each time 
-            if (!File.Exists(targetPath) || ChangeNumber > lastAssetsChangeNumber) {
-                using (var response = await Client.HttpClient.GetStreamAsync(IconURI))
-                {
-                    using var file = File.OpenWrite(targetPath);
-                    await response.CopyToAsync(file);
-                }
-            }
-            
-            LocalIconPath = targetPath;
-        }
-
+    internal void SetLibraryAssetPaths(string? iconPath, string? logoPath, string? heroPath, string? portraitPath) {
+        this.LocalIconPath = iconPath;
+        this.LocalLogoPath = logoPath;
+        this.LocalHeroPath = heroPath;
+        this.LocalPortraitPath = portraitPath;
         LibraryAssetsUpdated?.Invoke(this, EventArgs.Empty);
     }
 

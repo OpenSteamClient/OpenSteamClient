@@ -11,7 +11,7 @@ public static class ConCommandHandler {
         get => new(conCommands);
     }
 
-    private static Dictionary<string, ManagedConCommand> conCommands = new();
+    private static readonly Dictionary<string, ManagedConCommand> conCommands = new();
 
     public static unsafe bool RegisterNativeConCommand(ConCommand* cmd) {
         ManagedConCommand conCommand = new(cmd, ManagedConCommand.ESource.NativeClient);

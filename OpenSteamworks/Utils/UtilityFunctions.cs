@@ -374,4 +374,12 @@ public static class UtilityFunctions {
         }
         return null;
     }
+
+    public unsafe static string FormatPtr(void* ptr) {
+        return FormatPtr((IntPtr)ptr);
+    }
+
+    public unsafe static string FormatPtr(IntPtr ptr) {
+        return string.Format("0x{0:x}", (IntPtr)ptr);
+    }
 }
