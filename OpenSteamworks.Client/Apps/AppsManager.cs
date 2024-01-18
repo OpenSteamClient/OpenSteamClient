@@ -135,9 +135,11 @@ public class AppsManager : ILogonLifetime
         AppLastPlayedChanged?.Invoke(this, new AppLastPlayedChangedEventArgs(lastPlayedTimeChanged.m_nAppID, lastPlayedTimeChanged.m_lastPlayed));
     }
 
+    private static readonly KVSerializer serializer = KVSerializer.Create(KVSerializationFormat.KeyValues1Binary);
     private bool hasLogOnFinished = false;
     private readonly object libraryAssetsFileLock = new();
     private LibraryAssetsFile libraryAssetsFile = new(new KVObject("", new List<KVObject>()));
+    private Thread? assetUpdateThread;
     public async Task OnLoggedOn(IExtendedProgress<int> progress, LoggedOnEventArgs e) {
         hasLogOnFinished = true;
 
@@ -190,31 +192,10 @@ public class AppsManager : ILogonLifetime
             }
         }
 
-        string libraryAssetsFilePath = Path.Combine(LibraryAssetsPath, "assets.vdf");
-        KVSerializer serializer = KVSerializer.Create(KVSerializationFormat.KeyValues1Binary);
-        if (File.Exists(libraryAssetsFilePath)) {
-            try
-            {
-                using (var stream = File.OpenRead(libraryAssetsFilePath))
-                {
-                    libraryAssetsFile = new(serializer.Deserialize(stream));
-                }
-            }
-            catch (System.Exception e2)
-            {
-                logger.Error("Failed to load cached asset metadata. Starting from scratch.");
-                logger.Error(e2);
-                libraryAssetsFile = new(new KVObject("", new List<KVObject>()));
-            }
-        } 
-        else
-        {
-            logger.Info("No cached asset metadata. Starting from scratch.");
-            libraryAssetsFile = new(new KVObject("", new List<KVObject>()));
-        }
+        LoadLibraryAssetsFile();
 
         //NOTE: It doesn't really matter if you use async or sync code here.
-        new Thread(() =>
+        assetUpdateThread = new Thread(() =>
         {
             foreach (var item in createdApps)
             {
@@ -231,8 +212,10 @@ public class AppsManager : ILogonLifetime
                 }
             }
 
-            // Allow 15 max download tasks at a time
-            SemaphoreSlim semaphore = new(15);
+            EnsureConcurrentAssetDict();
+
+            // Allow 30 max download tasks at a time (to avoid getting blocked)
+            SemaphoreSlim semaphore = new(30);
             List<Task> processingTasks = new();
             foreach (var item in createdApps)
             {
@@ -240,32 +223,34 @@ public class AppsManager : ILogonLifetime
                     continue;
                 }
 
-                processingTasks.Add(new Task(async () =>
+                processingTasks.Add(Task.Run(async () =>
                 {
                     Console.WriteLine("Waiting for semaphore");
                     await semaphore.WaitAsync();
                     Console.WriteLine("Got semaphore");
                     try
                     {
-                        await UpdateLibraryAssets(item);
+                        await UpdateLibraryAssets(item, true);
                     }
                     finally {
                         semaphore.Release();
+                        Console.WriteLine("Free'd semaphore");
                     }
                 }));
             }
 
-            foreach (var item in processingTasks)
-            {
-                item.Start();
-            }
+            // foreach (var item in processingTasks)
+            // {
+            //     item.Start();
+            // }
             
             Task.WaitAll(processingTasks.ToArray());
-            using (var writeStream = File.OpenWrite(libraryAssetsFilePath))
-            {
-                serializer.Serialize(writeStream, libraryAssetsFile.UnderlyingObject, "");
-            }
-        }).Start();
+            WriteConcurrentAssetDict();
+            assetUpdateThread = null;
+        });
+
+        assetUpdateThread.Name = "AssetUpdateThread";
+        assetUpdateThread.Start();
     }
 
     public enum ELibraryAssetType {
@@ -282,8 +267,92 @@ public class AppsManager : ILogonLifetime
         TryLoadLocalLibraryAsset(app, ELibraryAssetType.Portrait, out string? portraitPath);
         app.SetLibraryAssetPaths(iconPath, logoPath, heroPath, portraitPath);
     }
+    
+    private ConcurrentDictionary<string, LibraryAssetsFile.LibraryAsset>? assetsConcurrent;
+
+    [MemberNotNull(nameof(libraryAssetsFile))]
+    [MemberNotNull(nameof(assetsConcurrent))]
+    private void EnsureConcurrentAssetDict() {
+        if (assetsConcurrent == null || libraryAssetsFile == null) {
+            lock (libraryAssetsFileLock)
+            {
+                if (libraryAssetsFile == null) {
+                    LoadLibraryAssetsFile();
+                }
+
+                if (assetsConcurrent == null) {
+                    assetsConcurrent = new(libraryAssetsFile.Assets);
+                }
+            }
+        }
+    }
+
+    private void WriteConcurrentAssetDict() {
+        lock (libraryAssetsFileLock)
+        {
+            if (libraryAssetsFile == null) {
+                logger.Info("WriteConcurrentAssetDict: libraryAssetsFile is null. Loading");
+                LoadLibraryAssetsFile();
+            }
+
+            if (assetsConcurrent == null) {
+                logger.Info("WriteConcurrentAssetDict: assetsConcurrent is null. Creating new");
+                assetsConcurrent = new(libraryAssetsFile.Assets);
+            }
+
+            libraryAssetsFile.Assets = new(assetsConcurrent);
+            SaveLibraryAssetsFile();
+        }
+    }
+
+    [MemberNotNull(nameof(libraryAssetsFile))]
+    private string LoadLibraryAssetsFile() {
+        string libraryAssetsFilePath = Path.Combine(LibraryAssetsPath, "assets.vdf");
+        if (File.Exists(libraryAssetsFilePath)) {
+            try
+            {
+                using (var stream = File.OpenRead(libraryAssetsFilePath))
+                {
+                    lock (libraryAssetsFileLock)
+                    {
+                        libraryAssetsFile = new(serializer.Deserialize(stream)); 
+                    }
+                }
+            }
+            catch (System.Exception e2)
+            {
+                logger.Error("Failed to load cached asset metadata. Starting from scratch.");
+                logger.Error(e2);
+                libraryAssetsFile = new(new KVObject("", new List<KVObject>()));
+            }
+        } 
+        else
+        {
+            logger.Info("No cached asset metadata. Starting from scratch.");
+            libraryAssetsFile = new(new KVObject("", new List<KVObject>()));
+        }
+
+        return libraryAssetsFilePath;
+    }
+
+    private void SaveLibraryAssetsFile() {
+        logger.Info("Saving library assets.vdf");
+        string libraryAssetsFilePath = Path.Combine(LibraryAssetsPath, "assets.vdf");
+        lock (libraryAssetsFileLock)
+        {
+            if (File.Exists(libraryAssetsFilePath)) {
+                File.Delete(libraryAssetsFilePath);
+            }
+
+            using (var writeStream = File.OpenWrite(libraryAssetsFilePath))
+            {
+                serializer.Serialize(writeStream, libraryAssetsFile.UnderlyingObject, "");
+            }
+        }
+    }
 
     private void TryLoadLocalLibraryAsset(AppBase app, ELibraryAssetType assetType, out string? localPathOut) {
+        EnsureConcurrentAssetDict();
         var uri = new Uri(GetURLForAssetType(app, assetType));
         if (uri.IsFile) {
             localPathOut = uri.LocalPath;
@@ -291,7 +360,7 @@ public class AppsManager : ILogonLifetime
         } else {
             // Check if our library assets are up to date
             bool upToDate = false;
-            if (libraryAssetsFile.Assets.TryGetValue(app.AppID.ToString(), out LibraryAssetsFile.LibraryAsset? assetData)) {
+            if (assetsConcurrent.TryGetValue(app.AppID.ToString(), out LibraryAssetsFile.LibraryAsset? assetData)) {
                 if (assetType == ELibraryAssetType.Icon) {
                     //TODO: support other app types
                     if ((app as SteamApp)?.Common.Icon == assetData.IconHash) {
@@ -353,18 +422,24 @@ public class AppsManager : ILogonLifetime
         return Path.Combine(this.LibraryAssetsPath, $"{appid}_{suffix}");
     }
 
-    public async Task UpdateLibraryAssets(AppBase app) {
-        string iconPath = await UpdateLibraryAsset(app, ELibraryAssetType.Icon, true);
-        string logoPath = await UpdateLibraryAsset(app, ELibraryAssetType.Logo, true);
-        string heroPath = await UpdateLibraryAsset(app, ELibraryAssetType.Hero, true);
-        string portraitPath = await UpdateLibraryAsset(app, ELibraryAssetType.Portrait, true);
+    public async Task UpdateLibraryAssets(AppBase app, bool suppressConcurrentDictSave = false) {
+        string? iconPath = await UpdateLibraryAsset(app, ELibraryAssetType.Icon, true, true);
+        string? logoPath = await UpdateLibraryAsset(app, ELibraryAssetType.Logo, true, true);
+        string? heroPath = await UpdateLibraryAsset(app, ELibraryAssetType.Hero, true, true);
+        string? portraitPath = await UpdateLibraryAsset(app, ELibraryAssetType.Portrait, true, true);
         app.SetLibraryAssetPaths(iconPath, logoPath, heroPath, portraitPath);
+
+        if (!suppressConcurrentDictSave) {
+            WriteConcurrentAssetDict();
+        }
     }
 
-    public async Task<string> UpdateLibraryAsset(AppBase app, ELibraryAssetType assetType, bool suppressSet = false) {
+    public async Task<string?> UpdateLibraryAsset(AppBase app, ELibraryAssetType assetType, bool suppressSet = false, bool suppressConcurrentDictSave = false) {
+        EnsureConcurrentAssetDict();
+
+        bool success = false;
         LibraryAssetsFile.LibraryAsset? asset;
-        //Console.WriteLine("Waiting for libraryAssetsFileLock");
-        libraryAssetsFile.Assets.TryGetValue(app.AppID.ToString(), out asset);
+        assetsConcurrent.TryGetValue(app.AppID.ToString(), out asset);
 
         if (asset == null) {
             asset = new(new("", ""));
@@ -381,6 +456,8 @@ public class AppsManager : ILogonLifetime
             if (!File.Exists(targetPath) || app.LibraryAssetChangeNumber > asset.LastChangeNumber) {
                 using (var response = await Client.HttpClient.GetAsync(uri))
                 {
+                    success = response.IsSuccessStatusCode;
+
                     if (response.IsSuccessStatusCode) {
                         using var file = File.OpenWrite(targetPath);
                         response.Content.ReadAsStream().CopyTo(file);
@@ -417,14 +494,15 @@ public class AppsManager : ILogonLifetime
                 }
             }
         }
+        
+        assetsConcurrent[app.AppID.ToString()] = asset;
+        if (!suppressConcurrentDictSave) {
+            WriteConcurrentAssetDict();
+        }
 
-        //Console.WriteLine("Waiting for libraryAssetsFileLock");
-        // lock (libraryAssetsFileLock)
-        // {
-            //Console.WriteLine("Got lock");
-            libraryAssetsFile.Assets[app.AppID.ToString()] = asset;
-        // }
-        //Console.WriteLine("Free'd lock");
+        if (!success) {
+            return null;
+        }
 
         return targetPath;
     }

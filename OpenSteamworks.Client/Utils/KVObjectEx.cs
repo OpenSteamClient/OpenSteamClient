@@ -8,84 +8,7 @@ namespace OpenSteamworks.Client.Utils;
 /// <summary>
 /// Base class for extended KVObjects
 /// </summary>
-public abstract class KVObjectEx {
-    // Simple dictionary wrapper that copies itself everytime a value is written. This is bad, but we'll deal with this until we write our own keyvalue parser
-    public class ProxyDictionary<TValue> : IDictionary<string, TValue> where TValue: KVObjectEx {
-        private readonly Dictionary<string, TValue> internalDictionary = new();
-        private readonly KVObjectEx wrappedObject;
-        private readonly string dictionaryKey;
-
-        public TValue this[string key] { get => ((IDictionary<string, TValue>)internalDictionary)[key]; set => Add(key, value); }
-        public ICollection<string> Keys => ((IDictionary<string, TValue>)internalDictionary).Keys;
-        public ICollection<TValue> Values => ((IDictionary<string, TValue>)internalDictionary).Values;
-        public int Count => ((ICollection<KeyValuePair<string, TValue>>)internalDictionary).Count;
-        public bool IsReadOnly => ((ICollection<KeyValuePair<string, TValue>>)internalDictionary).IsReadOnly;
-
-        internal ProxyDictionary(Dictionary<string, TValue> dictionaryToWrap, KVObjectEx wrappedObject, string dictionaryKey) {
-            this.internalDictionary = dictionaryToWrap;
-            this.wrappedObject = wrappedObject;
-            this.dictionaryKey = dictionaryKey;
-        }
-
-        public void Add(string key, TValue value)
-        {
-            ((IDictionary<string, TValue>)internalDictionary).Add(key, value);
-            wrappedObject.SetValue(dictionaryKey, internalDictionary);
-        }
-
-        public void Add(KeyValuePair<string, TValue> item)
-        {
-            ((ICollection<KeyValuePair<string, TValue>>)internalDictionary).Add(item);
-            wrappedObject.SetValue(dictionaryKey, internalDictionary);
-        }
-
-        public void Clear()
-        {
-            ((ICollection<KeyValuePair<string, TValue>>)internalDictionary).Clear();
-            wrappedObject.SetValue(dictionaryKey, internalDictionary);
-        }
-
-        public bool Contains(KeyValuePair<string, TValue> item)
-        {
-            return ((ICollection<KeyValuePair<string, TValue>>)internalDictionary).Contains(item);
-        }
-
-        public bool ContainsKey(string key)
-        {
-            return ((IDictionary<string, TValue>)internalDictionary).ContainsKey(key);
-        }
-
-        public void CopyTo(KeyValuePair<string, TValue>[] array, int arrayIndex)
-        {
-            ((ICollection<KeyValuePair<string, TValue>>)internalDictionary).CopyTo(array, arrayIndex);
-        }
-
-        public IEnumerator<KeyValuePair<string, TValue>> GetEnumerator()
-        {
-            return ((IEnumerable<KeyValuePair<string, TValue>>)internalDictionary).GetEnumerator();
-        }
-
-        public bool Remove(string key)
-        {
-            return ((IDictionary<string, TValue>)internalDictionary).Remove(key);
-        }
-
-        public bool Remove(KeyValuePair<string, TValue> item)
-        {
-            return ((ICollection<KeyValuePair<string, TValue>>)internalDictionary).Remove(item);
-        }
-
-        public bool TryGetValue(string key, [MaybeNullWhen(false)] out TValue value)
-        {
-            return ((IDictionary<string, TValue>)internalDictionary).TryGetValue(key, out value);
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return ((IEnumerable)internalDictionary).GetEnumerator();
-        }
-    }
-    
+public abstract class KVObjectEx { 
     private readonly KVObject kv;
     public KVObject UnderlyingObject => kv;
     
@@ -163,13 +86,13 @@ public abstract class KVObjectEx {
         kv[key] = val;
     }
 
-    protected void SetValue<TValue>(string key, Dictionary<string, TValue> val) where TValue: KVObjectEx {
+    protected void SetValue<TValue>(string key, IDictionary<string, TValue> val) where TValue: KVObjectEx {
         // This is truly one of the functions
-        var kvobj = new KVObject(key, val.Select(p => new KVObject(p.Key, p.Value.UnderlyingObject.Value)));
+        var kvobj = new KVObject(key, val.Select(p => new KVObject(p.Key, p.Value.UnderlyingObject)));
         kv.Add(kvobj);
     }
 
-    protected void SetValue(string key, Dictionary<string, uint> val) {
+    protected void SetValue(string key, IDictionary<string, uint> val) {
         // This is truly one of the functions
         kv[key] = (KVValue)val.Select(p => new KVObject(p.Key, p.Value.ToString()));
     }
@@ -221,8 +144,8 @@ public abstract class KVObjectEx {
         return list;
     }
 
-    protected ProxyDictionary<TValue> EmptyDictionaryIfUnset<TValue>(string key, Func<KVObject, TValue> ctor) where TValue: KVObjectEx {
-        ProxyDictionary<TValue> dict = new(new(), this, key);
+    protected Dictionary<string, TValue> EmptyDictionaryIfUnset<TValue>(string key, Func<KVObject, TValue> ctor) where TValue: KVObjectEx {
+        Dictionary<string, TValue> dict = new();
         if (!TryGetKey(key, out KVValue? kv)) {
             return dict;
         }

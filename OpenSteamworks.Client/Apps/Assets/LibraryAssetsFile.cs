@@ -1,3 +1,4 @@
+using System.Collections.Concurrent;
 using OpenSteamworks.Client.Utils;
 using ValveKeyValue;
 
@@ -76,5 +77,8 @@ public class LibraryAssetsFile : KVObjectEx
     }
 
     public LibraryAssetsFile(KVObject kv) : base(kv) { }
-    public ProxyDictionary<LibraryAsset> Assets => EmptyDictionaryIfUnset("0", kv => new LibraryAsset(kv));
+    public Dictionary<string, LibraryAsset> Assets {
+        get => EmptyDictionaryIfUnset("0", kv => new LibraryAsset(kv));
+        set => SetValue("0", value);
+    }
 }
