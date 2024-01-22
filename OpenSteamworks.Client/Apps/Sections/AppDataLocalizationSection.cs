@@ -1,12 +1,12 @@
 using OpenSteamworks.Client.Utils;
 using OpenSteamworks.Enums;
-using ValveKeyValue;
+using OpenSteamworks.KeyValues;
 
 namespace OpenSteamworks.Client.Apps.Sections;
 
-public class AppDataLocalizationSection : KVObjectEx
+public class AppDataLocalizationSection : TypedKVObject
 {
-    public class AppLocalization : KVObjectEx {
+    public class AppLocalization : TypedKVObject {
         public IDictionary<string, string> Tokens => EmptyStringDictionaryIfUnset("tokens"); 
         public AppLocalization(KVObject kv) : base(kv) { }
     }

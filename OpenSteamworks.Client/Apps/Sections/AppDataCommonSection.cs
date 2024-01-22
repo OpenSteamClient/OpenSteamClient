@@ -1,12 +1,12 @@
 using OpenSteamworks.Client.Utils;
+using OpenSteamworks.KeyValues;
 using OpenSteamworks.Structs;
-using ValveKeyValue;
 
 namespace OpenSteamworks.Client.Apps.Sections;
 
-public class AppDataCommonSection : KVObjectEx
+public class AppDataCommonSection : TypedKVObject
 {
-    public class LibraryAssetsT : KVObjectEx {
+    public class LibraryAssetsT : TypedKVObject {
         public string CapsuleLanguages => DefaultIfUnset("library_capsule", "");
         public string HeroLanguages => DefaultIfUnset("library_hero", "");
         public string LogoLanguages => DefaultIfUnset("library_logo", "");
@@ -29,7 +29,7 @@ public class AppDataCommonSection : KVObjectEx
     public string Type => DefaultIfUnset("type", "");
     public IEnumerable<string> OSList => DefaultIfUnset("oslist", "").Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries).AsEnumerable();
     public string OSArch => DefaultIfUnset("osarch", "");
-    public CGameID GameID => new(DefaultIfUnset("gameid", (ulong)0));
+    public CGameID GameID => new(ulong.Parse(DefaultIfUnset("gameid", "0")));
     public string ReleaseState => DefaultIfUnset("ReleaseState", "");
     public string ControllerSupport => DefaultIfUnset("controller_support", "");
     public bool ExcludeFromGameLibrarySharing => DefaultIfUnset("exfgls", false);

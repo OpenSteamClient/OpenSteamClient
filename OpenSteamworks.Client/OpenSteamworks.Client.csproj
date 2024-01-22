@@ -37,7 +37,6 @@ public static class GitInfo
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="7.0.8" />
     <PackageReference Include="System.ServiceProcess.ServiceController" Version="7.0.1" />
-    <PackageReference Include="ValveKeyValue" Version="0.9.0.267" />
   </ItemGroup>
 
   <ItemGroup>

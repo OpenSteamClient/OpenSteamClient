@@ -10,9 +10,9 @@ using OpenSteamworks.Callbacks;
 using OpenSteamworks.Callbacks.Structs;
 using OpenSteamworks.Enums;
 using OpenSteamworks.Generated;
+using OpenSteamworks.KeyValues;
 using OpenSteamworks.Structs;
 using OpenSteamworks.Utils;
-using ValveKeyValue;
 
 namespace OpenSteamworks.ClientInterfaces;
 
@@ -23,8 +23,6 @@ public class ClientApps {
     public IClientRemoteStorage NativeClientRemoteStorage { get; init; }
     
     private readonly CallbackManager callbackManager;
-    private static readonly KVSerializer serializertext = KVSerializer.Create(KVSerializationFormat.KeyValues1Text);
-    private static readonly KVSerializer serializerbinary = KVSerializer.Create(KVSerializationFormat.KeyValues1Binary);
     public ClientApps(ISteamClient client) {
         this.NativeClientApps = client.IClientApps;
         this.NativeClientAppManager = client.IClientAppManager;
@@ -39,7 +37,7 @@ public class ClientApps {
         buf.RunUntilFits(() => NativeClientApps.GetAppDataSection(appid, section, buf.Data, buf.Length, false));
         using (var stream = new MemoryStream(buf.Data))
         {
-            return serializerbinary.Deserialize(stream);
+            return KVBinaryDeserializer.Deserialize(stream);
         }
     }
 
@@ -56,7 +54,7 @@ public class ClientApps {
             if (length > 0) {
                 using (var stream = new MemoryStream(buf.Data, position, length))
                 {
-                    objects.Add(sections.ElementAt(index), serializerbinary.Deserialize(stream));
+                    objects.Add(sections.ElementAt(index), KVBinaryDeserializer.Deserialize(stream));
                 }
             } else {
                 objects.Add(sections.ElementAt(index), null);

@@ -3,9 +3,9 @@ using System.Buffers.Binary;
 using System.IO;
 using System.Text;
 
-namespace OpenSteamworks.Messaging;
+namespace OpenSteamworks.Utils;
 
-internal class EndianAwareBinaryWriter : BinaryWriter
+public class EndianAwareBinaryWriter : BinaryWriter
 {
     public enum Endianness
     {

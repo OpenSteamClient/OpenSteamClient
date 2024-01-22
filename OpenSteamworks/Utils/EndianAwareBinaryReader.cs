@@ -2,9 +2,9 @@ using System.Buffers.Binary;
 using System.IO;
 using System.Text;
 
-namespace OpenSteamworks.Messaging;
+namespace OpenSteamworks.Utils;
 
-internal class EndianAwareBinaryReader : BinaryReader
+public class EndianAwareBinaryReader : BinaryReader
 {
     public enum Endianness
     {

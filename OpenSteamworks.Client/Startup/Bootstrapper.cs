@@ -5,7 +5,6 @@ using System.IO.Compression;
 using System.Reflection;
 using Microsoft.Extensions.FileProviders;
 using OpenSteamworks.Generated;
-using ValveKeyValue;
 using OpenSteamworks.Client.Extensions;
 using System.Security.Cryptography;
 using OpenSteamworks.Client.Utils;
@@ -17,6 +16,7 @@ using System.Runtime.InteropServices;
 using OpenSteamworks.Client.Config;
 using OpenSteamworks.Client.Utils.DI;
 using OpenSteamworks.Utils;
+using OpenSteamworks.KeyValues;
 
 namespace OpenSteamworks.Client.Startup;
 
@@ -118,18 +118,16 @@ public class Bootstrapper : IClientLifetime {
         
         try
         {
-            var serializer = ValveKeyValue.KVSerializer.Create(KVSerializationFormat.KeyValues1Text);
             HttpResponseMessage resp = await Client.HttpClient.GetAsync("http://localhost:8125/client/"+PlatformClientManifest);
             if (resp.IsSuccessStatusCode) {
-                using (Stream str = await resp.Content.ReadAsStreamAsync())
-                {
-                    var deserialized = serializer.Deserialize(str);
-                    if ((string)deserialized["version"] == VersionInfo.STEAM_MANIFEST_VERSION.ToString()) {
-                        OverrideURL = "http://localhost:8125/client/";
-                        logger.Info("Using local package server");
-                    } else {
-                        logger.Debug("Local package server has different version: " + (string)deserialized["version"] + " than ours " + VersionInfo.STEAM_MANIFEST_VERSION.ToString());
-                    }
+                var str = await resp.Content.ReadAsStringAsync();
+                var deserialized = KVTextDeserializer.Deserialize(str);
+                string? serverVersion = deserialized.GetChild("version")?.GetValueAsString();
+                if (serverVersion == VersionInfo.STEAM_MANIFEST_VERSION.ToString()) {
+                    OverrideURL = "http://localhost:8125/client/";
+                    logger.Info("Using local package server");
+                } else {
+                    logger.Debug("Local package server has different version: " + serverVersion + " than ours " + VersionInfo.STEAM_MANIFEST_VERSION.ToString());
                 }
             }
         }
@@ -414,96 +412,103 @@ public class Bootstrapper : IClientLifetime {
         }
 
         List<string> verificationFailed = new List<string>();
-        using (var reader = fileInfo.CreateReadStream())
+        string text;
+        using (var stream = fileInfo.CreateReadStream())
         {
-            var kv = KVSerializer.Create(KVSerializationFormat.KeyValues1Text);
-            KVObject data = kv.Deserialize(reader);
-
-            progressHandler.SetOperation("Ensuring necessary packages");
-            foreach (var package in data.Children)
+            using (var reader = new StreamReader(stream))
             {
-                // Blacklist children that aren't objects
-                if (package.Count() < 1) {
+                text = await reader.ReadToEndAsync();
+            }
+        }
+
+        KVObject data = KVTextDeserializer.Deserialize(text);
+
+        progressHandler.SetOperation("Ensuring necessary packages");
+        foreach (var package in data.Children)
+        {
+            // Blacklist children that aren't objects
+            if (!package.HasChildren) {
+                continue;
+            }
+
+            // Skip the bootstrapper package
+            if (package.TryGetChild("IsBootstrapperPackage", out KVObject? isBootstrapperPackage)) {
+                if (isBootstrapperPackage.GetValueAsBool()) {
                     continue;
                 }
+            }
 
-                // Skip the bootstrapper package
-                if (package["IsBootstrapperPackage"] != null && ((int)package["IsBootstrapperPackage"]) == 1) {
-                    continue;
+            // We blacklist some packages since they aren't useful
+            if (IsPackageBlacklisted(package.Name)) {
+                continue;
+            }
+
+            if (!package.HasChild("file")) {
+                continue;
+            }
+
+            if (!package.HasChild("sha2")) {
+                continue;
+            }
+
+            if (!package.HasChild("size")) {
+                continue;
+            }
+
+            string specialVersion = "";
+            KVObject packageToDownload = package;
+            if (OperatingSystem.IsWindowsVersionAtLeast(10)) {
+                // Some packages have windows 10 versions
+                if (package.TryGetChild("win10-64", out KVObject? win10)) {
+                    specialVersion = "win10-64";
+                    packageToDownload = win10;
                 }
-
-                // We blacklist some packages since they aren't useful
-                if (IsPackageBlacklisted(package.Name)) {
-                    continue;
+            } else if (OperatingSystem.IsWindowsVersionAtLeast(7)) {
+                // Some packages have windows 7 versions
+                if (package.TryGetChild("win7-64", out KVObject? win7)) {
+                    specialVersion = "win7-64";
+                    packageToDownload = win7;
                 }
+            } // There's also Windows 8 versions, but nobody uses W8 so it shouldn't be a problem
 
-                if (package["file"] == null) {
-                    continue;
+
+            string file = packageToDownload.GetChild("file")!.GetValueAsString();
+            string url = BaseURL + file;
+            string sha2_expected = packageToDownload.GetChild("sha2")!.GetValueAsString().ToUpperInvariant();
+            long size_expected = packageToDownload.GetChild("size")!.GetValueAsLong();
+            string saveLocation = Path.Combine(PackageDir, file);
+
+            // Download the file if it doesn't exist
+            if (!File.Exists(saveLocation)) {
+                // Create a file stream to store the downloaded data.
+                // This really can be any type of writeable stream.
+                using (var stream = new FileStream(saveLocation, FileMode.Create, FileAccess.Write, FileShare.None)) {
+                    progressHandler.SetSubOperation($"Downloading {package.Name}{(string.IsNullOrEmpty(specialVersion) ? "" : ' ' + specialVersion)}");
+                    // Use the custom extension method below to download the data.
+                    // The passed progress-instance will receive the download status updates.
+                    await Client.HttpClient.DownloadAsync(url, stream, progressHandler, size_expected, default);
                 }
+            }
 
-                if (package["sha2"] == null) {
-                    continue;
+            // Verify the SHA2
+            bool verifySucceeded = false;
+            using (SHA256 SHA256 = SHA256.Create())
+            {
+                progressHandler.SetSubOperation($"Verifying {package.Name}");
+                using (var stream = new FileStream(saveLocation, FileMode.Open, FileAccess.Read, FileShare.Read)) {
+                    var sha2_calculated = Convert.ToHexString(SHA256.ComputeHash(stream));
+                    verifySucceeded = sha2_calculated == sha2_expected;
                 }
-
-                if (package["size"] == null) {
-                    continue;
-                }
-
-                string specialVersion = "";
-                dynamic packageToDownload = package;
-                if (OperatingSystem.IsWindowsVersionAtLeast(10)) {
-                    // Some packages have windows 10 versions
-                    if (package["win10-64"] != null) {
-                        specialVersion = "win10-64";
-                        packageToDownload = package["win10-64"];
-                    }
-                } else if (OperatingSystem.IsWindowsVersionAtLeast(7)) {
-                    // Some packages have windows 7 versions
-                    if (package["win7-64"] != null) {
-                        specialVersion = "win7-64";
-                        packageToDownload = package["win7-64"];
-                    }
-                } // There's also Windows 8 versions, but nobody uses W8 so it shouldn't be a problem
-                
-
-
-                string url = BaseURL + (string)packageToDownload["file"];
-                string sha2_expected = ((string)packageToDownload["sha2"]).ToUpperInvariant();
-                long size_expected = (Int64)packageToDownload["size"];
-                string saveLocation = Path.Combine(PackageDir, (string)packageToDownload["file"]);
-
-                // Download the file if it doesn't exist
-                if (!File.Exists(saveLocation)) {
-                    // Create a file stream to store the downloaded data.
-                    // This really can be any type of writeable stream.
-                    using (var file = new FileStream(saveLocation, FileMode.Create, FileAccess.Write, FileShare.None)) {
-                        progressHandler.SetSubOperation($"Downloading {package.Name}{(string.IsNullOrEmpty(specialVersion) ? "" : ' ' + specialVersion)}");
-                        // Use the custom extension method below to download the data.
-                        // The passed progress-instance will receive the download status updates.
-                        await Client.HttpClient.DownloadAsync(url, file, progressHandler, size_expected, default);
-                    }
-                }
-
-                // Verify the SHA2
-                bool verifySucceeded = false;
-                using (SHA256 SHA256 = SHA256.Create())
-                {
-                    progressHandler.SetSubOperation($"Verifying {package.Name}");
-                    using (var file = new FileStream(saveLocation, FileMode.Open, FileAccess.Read, FileShare.Read)) {
-                        var sha2_calculated = Convert.ToHexString(SHA256.ComputeHash(file));
-                        verifySucceeded = sha2_calculated == sha2_expected;
-                    }
-                }   
-                
-                // Add to array if successful
-                if (verifySucceeded) {
-                    downloadedPackages.Add(package.Name, saveLocation);
-                } else {
-                    // If not, add to failed array and delete
-                    // Bootstrapper will be rerun if atleast one file is failed
-                    verificationFailed.Add(package.Name);
-                    File.Delete(saveLocation);
-                }
+            }   
+            
+            // Add to array if successful
+            if (verifySucceeded) {
+                downloadedPackages.Add(package.Name, saveLocation);
+            } else {
+                // If not, add to failed array and delete
+                // Bootstrapper will be rerun if atleast one file is failed
+                verificationFailed.Add(package.Name);
+                File.Delete(saveLocation);
             }
         }
 
@@ -565,7 +570,7 @@ public class Bootstrapper : IClientLifetime {
         progressHandler.SetThrobber(true);
         progressHandler.SetSubOperation("Running runtime setup...");
 
-        Process proc = new Process();
+        Process proc = new();
         proc.StartInfo.FileName = setupScriptPath;
         proc.StartInfo.Arguments = "";
         proc.StartInfo.WorkingDirectory = SteamRuntimeDir;

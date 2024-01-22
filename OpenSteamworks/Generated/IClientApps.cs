@@ -38,9 +38,11 @@ public unsafe interface IClientApps
     /// </summary>
     /// <returns>True if locked successfully, false if locking failed or a lock is already in use</returns>
     public bool TakeUpdateLock();  // argc: 0, index: 13, ipc args: [], ipc returns: [bytes1]
-    // Called by ValveSteam for each appid you own. Should we?
+    /// <summary>
+    /// A "newer" method ValveSteam uses to get app info. Seems to rely on internal KeyValue class structs to work.
+    /// </summary>
     [BlacklistedInCrossProcessIPC]
-    public unknown_ret GetAppKVRaw(AppId_t app, [IPCOut] byte[] pchBuffer, int cbBufferMax);  // argc: 3, index: 14, ipc args: [bytes4, bytes4, bytes4], ipc returns: [bytes1]
+    public bool GetAppKVRaw(AppId_t app, byte** outPtrToAppInfoData, byte** outPtrToComputedKVData);  // argc: 3, index: 14, ipc args: [bytes4, bytes4, bytes4], ipc returns: [bytes1]
     /// <summary>
     /// Unlocks the app info cache.
     /// </summary>

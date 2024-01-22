@@ -1,9 +1,9 @@
 using OpenSteamworks.Client.Utils;
-using ValveKeyValue;
+using OpenSteamworks.KeyValues;
 
 namespace OpenSteamworks.Client.Apps.Sections;
 
-public class AppDataExtendedSection : KVObjectEx
+public class AppDataExtendedSection : TypedKVObject
 {
     public string Developer => DefaultIfUnset("developer", "");
     public string GameDir => DefaultIfUnset("gamedir", "");

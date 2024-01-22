@@ -17,7 +17,9 @@ public unsafe struct CUtlBuffer {
 	public BufferFlags_t m_Flags;
 
 	public delegate* unmanaged[Thiscall]<CUtlBuffer*, int, byte> m_GetOverflowFunc;
-	public delegate* unmanaged[Thiscall]<CUtlBuffer*, int, byte> m_PutOverflowFunc;
+    public uint padding = 0;
+    public delegate* unmanaged[Thiscall]<CUtlBuffer*, int, byte> m_PutOverflowFunc;
+    public uint padding1 = 0;
 
     public enum ErrorFlags_t : byte 
     {

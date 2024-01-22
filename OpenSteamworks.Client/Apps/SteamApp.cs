@@ -7,8 +7,8 @@ using OpenSteamworks.Client.Apps.Sections;
 using OpenSteamworks.Client.Extensions;
 using OpenSteamworks.Client.Utils;
 using OpenSteamworks.Enums;
+using OpenSteamworks.KeyValues;
 using OpenSteamworks.Structs;
-using ValveKeyValue;
 
 namespace OpenSteamworks.Client.Apps;
 
@@ -125,7 +125,7 @@ public class SteamApp : AppBase
         }
     }
 
-    private static T TryCreateSection<T>(KVObject? obj, string sectionName, Func<KVObject, T> factory) where T: KVObjectEx {
+    private static T TryCreateSection<T>(KVObject? obj, string sectionName, Func<KVObject, T> factory) where T: TypedKVObject {
         if (obj == null) {
             return factory(new KVObject(sectionName, new List<KVObject>()));
         }

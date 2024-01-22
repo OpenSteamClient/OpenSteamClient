@@ -6,6 +6,7 @@ using System.Text;
 using Google.Protobuf;
 using OpenSteamworks.Enums;
 using OpenSteamworks.Protobuf;
+using OpenSteamworks.Utils;
 
 namespace OpenSteamworks.Messaging;
 

@@ -3,7 +3,9 @@ using System.Collections.Concurrent;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
 using System.Numerics;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Nodes;
@@ -18,11 +20,10 @@ using OpenSteamworks.Client.Utils.DI;
 using OpenSteamworks.ClientInterfaces;
 using OpenSteamworks.Enums;
 using OpenSteamworks.Generated;
+using OpenSteamworks.KeyValues;
 using OpenSteamworks.Messaging;
-
 using OpenSteamworks.Structs;
 using OpenSteamworks.Utils;
-using ValveKeyValue;
 using static OpenSteamworks.Callbacks.CallbackManager;
 
 namespace OpenSteamworks.Client.Apps;
@@ -135,7 +136,6 @@ public class AppsManager : ILogonLifetime
         AppLastPlayedChanged?.Invoke(this, new AppLastPlayedChangedEventArgs(lastPlayedTimeChanged.m_nAppID, lastPlayedTimeChanged.m_lastPlayed));
     }
 
-    private static readonly KVSerializer serializer = KVSerializer.Create(KVSerializationFormat.KeyValues1Binary);
     private bool hasLogOnFinished = false;
     private readonly object libraryAssetsFileLock = new();
     private LibraryAssetsFile libraryAssetsFile = new(new KVObject("", new List<KVObject>()));
@@ -315,7 +315,7 @@ public class AppsManager : ILogonLifetime
                 {
                     lock (libraryAssetsFileLock)
                     {
-                        libraryAssetsFile = new(serializer.Deserialize(stream)); 
+                        libraryAssetsFile = new(KVBinaryDeserializer.Deserialize(stream)); 
                     }
                 }
             }
@@ -338,16 +338,11 @@ public class AppsManager : ILogonLifetime
     private void SaveLibraryAssetsFile() {
         logger.Info("Saving library assets.vdf");
         string libraryAssetsFilePath = Path.Combine(LibraryAssetsPath, "assets.vdf");
+        string libraryAssetsTextFilePath = Path.Combine(LibraryAssetsPath, "assets_text.vdf");
         lock (libraryAssetsFileLock)
         {
-            if (File.Exists(libraryAssetsFilePath)) {
-                File.Delete(libraryAssetsFilePath);
-            }
-
-            using (var writeStream = File.OpenWrite(libraryAssetsFilePath))
-            {
-                serializer.Serialize(writeStream, libraryAssetsFile.UnderlyingObject, "");
-            }
+            File.WriteAllText(libraryAssetsTextFilePath, KVTextSerializer.Serialize(libraryAssetsFile.UnderlyingObject));
+            File.WriteAllBytes(libraryAssetsFilePath, KVBinarySerializer.SerializeToArray(libraryAssetsFile.UnderlyingObject));
         }
     }
 
@@ -366,8 +361,8 @@ public class AppsManager : ILogonLifetime
                     if ((app as SteamApp)?.Common.Icon == assetData.IconHash) {
                         upToDate = true;
                     }
-                } else {
-                    uint expireDate = assetType switch
+                } else { 
+                    int expireDate = assetType switch
                     {
                         ELibraryAssetType.Logo => assetData.LogoExpires,
                         ELibraryAssetType.Hero => assetData.HeroExpires,
@@ -388,7 +383,8 @@ public class AppsManager : ILogonLifetime
 
             string targetPath = LibraryAssetToFilename(app.AppID, assetType);
             
-            if (upToDate) {
+            // REMOVE BEFORE RELEASE (temporary hack fix to check kv parsing)
+            if (File.Exists(targetPath)) { //if (upToDate) {
                 localPathOut = targetPath;
                 return;
             }
@@ -442,7 +438,7 @@ public class AppsManager : ILogonLifetime
         assetsConcurrent.TryGetValue(app.AppID.ToString(), out asset);
 
         if (asset == null) {
-            asset = new(new("", ""));
+            asset = new(new("", new List<KVObject>()));
         }
 
         string targetPath;
@@ -463,14 +459,27 @@ public class AppsManager : ILogonLifetime
                         response.Content.ReadAsStream().CopyTo(file);
                     }
 
-                    if (response.Headers.TryGetValues("Last-Modified", out IEnumerable<string>? lastModifiedMulti)) {
-                        if (!lastModifiedMulti.Any() || lastModifiedMulti.Count() > 1) {
-                            logger.Warning("Got 0 or >1 Last-Modified headers.");
-                        } else {
-                            string headerContent = lastModifiedMulti.First();
-                            asset.SetLastModified(headerContent, assetType);
+                    if (response.Content.Headers.LastModified.HasValue) {
+                        string headerContent = response.Content.Headers.LastModified.Value.ToString(DateTimeFormatInfo.InvariantInfo.RFC1123Pattern);
+                        asset.SetLastModified(headerContent, assetType);
+                    } else {
+                        logger.Warning("Failed to get Last-Modified header.");
+                    }
+                    
+                    if (response.Content.Headers.Expires.HasValue) {
+                        asset.SetExpires((int)response.Content.Headers.Expires.Value.ToUnixTimeSeconds(), assetType);
+                    } else {
+                        logger.Warning("Failed to get Expires header.");
+                    }
+
+                    if (assetType == ELibraryAssetType.Icon) {
+                        if (app is SteamApp sapp)
+                        {
+                            asset.IconHash = sapp.Common.Icon;
                         }
                     }
+
+                    asset.LastChangeNumber = (int)app.LibraryAssetChangeNumber;
                 }
             }
             

@@ -1,10 +1,10 @@
 using OpenSteamworks.Client.Utils;
 using OpenSteamworks.Utils;
-using ValveKeyValue;
+using OpenSteamworks.KeyValues;
 
 namespace OpenSteamworks.Client.Apps.Compat;
 
-public class ToolManifest : KVObjectEx {
+public class ToolManifest : TypedKVObject {
     public int Version {
         get {
             return DefaultIfUnset("version", 2);
@@ -64,19 +64,7 @@ public class CompatTool {
             throw new Exception("Tool manifest doesn't exist at " + toolmanifestpath);
         }
 
-        try
-        {
-            KVSerializer serializer = KVSerializer.Create(KVSerializationFormat.KeyValues1Text);
-            using (var stream = File.OpenRead(toolmanifestpath))
-            {
-                ToolManifest = new ToolManifest(serializer.Deserialize(stream));
-            }
-        }
-        catch (KeyValueException e)
-        {
-            throw new Exception("Tool manifest not valid KV data", e);
-        }
-
+        ToolManifest = new ToolManifest(KVTextDeserializer.Deserialize(File.ReadAllText(toolmanifestpath)));
         if (ToolManifest.Version != 2) {
             throw new InvalidOperationException("Version " + ToolManifest.Version + " compat tools are unsupported");
         }

@@ -25,7 +25,7 @@ internal static class BinaryReaderExtensions {
         }
     }
 
-    public static string ReadNullTerminatedString(this BinaryReader reader)
+    public static string ReadNullTerminatedWideString(this BinaryReader reader)
     {
         StringBuilder builder = new();
         while (true)
@@ -37,6 +37,22 @@ internal static class BinaryReaderExtensions {
             
             builder.Append(c);
         }
+        return builder.ToString();
+    }
+
+    public static string ReadNullTerminatedUTF8String(this BinaryReader reader)
+    {
+        StringBuilder builder = new();
+        while (true)
+        {
+            byte c = reader.ReadByte();
+            if (c == 0) {
+                break;
+            }
+            
+            builder.Append((char)c);
+        }
+        
         return builder.ToString();
     }
 }

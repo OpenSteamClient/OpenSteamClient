@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using OpenSteamworks.Generated;
 
 using OpenSteamworks.Protobuf;
+using OpenSteamworks.Utils;
 
 namespace OpenSteamworks.Messaging;
 

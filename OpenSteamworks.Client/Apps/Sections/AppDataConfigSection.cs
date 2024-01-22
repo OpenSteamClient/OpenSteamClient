@@ -1,11 +1,11 @@
 using OpenSteamworks.Client.Utils;
-using ValveKeyValue;
+using OpenSteamworks.KeyValues;
 
 namespace OpenSteamworks.Client.Apps.Sections;
 
-public class AppDataConfigSection : KVObjectEx
+public class AppDataConfigSection : TypedKVObject
 {
-    public class LaunchOption : KVObjectEx {
+    public class LaunchOption : TypedKVObject {
 
         public LaunchOption(KVObject kv) : base(kv) { }
     }

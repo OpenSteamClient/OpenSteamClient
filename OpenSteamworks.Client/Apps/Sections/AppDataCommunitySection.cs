@@ -1,9 +1,9 @@
 using OpenSteamworks.Client.Utils;
-using ValveKeyValue;
+using OpenSteamworks.KeyValues;
 
 namespace OpenSteamworks.Client.Apps.Sections;
 
-public class AppDataCommunitySection : KVObjectEx
+public class AppDataCommunitySection : TypedKVObject
 {
     public AppDataCommunitySection(KVObject kv) : base(kv) { }
 }

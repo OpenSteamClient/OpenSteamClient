@@ -1,11 +1,11 @@
 using OpenSteamworks.Client.Utils;
 using OpenSteamworks.Enums;
+using OpenSteamworks.KeyValues;
 using OpenSteamworks.Structs;
-using ValveKeyValue;
 
 namespace OpenSteamworks.Client.Apps;
 
-public class SourcemodGameInfo : KVObjectEx {
+public class SourcemodGameInfo : TypedKVObject {
     public string Name => DefaultIfUnset("game", "");
     public string IconRelativePath => DefaultIfUnset("icon", "");
     public bool SupportsVR => DefaultIfUnset("supportsvr", false);
@@ -29,7 +29,6 @@ public class SourcemodApp : AppBase {
         }
     }
 
-    private static readonly KVSerializer kvserializer = KVSerializer.Create(KVSerializationFormat.KeyValues1Text);
     public SourcemodGameInfo SourcemodGameInfo { get; private set; }
     public AppBase? ParentApp => GetAppIfValidGameID(new CGameID(this.SourcemodGameInfo.SteamAppID));
     protected override string ActualName => this.SourcemodGameInfo.Name;
@@ -48,7 +47,7 @@ public class SourcemodApp : AppBase {
     public override EAppState State => state;
 
     internal SourcemodApp(AppsManager appsManager, string sourcemodDir, uint modid) : base(appsManager) {
-        SourcemodGameInfo = new SourcemodGameInfo(SourcemodApp.kvserializer.Deserialize(File.OpenRead(Path.Combine(sourcemodDir, "gameinfo.txt"))));
+        SourcemodGameInfo = new SourcemodGameInfo(KVTextDeserializer.Deserialize(File.ReadAllText(Path.Combine(sourcemodDir, "gameinfo.txt"))));
         this.GameID = new CGameID(SourcemodGameInfo.SteamAppID, modid);
         state = EAppState.FullyInstalled;
     }

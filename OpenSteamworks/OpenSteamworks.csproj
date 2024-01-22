@@ -10,7 +10,6 @@
   <ItemGroup>
     <ProjectReference Include="..\OpenSteamworks.Protobuf\OpenSteamworks.Protobuf.csproj" />
     <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="7.0.8" />
-    <PackageReference Include="ValveKeyValue" Version="0.9.0.267" />
   </ItemGroup>
 
   <!-- Exclude the undone IPC stuff from build; read the README.md inside the folder for details -->
