@@ -43,7 +43,7 @@ internal static class BinaryReaderExtensions {
 
     public static string ReadNullTerminatedUTF8String(this BinaryReader reader)
     {
-        List<byte> bytes = new();
+        using var bytes = new MemoryStream();
         while (true)
         {
             byte c = reader.ReadByte();
@@ -51,7 +51,7 @@ internal static class BinaryReaderExtensions {
                 break;
             }
             
-            bytes.Add(c);
+            bytes.WriteByte(c);
         }
         
         return Encoding.UTF8.GetString(bytes.ToArray());

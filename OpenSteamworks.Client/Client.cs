@@ -11,17 +11,23 @@ using OpenSteamworks.ClientInterfaces;
 using OpenSteamworks.Client.Utils.DI;
 using OpenSteamworks.Client.Apps;
 using OpenSteamworks.Client.Apps.Library;
+using System.Net;
 
 namespace OpenSteamworks.Client;
 
 public class Client : IClientLifetime
 {
     // HttpClient is intended to be instantiated once per application, rather than per-use. We define this here, you are free to use this for any web requests you may need.
-    public static readonly HttpClient HttpClient = new();
+    public static readonly HttpClient HttpClient = new()
+    {
+        Timeout = Timeout.InfiniteTimeSpan
+    };
 
     static Client() {
-        HttpClient.DefaultRequestHeaders.ConnectionClose = true;
-        HttpClient.DefaultRequestHeaders.Add("User-Agent", $"opensteamclient {GitInfo.GitBranch}/{GitInfo.GitCommit}");
+        ServicePointManager.DefaultConnectionLimit = 30;
+        HttpClient.DefaultRequestHeaders.ConnectionClose = false;
+        //HttpClient.DefaultRequestHeaders.Add("User-Agent", $"opensteamclient {GitInfo.GitBranch}/{GitInfo.GitCommit}");
+        HttpClient.DefaultRequestHeaders.Add("User-Agent", "Valve Steam Client");
     }
 
     private Container container;

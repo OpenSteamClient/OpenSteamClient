@@ -7,8 +7,11 @@
 //=============================================================================
 
 using System;
+using System.Runtime.InteropServices;
 
 namespace OpenSteamworks.Generated;
+
+using HHTTPRequest = System.Int32;
 
 public unsafe interface IClientHTTP
 {
@@ -35,9 +38,9 @@ public unsafe interface IClientHTTP
     // WARNING: Arguments are unknown!
     public unknown_ret GetHTTPResponseHeaderSize();  // argc: 3, index: 11, ipc args: [bytes4, string], ipc returns: [bytes1, bytes4]
     // WARNING: Arguments are unknown!
-    public unknown_ret GetHTTPResponseHeaderValue();  // argc: 4, index: 12, ipc args: [bytes4, string, bytes4], ipc returns: [bytes1, bytes_length_from_mem]
+    public bool GetHTTPResponseHeaderValue(HHTTPRequest req, string headername, [Out] byte[] val, int length);  // argc: 4, index: 12, ipc args: [bytes4, string, bytes4], ipc returns: [bytes1, bytes_length_from_mem]
     // WARNING: Arguments are unknown!
-    public unknown_ret GetHTTPResponseBodySize();  // argc: 2, index: 13, ipc args: [bytes4], ipc returns: [bytes1, bytes4]
+    public bool GetHTTPResponseBodySize(HHTTPRequest req, out uint len);  // argc: 2, index: 13, ipc args: [bytes4], ipc returns: [bytes1, bytes4]
     // WARNING: Arguments are unknown!
     public unknown_ret GetHTTPResponseBodyData();  // argc: 3, index: 14, ipc args: [bytes4, bytes4], ipc returns: [bytes1, bytes_length_from_mem]
     // WARNING: Arguments are unknown!

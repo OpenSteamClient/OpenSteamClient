@@ -25,6 +25,7 @@ using OpenSteamworks.Generated;
 using System.Text;
 using OpenSteamworks.Client.Login;
 using OpenSteamworks.Enums;
+using Avalonia.Threading;
 
 namespace ClientUI;
 
@@ -295,7 +296,7 @@ public class AvaloniaApp : Application
     {
         await Container.RunClientShutdown();
         Console.WriteLine("Shutting down Avalonia");
-        ApplicationLifetime.Shutdown(exitCode);
+        Dispatcher.UIThread.Invoke(() => ApplicationLifetime.Shutdown(exitCode));
     }
 
     /// <summary>
@@ -303,6 +304,6 @@ public class AvaloniaApp : Application
     /// </summary>
     public void ExitEventually(int exitCode = 0)
     {
-        Task.Run(async () => await this.Exit(exitCode));
+        Dispatcher.UIThread.InvokeAsync(async () => await this.Exit(exitCode));
     }
 }
