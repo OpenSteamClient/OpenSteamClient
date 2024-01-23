@@ -49,7 +49,7 @@ public class KVChildrenDictionary : IDictionary<string, object>
 
     public ICollection<dynamic> Values => new List<dynamic>(this.rootObject.Children.Select(o => o.Value));
 
-    public int Count => this.rootObject.Children.Count;
+    public int Count => this.rootObject.ChildrenInternal.Count;
     public bool IsReadOnly => false;
 
     public KVChildrenDictionary(KVObject rootObject) {
@@ -59,17 +59,17 @@ public class KVChildrenDictionary : IDictionary<string, object>
 
     public void Add(string key, dynamic value)
     {
-        this.rootObject.Children.Add(new KVObject(key, value));
+        this.rootObject.SetChild(new KVObject(key, value));
     }
 
     public void Add(KeyValuePair<string, dynamic> item)
     {
-        this.rootObject.Children.Add(new KVObject(item.Key, item.Value));
+        this.rootObject.SetChild(new KVObject(item.Key, item.Value));
     }
 
     public void Clear()
     {
-        this.rootObject.Children.Clear();
+        this.rootObject.ChildrenInternal.Clear();
     }
 
     public bool Contains(KeyValuePair<string, dynamic> item)

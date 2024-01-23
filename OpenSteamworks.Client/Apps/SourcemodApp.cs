@@ -41,7 +41,7 @@ public class SourcemodApp : AppBase {
     public override IEnumerable<LaunchOption> LaunchOptions => new List<LaunchOption>() { new(0, "Play " + this.Name, "") };
     public override int? DefaultLaunchOptionID => 0;
 
-    public override uint LibraryAssetChangeNumber => 0;
+    public override uint StoreAssetsLastModified => 0;
 
     private EAppState state;
     public override EAppState State => state;

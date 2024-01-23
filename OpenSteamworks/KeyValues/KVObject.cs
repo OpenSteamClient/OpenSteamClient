@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using System.Text;
 
 namespace OpenSteamworks.KeyValues;
@@ -10,7 +11,14 @@ public class KVObject : IEquatable<KVObject>, ICloneable {
     public string Name { get; set; }
     public dynamic Value { get; internal set; }
     public bool HasChildren => Value is List<KVObject>;
-    public List<KVObject> Children {
+    public IEnumerable<KVObject> Children {
+        get {
+            ThrowIfNotList();
+            return (Value as List<KVObject>)!.AsEnumerable();
+        }
+    }
+
+    internal List<KVObject> ChildrenInternal {
         get {
             ThrowIfNotList();
             return (Value as List<KVObject>)!;
@@ -19,19 +27,19 @@ public class KVObject : IEquatable<KVObject>, ICloneable {
 
     public void SetChild(KVObject kv) {
         ThrowIfNotList();
-
+        
         var existingObj = GetChild(kv.Name);
         if (existingObj != null) {
             existingObj.Value = kv.Value;
             return;
         }
 
-        Children.Add(kv);
+        ChildrenInternal.Add(kv);
     }
 
     public bool RemoveChild(string key) {
         ThrowIfNotList();
-        return this.Children.RemoveAll((obj) => obj.Name == key) > 0;
+        return this.ChildrenInternal.RemoveAll((obj) => obj.Name == key) > 0;
     }
 
     public KVObject? GetChild(string key) {
@@ -201,8 +209,8 @@ public class KVObject : IEquatable<KVObject>, ICloneable {
         }
 
         if (this.HasChildren && other.HasChildren) {
-            if (this.Children.Count != other.Children.Count) {
-                Logging.GeneralLogger.Debug($"KVObject comparison fails: this.Children.Count ({this.Children.Count}) == other.Children.Count ({other.Children.Count})");
+            if (this.Children.Count() != other.Children.Count()) {
+                Logging.GeneralLogger.Debug($"KVObject comparison fails: this.Children.Count ({this.Children.Count()}) == other.Children.Count ({other.Children.Count()})");
                 return false;
             }
 
@@ -237,7 +245,7 @@ public class KVObject : IEquatable<KVObject>, ICloneable {
             var cloned = new KVObject(Name, new List<KVObject>());
             foreach (var item in Children)
             {
-                cloned.Children.Add(item.Clone());
+                cloned.ChildrenInternal.Add(item.Clone());
             }
 
             return cloned;

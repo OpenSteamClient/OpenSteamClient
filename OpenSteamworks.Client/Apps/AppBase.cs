@@ -37,7 +37,7 @@ public abstract class AppBase
     public string IconURL => GetValueOverride(IconOverrideURL, ActualIconURL);
     public string PortraitURL => GetValueOverride(PortraitOverrideURL, ActualPortraitURL);
 
-    public abstract uint LibraryAssetChangeNumber { get; }
+    public abstract uint StoreAssetsLastModified { get; }
     public CGameID GameID { get; protected set; } = CGameID.Zero;
     public AppId_t AppID
     {

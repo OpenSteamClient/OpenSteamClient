@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Text;
 using OpenSteamworks.Utils;
@@ -9,6 +10,7 @@ public class KVTextSerializer {
     private readonly KVObject rootObject;
     private readonly StringBuilder builder;
     private int indentation = 0;
+    private readonly List<string> stack = new();
 
     private KVTextSerializer(KVObject rootObject) {
         this.rootObject = rootObject;
@@ -25,9 +27,15 @@ public class KVTextSerializer {
         return builder.ToString();
     }
 
-    private void WriteObject(KVObject? obj) {
+    private void WriteObject(KVObject? obj) { 
         if (obj == null) {
             return;
+        }
+
+        stack.Add(obj.Name);
+
+        if (stack.Count > 100) {
+            throw new StackOverflowException("Exceeded max safe stack of 100 when serializing " + string.Join(" -> ", stack));
         }
 
         if (obj.HasChildren) {
@@ -41,6 +49,7 @@ public class KVTextSerializer {
             WriteKeyValuePair(obj.Name, obj.Value);
         }
 
+        stack.Remove(obj.Name);
     }
 
     private void WriteStartObject(string name)

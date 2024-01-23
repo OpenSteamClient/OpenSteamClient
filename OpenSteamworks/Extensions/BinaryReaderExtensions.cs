@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -42,7 +43,7 @@ internal static class BinaryReaderExtensions {
 
     public static string ReadNullTerminatedUTF8String(this BinaryReader reader)
     {
-        StringBuilder builder = new();
+        List<byte> bytes = new();
         while (true)
         {
             byte c = reader.ReadByte();
@@ -50,9 +51,9 @@ internal static class BinaryReaderExtensions {
                 break;
             }
             
-            builder.Append((char)c);
+            bytes.Add(c);
         }
         
-        return builder.ToString();
+        return Encoding.UTF8.GetString(bytes.ToArray());
     }
 }

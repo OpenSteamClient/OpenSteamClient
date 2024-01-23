@@ -83,9 +83,7 @@ public class KVTextDeserializer {
             return '}';
         }
         
-        char c = CurrentChars[0];
-        Console.WriteLine("Read char '" + c + "'");
-        return c;
+        return CurrentChars[0];
     }
 
     private void SkipWhiteSpace() {
@@ -121,7 +119,6 @@ public class KVTextDeserializer {
             }
         }
 
-        Console.WriteLine($"Read '{AllChars[startIndex..endIndex].ToString()}'");
         return AllChars[startIndex..endIndex].ToString();
     }
 }

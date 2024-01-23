@@ -49,7 +49,7 @@ public class ShortcutApp : AppBase {
     public override IEnumerable<LaunchOption> LaunchOptions => new List<LaunchOption>() { new(0, "", "") };
     public override int? DefaultLaunchOptionID => 0;
     public override EAppType Type => UserSetAppType;
-    public override uint LibraryAssetChangeNumber => 0;
+    public override uint StoreAssetsLastModified => 0;
 
     public override EAppState State => EAppState.FullyInstalled;
 

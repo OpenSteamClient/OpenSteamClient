@@ -9,11 +9,18 @@ public class LibraryAssetsFile : TypedKVObject
         public LibraryAsset(KVObject kv) : base(kv) {
             Version = 3;
             LastChangeNumber = 0;
+            StoreAssetsLastModified = 0;
         }
 
         public int LastChangeNumber {
             get => DefaultIfUnset("change", 0);
             set => SetValue("change", value);
+        }
+
+        //NOTE: OpenSteam custom key, unused by ValveSteam.
+        public long StoreAssetsLastModified {
+            get => DefaultIfUnset("store_mtime", 0L);
+            set => SetValue("store_mtime", value);
         }
 
         public int Version {
@@ -31,8 +38,8 @@ public class LibraryAssetsFile : TypedKVObject
             set => SetValue("0x", value);
         }
 
-        public int PortraitExpires {
-            get => DefaultIfUnset("0", 0);
+        public long PortraitExpires {
+            get => DefaultIfUnset("0", 0L);
             set => SetValue("0", value);
         }
 
@@ -41,8 +48,8 @@ public class LibraryAssetsFile : TypedKVObject
             set => SetValue("1x", value);
         }
 
-        public int HeroExpires {
-            get => DefaultIfUnset("1", 0);
+        public long HeroExpires {
+            get => DefaultIfUnset("1", 0L);
             set => SetValue("1", value);
         }
 
@@ -51,8 +58,8 @@ public class LibraryAssetsFile : TypedKVObject
             set => SetValue("2x", value);
         }
 
-        public int LogoExpires {
-            get => DefaultIfUnset("2", 0);
+        public long LogoExpires {
+            get => DefaultIfUnset("2", 0L);
             set => SetValue("2", value);
         }
 
@@ -61,8 +68,8 @@ public class LibraryAssetsFile : TypedKVObject
             set => SetValue("3x", value);
         }
 
-        public int HeaderExpires {
-            get => DefaultIfUnset("3", 0);
+        public long HeaderExpires {
+            get => DefaultIfUnset("3", 0L);
             set => SetValue("3", value);
         }
 
@@ -71,8 +78,8 @@ public class LibraryAssetsFile : TypedKVObject
             set => SetValue("5x", value);
         }
 
-        public int HeroCapsuleExpires {
-            get => DefaultIfUnset("5", 0);
+        public long HeroCapsuleExpires {
+            get => DefaultIfUnset("5", 0L);
             set => SetValue("5", value);
         }
 
@@ -97,7 +104,7 @@ public class LibraryAssetsFile : TypedKVObject
             }
         }
 
-        internal void SetExpires(int expires, AppsManager.ELibraryAssetType assetType)
+        internal void SetExpires(long expires, AppsManager.ELibraryAssetType assetType)
         {
             switch (assetType)
             {

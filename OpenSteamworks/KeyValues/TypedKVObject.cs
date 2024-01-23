@@ -18,115 +18,88 @@ public abstract class TypedKVObject {
     }
     
     protected int DefaultIfUnset(string key, int def) {
-        if (!TryGetKey(key, out KVObject? kv)) {
-            return def;
+        if (TryGetKey(key, out KVObject? kv)) {
+            return kv.GetValueAsInt();
         }
 
-        return kv.GetValueAsInt();
+        return def;
     }
 
     protected uint DefaultIfUnset(string key, uint def) {
-        if (!TryGetKey(key, out KVObject? kv)) {
-            return def;
+        if (TryGetKey(key, out KVObject? kv)) {
+            return kv.GetValueAsUInt();
         }
 
-        return kv.GetValueAsUInt();
+        return def;
     }
 
     protected long DefaultIfUnset(string key, long def) {
-        if (!TryGetKey(key, out KVObject? kv)) {
-            return def;
+        if (TryGetKey(key, out KVObject? kv)) {
+            return kv.GetValueAsLong();
         }
 
-        return kv.GetValueAsLong();
+        return def;
     }
 
     protected ulong DefaultIfUnset(string key, ulong def) {
-        if (!TryGetKey(key, out KVObject? kv)) {
-            return def;
+        if (TryGetKey(key, out KVObject? kv)) {
+            return kv.GetValueAsULong();
         }
 
-        return kv.GetValueAsULong();
+        return def;
     }
 
     protected float DefaultIfUnset(string key, float def) {
-        if (!TryGetKey(key, out KVObject? kv)) {
-            return def;
+        if (TryGetKey(key, out KVObject? kv)) {
+            return kv.GetValueAsFloat();
         }
 
-        return kv.GetValueAsFloat();
+        return def;
     }
 
     protected string DefaultIfUnset(string key, string def) {
-        if (!TryGetKey(key, out KVObject? kv)) {
-            return def;
+        if (TryGetKey(key, out KVObject? kv)) {
+            return kv.GetValueAsString();
         }
 
-        return kv.GetValueAsString();
+        return def;
     }
 
     protected bool DefaultIfUnset(string key, bool def) {
-        if (!TryGetKey(key, out KVObject? kv)) {
-            return def;
+        if (TryGetKey(key, out KVObject? kv)) {
+            return kv.GetValueAsBool();
         }
 
-        return kv.GetValueAsBool();
+        return def;
     }
 
     protected T? DefaultIfUnset<T>(string key, Func<KVObject, T> ctor, T? def = null) where T: TypedKVObject {
-        if (!TryGetKey(key, out KVObject? kv)) {
-            return def;
+        if (TryGetKey(key, out KVObject? kv)) {
+            return ctor(kv);
         }
 
-        var child = kv.GetChild(key);
-        if (child == null) {
-            return null;
-        }
-
-        return ctor(child);
+        return def;
     }
 
-    protected void SetValue(string key, dynamic val) => kv.SetChild(new KVObject(key, val));
+    protected void SetValue<T>(string key, T val) => kv.SetChild(new KVObject(key, (dynamic)val!));
 
-    protected void SetValue<T>(string key, T val) where T: TypedKVObject {
-        SetValue(key, val.UnderlyingObject);
+    protected void SetValueTypedObject<T>(string key, T val) where T: TypedKVObject {
+        SetValue(key, val.UnderlyingObject.Value);
     }
 
     protected void SetValue<T>(string key, Dictionary<string, T> val) where T: TypedKVObject {
         var child = kv.GetChild(key);
         if (child == null) {
             child = new KVObject(key, new List<KVObject>());
-            kv.SetChild(child);
         }
 
         foreach (var item in val)
         {
-            child.SetChild(new KVObject(item.Key, item.Value.UnderlyingObject));
+            child.SetChild(new KVObject(item.Key, item.Value.UnderlyingObject.Value));
         }
-    }
 
-    protected void SetValue(string key, int val) {
-        SetValue(key, val.ToString());
+        kv.SetChild(child);
     }
-
-    protected void SetValue(string key, uint val) {
-        SetValue(key, val.ToString());
-    }
-
-    protected void SetValue(string key, long val) {
-        SetValue(key, val.ToString());
-    }
-
-    protected void SetValue(string key, ulong val) {
-        SetValue(key, val.ToString());
-    }
-
-    protected void SetValue(string key, float val) {
-        SetValue(key, val.ToString());
-    }
-
-    protected void SetValue(string key, string val) => kv.SetChild(new KVObject(key, val));
-    protected void SetValue(string key, bool val) => kv.SetChild(new KVObject(key, val));
 
     protected IEnumerable<T> EmptyListIfUnset<T>(string key, Func<KVObject, T> ctor) where T: TypedKVObject {
         List<T> list = new();

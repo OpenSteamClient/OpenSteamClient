@@ -50,5 +50,5 @@ public unsafe interface IClientApps
     /// <summary>
     /// Gets the current user's AppInfoChangeNumber.
     /// </summary>
-    public uint GetLastChangeNumberReceived();  // argc: 0, index: 16, ipc args: [], ipc returns: [bytes4]
+    public int GetLastChangeNumberReceived();  // argc: 0, index: 16, ipc args: [], ipc returns: [bytes4]
 }
