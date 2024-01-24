@@ -417,7 +417,7 @@ internal static partial class CallbackConstants {
         {1280020, "CheckAppBetaPasswordResponse_t"},
         {1280022, "AppConfigInitialized_t"},
         {1280024, "Unknown"},
-        {1280025, "Unknown"},
+        {1280025, "DownloadingAppChanged_t"},
         {1280027, "AppLaunchResult_t"},
         {1280028, "Unknown"},
         {1280029, "Unknown"},

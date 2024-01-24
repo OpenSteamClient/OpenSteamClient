@@ -7,11 +7,13 @@ using Avalonia.Media;
 using Avalonia.Media.Imaging;
 using Avalonia.Threading;
 using ClientUI.ViewModels.Library;
+using ClientUI.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using OpenSteamworks.Client.Apps;
 using OpenSteamworks.Enums;
 using OpenSteamworks.Structs;
+using OpenSteamworks.Utils;
 
 namespace ClientUI.ViewModels.Library;
 
@@ -83,6 +85,9 @@ public partial class FocusedAppPaneViewModel : ViewModelBase
                 PlayButtonLocalizationToken = "#App_LaunchApp";
                 PlayButtonAction = new RelayCommand(Launch);
             }
+        } else if (app.State == EAppState.Uninstalled) {
+            PlayButtonLocalizationToken = "#App_InstallApp";
+            PlayButtonAction = new RelayCommand(RequestInstall);
         }
         else
         {
@@ -148,6 +153,15 @@ public partial class FocusedAppPaneViewModel : ViewModelBase
     {
         this.app.Kill();
     }
+
+    private void RequestInstall() {
+        UtilityFunctions.Assert(app is SteamApp);
+        SelectInstallDirectoryDialog dialog = new();
+        dialog.DataContext = AvaloniaApp.Container.ConstructOnly<SelectInstallDirectoryDialogViewModel>(dialog, (app as SteamApp)!);
+
+        AvaloniaApp.Current?.TryShowDialog(dialog);
+    }
+
 
     private void Launch()
     {

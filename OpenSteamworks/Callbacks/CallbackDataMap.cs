@@ -68,7 +68,13 @@ internal static partial class CallbackConstants {
         {typeof(DeviceAuthChanged_t), 1080007},
         {typeof(AppInfoUpdateComplete_t), 1280003},
         {typeof(AppInfoUpdateProgress_t), 1280001},
-        {typeof(AppInfoUpdateStarted_t), 1280017}
+        {typeof(AppInfoUpdateStarted_t), 1280017},
+        {typeof(AppConfigChanged_t), 1280019},
+        {typeof(DownloadingAppChanged_t), 1280025},
+        {typeof(AppValidationComplete_t), 1280007},
+        {typeof(RemoteStorageAppInfoLoaded_t), 1260004},
+        {typeof(UserSubscribedItemsListChanged_t), 3418},
+        {typeof(AppOwnershipTicketReceived_t), 1020028}
     };
     public readonly static Dictionary<int, Type> IDToType = TypeToID.ToDictionary(x => x.Value, x => x.Key);
 }

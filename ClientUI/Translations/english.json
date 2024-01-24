@@ -55,6 +55,12 @@
         "#App_StopApp": "Stop",
         "#App_StoppingApp": "Stopping",
         "#App_CancelAppLaunch": "Cancel",
-        "#Console_Send": "Send"
+        "#Console_Send": "Send",
+        "#Dialog_Cancel": "Cancel",
+        "#Dialog_OK": "OK",
+        "#Dialog_Yes": "Yes",
+        "#Dialog_No": "No",
+        "#SelectInstallDirectoryDialog_Title": "Install {0}",
+        "#SelectInstallDirectoryDialog_SelectLibraryFolder": "Select a library folder to install {0} in"
     }
 }

@@ -141,7 +141,7 @@ public unsafe interface IClientAppManager
     public LibraryFolder_t GetAppLibraryFolder(AppId_t appid);  // argc: 1, index: 79, ipc args: [bytes4], ipc returns: [bytes4]
     public unknown_ret RefreshLibraryFolders();  // argc: 0, index: 80, ipc args: [], ipc returns: []
     public UInt32 GetNumAppsInFolder(LibraryFolder_t folder);  // argc: 1, index: 81, ipc args: [bytes4], ipc returns: [bytes4]
-    public UInt32 GetAppsInFolder(LibraryFolder_t folder, AppId_t* apps, int appsLen);  // argc: 3, index: 82, ipc args: [bytes4, bytes4], ipc returns: [bytes4, bytes_length_from_reg]
+    public UInt32 GetAppsInFolder(LibraryFolder_t folder, uint[] apps, int appsLen);  // argc: 3, index: 82, ipc args: [bytes4, bytes4], ipc returns: [bytes4, bytes_length_from_reg]
     /// <summary>
     /// Forces all apps installed in the current session to be installed to a specific non-library folder directory.
     /// </summary>

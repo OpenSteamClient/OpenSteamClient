@@ -3,9 +3,9 @@ using ClientUI.Extensions;
 
 namespace ClientUI.Views;
 
-public partial class SecondFactorNeededDialog : Window
+public partial class SelectInstallDirectoryDialog : Window
 {
-    public SecondFactorNeededDialog()
+    public SelectInstallDirectoryDialog()
     {
         InitializeComponent();
         this.TranslatableInit();

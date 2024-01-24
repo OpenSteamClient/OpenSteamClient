@@ -9,9 +9,9 @@ namespace OpenSteamworks.Utils;
 public class IncrementingStringBuilder : IncrementingBase<StringBuilder> {
     private StringBuilder data;
     public override StringBuilder Data { get => data; set => data = value; }
-    public override int Length => data.Length;
+    public override int Length => data.Capacity;
 
-    public IncrementingStringBuilder(int startingLength = 256) {
+    public IncrementingStringBuilder(int startingLength = 128) {
         data = new StringBuilder(startingLength);
     }
 

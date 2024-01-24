@@ -55,6 +55,11 @@
         "#App_StopApp": "Lopeta",
         "#App_StoppingApp": "Lopetetaan",
         "#App_CancelAppLaunch": "Peruuta",
-        "#Console_Send": "Lähetä"
+        "#Console_Send": "Lähetä",
+        "#Dialog_Cancel": "Peruuta",
+        "#Dialog_OK": "OK",
+        "#Dialog_Yes": "Kyllä",
+        "#Dialog_No": "Ei",
+        "#SelectInstallDirectoryDialog_SelectLibraryFolder": "Valitse kirjastokansio minne {0} asennetaan"
     }
 }

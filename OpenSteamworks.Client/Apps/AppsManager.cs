@@ -73,7 +73,7 @@ public class AppsManager : ILogonLifetime
     /// </summary>
     public HashSet<AppId_t> OwnedApps {
         get {
-            return this.apps.Where(a => steamClient.IClientUser.BIsSubscribedApp(a.AppID)).Select(a => a.AppID).ToHashSet();
+            return GetAllUserApps().Where(a => steamClient.IClientUser.BIsSubscribedApp(a.AppID)).Select(a => a.AppID).ToHashSet();
         }
     }
 
@@ -150,15 +150,11 @@ public class AppsManager : ILogonLifetime
     private LibraryAssetsFile libraryAssetsFile = new(new KVObject("", new List<KVObject>()));
     private Thread? assetUpdateThread;
     public async Task OnLoggedOn(IExtendedProgress<int> progress, LoggedOnEventArgs e) {
-        List<AppBase> createdApps = new();
         foreach (var item in OwnedAppIDs)
         {
             try
             {
-                var app = GetApp(new CGameID(item));
-                if (app.Type == EAppType.Game || app.Type == EAppType.Beta || app.Type == EAppType.Application || app.Type == EAppType.Tool || app.Type == EAppType.Demo) {
-                    createdApps.Add(app);
-                }
+                GetApp(new CGameID(item));
             }
             catch (System.Exception e2)
             {
@@ -207,13 +203,11 @@ public class AppsManager : ILogonLifetime
         //NOTE: It doesn't really matter if you use async or sync code here.
         assetUpdateThread = new Thread(() =>
         {
-            foreach (var item in createdApps)
+            foreach (var item in GetAllUserApps())
             {
                 try
                 {
-                    if (item.Type == EAppType.Game || item.Type == EAppType.Application || item.Type == EAppType.Music || item.Type == EAppType.Beta) {
-                        TryLoadLocalLibraryAssets(item);
-                    }
+                    TryLoadLocalLibraryAssets(item);
                 }
                 catch (System.Exception e)
                 {
@@ -225,7 +219,7 @@ public class AppsManager : ILogonLifetime
             EnsureConcurrentAssetDict();
 
             List<Task> processingTasks = new();
-            foreach (var item in createdApps)
+            foreach (var item in GetAllUserApps())
             {
                 if (!item.NeedsLibraryAssetUpdate) {
                     continue;
@@ -565,7 +559,22 @@ public class AppsManager : ILogonLifetime
         return targetPath;
     }
 
-    private List<AppBase> apps = new();
+    private readonly List<AppBase> apps = new();
+        
+    /// <summary>
+    /// Gets all "user apps", which includes games, apps, betas, tools
+    /// </summary>
+    public IEnumerable<AppBase> GetAllUserApps() {
+        return GetAllAppsOfTypes(new[] {EAppType.Application, EAppType.Beta, EAppType.Game, EAppType.Tool});
+    }
+
+    public IEnumerable<AppBase> GetAllAppsOfTypes(EAppType[] types) {
+        return GetAllApps().Where(a => types.Contains(a.Type));
+    }
+
+    public IEnumerable<AppBase> GetAllApps() {
+        return apps.AsEnumerable();
+    }
 
     /// <summary>
     /// Gets an app. Initializes it synchronously if not previously initialized.
@@ -579,7 +588,12 @@ public class AppsManager : ILogonLifetime
         }
 
         var app = AppBase.CreateSteamApp(this, gameid.AppID);
-        apps.Add(app);
+
+        // There's too many configs and demo's to store them all in memory, so let's not (and demos as "demo" types seems to be deprecated anyway)
+        if (app.Type == EAppType.Config || app.Type == EAppType.Demo) {
+            apps.Add(app);
+        }
+        
         return app;
     }
 
@@ -674,6 +688,10 @@ public class AppsManager : ILogonLifetime
 
     public void SetDefaultCompatTool(string compatToolName) {
         this.steamClient.IClientCompat.SpecifyCompatTool(0, compatToolName, "", 75);
+    }
+
+    public async Task<EResult> LaunchApp(AppId_t app, int launchOption = -1, string userLaunchOptions = "") {
+        return await LaunchApp(GetApp(new CGameID(app)), launchOption, userLaunchOptions);
     }
 
     public async Task<EResult> LaunchApp(AppBase app, int launchOption, string userLaunchOptions) {

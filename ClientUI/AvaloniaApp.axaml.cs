@@ -36,6 +36,7 @@ public class AvaloniaApp : Application
     public static Theme? Theme;
     public new IClassicDesktopStyleApplicationLifetime ApplicationLifetime => (base.ApplicationLifetime as IClassicDesktopStyleApplicationLifetime)!;
     public static bool DebugEnabled = false;
+    public Window? MainWindow => ApplicationLifetime.MainWindow;
     static AvaloniaApp()
     {
         var installManager = new InstallManager();
@@ -235,6 +236,23 @@ public class AvaloniaApp : Application
         }
 
         ForceMainWindow();
+    }
+
+    public void ActivateMainWindow() {
+        ApplicationLifetime.MainWindow?.Show();
+        ApplicationLifetime.MainWindow?.Activate();
+    }
+
+    /// <summary>
+    /// Tries to show the window as a dialog, but will 
+    /// </summary>
+    /// <param name="dialog"></param>
+    public void TryShowDialog(Window dialog) {
+        if (ApplicationLifetime.MainWindow != null) {
+            dialog.ShowDialog(ApplicationLifetime.MainWindow);
+        } else {
+            dialog.Show();
+        }
     }
 
     /// <summary>

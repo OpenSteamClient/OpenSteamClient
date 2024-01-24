@@ -83,7 +83,7 @@ public class ClientApps {
 
     public bool IsAppInstalled(AppId_t app) {
         // This is probably good enough.
-        return !this.NativeClientAppManager.GetAppInstallState(app).HasFlag(EAppState.Uninstalled);
+        return this.NativeClientAppManager.GetAppInstallState(app).HasFlag(EAppState.FullyInstalled);
     }
 
     public string GetAppInstallDir(AppId_t app) {
@@ -102,24 +102,39 @@ public class ClientApps {
         return this.NativeClientAppManager.InstallApp(app, libraryFolder, false);
     }
 
-    public string? GetLibraryFolderPath(LibraryFolder_t libraryFolder) {
-        if (libraryFolder > this.NativeClientAppManager.GetNumLibraryFolders()) {
-            return null;
-        }
+    public string GetLibraryFolderPath(LibraryFolder_t libraryFolder) {
+        ThrowIfLibraryFolderOutOfBounds(libraryFolder);
 
         IncrementingStringBuilder builder = new();
         builder.RunUntilFits(() => this.NativeClientAppManager.GetLibraryFolderPath(libraryFolder, builder.Data, builder.Length));
         return builder.ToString();
     }
 
-    public string? GetLibraryFolderLabel(LibraryFolder_t libraryFolder) {
-        if (libraryFolder > this.NativeClientAppManager.GetNumLibraryFolders()) {
-            return null;
-        }
+    public string GetLibraryFolderLabel(LibraryFolder_t libraryFolder) {
+        ThrowIfLibraryFolderOutOfBounds(libraryFolder);
 
         IncrementingStringBuilder builder = new();
         builder.RunUntilFits(() => this.NativeClientAppManager.GetLibraryFolderLabel(libraryFolder, builder.Data, builder.Length));
         return builder.ToString();
+    }
+
+    private void ThrowIfLibraryFolderOutOfBounds(LibraryFolder_t libraryFolder) {
+        if (libraryFolder > this.NativeClientAppManager.GetNumLibraryFolders()) {
+            throw new InvalidOperationException("Library folder " + libraryFolder + " is not in range of 0-" + this.NativeClientAppManager.GetNumLibraryFolders());
+        }
+    }
+
+    public int GetNumLibraryFolders() => this.NativeClientAppManager.GetNumLibraryFolders();
+    public uint GetNumAppsInFolder(LibraryFolder_t libraryFolder) {
+        ThrowIfLibraryFolderOutOfBounds(libraryFolder);
+        return this.NativeClientAppManager.GetNumAppsInFolder(libraryFolder);
+    }
+
+    public unsafe IEnumerable<AppId_t> GetAppsInFolder(LibraryFolder_t libraryFolder) {
+        ThrowIfLibraryFolderOutOfBounds(libraryFolder);
+        IncrementingUIntArray arr = new();
+        arr.RunUntilFits(() => this.NativeClientAppManager.GetAppsInFolder(libraryFolder, arr.Data, arr.Length));
+        return arr.Data.Select(u => (AppId_t)u).ToList();
     }
 
     public LibraryFolder_t GetAppLibraryFolder(AppId_t appid) {
