@@ -38,7 +38,7 @@ public:
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     virtual unknown_ret AddToFirewall() = 0; //argc: 2, index 6
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret RemoveFromFirewall() = 0; //argc: 1, index 7
+    virtual unknown_ret RemoveFromFirewall() = 0; //argc: 2, index 7
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     virtual unknown_ret RegisterSteamProtocolHandler() = 0; //argc: 2, index 8
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!

@@ -127,7 +127,7 @@ public:
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     virtual bool SetItemVisibility( uint64, ERemoteStoragePublishedFileVisibility ) = 0; //argc: 3, index 50
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual bool SetItemTags( uint64, SteamParamStringArray_t  const* ) = 0; //argc: 3, index 51
+    virtual bool SetItemTags( uint64, SteamParamStringArray_t  const* ) = 0; //argc: 4, index 51
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     virtual bool SetItemContent( uint64, uint64 ) = 0; //argc: 3, index 52
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
@@ -155,58 +155,68 @@ public:
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     virtual unknown_ret RemoveContentDescriptor() = 0; //argc: 3, index 64
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret SubmitItemUpdate() = 0; //argc: 3, index 65
+    virtual unknown_ret SetExternalAssetID() = 0; //argc: 4, index 65
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret GetItemUpdateProgress() = 0; //argc: 4, index 66
+    virtual unknown_ret SubmitItemUpdate() = 0; //argc: 3, index 66
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret SetUserItemVote() = 0; //argc: 3, index 67
+    virtual unknown_ret GetItemUpdateProgress() = 0; //argc: 4, index 67
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret GetUserItemVote() = 0; //argc: 2, index 68
+    virtual unknown_ret SetUserItemVote() = 0; //argc: 3, index 68
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret AddItemToFavorites() = 0; //argc: 3, index 69
+    virtual unknown_ret GetUserItemVote() = 0; //argc: 2, index 69
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret RemoveItemFromFavorites() = 0; //argc: 3, index 70
+    virtual unknown_ret AddItemToFavorites() = 0; //argc: 3, index 70
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual uint64 SubscribeItem( uint32, uint64 ) = 0; //argc: 4, index 71
+    virtual unknown_ret RemoveItemFromFavorites() = 0; //argc: 3, index 71
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual uint64 UnsubscribeItem( uint32, uint64 ) = 0; //argc: 3, index 72
-    virtual uint32 GetNumSubscribedItems( uint32 ) = 0; //argc: 1, index 73
-    virtual uint32 GetSubscribedItems( uint32, uint64 *, uint32 ) = 0; //argc: 3, index 74
+    virtual uint64 SubscribeItem( uint32, uint64 ) = 0; //argc: 4, index 72
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret GetItemState() = 0; //argc: 3, index 75
+    virtual uint64 UnsubscribeItem( uint32, uint64 ) = 0; //argc: 3, index 73
+    virtual uint32 GetNumSubscribedItems( uint32 ) = 0; //argc: 1, index 74
+    virtual uint32 GetSubscribedItems( uint32, uint64 *, uint32 ) = 0; //argc: 3, index 75
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret GetItemInstallInfo() = 0; //argc: 7, index 76
+    virtual unknown_ret GetSubscribedItemsInternal() = 0; //argc: 2, index 76
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret GetItemDownloadInfo() = 0; //argc: 5, index 77
+    virtual unknown_ret SetWorkshopItemsDisabledLocally() = 0; //argc: 3, index 77
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret DownloadItem() = 0; //argc: 4, index 78
+    virtual unknown_ret SetSubscriptionsLoadOrder() = 0; //argc: 2, index 78
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret GetAppItemsStatus() = 0; //argc: 3, index 79
+    virtual unknown_ret MoveSubscriptionsLoadOrder() = 0; //argc: 3, index 79
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret BInitWorkshopForGameServer() = 0; //argc: 3, index 80
+    virtual unknown_ret GetItemState() = 0; //argc: 3, index 80
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret SuspendDownloads() = 0; //argc: 2, index 81
+    virtual unknown_ret GetItemInstallInfo() = 0; //argc: 7, index 81
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret GetAllItemsSizeOnDisk() = 0; //argc: 1, index 82
+    virtual unknown_ret GetItemDownloadInfo() = 0; //argc: 5, index 82
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret StartPlaytimeTracking() = 0; //argc: 3, index 83
+    virtual unknown_ret DownloadItem() = 0; //argc: 4, index 83
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret StopPlaytimeTracking() = 0; //argc: 3, index 84
+    virtual unknown_ret GetAppItemsStatus() = 0; //argc: 3, index 84
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret StopPlaytimeTrackingForAllItems() = 0; //argc: 1, index 85
+    virtual unknown_ret BInitWorkshopForGameServer() = 0; //argc: 3, index 85
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret AddDependency() = 0; //argc: 4, index 86
+    virtual unknown_ret SuspendDownloads() = 0; //argc: 2, index 86
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret RemoveDependency() = 0; //argc: 4, index 87
+    virtual unknown_ret GetAllItemsSizeOnDisk() = 0; //argc: 1, index 87
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret AddAppDependency() = 0; //argc: 3, index 88
+    virtual unknown_ret StartPlaytimeTracking() = 0; //argc: 3, index 88
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret RemoveAppDependency() = 0; //argc: 3, index 89
+    virtual unknown_ret StopPlaytimeTracking() = 0; //argc: 3, index 89
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret GetAppDependencies() = 0; //argc: 2, index 90
+    virtual unknown_ret StopPlaytimeTrackingForAllItems() = 0; //argc: 1, index 90
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret DeleteItem() = 0; //argc: 2, index 91
-    virtual unknown_ret ShowWorkshopEULA() = 0; //argc: 0, index 92
+    virtual unknown_ret AddDependency() = 0; //argc: 4, index 91
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual unknown_ret RemoveDependency() = 0; //argc: 4, index 92
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual unknown_ret AddAppDependency() = 0; //argc: 3, index 93
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual unknown_ret RemoveAppDependency() = 0; //argc: 3, index 94
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual unknown_ret GetAppDependencies() = 0; //argc: 2, index 95
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual unknown_ret DeleteItem() = 0; //argc: 2, index 96
+    virtual unknown_ret ShowWorkshopEULA() = 0; //argc: 0, index 97
     virtual unknown_ret GetWorkshopEULAStatus() = 0; //argc: 0, index 0
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     virtual unknown_ret GetUserContentDescriptorPreferences() = 0; //argc: 2, index 0

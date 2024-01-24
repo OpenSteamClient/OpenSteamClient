@@ -1,46 +1,135 @@
 {
     "name": "IClientRemotePlayMap",
-    "found_at": "0x23aaca8",
+    "found_at": "0x244cfd8",
     "functions": [ 
         {
             "name": "GetSessionCount",
             "argc": "1",
-            "addr": "0x615620"
+            "interfaceid": "52",
+            "functionid": "2794248700",
+            "fencepost": "2892432527",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x649c30",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "GetSessionID",
             "argc": "2",
-            "addr": "0x615780"
+            "interfaceid": "52",
+            "functionid": "1973243909",
+            "fencepost": "2071443865",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x649d90",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "GetSessionSteamID",
             "argc": "3",
-            "addr": "0x6158f0"
+            "interfaceid": "52",
+            "functionid": "2908162459",
+            "fencepost": "3006378544",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x649f00",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "uint64"
+            ]
         },
         {
             "name": "GetSessionClientName",
             "argc": "2",
-            "addr": "0x615a90"
+            "interfaceid": "52",
+            "functionid": "787084674",
+            "fencepost": "885316888",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x64a0a0",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "string"
+            ]
         },
         {
             "name": "GetSessionClientFormFactor",
             "argc": "2",
-            "addr": "0x615c00"
+            "interfaceid": "52",
+            "functionid": "4060454936",
+            "fencepost": "4158703279",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x64a210",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "BGetSessionClientResolution",
             "argc": "4",
-            "addr": "0x615d70"
+            "interfaceid": "52",
+            "functionid": "2408322032",
+            "fencepost": "2506651020",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x64a380",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "boolean",
+                "bytes4",
+                "bytes4"
+            ]
         },
         {
             "name": "BStartRemotePlayTogether",
             "argc": "2",
-            "addr": "0x615f20"
+            "interfaceid": "52",
+            "functionid": "1922132895",
+            "fencepost": "2020526399",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x64a530",
+            "serializedargs": [
+                "bytes1"
+            ],
+            "serializedreturns": [
+                "boolean"
+            ]
         },
         {
             "name": "BSendRemotePlayTogetherInvite",
             "argc": "3",
-            "addr": "0x6160a0"
+            "interfaceid": "52",
+            "functionid": "1483307303",
+            "fencepost": "1581716936",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x64a6b0",
+            "serializedargs": [
+                "uint64"
+            ],
+            "serializedreturns": [
+                "boolean"
+            ]
         }
     ]
 }

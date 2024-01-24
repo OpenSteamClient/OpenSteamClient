@@ -1,26 +1,68 @@
 {
     "name": "IClientSystemDockManagerMap",
-    "found_at": "0x23a9978",
+    "found_at": "0x244bd40",
     "functions": [ 
         {
             "name": "IsInterfaceValid",
             "argc": "1",
-            "addr": "0x5a4c10"
+            "interfaceid": "58",
+            "functionid": "862246284",
+            "fencepost": "906737432",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5dd630",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "boolean"
+            ]
         },
         {
             "name": "GetState",
             "argc": "2",
-            "addr": "0x5a4d70"
+            "interfaceid": "58",
+            "functionid": "724788077",
+            "fencepost": "769343741",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5dd790",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "unknown"
+            ]
         },
         {
             "name": "UpdateFirmware",
             "argc": "2",
-            "addr": "0x5a4ef0"
+            "interfaceid": "58",
+            "functionid": "1231225197",
+            "fencepost": "1275877635",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5dd910",
+            "serializedargs": [
+                "protobuf"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "DisarmSafetyNet",
             "argc": "1",
-            "addr": "0x5a5080"
+            "interfaceid": "58",
+            "functionid": "874836135",
+            "fencepost": "919536960",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5ddaa0",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         }
     ]
 }

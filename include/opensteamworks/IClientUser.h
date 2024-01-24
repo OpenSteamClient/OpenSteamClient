@@ -201,10 +201,9 @@ public:
     virtual void AuthorizeNewDevice() = 0; //argc: 3, index 4
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     virtual void GetLanguage() = 0; //argc: 2, index 5
-    virtual void TrackNatTraversalStat() = 0; //argc: 1, index 6
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual void TrackSteamUsageEvent() = 0; //argc: 3, index 7
-    virtual void SetComputerInUse() = 0; //argc: 0, index 8
+    virtual void TrackSteamUsageEvent() = 0; //argc: 3, index 6
+    virtual void SetComputerInUse() = 0; //argc: 0, index 7
     virtual void BIsGameRunning() = 0; //argc: 1, index 0
     virtual void BIsGameWindowReady() = 0; //argc: 1, index 1
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
@@ -358,14 +357,13 @@ public:
     virtual void BIsPhoneIdentifying() = 0; //argc: 0, index 1
     virtual void SetPhoneIsRequiringVerification() = 0; //argc: 1, index 0
     virtual void BIsPhoneRequiringVerification() = 0; //argc: 0, index 1
-    virtual void ChangeTwoFactorAuthOptions() = 0; //argc: 1, index 0
-    virtual void Set2ndFactorAuthCode(const char* pchAuthCode, bool bDontRememberComputer) = 0; //argc: 2, index 1
-    virtual void SetUserMachineName(const char* newMachineName) = 0; //argc: 1, index 2
+    virtual void Set2ndFactorAuthCode(const char* pchAuthCode, bool bDontRememberComputer) = 0; //argc: 2, index 0
+    virtual void SetUserMachineName(const char* newMachineName) = 0; //argc: 1, index 1
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual char* GetUserMachineName() = 0; //argc: 2, index 3
+    virtual char* GetUserMachineName() = 0; //argc: 2, index 2
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual void GetEmailDomainFromLogonFailure() = 0; //argc: 2, index 4
-    virtual void GetAgreementSessionUrl() = 0; //argc: 0, index 5
+    virtual void GetEmailDomainFromLogonFailure() = 0; //argc: 2, index 3
+    virtual void GetAgreementSessionUrl() = 0; //argc: 0, index 4
     virtual void GetDurationControl() = 0; //argc: 0, index 0
     virtual void GetDurationControlForApp() = 0; //argc: 1, index 0
     virtual void BSetDurationControlOnlineState() = 0; //argc: 1, index 1
@@ -409,9 +407,10 @@ public:
     virtual void BGetRecoveryEmail() = 0; //argc: 2, index 0
     virtual void RequestParentalRecoveryEmail() = 0; //argc: 0, index 1
     virtual void BIsLockFromSiteLicense() = 0; //argc: 0, index 0
-    virtual void BGetSerializedParentalSettings() = 0; //argc: 1, index 0
-    virtual void BSetParentalSettings() = 0; //argc: 1, index 1
-    virtual void BDisableParentalSettings() = 0; //argc: 0, index 2
+    virtual unknown_ret EIsParentalPlaytimeBlocked() = 0; //argc: 0, index 0
+    virtual void BGetSerializedParentalSettings() = 0; //argc: 1, index 1
+    virtual void BSetParentalSettings() = 0; //argc: 1, index 2
+    virtual void BDisableParentalSettings() = 0; //argc: 0, index 3
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     virtual void BGetParentalWebToken() = 0; //argc: 2, index 0
     virtual void GetCommunityPreference() = 0; //argc: 1, index 1
@@ -445,7 +444,9 @@ public:
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     virtual void UpdateGameVrDllState() = 0; //argc: 3, index 0
     virtual void KillVRTheaterPancakeGame() = 0; //argc: 1, index 1
-    virtual void BIsAnyGameOrServiceAppRunning() = 0; //argc: 0, index 2
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual unknown_ret SetVRIsHMDAwake() = 0; //argc: 1, index 2
+    virtual void BIsAnyGameOrServiceAppRunning() = 0; //argc: 0, index 3
     virtual void BGetAppPlaytimeMap(CUtlMap<AppId_t, uint64> *mapOut) = 0; //argc: 1, index 0
     virtual void BGetAppsLastPlayedMap(CUtlMap<AppId_t, uint64> *mapOut) = 0; //argc: 1, index 1
     virtual bool BGetAppTagsMap(CUtlMap<AppId_t, AppTags_t> *mapOut) = 0; //argc: 1, index 2
@@ -474,6 +475,15 @@ public:
     virtual AppId_t GetAppIDForGameID(CGameID) = 0; //argc: 1, index 1
     virtual void BDoNotDisturb() = 0; //argc: 0, index 2
     virtual void SetAdditionalClientArgData() = 0; //argc: 1, index 0
+    virtual unknown_ret GetFamilyGroupID() = 0; //argc: 0, index 1
+    virtual unknown_ret GetFamilyGroupName() = 0; //argc: 0, index 2
+    virtual unknown_ret GetFamilyGroupRole() = 0; //argc: 0, index 3
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual unknown_ret GetFamilyGroupMembers() = 0; //argc: 2, index 4
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual unknown_ret NotifyPendingGameLaunch_FetchSteamStreamingEncoderConfig() = 0; //argc: 1, index 5
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual unknown_ret BShouldWaitForSteamStreamingEncoderConfig() = 0; //argc: 1, index 6
 };
 
 #endif // ICLIENTUSER_H

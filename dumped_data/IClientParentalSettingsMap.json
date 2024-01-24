@@ -1,51 +1,148 @@
 {
     "name": "IClientParentalSettingsMap",
-    "found_at": "0x23aa14c",
+    "found_at": "0x244c514",
     "functions": [ 
         {
             "name": "BIsParentalLockEnabled",
             "argc": "1",
-            "addr": "0x5d2fe0"
+            "interfaceid": "27",
+            "functionid": "1037289508",
+            "fencepost": "1109550857",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x60ba00",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "boolean"
+            ]
         },
         {
             "name": "BIsParentalLockLocked",
             "argc": "1",
-            "addr": "0x5d3140"
+            "interfaceid": "27",
+            "functionid": "1743084858",
+            "fencepost": "1815362336",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x60bb60",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "boolean"
+            ]
         },
         {
             "name": "BIsAppBlocked",
             "argc": "2",
-            "addr": "0x5d32a0"
+            "interfaceid": "27",
+            "functionid": "3328855105",
+            "fencepost": "3401148712",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x60bcc0",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "boolean"
+            ]
         },
         {
             "name": "BIsAppInBlockList",
             "argc": "2",
-            "addr": "0x5d3420"
+            "interfaceid": "27",
+            "functionid": "460900072",
+            "fencepost": "533209808",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x60be40",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "boolean"
+            ]
         },
         {
             "name": "BIsFeatureBlocked",
             "argc": "2",
-            "addr": "0x5d35a0"
+            "interfaceid": "27",
+            "functionid": "1806474481",
+            "fencepost": "1878800346",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x60bfc0",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "boolean"
+            ]
         },
         {
             "name": "BIsFeatureInBlockList",
             "argc": "2",
-            "addr": "0x5d3720"
+            "interfaceid": "27",
+            "functionid": "2637634336",
+            "fencepost": "2709976330",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x60c140",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "boolean"
+            ]
         },
         {
             "name": "BGetSerializedParentalSettings",
             "argc": "2",
-            "addr": "0x5d38a0"
+            "interfaceid": "27",
+            "functionid": "3905112005",
+            "fencepost": "3977502386",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x60c2c0",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "boolean",
+                "unknown"
+            ]
         },
         {
             "name": "BGetRecoveryEmail",
             "argc": "3",
-            "addr": "0x5d3a20"
+            "interfaceid": "27",
+            "functionid": "2386796345",
+            "fencepost": "2459299629",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x60c440",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "boolean",
+                "bytes_length_from_mem"
+            ]
         },
         {
             "name": "BIsLockFromSiteLicense",
             "argc": "1",
-            "addr": "0x5d3bb0"
+            "interfaceid": "27",
+            "functionid": "1829347367",
+            "fencepost": "1901915167",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x60c5d0",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "boolean"
+            ]
         }
     ]
 }

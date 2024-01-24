@@ -1,21 +1,62 @@
 {
     "name": "IClientGameCoordinatorMap",
-    "found_at": "0x23a9dd0",
+    "found_at": "0x244c198",
     "functions": [ 
         {
             "name": "SendMessage",
             "argc": "5",
-            "addr": "0x5bf190"
+            "interfaceid": "19",
+            "functionid": "3499677205",
+            "fencepost": "3560663367",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5f7bb0",
+            "serializedargs": [
+                "bytes4",
+                "bytes4",
+                "bytes4",
+                "bytes_length_from_mem"
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "IsMessageAvailable",
             "argc": "3",
-            "addr": "0x5bf340"
+            "interfaceid": "19",
+            "functionid": "1188771612",
+            "fencepost": "1249838419",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5f7d60",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "boolean",
+                "bytes4"
+            ]
         },
         {
             "name": "RetrieveMessage",
             "argc": "6",
-            "addr": "0x5bf4d0"
+            "interfaceid": "19",
+            "functionid": "1763933754",
+            "fencepost": "1825145722",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5f7ef0",
+            "serializedargs": [
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes4",
+                "bytes4",
+                "bytes4",
+                "bytes_length_from_mem"
+            ]
         }
     ]
 }

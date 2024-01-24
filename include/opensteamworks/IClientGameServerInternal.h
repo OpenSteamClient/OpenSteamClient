@@ -40,7 +40,7 @@ public:
     // WARNING: Do not use this function! Unknown behaviour will occur!
     virtual unknown_ret Unknown_3_DONTUSE() = 0; //argc: -1, index 4
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret InitGameServerSerialized() = 0; //argc: 6, index 5
+    virtual unknown_ret InitGameServerSerialized() = 0; //argc: 8, index 5
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     virtual unknown_ret SetProduct() = 0; //argc: 1, index 6
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!

@@ -1,41 +1,112 @@
 {
     "name": "IClientNetworkingUtilsSerializedMap",
-    "found_at": "0x23aac74",
+    "found_at": "0x244cfa4",
     "functions": [ 
         {
             "name": "GetNetworkConfigJSON_DEPRECATED",
             "argc": "4",
-            "addr": "0x614990"
+            "interfaceid": "50",
+            "functionid": "687842924",
+            "fencepost": "785397466",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x648fa0",
+            "serializedargs": [
+                "bytes4",
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes4",
+                "bytes_length_from_mem"
+            ]
         },
         {
             "name": "GetLauncherType",
             "argc": "1",
-            "addr": "0x614b30"
+            "interfaceid": "50",
+            "functionid": "2850033597",
+            "fencepost": "2947636526",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x649140",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "TEST_ClearCachedNetworkConfig",
             "argc": "1",
-            "addr": "0x614df0"
+            "interfaceid": "50",
+            "functionid": "3061613554",
+            "fencepost": "3159313257",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x649400",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "PostConnectionStateMsg",
             "argc": "3",
-            "addr": "0x614c90"
+            "interfaceid": "50",
+            "functionid": "3774977801",
+            "fencepost": "3872645246",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6492a0",
+            "serializedargs": [
+                "bytes4",
+                "bytes_length_from_mem"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "PostConnectionStateUpdatesForAllConnections",
             "argc": "1",
-            "addr": "0x614f20"
+            "interfaceid": "50",
+            "functionid": "2261759103",
+            "fencepost": "2359474935",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x649530",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "PostAppSummaryUpdates",
             "argc": "1",
-            "addr": "0x615050"
+            "interfaceid": "50",
+            "functionid": "37822513",
+            "fencepost": "135554474",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x649660",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "GotLocationString",
             "argc": "2",
-            "addr": "0x615180"
+            "interfaceid": "50",
+            "functionid": "2020165378",
+            "fencepost": "2117913468",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x649790",
+            "serializedargs": [
+                "string"
+            ],
+            "serializedreturns": [
+            ]
         }
     ]
 }

@@ -1,36 +1,115 @@
 {
     "name": "IClientDepotBuilderMap",
-    "found_at": "0x23a986c",
+    "found_at": "0x244bc50",
     "functions": [ 
         {
             "name": "BGetDepotBuildStatus",
             "argc": "6",
-            "addr": "0x59eec0"
+            "interfaceid": "16",
+            "functionid": "4119065422",
+            "fencepost": "4160357694",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5d80a0",
+            "serializedargs": [
+                "bytes8"
+            ],
+            "serializedreturns": [
+                "boolean",
+                "bytes4",
+                "bytes8",
+                "bytes8"
+            ]
         },
         {
             "name": "VerifyChunkStore",
             "argc": "4",
-            "addr": "0x59f090"
+            "interfaceid": "16",
+            "functionid": "3857174069",
+            "fencepost": "3898546986",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5d8270",
+            "serializedargs": [
+                "bytes4",
+                "bytes4",
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "Unknown_2",
             "argc": "0",
-            "addr": "0x59f240"
+            "interfaceid": "0",
+            "functionid": "0",
+            "fencepost": "0",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5d8420",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "DownloadChunk",
             "argc": "4",
-            "addr": "0x59f890"
+            "interfaceid": "16",
+            "functionid": "4125622613",
+            "fencepost": "4167027788",
+            "cannotcallincrossprocess": "1",
+            "serializedreturn": "",
+            "addr": "0x5d8a70",
+            "serializedargs": [
+                "bytes4",
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "StartDepotBuild",
             "argc": "5",
-            "addr": "0x59f4e0"
+            "interfaceid": "16",
+            "functionid": "3870246543",
+            "fencepost": "3911748492",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5d86c0",
+            "serializedargs": [
+                "bytes4",
+                "bytes4",
+                "bytes4",
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "CommitAppBuild",
             "argc": "7",
-            "addr": "0x59f6b0"
+            "interfaceid": "16",
+            "functionid": "297107503",
+            "fencepost": "338754613",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5d8890",
+            "serializedargs": [
+                "bytes4",
+                "bytes4",
+                "bytes_length_from_reg",
+                "bytes_length_from_reg",
+                "string",
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         }
     ]
 }

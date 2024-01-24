@@ -61,7 +61,7 @@ public:
     virtual void GetInstallPath() = 0; //argc: 0, index 1
     virtual void GetUserBaseFolderInstallImage() = 0; //argc: 0, index 0
     virtual unknown_ret GetUserBaseFolderPersistentStorage() = 0; //argc: 0, index 0
-    virtual void GetManagedContentRoot() = 0; //argc: 0, index 1
+    virtual void GetManagedContentRoot() = 0; //argc: 0, index 0
     virtual void GetSecondsSinceAppActive() = 0; //argc: 0, index 0
     virtual void GetSecondsSinceComputerActive() = 0; //argc: 0, index 0
     virtual void SetComputerActive() = 0; //argc: 0, index 0
@@ -137,7 +137,6 @@ public:
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     virtual void GetControllerConfigFileForAppID() = 0; //argc: 3, index 6
     virtual void IsSteamRunningInVR() = 0; //argc: 0, index 7
-    virtual void BIsRunningOnAlienwareAlpha() = 0; //argc: 0, index 0
     virtual void StartVRDashboard() = 0; //argc: 0, index 0
     virtual void IsVRHeadsetStreamingEnabled() = 0; //argc: 1, index 0
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
@@ -199,7 +198,9 @@ public:
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     virtual void ShowFloatingGamepadTextInput() = 0; //argc: 6, index 5
     virtual void DismissFloatingGamepadTextInput() = 0; //argc: 1, index 6
-    virtual void FloatingGamepadTextInputDismissed() = 0; //argc: 0, index 7
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual unknown_ret DismissGamepadTextInput() = 0; //argc: 1, index 7
+    virtual void FloatingGamepadTextInputDismissed() = 0; //argc: 0, index 8
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     virtual void SetGameLauncherMode() = 0; //argc: 2, index 0
     virtual void ClearAllHTTPCaches() = 0; //argc: 0, index 1
@@ -216,6 +217,9 @@ public:
     virtual unknown_ret DumpHTTPClients() = 0; //argc: 1, index 4
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     virtual unknown_ret BGetMachineID() = 0; //argc: 1, index 5
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual unknown_ret NotifyMissingInterface() = 0; //argc: 1, index 6
+    virtual unknown_ret IsSteamInTournamentMode() = 0; //argc: 0, index 7
 };
 
 #endif // ICLIENTUTILS_H

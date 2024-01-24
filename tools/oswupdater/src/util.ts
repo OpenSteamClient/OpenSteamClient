@@ -1,6 +1,7 @@
-import { exec, ExecOptions } from 'child_process';
+import { exec, SpawnOptionsWithoutStdio } from 'child_process';
 import fs from "fs";
 import pathlib from "path";
+import { spawn } from "child_process";
 
 export function mkdir(path: string, recursive: boolean = false): void {
     if (!fs.existsSync(path)){
@@ -8,19 +9,45 @@ export function mkdir(path: string, recursive: boolean = false): void {
     }
 }
 
-export function execWrap(command: string, options: ExecOptions): Promise<string> {
+//TODO: this doesn't wait for the process to finish executing, even though it should
+export function execWrap(command: string, options: SpawnOptionsWithoutStdio): Promise<string> {
     return new Promise<string>((resolve, reject) => {
-        var exechandle = exec(command, options, ((error, stdout, stderr) => {
-            if (error) {
-                reject(error);
-                return;
+        var cmd = spawn(command, { ...options, shell: true });
+        var alldata: string = "";
+        cmd.stdout.on('data', function (data) {
+            console.log(data.toString());
+            alldata += data.toString();
+        });
+        
+        cmd.stderr.on('data', function (data) {
+            console.log(data.toString());
+            alldata += data.toString();
+        });
+        
+        cmd.on('exit', function (code) {
+            if (code == null) {
+                reject("code is null???");
+            } else {
+                if (code != 0) {
+                    reject("command exited with non-zero exit code " + code);
+                } else {
+                    resolve(alldata);
+                }
+                console.log('child process exited with code ' + code.toString());
             }
-            resolve(stdout);
-        }));
-        exechandle.stdout?.pipe(process.stdout);
-        exechandle.stderr?.pipe(process.stderr);
-        if (exechandle.stdin) 
-            process.stdin.pipe(exechandle.stdin);
+        });
+
+        // var exechandle = exec(command, options, ((error, stdout, stderr) => {
+        //     if (error) {
+        //         reject(error);
+        //         return;
+        //     }
+        //     resolve(stdout);
+        // }));
+        // exechandle.stdout?.pipe(process.stdout);
+        // exechandle.stderr?.pipe(process.stderr);
+        // if (exechandle.stdin) 
+        //     process.stdin.pipe(exechandle.stdin);
     })
 }
 

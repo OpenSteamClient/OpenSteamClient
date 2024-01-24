@@ -399,22 +399,21 @@ public:
     virtual unknown_ret GetFriendProfileInfo(CSteamID, char const*) = 0; //argc: 3, index 1
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     virtual unknown_ret InviteUserToGame(unsigned int, CSteamID, char const*) = 0; //argc: 4, index 2
-    virtual unknown_ret GetOnlineConsoleFriendCount() = 0; //argc: 0, index 3
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret RequestTrade(CSteamID) = 0; //argc: 2, index 0
-    virtual unknown_ret TradeResponse(unsigned int, bool) = 0; //argc: 2, index 1
+    virtual unknown_ret RequestTrade(CSteamID) = 0; //argc: 2, index 3
+    virtual unknown_ret TradeResponse(unsigned int, bool) = 0; //argc: 2, index 4
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret CancelTradeRequest(CSteamID) = 0; //argc: 2, index 2
+    virtual unknown_ret CancelTradeRequest(CSteamID) = 0; //argc: 2, index 5
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret HideFriend(CSteamID, bool) = 0; //argc: 3, index 3
+    virtual unknown_ret HideFriend(CSteamID, bool) = 0; //argc: 3, index 6
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret GetFollowerCount(CSteamID) = 0; //argc: 2, index 4
+    virtual unknown_ret GetFollowerCount(CSteamID) = 0; //argc: 2, index 7
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret IsFollowing(CSteamID) = 0; //argc: 2, index 5
-    virtual unknown_ret EnumerateFollowingList(unsigned int) = 0; //argc: 1, index 6
+    virtual unknown_ret IsFollowing(CSteamID) = 0; //argc: 2, index 8
+    virtual unknown_ret EnumerateFollowingList(unsigned int) = 0; //argc: 1, index 9
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret RequestFriendMessageHistory(CSteamID) = 0; //argc: 2, index 7
-    virtual unknown_ret RequestFriendMessageHistoryForOfflineMessages() = 0; //argc: 0, index 8
+    virtual unknown_ret RequestFriendMessageHistory(CSteamID) = 0; //argc: 2, index 10
+    virtual unknown_ret RequestFriendMessageHistoryForOfflineMessages() = 0; //argc: 0, index 11
     virtual unknown_ret GetCountFriendsWithOfflineMessages() = 0; //argc: 0, index 0
     virtual unknown_ret GetFriendWithOfflineMessage(int) = 0; //argc: 1, index 0
     virtual unknown_ret ClearFriendHasOfflineMessage(unsigned int) = 0; //argc: 1, index 1

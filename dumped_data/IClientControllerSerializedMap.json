@@ -1,1076 +1,2766 @@
 {
     "name": "IClientControllerSerializedMap",
-    "found_at": "0x23aa7e8",
+    "found_at": "0x244cbd8",
     "functions": [ 
         {
             "name": "Unknown_0",
             "argc": "0",
-            "addr": "0x54f780"
+            "interfaceid": "0",
+            "functionid": "0",
+            "fencepost": "0",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x588070",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "Unknown_1",
             "argc": "0",
-            "addr": "0x617950"
+            "interfaceid": "0",
+            "functionid": "0",
+            "fencepost": "0",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x64bf60",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "ShowBindingPanel",
             "argc": "4",
-            "addr": "0x5f9910"
+            "interfaceid": "41",
+            "functionid": "1683742348",
+            "fencepost": "1774602212",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x633410",
+            "serializedargs": [
+                "bytes4",
+                "bytes8"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "GetControllerTypeForHandle",
             "argc": "3",
-            "addr": "0x5f9ab0"
+            "interfaceid": "41",
+            "functionid": "3862712772",
+            "fencepost": "3953588765",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6335b0",
+            "serializedargs": [
+                "bytes8"
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "GetGamepadIndexForHandle",
             "argc": "3",
-            "addr": "0x5f9c30"
+            "interfaceid": "41",
+            "functionid": "97868736",
+            "fencepost": "188760858",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x633730",
+            "serializedargs": [
+                "bytes8"
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "GetHandleForGamepadIndex",
             "argc": "2",
-            "addr": "0x5f9db0"
+            "interfaceid": "41",
+            "functionid": "2574468915",
+            "fencepost": "2665377166",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6338b0",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "GetActionSetHandle",
             "argc": "3",
-            "addr": "0x5f9f40"
+            "interfaceid": "41",
+            "functionid": "682883387",
+            "fencepost": "773807767",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x633a40",
+            "serializedargs": [
+                "bytes4",
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "GetActionSetHandleByTitle",
             "argc": "3",
-            "addr": "0x5fa0e0"
+            "interfaceid": "41",
+            "functionid": "3368385709",
+            "fencepost": "3459326218",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x633be0",
+            "serializedargs": [
+                "bytes4",
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "ActivateActionSet",
             "argc": "6",
-            "addr": "0x5fa280"
+            "interfaceid": "41",
+            "functionid": "3468977154",
+            "fencepost": "3559933792",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x633d80",
+            "serializedargs": [
+                "bytes4",
+                "bytes8",
+                "bytes8"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "ActivateActionSetLayer",
             "argc": "6",
-            "addr": "0x5fa420"
+            "interfaceid": "41",
+            "functionid": "514817138",
+            "fencepost": "605789905",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x633f20",
+            "serializedargs": [
+                "bytes4",
+                "bytes8",
+                "bytes8"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "DeactivateActionSetLayer",
             "argc": "6",
-            "addr": "0x5fa5c0"
+            "interfaceid": "41",
+            "functionid": "42465186",
+            "fencepost": "133454082",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6340c0",
+            "serializedargs": [
+                "bytes4",
+                "bytes8",
+                "bytes8"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "DeactivateAllActionSetLayers",
             "argc": "4",
-            "addr": "0x5fa760"
+            "interfaceid": "41",
+            "functionid": "4229022798",
+            "fencepost": "25060527",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x634260",
+            "serializedargs": [
+                "bytes4",
+                "bytes8"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "GetActiveActionSetLayers",
             "argc": "5",
-            "addr": "0x5fa8d0"
+            "interfaceid": "41",
+            "functionid": "1964497508",
+            "fencepost": "2055518662",
+            "cannotcallincrossprocess": "1",
+            "serializedreturn": "",
+            "addr": "0x6343d0",
+            "serializedargs": [
+                "bytes4",
+                "bytes8",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "GetDigitalActionHandle",
             "argc": "4",
-            "addr": "0x5faac0"
+            "interfaceid": "41",
+            "functionid": "2528304502",
+            "fencepost": "2619341785",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6345c0",
+            "serializedargs": [
+                "bytes4",
+                "string",
+                "bytes1"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "GetAnalogActionHandle",
             "argc": "4",
-            "addr": "0x5fac80"
+            "interfaceid": "41",
+            "functionid": "971374483",
+            "fencepost": "1062427895",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x634780",
+            "serializedargs": [
+                "bytes4",
+                "string",
+                "bytes1"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "StopAnalogActionMomentum",
             "argc": "5",
-            "addr": "0x5fae40"
+            "interfaceid": "41",
+            "functionid": "2524571753",
+            "fencepost": "2615641294",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x634940",
+            "serializedargs": [
+                "bytes8",
+                "bytes8"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "EnableDeviceCallbacks",
             "argc": "2",
-            "addr": "0x6060f0"
+            "interfaceid": "41",
+            "functionid": "2094688479",
+            "fencepost": "2189435432",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x63e560",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "GetStringForDigitalActionName",
             "argc": "6",
-            "addr": "0x606240"
+            "interfaceid": "41",
+            "functionid": "399399804",
+            "fencepost": "494243531",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x63e6b0",
+            "serializedargs": [
+                "bytes4",
+                "bytes8",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes_length_from_mem"
+            ]
         },
         {
             "name": "GetStringForAnalogActionName",
             "argc": "6",
-            "addr": "0x606410"
+            "interfaceid": "41",
+            "functionid": "1767600500",
+            "fencepost": "1862573259",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x63e880",
+            "serializedargs": [
+                "bytes4",
+                "bytes8",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes_length_from_mem"
+            ]
         },
         {
             "name": "BCheckGameDirectoryAndReloadConfigIfNecessary",
             "argc": "4",
-            "addr": "0x6065e0"
+            "interfaceid": "41",
+            "functionid": "2851694637",
+            "fencepost": "2946780299",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x63ea50",
+            "serializedargs": [
+                "bytes4",
+                "bytes4",
+                "bytes_length_from_mem"
+            ],
+            "serializedreturns": [
+                "boolean"
+            ]
         },
         {
             "name": "GetActionManifestPath",
             "argc": "2",
-            "addr": "0x606780"
+            "interfaceid": "41",
+            "functionid": "3396521526",
+            "fencepost": "3491639446",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x63ebf0",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "string"
+            ]
         },
         {
             "name": "GetActionManifestPath",
             "argc": "3",
-            "addr": "0x6068f0"
+            "interfaceid": "41",
+            "functionid": "1349347327",
+            "fencepost": "1444481376",
+            "cannotcallincrossprocess": "1",
+            "serializedreturn": "",
+            "addr": "0x63ed60",
+            "serializedargs": [
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "string"
+            ]
         },
         {
             "name": "DumpConfigurationToDisk",
             "argc": "2",
-            "addr": "0x606aa0"
+            "interfaceid": "41",
+            "functionid": "2047882675",
+            "fencepost": "2143032853",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x63ef10",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "FlushCloudedConfigFilesToDisk",
             "argc": "1",
-            "addr": "0x606c20"
+            "interfaceid": "41",
+            "functionid": "4127927218",
+            "fencepost": "4223093525",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x63f090",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "StartBindingVisualization",
             "argc": "4",
-            "addr": "0x6075a0"
+            "interfaceid": "41",
+            "functionid": "7268221",
+            "fencepost": "102547431",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x642d80",
+            "serializedargs": [
+                "bytes4",
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "StopBindingVisualization",
             "argc": "3",
-            "addr": "0x607710"
+            "interfaceid": "41",
+            "functionid": "1330584530",
+            "fencepost": "1425879869",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x63fa10",
+            "serializedargs": [
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "GetNumConnectedControllers",
             "argc": "1",
-            "addr": "0x5fafd0"
+            "interfaceid": "41",
+            "functionid": "2602479183",
+            "fencepost": "2693564853",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x634ad0",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "GetAllControllersStatus",
             "argc": "2",
-            "addr": "0x6079c0"
+            "interfaceid": "41",
+            "functionid": "497450979",
+            "fencepost": "588552778",
+            "cannotcallincrossprocess": "1",
+            "serializedreturn": "",
+            "addr": "0x63fcc0",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "GetControllerDetails",
             "argc": "2",
-            "addr": "0x5fb840"
-        },
-        {
-            "name": "FactoryReset",
-            "argc": "2",
-            "addr": "0x5fb9d0"
+            "interfaceid": "41",
+            "functionid": "2356235901",
+            "fencepost": "2447434474",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x635340",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "SetDefaultConfig",
             "argc": "2",
-            "addr": "0x5fbb50"
+            "interfaceid": "41",
+            "functionid": "3326106398",
+            "fencepost": "3417321100",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6354d0",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "CalibrateTrackpads",
             "argc": "2",
-            "addr": "0x5fbcd0"
+            "interfaceid": "41",
+            "functionid": "2603582682",
+            "fencepost": "2694813513",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x635650",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "CalibrateJoystick",
             "argc": "2",
-            "addr": "0x5fbe50"
+            "interfaceid": "41",
+            "functionid": "23538966",
+            "fencepost": "114785926",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6357d0",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "CalibrateIMU",
             "argc": "2",
-            "addr": "0x5fbfd0"
+            "interfaceid": "41",
+            "functionid": "2918722164",
+            "fencepost": "3009985253",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x635950",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "SetAudioMapping",
             "argc": "3",
-            "addr": "0x607b30"
+            "interfaceid": "41",
+            "functionid": "2918268668",
+            "fencepost": "3009547886",
+            "cannotcallincrossprocess": "1",
+            "serializedreturn": "",
+            "addr": "0x63fe30",
+            "serializedargs": [
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "PlayAudio",
             "argc": "3",
-            "addr": "0x5fc150"
+            "interfaceid": "41",
+            "functionid": "693564349",
+            "fencepost": "784859696",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x635ad0",
+            "serializedargs": [
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "ResetStickExtents",
             "argc": "2",
-            "addr": "0x5fc2e0"
+            "interfaceid": "41",
+            "functionid": "2997401541",
+            "fencepost": "3088713017",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x635c60",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "BIsStreamingController",
             "argc": "2",
-            "addr": "0x5fc460"
+            "interfaceid": "41",
+            "functionid": "1779230580",
+            "fencepost": "1870558185",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x635de0",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "boolean"
+            ]
         },
         {
             "name": "SetUserLedColor",
             "argc": "5",
-            "addr": "0x5fc5e0"
+            "interfaceid": "41",
+            "functionid": "1068319182",
+            "fencepost": "1159662916",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x635f60",
+            "serializedargs": [
+                "bytes4",
+                "bytes1",
+                "bytes1",
+                "bytes1"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "SetRumble",
             "argc": "6",
-            "addr": "0x5fc7b0"
+            "interfaceid": "41",
+            "functionid": "3075422183",
+            "fencepost": "3166782046",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x636130",
+            "serializedargs": [
+                "bytes4",
+                "bytes4",
+                "bytes4",
+                "bytes2",
+                "bytes2"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "SetRumbleExtended",
             "argc": "8",
-            "addr": "0x5fc990"
+            "interfaceid": "41",
+            "functionid": "2166554409",
+            "fencepost": "2257930401",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x636310",
+            "serializedargs": [
+                "bytes4",
+                "bytes4",
+                "bytes4",
+                "bytes2",
+                "bytes2",
+                "bytes2",
+                "bytes2"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "IdentifyControllerRumbleEffect",
             "argc": "2",
-            "addr": "0x5fcbc0"
+            "interfaceid": "41",
+            "functionid": "1285403162",
+            "fencepost": "1376795283",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x636540",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "SetGyroAutoCalibrate",
             "argc": "3",
-            "addr": "0x5fcd40"
+            "interfaceid": "41",
+            "functionid": "3973676868",
+            "fencepost": "4065085118",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6366c0",
+            "serializedargs": [
+                "bytes4",
+                "bytes1"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "RequestGyroActive",
             "argc": "4",
-            "addr": "0x5fcee0"
+            "interfaceid": "41",
+            "functionid": "1333163459",
+            "fencepost": "1424587838",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x636860",
+            "serializedargs": [
+                "bytes4",
+                "bytes4",
+                "bytes1"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "SetGyroCalibrating",
             "argc": "3",
-            "addr": "0x5fd060"
+            "interfaceid": "41",
+            "functionid": "555866902",
+            "fencepost": "647307410",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6369e0",
+            "serializedargs": [
+                "bytes4",
+                "bytes1"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "LoadConfigFromVDFString",
             "argc": "8",
-            "addr": "0x607cf0"
+            "interfaceid": "41",
+            "functionid": "895579877",
+            "fencepost": "987052643",
+            "cannotcallincrossprocess": "1",
+            "serializedreturn": "",
+            "addr": "0x63fff0",
+            "serializedargs": [
+                "bytes4",
+                "bytes4",
+                "string",
+                "bytes4",
+                "bytes8",
+                "bytes4"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "InvalidateBindingCache",
             "argc": "1",
-            "addr": "0x5fd1c0"
+            "interfaceid": "41",
+            "functionid": "1993858575",
+            "fencepost": "2085315212",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x636b40",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "ActivateConfig",
             "argc": "3",
-            "addr": "0x5fd4a0"
+            "interfaceid": "41",
+            "functionid": "809290747",
+            "fencepost": "900795771",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x636e20",
+            "serializedargs": [
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "WarmOptInStatus",
             "argc": "3",
-            "addr": "0x5fd600"
+            "interfaceid": "41",
+            "functionid": "1533356994",
+            "fencepost": "1624878147",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x636f80",
+            "serializedargs": [
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "GetCurrentActionSetHandleForRunningApp",
             "argc": "3",
-            "addr": "0x5fd2f0"
-        },
-        {
-            "name": "BAnyControllerOptedInAndAvailable",
-            "argc": "2",
-            "addr": "0x5feb40"
+            "interfaceid": "41",
+            "functionid": "1965559284",
+            "fencepost": "2057048179",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x636c70",
+            "serializedargs": [
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "GetGamepadIndexForControllerIndex",
             "argc": "2",
-            "addr": "0x603190"
+            "interfaceid": "41",
+            "functionid": "3284147975",
+            "fencepost": "3378152994",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x63b770",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "CreateBindingInstanceFromVDFString",
             "argc": "2",
-            "addr": "0x607f10"
+            "interfaceid": "41",
+            "functionid": "2134325626",
+            "fencepost": "2225862908",
+            "cannotcallincrossprocess": "1",
+            "serializedreturn": "",
+            "addr": "0x640210",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "FreeBindingInstance",
             "argc": "2",
-            "addr": "0x5fd760"
+            "interfaceid": "41",
+            "functionid": "855572118",
+            "fencepost": "947125529",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6370e0",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "GetControllerConfiguration",
             "argc": "3",
-            "addr": "0x6080b0"
+            "interfaceid": "41",
+            "functionid": "3877942606",
+            "fencepost": "3969560533",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6403b0",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes4",
+                "unknown"
+            ]
         },
         {
             "name": "SetControllerActionSet",
             "argc": "4",
-            "addr": "0x608240"
+            "interfaceid": "41",
+            "functionid": "3691197471",
+            "fencepost": "3782928301",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x640540",
+            "serializedargs": [
+                "bytes4",
+                "protobuf"
+            ],
+            "serializedreturns": [
+                "bytes4",
+                "unknown"
+            ]
         },
         {
             "name": "SetControllerSourceMode",
             "argc": "4",
-            "addr": "0x6083e0"
+            "interfaceid": "41",
+            "functionid": "1976127900",
+            "fencepost": "2067971633",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6406e0",
+            "serializedargs": [
+                "bytes4",
+                "protobuf"
+            ],
+            "serializedreturns": [
+                "bytes4",
+                "unknown"
+            ]
         },
         {
             "name": "DuplicateControllerSourceMode",
             "argc": "4",
-            "addr": "0x608580"
+            "interfaceid": "41",
+            "functionid": "3745541422",
+            "fencepost": "3837498058",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x640880",
+            "serializedargs": [
+                "bytes4",
+                "protobuf"
+            ],
+            "serializedreturns": [
+                "bytes4",
+                "unknown"
+            ]
         },
         {
             "name": "SetControllerInputActivator",
             "argc": "4",
-            "addr": "0x608720"
+            "interfaceid": "41",
+            "functionid": "2070664550",
+            "fencepost": "2162734089",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x640a20",
+            "serializedargs": [
+                "bytes4",
+                "protobuf"
+            ],
+            "serializedreturns": [
+                "bytes4",
+                "unknown"
+            ]
         },
         {
             "name": "SetControllerInputBinding",
             "argc": "4",
-            "addr": "0x6088c0"
+            "interfaceid": "41",
+            "functionid": "457596181",
+            "fencepost": "549778623",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x640bc0",
+            "serializedargs": [
+                "bytes4",
+                "protobuf"
+            ],
+            "serializedreturns": [
+                "bytes4",
+                "unknown"
+            ]
         },
         {
             "name": "SetControllerInputActivatorEnabled",
             "argc": "4",
-            "addr": "0x608a60"
+            "interfaceid": "41",
+            "functionid": "4259145822",
+            "fencepost": "56473871",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x640d60",
+            "serializedargs": [
+                "bytes4",
+                "protobuf"
+            ],
+            "serializedreturns": [
+                "bytes4",
+                "unknown"
+            ]
         },
         {
             "name": "SetControllerMiscMappingSettings",
             "argc": "4",
-            "addr": "0x608c00"
+            "interfaceid": "41",
+            "functionid": "1874323905",
+            "fencepost": "1966732153",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x640f00",
+            "serializedargs": [
+                "bytes4",
+                "protobuf"
+            ],
+            "serializedreturns": [
+                "bytes4",
+                "unknown"
+            ]
         },
         {
             "name": "SwapControllerModeInputBindings",
             "argc": "4",
-            "addr": "0x608da0"
+            "interfaceid": "41",
+            "functionid": "145896386",
+            "fencepost": "238417537",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6410a0",
+            "serializedargs": [
+                "bytes4",
+                "protobuf"
+            ],
+            "serializedreturns": [
+                "bytes4",
+                "unknown"
+            ]
         },
         {
             "name": "SetControllerModeShiftBinding",
             "argc": "4",
-            "addr": "0x608f40"
+            "interfaceid": "41",
+            "functionid": "2843300494",
+            "fencepost": "2935934548",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x641240",
+            "serializedargs": [
+                "bytes4",
+                "protobuf"
+            ],
+            "serializedreturns": [
+                "bytes4",
+                "unknown"
+            ]
         },
         {
             "name": "IsModified",
             "argc": "2",
-            "addr": "0x5fd8e0"
+            "interfaceid": "41",
+            "functionid": "3636598109",
+            "fencepost": "3729280550",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x637260",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "boolean"
+            ]
         },
         {
             "name": "ClearModified",
             "argc": "2",
-            "addr": "0x5fda60"
+            "interfaceid": "41",
+            "functionid": "1733256185",
+            "fencepost": "1825954755",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6373e0",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "GetLocalizationTokenCount",
             "argc": "2",
-            "addr": "0x5fdbb0"
+            "interfaceid": "41",
+            "functionid": "3740622438",
+            "fencepost": "3833337137",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x637530",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "GetLocalizationToken",
             "argc": "4",
-            "addr": "0x5fdd20"
+            "interfaceid": "41",
+            "functionid": "3952479269",
+            "fencepost": "4045210097",
+            "cannotcallincrossprocess": "1",
+            "serializedreturn": "",
+            "addr": "0x6376a0",
+            "serializedargs": [
+                "bytes4",
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "GetLocalizedString",
             "argc": "3",
-            "addr": "0x5fdef0"
-        },
-        {
-            "name": "GetBindingSetting",
-            "argc": "4",
-            "addr": "0x6090e0"
-        },
-        {
-            "name": "SetBindingSetting",
-            "argc": "4",
-            "addr": "0x6092b0"
+            "interfaceid": "41",
+            "functionid": "1435321268",
+            "fencepost": "1528068225",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x637870",
+            "serializedargs": [
+                "bytes4",
+                "string"
+            ],
+            "serializedreturns": [
+                "string"
+            ]
         },
         {
             "name": "GetBindingVDFString",
             "argc": "2",
-            "addr": "0x5fe070"
-        },
-        {
-            "name": "GetSourceGroupBindingCount",
-            "argc": "3",
-            "addr": "0x609bf0"
-        },
-        {
-            "name": "GetSourceGroupBindingInfo",
-            "argc": "6",
-            "addr": "0x609d80"
-        },
-        {
-            "name": "SetSourceGroupBindingActive",
-            "argc": "6",
-            "addr": "0x609f80"
-        },
-        {
-            "name": "CreateSourceGroupBinding",
-            "argc": "7",
-            "addr": "0x60a170"
-        },
-        {
-            "name": "BAreLayerAndParentModesEquivalent",
-            "argc": "4",
-            "addr": "0x60a350"
-        },
-        {
-            "name": "GetGroupSetting",
-            "argc": "5",
-            "addr": "0x609450"
-        },
-        {
-            "name": "SetGroupSetting",
-            "argc": "5",
-            "addr": "0x609630"
-        },
-        {
-            "name": "GetGroupSettingDefault",
-            "argc": "5",
-            "addr": "0x6097f0"
-        },
-        {
-            "name": "GetGroupSettingUIRange",
-            "argc": "6",
-            "addr": "0x6099d0"
-        },
-        {
-            "name": "GetActivatorSetting",
-            "argc": "7",
-            "addr": "0x60a690"
-        },
-        {
-            "name": "SetActivatorSetting",
-            "argc": "7",
-            "addr": "0x60a8a0"
-        },
-        {
-            "name": "GetActivatorSettingDefault",
-            "argc": "7",
-            "addr": "0x60aa90"
-        },
-        {
-            "name": "SetGroupBinding",
-            "argc": "8",
-            "addr": "0x60b3b0"
-        },
-        {
-            "name": "GetGroupBinding",
-            "argc": "8",
-            "addr": "0x60b5f0"
-        },
-        {
-            "name": "RemoveGroupBinding",
-            "argc": "5",
-            "addr": "0x60aca0"
-        },
-        {
-            "name": "GetParentGroupForLayerGroup",
-            "argc": "4",
-            "addr": "0x60b860"
-        },
-        {
-            "name": "GetParentPresetForLayerPreset",
-            "argc": "4",
-            "addr": "0x60b9f0"
-        },
-        {
-            "name": "GetGroupActivatorsForInput",
-            "argc": "5",
-            "addr": "0x60bb80"
-        },
-        {
-            "name": "ReplaceActivator",
-            "argc": "6",
-            "addr": "0x60bd60"
-        },
-        {
-            "name": "AddActivator",
-            "argc": "4",
-            "addr": "0x60a4f0"
-        },
-        {
-            "name": "RemoveActivator",
-            "argc": "5",
-            "addr": "0x60ae60"
-        },
-        {
-            "name": "CopyActivator",
-            "argc": "6",
-            "addr": "0x60b020"
-        },
-        {
-            "name": "IsActivatorSettingsDefault",
-            "argc": "5",
-            "addr": "0x60b1f0"
-        },
-        {
-            "name": "SetModeShiftBinding",
-            "argc": "6",
-            "addr": "0x60bf30"
-        },
-        {
-            "name": "GetModeShiftBinding",
-            "argc": "7",
-            "addr": "0x60c120"
-        },
-        {
-            "name": "AddActionSet",
-            "argc": "3",
-            "addr": "0x5fecc0"
-        },
-        {
-            "name": "RenameActionSet",
-            "argc": "3",
-            "addr": "0x5fee80"
-        },
-        {
-            "name": "DeleteActionSet",
-            "argc": "3",
-            "addr": "0x5ff040"
+            "interfaceid": "41",
+            "functionid": "2033767488",
+            "fencepost": "2126530574",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6379f0",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "string"
+            ]
         },
         {
             "name": "GetBindingTitle",
             "argc": "3",
-            "addr": "0x5fe1e0"
+            "interfaceid": "41",
+            "functionid": "3896692128",
+            "fencepost": "3989471343",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x637b60",
+            "serializedargs": [
+                "bytes4",
+                "bytes1"
+            ],
+            "serializedreturns": [
+                "string"
+            ]
         },
         {
             "name": "SetBindingTitle",
             "argc": "3",
-            "addr": "0x5fe6f0"
+            "interfaceid": "41",
+            "functionid": "4122021845",
+            "fencepost": "4214817189",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x637cf0",
+            "serializedargs": [
+                "bytes4",
+                "string"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "GetBindingDescription",
             "argc": "3",
-            "addr": "0x5ff200"
+            "interfaceid": "41",
+            "functionid": "356116904",
+            "fencepost": "448960635",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x638140",
+            "serializedargs": [
+                "bytes4",
+                "bytes1"
+            ],
+            "serializedreturns": [
+                "string"
+            ]
         },
         {
             "name": "GetBindingRevision",
             "argc": "4",
-            "addr": "0x5ff390"
+            "interfaceid": "41",
+            "functionid": "192875910",
+            "fencepost": "285816415",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6382d0",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes4",
+                "bytes4"
+            ]
         },
         {
             "name": "BBindingMajorRevisionMismatch",
             "argc": "2",
-            "addr": "0x5ff540"
+            "interfaceid": "41",
+            "functionid": "468698177",
+            "fencepost": "561703198",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x638480",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "boolean"
+            ]
         },
         {
             "name": "SetBindingDescription",
             "argc": "3",
-            "addr": "0x5ff6c0"
-        },
-        {
-            "name": "GetBindingTitleForIndex",
-            "argc": "5",
-            "addr": "0x5fe370"
-        },
-        {
-            "name": "GetBindingDescForIndex",
-            "argc": "5",
-            "addr": "0x5fe530"
-        },
-        {
-            "name": "GetBindingTypeForIndex",
-            "argc": "3",
-            "addr": "0x60c350"
+            "interfaceid": "41",
+            "functionid": "718710112",
+            "fencepost": "811747391",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x638600",
+            "serializedargs": [
+                "bytes4",
+                "string"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "GetConfigBindingInfo",
             "argc": "3",
-            "addr": "0x60c4e0"
+            "interfaceid": "41",
+            "functionid": "3916033664",
+            "fencepost": "4008893524",
+            "cannotcallincrossprocess": "1",
+            "serializedreturn": "",
+            "addr": "0x6413e0",
+            "serializedargs": [
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "SetBindingControllerType",
             "argc": "3",
-            "addr": "0x5ff810"
+            "interfaceid": "41",
+            "functionid": "2265722033",
+            "fencepost": "2358775441",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x638750",
+            "serializedargs": [
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "GetBindingControllerType",
             "argc": "2",
-            "addr": "0x5ff970"
+            "interfaceid": "41",
+            "functionid": "1430379576",
+            "fencepost": "1523449113",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6388b0",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "SetBindingCreator",
             "argc": "4",
-            "addr": "0x5fe9d0"
+            "interfaceid": "41",
+            "functionid": "1426367362",
+            "fencepost": "1519194964",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x637fd0",
+            "serializedargs": [
+                "bytes4",
+                "bytes8"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "GetBindingCreator",
             "argc": "2",
-            "addr": "0x5fe840"
+            "interfaceid": "41",
+            "functionid": "401005945",
+            "fencepost": "493817418",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x637e40",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "GetBindingProgenitor",
             "argc": "2",
-            "addr": "0x606d50"
+            "interfaceid": "41",
+            "functionid": "2593366028",
+            "fencepost": "2688548464",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x63f1c0",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "string"
+            ]
         },
         {
             "name": "SetBindingProgenitor",
             "argc": "3",
-            "addr": "0x606ec0"
+            "interfaceid": "41",
+            "functionid": "689786855",
+            "fencepost": "784985420",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x63f330",
+            "serializedargs": [
+                "bytes4",
+                "string"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "GetBindingURL",
             "argc": "2",
-            "addr": "0x607010"
+            "interfaceid": "41",
+            "functionid": "1752286068",
+            "fencepost": "1847500762",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x63f480",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "string"
+            ]
         },
         {
             "name": "SetBindingURL",
             "argc": "3",
-            "addr": "0x607180"
+            "interfaceid": "41",
+            "functionid": "783988859",
+            "fencepost": "879219682",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x63f5f0",
+            "serializedargs": [
+                "bytes4",
+                "string"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "GetBindingExportType",
             "argc": "2",
-            "addr": "0x6072d0"
+            "interfaceid": "41",
+            "functionid": "3136768137",
+            "fencepost": "3232015089",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x63f740",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "SetBindingExportType",
             "argc": "3",
-            "addr": "0x607440"
+            "interfaceid": "41",
+            "functionid": "2158232924",
+            "fencepost": "2253496005",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x63f8b0",
+            "serializedargs": [
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "GetConfigFeatures",
             "argc": "3",
-            "addr": "0x60c660"
-        },
-        {
-            "name": "GetAllBindings",
-            "argc": "4",
-            "addr": "0x60c7e0"
+            "interfaceid": "41",
+            "functionid": "998144282",
+            "fencepost": "1091165432",
+            "cannotcallincrossprocess": "1",
+            "serializedreturn": "",
+            "addr": "0x641560",
+            "serializedargs": [
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "BIsXInputActiveForController",
             "argc": "2",
-            "addr": "0x5fb130"
+            "interfaceid": "41",
+            "functionid": "1600870136",
+            "fencepost": "1691988064",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x634c30",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "boolean"
+            ]
         },
         {
             "name": "PS4SettingsChanged",
             "argc": "2",
-            "addr": "0x5fb2b0"
+            "interfaceid": "41",
+            "functionid": "2351692989",
+            "fencepost": "2442827046",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x634db0",
+            "serializedargs": [
+                "bytes1"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "SwitchSettingsChanged",
             "argc": "2",
-            "addr": "0x5fb400"
+            "interfaceid": "41",
+            "functionid": "2975372201",
+            "fencepost": "3066522387",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x634f00",
+            "serializedargs": [
+                "bytes1"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "ControllerSettingsChanged",
             "argc": "2",
-            "addr": "0x5fb550"
+            "interfaceid": "41",
+            "functionid": "1205455305",
+            "fencepost": "1296621620",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x635050",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "SetTrackpadPressureCurve",
             "argc": "4",
-            "addr": "0x60cd40"
+            "interfaceid": "41",
+            "functionid": "4159176869",
+            "fencepost": "4254488337",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6418b0",
+            "serializedargs": [
+                "bytes4",
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "SetDefaultNintendoButtonLayout",
             "argc": "2",
-            "addr": "0x607870"
+            "interfaceid": "41",
+            "functionid": "3418363709",
+            "fencepost": "3513691306",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x63fb70",
+            "serializedargs": [
+                "bytes1"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "IsControllerConnected",
             "argc": "3",
-            "addr": "0x5fb6a0"
-        },
-        {
-            "name": "GetControllerState",
-            "argc": "3",
-            "addr": "0x60c9d0"
+            "interfaceid": "41",
+            "functionid": "2589608938",
+            "fencepost": "2680791382",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6351a0",
+            "serializedargs": [
+                "bytes4",
+                "bytes1"
+            ],
+            "serializedreturns": [
+                "boolean"
+            ]
         },
         {
             "name": "TriggerHapticPulse",
             "argc": "7",
-            "addr": "0x60cb70"
+            "interfaceid": "41",
+            "functionid": "1327986918",
+            "fencepost": "1421072584",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6416e0",
+            "serializedargs": [
+                "bytes4",
+                "bytes4",
+                "bytes2",
+                "bytes2",
+                "bytes2",
+                "bytes4"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "TriggerSimpleHapticEvent",
             "argc": "6",
-            "addr": "0x5ffae0"
+            "interfaceid": "41",
+            "functionid": "2246165465",
+            "fencepost": "2339267260",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x638a20",
+            "serializedargs": [
+                "bytes4",
+                "bytes1",
+                "bytes1",
+                "bytes1",
+                "bytes1"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "TriggerVibration",
             "argc": "5",
-            "addr": "0x5ffe80"
+            "interfaceid": "41",
+            "functionid": "3148376547",
+            "fencepost": "3241510600",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x638dc0",
+            "serializedargs": [
+                "bytes4",
+                "bytes4",
+                "bytes2",
+                "bytes2"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "TriggerVibrationExtended",
             "argc": "7",
-            "addr": "0x600020"
+            "interfaceid": "41",
+            "functionid": "1517468435",
+            "fencepost": "1610618617",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x638f60",
+            "serializedargs": [
+                "bytes4",
+                "bytes4",
+                "bytes2",
+                "bytes2",
+                "bytes2",
+                "bytes2"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "SetLEDColor",
             "argc": "6",
-            "addr": "0x600200"
+            "interfaceid": "41",
+            "functionid": "125532382",
+            "fencepost": "218698693",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x639140",
+            "serializedargs": [
+                "bytes4",
+                "bytes1",
+                "bytes1",
+                "bytes1",
+                "bytes4"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "SetDonglePairingMode",
             "argc": "3",
-            "addr": "0x600520"
+            "interfaceid": "41",
+            "functionid": "44834662",
+            "fencepost": "138033231",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x639460",
+            "serializedargs": [
+                "bytes1",
+                "bytes4"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "ReserveSteamController",
             "argc": "1",
-            "addr": "0x600680"
+            "interfaceid": "41",
+            "functionid": "1516890830",
+            "fencepost": "1610105528",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6395c0",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "CancelSteamControllerReservations",
             "argc": "1",
-            "addr": "0x6007b0"
+            "interfaceid": "41",
+            "functionid": "3809300676",
+            "fencepost": "3902531503",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6396f0",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "OpenStreamingSession",
             "argc": "3",
-            "addr": "0x6008e0"
+            "interfaceid": "41",
+            "functionid": "2655525085",
+            "fencepost": "2748772041",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x639820",
+            "serializedargs": [
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "CloseStreamingSession",
             "argc": "3",
-            "addr": "0x600a40"
+            "interfaceid": "41",
+            "functionid": "3471554760",
+            "fencepost": "3564817845",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x639980",
+            "serializedargs": [
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "UpdateStreamingSessionInputPermissions",
             "argc": "2",
-            "addr": "0x600ba0"
+            "interfaceid": "41",
+            "functionid": "226731541",
+            "fencepost": "320010755",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x639ae0",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "InitiateISPFirmwareUpdate",
             "argc": "2",
-            "addr": "0x600cf0"
+            "interfaceid": "41",
+            "functionid": "3088980760",
+            "fencepost": "3182276103",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x639c30",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "InitiateBootloaderFirmwareUpdate",
             "argc": "2",
-            "addr": "0x600e80"
+            "interfaceid": "41",
+            "functionid": "2263484356",
+            "fencepost": "2356795828",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x639dc0",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "FlashControllerFirmware",
             "argc": "5",
-            "addr": "0x601010"
+            "interfaceid": "41",
+            "functionid": "2173026325",
+            "fencepost": "2266450700",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x639f50",
+            "serializedargs": [
+                "bytes4",
+                "unknown",
+                "bytes4",
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "TurnOffController",
             "argc": "2",
-            "addr": "0x6011d0"
+            "interfaceid": "41",
+            "functionid": "1027728518",
+            "fencepost": "1121185151",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x63a110",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "EnumerateControllers",
             "argc": "1",
-            "addr": "0x601320"
+            "interfaceid": "41",
+            "functionid": "2529691131",
+            "fencepost": "2623163893",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x63a260",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "GetControllerStatusEvent",
             "argc": "3",
-            "addr": "0x60ceb0"
+            "interfaceid": "41",
+            "functionid": "2399577872",
+            "fencepost": "2493115150",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x641a20",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes12"
+            ]
         },
         {
             "name": "GetActualControllerDetails",
             "argc": "3",
-            "addr": "0x60d040"
+            "interfaceid": "41",
+            "functionid": "3288237821",
+            "fencepost": "3381871873",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x641bb0",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes92"
+            ]
         },
         {
             "name": "GetControllerIdentity",
             "argc": "3",
-            "addr": "0x60d1d0"
+            "interfaceid": "41",
+            "functionid": "4279503783",
+            "fencepost": "78218926",
+            "cannotcallincrossprocess": "1",
+            "serializedreturn": "",
+            "addr": "0x641d40",
+            "serializedargs": [
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "GetControllerPersonalization",
             "argc": "3",
-            "addr": "0x60d580"
+            "interfaceid": "41",
+            "functionid": "3137914800",
+            "fencepost": "3231613368",
+            "cannotcallincrossprocess": "1",
+            "serializedreturn": "",
+            "addr": "0x6420d0",
+            "serializedargs": [
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "GetControllerReverseDiamondLayout",
             "argc": "2",
-            "addr": "0x601450"
+            "interfaceid": "41",
+            "functionid": "780236232",
+            "fencepost": "873950929",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x63a390",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "BRumbleEnabledByUser",
             "argc": "2",
-            "addr": "0x601780"
+            "interfaceid": "41",
+            "functionid": "93954745",
+            "fencepost": "187685571",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x63a510",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "boolean"
+            ]
         },
         {
             "name": "BHapticsEnabledByUser",
             "argc": "2",
-            "addr": "0x601900"
-        },
-        {
-            "name": "GetControllerSerialNumber",
-            "argc": "4",
-            "addr": "0x6015d0"
-        },
-        {
-            "name": "GetControllerChipID",
-            "argc": "4",
-            "addr": "0x601a80"
-        },
-        {
-            "name": "BSupportsControllerLEDBrightness",
-            "argc": "2",
-            "addr": "0x601d90"
-        },
-        {
-            "name": "BSupportsControllerLEDColor",
-            "argc": "2",
-            "addr": "0x601f10"
-        },
-        {
-            "name": "BSupportsControllerRumble",
-            "argc": "2",
-            "addr": "0x602090"
-        },
-        {
-            "name": "BSupportsControllerHaptics",
-            "argc": "2",
-            "addr": "0x602210"
+            "interfaceid": "41",
+            "functionid": "3368184917",
+            "fencepost": "3461931872",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x63a690",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "boolean"
+            ]
         },
         {
             "name": "SetControllerPairingConnectionState",
             "argc": "3",
-            "addr": "0x601c30"
+            "interfaceid": "41",
+            "functionid": "3291302206",
+            "fencepost": "3385065290",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x63a810",
+            "serializedargs": [
+                "bytes4",
+                "bytes1"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "SetControllerKeyboardMouseState",
             "argc": "3",
-            "addr": "0x602390"
+            "interfaceid": "41",
+            "functionid": "1954160797",
+            "fencepost": "2047940010",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x63a970",
+            "serializedargs": [
+                "bytes4",
+                "bytes1"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "GetTouchKeysForPopupMenu",
             "argc": "5",
-            "addr": "0x60d900"
+            "interfaceid": "41",
+            "functionid": "3991872969",
+            "fencepost": "4085668311",
+            "cannotcallincrossprocess": "1",
+            "serializedreturn": "",
+            "addr": "0x642430",
+            "serializedargs": [
+                "bytes4",
+                "bytes4",
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "PopupMenuTouchKeyClicked",
             "argc": "4",
-            "addr": "0x6024f0"
+            "interfaceid": "41",
+            "functionid": "622259230",
+            "fencepost": "716070701",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x63aad0",
+            "serializedargs": [
+                "bytes4",
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "AccessControllerInputGeneratorMouseButton",
             "argc": "4",
-            "addr": "0x60dae0"
-        },
-        {
-            "name": "GetGameActionSets",
-            "argc": "3",
-            "addr": "0x60dc60"
-        },
-        {
-            "name": "GetBaseGameActionSets",
-            "argc": "3",
-            "addr": "0x60de20"
-        },
-        {
-            "name": "GetLayerGameActionSets",
-            "argc": "3",
-            "addr": "0x60dfe0"
-        },
-        {
-            "name": "GetGameActionSetById",
-            "argc": "3",
-            "addr": "0x60e1a0"
+            "interfaceid": "41",
+            "functionid": "577570386",
+            "fencepost": "671397986",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x642610",
+            "serializedargs": [
+                "bytes4",
+                "bytes4",
+                "bytes1"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "SetControllerSetting",
             "argc": "3",
-            "addr": "0x60e350"
+            "interfaceid": "41",
+            "functionid": "1782993357",
+            "fencepost": "1876837086",
+            "cannotcallincrossprocess": "1",
+            "serializedreturn": "",
+            "addr": "0x642790",
+            "serializedargs": [
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "GetEmulatedOutputState",
             "argc": "1",
-            "addr": "0x60e4d0"
+            "interfaceid": "41",
+            "functionid": "2909708775",
+            "fencepost": "3003568633",
+            "cannotcallincrossprocess": "1",
+            "serializedreturn": "",
+            "addr": "0x642910",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "SetSelectedConfigForApp",
             "argc": "8",
-            "addr": "0x602660"
+            "interfaceid": "41",
+            "functionid": "1251758379",
+            "fencepost": "1345634366",
+            "cannotcallincrossprocess": "1",
+            "serializedreturn": "",
+            "addr": "0x63ac40",
+            "serializedargs": [
+                "bytes4",
+                "bytes4",
+                "bytes8",
+                "bytes4",
+                "bytes1",
+                "bytes1"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "BControllerHasUniqueConfigForAppID",
             "argc": "3",
-            "addr": "0x6028b0"
+            "interfaceid": "41",
+            "functionid": "1747243964",
+            "fencepost": "1841136080",
+            "cannotcallincrossprocess": "1",
+            "serializedreturn": "",
+            "addr": "0x63ae90",
+            "serializedargs": [
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "boolean"
+            ]
         },
         {
             "name": "DeRegisterController",
             "argc": "3",
-            "addr": "0x603d50"
+            "interfaceid": "41",
+            "functionid": "3273570885",
+            "fencepost": "3367704936",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x63c1d0",
+            "serializedargs": [
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "SendOSKeyboardEvent",
             "argc": "2",
-            "addr": "0x602a70"
+            "interfaceid": "41",
+            "functionid": "2411579957",
+            "fencepost": "2505488202",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x63b050",
+            "serializedargs": [
+                "string"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "SetOSKeyboardKey",
             "argc": "3",
-            "addr": "0x60e650"
+            "interfaceid": "41",
+            "functionid": "1867825025",
+            "fencepost": "1961749399",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x642a90",
+            "serializedargs": [
+                "bytes4",
+                "bytes1"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "SetMousePosition",
             "argc": "4",
-            "addr": "0x602bb0"
+            "interfaceid": "41",
+            "functionid": "1668683056",
+            "fencepost": "1762623559",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x63b190",
+            "serializedargs": [
+                "bytes4",
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "GetGamepadIndexChangeCounter",
             "argc": "1",
-            "addr": "0x602d20"
+            "interfaceid": "41",
+            "functionid": "2657519925",
+            "fencepost": "2751476557",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x63b300",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "BSwapGamepadIndex",
             "argc": "4",
-            "addr": "0x602e80"
+            "interfaceid": "41",
+            "functionid": "3913162375",
+            "fencepost": "4007135136",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x63b460",
+            "serializedargs": [
+                "bytes4",
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "boolean"
+            ]
         },
         {
             "name": "GetGamepadIndexForXInputIndex",
             "argc": "2",
-            "addr": "0x603020"
+            "interfaceid": "41",
+            "functionid": "3683185980",
+            "fencepost": "3777174870",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x63b600",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "GetControllerIndexForGamepadIndex",
             "argc": "2",
-            "addr": "0x603300"
-        },
-        {
-            "name": "GetNumControllersWithDetails",
-            "argc": "1",
-            "addr": "0x603470"
-        },
-        {
-            "name": "ConvertBindingToNewControllerType",
-            "argc": "3",
-            "addr": "0x604af0"
+            "interfaceid": "41",
+            "functionid": "359072504",
+            "fencepost": "453093652",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x63b8e0",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "SetControllerActiveAccount",
             "argc": "3",
-            "addr": "0x6035d0"
+            "interfaceid": "41",
+            "functionid": "1969431026",
+            "fencepost": "2063468303",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x63ba50",
+            "serializedargs": [
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "StartControllerRegistrationToAccount",
             "argc": "3",
-            "addr": "0x603730"
+            "interfaceid": "41",
+            "functionid": "2230807421",
+            "fencepost": "2324860827",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x63bbb0",
+            "serializedargs": [
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "CompleteControllerRegistrationToAccount",
             "argc": "3",
-            "addr": "0x603890"
+            "interfaceid": "41",
+            "functionid": "1032619525",
+            "fencepost": "1126689060",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x63bd10",
+            "serializedargs": [
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "AutoRegisterControllerRegistrationToAccount",
             "argc": "3",
-            "addr": "0x6039f0"
+            "interfaceid": "41",
+            "functionid": "464658323",
+            "fencepost": "558743987",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x63be70",
+            "serializedargs": [
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "GetConfigForAppAndController",
             "argc": "5",
-            "addr": "0x603b50"
+            "interfaceid": "41",
+            "functionid": "339447769",
+            "fencepost": "433549562",
+            "cannotcallincrossprocess": "1",
+            "serializedreturn": "",
+            "addr": "0x63bfd0",
+            "serializedargs": [
+                "bytes4",
+                "string",
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "SetControllerPersonalization",
-            "argc": "5",
-            "addr": "0x60d740"
+            "argc": "4",
+            "interfaceid": "41",
+            "functionid": "2650225038",
+            "fencepost": "2744342960",
+            "cannotcallincrossprocess": "1",
+            "serializedreturn": "",
+            "addr": "0x642290",
+            "serializedargs": [
+                "bytes4",
+                "bytes4",
+                "bytes1"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "SetPersonalizationFile",
             "argc": "5",
-            "addr": "0x603eb0"
+            "interfaceid": "41",
+            "functionid": "3693963378",
+            "fencepost": "3788113558",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x63c330",
+            "serializedargs": [
+                "bytes4",
+                "bytes4",
+                "bytes8"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "SetGameWindowPos",
             "argc": "5",
-            "addr": "0x604030"
+            "interfaceid": "41",
+            "functionid": "642050639",
+            "fencepost": "736216948",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x63c4b0",
+            "serializedargs": [
+                "bytes4",
+                "bytes4",
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "GetGameWindowPos",
             "argc": "5",
-            "addr": "0x6041c0"
+            "interfaceid": "41",
+            "functionid": "597756494",
+            "fencepost": "691938932",
+            "cannotcallincrossprocess": "1",
+            "serializedreturn": "",
+            "addr": "0x63c640",
+            "serializedargs": [
+                "bytes4",
+                "bytes4",
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "HasGameMapping",
             "argc": "2",
-            "addr": "0x6043e0"
+            "interfaceid": "41",
+            "functionid": "901972770",
+            "fencepost": "996171337",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x63c860",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "GetControllerUsageData",
             "argc": "3",
-            "addr": "0x61d970"
+            "interfaceid": "41",
+            "functionid": "929059379",
+            "fencepost": "1023274075",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x652010",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "BAllowAppConfigForController",
             "argc": "3",
-            "addr": "0x604560"
+            "interfaceid": "41",
+            "functionid": "4168029964",
+            "fencepost": "4262260789",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x63c9e0",
+            "serializedargs": [
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "boolean"
+            ]
         },
         {
             "name": "ResetControllerEnableCache",
             "argc": "1",
-            "addr": "0x6046f0"
+            "interfaceid": "41",
+            "functionid": "2652765628",
+            "fencepost": "2747012582",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x63cb70",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "GetControllerEnableSupport",
             "argc": "2",
-            "addr": "0x604820"
+            "interfaceid": "41",
+            "functionid": "3313121501",
+            "fencepost": "3407384584",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x63cca0",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "BInputGenerated",
             "argc": "1",
-            "addr": "0x604990"
+            "interfaceid": "41",
+            "functionid": "196250021",
+            "fencepost": "290529233",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x63ce10",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "boolean"
+            ]
         },
         {
             "name": "GetControllerActivityByType",
             "argc": "2",
-            "addr": "0x604c80"
+            "interfaceid": "41",
+            "functionid": "3553371462",
+            "fencepost": "3647666803",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x63cf70",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "GetLastActiveControllerVID",
             "argc": "1",
-            "addr": "0x604df0"
+            "interfaceid": "41",
+            "functionid": "3347534599",
+            "fencepost": "3441846069",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x63d0e0",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes2"
+            ]
         },
         {
             "name": "GetLastActiveControllerPID",
             "argc": "1",
-            "addr": "0x604f60"
+            "interfaceid": "41",
+            "functionid": "2691826846",
+            "fencepost": "2786154445",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x63d250",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes2"
+            ]
         },
         {
             "name": "LoadControllerPersonalizationFile",
             "argc": "5",
-            "addr": "0x6050d0"
+            "interfaceid": "41",
+            "functionid": "117449010",
+            "fencepost": "211792738",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x63d3c0",
+            "serializedargs": [
+                "bytes4",
+                "string",
+                "bytes1",
+                "bytes1"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "SaveControllerPersonalizationFile",
-            "argc": "5",
-            "addr": "0x60d390"
+            "argc": "4",
+            "interfaceid": "41",
+            "functionid": "2790533927",
+            "fencepost": "2884893784",
+            "cannotcallincrossprocess": "1",
+            "serializedreturn": "",
+            "addr": "0x641f00",
+            "serializedargs": [
+                "bytes4",
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "LoadRemotePlayControllerPersonalizationVDF",
             "argc": "3",
-            "addr": "0x605260"
+            "interfaceid": "41",
+            "functionid": "1335051010",
+            "fencepost": "1429426996",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x63d550",
+            "serializedargs": [
+                "string",
+                "string"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "FindControllerByPath",
             "argc": "2",
-            "addr": "0x6053b0"
+            "interfaceid": "41",
+            "functionid": "1722554494",
+            "fencepost": "1816946609",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x63d6a0",
+            "serializedargs": [
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "GetControllerPath",
             "argc": "3",
-            "addr": "0x605520"
+            "interfaceid": "41",
+            "functionid": "433793951",
+            "fencepost": "528202195",
+            "cannotcallincrossprocess": "1",
+            "serializedreturn": "",
+            "addr": "0x63d810",
+            "serializedargs": [
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "GetControllerProductName",
             "argc": "3",
-            "addr": "0x6056e0"
+            "interfaceid": "41",
+            "functionid": "1537039867",
+            "fencepost": "1631464240",
+            "cannotcallincrossprocess": "1",
+            "serializedreturn": "",
+            "addr": "0x63d9d0",
+            "serializedargs": [
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "SetControllerHapticsSetting",
             "argc": "3",
-            "addr": "0x6058a0"
+            "interfaceid": "41",
+            "functionid": "1707688025",
+            "fencepost": "1802128527",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x63db90",
+            "serializedargs": [
+                "bytes4",
+                "bytes1"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
+        },
+        {
+            "name": "SetControllerName",
+            "argc": "3",
+            "interfaceid": "41",
+            "functionid": "3210692890",
+            "fencepost": "3305149521",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x63dd30",
+            "serializedargs": [
+                "bytes4",
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "SetControllerRumbleSetting",
             "argc": "3",
-            "addr": "0x60e7b0"
+            "interfaceid": "41",
+            "functionid": "3909018382",
+            "fencepost": "4003491142",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x642bf0",
+            "serializedargs": [
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "SetControllerNintendoLayoutSetting",
             "argc": "3",
-            "addr": "0x605a40"
+            "interfaceid": "41",
+            "functionid": "180136369",
+            "fencepost": "274625258",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x63deb0",
+            "serializedargs": [
+                "bytes4",
+                "bytes1"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "BGetTouchConfigData",
             "argc": "7",
-            "addr": "0x605be0"
+            "interfaceid": "41",
+            "functionid": "2646734232",
+            "fencepost": "2741352153",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x63e050",
+            "serializedargs": [
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "boolean",
+                "bytes8",
+                "bytes4",
+                "unknown",
+                "unknown"
+            ]
         },
         {
             "name": "BSaveTouchConfigLayout",
             "argc": "4",
-            "addr": "0x605dd0"
+            "interfaceid": "41",
+            "functionid": "226187478",
+            "fencepost": "320902173",
+            "cannotcallincrossprocess": "1",
+            "serializedreturn": "",
+            "addr": "0x63e240",
+            "serializedargs": [
+                "bytes4",
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "boolean"
+            ]
         },
         {
             "name": "SetGyroOn",
             "argc": "4",
-            "addr": "0x6003b0"
+            "interfaceid": "41",
+            "functionid": "987653238",
+            "fencepost": "1080835678",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6392f0",
+            "serializedargs": [
+                "bytes4",
+                "bytes8"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "CursorVisibilityChanged",
             "argc": "2",
-            "addr": "0x605fa0"
+            "interfaceid": "41",
+            "functionid": "2257249124",
+            "fencepost": "2351979948",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x63e410",
+            "serializedargs": [
+                "bytes1"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "ForceSimpleHapticEvent",
             "argc": "6",
-            "addr": "0x5ffcb0"
+            "interfaceid": "41",
+            "functionid": "2399785449",
+            "fencepost": "2492903373",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x638bf0",
+            "serializedargs": [
+                "bytes4",
+                "bytes1",
+                "bytes1",
+                "bytes1",
+                "bytes1"
+            ],
+            "serializedreturns": [
+            ]
         }
     ]
 }

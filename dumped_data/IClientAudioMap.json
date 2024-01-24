@@ -1,61 +1,186 @@
 {
     "name": "IClientAudioMap",
-    "found_at": "0x23a9e98",
+    "found_at": "0x244c260",
     "functions": [ 
         {
             "name": "StartVoiceRecording",
             "argc": "1",
-            "addr": "0x5c3940"
+            "interfaceid": "24",
+            "functionid": "196600220",
+            "fencepost": "260022496",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5fc360",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "StopVoiceRecording",
             "argc": "1",
-            "addr": "0x5c3a70"
+            "interfaceid": "24",
+            "functionid": "800767795",
+            "fencepost": "864206200",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5fc490",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "ResetVoiceRecording",
             "argc": "1",
-            "addr": "0x5c3ba0"
+            "interfaceid": "24",
+            "functionid": "3411068511",
+            "fencepost": "3474523045",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5fc5c0",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "GetAvailableVoice",
             "argc": "4",
-            "addr": "0x5c42b0"
+            "interfaceid": "24",
+            "functionid": "1699851810",
+            "fencepost": "1763499892",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5fccd0",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes4",
+                "bytes4",
+                "bytes4"
+            ]
         },
         {
             "name": "GetVoice",
             "argc": "10",
-            "addr": "0x5c4460"
+            "interfaceid": "24",
+            "functionid": "4197387139",
+            "fencepost": "4261228769",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5fce80",
+            "serializedargs": [
+                "bytes1",
+                "bytes4",
+                "bytes1",
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes4",
+                "bytes4"
+            ]
         },
         {
             "name": "GetCompressedVoice",
             "argc": "4",
-            "addr": "0x5c4100"
+            "interfaceid": "24",
+            "functionid": "3599373695",
+            "fencepost": "3662892745",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5fcb20",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes4",
+                "bytes4",
+                "bytes_length_from_mem"
+            ]
         },
         {
             "name": "DecompressVoice",
             "argc": "7",
-            "addr": "0x5c46c0"
+            "interfaceid": "24",
+            "functionid": "3124153051",
+            "fencepost": "3188252745",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5fd0e0",
+            "serializedargs": [
+                "bytes4",
+                "bytes_length_from_mem",
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes4",
+                "bytes4"
+            ]
         },
         {
             "name": "GetVoiceOptimalSampleRate",
             "argc": "1",
-            "addr": "0x6173e0"
+            "interfaceid": "24",
+            "functionid": "2366627117",
+            "fencepost": "2430807456",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x64b9f0",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "BAppUsesVoice",
             "argc": "2",
-            "addr": "0x5c3cd0"
+            "interfaceid": "24",
+            "functionid": "3319740920",
+            "fencepost": "3383953517",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5fc6f0",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "boolean"
+            ]
         },
         {
             "name": "GetGameSystemVolume",
             "argc": "1",
-            "addr": "0x5c3e50"
+            "interfaceid": "24",
+            "functionid": "622953451",
+            "fencepost": "687198306",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5fc870",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "SetGameSystemVolume",
             "argc": "2",
-            "addr": "0x5c3fb0"
+            "interfaceid": "24",
+            "functionid": "1008938587",
+            "fencepost": "1073215700",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5fc9d0",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+            ]
         }
     ]
 }

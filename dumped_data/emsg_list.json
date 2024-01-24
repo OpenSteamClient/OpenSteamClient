@@ -498,12 +498,6 @@
         "name": "k_EMsgClientServiceCallResponse"
     },
     {
-        "emsg": 839,
-        "flags": 2,
-        "server_type": -1,
-        "name": "k_EMsgClientNatTraversalStatEvent"
-    },
-    {
         "emsg": 842,
         "flags": 6,
         "server_type": 17,
@@ -1258,24 +1252,6 @@
         "flags": 2,
         "server_type": -1,
         "name": "k_EMsgClientStatsUpdated"
-    },
-    {
-        "emsg": 5468,
-        "flags": 2,
-        "server_type": -1,
-        "name": "k_EMsgClientActivateOEMLicense"
-    },
-    {
-        "emsg": 5469,
-        "flags": 2,
-        "server_type": -1,
-        "name": "k_EMsgClientRegisterOEMMachine"
-    },
-    {
-        "emsg": 5470,
-        "flags": 2,
-        "server_type": -1,
-        "name": "k_EMsgClientRegisterOEMMachineResponse"
     },
     {
         "emsg": 5480,
@@ -2736,12 +2712,6 @@
         "name": "k_EMsgClientEnableOrDisableDownloadsResponse"
     },
     {
-        "emsg": 9808,
-        "flags": 2,
-        "server_type": -1,
-        "name": "k_EMsgClientFeatureGroupInfo"
-    },
-    {
         "emsg": 9900,
         "flags": 2,
         "server_type": -1,
@@ -2806,5 +2776,17 @@
         "flags": 2,
         "server_type": -1,
         "name": "k_EMsgClientSiteLicenseGetContentCacheInfoResponse"
+    },
+    {
+        "emsg": 12300,
+        "flags": 6,
+        "server_type": 5,
+        "name": "k_EMsgClientPendingGameLaunch"
+    },
+    {
+        "emsg": 12301,
+        "flags": 6,
+        "server_type": 5,
+        "name": "k_EMsgClientPendingGameLaunchResponse"
     }
 ]

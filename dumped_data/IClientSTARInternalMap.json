@@ -1,16 +1,41 @@
 {
     "name": "IClientSTARInternalMap",
-    "found_at": "0x23aac98",
+    "found_at": "0x244cfc8",
     "functions": [ 
         {
             "name": "SendSerializedMessage",
             "argc": "3",
-            "addr": "0x6152c0"
+            "interfaceid": "51",
+            "functionid": "2299850076",
+            "fencepost": "2397775712",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6498d0",
+            "serializedargs": [
+                "bytes4",
+                "bytes_length_from_mem"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "GetMessageResponse",
             "argc": "5",
-            "addr": "0x615460"
+            "interfaceid": "51",
+            "functionid": "1952057308",
+            "fencepost": "2050079718",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x649a70",
+            "serializedargs": [
+                "bytes8",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes_length_from_mem"
+            ]
         }
     ]
 }

@@ -1,61 +1,203 @@
 {
     "name": "IClientDeviceAuthMap",
-    "found_at": "0x23aa188",
+    "found_at": "0x244c550",
     "functions": [ 
         {
             "name": "AuthorizeLocalDevice",
             "argc": "3",
-            "addr": "0x5d3fb0"
+            "interfaceid": "28",
+            "functionid": "737163871",
+            "fencepost": "810022120",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x60c9d0",
+            "serializedargs": [
+                "string",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "DeauthorizeDevice",
             "argc": "3",
-            "addr": "0x5d4150"
+            "interfaceid": "28",
+            "functionid": "2368639976",
+            "fencepost": "2441514354",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x60cb70",
+            "serializedargs": [
+                "bytes8"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "RequestAuthorizationInfos",
             "argc": "1",
-            "addr": "0x5d4c40"
+            "interfaceid": "28",
+            "functionid": "1856542151",
+            "fencepost": "1930255237",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x60d660",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "GetDeviceAuthorizations",
             "argc": "4",
-            "addr": "0x5d42f0"
+            "interfaceid": "28",
+            "functionid": "4064381150",
+            "fencepost": "4137336173",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x60cd10",
+            "serializedargs": [
+                "bytes4",
+                "bytes1"
+            ],
+            "serializedreturns": [
+                "bytes4",
+                "bytes_length_from_reg"
+            ]
         },
         {
             "name": "GetDeviceAuthorizationInfo",
             "argc": "14",
-            "addr": "0x5d44b0"
+            "interfaceid": "28",
+            "functionid": "3706533398",
+            "fencepost": "3779746485",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x60ced0",
+            "serializedargs": [
+                "bytes8",
+                "bytes4",
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes4",
+                "bytes4",
+                "bytes4",
+                "bytes1",
+                "bytes_length_from_mem",
+                "bytes_length_from_mem",
+                "bytes_length_from_mem",
+                "bytes4"
+            ]
         },
         {
             "name": "GetAuthorizedBorrowers",
             "argc": "3",
-            "addr": "0x5d4740"
+            "interfaceid": "28",
+            "functionid": "913741925",
+            "fencepost": "987164689",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x60d160",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes4",
+                "bytes_length_from_reg"
+            ]
         },
         {
             "name": "GetLocalUsers",
             "argc": "3",
-            "addr": "0x5d48e0"
+            "interfaceid": "28",
+            "functionid": "1356911058",
+            "fencepost": "1430430596",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x60d300",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes4",
+                "bytes_length_from_reg"
+            ]
         },
         {
             "name": "GetBorrowerInfo",
             "argc": "5",
-            "addr": "0x5d4a80"
+            "interfaceid": "28",
+            "functionid": "1571807252",
+            "fencepost": "1645455822",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x60d4a0",
+            "serializedargs": [
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes_length_from_mem",
+                "bytes1"
+            ]
         },
         {
             "name": "UpdateAuthorizedBorrowers",
             "argc": "4",
-            "addr": "0x5d4dc0"
+            "interfaceid": "28",
+            "functionid": "3677156211",
+            "fencepost": "3750966071",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x60d7e0",
+            "serializedargs": [
+                "bytes4",
+                "bytes_length_from_reg",
+                "bytes1"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "GetSharedLibraryLockedBy",
             "argc": "2",
-            "addr": "0x5d4f80"
+            "interfaceid": "28",
+            "functionid": "2410671203",
+            "fencepost": "2484529450",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x60d9a0",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "GetSharedLibraryOwners",
             "argc": "3",
-            "addr": "0x5d50f0"
+            "interfaceid": "28",
+            "functionid": "4175163080",
+            "fencepost": "4249085843",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x60db10",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes4",
+                "bytes_length_from_reg"
+            ]
         }
     ]
 }

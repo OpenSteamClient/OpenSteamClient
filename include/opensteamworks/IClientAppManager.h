@@ -60,28 +60,27 @@ public:
     virtual unknown_ret GetAppDependencies(AppId_t unAppID, AppId_t* unAppsIDs, unsigned int maxOut) = 0; //argc: 3, index 0
     virtual unknown_ret GetDependentApps(AppId_t, AppId_t* unAppsIDs, unsigned int maxOut) = 0; //argc: 3, index 1
     virtual unknown_ret GetUpdateInfo(AppId_t, AppUpdateInfo_s*) = 0; //argc: 2, index 2
-    virtual unknown_ret GetAppConfigValue(AppId_t, char const *key, char *value, int) = 0; //argc: 4, index 3
-    virtual unknown_ret SetAppConfigValue(AppId_t, const char *key, const char *value) = 0; //argc: 3, index 4
-    virtual bool BIsAppUpToDate(AppId_t) = 0; //argc: 1, index 5
-    virtual unknown_ret GetAvailableLanguages(AppId_t, bool, char*, unsigned int) = 0; //argc: 4, index 6
-    virtual ELanguage GetCurrentLanguage(AppId_t, char*, unsigned int) = 0; //argc: 3, index 7
-    virtual ELanguage GetCurrentLanguage(AppId_t) = 0; //argc: 1, index 8
-    virtual unknown_ret GetFallbackLanguage(AppId_t, ELanguage*) = 0; //argc: 2, index 9
-    virtual unknown_ret SetCurrentLanguage(AppId_t, ELanguage*) = 0; //argc: 2, index 10
-    virtual unknown_ret StartValidatingApp(AppId_t) = 0; //argc: 1, index 11
-    virtual unknown_ret CancelValidation(AppId_t) = 0; //argc: 1, index 12
-    virtual unknown_ret MarkContentCorrupt(DepotId_t, bool) = 0; //argc: 2, index 13
-    virtual unknown_ret GetInstalledDepots(AppId_t, DepotId_t*, uint32) = 0; //argc: 3, index 14
-    virtual unknown_ret GetFileDetails(DepotId_t, char const*) = 0; //argc: 2, index 15
-    virtual unknown_ret VerifySignedFiles(DepotId_t) = 0; //argc: 1, index 16
-    virtual unknown_ret GetAvailableBetas(AppId_t, int*, char*, int, int) = 0; //argc: 5, index 17
-    virtual unknown_ret CheckBetaPassword(AppId_t, char const*) = 0; //argc: 2, index 18
-    virtual unknown_ret BHasCachedBetaPassword(AppId_t, char const*) = 0; //argc: 2, index 19
-    virtual unknown_ret GetActiveBeta(AppId_t, char*, int) = 0; //argc: 3, index 20
+    virtual bool BIsAppUpToDate(AppId_t) = 0; //argc: 1, index 3
+    virtual unknown_ret GetAvailableLanguages(AppId_t, bool, char*, unsigned int) = 0; //argc: 4, index 4
+    virtual ELanguage GetCurrentLanguage(AppId_t, char*, unsigned int) = 0; //argc: 3, index 5
+    virtual ELanguage GetCurrentLanguage(AppId_t) = 0; //argc: 1, index 6
+    virtual unknown_ret GetFallbackLanguage(AppId_t, ELanguage*) = 0; //argc: 2, index 7
+    virtual unknown_ret SetCurrentLanguage(AppId_t, ELanguage*) = 0; //argc: 2, index 8
+    virtual unknown_ret StartValidatingApp(AppId_t) = 0; //argc: 1, index 9
+    virtual unknown_ret CancelValidation(AppId_t) = 0; //argc: 1, index 10
+    virtual unknown_ret MarkContentCorrupt(DepotId_t, bool) = 0; //argc: 2, index 11
+    virtual unknown_ret GetInstalledDepots(AppId_t, DepotId_t*, uint32) = 0; //argc: 3, index 12
+    virtual unknown_ret GetFileDetails(DepotId_t, char const*) = 0; //argc: 2, index 13
+    virtual unknown_ret VerifySignedFiles(DepotId_t) = 0; //argc: 1, index 14
+    virtual unknown_ret GetAvailableBetas(AppId_t, int*, char*, int, int) = 0; //argc: 5, index 15
+    virtual unknown_ret CheckBetaPassword(AppId_t, char const*) = 0; //argc: 2, index 16
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret BGetActiveBetaForApps(AppId_t* apps, int numApps, char* betas, int betasLength) = 0; //argc: 2, index 21
-    virtual unknown_ret SetDownloadingEnabled(bool) = 0; //argc: 1, index 22
-    virtual bool BIsDownloadingEnabled() = 0; //argc: 0, index 23
+    virtual unknown_ret SetActiveBeta(AppId_t, const char*) = 0; //argc: 2, index 17
+    virtual unknown_ret GetActiveBeta(AppId_t, char*, int) = 0; //argc: 3, index 18
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual unknown_ret BGetActiveBetaForApps(AppId_t* apps, int numApps, char* betas, int betasLength) = 0; //argc: 2, index 19
+    virtual unknown_ret SetDownloadingEnabled(bool) = 0; //argc: 1, index 20
+    virtual bool BIsDownloadingEnabled() = 0; //argc: 0, index 21
     virtual unknown_ret GetDownloadStats(DownloadStats_s*) = 0; //argc: 1, index 0
     virtual AppId_t GetDownloadingAppID() = 0; //argc: 0, index 1
     virtual bool GetAutoUpdateTimeRestrictionEnabled() = 0; //argc: 0, index 0
@@ -117,10 +116,9 @@ public:
     virtual unknown_ret CancelMoveApp(AppId_t) = 0; //argc: 1, index 5
     virtual unknown_ret GetAppStateInfo(AppId_t, AppStateInfo_t* unknownStruct) = 0; //argc: 2, index 6
     virtual unknown_ret BGetAppStateInfoForApps(AppId_t* apps, AppStateInfo_t* unknownStructArray) = 0; //argc: 2, index 7
-    virtual unknown_ret BIsAvailableOnPlatform(AppId_t, char const*) = 0; //argc: 2, index 8
-    virtual unknown_ret BCanRemotePlayTogether(AppId_t) = 0; //argc: 1, index 9
-    virtual unknown_ret BIsLocalMultiplayerApp(AppId_t) = 0; //argc: 1, index 10
-    virtual int GetNumLibraryFolders() = 0; //argc: 0, index 11
+    virtual unknown_ret BCanRemotePlayTogether(AppId_t) = 0; //argc: 1, index 8
+    virtual unknown_ret BIsLocalMultiplayerApp(AppId_t) = 0; //argc: 1, index 9
+    virtual int GetNumLibraryFolders() = 0; //argc: 0, index 10
     virtual unknown_ret GetLibraryFolderPath(LibraryFolder_t, char*, int) = 0; //argc: 3, index 0
     virtual LibraryFolder_t AddLibraryFolder(char const*) = 0; //argc: 1, index 1
     virtual unknown_ret SetLibraryFolderLabel(LibraryFolder_t, const char* label) = 0; //argc: 2, index 2
@@ -156,6 +154,12 @@ public:
     virtual unknown_ret SuspendPeerContentServer() = 0; //argc: 1, index 2
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     virtual unknown_ret GetPeerContentServerForApp() = 0; //argc: 3, index 3
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual unknown_ret NotifyDriveAdded() = 0; //argc: 1, index 4
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual unknown_ret NotifyDriveRemoved() = 0; //argc: 1, index 5
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual unknown_ret SetAudioDownloadQuality() = 0; //argc: 1, index 6
 };
 
 #endif // ICLIENTAPPMANAGER_H

@@ -312,7 +312,8 @@ std::vector<Beta> App::GetAllBetas() {
 
         if (i.value().contains("pwdrequired")) {
             beta.pwdrequired = (bool)(int)i.value()["pwdrequired"];
-            beta.hasAccess = Global_SteamClientMgr->ClientAppManager->BHasCachedBetaPassword(appid, beta.name.c_str());
+            beta.hasAccess = true;
+            // beta.hasAccess = Global_SteamClientMgr->ClientAppManager->BHasCachedBetaPassword(appid, beta.name.c_str());
         }
         else
         {
@@ -340,7 +341,7 @@ std::string App::GetCurrentBeta() {
 }
 
 void App::SetCurrentBeta(std::string beta) {
-    Global_SteamClientMgr->ClientAppManager->SetAppConfigValue(appid, "betakey", beta.c_str());
+    Global_SteamClientMgr->ClientAppManager->SetActiveBeta(appid, beta.c_str());
     if (GetCurrentBeta() != beta) {
         std::cerr << debugPrefix << "Setting beta failed." << std::endl;
     }

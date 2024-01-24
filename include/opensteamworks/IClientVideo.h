@@ -113,15 +113,19 @@ public:
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     virtual unknown_ret WebRTCGetAnswer() = 0; //argc: 3, index 8
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret AddTimelineHighlightMarker() = 0; //argc: 4, index 9
+    virtual unknown_ret AddTimelineHighlightMarker() = 0; //argc: 5, index 9
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret AddTimelineTimestamp() = 0; //argc: 1, index 10
+    virtual unknown_ret AddTimelineTimestamp() = 0; //argc: 2, index 10
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret AddTimelineRangeStart() = 0; //argc: 2, index 11
+    virtual unknown_ret AddTimelineRange() = 0; //argc: 7, index 11
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret AddTimelineRangeEnd() = 0; //argc: 1, index 12
+    virtual unknown_ret SetTimelineGameMode() = 0; //argc: 1, index 12
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
-    virtual unknown_ret SetTimelineGameMode() = 0; //argc: 1, index 13
+    virtual unknown_ret AddUserMarkerForGame() = 0; //argc: 1, index 13
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual unknown_ret ToggleVideoRecordingForGame() = 0; //argc: 1, index 14
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual unknown_ret CreateVideoManagerClip() = 0; //argc: 23, index 15
 };
 
 #endif // ICLIENTVIDEO_H

@@ -1,496 +1,1812 @@
 {
     "name": "IClientUGCMap",
-    "found_at": "0x23aa360",
+    "found_at": "0x244c728",
     "functions": [ 
         {
             "name": "CreateQueryUserUGCRequest",
             "argc": "8",
-            "addr": "0x5dec70"
+            "interfaceid": "32",
+            "functionid": "2448984157",
+            "fencepost": "2525649358",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x617690",
+            "serializedargs": [
+                "bytes4",
+                "bytes4",
+                "bytes4",
+                "bytes4",
+                "bytes4",
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "CreateQueryAllUGCRequest",
             "argc": "6",
-            "addr": "0x5e85e0"
+            "interfaceid": "32",
+            "functionid": "3131833005",
+            "fencepost": "3208514335",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x621340",
+            "serializedargs": [
+                "bytes4",
+                "bytes4",
+                "bytes4",
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "CreateQueryAllUGCRequest",
             "argc": "6",
-            "addr": "0x5e87d0"
+            "interfaceid": "32",
+            "functionid": "1757583172",
+            "fencepost": "1834280631",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x621530",
+            "serializedargs": [
+                "bytes4",
+                "bytes4",
+                "bytes4",
+                "bytes4",
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "CreateQueryUGCDetailsRequest",
             "argc": "3",
-            "addr": "0x5deec0"
+            "interfaceid": "32",
+            "functionid": "834538048",
+            "fencepost": "911300023",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6178e0",
+            "serializedargs": [
+                "bytes4",
+                "bytes_length_from_reg"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "SendQueryUGCRequest",
             "argc": "3",
-            "addr": "0x5df060"
+            "interfaceid": "32",
+            "functionid": "2550392520",
+            "fencepost": "2627202882",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x617a80",
+            "serializedargs": [
+                "bytes8"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "GetQueryUGCResult",
             "argc": "5",
-            "addr": "0x5e89b0"
+            "interfaceid": "32",
+            "functionid": "1955442863",
+            "fencepost": "2032333870",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x621710",
+            "serializedargs": [
+                "bytes8",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes9764"
+            ]
         },
         {
             "name": "GetQueryUGCNumTags",
             "argc": "4",
-            "addr": "0x5df200"
+            "interfaceid": "32",
+            "functionid": "420829012",
+            "fencepost": "497784535",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x617c20",
+            "serializedargs": [
+                "bytes8",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "GetQueryUGCTag",
             "argc": "7",
-            "addr": "0x5df3a0"
+            "interfaceid": "32",
+            "functionid": "1068034484",
+            "fencepost": "1145119039",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x617dc0",
+            "serializedargs": [
+                "bytes8",
+                "bytes4",
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes_length_from_mem"
+            ]
         },
         {
             "name": "GetQueryUGCTagDisplayName",
             "argc": "7",
-            "addr": "0x5df5a0"
+            "interfaceid": "32",
+            "functionid": "256135119",
+            "fencepost": "333380964",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x617fc0",
+            "serializedargs": [
+                "bytes8",
+                "bytes4",
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes_length_from_mem"
+            ]
         },
         {
             "name": "GetQueryUGCPreviewURL",
             "argc": "6",
-            "addr": "0x5df7a0"
+            "interfaceid": "32",
+            "functionid": "129785424",
+            "fencepost": "207176430",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6181c0",
+            "serializedargs": [
+                "bytes8",
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes_length_from_mem"
+            ]
         },
         {
             "name": "GetQueryUGCImageURL",
             "argc": "8",
-            "addr": "0x5df970"
+            "interfaceid": "32",
+            "functionid": "3953813550",
+            "fencepost": "4031349717",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x618390",
+            "serializedargs": [
+                "bytes8",
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes_length_from_mem",
+                "bytes4",
+                "bytes4"
+            ]
         },
         {
             "name": "GetQueryUGCMetadata",
             "argc": "6",
-            "addr": "0x5dfb60"
+            "interfaceid": "32",
+            "functionid": "391036444",
+            "fencepost": "468750030",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x618580",
+            "serializedargs": [
+                "bytes8",
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes_length_from_mem"
+            ]
         },
         {
             "name": "GetQueryUGCChildren",
             "argc": "6",
-            "addr": "0x5dfd30"
+            "interfaceid": "32",
+            "functionid": "839816692",
+            "fencepost": "917675439",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x618750",
+            "serializedargs": [
+                "bytes8",
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes_length_from_reg"
+            ]
         },
         {
             "name": "GetQueryUGCStatistic",
             "argc": "6",
-            "addr": "0x5e8b70"
+            "interfaceid": "32",
+            "functionid": "508250098",
+            "fencepost": "586254006",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6218d0",
+            "serializedargs": [
+                "bytes8",
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes8"
+            ]
         },
         {
             "name": "GetQueryUGCNumAdditionalPreviews",
             "argc": "4",
-            "addr": "0x5dff00"
+            "interfaceid": "32",
+            "functionid": "253800812",
+            "fencepost": "331869236",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x618920",
+            "serializedargs": [
+                "bytes8",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "GetQueryUGCAdditionalPreview",
             "argc": "10",
-            "addr": "0x5e00a0"
+            "interfaceid": "32",
+            "functionid": "2197523169",
+            "fencepost": "2275769012",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x618ac0",
+            "serializedargs": [
+                "bytes8",
+                "bytes4",
+                "bytes4",
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes_length_from_mem",
+                "bytes_length_from_mem",
+                "bytes4"
+            ]
         },
         {
             "name": "GetQueryUGCNumKeyValueTags",
             "argc": "4",
-            "addr": "0x5e02f0"
+            "interfaceid": "32",
+            "functionid": "725684458",
+            "fencepost": "804027075",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x618d10",
+            "serializedargs": [
+                "bytes8",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "GetQueryUGCKeyValueTag",
             "argc": "9",
-            "addr": "0x5e0490"
+            "interfaceid": "32",
+            "functionid": "2345080645",
+            "fencepost": "2423584552",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x618eb0",
+            "serializedargs": [
+                "bytes8",
+                "bytes4",
+                "bytes4",
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes_length_from_mem",
+                "bytes_length_from_mem"
+            ]
         },
         {
             "name": "GetQueryUGCKeyValueTag",
             "argc": "7",
-            "addr": "0x5e06c0"
+            "interfaceid": "32",
+            "functionid": "316921951",
+            "fencepost": "395603277",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6190e0",
+            "serializedargs": [
+                "bytes8",
+                "bytes4",
+                "string",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes_length_from_mem"
+            ]
         },
         {
             "name": "GetQueryUGCContentDescriptors",
             "argc": "6",
-            "addr": "0x5e08a0"
+            "interfaceid": "32",
+            "functionid": "1482438505",
+            "fencepost": "1561264992",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6192c0",
+            "serializedargs": [
+                "bytes8",
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes4",
+                "bytes_length_from_reg"
+            ]
         },
         {
             "name": "GetQueryUGCIsDepotBuild",
             "argc": "5",
-            "addr": "0x5e0a80"
+            "interfaceid": "32",
+            "functionid": "1636087416",
+            "fencepost": "1715042935",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6194a0",
+            "serializedargs": [
+                "bytes8",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes1"
+            ]
         },
         {
             "name": "ReleaseQueryUGCRequest",
             "argc": "3",
-            "addr": "0x5e0c40"
+            "interfaceid": "32",
+            "functionid": "2312255621",
+            "fencepost": "2391275656",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x619660",
+            "serializedargs": [
+                "bytes8"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "AddRequiredTag",
             "argc": "4",
-            "addr": "0x5e0dd0"
+            "interfaceid": "32",
+            "functionid": "1675448147",
+            "fencepost": "1754500440",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6197f0",
+            "serializedargs": [
+                "bytes8",
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "AddRequiredTagGroup",
             "argc": "4",
-            "addr": "0x5e0f60"
+            "interfaceid": "32",
+            "functionid": "74644981",
+            "fencepost": "153761790",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x619980",
+            "serializedargs": [
+                "bytes8",
+                "utlvector"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "AddExcludedTag",
             "argc": "4",
-            "addr": "0x5e10f0"
+            "interfaceid": "32",
+            "functionid": "124043066",
+            "fencepost": "203192133",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x619b10",
+            "serializedargs": [
+                "bytes8",
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "SetReturnOnlyIDs",
             "argc": "4",
-            "addr": "0x5e1280"
+            "interfaceid": "32",
+            "functionid": "429495355",
+            "fencepost": "508660551",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x619ca0",
+            "serializedargs": [
+                "bytes8",
+                "bytes1"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "SetReturnKeyValueTags",
             "argc": "4",
-            "addr": "0x5e1430"
+            "interfaceid": "32",
+            "functionid": "2051081931",
+            "fencepost": "2130263256",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x619e50",
+            "serializedargs": [
+                "bytes8",
+                "bytes1"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "SetReturnLongDescription",
             "argc": "4",
-            "addr": "0x5e15e0"
+            "interfaceid": "32",
+            "functionid": "4235071981",
+            "fencepost": "19302139",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x61a000",
+            "serializedargs": [
+                "bytes8",
+                "bytes1"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "SetReturnMetadata",
             "argc": "4",
-            "addr": "0x5e1790"
+            "interfaceid": "32",
+            "functionid": "1733065849",
+            "fencepost": "1812279432",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x61a1b0",
+            "serializedargs": [
+                "bytes8",
+                "bytes1"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "SetReturnChildren",
             "argc": "4",
-            "addr": "0x5e1940"
+            "interfaceid": "32",
+            "functionid": "286465264",
+            "fencepost": "365694976",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x61a360",
+            "serializedargs": [
+                "bytes8",
+                "bytes1"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "SetReturnAdditionalPreviews",
             "argc": "4",
-            "addr": "0x5e1af0"
+            "interfaceid": "32",
+            "functionid": "2509645140",
+            "fencepost": "2588890981",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x61a510",
+            "serializedargs": [
+                "bytes8",
+                "bytes1"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "SetReturnTotalOnly",
             "argc": "4",
-            "addr": "0x5e1ca0"
+            "interfaceid": "32",
+            "functionid": "2727430809",
+            "fencepost": "2806692779",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x61a6c0",
+            "serializedargs": [
+                "bytes8",
+                "bytes1"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "SetReturnPlaytimeStats",
             "argc": "4",
-            "addr": "0x5e1e50"
+            "interfaceid": "32",
+            "functionid": "1742708585",
+            "fencepost": "1821986684",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x61a870",
+            "serializedargs": [
+                "bytes8",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "SetLanguage",
             "argc": "4",
-            "addr": "0x5e1ff0"
+            "interfaceid": "32",
+            "functionid": "3574721916",
+            "fencepost": "3654016144",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x61aa10",
+            "serializedargs": [
+                "bytes8",
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "SetAllowCachedResponse",
             "argc": "4",
-            "addr": "0x5e2180"
+            "interfaceid": "32",
+            "functionid": "2920594483",
+            "fencepost": "2999904840",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x61aba0",
+            "serializedargs": [
+                "bytes8",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "SetCloudFileNameFilter",
             "argc": "4",
-            "addr": "0x5e2320"
+            "interfaceid": "32",
+            "functionid": "2889679605",
+            "fencepost": "2969022220",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x61ad40",
+            "serializedargs": [
+                "bytes8",
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "SetMatchAnyTag",
             "argc": "4",
-            "addr": "0x5e24b0"
+            "interfaceid": "32",
+            "functionid": "1580510057",
+            "fencepost": "1659884930",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x61aed0",
+            "serializedargs": [
+                "bytes8",
+                "bytes1"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "SetSearchText",
             "argc": "4",
-            "addr": "0x5e2660"
+            "interfaceid": "32",
+            "functionid": "1519079525",
+            "fencepost": "1598470527",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x61b080",
+            "serializedargs": [
+                "bytes8",
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "SetRankedByTrendDays",
             "argc": "4",
-            "addr": "0x5e27f0"
+            "interfaceid": "32",
+            "functionid": "2861789531",
+            "fencepost": "2941196662",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x61b210",
+            "serializedargs": [
+                "bytes8",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "SetTimeCreatedDateRange",
             "argc": "5",
-            "addr": "0x5e2990"
+            "interfaceid": "32",
+            "functionid": "1735152171",
+            "fencepost": "1814575431",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x61b3b0",
+            "serializedargs": [
+                "bytes8",
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "SetTimeUpdatedDateRange",
             "argc": "5",
-            "addr": "0x5e2b40"
+            "interfaceid": "32",
+            "functionid": "3307646745",
+            "fencepost": "3387086134",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x61b560",
+            "serializedargs": [
+                "bytes8",
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "AddRequiredKeyValueTag",
             "argc": "5",
-            "addr": "0x5e2cf0"
+            "interfaceid": "32",
+            "functionid": "1320780309",
+            "fencepost": "1400235827",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x61b710",
+            "serializedargs": [
+                "bytes8",
+                "string",
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "RequestUGCDetails",
             "argc": "4",
-            "addr": "0x5e2e90"
+            "interfaceid": "32",
+            "functionid": "377727657",
+            "fencepost": "457215433",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x61b8b0",
+            "serializedargs": [
+                "bytes8",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "CreateItem",
             "argc": "3",
-            "addr": "0x5e3070"
+            "interfaceid": "32",
+            "functionid": "3831872972",
+            "fencepost": "3911393006",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x61ba90",
+            "serializedargs": [
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "StartItemUpdate",
             "argc": "4",
-            "addr": "0x5e3220"
+            "interfaceid": "32",
+            "functionid": "990378849",
+            "fencepost": "1069931141",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x61bc40",
+            "serializedargs": [
+                "bytes4",
+                "bytes8"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "SetItemTitle",
             "argc": "4",
-            "addr": "0x5e3400"
+            "interfaceid": "32",
+            "functionid": "4179224257",
+            "fencepost": "4258792678",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x61be20",
+            "serializedargs": [
+                "bytes8",
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "SetItemDescription",
             "argc": "4",
-            "addr": "0x5e3590"
+            "interfaceid": "32",
+            "functionid": "1228482614",
+            "fencepost": "1308067164",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x61bfb0",
+            "serializedargs": [
+                "bytes8",
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "SetItemUpdateLanguage",
             "argc": "4",
-            "addr": "0x5e3720"
+            "interfaceid": "32",
+            "functionid": "3170053618",
+            "fencepost": "3249654297",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x61c140",
+            "serializedargs": [
+                "bytes8",
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "SetItemMetadata",
             "argc": "4",
-            "addr": "0x5e38b0"
+            "interfaceid": "32",
+            "functionid": "1605596027",
+            "fencepost": "1685212835",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x61c2d0",
+            "serializedargs": [
+                "bytes8",
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "SetItemVisibility",
             "argc": "4",
-            "addr": "0x5e3a40"
+            "interfaceid": "32",
+            "functionid": "3574282478",
+            "fencepost": "3653915415",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x61c460",
+            "serializedargs": [
+                "bytes8",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "SetItemTags",
-            "argc": "4",
-            "addr": "0x5e3be0"
+            "argc": "5",
+            "interfaceid": "32",
+            "functionid": "2594889031",
+            "fencepost": "2674602613",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x61c600",
+            "serializedargs": [
+                "bytes8",
+                "utlvector",
+                "bytes1"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "SetItemContent",
             "argc": "4",
-            "addr": "0x5e3d70"
+            "interfaceid": "32",
+            "functionid": "1773426883",
+            "fencepost": "1853172723",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x61c7b0",
+            "serializedargs": [
+                "bytes8",
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "SetItemPreview",
             "argc": "4",
-            "addr": "0x5e3f00"
+            "interfaceid": "32",
+            "functionid": "681535595",
+            "fencepost": "761297564",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x61c940",
+            "serializedargs": [
+                "bytes8",
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "SetAllowLegacyUpload",
             "argc": "4",
-            "addr": "0x5e4090"
+            "interfaceid": "32",
+            "functionid": "3591742023",
+            "fencepost": "3671520121",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x61cad0",
+            "serializedargs": [
+                "bytes8",
+                "bytes1"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "RemoveAllItemKeyValueTags",
             "argc": "3",
-            "addr": "0x5e4240"
+            "interfaceid": "32",
+            "functionid": "1700735986",
+            "fencepost": "1780530213",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x61cc80",
+            "serializedargs": [
+                "bytes8"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "RemoveItemKeyValueTags",
             "argc": "4",
-            "addr": "0x5e43d0"
+            "interfaceid": "32",
+            "functionid": "1289764393",
+            "fencepost": "1369574749",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x61ce10",
+            "serializedargs": [
+                "bytes8",
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "AddItemKeyValueTag",
             "argc": "5",
-            "addr": "0x5e4560"
+            "interfaceid": "32",
+            "functionid": "1176223571",
+            "fencepost": "1256050056",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x61cfa0",
+            "serializedargs": [
+                "bytes8",
+                "string",
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "AddItemPreviewFile",
             "argc": "5",
-            "addr": "0x5e4700"
+            "interfaceid": "32",
+            "functionid": "717213723",
+            "fencepost": "797056337",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x61d140",
+            "serializedargs": [
+                "bytes8",
+                "string",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "AddItemPreviewVideo",
             "argc": "4",
-            "addr": "0x5e48b0"
+            "interfaceid": "32",
+            "functionid": "2403306921",
+            "fencepost": "2483165664",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x61d2f0",
+            "serializedargs": [
+                "bytes8",
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "UpdateItemPreviewFile",
             "argc": "5",
-            "addr": "0x5e4a40"
+            "interfaceid": "32",
+            "functionid": "329666306",
+            "fencepost": "409541178",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x61d480",
+            "serializedargs": [
+                "bytes8",
+                "bytes4",
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "UpdateItemPreviewVideo",
             "argc": "5",
-            "addr": "0x5e4bf0"
+            "interfaceid": "32",
+            "functionid": "3874337944",
+            "fencepost": "3954228945",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x61d630",
+            "serializedargs": [
+                "bytes8",
+                "bytes4",
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "RemoveItemPreview",
             "argc": "4",
-            "addr": "0x5e4da0"
+            "interfaceid": "32",
+            "functionid": "155228724",
+            "fencepost": "235135854",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x61d7e0",
+            "serializedargs": [
+                "bytes8",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "AddContentDescriptor",
             "argc": "4",
-            "addr": "0x5e8d40"
+            "interfaceid": "32",
+            "functionid": "222857533",
+            "fencepost": "302780792",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x621aa0",
+            "serializedargs": [
+                "bytes8",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "RemoveContentDescriptor",
             "argc": "4",
-            "addr": "0x5e8ee0"
+            "interfaceid": "32",
+            "functionid": "747560683",
+            "fencepost": "827500071",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x621c40",
+            "serializedargs": [
+                "bytes8",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
+        },
+        {
+            "name": "SetExternalAssetID",
+            "argc": "5",
+            "interfaceid": "32",
+            "functionid": "3122701629",
+            "fencepost": "3202657146",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x61d980",
+            "serializedargs": [
+                "bytes8",
+                "bytes8"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "SubmitItemUpdate",
             "argc": "4",
-            "addr": "0x5e4f40"
+            "interfaceid": "32",
+            "functionid": "354098360",
+            "fencepost": "434070006",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x61db30",
+            "serializedargs": [
+                "bytes8",
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "GetItemUpdateProgress",
             "argc": "5",
-            "addr": "0x5e9080"
+            "interfaceid": "32",
+            "functionid": "3925407574",
+            "fencepost": "4005475994",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x621de0",
+            "serializedargs": [
+                "bytes8"
+            ],
+            "serializedreturns": [
+                "bytes4",
+                "bytes8",
+                "bytes8"
+            ]
         },
         {
             "name": "SetUserItemVote",
             "argc": "4",
-            "addr": "0x5e50f0"
+            "interfaceid": "32",
+            "functionid": "1909591759",
+            "fencepost": "1989740824",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x61dce0",
+            "serializedargs": [
+                "bytes8",
+                "bytes1"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "GetUserItemVote",
             "argc": "3",
-            "addr": "0x5e52b0"
+            "interfaceid": "32",
+            "functionid": "3521432868",
+            "fencepost": "3601598062",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x61dea0",
+            "serializedargs": [
+                "bytes8"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "AddItemToFavorites",
             "argc": "4",
-            "addr": "0x5e5450"
+            "interfaceid": "32",
+            "functionid": "4005570791",
+            "fencepost": "4085768243",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x61e040",
+            "serializedargs": [
+                "bytes4",
+                "bytes8"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "RemoveItemFromFavorites",
             "argc": "4",
-            "addr": "0x5e5630"
+            "interfaceid": "32",
+            "functionid": "3345592522",
+            "fencepost": "3425806103",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x61e220",
+            "serializedargs": [
+                "bytes4",
+                "bytes8"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "SubscribeItem",
             "argc": "5",
-            "addr": "0x5e5810"
+            "interfaceid": "32",
+            "functionid": "1920788785",
+            "fencepost": "2001034624",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x61e400",
+            "serializedargs": [
+                "bytes4",
+                "bytes8",
+                "bytes1"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "UnsubscribeItem",
             "argc": "4",
-            "addr": "0x5e5a10"
+            "interfaceid": "32",
+            "functionid": "3550987297",
+            "fencepost": "3631249265",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x61e600",
+            "serializedargs": [
+                "bytes4",
+                "bytes8"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "GetNumSubscribedItems",
             "argc": "2",
-            "addr": "0x5e5bf0"
+            "interfaceid": "32",
+            "functionid": "3513348895",
+            "fencepost": "3593643121",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x61e7e0",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "GetSubscribedItems",
             "argc": "4",
-            "addr": "0x5e5d60"
+            "interfaceid": "32",
+            "functionid": "4272387261",
+            "fencepost": "57794836",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x61e950",
+            "serializedargs": [
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes4",
+                "bytes_length_from_reg"
+            ]
+        },
+        {
+            "name": "GetSubscribedItemsInternal",
+            "argc": "3",
+            "interfaceid": "32",
+            "functionid": "3433768747",
+            "fencepost": "3514192005",
+            "cannotcallincrossprocess": "1",
+            "serializedreturn": "",
+            "addr": "0x621fa0",
+            "serializedargs": [
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
+        },
+        {
+            "name": "SetWorkshopItemsDisabledLocally",
+            "argc": "4",
+            "interfaceid": "32",
+            "functionid": "231035868",
+            "fencepost": "311475255",
+            "cannotcallincrossprocess": "1",
+            "serializedreturn": "",
+            "addr": "0x622150",
+            "serializedargs": [
+                "bytes4",
+                "bytes4",
+                "bytes1"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
+        },
+        {
+            "name": "SetSubscriptionsLoadOrder",
+            "argc": "3",
+            "interfaceid": "32",
+            "functionid": "126810468",
+            "fencepost": "207265984",
+            "cannotcallincrossprocess": "1",
+            "serializedreturn": "",
+            "addr": "0x622320",
+            "serializedargs": [
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+            ]
+        },
+        {
+            "name": "MoveSubscriptionsLoadOrder",
+            "argc": "4",
+            "interfaceid": "32",
+            "functionid": "925788684",
+            "fencepost": "1006260329",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x61eb00",
+            "serializedargs": [
+                "bytes4",
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "GetItemState",
             "argc": "4",
-            "addr": "0x5e6230"
+            "interfaceid": "32",
+            "functionid": "537926630",
+            "fencepost": "618591823",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x61ef90",
+            "serializedargs": [
+                "bytes4",
+                "bytes8"
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "GetItemInstallInfo",
             "argc": "8",
-            "addr": "0x5e63d0"
+            "interfaceid": "32",
+            "functionid": "2644076057",
+            "fencepost": "2724886411",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x61f130",
+            "serializedargs": [
+                "bytes4",
+                "bytes8",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes8",
+                "bytes_length_from_mem",
+                "bytes4"
+            ]
         },
         {
             "name": "GetItemDownloadInfo",
             "argc": "6",
-            "addr": "0x5e65c0"
+            "interfaceid": "32",
+            "functionid": "2399573503",
+            "fencepost": "2480561276",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x61f320",
+            "serializedargs": [
+                "bytes4",
+                "bytes8"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes8",
+                "bytes8"
+            ]
         },
         {
             "name": "DownloadItem",
             "argc": "5",
-            "addr": "0x5e6790"
+            "interfaceid": "32",
+            "functionid": "2630048479",
+            "fencepost": "2711116897",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x61f4f0",
+            "serializedargs": [
+                "bytes4",
+                "bytes8",
+                "bytes1"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "GetAppItemsStatus",
             "argc": "4",
-            "addr": "0x5e6950"
+            "interfaceid": "32",
+            "functionid": "1887780327",
+            "fencepost": "1968945519",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x61f6b0",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes1",
+                "bytes1"
+            ]
         },
         {
             "name": "BInitWorkshopForGameServer",
             "argc": "4",
-            "addr": "0x5e6b00"
+            "interfaceid": "32",
+            "functionid": "1224312413",
+            "fencepost": "1305558250",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x61f860",
+            "serializedargs": [
+                "bytes4",
+                "bytes4",
+                "string"
+            ],
+            "serializedreturns": [
+                "boolean"
+            ]
         },
         {
             "name": "SuspendDownloads",
             "argc": "3",
-            "addr": "0x5e6ca0"
+            "interfaceid": "32",
+            "functionid": "3715810642",
+            "fencepost": "3797088737",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x61fa00",
+            "serializedargs": [
+                "bytes4",
+                "bytes1"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "GetAllItemsSizeOnDisk",
             "argc": "2",
-            "addr": "0x5e6e00"
+            "interfaceid": "32",
+            "functionid": "3905052887",
+            "fencepost": "3986363240",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x61fb60",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "StartPlaytimeTracking",
             "argc": "4",
-            "addr": "0x5e6f90"
+            "interfaceid": "32",
+            "functionid": "276627161",
+            "fencepost": "358034288",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x61fcf0",
+            "serializedargs": [
+                "bytes4",
+                "bytes4",
+                "bytes_length_from_reg"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "StopPlaytimeTracking",
             "argc": "4",
-            "addr": "0x5e7150"
+            "interfaceid": "32",
+            "functionid": "2820122886",
+            "fencepost": "2901642916",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x61feb0",
+            "serializedargs": [
+                "bytes4",
+                "bytes4",
+                "bytes_length_from_reg"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "StopPlaytimeTrackingForAllItems",
             "argc": "2",
-            "addr": "0x5e7310"
+            "interfaceid": "32",
+            "functionid": "1392882758",
+            "fencepost": "1474451175",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x620070",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "AddDependency",
             "argc": "5",
-            "addr": "0x5e74a0"
+            "interfaceid": "32",
+            "functionid": "3317314929",
+            "fencepost": "3398915604",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x620200",
+            "serializedargs": [
+                "bytes8",
+                "bytes8"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "RemoveDependency",
             "argc": "5",
-            "addr": "0x5e76b0"
+            "interfaceid": "32",
+            "functionid": "3335722609",
+            "fencepost": "3417339413",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x620410",
+            "serializedargs": [
+                "bytes8",
+                "bytes8"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "AddAppDependency",
             "argc": "4",
-            "addr": "0x5e78c0"
+            "interfaceid": "32",
+            "functionid": "3896536072",
+            "fencepost": "3978185134",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x620620",
+            "serializedargs": [
+                "bytes8",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "RemoveAppDependency",
             "argc": "4",
-            "addr": "0x5e7aa0"
+            "interfaceid": "32",
+            "functionid": "2661685972",
+            "fencepost": "2743351163",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x620800",
+            "serializedargs": [
+                "bytes8",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "GetAppDependencies",
             "argc": "3",
-            "addr": "0x5e7c80"
+            "interfaceid": "32",
+            "functionid": "2683405994",
+            "fencepost": "2765087314",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6209e0",
+            "serializedargs": [
+                "bytes8"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "DeleteItem",
             "argc": "3",
-            "addr": "0x5e7e20"
+            "interfaceid": "32",
+            "functionid": "872400706",
+            "fencepost": "954114284",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x620b80",
+            "serializedargs": [
+                "bytes8"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "ShowWorkshopEULA",
             "argc": "1",
-            "addr": "0x5e7fc0"
+            "interfaceid": "32",
+            "functionid": "1725891667",
+            "fencepost": "1807621374",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x620d20",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "GetWorkshopEULAStatus",
             "argc": "1",
-            "addr": "0x5e8120"
+            "interfaceid": "32",
+            "functionid": "3943552598",
+            "fencepost": "4025298434",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x620e80",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "GetUserContentDescriptorPreferences",
             "argc": "3",
-            "addr": "0x5e82a0"
+            "interfaceid": "32",
+            "functionid": "2441956491",
+            "fencepost": "2523782972",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x621000",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes4",
+                "bytes_length_from_reg"
+            ]
         },
         {
             "name": "GetNumDownloadedItems",
             "argc": "2",
-            "addr": "0x5e5f10"
+            "interfaceid": "32",
+            "functionid": "3675414745",
+            "fencepost": "3755918648",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x61ec70",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "GetDownloadedItems",
             "argc": "4",
-            "addr": "0x5e6080"
+            "interfaceid": "32",
+            "functionid": "3907354234",
+            "fencepost": "3987954911",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x61ede0",
+            "serializedargs": [
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes4",
+                "bytes_length_from_reg"
+            ]
         },
         {
             "name": "GetFullQueryUGCResponse",
             "argc": "4",
-            "addr": "0x5e9240"
+            "interfaceid": "32",
+            "functionid": "965682572",
+            "fencepost": "1047573569",
+            "cannotcallincrossprocess": "1",
+            "serializedreturn": "",
+            "addr": "0x6224a0",
+            "serializedargs": [
+                "bytes8",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "GetSerializedQueryUGCResponse",
             "argc": "4",
-            "addr": "0x5e8440"
+            "interfaceid": "32",
+            "functionid": "3284591799",
+            "fencepost": "3366547312",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6211a0",
+            "serializedargs": [
+                "bytes8"
+            ],
+            "serializedreturns": [
+                "bytes4",
+                "unknown"
+            ]
         }
     ]
 }

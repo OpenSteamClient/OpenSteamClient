@@ -55,6 +55,10 @@ public:
     virtual unknown_ret BServeVRGamepadUIOverlay() = 0; //argc: 0, index 0
     virtual unknown_ret BServeTenfootOverlay() = 0; //argc: 0, index 0
     virtual unknown_ret BSuppressDesktopBPM() = 0; //argc: 0, index 0
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual unknown_ret SetVRConnectionParams() = 0; //argc: 1, index 0
+    virtual unknown_ret GetVRConnectionParams() = 0; //argc: 0, index 1
+    virtual unknown_ret BVRDeviceSeenRecently() = 0; //argc: 0, index 2
 };
 
 #endif // ICLIENTVR_H

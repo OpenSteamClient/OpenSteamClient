@@ -32,6 +32,8 @@ public:
     virtual unknown_ret GetState() = 0; //argc: 1, index 1
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     virtual unknown_ret UpdateSettings() = 0; //argc: 1, index 2
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual unknown_ret SetRefreshRateExternallyManaged() = 0; //argc: 1, index 3
 };
 
 #endif // ICLIENTSYSTEMPERFMANAGER_H

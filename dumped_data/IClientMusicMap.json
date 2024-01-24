@@ -1,761 +1,2455 @@
 {
     "name": "IClientMusicMap",
-    "found_at": "0x23a9ecc",
+    "found_at": "0x244c294",
     "functions": [ 
         {
             "name": "BIsEnabled",
             "argc": "1",
-            "addr": "0x5c48c0"
+            "interfaceid": "30",
+            "functionid": "2186183774",
+            "fencepost": "2250574552",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5fd2e0",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "boolean"
+            ]
         },
         {
             "name": "Enable",
             "argc": "2",
-            "addr": "0x5c4a20"
+            "interfaceid": "30",
+            "functionid": "250512281",
+            "fencepost": "314919188",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5fd440",
+            "serializedargs": [
+                "bytes1"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "EnableCrawlLogging",
             "argc": "2",
-            "addr": "0x5c4b70"
+            "interfaceid": "30",
+            "functionid": "1884094630",
+            "fencepost": "1948517666",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5fd590",
+            "serializedargs": [
+                "bytes1"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "BIsPlaying",
             "argc": "1",
-            "addr": "0x5c4cc0"
+            "interfaceid": "30",
+            "functionid": "4105558972",
+            "fencepost": "4169998137",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5fd6e0",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "boolean"
+            ]
         },
         {
             "name": "GetQueueCount",
             "argc": "1",
-            "addr": "0x5c50b0"
+            "interfaceid": "30",
+            "functionid": "1894614674",
+            "fencepost": "1959134484",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5fdad0",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "GetCurrentQueueEntry",
             "argc": "1",
-            "addr": "0x5c53c0"
+            "interfaceid": "30",
+            "functionid": "3974685565",
+            "fencepost": "4039640858",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5fdde0",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "GetQueueEntryURI",
             "argc": "4",
-            "addr": "0x5c5210"
+            "interfaceid": "30",
+            "functionid": "4116459981",
+            "fencepost": "4181060436",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5fdc30",
+            "serializedargs": [
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes_length_from_mem"
+            ]
         },
         {
             "name": "GetQueueEntryData",
             "argc": "11",
-            "addr": "0x5d2080"
+            "interfaceid": "30",
+            "functionid": "2268388997",
+            "fencepost": "2333215258",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x60aaa0",
+            "serializedargs": [
+                "bytes4",
+                "bytes4",
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes_length_from_mem",
+                "bytes_length_from_mem",
+                "bytes_length_from_mem",
+                "bytes4",
+                "bytes4",
+                "bytes4"
+            ]
         },
         {
             "name": "GetQueueEntryOrigin",
             "argc": "4",
-            "addr": "0x5d22d0"
+            "interfaceid": "30",
+            "functionid": "2700859439",
+            "fencepost": "2765895377",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x60acf0",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes4",
+                "bytes4"
+            ]
         },
         {
             "name": "EmptyQueue",
             "argc": "1",
-            "addr": "0x5c4e20"
+            "interfaceid": "30",
+            "functionid": "789781964",
+            "fencepost": "854253387",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5fd840",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "RemoveQueueEntry",
             "argc": "3",
-            "addr": "0x5c4f50"
+            "interfaceid": "30",
+            "functionid": "761934679",
+            "fencepost": "826422231",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5fd970",
+            "serializedargs": [
+                "bytes4",
+                "bytes1"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "AddArtistToQueue",
             "argc": "4",
-            "addr": "0x5c5520"
+            "interfaceid": "30",
+            "functionid": "801758905",
+            "fencepost": "866875488",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5fdf40",
+            "serializedargs": [
+                "string",
+                "bytes1",
+                "bytes1"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "AddTracksOfAlbumIDToQueue",
             "argc": "8",
-            "addr": "0x5c56a0"
+            "interfaceid": "30",
+            "functionid": "776540790",
+            "fencepost": "841673502",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5fe0c0",
+            "serializedargs": [
+                "bytes4",
+                "bytes4",
+                "bytes1",
+                "string",
+                "bytes1",
+                "bytes1",
+                "bytes1"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "AddAllTracksOfAlbumIDToQueue",
             "argc": "6",
-            "addr": "0x5c5890"
+            "interfaceid": "30",
+            "functionid": "3797740531",
+            "fencepost": "3862889372",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5fe2b0",
+            "serializedargs": [
+                "bytes4",
+                "bytes4",
+                "bytes1",
+                "bytes1",
+                "bytes1"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "AddTracksOfPlaylistIDToQueue",
             "argc": "7",
-            "addr": "0x5c5a40"
+            "interfaceid": "30",
+            "functionid": "1207264870",
+            "fencepost": "1272429840",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5fe460",
+            "serializedargs": [
+                "bytes4",
+                "bytes4",
+                "bytes1",
+                "bytes1",
+                "bytes1",
+                "bytes1"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "SetSuppressAutoTrackAdvance",
             "argc": "2",
-            "addr": "0x5d1c50"
+            "interfaceid": "30",
+            "functionid": "1704755892",
+            "fencepost": "1776146656",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x60a670",
+            "serializedargs": [
+                "bytes1"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "GetPlaybackStatus",
             "argc": "1",
-            "addr": "0x5c5c20"
+            "interfaceid": "30",
+            "functionid": "129859136",
+            "fencepost": "195056364",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5fe640",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "SetPlayingRepeatStatus",
             "argc": "2",
-            "addr": "0x5c5d80"
+            "interfaceid": "30",
+            "functionid": "751159468",
+            "fencepost": "816388954",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5fe7a0",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "GetPlayingRepeatStatus",
             "argc": "1",
-            "addr": "0x5c5ed0"
+            "interfaceid": "30",
+            "functionid": "862601435",
+            "fencepost": "927847050",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5fe8f0",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "TogglePlayingRepeatStatus",
             "argc": "1",
-            "addr": "0x5c6030"
+            "interfaceid": "30",
+            "functionid": "3573221878",
+            "fencepost": "3638483622",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5fea50",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "SetPlayingShuffled",
             "argc": "2",
-            "addr": "0x5c6190"
+            "interfaceid": "30",
+            "functionid": "409507393",
+            "fencepost": "474785266",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5febb0",
+            "serializedargs": [
+                "bytes1"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "IsPlayingShuffled",
             "argc": "1",
-            "addr": "0x5c62e0"
+            "interfaceid": "30",
+            "functionid": "2594390822",
+            "fencepost": "2659684824",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5fed00",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "boolean"
+            ]
         },
         {
             "name": "Play",
             "argc": "1",
-            "addr": "0x5c6440"
+            "interfaceid": "30",
+            "functionid": "3584307157",
+            "fencepost": "3649633417",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5fee60",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "Pause",
             "argc": "1",
-            "addr": "0x5c6570"
+            "interfaceid": "30",
+            "functionid": "2599054198",
+            "fencepost": "2664396587",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5fef90",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "PlayPrevious",
             "argc": "1",
-            "addr": "0x5c66a0"
+            "interfaceid": "30",
+            "functionid": "155728220",
+            "fencepost": "221086738",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5ff0c0",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "PlayNext",
             "argc": "1",
-            "addr": "0x5c67d0"
+            "interfaceid": "30",
+            "functionid": "283058553",
+            "fencepost": "348433200",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5ff1f0",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "PlayEntry",
             "argc": "2",
-            "addr": "0x5c6900"
+            "interfaceid": "30",
+            "functionid": "4155734974",
+            "fencepost": "4221125750",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5ff320",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "TogglePlayPause",
             "argc": "1",
-            "addr": "0x5c6a50"
+            "interfaceid": "30",
+            "functionid": "3459729896",
+            "fencepost": "3525136801",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5ff470",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "SetVolume",
             "argc": "2",
-            "addr": "0x5c6b80"
+            "interfaceid": "30",
+            "functionid": "3684391792",
+            "fencepost": "3749830955",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5ff5a0",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "GetVolume",
             "argc": "1",
-            "addr": "0x5c6cd0"
+            "interfaceid": "30",
+            "functionid": "3905888257",
+            "fencepost": "3971343549",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5ff6f0",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "ToggleMuteVolume",
             "argc": "1",
-            "addr": "0x5c6e30"
+            "interfaceid": "30",
+            "functionid": "4101435251",
+            "fencepost": "4166906672",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5ff850",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "IncreaseVolume",
             "argc": "1",
-            "addr": "0x5c6f60"
+            "interfaceid": "30",
+            "functionid": "799126007",
+            "fencepost": "864613557",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5ff980",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "DecreaseVolume",
             "argc": "1",
-            "addr": "0x5c7090"
+            "interfaceid": "30",
+            "functionid": "2129459650",
+            "fencepost": "2194963329",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5ffab0",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "SetPlaybackPosition",
             "argc": "2",
-            "addr": "0x5d1840"
+            "interfaceid": "30",
+            "functionid": "4221227218",
+            "fencepost": "4292553466",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x60a260",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "GetPlaybackPosition",
             "argc": "1",
-            "addr": "0x5d1990"
+            "interfaceid": "30",
+            "functionid": "1144119541",
+            "fencepost": "1215461918",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x60a3b0",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "GetPlaybackDuration",
             "argc": "1",
-            "addr": "0x5d1af0"
+            "interfaceid": "30",
+            "functionid": "493051893",
+            "fencepost": "564410399",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x60a510",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "LocalLibraryCrawlTrack",
             "argc": "2",
-            "addr": "0x5c71c0"
+            "interfaceid": "30",
+            "functionid": "3798204645",
+            "fencepost": "3863772840",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5ffbe0",
+            "serializedargs": [
+                "string"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "ResetLocalLibrary",
             "argc": "1",
-            "addr": "0x5c79d0"
+            "interfaceid": "30",
+            "functionid": "3010817709",
+            "fencepost": "3076579452",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6003f0",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "GetStatusLocalLibrary",
             "argc": "1",
-            "addr": "0x5d2480"
+            "interfaceid": "30",
+            "functionid": "674354319",
+            "fencepost": "739890256",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x60aea0",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "SaveLocalLibraryDirectorySettings",
             "argc": "1",
-            "addr": "0x5c7300"
+            "interfaceid": "30",
+            "functionid": "1006787628",
+            "fencepost": "1072371952",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5ffd20",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "GetLocalLibraryDirectoryEntryCount",
             "argc": "1",
-            "addr": "0x5c7430"
+            "interfaceid": "30",
+            "functionid": "4282583035",
+            "fencepost": "53216192",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5ffe50",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "GetLocalLibraryDirectoryEntry",
             "argc": "4",
-            "addr": "0x5c7590"
+            "interfaceid": "30",
+            "functionid": "2360378232",
+            "fencepost": "2426059330",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5fffb0",
+            "serializedargs": [
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes_length_from_mem"
+            ]
         },
         {
             "name": "AddLocalLibraryDirectoryEntry",
             "argc": "2",
-            "addr": "0x5c7740"
+            "interfaceid": "30",
+            "functionid": "2469994693",
+            "fencepost": "2535724178",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x600160",
+            "serializedargs": [
+                "string"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "ResetLocalLibraryDirectories",
             "argc": "2",
-            "addr": "0x5c7880"
+            "interfaceid": "30",
+            "functionid": "1131403297",
+            "fencepost": "1197148911",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6002a0",
+            "serializedargs": [
+                "bytes1"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "GetDefaultLocalLibraryDirectory",
             "argc": "3",
-            "addr": "0x5c7b00"
+            "interfaceid": "30",
+            "functionid": "3312011838",
+            "fencepost": "3377838097",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x600520",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes_length_from_mem"
+            ]
         },
         {
             "name": "LocalLibraryStopCrawling",
             "argc": "1",
-            "addr": "0x5c85a0"
+            "interfaceid": "30",
+            "functionid": "3398930514",
+            "fencepost": "3465224514",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x600fc0",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "UpdateLocalLibraryDirectoriesToCrawl",
             "argc": "1",
-            "addr": "0x5c86d0"
+            "interfaceid": "30",
+            "functionid": "3878120044",
+            "fencepost": "3944430173",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6010f0",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "BLocalLibraryIsCrawling",
             "argc": "1",
-            "addr": "0x5c8800"
+            "interfaceid": "30",
+            "functionid": "1707720846",
+            "fencepost": "1774047104",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x601220",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "boolean"
+            ]
         },
         {
             "name": "GetLocalLibraryTrackCount",
             "argc": "1",
-            "addr": "0x5c7df0"
+            "interfaceid": "30",
+            "functionid": "2510119734",
+            "fencepost": "2576026638",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x600810",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "GetLocalLibraryAlbumCount",
             "argc": "1",
-            "addr": "0x5c7c90"
+            "interfaceid": "30",
+            "functionid": "292950213",
+            "fencepost": "358840988",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6006b0",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "GetLocalLibraryAlbumID",
             "argc": "3",
-            "addr": "0x5c9330"
+            "interfaceid": "30",
+            "functionid": "4248544198",
+            "fencepost": "20145095",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x601d50",
+            "serializedargs": [
+                "bytes4",
+                "bytes1"
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "GetLocalLibraryAlbumIDEntry",
             "argc": "9",
-            "addr": "0x5c94c0"
+            "interfaceid": "30",
+            "functionid": "1293085183",
+            "fencepost": "1359830795",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x601ee0",
+            "serializedargs": [
+                "bytes4",
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes_length_from_mem",
+                "bytes_length_from_mem",
+                "bytes4",
+                "bytes4",
+                "bytes1"
+            ]
         },
         {
             "name": "GetLocalLibraryAlbumIDTrackEntry",
             "argc": "10",
-            "addr": "0x5c96e0"
+            "interfaceid": "30",
+            "functionid": "1821124688",
+            "fencepost": "1888160622",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x602100",
+            "serializedargs": [
+                "bytes4",
+                "bytes4",
+                "bytes4",
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes_length_from_mem",
+                "bytes4",
+                "bytes_length_from_mem",
+                "bytes_length_from_mem"
+            ]
         },
         {
             "name": "GetLocalLibraryAlbumDirectoryForAlbumID",
             "argc": "4",
-            "addr": "0x5ca0d0"
+            "interfaceid": "30",
+            "functionid": "4035990516",
+            "fencepost": "4103671610",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x602af0",
+            "serializedargs": [
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes_length_from_mem"
+            ]
         },
         {
             "name": "GetLocalLibraryAlbumSortNameForAlbumID",
             "argc": "4",
-            "addr": "0x5ca280"
+            "interfaceid": "30",
+            "functionid": "3333216848",
+            "fencepost": "3401026974",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x602ca0",
+            "serializedargs": [
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes_length_from_mem"
+            ]
         },
         {
             "name": "GetLocalLibraryArtistSortNameForAlbumID",
             "argc": "4",
-            "addr": "0x5ca430"
+            "interfaceid": "30",
+            "functionid": "400377385",
+            "fencepost": "468300414",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x602e50",
+            "serializedargs": [
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes_length_from_mem"
+            ]
         },
         {
             "name": "GetLocalLibraryTrackCountForAlbumID",
             "argc": "2",
-            "addr": "0x5c9ae0"
+            "interfaceid": "30",
+            "functionid": "781059510",
+            "fencepost": "848353508",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x602500",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "GetLocalLibraryAlbumIDTrackKey",
             "argc": "5",
-            "addr": "0x5c9920"
+            "interfaceid": "30",
+            "functionid": "4181692319",
+            "fencepost": "4248921801",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x602340",
+            "serializedargs": [
+                "bytes4",
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes_length_from_mem"
+            ]
         },
         {
             "name": "GetLocalLibraryAlbumIDForTrackKey",
             "argc": "2",
-            "addr": "0x5c9dd0"
+            "interfaceid": "30",
+            "functionid": "109526000",
+            "fencepost": "176981288",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6027f0",
+            "serializedargs": [
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "GetLocalLibraryArtistCount",
             "argc": "1",
-            "addr": "0x5c7f50"
+            "interfaceid": "30",
+            "functionid": "3808186217",
+            "fencepost": "3874109250",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x600970",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "GetLocalLibraryArtistName",
             "argc": "6",
-            "addr": "0x5c80b0"
+            "interfaceid": "30",
+            "functionid": "1328620541",
+            "fencepost": "1394672606",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x600ad0",
+            "serializedargs": [
+                "bytes4",
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes_length_from_mem",
+                "bytes_length_from_mem"
+            ]
         },
         {
             "name": "GetLocalLibraryAlbumCountForArtistName",
             "argc": "2",
-            "addr": "0x5c8290"
+            "interfaceid": "30",
+            "functionid": "1986978287",
+            "fencepost": "2053094868",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x600cb0",
+            "serializedargs": [
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "GetLocalLibraryTrackAndAlbumCountOfArtistName",
             "argc": "4",
-            "addr": "0x5c8400"
+            "interfaceid": "30",
+            "functionid": "560336928",
+            "fencepost": "626550283",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x600e20",
+            "serializedargs": [
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes4",
+                "bytes4"
+            ]
         },
         {
             "name": "GetLocalLibraryAlbumIDForArtist",
             "argc": "3",
-            "addr": "0x5c9c50"
+            "interfaceid": "30",
+            "functionid": "4013086566",
+            "fencepost": "4080461209",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x602670",
+            "serializedargs": [
+                "string",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "GetLocalLibraryRepresentativeAlbumIDForArtist",
             "argc": "3",
-            "addr": "0x5c9f40"
+            "interfaceid": "30",
+            "functionid": "4108966411",
+            "fencepost": "4176518473",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x602960",
+            "serializedargs": [
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes4",
+                "bytes1"
+            ]
         },
         {
             "name": "GetLocalLibraryTrackEntry",
             "argc": "7",
-            "addr": "0x5ca5e0"
+            "interfaceid": "30",
+            "functionid": "3004028295",
+            "fencepost": "3072128743",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x603000",
+            "serializedargs": [
+                "string",
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes_length_from_mem",
+                "bytes4",
+                "bytes_length_from_mem"
+            ]
         },
         {
             "name": "BRequestAllArtistListData",
             "argc": "2",
-            "addr": "0x5ca7c0"
+            "interfaceid": "30",
+            "functionid": "2601926469",
+            "fencepost": "2670123691",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6031e0",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "boolean"
+            ]
         },
         {
             "name": "BRequestAllAlbumListData",
             "argc": "2",
-            "addr": "0x5ca940"
+            "interfaceid": "30",
+            "functionid": "2002494950",
+            "fencepost": "2070708301",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x603360",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "boolean"
+            ]
         },
         {
             "name": "BRequestAllTracksListDataForAlbumID",
             "argc": "3",
-            "addr": "0x5caac0"
+            "interfaceid": "30",
+            "functionid": "2151433910",
+            "fencepost": "2219663390",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6034e0",
+            "serializedargs": [
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "boolean"
+            ]
         },
         {
             "name": "GetPlaylistCount",
             "argc": "1",
-            "addr": "0x5cac50"
+            "interfaceid": "30",
+            "functionid": "2864916850",
+            "fencepost": "2933194717",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x603670",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "GetPlaylistID",
             "argc": "2",
-            "addr": "0x5cadb0"
+            "interfaceid": "30",
+            "functionid": "1486126344",
+            "fencepost": "1554420340",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6037d0",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "GetPositionForPlaylistID",
             "argc": "2",
-            "addr": "0x5caf20"
+            "interfaceid": "30",
+            "functionid": "2443766821",
+            "fencepost": "2512076946",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x603940",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "GetPlaylistIDForPosition",
             "argc": "2",
-            "addr": "0x5cb090"
+            "interfaceid": "30",
+            "functionid": "1098990370",
+            "fencepost": "1167316624",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x603ab0",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "BRequestAllPlayListData",
             "argc": "2",
-            "addr": "0x5cb200"
+            "interfaceid": "30",
+            "functionid": "3120882177",
+            "fencepost": "3189224560",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x603c20",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "boolean"
+            ]
         },
         {
             "name": "GetNextPlaylistName",
             "argc": "4",
-            "addr": "0x5cb380"
+            "interfaceid": "30",
+            "functionid": "2710340699",
+            "fencepost": "2778763727",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x603da0",
+            "serializedargs": [
+                "string",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes_length_from_mem"
+            ]
         },
         {
             "name": "InsertPlaylistWithNameAtPosition",
             "argc": "3",
-            "addr": "0x5cb520"
+            "interfaceid": "30",
+            "functionid": "4210811957",
+            "fencepost": "4279347888",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x603f40",
+            "serializedargs": [
+                "string",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "MovePlaylistFromPositionToPosition",
             "argc": "3",
-            "addr": "0x5cb6a0"
+            "interfaceid": "30",
+            "functionid": "1037945368",
+            "fencepost": "1106513557",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6040c0",
+            "serializedargs": [
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "DeletePlaylistWithID",
             "argc": "2",
-            "addr": "0x5cb830"
+            "interfaceid": "30",
+            "functionid": "444070930",
+            "fencepost": "512655248",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x604250",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "RenamePlaylistWithID",
             "argc": "3",
-            "addr": "0x5cb9b0"
+            "interfaceid": "30",
+            "functionid": "3439089383",
+            "fencepost": "3507738217",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6043d0",
+            "serializedargs": [
+                "bytes4",
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "AddRandomTracksToPlaylistID",
             "argc": "3",
-            "addr": "0x5cbb30"
+            "interfaceid": "30",
+            "functionid": "1610946078",
+            "fencepost": "1679643299",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x604550",
+            "serializedargs": [
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "GetPlaylistIDData",
             "argc": "9",
-            "addr": "0x5cbcc0"
+            "interfaceid": "30",
+            "functionid": "2689425937",
+            "fencepost": "2758284448",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6046e0",
+            "serializedargs": [
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes_length_from_mem",
+                "bytes4",
+                "bytes4",
+                "bytes4",
+                "bytes4",
+                "bytes4"
+            ]
         },
         {
             "name": "GetPlaylistIDTrackCount",
             "argc": "2",
-            "addr": "0x5cbee0"
+            "interfaceid": "30",
+            "functionid": "2601758865",
+            "fencepost": "2670746408",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x604900",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "BRequestAllTracksListDataForPlaylistID",
             "argc": "3",
-            "addr": "0x5cc050"
+            "interfaceid": "30",
+            "functionid": "2161976941",
+            "fencepost": "2230980613",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x604a70",
+            "serializedargs": [
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "boolean"
+            ]
         },
         {
             "name": "GetPlaylistIDTrackKey",
             "argc": "6",
-            "addr": "0x5cc1e0"
+            "interfaceid": "30",
+            "functionid": "3072870057",
+            "fencepost": "3141986632",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x604c00",
+            "serializedargs": [
+                "bytes4",
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes_length_from_mem",
+                "bytes4"
+            ]
         },
         {
             "name": "GetPositionForPlaylistItemID",
             "argc": "2",
-            "addr": "0x5cc3c0"
+            "interfaceid": "30",
+            "functionid": "1166145806",
+            "fencepost": "1235326897",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x604de0",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "AddTrackKeyToPlaylistID",
             "argc": "3",
-            "addr": "0x5cc530"
+            "interfaceid": "30",
+            "functionid": "294103025",
+            "fencepost": "363364761",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x604f50",
+            "serializedargs": [
+                "bytes4",
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "AddAlbumIDToPlaylistID",
             "argc": "4",
-            "addr": "0x5cc6b0"
+            "interfaceid": "30",
+            "functionid": "2473204803",
+            "fencepost": "2542498797",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6050d0",
+            "serializedargs": [
+                "bytes4",
+                "bytes4",
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "AddArtistNameToPlaylistID",
             "argc": "3",
-            "addr": "0x5cc850"
+            "interfaceid": "30",
+            "functionid": "31559025",
+            "fencepost": "100917535",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x605270",
+            "serializedargs": [
+                "bytes4",
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "AddPlaylistIDToPlaylistID",
             "argc": "3",
-            "addr": "0x5cc9d0"
+            "interfaceid": "30",
+            "functionid": "3736933543",
+            "fencepost": "3806324311",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6053f0",
+            "serializedargs": [
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "RemovePlaylistPositionFromPlaylistID",
             "argc": "3",
-            "addr": "0x5ccb60"
+            "interfaceid": "30",
+            "functionid": "927785899",
+            "fencepost": "997208925",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x605580",
+            "serializedargs": [
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "RemoveAllTracksFromPlaylistID",
             "argc": "3",
-            "addr": "0x5cccf0"
+            "interfaceid": "30",
+            "functionid": "282419369",
+            "fencepost": "351858524",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x605710",
+            "serializedargs": [
+                "bytes4",
+                "bytes1"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "MoveTrackFromPositionToPositonInPlaylistID",
             "argc": "4",
-            "addr": "0x5cce90"
+            "interfaceid": "30",
+            "functionid": "2524763026",
+            "fencepost": "2594218310",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6058b0",
+            "serializedargs": [
+                "bytes4",
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "AppendQueueToPlaylistID",
             "argc": "3",
-            "addr": "0x5cd030"
+            "interfaceid": "30",
+            "functionid": "523482193",
+            "fencepost": "592969735",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x605a50",
+            "serializedargs": [
+                "bytes4",
+                "bytes1"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "GetLocalLibraryRepresentativeAlbumIDForPlaylist",
             "argc": "3",
-            "addr": "0x5cd1d0"
+            "interfaceid": "30",
+            "functionid": "3361195439",
+            "fencepost": "3430763626",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x605bf0",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes4",
+                "bytes1"
+            ]
         },
         {
             "name": "MarkTrackKeyAsPlayed",
             "argc": "2",
-            "addr": "0x5cd360"
+            "interfaceid": "30",
+            "functionid": "1341633364",
+            "fencepost": "1411282196",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x605d80",
+            "serializedargs": [
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "GetMostRecentlyPlayedAlbums",
             "argc": "3",
-            "addr": "0x5cd4d0"
+            "interfaceid": "30",
+            "functionid": "1494678710",
+            "fencepost": "1564408187",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x605ef0",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes_length_from_reg"
+            ]
         },
         {
             "name": "GetMostRecentlyAddedAlbums",
             "argc": "3",
-            "addr": "0x5cd670"
+            "interfaceid": "30",
+            "functionid": "3786195674",
+            "fencepost": "3856038054",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x606090",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes_length_from_reg"
+            ]
         },
         {
             "name": "ActivateRemotePlayerWithID",
             "argc": "2",
-            "addr": "0x5cd810"
+            "interfaceid": "30",
+            "functionid": "3727475610",
+            "fencepost": "3797398635",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x606230",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "GetActiveRemotePlayerID",
             "argc": "1",
-            "addr": "0x5cd990"
+            "interfaceid": "30",
+            "functionid": "1015737972",
+            "fencepost": "1085677126",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6063b0",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "GetRemotePlayerCount",
             "argc": "1",
-            "addr": "0x5cdaf0"
+            "interfaceid": "30",
+            "functionid": "1122404337",
+            "fencepost": "1192359620",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x606510",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "GetRemotePlayerIDAndName",
             "argc": "5",
-            "addr": "0x5cdc50"
+            "interfaceid": "30",
+            "functionid": "279533162",
+            "fencepost": "349585219",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x606670",
+            "serializedargs": [
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes4",
+                "bytes_length_from_mem"
+            ]
         },
         {
             "name": "GetCurrentEntryTextForRemotePlayerWithID",
             "argc": "4",
-            "addr": "0x5cde10"
+            "interfaceid": "30",
+            "functionid": "2577727247",
+            "fencepost": "2647908336",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x606830",
+            "serializedargs": [
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes_length_from_mem"
+            ]
         },
         {
             "name": "RegisterSteamMusicRemote",
             "argc": "2",
-            "addr": "0x5cdfc0"
+            "interfaceid": "30",
+            "functionid": "2611566858",
+            "fencepost": "2681828592",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6069e0",
+            "serializedargs": [
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "DeregisterSteamMusicRemote",
             "argc": "1",
-            "addr": "0x5ce130"
+            "interfaceid": "30",
+            "functionid": "1030554067",
+            "fencepost": "1100831930",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x606b50",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "BIsCurrentMusicRemote",
             "argc": "1",
-            "addr": "0x5ce290"
+            "interfaceid": "30",
+            "functionid": "3023876839",
+            "fencepost": "3094170831",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x606cb0",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "boolean"
+            ]
         },
         {
             "name": "BActivationSuccess",
             "argc": "2",
-            "addr": "0x5ce3f0"
+            "interfaceid": "30",
+            "functionid": "4192174255",
+            "fencepost": "4262484376",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x606e10",
+            "serializedargs": [
+                "bytes1"
+            ],
+            "serializedreturns": [
+                "boolean"
+            ]
         },
         {
             "name": "SetDisplayName",
             "argc": "2",
-            "addr": "0x5ce570"
+            "interfaceid": "30",
+            "functionid": "501187232",
+            "fencepost": "571529611",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x606f90",
+            "serializedargs": [
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "SetPNGIcon_64x64",
             "argc": "3",
-            "addr": "0x5ce6e0"
+            "interfaceid": "30",
+            "functionid": "4071998965",
+            "fencepost": "4142357473",
+            "cannotcallincrossprocess": "1",
+            "serializedreturn": "",
+            "addr": "0x607100",
+            "serializedargs": [
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "EnablePlayPrevious",
             "argc": "2",
-            "addr": "0x5ce8a0"
+            "interfaceid": "30",
+            "functionid": "562878675",
+            "fencepost": "633269441",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6072c0",
+            "serializedargs": [
+                "bytes1"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "EnablePlayNext",
             "argc": "2",
-            "addr": "0x5cea20"
+            "interfaceid": "30",
+            "functionid": "1438252814",
+            "fencepost": "1508659709",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x607440",
+            "serializedargs": [
+                "bytes1"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "EnableShuffled",
             "argc": "2",
-            "addr": "0x5ceba0"
+            "interfaceid": "30",
+            "functionid": "1083951109",
+            "fencepost": "1154374133",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6075c0",
+            "serializedargs": [
+                "bytes1"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "EnableLooped",
             "argc": "2",
-            "addr": "0x5ced20"
+            "interfaceid": "30",
+            "functionid": "1936046128",
+            "fencepost": "2006485281",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x607740",
+            "serializedargs": [
+                "bytes1"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "EnableQueue",
             "argc": "2",
-            "addr": "0x5ceea0"
+            "interfaceid": "30",
+            "functionid": "4233061931",
+            "fencepost": "8549917",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6078c0",
+            "serializedargs": [
+                "bytes1"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "EnablePlaylists",
             "argc": "2",
-            "addr": "0x5cf020"
+            "interfaceid": "30",
+            "functionid": "74282562",
+            "fencepost": "144753973",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x607a40",
+            "serializedargs": [
+                "bytes1"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "UpdatePlaybackStatus",
             "argc": "2",
-            "addr": "0x5cf1a0"
+            "interfaceid": "30",
+            "functionid": "4174993496",
+            "fencepost": "4245497165",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x607bc0",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "UpdateShuffled",
             "argc": "2",
-            "addr": "0x5cf320"
+            "interfaceid": "30",
+            "functionid": "4048545285",
+            "fencepost": "4119065083",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x607d40",
+            "serializedargs": [
+                "bytes1"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "UpdateLooped",
             "argc": "2",
-            "addr": "0x5cf4a0"
+            "interfaceid": "30",
+            "functionid": "1432589268",
+            "fencepost": "1503125195",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x607ec0",
+            "serializedargs": [
+                "bytes1"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "UpdateVolume",
             "argc": "2",
-            "addr": "0x5cf620"
+            "interfaceid": "30",
+            "functionid": "1938143966",
+            "fencepost": "2008696022",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x608040",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "CurrentEntryWillChange",
             "argc": "1",
-            "addr": "0x5cf7a0"
+            "interfaceid": "30",
+            "functionid": "1452405606",
+            "fencepost": "1522989920",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6081c0",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "CurrentEntryIsAvailable",
             "argc": "2",
-            "addr": "0x5cf900"
+            "interfaceid": "30",
+            "functionid": "3033964494",
+            "fencepost": "3104564937",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x608320",
+            "serializedargs": [
+                "bytes1"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "UpdateCurrentEntryText",
             "argc": "2",
-            "addr": "0x5cfa80"
+            "interfaceid": "30",
+            "functionid": "1563614083",
+            "fencepost": "1634230655",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6084a0",
+            "serializedargs": [
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "UpdateCurrentEntryElapsedSeconds",
             "argc": "2",
-            "addr": "0x5cfbf0"
+            "interfaceid": "30",
+            "functionid": "2952389950",
+            "fencepost": "3023022651",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x608610",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "UpdateCurrentEntryCoverArt",
             "argc": "3",
-            "addr": "0x5cfd70"
+            "interfaceid": "30",
+            "functionid": "385274262",
+            "fencepost": "455923092",
+            "cannotcallincrossprocess": "1",
+            "serializedreturn": "",
+            "addr": "0x608790",
+            "serializedargs": [
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "CurrentEntryDidChange",
             "argc": "1",
-            "addr": "0x5cff30"
+            "interfaceid": "30",
+            "functionid": "544034720",
+            "fencepost": "614699679",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x608950",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "QueueWillChange",
             "argc": "1",
-            "addr": "0x5d0090"
+            "interfaceid": "30",
+            "functionid": "3350636619",
+            "fencepost": "3421333836",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x608ab0",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "ResetQueueEntries",
             "argc": "1",
-            "addr": "0x5d01f0"
+            "interfaceid": "30",
+            "functionid": "2866579383",
+            "fencepost": "2937292729",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x608c10",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "SetQueueEntry",
             "argc": "4",
-            "addr": "0x5d0350"
+            "interfaceid": "30",
+            "functionid": "3502905320",
+            "fencepost": "3573634795",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x608d70",
+            "serializedargs": [
+                "bytes4",
+                "bytes4",
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "SetCurrentQueueEntry",
             "argc": "2",
-            "addr": "0x5d04f0"
+            "interfaceid": "30",
+            "functionid": "2653077432",
+            "fencepost": "2723823036",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x608f10",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "QueueDidChange",
             "argc": "1",
-            "addr": "0x5d0670"
+            "interfaceid": "30",
+            "functionid": "552205288",
+            "fencepost": "622967021",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x609090",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "PlaylistWillChange",
             "argc": "1",
-            "addr": "0x5d07d0"
+            "interfaceid": "30",
+            "functionid": "3283782416",
+            "fencepost": "3354576407",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6091f0",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "ResetPlaylistEntries",
             "argc": "1",
-            "addr": "0x5d0930"
+            "interfaceid": "30",
+            "functionid": "2961032544",
+            "fencepost": "3031842664",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x609350",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "SetPlaylistEntry",
             "argc": "4",
-            "addr": "0x5d0a90"
+            "interfaceid": "30",
+            "functionid": "3305701777",
+            "fencepost": "3376528026",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6094b0",
+            "serializedargs": [
+                "bytes4",
+                "bytes4",
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "SetCurrentPlaylistEntry",
             "argc": "2",
-            "addr": "0x5d0c30"
+            "interfaceid": "30",
+            "functionid": "445428333",
+            "fencepost": "516270711",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x609650",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "PlaylistDidChange",
             "argc": "1",
-            "addr": "0x5d0db0"
+            "interfaceid": "30",
+            "functionid": "3266839497",
+            "fencepost": "3337698004",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6097d0",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "RequestAlbumCoverForAlbumID",
             "argc": "2",
-            "addr": "0x5d0f10"
+            "interfaceid": "30",
+            "functionid": "3836650501",
+            "fencepost": "3907541266",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x609930",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "RequestAlbumCoverForTrackKey",
             "argc": "2",
-            "addr": "0x5d1080"
+            "interfaceid": "30",
+            "functionid": "2983386068",
+            "fencepost": "3054292962",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x609aa0",
+            "serializedargs": [
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "GetAlbumCoverForIndex",
             "argc": "4",
-            "addr": "0x5d11f0"
+            "interfaceid": "30",
+            "functionid": "4167351810",
+            "fencepost": "4238339349",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x609c10",
+            "serializedargs": [
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes_length_from_mem"
+            ]
         },
         {
             "name": "CancelAlbumCoverRequestForIndex",
             "argc": "2",
-            "addr": "0x5d13a0"
+            "interfaceid": "30",
+            "functionid": "2334562801",
+            "fencepost": "2405598727",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x609dc0",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "GetAlbumCoverURLForAlbumID",
             "argc": "4",
-            "addr": "0x5d14f0"
+            "interfaceid": "30",
+            "functionid": "3546460238",
+            "fencepost": "3617592938",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x609f10",
+            "serializedargs": [
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes_length_from_mem"
+            ]
         },
         {
             "name": "GetAlbumCoverURLForTrackKey",
             "argc": "4",
-            "addr": "0x5d16a0"
+            "interfaceid": "30",
+            "functionid": "4097102031",
+            "fencepost": "4168363763",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x60a0c0",
+            "serializedargs": [
+                "string",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1",
+                "bytes_length_from_mem"
+            ]
         },
         {
             "name": "StartUsingSpotify",
             "argc": "1",
-            "addr": "0x5c8960"
+            "interfaceid": "30",
+            "functionid": "3569126731",
+            "fencepost": "3635485247",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x601380",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "StopUsingSpotify",
             "argc": "1",
-            "addr": "0x5c8a90"
+            "interfaceid": "30",
+            "functionid": "1519492400",
+            "fencepost": "1585867045",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6014b0",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "GetStatusSpotify",
             "argc": "1",
-            "addr": "0x5d25e0"
+            "interfaceid": "30",
+            "functionid": "140801646",
+            "fencepost": "207192420",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x60b000",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "LoginSpotify",
             "argc": "3",
-            "addr": "0x5c8bc0"
+            "interfaceid": "30",
+            "functionid": "1508583812",
+            "fencepost": "1575006844",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6015e0",
+            "serializedargs": [
+                "string",
+                "string"
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "ReloginSpotify",
             "argc": "1",
-            "addr": "0x5c8d10"
+            "interfaceid": "30",
+            "functionid": "889847186",
+            "fencepost": "956286347",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x601730",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "GetCurrentUserSpotify",
             "argc": "1",
-            "addr": "0x5c8e40"
+            "interfaceid": "30",
+            "functionid": "1068220280",
+            "fencepost": "1134675570",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x601860",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "string"
+            ]
         },
         {
             "name": "ForgetCurrentUserSpotify",
             "argc": "1",
-            "addr": "0x5c8fa0"
+            "interfaceid": "30",
+            "functionid": "2427542047",
+            "fencepost": "2494013466",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6019c0",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "LogoutSpotify",
             "argc": "1",
-            "addr": "0x5c90d0"
+            "interfaceid": "30",
+            "functionid": "871087805",
+            "fencepost": "937575353",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x601af0",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "DumpStatusToConsole",
             "argc": "1",
-            "addr": "0x5c9200"
+            "interfaceid": "30",
+            "functionid": "1273844381",
+            "fencepost": "1340364187",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x601c20",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+            ]
         },
         {
             "name": "ReplacePlaylistWithSoundtrackAlbum",
             "argc": "2",
-            "addr": "0x5d1da0"
+            "interfaceid": "30",
+            "functionid": "627110241",
+            "fencepost": "698533263",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x60a7c0",
+            "serializedargs": [
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes1"
+            ]
         },
         {
             "name": "GetQueueSoundtrackAppID",
             "argc": "1",
-            "addr": "0x5d1f20"
+            "interfaceid": "30",
+            "functionid": "1418827512",
+            "fencepost": "1490266663",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x60a940",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         }
     ]
 }

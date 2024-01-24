@@ -159,7 +159,7 @@ void SettingsWindow::on_betasDropdown_activated(int index)
     // User selected "No beta"
     if (index == 0) {
         DEBUG_MSG << "[SettingsWindow] index was 0" << std::endl;
-        Global_SteamClientMgr->ClientAppManager->SetAppConfigValue(app->appid, "betakey", "public");
+        Global_SteamClientMgr->ClientAppManager->SetActiveBeta(app->appid, "public");
         return;
     }
 

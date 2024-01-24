@@ -1,51 +1,155 @@
 {
     "name": "IClientBluetoothManagerMap",
-    "found_at": "0x23aab54",
+    "found_at": "0x244ce84",
     "functions": [ 
         {
             "name": "IsInterfaceValid",
             "argc": "1",
-            "addr": "0x60eaa0"
+            "interfaceid": "43",
+            "functionid": "862242927",
+            "fencepost": "957812713",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x643050",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "boolean"
+            ]
         },
         {
             "name": "GetBluetoothDevicesData",
             "argc": "2",
-            "addr": "0x60ec00"
+            "interfaceid": "43",
+            "functionid": "140762000",
+            "fencepost": "236396302",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6431b0",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes4",
+                "unknown"
+            ]
         },
         {
             "name": "SetEnabled",
             "argc": "2",
-            "addr": "0x60ed80"
+            "interfaceid": "43",
+            "functionid": "2077551232",
+            "fencepost": "2173250050",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x643330",
+            "serializedargs": [
+                "bytes1"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "SetDiscovering",
             "argc": "3",
-            "addr": "0x60ef20"
+            "interfaceid": "43",
+            "functionid": "1041711639",
+            "fencepost": "1137426586",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6434d0",
+            "serializedargs": [
+                "bytes4",
+                "bytes1"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "Pair",
             "argc": "3",
-            "addr": "0x60f0d0"
+            "interfaceid": "43",
+            "functionid": "1670907992",
+            "fencepost": "1766639068",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x643680",
+            "serializedargs": [
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "CancelPairing",
             "argc": "3",
-            "addr": "0x60f280"
+            "interfaceid": "43",
+            "functionid": "1677458739",
+            "fencepost": "1773205944",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x643830",
+            "serializedargs": [
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "UnPair",
             "argc": "3",
-            "addr": "0x60f430"
+            "interfaceid": "43",
+            "functionid": "1218045101",
+            "fencepost": "1313808435",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x6439e0",
+            "serializedargs": [
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "Connect",
             "argc": "3",
-            "addr": "0x60f5e0"
+            "interfaceid": "43",
+            "functionid": "4220175085",
+            "fencepost": "20987252",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x643b90",
+            "serializedargs": [
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         },
         {
             "name": "Disconnect",
             "argc": "3",
-            "addr": "0x60f790"
+            "interfaceid": "43",
+            "functionid": "1811507610",
+            "fencepost": "1907303202",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x643d40",
+            "serializedargs": [
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes8"
+            ]
         }
     ]
 }

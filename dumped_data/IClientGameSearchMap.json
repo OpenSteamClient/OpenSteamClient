@@ -1,76 +1,238 @@
 {
     "name": "IClientGameSearchMap",
-    "found_at": "0x23a95e0",
+    "found_at": "0x244b9c4",
     "functions": [ 
         {
             "name": "AddGameSearchParams",
             "argc": "3",
-            "addr": "0x58fed0"
+            "interfaceid": "47",
+            "functionid": "2323601599",
+            "fencepost": "2356994598",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5c91c0",
+            "serializedargs": [
+                "string",
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "SearchForGameWithLobby",
             "argc": "5",
-            "addr": "0x590040"
+            "interfaceid": "47",
+            "functionid": "3739264436",
+            "fencepost": "3772673564",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5c9330",
+            "serializedargs": [
+                "uint64",
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "SearchForGameSolo",
             "argc": "3",
-            "addr": "0x5901d0"
+            "interfaceid": "47",
+            "functionid": "352636216",
+            "fencepost": "386061473",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5c94c0",
+            "serializedargs": [
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "AcceptGame",
             "argc": "1",
-            "addr": "0x590360"
+            "interfaceid": "47",
+            "functionid": "2318510021",
+            "fencepost": "2351951407",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5c9650",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "DeclineGame",
             "argc": "1",
-            "addr": "0x5904c0"
+            "interfaceid": "47",
+            "functionid": "4287724694",
+            "fencepost": "26214913",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5c97b0",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "RetrieveConnectionDetails",
             "argc": "5",
-            "addr": "0x590620"
+            "interfaceid": "47",
+            "functionid": "2232289438",
+            "fencepost": "2265827598",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5c9910",
+            "serializedargs": [
+                "uint64",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes4",
+                "bytes_length_from_mem"
+            ]
         },
         {
             "name": "EndGameSearch",
             "argc": "1",
-            "addr": "0x5907c0"
+            "interfaceid": "47",
+            "functionid": "2360115827",
+            "fencepost": "2393702374",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5c9ab0",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "SetGameHostParams",
             "argc": "3",
-            "addr": "0x590920"
+            "interfaceid": "47",
+            "functionid": "802555102",
+            "fencepost": "836173907",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5c9c10",
+            "serializedargs": [
+                "string",
+                "string"
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "SetConnectionDetails",
             "argc": "3",
-            "addr": "0x590a90"
+            "interfaceid": "47",
+            "functionid": "1677742509",
+            "fencepost": "1711377443",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5c9d80",
+            "serializedargs": [
+                "string",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "RequestPlayersForGame",
             "argc": "4",
-            "addr": "0x590c10"
+            "interfaceid": "47",
+            "functionid": "3791324473",
+            "fencepost": "3824975536",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5c9f00",
+            "serializedargs": [
+                "bytes4",
+                "bytes4",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "HostConfirmGameStart",
             "argc": "3",
-            "addr": "0x590db0"
+            "interfaceid": "47",
+            "functionid": "2261344911",
+            "fencepost": "2295012103",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5ca0a0",
+            "serializedargs": [
+                "bytes8"
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "CancelRequestPlayersForGame",
             "argc": "1",
-            "addr": "0x590f30"
+            "interfaceid": "47",
+            "functionid": "3598059408",
+            "fencepost": "3631742729",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5ca220",
+            "serializedargs": [
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "SubmitPlayerResult",
             "argc": "6",
-            "addr": "0x591210"
+            "interfaceid": "47",
+            "functionid": "532140807",
+            "fencepost": "565840257",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5ca500",
+            "serializedargs": [
+                "bytes8",
+                "uint64",
+                "bytes4"
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         },
         {
             "name": "EndGame",
             "argc": "3",
-            "addr": "0x591090"
+            "interfaceid": "47",
+            "functionid": "1234683165",
+            "fencepost": "1268398744",
+            "cannotcallincrossprocess": "0",
+            "serializedreturn": "",
+            "addr": "0x5ca380",
+            "serializedargs": [
+                "bytes8"
+            ],
+            "serializedreturns": [
+                "bytes4"
+            ]
         }
     ]
 }

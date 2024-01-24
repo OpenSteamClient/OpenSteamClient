@@ -14,7 +14,8 @@ public:
     virtual void EnableShaderManagement(bool) = 0; //argc: 1, index 0
     virtual void EnableShaderBackgroundProcessing(bool) = 0; //argc: 1, index 1
     virtual void GetShaderDepotsTotalDiskUsage() = 0; //argc: 0, index 2
-    virtual void GetShaderCacheDiskSize() = 0; //argc: 1, index 0
+    // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
+    virtual void GetShaderCacheDiskSize() = 0; //argc: 3, index 0
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
     virtual void StartShaderScan() = 0; //argc: 2, index 1
     // WARNING: Argument count doesn't match argc! Remove this once this has been corrected!
