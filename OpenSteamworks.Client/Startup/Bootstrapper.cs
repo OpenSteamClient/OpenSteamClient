@@ -150,6 +150,7 @@ public class Bootstrapper : IClientLifetime {
                 logger.Error("Failed verification: " + string.Join(", ", failureReason));
                 await EnsurePackages(progressHandler);
                 await ExtractPackages(progressHandler);
+                await CreateSymlinks(progressHandler);
             }
         }
 
@@ -224,10 +225,24 @@ public class Bootstrapper : IClientLifetime {
         CopyOpensteamFiles(progressHandler);
 
         bootstrapperState.CommitHash = GitInfo.GitCommit;
-        bootstrapperState.InstalledVersion = OpenSteamworks.Generated.VersionInfo.STEAM_MANIFEST_VERSION;
+        bootstrapperState.InstalledVersion = VersionInfo.STEAM_MANIFEST_VERSION;
         await configManager.SaveAsync(bootstrapperState);
 
         await FinishBootstrap(progressHandler);
+    }
+
+    private async Task CreateSymlinks(IExtendedProgress<int> progressHandler)
+    {
+        // By default we copy all files to their correct directories.
+        // Specify path mappings here to tell the files to link into another folder as well
+        Dictionary<string, string> pathMappings = new() {
+            {"ubuntu12_64/libsteamwebrtc.so", "linux64/libsteamwebrtc.so"},
+        };
+
+        foreach (var mapping in pathMappings)
+        {
+            //TODO
+        }
     }
 
     private async Task FinishBootstrap(IExtendedProgress<int> progressHandler) {
