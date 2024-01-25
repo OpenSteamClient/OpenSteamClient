@@ -590,7 +590,7 @@ public class AppsManager : ILogonLifetime
         var app = AppBase.CreateSteamApp(this, gameid.AppID);
 
         // There's too many configs and demo's to store them all in memory, so let's not (and demos as "demo" types seems to be deprecated anyway)
-        if (app.Type == EAppType.Config || app.Type == EAppType.Demo) {
+        if (!(app.Type == EAppType.Config || app.Type == EAppType.Demo)) {
             apps.Add(app);
         }
         

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Avalonia.Media;
@@ -10,6 +11,8 @@ using ClientUI.ViewModels.Library;
 using ClientUI.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using OpenSteamworks.Callbacks;
+using OpenSteamworks.Callbacks.Structs;
 using OpenSteamworks.Client.Apps;
 using OpenSteamworks.Enums;
 using OpenSteamworks.Structs;
@@ -38,11 +41,17 @@ public partial class FocusedAppPaneViewModel : ViewModelBase
     public FocusedAppPaneViewModel(CGameID gameid)
     {
         app = AvaloniaApp.Container.Get<AppsManager>().GetApp(gameid);
+        AvaloniaApp.Container.Get<CallbackManager>().RegisterHandler<AppEventStateChange_t>(OnAppEventStateChange);
         this.Name = app.Name;
         SetLibraryAssets();
 
         app.LibraryAssetsUpdated += OnLibraryAssetsUpdated;
-        UpdatePlayButton();
+        UpdatePlayButton(app.State);
+    }
+
+    private void OnAppEventStateChange(CallbackManager.CallbackHandler<AppEventStateChange_t> handler, AppEventStateChange_t change)
+    {
+        UpdatePlayButton(change.m_eNewState);
     }
 
 #pragma warning disable MVVMTK0034
@@ -51,29 +60,29 @@ public partial class FocusedAppPaneViewModel : ViewModelBase
     [MemberNotNull(nameof(playButtonLocalizationToken))]
     [MemberNotNull(nameof(PlayButtonLocalizationToken))]
 #pragma warning restore MVVMTK0034
-    private void UpdatePlayButton()
+    private void UpdatePlayButton(EAppState state)
     {
-        if (app.State.HasFlag(EAppState.AppRunning))
+        if (state.HasFlag(EAppState.AppRunning))
         {
             PlayButtonLocalizationToken = "#App_StopApp";
             PlayButtonAction = new RelayCommand(KillApp);
         }
-        else if (app.State.HasFlag(EAppState.Terminating))
+        else if (state.HasFlag(EAppState.Terminating))
         {
             PlayButtonLocalizationToken = "#App_StoppingApp";
             PlayButtonAction = new RelayCommand(InvalidAction);
         }
-        else if (app.State.HasFlag(EAppState.UpdateRunning))
+        else if (state.HasFlag(EAppState.UpdateRunning))
         {
             PlayButtonLocalizationToken = "#App_PauseAppUpdate";
             PlayButtonAction = new RelayCommand(PauseUpdate);
         }
-        else if (app.State.HasFlag(EAppState.UpdateRequired) || app.State.HasFlag(EAppState.UpdatePaused) || app.State.HasFlag(EAppState.UpdateQueued))
+        else if (state.HasFlag(EAppState.UpdateRequired) || state.HasFlag(EAppState.UpdatePaused) || state.HasFlag(EAppState.UpdateQueued))
         {
             PlayButtonLocalizationToken = "#App_UpdateApp";
             PlayButtonAction = new RelayCommand(Update);
         }
-        else if (app.State == EAppState.FullyInstalled)
+        else if (app.LaunchOptions.Any() && state == EAppState.FullyInstalled)
         {
             if (app.Type == EAppType.Game)
             {
@@ -85,13 +94,13 @@ public partial class FocusedAppPaneViewModel : ViewModelBase
                 PlayButtonLocalizationToken = "#App_LaunchApp";
                 PlayButtonAction = new RelayCommand(Launch);
             }
-        } else if (app.State == EAppState.Uninstalled) {
+        } else if (state == EAppState.Uninstalled || (!app.LaunchOptions.Any() && state == EAppState.FullyInstalled)) {
             PlayButtonLocalizationToken = "#App_InstallApp";
             PlayButtonAction = new RelayCommand(RequestInstall);
         }
         else
         {
-            PlayButtonLocalizationToken = "Unknown state: " + app.State.ToString();
+            PlayButtonLocalizationToken = "Unknown state: " + state.ToString();
             PlayButtonAction = new RelayCommand(InvalidAction);
         }
     }

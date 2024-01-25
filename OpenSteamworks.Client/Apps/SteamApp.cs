@@ -9,27 +9,12 @@ using OpenSteamworks.Client.Utils;
 using OpenSteamworks.Enums;
 using OpenSteamworks.KeyValues;
 using OpenSteamworks.Structs;
+using OpenSteamworks.Utils;
 
 namespace OpenSteamworks.Client.Apps;
 
 public class SteamApp : AppBase
 {
-    public class LaunchOption : ILaunchOption
-    {
-        public int ID { get; init; }
-        public string Name { get; init; }
-        public string Description { get; init; }
-        public string CommandLine { get; init; }
-
-        public LaunchOption(int id, string name, string desc, string commandLine)
-        {
-            this.ID = id;
-            this.Name = name;
-            this.Description = desc;
-            this.CommandLine = commandLine;
-        }
-    }
-
     protected override string ActualName => Common.Name;
     protected override string ActualHeroURL => $"https://cdn.cloudflare.steamstatic.com/steam/apps/{this.AppID}/library_hero.jpg?t={this.Common.StoreAssetModificationTime}";
     protected override string ActualLogoURL => $"https://cdn.cloudflare.steamstatic.com/steam/apps/{this.AppID}/logo.jpg?t={this.Common.StoreAssetModificationTime}";
@@ -122,6 +107,11 @@ public class SteamApp : AppBase
         // Get default launch option if there's only one (actual processing for multiple platforms, user selected, etc is done later)'
         if (Config.LaunchOptions.Count() == 1) {
             defaultLaunchOptionId = 0;
+        } else if (Config.LaunchOptions.Count() > 1) {
+            var osFilteredOpts = Config.LaunchOptions.Where(l => l.Config != null && l.Config.OSList.Contains(UtilityFunctions.GetSteamPlatformString()));
+            if (osFilteredOpts.Count() == 1) {
+                defaultLaunchOptionId = osFilteredOpts.First().ID;
+            }
         }
     }
 
@@ -207,8 +197,7 @@ public class SteamApp : AppBase
     }
 
     private int? defaultLaunchOptionId;
-    private readonly List<LaunchOption> launchOptions = new();
-    public override IEnumerable<LaunchOption> LaunchOptions => launchOptions;
+    public override IEnumerable<AppDataConfigSection.LaunchOption> LaunchOptions => this.Config.LaunchOptions;
     public override int? DefaultLaunchOptionID => defaultLaunchOptionId;
 
     public override EAppState State => this.AppsManager.ClientApps.NativeClientAppManager.GetAppInstallState(AppID);

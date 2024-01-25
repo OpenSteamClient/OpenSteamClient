@@ -24,6 +24,19 @@ public static class UtilityFunctions {
             throw new Exception("Unsupported platform in GetPlatformString");
         }
     }
+
+    public static string GetSteamPlatformString() {
+        if (OperatingSystem.IsWindows()) {
+            return "windows";
+        } else if (OperatingSystem.IsLinux()) {
+            return "linux";
+        } else if (OperatingSystem.IsMacOS()) {
+            return "macos";
+        } else {
+            throw new Exception("Unsupported platform in GetSteamPlatformString");
+        }
+    }
+
     public static void Assert([DoesNotReturnIf(false)] bool condition,
     [CallerArgumentExpression(nameof(condition))] string conditionStr = "", 
     [CallerFilePath] string sourceFilePath = "",
