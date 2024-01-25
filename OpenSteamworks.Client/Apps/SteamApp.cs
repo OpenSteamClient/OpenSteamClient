@@ -17,7 +17,7 @@ public class SteamApp : AppBase
 {
     protected override string ActualName => Common.Name;
     protected override string ActualHeroURL => $"https://cdn.cloudflare.steamstatic.com/steam/apps/{this.AppID}/library_hero.jpg?t={this.Common.StoreAssetModificationTime}";
-    protected override string ActualLogoURL => $"https://cdn.cloudflare.steamstatic.com/steam/apps/{this.AppID}/logo.jpg?t={this.Common.StoreAssetModificationTime}";
+    protected override string ActualLogoURL => $"https://cdn.cloudflare.steamstatic.com/steam/apps/{this.AppID}/logo.png?t={this.Common.StoreAssetModificationTime}";
     protected override string ActualIconURL => $"https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/apps/{this.AppID}/{this.Common.Icon}.jpg";
     protected override string ActualPortraitURL => $"https://cdn.cloudflare.steamstatic.com/steam/apps/{this.AppID}/library_600x900.jpg?t={this.Common.StoreAssetModificationTime}";
 

@@ -122,7 +122,7 @@ public partial class FocusedAppPaneViewModel : ViewModelBase
         }
         else
         {
-            this.Hero = Brushes.DarkGray;
+            this.Hero = Brushes.Red;
         }
 
         if (app.LocalLogoPath != null)
@@ -134,7 +134,7 @@ public partial class FocusedAppPaneViewModel : ViewModelBase
         }
         else
         {
-            this.Logo = Brushes.Transparent;
+            this.Logo = Brushes.Red;
         }
     }
 

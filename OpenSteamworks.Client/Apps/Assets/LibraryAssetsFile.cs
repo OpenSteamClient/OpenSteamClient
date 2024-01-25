@@ -83,7 +83,7 @@ public class LibraryAssetsFile : TypedKVObject
             set => SetValue("5", value);
         }
 
-        internal void SetLastModified(string lastModified, AppsManager.ELibraryAssetType assetType)
+        public void SetLastModified(string lastModified, AppsManager.ELibraryAssetType assetType)
         {
             switch (assetType)
             {
@@ -104,7 +104,7 @@ public class LibraryAssetsFile : TypedKVObject
             }
         }
 
-        internal void SetExpires(long expires, AppsManager.ELibraryAssetType assetType)
+        public void SetExpires(long expires, AppsManager.ELibraryAssetType assetType)
         {
             switch (assetType)
             {
@@ -123,6 +123,30 @@ public class LibraryAssetsFile : TypedKVObject
                 default:
                     throw new ArgumentOutOfRangeException(nameof(assetType));
             }
+        }
+
+        public string GetLastModified(AppsManager.ELibraryAssetType assetType)
+        {
+            return assetType switch
+            {
+                AppsManager.ELibraryAssetType.Icon => "",
+                AppsManager.ELibraryAssetType.Logo => LogoLastModified,
+                AppsManager.ELibraryAssetType.Hero => HeroLastModified,
+                AppsManager.ELibraryAssetType.Portrait => PortraitLastModified,
+                _ => throw new ArgumentOutOfRangeException(nameof(assetType)),
+            };
+        }
+
+        public long GetExpires(AppsManager.ELibraryAssetType assetType)
+        {
+            return assetType switch
+            {
+                AppsManager.ELibraryAssetType.Icon => 0,
+                AppsManager.ELibraryAssetType.Logo => LogoExpires,
+                AppsManager.ELibraryAssetType.Hero => HeroExpires,
+                AppsManager.ELibraryAssetType.Portrait => PortraitExpires,
+                _ => throw new ArgumentOutOfRangeException(nameof(assetType)),
+            };
         }
     }
 

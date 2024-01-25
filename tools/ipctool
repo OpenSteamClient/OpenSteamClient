@@ -1,2 +1,3 @@
 #!/bin/sh
-dotnet run --project ./ipctool_src -- $@
+SCRIPT_PATH=$(dirname "$0")
+dotnet run --project $SCRIPT_PATH/ipctool_src -- $@

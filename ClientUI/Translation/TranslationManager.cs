@@ -101,7 +101,7 @@ public class TranslationManager : ILogonLifetime
         this.CurrentTranslation.TranslationKeys.TryGetValue(key, out string? val);
         if (val == null)
         {
-            throw new ArgumentException("Key " + key + " is not valid or not specified in current translation.");
+            val = "TRANSLATION FAILED";
         }
 
         return val;
@@ -278,7 +278,11 @@ public class TranslationManager : ILogonLifetime
 
     async Task ILogonLifetime.OnLoggedOn(IExtendedProgress<int> progress, LoggedOnEventArgs e)
     {
-        await Task.Run(() => this.SetLanguage(userSettings.Language));
+        if (userSettings.Language != ELanguage.None) {
+            await Task.Run(() => this.SetLanguage(userSettings.Language));
+        } else {
+            await Task.Run(() => this.SetLanguage(ELanguage.English));
+        }
     }
 
     async Task ILogonLifetime.OnLoggingOff(IExtendedProgress<int> progress)

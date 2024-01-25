@@ -249,14 +249,6 @@ public partial class HTMLSurface : UserControl
                 targetBitmap.InstallPixels(targetBitmap.Info, dataPtr);
                 installPixelsTime.Stop();
 
-                if (!File.Exists("/tmp/frame.png"))
-                {
-                    using (var file = File.OpenWrite("/tmp/frame.png"))
-                    {
-                        targetBitmap.Encode(file, SKEncodedImageFormat.Png, 100);
-                    }
-                }
-
                 //bitmap = new Bitmap(PixelFormat.Bgra8888, AlphaFormat.Unpremul, dataPtr, PixelSize.FromSizeWithDpi(new Size(this.width, this.height), 96), new Vector(96, 96), 4 * ((width * this.targetBitmapInfo.BytesPerPixel + 3) / 4));
                 lastPtr = dataPtr;
                 installPixelsTime.Stop();

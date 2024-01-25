@@ -99,7 +99,12 @@ public class ClientApps {
     /// Use ClientCompat to specify compat tools if needed.
     /// </remarks>
     public EAppUpdateError InstallApp(AppId_t app, LibraryFolder_t libraryFolder) {
-        return this.NativeClientAppManager.InstallApp(app, libraryFolder, false);
+        var result = this.NativeClientAppManager.InstallApp(app, libraryFolder, false);
+        if (result == EAppUpdateError.NoError) {
+            this.NativeClientAppManager.SetDownloadingEnabled(true);
+        }
+
+        return result;
     }
 
     public string GetLibraryFolderPath(LibraryFolder_t libraryFolder) {

@@ -60,6 +60,7 @@
         "#Dialog_OK": "OK",
         "#Dialog_Yes": "Kyllä",
         "#Dialog_No": "Ei",
+        "#SelectInstallDirectoryDialog_Title": "Asenna {0}",
         "#SelectInstallDirectoryDialog_SelectLibraryFolder": "Valitse kirjastokansio minne {0} asennetaan"
     }
 }

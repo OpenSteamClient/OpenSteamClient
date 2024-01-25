@@ -394,7 +394,7 @@ public class AppsManager : ILogonLifetime
                         notUpToDateReason += $"ExpireDate {DateTimeOffset.FromUnixTimeSeconds(expireDate)} passed, current time: {DateTimeOffset.UtcNow} ";
                     }
 
-                    if (assetData.StoreAssetsLastModified < app.StoreAssetsLastModified) {
+                    if (app.StoreAssetsLastModified != 0 && assetData.StoreAssetsLastModified < app.StoreAssetsLastModified) {
                         notUpToDateReason += $"StoreAssetsLastModified does not match cached: {assetData.StoreAssetsLastModified} app: {app.StoreAssetsLastModified} ";
                         upToDate = false;
                     }
@@ -478,6 +478,15 @@ public class AppsManager : ILogonLifetime
                 shouldDownload = true;
             }
 
+            if (assetType != ELibraryAssetType.Icon && asset.GetExpires(assetType) == 0) {
+                shouldDownload = true;
+            }
+
+            // If the store assets last modified is set to 0, don't download store assets (but the icon is fine to download in all cases)
+            if (app.StoreAssetsLastModified == 0 && assetType != ELibraryAssetType.Icon) {
+                shouldDownload = false;
+            }
+
             if (shouldDownload) {
                 logger.Info($"Downloading library asset {assetType} for {app.AppID} with url {uri}");
                 using (var response = await Client.HttpClient.GetAsync(uri))
@@ -490,19 +499,17 @@ public class AppsManager : ILogonLifetime
                         using var file = File.OpenWrite(targetPath);
                         response.Content.ReadAsStream().CopyTo(file);
                         logger.Info($"Saved library asset {assetType} for {app.AppID} to disk successfully");
-                    }
 
-                    if (assetType == ELibraryAssetType.Icon) {
-                        if (app is SteamApp sapp)
-                        {
-                            logger.Info("Setting icon hash to '" + sapp.Common.Icon + "'");
-                            asset.IconHash = sapp.Common.Icon;
+                        if (assetType == ELibraryAssetType.Icon) {
+                            if (app is SteamApp sapp)
+                            {
+                                logger.Info("Setting icon hash to '" + sapp.Common.Icon + "'");
+                                asset.IconHash = sapp.Common.Icon;
+                            } else {
+                                logger.Warning("AssetType is icon, but we're not a SteamApp! Unsupported (for now)");
+                            }
                         } else {
-                            logger.Warning("AssetType is icon, but we're not a SteamApp! Unsupported (for now)");
-                        }
-                    } else {
-                        // These headers will never exist for failure codes, so don't even try
-                        if (response.IsSuccessStatusCode) {
+                            // These headers will never exist for failure codes, so don't even try
                             if (response.Content.Headers.LastModified.HasValue) {
                                 string headerContent = response.Content.Headers.LastModified.Value.ToString(DateTimeFormatInfo.InvariantInfo.RFC1123Pattern);
                                 asset.SetLastModified(headerContent, assetType);
@@ -516,11 +523,13 @@ public class AppsManager : ILogonLifetime
                                 logger.Warning("Failed to get Expires header.");
                             }
                         }
-                    }
 
-                    asset.LastChangeNumber = steamClient.IClientApps.GetLastChangeNumberReceived();
-                    asset.StoreAssetsLastModified = app.StoreAssetsLastModified;
+                        asset.LastChangeNumber = steamClient.IClientApps.GetLastChangeNumberReceived();
+                        asset.StoreAssetsLastModified = app.StoreAssetsLastModified;
+                    }                    
                 }
+            } else {
+                logger.Info($"Not downloading library asset {assetType} for {app.AppID}, as shouldDownload is false");
             }
             
             if (!suppressSet) {
@@ -544,7 +553,6 @@ public class AppsManager : ILogonLifetime
             }
         }
 
-        Console.WriteLine(KVTextSerializer.Serialize(asset.UnderlyingObject));
         assetsConcurrent[app.AppID.ToString()] = asset;
         if (!suppressConcurrentDictSave) {
             WriteConcurrentAssetDict();
@@ -553,6 +561,10 @@ public class AppsManager : ILogonLifetime
         if (!success && shouldDownload) {
             UtilityFunctions.Assert(statusCode != HttpStatusCode.Unused);
             logger.Error($"Failed downloading library asset {assetType} for {app.AppID} (url: {uri}) (err: {statusCode})");
+            return null;
+        }
+
+        if (!File.Exists(targetPath)) {
             return null;
         }
 
