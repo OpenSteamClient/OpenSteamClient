@@ -66,7 +66,6 @@ public unsafe interface IClientUser
     public unknown_ret TerminateGameConnection();  // argc: 2, index: 27, ipc args: [bytes4, bytes2], ipc returns: []
     // WARNING: Arguments are unknown!
     public bool TerminateGame(AppId_t appid, bool force);  // argc: 2, index: 28, ipc args: [bytes8, bytes1], ipc returns: [bytes1]
-    // WARNING: Arguments are unknown!
     /// <summary>
     /// Apparently deprecated, but still called by ValveSteam.
     /// </summary>
@@ -438,7 +437,7 @@ public unsafe interface IClientUser
     public unknown_ret ValidateOfflineLogonTicket();  // argc: 1, index: 227, ipc args: [string], ipc returns: [bytes4]
     // WARNING: Arguments are unknown!
     public bool BGetOfflineLogonTicket(StringBuilder ticket, int ticketMax);  // argc: 2, index: 228, ipc args: [string], ipc returns: [boolean, protobuf]
-    public unknown_ret UploadLocalClientLogs();  // argc: 0, index: 229, ipc args: [], ipc returns: [bytes8]
+    public SteamAPICall_t UploadLocalClientLogs();  // argc: 0, index: 229, ipc args: [], ipc returns: [bytes8]
     // WARNING: Arguments are unknown!
     public void SetAsyncNotificationEnabled(AppId_t appid, bool val);  // argc: 2, index: 230, ipc args: [bytes4, bytes1], ipc returns: []
     public bool BIsOtherSessionPlaying(ref UInt32 accountID);  // argc: 1, index: 231, ipc args: [], ipc returns: [boolean, bytes4]

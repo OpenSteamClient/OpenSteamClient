@@ -12,6 +12,7 @@ using OpenSteamworks.Client.Utils.DI;
 using OpenSteamworks.Client.Apps;
 using OpenSteamworks.Client.Apps.Library;
 using System.Net;
+using OpenSteamworks.Client.Friends;
 
 namespace OpenSteamworks.Client;
 
@@ -107,5 +108,6 @@ public class Client : IClientLifetime
         container.ConstructAndRegister<LibraryManager>();
         container.ConstructAndRegister<SteamHTML>();
         container.ConstructAndRegister<SteamService>();
+        container.ConstructAndRegister<FriendsManager>();
     }
 }

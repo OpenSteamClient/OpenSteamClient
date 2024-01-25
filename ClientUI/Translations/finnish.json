@@ -61,6 +61,8 @@
         "#Dialog_Yes": "Kyllä",
         "#Dialog_No": "Ei",
         "#SelectInstallDirectoryDialog_Title": "Asenna {0}",
-        "#SelectInstallDirectoryDialog_SelectLibraryFolder": "Valitse kirjastokansio minne {0} asennetaan"
+        "#SelectInstallDirectoryDialog_SelectLibraryFolder": "Valitse kirjastokansio minne {0} asennetaan",
+        "#UserSettings_AutologinFriendsNetworkDesc": "Automaattisesti kirjaudu kaveriverkkoon kun kirjaudut sisään",
+        "#UserSettings_AutologinFriendsNetwork": "Kirjaudu sisään kaveriverkkoon automaattisesti"
     }
 }

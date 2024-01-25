@@ -61,6 +61,8 @@
         "#Dialog_Yes": "Yes",
         "#Dialog_No": "No",
         "#SelectInstallDirectoryDialog_Title": "Install {0}",
-        "#SelectInstallDirectoryDialog_SelectLibraryFolder": "Select a library folder to install {0} in"
+        "#SelectInstallDirectoryDialog_SelectLibraryFolder": "Select a library folder to install {0} in",
+        "#UserSettings_AutologinFriendsNetworkDesc": "Automatically login to the friends network when logging in",
+        "#UserSettings_AutologinFriendsNetwork": "Auto-login to friends network"
     }
 }

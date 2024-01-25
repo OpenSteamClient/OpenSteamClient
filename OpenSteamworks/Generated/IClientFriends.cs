@@ -273,21 +273,21 @@ public unsafe interface IClientFriends
     // WARNING: Arguments are unknown!
     public unknown_ret ShowChatRoomGroupInvite();  // argc: 1, index: 128, ipc args: [string], ipc returns: []
     // WARNING: Arguments are unknown!
-    public unknown_ret VoiceCallNew();  // argc: 4, index: 129, ipc args: [uint64, uint64], ipc returns: []
+    public unknown_ret VoiceCallNew(CSteamID steamIDLocalPeer, CSteamID steamIDRemotePeer);  // argc: 4, index: 129, ipc args: [uint64, uint64], ipc returns: []
     // WARNING: Arguments are unknown!
-    public unknown_ret VoiceCall();  // argc: 4, index: 130, ipc args: [uint64, uint64], ipc returns: []
+    public unknown_ret VoiceCall(CSteamID steamIDLocalPeer, CSteamID steamIDRemotePeer);  // argc: 4, index: 130, ipc args: [uint64, uint64], ipc returns: []
     // WARNING: Arguments are unknown!
-    public unknown_ret VoiceHangUp();  // argc: 3, index: 131, ipc args: [uint64, bytes4], ipc returns: []
+    public unknown_ret VoiceHangUp(CSteamID steamIDLocalPeer, int hVoiceCall);  // argc: 3, index: 131, ipc args: [uint64, bytes4], ipc returns: []
     // WARNING: Arguments are unknown!
     public unknown_ret SetVoiceSpeakerVolume();  // argc: 1, index: 132, ipc args: [bytes4], ipc returns: []
     // WARNING: Arguments are unknown!
     public unknown_ret SetVoiceMicrophoneVolume();  // argc: 1, index: 133, ipc args: [bytes4], ipc returns: []
     // WARNING: Arguments are unknown!
-    public unknown_ret SetAutoAnswer();  // argc: 1, index: 134, ipc args: [bytes1], ipc returns: []
+    public unknown_ret SetAutoAnswer(bool autoAnswer);  // argc: 1, index: 134, ipc args: [bytes1], ipc returns: []
     // WARNING: Arguments are unknown!
-    public unknown_ret VoiceAnswer();  // argc: 1, index: 135, ipc args: [bytes4], ipc returns: []
+    public unknown_ret VoiceAnswer(int hVoiceCall);  // argc: 1, index: 135, ipc args: [bytes4], ipc returns: []
     // WARNING: Arguments are unknown!
-    public unknown_ret AcceptVoiceCall();  // argc: 4, index: 136, ipc args: [uint64, uint64], ipc returns: []
+    public unknown_ret AcceptVoiceCall(CSteamID steamIDLocalPeer, CSteamID steamIDRemotePeer);  // argc: 4, index: 136, ipc args: [uint64, uint64], ipc returns: []
     // WARNING: Arguments are unknown!
     public unknown_ret VoicePutOnHold();  // argc: 2, index: 137, ipc args: [bytes4, bytes1], ipc returns: []
     // WARNING: Arguments are unknown!
@@ -297,24 +297,23 @@ public unsafe interface IClientFriends
     // WARNING: Arguments are unknown!
     public unknown_ret SetDoNotDisturb();  // argc: 1, index: 140, ipc args: [bytes1], ipc returns: []
     // WARNING: Arguments are unknown!
-    public unknown_ret EnableVoiceNotificationSounds();  // argc: 1, index: 141, ipc args: [bytes1], ipc returns: []
+    public unknown_ret EnableVoiceNotificationSounds(bool enable);  // argc: 1, index: 141, ipc args: [bytes1], ipc returns: []
     // WARNING: Arguments are unknown!
     public unknown_ret SetPushToTalkEnabled();  // argc: 2, index: 142, ipc args: [bytes1, bytes1], ipc returns: []
     public unknown_ret IsPushToTalkEnabled();  // argc: 0, index: 143, ipc args: [], ipc returns: [boolean]
     public unknown_ret IsPushToMuteEnabled();  // argc: 0, index: 144, ipc args: [], ipc returns: [boolean]
     // WARNING: Arguments are unknown!
-    public unknown_ret SetPushToTalkKey();  // argc: 1, index: 145, ipc args: [bytes4], ipc returns: []
-    public unknown_ret GetPushToTalkKey();  // argc: 0, index: 146, ipc args: [], ipc returns: [bytes4]
-    public unknown_ret IsPushToTalkKeyDown();  // argc: 0, index: 147, ipc args: [], ipc returns: [boolean]
-    // WARNING: Arguments are unknown!
-    public unknown_ret EnableVoiceCalibration();  // argc: 1, index: 148, ipc args: [bytes1], ipc returns: []
-    public unknown_ret IsVoiceCalibrating();  // argc: 0, index: 149, ipc args: [], ipc returns: [boolean]
+    public unknown_ret SetPushToTalkKey(int nVirtualKey);  // argc: 1, index: 145, ipc args: [bytes4], ipc returns: []
+    public int GetPushToTalkKey();  // argc: 0, index: 146, ipc args: [], ipc returns: [bytes4]
+    public bool IsPushToTalkKeyDown();  // argc: 0, index: 147, ipc args: [], ipc returns: [boolean]
+    public void EnableVoiceCalibration(bool enable);  // argc: 1, index: 148, ipc args: [bytes1], ipc returns: []
+    public bool IsVoiceCalibrating();  // argc: 0, index: 149, ipc args: [], ipc returns: [boolean]
     public unknown_ret GetVoiceCalibrationSamplePeak();  // argc: 0, index: 150, ipc args: [], ipc returns: [bytes4]
     // WARNING: Arguments are unknown!
     public unknown_ret SetMicBoost();  // argc: 1, index: 151, ipc args: [bytes1], ipc returns: []
     public unknown_ret GetMicBoost();  // argc: 0, index: 152, ipc args: [], ipc returns: [bytes1]
     public unknown_ret HasHardwareMicBoost();  // argc: 0, index: 153, ipc args: [], ipc returns: [bytes1]
-    public unknown_ret GetMicDeviceName();  // argc: 0, index: 154, ipc args: [], ipc returns: [string]
+    public string GetMicDeviceName();  // argc: 0, index: 154, ipc args: [], ipc returns: [string]
     // WARNING: Arguments are unknown!
     public unknown_ret StartTalking();  // argc: 1, index: 155, ipc args: [bytes4], ipc returns: []
     // WARNING: Arguments are unknown!
@@ -373,20 +372,19 @@ public unsafe interface IClientFriends
     public unknown_ret ChatRoomVoiceRetryConnections();  // argc: 2, index: 183, ipc args: [uint64], ipc returns: []
     // WARNING: Arguments are unknown!
     public unknown_ret SetPortTypes();  // argc: 1, index: 184, ipc args: [bytes4], ipc returns: []
-    public unknown_ret ReinitAudio();  // argc: 0, index: 185, ipc args: [], ipc returns: []
+    public void ReinitAudio();  // argc: 0, index: 185, ipc args: [], ipc returns: []
     // WARNING: Arguments are unknown!
     public unknown_ret SetInGameVoiceSpeaking();  // argc: 3, index: 186, ipc args: [uint64, bytes1], ipc returns: []
     public unknown_ret IsInGameVoiceSpeaking();  // argc: 0, index: 187, ipc args: [], ipc returns: [boolean]
+    public void ActivateGameOverlay(string dialog);  // argc: 1, index: 188, ipc args: [string], ipc returns: []
     // WARNING: Arguments are unknown!
-    public unknown_ret ActivateGameOverlay();  // argc: 1, index: 188, ipc args: [string], ipc returns: []
-    // WARNING: Arguments are unknown!
-    public unknown_ret ActivateGameOverlayToUser();  // argc: 3, index: 189, ipc args: [string, uint64], ipc returns: []
+    public unknown_ret ActivateGameOverlayToUser(string dialog, CSteamID steamid);  // argc: 3, index: 189, ipc args: [string, uint64], ipc returns: []
     // WARNING: Arguments are unknown!
     public unknown_ret ActivateGameOverlayToWebPage();  // argc: 2, index: 190, ipc args: [string, bytes4], ipc returns: []
     // WARNING: Arguments are unknown!
     public unknown_ret ActivateGameOverlayToStore();  // argc: 2, index: 191, ipc args: [bytes4, bytes4], ipc returns: []
     // WARNING: Arguments are unknown!
-    public unknown_ret ActivateGameOverlayInviteDialog();  // argc: 2, index: 192, ipc args: [uint64], ipc returns: []
+    public unknown_ret ActivateGameOverlayInviteDialog(CSteamID serverid);  // argc: 2, index: 192, ipc args: [uint64], ipc returns: []
     // WARNING: Arguments are unknown!
     public unknown_ret ActivateGameOverlayRemotePlayTogetherInviteDialog();  // argc: 2, index: 193, ipc args: [uint64], ipc returns: []
     // WARNING: Arguments are unknown!

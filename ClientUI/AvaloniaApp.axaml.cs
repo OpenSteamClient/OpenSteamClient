@@ -106,7 +106,10 @@ public class AvaloniaApp : Application
 
         // This is kept for the lifetime of the application, which is fine
         Container.Get<LoginManager>().SetProgress(loginProgress);
-        Container.Get<LoginManager>().SetExceptionHandler(e => MessageBox.Error(e));
+        Container.Get<LoginManager>().SetExceptionHandler(e => {
+            Program.FatalException(e);
+        });
+
         Container.Get<LoginManager>().LogonStarted += (object sender, EventArgs e) =>
         {
             InvokeOnUIThread(() =>
