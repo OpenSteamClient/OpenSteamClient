@@ -500,7 +500,7 @@ public partial class HTMLSurface : UserControl
             throw new InvalidOperationException("CreateBrowser failed due to no call handle being returned.");
         }
 
-        var result = await this.client.CallbackManager.WaitForAPICallResultAsync<HTML_BrowserReady_t>(callHandle, true, new CancellationTokenSource(2000).Token);
+        var result = await this.client.CallbackManager.WaitForAPICallResultAsync<HTML_BrowserReady_t>(callHandle, true, new CancellationTokenSource(15000).Token);
         if (result.failed)
         {
             this.htmlHost.Stop();

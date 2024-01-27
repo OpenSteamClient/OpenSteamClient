@@ -9,7 +9,7 @@ public class GlobalSettings: IConfigFile {
     static bool IConfigFile.AlwaysSave => false;
     
     [ConfigName("Enable Webhelper", "#GlobalSettings_EnableWebHelper")]
-    [ConfigDescription("Enables/disables Webhelper. Required for some games and for browsing the store and community pages in-client.", "#GlobalSettings_EnableWebHelperDesc")]
+    [ConfigDescription("Enables/disables Webhelper. Required for some games and for browsing the store and community pages in-client. 100% functionality is not guaranteed.", "#GlobalSettings_EnableWebHelperDesc")]
     [ConfigCategory("Webhelper", "#GlobalSettings_Category_Webhelper")]
     public bool EnableWebHelper { get; set; } = false;
 
