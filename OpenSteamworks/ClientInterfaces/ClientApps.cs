@@ -31,10 +31,57 @@ public class ClientApps {
         this.callbackManager = client.CallbackManager;
     }
 
-    public bool BIsAppUpToDate(AppId_t appid) => this.NativeClientAppManager.BIsAppUpToDate(appid);
+    public bool BIsAppUpToDate(AppId_t appid)
+    {
+        var state = this.NativeClientAppManager.GetAppInstallState(appid);
+        if (state.HasFlag(EAppState.UpdateRequired)) {
+            return false;
+        }
+
+        if (state.HasFlag(EAppState.FilesCorrupt)) {
+            return false;
+        }
+
+        if (state.HasFlag(EAppState.FilesMissing)) {
+            return false;
+        }
+
+        return this.NativeClientAppManager.BIsAppUpToDate(appid);
+    }
+
+    public static string GetRootNameForAppInfoSection(EAppInfoSection section) {
+        return section switch
+        {
+            EAppInfoSection.Common => "common",
+            EAppInfoSection.Extended => "extended",
+            EAppInfoSection.Config => "config",
+            EAppInfoSection.Stats => "stats",
+            EAppInfoSection.Install => "install",
+            EAppInfoSection.Depots => "depots",
+            EAppInfoSection.Vac => "vac",
+            EAppInfoSection.Drm => "drm",
+            EAppInfoSection.Ufs => "ufs",
+            EAppInfoSection.Ogg => "ogg",
+            EAppInfoSection.Items => "items",
+            EAppInfoSection.Policies => "policies",
+            EAppInfoSection.Sysreqs => "sysreqs",
+            EAppInfoSection.Community => "community",
+            EAppInfoSection.Store => "store",
+            EAppInfoSection.Localization => "localization",
+            EAppInfoSection.Broadcastgamedata => "broadcastgamedata",
+            EAppInfoSection.Computed => "computed",
+            EAppInfoSection.Albummetadata => "albummetadata",
+            _ => throw new ArgumentOutOfRangeException(nameof(section)),
+        };
+    }
+
     public KVObject GetAppDataSection(AppId_t appid, EAppInfoSection section) {
         IncrementingBuffer buf = new();
-        buf.RunUntilFits(() => NativeClientApps.GetAppDataSection(appid, section, buf.Data, buf.Length, false));
+        buf.RunToFit(() => NativeClientApps.GetAppDataSection(appid, section, buf.Data, buf.Length, false));
+        if (!buf.Data.Any(b => b != 0)) {
+            return new KVObject(GetRootNameForAppInfoSection(section), new List<KVObject>());
+        }
+        
         using (var stream = new MemoryStream(buf.Data))
         {
             return KVBinaryDeserializer.Deserialize(stream);
@@ -74,7 +121,12 @@ public class ClientApps {
 
     public async Task UpdateAppInfo(AppId_t app) {
         this.NativeClientApps.RequestAppInfoUpdate(new [] { app }, 1);
-        await this.callbackManager.WaitForCallback<AppInfoUpdateProgress_t>((prog) => prog.m_nAppID == app);
+        await this.callbackManager.WaitForCallback<AppInfoUpdateComplete_t>();
+    }
+
+    public void QueueUpdate(AppId_t app) {
+        this.NativeClientAppManager.ChangeAppDownloadQueuePlacement(app, EAppDownloadQueuePlacement.PriorityUserInitiated);
+        this.NativeClientAppManager.SetDownloadingEnabled(true);
     }
 
     public async Task SyncCloud(AppId_t app) {

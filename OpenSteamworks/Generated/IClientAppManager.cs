@@ -19,19 +19,19 @@ public unsafe interface IClientAppManager
 {
     public EAppUpdateError InstallApp(AppId_t unAppID, LibraryFolder_t libraryFolder, bool bLegacy);  // argc: 3, index: 1, ipc args: [bytes4, bytes4, bytes1], ipc returns: [bytes4]
     public EAppUpdateError UninstallApp(AppId_t unAppID);  // argc: 1, index: 2, ipc args: [bytes4], ipc returns: [bytes4]
-    public EAppUpdateError LaunchApp(in CGameID gameID, uint uLaunchOption, ELaunchSource eLaunchSource, unknown_ret unknown);  // argc: 4, index: 3, ipc args: [bytes8, bytes4, bytes4, string], ipc returns: [bytes4]
-    public unknown_ret ShutdownApp(AppId_t appId, bool force);  // argc: 2, index: 4, ipc args: [bytes4, bytes1], ipc returns: [bytes1]
+    public EAppUpdateError LaunchApp(in CGameID gameID, uint uLaunchOption, ELaunchSource eLaunchSource, string unkStr);  // argc: 4, index: 3, ipc args: [bytes8, bytes4, bytes4, string], ipc returns: [bytes4]
+    public bool ShutdownApp(AppId_t appId, bool force);  // argc: 2, index: 4, ipc args: [bytes4, bytes1], ipc returns: [bytes1]
     public EAppState GetAppInstallState(AppId_t appid);  // argc: 1, index: 5, ipc args: [bytes4], ipc returns: [bytes4]
     public int GetAppInstallDir(AppId_t appid, StringBuilder path, int pathMax);  // argc: 3, index: 6, ipc args: [bytes4, bytes4], ipc returns: [bytes4, bytes_length_from_reg]
     // WARNING: Arguments are unknown!
-    public unknown_ret GetAppContentInfo();  // argc: 6, index: 7, ipc args: [bytes4, bytes1], ipc returns: [bytes4, bytes4, bytes4, bytes8, bytes8]
+    public unknown_retu GetAppContentInfo(AppId_t appid, bool bUnk, out uint unkOut, out uint unkOut2, out ulong unkOut3, out ulong unkOut4);  // argc: 6, index: 7, ipc args: [bytes4, bytes1], ipc returns: [bytes4, bytes4, bytes4, bytes8, bytes8]
     // WARNING: Arguments are unknown!
-    public bool GetAppStagingInfo();  // argc: 3, index: 8, ipc args: [bytes4], ipc returns: [bytes1, bytes4, bytes8]
+    public bool GetAppStagingInfo(AppId_t appid, out uint unkOut, out ulong unkOut2);  // argc: 3, index: 8, ipc args: [bytes4], ipc returns: [bytes1, bytes4, bytes8]
     public bool IsAppDlcInstalled(AppId_t appid, AppId_t dlcid);  // argc: 2, index: 9, ipc args: [bytes4, bytes4], ipc returns: [boolean]
     // WARNING: Arguments are unknown!
     public bool GetDlcDownloadProgress(AppId_t appid, ref UInt64 downloaded, ref UInt64 toDownload);  // argc: 4, index: 10, ipc args: [bytes4, bytes4], ipc returns: [bytes1, bytes8, bytes8]
     public bool BIsDlcEnabled(AppId_t appid, AppId_t dlcid, ref bool appManagesDLC);  // argc: 3, index: 11, ipc args: [bytes4, bytes4], ipc returns: [boolean, boolean]
-    public unknown_ret SetDlcEnabled(AppId_t appid, AppId_t dlcid, bool enable);  // argc: 3, index: 12, ipc args: [bytes4, bytes4, bytes1], ipc returns: []
+    public void SetDlcEnabled(AppId_t appid, AppId_t dlcid, bool enable);  // argc: 3, index: 12, ipc args: [bytes4, bytes4, bytes1], ipc returns: []
     public bool SetDlcContext(AppId_t appid, AppId_t dlcid);  // argc: 2, index: 13, ipc args: [bytes4, bytes4], ipc returns: [bytes1]
     // WARNING: Arguments are unknown!
     public unknown_ret GetDlcSizes(AppId_t appid, [IPCOut] uint[] dlcs, int dlccount, [IPCOut] long[] sizes);  // argc: 4, index: 14, ipc args: [bytes4, bytes4, bytes_length_from_reg], ipc returns: [bytes1, bytes_length_from_reg]
@@ -60,9 +60,9 @@ public unsafe interface IClientAppManager
     public SteamAPICall_t GetFileDetails(AppId_t appid, string file);  // argc: 2, index: 31, ipc args: [bytes4, string], ipc returns: [bytes8]
     public SteamAPICall_t VerifySignedFiles(AppId_t appid);  // argc: 1, index: 32, ipc args: [bytes4], ipc returns: [bytes8]
     // WARNING: Arguments are unknown!
-    public int GetAvailableBetas(AppId_t appid);  // argc: 5, index: 33, ipc args: [bytes4, bytes4], ipc returns: [bytes4, bytes4, bytes_length_from_mem, bytes4]
+    public int GetAvailableBetas(AppId_t appid, out uint unk, StringBuilder unk3, int length, out uint unk2);  // argc: 5, index: 33, ipc args: [bytes4, bytes4], ipc returns: [bytes4, bytes4, bytes_length_from_mem, bytes4]
     public bool CheckBetaPassword(AppId_t appid, string betaPassword);  // argc: 2, index: 34, ipc args: [bytes4, string], ipc returns: [bytes1]
-    public SteamAPICall_t SetActiveBeta(AppId_t appid, string beta);  // argc: 2, index: 35, ipc args: [bytes4, string], ipc returns: [bytes1]
+    public bool SetActiveBeta(AppId_t appid, string beta);  // argc: 2, index: 35, ipc args: [bytes4, string], ipc returns: [bytes1]
     public int GetActiveBeta(AppId_t appid, StringBuilder betaOut, int betaOutLen);  // argc: 3, index: 36, ipc args: [bytes4, bytes4], ipc returns: [bytes1, bytes_length_from_mem]
     [BlacklistedInCrossProcessIPC]
     public bool BGetActiveBetaForApps(CUtlVector<AppId_t>* apps, CUtlStringList* betas);  // argc: 2, index: 37, ipc args: [bytes4, bytes4], ipc returns: [boolean]
@@ -82,10 +82,9 @@ public unsafe interface IClientAppManager
     public void SetAllowDownloadsWhileAnyAppRunning(bool val);  // argc: 1, index: 51, ipc args: [bytes1], ipc returns: []
     public bool BAllowDownloadsWhileAnyAppRunning();  // argc: 0, index: 52, ipc args: [], ipc returns: [boolean]
     public bool ChangeAppDownloadQueuePlacement(AppId_t appid, EAppDownloadQueuePlacement placement);  // argc: 2, index: 53, ipc args: [bytes4, bytes4], ipc returns: [bytes1]
-    public void SetAppDownloadQueueIndex(AppId_t appid, int index);  // argc: 2, index: 54, ipc args: [bytes4, bytes4], ipc returns: [bytes1]
+    public bool SetAppDownloadQueueIndex(AppId_t appid, int index);  // argc: 2, index: 54, ipc args: [bytes4, bytes4], ipc returns: [bytes1]
     public int GetAppDownloadQueueIndex(AppId_t appid);  // argc: 1, index: 55, ipc args: [bytes4], ipc returns: [bytes4]
-    // WARNING: Arguments are unknown!
-    public unknown_ret GetAppAutoUpdateDelayedUntilTime();  // argc: 1, index: 56, ipc args: [bytes4], ipc returns: [bytes4]
+    public RTime32 GetAppAutoUpdateDelayedUntilTime(AppId_t appid);  // argc: 1, index: 56, ipc args: [bytes4], ipc returns: [bytes4]
     public int GetNumAppsInDownloadQueue();  // argc: 0, index: 57, ipc args: [], ipc returns: [bytes4]
     public bool BHasLocalContentServer();  // argc: 0, index: 58, ipc args: [], ipc returns: [boolean]
     /// <summary>
@@ -110,7 +109,7 @@ public unsafe interface IClientAppManager
     /// Called by ValveSteam 440 times.
     /// </summary>
     /// <returns></returns>
-    public unknown_ret GetAppStateInfo(AppId_t appid, AppStateInfo_s* state);  // argc: 2, index: 68, ipc args: [bytes4], ipc returns: [bytes1, bytes44]
+    public bool GetAppStateInfo(AppId_t appid, AppStateInfo_s* state);  // argc: 2, index: 68, ipc args: [bytes4], ipc returns: [bytes1, bytes44]
     [BlacklistedInCrossProcessIPC]
     public bool BGetAppStateInfoForApps(CUtlVector<AppId_t>* apps, CUtlVector<AppStateInfo_s>* states);  // argc: 2, index: 69, ipc args: [bytes4, bytes4], ipc returns: [boolean]
     
@@ -139,50 +138,41 @@ public unsafe interface IClientAppManager
     [BlacklistedInCrossProcessIPC]
     public bool BGetLibraryFolderInfo(LibraryFolder_t libraryFolder, ref bool unk, ref UInt64 usedDiskSpace, ref UInt64 freeDiskSpace);  // argc: 4, index: 78, ipc args: [bytes4, bytes4, bytes4, bytes4], ipc returns: [boolean]
     public LibraryFolder_t GetAppLibraryFolder(AppId_t appid);  // argc: 1, index: 79, ipc args: [bytes4], ipc returns: [bytes4]
-    public unknown_ret RefreshLibraryFolders();  // argc: 0, index: 80, ipc args: [], ipc returns: []
+    public void RefreshLibraryFolders();  // argc: 0, index: 80, ipc args: [], ipc returns: []
     public UInt32 GetNumAppsInFolder(LibraryFolder_t folder);  // argc: 1, index: 81, ipc args: [bytes4], ipc returns: [bytes4]
     public UInt32 GetAppsInFolder(LibraryFolder_t folder, uint[] apps, int appsLen);  // argc: 3, index: 82, ipc args: [bytes4, bytes4], ipc returns: [bytes4, bytes_length_from_reg]
     /// <summary>
     /// Forces all apps installed in the current session to be installed to a specific non-library folder directory.
     /// </summary>
-    public unknown_ret ForceInstallDirOverride(string directory);  // argc: 1, index: 83, ipc args: [string], ipc returns: []
+    public void ForceInstallDirOverride(string directory);  // argc: 1, index: 83, ipc args: [string], ipc returns: []
     // WARNING: Arguments are unknown!
-    public unknown_ret SetDownloadThrottleRateKbps();  // argc: 2, index: 84, ipc args: [bytes4, bytes1], ipc returns: [bytes1]
+    public bool SetDownloadThrottleRateKbps(int rate, bool unk);  // argc: 2, index: 84, ipc args: [bytes4, bytes1], ipc returns: [bytes1]
     // WARNING: Arguments are unknown!
-    public unknown_ret GetDownloadThrottleRateKbps();  // argc: 1, index: 85, ipc args: [bytes1], ipc returns: [bytes4]
+    public int GetDownloadThrottleRateKbps(bool unk);  // argc: 1, index: 85, ipc args: [bytes1], ipc returns: [bytes4]
     // WARNING: Arguments are unknown!
     public void SuspendDownloadThrottling(bool val);  // argc: 1, index: 86, ipc args: [bytes1], ipc returns: []
     public void SetThrottleDownloadsWhileStreaming(bool val);  // argc: 1, index: 87, ipc args: [bytes1], ipc returns: []
     public bool BThrottleDownloadsWhileStreaming();  // argc: 0, index: 88, ipc args: [], ipc returns: [boolean]
     public string GetLaunchQueryParam(AppId_t appid, string key);  // argc: 2, index: 89, ipc args: [bytes4, string], ipc returns: [string]
-    // WARNING: Arguments are unknown!
-    public unknown_ret BeginLaunchQueryParams(AppId_t appid);  // argc: 1, index: 90, ipc args: [bytes4], ipc returns: []
-    // WARNING: Arguments are unknown!
-    public unknown_ret SetLaunchQueryParam(AppId_t appid, string key, string value);  // argc: 3, index: 91, ipc args: [bytes4, string, string], ipc returns: []
-    // WARNING: Arguments are unknown!
-    public unknown_ret CommitLaunchQueryParams(AppId_t appid, string unk);  // argc: 2, index: 92, ipc args: [bytes4, string], ipc returns: [bytes1]
+    public void BeginLaunchQueryParams(AppId_t appid);  // argc: 1, index: 90, ipc args: [bytes4], ipc returns: []
+    public void SetLaunchQueryParam(AppId_t appid, string key, string value);  // argc: 3, index: 91, ipc args: [bytes4, string, string], ipc returns: []
+    public bool CommitLaunchQueryParams(AppId_t appid, string unk);  // argc: 2, index: 92, ipc args: [bytes4, string], ipc returns: [bytes1]
     public int GetLaunchCommandLine(AppId_t appid, StringBuilder commandLine, int commandLineMax);  // argc: 3, index: 93, ipc args: [bytes4, bytes4], ipc returns: [bytes4, bytes_length_from_mem]
     public void AddContentLogLine(string msg);  // argc: 1, index: 94, ipc args: [string], ipc returns: []
     public void SetUseHTTPSForDownloads(bool val);  // argc: 1, index: 95, ipc args: [bytes1], ipc returns: []
     public bool GetUseHTTPSForDownloads();  // argc: 0, index: 96, ipc args: [], ipc returns: [bytes1]
-    // WARNING: Arguments are unknown!
-    public unknown_ret SetPeerContentServerMode(EPeerContentMode mode);  // argc: 1, index: 97, ipc args: [bytes4], ipc returns: []
-    // WARNING: Arguments are unknown!
-    public unknown_ret SetPeerContentClientMode(EPeerContentMode mode);  // argc: 1, index: 98, ipc args: [bytes4], ipc returns: []
+    public void SetPeerContentServerMode(EPeerContentMode mode);  // argc: 1, index: 97, ipc args: [bytes4], ipc returns: []
+    public void SetPeerContentClientMode(EPeerContentMode mode);  // argc: 1, index: 98, ipc args: [bytes4], ipc returns: []
     public EPeerContentMode GetPeerContentServerMode();  // argc: 0, index: 99, ipc args: [], ipc returns: [bytes4]
     public EPeerContentMode GetPeerContentClientMode();  // argc: 0, index: 100, ipc args: [], ipc returns: [bytes4]
+    public bool GetPeerContentServerStats(out PeerContentServerStats_s stats);  // argc: 1, index: 101, ipc args: [], ipc returns: [bytes1, bytes40]
     // WARNING: Arguments are unknown!
-    public unknown_ret GetPeerContentServerStats(UInt64 unk);  // argc: 1, index: 101, ipc args: [], ipc returns: [bytes1, bytes40]
+    public void SuspendPeerContentClient(bool unk);  // argc: 1, index: 102, ipc args: [bytes1], ipc returns: []
     // WARNING: Arguments are unknown!
-    public unknown_ret SuspendPeerContentClient(UInt64 unk);  // argc: 1, index: 102, ipc args: [bytes1], ipc returns: []
+    public void SuspendPeerContentServer(bool unk);  // argc: 1, index: 103, ipc args: [bytes1], ipc returns: []
     // WARNING: Arguments are unknown!
-    public unknown_ret SuspendPeerContentServer(UInt64 unk);  // argc: 1, index: 103, ipc args: [bytes1], ipc returns: []
-    // WARNING: Arguments are unknown!
-    public UInt64 GetPeerContentServerForApp(AppId_t appid, int unk, int unk2);  // argc: 3, index: 104, ipc args: [bytes4], ipc returns: [string, bytes1, bytes1]
-    // WARNING: Arguments are unknown!
-    public unknown_ret NotifyDriveAdded();  // argc: 1, index: 105, ipc args: [string], ipc returns: []
-    // WARNING: Arguments are unknown!
-    public SteamAPICall_t NotifyDriveRemoved(string path);  // argc: 1, index: 106, ipc args: [string], ipc returns: []
-    // WARNING: Arguments are unknown!
-    public unknown_ret SetAudioDownloadQuality();  // argc: 1, index: 107, ipc args: [bytes1], ipc returns: []
+    public string GetPeerContentServerForApp(AppId_t appid, out bool unk1, out bool unk2);  // argc: 3, index: 104, ipc args: [bytes4], ipc returns: [string, bytes1, bytes1]
+    public void NotifyDriveAdded(string drivePath);  // argc: 1, index: 105, ipc args: [string], ipc returns: []
+    public void NotifyDriveRemoved(string path);  // argc: 1, index: 106, ipc args: [string], ipc returns: []
+    public void SetAudioDownloadQuality(bool bHighQuality);  // argc: 1, index: 107, ipc args: [bytes1], ipc returns: []
 }

@@ -25,7 +25,7 @@ public unsafe interface IClientUser
 {
     // WARNING: Do not use this function! Unknown behaviour will occur!
     public unknown_ret Unknown_0_DONTUSE();  // argc: -1, index: 1, ipc args: [], ipc returns: []
-    public EResult LogOn(CSteamID steamid, bool interactive = true);  // argc: 2, index: 2, ipc args: [uint64], ipc returns: [bytes4]
+    public EResult LogOn(CSteamID steamid);  // argc: 2, index: 2, ipc args: [uint64], ipc returns: [bytes4]
     // WARNING: Arguments are unknown!
     public unknown_ret InvalidateCredentials();  // argc: 2, index: 3, ipc args: [string, bytes4], ipc returns: [bytes8]
     public void LogOff();  // argc: 0, index: 4, ipc args: [], ipc returns: []
@@ -83,21 +83,21 @@ public unsafe interface IClientUser
     // WARNING: Arguments are unknown!
     public unknown_ret GetGuestPassToGiveInfo();  // argc: 9, index: 36, ipc args: [bytes4, bytes4], ipc returns: [bytes1, bytes_length_from_mem, bytes8, bytes4, bytes4, bytes4, bytes4, bytes4]
     // WARNING: Arguments are unknown!
-    public unknown_ret GetGuestPassToGiveOut(AppId_t appid);  // argc: 1, index: 37, ipc args: [bytes4], ipc returns: [bytes8]
+    public ulong GetGuestPassToGiveOut(AppId_t appid);  // argc: 1, index: 37, ipc args: [bytes4], ipc returns: [bytes8]
     // WARNING: Arguments are unknown!
-    public unknown_ret GetGuestPassToRedeem(AppId_t appid);  // argc: 1, index: 38, ipc args: [bytes4], ipc returns: [bytes8]
+    public ulong GetGuestPassToRedeem(AppId_t appid);  // argc: 1, index: 38, ipc args: [bytes4], ipc returns: [bytes8]
     // WARNING: Arguments are unknown!
     public unknown_ret GetGuestPassToRedeemInfo();  // argc: 7, index: 39, ipc args: [bytes4], ipc returns: [bytes1, bytes8, bytes4, bytes4, bytes4, bytes4, bytes4]
     public bool GetGuestPassToRedeemSenderName(AppId_t appid, StringBuilder name, int nameMax);  // argc: 3, index: 40, ipc args: [bytes4, bytes4], ipc returns: [bytes1, bytes_length_from_mem]
     public unknown_ret GetNumAppsInGuestPassesToRedeem();  // argc: 0, index: 41, ipc args: [], ipc returns: [bytes4]
     public uint GetAppsInGuestPassesToRedeem(AppId_t[] appids, uint appidsMax);  // argc: 2, index: 42, ipc args: [bytes4], ipc returns: [bytes4, bytes_length_from_reg]
-    public unknown_ret GetCountUserNotifications();  // argc: 0, index: 43, ipc args: [], ipc returns: [bytes4]
+    public uint GetCountUserNotifications();  // argc: 0, index: 43, ipc args: [], ipc returns: [bytes4]
     // WARNING: Arguments are unknown!
-    public unknown_ret GetCountUserNotification(int EUserNotification);  // argc: 1, index: 44, ipc args: [bytes4], ipc returns: [bytes4]
+    public uint GetCountUserNotification(int EUserNotification);  // argc: 1, index: 44, ipc args: [bytes4], ipc returns: [bytes4]
     // WARNING: Arguments are unknown!
-    public unknown_ret RequestStoreAuthURL();  // argc: 1, index: 45, ipc args: [string], ipc returns: [bytes8]
+    public unknown_ret RequestStoreAuthURL(string url);  // argc: 1, index: 45, ipc args: [string], ipc returns: [bytes8]
     // WARNING: Arguments are unknown!
-    public void SetLanguage(string language);  // argc: 1, index: 46, ipc args: [string], ipc returns: [bytes1]
+    public bool SetLanguage(string language);  // argc: 1, index: 46, ipc args: [string], ipc returns: [bytes1]
     // WARNING: Arguments are unknown!
     public unknown_ret TrackAppUsageEvent();  // argc: 3, index: 47, ipc args: [bytes8, bytes4, string], ipc returns: []
     // WARNING: Arguments are unknown!
@@ -109,30 +109,30 @@ public unsafe interface IClientUser
     public bool BHasCachedCredentials(string username);  // argc: 1, index: 51, ipc args: [string], ipc returns: [boolean]
     public bool SetAccountNameForCachedCredentialLogin(string username, bool unk1);  // argc: 2, index: 52, ipc args: [string, bytes1], ipc returns: [bytes1]
     // WARNING: Arguments are unknown!
-    public unknown_ret DestroyCachedCredentials(string username, int revokeAction = (int)Protobuf.EAuthTokenRevokeAction.EauthTokenRevokeLogout);  // argc: 2, index: 53, ipc args: [string, bytes4], ipc returns: []
+    public void DestroyCachedCredentials(string username, int revokeAction = (int)Protobuf.EAuthTokenRevokeAction.EauthTokenRevokeLogout);  // argc: 2, index: 53, ipc args: [string, bytes4], ipc returns: []
     public bool GetCurrentWebAuthToken(StringBuilder tokenOut, UInt32 bufSize);  // argc: 2, index: 54, ipc args: [bytes4], ipc returns: [bytes1, bytes_length_from_mem]
     public SteamAPICall_t RequestWebAuthToken();  // argc: 0, index: 55, ipc args: [], ipc returns: [bytes8]
     // WARNING: Arguments are unknown!
-    public unknown_ret SetLoginInformation(string username, string password, bool remember);  // argc: 3, index: 56, ipc args: [string, string, bytes1], ipc returns: []
+    public void SetLoginInformation(string username, string password, bool remember);  // argc: 3, index: 56, ipc args: [string, string, bytes1], ipc returns: []
     // WARNING: Arguments are unknown!
-    public unknown_ret SetTwoFactorCode(string twoFactorCode);  // argc: 1, index: 57, ipc args: [string], ipc returns: []
-    public unknown_ret SetLoginToken(string token, string username);  // argc: 2, index: 58, ipc args: [string, string], ipc returns: []
+    public void SetTwoFactorCode(string twoFactorCode);  // argc: 1, index: 57, ipc args: [string], ipc returns: []
+    public void SetLoginToken(string token, string username);  // argc: 2, index: 58, ipc args: [string, string], ipc returns: []
     public UInt64 GetLoginTokenID();  // argc: 0, index: 59, ipc args: [], ipc returns: [bytes8]
-    public unknown_ret ClearAllLoginInformation();  // argc: 0, index: 60, ipc args: [], ipc returns: []
+    public void ClearAllLoginInformation();  // argc: 0, index: 60, ipc args: [], ipc returns: []
     // WARNING: Arguments are unknown!
-    public unknown_ret BEnableEmbeddedClient();  // argc: 1, index: 61, ipc args: [bytes4], ipc returns: [boolean]
+    public bool BEnableEmbeddedClient();  // argc: 1, index: 61, ipc args: [bytes4], ipc returns: [boolean]
     // WARNING: Arguments are unknown!
-    public unknown_ret ResetEmbeddedClient();  // argc: 1, index: 62, ipc args: [bytes4], ipc returns: []
+    public void ResetEmbeddedClient();  // argc: 1, index: 62, ipc args: [bytes4], ipc returns: []
     // WARNING: Arguments are unknown!
     public unknown_ret BHasEmbeddedClientToken();  // argc: 1, index: 63, ipc args: [bytes4], ipc returns: [boolean]
     // WARNING: Arguments are unknown!
-    public unknown_ret RequestEmbeddedClientToken();  // argc: 1, index: 64, ipc args: [bytes4], ipc returns: []
+    public void RequestEmbeddedClientToken();  // argc: 1, index: 64, ipc args: [bytes4], ipc returns: []
     // WARNING: Arguments are unknown!
-    public unknown_ret AuthorizeNewDevice();  // argc: 3, index: 65, ipc args: [bytes4, bytes4, string], ipc returns: []
+    public void AuthorizeNewDevice();  // argc: 3, index: 65, ipc args: [bytes4, bytes4, string], ipc returns: []
     public bool GetLanguage(StringBuilder langOut, int maxOut);  // argc: 2, index: 66, ipc args: [bytes4], ipc returns: [bytes1, bytes_length_from_mem]
     // WARNING: Arguments are unknown!
-    public unknown_ret TrackSteamUsageEvent();  // argc: 3, index: 67, ipc args: [bytes4, bytes4, bytes_length_from_mem], ipc returns: []
-    public unknown_ret SetComputerInUse();  // argc: 0, index: 68, ipc args: [], ipc returns: []
+    public void TrackSteamUsageEvent();  // argc: 3, index: 67, ipc args: [bytes4, bytes4, bytes_length_from_mem], ipc returns: []
+    public void SetComputerInUse();  // argc: 0, index: 68, ipc args: [], ipc returns: []
     public bool BIsGameRunning(CGameID gameid);  // argc: 1, index: 69, ipc args: [bytes8], ipc returns: [boolean]
     // WARNING: Arguments are unknown!
     public bool BIsGameWindowReady(CGameID gameid);  // argc: 1, index: 70, ipc args: [bytes8], ipc returns: [boolean]
@@ -142,13 +142,13 @@ public unsafe interface IClientUser
     public UInt32 GetCustomBinariesState(AppId_t unAppID, ref UInt32 punProgress);  // argc: 3, index: 72, ipc args: [bytes4], ipc returns: [bytes4, bytes8, bytes8]
     // WARNING: Arguments are unknown!
     [BlacklistedInCrossProcessIPC]
-    public unknown_ret RequestCustomBinaries();  // argc: 4, index: 73, ipc args: [bytes4, bytes1, bytes1, bytes4], ipc returns: [bytes4]
+    public unknown_ret RequestCustomBinaries(AppId_t appid, bool unk1, bool unk2, uint unk);  // argc: 4, index: 73, ipc args: [bytes4, bytes1, bytes1, bytes4], ipc returns: [bytes4]
     // WARNING: Arguments are unknown!
-    public unknown_ret SetCellID(uint cellid);  // argc: 1, index: 74, ipc args: [bytes4], ipc returns: []
+    public void SetCellID(uint cellid);  // argc: 1, index: 74, ipc args: [bytes4], ipc returns: []
     /// <summary>
     /// Takes a pointer to a protobuf object and populates it with the cell list.
     /// </summary>
-    public unknown_ret GetCellList([ProtobufPtrType(typeof(CMsgCellList))] IntPtr cells);  // argc: 1, index: 75, ipc args: [], ipc returns: [bytes1, protobuf]
+    public bool GetCellList([ProtobufPtrType(typeof(CMsgCellList))] IntPtr cells);  // argc: 1, index: 75, ipc args: [], ipc returns: [bytes1, protobuf]
     public string GetUserBaseFolder();  // argc: 0, index: 76, ipc args: [], ipc returns: [string]
     public bool GetUserDataFolder(ref AppId_t appid, StringBuilder buf, int bufMax);  // argc: 3, index: 77, ipc args: [bytes8, bytes4], ipc returns: [bytes1, bytes_length_from_mem]
     // WARNING: Arguments are unknown!
@@ -159,34 +159,34 @@ public unsafe interface IClientUser
     public bool GetAccountName(CSteamID steamid, StringBuilder usernameOut, int strMaxLen);  // argc: 4, index: 80, ipc args: [uint64, bytes4], ipc returns: [bytes1, bytes_length_from_mem]
     public bool IsPasswordRemembered();  // argc: 0, index: 81, ipc args: [], ipc returns: [boolean]
     // WARNING: Arguments are unknown!
-    public unknown_ret CheckoutSiteLicenseSeat(AppId_t appid);  // argc: 1, index: 82, ipc args: [bytes4], ipc returns: []
+    public void CheckoutSiteLicenseSeat(AppId_t appid);  // argc: 1, index: 82, ipc args: [bytes4], ipc returns: []
     // WARNING: Arguments are unknown!
-    public unknown_ret GetAvailableSeats(AppId_t appid);  // argc: 1, index: 83, ipc args: [bytes4], ipc returns: []
+    public void GetAvailableSeats(AppId_t appid);  // argc: 1, index: 83, ipc args: [bytes4], ipc returns: []
     public string GetAssociatedSiteName();  // argc: 0, index: 84, ipc args: [], ipc returns: [string]
     public bool BIsRunningInCafe();  // argc: 0, index: 85, ipc args: [], ipc returns: [boolean]
     public bool BAllowCachedCredentialsInCafe();  // argc: 0, index: 86, ipc args: [], ipc returns: [boolean]
     // WARNING: Arguments are unknown!
-    public unknown_ret RequiresLegacyCDKey(AppId_t appid, out bool unk);  // argc: 2, index: 87, ipc args: [bytes4], ipc returns: [bytes1, bytes1]
+    public bool RequiresLegacyCDKey(AppId_t appid, out bool unk);  // argc: 2, index: 87, ipc args: [bytes4], ipc returns: [bytes1, bytes1]
     // WARNING: Arguments are unknown!
-    public unknown_ret GetLegacyCDKey(AppId_t appid, StringBuilder keyData, int keyDataMax);  // argc: 3, index: 88, ipc args: [bytes4, bytes4], ipc returns: [bytes1, bytes_length_from_mem]
+    public bool GetLegacyCDKey(AppId_t appid, StringBuilder keyData, int keyDataMax);  // argc: 3, index: 88, ipc args: [bytes4, bytes4], ipc returns: [bytes1, bytes_length_from_mem]
     // WARNING: Arguments are unknown!
-    public unknown_ret SetLegacyCDKey(AppId_t appid, string keyData);  // argc: 2, index: 89, ipc args: [bytes4, string], ipc returns: [bytes1]
+    public bool SetLegacyCDKey(AppId_t appid, string keyData);  // argc: 2, index: 89, ipc args: [bytes4, string], ipc returns: [bytes1]
     // WARNING: Arguments are unknown!
-    public unknown_ret WriteLegacyCDKey(AppId_t appid);  // argc: 1, index: 90, ipc args: [bytes4], ipc returns: [bytes1]
+    public bool WriteLegacyCDKey(AppId_t appid);  // argc: 1, index: 90, ipc args: [bytes4], ipc returns: [bytes1]
     // WARNING: Arguments are unknown!
-    public unknown_ret RemoveLegacyCDKey(AppId_t appid);  // argc: 1, index: 91, ipc args: [bytes4], ipc returns: []
+    public void RemoveLegacyCDKey(AppId_t appid);  // argc: 1, index: 91, ipc args: [bytes4], ipc returns: []
     // WARNING: Arguments are unknown!
-    public unknown_ret RequestLegacyCDKeyFromApp();  // argc: 3, index: 92, ipc args: [bytes4, bytes4, bytes4], ipc returns: []
+    public void RequestLegacyCDKeyFromApp();  // argc: 3, index: 92, ipc args: [bytes4, bytes4, bytes4], ipc returns: []
     public bool BIsAnyGameRunning();  // argc: 0, index: 93, ipc args: [], ipc returns: [boolean]
-    public unknown_ret GetSteamGuardDetails();  // argc: 0, index: 94, ipc args: [], ipc returns: []
+    public void GetSteamGuardDetails();  // argc: 0, index: 94, ipc args: [], ipc returns: []
     // WARNING: Arguments are unknown!
     public uint GetSentryFileData([IPCOut] CUtlBuffer* data);  // argc: 1, index: 95, ipc args: [], ipc returns: [bytes4, bytes20]
-    public unknown_ret GetTwoFactorDetails();  // argc: 0, index: 96, ipc args: [], ipc returns: []
+    public void GetTwoFactorDetails();  // argc: 0, index: 96, ipc args: [], ipc returns: []
     public bool BHasTwoFactor();  // argc: 0, index: 97, ipc args: [], ipc returns: [boolean]
     // WARNING: Arguments are unknown!
-    public unknown_ret GetEmail(StringBuilder email, int emailMax, out bool validated);  // argc: 3, index: 98, ipc args: [bytes4], ipc returns: [bytes1, bytes_length_from_mem, bytes1]
-    public unknown_ret Test_FakeConnectionTimeout();  // argc: 0, index: 99, ipc args: [], ipc returns: []
-    public unknown_ret RunInstallScript(AppId_t appid, string unk, bool uninstall);  // argc: 3, index: 100, ipc args: [bytes4, string, bytes1], ipc returns: [bytes1]
+    public bool GetEmail(StringBuilder email, int emailMax, out bool validated);  // argc: 3, index: 98, ipc args: [bytes4], ipc returns: [bytes1, bytes_length_from_mem, bytes1]
+    public void Test_FakeConnectionTimeout();  // argc: 0, index: 99, ipc args: [], ipc returns: []
+    public bool RunInstallScript(AppId_t appid, string unk, bool uninstall);  // argc: 3, index: 100, ipc args: [bytes4, string, bytes1], ipc returns: [bytes1]
     public AppId_t IsInstallScriptRunning();  // argc: 0, index: 101, ipc args: [], ipc returns: [bytes4]
     public bool GetInstallScriptState(ref string pchDescription, UInt32 cchDescription, ref UInt32 punNumSteps, ref UInt32 punCurrStep);  // argc: 4, index: 102, ipc args: [bytes4], ipc returns: [bytes1, bytes_length_from_mem, bytes4, bytes4]
     public unknown_ret StopInstallScript(AppId_t appid);  // argc: 1, index: 103, ipc args: [bytes4], ipc returns: [bytes1]
@@ -247,8 +247,8 @@ public unsafe interface IClientUser
     // WARNING: Arguments are unknown!
     public unknown_ret GetEncryptedAppTicket();  // argc: 3, index: 123, ipc args: [bytes4], ipc returns: [bytes1, bytes4, bytes_length_from_reg]
     // WARNING: Arguments are unknown!
-    public unknown_ret GetGameBadgeLevel();  // argc: 2, index: 124, ipc args: [bytes4, bytes1], ipc returns: [bytes4]
-    public unknown_ret GetPlayerSteamLevel();  // argc: 0, index: 125, ipc args: [], ipc returns: [bytes4]
+    public uint GetGameBadgeLevel(AppId_t app, bool unk);  // argc: 2, index: 124, ipc args: [bytes4, bytes1], ipc returns: [bytes4]
+    public uint GetPlayerSteamLevel();  // argc: 0, index: 125, ipc args: [], ipc returns: [bytes4]
     /// <summary>
     /// Don't use this. It does strange things and will probably get you flagged.
     /// </summary>
@@ -269,7 +269,7 @@ public unsafe interface IClientUser
     /// Even if it is already verified.
     /// </summary>
     public SteamAPICall_t SendValidationEmail();  // argc: 0, index: 132, ipc args: [], ipc returns: []
-    public unknown_ret BGameConnectTokensAvailable();  // argc: 0, index: 133, ipc args: [], ipc returns: [boolean]
+    public bool BGameConnectTokensAvailable();  // argc: 0, index: 133, ipc args: [], ipc returns: [boolean]
     public int NumGamesRunning();  // argc: 0, index: 134, ipc args: [], ipc returns: [bytes4]
     public CGameID GetRunningGameID(int index, int unk);  // argc: 2, index: 135, ipc args: [bytes4], ipc returns: [bytes8]
     // WARNING: Arguments are unknown!
@@ -282,13 +282,13 @@ public unsafe interface IClientUser
     // WARNING: Arguments are unknown!
     public SteamAPICall_t VerifyPassword(string password);  // argc: 1, index: 140, ipc args: [string], ipc returns: []
     public bool BSupportUser();  // argc: 0, index: 141, ipc args: [], ipc returns: [boolean]
-    public unknown_ret BNeedsSSANextSteamLogon();  // argc: 0, index: 142, ipc args: [], ipc returns: [boolean]
-    public unknown_ret ClearNeedsSSANextSteamLogon();  // argc: 0, index: 143, ipc args: [], ipc returns: []
+    public bool BNeedsSSANextSteamLogon();  // argc: 0, index: 142, ipc args: [], ipc returns: [boolean]
+    public void ClearNeedsSSANextSteamLogon();  // argc: 0, index: 143, ipc args: [], ipc returns: []
     public bool BIsAppOverlayEnabled(CGameID gameid);  // argc: 1, index: 144, ipc args: [bytes8], ipc returns: [boolean]
     public bool BOverlayIgnoreChildProcesses(CGameID gameid);  // argc: 1, index: 145, ipc args: [bytes8], ipc returns: [boolean]
     // WARNING: Arguments are unknown!
-    public unknown_ret SetOverlayState(AppId_t appid, bool visible);  // argc: 2, index: 146, ipc args: [bytes8, bytes4], ipc returns: []
-    public unknown_ret NotifyOverlaySettingsChanged();  // argc: 0, index: 147, ipc args: [], ipc returns: []
+    public void SetOverlayState(CGameID appid, uint unk);  // argc: 2, index: 146, ipc args: [bytes8, bytes4], ipc returns: []
+    public void NotifyOverlaySettingsChanged();  // argc: 0, index: 147, ipc args: [], ipc returns: []
     public bool BIsBehindNAT();  // argc: 0, index: 148, ipc args: [], ipc returns: [boolean]
     // WARNING: Arguments are unknown!
     public unknown_ret GetMicroTxnAppID(GID_t transactionId);  // argc: 2, index: 149, ipc args: [bytes8], ipc returns: [bytes4]

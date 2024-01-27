@@ -118,16 +118,18 @@ public class Bootstrapper : IClientLifetime {
         
         try
         {
-            HttpResponseMessage resp = await Client.HttpClient.GetAsync("http://localhost:8125/client/"+PlatformClientManifest);
-            if (resp.IsSuccessStatusCode) {
-                var str = await resp.Content.ReadAsStringAsync();
-                var deserialized = KVTextDeserializer.Deserialize(str);
-                string? serverVersion = deserialized.GetChild("version")?.GetValueAsString();
-                if (serverVersion == VersionInfo.STEAM_MANIFEST_VERSION.ToString()) {
-                    OverrideURL = "http://localhost:8125/client/";
-                    logger.Info("Using local package server");
-                } else {
-                    logger.Debug("Local package server has different version: " + serverVersion + " than ours " + VersionInfo.STEAM_MANIFEST_VERSION.ToString());
+            using (HttpResponseMessage resp = await Client.HttpClient.GetAsync("http://localhost:8125/client/"+PlatformClientManifest))
+            {
+                if (resp.IsSuccessStatusCode) {
+                    var str = await resp.Content.ReadAsStringAsync();
+                    var deserialized = KVTextDeserializer.Deserialize(str);
+                    string? serverVersion = deserialized.GetChild("version")?.GetValueAsString();
+                    if (serverVersion == VersionInfo.STEAM_MANIFEST_VERSION.ToString()) {
+                        OverrideURL = "http://localhost:8125/client/";
+                        logger.Info("Using local package server");
+                    } else {
+                        logger.Debug("Local package server has different version: " + serverVersion + " than ours " + VersionInfo.STEAM_MANIFEST_VERSION.ToString());
+                    }
                 }
             }
         }
@@ -150,14 +152,14 @@ public class Bootstrapper : IClientLifetime {
                 logger.Error("Failed verification: " + string.Join(", ", failureReason));
                 await EnsurePackages(progressHandler);
                 await ExtractPackages(progressHandler);
-                await CreateSymlinks(progressHandler);
+                CreateSymlinks(progressHandler);
             }
         }
 
         // Run platform specific tasks
         if (OperatingSystem.IsWindows()) {
             // Write our PID to HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Valve\Steam (has full access to entire Steam key by all users, security nightmare?)
-            //TODO: doesn't support machines where ValveSteam hasn't been installed atleast once
+            //TODO: doesn't support machines where ValveSteam hasn't been installed atleast once (though this'll be handled by the installer)
             Microsoft.Win32.Registry.SetValue("HKEY_LOCAL_MACHINE\\SOFTWARE\\WOW6432Node\\Valve\\Steam", "SteamPID", Environment.ProcessId);
         }
 
@@ -231,8 +233,9 @@ public class Bootstrapper : IClientLifetime {
         await FinishBootstrap(progressHandler);
     }
 
-    private async Task CreateSymlinks(IExtendedProgress<int> progressHandler)
+    private void CreateSymlinks(IExtendedProgress<int> progressHandler)
     {
+        progressHandler.SetSubOperation("Creating symlinks");
         // By default we copy all files to their correct directories.
         // Specify path mappings here to tell the files to link into another folder as well
         Dictionary<string, string> pathMappings = new() {
@@ -241,7 +244,19 @@ public class Bootstrapper : IClientLifetime {
 
         foreach (var mapping in pathMappings)
         {
-            //TODO
+            string sourcePath = Path.Combine(installManager.InstallDir, mapping.Key);
+            string targetPath = Path.Combine(installManager.InstallDir, mapping.Value);
+            if (File.Exists(sourcePath)) {
+                if (File.Exists(targetPath)) {
+                    File.Delete(targetPath);
+                }
+
+                File.CreateSymbolicLink(targetPath, sourcePath);
+                var info = new FileInfo(targetPath);
+                bootstrapperState.InstalledFiles.Add(targetPath, info.Length);
+            } else {
+                throw new Exception("file not found");
+            }
         }
     }
 

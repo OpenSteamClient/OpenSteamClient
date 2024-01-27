@@ -554,7 +554,12 @@ public class LoginManager : IClientLifetime
             throw new InvalidOperationException("GetUserConfigDirectory called but we're not logged in");
         }
 
-        return this.steamClient.IClientUtils.GetUserBaseFolderPersistentStorage();
+        StringBuilder builder = new(4096*4);
+        if (this.steamClient.IClientUser.GetUserConfigFolder(builder, builder.Capacity)) {
+            return builder.ToString();
+        }
+
+        throw new Exception("Failed to get user config path.");
     }
 
     private void OnLogonFailed(LogOnFailedEventArgs e) {

@@ -5,6 +5,7 @@ using OpenSteamworks.Enums;
 
 namespace OpenSteamworks.Structs;
 
+// 44 long
 [StructLayout(LayoutKind.Sequential, Pack = 1)]
 public struct AppStateInfo_s {
     //TODO: reverse

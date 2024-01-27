@@ -14,14 +14,14 @@ public interface IMessage {
     byte[] Serialize();
     void FillFromBinary(byte[] data);
 }
-public class ProtoMsg<T> : IMessage where T: Google.Protobuf.IMessage<T>, new()
+public class ProtoMsg<T> : IMessage where T: IMessage<T>, new()
 {
     public const uint PROTOBUF_MASK = 0x80000000;
     public CMsgProtoBufHeader header { get; private set; }
     public EMsg EMsg { get; set; } = 0;
     public string JobName { get; set; } = "";
     public T body;
-    public readonly Google.Protobuf.MessageParser<T> body_parser;
+    public readonly MessageParser<T> body_parser;
 
     /// <summary>
     /// Sets whether OpenSteamworks is allowed to rewrite the message to add info to the headers.
@@ -38,7 +38,7 @@ public class ProtoMsg<T> : IMessage where T: Google.Protobuf.IMessage<T>, new()
         header = new CMsgProtoBufHeader();
         header.Steamid = 0;
         body = new T();
-        body_parser = new Google.Protobuf.MessageParser<T>(() => body);
+        body_parser = new MessageParser<T>(() => body);
         if (!string.IsNullOrEmpty(jobName)) {
             header.TargetJobName = jobName;
             if (unauthenticated) {

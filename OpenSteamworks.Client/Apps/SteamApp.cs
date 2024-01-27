@@ -25,7 +25,7 @@ public class SteamApp : AppBase
 
     public AppBase? ParentApp => GetAppIfValidGameID(new CGameID(this.Common.ParentAppID));
     protected readonly Logger logger;
-    
+
     public AppDataCommonSection Common { get; private set; }
     public AppDataConfigSection Config { get; private set; }
     public AppDataExtendedSection Extended { get; private set; }
@@ -33,6 +33,15 @@ public class SteamApp : AppBase
     public AppDataDepotsSection Depots { get; private set; }
     public AppDataCommunitySection Community { get; private set; }
     public AppDataLocalizationSection Localization { get; private set; }
+
+    private int? defaultLaunchOptionId;
+    public IEnumerable<AppDataConfigSection.LaunchOption> AllLaunchOptions => this.Config.LaunchOptions;
+    private readonly List<AppDataConfigSection.LaunchOption> filteredLaunchOptions = new();
+    public override IEnumerable<AppDataConfigSection.LaunchOption> LaunchOptions => filteredLaunchOptions.AsEnumerable();
+    public override int? DefaultLaunchOptionID => defaultLaunchOptionId;
+
+    public override EAppState State => this.AppsManager.ClientApps.NativeClientAppManager.GetAppInstallState(AppID);
+
     public override EAppType Type
     {
         get
@@ -59,7 +68,7 @@ public class SteamApp : AppBase
                 "config" => EAppType.Config,
                 "dlc" => EAppType.Dlc,
 
-                // These mean dedicated servers, not "actual" tools like Hammer, etc. We could maybe setup some sort of server hosting UI for dedicated servers? 
+                // These mostly mean dedicated servers, and some map creation tools, etc. We could maybe setup some sort of server hosting UI for dedicated servers? 
                 // Or atleast allow the user to specify the command line to run the server from OpenSteamClient.
                 "tool" => EAppType.Tool,
 
@@ -78,8 +87,6 @@ public class SteamApp : AppBase
 
     internal SteamApp(AppsManager appsManager, AppId_t appid) : base(appsManager)
     {
-        this.logger = appsManager.GetLoggerForApp(this);
-
         var sections = appsManager.ClientApps.GetMultipleAppDataSectionsSync(appid, new EAppInfoSection[] {EAppInfoSection.Common, EAppInfoSection.Config, EAppInfoSection.Extended, EAppInfoSection.Install, EAppInfoSection.Depots, EAppInfoSection.Community, EAppInfoSection.Localization});
         
         // The common section should always exist for all app types.
@@ -104,7 +111,12 @@ public class SteamApp : AppBase
             this.GameID = new CGameID(appid);
         }
 
-        // Get default launch option if there's only one (actual processing for multiple platforms, user selected, etc is done later)'
+        this.logger = appsManager.GetLoggerForApp(this);
+        PopulateLaunchOptions();
+    }
+
+    private void PopulateLaunchOptions() {
+        // Get default launch option if there's only one (actual processing for multiple platforms, user selected, etc is done later)
         if (Config.LaunchOptions.Count() == 1) {
             defaultLaunchOptionId = 0;
         } else if (Config.LaunchOptions.Count() > 1) {
@@ -113,6 +125,8 @@ public class SteamApp : AppBase
                 defaultLaunchOptionId = osFilteredOpts.First().ID;
             }
         }
+        
+        //TODO: get and add other valid launch options to the LaunchOptions list
     }
 
     private static T TryCreateSection<T>(KVObject? obj, string sectionName, Func<KVObject, T> factory) where T: TypedKVObject {
@@ -196,18 +210,14 @@ public class SteamApp : AppBase
         }
     }
 
-    private int? defaultLaunchOptionId;
-    public override IEnumerable<AppDataConfigSection.LaunchOption> LaunchOptions => this.Config.LaunchOptions;
-    public override int? DefaultLaunchOptionID => defaultLaunchOptionId;
-
-    public override EAppState State => this.AppsManager.ClientApps.NativeClientAppManager.GetAppInstallState(AppID);
-
     public override async Task<EAppUpdateError> Launch(string userLaunchOptions, int launchOptionID)
     {
         if (this.Config.CheckForUpdatesBeforeLaunch) {
             logger.Info("Checking for updates (due to CheckForUpdatesBeforeLaunch)");
             await this.AppsManager.ClientApps.UpdateAppInfo(AppID);
             if (!this.AppsManager.ClientApps.BIsAppUpToDate(AppID)) {
+                logger.Info("Not up to date, aborting launch and queuing update");
+                this.AppsManager.ClientApps.QueueUpdate(AppID);
                 return EAppUpdateError.UpdateRequired;
             }
         }
@@ -222,10 +232,13 @@ public class SteamApp : AppBase
         //TODO: should we use the result of this somehow?
         this.AppsManager.ClientApps.NativeClientUser.CheckoutSiteLicenseSeat(this.AppID);
 
-        logger.Info("Creating process");
-        this.AppsManager.ClientApps.NativeClientAppManager.LaunchApp(this.GameID, (uint)launchOptionID, ELaunchSource._2ftLibraryDetails, 0);
+        if (this.IsCompatEnabled) {
+            logger.Info("Starting compat session (due to IsCompatEnabled == true)");
+            this.AppsManager.StartCompatSession(this.AppID);
+        }
 
-        return EAppUpdateError.NoError;
+        logger.Info("Creating process");
+        return this.AppsManager.ClientApps.NativeClientAppManager.LaunchApp(this.GameID, (uint)launchOptionID, ELaunchSource.None, "");
     }
 
     public override void PauseUpdate()

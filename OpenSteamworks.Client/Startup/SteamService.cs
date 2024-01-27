@@ -1,6 +1,5 @@
 using System.Diagnostics;
 using System.Runtime.Versioning;
-using System.ServiceProcess;
 using OpenSteamworks.Client.Managers;
 using OpenSteamworks;
 using OpenSteamworks.Client.Utils.DI;
@@ -16,7 +15,6 @@ public class SteamService : IClientLifetime {
     public bool IsRunningAsHost = false;
     public object CurrentServiceHostLock = new();
     public Process? CurrentServiceHost;
-    public ServiceController? CurrentWindowsService;
     public Thread? WatcherThread;
     private readonly ISteamClient steamClient;
     private readonly InstallManager installManager;

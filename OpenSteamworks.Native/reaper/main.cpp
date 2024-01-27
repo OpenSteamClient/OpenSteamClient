@@ -1,50 +1,67 @@
+// File taken from https://github.com/Plagman/reaper
+
+#include <sys/types.h>
 #include <sys/prctl.h>
-#include <string>
 #include <sys/wait.h>
+#include <unistd.h>
+#include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
 #include <errno.h>
 
-// Takes everything after -- and runs it.
-// Kind of like launchwrapper, but this is executed like:
-// reaper SteamLaunch AppId=730 -- /bin/bash
-// Most likely so the steam client can look at what games are running and keep track of them easily
-int main(int argc, char *argv[]) {
-    // This is the index of the remainder of the args
-    int argc_executable = 0;
+#if !defined( PR_SET_CHILD_SUBREAPER )
+#define PR_SET_CHILD_SUBREAPER 36
+#endif
 
-    for (size_t i = 0; i < argc; i++)
-    {
-        // Finds -- and saves the position of everything after it (the thing to execute)
-        if (std::string(argv[i]) == "--" && (i + 1 < argc))
-        {
-            argc_executable = i + 1;
-        }
-    }
+int main( int argc, char **argv )
+{
+	int sub_command_argc = 0;
 
-    if (argc_executable == 0)
-    {
-        return 1;
-    }
+	for ( int i = 0; i < argc; i++ )
+	{
+		if ( strcmp( "--", argv[ i ] ) == 0 && i + 1 < argc )
+		{
+			sub_command_argc = i + 1;
+			break;
+		}
+	}
 
-    // A subreaper is kinda like an init system, but just for it's children
-    prctl(PR_SET_CHILD_SUBREAPER, 1);
+	if ( sub_command_argc == 0 )
+	{
+		fprintf( stderr, "reaper: no sub-command!\n" );
+		exit( 1 );
+	}
 
-    auto fork_result = fork();
-    if (fork_result == -1)
-    {
-        return 1;
-    }
-    if (fork_result == 0) {
-        execvp(argv[argc_executable],argv + argc_executable);
-    }
+	// (Don't Lose) The Children
+	if ( prctl( PR_SET_CHILD_SUBREAPER, 1, 0, 0, 0 ) == -1 )
+	{
+		fprintf( stderr, "reaper: prctl() failed!\n" );
+		exit( 1 );
+	}
 
-    // Wait for all processes to have exited, then we close ourselves
-    int waitResult = 0; 
-    do 
-    {
-        do
-        {
-            waitResult = wait(nullptr);
-        } while (waitResult != -1);
-    } while (errno != ECHILD);
+	pid_t pid = fork();
 
+	if ( pid == -1 )
+	{
+		fprintf( stderr, "reaper: fork() failed!\n" );
+		exit( 1 );
+	}
+
+	// Are we in the child?
+	if ( pid == 0 )
+	{
+		execvp( argv[ sub_command_argc ], &argv[ sub_command_argc ] );
+	}
+
+	pid_t wait_ret;
+	while( true )
+	{
+		wait_ret = wait( NULL );
+
+		if ( wait_ret == -1 && errno == ECHILD )
+		{
+			// No more children.
+			break;
+		}
+	}
 }

@@ -7,9 +7,17 @@ public class LibraryAssetsFile : TypedKVObject
     public class LibraryAsset : TypedKVObject
     {
         public LibraryAsset(KVObject kv) : base(kv) {
-            Version = 3;
-            LastChangeNumber = 0;
-            StoreAssetsLastModified = 0;
+            if (!kv.HasChild("v")) {
+                Version = 3;
+            }
+            
+            if (!kv.HasChild("change")) {
+                LastChangeNumber = 0;
+            }
+            
+            if (!kv.HasChild("store_mtime")) {
+                StoreAssetsLastModified = 0;
+            }
         }
 
         public int LastChangeNumber {

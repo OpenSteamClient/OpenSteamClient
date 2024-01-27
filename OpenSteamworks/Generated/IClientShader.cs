@@ -26,9 +26,9 @@ public unsafe interface IClientShader
     public unknown_ret StartPipelineBuild(AppId_t appid, int unk);  // argc: 2, index: 8, ipc args: [bytes4, bytes4], ipc returns: []
     // WARNING: Arguments are unknown!
     public unknown_ret StartShaderConversion(AppId_t appid, UInt64 unk, string unk2);  // argc: 4, index: 9, ipc args: [bytes4, bytes8, string], ipc returns: [bytes8]
-    public unknown_ret StartShaderPruning();  // argc: 0, index: 10, ipc args: [], ipc returns: []
+    public void StartShaderPruning();  // argc: 0, index: 10, ipc args: [], ipc returns: []
     // WARNING: Arguments are unknown!
-    public unknown_ret64 ProcessShaderCache(AppId_t appid);  // argc: 1, index: 11, ipc args: [bytes4], ipc returns: [bytes1]
+    public bool ProcessShaderCache(AppId_t appid);  // argc: 1, index: 11, ipc args: [bytes4], ipc returns: [bytes1]
     public UInt64 GetShaderCacheProcessingCompletion();  // argc: 0, index: 12, ipc args: [], ipc returns: [bytes4]
     public AppId_t GetShaderCacheProcessingAppID();  // argc: 0, index: 13, ipc args: [], ipc returns: [bytes4]
     // WARNING: Arguments are unknown!

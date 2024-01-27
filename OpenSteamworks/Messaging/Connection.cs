@@ -109,6 +109,7 @@ public class Connection : IDisposable {
                 resultMsg.FillFromBinary(recvd.fullMsg);
             }
 
+            resultMsg.ThrowIfErrored();
             return resultMsg;
         });
     }

@@ -56,7 +56,7 @@ public class AppsManager : ILogonLifetime
     public EventHandler<AppLastPlayedChangedEventArgs>? AppLastPlayedChanged;
 
     // These apps cause issues. They have no appinfo sections, so they're blacklisted. Apps that fail to initialize during startup are also added to this list.
-    private static readonly HashSet<AppId_t> appsFilter = new() { 5, 3482, 346790, 375350, 470950, 472500, 483470, 503590, 561370, 957691, 957692, 972340, 977941, 1275680, 1331320, 2130210, 2596140 };
+    private static readonly HashSet<AppId_t> appsFilter = new() { 5, 7, 753, 3482, 346790, 375350, 470950, 472500, 483470, 503590, 561370, 957691, 957692, 972340, 977941, 1275680, 1331320, 2130210, 2596140 };
     /// <summary>
     /// Gets ALL owned AppIDs of the current user. Includes all configs. Will probably show 1000+ apps.
     /// </summary>
@@ -91,7 +91,7 @@ public class AppsManager : ILogonLifetime
         get {
             var apps = InstalledApps;
             Console.WriteLine("apps: " + apps.Count);
-            apps = apps.Where(this.steamClient.IClientAppManager.BIsAppUpToDate).ToHashSet();
+            apps = apps.Where(this.ClientApps.BIsAppUpToDate).ToHashSet();
             Console.WriteLine("apps2: " + apps.Count);
             return apps;
         }
@@ -201,7 +201,7 @@ public class AppsManager : ILogonLifetime
         LoadLibraryAssetsFile();
 
         //NOTE: It doesn't really matter if you use async or sync code here.
-        assetUpdateThread = new Thread(() =>
+        assetUpdateThread = new Thread(async () =>
         {
             foreach (var item in GetAllUserApps())
             {
@@ -230,10 +230,25 @@ public class AppsManager : ILogonLifetime
             
             Task.WaitAll(processingTasks.ToArray());
             WriteConcurrentAssetDict();
+
+            if (appsToGenerate.Any()) {
+                LibraryAssetsGenerator generator = new(steamClient, clientMessaging, appsToGenerate.ToList(), LibraryAssetToFilename);
+                var expectedApps = appsToGenerate.Select(r => r.AppID);
+                var generatedApps = await generator.Generate();
+                foreach (var item in expectedApps)
+                {
+                    if (!generatedApps.Contains(item)) {
+                        logger.Error($"Failed to generate library assets for {item}");
+                    }
+                }
+
+                appsToGenerate.Clear();
+            }
+
             assetUpdateThread = null;
         });
 
-        assetUpdateThread.Name = "AssetUpdateThread";
+        assetUpdateThread.Name = "Library Asset Update Thread";
         assetUpdateThread.Start();
     }
     
@@ -268,7 +283,9 @@ public class AppsManager : ILogonLifetime
         TryLoadLocalLibraryAsset(app, ELibraryAssetType.Portrait, out string? portraitPath);
         app.SetLibraryAssetPaths(iconPath, logoPath, heroPath, portraitPath);
     }
-    
+
+    private readonly object appsToGenerateLock = new(); 
+    private readonly List<LibraryAssetsGenerator.GenerateAssetRequest> appsToGenerate = new();
     private ConcurrentDictionary<string, LibraryAssetsFile.LibraryAsset>? assetsConcurrent;
 
     [MemberNotNull(nameof(libraryAssetsFile))]
@@ -438,10 +455,10 @@ public class AppsManager : ILogonLifetime
     }
 
     public async Task UpdateLibraryAssets(AppBase app, bool suppressConcurrentDictSave = false) {
-        string? iconPath = await UpdateLibraryAsset(app, ELibraryAssetType.Icon, true, true);
-        string? logoPath = await UpdateLibraryAsset(app, ELibraryAssetType.Logo, true, true);
-        string? heroPath = await UpdateLibraryAsset(app, ELibraryAssetType.Hero, true, true);
-        string? portraitPath = await UpdateLibraryAsset(app, ELibraryAssetType.Portrait, true, true);
+        string? iconPath = await UpdateLibraryAsset(app, ELibraryAssetType.Icon, true, true, false);
+        string? logoPath = await UpdateLibraryAsset(app, ELibraryAssetType.Logo, true, true, false);
+        string? heroPath = await UpdateLibraryAsset(app, ELibraryAssetType.Hero, true, true, false);
+        string? portraitPath = await UpdateLibraryAsset(app, ELibraryAssetType.Portrait, true, true, true);
         app.SetLibraryAssetPaths(iconPath, logoPath, heroPath, portraitPath);
 
         if (!suppressConcurrentDictSave) {
@@ -449,9 +466,10 @@ public class AppsManager : ILogonLifetime
         }
     }
 
-    public async Task<string?> UpdateLibraryAsset(AppBase app, ELibraryAssetType assetType, bool suppressSet = false, bool suppressConcurrentDictSave = false) {
+    public async Task<string?> UpdateLibraryAsset(AppBase app, ELibraryAssetType assetType, bool suppressSet = false, bool suppressConcurrentDictSave = false, bool lastInBatch = true) {
         EnsureConcurrentAssetDict();
 
+        bool willGenerate = false;
         bool success = false;
         bool shouldDownload = false;
 
@@ -470,22 +488,32 @@ public class AppsManager : ILogonLifetime
         } else {
             targetPath = LibraryAssetToFilename(app.AppID, assetType);
 
-            if (!File.Exists(targetPath)) {
-                shouldDownload = true;
-            }
-
             if (asset.StoreAssetsLastModified < app.StoreAssetsLastModified) {
+                logger.Info($"Downloading {assetType} for {app.AppID} due to StoreAssetsLastModified ({asset.StoreAssetsLastModified} < {app.StoreAssetsLastModified})");
                 shouldDownload = true;
             }
 
             if (assetType != ELibraryAssetType.Icon && asset.GetExpires(assetType) == 0) {
+                logger.Info($"Downloading {assetType} for {app.AppID} due to GetExpires");
                 shouldDownload = true;
             }
 
-            // If the store assets last modified is set to 0, don't download store assets (but the icon is fine to download in all cases)
+            // If the store assets last modified is set to 0, don't download store assets since they don't exist (but the icon is fine to download, as it's not a library asset)
             if (app.StoreAssetsLastModified == 0 && assetType != ELibraryAssetType.Icon) {
                 shouldDownload = false;
             }
+
+            // Don't try to download if icon hash is empty
+            if (assetType == ELibraryAssetType.Icon) {
+                if (app is SteamApp sapp) {
+                    if (string.IsNullOrEmpty(sapp.Common.Icon)) {
+                        shouldDownload = false;
+                    }
+                } else {
+                    logger.Warning("AssetType is icon, but we're not a SteamApp! Unsupported (for now)");
+                }
+            }
+
 
             if (shouldDownload) {
                 logger.Info($"Downloading library asset {assetType} for {app.AppID} with url {uri}");
@@ -499,7 +527,6 @@ public class AppsManager : ILogonLifetime
                         using var file = File.OpenWrite(targetPath);
                         response.Content.ReadAsStream().CopyTo(file);
                         logger.Info($"Saved library asset {assetType} for {app.AppID} to disk successfully");
-
                         if (assetType == ELibraryAssetType.Icon) {
                             if (app is SteamApp sapp)
                             {
@@ -509,7 +536,6 @@ public class AppsManager : ILogonLifetime
                                 logger.Warning("AssetType is icon, but we're not a SteamApp! Unsupported (for now)");
                             }
                         } else {
-                            // These headers will never exist for failure codes, so don't even try
                             if (response.Content.Headers.LastModified.HasValue) {
                                 string headerContent = response.Content.Headers.LastModified.Value.ToString(DateTimeFormatInfo.InvariantInfo.RFC1123Pattern);
                                 asset.SetLastModified(headerContent, assetType);
@@ -523,16 +549,48 @@ public class AppsManager : ILogonLifetime
                                 logger.Warning("Failed to get Expires header.");
                             }
                         }
+                    }
 
-                        asset.LastChangeNumber = steamClient.IClientApps.GetLastChangeNumberReceived();
-                        asset.StoreAssetsLastModified = app.StoreAssetsLastModified;
-                    }                    
+                    if (!success && response.StatusCode == HttpStatusCode.NotFound && assetType != ELibraryAssetType.Icon) {
+                        if (app is SteamApp sapp) {
+                            lock (appsToGenerateLock)
+                            {
+                                int index = appsToGenerate.FindIndex(r => r.AppID == sapp.AppID);
+                                if (index == -1) {
+                                    appsToGenerate.Add(new LibraryAssetsGenerator.GenerateAssetRequest(sapp.AppID, assetType == ELibraryAssetType.Hero, assetType == ELibraryAssetType.Portrait));
+                                } else {
+                                    bool needsHero = appsToGenerate[index].NeedsHero;
+                                    bool needsPortrait = appsToGenerate[index].NeedsPortrait;
+                                    if (assetType == ELibraryAssetType.Hero) {
+                                        needsHero = true;
+                                    }
+
+                                    if (assetType == ELibraryAssetType.Portrait) {
+                                        needsPortrait = true;
+                                    }
+
+                                    appsToGenerate[index] = new LibraryAssetsGenerator.GenerateAssetRequest(appsToGenerate[index].AppID, needsHero, needsPortrait);
+                                }
+                            }
+
+                            willGenerate = true;
+                        }
+
+                        if (willGenerate) {
+                            logger.Debug($"Fabricating fake expire and last-modified date for asset generation of {assetType} for {app.AppID}");
+                        } else {
+                            logger.Debug($"Fabricating fake expire and last-modified date for failed download of {assetType} for {app.AppID}");
+                        }
+
+                        asset.SetLastModified(DateTimeOffset.UtcNow.ToUnixTimeSeconds().ToString(DateTimeFormatInfo.InvariantInfo.RFC1123Pattern), assetType);
+                        asset.SetExpires(DateTimeOffset.UtcNow.AddYears(5).ToUnixTimeSeconds(), assetType);
+                    }        
                 }
             } else {
                 logger.Info($"Not downloading library asset {assetType} for {app.AppID}, as shouldDownload is false");
             }
             
-            if (!suppressSet) {
+            if (!suppressSet && success) {
                 switch (assetType)
                 {
                     case ELibraryAssetType.Icon:
@@ -551,11 +609,20 @@ public class AppsManager : ILogonLifetime
                         throw new ArgumentOutOfRangeException(nameof(assetType));
                 }
             }
+
+            if (lastInBatch) {
+                asset.LastChangeNumber = steamClient.IClientApps.GetLastChangeNumberReceived();
+                asset.StoreAssetsLastModified = app.StoreAssetsLastModified;
+            }
         }
 
         assetsConcurrent[app.AppID.ToString()] = asset;
         if (!suppressConcurrentDictSave) {
             WriteConcurrentAssetDict();
+        }
+
+        if (willGenerate) {
+            return null;
         }
 
         if (!success && shouldDownload) {
@@ -585,7 +652,7 @@ public class AppsManager : ILogonLifetime
     }
 
     public IEnumerable<AppBase> GetAllApps() {
-        return apps.AsEnumerable();
+        return apps.ToList();
     }
 
     /// <summary>
@@ -890,4 +957,6 @@ public class AppsManager : ILogonLifetime
         name += app.GameID;
         return Logger.GetLogger(name, installManager.GetLogPath(name));
     }
+
+    public UInt64 StartCompatSession(AppId_t appID) => this.steamClient.IClientCompat.StartSession(appID);
 }

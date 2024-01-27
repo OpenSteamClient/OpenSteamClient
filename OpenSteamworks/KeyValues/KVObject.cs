@@ -8,7 +8,12 @@ using System.Text;
 namespace OpenSteamworks.KeyValues;
 
 public class KVObject : IEquatable<KVObject>, ICloneable {
-    public string Name { get; set; }
+    private string name;
+    public string Name {
+        get => string.Intern(name);
+        set => name = string.Intern(value);
+    }
+
     public dynamic Value { get; internal set; }
     public bool HasChildren => Value is List<KVObject>;
     public IEnumerable<KVObject> Children {
