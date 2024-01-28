@@ -43,9 +43,6 @@ public unsafe interface IClientHTMLSurface
     /// Cannot type into text fields.
     /// </summary>
     public void KeyDown(HHTMLBrowser handle, int keyCode, EHTMLKeyModifiers modifiers, bool isSystemKey);
-    /// <summary>
-    /// And presumably this one is broken as well.
-    /// </summary>
     public void KeyUp(HHTMLBrowser handle, int keyCode, EHTMLKeyModifiers modifiers);
     /// <summary>
     /// You can't feed control keys. Use KeyDown for it.

@@ -361,7 +361,7 @@ public class CloudConfigStore : ILogonLifetime {
     }
 
     /// <summary>
-    /// Uploads namespace data. Overrides anything on remote. Be careful, the API accepts basically anything, and will happily delete all configstore data if uploading an empty object.
+    /// Uploads namespace data. Will throw conflict errors if data is conflicting
     /// </summary>
     private async Task<IEnumerable<CCloudConfigStore_NamespaceVersion>> Upload(CCloudConfigStore_NamespaceData data) {
         if (data.Entries.Count == 0) {

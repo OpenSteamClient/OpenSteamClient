@@ -37,7 +37,7 @@ public class Library
         this.Collections.Add(new Collection("Uncategorized", "uncategorized", true));
     }
 
-    internal async Task InitializeLibrary()
+    internal async Task<HashSet<AppId_t>> InitializeLibrary()
     {
         HashSet<AppId_t> AppIDsInCollections = new();
 
@@ -84,6 +84,10 @@ public class Library
                 item.dynamicCollectionAppsCached = await ProcessFilters(item);
             }
         }
+
+        var all = new HashSet<AppId_t>(AppIDsInCollections);
+        all.UnionWith(this.appsManager.OwnedApps);
+        return all;
     }
 
     private void UnionOrIntersect<T>(ref HashSet<T> set, HashSet<T> target, bool union) {
@@ -203,8 +207,9 @@ public class Library
 
             this.namespaceData["user-collections." + category.ID] = JsonSerializer.Serialize<JSONCollection>(category.ToJSON());
         }
-
-        await this.cloudConfigStore.SaveNamespace(this.namespaceData);
+        //TODO: editing collections
+        //await this.cloudConfigStore.SaveNamespace(this.namespaceData);
+        await this.cloudConfigStore.CacheNamespace(this.namespaceData);
     }
 
     /// <summary>

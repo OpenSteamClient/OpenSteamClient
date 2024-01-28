@@ -2,16 +2,21 @@ using System;
 using System.Threading.Tasks;
 using Avalonia.Threading;
 using ClientUI.Views;
+using CommunityToolkit.Mvvm.ComponentModel;
 using OpenSteamworks.Client.Apps;
 using OpenSteamworks.Enums;
 
 namespace ClientUI.ViewModels;
 
-public class AvaloniaAppViewModel : ViewModelBase
+public partial class AvaloniaAppViewModel : ViewModelBase
 {
     public bool IsDebug => AvaloniaApp.DebugEnabled;
-    //TODO
-    public bool IsSteamVRInstalled => false;
+
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(IsVRAvailable))]
+    private bool isLoggedIn;
+
+    public bool IsVRAvailable => IsLoggedIn && AvaloniaApp.Container.TryGet(out AppsManager? mgr) && mgr.IsAppInstalled(250820);
     public void ExitEventually()
     {
         AvaloniaApp.Current?.ExitEventually();
@@ -29,7 +34,7 @@ public class AvaloniaAppViewModel : ViewModelBase
     public void OpenSteamVR()
     {
         AvaloniaApp.Container.Get<AppsManager>().LaunchApp(250820).ContinueWith((res) => {
-            if (res.Result != EResult.OK) {
+            if (res.Result != EAppUpdateError.NoError) {
                 Dispatcher.UIThread.Invoke(() => MessageBox.Show("Launching SteamVR failed", "Launching SteamVR failed with error " + res.Result));
             }
         });

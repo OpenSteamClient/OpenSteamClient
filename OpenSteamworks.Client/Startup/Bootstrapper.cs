@@ -239,7 +239,7 @@ public class Bootstrapper : IClientLifetime {
         // By default we copy all files to their correct directories.
         // Specify path mappings here to tell the files to link into another folder as well
         Dictionary<string, string> pathMappings = new() {
-            {"ubuntu12_64/libsteamwebrtc.so", "linux64/libsteamwebrtc.so"},
+            {"ubuntu12_64/libsteamwebrtc.so", "libsteamwebrtc.so"},
         };
 
         foreach (var mapping in pathMappings)

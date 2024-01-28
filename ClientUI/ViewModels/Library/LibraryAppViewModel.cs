@@ -52,7 +52,7 @@ public partial class LibraryAppViewModel : Node
         StatusIcon = Brushes.Transparent;
         if (App is SteamApp SApp)
         {
-
+            
         }
     }
 

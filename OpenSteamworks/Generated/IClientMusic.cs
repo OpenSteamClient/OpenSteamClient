@@ -251,17 +251,16 @@ public unsafe interface IClientMusic
     public unknown_ret GetAlbumCoverURLForAlbumID();  // argc: 3, index: 139, ipc args: [bytes4, bytes4], ipc returns: [bytes1, bytes_length_from_mem]
     // WARNING: Arguments are unknown!
     public unknown_ret GetAlbumCoverURLForTrackKey();  // argc: 3, index: 140, ipc args: [string, bytes4], ipc returns: [bytes1, bytes_length_from_mem]
-    public unknown_ret StartUsingSpotify();  // argc: 0, index: 141, ipc args: [], ipc returns: []
-    public unknown_ret StopUsingSpotify();  // argc: 0, index: 142, ipc args: [], ipc returns: []
+    public void StartUsingSpotify();  // argc: 0, index: 141, ipc args: [], ipc returns: []
+    public void StopUsingSpotify();  // argc: 0, index: 142, ipc args: [], ipc returns: []
     public unknown_ret GetStatusSpotify();  // argc: 0, index: 143, ipc args: [], ipc returns: [bytes4]
+    public void LoginSpotify(string username, string password);  // argc: 2, index: 144, ipc args: [string, string], ipc returns: []
+    public void ReloginSpotify();  // argc: 0, index: 145, ipc args: [], ipc returns: []
+    public string GetCurrentUserSpotify();  // argc: 0, index: 146, ipc args: [], ipc returns: [string]
+    public void ForgetCurrentUserSpotify();  // argc: 0, index: 147, ipc args: [], ipc returns: []
+    public void LogoutSpotify();  // argc: 0, index: 148, ipc args: [], ipc returns: []
+    public void DumpStatusToConsole();  // argc: 0, index: 149, ipc args: [], ipc returns: []
     // WARNING: Arguments are unknown!
-    public unknown_ret LoginSpotify();  // argc: 2, index: 144, ipc args: [string, string], ipc returns: []
-    public unknown_ret ReloginSpotify();  // argc: 0, index: 145, ipc args: [], ipc returns: []
-    public unknown_ret GetCurrentUserSpotify();  // argc: 0, index: 146, ipc args: [], ipc returns: [string]
-    public unknown_ret ForgetCurrentUserSpotify();  // argc: 0, index: 147, ipc args: [], ipc returns: []
-    public unknown_ret LogoutSpotify();  // argc: 0, index: 148, ipc args: [], ipc returns: []
-    public unknown_ret DumpStatusToConsole();  // argc: 0, index: 149, ipc args: [], ipc returns: []
-    // WARNING: Arguments are unknown!
-    public unknown_ret ReplacePlaylistWithSoundtrackAlbum();  // argc: 1, index: 150, ipc args: [bytes4], ipc returns: [bytes1]
-    public unknown_ret GetQueueSoundtrackAppID();  // argc: 0, index: 151, ipc args: [], ipc returns: [bytes4]
+    public bool ReplacePlaylistWithSoundtrackAlbum(AppId_t albumAppId);  // argc: 1, index: 150, ipc args: [bytes4], ipc returns: [bytes1]
+    public AppId_t GetQueueSoundtrackAppID();  // argc: 0, index: 151, ipc args: [], ipc returns: [bytes4]
 }

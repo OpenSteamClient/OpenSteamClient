@@ -1,3 +1,4 @@
+using OpenSteamworks.Client.Apps.Library;
 using OpenSteamworks.KeyValues;
 
 namespace OpenSteamworks.Client.Apps.Assets;
@@ -91,20 +92,20 @@ public class LibraryAssetsFile : TypedKVObject
             set => SetValue("5", value);
         }
 
-        public void SetLastModified(string lastModified, AppsManager.ELibraryAssetType assetType)
+        public void SetLastModified(string lastModified, LibraryManager.ELibraryAssetType assetType)
         {
             switch (assetType)
             {
-                case AppsManager.ELibraryAssetType.Icon:
+                case LibraryManager.ELibraryAssetType.Icon:
                     break;
 
-                case AppsManager.ELibraryAssetType.Logo:
+                case LibraryManager.ELibraryAssetType.Logo:
                     LogoLastModified = lastModified;
                     break;
-                case AppsManager.ELibraryAssetType.Hero:
+                case LibraryManager.ELibraryAssetType.Hero:
                     HeroLastModified = lastModified;
                     break;
-                case AppsManager.ELibraryAssetType.Portrait:
+                case LibraryManager.ELibraryAssetType.Portrait:
                     PortraitLastModified = lastModified;
                     break;
                 default:
@@ -112,20 +113,20 @@ public class LibraryAssetsFile : TypedKVObject
             }
         }
 
-        public void SetExpires(long expires, AppsManager.ELibraryAssetType assetType)
+        public void SetExpires(long expires, LibraryManager.ELibraryAssetType assetType)
         {
             switch (assetType)
             {
-                case AppsManager.ELibraryAssetType.Icon:
+                case LibraryManager.ELibraryAssetType.Icon:
                     break;
 
-                case AppsManager.ELibraryAssetType.Logo:
+                case LibraryManager.ELibraryAssetType.Logo:
                     LogoExpires = expires;
                     break;
-                case AppsManager.ELibraryAssetType.Hero:
+                case LibraryManager.ELibraryAssetType.Hero:
                     HeroExpires = expires;
                     break;
-                case AppsManager.ELibraryAssetType.Portrait:
+                case LibraryManager.ELibraryAssetType.Portrait:
                     PortraitExpires = expires;
                     break;
                 default:
@@ -133,26 +134,26 @@ public class LibraryAssetsFile : TypedKVObject
             }
         }
 
-        public string GetLastModified(AppsManager.ELibraryAssetType assetType)
+        public string GetLastModified(LibraryManager.ELibraryAssetType assetType)
         {
             return assetType switch
             {
-                AppsManager.ELibraryAssetType.Icon => "",
-                AppsManager.ELibraryAssetType.Logo => LogoLastModified,
-                AppsManager.ELibraryAssetType.Hero => HeroLastModified,
-                AppsManager.ELibraryAssetType.Portrait => PortraitLastModified,
+                LibraryManager.ELibraryAssetType.Icon => "",
+                LibraryManager.ELibraryAssetType.Logo => LogoLastModified,
+                LibraryManager.ELibraryAssetType.Hero => HeroLastModified,
+                LibraryManager.ELibraryAssetType.Portrait => PortraitLastModified,
                 _ => throw new ArgumentOutOfRangeException(nameof(assetType)),
             };
         }
 
-        public long GetExpires(AppsManager.ELibraryAssetType assetType)
+        public long GetExpires(LibraryManager.ELibraryAssetType assetType)
         {
             return assetType switch
             {
-                AppsManager.ELibraryAssetType.Icon => 0,
-                AppsManager.ELibraryAssetType.Logo => LogoExpires,
-                AppsManager.ELibraryAssetType.Hero => HeroExpires,
-                AppsManager.ELibraryAssetType.Portrait => PortraitExpires,
+                LibraryManager.ELibraryAssetType.Icon => 0,
+                LibraryManager.ELibraryAssetType.Logo => LogoExpires,
+                LibraryManager.ELibraryAssetType.Hero => HeroExpires,
+                LibraryManager.ELibraryAssetType.Portrait => PortraitExpires,
                 _ => throw new ArgumentOutOfRangeException(nameof(assetType)),
             };
         }

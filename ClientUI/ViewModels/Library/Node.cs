@@ -31,6 +31,20 @@ public partial class Node : ViewModelBase, IComparable<Node>
 
     public int CompareTo(Node? other)
     {
-        return string.Compare(this.Name, other?.Name);
+        return string.Compare(this.GetSortableName(), other?.GetSortableName());
+    }
+
+    public string GetSortableName() {
+        if (!this.IsApp) {
+            return this.Name;
+        }
+
+        if (this.Name.StartsWith("A ")) {
+            return this.Name.Replace("A ", "");
+        } else if (this.Name.StartsWith("The ")) {
+            return this.Name.Replace("The ", "");
+        }
+
+        return this.Name;
     }
 }

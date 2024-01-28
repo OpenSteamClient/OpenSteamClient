@@ -7,6 +7,7 @@
 //=============================================================================
 
 using System;
+using OpenSteamworks.Structs;
 
 namespace OpenSteamworks.Generated;
 
@@ -113,7 +114,7 @@ public unsafe interface IClientVideo
     // WARNING: Arguments are unknown!
     public unknown_ret AddUserMarkerForGame();  // argc: 1, index: 58, ipc args: [bytes8], ipc returns: []
     // WARNING: Arguments are unknown!
-    public unknown_ret ToggleVideoRecordingForGame();  // argc: 1, index: 59, ipc args: [bytes8], ipc returns: []
+    public unknown_ret ToggleVideoRecordingForGame(CGameID gameid);  // argc: 1, index: 59, ipc args: [bytes8], ipc returns: []
     // WARNING: Arguments are unknown!
     public unknown_ret CreateVideoManagerClip();  // argc: 23, index: 60, ipc args: [bytes_length_from_reg, bytes28, bytes20], ipc returns: [bytes8]
 }

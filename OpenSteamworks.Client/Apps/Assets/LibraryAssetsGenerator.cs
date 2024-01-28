@@ -2,6 +2,7 @@ using System.Net.Http.Json;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Nodes;
+using OpenSteamworks.Client.Apps.Library;
 using OpenSteamworks.ClientInterfaces;
 using OpenSteamworks.Enums;
 using OpenSteamworks.Generated;
@@ -30,11 +31,11 @@ public class LibraryAssetsGenerator {
     }
 
     private readonly List<GenerateAssetRequest> assetRequests;
-    private readonly Func<AppId_t, AppsManager.ELibraryAssetType, string> getPathFunc;
+    private readonly Func<AppId_t, LibraryManager.ELibraryAssetType, string> getPathFunc;
     private readonly ClientMessaging clientMessaging;
     private readonly ISteamClient steamClient;
 
-    public LibraryAssetsGenerator(ISteamClient steamClient, ClientMessaging clientMessaging, List<GenerateAssetRequest> assetRequests, Func<AppId_t, AppsManager.ELibraryAssetType, string> getPathFunc) {
+    public LibraryAssetsGenerator(ISteamClient steamClient, ClientMessaging clientMessaging, List<GenerateAssetRequest> assetRequests, Func<AppId_t, LibraryManager.ELibraryAssetType, string> getPathFunc) {
         this.steamClient = steamClient;
         this.clientMessaging = clientMessaging;
         this.assetRequests = assetRequests;
@@ -83,12 +84,12 @@ public class LibraryAssetsGenerator {
 
                 bool heroResult = true;
                 if (assetRequest.NeedsHero) {
-                    heroResult = await CreateHero(item, getPathFunc(item.Appid, AppsManager.ELibraryAssetType.Hero));
+                    heroResult = await CreateHero(item, getPathFunc(item.Appid, LibraryManager.ELibraryAssetType.Hero));
                 }
 
                 bool portraitResult = true;
                 if (assetRequest.NeedsPortrait) {
-                    portraitResult = await CreatePortrait(item, getPathFunc(item.Appid, AppsManager.ELibraryAssetType.Portrait));
+                    portraitResult = await CreatePortrait(item, getPathFunc(item.Appid, LibraryManager.ELibraryAssetType.Portrait));
                 }
             
                 if (portraitResult && heroResult) {

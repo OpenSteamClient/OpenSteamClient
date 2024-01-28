@@ -15,7 +15,7 @@ namespace ClientUI.ViewModels;
 
 public partial class LibraryPageViewModel : ViewModelBase
 {
-    public ObservableCollection<Node> Nodes { get; init; }
+    public ObservableCollection<CollectionItemViewModel> Nodes { get; init; }
     public ObservableCollection<Node> SelectedNodes { get; } = new();
 
 
@@ -27,15 +27,21 @@ public partial class LibraryPageViewModel : ViewModelBase
         var library = libraryManager.GetLibrary();
 
         //TODO: this is a temp hack to sort collections properly. We (once again) need to make a proper sortable array.
-        List<Node> nodes = new();
+        List<CollectionItemViewModel> nodes = new();
         foreach (var collection in library.Collections)
         {
             var collectionviewmodel = this.GetOrCreateCategory(ref nodes, library, collection);
-            foreach (var app in library.GetAppsInCollection(collection.ID))
+            var appids = library.GetAppsInCollection(collection.ID);
+            var apps = appids.Select(appid => new LibraryAppViewModel(this, appid)).ToList();
+            apps.Sort();
+
+            foreach (var app in apps)
             {
-                collectionviewmodel.Children.Add(new LibraryAppViewModel(this, app));
+                collectionviewmodel.Children.Add(app);
             }
         }
+        
+        nodes.Sort();
         Nodes = new(nodes);
 
         this.SelectedNodes.CollectionChanged += SelectionChanged;
@@ -59,7 +65,7 @@ public partial class LibraryPageViewModel : ViewModelBase
         };
     }
 
-    private CollectionItemViewModel GetOrCreateCategory(ref List<Node> nodes, OpenSteamworks.Client.Apps.Library.Library library, Collection collection)
+    private CollectionItemViewModel GetOrCreateCategory(ref List<CollectionItemViewModel> nodes, OpenSteamworks.Client.Apps.Library.Library library, Collection collection)
     {
         foreach (var item in nodes)
         {
@@ -74,7 +80,7 @@ public partial class LibraryPageViewModel : ViewModelBase
 
         CollectionItemViewModel vm = new(library, collection);
         nodes.Add(vm);
-        nodes.Sort();
+        
         return vm;
     }
 }

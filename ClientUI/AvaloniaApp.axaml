@@ -30,12 +30,13 @@
       <TrayIcon Icon="/Assets/opensteam-logo.ico" c:Translatable.TranslationKey="#App_Tray_Tooltip" ToolTipText="OpenSteamClient is running">
         <TrayIcon.Menu>
           <NativeMenu>
-            <NativeMenuItem c:Translatable.TranslationKey="#App_Tray_Library" Header="Library" Command="{Binding OpenLibrary}" />
-            <NativeMenuItemSeparator />
+            <NativeMenuItemSeparator IsVisible="{Binding IsLoggedIn}"/>
+            <NativeMenuItem IsVisible="{Binding IsLoggedIn}" c:Translatable.TranslationKey="#App_Tray_Library" Header="Library" Command="{Binding OpenLibrary}" />
+            <NativeMenuItemSeparator IsVisible="{Binding IsLoggedIn}" />
             <NativeMenuItem c:Translatable.TranslationKey="#MainWindow_Header_Steam_OpenSettings" Header="Settings" Command="{Binding OpenSettings}" />
-            <NativeMenuItem IsEnabled="{Binding IsSteamVRInstalled}" c:Translatable.TranslationKey="#App_Tray_OpenSteamVR" Header="Open SteamVR" Command="{Binding OpenSteamVR}" />
+            <NativeMenuItem IsVisible="{Binding IsVRAvailable}" c:Translatable.TranslationKey="#App_Tray_OpenSteamVR" Header="Open SteamVR" Command="{Binding OpenSteamVR}" />
             <NativeMenuItemSeparator />
-            <NativeMenuItem IsEnabled="{Binding IsDebug}" c:Translatable.TranslationKey="#MainWindow_Header_Debug_OpenInterfaceList" Header="Open InterfaceList" Command="{Binding OpenInterfaceList}" />
+            <NativeMenuItem IsVisible="{Binding IsDebug}" c:Translatable.TranslationKey="#MainWindow_Header_Debug_OpenInterfaceList" Header="Open InterfaceList" Command="{Binding OpenInterfaceList}" />
             <NativeMenuItem c:Translatable.TranslationKey="#MainWindow_Header_Steam_Quit" Header="Exit" Command="{Binding ExitEventually}" />
           </NativeMenu>
         </TrayIcon.Menu>

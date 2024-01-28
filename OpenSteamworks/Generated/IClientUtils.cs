@@ -34,19 +34,19 @@ public unsafe interface IClientUtils
     // WARNING: Arguments are unknown!
     public unknown_ret GetImageRGBA();  // argc: 3, index: 13, ipc args: [bytes4, bytes4], ipc returns: [bytes1, bytes_length_from_mem]
     public unknown_ret GetNumRunningApps();  // argc: 0, index: 14, ipc args: [], ipc returns: [bytes4]
-    public unknown_ret GetCurrentBatteryPower();  // argc: 0, index: 15, ipc args: [], ipc returns: [bytes1]
+    public byte GetCurrentBatteryPower();  // argc: 0, index: 15, ipc args: [], ipc returns: [bytes1]
     // WARNING: Arguments are unknown!
-    public unknown_ret GetBatteryInformation();  // argc: 2, index: 16, ipc args: [], ipc returns: [bytes1, bytes4, bytes1]
+    public byte GetBatteryInformation(out uint unk, out byte unk2);  // argc: 2, index: 16, ipc args: [], ipc returns: [bytes1, bytes4, bytes1]
     // WARNING: Arguments are unknown!
-    public unknown_ret SetOfflineMode(bool offline);  // argc: 1, index: 17, ipc args: [bytes1], ipc returns: []
+    public void SetOfflineMode(bool offline);  // argc: 1, index: 17, ipc args: [bytes1], ipc returns: []
     public bool GetOfflineMode();  // argc: 0, index: 18, ipc args: [], ipc returns: [bytes1]
     // WARNING: Arguments are unknown!
-    public unknown_ret SetAppIDForCurrentPipe(AppId_t appid);  // argc: 2, index: 19, ipc args: [bytes4, bytes1], ipc returns: [bytes4]
+    public unknown_ret SetAppIDForCurrentPipe(AppId_t appid, bool unk);  // argc: 2, index: 19, ipc args: [bytes4, bytes1], ipc returns: [bytes4]
     public AppId_t GetAppID();  // argc: 0, index: 20, ipc args: [], ipc returns: [bytes4]
     public void SetAPIDebuggingActive(bool active, bool verbose);  // argc: 2, index: 21, ipc args: [bytes1, bytes1], ipc returns: []
     public SteamAPICall_t AllocPendingAPICallHandle();  // argc: 0, index: 22, ipc args: [], ipc returns: [bytes8]
     // WARNING: Arguments are unknown!
-    public bool IsAPICallCompleted(SteamAPICall_t handle, ref bool failed);  // argc: 3, index: 23, ipc args: [bytes8], ipc returns: [boolean, boolean]
+    public bool IsAPICallCompleted(SteamAPICall_t handle, out bool failed);  // argc: 3, index: 23, ipc args: [bytes8], ipc returns: [boolean, boolean]
     // WARNING: Arguments are unknown!
     public ESteamAPICallFailure GetAPICallFailureReason(SteamAPICall_t handle);  // argc: 2, index: 24, ipc args: [bytes8], ipc returns: [bytes4]
     /// <summary>
@@ -55,22 +55,22 @@ public unsafe interface IClientUtils
     // WARNING: Arguments are unknown!
     public bool GetAPICallResult(SteamAPICall_t handle, void* callbackData, int callbackDataMax, int expectedCallbackID, out bool failed);  // argc: 6, index: 25, ipc args: [bytes8, bytes4, bytes4], ipc returns: [bytes1, bytes_length_from_mem, bytes1]
     // WARNING: Arguments are unknown!
-    public unknown_ret SetAPICallResultWithoutPostingCallback(SteamAPICall_t handle, byte[] responseData, int responseDataLen, int responseCallbackID);  // argc: 5, index: 26, ipc args: [bytes8, bytes4, bytes4, bytes_length_from_mem], ipc returns: []
-    public unknown_ret SignalAppsToShutDown();  // argc: 0, index: 27, ipc args: [], ipc returns: [bytes1]
-    public unknown_ret SignalServiceAppsToDisconnect();  // argc: 0, index: 28, ipc args: [], ipc returns: [bytes1]
+    public void SetAPICallResultWithoutPostingCallback(SteamAPICall_t handle, byte[] responseData, int responseDataLen, int responseCallbackID);  // argc: 5, index: 26, ipc args: [bytes8, bytes4, bytes4, bytes_length_from_mem], ipc returns: []
+    public bool SignalAppsToShutDown();  // argc: 0, index: 27, ipc args: [], ipc returns: [bytes1]
+    public bool SignalServiceAppsToDisconnect();  // argc: 0, index: 28, ipc args: [], ipc returns: [bytes1]
     // WARNING: Arguments are unknown!
-    public unknown_ret TerminateAllApps();  // argc: 1, index: 29, ipc args: [bytes1], ipc returns: [bytes1]
+    public bool TerminateAllApps();  // argc: 1, index: 29, ipc args: [bytes1], ipc returns: [bytes1]
     public uint GetCellID();  // argc: 0, index: 30, ipc args: [], ipc returns: [bytes4]
     public bool BIsGlobalInstance();  // argc: 0, index: 31, ipc args: [], ipc returns: [boolean]
     // WARNING: Arguments are unknown!
     public SteamAPICall_t CheckFileSignature(string filename);  // argc: 1, index: 32, ipc args: [string], ipc returns: [bytes8]
-    public unknown_ret GetBuildID();  // argc: 0, index: 33, ipc args: [], ipc returns: [bytes8]
+    public ulong GetBuildID();  // argc: 0, index: 33, ipc args: [], ipc returns: [bytes8]
     public void SetCurrentUIMode(EUIMode mode);  // argc: 1, index: 34, ipc args: [bytes4], ipc returns: []
     public EUIMode GetCurrentUIMode();  // argc: 0, index: 35, ipc args: [], ipc returns: [bytes4]
     public bool BIsWebBasedUIMode();  // argc: 0, index: 36, ipc args: [], ipc returns: [boolean]
     public void SetDisableOverlayScaling(bool val);  // argc: 1, index: 37, ipc args: [bytes1], ipc returns: []
     // WARNING: Arguments are unknown!
-    public unknown_ret ShutdownLauncher();  // argc: 2, index: 38, ipc args: [bytes1, bytes1], ipc returns: []
+    public void ShutdownLauncher(bool unk, bool unk2);  // argc: 2, index: 38, ipc args: [bytes1, bytes1], ipc returns: []
     // WARNING: Arguments are unknown!
     public void SetLauncherType(ELauncherType type);  // argc: 1, index: 39, ipc args: [bytes4], ipc returns: []
     public ELauncherType GetLauncherType();  // argc: 0, index: 40, ipc args: [], ipc returns: [bytes4]
@@ -87,7 +87,7 @@ public unsafe interface IClientUtils
     public void SetSpew(ESpewGroup group, int spewlevel, int loglevel);  // argc: 3, index: 46, ipc args: [bytes4, bytes4, bytes4], ipc returns: []
     public bool BDownloadsDisabled();  // argc: 0, index: 47, ipc args: [], ipc returns: [boolean]
     // WARNING: Arguments are unknown!
-    public unknown_ret SetFocusedWindow(CGameID gameid, UInt64 windowId, bool unk);  // argc: 4, index: 48, ipc args: [bytes8, bytes1, bytes1, bytes4], ipc returns: []
+    public void SetFocusedWindow(CGameID gameid, bool unk, bool unk2, uint unk3);  // argc: 4, index: 48, ipc args: [bytes8, bytes1, bytes1, bytes4], ipc returns: []
     public string GetSteamUILanguage();  // argc: 0, index: 49, ipc args: [], ipc returns: [string]
     public SteamAPICall_t CheckSteamReachable();  // argc: 0, index: 50, ipc args: [], ipc returns: [bytes8]
     /// <summary>
@@ -108,42 +108,42 @@ public unsafe interface IClientUtils
     // WARNING: Arguments are unknown!
     public unknown_ret GetControllerConfigFileForAppID(AppId_t appid, StringBuilder config, int configMax);  // argc: 3, index: 57, ipc args: [bytes4, bytes4], ipc returns: [bytes1, bytes_length_from_mem]
     public bool IsSteamRunningInVR();  // argc: 0, index: 58, ipc args: [], ipc returns: [boolean]
-    public unknown_ret StartVRDashboard();  // argc: 0, index: 59, ipc args: [], ipc returns: []
+    public void StartVRDashboard();  // argc: 0, index: 59, ipc args: [], ipc returns: []
     // WARNING: Arguments are unknown!
-    public unknown_ret IsVRHeadsetStreamingEnabled(AppId_t appid);  // argc: 1, index: 60, ipc args: [bytes4], ipc returns: [boolean]
+    public bool IsVRHeadsetStreamingEnabled(AppId_t appid);  // argc: 1, index: 60, ipc args: [bytes4], ipc returns: [boolean]
     // WARNING: Arguments are unknown!
-    public unknown_ret SetVRHeadsetStreamingEnabled();  // argc: 2, index: 61, ipc args: [bytes4, bytes1], ipc returns: []
+    public void SetVRHeadsetStreamingEnabled();  // argc: 2, index: 61, ipc args: [bytes4, bytes1], ipc returns: []
     public SteamAPICall_t GenerateSupportSystemReport();  // argc: 0, index: 62, ipc args: [], ipc returns: [bytes8]
     public bool GetSupportSystemReport(StringBuilder str, int strMax, byte[]? bytes, int bytesMax);  // argc: 4, index: 63, ipc args: [bytes4, bytes4], ipc returns: [bytes1, bytes_length_from_mem, bytes_length_from_mem]
     // WARNING: Arguments are unknown!
-    public unknown_ret GetAppIdForPid(AppId_t appid, bool unk);  // argc: 2, index: 64, ipc args: [bytes4, bytes1], ipc returns: [bytes4]
-    public unknown_ret SetClientUIProcess();  // argc: 0, index: 65, ipc args: [], ipc returns: []
+    public AppId_t GetAppIdForPid(uint pid, bool unk);  // argc: 2, index: 64, ipc args: [bytes4, bytes1], ipc returns: [bytes4]
+    public void SetClientUIProcess();  // argc: 0, index: 65, ipc args: [], ipc returns: []
     public bool BIsClientUIInForeground();  // argc: 0, index: 66, ipc args: [], ipc returns: [boolean]
     // WARNING: Arguments are unknown!
     public void AllowSetForegroundThroughWebhelper(bool val);  // argc: 1, index: 67, ipc args: [bytes4], ipc returns: []
     // WARNING: Arguments are unknown!
-    public unknown_ret SetOverlayBrowserInfo();  // argc: 8, index: 68, ipc args: [bytes4, bytes4, bytes8, bytes4, bytes4, bytes4, bytes4, bytes4], ipc returns: []
+    public void SetOverlayBrowserInfo();  // argc: 8, index: 68, ipc args: [bytes4, bytes4, bytes8, bytes4, bytes4, bytes4, bytes4, bytes4], ipc returns: []
     // WARNING: Arguments are unknown!
-    public unknown_ret ClearOverlayBrowserInfo(AppId_t appid);  // argc: 1, index: 69, ipc args: [bytes4], ipc returns: []
+    public void ClearOverlayBrowserInfo(AppId_t appid);  // argc: 1, index: 69, ipc args: [bytes4], ipc returns: []
     // WARNING: Arguments are unknown!
-    public unknown_ret GetOverlayBrowserInfo();  // argc: 3, index: 70, ipc args: [bytes4], ipc returns: [bytes1, bytes_length_from_reg, bytes4]
+    public bool GetOverlayBrowserInfo(AppId_t appid, byte[] buf, uint bufMax);  // argc: 3, index: 70, ipc args: [bytes4], ipc returns: [bytes1, bytes_length_from_reg, bytes4]
     // WARNING: Arguments are unknown!
-    public unknown_ret SetOverlayNotificationPosition(AppId_t appid, ENotificationPosition pos);  // argc: 2, index: 71, ipc args: [bytes4, bytes4], ipc returns: []
+    public void SetOverlayNotificationPosition(AppId_t appid, ENotificationPosition pos);  // argc: 2, index: 71, ipc args: [bytes4, bytes4], ipc returns: []
     // WARNING: Arguments are unknown!
-    public unknown_ret SetOverlayNotificationInset(AppId_t appid, int nHorizontalInset, int nVerticalInset);  // argc: 3, index: 72, ipc args: [bytes4, bytes4, bytes4], ipc returns: []
+    public void SetOverlayNotificationInset(AppId_t appid, int nHorizontalInset, int nVerticalInset);  // argc: 3, index: 72, ipc args: [bytes4, bytes4, bytes4], ipc returns: []
     // WARNING: Arguments are unknown!
-    public unknown_ret DispatchClientUINotification(EClientUINotificationType type, string data, uint unk);  // argc: 3, index: 73, ipc args: [bytes4, string, bytes4], ipc returns: [bytes1]
+    public bool DispatchClientUINotification(EClientUINotificationType type, string data, uint unk);  // argc: 3, index: 73, ipc args: [bytes4, string, bytes4], ipc returns: [bytes1]
     // WARNING: Arguments are unknown!
-    public unknown_ret RespondToClientUINotification();  // argc: 3, index: 74, ipc args: [bytes4, bytes1, bytes4], ipc returns: []
+    public void RespondToClientUINotification();  // argc: 3, index: 74, ipc args: [bytes4, bytes1, bytes4], ipc returns: []
     // WARNING: Arguments are unknown!
-    public unknown_ret DispatchClientUICommand(string data, uint unk);  // argc: 2, index: 75, ipc args: [string, bytes4], ipc returns: []
-    public unknown_ret DispatchComputerActiveStateChange();  // argc: 0, index: 76, ipc args: [], ipc returns: []
+    public void DispatchClientUICommand(string data, uint unk);  // argc: 2, index: 75, ipc args: [string, bytes4], ipc returns: []
+    public void DispatchComputerActiveStateChange();  // argc: 0, index: 76, ipc args: [], ipc returns: []
     // WARNING: Arguments are unknown!
-    public unknown_ret DispatchOpenURLInClient(string data, uint unk, bool unk2);  // argc: 3, index: 77, ipc args: [string, bytes4, bytes1], ipc returns: []
+    public void DispatchOpenURLInClient(string data, uint unk, bool unk2);  // argc: 3, index: 77, ipc args: [string, bytes4, bytes1], ipc returns: []
     // WARNING: Arguments are unknown!
     public SteamAPICall_t UpdateWideVineCDM(string maybePath);  // argc: 1, index: 78, ipc args: [string], ipc returns: [bytes8]
-    public unknown_ret DispatchClearAllBrowsingData();  // argc: 0, index: 79, ipc args: [], ipc returns: []
-    public unknown_ret DispatchClientSettingsChanged();  // argc: 0, index: 80, ipc args: [], ipc returns: []
+    public void DispatchClearAllBrowsingData();  // argc: 0, index: 79, ipc args: [], ipc returns: []
+    public void DispatchClientSettingsChanged();  // argc: 0, index: 80, ipc args: [], ipc returns: []
     // WARNING: Arguments are unknown!
     public unknown_ret DispatchClientPostMessage(string unk, string unk1, string unk2);  // argc: 3, index: 81, ipc args: [string, string, string], ipc returns: [bytes4]
     public bool IsSteamChina();  // argc: 0, index: 82, ipc args: [], ipc returns: [boolean]
@@ -160,43 +160,47 @@ public unsafe interface IClientUtils
     public unknown_ret GetConnectivityTestState();  // argc: 1, index: 88, ipc args: [], ipc returns: [bytes4, bytes16]
     public string GetCaptivePortalURL();  // argc: 0, index: 89, ipc args: [], ipc returns: [string]
     // WARNING: Arguments are unknown!
-    public unknown_ret RecordSteamInterfaceCreation(string unk, string unk1);  // argc: 2, index: 90, ipc args: [string, string], ipc returns: []
+    public void RecordSteamInterfaceCreation(string unk, string unk1);  // argc: 2, index: 90, ipc args: [string, string], ipc returns: []
     public ECloudGamingPlatform GetCloudGamingPlatform();  // argc: 0, index: 91, ipc args: [], ipc returns: [bytes4]
     // WARNING: Arguments are unknown!
-    public unknown_ret BGetMacAddresses();  // argc: 3, index: 92, ipc args: [bytes4], ipc returns: [boolean, bytes_length_from_reg, bytes4]
+    public bool BGetMacAddresses();  // argc: 3, index: 92, ipc args: [bytes4], ipc returns: [boolean, bytes_length_from_reg, bytes4]
     // WARNING: Arguments are unknown!
-    public unknown_ret BGetDiskSerialNumber(StringBuilder builder, int maxOut);  // argc: 2, index: 93, ipc args: [bytes4], ipc returns: [boolean, bytes_length_from_mem]
+    public bool BGetDiskSerialNumber(StringBuilder builder, int maxOut);  // argc: 2, index: 93, ipc args: [bytes4], ipc returns: [boolean, bytes_length_from_mem]
     // WARNING: Arguments are unknown!
     public unknown_ret GetSteamEnvironmentForApp(AppId_t appid, StringBuilder buf, int bufMax);  // argc: 3, index: 94, ipc args: [bytes4, bytes4], ipc returns: [bytes4, bytes_length_from_mem]
     // WARNING: Arguments are unknown!
-    public unknown_ret TestHTTP(string unk);  // argc: 1, index: 95, ipc args: [string], ipc returns: []
+    public void TestHTTP(string unk);  // argc: 1, index: 95, ipc args: [string], ipc returns: []
     // WARNING: Arguments are unknown!
-    public unknown_ret DumpJobs(string unk);  // argc: 1, index: 96, ipc args: [string], ipc returns: []
+    public void DumpJobs(string unk);  // argc: 1, index: 96, ipc args: [string], ipc returns: []
     // WARNING: Arguments are unknown!
     public unknown_ret ShowFloatingGamepadTextInput();  // argc: 6, index: 97, ipc args: [bytes4, bytes4, bytes4, bytes4, bytes4, bytes4], ipc returns: [bytes1]
     // WARNING: Arguments are unknown!
-    public unknown_ret DismissFloatingGamepadTextInput();  // argc: 1, index: 98, ipc args: [bytes4], ipc returns: [bytes1]
+    public bool DismissFloatingGamepadTextInput(AppId_t appid);  // argc: 1, index: 98, ipc args: [bytes4], ipc returns: [bytes1]
     // WARNING: Arguments are unknown!
-    public unknown_ret DismissGamepadTextInput();  // argc: 1, index: 99, ipc args: [bytes4], ipc returns: [bytes1]
-    public unknown_ret FloatingGamepadTextInputDismissed();  // argc: 0, index: 100, ipc args: [], ipc returns: []
+    public bool DismissGamepadTextInput(AppId_t appid);  // argc: 1, index: 99, ipc args: [bytes4], ipc returns: [bytes1]
+    public void FloatingGamepadTextInputDismissed();  // argc: 0, index: 100, ipc args: [], ipc returns: []
     // WARNING: Arguments are unknown!
-    public unknown_ret SetGameLauncherMode();  // argc: 2, index: 101, ipc args: [bytes4, bytes1], ipc returns: []
-    public unknown_ret ClearAllHTTPCaches();  // argc: 0, index: 102, ipc args: [], ipc returns: []
+    public void SetGameLauncherMode(AppId_t appid, bool unk);  // argc: 2, index: 101, ipc args: [bytes4, bytes1], ipc returns: []
+    public void ClearAllHTTPCaches();  // argc: 0, index: 102, ipc args: [], ipc returns: []
     // WARNING: Arguments are unknown!
-    public unknown_ret GetFocusedGameID();  // argc: 1, index: 103, ipc args: [], ipc returns: [bytes8]
+    public CGameID GetFocusedGameID();  // argc: 1, index: 103, ipc args: [], ipc returns: [bytes8]
     public uint GetFocusedWindowPID();  // argc: 0, index: 104, ipc args: [], ipc returns: [bytes4]
     // WARNING: Arguments are unknown!
-    public unknown_ret SetWebUITransportWebhelperPID(uint pid);  // argc: 1, index: 105, ipc args: [bytes4], ipc returns: []
+    public void SetWebUITransportWebhelperPID(uint pid);  // argc: 1, index: 105, ipc args: [bytes4], ipc returns: []
+    // Info about transport:
+    // - It is located at the following url
+    // ws://127.0.0.1:${e.portClientdll}/transportsocket/
+    // - It has some sort of authentication system
+    // - What does it do? Could it be useful in OpenSteamClient?
+    public bool GetWebUITransportInfo([ProtobufPtrType(typeof(CMsgWebUITransportInfo))] IntPtr protoptr);  // argc: 1, index: 106, ipc args: [], ipc returns: [bytes1, protobuf]
     // WARNING: Arguments are unknown!
-    public unknown_ret GetWebUITransportInfo();  // argc: 1, index: 106, ipc args: [], ipc returns: [bytes1, protobuf]
+    public void RecordFakeReactRouteMetric(string unk);  // argc: 1, index: 107, ipc args: [string], ipc returns: []
     // WARNING: Arguments are unknown!
-    public unknown_ret RecordFakeReactRouteMetric(string unk);  // argc: 1, index: 107, ipc args: [string], ipc returns: []
+    public ulong SteamRuntimeSystemInfo([IPCOut] CUtlBuffer* data);  // argc: 1, index: 108, ipc args: [], ipc returns: [bytes8, utlbuffer]
     // WARNING: Arguments are unknown!
-    public unknown_ret SteamRuntimeSystemInfo([IPCOut] CUtlBuffer* data);  // argc: 1, index: 108, ipc args: [], ipc returns: [bytes8, utlbuffer]
+    public void DumpHTTPClients(uint unk);  // argc: 1, index: 109, ipc args: [bytes4], ipc returns: []
     // WARNING: Arguments are unknown!
-    public unknown_ret DumpHTTPClients();  // argc: 1, index: 109, ipc args: [bytes4], ipc returns: []
-    // WARNING: Arguments are unknown!
-    public unknown_ret BGetMachineID([IPCOut] CUtlBuffer* data);  // argc: 1, index: 110, ipc args: [], ipc returns: [boolean, utlbuffer]
-    public unknown_ret NotifyMissingInterface(string interfaceName);  // argc: 1, index: 111, ipc args: [string], ipc returns: []
-    public unknown_ret IsSteamInTournamentMode();  // argc: 0, index: 112, ipc args: [], ipc returns: [boolean]
+    public bool BGetMachineID([IPCOut] CUtlBuffer* data);  // argc: 1, index: 110, ipc args: [], ipc returns: [boolean, utlbuffer]
+    public void NotifyMissingInterface(string interfaceName);  // argc: 1, index: 111, ipc args: [string], ipc returns: []
+    public bool IsSteamInTournamentMode();  // argc: 0, index: 112, ipc args: [], ipc returns: [boolean]
 }

@@ -508,13 +508,13 @@ public unsafe interface IClientUser
     public bool BDoNotDisturb();  // argc: 0, index: 265, ipc args: [], ipc returns: [boolean]
     // WARNING: Arguments are unknown!
     public unknown_ret SetAdditionalClientArgData(string data);  // argc: 1, index: 266, ipc args: [bytes5], ipc returns: []
-    public unknown_ret GetFamilyGroupID();  // argc: 0, index: 267, ipc args: [], ipc returns: [bytes8]
-    public unknown_ret GetFamilyGroupName();  // argc: 0, index: 268, ipc args: [], ipc returns: [string]
-    public unknown_ret GetFamilyGroupRole();  // argc: 0, index: 269, ipc args: [], ipc returns: [bytes4]
+    public ulong GetFamilyGroupID();  // argc: 0, index: 267, ipc args: [], ipc returns: [bytes8]
+    public string GetFamilyGroupName();  // argc: 0, index: 268, ipc args: [], ipc returns: [string]
+    public uint GetFamilyGroupRole();  // argc: 0, index: 269, ipc args: [], ipc returns: [bytes4]
     // WARNING: Arguments are unknown!
     public unknown_ret GetFamilyGroupMembers();  // argc: 2, index: 270, ipc args: [bytes4], ipc returns: [bytes4, bytes_length_from_reg]
     // WARNING: Arguments are unknown!
     public unknown_ret NotifyPendingGameLaunch_FetchSteamStreamingEncoderConfig();  // argc: 1, index: 271, ipc args: [bytes4], ipc returns: []
     // WARNING: Arguments are unknown!
-    public unknown_ret BShouldWaitForSteamStreamingEncoderConfig();  // argc: 1, index: 272, ipc args: [bytes4], ipc returns: [boolean]
+    public bool BShouldWaitForSteamStreamingEncoderConfig();  // argc: 1, index: 272, ipc args: [bytes4], ipc returns: [boolean]
 }

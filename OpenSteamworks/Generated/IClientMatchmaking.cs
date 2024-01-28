@@ -7,6 +7,8 @@
 //=============================================================================
 
 using System;
+using OpenSteamworks.Attributes;
+using OpenSteamworks.Protobuf;
 
 namespace OpenSteamworks.Generated;
 
@@ -90,13 +92,13 @@ public unsafe interface IClientMatchmaking
     // WARNING: Arguments are unknown!
     public unknown_ret SetLinkedLobby();  // argc: 4, index: 40, ipc args: [uint64, uint64], ipc returns: [bytes1]
     // WARNING: Arguments are unknown!
-    public unknown_ret BeginGMSQuery();  // argc: 3, index: 41, ipc args: [bytes4, bytes4, string], ipc returns: [bytes8]
+    public SteamAPICall_t BeginGMSQuery(AppId_t appid, int regionCode, string searchText);  // argc: 3, index: 41, ipc args: [bytes4, bytes4, string], ipc returns: [bytes8]
     // WARNING: Arguments are unknown!
-    public unknown_ret PollGMSQuery();  // argc: 2, index: 42, ipc args: [bytes8], ipc returns: [bytes4]
+    public unknown_ret PollGMSQuery(SteamAPICall_t call);  // argc: 2, index: 42, ipc args: [bytes8], ipc returns: [bytes4]
     // WARNING: Arguments are unknown!
-    public unknown_ret GetGMSQueryResults();  // argc: 3, index: 43, ipc args: [bytes8], ipc returns: [bytes1, protobuf]
+    public bool GetGMSQueryResults(SteamAPICall_t call, [ProtobufPtrType(typeof(GameServerClient_QueryServerData_Response))] IntPtr protoptr);  // argc: 3, index: 43, ipc args: [bytes8], ipc returns: [bytes1, protobuf]
     // WARNING: Arguments are unknown!
-    public unknown_ret ReleaseGMSQuery();  // argc: 2, index: 44, ipc args: [bytes8], ipc returns: []
+    public void ReleaseGMSQuery(SteamAPICall_t call);  // argc: 2, index: 44, ipc args: [bytes8], ipc returns: []
     // WARNING: Arguments are unknown!
     public unknown_ret QueryServerByFakeIP();  // argc: 4, index: 45, ipc args: [bytes4, bytes2, bytes4, bytes4], ipc returns: [bytes8]
     // WARNING: Arguments are unknown!

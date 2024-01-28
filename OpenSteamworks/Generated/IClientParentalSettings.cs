@@ -7,6 +7,7 @@
 //=============================================================================
 
 using System;
+using System.Text;
 using OpenSteamworks.Attributes;
 
 namespace OpenSteamworks.Generated;
@@ -23,7 +24,6 @@ public unsafe interface IClientParentalSettings
     public bool BIsFeatureInBlockList();  // argc: 1, index: 6, ipc args: [bytes4], ipc returns: [boolean]
     // WARNING: Arguments are unknown!
     public bool BGetSerializedParentalSettings([IPCOut] CUtlBuffer* data);  // argc: 1, index: 7, ipc args: [], ipc returns: [boolean, utlbuffer]
-    // WARNING: Arguments are unknown!
-    public bool BGetRecoveryEmail();  // argc: 2, index: 8, ipc args: [bytes4], ipc returns: [boolean, bytes_length_from_mem]
+    public bool BGetRecoveryEmail(StringBuilder builder, int maxLen);  // argc: 2, index: 8, ipc args: [bytes4], ipc returns: [boolean, bytes_length_from_mem]
     public bool BIsLockFromSiteLicense();  // argc: 0, index: 9, ipc args: [], ipc returns: [boolean]
 }

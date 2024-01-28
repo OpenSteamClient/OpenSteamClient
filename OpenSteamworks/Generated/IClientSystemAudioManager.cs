@@ -7,14 +7,16 @@
 //=============================================================================
 
 using System;
+using OpenSteamworks.Attributes;
+using OpenSteamworks.Protobuf;
 
 namespace OpenSteamworks.Generated;
 
 public unsafe interface IClientSystemAudioManager
 {
-    public unknown_ret IsInterfaceValid();  // argc: 0, index: 1, ipc args: [], ipc returns: [boolean]
+    public bool IsInterfaceValid();  // argc: 0, index: 1, ipc args: [], ipc returns: [boolean]
     // WARNING: Arguments are unknown!
-    public unknown_ret GetState();  // argc: 2, index: 2, ipc args: [bytes4], ipc returns: [bytes1, protobuf]
+    public bool GetState(uint unk, [ProtobufPtrType(typeof(CMsgSystemAudioManagerState))] IntPtr protoptr);  // argc: 2, index: 2, ipc args: [bytes4], ipc returns: [bytes1, protobuf]
     // WARNING: Arguments are unknown!
-    public unknown_ret UpdateSomething();  // argc: 1, index: 3, ipc args: [protobuf], ipc returns: [bytes8]
+    public ulong UpdateSomething([ProtobufPtrType(typeof(CMsgSystemAudioManagerUpdateSomething))] IntPtr protoptr);  // argc: 1, index: 3, ipc args: [protobuf], ipc returns: [bytes8]
 }

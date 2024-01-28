@@ -46,7 +46,6 @@ public class AvaloniaApp : Application
     public override void Initialize()
     {
         AvaloniaXamlLoader.Load(this);
-        this.DataContext = new AvaloniaAppViewModel();
     }
 
     private static void InvokeOnUIThread(Action callback)
@@ -78,6 +77,7 @@ public class AvaloniaApp : Application
         {
             InvokeOnUIThread(() =>
             {
+                (this.DataContext as AvaloniaAppViewModel)!.IsLoggedIn = true;
                 ForceMainWindow();
             });
         };
@@ -86,6 +86,7 @@ public class AvaloniaApp : Application
         {
             InvokeOnUIThread(() =>
             {
+                (this.DataContext as AvaloniaAppViewModel)!.IsLoggedIn = false;
                 MessageBox.Show("Failed to log on", "Failed with result code: " + e.Error.ToString());
                 ForceAccountPickerWindow();
             });
@@ -95,6 +96,7 @@ public class AvaloniaApp : Application
         {
             InvokeOnUIThread(() =>
             {
+                (this.DataContext as AvaloniaAppViewModel)!.IsLoggedIn = false;
                 if (e.Error != OpenSteamworks.Enums.EResult.OK)
                 {
                     // What can cause a sudden log off?
@@ -308,6 +310,7 @@ public class AvaloniaApp : Application
     {
         Current = this;
         Name = "OpenSteamClient";
+        DataContext = new AvaloniaAppViewModel();
     }
 
     /// <summary>
