@@ -95,7 +95,7 @@ public class LibraryManager : ILogonLifetime
             WriteConcurrentAssetDict();
 
             if (appsToGenerate.Any()) {
-                LibraryAssetsGenerator generator = new(steamClient, clientMessaging, appsToGenerate.ToList(), LibraryAssetToFilename);
+                LibraryAssetsGenerator generator = new(installManager, steamClient, clientMessaging, appsToGenerate.ToList(), LibraryAssetToFilename);
                 var expectedApps = appsToGenerate.Select(r => r.AppID);
                 var generatedApps = await generator.Generate();
                 foreach (var item in expectedApps)
