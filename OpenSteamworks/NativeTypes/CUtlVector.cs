@@ -89,7 +89,7 @@ public unsafe struct CUtlStringList {
         this.m_Memory.Free();
     }
 
-    public List<string?> ToManagedAndFree() {
+    public List<string> ToManagedAndFree() {
         var str = this.ToManaged();
         for (int i = 0; i < this.m_Size; i++)
         {
@@ -99,11 +99,16 @@ public unsafe struct CUtlStringList {
         return str;
     }
     
-    public List<string?> ToManaged() {
-        List<string?> list = new();
+    public List<string> ToManaged() {
+        List<string> list = new();
         for (int i = 0; i < this.m_Size; i++)
         {
-            list.Add(this.Element(i).ToManaged());
+            var elem = this.Element(i).ToManaged();
+            if (elem == null) {
+                continue;
+            }
+
+            list.Add(elem);
         }
         return list;
     }

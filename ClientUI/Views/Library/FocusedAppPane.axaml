@@ -16,12 +16,17 @@
         <vml:FocusedAppPaneViewModel/>
     </Design.DataContext>
 
-    <StackPanel>
-        <Canvas Margin="0" Height="200" HorizontalAlignment="Stretch" Background="{Binding Hero}">
-            <Canvas Height="200" Width="500" Background="{Binding Logo}"/>
+    <DockPanel LastChildFill="True">
+        <Canvas Width="{Binding HeroWidth}" ClipToBounds="true" Height="{Binding HeroHeight}" DockPanel.Dock="Top" Margin="0" HorizontalAlignment="Stretch" Background="{Binding Hero}">
+            <Grid Width="{Binding LogoContainerWidth}" Height="{Binding LogoContainerHeight}" Margin="16">
+                <TextBlock Height="140" HorizontalAlignment="Left" VerticalAlignment="Bottom" IsVisible="{Binding HasLogoAsText}" FontWeight="Thin" FontSize="72" Text="{Binding LogoAsText}"/>
+                <Canvas HorizontalAlignment="{Binding LogoHorizontalAlignment}" VerticalAlignment="{Binding LogoVerticalAlignment}" Top="{Binding LogoTop}" Bottom="{Binding LogoBottom}" Left="{Binding LogoLeft}" Right="{Binding LogoRight}" Height="{Binding LogoHeight}" Width="{Binding LogoWidth}" Background="{Binding Logo}"/>
+            </Grid>
         </Canvas>
 
-        <TextBlock Text="{Binding Name}"/>
-        <Button c:Translatable.TranslationKey="{Binding PlayButtonLocalizationToken}" Command="{Binding PlayButtonAction}"/>
-    </StackPanel>
+        <StackPanel>
+            <TextBlock Text="{Binding Name}"/>
+            <Button c:Translatable.TranslationKey="{Binding PlayButtonLocalizationToken}" Command="{Binding PlayButtonAction}"/>
+        </StackPanel>
+    </DockPanel>
 </UserControl>

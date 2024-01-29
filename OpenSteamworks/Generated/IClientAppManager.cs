@@ -30,7 +30,7 @@ public unsafe interface IClientAppManager
     public bool IsAppDlcInstalled(AppId_t appid, AppId_t dlcid);  // argc: 2, index: 9, ipc args: [bytes4, bytes4], ipc returns: [boolean]
     // WARNING: Arguments are unknown!
     public bool GetDlcDownloadProgress(AppId_t appid, ref UInt64 downloaded, ref UInt64 toDownload);  // argc: 4, index: 10, ipc args: [bytes4, bytes4], ipc returns: [bytes1, bytes8, bytes8]
-    public bool BIsDlcEnabled(AppId_t appid, AppId_t dlcid, ref bool appManagesDLC);  // argc: 3, index: 11, ipc args: [bytes4, bytes4], ipc returns: [boolean, boolean]
+    public bool BIsDlcEnabled(AppId_t appid, AppId_t dlcid, out bool appManagesDLC);  // argc: 3, index: 11, ipc args: [bytes4, bytes4], ipc returns: [boolean, boolean]
     public void SetDlcEnabled(AppId_t appid, AppId_t dlcid, bool enable);  // argc: 3, index: 12, ipc args: [bytes4, bytes4, bytes1], ipc returns: []
     public bool SetDlcContext(AppId_t appid, AppId_t dlcid);  // argc: 2, index: 13, ipc args: [bytes4, bytes4], ipc returns: [bytes1]
     // WARNING: Arguments are unknown!

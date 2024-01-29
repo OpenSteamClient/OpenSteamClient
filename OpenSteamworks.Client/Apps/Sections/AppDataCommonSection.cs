@@ -6,20 +6,20 @@ namespace OpenSteamworks.Client.Apps.Sections;
 
 public class AppDataCommonSection : TypedKVObject
 {
-    public class LibraryAssetsT : TypedKVObject {
+    public class LibraryAssetsT : TypedKVObject, AppBase.ILibraryAssetAlignment {
         public string CapsuleLanguages => DefaultIfUnset("library_capsule", "");
         public string HeroLanguages => DefaultIfUnset("library_hero", "");
         public string LogoLanguages => DefaultIfUnset("library_logo", "");
 
         /// <summary>
-        /// Width percentage of the logo overlay relative to the full size of the banner
+        /// Width percentage of the logo overlay relative to the full size of the hero
         /// </summary>
-        public float LogoWidthPercentage => DefaultIfUnset("logo_position/width_pct", 0.0F);
+        public float LogoWidthPercentage => float.Parse(DefaultIfUnset("logo_position/width_pct", "50"));
 
         /// <summary>
-        /// Height percentage of the logo overlay relative to the full size of the banner
+        /// Height percentage of the logo overlay relative to the full size of the hero
         /// </summary>
-        public float LogoHeightPercentage => DefaultIfUnset("logo_position/height_pct", 0.0F);
+        public float LogoHeightPercentage => float.Parse(DefaultIfUnset("logo_position/height_pct", "100"));
         public string LogoPinnedPosition => DefaultIfUnset("logo_position/pinned_position", "BottomLeft");
 
         public LibraryAssetsT(KVObject kv) : base(kv) { }

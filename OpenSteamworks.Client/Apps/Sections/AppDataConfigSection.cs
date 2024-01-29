@@ -9,7 +9,7 @@ public class AppDataConfigSection : TypedKVObject
         public class KVConfig : TypedKVObject {
             public string OSList => DefaultIfUnset("oslist", "");
             public string OSArch => DefaultIfUnset("osarch", "");
-            public string Realm => DefaultIfUnset("realm", "steamglobal");
+            public string Realm => DefaultIfUnset("realm", "");
             public string BetaKey => DefaultIfUnset("BetaKey", "");
             public string OwnsDLC => DefaultIfUnset("ownsdlc", "");
             

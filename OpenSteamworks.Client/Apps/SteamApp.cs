@@ -40,54 +40,16 @@ public class SteamApp : AppBase
     public override IEnumerable<AppDataConfigSection.LaunchOption> LaunchOptions => filteredLaunchOptions.AsEnumerable();
     public override int? DefaultLaunchOptionID => defaultLaunchOptionId;
 
-    public override EAppState State => this.AppsManager.ClientApps.NativeClientAppManager.GetAppInstallState(AppID);
+    //TODO: check for app playability, eg expired playtests or expired timed trials
+    public override bool IsOwnedAndPlayable => AppsManager.OwnedAppIDs.Contains(this.AppID);
+    public override EAppState State => AppsManager.ClientApps.NativeClientAppManager.GetAppInstallState(AppID);
+    public override ILibraryAssetAlignment? LibraryAssetAlignment => Common.LibraryAssets;
+    public override EAppType Type => AppsManager.ClientApps.NativeClientApps.GetAppType(this.AppID);
+    public IEnumerable<AppId_t> OwnedDLCs => AppsManager.ClientApps.GetOwnedDLCs(this.AppID);
 
-    public override EAppType Type
+    internal SteamApp(AppId_t appid)
     {
-        get
-        {
-            // The entire Steam2 catalogue still exists, search on SteamDB for all apps of unknown type and you'll find all kinds of strange things
-            // Because some people might still own these, don't throw here, instead give out an invalid app type.
-            if (string.IsNullOrEmpty(this.Common.Type))
-            {
-                logger.Warning("Encountered empty type field for app " + this.AppID);
-                return EAppType.Invalid;
-            }
-
-            return this.Common.Type.ToLowerInvariant() switch
-            {
-
-                // These are handled by this "main" SteamApp class
-                "game" => EAppType.Game,
-                "application" => EAppType.Application,
-                "beta" => EAppType.Beta,
-                "demo" => EAppType.Demo,
-
-                // These are not playable (most of the time, some DLC's are separate and playable as well)
-                //TODO: handle configs elegantly
-                "config" => EAppType.Config,
-                "dlc" => EAppType.Dlc,
-
-                // These mostly mean dedicated servers, and some map creation tools, etc. We could maybe setup some sort of server hosting UI for dedicated servers? 
-                // Or atleast allow the user to specify the command line to run the server from OpenSteamClient.
-                "tool" => EAppType.Tool,
-
-                // This is handled via SteamSoundtrackApp
-                "music" => EAppType.Music,
-
-                // These are videos, which should just popup in the user's browser. TODO: eventually support this as well, but maybe not
-                "video" => EAppType.Video,
-                "media" => EAppType.Media,
-                "series" => EAppType.Series,
-
-                _ => throw new InvalidOperationException("Unknown app type " + this.Common.Type.ToLowerInvariant()),
-            };
-        }
-    }
-
-    internal SteamApp(AppsManager appsManager, AppId_t appid) : base(appsManager)
-    {
-        var sections = appsManager.ClientApps.GetMultipleAppDataSectionsSync(appid, new EAppInfoSection[] {EAppInfoSection.Common, EAppInfoSection.Config, EAppInfoSection.Extended, EAppInfoSection.Install, EAppInfoSection.Depots, EAppInfoSection.Community, EAppInfoSection.Localization});
+        var sections = AppsManager.ClientApps.GetMultipleAppDataSectionsSync(appid, new EAppInfoSection[] {EAppInfoSection.Common, EAppInfoSection.Config, EAppInfoSection.Extended, EAppInfoSection.Install, EAppInfoSection.Depots, EAppInfoSection.Community, EAppInfoSection.Localization});
         
         // The common section should always exist for all app types.
         if (sections[EAppInfoSection.Common] == null) {
@@ -111,22 +73,67 @@ public class SteamApp : AppBase
             this.GameID = new CGameID(appid);
         }
 
-        this.logger = appsManager.GetLoggerForApp(this);
+        this.logger = AppsManager.GetLoggerForApp(this);
         PopulateLaunchOptions();
     }
 
     private void PopulateLaunchOptions() {
-        // Get default launch option if there's only one (actual processing for multiple platforms, user selected, etc is done later)
-        if (Config.LaunchOptions.Count() == 1) {
-            defaultLaunchOptionId = 0;
-        } else if (Config.LaunchOptions.Count() > 1) {
-            var osFilteredOpts = Config.LaunchOptions.Where(l => l.Config != null && l.Config.OSList.Contains(UtilityFunctions.GetSteamPlatformString()));
-            if (osFilteredOpts.Count() == 1) {
-                defaultLaunchOptionId = osFilteredOpts.First().ID;
-            }
+        foreach (var id in AppsManager.ClientApps.GetValidLaunchOptions(this.AppID))
+        {
+            filteredLaunchOptions.Add(Config.LaunchOptions.Where(l => l.ID == id).First());
         }
-        
-        //TODO: get and add other valid launch options to the LaunchOptions list
+
+        // foreach (var launchOption in Config.LaunchOptions)
+        // {
+        //     if (launchOption.Config == null) {
+        //         Console.WriteLine(this.AppID + "config==null");
+        //         continue;
+        //     }
+
+        //     if (!string.IsNullOrEmpty(launchOption.Config.Realm)) {
+        //         if (!launchOption.Config.Realm.Contains("steamglobal")) {
+        //             Console.WriteLine($"{this.AppID} realm, allowed '{launchOption.Config.Realm}', have: 'steamglobal'");
+        //             continue;
+        //         }
+        //     }
+
+        //     if (!string.IsNullOrEmpty(launchOption.Config.BetaKey)) {
+        //         if (!launchOption.Config.BetaKey.Contains(AppsManager.GetBetaForApp(this.AppID))) {
+        //             Console.WriteLine($"{this.AppID} betakey, allowed '{launchOption.Config.BetaKey}', have: '{AppsManager.GetBetaForApp(this.AppID)}'");
+        //             continue;
+        //         }
+        //     }
+
+        //     if (!string.IsNullOrEmpty(launchOption.Config.OSArch)) {
+        //         //TODO: fix this to later consider non-64 bit platforms like ARM and whatnot when that becomes a problem
+        //         if (!launchOption.Config.OSArch.Contains("64")) {
+        //             continue;
+        //         }
+        //     }
+
+        //     if (!string.IsNullOrEmpty(launchOption.Config.OSList)) {
+        //         if (!launchOption.Config.OSList.Contains(AppsManager.GetCurrentEffectiveOSForApp(this.AppID))) {
+        //             Console.WriteLine($"{this.AppID} oslist, allowed '{launchOption.Config.OSList}', have: '{AppsManager.GetCurrentEffectiveOSForApp(this.AppID)}'");
+        //             continue;
+        //         }
+        //     }
+
+        //     if (!string.IsNullOrEmpty(launchOption.Config.OwnsDLC)) {
+        //         foreach (var item in launchOption.Config.OwnsDLC.Split(" "))
+        //         {
+        //             if (!OwnedDLCs.Contains(uint.Parse(item))) {
+        //                 Console.WriteLine($"{this.AppID} owneddlc, allowed '{launchOption.Config.OwnsDLC}', have: '{string.Join(", ", OwnedDLCs)}'");
+        //                 continue;
+        //             }
+        //         }
+        //     }
+
+        //     filteredLaunchOptions.Add(launchOption);
+        // }
+
+        if (filteredLaunchOptions.Count == 1) {
+            defaultLaunchOptionId = filteredLaunchOptions.First().ID;
+        }
     }
 
     private static T TryCreateSection<T>(KVObject? obj, string sectionName, Func<KVObject, T> factory) where T: TypedKVObject {
@@ -144,11 +151,11 @@ public class SteamApp : AppBase
     /// <returns>True if the game is installed, false if it is not installed</returns>
     public bool TryGetInstallDir([NotNullWhen(true)] out string? installDir) {
         installDir = null;
-        if (!this.AppsManager.ClientApps.IsAppInstalled(this.AppID)) {
+        if (!AppsManager.ClientApps.IsAppInstalled(this.AppID)) {
             return false;
         }
 
-        installDir = this.AppsManager.ClientApps.GetAppInstallDir(this.AppID);
+        installDir = AppsManager.ClientApps.GetAppInstallDir(this.AppID);
         if (string.IsNullOrEmpty(installDir)) {
             return false;
         }
@@ -163,11 +170,11 @@ public class SteamApp : AppBase
     /// <returns>True if the game is installed, false if it is not installed</returns>
     public bool TryGetAppLibraryFolderDir([NotNullWhen(true)] out string? installDir) {
         installDir = null;
-        if (!this.AppsManager.ClientApps.IsAppInstalled(this.AppID)) {
+        if (!AppsManager.ClientApps.IsAppInstalled(this.AppID)) {
             return false;
         }
 
-        installDir = this.AppsManager.ClientApps.GetAppInstallDir(this.AppID);
+        installDir = AppsManager.ClientApps.GetAppInstallDir(this.AppID);
         if (string.IsNullOrEmpty(installDir)) {
             return false;
         }
@@ -193,20 +200,20 @@ public class SteamApp : AppBase
 
         set {
             if (value == true) {
-                this.AppsManager.SetDefaultCompatToolForApp(this.GameID);
+                AppsManager.SetDefaultCompatToolForApp(this.GameID);
             } else {
-                this.AppsManager.DisableCompatToolForApp(this.GameID);
+                AppsManager.DisableCompatToolForApp(this.GameID);
             }
         }
     }
 
     public string CompatTool {
         get {
-            return this.AppsManager.GetCurrentCompatToolForApp(this.GameID);
+            return AppsManager.GetCurrentCompatToolForApp(this.GameID);
         }
 
         set {
-            this.AppsManager.SetCompatToolForApp(this.GameID, value);
+            AppsManager.SetCompatToolForApp(this.GameID, value);
         }
     }
 
@@ -214,10 +221,10 @@ public class SteamApp : AppBase
     {
         if (this.Config.CheckForUpdatesBeforeLaunch) {
             logger.Info("Checking for updates (due to CheckForUpdatesBeforeLaunch)");
-            await this.AppsManager.ClientApps.UpdateAppInfo(AppID);
-            if (!this.AppsManager.ClientApps.BIsAppUpToDate(AppID)) {
+            await AppsManager.ClientApps.UpdateAppInfo(AppID);
+            if (!AppsManager.ClientApps.BIsAppUpToDate(AppID)) {
                 logger.Info("Not up to date, aborting launch and queuing update");
-                this.AppsManager.ClientApps.QueueUpdate(AppID);
+                AppsManager.ClientApps.QueueUpdate(AppID);
                 return EAppUpdateError.UpdateRequired;
             }
         }
@@ -229,25 +236,24 @@ public class SteamApp : AppBase
         await AppsManager.ClientApps.SyncCloud(AppID);
 
         logger.Info("Site license seat checkout");
-        //TODO: should we use the result of this somehow?
-        this.AppsManager.ClientApps.NativeClientUser.CheckoutSiteLicenseSeat(this.AppID);
+        AppsManager.ClientApps.NativeClientUser.CheckoutSiteLicenseSeat(this.AppID);
 
         if (this.IsCompatEnabled) {
             logger.Info("Starting compat session (due to IsCompatEnabled == true)");
-            this.AppsManager.StartCompatSession(this.AppID);
+            AppsManager.StartCompatSession(this.AppID);
         }
 
         logger.Info("Creating process");
-        return this.AppsManager.ClientApps.NativeClientAppManager.LaunchApp(this.GameID, (uint)launchOptionID, ELaunchSource.None, "");
+        return AppsManager.ClientApps.NativeClientAppManager.LaunchApp(this.GameID, (uint)launchOptionID, ELaunchSource.None, "");
     }
 
     public override void PauseUpdate()
     {
-        this.AppsManager.ClientApps.NativeClientAppManager.SetDownloadingEnabled(false);
+        AppsManager.ClientApps.NativeClientAppManager.SetDownloadingEnabled(false);
     }
 
     public override void Update()
     {
-        this.AppsManager.ClientApps.NativeClientAppManager.ChangeAppDownloadQueuePlacement(this.AppID, EAppDownloadQueuePlacement.PriorityUserInitiated);
+        AppsManager.ClientApps.QueueUpdate(this.AppID);
     }
 }

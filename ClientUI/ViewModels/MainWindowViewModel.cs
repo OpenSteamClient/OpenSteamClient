@@ -176,148 +176,6 @@ public partial class MainWindowViewModel : ViewModelBase
         }
     }
 
-    public async void DBG_LaunchFactorio()
-    {
-        IClientShortcuts shortcuts = AvaloniaApp.Container.Get<IClientShortcuts>();
-        //CUtlVector<AppId_t> appids = new(1024, 0);
-        //shortcuts.AddShortcut("wtf", "name", "exe", "workingdir", "unk");
-        var ret = shortcuts.AddTemporaryShortcut("name", "exepath", "icon");
-        Console.WriteLine("ret:" + ret);
-        //Console.WriteLine("ret2:" + shortcuts.SetDevkitShortcut(ret, true, new CGameID(730)));
-        Console.WriteLine("ret2:" + shortcuts.SetFlatpakAppID(ret, "io.github.sigmasd.nosleep"));
-        //Console.WriteLine("ret:" + shortcuts.AddTemporaryShortcut("name", "exepath", "icon"));
-
-
-        {
-            bool shouldRun = true;
-            int idex = 0;
-            using (var disp = ProtobufHack.Create<CMsgShortcutInfo>())
-            {
-                while (shouldRun)
-                {
-                    shouldRun = shortcuts.GetShortcutInfoByIndex(idex, disp.ptr);
-                    Console.WriteLine("shouldRun:" + shouldRun);
-                    var managed = disp.GetManaged();
-                    Console.WriteLine("AppID:" + managed.Appid + ", AppName: " + managed.AppName + ", Args: " + managed.Args + ", AllowDesktopConfig: " + managed.AllowDesktopConfig + ", AllowOverlay: " + managed.AllowOverlay);
-                    idex++;
-                }
-            }
-        }
-
-        {
-            bool succeeded;
-            using (var disp = ProtobufHack.Create<CMsgShortcutAppIds>())
-            {
-                succeeded = shortcuts.GetShortcutAppIds(disp.ptr);
-                Console.WriteLine("succeeded:" + succeeded);
-                var managed = disp.GetManaged();
-                Console.WriteLine("AppIDs:" + managed.Appids.Count);
-                foreach (var item in managed.Appids)
-                {
-                    Console.WriteLine("AppID:" + item);
-                }
-            }
-        }
-
-        // CUtlMap<AppId_t, IntPtr> appids = new(512, 0);
-        // uint len;
-        // unsafe
-        // {
-        //     len = shortcuts.GetShortcutAppIds(&appids);
-        //     Console.WriteLine("ret: " + len);
-        //     //Console.WriteLine("ptr: " + (nint)appids.);
-        // }
-
-        // foreach (var item in appids.ToManagedAndFree())
-        // {
-        //     Console.WriteLine("Item: " + item);
-        // }
-
-        //await this.appsManager.LaunchApp(427520, 3, "gamemoderun %command%");
-    }
-
-    public async void DBG_LaunchCS2()
-    {
-        // ClientApps apps = AvaloniaApp.Container.Get<ClientApps>();
-        // foreach (var item in apps.GetMultipleAppDataSectionsSync(730, new [] { EAppInfoSection.Common, EAppInfoSection.Extended, EAppInfoSection.Config }))
-        // {
-        //     Console.WriteLine("item: " + item.ToString());
-        // }
-        IClientDeviceAuth devauth = AvaloniaApp.Container.Get<IClientDeviceAuth>();
-
-        uint[] owners = new uint[5];
-        Console.WriteLine("ret: " + devauth.GetSharedLibraryOwners(owners, 5));
-        foreach (var item in owners)
-        {
-            Console.WriteLine("i: " + item);
-        }
-
-        uint[] owners2 = new uint[5];
-        Console.WriteLine("ret2: " + devauth.GetAuthorizedBorrowers(owners2, 5));
-        foreach (var item in owners2)
-        {
-            Console.WriteLine("i2: " + item);
-        }
-
-        uint[] owners3 = new uint[10];
-        Console.WriteLine("ret3: " + devauth.GetLocalUsers(owners3, 10));
-        StringBuilder builder = new(256);
-        foreach (var item in owners3)
-        {
-            Console.WriteLine("i3: " + item);
-            Console.WriteLine("ret i3: " + devauth.GetBorrowerInfo(item, builder, builder.Capacity, out bool isSharingLibrary));
-            Console.WriteLine("info: " + builder.ToString());
-            Console.WriteLine("isSharingLibrary: " + isSharingLibrary);
-            Console.WriteLine("");
-        }
-
-        //await this.appsManager.LaunchApp(730, 1, "gamemoderun %command% -dev -sdlaudiodriver pipewire");
-    }
-
-    public async void DBG_LaunchSpel2()
-    {
-        //await this.appsManager.LaunchApp(418530, 0, "");
-        IClientUser user = AvaloniaApp.Container.Get<IClientUser>();
-        unsafe
-        {
-            CMsgCellList list;
-            using (var hack = ProtobufHack.Create<CMsgCellList>())
-            {
-                Console.WriteLine("ptr: " + hack.ptr);
-                Console.WriteLine("pre");
-                user.GetCellList(hack.ptr);
-                Console.WriteLine("post");
-                list = hack.GetManaged();
-            }
-
-            foreach (var item in list.Cells)
-            {
-                Console.WriteLine("i: " + item.CellId + " n: " + item.LocName);
-            }
-
-            // IntPtr ptr = ProtobufHack.CMsgCellList_Construct();
-            // Console.WriteLine("ptr: " + ptr);
-            // Console.WriteLine("pre");
-            // user.GetCellList(ptr);
-            // Console.WriteLine("post");
-            // var length = ProtobufHack.Protobuf_ByteSizeLong(ptr);
-
-            // CMsgCellList list;
-            // var bytes = new byte[length];
-            // fixed (byte* bptr = bytes) {
-            //     if (!ProtobufHack.Protobuf_SerializeToArray(ptr, bptr, length)) {
-            //         throw new Exception("Failed");
-            //     }
-            // }
-            // list = CMsgCellList.Parser.ParseFrom(bytes);
-
-            // foreach (var item in list.Cells)
-            // {
-            //     Console.WriteLine("i: " + item.CellId + " n: " + item.LocName);
-            // }
-        }
-    }
-
     public void DBG_OpenInterfaceList() => AvaloniaApp.Current?.OpenInterfaceList();
     public void DBG_ChangeLanguage()
     {
@@ -335,6 +193,7 @@ public partial class MainWindowViewModel : ViewModelBase
             tm.SetLanguage(ELanguage.English);
         }
     }
+    
     public async void DBG_TestHTMLSurface()
     {
         HTMLSurfaceTest testWnd = new();
@@ -375,5 +234,44 @@ public partial class MainWindowViewModel : ViewModelBase
     public async void ChangeAccount()
     {
         await this.loginManager.LogoutAsync();
+    }
+    
+    public void OpenFriendsList()
+    {
+        if (AvaloniaApp.Container.TryGet(out IClientFriends? friends)) {
+            friends.OpenFriendsDialog();
+        }
+    }
+
+    public void SetPersonaOnline() {
+        if (AvaloniaApp.Container.TryGet(out IClientUser? user)) {
+            user.SetSelfAsChatDestination(true);
+        }
+
+        if (AvaloniaApp.Container.TryGet(out IClientFriends? friends)) {
+            friends.SetPersonaState(EPersonaState.Online);
+        }
+    }
+
+    public void SetPersonaAway() {
+        if (AvaloniaApp.Container.TryGet(out IClientFriends? friends)) {
+            friends.SetPersonaState(EPersonaState.Away);
+        }
+    }
+
+    public void SetPersonaInvisible() {
+        if (AvaloniaApp.Container.TryGet(out IClientFriends? friends)) {
+            friends.SetPersonaState(EPersonaState.Invisible);
+        }
+    }
+
+    public void SetPersonaOffline() {
+        if (AvaloniaApp.Container.TryGet(out IClientUser? user)) {
+            user.SetSelfAsChatDestination(false);
+        }
+
+        if (AvaloniaApp.Container.TryGet(out IClientFriends? friends)) {
+            friends.SetPersonaState(EPersonaState.Offline);
+        }
     }
 }

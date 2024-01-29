@@ -43,10 +43,12 @@ public class SourcemodApp : AppBase {
 
     public override uint StoreAssetsLastModified => 0;
 
+    public override bool IsOwnedAndPlayable => true;
     private EAppState state;
     public override EAppState State => state;
+    public override ILibraryAssetAlignment? LibraryAssetAlignment => ParentApp?.LibraryAssetAlignment;
 
-    internal SourcemodApp(AppsManager appsManager, string sourcemodDir, uint modid) : base(appsManager) {
+    internal SourcemodApp(string sourcemodDir, uint modid) {
         SourcemodGameInfo = new SourcemodGameInfo(KVTextDeserializer.Deserialize(File.ReadAllText(Path.Combine(sourcemodDir, "gameinfo.txt"))));
         this.GameID = new CGameID(SourcemodGameInfo.SteamAppID, modid);
         state = EAppState.FullyInstalled;

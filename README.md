@@ -18,14 +18,19 @@ A partially open-source Steam client for Windows and Linux
   - [x] Forget account
   - [ ] Profile pictures
   - [x] 2FA 
-- [ ] Settings UI
+- [ ] Client settings UI
 - [ ] Library UI
   - [x] Collections backend
   - [ ] Collection editing GUI
-  - [ ] Games list
+  - [x] Games list
   - [ ] Focused game view (library art, friends who play, etc)
+    - [ ] Library hero art 
+    - [x] Play button 
+    - [ ] Friends who play section
+    - [ ] Store, Community, Workshop, etc buttons
   - [ ] (optional) Mini mode
   - [ ] Game settings page
+    - [ ] Disabling workshop mods without unsubbing
   - [ ] Downloads page
   - [ ] (optional) Disabling updates for certain apps
 - [ ] (optional) ConCommand support
@@ -33,13 +38,15 @@ A partially open-source Steam client for Windows and Linux
   - [x] Store, community, profile pages
   - [ ] ~~Non-janky typing implementation~~ (probably never)
 - [x] Windows support
-- [x] Custom SDL lib
+- [ ] Custom SDL lib
+  - [ ] Some valve specific code for handling steering wheels etc
+- [ ] Close ClientUI when pressing X on the progress dialog
+- [ ] Split project into multi-repo OpenSteamworks, OpenSteamworks.Client, ClientConsole and ClientUI
 - [ ] Future:
   - [ ] Download additional depots (example: CS2 workshop tools with proton needs Windows CS2 binaries)
   - [ ] UI Animations
   - [ ] VAC support on Windows
   - [ ] ProtonDB integration
-  - [ ] Disabling workshop mods without unsubbing
   - [ ] Automatic game tweaking
   - [ ] External modding sources (like Nexus for Fallout games, r2modman for Lethal Company, etc)
   - [ ] Cloud file manager GUI
@@ -65,6 +72,7 @@ This will eventually replace the old opensteamclient.
 
 # Contributing
 Nothing for now.
+Clone by running `git clone https://github.com/OpenSteamClient/opensteamclient.git --recursive`
 Compile and run by going into ClientUI and running `dotnet run -v:m`.
 Do not omit the verbosity flag, as important output from CMake and your compiler will be missing in the case of build errors. 
 

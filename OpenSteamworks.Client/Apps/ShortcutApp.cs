@@ -51,9 +51,11 @@ public class ShortcutApp : AppBase {
     public override EAppType Type => UserSetAppType;
     public override uint StoreAssetsLastModified => 0;
 
+    public override bool IsOwnedAndPlayable => true;
     public override EAppState State => EAppState.FullyInstalled;
+    public override ILibraryAssetAlignment? LibraryAssetAlignment => null;
 
-    internal ShortcutApp(AppsManager appsManager, string name, string exe, string workingDir) : base(appsManager) {
+    internal ShortcutApp(string name, string exe, string workingDir) {
         this.GameID = new CGameID(Path.Combine(workingDir, exe), name);
         this.shortcutName = name;
     }

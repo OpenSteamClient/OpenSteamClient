@@ -740,6 +740,7 @@ public class Bootstrapper : IClientLifetime {
             {"steamserviced.pdb", "bin/steamserviced.pdb"},
             {"htmlhost", "ubuntu12_32/htmlhost"},
             {"steamservice.so", "linux64/steamservice.so"},
+            {"libaudio.so", "libaudio.so"},
         };
 
         var assemblyFolder = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);

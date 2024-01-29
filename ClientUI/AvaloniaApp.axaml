@@ -30,7 +30,14 @@
       <TrayIcon Icon="/Assets/opensteam-logo.ico" c:Translatable.TranslationKey="#App_Tray_Tooltip" ToolTipText="OpenSteamClient is running">
         <TrayIcon.Menu>
           <NativeMenu>
+            <!-- TODO: this is not ideal -->
+            <NativeMenuItem IsVisible="{Binding HasRecent5}" Header="" Command="{Binding PlayRecent5}" />
+            <NativeMenuItem IsVisible="{Binding HasRecent4}" Header="" Command="{Binding PlayRecent4}" />
+            <NativeMenuItem IsVisible="{Binding HasRecent3}" Header="" Command="{Binding PlayRecent3}" />
+            <NativeMenuItem IsVisible="{Binding HasRecent2}" Header="" Command="{Binding PlayRecent2}" />
+            <NativeMenuItem IsVisible="{Binding HasRecent1}" Header="" Command="{Binding PlayRecent1}" />
             <NativeMenuItemSeparator IsVisible="{Binding IsLoggedIn}"/>
+            <NativeMenuItem IsVisible="{Binding IsLoggedIn}" c:Translatable.TranslationKey="#App_Tray_Friends" Header="Friends" Command="{Binding OpenFriendsList}" />
             <NativeMenuItem IsVisible="{Binding IsLoggedIn}" c:Translatable.TranslationKey="#App_Tray_Library" Header="Library" Command="{Binding OpenLibrary}" />
             <NativeMenuItemSeparator IsVisible="{Binding IsLoggedIn}" />
             <NativeMenuItem c:Translatable.TranslationKey="#MainWindow_Header_Steam_OpenSettings" Header="Settings" Command="{Binding OpenSettings}" />

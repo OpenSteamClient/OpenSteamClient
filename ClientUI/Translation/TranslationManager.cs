@@ -49,6 +49,7 @@ public class TranslationManager : ILogonLifetime
         }
     }
 
+    public static IEnumerable<ELanguage> ValidUILanguages => new ELanguage[] { ELanguage.English, ELanguage.Finnish };
     public TranslationManager(IClientUser clientUser, IClientUtils clientUtils, InstallManager installManager, Container container, ConfigManager configManager)
     {
         this.logger = Logger.GetLogger("TranslationManager", installManager.GetLogPath("TranslationManager"));

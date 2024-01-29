@@ -14,6 +14,7 @@ using OpenSteamworks;
 using OpenSteamworks.Attributes;
 using OpenSteamworks.Callbacks.Structs;
 using OpenSteamworks.Client.Apps.Assets;
+using OpenSteamworks.Client.Apps.Compat;
 using OpenSteamworks.Client.Config;
 using OpenSteamworks.Client.Managers;
 using OpenSteamworks.Client.Utils;
@@ -49,6 +50,8 @@ public class AppsManager : ILogonLifetime
     private readonly Logger logger;
     private readonly InstallManager installManager;
     private readonly LoginManager loginManager;
+    private readonly CompatManager compatManager;
+
     public readonly ClientApps ClientApps;
 
     public EventHandler<AppPlaytimeChangedEventArgs>? AppPlaytimeChanged;
@@ -124,8 +127,9 @@ public class AppsManager : ILogonLifetime
         }
     }
 
-    public AppsManager(ISteamClient steamClient, ClientApps clientApps, ClientMessaging clientMessaging, InstallManager installManager, LoginManager loginManager) {
+    public AppsManager(ISteamClient steamClient, CompatManager compatManager, ClientApps clientApps, ClientMessaging clientMessaging, InstallManager installManager, LoginManager loginManager) {
         this.logger = Logger.GetLogger("AppsManager", installManager.GetLogPath("AppsManager"));
+        this.compatManager = compatManager;
         this.ClientApps = clientApps;
         this.loginManager = loginManager;
         this.steamClient = steamClient;
@@ -226,7 +230,7 @@ public class AppsManager : ILogonLifetime
             return existingApp;
         }
 
-        var app = AppBase.CreateSteamApp(this, gameid.AppID);
+        var app = AppBase.CreateSteamApp(gameid.AppID);
 
         // There's too many configs and demo's to store them all in memory, so let's not (and demos as "demo" types seems to be deprecated anyway)
         if (!(app.Type == EAppType.Config || app.Type == EAppType.Demo)) {
@@ -339,171 +343,6 @@ public class AppsManager : ILogonLifetime
 
     public async Task<EAppUpdateError> LaunchApp(AppBase app, int launchOption, string userLaunchOptions) {
         return await app.Launch(userLaunchOptions, launchOption);
-        // //TODO: make this actually async, not spaghetti, use compatmanager, use app class, add validation, test on windows, create a better keyvalue system with arrays, maybe other issues
-        // var logger = this.logger.CreateSubLogger("LaunchApp");
-
-        // string workingDir = "";
-        // string gameExe = "";
-        // if (app.IsSteamApp) {
-        //     SteamApp steamApp = (SteamApp)app;
-           
-
-        //     //TODO: What function should we use here?
-        //     if (this.steamClient.IClientRemoteStorage.IsCloudEnabledForAccount() && this.steamClient.IClientRemoteStorage.IsCloudEnabledForApp(app.AppID)) {
-        //         this.steamClient.IClientRemoteStorage.RunAutoCloudOnAppLaunch(app.AppID);
-        //     }
-
-        //     logger.Info("Getting launch info");
-        //     StringBuilder gameInstallDir = new(1024);
-        //     StringBuilder launchOptionExe = new(1024);
-        //     StringBuilder launchOptionCommandLine = new(1024);
-        //     this.steamClient.IClientAppManager.GetAppInstallDir(app.AppID, gameInstallDir, 1024);
-            
-        //     //TODO: do these keys exist 100% of the time for all apps?
-        //     // For EA games, they usually only have an executable "link2ea://launchgame/" which isn't valid on filesystem, and also are missing the 'arguments' key. WTF?
-        //     //TODO: how to handle link2ea protocol links (especially with proton) 
-        //     this.steamClient.IClientApps.GetAppData(app.AppID, $"config/launch/{launchOption}/executable", launchOptionExe, 1024);
-        //     this.steamClient.IClientApps.GetAppData(app.AppID, $"config/launch/{launchOption}/arguments", launchOptionCommandLine, 1024);
-        //     workingDir = gameInstallDir.ToString();
-        //     gameExe = launchOptionExe.ToString();
-        // } else if (app.IsShortcut) {
-
-        // } else if (app.IsMod) {
-
-        // } else {
-        //     throw new UnreachableException("Something is seriously wrong.");
-        // }
-
-        // string commandLine = "";
-
-        // // First fill compat tools
-        // if (this.steamClient.IClientCompat.BIsCompatLayerEnabled() && this.steamClient.IClientCompat.BIsCompatibilityToolEnabled(appid))
-        // {
-        //     //TODO: how to handle "selected by valve testing" tools (like for csgo)
-        //     string compattool = this.steamClient.IClientCompat.GetCompatToolName(app.AppID);
-        //     if (!string.IsNullOrEmpty(compattool)) {
-        //         KVSerializer serializer = KVSerializer.Create(KVSerializationFormat.KeyValues1Text);
-        //         bool useSessions = false;
-        //         List<AppId_t> compatToolAppIDs = new();
-        //         //TODO: this is terrible, but the API's don't seem to provide other ways to do this (HOW DO NON-STEAM COMPAT TOOLS WORK??????)
-        //         bool hasDepTool = true;
-        //         StringBuilder compatToolAppidStr = new(1024);
-        //         StringBuilder compatToolInstallDir = new(1024);
-
-        //         //TODO: loop over compat_tools, map into dictionaries
-        //         this.steamClient.IClientApps.GetAppData(891390, $"extended/compat_tools/{compattool}/appid", compatToolAppidStr, 1024);
-
-        //         AppId_t depTool = uint.Parse(compatToolAppidStr.ToString());
-        //         compatToolAppIDs.Add(depTool);
-        //         while (hasDepTool) {
-        //             this.steamClient.IClientAppManager.GetAppInstallDir(depTool, compatToolInstallDir, 1024);
-        //             var bytes = File.ReadAllBytes(Path.Combine(compatToolInstallDir.ToString(), "toolmanifest.vdf"));
-        //             KVObject manifest;
-        //             using (var stream = new MemoryStream(bytes))
-        //             {
-        //                 manifest = serializer.Deserialize(stream);
-        //             }
-
-        //             hasDepTool = (string?)manifest["require_tool_appid"] != null;
-        //             if (hasDepTool) {
-        //                 depTool = uint.Parse((string)manifest["require_tool_appid"]);
-        //                 compatToolAppIDs.Add(depTool);
-        //             }
-        //         }
-
-                
-        //         foreach (var compatToolAppID in compatToolAppIDs)
-        //         {
-        //             this.steamClient.IClientAppManager.GetAppInstallDir(compatToolAppID, compatToolInstallDir, 1024);
-        //             var bytes = File.ReadAllBytes(Path.Combine(compatToolInstallDir.ToString(), "toolmanifest.vdf"));
-        //             //TODO: how to decide correct verb to use?
-        //             var verb = "waitforexitandrun";
-        //             KVObject manifest;
-        //             using (var stream = new MemoryStream(bytes))
-        //             {
-        //                 manifest = serializer.Deserialize(stream);
-        //             }
-
-        //             if ((string)manifest["version"] != "2") {
-        //                 throw new Exception("Unsupported manifest version '" + (string)manifest["version"] + "'");
-        //             }
-
-        //             if ((string)manifest["use_sessions"] == "1") {
-        //                 useSessions = true;
-        //             }
-
-        //             var commandline = (string)manifest["commandline"];
-        //             commandline = commandline.Replace("%verb%", verb);
-        //             var compatToolCommandLine = $"'{compatToolInstallDir}'{commandline}";
-        //             commandLine = compatToolCommandLine + " " + commandLine;
-        //         }
-
-        //         if (useSessions) {
-        //             this.steamClient.IClientCompat.StartSession(app.AppID);
-        //         }
-        //     }
-        // }
-
-        // // Then prefix with reaper, launchwrapper
-        // if (OperatingSystem.IsLinux()) {
-        //     string steamToolsPath = Path.Combine(this.installManager.InstallDir, "linux64");
-
-        //     // This is the base command line. It seems to always be used for all games, regardless of if you have compat tools enabled or not.
-        //     commandLine = $"{steamToolsPath}/reaper SteamLaunch AppId={app.AppID} -- {steamToolsPath}/steam-launch-wrapper -- " + commandLine;
-        // }
-
-        // //TODO: does windows use x86launcher.exe or x64launcher.exe?
-
-        // commandLine += $"'{workingDir}/{gameExe}' {launchOptionCommandLine}";
-
-        // if (userLaunchOptions.Contains("%command%")) {
-        //     string prefix = userLaunchOptions.Split("%command%")[0];
-        //     string suffix = userLaunchOptions.Split("%command%")[1];
-        //     // Yep. It's this simple. this allows stuff like %command%-mono for tModLoader
-        //     commandLine = prefix + commandLine + suffix;
-        // }
-
-        // //TODO: synchronize controller config (how?)
-        // //TODO: handle "site licenses" (extra wtf???)
-
-        // if (app.IsMod) {
-        //     //TODO: where to get sourcemod path?
-        //     commandLine += " -game sourcemodpathhere";
-        // }
-
-        // logger.Info("Built launch command line: " + commandLine);
-        // logger.Info("Creating process");
-        // using (var vars = new TemporaryEnvVars())
-        // {
-        //     // Do we really need all these vars?
-        //     // Valid vars: STEAM_GAME_LAUNCH_SHELL STEAM_RUNTIME_LIBRARY_PATH STEAM_COMPAT_FLAGS SYSTEM_PATH SYSTEM_LD_LIBRARY_PATH SUPPRESS_STEAM_OVERLAY STEAM_CLIENT_CONFIG_FILE SteamRealm SteamLauncherUI
-        //     vars.SetEnvironmentVariable("SteamAppUser", this.loginManager.CurrentUser!.AccountName);
-        //     vars.SetEnvironmentVariable("SteamAppId", app.AppID.ToString());
-        //     vars.SetEnvironmentVariable("SteamGameId", ((ulong)app.GameID).ToString());
-        //     vars.SetEnvironmentVariable("SteamClientLaunch", "1");
-        //     vars.SetEnvironmentVariable("SteamClientService", "127.0.0.1:57344");
-        //     vars.SetEnvironmentVariable("AppId", app.AppID.ToString());
-        //     vars.SetEnvironmentVariable("SteamLauncherUI", "clientui");
-        //     //vars.SetEnvironmentVariable("PROTON_LOG", "1");
-        //     vars.SetEnvironmentVariable("STEAM_COMPAT_CLIENT_INSTALL_PATH", installManager.InstallDir);
-        //     this.steamClient.IClientUtils.SetLastGameLaunchMethod(0);  
-        //     StringBuilder libraryFolder = new(1024);
-        //     this.steamClient.IClientAppManager.GetLibraryFolderPath(this.steamClient.IClientAppManager.GetAppLibraryFolder(app.AppID), libraryFolder, libraryFolder.Capacity);
-        //     logger.Info("Appid " + app.AppID + " is installed into library folder " + this.steamClient.IClientAppManager.GetAppLibraryFolder(app.AppID) + " with path " + libraryFolder);
-        //     vars.SetEnvironmentVariable("STEAM_COMPAT_DATA_PATH", Path.Combine(libraryFolder.ToString(), "steamapps", "compatdata", app.AppID.ToString()));
-            
-        //     logger.Info("Vars for launch: ");
-        //     foreach (var item in UtilityFunctions.GetEnvironmentVariables())
-        //     {
-        //         logger.Info(item.Key + "=" + item.Value);
-        //     }
-
-        //     // For some reason, the CGameID SpawnProcess takes is a pointer.
-        //     CGameID gameidref = app.GameID;
-        //     this.steamClient.IClientUser.SpawnProcess("", commandLine, workingDir, ref gameidref, app.Name);
-        // }
-
-        // return EResult.OK;
     }
     
     public Logger GetLoggerForApp(AppBase app) {
@@ -523,4 +362,19 @@ public class AppsManager : ILogonLifetime
     }
 
     public UInt64 StartCompatSession(AppId_t appID) => this.steamClient.IClientCompat.StartSession(appID);
+
+    /// <summary>
+    /// Gets the current effective OS for an app. 
+    /// If the game has compat tools enabled, it will use the compat tool's target OS, otherwise the current os.
+    /// </summary>
+    /// <param name="appID"></param>
+    /// <returns></returns>
+    public string GetCurrentEffectiveOSForApp(AppId_t appID)
+    {
+        if (compatManager.IsCompatEnabled && compatManager.IsCompatEnabledForApp(appID)) {
+            return compatManager.GetPlatformStringForCompatTool(compatManager.GetCompatToolForApp(appID));
+        }
+
+        return UtilityFunctions.GetSteamPlatformString();
+    }
 }

@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Text;
 using System.Threading.Tasks;
 using OpenSteamworks.Callbacks;
 using OpenSteamworks.Callbacks.Structs;
@@ -75,6 +76,26 @@ public class ClientApps {
         };
     }
 
+    public uint[] GetValidLaunchOptions(AppId_t appid) {
+        uint[] dlcs = new uint[4096];
+        int len = NativeClientApps.GetAvailableLaunchOptions(appid, dlcs, (uint)dlcs.Length);
+        return dlcs[0..len];
+    }
+
+    public IEnumerable<AppId_t> GetOwnedDLCs(AppId_t app) {
+        var dlcLen = this.NativeClientApps.GetDLCCount(app);
+        var dlcs = new List<AppId_t>();
+        StringBuilder builder = new(128);
+        for (int i = 0; i < dlcLen; i++)
+        {
+            if (NativeClientApps.BGetDLCDataByIndex(app, i, out uint dlcID, out bool _, builder, builder.Capacity)) {
+                dlcs.Add(dlcID);
+            }
+        }
+
+        return dlcs.AsEnumerable();
+    }
+
     public KVObject GetAppDataSection(AppId_t appid, EAppInfoSection section) {
         IncrementingBuffer buf = new();
         buf.RunToFit(() => NativeClientApps.GetAppDataSection(appid, section, buf.Data, buf.Length, false));
@@ -115,12 +136,12 @@ public class ClientApps {
     }
 
     public async Task UpdateAppInfo(AppId_t[] apps, IProgress<int> prog) {
-        this.NativeClientApps.RequestAppInfoUpdate(apps, apps.Length);
+        this.NativeClientApps.RequestAppInfoUpdate(apps.Select(a => (uint)a).ToArray(), apps.Length);
         await this.callbackManager.WaitForCallback<AppInfoUpdateComplete_t>();
     }
 
     public async Task UpdateAppInfo(AppId_t app) {
-        this.NativeClientApps.RequestAppInfoUpdate(new [] { app }, 1);
+        this.NativeClientApps.RequestAppInfoUpdate(new uint[] { app }, 1);
         await this.callbackManager.WaitForCallback<AppInfoUpdateComplete_t>();
     }
 

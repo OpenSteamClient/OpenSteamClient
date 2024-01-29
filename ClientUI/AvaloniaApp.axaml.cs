@@ -26,6 +26,8 @@ using System.Text;
 using OpenSteamworks.Client.Login;
 using OpenSteamworks.Enums;
 using Avalonia.Threading;
+using OpenSteamworks.Client.Friends;
+using ClientUI.UIImpl;
 
 namespace ClientUI;
 
@@ -71,6 +73,8 @@ public class AvaloniaApp : Application
         await Container.RunClientStartup();
 
         Container.Get<TranslationManager>().SetLanguage(ELanguage.English, false);
+
+        Container.ConstructAndRegister<FriendsUI>();
 
         // This will stay for the lifetime of the application.
         Container.Get<LoginManager>().LoggedOn += (object sender, LoggedOnEventArgs e) =>
@@ -249,7 +253,7 @@ public class AvaloniaApp : Application
     }
 
     /// <summary>
-    /// Tries to show the window as a dialog, but will 
+    /// Tries to show the window as a dialog
     /// </summary>
     /// <param name="dialog"></param>
     public void TryShowDialog(Window dialog) {
@@ -258,6 +262,45 @@ public class AvaloniaApp : Application
         } else {
             dialog.Show();
         }
+    }
+
+    /// <summary>
+    /// Tries to show the window as a dialog. If the window is already open, it focus on it.
+    /// </summary>
+    /// <param name="dialog"></param>
+    public void TryShowDialogSingle<T>(Func<T> dialogFactory) where T: Window {
+        RunOnUIThread(() =>
+        {
+            var existingDialog = TryGetDialogSingle<T>();
+            if (existingDialog != null) {
+                existingDialog.Show();
+                existingDialog.Activate();
+                return;
+            }
+
+            if (ApplicationLifetime.MainWindow != null) {
+                dialogFactory().ShowDialog(ApplicationLifetime.MainWindow);
+            } else {
+                dialogFactory().Show();
+            }
+        });
+    }
+
+    public void RunOnUIThread(Action func) {
+        if (Dispatcher.UIThread.CheckAccess()) {
+            func();
+        }
+
+        Dispatcher.UIThread.Invoke(func);
+    }
+
+    public T? TryGetDialogSingle<T>() where T: Window {
+        var existingDialogs = ApplicationLifetime.Windows.Where(w => w.GetType() == typeof(T));
+        if (existingDialogs.Any()) {
+            return (T)existingDialogs.First();
+        }
+
+        return null;
     }
 
     /// <summary>

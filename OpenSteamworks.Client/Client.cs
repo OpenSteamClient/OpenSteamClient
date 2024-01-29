@@ -13,6 +13,7 @@ using OpenSteamworks.Client.Apps;
 using OpenSteamworks.Client.Apps.Library;
 using System.Net;
 using OpenSteamworks.Client.Friends;
+using OpenSteamworks.Client.Apps.Compat;
 
 namespace OpenSteamworks.Client;
 
@@ -31,25 +32,27 @@ public class Client : IClientLifetime
         HttpClient.DefaultRequestHeaders.Add("User-Agent", "Valve Steam Client");
     }
 
-    private Container container;
+    internal static Client? Instance { get; private set; }
+    internal Container Container { get; init; }
     public async Task RunStartup()
     {        
         await Task.Run(() => {
             var args = Environment.GetCommandLineArgs();
-            container.Get<IClientEngine>().SetClientCommandLine(args.Length, args);
+            Container.Get<IClientEngine>().SetClientCommandLine(args.Length, args);
         });
     }
 
     public async Task RunShutdown()
     {
         await Task.Run(() => {
-            container.Get<ISteamClient>().Shutdown();
+            Container.Get<ISteamClient>().Shutdown();
         });
     }
 
     public Client(Container container, IExtendedProgress<int>? bootstrapperProgress = null)
     {
-        this.container = container;
+        Instance = this;
+        this.Container = container;
         container.ConstructAndRegisterImmediate<ConfigManager>();
         container.ConstructAndRegisterImmediate<Bootstrapper>().SetProgressObject(bootstrapperProgress);
 
@@ -102,6 +105,7 @@ public class Client : IClientLifetime
         container.RegisterFactoryMethod<IClientUtils>((ISteamClient client) => client.IClientUtils);
         container.RegisterFactoryMethod<IClientVR>((ISteamClient client) => client.IClientVR);
 
+        container.ConstructAndRegister<CompatManager>();
         container.ConstructAndRegister<LoginManager>();
         container.ConstructAndRegister<CloudConfigStore>();
         container.ConstructAndRegister<AppsManager>();

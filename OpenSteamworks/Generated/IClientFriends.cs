@@ -17,24 +17,23 @@ namespace OpenSteamworks.Generated;
 public unsafe interface IClientFriends
 {
     public string GetPersonaName();  // argc: 0, index: 1, ipc args: [], ipc returns: [string]
-    // WARNING: Arguments are unknown!
-    public void SetPersonaName(string name);  // argc: 1, index: 2, ipc args: [string], ipc returns: [bytes8]
+    public SteamAPICall_t SetPersonaName(string name);  // argc: 1, index: 2, ipc args: [string], ipc returns: [bytes8]
     public bool IsPersonaNameSet();  // argc: 0, index: 3, ipc args: [], ipc returns: [boolean]
     public EPersonaState GetPersonaState();  // argc: 0, index: 4, ipc args: [], ipc returns: [bytes4]
     // WARNING: Arguments are unknown!
     public void SetPersonaState(EPersonaState state);  // argc: 1, index: 5, ipc args: [bytes4], ipc returns: []
     // WARNING: Arguments are unknown!
-    public unknown_ret NotifyUIOfMenuChange();  // argc: 4, index: 6, ipc args: [bytes1, bytes1, bytes1, bytes1], ipc returns: [bytes1]
+    public bool NotifyUIOfMenuChange(bool bShowAvatars, bool bSortByName, bool bShowOnlineOnly, bool bShowUntaggedFriends);  // argc: 4, index: 6, ipc args: [bytes1, bytes1, bytes1, bytes1], ipc returns: [bytes1]
     // WARNING: Arguments are unknown!
     // 4 = Direct
     // 8 = Group
-    public unknown_ret GetFriendCount(EFriendFlags flags);  // argc: 1, index: 7, ipc args: [bytes4], ipc returns: [bytes4]
+    public unknown_ret GetFriendCount(EFriendFlags flags = EFriendFlags.Immediate);  // argc: 1, index: 7, ipc args: [bytes4], ipc returns: [bytes4]
     // WARNING: Arguments are unknown!
-    public unknown_ret GetFriendArray();  // argc: 4, index: 8, ipc args: [bytes4, bytes4], ipc returns: [bytes4, bytes_length_from_reg, bytes_length_from_reg]
+    public unknown_ret GetFriendArray(CSteamID[] steamid, StringBuilder wtf, int max, EFriendFlags flags);  // argc: 4, index: 8, ipc args: [bytes4, bytes4], ipc returns: [bytes4, bytes_length_from_reg, bytes_length_from_reg]
     // WARNING: Arguments are unknown!
     public unknown_ret GetFriendArrayInGame();  // argc: 3, index: 9, ipc args: [bytes4], ipc returns: [bytes4, bytes_length_from_reg, bytes_length_from_reg]
     // WARNING: Arguments are unknown!
-    public unknown_retu64 GetFriendByIndex(int index, EFriendFlags flags, int unk);  // argc: 3, index: 10, ipc args: [bytes4, bytes4], ipc returns: [uint64]
+    public CSteamID GetFriendByIndex(int index, EFriendFlags flags = EFriendFlags.Immediate);  // argc: 3, index: 10, ipc args: [bytes4, bytes4], ipc returns: [uint64]
     public unknown_ret GetOnlineFriendCount();  // argc: 0, index: 11, ipc args: [], ipc returns: [bytes4]
     // WARNING: Arguments are unknown!
     public EFriendRelationship GetFriendRelationship(CSteamID steamid);  // argc: 2, index: 12, ipc args: [uint64], ipc returns: [bytes4]
@@ -43,15 +42,15 @@ public unsafe interface IClientFriends
     // WARNING: Arguments are unknown!
     public string GetFriendPersonaName(CSteamID steamid);  // argc: 2, index: 14, ipc args: [uint64], ipc returns: [string]
     // WARNING: Arguments are unknown!
-    public unknown_ret GetSmallFriendAvatar(CSteamID steamid);  // argc: 2, index: 15, ipc args: [uint64], ipc returns: [bytes4]
+    public int GetSmallFriendAvatar(CSteamID steamid);  // argc: 2, index: 15, ipc args: [uint64], ipc returns: [bytes4]
     // WARNING: Arguments are unknown!
-    public unknown_ret GetMediumFriendAvatar(CSteamID steamid);  // argc: 2, index: 16, ipc args: [uint64], ipc returns: [bytes4]
+    public int GetMediumFriendAvatar(CSteamID steamid);  // argc: 2, index: 16, ipc args: [uint64], ipc returns: [bytes4]
     // WARNING: Arguments are unknown!
-    public unknown_ret GetLargeFriendAvatar(CSteamID steamid);  // argc: 2, index: 17, ipc args: [uint64], ipc returns: [bytes4]
+    public int GetLargeFriendAvatar(CSteamID steamid);  // argc: 2, index: 17, ipc args: [uint64], ipc returns: [bytes4]
     // WARNING: Arguments are unknown!
     public bool BGetFriendAvatarURL(StringBuilder avatarOut, int avatarOutMax, CSteamID steamid, int unk);  // argc: 5, index: 18, ipc args: [bytes4, uint64, bytes4], ipc returns: [boolean, bytes_length_from_mem]
     // WARNING: Arguments are unknown!
-    public unknown_ret GetFriendAvatarHash(StringBuilder avatarOut, int avatarOutMax, CSteamID steamid);  // argc: 4, index: 19, ipc args: [bytes4, uint64], ipc returns: [bytes1, bytes_length_from_mem]
+    public bool GetFriendAvatarHash(StringBuilder avatarOut, int avatarOutMax, CSteamID steamid);  // argc: 4, index: 19, ipc args: [bytes4, uint64], ipc returns: [bytes1, bytes_length_from_mem]
     // WARNING: Arguments are unknown!
     public void SetFriendRegValue(CSteamID steamIDFriend, string key, string value);  // argc: 4, index: 20, ipc args: [uint64, string, string], ipc returns: []
     // WARNING: Arguments are unknown!
@@ -127,9 +126,9 @@ public unsafe interface IClientFriends
     // WARNING: Arguments are unknown!
     public unknown_ret GetNextGroupFriendsMember();  // argc: 2, index: 53, ipc args: [uint64], ipc returns: [bytes2]
     // WARNING: Arguments are unknown!
-    public unknown_ret GetPlayerNickname(CSteamID steamid);  // argc: 2, index: 54, ipc args: [uint64], ipc returns: [string]
+    public string GetPlayerNickname(CSteamID steamid);  // argc: 2, index: 54, ipc args: [uint64], ipc returns: [string]
     // WARNING: Arguments are unknown!
-    public unknown_ret SetPlayerNickname(CSteamID steamid, string nickname);  // argc: 3, index: 55, ipc args: [uint64, string], ipc returns: [bytes1]
+    public bool SetPlayerNickname(CSteamID steamid, string nickname);  // argc: 3, index: 55, ipc args: [uint64, string], ipc returns: [bytes1]
     // WARNING: Arguments are unknown!
     public unknown_ret GetFriendSteamLevel(CSteamID steamid);  // argc: 2, index: 56, ipc args: [uint64], ipc returns: [bytes4]
     // WARNING: Arguments are unknown!
@@ -206,7 +205,7 @@ public unsafe interface IClientFriends
     // WARNING: Arguments are unknown!
     public unknown_ret GetFriendCoplayGame();  // argc: 2, index: 94, ipc args: [uint64], ipc returns: [bytes4]
     // WARNING: Arguments are unknown!
-    public unknown_ret SetRichPresence(AppId_t appid, string key, string value);  // argc: 3, index: 95, ipc args: [bytes4, string, string], ipc returns: [bytes1]
+    public bool SetRichPresence(AppId_t appid, string key, string value);  // argc: 3, index: 95, ipc args: [bytes4, string, string], ipc returns: [bytes1]
     // WARNING: Arguments are unknown!
     public unknown_ret ClearRichPresence(AppId_t appid);  // argc: 1, index: 96, ipc args: [bytes4], ipc returns: []
     // WARNING: Arguments are unknown!
@@ -214,9 +213,9 @@ public unsafe interface IClientFriends
     // WARNING: Arguments are unknown!
     public unknown_ret GetFriendRichPresenceKeyCount(AppId_t appid, CSteamID steamid);  // argc: 3, index: 98, ipc args: [bytes4, uint64], ipc returns: [bytes4]
     // WARNING: Arguments are unknown!
-    public unknown_ret GetFriendRichPresenceKeyByIndex();  // argc: 4, index: 99, ipc args: [bytes4, uint64, bytes4], ipc returns: [string]
+    public string GetFriendRichPresenceKeyByIndex(AppId_t appid, CSteamID steamid, int index);  // argc: 4, index: 99, ipc args: [bytes4, uint64, bytes4], ipc returns: [string]
     // WARNING: Arguments are unknown!
-    public unknown_ret RequestFriendRichPresence();  // argc: 3, index: 100, ipc args: [bytes4, uint64], ipc returns: []
+    public void RequestFriendRichPresence(AppId_t appid, CSteamID steamid);  // argc: 3, index: 100, ipc args: [bytes4, uint64], ipc returns: []
     // WARNING: Arguments are unknown!
     public unknown_ret JoinChatRoom(CSteamID steamID);  // argc: 2, index: 101, ipc args: [uint64], ipc returns: [bytes1]
     // WARNING: Arguments are unknown!
@@ -224,7 +223,7 @@ public unsafe interface IClientFriends
     // WARNING: Arguments are unknown!
     public unknown_ret InviteUserToChatRoom(CSteamID steamID,CSteamID steamID2);  // argc: 4, index: 103, ipc args: [uint64, uint64], ipc returns: [bytes1]
     // WARNING: Arguments are unknown!
-    public unknown_ret SendChatMsg();  // argc: 4, index: 104, ipc args: [uint64, bytes4, string], ipc returns: [bytes1]
+    public bool SendChatMsg(CSteamID steamIDFriend, EChatEntryType eFriendMsgType, string msg);  // argc: 4, index: 104, ipc args: [uint64, bytes4, string], ipc returns: [bytes1]
     // WARNING: Arguments are unknown!
     public unknown_ret GetChatRoomMessagesCount(CSteamID steamID);  // argc: 2, index: 105, ipc args: [uint64], ipc returns: [bytes4]
     // WARNING: Arguments are unknown!
@@ -263,7 +262,7 @@ public unsafe interface IClientFriends
     // WARNING: Arguments are unknown!
     public unknown_ret GetChatRoomByIndex();  // argc: 2, index: 123, ipc args: [bytes4], ipc returns: [uint64]
     // WARNING: Arguments are unknown!
-    public unknown_ret GetChatRoomName();  // argc: 2, index: 124, ipc args: [uint64], ipc returns: [string]
+    public string GetChatRoomName(CSteamID steamidGroup);  // argc: 2, index: 124, ipc args: [uint64], ipc returns: [string]
     // WARNING: Arguments are unknown!
     public unknown_ret BGetChatRoomMemberDetails();  // argc: 6, index: 125, ipc args: [uint64, uint64], ipc returns: [boolean, bytes4, bytes4]
     // WARNING: Arguments are unknown!
@@ -341,15 +340,15 @@ public unsafe interface IClientFriends
     // WARNING: Arguments are unknown!
     public unknown_ret SendResumeRequest();  // argc: 1, index: 168, ipc args: [bytes4], ipc returns: []
     // WARNING: Arguments are unknown!
-    public unknown_ret OpenFriendsDialog();  // argc: 2, index: 169, ipc args: [bytes1, bytes1], ipc returns: []
+    public void OpenFriendsDialog(bool unk = false, bool unk1 = false);  // argc: 2, index: 169, ipc args: [bytes1, bytes1], ipc returns: []
     // WARNING: Arguments are unknown!
-    public unknown_ret OpenChatDialog();  // argc: 2, index: 170, ipc args: [uint64], ipc returns: []
+    public void OpenChatDialog(CSteamID steamIDuser);  // argc: 2, index: 170, ipc args: [uint64], ipc returns: []
     // WARNING: Arguments are unknown!
-    public unknown_ret OpenInviteToTradeDialog();  // argc: 2, index: 171, ipc args: [uint64], ipc returns: []
+    public void OpenInviteToTradeDialog(CSteamID steamIDuser);  // argc: 2, index: 171, ipc args: [uint64], ipc returns: []
     // WARNING: Arguments are unknown!
-    public unknown_ret StartChatRoomVoiceSpeaking();  // argc: 4, index: 172, ipc args: [uint64, uint64], ipc returns: []
+    public void StartChatRoomVoiceSpeaking(CSteamID steamIDchat, CSteamID steamIDuser);  // argc: 4, index: 172, ipc args: [uint64, uint64], ipc returns: []
     // WARNING: Arguments are unknown!
-    public unknown_ret EndChatRoomVoiceSpeaking();  // argc: 4, index: 173, ipc args: [uint64, uint64], ipc returns: []
+    public void EndChatRoomVoiceSpeaking(CSteamID steamIDchat, CSteamID steamIDuser);  // argc: 4, index: 173, ipc args: [uint64, uint64], ipc returns: []
     // WARNING: Arguments are unknown!
     public unknown_ret GetFriendLastLogonTime();  // argc: 2, index: 174, ipc args: [uint64], ipc returns: [bytes4]
     // WARNING: Arguments are unknown!
@@ -437,9 +436,9 @@ public unsafe interface IClientFriends
     // WARNING: Arguments are unknown!
     public unknown_ret GetFriendProfileInfo();  // argc: 3, index: 219, ipc args: [uint64, string], ipc returns: [string]
     // WARNING: Arguments are unknown!
-    public unknown_ret InviteUserToGame();  // argc: 4, index: 220, ipc args: [bytes4, uint64, string], ipc returns: [bytes1]
+    public bool InviteUserToGame(AppId_t appid, CSteamID friendid, string msg);  // argc: 4, index: 220, ipc args: [bytes4, uint64, string], ipc returns: [bytes1]
     // WARNING: Arguments are unknown!
-    public unknown_ret RequestTrade();  // argc: 2, index: 221, ipc args: [uint64], ipc returns: [bytes8]
+    public SteamAPICall_t RequestTrade(CSteamID friendid);  // argc: 2, index: 221, ipc args: [uint64], ipc returns: [bytes8]
     // WARNING: Arguments are unknown!
     public unknown_ret TradeResponse();  // argc: 2, index: 222, ipc args: [bytes4, bytes1], ipc returns: []
     // WARNING: Arguments are unknown!

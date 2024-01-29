@@ -42,6 +42,7 @@ endif()
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${NATIVE_OUTPUT_FOLDER})
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${NATIVE_OUTPUT_FOLDER})
 
+file(GLOB_RECURSE audiostub_sources CONFIGURE_DEPENDS "audiostub/*.cpp")
 file(GLOB_RECURSE protobufhack_sources CONFIGURE_DEPENDS "protobufhack/*.cpp")
 file(GLOB protobufhack_include_cc CONFIGURE_DEPENDS "protobufhack/generated/*.cc")
 file(GLOB protobufhack_include_h CONFIGURE_DEPENDS "protobufhack/generated/*.h")
@@ -95,6 +96,9 @@ if (BUILD_PLATFORM_TARGET STREQUAL "linux")
 
         add_library(bootstrappershim32 SHARED ${PROJECT_SOURCE_DIR}/bootstrappershim/main.cpp)
         set_ide_32bit_build(bootstrappershim32)
+
+        add_library(audio SHARED ${audiostub_sources})
+        set_ide_32bit_build(audio)
     endif()
 endif()
 

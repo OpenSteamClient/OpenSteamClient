@@ -52,6 +52,14 @@ public class Container
         this.factories.Add(type, factoryMethod);
         this.registeredObjects.Add(type, factoryPlaceholderObject);
         logger.Debug("Registered factory for type '" + type.Name + "'");
+        var implementedInterfacesAttrs = type.GetCustomAttributes(typeof(ImplementsInterfaceAttribute<>));
+        foreach (var ifaceAttr in implementedInterfacesAttrs)
+        {
+            Type interfaceType = ifaceAttr.GetType().GetGenericArguments().First();
+            logger.Debug("Registered implemented interface factory for type '" + interfaceType.Name + "'");
+            this.factories.Add(interfaceType, factoryMethod);
+            this.registeredObjects.Add(interfaceType, factoryPlaceholderObject);
+        }
 
         if (typeof(IClientLifetime).IsAssignableFrom(type))
         {
@@ -90,17 +98,29 @@ public class Container
             throw new NullReferenceException("Factory for " + type + " returned null.");
         }
 
-        this.factories.Remove(type);
-        if (this.registeredObjects.ContainsKey(type))
+        List<Type> toRemove = new();
+        foreach (var f in this.factories)
         {
-            if (object.ReferenceEquals(this.registeredObjects[type], factoryPlaceholderObject))
-            {
-                this.registeredObjects.Remove(type);
+            if (f.Value == factoryMethod) {
+                toRemove.Add(f.Key);
             }
-            else
+        }
+
+        foreach (var item in toRemove)
+        {
+            this.factories.Remove(item);
+
+            if (this.registeredObjects.ContainsKey(item))
             {
-                logger.Error("Type '" + type + "' already registered (and not factory placeholder)");
-                throw new InvalidOperationException("Type '" + type + "' already registered (and not factory placeholder)");
+                if (object.ReferenceEquals(this.registeredObjects[item], factoryPlaceholderObject))
+                {
+                    this.registeredObjects.Remove(item);
+                }
+                else
+                {
+                    logger.Error("Type '" + item + "' already registered (and not factory placeholder)");
+                    throw new InvalidOperationException("Type '" + item + "' already registered (and not factory placeholder)");
+                }
             }
         }
 
@@ -322,6 +342,11 @@ public class Container
         }
 
         return false;
+    }
+
+    public T? GetNullable<T>() {
+        TryGet<T>(out T? obj);
+        return obj;
     }
 
     public bool TryGet(Type type, [NotNullWhen(true)] out object? obj)

@@ -59,9 +59,9 @@ public partial class LibraryPageViewModel : ViewModelBase
             return;
         }
 
-        SideContent = new FocusedAppPane()
+        SideContent = new FocusedAppPane
         {
-            DataContext = AvaloniaApp.Container.ConstructOnly<FocusedAppPaneViewModel>(SelectedNodes[0].GameID),
+            DataContext = AvaloniaApp.Container.ConstructOnly<FocusedAppPaneViewModel>(SelectedNodes[0].GameID)
         };
     }
 

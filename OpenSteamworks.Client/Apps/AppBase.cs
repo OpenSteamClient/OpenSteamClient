@@ -19,6 +19,19 @@ public abstract class AppBase
         public string Description { get; }
     }
 
+    public interface ILibraryAssetAlignment {
+        /// <summary>
+        /// Width percentage of the logo overlay relative to the full size of the hero
+        /// </summary>
+        public float LogoWidthPercentage { get; }
+
+        /// <summary>
+        /// Height percentage of the logo overlay relative to the full size of the hero
+        /// </summary>
+        public float LogoHeightPercentage { get; }
+        public string LogoPinnedPosition { get; }
+    }
+
     public abstract EAppState State { get; }
     public abstract EAppType Type { get; }
     public abstract IEnumerable<ILaunchOption> LaunchOptions { get; }
@@ -37,6 +50,7 @@ public abstract class AppBase
     public string IconURL => GetValueOverride(IconOverrideURL, ActualIconURL);
     public string PortraitURL => GetValueOverride(PortraitOverrideURL, ActualPortraitURL);
 
+    public abstract bool IsOwnedAndPlayable { get; }
     public abstract uint StoreAssetsLastModified { get; }
     public CGameID GameID { get; protected set; } = CGameID.Zero;
     public AppId_t AppID
@@ -82,7 +96,9 @@ public abstract class AppBase
     public string? LocalHeroPath { get; protected set; }
     public string? LocalPortraitPath { get; protected set; }
     internal bool NeedsLibraryAssetUpdate { get; private set; }
-    
+    public abstract ILibraryAssetAlignment? LibraryAssetAlignment { get; }
+    protected static AppsManager AppsManager => Client.Instance!.Container.Get<AppsManager>();
+
     internal void SetLibraryAssetPaths(string? iconPath, string? logoPath, string? heroPath, string? portraitPath) {
         NeedsLibraryAssetUpdate = (string.IsNullOrEmpty(iconPath) && string.IsNullOrEmpty(this.LocalIconPath)) || (string.IsNullOrEmpty(logoPath) && string.IsNullOrEmpty(this.LocalLogoPath)) || (string.IsNullOrEmpty(heroPath) && string.IsNullOrEmpty(this.LocalHeroPath)) || (string.IsNullOrEmpty(portraitPath) && string.IsNullOrEmpty(this.LocalPortraitPath));
         if (!string.IsNullOrEmpty(iconPath)) {
@@ -111,13 +127,6 @@ public abstract class AppBase
     public bool IsMod => this.GameID.IsMod();
     public bool IsShortcut => this.GameID.IsShortcut();
     public bool IsSteamApp => this.GameID.IsSteamApp();
-
-    protected AppsManager AppsManager { get; init; }
-    public AppBase(AppsManager appsManager)
-    {
-        AppsManager = appsManager;
-    }
-
     public void Kill() {
         AppsManager.Kill(GameID);
     }
@@ -137,25 +146,21 @@ public abstract class AppBase
         return valuestr;
     }
 
-    public static SteamApp CreateSteamApp(AppsManager appsManager, AppId_t appid) {
-        return new SteamApp(appsManager, appid);
+    public static SteamApp CreateSteamApp(AppId_t appid) {
+        return new SteamApp(appid);
     }
 
     public static ShortcutApp CreateShortcut(AppsManager appsManager, string name, string exe, string workingDir) {
-        return new ShortcutApp(appsManager, name, exe, workingDir);
+        return new ShortcutApp(name, exe, workingDir);
     }
 
     public static SourcemodApp CreateSourcemod(AppsManager appsManager, string sourcemodDir, uint modid) {
-        return new SourcemodApp(appsManager, sourcemodDir, modid);
+        return new SourcemodApp(sourcemodDir, modid);
     }
 
     protected AppBase? GetAppIfValidGameID(CGameID gameid) {
         if (!gameid.IsValid()) {
             return null;
-        }
-
-        if (AppsManager == null) {
-            throw new InvalidOperationException("AppsManager was null when getting gameid " + gameid);
         }
 
         return AppsManager.GetApp(gameid);
