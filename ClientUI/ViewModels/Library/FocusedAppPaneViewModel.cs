@@ -160,6 +160,11 @@ public partial class FocusedAppPaneViewModel : ViewModelBase
 #pragma warning restore MVVMTK0034
     private void SetLibraryAssets()
     {
+
+        if (app.LocalHeroPath == null && app.LocalLogoPath == null) {
+            LogoAsText = app.Name;
+        }
+
         if (app.LocalHeroPath != null)
         {
             this.Hero = new ImageBrush()
@@ -200,7 +205,6 @@ public partial class FocusedAppPaneViewModel : ViewModelBase
         else
         {
             this.Logo = Brushes.Transparent;
-            LogoAsText = app.Name;
         }
     }
 

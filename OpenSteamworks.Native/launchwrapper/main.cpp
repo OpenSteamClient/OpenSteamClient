@@ -54,28 +54,27 @@ bool apply_environment()
 // launchwrapper -- /bin/bash
 int main(int argc, char *argv[])
 {
-  // This is the index of the remainder of the args
-  int argc_executable = 0;
+  int sub_command_argc = 0;
 
-  for (size_t i = 0; i < argc; i++)
-  {
-    // Finds -- and saves the position of everything after it (the thing to execute)
-    if (std::string(argv[i]) == "--" && (i + 1 < argc))
-    {
-        argc_executable = i + 1;
-    }
-  }
+	for ( int i = 0; i < argc; i++ )
+	{
+		if ( strcmp( "--", argv[ i ] ) == 0 && i + 1 < argc )
+		{
+			sub_command_argc = i + 1;
+			break;
+		}
+	}
 
-  if (argc_executable == 0)
-  {
-    std::cerr << "launchwrapper: No executable specified!" << std::endl;
-    exit(EXIT_FAILURE);
-  }
+	if ( sub_command_argc == 0 )
+	{
+		fprintf( stderr, "launchwrapper: no sub-command!\n" );
+		exit( 1 );
+	}
   
   auto result = apply_environment();
   if (result == false) {
     std::cerr << "launchwrapper: Applying environment variables failed!" << std::endl;
     exit(EXIT_FAILURE);
   }
-  return execvp(argv[argc_executable], argv + argc_executable);
+  return execvp(argv[ sub_command_argc ], &argv[ sub_command_argc ]);
 }

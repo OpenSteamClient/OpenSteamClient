@@ -29,12 +29,12 @@ public unsafe interface IClientShader
     public void StartShaderPruning();  // argc: 0, index: 10, ipc args: [], ipc returns: []
     // WARNING: Arguments are unknown!
     public bool ProcessShaderCache(AppId_t appid);  // argc: 1, index: 11, ipc args: [bytes4], ipc returns: [bytes1]
-    public UInt64 GetShaderCacheProcessingCompletion();  // argc: 0, index: 12, ipc args: [], ipc returns: [bytes4]
+    public UInt32 GetShaderCacheProcessingCompletion();  // argc: 0, index: 12, ipc args: [], ipc returns: [bytes4]
     public AppId_t GetShaderCacheProcessingAppID();  // argc: 0, index: 13, ipc args: [], ipc returns: [bytes4]
     // WARNING: Arguments are unknown!
-    public unknown_ret SkipShaderProcessing(AppId_t appid);  // argc: 1, index: 14, ipc args: [bytes4], ipc returns: []
+    public void SkipShaderProcessing(AppId_t appid);  // argc: 1, index: 14, ipc args: [bytes4], ipc returns: []
     // WARNING: Arguments are unknown!
-    public unknown_ret BAppHasPendingShaderContentDownload(AppId_t appid);  // argc: 1, index: 15, ipc args: [bytes4], ipc returns: [boolean]
+    public bool BAppHasPendingShaderContentDownload(AppId_t appid);  // argc: 1, index: 15, ipc args: [bytes4], ipc returns: [boolean]
     // WARNING: Arguments are unknown!
     public unknown_ret GetAppPendingShaderDownloadSize(AppId_t appid);  // argc: 1, index: 16, ipc args: [bytes4], ipc returns: [bytes8]
     // WARNING: Arguments are unknown!
@@ -52,5 +52,5 @@ public unsafe interface IClientShader
     // WARNING: Arguments are unknown!
     public unknown_ret GetShaderBucketForGraphicsAPI();  // argc: 2, index: 23, ipc args: [bytes4, bytes4], ipc returns: [bytes8]
     // WARNING: Arguments are unknown!
-    public unknown_ret EnableShaderManagementSystem();  // argc: 1, index: 24, ipc args: [bytes1], ipc returns: []
+    public void EnableShaderManagementSystem(bool enable);  // argc: 1, index: 24, ipc args: [bytes1], ipc returns: []
 }
