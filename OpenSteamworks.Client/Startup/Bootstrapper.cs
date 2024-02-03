@@ -279,7 +279,6 @@ public class Bootstrapper : IClientLifetime {
     private void CreateSymlinks(IExtendedProgress<int> progressHandler)
     {
         progressHandler.SetSubOperation("Creating symlinks");
-        // By default we copy all files to their correct directories.
         // Specify path mappings here to tell the files to link into another folder as well
         Dictionary<string, string> pathMappings = new() {
             {"ubuntu12_64/libsteamwebrtc.so", "libsteamwebrtc.so"},
@@ -791,13 +790,13 @@ public class Bootstrapper : IClientLifetime {
         // Specify path mappings here to tell the files to go into another
         Dictionary<string, string> pathMappings = new() {
             {"reaper", "linux64/reaper"},
+            {"steam-launch-wrapper", "linux64/steam-launch-wrapper"},
             {"libSDL3.so", "linux64/libSDL3.so"},
             {"libSDL3.so.0", "linux64/libSDL3.so.0"},
             {"libSDL3.so.0.0.0", "linux64/libSDL3.so.0.0.0"},
             {"libSDL3_ttf.so", "linux64/libSDL3_ttf.so"},
             {"libSDL3_ttf.so.0", "linux64/libSDL3_ttf.so.0"},
             {"libSDL3_ttf.so.0.0.0", "linux64/libSDL3_ttf.so.0.0.0"},
-            {"steam-launch-wrapper", "linux64/reaper"},
             {"steamserviced.exe", "bin/steamserviced.exe"},
             {"steamserviced.pdb", "bin/steamserviced.pdb"},
             {"htmlhost", "ubuntu12_32/htmlhost"},

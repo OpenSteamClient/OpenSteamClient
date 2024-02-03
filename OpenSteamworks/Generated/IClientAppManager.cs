@@ -98,10 +98,10 @@ public unsafe interface IClientAppManager
     public bool CancelBackup();  // argc: 0, index: 61, ipc args: [], ipc returns: [bytes1]
     public EAppUpdateError RestoreAppFromBackup(AppId_t appid, string pathToBackup);  // argc: 2, index: 62, ipc args: [bytes4, string], ipc returns: [bytes4]
     public EAppUpdateError RecoverAppFromFolder(AppId_t appid, string folder);  // argc: 2, index: 63, ipc args: [bytes4, string], ipc returns: [bytes4]
-    public EAppUpdateError CanMoveApp(AppId_t appid, ref AppId_t dependentApp);  // argc: 2, index: 64, ipc args: [bytes4], ipc returns: [bytes4, bytes4]
+    public EAppUpdateError CanMoveApp(AppId_t appid, out AppId_t dependentApp);  // argc: 2, index: 64, ipc args: [bytes4], ipc returns: [bytes4, bytes4]
     public EAppUpdateError MoveApp(AppId_t appid, LibraryFolder_t folder);  // argc: 2, index: 65, ipc args: [bytes4, bytes4], ipc returns: [bytes4]
     // WARNING: Arguments are unknown!
-    public unknown_ret GetMoveAppProgress(AppId_t appid, int unk1, int unk2, int unk3);  // argc: 4, index: 66, ipc args: [bytes4], ipc returns: [bytes1, bytes8, bytes8, bytes4]
+    public bool GetMoveAppProgress(AppId_t appid, out UInt64 unk1, out UInt64 unk2, out uint unk3);  // argc: 4, index: 66, ipc args: [bytes4], ipc returns: [bytes1, bytes8, bytes8, bytes4]
     // WARNING: Arguments are unknown!
     public bool CancelMoveApp(AppId_t appid);  // argc: 1, index: 67, ipc args: [bytes4], ipc returns: [bytes1]
     // WARNING: Arguments are unknown!
@@ -136,7 +136,7 @@ public unsafe interface IClientAppManager
     public unknown_ret RemoveLibraryFolder(LibraryFolder_t libraryFolder, bool unk1 = false, bool unk2 = false);  // argc: 3, index: 77, ipc args: [bytes4, bytes1, bytes1], ipc returns: [bytes4]
     // WARNING: Arguments are unknown!
     [BlacklistedInCrossProcessIPC]
-    public bool BGetLibraryFolderInfo(LibraryFolder_t libraryFolder, ref bool unk, ref UInt64 usedDiskSpace, ref UInt64 freeDiskSpace);  // argc: 4, index: 78, ipc args: [bytes4, bytes4, bytes4, bytes4], ipc returns: [boolean]
+    public bool BGetLibraryFolderInfo(LibraryFolder_t libraryFolder, out bool unk, out UInt64 usedDiskSpace, out UInt64 freeDiskSpace);  // argc: 4, index: 78, ipc args: [bytes4, bytes4, bytes4, bytes4], ipc returns: [boolean]
     public LibraryFolder_t GetAppLibraryFolder(AppId_t appid);  // argc: 1, index: 79, ipc args: [bytes4], ipc returns: [bytes4]
     public void RefreshLibraryFolders();  // argc: 0, index: 80, ipc args: [], ipc returns: []
     public UInt32 GetNumAppsInFolder(LibraryFolder_t folder);  // argc: 1, index: 81, ipc args: [bytes4], ipc returns: [bytes4]
