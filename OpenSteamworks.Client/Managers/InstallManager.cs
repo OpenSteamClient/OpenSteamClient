@@ -1,5 +1,6 @@
 using System.Reflection;
 using System.Runtime.Versioning;
+using Microsoft.Win32;
 using OpenSteamworks.Client.Utils;
 using OpenSteamworks.Client.Utils.OSSpecific;
 using OpenSteamworks.Utils;
@@ -12,7 +13,12 @@ public class InstallManager
     /// The path where OpenSteamClient is installed.
     /// </summary>
     public string InstallDir { get; private set; }
-    
+
+    /// <summary>
+    /// The path where ValveSteam is installed. Null if we didn't detect an install
+    /// </summary>
+    public string? ValveSteamInstallDir { get; private set; }
+
     /// <summary>
     /// The directory where all machine-local config files are kept.
     /// </summary>
@@ -59,7 +65,23 @@ public class InstallManager
         HomeDir = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
 
         if (OperatingSystem.IsLinux()) {
+            ValveSteamInstallDir = Path.Combine(localShare, "Steam");
+            if (!Directory.Exists(ValveSteamInstallDir) || !File.Exists(Path.Combine(ValveSteamInstallDir, "steam.sh"))) {
+                ValveSteamInstallDir = null;
+            }
+        } else if (OperatingSystem.IsWindows()) {
+            ValveSteamInstallDir = (string?)Registry.GetValue("HKEY_CURRENT_USER\\SOFTWARE\\Valve\\Steam", "SteamPath", null);
+            if (ValveSteamInstallDir != null && (!Directory.Exists(ValveSteamInstallDir) || !File.Exists(Path.Combine(ValveSteamInstallDir, "steam.exe")))) {
+                ValveSteamInstallDir = null;
+            }
+        } else {
+            //TODO: macos support (can we even access other app's data on MacOS?)
+            ValveSteamInstallDir = null;
+        }
+
+        if (OperatingSystem.IsLinux()) {
             DatalinkDir = Path.Combine(HomeDir, ".steam");
+
             CacheDir = LinuxSpecifics.GetXDGSpecPath("XDG_CACHE_HOME", ".cache", "OpenSteam");
             LogsDir = LinuxSpecifics.GetXDGSpecPath("XDG_STATE_HOME", ".local/state", "OpenSteam/logs");
             ConfigDir = LinuxSpecifics.GetXDGSpecPath("XDG_CONFIG_HOME", ".config", "OpenSteam/config");

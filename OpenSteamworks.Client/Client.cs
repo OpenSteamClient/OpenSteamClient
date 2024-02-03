@@ -113,5 +113,6 @@ public class Client : IClientLifetime
         container.ConstructAndRegister<SteamHTML>();
         container.ConstructAndRegister<SteamService>();
         container.ConstructAndRegister<FriendsManager>();
+        container.ConstructAndRegister<ShaderManager>();
     }
 }

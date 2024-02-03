@@ -51,6 +51,5 @@ public unsafe interface IClientShader
     public unknown_ret CompileShaders();  // argc: 4, index: 22, ipc args: [bytes4, bytes4, string, string], ipc returns: [bytes8]
     // WARNING: Arguments are unknown!
     public unknown_ret GetShaderBucketForGraphicsAPI();  // argc: 2, index: 23, ipc args: [bytes4, bytes4], ipc returns: [bytes8]
-    // WARNING: Arguments are unknown!
-    public unknown_ret EnableShaderManagementSystem();  // argc: 1, index: 24, ipc args: [bytes1], ipc returns: []
+    public void EnableShaderManagementSystem(bool enable);  // argc: 1, index: 24, ipc args: [bytes1], ipc returns: []
 }

@@ -49,16 +49,17 @@ public class AppsManager : ILogonLifetime
     private readonly ClientMessaging clientMessaging;
     private readonly Logger logger;
     private readonly InstallManager installManager;
-    private readonly LoginManager loginManager;
-    private readonly CompatManager compatManager;
+    private readonly Container container;
+    private CompatManager compatManager => container.Get<CompatManager>();
 
     public readonly ClientApps ClientApps;
 
     public EventHandler<AppPlaytimeChangedEventArgs>? AppPlaytimeChanged;
     public EventHandler<AppLastPlayedChangedEventArgs>? AppLastPlayedChanged;
 
-    // These apps cause issues. They have no appinfo sections, so they're blacklisted. Apps that fail to initialize during startup are also added to this list.
+    // These apps cause issues. They have no appinfo sections, so they're blacklisted. Apps that fail to initialize during startup are also automatically added to this list.
     private static readonly HashSet<AppId_t> appsFilter = new() { 5, 7, 753, 3482, 346790, 375350, 470950, 472500, 483470, 503590, 561370, 957691, 957692, 972340, 977941, 1275680, 1331320, 2130210, 2596140 };
+
     /// <summary>
     /// Gets ALL owned AppIDs of the current user. Includes all configs. Will probably show 1000+ apps.
     /// </summary>
@@ -127,11 +128,10 @@ public class AppsManager : ILogonLifetime
         }
     }
 
-    public AppsManager(ISteamClient steamClient, CompatManager compatManager, ClientApps clientApps, ClientMessaging clientMessaging, InstallManager installManager, LoginManager loginManager) {
+    public AppsManager(ISteamClient steamClient, Container container, ClientApps clientApps, ClientMessaging clientMessaging, InstallManager installManager) {
         this.logger = Logger.GetLogger("AppsManager", installManager.GetLogPath("AppsManager"));
-        this.compatManager = compatManager;
+        this.container = container;
         this.ClientApps = clientApps;
-        this.loginManager = loginManager;
         this.steamClient = steamClient;
         this.clientMessaging = clientMessaging;
         this.installManager = installManager;

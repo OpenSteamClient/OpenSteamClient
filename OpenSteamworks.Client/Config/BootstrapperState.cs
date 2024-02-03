@@ -32,4 +32,7 @@ public class BootstrapperState : IConfigFile
 
     [ConfigNeverVisible]
     public bool LinuxPermissionsSet { get; set; } = false;
+
+    [ConfigNeverVisible]
+    public bool LastConfigLinkSuccess { get; set; } = false;
 }

@@ -5,15 +5,18 @@ using OpenSteamworks.Client.Utils;
 using OpenSteamworks.Client.Utils.DI;
 using OpenSteamworks.Enums;
 using OpenSteamworks.Generated;
+using OpenSteamworks.Structs;
 using OpenSteamworks.Utils;
 
 namespace OpenSteamworks.Client.Apps.Compat;
 
 public class CompatManager : ILogonLifetime {
+    private readonly ISteamClient steamClient;
     private readonly IClientCompat clientCompat;
     private readonly Dictionary<string, ERemoteStoragePlatform> compatToolPlatforms = new();
     private readonly Dictionary<string, string> compatToolFriendlyNames = new();
     private readonly Logger logger;
+    private readonly AppsManager appsManager;
 
     public IEnumerable<string> AllCompatTools => compatToolPlatforms.Keys;
     public IEnumerable<KeyValuePair<string, ERemoteStoragePlatform>> CompatToolPlatforms => compatToolPlatforms;
@@ -23,9 +26,11 @@ public class CompatManager : ILogonLifetime {
         set => clientCompat.EnableCompat(value);
     }
 
-    public CompatManager(IClientCompat clientCompat, InstallManager installManager, CallbackManager callbackManager) {
+    public CompatManager(ISteamClient steamClient, AppsManager appsManager, InstallManager installManager, CallbackManager callbackManager) {
+        this.appsManager = appsManager;
+        this.steamClient = steamClient;
         this.logger = Logger.GetLogger("CompatManager", installManager.GetLogPath("CompatManager"));
-        this.clientCompat = clientCompat;
+        this.clientCompat = steamClient.IClientCompat;
         RefreshCompatTools();
     }
 
@@ -52,6 +57,25 @@ public class CompatManager : ILogonLifetime {
     }
 
     private unsafe void RefreshCompatToolsForPlatform(ERemoteStoragePlatform platform) {
+        if (steamClient.ConnectedWith == ConnectionType.ExistingClient) {
+            //TODO: look at ValveSteam's non-steam compat tools in this case
+            logger.Warning("Connected to existing client, returning placeholder RefreshCompatToolsForPlatform");
+            if (platform == ERemoteStoragePlatform.PlatformWindows) {
+                // Feel free to open PRs if you want other compat tools in this list
+                foreach (var item in new string[] { "proton_experimental" })
+                {
+                    compatToolPlatforms[item] = platform;
+                }
+            } else if (platform == ERemoteStoragePlatform.PlatformWindows) {
+                foreach (var item in new string[] { "steamlinuxruntime", "steamlinuxruntime_sniper", "steamlinuxruntime_scout" })
+                {
+                    compatToolPlatforms[item] = platform;
+                }
+            }
+            
+            return;
+        }
+        
         CUtlStringList compatToolsTarget = new(4096);
         clientCompat.GetAvailableCompatToolsFiltered(&compatToolsTarget, platform);
         foreach (var item in compatToolsTarget.ToManagedAndFree())
@@ -78,9 +102,32 @@ public class CompatManager : ILogonLifetime {
         return GetCompatToolForApp(0);
     }
 
-    public unsafe IEnumerable<string> GetCompatToolsForApp(AppId_t appid) {
+    public unsafe IEnumerable<string> GetCompatToolsForApp(CGameID gameid) {
+        if (steamClient.ConnectedWith == ConnectionType.ExistingClient) {
+            logger.Warning("Connected to existing client, returning self calculated GetCompatToolsForApp");
+            var list = new List<string>();
+            var app = appsManager.GetApp(gameid);
+            if (app is SteamApp sapp) {
+                if (sapp.Common.OSList.Contains("windows")) {
+                    list.AddRange(compatToolPlatforms.Where(p => p.Value == ERemoteStoragePlatform.PlatformWindows).Select(p => p.Key));
+                }
+
+                if (sapp.Common.OSList.Contains("macos")) {
+                    list.AddRange(compatToolPlatforms.Where(p => p.Value == ERemoteStoragePlatform.PlatformOSX).Select(p => p.Key));
+                }
+
+                if (sapp.Common.OSList.Contains("linux")) {
+                    list.AddRange(compatToolPlatforms.Where(p => p.Value == ERemoteStoragePlatform.PlatformLinux).Select(p => p.Key));
+                }
+            } else {
+                logger.Warning("Unsupported app type for app " + gameid);
+            } 
+
+            return list.AsEnumerable();
+        }
+
         CUtlStringList compatToolsForApp = new(4096);
-        clientCompat.GetAvailableCompatToolsForApp(&compatToolsForApp, appid);
+        clientCompat.GetAvailableCompatToolsForApp(&compatToolsForApp, gameid.AppID);
         return compatToolsForApp.ToManagedAndFree();
     }
 

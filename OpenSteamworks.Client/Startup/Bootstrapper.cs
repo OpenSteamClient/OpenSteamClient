@@ -1,6 +1,5 @@
 using System;
 using System.IO;
-using static System.Environment;
 using System.IO.Compression;
 using System.Reflection;
 using Microsoft.Extensions.FileProviders;
@@ -109,6 +108,45 @@ public class Bootstrapper : IClientLifetime {
         this.configManager = configManager;
     }
 
+    /// <summary>
+    /// Restarts OpenSteamClient immediately, without running any handlers (except waiting for debugger detach)
+    /// </summary>
+    public async Task Restart() {
+        bool hadDebugger = false;
+
+        // Can't forcibly detach the debugger, which is needed since:
+        // - execvp breaks debugger, but is supposedly not a problem
+        // - child processes also can't be debugged, which is also apparently not a problem
+        // So that leaves us no way to "transfer" the debugger from the old process to the new one, unlike with the old C++ solution where gdb just does it when execvp:ing
+        if (Debugger.IsAttached) {
+            hadDebugger = true;
+            progressHandler?.SetOperation("Please detach your debugger. ");
+            progressHandler?.SetSubOperation("You should re-attach once the process has restarted.");
+            Debugger.Log(5, "DetachDebugger", "Please detach your debugger. You should re-attach once the process has restarted.");
+            await Task.Run(() =>
+            {
+                while (Debugger.IsAttached)
+                {
+                    Thread.Sleep(500);
+                }
+            });
+        }
+
+        if (OperatingSystem.IsLinux()) {
+            this.ReExecWithEnvs(hadDebugger);
+        } else if (OperatingSystem.IsWindows()) {
+            // Poor hack, windows sucks.
+            // - Will have 2 processes running simultaneously (lots of problems)
+            // - exit is still semi graceful
+            // - we made it wait 1 second so that this process can exit properly
+            // - doesn't keep same terminal handle
+            // - will probably break the debugger as well
+            UtilityFunctions.SetEnvironmentVariable("OPENSTEAM_RESTART_WAIT", "1");
+            Process.Start(UtilityFunctions.AssertNotNull(Environment.ProcessPath), Environment.GetCommandLineArgs());
+            Environment.Exit(0);
+        }
+    }
+
     private async Task RunBootstrap() {
         if (progressHandler == null) {
             progressHandler = new ExtendedProgress<int>(0, 100);
@@ -145,6 +183,11 @@ public class Bootstrapper : IClientLifetime {
         Directory.SetCurrentDirectory(installManager.InstallDir);
 
         Directory.CreateDirectory(PackageDir);
+
+        // Windows only hack.
+        if (UtilityFunctions.GetEnvironmentVariable("OPENSTEAM_RESTART_WAIT") == "1") {
+            Thread.Sleep(1000);
+        }
 
         // Skip verification and package processing if user requests it
         if (!bootstrapperState.SkipVerification) {
@@ -258,11 +301,51 @@ public class Bootstrapper : IClientLifetime {
                 throw new Exception("file not found");
             }
         }
+
+        // Link existing ValveSteam data if we can link over
+        //TODO: settings to determine when to do this
+        if (installManager.ValveSteamInstallDir != null) {
+            var valveSteamPath = Path.Combine(installManager.ValveSteamInstallDir, "config", "libraryfolders.vdf");
+            var openSteamPath = Path.Combine(installManager.ConfigDir, "libraryfolders.vdf");
+            var openSteamBackupPath = Path.Combine(installManager.ConfigDir, "libraryfolders_backup.vdf");
+            var openSteamFileInfo = new FileInfo(openSteamPath);
+            bool shouldCopy = openSteamFileInfo.LinkTarget != null || !openSteamFileInfo.Exists;
+            if (File.Exists(valveSteamPath)) {
+                // Always copy and overwrite libraryfolders_backup.vdf
+                File.Copy(valveSteamPath, openSteamBackupPath, true);
+
+                if (shouldCopy) {
+                    File.Delete(openSteamPath);
+                    File.CreateSymbolicLink(openSteamPath, valveSteamPath);
+                }
+               
+                bootstrapperState.LastConfigLinkSuccess = true;
+            } else if (!File.Exists(valveSteamPath) && bootstrapperState.LastConfigLinkSuccess) {
+                // ValveSteam was deleted, copy our last backup if it exists
+                if (File.Exists(openSteamBackupPath))
+                {
+                    if (shouldCopy) {
+                        File.Copy(openSteamBackupPath, openSteamPath, true);
+                    } else {
+                        logger.Warning("Not overwriting libraryfolders.vdf with backup, as libraryfolders.vdf is file and not link");
+                    }
+                }
+                else
+                {
+                    logger.Warning("LastConfigLinkSuccess is true but libraryfolders_backup doesn't exist???");
+                }
+
+                // Mark last link as unsuccessful
+                bootstrapperState.LastConfigLinkSuccess = false;
+            } else {
+                logger.Info("Not copying libraryfolders.vdf from ValveSteam, as ValveSteam is not installed");
+            }
+        }
     }
 
     private async Task FinishBootstrap(IExtendedProgress<int> progressHandler) {
         // Currently only linux needs a restart (for LD_PRELOAD and LD_LIBRARY_PATH)
-        var hasReran = GetEnvironmentVariable("OPENSTEAM_RAN_EXECVP") == "1";
+        var hasReran = UtilityFunctions.GetEnvironmentVariable("OPENSTEAM_RAN_EXECVP") == "1";
         restartRequired = OperatingSystem.IsLinux() && !hasReran;
         
         SetEnvsForSteamLoad();
@@ -272,31 +355,10 @@ public class Bootstrapper : IClientLifetime {
     }
 
     private async Task RestartIfNeeded(IExtendedProgress<int> progressHandler) {
-        bool hadDebugger = false;
-        bool debuggerShouldReattach = GetEnvironmentVariable("OPENSTEAM_REATTACH_DEBUGGER") == "1";
+        bool debuggerShouldReattach = UtilityFunctions.GetEnvironmentVariable("OPENSTEAM_REATTACH_DEBUGGER") == "1";
 
         if (restartRequired) {
-            // Can't forcibly detach the debugger, which is needed since:
-            // - execvp breaks debugger, but is supposedly not a problem
-            // - child processes also can't be debugged, which is also apparently not a problem
-            // So that leaves us no way to "transfer" the debugger from the old process to the new one, unlike with the old C++ solution where gdb just does it when execvp:ing
-            if (Debugger.IsAttached) {
-                hadDebugger = true;
-                progressHandler.SetOperation("Please detach your debugger. ");
-                progressHandler.SetSubOperation("You should re-attach once the process has restarted.");
-                Debugger.Log(5, "DetachDebugger", "Please detach your debugger. You should re-attach once the process has restarted.");
-                await Task.Run(() =>
-                {
-                    while (Debugger.IsAttached)
-                    {
-                        System.Threading.Thread.Sleep(500);
-                    }
-                });
-            }
-
-            if (OperatingSystem.IsLinux()) {
-                this.ReExecWithEnvs(hadDebugger);
-            }
+            await Restart();
         } else {
             // Can't forcibly attach the debugger either
             if (debuggerShouldReattach) {
@@ -341,7 +403,7 @@ public class Bootstrapper : IClientLifetime {
             UtilityFunctions.SetEnvironmentVariable("OPENSTEAM_REATTACH_DEBUGGER", "1");
         }
         UtilityFunctions.SetEnvironmentVariable("OPENSTEAM_RAN_EXECVP", "1");
-        UtilityFunctions.SetEnvironmentVariable("LD_LIBRARY_PATH", $"{Path.Combine(installManager.InstallDir, "ubuntu12_64")}:{Path.Combine(installManager.InstallDir, "ubuntu12_32")}:{Path.Combine(installManager.InstallDir)}:{GetEnvironmentVariable("LD_LIBRARY_PATH")}");
+        UtilityFunctions.SetEnvironmentVariable("LD_LIBRARY_PATH", $"{Path.Combine(installManager.InstallDir, "ubuntu12_64")}:{Path.Combine(installManager.InstallDir, "ubuntu12_32")}:{Path.Combine(installManager.InstallDir)}:{UtilityFunctions.GetEnvironmentVariable("LD_LIBRARY_PATH")}");
 
         string?[] fullArgs = Environment.GetCommandLineArgs();
 
