@@ -196,11 +196,11 @@ public unsafe interface IClientUtils
     // WARNING: Arguments are unknown!
     public void RecordFakeReactRouteMetric(string unk);  // argc: 1, index: 107, ipc args: [string], ipc returns: []
     // WARNING: Arguments are unknown!
-    public ulong SteamRuntimeSystemInfo([IPCOut] CUtlBuffer* data);  // argc: 1, index: 108, ipc args: [], ipc returns: [bytes8, utlbuffer]
+    public ulong SteamRuntimeSystemInfo(CUtlBuffer* data);  // argc: 1, index: 108, ipc args: [], ipc returns: [bytes8, utlbuffer]
     // WARNING: Arguments are unknown!
     public void DumpHTTPClients(uint unk);  // argc: 1, index: 109, ipc args: [bytes4], ipc returns: []
     // WARNING: Arguments are unknown!
-    public bool BGetMachineID([IPCOut] CUtlBuffer* data);  // argc: 1, index: 110, ipc args: [], ipc returns: [boolean, utlbuffer]
+    public bool BGetMachineID(CUtlBuffer* data);  // argc: 1, index: 110, ipc args: [], ipc returns: [boolean, utlbuffer]
     public void NotifyMissingInterface(string interfaceName);  // argc: 1, index: 111, ipc args: [string], ipc returns: []
     public bool IsSteamInTournamentMode();  // argc: 0, index: 112, ipc args: [], ipc returns: [boolean]
 }

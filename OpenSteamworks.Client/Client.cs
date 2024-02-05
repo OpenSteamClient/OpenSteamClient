@@ -14,6 +14,7 @@ using OpenSteamworks.Client.Apps.Library;
 using System.Net;
 using OpenSteamworks.Client.Friends;
 using OpenSteamworks.Client.Apps.Compat;
+using OpenSteamworks.Downloads;
 
 namespace OpenSteamworks.Client;
 
@@ -78,6 +79,8 @@ public class Client : IClientLifetime
         container.RegisterFactoryMethod<ClientApps>((ISteamClient client) => client.ClientApps);
         container.RegisterFactoryMethod<ClientConfigStore>((ISteamClient client) => client.ClientConfigStore);
         container.RegisterFactoryMethod<ClientMessaging>((ISteamClient client) => client.ClientMessaging);
+        container.RegisterFactoryMethod<ClientRemoteStorage>((ISteamClient client) => client.ClientRemoteStorage);
+        container.RegisterFactoryMethod<DownloadManager>((ISteamClient client) => client.DownloadManager);
         container.RegisterFactoryMethod<IClientAppDisableUpdate>((ISteamClient client) => client.IClientAppDisableUpdate);
         container.RegisterFactoryMethod<IClientAppManager>((ISteamClient client) => client.IClientAppManager);
         container.RegisterFactoryMethod<IClientApps>((ISteamClient client) => client.IClientApps);

@@ -24,30 +24,38 @@ public unsafe interface IClientAppManager
     public EAppState GetAppInstallState(AppId_t appid);  // argc: 1, index: 5, ipc args: [bytes4], ipc returns: [bytes4]
     public int GetAppInstallDir(AppId_t appid, StringBuilder path, int pathMax);  // argc: 3, index: 6, ipc args: [bytes4, bytes4], ipc returns: [bytes4, bytes_length_from_reg]
     // WARNING: Arguments are unknown!
-    public unknown_retu GetAppContentInfo(AppId_t appid, bool bUnk, out uint unkOut, out uint unkOut2, out ulong unkOut3, out ulong unkOut4);  // argc: 6, index: 7, ipc args: [bytes4, bytes1], ipc returns: [bytes4, bytes4, bytes4, bytes8, bytes8]
+    public unknown_ret GetAppContentInfo(AppId_t appid, bool bUnk, out uint installedBuildID, out RTime32 installedBuildTimestamp, out ulong installedSize, out ulong installedDLCSize);  // argc: 6, index: 7, ipc args: [bytes4, bytes1], ipc returns: [bytes4, bytes4, bytes4, bytes8, bytes8]
     // WARNING: Arguments are unknown!
     public bool GetAppStagingInfo(AppId_t appid, out uint unkOut, out ulong unkOut2);  // argc: 3, index: 8, ipc args: [bytes4], ipc returns: [bytes1, bytes4, bytes8]
     public bool IsAppDlcInstalled(AppId_t appid, AppId_t dlcid);  // argc: 2, index: 9, ipc args: [bytes4, bytes4], ipc returns: [boolean]
-    // WARNING: Arguments are unknown!
-    public bool GetDlcDownloadProgress(AppId_t appid, ref UInt64 downloaded, ref UInt64 toDownload);  // argc: 4, index: 10, ipc args: [bytes4, bytes4], ipc returns: [bytes1, bytes8, bytes8]
+    public bool GetDlcDownloadProgress(AppId_t appid, AppId_t dlcid, out UInt64 downloaded, out UInt64 toDownload);  // argc: 4, index: 10, ipc args: [bytes4, bytes4], ipc returns: [bytes1, bytes8, bytes8]
     public bool BIsDlcEnabled(AppId_t appid, AppId_t dlcid, out bool appManagesDLC);  // argc: 3, index: 11, ipc args: [bytes4, bytes4], ipc returns: [boolean, boolean]
     public void SetDlcEnabled(AppId_t appid, AppId_t dlcid, bool enable);  // argc: 3, index: 12, ipc args: [bytes4, bytes4, bytes1], ipc returns: []
     public bool SetDlcContext(AppId_t appid, AppId_t dlcid);  // argc: 2, index: 13, ipc args: [bytes4, bytes4], ipc returns: [bytes1]
     // WARNING: Arguments are unknown!
-    public unknown_ret GetDlcSizes(AppId_t appid, [IPCOut] uint[] dlcs, int dlccount, [IPCOut] long[] sizes);  // argc: 4, index: 14, ipc args: [bytes4, bytes4, bytes_length_from_reg], ipc returns: [bytes1, bytes_length_from_reg]
+    public bool GetDlcSizes(AppId_t appid, uint[] dlcs, int dlccount, long[] sizes);  // argc: 4, index: 14, ipc args: [bytes4, bytes4, bytes_length_from_reg], ipc returns: [bytes1, bytes_length_from_reg]
     public uint GetNumInstalledApps();  // argc: 0, index: 15, ipc args: [], ipc returns: [bytes4]
-    public unknown_ret GetInstalledApps([IPCOut] uint[] appids, uint arrayLength);  // argc: 2, index: 16, ipc args: [bytes4], ipc returns: [bytes4, bytes_length_from_reg]
+    public uint GetInstalledApps(uint[] appids, uint arrayLength);  // argc: 2, index: 16, ipc args: [bytes4], ipc returns: [bytes4, bytes_length_from_reg]
     public bool BIsWaitingForInstalledApps();  // argc: 0, index: 17, ipc args: [], ipc returns: [boolean]
-    public unknown_ret GetAppDependencies(AppId_t appid, [IPCOut] uint[] dependencies, int dependenciesMax);  // argc: 3, index: 18, ipc args: [bytes4, bytes4], ipc returns: [bytes4, bytes_length_from_reg]
-    public unknown_ret GetDependentApps(AppId_t app, [IPCOut] uint[] dependantApps, int dependantAppsMax);  // argc: 3, index: 19, ipc args: [bytes4, bytes4], ipc returns: [bytes4, bytes_length_from_reg]
+    public unknown_ret GetAppDependencies(AppId_t appid, uint[] dependencies, int dependenciesMax);  // argc: 3, index: 18, ipc args: [bytes4, bytes4], ipc returns: [bytes4, bytes_length_from_reg]
+    public unknown_ret GetDependentApps(AppId_t app, uint[] dependantApps, int dependantAppsMax);  // argc: 3, index: 19, ipc args: [bytes4, bytes4], ipc returns: [bytes4, bytes_length_from_reg]
     public bool GetUpdateInfo(AppId_t app, out AppUpdateInfo_s updateInfo);  // argc: 2, index: 20, ipc args: [bytes4], ipc returns: [bytes1, bytes120]
     public bool BIsAppUpToDate(AppId_t app);  // argc: 1, index: 21, ipc args: [bytes4], ipc returns: [boolean]
+    /// <summary>
+    /// Gets all the available languages for the app.
+    /// </summary>
+    /// <param name="langOut">Comma separated list of supported languages</param>
+    /// <returns>How much data was returned. Trimmed if buffer is too small.</returns>
     // WARNING: Arguments are unknown!
     public int GetAvailableLanguages(AppId_t appid, bool unk, StringBuilder langOut, int maxLangOut);  // argc: 4, index: 22, ipc args: [bytes4, bytes1, bytes4], ipc returns: [bytes4, bytes_length_from_reg]
+    /// <summary>
+    /// Gets the current language of the app.
+    /// </summary>
+    /// <returns>How much data was returned. Trimmed if buffer is too small.</returns>
     public int GetCurrentLanguage(AppId_t app, StringBuilder langOut, int maxLangOut);  // argc: 3, index: 23, ipc args: [bytes4, bytes4], ipc returns: [bytes4, bytes_length_from_reg]
     public ELanguage GetCurrentLanguage(AppId_t app);  // argc: 1, index: 24, ipc args: [bytes4], ipc returns: [bytes4]
     // WARNING: Arguments are unknown!
-    public unknown_ret GetFallbackLanguage(AppId_t appid, string language);  // argc: 2, index: 25, ipc args: [bytes4, bytes4], ipc returns: [bytes4]
+    public ELanguage GetFallbackLanguage(AppId_t appid, ELanguage fallback);  // argc: 2, index: 25, ipc args: [bytes4, bytes4], ipc returns: [bytes4]
     public unknown_ret SetCurrentLanguage(AppId_t app, ELanguage language);  // argc: 2, index: 26, ipc args: [bytes4, bytes4], ipc returns: [bytes4]
     public bool StartValidatingApp(AppId_t app);  // argc: 1, index: 27, ipc args: [bytes4], ipc returns: [bytes1]
     public bool CancelValidation(AppId_t app);  // argc: 1, index: 28, ipc args: [bytes4], ipc returns: [bytes1]
@@ -56,10 +64,17 @@ public unsafe interface IClientAppManager
     /// </summary>
     /// <param name="corrupt">True for corrupted, false for missing files</param>
     public bool MarkContentCorrupt(AppId_t app, bool corrupt);  // argc: 2, index: 29, ipc args: [bytes4, bytes1], ipc returns: [bytes1]
-    public uint GetInstalledDepots(AppId_t appid, DepotId_t* depots, uint depotsLen);  // argc: 3, index: 30, ipc args: [bytes4, bytes4], ipc returns: [bytes4, bytes_length_from_reg]
+    public uint GetInstalledDepots(AppId_t appid, uint[] depots, uint depotsLen);  // argc: 3, index: 30, ipc args: [bytes4, bytes4], ipc returns: [bytes4, bytes_length_from_reg]
     public SteamAPICall_t GetFileDetails(AppId_t appid, string file);  // argc: 2, index: 31, ipc args: [bytes4, string], ipc returns: [bytes8]
     public SteamAPICall_t VerifySignedFiles(AppId_t appid);  // argc: 1, index: 32, ipc args: [bytes4], ipc returns: [bytes8]
-    // WARNING: Arguments are unknown!
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="unk"></param>
+    /// <param name="unk3"></param>
+    /// <param name="length"></param>
+    /// <param name="unk2"></param>
+    /// <returns>The number of betas available</returns>
     public int GetAvailableBetas(AppId_t appid, out uint unk, StringBuilder unk3, int length, out uint unk2);  // argc: 5, index: 33, ipc args: [bytes4, bytes4], ipc returns: [bytes4, bytes4, bytes_length_from_mem, bytes4]
     public bool CheckBetaPassword(AppId_t appid, string betaPassword);  // argc: 2, index: 34, ipc args: [bytes4, string], ipc returns: [bytes1]
     public bool SetActiveBeta(AppId_t appid, string beta);  // argc: 2, index: 35, ipc args: [bytes4, string], ipc returns: [bytes1]
@@ -93,8 +108,11 @@ public unsafe interface IClientAppManager
     /// </summary>
     // WARNING: Arguments are unknown!
     public EAppUpdateError BuildBackup(AppId_t unAppID, UInt64 ullMaxFileSize, string cszBackupPath);  // argc: 4, index: 59, ipc args: [bytes4, bytes8, string], ipc returns: [bytes4]
+    /// <summary>
+    /// This function is meant for people publishing their Steam games as CD installers.
+    /// </summary> 
     // WARNING: Arguments are unknown!
-    public unknown_ret BuildInstaller(string projectFile, string backupPath, string unk, string unk2);  // argc: 4, index: 60, ipc args: [string, string, string, string], ipc returns: [bytes4]
+    public EAppUpdateError BuildInstaller(string projectFile, string backupPath, string unk, string unk2);  // argc: 4, index: 60, ipc args: [string, string, string, string], ipc returns: [bytes4]
     public bool CancelBackup();  // argc: 0, index: 61, ipc args: [], ipc returns: [bytes1]
     public EAppUpdateError RestoreAppFromBackup(AppId_t appid, string pathToBackup);  // argc: 2, index: 62, ipc args: [bytes4, string], ipc returns: [bytes4]
     public EAppUpdateError RecoverAppFromFolder(AppId_t appid, string folder);  // argc: 2, index: 63, ipc args: [bytes4, string], ipc returns: [bytes4]
@@ -173,6 +191,6 @@ public unsafe interface IClientAppManager
     // WARNING: Arguments are unknown!
     public string GetPeerContentServerForApp(AppId_t appid, out bool unk1, out bool unk2);  // argc: 3, index: 104, ipc args: [bytes4], ipc returns: [string, bytes1, bytes1]
     public void NotifyDriveAdded(string drivePath);  // argc: 1, index: 105, ipc args: [string], ipc returns: []
-    public void NotifyDriveRemoved(string path);  // argc: 1, index: 106, ipc args: [string], ipc returns: []
+    public void NotifyDriveRemoved(string drivePath);  // argc: 1, index: 106, ipc args: [string], ipc returns: []
     public void SetAudioDownloadQuality(bool bHighQuality);  // argc: 1, index: 107, ipc args: [bytes1], ipc returns: []
 }

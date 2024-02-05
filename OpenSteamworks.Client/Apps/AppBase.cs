@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Security.Cryptography;
+using OpenSteamworks.ClientInterfaces;
 using OpenSteamworks.Enums;
 using OpenSteamworks.Structs;
 
@@ -98,6 +99,7 @@ public abstract class AppBase
     internal bool NeedsLibraryAssetUpdate { get; private set; }
     public abstract ILibraryAssetAlignment? LibraryAssetAlignment { get; }
     protected static AppsManager AppsManager => Client.Instance!.Container.Get<AppsManager>();
+    protected static ClientRemoteStorage ClientRemoteStorage => Client.Instance!.Container.Get<ClientRemoteStorage>();
 
     internal void SetLibraryAssetPaths(string? iconPath, string? logoPath, string? heroPath, string? portraitPath) {
         NeedsLibraryAssetUpdate = (string.IsNullOrEmpty(iconPath) && string.IsNullOrEmpty(this.LocalIconPath)) || (string.IsNullOrEmpty(logoPath) && string.IsNullOrEmpty(this.LocalLogoPath)) || (string.IsNullOrEmpty(heroPath) && string.IsNullOrEmpty(this.LocalHeroPath)) || (string.IsNullOrEmpty(portraitPath) && string.IsNullOrEmpty(this.LocalPortraitPath));

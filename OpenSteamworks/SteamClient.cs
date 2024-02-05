@@ -13,6 +13,7 @@ using OpenSteamworks.Native.JIT;
 using OpenSteamworks.Native.Platform;
 using OpenSteamworks.Utils;
 using OpenSteamworks.Structs;
+using OpenSteamworks.Downloads;
 
 namespace OpenSteamworks;
 public class SteamClient : ISteamClient
@@ -44,6 +45,8 @@ public class SteamClient : ISteamClient
     public ClientApps ClientApps { get; private set; }
     public ClientConfigStore ClientConfigStore { get; private set; }
     public ClientMessaging ClientMessaging { get; private set; }
+    public ClientRemoteStorage ClientRemoteStorage { get; private set; }
+    public DownloadManager DownloadManager { get; private set; }
     public CallbackManager CallbackManager { get; private set; }
 
     private ClientNative NativeClient;
@@ -185,6 +188,8 @@ public class SteamClient : ISteamClient
         this.ClientApps = new ClientApps(this);
         this.ClientConfigStore = new ClientConfigStore(this);
         this.ClientMessaging = new ClientMessaging(this);
+        this.ClientRemoteStorage = new ClientRemoteStorage(this);
+        this.DownloadManager = new DownloadManager(this);
 
         // Before this, most important callbacks should be registered
         this.CallbackManager.StartThread();
@@ -221,6 +226,8 @@ public class SteamClient : ISteamClient
         // Shutdown ClientInterfaces first
         this.ClientMessaging.Shutdown();
         this.ClientConfigStore.Shutdown();
+        this.ClientRemoteStorage.Shutdown();
+        this.DownloadManager.Shutdown();
 
         this.CallbackManager.RequestStopAndWaitForExit();
         this.NativeClient.native_Steam_ReleaseUser(this.NativeClient.Pipe, this.NativeClient.User);
@@ -297,4 +304,74 @@ public class SteamClient : ISteamClient
     {
         this.NativeClient.native_Steam_FreeLastCallback(this.NativeClient.Pipe);
     }
+
+    public static SteamClient GetInstance() {
+        if (SteamClient.instance == null) {
+            throw new NullReferenceException("SteamClient instance is null");
+        }
+
+        return instance;
+    }
+
+    public static ClientApps GetClientApps() => GetInstance().ClientApps;
+    public static ClientConfigStore GetClientConfigStore() => GetInstance().ClientConfigStore;
+    public static ClientMessaging GetClientMessaging() => GetInstance().ClientMessaging;
+    public static ClientRemoteStorage GetClientRemoteStorage() => GetInstance().ClientRemoteStorage;
+    public static DownloadManager GetDownloadManager() => GetInstance().DownloadManager;
+    public static CallbackManager GetCallbackManager() => GetInstance().CallbackManager;
+    
+    public static IClientAppDisableUpdate GetIClientAppDisableUpdate() => GetInstance().IClientAppDisableUpdate;
+    public static IClientAppManager GetIClientAppManager() => GetInstance().IClientAppManager;
+    public static IClientApps GetIClientApps() => GetInstance().IClientApps;
+    public static IClientAudio GetIClientAudio() => GetInstance().IClientAudio;
+    public static IClientBilling GetIClientBilling() => GetInstance().IClientBilling;
+    public static IClientBluetoothManager GetIClientBluetoothManager() => GetInstance().IClientBluetoothManager;
+    public static IClientCompat GetIClientCompat() => GetInstance().IClientCompat;
+    public static IClientConfigStore GetIClientConfigStore() => GetInstance().IClientConfigStore;
+    public static IClientController GetIClientController() => GetInstance().IClientController;
+    public static IClientControllerSerialized GetIClientControllerSerialized() => GetInstance().IClientControllerSerialized;
+    public static IClientDepotBuilder GetIClientDepotBuilder() => GetInstance().IClientDepotBuilder;
+    public static IClientDeviceAuth GetIClientDeviceAuth() => GetInstance().IClientDeviceAuth;
+    public static IClientFriends GetIClientFriends() => GetInstance().IClientFriends;
+    public static IClientGameCoordinator GetIClientGameCoordinator() => GetInstance().IClientGameCoordinator;
+    public static IClientGameNotifications GetIClientGameNotifications() => GetInstance().IClientGameNotifications;
+    public static IClientGameSearch GetIClientGameSearch() => GetInstance().IClientGameSearch;
+    public static IClientGameStats GetIClientGameStats() => GetInstance().IClientGameStats;
+    public static IClientHTMLSurface GetIClientHTMLSurface() => GetInstance().IClientHTMLSurface;
+    public static IClientHTTP GetIClientHTTP() => GetInstance().IClientHTTP;
+    public static IClientInventory GetIClientInventory() => GetInstance().IClientInventory;
+    public static IClientMatchmaking GetIClientMatchmaking() => GetInstance().IClientMatchmaking;
+    public static IClientMatchmakingServers GetIClientMatchmakingServers() => GetInstance().IClientMatchmakingServers;
+    public static IClientMusic GetIClientMusic() => GetInstance().IClientMusic;
+    public static IClientNetworkDeviceManager GetIClientNetworkDeviceManager() => GetInstance().IClientNetworkDeviceManager;
+    public static IClientNetworking GetIClientNetworking() => GetInstance().IClientNetworking;
+    public static IClientNetworkingSockets GetIClientNetworkingSockets() => GetInstance().IClientNetworkingSockets;
+    public static IClientNetworkingSocketsSerialized GetIClientNetworkingSocketsSerialized() => GetInstance().IClientNetworkingSocketsSerialized;
+    public static IClientNetworkingUtils GetIClientNetworkingUtils() => GetInstance().IClientNetworkingUtils;
+    public static IClientNetworkingUtilsSerialized GetIClientNetworkingUtilsSerialized() => GetInstance().IClientNetworkingUtilsSerialized;
+    public static IClientParentalSettings GetIClientParentalSettings() => GetInstance().IClientParentalSettings;
+    public static IClientParties GetIClientParties() => GetInstance().IClientParties;
+    public static IClientProductBuilder GetIClientProductBuilder() => GetInstance().IClientProductBuilder;
+    public static IClientRemoteClientManager GetIClientRemoteClientManager() => GetInstance().IClientRemoteClientManager;
+    public static IClientRemotePlay GetIClientRemotePlay() => GetInstance().IClientRemotePlay;
+    public static IClientRemoteStorage GetIClientRemoteStorage() => GetInstance().IClientRemoteStorage;
+    public static IClientScreenshots GetIClientScreenshots() => GetInstance().IClientScreenshots;
+    public static IClientShader GetIClientShader() => GetInstance().IClientShader;
+    public static IClientSharedConnection GetIClientSharedConnection() => GetInstance().IClientSharedConnection;
+    public static IClientShortcuts GetIClientShortcuts() => GetInstance().IClientShortcuts;
+    public static IClientSTARInternal GetIClientSTARInternal() => GetInstance().IClientSTARInternal;
+    public static IClientStreamClient GetIClientStreamClient() => GetInstance().IClientStreamClient;
+    public static IClientStreamLauncher GetIClientStreamLauncher() => GetInstance().IClientStreamLauncher;
+    public static IClientSystemAudioManager GetIClientSystemAudioManager() => GetInstance().IClientSystemAudioManager;
+    public static IClientSystemDisplayManager GetIClientSystemDisplayManager() => GetInstance().IClientSystemDisplayManager;
+    public static IClientSystemDockManager GetIClientSystemDockManager() => GetInstance().IClientSystemDockManager;
+    public static IClientSystemManager GetIClientSystemManager() => GetInstance().IClientSystemManager;
+    public static IClientSystemPerfManager GetIClientSystemPerfManager() => GetInstance().IClientSystemPerfManager;
+    public static IClientUGC GetIClientUGC() => GetInstance().IClientUGC;
+    public static IClientUnifiedMessages GetIClientUnifiedMessages() => GetInstance().IClientUnifiedMessages;
+    public static IClientUser GetIClientUser() => GetInstance().IClientUser;
+    public static IClientUserStats GetIClientUserStats() => GetInstance().IClientUserStats;
+    public static IClientUtils GetIClientUtils() => GetInstance().IClientUtils;
+    public static IClientVideo GetIClientVideo() => GetInstance().IClientVideo;
+    public static IClientVR GetIClientVR() => GetInstance().IClientVR;
 }

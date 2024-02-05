@@ -21,7 +21,7 @@ public unsafe interface IClientGameServerInternal
     // WARNING: Do not use this function! Unknown behaviour will occur!
     public unknown_ret Unknown_1_DONTUSE();  // argc: -1, index: 2, ipc args: [], ipc returns: []
     // WARNING: Arguments are unknown!
-    public unknown_ret SetSDRLogin([IPCIn] CUtlBuffer* buf);  // argc: 1, index: 3, ipc args: [unknown], ipc returns: []
+    public unknown_ret SetSDRLogin(CUtlBuffer* buf);  // argc: 1, index: 3, ipc args: [unknown], ipc returns: []
     // WARNING: Do not use this function! Unknown behaviour will occur!
     public unknown_ret Unknown_3_DONTUSE();  // argc: -1, index: 4, ipc args: [], ipc returns: []
     // WARNING: Arguments are unknown!

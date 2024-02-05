@@ -246,11 +246,11 @@ public partial class FocusedAppPaneViewModel : ViewModelBase
     }
 
 
-    private void Launch()
+    private async void Launch()
     {
         if (this.app.DefaultLaunchOptionID != null)
         {
-            this.app.Launch("", this.app.DefaultLaunchOptionID.Value);
+            await this.app.Launch("", this.app.DefaultLaunchOptionID.Value);
         }
     }
 }

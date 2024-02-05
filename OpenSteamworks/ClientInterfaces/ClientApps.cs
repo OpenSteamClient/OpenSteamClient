@@ -50,6 +50,12 @@ public class ClientApps {
         return this.NativeClientAppManager.BIsAppUpToDate(appid);
     }
 
+    public string GetAppName(AppId_t appid) {
+        return GetAppDataSection(appid, EAppInfoSection.Common).Name;
+    }
+
+    public EAppType GetAppType(AppId_t appid) => NativeClientApps.GetAppType(appid);
+
     public static string GetRootNameForAppInfoSection(EAppInfoSection section) {
         return section switch
         {
@@ -146,12 +152,20 @@ public class ClientApps {
     }
 
     public void QueueUpdate(AppId_t app) {
+        //TODO: find a way to update a single game at a time. Will probably need a DownloadQueueManager or something similar.
         this.NativeClientAppManager.ChangeAppDownloadQueuePlacement(app, EAppDownloadQueuePlacement.PriorityUserInitiated);
-        this.NativeClientAppManager.SetDownloadingEnabled(true);
     }
 
-    public async Task SyncCloud(AppId_t app) {
-        await Task.Run(() => NativeClientRemoteStorage.RunAutoCloudOnAppLaunch(app));
+    public void Update(AppId_t app) {
+        if (!IsAppInstalled(app)) {
+            throw new InvalidOperationException("Cannot update app that isn't installed");
+        }
+        
+        var libraryFolder = GetAppLibraryFolder(app);
+        var result = this.NativeClientAppManager.InstallApp(app, libraryFolder, true);
+        if (result != EAppUpdateError.NoError) {
+            throw new Exception("Update failed with result " + result);
+        }
     }
 
     public bool IsAppInstalled(AppId_t app) {

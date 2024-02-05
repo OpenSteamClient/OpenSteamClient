@@ -90,7 +90,7 @@ public class Library
         return all;
     }
 
-    private void UnionOrIntersect<T>(ref HashSet<T> set, HashSet<T> target, bool union) {
+    private static void UnionOrIntersect<T>(ref HashSet<T> set, HashSet<T> target, bool union) {
         if (union) {
             set.UnionWith(target);
         } else {
@@ -104,7 +104,8 @@ public class Library
         }
 
         HashSet<AppId_t> apps = new();
-        bool union = collection.StateFilter.FilterOptions.Count == 1;
+        bool hasStateFilters = collection.StateFilter.FilterOptions.Count > 0;
+        bool union = hasStateFilters;
         if (union) {
             logger.Info("Have filters " + string.Join(",", collection.StateFilter.FilterOptions));
         } else {

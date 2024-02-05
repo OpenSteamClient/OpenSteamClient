@@ -53,8 +53,8 @@ public unsafe interface IClientUser
     public unknown_ret SetConfigInt();  // argc: 3, index: 19, ipc args: [bytes4, string, bytes4], ipc returns: [bytes1]
     // WARNING: Arguments are unknown!
     public unknown_ret GetConfigInt();  // argc: 3, index: 20, ipc args: [bytes4, string], ipc returns: [bytes1, bytes4]
-    public unknown_ret SetConfigBinaryBlob(int eRegistrySubTree, string key, [IPCIn] CUtlBuffer* buf);  // argc: 3, index: 21, ipc args: [bytes4, string, unknown], ipc returns: [bytes1]
-    public unknown_ret GetConfigBinaryBlob(int eRegistrySubTree, string key, [IPCOut] CUtlBuffer* buf);  // argc: 3, index: 22, ipc args: [bytes4, string], ipc returns: [bytes1, utlbuffer]
+    public unknown_ret SetConfigBinaryBlob(int eRegistrySubTree, string key, CUtlBuffer* buf);  // argc: 3, index: 21, ipc args: [bytes4, string, unknown], ipc returns: [bytes1]
+    public unknown_ret GetConfigBinaryBlob(int eRegistrySubTree, string key, CUtlBuffer* buf);  // argc: 3, index: 22, ipc args: [bytes4, string], ipc returns: [bytes1, utlbuffer]
     // WARNING: Arguments are unknown!
     public unknown_ret DeleteConfigKey();  // argc: 2, index: 23, ipc args: [bytes4, string], ipc returns: [bytes1]
     public unknown_ret GetConfigStoreKeyName(int eRegistrySubTree, string pchKey, StringBuilder pchStoreName, Int32 cbStoreName);  // argc: 4, index: 24, ipc args: [bytes4, string, bytes4], ipc returns: [bytes1, bytes_length_from_mem]
@@ -180,7 +180,7 @@ public unsafe interface IClientUser
     public bool BIsAnyGameRunning();  // argc: 0, index: 93, ipc args: [], ipc returns: [boolean]
     public void GetSteamGuardDetails();  // argc: 0, index: 94, ipc args: [], ipc returns: []
     // WARNING: Arguments are unknown!
-    public uint GetSentryFileData([IPCOut] CUtlBuffer* data);  // argc: 1, index: 95, ipc args: [], ipc returns: [bytes4, bytes20]
+    public uint GetSentryFileData(CUtlBuffer* data);  // argc: 1, index: 95, ipc args: [], ipc returns: [bytes4, bytes20]
     public void GetTwoFactorDetails();  // argc: 0, index: 96, ipc args: [], ipc returns: []
     public bool BHasTwoFactor();  // argc: 0, index: 97, ipc args: [], ipc returns: [boolean]
     // WARNING: Arguments are unknown!
@@ -410,10 +410,10 @@ public unsafe interface IClientUser
     public SteamAPICall_t RequestParentalRecoveryEmail();  // argc: 0, index: 214, ipc args: [], ipc returns: []
     public bool BIsLockFromSiteLicense();  // argc: 0, index: 215, ipc args: [], ipc returns: [boolean]
     public unknown_ret EIsParentalPlaytimeBlocked();  // argc: 0, index: 216, ipc args: [], ipc returns: [bytes4]
-    public bool BGetSerializedParentalSettings([IPCOut] CUtlBuffer* serialized);  // argc: 1, index: 217, ipc args: [], ipc returns: [boolean, utlbuffer]
-    public bool BSetParentalSettings([IPCIn] CUtlBuffer* serialized);  // argc: 1, index: 218, ipc args: [unknown], ipc returns: [boolean]
+    public bool BGetSerializedParentalSettings(CUtlBuffer* serialized);  // argc: 1, index: 217, ipc args: [], ipc returns: [boolean, utlbuffer]
+    public bool BSetParentalSettings(CUtlBuffer* serialized);  // argc: 1, index: 218, ipc args: [unknown], ipc returns: [boolean]
     public bool BDisableParentalSettings();  // argc: 0, index: 219, ipc args: [], ipc returns: [boolean]
-    public bool BGetParentalWebToken([IPCOut] CUtlBuffer* unk1, [IPCOut] CUtlBuffer* unk2);  // argc: 2, index: 220, ipc args: [], ipc returns: [boolean, utlbuffer, utlbuffer]
+    public bool BGetParentalWebToken(CUtlBuffer* unk1, CUtlBuffer* unk2);  // argc: 2, index: 220, ipc args: [], ipc returns: [boolean, utlbuffer, utlbuffer]
     /// <summary>
     /// Only preference 0 seems to exist.
     /// </summary>

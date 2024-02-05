@@ -220,5 +220,5 @@ public unsafe interface IClientUGC
     [BlacklistedInCrossProcessIPC]
     public unknown_ret GetFullQueryUGCResponse();  // argc: 3, index: 102, ipc args: [bytes8, bytes4], ipc returns: [bytes4]
     // WARNING: Arguments are unknown!
-    public uint GetSerializedQueryUGCResponse(UInt64 unk, [IPCOut] CUtlBuffer* data);  // argc: 3, index: 103, ipc args: [bytes8], ipc returns: [bytes4, utlbuffer]
+    public uint GetSerializedQueryUGCResponse(UInt64 unk, CUtlBuffer* data);  // argc: 3, index: 103, ipc args: [bytes8], ipc returns: [bytes4, utlbuffer]
 }

@@ -7,6 +7,7 @@
 //=============================================================================
 
 using System;
+using System.Runtime.InteropServices;
 using OpenSteamworks.Attributes;
 using OpenSteamworks.Enums;
 using OpenSteamworks.Protobuf;
@@ -22,7 +23,7 @@ public unsafe interface IClientRemoteStorage
     // WARNING: Arguments are unknown!
     public int GetFileSize(AppId_t nAppId, ERemoteStorageFileRoot eRemoteStorageFileRoot, string file);  // argc: 3, index: 2, ipc args: [bytes4, bytes4, string], ipc returns: [bytes4]
     // WARNING: Arguments are unknown!
-    public SteamAPICall_t FileWriteAsync(AppId_t nAppId, ERemoteStorageFileRoot eRemoteStorageFileRoot, string path, [IPCIn] CUtlBuffer* data);  // argc: 4, index: 3, ipc args: [bytes4, bytes4, string, unknown], ipc returns: [bytes8]
+    public SteamAPICall_t FileWriteAsync(AppId_t nAppId, ERemoteStorageFileRoot eRemoteStorageFileRoot, string path, CUtlBuffer* data);  // argc: 4, index: 3, ipc args: [bytes4, bytes4, string, unknown], ipc returns: [bytes8]
     // WARNING: Arguments are unknown!
     public SteamAPICall_t FileReadAsync(AppId_t nAppId, ERemoteStorageFileRoot eRemoteStorageFileRoot, string file, UInt32 nOffset, UInt32 cubToRead);  // argc: 5, index: 4, ipc args: [bytes4, bytes4, string, bytes4, bytes4], ipc returns: [bytes8]
     // WARNING: Arguments are unknown!
@@ -151,26 +152,17 @@ public unsafe interface IClientRemoteStorage
     public unknown_ret ResolvePath();  // argc: 5, index: 68, ipc args: [bytes4, bytes4, string, bytes4], ipc returns: [bytes1, bytes_length_from_mem]
     // WARNING: Arguments are unknown!
     public unknown_ret FileTouch();  // argc: 4, index: 69, ipc args: [bytes4, bytes4, string, bytes1], ipc returns: [bytes4]
-    // WARNING: Arguments are unknown!
     public void SetCloudEnabledForAccount(bool val);  // argc: 1, index: 70, ipc args: [bytes1], ipc returns: []
-    // WARNING: Arguments are unknown!
     public void LoadLocalFileInfoCache(AppId_t nAppId);  // argc: 1, index: 71, ipc args: [bytes4], ipc returns: []
     // WARNING: Arguments are unknown!
     public void EvaluateRemoteStorageSyncState(AppId_t nAppId, bool unk);  // argc: 2, index: 72, ipc args: [bytes4, bytes1], ipc returns: []
-    // WARNING: Arguments are unknown!
-    public ESteamCloudSyncState GetLastKnownSyncState(AppId_t appid);  // argc: 1, index: 73, ipc args: [bytes4], ipc returns: [bytes4]
-    // WARNING: Arguments are unknown!
-    public ESteamCloudSyncState GetRemoteStorageSyncState(AppId_t appid);  // argc: 1, index: 74, ipc args: [bytes4], ipc returns: [bytes4]
-    // WARNING: Arguments are unknown!
+    public ERemoteStorageSyncState GetLastKnownSyncState(AppId_t appid);  // argc: 1, index: 73, ipc args: [bytes4], ipc returns: [bytes4]
+    public ERemoteStorageSyncState GetRemoteStorageSyncState(AppId_t appid);  // argc: 1, index: 74, ipc args: [bytes4], ipc returns: [bytes4]
     public bool HaveLatestFilesLocally(AppId_t appid);  // argc: 1, index: 75, ipc args: [bytes4], ipc returns: [bytes1]
-    // WARNING: Arguments are unknown!
-    public bool GetConflictingFileTimestamps(AppId_t nAppId, out RTime32 timestamp1, out RTime32 timestamp2);  // argc: 3, index: 76, ipc args: [bytes4], ipc returns: [bytes1, bytes4, bytes4]
-    // WARNING: Arguments are unknown!
-    public bool GetPendingRemoteOperationInfo(AppId_t nAppId, [ProtobufPtrType(typeof(CCloud_PendingRemoteOperation))] IntPtr protoptr);  // argc: 2, index: 77, ipc args: [bytes4], ipc returns: [bytes1, protobuf]
-    // WARNING: Arguments are unknown!
+    public bool GetConflictingFileTimestamps(AppId_t nAppId, out RTime32 localTimestamp, out RTime32 remoteTimestamp);  // argc: 3, index: 76, ipc args: [bytes4], ipc returns: [bytes1, bytes4, bytes4]
+    public bool GetPendingRemoteOperationInfo(AppId_t nAppId, [Out] [ProtobufPtrType(typeof(CCloud_PendingRemoteOperation))] IntPtr protoptr);  // argc: 2, index: 77, ipc args: [bytes4], ipc returns: [bytes1, protobuf]
     public bool ResolveSyncConflict(AppId_t nAppId, bool bAcceptLocalFiles);  // argc: 2, index: 78, ipc args: [bytes4, bytes1], ipc returns: [bytes1]
-    // WARNING: Arguments are unknown!
-    public bool SynchronizeApp(AppId_t nAppId, bool bSyncClient, bool bSyncServer);  // argc: 4, index: 79, ipc args: [bytes4, bytes4, bytes8], ipc returns: [bytes1]
+    public bool SynchronizeApp(AppId_t nAppId, ERemoteStorageSyncType syncType, ERemoteStorageSyncFlags flags);  // argc: 4, index: 79, ipc args: [bytes4, bytes4, bytes8], ipc returns: [bytes1]
     public bool IsAppSyncInProgress(AppId_t appid);  // argc: 1, index: 80, ipc args: [bytes4], ipc returns: [boolean]
     public void RunAutoCloudOnAppLaunch(AppId_t appid);  // argc: 1, index: 81, ipc args: [bytes4], ipc returns: []
     public void RunAutoCloudOnAppExit(AppId_t appid);  // argc: 1, index: 82, ipc args: [bytes4], ipc returns: []
@@ -178,7 +170,7 @@ public unsafe interface IClientRemoteStorage
     public bool ResetFileRequestState(AppId_t appid);  // argc: 1, index: 83, ipc args: [bytes4], ipc returns: [bytes1]
     // WARNING: Arguments are unknown!
     public void ClearPublishFileUpdateRequests();  // argc: 1, index: 84, ipc args: [bytes4], ipc returns: []
-    public unknown_ret GetSubscribedFileDownloadCount();  // argc: 0, index: 85, ipc args: [], ipc returns: [bytes4]
+    public int GetSubscribedFileDownloadCount();  // argc: 0, index: 85, ipc args: [], ipc returns: [bytes4]
     // WARNING: Arguments are unknown!
     public bool BGetSubscribedFileDownloadInfo(bool unk1);  // argc: 5, index: 86, ipc args: [bytes4], ipc returns: [boolean, bytes8, bytes4, bytes4, bytes4]
     // WARNING: Arguments are unknown!
@@ -188,20 +180,16 @@ public unsafe interface IClientRemoteStorage
     public void PauseAllSubscribedFileDownloads();  // argc: 0, index: 90, ipc args: [], ipc returns: []
     public void ResumeAllSubscribedFileDownloads();  // argc: 0, index: 91, ipc args: [], ipc returns: []
     public void CancelCurrentAndPendingOperations();  // argc: 0, index: 92, ipc args: [], ipc returns: []
+    public int GetLocalFileChangeCount(AppId_t appid);  // argc: 1, index: 93, ipc args: [bytes4], ipc returns: [bytes4]
     // WARNING: Arguments are unknown!
-    public unknown_ret GetLocalFileChangeCount(AppId_t appid);  // argc: 1, index: 93, ipc args: [bytes4], ipc returns: [bytes4]
-    // WARNING: Arguments are unknown!
-    public string GetLocalFileChange();  // argc: 4, index: 94, ipc args: [bytes4, bytes4], ipc returns: [string, bytes4, bytes4]
+    public string GetLocalFileChange(AppId_t app, int index, out uint unk, out uint unk2);  // argc: 4, index: 94, ipc args: [bytes4, bytes4], ipc returns: [string, bytes4, bytes4]
     // WARNING: Arguments are unknown!
     public unknown_ret BeginFileWriteBatch();  // argc: 1, index: 95, ipc args: [bytes4], ipc returns: [bytes1]
     // WARNING: Arguments are unknown!
     public unknown_ret EndFileWriteBatch();  // argc: 1, index: 96, ipc args: [bytes4], ipc returns: [bytes1]
     [BlacklistedInCrossProcessIPC]
     public void GetCloudEnabledForAppMap(CUtlMap<AppId_t, bool>* map);  // argc: 1, index: 97, ipc args: [bytes4], ipc returns: []
-    /// <summary>
-    /// This could be an enum.
-    /// </summary>
     // WARNING: Arguments are unknown!
     [BlacklistedInCrossProcessIPC]
-    public void GetLastKnownSyncStateMap(CUtlMap<AppId_t, ESteamCloudSyncState>* map);  // argc: 2, index: 98, ipc args: [bytes4, bytes4], ipc returns: []
+    public void GetLastKnownSyncStateMap(CUtlMap<AppId_t, ERemoteStorageSyncState>* map);  // argc: 2, index: 98, ipc args: [bytes4, bytes4], ipc returns: []
 }

@@ -36,7 +36,7 @@ public unsafe interface IClientRemoteClientManager
     // WARNING: Arguments are unknown!
     public unknown_ret ProcessStreamClientDisconnected();  // argc: 1, index: 11, ipc args: [bytes4], ipc returns: []
     // WARNING: Arguments are unknown!
-    public bool BGetStreamTransportSignal(uint unk, [IPCOut] CUtlBuffer* data);  // argc: 2, index: 12, ipc args: [bytes4], ipc returns: [boolean, utlbuffer]
+    public bool BGetStreamTransportSignal(uint unk, CUtlBuffer* data);  // argc: 2, index: 12, ipc args: [bytes4], ipc returns: [boolean, utlbuffer]
     // WARNING: Arguments are unknown!
     [BlacklistedInCrossProcessIPC]
     public unknown_ret SendStreamTransportSignal();  // argc: 2, index: 13, ipc args: [bytes4, bytes4], ipc returns: []
@@ -128,7 +128,7 @@ public unsafe interface IClientRemoteClientManager
     public unknown_ret BIsStreamClientRemotePlayTogether();  // argc: 0, index: 63, ipc args: [], ipc returns: [boolean]
     public unknown_ret GetStreamClientRemoteSteamVersion();  // argc: 0, index: 64, ipc args: [], ipc returns: [bytes8]
     // WARNING: Arguments are unknown!
-    public bool BGetStreamingClientConfig([IPCOut] CUtlBuffer* data);  // argc: 1, index: 65, ipc args: [], ipc returns: [boolean, utlbuffer]
+    public bool BGetStreamingClientConfig(CUtlBuffer* data);  // argc: 1, index: 65, ipc args: [], ipc returns: [boolean, utlbuffer]
     // WARNING: Arguments are unknown!
     public unknown_ret BSetStreamingClientConfig();  // argc: 1, index: 66, ipc args: [unknown], ipc returns: [boolean]
     // WARNING: Arguments are unknown!

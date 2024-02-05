@@ -233,7 +233,7 @@ public class SteamApp : AppBase
         await AppsManager.RunInstallScriptAsync(AppID);
 
         logger.Info("Synchronizing cloud");
-        await AppsManager.ClientApps.SyncCloud(AppID);
+        await ClientRemoteStorage.SyncAppPreLaunch(AppID);
 
         logger.Info("Site license seat checkout");
         AppsManager.ClientApps.NativeClientUser.CheckoutSiteLicenseSeat(this.AppID);

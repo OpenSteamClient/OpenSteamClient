@@ -19,7 +19,7 @@ public class IPC_IClientSharedConnection : IPCBaseInterface, IClientSharedConnec
         }
     }
 
-    public unsafe bool BPopReceivedMessage(uint hConn, [IPCOut] CUtlBuffer* bufOut, out uint hCall)
+    public unsafe bool BPopReceivedMessage(uint hConn, CUtlBuffer* bufOut, out uint hCall)
     {
         using (FunctionSerializer method = client.CreateIPCFunctionCall(steamuser, IClientSharedConnection_InterfaceID, 11111111, 1111111)) {
             method.AddArg(hConn);

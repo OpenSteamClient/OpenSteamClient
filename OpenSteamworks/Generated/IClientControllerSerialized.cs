@@ -346,7 +346,7 @@ public unsafe interface IClientControllerSerialized
     // WARNING: Arguments are unknown!
     public unknown_ret SetControllerNintendoLayoutSetting();  // argc: 2, index: 161, ipc args: [bytes4, bytes1], ipc returns: [bytes1]
     // WARNING: Arguments are unknown!
-    public bool BGetTouchConfigData(uint unk, uint unk1, out UInt64 unk2, out uint unk3, [IPCOut] CUtlBuffer* unk4, [IPCOut] CUtlBuffer* unk5);  // argc: 6, index: 162, ipc args: [bytes4, bytes4], ipc returns: [boolean, bytes8, bytes4, utlbuffer, utlbuffer]
+    public bool BGetTouchConfigData(uint unk, uint unk1, out UInt64 unk2, out uint unk3, CUtlBuffer* unk4, CUtlBuffer* unk5);  // argc: 6, index: 162, ipc args: [bytes4, bytes4], ipc returns: [boolean, bytes8, bytes4, utlbuffer, utlbuffer]
     // WARNING: Arguments are unknown!
     [BlacklistedInCrossProcessIPC]
     public unknown_ret BSaveTouchConfigLayout();  // argc: 3, index: 163, ipc args: [bytes4, bytes4, bytes4], ipc returns: [boolean]
