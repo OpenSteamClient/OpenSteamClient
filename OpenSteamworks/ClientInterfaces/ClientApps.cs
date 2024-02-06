@@ -51,7 +51,12 @@ public class ClientApps {
     }
 
     public string GetAppName(AppId_t appid) {
-        return GetAppDataSection(appid, EAppInfoSection.Common).Name;
+        var namechild = GetAppDataSection(appid, EAppInfoSection.Common).GetChild("name");
+        if (namechild == null || namechild.Value is not string) {
+            return "SteamApp" + appid;
+        }
+
+        return namechild.GetValueAsString();
     }
 
     public EAppType GetAppType(AppId_t appid) => NativeClientApps.GetAppType(appid);

@@ -80,7 +80,6 @@ public static class UtilityFunctions {
     /// <param name="name"></param>
     /// <param name="value"></param>
     /// <param name="overwrite"></param>
-    /// <exception cref="Exception"></exception>
     public static void SetEnvironmentVariable(string name, string? value, bool overwrite = true) {
         if (OperatingSystem.IsWindows()) {
             [DllImport("kernel32", SetLastError = true)]

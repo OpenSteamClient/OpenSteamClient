@@ -65,7 +65,7 @@ public unsafe interface IClientUser
     // WARNING: Arguments are unknown!
     public unknown_ret TerminateGameConnection();  // argc: 2, index: 27, ipc args: [bytes4, bytes2], ipc returns: []
     // WARNING: Arguments are unknown!
-    public bool TerminateGame(AppId_t appid, bool force);  // argc: 2, index: 28, ipc args: [bytes8, bytes1], ipc returns: [bytes1]
+    public bool TerminateGame(CGameID gameid, bool force);  // argc: 2, index: 28, ipc args: [bytes8, bytes1], ipc returns: [bytes1]
     /// <summary>
     /// Apparently deprecated, but still called by ValveSteam.
     /// </summary>

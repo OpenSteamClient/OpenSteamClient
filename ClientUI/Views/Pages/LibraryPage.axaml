@@ -23,26 +23,6 @@
             <ColumnDefinition Width="4*" MinWidth="64" />
         </Grid.ColumnDefinitions>
 
-        <!-- Games list
-        <Border BorderThickness="1" BorderBrush="Black">
-            <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
-                <ItemsRepeater Items="{Binding Nodes}">
-                    <ItemsRepeater.ItemTemplate>
-                        <DataTemplate>
-                            <Border Padding="{Binding Padding}">
-                                <StackPanel Orientation="Horizontal">
-                                    <Canvas Height="20" Width="20" Top="0" Left="0" Margin="0,0,4,0" IsVisible="{Binding IsApp}" Background="{Binding StatusIcon}"/>
-                                    <Canvas Height="20" Width="20" Top="0" Left="0" Margin="0,0,4,0" IsVisible="{Binding IsApp}" Background="{Binding Icon}"/>
-                                    <CheckBox IsVisible="{Binding !HasIcon}" IsChecked="{Binding IsExpanded}"/>
-                                    <TextBlock Focusable="True" Text="{Binding Name}" Margin="5 0 0 0"/>
-                                </StackPanel>
-                            </Border>
-                        </DataTemplate>
-                    </ItemsRepeater.ItemTemplate>
-                </ItemsRepeater>
-            </ScrollViewer>
-        </Border> -->
-
         <TreeView SelectedItems="{Binding SelectedNodes}" ItemsSource="{Binding Nodes}">
 
             <!-- To set properties in the constructed TreeItem, do this -->

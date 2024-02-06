@@ -248,7 +248,7 @@ public class AppsManager : ILogonLifetime
     }
 
     public void Kill(CGameID gameid) {
-        this.steamClient.IClientUser.TerminateGame(gameid.AppID, true);
+        this.steamClient.IClientUser.TerminateGame(gameid, true);
     }
 
     /// <summary>

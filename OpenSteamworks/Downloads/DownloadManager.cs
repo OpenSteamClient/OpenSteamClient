@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using OpenSteamworks.Callbacks;
 using OpenSteamworks.Callbacks.Structs;
 using OpenSteamworks.Enums;
@@ -12,6 +13,8 @@ public class DownloadManager
 {
     private readonly object downloadQueueLock = new();
     private Queue<IDownloadItem> downloadQueue = new();
+    public IEnumerable<IDownloadItem> DownloadQueue => downloadQueue.AsEnumerable();
+
     private readonly ISteamClient steamClient;
     public IDownloadItem? CurrentDownload { get; private set; }
 
@@ -19,28 +22,61 @@ public class DownloadManager
     public event EventHandler? CurrentDownloadChanged;
 
     // Forwarded from IDownloadItem
+    public event EventHandler? DownloadRateChanged;
     public event EventHandler? DownloadStateChanged;
     public event EventHandler? DownloadProgressChanged;
     public event EventHandler? DownloadPaused;
     public event EventHandler? DownloadFinished;
 
+    internal bool stopPoll = false;
+    internal bool pollStopped = false;
+    private Thread? downloadInfoUpdateThread;
     public DownloadManager(ISteamClient steamClient)
     {
         this.steamClient = steamClient;
         steamClient.CallbackManager.RegisterHandler<DownloadScheduleChanged_t>(OnDownloadScheduleChanged);
+        downloadInfoUpdateThread = new Thread(DownloadInfoUpdate);
+        downloadInfoUpdateThread.Start();
+    }
+
+    private void DownloadInfoUpdate() {
+        while (!stopPoll)
+        {
+            if (this.CurrentDownload != null && (this.CurrentDownload.DownloadState == DownloadState.ExtendedRunning || this.CurrentDownload.DownloadState == DownloadState.Running))
+            {
+                this.CurrentDownload.UpdateRates();
+            }
+
+            System.Threading.Thread.Sleep(1000);
+        }
+
+        pollStopped = true;
+        stopPoll = false;
     }
 
     private void OnDownloadScheduleChanged(CallbackManager.CallbackHandler<DownloadScheduleChanged_t> handler, DownloadScheduleChanged_t data)
     {
-        //TODO: handle queues with more than 32 apps queued, how to do?
-        List<AppId_t> appsInNewQueue = new(data.m_rgunAppSchedule[0..data.m_nTotalAppsScheduled]);
-        List<AppId_t> appsInCurrentQueue = downloadQueue
-                                                .Where(i => i is AppDownloadItem x)
-                                                .Select(i => (i as AppDownloadItem)!.AppID)
-                                                .ToList();
-        
-        //TODO: update the queue, this is the hard bit
-        
+        lock (downloadQueueLock)
+        {
+            //TODO: handle queues with more than 32 apps queued, how to do?
+            List<AppId_t> appsInNewQueue = new(data.m_rgunAppSchedule[0..data.m_nTotalAppsScheduled]);
+            List<AppId_t> appsInCurrentQueue = downloadQueue
+                                                    .Where(i => i is AppDownloadItem x)
+                                                    .Select(i => (i as AppDownloadItem)!.AppID)
+                                                    .ToList();
+
+            //TODO: update the queue, this is the hard bit
+            
+            //THIS IS A DEV IMPLEMENTATION FOR TESTING PURPOSES
+            //THIS IS A DEV IMPLEMENTATION FOR TESTING PURPOSES
+            //THIS IS A DEV IMPLEMENTATION FOR TESTING PURPOSES
+            //THIS IS A DEV IMPLEMENTATION FOR TESTING PURPOSES
+            //THIS IS A DEV IMPLEMENTATION FOR TESTING PURPOSES
+            //THIS IS A DEV IMPLEMENTATION FOR TESTING PURPOSES
+            downloadQueue.Clear();
+            downloadQueue = new(appsInNewQueue.Select(i => new AppDownloadItem(i)));
+            DownloadQueueChanged?.Invoke(this, EventArgs.Empty);
+        }
     }
 
     /// <summary>
@@ -276,6 +312,19 @@ public class DownloadManager
 
     internal void Shutdown()
     {
-        //TODO: pause all downloads here
+        stopPoll = true;
+        while (!this.pollStopped)
+        {
+            System.Threading.Thread.Sleep(20);
+        }
+        
+        downloadInfoUpdateThread = null;
+
+        //TODO: wait for the download to finish more appropriately here. How to do?
+        SteamClient.GetIClientAppManager().SetDownloadingEnabled(false);
+        while (SteamClient.GetIClientAppManager().GetDownloadingAppID() != AppId_t.Invalid)
+        {
+            System.Threading.Thread.Sleep(20);
+        }
     }
 }

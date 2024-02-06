@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 
 [OpenSteamworks.Attributes.CustomValueType]
 public struct AppId_t : System.Numerics.IComparisonOperators<AppId_t, AppId_t, bool>, System.IEquatable<AppId_t>, System.IComparable<AppId_t> {
-    public static readonly AppId_t Invalid = new(0x0);
+    public static readonly AppId_t Invalid = new(0);
     private uint _value;
     
     public AppId_t(uint value) {

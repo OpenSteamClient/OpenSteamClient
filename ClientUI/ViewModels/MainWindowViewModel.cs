@@ -12,6 +12,7 @@ using Avalonia.Media;
 using Avalonia.Styling;
 using ClientUI.Controls;
 using ClientUI.Translation;
+using ClientUI.ViewModels.Downloads;
 using ClientUI.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
 using OpenSteamworks;
@@ -75,6 +76,8 @@ public partial class MainWindowViewModel : ViewModelBase
 
         PageList.Add(new(this, "Store", typeof(StorePage), typeof(StorePageViewModel)));
         PageList.Add(new(this, "Library", typeof(LibraryPage), typeof(LibraryPageViewModel)));
+        //TODO: this isn't final, we might move downloads to the bottom still
+        PageList.Add(new(this, "Downloads", typeof(DownloadsPage), typeof(DownloadsPageViewModel)));
         PageList.Add(new(this, "Community", typeof(CommunityPage), typeof(CommunityPageViewModel)));
         PageList.Add(new(this, "Console", typeof(ConsolePage), typeof(ConsolePageViewModel)));
 

@@ -6,6 +6,7 @@ namespace OpenSteamworks.Downloads;
 public interface IDownloadItem {
     public event EventHandler DownloadStateChanged;
     public event EventHandler DownloadProgressChanged;
+    public event EventHandler DownloadRateChanged;
 
     /// <summary>
     /// Download speed in bytes per second
@@ -20,7 +21,7 @@ public interface IDownloadItem {
     /// <summary>
     /// Download progress as a value of 0 to 100
     /// </summary>
-    public float DownloadProgress { get; }
+    public double DownloadProgress { get; }
 
     /// <summary>
     /// The state of this download.
@@ -76,4 +77,10 @@ public interface IDownloadItem {
     /// This should not be called manually, it will be called automatically by DownloadManager.
     /// </summary>
     public void PauseDownload();
+
+    /// <summary>
+    /// Called every second by DownloadManager. Use this to update download and disk rates.
+    /// This should not be called manually, it will be called automatically by DownloadManager.
+    /// </summary>
+    public void UpdateRates();
 }
