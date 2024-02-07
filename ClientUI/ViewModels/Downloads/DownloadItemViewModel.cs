@@ -35,17 +35,13 @@ public partial class DownloadItemViewModel : ViewModelBase {
     private ulong peakDiskRateNum;
 
     private UserSettings userSettings => AvaloniaApp.Container.Get<UserSettings>();
-    private readonly IDownloadItem downloadItem;
-    public DownloadItemViewModel(IDownloadItem downloadItem) {
+    private readonly DownloadItem downloadItem;
+    public DownloadItemViewModel(DownloadItem downloadItem) {
         this.downloadItem = downloadItem;
         this.Name = downloadItem.Name;
         this.DownloadProgressKnown = true;
         this.CurrentDownloadProgress = 0.0;
-        if (downloadItem is AppDownloadItem aitem) {
-            AppID = aitem.AppID;
-        } else {
-            AppID = AppId_t.Invalid;
-        }
+        AppID = downloadItem.AppID;
 
         downloadItem.DownloadRateChanged += OnDownloadRateChanged;
         downloadItem.DownloadProgressChanged += OnDownloadProgressChanged;
@@ -64,16 +60,18 @@ public partial class DownloadItemViewModel : ViewModelBase {
         UpdateCurrentRates();
         UpdatePeakRates();
     }
-
+#pragma warning disable MVVMTK0034
     [MemberNotNull(nameof(currentDownloadRate))]
     [MemberNotNull(nameof(currentDiskRate))]
+#pragma warning restore MVVMTK0034
     private void UpdateCurrentRates() {
-        currentDownloadRate = GetStringForDownloadSpeed(downloadItem.DownloadRate, userSettings.DownloadDataRateUnit);
-        currentDiskRate = GetStringForDownloadSpeed(downloadItem.DiskRate, userSettings.DownloadDataRateUnit);
+        CurrentDownloadRate = GetStringForDownloadSpeed(downloadItem.DownloadRate, userSettings.DownloadDataRateUnit);
+        CurrentDiskRate = GetStringForDownloadSpeed(downloadItem.DiskRate, userSettings.DownloadDataRateUnit);
     }
-
+#pragma warning disable MVVMTK0034
     [MemberNotNull(nameof(peakDownloadRate))]
     [MemberNotNull(nameof(peakDiskRate))]
+#pragma warning restore MVVMTK0034
     private void UpdatePeakRates() {
         if (downloadItem.DownloadRate > peakDownloadRateNum) {
             peakDownloadRateNum = downloadItem.DownloadRate;
@@ -83,8 +81,8 @@ public partial class DownloadItemViewModel : ViewModelBase {
             peakDiskRateNum = downloadItem.DiskRate;
         }
 
-        peakDownloadRate = GetStringForDownloadSpeed(peakDownloadRateNum, userSettings.DownloadDataRateUnit);
-        peakDiskRate = GetStringForDownloadSpeed(peakDiskRateNum, userSettings.DownloadDataRateUnit);
+        PeakDownloadRate = GetStringForDownloadSpeed(peakDownloadRateNum, userSettings.DownloadDataRateUnit);
+        PeakDiskRate = GetStringForDownloadSpeed(peakDiskRateNum, userSettings.DownloadDataRateUnit);
     }
 
     private static string GetStringForDownloadSpeed(ulong speedInBytesPerSecond, DataRateUnit unit) {

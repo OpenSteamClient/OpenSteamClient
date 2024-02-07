@@ -32,6 +32,16 @@ public class ClientApps {
         this.callbackManager = client.CallbackManager;
     }
 
+    public IEnumerable<AppId_t> GetInstalledApps() {
+        var arr = new uint[2];
+        var len = this.NativeClientAppManager.GetInstalledApps(arr, (uint)arr.Length);
+        Console.WriteLine("len: " + len);
+        arr = new uint[4096];
+        len = this.NativeClientAppManager.GetInstalledApps(arr, (uint)arr.Length);
+        Console.WriteLine("newlen: " + len);
+        return arr.Select(a => (AppId_t)a);
+    }
+
     public bool BIsAppUpToDate(AppId_t appid)
     {
         var state = this.NativeClientAppManager.GetAppInstallState(appid);

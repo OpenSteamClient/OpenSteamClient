@@ -5,7 +5,7 @@ using OpenSteamworks.Structs;
 
 namespace OpenSteamworks.Downloads;
 
-public sealed class AppDownloadItem : IDownloadItem
+public sealed class DownloadItem
 {
     public AppId_t AppID { get; init; }
     public DownloadState DownloadState { get; private set; } = DownloadState.NotStarted;
@@ -60,19 +60,20 @@ public sealed class AppDownloadItem : IDownloadItem
     public event EventHandler? DownloadProgressChanged;
     public event EventHandler? DownloadRateChanged;
 
-    public AppDownloadItem(AppId_t appid) {
+    public DownloadItem(AppId_t appid) {
         this.AppID = appid;
         Name = SteamClient.GetClientApps().GetAppName(appid);
+        DownloadStartTime = (DateTime)(SteamClient.GetIClientAppManager().GetAppAutoUpdateDelayedUntilTime(appid));
     }
 
-    void IDownloadItem.PauseDownload()
+    internal void PauseDownload()
     {
         SteamClient.GetIClientAppManager().SetDownloadingEnabled(false);
         this.DownloadState = DownloadState.Paused;
         this.DownloadStateChanged?.Invoke(this, EventArgs.Empty);
     }
 
-    void IDownloadItem.StartDownload()
+    internal void StartDownload()
     {
         SteamClient.GetIClientAppManager().SetDownloadingEnabled(true);
         this.DownloadState = DownloadState.Running;
@@ -82,7 +83,7 @@ public sealed class AppDownloadItem : IDownloadItem
     private ulong BytesDownloadedLast;
     private ulong BytesProcessedLast;
 
-    void IDownloadItem.UpdateRates()
+    internal void UpdateRates()
     {
         //SteamClient.GetIClientAppManager().GetDownloadStats(out DownloadStats_s stats);
         SteamClient.GetIClientAppManager().GetUpdateInfo(this.AppID, out AppUpdateInfo_s updateInfo);

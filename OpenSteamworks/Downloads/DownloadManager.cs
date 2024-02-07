@@ -11,17 +11,20 @@ namespace OpenSteamworks.Downloads;
 
 public class DownloadManager
 {
+    private readonly object scheduledDownloadsLock = new();
     private readonly object downloadQueueLock = new();
-    private Queue<IDownloadItem> downloadQueue = new();
-    public IEnumerable<IDownloadItem> DownloadQueue => downloadQueue.AsEnumerable();
+    private Queue<DownloadItem> downloadQueue = new();
+    private List<DownloadItem> scheduledDownloads = new();
+    public IEnumerable<DownloadItem> DownloadQueue => downloadQueue.AsEnumerable();
 
     private readonly ISteamClient steamClient;
-    public IDownloadItem? CurrentDownload { get; private set; }
+    public ulong TotalBytesDownloaded { get; private set; }
+    public DownloadItem? CurrentDownload { get; private set; }
 
     public event EventHandler? DownloadQueueChanged;
     public event EventHandler? CurrentDownloadChanged;
 
-    // Forwarded from IDownloadItem
+    // Forwarded from DownloadItem
     public event EventHandler? DownloadRateChanged;
     public event EventHandler? DownloadStateChanged;
     public event EventHandler? DownloadProgressChanged;
@@ -54,93 +57,45 @@ public class DownloadManager
         stopPoll = false;
     }
 
+    private void UpdateDownloadQueue(IEnumerable<AppId_t>? extraApps = null) {
+        List<AppId_t> appsToCheck = new(SteamClient.GetClientApps().GetInstalledApps());
+        if (extraApps != null) {
+            appsToCheck.AddRange(extraApps);
+        }
+        
+        // Update the download queue
+        lock (downloadQueueLock)
+        {
+            AbstractOrderedList<DownloadItem> queue = new();
+            foreach (var appid in appsToCheck)
+            {
+                var idx = SteamClient.GetIClientAppManager().GetAppDownloadQueueIndex(appid);
+                queue.Insert(idx, new DownloadItem(appid));
+            }
+
+            downloadQueue = new(queue);
+        }
+
+        // Update the scheduled downloads
+        lock (scheduledDownloadsLock)
+        {
+            scheduledDownloads.Clear();
+            foreach (var item in appsToCheck)
+            {
+                scheduledDownloads.Add(new DownloadItem(item));
+            }
+        }
+    }
+
     private void OnDownloadScheduleChanged(CallbackManager.CallbackHandler<DownloadScheduleChanged_t> handler, DownloadScheduleChanged_t data)
     {
         lock (downloadQueueLock)
         {
-            //TODO: handle queues with more than 32 apps queued, how to do?
-            List<AppId_t> appsInNewQueue = new(data.m_rgunAppSchedule[0..data.m_nTotalAppsScheduled]);
-            List<AppId_t> appsInCurrentQueue = downloadQueue
-                                                    .Where(i => i is AppDownloadItem x)
-                                                    .Select(i => (i as AppDownloadItem)!.AppID)
-                                                    .ToList();
-
-            //TODO: update the queue, this is the hard bit
-            
-            //THIS IS A DEV IMPLEMENTATION FOR TESTING PURPOSES
-            //THIS IS A DEV IMPLEMENTATION FOR TESTING PURPOSES
-            //THIS IS A DEV IMPLEMENTATION FOR TESTING PURPOSES
-            //THIS IS A DEV IMPLEMENTATION FOR TESTING PURPOSES
-            //THIS IS A DEV IMPLEMENTATION FOR TESTING PURPOSES
-            //THIS IS A DEV IMPLEMENTATION FOR TESTING PURPOSES
-            downloadQueue.Clear();
-            downloadQueue = new(appsInNewQueue.Select(i => new AppDownloadItem(i)));
-            DownloadQueueChanged?.Invoke(this, EventArgs.Empty);
+            UpdateDownloadQueue(data.m_rgunAppSchedule[0..data.m_nTotalAppsScheduled]);
         }
     }
 
-    /// <summary>
-    /// Queue a custom download to the download queue. You are responsible for updating the download's state and actually downloading what you want to download. This can be used for things like client updates, custom compat tool downloads, third-party game downloads, etc.
-    /// </summary>
-    public void QueueCustomDownload(IDownloadItem customDownload, EAppDownloadQueuePlacement placement, int manualPlacement = -1) => QueueDownload(customDownload, placement, manualPlacement);
-
-    internal void QueueDownload(IDownloadItem download, EAppDownloadQueuePlacement placement, int manualPlacement = -1, bool fireQueueUpdate = true) {
-        if (placement == EAppDownloadQueuePlacement.PriorityManual && manualPlacement == -1) {
-            throw new InvalidOperationException("PriorityManual specified but no manualPlacement was given.");
-        }
-
-        lock (downloadQueueLock)
-        {
-            // This is pretty terrible, but I'm not going to purpose-build a queue with indexes
-            var asList = downloadQueue.ToList();
-
-            int queueIndex = -1;
-
-            switch (placement)
-            {
-                case EAppDownloadQueuePlacement.PriorityManual:
-                    queueIndex = manualPlacement;
-                    break;
-
-                case EAppDownloadQueuePlacement.PriorityFirst:
-                case EAppDownloadQueuePlacement.PriorityUserInitiated:
-                    queueIndex = 0;
-                    break;
-
-                case EAppDownloadQueuePlacement.PriorityAutoUpdate:
-                case EAppDownloadQueuePlacement.PriorityNone:
-                    // App doesn't care, shove it at the end
-                    queueIndex = downloadQueue.Count + 1;
-                    break;
-
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(placement), $"Placement " + placement + " is not valid in QueueDownload");
-            }
-
-            if (queueIndex == -1) {
-                throw new InvalidOperationException("Tried to queue download at invalid index");
-            }
-
-            if (queueIndex == 0) {
-                downloadQueue.Enqueue(download);
-                if (fireQueueUpdate) {
-                    UpdateQueueToSteamClient();
-                    DownloadQueueChanged?.Invoke(this, EventArgs.Empty);
-                }
-                
-                return;
-            }
-
-            asList.Insert(queueIndex, download);
-            downloadQueue = new(asList);
-            if (fireQueueUpdate) {
-                UpdateQueueToSteamClient();
-                DownloadQueueChanged?.Invoke(this, EventArgs.Empty);
-            }
-        }
-    }
-
-    public void DequeueDownload(IDownloadItem download) {
+    public void DequeueDownload(DownloadItem download) {
         if (download.DownloadState == DownloadState.Running) {
             // Stop the download first
             PauseDownload();
@@ -157,13 +112,13 @@ public class DownloadManager
     }
 
 
-    private IDownloadItem GetItemByAppID(AppId_t appid) {
+    private DownloadItem? TryGetItemByAppID(AppId_t appid) {
         lock (downloadQueueLock)
         {
             var asList = downloadQueue.ToList();
             foreach (var item in asList)
             {
-                if (item is AppDownloadItem aitem) {
+                if (item is DownloadItem aitem) {
                     if (aitem.AppID == appid) {
                         return aitem;
                     }
@@ -171,14 +126,23 @@ public class DownloadManager
             }
         }
 
-        throw new InvalidOperationException($"AppID {appid} is not queued");
+        return null;
+    }
+    
+    private DownloadItem GetItemByAppID(AppId_t appid) {
+        var item = TryGetItemByAppID(appid);
+        if (item == null) {
+            throw new InvalidOperationException($"AppID {appid} is not queued");
+        }
+
+        return item;
     }
 
 
     public void DequeueDownload(AppId_t appid) => DequeueDownload(GetItemByAppID(appid));
     public void ChangeDownloadIndex(AppId_t appid, EAppDownloadQueuePlacement newPlacement, int manualPlacement = -1) => ChangeDownloadIndex(GetItemByAppID(appid), newPlacement, manualPlacement);
 
-    public void ChangeDownloadIndex(IDownloadItem download, EAppDownloadQueuePlacement newPlacement, int manualPlacement = -1) {
+    public void ChangeDownloadIndex(DownloadItem download, EAppDownloadQueuePlacement newPlacement, int manualPlacement = -1) {
         if (newPlacement == EAppDownloadQueuePlacement.PriorityManual && manualPlacement == -1) {
             throw new InvalidOperationException("PriorityManual specified but no manualPlacement was given.");
         }
@@ -300,7 +264,7 @@ public class DownloadManager
             var item = downloadQueue.ElementAt(i);
 
             // Only update app downloads to the client
-            if (item is AppDownloadItem aitem) {
+            if (item is DownloadItem aitem) {
                 if (!SteamClient.GetIClientAppManager().SetAppDownloadQueueIndex(aitem.AppID, actualIndex)) {
                     Logging.GeneralLogger.Warning("Failed to set download queue index " + actualIndex + " for " + aitem.AppID);
                 }

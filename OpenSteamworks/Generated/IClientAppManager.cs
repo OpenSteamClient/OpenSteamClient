@@ -127,7 +127,7 @@ public unsafe interface IClientAppManager
     /// Called by ValveSteam 440 times.
     /// </summary>
     /// <returns></returns>
-    public bool GetAppStateInfo(AppId_t appid, AppStateInfo_s* state);  // argc: 2, index: 68, ipc args: [bytes4], ipc returns: [bytes1, bytes44]
+    public bool GetAppStateInfo(AppId_t appid, out AppStateInfo_s state);  // argc: 2, index: 68, ipc args: [bytes4], ipc returns: [bytes1, bytes44]
     [BlacklistedInCrossProcessIPC]
     public bool BGetAppStateInfoForApps(CUtlVector<AppId_t>* apps, CUtlVector<AppStateInfo_s>* states);  // argc: 2, index: 69, ipc args: [bytes4, bytes4], ipc returns: [boolean]
     
