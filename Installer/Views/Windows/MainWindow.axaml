@@ -9,8 +9,6 @@
         x:DataType="vm:MainWindowViewModel"
         Icon="/Assets/opensteam-logo.ico"
         Width="600" Height="500"
-        IsEnabled="{Binding CanClose}"
-        
         Title="OpenSteamClient Installer">
 
     <Design.DataContext>

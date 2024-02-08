@@ -25,12 +25,14 @@ public partial class MainWindowViewModel : ViewModelBase {
 
     [ObservableProperty]
     private Bitmap openSteamLogo;
-
+    
     public bool CanClose => OnCancel != null;
-    public bool PreviousEnabled => OnPrevious != null;
-    public bool NextEnabled => OnNext != null;
+    public bool PreviousEnabled => CanClose && OnPrevious != null;
+    public bool NextEnabled => CanClose && OnNext != null;
 
     [NotifyPropertyChangedFor(nameof(CanClose))]
+    [NotifyPropertyChangedFor(nameof(PreviousEnabled))]
+    [NotifyPropertyChangedFor(nameof(NextEnabled))]
     [ObservableProperty]
     private ICommand? onCancel;
 
@@ -155,16 +157,8 @@ public partial class MainWindowViewModel : ViewModelBase {
     {
         if (e.PropertyName == nameof(CanClose)) {
             if (CanClose) {
-                if (OnCancel == null) {
-                    OnCancel = new RelayCommand(Cancel);
-                }
-                
                 WindowToolbar.EnableCloseButton(window);
             } else {
-                if (OnCancel != null) {
-                    OnCancel = null;
-                }
-
                 WindowToolbar.DisableCloseButton(window);
             }
         }
@@ -209,6 +203,10 @@ public partial class MainWindowViewModel : ViewModelBase {
                         };
                         break;
                 }
+            }
+
+            if (nextPage is InstallingPage) {
+                OnCancel = null;
             }
 
             CurrentPage = nextPage;

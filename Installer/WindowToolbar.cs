@@ -5,15 +5,16 @@ using Avalonia.Controls;
 namespace Installer;
 
 public static class WindowToolbar {
-    private const int GWL_STYLE = -16;
-    private const int WS_SYSMENU = 0x80000;
+    [DllImport("user32")]
+    public static extern IntPtr GetSystemMenu(IntPtr hWnd, bool bRevert);
 
-    [DllImport("user32.dll", SetLastError = true)]
-    private static extern int GetWindowLong(IntPtr hWnd, int nIndex);
+    [DllImport("user32")]
+    public static extern bool EnableMenuItem(IntPtr hMenu, uint itemId, long uEnable);
 
-
-    [DllImport("user32.dll")]
-    private static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
+    public const int SC_CLOSE = 0xF060;
+    public const long MF_DISABLED = 0x00000002L;
+    public const long MF_ENABLED = 0x00000000L;
+    public const long MF_GRAYED = 0x00000001L;
 
     public static void DisableCloseButton(Window window) {
         if (AvaloniaApp.InLinuxDevelopment) {
@@ -25,7 +26,7 @@ public static class WindowToolbar {
             return;
         }
 
-        SetWindowLong(handle.Handle, GWL_STYLE, GetWindowLong(handle.Handle, GWL_STYLE) & ~WS_SYSMENU);
+        EnableMenuItem(GetSystemMenu(handle.Handle, false), SC_CLOSE, MF_DISABLED | MF_GRAYED);
     }
 
     public static void EnableCloseButton(Window window) {
@@ -38,6 +39,6 @@ public static class WindowToolbar {
             return;
         }
         
-        SetWindowLong(handle.Handle, GWL_STYLE, GetWindowLong(handle.Handle, GWL_STYLE) & WS_SYSMENU);
+        EnableMenuItem(GetSystemMenu(handle.Handle, false), SC_CLOSE, MF_ENABLED);
     }
 }
