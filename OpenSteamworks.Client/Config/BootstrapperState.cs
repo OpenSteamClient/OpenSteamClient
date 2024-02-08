@@ -35,4 +35,10 @@ public class BootstrapperState : IConfigFile
 
     [ConfigNeverVisible]
     public bool LastConfigLinkSuccess { get; set; } = false;
+
+    [ConfigName("Local package server URL", "#BootstrapperState_LocalPackageServerURL")]
+    [ConfigDescription("Download package files from this package server if the versions are compatible.", "#BootstrapperState_LocalPackageServerURLDesc")]
+    [ConfigCategory("Bootstrapper", "#BootstrapperState_Category_Bootstrapper")]
+    [ConfigAdvanced]
+    public string LocalPackageServerURL { get; set; } = "http://localhost:8125/client/";
 }

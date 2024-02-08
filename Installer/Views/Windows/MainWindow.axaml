@@ -1,0 +1,45 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:Installer.ViewModels"
+        xmlns:c="using:Installer.Controls"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="Installer.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/opensteam-logo.ico"
+        Width="600" Height="500"
+        IsEnabled="{Binding CanClose}"
+        
+        Title="OpenSteamClient Installer">
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at AvaloniaApp.axaml.cs) -->
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+    
+    <DockPanel>
+        <!-- Header logo -->
+        <DockPanel Background="{Binding PanelBackground}" LastChildFill="false" Height="70" DockPanel.Dock="Top">
+            <ComboBox DockPanel.Dock="Right" SelectedItem="{Binding SelectedLanguage}" ItemsSource="{Binding Languages}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Name}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <Image DockPanel.Dock="Left" Source="{Binding OpenSteamLogo}" Stretch="Uniform" />
+        </DockPanel>
+
+        <!-- Footer buttons (Next, previous, cancel) -->
+        <DockPanel LastChildFill="false" Height="50" DockPanel.Dock="Bottom">
+            <Button DockPanel.Dock="Left" IsEnabled="{Binding CanClose}" Command="{Binding OnCancel}" c:Translatable.TranslationKey="#Dialog_Cancel"/>
+            <Button DockPanel.Dock="Left" IsEnabled="{Binding PreviousEnabled}" Command="{Binding OnPrevious}" c:Translatable.TranslationKey="#Dialog_Previous"/>
+            <Button DockPanel.Dock="Right" IsEnabled="{Binding NextEnabled}" Command="{Binding OnNext}" IsDefault="true" x:Name="NextButton" c:Translatable.TranslationKey="#Dialog_Next"/>
+        </DockPanel>
+
+        <ContentControl Content="{Binding CurrentPage}" />
+    </DockPanel>
+    
+</Window>

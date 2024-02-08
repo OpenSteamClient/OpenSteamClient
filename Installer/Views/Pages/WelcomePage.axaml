@@ -1,0 +1,22 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:Installer.ViewModels"
+        xmlns:vmp="using:Installer.ViewModels.Pages"
+        xmlns:c="using:Installer.Controls"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="Installer.Views.WelcomePage"
+        x:DataType="vmp:WelcomePageViewModel">
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at AvaloniaApp.axaml.cs) -->
+        <vmp:WelcomePageViewModel/>
+    </Design.DataContext>
+    
+    <StackPanel Margin="10">
+        <TextBlock Margin="0,0,0,20" FontSize="30" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Top" c:Translatable.TranslationKey="#Welcome_Title"/>
+        <TextBlock TextWrapping="Wrap" TextAlignment="Left" HorizontalAlignment="Center" VerticalAlignment="Center" c:Translatable.TranslationKey="#Welcome_Text"/>
+    </StackPanel>
+</UserControl>

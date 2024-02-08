@@ -1,8 +1,9 @@
 using System;
 using Avalonia.Controls;
 using Avalonia.VisualTree;
+using Installer.Translation;
 
-namespace ClientUI.Extensions;
+namespace Installer.Extensions;
 
 public static class ControlExtensions
 {
@@ -40,14 +41,13 @@ public static class ControlExtensions
 
     public static bool TryTranslateSelf(this Control control, bool dueToLayoutChange = false)
     {
-        var tm = AvaloniaApp.Container.Get<Translation.TranslationManager>();
-        if (tm.CurrentTranslation.Language == OpenSteamworks.Enums.ELanguage.None)
+        if (AvaloniaApp.TranslationManager.CurrentTranslation.Language == ELanguage.None)
         {
             return false;
         }
 
         Console.WriteLine($"Translating control {control.GetType().Name}{(dueToLayoutChange ? " (due to layout change)" : "")}");
-        tm.TranslateVisual(control);
+        AvaloniaApp.TranslationManager.TranslateVisual(control);
         return true;
     }
 

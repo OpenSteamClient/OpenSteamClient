@@ -156,15 +156,15 @@ public class Bootstrapper : IClientLifetime {
         
         try
         {
-            using (HttpResponseMessage resp = await Client.HttpClient.GetAsync("http://localhost:8125/client/"+PlatformClientManifest))
+            using (HttpResponseMessage resp = await Client.HttpClient.GetAsync(bootstrapperState.LocalPackageServerURL+PlatformClientManifest))
             {
                 if (resp.IsSuccessStatusCode) {
                     var str = await resp.Content.ReadAsStringAsync();
                     var deserialized = KVTextDeserializer.Deserialize(str);
                     string? serverVersion = deserialized.GetChild("version")?.GetValueAsString();
                     if (serverVersion == VersionInfo.STEAM_MANIFEST_VERSION.ToString()) {
-                        OverrideURL = "http://localhost:8125/client/";
-                        logger.Info("Using local package server");
+                        OverrideURL = bootstrapperState.LocalPackageServerURL;
+                        logger.Info("Using local package server at " + OverrideURL);
                     } else {
                         logger.Debug("Local package server has different version: " + serverVersion + " than ours " + VersionInfo.STEAM_MANIFEST_VERSION.ToString());
                     }
@@ -176,9 +176,7 @@ public class Bootstrapper : IClientLifetime {
             logger.Debug("Not using local package server, error occurred:");
             logger.Debug(e.ToString());
         }
-
-        Directory.CreateDirectory(installManager.InstallDir);
-
+        
         // steamclient blindly dumps certain files to the CWD, so set it to the install dir
         Directory.SetCurrentDirectory(installManager.InstallDir);
 
@@ -495,7 +493,7 @@ public class Bootstrapper : IClientLifetime {
     private async Task EnsurePackages(IExtendedProgress<int> progressHandler) {
         downloadedPackages.Clear();
 
-        // Fetch the manifests from Common.dll
+        // Fetch the manifests from OpenSteamworks.Client.dll
         var embeddedProvider = new EmbeddedFileProvider(Assembly.GetExecutingAssembly());
         IFileInfo fileInfo = embeddedProvider.GetFileInfo($"{PlatformClientManifest}.vdf");
         if (!fileInfo.Exists) {

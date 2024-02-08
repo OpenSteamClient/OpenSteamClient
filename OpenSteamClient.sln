@@ -14,6 +14,8 @@ Project("{FD3E9FC9-4DE6-4138-A245-326056A92883}") = "OpenSteamworks.Native", "Op
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenSteamworks.Protobuf", "OpenSteamworks.Protobuf\OpenSteamworks.Protobuf.csproj", "{066A0986-6ADB-4361-95F0-ABD18704D8EB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Installer", "Installer\Installer.csproj", "{0DF0A8CB-BEA8-4809-9532-FA084BE99407}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,5 +49,9 @@ Global
 		{066A0986-6ADB-4361-95F0-ABD18704D8EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{066A0986-6ADB-4361-95F0-ABD18704D8EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{066A0986-6ADB-4361-95F0-ABD18704D8EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DF0A8CB-BEA8-4809-9532-FA084BE99407}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DF0A8CB-BEA8-4809-9532-FA084BE99407}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DF0A8CB-BEA8-4809-9532-FA084BE99407}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DF0A8CB-BEA8-4809-9532-FA084BE99407}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

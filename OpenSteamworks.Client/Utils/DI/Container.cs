@@ -206,7 +206,7 @@ public class Container
             if (!this.logonLifetimeOrder.Contains(type))
             {
                 this.logonLifetimeOrder.Add(type);
-                logger.Debug("Registered type '" + type.Name + "' for logon lifetime at index " + this.clientLifetimeOrder.Count);
+                logger.Debug("Registered type '" + type.Name + "' for logon lifetime at index " + this.logonLifetimeOrder.Count);
             }
         }
 
