@@ -30,7 +30,9 @@ public class ShaderManager : IClientLifetime
         shader.EnableShaderBackgroundProcessing(false);
         shader.EnableShaderManagementSystem(false);
 
-        if (HadShadersEnabled) {
+        // Steam on Windows does not persist shader settings for some reason, so don't bother restarting as we'll get stuck in an infinite loop
+        if (HadShadersEnabled && OperatingSystem.IsLinux()) {
+            Console.WriteLine("Forcing restart, had shaders enabled");
             await bootstrapper.Restart();
         }
     }

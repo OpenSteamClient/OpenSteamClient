@@ -16,6 +16,7 @@ using OpenSteamworks.Client.Config;
 using OpenSteamworks.Client.Utils.DI;
 using OpenSteamworks.Utils;
 using OpenSteamworks.KeyValues;
+using System.Collections.ObjectModel;
 
 namespace OpenSteamworks.Client.Startup;
 
@@ -138,7 +139,7 @@ public class Bootstrapper : IClientLifetime {
             // Poor hack, windows sucks.
             // - Will have 2 processes running simultaneously (lots of problems)
             // - exit is still semi graceful
-            // - we made it wait 1 second so that this process can exit properly
+            // - we made it wait until this process exits
             // - doesn't keep same terminal handle
             // - will probably break the debugger as well
             UtilityFunctions.SetEnvironmentVariable("OPENSTEAM_RESTART_WAIT", "1");
@@ -183,8 +184,43 @@ public class Bootstrapper : IClientLifetime {
         Directory.CreateDirectory(PackageDir);
 
         // Windows only hack.
-        if (UtilityFunctions.GetEnvironmentVariable("OPENSTEAM_RESTART_WAIT") == "1") {
-            Thread.Sleep(1000);
+        if (OperatingSystem.IsWindows()) {
+            IEnumerable<Process> processes;
+            while (true)
+            {
+                processes = Process.GetProcessesByName("ClientUI").Where(p => p.Id != Environment.ProcessId);
+                
+                if (!processes.Any()) {
+                    break;
+                } else {
+                    bool hadClientUIProcess = false;
+                    foreach (var item in processes)
+                    {
+                        if (item.MainModule?.FileName == Environment.ProcessPath) {
+                            hadClientUIProcess = true;
+                        }
+                    }
+
+                    if (!hadClientUIProcess) {
+                        break;
+                    }
+                }
+
+                System.Threading.Thread.Sleep(1000);
+                Console.WriteLine("Waiting for ClientUI to terminate");
+            }
+
+            // Blacklist these as well so we don't get file lock errors in the bootstrapper
+            while (true)
+            {
+                processes = Process.GetProcessesByName("steamerrorreporter64").Concat(Process.GetProcessesByName("steamerrorreporter"));
+                if (!processes.Any()) {
+                    break;
+                }
+
+                System.Threading.Thread.Sleep(1000);
+                Console.WriteLine("Waiting for steamerrorreporter to terminate");
+            }
         }
 
         // Skip verification and package processing if user requests it
@@ -294,8 +330,6 @@ public class Bootstrapper : IClientLifetime {
                 File.CreateSymbolicLink(targetPath, sourcePath);
                 var info = new FileInfo(targetPath);
                 bootstrapperState.InstalledFiles.Add(targetPath, info.Length);
-            } else {
-                throw new Exception("file not found");
             }
         }
 
@@ -617,6 +651,11 @@ public class Bootstrapper : IClientLifetime {
         }
     }
 
+    private readonly static ReadOnlyCollection<string> blacklistedFiles = new(new List<string>() {
+        "SDL3.dll",
+        "SDL3_ttf.dll"
+    });
+
     private async Task ExtractPackages(IExtendedProgress<int> progressHandler) {
         // Extract all the packages
         progressHandler.SetOperation("Extracting packages");
@@ -625,11 +664,13 @@ public class Bootstrapper : IClientLifetime {
         {
             using (ZipArchive archive = ZipFile.OpenRead(zip.Value))
             {
-                await archive.ExtractToDirectory(installManager.InstallDir, progressHandler, (ZipArchiveEntry entry, string name) => {
+                await archive.ExtractToDirectory(installManager.InstallDir, progressHandler, blacklistedFiles, (ZipArchiveEntry entry, string name) => {
                     bootstrapperState.InstalledFiles.Add(name, entry.Length);
                 });  
             } 
         }
+
+        progressHandler.SetOperation("Extracted packages");
     }
     [SupportedOSPlatform("linux")] 
     private async Task CheckSteamRuntime(IExtendedProgress<int> progressHandler) {
@@ -833,6 +874,7 @@ public class Bootstrapper : IClientLifetime {
                 logger.Info("Copying " + file.FullName + " to " + Path.Combine(installManager.InstallDir, name));
                 File.Copy(file.FullName, Path.Combine(installManager.InstallDir, name), true);
             }
+            
             bootstrapperState.NativeBuildDate = newTimestamp;
         }
     }

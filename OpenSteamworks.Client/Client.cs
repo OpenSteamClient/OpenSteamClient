@@ -58,6 +58,7 @@ public class Client : IClientLifetime
         container.RegisterFactoryMethod<Bootstrapper>((InstallManager installManager, BootstrapperState state, ConfigManager configManager) => {
             var b = new Bootstrapper(installManager, state, configManager);
             b.SetProgressObject(bootstrapperProgress);
+            return b;
         });
 
         container.RegisterFactoryMethod<ISteamClient>((Bootstrapper bootstrapper, AdvancedConfig advancedConfig, InstallManager im) =>

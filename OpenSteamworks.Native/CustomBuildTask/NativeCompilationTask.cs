@@ -135,8 +135,8 @@ public class NativeCompilationTask : Microsoft.Build.Utilities.Task
         this.Log.LogMessage(MessageImportance.High, $"IsCrossCompile: '{isCrossCompile}'");
         string compilerIdentity64 = "";
         string compilerIdentity32 = "";
-        string compilerFlags64 = "";
-        string compilerFlags32 = "";
+        string cmakeConfigureFlags64 = "";
+        string cmakeConfigureFlags32 = "";
 
         switch (targetOS)
         {
@@ -147,7 +147,7 @@ public class NativeCompilationTask : Microsoft.Build.Utilities.Task
                 }
 
                 if (CurrentOS == TargetOS.Windows) {
-                    compilerFlags32 = "-A Win32";
+                    cmakeConfigureFlags32 = "-A Win32";
                 }
                 break;
 
@@ -161,8 +161,8 @@ public class NativeCompilationTask : Microsoft.Build.Utilities.Task
                 if (CurrentOS == TargetOS.Linux) {
                     string osxcrossversion = GetOSXCrossVar("OSXCROSS_TARGET");
                     string osxcrosstarget = Path.GetFullPath(GetOSXCrossVar("OSXCROSS_TARGET_DIR"));
-                    compilerFlags32 = $"-DOSXCROSS_TARGET={osxcrossversion} -DOSXCROSS_TARGET_DIR=\"{osxcrosstarget}\" ";
-                    compilerFlags64 = $"-DOSXCROSS_TARGET={osxcrossversion} -DOSXCROSS_TARGET_DIR=\"{osxcrosstarget}\" ";
+                    cmakeConfigureFlags32 = $"-DOSXCROSS_TARGET={osxcrossversion} -DOSXCROSS_TARGET_DIR=\"{osxcrosstarget}\" ";
+                    cmakeConfigureFlags64 = $"-DOSXCROSS_TARGET={osxcrossversion} -DOSXCROSS_TARGET_DIR=\"{osxcrosstarget}\" ";
                     compilerIdentity64 = "osxcross";
                     compilerIdentity32 = "osxcross";
                 }
@@ -170,25 +170,25 @@ public class NativeCompilationTask : Microsoft.Build.Utilities.Task
         }
 
         if (!string.IsNullOrEmpty(compilerIdentity64)) {
-            compilerFlags64 += $"-DCMAKE_TOOLCHAIN_FILE=\"{RootDir}/cmake/{compilerIdentity64}.cmake\"";
+            cmakeConfigureFlags64 += $" -DCMAKE_TOOLCHAIN_FILE=\"{RootDir}/cmake/{compilerIdentity64}.cmake\"";
         }
 
         if (!string.IsNullOrEmpty(compilerIdentity32)) {
-            compilerFlags32 += $"-DCMAKE_TOOLCHAIN_FILE=\"{RootDir}/cmake/{compilerIdentity32}.cmake\"";
+            cmakeConfigureFlags32 += $" -DCMAKE_TOOLCHAIN_FILE=\"{RootDir}/cmake/{compilerIdentity32}.cmake\"";
         }
 
         this.Log.LogMessage(MessageImportance.High, $"Building x86_64 (64-bit) natives " + (string.IsNullOrEmpty(compilerIdentity64) ? "" : "with " + compilerIdentity64));
-        this.RunCMake($"\"{RootDir}\" {compilerFlags64} -DBUILD_PLATFORM_TARGET={osStr} -DBUILD_BITS=\"64\" -DNATIVE_OUTPUT_FOLDER=\"{outputdir}\"", builddir64);
-        this.RunCMake($"--build . --parallel {Environment.ProcessorCount*2}", builddir64);
+        this.RunCMake($"\"{RootDir}\" {cmakeConfigureFlags64} -DBUILD_PLATFORM_TARGET={osStr} -DBUILD_BITS=\"64\" -DNATIVE_OUTPUT_FOLDER=\"{outputdir}\"", builddir64);
+        this.RunCMake($"--build . --config MinSizeRel --parallel {Environment.ProcessorCount*2}", builddir64);
 
         if (targetOS == TargetOS.MacOS) {
             this.Log.LogMessage(MessageImportance.High, $"Building arm64 natives " + (string.IsNullOrEmpty(compilerIdentity32) ? "" : "with " + compilerIdentity32));
-            this.RunCMake($"\"{RootDir}\" {compilerFlags32} -DBUILD_PLATFORM_TARGET={osStr} -DBUILD_BITS=\"ARM\" -DNATIVE_OUTPUT_FOLDER=\"{outputdir}\"", builddir32);
-            this.RunCMake($"--build . --parallel {Environment.ProcessorCount*2}", builddir32);
+            this.RunCMake($"\"{RootDir}\" {cmakeConfigureFlags32} -DBUILD_PLATFORM_TARGET={osStr} -DBUILD_BITS=\"ARM\" -DNATIVE_OUTPUT_FOLDER=\"{outputdir}\"", builddir32);
+            this.RunCMake($"--build . --config MinSizeRel --parallel {Environment.ProcessorCount*2}", builddir32);
         } else {
             this.Log.LogMessage(MessageImportance.High, $"Building x86 (32-bit) natives " + (string.IsNullOrEmpty(compilerIdentity32) ? "" : "with " + compilerIdentity32));
-            this.RunCMake($"\"{RootDir}\" {compilerFlags32} -DBUILD_PLATFORM_TARGET={osStr} -DBUILD_BITS=\"32\" -DNATIVE_OUTPUT_FOLDER=\"{outputdir}\"", builddir32);
-            this.RunCMake($"--build . --parallel {Environment.ProcessorCount*2}", builddir32);
+            this.RunCMake($"\"{RootDir}\" {cmakeConfigureFlags32} -DBUILD_PLATFORM_TARGET={osStr} -DBUILD_BITS=\"32\" -DNATIVE_OUTPUT_FOLDER=\"{outputdir}\"", builddir32);
+            this.RunCMake($"--build . --config MinSizeRel --parallel {Environment.ProcessorCount*2}", builddir32);
         }
         
     }

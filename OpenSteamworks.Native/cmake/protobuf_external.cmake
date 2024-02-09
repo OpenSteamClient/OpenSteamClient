@@ -22,8 +22,12 @@ set(PROTOBUF_INCLUDE_DIRS ${PROTOBUF_INSTALL_DIR}/include)
 include_directories(${PROTOBUF_INCLUDE_DIRS})
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
-# The protobuf libraries are named differently in a debug configuration (no they're not)
-set(PROTOBUF_LIBRARIES protobuf)
+# The protobuf libraries are named differently in a debug configuration BUT only on Windows. WTF?
+IF(CMAKE_BUILD_TYPE MATCHES Debug)
+  set(PROTOBUF_LIBRARIES protobufd)
+ELSE()
+  set(PROTOBUF_LIBRARIES protobuf)
+ENDIF()
 
 foreach(lib ${PROTOBUF_LIBRARIES})
   if (MSVC)
@@ -68,7 +72,7 @@ ExternalProject_Add(${PROTOBUF_TARGET}
         -DCMAKE_INSTALL_LIBDIR=lib
         #-DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
         # Force this to create smaller executables
-        -DCMAKE_BUILD_TYPE=Release
+        -DCMAKE_BUILD_TYPE=MinSizeRel
         -DCMAKE_POSITION_INDEPENDENT_CODE=ON
         -DCMAKE_C_FLAGS=${PROTOBUF_CFLAGS}
         -DCMAKE_CXX_FLAGS=${PROTOBUF_CXXFLAGS}
@@ -77,6 +81,7 @@ ExternalProject_Add(${PROTOBUF_TARGET}
         -Dprotobuf_BUILD_TESTS=OFF
         -Dprotobuf_BUILD_PROTOC_BINARIES=ON
         -Dprotobuf_BUILD_SHARED_LIBS=OFF
+        -Dprotobuf_BUILD_STATIC_LIBS=OFF
         -Dprotobuf_WITH_ZLIB=OFF
         -Dprotobuf_BUILD_CONFORMANCE=OFF
     BUILD_BYPRODUCTS ${PROTOBUF_BUILD_BYPRODUCTS}

@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.25)
 project(opensteamclient LANGUAGES CXX) 
 
 set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_BUILD_TYPE MinSizeRel)
 
 if (NOT DEFINED IDE_BUILD)
     set(CMAKE_BUILD_TYPE Release)
@@ -35,6 +36,10 @@ endfunction()
 if (MSVC)
     # Requires a "generator expression" to not create an extra Debug folder...
     set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${NATIVE_OUTPUT_FOLDER}$<0:>)
+
+    # Requires this shit to not fail the build that worked fine before
+    # Don't worry, doesn't use debug configuration even though it says debug, it picks one automatically
+    set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
 else()
     set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${NATIVE_OUTPUT_FOLDER})
 endif()
@@ -106,7 +111,6 @@ if (BUILD_PLATFORM_TARGET STREQUAL "windows")
     if (BUILD_BITS STREQUAL "64" OR DEFINED IDE_BUILD)
         include("cmake/protobuf_external.cmake")
         add_library(protobufhack SHARED ${protobufhack_include_cc} ${protobufhack_sources})
-        set_target_properties(protobufhack PROPERTIES BUILD_TYPE Release)
         set_target_properties(protobufhack PROPERTIES CXX_STANDARD 14)
         target_include_directories(protobufhack PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
         target_link_libraries(protobufhack ${Protobuf_LIBRARIES})
