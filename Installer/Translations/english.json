@@ -12,9 +12,16 @@
         "#Dialog_Previous": "Previous",
         "#Dialog_Finish": "Finish",
         "#Dialog_Install": "Install",
+        "#MainWindow_Title": "OpenSteamClient Installer",
+        "#LocalizedSteamSSALink": "https://store.steampowered.com/subscriber_agreement/",
         "#Welcome_WindowTitle": "Welcome",
         "#Welcome_Title": "Welcome to the OpenSteamClient setup",
-        "#Welcome_Text": "By continuing, you agree to the Steam Subscriber Agreement (https://store.steampowered.com/subscriber_agreement/). \nYou also agree that OpenSteamClient or it's developers will not be held responsible if your Steam account is terminated for any reason.",
+        "#Welcome_FeatureText": "OpenSteamClient is a community alternative to the official Steam Client. Here are some of it's features: ",
+        "#Welcome_Features": " - Lightweight\n - Not browser based\n - Extensive customization\n - Community support\n - 64-bit",
+        "#Welcome_AgreeText": "Please agree to the below terms to use OpenSteamClient.",
+        "#Welcome_ViewSSAButton": "View Steam Subscriber Agreement",
+        "#Welcome_AgreeSSACheckbox": "I agree to the Steam Subscriber Agreement",
+        "#Welcome_AgreeOSCDevelopersCheckbox": "I agree to not hold OpenSteamClient's developers responsible if my Steam account gets terminated for any reason",
         "#ChooseActionPage_Install": "Install",
         "#ChooseActionPage_InstallSubtext": "Install OpenSteamClient",
         "#ChooseActionPage_Repair": "Repair",
@@ -30,7 +37,12 @@
         "#InstallError_DirectoryNotFoundError": "Install folder does not exist",
         "#InstallError_ContainsFilesError": "Install folder contains files",
         "#InstallError_PathNotAbsoluteError": "Provided path is not absolute",
+        "#InstallError_ServiceInstallFailed": "Service installation failed with code {0}, error: {1}",
         "#InstallError_GenericErrorCode": "Got error code {0} while installing",
-        "#InstallError_GenericError": "Got error {0} while installing"
+        "#InstallError_GenericError": "Got error {0} while installing",
+        "#InstallProgress_DownloadingService": "Downloading Steam Client Service",
+        "#InstallProgress_InstallingService": "Installing Steam Client Service",
+        "#InstallProgress_UnzippingOSC": "Unzipping OpenSteamClient",
+        "#InstallProgress_WritingRegistryKeys": "Writing registry keys"
     }
 }

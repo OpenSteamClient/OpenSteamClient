@@ -15,11 +15,14 @@
         <vmp:ChooseInstallDirectoryPageViewModel/>
     </Design.DataContext>
     
-    <DockPanel LastChildFill="false">
+    <DockPanel Margin="10">
         <TextBlock DockPanel.Dock="Bottom" Foreground="Red" IsVisible="{Binding HasError}" Text="{Binding CurrentError}"/>
-        <DockPanel DockPanel.Dock="Top">
-            <Button DockPanel.Dock="Right" Command="{Binding SelectDirectory}" c:Translatable.TranslationKey="#PickInstallDirectory_ButtonText" />
-            <TextBox Height="30" x:Name="InstallDirBox" Text="{Binding CurrentPath}"/>
-        </DockPanel>
+        <StackPanel Height="40">
+            <TextBlock Margin="0,0,0,4" c:Translatable.TranslationKey="#PickInstallDirectory_Title"/>
+            <DockPanel Height="32">
+                <Button DockPanel.Dock="Right" Command="{Binding SelectDirectory}" c:Translatable.TranslationKey="#PickInstallDirectory_ButtonText" />
+                <TextBox x:Name="InstallDirBox" Text="{Binding CurrentPath}"/>
+            </DockPanel>    
+        </StackPanel>
     </DockPanel>
 </UserControl>

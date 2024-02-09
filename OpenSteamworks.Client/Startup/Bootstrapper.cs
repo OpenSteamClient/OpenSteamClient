@@ -569,12 +569,8 @@ public class Bootstrapper : IClientLifetime {
 
             // Download the file if it doesn't exist
             if (!File.Exists(saveLocation)) {
-                // Create a file stream to store the downloaded data.
-                // This really can be any type of writeable stream.
                 using (var stream = new FileStream(saveLocation, FileMode.Create, FileAccess.Write, FileShare.None)) {
                     progressHandler.SetSubOperation($"Downloading {package.Name}{(string.IsNullOrEmpty(specialVersion) ? "" : ' ' + specialVersion)}");
-                    // Use the custom extension method below to download the data.
-                    // The passed progress-instance will receive the download status updates.
                     await Client.HttpClient.DownloadAsync(url, stream, progressHandler, size_expected, default);
                 }
             }

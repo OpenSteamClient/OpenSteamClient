@@ -15,8 +15,19 @@
         <vmp:WelcomePageViewModel/>
     </Design.DataContext>
     
-    <StackPanel Margin="10">
-        <TextBlock Margin="0,0,0,20" FontSize="30" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Top" c:Translatable.TranslationKey="#Welcome_Title"/>
-        <TextBlock TextWrapping="Wrap" TextAlignment="Left" HorizontalAlignment="Center" VerticalAlignment="Center" c:Translatable.TranslationKey="#Welcome_Text"/>
-    </StackPanel>
+    <DockPanel LastChildFill="false" Margin="10">
+        <TextBlock DockPanel.Dock="Top" Margin="0,0,0,20" FontSize="30" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Top" c:Translatable.TranslationKey="#Welcome_Title"/>
+
+        <StackPanel DockPanel.Dock="Bottom">
+            <TextBlock TextWrapping="Wrap" TextAlignment="Left" c:Translatable.TranslationKey="#Welcome_AgreeText"/>
+            <StackPanel Orientation="Horizontal">
+                <CheckBox IsChecked="{Binding SSAAgreed}" c:Translatable.TranslationKey="#Welcome_AgreeSSACheckbox"/>
+                <Button Command="{Binding ShowSSA}" c:Translatable.TranslationKey="#Welcome_ViewSSAButton"/>
+            </StackPanel>
+            <CheckBox IsChecked="{Binding OSCDevelopersAgreed}" c:Translatable.TranslationKey="#Welcome_AgreeOSCDevelopersCheckbox"/>
+        </StackPanel>
+
+        <TextBlock DockPanel.Dock="Top" TextWrapping="Wrap" TextAlignment="Left" c:Translatable.TranslationKey="#Welcome_FeatureText"/>
+        <TextBlock DockPanel.Dock="Top" TextWrapping="Wrap" TextAlignment="Left" c:Translatable.TranslationKey="#Welcome_Features"/>
+    </DockPanel>
 </UserControl>

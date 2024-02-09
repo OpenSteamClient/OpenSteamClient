@@ -9,6 +9,7 @@
         x:DataType="vm:MainWindowViewModel"
         Icon="/Assets/opensteam-logo.ico"
         Width="600" Height="500"
+        c:Translatable.TranslationKey="#MainWindow_Title"
         Title="OpenSteamClient Installer">
 
     <Design.DataContext>
@@ -31,7 +32,7 @@
         </DockPanel>
 
         <!-- Footer buttons (Next, previous, cancel) -->
-        <DockPanel LastChildFill="false" Height="50" DockPanel.Dock="Bottom">
+        <DockPanel Margin="10" LastChildFill="false" Height="50" DockPanel.Dock="Bottom">
             <Button DockPanel.Dock="Left" IsEnabled="{Binding CanClose}" Command="{Binding OnCancel}" c:Translatable.TranslationKey="#Dialog_Cancel"/>
             <Button DockPanel.Dock="Left" IsEnabled="{Binding PreviousEnabled}" Command="{Binding OnPrevious}" c:Translatable.TranslationKey="#Dialog_Previous"/>
             <Button DockPanel.Dock="Right" IsEnabled="{Binding NextEnabled}" Command="{Binding OnNext}" IsDefault="true" x:Name="NextButton" c:Translatable.TranslationKey="#Dialog_Next"/>

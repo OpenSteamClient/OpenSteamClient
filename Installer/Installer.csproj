@@ -36,9 +36,10 @@
     <PackageReference Include="Avalonia.Desktop" Version="11.0.7" />
     <PackageReference Include="Avalonia.Themes.Fluent" Version="11.0.7" />
     <PackageReference Include="Avalonia.Fonts.Inter" Version="11.0.7" />
-    <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.0.7"/>
+    <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.0.7" />
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
     <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="7.0.8" />
+    <PackageReference Include="System.ServiceProcess.ServiceController" Version="8.0.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -46,4 +47,26 @@
     <AvaloniaResource Include="Assets\**" />
     <EmbeddedResource Include="Translations\**" />
   </ItemGroup>
+
+  <Target Name="BuildClientUIPackage" BeforeTargets="BeforeCompile" Condition="!Exists('$(GITHUB_WORKSPACE)')">
+    <MakeDir Directories="$(ArtifactsPath)" />
+    <MSBuild Condition="!Exists('$(ArtifactsPath)/ClientUI_Windows.zip')" Projects="$(ProjectRootDir)/ClientUI/ClientUI.csproj" Targets="Publish" Properties="Configuration=Release;RuntimeIdentifier=win-x64" />
+    <Exec Condition="!Exists('$(ArtifactsPath)/ClientUI_Windows.zip')" WorkingDirectory="$(ProjectRootDir)/ClientUI/bin/Release" Command="sh -c %27cd ./%2A/win-x64/publish %26%26 zip -r &quot;$(ArtifactsPath)/ClientUI_Windows.zip&quot; .%27" />
+  </Target>
+
+  <Choose>
+        <!-- This is a GH build -->
+        <When Condition="Exists('$(GITHUB_WORKSPACE)')">
+            <ItemGroup>
+                <EmbeddedResource Include="$(GITHUB_WORKSPACE)\ClientUI_Windows.zip" />
+            </ItemGroup>
+        </When>
+
+        <!-- This is a regular build -->
+        <Otherwise>
+            <ItemGroup>
+                <EmbeddedResource Include="$(ArtifactsPath)\ClientUI_Windows.zip" />
+            </ItemGroup>
+        </Otherwise>
+    </Choose>
 </Project>

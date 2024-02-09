@@ -31,6 +31,7 @@ public partial class ChooseInstallDirectoryPageViewModel : ViewModelBase {
         CurrentPath = "C:\\Program Files\\OpenSteamClient";
         CurrentError = "";
         Dispatcher.UIThread.Invoke(() => page.AttachedToVisualTree += OnAttachedToVisualTree);
+        AvaloniaApp.TranslationManager.TranslationChanged += (object? sender, EventArgs args) => ValidateNext();
         ValidateNext();
     }
 
@@ -84,6 +85,7 @@ public partial class ChooseInstallDirectoryPageViewModel : ViewModelBase {
     public void ValidateNext()
     {
         Console.WriteLine("Validating");
+        //TODO: this might cause performance issues with the rapid speed we're calling it in TextProperty updated
         mainWindowViewModel.CanGoNext = TestIfValidDirectory();
     }
 }

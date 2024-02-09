@@ -37,6 +37,9 @@ public class TranslationManager
     public Translation CurrentTranslation = new();
     private readonly List<AvaloniaObject> RefreshableObjects = new();
     public static IEnumerable<ELanguage> ValidUILanguages => new ELanguage[] { ELanguage.English, ELanguage.Finnish };
+
+    public event EventHandler? TranslationChanged;
+
     public TranslationManager()
     {
 
@@ -63,6 +66,8 @@ public class TranslationManager
                 TranslateAvaloniaObject(obj);
             }
         });
+
+        TranslationChanged?.Invoke(this, EventArgs.Empty);
     }
 
     public string GetTranslationForKey(string key)
@@ -70,7 +75,7 @@ public class TranslationManager
         this.CurrentTranslation.TranslationKeys.TryGetValue(key, out string? val);
         if (val == null)
         {
-            val = "TRANSLATION FAILED";
+            val = $"TRANSLATION FAILED (key '{key}')";
         }
 
         return val;
@@ -164,7 +169,7 @@ public class TranslationManager
         if (!string.IsNullOrEmpty(translationKey))
         {
             bool translationFailed = false;
-            string translatedText = "TRANSLATION FAILED";
+            string translatedText = $"TRANSLATION FAILED (key '{translationKey}')";
             if (!this.CurrentTranslation.TranslationKeys.ContainsKey(translationKey))
             {
                 translationFailed = true;

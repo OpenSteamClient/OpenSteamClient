@@ -72,7 +72,7 @@ public partial class MainWindowViewModel : ViewModelBase {
         }
     }
 
-    private bool canGoNext = true;
+    private bool canGoNext = false;
     public bool CanGoNext {
         get => canGoNext;
         set {
@@ -115,7 +115,7 @@ public partial class MainWindowViewModel : ViewModelBase {
 
         {
             var page = new WelcomePage();
-            page.DataContext = new WelcomePageViewModel();
+            page.DataContext = new WelcomePageViewModel(this);
             Pages.Add(page);
         }
 
@@ -146,6 +146,8 @@ public partial class MainWindowViewModel : ViewModelBase {
         this.OnNext = new RelayCommand(Next);
 
         window.Closing += OnClosing;
+
+        UpdateActions();
     }
 
     private void OnClosing(object? sender, WindowClosingEventArgs e)
@@ -161,6 +163,10 @@ public partial class MainWindowViewModel : ViewModelBase {
             } else {
                 WindowToolbar.DisableCloseButton(window);
             }
+        }
+
+        if (e.PropertyName == nameof(SelectedLanguage)) {
+            AvaloniaApp.TranslationManager.SetLanguage(SelectedLanguage.ELang);
         }
     }
 

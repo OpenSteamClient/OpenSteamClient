@@ -47,6 +47,10 @@
     </Content>
   </ItemGroup>
 
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <SelfContained>true</SelfContained>
+  </PropertyGroup>
+
   <Import Project="$(AvaloniaPath)\build\BuildTargets.targets"/>
   <Import Project="$(AvaloniaPath)\build\SourceGenerators.props"/>
 </Project>
