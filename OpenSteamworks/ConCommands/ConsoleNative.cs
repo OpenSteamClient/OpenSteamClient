@@ -19,6 +19,11 @@ public unsafe class ConsoleNative {
     [UnmanagedCallersOnly(CallConvs = new[] { typeof(CallConvCdecl) })]
     public static unsafe byte RegisterConCommandBase(IConCommandBaseAccessor *acc, ConCommandBase *pVar)
     {
+        //TODO: whole concommand system breaks, prints a bunch of chinese characters and has an infinite loop at IsCommand (at least on Windows)
+        if (!OperatingSystem.IsLinux()) {
+            return 1;
+        }
+
         if (!File.Exists("/tmp/concommand.bin") && Marshal.PtrToStringAuto(pVar->m_pszName) == "package_info_print") {
             Span<byte> bytes = new(pVar, 100);
             System.IO.File.WriteAllBytes("/tmp/concommand.bin", bytes.ToArray());

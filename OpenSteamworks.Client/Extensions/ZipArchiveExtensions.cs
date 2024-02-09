@@ -6,7 +6,7 @@ namespace OpenSteamworks.Client.Extensions;
 
 public static class ZipArchiveExtensions
 {
-    public static async Task ExtractToDirectory(this ZipArchive source, string destinationDirectoryName, IExtendedProgress<int> prog, Action<ZipArchiveEntry, string>? afterExtractHook = null) {
+    public static async Task ExtractToDirectory(this ZipArchive source, string destinationDirectoryName, IExtendedProgress<int> prog, IEnumerable<string> blacklistedFiles, Action<ZipArchiveEntry, string>? afterExtractHook = null) {
         foreach (ZipArchiveEntry entry in source.Entries)
         {
             var FullNameFixed = entry.FullName;
@@ -24,6 +24,10 @@ public static class ZipArchiveExtensions
             }
             
             Directory.CreateDirectory(Path.GetDirectoryName(FullPath)!);
+
+            if (blacklistedFiles.Any() && blacklistedFiles.Contains(entry.Name)) {
+                continue;
+            }
 
             using (Stream zipstream = entry.Open()) {
                 if (entry.IsSymlink()) {
