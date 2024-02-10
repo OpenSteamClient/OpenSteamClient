@@ -1,5 +1,6 @@
 using OpenSteamworks.Client.Utils;
 using OpenSteamworks.KeyValues;
+using System.Globalization;
 
 namespace OpenSteamworks.Client.Apps.Sections;
 
@@ -22,7 +23,7 @@ public class AppDataConfigSection : TypedKVObject
         public string Description => DefaultIfUnset("description", "");
         public KVConfig? Config => DefaultIfUnset("config", kv => new KVConfig(kv), null);
 
-        public int ID => int.Parse(kv.Name);
+        public int ID => int.Parse(kv.Name, CultureInfo.InvariantCulture.NumberFormat);
         string AppBase.ILaunchOption.Name => "";
         string AppBase.ILaunchOption.Description => Description;
 

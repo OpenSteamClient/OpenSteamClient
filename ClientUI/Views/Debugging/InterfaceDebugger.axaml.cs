@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -171,7 +172,7 @@ public partial class InterfaceDebugger : Window
                     UtilityFunctions.AssertNotNull(nextParamTextbox);
                     UtilityFunctions.AssertNotNull(nextParamTextbox.Text);
                     refParams.Add(i, paramInfo);
-                    paramArr[i] = new StringBuilder(int.Parse(nextParamTextbox.Text));
+                    paramArr[i] = new StringBuilder(int.Parse(nextParamTextbox.Text, CultureInfo.InvariantCulture.NumberFormat));
                     continue;
                 }
 

@@ -2,6 +2,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Net.Sockets;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Globalization;
 
 public class IPCClient {
     public enum IPCCommandCode : byte {
@@ -63,7 +64,7 @@ public class IPCClient {
         
         var ports = ipaddress.Split(":");
         string ip = ports[0];
-        int port = int.Parse(ports[1]);
+        int port = int.Parse(ports[1], CultureInfo.InvariantCulture.NumberFormat);
         socket.Connect(ip, port);
         Console.WriteLine("Connected to " + ipaddress);
 

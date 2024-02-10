@@ -151,11 +151,8 @@ public unsafe interface IClientUser
     public bool GetCellList([ProtobufPtrType(typeof(CMsgCellList))] IntPtr cells);  // argc: 1, index: 75, ipc args: [], ipc returns: [bytes1, protobuf]
     public string GetUserBaseFolder();  // argc: 0, index: 76, ipc args: [], ipc returns: [string]
     public bool GetUserDataFolder(ref AppId_t appid, StringBuilder buf, int bufMax);  // argc: 3, index: 77, ipc args: [bytes8, bytes4], ipc returns: [bytes1, bytes_length_from_mem]
-    // WARNING: Arguments are unknown!
     public bool GetUserConfigFolder(StringBuilder buf, int bufMax);  // argc: 2, index: 78, ipc args: [bytes4], ipc returns: [bytes1, bytes_length_from_mem]
-    // WARNING: Arguments are unknown!
     public bool GetAccountName(StringBuilder usernameOut, int strMaxLen);  // argc: 2, index: 79, ipc args: [bytes4], ipc returns: [bytes1, bytes_length_from_mem]
-    // WARNING: Arguments are unknown!
     public bool GetAccountName(CSteamID steamid, StringBuilder usernameOut, int strMaxLen);  // argc: 4, index: 80, ipc args: [uint64, bytes4], ipc returns: [bytes1, bytes_length_from_mem]
     public bool IsPasswordRemembered();  // argc: 0, index: 81, ipc args: [], ipc returns: [boolean]
     // WARNING: Arguments are unknown!

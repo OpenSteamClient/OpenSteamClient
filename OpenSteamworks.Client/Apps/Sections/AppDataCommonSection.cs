@@ -1,3 +1,4 @@
+using System.Globalization;
 using OpenSteamworks.Client.Utils;
 using OpenSteamworks.KeyValues;
 using OpenSteamworks.Structs;
@@ -14,12 +15,12 @@ public class AppDataCommonSection : TypedKVObject
         /// <summary>
         /// Width percentage of the logo overlay relative to the full size of the hero
         /// </summary>
-        public float LogoWidthPercentage => float.Parse(DefaultIfUnset("logo_position/width_pct", "50"));
+        public float LogoWidthPercentage => float.Parse(DefaultIfUnset("logo_position/width_pct", "50"), CultureInfo.InvariantCulture.NumberFormat);
 
         /// <summary>
         /// Height percentage of the logo overlay relative to the full size of the hero
         /// </summary>
-        public float LogoHeightPercentage => float.Parse(DefaultIfUnset("logo_position/height_pct", "100"));
+        public float LogoHeightPercentage => float.Parse(DefaultIfUnset("logo_position/height_pct", "100"), CultureInfo.InvariantCulture.NumberFormat);
         public string LogoPinnedPosition => DefaultIfUnset("logo_position/pinned_position", "BottomLeft");
 
         public LibraryAssetsT(KVObject kv) : base(kv) { }

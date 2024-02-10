@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using OpenSteamworks.Extensions;
 using OpenSteamworks.Messaging;
 using OpenSteamworks.Structs;
+using System.Globalization;
 
 namespace OpenSteamworks.IPCClient;
 
@@ -70,7 +71,7 @@ public class IPCClient {
         
         var ports = ipaddress.Split(":");
         string ip = ports[0];
-        int port = int.Parse(ports[1]);
+        int port = int.Parse(ports[1], CultureInfo.InvariantCulture.NumberFormat);
         socket.Connect(ip, port);
         Logging.NativeClientLogger.Info("Connected to " + ipaddress);
 

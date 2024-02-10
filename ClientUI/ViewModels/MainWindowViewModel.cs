@@ -139,7 +139,6 @@ public partial class MainWindowViewModel : ViewModelBase
     {
         try
         {
-            File.WriteAllBytes("/tmp/networkingui_appsummary.bin", data);
             byte[] dataoffset = data[8..];
             var parsed = CGameNetworkingUI_AppSummary.Parser.ParseFrom(dataoffset);
             Console.WriteLine("appid: " + parsed.Appid);
@@ -157,8 +156,6 @@ public partial class MainWindowViewModel : ViewModelBase
     {
         try
         {
-            File.WriteAllBytes("/tmp/networkingui_connectionstate.bin", data);
-
             byte[] dataoffset = data[4..];
 
             var state = CGameNetworkingUI_ConnectionState.Parser.ParseFrom(dataoffset);

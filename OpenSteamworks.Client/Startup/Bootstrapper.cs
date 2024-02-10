@@ -77,7 +77,7 @@ public class Bootstrapper : IClientLifetime {
             return true;
         }
 
-        if (packageName.StartsWith("public_")) {
+        if (packageName.StartsWith("public_") && !packageName.StartsWith("public_all")) {
             return true;
         }
 
@@ -229,9 +229,10 @@ public class Bootstrapper : IClientLifetime {
                 logger.Error("Failed verification: " + string.Join(", ", failureReason));
                 await EnsurePackages(progressHandler);
                 await ExtractPackages(progressHandler);
-                CreateSymlinks(progressHandler);
             }
         }
+
+        CreateSymlinks(progressHandler);
 
         // Run platform specific tasks
         if (OperatingSystem.IsWindows()) {
@@ -313,6 +314,7 @@ public class Bootstrapper : IClientLifetime {
     private void CreateSymlinks(IExtendedProgress<int> progressHandler)
     {
         progressHandler.SetSubOperation("Creating symlinks");
+        logger.Info($"Creating symlinks");
         // Specify path mappings here to tell the files to link into another folder as well
         Dictionary<string, string> pathMappings = new() {
             {"ubuntu12_64/libsteamwebrtc.so", "libsteamwebrtc.so"},
@@ -330,6 +332,8 @@ public class Bootstrapper : IClientLifetime {
                 File.CreateSymbolicLink(targetPath, sourcePath);
                 var info = new FileInfo(targetPath);
                 bootstrapperState.InstalledFiles.Add(targetPath, info.Length);
+            } else {
+                logger.Info($"Not linking {mapping.Key} -> {mapping.Value}, source doesn't exist");
             }
         }
 
@@ -337,26 +341,61 @@ public class Bootstrapper : IClientLifetime {
         //TODO: settings to determine when to do this
         if (installManager.ValveSteamInstallDir != null) {
             var valveSteamPath = Path.Combine(installManager.ValveSteamInstallDir, "config", "libraryfolders.vdf");
+            var valveSteamappsPath = Path.Combine(installManager.ValveSteamInstallDir, "steamapps");
             var openSteamPath = Path.Combine(installManager.ConfigDir, "libraryfolders.vdf");
+            var openSteamappsPath = Path.Combine(installManager.InstallDir, "steamapps");
             var openSteamBackupPath = Path.Combine(installManager.ConfigDir, "libraryfolders_backup.vdf");
             var openSteamFileInfo = new FileInfo(openSteamPath);
-            bool shouldCopy = openSteamFileInfo.LinkTarget != null || !openSteamFileInfo.Exists;
+            var openSteamappsDirectoryInfo = new DirectoryInfo(openSteamappsPath);
+
+            bool shouldCopy = openSteamFileInfo.IsLink() || !openSteamFileInfo.Exists;
+            bool shouldCopySteamapps = openSteamappsDirectoryInfo.IsLink() || !openSteamappsDirectoryInfo.Exists;
+            bool windowsHasLinkedSteamapps = !OperatingSystem.IsWindows() || (OperatingSystem.IsWindows() && openSteamappsDirectoryInfo.IsLink());
             if (File.Exists(valveSteamPath)) {
                 // Always copy and overwrite libraryfolders_backup.vdf
                 File.Copy(valveSteamPath, openSteamBackupPath, true);
 
-                if (shouldCopy) {
-                    File.Delete(openSteamPath);
-                    File.CreateSymbolicLink(openSteamPath, valveSteamPath);
+                if (windowsHasLinkedSteamapps) {
+                    if (shouldCopy) {
+                        // Link over libraryfolders.vdf
+                        File.Delete(openSteamPath);
+                        File.CreateSymbolicLink(openSteamPath, valveSteamPath);
+                        logger.Info($"Linked libraryfolders.vdf from ValveSteam ({openSteamPath} -> {valveSteamPath})");
+                    } else {
+                        logger.Info("Not linking libraryfolders.vdf from ValveSteam, as shouldCopy is false");
+                    }
+                } else {
+                    logger.Info("Not linking libraryfolders.vdf from ValveSteam, as steamapps isn't linked");
                 }
-               
+
+                if (!openSteamappsDirectoryInfo.Exists) {
+                    if (!OperatingSystem.IsWindows()) {
+                        if (Directory.Exists(valveSteamappsPath)) {
+                            if (shouldCopySteamapps) {
+                                // Link over steamapps
+                                Directory.CreateSymbolicLink(openSteamappsPath, valveSteamappsPath);
+                                logger.Info("Linked steamapps from ValveSteam");
+                            } else {
+                                logger.Info("Not linking steamapps from ValveSteam as shouldCopySteamapps is false");
+                            }
+                        } else {
+                            logger.Info("Not linking steamapps from ValveSteam, as ValveSteam doesn't contain steamapps");
+                        }
+                    } else {
+                        logger.Info("Not linking steamapps from ValveSteam, as we're on Windows. To do this yourself, follow the wiki at https://github.com/OpenSteamClient/OpenSteamClient/wiki/Linking-steamapps-on-Windows");
+                    }
+                } else {
+                    logger.Info("Not linking steamapps from ValveSteam, as it already exists.");
+                }
+                
                 bootstrapperState.LastConfigLinkSuccess = true;
             } else if (!File.Exists(valveSteamPath) && bootstrapperState.LastConfigLinkSuccess) {
-                // ValveSteam was deleted, copy our last backup if it exists
+                // ValveSteam was deleted, remove libraryfolders.vdf link and copy over our backup (steam will auto fix the folders if they're broken)
                 if (File.Exists(openSteamBackupPath))
                 {
                     if (shouldCopy) {
                         File.Copy(openSteamBackupPath, openSteamPath, true);
+                        logger.Info("Copied libraryfolders_backup.vdf -> libraryfolders.vdf");
                     } else {
                         logger.Warning("Not overwriting libraryfolders.vdf with backup, as libraryfolders.vdf is file and not link");
                     }
@@ -366,11 +405,19 @@ public class Bootstrapper : IClientLifetime {
                     logger.Warning("LastConfigLinkSuccess is true but libraryfolders_backup doesn't exist???");
                 }
 
+                if (openSteamappsDirectoryInfo.IsLink() && !Directory.Exists(valveSteamappsPath)) {
+                    // ValveSteam was deleted, remove steamapps link
+                    Directory.Delete(openSteamappsPath);
+                    logger.Info("Removing steamapps link since ValveSteam was deleted");
+                }
+
                 // Mark last link as unsuccessful
                 bootstrapperState.LastConfigLinkSuccess = false;
             } else {
                 logger.Info("Not copying libraryfolders.vdf from ValveSteam, as ValveSteam is not installed");
             }
+        } else {
+            logger.Info("ValveSteam is not installed, skipping ValveSteam link");
         }
     }
 
@@ -661,13 +708,14 @@ public class Bootstrapper : IClientLifetime {
             using (ZipArchive archive = ZipFile.OpenRead(zip.Value))
             {
                 await archive.ExtractToDirectory(installManager.InstallDir, progressHandler, blacklistedFiles, (ZipArchiveEntry entry, string name) => {
-                    bootstrapperState.InstalledFiles.Add(name, entry.Length);
-                });  
-            } 
+                    bootstrapperState.InstalledFiles[name] = entry.Length;
+                });
+            }
         }
 
         progressHandler.SetOperation("Extracted packages");
     }
+    
     [SupportedOSPlatform("linux")] 
     private async Task CheckSteamRuntime(IExtendedProgress<int> progressHandler) {
         progressHandler.SetOperation($"Processing Steam Runtime");

@@ -5,11 +5,10 @@
              xmlns:vm="clr-namespace:ClientUI.ViewModels"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="ClientUI.MessageBox"
-             SizeToContent="WidthAndHeight"
              x:DataType="vm:MessageBoxViewModel"
              Icon="{Binding WindowIcon}"
-             Width="{Binding Width}"
-             Height="{Binding Height}"
+             Width="1420"
+             Height="720"
              CanResize="false"
              Title="{Binding Title}"
              Padding="15">

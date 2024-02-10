@@ -1,3 +1,5 @@
+using System.Diagnostics.CodeAnalysis;
+
 namespace OpenSteamworks.Client.Extensions;
 
 public static class DirectoryInfoExtensions
@@ -13,5 +15,9 @@ public static class DirectoryInfoExtensions
                 RecurseSubdirectories = true,
                 MaxRecursionDepth = maxDepth,
         });
+    }
+
+    public static bool IsLink(this DirectoryInfo di) {
+        return di.LinkTarget != null;
     }
 }

@@ -7,6 +7,7 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.Json;
+using System.Globalization;
 
 public class Program
 {
@@ -77,10 +78,10 @@ public class Program
         {
             Console.WriteLine(functionJSON.GetProperty("name").GetString() + " == " + functionName);
             if (functionJSON.GetProperty("name").GetString() == functionName) {
-                interfaceid = (byte)uint.Parse(functionJSON.GetProperty("interfaceid").GetString()!);
-                functionid = uint.Parse(functionJSON.GetProperty("functionid").GetString()!);
-                fencepost = uint.Parse(functionJSON.GetProperty("fencepost").GetString()!);
-                argc = uint.Parse(functionJSON.GetProperty("argc").GetString()!);
+                interfaceid = (byte)uint.Parse(functionJSON.GetProperty("interfaceid").GetString()!, CultureInfo.InvariantCulture.NumberFormat);
+                functionid = uint.Parse(functionJSON.GetProperty("functionid").GetString()!, CultureInfo.InvariantCulture.NumberFormat);
+                fencepost = uint.Parse(functionJSON.GetProperty("fencepost").GetString()!, CultureInfo.InvariantCulture.NumberFormat);
+                argc = uint.Parse(functionJSON.GetProperty("argc").GetString()!, CultureInfo.InvariantCulture.NumberFormat);
                 return;
             }
         }

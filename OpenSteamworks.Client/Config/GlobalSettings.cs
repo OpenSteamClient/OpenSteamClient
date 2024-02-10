@@ -11,7 +11,7 @@ public class GlobalSettings: IConfigFile {
     [ConfigName("Enable Webhelper", "#GlobalSettings_EnableWebHelper")]
     [ConfigDescription("Enables/disables Webhelper. Required for some games and for browsing the store and community pages in-client. 100% functionality is not guaranteed.", "#GlobalSettings_EnableWebHelperDesc")]
     [ConfigCategory("Webhelper", "#GlobalSettings_Category_Webhelper")]
-    public bool EnableWebHelper { get; set; } = false;
+    public bool EnableWebHelper { get; set; } = true;
 
     [ConfigName("Enable Webhelper GPU Acceleration", "#GlobalSettings_WebhelperGPUAcceleration")]
     [ConfigDescription("Enables/disables GPU hardware rendering in Webhelper.", "#GlobalSettings_WebhelperGPUAccelerationDesc")]

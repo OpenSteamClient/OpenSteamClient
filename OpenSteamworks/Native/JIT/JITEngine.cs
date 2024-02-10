@@ -381,7 +381,7 @@ namespace OpenSteamworks.Native.JIT
             }
 
             ilgen.Return();
-            if (method.Name.Contains("CreateSteamPipe")) {
+            if (method.Name.Contains("GetAccountName")) {
                 Console.WriteLine(ilgen.ToString());
             }
         }

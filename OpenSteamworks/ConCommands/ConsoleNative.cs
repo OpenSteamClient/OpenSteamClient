@@ -20,6 +20,7 @@ public unsafe class ConsoleNative {
     public static unsafe byte RegisterConCommandBase(IConCommandBaseAccessor *acc, ConCommandBase *pVar)
     {
         //TODO: whole concommand system breaks, prints a bunch of chinese characters and has an infinite loop at IsCommand (at least on Windows)
+        //TODO: we really should figure out how to access the concommand system with functions instead relying on the class struct fields
         if (!OperatingSystem.IsLinux()) {
             return 1;
         }

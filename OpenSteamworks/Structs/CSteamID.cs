@@ -3,6 +3,7 @@ using OpenSteamworks.Converters;
 using System.Runtime.InteropServices;
 using System.Text.Json.Serialization;
 using OpenSteamworks.Enums;
+using System.Globalization;
 
 namespace OpenSteamworks.Structs;
 
@@ -270,9 +271,9 @@ public struct CSteamID : System.IEquatable<CSteamID>, System.IComparable<CSteamI
 		switch (dbgStr[0])
 		{
 			case 'I':
-                return new CSteamID(uint.Parse(dbgStr[1..]), EUniverse.Public, EAccountType.Individual);
+                return new CSteamID(uint.Parse(dbgStr[1..], CultureInfo.InvariantCulture.NumberFormat), EUniverse.Public, EAccountType.Individual);
 			case 'F':
-				return new CSteamID(ulong.Parse(dbgStr[1..]));
+				return new CSteamID(ulong.Parse(dbgStr[1..], CultureInfo.InvariantCulture.NumberFormat));
 			case 'A':
                 steamid.CreateBlankAnonUserLogon(EUniverse.Public);
                 return steamid;

@@ -42,8 +42,6 @@ public partial class MessageBoxViewModel : ViewModelBase
     public bool IsYesShowed => EnabledButtons.HasFlag(MessageBoxButton.Yes);
     public bool IsNoShowed => EnabledButtons.HasFlag(MessageBoxButton.No);
     public bool IsCancelShowed => EnabledButtons.HasFlag(MessageBoxButton.Cancel);
-    public double Width { get; set; } = double.NaN;
-    public double Height { get; set; } = double.NaN;
     public Action? Copy { get; set; }
     public Action? EnterPressed { get; set; }
     public Action? EscPressed { get; set; }

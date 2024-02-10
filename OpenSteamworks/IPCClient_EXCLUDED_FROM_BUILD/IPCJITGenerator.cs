@@ -8,6 +8,7 @@ using System.Text;
 using System.Text.Json;
 using Microsoft.Extensions.FileProviders;
 using OpenSteamworks.Native.JIT;
+using System.Globalization;
 
 namespace OpenSteamworks.IPCClient;
 
@@ -76,9 +77,9 @@ public static class IPCJITGenerator {
             foreach (var item in interfaceJson.GetProperty("functions").EnumerateArray())
             {
                 if (item.GetProperty("name").GetString() == methods[i].Name) {
-                    interfaceid = (byte)uint.Parse(item.GetProperty("interfaceid").GetString()!);
-                    functionid = uint.Parse(item.GetProperty("functionid").GetString()!);
-                    fencepost = uint.Parse(item.GetProperty("fencepost").GetString()!);
+                    interfaceid = (byte)uint.Parse(item.GetProperty("interfaceid").GetString()!, CultureInfo.InvariantCulture.NumberFormat);
+                    functionid = uint.Parse(item.GetProperty("functionid").GetString()!, CultureInfo.InvariantCulture.NumberFormat);
+                    fencepost = uint.Parse(item.GetProperty("fencepost").GetString()!, CultureInfo.InvariantCulture.NumberFormat);
                     break;
                 }
             }

@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -56,7 +57,7 @@ public struct CGameID : IEquatable<CGameID>, IComparable<CGameID> {
 			case 'M':
                 var appidStr = dbgStr[1..].Split(':')[0];
 				var modidStr = dbgStr[1..].Split(':')[1];
-                return new CGameID(UInt32.Parse(appidStr), uint.Parse(modidStr));
+                return new CGameID(UInt32.Parse(appidStr), uint.Parse(modidStr, CultureInfo.InvariantCulture.NumberFormat));
         }
 
         throw new ArgumentOutOfRangeException(nameof(dbgStr), "unknown dbg string type");
