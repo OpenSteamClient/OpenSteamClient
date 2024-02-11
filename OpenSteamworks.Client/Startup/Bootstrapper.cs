@@ -331,7 +331,7 @@ public class Bootstrapper : IClientLifetime {
 
                 File.CreateSymbolicLink(targetPath, sourcePath);
                 var info = new FileInfo(targetPath);
-                bootstrapperState.InstalledFiles.Add(targetPath, info.Length);
+                bootstrapperState.InstalledFiles[targetPath] = info.Length;
             } else {
                 logger.Info($"Not linking {mapping.Key} -> {mapping.Value}, source doesn't exist");
             }
@@ -665,11 +665,12 @@ public class Bootstrapper : IClientLifetime {
                     var sha2_calculated = Convert.ToHexString(SHA256.ComputeHash(stream));
                     verifySucceeded = sha2_calculated == sha2_expected;
                 }
-            }   
-            
+            }
+
             // Add to array if successful
-            if (verifySucceeded) {
-                downloadedPackages.Add(package.Name, saveLocation);
+            if (verifySucceeded)
+            {
+                downloadedPackages[package.Name] = saveLocation;
             } else {
                 // If not, add to failed array and delete
                 // Bootstrapper will be rerun if atleast one file is failed
