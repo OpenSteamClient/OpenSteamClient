@@ -7,6 +7,7 @@ using Avalonia.Controls;
 using ClientUI.ViewModels.Library;
 using ClientUI.Views.Library;
 using CommunityToolkit.Mvvm.ComponentModel;
+using OpenSteamworks.Client;
 using OpenSteamworks.Client.Apps;
 using OpenSteamworks.Client.Apps.Library;
 using OpenSteamworks.Client.Managers;
@@ -59,10 +60,9 @@ public partial class LibraryPageViewModel : ViewModelBase
             return;
         }
 
-        SideContent = new FocusedAppPane
-        {
-            DataContext = AvaloniaApp.Container.ConstructOnly<FocusedAppPaneViewModel>(SelectedNodes[0].GameID)
-        };
+        var pane = new FocusedAppPane();
+        pane.DataContext = AvaloniaApp.Container.ConstructOnly<FocusedAppPaneViewModel>(pane, SelectedNodes[0].GameID);
+        SideContent = pane;
     }
 
     private CollectionItemViewModel GetOrCreateCategory(ref List<CollectionItemViewModel> nodes, OpenSteamworks.Client.Apps.Library.Library library, Collection collection)

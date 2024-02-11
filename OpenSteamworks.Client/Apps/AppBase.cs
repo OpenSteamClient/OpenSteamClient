@@ -94,6 +94,8 @@ public abstract class AppBase
     
     public string? LocalIconPath { get; protected set; }
     public string? LocalLogoPath { get; protected set; }
+    //TODO: this sucks and should be done some other way. Also the library assets system in general is very sphagetti code and should be rewritten
+    public bool IsUsingParentLogo { get; set; } = false;
     public string? LocalHeroPath { get; protected set; }
     public string? LocalPortraitPath { get; protected set; }
     internal bool NeedsLibraryAssetUpdate { get; private set; }

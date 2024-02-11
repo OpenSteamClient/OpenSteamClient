@@ -10,7 +10,9 @@ using Avalonia.Controls;
 using Avalonia.Layout;
 using Avalonia.Media;
 using Avalonia.Media.Imaging;
+using Avalonia.Reactive;
 using Avalonia.Threading;
+using ClientUI.Extensions;
 using ClientUI.ViewModels.Library;
 using ClientUI.Views;
 using ClientUI.Views.Library;
@@ -35,7 +37,7 @@ public partial class FocusedAppPaneViewModel : ViewModelBase
     private IBrush hero;
 
     [ObservableProperty]
-    private IBrush logo;
+    private IImage? logo;
 
     [NotifyPropertyChangedFor(nameof(HasLogoAsText))]
     [ObservableProperty]
@@ -71,20 +73,26 @@ public partial class FocusedAppPaneViewModel : ViewModelBase
     [ObservableProperty]
     private HorizontalAlignment logoHorizontalAlignment;
 
-    public double HeroHeight => 450;
-    public double HeroWidth => 1400;
+    private double HeroHeight => heroContainer.Bounds.Height;
+    private double HeroWidth => heroContainer.Bounds.Width;
+
     public double LogoContainerHeight => HeroHeight - 32;
-    public double LogoContainerWidth => HeroWidth - 32;
+    public double LogoContainerWidth => HeroWidth - 64;
     public bool HasLogoAsText => !string.IsNullOrEmpty(LogoAsText);
 
     private readonly AppBase app;
+    private readonly FocusedAppPane pane;
+    private readonly Grid heroContainer;
 
-    public FocusedAppPaneViewModel(CGameID gameid)
+    public FocusedAppPaneViewModel(FocusedAppPane pane, CGameID gameid)
     {
+        this.pane = pane;
+        this.heroContainer = pane.FindControlNested<Grid>("Hero")!;
         LogoAsText = "";
         app = AvaloniaApp.Container.Get<AppsManager>().GetApp(gameid);
         AvaloniaApp.Container.Get<CallbackManager>().RegisterHandler<AppEventStateChange_t>(OnAppEventStateChange);
         this.Name = app.Name;
+        this.heroContainer.GetObservable(Visual.BoundsProperty).Subscribe(new AnonymousObserver<Rect>(OnHeroBoundsChanged));
         SetLibraryAssets();
 
         app.LibraryAssetsUpdated += OnLibraryAssetsUpdated;
@@ -155,12 +163,9 @@ public partial class FocusedAppPaneViewModel : ViewModelBase
 #pragma warning disable MVVMTK0034
     [MemberNotNull(nameof(hero))]
     [MemberNotNull(nameof(Hero))]
-    [MemberNotNull(nameof(logo))]
-    [MemberNotNull(nameof(Logo))]
 #pragma warning restore MVVMTK0034
     private void SetLibraryAssets()
     {
-
         if (app.LocalHeroPath == null && app.LocalLogoPath == null) {
             LogoAsText = app.Name;
         }
@@ -175,42 +180,55 @@ public partial class FocusedAppPaneViewModel : ViewModelBase
             this.Hero = Brushes.Transparent;
         }
 
-        if (app.LocalLogoPath != null)
-        {
-            this.Logo = new ImageBrush()
-            {
-                Source = new Bitmap(app.LocalLogoPath),
-            };
+        string? localLogoPath;
+        AppBase.ILibraryAssetAlignment? assetAlignment;
+        if (app.IsUsingParentLogo && app is SteamApp sapp && sapp.ParentApp != null) {
+            localLogoPath = sapp.LocalLogoPath;
+            assetAlignment = sapp.ParentApp.LibraryAssetAlignment;
+        } else {
+            localLogoPath = app.LocalLogoPath;
+            assetAlignment = app.LibraryAssetAlignment;
+        }
 
-            if (app.LibraryAssetAlignment != null) {
-                this.LogoHeight = (this.HeroHeight / 100) * app.LibraryAssetAlignment.LogoHeightPercentage;
-                this.LogoWidth = (this.HeroWidth / 100) * app.LibraryAssetAlignment.LogoWidthPercentage;
-                if (app.LibraryAssetAlignment.LogoPinnedPosition == "CenterCenter") {
+        if (localLogoPath != null)
+        {
+            this.Logo = new Bitmap(localLogoPath);
+
+            if (assetAlignment != null) {
+                this.LogoHeight = (this.HeroHeight / 100) * assetAlignment.LogoHeightPercentage;
+                this.LogoWidth = (this.HeroWidth / 100) * assetAlignment.LogoWidthPercentage;
+                
+                if (assetAlignment.LogoPinnedPosition == "CenterCenter") {
                     LogoHorizontalAlignment = HorizontalAlignment.Center;
                     LogoVerticalAlignment = VerticalAlignment.Center;
-                } else if (app.LibraryAssetAlignment.LogoPinnedPosition == "UpperCenter") {
+                } else if (assetAlignment.LogoPinnedPosition == "UpperCenter") {
                     LogoHorizontalAlignment = HorizontalAlignment.Center;
                     LogoVerticalAlignment = VerticalAlignment.Top;
-                } else if (app.LibraryAssetAlignment.LogoPinnedPosition == "BottomCenter") {
+                } else if (assetAlignment.LogoPinnedPosition == "BottomCenter") {
                     LogoHorizontalAlignment = HorizontalAlignment.Center;
                     LogoVerticalAlignment = VerticalAlignment.Bottom;
-                } else if (app.LibraryAssetAlignment.LogoPinnedPosition == "BottomLeft") {
+                } else if (assetAlignment.LogoPinnedPosition == "BottomLeft") {
                     LogoHorizontalAlignment = HorizontalAlignment.Left;
                     LogoVerticalAlignment = VerticalAlignment.Bottom;
                 } else {
-                    throw new InvalidOperationException("Unhandled alignment: " + app.LibraryAssetAlignment.LogoPinnedPosition);
+                    throw new InvalidOperationException("Unhandled logo alignment: " + assetAlignment.LogoPinnedPosition);
                 }
             }
         }
         else
         {
-            this.Logo = Brushes.Transparent;
+            this.Logo = null;
         }
     }
 
     public void OnLibraryAssetsUpdated(object? sender, EventArgs e)
     {
-        Dispatcher.UIThread.Invoke(SetLibraryAssets);
+        SetLibraryAssets();
+    }
+
+    public void OnHeroBoundsChanged(Rect newBounds)
+    {
+        SetLibraryAssets();
     }
 
     private void InvalidAction()

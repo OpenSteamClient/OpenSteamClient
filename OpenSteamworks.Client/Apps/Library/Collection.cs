@@ -82,21 +82,19 @@ public class Collection
             collection.StoreTagsFilter = FilterGroup<int>.FromJSONFilterGroup(json.filterSpec.filterGroups[4]);
             collection.FriendsInCommonFilter = FilterGroup<uint>.FromJSONFilterGroup(json.filterSpec.filterGroups[6]);
         }
-        else
+        
+        if (json.added == null)
         {
-            if (json.added == null)
-            {
-                json.added = new List<uint>();
-            }
-
-            if (json.removed == null)
-            {
-                json.removed = new List<uint>();
-            }
-
-            collection.explicitlyAddedApps = json.added.Select(x => (AppId_t)x).ToHashSet();
-            collection.explicitlyRemovedApps = json.removed.Select(x => (AppId_t)x).ToHashSet();
+            json.added = new List<uint>();
         }
+
+        if (json.removed == null)
+        {
+            json.removed = new List<uint>();
+        }
+
+        collection.explicitlyAddedApps = json.added.Select(x => (AppId_t)x).ToHashSet();
+        collection.explicitlyRemovedApps = json.removed.Select(x => (AppId_t)x).ToHashSet();
 
         return collection;
     }

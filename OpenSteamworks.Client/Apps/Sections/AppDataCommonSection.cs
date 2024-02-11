@@ -36,7 +36,8 @@ public class AppDataCommonSection : TypedKVObject
     public bool ExcludeFromGameLibrarySharing => DefaultIfUnset("exfgls", false);
     public LibraryAssetsT? LibraryAssets => DefaultIfUnset("library_assets", (kv) => new LibraryAssetsT(kv), null);
     public string StoreAssetModificationTime => DefaultIfUnset("store_asset_mtime", "0");
-    public AppId_t ParentAppID => DefaultIfUnset("parent", (uint)0);
+    // Well why tf is this an int and not an uint
+    public AppId_t ParentAppID => (uint)DefaultIfUnset("parent", (int)0);
     public string Icon => DefaultIfUnset("icon", "");
 
     public AppDataCommonSection(KVObject kv) : base(kv) { }

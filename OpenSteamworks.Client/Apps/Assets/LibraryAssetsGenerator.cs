@@ -17,7 +17,7 @@ namespace OpenSteamworks.Client.Apps.Assets;
 /// <summary>
 /// Generates library assets for games which don't have hero art specified.
 /// </summary>
-// The code here absolutely reeks. Wrote this shit in a day.
+// The code here absolutely reeks. Wrote this shit in a day. Works pretty well though.
 public class LibraryAssetsGenerator {
     public readonly struct GenerateAssetRequest {
         public AppId_t AppID { get; init; }

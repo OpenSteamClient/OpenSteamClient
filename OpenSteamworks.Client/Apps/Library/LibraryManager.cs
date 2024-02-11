@@ -88,7 +88,11 @@ public class LibraryManager : ILogonLifetime
                     continue;
                 }
 
-                processingTasks.Add(InitAppAssets(item));
+                if (item is not SteamApp) {
+                    continue;
+                }
+
+                processingTasks.Add(DownloadAppAssets((item as SteamApp)!));
             }
             
             Task.WaitAll(processingTasks.ToArray());
@@ -281,7 +285,7 @@ public class LibraryManager : ILogonLifetime
         return Path.Combine(this.LibraryAssetsPath, $"{appid}_{suffix}");
     }
 
-    public async Task UpdateLibraryAssets(AppBase app, bool suppressConcurrentDictSave = false) {
+    public async Task UpdateLibraryAssets(SteamApp app, bool suppressConcurrentDictSave = false) {
         string? iconPath = await UpdateLibraryAsset(app, ELibraryAssetType.Icon, true, true, false);
         string? logoPath = await UpdateLibraryAsset(app, ELibraryAssetType.Logo, true, true, false);
         string? heroPath = await UpdateLibraryAsset(app, ELibraryAssetType.Hero, true, true, false);
@@ -293,7 +297,7 @@ public class LibraryManager : ILogonLifetime
         }
     }
 
-    public async Task<string?> UpdateLibraryAsset(AppBase app, ELibraryAssetType assetType, bool suppressSet = false, bool suppressConcurrentDictSave = false, bool lastInBatch = true) {
+    public async Task<string?> UpdateLibraryAsset(SteamApp app, ELibraryAssetType assetType, bool suppressSet = false, bool suppressConcurrentDictSave = false, bool lastInBatch = true) {
         EnsureConcurrentAssetDict();
 
         bool willGenerate = false;
@@ -332,12 +336,8 @@ public class LibraryManager : ILogonLifetime
 
             // Don't try to download if icon hash is empty
             if (assetType == ELibraryAssetType.Icon) {
-                if (app is SteamApp sapp) {
-                    if (string.IsNullOrEmpty(sapp.Common.Icon)) {
-                        shouldDownload = false;
-                    }
-                } else {
-                    logger.Warning("AssetType is icon, but we're not a SteamApp! Unsupported (for now)");
+                if (string.IsNullOrEmpty(app.Common.Icon)) {
+                    shouldDownload = false;
                 }
             }
 
@@ -355,13 +355,8 @@ public class LibraryManager : ILogonLifetime
                         response.Content.ReadAsStream().CopyTo(file);
                         logger.Info($"Saved library asset {assetType} for {app.AppID} to disk successfully");
                         if (assetType == ELibraryAssetType.Icon) {
-                            if (app is SteamApp sapp)
-                            {
-                                logger.Info("Setting icon hash to '" + sapp.Common.Icon + "'");
-                                asset.IconHash = sapp.Common.Icon;
-                            } else {
-                                logger.Warning("AssetType is icon, but we're not a SteamApp! Unsupported (for now)");
-                            }
+                            logger.Info("Setting icon hash to '" + app.Common.Icon + "'");
+                            asset.IconHash = app.Common.Icon;
                         } else {
                             if (response.Content.Headers.LastModified.HasValue) {
                                 string headerContent = response.Content.Headers.LastModified.Value.ToString(DateTimeFormatInfo.InvariantInfo.RFC1123Pattern);
@@ -379,29 +374,27 @@ public class LibraryManager : ILogonLifetime
                     }
 
                     if (!success && response.StatusCode == HttpStatusCode.NotFound && assetType != ELibraryAssetType.Icon) {
-                        if (app is SteamApp sapp) {
-                            lock (appsToGenerateLock)
-                            {
-                                int index = appsToGenerate.FindIndex(r => r.AppID == sapp.AppID);
-                                if (index == -1) {
-                                    appsToGenerate.Add(new LibraryAssetsGenerator.GenerateAssetRequest(sapp.AppID, assetType == ELibraryAssetType.Hero, assetType == ELibraryAssetType.Portrait));
-                                } else {
-                                    bool needsHero = appsToGenerate[index].NeedsHero;
-                                    bool needsPortrait = appsToGenerate[index].NeedsPortrait;
-                                    if (assetType == ELibraryAssetType.Hero) {
-                                        needsHero = true;
-                                    }
-
-                                    if (assetType == ELibraryAssetType.Portrait) {
-                                        needsPortrait = true;
-                                    }
-
-                                    appsToGenerate[index] = new LibraryAssetsGenerator.GenerateAssetRequest(appsToGenerate[index].AppID, needsHero, needsPortrait);
+                        lock (appsToGenerateLock)
+                        {
+                            int index = appsToGenerate.FindIndex(r => r.AppID == app.AppID);
+                            if (index == -1) {
+                                appsToGenerate.Add(new LibraryAssetsGenerator.GenerateAssetRequest(app.AppID, assetType == ELibraryAssetType.Hero, assetType == ELibraryAssetType.Portrait));
+                            } else {
+                                bool needsHero = appsToGenerate[index].NeedsHero;
+                                bool needsPortrait = appsToGenerate[index].NeedsPortrait;
+                                if (assetType == ELibraryAssetType.Hero) {
+                                    needsHero = true;
                                 }
-                            }
 
-                            willGenerate = true;
+                                if (assetType == ELibraryAssetType.Portrait) {
+                                    needsPortrait = true;
+                                }
+
+                                appsToGenerate[index] = new LibraryAssetsGenerator.GenerateAssetRequest(appsToGenerate[index].AppID, needsHero, needsPortrait);
+                            }
                         }
+
+                        willGenerate = true;
 
                         if (willGenerate) {
                             logger.Debug($"Fabricating fake expire and last-modified date for asset generation of {assetType} for {app.AppID}");
@@ -465,7 +458,7 @@ public class LibraryManager : ILogonLifetime
         return targetPath;
     }
     
-    private async Task InitAppAssets(AppBase app) {
+    private async Task DownloadAppAssets(SteamApp app) {
         Console.WriteLine("Waiting for semaphore");
         await assetUpdateSemaphore.WaitAsync();
         Console.WriteLine("Got semaphore");
@@ -484,6 +477,14 @@ public class LibraryManager : ILogonLifetime
         TryLoadLocalLibraryAsset(app, ELibraryAssetType.Logo, out string? logoPath);
         TryLoadLocalLibraryAsset(app, ELibraryAssetType.Hero, out string? heroPath);
         TryLoadLocalLibraryAsset(app, ELibraryAssetType.Portrait, out string? portraitPath);
+        if ((iconPath == null || logoPath == null || heroPath == null || portraitPath == null) && app is SteamApp sapp && sapp.ParentApp != null) {
+            iconPath ??= sapp.ParentApp.LocalIconPath;
+            logoPath ??= sapp.ParentApp.LocalLogoPath;
+            app.IsUsingParentLogo = logoPath == sapp.ParentApp.LocalLogoPath;
+            heroPath ??= sapp.ParentApp.LocalHeroPath;
+            portraitPath ??= sapp.ParentApp.LocalPortraitPath;
+        }
+
         app.SetLibraryAssetPaths(iconPath, logoPath, heroPath, portraitPath);
     }
 

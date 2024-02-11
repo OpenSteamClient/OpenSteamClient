@@ -17,12 +17,10 @@
     </Design.DataContext>
 
     <DockPanel LastChildFill="True">
-        <Canvas Width="{Binding HeroWidth}" ClipToBounds="true" Height="{Binding HeroHeight}" DockPanel.Dock="Top" Margin="0" HorizontalAlignment="Stretch" Background="{Binding Hero}">
-            <Grid Width="{Binding LogoContainerWidth}" Height="{Binding LogoContainerHeight}" Margin="16">
-                <TextBlock Height="140" HorizontalAlignment="Left" VerticalAlignment="Bottom" IsVisible="{Binding HasLogoAsText}" FontWeight="Thin" FontSize="72" Text="{Binding LogoAsText}"/>
-                <Canvas HorizontalAlignment="{Binding LogoHorizontalAlignment}" VerticalAlignment="{Binding LogoVerticalAlignment}" Top="{Binding LogoTop}" Bottom="{Binding LogoBottom}" Left="{Binding LogoLeft}" Right="{Binding LogoRight}" Height="{Binding LogoHeight}" Width="{Binding LogoWidth}" Background="{Binding Logo}"/>
-            </Grid>
-        </Canvas>
+        <Grid HorizontalAlignment="Left" Width="990" Height="320" ClipToBounds="true" x:Name="Hero" DockPanel.Dock="Top" Margin="0" Background="{Binding Hero}">
+            <TextBlock Height="140" HorizontalAlignment="Left" VerticalAlignment="Bottom" IsVisible="{Binding HasLogoAsText}" FontWeight="Thin" FontSize="72" Text="{Binding LogoAsText}"/>
+            <Image HorizontalAlignment="{Binding LogoHorizontalAlignment}" VerticalAlignment="{Binding LogoVerticalAlignment}" Height="{Binding LogoHeight}" Width="{Binding LogoWidth}" Source="{Binding Logo}"/>
+        </Grid>
 
         <StackPanel>
             <TextBlock Text="{Binding Name}"/>
