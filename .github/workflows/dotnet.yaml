@@ -26,7 +26,7 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: '7.0.x'
+        dotnet-version: '8.0.x'
 
     - name: Install build dependencies
       run: | 
@@ -49,7 +49,7 @@ jobs:
       run: dotnet publish --self-contained --use-current-runtime -c Release
 
     - name: Create ClientUI zip (Linux)
-      working-directory: ./ClientUI/bin/Release/
+      working-directory: ./artifacts/publish/ClientUI/release/
       run: sh -c 'cd ./*/linux-x64/publish && zip -r "${GITHUB_WORKSPACE}/ClientUI_Linux.zip" .'
 
     - name: Build Release ClientUI (Windows)
@@ -57,7 +57,7 @@ jobs:
       run: dotnet publish --self-contained --runtime win-x64 -c Release
 
     - name: Create ClientUI zip (Windows)
-      working-directory: ./ClientUI/bin/Release/
+      working-directory: ./artifacts/publish/ClientUI/release_win-x64/
       run: sh -c 'cd ./*/win-x64/publish && zip -r "${GITHUB_WORKSPACE}/ClientUI_Windows.zip" .'
     
     

@@ -1,32 +1,31 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <!-- We don't need this, as we have our own localization system -->
-    <!-- If this is removed, we'll get a lot of language folders in bin/Debug/net7.0/ -->
+    <!-- If this is removed, we'll get a lot of language folders in bin/Debug/netVER/ -->
     <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
 
     <!-- Supported runtimes (https://learn.microsoft.com/en-us/dotnet/core/rid-catalog) -->
     <RuntimeIdentifiers>win-x64;linux-x64;osx-x64</RuntimeIdentifiers>
-    <AvaloniaPath>$(ProjectRootDir)Avalonia</AvaloniaPath>
+    <AvaloniaNugetVersion>11.1.999-cibuild0044819-beta</AvaloniaNugetVersion>
+     <!-- enable avalonia private APIs -->
+    <AvaloniaAccessUnstablePrivateApis>true</AvaloniaAccessUnstablePrivateApis>
+    <Avalonia_I_Want_To_Use_Private_Apis_In_Nuget_Package_And_Promise_To_Pin_The_Exact_Avalonia_Version_In_Package_Dependency>true</Avalonia_I_Want_To_Use_Private_Apis_In_Nuget_Package_And_Promise_To_Pin_The_Exact_Avalonia_Version_In_Package_Dependency>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="$(AvaloniaPath)\packages\Avalonia\Avalonia.csproj" />
-    <ProjectReference Include="$(AvaloniaPath)\src\Avalonia.Desktop\Avalonia.Desktop.csproj" />
-    <ProjectReference Include="$(AvaloniaPath)\src\Avalonia.Themes.Fluent\Avalonia.Themes.Fluent.csproj" />
-    <ProjectReference Include="$(AvaloniaPath)\src\Avalonia.Fonts.Inter\Avalonia.Fonts.Inter.csproj" />
-    <ProjectReference Condition="'$(Configuration)' == 'Debug'" Include="$(AvaloniaPath)\src\Avalonia.Diagnostics\Avalonia.Diagnostics.csproj" />
+    <PackageReference Include="Avalonia" Version="$(AvaloniaNugetVersion)"/>
+    <PackageReference Include="Avalonia.Desktop" Version="$(AvaloniaNugetVersion)"/>
+    <PackageReference Include="Avalonia.Themes.Fluent" Version="$(AvaloniaNugetVersion)"/>
+    <PackageReference Include="Avalonia.Fonts.Inter" Version="$(AvaloniaNugetVersion)"/>
+    <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="$(AvaloniaNugetVersion)"/>
   </ItemGroup>
-  <PropertyGroup>
-    <!-- <EnableNETAnalyzers>false</EnableNETAnalyzers> -->
-    <IncludeAvaloniaGenerators>true</IncludeAvaloniaGenerators>
-  </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
@@ -50,7 +49,4 @@
   <PropertyGroup Condition="'$(Configuration)' == 'Release'">
     <SelfContained>true</SelfContained>
   </PropertyGroup>
-
-  <Import Project="$(AvaloniaPath)\build\BuildTargets.targets"/>
-  <Import Project="$(AvaloniaPath)\build\SourceGenerators.props"/>
 </Project>

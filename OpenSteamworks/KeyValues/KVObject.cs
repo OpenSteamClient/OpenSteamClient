@@ -9,9 +9,10 @@ namespace OpenSteamworks.KeyValues;
 
 public class KVObject : IEquatable<KVObject>, ICloneable {
     private string name;
+
     public string Name {
         get => string.Intern(name);
-        set => name = string.Intern(value);
+        [MemberNotNull(nameof(name))] set => name = string.Intern(value);
     }
 
     public dynamic Value { get; internal set; }

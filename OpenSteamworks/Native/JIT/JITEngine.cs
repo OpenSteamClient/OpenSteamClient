@@ -16,7 +16,7 @@ namespace OpenSteamworks.Native.JIT
 
     /// <summary>
     /// The heart of OpenSteamworks. 
-    /// If you have problems with dotnet coredumping and not providing error messages, build it from source (with the debug configuration) and run your project with it (/path/to/built/runtime/artifacts/bin/testhost/net7.0-Linux-Debug-x64/dotnet bin/Debug/net7.0/ClientUI.dll)
+    /// If you have problems with dotnet coredumping and not providing error messages, build it from source (with the debug configuration) and run your project with it (/path/to/built/runtime/artifacts/bin/testhost/net8.0-Linux-Debug-x64/dotnet bin/Debug/net8.0/ClientUI.dll)
     /// </summary>
     public static class JITEngine
     {

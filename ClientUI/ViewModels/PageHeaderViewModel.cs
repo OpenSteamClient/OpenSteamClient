@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Linq;
+using System.Windows.Input;
 using Avalonia.Controls;
 using Avalonia.Media;
 using ClientUI.Controls;
@@ -24,7 +25,7 @@ public partial class PageHeaderViewModel : ViewModelBase
     public Type ViewModelType { get; init; }
     public Func<BasePage> PageCtor { get; init; }
     public Func<object> ViewModelCtor { get; init; }
-    public Action SwitchPageAction { get; init; }
+    public ICommand SwitchPageAction { get; init; }
     public ObservableCollection<MenuItem> ContextMenuItems { get; } = new() { };
     public bool HasContextMenu
     {
@@ -63,7 +64,7 @@ public partial class PageHeaderViewModel : ViewModelBase
         };
 
         this.ViewModelCtor = () => AvaloniaApp.Container.ConstructOnly(viewModelType);
-        this.SwitchPageAction = () => mainWindowViewModel.SwitchToPage(pageType);
+        this.SwitchPageAction = new RelayCommand(() => mainWindowViewModel.SwitchToPage(pageType));
         this.ContextMenuItems.CollectionChanged += (object? sender, NotifyCollectionChangedEventArgs e) =>
         {
             this.OnPropertyChanged(nameof(HasContextMenu));
@@ -80,6 +81,8 @@ public partial class PageHeaderViewModel : ViewModelBase
                 Command = new RelayCommand(() =>
                 {
                     mainWindowViewModel.UnloadPage(PageType);
+                    this.ButtonBackground = AvaloniaApp.Theme!.ButtonBackground;
+                    this.ButtonForeground = AvaloniaApp.Theme!.ButtonForeground;
                 })
             }, "#PageHeader_UnloadPage", "Unload page"));
 

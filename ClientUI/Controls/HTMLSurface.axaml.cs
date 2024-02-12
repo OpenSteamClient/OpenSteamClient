@@ -1,5 +1,5 @@
 // HAS_RENDERIMMEDIATE (for custom avalonia builds (on by default))
-#define HAS_RENDERIMMEDIATE
+//#define HAS_RENDERIMMEDIATE
 
 using System;
 using Avalonia.Reactive;
@@ -32,6 +32,7 @@ using OpenSteamworks.Client.Startup;
 using Avalonia.Media.Imaging;
 using System.IO;
 using OpenSteamworks.Utils;
+using Avalonia.Skia.Helpers;
 
 namespace ClientUI.Controls;
 
@@ -103,8 +104,8 @@ public partial class HTMLSurface : UserControl
         private int width;
         private int height;
         private bool disposedValue;
-        private readonly object targetBitmapLock = new();
-        private SKBitmap targetBitmap;
+        public readonly object targetBitmapLock = new();
+        public SKBitmap targetBitmap;
         private nint lastPtr = 0;
         internal bool isCurrentlyRenderable = false;
         private static readonly SKPaint simplePaint;
@@ -350,7 +351,6 @@ public partial class HTMLSurface : UserControl
     {
         Dispatcher.UIThread.Invoke(() =>
         {
-            // Strange quirk, calling paint will not force a repaint unless the control is marked as dirty
 #if HAS_RENDERIMMEDIATE
             VisualRoot?.Renderer.RenderImmediate(this);
 #else
@@ -358,6 +358,9 @@ public partial class HTMLSurface : UserControl
             VisualRoot?.Renderer.Paint(this.Bounds);
 #endif
         }, DispatcherPriority.MaxValue);
+#if !HAS_RENDERIMMEDIATE
+        Dispatcher.UIThread.Invoke(() => { }, DispatcherPriority.ContextIdle);
+#endif
     }
 
     private void BoundsChange(Rect newBounds)
@@ -491,7 +494,7 @@ public partial class HTMLSurface : UserControl
     public async Task<HHTMLBrowser> CreateBrowserAsync(string userAgent, string? customCSS)
     {
         await GetWebToken();
-        this.htmlHost.Start();
+        await this.htmlHost.Start();
         await this.client.CallbackManager.PauseThreadAsync();
         var callHandle = this.surface.CreateBrowser(userAgent, customCSS);
         if (callHandle == 0)
@@ -500,6 +503,7 @@ public partial class HTMLSurface : UserControl
             throw new InvalidOperationException("CreateBrowser failed due to no call handle being returned.");
         }
 
+        Console.WriteLine("Got callhandle " + callHandle);
         var result = await this.client.CallbackManager.WaitForAPICallResultAsync<HTML_BrowserReady_t>(callHandle, true, new CancellationTokenSource(15000).Token);
         if (result.failed)
         {
@@ -663,7 +667,7 @@ public partial class HTMLSurface : UserControl
         e.Handled = true;
 
         base.OnKeyDown(e);
-        Console.WriteLine("OnKeyDown a:'" + e.Key + "' s:'" + e.KeySymbol + "' n:'" + GetNativeKeyCodeForKeyEvent(e) + "' " + " an:'" + e.NativeKeyCode + "'");
+        Console.WriteLine("OnKeyDown a:'" + e.Key + "' s:'" + e.KeySymbol + "' n:'" + GetNativeKeyCodeForKeyEvent(e) + "'");
         if (this.BrowserHandle != 0)
         {
             // If the key has an avalonia-provided symbol AND the keypress doesn't have any modifiers it's eligible for being typed
@@ -689,10 +693,10 @@ public partial class HTMLSurface : UserControl
     {
         base.OnKeyUp(e);
 
-        Console.WriteLine("OnKeyUp a:'" + e.Key + "' s:'" + e.KeySymbol + "' n:'" + GetNativeKeyCodeForKeyEvent(e) + "' " + " an:'" + e.NativeKeyCode + "'");
+        Console.WriteLine("OnKeyUp a:'" + e.Key + "' s:'" + e.KeySymbol + "' n:'" + GetNativeKeyCodeForKeyEvent(e) + "'");
         if (this.BrowserHandle != 0)
         {
-            this.surface.KeyUp(this.BrowserHandle, e.NativeKeyCode, KeyModifiersToEHTMLKeyModifiers(e.KeyModifiers));
+            this.surface.KeyUp(this.BrowserHandle, GetNativeKeyCodeForKeyEvent(e), KeyModifiersToEHTMLKeyModifiers(e.KeyModifiers));
         }
     }
 }

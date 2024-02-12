@@ -3,7 +3,7 @@
 
     <PropertyGroup>
         <!-- This doesn't actually do anything. It's needed to trick dotnet into allowing us to add this as a dependency. -->
-        <TargetFramework>net7.0</TargetFramework>
+        <TargetFramework>net8.0</TargetFramework>
         <!-- This is needed for this project to be able to be added to the SLN -->
         <ProjectTypeGuids>{FD3E9FC9-4DE6-4138-A245-326056A92883}</ProjectTypeGuids>
         <!-- Defines the directory where CMake will place it's files -->
@@ -22,7 +22,7 @@
         <MSBuild Projects="CustomBuildTask/CustomBuildTask.csproj" Targets="Restore;Build" />
     </Target>
 
-    <UsingTask Condition="'$(RunningCustomBuildTask)' == 'true'" TaskName="NativeCompilationTask" AssemblyFile="$(MSBuildThisFileDirectory)\CustomBuildTask\bin\$(Configuration)\net7.0\CustomBuildTask.dll" />
+    <UsingTask Condition="'$(RunningCustomBuildTask)' == 'true'" TaskName="NativeCompilationTask" AssemblyFile="$(ArtifactsPath)\bin\CustomBuildTask\$(Configuration.ToLowerInvariant())\CustomBuildTask.dll" />
     <Target Name="RunCustomBuildTask">
         <NativeCompilationTask>
         </NativeCompilationTask>

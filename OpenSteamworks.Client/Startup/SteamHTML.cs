@@ -143,7 +143,7 @@ public class SteamHTML : IClientLifetime {
         return true;
     }
 
-    public void Start() {
+    public async Task Start() {
         if (!CanRun()) {
             throw new InvalidOperationException("SteamHTML cannot run on this installation.");
         }
@@ -178,15 +178,18 @@ public class SteamHTML : IClientLifetime {
                 }
 
                 logger.Info("Waiting a bit for init");
-                Thread.Sleep(500);
+                Thread.Sleep(1000);
             }
 
             logger.Info("Initializing IClientHTMLSurface");
-            while (!this.steamClient.IClientHTMLSurface.Init())
+            await Task.Run(() =>
             {
-                logger.Warning("Init failed. Retrying");
-                Thread.Sleep(50);
-            }
+                while (!this.steamClient.IClientHTMLSurface.Init())
+                {
+                    logger.Warning("Init failed. Retrying");
+                    Thread.Sleep(1000);
+                }
+            });
         }
 
         return;

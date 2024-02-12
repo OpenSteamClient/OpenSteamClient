@@ -1,17 +1,15 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net7.0-windows</TargetFramework>
+    <TargetFramework>net8.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <PublishTrimmed>true</PublishTrimmed>
     <TrimMode>full</TrimMode>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
     <!-- We don't need this, as we have our own localization system -->
-    <!-- If this is removed, we'll get a lot of language folders in bin/Debug/net7.0/ -->
+    <!-- If this is removed, we'll get a lot of language folders in bin/Debug/netVER.0/ -->
     <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
-    
-    <AvaloniaPath>$(ProjectRootDir)Avalonia</AvaloniaPath>
     <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
     <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
   </PropertyGroup>

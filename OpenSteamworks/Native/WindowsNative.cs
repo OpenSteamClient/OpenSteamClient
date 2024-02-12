@@ -5,8 +5,7 @@ using System.Runtime.Versioning;
 namespace OpenSteamworks.Native;
 
 using SIZE_T = System.UIntPtr;
-//TODO: once we have net8.0, we can typedef void*
-using PVOID = System.IntPtr;
+using unsafe PVOID = void*;
 using ULONGLONG = System.UInt64;
 using BYTE = System.Byte;
 

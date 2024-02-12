@@ -183,11 +183,11 @@ public partial class BaseWebPage : BasePage
         this.refreshButton.Command = new RelayCommand(this.webviewControl.Refresh);
         this.openDevToolsButton.Command = new RelayCommand(this.webviewControl.OpenDevTools);
 
-        await this.webviewControl.CreateBrowserAsync(this.UserAgent, this.CustomCSS);
-
         var callbackManager = AvaloniaApp.Container.Get<CallbackManager>();
         callbackManager.RegisterHandler<HTML_CanGoBackAndForward_t>(OnHTML_CanGoBackAndForward_t);
         callbackManager.RegisterHandler<HTML_URLChanged_t>(OnHTML_URLChanged_t);
+
+        await this.webviewControl.CreateBrowserAsync(this.UserAgent, this.CustomCSS);
 
         this.webviewControl.LoadURL(this.URL);
 

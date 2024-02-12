@@ -28,7 +28,7 @@
             <!-- To set properties in the constructed TreeItem, do this -->
             <TreeView.Styles>
                 <Style Selector="TreeViewItem" x:DataType="vml:Node">
-                    <Setter Property="ShowExpandCollapseChevron" Value="{Binding !IsApp}"/>
+                    <!-- <Setter Property="ShowExpandCollapseChevron" Value="{Binding !IsApp}"/> -->
                 </Style>
             </TreeView.Styles>
 
