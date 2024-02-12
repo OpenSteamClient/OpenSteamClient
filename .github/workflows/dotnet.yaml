@@ -50,7 +50,7 @@ jobs:
 
     - name: Create ClientUI zip (Linux)
       working-directory: ./artifacts/publish/ClientUI/release/
-      run: sh -c 'cd ./*/linux-x64/publish && zip -r "${GITHUB_WORKSPACE}/ClientUI_Linux.zip" .'
+      run: sh -c 'zip -r "${GITHUB_WORKSPACE}/ClientUI_Linux.zip" .'
 
     - name: Build Release ClientUI (Windows)
       working-directory: ./ClientUI
@@ -58,7 +58,7 @@ jobs:
 
     - name: Create ClientUI zip (Windows)
       working-directory: ./artifacts/publish/ClientUI/release_win-x64/
-      run: sh -c 'cd ./*/win-x64/publish && zip -r "${GITHUB_WORKSPACE}/ClientUI_Windows.zip" .'
+      run: sh -c 'zip -r "${GITHUB_WORKSPACE}/ClientUI_Windows.zip" .'
     
     
     # - name: Build Release ClientConsole
