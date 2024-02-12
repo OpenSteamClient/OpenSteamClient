@@ -7,6 +7,7 @@ using Google.Protobuf;
 using OpenSteamworks.Enums;
 using OpenSteamworks.Protobuf;
 using OpenSteamworks.Utils;
+using OpenSteamworks.Utils.Enum;
 
 namespace OpenSteamworks.Messaging;
 
@@ -60,7 +61,7 @@ public class ProtoMsg<T> : IMessage where T: IMessage<T>, new()
     public void FillFromBinary(byte[] data) {
         using (var stream = new MemoryStream(data)) {
             // The steamclient is a strange beast. A 64-bit library compiled for little endian.
-            using (var reader = new EndianAwareBinaryReader(stream, Encoding.UTF8, EndianAwareBinaryReader.Endianness.Little))
+            using (var reader = new EndianAwareBinaryReader(stream, Encoding.UTF8, Endianness.Little))
             {
                 var masked = reader.ReadUInt32();
                 Logging.MessagingLogger.Debug("masked: " + masked);
@@ -94,7 +95,7 @@ public class ProtoMsg<T> : IMessage where T: IMessage<T>, new()
     public byte[] Serialize() {
         using (var stream = new MemoryStream())
         {
-            using (var writer = new EndianAwareBinaryWriter(stream, Encoding.UTF8, EndianAwareBinaryWriter.Endianness.Little))
+            using (var writer = new EndianAwareBinaryWriter(stream, Encoding.UTF8, Endianness.Little))
             {
                 uint header_size = (uint)this.header.CalculateSize();
                 writer.WriteUInt32(PROTOBUF_MASK | (uint)EMsg);

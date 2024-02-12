@@ -8,6 +8,7 @@ using OpenSteamworks.Generated;
 
 using OpenSteamworks.Protobuf;
 using OpenSteamworks.Utils;
+using OpenSteamworks.Utils.Enum;
 
 namespace OpenSteamworks.Messaging;
 
@@ -23,7 +24,7 @@ public class Connection : IDisposable {
             this.removalTime = DateTime.UtcNow.AddMinutes(1);
             using (var stream = new MemoryStream(fullMsg)) {
                 // The steamclient is a strange beast. A 64-bit library compiled for little endian.
-                using (var reader = new EndianAwareBinaryReader(stream, Encoding.UTF8, EndianAwareBinaryReader.Endianness.Little))
+                using (var reader = new EndianAwareBinaryReader(stream, Encoding.UTF8, Endianness.Little))
                 {
                     this.eMsg = (EMsg)(~PROTOBUF_MASK & reader.ReadUInt32());
 
