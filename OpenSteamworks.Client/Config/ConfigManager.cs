@@ -1,6 +1,6 @@
 using System.Reflection;
 using System.Text.Json;
-using OpenSteamworks.Client.Extensions;
+using OpenSteamworks.Extensions;
 using OpenSteamworks.Client.Managers;
 using OpenSteamworks.Client.Utils;
 using OpenSteamworks.Client.Utils.DI;

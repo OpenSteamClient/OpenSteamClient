@@ -1,5 +1,6 @@
 namespace OpenSteamworks.Client.Utils;
-
+ 
+//TODO: remove this entire thing in favor of multiple IProgress instances, as part of the bootstrapper rewrite
 public interface IExtendedProgress<T> : IProgress<T>
 {
     public bool Throbber { get; }

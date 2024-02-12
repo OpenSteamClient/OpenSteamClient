@@ -5,10 +5,29 @@
     <ImplicitUsings>disable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageId>OpenSteamworks</PackageId>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/OpenSteamClient/OpenSteamworks</RepositoryUrl>
+
+    <!-- Update the version here when you make changes -->
+    <VersionPrefix>1.0.0</VersionPrefix>
   </PropertyGroup>
+  
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="\"/>
+  </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\OpenSteamworks.Protobuf\OpenSteamworks.Protobuf.csproj" />
+    <PackageReference Include="OpenSteamworks.Protobuf" Version="*"/>
+    <PackageReference Include="OpenSteamworks.Native" Version="*">
+      <IncludeAssets>all</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="OpenSteamworks.KeyValue" Version="*"/>
+    <PackageReference Include="OpenSteamworks.Utils" Version="*"/>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="7.0.8" />
   </ItemGroup>
 
@@ -18,10 +37,6 @@
     <Compile Remove="IPCClient_EXCLUDED_FROM_BUILD\**" />
     <EmbeddedResource Remove="IPCClient_EXCLUDED_FROM_BUILD\**" />
     <None Remove="IPCClient_EXCLUDED_FROM_BUILD\**" />
-  </ItemGroup>
-  
-  <ItemGroup>
-    <ProjectReference Include="..\OpenSteamworks.Native\OpenSteamworks.Native.csproj" Targets="Build" />
   </ItemGroup>
 
   <!-- This is dumb and makes the code not portable. Microsoft, pls fix (by allowing non-const values in struct packing). Also we now use this for some edge case destructors that don't exist on Windows -->

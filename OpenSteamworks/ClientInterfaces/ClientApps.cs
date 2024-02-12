@@ -11,7 +11,10 @@ using OpenSteamworks.Callbacks;
 using OpenSteamworks.Callbacks.Structs;
 using OpenSteamworks.Enums;
 using OpenSteamworks.Generated;
-using OpenSteamworks.KeyValues;
+using OpenSteamworks.KeyValue;
+using OpenSteamworks.KeyValue.ObjectGraph;
+using OpenSteamworks.KeyValue.Deserializers;
+using OpenSteamworks.KeyValue.Serializers;
 using OpenSteamworks.Structs;
 using OpenSteamworks.Utils;
 

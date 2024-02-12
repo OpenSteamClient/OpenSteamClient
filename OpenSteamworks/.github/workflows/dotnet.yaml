@@ -1,0 +1,65 @@
+name: .NET Build
+
+# Trigger the workflow on push or pull request
+on:
+  push:
+    branches: ["master"]
+    paths:
+      - "**.cs"
+      - "**.csproj"
+      - "**.axaml"
+      - "**.cpp"
+      - "**.h"
+      - "**.hpp"
+      - ".github/workflows/dotnet.yaml"
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Download repo and submodules
+      run: | 
+        git submodule update --init --recursive
+      
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.0.x'
+
+    - name: Build and pack release
+      run: dotnet pack -c Release
+
+    - name: Set version env
+      run: echo "BuiltVersion=$(dotnet msbuild -getproperty:Version)" >> $GITHUB_ENV
+
+    - name: Add .nupkg as artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: Nuget .nupkg
+        path: ${{ github.workspace }}/artifacts/package/release/OpenSteamworks.KeyValue.${{ env.BuiltVersion }}.nupkg
+
+    - name: Upload to nuget repo
+      run: |
+        git config --global user.name "Github Actions Bot"
+        git config --global user.email "<>"
+        git config --global credential.helper cache
+        git clone https://${{secrets.ACCESS_TOKEN}}@github.com/OpenSteamClient/nuget
+        mkdir -p nuget/flatcontainer/opensteamworks.keyvalue/${{ env.BuiltVersion }}
+        cp ${{ github.workspace }}/artifacts/package/release/OpenSteamworks.KeyValue.${{ env.BuiltVersion }}.nupkg nuget/flatcontainer/opensteamworks.keyvalue/${{ env.BuiltVersion }}/opensteamworks.keyvalue.${{ env.BuiltVersion }}.nupkg -f
+        cd nuget
+        cd updatetool
+        node index.js OpenSteamworks.KeyValue ${{ env.BuiltVersion }}
+        cd ..
+        git add flatcontainer/opensteamworks.keyvalue/index.json
+        git add flatcontainer/opensteamworks.keyvalue/${{ env.BuiltVersion }}/opensteamworks.keyvalue.${{ env.BuiltVersion }}.nupkg
+        git commit -m "$(date)"
+        git push
+
+    

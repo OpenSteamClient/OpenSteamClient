@@ -5,10 +5,13 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using OpenSteamworks.Client.Apps.Compat;
 using OpenSteamworks.Client.Apps.Sections;
-using OpenSteamworks.Client.Extensions;
+using OpenSteamworks.Extensions;
 using OpenSteamworks.Client.Utils;
 using OpenSteamworks.Enums;
-using OpenSteamworks.KeyValues;
+using OpenSteamworks.KeyValue;
+using OpenSteamworks.KeyValue.ObjectGraph;
+using OpenSteamworks.KeyValue.Deserializers;
+using OpenSteamworks.KeyValue.Serializers;
 using OpenSteamworks.Structs;
 using OpenSteamworks.Utils;
 

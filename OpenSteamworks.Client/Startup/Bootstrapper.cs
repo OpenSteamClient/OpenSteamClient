@@ -4,7 +4,7 @@ using System.IO.Compression;
 using System.Reflection;
 using Microsoft.Extensions.FileProviders;
 using OpenSteamworks.Generated;
-using OpenSteamworks.Client.Extensions;
+using OpenSteamworks.Extensions;
 using System.Security.Cryptography;
 using OpenSteamworks.Client.Utils;
 using System.Formats.Tar;
@@ -15,7 +15,10 @@ using System.Runtime.InteropServices;
 using OpenSteamworks.Client.Config;
 using OpenSteamworks.Client.Utils.DI;
 using OpenSteamworks.Utils;
-using OpenSteamworks.KeyValues;
+using OpenSteamworks.KeyValue;
+using OpenSteamworks.KeyValue.ObjectGraph;
+using OpenSteamworks.KeyValue.Deserializers;
+using OpenSteamworks.KeyValue.Serializers;
 using System.Collections.ObjectModel;
 
 namespace OpenSteamworks.Client.Startup;
@@ -38,12 +41,12 @@ public class Bootstrapper : IClientLifetime {
     private InstallManager installManager;
     public string SteamclientLibPath {
         get {
-            return Path.Combine(MainBinaryDir, OSSpecifics.Instance.SteamClientBinaryName);
+            return Path.Combine(MainBinaryDir, OpenSteamworks.Client.Utils.OSSpecifics.Instance.SteamClientBinaryName);
         }
     }
     public string PlatformClientManifest {
         get {
-            return OSSpecifics.Instance.SteamClientManifestName;
+            return OpenSteamworks.Client.Utils.OSSpecifics.Instance.SteamClientManifestName;
         }
     }
     public string PackageDir => Path.Combine(installManager.InstallDir, "package");

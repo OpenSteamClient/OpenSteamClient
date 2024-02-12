@@ -1,9 +1,0 @@
-[submodule "OpenSteamworks.Native/MiniUTL"]
-	path = OpenSteamworks.Native/MiniUTL
-	url = https://github.com/OpenSteamClient/MiniUTL.git
-[submodule "OpenSteamworks.Native/SDL"]
-	path = OpenSteamworks.Native/SDL
-	url = https://github.com/OpenSteamClient/SDL.git
-[submodule "OpenSteamworks.Native/SDL_ttf"]
-	path = OpenSteamworks.Native/SDL_ttf
-	url = https://github.com/OpenSteamClient/SDL_ttf.git

@@ -34,11 +34,4 @@ public class LinuxSpecifics : IOSSpecifics {
         path = Path.Combine(path, append);
         return path;
     }
-    
-    public (int permissions, FileTypes fileType) ParseZipExternalAttributes(int externalAttributes) {
-        int permissionsAndType = externalAttributes >> 16;
-        int permissions = permissionsAndType & 0xFFF; // Mask to get the last 12 bits
-        FileTypes fileType = (FileTypes)(permissionsAndType & (int)FileTypes.S_IFMT); // Mask using the S_IFMT mask
-        return (permissions, fileType);
-    }
 }

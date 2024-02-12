@@ -28,21 +28,21 @@ jobs:
       with:
         dotnet-version: '8.0.x'
 
-    - name: Install build dependencies
-      run: | 
-        sudo apt-get update
-        sudo apt-get install -y gcc-multilib g++-multilib
+    # - name: Install build dependencies
+    #   run: | 
+    #     sudo apt-get update
+    #     sudo apt-get install -y gcc-multilib g++-multilib
 
-    # This is terrible, but until GH updates their runners to ubuntu 23.04 this is the terribleness we need to do
-    # Or we could self-host, but I don't have dedicated hardware for it (read: my PC is not available 24/7)
-    - name: Install unsupported build dependencies from lunar repoes
-      run: |
-        sudo sh -c "echo 'deb http://azure.archive.ubuntu.com/ubuntu lunar main restricted universe multiverse' >> /etc/apt/sources.list.d/lunar-packages.list"
-        echo "content of /etc/apt/sources.list.d/lunar-packages.list"
-        cat /etc/apt/sources.list.d/lunar-packages.list
-        echo "end of contents"
-        sudo apt-get update
-        sudo apt-get install -t "lunar*" -y gcc-mingw-w64-i686-posix g++-mingw-w64-i686-posix g++-mingw-w64-x86-64-posix gcc-mingw-w64-x86-64-posix
+    # # This is terrible, but until GH updates their runners to ubuntu 23.04 this is the terribleness we need to do
+    # # Or we could self-host, but I don't have dedicated hardware for it (read: my PC is not available 24/7)
+    # - name: Install unsupported build dependencies from lunar repoes
+    #   run: |
+    #     sudo sh -c "echo 'deb http://azure.archive.ubuntu.com/ubuntu lunar main restricted universe multiverse' >> /etc/apt/sources.list.d/lunar-packages.list"
+    #     echo "content of /etc/apt/sources.list.d/lunar-packages.list"
+    #     cat /etc/apt/sources.list.d/lunar-packages.list
+    #     echo "end of contents"
+    #     sudo apt-get update
+    #     sudo apt-get install -t "lunar*" -y gcc-mingw-w64-i686-posix g++-mingw-w64-i686-posix g++-mingw-w64-x86-64-posix gcc-mingw-w64-x86-64-posix
 
     - name: Build Release ClientUI (Linux)
       working-directory: ./ClientUI

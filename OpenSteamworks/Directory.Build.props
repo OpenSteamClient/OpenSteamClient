@@ -1,0 +1,11 @@
+<Project>
+    <PropertyGroup>
+        <ProjectRootDir>$(MSBuildThisFileDirectory)</ProjectRootDir>
+        <PublishTrimmed>false</PublishTrimmed>
+        <ArtifactsPath>$(MSBuildThisFileDirectory)artifacts</ArtifactsPath>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+        <!-- Put Release/Publish specific vars here -->
+    </PropertyGroup>
+</Project>
