@@ -1,0 +1,3 @@
+[submodule "Bootstrapper/CustomBuildTask"]
+	path = Bootstrapper/CustomBuildTask
+	url = https://github.com/OpenSteamClient/CustomBuildTask

@@ -1,11 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <SelfContained>true</SelfContained>
+    <EnableDynamicLoading>true</EnableDynamicLoading>
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <RuntimeIdentifiers>win-x64;linux-x64;osx-x64</RuntimeIdentifiers>
+    <SelfContained>false</SelfContained>
   </PropertyGroup>
 
   <ItemGroup>

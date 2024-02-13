@@ -1,0 +1,79 @@
+<Project>
+    <Import Project="Sdk.props" Sdk="Microsoft.Build.NoTargets" Version="3.7.0" />
+
+    <PropertyGroup>
+        <!-- This doesn't actually do anything. It's needed to trick dotnet into allowing us to add this as a dependency. -->
+        <TargetFramework>net8.0</TargetFramework>
+        <!-- This is needed for this project to be able to be added to the SLN -->
+        <ProjectTypeGuids>{365F114A-2C62-4BA8-AE62-95E7E440C0AD}</ProjectTypeGuids>
+        <!-- Defines the directory where CMake will place it's files -->
+        <BaseBuildDirectory>./build</BaseBuildDirectory>
+        <!-- Where CMake will place the build outputs, will not modify things from the CMake side, edit CMakeLists.txt for that -->
+        <BaseNativeBuildOutput>./Natives</BaseNativeBuildOutput>
+        <EnableDefaultItems>false</EnableDefaultItems>
+        <ImplicitUsings>disable</ImplicitUsings>
+        <RunningCustomBuildTask>false</RunningCustomBuildTask>
+
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageId>OpenSteamworks.MainExe</PackageId>
+        <RepositoryType>git</RepositoryType>
+        <RepositoryUrl>https://github.com/OpenSteamClient/OpenSteamworks.MainExe</RepositoryUrl>
+
+        <!-- Update the version here when you make changes -->
+        <VersionPrefix>1.0.0</VersionPrefix>
+
+        <!-- We don't export any managed DLLs so these aren't relevant -->
+        <NoWarn>NU5100;NU5128</NoWarn>
+    </PropertyGroup>
+    
+    <!-- Define targets you want to override after this line -->
+    <Import Project="Sdk.targets" Sdk="Microsoft.Build.NoTargets" Version="3.7.0" />
+
+    <ItemGroup>
+        <None Include="README.md" Pack="true" PackagePath="\"/>
+    </ItemGroup>
+
+    <Target Name="GetAllNethosts">
+        <MSBuild Projects="managed/managed.csproj" Targets="Publish" Properties="Configuration=Release;RuntimeIdentifier=linux-x64" />
+        <MSBuild Projects="managed/managed.csproj" Targets="Publish" Properties="Configuration=Release;RuntimeIdentifier=osx-x64" />
+        <MSBuild Projects="managed/managed.csproj" Targets="Publish" Properties="Configuration=Release;RuntimeIdentifier=win-x64" />
+    </Target>
+
+    <Target Name="BuildManaged">
+        <MSBuild Projects="managed/managed.csproj" Targets="Restore;Build" />
+    </Target>
+
+
+    <UsingTask Condition="'$(RunningCustomBuildTask)' == 'true'" TaskName="NativeCompilationTask" AssemblyFile="$(MSBuildThisFileDirectory)\CustomBuildTask\compiled\CustomBuildTask.dll" />
+    <Target Name="RunCustomBuildTask">
+        <NativeCompilationTask>
+        </NativeCompilationTask>
+    </Target>
+
+    <!-- This runs everytime, but it's fine since CMake quits fast if the output is up to date -->
+    <Target Name="Build">
+        <!-- First build the managed lib -->
+        <MSBuild Projects="$(MSBuildThisFile)" Targets="BuildManaged" />
+
+        <!-- Windows is the last target in the list above, so use it here -->
+        <MSBuild Condition="!Exists('$(ArtifactsPath)/publish/managed/release_win-x64/libnethost.lib')" Projects="$(MSBuildThisFile)" Targets="GetAllNethosts" />
+        
+        <MSBuild Projects="$(MSBuildThisFile)" Targets="RunCustomBuildTask" Properties="RunningCustomBuildTask=true" />
+        <ItemGroup>
+            <!-- This is responsible for copying the output binaries to wherever needed -->
+            <Content Include="$(BaseNativeBuildOutput)/**/*">
+                <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+                <PackageCopyToOutput>true</PackageCopyToOutput>
+            </Content>
+        </ItemGroup>
+    </Target>
+
+    <Target Name="Clean">
+        <MSBuild Projects="$(MSBuildThisFileDirectory)\managed\managed.csproj" Targets="Clean" />
+        <RemoveDir Directories="$(BaseBuildDirectory)"/>
+        <RemoveDir Directories="$(BaseNativeBuildOutput)"/>
+        <RemoveDir Directories="$(ArtifactsPath)"/>
+    </Target>
+
+    <Target Name="Rebuild" DependsOnTargets="Clean;Build" />
+</Project>

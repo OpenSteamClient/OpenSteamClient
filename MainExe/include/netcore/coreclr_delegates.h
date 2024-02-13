@@ -5,6 +5,7 @@
 #define __CORECLR_DELEGATES_H__
 
 #include <stdint.h>
+#include <stdlib.h>
 
 #if defined(_WIN32)
     #define CORECLR_DELEGATE_CALLTYPE __stdcall
