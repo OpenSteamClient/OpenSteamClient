@@ -24,7 +24,7 @@ using System.Collections.ObjectModel;
 namespace OpenSteamworks.Client.Startup;
 
 //TODO: this whole thing needs a rewrite badly
-public class Bootstrapper : IClientLifetime {
+public class Bootstrapper {
 
     public string OverrideURL { get; set; } = "";
     public string BaseURL {
@@ -151,7 +151,7 @@ public class Bootstrapper : IClientLifetime {
         }
     }
 
-    private async Task RunBootstrap() {
+    public async Task RunBootstrap() {
         if (progressHandler == null) {
             progressHandler = new ExtendedProgress<int>(0, 100);
         }
@@ -223,6 +223,22 @@ public class Bootstrapper : IClientLifetime {
 
                 System.Threading.Thread.Sleep(1000);
                 Console.WriteLine("Waiting for steamerrorreporter to terminate");
+            }
+        }
+
+        // Linux only hack.
+        if (OperatingSystem.IsLinux()) {
+            IEnumerable<Process> processes;
+            while (true)
+            {
+                processes = Process.GetProcessesByName("steamserviced").Concat(Process.GetProcessesByName("htmlhost"));
+                
+                if (!processes.Any()) {
+                    break;
+                }
+
+                System.Threading.Thread.Sleep(1000);
+                Console.WriteLine("Waiting for steamserviced/htmlhost to terminate");
             }
         }
 
@@ -925,15 +941,5 @@ public class Bootstrapper : IClientLifetime {
             
             bootstrapperState.NativeBuildDate = newTimestamp;
         }
-    }
-
-    public async Task RunStartup()
-    {
-        await RunBootstrap();
-    }
-
-    public async Task RunShutdown()
-    {
-        await Task.CompletedTask;
     }
 }

@@ -1,6 +1,6 @@
 {
-    "cmake.sourceDirectory": "${workspaceFolder}/OpenSteamworks.Native/",
-    "cmake.buildDirectory": "${workspaceFolder}/OpenSteamworks.Native/Build/IDE",
+    "cmake.sourceDirectory": "${workspaceFolder}/Bootstrapper/",
+    "cmake.buildDirectory": "${workspaceFolder}/Bootstrapper/IDEBuild",
     "cmake.configureArgs": ["-DIDE_BUILD=1"],
     "cmake.configureOnOpen": true,
     "C_Cpp.debugShortcut": false,

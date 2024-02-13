@@ -28,6 +28,7 @@ using OpenSteamworks.Enums;
 using Avalonia.Threading;
 using OpenSteamworks.Client.Friends;
 using ClientUI.UIImpl;
+using OpenSteamworks.Client.Startup;
 
 namespace ClientUI;
 
@@ -68,6 +69,8 @@ public class AvaloniaApp : Application
         ForceProgressWindow(progVm);
 
         Container.RegisterInstance(new Client(Container, bootstrapperProgress));
+
+        await Container.Get<Bootstrapper>().RunBootstrap();
         Container.ConstructAndRegister<TranslationManager>();
         Container.RegisterInstance(this);
         await Container.RunClientStartup();

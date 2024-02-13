@@ -36,7 +36,7 @@ public class Client : IClientLifetime
     internal static Client? Instance { get; private set; }
     internal Container Container { get; init; }
     public async Task RunStartup()
-    {        
+    {   
         await Task.Run(() => {
             var args = Environment.GetCommandLineArgs();
             Container.Get<IClientEngine>().SetClientCommandLine(args.Length, args);
@@ -55,11 +55,9 @@ public class Client : IClientLifetime
         Instance = this;
         this.Container = container;
         container.ConstructAndRegisterImmediate<ConfigManager>();
-        container.RegisterFactoryMethod<Bootstrapper>((InstallManager installManager, BootstrapperState state, ConfigManager configManager) => {
-            var b = new Bootstrapper(installManager, state, configManager);
-            b.SetProgressObject(bootstrapperProgress);
-            return b;
-        });
+        var bootstrapper = container.ConstructAndRegisterImmediate<Bootstrapper>();
+
+        bootstrapper.SetProgressObject(bootstrapperProgress);
 
         container.RegisterFactoryMethod<ISteamClient>((Bootstrapper bootstrapper, AdvancedConfig advancedConfig, InstallManager im) =>
         {
