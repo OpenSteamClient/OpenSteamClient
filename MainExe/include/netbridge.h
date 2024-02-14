@@ -57,8 +57,8 @@ typedef bool (CORECLR_DELEGATE_CALLTYPE *pIsClientUpdateAvailable_fn)();
 typedef bool (CORECLR_DELEGATE_CALLTYPE *pCanSetClientBeta_fn)();
 typedef const char* (CORECLR_DELEGATE_CALLTYPE *pSteamBootstrapper_GetBaseUserDir_fn)();
 typedef void (CORECLR_DELEGATE_CALLTYPE *pPermitDownloadClientUpdates_fn)(bool permit);
-
-
+typedef int (CORECLR_DELEGATE_CALLTYPE *pSteamBootstrapper_GetForwardedCommandLine_fn)(char *buf, int bufMax);
+typedef void (CORECLR_DELEGATE_CALLTYPE *pSteamBootstrapper_SetCommandLineToRunOnExit_fn)(const char* cmdLine);
 
 /*
     Utility class for interfacing with managed code
@@ -103,4 +103,6 @@ public:
     pCanSetClientBeta_fn pCanSetClientBeta;
     pSteamBootstrapper_GetBaseUserDir_fn pSteamBootstrapper_GetBaseUserDir;
     pPermitDownloadClientUpdates_fn pPermitDownloadClientUpdates;
+    pSteamBootstrapper_GetForwardedCommandLine_fn pSteamBootstrapper_GetForwardedCommandLine;
+    pSteamBootstrapper_SetCommandLineToRunOnExit_fn pSteamBootstrapper_SetCommandLineToRunOnExit;
 };
