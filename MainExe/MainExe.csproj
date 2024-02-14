@@ -4,14 +4,20 @@
     <PropertyGroup>
         <!-- This doesn't actually do anything. It's needed to trick dotnet into allowing us to add this as a dependency. -->
         <TargetFramework>net8.0</TargetFramework>
+
         <!-- This is needed for this project to be able to be added to the SLN -->
         <ProjectTypeGuids>{365F114A-2C62-4BA8-AE62-95E7E440C0AD}</ProjectTypeGuids>
+
         <!-- Defines the directory where CMake will place it's files -->
-        <BaseBuildDirectory>./build</BaseBuildDirectory>
+        <BaseBuildDirectory>$(MSBuildThisFileDirectory)/build</BaseBuildDirectory>
+
         <!-- Where CMake will place the build outputs, will not modify things from the CMake side, edit CMakeLists.txt for that -->
-        <BaseNativeBuildOutput>./Natives</BaseNativeBuildOutput>
+        <BaseNativeBuildOutput>$(MSBuildThisFileDirectory)/Natives</BaseNativeBuildOutput>
+
+        <!-- Don't include any C# files -->
         <EnableDefaultItems>false</EnableDefaultItems>
         <ImplicitUsings>disable</ImplicitUsings>
+        
         <RunningCustomBuildTask>false</RunningCustomBuildTask>
 
         <PackageReadmeFile>README.md</PackageReadmeFile>
@@ -26,6 +32,25 @@
         <NoWarn>NU5100;NU5128</NoWarn>
     </PropertyGroup>
     
+    <!-- Allow running this project -->
+    <PropertyGroup Condition="$([MSBuild]::IsOSPlatform('Linux'))">
+        <NativeBuildOutput>$(BaseNativeBuildOutput)/linux/</NativeBuildOutput>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="$([MSBuild]::IsOSPlatform('Windows'))">
+        <NativeBuildOutput>$(BaseNativeBuildOutput)/windows/</NativeBuildOutput>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="$([MSBuild]::IsOSPlatform('OSX'))">
+        <NativeBuildOutput>$(BaseNativeBuildOutput)/macos/</NativeBuildOutput>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <!-- Allow running this project -->
+        <!-- <RunWorkingDirectory>$(ArtifactsPath)/bin/managed/$(Configuration.ToLowerInvariant())</RunWorkingDirectory> -->
+        <RunCommand>$(NativeBuildOutput)/opensteam</RunCommand>
+    </PropertyGroup>
+    
     <!-- Define targets you want to override after this line -->
     <Import Project="Sdk.targets" Sdk="Microsoft.Build.NoTargets" Version="3.7.0" />
 
@@ -34,13 +59,13 @@
     </ItemGroup>
 
     <Target Name="GetAllNethosts">
-        <MSBuild Projects="managed/managed.csproj" Targets="Publish" Properties="Configuration=Release;RuntimeIdentifier=linux-x64" />
-        <MSBuild Projects="managed/managed.csproj" Targets="Publish" Properties="Configuration=Release;RuntimeIdentifier=osx-x64" />
-        <MSBuild Projects="managed/managed.csproj" Targets="Publish" Properties="Configuration=Release;RuntimeIdentifier=win-x64" />
+        <MSBuild Projects="managed/managed.csproj" Targets="Restore;Build;Publish" Properties="NativesPublish=true;Configuration=Release;RuntimeIdentifier=linux-x64" />
+        <MSBuild Projects="managed/managed.csproj" Targets="Restore;Build;Publish" Properties="NativesPublish=true;Configuration=Release;RuntimeIdentifier=osx-x64" />
+        <MSBuild Projects="managed/managed.csproj" Targets="Restore;Build;Publish" Properties="NativesPublish=true;Configuration=Release;RuntimeIdentifier=win-x64" />
     </Target>
 
     <Target Name="BuildManaged">
-        <MSBuild Projects="managed/managed.csproj" Targets="Restore;Build" />
+        <MSBuild Projects="managed/managed.csproj" Targets="Restore;Build" Properties="Configuration=$(Configuration);OutputPath=$(NativeBuildOutput)" />
     </Target>
 
 

@@ -44,3 +44,7 @@ extern "C" bool CanSetClientBeta() {
 extern "C" const char* SteamBootstrapper_GetBaseUserDir() {
     return netbridge->pSteamBootstrapper_GetBaseUserDir();
 }
+
+extern "C" void PermitDownloadClientUpdates(bool permit) {
+    netbridge->pPermitDownloadClientUpdates(permit);
+}

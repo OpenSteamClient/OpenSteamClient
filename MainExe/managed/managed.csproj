@@ -7,9 +7,10 @@
     <Nullable>enable</Nullable>
     <RuntimeIdentifiers>win-x64;linux-x64;osx-x64</RuntimeIdentifiers>
     <SelfContained>false</SelfContained>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
-  <ItemGroup>
+  <ItemGroup Condition="'$(NativesPublish)' == 'true'">
     <PackageReference Include="Microsoft.NETCore.DotNetAppHost" Version="8.0.1" />
   </ItemGroup>
 

@@ -1,23 +1,35 @@
 #include <netbridge.h>
 
-const auto libname = STR("managed");
 typedef int (CORECLR_DELEGATE_CALLTYPE *pMain_fn)();
 
 int CNetBridge::Run() {
     // Get the current executable's directory
     // This sample assumes the managed assembly to load and its runtime configuration file are next to the host
     char_t host_path[MAX_PATH];
+
 #if _WIN32
-    auto size = ::GetFullPathNameW(libname, sizeof(host_path) / sizeof(char_t), host_path, nullptr);
-    assert(size != 0);
+    auto size = ::GetFullPathNameW(argv[0], sizeof(host_path) / sizeof(char_t), host_path, nullptr);
+    if (size == 0) {
+        std::cout << "Failure: size == 0" << std::endl;
+        abort();
+    }
 #else
-    auto resolved = realpath(libname, host_path);
-    assert(resolved != nullptr);
+    std::cout << "argv0: " << argv[0] << std::endl;
+    auto resolved = realpath(argv[0], host_path);
+    if (resolved == nullptr) {
+        std::cout << "Failure: resolved == nullptr" << std::endl;
+        abort();
+    }
+
 #endif
 
     string_t root_path = host_path;
     auto pos = root_path.find_last_of(DIR_SEPARATOR);
-    assert(pos != string_t::npos);
+    if (pos == string_t::npos) {
+        std::cout << "Failure: pos == string_t::npos" << std::endl;
+        abort();
+    }
+
     root_path = root_path.substr(0, pos + 1);
 
     return this->run_component(root_path);
@@ -30,8 +42,8 @@ int CNetBridge::run_component(const string_t& root_path)
     //
     if (!load_hostfxr(nullptr))
     {
-        assert(false && "Failure: load_hostfxr()");
-        return EXIT_FAILURE;
+        std::cout << "Failure: load_hostfxr()" << std::endl;
+        abort();
     }
 
     std::cout << "Loaded hostfxr" << std::endl;
@@ -42,7 +54,10 @@ int CNetBridge::run_component(const string_t& root_path)
     const string_t config_path = root_path + STR("managed.runtimeconfig.json");
     this->managed_path = root_path + STR("managed.dll");
     this->load_assembly_and_get_function_pointer = get_dotnet_load_assembly(config_path.c_str());
-    assert(this->load_assembly_and_get_function_pointer != nullptr && "Failure: get_dotnet_load_assembly()");
+    if (this->load_assembly_and_get_function_pointer == nullptr) {
+        std::cout << "Failure: get_dotnet_load_assembly()" << std::endl;
+        abort();
+    }
 
     std::cout << "Started .NET Core runtime" << std::endl;
 
@@ -50,11 +65,118 @@ int CNetBridge::run_component(const string_t& root_path)
     // STEP 3: Load managed assembly and get function pointer to a managed method
     //
     const char_t *dotnet_type = STR("managed.Entry, managed");
-    pMain_fn managedMain = (pMain_fn)this->GetFunction(STR("managed.Entry, managed"), STR("Main"));
+    pMain_fn managedMain = (pMain_fn)this->GetFunction(
+        dotnet_type, 
+        STR("Main"),
+        STR("managed.Entry+MainDelegate, managed")
+    );
+    
     if (managedMain == nullptr)
     {
         std::cout << "Failure: managedMain == nullptr" << std::endl;
-        return EXIT_FAILURE;
+        abort();
+    }
+
+    // Load all bootstrapper functions
+
+    this->pSteamBootstrapper_GetInstallDir = (pSteamBootstrapper_GetInstallDir_fn)this->GetFunction(
+        dotnet_type, 
+        STR("SteamBootstrapper_GetInstallDir"),
+        STR("managed.Entry+SteamBootstrapper_GetInstallDirDelegate, managed")
+    );
+
+    if (this->pSteamBootstrapper_GetInstallDir == nullptr) {
+        std::cout << "Warning: Failed to get managed SteamBootstrapper_GetInstallDir" << std::endl;
+    }
+
+    this->pSteamBootstrapper_GetLoggingDir = (pSteamBootstrapper_GetLoggingDir_fn)this->GetFunction(
+        dotnet_type, 
+        STR("SteamBootstrapper_GetLoggingDir"),
+        STR("managed.Entry+SteamBootstrapper_GetLoggingDirDelegate, managed")
+    );
+
+    if (this->pSteamBootstrapper_GetLoggingDir == nullptr) {
+        std::cout << "Warning: Failed to get managed SteamBootstrapper_GetLoggingDir" << std::endl;
+    }
+
+    this->pStartCheckingForUpdates = (pStartCheckingForUpdates_fn)this->GetFunction(
+        dotnet_type, 
+        STR("StartCheckingForUpdates"),
+        STR("managed.Entry+StartCheckingForUpdatesDelegate, managed")
+    );
+
+    if (this->pStartCheckingForUpdates == nullptr) {
+        std::cout << "Warning: Failed to get managed StartCheckingForUpdates" << std::endl;
+    }
+
+    this->pSteamBootstrapper_GetEUniverse = (pSteamBootstrapper_GetEUniverse_fn)this->GetFunction(
+        dotnet_type,  
+        STR("SteamBootstrapper_GetEUniverse"),
+        STR("managed.Entry+SteamBootstrapper_GetEUniverseDelegate, managed")
+    );
+    
+    if (this->pSteamBootstrapper_GetEUniverse == nullptr) {
+        std::cout << "Warning: Failed to get managed SteamBootstrapper_GetEUniverse" << std::endl;
+    }
+
+    this->pGetBootstrapperVersion = (pGetBootstrapperVersion_fn)this->GetFunction(
+        dotnet_type,  
+        STR("GetBootstrapperVersion"),
+        STR("managed.Entry+GetBootstrapperVersionDelegate, managed")
+    );
+    
+    if (this->pGetBootstrapperVersion == nullptr) {
+        std::cout << "Warning: Failed to get managed GetBootstrapperVersion" << std::endl;
+    }
+
+    this->pGetCurrentClientBeta = (pGetCurrentClientBeta_fn)this->GetFunction(
+        dotnet_type,  
+        STR("GetCurrentClientBeta"),
+        STR("managed.Entry+GetCurrentClientBetaDelegate, managed")
+    );
+    
+    if (this->pGetCurrentClientBeta == nullptr) {
+        std::cout << "Warning: Failed to get managed GetCurrentClientBeta" << std::endl;
+    }
+
+    this->pClientUpdateRunFrame = (pClientUpdateRunFrame_fn)this->GetFunction(
+        dotnet_type,  
+        STR("ClientUpdateRunFrame"),
+        STR("managed.Entry+ClientUpdateRunFrameDelegate, managed")
+    );
+    
+    if (this->pClientUpdateRunFrame == nullptr) {
+        std::cout << "Warning: Failed to get managed ClientUpdateRunFrame" << std::endl;
+    }
+
+    this->pIsClientUpdateAvailable = (pIsClientUpdateAvailable_fn)this->GetFunction(
+        dotnet_type,  
+        STR("IsClientUpdateAvailable"),
+        STR("managed.Entry+IsClientUpdateAvailableDelegate, managed")
+    );
+    
+    if (this->pIsClientUpdateAvailable == nullptr) {
+        std::cout << "Warning: Failed to get managed IsClientUpdateAvailable" << std::endl;
+    }
+
+    this->pCanSetClientBeta = (pCanSetClientBeta_fn)this->GetFunction(
+        dotnet_type,  
+        STR("CanSetClientBeta"),
+        STR("managed.Entry+CanSetClientBetaDelegate, managed")
+    );
+    
+    if (this->pCanSetClientBeta == nullptr) {
+        std::cout << "Warning: Failed to get managed CanSetClientBeta" << std::endl;
+    }
+
+    this->pSteamBootstrapper_GetBaseUserDir = (pSteamBootstrapper_GetBaseUserDir_fn)this->GetFunction(
+        dotnet_type,  
+        STR("SteamBootstrapper_GetBaseUserDir"),
+        STR("managed.Entry+SteamBootstrapper_GetBaseUserDirDelegate, managed")
+    );
+    
+    if (this->pSteamBootstrapper_GetBaseUserDir == nullptr) {
+        std::cout << "Warning: Failed to get managed SteamBootstrapper_GetBaseUserDir" << std::endl;
     }
 
     std::cout << "Got main method, running" << std::endl;
@@ -63,7 +185,11 @@ int CNetBridge::run_component(const string_t& root_path)
 
 CNetBridge::CNetBridge(int argc, char_t **argv)
 {
-    assert(netbridge == nullptr);
+    if (netbridge != nullptr) {
+        std::cout << "Failure: netbridge != nullptr" << std::endl;
+        abort();
+    }
+    
     netbridge = this;
     this->argc = argc;
     this->argv = argv;
@@ -125,8 +251,12 @@ load_assembly_and_get_function_pointer_fn CNetBridge::get_dotnet_load_assembly(c
     return (load_assembly_and_get_function_pointer_fn)load_assembly_and_get_function_pointer;
 }
 
-void *CNetBridge::GetFunction(const string_t &className, const string_t &funcName, char_t *delegate_type_name) {
-    assert(this->load_assembly_and_get_function_pointer != nullptr && "Failure: get_dotnet_load_assembly()");
+void *CNetBridge::GetFunction(const string_t &className, const string_t &funcName, const char_t *delegate_type_name) {
+    if (this->load_assembly_and_get_function_pointer == nullptr) {
+        std::cout << "Failure: load_assembly_and_get_function_pointer == nullptr" << std::endl;
+        abort();
+    }
+
     void *func = nullptr;
 
     int rc = this->load_assembly_and_get_function_pointer(
@@ -137,6 +267,10 @@ void *CNetBridge::GetFunction(const string_t &className, const string_t &funcNam
         nullptr,
         (void**)&func);
 
-    assert(rc == 0 && func != nullptr && "Failure: load_assembly_and_get_function_pointer()");
+    if (rc != 0 || func == nullptr) {
+        std::cout << "Failure: load_assembly_and_get_function_pointer()" << std::endl;
+        return nullptr;
+    }
+
     return func;
 }

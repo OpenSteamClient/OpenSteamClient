@@ -7,7 +7,6 @@
 #include <iostream> 
 #include <vector>
 #include <stdint.h>
-#include <assert.h>
 #include <chrono>
 #include <thread>
 
@@ -57,7 +56,7 @@ typedef void (CORECLR_DELEGATE_CALLTYPE *pClientUpdateRunFrame_fn)();
 typedef bool (CORECLR_DELEGATE_CALLTYPE *pIsClientUpdateAvailable_fn)();
 typedef bool (CORECLR_DELEGATE_CALLTYPE *pCanSetClientBeta_fn)();
 typedef const char* (CORECLR_DELEGATE_CALLTYPE *pSteamBootstrapper_GetBaseUserDir_fn)();
-
+typedef void (CORECLR_DELEGATE_CALLTYPE *pPermitDownloadClientUpdates_fn)(bool permit);
 
 
 
@@ -86,7 +85,7 @@ public:
     void *GetFunction(
         const string_t &className /* Assembly qualified type name */, 
         const string_t &funcName /* Public static method name compatible with delegateType */,
-        char_t *delegate_type_name /* Assembly qualified delegate type name or null
+        const char_t *delegate_type_name /* Assembly qualified delegate type name or null
                                         or UNMANAGEDCALLERSONLY_METHOD if the method is marked with
                                         the UnmanagedCallersOnlyAttribute. */ = nullptr);
     int Run();
@@ -103,4 +102,5 @@ public:
     pIsClientUpdateAvailable_fn pIsClientUpdateAvailable;
     pCanSetClientBeta_fn pCanSetClientBeta;
     pSteamBootstrapper_GetBaseUserDir_fn pSteamBootstrapper_GetBaseUserDir;
+    pPermitDownloadClientUpdates_fn pPermitDownloadClientUpdates;
 };
