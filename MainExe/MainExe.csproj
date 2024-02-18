@@ -30,19 +30,25 @@
 
         <!-- We don't export any managed DLLs so these aren't relevant -->
         <NoWarn>NU5100;NU5128</NoWarn>
+
+        <!-- Target runtimes -->
+        <RuntimeIdentifiers>win-x64;linux-x64;osx-x64</RuntimeIdentifiers>
     </PropertyGroup>
     
     <!-- Allow running this project -->
     <PropertyGroup Condition="$([MSBuild]::IsOSPlatform('Linux'))">
         <NativeBuildOutput>$(BaseNativeBuildOutput)/linux/</NativeBuildOutput>
+        <NativeTarget>linux</NativeTarget>
     </PropertyGroup>
 
     <PropertyGroup Condition="$([MSBuild]::IsOSPlatform('Windows'))">
         <NativeBuildOutput>$(BaseNativeBuildOutput)/windows/</NativeBuildOutput>
+        <NativeTarget>windows</NativeTarget>
     </PropertyGroup>
 
     <PropertyGroup Condition="$([MSBuild]::IsOSPlatform('OSX'))">
         <NativeBuildOutput>$(BaseNativeBuildOutput)/macos/</NativeBuildOutput>
+        <NativeTarget>macos</NativeTarget>
     </PropertyGroup>
 
     <PropertyGroup>
@@ -86,7 +92,8 @@
         <MSBuild Projects="$(MSBuildThisFile)" Targets="RunCustomBuildTask" Properties="RunningCustomBuildTask=true" />
         <ItemGroup>
             <!-- This is responsible for copying the output binaries to wherever needed -->
-            <Content Include="$(BaseNativeBuildOutput)/**/*">
+
+            <Content Include="$(NativeBuildOutput)/**/*">
                 <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
                 <PackageCopyToOutput>true</PackageCopyToOutput>
             </Content>

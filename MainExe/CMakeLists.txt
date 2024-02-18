@@ -6,7 +6,7 @@ set(CMAKE_BUILD_TYPE Debug)
 
 include("CustomBuildTask/custombuildtaskcommon.cmake")
 
-if (BUILD_BITS STREQUAL "64" OR DEFINED IDE_BUILD)
+if (BUILD_BITS STREQUAL "x64" OR DEFINED IDE_BUILD)
     file(GLOB_RECURSE mainexe_sources CONFIGURE_DEPENDS "src/*.cpp")
 
     add_executable(opensteam ${mainexe_sources})
@@ -26,4 +26,10 @@ if (BUILD_BITS STREQUAL "64" OR DEFINED IDE_BUILD)
 
     target_include_directories(opensteam PUBLIC ${PROJECT_SOURCE_DIR}/include)
     target_link_libraries(opensteam nethost)
+endif()
+
+if (NOT DEFINED IDE_BUILD)
+    # Save build timestamp to file
+    string(TIMESTAMP UNIX_TIMESTAMP "%s")
+    file(WRITE ${NATIVE_OUTPUT_FOLDER}/../build_timestamp ${UNIX_TIMESTAMP})
 endif()
