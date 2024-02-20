@@ -48,3 +48,11 @@ extern "C" const char* SteamBootstrapper_GetBaseUserDir() {
 extern "C" void PermitDownloadClientUpdates(bool permit) {
     netbridge->pPermitDownloadClientUpdates(permit);
 }
+
+extern "C" int SteamBootstrapper_GetForwardedCommandLine(char* buf, int bufLen) {
+    return netbridge->pSteamBootstrapper_GetForwardedCommandLine(buf, bufLen);
+}
+
+extern "C" void SteamBootstrapper_SetCommandLineToRunOnExit(const char* cmdLine) {
+    netbridge->pSteamBootstrapper_SetCommandLineToRunOnExit(cmdLine);
+}

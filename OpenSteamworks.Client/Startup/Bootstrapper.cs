@@ -911,11 +911,11 @@ public class Bootstrapper {
         if (assemblyFolder == null) {
             throw new Exception("assemblyFolder is null.");
         }
-        string platformStr = UtilityFunctions.GetPlatformString();
-        string baseNativesFolder = Path.Combine(assemblyFolder, "Natives");
-        string nativesFolder = Path.Combine(baseNativesFolder, platformStr);
+        string platformStr = RuntimeInformation.RuntimeIdentifier;
+        string baseNativesFolder = Path.Combine(assemblyFolder, "runtimes");
+        string nativesFolder = Path.Combine(baseNativesFolder, platformStr, "native");
         if (!Directory.Exists(nativesFolder)) {
-            throw new NotSupportedException($"This build has not been compiled with support for {platformStr}. Please rebuild or try another OS.");
+            throw new NotSupportedException($"This build has not been compiled with support for {platformStr}. Please rebuild or try another OS. \nAlternatively, if you're running on 64-bit Windows, 64-bit Linux or 64-bit MacOS file an issue if this is a release build.");
         }
 
         var oldTimestamp = bootstrapperState.NativeBuildDate;

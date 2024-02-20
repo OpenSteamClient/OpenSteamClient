@@ -19,3 +19,9 @@ if (BUILD_ARCH STREQUAL "x64" OR DEFINED IDE_BUILD)
     target_include_directories(opensteam PUBLIC ${PROJECT_SOURCE_DIR}/include)
     target_link_libraries(opensteam nethost)
 endif()
+
+if (NOT DEFINED IDE_BUILD)
+    # Save build timestamp to file
+    string(TIMESTAMP UNIX_TIMESTAMP "%s")
+    file(WRITE ${NATIVE_OUTPUT_FOLDER}/../build_timestamp ${UNIX_TIMESTAMP})
+endif()

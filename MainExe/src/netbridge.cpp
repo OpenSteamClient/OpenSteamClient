@@ -179,6 +179,26 @@ int CNetBridge::run_component(const string_t& root_path)
         std::cout << "Warning: Failed to get managed SteamBootstrapper_GetBaseUserDir" << std::endl;
     }
 
+    this->pSteamBootstrapper_GetForwardedCommandLine = (pSteamBootstrapper_GetForwardedCommandLine_fn)this->GetFunction(
+        dotnet_type,  
+        STR("SteamBootstrapper_GetForwardedCommandLine"),
+        STR("managed.Entry+SteamBootstrapper_GetForwardedCommandLineDelegate, managed")
+    );
+    
+    if (this->pSteamBootstrapper_GetForwardedCommandLine == nullptr) {
+        std::cout << "Warning: Failed to get managed SteamBootstrapper_GetForwardedCommandLine" << std::endl;
+    }
+
+    this->pSteamBootstrapper_SetCommandLineToRunOnExit = (pSteamBootstrapper_SetCommandLineToRunOnExit_fn)this->GetFunction(
+        dotnet_type,  
+        STR("SteamBootstrapper_SetCommandLineToRunOnExit"),
+        STR("managed.Entry+SteamBootstrapper_SetCommandLineToRunOnExitDelegate, managed")
+    );
+    
+    if (this->pSteamBootstrapper_SetCommandLineToRunOnExit == nullptr) {
+        std::cout << "Warning: Failed to get managed SteamBootstrapper_SetCommandLineToRunOnExit" << std::endl;
+    }
+
     std::cout << "Got main method, running" << std::endl;
     return managedMain();
 }
