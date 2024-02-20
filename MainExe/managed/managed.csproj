@@ -9,9 +9,4 @@
     <SelfContained>false</SelfContained>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
-
-  <ItemGroup Condition="'$(NativesPublish)' == 'true'">
-    <PackageReference Include="Microsoft.NETCore.DotNetAppHost" Version="8.0.1" />
-  </ItemGroup>
-
 </Project>

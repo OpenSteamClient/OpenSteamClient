@@ -1,3 +1,0 @@
-[submodule "MainExe/CustomBuildTask"]
-	path = MainExe/CustomBuildTask
-	url = https://github.com/OpenSteamClient/CustomBuildTask

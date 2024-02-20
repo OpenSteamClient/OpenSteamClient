@@ -1,0 +1,20 @@
+<!-- This is responsible for determining the correct RID for a build. TODO: how to get current OS's default RID, without hardcoding x64 -->
+
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+    <PropertyGroup Condition="'$(EffectiveRuntimeIdentifier)' == '' And $([MSBuild]::IsOSPlatform('Linux'))">
+        <EffectiveRuntimeIdentifier>linux-x64</EffectiveRuntimeIdentifier>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(EffectiveRuntimeIdentifier)' == '' And $([MSBuild]::IsOSPlatform('Windows'))">
+        <EffectiveRuntimeIdentifier>windows-x64</EffectiveRuntimeIdentifier>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(EffectiveRuntimeIdentifier)' == '' And $([MSBuild]::IsOSPlatform('OSX'))">
+        <EffectiveRuntimeIdentifier>osx-x64</EffectiveRuntimeIdentifier>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(RuntimeIdentifier)' != ''">
+        <EffectiveRuntimeIdentifier>$(RuntimeIdentifier)</EffectiveRuntimeIdentifier>
+    </PropertyGroup>
+</Project>

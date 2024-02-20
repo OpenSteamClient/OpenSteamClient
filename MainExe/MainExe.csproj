@@ -1,104 +1,79 @@
-<Project>
-    <Import Project="Sdk.props" Sdk="Microsoft.Build.NoTargets" Version="3.7.0" />
-
+<Project Sdk="MSBuildCMake.SDK/1.0.8">
     <PropertyGroup>
-        <!-- This doesn't actually do anything. It's needed to trick dotnet into allowing us to add this as a dependency. -->
-        <TargetFramework>net8.0</TargetFramework>
-
-        <!-- This is needed for this project to be able to be added to the SLN -->
-        <ProjectTypeGuids>{365F114A-2C62-4BA8-AE62-95E7E440C0AD}</ProjectTypeGuids>
-
-        <!-- Defines the directory where CMake will place it's files -->
-        <BaseBuildDirectory>$(MSBuildThisFileDirectory)/build</BaseBuildDirectory>
-
-        <!-- Where CMake will place the build outputs, will not modify things from the CMake side, edit CMakeLists.txt for that -->
-        <BaseNativeBuildOutput>$(MSBuildThisFileDirectory)/Natives</BaseNativeBuildOutput>
-
-        <!-- Don't include any C# files -->
-        <EnableDefaultItems>false</EnableDefaultItems>
-        <ImplicitUsings>disable</ImplicitUsings>
-        
-        <RunningCustomBuildTask>false</RunningCustomBuildTask>
-
         <PackageReadmeFile>README.md</PackageReadmeFile>
-        <PackageId>OpenSteamworks.MainExe</PackageId>
+        <PackageId>OpenSteamClient.MainExe</PackageId>
         <RepositoryType>git</RepositoryType>
-        <RepositoryUrl>https://github.com/OpenSteamClient/OpenSteamworks.MainExe</RepositoryUrl>
+        <RepositoryUrl>https://github.com/OpenSteamClient/OpenSteamClient</RepositoryUrl>
 
         <!-- Update the version here when you make changes -->
         <VersionPrefix>1.0.0</VersionPrefix>
 
-        <!-- We don't export any managed DLLs so these aren't relevant -->
-        <NoWarn>NU5100;NU5128</NoWarn>
+        <!-- The directory where CMakeLists.txt is located. Mandatory property. -->
+        <CMakeListsDir>$(MSBuildThisFileDirectory)</CMakeListsDir>
+        
+        <BaseOutputPath>$(ArtifactsPath)\bin\MainExe\</BaseOutputPath>
+        <OutputPath>$(BaseOutputPath)\$(Configuration.ToLowerInvariant())</OutputPath>
+        <CMakeDisableRIDSubfolder>true</CMakeDisableRIDSubfolder>
+        <AddNativesAsContent>true</AddNativesAsContent>
     </PropertyGroup>
     
-    <!-- Allow running this project -->
-    <PropertyGroup Condition="$([MSBuild]::IsOSPlatform('Linux'))">
-        <NativeBuildOutput>$(BaseNativeBuildOutput)/linux/</NativeBuildOutput>
-    </PropertyGroup>
-
-    <PropertyGroup Condition="$([MSBuild]::IsOSPlatform('Windows'))">
-        <NativeBuildOutput>$(BaseNativeBuildOutput)/windows/</NativeBuildOutput>
-    </PropertyGroup>
-
-    <PropertyGroup Condition="$([MSBuild]::IsOSPlatform('OSX'))">
-        <NativeBuildOutput>$(BaseNativeBuildOutput)/macos/</NativeBuildOutput>
-    </PropertyGroup>
-
-    <PropertyGroup>
-        <!-- Allow running this project -->
-        <!-- <RunWorkingDirectory>$(ArtifactsPath)/bin/managed/$(Configuration.ToLowerInvariant())</RunWorkingDirectory> -->
-        <RunCommand>$(NativeBuildOutput)/opensteam</RunCommand>
-    </PropertyGroup>
-    
-    <!-- Define targets you want to override after this line -->
-    <Import Project="Sdk.targets" Sdk="Microsoft.Build.NoTargets" Version="3.7.0" />
-
     <ItemGroup>
         <None Include="README.md" Pack="true" PackagePath="\"/>
     </ItemGroup>
 
+    <Import Project="msbuild/GetEffectiveRuntimeIdentifier.props"/>
+
+     <!-- Allow running this project -->
+    <PropertyGroup Condition="$([MSBuild]::IsOSPlatform('Linux'))">
+        <OutputExeName>opensteam</OutputExeName>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="$([MSBuild]::IsOSPlatform('Windows'))">
+        <OutputExeName>opensteam.exe</OutputExeName>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="$([MSBuild]::IsOSPlatform('OSX'))">
+        <OutputExeName>opensteam</OutputExeName>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <RunCommand>$(OutputPath)\$(OutputExeName)</RunCommand>
+    </PropertyGroup>
+
     <Target Name="GetAllNethosts">
-        <MSBuild Projects="managed/managed.csproj" Targets="Restore;Build;Publish" Properties="NativesPublish=true;Configuration=Release;RuntimeIdentifier=linux-x64" />
-        <MSBuild Projects="managed/managed.csproj" Targets="Restore;Build;Publish" Properties="NativesPublish=true;Configuration=Release;RuntimeIdentifier=osx-x64" />
-        <MSBuild Projects="managed/managed.csproj" Targets="Restore;Build;Publish" Properties="NativesPublish=true;Configuration=Release;RuntimeIdentifier=win-x64" />
+        <PropertyGroup>
+            <NetHostOutputPath>$(OutputPath)\NetHosts\</NetHostOutputPath>
+        </PropertyGroup>
+
+        <Message Importance="High" Text="Building nethosts to '$(NetHostOutputPath)'"/>
+        <MSBuild Projects="$(MSBuildThisFileDirectory)\nugetpkgs\nugetpkgs.csproj" RemoveProperties="RuntimeIdentifier;ArtifactsPath" Targets="Restore;Build" Properties="_OutputPath=$(NetHostOutputPath);_RuntimeIdentifier=linux-x64" />
+        <MSBuild Projects="$(MSBuildThisFileDirectory)\nugetpkgs\nugetpkgs.csproj" RemoveProperties="RuntimeIdentifier;ArtifactsPath" Targets="Restore;Build" Properties="_OutputPath=$(NetHostOutputPath);_RuntimeIdentifier=osx-x64" />
+        <MSBuild Projects="$(MSBuildThisFileDirectory)\nugetpkgs\nugetpkgs.csproj" RemoveProperties="RuntimeIdentifier;ArtifactsPath" Targets="Restore;Build" Properties="_OutputPath=$(NetHostOutputPath);_RuntimeIdentifier=win-x64" />
     </Target>
 
     <Target Name="BuildManaged">
-        <MSBuild Projects="managed/managed.csproj" Targets="Restore;Build" Properties="Configuration=$(Configuration);OutputPath=$(NativeBuildOutput)" />
-    </Target>
-
-
-    <UsingTask Condition="'$(RunningCustomBuildTask)' == 'true'" TaskName="NativeCompilationTask" AssemblyFile="$(MSBuildThisFileDirectory)\CustomBuildTask\compiled\CustomBuildTask.dll" />
-    <Target Name="RunCustomBuildTask">
-        <NativeCompilationTask>
-        </NativeCompilationTask>
+        <Message Importance="High" Text="Building managed to '$(OutputPath)'"/>
+        <MSBuild Projects="$(MSBuildThisFileDirectory)\managed\managed.csproj" Targets="Restore;Build" Properties="Configuration=$(Configuration);OutputPath=$(OutputPath)" />
     </Target>
 
     <!-- This runs everytime, but it's fine since CMake quits fast if the output is up to date -->
-    <Target Name="Build">
+    <Target Name="PreBuild" BeforeTargets="Build">
+        <PropertyGroup>
+            <NetHostOutputPath>$(OutputPath)\NetHosts\</NetHostOutputPath>
+        </PropertyGroup>
+
         <!-- First build the managed lib -->
         <MSBuild Projects="$(MSBuildThisFile)" Targets="BuildManaged" />
 
         <!-- Windows is the last target in the list above, so use it here -->
-        <MSBuild Condition="!Exists('$(ArtifactsPath)/publish/managed/release_win-x64/libnethost.lib')" Projects="$(MSBuildThisFile)" Targets="GetAllNethosts" />
-        
-        <MSBuild Projects="$(MSBuildThisFile)" Targets="RunCustomBuildTask" Properties="RunningCustomBuildTask=true" />
-        <ItemGroup>
-            <!-- This is responsible for copying the output binaries to wherever needed -->
-            <Content Include="$(BaseNativeBuildOutput)/**/*">
-                <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-                <PackageCopyToOutput>true</PackageCopyToOutput>
-            </Content>
-        </ItemGroup>
+        <MSBuild Condition="!Exists('$(NetHostOutputPath)\win-x64\libnethost.lib')" Projects="$(MSBuildThisFile)" Targets="GetAllNethosts" />
+    
+        <PropertyGroup>
+            <CMakeExtraFlags>-DNetHostOutputPath="$(NetHostOutputPath)" $(CMakeExtraFlags)</CMakeExtraFlags>
+        </PropertyGroup>
     </Target>
 
-    <Target Name="Clean">
+    <Target Name="PreClean" BeforeTargets="Clean">
         <MSBuild Projects="$(MSBuildThisFileDirectory)\managed\managed.csproj" Targets="Clean" />
-        <RemoveDir Directories="$(BaseBuildDirectory)"/>
-        <RemoveDir Directories="$(BaseNativeBuildOutput)"/>
-        <RemoveDir Directories="$(ArtifactsPath)"/>
     </Target>
-
-    <Target Name="Rebuild" DependsOnTargets="Clean;Build" />
 </Project>

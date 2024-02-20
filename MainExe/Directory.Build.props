@@ -2,7 +2,7 @@
     <PropertyGroup>
         <ProjectRootDir>$(MSBuildThisFileDirectory)</ProjectRootDir>
         <PublishTrimmed>false</PublishTrimmed>
-        <ArtifactsPath>$(MSBuildThisFileDirectory)managedartifacts</ArtifactsPath>
+        <ArtifactsPath>$(MSBuildThisFileDirectory)artifacts</ArtifactsPath>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)' == 'Release'">
