@@ -19,7 +19,7 @@ using Installer.Views;
 
 namespace Installer.ViewModels;
 
-public partial class MainWindowViewModel : ViewModelBase {
+public partial class MainWindowViewModel : AvaloniaCommon.ViewModelBase {
     [ObservableProperty]
     private UserControl currentPage;
 

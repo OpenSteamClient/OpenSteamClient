@@ -1,17 +1,3 @@
 {
-    "cmake.sourceDirectory": "${workspaceFolder}/MainExe/",
-    "cmake.buildDirectory": "${workspaceFolder}/MainExe/IDEBuild",
-    "cmake.configureArgs": ["-DIDE_BUILD=1"],
-    "cmake.configureOnOpen": true,
-    "C_Cpp.debugShortcut": false,
-    "C_Cpp.autoAddFileAssociations": false,
-    "cmake.touchbar.visibility": "hidden",
-    "cmake.statusbar.advanced": {
-        // these are unneeded, since you can't run any of the C++ executables directly anyway
-        "debug": { "visibility": "hidden" },
-        "launch": { "visibility": "hidden" },
-        "launchTarget": { "visibility": "hidden" },
-        "status": { "visibility": "hidden" }
-    },
     "dotnet.defaultSolution": "OpenSteamClient.sln"
 }

@@ -4,67 +4,130 @@
 A partially open-source Steam client for Windows and Linux
 
 # Current development status
+Everything below is blockers. Lots of stuff that's only documented in my head is also blockers. Lots of code cleanups are due. 
+Stuff marked later can wait for after we make an MVP.
+Stuff marked future can be done eventually or just completely ignored
+
 - [x] Bootstrapper
 - [ ] Backend stuff:
   - [ ] (optional) JITEngine classgen with fields (would be nice for concommand support)
   - [x] Custom value types
   - [x] Callback system
+    - [ ] Make more performant
+      - Chokes pretty badly right now with the HTML rendering
   - [ ] Misc code cleanups
   - [ ] Fix TODO:s and BLOCKER:s
   - [x] Callresult system for non-callback results (needed for steamwebhelper/chromehtml/storepages)
+    - [ ] Make not spaghetti
+  - [ ] Non-terrible, cross-store extensible, interface-based and pluginable appsystem
 - [ ] Account system:
   - [x] Login
   - [x] Logout
   - [x] Forget account
   - [ ] Profile pictures
-  - [x] 2FA 
+  - [ ] QR code in the loginwindow doesn't have bottom margin
+  - [ ] 2FA 
+    - [ ] 2FA window improvements
 - [ ] Client settings UI
 - [ ] Library UI
+  - [ ] Game news and patch notes
+  - [ ] Search bar
   - [x] Collections backend
-  - [ ] Collection editing GUI
+    - [ ] Fix
+      - Sometimes it's missing games. Why?
+  - [ ] Collection editing GUI (later)
   - [x] Games list
   - [ ] Focused game view (library art, friends who play, etc)
-    - [ ] Library hero art 
+    - [x] Library hero art 
+      - TODO: depends on the appsystem rewrite (later)
     - [x] Play button 
-    - [ ] Friends who play section
-    - [ ] Store, Community, Workshop, etc buttons
-  - [ ] (optional) Mini mode
+    - [ ] Friends who play section (later)
+    - [ ] Store, Community, Workshop, etc buttons (later)
   - [ ] Game settings page
-    - [ ] Disabling workshop mods without unsubbing
+    - [ ] Overlay settings (later)
+      - Needs to wait until we actually get an overlay
+    - [ ] Cloud settings
+      - [ ] Cloud file viewer UI (later)
+    - [ ] Launch settings
+      - [ ] Set command line
+      - [ ] Set default launch option (later)
+        - [ ] Visualize the full launch option in the command line box (later)
+      - [ ] Add custom launch options (later)
+    - [ ] Lang settings
+    - [ ] Compat settings
+      - The API seemingly has a way to set compat strings like forcelgadd, explore adding this functionality (later)
+    - [ ] Workshop/Mod settings
+      - [ ] Disabling workshop mods without unsubbing (later)
+      - [ ] Load order (later)
+      - [ ] Support 3rd party mod platforms (future)
   - [ ] Downloads page
-  - [ ] (optional) Disabling updates for certain apps
-- [ ] (optional) ConCommand support
-- [x] Steamwebhelper support
+    - [ ] Support showing 3rd party launcher's download statuses (future)
+- [x] Steamwebhelper support (later)
   - [x] Store, community, profile pages
+  - [ ] Fix blurriness on non-100% DPIs (later) (wtf how did this even become a problem)
+  - [ ] Make reliable??? (later)
+    - For some reason, sometimes the init fails for a reason or another. In that case, the web elements can't be used until the user restarts OSC completely.
   - [ ] ~~Non-janky typing implementation~~ (probably never)
 - [x] Windows support
-- [ ] Custom SDL lib
-  - [ ] Some valve specific code for handling steering wheels etc
-- [ ] Close ClientUI when pressing X on the progress dialog
-- [ ] Split project into multi-repo OpenSteamworks, OpenSteamworks.Client, ClientConsole and ClientUI
-- [ ] Future:
+- [ ] Close OpenSteamClient when pressing X on the progress dialog
+- [ ] Split project into multi-repo OpenSteamworks, OpenSteamClient
+- [ ] Make managed versions of all interfaces
+  - In the future, this would allow pure IPC as well
+  - This requires us to know 100% of the interfaces (and would be a pretty big rewrite)
+- [ ] Future (optional):
+  - [ ] Remove JITEngine in favour of code generation (probably no, but could be good for 3rd parties that want NativeAOT)
+  - [ ] Rewrite InterfaceDebugger to follow MVVM
+  - [ ] Plugin system
+    - This'd be useful for making sure our code is high quality and not a mess
+    - Could also add support for 3rd party apps and whatnot
+    - Possible plugin types:
+      - [ ] Library art provider
+      - [ ] App provider
+      - [ ] Social provider
+      - [ ] Auth provider
+      - [ ] Misc UI data provider (protondb, widescreen, etc patches)
+      - [ ] Overlay provider
+      - [ ] ConCommand provider
+      - [ ] Store/Community provider
+      - [ ] Mod provider
+  - [ ] Disabling updates for certain apps
+  - [ ] Custom SDL lib
+    - [ ] Some valve specific code for handling steering wheels etc
+  - [ ] ConCommand support
   - [ ] Download additional depots (example: CS2 workshop tools with proton needs Windows CS2 binaries)
+    - Should be doable, just need to improve our hooking systems
   - [ ] UI Animations
+    - Does avalonia support this?
   - [ ] VAC support on Windows
+    - How the hell? We'd basically have to bypass VAC and that's a big no-no
   - [ ] ProtonDB integration
   - [ ] Automatic game tweaking
   - [ ] External modding sources (like Nexus for Fallout games, r2modman for Lethal Company, etc)
   - [ ] Cloud file manager GUI
   - [ ] UI sounds
   - [ ] Shut off PC when game finishes installing
+  - [ ] Big picture mode
+  - [ ] Small mode
+  - [ ] Terminal UI
+  - [ ] IMGui reimplementation?
+    - It'd be a lot snappier
+    - Not as styleable
+    - Apparently doesn't have good accessibility features
+    - Does have premade C# bindings though
+  - [ ] VGUI reimplementation?
+    - Probably unnecessary, leaving here for community interest
+    - Could probably very simply just load the OG ui from the cached/ folder, but VGUI_s is 32-bit and we're 64-bit
+    - Would need to reimplement the entire UI framework from scratch though
   - [ ] Reimplement steamclient.dll/so
+  - [ ] MacOS
 
 
 # Features
 - 64-bit (but needs some 32-bit libraries for some functionality)
-- No steamwebhelper requirement (but can be used ingame and for browsing the store)
+- No steamwebhelper requirement (but can be used ingame and for browsing the store and community pages)
 - All games supported (technically), Steam2 games unknown
 - VAC supported on Linux (you can play, but you _might_ get banned. We're not responsible if you do.)
 - Supports Windows and Linux, and even theoretically MacOS (PRs for support welcome)
-
-
-# Blockers
-Current blockers are marked as BLOCKER. Just search for it in all the files.
 
 # Developing
 See DEVELOPING.md in the root of this repo.
@@ -72,16 +135,16 @@ This will eventually replace the old opensteamclient.
 
 # Contributing
 Nothing for now.
-Clone by running `git clone https://github.com/OpenSteamClient/opensteamclient.git --recursive`
-Compile and run by going into ClientUI and running `dotnet run -v:m`.
-Do not omit the verbosity flag, as important output from CMake and your compiler will be missing in the case of build errors. 
+Clone by running `git clone -b c#-remake --single-branch https://github.com/OpenSteamClient/opensteamclient.git --recursive`
+Compile and run by going into OpenSteamClient and running `dotnet run -v:m`.
+Occasionally updates break existing repos, just delete the whole repo and reclone if that happens.
 
 # Screenshots
 Nothing for now.
 
 # Usage
 This is only meant for developers. 
-Once this is good enough I will write new install instructions. For now end users can use the old opensteamclient by switching to the master branch.
+Once this is good enough I will write new install instructions. For now end users can use the old opensteamclient (TERRIBLE) by switching to the master branch (Linux only).
 If you're a dev, be cautious about adding things, as I am probably working on it already.
 
 
@@ -115,8 +178,6 @@ This is a GUI for Valve's own Steam Client binaries like `steamclient.so`, `stea
 Those binaries are not open source and Valve doesn't officially support 3rd-party usage of these. 
 This also means we inherit design choices and potential bugs from these files.
 Due to this, we cannot fix everything, such as the client not conforming to the XDG paths specification (although we've limited the pollution to a .steam symlink in your home folder only).
-
-Additionally, 
 
 Also, thank you Valve for improving Linux gaming, and making a native Steam Client in the first place.
 

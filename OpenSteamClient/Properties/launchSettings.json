@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "OpenSteamClient": {
+      "commandName": "Project",
+      "nativeDebugging": true
+    }
+  }
+}

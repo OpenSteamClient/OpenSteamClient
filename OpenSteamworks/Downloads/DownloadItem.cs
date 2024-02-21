@@ -106,5 +106,6 @@ public sealed class DownloadItem
 
         this.DownloadProgress = updateInfo.m_unBytesProcessed / updateInfo.m_unBytesToProcess;
         this.DownloadProgressChanged?.Invoke(this, EventArgs.Empty);
+        this.DownloadRateChanged?.Invoke(this, EventArgs.Empty);
     }
 }

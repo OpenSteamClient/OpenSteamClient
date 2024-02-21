@@ -21,6 +21,7 @@ public class ShaderManager : IClientLifetime
         shader.EnableShaderManagement(false);
         shader.EnableShaderBackgroundProcessing(false);
         shader.EnableShaderManagementSystem(false);
+        await Task.CompletedTask;
     }
 
     public async Task RunStartup()

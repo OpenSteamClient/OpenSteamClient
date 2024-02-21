@@ -38,10 +38,12 @@ public class FriendsManager : ILogonLifetime
         if (userSettings.LoginToFriendsNetworkAutomatically) {
             this.user.SetSelfAsChatDestination(true);
         }
+
+        await Task.CompletedTask;
     }
 
     public async Task OnLoggingOff(IExtendedProgress<int> progress)
     {
-        
+        await Task.CompletedTask;
     }
 }

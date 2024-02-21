@@ -8,6 +8,7 @@
 
 using System;
 using OpenSteamworks.Attributes;
+using OpenSteamworks.Enums;
 using OpenSteamworks.Protobuf;
 using OpenSteamworks.Structs;
 
@@ -21,7 +22,7 @@ public unsafe interface IClientShortcuts
     public AppId_t GetUniqueLocalAppId();  // argc: 0, index: 1, ipc args: [], ipc returns: [bytes4]
     public CGameID GetGameIDForAppID(AppId_t shortcutAppID);  // argc: 2, index: 2, ipc args: [bytes4], ipc returns: [bytes8]
     public AppId_t GetAppIDForGameID(CGameID gameid);  // argc: 1, index: 3, ipc args: [bytes8], ipc returns: [bytes4]
-    public AppId_t GetDevkitAppIDByDevkitGameID(string gameidAsStr);  // argc: 1, index: 4, ipc args: [string], ipc returns: [bytes4]
+    public AppId_t GetDevkitAppIDByDevkitGameID(string devkitGameID);  // argc: 1, index: 4, ipc args: [string], ipc returns: [bytes4]
     public bool GetShortcutAppIds([ProtobufPtrType(typeof(CMsgShortcutAppIds))] IntPtr nativeptr);  // argc: 1, index: 5, ipc args: [], ipc returns: [bytes1, protobuf]
     public bool GetShortcutInfoByIndex(int index, [ProtobufPtrType(typeof(CMsgShortcutInfo))] IntPtr nativeptr);  // argc: 2, index: 6, ipc args: [bytes4], ipc returns: [bytes1, protobuf]
     public bool GetShortcutInfoByAppID(AppId_t appid, [ProtobufPtrType(typeof(CMsgShortcutInfo))] IntPtr nativeptr);  // argc: 2, index: 7, ipc args: [bytes4], ipc returns: [bytes1, protobuf]
@@ -68,5 +69,5 @@ public unsafe interface IClientShortcuts
     public void RemoveShortcut(AppId_t appid);  // argc: 1, index: 27, ipc args: [bytes4], ipc returns: []
     public void RemoveAllTemporaryShortcuts();  // argc: 0, index: 28, ipc args: [], ipc returns: []
     // WARNING: Arguments are unknown!
-    public uint LaunchShortcut(AppId_t appid, uint unk);  // argc: 2, index: 29, ipc args: [bytes4, bytes4], ipc returns: [bytes4]
+    public EAppUpdateError LaunchShortcut(AppId_t appid, int maybeLaunchOption);  // argc: 2, index: 29, ipc args: [bytes4, bytes4], ipc returns: [bytes4]
 }

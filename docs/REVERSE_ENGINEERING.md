@@ -25,12 +25,12 @@ No guide for this by us, just a couple things to know:
 
 - You should use the `linux64/steamclient.so` for Ghidra
 
-- Whenever you come across a vtable call with an offset like `+ 0x20`, you should turn it into Decimal and then divide it by 4. Now you know the index of the function in a given vtable, just look it up from `tools/generated_interfaces` if you know the interface name.
+- Whenever you come across a vtable call with an offset like `+ 0x20`, you should turn it into Decimal and then divide it by 4. Now you know the index of the function in a given vtable, just look it up from `OpenSteamworks/Generated/` if you know the interface name.
 
   
 
 ### VProf
-See [vprof.md](https://github.com/Rosentti/opensteamclient/blob/master/docs/VPROF.md).
+See [vprof.md](https://github.com/OpenSteamClient/OpenSteamClient/blob/master/docs/VPROF.md).
 
 ### CEF devtools
 Since large parts of Steam are made with React+CEF, it's quite easy to debug and find out how some things work. 

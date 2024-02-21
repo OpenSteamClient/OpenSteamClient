@@ -911,35 +911,38 @@ public class Bootstrapper {
         if (assemblyFolder == null) {
             throw new Exception("assemblyFolder is null.");
         }
-        string platformStr = RuntimeInformation.RuntimeIdentifier;
+        string platformStr;
+        if (OperatingSystem.IsWindows()) {
+            platformStr = "win-x64";
+        } else if (OperatingSystem.IsMacOS()) {
+            platformStr = "osx-x64";
+        } else if (OperatingSystem.IsLinux()) {
+            platformStr = "linux-x64";
+        } else {
+            throw new PlatformNotSupportedException("Unsupported OS");
+        }
+
         string baseNativesFolder = Path.Combine(assemblyFolder, "runtimes");
         string nativesFolder = Path.Combine(baseNativesFolder, platformStr, "native");
         if (!Directory.Exists(nativesFolder)) {
             throw new NotSupportedException($"This build has not been compiled with support for {platformStr}. Please rebuild or try another OS. \nAlternatively, if you're running on 64-bit Windows, 64-bit Linux or 64-bit MacOS file an issue if this is a release build.");
         }
 
-        var oldTimestamp = bootstrapperState.NativeBuildDate;
-        var newTimestamp = Convert.ToUInt32(File.ReadAllText(Path.Combine(baseNativesFolder, "build_timestamp")));
-        //TODO: we force this copy every time for now due to files not sometimes copying over
-        if (true || newTimestamp > oldTimestamp) {
-            progressHandler.SetSubOperation("Copying OpenSteam files");
-            var di = new DirectoryInfo(nativesFolder);
-            foreach (var file in di.EnumerateFilesRecursively())
-            {
-                if (file.Extension == ".lib" || file.Extension == ".exp" || file.Extension == ".a") {
-                    continue;
-                }
-
-                string name = file.Name;
-                if (pathMappings.ContainsKey(name)) {
-                    name = pathMappings[name];
-                }
-
-                logger.Info("Copying " + file.FullName + " to " + Path.Combine(installManager.InstallDir, name));
-                File.Copy(file.FullName, Path.Combine(installManager.InstallDir, name), true);
+        progressHandler.SetSubOperation("Copying OpenSteam files");
+        var di = new DirectoryInfo(nativesFolder);
+        foreach (var file in di.EnumerateFilesRecursively())
+        {
+            if (file.Extension == ".lib" || file.Extension == ".exp" || file.Extension == ".a") {
+                continue;
             }
-            
-            bootstrapperState.NativeBuildDate = newTimestamp;
+
+            string name = file.Name;
+            if (pathMappings.ContainsKey(name)) {
+                name = pathMappings[name];
+            }
+
+            logger.Info("Copying " + file.FullName + " to " + Path.Combine(installManager.InstallDir, name));
+            File.Copy(file.FullName, Path.Combine(installManager.InstallDir, name), true);
         }
     }
 }

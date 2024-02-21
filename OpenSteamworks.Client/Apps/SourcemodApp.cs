@@ -59,8 +59,8 @@ public class SourcemodApp : AppBase {
 
     public override async Task<EAppUpdateError> Launch(string userLaunchOptions, int launchOptionID)
     {
-        //state |= EAppState.AppRunning;
-        //this.ParentApp.Launch("-game ")
+        //TODO: implement (or possibly scrap) this
+        await Task.CompletedTask;
         return EAppUpdateError.NoError;
     }
 

@@ -1,5 +1,5 @@
 namespace Installer.ViewModels;
 
-public partial class AvaloniaAppViewModel : ViewModelBase {
+public partial class AvaloniaAppViewModel : AvaloniaCommon.ViewModelBase {
 
 }

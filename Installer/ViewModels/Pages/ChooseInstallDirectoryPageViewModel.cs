@@ -13,7 +13,7 @@ using Installer.Views;
 
 namespace Installer.ViewModels.Pages;
 
-public partial class ChooseInstallDirectoryPageViewModel : ViewModelBase {
+public partial class ChooseInstallDirectoryPageViewModel : AvaloniaCommon.ViewModelBase {
     [ObservableProperty]
     private string currentPath;
 

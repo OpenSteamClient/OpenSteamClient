@@ -1,5 +1,7 @@
 using OpenSteamworks.Enums;
+using OpenSteamworks.Protobuf;
 using OpenSteamworks.Structs;
+using OpenSteamworks.Utils;
 
 namespace OpenSteamworks.Client.Apps;
 
@@ -17,9 +19,11 @@ public class ShortcutApp : AppBase {
         }
     }
 
-    
-    private string shortcutName = "";
-    protected override string ActualName => shortcutName;
+    public void SetName(string newName) {
+        SteamClient.GetIClientShortcuts().SetShortcutAppName(this.ShortcutAppID, newName);
+    }
+
+    protected override string ActualName => ShortcutInfo.AppName;
     protected override string ActualHeroURL => this.UserSetApp?.HeroURL ?? "";
     protected override string ActualLogoURL => this.UserSetApp?.LogoURL ?? "";
     protected override string ActualIconURL => this.UserSetApp?.IconURL ?? "";
@@ -54,15 +58,30 @@ public class ShortcutApp : AppBase {
     public override bool IsOwnedAndPlayable => true;
     public override EAppState State => EAppState.FullyInstalled;
     public override ILibraryAssetAlignment? LibraryAssetAlignment => null;
+    public CMsgShortcutInfo ShortcutInfo {
+        get {
+            using (var hack = ProtobufHack.Create<CMsgShortcutInfo>())
+            {
+                if (SteamClient.GetIClientShortcuts().GetShortcutInfoByAppID(this.ShortcutAppID, hack.ptr)) {
+                    return hack.GetManaged();
+                }
+            }
 
-    internal ShortcutApp(string name, string exe, string workingDir) {
-        this.GameID = new CGameID(Path.Combine(workingDir, exe), name);
-        this.shortcutName = name;
+            return new CMsgShortcutInfo();
+        }
+    }
+
+    public AppId_t ShortcutAppID { get; init; }
+
+    internal ShortcutApp(AppId_t appidShortcut) {
+        this.ShortcutAppID = appidShortcut;
+        this.GameID = SteamClient.GetIClientShortcuts().GetGameIDForAppID(appidShortcut);
     }
 
     public override async Task<EAppUpdateError> Launch(string userLaunchOptions, int launchOption)
     {
-        return EAppUpdateError.NoError;
+        await Task.CompletedTask;
+        return SteamClient.GetIClientShortcuts().LaunchShortcut(this.ShortcutAppID, launchOption);
     }
 
     public override void PauseUpdate()

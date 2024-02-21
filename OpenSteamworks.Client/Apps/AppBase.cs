@@ -154,11 +154,11 @@ public abstract class AppBase
         return new SteamApp(appid);
     }
 
-    public static ShortcutApp CreateShortcut(AppsManager appsManager, string name, string exe, string workingDir) {
-        return new ShortcutApp(name, exe, workingDir);
+    public static ShortcutApp CreateShortcut(AppId_t shortcutAppId) {
+        return new ShortcutApp(shortcutAppId);
     }
 
-    public static SourcemodApp CreateSourcemod(AppsManager appsManager, string sourcemodDir, uint modid) {
+    public static SourcemodApp CreateSourcemod(string sourcemodDir, uint modid) {
         return new SourcemodApp(sourcemodDir, modid);
     }
 

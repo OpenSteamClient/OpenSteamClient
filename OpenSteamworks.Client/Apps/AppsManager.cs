@@ -156,53 +156,62 @@ public class AppsManager : ILogonLifetime
     }
 
     public async Task OnLoggedOn(IExtendedProgress<int> progress, LoggedOnEventArgs e) {
-        foreach (var item in OwnedAppIDs)
+        await Task.Run(() =>
         {
-            try
+            var ownedApps = OwnedAppIDs;
+            progress.SetOperation("Loading apps");
+            progress.SetMaxProgress(ownedApps.Count);
+            for (int i = 0; i < ownedApps.Count; i++)
             {
-                GetApp(new CGameID(item));
-            }
-            catch (System.Exception e2)
-            {
-                appsFilter.Add(item);
-                logger.Warning("Failed to initialize owned app " + item + " at logon time");
-                logger.Warning(e2);
-            }
-        }
+                var item = ownedApps.ElementAt(i);
 
-        if (steamClient.ConnectedWith == ConnectionType.NewClient) {
-            unsafe {
-                CUtlMap<AppId_t, RTime32> mapn = new(0, 4096);
-                if (steamClient.IClientUser.BGetAppsLastPlayedMap(&mapn)) {
-                    appLastPlayedMap = mapn.ToManagedAndFree();
-                } else {
-                    mapn.Free();
+                try
+                {
+                    GetApp(new CGameID(item));
+                    progress.SetProgress(i);
+                }
+                catch (System.Exception e2)
+                {
+                    appsFilter.Add(item);
+                    logger.Warning("Failed to initialize owned app " + item + " at logon time");
+                    logger.Warning(e2);
                 }
             }
 
-            unsafe {
-                CUtlMap<AppId_t, AppPlaytime_t> mapn = new(0, 4096);
-                if (steamClient.IClientUser.BGetAppPlaytimeMap(&mapn)) {
-                    appPlaytimeMap = mapn.ToManagedAndFree();
-                } else {
-                    mapn.Free();
-                }
-            }
-        } else {
-            foreach (var ownedAppID in OwnedApps)
-            {
-                var lastPlayed = steamClient.IClientUser.GetAppLastPlayedTime(ownedAppID);
-                if (lastPlayed != 0) {
-                    appLastPlayedMap[ownedAppID] = lastPlayed;
+            if (steamClient.ConnectedWith == ConnectionType.NewClient) {
+                unsafe {
+                    CUtlMap<AppId_t, RTime32> mapn = new(0, 4096);
+                    if (steamClient.IClientUser.BGetAppsLastPlayedMap(&mapn)) {
+                        appLastPlayedMap = mapn.ToManagedAndFree();
+                    } else {
+                        mapn.Free();
+                    }
                 }
 
-                var playtime = this.steamClient.ClientConfigStore.GetInt(EConfigStore.UserLocal, $"Software\\Valve\\Steam\\Apps\\{ownedAppID}\\Playtime") ?? 0;
-                var playtime2wks = this.steamClient.ClientConfigStore.GetInt(EConfigStore.UserLocal, $"Software\\Valve\\Steam\\Apps\\{ownedAppID}\\Playtime2wks") ?? 0;
-                if (playtime != 0 || playtime2wks != 0) {
-                    appPlaytimeMap[ownedAppID] = new AppPlaytime_t((uint)playtime, (uint)playtime2wks);
+                unsafe {
+                    CUtlMap<AppId_t, AppPlaytime_t> mapn = new(0, 4096);
+                    if (steamClient.IClientUser.BGetAppPlaytimeMap(&mapn)) {
+                        appPlaytimeMap = mapn.ToManagedAndFree();
+                    } else {
+                        mapn.Free();
+                    }
+                }
+            } else {
+                foreach (var ownedAppID in OwnedApps)
+                {
+                    var lastPlayed = steamClient.IClientUser.GetAppLastPlayedTime(ownedAppID);
+                    if (lastPlayed != 0) {
+                        appLastPlayedMap[ownedAppID] = lastPlayed;
+                    }
+
+                    var playtime = this.steamClient.ClientConfigStore.GetInt(EConfigStore.UserLocal, $"Software\\Valve\\Steam\\Apps\\{ownedAppID}\\Playtime") ?? 0;
+                    var playtime2wks = this.steamClient.ClientConfigStore.GetInt(EConfigStore.UserLocal, $"Software\\Valve\\Steam\\Apps\\{ownedAppID}\\Playtime2wks") ?? 0;
+                    if (playtime != 0 || playtime2wks != 0) {
+                        appPlaytimeMap[ownedAppID] = new AppPlaytime_t((uint)playtime, (uint)playtime2wks);
+                    }
                 }
             }
-        }
+        });
     }
 
     private readonly List<AppBase> apps = new();

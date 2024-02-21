@@ -1,0 +1,53 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:OpenSteamClient.ViewModels"
+             xmlns:c="using:OpenSteamClient.Controls"
+             x:Class="OpenSteamClient.AvaloniaApp"
+             xmlns:local="using:OpenSteamClient"
+             x:DataType="vm:AvaloniaAppViewModel"
+             RequestedThemeVariant="Default">
+             <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
+
+    <Application.DataTemplates>
+        
+    </Application.DataTemplates>
+  
+    <Application.Styles>
+        <FluentTheme />
+    </Application.Styles>
+
+    
+  <Application.Resources>
+    <!-- From https://avaloniaui.github.io/icons.html -->
+    <StreamGeometry x:Key="arrow_next_regular">M18.25,3 C18.6296958,3 18.943491,3.28215388 18.9931534,3.64822944 L19,3.75 L19,20.25 C19,20.6642136 18.6642136,21 18.25,21 C17.8703042,21 17.556509,20.7178461 17.5068466,20.3517706 L17.5,20.25 L17.5,3.75 C17.5,3.33578644 17.8357864,3 18.25,3 Z M5.21966991,3.21966991 C5.48593648,2.95340335 5.90260016,2.9291973 6.19621165,3.14705176 L6.28033009,3.21966991 L14.5303301,11.4696699 C14.7965966,11.7359365 14.8208027,12.1526002 14.6029482,12.4462117 L14.5303301,12.5303301 L6.28033009,20.7803301 C5.98743687,21.0732233 5.51256313,21.0732233 5.21966991,20.7803301 C4.95340335,20.5140635 4.9291973,20.0973998 5.14705176,19.8037883 L5.21966991,19.7196699 L12.9393398,12 L5.21966991,4.28033009 C4.9267767,3.98743687 4.9267767,3.51256313 5.21966991,3.21966991 Z</StreamGeometry>
+    <StreamGeometry x:Key="arrow_previous_regular">M5.75,3 C5.37030423,3 5.05650904,3.28215388 5.00684662,3.64822944 L5,3.75 L5,20.25 C5,20.6642136 5.33578644,21 5.75,21 C6.12969577,21 6.44349096,20.7178461 6.49315338,20.3517706 L6.5,20.25 L6.5,3.75 C6.5,3.33578644 6.16421356,3 5.75,3 Z M18.7803301,3.21966991 C18.5140635,2.95340335 18.0973998,2.9291973 17.8037883,3.14705176 L17.7196699,3.21966991 L9.46966991,11.4696699 C9.20340335,11.7359365 9.1791973,12.1526002 9.39705176,12.4462117 L9.46966991,12.5303301 L17.7196699,20.7803301 C18.0125631,21.0732233 18.4874369,21.0732233 18.7803301,20.7803301 C19.0465966,20.5140635 19.0708027,20.0973998 18.8529482,19.8037883 L18.7803301,19.7196699 L11.0606602,12 L18.7803301,4.28033009 C19.0732233,3.98743687 19.0732233,3.51256313 18.7803301,3.21966991 Z</StreamGeometry>
+    <StreamGeometry x:Key="arrow_sync_circle_regular">M12,2 C17.5228,2 22,6.47715 22,12 C22,17.5228 17.5228,22 12,22 C6.47715,22 2,17.5228 2,12 C2,6.47715 6.47715,2 12,2 Z M12,3.5 C7.30558,3.5 3.5,7.30558 3.5,12 C3.5,16.6944 7.30558,20.5 12,20.5 C16.6944,20.5 20.5,16.6944 20.5,12 C20.5,7.30558 16.6944,3.5 12,3.5 Z M16.75,12 C17.1296833,12 17.4434889,12.2821653 17.4931531,12.6482323 L17.5,12.75 L17.5,15.75 C17.5,16.1642 17.1642,16.5 16.75,16.5 C16.3703167,16.5 16.0565111,16.2178347 16.0068469,15.8517677 L16,15.75 L16,15 C15.0881,16.2143 13.6362,17 11.9999,17 C10.4748,17 9.09587,16.316 8.17857,15.237 C7.91028,14.9214 7.94862,14.4481 8.2642,14.1798 C8.57979,13.9115 9.05311,13.9499 9.3214,14.2655 C9.96322,15.0204 10.9293,15.5 11.9999,15.5 C13.32553,15.5 14.4803167,14.7625672 15.0742404,13.6746351 L15.1633,13.5 L14,13.5 C13.5858,13.5 13.25,13.1642 13.25,12.75 C13.25,12.3703167 13.5321653,12.0565111 13.8982323,12.0068469 L14,12 L16.75,12 Z M11.9999,7 C13.5368,7 14.9041,7.66036 15.8268,8.77062 C16.0915,9.08918 16.0479,9.56205 15.7294,9.8268 C15.4108,10.0916 14.9379,10.0479 14.6732,9.72938 C14.0368,8.96361 13.093,8.5 11.9999,8.5 C10.5754318,8.5 9.34895806,9.35140335 8.80281957,10.5730172 L8.72948,10.75 L10,10.75 C10.4142,10.75 10.75,11.0858 10.75,11.5 C10.75,11.8796833 10.4678347,12.1934889 10.1017677,12.2431531 L10,12.25 L7.25,12.25 C6.8703075,12.25 6.55650958,11.9678347 6.50684668,11.6017677 L6.5,11.5 L6.5,8.25 C6.5,7.83579 6.83579,7.5 7.25,7.5 C7.6296925,7.5 7.94349042,7.78215688 7.99315332,8.14823019 L8,8.25 L8,8.99955 C8.9121,7.78531 10.364,7 11.9999,7 Z</StreamGeometry>
+    <StreamGeometry x:Key="wrench_regular">M10.5001 7.7514C10.5001 4.57577 13.0745 2.0014 16.2501 2.0014C17.196 2.0014 18.0906 2.23039 18.8794 2.6366C19.0924 2.74625 19.2401 2.95101 19.2771 3.18765C19.314 3.42429 19.2358 3.66435 19.0664 3.83371L16.3006 6.59949L17.3613 7.66015L20.1398 4.8816C20.3081 4.71337 20.5461 4.63494 20.7814 4.67023C21.0167 4.70551 21.2213 4.85033 21.3327 5.06051C21.759 5.86417 22.0001 6.78074 22.0001 7.7514C22.0001 10.927 19.4258 13.5014 16.2501 13.5014C15.7895 13.5014 15.3408 13.4471 14.9104 13.3443L7.54552 20.9632C6.42372 22.1237 4.59212 22.2096 3.36665 21.1592C2.03293 20.016 1.93771 17.9855 3.15859 16.7225L10.6339 8.98943C10.5462 8.59014 10.5001 8.17579 10.5001 7.7514ZM16.2501 3.5014C13.9029 3.5014 12.0001 5.40419 12.0001 7.7514C12.0001 8.18337 12.0643 8.59897 12.1832 8.98991C12.2624 9.25049 12.1942 9.53355 12.0049 9.72937L4.23708 17.765C3.61648 18.407 3.66488 19.4392 4.34283 20.0203C4.96577 20.5542 5.8968 20.5106 6.46704 19.9207L14.1435 11.9795C14.3435 11.7726 14.6443 11.6984 14.9176 11.7885C15.3358 11.9265 15.7834 12.0014 16.2501 12.0014C18.5973 12.0014 20.5001 10.0986 20.5001 7.7514C20.5001 7.40926 20.4598 7.07703 20.3838 6.75896L17.8916 9.25114C17.5987 9.54403 17.1238 9.54403 16.831 9.25114L14.7096 7.12982C14.4167 6.83692 14.4167 6.36205 14.7096 6.06916L17.1763 3.60246C16.8785 3.53632 16.5686 3.5014 16.2501 3.5014Z</StreamGeometry>
+  </Application.Resources>
+
+   <TrayIcon.Icons>
+    <TrayIcons>
+      <TrayIcon Icon="/Assets/opensteam-logo.ico" c:Translatable.TranslationKey="#App_Tray_Tooltip" ToolTipText="OpenSteamClient is running">
+        <TrayIcon.Menu>
+          <NativeMenu>
+            <!-- TODO: this is not ideal -->
+            <NativeMenuItem IsVisible="{Binding HasRecent5}" Header="" Command="{Binding PlayRecent5}" />
+            <NativeMenuItem IsVisible="{Binding HasRecent4}" Header="" Command="{Binding PlayRecent4}" />
+            <NativeMenuItem IsVisible="{Binding HasRecent3}" Header="" Command="{Binding PlayRecent3}" />
+            <NativeMenuItem IsVisible="{Binding HasRecent2}" Header="" Command="{Binding PlayRecent2}" />
+            <NativeMenuItem IsVisible="{Binding HasRecent1}" Header="" Command="{Binding PlayRecent1}" />
+            <NativeMenuItemSeparator IsVisible="{Binding IsLoggedIn}"/>
+            <NativeMenuItem IsVisible="{Binding IsLoggedIn}" c:Translatable.TranslationKey="#App_Tray_Friends" Header="Friends" Command="{Binding OpenFriendsList}" />
+            <NativeMenuItem IsVisible="{Binding IsLoggedIn}" c:Translatable.TranslationKey="#App_Tray_Library" Header="Library" Command="{Binding OpenLibrary}" />
+            <NativeMenuItemSeparator IsVisible="{Binding IsLoggedIn}" />
+            <NativeMenuItem c:Translatable.TranslationKey="#MainWindow_Header_Steam_OpenSettings" Header="Settings" Command="{Binding OpenSettings}" />
+            <NativeMenuItem IsVisible="{Binding IsVRAvailable}" c:Translatable.TranslationKey="#App_Tray_OpenSteamVR" Header="Open SteamVR" Command="{Binding OpenSteamVR}" />
+            <NativeMenuItemSeparator />
+            <NativeMenuItem IsVisible="{Binding IsDebug}" c:Translatable.TranslationKey="#MainWindow_Header_Debug_OpenInterfaceList" Header="Open InterfaceList" Command="{Binding OpenInterfaceList}" />
+            <NativeMenuItem c:Translatable.TranslationKey="#MainWindow_Header_Steam_Quit" Header="Exit" Command="{Binding ExitEventually}" />
+          </NativeMenu>
+        </TrayIcon.Menu>
+      </TrayIcon>
+    </TrayIcons>
+  </TrayIcon.Icons>
+</Application>

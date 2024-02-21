@@ -1,0 +1,46 @@
+<c:BasePage xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:OpenSteamClient.ViewModels"
+        xmlns:views="using:OpenSteamClient.Views"
+        xmlns:c="using:OpenSteamClient.Controls"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="OpenSteamClient.Controls.BaseWebPage">
+    
+    <DockPanel>
+        <!-- Header bar for URL, next-previous-refresh buttons -->
+        <DockPanel DockPanel.Dock="Top" Height="40">
+            <Button x:Name="PrevButton" IsEnabled="false" DockPanel.Dock="Left">
+                <PathIcon
+                    Width="40"
+                    Data="{StaticResource arrow_previous_regular}"/>
+            </Button>
+
+            <Button x:Name="NextButton" IsEnabled="false" DockPanel.Dock="Left">
+                <PathIcon
+                    Width="40"
+                    Data="{StaticResource arrow_next_regular}"/>
+            </Button>
+
+            <Button x:Name="RefreshButton" DockPanel.Dock="Left">
+                <PathIcon
+                    Width="40"
+                    Data="{StaticResource arrow_sync_circle_regular}"/>
+            </Button>
+
+            <Button x:Name="DevToolsButton" DockPanel.Dock="Right">
+                <PathIcon
+                    Width="40"
+                    Data="{StaticResource wrench_regular}"/>
+            </Button>
+
+            <TextBox x:Name="CurrentURLTextBox" Text="about:blank" IsReadOnly="true"/>
+        </DockPanel>
+
+        <!-- Actual browser control -->
+        <ContentControl x:Name="WebviewContainer">
+            <TextBlock Text="WebView has not yet loaded or it is disabled" />
+        </ContentControl>
+    </DockPanel>
+</c:BasePage>

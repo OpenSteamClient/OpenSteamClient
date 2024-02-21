@@ -2,7 +2,7 @@ using Installer.Translation;
 
 namespace Installer.ViewModels;
 
-public partial class LanguageViewModel : ViewModelBase {
+public partial class LanguageViewModel : AvaloniaCommon.ViewModelBase {
     public string Name { get; init; }
     public ELanguage ELang { get; init; }
     public LanguageViewModel(ELanguage lang) {

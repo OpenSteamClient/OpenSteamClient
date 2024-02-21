@@ -1026,7 +1026,7 @@
             ]
         },
         {
-            "name": "SetClientUIProcess",
+            "name": "SetOpenSteamClientProcess",
             "argc": "1",
             "interfaceid": "4",
             "functionid": "506227846",
@@ -1040,7 +1040,7 @@
             ]
         },
         {
-            "name": "BIsClientUIInForeground",
+            "name": "BIsOpenSteamClientInForeground",
             "argc": "1",
             "interfaceid": "4",
             "functionid": "3236069481",
@@ -1158,7 +1158,7 @@
             ]
         },
         {
-            "name": "DispatchClientUINotification",
+            "name": "DispatchOpenSteamClientNotification",
             "argc": "4",
             "interfaceid": "4",
             "functionid": "1837939188",
@@ -1176,7 +1176,7 @@
             ]
         },
         {
-            "name": "RespondToClientUINotification",
+            "name": "RespondToOpenSteamClientNotification",
             "argc": "4",
             "interfaceid": "4",
             "functionid": "3082622048",
@@ -1193,7 +1193,7 @@
             ]
         },
         {
-            "name": "DispatchClientUICommand",
+            "name": "DispatchOpenSteamClientCommand",
             "argc": "3",
             "interfaceid": "4",
             "functionid": "3162236974",

@@ -1,0 +1,35 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:OpenSteamClient.ViewModels"
+        xmlns:c="using:OpenSteamClient.Controls"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="OpenSteamClient.Views.SelectInstallDirectoryDialog"
+        x:DataType="vm:SelectInstallDirectoryDialogViewModel"
+        Icon="/Assets/opensteam-logo.ico"
+        Title="{Binding Title}"
+        Width="500" Height="300">
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at AvaloniaApp.axaml.cs) -->
+        <vm:SelectInstallDirectoryDialogViewModel/>
+    </Design.DataContext>
+
+    <StackPanel>
+        <TextBlock Text="{Binding TextBlockText}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <ListBox SelectionMode="Single,AlwaysSelected" ItemsSource="{Binding LibraryFolders}" SelectedItem="{Binding SelectedLibraryFolder}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Name}"/>
+                        <TextBlock Text="{Binding Path}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ListBox>
+        <Button c:Translatable.TranslationKey="#Dialog_Cancel" Command="{Binding OnCancelClicked}" />
+        <Button c:Translatable.TranslationKey="#App_InstallApp" Command="{Binding OnInstallClicked}" />
+    </StackPanel>
+</Window>

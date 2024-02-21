@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net8.0-windows</TargetFramework>
+    <TargetFramework>$(CommonNetVersion)-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <PublishTrimmed>true</PublishTrimmed>
     <TrimMode>full</TrimMode>
@@ -29,7 +29,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <!-- Can't use our custom Avalonia build here, as it doesn't want to publish as a single file -->
     <PackageReference Include="Avalonia" Version="11.0.7" />
     <PackageReference Include="Avalonia.Desktop" Version="11.0.7" />
     <PackageReference Include="Avalonia.Themes.Fluent" Version="11.0.7" />
@@ -46,24 +45,24 @@
     <EmbeddedResource Include="Translations\**" />
   </ItemGroup>
 
-  <Target Name="BuildClientUIPackage" BeforeTargets="BeforeCompile" Condition="!Exists('$(GITHUB_WORKSPACE)')">
+  <Target Name="BuildOpenSteamClientPackage" BeforeTargets="BeforeCompile" Condition="!Exists('$(GITHUB_WORKSPACE)')">
     <MakeDir Directories="$(ArtifactsPath)" />
-    <MSBuild Condition="!Exists('$(ArtifactsPath)/ClientUI_Windows.zip')" Projects="$(ProjectRootDir)/ClientUI/ClientUI.csproj" Targets="Publish" Properties="Configuration=Release;RuntimeIdentifier=win-x64" />
-    <Exec Condition="!Exists('$(ArtifactsPath)/ClientUI_Windows.zip')" WorkingDirectory="$(ProjectRootDir)/ClientUI/bin/Release" Command="sh -c %27cd ./%2A/win-x64/publish %26%26 zip -r &quot;$(ArtifactsPath)/ClientUI_Windows.zip&quot; .%27" />
+    <MSBuild Condition="!Exists('$(ArtifactsPath)/OpenSteamClient_Windows.zip')" Projects="$(ProjectRootDir)/OpenSteamClient/OpenSteamClient.csproj" Targets="Publish" Properties="Configuration=Release;RuntimeIdentifier=win-x64" />
+    <Exec Condition="!Exists('$(ArtifactsPath)/OpenSteamClient_Windows.zip')" WorkingDirectory="$(ProjectRootDir)/OpenSteamClient/bin/Release" Command="sh -c %27cd ./%2A/win-x64/publish %26%26 zip -r &quot;$(ArtifactsPath)/OpenSteamClient_Windows.zip&quot; .%27" />
   </Target>
 
   <Choose>
         <!-- This is a GH build -->
         <When Condition="Exists('$(GITHUB_WORKSPACE)')">
             <ItemGroup>
-                <EmbeddedResource Include="$(GITHUB_WORKSPACE)\ClientUI_Windows.zip" />
+                <EmbeddedResource Include="$(GITHUB_WORKSPACE)\OpenSteamClient_Windows.zip" />
             </ItemGroup>
         </When>
 
         <!-- This is a regular build -->
         <Otherwise>
             <ItemGroup>
-                <EmbeddedResource Include="$(ArtifactsPath)\ClientUI_Windows.zip" />
+                <EmbeddedResource Include="$(ArtifactsPath)\OpenSteamClient_Windows.zip" />
             </ItemGroup>
         </Otherwise>
     </Choose>

@@ -155,7 +155,7 @@ public static class InstallationManager {
         node.SetValue("NoModify", 1, RegistryValueKind.DWord);
     }
 
-    public static async Task ExtractClientUIToPath(string path, IProgress<int> progress) {
+    public static async Task ExtractOpenSteamClientToPath(string path, IProgress<int> progress) {
         
     }
 

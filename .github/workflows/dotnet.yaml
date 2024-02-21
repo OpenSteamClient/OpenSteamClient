@@ -28,61 +28,30 @@ jobs:
       with:
         dotnet-version: '8.0.x'
 
-    # - name: Install build dependencies
-    #   run: | 
-    #     sudo apt-get update
-    #     sudo apt-get install -y gcc-multilib g++-multilib
-
-    # # This is terrible, but until GH updates their runners to ubuntu 23.04 this is the terribleness we need to do
-    # # Or we could self-host, but I don't have dedicated hardware for it (read: my PC is not available 24/7)
-    # - name: Install unsupported build dependencies from lunar repoes
-    #   run: |
-    #     sudo sh -c "echo 'deb http://azure.archive.ubuntu.com/ubuntu lunar main restricted universe multiverse' >> /etc/apt/sources.list.d/lunar-packages.list"
-    #     echo "content of /etc/apt/sources.list.d/lunar-packages.list"
-    #     cat /etc/apt/sources.list.d/lunar-packages.list
-    #     echo "end of contents"
-    #     sudo apt-get update
-    #     sudo apt-get install -t "lunar*" -y gcc-mingw-w64-i686-posix g++-mingw-w64-i686-posix g++-mingw-w64-x86-64-posix gcc-mingw-w64-x86-64-posix
-
-    - name: Build Release ClientUI (Linux)
-      working-directory: ./ClientUI
+    - name: Build Release OpenSteamClient (Linux)
+      working-directory: ./OpenSteamClient
       run: dotnet publish --self-contained --use-current-runtime -c Release
 
-    - name: Create ClientUI zip (Linux)
-      working-directory: ./artifacts/publish/ClientUI/release/
-      run: sh -c 'zip -r "${GITHUB_WORKSPACE}/ClientUI_Linux.zip" .'
+    - name: Create OpenSteamClient zip (Linux)
+      working-directory: ./artifacts/publish/OpenSteamClient/release/
+      run: sh -c 'zip -r "${GITHUB_WORKSPACE}/OpenSteamClient_Linux.zip" .'
 
-    - name: Build Release ClientUI (Windows)
-      working-directory: ./ClientUI
+    - name: Build Release OpenSteamClient (Windows)
+      working-directory: ./OpenSteamClient
       run: dotnet publish --self-contained --runtime win-x64 -c Release
 
-    - name: Create ClientUI zip (Windows)
-      working-directory: ./artifacts/publish/ClientUI/release_win-x64/
-      run: sh -c 'zip -r "${GITHUB_WORKSPACE}/ClientUI_Windows.zip" .'
-    
-    
-    # - name: Build Release ClientConsole
-    #   working-directory: ./ClientConsole
-    #   run: dotnet publish -c Release
+    - name: Create OpenSteamClient zip (Windows)
+      working-directory: ./artifacts/publish/OpenSteamClient/release_win-x64/
+      run: sh -c 'zip -r "${GITHUB_WORKSPACE}/OpenSteamClient_Windows.zip" .'
 
-    # - name: Create ClientConsole zip
-    #   working-directory: ./ClientConsole/bin/Release/
-    #   run: sh -c 'cd ./*/publish && zip -r "${GITHUB_WORKSPACE}/ClientConsole.zip" .'
-
-    - name: Add ClientUI Linux artifact
+    - name: Add OpenSteamClient Linux artifact
       uses: actions/upload-artifact@v3
       with:
-        name: ClientUI (Linux)
-        path: ${{ github.workspace }}/ClientUI_Linux.zip
+        name: OpenSteamClient (Linux)
+        path: ${{ github.workspace }}/OpenSteamClient_Linux.zip
 
-    - name: Add ClientUI Windows artifact
+    - name: Add OpenSteamClient Windows artifact
       uses: actions/upload-artifact@v3
       with:
-        name: ClientUI (Windows)
-        path: ${{ github.workspace }}/ClientUI_Windows.zip
-    
-    # - name: Add ClientConsole artifact
-    #   uses: actions/upload-artifact@v3
-    #   with:
-    #     name: ClientConsole
-    #     path: ${{ github.workspace }}/ClientConsole.zip
+        name: OpenSteamClient (Windows)
+        path: ${{ github.workspace }}/OpenSteamClient_Windows.zip

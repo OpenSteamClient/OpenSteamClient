@@ -2,7 +2,7 @@
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientUI", "ClientUI\ClientUI.csproj", "{F99A1010-054A-41B8-88E3-830E0BBB66EF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenSteamClient", "OpenSteamClient\OpenSteamClient.csproj", "{F99A1010-054A-41B8-88E3-830E0BBB66EF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenSteamworks", "OpenSteamworks\OpenSteamworks.csproj", "{E95A5F20-170B-4826-8CA5-502F43C301CE}"
 EndProject

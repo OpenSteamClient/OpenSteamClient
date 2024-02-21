@@ -4,7 +4,7 @@ using Installer.Enums;
 
 namespace Installer.ViewModels.Pages;
 
-public partial class ChooseActionPageViewModel : ViewModelBase {
+public partial class ChooseActionPageViewModel : AvaloniaCommon.ViewModelBase {
     public bool InstallAvailable => mainWindowViewModel.AvailableActions.HasFlag(InstallAction.Install);
     public bool RepairAvailable => mainWindowViewModel.AvailableActions.HasFlag(InstallAction.Repair);
     public bool UninstallAvailable => mainWindowViewModel.AvailableActions.HasFlag(InstallAction.Uninstall);

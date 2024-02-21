@@ -1,0 +1,59 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:OpenSteamClient.ViewModels"
+        xmlns:views="using:OpenSteamClient.Views"
+        xmlns:c="using:OpenSteamClient.Controls"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="OpenSteamClient.Views.AccountPickerWindow"
+        x:DataType="vm:AccountPickerWindowViewModel"
+        Icon="/Assets/opensteam-logo.ico"
+        Width="500" Height="300"
+        x:CompileBindings="False"
+        c:Translatable.TranslationKey="#AccountPickerWindow_Title">
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at AvaloniaApp.axaml.cs) -->
+        <vm:AccountPickerWindowViewModel/>
+    </Design.DataContext>
+
+    <Grid Margin="30">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Spacing="5" Orientation="Horizontal">
+            <ItemsControl ItemsSource="{Binding Accounts}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal" /> 
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <Button Command="{Binding ClickAction}" Margin="5,5,0,0">
+                                <StackPanel>
+                                    <Image MaxWidth="64" MaxHeight="64" Margin="0,0,0,10" Source="{Binding ProfilePicture}"/>
+                                    <TextBlock Text="{Binding LoginName}"/>
+                                </StackPanel>
+                            </Button>
+                            <Button Command="{Binding RemoveAction}" c:Translatable.TranslationKey="#RemoveAccount" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+		    </ItemsControl>
+            
+            <!-- Can't have a XAML item inside an itemscontrol, it removes all other elements -->
+            <StackPanel>
+                <Button Command="{Binding OpenLoginDialog}">
+                    <StackPanel>
+                        <Image MaxWidth="64" MaxHeight="64" Margin="0,0,0,10" Source="avares://OpenSteamClient/Assets/plus.png"/>
+                        <TextBlock c:Translatable.TranslationKey="#AddAccount"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

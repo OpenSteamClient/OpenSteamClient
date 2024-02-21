@@ -4,7 +4,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace Installer.ViewModels.Pages;
 
-public partial class WelcomePageViewModel : ViewModelBase {
+public partial class WelcomePageViewModel : AvaloniaCommon.ViewModelBase {
     [ObservableProperty]
     private bool sSAAgreed = false;
 

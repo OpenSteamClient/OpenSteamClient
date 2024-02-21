@@ -171,5 +171,6 @@ public class CompatManager : ILogonLifetime {
     {
         this.compatToolPlatforms.Clear();
         this.compatToolFriendlyNames.Clear();
+        await Task.CompletedTask;
     }
 }

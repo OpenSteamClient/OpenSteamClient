@@ -5,18 +5,18 @@
             // Use IntelliSense to find out which attributes exist for C# debugging
             // Use hover for the description of the existing attributes
             // For further information visit https://github.com/dotnet/vscode-csharp/blob/main/debugger-launchjson.md
-            "name": "ClientUI (Debug)",
+            "name": "OpenSteamClient (Debug)",
             "type": "coreclr",
             "request": "launch",
-            "preLaunchTask": "build_ClientUI",
+            "preLaunchTask": "build_OpenSteamClient",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/ClientUI/bin/Debug/net8.0/ClientUI.dll",
+            "program": "${workspaceFolder}/OpenSteamClient/bin/Debug/net8.0/OpenSteamClient.dll",
             "env": {
                 "AVALONIA_FORCE_NULL_SCALING_PROVIDER": "1",
                 "AVALONIA_NULL_SCALING_PROVIDER_SCALE": "1.0"
             },
             "args": [],
-            "cwd": "${workspaceFolder}/ClientUI",
+            "cwd": "${workspaceFolder}/OpenSteamClient",
             // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
             "console": "internalConsole",
             "stopAtEntry": false
@@ -37,25 +37,6 @@
             },
             "args": [],
             "cwd": "${workspaceFolder}/Installer",
-            // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
-            "console": "internalConsole",
-            "stopAtEntry": false
-        },
-        {
-            // Use IntelliSense to find out which attributes exist for C# debugging
-            // Use hover for the description of the existing attributes
-            // For further information visit https://github.com/dotnet/vscode-csharp/blob/main/debugger-launchjson.md
-            "name": "ClientConsole (Debug)",
-            "type": "coreclr",
-            "request": "launch",
-            "preLaunchTask": "build_ClientConsole",
-            // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/ClientConsole/bin/Debug/net8.0/ClientConsole.dll",
-            "env": {
-                "LD_PRELOAD": "/tmp/bootstrappershim.so"
-            },
-            "args": [],
-            "cwd": "${workspaceFolder}/ClientConsole",
             // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
             "console": "internalConsole",
             "stopAtEntry": false

@@ -3,7 +3,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace Installer.ViewModels.Pages;
 
-public partial class PlaceholderPageViewModel : ViewModelBase {
+public partial class PlaceholderPageViewModel : AvaloniaCommon.ViewModelBase {
     [ObservableProperty]
     private Control? internalControl;
 }

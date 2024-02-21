@@ -273,7 +273,7 @@ public class TranslationManager
         return GetForLanguage(lang).LanguageFriendlyName;
     }
 
-    //TODO: we should copy this over to ClientUI as well
+    //TODO: we should copy this over to OpenSteamClient as well
     public void LoadCurrentSystemTranslation()
     {
         if (ELanguageConversion.TwoLetterISOCodesToLanguages.TryGetValue(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName, out ELanguage lang)) {

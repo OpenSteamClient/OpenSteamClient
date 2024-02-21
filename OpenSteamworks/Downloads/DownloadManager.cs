@@ -247,6 +247,8 @@ public class DownloadManager
                     this.DownloadPaused?.Invoke(this, EventArgs.Empty);
                 }
             };
+            
+            item.DownloadRateChanged += this.DownloadRateChanged;
 
             // Start the download
             item.StartDownload();

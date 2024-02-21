@@ -178,7 +178,7 @@ public class SteamHTML : IClientLifetime {
                 }
 
                 logger.Info("Waiting a bit for init");
-                Thread.Sleep(1000);
+                Thread.Sleep(5000);
             }
 
             logger.Info("Initializing IClientHTMLSurface");
