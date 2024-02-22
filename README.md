@@ -35,6 +35,9 @@ Stuff marked future can be done eventually or just completely ignored
   - [x] Collections backend
     - [ ] Fix
       - Sometimes it's missing games. Why?
+    - [ ] Needs to have edit functionality
+    - [ ] Fix 2
+      - Doesn't sync to the cloud, it broke at some point and I don't know how to fix it
   - [ ] Collection editing GUI (later)
   - [x] Games list
   - [ ] Focused game view (library art, friends who play, etc)
@@ -47,6 +50,7 @@ Stuff marked future can be done eventually or just completely ignored
     - [ ] Overlay settings (later)
       - Needs to wait until we actually get an overlay
     - [ ] Cloud settings
+      - [ ] How much space is used
       - [ ] Cloud file viewer UI (later)
     - [ ] Launch settings
       - [ ] Set command line
@@ -57,6 +61,9 @@ Stuff marked future can be done eventually or just completely ignored
     - [ ] Compat settings
       - The API seemingly has a way to set compat strings like forcelgadd, explore adding this functionality (later)
     - [ ] Workshop/Mod settings
+      - [ ] See installed workshop size
+      - [ ] See installed items
+      - [ ] Unsubscribe installed items
       - [ ] Disabling workshop mods without unsubbing (later)
       - [ ] Load order (later)
       - [ ] Support 3rd party mod platforms (future)
@@ -66,8 +73,8 @@ Stuff marked future can be done eventually or just completely ignored
   - [x] Store, community, profile pages
   - [ ] Fix blurriness on non-100% DPIs (later) (wtf how did this even become a problem)
   - [ ] Make reliable??? (later)
-    - For some reason, sometimes the init fails for a reason or another. In that case, the web elements can't be used until the user restarts OSC completely.
-  - [ ] ~~Non-janky typing implementation~~ (probably never)
+    - For some reason, sometimes the init fails for a reason or another. In that case, the web elements can't be used until the user restarts OSC completely. And the client will throw a timeout erorr.
+  - [ ] ~~Non-janky typing implementation~~ (probably never, unless we make our own CEF thingy)
 - [x] Windows support
 - [ ] Close OpenSteamClient when pressing X on the progress dialog
 - [ ] Split project into multi-repo OpenSteamworks, OpenSteamClient
@@ -129,10 +136,6 @@ Stuff marked future can be done eventually or just completely ignored
 - VAC supported on Linux (you can play, but you _might_ get banned. We're not responsible if you do.)
 - Supports Windows and Linux, and even theoretically MacOS (PRs for support welcome)
 
-# Developing
-See DEVELOPING.md in the root of this repo.
-This will eventually replace the old opensteamclient.
-
 # Contributing
 Nothing for now.
 Clone by running `git clone -b c#-remake --single-branch https://github.com/OpenSteamClient/opensteamclient.git --recursive`
@@ -187,5 +190,5 @@ The `file` names point to regular zip files at the various client download addre
 `zipvz` seems to be some sort of proprietary zip format, which we don't use.
 
 ## The client crashes a lot or doesn't start
-Delete ~/.local/share/OpenSteam and try again. Also check that you have a PC that meets the requirements for Steam officially.
+Delete `~/.local/share/OpenSteam` and try again. Also check that you have a PC that meets the requirements for Steam officially.
 Also, run OpenSteamClient from the terminal and post the logs in a Github issue clearly describing your situation. 
