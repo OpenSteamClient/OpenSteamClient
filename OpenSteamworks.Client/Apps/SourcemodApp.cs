@@ -57,11 +57,11 @@ public class SourcemodApp : AppBase {
         state = EAppState.FullyInstalled;
     }
 
-    public override async Task<EAppUpdateError> Launch(string userLaunchOptions, int launchOptionID)
+    public override async Task<EAppError> Launch(string userLaunchOptions, int launchOptionID)
     {
         //TODO: implement (or possibly scrap) this
         await Task.CompletedTask;
-        return EAppUpdateError.NoError;
+        return EAppError.NoError;
     }
 
     public override void PauseUpdate()

@@ -10,5 +10,5 @@ public unsafe struct AppEventStateChange_t
 	public AppId_t m_nAppID;
 	public EAppState m_eOldState;
 	public EAppState m_eNewState;
-	public EAppUpdateError m_eAppError;
+	public EAppError m_eAppError;
 };

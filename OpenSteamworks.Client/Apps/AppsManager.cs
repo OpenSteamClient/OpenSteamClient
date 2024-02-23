@@ -349,11 +349,11 @@ public class AppsManager : ILogonLifetime
         return InstalledApps.Contains(appid);
     }
 
-    public async Task<EAppUpdateError> LaunchApp(AppId_t app, int launchOption = -1, string userLaunchOptions = "") {
+    public async Task<EAppError> LaunchApp(AppId_t app, int launchOption = -1, string userLaunchOptions = "") {
         return await LaunchApp(GetApp(new CGameID(app)), launchOption, userLaunchOptions);
     }
 
-    public async Task<EAppUpdateError> LaunchApp(AppBase app, int launchOption, string userLaunchOptions) {
+    public async Task<EAppError> LaunchApp(AppBase app, int launchOption, string userLaunchOptions) {
         return await app.Launch(userLaunchOptions, launchOption);
     }
     

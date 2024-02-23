@@ -76,7 +76,7 @@ public partial class AvaloniaAppViewModel : AvaloniaCommon.ViewModelBase
     public void OpenSteamVR()
     {
         AvaloniaApp.Container.Get<AppsManager>().LaunchApp(250820).ContinueWith((res) => {
-            if (res.Result != EAppUpdateError.NoError) {
+            if (res.Result != EAppError.NoError) {
                 Dispatcher.UIThread.Invoke(() => MessageBox.Show("Launching SteamVR failed", "Launching SteamVR failed with error " + res.Result));
             }
         });

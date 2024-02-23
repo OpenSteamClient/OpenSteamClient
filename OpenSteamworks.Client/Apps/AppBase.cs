@@ -37,7 +37,7 @@ public abstract class AppBase
     public abstract EAppType Type { get; }
     public abstract IEnumerable<ILaunchOption> LaunchOptions { get; }
     public abstract int? DefaultLaunchOptionID { get; }
-    public abstract Task<EAppUpdateError> Launch(string userLaunchOptions, int launchOptionID);
+    public abstract Task<EAppError> Launch(string userLaunchOptions, int launchOptionID);
 
     protected abstract string ActualName { get; }
     protected abstract string ActualHeroURL { get; }

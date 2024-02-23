@@ -221,7 +221,7 @@ public class SteamApp : AppBase
         }
     }
 
-    public override async Task<EAppUpdateError> Launch(string userLaunchOptions, int launchOptionID)
+    public override async Task<EAppError> Launch(string userLaunchOptions, int launchOptionID)
     {
         if (this.Config.CheckForUpdatesBeforeLaunch) {
             logger.Info("Checking for updates (due to CheckForUpdatesBeforeLaunch)");
@@ -229,7 +229,7 @@ public class SteamApp : AppBase
             if (!AppsManager.ClientApps.BIsAppUpToDate(AppID)) {
                 logger.Info("Not up to date, aborting launch and queuing update");
                 AppsManager.ClientApps.QueueUpdate(AppID);
-                return EAppUpdateError.UpdateRequired;
+                return EAppError.UpdateRequired;
             }
         }
 

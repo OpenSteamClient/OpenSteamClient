@@ -28,7 +28,7 @@ public sealed class DownloadItem
     public bool DownloadProgressKnown { get; private set; } = true;
     public double DownloadProgress { get; private set; } = 0.0f;
 
-    public EAppUpdateError DownloadError { get; private set; } = EAppUpdateError.NoError;
+    public EAppError DownloadError { get; private set; } = EAppError.NoError;
     public string DownloadErrorExtended { get; private set; } = "";
 
     public string DownloadStateExtended { get; private set; } = "";

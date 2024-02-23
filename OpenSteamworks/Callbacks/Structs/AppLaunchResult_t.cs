@@ -10,7 +10,7 @@ namespace OpenSteamworks.Callbacks.Structs;
 public unsafe struct AppLaunchResult_t
 {
 	public CGameID m_GameID;
-	public EAppUpdateError m_eAppError;
+	public EAppError m_eAppError;
     [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 512)]
 	public string m_szErrorDetail;
 };

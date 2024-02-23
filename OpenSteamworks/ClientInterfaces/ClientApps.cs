@@ -181,7 +181,7 @@ public class ClientApps {
         
         var libraryFolder = GetAppLibraryFolder(app);
         var result = this.NativeClientAppManager.InstallApp(app, libraryFolder, true);
-        if (result != EAppUpdateError.NoError) {
+        if (result != EAppError.NoError) {
             throw new Exception("Update failed with result " + result);
         }
     }
@@ -203,9 +203,9 @@ public class ClientApps {
     /// <remarks>
     /// Use ClientCompat to specify compat tools if needed.
     /// </remarks>
-    public EAppUpdateError InstallApp(AppId_t app, LibraryFolder_t libraryFolder) {
+    public EAppError InstallApp(AppId_t app, LibraryFolder_t libraryFolder) {
         var result = this.NativeClientAppManager.InstallApp(app, libraryFolder, false);
-        if (result == EAppUpdateError.NoError) {
+        if (result == EAppError.NoError) {
             this.NativeClientAppManager.SetDownloadingEnabled(true);
         }
 

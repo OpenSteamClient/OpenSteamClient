@@ -78,7 +78,7 @@ public class ShortcutApp : AppBase {
         this.GameID = SteamClient.GetIClientShortcuts().GetGameIDForAppID(appidShortcut);
     }
 
-    public override async Task<EAppUpdateError> Launch(string userLaunchOptions, int launchOption)
+    public override async Task<EAppError> Launch(string userLaunchOptions, int launchOption)
     {
         await Task.CompletedTask;
         return SteamClient.GetIClientShortcuts().LaunchShortcut(this.ShortcutAppID, launchOption);

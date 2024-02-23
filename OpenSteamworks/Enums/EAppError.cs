@@ -1,6 +1,6 @@
 namespace OpenSteamworks.Enums;
 
-public enum EAppUpdateError : System.UInt32
+public enum EAppError : System.UInt32
 {
        NoError = 0,
        UnspecifiedError = 1,
@@ -57,5 +57,6 @@ public enum EAppUpdateError : System.UInt32
        InstallPathRemoved = 52,
        InvalidBackupPath = 53,
        InvalidPasscode = 54,
-       SelfUdpating = 55,
+       SelfUpdating = 55,
+       AllowedPlaytimeExceeded2 = 56
 };

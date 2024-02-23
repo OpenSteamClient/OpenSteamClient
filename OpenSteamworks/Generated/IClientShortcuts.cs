@@ -69,5 +69,5 @@ public unsafe interface IClientShortcuts
     public void RemoveShortcut(AppId_t appid);  // argc: 1, index: 27, ipc args: [bytes4], ipc returns: []
     public void RemoveAllTemporaryShortcuts();  // argc: 0, index: 28, ipc args: [], ipc returns: []
     // WARNING: Arguments are unknown!
-    public EAppUpdateError LaunchShortcut(AppId_t appid, int maybeLaunchOption);  // argc: 2, index: 29, ipc args: [bytes4, bytes4], ipc returns: [bytes4]
+    public EAppError LaunchShortcut(AppId_t appid, int maybeLaunchOption);  // argc: 2, index: 29, ipc args: [bytes4, bytes4], ipc returns: [bytes4]
 }

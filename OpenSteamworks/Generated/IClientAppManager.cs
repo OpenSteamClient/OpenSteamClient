@@ -17,9 +17,9 @@ namespace OpenSteamworks.Generated;
 
 public unsafe interface IClientAppManager
 {
-    public EAppUpdateError InstallApp(AppId_t unAppID, LibraryFolder_t libraryFolder, bool bLegacy);  // argc: 3, index: 1, ipc args: [bytes4, bytes4, bytes1], ipc returns: [bytes4]
-    public EAppUpdateError UninstallApp(AppId_t unAppID);  // argc: 1, index: 2, ipc args: [bytes4], ipc returns: [bytes4]
-    public EAppUpdateError LaunchApp(in CGameID gameID, uint uLaunchOption, ELaunchSource eLaunchSource, string unkStr);  // argc: 4, index: 3, ipc args: [bytes8, bytes4, bytes4, string], ipc returns: [bytes4]
+    public EAppError InstallApp(AppId_t unAppID, LibraryFolder_t libraryFolder, bool bLegacy);  // argc: 3, index: 1, ipc args: [bytes4, bytes4, bytes1], ipc returns: [bytes4]
+    public EAppError UninstallApp(AppId_t unAppID);  // argc: 1, index: 2, ipc args: [bytes4], ipc returns: [bytes4]
+    public EAppError LaunchApp(in CGameID gameID, uint uLaunchOption, ELaunchSource eLaunchSource, string unkStr);  // argc: 4, index: 3, ipc args: [bytes8, bytes4, bytes4, string], ipc returns: [bytes4]
     public bool ShutdownApp(AppId_t appId, bool force);  // argc: 2, index: 4, ipc args: [bytes4, bytes1], ipc returns: [bytes1]
     public EAppState GetAppInstallState(AppId_t appid);  // argc: 1, index: 5, ipc args: [bytes4], ipc returns: [bytes4]
     public int GetAppInstallDir(AppId_t appid, StringBuilder path, int pathMax);  // argc: 3, index: 6, ipc args: [bytes4, bytes4], ipc returns: [bytes4, bytes_length_from_reg]
@@ -107,17 +107,17 @@ public unsafe interface IClientAppManager
     /// Creates various Disk_XXXX numbered folders, according to ullMaxFileSize, which dictates the maximum size of one disk.
     /// </summary>
     // WARNING: Arguments are unknown!
-    public EAppUpdateError BuildBackup(AppId_t unAppID, UInt64 ullMaxFileSize, string cszBackupPath);  // argc: 4, index: 59, ipc args: [bytes4, bytes8, string], ipc returns: [bytes4]
+    public EAppError BuildBackup(AppId_t unAppID, UInt64 ullMaxFileSize, string cszBackupPath);  // argc: 4, index: 59, ipc args: [bytes4, bytes8, string], ipc returns: [bytes4]
     /// <summary>
     /// This function is meant for people publishing their Steam games as CD installers.
     /// </summary> 
     // WARNING: Arguments are unknown!
-    public EAppUpdateError BuildInstaller(string projectFile, string backupPath, string unk, string unk2);  // argc: 4, index: 60, ipc args: [string, string, string, string], ipc returns: [bytes4]
+    public EAppError BuildInstaller(string projectFile, string backupPath, string unk, string unk2);  // argc: 4, index: 60, ipc args: [string, string, string, string], ipc returns: [bytes4]
     public bool CancelBackup();  // argc: 0, index: 61, ipc args: [], ipc returns: [bytes1]
-    public EAppUpdateError RestoreAppFromBackup(AppId_t appid, string pathToBackup);  // argc: 2, index: 62, ipc args: [bytes4, string], ipc returns: [bytes4]
-    public EAppUpdateError RecoverAppFromFolder(AppId_t appid, string folder);  // argc: 2, index: 63, ipc args: [bytes4, string], ipc returns: [bytes4]
-    public EAppUpdateError CanMoveApp(AppId_t appid, out AppId_t dependentApp);  // argc: 2, index: 64, ipc args: [bytes4], ipc returns: [bytes4, bytes4]
-    public EAppUpdateError MoveApp(AppId_t appid, LibraryFolder_t folder);  // argc: 2, index: 65, ipc args: [bytes4, bytes4], ipc returns: [bytes4]
+    public EAppError RestoreAppFromBackup(AppId_t appid, string pathToBackup);  // argc: 2, index: 62, ipc args: [bytes4, string], ipc returns: [bytes4]
+    public EAppError RecoverAppFromFolder(AppId_t appid, string folder);  // argc: 2, index: 63, ipc args: [bytes4, string], ipc returns: [bytes4]
+    public EAppError CanMoveApp(AppId_t appid, out AppId_t dependentApp);  // argc: 2, index: 64, ipc args: [bytes4], ipc returns: [bytes4, bytes4]
+    public EAppError MoveApp(AppId_t appid, LibraryFolder_t folder);  // argc: 2, index: 65, ipc args: [bytes4, bytes4], ipc returns: [bytes4]
     // WARNING: Arguments are unknown!
     public bool GetMoveAppProgress(AppId_t appid, out UInt64 unk1, out UInt64 unk2, out uint unk3);  // argc: 4, index: 66, ipc args: [bytes4], ipc returns: [bytes1, bytes8, bytes8, bytes4]
     // WARNING: Arguments are unknown!
