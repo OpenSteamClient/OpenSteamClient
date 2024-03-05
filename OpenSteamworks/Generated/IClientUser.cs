@@ -326,8 +326,7 @@ public unsafe interface IClientUser
     public bool BIsPhoneIdentifying();  // argc: 0, index: 173, ipc args: [], ipc returns: [boolean]
     public void SetPhoneIsRequiringVerification(bool val);  // argc: 1, index: 174, ipc args: [bytes1], ipc returns: []
     public bool BIsPhoneRequiringVerification();  // argc: 0, index: 175, ipc args: [], ipc returns: [boolean]
-    // WARNING: Arguments are unknown!
-    public unknown_ret Set2ndFactorAuthCode(string code, bool remember);  // argc: 2, index: 176, ipc args: [string, bytes1], ipc returns: []
+    public void Set2ndFactorAuthCode(string code, bool remember);  // argc: 2, index: 176, ipc args: [string, bytes1], ipc returns: []
     public void SetUserMachineName(string name);  // argc: 1, index: 177, ipc args: [string], ipc returns: []
     public void GetUserMachineName(StringBuilder name, int len);  // argc: 2, index: 178, ipc args: [bytes4], ipc returns: [bytes1, bytes_length_from_mem]
     // WARNING: Arguments are unknown!

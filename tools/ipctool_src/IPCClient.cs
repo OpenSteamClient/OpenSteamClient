@@ -3,12 +3,14 @@ using System.Net.Sockets;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Globalization;
+using System;
 
 public class IPCClient {
     public enum IPCCommandCode : byte {
         Interface = 1,
         SerializeCallbacks = 2,
         ConnectToGlobalUser = 3,
+        ReleaseGlobalUser = 4,
         TerminatePipe = 5,
         Ping = 6,
         ConnectPipe = 9,
@@ -245,6 +247,12 @@ public class IPCClient {
         }
     }
     
+    public unsafe void SendAndIgnoreResponse(IPCCommandCode command, byte[] data) {
+        var serialized = Serialize(command, data);
+        var sentLen = socket.Send(serialized);
+        Console.WriteLine($"sent {sentLen} bytes");
+    }
+
     public unsafe byte[] SendAndWaitForResponse(IPCCommandCode command, byte[] data) {
         pauseHandling = true;
         var serialized = Serialize(command, data);
@@ -268,6 +276,7 @@ public class IPCClient {
 
     private Action<byte[]>? commandResultHandler;
     private Action<byte[]>? serializeCallbacksResultHandler;
+    private Action? releaseGlobalUserHandler;
     private Action<byte[]>? connectToGlobalUserResultHandler;
     private Action<byte[]>? connectPipeResultHandler;
     private byte[] WaitForResponseTo(IPCCommandCode sentCommand) {
@@ -286,6 +295,13 @@ public class IPCClient {
                 {
                     tcs.TrySetResult(data);
                     serializeCallbacksResultHandler = null;
+                };
+                break;
+            case IPCCommandCode.ReleaseGlobalUser:
+                releaseGlobalUserHandler = () =>
+                {
+                    tcs.TrySetResult(Array.Empty<byte>());
+                    releaseGlobalUserHandler = null;
                 };
                 break;
             case IPCCommandCode.ConnectToGlobalUser:
@@ -345,6 +361,10 @@ public class IPCClient {
 
     private void HandleMessage(byte[] msg) {
         while (pauseHandling) { };
+        if (msg.Length == 0) {
+            return;
+        }
+        
         using (var stream = new MemoryStream(msg))
         {
             var reader = new EndianAwareBinaryReader(stream);
@@ -363,6 +383,10 @@ public class IPCClient {
                     }
                     
                     serializeCallbacksResultHandler?.Invoke(msg[1..]);
+                    break;
+                case 4:
+                    Console.WriteLine("Released global user");
+                    releaseGlobalUserHandler?.Invoke();
                     break;
                 case 11:
                     Console.WriteLine("Got function response data!");
@@ -396,6 +420,9 @@ public class IPCClient {
     }
 
     public void Shutdown() {
+        SendAndWaitForResponse(IPCCommandCode.ReleaseGlobalUser, new byte[] { 1, 0, 0, 0 });
+        SendAndIgnoreResponse(IPCCommandCode.TerminatePipe, new byte[] { 1, 0, 0, 0 });
+
         pollShouldRun = false;
         this.socket.Disconnect(true);
     }

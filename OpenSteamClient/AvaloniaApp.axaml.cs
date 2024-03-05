@@ -136,18 +136,15 @@ public class AvaloniaApp : Application
             });
         };
 
-        if (Container.Get<ISteamClient>().ConnectedWith == ConnectionType.ExistingClient)
+        var loginManager = Container.Get<LoginManager>();
+        if (Container.Get<ISteamClient>().ConnectedWith == ConnectionType.ExistingClient && loginManager.IsLoggedOn())
         {
-            var loginManager = Container.Get<LoginManager>();
             var clientUser = Container.Get<IClientUser>();
-            if (loginManager.IsLoggedOn())
-            {
-                StringBuilder username = new StringBuilder(256);
-                clientUser.GetAccountName(username, username.Capacity);
+            StringBuilder username = new StringBuilder(256);
+            clientUser.GetAccountName(username, username.Capacity);
 
-                await Container.Get<LoginManager>().OnLoggedOn(new LoggedOnEventArgs(new LoginUser() { AccountName = username.ToString(), SteamID = clientUser.GetSteamID() }));
-                ForceMainWindow();
-            }
+            await Container.Get<LoginManager>().OnLoggedOn(new LoggedOnEventArgs(new LoginUser() { AccountName = username.ToString(), SteamID = clientUser.GetSteamID() }));
+            ForceMainWindow();
         }
         else
         {

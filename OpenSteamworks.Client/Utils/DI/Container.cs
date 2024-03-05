@@ -374,6 +374,7 @@ public class Container
         {
             logger.Info("Running startup for " + component.Name);
             await ((IClientLifetime)Get(component)).RunStartup();
+            logger.Info("Startup for " + component.Name + " finished");
         }
         hasRanStartup = true;
     }

@@ -181,7 +181,6 @@ public class SteamClient : ISteamClient
             RunServiceHack();
             this.IClientUtils.SetLauncherType(ELauncherType.Clientui);
             this.IClientUtils.SetCurrentUIMode(EUIMode.VGUI);
-            this.IClientUtils.SetAppIDForCurrentPipe(7, true);
             this.IClientUtils.SetClientUIProcess();
         }
 
