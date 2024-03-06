@@ -139,7 +139,6 @@ public class ClientNative {
     public IClientShader IClientShader { get; private set; }
     public IClientSharedConnection IClientSharedConnection { get; private set; }
     public IClientShortcuts IClientShortcuts { get; private set; }
-    public IClientSTARInternal IClientSTARInternal { get; private set; }
     public IClientStreamClient IClientStreamClient { get; private set; }
     public IClientStreamLauncher IClientStreamLauncher { get; private set; }
     public IClientSystemAudioManager IClientSystemAudioManager { get; private set; }
@@ -242,7 +241,6 @@ public class ClientNative {
     [MemberNotNull(nameof(IClientShader))]
     [MemberNotNull(nameof(IClientSharedConnection))]
     [MemberNotNull(nameof(IClientShortcuts))]
-    [MemberNotNull(nameof(IClientSTARInternal))]
     [MemberNotNull(nameof(IClientStreamClient))]
     [MemberNotNull(nameof(IClientStreamLauncher))]
     [MemberNotNull(nameof(IClientSystemAudioManager))]
@@ -305,7 +303,6 @@ public class ClientNative {
         this.IClientShader = this.IClientEngine.GetIClientShader(this.User, this.Pipe);
         this.IClientSharedConnection = this.IClientEngine.GetIClientSharedConnection(this.User, this.Pipe);
         this.IClientShortcuts = this.IClientEngine.GetIClientShortcuts(this.User, this.Pipe);
-        this.IClientSTARInternal = this.IClientEngine.GetIClientSTARInternal(this.User, this.Pipe);
         this.IClientStreamClient = this.IClientEngine.GetIClientStreamClient(this.User, this.Pipe);
         this.IClientStreamLauncher = this.IClientEngine.GetIClientStreamLauncher(this.User, this.Pipe);
         this.IClientSystemAudioManager = this.IClientEngine.GetIClientSystemAudioManager(this.Pipe);

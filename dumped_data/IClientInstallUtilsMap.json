@@ -1,6 +1,5 @@
 {
     "name": "IClientInstallUtilsMap",
-    "found_at": "0x2453810",
     "functions": [ 
         {
             "name": "SetUniverse",
@@ -9,8 +8,6 @@
             "functionid": "3240382694",
             "fencepost": "3240592498",
             "cannotcallincrossprocess": "0",
-            "serializedreturn": "",
-            "addr": "0xfb55f0",
             "serializedargs": [
                 "bytes4"
             ],
@@ -26,8 +23,6 @@
             "functionid": "163116249",
             "fencepost": "163342182",
             "cannotcallincrossprocess": "0",
-            "serializedreturn": "",
-            "addr": "0xfb5d70",
             "serializedargs": [
                 "string",
                 "string",
@@ -46,8 +41,6 @@
             "functionid": "1613638140",
             "fencepost": "1613880202",
             "cannotcallincrossprocess": "0",
-            "serializedreturn": "",
-            "addr": "0xfb5c00",
             "serializedargs": [
                 "string"
             ],
@@ -62,8 +55,6 @@
             "functionid": "2147697011",
             "fencepost": "2148568104",
             "cannotcallincrossprocess": "0",
-            "serializedreturn": "",
-            "addr": "0xfb5a40",
             "serializedargs": [
                 "bytes4",
                 "string",
@@ -84,8 +75,6 @@
             "functionid": "777092380",
             "fencepost": "777979602",
             "cannotcallincrossprocess": "0",
-            "serializedreturn": "",
-            "addr": "0xfb58c0",
             "serializedargs": [
                 "bytes4"
             ],
@@ -100,8 +89,6 @@
             "functionid": "726868793",
             "fencepost": "727788273",
             "cannotcallincrossprocess": "0",
-            "serializedreturn": "",
-            "addr": "0xfb5740",
             "serializedargs": [
                 "string",
                 "string"
@@ -117,8 +104,6 @@
             "functionid": "4117910897",
             "fencepost": "4118846506",
             "cannotcallincrossprocess": "0",
-            "serializedreturn": "",
-            "addr": "0xfb5f10",
             "serializedargs": [
                 "string",
                 "bytes4"
@@ -134,8 +119,6 @@
             "functionid": "632155144",
             "fencepost": "633123011",
             "cannotcallincrossprocess": "0",
-            "serializedreturn": "",
-            "addr": "0xfb60a0",
             "serializedargs": [
                 "bytes4",
                 "bytes4"
@@ -151,8 +134,6 @@
             "functionid": "460605893",
             "fencepost": "461606018",
             "cannotcallincrossprocess": "0",
-            "serializedreturn": "",
-            "addr": "0xfb63a0",
             "serializedargs": [
                 "string",
                 "string"
@@ -168,8 +149,6 @@
             "functionid": "2984775929",
             "fencepost": "2985808312",
             "cannotcallincrossprocess": "0",
-            "serializedreturn": "",
-            "addr": "0xfb6720",
             "serializedargs": [
                 "string",
                 "bytes4",
@@ -186,8 +165,6 @@
             "functionid": "1419581919",
             "fencepost": "1420630431",
             "cannotcallincrossprocess": "0",
-            "serializedreturn": "",
-            "addr": "0xfb6230",
             "serializedargs": [
             ],
             "serializedreturns": [
@@ -201,8 +178,6 @@
             "functionid": "4247011103",
             "fencepost": "4248075744",
             "cannotcallincrossprocess": "0",
-            "serializedreturn": "",
-            "addr": "0xfb6520",
             "serializedargs": [
                 "string",
                 "bytes1",

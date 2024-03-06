@@ -23,6 +23,6 @@ public unsafe interface IClientSharedConnection
     public int SendMessageAndAwaitResponse(HSharedConnection connection, void *msg, size_t size);  // argc: 3, index: 4, ipc args: [bytes4, bytes4, bytes_length_from_mem], ipc returns: [bytes4]
     public void RegisterEMsgHandler(HSharedConnection hConn, UInt32 eMsg);  // argc: 2, index: 5, ipc args: [bytes4, bytes4], ipc returns: []
     public void RegisterServiceMethodHandler(HSharedConnection hConn, string method);  // argc: 2, index: 6, ipc args: [bytes4, string], ipc returns: []
-    public bool BPopReceivedMessage(HSharedConnection hConn, CUtlBuffer* bufOut, out UInt32 hCall);  // argc: 3, index: 7, ipc args: [bytes4], ipc returns: [boolean, utlbuffer, bytes4]
+    public bool BPopReceivedMessage(HSharedConnection hConn, CUtlBuffer* bufOut, out UInt32 hCall);  // argc: 3, index: 7, ipc args: [bytes4], ipc returns: [boolean, unknown, bytes4]
     public void InitiateConnection(HSharedConnection connection);  // argc: 1, index: 8, ipc args: [bytes4], ipc returns: []
 }

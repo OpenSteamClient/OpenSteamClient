@@ -127,7 +127,6 @@ public unsafe interface IClientEngine {
 	public IClientNetworkingSockets GetIClientNetworkingSockets( HSteamUser hSteamUser, HSteamPipe hSteamPipe );
 	public IClientNetworkingUtils GetIClientNetworkingUtils( HSteamPipe hSteamPipe );
 	public IClientNetworkingUtilsSerialized GetIClientNetworkingUtilsSerialized( HSteamPipe hSteamPipe );
-	public IClientSTARInternal GetIClientSTARInternal(HSteamUser hSteamUser, HSteamPipe hSteamPipe);
 	public IClientRemotePlay GetIClientRemotePlay(HSteamUser hSteamUser, HSteamPipe hSteamPipe);
     public void Destructor1();
 	public void Destructor2();

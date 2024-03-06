@@ -23,7 +23,7 @@ export class SteamworksDumper {
 
         mkdir(clientpath, true);
         try {
-            await execWrap(`steamworks_dumper/build/steamworks_dumper --dump-offsets "${clientpath}" "${outpath}"`, {});
+            await execWrap(`steamworks_dumper/build/steamworks_dumper "${clientpath}" "${outpath}"`, {});
         } catch (error) {
             throw "Failed to execute compiled binary: " + error;
         } finally {
@@ -32,9 +32,7 @@ export class SteamworksDumper {
     }
     async setup(): Promise<void> {
         if (fs.existsSync("steamworks_dumper")) {
-            if (fs.existsSync("steamworks_dumper/build/steamworks_dumper")) {
-                fs.rmSync("steamworks_dumper/", { recursive: true, force: true})
-            }  
+            fs.rmSync("steamworks_dumper/", { recursive: true, force: true})
         }
         
         console.info("Downloading Rosentti/steamworks_dumper git repo")
@@ -60,7 +58,7 @@ export class SteamworksDumper {
             throw "Failed to run cmake for build file generation: " + error;
         } finally {
             try {
-                await execWrap('cmake --build .', {
+                await execWrap('cmake --build . --config MinSizeRel --parallel 24', {
                     cwd: 'steamworks_dumper/build',
                 });
             } catch (error) {

@@ -1,16 +1,13 @@
 {
     "name": "IClientSystemDockManagerMap",
-    "found_at": "0x244ad40",
     "functions": [ 
         {
             "name": "IsInterfaceValid",
             "argc": "1",
             "interfaceid": "58",
-            "functionid": "862246284",
-            "fencepost": "906737432",
+            "functionid": "862246287",
+            "fencepost": "906721306",
             "cannotcallincrossprocess": "0",
-            "serializedreturn": "",
-            "addr": "0x5dd4d0",
             "serializedargs": [
             ],
             "serializedreturns": [
@@ -21,27 +18,23 @@
             "name": "GetState",
             "argc": "2",
             "interfaceid": "58",
-            "functionid": "724788077",
-            "fencepost": "769343741",
+            "functionid": "724788066",
+            "fencepost": "769327601",
             "cannotcallincrossprocess": "0",
-            "serializedreturn": "",
-            "addr": "0x5dd630",
             "serializedargs": [
             ],
             "serializedreturns": [
                 "bytes1",
-                "protobuf"
+                "unknown"
             ]
         },
         {
             "name": "UpdateFirmware",
             "argc": "2",
             "interfaceid": "58",
-            "functionid": "1231225197",
-            "fencepost": "1275877635",
+            "functionid": "1231225198",
+            "fencepost": "1275861507",
             "cannotcallincrossprocess": "0",
-            "serializedreturn": "",
-            "addr": "0x5dd7b0",
             "serializedargs": [
                 "protobuf"
             ],
@@ -53,11 +46,9 @@
             "name": "DisarmSafetyNet",
             "argc": "1",
             "interfaceid": "58",
-            "functionid": "874836135",
-            "fencepost": "919536960",
+            "functionid": "874836134",
+            "fencepost": "919520830",
             "cannotcallincrossprocess": "0",
-            "serializedreturn": "",
-            "addr": "0x5dd940",
             "serializedargs": [
             ],
             "serializedreturns": [

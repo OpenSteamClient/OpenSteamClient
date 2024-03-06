@@ -97,7 +97,6 @@ public class SteamClient : ISteamClient
     public IClientShader IClientShader => NativeClient.IClientShader;
     public IClientSharedConnection IClientSharedConnection => NativeClient.IClientSharedConnection;
     public IClientShortcuts IClientShortcuts => NativeClient.IClientShortcuts;
-    public IClientSTARInternal IClientSTARInternal => NativeClient.IClientSTARInternal;
     public IClientStreamClient IClientStreamClient => NativeClient.IClientStreamClient;
     public IClientStreamLauncher IClientStreamLauncher => NativeClient.IClientStreamLauncher;
     public IClientSystemAudioManager IClientSystemAudioManager => NativeClient.IClientSystemAudioManager;
@@ -358,7 +357,6 @@ public class SteamClient : ISteamClient
     public static IClientShader GetIClientShader() => GetInstance().IClientShader;
     public static IClientSharedConnection GetIClientSharedConnection() => GetInstance().IClientSharedConnection;
     public static IClientShortcuts GetIClientShortcuts() => GetInstance().IClientShortcuts;
-    public static IClientSTARInternal GetIClientSTARInternal() => GetInstance().IClientSTARInternal;
     public static IClientStreamClient GetIClientStreamClient() => GetInstance().IClientStreamClient;
     public static IClientStreamLauncher GetIClientStreamLauncher() => GetInstance().IClientStreamLauncher;
     public static IClientSystemAudioManager GetIClientSystemAudioManager() => GetInstance().IClientSystemAudioManager;

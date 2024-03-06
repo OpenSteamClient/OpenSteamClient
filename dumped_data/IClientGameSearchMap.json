@@ -1,16 +1,13 @@
 {
     "name": "IClientGameSearchMap",
-    "found_at": "0x244a9c4",
     "functions": [ 
         {
             "name": "AddGameSearchParams",
             "argc": "3",
             "interfaceid": "47",
-            "functionid": "2323601599",
-            "fencepost": "2356994598",
+            "functionid": "2323601596",
+            "fencepost": "2356978466",
             "cannotcallincrossprocess": "0",
-            "serializedreturn": "",
-            "addr": "0x5c9060",
             "serializedargs": [
                 "string",
                 "string"
@@ -23,11 +20,9 @@
             "name": "SearchForGameWithLobby",
             "argc": "5",
             "interfaceid": "47",
-            "functionid": "3739264436",
-            "fencepost": "3772673564",
+            "functionid": "3739264437",
+            "fencepost": "3772657436",
             "cannotcallincrossprocess": "0",
-            "serializedreturn": "",
-            "addr": "0x5c91d0",
             "serializedargs": [
                 "uint64",
                 "bytes4",
@@ -41,11 +36,9 @@
             "name": "SearchForGameSolo",
             "argc": "3",
             "interfaceid": "47",
-            "functionid": "352636216",
-            "fencepost": "386061473",
+            "functionid": "352636215",
+            "fencepost": "386045343",
             "cannotcallincrossprocess": "0",
-            "serializedreturn": "",
-            "addr": "0x5c9360",
             "serializedargs": [
                 "bytes4",
                 "bytes4"
@@ -58,11 +51,9 @@
             "name": "AcceptGame",
             "argc": "1",
             "interfaceid": "47",
-            "functionid": "2318510021",
-            "fencepost": "2351951407",
+            "functionid": "2318510020",
+            "fencepost": "2351935277",
             "cannotcallincrossprocess": "0",
-            "serializedreturn": "",
-            "addr": "0x5c94f0",
             "serializedargs": [
             ],
             "serializedreturns": [
@@ -73,11 +64,9 @@
             "name": "DeclineGame",
             "argc": "1",
             "interfaceid": "47",
-            "functionid": "4287724694",
-            "fencepost": "26214913",
+            "functionid": "4287724693",
+            "fencepost": "26198783",
             "cannotcallincrossprocess": "0",
-            "serializedreturn": "",
-            "addr": "0x5c9650",
             "serializedargs": [
             ],
             "serializedreturns": [
@@ -88,11 +77,9 @@
             "name": "RetrieveConnectionDetails",
             "argc": "5",
             "interfaceid": "47",
-            "functionid": "2232289438",
-            "fencepost": "2265827598",
+            "functionid": "2232289439",
+            "fencepost": "2265811470",
             "cannotcallincrossprocess": "0",
-            "serializedreturn": "",
-            "addr": "0x5c97b0",
             "serializedargs": [
                 "uint64",
                 "bytes4"
@@ -106,11 +93,9 @@
             "name": "EndGameSearch",
             "argc": "1",
             "interfaceid": "47",
-            "functionid": "2360115827",
-            "fencepost": "2393702374",
+            "functionid": "2360115824",
+            "fencepost": "2393686242",
             "cannotcallincrossprocess": "0",
-            "serializedreturn": "",
-            "addr": "0x5c9950",
             "serializedargs": [
             ],
             "serializedreturns": [
@@ -121,11 +106,9 @@
             "name": "SetGameHostParams",
             "argc": "3",
             "interfaceid": "47",
-            "functionid": "802555102",
-            "fencepost": "836173907",
+            "functionid": "802555097",
+            "fencepost": "836157773",
             "cannotcallincrossprocess": "0",
-            "serializedreturn": "",
-            "addr": "0x5c9ab0",
             "serializedargs": [
                 "string",
                 "string"
@@ -138,11 +121,9 @@
             "name": "SetConnectionDetails",
             "argc": "3",
             "interfaceid": "47",
-            "functionid": "1677742509",
-            "fencepost": "1711377443",
+            "functionid": "1677742508",
+            "fencepost": "1711361313",
             "cannotcallincrossprocess": "0",
-            "serializedreturn": "",
-            "addr": "0x5c9c20",
             "serializedargs": [
                 "string",
                 "bytes4"
@@ -155,11 +136,9 @@
             "name": "RequestPlayersForGame",
             "argc": "4",
             "interfaceid": "47",
-            "functionid": "3791324473",
-            "fencepost": "3824975536",
+            "functionid": "3791324474",
+            "fencepost": "3824959408",
             "cannotcallincrossprocess": "0",
-            "serializedreturn": "",
-            "addr": "0x5c9da0",
             "serializedargs": [
                 "bytes4",
                 "bytes4",
@@ -173,11 +152,9 @@
             "name": "HostConfirmGameStart",
             "argc": "3",
             "interfaceid": "47",
-            "functionid": "2261344911",
-            "fencepost": "2295012103",
+            "functionid": "2261344910",
+            "fencepost": "2294995973",
             "cannotcallincrossprocess": "0",
-            "serializedreturn": "",
-            "addr": "0x5c9f40",
             "serializedargs": [
                 "bytes8"
             ],
@@ -189,11 +166,9 @@
             "name": "CancelRequestPlayersForGame",
             "argc": "1",
             "interfaceid": "47",
-            "functionid": "3598059408",
-            "fencepost": "3631742729",
+            "functionid": "3598059423",
+            "fencepost": "3631726615",
             "cannotcallincrossprocess": "0",
-            "serializedreturn": "",
-            "addr": "0x5ca0c0",
             "serializedargs": [
             ],
             "serializedreturns": [
@@ -204,11 +179,9 @@
             "name": "SubmitPlayerResult",
             "argc": "6",
             "interfaceid": "47",
-            "functionid": "532140807",
-            "fencepost": "565840257",
+            "functionid": "532140806",
+            "fencepost": "565824127",
             "cannotcallincrossprocess": "0",
-            "serializedreturn": "",
-            "addr": "0x5ca3a0",
             "serializedargs": [
                 "bytes8",
                 "uint64",
@@ -222,11 +195,9 @@
             "name": "EndGame",
             "argc": "3",
             "interfaceid": "47",
-            "functionid": "1234683165",
-            "fencepost": "1268398744",
+            "functionid": "1234683166",
+            "fencepost": "1268382616",
             "cannotcallincrossprocess": "0",
-            "serializedreturn": "",
-            "addr": "0x5ca220",
             "serializedargs": [
                 "bytes8"
             ],

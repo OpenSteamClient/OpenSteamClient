@@ -23,12 +23,12 @@ export function execWrap(command: string, options: SpawnOptionsWithoutStdio): Pr
         var cmd = spawn(command, { ...options, shell: true });
         var alldata: string = "";
         cmd.stdout.on('data', function (data) {
-            console.log(data.toString());
+            process.stdout.write(data.toString());
             alldata += data.toString();
         });
         
         cmd.stderr.on('data', function (data) {
-            console.log(data.toString());
+            process.stdout.write(data.toString());
             alldata += data.toString();
         });
         

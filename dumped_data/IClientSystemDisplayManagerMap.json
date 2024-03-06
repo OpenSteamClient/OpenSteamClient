@@ -1,16 +1,13 @@
 {
     "name": "IClientSystemDisplayManagerMap",
-    "found_at": "0x244ad6c",
     "functions": [ 
         {
             "name": "IsInterfaceValid",
             "argc": "1",
             "interfaceid": "60",
-            "functionid": "862246311",
-            "fencepost": "907366744",
+            "functionid": "862246310",
+            "fencepost": "907350614",
             "cannotcallincrossprocess": "0",
-            "serializedreturn": "",
-            "addr": "0x5ddf20",
             "serializedargs": [
             ],
             "serializedreturns": [
@@ -21,27 +18,23 @@
             "name": "GetState",
             "argc": "2",
             "interfaceid": "60",
-            "functionid": "2169954186",
-            "fencepost": "2215139135",
+            "functionid": "2169954187",
+            "fencepost": "2215123007",
             "cannotcallincrossprocess": "0",
-            "serializedreturn": "",
-            "addr": "0x5de080",
             "serializedargs": [
             ],
             "serializedreturns": [
                 "bytes4",
-                "protobuf"
+                "unknown"
             ]
         },
         {
             "name": "SetMode",
             "argc": "2",
             "interfaceid": "60",
-            "functionid": "2139887982",
-            "fencepost": "2185169705",
+            "functionid": "2139887983",
+            "fencepost": "2185153577",
             "cannotcallincrossprocess": "0",
-            "serializedreturn": "",
-            "addr": "0x5de200",
             "serializedargs": [
                 "protobuf"
             ],
@@ -53,11 +46,9 @@
             "name": "ClearModeOverride",
             "argc": "2",
             "interfaceid": "60",
-            "functionid": "3934404376",
-            "fencepost": "3979734486",
+            "functionid": "3934404379",
+            "fencepost": "3979718360",
             "cannotcallincrossprocess": "0",
-            "serializedreturn": "",
-            "addr": "0x5de390",
             "serializedargs": [
                 "bytes4"
             ],
@@ -69,11 +60,9 @@
             "name": "SetCompatibilityMode",
             "argc": "2",
             "interfaceid": "60",
-            "functionid": "206061294",
-            "fencepost": "251407533",
+            "functionid": "206061295",
+            "fencepost": "251391405",
             "cannotcallincrossprocess": "0",
-            "serializedreturn": "",
-            "addr": "0x5de500",
             "serializedargs": [
                 "bytes4"
             ],

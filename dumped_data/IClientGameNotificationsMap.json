@@ -1,16 +1,13 @@
 {
     "name": "IClientGameNotificationsMap",
-    "found_at": "0x244ba4c",
     "functions": [ 
         {
             "name": "EnumerateNotifications",
             "argc": "2",
             "interfaceid": "37",
-            "functionid": "1374609515",
-            "fencepost": "1462226942",
+            "functionid": "1374609513",
+            "fencepost": "1462259198",
             "cannotcallincrossprocess": "0",
-            "serializedreturn": "",
-            "addr": "0x62abd0",
             "serializedargs": [
                 "bytes4"
             ],
@@ -22,11 +19,9 @@
             "name": "GetNotificationCount",
             "argc": "2",
             "interfaceid": "37",
-            "functionid": "2971933116",
-            "fencepost": "3059566672",
+            "functionid": "2971933118",
+            "fencepost": "3059598932",
             "cannotcallincrossprocess": "0",
-            "serializedreturn": "",
-            "addr": "0x62ad60",
             "serializedargs": [
                 "bytes4"
             ],
@@ -38,11 +33,9 @@
             "name": "GetNotification",
             "argc": "4",
             "interfaceid": "37",
-            "functionid": "2154781800",
-            "fencepost": "2242496001",
+            "functionid": "2154781806",
+            "fencepost": "2242528265",
             "cannotcallincrossprocess": "0",
-            "serializedreturn": "",
-            "addr": "0x62aed0",
             "serializedargs": [
                 "bytes4",
                 "bytes4"
@@ -56,11 +49,9 @@
             "name": "RemoveSession",
             "argc": "4",
             "interfaceid": "37",
-            "functionid": "1416988465",
-            "fencepost": "1504751053",
+            "functionid": "1416988467",
+            "fencepost": "1504783313",
             "cannotcallincrossprocess": "0",
-            "serializedreturn": "",
-            "addr": "0x62b080",
             "serializedargs": [
                 "bytes4",
                 "bytes8"
@@ -72,11 +63,9 @@
             "name": "UpdateSession",
             "argc": "4",
             "interfaceid": "37",
-            "functionid": "138145709",
-            "fencepost": "225924426",
+            "functionid": "138145707",
+            "fencepost": "225956682",
             "cannotcallincrossprocess": "0",
-            "serializedreturn": "",
-            "addr": "0x62b1f0",
             "serializedargs": [
                 "bytes4",
                 "bytes8"

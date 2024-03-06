@@ -1,16 +1,13 @@
 {
     "name": "IClientDepotBuilderMap",
-    "found_at": "0x244ac50",
     "functions": [ 
         {
             "name": "BGetDepotBuildStatus",
             "argc": "6",
             "interfaceid": "16",
-            "functionid": "4119065422",
-            "fencepost": "4160357694",
+            "functionid": "4119065423",
+            "fencepost": "4160341566",
             "cannotcallincrossprocess": "0",
-            "serializedreturn": "",
-            "addr": "0x5d7f40",
             "serializedargs": [
                 "bytes8"
             ],
@@ -25,11 +22,9 @@
             "name": "VerifyChunkStore",
             "argc": "4",
             "interfaceid": "16",
-            "functionid": "3857174069",
-            "fencepost": "3898546986",
+            "functionid": "3857174068",
+            "fencepost": "3898530856",
             "cannotcallincrossprocess": "0",
-            "serializedreturn": "",
-            "addr": "0x5d8110",
             "serializedargs": [
                 "bytes4",
                 "bytes4",
@@ -46,8 +41,6 @@
             "functionid": "0",
             "fencepost": "0",
             "cannotcallincrossprocess": "0",
-            "serializedreturn": "",
-            "addr": "0x5d82c0",
             "serializedargs": [
             ],
             "serializedreturns": [
@@ -57,11 +50,9 @@
             "name": "DownloadChunk",
             "argc": "4",
             "interfaceid": "16",
-            "functionid": "4125622613",
-            "fencepost": "4167027788",
+            "functionid": "4125622612",
+            "fencepost": "4167011658",
             "cannotcallincrossprocess": "1",
-            "serializedreturn": "",
-            "addr": "0x5d8910",
             "serializedargs": [
                 "bytes4",
                 "bytes4",
@@ -75,11 +66,9 @@
             "name": "StartDepotBuild",
             "argc": "5",
             "interfaceid": "16",
-            "functionid": "3870246543",
-            "fencepost": "3911748492",
+            "functionid": "3870246528",
+            "fencepost": "3911732348",
             "cannotcallincrossprocess": "0",
-            "serializedreturn": "",
-            "addr": "0x5d8560",
             "serializedargs": [
                 "bytes4",
                 "bytes4",
@@ -94,11 +83,9 @@
             "name": "CommitAppBuild",
             "argc": "7",
             "interfaceid": "16",
-            "functionid": "297107503",
-            "fencepost": "338754613",
+            "functionid": "297107502",
+            "fencepost": "338738483",
             "cannotcallincrossprocess": "0",
-            "serializedreturn": "",
-            "addr": "0x5d8730",
             "serializedargs": [
                 "bytes4",
                 "bytes4",

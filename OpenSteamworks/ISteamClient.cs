@@ -56,7 +56,6 @@ public interface ISteamClient {
     public IClientShader IClientShader { get; }
     public IClientSharedConnection IClientSharedConnection { get; }
     public IClientShortcuts IClientShortcuts { get; }
-    public IClientSTARInternal IClientSTARInternal { get; }
     public IClientStreamClient IClientStreamClient { get; }
     public IClientStreamLauncher IClientStreamLauncher { get; }
     public IClientSystemAudioManager IClientSystemAudioManager { get; }

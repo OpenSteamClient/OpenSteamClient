@@ -57,7 +57,6 @@ public static class InterfaceMap {
     // 48 = IClientCompat
     // 49 = IClientParties
     // 50 = IClientNetworkingUtilsSerialized (!requiresuser)
-    // 51 = IClientSTARInternal 
     // 52 = IClientRemotePlay
     // 53 = "Narrowing to GameServer failed"
     // 54 = IClientSystemManager (!requiresuser)

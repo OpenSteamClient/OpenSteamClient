@@ -17,11 +17,11 @@ public unsafe interface IClientModuleManager
     // WARNING: Arguments are unknown!
     public unknown_ret UnloadModule();  // argc: 1, index: 2, ipc args: [bytes4], ipc returns: [bytes1]
     // WARNING: Arguments are unknown!
-    public unknown_ret CallFunction();  // argc: 8, index: 3, ipc args: [bytes4, bytes4, bytes4, bytes4, bytes_length_from_mem, bytes4], ipc returns: [bytes4, bytes_length_from_mem, bytes4]
+    public unknown_ret CallFunction();  // argc: 8, index: 3, ipc args: [bytes4, bytes4, bytes4, bytes4, bytes_length_from_mem, bytes4], ipc returns: [bytes4, bytes_length_from_mem, bytes4, unknown]
     // WARNING: Arguments are unknown!
     public unknown_ret CallFunctionAsync();  // argc: 9, index: 4, ipc args: [bytes4, bytes4, bytes4, bytes4, bytes4, bytes4, bytes4, bytes_length_from_mem, bytes4], ipc returns: [bytes4]
     // WARNING: Arguments are unknown!
-    public unknown_ret PollResponseAsync();  // argc: 5, index: 5, ipc args: [bytes4, bytes4, bytes4], ipc returns: [bytes4, bytes_length_from_mem, bytes4]
+    public unknown_ret PollResponseAsync();  // argc: 5, index: 5, ipc args: [bytes4, bytes4, bytes4], ipc returns: [bytes4, bytes_length_from_mem, bytes4, unknown]
     // WARNING: Arguments are unknown!
     public unknown_ret SetProtonEnvironment(AppId_t appid, string envdata);  // argc: 2, index: 6, ipc args: [bytes4, string], ipc returns: [unknown, unknown]
 }

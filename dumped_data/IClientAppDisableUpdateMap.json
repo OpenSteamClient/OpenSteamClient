@@ -1,16 +1,13 @@
 {
     "name": "IClientAppDisableUpdateMap",
-    "found_at": "0x244be78",
     "functions": [ 
         {
             "name": "SetAppUpdateDisabledSecondsRemaining",
             "argc": "3",
             "interfaceid": "42",
-            "functionid": "2352927115",
-            "fencepost": "2448367742",
+            "functionid": "2352927114",
+            "fencepost": "2448351612",
             "cannotcallincrossprocess": "0",
-            "serializedreturn": "",
-            "addr": "0x642d90",
             "serializedargs": [
                 "bytes4",
                 "bytes4"

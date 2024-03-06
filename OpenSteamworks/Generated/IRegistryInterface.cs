@@ -16,10 +16,10 @@ public unsafe interface IRegistryInterface
     // WARNING: Arguments are unknown!
     public unknown_ret BGetValueStr();  // argc: 5, index: 1, ipc args: [bytes4, string, string, bytes4], ipc returns: [boolean, bytes_length_from_mem]
     // WARNING: Arguments are unknown!
-    public unknown_ret BGetValueUint();  // argc: 4, index: 2, ipc args: [bytes4, string, string], ipc returns: [boolean, bytes4]
+    public unknown_ret BGetValueUint();  // argc: 4, index: 2, ipc args: [bytes4, string, string], ipc returns: [boolean, bytes4, unknown]
     // WARNING: Arguments are unknown!
     [BlacklistedInCrossProcessIPC]
-    public unknown_ret BGetValueBin();  // argc: 5, index: 3, ipc args: [bytes4, string, string, bytes4], ipc returns: [boolean, bytes4, bytes_length_from_mem]
+    public unknown_ret BGetValueBin();  // argc: 5, index: 3, ipc args: [bytes4, string, string, bytes4], ipc returns: [boolean, bytes4, bytes_length_from_mem, unknown]
     // WARNING: Arguments are unknown!
     public unknown_ret BSetValueStr();  // argc: 4, index: 4, ipc args: [bytes4, string, string, string], ipc returns: [boolean]
     // WARNING: Arguments are unknown!
@@ -41,5 +41,5 @@ public unsafe interface IRegistryInterface
     // WARNING: Arguments are unknown!
     public unknown_ret BEnumerateKey();  // argc: 5, index: 12, ipc args: [bytes4, string, bytes4, bytes4], ipc returns: [bytes4, bytes_length_from_mem]
     // WARNING: Arguments are unknown!
-    public unknown_ret BEnumerateValue();  // argc: 6, index: 13, ipc args: [bytes4, string, bytes4, bytes4], ipc returns: [bytes4, boolean, bytes4]
+    public unknown_ret BEnumerateValue();  // argc: 6, index: 13, ipc args: [bytes4, string, bytes4, bytes4], ipc returns: [bytes4, boolean, bytes4, unknown]
 }

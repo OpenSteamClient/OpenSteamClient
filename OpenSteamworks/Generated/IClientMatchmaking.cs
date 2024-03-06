@@ -96,7 +96,7 @@ public unsafe interface IClientMatchmaking
     // WARNING: Arguments are unknown!
     public unknown_ret PollGMSQuery(SteamAPICall_t call);  // argc: 2, index: 42, ipc args: [bytes8], ipc returns: [bytes4]
     // WARNING: Arguments are unknown!
-    public bool GetGMSQueryResults(SteamAPICall_t call, [ProtobufPtrType(typeof(GameServerClient_QueryServerData_Response))] IntPtr protoptr);  // argc: 3, index: 43, ipc args: [bytes8], ipc returns: [bytes1, protobuf]
+    public bool GetGMSQueryResults(SteamAPICall_t call, [ProtobufPtrType(typeof(GameServerClient_QueryServerData_Response))] IntPtr protoptr);  // argc: 3, index: 43, ipc args: [bytes8], ipc returns: [bytes1, unknown]
     // WARNING: Arguments are unknown!
     public void ReleaseGMSQuery(SteamAPICall_t call);  // argc: 2, index: 44, ipc args: [bytes8], ipc returns: []
     // WARNING: Arguments are unknown!

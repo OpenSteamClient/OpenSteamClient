@@ -161,7 +161,6 @@ public class IPCClientEngine : IClientEngine
     public IClientShader GetIClientShader(HSteamUser hSteamUser, HSteamPipe hSteamPipe) => GenerateClass<IClientShader>(hSteamUser, hSteamPipe);
     public IClientSharedConnection GetIClientSharedConnection(HSteamUser hSteamUser, HSteamPipe hSteamPipe) => GenerateClass<IClientSharedConnection>(hSteamUser, hSteamPipe);
     public IClientShortcuts GetIClientShortcuts(HSteamUser hSteamUser, HSteamPipe hSteamPipe) => GenerateClass<IClientShortcuts>(hSteamUser, hSteamPipe);
-    public IClientSTARInternal GetIClientSTARInternal(HSteamUser hSteamUser, HSteamPipe hSteamPipe) => GenerateClass<IClientSTARInternal>(hSteamUser, hSteamPipe);
     public IClientStreamClient GetIClientStreamClient(HSteamUser hSteamUser, HSteamPipe hSteamPipe) => GenerateClass<IClientStreamClient>(hSteamUser, hSteamPipe);
     public IClientStreamLauncher GetIClientStreamLauncher(HSteamUser hSteamUser, HSteamPipe hSteamPipe) => GenerateClass<IClientStreamLauncher>(hSteamUser, hSteamPipe);
     public IClientSystemAudioManager GetIClientSystemAudioManager(HSteamPipe hSteamPipe) => GenerateClass<IClientSystemAudioManager>(hSteamPipe);

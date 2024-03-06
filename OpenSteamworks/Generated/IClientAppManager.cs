@@ -127,7 +127,7 @@ public unsafe interface IClientAppManager
     /// Called by ValveSteam 440 times.
     /// </summary>
     /// <returns></returns>
-    public bool GetAppStateInfo(AppId_t appid, out AppStateInfo_s state);  // argc: 2, index: 68, ipc args: [bytes4], ipc returns: [bytes1, bytes44]
+    public bool GetAppStateInfo(AppId_t appid, out AppStateInfo_s state);  // argc: 2, index: 68, ipc args: [bytes4], ipc returns: [bytes1, bytes36]
     [BlacklistedInCrossProcessIPC]
     public bool BGetAppStateInfoForApps(CUtlVector<AppId_t>* apps, CUtlVector<AppStateInfo_s>* states);  // argc: 2, index: 69, ipc args: [bytes4, bytes4], ipc returns: [boolean]
     
@@ -138,10 +138,10 @@ public unsafe interface IClientAppManager
     public bool BCanRemotePlayTogether(AppId_t appid);  // argc: 1, index: 70, ipc args: [bytes4], ipc returns: [boolean]
     public bool BIsLocalMultiplayerApp(AppId_t appid);  // argc: 1, index: 71, ipc args: [bytes4], ipc returns: [boolean]
     public int GetNumLibraryFolders();  // argc: 0, index: 72, ipc args: [], ipc returns: [bytes4]
-    public int GetLibraryFolderPath(LibraryFolder_t folder, StringBuilder outPath, int outPathMaxLength);  // argc: 3, index: 73, ipc args: [bytes4, bytes4], ipc returns: [bytes4]
+    public int GetLibraryFolderPath(LibraryFolder_t folder, StringBuilder outPath, int outPathMaxLength);  // argc: 3, index: 73, ipc args: [bytes4, bytes4], ipc returns: [bytes4, bytes_length_from_reg]
     public LibraryFolder_t AddLibraryFolder(string folderPath);  // argc: 1, index: 74, ipc args: [string], ipc returns: [bytes4]
     public void SetLibraryFolderLabel(LibraryFolder_t folder, string label);  // argc: 2, index: 75, ipc args: [bytes4, string], ipc returns: []
-    public int GetLibraryFolderLabel(LibraryFolder_t folder, StringBuilder outLabel, int outLabelMaxLength);  // argc: 3, index: 76, ipc args: [bytes4, bytes4], ipc returns: [bytes4]
+    public int GetLibraryFolderLabel(LibraryFolder_t folder, StringBuilder outLabel, int outLabelMaxLength);  // argc: 3, index: 76, ipc args: [bytes4, bytes4], ipc returns: [bytes4, bytes_length_from_reg]
     // WARNING: Arguments are unknown!
     // Can return 7 on failure. Maybe some sort of enum?
     /// <summary>

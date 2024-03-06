@@ -1,16 +1,13 @@
 {
     "name": "IClientPartiesMap",
-    "found_at": "0x244aa04",
     "functions": [ 
         {
             "name": "GetNumActiveBeacons",
             "argc": "1",
             "interfaceid": "49",
-            "functionid": "1150910799",
-            "fencepost": "1184787922",
+            "functionid": "1150910792",
+            "fencepost": "1184771786",
             "cannotcallincrossprocess": "0",
-            "serializedreturn": "",
-            "addr": "0x5ca540",
             "serializedargs": [
             ],
             "serializedreturns": [
@@ -21,11 +18,9 @@
             "name": "GetBeaconByIndex",
             "argc": "2",
             "interfaceid": "49",
-            "functionid": "3712225650",
-            "fencepost": "3746118902",
+            "functionid": "3712225651",
+            "fencepost": "3746102774",
             "cannotcallincrossprocess": "0",
-            "serializedreturn": "",
-            "addr": "0x5ca6a0",
             "serializedargs": [
                 "bytes4"
             ],
@@ -37,11 +32,9 @@
             "name": "GetBeaconDetails",
             "argc": "7",
             "interfaceid": "49",
-            "functionid": "1454208006",
-            "fencepost": "1488181903",
+            "functionid": "1454208005",
+            "fencepost": "1488165773",
             "cannotcallincrossprocess": "0",
-            "serializedreturn": "",
-            "addr": "0x5ca830",
             "serializedargs": [
                 "bytes8",
                 "bytes4"
@@ -57,11 +50,9 @@
             "name": "JoinParty",
             "argc": "3",
             "interfaceid": "49",
-            "functionid": "684812445",
-            "fencepost": "718866987",
+            "functionid": "684812444",
+            "fencepost": "718850857",
             "cannotcallincrossprocess": "0",
-            "serializedreturn": "",
-            "addr": "0x5caa10",
             "serializedargs": [
                 "bytes8"
             ],
@@ -73,11 +64,9 @@
             "name": "GetNumAvailableBeaconLocations",
             "argc": "2",
             "interfaceid": "49",
-            "functionid": "1216712017",
-            "fencepost": "1250814946",
+            "functionid": "1216711982",
+            "fencepost": "1250798782",
             "cannotcallincrossprocess": "0",
-            "serializedreturn": "",
-            "addr": "0x5cabb0",
             "serializedargs": [
             ],
             "serializedreturns": [
@@ -89,11 +78,9 @@
             "name": "GetAvailableBeaconLocations",
             "argc": "3",
             "interfaceid": "49",
-            "functionid": "999327138",
-            "fencepost": "1033526841",
+            "functionid": "999327139",
+            "fencepost": "1033510713",
             "cannotcallincrossprocess": "0",
-            "serializedreturn": "",
-            "addr": "0x5cad30",
             "serializedargs": [
                 "bytes4"
             ],
@@ -106,11 +93,9 @@
             "name": "CreateBeacon",
             "argc": "6",
             "interfaceid": "49",
-            "functionid": "4155414513",
-            "fencepost": "4189759377",
+            "functionid": "4155414512",
+            "fencepost": "4189743247",
             "cannotcallincrossprocess": "0",
-            "serializedreturn": "",
-            "addr": "0x5caed0",
             "serializedargs": [
                 "bytes4",
                 "bytes4",
@@ -126,11 +111,9 @@
             "name": "OnReservationCompleted",
             "argc": "5",
             "interfaceid": "49",
-            "functionid": "3388284854",
-            "fencepost": "3422661976",
+            "functionid": "3388284855",
+            "fencepost": "3422645848",
             "cannotcallincrossprocess": "0",
-            "serializedreturn": "",
-            "addr": "0x5cb0a0",
             "serializedargs": [
                 "bytes8",
                 "uint64"
@@ -142,11 +125,9 @@
             "name": "CancelReservation",
             "argc": "5",
             "interfaceid": "49",
-            "functionid": "3814305249",
-            "fencepost": "3848698500",
+            "functionid": "3814305254",
+            "fencepost": "3848682376",
             "cannotcallincrossprocess": "0",
-            "serializedreturn": "",
-            "addr": "0x5cb210",
             "serializedargs": [
                 "bytes8",
                 "uint64"
@@ -158,11 +139,9 @@
             "name": "ChangeNumOpenSlots",
             "argc": "4",
             "interfaceid": "49",
-            "functionid": "2569790483",
-            "fencepost": "2604199863",
+            "functionid": "2569790482",
+            "fencepost": "2604183733",
             "cannotcallincrossprocess": "0",
-            "serializedreturn": "",
-            "addr": "0x5cb380",
             "serializedargs": [
                 "bytes8",
                 "bytes4"
@@ -175,11 +154,9 @@
             "name": "DestroyBeacon",
             "argc": "3",
             "interfaceid": "49",
-            "functionid": "2650816173",
-            "fencepost": "2685241682",
+            "functionid": "2650816174",
+            "fencepost": "2685225554",
             "cannotcallincrossprocess": "0",
-            "serializedreturn": "",
-            "addr": "0x5cb560",
             "serializedargs": [
                 "bytes8"
             ],
@@ -191,11 +168,9 @@
             "name": "GetBeaconLocationData",
             "argc": "7",
             "interfaceid": "49",
-            "functionid": "3492309402",
-            "fencepost": "3526831685",
+            "functionid": "3492309403",
+            "fencepost": "3526815557",
             "cannotcallincrossprocess": "0",
-            "serializedreturn": "",
-            "addr": "0x5cb8d0",
             "serializedargs": [
                 "bytes12",
                 "bytes4",
@@ -210,11 +185,9 @@
             "name": "ReservePartySlot",
             "argc": "4",
             "interfaceid": "49",
-            "functionid": "3973114398",
-            "fencepost": "4007685068",
+            "functionid": "3973114399",
+            "fencepost": "4007668940",
             "cannotcallincrossprocess": "0",
-            "serializedreturn": "",
-            "addr": "0x5cb6f0",
             "serializedargs": [
                 "bytes4",
                 "bytes8"

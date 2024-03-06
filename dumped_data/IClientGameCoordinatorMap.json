@@ -1,16 +1,13 @@
 {
     "name": "IClientGameCoordinatorMap",
-    "found_at": "0x244b198",
     "functions": [ 
         {
             "name": "SendMessage",
             "argc": "5",
             "interfaceid": "19",
-            "functionid": "3499677205",
-            "fencepost": "3560663367",
+            "functionid": "3499677207",
+            "fencepost": "3560695627",
             "cannotcallincrossprocess": "0",
-            "serializedreturn": "",
-            "addr": "0x5f7a50",
             "serializedargs": [
                 "bytes4",
                 "bytes4",
@@ -25,11 +22,9 @@
             "name": "IsMessageAvailable",
             "argc": "3",
             "interfaceid": "19",
-            "functionid": "1188771612",
-            "fencepost": "1249838419",
+            "functionid": "1188771602",
+            "fencepost": "1249870667",
             "cannotcallincrossprocess": "0",
-            "serializedreturn": "",
-            "addr": "0x5f7c00",
             "serializedargs": [
                 "bytes4"
             ],
@@ -42,11 +37,9 @@
             "name": "RetrieveMessage",
             "argc": "6",
             "interfaceid": "19",
-            "functionid": "1763933754",
-            "fencepost": "1825145722",
+            "functionid": "1763933752",
+            "fencepost": "1825177978",
             "cannotcallincrossprocess": "0",
-            "serializedreturn": "",
-            "addr": "0x5f7d90",
             "serializedargs": [
                 "bytes4",
                 "bytes4"

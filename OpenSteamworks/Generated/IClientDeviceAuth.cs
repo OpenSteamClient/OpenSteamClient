@@ -40,11 +40,5 @@ public unsafe interface IClientDeviceAuth
     public bool GetBorrowerInfo(uint accountid, StringBuilder username, int usernameMax, out bool isSharingLibrary);  // argc: 4, index: 8, ipc args: [bytes4, bytes4], ipc returns: [bytes1, bytes_length_from_mem, bytes1]
     // WARNING: Arguments are unknown!
     public unknown_ret UpdateAuthorizedBorrowers(uint[] accountids, uint accountid, bool authorized);  // argc: 3, index: 9, ipc args: [bytes4, bytes_length_from_reg, bytes1], ipc returns: [bytes8]
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="accountid">accountid of the shared library to test</param>
-    /// <returns>0 if not locked, accountid of current locker otherwise</returns>
-    public uint GetSharedLibraryLockedBy(uint accountid);  // argc: 1, index: 10, ipc args: [bytes4], ipc returns: [bytes4]
-    public int GetSharedLibraryOwners(uint[] owners, int ownersMax);  // argc: 2, index: 11, ipc args: [bytes4], ipc returns: [bytes4, bytes_length_from_reg]
+    public int GetSharedLibraryOwners(uint[] owners, int ownersMax);  // argc: 2, index: 10, ipc args: [bytes4], ipc returns: [bytes4, bytes_length_from_reg]
 }

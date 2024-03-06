@@ -29,7 +29,7 @@ public unsafe interface IClientConfigStore
     // WARNING: Arguments are unknown!
     public uint GetBinary(EConfigStore eConfigStore, string pszKeyName, IntPtr pubBuf, UInt32 cubBuf);  // argc: 4, index: 7, ipc args: [bytes4, string, bytes4], ipc returns: [bytes4, bytes_length_from_reg]
     // WARNING: Arguments are unknown!
-    public uint GetBinary(EConfigStore eConfigStore, string pszKeyName, CUtlBuffer* pUtlBuf);  // argc: 3, index: 8, ipc args: [bytes4, string], ipc returns: [bytes4, utlbuffer]
+    public uint GetBinary(EConfigStore eConfigStore, string pszKeyName, CUtlBuffer* pUtlBuf);  // argc: 3, index: 8, ipc args: [bytes4, string], ipc returns: [bytes4, unknown]
     // WARNING: Arguments are unknown!
     public uint GetBinaryWatermarked(EConfigStore eConfigStore, string pszKeyName, IntPtr pubBuf, UInt32 cubBuf);  // argc: 4, index: 9, ipc args: [bytes4, string, bytes4], ipc returns: [bytes4, bytes_length_from_reg]
     // WARNING: Arguments are unknown!

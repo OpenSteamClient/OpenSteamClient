@@ -14,7 +14,7 @@ public unsafe interface IClientBluetoothManager
 {
     public unknown_ret IsInterfaceValid();  // argc: 0, index: 1, ipc args: [], ipc returns: [boolean]
     // WARNING: Arguments are unknown!
-    public unknown_ret GetBluetoothDevicesData();  // argc: 1, index: 2, ipc args: [], ipc returns: [bytes4, protobuf]
+    public unknown_ret GetBluetoothDevicesData();  // argc: 1, index: 2, ipc args: [], ipc returns: [bytes4, unknown]
     // WARNING: Arguments are unknown!
     public unknown_ret SetEnabled();  // argc: 1, index: 3, ipc args: [bytes1], ipc returns: [bytes8]
     // WARNING: Arguments are unknown!

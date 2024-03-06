@@ -160,8 +160,9 @@ public unsafe interface IClientRemoteStorage
     public ERemoteStorageSyncState GetRemoteStorageSyncState(AppId_t appid);  // argc: 1, index: 74, ipc args: [bytes4], ipc returns: [bytes4]
     public bool HaveLatestFilesLocally(AppId_t appid);  // argc: 1, index: 75, ipc args: [bytes4], ipc returns: [bytes1]
     public bool GetConflictingFileTimestamps(AppId_t nAppId, out RTime32 localTimestamp, out RTime32 remoteTimestamp);  // argc: 3, index: 76, ipc args: [bytes4], ipc returns: [bytes1, bytes4, bytes4]
-    public bool GetPendingRemoteOperationInfo(AppId_t nAppId, [Out] [ProtobufPtrType(typeof(CCloud_PendingRemoteOperation))] IntPtr protoptr);  // argc: 2, index: 77, ipc args: [bytes4], ipc returns: [bytes1, protobuf]
+    public bool GetPendingRemoteOperationInfo(AppId_t nAppId, [Out] [ProtobufPtrType(typeof(CCloud_PendingRemoteOperation))] IntPtr protoptr);  // argc: 2, index: 77, ipc args: [bytes4], ipc returns: [bytes1, unknown]
     public bool ResolveSyncConflict(AppId_t nAppId, bool bAcceptLocalFiles);  // argc: 2, index: 78, ipc args: [bytes4, bytes1], ipc returns: [bytes1]
+    // WARNING: Arguments are unknown!
     public bool SynchronizeApp(AppId_t nAppId, ERemoteStorageSyncType syncType, ERemoteStorageSyncFlags flags);  // argc: 4, index: 79, ipc args: [bytes4, bytes4, bytes8], ipc returns: [bytes1]
     public bool IsAppSyncInProgress(AppId_t appid);  // argc: 1, index: 80, ipc args: [bytes4], ipc returns: [boolean]
     public void RunAutoCloudOnAppLaunch(AppId_t appid);  // argc: 1, index: 81, ipc args: [bytes4], ipc returns: []
@@ -192,4 +193,8 @@ public unsafe interface IClientRemoteStorage
     // WARNING: Arguments are unknown!
     [BlacklistedInCrossProcessIPC]
     public void GetLastKnownSyncStateMap(CUtlMap<AppId_t, ERemoteStorageSyncState>* map);  // argc: 2, index: 98, ipc args: [bytes4, bytes4], ipc returns: []
+    // WARNING: Arguments are unknown!
+    public unknown_ret PerformAppPlatformChangeFileBackup();  // argc: 1, index: 99, ipc args: [bytes4], ipc returns: []
+    // WARNING: Arguments are unknown!
+    public unknown_ret PerformAppPlatformChangeFileRestore();  // argc: 1, index: 100, ipc args: [bytes4], ipc returns: []
 }

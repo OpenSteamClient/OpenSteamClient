@@ -1,16 +1,13 @@
 {
     "name": "IClientUnifiedMessagesMap",
-    "found_at": "0x244b4f8",
     "functions": [ 
         {
             "name": "SendMethod",
             "argc": "6",
             "interfaceid": "25",
-            "functionid": "981623511",
-            "fencepost": "1053287833",
+            "functionid": "981623513",
+            "fencepost": "1053320093",
             "cannotcallincrossprocess": "0",
-            "serializedreturn": "",
-            "addr": "0x60b000",
             "serializedargs": [
                 "string",
                 "bytes4",
@@ -25,11 +22,9 @@
             "name": "GetMethodResponseInfo",
             "argc": "5",
             "interfaceid": "25",
-            "functionid": "772621820",
-            "fencepost": "844399045",
+            "functionid": "772621762",
+            "fencepost": "844431245",
             "cannotcallincrossprocess": "0",
-            "serializedreturn": "",
-            "addr": "0x60b1f0",
             "serializedargs": [
                 "bytes8"
             ],
@@ -43,11 +38,9 @@
             "name": "GetMethodResponseData",
             "argc": "6",
             "interfaceid": "25",
-            "functionid": "278951439",
-            "fencepost": "350889954",
+            "functionid": "278951425",
+            "fencepost": "350922198",
             "cannotcallincrossprocess": "0",
-            "serializedreturn": "",
-            "addr": "0x60b3b0",
             "serializedargs": [
                 "bytes8",
                 "bytes4",
@@ -62,11 +55,9 @@
             "name": "ReleaseMethod",
             "argc": "3",
             "interfaceid": "25",
-            "functionid": "2788112413",
-            "fencepost": "2860115444",
+            "functionid": "2788112415",
+            "fencepost": "2860147704",
             "cannotcallincrossprocess": "0",
-            "serializedreturn": "",
-            "addr": "0x60b580",
             "serializedargs": [
                 "bytes8"
             ],
@@ -78,11 +69,9 @@
             "name": "SendNotification",
             "argc": "4",
             "interfaceid": "25",
-            "functionid": "72229671",
-            "fencepost": "144329476",
+            "functionid": "72229665",
+            "fencepost": "144361728",
             "cannotcallincrossprocess": "0",
-            "serializedreturn": "",
-            "addr": "0x60b710",
             "serializedargs": [
                 "string",
                 "bytes4",

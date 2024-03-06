@@ -18,11 +18,11 @@ public unsafe interface IClientAudio
     // WARNING: Arguments are unknown!
     public unknown_ret GetAvailableVoice();  // argc: 3, index: 4, ipc args: [bytes4], ipc returns: [bytes4, bytes4, bytes4]
     // WARNING: Arguments are unknown!
-    public unknown_ret GetVoice();  // argc: 9, index: 5, ipc args: [bytes1, bytes4, bytes1, bytes4, bytes4], ipc returns: [bytes4, bytes4]
+    public unknown_ret GetVoice();  // argc: 9, index: 5, ipc args: [bytes1, bytes4, bytes1, bytes4, bytes4], ipc returns: [bytes4, bytes4, bytes_length_from_reg, bytes4, bytes_length_from_reg]
     // WARNING: Arguments are unknown!
     public unknown_ret GetCompressedVoice();  // argc: 3, index: 6, ipc args: [bytes4], ipc returns: [bytes4, bytes4, bytes_length_from_mem]
     // WARNING: Arguments are unknown!
-    public unknown_ret DecompressVoice();  // argc: 6, index: 7, ipc args: [bytes4, bytes_length_from_mem, bytes4, bytes4], ipc returns: [bytes4, bytes4]
+    public unknown_ret DecompressVoice();  // argc: 6, index: 7, ipc args: [bytes4, bytes_length_from_mem, bytes4, bytes4], ipc returns: [bytes4, bytes4, bytes_length_from_reg]
     public unknown_ret GetVoiceOptimalSampleRate();  // argc: 0, index: 8, ipc args: [], ipc returns: [bytes4]
     // WARNING: Arguments are unknown!
     public unknown_ret BAppUsesVoice();  // argc: 1, index: 9, ipc args: [bytes4], ipc returns: [boolean]

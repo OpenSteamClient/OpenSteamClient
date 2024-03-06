@@ -110,8 +110,15 @@ export async function ProcessProtobuf(projdir: string, workdir: string, targetdi
     try {
         await execWrap(`protoc -I="${wantedProtobufsSteam}" --csharp_out="${targetdircsharp}" ${steamFilesStr}`, {});
         await execWrap(`protoc -I="${wantedProtobufsWebui}" --csharp_out="${targetdircsharp}" ${webuiFilesStr}`, {});
-        await execWrap(projdir+`/OpenSteamworks.Native/Build/linux/x64/external.protobuf/bin/protoc -I="${wantedProtobufsSteam}" --cpp_out="${targetdircpp}" ${steamFilesStr}`, {});
     } catch (error) {
         throw "Failed to run protoc for C# protobuf file generation: " + error;
     }
+
+    try {
+        // DO NOT REMOVE, protobufhack builds need this very specific protoc instead of the system one
+        await execWrap(projdir+`/OpenSteamworks.Native/oldprotoc/build/protoc -I="${projdir+'/OpenSteamworks.Native/oldprotoc/build/external.protobuf/include/'}" -I="${wantedProtobufsSteam}" --cpp_out="${targetdircpp}" ${steamFilesStr}`, {});
+    } catch (error) {
+        throw "Failed to run protoc for C++ protobuf file generation: " + error;
+    }
+    
 }
