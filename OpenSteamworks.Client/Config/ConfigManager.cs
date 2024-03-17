@@ -5,6 +5,7 @@ using OpenSteamworks.Client.Managers;
 using OpenSteamworks.Client.Utils;
 using OpenSteamworks.Client.Utils.DI;
 using OpenSteamworks.Utils;
+using Profiler;
 
 namespace OpenSteamworks.Client.Config;
 
@@ -134,6 +135,8 @@ public class ConfigManager : IClientLifetime, ILogonLifetime {
     }
 
     public async Task SaveAsync<T>(T instance) where T: IConfigFile, new() {
+        using var subScope = CProfiler.CurrentProfiler?.EnterScope("ConfigManager.SaveAsync");
+
         var fullPath = GetPathForConfig<T>();
         
         using (var stream = HasChanged(instance, out bool hasChanged))

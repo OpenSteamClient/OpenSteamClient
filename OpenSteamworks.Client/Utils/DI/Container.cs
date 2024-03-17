@@ -4,6 +4,7 @@ using OpenSteamworks.Client;
 using OpenSteamworks.Client.Managers;
 using OpenSteamworks.Client.Utils;
 using OpenSteamworks.Client.Utils.DI;
+using Profiler;
 
 namespace OpenSteamworks.Client.Utils.DI;
 public class Container
@@ -370,17 +371,23 @@ public class Container
     private bool hasRanStartup;
     public async Task RunClientStartup()
     {
+        using var scope = CProfiler.CurrentProfiler?.EnterScope("RunClientStartup");
+        
         foreach (var component in clientLifetimeOrder)
         {
+            using var subScope = CProfiler.CurrentProfiler?.EnterScope("RunClientStartup - " + component.Name);
             logger.Info("Running startup for " + component.Name);
             await ((IClientLifetime)Get(component)).RunStartup();
             logger.Info("Startup for " + component.Name + " finished");
         }
+
         hasRanStartup = true;
     }
 
     public async Task RunClientShutdown()
     {
+        using var scope = CProfiler.CurrentProfiler?.EnterScope("RunClientShutdown");
+
         if (!hasRanStartup)
         {
             throw new InvalidOperationException("Cannot run shutdown if startup was never run");
@@ -389,6 +396,7 @@ public class Container
         IsShuttingDown = true;
         foreach (var component in clientLifetimeOrder)
         {
+            using var subScope = CProfiler.CurrentProfiler?.EnterScope("RunClientShutdown - " + component.Name);
             logger.Info("Shutting down " + component.Name);
             if (this.HasNonFactory(component))
             {
@@ -404,8 +412,11 @@ public class Container
 
     public async Task RunLogon(IExtendedProgress<int> progress, LoggedOnEventArgs e)
     {
+        using var scope = CProfiler.CurrentProfiler?.EnterScope("RunLogon");
+
         foreach (var component in logonLifetimeOrder)
         {
+            using var subScope = CProfiler.CurrentProfiler?.EnterScope("RunLogon - " + component.Name);
             logger.Info("Running logon for component " + component.Name);
             await ((ILogonLifetime)Get(component)).OnLoggedOn(progress, e);
         }
@@ -413,10 +424,14 @@ public class Container
 
     public async Task RunLogoff(IExtendedProgress<int> progress)
     {
+        using var scope = CProfiler.CurrentProfiler?.EnterScope("RunLogoff");
+
         int shutdownComponents = 0;
         progress.SetMaxProgress(logonLifetimeOrder.Count);
         foreach (var component in logonLifetimeOrder)
         {
+            using var subScope = CProfiler.CurrentProfiler?.EnterScope("RunLogoff - " + component.Name);
+
             logger.Info("Running logoff for component " + component.Name);
             await ((ILogonLifetime)Get(component)).OnLoggingOff(progress);
             logger.Info("Logoff for component " + component.Name + " finished");

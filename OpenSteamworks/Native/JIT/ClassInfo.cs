@@ -39,6 +39,7 @@ namespace OpenSteamworks.Native.JIT
         public bool IsArray { get { return Type.IsArray; } }
         public bool IsStringClass { get { return Type.GetTypeCode(Type) == TypeCode.String; } }
         public bool IsAutoClass { get { return Type == typeof(StringBuilder); } }
+        
         [MemberNotNullWhen(true, nameof(CustomValueTypeFromNativeTypeOperator))]
         [MemberNotNullWhen(true, nameof(CustomValueTypeToNativeTypeOperator))]
         public bool IsCustomValueType { get { return PierceType.IsValueType && PierceType.GetCustomAttribute<CustomValueTypeAttribute>(false) != null; } }
@@ -52,25 +53,25 @@ namespace OpenSteamworks.Native.JIT
 
         // determine whether this type will fit in a register and what the native type should be
         [MemberNotNull(nameof(NativeType))]
-        public void DetermineProps()
+        public bool DetermineProps()
         {
             // strings and arrays.
             if (IsStringClass || IsArray || IsAutoClass || IsUnsafePtr)
             {
                 NativeType = Type;
-                return;
+                return false;
             }
 
             // for a generic return or interface (to construct) return an IntPtr
             if (IsCreatableClass)
             {
                 NativeType = typeof(IntPtr);
-                return;
+                return false;
             }
 
             if (PierceType.IsArray && IsByRef) {
                 NativeType = Type;
-                return;
+                return false;
             }
 
             if (IsCustomValueType) {
@@ -89,7 +90,7 @@ namespace OpenSteamworks.Native.JIT
                         throw new InvalidOperationException(PierceType.FullName + " has CustomValueTypeAttribute but doesn't implement the correct implicit operators.");
                     }
 
-                    return;
+                    return Marshal.SizeOf(NativeType) > 4;
                 }
             } else if (IsUnknownClass) {
                 // for a class (not a value type) we need to figure out what to do, CSteamID might implement InteropHelp.NativeType for example to tell us the value type
@@ -127,12 +128,12 @@ namespace OpenSteamworks.Native.JIT
                     throw new JITInfoException("Not sure what to do with this type: " + Type);
                 }
 
-                return;
+                return Marshal.SizeOf(NativeType) > 4;
             }
             else if (Type.IsEnum)
             {
                 NativeType = Enum.GetUnderlyingType(Type);
-                return;
+                return Marshal.SizeOf(NativeType) > 4;
             }
 
             // otherwise, native type is the type
@@ -141,8 +142,10 @@ namespace OpenSteamworks.Native.JIT
             // byref won't have a size
             if (IsByRef)
             {
-                return;
+                return false;
             }
+
+            return Type != typeof(UInt64) && Marshal.SizeOf(Type) > 4;
         }
     }
 

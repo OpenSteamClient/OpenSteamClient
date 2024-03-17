@@ -30,6 +30,7 @@
     <ProjectReference Include="..\AvaloniaCommon\AvaloniaCommon.csproj" />
     <ProjectReference Include="..\OpenSteamworks\OpenSteamworks.csproj" />
     <ProjectReference Include="..\OpenSteamworks.Client\OpenSteamworks.Client.csproj" />
+    <ProjectReference Include="..\Profiler\Profiler.csproj" />
   </ItemGroup>
 
   <ItemGroup>

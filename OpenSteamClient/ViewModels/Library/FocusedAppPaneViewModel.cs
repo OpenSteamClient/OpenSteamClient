@@ -88,7 +88,8 @@ public partial class FocusedAppPaneViewModel : AvaloniaCommon.ViewModelBase
     {
         this.pane = pane;
 
-        this.heroContainer = pane.FindControlNested<Grid>("Hero", true)!;
+        this.heroContainer = pane.Hero;
+
         LogoAsText = "";
         app = AvaloniaApp.Container.Get<AppsManager>().GetApp(gameid);
         AvaloniaApp.Container.Get<CallbackManager>().RegisterHandler<AppEventStateChange_t>(OnAppEventStateChange);

@@ -491,6 +491,14 @@ public class CallbackManager
         }
         return _handler;
     }
+
+    public CallbackHandler<T> RegisterHandler<T>(TaskCompletionSource<T> tcs) where T : struct {
+        return this.RegisterHandler<T>((handler, data) =>
+        {
+            tcs.SetResult(data);
+        }, true);
+    }
+
     public async Task<T> WaitForCallback<T>() where T: struct {
         var tcs = new TaskCompletionSource<T>();
 

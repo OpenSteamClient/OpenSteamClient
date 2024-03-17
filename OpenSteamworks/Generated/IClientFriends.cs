@@ -389,9 +389,9 @@ public unsafe interface IClientFriends
     // WARNING: Arguments are unknown!
     public unknown_ret ActivateGameOverlayInviteDialogConnectString();  // argc: 1, index: 194, ipc args: [string], ipc returns: []
     // WARNING: Arguments are unknown!
-    public unknown_ret ProcessActivateGameOverlayInMainUI();  // argc: 6, index: 195, ipc args: [string, uint64, bytes4, bytes1, bytes4], ipc returns: [bytes1]
+    public byte ProcessActivateGameOverlayInMainUI(string unk, CSteamID unk1, uint unk2, bool unk3, uint unk4);  // argc: 6, index: 195, ipc args: [string, uint64, bytes4, bytes1, bytes4], ipc returns: [bytes1]
     // WARNING: Arguments are unknown!
-    public unknown_ret NotifyGameOverlayStateChanged();  // argc: 4, index: 196, ipc args: [bytes4, bytes4, bytes1, bytes1], ipc returns: []
+    public void NotifyGameOverlayStateChanged(uint unk1, uint unk2, bool unk3, bool unk4);  // argc: 4, index: 196, ipc args: [bytes4, bytes4, bytes1, bytes1], ipc returns: []
     // WARNING: Arguments are unknown!
     public unknown_ret NotifyGameServerChangeRequested();  // argc: 2, index: 197, ipc args: [string, string], ipc returns: []
     // WARNING: Arguments are unknown!

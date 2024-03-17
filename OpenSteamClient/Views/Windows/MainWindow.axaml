@@ -52,6 +52,7 @@
 
             <MenuItem Header="Debug">
                 <MenuItem c:Translatable.TranslationKey="#MainWindow_Header_Debug_OpenInterfaceList" Header="Interface list" Command="{Binding DBG_OpenInterfaceList}"/>
+                <MenuItem Header="Dump profiler to console" Command="{Binding DBG_DumpProfiler}" />
                 <MenuItem Header="Test HTMLSurface" Command="{Binding DBG_TestHTMLSurface}" />
                 <Separator/> 
                 <MenuItem Header="Quick switch language (English/Finnish)" Command="{Binding DBG_ChangeLanguage}"/>

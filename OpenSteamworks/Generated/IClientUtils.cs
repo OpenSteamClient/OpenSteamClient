@@ -98,9 +98,9 @@ public unsafe interface IClientUtils
     // WARNING: Arguments are unknown!
     public unknown_ret SetVideoAdapterInfo();  // argc: 7, index: 52, ipc args: [bytes4, bytes4, bytes4, bytes4, bytes4, bytes4, string], ipc returns: []
     // WARNING: Arguments are unknown!
-    public unknown_ret SetOverlayWindowFocusForPipe();  // argc: 3, index: 53, ipc args: [bytes1, bytes1, bytes8], ipc returns: []
+    public void SetOverlayWindowFocusForPipe(bool unk, bool unk1, in CGameID gameid);  // argc: 3, index: 53, ipc args: [bytes1, bytes1, bytes8], ipc returns: []
     // WARNING: Arguments are unknown!
-    public unknown_ret GetGameOverlayUIInstanceFocusGameID();  // argc: 3, index: 54, ipc args: [], ipc returns: [bytes8, bytes1, bytes4]
+    public CGameID GetGameOverlayUIInstanceFocusGameID(out bool unk, out uint unk2);  // argc: 3, index: 54, ipc args: [], ipc returns: [bytes8, bytes1, bytes4]
     // WARNING: Arguments are unknown!
     public unknown_ret GetFocusedGameWindow();  // argc: 3, index: 55, ipc args: [], ipc returns: [bytes8, bytes1, bytes4]
     // WARNING: Arguments are unknown!

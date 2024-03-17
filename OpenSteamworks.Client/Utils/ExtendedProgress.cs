@@ -8,7 +8,7 @@ public interface IExtendedProgress<T> : IProgress<T>
     public T MaxProgress { get; }
     public string Operation { get; }
     public string SubOperation { get; }
-    public void SetThrobber(bool value);
+    public void SetThrobber();
     public void SetProgress(T value);
     public void SetMaxProgress(T value);
     public void SetOperation(string value);
@@ -48,27 +48,32 @@ public class ExtendedProgress<T> : IExtendedProgress<T>
         this.invokeHandlers = new SendOrPostCallback(InvokeHandlers);
     }
 
-    void IExtendedProgress<T>.SetThrobber(bool value) {
+    void IExtendedProgress<T>.SetThrobber() {
         lock (PropertyLock) {
-            this.Throbber = value;
+            this.Throbber = true;
             (this as IProgress<T>).Report(this.InitialProgress);
         } 
     }
 
     void IExtendedProgress<T>.SetProgress(T value) {
+        Console.WriteLine("Prog progress changed: '" + value + "'");
         lock (PropertyLock) {
+            this.Throbber = false;
             (this as IProgress<T>).Report(value);
         }
     }
 
     void IExtendedProgress<T>.SetMaxProgress(T value) {
+        Console.WriteLine("Prog max changed: '" + value + "'");
         lock (PropertyLock) {
+            this.Throbber = false;
             this.MaxProgress = value;
             (this as IProgress<T>).Report(this.Progress);
         }
     }
 
     void IExtendedProgress<T>.SetOperation(string value) {
+        Console.WriteLine("Prog operation changed: '" + value + "'");
         lock(PropertyLock) {
             this.Operation = value;
             this.SubOperation = "";
@@ -78,6 +83,7 @@ public class ExtendedProgress<T> : IExtendedProgress<T>
     }
 
     void IExtendedProgress<T>.SetSubOperation(string value) {
+        Console.WriteLine("Prog sub operation changed: '" + value + "'");
         lock(PropertyLock) {
             this.SubOperation = value;
             (this as IProgress<T>).Report(this.Progress);

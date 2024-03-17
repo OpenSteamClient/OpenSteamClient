@@ -7,6 +7,7 @@ using OpenSteamworks.Client.Config;
 using System.Text;
 using OpenSteamworks.Enums;
 using OpenSteamworks.Utils;
+using Profiler;
 
 namespace OpenSteamworks.Client.Startup;
 
@@ -32,6 +33,7 @@ public class SteamHTML : IClientLifetime {
     [SupportedOSPlatform("linux")]
     [SupportedOSPlatform("windows")]
     private void StartHTMLHost(string pathToHost, string cacheDir) {
+        using var scope = CProfiler.CurrentProfiler?.EnterScope("SteamHTML.StartHTMLHost");
         lock (CurrentHTMLHostLock)
         {
             CurrentHTMLHost = new Process();

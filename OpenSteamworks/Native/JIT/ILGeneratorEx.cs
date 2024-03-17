@@ -89,9 +89,9 @@ public class ILGeneratorEx {
                 argStr = "<args not available: unsupported opcode " + opcode.ToString() + ">";
             }
         }
-        catch (Exception)
+        catch (Exception e)
         {
-            argStr = "<args not available: error while converting " + args.GetType().ToString() + ">";
+            argStr = $"<args not available: error while converting {args.GetType()}:({e})>";
         }
 
         ilDBGString.AppendLine(string.Format("IL_{0,4:X4}", this.ilgen.ILOffset) + ": " + opcode.Name + " " + argStr);
@@ -198,9 +198,13 @@ public class ILGeneratorEx {
         this.Emit(OpCodes.Castclass, castTypeTarget);
     }
 
-    public void Calli(CallingConvention ccv, Type returnType, Type[]? parameterTypes) {
+    public void Calli(CallingConvention ccv, Type? returnType, Type[]? parameterTypes) {
         this.ilgen.EmitCalli(OpCodes.Calli, ccv, returnType, parameterTypes);
-        this.AddOPCodeToDBGString(OpCodes.Calli, new CalliDBGData() {ReturnValue = returnType, Arguments = parameterTypes == null ? Array.Empty<Type>() : parameterTypes});
+        if (returnType == null) {
+            returnType = typeof(void);
+        }
+
+        this.AddOPCodeToDBGString(OpCodes.Calli, new CalliDBGData() {ReturnValue = returnType, Arguments = parameterTypes == null ? [] : parameterTypes});
     }
 
     public void Ldarg(int index)

@@ -391,7 +391,7 @@ public class LoginManager : IClientLifetime
             //     }
             // }
             if (stateUpdate.unk9 == 1 && stateUpdate.connectedToCMs == 1) {
-                loginProgress?.SetProgress(100);
+                loginProgress?.SetProgress(loginProgress.MaxProgress);
                 loginFinishResult = EResult.OK;
             }
         }
@@ -426,7 +426,7 @@ public class LoginManager : IClientLifetime
         Task.Run(async () =>
         {
             // TODO: we don't yet support tracking the progress (though we could estimate based on the order callbacks fire...)
-            loginProgress?.SetThrobber(true);
+            loginProgress?.SetThrobber();
 
             switch (user.LoginMethod)
             {
@@ -488,7 +488,9 @@ public class LoginManager : IClientLifetime
                 OnLogonFailed(new LogOnFailedEventArgs(user, EResult.InvalidSteamID));
                 return;
             }
-            
+
+            TaskCompletionSource<AppInfoUpdateComplete_t> tcs = new();
+            steamClient.CallbackManager.RegisterHandler(tcs);
             EResult beginLogonResult = steamClient.IClientUser.LogOn(user.SteamID);
             logger.Info("BeginLogon returned " + beginLogonResult);
             if (beginLogonResult != EResult.OK) {
@@ -501,11 +503,14 @@ public class LoginManager : IClientLifetime
             
             logger.Info("Waiting for logon to finish");
             EResult result = await WaitForLogonToFinish();
-            logger.Info("Logon finished with " + result + ", waiting for appinfo completion");
-            await steamClient.CallbackManager.WaitForCallback<AppInfoUpdateComplete_t>();
+            logger.Info("Logon finished with " + result);
+            //TODO: determine if an appinfo update is needed here, and update appinfo if it is
+            // Also, we need to fix our appinfo update system to not wait indefinitely
 
             if (result == EResult.OK)
             {
+                logger.Info("Waiting for appinfo update completion");
+                await tcs.Task;
                 loginUsers.SetUserAsMostRecent(user);
                 if (user.AllowAutoLogin == true)
                 {
