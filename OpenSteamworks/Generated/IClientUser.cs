@@ -16,6 +16,7 @@ using Google.Protobuf;
 using System.Runtime.InteropServices;
 using System.Runtime.CompilerServices;
 using OpenSteamworks.Attributes;
+using OpenSteamworks.Callbacks.Structs;
 
 namespace OpenSteamworks.Generated;
 
@@ -110,7 +111,7 @@ public unsafe interface IClientUser
     // WARNING: Arguments are unknown!
     public void DestroyCachedCredentials(string username, int revokeAction = (int)Protobuf.EAuthTokenRevokeAction.EauthTokenRevokeLogout);  // argc: 2, index: 52, ipc args: [string, bytes4], ipc returns: []
     public bool GetCurrentWebAuthToken(StringBuilder tokenOut, UInt32 bufSize);  // argc: 2, index: 53, ipc args: [bytes4], ipc returns: [bytes1, bytes_length_from_mem]
-    public SteamAPICall_t RequestWebAuthToken();  // argc: 0, index: 54, ipc args: [], ipc returns: [bytes8]
+    public SteamAPICall<WebAuthRequestCallback_t> RequestWebAuthToken();  // argc: 0, index: 54, ipc args: [], ipc returns: [bytes8]
     // WARNING: Arguments are unknown!
     public void SetLoginInformation(string username, string password, bool remember);  // argc: 3, index: 55, ipc args: [string, string, bytes1], ipc returns: []
     // WARNING: Arguments are unknown!

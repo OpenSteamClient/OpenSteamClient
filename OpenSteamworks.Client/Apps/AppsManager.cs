@@ -160,7 +160,7 @@ public class AppsManager : ILogonLifetime
         await Task.Run(() =>
         {
             var ownedApps = OwnedAppIDs;
-            progress.SetOperation("Loading apps");
+            progress.SetSubOperation("Loading apps");
             progress.SetMaxProgress(ownedApps.Count);
             lock (appsLock)
             {

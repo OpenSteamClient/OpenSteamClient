@@ -166,14 +166,14 @@ public class ClientApps {
         return objects.AsReadOnly();
     }
 
-    public async Task UpdateAppInfo(AppId_t[] apps, IProgress<int> prog) {
+    public async Task UpdateAppInfo(AppId_t[] apps) {
+        var task = this.callbackManager.AsTask<AppInfoUpdateComplete_t>();
         this.NativeClientApps.RequestAppInfoUpdate(apps.Select(a => (uint)a).ToArray(), apps.Length);
-        await this.callbackManager.WaitForCallback<AppInfoUpdateComplete_t>();
+        await task;
     }
 
     public async Task UpdateAppInfo(AppId_t app) {
-        this.NativeClientApps.RequestAppInfoUpdate(new uint[] { app }, 1);
-        await this.callbackManager.WaitForCallback<AppInfoUpdateComplete_t>();
+        await UpdateAppInfo([app]);
     }
 
     public void QueueUpdate(AppId_t app) {

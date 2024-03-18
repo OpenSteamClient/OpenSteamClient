@@ -158,7 +158,7 @@ public class CallbackManager
     }
 
     /// <summary>
-    /// Waits for an api call with the specified type to complete. Might block forever if given an invalid handle or if the call creating function succeeds too quickly before the handler gets registered.
+    /// Waits for an api call with the specified type to complete. Internal use only.
     /// </summary>
     /// <typeparam name="T">Type of the call</typeparam>
     /// <param name="handle">Handle to the call</param>
@@ -166,7 +166,7 @@ public class CallbackManager
     /// <param name="cancellationToken"></param>
     /// <returns></returns>
     /// <exception cref="Exception"></exception>
-    public async Task<CallResult<T>> WaitForAPICallResultAsync<T>(SteamAPICall_t handle, bool resumeThread = true, CancellationToken cancellationToken = default) where T: struct {
+    internal async Task<CallResult<T>> WaitForAPICallResultAsync<T>(SteamAPICall_t handle, bool resumeThread = true, CancellationToken cancellationToken = default) where T: struct {
         await this.PauseThreadAsync();
         
         var tcs = new TaskCompletionSource<CallResult<T>>();
@@ -216,7 +216,7 @@ public class CallbackManager
     }
 
     /// <summary>
-    /// Waits for an api call with the specified type to complete. Might block forever if given an invalid handle or if the call creating function succeeds too quickly before the handler gets registered.
+    /// Waits for an api call with the specified type to complete. Internal use only.
     /// </summary>
     /// <typeparam name="T">Type of the call</typeparam>
     /// <param name="handle">Handle to the call</param>
@@ -224,7 +224,7 @@ public class CallbackManager
     /// <param name="cancellationToken"></param>
     /// <returns></returns>
     /// <exception cref="Exception"></exception>
-    public CallResult<T> WaitForAPICallResultSync<T>(SteamAPICall_t handle, bool resumeThread = true) where T: unmanaged {
+    internal CallResult<T> WaitForAPICallResultSync<T>(SteamAPICall_t handle, bool resumeThread = true) where T: unmanaged {
         this.PauseThreadSync();
         
         var tcs = new TaskCompletionSource<CallResult<T>>();
@@ -537,5 +537,12 @@ public class CallbackManager
         } while (this.pollThread.IsAlive);
         
         Logging.CallbackLogger.Info("Stopped CallbackThread");
+    }
+
+    public Task<T> AsTask<T>() where T: struct
+    {
+        TaskCompletionSource<T> tcs = new();
+        this.RegisterHandler(tcs);
+        return tcs.Task;
     }
 }

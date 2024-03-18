@@ -33,6 +33,7 @@ using Avalonia.Media.Imaging;
 using System.IO;
 using OpenSteamworks.Utils;
 using Avalonia.Skia.Helpers;
+using OpenSteamworks.Callbacks;
 
 namespace OpenSteamClient.Controls;
 
@@ -468,7 +469,7 @@ public partial class HTMLSurface : UserControl
                 throw new InvalidOperationException("SetWebAuthToken failed due to no call handle being returned.");
             }
 
-            var result = await this.client.CallbackManager.WaitForAPICallResultAsync<WebAuthRequestCallback_t>(callHandle, true, new CancellationTokenSource(10000).Token);
+            var result = await callHandle.Wait();
             if (result.failed)
             {
                 throw new InvalidOperationException("SetWebAuthToken failed due to CallResult failure: " + result.failureReason);
@@ -497,7 +498,7 @@ public partial class HTMLSurface : UserControl
         }
 
         Console.WriteLine("Got callhandle " + callHandle);
-        var result = await this.client.CallbackManager.WaitForAPICallResultAsync<HTML_BrowserReady_t>(callHandle, true, new CancellationTokenSource(15000).Token);
+        var result = await callHandle.Wait(new CancellationTokenSource(15000).Token);
         if (result.failed)
         {
             this.htmlHost.Stop();

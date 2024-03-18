@@ -489,8 +489,9 @@ public class LoginManager : IClientLifetime
                 return;
             }
 
-            TaskCompletionSource<AppInfoUpdateComplete_t> tcs = new();
-            steamClient.CallbackManager.RegisterHandler(tcs);
+            var appInfoUpdateComplete = steamClient.CallbackManager.AsTask<AppInfoUpdateComplete_t>();
+
+            loginProgress?.SetSubOperation("Waiting for logon...");
             EResult beginLogonResult = steamClient.IClientUser.LogOn(user.SteamID);
             logger.Info("BeginLogon returned " + beginLogonResult);
             if (beginLogonResult != EResult.OK) {
@@ -498,19 +499,17 @@ public class LoginManager : IClientLifetime
                 OnLogonFailed(new LogOnFailedEventArgs(user, beginLogonResult));
                 return;
             }
-
-            loginProgress?.SetSubOperation("Waiting for steamclient...");
             
             logger.Info("Waiting for logon to finish");
             EResult result = await WaitForLogonToFinish();
             logger.Info("Logon finished with " + result);
             //TODO: determine if an appinfo update is needed here, and update appinfo if it is
-            // Also, we need to fix our appinfo update system to not wait indefinitely
 
             if (result == EResult.OK)
             {
                 logger.Info("Waiting for appinfo update completion");
-                await tcs.Task;
+                loginProgress?.SetSubOperation("Waiting for appinfo update...");
+                await appInfoUpdateComplete;
                 loginUsers.SetUserAsMostRecent(user);
                 if (user.AllowAutoLogin == true)
                 {

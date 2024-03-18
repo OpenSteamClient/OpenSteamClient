@@ -33,17 +33,18 @@ public class ClientRemoteStorage {
 
     public async Task<EResult> SyncApp(AppId_t appid, ERemoteStorageSyncType type, ERemoteStorageSyncFlags flags) {
         if (!this.remoteStorage.IsCloudEnabledForAccount()) {
-            return EResult.OK;
+            return EResult.FeatureDisabled;
         }
 
         if (!this.remoteStorage.IsCloudEnabledForApp(appid)) {
-            return EResult.OK;
+            return EResult.FeatureDisabled;
         }
 
+        var remoteStorageAppInfoLoaded = callbackManager.AsTask<RemoteStorageAppInfoLoaded_t>();
         this.remoteStorage.LoadLocalFileInfoCache(appid);
-        await callbackManager.WaitForCallback<RemoteStorageAppInfoLoaded_t>();
-        Console.WriteLine("Got RemoteStorageAppInfoLoaded_t");
+        await remoteStorageAppInfoLoaded;
 
+        Console.WriteLine("Got RemoteStorageAppInfoLoaded_t");
         TaskCompletionSource<EResult> tcs = new();
         callbackManager.RegisterHandler((CallbackManager.CallbackHandler<RemoteStorageAppSyncedClient_t> handler, RemoteStorageAppSyncedClient_t data) =>
         {

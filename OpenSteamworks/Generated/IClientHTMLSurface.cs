@@ -7,6 +7,7 @@
 //=============================================================================
 using System;
 using System.Runtime.Versioning;
+using OpenSteamworks.Callbacks.Structs;
 using OpenSteamworks.Enums;
 
 namespace OpenSteamworks.Generated;
@@ -21,7 +22,7 @@ public unsafe interface IClientHTMLSurface
 #endif
     public bool Init();
     public bool Shutdown();
-    public SteamAPICall_t CreateBrowser(string userAgent, string? customCSS);
+    public SteamAPICall<HTML_BrowserReady_t> CreateBrowser(string userAgent, string? customCSS);
     public void RemoveBrowser(HHTMLBrowser handle);
     public void AllowStartRequest(HHTMLBrowser handle, bool allow);
     public void LoadURL(HHTMLBrowser handle, string url, string? postRequest);
