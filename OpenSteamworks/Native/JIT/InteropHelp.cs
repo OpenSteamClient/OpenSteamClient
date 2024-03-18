@@ -3,6 +3,7 @@ using System.Text;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Reflection;
+using Profiler;
 
 namespace OpenSteamworks.Native.JIT
 {
@@ -62,6 +63,14 @@ namespace OpenSteamworks.Native.JIT
             if (SteamClient.instance != null && SteamClient.IsIPCCrossProcess) {
                 throw new InvalidOperationException("This function cannot be called in cross-process contexts.");
             }
+        }
+
+        public static CProfiler.INodeLifetime? StartProfile(string name) {
+            return CProfiler.CurrentProfiler?.EnterScope(name);
+        }
+
+        public static void EndProfile(CProfiler.INodeLifetime? lifetime) {
+            lifetime?.Dispose();
         }
     }
 }

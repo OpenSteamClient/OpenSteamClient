@@ -30,6 +30,7 @@ using OpenSteamworks.Messaging;
 using OpenSteamworks.Structs;
 using OpenSteamworks.Utils;
 using static OpenSteamworks.Callbacks.CallbackManager;
+using Profiler;
 
 namespace OpenSteamworks.Client.Apps;
 
@@ -234,23 +235,35 @@ public class AppsManager : ILogonLifetime
         return OwnedAppIDs.Select(GetApp);
     }
 
+    private readonly List<AppBase> appCache = new();
+
     /// <summary>
     /// Gets an app by CGameID.
     /// </summary>
     /// <param name="gameid"></param>
     /// <returns></returns>
     public AppBase GetApp(CGameID gameid) {
+        using var scope = CProfiler.CurrentProfiler?.EnterScope("AppsManager.GetApp(CGameID)");
+        var existing = appCache.Find(a => a.GameID == gameid);
+        if (existing != null) {
+            return existing;
+        }
+
         if (gameid.IsShortcut()) {
             AppId_t shortcutAppID = steamClient.IClientShortcuts.GetAppIDForGameID(gameid);
             if (shortcutAppID == AppId_t.Invalid) {
                 throw new InvalidOperationException("Shortcut GameID is not registered to IClientShortcuts or it is invalid");
             }
 
-            return GetShortcutApp(shortcutAppID);
+            var app = GetShortcutApp(shortcutAppID);
+            appCache.Add(app);
+            return app;
         }
 
         if (gameid.IsSteamApp()) {
-            return GetApp(gameid.AppID);
+            var app = GetApp(gameid.AppID);
+            appCache.Add(app);
+            return app;
         }
 
         throw new NotImplementedException("GameID type is not supported");
@@ -262,6 +275,7 @@ public class AppsManager : ILogonLifetime
     /// <param name="gameid"></param>
     /// <returns></returns>
     public AppBase GetApp(AppId_t appid) {
+        using var scope = CProfiler.CurrentProfiler?.EnterScope("AppsManager.GetApp(AppId_t)");
         CGameID shortcutGameID = CGameID.Zero; //steamClient.IClientShortcuts.GetGameIDForAppID(appid);
         unsafe
         {
@@ -274,6 +288,11 @@ public class AppsManager : ILogonLifetime
         if (shortcutGameID.IsValid()) {
             // Handle non-steam appids
             return GetShortcutApp(appid);
+        }
+
+        var existing = appCache.Find(a => a.AppID == appid);
+        if (existing != null) {
+            return existing;
         }
 
         return AppBase.CreateSteamApp(appid);

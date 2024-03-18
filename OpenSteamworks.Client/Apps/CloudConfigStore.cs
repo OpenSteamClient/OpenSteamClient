@@ -15,6 +15,7 @@ using OpenSteamworks.Generated;
 using OpenSteamworks.Messaging;
 using OpenSteamworks.Protobuf.WebUI;
 using OpenSteamworks.Structs;
+using Profiler;
 
 namespace OpenSteamworks.Client.Apps;
 
@@ -264,6 +265,8 @@ public class CloudConfigStore : ILogonLifetime {
     /// If the namespace is currently loaded, it will be used instead of trying the internet and cache.
     /// </summary>
     public async Task<NamespaceData> GetNamespaceData(EUserConfigStoreNamespace @namespace) {
+        using var scope = CProfiler.CurrentProfiler?.EnterScope("CloudConfigStore.GetNamespaceData");
+
         if (loginManager.CurrentUser == null || loginManager.CurrentUser.SteamID == 0) {
             logger.Error("Cannot retrieve namespace data without a login.");
             throw new InvalidOperationException("Cannot retrieve namespace data without a login.");
@@ -310,6 +313,7 @@ public class CloudConfigStore : ILogonLifetime {
     /// Downloads namespace data from the server. Does not use the cache and will never use local data.
     /// </summary>
     internal async Task<CCloudConfigStore_NamespaceData> DownloadNamespace(EUserConfigStoreNamespace @namespace) {
+        using var scope = CProfiler.CurrentProfiler?.EnterScope("CloudConfigStore.DownloadNamespace");
         logger.Info("Downloading namespace " + @namespace);
         ProtoMsg<CCloudConfigStore_Download_Request> msg = new("CloudConfigStore.Download#1");
         msg.body.Versions.Add(new CCloudConfigStore_NamespaceVersion() {
@@ -364,6 +368,8 @@ public class CloudConfigStore : ILogonLifetime {
     /// Uploads namespace data. Will throw conflict errors if data is conflicting
     /// </summary>
     private async Task<IEnumerable<CCloudConfigStore_NamespaceVersion>> Upload(CCloudConfigStore_NamespaceData data) {
+        using var scope = CProfiler.CurrentProfiler?.EnterScope("CloudConfigStore.Upload");
+
         if (data.Entries.Count == 0) {
             throw new Exception("Attempted to upload namespace data with 0 entries.");
         }

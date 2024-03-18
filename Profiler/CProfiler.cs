@@ -13,6 +13,7 @@ public class CProfiler
 
     private Node RootNode { get; set; }
     private Node? currentNode;
+    private int validThread = 0;
     
     private class ProcessedNode {
         public bool IsProfiler { get; init; }
@@ -65,13 +66,15 @@ public class CProfiler
                 // Add a child to the unique list
                 targetChild = node.ToProcessed();
                 Children.Add(targetChild);
+            } else {
+                targetChild.Calls.Add(node.ElapsedMilliseconds);
             }
-
-            targetChild.Calls.Add(node.ElapsedMilliseconds);
         }
     }
 
-    public sealed class NodeLifetime : IDisposable {
+    public interface INodeLifetime : IDisposable { }
+
+    public sealed class NodeLifetime : INodeLifetime {
         private readonly CProfiler profiler;
         internal NodeLifetime(CProfiler profiler) {
             this.profiler = profiler;
@@ -80,6 +83,13 @@ public class CProfiler
         public void Dispose()
         {
             profiler.ExitScope();
+        }
+    }
+    
+    public sealed class DummyNodeLifetime : INodeLifetime {        
+        public void Dispose()
+        {
+            
         }
     }
 
@@ -126,7 +136,11 @@ public class CProfiler
     /// </summary>
     /// <param name="name"></param>
     /// <returns></returns>
-    public NodeLifetime EnterScope(string name) {
+    public INodeLifetime EnterScope(string name) {
+        if (Environment.CurrentManagedThreadId != validThread) {
+            return new DummyNodeLifetime();
+        }
+
         if (currentNode == null) {
             currentNode = RootNode.EnterChild(name);
         } else {
@@ -140,6 +154,10 @@ public class CProfiler
     /// Mark the end of an operation's execution, you can also just call dispose with the object returned from EnterScope
     /// </summary>
     public void ExitScope() {
+        if (Environment.CurrentManagedThreadId != validThread) {
+            return;
+        }
+
         currentNode = currentNode?.Leave();
     }
 
@@ -148,10 +166,16 @@ public class CProfiler
         this.nodeLifetime = new NodeLifetime(this);
         this.Name = profilerName;
         this.RootNode = new Node(null, profilerName) { IsProfiler = true };
+        this.validThread = Environment.CurrentManagedThreadId;
     }
 
     public void Reset() {
+        this.validThread = Environment.CurrentManagedThreadId;
         this.RootNode = new Node(null, Name) { IsProfiler = true };
+    }
+
+    public void Stop() {
+        this.RootNode.Leave();
     }
 
     public void PrintStats() {

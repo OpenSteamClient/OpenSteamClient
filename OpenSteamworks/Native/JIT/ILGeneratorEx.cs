@@ -135,6 +135,10 @@ public class ILGeneratorEx {
     }
 
     public void Call(MethodInfo method) {
+        if (method == null) {
+            throw new NullReferenceException("Attempted to add call to function, but MethodInfo was null");
+        }
+        
         this.Emit(OpCodes.Call, method);
     }
 

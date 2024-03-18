@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 using System.Diagnostics;
 using System.Linq;
 using System.Diagnostics.CodeAnalysis;
+using Profiler;
 
 namespace OpenSteamworks.Native.JIT
 {
@@ -139,8 +140,9 @@ namespace OpenSteamworks.Native.JIT
             public List<Type> NativeArgs;
             public Type? NativeReturn;
 
-            public bool ReturnTypeByStack;
-            public LocalBuilderEx localReturn;
+            [MemberNotNullWhen(true, nameof(localReturn))]
+            public bool ReturnTypeByStack { get; set; }
+            public LocalBuilderEx? localReturn;
 
             public List<LocalBuilderEx> unmanagedMemory;
             public List<RefArgLocal> refargLocals;
@@ -219,13 +221,19 @@ namespace OpenSteamworks.Native.JIT
                 ilgen.Call(typeof(InteropHelp).GetMethod(nameof(InteropHelp.ThrowIfRemotePipe))!);
             }
 
+            // Emit profiler info
+            var profLocal = ilgen.DeclareLocal(typeof(CProfiler.INodeLifetime));
+            ilgen.Ldstr($"{method.MethodInfo.DeclaringType!.Name}.{method.Name}");
+            ilgen.Call(typeof(InteropHelp).GetMethod(nameof(InteropHelp.StartProfile), BindingFlags.Static | BindingFlags.Public)!);
+            ilgen.Stloc(profLocal.LocalIndex);
+
             // returns by stack
             if (state.ReturnTypeByStack)
             {
                 ilgen.AddComment("Return by stack ptr");
 
                 // allocate local to hold the return
-                state.localReturn = ilgen.DeclareLocal(method.ReturnType.NativeType, true);
+                state.localReturn = ilgen.DeclareLocal(method.ReturnType.NativeType);
                 state.localReturn.SetLocalSymInfo("nativeReturnPlaceholder");
 
                 ilgen.Ldloca(state.localReturn.LocalIndex);
@@ -419,6 +427,9 @@ namespace OpenSteamworks.Native.JIT
                 // Create custom value type from the backing type
                 ilgen.Call(method.ReturnType.CustomValueTypeFromNativeTypeOperator);
             }
+
+            ilgen.Ldloc(profLocal.LocalIndex);
+            ilgen.Call(typeof(InteropHelp).GetMethod(nameof(InteropHelp.EndProfile), BindingFlags.Static | BindingFlags.Public)!);
 
             ilgen.Return();
             if (method.Name.Contains("GetGameIDForAppID")) {

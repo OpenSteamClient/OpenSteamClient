@@ -728,8 +728,7 @@ public class Bootstrapper {
     }
 
     private readonly static ReadOnlyCollection<string> blacklistedFiles = new(new List<string>() {
-        "SDL3.dll",
-        "SDL3_ttf.dll"
+       
     });
 
     private async Task ExtractPackages(IExtendedProgress<int> progressHandler) {

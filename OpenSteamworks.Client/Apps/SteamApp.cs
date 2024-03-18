@@ -14,6 +14,7 @@ using OpenSteamworks.KeyValue.Deserializers;
 using OpenSteamworks.KeyValue.Serializers;
 using OpenSteamworks.Structs;
 using OpenSteamworks.Utils;
+using Profiler;
 
 namespace OpenSteamworks.Client.Apps;
 
@@ -53,6 +54,8 @@ public class SteamApp : AppBase
 
     internal SteamApp(AppId_t appid)
     {
+        using var scope = CProfiler.CurrentProfiler?.EnterScope("SteamApp..ctor");
+        
         var sections = AppsManager.ClientApps.GetMultipleAppDataSectionsSync(appid, new EAppInfoSection[] {EAppInfoSection.Common, EAppInfoSection.Config, EAppInfoSection.Extended, EAppInfoSection.Install, EAppInfoSection.Depots, EAppInfoSection.Community, EAppInfoSection.Localization});
         
         // The common section should always exist for all app types.

@@ -8,6 +8,7 @@ using OpenSteamworks.Enums;
 
 using OpenSteamworks.Structs;
 using OpenSteamworks.Utils;
+using Profiler;
 
 namespace OpenSteamworks.Client.Apps.Library;
 
@@ -39,6 +40,7 @@ public class Library
 
     internal async Task<HashSet<AppId_t>> InitializeLibrary()
     {
+        using var scope = CProfiler.CurrentProfiler?.EnterScope("Library.InitializeLibrary");
         HashSet<AppId_t> AppIDsInCollections = new();
 
         // Get all collections

@@ -13,6 +13,7 @@ using OpenSteamworks.KeyValue.ObjectGraph;
 using OpenSteamworks.KeyValue.Deserializers;
 using OpenSteamworks.KeyValue.Serializers;
 using OpenSteamworks.Utils;
+using Profiler;
 
 namespace OpenSteamworks.Client.Apps.Library;
 
@@ -159,6 +160,7 @@ public class LibraryManager : ILogonLifetime
 
     [MemberNotNull(nameof(libraryAssetsFile))]
     private string LoadLibraryAssetsFile() {
+        using var scope = CProfiler.CurrentProfiler?.EnterScope("LibraryManager.LoadLibraryAssetsFile");
         string libraryAssetsFilePath = Path.Combine(LibraryAssetsPath, "assets.vdf");
         if (File.Exists(libraryAssetsFilePath)) {
             try

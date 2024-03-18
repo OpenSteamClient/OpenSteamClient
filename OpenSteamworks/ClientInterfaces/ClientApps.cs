@@ -17,6 +17,7 @@ using OpenSteamworks.KeyValue.Deserializers;
 using OpenSteamworks.KeyValue.Serializers;
 using OpenSteamworks.Structs;
 using OpenSteamworks.Utils;
+using Profiler;
 
 namespace OpenSteamworks.ClientInterfaces;
 
@@ -134,10 +135,16 @@ public class ClientApps {
     }
 
     public ReadOnlyDictionary<EAppInfoSection, KVObject?> GetMultipleAppDataSectionsSync(AppId_t app, EAppInfoSection[] sections) {
+        using var scope = CProfiler.CurrentProfiler?.EnterScope("ClientApps.GetMultipleAppDataSectionsSync");
+
         IncrementingBuffer buf = new(1024*sections.Length);
         int[] lengths = new int[sections.Length];
         Dictionary<EAppInfoSection, KVObject?> objects = new();
-        buf.RunToFit(() => NativeClientApps.GetMultipleAppDataSections(app, sections, sections.Length, buf.Data, buf.Length, false, lengths)); 
+
+        {
+            using var subScope = CProfiler.CurrentProfiler?.EnterScope("IClientApps.GetMultipleAppDataSections");
+            buf.RunToFit(() => NativeClientApps.GetMultipleAppDataSections(app, sections, sections.Length, buf.Data, buf.Length, false, lengths)); 
+        }
         
         int position = 0;
         int index = 0;
