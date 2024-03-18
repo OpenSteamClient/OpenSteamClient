@@ -34,6 +34,7 @@ using OpenSteamworks.Protobuf;
 using OpenSteamworks.Protobuf.WebUI;
 using OpenSteamworks.Structs;
 using OpenSteamworks.Utils;
+using Profiler;
 
 namespace OpenSteamClient.ViewModels;
 
@@ -200,6 +201,10 @@ public partial class MainWindowViewModel : AvaloniaCommon.ViewModelBase
         HTMLSurfaceTest testWnd = new();
         testWnd.Show();
         await testWnd.Init("Valve Steam Client", "https://google.com/");
+    }
+
+    public void DBG_DumpProfiler() {
+        CProfiler.CurrentProfiler?.PrintStats();
     }
 
     public void Quit()

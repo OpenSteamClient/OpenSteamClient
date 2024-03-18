@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using OpenSteamworks.Enums;
 using OpenSteamworks.Protobuf;
 using OpenSteamworks.Structs;
@@ -75,7 +76,14 @@ public class ShortcutApp : AppBase {
 
     internal ShortcutApp(AppId_t appidShortcut) {
         this.ShortcutAppID = appidShortcut;
-        this.GameID = SteamClient.GetIClientShortcuts().GetGameIDForAppID(appidShortcut);
+        // unsafe
+        // {
+        //     ulong gameid = 0;
+        //     ulong* ptr = &gameid;
+        //     ulong* returnPtr = SteamClient.GetIClientShortcuts().GetGameIDForAppID(ptr, appidShortcut);
+        //     Trace.Assert(ptr == returnPtr);
+        //     this.GameID = new CGameID(*ptr);
+        // }
     }
 
     public override async Task<EAppError> Launch(string userLaunchOptions, int launchOption)

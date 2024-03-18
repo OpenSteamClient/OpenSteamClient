@@ -15,6 +15,7 @@ using System.Net;
 using OpenSteamworks.Client.Friends;
 using OpenSteamworks.Client.Apps.Compat;
 using OpenSteamworks.Downloads;
+using Profiler;
 
 namespace OpenSteamworks.Client;
 
@@ -52,6 +53,8 @@ public class Client : IClientLifetime
 
     public Client(Container container, IExtendedProgress<int>? bootstrapperProgress = null)
     {
+        using var scope = CProfiler.CurrentProfiler?.EnterScope("OpenSteamworks.Client - Client construction");
+
         Instance = this;
         this.Container = container;
         container.ConstructAndRegisterImmediate<ConfigManager>();

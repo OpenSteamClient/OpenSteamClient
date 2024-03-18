@@ -30,6 +30,7 @@ using OpenSteamworks.Client.Friends;
 using OpenSteamClient.UIImpl;
 using OpenSteamworks.Client.Startup;
 using AvaloniaCommon;
+using Profiler;
 
 namespace OpenSteamClient;
 
@@ -49,6 +50,7 @@ public class AvaloniaApp : Application
 
     public override void Initialize()
     {
+        using var scope = CProfiler.CurrentProfiler?.EnterScope("AvaloniaXamlLoader.Load");
         AvaloniaXamlLoader.Load(this);
     }
 
@@ -63,6 +65,7 @@ public class AvaloniaApp : Application
     private ExtendedProgress<int> loginProgress = new ExtendedProgress<int>(0, 100);
     public override async void OnFrameworkInitializationCompleted()
     {
+        using var scope = CProfiler.CurrentProfiler?.EnterScope("OnFrameworkInitializationCompleted");
         Theme = new Theme(this);
 
         ExtendedProgress<int> bootstrapperProgress = new ExtendedProgress<int>(0, 100);
@@ -154,7 +157,11 @@ public class AvaloniaApp : Application
             }
         }
 
-        base.OnFrameworkInitializationCompleted();
+        {
+            using var baseScope = CProfiler.CurrentProfiler?.EnterScope("base.OnFrameworkInitializationCompleted");
+            base.OnFrameworkInitializationCompleted();
+        }
+       
         var icons = TrayIcon.GetIcons(this);
         UtilityFunctions.AssertNotNull(icons);
         foreach (var icon in icons)
@@ -362,9 +369,13 @@ public class AvaloniaApp : Application
     /// </summary>
     public async Task Exit(int exitCode = 0)
     {
+        using var scope = CProfiler.CurrentProfiler?.EnterScope("AvaloniaApp.Exit");
         await Container.RunClientShutdown();
         Console.WriteLine("Shutting down Avalonia");
-        Dispatcher.UIThread.Invoke(() => ApplicationLifetime.Shutdown(exitCode));
+        {
+            using var subScope = CProfiler.CurrentProfiler?.EnterScope("AvaloniaApp.Exit - Avalonia shutdown");
+            Dispatcher.UIThread.Invoke(() => ApplicationLifetime.Shutdown(exitCode));
+        }
     }
 
     /// <summary>

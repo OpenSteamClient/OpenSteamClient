@@ -161,20 +161,23 @@ public class AppsManager : ILogonLifetime
             var ownedApps = OwnedAppIDs;
             progress.SetOperation("Loading apps");
             progress.SetMaxProgress(ownedApps.Count);
-            for (int i = 0; i < ownedApps.Count; i++)
+            lock (appsLock)
             {
-                var item = ownedApps.ElementAt(i);
+                for (int i = 0; i < ownedApps.Count; i++)
+                {
+                    var item = ownedApps.ElementAt(i);
 
-                try
-                {
-                    GetApp(new CGameID(item));
-                    progress.SetProgress(i);
-                }
-                catch (System.Exception e2)
-                {
-                    appsFilter.Add(item);
-                    logger.Warning("Failed to initialize owned app " + item + " at logon time");
-                    logger.Warning(e2);
+                    try
+                    {
+                        GetApp(new CGameID(item));
+                        progress.SetProgress(i);
+                    }
+                    catch (System.Exception e2)
+                    {
+                        appsFilter.Add(item);
+                        logger.Warning("Failed to initialize owned app " + item + " at logon time");
+                        logger.Warning(e2);
+                    }
                 }
             }
 
@@ -214,48 +217,106 @@ public class AppsManager : ILogonLifetime
         });
     }
 
-    private readonly List<AppBase> apps = new();
+    private readonly object appsLock = new();
         
     /// <summary>
     /// Gets all "user apps", which includes games, apps, betas, tools
     /// </summary>
     public IEnumerable<AppBase> GetAllUserApps() {
-        return GetAllAppsOfTypes(new[] {EAppType.Application, EAppType.Beta, EAppType.Game, EAppType.Tool});
+        return GetAllOwnedAppsOfTypes([EAppType.Application, EAppType.Beta, EAppType.Game, EAppType.Tool]);
     }
 
-    public IEnumerable<AppBase> GetAllAppsOfTypes(EAppType[] types) {
-        return GetAllApps().Where(a => types.Contains(a.Type));
+    public IEnumerable<AppBase> GetAllOwnedAppsOfTypes(EAppType[] types) {
+        return GetAllOwnedApps().Where(a => types.Contains(a.Type));
     }
 
-    public IEnumerable<AppBase> GetAllApps() {
-        return apps.ToList();
+    public IEnumerable<AppBase> GetAllOwnedApps() {
+        return OwnedAppIDs.Select(GetApp);
     }
 
     /// <summary>
-    /// Gets an app. Initializes it synchronously if not previously initialized.
+    /// Gets an app by CGameID.
     /// </summary>
     /// <param name="gameid"></param>
     /// <returns></returns>
     public AppBase GetApp(CGameID gameid) {
-        var existingApp = apps.Where((a) => a.GameID == gameid).FirstOrDefault();
-        if (existingApp != null) {
-            return existingApp;
+        if (gameid.IsShortcut()) {
+            AppId_t shortcutAppID = steamClient.IClientShortcuts.GetAppIDForGameID(gameid);
+            if (shortcutAppID == AppId_t.Invalid) {
+                throw new InvalidOperationException("Shortcut GameID is not registered to IClientShortcuts or it is invalid");
+            }
+
+            return GetShortcutApp(shortcutAppID);
         }
 
-        var app = AppBase.CreateSteamApp(gameid.AppID);
-
-        // There's too many configs and demo's to store them all in memory, so let's not (and demos as "demo" types seems to be deprecated anyway)
-        if (!(app.Type == EAppType.Config || app.Type == EAppType.Demo)) {
-            apps.Add(app);
+        if (gameid.IsSteamApp()) {
+            return GetApp(gameid.AppID);
         }
-        
-        return app;
+
+        throw new NotImplementedException("GameID type is not supported");
+    }
+
+    /// <summary>
+    /// Gets an app by AppID.
+    /// </summary>
+    /// <param name="gameid"></param>
+    /// <returns></returns>
+    public AppBase GetApp(AppId_t appid) {
+        CGameID shortcutGameID = CGameID.Zero; //steamClient.IClientShortcuts.GetGameIDForAppID(appid);
+        unsafe
+        {
+            CSteamID gameid = 0;
+            CSteamID* ptr = &gameid;
+            SteamClient.GetIClientShortcuts().GetGameIDForAppID(appid);
+            shortcutGameID = new CGameID(*ptr);
+        }
+
+        if (shortcutGameID.IsValid()) {
+            // Handle non-steam appids
+            return GetShortcutApp(appid);
+        }
+
+        return AppBase.CreateSteamApp(appid);
+    }
+
+    private AppBase GetShortcutApp(AppId_t shortcutAppID) {
+        return AppBase.CreateShortcut(shortcutAppID);
+    }
+
+    /// <summary>
+    /// Creates and registers a shortcut app, which you can then customize from the returned object.
+    /// </summary>
+    /// <returns></returns>
+    public ShortcutApp CreateShortcut(string name, string executable, string icon, string shortcutPath, string launchOptions) {
+        var createdAppId = steamClient.IClientShortcuts.AddShortcut(name, executable, icon, shortcutPath, launchOptions);
+        if (createdAppId == AppId_t.Invalid) {
+            throw new Exception("Creating shortcut failed");
+        }
+
+        return new ShortcutApp(createdAppId);
+    }
+
+    /// <summary>
+    /// Creates and registers a temporary shortcut app, which you can then customize from the returned object.
+    /// A temporary shortcut will only persist during the current login session and it will disappear when logging out or closing the client.
+    /// </summary>
+    /// <returns></returns>
+    public ShortcutApp CreateTemporaryShortcut(string name, string exepath, string icon) {
+        var createdAppId = steamClient.IClientShortcuts.AddTemporaryShortcut(name, exepath, icon);
+        if (createdAppId == AppId_t.Invalid) {
+            throw new Exception("Creating shortcut failed");
+        }
+
+        return new ShortcutApp(createdAppId);
     }
 
     public async Task OnLoggingOff(IExtendedProgress<int> progress) {
-        appLastPlayedMap.Clear();
-        appPlaytimeMap.Clear();
-        apps.Clear();
+        lock (appsLock)
+        {
+            appLastPlayedMap.Clear();
+            appPlaytimeMap.Clear();
+        }
+
         await Task.CompletedTask;
     }
 
@@ -358,19 +419,7 @@ public class AppsManager : ILogonLifetime
     }
     
     public Logger GetLoggerForApp(AppBase app) {
-        string name;
-        if (app.IsSteamApp) {
-            name = "SteamApp";
-        } else if (app.IsMod) {
-            name = "Mod";
-        } else if (app.IsShortcut) {
-            name = "Shortcut";
-        } else {
-            name = "App";
-        }
-
-        name += app.GameID;
-        return Logger.GetLogger(name, installManager.GetLogPath(name));
+        return logger.CreateSubLogger(app.GameID.ToString());
     }
 
     public UInt64 StartCompatSession(AppId_t appID) => this.steamClient.IClientCompat.StartSession(appID);

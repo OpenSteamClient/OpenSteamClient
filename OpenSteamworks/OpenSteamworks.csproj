@@ -25,6 +25,7 @@
     </PackageReference>
     <PackageReference Include="OpenSteamworks.KeyValue" Version="*"/>
     <PackageReference Include="OpenSteamworks.Utils" Version="*"/>
+    <ProjectReference Include="..\Profiler\Profiler.csproj" />
   </ItemGroup>
 
   <ItemGroup>
