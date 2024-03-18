@@ -10,12 +10,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenSteamworks.Client", "Op
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Installer", "Installer\Installer.csproj", "{0DF0A8CB-BEA8-4809-9532-FA084BE99407}"
 EndProject
-Project("{365F114A-2C62-4BA8-AE62-95E7E440C0AD}") = "MainExe", "MainExe\MainExe.csproj", "{97A11C5F-5A2B-43EB-BAEB-68F08E1C5080}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MainExe", "MainExe", "{28FC9377-6212-4732-82EC-D29D3239095F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "managed", "MainExe\managed\managed.csproj", "{6F856C94-1184-4720-8D7C-2157051B9A2D}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

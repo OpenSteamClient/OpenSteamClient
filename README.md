@@ -76,6 +76,7 @@ Stuff marked future can be done eventually or just completely ignored
     - For some reason, sometimes the init fails for a reason or another. In that case, the web elements can't be used until the user restarts OSC completely. And the client will throw a timeout erorr.
   - [ ] ~~Non-janky typing implementation~~ (probably never, unless we make our own CEF thingy)
 - [x] Windows support
+  - [ ] Installer
 - [ ] Close OpenSteamClient when pressing X on the progress dialog
 - [ ] Split project into multi-repo OpenSteamworks, OpenSteamClient
 - [ ] Make managed versions of all interfaces
@@ -133,7 +134,8 @@ Stuff marked future can be done eventually or just completely ignored
 - 64-bit (but needs some 32-bit libraries for some functionality)
 - No steamwebhelper requirement (but can be used ingame and for browsing the store and community pages)
 - All games supported (technically), Steam2 games unknown
-- VAC supported on Linux (you can play, but you _might_ get banned. We're not responsible if you do.)
+- ~~VAC supported on Linux (you can play, but you _might_ get banned. We're not responsible if you do.)~~
+  - VAC support was brutally murdered in one of the updates. We might deal with this eventually, but for now, no VAC :(
 - Supports Windows and Linux, and even theoretically MacOS (PRs for support welcome)
 
 # Contributing
