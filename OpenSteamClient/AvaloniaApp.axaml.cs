@@ -72,9 +72,13 @@ public class AvaloniaApp : Application
         var progVm = new ProgressWindowViewModel(bootstrapperProgress, "Bootstrapper progress");
         ForceProgressWindow(progVm);
 
-        Container.RegisterInstance(new Client(Container, bootstrapperProgress));
+        Container.ConstructAndRegisterImmediate<ConfigManager>();
+        var bootstrapper = Container.ConstructAndRegisterImmediate<Bootstrapper>();
 
-        await Container.Get<Bootstrapper>().RunBootstrap();
+        bootstrapper.SetProgressObject(bootstrapperProgress);
+        await bootstrapper.RunBootstrap();
+
+        Container.RegisterInstance(new Client(Container));
         Container.ConstructAndRegister<TranslationManager>();
         Container.RegisterInstance(this);
         await Container.RunClientStartup();

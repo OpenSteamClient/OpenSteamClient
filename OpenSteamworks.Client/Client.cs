@@ -51,16 +51,12 @@ public class Client : IClientLifetime
         });
     }
 
-    public Client(Container container, IExtendedProgress<int>? bootstrapperProgress = null)
+    public Client(Container container)
     {
         using var scope = CProfiler.CurrentProfiler?.EnterScope("OpenSteamworks.Client - Client construction");
 
         Instance = this;
         this.Container = container;
-        container.ConstructAndRegisterImmediate<ConfigManager>();
-        var bootstrapper = container.ConstructAndRegisterImmediate<Bootstrapper>();
-
-        bootstrapper.SetProgressObject(bootstrapperProgress);
 
         container.RegisterFactoryMethod<ISteamClient>((Bootstrapper bootstrapper, AdvancedConfig advancedConfig, InstallManager im) =>
         {
@@ -113,6 +109,7 @@ public class Client : IClientLifetime
         container.RegisterFactoryMethod<IClientUtils>((ISteamClient client) => client.IClientUtils);
         container.RegisterFactoryMethod<IClientVR>((ISteamClient client) => client.IClientVR);
 
+        container.ConstructAndRegister<ShaderManager>();
         container.ConstructAndRegister<CompatManager>();
         container.ConstructAndRegister<LoginManager>();
         container.ConstructAndRegister<CloudConfigStore>();
@@ -121,6 +118,5 @@ public class Client : IClientLifetime
         container.ConstructAndRegister<SteamHTML>();
         container.ConstructAndRegister<SteamService>();
         container.ConstructAndRegister<FriendsManager>();
-        container.ConstructAndRegister<ShaderManager>();
     }
 }
