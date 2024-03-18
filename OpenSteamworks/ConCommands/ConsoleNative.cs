@@ -31,22 +31,22 @@ public unsafe class ConsoleNative {
         }
         
         ConCommandBase_Funcs basefuncs = JITEngine.GenerateClass<ConCommandBase_Funcs>((IntPtr)pVar);
-        Logging.ConCommandsLogger.Info("");
-        Logging.ConCommandsLogger.Info("PName: " + Marshal.PtrToStringAuto(pVar->m_pszName));
-        Logging.ConCommandsLogger.Info("m_bRegistered: " + pVar->m_bRegistered);
-        Logging.ConCommandsLogger.Info("IsCommand: " + basefuncs.IsCommand());
-        Logging.ConCommandsLogger.Info("m_nFlags: " + pVar->m_nFlags);
-        Logging.ConCommandsLogger.Info("IsFlagSet 0: " + basefuncs.IsFlagSet(0));
-        Logging.ConCommandsLogger.Info("IsFlagSet 1: " + basefuncs.IsFlagSet(1));
-        Logging.ConCommandsLogger.Info("IsFlagSet 2: " + basefuncs.IsFlagSet(2));
-        Logging.ConCommandsLogger.Info("IsFlagSet 3: " + basefuncs.IsFlagSet(3));
-        Logging.ConCommandsLogger.Info("IsFlagSet 4: " + basefuncs.IsFlagSet(4));
-        Logging.ConCommandsLogger.Info("hasCompletionCallback: " + pVar->hasCompletionCallback);
-        Logging.ConCommandsLogger.Info("usingNewCommandCallback: " + pVar->usingNewCommandCallback);
-        Logging.ConCommandsLogger.Info("usingCommandCallbackInterface: " + pVar->usingCommandCallbackInterface);
-        Logging.ConCommandsLogger.Info("pCommandCallback: " + (nint)pVar->pCommandCallback);
-        Logging.ConCommandsLogger.Info("completionCallback: " + (nint)pVar->completionCallback);
-        Logging.ConCommandsLogger.Info("unknownPointer: " + (nint)pVar->unknownPointer);
+        // Logging.ConCommandsLogger.Info("");
+        // Logging.ConCommandsLogger.Info("PName: " + Marshal.PtrToStringAuto(pVar->m_pszName));
+        // Logging.ConCommandsLogger.Info("m_bRegistered: " + pVar->m_bRegistered);
+        // Logging.ConCommandsLogger.Info("IsCommand: " + basefuncs.IsCommand());
+        // Logging.ConCommandsLogger.Info("m_nFlags: " + pVar->m_nFlags);
+        // Logging.ConCommandsLogger.Info("IsFlagSet 0: " + basefuncs.IsFlagSet(0));
+        // Logging.ConCommandsLogger.Info("IsFlagSet 1: " + basefuncs.IsFlagSet(1));
+        // Logging.ConCommandsLogger.Info("IsFlagSet 2: " + basefuncs.IsFlagSet(2));
+        // Logging.ConCommandsLogger.Info("IsFlagSet 3: " + basefuncs.IsFlagSet(3));
+        // Logging.ConCommandsLogger.Info("IsFlagSet 4: " + basefuncs.IsFlagSet(4));
+        // Logging.ConCommandsLogger.Info("hasCompletionCallback: " + pVar->hasCompletionCallback);
+        // Logging.ConCommandsLogger.Info("usingNewCommandCallback: " + pVar->usingNewCommandCallback);
+        // Logging.ConCommandsLogger.Info("usingCommandCallbackInterface: " + pVar->usingCommandCallbackInterface);
+        // Logging.ConCommandsLogger.Info("pCommandCallback: " + (nint)pVar->pCommandCallback);
+        // Logging.ConCommandsLogger.Info("completionCallback: " + (nint)pVar->completionCallback);
+        // Logging.ConCommandsLogger.Info("unknownPointer: " + (nint)pVar->unknownPointer);
 
         // if (basefuncs.IsCommand()) {
         //     Logging.ConCommandsLogger.Info("CanAutoComplete: " + basefuncs.CanAutoComplete());

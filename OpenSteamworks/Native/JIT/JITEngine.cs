@@ -152,14 +152,15 @@ namespace OpenSteamworks.Native.JIT
         {
             MethodState state = new(method);
 
-            state.NativeArgs.Add(typeof(IntPtr)); // thisptr
+            method.ReturnType.DetermineProps();
+            state.ReturnTypeByStack = false;
 
-            state.ReturnTypeByStack = method.ReturnType.DetermineProps();
+            state.NativeArgs.Add(typeof(IntPtr)); // thisptr
 
             if (state.ReturnTypeByStack)
             {
                 // ref to the native return type
-                state.NativeArgs.Add(typeof(IntPtr));
+                state.NativeArgs.Add(method.ReturnType.NativeType.MakeByRefType());
                 state.NativeReturn = null;
             }
             else if (method.ReturnType.IsStringClass)
@@ -227,6 +228,11 @@ namespace OpenSteamworks.Native.JIT
             ilgen.Call(typeof(InteropHelp).GetMethod(nameof(InteropHelp.StartProfile), BindingFlags.Static | BindingFlags.Public)!);
             ilgen.Stloc(profLocal.LocalIndex);
 
+            // load object pointer
+            ilgen.AddComment("Load native object pointer");
+            ilgen.Ldarg(0);
+            ilgen.Emit(OpCodes.Ldfld, objectptr);
+
             // returns by stack
             if (state.ReturnTypeByStack)
             {
@@ -238,11 +244,6 @@ namespace OpenSteamworks.Native.JIT
 
                 ilgen.Ldloca(state.localReturn.LocalIndex);
             }
-
-            // load object pointer
-            ilgen.AddComment("Load native object pointer");
-            ilgen.Ldarg(0);
-            ilgen.Emit(OpCodes.Ldfld, objectptr);
 
             int argindex = 0;
             foreach (TypeJITInfo typeInfo in method.Args)

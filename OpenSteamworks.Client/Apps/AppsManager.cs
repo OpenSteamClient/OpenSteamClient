@@ -170,7 +170,7 @@ public class AppsManager : ILogonLifetime
 
                     try
                     {
-                        GetApp(new CGameID(item));
+                        GetApp(item);
                         progress.SetProgress(i);
                     }
                     catch (System.Exception e2)
@@ -255,6 +255,8 @@ public class AppsManager : ILogonLifetime
                 throw new InvalidOperationException("Shortcut GameID is not registered to IClientShortcuts or it is invalid");
             }
 
+            Console.WriteLine("GetAppIDForGameID ret: " + shortcutAppID);
+
             var app = GetShortcutApp(shortcutAppID);
             appCache.Add(app);
             return app;
@@ -279,10 +281,10 @@ public class AppsManager : ILogonLifetime
         CGameID shortcutGameID = CGameID.Zero; //steamClient.IClientShortcuts.GetGameIDForAppID(appid);
         unsafe
         {
-            CSteamID gameid = 0;
-            CSteamID* ptr = &gameid;
-            SteamClient.GetIClientShortcuts().GetGameIDForAppID(appid);
-            shortcutGameID = new CGameID(*ptr);
+            CGameID gameid = CGameID.Zero;
+            CGameID* ptr = &gameid;
+            shortcutGameID = SteamClient.GetIClientShortcuts().GetGameIDForAppID(appid);
+            Console.WriteLine("GetGameIDForAppID ret: " + shortcutGameID);
         }
 
         if (shortcutGameID.IsValid()) {
@@ -430,7 +432,7 @@ public class AppsManager : ILogonLifetime
     }
 
     public async Task<EAppError> LaunchApp(AppId_t app, int launchOption = -1, string userLaunchOptions = "") {
-        return await LaunchApp(GetApp(new CGameID(app)), launchOption, userLaunchOptions);
+        return await LaunchApp(GetApp(app), launchOption, userLaunchOptions);
     }
 
     public async Task<EAppError> LaunchApp(AppBase app, int launchOption, string userLaunchOptions) {

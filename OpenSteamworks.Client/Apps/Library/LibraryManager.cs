@@ -69,7 +69,7 @@ public class LibraryManager : ILogonLifetime
         //NOTE: It doesn't really matter if you use async or sync code here.
         assetUpdateThread = new Thread(async () =>
         {
-            var appsToLoadAssetsFor = appIDsToLoadAssetsFor.Select(appid => appsManager.GetApp(new Structs.CGameID(appid)));
+            var appsToLoadAssetsFor = appIDsToLoadAssetsFor.Select(appid => appsManager.GetApp(appid));
             foreach (var item in appsToLoadAssetsFor)
             {
                 try

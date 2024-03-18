@@ -14,6 +14,7 @@ using OpenSteamworks.Native.Platform;
 using OpenSteamworks.Utils;
 using OpenSteamworks.Structs;
 using OpenSteamworks.Downloads;
+using System.Threading;
 
 namespace OpenSteamworks;
 public class SteamClient : ISteamClient
@@ -133,6 +134,8 @@ public class SteamClient : ISteamClient
         }
     }
 
+    internal int ValidThreadId = 0;
+
     /// <summary>
     /// Constructs a OpenSteamworks.Client. 
     /// </summary>
@@ -144,6 +147,8 @@ public class SteamClient : ISteamClient
         }
 
         instance = this;
+
+        ValidThreadId = Environment.CurrentManagedThreadId;
 
         warningMessageHook = (int nSeverity, string pchDebugText) =>
         {

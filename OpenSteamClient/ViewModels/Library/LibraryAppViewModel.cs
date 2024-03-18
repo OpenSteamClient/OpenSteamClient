@@ -23,7 +23,7 @@ public partial class LibraryAppViewModel : Node
         this.HasIcon = true;
         this.IsApp = true;
 
-        App = AvaloniaApp.Container.Get<AppsManager>().GetApp(new CGameID(appid));
+        App = AvaloniaApp.Container.Get<AppsManager>().GetApp(appid);
         this.Name = App.Name;
         this.GameID = App.GameID;
 

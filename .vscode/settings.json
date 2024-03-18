@@ -1,4 +1,9 @@
 {
     "dotnet.defaultSolution": "OpenSteamClient.sln",
-    "dotnet.server.useOmnisharp": true
+    "dotnet.server.useOmnisharp": true,
+    "files.associations": {
+        "functional": "cpp",
+        "string": "cpp",
+        "format": "cpp"
+    }
 }
