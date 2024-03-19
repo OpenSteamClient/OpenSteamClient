@@ -5,6 +5,8 @@
         "functional": "cpp",
         "string": "cpp",
         "format": "cpp",
-        "thread": "cpp"
-    }
+        "thread": "cpp",
+        "cstdint": "cpp"
+    },
+    "cmake.sourceDirectory": "/home/onni/Documents/opensteamclient/OpenSteamClient/nativetest"
 }
