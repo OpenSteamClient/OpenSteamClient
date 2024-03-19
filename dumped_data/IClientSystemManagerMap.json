@@ -5,8 +5,8 @@
             "name": "GetSettings",
             "argc": "2",
             "interfaceid": "54",
-            "functionid": "269706478",
-            "fencepost": "315213245",
+            "functionid": "269706446",
+            "fencepost": "315729341",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -19,8 +19,8 @@
             "name": "UpdateSettings",
             "argc": "2",
             "interfaceid": "54",
-            "functionid": "3082982021",
-            "fencepost": "3128585562",
+            "functionid": "3082982053",
+            "fencepost": "3129101722",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "protobuf"
@@ -33,8 +33,8 @@
             "name": "ShutdownSystem",
             "argc": "1",
             "interfaceid": "54",
-            "functionid": "3166312666",
-            "fencepost": "3211964594",
+            "functionid": "3166312698",
+            "fencepost": "3212480754",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -45,8 +45,8 @@
             "name": "SuspendSystem",
             "argc": "1",
             "interfaceid": "54",
-            "functionid": "300782803",
-            "fencepost": "346450860",
+            "functionid": "300782835",
+            "fencepost": "346967020",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -57,8 +57,8 @@
             "name": "RestartSystem",
             "argc": "1",
             "interfaceid": "54",
-            "functionid": "2114332477",
-            "fencepost": "2160016663",
+            "functionid": "2114332445",
+            "fencepost": "2160532759",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -69,8 +69,8 @@
             "name": "FactoryReset",
             "argc": "1",
             "interfaceid": "54",
-            "functionid": "3486353642",
-            "fencepost": "3532070086",
+            "functionid": "3486353610",
+            "fencepost": "3532586182",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -82,8 +82,8 @@
             "name": "RebootToFactoryTestImage",
             "argc": "2",
             "interfaceid": "54",
-            "functionid": "1594716644",
-            "fencepost": "1640449217",
+            "functionid": "1594716612",
+            "fencepost": "1640965313",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes1"
@@ -96,8 +96,8 @@
             "name": "GetDisplayBrightness",
             "argc": "2",
             "interfaceid": "54",
-            "functionid": "206143614",
-            "fencepost": "252343928",
+            "functionid": "206143518",
+            "fencepost": "252859960",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -110,8 +110,8 @@
             "name": "SetDisplayBrightness",
             "argc": "2",
             "interfaceid": "54",
-            "functionid": "1881352450",
-            "fencepost": "1927617280",
+            "functionid": "1881352546",
+            "fencepost": "1928133504",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -124,8 +124,8 @@
             "name": "FormatRemovableStorage",
             "argc": "2",
             "interfaceid": "54",
-            "functionid": "1954135280",
-            "fencepost": "1999900111",
+            "functionid": "1954135248",
+            "fencepost": "2000416207",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes1"
@@ -138,8 +138,8 @@
             "name": "GetOSBranchList",
             "argc": "1",
             "interfaceid": "54",
-            "functionid": "4188327757",
-            "fencepost": "4234124846",
+            "functionid": "4188327789",
+            "fencepost": "4234641006",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -151,8 +151,8 @@
             "name": "GetCurrentOSBranch",
             "argc": "1",
             "interfaceid": "54",
-            "functionid": "4148133883",
-            "fencepost": "4193947101",
+            "functionid": "4148133851",
+            "fencepost": "4194463197",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -164,8 +164,8 @@
             "name": "SelectOSBranch",
             "argc": "2",
             "interfaceid": "54",
-            "functionid": "2442597581",
-            "fencepost": "2488459186",
+            "functionid": "2442597613",
+            "fencepost": "2488975346",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "protobuf"
@@ -178,8 +178,8 @@
             "name": "GetUpdateState",
             "argc": "2",
             "interfaceid": "54",
-            "functionid": "1810812214",
-            "fencepost": "1856754464",
+            "functionid": "1810812182",
+            "fencepost": "1857270560",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -192,8 +192,8 @@
             "name": "CheckForUpdate",
             "argc": "1",
             "interfaceid": "54",
-            "functionid": "1498690139",
-            "fencepost": "1544680776",
+            "functionid": "1498690107",
+            "fencepost": "1545196872",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -205,8 +205,8 @@
             "name": "ApplyUpdate",
             "argc": "2",
             "interfaceid": "54",
-            "functionid": "1177851263",
-            "fencepost": "1223890287",
+            "functionid": "1177851167",
+            "fencepost": "1224406319",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "protobuf"
@@ -219,8 +219,8 @@
             "name": "SetBackgroundUpdateCheckInterval",
             "argc": "2",
             "interfaceid": "54",
-            "functionid": "1714818808",
-            "fencepost": "1760890090",
+            "functionid": "1714818712",
+            "fencepost": "1761406122",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -233,8 +233,8 @@
             "name": "ClearAudioDefaults",
             "argc": "2",
             "interfaceid": "54",
-            "functionid": "1605650159",
-            "fencepost": "1651753699",
+            "functionid": "1605650063",
+            "fencepost": "1652269731",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -247,8 +247,8 @@
             "name": "RunDeckMicEnableHack",
             "argc": "1",
             "interfaceid": "54",
-            "functionid": "1592227954",
-            "fencepost": "1638347623",
+            "functionid": "1592227858",
+            "fencepost": "1638863655",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -260,8 +260,8 @@
             "name": "RunDeckEchoCancellationHack",
             "argc": "1",
             "interfaceid": "54",
-            "functionid": "4242245705",
-            "fencepost": "4288381503",
+            "functionid": "4242245673",
+            "fencepost": "4288897599",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],

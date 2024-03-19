@@ -5,8 +5,8 @@
             "name": "HandleIncomingPacket",
             "argc": "5",
             "interfaceid": "53",
-            "functionid": "1084551791",
-            "fencepost": "1101800423",
+            "functionid": "1084551680",
+            "fencepost": "1102300311",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -22,8 +22,8 @@
             "name": "GetNextOutgoingPacket",
             "argc": "5",
             "interfaceid": "53",
-            "functionid": "4015585523",
-            "fencepost": "4032979316",
+            "functionid": "4015585426",
+            "fencepost": "4033479218",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"

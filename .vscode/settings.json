@@ -6,7 +6,26 @@
         "string": "cpp",
         "format": "cpp",
         "thread": "cpp",
-        "cstdint": "cpp"
+        "cstdint": "cpp",
+        "charconv": "cpp",
+        "chrono": "cpp",
+        "optional": "cpp",
+        "ratio": "cpp",
+        "system_error": "cpp",
+        "array": "cpp",
+        "tuple": "cpp",
+        "type_traits": "cpp",
+        "utility": "cpp",
+        "__bit_reference": "cpp",
+        "__node_handle": "cpp",
+        "bitset": "cpp",
+        "deque": "cpp",
+        "__memory": "cpp",
+        "limits": "cpp",
+        "locale": "cpp",
+        "vector": "cpp",
+        "typeindex": "cpp",
+        "typeinfo": "cpp"
     },
     "cmake.sourceDirectory": "/home/onni/Documents/opensteamclient/OpenSteamClient/nativetest"
 }
