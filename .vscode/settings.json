@@ -4,6 +4,7 @@
     "files.associations": {
         "functional": "cpp",
         "string": "cpp",
-        "format": "cpp"
+        "format": "cpp",
+        "thread": "cpp"
     }
 }

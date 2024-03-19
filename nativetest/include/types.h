@@ -13,3 +13,5 @@ typedef int Int32;
 typedef short Int16;
 typedef unsigned long UInt64;
 typedef UInt64 SteamAPICall_t;
+
+#include <gameid.h>
