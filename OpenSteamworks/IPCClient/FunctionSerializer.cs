@@ -3,7 +3,9 @@ using System.IO;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
+using OpenSteamworks.IPCClient.Interfaces;
 using OpenSteamworks.Messaging;
+using OpenSteamworks.Utils;
 
 namespace OpenSteamworks.IPCClient;
 
@@ -12,16 +14,18 @@ public class FunctionSerializer : IDisposable {
     private readonly EndianAwareBinaryWriter writer;
     private uint fencepost;
     private bool argsLocked = false;
+    private readonly IPCBaseInterface iface;
 
-    internal FunctionSerializer(IPCClient.IPCConnectionType connectionType, uint steamuser, byte interfaceid, uint functionid, uint fencepost) {
+    internal FunctionSerializer(IPCBaseInterface iface, byte interfaceid, uint functionid, uint fencepost) {
+        this.iface = iface;
         this.fencepost = fencepost;
         stream = new MemoryStream();
         writer = new EndianAwareBinaryWriter(stream);
 
         stream.WriteByte(interfaceid);
         uint userToUse = 0;
-        if (connectionType == IPCClient.IPCConnectionType.Client && !InterfaceMap.ClientInterfacesNoUser.Contains(interfaceid)) {
-            userToUse = steamuser;
+        if (iface.client.ConnectionType == IPCClient.IPCConnectionType.Client && !InterfaceMap.ClientInterfacesNoUser.Contains(interfaceid)) {
+            userToUse = iface.steamuser;
         }
 
         Logging.NativeClientLogger.Info("USER: " + userToUse);
@@ -149,6 +153,12 @@ public class FunctionSerializer : IDisposable {
 
     public byte[] Serialize() {
         return stream.ToArray();
+    }
+
+    public FunctionDeserializer SendAndWaitForResponse() {
+        var respBytes = this.iface.client.SendAndWaitForResponse(IPCClient.IPCCommandCode.Interface, this.Serialize());
+        var deserializer = new FunctionDeserializer(respBytes);
+        return deserializer;
     }
 
     public void Dispose()

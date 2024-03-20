@@ -32,14 +32,6 @@
     <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="7.0.8" />
   </ItemGroup>
 
-  <!-- Exclude the undone IPC stuff from build; read the README.md inside the folder for details -->
-  <ItemGroup>
-    <Content Remove="IPCClient_EXCLUDED_FROM_BUILD\**" />
-    <Compile Remove="IPCClient_EXCLUDED_FROM_BUILD\**" />
-    <EmbeddedResource Remove="IPCClient_EXCLUDED_FROM_BUILD\**" />
-    <None Remove="IPCClient_EXCLUDED_FROM_BUILD\**" />
-  </ItemGroup>
-
   <!-- This is dumb and makes the code not portable. Microsoft, pls fix (by allowing non-const values in struct packing). Also we now use this for some edge case destructors that don't exist on Windows -->
   <PropertyGroup Condition=" '$(OS)' == 'Windows_NT' ">
     <DefineConstants>_WINDOWS</DefineConstants>

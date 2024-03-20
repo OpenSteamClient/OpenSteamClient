@@ -20,7 +20,9 @@ namespace OpenSteamworks.Generated;
 public unsafe interface IClientShortcuts
 {
     public AppId_t GetUniqueLocalAppId();  // argc: 0, index: 1, ipc args: [], ipc returns: [bytes4]
-    //TODO: the two functions below segfault (or assert "bad thread local"), for unknown reasons. It seems to have something to do with the return being through stack, but it only crashes with IPC (which probably means we're causing memory corruption of some sort). WTF?
+    /// <summary>
+    /// DON'T USE THIS! It will crash. Use IPCClientShortcuts instead
+    /// </summary>
     public CGameID GetGameIDForAppID(AppId_t shortcutAppID);  // argc: 2, index: 2, ipc args: [bytes4], ipc returns: [bytes8]
     public AppId_t GetAppIDForGameID(in CGameID gameid);  // argc: 1, index: 3, ipc args: [bytes8], ipc returns: [bytes4]
     public AppId_t GetDevkitAppIDByDevkitGameID(string devkitGameID);  // argc: 1, index: 4, ipc args: [string], ipc returns: [bytes4]

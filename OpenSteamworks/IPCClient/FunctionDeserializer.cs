@@ -74,7 +74,7 @@ public class FunctionDeserializer : IDisposable {
     public string ReadString() {
         // Skip a byte
         reader.ReadByte();
-        return reader.ReadNullTerminatedString();
+        return reader.ReadNullTerminatedUTF8String();
     }
 
     public void ReadStringBuilder(StringBuilder arg) {

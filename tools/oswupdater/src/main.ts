@@ -210,7 +210,7 @@ export async function Main(protobufonly: boolean = false): Promise<number> {
         var versionFilePath = `${projectDir}/OpenSteamworks/Generated/VersionInfo.cs`;
 
         console.info("Generating new InterfaceConsts.cs")
-        var interfaceConstsFilePath = `${projectDir}/OpenSteamworks/IPCClient_EXCLUDED_FROM_BUILD/Interfaces/InterfaceConsts.cs`;
+        var interfaceConstsFilePath = `${projectDir}/OpenSteamworks/IPCClient/Interfaces/InterfaceConsts.cs`;
         
         if (fs.existsSync(versionFilePath)) {
             fs.rmSync(versionFilePath);

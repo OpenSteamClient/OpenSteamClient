@@ -138,7 +138,6 @@ public class CProfiler
     /// <returns></returns>
     public INodeLifetime EnterScope(string name) {
         if (Environment.CurrentManagedThreadId != validThread) {
-            Console.WriteLine($"Ignoring profile of {name} on wrong thread");
             return new DummyNodeLifetime();
         }
 

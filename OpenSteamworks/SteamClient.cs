@@ -15,6 +15,7 @@ using OpenSteamworks.Utils;
 using OpenSteamworks.Structs;
 using OpenSteamworks.Downloads;
 using System.Threading;
+using OpenSteamworks.IPCClient.Interfaces;
 
 namespace OpenSteamworks;
 public class SteamClient : ISteamClient
@@ -113,6 +114,8 @@ public class SteamClient : ISteamClient
     public IClientVideo IClientVideo => NativeClient.IClientVideo;
     public IClientVR IClientVR => NativeClient.IClientVR;
 
+    public ClientShortcuts IPCClientShortcuts { get; init; }
+
     internal static readonly IPlatform platform;
     private ClientAPI_WarningMessageHook_t warningMessageHook;
 
@@ -135,6 +138,7 @@ public class SteamClient : ISteamClient
     }
 
     internal int ValidThreadId = 0;
+    private IPCClient.IPCClient IPCClient;
 
     /// <summary>
     /// Constructs a OpenSteamworks.Client. 
@@ -193,6 +197,9 @@ public class SteamClient : ISteamClient
         this.ClientMessaging = new ClientMessaging(this);
         this.ClientRemoteStorage = new ClientRemoteStorage(this);
         this.DownloadManager = new DownloadManager(this);
+
+        this.IPCClient = new("127.0.0.1:57343", OpenSteamworks.IPCClient.IPCClient.IPCConnectionType.Client);
+        this.IPCClientShortcuts = new ClientShortcuts(this.IPCClient, (uint)(int)this.NativeClient.User);
 
         // Before this, most important callbacks should be registered
         this.CallbackManager.StartThread();

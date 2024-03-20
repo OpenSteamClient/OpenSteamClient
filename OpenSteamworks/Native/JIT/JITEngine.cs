@@ -140,10 +140,6 @@ namespace OpenSteamworks.Native.JIT
             public List<Type> NativeArgs;
             public Type? NativeReturn;
 
-            [MemberNotNullWhen(true, nameof(localReturn))]
-            public bool ReturnTypeByStack { get; set; }
-            public LocalBuilderEx? localReturn;
-
             public List<LocalBuilderEx> unmanagedMemory;
             public List<RefArgLocal> refargLocals;
         }
@@ -153,17 +149,10 @@ namespace OpenSteamworks.Native.JIT
             MethodState state = new(method);
 
             method.ReturnType.DetermineProps();
-            state.ReturnTypeByStack = false;
 
             state.NativeArgs.Add(typeof(IntPtr)); // thisptr
 
-            if (state.ReturnTypeByStack)
-            {
-                // ref to the native return type
-                state.NativeArgs.Add(method.ReturnType.NativeType.MakeByRefType());
-                state.NativeReturn = null;
-            }
-            else if (method.ReturnType.IsStringClass)
+            if (method.ReturnType.IsStringClass)
             {
                 // special case for strings, we will marshal it in ourselves
                 state.NativeReturn = typeof(IntPtr);
@@ -232,18 +221,6 @@ namespace OpenSteamworks.Native.JIT
             ilgen.AddComment("Load native object pointer");
             ilgen.Ldarg(0);
             ilgen.Emit(OpCodes.Ldfld, objectptr);
-
-            // returns by stack
-            if (state.ReturnTypeByStack)
-            {
-                ilgen.AddComment("Return by stack ptr");
-
-                // allocate local to hold the return
-                state.localReturn = ilgen.DeclareLocal(method.ReturnType.NativeType);
-                state.localReturn.SetLocalSymInfo("nativeReturnPlaceholder");
-
-                ilgen.Ldloca(state.localReturn.LocalIndex);
-            }
 
             int argindex = 0;
             foreach (TypeJITInfo typeInfo in method.Args)
@@ -336,10 +313,6 @@ namespace OpenSteamworks.Native.JIT
 
             CallingConvention ccv = CallingConvention.ThisCall;
 
-            if (state.ReturnTypeByStack) {
-                ccv = CallingConvention.StdCall;
-            }
-
             if (method.HasParams)
                 ccv = CallingConvention.Cdecl;
 
@@ -388,21 +361,7 @@ namespace OpenSteamworks.Native.JIT
                 ilgen.Call(typeof(InteropHelp).GetMethod(nameof(InteropHelp.FreeString))!);
             }
 
-            if (state.ReturnTypeByStack)
-            {
-                ilgen.Ldloc(state.localReturn.LocalIndex);
-
-                // reconstruct return type
-                if (state.localReturn.LocalType != state.MethodReturn)
-                {
-                    var ctor = state.MethodReturn.GetConstructor([state.localReturn.LocalType]);
-                    if (ctor == null) {
-                        throw new NullReferenceException("No constructor for " + state.MethodReturn + " that takes " + state.localReturn.LocalType);
-                    }
-
-                    ilgen.Emit(OpCodes.Newobj, ctor);
-                }
-            } else if (method.ReturnType.IsCreatableClass)
+        if (method.ReturnType.IsCreatableClass)
             {
                 if (method.ReturnType.IsGeneric)
                 {

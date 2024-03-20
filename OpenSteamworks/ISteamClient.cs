@@ -3,6 +3,7 @@ using OpenSteamworks.Callbacks;
 using OpenSteamworks.ClientInterfaces;
 using OpenSteamworks.Downloads;
 using OpenSteamworks.Generated;
+using OpenSteamworks.IPCClient.Interfaces;
 using OpenSteamworks.Structs;
 
 namespace OpenSteamworks;
@@ -77,6 +78,11 @@ public interface ISteamClient {
     public ClientRemoteStorage ClientRemoteStorage { get; }
     public DownloadManager DownloadManager { get; }
     public ConnectionType ConnectedWith { get; }
+
+    /// <summary>
+    /// Use this for shortcuts functionality. There's some unhandled sh*t going on in the native interface with CGameIDs.
+    /// </summary>
+    public ClientShortcuts IPCClientShortcuts { get; }
     public bool BGetCallback(out CallbackMsg_t callbackMsg);
     public void FreeLastCallback();
     public void Shutdown();

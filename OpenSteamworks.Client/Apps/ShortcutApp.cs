@@ -76,14 +76,7 @@ public class ShortcutApp : AppBase {
 
     internal ShortcutApp(AppId_t appidShortcut) {
         this.ShortcutAppID = appidShortcut;
-        // unsafe
-        // {
-        //     ulong gameid = 0;
-        //     ulong* ptr = &gameid;
-        //     ulong* returnPtr = SteamClient.GetIClientShortcuts().GetGameIDForAppID(ptr, appidShortcut);
-        //     Trace.Assert(ptr == returnPtr);
-        //     this.GameID = new CGameID(*ptr);
-        // }
+        this.GameID = SteamClient.GetInstance().IPCClientShortcuts.GetGameIDForAppID(appidShortcut);
     }
 
     public override async Task<EAppError> Launch(string userLaunchOptions, int launchOption)

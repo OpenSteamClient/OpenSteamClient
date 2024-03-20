@@ -12,6 +12,7 @@ using OpenSteamworks.Extensions;
 using OpenSteamworks.Messaging;
 using OpenSteamworks.Structs;
 using System.Globalization;
+using OpenSteamworks.Utils;
 
 namespace OpenSteamworks.IPCClient;
 
@@ -58,11 +59,11 @@ public class IPCClient {
 
     public uint IPCCallCount { get; private set; } = 0;
     public Queue<CallbackMsg_t> CallbackQueue { get; init; } = new();
-    private readonly IPCConnectionType connectionType;
+    public IPCConnectionType ConnectionType { get; private set; }
     private readonly Thread pollThread;
 
     public IPCClient(string ipaddress, IPCConnectionType connectionType, bool skipInitialization = false) {
-        this.connectionType = connectionType;
+        this.ConnectionType = connectionType;
         Logging.NativeClientLogger.Info("Connecting to " + ipaddress);
         socket = new(SocketType.Stream, ProtocolType.Tcp)
         {
@@ -139,242 +140,6 @@ public class IPCClient {
         }
 
         return (int)HSteamUser;
-    }
-
-    private static string ReadStringOfLengthFromResponse(MemoryStream responseStream, int length) {
-        var reader = new EndianAwareBinaryReader(responseStream, Encoding.UTF8);
-        return Encoding.Default.GetString(reader.ReadBytes(length));
-    }
-    
-    private static TRet ReadTypeFromStream<TRet>(MemoryStream stream) {
-        return (TRet)ReadTypeFromStream(stream, typeof(TRet));
-    }
-
-    private static object ReadTypeFromStream(MemoryStream stream, Type type) {
-        var reader = new EndianAwareBinaryReader(stream, Encoding.UTF8);
-        if (type == typeof(int)) {
-            return reader.ReadInt32();
-        } else if (type == typeof(uint)) {
-            return reader.ReadUInt32();
-        } else if (type == typeof(long)) {
-            return reader.ReadInt64();
-        } else if (type == typeof(ulong)) {
-            return reader.ReadUInt64();
-        } else if (type == typeof(bool)) {
-            return reader.ReadBoolean();
-        } else if (type == typeof(char)) {
-            // This is terrible
-            return reader.ReadChar();
-        } else if (type == typeof(byte)) {
-            return reader.ReadByte();
-        } else if (type == typeof(sbyte)) {
-            return reader.ReadSByte();
-        } else if (type == typeof(short)) {
-            return reader.ReadInt16();
-        } else if (type == typeof(ushort)) {
-            return reader.ReadUInt16();
-        } else if (type == typeof(nint)) {
-            return (nint)reader.ReadInt64();
-        } else if (type == typeof(nuint)) {
-            return (nuint)reader.ReadUInt64();
-        } else if (type == typeof(string)) {
-            // Skip a byte
-            reader.ReadByte();
-            return reader.ReadNullTerminatedString();
-        } else if (type.IsValueType) {
-            return reader.ReadStruct(type);
-        } else {
-            throw new InvalidOperationException("Type " + type.Name + " is unsupported in IPC deserialization");
-        }
-    }
-
-    private static void WriteObjectToStream(object obj, MemoryStream stream) {
-        var writer = new EndianAwareBinaryWriter(stream, Encoding.UTF8);
-        var objtype = obj.GetType();
-        if (objtype == typeof(int)) {
-            writer.Write((int)obj);
-        } else if (objtype == typeof(uint)) {
-            writer.Write((uint)obj);
-        } else if (objtype == typeof(long)) {
-            writer.Write((long)obj);
-        } else if (objtype == typeof(ulong)) {
-            writer.Write((ulong)obj);
-        } else if (objtype == typeof(bool)) {
-            writer.Write((bool)obj);
-        } else if (objtype == typeof(char)) {
-            // This is terrible
-            writer.Write(Encoding.UTF8.GetBytes(new string(new char[] { (char)obj })));
-        } else if (objtype == typeof(byte)) {
-            writer.Write((byte)obj);
-        } else if (objtype == typeof(sbyte)) {
-            writer.Write((sbyte)obj);
-        } else if (objtype == typeof(short)) {
-            writer.Write((short)obj);
-        } else if (objtype == typeof(ushort)) {
-            writer.Write((ushort)obj);
-        } else if (objtype == typeof(nint)) {
-            writer.Write((nint)obj);
-        } else if (objtype == typeof(nuint)) {
-            writer.Write((nuint)obj);
-        } else if (objtype == typeof(string)) {
-            var strlen = ((string)obj).Length+1;
-            if (strlen < byte.MaxValue+1) {
-                writer.Write((byte)strlen);
-            } else {
-                writer.Write(byte.MaxValue);
-            }
-            writer.Write(Encoding.UTF8.GetBytes((string)obj + "\0"));
-        } else if (objtype.IsArray) {
-            throw new InvalidOperationException("How to serialize arrays?");
-        } else if (objtype == typeof(StringBuilder)) {
-            // No-op
-        } else {
-            throw new InvalidOperationException("Type " + objtype.Name + " is unsupported in IPC serialization");
-        }
-
-        writer.Flush();
-    }
-
-    // I hate this. Code duplication all over the place.
-    public void CallIPCFunctionNoReturn(uint hUser, byte interfaceid, uint functionid, uint fencepost, object[] args) {
-        if (interfaceid == 0 || fencepost == 0 || functionid == 0) {
-            throw new Exception("No IPC info, cannot call function");
-        }
-
-        using (var stream = new MemoryStream()) {
-            var writer = new EndianAwareBinaryWriter(stream, Encoding.UTF8);
-
-            stream.WriteByte(interfaceid);
-
-            uint userToUse = 0;
-            if (connectionType == IPCConnectionType.Client && !InterfaceMap.ClientInterfacesNoUser.Contains(interfaceid)) {
-                userToUse = hUser;
-            }
-
-            Logging.NativeClientLogger.Info("USER: " + hUser);
-            writer.Write(hUser);
-            writer.Flush();
-
-            Logging.NativeClientLogger.Info("Function ID: " + functionid);
-            writer.Write(functionid);
-            writer.Flush();
-            List<int> changeableArgs = new();
-            for (int i = 0; i < args.Length; i++)
-            {
-                var arg = args[i];
-                var argtype = arg.GetType();
-                if (argtype == typeof(StringBuilder)) {
-                    changeableArgs.Add(Array.IndexOf(args, arg));
-                }
-
-                WriteObjectToStream(arg, stream);
-            }
-
-            // There seems to be another supported way to do fenceposts that relates to the end result of some math operation being 254. The original method relies on a randomly generated one instead (which would kind of suck to automate...)
-            Console.WriteLine("Fencepost: " + fencepost);
-            writer.Write(fencepost);
-            writer.Flush();  
-
-            var responseBytes = SendAndWaitForResponse(IPCCommandCode.Interface, stream.ToArray());
-            Console.WriteLine("RESPONSE:" + string.Join(" ", responseBytes));
-
-            using (var responseStream = new MemoryStream(responseBytes)) {
-                // Handle changeable arguments
-                foreach (var argi in changeableArgs)
-                {
-                    var argtype = args[argi].GetType();
-                    var maxLen = (int)args[argi + 1];
-                    if (argtype == typeof(StringBuilder)) {
-                        (args[argi] as StringBuilder)!.Append(ReadStringOfLengthFromResponse(responseStream, maxLen));
-                    }
-                }
-            }
-        }
-    }
-    
-    public FunctionSerializer CreateIPCFunctionCall(uint steamuser, byte interfaceid, uint functionid, uint fencepost) {
-        return new FunctionSerializer(this.connectionType, steamuser, interfaceid, functionid, fencepost);
-    }
-
-    public FunctionDeserializer CallIPCFunctionEx(FunctionSerializer serializer) {
-        var responseBytes = SendAndWaitForResponse(IPCCommandCode.Interface, serializer.Serialize());
-        Console.WriteLine("RESPONSE:" + string.Join(" ", responseBytes));
-        return new FunctionDeserializer(responseBytes);
-    }
-
-    public TRet CallIPCFunction<TRet>(uint hUser, byte interfaceid, uint functionid, uint fencepost, object[] args) {
-        if (interfaceid == 0 || fencepost == 0 || functionid == 0) {
-            throw new Exception("No IPC info, cannot call function");
-        }
-        
-        using (var stream = new MemoryStream()) {
-            var writer = new EndianAwareBinaryWriter(stream, Encoding.UTF8);
-
-            stream.WriteByte(interfaceid);
-
-            uint userToUse = 0;
-            if (connectionType == IPCConnectionType.Client && !InterfaceMap.ClientInterfacesNoUser.Contains(interfaceid)) {
-                userToUse = hUser;
-            }
-
-            Logging.NativeClientLogger.Info("USER: " + hUser);
-            writer.Write(hUser);
-            writer.Flush();
-
-            Logging.NativeClientLogger.Info("Function ID: " + functionid);
-            writer.Write(functionid);
-            writer.Flush();
-            List<int> changeableArgs = new();
-            for (int i = 0; i < args.Length; i++)
-            {
-                Logging.NativeClientLogger.Info("Getting type of arg");
-                var argtype = args[i].GetType();
-                if (argtype == typeof(StringBuilder)) {
-                    changeableArgs.Add(i);
-                }
-
-                WriteObjectToStream(args[i], stream);
-            }
-
-            // There seems to be another supported way to do fenceposts that relates to the end result of some math operation being 254. The original method relies on a randomly generated one instead (which would kind of suck to automate...)
-            Console.WriteLine("Fencepost: " + fencepost);
-            writer.Write(fencepost);
-            writer.Flush();  
-
-            var responseBytes = SendAndWaitForResponse(IPCCommandCode.Interface, stream.ToArray());
-            Console.WriteLine("RESPONSE:" + string.Join(" ", responseBytes));
-
-            TRet returnValue;
-            using (var responseStream = new MemoryStream(responseBytes)) {
-                returnValue = ReadTypeFromStream<TRet>(responseStream);
-
-                // Handle changeable arguments
-                foreach (var argi in changeableArgs)
-                {
-                    var argtype = args[argi].GetType();
-                    var maxLen = (int)args[argi + 1];
-                    if (argtype == typeof(StringBuilder)) {
-                        (args[argi] as StringBuilder)!.Append(ReadStringOfLengthFromResponse(responseStream, maxLen));
-                    } else if (argtype.IsArray) {
-                        var reader = new EndianAwareBinaryReader(responseStream);
-                        var elementtype = argtype.GetElementType()!;
-                        var elementsize = Marshal.SizeOf(elementtype);
-                        var elementsCount = reader.ReadUInt32();
-                        if (elementsCount > maxLen) {
-                            Logging.GeneralLogger.Warning("elementsCount is greater than max length! Some data will be truncated");
-                        }
-
-                        for (int i = 0; i < maxLen; i++)
-                        {
-                            var elem = ReadTypeFromStream(responseStream, elementtype);
-                            (args[argi] as dynamic[])![i] = elem;
-                        }
-                    } 
-                }
-            }
-
-            return returnValue;
-        }
     }
 
     public void SendAndIgnoreResponse(IPCCommandCode command, byte[] data) {
@@ -588,7 +353,7 @@ public class IPCClient {
                 }
             }
         } else {
-            return new List<byte[]>() {data};
+            return [data];
         }
 
         return messages;
