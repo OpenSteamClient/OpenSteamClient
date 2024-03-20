@@ -13,6 +13,7 @@ using OpenSteamworks.Messaging;
 using OpenSteamworks.Structs;
 using System.Globalization;
 using OpenSteamworks.Utils;
+using System.Diagnostics;
 
 namespace OpenSteamworks.IPCClient;
 
@@ -25,6 +26,14 @@ public class IPCClient {
         TerminatePipe = 5,
         Ping = 6,
         ConnectPipe = 9,
+    }
+
+    public enum IPCResponseCode : byte {
+        SerializeCallbacks = 2,
+        Interface = 11,
+        ConnectToGlobalUser = 3,
+        ReleaseGlobalUser = 4,
+        CallbacksAvailable = 7,
     }
 
     /// <summary>
@@ -51,7 +60,7 @@ public class IPCClient {
         }
     }
 
-    private Socket socket;
+    private TcpClient tcpClient;
     public enum IPCConnectionType {
         Client,
         Service
@@ -65,26 +74,27 @@ public class IPCClient {
     public IPCClient(string ipaddress, IPCConnectionType connectionType, bool skipInitialization = false) {
         this.ConnectionType = connectionType;
         Logging.NativeClientLogger.Info("Connecting to " + ipaddress);
-        socket = new(SocketType.Stream, ProtocolType.Tcp)
-        {
-            NoDelay = true
-        };
         
         var ports = ipaddress.Split(":");
         string ip = ports[0];
         int port = int.Parse(ports[1], CultureInfo.InvariantCulture.NumberFormat);
-        socket.Connect(ip, port);
-        Logging.NativeClientLogger.Info("Connected to " + ipaddress);
+        tcpClient = new TcpClient(ip, port);
+        tcpClient.NoDelay = true;
 
-        pollThread = new(PollThread);
-        pollThread.Start();
+        Logging.NativeClientLogger.Info("Connected to " + ipaddress);
 
         if (!skipInitialization) {
             ConnectToSteamPipe(out uint hostPid);
-
+            
+            pollThread = new(PollThread);
+            pollThread.Start();
+            
             if (connectionType == IPCConnectionType.Client) {
                 ConnectToGlobalUser();
             }
+        } else {
+            pollThread = new(PollThread);
+            pollThread.Start();
         }
     }
 
@@ -144,18 +154,20 @@ public class IPCClient {
 
     public void SendAndIgnoreResponse(IPCCommandCode command, byte[] data) {
         var serialized = Serialize(command, data);
-        var sentLen = socket.Send(serialized);
-        IPCCallCount++;
+        var sentLen = Send(serialized);
         Logging.NativeClientLogger.Debug($"sent {sentLen} bytes");
     }
 
     public unsafe byte[] SendAndWaitForResponse(IPCCommandCode command, byte[] data) {
-        pauseHandling = true;
         var serialized = Serialize(command, data);
-        var sentLen = socket.Send(serialized);
-        IPCCallCount++;
+        var sentLen = Send(serialized);
         Logging.NativeClientLogger.Debug($"sent {sentLen} bytes, waiting for response");
-        return WaitForResponseTo(command);
+        var resp = WaitForResponseTo(command);
+        if (command == IPCCommandCode.Interface) {
+            IPCCallCount++;
+        }
+
+        return resp;
     }
 
     private unsafe byte[] Serialize(IPCCommandCode command, byte[] data) {
@@ -173,8 +185,8 @@ public class IPCClient {
 
     private Action<byte[]>? commandResultHandler;
     private Action<byte[]>? serializeCallbacksResultHandler;
-    private Action<byte[]>? connectToGlobalUserResultHandler;
-    private Action<byte[]>? connectPipeResultHandler;
+    private Action<byte[]>? connectToGlobaluserResultHandler;
+
     private byte[] WaitForResponseTo(IPCCommandCode sentCommand) {
         TaskCompletionSource<byte[]> tcs = new();
         switch (sentCommand)
@@ -194,69 +206,110 @@ public class IPCClient {
                 };
                 break;
             case IPCCommandCode.ConnectToGlobalUser:
-                connectToGlobalUserResultHandler = (data) =>
+                connectToGlobaluserResultHandler = (data) =>
                 {
                     tcs.TrySetResult(data);
-                    connectToGlobalUserResultHandler = null;
+                    connectToGlobaluserResultHandler = null;
                 };
-                break;
-            case IPCCommandCode.Ping:
                 break;
             case IPCCommandCode.ConnectPipe:
-                connectPipeResultHandler = (data) =>
-                {
-                    tcs.TrySetResult(data);
-                    connectPipeResultHandler = null;
-                };
-                break;
+                if (pollThread != null) {
+                    throw new InvalidOperationException("Tried to connect pipe but poll thread already exists! Please construct a new IPCClient if you want to create a new pipe/reconnect");
+                }
+
+                return WaitForMessageOfLength(12);
             case IPCCommandCode.TerminatePipe:
             default:
                 throw new InvalidOperationException("Unhandled IPCCommandCode");
         }
-
-        pauseHandling = false;
 
         // This is probably bad
         tcs.Task.Wait();
         return tcs.Task.Result;
     }
 
-    private bool pauseHandling = true;
     private bool pollShouldRun = true;
-    private readonly object pollLockObj = new();
+    private SpinLock socketLock = new();
+
+    private uint expectedLength = 0;
+    private readonly List<byte> incompleteMsg = [];
 
     private void PollThread() {
-        byte[] buffer = new byte[8192];
+        var stream = tcpClient.GetStream();
         while (pollShouldRun)
         {
-            lock (pollLockObj)
+            if (!tcpClient.Connected) {
+                return;
+            }
+
+            
+            while (stream.DataAvailable)
             {
-                var len = socket.Receive(buffer);
-                if (!socket.Connected) {
-                    return;
+                if (!tcpClient.Connected) {
+                    break;
                 }
 
-                IPCCallCount++;
-                Logging.NativeClientLogger.Debug("Got whole " + string.Join(" ", buffer[0..len]));  
-                var msgs = SplitMessages(buffer[0..len]);
-                Logging.NativeClientLogger.Debug("Data contains " + msgs.Count + " messages");
-                foreach (var msg in msgs)
-                {
-                    Logging.NativeClientLogger.Debug("Msg: " + string.Join(" ", msg));  
-                    HandleMessage(msg);
-                }
+                //TODO: This probably isn't ideal
+                var available = tcpClient.Available;
+                byte[] buf = new byte[available];
+                stream.Read(buf, 0, available);
+                HandleData(buf);
             }
         }
     }
 
+    private void HandleData(byte[] partial)
+    {
+        if (HandlePartial(partial, out byte[]? msg))
+        {
+            using var stream = new MemoryStream(msg);
+            using var reader = new EndianAwareBinaryReader(stream, OpenSteamworks.Utils.Enum.Endianness.Little);
+
+            //TODO
+        }
+    }
+
+    /// <summary>
+    /// Handles a partial message.
+    /// </summary>
+    /// <param name="data"></param>
+    /// <param name="msg"></param>
+    /// <returns>False if the data was partial, true if a full message was completed</returns>
+    private bool HandlePartial(byte[] data, [NotNullWhen(true)] out byte[]? msg)
+    {
+        using var stream = new MemoryStream(data);
+        using var reader = new EndianAwareBinaryReader(stream, OpenSteamworks.Utils.Enum.Endianness.Little);
+
+        // If we don't have a partial message, read the length now
+        if (expectedLength == 0)
+        {
+            expectedLength = reader.ReadUInt32();
+        }
+
+        // Add to the incomplete message buffer
+        incompleteMsg.AddRange(data);
+
+        // Exit now if we have a partial message
+        if (incompleteMsg.Count - sizeof(uint) != expectedLength)
+        {
+            msg = null;
+            return false;
+        }
+
+        expectedLength = 0;
+        msg = incompleteMsg.ToArray();
+        incompleteMsg.Clear();
+        return true;
+    }
+
     private void HandleMessage(byte[] msg) {
-        while (pauseHandling) { };
         using (var stream = new MemoryStream(msg))
         {
             var reader = new EndianAwareBinaryReader(stream);
-            switch (reader.ReadByte())
+
+            switch ((IPCResponseCode)reader.ReadByte())
             {
-                case 2:
+                case IPCResponseCode.SerializeCallbacks:
                     if (stream.Length < sizeof(UInt32)*3) {
                         goto default;
                     }
@@ -275,19 +328,18 @@ public class IPCClient {
                     
                     serializeCallbacksResultHandler?.Invoke(msg[1..]);
                     break;
-                case 11:
+                case IPCResponseCode.Interface:
                     Logging.NativeClientLogger.Debug("Got function response data!");
                     commandResultHandler?.Invoke(msg[1..]);
                     break;
-                case 3:
+                case IPCResponseCode.ConnectToGlobalUser:
                     if (msg.Length == 5) {
-                        Logging.NativeClientLogger.Debug("Connect to user data possibly received");
-
-                        connectToGlobalUserResultHandler?.Invoke(msg[1..]);
-                        break;
+                        connectToGlobaluserResultHandler?.Invoke(msg[1..]);
+                        break;                        
                     }
                     goto default;
-                case 7: //Unrequested message, don't send this anywhere
+
+                case IPCResponseCode.CallbacksAvailable: //Unrequested message, don't send this anywhere
                     if (msg.Length == 1) {
                         Logging.NativeClientLogger.Debug("Callbacks available in queue");
                         QueueCallbackSerialize();
@@ -295,11 +347,6 @@ public class IPCClient {
                     }
                     goto default;
                 default:
-                    if (msg.Length == 12 && connectPipeResultHandler != null) {
-                        // Send the whole message to the connectpipe result handler, since it is probably waiting for a response
-                        connectPipeResultHandler.Invoke(msg);
-                        break;
-                    }
                     Logging.NativeClientLogger.Warning("Got unsupported message type " + msg[0] + " with length " + msg.Length);
                     break;
             }
@@ -313,49 +360,41 @@ public class IPCClient {
     }
 
     private void QueueCallbackSerialize() {
-        lock (pollLockObj)
+        var serialized = Serialize(IPCCommandCode.SerializeCallbacks, new byte[] { 1 });
+        Send(serialized);
+    }
+
+    private int Send(byte[] buffer) {
+        bool gotLock = false;
+        try
         {
-            var serialized = Serialize(IPCCommandCode.SerializeCallbacks, new byte[] { 1 });
-            var sentLen = socket.Send(serialized);
+            socketLock.Enter(ref gotLock);
+            return socket.Send(buffer);
+        }
+        finally
+        {
+            if (gotLock) socketLock.Exit();
         }
     }
 
-    private static List<byte[]> SplitMessages(byte[] data) {
-        List<byte[]> messages = new();
-        if (data.Length > 4) {
-            using (var stream = new MemoryStream(data))
-            {
-                var reader = new EndianAwareBinaryReader(stream);
-
-                uint totalsize = 0;
-                while (true)
-                {
-                    if (stream.Position+4 >= stream.Length) {
-                        break;
-                    }
-
-                    var readsize = reader.ReadUInt32();
-                    
-                    // No/invalid length in any of the headers, thus we only have a single headerless message
-                    if (readsize >= data.Length || readsize == 0) {
-                        return new List<byte[]>() {data};
-                    }
-
-                    totalsize += 4;
-                    totalsize += readsize;
-
-                    var readdata = reader.ReadBytes((int)readsize);
-                    messages.Add(readdata); 
-                }
-
-                if (totalsize != stream.Position) {
-                    throw new Exception("Sizes don't match in multipart message! totalsize " + totalsize + " data.Length " + data.Length);
-                }
-            }
-        } else {
-            return [data];
+    private byte[] WaitForMessageOfLength(int length, bool callFromPollThread = false) {
+        if (!callFromPollThread && this.pollThread != null) {
+            throw new InvalidOperationException("Do not call WaitForMessageOfLength if pollthread has been created! They will conflict and result in undefined behaviour!");
         }
 
-        return messages;
+        bool gotLock = false;
+        try
+        {
+            socketLock.Enter(ref gotLock);
+            byte[] msg = new byte[length];
+            var recvLen = socket.Receive(msg, 0, length, SocketFlags.None);
+            Console.WriteLine($"{recvLen} == {length}");
+            Trace.Assert(recvLen == length);
+            return msg;
+        }
+        finally
+        {
+            if (gotLock) socketLock.Exit();
+        }
     }
 }
