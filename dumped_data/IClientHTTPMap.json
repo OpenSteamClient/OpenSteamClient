@@ -5,8 +5,8 @@
             "name": "CreateHTTPRequest",
             "argc": "3",
             "interfaceid": "22",
-            "functionid": "3777882158",
-            "fencepost": "3839755796",
+            "functionid": "3777882611",
+            "fencepost": "3840353022",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -20,8 +20,8 @@
             "name": "SetHTTPRequestContextValue",
             "argc": "4",
             "interfaceid": "22",
-            "functionid": "738463862",
-            "fencepost": "800353629",
+            "functionid": "738464169",
+            "fencepost": "800950709",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -35,8 +35,8 @@
             "name": "SetHTTPRequestNetworkActivityTimeout",
             "argc": "3",
             "interfaceid": "22",
-            "functionid": "1921525666",
-            "fencepost": "1983431562",
+            "functionid": "1921525375",
+            "fencepost": "1984028044",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -50,8 +50,8 @@
             "name": "SetHTTPRequestHeaderValue",
             "argc": "4",
             "interfaceid": "22",
-            "functionid": "111620636",
-            "fencepost": "173542661",
+            "functionid": "111621063",
+            "fencepost": "174139861",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -66,8 +66,8 @@
             "name": "SetHTTPRequestGetOrPostParameter",
             "argc": "4",
             "interfaceid": "22",
-            "functionid": "1660033571",
-            "fencepost": "1721971725",
+            "functionid": "1660033542",
+            "fencepost": "1722568469",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -82,8 +82,8 @@
             "name": "SendHTTPRequest",
             "argc": "3",
             "interfaceid": "22",
-            "functionid": "2839236199",
-            "fencepost": "2901238869",
+            "functionid": "2839236160",
+            "fencepost": "2901835603",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -97,8 +97,8 @@
             "name": "SendHTTPRequestAndStreamResponse",
             "argc": "3",
             "interfaceid": "22",
-            "functionid": "1037219911",
-            "fencepost": "1099319355",
+            "functionid": "1037219948",
+            "fencepost": "1099916165",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -112,8 +112,8 @@
             "name": "DeferHTTPRequest",
             "argc": "2",
             "interfaceid": "22",
-            "functionid": "1172958852",
-            "fencepost": "1235106683",
+            "functionid": "1172958907",
+            "fencepost": "1235703511",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -126,8 +126,8 @@
             "name": "PrioritizeHTTPRequest",
             "argc": "2",
             "interfaceid": "22",
-            "functionid": "2561431850",
-            "fencepost": "2623595810",
+            "functionid": "2561431831",
+            "fencepost": "2624192564",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -140,8 +140,8 @@
             "name": "CancelHTTPRequest",
             "argc": "2",
             "interfaceid": "22",
-            "functionid": "3005003494",
-            "fencepost": "3067183583",
+            "functionid": "3005003485",
+            "fencepost": "3067780347",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -154,8 +154,8 @@
             "name": "GetHTTPResponseHeaderSize",
             "argc": "4",
             "interfaceid": "22",
-            "functionid": "3132675541",
-            "fencepost": "3194936275",
+            "functionid": "3132675568",
+            "fencepost": "3195533075",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -170,8 +170,8 @@
             "name": "GetHTTPResponseHeaderValue",
             "argc": "5",
             "interfaceid": "22",
-            "functionid": "3380395408",
-            "fencepost": "3442785174",
+            "functionid": "3380395451",
+            "fencepost": "3443381990",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -187,8 +187,8 @@
             "name": "GetHTTPResponseBodySize",
             "argc": "3",
             "interfaceid": "22",
-            "functionid": "909111918",
-            "fencepost": "971598458",
+            "functionid": "909111861",
+            "fencepost": "972195174",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -202,8 +202,8 @@
             "name": "GetHTTPResponseBodyData",
             "argc": "4",
             "interfaceid": "22",
-            "functionid": "4229402795",
-            "fencepost": "4292002238",
+            "functionid": "4229402820",
+            "fencepost": "4292599036",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -218,8 +218,8 @@
             "name": "GetHTTPStreamingResponseBodyData",
             "argc": "5",
             "interfaceid": "22",
-            "functionid": "2652836693",
-            "fencepost": "2715565168",
+            "functionid": "2652836648",
+            "fencepost": "2716161896",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -235,8 +235,8 @@
             "name": "ReleaseHTTPRequest",
             "argc": "2",
             "interfaceid": "22",
-            "functionid": "2287950102",
-            "fencepost": "2350726964",
+            "functionid": "2287950203",
+            "fencepost": "2351323838",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -249,8 +249,8 @@
             "name": "GetHTTPDownloadProgressPct",
             "argc": "3",
             "interfaceid": "22",
-            "functionid": "3243634739",
-            "fencepost": "3306476117",
+            "functionid": "3243634780",
+            "fencepost": "3307072931",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -264,8 +264,8 @@
             "name": "SetHTTPRequestRawPostBody",
             "argc": "5",
             "interfaceid": "22",
-            "functionid": "944994574",
-            "fencepost": "1007964984",
+            "functionid": "944994645",
+            "fencepost": "1008561828",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -281,8 +281,8 @@
             "name": "CreateCookieContainer",
             "argc": "2",
             "interfaceid": "22",
-            "functionid": "920902673",
-            "fencepost": "983905341",
+            "functionid": "920902708",
+            "fencepost": "984502149",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes1"
@@ -295,8 +295,8 @@
             "name": "ReleaseCookieContainer",
             "argc": "2",
             "interfaceid": "22",
-            "functionid": "1270800301",
-            "fencepost": "1333819098",
+            "functionid": "1270800262",
+            "fencepost": "1334415832",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -309,8 +309,8 @@
             "name": "SetCookie",
             "argc": "5",
             "interfaceid": "22",
-            "functionid": "1062507897",
-            "fencepost": "1125542823",
+            "functionid": "1062507860",
+            "fencepost": "1126139559",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -326,8 +326,8 @@
             "name": "SetHTTPRequestCookieContainer",
             "argc": "3",
             "interfaceid": "22",
-            "functionid": "200557396",
-            "fencepost": "263608451",
+            "functionid": "200557435",
+            "fencepost": "264205263",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -341,8 +341,8 @@
             "name": "SetHTTPRequestUserAgentInfo",
             "argc": "3",
             "interfaceid": "22",
-            "functionid": "4252929042",
-            "fencepost": "21028930",
+            "functionid": "4252929087",
+            "fencepost": "21625748",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -356,8 +356,8 @@
             "name": "SetHTTPRequestRequiresVerifiedCertificate",
             "argc": "3",
             "interfaceid": "22",
-            "functionid": "2708386441",
-            "fencepost": "2771469754",
+            "functionid": "2708386466",
+            "fencepost": "2772066552",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -371,8 +371,8 @@
             "name": "SetHTTPRequestAbsoluteTimeoutMS",
             "argc": "3",
             "interfaceid": "22",
-            "functionid": "2040528886",
-            "fencepost": "2103628328",
+            "functionid": "2040528851",
+            "fencepost": "2104225066",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -386,8 +386,8 @@
             "name": "GetHTTPRequestWasTimedOut",
             "argc": "3",
             "interfaceid": "22",
-            "functionid": "3697595774",
-            "fencepost": "3760759732",
+            "functionid": "3697595737",
+            "fencepost": "3761356468",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -401,8 +401,8 @@
             "name": "SetHTTPRequestRedirectsEnabled",
             "argc": "3",
             "interfaceid": "22",
-            "functionid": "218237060",
-            "fencepost": "281449405",
+            "functionid": "218237119",
+            "fencepost": "282046237",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -416,8 +416,8 @@
             "name": "SaveHTTPResponseBodyToDisk",
             "argc": "4",
             "interfaceid": "22",
-            "functionid": "1739046380",
-            "fencepost": "1802339370",
+            "functionid": "1739046345",
+            "fencepost": "1802936108",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",

@@ -6,6 +6,8 @@ typedef int int32;
 
 #define k_uAppIdInvalid 0x0
 
+#pragma pack( push, 1 )
+
 //-----------------------------------------------------------------------------
 // Purpose: encapsulates an appID/modID pair
 //-----------------------------------------------------------------------------
@@ -244,3 +246,5 @@ private:
 		GameID_t m_gameID;
 	};
 };
+
+#pragma pack( pop )

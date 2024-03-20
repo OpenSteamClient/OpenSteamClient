@@ -5,8 +5,8 @@
             "name": "IsInterfaceValid",
             "argc": "1",
             "interfaceid": "57",
-            "functionid": "862246369",
-            "fencepost": "906301907",
+            "functionid": "862246273",
+            "fencepost": "906817939",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -18,8 +18,8 @@
             "name": "GetDiagnosticInfo",
             "argc": "2",
             "interfaceid": "57",
-            "functionid": "3335933334",
-            "fencepost": "3380053388",
+            "functionid": "3335933430",
+            "fencepost": "3380569612",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -32,8 +32,8 @@
             "name": "GetState",
             "argc": "2",
             "interfaceid": "57",
-            "functionid": "3491444286",
-            "fencepost": "3535661114",
+            "functionid": "3491444318",
+            "fencepost": "3536177274",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -46,8 +46,8 @@
             "name": "UpdateSettings",
             "argc": "2",
             "interfaceid": "57",
-            "functionid": "3086517374",
-            "fencepost": "3130830976",
+            "functionid": "3086517278",
+            "fencepost": "3131347008",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "protobuf"
@@ -60,8 +60,8 @@
             "name": "SetRefreshRateExternallyManaged",
             "argc": "2",
             "interfaceid": "57",
-            "functionid": "3999721231",
-            "fencepost": "4044083220",
+            "functionid": "3999721327",
+            "fencepost": "4044599444",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes1"

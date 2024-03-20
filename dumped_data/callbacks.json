@@ -1115,6 +1115,11 @@
         "size": 4
     },
     {
+        "id": 1020109,
+        "name": "23GameProcessListChange_t",
+        "size": 8
+    },
+    {
         "id": 1040003,
         "name": "Unknown",
         "size": 4
@@ -1267,7 +1272,7 @@
     {
         "id": 1050003,
         "name": "20ScreenshotUploaded_t",
-        "size": 600
+        "size": 608
     },
     {
         "id": 1050005,
@@ -1277,6 +1282,11 @@
     {
         "id": 1050006,
         "name": "21ScreenshotTriggered_t",
+        "size": 8
+    },
+    {
+        "id": 1050007,
+        "name": "19ScreenshotStarted_t",
         "size": 8
     },
     {
@@ -1310,6 +1320,11 @@
         "size": 8
     },
     {
+        "id": 1070007,
+        "name": "27ParentalPlaytimeExhausted_t",
+        "size": 4
+    },
+    {
         "id": 1080001,
         "name": "AuthorizeDeviceResult_t",
         "size": 88
@@ -1337,7 +1352,7 @@
     {
         "id": 1080008,
         "name": "FamilyGroupRunningApp_t",
-        "size": 16
+        "size": 12
     },
     {
         "id": 1080009,
@@ -1865,19 +1880,14 @@
         "size": 264
     },
     {
-        "id": 1270032,
-        "name": "AddTimelineHighlightMarker_t",
-        "size": 308
-    },
-    {
         "id": 1270033,
-        "name": "AddTimelineTimestamp_t",
+        "name": "SetTimelineStateDescription_t",
         "size": 140
     },
     {
         "id": 1270034,
-        "name": "AddTimelineRange_t",
-        "size": 408
+        "name": "AddTimelineEvent_t",
+        "size": 412
     },
     {
         "id": 1270036,

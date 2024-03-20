@@ -5,8 +5,8 @@
             "name": "StartVoiceRecording",
             "argc": "1",
             "interfaceid": "24",
-            "functionid": "196600222",
-            "fencepost": "260054756",
+            "functionid": "196600131",
+            "fencepost": "260651438",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -17,8 +17,8 @@
             "name": "StopVoiceRecording",
             "argc": "1",
             "interfaceid": "24",
-            "functionid": "800767793",
-            "fencepost": "864238456",
+            "functionid": "800767978",
+            "fencepost": "864835414",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -29,8 +29,8 @@
             "name": "ResetVoiceRecording",
             "argc": "1",
             "interfaceid": "24",
-            "functionid": "3411068513",
-            "fencepost": "3474555305",
+            "functionid": "3411068548",
+            "fencepost": "3475152113",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -41,8 +41,8 @@
             "name": "GetAvailableVoice",
             "argc": "4",
             "interfaceid": "24",
-            "functionid": "1699851820",
-            "fencepost": "1763532160",
+            "functionid": "1699851979",
+            "fencepost": "1764129092",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -57,8 +57,8 @@
             "name": "GetVoice",
             "argc": "10",
             "interfaceid": "24",
-            "functionid": "4197387165",
-            "fencepost": "4261261053",
+            "functionid": "4197387130",
+            "fencepost": "4261857791",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes1",
@@ -79,8 +79,8 @@
             "name": "GetCompressedVoice",
             "argc": "4",
             "interfaceid": "24",
-            "functionid": "3599373633",
-            "fencepost": "3662924941",
+            "functionid": "3599373734",
+            "fencepost": "3663521815",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -95,8 +95,8 @@
             "name": "DecompressVoice",
             "argc": "7",
             "interfaceid": "24",
-            "functionid": "3124153049",
-            "fencepost": "3188285001",
+            "functionid": "3124153084",
+            "fencepost": "3188881809",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -114,8 +114,8 @@
             "name": "GetVoiceOptimalSampleRate",
             "argc": "1",
             "interfaceid": "24",
-            "functionid": "2366627115",
-            "fencepost": "2430839712",
+            "functionid": "2366627092",
+            "fencepost": "2431436462",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -127,8 +127,8 @@
             "name": "BAppUsesVoice",
             "argc": "2",
             "interfaceid": "24",
-            "functionid": "3319740922",
-            "fencepost": "3383985777",
+            "functionid": "3319740865",
+            "fencepost": "3384582493",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -141,8 +141,8 @@
             "name": "GetGameSystemVolume",
             "argc": "1",
             "interfaceid": "24",
-            "functionid": "622953461",
-            "fencepost": "687230574",
+            "functionid": "622953426",
+            "fencepost": "687827312",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
             ],
@@ -154,8 +154,8 @@
             "name": "SetGameSystemVolume",
             "argc": "2",
             "interfaceid": "24",
-            "functionid": "1008938585",
-            "fencepost": "1073247956",
+            "functionid": "1008938610",
+            "fencepost": "1073844754",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"

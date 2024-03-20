@@ -5,8 +5,8 @@
             "name": "SendP2PPacket",
             "argc": "7",
             "interfaceid": "12",
-            "functionid": "1419407289",
-            "fencepost": "1470199034",
+            "functionid": "1419407257",
+            "fencepost": "1470715130",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "uint64",
@@ -23,8 +23,8 @@
             "name": "IsP2PPacketAvailable",
             "argc": "3",
             "interfaceid": "12",
-            "functionid": "4194749079",
-            "fencepost": "4245621469",
+            "functionid": "4194749111",
+            "fencepost": "4246137629",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -38,8 +38,8 @@
             "name": "ReadP2PPacket",
             "argc": "6",
             "interfaceid": "12",
-            "functionid": "2975307045",
-            "fencepost": "3026405241",
+            "functionid": "2975307013",
+            "fencepost": "3026921337",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -56,8 +56,8 @@
             "name": "AcceptP2PSessionWithUser",
             "argc": "3",
             "interfaceid": "12",
-            "functionid": "3950497374",
-            "fencepost": "4001724602",
+            "functionid": "3950497470",
+            "fencepost": "4002240826",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "uint64"
@@ -70,8 +70,8 @@
             "name": "CloseP2PSessionWithUser",
             "argc": "3",
             "interfaceid": "12",
-            "functionid": "3039647469",
-            "fencepost": "3090890826",
+            "functionid": "3039647245",
+            "fencepost": "3091406730",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "uint64"
@@ -84,8 +84,8 @@
             "name": "CloseP2PChannelWithUser",
             "argc": "4",
             "interfaceid": "12",
-            "functionid": "1135581222",
-            "fencepost": "1186840708",
+            "functionid": "1135581382",
+            "fencepost": "1187356996",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "uint64",
@@ -99,8 +99,8 @@
             "name": "GetP2PSessionState",
             "argc": "4",
             "interfaceid": "12",
-            "functionid": "1009776329",
-            "fencepost": "1061100331",
+            "functionid": "1009776169",
+            "fencepost": "1061616299",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "uint64"
@@ -114,8 +114,8 @@
             "name": "AllowP2PPacketRelay",
             "argc": "2",
             "interfaceid": "12",
-            "functionid": "2899464198",
-            "fencepost": "2950836587",
+            "functionid": "2899464422",
+            "fencepost": "2951352939",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes1"
@@ -128,8 +128,8 @@
             "name": "CreateListenSocket",
             "argc": "9",
             "interfaceid": "12",
-            "functionid": "2017730371",
-            "fencepost": "2069135018",
+            "functionid": "2017730467",
+            "fencepost": "2069651242",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -145,8 +145,8 @@
             "name": "CreateP2PConnectionSocket",
             "argc": "6",
             "interfaceid": "12",
-            "functionid": "724679134",
-            "fencepost": "776099910",
+            "functionid": "724678974",
+            "fencepost": "776615878",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "uint64",
@@ -162,8 +162,8 @@
             "name": "CreateConnectionSocket",
             "argc": "8",
             "interfaceid": "12",
-            "functionid": "839896799",
-            "fencepost": "891333704",
+            "functionid": "839896639",
+            "fencepost": "891849672",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes20",
@@ -178,8 +178,8 @@
             "name": "DestroySocket",
             "argc": "3",
             "interfaceid": "12",
-            "functionid": "2972313636",
-            "fencepost": "3023766670",
+            "functionid": "2972313796",
+            "fencepost": "3024282958",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -193,8 +193,8 @@
             "name": "DestroyListenSocket",
             "argc": "3",
             "interfaceid": "12",
-            "functionid": "1437653185",
-            "fencepost": "1489122348",
+            "functionid": "1437653025",
+            "fencepost": "1489638316",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -208,8 +208,8 @@
             "name": "SendDataOnSocket",
             "argc": "5",
             "interfaceid": "12",
-            "functionid": "1218060508",
-            "fencepost": "1269626445",
+            "functionid": "1218060348",
+            "fencepost": "1270142413",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -225,8 +225,8 @@
             "name": "IsDataAvailableOnSocket",
             "argc": "3",
             "interfaceid": "12",
-            "functionid": "3953682956",
-            "fencepost": "4005329538",
+            "functionid": "3953683180",
+            "fencepost": "4005845890",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -240,8 +240,8 @@
             "name": "RetrieveDataFromSocket",
             "argc": "5",
             "interfaceid": "12",
-            "functionid": "1498600349",
-            "fencepost": "1550375963",
+            "functionid": "1498600381",
+            "fencepost": "1550892123",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -257,8 +257,8 @@
             "name": "IsDataAvailable",
             "argc": "4",
             "interfaceid": "12",
-            "functionid": "2767318569",
-            "fencepost": "2819239344",
+            "functionid": "2767318537",
+            "fencepost": "2819755440",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -273,8 +273,8 @@
             "name": "RetrieveData",
             "argc": "6",
             "interfaceid": "12",
-            "functionid": "1804161201",
-            "fencepost": "1856243266",
+            "functionid": "1804161169",
+            "fencepost": "1856759362",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4",
@@ -291,8 +291,8 @@
             "name": "GetSocketInfo",
             "argc": "6",
             "interfaceid": "12",
-            "functionid": "2806965915",
-            "fencepost": "2859241528",
+            "functionid": "2806966011",
+            "fencepost": "2859757752",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -309,8 +309,8 @@
             "name": "GetListenSocketInfo",
             "argc": "4",
             "interfaceid": "12",
-            "functionid": "933181662",
-            "fencepost": "985618565",
+            "functionid": "933181630",
+            "fencepost": "986134661",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -325,8 +325,8 @@
             "name": "GetSocketConnectionType",
             "argc": "2",
             "interfaceid": "12",
-            "functionid": "2623545137",
-            "fencepost": "2676046556",
+            "functionid": "2623545169",
+            "fencepost": "2676562716",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
@@ -339,8 +339,8 @@
             "name": "GetMaxPacketSize",
             "argc": "2",
             "interfaceid": "12",
-            "functionid": "1861876379",
-            "fencepost": "1914393927",
+            "functionid": "1861876475",
+            "fencepost": "1914910151",
             "cannotcallincrossprocess": "0",
             "serializedargs": [
                 "bytes4"
