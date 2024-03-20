@@ -6,5 +6,6 @@
         "string": "cpp",
         "format": "cpp",
         "thread": "cpp"
-    }
+    },
+    "cmake.sourceDirectory": "${workspaceFolder}/nativetest"
 }
