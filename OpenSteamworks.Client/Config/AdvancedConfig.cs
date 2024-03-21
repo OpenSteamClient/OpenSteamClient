@@ -7,7 +7,7 @@ public class AdvancedConfig : IConfigFile
 {
     static string IConfigFile.ConfigName => "AdvancedConfig_001";
     static bool IConfigFile.PerUser => false;
-    static bool IConfigFile.AlwaysSave => false;
+    static bool IConfigFile.AlwaysSave => true;
 
     [ConfigName("Connection Type", "#AdvancedConfig_EnabledConnectionTypes")]
     [ConfigDescription("Sets the ways to connect to Steam. If ExistingClient is specified, you can run ValveSteam in the background and OpenSteamClient will connect to it.", "#AdvancedConfig_EnabledConnectionTypesDesc")]
