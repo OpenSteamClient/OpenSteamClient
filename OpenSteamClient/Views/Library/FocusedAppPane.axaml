@@ -19,7 +19,7 @@
     <DockPanel LastChildFill="True">
         <Grid HorizontalAlignment="Left" Width="990" Height="320" ClipToBounds="true" x:Name="Hero" DockPanel.Dock="Top" Margin="0" Background="{Binding Hero}">
             <TextBlock Height="140" HorizontalAlignment="Left" VerticalAlignment="Bottom" IsVisible="{Binding HasLogoAsText}" FontWeight="Thin" FontSize="72" Text="{Binding LogoAsText}"/>
-            <Image HorizontalAlignment="{Binding LogoHorizontalAlignment}" VerticalAlignment="{Binding LogoVerticalAlignment}" Height="{Binding LogoHeight}" Width="{Binding LogoWidth}" Source="{Binding Logo}"/>
+            <Image Margin="16" HorizontalAlignment="{Binding LogoHorizontalAlignment}" VerticalAlignment="{Binding LogoVerticalAlignment}" Height="{Binding LogoHeight}" Width="{Binding LogoWidth}" Source="{Binding Logo}"/>
         </Grid>
 
         <StackPanel>

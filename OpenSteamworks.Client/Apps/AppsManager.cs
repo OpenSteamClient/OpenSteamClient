@@ -263,9 +263,7 @@ public class AppsManager : ILogonLifetime
         }
 
         if (gameid.IsSteamApp()) {
-            var app = GetApp(gameid.AppID);
-            appCache.Add(app);
-            return app;
+            return GetApp(gameid.AppID);
         }
 
         throw new NotImplementedException("GameID type is not supported");
@@ -282,15 +280,18 @@ public class AppsManager : ILogonLifetime
         if (existing != null) {
             return existing;
         }
-        
-        CGameID shortcutGameID = SteamClient.GetInstance().IPCClientShortcuts.GetGameIDForAppID(appid);
 
+        CGameID shortcutGameID = SteamClient.GetInstance().IPCClientShortcuts.GetGameIDForAppID(appid);
+        AppBase app;
         if (shortcutGameID.IsValid() && shortcutGameID.IsShortcut()) {
             // Handle non-steam appids
-            return GetShortcutApp(appid);
+            app = GetShortcutApp(appid);
+        } else {
+            app = AppBase.CreateSteamApp(appid);
         }
 
-        return AppBase.CreateSteamApp(appid);
+        appCache.Add(app);
+        return app;
     }
 
     private AppBase GetShortcutApp(AppId_t shortcutAppID) {
