@@ -28,11 +28,9 @@ public class FunctionSerializer : IDisposable {
             userToUse = iface.steamuser;
         }
 
-        Logging.NativeClientLogger.Info("USER: " + userToUse);
         writer.Write(userToUse);
         writer.Flush();
 
-        Logging.NativeClientLogger.Info("Function ID: " + functionid);
         writer.Write(functionid);
         writer.Flush();
     }

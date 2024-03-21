@@ -278,16 +278,16 @@ public class AppsManager : ILogonLifetime
     /// <returns></returns>
     public AppBase GetApp(AppId_t appid) {
         using var scope = CProfiler.CurrentProfiler?.EnterScope("AppsManager.GetApp(AppId_t)");
-        CGameID shortcutGameID = SteamClient.GetInstance().IPCClientShortcuts.GetGameIDForAppID(appid);
-
-        if (shortcutGameID.IsValid()) {
-            // Handle non-steam appids
-            return GetShortcutApp(appid);
-        }
-
         var existing = appCache.Find(a => a.AppID == appid);
         if (existing != null) {
             return existing;
+        }
+        
+        CGameID shortcutGameID = SteamClient.GetInstance().IPCClientShortcuts.GetGameIDForAppID(appid);
+
+        if (shortcutGameID.IsValid() && shortcutGameID.IsShortcut()) {
+            // Handle non-steam appids
+            return GetShortcutApp(appid);
         }
 
         return AppBase.CreateSteamApp(appid);

@@ -36,9 +36,4 @@
   <PropertyGroup Condition=" '$(OS)' == 'Windows_NT' ">
     <DefineConstants>_WINDOWS</DefineConstants>
   </PropertyGroup>
-
-  <ItemGroup>
-    <!-- For usage by IPCClient -->
-    <EmbeddedResource Include="..\dumped_data\*.json" />
-  </ItemGroup>
 </Project>

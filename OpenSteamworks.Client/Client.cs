@@ -62,6 +62,7 @@ public class Client : IClientLifetime
         {
             Logging.GeneralLogger = Logger.GetLogger("OpenSteamworks", im.GetLogPath("OpenSteamworks"));
             Logging.NativeClientLogger = Logger.GetLogger("OpenSteamworks-NativeClient", im.GetLogPath("OpenSteamworks_NativeClient"));
+            Logging.IPCLogger = Logger.GetLogger("OpenSteamworks-IPCClient", im.GetLogPath("OpenSteamworks_IPCClient"));
             Logging.CallbackLogger = Logger.GetLogger("OpenSteamworks-Callbacks", im.GetLogPath("OpenSteamworks_Callbacks"));
             Logging.JITLogger = Logger.GetLogger("OpenSteamworks-JIT", im.GetLogPath("OpenSteamworks_JIT"));
             Logging.ConCommandsLogger = Logger.GetLogger("OpenSteamworks-ConCommands", im.GetLogPath("OpenSteamworks_ConCommands"));

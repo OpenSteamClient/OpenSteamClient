@@ -8,6 +8,10 @@ public static class Logging {
     /// Or in the case of IPCClient, messages from IPCClient
     /// </summary>
     public static ILogger NativeClientLogger { internal get; set; } = new DefaultConsoleLogger();
+    /// <summary>
+    /// Logs all IPC activity from IPCClient
+    /// </summary>
+    public static ILogger IPCLogger { internal get; set; } = new DefaultConsoleLogger();
     public static ILogger CallbackLogger { internal get; set; } = new DefaultConsoleLogger();
     public static ILogger JITLogger { internal get; set; } = new DefaultConsoleLogger();
     public static ILogger ConCommandsLogger { internal get; set; } = new DefaultConsoleLogger();
