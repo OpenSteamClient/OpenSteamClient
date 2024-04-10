@@ -245,7 +245,7 @@ public class NativeLibraryEx {
             }
 
             TextSection.RestoreSecurity();
-            throw new Exception("Failed to find signature");
+            return 0;
         }
     }
 

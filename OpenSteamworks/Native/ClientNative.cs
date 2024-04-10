@@ -18,30 +18,30 @@ using System.Runtime.Versioning;
 namespace OpenSteamworks.Native;
 
 struct NativeFuncs {
-    [UnmanagedFunctionPointer(CallingConvention.StdCall)]
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate IntPtr CreateInterface(string name, IntPtr error);
-    [UnmanagedFunctionPointer(CallingConvention.StdCall)]
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate HSteamPipe Steam_CreateSteamPipe();
 
-    [UnmanagedFunctionPointer(CallingConvention.StdCall)]
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate HSteamUser Steam_ConnectToGlobalUser(HSteamPipe steamPipe);
 
-    [UnmanagedFunctionPointer(CallingConvention.StdCall)]
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate HSteamUser Steam_CreateGlobalUser(HSteamPipe steamPipe);
 
-    [UnmanagedFunctionPointer(CallingConvention.StdCall)]
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate HSteamUser Steam_CreateLocalUser(HSteamPipe steamPipe, EAccountType eAccountType);
 
-    [UnmanagedFunctionPointer(CallingConvention.StdCall)]
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate void Steam_ReleaseUser(HSteamPipe steamPipe, HSteamUser steamUser);
 
-    [UnmanagedFunctionPointer(CallingConvention.StdCall)]
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate bool Steam_BReleaseSteamPipe(HSteamPipe steamPipe);
 
-    [UnmanagedFunctionPointer(CallingConvention.StdCall)]
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate bool Steam_BGetCallback(HSteamPipe steamPipe, IntPtr pCallbackMsg);
 
-    [UnmanagedFunctionPointer(CallingConvention.StdCall)]
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     public delegate void Steam_FreeLastCallback(HSteamPipe steamPipe);
 }
 
@@ -389,14 +389,22 @@ public class ClientNative {
         if (OperatingSystem.IsWindows()) {
             // Hook DefaultSpewOutputFunc instead of using SpewOutputFunc setter, since steam replaces it internally in some unknown conditions
             var func = Tier0Lib!.FindSignature(SteamClient.platform.DefaultSpewOutputFuncSig, SteamClient.platform.DefaultSpewOutputFuncSigMask);
-            unsafe {
-                Tier0Lib!.HookFunction(func, (IntPtr)(delegate* unmanaged[Cdecl]<SpewType_t, void*, SpewRetval_t>)&SpewOutputFuncHook);
+            if (func == 0) {
+                Logging.GeneralLogger.Warning("Failed to find DefaultSpewOutputFunc");
+            } else {
+                unsafe {
+                    Tier0Lib!.HookFunction(func, (IntPtr)(delegate* unmanaged[Cdecl]<SpewType_t, void*, SpewRetval_t>)&SpewOutputFuncHook);
+                }
             }
         } else {
             // Hook DefaultSpewOutputFunc (no valid signatures for SpewOutputFunc setter)
             var func = SteamClientLib.FindSignature(SteamClient.platform.DefaultSpewOutputFuncSig, SteamClient.platform.DefaultSpewOutputFuncSigMask);
-            unsafe {
-                SteamClientLib.HookFunction(func, (IntPtr)(delegate* unmanaged[Cdecl]<SpewType_t, void*, SpewRetval_t>)&SpewOutputFuncHook);
+            if (func == 0) {
+                Logging.GeneralLogger.Warning("Failed to find DefaultSpewOutputFunc");
+            } else {
+                unsafe {
+                    SteamClientLib.HookFunction(func, (IntPtr)(delegate* unmanaged[Cdecl]<SpewType_t, void*, SpewRetval_t>)&SpewOutputFuncHook);
+                }
             }
         }
 
