@@ -117,7 +117,7 @@ If you want to revert manually, you need to change the symlinks's targets to poi
 
 # Q&A
 ## Is this abandoned?
-Yes! The Qt/C++ version is abandoned, and will NOT receive further updates ever. Please wait some time as I make a C# remake. For progress on that, see PR #20.
+Yes! The Qt/C++ version is abandoned, and will NOT receive further updates ever. Please wait some time as I make a C# remake. For progress on that, see [PR #20](https://github.com/OpenSteamClient/OpenSteamClient/pull/20).
 
 ## pls windows suprort
 Although all the technologies we use are cross platform, windows support is not planned. THE C# REMAKE WILL SUPPORT WINDOWS! (and maybe mac)
