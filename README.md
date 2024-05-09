@@ -1,17 +1,15 @@
 <img src="Assets/opensteam-logo.svg" alt="OpenSteamClient logo" title="OpenSteamClient" align="left" height="65" />
 
 # OpenSteamClient (C# version, still in heavy development)
-A partially open-source Steam client for Windows and Linux
+A partialy open-source Steam client for Windows and Linux
 
 # Current development status
 Everything below is blockers. Lots of stuff that's only documented in my head is also blockers. Lots of code cleanups are due. 
 Stuff marked later can wait for after we make an MVP.
 Stuff marked future can be done eventually or just completely ignored
 
-- [x] Bootstrapper
 - [ ] Backend stuff:
-  - [ ] (optional) JITEngine classgen with fields (would be nice for concommand support)
-  - [x] Custom value types
+  - [ ] (optional) JITEngine classgen with fields
   - [x] Callback system
     - [ ] Make more performant
       - Chokes pretty badly right now with the HTML rendering
@@ -21,31 +19,31 @@ Stuff marked future can be done eventually or just completely ignored
     - [ ] Make not spaghetti
   - [ ] Non-terrible, cross-store extensible, interface-based and pluginable appsystem
 - [ ] Account system:
-  - [x] Login
-  - [x] Logout
-  - [x] Forget account
   - [ ] Profile pictures
   - [ ] QR code in the loginwindow doesn't have bottom margin
   - [ ] 2FA 
     - [ ] 2FA window improvements
 - [ ] Client settings UI
+- [ ] Fix CPU fan speeding due to IPCClient
 - [ ] Library UI
   - [ ] Game news and patch notes
   - [ ] Search bar
   - [x] Collections backend
     - [ ] Fix
-      - Sometimes it's missing games. Why?
+     - Sometimes it's missing games. Why?
     - [ ] Needs to have edit functionality
-    - [ ] Fix 2
-      - Doesn't sync to the cloud, it broke at some point and I don't know how to fix it
+    - [ ] Sync to the cloud
   - [ ] Collection editing GUI (later)
   - [x] Games list
+    - [ ] Context menu for launching, settings, etc
   - [ ] Focused game view (library art, friends who play, etc)
     - [x] Library hero art 
-      - TODO: depends on the appsystem rewrite (later)
     - [x] Play button 
     - [ ] Friends who play section (later)
     - [ ] Store, Community, Workshop, etc buttons (later)
+    - [ ] Settings button
+    - [ ] Edit collection button
+    - [ ] Custom library art
   - [ ] Game settings page
     - [ ] Overlay settings (later)
       - Needs to wait until we actually get an overlay
@@ -53,6 +51,7 @@ Stuff marked future can be done eventually or just completely ignored
       - [ ] How much space is used
       - [ ] Cloud file viewer UI (later)
     - [ ] Launch settings
+      - [ ] Launch settings dialog
       - [ ] Set command line
       - [ ] Set default launch option (later)
         - [ ] Visualize the full launch option in the command line box (later)
@@ -71,7 +70,7 @@ Stuff marked future can be done eventually or just completely ignored
     - [ ] Support showing 3rd party launcher's download statuses (future)
 - [x] Steamwebhelper support (later)
   - [x] Store, community, profile pages
-  - [ ] Fix blurriness on non-100% DPIs (later) (wtf how did this even become a problem)
+  - [ ] Fix blurriness on non-100% DPIs (later) (avalonia bug?)
   - [ ] Make reliable??? (later)
     - For some reason, sometimes the init fails for a reason or another. In that case, the web elements can't be used until the user restarts OSC completely. And the client will throw a timeout erorr.
   - [ ] ~~Non-janky typing implementation~~ (probably never, unless we make our own CEF thingy)
@@ -83,7 +82,7 @@ Stuff marked future can be done eventually or just completely ignored
   - In the future, this would allow pure IPC as well
   - This requires us to know 100% of the interfaces (and would be a pretty big rewrite)
 - [ ] Future (optional):
-  - [ ] Remove JITEngine in favour of code generation (probably no, but could be good for 3rd parties that want NativeAOT)
+  - [ ] Remove JITEngine in favour of code generation (probably no, but could be good for API consumers that want NativeAOT)
   - [ ] Rewrite InterfaceDebugger to follow MVVM
   - [ ] Plugin system
     - This'd be useful for making sure our code is high quality and not a mess
@@ -106,8 +105,8 @@ Stuff marked future can be done eventually or just completely ignored
     - Should be doable, just need to improve our hooking systems
   - [ ] UI Animations
     - Does avalonia support this?
-  - [ ] VAC support on Windows
-    - How the hell? We'd basically have to bypass VAC and that's a big no-no
+  - [ ] VAC support
+    - If we want this, we'd need .valvesig sections. Not happening.
   - [ ] ProtonDB integration
   - [ ] Automatic game tweaking
   - [ ] External modding sources (like Nexus for Fallout games, r2modman for Lethal Company, etc)
@@ -118,6 +117,7 @@ Stuff marked future can be done eventually or just completely ignored
   - [ ] Small mode
   - [ ] Terminal UI
   - [ ] IMGui reimplementation?
+    - Leaving here for community interest.
     - It'd be a lot snappier
     - Not as styleable
     - Apparently doesn't have good accessibility features
@@ -136,7 +136,7 @@ Stuff marked future can be done eventually or just completely ignored
 - All games supported (technically), Steam2 games unknown
 - ~~VAC supported on Linux (you can play, but you _might_ get banned. We're not responsible if you do.)~~
   - VAC support was brutally murdered in one of the updates. We might deal with this eventually, but for now, no VAC :(
-- Supports Windows and Linux, and even theoretically MacOS (PRs for support welcome)
+- Supports Windows and Linux.
 
 # Contributing
 Nothing for now.
@@ -172,11 +172,16 @@ Decompiling and datamining the steam client:
 - [open-steamworks fork by m4dEngi](https://github.com/m4dEngi/open-steamworks)
 - [SteamTracking](https://github.com/SteamDatabase/SteamTracking)
 - [protobufs dumped from the steam client](https://github.com/SteamDatabase/Protobufs)
+Other credits:
 - [MiniUTL](https://github.com/FWGS/MiniUTL)
 - [Logo by nPHYN1T3](https://github.com/nPHYN1T3)
 - [Sound assets by nPHYN1T3](https://github.com/nPHYN1T3)
 
 # Q&A
+
+## Gah! Why is making this taking such a long time???
+There's a single developer (Rosentti) working on every aspect of the rewrite. This alone makes things slow, but also the tremendous workload can cause burnout very easily. 
+To combat burnout related to OSC, I sometimes work on other projects and different parts of OSC. 
 
 ## Partially open source?
 This is a GUI for Valve's own Steam Client binaries like `steamclient.so`, `steamservice.so` and `chromehtml.so`. 
