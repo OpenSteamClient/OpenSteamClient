@@ -1,7 +1,7 @@
 <img src="Assets/opensteam-logo.svg" alt="OpenSteamClient logo" title="OpenSteamClient" align="left" height="65" />
 
 # OpenSteamClient (C# version, still in heavy development)
-A partialy open-source Steam client for Windows and Linux
+A partially open-source Steam client for Windows and Linux
 
 # Current development status
 Everything below is blockers. Lots of stuff that's only documented in my head is also blockers. Lots of code cleanups are due. 
