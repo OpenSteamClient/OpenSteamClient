@@ -3,7 +3,7 @@
 A partially open-source Steam client for Linux. 
 # Current status: Being rewritten in C#
 ## Issues, feature requests, etc
-Do not expect any responses to issues with the Qt/C++ version, or even the C# version. One is very much abandoned, and the other is still WIP.
+Do not expect any responses to issues with the Qt/C++ version, or even the C# version. The Qt/C++ version is very much abandoned, and the C# version is still heavily WIP.
 Feel free to still open issues for the Qt based client, since it's possible someone else may want to rewrite this in the future, in which case we'll transfer the applicable issues there. Oh and you can also put in feature requests, but I'll only consider them for the C# remake
 
 # Features
