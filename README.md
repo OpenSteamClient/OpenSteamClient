@@ -19,7 +19,6 @@ Stuff marked future can be done eventually or just completely ignored
   - [ ] Fix TODO:s and BLOCKER:s
   - [x] Callresult system for non-callback results (needed for steamwebhelper/chromehtml/storepages)
     - [ ] Make not spaghetti
-  - [ ] Non-terrible, cross-store extensible, interface-based and pluginable appsystem
 - [ ] Account system:
   - [x] Login
   - [x] Logout
@@ -29,6 +28,10 @@ Stuff marked future can be done eventually or just completely ignored
   - [ ] 2FA 
     - [ ] 2FA window improvements
 - [ ] Client settings UI
+  - [ ] Library folder management
+  - [ ] Compat settings
+  - [ ] Persona name change
+  - [ ] Download speed cap
 - [ ] Library UI
   - [ ] Game news and patch notes
   - [ ] Search bar
@@ -69,77 +72,114 @@ Stuff marked future can be done eventually or just completely ignored
       - [ ] Support 3rd party mod platforms (future)
   - [ ] Downloads page
     - [ ] Support showing 3rd party launcher's download statuses (future)
-- [x] Steamwebhelper support (later)
-  - [x] Store, community, profile pages
-  - [ ] Fix blurriness on non-100% DPIs (later) (wtf how did this even become a problem)
+- [ ] Steamwebhelper support (later)
+  - Seems to break with every other update. We need another way to display store pages.
+  - [ ] Store, community, profile pages
+  - [ ] Fix blurriness on non-100% DPIs (later) (avalonia bug with x11 scaling)
   - [ ] Make reliable??? (later)
     - For some reason, sometimes the init fails for a reason or another. In that case, the web elements can't be used until the user restarts OSC completely. And the client will throw a timeout erorr.
-  - [ ] ~~Non-janky typing implementation~~ (probably never, unless we make our own CEF thingy)
+  - [ ] ~~Non-janky typing implementation~~ (probably never, unless we make our own CEF wrapper and use it instead of SteamWebHelper)
 - [x] Windows support
   - [ ] Installer
+  - [ ] Uninstaller
 - [ ] Close OpenSteamClient when pressing X on the progress dialog
 - [ ] Split project into multi-repo OpenSteamworks, OpenSteamClient
+
+## TODO: Future/Never
+- [ ] Employ observability at the OSW.Client layer
 - [ ] Make managed versions of all interfaces
-  - In the future, this would allow pure IPC as well
-  - This requires us to know 100% of the interfaces (and would be a pretty big rewrite)
-- [ ] Future (optional):
-  - [ ] Remove JITEngine in favour of code generation (probably no, but could be good for 3rd parties that want NativeAOT)
-  - [ ] Rewrite InterfaceDebugger to follow MVVM
-  - [ ] Plugin system
-    - This'd be useful for making sure our code is high quality and not a mess
-    - Could also add support for 3rd party apps and whatnot
-    - Possible plugin types:
-      - [ ] Library art provider
-      - [ ] App provider
-      - [ ] Social provider
-      - [ ] Auth provider
-      - [ ] Misc UI data provider (protondb, widescreen, etc patches)
-      - [ ] Overlay provider
-      - [ ] ConCommand provider
-      - [ ] Store/Community provider
-      - [ ] Mod provider
-  - [ ] Disabling updates for certain apps
-  - [ ] Custom SDL lib
-    - [ ] Some valve specific code for handling steering wheels etc
-  - [ ] ConCommand support
-  - [ ] Download additional depots (example: CS2 workshop tools with proton needs Windows CS2 binaries)
-    - Should be doable, just need to improve our hooking systems
-  - [ ] UI Animations
-    - Does avalonia support this?
-  - [ ] VAC support on Windows
-    - How the hell? We'd basically have to bypass VAC and that's a big no-no
-  - [ ] ProtonDB integration
-  - [ ] Automatic game tweaking
-  - [ ] External modding sources (like Nexus for Fallout games, r2modman for Lethal Company, etc)
-  - [ ] Cloud file manager GUI
-  - [ ] UI sounds
-  - [ ] Shut off PC when game finishes installing
-  - [ ] Big picture mode
-  - [ ] Small mode
+- In the future, this would allow pure C# instead of needing a dependency on the native client and JITEngine
+  - IClientEngine and some bits of init would still be unavoidable
+- This requires us to know 100% of the interfaces (and would be a pretty big rewrite)
+- [ ] Remove JITEngine in favour of code generation (probably no, but could be good for API consumers that want NativeAOT)
+- [ ] Rewrite InterfaceDebugger to follow MVVM
+- [ ] Plugin system
+  - This'd be useful for making sure our code is high quality and not a mess
+  - Could also add support for extra game stores and whatnot
+  - Possible plugin types:
+    - [ ] Library art provider
+    - [ ] App provider
+    - [ ] Social provider
+    - [ ] Auth provider
+    - [ ] Misc UI data provider (protondb, widescreen, etc patches)
+    - [ ] Overlay provider
+    - [ ] ConCommand provider
+    - [ ] Store/Community provider
+    - [ ] Mod provider
+- [ ] Disabling updates for certain apps
+- [ ] Custom SDL lib
+  - [ ] Some valve specific code for handling steering wheels etc
+- [ ] ConCommand support
+- [ ] Download additional depots (example: CS2 workshop tools with proton needs Windows CS2 binaries)
+  - Should be doable, just need to improve our hooking systems
+- [ ] UI Animations
+  - Does avalonia support this?
+- [ ] VAC support
+  - Basically impossible unless we get a .valvesig from Valve, which is unlikely given the nature of our main exe being the regular dotnet runtime
+- [ ] ProtonDB integration
+- [ ] Automatic game tweaking
+- [ ] External modding sources (like Nexus for Fallout games, r2modman for Lethal Company, etc)
+- [ ] Cloud file manager GUI
+- [ ] UI sounds
+- [ ] Shut off PC when game finishes installing
+- [ ] Big picture mode
+- [ ] Small mode
+- Alternative GUIs
   - [ ] Terminal UI
   - [ ] IMGui reimplementation?
     - It'd be a lot snappier
     - Not as styleable
     - Apparently doesn't have good accessibility features
     - Does have premade C# bindings though
+  - [ ] Rust rewrite
+    - "egui" seems pretty cool
+      - Can also build for the web
   - [ ] VGUI reimplementation?
-    - Probably unnecessary, leaving here for community interest
     - Could probably very simply just load the OG ui from the cached/ folder, but VGUI_s is 32-bit and we're 64-bit
     - Would need to reimplement the entire UI framework from scratch though
-  - [ ] Reimplement steamclient.dll/so
-  - [ ] MacOS
+- [ ] Reimplement steamclient.dll/so
+- [ ] MacOS
+- [ ] Reverse ZipVZ (ValveZip?) format
 
 
 # Features
-- 64-bit (but needs some 32-bit libraries for some functionality)
-- No steamwebhelper requirement (but can be used ingame and for browsing the store and community pages)
-- All games supported (technically), Steam2 games unknown
-- ~~VAC supported on Linux (you can play, but you _might_ get banned. We're not responsible if you do.)~~
-  - VAC support was brutally murdered in one of the updates. We might deal with this eventually, but for now, no VAC :(
-- Supports Windows and Linux, and even theoretically MacOS (PRs for support welcome)
+NOTE: The features mentioned here are the criteria for replacing the old Qt/C++ based OSC. These may not be implemented yet! And these also aren't final
+- The basics you'd expect:
+  - Achievements
+  - Steam Cloud
+  - Invites and friends network
+    - There's no overlay yet though, so you'll need to ALT+TAB
+  - Workshop
+    - Load order, enable/disable
+  - New family sharing
+  - Old family sharing
+- No steamservice requirement (still recommended however, requires 32-bit binaries)
+  - Required on Linux for compat tools proper functionality.
+  - Required on Windows for desktop shortcut creation, game registry entries
+- No web technology (also known as CEF, SteamWebHelper)
+- Most games supported
+  - Steam2 games untested
+  - Some multiplayer games might not work
+  - VAC games unsupported (nothing we can do about this, sorry!)
+- Depot browser
+  - Download extra depots
+  - Download individual files
+- Build history browser
+  - Lock specific build
+- Steam cloud filebrowser
+- Linux users will also enjoy:
+  - 64-bit main executable
+    - One app less that requires multilib/32-bit libraries
+  - ProtonDB Integration
+  - Compat tool improvements:
+    - Run .exe in prefix
+    - Run winecfg/winetricks/protontricks for game
+    - Adjust compat preferences like forcelgaddr easily
+    - Compat tool downloader
+  
 
 # Contributing
-Nothing for now.
+See [CONTRIBUTING.md](https://github.com/OpenSteamClient/OpenSteamClient/blob/c%23-remake/CONTRIBUTING.md) for guidelines.
 Clone by running `git clone -b c#-remake --single-branch https://github.com/OpenSteamClient/opensteamclient.git --recursive`
 Compile and run by going into OpenSteamClient and running `dotnet run -v:m`.
 Occasionally updates break existing repos, just delete the whole repo and reclone if that happens.
@@ -149,9 +189,7 @@ Nothing for now.
 
 # Usage
 This is only meant for developers. 
-Once this is good enough I will write new install instructions. For now end users can use the old opensteamclient (TERRIBLE) by switching to the master branch (Linux only).
-If you're a dev, be cautious about adding things, as I am probably working on it already.
-
+Once this is in a good enough state I will write new install instructions.
 
 # System requirements
 ## Windows
@@ -162,7 +200,7 @@ If you're a dev, be cautious about adding things, as I am probably working on it
 ### For development
 - Ubuntu 23.04 or newer (maybe optional if not using MingW)
 - MingW 10.0.0/GCC12 (optional if Windows cross compile not wanted)
-- OSXCross if you want a macos cross compile
+- OSXCross (if you want a macos cross compile)
   - You might get cryptic errors without the newest mingw, such as `std::this_thread` missing 
 - GCC, G++, CMake
 
@@ -189,7 +227,7 @@ Also, thank you Valve for improving Linux gaming, and making a native Steam Clie
 ## What version of Steam's binaries do you use?
 The repo includes a copy of all the manifests at `Manifests/steam_client_PLATFORM.vdf`, which shows the version and has download paths for the binaries.
 The `file` names point to regular zip files at the various client download addresses like `https://client-update.akamai.steamstatic.com/`, just use `unzip`. GUI tools don't seem to work.
-`zipvz` seems to be some sort of proprietary zip format, which we don't use.
+`zipvz` seems to be some sort of proprietary zip format, which we haven't reversed.
 
 ## The client crashes a lot or doesn't start
 Delete `~/.local/share/OpenSteam` and try again. Also check that you have a PC that meets the requirements for Steam officially.

@@ -57,6 +57,13 @@ public class SourcemodApp : AppBase {
         state = EAppState.FullyInstalled;
     }
 
+    internal SourcemodApp(CGameID gameid, string fakeName) {
+        this.GameID = gameid;
+        var kv = new KVObject("fakemod", new List<KVObject>());
+        kv["game"] = new KVObject("game", fakeName);
+        this.SourcemodGameInfo = new(kv);
+    }
+
     public override async Task<EAppError> Launch(string userLaunchOptions, int launchOptionID)
     {
         //TODO: implement (or possibly scrap) this

@@ -14,6 +14,7 @@ using OpenSteamworks.KeyValue.Deserializers;
 using OpenSteamworks.KeyValue.Serializers;
 using OpenSteamworks.Utils;
 using Profiler;
+using OpenSteamworks.Structs;
 
 namespace OpenSteamworks.Client.Apps.Library;
 
@@ -61,7 +62,7 @@ public class LibraryManager : ILogonLifetime
 
     public async Task OnLoggedOn(IExtendedProgress<int> progress, LoggedOnEventArgs e) {
         Library library = new(steamClient, cloudConfigStore, loginManager, appsManager, installManager);
-        HashSet<AppId_t> appIDsToLoadAssetsFor = await library.InitializeLibrary();
+        HashSet<CGameID> appIDsToLoadAssetsFor = await library.InitializeLibrary();
         currentUserLibrary = library;
 
         LoadLibraryAssetsFile();

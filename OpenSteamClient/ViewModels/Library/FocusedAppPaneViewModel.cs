@@ -25,6 +25,7 @@ using OpenSteamworks.Enums;
 using OpenSteamworks.Structs;
 using OpenSteamworks.Utils;
 using SkiaSharp;
+using AvaloniaCommon;
 
 namespace OpenSteamClient.ViewModels.Library;
 
@@ -93,6 +94,7 @@ public partial class FocusedAppPaneViewModel : AvaloniaCommon.ViewModelBase
         LogoAsText = "";
         app = AvaloniaApp.Container.Get<AppsManager>().GetApp(gameid);
         AvaloniaApp.Container.Get<CallbackManager>().RegisterHandler<AppEventStateChange_t>(OnAppEventStateChange);
+        AvaloniaApp.Container.Get<CallbackManager>().RegisterHandler<AppLaunchResult_t>(OnAppLaunchResult);
         this.Name = app.Name;
         this.heroContainer.GetObservable(Visual.BoundsProperty).Subscribe(new AnonymousObserver<Rect>(OnHeroBoundsChanged));
         SetLibraryAssets();
@@ -101,6 +103,15 @@ public partial class FocusedAppPaneViewModel : AvaloniaCommon.ViewModelBase
         PlayButtonLocalizationToken = "Initial state";
         PlayButtonAction = new RelayCommand(InvalidAction);
         UpdatePlayButton(app.State);
+    }
+
+    private void OnAppLaunchResult(CallbackManager.CallbackHandler<AppLaunchResult_t> handler, AppLaunchResult_t t)
+    {
+        if (t.m_eAppError != EAppError.NoError) {
+            MessageBox.Show("Launch failed", $"Launch failed with EResult: {t.m_eAppError}");
+        } else {
+            UpdatePlayButton(EAppState.AppRunning);
+        }
     }
 
     private void OnAppEventStateChange(CallbackManager.CallbackHandler<AppEventStateChange_t> handler, AppEventStateChange_t change)
@@ -148,7 +159,7 @@ public partial class FocusedAppPaneViewModel : AvaloniaCommon.ViewModelBase
                 PlayButtonLocalizationToken = "#App_LaunchApp";
                 PlayButtonAction = new RelayCommand(Launch);
             }
-        } else if (state == EAppState.Uninstalled) {
+        } else if (state == EAppState.Uninstalled || state.HasFlag(EAppState.SharedOnly)) {
             PlayButtonLocalizationToken = "#App_InstallApp";
             PlayButtonAction = new RelayCommand(RequestInstall);
         } else if ((!app.LaunchOptions.Any() || !app.IsOwnedAndPlayable) && state == EAppState.FullyInstalled) {
@@ -271,6 +282,9 @@ public partial class FocusedAppPaneViewModel : AvaloniaCommon.ViewModelBase
         if (this.app.DefaultLaunchOptionID != null)
         {
             await this.app.Launch("", this.app.DefaultLaunchOptionID.Value);
+        } else {
+            Console.WriteLine("No default launch option!!!");
+            Console.WriteLine("TODO: launch option switcher");
         }
     }
 }

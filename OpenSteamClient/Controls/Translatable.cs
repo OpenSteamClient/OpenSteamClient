@@ -1,3 +1,4 @@
+using System;
 using System.Windows.Input;
 using Avalonia;
 using Avalonia.Data;
@@ -9,11 +10,22 @@ namespace OpenSteamClient.Controls;
 
 public class Translatable : AvaloniaObject
 {
+    static Translatable()
+    {
+        TranslationKeyProperty.Changed.AddClassHandler<Visual>(TranslationPropertiesChanged);
+        DefaultTextProperty.Changed.AddClassHandler<Visual>(TranslationPropertiesChanged);
+    }
+
+    private static void TranslationPropertiesChanged(Visual visual, AvaloniaPropertyChangedEventArgs args)
+    {
+        AvaloniaApp.Container.Get<TranslationManager>().TranslateAvaloniaObject(visual);
+    }
+
     public static readonly AttachedProperty<string> TranslationKeyProperty =
-            AvaloniaProperty.RegisterAttached<Translatable, Visual, string>("TranslationKey", "", false, Avalonia.Data.BindingMode.OneTime);
+            AvaloniaProperty.RegisterAttached<Translatable, Visual, string>("TranslationKey", "", false, Avalonia.Data.BindingMode.OneWay);
 
     public static readonly AttachedProperty<string> DefaultTextProperty =
-            AvaloniaProperty.RegisterAttached<Translatable, Visual, string>("DefaultText", "", false, Avalonia.Data.BindingMode.OneTime);
+            AvaloniaProperty.RegisterAttached<Translatable, Visual, string>("DefaultText", "", false, Avalonia.Data.BindingMode.OneWay);
 
     public static void SetTranslationKey(AvaloniaObject element, string val)
     {
@@ -29,7 +41,6 @@ public class Translatable : AvaloniaObject
     public static void SetDefaultText(AvaloniaObject element, string val)
     {
         element.SetValue(DefaultTextProperty, val);
-        AvaloniaApp.Container.Get<TranslationManager>().TranslateAvaloniaObject(element);
     }
 
     public static string GetDefaultText(AvaloniaObject element)

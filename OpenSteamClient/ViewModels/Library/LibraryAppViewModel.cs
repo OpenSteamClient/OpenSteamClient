@@ -18,12 +18,12 @@ public partial class LibraryAppViewModel : Node
 {
     public AppBase App { get; init; }
 
-    public LibraryAppViewModel(LibraryPageViewModel page, AppId_t appid)
+    public LibraryAppViewModel(LibraryPageViewModel page, CGameID gameid)
     {
         this.HasIcon = true;
         this.IsApp = true;
 
-        App = AvaloniaApp.Container.Get<AppsManager>().GetApp(appid);
+        App = AvaloniaApp.Container.Get<AppsManager>().GetApp(gameid);
         this.Name = App.Name;
         this.GameID = App.GameID;
 

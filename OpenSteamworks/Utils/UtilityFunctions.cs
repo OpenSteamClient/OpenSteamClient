@@ -9,6 +9,7 @@ using OpenSteamworks.Native;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Collections.Concurrent;
 
 namespace OpenSteamworks.Utils;
 
@@ -393,5 +394,38 @@ public static class UtilityFunctions {
 
     public unsafe static string FormatPtr(IntPtr ptr) {
         return string.Format("0x{0:x}", (IntPtr)ptr);
+    }
+
+    private static readonly ConcurrentDictionary<object, DelayFunction> debounceList = new();
+    public static void Debounce(Action func, object debounceHandle, TimeSpan delay)
+    {
+        if (debounceList.TryGetValue(debounceHandle, out DelayFunction? delayFunc)) {
+            if (delayFunc.Finished) {
+                goto CreateFunc;
+            }
+
+            delayFunc.AddTime(delay);
+            return;
+        }
+
+        CreateFunc:
+        delayFunc = new(func, delay);
+        delayFunc.OnFinished += (object? sender, EventArgs e) =>
+        {
+            debounceList.TryRemove(debounceHandle, out _);
+        };
+        
+        debounceList.TryAdd(debounceHandle, delayFunc);
+    }
+
+    /// <summary>
+    /// Mark a debounced function as having been executed externally, for example as part of a shutdown procedure.
+    /// Stops any current debounce timers if such exist.
+    /// </summary>
+    /// <param name="debounceHandle"></param>
+    public static void Debounce_MarkExecuted(object debounceHandle) {
+        if (debounceList.TryRemove(debounceHandle, out DelayFunction? df)) {
+            df.Finished = true;
+        }
     }
 }

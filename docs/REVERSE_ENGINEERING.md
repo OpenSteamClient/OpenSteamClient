@@ -1,18 +1,17 @@
 # Reverse Engineering
-
 A shallow guide on figuring out how Steam works.
 Note that this in most cases is not necessary, unless you are doing something that isn't well documented. 
+This guide assumes you use linux. Some things may not be accurate on Windows.
 
-## Warning(s)
-Mucking around with the Steam client may lead to:
+## Warning
+Reversing/modifying/testing APIs with the Steam client may lead to:
 - Account termination
 - Non-functional client install
 - Corruption
 - VAC bans
 
-This should come without saying, but DO NOT play anticheat games if you are running a debugger or profiler or other tool on Steam. 
-
-And also, DO NOT muck with the Local Steam Client service. This is the service responsible for VAC, and any mucking about while a VAC game is running will probably get you banned. 
+Do not play anticheat games if you are running a debugger or other tool on Steam. 
+Also, don't do stuff with the Steam Client Service while playing a VAC protected game, as VAC resides in the Steam Client Service and your account will most likely get flagged
 
 ## Tools
 
@@ -23,14 +22,19 @@ No guide for this by us, just a couple things to know:
 	- Web-to-native mappings (`User.SetLoginInformation` etc)
 	- All the interfaces you can get from `IClientEngine` (Search for any interface's name or `ClientAPI_Init`, there should be a long function that initializes all the interfaces) 
 
-- You should use the `linux64/steamclient.so` for Ghidra
+- You should use the `ubuntu12_32/steamclient.so` in Ghidra, and allow importing any libraries it needs
+  - You should analyze libtier0_s first, then vstdlib, then steamclient in order for imports to show up the best
 
-- Whenever you come across a vtable call with an offset like `+ 0x20`, you should turn it into Decimal and then divide it by 4. Now you know the index of the function in a given vtable, just look it up from `OpenSteamworks/Generated/` if you know the interface name.
+- Debug symbols
+  - Some executables are built with debug symbols
+  - No libraries seem to be built with debug symbols
+
+- Whenever you come across a vtable call with an offset like `+ 0x20`, you should turn it into Decimal and then divide it by 8 (or 4 if using a 32-bit executable). Now you know the index of the function in a given vtable, just look it up from `OpenSteamworks/Generated/` if you know the interface name.
 
   
 
 ### VProf
-See [vprof.md](https://github.com/OpenSteamClient/OpenSteamClient/blob/master/docs/VPROF.md).
+See [vprof.md](https://github.com/OpenSteamClient/OpenSteamClient/blob/c%23-remake/docs/VPROF.md).
 
 ### CEF devtools
 Since large parts of Steam are made with React+CEF, it's quite easy to debug and find out how some things work. 

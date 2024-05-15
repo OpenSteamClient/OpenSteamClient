@@ -31,6 +31,7 @@ using OpenSteamClient.UIImpl;
 using OpenSteamworks.Client.Startup;
 using AvaloniaCommon;
 using Profiler;
+using System.Diagnostics;
 
 namespace OpenSteamClient;
 
@@ -376,10 +377,13 @@ public class AvaloniaApp : Application
         using var scope = CProfiler.CurrentProfiler?.EnterScope("AvaloniaApp.Exit");
         await Container.RunClientShutdown();
         Console.WriteLine("Shutting down Avalonia");
-        {
-            using var subScope = CProfiler.CurrentProfiler?.EnterScope("AvaloniaApp.Exit - Avalonia shutdown");
-            Dispatcher.UIThread.Invoke(() => ApplicationLifetime.Shutdown(exitCode));
-        }
+        // At this point, all the other shutdown tasks should have finished so let's just kill
+        Process.GetCurrentProcess().Kill();
+
+        // {
+        //     using var subScope = CProfiler.CurrentProfiler?.EnterScope("AvaloniaApp.Exit - Avalonia shutdown");
+        //     Dispatcher.UIThread.Invoke(() => ApplicationLifetime.Shutdown(exitCode));
+        // }
     }
 
     /// <summary>

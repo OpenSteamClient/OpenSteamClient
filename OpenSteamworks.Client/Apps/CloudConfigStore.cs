@@ -1,10 +1,12 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Google.Protobuf;
+using Google.Protobuf.Collections;
 using Google.Protobuf.WellKnownTypes;
 using OpenSteamworks.Client.Enums;
 using OpenSteamworks.Client.Managers;
@@ -15,33 +17,32 @@ using OpenSteamworks.Generated;
 using OpenSteamworks.Messaging;
 using OpenSteamworks.Protobuf.WebUI;
 using OpenSteamworks.Structs;
+using OpenSteamworks.Utils;
 using Profiler;
 
 namespace OpenSteamworks.Client.Apps;
 
 public class NamespaceData {
-    private readonly object dataLock = new();
+    public readonly object DataLock = new();
+
     public string this[string key] {
         get {
-            if (keys[key].IsDeleted) {
-                throw new Exception("This key is deleted");
+            lock (DataLock)
+            {
+                return Entries.ToImmutableList().Find(e => e.Key == key && !e.IsDeleted)?.Value ?? throw new IndexOutOfRangeException("Key not found");
             }
-            return keys[key].Value;
         }
         set {
-            lock (dataLock)
+            lock (DataLock)
             {
-                if (keys.ContainsKey(key)) {
-                    keys[key].IsDeleted = false;
-                    keys[key].Value = value;
-                    keys[key].Timestamp = clientUtils.GetServerRealTime();
-                    // I'm not really sure what versions are supposed to mean. I'm assuming it just gets incremented by one, which it seems like it does.
-                    keys[key].Version++;
-                } else {
-                    if (string.IsNullOrEmpty(key)) {
-                        throw new ArgumentException("Attempting to add an empty key. This will brick WebUI!");
-                    }
-                    keys[key] = new CCloudConfigStore_Entry
+                if (string.IsNullOrEmpty(key)) {
+                    throw new ArgumentException("Attempting to add an empty key. This will brick WebUI!");
+                }
+                
+                CCloudConfigStore_Entry? entry = Entries.ToImmutableList().Find(e => e.Key == key);
+                if (entry == null)
+                {
+                    entry = new CCloudConfigStore_Entry
                     {
                         Key = key,
                         IsDeleted = false,
@@ -49,131 +50,97 @@ public class NamespaceData {
                         Value = value,
                         Version = 1
                     };
+
+                    Entries.Add(entry);
+                }
+
+                entry.IsDeleted = false;
+                entry.Value = value;
+                entry.Timestamp = clientUtils.GetServerRealTime();
+                // I'm not really sure what versions are supposed to mean. I'm assuming it just gets incremented by one, which it seems like it does (it also maybe does jumps of 10 every now and then).
+                entry.Version++;
+
+                lock (ChangesLock)
+                {
+                    Changes.Add(entry);
+                    ccs.MarkForUpload();
                 }
             }
         }
     }
 
+    internal readonly object ChangesLock = new();
+    internal readonly List<CCloudConfigStore_Entry> Changes = new();
+
     public EUserConfigStoreNamespace Namespace {
         get {
-            return (EUserConfigStoreNamespace)this.protobufData.Enamespace;
-        }
-    }
-
-    public ulong Horizon {
-        get {
-            return this.protobufData.Horizon;
+            lock (DataLock)
+            {
+                return (EUserConfigStoreNamespace)this.ProtobufData.Enamespace;
+            }
         }
     }
 
     public override string ToString()
     {
         StringBuilder sb = new();
-        sb.AppendLine("Dumping " + this.Namespace.ToString());
-        foreach (var item in this.keys)
+        lock (DataLock)
         {
-            sb.AppendLine(item.Key + ": '" + item.Value.Value + "'" + (item.Value.IsDeleted ? " (deleted)" : "") + ", timestamp: " + item.Value.Timestamp);
+            sb.AppendLine("Dumping " + this.Namespace.ToString());
+            foreach (var item in Entries)
+            {
+                sb.AppendLine(item.Key + ": '" + item.Value + "'" + (item.IsDeleted ? " (deleted)" : "") + ", timestamp: " + item.Timestamp);
+            }
         }
 
         return sb.ToString();
     }
     
-    public Dictionary<string, string> GetKeysStartingWith(string matcher) {
-        Dictionary<string, string> matchedKeys = new();
-        foreach (var item in keys)
-        {
-            if (item.Value.IsDeleted) {
-                continue;
-            }
-
-            if (item.Key.StartsWith(matcher)) {
-                matchedKeys.Add(item.Key, item.Value.Value);
-            }
-        }
-
-        return matchedKeys;
-    }
-
-    private readonly Dictionary<string, CCloudConfigStore_Entry> keys = new();
-    private CCloudConfigStore_NamespaceData protobufData;
-    internal CSteamID belongsToUser;
-    private readonly IClientUtils clientUtils;
-    private readonly Logger logger;
-    internal NamespaceData(CCloudConfigStore_NamespaceData protobufData, CSteamID steamid, IClientUtils clientUtils, Logger logger) {
-        this.logger = logger;
-        this.protobufData = protobufData;
-        this.belongsToUser = steamid;
-        this.clientUtils = clientUtils;
-
-        foreach (var item in this.protobufData.Entries)
-        {
-            this.keys.Add(item.Key, item);
-        }
-    }
-
-    // Gets the NamespaceData object as it's protobuf counterpart
-    public CCloudConfigStore_NamespaceData GetAsProtobuf() {
-        CCloudConfigStore_NamespaceData data = protobufData.Clone();
-        foreach (var item in keys)
-        {
-            // Can't use find without creating a List...
-            int existingIndex = data.Entries.ToList().FindIndex(e => e.Key == item.Key);
-            bool keyExists = existingIndex != -1;
-
-            if (keyExists) {
-                // If the key existed before, simply replace the value
-                data.Entries[existingIndex].Value = item.Value.Value;
-            } else {
-                // If it didn't exist before, simply add it to the list. The this[] operator takes care of everything else
-                data.Entries.Add(item.Value);
-            }
-            
-        }
-
-        return data;
+    public List<CCloudConfigStore_Entry> GetEntriesStartingWithKeyName(string startsWith) {
+        return Where(e => e.Key.StartsWith(startsWith));
     }
 
     /// <summary>
-    /// Synchronizes the namespace data to a newly received object from the server
-    /// If a conflict occurs, all local data will be overridden
-    /// TODO: subject to change
+    /// Get all entries that satisfy the condition.
+    /// Ignores deleted entries
+    /// </summary>
+    /// <param name="predicate"></param>
+    /// <returns></returns>
+    public List<CCloudConfigStore_Entry> Where(Func<CCloudConfigStore_Entry, bool> predicate) {
+        lock (DataLock)
+        {
+            return Entries.Where(e => !e.IsDeleted && predicate(e)).ToList();
+        }
+    }    
+
+    public RepeatedField<CCloudConfigStore_Entry> Entries => ProtobufData.Entries;
+    public CCloudConfigStore_NamespaceData ProtobufData { get; private set; }
+    private readonly IClientUtils clientUtils;
+    private readonly CloudConfigStore ccs;
+
+    internal NamespaceData(CCloudConfigStore_NamespaceData protobufData, CloudConfigStore ccs, IClientUtils clientUtils) {
+        this.ccs = ccs;
+        this.ProtobufData = protobufData;
+        this.clientUtils = clientUtils;
+    }
+
+    /// <summary>
+    /// Copies the namespace data from a newly received object and overriding the local data
     /// </summary>
     /// <param name="remoteData">New data from the server</param>
-    internal void Synchronize(CCloudConfigStore_NamespaceData remoteData) {
-        // First, add our keys to the new data
-        var remoteEntriesList = remoteData.Entries.ToList();
-        foreach (var localEntry in GetAsProtobuf().Entries)
-        {
-            var indexOfKey = remoteEntriesList.FindIndex(e => e.Key == localEntry.Key);
-            if (indexOfKey == -1) {
-                // Add our entries if they don't collide with any new ones
-                remoteData.Entries.Add(localEntry);
-            } else {
-                // What to do in this situation?
-                logger.Warning("Conflicting key '" + localEntry.Key + "', local: '" + localEntry.Value + "', remote: '" + remoteEntriesList[indexOfKey].Value + "'");
-            }
-        }
-
-        foreach (var remoteEntry in remoteData.Entries)
-        {
-            if (this.keys.ContainsKey(remoteEntry.Key)) {
-                if (this.keys[remoteEntry.Key].Value != remoteEntry.Value) {
-                    logger.Warning("Namespace data different in remote entry, local: '" + this.keys[remoteEntry.Key].Value + "', remote: '" + remoteEntry.Value + "', overriding local");
-                }
-                this.keys[remoteEntry.Key] = remoteEntry;
-            } else {
-                this.keys.Add(remoteEntry.Key, remoteEntry);
-            }
-        }
-
-        // Override local
-        lock (dataLock)
-        { 
-            this.protobufData = remoteData;
-            this.keys.Clear();
-            foreach (var item in remoteData.Entries)
+    internal void ServerUpdate(CCloudConfigStore_NamespaceData remoteData) {
+        lock (DataLock) {
+            foreach (var remoteItem in remoteData.Entries)
             {
-                this.keys.Add(item.Key, item);
+                var localItem = this.Entries.ToImmutableList().Find(e => e.Key == remoteItem.Key);
+                if (localItem == null) {
+                    // Simplest operation, simply add the new object to our list
+                    this.Entries.Add(remoteItem);
+                    continue;
+                }
+
+                // If the object is already in our list, simply clone the fields over (also handles removal fine, since we check for IsDeleted)
+                localItem.MergeFrom(remoteItem);
             }
         }
     }
@@ -191,6 +158,8 @@ public class CloudConfigStore : ILogonLifetime {
     private readonly IClientUtils clientUtils;
     private readonly InstallManager installManager;
     private readonly Logger logger;
+
+    public event EventHandler<EUserConfigStoreNamespace>? NamespaceUpdated;
     public CloudConfigStore(ClientMessaging messaging, LoginManager loginManager, IClientUtils clientUtils, InstallManager installManager) {
         this.logger = Logger.GetLogger("CloudConfigStore", installManager.GetLogPath("CloudConfigStore"));
         this.installManager = installManager;
@@ -200,12 +169,12 @@ public class CloudConfigStore : ILogonLifetime {
         this.connection.AddServiceMethodHandler("CloudConfigStoreClient.NotifyChange#1", (Connection.StoredMessage msg) => this.OnCloudConfigStoreClient_NotifyChange(ProtoMsg<CCloudConfigStore_Change_Notification>.FromBinary(msg.fullMsg)));
     }
 
-    internal static string GetNamespaceFilename(NamespaceData ns) {
-        return GetNamespaceFilename(ns.belongsToUser, ns.Namespace);
+    internal string GetNamespaceFilename(NamespaceData ns) {
+        return GetNamespaceFilename(loginManager.CurrentUser!.SteamID, ns.Namespace);
     }
 
     internal static string GetNamespaceFilename(CSteamID belongsToUser, EUserConfigStoreNamespace @namespace) {
-        return $"U-{belongsToUser.AccountID}-cloudconfigstore-namespace-{(uint)@namespace}";
+        return $"U-{belongsToUser.AccountID}-ccs-namespace-{(uint)@namespace}";
     }
 
     /// <summary>
@@ -223,7 +192,16 @@ public class CloudConfigStore : ILogonLifetime {
     }
 
     public async Task OnLoggedOn(IExtendedProgress<int> progress, LoggedOnEventArgs e) {
-        await Task.CompletedTask;
+        // Preload the "library" config store
+        try
+        {
+            await GetNamespaceData(EUserConfigStoreNamespace.Library);
+        }
+        catch (System.Exception ex)
+        {
+            logger.Error("CCS preload failed:");
+            logger.Error(ex);
+        }
     }
 
     private async Task HandleConfigStoreShutdown() {
@@ -232,8 +210,9 @@ public class CloudConfigStore : ILogonLifetime {
         try
         {
             if (loginManager.IsOnline()) {
-                logger.Info("Uploading namespaces to server");
-                await UploadNamespaces();
+                logger.Info("Uploading changes to server");
+                UtilityFunctions.Debounce_MarkExecuted(uploadDebounce);
+                await UploadChanges();
                 logger.Info("Uploaded namespaces to server");
             } else {
                 logger.Warning("Not uploading namespaces, we're in offline mode.");
@@ -248,14 +227,14 @@ public class CloudConfigStore : ILogonLifetime {
     }
 
     private async void OnCloudConfigStoreClient_NotifyChange(ProtoMsg<CCloudConfigStore_Change_Notification> notification) {
-        logger.Warning("CloudConfigStore change received. This is untested, and loss of data may occur. Backing up affected namespaces...");
         foreach (var newVersion in notification.body.Versions)
         {
             foreach (var loadedNamespace in loadedNamespaces)
             {
-                await BackupNamespace(loadedNamespace);
-                loadedNamespace.Synchronize(await DownloadNamespace((EUserConfigStoreNamespace)newVersion.Enamespace));
+                loadedNamespace.ServerUpdate(await DownloadNamespace((EUserConfigStoreNamespace)newVersion.Enamespace, newVersion.Version - 1));
             }
+
+            NamespaceUpdated?.Invoke(this, (EUserConfigStoreNamespace)newVersion.Enamespace);
         }
     }
 
@@ -280,44 +259,64 @@ public class CloudConfigStore : ILogonLifetime {
         }
 
         CCloudConfigStore_NamespaceData resp;
-        NamespaceData nsData;
         string filename = GetNamespaceFilename(loginManager.CurrentUser.SteamID, @namespace);
         string loggerName = "Namespace-N" + ((int)@namespace) + "-U-" + loginManager.CurrentUser.SteamID.AccountID;
-        if (loginManager.IsOffline()) {
-            if (File.Exists(filename)) {
-                try {
-                    byte[] bytes = await File.ReadAllBytesAsync(filename, default);
-                    resp = CCloudConfigStore_NamespaceData.Parser.ParseFrom(bytes);
-                    nsData = new NamespaceData(resp, loginManager.CurrentUser.SteamID, this.clientUtils, Logger.GetLogger(loggerName, installManager.GetLogPath(loggerName.Replace('-', '_'))));
-                    loadedNamespaces.Add(nsData);
-                    return nsData;
-                } catch (Exception e) {
+        NamespaceData? nsdata = null;
+        if (File.Exists(filename)) {
+            try {
+                byte[] bytes = await File.ReadAllBytesAsync(filename, default);
+                resp = CCloudConfigStore_NamespaceData.Parser.ParseFrom(bytes);
+                nsdata = new NamespaceData(resp, this, this.clientUtils);
+                if (loginManager.IsOffline()) {
+                    loadedNamespaces.Add(nsdata);
+                    return nsdata;
+                }
+            } catch (Exception e) {
+                if (loginManager.IsOffline()) {
                     logger.Error("Failed to load namespace data from cache and we're in offline mode. ");
                     logger.Error(e);
                     throw new Exception("Failed to load namespace data from cache and we're in offline mode.", e);
                 }
-            } else {
-                logger.Error("No namespace data cache and we're in offline mode.");
-                throw new Exception("No namespace data cache and we're in offline mode.");
+
+                logger.Error("Failed to load cached namespace, loading full.");
+                logger.Error(e);
             }
+        } 
+
+        if (loginManager.IsOffline()) {
+            logger.Error("No namespace data cache and we're in offline mode.");
+            throw new Exception("No namespace data cache and we're in offline mode.");
         }
 
-        resp = await DownloadNamespace(@namespace);
-        nsData = new NamespaceData(resp, loginManager.CurrentUser.SteamID, this.clientUtils, Logger.GetLogger(loggerName, installManager.GetLogPath(loggerName.Replace('-', '_'))));
-        loadedNamespaces.Add(nsData);
-        await CacheNamespace(nsData);
-        return nsData;
+        ulong prevVer = 0;
+        if (nsdata != null) {
+            prevVer = nsdata.ProtobufData.Version;
+            loadedNamespaces.Add(nsdata);
+        }
+
+        resp = await DownloadNamespace(@namespace, prevVer);
+        if (nsdata != null) {
+            nsdata.ServerUpdate(resp);
+            await CacheNamespace(nsdata);
+        } else {
+            nsdata = new NamespaceData(resp, this, this.clientUtils);
+            loadedNamespaces.Add(nsdata);
+            await CacheNamespace(nsdata);
+        }
+
+        return nsdata;
     }   
 
     /// <summary>
     /// Downloads namespace data from the server. Does not use the cache and will never use local data.
     /// </summary>
-    internal async Task<CCloudConfigStore_NamespaceData> DownloadNamespace(EUserConfigStoreNamespace @namespace) {
+    internal async Task<CCloudConfigStore_NamespaceData> DownloadNamespace(EUserConfigStoreNamespace @namespace, ulong lastVersion) {
         using var scope = CProfiler.CurrentProfiler?.EnterScope("CloudConfigStore.DownloadNamespace");
         logger.Info("Downloading namespace " + @namespace);
         ProtoMsg<CCloudConfigStore_Download_Request> msg = new("CloudConfigStore.Download#1");
         msg.body.Versions.Add(new CCloudConfigStore_NamespaceVersion() {
             Enamespace = (uint)@namespace,
+            Version = lastVersion
         });
 
         var resp = await connection.ProtobufSendMessageAndAwaitResponse<CCloudConfigStore_Download_Response, CCloudConfigStore_Download_Request>(msg);
@@ -337,54 +336,81 @@ public class CloudConfigStore : ILogonLifetime {
         }
     }
 
-    private async Task UploadNamespaces() {
-        foreach (var item in this.loadedNamespaces)
-        {
-            await UploadNamespace(item);
-        }
-    }
-
     public async Task CacheNamespace(NamespaceData data) {
-        await File.WriteAllBytesAsync(Path.Combine(this.GetStorageFolder(), GetNamespaceFilename(data)), data.GetAsProtobuf().ToByteArray());
+        await File.WriteAllBytesAsync(Path.Combine(this.GetStorageFolder(), GetNamespaceFilename(data)), data.ProtobufData.ToByteArray());
     }
+
+    private readonly object uploadDebounce = new();
+    private readonly object changesLock = new();
+    private readonly List<CCloudConfigStore_NamespaceData> changes = new();
 
     /// <summary>
-    /// Saves a namespace data object to the server and locally.
+    /// Debounces and eventually uploads changed data to the server.
     /// </summary>
-    public async Task SaveNamespace(NamespaceData data) {
-        await this.Upload(data.GetAsProtobuf());
-        await this.CacheNamespace(data);
-    }
-
-    public async Task UploadNamespace(NamespaceData data) {
-        await this.Upload(data.GetAsProtobuf());
-    }
-
-    public async Task BackupNamespace(NamespaceData data) {
-        await File.WriteAllBytesAsync(Path.Combine(this.GetStorageFolder(), $"backup-{DateTimeOffset.Now.ToUnixTimeSeconds()}-{GetNamespaceFilename(data)}"), data.GetAsProtobuf().ToByteArray());
-    }
-
-    /// <summary>
-    /// Uploads namespace data. Will throw conflict errors if data is conflicting
-    /// </summary>
-    private async Task<IEnumerable<CCloudConfigStore_NamespaceVersion>> Upload(CCloudConfigStore_NamespaceData data) {
-        using var scope = CProfiler.CurrentProfiler?.EnterScope("CloudConfigStore.Upload");
-
-        if (data.Entries.Count == 0) {
-            throw new Exception("Attempted to upload namespace data with 0 entries.");
-        }
-        foreach (var entry in data.Entries)
+    public void MarkForUpload() {
+        lock (changesLock)
         {
-            if (!entry.HasKey || string.IsNullOrEmpty(entry.Key)) {
-                // This key was probably created accidentally. Having this will brick the webui though, so let's remove it just in case (but it won't immediately remove it, so you'll need to wait some time)
-                // In the meanwhile, you can launch games from the store or big picture mode
-                entry.IsDeleted = true;
+            foreach (var item in this.loadedNamespaces)
+            {
+                lock (item.Changes)
+                {
+                    if (item.Changes.Count == 0) {
+                        continue;
+                    }
+
+                    CCloudConfigStore_NamespaceData nsdata = new()
+                    {
+                        Enamespace = item.ProtobufData.Enamespace,
+                        Version = item.ProtobufData.Version
+                    };
+
+                    nsdata.Entries.AddRange(item.Changes);
+                    foreach (var change in item.Changes)
+                    {
+                        // Since the objects are stored by reference, let's increment the versions here temporarily (they'll get incremented by the server on response)
+                        change.Version++;
+                    }
+
+                    item.Changes.Clear();
+                    changes.Add(nsdata);
+                }
+
+                item.ProtobufData.Version++;
             }
         }
+        
+        if (changes.Count == 0) {
+            Console.WriteLine("MarkForUpload: No namespaces to sync");
+            return;
+        }
 
-        ProtoMsg<CCloudConfigStore_Upload_Request> msg = new("CloudConfigStore.Upload#1");
-        msg.body.Data.Add(data);
-        var resp = await connection.ProtobufSendMessageAndAwaitResponse<CCloudConfigStore_Upload_Response, CCloudConfigStore_Upload_Request>(msg);
-        return resp.body.Versions;
+        UtilityFunctions.Debounce(() => UploadChanges().GetAwaiter().GetResult(), uploadDebounce, TimeSpan.FromSeconds(2));
+    }
+
+
+    private async Task UploadChanges() {
+        ProtoMsg<CCloudConfigStore_Upload_Request> req = new("CloudConfigStore.Upload#1");
+
+        lock (changesLock)
+        {
+            if (changes.Count == 0) {
+                Console.WriteLine("Attempted to upload namespace data with 0 entries.");
+                return;
+            }
+
+            req.body.Data.Add(changes);
+        }
+
+        var resp = await connection.ProtobufSendMessageAndAwaitResponse<CCloudConfigStore_Upload_Response, CCloudConfigStore_Upload_Request>(req);
+        foreach (var item in resp.body.Versions)
+        {
+            var ns = this.loadedNamespaces.Find(n => (uint)n.Namespace == item.Enamespace);
+            if (ns == null) {
+                Console.WriteLine("Upload result got unknown namespace: " + item.Enamespace);
+                continue;
+            }
+
+            ns.ProtobufData.Version = item.Version;
+        }
     }
 }

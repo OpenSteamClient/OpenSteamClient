@@ -9,10 +9,10 @@ namespace Installer.Controls;
 public class Translatable : AvaloniaObject
 {
     public static readonly AttachedProperty<string> TranslationKeyProperty =
-            AvaloniaProperty.RegisterAttached<Translatable, Visual, string>("TranslationKey", "", false, Avalonia.Data.BindingMode.OneTime);
+            AvaloniaProperty.RegisterAttached<Translatable, Visual, string>("TranslationKey", "", false, Avalonia.Data.BindingMode.OneWay);
 
     public static readonly AttachedProperty<string> DefaultTextProperty =
-            AvaloniaProperty.RegisterAttached<Translatable, Visual, string>("DefaultText", "", false, Avalonia.Data.BindingMode.OneTime);
+            AvaloniaProperty.RegisterAttached<Translatable, Visual, string>("DefaultText", "", false, Avalonia.Data.BindingMode.OneWay);
 
     public static void SetTranslationKey(AvaloniaObject element, string val)
     {

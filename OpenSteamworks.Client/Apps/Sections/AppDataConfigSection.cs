@@ -30,7 +30,7 @@ public class AppDataConfigSection : TypedKVObject
         string AppBase.ILaunchOption.Name => "";
         string AppBase.ILaunchOption.Description => Description;
 
-        //TODO: handle description_loc (which doesn't really seem to be used by any games)
+        //TODO: handle description_loc (which doesn't really seem to be used by many games)
         public LaunchOption(KVObject kv) : base(kv) { }
     }
     public bool CheckForUpdatesBeforeLaunch => DefaultIfUnset("checkforupdatesbeforelaunch", false);

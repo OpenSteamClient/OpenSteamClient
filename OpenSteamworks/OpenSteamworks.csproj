@@ -26,13 +26,15 @@
     <PackageReference Include="OpenSteamworks.KeyValue" Version="*"/>
     <PackageReference Include="OpenSteamworks.Utils" Version="*"/>
     <ProjectReference Include="..\Profiler\Profiler.csproj" />
+    <PackageReference Include="System.IO.Hashing" Version="8.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="7.0.8" />
   </ItemGroup>
 
-  <!-- This is dumb and makes the code not portable. Microsoft, pls fix (by allowing non-const values in struct packing). Also we now use this for some edge case destructors that don't exist on Windows -->
+  <!-- This is dumb and makes the code not portable... (Struct padding, destructors) -->
+  <!-- Also breaks cross compile, since MSBuild doesn't have a way to check target build OS -->
   <PropertyGroup Condition=" '$(OS)' == 'Windows_NT' ">
     <DefineConstants>_WINDOWS</DefineConstants>
   </PropertyGroup>

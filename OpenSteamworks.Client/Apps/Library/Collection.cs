@@ -1,6 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using OpenSteamworks.Client.Enums;
 using OpenSteamworks.Client.Utils;
+using OpenSteamworks.Structs;
 using OpenSteamworks.Utils;
 
 namespace OpenSteamworks.Client.Apps.Library;
@@ -108,12 +109,40 @@ public class Collection
     }
 
     /// <summary>
+    /// Adds an app to this collection.
+    /// </summary>
+    public void AddApp(CGameID gameid)
+    {
+        if (!gameid.IsSteamApp()) {
+            //TODO: shortcuts support (need to be locally persisted)
+            return;
+        }
+
+        this.explicitlyAddedApps.Add(gameid.AppID);
+    }
+
+    /// <summary>
     /// Adds multiple apps to this collection.
     /// </summary>
     public void AddApps(IEnumerable<AppId_t> appids) {
         foreach (var item in appids)
         {
             this.explicitlyAddedApps.Add(item);
+        }
+    }
+
+    /// <summary>
+    /// Adds multiple apps to this collection.
+    /// </summary>
+    public void AddApps(IEnumerable<CGameID> appids) {
+        foreach (var item in appids)
+        {
+            if (!item.IsSteamApp()) {
+                //TODO: shortcuts support (need to be locally persisted)
+                continue;
+            }
+
+            this.explicitlyAddedApps.Add(item.AppID);
         }
     }
 

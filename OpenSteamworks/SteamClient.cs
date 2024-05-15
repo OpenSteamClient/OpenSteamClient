@@ -114,7 +114,9 @@ public class SteamClient : ISteamClient
     public IClientVideo IClientVideo => NativeClient.IClientVideo;
     public IClientVR IClientVR => NativeClient.IClientVR;
 
+#if !_WINDOWS
     public ClientShortcuts IPCClientShortcuts { get; init; }
+#endif
 
     internal static readonly IPlatform platform;
     private ClientAPI_WarningMessageHook_t warningMessageHook;
@@ -137,13 +139,20 @@ public class SteamClient : ISteamClient
         }
     }
 
-    internal int ValidThreadId = 0;
-    private IPCClient.IPCClient IPCClient;
+#if !_WINDOWS
+    /// <summary>
+    /// Use at your own discretion.
+    /// This is experimental and may be removed or broken at any time.
+    /// (And is not implemented correctly)
+    /// </summary>
+    public IPCClient.IPCClient IPCClient;
+
+#endif
 
     /// <summary>
     /// Constructs a OpenSteamworks.Client. 
     /// </summary>
-    public SteamClient(string steamclientLibPath, ConnectionType connectionType, bool enableSpew = false)
+    public SteamClient(string steamclientLibPath, ConnectionType connectionType, bool enableSpew = false, bool barebones = false)
     {
         if (instance != null)
         {
@@ -151,8 +160,6 @@ public class SteamClient : ISteamClient
         }
 
         instance = this;
-
-        ValidThreadId = Environment.CurrentManagedThreadId;
 
         warningMessageHook = (int nSeverity, string pchDebugText) =>
         {
@@ -167,29 +174,31 @@ public class SteamClient : ISteamClient
 
         Logging.GeneralLogger.Info($"Successfully initialized SteamClient library with HSteamPipe={this.NativeClient.Pipe} HSteamUser={this.NativeClient.User} ConnectionType={this.NativeClient.ConnectedWith}");
 
-        if (enableSpew)
-        {
-            for (int i = 0; i < (int)ESpewGroup.k_ESpew_ArraySize; i++)
+        if (!barebones) {
+            if (enableSpew)
             {
-                var e = (ESpewGroup)i;
-                // These are really noisy and don't provide much value, so don't enable them
-                if (e == ESpewGroup.Svcm || e == ESpewGroup.Network) {
-                    continue;
+                for (int i = 0; i < (int)ESpewGroup.k_ESpew_ArraySize; i++)
+                {
+                    var e = (ESpewGroup)i;
+                    // These are really noisy and don't provide much value, so don't enable them
+                    if (e == ESpewGroup.Svcm || e == ESpewGroup.Network) {
+                        continue;
+                    }
+                    this.IClientUtils.SetSpew(e, 9, 9);
                 }
-                this.IClientUtils.SetSpew(e, 9, 9);
             }
-        }
 
-        this.IClientEngine.SetWarningMessageHook(warningMessageHook);
+            this.IClientEngine.SetWarningMessageHook(warningMessageHook);
 
-        // Sets this process as the UI process
-        // Doing this with an existing client causes the windows to disappear, and never reappear (since VGUI support has been dropped)
-        if (this.NativeClient.ConnectedWith == ConnectionType.NewClient)
-        {
-            RunServiceHack();
-            this.IClientUtils.SetLauncherType(ELauncherType.Clientui);
-            this.IClientUtils.SetCurrentUIMode(EUIMode.VGUI);
-            this.IClientUtils.SetClientUIProcess();
+            // Sets this process as the UI process
+            // Doing this with an existing client causes the windows to disappear, and never reappear (since VGUI support has been dropped)
+            if (this.NativeClient.ConnectedWith == ConnectionType.NewClient)
+            {
+                RunServiceHack();
+                this.IClientUtils.SetLauncherType(ELauncherType.Clientui);
+                this.IClientUtils.SetCurrentUIMode(EUIMode.VGUI);
+                this.IClientUtils.SetClientUIProcess();
+            }
         }
 
         this.ClientApps = new ClientApps(this);
@@ -197,21 +206,24 @@ public class SteamClient : ISteamClient
         this.ClientMessaging = new ClientMessaging(this);
         this.ClientRemoteStorage = new ClientRemoteStorage(this);
         this.DownloadManager = new DownloadManager(this);
-
-        this.IPCClient = new("127.0.0.1:57343", OpenSteamworks.IPCClient.IPCClient.IPCConnectionType.Client);
-        this.IPCClientShortcuts = new ClientShortcuts(this.IPCClient, (uint)(int)this.NativeClient.User);
-
-        // Before this, most important callbacks should be registered
-        this.CallbackManager.StartThread();
+        
+        if (!barebones) {
+#if !_WINDOWS
+            this.IPCClient = new("Steam3Master", OpenSteamworks.IPCClient.IPCClient.IPCConnectionType.Client);
+            this.IPCClientShortcuts = new ClientShortcuts(this.IPCClient, (uint)(int)this.NativeClient.User);
+#endif
+            // Before this, most important callbacks should be registered
+            this.CallbackManager.StartThread();
+        }
+        
     }
 
     /// <summary>
     /// Does trickery to allow running an external steamservice on Linux. Unused on Windows, as it's the default configuration there.
     /// You'll still need to provide your own host for the steamservice (an example is available at OpenSteamClient/OpenSteamClient.Native/serviced/main.cpp)
     /// </summary>
-    private void RunServiceHack()
+    public void RunServiceHack()
     {
-        // TODO: find out a better way (probably in IClientNetworkingUtils) to set bIsServiceLocal to true instead of doing this
         // Currently, we create a mock steamservice.so(src/service/fakeservice.cpp) that contains all functions needed to get the steam client to init steamservice far enough.
 
         // 1. When the IPC server is first initializing, it calls BSetIpPortFromName. That function hard-codes Steam3Master and SteamClientService.
@@ -224,7 +236,6 @@ public class SteamClient : ISteamClient
 
         // This call sets SteamClientService_<thispid> envvar to point to 127.0.0.1:57344 (default for SteamClientService in the shared steam codebase between all steam bins),
         // thus it finds out that a service is already running and it doesn't try to init further, which would fail as we don't have a full steam service impl.
-        // Is this VAC bannable?
         if (OperatingSystem.IsLinux())
         {
             UtilityFunctions.SetEnvironmentVariable($"SteamClientService_{Environment.ProcessId}", "127.0.0.1:57344");
@@ -245,53 +256,6 @@ public class SteamClient : ISteamClient
         this.IClientEngine.BShutdownIfAllPipesClosed();
         this.NativeClient.Unload();
         instance = null;
-    }
-
-    public void LogClientState()
-    {
-        if (this.NativeClient == null)
-        {
-            Logging.GeneralLogger.Info("NativeClient Unloaded");
-            return;
-        }
-
-        Logging.GeneralLogger.Info("ConnectionType: " + this.NativeClient.ConnectedWith);
-
-        Logging.GeneralLogger.Info("Pipe: " + this.NativeClient.Pipe);
-
-        Logging.GeneralLogger.Info("User: " + this.NativeClient.User);
-
-        Logging.GeneralLogger.Info("Logged on: " + this.IClientUser.BConnected());
-
-        string username;
-        {
-            StringBuilder sb = new("", 1024);
-            this.IClientUser.GetAccountName(sb, sb.Capacity);
-            username = sb.ToString();
-        }
-
-        Logging.GeneralLogger.Info("Username: " + username);
-        Logging.GeneralLogger.Info("HasCachedCredentials: " + this.IClientUser.BHasCachedCredentials(username));
-
-        string token;
-        {
-            StringBuilder sb = new("", 1024);
-            this.IClientUser.GetCurrentWebAuthToken(sb, (uint)sb.Capacity);
-            token = sb.ToString();
-        }
-
-
-        Logging.GeneralLogger.Info("CurrentWebAuthToken: " + token);
-        Logging.GeneralLogger.Info("IsAnyGameOrServiceAppRunning: " + this.IClientUser.BIsAnyGameOrServiceAppRunning());
-        Logging.GeneralLogger.Info("NumGamesRunning: " + this.IClientUser.NumGamesRunning());
-        Logging.GeneralLogger.Info("InstallPath: " + this.IClientUtils.GetInstallPath());
-
-        EUniverse universe = this.IClientUtils.GetConnectedUniverse();
-        Logging.GeneralLogger.Info("Universe: " + ((int)universe));
-        Logging.GeneralLogger.Info("Universe (name): " + this.IClientEngine.GetUniverseName(universe));
-
-        Logging.GeneralLogger.Info("SecondsSinceComputerActive: " + this.IClientUtils.GetSecondsSinceComputerActive());
-        Logging.GeneralLogger.Info("SecondsSinceAppActive: " + this.IClientUtils.GetSecondsSinceAppActive());
     }
 
     public unsafe bool BGetCallback(out CallbackMsg_t msg)

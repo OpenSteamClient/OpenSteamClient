@@ -1,6 +1,7 @@
 using System;
 using System.Globalization;
 using System.IO;
+using System.IO.Hashing;
 using System.Runtime.InteropServices;
 using System.Text;
 using OpenSteamworks.Utils;
@@ -73,12 +74,10 @@ public struct CGameID : IEquatable<CGameID>, IComparable<CGameID> {
 		AppID = nAppID;
 		Type = EGameIDType.GameMod;
 
-        CRC32 crc32 = new();
         string toCrc = Path.GetDirectoryName(modPath) ?? modPath;
 
         byte[] pathBytes = Encoding.UTF8.GetBytes(toCrc);
-        crc32.AddBytes(pathBytes);
-        ModID = crc32.GetHash() | (0x80000000);
+        ModID = Crc32.HashToUInt32(pathBytes) | (0x80000000);
 	}
 
 
@@ -91,12 +90,12 @@ public struct CGameID : IEquatable<CGameID>, IComparable<CGameID> {
 		GameID = 0;
 		AppID = 0;
 		Type = EGameIDType.Shortcut;
-        CRC32 crc32 = new();
+        Crc32 crc32 = new();
 		byte[] pathBytes = Encoding.UTF8.GetBytes(nonSteamAppPath);
 		byte[] nameBytes = Encoding.UTF8.GetBytes(nonSteamGameName);
-        crc32.AddBytes(pathBytes);
-		crc32.AddBytes(nameBytes);
-        ModID = crc32.GetHash() | (0x80000000);
+        crc32.Append(pathBytes);
+		crc32.Append(nameBytes);
+        ModID = crc32.GetCurrentHashAsUInt32() | (0x80000000);
 	}
 
 	public bool IsSteamApp() {

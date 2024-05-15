@@ -71,19 +71,10 @@ public unsafe interface IClientFriends
     public unknown_ret GetFriendRestrictions(CSteamID steamid);  // argc: 2, index: 28, ipc args: [uint64], ipc returns: [bytes4]
     // WARNING: Arguments are unknown!
     public unknown_ret64 GetFriendBroadcastID(CSteamID steamid);  // argc: 2, index: 29, ipc args: [uint64], ipc returns: [bytes8]
-    /// <summary>
-    /// Get old friend names by doing a while call.
-    /// Returns an empty string when no more names are available.
-    /// </summary>
     // WARNING: Arguments are unknown!
     public string GetFriendPersonaNameHistory(CSteamID steamid, int index);  // argc: 3, index: 30, ipc args: [uint64, bytes4], ipc returns: [string]
     // WARNING: Arguments are unknown!
     public SteamAPICall_t RequestPersonaNameHistory(CSteamID steamid);  // argc: 2, index: 31, ipc args: [uint64], ipc returns: [bytes8]
-    /// <summary>
-    /// Get old friend names by doing a while call.
-    /// Returns an empty string when no more names are available.
-    /// Also returns a timestamp of change.
-    /// </summary>
     // WARNING: Arguments are unknown!
     public string GetFriendPersonaNameHistoryAndDate(CSteamID steamid, int index, out RTime32 timestamp);  // argc: 4, index: 32, ipc args: [uint64, bytes4], ipc returns: [string, bytes4]
     // WARNING: Arguments are unknown!

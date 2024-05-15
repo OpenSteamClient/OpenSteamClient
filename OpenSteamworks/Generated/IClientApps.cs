@@ -20,7 +20,7 @@ public unsafe interface IClientApps
     public bool SetLocalAppConfig(AppId_t unAppID, void* pchBuffer, int cbBuffer);  // argc: 3, index: 2, ipc args: [bytes4, bytes4, bytes_length_from_mem], ipc returns: [bytes1]
     public AppId_t GetInternalAppIDFromGameID(in CGameID id);  // argc: 1, index: 3, ipc args: [bytes8], ipc returns: [bytes4]
     public unknown_ret GetAllOwnedMultiplayerApps(uint[] punAppIDs, int cAppIDsMax);  // argc: 2, index: 4, ipc args: [bytes4], ipc returns: [bytes4, bytes_length_from_reg]
-    public int GetAvailableLaunchOptions(AppId_t unAppID, uint[] options, uint cuOptionsMax);  // argc: 3, index: 5, ipc args: [bytes4, bytes4], ipc returns: [bytes4, bytes_length_from_reg]
+    public int GetAvailableLaunchOptions(AppId_t unAppID, int[] options, uint cuOptionsMax);  // argc: 3, index: 5, ipc args: [bytes4, bytes4], ipc returns: [bytes4, bytes_length_from_reg]
     public unknown_ret GetAppDataSection(AppId_t unAppID, EAppInfoSection eSection, byte[] pchBuffer, int cbBufferMax, bool bSharedKVSymbols);  // argc: 5, index: 6, ipc args: [bytes4, bytes4, bytes4, bytes1], ipc returns: [bytes4, bytes_length_from_reg]
     /// <summary>
     /// Called by ValveSteam 444 times.

@@ -30,8 +30,8 @@ public class ShaderManager : IClientLifetime
         shader.EnableShaderManagement(false);
         shader.EnableShaderBackgroundProcessing(false);
         shader.EnableShaderManagementSystem(false);
+        await Task.CompletedTask;
 
-        // Steam no longer persists shader management settings, so the disablement is only for this session. 
-        // Valve, wtf?
+        // Steam no longer persists shader management settings, so the disablement is only for this session (which should still be fine, since this is done before user logon)
     }
 }

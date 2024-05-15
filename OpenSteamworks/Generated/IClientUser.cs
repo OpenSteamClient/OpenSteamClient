@@ -29,7 +29,7 @@ public unsafe interface IClientUser
     // WARNING: Arguments are unknown!
     public EResult LogOn(CSteamID steamid);  // argc: 2, index: 2, ipc args: [uint64], ipc returns: [bytes4]
     // WARNING: Arguments are unknown!
-    public unknown_ret InvalidateCredentials();  // argc: 2, index: 3, ipc args: [string, bytes4], ipc returns: [bytes8]
+    public SteamAPICall_t InvalidateCredentials(string username);  // argc: 2, index: 3, ipc args: [string, bytes4], ipc returns: [bytes8]
     public void LogOff();  // argc: 0, index: 4, ipc args: [], ipc returns: []
     public bool BLoggedOn();  // argc: 0, index: 5, ipc args: [], ipc returns: [boolean]
     public ELogonState GetLogonState();  // argc: 0, index: 6, ipc args: [], ipc returns: [bytes4]
@@ -63,14 +63,14 @@ public unsafe interface IClientUser
     // WARNING: Arguments are unknown!
     public unknown_ret InitiateGameConnectionOld();  // argc: 10, index: 25, ipc args: [bytes4, uint64, bytes8, bytes4, bytes2, bytes1, bytes4, bytes_length_from_mem], ipc returns: [bytes4, bytes_length_from_reg]
     // WARNING: Arguments are unknown!
-    public unknown_ret TerminateGameConnection();  // argc: 2, index: 26, ipc args: [bytes4, bytes2], ipc returns: []
+    public void TerminateGameConnection(uint ip, ushort port);  // argc: 2, index: 26, ipc args: [bytes4, bytes2], ipc returns: []
     // WARNING: Arguments are unknown!
     public bool TerminateGame(CGameID gameid, bool force);  // argc: 2, index: 27, ipc args: [bytes8, bytes1], ipc returns: [bytes1]
     /// <summary>
     /// Apparently deprecated, but still called by ValveSteam.
     /// </summary>
     /// <returns></returns>
-    public void SetSelfAsChatDestination(bool val);  // argc: 1, index: 28, ipc args: [bytes1], ipc returns: []
+    public void SetSelfAsChatDestination(bool online);  // argc: 1, index: 28, ipc args: [bytes1], ipc returns: []
     public bool IsPrimaryChatDestination();  // argc: 0, index: 29, ipc args: [], ipc returns: [boolean]
     // WARNING: Arguments are unknown!
     public unknown_ret RequestLegacyCDKey(AppId_t appid);  // argc: 1, index: 30, ipc args: [bytes4], ipc returns: []

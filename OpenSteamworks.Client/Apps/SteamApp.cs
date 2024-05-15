@@ -85,10 +85,19 @@ public class SteamApp : AppBase
     }
 
     private void PopulateLaunchOptions() {
-        foreach (var id in AppsManager.ClientApps.GetValidLaunchOptions(this.AppID))
+        try
         {
-            filteredLaunchOptions.Add(Config.LaunchOptions.Where(l => l.ID == id).First());
+            foreach (var id in AppsManager.ClientApps.GetValidLaunchOptions(this.AppID))
+            {
+                filteredLaunchOptions.Add(Config.LaunchOptions.Where(l => l.ID == id).First());
+            }
         }
+        catch (System.Exception e)
+        {
+            logger.Error("Error while populating launch options for " + this.AppID);
+            logger.Error(e);
+        }
+        
 
         // foreach (var launchOption in Config.LaunchOptions)
         // {

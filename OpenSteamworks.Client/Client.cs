@@ -28,7 +28,7 @@ public class Client : IClientLifetime
     };
 
     static Client() {
-        ServicePointManager.DefaultConnectionLimit = 30;
+        ServicePointManager.DefaultConnectionLimit = 50;
         HttpClient.DefaultRequestHeaders.ConnectionClose = false;
         //HttpClient.DefaultRequestHeaders.Add("User-Agent", $"opensteamclient {GitInfo.GitBranch}/{GitInfo.GitCommit}");
         HttpClient.DefaultRequestHeaders.Add("User-Agent", "Valve Steam Client");

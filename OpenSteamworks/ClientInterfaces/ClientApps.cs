@@ -101,10 +101,10 @@ public class ClientApps {
         };
     }
 
-    public uint[] GetValidLaunchOptions(AppId_t appid) {
-        uint[] dlcs = new uint[4096];
-        int len = NativeClientApps.GetAvailableLaunchOptions(appid, dlcs, (uint)dlcs.Length);
-        return dlcs[0..len];
+    public int[] GetValidLaunchOptions(AppId_t appid) {
+        int[] launchOpts = new int[4096];
+        int len = NativeClientApps.GetAvailableLaunchOptions(appid, launchOpts, (uint)launchOpts.Length);
+        return launchOpts[0..len];
     }
 
     public IEnumerable<AppId_t> GetOwnedDLCs(AppId_t app) {
@@ -137,7 +137,7 @@ public class ClientApps {
     public ReadOnlyDictionary<EAppInfoSection, KVObject?> GetMultipleAppDataSectionsSync(AppId_t app, EAppInfoSection[] sections) {
         using var scope = CProfiler.CurrentProfiler?.EnterScope("ClientApps.GetMultipleAppDataSectionsSync");
 
-        IncrementingBuffer buf = new(1024*sections.Length);
+        IncrementingBuffer buf = new(4096*sections.Length);
         int[] lengths = new int[sections.Length];
         Dictionary<EAppInfoSection, KVObject?> objects = new();
 
@@ -168,8 +168,9 @@ public class ClientApps {
 
     public async Task UpdateAppInfo(AppId_t[] apps) {
         var task = this.callbackManager.AsTask<AppInfoUpdateComplete_t>();
-        this.NativeClientApps.RequestAppInfoUpdate(apps.Select(a => (uint)a).ToArray(), apps.Length);
-        await task;
+        if (this.NativeClientApps.RequestAppInfoUpdate(apps.Select(a => (uint)a).ToArray(), apps.Length)) {
+            await task;
+        }
     }
 
     public async Task UpdateAppInfo(AppId_t app) {

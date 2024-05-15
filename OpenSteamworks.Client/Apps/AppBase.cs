@@ -162,6 +162,10 @@ public abstract class AppBase
         return new SourcemodApp(sourcemodDir, modid);
     }
 
+    public static SourcemodApp CreateSourcemod(CGameID gameid, string fakeName) {
+        return new SourcemodApp(gameid, fakeName);
+    }
+
     protected AppBase? GetAppIfValidGameID(CGameID gameid) {
         if (!gameid.IsValid()) {
             return null;

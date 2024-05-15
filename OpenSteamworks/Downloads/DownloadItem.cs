@@ -88,7 +88,6 @@ public sealed class DownloadItem
         //SteamClient.GetIClientAppManager().GetDownloadStats(out DownloadStats_s stats);
         SteamClient.GetIClientAppManager().GetUpdateInfo(this.AppID, out AppUpdateInfo_s updateInfo);
         
-        //TODO: this should be done elsewhere
         this.WorkshopItemID = updateInfo.downloadingWorkshopItemID;
         this.DownloadStartTime = (DateTime)updateInfo.m_timeUpdateStart;
 
@@ -97,7 +96,7 @@ public sealed class DownloadItem
         this.ProcessedBytes = updateInfo.m_unBytesProcessed;
         this.BytesToProcess = updateInfo.m_unBytesToProcess;
 
-        // UpdateRates gets called every second, never more, never less. This allows us to "calculate" the download rate very easily
+        // UpdateRates gets called every second, never more, never less. This allows us to calculate the download rate very easily
         this.DownloadRate = (updateInfo.m_unBytesDownloaded - this.BytesDownloadedLast);
         this.DiskRate = (updateInfo.m_unBytesProcessed - this.BytesProcessedLast);
 

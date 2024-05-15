@@ -320,7 +320,24 @@ public class Bootstrapper {
                     }
                 }
 
-                File.WriteAllText(Path.Combine(installManager.DatalinkDir, "steam.pid"), Environment.ProcessId.ToString());
+                var steampidPath = Path.Combine(installManager.DatalinkDir, "steam.pid");
+                try
+                {
+                    if (File.Exists(steampidPath)) {
+                        string pidstr = File.ReadAllText(steampidPath);
+                        if (!Process.GetProcessById(int.Parse(pidstr)).HasExited) {
+                            // Sure, whatever.
+                            // I've heard exceptions as control flow is a bad idea. 
+                            throw new Exception("Steam is still alive");
+                        }
+                    }
+
+                }
+                catch (System.Exception)
+                {
+                    // Previous instance has exited, safe to proceed
+                    File.WriteAllText(steampidPath, Environment.ProcessId.ToString());
+                }
             }
         }
             

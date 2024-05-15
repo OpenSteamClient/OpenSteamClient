@@ -27,27 +27,42 @@ public class Library
     private readonly InstallManager installManager;
     private readonly Logger logger;
 
+    public event EventHandler? LibraryUpdated;
     internal Library(ISteamClient steamClient, CloudConfigStore cloudConfigStore, LoginManager loginManager, AppsManager appsManager, InstallManager installManager)
     {
         this.installManager = installManager;
         this.logger = Logger.GetLogger("Library", installManager.GetLogPath("Library"));
         this.steamClient = steamClient;
         this.cloudConfigStore = cloudConfigStore;
+        cloudConfigStore.NamespaceUpdated += OnNamespaceUpdated;
         this.loginManager = loginManager;
         this.appsManager = appsManager;
         this.Collections.Add(new Collection("Uncategorized", "uncategorized", true));
     }
 
-    internal async Task<HashSet<AppId_t>> InitializeLibrary()
+    private void OnNamespaceUpdated(object? sender, EUserConfigStoreNamespace e)
+    {
+        if (e != EUserConfigStoreNamespace.Library) {
+            return;
+        }
+
+        Console.WriteLine("Library updated!!!");
+
+        //TODO: The whole library system needs a rework.
+        // We should be able to listen to individual collections in-ui and outside the UI, but this is what we'll do for now
+        Task.Run(() => InitializeLibrary());
+    }
+
+    internal async Task<HashSet<CGameID>> InitializeLibrary()
     {
         using var scope = CProfiler.CurrentProfiler?.EnterScope("Library.InitializeLibrary");
-        HashSet<AppId_t> AppIDsInCollections = new();
+        HashSet<CGameID> AppIDsInCollections = new();
 
         // Get all collections
         try
         {
             namespaceData = await cloudConfigStore.GetNamespaceData(Enums.EUserConfigStoreNamespace.Library);
-            var keyValues = namespaceData.GetKeysStartingWith("user-collections.");
+            var keyValues = namespaceData.GetEntriesStartingWithKeyName("user-collections.");
             foreach (var entry in keyValues)
             {
                 logger.Trace("Attempting to deserialize: " + entry.Value);
@@ -73,7 +88,7 @@ public class Library
 
         // Add all apps not in any categories to Uncategorized
         var uncategorized = GetCollectionByID("uncategorized");
-        HashSet<AppId_t> uncategorizedAppIDs = new(this.appsManager.OwnedApps);
+        HashSet<CGameID> uncategorizedAppIDs = new(this.appsManager.OwnedAppsAsGameIDs);
         uncategorizedAppIDs.SymmetricExceptWith(AppIDsInCollections);
         foreach (var item in uncategorizedAppIDs)
         {
@@ -87,8 +102,21 @@ public class Library
             }
         }
 
-        var all = new HashSet<AppId_t>(AppIDsInCollections);
-        all.UnionWith(this.appsManager.OwnedApps);
+        var all = new HashSet<CGameID>(AppIDsInCollections);
+        all.UnionWith(this.appsManager.OwnedAppsAsGameIDs);
+
+        Console.WriteLine("Firing library updated");
+        try
+        {
+            LibraryUpdated?.Invoke(this, EventArgs.Empty);
+        }
+        catch (System.Exception e)
+        {
+            logger.Error("Errot in LibraryUpdated event");
+            logger.Error(e);
+            throw;
+        }
+        
         return all;
     }
 
@@ -272,26 +300,26 @@ public class Library
     /// <summary>
     /// Gets the apps in a collection. Dynamic collections will run through the filters at library init time.
     /// </summary>
-    private HashSet<AppId_t> GetAppsInCollection(Collection collection)
+    private HashSet<CGameID> GetAppsInCollection(Collection collection)
     {
-        HashSet<AppId_t> apps = new();
+        HashSet<CGameID> apps = new();
         Console.WriteLine(collection.Name + " d: " + collection.dynamicCollectionAppsCached.Count + " ea: " + collection.explicitlyAddedApps.Count + " er: " + collection.explicitlyRemovedApps.Count);
 
         foreach (var item in collection.dynamicCollectionAppsCached)
         {
-            apps.Add(item);
+            apps.Add(new CGameID(item));
         }
 
         // Add explicitly added apps after filtering processes
         foreach (var item in collection.explicitlyAddedApps)
         {
-            apps.Add(item);
+            apps.Add(new CGameID(item));
         }
 
         // You can explicitly exclude apps from dynamic collections.
         foreach (var item in collection.explicitlyRemovedApps)
         {
-            apps.Remove(item);
+            apps.Remove(new CGameID(item));
         }
 
         return apps;
@@ -300,7 +328,7 @@ public class Library
     /// <summary>
     /// Gets the apps in a collection. Dynamic collections will run through the filters.
     /// </summary>
-    public HashSet<AppId_t> GetAppsInCollection(string id)
+    public HashSet<CGameID> GetAppsInCollection(string id)
     {
         return GetAppsInCollection(GetCollectionByID(id));
     }

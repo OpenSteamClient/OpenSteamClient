@@ -79,7 +79,18 @@ public class IPCClient {
             // | Success | ProcID | ThreadID |
             writer.WriteUInt32(1);
             writer.WriteUInt32((uint)Environment.ProcessId);
-            writer.WriteUInt32((uint)Environment.CurrentManagedThreadId);
+            if (OperatingSystem.IsWindows()) {
+                [DllImport("kernel32.dll")]
+                static extern int GetCurrentThreadId();
+                writer.WriteUInt32((uint)GetCurrentThreadId());
+            } else if (OperatingSystem.IsLinux()) {
+                [DllImport("libc")]
+                static extern int gettid();
+                writer.WriteUInt32((uint)gettid());
+            } else {
+                throw new PlatformNotSupportedException();
+            }
+            
             var resp2 = SendAndWaitForResponse(IPCCommandCode.ConnectPipe, stream.ToArray());
             using (var response = new MemoryStream(resp2)) {
                 var reader = new EndianAwareBinaryReader(response);
@@ -403,6 +414,7 @@ public class IPCClient {
                 case 7: //Unrequested message, don't send this anywhere
                     if (msg.Length == 1) {
                         Console.WriteLine("Callbacks available in queue");
+                        haveCallback = true;
                         QueueCallbackSerialize();
                         break;
                     }
@@ -427,12 +439,13 @@ public class IPCClient {
         this.socket.Disconnect(true);
     }
 
+    private bool haveCallback = false;
     private void QueueCallbackSerialize() {
-        lock (pollLockObj)
-        {
-            var serialized = Serialize(IPCCommandCode.SerializeCallbacks, new byte[] { 1 });
-            var sentLen = socket.Send(serialized);
-        }
+        // lock (pollLockObj)
+        // {
+        //     //var serialized = Serialize(IPCCommandCode.SerializeCallbacks, new byte[] { 1 });
+        //     //var sentLen = socket.Send(serialized);
+        // }
     }
 
     private static List<byte[]> SplitMessages(byte[] data) {
@@ -472,35 +485,5 @@ public class IPCClient {
         }
 
         return messages;
-    }
-
-    // This function currently prints loads of asserts to Steam's console. I guess we should somehow be receiving packets we don't request explicitly to tell us when to serialize callbacks?
-    public bool BGetCallback([NotNullWhen(true)] out int? callbackID, [NotNullWhen(true)] out byte[]? data) {
-        callbackID = null;
-        data = null;
-        var responseBytes = SendAndWaitForResponse(IPCCommandCode.SerializeCallbacks, new byte[] { 1 });
-        Console.WriteLine(string.Join(" ", responseBytes));
-        // | 2 | u32??? | u32??? | u32cbLen 
-        using (var response = new MemoryStream(responseBytes))
-        {
-            var reader = new EndianAwareBinaryReader(response);
-            var startByte = reader.ReadByte();
-            if (startByte != 2) {
-                Console.WriteLine("ERROR: startByte is not 2. It is " + startByte);
-                return false;
-            }
-
-            var unk1 = reader.ReadUInt32();
-            var id = reader.ReadUInt32();
-            var len = reader.ReadUInt32();
-            if (unk1 == 0 && id == 0 && len == 0) {
-                Console.WriteLine("No callback queued");
-                return false;
-            }
-
-            Console.WriteLine("CB: unk1: " + unk1 + ", id: " + id + ", len: " + len);
-        }
-
-        return false;
     }
 }

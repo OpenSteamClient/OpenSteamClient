@@ -260,6 +260,9 @@ public class Connection : IDisposable {
     /// <param name="callback">Callback to call when the service method is received</param>
     /// <param name="oneShot">Whether the handler should automatically be removed once it is called</param>
     public void AddServiceMethodHandler(string method, Action<StoredMessage> callback, bool oneShot = false) {
+        this.iSharedConnection.RegisterServiceMethodHandler(this.nativeConnection, method);
+        this.iSharedConnection.RegisterEMsgHandler(this.nativeConnection, (uint)EMsg.ServiceMethodResponse);
+
         Action<StoredMessage> realCallback = callback;
         if (oneShot) {
             realCallback = (StoredMessage msg) =>

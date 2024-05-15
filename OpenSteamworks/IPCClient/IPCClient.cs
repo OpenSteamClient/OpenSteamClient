@@ -15,9 +15,11 @@ using System.Globalization;
 using OpenSteamworks.Utils;
 using System.Diagnostics;
 using System.Linq;
+using System.Net;
 
 namespace OpenSteamworks.IPCClient;
 
+//TODO: Needs Windows support
 public class IPCClient {
     public enum IPCCommandCode : byte {
         Interface = 1,
@@ -71,25 +73,210 @@ public class IPCClient {
     public IPCConnectionType ConnectionType { get; private set; }
     public bool CallbacksAvailable { get; private set; }
 
-    public IPCClient(string ipaddress, IPCConnectionType connectionType, bool skipInitialization = false) {
+    private readonly Thread callbackReadThread;
+    private bool callbackReadThreadShouldRun = true;
+    private bool pipeIsConnected = false;
+    private readonly object serializeLock = new();
+
+    public IPCClient(string ipcService, IPCConnectionType connectionType) {
+        this.callbackReadThread = new(CallbackReadThread);
         this.ConnectionType = connectionType;
-        Logging.IPCLogger.Info("Connecting to " + ipaddress);
+        IPEndPoint ep = GetEndPointFromName(ipcService);
+        Logging.IPCLogger.Info("Connecting to " + ep.ToString());
         
-        var ports = ipaddress.Split(":");
-        string ip = ports[0];
-        int port = int.Parse(ports[1], CultureInfo.InvariantCulture.NumberFormat);
-        tcpClient = new TcpClient(ip, port);
+        tcpClient = new TcpClient(ep.Address.ToString(), ep.Port);
         tcpClient.NoDelay = true;
 
-        Logging.IPCLogger.Info("Connected to " + ipaddress);
+        Logging.IPCLogger.Info("Connected to " + ep.ToString());
 
-        if (!skipInitialization) {
-            ConnectToSteamPipe(out uint hostPid);
-            
-            if (connectionType == IPCConnectionType.Client) {
-                ConnectToGlobalUser();
+        ConnectToSteamPipe(out uint hostPid);
+        
+        if (connectionType == IPCConnectionType.Client) {
+            ConnectToGlobalUser();
+        }
+
+        this.callbackReadThread.Start();
+    }
+
+    private void CallbackReadThread() {
+        var stream = tcpClient.GetStream();
+        while (callbackReadThreadShouldRun)
+        {
+            if (!tcpClient.Connected) {
+                Shutdown();
+                break;
+            }
+
+           lock (serializeLock)
+           {
+                while (stream.DataAvailable)
+                {
+                    if (!tcpClient.Connected) {
+                        break;
+                    }
+    
+                    var available = tcpClient.Available;
+                    byte[] buf = new byte[available];
+                    stream.Read(buf, 0, available);
+                    HandleData(buf);
+                }
+           }
+        }
+
+        callbackReadThreadShouldRun = true;
+    }
+
+    private uint expectedLength = 0;
+    private readonly List<byte> incompleteMsg = new();
+
+    /// <summary>
+    /// Handles a partial message.
+    /// </summary>
+    /// <param name="data"></param>
+    /// <param name="msg"></param>
+    /// <returns>False if the data was partial, true if a full message was completed</returns>
+    private bool HandlePartial(byte[] data, [NotNullWhen(true)] out byte[]? msg)
+    {
+        using var stream = new MemoryStream(data);
+        using var reader = new EndianAwareBinaryReader(stream, OpenSteamworks.Utils.Enum.Endianness.Little);
+
+        // If we don't have a partial message, read the length now
+        if (expectedLength == 0)
+        {
+            expectedLength = reader.ReadUInt32();
+        }
+
+        // Add to the incomplete message buffer
+        incompleteMsg.AddRange(data);
+
+        // Exit now if we have a partial message
+        if (incompleteMsg.Count - sizeof(uint) < expectedLength)
+        {
+            msg = null;
+            return false;
+        }
+
+        expectedLength = 0;
+        msg = incompleteMsg.ToArray();
+        incompleteMsg.Clear();
+        return true;
+    }
+    
+    private void HandleData(byte[] partial)
+    {
+        Console.WriteLine("Got data from server " + string.Join(" ", partial));
+        if (HandlePartial(partial, out byte[]? msg))
+        {
+            Console.WriteLine("Full msg: " + string.Join(" ", msg));
+            using var stream = new MemoryStream(msg);
+            using var reader = new EndianAwareBinaryReader(stream, OpenSteamworks.Utils.Enum.Endianness.Little);
+
+            var len = reader.ReadUInt32();
+            var cmd = reader.ReadByte();
+            if (!System.Enum.IsDefined(typeof(IPCResponseCode), cmd))
+            {
+                Console.WriteLine("Unsupported response code " + cmd);
+                return;
+                //throw new InvalidOperationException("Unsupported response code " + cmd);
+            }
+
+            try
+            {
+                HandleMessage((IPCResponseCode)cmd);
+            }
+            catch (System.Exception e)
+            {
+                Console.WriteLine("Got error while handling message:");
+                Console.WriteLine(e);
+                if (!pipeIsConnected) {
+                    Console.WriteLine("Error is fatal");
+
+                    // This has to be done like this, otherwise it will hang forever
+                    Task.Run(() => this.Shutdown());
+                }
             }
         }
+    }
+    
+    private void HandleMessage(IPCResponseCode code)
+    {
+        switch (code)
+        {
+            case IPCResponseCode.CallbacksAvailable: // S: 1 0 0 0 7
+                var cb = SendAndWaitForResponse(IPCCommandCode.SerializeCallbacks, []); // C: 1 0 0 0 2
+                // S: 17 0 0 0 2 1 0 0 0 209 161 16 0 4 0 0 0 1 0 0 0
+                // S: 13 0 0 0 2 0 0 0 0 0 0 0 0 0 0 0 0
+                // S: 1 0 0 0 7
+                Console.WriteLine("Got CB " + ReadCB(cb));
+                while (tcpClient.Client.Poll(TimeSpan.FromMilliseconds(56), SelectMode.SelectRead))
+                {
+                    Console.WriteLine("poll success, avail: " + tcpClient.Available);
+                    if (tcpClient.Available < 13) {
+                        break;
+                    }
+
+                    var cb2 = WaitForMessageOfLength(13); // S: 13 0 0 0 2 0 0 0 0 0 0 0 0 0 0 0 0
+                    if (cb2[4] == (byte)IPCCommandCode.SerializeCallbacks) {
+                        Console.WriteLine("More?");
+                        var ca2 = WaitForMessageOfLength(5);
+                        if (ca2[4] == (byte)IPCResponseCode.CallbacksAvailable) {
+                            Console.WriteLine("More callbacks available");
+
+                            cb2 = WaitForMessageOfLength(13);
+                            Console.WriteLine("Got CB2 " + ReadCB(cb2));
+                        } else {
+                            Console.WriteLine("No");
+                            break;
+                        }
+                    } else {
+                        
+                    }
+                }
+
+                break;
+            default:
+                Console.WriteLine("Got unsupported command " + code);
+                break;
+        }
+    }
+
+    private int ReadCB(byte[] cb) {
+        using var reader = new EndianAwareBinaryReader(new MemoryStream(cb), Utils.Enum.Endianness.Little);
+        var firstByte = reader.ReadByte();
+        if (firstByte != 2) {
+            Console.WriteLine("CB unknown first byte " + firstByte);
+        }
+
+        var steamUser = reader.ReadInt32();
+        var callbackID = reader.ReadInt32();
+        var len = reader.ReadUInt32();
+        var callbackData = reader.ReadBytes((int)len);
+        return callbackID;
+    }
+
+    private IPEndPoint GetEndPointFromName(string ipcName) {
+        string? overrideIP = Environment.GetEnvironmentVariable($"{ipcName}_{Environment.ProcessId}");
+        if (!string.IsNullOrEmpty(overrideIP)) {
+            if (IPEndPoint.TryParse(overrideIP, out IPEndPoint? endPoint)) {
+                return endPoint;
+            }
+
+        } else {
+            overrideIP = Environment.GetEnvironmentVariable(ipcName);
+            if (!string.IsNullOrEmpty(overrideIP)) {
+                if (IPEndPoint.TryParse(overrideIP, out IPEndPoint? endPoint)) {
+                    return endPoint;
+                }
+            }
+        }
+
+        if (ipcName == "Steam3Master") {
+            return new IPEndPoint(IPAddress.Loopback, 57343);
+        } else if (ipcName == "SteamClientService") {
+            return new IPEndPoint(IPAddress.Loopback, 57344);
+        }
+
+        throw new ArgumentException("Unknown IPC service " + ipcName, nameof(ipcName));
     }
 
     public void ReleaseUser(HSteamUser hUser) {
@@ -113,7 +300,19 @@ public class IPCClient {
             // | Success | ProcID | ThreadID |
             writer.WriteUInt32(1);
             writer.WriteUInt32((uint)Environment.ProcessId);
-            writer.WriteUInt32((uint)Environment.CurrentManagedThreadId);
+            
+            if (OperatingSystem.IsWindows()) {
+                [DllImport("kernel32.dll")]
+                static extern int GetCurrentThreadId();
+                writer.WriteUInt32((uint)GetCurrentThreadId());
+            } else if (OperatingSystem.IsLinux()) {
+                [DllImport("libc")]
+                static extern int gettid();
+                writer.WriteUInt32((uint)gettid());
+            } else {
+                throw new PlatformNotSupportedException();
+            }
+
             var resp2 = SendAndWaitForResponse(IPCCommandCode.ConnectPipe, stream.ToArray());
             using (var response = new MemoryStream(resp2)) {
                 var reader = new EndianAwareBinaryReader(response);
@@ -124,6 +323,7 @@ public class IPCClient {
                 var seed = reader.ReadUInt32();
                 Logging.IPCLogger.Info($"Got host pid: {hostPid}, host tid: {hosttid}, seed: {seed}");
                 ThrowIfInvalidHostProcess((int)hostPid, (int)hosttid);
+                pipeIsConnected = true;
             }
         }
     }
@@ -149,38 +349,37 @@ public class IPCClient {
         Logging.IPCLogger.Info("Connect to user");
 
         // | GlobalUserType |
-        uint HSteamUser;
+        uint hUser;
         var resp = SendAndWaitForResponse(IPCCommandCode.ConnectToGlobalUser, new byte[] {2});
         using (var response = new MemoryStream(resp)) {
             var reader = new EndianAwareBinaryReader(response);
 
-            HSteamUser = reader.ReadUInt32();
-            if (HSteamUser+1 < 2) {
-                throw new Exception($"ConnectToGlobalUser returned invalid HSteamUserEngine={HSteamUser+1}");
+            reader.ReadByte();
+            hUser = reader.ReadUInt32();
+            if (hUser+1 < 2) {
+                throw new Exception($"ConnectToGlobalUser returned invalid HSteamUserEngine={hUser+1}");
             }
 
-            Logging.IPCLogger.Info("Got HSteamUser " + HSteamUser);
+            Logging.IPCLogger.Info("Got HSteamUser " + hUser);
         }
 
-        return (int)HSteamUser;
-    }
-
-    public void SendAndIgnoreResponse(IPCCommandCode command, byte[] data) {
-        var serialized = Serialize(command, data);
-        Send(serialized);
-        Logging.IPCLogger.Debug($"sent {data.Length} bytes");
+        return (int)hUser;
     }
 
     public byte[] SendAndWaitForResponse(IPCCommandCode command, byte[] data) {
-        var serialized = Serialize(command, data);
-        Send(serialized);
-        Logging.IPCLogger.Debug($"sent {data.Length} bytes as {command}, waiting for response");
-        var resp = WaitForResponseTo(command);
-        if (command == IPCCommandCode.Interface) {
-            IPCCallCount++;
-        }
+        lock (serializeLock)
+        {
+            var serialized = Serialize(command, data);
+            Send(serialized);
+            Logging.IPCLogger.Debug($"sent {data.Length} bytes as {command}, waiting for response");
+            var resp = WaitForResponseTo(command);
 
-        return resp;
+            if (command == IPCCommandCode.Interface) {
+                IPCCallCount++;
+            }
+
+            return resp;
+        }
     }
 
     private byte[] Serialize(IPCCommandCode command, byte[] data) {
@@ -197,7 +396,6 @@ public class IPCClient {
     }
 
     private byte[] WaitForResponseTo(IPCCommandCode sentCommand) {
-        TaskCompletionSource<byte[]> tcs = new();
         switch (sentCommand)
         {
             case IPCCommandCode.Interface:
@@ -283,12 +481,68 @@ public class IPCClient {
     public byte[] WaitForMessage() {
         var msg = _WaitForMessage();
 
+        if (msg.Length == 0) {
+            return msg;
+        }
+
         //TODO: There's probably a better way to check this, but just do this for now
         if (msg[0] == 7 && msg.Length == 1) {
             CallbacksAvailable = true;
             msg = _WaitForMessage();
         }
 
+        Console.WriteLine("Got msg " + string.Join(" ", msg));
+
         return msg;
+    }
+
+    public bool BGetCallback(out CallbackMsg_t callback) {
+        callback = new();
+        
+        // lock (commandLock)
+        // {
+        //     var stream = tcpClient.GetStream();
+        //     if (!CallbacksAvailable && stream.DataAvailable) {
+        //         byte b = (byte)stream.ReadByte();
+        //         if (b == (byte)IPCResponseCode.CallbacksAvailable) {
+        //             CallbacksAvailable = true;
+        //         }
+        //     }
+
+        //     if (CallbacksAvailable) {
+        //         CallbacksAvailable = false;
+        //         var resp = SendAndWaitForResponse(IPCCommandCode.SerializeCallbacks, []);
+        //         Console.WriteLine("Resp: " + resp.Length);
+        //         using var reader = new EndianAwareBinaryReader(new MemoryStream(resp), Utils.Enum.Endianness.Little);
+        //         var firstByte = reader.ReadByte();
+        //         if (firstByte != 2) {
+        //             Console.WriteLine("CB unknown first byte " + firstByte);
+        //         }
+
+        //         callback.steamUser = reader.ReadInt32();
+        //         callback.callbackID = reader.ReadInt32();
+        //         var len = reader.ReadUInt32();
+        //         callback.callbackData = reader.ReadBytes((int)len);
+
+        //         if (stream.DataAvailable) {
+        //             byte b = (byte)stream.ReadByte();
+        //             if (b == (byte)IPCResponseCode.CallbacksAvailable) {
+        //                 Console.WriteLine("Another callback");
+        //                 CallbacksAvailable = true;
+        //             }
+
+        //             // byte b2 = (byte)stream.ReadByte();
+        //             // if (b2 == (byte)IPCResponseCode.CallbacksAvailable) {
+        //             //     Console.WriteLine("More than 1 callback");
+        //             // }
+        //         } else {
+        //             Console.WriteLine("No more data");
+        //         }
+
+        //         return true;
+        //     }
+        // }
+
+        return false;
     }
 }

@@ -15,15 +15,17 @@ public partial class CollectionItemViewModel : Node
     public string ID => collection.ID;
 
     private readonly Collection collection;
-    private readonly OpenSteamworks.Client.Apps.Library.Library library;
     public CollectionItemViewModel(OpenSteamworks.Client.Apps.Library.Library library, Collection collection)
     {
-        this.library = library;
         this.collection = collection;
-        this.Name = $"{collection.Name} ({library.GetAppsInCollection(collection.ID).Count})";
+        this.Name = CalculateName(library, collection);
         this.Icon = Brushes.Transparent;
         this.StatusIcon = Brushes.Transparent;
         this.HasIcon = false;
         this.IsApp = false;
+    }
+
+    public static string CalculateName(OpenSteamworks.Client.Apps.Library.Library library, Collection collection) {
+        return $"{collection.Name} ({library.GetAppsInCollection(collection.ID).Count})";
     }
 }
