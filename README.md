@@ -8,10 +8,8 @@ Everything below is blockers. Lots of stuff that's only documented in my head is
 Stuff marked later can wait for after we make an MVP.
 Stuff marked future can be done eventually or just completely ignored
 
-- [x] Bootstrapper
 - [ ] Backend stuff:
-  - [ ] (optional) JITEngine classgen with fields (would be nice for concommand support)
-  - [x] Custom value types
+  - [ ] (optional) JITEngine classgen with fields
   - [x] Callback system
     - [ ] Make more performant
       - Chokes pretty badly right now with the HTML rendering
@@ -20,9 +18,6 @@ Stuff marked future can be done eventually or just completely ignored
   - [x] Callresult system for non-callback results (needed for steamwebhelper/chromehtml/storepages)
     - [ ] Make not spaghetti
 - [ ] Account system:
-  - [x] Login
-  - [x] Logout
-  - [x] Forget account
   - [ ] Profile pictures
   - [ ] QR code in the loginwindow doesn't have bottom margin
   - [ ] 2FA 
@@ -32,23 +27,26 @@ Stuff marked future can be done eventually or just completely ignored
   - [ ] Compat settings
   - [ ] Persona name change
   - [ ] Download speed cap
+- [ ] Fix CPU fan speeding due to IPCClient
 - [ ] Library UI
   - [ ] Game news and patch notes
   - [ ] Search bar
   - [x] Collections backend
     - [ ] Fix
-      - Sometimes it's missing games. Why?
+     - Sometimes it's missing games. Why?
     - [ ] Needs to have edit functionality
-    - [ ] Fix 2
-      - Doesn't sync to the cloud, it broke at some point and I don't know how to fix it
+    - [ ] Sync to the cloud
   - [ ] Collection editing GUI (later)
   - [x] Games list
+    - [ ] Context menu for launching, settings, etc
   - [ ] Focused game view (library art, friends who play, etc)
     - [x] Library hero art 
-      - TODO: depends on the appsystem rewrite (later)
     - [x] Play button 
     - [ ] Friends who play section (later)
     - [ ] Store, Community, Workshop, etc buttons (later)
+    - [ ] Settings button
+    - [ ] Edit collection button
+    - [ ] Custom library art
   - [ ] Game settings page
     - [ ] Overlay settings (later)
       - Needs to wait until we actually get an overlay
@@ -56,6 +54,7 @@ Stuff marked future can be done eventually or just completely ignored
       - [ ] How much space is used
       - [ ] Cloud file viewer UI (later)
     - [ ] Launch settings
+      - [ ] Launch settings dialog
       - [ ] Set command line
       - [ ] Set default launch option (later)
         - [ ] Visualize the full launch option in the command line box (later)
@@ -127,6 +126,7 @@ Stuff marked future can be done eventually or just completely ignored
 - Alternative GUIs
   - [ ] Terminal UI
   - [ ] IMGui reimplementation?
+    - Leaving here for community interest.
     - It'd be a lot snappier
     - Not as styleable
     - Apparently doesn't have good accessibility features
@@ -210,11 +210,16 @@ Decompiling and datamining the steam client:
 - [open-steamworks fork by m4dEngi](https://github.com/m4dEngi/open-steamworks)
 - [SteamTracking](https://github.com/SteamDatabase/SteamTracking)
 - [protobufs dumped from the steam client](https://github.com/SteamDatabase/Protobufs)
+Other credits:
 - [MiniUTL](https://github.com/FWGS/MiniUTL)
 - [Logo by nPHYN1T3](https://github.com/nPHYN1T3)
 - [Sound assets by nPHYN1T3](https://github.com/nPHYN1T3)
 
 # Q&A
+
+## Gah! Why is making this taking such a long time???
+There's a single developer (Rosentti) working on every aspect of the rewrite. This alone makes things slow, but also the tremendous workload can cause burnout very easily. 
+To combat burnout related to OSC, I sometimes work on other projects and different parts of OSC. 
 
 ## Partially open source?
 This is a GUI for Valve's own Steam Client binaries like `steamclient.so`, `steamservice.so` and `chromehtml.so`. 
