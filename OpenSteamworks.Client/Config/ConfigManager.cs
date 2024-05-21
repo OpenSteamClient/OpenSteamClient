@@ -163,7 +163,7 @@ public class ConfigManager : IClientLifetime, ILogonLifetime {
     {
         foreach (var item in loadedConfigs)
         {
-            // Sigh, have to use reflection here
+            // TODO: This is icky
             await (Task)saveAsyncCached.MakeGenericMethod(item.Key).Invoke(this, new[] { item.Value })!;
         }
 
@@ -180,7 +180,7 @@ public class ConfigManager : IClientLifetime, ILogonLifetime {
     {
         foreach (var item in loadedUserConfigs)
         {
-            // Sigh, have to use reflection here
+            // TODO: This is icky
             await (Task)saveAsyncCached.MakeGenericMethod(item.Key).Invoke(this, new[] { item.Value })!;
         }
 

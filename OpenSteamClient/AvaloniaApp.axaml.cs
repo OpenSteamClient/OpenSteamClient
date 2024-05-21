@@ -63,7 +63,6 @@ public class AvaloniaApp : Application
         }
     }
 
-    private ExtendedProgress<int> loginProgress = new ExtendedProgress<int>(0, 100);
     public override async void OnFrameworkInitializationCompleted()
     {
         using var scope = CProfiler.CurrentProfiler?.EnterScope("OnFrameworkInitializationCompleted");
@@ -78,6 +77,8 @@ public class AvaloniaApp : Application
 
         bootstrapper.SetProgressObject(bootstrapperProgress);
         await bootstrapper.RunBootstrap();
+
+        progVm.Title = "Login progress";
 
         Container.RegisterInstance(new Client(Container));
         Container.ConstructAndRegister<TranslationManager>();
@@ -123,7 +124,7 @@ public class AvaloniaApp : Application
         };
 
         // This is kept for the lifetime of the application, which is fine
-        Container.Get<LoginManager>().SetProgress(loginProgress);
+        Container.Get<LoginManager>().SetProgress(bootstrapperProgress);
         Container.Get<LoginManager>().SetExceptionHandler(e => {
             Program.FatalException(e);
         });
@@ -132,7 +133,7 @@ public class AvaloniaApp : Application
         {
             InvokeOnUIThread(() =>
             {
-                this.ForceProgressWindow(new ProgressWindowViewModel(loginProgress, "Login progress"));
+                this.ForceProgressWindow(new ProgressWindowViewModel(bootstrapperProgress, "Login progress"));
             });
         };
 
@@ -140,7 +141,7 @@ public class AvaloniaApp : Application
         {
             InvokeOnUIThread(() =>
             {
-                this.ForceProgressWindow(new ProgressWindowViewModel(loginProgress, "Logout progress"));
+                this.ForceProgressWindow(new ProgressWindowViewModel(bootstrapperProgress, "Logout progress"));
             });
         };
 

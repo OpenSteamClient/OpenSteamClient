@@ -63,7 +63,12 @@ public class LoginUsers: IConfigFile {
     }
 
     public LoginUser? GetAutologin() {
-        return Users.ElementAtOrDefault(this.Autologin);
+        var autologinUser = Users.ElementAtOrDefault(this.Autologin);
+        if (autologinUser?.AllowAutoLogin == false) {
+            return null;
+        }
+
+        return autologinUser;
     }
 
     public LoginUser? GetMostRecent() {

@@ -71,6 +71,6 @@ public class ClientRemoteStorage {
 
     internal void Shutdown()
     {
-        //TODO: cloud sync all apps we can here
+        //TODO: Wait for apps to finish syncing
     }
 }

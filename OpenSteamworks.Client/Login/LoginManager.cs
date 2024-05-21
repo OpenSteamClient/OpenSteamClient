@@ -372,35 +372,14 @@ public class LoginManager : IClientLifetime
     }
 
 
-    //private bool _logonStateHasStartedLoading = false;
     public void OnPostLogonState(CallbackHandler<PostLogonState_t> handler, PostLogonState_t stateUpdate) {
         if (isLoggingOn) {
-            // if (!_logonStateHasStartedLoading && stateUpdate.isLoading) {
-            //     _logonStateHasStartedLoading = true;
-            // } else if (_logonStateHasStartedLoading && !stateUpdate.isLoading) {
-            //     // loading has finished
-            //     _logonStateHasStartedLoading = false;
-
-            //     if (loginProgress != null) {
-            //         loginProgress.SetProgress(100);
-            //         //TODO: figure out the correct field to use for progress updates (or is it guessed?)
-            //     }
-                
-            //     if (isLoggingOn) {
-            //         loginFinishResult = EResult.OK;
-            //     }
-            // }
             if (stateUpdate.unk9 == 1 && stateUpdate.connectedToCMs == 1) {
                 loginProgress?.SetProgress(loginProgress.MaxProgress);
                 loginFinishResult = EResult.OK;
             }
         }
     }
-
-    // [CallbackListener<SteamServersConnected_t>]
-    // public void OnSteamServersConnected(CallbackHandler handler, SteamServersConnected_t connected) {
-        
-    // }
     
     public void SetMachineName(string machineName) {
         steamClient.IClientUser.SetUserMachineName(machineName);
@@ -425,7 +404,6 @@ public class LoginManager : IClientLifetime
 
         Task.Run(async () =>
         {
-            // TODO: we don't yet support tracking the progress (though we could estimate based on the order callbacks fire...)
             loginProgress?.SetThrobber();
 
             switch (user.LoginMethod)

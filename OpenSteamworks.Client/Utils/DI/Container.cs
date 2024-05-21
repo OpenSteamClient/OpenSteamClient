@@ -15,7 +15,7 @@ public class Container
     internal Dictionary<Type, Delegate> factories { get; init; } = new();
     internal List<Type> clientLifetimeOrder = new();
     internal List<Type> logonLifetimeOrder = new();
-    private Logger logger;
+    private readonly Logger logger;
 
     //TODO: constructor argument shenanigans are bad. How to make this less terrible while keeping logging immediate?
     public Container(InstallManager installManager)

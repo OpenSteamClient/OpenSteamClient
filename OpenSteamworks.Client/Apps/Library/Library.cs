@@ -254,8 +254,7 @@ public class Library
 
             this.namespaceData["user-collections." + category.ID] = JsonSerializer.Serialize<JSONCollection>(category.ToJSON());
         }
-        //TODO: editing collections
-        //await this.cloudConfigStore.SaveNamespace(this.namespaceData);
+
         await this.cloudConfigStore.CacheNamespace(this.namespaceData);
     }
 

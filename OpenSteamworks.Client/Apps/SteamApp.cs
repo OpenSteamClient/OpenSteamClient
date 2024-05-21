@@ -97,55 +97,6 @@ public class SteamApp : AppBase
             logger.Error("Error while populating launch options for " + this.AppID);
             logger.Error(e);
         }
-        
-
-        // foreach (var launchOption in Config.LaunchOptions)
-        // {
-        //     if (launchOption.Config == null) {
-        //         Console.WriteLine(this.AppID + "config==null");
-        //         continue;
-        //     }
-
-        //     if (!string.IsNullOrEmpty(launchOption.Config.Realm)) {
-        //         if (!launchOption.Config.Realm.Contains("steamglobal")) {
-        //             Console.WriteLine($"{this.AppID} realm, allowed '{launchOption.Config.Realm}', have: 'steamglobal'");
-        //             continue;
-        //         }
-        //     }
-
-        //     if (!string.IsNullOrEmpty(launchOption.Config.BetaKey)) {
-        //         if (!launchOption.Config.BetaKey.Contains(AppsManager.GetBetaForApp(this.AppID))) {
-        //             Console.WriteLine($"{this.AppID} betakey, allowed '{launchOption.Config.BetaKey}', have: '{AppsManager.GetBetaForApp(this.AppID)}'");
-        //             continue;
-        //         }
-        //     }
-
-        //     if (!string.IsNullOrEmpty(launchOption.Config.OSArch)) {
-        //         //TODO: fix this to later consider non-64 bit platforms like ARM and whatnot when that becomes a problem
-        //         if (!launchOption.Config.OSArch.Contains("64")) {
-        //             continue;
-        //         }
-        //     }
-
-        //     if (!string.IsNullOrEmpty(launchOption.Config.OSList)) {
-        //         if (!launchOption.Config.OSList.Contains(AppsManager.GetCurrentEffectiveOSForApp(this.AppID))) {
-        //             Console.WriteLine($"{this.AppID} oslist, allowed '{launchOption.Config.OSList}', have: '{AppsManager.GetCurrentEffectiveOSForApp(this.AppID)}'");
-        //             continue;
-        //         }
-        //     }
-
-        //     if (!string.IsNullOrEmpty(launchOption.Config.OwnsDLC)) {
-        //         foreach (var item in launchOption.Config.OwnsDLC.Split(" "))
-        //         {
-        //             if (!OwnedDLCs.Contains(uint.Parse(item))) {
-        //                 Console.WriteLine($"{this.AppID} owneddlc, allowed '{launchOption.Config.OwnsDLC}', have: '{string.Join(", ", OwnedDLCs)}'");
-        //                 continue;
-        //             }
-        //         }
-        //     }
-
-        //     filteredLaunchOptions.Add(launchOption);
-        // }
 
         if (filteredLaunchOptions.Count == 1) {
             defaultLaunchOptionId = filteredLaunchOptions.First().ID;

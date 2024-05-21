@@ -171,35 +171,7 @@ public class CallbackManager
         
         var tcs = new TaskCompletionSource<CallResult<T>>();
         unsafe {
-            int callbackID = GetCallbackID(typeof(T));
-            int callbackSize = Marshal.SizeOf<T>();
-
-            var handler = this.RegisterHandler((CallbackHandler<SteamAPICallCompleted_t> handler, SteamAPICallCompleted_t compl) =>
-            {
-                if (compl.m_hAsyncCall == handle) {
-                    fixed (byte* data = new byte[callbackSize]) {
-                        if (!this.client.IClientUtils.GetAPICallResult(handle, data, callbackSize, callbackID, out bool failed)) {
-                            throw new Exception("GetAPICallResult returned false with our handle after receiving SteamAPICallCompleted_t. Bugged?");
-                        }
-
-                        ESteamAPICallFailure failureReason = this.client.IClientUtils.GetAPICallFailureReason(handle);
-                        if (failed) {
-                            tcs.TrySetResult(new CallResult<T>(failed, failureReason, default));
-                        } else {
-                            if (data == null) {
-                                failed = true;
-                                tcs.TrySetResult(new CallResult<T>(failed, failureReason, default));
-                                return;
-                            }
-
-                            T val = Marshal.PtrToStructure<T>((IntPtr)data);
-                            tcs.TrySetResult(new CallResult<T>(failed, failureReason, val));
-                        }
-
-                        this.DeregisterHandler(handler);
-                    }
-                }
-            }, false);
+            var handler = WaitForAPICallResultCore(tcs, handle, resumeThread);
 
             cancellationToken.Register(() =>
             {
@@ -215,6 +187,41 @@ public class CallbackManager
         return await tcs.Task;
     }
 
+    private unsafe CallbackHandler<SteamAPICallCompleted_t> WaitForAPICallResultCore<T>(TaskCompletionSource<CallResult<T>> tcs, SteamAPICall_t handle, bool resumeThread = true) where T: struct {
+        int callbackID = GetCallbackID(typeof(T));
+        int callbackSize = Marshal.SizeOf<T>();
+
+        return this.RegisterHandler((CallbackHandler<SteamAPICallCompleted_t> handler, SteamAPICallCompleted_t compl) =>
+        {
+            if (compl.m_hAsyncCall != handle)
+            {
+                return;
+            }
+
+            fixed (byte* data = new byte[callbackSize])
+            {
+                if (!this.client.IClientUtils.GetAPICallResult(handle, data, callbackSize, callbackID, out bool failed))
+                {
+                    throw new Exception("GetAPICallResult returned false with our handle after receiving SteamAPICallCompleted_t. Bugged?");
+                }
+
+                ESteamAPICallFailure failureReason = this.client.IClientUtils.GetAPICallFailureReason(handle);
+                if (failed || data == null || failureReason != ESteamAPICallFailure.None)
+                {
+                    failed = true;
+                    tcs.TrySetResult(new CallResult<T>(failed, failureReason, default));
+                }
+                else
+                {
+                    T val = Marshal.PtrToStructure<T>((IntPtr)data);
+                    tcs.TrySetResult(new CallResult<T>(failed, failureReason, val));
+                }
+
+                this.DeregisterHandler(handler);
+            }
+        }, false);
+    }
+
     /// <summary>
     /// Waits for an api call with the specified type to complete. Internal use only.
     /// </summary>
@@ -228,37 +235,7 @@ public class CallbackManager
         this.PauseThreadSync();
         
         var tcs = new TaskCompletionSource<CallResult<T>>();
-        unsafe {
-            int callbackID = GetCallbackID(typeof(T));
-            int callbackSize = sizeof(T);
-
-            var handler = this.RegisterHandler((CallbackHandler<SteamAPICallCompleted_t> handler, SteamAPICallCompleted_t compl) =>
-            {
-                if (compl.m_hAsyncCall == handle) {
-                    fixed (byte* data = new byte[callbackSize]) {
-                        if (!this.client.IClientUtils.GetAPICallResult(handle, data, callbackSize, callbackID, out bool failed)) {
-                            throw new Exception("GetAPICallResult returned false with our handle after receiving SteamAPICallCompleted_t. Bugged?");
-                        }
-
-                        ESteamAPICallFailure failureReason = this.client.IClientUtils.GetAPICallFailureReason(handle);
-                        if (failed) {
-                            tcs.TrySetResult(new CallResult<T>(failed, failureReason, default));
-                        } else {
-                            if (data == null) {
-                                failed = true;
-                                tcs.TrySetResult(new CallResult<T>(failed, failureReason, default));
-                                return;
-                            }
-
-                            T val = Marshal.PtrToStructure<T>((IntPtr)data);
-                            tcs.TrySetResult(new CallResult<T>(failed, failureReason, val));
-                        }
-
-                        this.DeregisterHandler(handler);
-                    }
-                }
-            }, false);
-        }
+        WaitForAPICallResultCore(tcs, handle, resumeThread);
 
         if (resumeThread) {
             this.ContinueThreadSync();

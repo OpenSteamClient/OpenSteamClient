@@ -41,9 +41,9 @@ public class Connection : IDisposable {
             }
         }
     }
-    private uint nativeConnection;
-    private IClientSharedConnection iSharedConnection;
-    private IClientUser clientUser;
+    private readonly uint nativeConnection;
+    private readonly IClientSharedConnection iSharedConnection;
+    private readonly IClientUser clientUser;
     private bool disposed = false;
 
     internal Connection(IClientSharedConnection iSharedConnection, IClientUser clientUser) {
@@ -162,9 +162,9 @@ public class Connection : IDisposable {
 
     private bool shouldPoll = false;
     private Task? pollThread;
-    private List<StoredMessage> storedMessages = new();
-    private Dictionary<EMsg, Delegate> eMsgHandlers = new();
-    private Dictionary<string, Delegate> serviceMethodHandlers = new();
+    private readonly List<StoredMessage> storedMessages = new();
+    private readonly Dictionary<EMsg, Delegate> eMsgHandlers = new();
+    private readonly Dictionary<string, Delegate> serviceMethodHandlers = new();
     public void StartPollThread() {
         if (shouldPoll) {
             throw new InvalidOperationException("Already polling");
@@ -173,8 +173,7 @@ public class Connection : IDisposable {
         shouldPoll = true;
         pollThread = Task.Run(() =>
         {
-            //TODO: Resizing a CUtlBuffer should work. It doesn't, and it will crash if forced to resize (never worked in C++ version either, why?).
-            CUtlBuffer buffer = new(100000);
+            using var buffer = new CUtlBuffer(1024, 1024);
 
             double secondsWaited = 0;
             bool hasMessage = false;
@@ -188,10 +187,10 @@ public class Connection : IDisposable {
                     {
                         Logging.MessagingLogger.Debug("Got message: " + callOut + ", size: " + buffer.m_Put + ", waited " + secondsWaited + "ms");
                         var sm = new StoredMessage(buffer.ToManaged());
-                        if (eMsgHandlers.ContainsKey(sm.eMsg)) {
-                            eMsgHandlers[sm.eMsg].DynamicInvoke(sm);
-                        } else if (serviceMethodHandlers.ContainsKey(sm.header.TargetJobName)) {
-                            serviceMethodHandlers[sm.header.TargetJobName].DynamicInvoke(sm);
+                        if (eMsgHandlers.TryGetValue(sm.eMsg, out Delegate? eMsgHandler)) {
+                            eMsgHandler.DynamicInvoke(sm);
+                        } else if (serviceMethodHandlers.TryGetValue(sm.header.TargetJobName, out Delegate? serviceMethodHandler)) {
+                            serviceMethodHandler.DynamicInvoke(sm);
                         } else {
                             storedMessages.Add(sm);
                         }
@@ -210,8 +209,6 @@ public class Connection : IDisposable {
                 // Remove messages that haven't been retrieved in one minute
                 this.storedMessages.RemoveAll(item => DateTime.UtcNow > item.removalTime);
             }
-
-            buffer.Free();
         });
     }
 
@@ -235,10 +232,10 @@ public class Connection : IDisposable {
             };
         }
 
-        if (!eMsgHandlers.ContainsKey(emsg)) {
+        if (!eMsgHandlers.TryGetValue(emsg, out Delegate? value)) {
             eMsgHandlers.Add(emsg, realCallback);
         } else {
-            eMsgHandlers[emsg] = Delegate.Combine(eMsgHandlers[emsg], realCallback);
+            eMsgHandlers[emsg] = Delegate.Combine(value, realCallback);
         }
 
         foreach (var item in storedMessages)
@@ -272,10 +269,10 @@ public class Connection : IDisposable {
             };
         }
 
-        if (!serviceMethodHandlers.ContainsKey(method)) {
+        if (!serviceMethodHandlers.TryGetValue(method, out Delegate? value)) {
             serviceMethodHandlers.Add(method, realCallback);
         } else {
-            serviceMethodHandlers[method] = Delegate.Combine(serviceMethodHandlers[method], realCallback);
+            serviceMethodHandlers[method] = Delegate.Combine(value, realCallback);
         }
 
         foreach (var item in storedMessages)

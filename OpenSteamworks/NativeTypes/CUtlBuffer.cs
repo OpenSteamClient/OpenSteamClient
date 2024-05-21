@@ -5,7 +5,7 @@ using OpenSteamworks;
 using OpenSteamworks.Utils;
 
 [StructLayout(LayoutKind.Sequential)]
-public unsafe struct CUtlBuffer {
+public unsafe struct CUtlBuffer : IDisposable {
     public CUtlMemory<UInt8> m_Memory;
 	public int m_Get;
 	public int m_Put;
@@ -441,5 +441,10 @@ public unsafe struct CUtlBuffer {
         
         pTokenBuf[nLen2] = 0;
         return nLen2;
+    }
+
+    public void Dispose()
+    {
+        this.Free();
     }
 }

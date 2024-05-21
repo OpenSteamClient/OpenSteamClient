@@ -287,6 +287,7 @@ public class DownloadManager
         downloadInfoUpdateThread = null;
 
         //TODO: wait for the download to finish more appropriately here. How to do?
+        Logging.GeneralLogger.Info("Waiting for downloads to finish");
         SteamClient.GetIClientAppManager().SetDownloadingEnabled(false);
         while (SteamClient.GetIClientAppManager().GetDownloadingAppID() != AppId_t.Invalid)
         {

@@ -179,6 +179,7 @@ public class ClientApps {
 
     public void QueueUpdate(AppId_t app) {
         //TODO: find a way to update a single game at a time. Will probably need a DownloadQueueManager or something similar.
+        // Even ValveSteam cannot do this, as it starts downloading all other apps in download queue afterwards.
         this.NativeClientAppManager.ChangeAppDownloadQueuePlacement(app, EAppDownloadQueuePlacement.PriorityUserInitiated);
     }
 

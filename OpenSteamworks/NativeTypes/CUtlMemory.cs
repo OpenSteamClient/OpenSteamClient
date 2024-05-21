@@ -83,7 +83,9 @@ public unsafe struct CUtlMemory<T> where T : unmanaged {
         // Use the grow rules specified for this memory (in m_nGrowSize)
         int nAllocationRequested = m_nAllocationCount + num;
 
+        var was = m_nAllocationCount * m_unSizeOfElements;
         this.m_nAllocationCount = UtlMemory_CalcNewAllocationCount(m_nAllocationCount, m_nGrowSize, nAllocationRequested, (int)m_unSizeOfElements);
+        Logging.CUtlLogger.Info("Growing memory to " + m_nAllocationCount * m_unSizeOfElements + ", was: " + was);
         this.m_pMemory = NativeMemory.Realloc(this.m_pMemory, (nuint)(m_nAllocationCount * m_unSizeOfElements));
     }
 

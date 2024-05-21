@@ -20,8 +20,6 @@ using OpenSteamworks.Callbacks.Structs;
 
 namespace OpenSteamworks.Generated;
 
-//TODO: some API's take and use pointers to protobuf classes, which is not even remotely valid in C#. 
-// support that (really strange) operation with C# structs (which will be really difficult), but for now we have a native library for doing that
 public unsafe interface IClientUser
 {
     // WARNING: Do not use this function! Unknown behaviour will occur!
